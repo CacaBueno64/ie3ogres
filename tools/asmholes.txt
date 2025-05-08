@@ -1,0 +1,56 @@
+asmholes = assholes haha lol
+fuck you = means that there's a label ndsdisasm won't disassemble, so fuck this
+switch = means that there's a switch statement that ndsdisasm won't disassemble
+
+020032D8 data?
+0200867c thumb?
+02008698 thumb?
+02008e4c thumb?
+0201E314 ok
+020207DC data
+02020C30 data
+020243B0 switch
+020877F0 data
+0208EB3C data
+020916F4 data
+02095CBC switch
+
+ov0 020BDCB4 jump to ov16_020f2ab4
+ov0 020C5E3C switch
+ov0 020C60C4 switch
+ov0 020D1CA8 jump to FUN_02006ed0
+
+ov1 020BE5BC switch
+ov1 020C974C switch
+ov1 020D8448 jump to ov16_020f2ab4 
+ov1 020D8F2C jump to ov61_0211d4dc
+
+ok
+
+ov4 020BFB7C jump to ov16_020f2ab4
+ov4 020CBF20 jump to ov61_0211d4dc
+ov4 020CD528 switch
+ov4 020CD55C switch
+ov4 020CE348 fuck you
+
+ov5 020bcffc jump to ov16_020f2ab4
+ov5 020bd724 jump to ov5_020bd538
+
+ov15 020CBDA0 fuck you
+
+ov16 02106930 switch
+ov16 02106A94 fuck you
+ov16 02106C4C fuck you
+
+ov17 02107CC8 jump to ov17_02107cd0
+
+ov29 0211A8B8 switch
+ov29 0211B7A4 fuck you
+
+ov51 0211C580 switch
+ov51 0211C5B4 switch
+ov62 0211E634 switch
+ov72 021200D4 switch
+ov72 02120208 switch
+ov72 02120334 switch
+ov83 0211AD2C switch
