@@ -3,7 +3,7 @@
 - to assemble .s (especially for nds), you need the [metrowerks assembler/compiler (mwccarm)](https://github.com/decompme/compilers/releases/download/compilers)
 
 ### known lib versions
-- TwlSDK 5.04+
+- TwlSDK 5.04plus
 - TwlSystem version unk
 - TwlDWC-DL 5.3patch2
 - TwlWifi 3.3.30001.200910291651
