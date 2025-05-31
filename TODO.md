@@ -1,6 +1,7 @@
 ## To do
-- make config file for the overlays
-- disassemble the overlays
-- fix the code syntax until the assembler don't cry about it
-- fix all the jumps to overlay functions
+- disassemble the arm9.bin ✔️
+- disassemble the overlays ✔️
+- fix some label names
+- fix jumps to external functions
+- fix thumbs instructions
 - compile and pray
