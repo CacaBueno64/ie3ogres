@@ -1,5 +1,5 @@
-- for generating .s files from the rom: [ndsdisasm](https://github.com/pikalaxalt/ndsdisasm)
-- for generating .cfg file for ndsdisasm: [run this ghidra plugin](https://github.com/CacaBueno64/ie3ogres/blob/main/tools/ExportSymbolsToCfg.py)
+- to generate .s files from the rom: [ndsdisasm](https://github.com/pikalaxalt/ndsdisasm)
+- to generate .cfg file for ndsdisasm: [run this ghidra plugin](https://github.com/CacaBueno64/ie3ogres/blob/main/tools/ExportSymbolsToCfg.py)
 - to assemble .s (especially for nds), you need the [metrowerks assembler/compiler (mwccarm)](https://github.com/decompme/compilers/releases/download/compilers)
 
 ### known lib versions
