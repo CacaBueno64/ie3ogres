@@ -1,6 +1,7 @@
 - to generate .s files from the rom: [ndsdisasm](https://github.com/pikalaxalt/ndsdisasm)
 - to generate .cfg file for ndsdisasm: [run this ghidra plugin](https://github.com/CacaBueno64/ie3ogres/blob/main/tools/ExportSymbolsToCfg.py)
 - to assemble .s (especially for nds), you need the [metrowerks assembler/compiler (mwccarm)](https://github.com/decompme/compilers/releases/download/compilers)
+(the metrowerks version that i recommend to use is the dsi-1.6sp2)
 
 ### known lib versions
 - TwlSDK 5.04plus
