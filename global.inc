@@ -1,3 +1,9 @@
+.public FUN_01ff81b8
+.public FUN_01ff845c
+.public FUN_01ff852c
+.public FUN_01ff8388
+.public FUN_01ff81e4
+
 .public FUN_020000d0
 .public FUN_020004be
 .public _start
