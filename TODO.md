@@ -7,4 +7,3 @@
 - fix jumps to external functions :
   - arm9 ✔️
   - overlays ❎
-- fix wrong instructions on thumb mode
