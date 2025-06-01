@@ -5,6 +5,6 @@
   - arm9 ✔️
   - overlays ❎
 - fix jumps to external functions :
-  - arm9 ✔️ (not branches to address 01FXXXXX)
+  - arm9 ✔️
   - overlays ❎
 - fix wrong instructions on thumb mode
