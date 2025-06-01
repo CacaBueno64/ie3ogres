@@ -5,7 +5,7 @@
   - arm9 ✔️
   - overlays ❎
 - fix jumps to external functions :
-  - arm9 ❎
+  - arm9 ➖ (branches to overlay are fixed, but not branches at unknown addresses)
   - overlays ❎
 - fix wrong instructions on thumb mode
 - compile and pray
