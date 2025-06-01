@@ -11,4 +11,6 @@
   - arm9 ✔️
   - overlays ❎
 
-the arm9 is buildable but not linkable
+## Make the code buildable
+- arm9 ✔️
+- overlay0 ❎
