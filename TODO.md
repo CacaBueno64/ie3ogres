@@ -7,3 +7,8 @@
 - fix jumps to external functions :
   - arm9 ✔️
   - overlays ❎
+- fix thumb instructions :
+  - arm9 ✔️
+  - overlays ❎
+
+the arm9 is buildable but not linkable
