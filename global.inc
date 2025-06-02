@@ -401,6 +401,8 @@
 .public FUN_020085cc
 .public FUN_020085f4
 .public FUN_02008628
+.public FUN_0200867c
+.public FUN_02008698
 .public FUN_020086b4
 .public FUN_02008a28
 .public FUN_02008c40
