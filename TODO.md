@@ -14,4 +14,5 @@
 ## Make the code buildable
 - arm9 ✔️
 - overlay0 ✔️
-- overlay1 ❎
+- overlay1 ✔️
+- overlay3 ❎
