@@ -1,8 +1,14 @@
 .public FUN_01ff81b8
+.public FUN_01ff81e4
+.public FUN_01ff8388
 .public FUN_01ff845c
 .public FUN_01ff852c
-.public FUN_01ff8388
-.public FUN_01ff81e4
+.public FUN_01ff9524
+.public FUN_01ff95b0
+.public FUN_01ff96c0
+.public FUN_01ff9700
+.public FUN_01ffac60
+.public FUN_01ffb144
 
 .public FUN_020000d0
 .public FUN_020004be
