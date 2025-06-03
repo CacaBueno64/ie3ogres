@@ -12,9 +12,4 @@
   - overlays ❎
 
 ## Make the code buildable
-- arm9 ✔️
-- overlay0 ✔️
-- overlay1 ✔️
-- overlay3 ✔️
-- overlay4 ✔️
-- overlay5 ❎
+- arm9, ov0, ov1, ov3, ov4, ov5, ov6, ov15 ☑️
