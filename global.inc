@@ -395,6 +395,7 @@
 .public FUN_02007a1c
 .public _memcpy
 .public FUN_02007c30
+.public FUN_02007c60
 .public FUN_02007f50
 .public FUN_02008274
 .public LzPkbDecompression
