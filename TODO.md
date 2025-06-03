@@ -15,4 +15,5 @@
 - arm9 ✔️
 - overlay0 ✔️
 - overlay1 ✔️
-- overlay3 ❎
+- overlay3 ✔️
+- overlay4 ❎
