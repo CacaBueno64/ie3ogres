@@ -7,6 +7,7 @@
 .public FUN_01ff95b0
 .public FUN_01ff96c0
 .public FUN_01ff9700
+.public FUN_01ffa12c
 .public FUN_01ffac60
 .public FUN_01ffb144
 
