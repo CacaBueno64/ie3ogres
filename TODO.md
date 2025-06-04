@@ -12,4 +12,4 @@
   - overlays ❎
 
 ## Make the code buildable
-- arm9 and ov0 to 28 ☑️
+- arm9 and ov0 to 50 ☑️
