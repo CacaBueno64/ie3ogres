@@ -12,4 +12,4 @@
   - overlays ❎
 
 ## Make the code buildable
-- arm9, ov0, ov1, ov3, ov4, ov5, ov6, ov15 ☑️
+- arm9 and ov0 to 28 ☑️
