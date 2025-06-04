@@ -1,4 +1,10 @@
 
+	.include "/macros/function.inc"
+	.include "/global.inc"
+
+	.text
+	.org 0x02119f00
+
 	arm_func_start FUN_ov32_02119f00
 FUN_ov32_02119f00: ; 0x02119F00
 	stmfd sp!, {r3, lr}
@@ -147,7 +153,7 @@ _0211A0A0:
 	ldr r0, _0211A178 ; =0x02099EE8
 	ldr r0, [r0]
 	bl FUN_0205ff0c
-	bl FUN_020EFA4C
+	bl  FUN_ov16_020efa4c
 	ldr r6, _0211A17C ; =0x0209BA20
 	mov r1, r5
 	mov r0, r6
@@ -175,7 +181,7 @@ _0211A0A0:
 	ldr r0, _0211A190 ; =0x020A9C40
 	bl FUN_0204545c
 	mov r0, #6
-	bl FUN_020F153C
+	bl  FUN_ov16_020f153c
 	mov r0, #3
 	bl FUN_02029d44
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -305,7 +311,7 @@ _0211A2E4:
 	bl FUN_02023c40
 	mov r0, r6
 	add r1, r5, #0x1c
-	bl FUN_020F316C
+	bl  FUN_ov16_020f316c
 	ldr r8, _0211A388 ; =0x020A6C40
 	mov r4, #0
 	mov r7, #0x800
@@ -345,10 +351,10 @@ _0211A390: .word 0x020A7C40
 
 	arm_func_start FUN_ov32_0211a394
 FUN_ov32_0211a394: ; 0x0211A394
-	ldr r12, _0211A3A0 ; =FUN_020F33FC
+	ldr r12, _0211A3A0 ; = FUN_ov16_020f33fc
 	add r0, r0, #0x1c
 	bx r12
-_0211A3A0: .word FUN_020F33FC
+_0211A3A0: .word  FUN_ov16_020f33fc
 	arm_func_end FUN_ov32_0211a394
 
 	arm_func_start FUN_ov32_0211a3a4
@@ -401,13 +407,13 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl FUN_020F1138
+	bl  FUN_ov16_020f1138
 	ldr r0, [r5, #0xc]
 	ldr r1, [r5, #0x10]
 	mov r3, r6
 	add r0, r5, r0
 	add r2, r4, #1
-	bl FUN_020F1868
+	bl  FUN_ov16_020f1868
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r8
@@ -419,7 +425,7 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r2, r7
 	bl FUN_020055bc
 _0211A4A8:
-	bl FUN_020F10AC
+	bl  FUN_ov16_020f10ac
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211A4B0: .word 0x020A6C40
 _0211A4B4: .word 0x020A7440
@@ -480,7 +486,7 @@ _0211A558:
 	cmp r0, #2
 	beq _0211A57C
 	ldr r0, _0211A594 ; =0x0209BA20
-	bl FUN_020EF160
+	bl  FUN_ov16_020ef160 ; may be ov17
 _0211A57C:
 	mov r0, r4
 	bl FUN_ov32_0211a280
@@ -506,7 +512,7 @@ FUN_ov32_0211a598: ; 0x0211A598
 _0211A5C0:
 	add r0, r4, #0x1c
 	mov r1, #1
-	bl FUN_020F330C
+	bl  FUN_ov16_020f330c
 	cmp r0, #0
 	movne r0, #2
 	strne r0, [r4, #8]
@@ -521,7 +527,7 @@ _0211A5E4:
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #0x1c
-	bl FUN_020F33FC
+	bl  FUN_ov16_020f33fc
 	mov r0, r4
 	bl FUN_ov32_0211a280
 	ldmfd sp!, {r4, pc}
