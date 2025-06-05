@@ -1,4 +1,10 @@
 
+	.include "/macros/function.inc"
+	.include "/global.inc"
+
+	.text
+	.org 0x02124d00
+
 	arm_func_start FUN_ov107_02124d00
 FUN_ov107_02124d00: ; 0x02124D00
 	stmfd sp!, {r3, r4, r5, lr}
@@ -32,7 +38,7 @@ _02124D5C:
 	mov r0, r4
 	add r1, r5, #0x1c
 _02124D74:
-	bl FUN_020F316C
+	bl  FUN_ov16_020f316c
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x80
@@ -55,7 +61,7 @@ FUN_ov107_02124d9c: ; 0x02124D9C
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _02124DC8 ; =0x0209A4B4
 	add r1, r1, #0x1c
-	bl FUN_020F32B4
+	bl  FUN_ov16_020f32b4
 	ldmfd sp!, {r3, pc}
 _02124DC8: .word 0x0209A4B4
 	arm_func_end FUN_ov107_02124d9c
@@ -68,7 +74,7 @@ FUN_ov107_02124dcc: ; 0x02124DCC
 	mov r4, #0xc
 _02124DDC:
 	mla r0, r6, r4, r5
-	bl FUN_020F33FC
+	bl  FUN_ov16_020f33fc
 	add r6, r6, #1
 	cmp r6, #2
 	blt _02124DDC
@@ -87,11 +93,11 @@ FUN_ov107_02124df4: ; 0x02124DF4
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl FUN_020F1868
+	bl  FUN_ov16_020f1868
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_020F1138
+	bl  FUN_ov16_020f1138
 _02124E30:
 	ldr r4, _02124E9C ; =0x020A9440
 	mov r6, #0
@@ -192,7 +198,7 @@ _02124F18:
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
 	bl FUN_020059ac
-	bl FUN_020F10C8
+	bl  FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02124FAC: .word 0x020A9440
 _02124FB0: .word 0x020A8C40
@@ -219,7 +225,7 @@ FUN_ov107_02124fd0: ; 0x02124FD0
 	mov r4, #2
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_020F330C
+	bl  FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
@@ -269,7 +275,7 @@ FUN_ov107_02125080: ; 0x02125080
 	mov r4, r0
 	add r0, r4, #0x10
 	mov r1, #2
-	bl FUN_020F338C
+	bl  FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov107_02124dcc
 	ldmfd sp!, {r4, pc}

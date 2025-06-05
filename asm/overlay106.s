@@ -1,4 +1,10 @@
 
+	.include "/macros/function.inc"
+	.include "/global.inc"
+
+	.text
+	.org 0x02124d00
+
 	arm_func_start FUN_ov106_02124d00
 FUN_ov106_02124d00: ; 0x02124D00
 	mov r0, #1
@@ -63,7 +69,7 @@ FUN_ov106_02124db4: ; 0x02124DB4
 	mov r5, r0
 	ldr r0, [r1]
 	ldr r1, [r5, #0xcc]
-	bl FUN_021128C4
+	bl  FUN_ov16_021128c4
 	mov r4, #0
 	b _02124DE4
 _02124DD4:
@@ -135,31 +141,31 @@ FUN_ov106_02124e84: ; 0x02124E84
 	ldr r1, [r7, #0xcc]
 	mov r2, r6
 	and r3, r3, #0xff
-	bl FUN_021137DC
+	bl  FUN_ov16_021137dc
 	mov r5, #0
 	str r5, [sp]
 	ldr r0, [r4]
 	ldr r1, [r7, #0xcc]
 	mov r2, r6
 	mov r3, r5
-	bl FUN_0211401C
+	bl  FUN_ov16_0211401c
 	str r5, [sp]
 	ldr r0, [r4]
 	ldr r1, [r7, #0xcc]
 	mov r2, r6
 	mov r3, r5
-	bl FUN_02113B78
+	bl  FUN_ov16_02113b78
 	mov r3, r5
 	ldr r0, [r4]
 	ldr r1, [r7, #0xcc]
 	mov r2, r6
-	bl FUN_021139BC
+	bl  FUN_ov16_021139bc
 	str r6, [sp]
 	ldr r0, [r4]
 	ldr r1, [r7, #0xcc]
 	mov r2, r6
 	mov r3, #2
-	bl FUN_02113EC0
+	bl  FUN_ov16_02113ec0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02124F18: .word 0x02099F38
 	arm_func_end FUN_ov106_02124e84
@@ -238,11 +244,11 @@ _02124FE4:
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r5, _021250C4 ; =0x02099F38
 	ldr r0, [r5]
-	bl FUN_021123B4
+	bl  FUN_ov16_021123b4
 	mov r1, #1
 	ldr r0, [r5]
 	mov r2, r1
-	bl FUN_02112724
+	bl  FUN_ov16_02112724
 	mov r1, #2
 	str r0, [r4, #0xcc]
 	str r1, [r4, #0xc8]
@@ -256,7 +262,7 @@ _02125030:
 	add r1, r2, r1, lsr #29
 	mov r1, r1, asr #3
 	sub r1, r1, #0x10
-	bl FUN_020F1214
+	bl  FUN_ov16_020f1214
 	ldr r0, _021250C8 ; =0x02125420
 	ldr r0, [r0, #4]
 	cmp r0, #0
@@ -282,7 +288,7 @@ _02125094:
 	add r1, r2, r1, lsr #29
 	mov r1, r1, asr #3
 	sub r1, r1, #0x10
-	bl FUN_020F1214
+	bl  FUN_ov16_020f1214
 	ldmfd sp!, {r3, r4, r5, pc}
 _021250B8:
 	ldr r0, _021250C8 ; =0x02125420
@@ -304,13 +310,13 @@ FUN_ov106_021250d0: ; 0x021250D0
 	bl FUN_ov106_02124db4
 	ldr r0, _02125108 ; =0x02099F38
 	ldr r0, [r0]
-	bl FUN_021123C4
+	bl  FUN_ov16_021123c4
 	ldr r0, [r5, #0xbc]
-	bl thunk_FUN_0201e078
+	bl FUN_0201e0b8
 	mov r4, #0
 	ldr r0, [r5, #0xb8]
 	str r4, [r5, #0xbc]
-	bl thunk_FUN_0201e078
+	bl FUN_0201e0b8
 	str r4, [r5, #0xb8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125108: .word 0x02099F38
