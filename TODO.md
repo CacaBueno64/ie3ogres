@@ -1,15 +1,8 @@
 ## To do
 - disassemble the arm9.bin ✔️
 - disassemble the overlays ✔️
-- fix some label names :
-  - arm9 ✔️
-  - overlays ❎
-- fix jumps to external functions :
-  - arm9 ✔️
-  - overlays ❎
-- fix thumb instructions :
-  - arm9 ✔️
-  - overlays ❎
-
-## Make the code buildable
-- arm9 and overlays 0 to 125 ☑️
+- fix some label names ✔️
+- fix jumps to external functions ✔️
+- fix thumb instructions ✔️
+- make the asm compilable ✔️
+- make the entire rom buildable ❎
