@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x020ede60
-
 	arm_func_start FUN_ov16_020ede60
 FUN_ov16_020ede60: ; 0x020EDE60
 	stmfd sp!, {r3, lr}
@@ -50776,3 +50774,10 @@ _02118340: .word 0x00009CCD
 _02118344: .word 0x0000EA3C
 	arm_func_end FUN_ov16_021182f4
 	; 0x02118348
+
+
+	.rodata
+	.incbin "/incbin/overlay16_rodata.bin"
+
+	.bss
+	.space 0x0

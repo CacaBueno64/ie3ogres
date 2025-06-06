@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x02000000
-
 _02000000:
 	.byte 0xFF, 0xDE, 0xFF, 0xE7, 0xFF, 0xDE, 0xFF, 0xE7, 0xFF, 0xDE, 0xFF, 0xE7, 0xFF, 0xDE, 0xA1, 0xD7
 	.byte 0x3F, 0xF1, 0xF9, 0xEC, 0x26, 0x5D, 0x5D, 0x19, 0x3F, 0x14, 0xF8, 0x6C, 0x78, 0x2A, 0xA5, 0x93
@@ -340,9 +338,12 @@ _02000A50:
 _02000A6C:
 	b _02000A74
 _02000A70: .word 0x02000B88
-_02000A74:
-	bx lr
 	arm_func_end do_autoload
+
+	arm_func_start _start_AutoloadDoneCallback
+_start_AutoloadDoneCallback:
+	bx lr
+	arm_func_end _start_AutoloadDoneCallback
 
 	arm_func_start init_cp15
 init_cp15: ; 0x02000A78
@@ -170669,3 +170670,9 @@ _02097618:
 _02097620: .word 0x0209A2C0
 	arm_func_end FUN_020975d0
 	; 0x02097624
+
+	.rodata
+	.incbin "/incbin/arm9_rodata.bin"
+
+	.bss
+	.space 0x0

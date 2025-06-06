@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x020ede60
-
 	thumb_func_start FUN_ov17_020ede60
 FUN_ov17_020ede60: ; 0x020EDE60
 	push {r3, lr}
@@ -46095,3 +46093,10 @@ FUN_ov17_0210f428: ; 0x0210F428
 _0210F43C: .word 0x02116344
 	arm_func_end FUN_ov17_0210f428
 	; 0x0210F440
+
+
+	.rodata
+	.incbin "/incbin/overlay17_rodata.bin"
+
+	.bss
+	.space 0x0

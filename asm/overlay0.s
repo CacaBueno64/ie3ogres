@@ -1,9 +1,8 @@
+
 	.include "/macros/function.inc"
 	.include "/global.inc"
 
 	.text
-	.org 0x020bcb40
-
 	arm_func_start FUN_ov0_020bcb40
 FUN_ov0_020bcb40: ; 0x020BCB40
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -27908,3 +27907,9 @@ _020D54DC: .word 0x00009CCD
 _020D54E0: .word 0x0000EA3C
 	arm_func_end FUN_ov0_020d5490
 	; 0x020D54E4
+
+	.rodata
+	.incbin "/incbin/overlay0_rodata.bin"
+
+	.bss
+	.space 0x0

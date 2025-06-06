@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x02119f00
-
 	arm_func_start FUN_ov36_02119f00
 FUN_ov36_02119f00: ; 0x02119F00
 	ldrsb r2, [r1]
@@ -992,3 +990,10 @@ _0211AC30: .word 0x00009CCD
 _0211AC34: .word 0x0000EA3C
 	arm_func_end FUN_ov36_0211abe4
 	; 0x0211AC38
+
+
+	.rodata
+	.incbin "/incbin/overlay36_rodata.bin"
+
+	.bss
+	.space 0x0
