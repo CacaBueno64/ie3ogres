@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x02119f00
-
 	arm_func_start FUN_ov45_02119f00
 FUN_ov45_02119f00: ; 0x02119F00
 	strh r1, [r0]
@@ -7352,3 +7350,10 @@ _021204EC: .word 0x00009CCD
 _021204F0: .word 0x0000EA3C
 	arm_func_end FUN_ov45_021204a0
 	; 0x021204F4
+
+
+	.rodata
+	.incbin "/incbin/overlay45_rodata.bin"
+
+	.bss
+	.space 0x0
