@@ -1,4 +1,9 @@
+; i have no idea how to deal with this one
 
+	.include "/macros/function.inc"
+	.include "/global.inc"
+
+	.text
 	arm_func_start FUN_ov129_0212af10
 FUN_ov129_0212af10: ; 0x0212AF10
 	strb r0, [r0, #-0x769]!
@@ -206,3 +211,10 @@ _0212B608: .word 0xFFFFFBFE
 _0212B60C: .word 0x00000000
 	arm_func_end FUN_ov129_0212b4e0
 	; 0x0212B610
+
+
+	.rodata
+	.incbin "/incbin/overlay129_rodata.bin"
+
+	.bss
+	.space 0x0

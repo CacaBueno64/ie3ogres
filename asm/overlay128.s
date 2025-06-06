@@ -1,4 +1,8 @@
 
+	.include "/macros/function.inc"
+	.include "/global.inc"
+
+	.text
 	arm_func_start FUN_ov128_0212a9c0
 FUN_ov128_0212a9c0: ; 0x0212A9C0
 	stmfd sp!, {r4, lr}
@@ -5780,3 +5784,10 @@ _0212F908:
 _0212F910: .word 0x0212FAC8
 	arm_func_end FUN_ov128_0212f8c0
 	; 0x0212F914
+
+
+	.rodata
+	.incbin "/incbin/overlay128_rodata.bin"
+
+	.bss
+	.space 0x0

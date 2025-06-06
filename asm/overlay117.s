@@ -3,8 +3,6 @@
 	.include "/global.inc"
 
 	.text
-	.org 0x02124d00
-
 	arm_func_start FUN_ov117_02124d00
 FUN_ov117_02124d00: ; 0x02124D00
 	stmfd sp!, {r4, r5, r6, lr}
@@ -153,3 +151,10 @@ _02124EEC: .word 0x00009CCD
 _02124EF0: .word 0x0000EA3C
 	arm_func_end FUN_ov117_02124ea0
 	; 0x02124EF4
+
+
+	.rodata
+	.incbin "/incbin/overlay117_rodata.bin"
+
+	.bss
+	.space 0x0
