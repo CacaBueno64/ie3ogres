@@ -1,0 +1,5 @@
+/data_iz/INAZUMA.INI
+/data_iz/SCRIPTINFO.TXT
+/data_iz/SCRIPTINFOMAP.TXT
+/data_iz/EVENTINFO.TXT
+/data_iz/script/

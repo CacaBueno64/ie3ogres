@@ -1,7 +1,7 @@
 ; contains the mobiclip sdk 1.2.1
 
 	.include "/macros/function.inc"
-	.include "/global.inc"
+	.include "/include/overlay127.inc"
 	.text
 
 	arm_func_start FUN_ov127_0212a9c0

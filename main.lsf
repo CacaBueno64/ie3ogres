@@ -1,0 +1,691 @@
+############################################################
+### Linker spec file for Pokemon HeartGold/SoulSilver US ###
+###      Pass this to the SDK's makelcf.exe utility      ###
+###           along with the ARM9-TS template.           ###
+###                        WIP                           ###
+############################################################
+
+Static main
+{
+    Address 0x02000000
+    StackSize 0 2048
+    Object asm/arm9.o
+}
+
+Autoload ITCM
+{
+	Address 0x01FF8000
+	Object asm/itcm.o (.itcm)
+}
+
+Autoload DTCM
+{
+	Address 0x027E0000
+	Object asm/dtcm.o (.dtcm)
+	Object asm/dtcm.o (.bss)
+}
+Overlay overlay0
+{
+	Address 0x020BCB40
+	Object asm/overlay0.o
+}
+Overlay overlay1
+{
+	Address 0x020BCB40
+	Object asm/overlay1.o
+}
+Overlay overlay2
+{
+	Address 0x020BCB40
+	Object asm/ov2.o
+}
+Overlay overlay3
+{
+	Address 0x020BCB40
+	Object asm/overlay3.o
+}
+Overlay overlay4
+{
+	Address 0x020BCB40
+	Object asm/overlay4.o
+}
+Overlay overlay5
+{
+	Address 0x020BCB40
+	Object asm/overlay5.o
+}
+Overlay overlay6
+{
+	Address 0x020BCB40
+	Object asm/overlay6.o
+}
+Overlay overlay7
+{
+	Address 0x020BCB40
+	Object asm/ov7.o
+}
+Overlay overlay8
+{
+	Address 0x020BCB40
+	Object asm/ov8.o
+}
+Overlay overlay9
+{
+	Address 0x020BCB40
+	Object asm/ov9.o
+}
+Overlay overlay10
+{
+	Address 0x020BCB40
+	Object asm/ov10.o
+}
+Overlay overlay11
+{
+	Address 0x020BCB40
+	Object asm/ov11.o
+}
+Overlay overlay12
+{
+	Address 0x020BCB40
+	Object asm/ov12.o
+}
+Overlay overlay13
+{
+	Address 0x020BCB40
+	Object asm/ov13.o
+}
+Overlay overlay14
+{
+	Address 0x020BCB40
+	Object asm/ov14.o
+}
+Overlay overlay15
+{
+	Address 0x020BCB40
+	Object asm/overlay15.o
+}
+Overlay overlay16
+{
+	Address 0x020EDE60
+	Object asm/overlay16.o
+}
+Overlay overlay17
+{
+	Address 0x020EDE60
+	Object asm/overlay17.o
+}
+Overlay overlay18
+{
+	Address 0x02119F00
+	Object asm/overlay18.o
+}
+Overlay overlay19
+{
+	Address 0x02119F00
+	Object asm/overlay19.o
+}
+Overlay overlay20
+{
+	Address 0x02119F00
+	Object asm/overlay20.o
+}
+Overlay overlay21
+{
+	Address 0x02119F00
+	Object asm/overlay21.o
+}
+Overlay overlay22
+{
+	Address 0x02119F00
+	Object asm/overlay22.o
+}
+Overlay overlay23
+{
+	Address 0x02119F00
+	Object asm/overlay23.o
+}
+Overlay overlay24
+{
+	Address 0x02119F00
+	Object asm/overlay24.o
+}
+Overlay overlay25
+{
+	Address 0x02119F00
+	Object asm/overlay25.o
+}
+Overlay overlay26
+{
+	Address 0x02119F00
+	Object asm/overlay26.o
+}
+Overlay overlay27
+{
+	Address 0x02119F00
+	Object asm/overlay27.o
+}
+Overlay overlay28
+{
+	Address 0x02119F00
+	Object asm/overlay28.o
+}
+Overlay overlay29
+{
+	Address 0x02119F00
+	Object asm/overlay29.o
+}
+Overlay overlay30
+{
+	Address 0x02119F00
+	Object asm/overlay30.o
+}
+Overlay overlay31
+{
+	Address 0x02119F00
+	Object asm/overlay31.o
+}
+Overlay overlay32
+{
+	Address 0x02119F00
+	Object asm/overlay32.o
+}
+Overlay overlay33
+{
+	Address 0x02119F00
+	Object asm/overlay33.o
+}
+Overlay overlay34
+{
+	Address 0x02119F00
+	Object asm/overlay34.o
+}
+Overlay overlay35
+{
+	Address 0x02119F00
+	Object asm/overlay35.o
+}
+Overlay overlay36
+{
+	Address 0x02119F00
+	Object asm/overlay36.o
+}
+Overlay overlay37
+{
+	Address 0x02119F00
+	Object asm/overlay37.o
+}
+Overlay overlay38
+{
+	Address 0x02119F00
+	Object asm/overlay38.o
+}
+Overlay overlay39
+{
+	Address 0x02119F00
+	Object asm/overlay39.o
+}
+Overlay overlay40
+{
+	Address 0x02119F00
+	Object asm/overlay40.o
+}
+Overlay overlay41
+{
+	Address 0x02119F00
+	Object asm/overlay41.o
+}
+Overlay overlay42
+{
+	Address 0x02119F00
+	Object asm/overlay42.o
+}
+Overlay overlay43
+{
+	Address 0x02119F00
+	Object asm/overlay43.o
+}
+Overlay overlay44
+{
+	Address 0x02119F00
+	Object asm/overlay44.o
+}
+Overlay overlay45
+{
+	Address 0x02119F00
+	Object asm/overlay45.o
+}
+Overlay overlay46
+{
+	Address 0x02119F00
+	Object asm/overlay46.o
+}
+Overlay overlay47
+{
+	Address 0x02119F00
+	Object asm/overlay47.o
+}
+Overlay overlay48
+{
+	Address 0x02119F00
+	Object asm/overlay48.o
+}
+Overlay overlay49
+{
+	Address 0x02119F00
+	Object asm/overlay49.o
+}
+Overlay overlay50
+{
+	Address 0x02119F00
+	Object asm/overlay50.o
+}
+Overlay overlay51
+{
+	Address 0x02119F00
+	Object asm/overlay51.o
+}
+Overlay overlay52
+{
+	Address 0x02119F00
+	Object asm/overlay52.o
+}
+Overlay overlay53
+{
+	Address 0x02119F00
+	Object asm/overlay53.o
+}
+Overlay overlay54
+{
+	Address 0x02119F00
+	Object asm/overlay54.o
+}
+Overlay overlay55
+{
+	Address 0x02119F00
+	Object asm/overlay55.o
+}
+Overlay overlay56
+{
+	Address 0x02119F00
+	Object asm/overlay56.o
+}
+Overlay overlay57
+{
+	Address 0x02119F00
+	Object asm/overlay57.o
+}
+Overlay overlay58
+{
+	Address 0x02119F00
+	Object asm/overlay58.o
+}
+Overlay overlay59
+{
+	Address 0x02119F00
+	Object asm/overlay59.o
+}
+Overlay overlay60
+{
+	Address 0x02119F00
+	Object asm/overlay60.o
+}
+Overlay overlay61
+{
+	Address 0x02119F00
+	Object asm/overlay61.o
+}
+Overlay overlay62
+{
+	Address 0x02119F00
+	Object asm/overlay62.o
+}
+Overlay overlay63
+{
+	Address 0x02119F00
+	Object asm/overlay63.o
+}
+Overlay overlay64
+{
+	Address 0x02119F00
+	Object asm/overlay64.o
+}
+Overlay overlay65
+{
+	Address 0x02119F00
+	Object asm/overlay65.o
+}
+Overlay overlay66
+{
+	Address 0x02119F00
+	Object asm/overlay66.o
+}
+Overlay overlay67
+{
+	Address 0x02119F00
+	Object asm/overlay67.o
+}
+Overlay overlay68
+{
+	Address 0x02119F00
+	Object asm/overlay68.o
+}
+Overlay overlay69
+{
+	Address 0x02119F00
+	Object asm/overlay69.o
+}
+Overlay overlay70
+{
+	Address 0x02119F00
+	Object asm/overlay70.o
+}
+Overlay overlay71
+{
+	Address 0x02119F00
+	Object asm/overlay71.o
+}
+Overlay overlay72
+{
+	Address 0x02119F00
+	Object asm/overlay72.o
+}
+Overlay overlay73
+{
+	Address 0x02119F00
+	Object asm/overlay73.o
+}
+Overlay overlay74
+{
+	Address 0x02119F00
+	Object asm/overlay74.o
+}
+Overlay overlay75
+{
+	Address 0x02119F00
+	Object asm/overlay75.o
+}
+Overlay overlay76
+{
+	Address 0x02119F00
+	Object asm/overlay76.o
+}
+Overlay overlay77
+{
+	Address 0x02119F00
+	Object asm/overlay77.o
+}
+Overlay overlay78
+{
+	Address 0x02119F00
+	Object asm/ov78.o
+}
+Overlay overlay79
+{
+	Address 0x02119F00
+	Object asm/overlay79.o
+}
+Overlay overlay80
+{
+	Address 0x02119F00
+	Object asm/overlay80.o
+}
+Overlay overlay81
+{
+	Address 0x02119F00
+	Object asm/overlay81.o
+}
+Overlay overlay82
+{
+	Address 0x02119F00
+	Object asm/overlay82.o
+}
+Overlay overlay83
+{
+	Address 0x02119F00
+	Object asm/overlay83.o
+}
+Overlay overlay84
+{
+	Address 0x02119F00
+	Object asm/overlay84.o
+}
+Overlay overlay85
+{
+	Address 0x02119F00
+	Object asm/overlay85.o
+}
+Overlay overlay86
+{
+	Address 0x02119F00
+	Object asm/overlay86.o
+}
+Overlay overlay87
+{
+	Address 0x02119F00
+	Object asm/overlay87.o
+}
+Overlay overlay88
+{
+	Address 0x02119F00
+	Object asm/overlay88.o
+}
+Overlay overlay89
+{
+	Address 0x02119F00
+	Object asm/overlay89.o
+}
+Overlay overlay90
+{
+	Address 0x02119F00
+	Object asm/overlay90.o
+}
+Overlay overlay91
+{
+	Address 0x02119F00
+	Object asm/overlay91.o
+}
+Overlay overlay92
+{
+	Address 0x02124D00
+	Object asm/overlay92.o
+}
+Overlay overlay93
+{
+	Address 0x02124D00
+	Object asm/overlay93.o
+}
+Overlay overlay94
+{
+	Address 0x02124D00
+	Object asm/overlay94.o
+}
+Overlay overlay95
+{
+	Address 0x02124D00
+	Object asm/overlay95.o
+}
+Overlay overlay96
+{
+	Address 0x02124D00
+	Object asm/overlay96.o
+}
+Overlay overlay97
+{
+	Address 0x02124D00
+	Object asm/overlay97.o
+}
+Overlay overlay98
+{
+	Address 0x02124D00
+	Object asm/overlay98.o
+}
+Overlay overlay99
+{
+	Address 0x02124D00
+	Object asm/overlay99.o
+}
+Overlay overlay100
+{
+	Address 0x02124D00
+	Object asm/overlay100.o
+}
+Overlay overlay101
+{
+	Address 0x02124D00
+	Object asm/overlay101.o
+}
+Overlay overlay102
+{
+	Address 0x02124D00
+	Object asm/overlay102.o
+}
+Overlay overlay103
+{
+	Address 0x02124D00
+	Object asm/overlay103.o
+}
+Overlay overlay104
+{
+	Address 0x02124D00
+	Object asm/overlay104.o
+}
+Overlay overlay105
+{
+	Address 0x02124D00
+	Object asm/overlay105.o
+}
+Overlay overlay106
+{
+	Address 0x02124D00
+	Object asm/overlay106.o
+}
+Overlay overlay107
+{
+	Address 0x02124D00
+	Object asm/overlay107.o
+}
+Overlay overlay108
+{
+	Address 0x02124D00
+	Object asm/overlay108.o
+}
+Overlay overlay109
+{
+	Address 0x02124D00
+	Object asm/overlay109.o
+}
+Overlay overlay110
+{
+	Address 0x02124D00
+	Object asm/overlay110.o
+}
+Overlay overlay111
+{
+	Address 0x02124D00
+	Object asm/overlay111.o
+}
+Overlay overlay112
+{
+	Address 0x02124D00
+	Object asm/overlay112.o
+}
+Overlay overlay113
+{
+	Address 0x02124D00
+	Object asm/overlay113.o
+}
+Overlay overlay114
+{
+	Address 0x02124D00
+	Object asm/overlay114.o
+}
+Overlay overlay115
+{
+	Address 0x02124D00
+	Object asm/overlay115.o
+}
+Overlay overlay116
+{
+	Address 0x02124D00
+	Object asm/overlay116.o
+}
+Overlay overlay117
+{
+	Address 0x02124D00
+	Object asm/overlay117.o
+}
+Overlay overlay118
+{
+	Address 0x02124D00
+	Object asm/overlay118.o
+}
+Overlay overlay119
+{
+	Address 0x02124D00
+	Object asm/overlay119.o
+}
+Overlay overlay120
+{
+	Address 0x02124D00
+	Object asm/overlay120.o
+}
+Overlay overlay121
+{
+	Address 0x02124D00
+	Object asm/overlay121.o
+}
+Overlay overlay122
+{
+	Address 0x02124D00
+	Object asm/overlay122.o
+}
+Overlay overlay123
+{
+	Address 0x02124D00
+	Object asm/overlay123.o
+}
+Overlay overlay124
+{
+	Address 0x02124D00
+	Object asm/overlay124.o
+}
+Overlay overlay125
+{
+	Address 0x02124D00
+	Object asm/overlay125.o
+}
+Overlay overlay126
+{
+	Address 0x0212A9C0
+	Object asm/overlay126.o
+}
+Overlay overlay127
+{
+	Address 0x0212A9C0
+	Object asm/overlay127.o
+}
+Overlay overlay128
+{
+	Address 0x0212A9C0
+	Object asm/overlay128.o
+}
+Overlay overlay129
+{
+	Address 0x0212A9C0
+	Object asm/overlay129.o
+}
+Overlay overlay130
+{
+	Address 0x0212A9C0
+	Object asm/overlay130.o
+}
+Overlay overlay131
+{
+	Address 0x0213ACC0
+	Object asm/overlay131.o
+}
+Overlay overlay132
+{
+	Address 0x0213ACC0
+	Object asm/overlay132.o
+}

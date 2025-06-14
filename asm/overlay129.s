@@ -1,7 +1,7 @@
 ; i have no idea how to deal with this one
 
 	.include "/macros/function.inc"
-	.include "/global.inc"
+	.include "/include/overlay129.inc"
 
 	.text
 	arm_func_start FUN_ov129_0212af10

@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/global.inc"
+	.include "/include/overlay17.inc"
 
 	.text
 	thumb_func_start FUN_ov17_020ede60

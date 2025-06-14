@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/global.inc"
+	.include "/include/overlay132.inc"
 
 	.text
 	arm_func_start FUN_ov132_0213acc0
