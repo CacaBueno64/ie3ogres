@@ -3,31 +3,6 @@
 	.include "/include/overlay130.inc"
 
 	.text
-	arm_func_start FUN_ov130_0212a9c0
-FUN_ov130_0212a9c0: ; 0x0212A9C0
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, #0
-	mov r0, r6
-	bl FUN_02002914
-	mov r5, r0
-	mov r0, r6
-	bl FUN_02002900
-	mov r4, r0
-	mov r0, r6
-	mov r1, r5
-	sub r2, r4, r5
-	bl FUN_0200787c
-	mov r1, r5
-	mov r2, r4
-	mov r0, r6
-	mov r3, #2
-	bl FUN_02002dcc
-	mov r1, r0
-	mov r0, r6
-	bl FUN_02002ac0
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov130_0212a9c0
-
 	arm_func_start FUN_ov130_0212aa14
 FUN_ov130_0212aa14: ; 0x0212AA14
 	stmfd sp!, {r3, r4, r5, lr}

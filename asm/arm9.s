@@ -133177,7 +133177,7 @@ FUN_0206ede4: ; 0x0206EDE4
 	str r0, [r2]
 	ldr r2, _0206EE1C ; =0x020B9D4C
 	ldr sp, [r2]
-	ldmfd sp!, {lr}
+	ldr lr, [sp], #0x4
 	mov pc, lr
 _0206EE14: .word 0x020B9D50
 _0206EE18: .word 0x020B9D54
@@ -133196,7 +133196,7 @@ FUN_0206ee20: ; 0x0206EE20
 	str sp, [r2]
 	ldr r2, _0206EE58 ; =0x020B9D4C
 	ldr sp, [r2]
-	ldmfd sp!, {lr}
+	ldr lr, [sp], #0x4
 	mov pc, lr
 _0206EE50: .word 0x020B9D50
 _0206EE54: .word 0x020B9D54
@@ -133224,19 +133224,19 @@ FUN_0206ee5c: ; 0x0206EE5C
 
 	arm_func_start FUN_0206ee98
 FUN_0206ee98: ; 0x0206EE98
-	ldmfd sp!, {r0}
-	ldmfd sp!, {r1}
-	ldmfd sp!, {r2}
-	ldmfd sp!, {r3}
-	ldmfd sp!, {r4}
-	ldmfd sp!, {r5}
-	ldmfd sp!, {r6}
-	ldmfd sp!, {r7}
-	ldmfd sp!, {r8}
-	ldmfd sp!, {r9}
-	ldmfd sp!, {r10}
-	ldmfd sp!, {r11}
-	ldmfd sp!, {r2}
+	ldr r0, [sp], #0x4
+	ldr r1, [sp], #0x4
+	ldr r2, [sp], #0x4
+	ldr r3, [sp], #0x4
+	ldr r4, [sp], #0x4
+	ldr r5, [sp], #0x4
+	ldr r6, [sp], #0x4
+	ldr r7, [sp], #0x4
+	ldr r8, [sp], #0x4
+	ldr r9, [sp], #0x4
+	ldr r10, [sp], #0x4
+	ldr r11, [sp], #0x4
+	ldr r2, [sp], #0x4
 	mov pc, r2
 	arm_func_end FUN_0206ee98
 
@@ -133342,7 +133342,7 @@ FUN_0206efd8: ; 0x0206EFD8
 	ldr r2, _0206F010 ; =0x020B9D54
 	add r2, r2, r1
 	ldr sp, [r2]
-	ldmfd sp!, {r1}
+	ldr r1, [sp], #0x4
 	mov pc, r1
 _0206F008: .word 0x020B9D4C
 _0206F00C: .word 0x020B9D50
@@ -133373,19 +133373,19 @@ _0206F01C:
 	str r1, [sp, #-4]!
 	str r0, [sp, #-4]!
 	bl FUN_0206efd8
-	ldmfd sp!, {r0}
-	ldmfd sp!, {r1}
-	ldmfd sp!, {r2}
-	ldmfd sp!, {r3}
-	ldmfd sp!, {r4}
-	ldmfd sp!, {r5}
-	ldmfd sp!, {r6}
-	ldmfd sp!, {r7}
-	ldmfd sp!, {r8}
-	ldmfd sp!, {r9}
-	ldmfd sp!, {r10}
-	ldmfd sp!, {r11}
-	ldmfd sp!, {lr}
+	ldr r0, [sp], #0x4
+	ldr r1, [sp], #0x4
+	ldr r2, [sp], #0x4
+	ldr r3, [sp], #0x4
+	ldr r4, [sp], #0x4
+	ldr r5, [sp], #0x4
+	ldr r6, [sp], #0x4
+	ldr r7, [sp], #0x4
+	ldr r8, [sp], #0x4
+	ldr r9, [sp], #0x4
+	ldr r10, [sp], #0x4
+	ldr r11, [sp], #0x4
+	ldr lr, [sp], #0x4
 _0206F09C:
 	add r2, r2, #4
 	add r1, r1, #1

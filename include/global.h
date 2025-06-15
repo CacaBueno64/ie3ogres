@@ -1,5 +1,5 @@
-#ifndef POKEPLATINUM_GLOBAL_H
-#define POKEPLATINUM_GLOBAL_H
+#ifndef IE3OGRES_GLOBAL_H
+#define IE3OGRES_GLOBAL_H
 
 /*
 #include <nitro.h>
@@ -23,4 +23,4 @@ typedef struct {
 } Vec32;
 */
 
-#endif //POKEHEARTGOLD_GLOBAL_H
+#endif //IE3OGRES_GLOBAL_H
