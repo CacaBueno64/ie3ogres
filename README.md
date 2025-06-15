@@ -1,5 +1,5 @@
 # Inazuma Eleven 3 Ogres
-This is a WIP disassembly of Inazuma Eleven 3 Ogres for the nds (not 3ds).
+This is a WIP decompilation of Inazuma Eleven 3 Ogres for the nds (not 3ds).
 
 It currently does not compile anything.
 
