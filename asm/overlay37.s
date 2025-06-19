@@ -1522,7 +1522,7 @@ _0211B34C:
 	mla r1, r0, r1, r2
 	str r0, [r7, #0xc4]
 	add r0, r1, #2
-	bl GetStrLen
+	bl STD_GetStringLength
 	cmp r0, #0
 	ldrne r0, [r7, #0xc8]
 	ldrne r4, [r7, #0xc4]
@@ -1737,33 +1737,33 @@ _0211B62C:
 	add r0, r6, #0x48
 	mov r2, #0x24
 	str r5, [r6, #8]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x78
 	mov r1, r5
 	mov r2, #0x10
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x88
 	mov r1, r5
 	mov r2, #0x1c
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r1, [r6, #0x44]
 	ldr r0, [r6, #0xa4]
 	mov r2, r1, lsl #2
 	mov r1, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r2, [r6, #0x44]
 	ldr r0, [r6, #0xc8]
 	mov r1, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0xcc
 	mov r1, r5
 	mov r2, #0x14
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r1, [r6, #0x44]
 	ldr r0, [r6, #0xb8]
 	mul r2, r1, r7
 	mov r1, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	bl FUN_ov37_02119f48
 	mov r0, #1

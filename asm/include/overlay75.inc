@@ -1,5 +1,5 @@
 .public FUN_020095ac
-.public StrncpyWithNullPad
+.public STD_CopyLString
 .public FUN_0201e078
 .public FUN_02041eac
 .public FUN_02044600

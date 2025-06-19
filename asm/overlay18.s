@@ -196,7 +196,7 @@ FUN_ov18_0211a14c: ; 0x0211A14C
 	add r0, r0, #0xc00
 	mov r2, #0xc0
 	mov r4, #1
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r6, _0211A738 ; =0x02099F38
 	str r11, [sp, #0x14]
 	ldr r0, [r6]
@@ -571,7 +571,7 @@ _0211A66C:
 	mov r1, #0
 	add r0, r0, #0xc00
 	mov r2, #0x28
-	bl MemWrite
+	bl MI_CpuFill8
 	add r1, r5, #0x2e4
 	ldr r0, _0211A760 ; =0x0211BC84
 	add r1, r1, #0xc00
@@ -1069,7 +1069,7 @@ _0211ADA4:
 	mla r1, r8, r4, r7
 	add r0, sp, #0x18
 	add r9, r8, #2
-	bl _strcpy
+	bl STD_CopyString
 	mul r1, r8, r4
 	add r3, r10, r1
 	ldr r2, [r3, #0x3fc]
@@ -1456,10 +1456,10 @@ _0211B2F0:
 _0211B2FC:
 	add r0, sp, #0x20
 	mov r1, r9
-	bl _strcpy
+	bl STD_CopyString
 	add r0, sp, #0x40
 	mov r1, r9
-	bl _strcpy
+	bl STD_CopyString
 	b _0211B358
 _0211B318:
 	cmp r10, #0
@@ -1474,10 +1474,10 @@ _0211B318:
 	beq _0211B358
 	add r0, sp, #0x20
 	mov r1, r7
-	bl _strcpy
+	bl STD_CopyString
 	add r0, sp, #0x40
 	add r1, sp, #0x7c
-	bl _strcpy
+	bl STD_CopyString
 _0211B358:
 	ldrsb r0, [r4]
 	mov r8, #0
@@ -1495,11 +1495,11 @@ _0211B36C:
 	add r0, sp, #0x20
 	add r10, r0, r9, lsl #5
 	mov r0, r10
-	bl GetStrLen
+	bl STD_GetStringLength
 	mov r7, r0
 	add r0, sp, #0
 	mov r1, r10
-	bl _strcpy
+	bl STD_CopyString
 	add r0, r9, #1
 	and r9, r0, #1
 _0211B3B0:
@@ -1514,12 +1514,12 @@ _0211B3B0:
 	mov r0, r5
 	mov r1, r7
 	strb r10, [r5, r8]
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	mov r0, r5
-	bl GetStrLen
+	bl STD_GetStringLength
 	mov r8, r0
 	mov r0, r7
-	bl GetStrLen
+	bl STD_GetStringLength
 	cmp r0, #0
 	ble _0211B484
 _0211B3FC:

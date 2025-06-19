@@ -383,10 +383,10 @@ _0211A390:
 	ldr r0, [r5, #4]
 	mov r1, r6
 	mov r2, r4
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r0, r6
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 _0211A448:
 	ldr r0, _0211A468 ; =0x02099F38
 	mov r2, #0
@@ -4626,28 +4626,28 @@ FUN_ov68_0211e158: ; 0x0211E158
 	str r8, [r9, #0x220]
 	str r8, [r9, #0x10]
 	str r8, [r9, #0x14]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r4, #0x18
 	mov r1, r8
 	add r0, r9, #0x18
 	mov r2, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r9, #0x54
 	mov r1, r8
 	mov r2, #0x44
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r9, #0x98
 	mov r1, r8
 	mov r2, #0x2c
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r4
 	add r0, r9, #0xc4
 	mov r1, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r9, #0x1f4
 	mov r1, r8
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r9, #0x1f4
 	mov r7, #4
 	mov r1, r7
@@ -4655,7 +4655,7 @@ FUN_ov68_0211e158: ; 0x0211E158
 	add r0, r9, #0xdc
 	mov r1, r8
 	mov r2, #0x118
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211E2F8 ; =0x02099F38
 	ldr r0, [r0]
 	bl  FUN_ov16_021123b4

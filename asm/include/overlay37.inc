@@ -1,9 +1,9 @@
 .public FUN_02006b80
 .public FUN_02006bb8
 .public FUN_02006bcc
-.public MemWrite
+.public MI_CpuFill8
 .public FUN_020095ac
-.public GetStrLen
+.public STD_GetStringLength
 .public FUN_02015184
 .public FUN_0201e078
 .public FUN_0201e08c

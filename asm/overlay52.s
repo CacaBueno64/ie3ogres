@@ -268,20 +268,20 @@ FUN_ov52_0211a214: ; 0x0211A214
 	add r0, r0, #0xc00
 	mov r1, r5
 	mov r2, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r7, #0x18
 	add r0, r6, #4
 	mov r1, r5
 	mov r2, r7
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x1c
 	mov r1, r5
 	mov r2, #0xa8
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r7
 	add r0, r6, #0xc4
 	mov r1, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	add r1, r6, #0x1000
 	add r0, r6, #0x1600
 	strh r5, [r0, #0xa8]
@@ -1136,7 +1136,7 @@ FUN_ov52_0211ae04: ; 0x0211AE04
 	add r1, sp, #0x2c
 	mov r2, #0x160
 	str r4, [sp, #0x20]
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r1, _0211B124 ; =0x0209C220
 	ldr r0, [sp, #0x10]
 	ldrh r10, [r1, #0x6a]
@@ -1171,10 +1171,10 @@ _0211AEA4:
 	add r6, sp, #0x18c
 	mov r0, r6
 	str r4, [sp, #0x28]
-	bl FUN_0200dbf0
+	bl FS_InitFile
 	ldr r1, _0211B130 ; =0x021246D0
 	mov r0, r6
-	bl FUN_0200dfc8
+	bl FS_OpenFile
 	cmp r0, #0
 	beq _0211B104
 	ldr r0, [sp, #0x28]
@@ -1211,16 +1211,16 @@ _0211AEF4:
 	add r1, sp, #0x2c
 	mov r2, #0x160
 	strhi r5, [sp, #0x28]
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	add r4, sp, #0x18c
 	ldr r1, [sp, #0x24]
 	mov r0, r4
 	mov r2, r9
-	bl FUN_0200ded0
+	bl FS_SeekFile
 	mov r0, r4
 	mov r2, r5
 	add r1, sp, #0x2c
-	bl FUN_0200defc
+	bl FS_ReadFile
 	str r0, [sp, #0x28]
 	cmp r0, #0
 	beq _0211B0F0
@@ -1328,7 +1328,7 @@ _0211B0F0:
 	blo _0211AEF4
 _0211B104:
 	add r0, sp, #0x18c
-	bl FUN_0200de0c
+	bl FS_CloseFile
 	ldr r1, [sp, #0x20]
 	ldr r0, _0211B128 ; =0x0209A250
 	bl FUN_0202e1c0
@@ -1395,12 +1395,12 @@ _0211B1D8:
 	mov r0, r6
 	mov r1, r8
 	mov r2, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	add r11, sp, #4
 	mov r1, r8
 	mov r0, r11
 	mov r2, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211B4A8 ; =0x0209BA20
 	mvn r4, #0
 	ldr r7, [r0, #0x7ec]
@@ -1603,11 +1603,11 @@ FUN_ov52_0211b4b8: ; 0x0211B4B8
 	mov r1, r7
 	mov r2, r4
 	ldrh r9, [r3, #0x6a]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r4
 	add r0, sp, #0
 	mov r1, r7
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211B668 ; =0x0209BA20
 	mvn r4, #0
 	ldr r6, [r0, #0x7ec]
@@ -1763,7 +1763,7 @@ FUN_ov52_0211b6d4: ; 0x0211B6D4
 	mov r1, #0
 	sub r2, r1, #1
 	strb r2, [r0, #0xb6]
-	ldr r12, _0211B704 ; =MemWrite
+	ldr r12, _0211B704 ; =MI_CpuFill8
 	str r1, [r0, #0xb0]
 	strh r1, [r0, #0xb4]
 	str r1, [r0, #0xe8]
@@ -1771,7 +1771,7 @@ FUN_ov52_0211b6d4: ; 0x0211B6D4
 	add r0, r0, #8
 	mov r2, #0xa8
 	bx r12
-_0211B704: .word MemWrite
+_0211B704: .word MI_CpuFill8
 	arm_func_end FUN_ov52_0211b6d4
 
 	arm_func_start FUN_ov52_0211b708
@@ -2431,7 +2431,7 @@ FUN_ov52_0211bf3c: ; 0x0211BF3C
 _0211BF78:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _0211C008 ; =0x02099ED0
 	ldr r0, [r0]
 	bl wraper_rwiteat14n18
@@ -2450,7 +2450,7 @@ _0211BF78:
 _0211BFC0:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _0211C010 ; =0x02099F50
 	ldr r0, [r0]
 	bl wraper_rwiteat14n18
@@ -2483,7 +2483,7 @@ FUN_ov52_0211c014: ; 0x0211C014
 	add r1, sp, #0
 	add r0, r0, #0x1c
 	mov r2, #0xa8
-	bl _memcpy
+	bl MI_CpuCopy8
 _0211C040:
 	mov r0, r4
 	bl FUN_ov52_0211b8a0
@@ -2499,7 +2499,7 @@ _0211C040:
 	add r0, r0, #0x1c
 	add r1, r4, #8
 	mov r2, #0xa8
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r12, #0
 	add r1, sp, #0
 _0211C084:
@@ -2722,7 +2722,7 @@ FUN_ov52_0211c304: ; 0x0211C304
 	mov r1, r4
 	add r0, r6, #0xf0
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r3, #1
 	mov r12, r4
 	mov r0, #0x1c
@@ -5193,7 +5193,7 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 	strb r3, [r6, #0x13c]
 	strb r5, [r6, #0x13d]
 	str r5, [r6, #0x14c]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x130
 	mov r1, #0xa
 	bl  FUN_ov16_020f5278
@@ -8323,10 +8323,10 @@ _02121120:
 	blt _0212110C
 	add r4, sp, #0x1c
 	mov r0, r4
-	bl FUN_0200dbf0
+	bl FS_InitFile
 	ldr r1, _02121264 ; =0x02124780
 	mov r0, r4
-	bl FUN_0200dfc8
+	bl FS_OpenFile
 	cmp r0, #0
 	addeq sp, sp, #0x64
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -8404,7 +8404,7 @@ _0212124C:
 	cmp r8, r11
 	blt _02121168
 	add r0, sp, #0x1c
-	bl FUN_0200de0c
+	bl FS_CloseFile
 	add sp, sp, #0x64
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02121264: .word 0x02124780

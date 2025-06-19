@@ -79,32 +79,32 @@ FUN_ov123_02124de4: ; 0x02124DE4
 	mov r1, r6
 	add r0, r7, #0x14
 	mov r2, #0x24
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r4, _02124E9C ; =0x020A9440
 	mov r5, #0x800
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r4, _02124EA0 ; =0x020A8C40
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r6
 	ldr r4, _02124EA4 ; =0x020A8440
 	mov r2, r5
 	mov r1, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _02124EA8 ; =0x0212564C
 	add r1, r7, #0x20
 	bl  FUN_ov16_020f316c
@@ -167,10 +167,10 @@ _02124F34:
 	ldr r0, [r4, #4]
 	mov r2, r5
 	mov r1, #0
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r4, #4]
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124F58: .word 0x0209A250
 	arm_func_end FUN_ov123_02124eb0
@@ -356,7 +356,7 @@ _02125198:
 	ldr r1, _02125260 ; =0x020A9440
 	add r0, r2, r0
 	mov r2, #0x800
-	bl FUN_020078c8
+	bl MIi_CpuCopyFast
 _021251C8:
 	ldr r0, _0212525C ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
@@ -377,10 +377,10 @@ _021251FC:
 	mov r1, r0
 	mov r2, r6
 	mov r0, #0
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fac
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	b _02125248
 _02125224:
 	mov r1, r4
@@ -500,7 +500,7 @@ _021253AC:
 	mov r6, #0x800
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r5, #0
 	mov r0, r4
 	mov r1, r5
@@ -509,7 +509,7 @@ _021253AC:
 	ldr r4, _0212542C ; =0x020A8C40
 	mov r1, r6
 	mov r0, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
@@ -517,7 +517,7 @@ _021253AC:
 	ldr r4, _02125430 ; =0x020A8440
 	mov r1, r6
 	mov r0, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
@@ -541,7 +541,7 @@ FUN_ov123_02125434: ; 0x02125434
 	mov r2, #0xc
 	str r1, [r4, #8]
 	str r1, [r4, #0x44]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r4
 	mov r1, #1
 	bl FUN_ov123_02124de4

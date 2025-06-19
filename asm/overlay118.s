@@ -38,11 +38,11 @@ _02124D5C:
 	ldr r1, _02124E44 ; =0x020A8C40
 	mov r0, r5
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r1, _02124E48 ; =0x020A8440
 	mov r0, r5
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r0, _02124E4C ; =0x02125F0C
 	add r1, r10, #0x40
 	bl  FUN_ov1_020dbe00
@@ -233,10 +233,10 @@ FUN_ov118_02124fac: ; 0x02124FAC
 	mov r1, r0
 	mov r0, r6
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fac
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	bl  FUN_ov1_020db2f0
 	cmp r0, #0
 	mov r2, #4
@@ -430,7 +430,7 @@ _021252B0:
 	ldr r0, [r10, #0x2c]
 	mul r1, r2, r1
 	mov r1, r1, lsl #5
-	bl FUN_020026d0
+	bl DC_FlushRange
 _021252C8:
 	bl  FUN_ov1_020db2f0
 	cmp r0, #0
@@ -990,7 +990,7 @@ _02125A84:
 	mov r6, #0x800
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r5, #0
 	mov r0, r4
 	mov r1, r5
@@ -999,7 +999,7 @@ _02125A84:
 	ldr r4, _02125AD4 ; =0x020A8440
 	mov r1, r6
 	mov r0, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
@@ -1029,7 +1029,7 @@ FUN_ov118_02125ad8: ; 0x02125AD8
 	mov r2, #0xcc
 	strb r7, [r4, #0x11]
 	strh r3, [r4, #0x12]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r6, #2
 	mov r1, r6
 	add r0, r4, #0x14

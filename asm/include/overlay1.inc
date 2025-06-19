@@ -1,5 +1,5 @@
 .public FUN_02001eb0
-.public FUN_020026d0
+.public DC_FlushRange
 .public FUN_02002f14
 .public FUN_02004f78
 .public FUN_02004fac
@@ -13,10 +13,10 @@
 .public FUN_0200569c
 .public FUN_0200585c
 .public FUN_02006b80
-.public FUN_0200787c
-.public FUN_020078c8
-.public MemWrite
-.public _memcpy
+.public MIi_CpuClearFast
+.public MIi_CpuCopyFast
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_0200958c
 .public FUN_020095ac
 .public FUN_02009734
@@ -24,9 +24,9 @@
 .public FUN_020098b0
 .public FUN_02009a1c
 .public FUN_02009a98
-.public _strcpy
-.public StrncpyWithNullPad
-.public GetStrLen
+.public STD_CopyString
+.public STD_CopyLString
+.public STD_GetStringLength
 .public FUN_02015184
 .public FUN_0201769c
 .public FUN_020176e0

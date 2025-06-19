@@ -208,16 +208,16 @@ FUN_ov24_0211a180: ; 0x0211A180
 	mov r1, r5
 	add r0, r6, #0xc
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r5
 	add r0, r6, #0x18
 	mov r2, #0x54
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r4, #8
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x6c
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A20C ; =0x0211D7BC
 	add r1, r6, #0xc
 	bl  FUN_ov16_020f3054
@@ -251,15 +251,15 @@ FUN_ov24_0211a218: ; 0x0211A218
 	mov r1, r6
 	add r0, r7, #0xc
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r6
 	add r0, r7, #0x18
 	mov r2, #0x54
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r6
 	add r0, r7, #0x6c
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r5, sp, #0x44
 	ldr r1, _0211A2F0 ; =0x0211D7FC
 	ldr r2, _0211A2F4 ; =0x0211D808
@@ -1082,7 +1082,7 @@ _0211AE04:
 	beq _0211AE50
 	mov r1, r4
 	mov r2, r5
-	bl MemWrite
+	bl MI_CpuFill8
 _0211AE50:
 	mov r0, r8
 	bl FUN_ov24_0211a308

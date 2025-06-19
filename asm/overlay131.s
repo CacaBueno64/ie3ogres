@@ -407,7 +407,7 @@ _0213B1FC:
 	mov r0, r8
 	mov r1, r7
 	mov r2, #0x40
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r9, r7
 	ldr r5, _0213B328 ; =0x0209BA20
 	b _0213B244
@@ -534,7 +534,7 @@ _0213B3A8:
 	mov r0, r7
 	mov r1, r6
 	mov r2, #0x40
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r8, r6
 	ldr r4, _0213B4D8 ; =0x0209BA20
 	b _0213B3F0
@@ -733,7 +733,7 @@ FUN_ov131_0213b638: ; 0x0213B638
 	ldmlefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r6
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r7, r4
 	mov r3, #1
 	mov r2, r4
@@ -781,7 +781,7 @@ FUN_ov131_0213b6d8: ; 0x0213B6D8
 	ldmlefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r6
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r7, r4
 	mov r3, #1
 	mov r2, r4
@@ -878,7 +878,7 @@ FUN_ov131_0213b7bc: ; 0x0213B7BC
 	ldr r1, [sp, #0x20]
 	mov r0, r11
 	mov r2, r2, lsl #3
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [sp, #0x20]
 	cmp r9, #0
 	str r0, [sp, #0x30]
@@ -893,7 +893,7 @@ FUN_ov131_0213b7bc: ; 0x0213B7BC
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
 	str r1, [sp, #0x28]
-	bl GetStrLen
+	bl STD_GetStringLength
 	str r0, [sp, #0x30]
 _0213B894:
 	ldrh r1, [r10, #8]
@@ -909,7 +909,7 @@ _0213B894:
 	mov r0, r6
 	mov r2, r1, lsl #3
 	mov r1, r5
-	bl FUN_02007838
+	bl MIi_CpuClear32
 	ldr r0, [sp, #0x170]
 	ldr r4, [r10, #4]
 	str r0, [sp, #0x34]
@@ -990,10 +990,10 @@ _0213B96C:
 _0213B9F8:
 	ldr r1, _0213BE9C ; =0x0214C8E8
 _0213B9FC:
-	bl _strcpy
+	bl STD_CopyString
 	mov r0, r9
 	add r1, sp, #0x4c
-	bl _strcmp
+	bl STD_CompareString
 	b _0213BA94
 _0213BA10:
 	cmp r0, #0xd7
@@ -1012,7 +1012,7 @@ _0213BA30:
 	ldr r2, [sp, #0x30]
 	mov r0, r9
 	add r1, r4, #0x10
-	bl FUN_02014fc4
+	bl STD_CompareNString
 	cmp r0, #0
 	moveq r8, #1
 _0213BA58:
@@ -1030,7 +1030,7 @@ _0213BA58:
 	ldr r2, [sp, #0x30]
 	mov r0, r9
 	mov r1, r4
-	bl FUN_02014fc4
+	bl STD_CompareNString
 _0213BA94:
 	cmp r0, #0
 _0213BA98:
@@ -1368,7 +1368,7 @@ _0213BF28:
 	bne _0213BF48
 	mov r0, r7
 	add r1, r5, #2
-	bl _strcmp
+	bl STD_CompareString
 	cmp r0, #0
 	moveq r4, #1
 	beq _0213BF54
@@ -1409,7 +1409,7 @@ FUN_ov131_0213bf70: ; 0x0213BF70
 	mov r0, r9
 	mov r1, r6
 	mov r2, r8, lsl #3
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrh r1, [r10, #8]
 	ldr r0, _0213C1FC ; =0x0209A250
 	mov r1, r1, lsl #3
@@ -1422,7 +1422,7 @@ FUN_ov131_0213bf70: ; 0x0213BF70
 	mov r0, r6
 	mov r1, r5
 	mov r2, r2, lsl #3
-	bl FUN_02007838
+	bl MIi_CpuClear32
 	mov r7, r6
 	ldr r4, [r10, #4]
 	b _0213C0D8
@@ -1581,12 +1581,12 @@ FUN_ov131_0213c20c: ; 0x0213C20C
 	mov r1, #0
 	mov r2, #0x20
 	mov r5, r3
-	bl MemWrite
+	bl MI_CpuFill8
 	cmp r8, #0
 	beq _0213C248
 	mov r0, r4
 	mov r1, r8
-	bl _strcpy
+	bl STD_CopyString
 _0213C248:
 	ldr lr, [sp, #0x18]
 	ldr r12, [sp, #0x1c]
@@ -2168,7 +2168,7 @@ FUN_ov131_0213c994: ; 0x0213C994
 	movs r4, r1
 	beq _0213C9B0
 	mov r0, r4
-	bl GetStrLen
+	bl STD_GetStringLength
 	cmp r0, #2
 	bge _0213C9B8
 _0213C9B0:
@@ -3118,7 +3118,7 @@ _0213D5D8:
 	orrne r0, r0, #4
 	strneb r0, [sp, #5]
 	mov r0, r6
-	bl FUN_0200781c
+	bl MIi_CpuCopy16
 	strb r4, [r5]
 	ldr r2, [r5]
 	mov r0, r9
@@ -3206,7 +3206,7 @@ _0213D744:
 	add r0, sp, #2
 	mov r1, r6
 	mov r2, #0x18
-	bl FUN_02007a1c
+	bl MI_CpuFill
 	ldrh r2, [r7, #0x24]
 	ldr r0, _0213D858 ; =0x020A108A
 	mov r1, r9
@@ -3235,7 +3235,7 @@ _0213D744:
 	orrne r0, r0, #4
 	strneb r0, [sp, #5]
 	mov r0, r7
-	bl FUN_0200781c
+	bl MIi_CpuCopy16
 	strb r4, [r5]
 	ldr r2, [r5]
 	mov r0, r10
@@ -3324,7 +3324,7 @@ _0213D908:
 	add r0, sp, #6
 	mov r1, r11
 	mov r2, #0x18
-	bl FUN_02007a1c
+	bl MI_CpuFill
 	ldrh r1, [r6, #0x24]
 	ldr r0, _0213DA58 ; =0x0209BA20
 	strh r1, [sp, #6]
@@ -3358,7 +3358,7 @@ _0213D908:
 	orrne r0, r0, #4
 	strneb r0, [sp, #9]
 	mov r0, r6
-	bl FUN_0200781c
+	bl MIi_CpuCopy16
 	strb r4, [r5]
 	ldr r2, [r5]
 	mov r0, r9
@@ -3431,7 +3431,7 @@ FUN_ov131_0213da70: ; 0x0213DA70
 	strb r3, [r1, #0x2c]
 	ldrh r3, [sp, #0x52]
 	strh r3, [r1, #0x34]
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r0, r10
 	bl FUN_ov131_0213e174
 	ldr r1, _0213DC50 ; =0x0209BA20
@@ -3466,7 +3466,7 @@ _0213DB48:
 	mov r0, r6
 	mov r1, r11
 	mov r2, #0x18
-	bl FUN_02007a1c
+	bl MI_CpuFill
 	ldrh r1, [r7, #0x24]
 	ldr r0, _0213DC50 ; =0x0209BA20
 	strh r1, [sp, #6]
@@ -3502,7 +3502,7 @@ _0213DB48:
 	orr r2, r2, #8
 	strb r2, [sp, #9]
 	mov r2, #0x10
-	bl FUN_0200781c
+	bl MIi_CpuCopy16
 	strb r4, [r5]
 	ldr r2, [r5]
 	mov r0, r10
@@ -8000,21 +8000,21 @@ FUN_ov131_02141b58: ; 0x02141B58
 	add r0, sp, #8
 	mov r1, r4
 	mov r6, r2
-	bl MemWrite
+	bl MI_CpuFill8
 	add r9, sp, #0xe
 	mov r1, r4
 	mov r0, r9
 	mov r2, #0x258
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r5, #0x50
 	mov r0, r11
 	mov r1, r4
 	mov r2, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r5
 	add r0, r11, #0x50
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	strb r4, [r11, #0xb8]
 	mov r7, r4
 _02141BBC:
@@ -8065,17 +8065,17 @@ _02141C4C:
 	mov r0, r5
 	mov r1, r7
 	mov r2, r6
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r1, r5
 	add r0, r10, #1
 	mul r5, r0, r6
 	add r0, r9, r5
 	mov r2, r6
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r9, r5
 	mov r0, r7
 	mov r2, r6
-	bl _memcpy
+	bl MI_CpuCopy8
 _02141C98:
 	add r10, r10, #1
 	cmp r10, r8
@@ -8147,17 +8147,17 @@ _02141D70:
 	mov r0, r6
 	mov r1, r8
 	mov r2, r7
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r1, r6
 	add r0, r5, #1
 	mul r6, r0, r7
 	add r0, r9, r6
 	mov r2, r7
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r9, r6
 	mov r0, r8
 	mov r2, r7
-	bl _memcpy
+	bl MI_CpuCopy8
 _02141DBC:
 	add r5, r5, #1
 	cmp r5, r10
@@ -8480,7 +8480,7 @@ FUN_ov131_021421f4: ; 0x021421F4
 	mov r1, r0
 	mov r0, r4
 	mov r2, #0x20
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r5, #0
 	mov r0, r6
 	mov r1, r5
@@ -8547,7 +8547,7 @@ FUN_ov131_021422e4: ; 0x021422E4
 	bl FUN_0205107c
 	mov r1, r4
 	mov r2, #0x20
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r4, #0
 	mov r0, r5
 	mov r1, r4
@@ -8594,7 +8594,7 @@ FUN_ov131_021423a8: ; 0x021423A8
 	mov r1, #0xff
 	mov r2, #8
 	ldr r6, _02142488 ; =0x020A11DC
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, #6
 	bl  FUN_ov16_020ef8d4
 	mov r7, #0
@@ -8837,12 +8837,12 @@ FUN_ov131_021426e8: ; 0x021426E8
 	ldr r2, _021427FC ; =0x0000297C
 	mov r5, r0
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x1c8
 	mov r1, r4
 	add r0, r0, #0x3000
 	mov r2, #0xf0
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x3000
 	mov r2, #0x13
 	mov r1, #1
@@ -9115,11 +9115,11 @@ FUN_ov131_02142a60: ; 0x02142A60
 	mov r7, r0
 	ldr r0, [r1, #0x2c8]
 	mov r1, r9
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r9
 	mov r2, r6
-	bl MemWrite
+	bl MI_CpuFill8
 	add r1, r10, #0x3000
 	ldr r0, [r1, #0x2c0]
 	cmp r0, #0
@@ -9162,16 +9162,16 @@ FUN_ov131_02142a60: ; 0x02142A60
 	add r1, r7, #0x394
 	add r1, r1, #0x400
 	mov r2, #0x1f
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r0, r5, #0x400
 	add r1, r7, #0x1c
 	mov r2, #0x14
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r0, r5, #0x400
 	add r0, r0, #0xb4
 	add r1, r7, #0x4c
 	mov r2, #0x80
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r0, r5, #0xf00
 	ldrh r2, [r0, #0x10]
 	mov r0, r4
@@ -9198,7 +9198,7 @@ FUN_ov131_02142a60: ; 0x02142A60
 	mov r0, r7
 	strb r3, [r7, #0xd1]
 	ldr r1, [r1, #0x2c8]
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r10, #0x3000
 	ldr r1, [r1, #0x2c8]
 	ldr r0, [r4]
@@ -9282,7 +9282,7 @@ _02142CF8:
 _02142D28:
 	ldr r1, [r1, #0x2c8]
 	mov r2, r6
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r10, #0x3000
 	ldr r0, [r1, #0x2c4]
 	cmp r0, #0
@@ -9291,7 +9291,7 @@ _02142D28:
 	mov r2, #0x28
 	add r1, r1, #8
 	add r1, r1, #0x800
-	bl _memcpy
+	bl MI_CpuCopy8
 _02142D58:
 	add r0, r10, #0x3000
 	ldr r3, [r0, #0x2c8]
@@ -9316,7 +9316,7 @@ _02142D9C:
 	mov r2, #0x1c
 	mla r0, r1, r2, r0
 	add r1, r3, #0x830
-	bl _memcpy
+	bl MI_CpuCopy8
 _02142DB4:
 	ldr r0, _02142EF0 ; =0x0209A250
 	mov r1, r7
@@ -9326,7 +9326,7 @@ _02142DB4:
 	ldr r0, _02142F04 ; =0x020A0B00
 	add r1, r1, #0x34
 	mov r2, #0x14
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r0, r10, #0x3000
 	ldr r1, [r0, #0x2c8]
 	mov r2, #0
@@ -9545,7 +9545,7 @@ _021430BC:
 	moveq r2, #0x2c
 	add r0, r6, #0xf8
 	add r1, r9, r3
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r7, #0x3000
 	ldr r8, [r6, #0x160]
 	ldr r9, [r6, #0x164]
@@ -9651,7 +9651,7 @@ _0214323C:
 	strneb r5, [r0, #0x2d8]
 	add r0, r7, #0x1c8
 	add r0, r0, #0x3000
-	bl MemWrite
+	bl MI_CpuFill8
 	add r3, r7, #0x3000
 	ldrb r9, [r3, #0x2cc]
 	add r1, r7, #0x3100
@@ -9668,7 +9668,7 @@ _0214323C:
 	add r1, r12, #0x3000
 	str r8, [r3, #0x238]
 	str lr, [r3, #0x23c]
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r7, #0x1c8
 	ldr r0, _021433C4 ; =0x0209AEC0
 	mov r2, r4
@@ -9960,7 +9960,7 @@ _021436AC:
 	moveq r2, #0x2c
 	add r0, r6, #8
 	add r1, r9, r3
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r7, #0x3000
 	ldr r8, [r6, #0x70]
 	ldr r9, [r6, #0x74]
@@ -10066,7 +10066,7 @@ _0214382C:
 	strneb r5, [r0, #0x2d8]
 	add r0, r7, #0x1c8
 	add r0, r0, #0x3000
-	bl MemWrite
+	bl MI_CpuFill8
 	add r3, r7, #0x3000
 	ldrb r9, [r3, #0x2cc]
 	add r1, r7, #0x3100
@@ -10083,7 +10083,7 @@ _0214382C:
 	add r1, r12, #0x3000
 	str r8, [r3, #0x238]
 	str lr, [r3, #0x23c]
-	bl _memcpy
+	bl MI_CpuCopy8
 	add r1, r7, #0x1c8
 	ldr r0, _021439A4 ; =0x0209AEC0
 	mov r2, r4
@@ -10385,11 +10385,11 @@ FUN_ov131_02143cb4: ; 0x02143CB4
 	strb r5, [r3, #0x2f4]
 	strb r5, [r3, #0x2f5]
 	strb r5, [r3, #0x2f6]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _02143D28 ; =0x0209E6C0
 	mov r1, r5
 	mov r2, #0xf00
-	bl MemWrite
+	bl MI_CpuFill8
 	ldmfd sp!, {r3, r4, r5, pc}
 _02143D24: .word 0x0209AA60
 _02143D28: .word 0x0209E6C0
@@ -10613,7 +10613,7 @@ FUN_ov131_02143fb8: ; 0x02143FB8
 	mov r0, r7
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
@@ -10667,7 +10667,7 @@ FUN_ov131_02144074: ; 0x02144074
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _021440C0
@@ -10786,7 +10786,7 @@ FUN_ov131_02144218: ; 0x02144218
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144258
@@ -10854,7 +10854,7 @@ FUN_ov131_02144304: ; 0x02144304
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _02144348
@@ -10924,7 +10924,7 @@ FUN_ov131_02144400: ; 0x02144400
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _02144444
@@ -10995,7 +10995,7 @@ FUN_ov131_02144504: ; 0x02144504
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144544
@@ -11047,7 +11047,7 @@ FUN_ov131_021445b4: ; 0x021445B4
 	mov r0, r8
 	mov r1, r7
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
@@ -11101,7 +11101,7 @@ FUN_ov131_02144678: ; 0x02144678
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _021446B8
@@ -11158,7 +11158,7 @@ FUN_ov131_0214473c: ; 0x0214473C
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _02144780
@@ -11228,7 +11228,7 @@ FUN_ov131_02144838: ; 0x02144838
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _0214487C
@@ -11379,7 +11379,7 @@ FUN_ov131_02144a74: ; 0x02144A74
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144AB4
@@ -11442,7 +11442,7 @@ FUN_ov131_02144b54: ; 0x02144B54
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144B94
@@ -11505,7 +11505,7 @@ FUN_ov131_02144c34: ; 0x02144C34
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144C74
@@ -11568,7 +11568,7 @@ FUN_ov131_02144d14: ; 0x02144D14
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144D54
@@ -11632,7 +11632,7 @@ FUN_ov131_02144df4: ; 0x02144DF4
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
@@ -11674,7 +11674,7 @@ FUN_ov131_02144e90: ; 0x02144E90
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144ED0
@@ -11730,7 +11730,7 @@ FUN_ov131_02144f54: ; 0x02144F54
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02144F94
@@ -11787,7 +11787,7 @@ FUN_ov131_0214501c: ; 0x0214501C
 	mov r0, r7
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _0214505C
@@ -11856,7 +11856,7 @@ FUN_ov131_02145110: ; 0x02145110
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02145150
@@ -11925,7 +11925,7 @@ FUN_ov131_021451fc: ; 0x021451FC
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r6, #0xb]
 	cmp r0, #0
 	beq _02145240
@@ -12159,7 +12159,7 @@ FUN_ov131_02145554: ; 0x02145554
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12192,7 +12192,7 @@ FUN_ov131_021455c4: ; 0x021455C4
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -12229,7 +12229,7 @@ FUN_ov131_02145648: ; 0x02145648
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12263,7 +12263,7 @@ FUN_ov131_021456bc: ; 0x021456BC
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -12306,7 +12306,7 @@ FUN_ov131_02145754: ; 0x02145754
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12398,7 +12398,7 @@ FUN_ov131_02145888: ; 0x02145888
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -12474,7 +12474,7 @@ FUN_ov131_02145994: ; 0x02145994
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12509,7 +12509,7 @@ FUN_ov131_02145a0c: ; 0x02145A0C
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -12577,7 +12577,7 @@ FUN_ov131_02145af8: ; 0x02145AF8
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12609,7 +12609,7 @@ FUN_ov131_02145b68: ; 0x02145B68
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
@@ -12634,7 +12634,7 @@ _02145BC4:
 	mov r0, r5
 	bl FUN_02045950
 	add r1, sp, #0
-	bl _strcmp
+	bl STD_CompareString
 	cmp r0, #0
 	bne _02145C10
 	mov r0, r5
@@ -12670,7 +12670,7 @@ FUN_ov131_02145c40: ; 0x02145C40
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12703,7 +12703,7 @@ FUN_ov131_02145cb4: ; 0x02145CB4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12733,7 +12733,7 @@ FUN_ov131_02145d18: ; 0x02145D18
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	mov r1, r8
 	mov r2, r4
@@ -12775,11 +12775,11 @@ _02145DC0:
 	ldr r1, [sp, #4]
 	mov r2, r4
 	add r0, r6, #4
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 	ldr r1, [sp, #8]
 	mov r2, r4
 	add r0, r6, #0x44
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 	ldr r0, [sp, #0x20]
 	ldr r5, [sp, #0xc]
 	ldr r4, [sp, #0x10]
@@ -12817,7 +12817,7 @@ FUN_ov131_02145e4c: ; 0x02145E4C
 	mov r0, r7
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
@@ -12840,11 +12840,11 @@ FUN_ov131_02145e4c: ; 0x02145E4C
 	mov r2, r4
 	add r0, r7, #4
 	strb r3, [r7, #1]
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 	ldr r1, _02145F00 ; =0x0214CA70
 	mov r2, r4
 	add r0, r7, #0x44
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _02145EE4:
 	cmp r5, #0
 	movne r0, #1
@@ -12867,7 +12867,7 @@ FUN_ov131_02145f04: ; 0x02145F04
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -12902,7 +12902,7 @@ FUN_ov131_02145f7c: ; 0x02145F7C
 	mov r0, r7
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
@@ -12963,7 +12963,7 @@ FUN_ov131_02146060: ; 0x02146060
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
@@ -13032,7 +13032,7 @@ FUN_ov131_02146160: ; 0x02146160
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r5
 	mov r1, r7
 	mov r2, r6
@@ -13052,7 +13052,7 @@ FUN_ov131_02146160: ; 0x02146160
 	beq _021461D8
 	add r0, r7, #0x76
 	mov r2, #0x10
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _021461D8:
 	ldr r0, [sp, #0x20c]
 	cmp r0, #0
@@ -13067,7 +13067,7 @@ _021461D8:
 	mov r1, r6
 	add r0, r7, #0x86
 	mov r2, #0x40
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _02146210:
 	cmp r4, #0
 	movne r0, #1
@@ -13089,7 +13089,7 @@ FUN_ov131_0214622c: ; 0x0214622C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13122,7 +13122,7 @@ FUN_ov131_021462a0: ; 0x021462A0
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13156,7 +13156,7 @@ FUN_ov131_02146314: ; 0x02146314
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
@@ -13211,7 +13211,7 @@ FUN_ov131_021463dc: ; 0x021463DC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13244,7 +13244,7 @@ FUN_ov131_02146450: ; 0x02146450
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13277,7 +13277,7 @@ FUN_ov131_021464c4: ; 0x021464C4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r5
 	mov r2, r4
@@ -13326,7 +13326,7 @@ FUN_ov131_02146570: ; 0x02146570
 	mov r1, r7
 	mov r2, #0x80
 	mov r6, #1
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r5
 	mov r1, r8
 	mov r2, r9
@@ -13483,7 +13483,7 @@ FUN_ov131_021467bc: ; 0x021467BC
 	mov r0, r8
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r4
 	mov r2, r8
@@ -13546,7 +13546,7 @@ FUN_ov131_021468a0: ; 0x021468A0
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13575,7 +13575,7 @@ FUN_ov131_02146904: ; 0x02146904
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13607,7 +13607,7 @@ FUN_ov131_02146974: ; 0x02146974
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13639,7 +13639,7 @@ FUN_ov131_021469e4: ; 0x021469E4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13671,7 +13671,7 @@ FUN_ov131_02146a54: ; 0x02146A54
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13705,7 +13705,7 @@ FUN_ov131_02146ac8: ; 0x02146AC8
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -13741,7 +13741,7 @@ FUN_ov131_02146b4c: ; 0x02146B4C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13775,7 +13775,7 @@ FUN_ov131_02146bc4: ; 0x02146BC4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13810,7 +13810,7 @@ FUN_ov131_02146c40: ; 0x02146C40
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13845,7 +13845,7 @@ FUN_ov131_02146cbc: ; 0x02146CBC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13878,7 +13878,7 @@ FUN_ov131_02146d30: ; 0x02146D30
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13912,7 +13912,7 @@ FUN_ov131_02146da8: ; 0x02146DA8
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13946,7 +13946,7 @@ FUN_ov131_02146e20: ; 0x02146E20
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -13979,7 +13979,7 @@ FUN_ov131_02146e94: ; 0x02146E94
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14014,7 +14014,7 @@ FUN_ov131_02146f10: ; 0x02146F10
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -14054,7 +14054,7 @@ FUN_ov131_02146fa0: ; 0x02146FA0
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -14093,7 +14093,7 @@ FUN_ov131_0214702c: ; 0x0214702C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14129,7 +14129,7 @@ FUN_ov131_021470ac: ; 0x021470AC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14164,7 +14164,7 @@ FUN_ov131_02147128: ; 0x02147128
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14198,7 +14198,7 @@ FUN_ov131_021471a0: ; 0x021471A0
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14233,7 +14233,7 @@ FUN_ov131_0214721c: ; 0x0214721C
 	mov r0, r6
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r5
 	mov r1, r7
 	mov r2, r6
@@ -14272,7 +14272,7 @@ FUN_ov131_021472a0: ; 0x021472A0
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14306,7 +14306,7 @@ FUN_ov131_02147318: ; 0x02147318
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14339,7 +14339,7 @@ FUN_ov131_0214738c: ; 0x0214738C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14373,7 +14373,7 @@ FUN_ov131_02147400: ; 0x02147400
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -14415,7 +14415,7 @@ FUN_ov131_02147494: ; 0x02147494
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14458,7 +14458,7 @@ FUN_ov131_02147528: ; 0x02147528
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14493,7 +14493,7 @@ FUN_ov131_021475a0: ; 0x021475A0
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -14534,7 +14534,7 @@ FUN_ov131_02147630: ; 0x02147630
 	mov r1, r8
 	mov r2, #0x80
 	mov r6, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r9
 	mov r1, r5
 	mov r2, r7
@@ -14712,7 +14712,7 @@ FUN_ov131_021478c8: ; 0x021478C8
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14748,7 +14748,7 @@ FUN_ov131_02147944: ; 0x02147944
 	mov r0, r7
 	mov r1, r6
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrsb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _02147988
@@ -14832,7 +14832,7 @@ FUN_ov131_02147a6c: ; 0x02147A6C
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -14869,7 +14869,7 @@ FUN_ov131_02147af4: ; 0x02147AF4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14898,7 +14898,7 @@ FUN_ov131_02147b58: ; 0x02147B58
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -14942,7 +14942,7 @@ FUN_ov131_02147bf4: ; 0x02147BF4
 	mov r0, r5
 	mov r1, r6
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r4
 	mov r2, r5
@@ -15034,7 +15034,7 @@ FUN_ov131_02147d34: ; 0x02147D34
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -15070,7 +15070,7 @@ FUN_ov131_02147db8: ; 0x02147DB8
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15109,7 +15109,7 @@ FUN_ov131_02147e40: ; 0x02147E40
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15143,7 +15143,7 @@ FUN_ov131_02147eb4: ; 0x02147EB4
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15171,7 +15171,7 @@ FUN_ov131_02147eb4: ; 0x02147EB4
 	bl FUN_0206dcd4
 	mov r2, r9
 	add r1, r5, r4
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r9, #0
 	b _02147F6C
 _02147F58:
@@ -15213,7 +15213,7 @@ FUN_ov131_02147fb4: ; 0x02147FB4
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15257,7 +15257,7 @@ FUN_ov131_02148048: ; 0x02148048
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -15303,7 +15303,7 @@ FUN_ov131_021480ec: ; 0x021480EC
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -15347,7 +15347,7 @@ FUN_ov131_0214818c: ; 0x0214818C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15379,7 +15379,7 @@ FUN_ov131_021481fc: ; 0x021481FC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15411,7 +15411,7 @@ FUN_ov131_0214826c: ; 0x0214826C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15443,7 +15443,7 @@ FUN_ov131_021482dc: ; 0x021482DC
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15480,7 +15480,7 @@ FUN_ov131_0214835c: ; 0x0214835C
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
@@ -15521,7 +15521,7 @@ FUN_ov131_021483f4: ; 0x021483F4
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15554,7 +15554,7 @@ FUN_ov131_02148464: ; 0x02148464
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -15584,7 +15584,7 @@ FUN_ov131_021484cc: ; 0x021484CC
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -15636,7 +15636,7 @@ FUN_ov131_02148588: ; 0x02148588
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -15670,7 +15670,7 @@ FUN_ov131_02148600: ; 0x02148600
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -15706,7 +15706,7 @@ FUN_ov131_02148684: ; 0x02148684
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15754,7 +15754,7 @@ FUN_ov131_02148728: ; 0x02148728
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15787,7 +15787,7 @@ FUN_ov131_0214879c: ; 0x0214879C
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15821,7 +15821,7 @@ FUN_ov131_02148810: ; 0x02148810
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
@@ -15858,7 +15858,7 @@ FUN_ov131_02148894: ; 0x02148894
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -15897,7 +15897,7 @@ FUN_ov131_0214891c: ; 0x0214891C
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r8
 	mov r2, r6
@@ -15945,7 +15945,7 @@ FUN_ov131_021489cc: ; 0x021489CC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -15977,7 +15977,7 @@ FUN_ov131_02148a3c: ; 0x02148A3C
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -16014,7 +16014,7 @@ FUN_ov131_02148ac0: ; 0x02148AC0
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
@@ -16052,7 +16052,7 @@ FUN_ov131_02148b44: ; 0x02148B44
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
@@ -16085,7 +16085,7 @@ FUN_ov131_02148bbc: ; 0x02148BBC
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16118,7 +16118,7 @@ FUN_ov131_02148c30: ; 0x02148C30
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16156,7 +16156,7 @@ FUN_ov131_02148cb8: ; 0x02148CB8
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16190,7 +16190,7 @@ FUN_ov131_02148d30: ; 0x02148D30
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16222,7 +16222,7 @@ FUN_ov131_02148da0: ; 0x02148DA0
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16256,7 +16256,7 @@ FUN_ov131_02148e18: ; 0x02148E18
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16288,7 +16288,7 @@ FUN_ov131_02148e88: ; 0x02148E88
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16323,7 +16323,7 @@ FUN_ov131_02148f04: ; 0x02148F04
 	mov r0, r4
 	mov r1, #0
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
@@ -16356,7 +16356,7 @@ FUN_ov131_02148f74: ; 0x02148F74
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
@@ -16478,7 +16478,7 @@ FUN_ov131_021490f8: ; 0x021490F8
 	mov r1, r6
 	mov r2, #0x80
 	mov r4, r6
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
@@ -16496,7 +16496,7 @@ FUN_ov131_021490f8: ; 0x021490F8
 	ldr r7, _021492E4 ; =0x00000081
 	mov r0, r6
 	mov r1, r7
-	bl FUN_0200e580
+	bl FS_LoadOverlay
 	ldr r0, _021492E8 ; =0x0214CDB0
 	ldr r5, _021492EC ; =FUN_ov131_02143fa0
 	str r6, [r0, #0xc]
@@ -16553,7 +16553,7 @@ _02149230:
 	bl FUN_0200e5d4
 	mov r0, r4
 	mov r1, r8
-	bl FUN_0200e580
+	bl FS_LoadOverlay
 	ldr r0, _021492E8 ; =0x0214CDB0
 	ldr r0, [r0]
 	cmp r0, #0
@@ -16622,7 +16622,7 @@ FUN_ov131_02149308: ; 0x02149308
 	add r0, r0, #0x6000
 	mov r2, #0x80
 	str r4, [r3, #0x22c]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r3, _02149380 ; =0x0209A250
 	add r1, r5, #0x22c
 	ldr r0, [r3]
@@ -17235,7 +17235,7 @@ FUN_ov131_02149b4c: ; 0x02149B4C
 	bne _02149C18
 	ldr r0, [sp, #0xc]
 	ldr r1, _02149D20 ; =0x0214CAD8
-	bl _strcpy
+	bl STD_CopyString
 	mov r8, #1
 	ldr r4, _02149D24 ; =0x0000306B
 	mov r0, r5
@@ -17280,10 +17280,10 @@ _02149C18:
 	ldr r1, _02149D28 ; =0x0214CB00
 	mov r0, r6
 	add r10, r6, #8
-	bl _strcpy
+	bl STD_CopyString
 	ldr r1, _02149D2C ; =0x0214CB08
 	mov r0, r10
-	bl _strcpy
+	bl STD_CopyString
 	mov r8, #2
 	mov r1, r7
 	mov r7, #1
@@ -17465,7 +17465,7 @@ FUN_ov131_02149e50: ; 0x02149E50
 	mov r5, r0
 	ldr r0, [sp, #0x20]
 	ldr r1, _0214A51C ; =0x0214CB30
-	bl _strcpy
+	bl STD_CopyString
 	ldr r0, [sp, #0x20]
 	add r8, r0, #8
 	strb r7, [r0, #8]
@@ -17552,7 +17552,7 @@ _02149F98:
 	bne _0214A0A8
 	mov r0, r8
 	mov r1, r4
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldrb r0, [r4, #0x1d]
 	cmp r0, #0xe
 	beq _0214A074
@@ -17564,12 +17564,12 @@ _02149F98:
 _0214A050:
 	ldr r1, _0214A530 ; =0x0214CB40
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	add r0, sp, #0x30
 	ldr r0, [r0, r9, lsl #2]
 	ldr r1, _0214A534 ; =0x0214CB4C
 	add r9, r9, #1
-	bl _strcpy
+	bl STD_CopyString
 	b _0214A088
 _0214A074:
 	ldr r1, _0214A538 ; =0x0214CB58
@@ -17578,7 +17578,7 @@ _0214A07C:
 	ldr r1, _0214A53C ; =0x0214CB74
 _0214A080:
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 _0214A088:
 	ldrb r0, [r4, #0x1d]
 	cmp r0, #0xe
@@ -17586,7 +17586,7 @@ _0214A088:
 	beq _0214A180
 	ldr r1, _0214A540 ; =0x0214CB84
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	b _0214A180
 _0214A0A8:
 	ldrh r0, [r4, #0x20]
@@ -17603,18 +17603,18 @@ _0214A0B4:
 	bl  FUN_ov16_020f1f5c
 	ldr r1, _0214A548 ; =0x0214CB8C
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	mov r1, r4
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r1, _0214A54C ; =0x0214CB9C
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	add r0, sp, #0x30
 	ldr r0, [r0, r9, lsl #2]
 	ldr r1, _0214A550 ; =0x0214CBA0
 	add r9, r9, #1
-	bl _strcpy
+	bl STD_CopyString
 	ldrh r1, [sp, #0x1e]
 	ldr r0, _0214A52C ; =0x0209BA20
 	bl  FUN_ov16_020edf8c
@@ -17630,18 +17630,18 @@ _0214A11C:
 	bl  FUN_ov16_020f1f5c
 	ldr r1, _0214A558 ; =0x0214CBB0
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	mov r1, r4
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r1, _0214A55C ; =0x0214CBC0
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	add r0, sp, #0x30
 	ldr r0, [r0, r9, lsl #2]
 	ldr r1, _0214A560 ; =0x0214CBC4
 	add r9, r9, #1
-	bl _strcpy
+	bl STD_CopyString
 	ldrh r1, [sp, #0x1e]
 	ldr r0, _0214A52C ; =0x0209BA20
 	bl  FUN_ov16_020edfe4
@@ -17651,22 +17651,22 @@ _0214A180:
 	beq _0214A1B8
 	ldr r1, _0214A564 ; =0x0214CBD0
 	mov r0, r8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [r4, r9, lsl #2]
 	ldr r1, _0214A568 ; =0x0214CBE8
 	add r9, r9, #1
-	bl _strcpy
+	bl STD_CopyString
 	ldr r0, [r4, r9, lsl #2]
 	ldr r1, _0214A56C ; =0x0214CBEC
-	bl _strcpy
+	bl STD_CopyString
 	b _0214A1D0
 _0214A1B8:
 	ldr r1, _0214A570 ; =0x0214CBF0
 	mov r0, r8
-	bl _strcpy
+	bl STD_CopyString
 	ldr r0, [r4, r9, lsl #2]
 	ldr r1, _0214A574 ; =0x0214CC04
-	bl _strcpy
+	bl STD_CopyString
 _0214A1D0:
 	cmp r7, #0
 	mov r4, #2
@@ -17825,13 +17825,13 @@ _0214A364:
 	add r8, r8, #0x80
 	ldr r1, _0214A588 ; =0x0214CC0C
 	mov r0, r8
-	bl _strcpy
+	bl STD_CopyString
 	ldr r1, _0214A58C ; =0x0214CC30
 	add r0, r8, #0x22
-	bl _strcpy
+	bl STD_CopyString
 	ldr r1, _0214A590 ; =0x0214CC38
 	add r0, r8, #0x2a
-	bl _strcpy
+	bl STD_CopyString
 	mov r6, #0
 	str r6, [sp]
 	mov r1, r5
@@ -17942,16 +17942,16 @@ FUN_ov131_0214a594: ; 0x0214A594
 	bl  FUN_ov16_020f1f5c
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A748 ; =0x0214CC44
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	mov r1, r5
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A74C ; =0x0214CC54
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A750 ; =0x0214CC60
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldrh r1, [r10, #0xa0]
 	ldr r4, _0214A754 ; =0x0209BA20
 	mov r0, r4
@@ -17966,23 +17966,23 @@ FUN_ov131_0214a594: ; 0x0214A594
 	bl  FUN_ov16_020f1f5c
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A75C ; =0x0214CC68
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	mov r1, r5
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A760 ; =0x0214CC78
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A764 ; =0x0214CC84
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldrh r1, [r10, #0x9e]
 	mov r0, r4
 	rsb r1, r1, #0
 	bl  FUN_ov16_020edfe4
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A768 ; =0x0214CC88
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	strb r7, [r10, #0x9d]
 	strh r7, [r10, #0xa0]
 	mov r5, #1
@@ -18068,10 +18068,10 @@ FUN_ov131_0214a770: ; 0x0214A770
 	mov r4, r0
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x2c
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0xc]
 	ldr r1, _0214A88C ; =0x0214CC98
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	mov r5, #1
 	mov r1, r4
 	ldr r4, _0214A890 ; =0x00003002
@@ -18138,16 +18138,16 @@ FUN_ov131_0214a894: ; 0x0214A894
 	strb r9, [r1]
 	ldr r0, [sp, #0x14]
 	ldr r1, _0214AA94 ; =0x0214CCB8
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	mov r1, r6
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	ldr r1, _0214AA98 ; =0x0214CCDC
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	ldr r1, _0214AA9C ; =0x0214CCE0
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	bl _strlen
 	mov r7, r0
@@ -18155,17 +18155,17 @@ FUN_ov131_0214a894: ; 0x0214A894
 	ldr r1, _0214AAA0 ; =0x0214CCF8
 	add r0, r0, r7
 	add r0, r0, #2
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	ldr r1, _0214AAA4 ; =0x0214CD04
 	add r0, r0, r7
 	add r0, r0, #0xc
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	ldr r0, [sp, #0x14]
 	ldr r1, _0214AAA8 ; =0x0214CD08
 	add r0, r0, r7
 	add r0, r0, #0x10
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 	mov r6, #1
 	mov r1, r5
 	ldr r5, _0214AAAC ; =0x00003002
@@ -18454,7 +18454,7 @@ FUN_ov131_0214ad04: ; 0x0214AD04
 	mov r0, r5
 	mov r1, #0
 	mov r2, #0x48
-	bl MemWrite
+	bl MI_CpuFill8
 	ldmfd sp!, {r3, r4, r5, pc}
 _0214AD80: .word 0x02099ED8
 _0214AD84: .word 0x02099EC0
@@ -18493,7 +18493,7 @@ _0214ADDC:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r9
-	bl MemWrite
+	bl MI_CpuFill8
 _0214AE04:
 	add r4, r4, #0x48
 	add r8, r8, #1
@@ -18559,7 +18559,7 @@ _0214AEB4:
 	mov r1, r7
 	mov r2, #0x48
 	ldr r9, [r10, #4]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r5]
 	mov r1, r9
 	bl FUN_020559a0
@@ -19606,7 +19606,7 @@ _0214BDA0:
 	mov r1, r7
 	mov r2, r6
 	add r0, r8, r3
-	bl MemWrite
+	bl MI_CpuFill8
 _0214BDC0:
 	add r4, r4, #1
 	cmp r4, #0x20
@@ -20118,7 +20118,7 @@ FUN_ov131_0214c49c: ; 0x0214C49C
 	add r0, r0, #0x1000
 	mov r1, #0
 	mov r2, #0x1c
-	bl MemWrite
+	bl MI_CpuFill8
 	ldmfd sp!, {r3, r4, r5, pc}
 _0214C510: .word 0x02099F38
 	arm_func_end FUN_ov131_0214c49c

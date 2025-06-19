@@ -1,4 +1,4 @@
-.public FUN_020026d0
+.public DC_FlushRange
 .public FUN_02004cc0
 .public FUN_02004d14
 .public FUN_02004db8
@@ -8,10 +8,10 @@
 .public FUN_02005c3c
 .public FUN_02005c54
 .public FUN_02005cbc
-.public FUN_0200787c
-.public MemWrite
+.public MIi_CpuClearFast
+.public MI_CpuFill8
 .public FUN_020095ac
-.public GetStrLen
+.public STD_GetStringLength
 .public FUN_02015184
 .public FUN_0201e078
 .public FUN_0202de44

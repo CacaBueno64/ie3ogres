@@ -38,7 +38,7 @@ FUN_ov103_02124d08: ; 0x02124D08
 	beq _02124D68
 	add r0, r5, #0x60
 	mov r2, #0x6d
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _02124D68:
 	mov r0, #0
 	strb r0, [r5, #0xe0]
@@ -53,7 +53,7 @@ FUN_ov103_02124d78: ; 0x02124D78
 	add r0, r4, #0x24
 	mov r1, #0
 	mov r2, #0x3c
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _02124DA0 ; =0x02125740
 	add r1, r4, #0x24
 	bl  FUN_ov16_020f316c
@@ -324,13 +324,13 @@ FUN_ov103_021250c0: ; 0x021250C0
 	add r1, r10, #0x60
 	mov r0, r4
 	mov r2, #0x6d
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 	ldr r0, [r10, #0xe4]
 	cmp r0, #0xf
 	bge _0212516C
 	ldr r1, _02125248 ; =0x02125764
 	mov r0, r4
-	bl FUN_02014ee8
+	bl STD_ConcatenateString
 _0212516C:
 	mov r9, #0
 	ldr r5, _0212524C ; =0x02099F50
@@ -343,7 +343,7 @@ _02125188:
 	mla r1, r9, r11, r7
 	mov r0, r8
 	mov r2, #0x25
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 	mov r0, r8
 	bl  FUN_ov16_020f2118
 	ldr r0, [r5]
@@ -371,7 +371,7 @@ _02125188:
 	ldr r12, [r12, #8]
 	blx r12
 	mov r0, r8
-	bl GetStrLen
+	bl STD_GetStringLength
 	cmp r0, #0x24
 	blt _0212521C
 	add r9, r9, #1
@@ -385,7 +385,7 @@ _0212521C:
 	mul r1, r2, r1
 	mov r1, r1, lsl #5
 	strb r3, [r10, #0x20]
-	bl FUN_020026d0
+	bl DC_FlushRange
 	add sp, sp, #0x170
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125244: .word 0x0209F5C0
@@ -418,10 +418,10 @@ _02125290:
 	mov r1, r0
 	mov r0, r6
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fac
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r7, #1
 	ldr r1, [r4, #0x3c]
 	mov r0, r7
@@ -439,10 +439,10 @@ _02125290:
 	mov r1, r0
 	mov r0, r6
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_0200501c
 	mov r1, r5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
 	ldrne r0, [r4, #0x14]
@@ -489,7 +489,7 @@ FUN_ov103_0212538c: ; 0x0212538C
 	mov r1, r5
 	add r0, r6, #0x24
 	mov r2, #0x3c
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r4, #1
 	ldr r0, [r6, #4]
 	str r5, [r6, #0xc]
@@ -550,7 +550,7 @@ FUN_ov103_02125418: ; 0x02125418
 	moveq r0, #0
 	streqb r0, [r4, #0xe0]
 	add r0, r4, #0x60
-	bl GetStrLen
+	bl STD_GetStringLength
 	ldr r1, [r4, #0xe8]
 	cmp r1, r0
 	movne r1, #0

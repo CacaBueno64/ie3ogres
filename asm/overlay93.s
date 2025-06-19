@@ -21,7 +21,7 @@ FUN_ov93_02124d08: ; 0x02124D08
 	mov r0, r7
 	mov r1, r6
 	mov r2, #0x100
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r1, _02124D88 ; =0x021253AC
 	mov r0, r7
 	mov r2, r8
@@ -176,7 +176,7 @@ FUN_ov93_02124f1c: ; 0x02124F1C
 	mov r1, r4
 	add r0, r5, #8
 	mov r2, #0xb0
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _02124F84 ; =0x021253E0
 	str r4, [r5, #0xc4]
 	str r4, [r5, #0xc8]

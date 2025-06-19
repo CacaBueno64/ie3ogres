@@ -677,7 +677,7 @@ Overlay overlay129
 Overlay overlay130
 {
 	Address 0x0212A9C0
-	Object src/ov130_0212a9c0.o
+	Object src/ov130.o
 	Object asm/overlay130_0212aa14.o
 }
 Overlay overlay131

@@ -1,8 +1,8 @@
-.public MemWrite
+.public MI_CpuFill8
 .public FUN_020095ac
-.public _strcpy
-.public GetStrLen
-.public FUN_02014ee8
+.public STD_CopyString
+.public STD_GetStringLength
+.public STD_ConcatenateString
 .public FUN_0201e078
 .public FUN_0201f9bc
 .public FUN_02023c40

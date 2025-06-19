@@ -198,15 +198,15 @@ FUN_ov28_0211a08c: ; 0x0211A08C
 	str r1, [r5, #8]
 	mov r1, r4
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x3c
 	mov r1, r4
 	mov r2, #0x18
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x54
 	mov r1, r4
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A234 ; =0x0211B82C
 	add r1, r5, #0xc
 	bl  FUN_ov16_020f3054
@@ -1631,16 +1631,16 @@ FUN_ov28_0211b554: ; 0x0211B554
 	mov r0, r4
 	strb r5, [r3, #0x8e]
 	strb r5, [r2, #0x31]
-	bl _strcpy
+	bl STD_CopyString
 	cmp r4, #0
 	beq _0211B5E8
 	ldr r1, _0211B6A8 ; =0x0209A460
 	mov r0, r4
 	mov r2, #0x11
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211B5E8:
 	ldr r0, _0211B6A8 ; =0x0209A460
-	bl GetStrLen
+	bl STD_GetStringLength
 	mov r5, #0
 	ldr r0, _0211B6A0 ; =0x020A0B00
 	mov r1, r5

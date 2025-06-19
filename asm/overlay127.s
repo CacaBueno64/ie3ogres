@@ -1,11 +1,16 @@
 ; contains the mobiclip sdk 1.2.1
+; maybe contains the sound engine?
 
 	.include "/macros/function.inc"
 	.include "/include/overlay127.inc"
 	.text
 
-	arm_func_start FUN_ov127_0212a9c0
-FUN_ov127_0212a9c0: ; 0x0212A9C0
+; libMobiclip.a START
+
+; yuv.o START
+
+	arm_func_start YuvToArgb
+YuvToArgb: ; 0x0212A9C0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, r12, lr}
 	ldr r8, [r0, #0xc]
 	ldr r9, [r0, #0x10]
@@ -376,8 +381,12 @@ _0212AA08:
 	bgt _0212AA00
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, r12, pc}
-	arm_func_end FUN_ov127_0212a9c0
+	arm_func_end YuvToArgb
 
+; yuv.o END
+
+; libmobiclip.o START
+; Init()
 	arm_func_start FUN_ov127_0212af80
 FUN_ov127_0212af80: ; 0x0212AF80
 	stmfd sp!, {r4, r5, r6, lr}
@@ -389,13 +398,13 @@ FUN_ov127_0212af80: ; 0x0212AF80
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov127_0212b1c8
+	bl MOHandlePrivate__Init
 	ldmfd sp!, {r4, r5, r6, pc}
 _0212AFAC: .word 0x02000C64
 	arm_func_end FUN_ov127_0212af80
 
-	arm_func_start FUN_ov127_0212afb0
-FUN_ov127_0212afb0: ; 0x0212AFB0
+	arm_func_start MO_OpenMovie
+MO_OpenMovie: ; 0x0212AFB0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	mov r0, #0x14
@@ -412,7 +421,7 @@ FUN_ov127_0212afb0: ; 0x0212AFB0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov127_0212be6c
+	bl MOStreamFile__Open
 	cmp r0, #0
 	bne _0212B01C
 	cmp r4, #0
@@ -429,7 +438,7 @@ _0212B01C:
 	bl FUN_ov127_0212b16c
 	movs r5, r0
 	beq _0212B034
-	bl FUN_ov127_0212b184
+	bl MOHandlePrivate__MOHandlePrivate
 	mov r5, r0
 _0212B034:
 	mov r0, r5
@@ -441,7 +450,7 @@ _0212B034:
 	cmp r5, #0
 	beq _0212B064
 	mov r0, r5
-	bl FUN_ov127_0212b1b4
+	bl MOHandlePrivate__nMOHandlePrivate
 	mov r0, r5
 	bl FUN_ov127_0212b178
 _0212B064:
@@ -451,7 +460,7 @@ _0212B06C:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _0212B074: .word 0x021371B8
-	arm_func_end FUN_ov127_0212afb0
+	arm_func_end MO_OpenMovie
 
 	arm_func_start FUN_ov127_0212b078
 FUN_ov127_0212b078: ; 0x0212B078
@@ -462,106 +471,110 @@ FUN_ov127_0212b078: ; 0x0212B078
 	ldmfd sp!, {r4, pc}
 arm_func_end FUN_ov127_0212b078
 
-	arm_func_start FUN_ov127_0212b08c
-FUN_ov127_0212b08c: ; 0x0212B08C
+	arm_func_start MO_CloseMovie
+MO_CloseMovie: ; 0x0212B08C
 	stmfd sp!, {r4, lr}
 	movs r4, r0
 	cmpne r4, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_ov127_0212b1b4
+	bl MOHandlePrivate__nMOHandlePrivate
 	mov r0, r4
 	bl FUN_ov127_0212b178
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov127_0212b08c
+	arm_func_end MO_CloseMovie
 
-	arm_func_start FUN_ov127_0212b0ac
-FUN_ov127_0212b0ac: ; 0x0212B0AC
+	arm_func_start MO_GetVideoFps
+MO_GetVideoFps: ; 0x0212B0AC
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212b8c4
+	bl MOHandlePrivate__GetFps
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b0ac
+	arm_func_end MO_GetVideoFps
 
-	arm_func_start FUN_ov127_0212b0c4
-FUN_ov127_0212b0c4: ; 0x0212B0C4
+	arm_func_start MO_GetNbFrame
+MO_GetNbFrame: ; 0x0212B0C4
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212b8cc
+	bl MOHandlePrivate__GetNbFrame
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b0c4
+	arm_func_end MO_GetNbFrame
 
-	arm_func_start FUN_ov127_0212b0dc
-FUN_ov127_0212b0dc: ; 0x0212B0DC
+	arm_func_start MO_ReadFrame
+MO_ReadFrame: ; 0x0212B0DC
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212b8d4
+	bl MOHandlePrivate__NextFrame
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b0dc
+	arm_func_end MO_ReadFrame
 
-	arm_func_start FUN_ov127_0212b100
-FUN_ov127_0212b100: ; 0x0212B100
+	arm_func_start MO_UnpackFrameImage
+MO_UnpackFrameImage: ; 0x0212B100
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212ba0c
+	bl MOHandlePrivate__FrameUnpackVideo
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b100
+	arm_func_end MO_UnpackFrameImage
 
-	arm_func_start FUN_ov127_0212b124
-FUN_ov127_0212b124: ; 0x0212B124
+	arm_func_start MO_BlitFrameImage
+MO_BlitFrameImage: ; 0x0212B124
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212bae8
+	bl MOHandlePrivate__BlitVideo
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b124
+	arm_func_end MO_BlitFrameImage
 
-	arm_func_start FUN_ov127_0212b148
-FUN_ov127_0212b148: ; 0x0212B148
+	arm_func_start MO_SkipFrameImage
+MO_SkipFrameImage: ; 0x0212B148
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov127_0212bc58
+	bl MOHandlePrivate__SkipVideo
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212b148
+	arm_func_end MO_SkipFrameImage
+
+; libmobiclip.o END
+
+; libmobiclip_priv START
 
 	arm_func_start FUN_ov127_0212b16c
 FUN_ov127_0212b16c: ; 0x0212B16C
-	ldr r12, _0212B174 ; =FUN_0202ed30
+	ldr r12, _0212B174 ; =MO_Malloc
 	bx r12
-_0212B174: .word FUN_0202ed30
+_0212B174: .word MO_Malloc
 	arm_func_end FUN_ov127_0212b16c
 
 	arm_func_start FUN_ov127_0212b178
 FUN_ov127_0212b178: ; 0x0212B178
-	ldr r12, _0212B180 ; =FUN_0202ed3c
+	ldr r12, _0212B180 ; =MO_Free
 	bx r12
-_0212B180: .word FUN_0202ed3c
+_0212B180: .word MO_Free
 	arm_func_end FUN_ov127_0212b178
 
-	arm_func_start FUN_ov127_0212b184
-FUN_ov127_0212b184: ; 0x0212B184
+	arm_func_start MOHandlePrivate__MOHandlePrivate
+MOHandlePrivate__MOHandlePrivate: ; 0x0212B184
 	mov r1, #0
 	str r1, [r0]
 	str r1, [r0, #0x5c]
@@ -574,19 +587,19 @@ FUN_ov127_0212b184: ; 0x0212B184
 	str r1, [r0, #0x58]
 	str r1, [r0, #0x94]
 	bx lr
-	arm_func_end FUN_ov127_0212b184
+	arm_func_end MOHandlePrivate__MOHandlePrivate
 
-	arm_func_start FUN_ov127_0212b1b4
-FUN_ov127_0212b1b4: ; 0x0212B1B4
+	arm_func_start MOHandlePrivate__nMOHandlePrivate
+MOHandlePrivate__nMOHandlePrivate: ; 0x0212B1B4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov127_0212b760
+	bl MOHandlePrivate__Free
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov127_0212b1b4
+	arm_func_end MOHandlePrivate__nMOHandlePrivate
 
-	arm_func_start FUN_ov127_0212b1c8
-FUN_ov127_0212b1c8: ; 0x0212B1C8
+	arm_func_start MOHandlePrivate__Init
+MOHandlePrivate__Init: ; 0x0212B1C8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #8
 	mov r4, r0
@@ -683,22 +696,22 @@ _0212B30C:
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r7, _0212B74C ; =0x00000454
 	mov r0, r7
-	bl FUN_0202ed30
+	bl MO_Malloc
 	mov r1, r0
 	mov r6, #0
 	mov r0, r6
 	mov r2, r7
 	str r1, [r4, #0x34]
-	bl FUN_0200787c
-	bl FUN_ov127_0212bc98
+	bl MIi_CpuClearFast
+	bl MOPrivate_VideoCodeRelocate
 	str r0, [r4, #0x38]
-	bl FUN_ov127_0212bd10
+	bl MOPrivate_VideoDataRelocate
 	ldr r2, [r4, #0x34]
 	ldr r1, _0212B750 ; =0x0212E654
 	str r0, [r2, #0x3c]
 	ldr r0, [r4, #0x34]
 	str r1, [r0, #0x40]
-	bl FUN_ov127_0212bde8
+	bl MOPrivate_MinMaxDataRelocate
 	ldr r1, [r4, #0x34]
 	add r0, r0, #0x40
 	str r0, [r1, #0x44]
@@ -706,7 +719,7 @@ _0212B30C:
 	ldr r0, [r4, #0x14]
 	str r1, [r4, #0x4c]
 	str r0, [r4, #0x50]
-	bl FUN_ov127_0212bd7c
+	bl MOPrivate_BlitDataRelocate
 	ldr r2, [r4, #0x10]
 	ldr r1, [r4, #0x34]
 	str r0, [r4, #0x54]
@@ -725,7 +738,7 @@ _0212B30C:
 	ldmlofd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r9, lsl #2
 	str r9, [r4, #0xa8]
-	bl FUN_0202ed30
+	bl MO_Malloc
 	cmp r0, #0
 	str r0, [r4, #0x5c]
 	addeq sp, sp, #8
@@ -733,7 +746,7 @@ _0212B30C:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, [r4, #0xa8]
 	mov r0, r0, lsl #2
-	bl FUN_0202ed30
+	bl MO_Malloc
 	cmp r0, #0
 	str r0, [r4, #0x60]
 	addeq sp, sp, #8
@@ -746,7 +759,7 @@ _0212B30C:
 _0212B428:
 	ldr r0, [r4, #0x14]
 	mov r0, r0, lsl #8
-	bl FUN_0202ed30
+	bl MO_Malloc
 	ldr r1, [r4, #0x5c]
 	str r0, [r1, r6, lsl #2]
 	ldr r0, [r4, #0x5c]
@@ -758,7 +771,7 @@ _0212B428:
 	ldr r0, [r4, #0x14]
 	mov r0, r0, lsr #1
 	mov r0, r0, lsl #8
-	bl FUN_0202ed30
+	bl MO_Malloc
 	ldr r1, [r4, #0x60]
 	str r0, [r1, r6, lsl #2]
 	ldr r0, [r4, #0x60]
@@ -772,21 +785,21 @@ _0212B428:
 	ldr r1, [r0, r6, lsl #2]
 	mov r0, r5
 	mov r2, r2, lsl #8
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r0, [r4, #0x60]
 	ldr r1, [r4, #0x14]
 	ldr r0, [r0, r6, lsl #2]
 	mov r2, r1, lsr #1
 	mov r1, r7
 	mov r2, r2, lsl #8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r4, #0xa8]
 	add r6, r6, #1
 	cmp r6, r0
 	blo _0212B428
 _0212B4C8:
 	mov r0, r0, lsl #2
-	bl FUN_0202ed30
+	bl MO_Malloc
 	cmp r0, #0
 	str r0, [r4, #0x64]
 	addeq sp, sp, #8
@@ -810,7 +823,7 @@ _0212B4F0:
 _0212B51C:
 	ldr r0, [r4, #0x24]
 	add r0, r0, #0x400
-	bl FUN_0202ed30
+	bl MO_Malloc
 	add r1, r4, r5, lsl #2
 	cmp r0, #0
 	str r0, [r1, #0x70]
@@ -826,7 +839,7 @@ _0212B51C:
 	ldrh r1, [r4, #0x1e]
 	ldr r5, _0212B754 ; =0x000014F8
 	mul r0, r1, r5
-	bl FUN_0202ed30
+	bl MO_Malloc
 	movs r1, r0
 	addeq sp, sp, #8
 	str r1, [r4, #0x58]
@@ -834,7 +847,7 @@ _0212B51C:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldrh r3, [r4, #0x1e]
 	mul r2, r3, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 _0212B588:
 	ldr r0, [r4]
 	ldr r3, [r4, #0x2c]
@@ -846,7 +859,7 @@ _0212B588:
 	blx r2
 	ldr r0, [r4, #0x30]
 	mov r0, r0, lsl #3
-	bl FUN_0202ed30
+	bl MO_Malloc
 	mov r1, r0
 	ldr r2, [r4, #0x30]
 	ldr r0, [r4]
@@ -959,10 +972,10 @@ _0212B750: .word 0x0212E654
 _0212B754: .word 0x000014F8
 _0212B758: .word 0x00000C34
 _0212B75C: .word 0x00003FFF
-	arm_func_end FUN_ov127_0212b1c8
+	arm_func_end MOHandlePrivate__Init
 
-	arm_func_start FUN_ov127_0212b760
-FUN_ov127_0212b760: ; 0x0212B760
+	arm_func_start MOHandlePrivate__Free
+MOHandlePrivate__Free: ; 0x0212B760
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldr r0, [r4]
@@ -980,7 +993,7 @@ FUN_ov127_0212b760: ; 0x0212B760
 	blx r1
 _0212B79C:
 	ldr r0, [r4, #0x34]
-	bl FUN_0202ed3c
+	bl MO_Free
 	ldr r0, [r4, #0x5c]
 	cmp r0, #0
 	beq _0212B7E4
@@ -991,14 +1004,14 @@ _0212B79C:
 _0212B7C0:
 	ldr r0, [r4, #0x5c]
 	ldr r0, [r0, r6, lsl #2]
-	bl FUN_0202ed3c
+	bl MO_Free
 	ldr r0, [r4, #0xa8]
 	add r6, r6, #1
 	cmp r6, r0
 	blo _0212B7C0
 _0212B7DC:
 	ldr r0, [r4, #0x5c]
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B7E4:
 	ldr r0, [r4, #0x60]
 	cmp r0, #0
@@ -1010,29 +1023,29 @@ _0212B7E4:
 _0212B800:
 	ldr r0, [r4, #0x60]
 	ldr r0, [r0, r6, lsl #2]
-	bl FUN_0202ed3c
+	bl MO_Free
 	ldr r0, [r4, #0xa8]
 	add r6, r6, #1
 	cmp r6, r0
 	blo _0212B800
 _0212B81C:
 	ldr r0, [r4, #0x60]
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B824:
 	ldr r0, [r4, #0x64]
 	cmp r0, #0
 	beq _0212B834
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B834:
 	ldr r0, [r4, #0x68]
 	cmp r0, #0
 	beq _0212B844
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B844:
 	ldr r0, [r4, #0x6c]
 	cmp r0, #0
 	beq _0212B854
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B854:
 	mov r6, #0
 _0212B858:
@@ -1040,7 +1053,7 @@ _0212B858:
 	ldr r0, [r0, #0x70]
 	cmp r0, #0
 	beq _0212B86C
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B86C:
 	add r0, r4, r6, lsl #2
 	add r6, r6, #1
@@ -1050,12 +1063,12 @@ _0212B86C:
 	ldr r0, [r4, #0x94]
 	cmp r0, #0
 	beq _0212B890
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B890:
 	ldr r0, [r4, #0x58]
 	cmp r0, #0
 	beq _0212B8A0
-	bl FUN_0202ed3c
+	bl MO_Free
 _0212B8A0:
 	str r5, [r4]
 	str r5, [r4, #0x5c]
@@ -1066,22 +1079,22 @@ _0212B8A0:
 	str r5, [r4, #0x58]
 	str r5, [r4, #0x94]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov127_0212b760
+	arm_func_end MOHandlePrivate__Free
 
-	arm_func_start FUN_ov127_0212b8c4
-FUN_ov127_0212b8c4: ; 0x0212B8C4
+	arm_func_start MOHandlePrivate__GetFps
+MOHandlePrivate__GetFps: ; 0x0212B8C4
 	ldr r0, [r0, #0x18]
 	bx lr
-	arm_func_end FUN_ov127_0212b8c4
+	arm_func_end MOHandlePrivate__GetFps
 
-	arm_func_start FUN_ov127_0212b8cc
-FUN_ov127_0212b8cc: ; 0x0212B8CC
+	arm_func_start MOHandlePrivate__GetNbFrame
+MOHandlePrivate__GetNbFrame: ; 0x0212B8CC
 	ldr r0, [r0, #0xc]
 	bx lr
-	arm_func_end FUN_ov127_0212b8cc
+	arm_func_end MOHandlePrivate__GetNbFrame
 
-	arm_func_start FUN_ov127_0212b8d4
-FUN_ov127_0212b8d4: ; 0x0212B8D4
+	arm_func_start MOHandlePrivate__NextFrame
+MOHandlePrivate__NextFrame: ; 0x0212B8D4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r1, [r5, #0x98]
@@ -1162,10 +1175,10 @@ _0212B9A8:
 	str r1, [r5, #0xc8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0212BA08: .word 0x00003FFF
-	arm_func_end FUN_ov127_0212b8d4
+	arm_func_end MOHandlePrivate__NextFrame
 
-	arm_func_start FUN_ov127_0212ba0c
-FUN_ov127_0212ba0c: ; 0x0212BA0C
+	arm_func_start MOHandlePrivate__FrameUnpackVideo
+MOHandlePrivate__FrameUnpackVideo: ; 0x0212BA0C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r1, [r5, #0x9c]
@@ -1222,10 +1235,10 @@ _0212BAAC:
 	add r1, r1, #1
 	str r1, [r5, #0xa0]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov127_0212ba0c
+	arm_func_end MOHandlePrivate__FrameUnpackVideo
 
-	arm_func_start FUN_ov127_0212bae8
-FUN_ov127_0212bae8: ; 0x0212BAE8
+	arm_func_start MOHandlePrivate__BlitVideo
+MOHandlePrivate__BlitVideo: ; 0x0212BAE8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x24
 	mov r8, r0
@@ -1246,7 +1259,7 @@ FUN_ov127_0212bae8: ; 0x0212BAE8
 	bne _0212BB50
 	ldr r0, [r8, #0x14]
 	mov r0, r0, lsl #8
-	bl FUN_0202ed30
+	bl MO_Malloc
 	cmp r0, #0
 	str r0, [r8, #0x68]
 	addeq sp, sp, #0x24
@@ -1259,7 +1272,7 @@ _0212BB50:
 	ldr r0, [r8, #0x14]
 	mov r0, r0, lsr #1
 	mov r0, r0, lsl #8
-	bl FUN_0202ed30
+	bl MO_Malloc
 	cmp r0, #0
 	str r0, [r8, #0x6c]
 	addeq sp, sp, #0x24
@@ -1284,7 +1297,7 @@ _0212BB80:
 	ldr r1, [r8, #0x64]
 	ldr r0, [r1, r0, lsl #2]
 	str r0, [sp, #0x18]
-	bl FUN_ov127_0212bde8
+	bl MOPrivate_MinMaxDataRelocate
 	cmp r5, #2
 	str r0, [sp, #0x1c]
 	streq r4, [sp, #0x20]
@@ -1309,7 +1322,7 @@ _0212BC10:
 	add r0, r8, #0x3c
 	str r7, [r8, #0x44]
 	str r1, [r8, #0x48]
-	bl FUN_ov127_0212a9c0
+	bl YuvToArgb
 	ldr r1, [r8, #0x9c]
 	ldr r0, [r8, #0xc4]
 	add r2, r1, #1
@@ -1322,10 +1335,10 @@ _0212BC10:
 	mov r0, #1
 	add sp, sp, #0x24
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov127_0212bae8
+	arm_func_end MOHandlePrivate__BlitVideo
 
-	arm_func_start FUN_ov127_0212bc58
-FUN_ov127_0212bc58: ; 0x0212BC58
+	arm_func_start MOHandlePrivate__SkipVideo
+MOHandlePrivate__SkipVideo: ; 0x0212BC58
 	ldr r3, [r0, #0x9c]
 	ldr r1, [r0, #0xa0]
 	cmp r3, r1
@@ -1342,10 +1355,14 @@ FUN_ov127_0212bc58: ; 0x0212BC58
 	streq r1, [r0, #0xc4]
 	mov r0, #1
 	bx lr
-	arm_func_end FUN_ov127_0212bc58
+	arm_func_end MOHandlePrivate__SkipVideo
 
-	arm_func_start FUN_ov127_0212bc98
-FUN_ov127_0212bc98: ; 0x0212BC98
+; libmobiclip_priv END
+
+; libmobiclip_relo START
+
+	arm_func_start MOPrivate_VideoCodeRelocate
+MOPrivate_VideoCodeRelocate: ; 0x0212BC98
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _0212BD04 ; =0x021371E0
 	ldr r0, [r4, #8]
@@ -1359,7 +1376,7 @@ FUN_ov127_0212bc98: ; 0x0212BC98
 	ldr r0, _0212BD0C ; =FUN_ov127_02130754
 	mov r2, r5
 	str r1, [r4, #8]
-	bl FUN_020078c8
+	bl MIi_CpuCopyFast
 	ldr r0, [r4, #0x18]
 	add r0, r0, #0x19c
 	add r0, r0, #0x6400
@@ -1378,10 +1395,10 @@ _0212BCF8:
 _0212BD04: .word 0x021371E0
 _0212BD08: .word 0x0000659C
 _0212BD0C: .word FUN_ov127_02130754
-	arm_func_end FUN_ov127_0212bc98
+	arm_func_end MOPrivate_VideoCodeRelocate
 
-	arm_func_start FUN_ov127_0212bd10
-FUN_ov127_0212bd10: ; 0x0212BD10
+	arm_func_start MOPrivate_VideoDataRelocate
+MOPrivate_VideoDataRelocate: ; 0x0212BD10
 	stmfd sp!, {r4, lr}
 	ldr r4, _0212BD74 ; =0x021371E0
 	ldr r0, [r4, #4]
@@ -1394,7 +1411,7 @@ FUN_ov127_0212bd10: ; 0x0212BD10
 	ldr r0, _0212BD78 ; =0x0212C554
 	str r1, [r4, #4]
 	mov r2, #0x2100
-	bl FUN_020078c8
+	bl MIi_CpuCopyFast
 	ldr r0, [r4, #0x10]
 	add r0, r0, #0x2100
 	str r0, [r4, #0x10]
@@ -1411,10 +1428,10 @@ _0212BD68:
 	ldmfd sp!, {r4, pc}
 _0212BD74: .word 0x021371E0
 _0212BD78: .word 0x0212C554
-	arm_func_end FUN_ov127_0212bd10
+	arm_func_end MOPrivate_VideoDataRelocate
 
-	arm_func_start FUN_ov127_0212bd7c
-FUN_ov127_0212bd7c: ; 0x0212BD7C
+	arm_func_start MOPrivate_BlitDataRelocate
+MOPrivate_BlitDataRelocate: ; 0x0212BD7C
 	stmfd sp!, {r4, lr}
 	ldr r4, _0212BDE0 ; =0x021371E0
 	ldr r0, [r4]
@@ -1427,7 +1444,7 @@ FUN_ov127_0212bd7c: ; 0x0212BD7C
 	ldr r0, _0212BDE4 ; =0x02136E70
 	str r1, [r4]
 	mov r2, #0x300
-	bl FUN_020078c8
+	bl MIi_CpuCopyFast
 	ldr r0, [r4, #0x10]
 	add r0, r0, #0x300
 	str r0, [r4, #0x10]
@@ -1444,10 +1461,10 @@ _0212BDD4:
 	ldmfd sp!, {r4, pc}
 _0212BDE0: .word 0x021371E0
 _0212BDE4: .word 0x02136E70
-	arm_func_end FUN_ov127_0212bd7c
+	arm_func_end MOPrivate_BlitDataRelocate
 
-	arm_func_start FUN_ov127_0212bde8
-FUN_ov127_0212bde8: ; 0x0212BDE8
+	arm_func_start MOPrivate_MinMaxDataRelocate
+MOPrivate_MinMaxDataRelocate: ; 0x0212BDE8
 	stmfd sp!, {r4, lr}
 	ldr r4, _0212BE4C ; =0x021371E0
 	ldr r0, [r4, #0x1c]
@@ -1460,7 +1477,7 @@ FUN_ov127_0212bde8: ; 0x0212BDE8
 	ldr r0, _0212BE50 ; =0x02136CF0
 	str r1, [r4, #0x1c]
 	mov r2, #0x180
-	bl FUN_020078c8
+	bl MIi_CpuCopyFast
 	ldr r0, [r4, #0x10]
 	add r0, r0, #0x180
 	str r0, [r4, #0x10]
@@ -1477,41 +1494,45 @@ _0212BE40:
 	ldmfd sp!, {r4, pc}
 _0212BE4C: .word 0x021371E0
 _0212BE50: .word 0x02136CF0
-	arm_func_end FUN_ov127_0212bde8
+	arm_func_end MOPrivate_MinMaxDataRelocate
+
+; libmobiclip_relo END
+
+; libmobiclip_stre START
 
 	arm_func_start FUN_ov127_0212be54
 FUN_ov127_0212be54: ; 0x0212BE54
-	ldr r12, _0212BE5C ; =FUN_0202ed30
+	ldr r12, _0212BE5C ; =MO_Malloc
 	bx r12
-_0212BE5C: .word FUN_0202ed30
+_0212BE5C: .word MO_Malloc
 	arm_func_end FUN_ov127_0212be54
 
 	arm_func_start FUN_ov127_0212be60
 FUN_ov127_0212be60: ; 0x0212BE60
-	ldr r12, _0212BE68 ; =FUN_0202ed3c
+	ldr r12, _0212BE68 ; =MO_Free
 	bx r12
-_0212BE68: .word FUN_0202ed3c
+_0212BE68: .word MO_Free
 	arm_func_end FUN_ov127_0212be60
 
-	arm_func_start FUN_ov127_0212be6c
-FUN_ov127_0212be6c: ; 0x0212BE6C
+	arm_func_start MOStreamFile__Open
+MOStreamFile__Open: ; 0x0212BE6C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	str r1, [r4, #0xc]
-	bl FUN_0200dfd8
+	bl FS_GetLength
 	str r0, [r4, #4]
 	ldr r0, [r4, #0xc]
-	bl FUN_0200dfe4
+	bl FS_GetPosition
 	mov r1, #0
 	str r0, [r4, #8]
 	strb r1, [r4, #0x10]
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov127_0212be6c
+	arm_func_end MOStreamFile__Open
 
-	arm_func_start FUN_ov127_0212bea0
-FUN_ov127_0212bea0: ; 0x0212BEA0
+	arm_func_start MOStreamFile__SetPosition
+MOStreamFile__SetPosition: ; 0x0212BEA0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldrb r0, [r6, #0x10]
@@ -1519,7 +1540,7 @@ FUN_ov127_0212bea0: ; 0x0212BEA0
 	cmp r0, #1
 	bne _0212BEC8
 	ldr r0, [r6, #0xc]
-	bl FUN_0200da40
+	bl FS_WaitAsync
 	mov r0, #0
 	strb r0, [r6, #0x10]
 _0212BEC8:
@@ -1527,16 +1548,16 @@ _0212BEC8:
 	ldr r0, [r6, #0xc]
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200ded0
+	bl FS_SeekFile
 	cmp r0, #0
 	moveq r0, r4
 	strne r5, [r6, #8]
 	movne r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov127_0212bea0
+	arm_func_end MOStreamFile__SetPosition
 
-	arm_func_start FUN_ov127_0212bef0
-FUN_ov127_0212bef0: ; 0x0212BEF0
+	arm_func_start MOStreamFile__Read
+MOStreamFile__Read: ; 0x0212BEF0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	ldrb r0, [r7, #0x10]
@@ -1545,18 +1566,18 @@ FUN_ov127_0212bef0: ; 0x0212BEF0
 	cmp r0, #1
 	bne _0212BF2C
 	ldr r0, [r7, #0xc]
-	bl FUN_0200da40
+	bl FS_WaitAsync
 	mov r4, #0
 	ldr r0, [r7, #0xc]
 	ldr r1, [r7, #8]
 	mov r2, r4
-	bl FUN_0200ded0
+	bl FS_SeekFile
 	strb r4, [r7, #0x10]
 _0212BF2C:
 	ldr r0, [r7, #0xc]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_0200defc
+	bl FS_ReadFile
 	cmn r0, #1
 	ldrne r1, [r7, #8]
 	moveq r0, #0
@@ -1564,10 +1585,10 @@ _0212BF2C:
 	movne r0, #1
 	strne r1, [r7, #8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov127_0212bef0
+	arm_func_end MOStreamFile__Read
 
-	arm_func_start FUN_ov127_0212bf58
-FUN_ov127_0212bf58: ; 0x0212BF58
+	arm_func_start MOStreamFile__ReadAsync
+MOStreamFile__ReadAsync: ; 0x0212BF58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	mov r0, #0x200
@@ -1584,11 +1605,11 @@ FUN_ov127_0212bf58: ; 0x0212BF58
 	mov r8, #0
 	ldr r0, [r7, #0xc]
 	mov r2, r8
-	bl FUN_0200ded0
+	bl FS_SeekFile
 	ldr r0, [r7, #0xc]
 	mov r1, r6
 	mov r2, r9
-	bl FUN_0200df50
+	bl FS_ReadFileAsync
 	sub r1, r8, #1
 	cmp r0, r1
 	moveq r0, r8
@@ -1600,36 +1621,40 @@ FUN_ov127_0212bf58: ; 0x0212BF58
 	str r2, [r7, #8]
 	strb r1, [r7, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov127_0212bf58
+	arm_func_end MOStreamFile__ReadAsync
 
-	arm_func_start FUN_ov127_0212bfd8
-FUN_ov127_0212bfd8: ; 0x0212BFD8
+	arm_func_start MOStreamFile__WaitAsync
+MOStreamFile__WaitAsync: ; 0x0212BFD8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r0, [r4, #0x10]
 	cmp r0, #1
 	bne _0212BFF4
 	ldr r0, [r4, #0xc]
-	bl FUN_0200da40
+	bl FS_WaitAsync
 _0212BFF4:
 	mov r0, #0
 	strb r0, [r4, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov127_0212bfd8
+	arm_func_end MOStreamFile__WaitAsync
 
-	arm_func_start FUN_ov127_0212c000
-FUN_ov127_0212c000: ; 0x0212C000
+	arm_func_start MOStreamFile__Close
+MOStreamFile__Close: ; 0x0212C000
 	stmfd sp!, {r3, lr}
 	ldr r1, [r0]
 	ldr r1, [r1, #0x14]
 	blx r1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov127_0212c000
+	arm_func_end MOStreamFile__Close
 
 	arm_func_start FUN_ov127_0212c014
 FUN_ov127_0212c014: ; 0x0212C014
 	bx lr
 	arm_func_end FUN_ov127_0212c014
+
+; libmobiclip_stre END
+
+; libMobiclip.a END
 
 	arm_func_start FUN_ov127_0212c018
 FUN_ov127_0212c018: ; 0x0212C018

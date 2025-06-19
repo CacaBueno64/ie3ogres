@@ -1,13 +1,13 @@
-.public FUN_020026d0
+.public DC_FlushRange
 .public FUN_02004f78
 .public FUN_02004fcc
 .public FUN_0200505c
 .public FUN_020054dc
 .public FUN_020055bc
 .public FUN_0200569c
-.public FUN_0200787c
-.public MemWrite
-.public _memcpy
+.public MIi_CpuClearFast
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_020095ac
 .public FUN_0201e014
 .public FUN_0201e078

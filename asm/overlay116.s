@@ -14,7 +14,7 @@ FUN_ov116_02124d00: ; 0x02124D00
 	mov r2, #0xa8
 	strb r3, [r4, #0x19]
 	strb r3, [r4, #0x1a]
-	bl MemWrite
+	bl MI_CpuFill8
 	mvn r1, #0
 	mov r0, #0x1c
 _02124D30:

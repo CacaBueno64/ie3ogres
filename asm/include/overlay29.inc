@@ -1,5 +1,5 @@
-.public FUN_0200787c
-.public MemWrite
+.public MIi_CpuClearFast
+.public MI_CpuFill8
 .public FUN_020095ac
 .public FUN_02009a98
 .public FUN_0201e014

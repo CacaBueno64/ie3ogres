@@ -2,7 +2,7 @@
 .public FUN_02002914
 .public FUN_02002ac0
 .public FUN_02002dcc
-.public FUN_0200787c
+.public MIi_CpuClearFast
 .public FUN_020095ac
 .public FUN_020417dc
 .public FUN_020417e8

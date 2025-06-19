@@ -1,8 +1,8 @@
-.public MemWrite
-.public FUN_02007a1c
-.public _memcpy
+.public MI_CpuFill8
+.public MI_CpuFill
+.public MI_CpuCopy8
 .public FUN_020095ac
-.public _strcpy
+.public STD_CopyString
 .public FUN_02015184
 .public FUN_0201e078
 .public FUN_0201f74c

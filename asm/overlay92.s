@@ -132,7 +132,7 @@ _02124EBC:
 	ldr r1, [r4, #4]
 	mov r2, r5, lsl #5
 	mov r0, #0
-	bl FUN_02007838
+	bl MIi_CpuClear32
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124ED0: .word 0x0209A250
 	arm_func_end FUN_ov92_02124e38
@@ -515,7 +515,7 @@ FUN_ov92_021253b8: ; 0x021253B8
 	ldr r0, [r4, #0x34]
 	mul r1, r2, r1
 	mov r1, r1, lsl #5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
 	arm_func_end FUN_ov92_021253b8
@@ -556,7 +556,7 @@ FUN_ov92_0212544c: ; 0x0212544C
 	ldr r0, [r4, #0x40]
 	mul r1, r2, r1
 	mov r1, r1, lsl #5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end FUN_ov92_0212544c
@@ -601,7 +601,7 @@ FUN_ov92_021254e0: ; 0x021254E0
 	ldr r0, [r4, #0x4c]
 	mul r1, r2, r1
 	mov r1, r1, lsl #5
-	bl FUN_020026d0
+	bl DC_FlushRange
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end FUN_ov92_021254e0
@@ -869,20 +869,20 @@ _021258D8:
 	mov r1, r0
 	mov r0, r7
 	mov r2, r6
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fac
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	str r7, [sp, #0x10]
 	str r6, [sp, #8]
 	bl FUN_0200501c
 	mov r1, r0
 	mov r0, r7
 	mov r2, r6
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_0200501c
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	str r7, [sp, #0xc]
 	str r6, [sp, #4]
 	ldr r0, [r4, #0x14]
@@ -1033,7 +1033,7 @@ FUN_ov92_02125b40: ; 0x02125B40
 	add r0, r4, #0xf0
 	mov r1, #0
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _02125B88 ; =0x0212693C
 	add r1, r4, #0xf0
 	bl  FUN_ov16_020f3054
@@ -1465,24 +1465,24 @@ _02126150:
 	mov r1, r7
 	add r0, r4, #0x54
 	mov r2, #0x9c
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r5, _02126208 ; =0x020A8C40
 	mov r6, #0x800
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r5
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r5, _0212620C ; =0x020A8440
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r5
 	mov r1, r6
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	beq _021261C4
@@ -1539,16 +1539,16 @@ FUN_ov92_02126218: ; 0x02126218
 	str r4, [r6, #8]
 	str r4, [r6, #0x120]
 	str r4, [r6, #0x124]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x54
 	mov r1, r4
 	mov r2, #0x9c
-	bl MemWrite
+	bl MI_CpuFill8
 	strb r4, [r6, #0x10]
 	add r0, r6, #0x14
 	mov r1, r4
 	mov r2, #0x1c
-	bl MemWrite
+	bl MI_CpuFill8
 	str r4, [r6, #0x14]
 	mov r0, r6
 	bl FUN_ov92_02125b40

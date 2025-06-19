@@ -1,10 +1,10 @@
-.public FUN_020026d0
-.public FUN_0200787c
-.public MemWrite
-.public _memcpy
+.public DC_FlushRange
+.public MIi_CpuClearFast
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_020095ac
-.public StrncpyWithNullPad
-.public FUN_02014ee8
+.public STD_CopyLString
+.public STD_ConcatenateString
 .public FUN_0201e078
 .public FUN_0201f9bc
 .public FUN_0201fbc8

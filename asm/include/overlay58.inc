@@ -1,4 +1,4 @@
-.public MemWrite
+.public MI_CpuFill8
 .public FUN_020095ac
 .public FUN_02015184
 .public FUN_0201e078

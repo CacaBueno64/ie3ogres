@@ -26,7 +26,7 @@ FUN_ov59_02119f00: ; 0x02119F00
 	mov r1, r6
 	add r0, r4, #0x14
 	mov r2, #0x60
-	bl MemWrite
+	bl MI_CpuFill8
 	str r6, [r4, #0x74]
 	str r6, [r4, #0x78]
 	str r6, [r4, #0x7c]
@@ -258,11 +258,11 @@ FUN_ov59_0211a238: ; 0x0211A238
 	add r5, sp, #0
 	mov r7, r9
 	mov r11, #1
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r9
 	add r0, r10, #0x80
 	mov r2, #0x300
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A488 ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
@@ -371,7 +371,7 @@ _0211A3D0:
 	mla r1, r8, r4, r5
 	add r0, r6, #0x1c
 	mov r2, #0x20
-	bl _memcpy
+	bl MI_CpuCopy8
 	mov r0, r8, lsl #1
 	ldrh r1, [r11, r0]
 	mla r0, r8, r4, r10
@@ -423,21 +423,21 @@ FUN_ov59_0211a494: ; 0x0211A494
 	mov r0, r5
 	mov r1, r7
 	mov r2, r9
-	bl MemWrite
+	bl MI_CpuFill8
 	add r4, sp, #8
 	mov r1, r7
 	mov r0, r4
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r6, sp, #0x10
 	mov r1, r7
 	mov r0, r6
 	mov r2, r9
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r9
 	mov r0, r8
 	mov r1, r5
-	bl _memcpy
+	bl MI_CpuCopy8
 	ldr r9, _0211A5B0 ; =0x0209BA20
 	str r7, [sp]
 	mov r1, r7
@@ -485,7 +485,7 @@ _0211A574:
 	add r0, sp, #8
 	mov r1, r8
 	mov r2, r6, lsl #1
-	bl _memcpy
+	bl MI_CpuCopy8
 	add sp, sp, #0x50
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A5B0: .word 0x0209BA20
@@ -565,11 +565,11 @@ FUN_ov59_0211a684: ; 0x0211A684
 	mov r0, r6
 	mov r1, r8
 	mov r2, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r8
 	mov r2, r4
 	add r0, r10, #0x380
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r11, _0211A7C0 ; =0x0209BA20
 	mov r1, r6
 	mov r0, r11
@@ -1200,12 +1200,12 @@ FUN_ov59_0211af2c: ; 0x0211AF2C
 	arm_func_start FUN_ov59_0211af3c
 FUN_ov59_0211af3c: ; 0x0211AF3C
 	add r0, r0, #0x394
-	ldr r12, _0211AF54 ; =MemWrite
+	ldr r12, _0211AF54 ; =MI_CpuFill8
 	add r0, r0, #0x800
 	mov r1, #0
 	mov r2, #0x24
 	bx r12
-_0211AF54: .word MemWrite
+_0211AF54: .word MI_CpuFill8
 	arm_func_end FUN_ov59_0211af3c
 
 	arm_func_start FUN_ov59_0211af58
@@ -1265,7 +1265,7 @@ FUN_ov59_0211b004: ; 0x0211B004
 	add r0, r0, #0x800
 	mov r1, #0
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r4, #0x3b8
 	add r0, r0, #0x800
 	mov r1, #0x10
@@ -1305,7 +1305,7 @@ FUN_ov59_0211b078: ; 0x0211B078
 	add r0, r4, #0xbc0
 	mov r1, #0
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r1, [r4, #0xb90]
 	add r0, r4, #0xbc0
 	mov r1, r1, lsl #3
@@ -1345,11 +1345,11 @@ FUN_ov59_0211b0e0: ; 0x0211B0E0
 	mov r1, r4
 	add r0, r0, #0x800
 	mov r2, #0x48
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0xc10
 	mov r2, #0x40
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211B120 ; =0x02099F38
 	ldr r0, [r0]
 	bl  FUN_ov16_021123b4
@@ -1472,11 +1472,11 @@ FUN_ov59_0211b278: ; 0x0211B278
 	mov r9, r3
 	str r7, [sp, #0x28]
 	mov r5, #0x100
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r4
 	add r0, sp, #0x2c
 	mov r1, r7
-	bl MemWrite
+	bl MI_CpuFill8
 	str r7, [r8]
 	ldr r0, [r6, #0x10]
 	add r2, sp, #0x30
@@ -2036,33 +2036,33 @@ FUN_ov59_0211ba88: ; 0x0211BA88
 	mov r1, r4
 	add r0, r0, #0xc00
 	mov r2, #0x40
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x134
 	mov r1, r4
 	add r0, r0, #0xc00
 	mov r2, #0x80
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x1b4
 	mov r6, #0x20
 	mov r1, r4
 	mov r2, r6
 	add r0, r0, #0xc00
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x1d4
 	add r0, r0, #0xc00
 	mov r1, r4
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x1dc
 	add r0, r0, #0xc00
 	mov r1, r4
 	mov r2, r6
-	bl MemWrite
+	bl MI_CpuFill8
 	add r2, r6, #0x3ec
 	add r0, r5, #0x1fc
 	add r0, r0, #0xc00
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x1000
 	str r4, [r0, #0x208]
 	str r4, [r0, #0x20c]
@@ -2508,11 +2508,11 @@ _0211C148:
 	add r0, sp, #0x50
 	mov r2, #0x10
 	str r6, [sp, #0x3c]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, sp, #0x40
 	mov r1, r6
 	mov r2, #0x10
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211C4E4 ; =0x02099F38
 	mov r1, #3
 	ldr r0, [r0]
@@ -3243,7 +3243,7 @@ FUN_ov59_0211cbac: ; 0x0211CBAC
 	mov r2, #0x40
 	str r6, [sp, #0x14]
 	mov r5, #0x96
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r4, _0211CE44 ; =0x02099EB4
 	mov r1, r6
 	ldr r0, [r4]
@@ -3424,7 +3424,7 @@ _0211CEA4:
 	ldr r2, _0211CEDC ; =0x0000040C
 	add r0, r0, #0xc00
 	mov r1, #0
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r4, _0211CEE0 ; =0x02099EB4
 	mov r1, #0x24
 	ldr r0, [r4]
@@ -3527,10 +3527,10 @@ FUN_ov59_0211d000: ; 0x0211D000
 	add r0, r0, #0xc50
 	mov r2, #0x24
 	mla r0, r1, r2, r0
-	ldr r12, _0211D018 ; =MemWrite
+	ldr r12, _0211D018 ; =MI_CpuFill8
 	mov r1, #0
 	bx r12
-_0211D018: .word MemWrite
+_0211D018: .word MI_CpuFill8
 	arm_func_end FUN_ov59_0211d000
 
 	arm_func_start FUN_ov59_0211d01c
@@ -4042,12 +4042,12 @@ _0211D738:
 
 	arm_func_start FUN_ov59_0211d740
 FUN_ov59_0211d740: ; 0x0211D740
-	ldr r12, _0211D754 ; =MemWrite
+	ldr r12, _0211D754 ; =MI_CpuFill8
 	add r0, r0, #0xce0
 	mov r1, #0
 	mov r2, #0x14
 	bx r12
-_0211D754: .word MemWrite
+_0211D754: .word MI_CpuFill8
 	arm_func_end FUN_ov59_0211d740
 
 	arm_func_start FUN_ov59_0211d758

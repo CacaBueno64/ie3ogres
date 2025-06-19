@@ -171,15 +171,15 @@ FUN_ov27_0211a08c: ; 0x0211A08C
 	str r1, [r5, #8]
 	mov r1, r4
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x3c
 	mov r1, r4
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x48
 	mov r1, r4
 	mov r2, #4
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A1A8 ; =0x0211A83C
 	add r1, r5, #0xc
 	bl  FUN_ov16_020f3054

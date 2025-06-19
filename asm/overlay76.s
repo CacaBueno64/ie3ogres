@@ -226,7 +226,7 @@ FUN_ov76_0211a1e0: ; 0x0211A1E0
 	add r0, r4, #0xc
 	mov r2, #0x24
 	str r7, [r4, #8]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r5, _0211A2A8 ; =0x0209BA20
 	mov r0, r5
 	bl  FUN_ov16_020eeca0

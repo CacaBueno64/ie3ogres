@@ -1,9 +1,9 @@
-.public MemWrite
-.public _memcpy
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_020095ac
-.public FUN_0200dbf0
-.public FUN_0200de0c
-.public FUN_0200dfc8
+.public FS_InitFile
+.public FS_CloseFile
+.public FS_OpenFile
 .public FUN_0201e078
 .public FUN_0201e08c
 .public FUN_0201e0b8

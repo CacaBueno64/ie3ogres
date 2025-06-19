@@ -260,14 +260,14 @@ FUN_ov75_0211a26c: ; 0x0211A26C
 	beq _0211A2C0
 	ldr r0, _0211A384 ; =0x0209A494
 	mov r2, #0x20
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211A2C0:
 	cmp r4, #0
 	beq _0211A2D8
 	ldr r0, _0211A388 ; =0x0209A4B4
 	mov r1, r4
 	mov r2, #0x20
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211A2D8:
 	bl  FUN_ov16_020f081c
 	bl  FUN_ov16_020f09c0

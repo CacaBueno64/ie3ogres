@@ -31,7 +31,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	add r0, r7, #8
 	mov r1, r5
 	mov r2, #0x60
-	bl MemWrite
+	bl MI_CpuFill8
 	str r6, [r7, #8]
 	ldr r0, _02119FAC ; =0x02099EF0
 	ldr r0, [r0]

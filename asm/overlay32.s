@@ -132,10 +132,10 @@ FUN_ov32_0211a084: ; 0x0211A084
 	beq _0211A0A0
 	ldr r1, _0211A168 ; =0x0209A460
 	mov r2, #0x11
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211A0A0:
 	ldr r0, _0211A168 ; =0x0209A460
-	bl GetStrLen
+	bl STD_GetStringLength
 	mov r5, #0
 	ldr r0, _0211A164 ; =0x020A0B00
 	mov r1, r5
@@ -280,7 +280,7 @@ FUN_ov32_0211a280: ; 0x0211A280
 	mov r1, r4
 	add r0, r5, #0x1c
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A380 ; =0x0211A6D8
 	add r3, sp, #0
 	ldmia r0, {r0, r1, r2}
@@ -316,26 +316,26 @@ _0211A2E4:
 	mov r0, r4
 	mov r1, r8
 	mov r2, r7
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r6, _0211A38C ; =0x020A7440
 	mov r0, r4
 	mov r1, r6
 	mov r2, r7
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r4
 	ldr r4, _0211A390 ; =0x020A7C40
 	mov r2, r7
 	mov r1, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r8
 	mov r1, r7
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r6
 	mov r1, r7
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r4
 	mov r1, r7
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x8c
@@ -365,10 +365,10 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r1, r0
 	mov r0, r4
 	mov r2, r8
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_0200505c
 	mov r1, r8
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _0211A4B0 ; =0x020A6C40
 	mov r1, r4
 	mov r7, #0x800
@@ -378,10 +378,10 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r1, r0
 	mov r0, r4
 	mov r2, r8
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004f78
 	mov r1, r8
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _0211A4B4 ; =0x020A7440
 	mov r1, r4
 	mov r2, r7
@@ -390,10 +390,10 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r1, r0
 	mov r0, r4
 	mov r2, r8
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fcc
 	mov r1, r8
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, _0211A4B8 ; =0x020A7C40
 	mov r1, r4
 	mov r2, r7
@@ -446,10 +446,10 @@ FUN_ov32_0211a4bc: ; 0x0211A4BC
 	ldr r1, _0211A588 ; =0x0209A460
 	mov r0, r5
 	mov r2, #0x11
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211A4F8:
 	ldr r0, _0211A588 ; =0x0209A460
-	bl GetStrLen
+	bl STD_GetStringLength
 	cmp r0, #0
 	mov r0, r4
 	bne _0211A514

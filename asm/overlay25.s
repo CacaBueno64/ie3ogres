@@ -586,15 +586,15 @@ FUN_ov25_0211a5fc: ; 0x0211A5FC
 	str r1, [r5, #8]
 	mov r1, r4
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x18
 	mov r1, r4
 	mov r2, #0x20
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0x38
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211A730 ; =0x0211B8B8
 	add r1, r5, #0xc
 	bl  FUN_ov16_020f3054
@@ -830,7 +830,7 @@ _0211A9A8:
 	mov r0, r8
 	mov r2, #0x80
 	mov r1, r7
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r3, _0211B23C ; =0x0211B8F0
 	mov r2, #0x13
 	mov r8, #3
@@ -1098,7 +1098,7 @@ _0211AE40:
 	mov r1, r8
 	mov r2, #0x80
 	strb r5, [r10, r4]
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r10
 	mov r1, r8
 	bl  FUN_ov16_020f1f5c
@@ -1210,7 +1210,7 @@ _0211AFE4:
 	mov r0, r8
 	mov r1, r4
 	mov r2, #0x80
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r3, _0211B254 ; =0x0211B960
 	mov r2, #0x1e
 _0211B01C:

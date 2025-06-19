@@ -293,7 +293,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	bl FUN_020425fc
 	ldr r1, [sp, #0x24]
 	mov r0, r9
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, [r4]
 	bl wraper_rwiteat14n18
 	ldr r0, [r5]
@@ -357,7 +357,7 @@ FUN_ov71_0211a324: ; 0x0211A324
 	bl FUN_020425fc
 	ldr r1, [sp, #0x24]
 	mov r0, r9
-	bl FUN_020026d0
+	bl DC_FlushRange
 	ldr r0, [r4]
 	bl wraper_rwiteat14n18
 	ldr r0, [r5]
@@ -900,15 +900,15 @@ FUN_ov71_0211ab68: ; 0x0211AB68
 	mov r2, r4
 	add r0, r6, #0xc
 	str r5, [r6, #8]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r4
 	add r0, r6, #0x30
 	mov r1, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x54
 	mov r1, r5
 	mov r2, #4
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211ABE4 ; =0x02099F38
 	ldr r0, [r0]
 	bl  FUN_ov16_021123b4

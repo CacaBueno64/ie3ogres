@@ -1,5 +1,5 @@
 .public FUN_02001eb0
-.public FUN_020026d0
+.public DC_FlushRange
 .public FUN_020050fc
 .public FUN_020054dc
 .public FUN_020055bc
@@ -10,8 +10,8 @@
 .public FUN_02005c3c
 .public FUN_02005c54
 .public FUN_02005cbc
-.public FUN_0200787c
-.public MemWrite
+.public MIi_CpuClearFast
+.public MI_CpuFill8
 .public FUN_020095ac
 .public FUN_0201e078
 .public FUN_02023c40

@@ -1,5 +1,5 @@
-.public MemWrite
-.public _memcpy
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_0201e078
 .public FUN_02023c40
 .public FUN_0202cf6c

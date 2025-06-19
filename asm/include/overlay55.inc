@@ -1,4 +1,4 @@
-.public FUN_020026d0
+.public DC_FlushRange
 .public FUN_02004ce0
 .public FUN_02004d34
 .public FUN_02004e2c
@@ -8,13 +8,13 @@
 .public FUN_0200585c
 .public FUN_0200593c
 .public FUN_02005a1c
-.public FUN_0200787c
-.public MemWrite
+.public MIi_CpuClearFast
+.public MI_CpuFill8
 .public FUN_020095ac
-.public _strcpy
-.public GetStrLen
-.public _strcmp
-.public FUN_02014fc4
+.public STD_CopyString
+.public STD_GetStringLength
+.public STD_CompareString
+.public STD_CompareNString
 .public FUN_0201e078
 .public FUN_020218d4
 .public _strlen

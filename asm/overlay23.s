@@ -1463,7 +1463,7 @@ FUN_ov23_0211b384: ; 0x0211B384
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	ldr r0, _0211B8D4 ; =0x0211CB04
 	rsb r5, r5, #0xff
 	ldrb r1, [r0]
@@ -1892,16 +1892,16 @@ FUN_ov23_0211b90c: ; 0x0211B90C
 	str r1, [r6, #8]
 	mov r1, r4
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x18
 	mov r1, r4
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r6, #0x48
 	mov r1, r4
 	mov r7, #0x10
 	mov r2, r7
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211BA48 ; =0x0211D058
 	add r1, r6, #0xc
 	bl  FUN_ov16_020f3054

@@ -1470,19 +1470,19 @@ FUN_ov54_0211b2c4: ; 0x0211B2C4
 	str r4, [r5, #0xc]
 	str r4, [r5, #0x14]
 	str r4, [r5, #0x10]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x30
 	mov r1, r4
 	mov r2, #0x14
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x44
 	mov r1, r4
 	mov r2, #0x1c
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x60
 	mov r1, r4
 	mov r2, #0x60
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211B390 ; =0x0209BA20
 	mov r1, r4
 	strh r4, [r5, #0xc0]
@@ -2461,13 +2461,13 @@ _0211C070:
 	beq _0211C0A8
 	ldr r1, _0211C2B8 ; =0x0209A460
 	mov r2, #0x11
-	bl StrncpyWithNullPad
+	bl STD_CopyLString
 _0211C0A8:
 	ldr r0, _0211C2B8 ; =0x0209A460
-	bl GetStrLen
+	bl STD_GetStringLength
 	add r1, sp, #0
 	mov r0, r4
-	bl _strcpy
+	bl STD_CopyString
 	ldr r1, _0211C2BC ; =0x0209A454
 	mov r0, r5
 	ldrb r1, [r1, #0x1d]
@@ -2669,15 +2669,15 @@ FUN_ov54_0211c34c: ; 0x0211C34C
 	str r4, [r5, #8]
 	add r0, r5, #0x10
 	mov r2, #0x18
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x28
 	mov r1, r4
 	mov r2, #0x24
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0x4c
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, #0x74
 	bl FUN_0201e014
 	cmp r0, #0

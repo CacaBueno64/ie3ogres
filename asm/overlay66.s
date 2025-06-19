@@ -289,16 +289,16 @@ FUN_ov66_0211a2a8: ; 0x0211A2A8
 	mov r1, r5
 	add r0, r6, #4
 	mov r2, #0xc
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r4, #4
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x10
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x14
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	str r5, [r6, #0x20]
 	strb r5, [r6, #0x28]

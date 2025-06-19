@@ -1,7 +1,7 @@
-.public FUN_020026d0
-.public FUN_0200787c
-.public MemWrite
-.public _memcpy
+.public DC_FlushRange
+.public MIi_CpuClearFast
+.public MI_CpuFill8
+.public MI_CpuCopy8
 .public FUN_02009850
 .public FUN_02009a98
 .public FUN_0201e078

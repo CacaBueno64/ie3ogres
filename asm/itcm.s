@@ -96,7 +96,7 @@ _01FF8120:
 	stmfd sp!, {r0, r1}
 	add r0, r0, #0
 	add r0, r0, #0x48
-	ldr r1, _01FF81B0 ; =FUN_02009cac
+	ldr r1, _01FF81B0 ; =CP_SaveContext
 	blx r1
 	ldmfd sp!, {r0, r1}
 	ldmib sp!, {r2, r3}
@@ -111,7 +111,7 @@ _01FF8120:
 	stmdb sp!, {r1}
 	add r0, r1, #0
 	add r0, r0, #0x48
-	ldr r1, _01FF81B4 ; =FUN_02009cec
+	ldr r1, _01FF81B4 ; =CPi_RestoreContext
 	blx r1
 	ldmia sp!, {r1}
 	ldr sp, [r1, #0x44]
@@ -126,8 +126,8 @@ _01FF8120:
 	ldmia sp!, {pc}
 _01FF81A8: .word 0x027E0060
 _01FF81AC: .word 0x020939a4
-_01FF81B0: .word FUN_02009cac
-_01FF81B4: .word FUN_02009cec
+_01FF81B0: .word CP_SaveContext
+_01FF81B4: .word CPi_RestoreContext
 	arm_func_end FUN_01ff8058
 
 	arm_func_start  FUN_01ff81b8
@@ -340,7 +340,7 @@ _01FF8458: .word 0x04100010
 	mov r6, r3
 	ands r5, r7, #1
 	bne _01FF8480
-	bl FUN_02003da8
+	bl OS_DisableInterrupts
 _01FF8480:
 	mov r1, #0xc
 	mul r1, r4, r1
@@ -380,7 +380,7 @@ _01FF84C8:
 _01FF8504:
 	cmp r5, #0
 	bne _01FF8510
-	bl FUN_02003dbc
+	bl OS_RestoreInterrupts
 _01FF8510:
 	cmp r6, #0
 	ldrne r1, _01FF8524 ; =0x040000B0
@@ -407,7 +407,7 @@ _01FF8528: .word 0x81400001
 	mov r0, r8
 	mov r1, #0
 	mov r2, #8
-	bl MemWrite
+	bl MI_CpuFill8
 _01FF8568:
 	ldr r0, _01FF8750 ; =0x00007FFF
 	and r1, r4, r0
@@ -2681,20 +2681,20 @@ _01FFA594:
 	bl FUN_0204fb58
 	mov r1, r7
 	mov r2, #0x880
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r7
 	add r0, r4, #0x19c
 	mov r2, #0xe
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r8, #0x18
 	add r0, r4, #0x164
 	mov r1, r7
 	mov r2, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r4, #0x17c
 	mov r1, r7
 	mov r2, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	sub r0, r8, #0x19
 	strb r0, [r4, #0x1a7]
 	ldrb r0, [r6, #0x8f]
@@ -2735,7 +2735,7 @@ _01FFA65C:
 	mla r6, r8, r10, r0
 	mov r0, r6
 	mov r2, #0x18
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r7
 	b _01FFA68C
 _01FFA67C:
@@ -2779,30 +2779,30 @@ _01FFA698:
 	add r0, r4, #0x320
 	mov r1, r8
 	mov r2, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r4, #0x22
 	mov r2, r5
 	add r0, r0, #0x300
 	mov r1, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r5, #4
 	ldr r0, [r4, #0x200]
 	mov r1, r8
 	mov r2, r5
 	strb r8, [r4, #0x19f]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r4, #0x20c]
 	mov r1, r8
 	mov r2, r5
 	strb r8, [r4, #0x1a5]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r4
 	bl  FUN_ov132_02147e9c
 	ldr r0, [r4, #0x208]
 	mov r2, r5
 	mov r1, r8
 	strb r8, [r4, #0x1a3]
-	bl MemWrite
+	bl MI_CpuFill8
 	b _01FFA7E0
 _01FFA778:
 	mov r0, #0x30
@@ -2812,7 +2812,7 @@ _01FFA778:
 	add r10, r6, r5
 	mov r0, r10
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, #0xff
 	strb r0, [r6, r5]
 	ldr r0, [sp, #4]
@@ -2855,18 +2855,18 @@ _01FFA81C:
 	mov r6, #0x10
 	mov r1, r8
 	mov r2, r6
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r5
 	mov r1, #1
 	bl FUN_020724dc
 	mov r2, r6
 	mov r1, r8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r4, #0x210]
 	mov r1, r8
 	mov r2, #4
 	strb r8, [r4, #0x1a4]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r5, _01FFAC2C ; =0x020A0640
 	ldr r6, _01FFAC10 ; =0x0209BA20
 	b _01FFA880
@@ -2882,7 +2882,7 @@ _01FFA880:
 	mov r1, r7
 	mov r2, r8
 	strb r7, [r4, #0x1a5]
-	bl MemWrite
+	bl MI_CpuFill8
 	sub r1, r8, #5
 	add r0, r4, #0x300
 	mov r8, #0x40
@@ -2942,7 +2942,7 @@ _01FFA974:
 	mov r1, r6
 	add r0, r4, #0x214
 	mov r2, #0x58
-	bl MemWrite
+	bl MI_CpuFill8
 	add r5, r4, #0xa4
 	b _01FFA99C
 _01FFA990:
@@ -2987,7 +2987,7 @@ _01FFA9C0:
 	add r0, r4, #0x2e4
 	mov r1, r7
 	mov r2, #4
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r2, _01FFAC50 ; =0x0209A820
 	ldr r1, _01FFAC54 ; =0x0208F6F0
 	ldrh r3, [r2, #0x6c]
@@ -3022,12 +3022,12 @@ _01FFAA94:
 	mov r2, r6
 	add r0, r0, #0x300
 	mov r5, #1
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r4, #0x55
 	mov r1, r8
 	mov r2, r6
 	add r0, r0, #0x300
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrb r0, [r9, #0x1c]
 	ldr r6, _01FFAC10 ; =0x0209BA20
 	mov r1, r7
@@ -3199,15 +3199,15 @@ _01FFAD00:
 	ldr r0, _01FFAE18 ; =0x0209BE4C
 	mov r1, r7
 	mov r2, #0x20
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _01FFAE1C ; =0x0209BEFC
 	mov r1, r7
 	mov r2, #0x10
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [sp, #4]
 	mov r1, r7
 	mov r2, #0x4c
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r5
 	mov r1, r6
 	mov r2, r7

@@ -1,6 +1,6 @@
-.public FUN_020026d0
-.public FUN_02007804
-.public MemWrite
+.public DC_FlushRange
+.public MIi_CpuClear16
+.public MI_CpuFill8
 .public FUN_020095ac
 .public FUN_0201e014
 .public FUN_0201e078

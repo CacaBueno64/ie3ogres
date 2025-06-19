@@ -732,12 +732,12 @@ _0211A8C4: .word 0x02099F38
 
 	arm_func_start FUN_ov58_0211a8c8
 FUN_ov58_0211a8c8: ; 0x0211A8C8
-	ldr r12, _0211A8DC ; =MemWrite
+	ldr r12, _0211A8DC ; =MI_CpuFill8
 	add r0, r0, #0xc
 	mov r1, #0
 	mov r2, #0x30
 	bx r12
-_0211A8DC: .word MemWrite
+_0211A8DC: .word MI_CpuFill8
 	arm_func_end FUN_ov58_0211a8c8
 
 	arm_func_start FUN_ov58_0211a8e0
@@ -903,11 +903,11 @@ FUN_ov58_0211ab28: ; 0x0211AB28
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x3c
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x94
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211AB68 ; =0x02099F38
 	ldr r0, [r0]
 	bl  FUN_ov16_021123b4

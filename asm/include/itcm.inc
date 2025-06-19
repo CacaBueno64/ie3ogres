@@ -1,12 +1,12 @@
 .public FUN_020010bc
-.public FUN_02003da8
-.public FUN_02003dbc
+.public OS_DisableInterrupts
+.public OS_RestoreInterrupts
 .public FUN_02004160
-.public MemWrite
+.public MI_CpuFill8
 .public FUN_0200958c
 .public FUN_020095ac
-.public FUN_02009cac
-.public FUN_02009cec
+.public CP_SaveContext
+.public CPi_RestoreContext
 .public FUN_0201f5c8
 .public FUN_0201f704
 .public FUN_0201fdac

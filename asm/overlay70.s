@@ -12,15 +12,15 @@ FUN_ov70_02119f00: ; 0x02119F00
 	mov r1, r4
 	add r0, r5, #8
 	mov r2, #0x24
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0x2c
 	mov r2, #0x38
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0x64
 	mov r2, #0x14
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _02119FAC ; =0x0211F2F4
 	add r1, r5, #8
 	bl  FUN_ov16_020f3054
@@ -1034,7 +1034,7 @@ FUN_ov70_0211adb0: ; 0x0211ADB0
 	mov r1, r6
 	add r0, r8, #0x1bc
 	strb r6, [r8, #0xec]
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211AFF4 ; =0x0209BA20
 	mov r1, r6
 	bl FUN_0205107c
@@ -1161,7 +1161,7 @@ _0211AE88:
 	add r1, r8, #0x1c8
 	mla r1, r0, r9, r1
 	add r0, r4, #0x1c
-	bl _memcpy
+	bl MI_CpuCopy8
 	ldrb r0, [r8, #0xec]
 	add r0, r0, #1
 	strb r0, [r8, #0xec]
@@ -1187,7 +1187,7 @@ FUN_ov70_0211aff8: ; 0x0211AFF8
 	mov r1, r7
 	add r0, r10, #0xf2
 	mov r2, #0xc8
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r4, _0211B150 ; =0x0209BA20
 	mov r1, r7
 	mov r0, r4
@@ -1289,7 +1289,7 @@ FUN_ov70_0211b154: ; 0x0211B154
 	mov r1, r5
 	add r0, r0, #0xc00
 	mov r4, #0x12
-	bl MemWrite
+	bl MI_CpuFill8
 	strh r5, [r10, #0xee]
 	ldr r3, _0211B498 ; =0x0209A250
 	str r5, [sp, #0x28]
@@ -1515,7 +1515,7 @@ FUN_ov70_0211b4a4: ; 0x0211B4A4
 	ldr r2, _0211B560 ; =0x00000CA8
 	mov r1, r8
 	add r0, r0, #0x2000
-	bl MemWrite
+	bl MI_CpuFill8
 	ldrh r0, [r10, #0xee]
 	strh r8, [r10, #0xf0]
 	cmp r0, #0
@@ -1537,7 +1537,7 @@ _0211B4F4:
 	mov r2, r11
 	add r0, r7, r1
 	mla r1, r3, r4, r6
-	bl _memcpy
+	bl MI_CpuCopy8
 	ldrh r0, [r10, #0xf0]
 	add r0, r0, #1
 	strh r0, [r10, #0xf0]
@@ -4024,12 +4024,12 @@ FUN_ov70_0211d7dc: ; 0x0211D7DC
 	str r8, [sp, #0x2c]
 	mov r6, #0x80
 	mov r5, #0x10
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r7
 	add r7, sp, #0x30
 	mov r1, r8
 	mov r0, r7
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
@@ -4954,7 +4954,7 @@ _0211E494:
 	str r12, [r6, #0xe8]
 	strb r5, [r6, #0xec]
 	strh r5, [r6, #0xee]
-	bl MemWrite
+	bl MI_CpuFill8
 	add r2, r6, #0x1bc
 	mov r0, #0x1c
 	b _0211E55C
@@ -5060,7 +5060,7 @@ _0211E640:
 	strh r1, [r4, #0xbe]
 	strh r5, [r4, #0xc0]
 	strh r5, [r4, #0xc2]
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r0, r6
 	bl FUN_ov70_0211aff8
 	ldmfd sp!, {r4, r5, r6, pc}

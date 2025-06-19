@@ -251,12 +251,12 @@ FUN_ov86_0211a254: ; 0x0211A254
 	add r0, sp, #0x10c
 	mov r1, r4
 	mov r2, #0x200
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r5, #0x100
 	add r0, sp, #0xc
 	mov r1, r4
 	mov r2, r5
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, [r10, #0x4e0]
 	ldr r11, [r10, #0x494]
 	mov r8, r0, lsr #2
@@ -1507,10 +1507,10 @@ FUN_ov86_0211b364: ; 0x0211B364
 	mov r1, r0
 	mov r2, r4
 	mov r0, #0
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004f78
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	bl  FUN_ov16_020f10ac
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov86_0211b364
@@ -2907,35 +2907,35 @@ FUN_ov86_0211c6d8: ; 0x0211C6D8
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004fcc
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_0200505c
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	bl FUN_02004f78
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	bl FUN_02004fcc
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	bl FUN_0200505c
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r6
 	ldr r5, _0211C79C ; =0x020A6C40
 	mov r4, #0x800
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 	mov r0, r5
 	mov r1, r4
-	bl FUN_020026d0
+	bl DC_FlushRange
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
@@ -2982,35 +2982,35 @@ _0211C7C4:
 	mov r1, r4
 	add r0, r0, #0x400
 	mov r2, #0x78
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r1, r4
 	add r0, r5, #0x7c
 	mov r2, #0x200
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r6, #0x100
 	add r0, r5, #0x27c
 	mov r1, r4
 	mov r2, r6
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0xf4
 	add r0, r0, #0x400
 	mov r1, r4
 	mov r2, #0x30
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x124
 	add r0, r0, #0x800
 	mov r1, r4
 	mov r2, #0x1c
-	bl MemWrite
+	bl MI_CpuFill8
 	add r0, r5, #0x124
 	add r0, r0, #0x400
 	mov r1, r4
 	mov r2, #0x400
-	bl MemWrite
+	bl MI_CpuFill8
 	mov r2, r6
 	add r0, r5, #0x37c
 	mov r1, r4
-	bl MemWrite
+	bl MI_CpuFill8
 	ldr r0, _0211C944 ; =0x02099EB4
 	ldr r0, [r0]
 	bl  FUN_ov16_0210e980

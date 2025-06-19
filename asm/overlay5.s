@@ -239,7 +239,7 @@ _020BCE4C:
 	mov r0, #0
 	mov r1, #0x6800000
 	mov r2, #0xa4000
-	bl FUN_0200787c
+	bl MIi_CpuClearFast
 _020BCE64:
 	ldr r1, _020BCE78 ; =0x04000304
 	ldrh r0, [r1]
