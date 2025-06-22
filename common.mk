@@ -6,13 +6,28 @@ default: all
 
 PROJECT_ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
+ifeq ($(OS),Windows_NT)
+REALPATH := realpath
+else
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+REALPATH ?= grealpath
+else
+REALPATH := realpath
+endif
+endif
+
 # Because mwldarm expects absolute paths to be WIN32 paths,
 # all paths referring up from BUILD_DIR must be relative.
-WORK_DIR   := $(shell realpath --relative-to $(CURDIR) $(PROJECT_ROOT))
+WORK_DIR   := $(shell $(REALPATH) --relative-to $(CURDIR) $(PROJECT_ROOT))
 $(shell mkdir -p $(BUILD_DIR))
-BACK_REL   := $(shell realpath --relative-to $(BUILD_DIR) $(CURDIR))
+BACK_REL   := $(shell $(REALPATH) --relative-to $(BUILD_DIR) $(CURDIR))
 
-TOOLSDIR     := $(WORK_DIR)/tools
+# Recursive wildcard function
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
+
+TOOLSDIR     := $(PROJECT_ROOT)/tools
+TOOLSREL     := $(BACK_REL)/tools
 
 include $(WORK_DIR)/platform.mk
 include $(WORK_DIR)/binutils.mk
@@ -20,34 +35,51 @@ include $(WORK_DIR)/binutils.mk
 # NitroSDK tools
 MWCC          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwccarm.exe
 MWAS          = $(TOOLSDIR)/mwccarm/2.0/base/mwasmarm.exe
-MWLD          = $(BACK_REL)/$(TOOLSDIR)/mwccarm/$(MWCCVER)/mwldarm.exe
+MWLD          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwldarm.exe
 MAKEROM      := $(TOOLSDIR)/bin/makerom.exe
 MAKELCF      := $(TOOLSDIR)/bin/makelcf.exe
 MAKEBNR      := $(TOOLSDIR)/bin/makebanner.exe
-NTRCOMP      := $(TOOLSDIR)/bin/ntrcompbw.exe
+NTRCOMP      := $(WINE) $(TOOLSDIR)/bin/ntrcomp.exe
 
 export LM_LICENSE_FILE := $(TOOLSDIR)/mwccarm/license.dat
 
 # Native tools
+JSONPROC     := $(TOOLSDIR)/jsonproc/jsonproc$(EXE)
+GFX          := $(TOOLSDIR)/nitrogfx/nitrogfx$(EXE)
 FIXROM       := $(TOOLSDIR)/fixrom/fixrom$(EXE)
+KNARC        := $(TOOLSDIR)/knarc/knarc$(EXE)
+O2NARC       := $(TOOLSDIR)/o2narc/o2narc$(EXE)
+MSGENC       := $(TOOLSDIR)/msgenc/msgenc$(EXE)
 ASPATCH      := $(TOOLSDIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
+CSV2BIN      := $(TOOLSDIR)/csv2bin/csv2bin$(EXE)
 MKFXCONST    := $(TOOLSDIR)/gen_fx_consts/gen_fx_consts$(EXE)
+#MOD123ENCRY  := $(TOOLSDIR)/mod123encry/mod123encry$(EXE)
 
-# Other tools
+# Decompiled NitroSDK tools
+COMPSTATIC   := $(TOOLSDIR)/compstatic/compstatic$(EXE)
+
 NTRMERGE      := $(TOOLSDIR)/ntr_merge_elf/ntr_merge_elf.sh
 ASM_PROCESSOR := $(TOOLSDIR)/asm_processor/compile.sh
 
 NATIVE_TOOLS := \
+	$(JSONPROC) \
+	$(GFX) \
 	$(FIXROM) \
+	$(KNARC) \
+	$(O2NARC) \
+	$(MSGENC) \
 	$(ASPATCH) \
-	$(MKFXCONST)
+	$(CSV2BIN) \
+	$(MKFXCONST) \
+	$(COMPSTATIC)
+#	$(MOD123ENCRY)
 
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
 # Directories
-NITROSDK_SRC_SUBDIRS      := os
+NITROSDK_SRC_SUBDIRS      := os mi
 
-LIB_SUBDIRS               := cw NitroSDK NitroSystem NitroDWC NitroWiFi libCPS libVCT
+LIB_SUBDIRS               := cw NitroSDK NitroSystem NitroDWC NitroWiFi libCPS libVCT MSL_C
 SRC_SUBDIR                := src
 ASM_SUBDIR                := asm
 LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(NITROSDK_SRC_SUBDIRS:%=lib/NitroSDK/src/%)
@@ -59,20 +91,19 @@ ASM_BUILDDIR              := $(addprefix $(BUILD_DIR)/,$(ASM_SUBDIR))
 LIB_SRC_BUILDDIR          := $(addprefix $(BUILD_DIR)/,$(LIB_SRC_SUBDIR))
 LIB_ASM_BUILDDIR          := $(addprefix $(BUILD_DIR)/,$(LIB_ASM_SUBDIR))
 
-C_SRCS                    := $(foreach dname,$(SRC_SUBDIR),$(wildcard $(dname)/*.c))
+C_SRCS                    := $(call rwildcard,src,*.c)
 ASM_SRCS                  := $(foreach dname,$(ASM_SUBDIR),$(wildcard $(dname)/*.s))
-# asm processor should only be necessary for libcrypto
-GLOBAL_ASM_SRCS           := 
+GLOBAL_ASM_SRCS           != grep -rl 'GLOBAL_ASM(' $(C_SRCS)
 LIB_C_SRCS                := $(foreach dname,$(LIB_SRC_SUBDIR),$(wildcard $(dname)/*.c))
 LIB_ASM_SRCS              := $(foreach dname,$(LIB_ASM_SUBDIR),$(wildcard $(dname)/*.s))
-ALL_SRCS                  := $(C_SRCS) $(ASM_SRCS) $(LIB_C_SRCS) $(LIB_ASM_SRCS)
+ALL_SRCS                  := $(C_SRCS) $(ASM_SRCS) $(GLOBAL_ASM_SRCS) $(LIB_C_SRCS) $(LIB_ASM_SRCS)
 
 C_OBJS                    = $(C_SRCS:%.c=$(BUILD_DIR)/%.o)
 ASM_OBJS                  = $(ASM_SRCS:%.s=$(BUILD_DIR)/%.o)
 GLOBAL_ASM_OBJS           = $(GLOBAL_ASM_SRCS:%.c=$(BUILD_DIR)/%.o)
 LIB_C_OBJS                = $(LIB_C_SRCS:%.c=$(BUILD_DIR)/%.o)
 LIB_ASM_OBJS              = $(LIB_ASM_SRCS:%.s=$(BUILD_DIR)/%.o)
-ALL_GAME_OBJS             = $(C_OBJS) $(ASM_OBJS)
+ALL_GAME_OBJS             = $(C_OBJS) $(ASM_OBJS) $(GLOBAL_ASM_OBJS)
 ALL_LIB_OBJS              = $(LIB_C_OBJS) $(LIB_ASM_OBJS)
 ALL_OBJS                  = $(ALL_GAME_OBJS) $(ALL_LIB_OBJS)
 
@@ -80,28 +111,26 @@ $(ALL_LIB_OBJS): DEFINES = $(GLB_DEFINES)
 
 ALL_BUILDDIRS             := $(sort $(ALL_BUILDDIRS) $(foreach obj,$(ALL_OBJS),$(dir $(obj))))
 
-NEF               := $(BUILD_DIR)/$(NEFNAME).nef
-ELF               := $(NEF:%.nef=%.elf)
-LCF               := $(NEF:%.nef=%.lcf)
-RESPONSE          := $(NEF:%.nef=%.response)
-SBIN              := $(NEF:%.nef=%.sbin)
-XMAP              := $(NEF).xMAP
+ELF               := $(BUILD_DIR)/$(ELFNAME).elf
+LCF               := $(ELF:%.elf=%.lcf)
+RESPONSE          := $(ELF:%.elf=%.response)
+SBIN              := $(ELF:%.elf=%.sbin)
+XMAP              := $(ELF).xMAP
 
 EXCCFLAGS         := -Cpp_exceptions off
 
-MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -enum int -lang c99 $(EXCCFLAGS) -gccext,on -proc $(PROC) -msgstyle gcc -gccinc -i ./include -i ./include/library -i $(WORK_DIR)/files -I$(WORK_DIR)/lib/include -ipa file -interworking -inline on,noauto -char signed
-MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -gccinc -i . -i ./include -i $(WORK_DIR)/files -I$(WORK_DIR)/lib/include -DSDK_ASM
-MWLDFLAGS         := -w off -proc $(PROC) -nopic -nopid -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc -nodead
-ARFLAGS           := rcS
+MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -sym on -enum int -lang c99 $(EXCCFLAGS) -gccext,on -proc $(PROC) -msgstyle gcc -gccinc -i ./src -i ./include -i ./include/library -i $(WORK_DIR)/files -I$(WORK_DIR)/lib/include -ipa file -interworking -inline on,noauto -char signed -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 
-$(C_OBJS):   MWCFLAGS  +=          -include global.h
+MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/NitroDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/NitroSDK/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -i $(WORK_DIR)/files/msgdata -I$(WORK_DIR)/lib/include -DSDK_ASM
+MWLDFLAGS         := -proc $(PROC) -sym on -nopic -nopid -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
+ARFLAGS           := rcS
 
 MW_COMPILE = $(WINE) $(MWCC) $(MWCFLAGS)
 MW_ASSEMBLE = $(WINE) $(MWAS) $(MWASFLAGS)
 
 export MWCIncludes := lib/include
 
-LSF               := $(addsuffix .lsf,$(NEFNAME))
+LSF               := $(addsuffix .lsf,$(ELFNAME))
 ifneq ($(LSF),)
 OVERLAYS          := $(shell $(GREP) -o "^Overlay \w+" $(LSF) | cut -d' ' -f2)
 else
@@ -114,15 +143,11 @@ DUMMY := $(shell mkdir -p $(ALL_BUILDDIRS))
 .SECONDARY:
 .SECONDEXPANSION:
 .DELETE_ON_ERROR:
-.PHONY: all tidy clean tools clean-tools $(TOOLDIRS)
+.PHONY: all tidy clean tools clean-tools patch_mwasmarm $(TOOLDIRS)
 .PRECIOUS: $(SBIN)
-.NOTPARALLEL:
 
-.PHONY: $(MWAS)
-$(MWAS):
-	$(ASPATCH) -q $@
-
-all: tools
+patch_mwasmarm:
+	$(ASPATCH) -q $(MWAS)
 
 ifeq ($(NODEP),)
 ifneq ($(WINPATH),)
@@ -146,15 +171,18 @@ BUILD_C ?= $(MW_COMPILE) -c -o
 $(DEPFILES):
 
 $(BUILD_DIR)/lib/NitroSDK/%.o: MWCCVER := 2.0/sp2p3
+$(BUILD_DIR)/lib/MSL_C/%.o: MWCCVER := 2.0/sp2p3
 
 $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
-	$(BUILD_C) $@ $<
+	@echo $(BUILD_C) $@ $<
+	@$(BUILD_C) $@ $< || { rm -f $(BUILD_DIR)/%.d; exit 1; }
 	@$(call fixdep,$(BUILD_DIR)/$*.d)
 
 $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/%.o: %.s $(BUILD_DIR)/%.d
-	$(WINE) $(MWAS) $(MWASFLAGS) $(DEPFLAGS) -o $@ $<
+	@echo $(WINE) $(MWAS) $(MWASFLAGS) $(DEPFLAGS) -o $@ $<
+	@$(WINE) $(MWAS) $(MWASFLAGS) $(DEPFLAGS) -o $@ $< || { rm -f $(BUILD_DIR)/%.d; exit 1; }
 	@$(call fixdep,$(BUILD_DIR)/$*.d)
 
 include $(wildcard $(DEPFILES))
@@ -178,6 +206,7 @@ $(TOOLDIRS):
 
 clean-tools:
 	$(foreach tool,$(TOOLDIRS),$(MAKE) -C $(tool) clean;)
+	$(TOOLSDIR)/asmdiff/asmdiff.sh -c
 
 $(LCF): $(LSF) $(LCF_TEMPLATE)
 	$(WINE) $(MAKELCF) $(MAKELCF_FLAGS) $^ $@
@@ -196,17 +225,21 @@ $(RESPONSE): $(LSF) $(RESPONSE_TEMPLATE)
 # Locate crt0.o
 CRT0_OBJ := lib/asm/crt0.o
 
-$(NEF): $(LCF) $(RESPONSE) $(ALL_OBJS)
-	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDFLAGS) $(LIBS) -o $(BACK_REL)/$(NEF) $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ)
-
 .INTERMEDIATE: $(BUILD_DIR)/obj.list
 
-$(SBIN): build/%.sbin: build/%.nef
+$(SBIN): build/%.sbin: build/%.elf
+#ifeq ($(SBIN),$(BUILD_DIR)/main.sbin)
+# Overlay 123 is encrypted in the retail ROM, so we need to reencrypt it after building it
+#	cd $(BUILD_DIR) && $(MOD123ENCRY) encry main OVY_123_enc.sbin 123 && mv OVY_123_enc.sbin OVY_123.sbin
+#endif
 ifeq ($(COMPARE),1)
-	-$(SHA1SUM) --quiet -c $*.sha1
+	$(SHA1SUM) --quiet -c $*.sha1
 endif
 
-$(ELF): %.elf: %.nef
-	$(NTRMERGE) $*
+$(ELF): $(ALL_OBJS)
+	$(MAKE) $(LCF)
+	$(MAKE) $(RESPONSE)
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDFLAGS) $(LIBS) -o $(BACK_REL)/$(ELF) $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ)
+#	$(NTRMERGE) $*
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

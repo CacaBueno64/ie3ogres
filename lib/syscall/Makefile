@@ -3,7 +3,7 @@ MWCCVER        := 2.0/sp2p3
 PROC           := arm946e
 PROC_S         := arm5te
 PROC_LD        := v5te
-BUILD_DIR      := build
+BUILD_DIR      := build/$(GAME_CODE)
 
 include ../../common.mk
 
@@ -15,7 +15,9 @@ LIB            := $(BUILD_DIR)/libsyscall.a
 INSTALL_PREFIX ?= $(WORK_DIR)/lib/ARM9-TS
 INSTALL_LIBDIR := $(INSTALL_PREFIX)/lib
 
-all: $(LIB)
+all:
+	$(MAKE) patch_mwasmarm
+	$(MAKE) $(LIB)
 
 ASM_SRCS    := asm/_secure.s
 
@@ -27,6 +29,6 @@ install: all
 	cp $(LIB) $(INSTALL_LIBDIR)/
 
 tidy:
-	$(RM) -r $(BUILD_DIR)
+	$(RM) -r build
 
 clean: tidy
