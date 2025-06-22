@@ -12,8 +12,8 @@
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_020425fc
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_020460a8
 .public FUN_0204b2f4
 .public FUN_0204b540

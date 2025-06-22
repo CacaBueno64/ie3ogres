@@ -643,7 +643,7 @@ _021255A4:
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r2, #3
 	stmia sp, {r2, r5}
 	ldr r0, [r9, #0x5c]
@@ -663,7 +663,7 @@ _021255A4:
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r6]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r9, #0x60]
 	ldrh r1, [r9, #0x62]
 	ldr r0, [r9, #0x5c]
@@ -702,7 +702,7 @@ _02125684:
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r2, #3
 	stmia sp, {r2, r5}
 	ldr r0, [r9, #0x68]
@@ -722,7 +722,7 @@ _02125684:
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r6]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r9, #0x6c]
 	ldrh r1, [r9, #0x6e]
 	ldr r0, [r9, #0x68]

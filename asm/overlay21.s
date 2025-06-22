@@ -1393,7 +1393,7 @@ FUN_ov21_0211b120: ; 0x0211B120
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r5, r6}
 	str r6, [sp, #8]
 	mov r0, #1
@@ -1410,7 +1410,7 @@ FUN_ov21_0211b120: ; 0x0211B120
 	bl FUN_020425fc
 	ldr r0, _0211B318 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]
 	ldr r0, [r4]

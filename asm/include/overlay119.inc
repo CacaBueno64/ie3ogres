@@ -9,8 +9,8 @@
 .public MI_CpuCopy8
 .public FUN_020095ac
 .public FUN_0201e078
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_020466c0
 .public _start
 .public FUN_ov119_02124d00

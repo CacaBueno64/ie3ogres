@@ -943,7 +943,7 @@ FUN_ov33_0211ab44: ; 0x0211AB44
 	ldr r0, [r5]
 	mov r1, r7
 	mov r2, r6
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r7}
@@ -959,7 +959,7 @@ FUN_ov33_0211ab44: ; 0x0211AB44
 	mov r3, r3, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r4, #0x78]
 	ldrh r1, [r4, #0x7a]
 	ldr r0, [r4, #0x70]

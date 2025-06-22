@@ -3096,7 +3096,7 @@ FUN_ov44_0211c8dc: ; 0x0211C8DC
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -3116,7 +3116,7 @@ FUN_ov44_0211c8dc: ; 0x0211C8DC
 	bl FUN_020425fc
 	ldr r0, _0211CB08 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r3, [sp, #0x28]
 	mov r2, r6
 	ldr r1, [r8]

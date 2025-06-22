@@ -564,7 +564,7 @@ FUN_ov31_0211a5f8: ; 0x0211A5F8
 	ldr r0, _0211A86C ; =0x02099ED0
 	mov r2, #2
 	ldr r0, [r0]
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r6, r11}
 	str r11, [sp, #8]
 	mov r0, #1
@@ -585,7 +585,7 @@ _0211A738:
 	ldr r0, _0211A870 ; =0x02099F50
 	mov r2, r11
 	ldr r0, [r0]
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r6, r11}
 	str r11, [sp, #8]
 	mov r0, #1
@@ -603,7 +603,7 @@ _0211A738:
 	ldr r0, _0211A870 ; =0x02099F50
 _0211A784:
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r11, _0211A868 ; =0x02099F38
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]

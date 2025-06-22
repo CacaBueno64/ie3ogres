@@ -1947,7 +1947,7 @@ FUN_ov54_0211b924: ; 0x0211B924
 	str r12, [sp, #0x10]
 	bl  FUN_ov16_020f2304
 	mov r0, r4
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end FUN_ov54_0211b924
@@ -1975,7 +1975,7 @@ FUN_ov54_0211b970: ; 0x0211B970
 	mov r1, r9
 	ldr r0, [r6]
 	mov r2, r9
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r1, #2
 	ldr r0, [r6]
 	mov r2, r1
@@ -2001,7 +2001,7 @@ FUN_ov54_0211b970: ; 0x0211B970
 	mov r2, r4
 	bl FUN_020425fc
 	ldr r0, [r6]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r7]
 	ldr r3, [sp, #0x24]
 	mov r1, r5

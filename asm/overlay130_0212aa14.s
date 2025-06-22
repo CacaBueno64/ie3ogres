@@ -89,7 +89,7 @@ _0212AB44: .word 0x0212AB60
 _0212AB48: .word 0x00009CCD
 _0212AB4C: .word 0x0000EA3C
 	arm_func_end FUN_ov130_0212ab00
-	; 0x0212AB50
+; 0x0212AB50
 
 
 	.rodata

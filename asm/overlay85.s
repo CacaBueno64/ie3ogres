@@ -852,7 +852,7 @@ _0211AA80:
 	ldr r0, [r0]
 	mov r1, r5
 	mov r2, r5
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	mov r0, r4

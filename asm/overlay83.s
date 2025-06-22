@@ -2309,7 +2309,7 @@ FUN_ov83_0211be60: ; 0x0211BE60
 	ldr r0, [r5]
 	mov r1, r6
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r1, #3
 	str r1, [sp]
 	stmib sp, {r1, r6}
@@ -2326,7 +2326,7 @@ FUN_ov83_0211be60: ; 0x0211BE60
 	mov r3, r3, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r4, #0xc]
 	ldrh r1, [r4, #0xe]
 	ldr r0, [r4, #4]

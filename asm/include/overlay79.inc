@@ -13,8 +13,8 @@
 .public FUN_0202cff8
 .public FUN_0202d774
 .public FUN_02041eac
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_020443e8
 .public FUN_0205a504
 .public FUN_0205be20

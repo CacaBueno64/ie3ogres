@@ -267,7 +267,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, r11
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r1, #2
 	ldr r0, [r4]
 	mov r2, r1
@@ -295,7 +295,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	mov r0, r9
 	bl DC_FlushRange
 	ldr r0, [r4]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r5]
 	ldr r3, [sp, #0x24]
 	mov r1, r10
@@ -335,7 +335,7 @@ FUN_ov71_0211a324: ; 0x0211A324
 	ldr r0, [r4]
 	mov r2, r11
 	mov r1, #2
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, [r5]
 	mov r1, r10
 	bl  FUN_ov16_02111438
@@ -359,7 +359,7 @@ FUN_ov71_0211a324: ; 0x0211A324
 	mov r0, r9
 	bl DC_FlushRange
 	ldr r0, [r4]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r5]
 	ldr r3, [sp, #0x24]
 	mov r1, r10

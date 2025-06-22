@@ -1517,7 +1517,7 @@ FUN_ov59_0211b278: ; 0x0211B278
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -1537,7 +1537,7 @@ FUN_ov59_0211b278: ; 0x0211B278
 	bl FUN_020425fc
 	ldr r0, _0211B490 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	mov r2, r6
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]

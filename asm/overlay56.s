@@ -1979,7 +1979,7 @@ FUN_ov56_0211b970: ; 0x0211B970
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r5, r6}
 	ldr r0, [sp, #0x74]
 	str r6, [sp, #8]
@@ -1996,7 +1996,7 @@ FUN_ov56_0211b970: ; 0x0211B970
 	bl FUN_020425fc
 	ldr r0, _0211BB70 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r3, [sp, #0x2c]
 	ldr r1, [r8]
 	ldr r0, [r4]
@@ -7857,7 +7857,7 @@ _02120D74:
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	add r0, r4, #0x1000
 	ldr r1, [r0, #0x614]
 	ldr r0, [r5]
@@ -7885,7 +7885,7 @@ _02120D74:
 _02120E20:
 	ldr r0, _02120E48 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x9c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02120E34: .word 0x02099EB4

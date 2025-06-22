@@ -1121,7 +1121,7 @@ FUN_ov98_02125c48: ; 0x02125C48
 	mov r1, r6
 	ldr r0, [r5]
 	mov r2, r6
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	stmia sp, {r0, r6}
 	ldr r0, [r4, #4]
@@ -1148,7 +1148,7 @@ FUN_ov98_02125c48: ; 0x02125C48
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _02125CF4: .word 0x02099F50
@@ -1164,7 +1164,7 @@ FUN_ov98_02125cf8: ; 0x02125CF8
 	ldr r0, [r4]
 	mov r2, r1
 	add r8, r10, #0x254
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r9, #0
 	add r5, r10, #0x3c
 	mov r11, #0x60
@@ -1207,7 +1207,7 @@ _02125D30:
 	blt _02125D30
 	ldr r0, _02125DCC ; =0x02099ED0
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125DCC: .word 0x02099ED0
@@ -1228,7 +1228,7 @@ FUN_ov98_02125dd0: ; 0x02125DD0
 	mov r1, r4
 	ldr r0, [r6]
 	mov r2, r4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r7, #1
 	ldr r0, [r6]
 	mov r1, r7
@@ -1260,7 +1260,7 @@ FUN_ov98_02125dd0: ; 0x02125DD0
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	ldr r0, [r6]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02125E90: .word 0x02099EDC

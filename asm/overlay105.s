@@ -813,7 +813,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	ldr r0, [r5]
 	mov r2, r6
 	mov r1, #1
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r8, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -835,7 +835,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -884,7 +884,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	ldr r0, [r7]
 	mov r2, r8
 	mov r1, #1
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r10, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -906,7 +906,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r7]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r5, #8]
 	ldrh r1, [r5, #0xa]
 	ldr r0, [r5, #4]

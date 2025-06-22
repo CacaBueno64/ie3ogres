@@ -12,7 +12,7 @@
 .public STD_ConcatenateString
 .public FUN_0201e078
 .public FUN_02041fec
-.public rwriteat14n18
+.public FUN_02043310
 .public _start
 .public FUN_ov103_02124d00
 .public FUN_ov103_02124d04

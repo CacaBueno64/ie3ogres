@@ -2915,7 +2915,7 @@ FUN_ov72_0211c6e4: ; 0x0211C6E4
 	ldr r0, [r9]
 	mov r1, r4
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r4}
@@ -2932,7 +2932,7 @@ FUN_ov72_0211c6e4: ; 0x0211C6E4
 	mov r3, r3, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r9]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
 	ldr r0, [r5, #4]
@@ -2989,7 +2989,7 @@ FUN_ov72_0211c788: ; 0x0211C788
 	mov r1, r4
 	ldr r0, [r7]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r1, #3
 	str r1, [sp]
 	stmib sp, {r1, r4}
@@ -3007,7 +3007,7 @@ FUN_ov72_0211c788: ; 0x0211C788
 	mov r3, r3, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r7]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	strb r4, [r5, #0x10]
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]

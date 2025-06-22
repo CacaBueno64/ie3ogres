@@ -19,7 +19,7 @@ include $(WORK_DIR)/binutils.mk
 
 # NitroSDK tools
 MWCC          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwccarm.exe
-MWAS          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwasmarm.exe
+MWAS          = $(TOOLSDIR)/mwccarm/2.0/base/mwasmarm.exe
 MWLD          = $(BACK_REL)/$(TOOLSDIR)/mwccarm/$(MWCCVER)/mwldarm.exe
 MAKEROM      := $(TOOLSDIR)/bin/makerom.exe
 MAKELCF      := $(TOOLSDIR)/bin/makelcf.exe
@@ -118,9 +118,9 @@ DUMMY := $(shell mkdir -p $(ALL_BUILDDIRS))
 .PRECIOUS: $(SBIN)
 .NOTPARALLEL:
 
-#.PHONY: $(MWAS)
-#$(MWAS):
-#	$(ASPATCH) -q $@
+.PHONY: $(MWAS)
+$(MWAS):
+	$(ASPATCH) -q $@
 
 all: tools
 

@@ -4065,7 +4065,7 @@ FUN_ov70_0211d7dc: ; 0x0211D7DC
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r5, r8}
 	str r8, [sp, #8]
 	mov r0, #1
@@ -4082,7 +4082,7 @@ FUN_ov70_0211d7dc: ; 0x0211D7DC
 	bl FUN_020425fc
 	ldr r0, _0211D98C ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r3, [sp, #0x2c]
 	ldr r0, [r4]
 	mov r2, r9

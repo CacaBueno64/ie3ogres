@@ -1417,7 +1417,7 @@ FUN_ov69_0211b2b8: ; 0x0211B2B8
 	mov r1, r6
 	str r6, [sp, #0x24]
 	mov r2, #1
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, [r10, #0xc]
 	mov r8, r6
 	mov r0, r0, lsl #0x10
@@ -1494,7 +1494,7 @@ _0211B3BC:
 _0211B3F8:
 	ldr r0, _0211B40C ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B40C: .word 0x02099F50

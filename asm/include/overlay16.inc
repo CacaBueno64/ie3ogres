@@ -164,8 +164,8 @@
 .public FUN_0202f678
 .public FUN_0202fc4c
 .public FUN_0202fd44
-.public SsdLocateStrings
-.public SsdGetInstructionPtr
+.public SsdInitFile
+.public SsdGetNextInstruction
 .public FUN_0202ff60
 .public FUN_02030790
 .public FUN_02030f54
@@ -295,8 +295,8 @@
 .public FUN_020425fc
 .public FUN_0204294c
 .public FUN_02042b0c
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_020435b0
 .public FUN_020443a4
 .public FUN_02044754
@@ -324,7 +324,7 @@
 .public FUN_02048b4c
 .public FUN_02049194
 .public FUN_020493dc
-.public WraperSsdGetInstructionPtr
+.public SsdGetNextInstructionWraper
 .public FUN_02049ea4
 .public FUN_0204a2c4
 .public FUN_0204a318
@@ -457,8 +457,8 @@
 .public FUN_02064088
 .public FUN_02064390
 .public FUN_020643c0
-.public FUN_02067170
-.public FUN_020672b4
+.public NNS_G3dGeFlushBuffer
+.public NNS_G3dGeBufferOP_N
 .public FUN_02067390
 .public FUN_020677a8
 .public FUN_02067a28

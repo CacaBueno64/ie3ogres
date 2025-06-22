@@ -1305,7 +1305,7 @@ _0211B0B4:
 	ldr r0, [r8]
 	mov r1, #2
 	mov r2, r4
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, _0211B2F4 ; =0x0209A454
 	ldr r3, _0211B2F8 ; =0x0209A460
 	ldr r0, [r0, #4]
@@ -1341,7 +1341,7 @@ _0211B158:
 	ldr r0, [r8]
 	mov r1, r4
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1360,7 +1360,7 @@ _0211B158:
 	mov r2, r2, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r8]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r7, #0x9c]
 	ldrh r1, [r7, #0x9e]
 	ldr r0, [r7, #0x94]
@@ -1376,7 +1376,7 @@ _0211B1E0:
 	ldr r0, [r8]
 	mov r1, r4
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1395,7 +1395,7 @@ _0211B1E0:
 	mov r2, r2, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r8]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r7, #0x9c]
 	ldrh r1, [r7, #0x9e]
 	ldr r0, [r7, #0x94]
@@ -1412,7 +1412,7 @@ _0211B268:
 	ldr r0, [r8]
 	mov r1, r4
 	mov r2, r6
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r0, #3
 	str r0, [sp]
 	str r0, [sp, #4]
@@ -1430,7 +1430,7 @@ _0211B268:
 	mov r2, r2, lsl #3
 	bl  FUN_ov16_020f2184
 	ldr r0, [r8]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r7, #0x9c]
 	ldrh r1, [r7, #0x9e]
 	ldr r0, [r7, #0x94]

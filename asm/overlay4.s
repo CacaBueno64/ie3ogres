@@ -508,7 +508,7 @@ _020BD204:
 	mov r1, #1
 	ldr r0, [r7]
 	mov r2, r1
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r4, #0
 	mov r5, #3
 	str r5, [sp]
@@ -531,7 +531,7 @@ _020BD204:
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r7]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r1, [r6, #8]
 	ldrb r0, [r1, #5]
 	cmp r0, #0
@@ -1066,7 +1066,7 @@ FUN_ov4_020bd8d8: ; 0x020BD8D8
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, r4
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r2, [r7, #0x7c]
 	sub r0, r5, #1
 	cmp r2, r0
@@ -1145,7 +1145,7 @@ _020BDA58:
 _020BDAB8:
 	ldr r0, _020BDAF0 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r7, #0x2c]
 	ldrh r1, [r7, #0x2e]
 	mov r3, #1
@@ -11747,7 +11747,7 @@ FUN_ov4_020c6b18: ; 0x020C6B18
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
-	bl rwriteat14n18
+	bl FUN_02043310
 _020C6B70:
 	mov r0, r5
 	bl FUN_ov16_020f2f20
@@ -12225,7 +12225,7 @@ _020C7250:
 	mov r1, r10
 	ldr r0, [r0]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r7, r10}
 	mov r1, #0
 	mov r2, r9
@@ -12235,7 +12235,7 @@ _020C7250:
 	bl FUN_ov4_020c6b18
 	ldr r0, _020C7360 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	cmp r8, #1
 	mov r2, #7
 	bhi _020C72A8
@@ -12490,7 +12490,7 @@ _020C75EC:
 	ldr r0, [r6]
 	mov r1, r8
 	mov r2, r7
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r4, #0
 	stmia sp, {r5, r8}
 	ldr r3, [sp, #0x20]
@@ -12500,7 +12500,7 @@ _020C75EC:
 	mov r2, #6
 	bl FUN_ov4_020c6b18
 	ldr r0, [r6]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	str r8, [sp]
 	stmib sp, {r4, r7}
 	mov r0, #0x10
@@ -12623,7 +12623,7 @@ _020C7804:
 	ldr r0, [r8]
 	mov r1, r10
 	mov r2, r9
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r4, #0
 	stmia sp, {r5, r10}
 	mov r0, r7
@@ -12633,7 +12633,7 @@ _020C7804:
 	mov r2, #6
 	bl FUN_ov4_020c6b18
 	ldr r0, [r8]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	str r10, [sp]
 	stmib sp, {r4, r9}
 	mov r0, #0x10
@@ -13026,7 +13026,7 @@ _020C7DE8:
 	mov r1, r4
 	ldr r0, [r0]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r3, [sp, #0x34]
 	mov r12, #0x74
 	mla r3, r9, r12, r3
@@ -13242,7 +13242,7 @@ _020C80FC:
 	mov r1, r5
 	mov r2, r4
 	ldreq r10, _020C8200 ; =0x020DA344
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r7, [sp]
 	stmib sp, {r5, r6}
 	mov r0, r8
@@ -13251,7 +13251,7 @@ _020C80FC:
 	mov r2, #0x14
 	bl FUN_ov4_020c6b18
 	ldr r0, [r9]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r7, #0xe]
 	ldrh r1, [r7, #0xc]
 	ldr r3, [r7]
@@ -13375,7 +13375,7 @@ _020C8324:
 	mov r1, r9
 	mov r2, r8
 	ldr r10, _020C83F4 ; =0x020DA370
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r4, #0
 	stmia sp, {r5, r9}
 	mov r0, r6
@@ -13385,7 +13385,7 @@ _020C8324:
 	str r4, [sp, #8]
 	bl FUN_ov4_020c6b18
 	ldr r0, [r7]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	str r9, [sp]
 	stmib sp, {r4, r8}
 	mov r0, #5
@@ -13490,7 +13490,7 @@ _020C84E0:
 	mov r1, r5
 	ldr r0, [r0]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r3, [sp, #0x28]
 	mov r12, #0x74
 	mla r3, r9, r12, r3
@@ -14036,7 +14036,7 @@ FUN_ov4_020c8ccc: ; 0x020C8CCC
 	ldr r0, [r0]
 	mov r1, r5
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	add r1, r9, #0xb6
 	mov r0, #0x19
 	mov r4, #0
@@ -14106,7 +14106,7 @@ FUN_ov4_020c8dd8: ; 0x020C8DD8
 	ldr r0, [r0]
 	mov r1, r5
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	add r0, r9, #0x5a
 	add r1, r0, #0x200
 	mov r0, #0x74
@@ -27010,7 +27010,7 @@ FUN_ov4_020d467c: ; 0x020D467C
 	ldr r1, [sp, #0x4c]
 	ldr r0, [r8]
 	ldr r2, [sp, #0x50]
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, [r9]
 	mov r1, r6
 	bl FUN_ov16_02111438
@@ -27035,7 +27035,7 @@ FUN_ov4_020d467c: ; 0x020D467C
 	mov r2, r5
 	bl FUN_020425fc
 	ldr r0, [r8]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r9]
 	mov r1, r6
 	mov r2, r5
@@ -27098,7 +27098,7 @@ FUN_ov4_020d479c: ; 0x020D479C
 	bl FUN_ov16_020f2304
 	ldr r0, _020D4864 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _020D4860: .word 0x02099F38
@@ -30488,7 +30488,7 @@ _020D766C:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldrb r1, [r5, #0x1d]
 	mov r0, #0x14
 	smulbb r0, r1, r0
@@ -30516,7 +30516,7 @@ _020D766C:
 	bl FUN_ov16_020f2184
 	ldr r0, _020D7738 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r5, #0x2c]
 	ldrh r1, [r5, #0x2e]
 	ldr r0, [r5, #0x24]

@@ -1465,7 +1465,7 @@ FUN_ov65_0211b1c8: ; 0x0211B1C8
 	ldr r0, [r0]
 	mov r1, r5
 	mov r2, r6
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r1, [sp, #0xb8]
 	sub r0, r6, #6
 	cmp r1, r0
@@ -1529,7 +1529,7 @@ _0211B37C:
 	ldr r3, [sp, #0x24]
 	bl FUN_020425fc
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r4, _0211B494 ; =0x02099F38
 	ldr r3, [sp, #0x30]
 	ldr r1, [r7]

@@ -1104,7 +1104,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	mov r1, #1
 	ldr r0, [r5]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r7, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -1126,7 +1126,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -1169,7 +1169,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r5, #3
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
@@ -1190,7 +1190,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r4]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]
@@ -1207,7 +1207,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
 	mov r1, r5
@@ -1227,7 +1227,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r5, [r5, #8]
 	blx r5
 	ldr r0, [r4]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]

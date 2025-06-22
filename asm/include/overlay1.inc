@@ -79,8 +79,8 @@
 .public FUN_02042054
 .public FUN_02042084
 .public FUN_020425fc
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_02043780
 .public FUN_020443c0
 .public FUN_020443d4
@@ -185,7 +185,7 @@
 .public FUN_02062924
 .public FUN_02063248
 .public FUN_020643c0
-.public FUN_020672b4
+.public NNS_G3dGeBufferOP_N
 .public FUN_0206c0d8
 .public FUN_0206c110
 .public FUN_0206c158

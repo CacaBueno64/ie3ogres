@@ -662,7 +662,7 @@ _021255F0:
 	mov r1, r5
 	ldr r0, [r10]
 	mov r2, #4
-	bl rwriteat14n18
+	bl FUN_02043310
 	mov r1, r7, lsr #0x1f
 	rsb r0, r1, r7, lsl #29
 	add r1, r1, r0, ror #29
@@ -711,7 +711,7 @@ _021256AC:
 _021256F8:
 	ldr r0, _02125734 ; =0x02099F50
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	mov r4, #1
 	strb r4, [r6, #0x10]
 	ldrh r2, [r6, #0xc]

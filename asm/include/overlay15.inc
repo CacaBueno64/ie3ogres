@@ -157,8 +157,8 @@
 .public FUN_0204201c
 .public FUN_02042054
 .public FUN_02042084
-.public rwriteat14n18
-.public wraper_rwiteat14n18
+.public FUN_02043310
+.public FUN_0204331c
 .public FUN_02045b74
 .public FUN_0204665c
 .public FUN_02074fb8

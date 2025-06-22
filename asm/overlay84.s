@@ -752,7 +752,7 @@ _0211A8A8:
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, r8
-	bl rwriteat14n18
+	bl FUN_02043310
 	stmia sp, {r7, r8}
 	str r8, [sp, #8]
 	str r6, [sp, #0xc]
@@ -766,7 +766,7 @@ _0211A8A8:
 	mov r3, #0x200
 	bl FUN_020425fc
 	ldr r0, [r4]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r5]
 	ldr r3, [sp, #0x24]
 	mov r2, r10

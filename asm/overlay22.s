@@ -897,7 +897,7 @@ FUN_ov22_0211aa70: ; 0x0211AA70
 	ldr r0, _0211ACE4 ; =0x02099ED0
 	mov r2, r1
 	ldr r0, [r0]
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r8, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -921,7 +921,7 @@ _0211ABB4:
 	ldr r0, _0211ACE8 ; =0x02099F50
 	mov r2, #5
 	ldr r0, [r0]
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r8, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -942,7 +942,7 @@ _0211ABB4:
 	ldr r0, _0211ACE8 ; =0x02099F50
 _0211AC0C:
 	ldr r0, [r0]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r4, _0211ACE0 ; =0x02099F38
 	ldr r3, [sp, #0x24]
 	ldr r1, [r5]

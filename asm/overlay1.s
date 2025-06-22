@@ -32862,11 +32862,18 @@ FUN_ov1_020d8f14: ; 0x020D8F14
 	arm_func_end FUN_ov1_020d8f14
 
     arm_func_start FUN_ov1_020d8f2c
-FUN_ov1_020d8f2c:
+FUN_ov1_020d8f2c: ; 0x020D8F2C
     ldr r12, _020D8F34 ; =0x0211D4DC
     bx r12
 _020D8F34: .word 0x0211D4DC
     arm_func_end FUN_ov1_020d8f2c
+
+    arm_func_start FUN_ov1_020d8f38
+FUN_ov1_020d8f38: ; 0x020D8F38
+    ldr r12, _020D8F40 ; =0x0211D55C
+    bx r12
+_020D8F40: .word 0x0211D55C
+    arm_func_end FUN_ov1_020d8f38
 
 	arm_func_start FUN_ov1_020d8f44
 FUN_ov1_020d8f44: ; 0x020D8F44
@@ -36959,7 +36966,7 @@ FUN_ov1_020dc758: ; 0x020DC758
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0x11
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_020643c0
 	mov r0, r7
 	bl FUN_ov1_020dc8c4
@@ -36996,7 +37003,7 @@ _020DC7F0:
 	mov r0, #0x1c
 	str r3, [sp, #0x14]
 	str r4, [sp, #0x18]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r4, #0x400000
 	mov r3, #0x1000
 	add r1, sp, #8
@@ -37005,14 +37012,14 @@ _020DC7F0:
 	str r4, [sp, #8]
 	str r4, [sp, #0xc]
 	str r3, [sp, #0x10]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r6, #0xe00
 	ldrh r2, [r0, #0x4a]
 	add r1, sp, #4
 	mov r0, #0x20
 	str r2, [sp, #4]
 	mov r2, #1
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldrb r0, [r6, #0xe48]
 	cmp r0, #0
 	beq _020DC87C
@@ -37040,7 +37047,7 @@ _020DC8A8:
 	add r1, sp, #0
 	mov r0, #0x12
 	str r2, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov1_020dc758
@@ -37055,12 +37062,12 @@ FUN_ov1_020dc8c4: ; 0x020DC8C4
 	mov r2, r4
 	mov r0, #0x30
 	str r5, [sp, #4]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r1, sp, #0
 	mov r2, r4
 	mov r0, #0x31
 	str r5, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov1_020dc8c4
@@ -37075,7 +37082,7 @@ FUN_ov1_020dc904: ; 0x020DC904
 	mov r0, #0x29
 	mov r2, #1
 	str r3, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldmfd sp!, {r3, pc}
 _020DC92C: .word 0x3F0000C0
 	arm_func_end FUN_ov1_020dc904
@@ -37124,7 +37131,7 @@ _020DC9BC:
 	mov r0, #0x2a
 	str r3, [sp, #4]
 _020DC9CC:
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp, #0xc]
 	cmn r0, #1
 	addeq sp, sp, #0x14
@@ -37134,7 +37141,7 @@ _020DC9CC:
 	mov r0, #0x2b
 	mov r2, #1
 	str r3, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
 _020DCA00: .word 0x02099F38
@@ -37165,7 +37172,7 @@ FUN_ov1_020dca08: ; 0x020DCA08
 	mov r2, r10
 	mov r0, #0x40
 	str r3, [sp, #0x30]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	mov r0, #0
@@ -37201,7 +37208,7 @@ _020DCAA8:
 	mov r0, r7
 	mov r1, r11
 	mov r2, r6
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r8, r9, lsl #3
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #8]
@@ -37228,7 +37235,7 @@ _020DCAA8:
 	add r1, sp, #0x24
 	mov r2, #2
 	str r5, [sp, #0x28]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r10, r4
 	b _020DCB88
 _020DCB60:
@@ -37241,7 +37248,7 @@ _020DCB60:
 	mov r0, #0x25
 	add r1, sp, #0x20
 	mov r2, r6
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DCB88:
 	add r9, r9, #1
 	ldr r0, [r8, #0x48]
@@ -37259,7 +37266,7 @@ _020DCBB0:
 	mov r1, r10
 	mov r2, r10
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp]
 	mov r8, #1
 	ldrb r0, [r0, #0xe4d]
@@ -37281,12 +37288,12 @@ _020DCBB0:
 	str r10, [sp, #0x34]
 	str r10, [sp, #0x38]
 	str r3, [sp, #0x3c]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r1, sp, #0x1c
 	mov r2, r8
 	str r10, [sp, #0x1c]
 	mov r0, #0x40
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r9, #0x48]
 	cmp r0, #0
 	ble _020DCD40
@@ -37312,7 +37319,7 @@ _020DCC50:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r9, r10, lsl #3
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #8]
@@ -37339,7 +37346,7 @@ _020DCC50:
 	add r1, sp, #0x10
 	mov r2, #2
 	str r4, [sp, #0x14]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r8, #0
 	b _020DCD30
 _020DCD08:
@@ -37352,7 +37359,7 @@ _020DCD08:
 	mov r0, #0x25
 	add r1, sp, #0xc
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DCD30:
 	ldr r0, [r9, #0x48]
 	add r10, r10, #1
@@ -37362,7 +37369,7 @@ _020DCD40:
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov1_020dca08
@@ -37385,7 +37392,7 @@ FUN_ov1_020dcd58: ; 0x020DCD58
 	mov r0, #0x40
 	mov r4, #0
 	str r10, [sp, #0x30]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	mov r0, #0
@@ -37421,7 +37428,7 @@ _020DCDE0:
 	mov r0, r7
 	mov r1, r11
 	mov r2, r6
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r8, r9, lsl #3
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #8]
@@ -37448,7 +37455,7 @@ _020DCDE0:
 	add r1, sp, #0x24
 	mov r2, #2
 	str r5, [sp, #0x28]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r10, r4
 	b _020DCEC0
 _020DCE98:
@@ -37461,7 +37468,7 @@ _020DCE98:
 	mov r0, #0x25
 	add r1, sp, #0x20
 	mov r2, r6
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DCEC0:
 	add r9, r9, #1
 	ldr r0, [r8, #0x48]
@@ -37479,7 +37486,7 @@ _020DCEE8:
 	mov r1, r10
 	mov r2, r10
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp]
 	mov r8, #1
 	ldrb r0, [r0, #0xe4d]
@@ -37501,12 +37508,12 @@ _020DCEE8:
 	str r10, [sp, #0x34]
 	str r10, [sp, #0x38]
 	str r3, [sp, #0x3c]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r1, sp, #0x1c
 	mov r2, r8
 	str r10, [sp, #0x1c]
 	mov r0, #0x40
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r9, #0x48]
 	cmp r0, #0
 	ble _020DD078
@@ -37532,7 +37539,7 @@ _020DCF88:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r9, r10, lsl #3
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #8]
@@ -37559,7 +37566,7 @@ _020DCF88:
 	add r1, sp, #0x10
 	mov r2, #2
 	str r4, [sp, #0x14]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r8, #0
 	b _020DD068
 _020DD040:
@@ -37572,7 +37579,7 @@ _020DD040:
 	mov r0, #0x25
 	add r1, sp, #0xc
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DD068:
 	ldr r0, [r9, #0x48]
 	add r10, r10, #1
@@ -37582,7 +37589,7 @@ _020DD078:
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov1_020dcd58
@@ -37598,7 +37605,7 @@ FUN_ov1_020dd090: ; 0x020DD090
 	add r1, sp, #0x18
 	mov r2, r10
 	mov r0, #0x40
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [sp]
 	ldr r1, [r0, #0xe40]
 	mov r0, #0
@@ -37636,7 +37643,7 @@ _020DD104:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r8, r9, lsl #3
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #8]
@@ -37663,7 +37670,7 @@ _020DD104:
 	add r1, sp, #0xc
 	mov r2, #2
 	str r4, [sp, #0x10]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r10, #0
 	b _020DD1E4
 _020DD1BC:
@@ -37676,7 +37683,7 @@ _020DD1BC:
 	mov r0, #0x25
 	add r1, sp, #8
 	mov r2, r5
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DD1E4:
 	add r9, r9, #1
 	ldr r0, [r8, #0x48]
@@ -37694,7 +37701,7 @@ _020DD210:
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov1_020dd090
@@ -39372,7 +39379,7 @@ FUN_ov1_020de9f4: ; 0x020DE9F4
 	mov r1, r8
 	mov r2, r8
 	mov r0, #0x11
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	bl FUN_020643c0
 	mov r0, r7
 	bl FUN_ov1_020deb34
@@ -39383,7 +39390,7 @@ FUN_ov1_020de9f4: ; 0x020DE9F4
 	add r1, sp, #8
 	mov r2, #1
 	str r8, [sp, #8]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r6, #0x100
 	ldrh r0, [r0, #8]
 	add r0, r0, #0x82
@@ -39412,7 +39419,7 @@ _020DEA9C:
 	mov r0, #0x1c
 	str r3, [sp, #0x18]
 	str r4, [sp, #0x1c]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r4, #0x400000
 	mov r3, #0x1000
 	add r1, sp, #0xc
@@ -39421,7 +39428,7 @@ _020DEA9C:
 	str r4, [sp, #0xc]
 	str r4, [sp, #0x10]
 	str r3, [sp, #0x14]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r0, r6, #0x100
 	ldrh r0, [r0, #0xa]
 	mov r4, #1
@@ -39429,7 +39436,7 @@ _020DEA9C:
 	str r0, [sp, #4]
 	mov r2, r4
 	mov r0, #0x20
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r0, r7
 	mov r1, r6
 	bl FUN_ov1_020deba0
@@ -39437,7 +39444,7 @@ _020DEA9C:
 	mov r0, #0x12
 	add r1, sp, #0
 	str r4, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x24
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov1_020de9f4
@@ -39452,12 +39459,12 @@ FUN_ov1_020deb34: ; 0x020DEB34
 	mov r2, r4
 	mov r0, #0x30
 	str r5, [sp, #4]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add r1, sp, #0
 	mov r2, r4
 	mov r0, #0x31
 	str r5, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov1_020deb34
@@ -39472,7 +39479,7 @@ FUN_ov1_020deb74: ; 0x020DEB74
 	mov r0, #0x29
 	mov r2, #1
 	str r3, [sp]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldmfd sp!, {r3, pc}
 _020DEB9C: .word 0x3F0000C0
 	arm_func_end FUN_ov1_020deb74
@@ -39488,7 +39495,7 @@ FUN_ov1_020deba0: ; 0x020DEBA0
 	add r1, sp, #0xc
 	mov r2, r7
 	mov r0, #0x40
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	ldr r0, [r10]
 	add r8, r10, #0x7c
 	cmp r0, #0
@@ -39524,7 +39531,7 @@ _020DEBEC:
 	mov r1, r4
 	mov r2, r11
 	str r6, [sp, #8]
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	mov r7, #0
 	b _020DEC94
 _020DEC5C:
@@ -39541,7 +39548,7 @@ _020DEC5C:
 	mov r0, #0x25
 	add r1, sp, #0
 	mov r2, #1
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 _020DEC94:
 	ldr r0, [r10]
 	add r9, r9, #1
@@ -39552,7 +39559,7 @@ _020DECA8:
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0x41
-	bl FUN_020672b4
+	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov1_020deba0
@@ -39770,7 +39777,7 @@ FUN_ov1_020deeac: ; 0x020DEEAC
 	mov r0, r7
 	mov r1, r10
 	mov r2, r9
-	bl rwriteat14n18
+	bl FUN_02043310
 	ldr r0, [r8]
 	mov r1, r6
 	bl FUN_ov16_02111438
@@ -39793,7 +39800,7 @@ FUN_ov1_020deeac: ; 0x020DEEAC
 	mov r2, r5
 	bl FUN_020425fc
 	mov r0, r7
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r0, [r8]
 	ldr r3, [sp, #0x24]
 	mov r1, r6

@@ -1580,7 +1580,7 @@ _0211B4A4:
 	mov r1, #1
 	ldr r0, [r11]
 	mov r2, #5
-	bl rwriteat14n18
+	bl FUN_02043310
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -1598,7 +1598,7 @@ _0211B4A4:
 	mov r3, r6
 	bl FUN_020425fc
 	ldr r0, [r11]
-	bl wraper_rwiteat14n18
+	bl FUN_0204331c
 	ldr r3, [sp, #0x2c]
 	ldr r1, [r8]
 	ldr r0, [r4]

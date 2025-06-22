@@ -20,7 +20,7 @@
 .public FUN_02041ef0
 .public FUN_0204204c
 .public FUN_02042110
-.public rwriteat14n18
+.public FUN_02043310
 .public FUN_02046730
 .public FUN_0204f02c
 .public FUN_0206cbf8
