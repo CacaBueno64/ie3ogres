@@ -15,6 +15,12 @@ sub/build/**
 .idea/
 cmake-build-debug/
 
+# VSCode folder
+.vscode/
+
+# "cmake.buildDirectory": "${workspaceFolder}/build-cmake-${buildType}"
+build-cmake-*
+
 # ROM
 *.srl
 
@@ -82,10 +88,22 @@ diff.txt
 
 .vscode/
 
-temp_asm/
-asm_old/
+# Save files
+*.dsv
+*.sav
 
-!platinum.us/rom_header_template.sbin
-!platinum.us/banner.bnr
-!sub/*.sbin
+# Savestate files
+*.ds[0-9]
+*.dst
+*.ml[0-9]
+*.mln
 
+# clangd
+.cache
+compile_commands.json
+
+# python
+/pyscripts/
+__pycache__
+.venv/
+*.pyc
