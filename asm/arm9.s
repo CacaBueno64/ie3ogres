@@ -4867,7 +4867,7 @@ _020046E4: .word MI_Copy36B
 	arm_func_start G3X_Init
 G3X_Init: ; 0x020046E8
 	stmfd sp!, {r4, r5, r6, lr}
-	bl FUN_02004858
+	bl G3X_ClearFifo
 	ldr r0, _020047D0 ; =0x04000504
 	mov r1, #0
 	str r1, [r0]
@@ -4905,7 +4905,7 @@ _020046FC:
 	bic r1, r1, #0xc0000000
 	orr r1, r1, #0x80000000
 	str r1, [r0, #0xfc]
-	bl FUN_0200487c
+	bl G3X_InitMtxStack
 	str r5, [r4, #0x2f0]
 	mov r2, r6, lsr #0x11
 	add r1, r4, #0x2f4
@@ -4918,7 +4918,7 @@ _020046FC:
 	ldrh r0, [r1]
 	bic r0, r0, #3
 	strh r0, [r1]
-	bl FUN_02004ac4
+	bl G3X_InitTable
 	ldr r1, _020047E4 ; =0x001F0080
 	ldr r0, _020047E8 ; =0x040004A4
 	str r1, [r0]
@@ -4966,8 +4966,8 @@ _02004850: .word 0x001F0080
 _02004854: .word 0x040004A4
 	arm_func_end FUN_020047ec
 
-	arm_func_start FUN_02004858
-FUN_02004858: ; 0x02004858
+	arm_func_start G3X_ClearFifo
+G3X_ClearFifo: ; 0x02004858
 	stmfd sp!, {r4, lr}
 	ldr r4, _02004878 ; =0x04000400
 	mov r0, r4
@@ -4978,10 +4978,10 @@ _02004868:
 	bne _02004868
 	ldmfd sp!, {r4, pc}
 _02004878: .word 0x04000400
-	arm_func_end FUN_02004858
+	arm_func_end G3X_ClearFifo
 
-	arm_func_start FUN_0200487c
-FUN_0200487c: ; 0x0200487C
+	arm_func_start G3X_InitMtxStack
+G3X_InitMtxStack: ; 0x0200487C
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	ldr r1, _02004908 ; =0x04000600
@@ -4991,13 +4991,13 @@ FUN_0200487c: ; 0x0200487C
 	add r4, sp, #4
 _02004898:
 	mov r0, r4
-	bl FUN_02004b78
+	bl G3X_GetMtxStackLevelPV
 	cmp r0, #0
 	bne _02004898
 	add r4, sp, #0
 _020048AC:
 	mov r0, r4
-	bl FUN_02004ba4
+	bl G3X_GetMtxStackLevelPJ
 	cmp r0, #0
 	bne _020048AC
 	ldr r1, _0200490C ; =0x04000440
@@ -5022,7 +5022,7 @@ _020048AC:
 _02004908: .word 0x04000600
 _0200490C: .word 0x04000440
 _02004910: .word 0x04000454
-	arm_func_end FUN_0200487c
+	arm_func_end G3X_InitMtxStack
 
 	arm_func_start FUN_02004914
 FUN_02004914: ; 0x02004914
@@ -5035,13 +5035,13 @@ FUN_02004914: ; 0x02004914
 	add r4, sp, #4
 _02004930:
 	mov r0, r4
-	bl FUN_02004b78
+	bl G3X_GetMtxStackLevelPV
 	cmp r0, #0
 	bne _02004930
 	add r4, sp, #0
 _02004944:
 	mov r0, r4
-	bl FUN_02004ba4
+	bl G3X_GetMtxStackLevelPJ
 	cmp r0, #0
 	bne _02004944
 	ldr r1, _020049A0 ; =0x04000440
@@ -5166,8 +5166,8 @@ FUN_02004a9c: ; 0x02004A9C
 _02004AC0: .word 0x04000350
 	arm_func_end FUN_02004a9c
 
-	arm_func_start FUN_02004ac4
-FUN_02004ac4: ; 0x02004AC4
+	arm_func_start G3X_InitTable
+G3X_InitTable: ; 0x02004AC4
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
 	ldr r4, _02004B6C ; =0x0208EC7C
@@ -5216,10 +5216,10 @@ _02004B54:
 _02004B6C: .word 0x0208EC7C
 _02004B70: .word 0x04000330
 _02004B74: .word 0x040004D0
-	arm_func_end FUN_02004ac4
+	arm_func_end G3X_InitTable
 
-	arm_func_start FUN_02004b78
-FUN_02004b78: ; 0x02004B78
+	arm_func_start G3X_GetMtxStackLevelPV
+G3X_GetMtxStackLevelPV: ; 0x02004B78
 	ldr r2, _02004BA0 ; =0x04000600
 	ldr r1, [r2]
 	tst r1, #0x4000
@@ -5231,10 +5231,10 @@ FUN_02004b78: ; 0x02004B78
 	moveq r0, #0
 	bx lr
 _02004BA0: .word 0x04000600
-	arm_func_end FUN_02004b78
+	arm_func_end G3X_GetMtxStackLevelPV
 
-	arm_func_start FUN_02004ba4
-FUN_02004ba4: ; 0x02004BA4
+	arm_func_start G3X_GetMtxStackLevelPJ
+G3X_GetMtxStackLevelPJ: ; 0x02004BA4
 	ldr r2, _02004BCC ; =0x04000600
 	ldr r1, [r2]
 	tst r1, #0x4000
@@ -5246,7 +5246,7 @@ FUN_02004ba4: ; 0x02004BA4
 	moveq r0, #0
 	bx lr
 _02004BCC: .word 0x04000600
-	arm_func_end FUN_02004ba4
+	arm_func_end G3X_GetMtxStackLevelPJ
 
 	arm_func_start FUN_02004bd0
 FUN_02004bd0: ; 0x02004BD0
@@ -49346,7 +49346,7 @@ FUN_02029584: ; 0x02029584
 	stmfd sp!, {r3, lr}
 	bl NNS_G3dInit
 	bl NNS_G3dGlbInit
-	bl FUN_0200487c
+	bl G3X_InitMtxStack
 	ldr r1, _020295A8 ; =0x04000304
 	ldrh r0, [r1]
 	bic r0, r0, #0x8000
@@ -97403,7 +97403,7 @@ FUN_02051408: ; 0x02051408
 	arm_func_start FUN_02051434
 FUN_02051434: ; 0x02051434
 	stmfd sp!, {r3, lr}
-	bl FUN_02004858
+	bl G3X_ClearFifo
 	bl FUN_020047ec
 	bl FUN_02004914
 	ldmfd sp!, {r3, pc}
@@ -127273,8 +127273,8 @@ _0206A2E4: .word 0x020B7E50
 _0206A2E8: .word 0x020B7E54
 	arm_func_end NNSi_G3dGetJointScaleMaya
 
-	arm_func_start texmtxCalc_flag_
-texmtxCalc_flag_: ; 0x0206A2EC
+	arm_func_start texmtxCalc_flag_Maya
+texmtxCalc_flag_Maya: ; 0x0206A2EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -127341,10 +127341,10 @@ texmtxCalc_flag_: ; 0x0206A2EC
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end texmtxCalc_flag_
+	arm_func_end texmtxCalc_flag_Maya
 
-	arm_func_start texmtxCalc_flagS_
-texmtxCalc_flagS_: ; 0x0206A3F4
+	arm_func_start texmtxCalc_flagS_Maya
+texmtxCalc_flagS_Maya: ; 0x0206A3F4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -127394,10 +127394,10 @@ texmtxCalc_flagS_: ; 0x0206A3F4
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end texmtxCalc_flagS_
+	arm_func_end texmtxCalc_flagS_Maya
 
-	arm_func_start texmtxCalc_flagR_
-texmtxCalc_flagR_: ; 0x0206A4B8
+	arm_func_start texmtxCalc_flagR_Maya
+texmtxCalc_flagR_Maya: ; 0x0206A4B8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, [r1, #0x1c]
 	ldr r12, [r1, #0x18]
@@ -127427,10 +127427,10 @@ texmtxCalc_flagR_: ; 0x0206A4B8
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end texmtxCalc_flagR_
+	arm_func_end texmtxCalc_flagR_Maya
 
-	arm_func_start texmtxCalc_flagRS_
-texmtxCalc_flagRS_: ; 0x0206A52C
+	arm_func_start texmtxCalc_flagRS_Maya
+texmtxCalc_flagRS_Maya: ; 0x0206A52C
 	stmfd sp!, {r3, lr}
 	ldrh r3, [r1, #0x2c]
 	ldr r12, [r1, #0x24]
@@ -127450,10 +127450,10 @@ texmtxCalc_flagRS_: ; 0x0206A52C
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end texmtxCalc_flagRS_
+	arm_func_end texmtxCalc_flagRS_Maya
 
-	arm_func_start texmtxCalc_flagT_
-texmtxCalc_flagT_: ; 0x0206A578
+	arm_func_start texmtxCalc_flagT_Maya
+texmtxCalc_flagT_Maya: ; 0x0206A578
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -127510,10 +127510,10 @@ texmtxCalc_flagT_: ; 0x0206A578
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end texmtxCalc_flagT_
+	arm_func_end texmtxCalc_flagT_Maya
 
-	arm_func_start texmtxCalc_flagTS_
-texmtxCalc_flagTS_: ; 0x0206A658
+	arm_func_start texmtxCalc_flagTS_Maya
+texmtxCalc_flagTS_Maya: ; 0x0206A658
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -127557,10 +127557,10 @@ texmtxCalc_flagTS_: ; 0x0206A658
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end texmtxCalc_flagTS_
+	arm_func_end texmtxCalc_flagTS_Maya
 
-	arm_func_start texmtxCalc_flagTR_
-texmtxCalc_flagTR_: ; 0x0206A704
+	arm_func_start texmtxCalc_flagTR_Maya
+texmtxCalc_flagTR_Maya: ; 0x0206A704
 	stmfd sp!, {r4, lr}
 	ldr lr, [r1, #0x1c]
 	ldrh r3, [r1, #0x2e]
@@ -127577,10 +127577,10 @@ texmtxCalc_flagTR_: ; 0x0206A704
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end texmtxCalc_flagTR_
+	arm_func_end texmtxCalc_flagTR_Maya
 
-	arm_func_start texmtxCalc_flagTRS_
-texmtxCalc_flagTRS_: ; 0x0206A744
+	arm_func_start texmtxCalc_flagTRS_Maya
+texmtxCalc_flagTRS_Maya: ; 0x0206A744
 	mov r1, #0
 	mov r2, #0x1000
 	str r2, [r0]
@@ -127590,7 +127590,7 @@ texmtxCalc_flagTRS_: ; 0x0206A744
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end texmtxCalc_flagTRS_
+	arm_func_end texmtxCalc_flagTRS_Maya
 
 	arm_func_start NNSi_G3dSendTexSRTMaya
 NNSi_G3dSendTexSRTMaya: ; 0x0206A768
@@ -128438,8 +128438,8 @@ _0206B37C: .word 0x00101810
 _0206B380: .word 0x02091248
 	arm_func_end NNSi_G3dSendTexSRT3dsMax
 
-	arm_func_start texmtxCalc_flag_
-texmtxCalc_flag_: ; 0x0206B384
+	arm_func_start texmtxCalc_flag_Xsi
+texmtxCalc_flag_Xsi: ; 0x0206B384
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r6, r1
@@ -128528,10 +128528,10 @@ texmtxCalc_flag_: ; 0x0206B384
 	str r0, [r7, #0x10]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end texmtxCalc_flag_
+	arm_func_end texmtxCalc_flag_Xsi
 
-	arm_func_start texmtxCalc_flagS_
-texmtxCalc_flagS_: ; 0x0206B4E4
+	arm_func_start texmtxCalc_flagS_Xsi
+texmtxCalc_flagS_Xsi: ; 0x0206B4E4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128586,10 +128586,10 @@ texmtxCalc_flagS_: ; 0x0206B4E4
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end texmtxCalc_flagS_
+	arm_func_end texmtxCalc_flagS_Xsi
 
-	arm_func_start texmtxCalc_flagR_
-texmtxCalc_flagR_: ; 0x0206B5BC
+	arm_func_start texmtxCalc_flagR_Xsi
+texmtxCalc_flagR_Xsi: ; 0x0206B5BC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, [r1, #0x28]
 	ldr r3, [r1, #0x1c]
@@ -128620,10 +128620,10 @@ texmtxCalc_flagR_: ; 0x0206B5BC
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end texmtxCalc_flagR_
+	arm_func_end texmtxCalc_flagR_Xsi
 
-	arm_func_start texmtxCalc_flagRS_
-texmtxCalc_flagRS_: ; 0x0206B634
+	arm_func_start texmtxCalc_flagRS_Xsi
+texmtxCalc_flagRS_Xsi: ; 0x0206B634
 	stmfd sp!, {r4, lr}
 	ldrh r2, [r1, #0x2e]
 	ldr lr, [r1, #0x28]
@@ -128644,10 +128644,10 @@ texmtxCalc_flagRS_: ; 0x0206B634
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end texmtxCalc_flagRS_
+	arm_func_end texmtxCalc_flagRS_Xsi
 
-	arm_func_start texmtxCalc_flagT_
-texmtxCalc_flagT_: ; 0x0206B684
+	arm_func_start texmtxCalc_flagT_Xsi
+texmtxCalc_flagT_Xsi: ; 0x0206B684
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -128699,10 +128699,10 @@ texmtxCalc_flagT_: ; 0x0206B684
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end texmtxCalc_flagT_
+	arm_func_end texmtxCalc_flagT_Xsi
 
-	arm_func_start texmtxCalc_flagTS_
-texmtxCalc_flagTS_: ; 0x0206B750
+	arm_func_start texmtxCalc_flagTS_Xsi
+texmtxCalc_flagTS_Xsi: ; 0x0206B750
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128743,10 +128743,10 @@ texmtxCalc_flagTS_: ; 0x0206B750
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end texmtxCalc_flagTS_
+	arm_func_end texmtxCalc_flagTS_Xsi
 
-	arm_func_start texmtxCalc_flagTR_
-texmtxCalc_flagTR_: ; 0x0206B7F0
+	arm_func_start texmtxCalc_flagTR_Xsi
+texmtxCalc_flagTR_Xsi: ; 0x0206B7F0
 	stmfd sp!, {r3, lr}
 	ldrh r2, [r1, #0x2e]
 	ldr lr, [r1, #0x1c]
@@ -128762,10 +128762,10 @@ texmtxCalc_flagTR_: ; 0x0206B7F0
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end texmtxCalc_flagTR_
+	arm_func_end texmtxCalc_flagTR_Xsi
 
-	arm_func_start texmtxCalc_flagTRS_
-texmtxCalc_flagTRS_: ; 0x0206B82C
+	arm_func_start texmtxCalc_flagTRS_Xsi
+texmtxCalc_flagTRS_Xsi: ; 0x0206B82C
 	mov r1, #0
 	mov r2, #0x1000
 	str r2, [r0]
@@ -128775,7 +128775,7 @@ texmtxCalc_flagTRS_: ; 0x0206B82C
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end texmtxCalc_flagTRS_
+	arm_func_end texmtxCalc_flagTRS_Xsi
 
 	arm_func_start NNSi_G3dSendTexSRTXsi
 NNSi_G3dSendTexSRTXsi: ; 0x0206B850
