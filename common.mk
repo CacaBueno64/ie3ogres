@@ -34,7 +34,7 @@ include $(WORK_DIR)/binutils.mk
 
 # NitroSDK tools
 MWCC          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwccarm.exe
-MWAS          = $(TOOLSDIR)/mwccarm/2.0/base/mwasmarm.exe
+MWAS          = $(TOOLSDIR)/mwccarm/2.0/sp2p3/mwasmarm.exe
 MWLD          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwldarm.exe
 MAKEROM      := $(TOOLSDIR)/bin/makerom.exe
 MAKELCF      := $(TOOLSDIR)/bin/makelcf.exe
@@ -232,9 +232,9 @@ $(SBIN): build/%.sbin: build/%.elf
 # Overlay 123 is encrypted in the retail ROM, so we need to reencrypt it after building it
 #	cd $(BUILD_DIR) && $(MOD123ENCRY) encry main OVY_123_enc.sbin 123 && mv OVY_123_enc.sbin OVY_123.sbin
 #endif
-ifeq ($(COMPARE),1)
-	$(SHA1SUM) --quiet -c $*.sha1
-endif
+#ifeq ($(COMPARE),1)
+#	$(SHA1SUM) --quiet -c $*.sha1
+#endif
 
 $(ELF): $(ALL_OBJS)
 	$(MAKE) $(LCF)

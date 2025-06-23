@@ -162755,3 +162755,6 @@ _020877EC: .word 0x0000EA3C
 
 	.rodata
 	.incbin "/incbin/arm9_rodata.bin"
+
+	.bss
+	.space 0x0

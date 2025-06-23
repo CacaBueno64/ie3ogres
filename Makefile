@@ -12,13 +12,13 @@ ALL_BUILDDIRS  := $(BUILD_DIR)/lib
 include common.mk
 include filesystem.mk
 
-#$(ASM_OBJS): MWASFLAGS += -DPM_ASM
+$(ASM_OBJS): MWASFLAGS += -DPM_ASM
 
 #$(BUILD_DIR)/asm/nitrocrypto.o:  MWCCVER := 1.2/sp2p3
 #$(BUILD_DIR)/lib/msl/src/*.o:    EXCCFLAGS := -Cpp_exceptions on
 
-#$(ASM_OBJS): $(WORK_DIR)/include/config.h
-#$(C_OBJS):   $(WORK_DIR)/include/global.h
+$(ASM_OBJS): $(WORK_DIR)/include/config.h
+$(C_OBJS):   $(WORK_DIR)/include/global.h
 
 ROM             := $(BUILD_DIR)/ie3ojp.nds
 #BANNER          := $(ROM:%.nds=%.bnr)
@@ -76,15 +76,15 @@ $(BUILD_DIR)/component.files: main ;
 
 $(HEADER_TEMPLATE): ;
 
-$(ROM): $(ROMSPEC) filesystem main_lz sub $(BANNER)
+$(ROM): $(ROMSPEC) main_lz $(BANNER) #sub
 	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -DNITROFS_FILES="$(NITROFS_FILES:files/%=%)" -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 ifeq ($(COMPARE),1)
 	$(SHA1SUM) -c $(buildname)/rom.sha1
 endif
 
-$(BANNER): $(BANNER_SPEC) $(ICON_PNG:%.png=%.nbfp) $(ICON_PNG:%.png=%.nbfc)
-	$(WINE) $(MAKEBNR) $< $@
+#$(BANNER): $(BANNER_SPEC) $(ICON_PNG:%.png=%.nbfp) $(ICON_PNG:%.png=%.nbfc)
+#	$(WINE) $(MAKEBNR) $< $@
 
 # TODO: move to NitroSDK makefile
 FX_CONST_H := $(WORK_DIR)/lib/include/nitro/fx/fx_const.h
