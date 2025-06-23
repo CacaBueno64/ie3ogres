@@ -8809,7 +8809,7 @@ _020C4388:
 	addne r7, r7, #1
 	bl FUN_02009a1c
 	ldr r1, [r6, #0x14]
-	bl FUN_0200958c
+	bl FX_Div
 	movs r0, r0, asr #0xc
 	moveq r0, #1
 	strb r0, [r8, r7]
@@ -35010,7 +35010,7 @@ _020DAD44:
 	adc r2, r0, #0
 	mov r0, r3, lsr #0xc
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r10, #8]
 	sub r0, r1, r0
 	cmp r0, r9
@@ -35046,7 +35046,7 @@ _020DADC8:
 	adc r2, r0, #0
 	mov r0, r3, lsr #0xc
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r10, #0x10]
 	sub r0, r1, r0
 	cmp r0, r9
@@ -36967,7 +36967,7 @@ FUN_ov1_020dc758: ; 0x020DC758
 	mov r2, r1
 	mov r0, #0x11
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_020643c0
+	bl NNS_G3dGlbFlushVP
 	mov r0, r7
 	bl FUN_ov1_020dc8c4
 	mov r0, r7
@@ -37732,7 +37732,7 @@ FUN_ov1_020dd228: ; 0x020DD228
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	add r0, sp, #0
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	ldrb r1, [r6, #0xe4d]
 	ldr r2, [sp]
 	ldr r0, [sp, #4]
@@ -37871,7 +37871,7 @@ _020DD470:
 	bl FUN_02009764
 	mov r0, r4
 	mov r1, r4
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r5, r5, #1
 _020DD498:
 	cmp r9, #0
@@ -37884,7 +37884,7 @@ _020DD498:
 	bl FUN_02009764
 	add r0, r4, r6
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r5, r5, #1
 _020DD4C8:
 	cmp r5, #0
@@ -38974,7 +38974,7 @@ FUN_ov1_020de2f0: ; 0x020DE2F0
 	orr r3, r3, r2, lsl #20
 	sub r0, r0, r3
 	mov r0, r0, lsl #2
-	bl FUN_0200958c
+	bl FX_Div
 	mov r1, r7
 	mov r7, r0
 	ldr r2, [sp, #0x20]
@@ -39000,7 +39000,7 @@ FUN_ov1_020de2f0: ; 0x020DE2F0
 	orr r3, r3, r2, lsl #20
 	sub r0, r0, r3
 	mov r0, r0, lsl #2
-	bl FUN_0200958c
+	bl FX_Div
 	adds r1, r7, #2
 	bmi _020DE4E8
 	sub r1, r7, #2
@@ -39200,7 +39200,7 @@ FUN_ov1_020de6f8: ; 0x020DE6F8
 	str r2, [sp]
 	mov r7, r8, asr #0x1f
 	mov r9, r10, asr #0x1f
-	bl FUN_0200958c
+	bl FX_Div
 	cmp r0, #0
 	blt _020DE7A8
 	cmp r0, #0x1000
@@ -39309,7 +39309,7 @@ FUN_ov1_020de890: ; 0x020DE890
 	ldr r9, [sp, #0x28]
 	mov r4, #0
 	mov r11, #0x800
-	bl FUN_0200958c
+	bl FX_Div
 	cmp r0, #0
 	blt _020DE940
 	cmp r0, #0x1000
@@ -39380,7 +39380,7 @@ FUN_ov1_020de9f4: ; 0x020DE9F4
 	mov r2, r8
 	mov r0, #0x11
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_020643c0
+	bl NNS_G3dGlbFlushVP
 	mov r0, r7
 	bl FUN_ov1_020deb34
 	mov r0, r7

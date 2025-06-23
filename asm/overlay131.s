@@ -18707,14 +18707,14 @@ _0214B0E4:
 	str r0, [r4, #0x38]
 	mov r1, r5, lsl #0xc
 	mov r0, #0x20000
-	bl FUN_0200958c
+	bl FX_Div
 	b _0214B11C
 _0214B104:
 	mov r2, #0x1f000
 	mov r1, r5, lsl #0xc
 	mov r0, #0x20000
 	str r2, [r4, #0x38]
-	bl FUN_0200958c
+	bl FX_Div
 	rsb r0, r0, #0
 _0214B11C:
 	str r0, [r4, #0x3c]
@@ -18824,15 +18824,15 @@ _0214B28C:
 	bl FUN_02009764
 	ldr r0, [sp, #0x20]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x24]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x28]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x20]
 	str r0, [sp, #0x28]
 	str r1, [r4, #0x10]
@@ -18942,15 +18942,15 @@ _0214B444:
 	bl FUN_02009764
 	ldr r0, [sp, #0x20]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x20]
 	ldr r0, [sp, #0x24]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x28]
 	mov r1, r6, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x20]
 	str r0, [sp, #0x28]
 	str r1, [r5, #0x10]

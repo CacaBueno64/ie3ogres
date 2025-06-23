@@ -5853,7 +5853,7 @@ FUN_ov46_0211f008: ; 0x0211F008
 	ldrh r2, [r1, #0xd4]
 	mov r1, #0x22000
 	mov r5, r2, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	smull r2, r1, r0, r5
 	adds r2, r2, #0x800
 	adc r0, r1, r4

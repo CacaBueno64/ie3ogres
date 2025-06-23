@@ -468,7 +468,7 @@ _01FF8568:
 	orr r12, r12, r0, lsl #20
 	sub r0, r3, r12
 	sub r1, r4, r7
-	bl FUN_0200958c
+	bl FX_Div
 	mov r4, r0
 	smull r1, r0, r4, r5
 	adds r1, r1, #0x800
@@ -476,7 +476,7 @@ _01FF8568:
 	mov r0, r1, lsr #0xc
 	mov r1, r6
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, [r10]
 	ldr r1, [r10, #4]
 	add r2, r4, r2
@@ -515,7 +515,7 @@ _01FF8688:
 	orr r12, r12, r0, lsl #20
 	sub r0, r3, r12
 	sub r1, r5, r6
-	bl FUN_0200958c
+	bl FX_Div
 	mov r5, r0
 	smull r1, r0, r5, r4
 	adds r1, r1, #0x800
@@ -523,7 +523,7 @@ _01FF8688:
 	mov r0, r1, lsr #0xc
 	mov r1, r7
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, [r9]
 	ldr r1, [r9, #4]
 	add r2, r5, r2

@@ -528,7 +528,7 @@ _0212B050:
 	str r0, [sp, #0x1c]
 	beq _0212B088
 	ldr r0, [r8, #0x3c]
-	bl FUN_0200958c
+	bl FX_Div
 	mov r7, r0
 _0212B088:
 	ldr r0, [sp, #0x48]
@@ -553,7 +553,7 @@ _0212B088:
 	adc r2, r2, r4
 	ldr r0, _0212B380 ; =0x00009CCD
 	orr r1, r1, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r8, #0x20]
 	cmp r9, #1
 	str r1, [r10]
@@ -610,7 +610,7 @@ _0212B188:
 	bl FUN_0201fdac
 	mov r1, r0
 	mov r0, r11
-	bl FUN_0200958c
+	bl FX_Div
 	mov r11, r0
 	cmp r9, #0
 	mov r0, r5
@@ -654,7 +654,7 @@ _0212B224:
 	bl FUN_0201fdac
 	mov r1, r0
 	mov r0, r6
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x48]
 	cmp r1, #0
 	ldr r1, [r8, #0x20]
@@ -670,7 +670,7 @@ _0212B224:
 	beq _0212B294
 	ldr r1, [sp, #0x1c]
 	mov r0, r11
-	bl FUN_0200958c
+	bl FX_Div
 _0212B294:
 	cmp r7, #0
 	bne _0212B2E0
@@ -1024,7 +1024,7 @@ FUN_ov126_0212b684: ; 0x0212B684
 	ldr r0, [sp, #0x14]
 	mov r1, r11
 	strh r2, [r4]
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, _0212BC24 ; =0x00004E66
 	mov r3, r0, asr #0x1f
 	umull r12, r8, r0, r2
@@ -1246,7 +1246,7 @@ _0212BAA8:
 	bl FUN_01ffba50
 	ldr r1, [r5]
 	mov r5, r0
-	bl FUN_0200958c
+	bl FX_Div
 	cmp r0, #0
 	moveq r0, #1
 	smull r2, r1, r0, r0
@@ -2696,7 +2696,7 @@ _0212CF64:
 	str r0, [sp, #0x10]
 	mov r0, r1, asr #1
 	ldr r1, [sp, #0x10]
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x18]
 	ldr r12, _0212D25C ; =0x02087874
 	add r1, r7, r1, lsr #16
@@ -2777,7 +2777,7 @@ _0212D0FC:
 	sub r0, r7, r0
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
-	bl FUN_0200958c
+	bl FX_Div
 	strh r0, [r10, #0x54]
 _0212D140:
 	ldr r0, [sp, #0xc]

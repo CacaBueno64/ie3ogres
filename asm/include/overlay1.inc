@@ -17,11 +17,11 @@
 .public MIi_CpuCopyFast
 .public MI_CpuFill8
 .public MI_CpuCopy8
-.public FUN_0200958c
+.public FX_Div
 .public FUN_020095ac
 .public FUN_02009734
 .public FUN_02009764
-.public FUN_020098b0
+.public VEC_Normalize
 .public FUN_02009a1c
 .public FUN_02009a98
 .public STD_CopyString
@@ -184,7 +184,7 @@
 .public FUN_020628dc
 .public FUN_02062924
 .public FUN_02063248
-.public FUN_020643c0
+.public NNS_G3dGlbFlushVP
 .public NNS_G3dGeBufferOP_N
 .public FUN_0206c0d8
 .public FUN_0206c110

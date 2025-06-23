@@ -8703,7 +8703,7 @@ _0212168C:
 	ldr r1, [sp, #4]
 	sub r0, r0, r2
 	sub r1, r1, r2
-	bl FUN_0200958c
+	bl FX_Div
 	mov r1, r0
 	mov r0, r7
 	str r1, [r7, #0x1a8]

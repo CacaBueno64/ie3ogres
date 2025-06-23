@@ -4864,8 +4864,8 @@ _020046E0: .word 0x04000400
 _020046E4: .word MI_Copy36B
 	arm_func_end FUN_020046cc
 
-	arm_func_start FUN_020046e8
-FUN_020046e8: ; 0x020046E8
+	arm_func_start G3X_Init
+G3X_Init: ; 0x020046E8
 	stmfd sp!, {r4, r5, r6, lr}
 	bl FUN_02004858
 	ldr r0, _020047D0 ; =0x04000504
@@ -4932,7 +4932,7 @@ _020047DC: .word 0x0000CFFB
 _020047E0: .word 0x04000356
 _020047E4: .word 0x001F0080
 _020047E8: .word 0x040004A4
-	arm_func_end FUN_020046e8
+	arm_func_end G3X_Init
 
 	arm_func_start FUN_020047ec
 FUN_020047ec: ; 0x020047EC
@@ -5091,8 +5091,8 @@ _020049F0: .word 0x0000CF7F
 _020049F4: .word 0x0400035C
 	arm_func_end FUN_020049A4
 
-	arm_func_start FUN_020049f8
-FUN_020049f8: ; 0x020049F8
+	arm_func_start G3X_GetClipMtx
+G3X_GetClipMtx: ; 0x020049F8
 	stmfd sp!, {r3, lr}
 	ldr r2, _02004A24 ; =0x04000600
 	mov r1, r0
@@ -5105,10 +5105,10 @@ FUN_020049f8: ; 0x020049F8
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02004A24: .word 0x04000600
-	arm_func_end FUN_020049f8
+	arm_func_end G3X_GetClipMtx
 
-	arm_func_start FUN_02004a28
-FUN_02004a28: ; 0x02004A28
+	arm_func_start G3X_GetVectorMtx
+G3X_GetVectorMtx: ; 0x02004A28
 	stmfd sp!, {r3, lr}
 	ldr r2, _02004A54 ; =0x04000600
 	mov r1, r0
@@ -5121,7 +5121,7 @@ FUN_02004a28: ; 0x02004A28
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02004A54: .word 0x04000600
-	arm_func_end FUN_02004a28
+	arm_func_end G3X_GetVectorMtx
 
 	arm_func_start FUN_02004A58
 FUN_02004A58: ; 0x02004A58
@@ -6596,8 +6596,8 @@ _02005CEC: .word 0x0208EC7C
 _02005CF0: .word 0x02093D24
 	arm_func_end FUN_02005cbc
 
-	arm_func_start FUN_02005cf4
-FUN_02005cf4: ; 0x02005CF4
+	arm_func_start GX_BeginLoadTex
+GX_BeginLoadTex: ; 0x02005CF4
 	stmfd sp!, {r3, lr}
 	bl FUN_02006bb8
 	mov r1, #6
@@ -6621,10 +6621,10 @@ _02005D40: .word 0x02087814
 _02005D44: .word 0x02087816
 _02005D48: .word 0x02087818
 _02005D4C: .word 0x02093D40
-	arm_func_end FUN_02005cf4
+	arm_func_end GX_BeginLoadTex
 
-	arm_func_start FUN_02005d50
-FUN_02005d50: ; 0x02005D50
+	arm_func_start GX_LoadTex
+GX_LoadTex: ; 0x02005D50
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xc
 	ldr r3, _02005E94 ; =0x02093D40
@@ -6713,10 +6713,10 @@ _02005E7C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02005E94: .word 0x02093D40
 _02005E98: .word 0x0208EC7C
-	arm_func_end FUN_02005d50
+	arm_func_end GX_LoadTex
 
-	arm_func_start FUN_02005e9c
-FUN_02005e9c: ; 0x02005E9C
+	arm_func_start GX_EndLoadTex
+GX_EndLoadTex: ; 0x02005E9C
 	stmfd sp!, {r4, lr}
 	ldr r0, _02005ED8 ; =0x0208EC7C
 	ldr r0, [r0]
@@ -6735,10 +6735,10 @@ _02005EB4:
 	ldmfd sp!, {r4, pc}
 _02005ED8: .word 0x0208EC7C
 _02005EDC: .word 0x02093D40
-	arm_func_end FUN_02005e9c
+	arm_func_end GX_EndLoadTex
 
-	arm_func_start FUN_02005ee0
-FUN_02005ee0: ; 0x02005EE0
+	arm_func_start GX_BeginLoadTexPltt
+GX_BeginLoadTexPltt: ; 0x02005EE0
 	stmfd sp!, {r3, lr}
 	bl FUN_02006bcc
 	mov r3, r0, asr #4
@@ -6752,10 +6752,10 @@ FUN_02005ee0: ; 0x02005EE0
 	ldmfd sp!, {r3, pc}
 _02005F0C: .word 0x02093D40
 _02005F10: .word 0x02087804
-	arm_func_end FUN_02005ee0
+	arm_func_end GX_BeginLoadTexPltt
 
-	arm_func_start FUN_02005f14
-FUN_02005f14: ; 0x02005F14
+	arm_func_start GX_LoadTexPltt
+GX_LoadTexPltt: ; 0x02005F14
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0xc
 	ldr r3, _02005F7C ; =0x0208EC7C
@@ -6785,10 +6785,10 @@ _02005F6C:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005F7C: .word 0x0208EC7C
 _02005F80: .word 0x02093D40
-	arm_func_end FUN_02005f14
+	arm_func_end GX_LoadTexPltt
 
-	arm_func_start FUN_02005f84
-FUN_02005f84: ; 0x02005F84
+	arm_func_start GX_EndLoadTexPltt
+GX_EndLoadTexPltt: ; 0x02005F84
 	stmfd sp!, {r4, lr}
 	ldr r0, _02005FB8 ; =0x0208EC7C
 	ldr r0, [r0]
@@ -6805,7 +6805,7 @@ _02005F9C:
 	ldmfd sp!, {r4, pc}
 _02005FB8: .word 0x0208EC7C
 _02005FBC: .word 0x02093D40
-	arm_func_end FUN_02005f84
+	arm_func_end GX_EndLoadTexPltt
 
 	arm_func_start FUN_02005fc0
 FUN_02005fc0: ; 0x02005FC0
@@ -9902,8 +9902,8 @@ FUN_02008698: ; 0x02008698
 	bx lr
 	thumb_func_end FUN_02008698
 
-	arm_func_start FUN_020086b4
-FUN_020086b4: ; 0x020086B4
+	arm_func_start MTX_Inverse43
+MTX_Inverse43: ; 0x020086B4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x68
 	mov r10, r0
@@ -9963,7 +9963,7 @@ FUN_020086b4: ; 0x020086B4
 	addeq sp, sp, #0x68
 	subeq r0, r1, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	bl FUN_02009638
+	bl FX_InvAsync
 	ldr r1, [r10, #8]
 	ldr r2, [r10, #0x1c]
 	ldr r11, [r10, #0x10]
@@ -10010,7 +10010,7 @@ FUN_020086b4: ; 0x020086B4
 	mov r0, r1, lsr #0xc
 	orr r0, r0, r3, lsl #20
 	str r0, [sp, #0x24]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	smull r2, r1, r0, r5
 	mov r2, r2, lsr #0xc
 	orr r2, r2, r1, lsl #20
@@ -10126,7 +10126,7 @@ _02008A1C:
 	mov r0, #0
 	add sp, sp, #0x68
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_020086b4
+	arm_func_end MTX_Inverse43
 
 	arm_func_start FUN_02008a28
 FUN_02008a28: ; 0x02008A28
@@ -10266,8 +10266,8 @@ FUN_02008a28: ; 0x02008A28
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_02008a28
 
-	arm_func_start FUN_02008c40
-FUN_02008c40: ; 0x02008C40
+	arm_func_start MTX_MultVec43
+MTX_MultVec43: ; 0x02008C40
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r7, [r0, #4]
 	ldr r5, [r1, #0xc]
@@ -10306,7 +10306,7 @@ FUN_02008c40: ; 0x02008C40
 	str r3, [r2, #4]
 	str r0, [r2, #8]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_02008c40
+	arm_func_end MTX_MultVec43
 
 	arm_func_start FUN_02008cd8
 FUN_02008cd8: ; 0x02008CD8
@@ -10330,20 +10330,20 @@ FUN_02008cd8: ; 0x02008CD8
 	str r4, [sp, #0x18]
 	str r9, [sp, #0x1c]
 	str r2, [sp, #0x20]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r9, sp, #0xc
 	mov r0, r7
 	mov r1, r5
 	mov r2, r9
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	mov r0, r9
 	mov r1, r9
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r4, sp, #0
 	mov r0, r5
 	mov r1, r9
 	mov r2, r4
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	ldr r2, [sp, #0xc]
 	mov r1, r9
 	str r2, [r6]
@@ -10688,7 +10688,7 @@ FUN_0200922c: ; 0x0200922C
 	mov r8, r3
 	ldr r7, [sp, #0x24]
 	ldr r6, [sp, #0x28]
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r3, _02009374 ; =0x04000290
 	mov r2, #0
 	str r2, [r3]
@@ -10720,7 +10720,7 @@ FUN_0200922c: ; 0x0200922C
 	str r4, [r6, #0x30]
 	str r4, [r6, #0x34]
 	str r4, [r6, #0x3c]
-	bl FUN_020095e0
+	bl FX_GetDivResultFx64c
 	ldr r2, _02009374 ; =0x04000290
 	mov r12, r4
 	str r12, [r2]
@@ -10760,7 +10760,7 @@ _02009310:
 	str r7, [r6, #0x28]
 	adc r0, r4, #0
 	str r0, [r6, #0x38]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	str r0, [r6]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02009374: .word 0x04000290
@@ -10779,7 +10779,7 @@ FUN_02009378: ; 0x02009378
 	str r3, [sp, #4]
 	mov r11, r1
 	ldr r9, [sp, #0x40]
-	bl FUN_02009638
+	bl FX_InvAsync
 	mov r5, #0
 	str r5, [r8, #4]
 	str r5, [r8, #8]
@@ -10791,7 +10791,7 @@ FUN_02009378: ; 0x02009378
 	str r5, [r8, #0x24]
 	str r5, [r8, #0x2c]
 	str r9, [r8, #0x3c]
-	bl FUN_020095e0
+	bl FX_GetDivResultFx64c
 	mov r6, r1
 	ldr r1, _02009588 ; =0x04000290
 	mov r4, r0
@@ -10819,7 +10819,7 @@ _02009428:
 	adds r0, r0, r4, lsl #13
 	adc r0, r1, #0
 	str r0, [r8]
-	bl FUN_020095e0
+	bl FX_GetDivResultFx64c
 	mov r5, r0
 	mov r7, r1
 	ldr r3, _02009588 ; =0x04000290
@@ -10849,7 +10849,7 @@ _0200949C:
 	adds r0, r0, r5, lsl #13
 	adc r0, r1, #0
 	str r0, [r8, #0x14]
-	bl FUN_020095e0
+	bl FX_GetDivResultFx64c
 	cmp r9, #0x1000
 	beq _020094F0
 	umull lr, r12, r0, r9
@@ -10906,19 +10906,19 @@ _020094F0:
 _02009588: .word 0x04000290
 	arm_func_end FUN_02009378
 
-	arm_func_start FUN_0200958c
-FUN_0200958c: ; 0x0200958C
+	arm_func_start FX_Div
+FX_Div: ; 0x0200958C
 	stmfd sp!, {r3, lr}
-	bl FUN_02009694
-	bl FUN_02009604
+	bl FX_DivAsync
+	bl FX_GetDivResult
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200958c
+	arm_func_end FX_Div
 
 	arm_func_start FUN_0200959c
 FUN_0200959c: ; 0x0200959C
 	stmfd sp!, {r3, lr}
-	bl FUN_02009638
-	bl FUN_02009604
+	bl FX_InvAsync
+	bl FX_GetDivResult
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_0200959c
 
@@ -10939,8 +10939,8 @@ FUN_020095ac: ; 0x020095AC
 _020095DC: .word 0x040002B0
 	arm_func_end FUN_020095ac
 
-	arm_func_start FUN_020095e0
-FUN_020095e0: ; 0x020095E0
+	arm_func_start FX_GetDivResultFx64c
+FX_GetDivResultFx64c: ; 0x020095E0
 	ldr r1, _020095FC ; =0x04000280
 _020095E4:
 	ldrh r0, [r1]
@@ -10951,10 +10951,10 @@ _020095E4:
 	bx lr
 _020095FC: .word 0x04000280
 _02009600: .word 0x040002A0
-	arm_func_end FUN_020095e0
+	arm_func_end FX_GetDivResultFx64c
 
-	arm_func_start FUN_02009604
-FUN_02009604: ; 0x02009604
+	arm_func_start FX_GetDivResult
+FX_GetDivResult: ; 0x02009604
 	ldr r1, _02009630 ; =0x04000280
 _02009608:
 	ldrh r0, [r1]
@@ -10969,10 +10969,10 @@ _02009608:
 	bx lr
 _02009630: .word 0x04000280
 _02009634: .word 0x040002A0
-	arm_func_end FUN_02009604
+	arm_func_end FX_GetDivResult
 
-	arm_func_start FUN_02009638
-FUN_02009638: ; 0x02009638
+	arm_func_start FX_InvAsync
+FX_InvAsync: ; 0x02009638
 	ldr r3, _02009664 ; =0x04000280
 	mov r1, #1
 	strh r1, [r3]
@@ -10985,7 +10985,7 @@ FUN_02009638: ; 0x02009638
 	str r0, [r3, #0x1c]
 	bx lr
 _02009664: .word 0x04000280
-	arm_func_end FUN_02009638
+	arm_func_end FX_InvAsync
 
 	arm_func_start FUN_02009668
 FUN_02009668: ; 0x02009668
@@ -11003,8 +11003,8 @@ _0200968C: .word 0x040002B0
 _02009690: .word 0x040002B4
 	arm_func_end FUN_02009668
 
-	arm_func_start FUN_02009694
-FUN_02009694: ; 0x02009694
+	arm_func_start FX_DivAsync
+FX_DivAsync: ; 0x02009694
 	ldr r3, _020096B8 ; =0x04000280
 	mov r2, #1
 	strh r2, [r3]
@@ -11015,7 +11015,7 @@ FUN_02009694: ; 0x02009694
 	str r2, [r3, #0x1c]
 	bx lr
 _020096B8: .word 0x04000280
-	arm_func_end FUN_02009694
+	arm_func_end FX_DivAsync
 
 	arm_func_start FUN_020096bc
 FUN_020096bc: ; 0x020096BC
@@ -11108,8 +11108,8 @@ FUN_02009794: ; 0x02009794
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02009794
 
-	arm_func_start FUN_020097d0
-FUN_020097d0: ; 0x020097D0
+	arm_func_start VEC_CrossProduct
+VEC_CrossProduct: ; 0x020097D0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldmia r0, {r5, lr}
 	ldr r6, [r1, #8]
@@ -11142,7 +11142,7 @@ FUN_020097d0: ; 0x020097D0
 	orr r1, r1, r0, lsl #20
 	str r1, [r2, #8]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020097d0
+	arm_func_end VEC_CrossProduct
 
 	arm_func_start FUN_02009850
 FUN_02009850: ; 0x02009850
@@ -11173,8 +11173,8 @@ _020098A8: .word 0x040002B0
 _020098AC: .word 0x040002B4
 	arm_func_end FUN_02009850
 
-	arm_func_start FUN_020098b0
-FUN_020098b0: ; 0x020098B0
+	arm_func_start VEC_Normalize
+VEC_Normalize: ; 0x020098B0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r2, [r0, #4]
 	ldr r3, [r0]
@@ -11246,7 +11246,7 @@ _02009924:
 _020099B8: .word 0x04000280
 _020099BC: .word 0x040002B4
 _020099C0: .word 0x040002A0
-	arm_func_end FUN_020098b0
+	arm_func_end VEC_Normalize
 
 	arm_func_start FUN_020099c4
 FUN_020099c4: ; 0x020099C4
@@ -11402,7 +11402,7 @@ _02009BC4:
 	cmp r0, #0
 	mov r0, r2
 	beq _02009C00
-	bl FUN_0200958c
+	bl FX_Div
 	mov r1, r0, asr #5
 	ldr r0, _02009C24 ; =0x0208B874
 	mov r1, r1, lsl #1
@@ -11412,7 +11412,7 @@ _02009BC4:
 	mov r0, r0, lsr #0x10
 	ldmfd sp!, {r4, pc}
 _02009C00:
-	bl FUN_0200958c
+	bl FX_Div
 	mov r1, r0, asr #5
 	ldr r0, _02009C24 ; =0x0208B874
 	mov r1, r1, lsl #1
@@ -49344,8 +49344,8 @@ _02029580: .word 0x00000424
 	arm_func_start FUN_02029584
 FUN_02029584: ; 0x02029584
 	stmfd sp!, {r3, lr}
-	bl FUN_0206741c
-	bl FUN_02064250
+	bl NNS_G3dInit
+	bl NNS_G3dGlbInit
 	bl FUN_0200487c
 	ldr r1, _020295A8 ; =0x04000304
 	ldrh r0, [r1]
@@ -59343,7 +59343,7 @@ FUN_02031718: ; 0x02031718
 	str lr, [sp, #0x10]
 	str r12, [sp, #0x14]
 	str r3, [sp, #0x18]
-	bl FUN_020677a8
+	bl NNS_G3dWorldPosToScrPos
 	ldr r1, [sp, #0x34]
 	mov r0, #0
 	str r1, [sp]
@@ -63762,7 +63762,7 @@ _02035690:
 	add r1, sp, #0x10
 	bl FUN_02009a1c
 	ldr r1, [sp, #0x4c]
-	bl FUN_0200958c
+	bl FX_Div
 	mov r5, r0, asr #0xc
 _020356B4:
 	cmp r5, #0
@@ -63784,15 +63784,15 @@ _020356E4:
 	bl FUN_02009764
 	ldr r0, [sp, #0x10]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x10]
 	str r0, [sp, #0x18]
 	str r1, [r4, #0x10]
@@ -64374,7 +64374,7 @@ _02035F1C:
 	add r1, sp, #0x10
 	bl FUN_02009a1c
 	ldr r1, [sp, #0x50]
-	bl FUN_0200958c
+	bl FX_Div
 	mov r5, r0, asr #0xc
 _02035F40:
 	cmp r5, #0
@@ -64396,15 +64396,15 @@ _02035F70:
 	bl FUN_02009764
 	ldr r0, [sp, #0x10]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x10]
 	str r0, [sp, #0x18]
 	str r1, [r4, #0x10]
@@ -64540,7 +64540,7 @@ _02036170:
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #0x14]
 	sub r0, r3, r2
-	bl FUN_0200958c
+	bl FX_Div
 	add r7, r7, r0, asr #12
 	add r8, r8, #1
 _020361A4:
@@ -65001,15 +65001,15 @@ _02036788:
 	str r3, [sp, #0x14]
 	mov r1, r5, lsl #0xc
 	str r2, [sp, #0x18]
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	str r2, [r4, #0x10]
@@ -65373,15 +65373,15 @@ _02036C84:
 	str r3, [sp, #0x14]
 	mov r1, r5, lsl #0xc
 	str r2, [sp, #0x18]
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	str r2, [r4, #0x10]
@@ -66859,15 +66859,15 @@ _02038100:
 	str r3, [sp, #0x14]
 	mov r1, r5, lsl #0xc
 	str r2, [sp, #0x18]
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [sp, #0x10]
 	str r0, [sp, #0x18]
 	str r1, [r4, #0x10]
@@ -67792,7 +67792,7 @@ _02038D9C:
 	ldr r2, [r0, #0xc]
 	ldr r1, [r0, #0x14]
 	sub r0, r3, r2
-	bl FUN_0200958c
+	bl FX_Div
 	add r7, r7, r0, asr #12
 _02038DD4:
 	add r8, r8, #1
@@ -73070,7 +73070,7 @@ _0203D7A4:
 	mov r1, r6
 	add r4, r2, r4, asr #5
 	mov r8, #0
-	bl FUN_0200958c
+	bl FX_Div
 	smull r2, r1, r4, r6
 	adds r2, r2, #0x800
 	adc r1, r1, #0
@@ -73079,7 +73079,7 @@ _0203D7A4:
 	add r5, r0, r2
 	mov r0, r5
 	mov r1, r6
-	bl FUN_0200958c
+	bl FX_Div
 	add r1, r9, #2
 	cmp r1, #1
 	mov r7, r0
@@ -76076,7 +76076,7 @@ _0203FF54:
 	mov r3, r3, lsr #0xc
 	orr r3, r3, r2, lsl #20
 	sub r1, r1, r3
-	bl FUN_0200958c
+	bl FX_Div
 	mov r7, r0
 	smull r1, r0, r7, r5
 	adds r1, r1, #0x800
@@ -76084,7 +76084,7 @@ _0203FF54:
 	mov r0, r1, lsr #0xc
 	mov r1, r6
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r10]
 	add r1, r7, r1
 	str r1, [r8]
@@ -76122,7 +76122,7 @@ _02040050:
 	mov r3, r3, lsr #0xc
 	orr r3, r3, r2, lsl #20
 	sub r1, r1, r3
-	bl FUN_0200958c
+	bl FX_Div
 	mov r5, r0
 	smull r1, r0, r5, r11
 	adds r1, r1, #0x800
@@ -76130,7 +76130,7 @@ _02040050:
 	mov r0, r1, lsr #0xc
 	mov r1, r7
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r9]
 	add r1, r5, r1
 	str r1, [r8]
@@ -76258,7 +76258,7 @@ _02040208:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r5
 	rsb r0, r12, #0
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _0204025C:
 	cmp r12, #0
@@ -76268,7 +76268,7 @@ _0204025C:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r4
 	rsb r0, r5, #0
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _02040280:
 	smull r0, r2, r5, r5
@@ -76288,12 +76288,12 @@ _02040280:
 	add r0, r0, r5
 	rsb r0, r0, #0
 	mov r1, r4, lsl #1
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _020402CC:
 	sub r0, r0, r5
 	mov r1, r4, lsl #1
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_020401b8
 
@@ -76308,7 +76308,7 @@ FUN_020402dc: ; 0x020402DC
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	rsb r0, r2, #0
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _02040308:
 	cmp r2, #0
@@ -76318,7 +76318,7 @@ _02040308:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r6
 	rsb r0, r5, #0
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _0204032C:
 	smull r0, r3, r5, r5
@@ -76338,12 +76338,12 @@ _0204032C:
 	add r0, r0, r5
 	rsb r0, r0, #0
 	mov r1, r6, lsl #1
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 _02040378:
 	sub r0, r0, r5
 	mov r1, r6, lsl #1
-	bl FUN_0200958c
+	bl FX_Div
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_020402dc
 
@@ -77102,7 +77102,7 @@ _02040CA0:
 	ldr r1, [r5]
 	sub r0, r1, r0
 	sub r1, r1, r2
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r3, [r5, #4]
 	ldr r1, [r6, #4]
 	ldr r12, [r4]
@@ -77118,7 +77118,7 @@ _02040CE0:
 	ldr r1, [r5]
 	sub r0, r0, r1
 	sub r1, r2, r1
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r3, [r5, #4]
 	ldr r1, [r6, #4]
 	ldr r12, [r4, #8]
@@ -77141,7 +77141,7 @@ _02040D30:
 	ldr r1, [r5, #4]
 	sub r0, r1, r0
 	sub r1, r1, r2
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r5, [r5]
 	ldr r2, [r6]
 	ldr r1, [r4, #4]
@@ -77157,7 +77157,7 @@ _02040D70:
 	ldr r1, [r5, #4]
 	sub r0, r0, r1
 	sub r1, r2, r1
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r5, [r5]
 	ldr r2, [r6]
 	ldr r1, [r4, #0xc]
@@ -77494,7 +77494,7 @@ FUN_020411d4: ; 0x020411D4
 	mov r11, r5
 	cmp r8, #0
 	beq _020412C4
-	bl FUN_02005cf4
+	bl GX_BeginLoadTex
 	cmp r8, #0
 	beq _020412C0
 _02041228:
@@ -77509,7 +77509,7 @@ _02041228:
 	add r1, r3, r1
 	mov r2, r10
 	ldr r9, [r8, #0xc]
-	bl FUN_02005d50
+	bl GX_LoadTex
 	ldr r0, [r8, #0x14]
 	add r1, r0, r10
 	str r1, [r8, #0x14]
@@ -77539,13 +77539,13 @@ _020412B4:
 	cmp r9, #0
 	bne _02041228
 _020412C0:
-	bl FUN_02005e9c
+	bl GX_EndLoadTex
 _020412C4:
 	ldr r0, _020413B4 ; =0x020B5BB8
 	ldr r8, [r0, #0x14]
 	cmp r8, #0
 	beq _0204137C
-	bl FUN_02005ee0
+	bl GX_BeginLoadTexPltt
 	cmp r8, #0
 	beq _02041378
 _020412E0:
@@ -77560,7 +77560,7 @@ _020412E0:
 	add r1, r3, r1
 	mov r2, r10
 	ldr r9, [r8, #0xc]
-	bl FUN_02005f14
+	bl GX_LoadTexPltt
 	ldr r0, [r8, #0x14]
 	add r1, r0, r10
 	str r1, [r8, #0x14]
@@ -77590,7 +77590,7 @@ _0204136C:
 	cmp r9, #0
 	bne _020412E0
 _02041378:
-	bl FUN_02005f84
+	bl GX_EndLoadTexPltt
 _0204137C:
 	ldr r0, _020413B4 ; =0x020B5BB8
 	ldr r2, [sp, #4]
@@ -97258,7 +97258,7 @@ _02051228:
 	mov r0, #8
 	bl FUN_ov16_020ef624
 	mov r0, #0
-	bl FUN_020671ec
+	bl NNS_G3dGeUseFastDma
 	mov r0, r4
 	add sp, sp, #0x64
 	ldmfd sp!, {r3, r4, r5, r6, pc}
@@ -97788,7 +97788,7 @@ _020518EC:
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02005d50
+	bl GX_LoadTex
 	mov r0, r6
 	bl FUN_02051ca8
 	b _020519D8
@@ -97818,7 +97818,7 @@ _0205195C:
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02005f14
+	bl GX_LoadTexPltt
 	mov r0, r6
 	bl FUN_02051d08
 	b _020519D8
@@ -97914,7 +97914,7 @@ _02051AB8:
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02005d50
+	bl GX_LoadTex
 	mov r0, r6
 	bl FUN_02051ca8
 	b _02051B20
@@ -97927,7 +97927,7 @@ _02051AE8:
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02005f14
+	bl GX_LoadTexPltt
 	mov r0, r6
 	bl FUN_02051d08
 	b _02051B20
@@ -97947,7 +97947,7 @@ FUN_02051b28: ; 0x02051B28
 	add r0, r5, #8
 	bl FUN_02002408
 	mov r0, r4
-	bl FUN_02067444
+	bl NNS_G3dResDefaultSetup
 	mov r4, r0
 	add r0, r5, #8
 	bl FUN_02002458
@@ -97963,7 +97963,7 @@ FUN_02051b58: ; 0x02051B58
 	add r0, r5, #8
 	bl FUN_02002408
 	mov r0, r4
-	bl FUN_02067684
+	bl NNS_G3dResDefaultRelease
 	add r0, r5, #8
 	bl FUN_02002458
 	mov r0, #1
@@ -98059,7 +98059,7 @@ FUN_02051c7c: ; 0x02051C7C
 	str r0, [r4, #0x30]
 	cmp r1, #0
 	ldmgtfd sp!, {r4, pc}
-	bl FUN_02005cf4
+	bl GX_BeginLoadTex
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02051c7c
 
@@ -98074,7 +98074,7 @@ FUN_02051ca8: ; 0x02051CA8
 	str r0, [r4, #0x30]
 	cmp r0, #0
 	bgt _02051CD0
-	bl FUN_02005e9c
+	bl GX_EndLoadTex
 _02051CD0:
 	add r0, r4, #8
 	bl FUN_02002458
@@ -98092,7 +98092,7 @@ FUN_02051cdc: ; 0x02051CDC
 	str r0, [r4, #0x34]
 	cmp r1, #0
 	ldmgtfd sp!, {r4, pc}
-	bl FUN_02005ee0
+	bl GX_BeginLoadTexPltt
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02051cdc
 
@@ -98107,7 +98107,7 @@ FUN_02051d08: ; 0x02051D08
 	str r0, [r4, #0x34]
 	cmp r0, #0
 	bgt _02051D30
-	bl FUN_02005f84
+	bl GX_EndLoadTexPltt
 _02051D30:
 	add r0, r4, #8
 	bl FUN_02002458
@@ -98254,16 +98254,16 @@ _02051EEC:
 	ldr r9, [sp]
 	mov r0, r4
 	mov r10, r9
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	movs r6, r0
 	beq _02052048
-	bl FUN_02063978
+	bl NNS_G3dTexGetRequiredSize
 	mov r5, r0
 	mov r0, r6
-	bl FUN_0206398c
+	bl NNS_G3dTex4x4GetRequiredSize
 	mov r7, r0
 	mov r0, r6
-	bl FUN_02063abc
+	bl NNS_G3dPlttGetRequiredSize
 	mov r8, r0
 	cmp r5, #0
 	beq _02051F5C
@@ -98331,10 +98331,10 @@ _0205200C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_020639a0
+	bl NNS_G3dTexSetTexKey
 	mov r0, r6
 	mov r1, r8
-	bl FUN_02063ad0
+	bl NNS_G3dPlttSetPlttKey
 	mov r0, r11
 	mov r1, r6
 	mov r2, #1
@@ -98349,11 +98349,11 @@ _02052048:
 	cmp r1, r0
 	bne _02052070
 	mov r0, r4
-	bl FUN_02067dc8
+	bl NNS_G3dGetMdlSet
 	cmp r6, #0
 	beq _02052070
 	mov r1, r6
-	bl FUN_0206410c
+	bl NNS_G3dBindMdlSet
 _02052070:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -99681,7 +99681,7 @@ FUN_0205318c: ; 0x0205318C
 	add r5, sp, #0xc
 	mov r0, r5
 	mov r1, r5
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r4, sp, #0
 	mov r0, r7
 	mov r1, r6
@@ -99719,11 +99719,11 @@ FUN_02053214: ; 0x02053214
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_02053214
@@ -99824,7 +99824,7 @@ FUN_02053324: ; 0x02053324
 	mov r1, r4
 	orr r0, r0, r2, lsl #20
 	mov r8, #0
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r2, [r7]
 	mov r1, r4
 	add r0, r2, r0
@@ -99835,7 +99835,7 @@ FUN_02053324: ; 0x02053324
 	adc r2, r2, #0
 	mov r0, r0, lsr #0xc
 	orr r0, r0, r2, lsl #20
-	bl FUN_0200958c
+	bl FX_Div
 	ldr r1, [r7, #4]
 	add r0, r1, r0
 	stmib r6, {r0, r8}
@@ -100497,7 +100497,7 @@ FUN_02053cb0: ; 0x02053CB0
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	bl FUN_02053c9c
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02053cb0
@@ -100508,11 +100508,11 @@ FUN_02053ccc: ; 0x02053CCC
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_02063abc
+	bl NNS_G3dPlttGetRequiredSize
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02053ccc
 
@@ -105359,7 +105359,7 @@ _02057A90:
 	bl FUN_ov16_020f7c44
 	mov r1, r0
 	mov r0, r8
-	bl FUN_0200958c
+	bl FX_Div
 	ldrh r1, [r7, #4]
 	ldr r3, [r10, #0xa8]
 	smull r2, r0, r3, r0
@@ -108765,7 +108765,7 @@ _0205A7EC:
 	mov r2, r1
 	mov r0, #0x15
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_02064390
+	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205A824: .word 0x00000101
 	arm_func_end FUN_0205a73c
@@ -110691,7 +110691,7 @@ _0205C110:
 	mov r2, r1
 	mov r0, #0x15
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_02064390
+	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205C148: .word 0x02099EF0
 _0205C14C: .word 0x00000101
@@ -110762,7 +110762,7 @@ _0205C200:
 	mov r2, r1
 	mov r0, #0x15
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_02064390
+	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205C238: .word 0x02099EF0
 _0205C23C: .word 0x00000101
@@ -112176,7 +112176,7 @@ _0205D460:
 	mov r0, r6
 	mov r2, r1
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_020643c0
+	bl NNS_G3dGlbFlushVP
 	ldr r0, [r9, #0x5c]
 	bl FUN_ov16_020fa1e4
 	ldr r0, [r9, #0x5c]
@@ -112228,7 +112228,7 @@ _0205D510:
 	mov r2, r1
 	mov r0, #0x15
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_02064390
+	bl NNS_G3dGlbFlushP
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0205D568: .word 0x0208F6F0
@@ -114310,7 +114310,7 @@ _0205F0F4:
 	mov r2, r1
 	mov r0, #0x15
 	bl NNS_G3dGeBufferOP_N
-	bl FUN_02064390
+	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205F12C: .word 0x00000101
 	arm_func_end FUN_0205f05c
@@ -119326,8 +119326,8 @@ _020635E4:
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 	arm_func_end FUN_02063554
 
-	arm_func_start FUN_0206360c
-FUN_0206360c: ; 0x0206360C
+	arm_func_start NNS_G3dAnmObjInit
+NNS_G3dAnmObjInit: ; 0x0206360C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r12, #0
 	mov r5, #0x7f
@@ -119368,10 +119368,10 @@ _02063688:
 _02063698: .word 0x0209100C
 _0206369C: .word 0x02091030
 _020636A0: .word 0x02091034
-	arm_func_end FUN_0206360c
+	arm_func_end NNS_G3dAnmObjInit
 
-	arm_func_start FUN_020636a4
-FUN_020636a4: ; 0x020636A4
+	arm_func_start NNS_G3dRenderObjInit
+NNS_G3dRenderObjInit: ; 0x020636A4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -119393,10 +119393,10 @@ FUN_020636a4: ; 0x020636A4
 _020636EC: .word 0x0209102C
 _020636F0: .word 0x02091028
 _020636F4: .word 0x02091024
-	arm_func_end FUN_020636a4
+	arm_func_end NNS_G3dRenderObjInit
 
-	arm_func_start FUN_020636f8
-FUN_020636f8: ; 0x020636F8
+	arm_func_start addLink_
+addLink_: ; 0x020636F8
 	ldr r12, [r0]
 	cmp r12, #0
 	streq r1, [r0]
@@ -119452,10 +119452,10 @@ _02063798:
 _020637A8:
 	str r1, [r12, #0x10]
 	bx lr
-	arm_func_end FUN_020636f8
+	arm_func_end addLink_
 
-	arm_func_start FUN_020637b0
-FUN_020637b0: ; 0x020637B0
+	arm_func_start Kernel_updateHintVec_
+Kernel_updateHintVec_: ; 0x020637B0
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -119484,10 +119484,10 @@ _02063804:
 	cmp r1, #0
 	bne _020637C4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_020637b0
+	arm_func_end Kernel_updateHintVec_
 
-	arm_func_start FUN_02063814
-FUN_02063814: ; 0x02063814
+	arm_func_start NNS_G3dRenderObjAddAnmObj
+NNS_G3dRenderObjAddAnmObj: ; 0x02063814
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r1
 	mov r5, r0
@@ -119504,29 +119504,29 @@ FUN_02063814: ; 0x02063814
 	ldmfd sp!, {r3, r4, r5, pc}
 _0206384C:
 	add r0, r5, #0x3c
-	bl FUN_020637b0
+	bl Kernel_updateHintVec_
 	mov r1, r4
 	add r0, r5, #8
-	bl FUN_020636f8
+	bl addLink_
 	ldmfd sp!, {r3, r4, r5, pc}
 _02063864:
 	add r0, r5, #0x44
-	bl FUN_020637b0
+	bl Kernel_updateHintVec_
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_020636f8
+	bl addLink_
 	ldmfd sp!, {r3, r4, r5, pc}
 _0206387C:
 	add r0, r5, #0x4c
-	bl FUN_020637b0
+	bl Kernel_updateHintVec_
 	mov r1, r4
 	add r0, r5, #0x18
-	bl FUN_020636f8
+	bl addLink_
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02063814
+	arm_func_end NNS_G3dRenderObjAddAnmObj
 
-	arm_func_start FUN_02063894
-FUN_02063894: ; 0x02063894
+	arm_func_start removeLink_
+removeLink_: ; 0x02063894
 	ldr r3, [r0]
 	cmp r3, #0
 	moveq r0, #0
@@ -119560,25 +119560,25 @@ _020638F0:
 _02063900:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02063894
+	arm_func_end removeLink_
 
-	arm_func_start FUN_02063908
-FUN_02063908: ; 0x02063908
+	arm_func_start NNS_G3dRenderObjRemoveAnmObj
+NNS_G3dRenderObjRemoveAnmObj: ; 0x02063908
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	add r0, r5, #8
 	mov r4, r1
-	bl FUN_02063894
+	bl removeLink_
 	cmp r0, #0
 	bne _0206394C
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_02063894
+	bl removeLink_
 	cmp r0, #0
 	bne _0206394C
 	mov r1, r4
 	add r0, r5, #0x18
-	bl FUN_02063894
+	bl removeLink_
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0206394C:
@@ -119586,57 +119586,57 @@ _0206394C:
 	orr r0, r0, #0x10
 	str r0, [r5]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02063908
+	arm_func_end NNS_G3dRenderObjRemoveAnmObj
 
-	arm_func_start FUN_0206395c
-FUN_0206395c: ; 0x0206395C
+	arm_func_start NNS_G3dRenderObjResetCallBack
+NNS_G3dRenderObjResetCallBack: ; 0x0206395C
 	mov r1, #0
 	str r1, [r0, #0x20]
 	strb r1, [r0, #0x24]
 	strb r1, [r0, #0x25]
 	bx lr
-	arm_func_end FUN_0206395c
+	arm_func_end NNS_G3dRenderObjResetCallBack
 
-	arm_func_start FUN_02063970
-FUN_02063970: ; 0x02063970
+	arm_func_start NNS_G3dRenderObjSetInitFunc
+NNS_G3dRenderObjSetInitFunc: ; 0x02063970
 	str r1, [r0, #0x28]
 	bx lr
-	arm_func_end FUN_02063970
+	arm_func_end NNS_G3dRenderObjSetInitFunc
 
-	arm_func_start FUN_02063978
-FUN_02063978: ; 0x02063978
+	arm_func_start NNS_G3dTexGetRequiredSize
+NNS_G3dTexGetRequiredSize: ; 0x02063978
 	cmp r0, #0
 	ldrneh r0, [r0, #0xc]
 	movne r0, r0, lsl #3
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_02063978
+	arm_func_end NNS_G3dTexGetRequiredSize
 
-	arm_func_start FUN_0206398c
-FUN_0206398c: ; 0x0206398C
+	arm_func_start NNS_G3dTex4x4GetRequiredSize
+NNS_G3dTex4x4GetRequiredSize: ; 0x0206398C
 	cmp r0, #0
 	ldrneh r0, [r0, #0x1c]
 	movne r0, r0, lsl #3
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_0206398c
+	arm_func_end NNS_G3dTex4x4GetRequiredSize
 
-	arm_func_start FUN_020639a0
-FUN_020639a0: ; 0x020639A0
+	arm_func_start NNS_G3dTexSetTexKey
+NNS_G3dTexSetTexKey: ; 0x020639A0
 	cmp r1, #0
 	strne r1, [r0, #8]
 	cmp r2, #0
 	strne r2, [r0, #0x18]
 	bx lr
-	arm_func_end FUN_020639a0
+	arm_func_end NNS_G3dTexSetTexKey
 
-	arm_func_start FUN_020639b4
-FUN_020639b4: ; 0x020639B4
+	arm_func_start NNS_G3dTexLoad
+NNS_G3dTexLoad: ; 0x020639B4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	movs r8, r1
 	mov r9, r0
 	beq _020639C8
-	bl FUN_02005cf4
+	bl GX_BeginLoadTex
 _020639C8:
 	ldrh r0, [r9, #0xc]
 	movs r2, r0, lsl #3
@@ -119646,7 +119646,7 @@ _020639C8:
 	mov r1, r0, lsl #0x10
 	add r0, r9, r3
 	mov r1, r1, lsr #0xd
-	bl FUN_02005d50
+	bl GX_LoadTex
 	ldrh r0, [r9, #0x10]
 	orr r0, r0, #1
 	strh r0, [r9, #0x10]
@@ -119662,7 +119662,7 @@ _020639F8:
 	mov r2, r6
 	add r0, r9, r0
 	ldr r5, [r9, #0x28]
-	bl FUN_02005d50
+	bl GX_LoadTex
 	ldr r0, _02063A68 ; =0x0001FFFF
 	and r1, r7, #0x40000
 	and r0, r0, r4, lsr #13
@@ -119671,20 +119671,20 @@ _020639F8:
 	add r0, r9, r5
 	add r1, r2, r1, lsr #2
 	mov r2, r6, lsr #1
-	bl FUN_02005d50
+	bl GX_LoadTex
 	ldrh r0, [r9, #0x20]
 	orr r0, r0, #1
 	strh r0, [r9, #0x20]
 _02063A58:
 	cmp r8, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	bl FUN_02005e9c
+	bl GX_EndLoadTex
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02063A68: .word 0x0001FFFF
-	arm_func_end FUN_020639b4
+	arm_func_end NNS_G3dTexLoad
 
-	arm_func_start FUN_02063a6c
-FUN_02063a6c: ; 0x02063A6C
+	arm_func_start NNS_G3dTexReleaseTexKey
+NNS_G3dTexReleaseTexKey: ; 0x02063A6C
 	stmfd sp!, {r3, lr}
 	cmp r1, #0
 	beq _02063A94
@@ -119706,30 +119706,30 @@ _02063A94:
 	str r3, [r2]
 	str r1, [r0, #0x18]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02063a6c
+	arm_func_end NNS_G3dTexReleaseTexKey
 
-	arm_func_start FUN_02063abc
-FUN_02063abc: ; 0x02063ABC
+	arm_func_start NNS_G3dPlttGetRequiredSize
+NNS_G3dPlttGetRequiredSize: ; 0x02063ABC
 	cmp r0, #0
 	ldrneh r0, [r0, #0x30]
 	movne r0, r0, lsl #3
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_02063abc
+	arm_func_end NNS_G3dPlttGetRequiredSize
 
-	arm_func_start FUN_02063ad0
-FUN_02063ad0: ; 0x02063AD0
+	arm_func_start NNS_G3dPlttSetPlttKey
+NNS_G3dPlttSetPlttKey: ; 0x02063AD0
 	str r1, [r0, #0x2c]
 	bx lr
-	arm_func_end FUN_02063ad0
+	arm_func_end NNS_G3dPlttSetPlttKey
 
-	arm_func_start FUN_02063ad8
-FUN_02063ad8: ; 0x02063AD8
+	arm_func_start NNS_G3dPlttLoad
+NNS_G3dPlttLoad: ; 0x02063AD8
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r1
 	mov r4, r0
 	beq _02063AEC
-	bl FUN_02005ee0
+	bl GX_BeginLoadTexPltt
 _02063AEC:
 	ldr r0, [r4, #0x2c]
 	ldrh r2, [r4, #0x30]
@@ -119738,18 +119738,18 @@ _02063AEC:
 	mov r1, r1, lsr #0xd
 	add r0, r4, r3
 	mov r2, r2, lsl #3
-	bl FUN_02005f14
+	bl GX_LoadTexPltt
 	ldrh r0, [r4, #0x32]
 	cmp r5, #0
 	orr r0, r0, #1
 	strh r0, [r4, #0x32]
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_02005f84
+	bl GX_EndLoadTexPltt
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02063ad8
+	arm_func_end NNS_G3dPlttLoad
 
-	arm_func_start FUN_02063b28
-FUN_02063b28: ; 0x02063B28
+	arm_func_start NNS_G3dPlttReleasePlttKey
+NNS_G3dPlttReleasePlttKey: ; 0x02063B28
 	ldrh r3, [r0, #0x32]
 	ldr r2, [r0, #0x2c]
 	mov r1, #0
@@ -119758,10 +119758,10 @@ FUN_02063b28: ; 0x02063B28
 	str r1, [r0, #0x2c]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_02063b28
+	arm_func_end NNS_G3dPlttReleasePlttKey
 
-	arm_func_start FUN_02063b48
-FUN_02063b48: ; 0x02063B48
+	arm_func_start bindMdlTex_Internal_
+bindMdlTex_Internal_: ; 0x02063B48
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	mov r8, r3
@@ -119824,7 +119824,7 @@ _02063BEC:
 	beq _02063C30
 	mov r0, r2, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 _02063C30:
 	str r0, [r7, #0x24]
 	ldrh r1, [r7, #0x22]
@@ -119833,7 +119833,7 @@ _02063C30:
 	beq _02063C50
 	mov r0, r6, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 _02063C50:
 	str r0, [r7, #0x28]
 	ldrb r0, [r9, #2]
@@ -119846,10 +119846,10 @@ _02063C64:
 	strb r0, [r9, #3]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02063C74: .word 0x000007FF
-	arm_func_end FUN_02063b48
+	arm_func_end bindMdlTex_Internal_
 
-	arm_func_start FUN_02063c78
-FUN_02063c78: ; 0x02063C78
+	arm_func_start releaseMdlTex_Internal_
+releaseMdlTex_Internal_: ; 0x02063C78
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrh r3, [r1]
 	ldrb r2, [r1, #2]
@@ -119902,10 +119902,10 @@ _02063D1C:
 	strb r0, [r1, #3]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02063D2C: .word 0xC00F0000
-	arm_func_end FUN_02063c78
+	arm_func_end releaseMdlTex_Internal_
 
-	arm_func_start FUN_02063d30
-FUN_02063d30: ; 0x02063D30
+	arm_func_start NNS_G3dBindMdlTex
+NNS_G3dBindMdlTex: ; 0x02063D30
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r1
 	cmp r0, #0
@@ -119940,7 +119940,7 @@ _02063D9C:
 	moveq r3, r4
 	beq _02063DB4
 	add r0, r9, #0x3c
-	bl FUN_02067aa8
+	bl NNS_G3dGetResDataByName
 	mov r3, r0
 _02063DB4:
 	cmp r3, #0
@@ -119964,7 +119964,7 @@ _02063DEC:
 	bne _02063E0C
 	mov r0, r8
 	mov r2, r9
-	bl FUN_02063b48
+	bl bindMdlTex_Internal_
 	b _02063E0C
 _02063E08:
 	mov r7, r4
@@ -119976,10 +119976,10 @@ _02063E0C:
 _02063E1C:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02063d30
+	arm_func_end NNS_G3dBindMdlTex
 
-	arm_func_start FUN_02063e24
-FUN_02063e24: ; 0x02063E24
+	arm_func_start NNS_G3dReleaseMdlTex
+NNS_G3dReleaseMdlTex: ; 0x02063E24
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	cmp r0, #0
 	ldrne r1, [r0, #8]
@@ -120012,17 +120012,17 @@ _02063E88:
 	tst r0, #1
 	beq _02063E9C
 	mov r0, r6
-	bl FUN_02063c78
+	bl releaseMdlTex_Internal_
 _02063E9C:
 	ldrb r0, [r4, #1]
 	add r5, r5, #1
 	cmp r5, r0
 	blo _02063E58
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02063e24
+	arm_func_end NNS_G3dReleaseMdlTex
 
-	arm_func_start FUN_02063eb0
-FUN_02063eb0: ; 0x02063EB0
+	arm_func_start bindMdlPltt_Internal_
+bindMdlPltt_Internal_: ; 0x02063EB0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r2, [r2, #0x2c]
 	ldrh r4, [r3, #2]
@@ -120084,10 +120084,10 @@ _02063F7C:
 	orr r0, r0, #1
 	strb r0, [r1, #3]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02063eb0
+	arm_func_end bindMdlPltt_Internal_
 
-	arm_func_start FUN_02063f8c
-FUN_02063f8c: ; 0x02063F8C
+	arm_func_start NNS_G3dBindMdlPltt
+NNS_G3dBindMdlPltt: ; 0x02063F8C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r1
 	cmp r0, #0
@@ -120124,7 +120124,7 @@ _02063FF8:
 	moveq r3, r4
 	beq _02064018
 	add r0, r9, r0
-	bl FUN_02067aa8
+	bl NNS_G3dGetResDataByName
 	mov r3, r0
 _02064018:
 	cmp r3, #0
@@ -120148,7 +120148,7 @@ _02064050:
 	bne _02064070
 	mov r0, r8
 	mov r2, r9
-	bl FUN_02063eb0
+	bl bindMdlPltt_Internal_
 	b _02064070
 _0206406C:
 	mov r7, r4
@@ -120160,10 +120160,10 @@ _02064070:
 _02064080:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02063f8c
+	arm_func_end NNS_G3dBindMdlPltt
 
-	arm_func_start FUN_02064088
-FUN_02064088: ; 0x02064088
+	arm_func_start NNS_G3dReleaseMdlPltt
+NNS_G3dReleaseMdlPltt: ; 0x02064088
 	cmp r0, #0
 	ldrne r1, [r0, #8]
 	mov r12, #0
@@ -120200,10 +120200,10 @@ _020640E8:
 	cmp r12, r0
 	blo _020640B8
 	bx lr
-	arm_func_end FUN_02064088
+	arm_func_end NNS_G3dReleaseMdlPltt
 
-	arm_func_start FUN_0206410c
-FUN_0206410c: ; 0x0206410C
+	arm_func_start NNS_G3dBindMdlSet
+NNS_G3dBindMdlSet: ; 0x0206410C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	ldrb r0, [r10, #9]
@@ -120241,11 +120241,11 @@ _02064180:
 _02064184:
 	mov r0, r8
 	mov r1, r9
-	bl FUN_02063d30
+	bl NNS_G3dBindMdlTex
 	and r7, r7, r0
 	mov r0, r8
 	mov r1, r9
-	bl FUN_02063f8c
+	bl NNS_G3dBindMdlPltt
 	ldrb r1, [r10, #9]
 	add r6, r6, #1
 	and r7, r7, r0
@@ -120254,10 +120254,10 @@ _02064184:
 _020641B4:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206410c
+	arm_func_end NNS_G3dBindMdlSet
 
-	arm_func_start FUN_020641bc
-FUN_020641bc: ; 0x020641BC
+	arm_func_start NNS_G3dReleaseMdlSet
+NNS_G3dReleaseMdlSet: ; 0x020641BC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r6, r0
 	ldrb r0, [r6, #9]
@@ -120292,18 +120292,18 @@ _02064228:
 	mov r9, r7
 _0206422C:
 	mov r0, r9
-	bl FUN_02063e24
+	bl NNS_G3dReleaseMdlTex
 	mov r0, r9
-	bl FUN_02064088
+	bl NNS_G3dReleaseMdlPltt
 	ldrb r0, [r6, #9]
 	add r5, r5, #1
 	cmp r5, r0
 	blo _020641E0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_020641bc
+	arm_func_end NNS_G3dReleaseMdlSet
 
-	arm_func_start FUN_02064250
-FUN_02064250: ; 0x02064250
+	arm_func_start NNS_G3dGlbInit
+NNS_G3dGlbInit: ; 0x02064250
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _02064350 ; =0x17101610
 	ldr r5, _02064354 ; =0x020B6DD8
@@ -120384,10 +120384,10 @@ _02064380: .word 0x001F008F
 _02064384: .word 0x00007FFF
 _02064388: .word 0x800003E0
 _0206438C: .word 0x020B6E94
-	arm_func_end FUN_02064250
+	arm_func_end NNS_G3dGlbInit
 
-	arm_func_start FUN_02064390
-FUN_02064390: ; 0x02064390
+	arm_func_start NNS_G3dGlbFlushP
+NNS_G3dGlbFlushP: ; 0x02064390
 	stmfd sp!, {r4, lr}
 	ldr r4, _020643BC ; =0x020B6DD8
 	mov r2, #0x3e
@@ -120400,10 +120400,10 @@ FUN_02064390: ; 0x02064390
 	str r0, [r4, #0xfc]
 	ldmfd sp!, {r4, pc}
 _020643BC: .word 0x020B6DD8
-	arm_func_end FUN_02064390
+	arm_func_end NNS_G3dGlbFlushP
 
-	arm_func_start FUN_020643c0
-FUN_020643c0: ; 0x020643C0
+	arm_func_start NNS_G3dGlbFlushVP
+NNS_G3dGlbFlushVP: ; 0x020643C0
 	stmfd sp!, {r3, lr}
 	ldr r0, _02064424 ; =0x00001610
 	ldr r1, _02064428 ; =0x020B6DDC
@@ -120434,10 +120434,10 @@ _02064428: .word 0x020B6DDC
 _0206442C: .word 0x020B6E24
 _02064430: .word 0x020B6E54
 _02064434: .word 0x020B6DD8
-	arm_func_end FUN_020643c0
+	arm_func_end NNS_G3dGlbFlushVP
 
-	arm_func_start FUN_02064438
-FUN_02064438: ; 0x02064438
+	arm_func_start NNS_G3dGlbGetInvV
+NNS_G3dGlbGetInvV: ; 0x02064438
 	stmfd sp!, {r4, lr}
 	ldr r4, _0206446C ; =0x020B6DD8
 	ldr r0, [r4, #0xfc]
@@ -120445,7 +120445,7 @@ FUN_02064438: ; 0x02064438
 	bne _02064464
 	ldr r0, _02064470 ; =0x020B6E24
 	ldr r1, _02064474 ; =0x020B6ED8
-	bl FUN_020086b4
+	bl MTX_Inverse43
 	ldr r0, [r4, #0xfc]
 	orr r0, r0, #8
 	str r0, [r4, #0xfc]
@@ -120455,10 +120455,10 @@ _02064464:
 _0206446C: .word 0x020B6DD8
 _02064470: .word 0x020B6E24
 _02064474: .word 0x020B6ED8
-	arm_func_end FUN_02064438
+	arm_func_end NNS_G3dGlbGetInvV
 
-	arm_func_start FUN_02064478
-FUN_02064478: ; 0x02064478
+	arm_func_start calcSrtCameraMtx_
+calcSrtCameraMtx_: ; 0x02064478
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r4, _020644C8 ; =0x020B6F08
@@ -120476,7 +120476,7 @@ FUN_02064478: ; 0x02064478
 	bl FUN_02008628
 	ldr r1, _020644D8 ; =0x020B6F38
 	mov r0, r4
-	bl FUN_020086b4
+	bl MTX_Inverse43
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020644C8: .word 0x020B6F08
@@ -120484,16 +120484,16 @@ _020644CC: .word 0x020B6E94
 _020644D0: .word 0x020B6E24
 _020644D4: .word 0x020B6DD8
 _020644D8: .word 0x020B6F38
-	arm_func_end FUN_02064478
+	arm_func_end calcSrtCameraMtx_
 
-	arm_func_start FUN_020644dc
-FUN_020644dc: ; 0x020644DC
+	arm_func_start NNS_G3dGlbGetWV
+NNS_G3dGlbGetWV: ; 0x020644DC
 	stmfd sp!, {r4, lr}
 	ldr r4, _02064508 ; =0x020B6DD8
 	ldr r0, [r4, #0xfc]
 	tst r0, #0x80
 	bne _02064500
-	bl FUN_02064478
+	bl calcSrtCameraMtx_
 	ldr r0, [r4, #0xfc]
 	orr r0, r0, #0x80
 	str r0, [r4, #0xfc]
@@ -120502,16 +120502,16 @@ _02064500:
 	ldmfd sp!, {r4, pc}
 _02064508: .word 0x020B6DD8
 _0206450C: .word 0x020B6F08
-	arm_func_end FUN_020644dc
+	arm_func_end NNS_G3dGlbGetWV
 
-	arm_func_start FUN_02064510
-FUN_02064510: ; 0x02064510
+	arm_func_start NNS_G3dGlbGetInvWV
+NNS_G3dGlbGetInvWV: ; 0x02064510
 	stmfd sp!, {r4, lr}
 	ldr r4, _0206453C ; =0x020B6DD8
 	ldr r0, [r4, #0xfc]
 	tst r0, #0x80
 	bne _02064534
-	bl FUN_02064478
+	bl calcSrtCameraMtx_
 	ldr r0, [r4, #0xfc]
 	orr r0, r0, #0x80
 	str r0, [r4, #0xfc]
@@ -120520,10 +120520,10 @@ _02064534:
 	ldmfd sp!, {r4, pc}
 _0206453C: .word 0x020B6DD8
 _02064540: .word 0x020B6F38
-	arm_func_end FUN_02064510
+	arm_func_end NNS_G3dGlbGetInvWV
 
-	arm_func_start FUN_02064544
-FUN_02064544: ; 0x02064544
+	arm_func_start NNS_G3dGlbGetViewPort
+NNS_G3dGlbGetViewPort: ; 0x02064544
 	cmp r0, #0
 	ldrne r12, _020645A4 ; =0x020B6DD8
 	ldrne r12, [r12, #0xa0]
@@ -120549,10 +120549,10 @@ FUN_02064544: ; 0x02064544
 	strne r0, [r3]
 	bx lr
 _020645A4: .word 0x020B6DD8
-	arm_func_end FUN_02064544
+	arm_func_end NNS_G3dGlbGetViewPort
 
-	arm_func_start FUN_020645a8
-FUN_020645a8: ; 0x020645A8
+	arm_func_start NNSi_G3dAnmBlendMat
+NNSi_G3dAnmBlendMat: ; 0x020645A8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	movs r5, r1
@@ -120582,10 +120582,10 @@ _02064604:
 	cmp r5, #0
 	bne _020645C4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_020645a8
+	arm_func_end NNSi_G3dAnmBlendMat
 
-	arm_func_start FUN_02064614
-FUN_02064614: ; 0x02064614
+	arm_func_start blendScaleVec_
+blendScaleVec_: ; 0x02064614
 	stmfd sp!, {r4, lr}
 	cmp r3, #0
 	beq _02064648
@@ -120615,10 +120615,10 @@ _02064648:
 	str r3, [r0, #4]
 	str r1, [r0, #8]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02064614
+	arm_func_end blendScaleVec_
 
-	arm_func_start FUN_02064684
-FUN_02064684: ; 0x02064684
+	arm_func_start NNSi_G3dAnmBlendJnt
+NNSi_G3dAnmBlendJnt: ; 0x02064684
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x70
 	movs r9, r1
@@ -120747,7 +120747,7 @@ _0206484C:
 	beq _02064868
 	ldr r0, [r9, #4]
 	mov r1, r5
-	bl FUN_0200958c
+	bl FX_Div
 	mov r7, r0
 _02064868:
 	ldr r3, [sp, #0x18]
@@ -120755,19 +120755,19 @@ _02064868:
 	add r1, sp, #0x1c
 	mov r2, r7
 	and r3, r3, #1
-	bl FUN_02064614
+	bl blendScaleVec_
 	ldr r3, [sp, #0x18]
 	add r0, r10, #0x10
 	add r1, sp, #0x28
 	mov r2, r7
 	and r3, r3, #8
-	bl FUN_02064614
+	bl blendScaleVec_
 	ldr r3, [sp, #0x18]
 	add r0, r10, #0x1c
 	add r1, sp, #0x34
 	mov r2, r7
 	and r3, r3, #0x10
-	bl FUN_02064614
+	bl blendScaleVec_
 	ldr r0, [sp, #0x18]
 	tst r0, #4
 	bne _02064910
@@ -120847,7 +120847,7 @@ _020649C0:
 	add r0, r10, #0x28
 	add r1, r10, #0x34
 	add r2, r10, #0x40
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	ldr r0, [r10, #0x28]
 	cmp r0, #0
 	ldreq r0, [r10, #0x2c]
@@ -120863,7 +120863,7 @@ _020649C0:
 _02064A10:
 	add r0, r10, #0x28
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 _02064A1C:
 	ldr r0, [r10, #0x40]
 	cmp r0, #0
@@ -120880,16 +120880,16 @@ _02064A1C:
 _02064A4C:
 	add r0, r10, #0x40
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 _02064A58:
 	add r0, r10, #0x40
 	add r1, r10, #0x28
 	add r2, r10, #0x34
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	mov r0, #1
 	add sp, sp, #0x70
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02064684
+	arm_func_end NNSi_G3dAnmBlendJnt
 
 	arm_func_start FUN_02064a74
 FUN_02064a74: ; 0x02064A74
@@ -121062,8 +121062,8 @@ _02064CD4: .word 0x02091080
 _02064CD8: .word 0x02091098
 	arm_func_end G3dDrawInternal_
 
-	arm_func_start updateHintVec_
-updateHintVec_: ; 0x02064CDC
+	arm_func_start Sbc_updateHintVec_
+Sbc_updateHintVec_: ; 0x02064CDC
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -121092,7 +121092,7 @@ _02064D30:
 	cmp r1, #0
 	bne _02064CF0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end updateHintVec_
+	arm_func_end Sbc_updateHintVec_
 
 	arm_func_start NNS_G3dDraw
 NNS_G3dDraw: ; 0x02064D40
@@ -121121,19 +121121,19 @@ NNS_G3dDraw: ; 0x02064D40
 	cmp r1, #0
 	beq _02064DA8
 	add r0, r4, #0x3c
-	bl updateHintVec_
+	bl Sbc_updateHintVec_
 _02064DA8:
 	ldr r1, [r4, #0x10]
 	cmp r1, #0
 	beq _02064DBC
 	add r0, r4, #0x44
-	bl updateHintVec_
+	bl Sbc_updateHintVec_
 _02064DBC:
 	ldr r1, [r4, #0x18]
 	cmp r1, #0
 	beq _02064DD0
 	add r0, r4, #0x4c
-	bl updateHintVec_
+	bl Sbc_updateHintVec_
 _02064DD0:
 	ldr r0, [r4]
 	bic r0, r0, #0x10
@@ -122215,14 +122215,14 @@ _02065C94:
 	add r4, sp, #0x88
 _02065CC0:
 	mov r0, r4
-	bl FUN_020049f8
+	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _02065CC0
 	ldr r0, _02065E78 ; =0x020B6DD8
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02065CEC
-	bl FUN_020644dc
+	bl NNS_G3dGlbGetWV
 	add r11, sp, #0x48
 	b _02065CFC
 _02065CEC:
@@ -122264,7 +122264,7 @@ _02065D14:
 	mov r2, #8
 	str r3, [r4]
 	bl MIi_CpuSend32
-	bl FUN_02064510
+	bl NNS_G3dGlbGetInvWV
 _02065D80:
 	mov r1, r4
 	mov r2, #0x30
@@ -122286,7 +122286,7 @@ _02065DA8:
 	mov r2, #8
 	str r3, [r4]
 	bl MIi_CpuSend32
-	bl FUN_02064438
+	bl NNS_G3dGlbGetInvV
 	b _02065D80
 _02065DD4:
 	ldr r0, _02065E90 ; =0x02091118
@@ -122423,14 +122423,14 @@ _02065F84:
 	add r4, sp, #0x88
 _02065FB0:
 	mov r0, r4
-	bl FUN_020049f8
+	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _02065FB0
 	ldr r0, _020661C8 ; =0x020B6DD8
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02065FE8
-	bl FUN_020644dc
+	bl NNS_G3dGlbGetWV
 	add r1, sp, #0x48
 	bl MTX_Copy43To44_
 	add r1, sp, #0x48
@@ -122476,14 +122476,14 @@ _0206600C:
 	str r0, [r7, #4]
 	mov r0, r7
 	mov r1, r7
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r0, r7, #0xc
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	mov r0, r7
 	add r1, r7, #0xc
 	add r2, r7, #0x18
-	bl FUN_020097d0
+	bl VEC_CrossProduct
 	ldr r0, _020661C8 ; =0x020B6DD8
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
@@ -122495,7 +122495,7 @@ _0206600C:
 	mov r2, #8
 	str r3, [r4]
 	bl MIi_CpuSend32
-	bl FUN_02064510
+	bl NNS_G3dGlbGetInvWV
 _020660CC:
 	mov r1, r4
 	mov r2, #0x30
@@ -122517,7 +122517,7 @@ _020660F4:
 	mov r2, #8
 	str r3, [r4]
 	bl MIi_CpuSend32
-	bl FUN_02064438
+	bl NNS_G3dGlbGetInvV
 	b _020660CC
 _02066120:
 	ldr r0, _020661DC ; =0x02091160
@@ -122779,7 +122779,7 @@ _020664EC:
 	bne _02066528
 _020664F8:
 	mov r0, r7
-	bl FUN_020049f8
+	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _020664F8
 	ldr r0, [sp, #0x14]
@@ -122886,7 +122886,7 @@ _02066528:
 	bne _020666AC
 _0206669C:
 	mov r0, r8
-	bl FUN_02004a28
+	bl G3X_GetVectorMtx
 	cmp r0, #0
 	bne _0206669C
 _020666AC:
@@ -123320,7 +123320,7 @@ _02066CBC:
 	add r4, sp, #0x20
 	mov r0, #0
 	mov r1, r4
-	bl FUN_02067390
+	bl NNS_G3dGetCurrentMtx
 	mov r3, #3
 	add r1, sp, #4
 	mov r0, r6
@@ -123392,7 +123392,7 @@ NNSi_G3dFuncSbc_PRJMAP: ; 0x02066DBC
 	beq _0206713C
 	add r0, sp, #0x50
 	mov r1, r6
-	bl FUN_02067390
+	bl NNS_G3dGetCurrentMtx
 	mov r0, #0x1e
 	mov r4, #1
 	str r0, [sp, #0xc]
@@ -123558,7 +123558,7 @@ _02067030:
 	mov r2, #0xc
 	b _02067070
 _02067048:
-	bl FUN_02064438
+	bl NNS_G3dGlbGetInvV
 	mov r4, #0xc
 	mov r7, #0x19
 	mov r1, r0
@@ -123578,7 +123578,7 @@ _02067070:
 	add r6, sp, #0x10
 _0206708C:
 	mov r0, r6
-	bl FUN_020049f8
+	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _0206708C
 	ldr r2, _0206716C ; =0x04000448
@@ -123676,20 +123676,20 @@ _020671CC:
 _020671DC: .word 0x020B9D40
 	arm_func_end NNS_G3dGeWaitSendDL
 
-	arm_func_start FUN_020671e0
-FUN_020671e0: ; 0x020671E0
+	arm_func_start simpleUnlock_
+simpleUnlock_: ; 0x020671E0
 	mov r1, #0
 	str r1, [r0]
 	bx lr
-	arm_func_end FUN_020671e0
+	arm_func_end simpleUnlock_
 
-	arm_func_start FUN_020671ec
-FUN_020671ec: ; 0x020671EC
+	arm_func_start NNS_G3dGeUseFastDma
+NNS_G3dGeUseFastDma: ; 0x020671EC
 	ldr r1, _020671F8 ; =0x020B9D40
 	str r0, [r1, #8]
 	bx lr
 _020671F8: .word 0x020B9D40
-	arm_func_end FUN_020671ec
+	arm_func_end NNS_G3dGeUseFastDma
 
 	arm_func_start NNS_G3dGeSendDL
 NNS_G3dGeSendDL: ; 0x020671FC
@@ -123722,7 +123722,7 @@ _0206723C:
 	cmp r0, #3
 	movhi r0, r6
 	ldr r6, _020672AC ; =0x020B9D44
-	ldr r3, _020672B0 ; =FUN_020671e0
+	ldr r3, _020672B0 ; =simpleUnlock_
 	mov r1, r5
 	mov r2, r4
 	str r6, [sp]
@@ -123732,7 +123732,7 @@ _02067280:
 	cmp r0, #3
 	movhi r0, r6
 	ldr r6, _020672AC ; =0x020B9D44
-	ldr r3, _020672B0 ; =FUN_020671e0
+	ldr r3, _020672B0 ; =simpleUnlock_
 	mov r1, r5
 	mov r2, r4
 	str r6, [sp]
@@ -123741,7 +123741,7 @@ _02067280:
 _020672A4: .word 0x0208EC7C
 _020672A8: .word 0x020B9D40
 _020672AC: .word 0x020B9D44
-_020672B0: .word FUN_020671e0
+_020672B0: .word simpleUnlock_
 	arm_func_end NNS_G3dGeSendDL
 
 	arm_func_start NNS_G3dGeBufferOP_N
@@ -123808,8 +123808,8 @@ _02067388: .word 0x020B9D40
 _0206738C: .word 0x04000400
 	arm_func_end NNS_G3dGeBufferOP_N
 
-	arm_func_start FUN_02067390
-FUN_02067390: ; 0x02067390
+	arm_func_start NNS_G3dGetCurrentMtx
+NNS_G3dGetCurrentMtx: ; 0x02067390
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x40
 	mov r6, r0
@@ -123825,7 +123825,7 @@ FUN_02067390: ; 0x02067390
 	add r4, sp, #0
 _020673C4:
 	mov r0, r4
-	bl FUN_020049f8
+	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _020673C4
 	mov r0, r4
@@ -123836,7 +123836,7 @@ _020673E0:
 	beq _020673F8
 _020673E8:
 	mov r0, r5
-	bl FUN_02004a28
+	bl G3X_GetVectorMtx
 	cmp r0, #0
 	bne _020673E8
 _020673F8:
@@ -123849,13 +123849,13 @@ _020673F8:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02067414: .word 0x04000440
 _02067418: .word 0x04000448
-	arm_func_end FUN_02067390
+	arm_func_end NNS_G3dGetCurrentMtx
 
-	arm_func_start FUN_0206741c
-FUN_0206741c: ; 0x0206741C
+	arm_func_start NNS_G3dInit
+NNS_G3dInit: ; 0x0206741C
 	stmfd sp!, {r3, lr}
-	bl FUN_020046e8
-	bl FUN_02064250
+	bl G3X_Init
+	bl NNS_G3dGlbInit
 	ldr r1, _02067440 ; =0x04000600
 	ldr r0, [r1]
 	bic r0, r0, #0xc0000000
@@ -123863,10 +123863,10 @@ FUN_0206741c: ; 0x0206741C
 	str r0, [r1]
 	ldmfd sp!, {r3, pc}
 _02067440: .word 0x04000600
-	arm_func_end FUN_0206741c
+	arm_func_end NNS_G3dInit
 
-	arm_func_start FUN_02067444
-FUN_02067444: ; 0x02067444
+	arm_func_start NNS_G3dResDefaultSetup
+NNS_G3dResDefaultSetup: ; 0x02067444
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	ldr r2, [r10]
@@ -123905,16 +123905,16 @@ _020674BC:
 	mov r0, r10
 	mov r6, r5
 	mov r7, r5
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	movs r4, r0
 	beq _02067628
-	bl FUN_02063978
+	bl NNS_G3dTexGetRequiredSize
 	mov r9, r0
 	mov r0, r4
-	bl FUN_0206398c
+	bl NNS_G3dTex4x4GetRequiredSize
 	mov r8, r0
 	mov r0, r4
-	bl FUN_02063abc
+	bl NNS_G3dPlttGetRequiredSize
 	str r0, [sp]
 	cmp r9, #0
 	beq _02067524
@@ -123993,27 +123993,27 @@ _020675F4:
 	mov r0, r4
 	mov r1, r11
 	mov r2, r8
-	bl FUN_020639a0
+	bl NNS_G3dTexSetTexKey
 	mov r0, r4
 	mov r1, r9
-	bl FUN_02063ad0
+	bl NNS_G3dPlttSetPlttKey
 	mov r0, r4
 	mov r1, #1
-	bl FUN_020639b4
+	bl NNS_G3dTexLoad
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02063ad8
+	bl NNS_G3dPlttLoad
 _02067628:
 	ldr r1, [r10]
 	ldr r0, _02067670 ; =0x30444D42
 	cmp r1, r0
 	bne _02067650
 	mov r0, r10
-	bl FUN_02067dc8
+	bl NNS_G3dGetMdlSet
 	cmp r4, #0
 	beq _02067650
 	mov r1, r4
-	bl FUN_0206410c
+	bl NNS_G3dBindMdlSet
 _02067650:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -124030,10 +124030,10 @@ _02067674: .word 0x0208EEA0
 _02067678: .word 0x0208EEA8
 _0206767C: .word 0x0208EEAC
 _02067680: .word 0x0208EEA4
-	arm_func_end FUN_02067444
+	arm_func_end NNS_G3dResDefaultSetup
 
-	arm_func_start FUN_02067684
-FUN_02067684: ; 0x02067684
+	arm_func_start NNS_G3dResDefaultRelease
+NNS_G3dResDefaultRelease: ; 0x02067684
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	mov r5, r0
@@ -124065,26 +124065,26 @@ _020676E0:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
 _020676F4:
-	bl FUN_02067dc8
+	bl NNS_G3dGetMdlSet
 	mov r4, r0
 	mov r0, r5
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	cmp r0, #0
 	beq _02067714
 	mov r0, r4
-	bl FUN_020641bc
+	bl NNS_G3dReleaseMdlSet
 _02067714:
 	mov r0, r5
-	bl FUN_02067dd8
+	bl NNS_G3dGetTex
 	movs r5, r0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_02063b28
+	bl NNS_G3dPlttReleasePlttKey
 	mov r4, r0
 	add r1, sp, #4
 	add r2, sp, #0
 	mov r0, r5
-	bl FUN_02063a6c
+	bl NNS_G3dTexReleaseTexKey
 	cmp r4, #0
 	beq _02067758
 	ldr r1, _020677A0 ; =0x0208EEAC
@@ -124113,10 +124113,10 @@ _02067798: .word 0x30505442
 _0206779C: .word 0x30444D42
 _020677A0: .word 0x0208EEAC
 _020677A4: .word 0x0208EEA4
-	arm_func_end FUN_02067684
+	arm_func_end NNS_G3dResDefaultRelease
 
-	arm_func_start FUN_020677a8
-FUN_020677a8: ; 0x020677A8
+	arm_func_start NNS_G3dWorldPosToScrPos
+NNS_G3dWorldPosToScrPos: ; 0x020677A8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x1c
 	mov r5, r1
@@ -124124,7 +124124,7 @@ FUN_020677a8: ; 0x020677A8
 	ldr r6, _02067928 ; =0x020B6DE0
 	ldr r1, _0206792C ; =0x020B6E24
 	add r2, sp, #0x10
-	bl FUN_02008c40
+	bl MTX_MultVec43
 	ldr r1, [sp, #0x14]
 	ldr r0, [r6, #0x1c]
 	ldr r2, [sp, #0x10]
@@ -124138,7 +124138,7 @@ FUN_020677a8: ; 0x020677A8
 	mov r1, r8, lsr #0xc
 	orr r1, r1, r7, lsl #20
 	add r0, r1, r0
-	bl FUN_02009638
+	bl FX_InvAsync
 	ldr r2, [sp, #0x14]
 	ldr r1, [r6, #0x10]
 	ldr r0, [r6, #0x14]
@@ -124162,7 +124162,7 @@ FUN_020677a8: ; 0x020677A8
 	ldr r2, [r6, #0x34]
 	orr r0, r0, r12, lsl #20
 	add r8, r0, r2
-	bl FUN_020095e0
+	bl FX_GetDivResultFx64c
 	umull lr, r12, r0, r7
 	mov r2, r7, asr #0x1f
 	mla r12, r0, r2, r12
@@ -124195,7 +124195,7 @@ _020678C8:
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
-	bl FUN_02064544
+	bl NNS_G3dGlbGetViewPort
 	ldr r2, [sp, #0xc]
 	ldr r0, [sp, #4]
 	ldr r12, [sp]
@@ -124217,10 +124217,10 @@ _020678C8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02067928: .word 0x020B6DE0
 _0206792C: .word 0x020B6E24
-	arm_func_end FUN_020677a8
+	arm_func_end NNS_G3dWorldPosToScrPos
 
-	arm_func_start FUN_02067930
-FUN_02067930: ; 0x02067930
+	arm_func_start NNS_G3dMdlSetMdlDiff
+NNS_G3dMdlSetMdlDiff: ; 0x02067930
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldrne r3, [r0, #8]
@@ -124257,10 +124257,10 @@ _02067994:
 	orr r0, r0, r2
 	str r0, [r3, #4]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02067930
+	arm_func_end NNS_G3dMdlSetMdlDiff
 
-	arm_func_start FUN_020679b0
-FUN_020679b0: ; 0x020679B0
+	arm_func_start NNS_G3dMdlSetMdlAlpha
+NNS_G3dMdlSetMdlAlpha: ; 0x020679B0
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldrne r3, [r0, #8]
@@ -124295,10 +124295,10 @@ _02067A14:
 	orr r0, r0, r2, lsl #16
 	str r0, [r1, #0xc]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020679b0
+	arm_func_end NNS_G3dMdlSetMdlAlpha
 
-	arm_func_start FUN_02067a28
-FUN_02067a28: ; 0x02067A28
+	arm_func_start NNS_G3dMdlSetMdlDiffAll
+NNS_G3dMdlSetMdlDiffAll: ; 0x02067A28
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldrb r0, [r6, #0x18]
@@ -124310,16 +124310,16 @@ _02067A44:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_02067930
+	bl NNS_G3dMdlSetMdlDiff
 	ldrb r0, [r6, #0x18]
 	add r4, r4, #1
 	cmp r4, r0
 	blo _02067A44
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02067a28
+	arm_func_end NNS_G3dMdlSetMdlDiffAll
 
-	arm_func_start FUN_02067a68
-FUN_02067a68: ; 0x02067A68
+	arm_func_start NNS_G3dMdlSetMdlAlphaAll
+NNS_G3dMdlSetMdlAlphaAll: ; 0x02067A68
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldrb r0, [r6, #0x18]
@@ -124331,16 +124331,16 @@ _02067A84:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_020679b0
+	bl NNS_G3dMdlSetMdlAlpha
 	ldrb r0, [r6, #0x18]
 	add r4, r4, #1
 	cmp r4, r0
 	blo _02067A84
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02067a68
+	arm_func_end NNS_G3dMdlSetMdlAlphaAll
 
-	arm_func_start FUN_02067aa8
-FUN_02067aa8: ; 0x02067AA8
+	arm_func_start NNS_G3dGetResDataByName
+NNS_G3dGetResDataByName: ; 0x02067AA8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, #0
 	cmp r1, #0
@@ -124464,7 +124464,7 @@ _02067C54:
 _02067C5C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02067aa8
+	arm_func_end NNS_G3dGetResDataByName
 
 	arm_func_start FUN_02067c64
 FUN_02067c64: ; 0x02067C64
@@ -124568,16 +124568,16 @@ _02067DC0:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_02067c64
 
-	arm_func_start FUN_02067dc8
-FUN_02067dc8: ; 0x02067DC8
+	arm_func_start NNS_G3dGetMdlSet
+NNS_G3dGetMdlSet: ; 0x02067DC8
 	ldrh r1, [r0, #0xc]
 	ldr r1, [r0, r1]
 	add r0, r0, r1
 	bx lr
-	arm_func_end FUN_02067dc8
+	arm_func_end NNS_G3dGetMdlSet
 
-	arm_func_start FUN_02067dd8
-FUN_02067dd8: ; 0x02067DD8
+	arm_func_start NNS_G3dGetTex
+NNS_G3dGetTex: ; 0x02067DD8
 	ldrh r2, [r0, #0xc]
 	ldrh r1, [r0, #0xe]
 	add r3, r0, r2
@@ -124595,7 +124595,7 @@ _02067E08:
 	add r0, r0, r1
 	bx lr
 _02067E14: .word 0x30585442
-	arm_func_end FUN_02067dd8
+	arm_func_end NNS_G3dGetTex
 
 	arm_func_start FUN_02067e18
 FUN_02067e18: ; 0x02067E18
@@ -124627,8 +124627,8 @@ _02067E6C:
 	bx lr
 	arm_func_end FUN_02067e18
 
-	arm_func_start FUN_02067e74
-FUN_02067e74: ; 0x02067E74
+	arm_func_start NNSi_G3dGetTexPatAnmTexNameByIdx
+NNSi_G3dGetTexPatAnmTexNameByIdx: ; 0x02067E74
 	cmp r0, #0
 	beq _02067E94
 	ldrb r2, [r0, #6]
@@ -124640,10 +124640,10 @@ FUN_02067e74: ; 0x02067E74
 _02067E94:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02067e74
+	arm_func_end NNSi_G3dGetTexPatAnmTexNameByIdx
 
-	arm_func_start FUN_02067e9c
-FUN_02067e9c: ; 0x02067E9C
+	arm_func_start NNSi_G3dGetTexPatAnmPlttNameByIdx
+NNSi_G3dGetTexPatAnmPlttNameByIdx: ; 0x02067E9C
 	cmp r0, #0
 	beq _02067EBC
 	ldrb r2, [r0, #7]
@@ -124655,10 +124655,10 @@ FUN_02067e9c: ; 0x02067E9C
 _02067EBC:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02067e9c
+	arm_func_end NNSi_G3dGetTexPatAnmPlttNameByIdx
 
-	arm_func_start FUN_02067ec4
-FUN_02067ec4: ; 0x02067EC4
+	arm_func_start NNSi_G3dGetTexPatAnmFV
+NNSi_G3dGetTexPatAnmFV: ; 0x02067EC4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r2
@@ -124694,7 +124694,7 @@ _02067F14:
 _02067F30:
 	add r0, r3, r2, lsl #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02067ec4
+	arm_func_end NNSi_G3dGetTexPatAnmFV
 
 	arm_func_start FUN_02067f38
 FUN_02067f38: ; 0x02067F38
@@ -124770,8 +124770,8 @@ _02068014:
 	ldmfd sp!, {r3, pc}
 	arm_func_end NNSi_G3dAnmCalcNsBca
 
-	arm_func_start FUN_02068024
-FUN_02068024: ; 0x02068024
+	arm_func_start getMdlTrans_
+getMdlTrans_: ; 0x02068024
 	ldr r1, _020680B4 ; =0x020B703C
 	ldr r2, [r1]
 	ldr r1, [r2]
@@ -124813,10 +124813,10 @@ _02068080:
 	str r1, [r0, #0x54]
 	bx lr
 _020680B4: .word 0x020B703C
-	arm_func_end FUN_02068024
+	arm_func_end getMdlTrans_
 
-	arm_func_start FUN_020680b8
-FUN_020680b8: ; 0x020680B8
+	arm_func_start getMdlScale_
+getMdlScale_: ; 0x020680B8
 	stmfd sp!, {r4, lr}
 	ldr r1, _02068144 ; =0x020B703C
 	ldr r12, [r1]
@@ -124858,7 +124858,7 @@ _02068138:
 	blx r12
 	ldmfd sp!, {r4, pc}
 _02068144: .word 0x020B703C
-	arm_func_end FUN_020680b8
+	arm_func_end getMdlScale_
 
 	arm_func_start getMdlRot_
 getMdlRot_: ; 0x02068148
@@ -125004,10 +125004,10 @@ _02068320:
 	mov r3, r9
 	add r0, r7, #0x4c
 	beq _02068358
-	bl FUN_0206876c
+	bl getTransDataEx_
 	b _0206835C
 _02068358:
-	bl FUN_0206861c
+	bl getTransData_
 _0206835C:
 	add r5, r5, #8
 	b _0206836C
@@ -125023,10 +125023,10 @@ _0206836C:
 	mov r3, r9
 	add r0, r7, #0x50
 	beq _02068394
-	bl FUN_0206876c
+	bl getTransDataEx_
 	b _02068398
 _02068394:
-	bl FUN_0206861c
+	bl getTransData_
 _02068398:
 	add r5, r5, #8
 	b _020683A8
@@ -125042,10 +125042,10 @@ _020683A8:
 	mov r3, r9
 	add r0, r7, #0x54
 	beq _020683D0
-	bl FUN_0206876c
+	bl getTransDataEx_
 	b _020683D4
 _020683D0:
-	bl FUN_0206861c
+	bl getTransData_
 _020683D4:
 	add r5, r5, #8
 	b _02068400
@@ -125059,7 +125059,7 @@ _020683E8:
 	strne r0, [r7]
 	bne _02068400
 	mov r0, r7
-	bl FUN_02068024
+	bl getMdlTrans_
 _02068400:
 	tst r4, #0xc0
 	bne _020684BC
@@ -125071,10 +125071,10 @@ _02068400:
 	mov r3, r9
 	add r0, r7, #0x28
 	beq _02068430
-	bl FUN_02069018
+	bl getRotDataEx_
 	b _02068434
 _02068430:
-	bl FUN_02068c14
+	bl getRotData_
 _02068434:
 	add r5, r5, #8
 	b _020684D8
@@ -125085,7 +125085,7 @@ _0206843C:
 	add r0, r7, #0x28
 	add r1, r9, r1
 	add r2, r9, r2
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	cmp r0, #0
 	beq _020684B4
 	ldr r12, [r7, #0x3c]
@@ -125131,10 +125131,10 @@ _020684D8:
 	mov r2, r5
 	mov r3, r9
 	beq _02068508
-	bl FUN_02068a94
+	bl getScaleDataEx_
 	b _0206850C
 _02068508:
-	bl FUN_020688c0
+	bl getScaleData_
 _0206850C:
 	ldr r1, [sp, #0x10]
 	ldr r0, [sp, #0x14]
@@ -125153,10 +125153,10 @@ _02068520:
 	mov r3, r9
 	add r2, r5, #8
 	beq _02068550
-	bl FUN_02068a94
+	bl getScaleDataEx_
 	b _02068554
 _02068550:
-	bl FUN_020688c0
+	bl getScaleData_
 _02068554:
 	ldr r1, [sp, #8]
 	ldr r0, [sp, #0xc]
@@ -125175,10 +125175,10 @@ _02068568:
 	mov r3, r9
 	add r2, r5, #0x10
 	beq _02068598
-	bl FUN_02068a94
+	bl getScaleDataEx_
 	b _0206859C
 _02068598:
-	bl FUN_020688c0
+	bl getScaleData_
 _0206859C:
 	ldr r1, [sp]
 	ldr r0, [sp, #4]
@@ -125197,7 +125197,7 @@ _020685BC:
 	strne r0, [r7]
 	bne _020685E0
 	mov r0, r7
-	bl FUN_020680b8
+	bl getMdlScale_
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020685E0:
@@ -125218,8 +125218,8 @@ _02068614: .word 0x00000FFF
 _02068618: .word 0x020B703C
 	arm_func_end getJntSRTAnmResult_
 
-	arm_func_start FUN_0206861c
-FUN_0206861c: ; 0x0206861C
+	arm_func_start getTransData_
+getTransData_: ; 0x0206861C
 	stmfd sp!, {r4, lr}
 	ldr r12, [r2, #4]
 	ldr lr, [r2]
@@ -125312,10 +125312,10 @@ _0206874C:
 	streq r1, [r0]
 	ldmfd sp!, {r4, pc}
 _02068768: .word 0x1FFF0000
-	arm_func_end FUN_0206861c
+	arm_func_end getTransData_
 
-	arm_func_start FUN_0206876c
-FUN_0206876c: ; 0x0206876C
+	arm_func_start getTransDataEx_
+getTransDataEx_: ; 0x0206876C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrh r4, [r3, #4]
 	ldr r12, [r2, #4]
@@ -125407,10 +125407,10 @@ _02068878:
 _020688B4: .word 0x00000FFF
 _020688B8: .word 0x1FFF0000
 _020688BC: .word 0x00003FFF
-	arm_func_end FUN_0206876c
+	arm_func_end getTransDataEx_
 
-	arm_func_start FUN_020688c0
-FUN_020688c0: ; 0x020688C0
+	arm_func_start getScaleData_
+getScaleData_: ; 0x020688C0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, [r2, #4]
 	ldr r5, [r2]
@@ -125536,10 +125536,10 @@ _02068A64:
 	str r1, [r0, #4]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02068A90: .word 0x1FFF0000
-	arm_func_end FUN_020688c0
+	arm_func_end getScaleData_
 
-	arm_func_start FUN_02068a94
-FUN_02068a94: ; 0x02068A94
+	arm_func_start getScaleDataEx_
+getScaleDataEx_: ; 0x02068A94
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldrh r4, [r3, #4]
 	ldr r5, [r2, #4]
@@ -125643,10 +125643,10 @@ _02068BD4:
 _02068C08: .word 0x1FFF0000
 _02068C0C: .word 0x00003FFF
 _02068C10: .word 0x00000FFF
-	arm_func_end FUN_02068a94
+	arm_func_end getScaleDataEx_
 
-	arm_func_start FUN_02068c14
-FUN_02068c14: ; 0x02068C14
+	arm_func_start getRotData_
+getRotData_: ; 0x02068C14
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x48
 	ldr r9, [r2]
@@ -125693,14 +125693,14 @@ _02068C80:
 	mov r0, r5
 	add r1, r4, r7
 	add r2, r4, r6
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	mov r1, r9, lsl #1
 	ldrh r3, [r8, r1]
 	orr r9, r0, #0
 	add r0, sp, #0x24
 	add r1, r4, r7
 	add r2, r4, r6
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	ldr r2, [r5]
 	ldmib r5, {r1, r4}
 	orr r9, r9, r0
@@ -125733,10 +125733,10 @@ _02068C80:
 	mov r0, r5
 	mov r1, r5
 	str r2, [r5, #0x14]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r0, r5, #0xc
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	cmp r9, #0
 	bne _02068DCC
 	ldr r0, [r5, #0x18]
@@ -125756,7 +125756,7 @@ _02068C80:
 	add r0, r5, #0x18
 	mov r1, r0
 	str r2, [r5, #0x20]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02068DCC:
@@ -125794,14 +125794,14 @@ _02068E34:
 	mov r0, r5
 	add r1, r4, r7
 	add r2, r4, r6
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	add r1, r8, r9, lsl #1
 	ldrh r3, [r1, #2]
 	orr r8, r0, #0
 	add r0, sp, #0
 	add r1, r4, r7
 	add r2, r4, r6
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	ldr r3, [r5]
 	ldr r1, [sp]
 	ldr r2, [r5, #4]
@@ -125829,10 +125829,10 @@ _02068E34:
 	add r2, r2, r1
 	mov r1, r5
 	str r2, [r5, #0x14]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r0, r5, #0xc
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	cmp r8, #0
 	bne _02068F30
 	ldr r2, [r5, #0x18]
@@ -125849,7 +125849,7 @@ _02068E34:
 	add r2, r2, r1
 	mov r1, r0
 	str r2, [r5, #0x20]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02068F30:
@@ -125881,7 +125881,7 @@ _02068F88:
 	mov r0, r5
 	add r1, r4, r7
 	add r2, r4, r6
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	cmp r0, #0
 	beq _02069000
 	ldr r9, [r5, #0x14]
@@ -125909,14 +125909,14 @@ _02068F88:
 _02069000:
 	add r0, r5, #0x18
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02069014: .word 0x1FFF0000
-	arm_func_end FUN_02068c14
+	arm_func_end getRotData_
 
-	arm_func_start FUN_02069018
-FUN_02069018: ; 0x02069018
+	arm_func_start getRotDataEx_
+getRotDataEx_: ; 0x02069018
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
 	mov r9, r3
@@ -125948,7 +125948,7 @@ _0206906C:
 	mov r0, r10
 	add r1, r9, r4
 	add r2, r9, r11
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	cmp r0, #0
 	beq _020690F4
 	ldr r8, [r10, #0x14]
@@ -125976,7 +125976,7 @@ _0206906C:
 _020690F4:
 	add r0, r10, #0x18
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02069108:
@@ -126020,14 +126020,14 @@ _02069184:
 	add r0, sp, #0x24
 	add r1, r9, r4
 	add r2, r9, r11
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	mov r1, r5, lsl #1
 	ldrh r3, [r8, r1]
 	orr r5, r0, #0
 	add r0, sp, #0
 	add r1, r9, r4
 	add r2, r9, r11
-	bl FUN_02069350
+	bl getRotDataByIdx_
 	ldr r3, [sp, #0x24]
 	ldr r1, [sp]
 	mul r2, r3, r7
@@ -126073,10 +126073,10 @@ _02069184:
 	mov r0, r10
 	mov r1, r10
 	str r2, [r10, #0x14]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add r0, r10, #0xc
 	mov r1, r0
-	bl FUN_020098b0
+	bl VEC_Normalize
 	cmp r5, #0
 	bne _020692EC
 	ldr r2, [sp, #0x3c]
@@ -126102,7 +126102,7 @@ _02069184:
 	add r0, r10, #0x18
 	mov r1, r0
 	str r2, [r10, #0x20]
-	bl FUN_020098b0
+	bl VEC_Normalize
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020692EC:
@@ -126131,10 +126131,10 @@ _020692EC:
 _02069344: .word 0x1FFF0000
 _02069348: .word 0x00003FFF
 _0206934C: .word 0x00000FFF
-	arm_func_end FUN_02069018
+	arm_func_end getRotDataEx_
 
-	arm_func_start FUN_02069350
-FUN_02069350: ; 0x02069350
+	arm_func_start getRotDataByIdx_
+getRotDataByIdx_: ; 0x02069350
 	stmfd sp!, {r4, r5, r6, lr}
 	tst r3, #0x8000
 	beq _02069408
@@ -126226,10 +126226,10 @@ _020694A8: .word 0x0208C4E1
 _020694AC: .word 0x0208C4E0
 _020694B0: .word 0x0208C4E2
 _020694B4: .word 0x0208C4E3
-	arm_func_end FUN_02069350
+	arm_func_end getRotDataByIdx_
 
-	arm_func_start FUN_020694b8
-FUN_020694b8: ; 0x020694B8
+	arm_func_start GetMatColAnmValue_
+GetMatColAnmValue_: ; 0x020694B8
 	tst r1, #0x20000000
 	movne r0, r1, lsl #0x10
 	movne r0, r0, lsr #0x10
@@ -126323,10 +126323,10 @@ _020695C8:
 	bx lr
 _02069610: .word 0x1FFF0000
 _02069614: .word 0x00007C1F
-	arm_func_end FUN_020694b8
+	arm_func_end GetMatColAnmValue_
 
-	arm_func_start FUN_02069618
-FUN_02069618: ; 0x02069618
+	arm_func_start GetMatColAnmuAlphaValue_
+GetMatColAnmuAlphaValue_: ; 0x02069618
 	tst r1, #0x20000000
 	movne r0, r1, lsl #0x10
 	movne r0, r0, lsr #0x10
@@ -126390,7 +126390,7 @@ _020696F8:
 	ldrb r0, [r3, r2, lsr #2]
 	bx lr
 _02069700: .word 0x1FFF0000
-	arm_func_end FUN_02069618
+	arm_func_end GetMatColAnmuAlphaValue_
 
 	arm_func_start NNSi_G3dAnmObjInitNsBma
 NNSi_G3dAnmObjInitNsBma: ; 0x02069704
@@ -126451,8 +126451,8 @@ _020697A8:
 _020697CC: .word 0x02091020
 	arm_func_end NNSi_G3dAnmObjInitNsBma
 
-	arm_func_start FUN_020697d0
-FUN_020697d0: ; 0x020697D0
+	arm_func_start NNSi_G3dAnmCalcNsBma
+NNSi_G3dAnmCalcNsBma: ; 0x020697D0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, [r1, #8]
 	ldr r3, [r1]
@@ -126485,12 +126485,12 @@ _02069838:
 	ldr r1, [r6]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_020694b8
+	bl GetMatColAnmValue_
 	mov r8, r0
 	ldr r1, [r6, #4]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_020694b8
+	bl GetMatColAnmValue_
 	ldr r1, [r7, #4]
 	orr r0, r8, r0, lsl #16
 	tst r1, #0x8000
@@ -126501,12 +126501,12 @@ _02069838:
 	ldr r1, [r6, #0xc]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_020694b8
+	bl GetMatColAnmValue_
 	mov r8, r0
 	ldr r1, [r6, #8]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_020694b8
+	bl GetMatColAnmValue_
 	ldr r1, [r7, #8]
 	orr r0, r0, r8, lsl #16
 	tst r1, #0x8000
@@ -126517,16 +126517,16 @@ _02069838:
 	ldr r1, [r6, #0x10]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_02069618
+	bl GetMatColAnmuAlphaValue_
 	ldr r1, [r7, #0xc]
 	bic r1, r1, #0x1f0000
 	orr r0, r1, r0, lsl #16
 	str r0, [r7, #0xc]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020697d0
+	arm_func_end NNSi_G3dAnmCalcNsBma
 
-	arm_func_start FUN_020698dc
-FUN_020698dc: ; 0x020698DC
+	arm_func_start GetTexSRTAnmVectorVal_
+GetTexSRTAnmVectorVal_: ; 0x020698DC
 	tst r1, #0x20000000
 	movne r0, r2
 	bxne lr
@@ -126594,10 +126594,10 @@ _020699A8:
 	add r0, r0, r1
 	mov r0, r0, asr #1
 	bx lr
-	arm_func_end FUN_020698dc
+	arm_func_end GetTexSRTAnmVectorVal_
 
-	arm_func_start FUN_020699d0
-FUN_020699d0: ; 0x020699D0
+	arm_func_start GetTexSRTAnmSinCosVal_
+GetTexSRTAnmSinCosVal_: ; 0x020699D0
 	tst r1, #0x20000000
 	movne r0, r2
 	bxne lr
@@ -126671,10 +126671,10 @@ _02069AA8:
 	mov r1, r1, lsl #0x10
 	orr r0, r1, r0, lsr #16
 	bx lr
-	arm_func_end FUN_020699d0
+	arm_func_end GetTexSRTAnmSinCosVal_
 
-	arm_func_start FUN_02069adc
-FUN_02069adc: ; 0x02069ADC
+	arm_func_start GetTexSRTAnm_
+GetTexSRTAnm_: ; 0x02069ADC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	mov r6, r2
@@ -126698,13 +126698,13 @@ _02069B1C:
 	mov r0, r7
 	mov r3, r6
 	ldr r8, [r5]
-	bl FUN_020698dc
+	bl GetTexSRTAnmVectorVal_
 	mov r9, r0
 	ldr r1, [r4, #0x20]
 	ldr r2, [r4, #0x24]
 	mov r0, r7
 	mov r3, r6
-	bl FUN_020698dc
+	bl GetTexSRTAnmVectorVal_
 	cmp r9, #0
 	cmpeq r0, #0
 	strne r0, [r5, #0x28]
@@ -126715,7 +126715,7 @@ _02069B1C:
 	mov r0, r7
 	mov r3, r6
 	bicne r8, r8, #4
-	bl FUN_020699d0
+	bl GetTexSRTAnmSinCosVal_
 	cmp r0, #0x10000000
 	movne r1, r0, lsr #0x10
 	orreq r8, r8, #2
@@ -126725,13 +126725,13 @@ _02069B1C:
 	mov r3, r6
 	bicne r8, r8, #2
 	ldmia r4, {r1, r2}
-	bl FUN_020698dc
+	bl GetTexSRTAnmVectorVal_
 	mov r9, r0
 	ldr r1, [r4, #8]
 	ldr r2, [r4, #0xc]
 	mov r0, r7
 	mov r3, r6
-	bl FUN_020698dc
+	bl GetTexSRTAnmVectorVal_
 	cmp r9, #0x1000
 	cmpeq r0, #0x1000
 	orreq r8, r8, #1
@@ -126740,7 +126740,7 @@ _02069B1C:
 	strne r0, [r5, #0x1c]
 	str r8, [r5]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02069adc
+	arm_func_end GetTexSRTAnm_
 
 	arm_func_start NNSi_G3dAnmObjInitNsBta
 NNSi_G3dAnmObjInitNsBta: ; 0x02069BD8
@@ -126801,8 +126801,8 @@ _02069C7C:
 _02069CA0: .word 0x02091018
 	arm_func_end NNSi_G3dAnmObjInitNsBta
 
-	arm_func_start FUN_02069ca4
-FUN_02069ca4: ; 0x02069CA4
+	arm_func_start NNSi_G3dAnmCalcNsBta
+NNSi_G3dAnmCalcNsBta: ; 0x02069CA4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r1, #8]
@@ -126819,7 +126819,7 @@ _02069CD0:
 	mov r3, r4
 	mov r1, r1, lsr #0x10
 	mov r2, r12, asr #0xc
-	bl FUN_02069adc
+	bl GetTexSRTAnm_
 	ldr r1, [r4, #0x10]
 	ldr r0, [r4]
 	bic r1, r1, #0xc0000000
@@ -126828,7 +126828,7 @@ _02069CD0:
 	str r1, [r4, #0x10]
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02069ca4
+	arm_func_end NNSi_G3dAnmCalcNsBta
 
 	arm_func_start NNSi_G3dAnmObjInitNsBtp
 NNSi_G3dAnmObjInitNsBtp: ; 0x02069D04
@@ -126890,15 +126890,15 @@ _02069DAC:
 _02069DD0: .word 0x0209101C
 	arm_func_end NNSi_G3dAnmObjInitNsBtp
 
-	arm_func_start FUN_02069dd4
-FUN_02069dd4: ; 0x02069DD4
+	arm_func_start SetTexParamaters_
+SetTexParamaters_: ; 0x02069DD4
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r0
 	mov r4, r2
 	moveq r0, #0
 	beq _02069DF0
 	add r0, r5, #0x3c
-	bl FUN_02067aa8
+	bl NNS_G3dGetResDataByName
 _02069DF0:
 	ldr r1, [r0]
 	ldr r3, [r4, #0x10]
@@ -126933,7 +126933,7 @@ _02069DF0:
 	beq _02069E78
 	mov r0, r3, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 _02069E78:
 	ldrh r1, [r4, #0x2e]
 	str r0, [r4, #0x30]
@@ -126942,16 +126942,16 @@ _02069E78:
 	beq _02069E98
 	mov r0, r5, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_0200958c
+	bl FX_Div
 _02069E98:
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02069EA0: .word 0x000007FF
 _02069EA4: .word 0xC00F0000
-	arm_func_end FUN_02069dd4
+	arm_func_end SetTexParamaters_
 
-	arm_func_start FUN_02069ea8
-FUN_02069ea8: ; 0x02069EA8
+	arm_func_start SetPlttParamaters_
+SetPlttParamaters_: ; 0x02069EA8
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r0
 	ldrneh r0, [r5, #0x34]
@@ -126960,7 +126960,7 @@ FUN_02069ea8: ; 0x02069EA8
 	moveq r0, #0
 	beq _02069ECC
 	add r0, r5, r0
-	bl FUN_02067aa8
+	bl NNS_G3dGetResDataByName
 _02069ECC:
 	ldr r1, [r5, #0x2c]
 	ldrh r2, [r0, #2]
@@ -126978,10 +126978,10 @@ _02069ECC:
 	add r0, r0, r1
 	str r0, [r4, #0x14]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02069ea8
+	arm_func_end SetPlttParamaters_
 
-	arm_func_start FUN_02069f0c
-FUN_02069f0c: ; 0x02069F0C
+	arm_func_start NNSi_G3dAnmCalcNsBtp
+NNSi_G3dAnmCalcNsBtp: ; 0x02069F0C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldr r4, [r5, #8]
@@ -127000,26 +127000,26 @@ _02069F3C:
 	mov r0, r4
 	mov r1, r1, lsr #0x10
 	mov r2, r2, lsr #0x10
-	bl FUN_02067ec4
+	bl NNSi_G3dGetTexPatAnmFV
 	mov r7, r0
 	ldrb r1, [r7, #2]
 	mov r0, r4
-	bl FUN_02067e74
+	bl NNSi_G3dGetTexPatAnmTexNameByIdx
 	mov r1, r0
 	ldr r0, [r5, #0x14]
 	mov r2, r6
-	bl FUN_02069dd4
+	bl SetTexParamaters_
 	ldrb r1, [r7, #3]
 	cmp r1, #0xff
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
-	bl FUN_02067e9c
+	bl NNSi_G3dGetTexPatAnmPlttNameByIdx
 	mov r1, r0
 	ldr r0, [r5, #0x14]
 	mov r2, r6
-	bl FUN_02069ea8
+	bl SetPlttParamaters_
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02069f0c
+	arm_func_end NNSi_G3dAnmCalcNsBtp
 
 	arm_func_start NNSi_G3dAnmObjInitNsBva
 NNSi_G3dAnmObjInitNsBva: ; 0x02069F9C
@@ -127044,8 +127044,8 @@ _02069FC0:
 _02069FE0: .word 0x02091010
 	arm_func_end NNSi_G3dAnmObjInitNsBva
 
-	arm_func_start FUN_02069fe4
-FUN_02069fe4: ; 0x02069FE4
+	arm_func_start NNSi_G3dAnmCalcNsBva
+NNSi_G3dAnmCalcNsBva: ; 0x02069FE4
 	stmfd sp!, {r3, lr}
 	ldr lr, [r1, #8]
 	ldr r3, [r1]
@@ -127068,7 +127068,7 @@ _0206A00C:
 	and r1, r1, r3, lsl r2
 	str r1, [r0]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02069fe4
+	arm_func_end NNSi_G3dAnmCalcNsBva
 
 	arm_func_start NNSi_G3dSendJointSRTBasic
 NNSi_G3dSendJointSRTBasic: ; 0x0206A038
@@ -127273,8 +127273,8 @@ _0206A2E4: .word 0x020B7E50
 _0206A2E8: .word 0x020B7E54
 	arm_func_end NNSi_G3dGetJointScaleMaya
 
-	arm_func_start FUN_0206a2ec
-FUN_0206a2ec: ; 0x0206A2EC
+	arm_func_start texmtxCalc_flag_
+texmtxCalc_flag_: ; 0x0206A2EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -127284,7 +127284,7 @@ FUN_0206a2ec: ; 0x0206A2EC
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r9, #0x20]
 	ldr r3, [r9, #0x18]
 	ldrsh r5, [r9, #0x22]
@@ -127303,14 +127303,14 @@ FUN_0206a2ec: ; 0x0206A2EC
 	orr r4, r4, r0, lsl #20
 	str r6, [r10]
 	str r4, [r10, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mov r1, r11
 	rsb r2, r5, #0
 	mul r0, r2, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #4]
 	mov r0, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	sub r0, r5, r4
 	add r1, r7, r6
 	ldr r5, [r9, #0x18]
@@ -127336,15 +127336,15 @@ FUN_0206a2ec: ; 0x0206A2EC
 	mul r0, r3, r1
 	add r0, r0, r2, lsl #3
 	str r0, [r10, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mul r0, r7, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206a2ec
+	arm_func_end texmtxCalc_flag_
 
-	arm_func_start FUN_0206a3f4
-FUN_0206a3f4: ; 0x0206A3F4
+	arm_func_start texmtxCalc_flagS_
+texmtxCalc_flagS_: ; 0x0206A3F4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -127354,11 +127354,11 @@ FUN_0206a3f4: ; 0x0206A3F4
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	rsb r2, r2, #0
@@ -127366,7 +127366,7 @@ FUN_0206a3f4: ; 0x0206A3F4
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r2, [r5, #0x20]
 	ldrsh r1, [r5, #0x22]
 	ldrh r12, [r5, #0x2c]
@@ -127388,16 +127388,16 @@ FUN_0206a3f4: ; 0x0206A3F4
 	add r0, r0, r2, lsl #3
 	str r4, [r6, #0x30]
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0206a3f4
+	arm_func_end texmtxCalc_flagS_
 
-	arm_func_start FUN_0206a4b8
-FUN_0206a4b8: ; 0x0206A4B8
+	arm_func_start texmtxCalc_flagR_
+texmtxCalc_flagR_: ; 0x0206A4B8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, [r1, #0x1c]
 	ldr r12, [r1, #0x18]
@@ -127427,10 +127427,10 @@ FUN_0206a4b8: ; 0x0206A4B8
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0206a4b8
+	arm_func_end texmtxCalc_flagR_
 
-	arm_func_start FUN_0206a52c
-FUN_0206a52c: ; 0x0206A52C
+	arm_func_start texmtxCalc_flagRS_
+texmtxCalc_flagRS_: ; 0x0206A52C
 	stmfd sp!, {r3, lr}
 	ldrh r3, [r1, #0x2c]
 	ldr r12, [r1, #0x24]
@@ -127450,10 +127450,10 @@ FUN_0206a52c: ; 0x0206A52C
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0206a52c
+	arm_func_end texmtxCalc_flagRS_
 
-	arm_func_start FUN_0206a578
-FUN_0206a578: ; 0x0206A578
+	arm_func_start texmtxCalc_flagT_
+texmtxCalc_flagT_: ; 0x0206A578
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -127463,7 +127463,7 @@ FUN_0206a578: ; 0x0206A578
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r9, #0x20]
 	ldr r3, [r9, #0x18]
 	ldrsh r5, [r9, #0x22]
@@ -127482,14 +127482,14 @@ FUN_0206a578: ; 0x0206A578
 	orr r4, r4, r0, lsl #20
 	str r6, [r10]
 	str r4, [r10, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mov r1, r11
 	rsb r2, r5, #0
 	mul r0, r2, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #4]
 	mov r0, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	sub r1, r5, r4
 	add r0, r7, r6
 	ldrh r4, [r9, #0x2c]
@@ -127505,15 +127505,15 @@ FUN_0206a578: ; 0x0206A578
 	mul r0, r2, r0
 	mov r0, r0, lsl #3
 	str r0, [r10, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mul r0, r7, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206a578
+	arm_func_end texmtxCalc_flagT_
 
-	arm_func_start FUN_0206a658
-FUN_0206a658: ; 0x0206A658
+	arm_func_start texmtxCalc_flagTS_
+texmtxCalc_flagTS_: ; 0x0206A658
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -127523,11 +127523,11 @@ FUN_0206a658: ; 0x0206A658
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	rsb r2, r2, #0
@@ -127535,7 +127535,7 @@ FUN_0206a658: ; 0x0206A658
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r2, [r5, #0x20]
 	ldrsh r0, [r5, #0x22]
 	ldrh r4, [r5, #0x2c]
@@ -127551,16 +127551,16 @@ FUN_0206a658: ; 0x0206A658
 	mov r0, r0, lsl #3
 	str r1, [r6, #0x30]
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0206a658
+	arm_func_end texmtxCalc_flagTS_
 
-	arm_func_start FUN_0206a704
-FUN_0206a704: ; 0x0206A704
+	arm_func_start texmtxCalc_flagTR_
+texmtxCalc_flagTR_: ; 0x0206A704
 	stmfd sp!, {r4, lr}
 	ldr lr, [r1, #0x1c]
 	ldrh r3, [r1, #0x2e]
@@ -127577,10 +127577,10 @@ FUN_0206a704: ; 0x0206A704
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0206a704
+	arm_func_end texmtxCalc_flagTR_
 
-	arm_func_start FUN_0206a744
-FUN_0206a744: ; 0x0206A744
+	arm_func_start texmtxCalc_flagTRS_
+texmtxCalc_flagTRS_: ; 0x0206A744
 	mov r1, #0
 	mov r2, #0x1000
 	str r2, [r0]
@@ -127590,7 +127590,7 @@ FUN_0206a744: ; 0x0206A744
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end FUN_0206a744
+	arm_func_end texmtxCalc_flagTRS_
 
 	arm_func_start NNSi_G3dSendTexSRTMaya
 NNSi_G3dSendTexSRTMaya: ; 0x0206A768
@@ -128028,7 +128028,7 @@ FUN_0206ad88: ; 0x0206AD88
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r9, #0x22]
 	ldr r3, [r9, #0x18]
 	ldrsh r5, [r9, #0x20]
@@ -128047,13 +128047,13 @@ FUN_0206ad88: ; 0x0206AD88
 	orr r4, r4, r0, lsl #20
 	str r7, [r10]
 	str r5, [r10, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mov r1, r11
 	mul r0, r4, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #4]
 	mov r0, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r1, [r9, #0x2c]
 	ldrh r0, [r9, #0x2e]
 	ldr r3, [r9, #0x28]
@@ -128078,7 +128078,7 @@ FUN_0206ad88: ; 0x0206AD88
 	orr r1, r1, r2, lsl #24
 	add r0, r1, r0, lsl #15
 	str r0, [r10, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	rsb r1, r6, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
@@ -128097,18 +128097,18 @@ FUN_0206ae8c: ; 0x0206AE8C
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	mul r0, r2, r0
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r1, [r5, #0x2e]
 	ldr r0, [r5, #0x28]
 	ldrh r2, [r5, #0x2c]
@@ -128135,7 +128135,7 @@ FUN_0206ae8c: ; 0x0206AE8C
 	orr r0, r0, r3, lsl #24
 	add r0, r0, r1, lsl #15
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	rsb r1, r1, #0
 	mul r0, r1, r0
@@ -128211,7 +128211,7 @@ FUN_0206b024: ; 0x0206B024
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r9, #0x22]
 	ldr r3, [r9, #0x18]
 	ldrsh r5, [r9, #0x20]
@@ -128230,13 +128230,13 @@ FUN_0206b024: ; 0x0206B024
 	orr r4, r4, r0, lsl #20
 	str r7, [r10]
 	str r5, [r10, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	mov r1, r11
 	mul r0, r4, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #4]
 	mov r0, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r8, [r9, #0x2c]
 	ldrh r2, [r9, #0x2e]
 	rsb r0, r8, #0
@@ -128257,7 +128257,7 @@ FUN_0206b024: ; 0x0206B024
 	orr r1, r1, r0, lsl #24
 	add r0, r1, r8, lsl #15
 	str r0, [r10, #0x30]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	rsb r1, r6, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
@@ -128276,18 +128276,18 @@ FUN_0206b118: ; 0x0206B118
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	mul r0, r2, r0
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r0, [r5, #0x2e]
 	ldrh r1, [r5, #0x2c]
 	ldrsh r12, [r5, #0x22]
@@ -128310,7 +128310,7 @@ FUN_0206b118: ; 0x0206B118
 	orr r1, r1, r2, lsl #24
 	add r0, r1, r0, lsl #15
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	rsb r1, r1, #0
 	mul r0, r1, r0
@@ -128438,8 +128438,8 @@ _0206B37C: .word 0x00101810
 _0206B380: .word 0x02091248
 	arm_func_end NNSi_G3dSendTexSRT3dsMax
 
-	arm_func_start FUN_0206b384
-FUN_0206b384: ; 0x0206B384
+	arm_func_start texmtxCalc_flag_
+texmtxCalc_flag_: ; 0x0206B384
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r6, r1
@@ -128450,7 +128450,7 @@ FUN_0206b384: ; 0x0206B384
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r10
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r3, [r6, #0x22]
 	ldr r0, [r6, #0x18]
 	ldr r8, [r6, #0x1c]
@@ -128466,7 +128466,7 @@ FUN_0206b384: ; 0x0206B384
 	smull r2, r1, r0, r9
 	mov r5, r2, lsr #0xc
 	orr r5, r5, r1, lsl #20
-	bl FUN_02009604
+	bl FX_GetDivResult
 	smull r2, r1, r8, r9
 	mov r2, r2, lsr #0xc
 	orr r2, r2, r1, lsl #20
@@ -128475,7 +128475,7 @@ FUN_0206b384: ; 0x0206B384
 	str r0, [r7, #4]
 	mov r0, r10
 	mov r1, r11
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r1, [r6, #0x2c]
 	ldrh r10, [r6, #0x2e]
 	mov r0, r8
@@ -128521,17 +128521,17 @@ FUN_0206b384: ; 0x0206B384
 	mul r1, r0, r1
 	mov r0, r1, lsl #4
 	str r0, [r7, #0x30]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	rsb r1, r5, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r7, #0x10]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206b384
+	arm_func_end texmtxCalc_flag_
 
-	arm_func_start FUN_0206b4e4
-FUN_0206b4e4: ; 0x0206B4E4
+	arm_func_start texmtxCalc_flagS_
+texmtxCalc_flagS_: ; 0x0206B4E4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128541,18 +128541,18 @@ FUN_0206b4e4: ; 0x0206B4E4
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	mul r0, r2, r0
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r12, [r5, #0x20]
 	ldr r1, [r5, #0x28]
 	ldrsh r2, [r5, #0x22]
@@ -128579,17 +128579,17 @@ FUN_0206b4e4: ; 0x0206B4E4
 	mov r0, r1, lsl #4
 	str r2, [r6, #0x30]
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	rsb r1, r1, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0206b4e4
+	arm_func_end texmtxCalc_flagS_
 
-	arm_func_start FUN_0206b5bc
-FUN_0206b5bc: ; 0x0206B5BC
+	arm_func_start texmtxCalc_flagR_
+texmtxCalc_flagR_: ; 0x0206B5BC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, [r1, #0x28]
 	ldr r3, [r1, #0x1c]
@@ -128620,10 +128620,10 @@ FUN_0206b5bc: ; 0x0206B5BC
 	str r1, [r0, #0x34]
 	str r2, [r0, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0206b5bc
+	arm_func_end texmtxCalc_flagR_
 
-	arm_func_start FUN_0206b634
-FUN_0206b634: ; 0x0206B634
+	arm_func_start texmtxCalc_flagRS_
+texmtxCalc_flagRS_: ; 0x0206B634
 	stmfd sp!, {r4, lr}
 	ldrh r2, [r1, #0x2e]
 	ldr lr, [r1, #0x28]
@@ -128644,10 +128644,10 @@ FUN_0206b634: ; 0x0206B634
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0206b634
+	arm_func_end texmtxCalc_flagRS_
 
-	arm_func_start FUN_0206b684
-FUN_0206b684: ; 0x0206B684
+	arm_func_start texmtxCalc_flagT_
+texmtxCalc_flagT_: ; 0x0206B684
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -128657,7 +128657,7 @@ FUN_0206b684: ; 0x0206B684
 	mov r11, r1, lsl #0xc
 	mov r0, r11
 	mov r1, r8
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r3, [r9, #0x22]
 	ldr r0, [r9, #0x18]
 	ldrsh r7, [r9, #0x20]
@@ -128673,7 +128673,7 @@ FUN_0206b684: ; 0x0206B684
 	mov r6, r2, lsr #0xc
 	orr r6, r6, r1, lsl #20
 	str r4, [r10, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	smull r2, r1, r5, r7
 	mov r2, r2, lsr #0xc
 	orr r2, r2, r1, lsl #20
@@ -128682,7 +128682,7 @@ FUN_0206b684: ; 0x0206B684
 	str r0, [r10, #4]
 	mov r0, r8
 	mov r1, r11
-	bl FUN_02009694
+	bl FX_DivAsync
 	sub r0, r4, #0x1000
 	ldrh r2, [r9, #0x2c]
 	ldrh r1, [r9, #0x2e]
@@ -128693,16 +128693,16 @@ FUN_0206b684: ; 0x0206B684
 	mul r0, r1, r0
 	mov r0, r0, lsl #4
 	str r0, [r10, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	rsb r1, r6, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206b684
+	arm_func_end texmtxCalc_flagT_
 
-	arm_func_start FUN_0206b750
-FUN_0206b750: ; 0x0206B750
+	arm_func_start texmtxCalc_flagTS_
+texmtxCalc_flagTS_: ; 0x0206B750
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128712,18 +128712,18 @@ FUN_0206b750: ; 0x0206B750
 	mov r7, r1, lsl #0xc
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrsh r0, [r5, #0x22]
 	str r0, [r6]
 	str r0, [r6, #0x14]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r2, [r5, #0x20]
 	mov r1, r7
 	mul r0, r2, r0
 	mov r2, r0, asr #0xc
 	mov r0, r4
 	str r2, [r6, #4]
-	bl FUN_02009694
+	bl FX_DivAsync
 	ldrh r1, [r5, #0x2e]
 	ldrsh r0, [r5, #0x22]
 	ldrh r3, [r5, #0x2c]
@@ -128736,17 +128736,17 @@ FUN_0206b750: ; 0x0206B750
 	mov r0, r0, lsl #4
 	str r1, [r6, #0x30]
 	str r0, [r6, #0x34]
-	bl FUN_02009604
+	bl FX_GetDivResult
 	ldrsh r1, [r5, #0x20]
 	rsb r1, r1, #0
 	mul r0, r1, r0
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0206b750
+	arm_func_end texmtxCalc_flagTS_
 
-	arm_func_start FUN_0206b7f0
-FUN_0206b7f0: ; 0x0206B7F0
+	arm_func_start texmtxCalc_flagTR_
+texmtxCalc_flagTR_: ; 0x0206B7F0
 	stmfd sp!, {r3, lr}
 	ldrh r2, [r1, #0x2e]
 	ldr lr, [r1, #0x1c]
@@ -128762,10 +128762,10 @@ FUN_0206b7f0: ; 0x0206B7F0
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0206b7f0
+	arm_func_end texmtxCalc_flagTR_
 
-	arm_func_start FUN_0206b82c
-FUN_0206b82c: ; 0x0206B82C
+	arm_func_start texmtxCalc_flagTRS_
+texmtxCalc_flagTRS_: ; 0x0206B82C
 	mov r1, #0
 	mov r2, #0x1000
 	str r2, [r0]
@@ -128775,7 +128775,7 @@ FUN_0206b82c: ; 0x0206B82C
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end FUN_0206b82c
+	arm_func_end texmtxCalc_flagTRS_
 
 	arm_func_start NNSi_G3dSendTexSRTXsi
 NNSi_G3dSendTexSRTXsi: ; 0x0206B850

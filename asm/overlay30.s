@@ -218,11 +218,11 @@ FUN_ov30_0211a174: ; 0x0211A174
 	mov r1, r4
 	sub r0, r5, r0
 	sub r6, r3, r2
-	bl FUN_0200958c
+	bl FX_Div
 	mov r5, r0
 	mov r0, r6
 	mov r1, r4
-	bl FUN_0200958c
+	bl FX_Div
 	mov r1, r5, asr #0xb
 	mov r2, r0, asr #0xb
 	add r1, r5, r1, lsr #20

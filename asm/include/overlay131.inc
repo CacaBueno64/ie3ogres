@@ -4,7 +4,7 @@
 .public MI_CpuFill8
 .public MI_CpuFill
 .public MI_CpuCopy8
-.public FUN_0200958c
+.public FX_Div
 .public FUN_020095ac
 .public FUN_02009734
 .public FUN_02009764

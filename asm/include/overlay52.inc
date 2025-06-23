@@ -2,7 +2,7 @@
 .public MIi_CpuClearFast
 .public MI_CpuFill8
 .public MI_CpuCopy8
-.public FUN_0200958c
+.public FX_Div
 .public FUN_020095ac
 .public FS_InitFile
 .public FS_CloseFile

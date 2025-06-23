@@ -3,7 +3,7 @@
 .public OS_RestoreInterrupts
 .public FUN_02004160
 .public MI_CpuFill8
-.public FUN_0200958c
+.public FX_Div
 .public FUN_020095ac
 .public CP_SaveContext
 .public CPi_RestoreContext
