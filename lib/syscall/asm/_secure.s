@@ -60,6 +60,7 @@ SVC_UncompressRL16FromDevice: ; 0x02000148
 	non_word_aligned_thumb_func_start SVC_UncompressLZ8
 SVC_UncompressLZ8: ; 0x020001CE
 	swi 17
+	bx lr
 	thumb_func_end SVC_UncompressLZ8
 
 	.byte 0x40, 0xfa
