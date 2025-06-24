@@ -1,4 +1,4 @@
-.public FUN_02000c8c
+.public NitroMainVeneer
 .public __call_static_initializers
 .public _fp_init
 .public _start

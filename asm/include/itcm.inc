@@ -1,3 +1,5 @@
+.public dtcm_bss
+.public OS_IRQTable
 .public FUN_020010bc
 .public OS_DisableInterrupts
 .public OS_RestoreInterrupts

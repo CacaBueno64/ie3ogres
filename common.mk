@@ -1,6 +1,6 @@
 ## Common defines for ARM9 and ARM7 Makefiles ##
 
-COMPARE ?= 1
+COMPARE ?= 0
 
 default: all
 
@@ -232,9 +232,9 @@ $(SBIN): build/%.sbin: build/%.elf
 # Overlay 123 is encrypted in the retail ROM, so we need to reencrypt it after building it
 #	cd $(BUILD_DIR) && $(MOD123ENCRY) encry main OVY_123_enc.sbin 123 && mv OVY_123_enc.sbin OVY_123.sbin
 #endif
-#ifeq ($(COMPARE),1)
-#	$(SHA1SUM) --quiet -c $*.sha1
-#endif
+ifeq ($(COMPARE),1)
+	$(SHA1SUM) --quiet -c $*.sha1
+endif
 
 $(ELF): $(ALL_OBJS)
 	$(MAKE) $(LCF)

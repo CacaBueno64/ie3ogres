@@ -1,3 +1,4 @@
+.public OS_IRQTable
 .public FUN_02000e30
 .public FUN_02000eb8
 .public FUN_02000fd0
