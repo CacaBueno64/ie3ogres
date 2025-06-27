@@ -718,6 +718,7 @@
 .public FUN_ov61_0211b8bc
 .public FUN_ov61_0211bb60
 .public FUN_ov61_0211d4dc
+.public FUN_ov61_0211d55c
 .public FUN_ov61_0211d6c0
 .public FUN_ov61_0211d730
 .public FUN_ov61_0211d864

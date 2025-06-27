@@ -1392,6 +1392,7 @@
 .public FUN_ov21_0211d060
 .public FUN_ov24_0211d1b8
 .public FUN_ov25_0211b5a4
+.public FUN_ov3_020bcb40
 .public FUN_ov31_0211a2d0
 .public FUN_ov39_0211b220
 .public FUN_ov39_0211b9cc

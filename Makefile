@@ -21,7 +21,8 @@ $(ASM_OBJS): $(WORK_DIR)/include/config.h
 $(C_OBJS):   $(WORK_DIR)/include/global.h
 
 ROM             := $(BUILD_DIR)/$(buildname).nds
-BANNER          := $(ROM:%.nds=%.bnr)
+#BANNER          := $(ROM:%.nds=%.bnr)
+BANNER          := $(buildname)/banner.bnr
 BANNER_SPEC     := $(buildname)/banner.bsf
 ICON_PNG        := $(buildname)/icon.png
 HEADER_TEMPLATE := $(buildname)/rom_header_template.sbin
@@ -75,7 +76,7 @@ $(BUILD_DIR)/component.files: main ;
 
 $(HEADER_TEMPLATE): ;
 
-$(ROM): $(ROMSPEC) tools filesystem main_lz $(BANNER) #sub
+$(ROM): $(ROMSPEC) tools filesystem main_lz #$(BANNER) #sub
 	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -DNITROFS_FILES="$(NITROFS_FILES:files/%=%)" -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 ifeq ($(COMPARE),1)

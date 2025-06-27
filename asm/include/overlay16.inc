@@ -543,6 +543,7 @@
 .public FUN_0208622c
 .public FUN_02086390
 .public FUN_02086480
+.public FUN_020864a8
 .public FUN_0208670c
 .public FUN_02086738
 .public _start

@@ -1,6 +1,6 @@
 ## Common defines for ARM9 and ARM7 Makefiles ##
 
-COMPARE ?= 0
+COMPARE ?= 1
 
 default: all
 
@@ -44,14 +44,14 @@ NTRCOMP      := $(WINE) $(TOOLSDIR)/bin/ntrcomp.exe
 export LM_LICENSE_FILE := $(TOOLSDIR)/mwccarm/license.dat
 
 # Native tools
-JSONPROC     := $(TOOLSDIR)/jsonproc/jsonproc$(EXE)
+#JSONPROC     := $(TOOLSDIR)/jsonproc/jsonproc$(EXE)
 GFX          := $(TOOLSDIR)/nitrogfx/nitrogfx$(EXE)
 FIXROM       := $(TOOLSDIR)/fixrom/fixrom$(EXE)
-KNARC        := $(TOOLSDIR)/knarc/knarc$(EXE)
-O2NARC       := $(TOOLSDIR)/o2narc/o2narc$(EXE)
-MSGENC       := $(TOOLSDIR)/msgenc/msgenc$(EXE)
+#KNARC        := $(TOOLSDIR)/knarc/knarc$(EXE)
+#O2NARC       := $(TOOLSDIR)/o2narc/o2narc$(EXE)
+#MSGENC       := $(TOOLSDIR)/msgenc/msgenc$(EXE)
 ASPATCH      := $(TOOLSDIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
-CSV2BIN      := $(TOOLSDIR)/csv2bin/csv2bin$(EXE)
+#CSV2BIN      := $(TOOLSDIR)/csv2bin/csv2bin$(EXE)
 MKFXCONST    := $(TOOLSDIR)/gen_fx_consts/gen_fx_consts$(EXE)
 #MOD123ENCRY  := $(TOOLSDIR)/mod123encry/mod123encry$(EXE)
 
@@ -62,16 +62,16 @@ NTRMERGE      := $(TOOLSDIR)/ntr_merge_elf/ntr_merge_elf.sh
 ASM_PROCESSOR := $(TOOLSDIR)/asm_processor/compile.sh
 
 NATIVE_TOOLS := \
-	$(JSONPROC) \
 	$(GFX) \
 	$(FIXROM) \
-	$(KNARC) \
-	$(O2NARC) \
-	$(MSGENC) \
 	$(ASPATCH) \
-	$(CSV2BIN) \
 	$(MKFXCONST) \
 	$(COMPSTATIC)
+#	$(O2NARC) \
+#	$(MSGENC) \
+#	$(CSV2BIN) \
+#	$(JSONPROC)
+#	$(KNARC)
 #	$(MOD123ENCRY)
 
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))

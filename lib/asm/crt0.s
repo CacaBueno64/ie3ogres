@@ -1,10 +1,7 @@
+	.include "include/crt0.inc"
 	.include "asm/macros/function.inc"
 
 	.text
-
-	.extern NitroMainVeneer
-	.extern _fp_init
-	.extern __call_static_initializers
 
 	arm_func_start _start
 _start: ; 0x02000800
