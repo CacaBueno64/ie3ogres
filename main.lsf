@@ -112,7 +112,8 @@ Overlay overlay16
 Overlay overlay17
 {
 	Address 0x020EDE60
-	Object asm/overlay17.o
+	Object asm/overlay17_thumb.o
+	Object asm/overlay17_arm.o
 }
 Overlay overlay18
 {
