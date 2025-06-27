@@ -16,6 +16,7 @@
 .public MI_CpuFill8
 .public MI_CpuCopy8
 .public STD_GetStringLength
+.public FUN_020095ac
 .public FUN_0201e078
 .public FUN_02023c40
 .public FUN_0202de44

@@ -14,7 +14,7 @@ FUN_ov128_0212a9c0: ; 0x0212A9C0
 	str r4, [r1, #0x4e4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0212A9E4: .word 0x0212FA60
+_0212A9E4: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212a9c0
 
 	arm_func_start FUN_ov128_0212a9e8
@@ -50,7 +50,7 @@ _0212AA50:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212AA60: .word 0x0212FA60
+_0212AA60: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212a9e8
 
 	arm_func_start FUN_ov128_0212aa64
@@ -75,7 +75,7 @@ FUN_ov128_0212aa64: ; 0x0212AA64
 _0212AAA8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212AAB0: .word 0x0212FA60
+_0212AAB0: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212aa64
 
 	arm_func_start FUN_ov128_0212aab4
@@ -142,7 +142,7 @@ _0212AB7C:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212AB8C: .word 0x0212FA60
+_0212AB8C: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212aab4
 
 	arm_func_start FUN_ov128_0212ab90
@@ -166,7 +166,7 @@ _0212ABC4:
 	mov r2, r4
 	bl FUN_ov128_0212abdc
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212ABD8: .word 0x0212FA60
+_0212ABD8: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212ab90
 
 	arm_func_start FUN_ov128_0212abdc
@@ -180,7 +180,7 @@ FUN_ov128_0212abdc: ; 0x0212ABDC
 	ldmeqfd sp!, {r3, pc}
 	blx r3
 	ldmfd sp!, {r3, pc}
-_0212AC00: .word 0x0212FA60
+_0212AC00: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212abdc
 
 	arm_func_start FUN_ov128_0212ac04
@@ -496,7 +496,7 @@ _0212B034:
 	mov r1, #0xc
 	blx r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212B07C: .word 0x0212FA60
+_0212B07C: .word ov128_0212FA60
 _0212B080: .word 0x000005D4
 	arm_func_end FUN_ov128_0212ac04
 
@@ -819,9 +819,9 @@ _0212B500:
 _0212B530:
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212B538: .word 0x0212FA60
+_0212B538: .word ov128_0212FA60
 _0212B53C: .word 0x000005D4
-_0212B540: .word 0x0212F9A0
+_0212B540: .word ov128_0212F9A0
 	arm_func_end FUN_ov128_0212b084
 
 	arm_func_start FUN_ov128_0212b544
@@ -868,9 +868,9 @@ _0212B5C8:
 	cmp r6, #0xf
 	bls _0212B5A0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212B5E0: .word 0x0212FA60
+_0212B5E0: .word ov128_0212FA60
 _0212B5E4: .word 0x000005D4
-_0212B5E8: .word 0x0212F9A0
+_0212B5E8: .word ov128_0212F9A0
 _0212B5EC: .word 0x0000FFFF
 	arm_func_end FUN_ov128_0212b544
 
@@ -890,7 +890,7 @@ FUN_ov128_0212b5f0: ; 0x0212B5F0
 	bl FUN_ov128_0212ca9c
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212B628: .word 0x0212FA60
+_0212B628: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212b5f0
 
 	arm_func_start FUN_ov128_0212b62c
@@ -998,8 +998,8 @@ _0212B794:
 	bl FUN_ov128_0212ca9c
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212B7B0: .word 0x0212FA60
-_0212B7B4: .word 0x0212F960
+_0212B7B0: .word ov128_0212FA60
+_0212B7B4: .word ov128_0212F960
 _0212B7B8: .word 0x000005D4
 	arm_func_end FUN_ov128_0212b62c
 
@@ -1212,7 +1212,7 @@ _0212BA98:
 	bl FUN_ov128_0212ca9c
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212BAC4: .word 0x0212FA60
+_0212BAC4: .word ov128_0212FA60
 _0212BAC8: .word 0x000005D4
 _0212BACC: .word FUN_ov128_0212b7bc
 	arm_func_end FUN_ov128_0212b858
@@ -1335,7 +1335,7 @@ _0212BC44:
 	bl FUN_ov128_0212b5f0
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0212BC64: .word 0x0212FA60
+_0212BC64: .word ov128_0212FA60
 _0212BC68: .word 0x0000FFFF
 	arm_func_end FUN_ov128_0212bad0
 
@@ -1370,8 +1370,8 @@ _0212BCD0:
 	add r0, r12, #0x1d00
 	strh r3, [r0, #0x48]
 	bx lr
-_0212BCDC: .word 0x0212F9A0
-_0212BCE0: .word 0x0212FA60
+_0212BCDC: .word ov128_0212F9A0
+_0212BCE0: .word ov128_0212FA60
 _0212BCE4: .word 0x000005D4
 	arm_func_end FUN_ov128_0212bc6c
 
@@ -1794,11 +1794,11 @@ _0212C2B8:
 	ldr r0, [sp, #0x10]
 	add sp, sp, #0x6c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212C2C4: .word 0x0212F920
-_0212C2C8: .word 0x0212F964
+_0212C2C4: .word ov129_0212F920
+_0212C2C8: .word ov128_0212F964
 _0212C2CC: .word 0x0212F938
 _0212C2D0: .word 0x02FFFE00
-_0212C2D4: .word 0x0212F968
+_0212C2D4: .word ov128_0212F968
 _0212C2D8: .word _start_AutoloadDoneCallback
 	arm_func_end FUN_ov128_0212bdb4
 _0212C2DC: .word 0xE12FFF1E
@@ -2003,9 +2003,9 @@ _0212C588:
 	bl OS_RestoreInterrupts
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212C5C4: .word 0x0212FA60
+_0212C5C4: .word ov128_0212FA60
 _0212C5C8: .word 0x000005D4
-_0212C5CC: .word 0x0212F9A4
+_0212C5CC: .word ov128_0212F9A4
 	arm_func_end FUN_ov128_0212c358
 
 	arm_func_start FUN_ov128_0212c5d0
@@ -2039,7 +2039,7 @@ _0212C604:
 	mov r2, #0x88
 	bl MI_CpuCopy8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212C640: .word 0x0212F914
+_0212C640: .word ov129_0212F914
 	arm_func_end FUN_ov128_0212c5d0
 
 	arm_func_start FUN_ov128_0212c644
@@ -2197,7 +2197,7 @@ _0212C7F0:
 	blo _0212C7F0
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212C86C: .word 0x0212FA60
+_0212C86C: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212c7a4
 
 	arm_func_start FUN_ov128_0212c870
@@ -2248,7 +2248,7 @@ _0212C8A8:
 	strb r12, [r0, #0xc]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212C920: .word 0x0212FA60
+_0212C920: .word ov128_0212FA60
 	arm_func_end FUN_ov128_0212c870
 
 	arm_func_start FUN_ov128_0212c924
@@ -2299,7 +2299,7 @@ _0212C9B8:
 _0212C9C0:
 	mov r0, #0
 	bx lr
-_0212C9C8: .word 0x0212F914
+_0212C9C8: .word ov129_0212F914
 _0212C9CC: .word 0x027FFE00
 	arm_func_end FUN_ov128_0212c924
 
@@ -2360,7 +2360,7 @@ _0212CA80:
 _0212CA88:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_0212CA90: .word 0x0212F914
+_0212CA90: .word ov129_0212F914
 _0212CA94: .word 0x023FE800
 _0212CA98: .word 0x037F8000
 	arm_func_end FUN_ov128_0212c9d0
@@ -2591,7 +2591,7 @@ _0212CD84:
 	mov r1, #0
 	str r1, [r0, #0x4bc]
 	bx lr
-_0212CD90: .word 0x0212F9A8
+_0212CD90: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212cd50
 
 	arm_func_start FUN_ov128_0212cd94
@@ -2605,7 +2605,7 @@ FUN_ov128_0212cd94: ; 0x0212CD94
 	ldr r12, _0212CDBC ; =FUN_ov128_0212cdc0
 	str r2, [r0, #0x14]
 	bx r12
-_0212CDB8: .word 0x0212F9A8
+_0212CDB8: .word ov128_0212F9A8
 _0212CDBC: .word FUN_ov128_0212cdc0
 	arm_func_end FUN_ov128_0212cd94
 
@@ -2619,7 +2619,7 @@ FUN_ov128_0212cdc0: ; 0x0212CDC0
 	strb r1, [r0, #0x28]
 	strb r1, [r0, #0x29]
 	bx lr
-_0212CDE0: .word 0x0212F9A8
+_0212CDE0: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212cdc0
 
 	arm_func_start FUN_ov128_0212cde4
@@ -2665,7 +2665,7 @@ _0212CE58:
 	mov r2, r5
 	bl FUN_ov128_0212d0f0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212CE6C: .word 0x0212F9A8
+_0212CE6C: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212cde4
 
 	arm_func_start FUN_ov128_0212ce70
@@ -2709,8 +2709,8 @@ _0212CEC4:
 	strb r1, [r4, #0x24]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212CF08: .word 0x0212F9A8
-_0212CF0C: .word 0x0212F9E0
+_0212CF08: .word ov128_0212F9A8
+_0212CF0C: .word ov128_0212F9E0
 	arm_func_end FUN_ov128_0212ce70
 
 	arm_func_start FUN_ov128_0212cf10
@@ -2733,7 +2733,7 @@ FUN_ov128_0212cf10: ; 0x0212CF10
 	mov r1, #3
 	strb r1, [r0, #0x24]
 	bx lr
-_0212CF58: .word 0x0212F9A8
+_0212CF58: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212cf10
 
 	arm_func_start FUN_ov128_0212cf5c
@@ -2824,10 +2824,10 @@ _0212CFBC:
 	bl FUN_02014a9c
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212D0B0: .word 0x0212F9A8
-_0212D0B4: .word 0x0212F9E0
-_0212D0B8: .word 0x0212F9EE
-_0212D0BC: .word 0x0212F9E8
+_0212D0B0: .word ov128_0212F9A8
+_0212D0B4: .word ov128_0212F9E0
+_0212D0B8: .word ov128_0212F9EE
+_0212D0BC: .word ov128_0212F9E8
 	arm_func_end FUN_ov128_0212cf5c
 
 	arm_func_start FUN_ov128_0212d0c0
@@ -2843,7 +2843,7 @@ FUN_ov128_0212d0c0: ; 0x0212D0C0
 	strb r0, [r1, #0x26]
 	strb r2, [r1, #0x24]
 	bx lr
-_0212D0EC: .word 0x0212F9A8
+_0212D0EC: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212d0c0
 
 	arm_func_start FUN_ov128_0212d0f0
@@ -3005,11 +3005,11 @@ _0212D2A4:
 	blx r1
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212D340: .word 0x0212F9A8
-_0212D344: .word 0x0212F9E0
-_0212D348: .word 0x0212FA48
-_0212D34C: .word 0x0212F9F0
-_0212D350: .word 0x0212F9E8
+_0212D340: .word ov128_0212F9A8
+_0212D344: .word ov128_0212F9E0
+_0212D348: .word ov128_0212FA48
+_0212D34C: .word ov128_0212F9F0
+_0212D350: .word ov128_0212F9E8
 	arm_func_end FUN_ov128_0212d0f0
 
 	arm_func_start FUN_ov128_0212d354
@@ -3086,7 +3086,7 @@ _0212D428:
 	cmpne r1, #0
 	movne r0, #1
 	bx lr
-_0212D440: .word 0x0212FA50
+_0212D440: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212d3e4
 
 	arm_func_start FUN_ov128_0212d444
@@ -3113,7 +3113,7 @@ FUN_ov128_0212d444: ; 0x0212D444
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _0212D498: .word FUN_ov128_0212d4e4
-_0212D49C: .word 0x0212F96C
+_0212D49C: .word ov128_0212F96C
 	arm_func_end FUN_ov128_0212d444
 
 	arm_func_start FUN_ov128_0212d4a0
@@ -3134,7 +3134,7 @@ FUN_ov128_0212d4a0: ; 0x0212D4A0
 	mov r0, #0x11
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212D4E0: .word 0x0212FA50
+_0212D4E0: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212d4a0
 
 	arm_func_start FUN_ov128_0212d4e4
@@ -3685,9 +3685,9 @@ _0212DC8C:
 _0212DCA0:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0212DCA8: .word 0x0212FA50
+_0212DCA8: .word ov128_0212FA50
 _0212DCAC: .word FUN_ov128_0212d4e4
-_0212DCB0: .word 0x0212F96C
+_0212DCB0: .word ov128_0212F96C
 _0212DCB4: .word 0x00001964
 	arm_func_end FUN_ov128_0212d4e4
 
@@ -3718,7 +3718,7 @@ _0212DCFC:
 	ldr r2, [r2, #0x51c]
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212DD14: .word 0x0212FA50
+_0212DD14: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212dcb8
 
 	arm_func_start FUN_ov128_0212dd18
@@ -4391,9 +4391,9 @@ _0212E68C:
 	blx r2
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212E6A4: .word 0x0212FA50
-_0212E6A8: .word 0x0212FA80
-_0212E6AC: .word 0x0212F96C
+_0212E6A4: .word ov128_0212FA50
+_0212E6A8: .word ov128_0212FA80
+_0212E6AC: .word ov128_0212F96C
 _0212E6B0: .word FUN_ov128_0212dd18
 _0212E6B4: .word FUN_ov128_0212dcb8
 	arm_func_end FUN_ov128_0212dd18
@@ -4551,9 +4551,9 @@ _0212E840:
 	bl OS_RestoreInterrupts
 	mov r0, r7
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212E8EC: .word 0x0212FA50
+_0212E8EC: .word ov128_0212FA50
 _0212E8F0: .word 0x0000FFFF
-_0212E8F4: .word 0x0212F96C
+_0212E8F4: .word ov128_0212F96C
 	arm_func_end FUN_ov128_0212e720
 
 	arm_func_start FUN_ov128_0212e8f8
@@ -4632,7 +4632,7 @@ _0212E9C8:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212E9F8: .word 0x0212FA50
+_0212E9F8: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212e968
 
 	arm_func_start FUN_ov128_0212e9fc
@@ -4689,7 +4689,7 @@ _0212EAA0:
 	bl FUN_ov128_0212d444
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212EAC4: .word 0x0212FA50
+_0212EAC4: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212e9fc
 
 	arm_func_start FUN_ov128_0212eac8
@@ -4806,7 +4806,7 @@ _0212EB60:
 	str r0, [r1, #0x4c8]
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212EC84: .word 0x0212FA50
+_0212EC84: .word ov128_0212FA50
 _0212EC88: .word 0x000069C0
 _0212EC8C: .word 0x00005D40
 _0212EC90: .word FUN_ov128_0212ac04
@@ -4822,7 +4822,7 @@ FUN_ov128_0212ec98: ; 0x0212EC98
 	add r1, r1, #0x1000
 	str r2, [r1, #0x320]
 	bx r12
-_0212ECB4: .word 0x0212FA50
+_0212ECB4: .word ov128_0212FA50
 _0212ECB8: .word FUN_ov128_0212eac8
 	arm_func_end FUN_ov128_0212ec98
 
@@ -4841,7 +4841,7 @@ FUN_ov128_0212ecbc: ; 0x0212ECBC
 	moveq r4, #0
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0212ECF0: .word 0x0212FA50
+_0212ECF0: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212ecbc
 
 	arm_func_start FUN_ov128_0212ecf4
@@ -4890,7 +4890,7 @@ _0212ED78:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212ED88: .word 0x0212FA50
+_0212ED88: .word ov128_0212FA50
 _0212ED8C: .word FUN_ov128_0212ecf4
 	arm_func_end FUN_ov128_0212ed00
 
@@ -4911,7 +4911,7 @@ _0212EDB8:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0212EDC8: .word 0x0212FA50
+_0212EDC8: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212ed90
 
 	arm_func_start FUN_ov128_0212edcc
@@ -5019,7 +5019,7 @@ _0212EF40:
 	str r1, [r0, #0x4e8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0212EF5C: .word FUN_ov128_0212d4e4
-_0212EF60: .word 0x0212FA50
+_0212EF60: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212edcc
 
 	arm_func_start FUN_ov128_0212ef64
@@ -5027,7 +5027,7 @@ FUN_ov128_0212ef64: ; 0x0212EF64
 	ldr r1, _0212EF70 ; =0x0212FA80
 	strh r0, [r1, #8]
 	bx lr
-_0212EF70: .word 0x0212FA80
+_0212EF70: .word ov128_0212FA80
 	arm_func_end FUN_ov128_0212ef64
 
 	arm_func_start FUN_ov128_0212ef74
@@ -5114,7 +5114,7 @@ _0212F094:
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0212F0A0: .word 0x0212FA50
+_0212F0A0: .word ov128_0212FA50
 _0212F0A4: .word FUN_ov128_0212dd18
 	arm_func_end FUN_ov128_0212efc0
 
@@ -5124,7 +5124,7 @@ FUN_ov128_0212f0a8: ; 0x0212F0A8
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #8]
 	bx lr
-_0212F0B8: .word 0x0212FA50
+_0212F0B8: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f0a8
 
 	arm_func_start FUN_ov128_0212f0bc
@@ -5133,7 +5133,7 @@ FUN_ov128_0212f0bc: ; 0x0212F0BC
 	ldr r0, [r0, #0xc]
 	ldrh r0, [r0, #0xc]
 	bx lr
-_0212F0CC: .word 0x0212FA50
+_0212F0CC: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f0bc
 
 	arm_func_start FUN_ov128_0212f0d0
@@ -5161,7 +5161,7 @@ FUN_ov128_0212f0d0: ; 0x0212F0D0
 	orr r0, r1, r0
 	and r0, r0, #0xff
 	bx lr
-_0212F12C: .word 0x0212FA50
+_0212F12C: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f0d0
 
 	arm_func_start FUN_ov128_0212f130
@@ -5173,7 +5173,7 @@ FUN_ov128_0212f130: ; 0x0212F130
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-_0212F14C: .word 0x0212FA50
+_0212F14C: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f130
 
 	arm_func_start FUN_ov128_0212f150
@@ -5191,7 +5191,7 @@ FUN_ov128_0212f150: ; 0x0212F150
 	mov r0, #0xff
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212F184: .word 0x0212FA50
+_0212F184: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f150
 
 	arm_func_start FUN_ov128_0212f188
@@ -5395,7 +5395,7 @@ _0212F414:
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212F424: .word 0x0212FAC4
+_0212F424: .word ov128_0212FAC4
 _0212F428: .word FUN_ov128_0212f29c
 	arm_func_end FUN_ov128_0212f3ac
 
@@ -5407,7 +5407,7 @@ FUN_ov128_0212f42c: ; 0x0212F42C
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-_0212F444: .word 0x0212FAC4
+_0212F444: .word ov128_0212FAC4
 	arm_func_end FUN_ov128_0212f42c
 
 	arm_func_start FUN_ov128_0212f448
@@ -5530,7 +5530,7 @@ _0212F5C8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212F5D4: .word 0x0212FAC4
+_0212F5D4: .word ov128_0212FAC4
 	arm_func_end FUN_ov128_0212f474
 
 	arm_func_start FUN_ov128_0212f5d8
@@ -5553,7 +5553,7 @@ _0212F610:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212F61C: .word 0x0212FAC4
+_0212F61C: .word ov128_0212FAC4
 	arm_func_end FUN_ov128_0212f5d8
 
 	arm_func_start FUN_ov128_0212f620
@@ -5568,7 +5568,7 @@ FUN_ov128_0212f620: ; 0x0212F620
 	str r0, [r4, #0xc]
 	str r5, [r4, #0x10]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212F648: .word 0x0212FAC8
+_0212F648: .word ov128_0212FAC8
 	arm_func_end FUN_ov128_0212f620
 
 	arm_func_start FUN_ov128_0212f64c
@@ -5579,7 +5579,7 @@ FUN_ov128_0212f64c: ; 0x0212F64C
 	mov r2, #0x21c
 	str r0, [r3, #4]
 	bx r12
-_0212F664: .word 0x0212FAC8
+_0212F664: .word ov128_0212FAC8
 _0212F668: .word MI_CpuFill8
 	arm_func_end FUN_ov128_0212f64c
 
@@ -5600,7 +5600,7 @@ FUN_ov128_0212f66c: ; 0x0212F66C
 	add r0, r0, r6, lsl #2
 	str r5, [r0, #0x1e0]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212F6A8: .word 0x0212FAC8
+_0212F6A8: .word ov128_0212FAC8
 	arm_func_end FUN_ov128_0212f66c
 
 	arm_func_start FUN_ov128_0212f6ac
@@ -5718,7 +5718,7 @@ _0212F82C:
 _0212F834:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212F83C: .word 0x0212FAC8
+_0212F83C: .word ov128_0212FAC8
 	arm_func_end FUN_ov128_0212f724
 
 	arm_func_start FUN_ov128_0212f840
@@ -5754,7 +5754,7 @@ FUN_ov128_0212f840: ; 0x0212F840
 	addne r0, r0, r4, lsl #5
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212F8BC: .word 0x0212FAC8
+_0212F8BC: .word ov128_0212FAC8
 	arm_func_end FUN_ov128_0212f840
 
 	arm_func_start FUN_ov128_0212f8c0
@@ -5781,5 +5781,73 @@ _0212F8E8:
 _0212F908:
 	mov r0, #1
 	bx lr
-_0212F910: .word 0x0212FAC8
+_0212F910: .word ov128_0212FAC8
 	arm_func_end FUN_ov128_0212f8c0
+
+	.rodata
+	.global ov129_0212F914
+ov129_0212F914:
+	.byte 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
+	.global ov129_0212F920
+ov129_0212F920:
+	.byte 0x00, 0x40, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00
+	.byte 0x00, 0x74, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.data
+	.global ov128_0212F960
+ov128_0212F960:
+	.byte 0xFF, 0x00, 0x00, 0x00
+	.global ov128_0212F964
+ov128_0212F964:
+	.byte 0x20, 0xF9, 0x12, 0x02
+	.global ov128_0212F968
+ov128_0212F968:
+	.byte 0x72, 0x6F, 0x6D, 0x00
+	.global ov128_0212F96C
+ov128_0212F96C:
+	.byte 0x28, 0x00, 0x28, 0x00
+	.byte 0xFF, 0xFF, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00, 0x84, 0xF9, 0x12, 0x02, 0xFF, 0xFF, 0xFF, 0xFF
+	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0x6D, 0x00, 0x75, 0x00, 0x6C, 0x00, 0x74, 0x00, 0x69, 0x00, 0x62, 0x00
+	.byte 0x6F, 0x00, 0x6F, 0x00, 0x74, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+	.bss
+	.global ov128_0212F9A0
+ov128_0212F9A0:
+	.space 0x04
+	.global ov128_0212F9A4
+ov128_0212F9A4:
+	.space 0x04
+	.global ov128_0212F9A8
+ov128_0212F9A8:
+	.space 0x38
+	.global ov128_0212F9E0
+ov128_0212F9E0:
+	.space 0x08
+	.global ov128_0212F9E8
+ov128_0212F9E8:
+	.space 0x06
+	.global ov128_0212F9EE
+ov128_0212F9EE:
+	.space 0x02
+	.global ov128_0212F9F0
+ov128_0212F9F0:
+	.space 0x58
+	.global ov128_0212FA48
+ov128_0212FA48:
+	.space 0x08
+	.global ov128_0212FA50
+ov128_0212FA50:
+	.space 0x10
+	.global ov128_0212FA60
+ov128_0212FA60:
+	.space 0x20
+	.global ov128_0212FA80
+ov128_0212FA80:
+	.space 0x44
+	.global ov128_0212FAC4
+ov128_0212FAC4:
+	.space 0x04
+	.global ov128_0212FAC8
+ov128_0212FAC8:
+	.space 0x18

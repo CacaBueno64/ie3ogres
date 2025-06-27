@@ -210,3 +210,16 @@ _0212B604: .word 0xF0B9A2EA
 _0212B608: .word 0xFFFFFBFE
 _0212B60C: .word 0x00000000
 	arm_func_end FUN_ov129_0212b4e0
+
+	.section .sinit, 4
+ov129_0212C578:
+	.word FUN_ov129_0212aec8
+	.word FUN_ov129_0212b470
+	.word FUN_ov129_0212b7f8
+	.word FUN_ov129_0212c054
+	.word FUN_ov129_0212c50c
+
+	.bss
+	.global ov129_0212C5A0
+ov129_0212C5A0:
+	.space 0x20

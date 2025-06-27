@@ -2,6 +2,7 @@
 .public MIi_CpuClearFast
 .public MI_CpuFill8
 .public MI_CpuCopy8
+.public FUN_020095ac
 .public FUN_02009850
 .public FUN_02009a98
 .public FUN_0201e078

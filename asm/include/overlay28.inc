@@ -27,6 +27,7 @@
 .public FUN_02070530
 .public FUN_0207249c
 .public FUN_02074764
+.public FUN_020747e0
 .public _start
 .public FUN_ov16_020efa4c
 .public FUN_ov16_020f1560
