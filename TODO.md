@@ -3,11 +3,11 @@
 
 
 - error with makerom:
-`
+```
 Error: !!!!
 Error: !!!! Too large memory footprint in ARM9
 Error: !!!!    ARM9:STATIC_BSS_END = 020bcb40
 Error: !!!!    ARM7:STATIC_START   = 02380000
 
 Error: !!!!
-`
+```
