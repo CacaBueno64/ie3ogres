@@ -2,8 +2,8 @@
 	.include "/include/dtcm.inc"
 
 	.bss
-	.global dtcm_bss
-dtcm_bss:
+	.global OSi_IrqThreadQueue
+OSi_IrqThreadQueue:
 	.space 0x20
 
 	.section .dtcm

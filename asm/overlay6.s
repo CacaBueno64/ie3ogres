@@ -54,7 +54,7 @@ FUN_ov6_020bcb40: ; 0x020BCB40
 	b _020BCC00
 _020BCBF8:
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 _020BCC00:
 	mov r0, r6
 	bl FUN_0202b7b4
@@ -65,7 +65,7 @@ _020BCC00:
 	b _020BCC24
 _020BCC1C:
 	mov r0, r6
-	bl FUN_02001eb0
+	bl OS_Sleep
 _020BCC24:
 	mov r0, r5
 	bl FUN_0202b7f0

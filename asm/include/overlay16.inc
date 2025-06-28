@@ -1,12 +1,12 @@
-.public FUN_02001eb0
-.public FUN_020023e4
-.public FUN_02002408
-.public FUN_02002458
+.public OS_Sleep
+.public OS_InitMutex
+.public OS_LockMutex
+.public OS_UnlockMutex
 .public DC_FlushRange
 .public FUN_02003410
 .public OS_EnableInterrupts
 .public FUN_02003e40
-.public FUN_02003ed0
+.public OS_ResetSystem
 .public FUN_020044e0
 .public FUN_02004548
 .public FUN_02004bd0

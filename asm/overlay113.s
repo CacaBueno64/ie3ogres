@@ -206,7 +206,7 @@ _02124FB0:
 	mov r5, #0x12
 _02124FD0:
 	mov r0, r6
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r1, r5
 	add r0, r4, #0xe8
 	bl  FUN_ov16_020f330c
@@ -2066,7 +2066,7 @@ FUN_ov113_02126984: ; 0x02126984
 	mov r4, #0x12
 _02126A00:
 	mov r0, r9
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r1, r4
 	add r0, r8, #0xe8
 	bl  FUN_ov16_020f330c

@@ -1,6 +1,6 @@
-.public FUN_02001eb0
+.public OS_Sleep
 .public DC_FlushRange
-.public FUN_02004160
+.public OS_Terminate
 .public FUN_02004e2c
 .public FUN_02004f58
 .public FUN_02004fac

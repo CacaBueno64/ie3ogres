@@ -9293,7 +9293,7 @@ _0212218C:
 	b _021221AC
 _021221A4:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 _021221AC:
 	mov r0, r10
 	bl FUN_ov72_0211bfc0

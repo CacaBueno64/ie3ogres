@@ -4,8 +4,8 @@
 
 	.section .itcm
 
-	arm_func_start FUN_01ff8000
-FUN_01ff8000: ; 0x01ff8000
+	arm_func_start OS_IrqHandler
+OS_IrqHandler: ; 0x01ff8000
 	stmdb sp!, {lr}
 	mov r12, #0x4000000
 	add r12, r12, #0x210
@@ -25,15 +25,15 @@ _01FF8028:
 	rsbs r0, r0, #0x1f
 	ldr r1, _01FF8050 ; =OS_IRQTable
 	ldr r0, [r1, r0, lsl #2]
-	ldr lr, _01FF8054 ; =FUN_01ff8058
+	ldr lr, _01FF8054 ; =OS_IrqHandler_ThreadSwitch
 	bx r0
 _01FF8050: .word OS_IRQTable
-_01FF8054: .word FUN_01ff8058
-	arm_func_end FUN_01ff8000
+_01FF8054: .word OS_IrqHandler_ThreadSwitch
+	arm_func_end OS_IrqHandler
 
-	arm_func_start FUN_01ff8058
-FUN_01ff8058: ; 0x01ff8058
-	ldr r12, _01FF81A8 ; =dtcm_bss
+	arm_func_start OS_IrqHandler_ThreadSwitch
+OS_IrqHandler_ThreadSwitch: ; 0x01ff8058
+	ldr r12, _01FF81A8 ; =OSi_IrqThreadQueue
 	mov r3, #0
 	ldr r12, [r12]
 	mov r2, #1
@@ -49,7 +49,7 @@ _01FF8074:
 	mov r12, r0
 	cmp r12, #0
 	bne _01FF8070
-	ldr r12, _01FF81A8 ; =dtcm_bss
+	ldr r12, _01FF81A8 ; =OSi_IrqThreadQueue
 	str r3, [r12]
 	str r3, [r12, #4]
 	ldr r12, _01FF81AC ; =0x020939a4
@@ -124,14 +124,14 @@ _01FF8120:
 	mov r0, r0 ; nop
 	stmda sp!, {r0, r1, r2, r3, r12, lr}
 	ldmia sp!, {pc}
-_01FF81A8: .word dtcm_bss
+_01FF81A8: .word OSi_IrqThreadQueue
 _01FF81AC: .word 0x020939a4
 _01FF81B0: .word CP_SaveContext
 _01FF81B4: .word CPi_RestoreContext
-	arm_func_end FUN_01ff8058
+	arm_func_end OS_IrqHandler_ThreadSwitch
 
-	arm_func_start FUN_01ff81b8
- FUN_01ff81b8: ; 0x02093AD8
+	arm_func_start OSi_DoResetSystem
+OSi_DoResetSystem: ; 0x02093AD8
 	stmfd sp!, {r3, lr}
 _01FF81BC:
 	bl FUN_020010bc
@@ -140,14 +140,14 @@ _01FF81BC:
 	ldr r1, _01FF81E0 ; =0x04000208
 	mov r0, #0
 	strh r0, [r1]
-	bl FUN_01ff82c8
-	bl FUN_01ff81e4
+	bl OSi_ReloadRomData
+	bl OSi_DoBoot
 	ldmfd sp!, {r3, pc}
 _01FF81E0: .word 0x04000208
-	arm_func_end FUN_01ff81b8
+	arm_func_end OSi_DoResetSystem
 
-	arm_func_start FUN_01ff81e4
- FUN_01ff81e4: ; 0x02093B04
+	arm_func_start OSi_DoBoot
+OSi_DoBoot: ; 0x02093B04
 	mov r12, #0x4000000
 	str r12, [r12, #0x208]
 	ldr r1, _01FF8294 ; =OS_IRQTable
@@ -168,17 +168,17 @@ _01FF8204:
 	ldr r4, [r3]
 	ldr r1, _01FF82A0 ; =0x02FFFD80
 	mov r2, #0x80
-	bl FUN_01ff82b4
+	bl OSi_CpuClear32
 	ldr r3, _01FF82A4 ; =0x02FFFD9C
 	str r4, [r3]
 	ldr r1, _01FF82A8 ; =0x02FFFF80
 	mov r2, #0x18
-	bl FUN_01ff82b4
+	bl OSi_CpuClear32
 	ldr r1, _01FF82AC ; =0x02FFFF98
 	strh r0, [r1]
 	ldr r1, _01FF829C ; =0x02FFFF9C
 	mov r2, #0x64
-	bl FUN_01ff82b4
+	bl OSi_CpuClear32
 	ldr r1, _01FF8298 ; =0x04000180
 _01FF8260:
 	ldrh r0, [r1]
@@ -202,20 +202,20 @@ _01FF82A4: .word 0x02FFFD9C
 _01FF82A8: .word 0x02FFFF80
 _01FF82AC: .word 0x02FFFF98
 _01FF82B0: .word 0x02FFFE00
-	arm_func_end FUN_01ff81e4
+	arm_func_end OSi_DoBoot
 
-	arm_func_start FUN_01ff82b4
-FUN_01ff82b4: ; 0x02093BD4
+	arm_func_start OSi_CpuClear32
+OSi_CpuClear32: ; 0x02093BD4
 	add r12, r1, r2
 _01FF82B8:
 	cmp r1, r12
 	stmltia r1!, {r0}
 	blt _01FF82B8
 	bx lr
-	arm_func_end FUN_01ff82b4
+	arm_func_end OSi_CpuClear32
 
-	arm_func_start FUN_01ff82c8
-FUN_01ff82c8: ; 0x02093BE8
+	arm_func_start OSi_ReloadRomData
+OSi_ReloadRomData: ; 0x02093BE8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	cmp r4, #0
@@ -226,7 +226,7 @@ FUN_01ff82c8: ; 0x02093BE8
 	cmp r0, #0x8000
 	ldrhs r1, _01FF8384 ; =0x02FFFE00
 	movhs r2, #0x160
-	blhs FUN_01ff8388
+	blhs OSi_ReadCardRom32
 	ldr r12, _01FF8384 ; =0x02FFFE00
 	ldr r0, [r12, #0x20]
 	ldr r1, [r12, #0x28]
@@ -238,7 +238,7 @@ FUN_01ff82c8: ; 0x02093BE8
 	sublt r1, r1, r3
 	addlt r2, r2, r3
 	cmp r2, #0
-	blgt FUN_01ff8388
+	blgt OSi_ReadCardRom32
 	ldr r12, _01FF8384 ; =0x02FFFE00
 	ldr r0, [r12, #0x30]
 	ldr r1, [r12, #0x38]
@@ -246,7 +246,7 @@ FUN_01ff82c8: ; 0x02093BE8
 	ldr r3, [sp]
 	add r0, r0, r3
 	cmp r2, #0
-	blgt FUN_01ff8388
+	blgt OSi_ReadCardRom32
 	ldmia sp!, {r0}
 	mov r1, #0
 _01FF834C:
@@ -266,10 +266,10 @@ _01FF8350:
 	ldmfd sp!, {r4, pc}
 _01FF8380: .word 0x02FFFC2C
 _01FF8384: .word 0x02FFFE00
-	arm_func_end FUN_01ff82c8
+	arm_func_end OSi_ReloadRomData
 
-	arm_func_start FUN_01ff8388
- FUN_01ff8388: ; 0x02093CA8
+	arm_func_start OSi_ReadCardRom32
+OSi_ReadCardRom32: ; 0x02093CA8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, _01FF8448 ; =0x02FFFE60
 	ldr r3, _01FF844C ; =0x000001FF
@@ -328,10 +328,10 @@ _01FF844C: .word 0x000001FF
 _01FF8450: .word 0x040001A4
 _01FF8454: .word 0x040001A1
 _01FF8458: .word 0x04100010
-	arm_func_end FUN_01ff8388
+	arm_func_end OSi_ReadCardRom32
 
 	arm_func_start FUN_01ff845c
- FUN_01ff845c: ; 0x02093D7C
+FUN_01ff845c: ; 0x02093D7C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r7, [sp, #0x20]
 	mov r4, r0
@@ -392,7 +392,7 @@ _01FF8528: .word 0x81400001
 	arm_func_end FUN_01ff845c
 
 	arm_func_start FUN_01ff852c
- FUN_01ff852c: ; 0x02093E4C
+FUN_01ff852c: ; 0x02093E4C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r9, r1
 	mov r10, r0
@@ -538,7 +538,7 @@ _01FF8754: .word 0x02087874
 	arm_func_end FUN_01ff852c
 
 	arm_func_start FUN_01ff8758
- FUN_01ff8758: ; 0x01ff8758
+FUN_01ff8758: ; 0x01ff8758
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r2
@@ -584,7 +584,7 @@ _01FF87E4:
 	arm_func_end FUN_01ff8758
 
 	arm_func_start FUN_01ff87f8
- FUN_01ff87f8: ; 0x01ff87f8
+FUN_01ff87f8: ; 0x01ff87f8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldr r0, _01FF894C ; =0x0209BA20
@@ -683,7 +683,7 @@ _01FF8954: .word 0x00010008
 	arm_func_end FUN_01ff87f8
 
 	arm_func_start FUN_01ff8958
- FUN_01ff8958: ; 0x01ff8958
+FUN_01ff8958: ; 0x01ff8958
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl FUN_ov132_02144780
@@ -713,7 +713,7 @@ _01FF89BC: .word 0x0209A2E8
 	arm_func_end FUN_01ff8958
 
 	arm_func_start FUN_01ff89c0
- FUN_01ff89c0: ; 0x020942E0
+FUN_01ff89c0: ; 0x020942E0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, #1
 	mov r4, r0
@@ -864,7 +864,7 @@ _01FF8BF0: .word 0x0209BA20
 	arm_func_end FUN_01ff89c0
 
 	arm_func_start FUN_01ff8bf4
- FUN_01ff8bf4: ; 0x01ff8bf4
+FUN_01ff8bf4: ; 0x01ff8bf4
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
 	ldr r3, [r1, #0x4c]
@@ -888,7 +888,7 @@ _01FF8BF0: .word 0x0209BA20
 	arm_func_end FUN_01ff8bf4
 
 	arm_func_start FUN_01ff8c44
- FUN_01ff8c44: ; 0x01ff8c44
+FUN_01ff8c44: ; 0x01ff8c44
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x28
 	mov r5, #0
@@ -1389,7 +1389,7 @@ _01FF9380: .word 0x0209A720
 	arm_func_end FUN_01ff8c44
 
 	arm_func_start FUN_01ff9384
- FUN_01ff9384: ; 0x02094CA4
+FUN_01ff9384: ; 0x02094CA4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -1502,7 +1502,7 @@ _01FF9520: .word 0x02099F14
 	arm_func_end FUN_01ff9384
 
 	arm_func_start FUN_01ff9524
- FUN_01ff9524: ; 0x02094E44
+FUN_01ff9524: ; 0x02094E44
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl FUN_ov132_021447c8
@@ -1527,7 +1527,7 @@ _01FF9520: .word 0x02099F14
 	arm_func_end FUN_01ff9524
 
 	arm_func_start FUN_01ff9578
- FUN_01ff9578: ; 0x02094E98
+FUN_01ff9578: ; 0x02094E98
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl FUN_ov132_021447c8
@@ -1546,7 +1546,7 @@ _01FF95A8:
 	arm_func_end FUN_01ff9578
 
 	arm_func_start FUN_01ff95b0
- FUN_01ff95b0: ; 0x02094ED0
+FUN_01ff95b0: ; 0x02094ED0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldr r0, _01FF96B0 ; =0x020AF81C
@@ -1621,7 +1621,7 @@ _01FF96BC: .word 0x0209C120
 	arm_func_end FUN_01ff95b0
 
 	arm_func_start FUN_01ff96c0
- FUN_01ff96c0: ; 0x02094FE0
+FUN_01ff96c0: ; 0x02094FE0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldrb r2, [r5, #0x3b4]
@@ -1641,7 +1641,7 @@ _01FF96FC: .word 0x0209C120
 	arm_func_end FUN_01ff96c0
 
 	arm_func_start FUN_01ff9700
- FUN_01ff9700: ; 0x01ff9700
+FUN_01ff9700: ; 0x01ff9700
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r8, #0
 	ldr r11, _01FF9900 ; =0x0209BA20
@@ -1781,7 +1781,7 @@ _01FF9900: .word 0x0209BA20
 	arm_func_end FUN_01ff9700
 
 	arm_func_start FUN_01ff9904
- FUN_01ff9904: ; 0x01ff9904
+FUN_01ff9904: ; 0x01ff9904
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r0, _01FF9984 ; =0x0209A720
 	ldr r5, _01FF9988 ; =0x0209A2C0
@@ -1819,7 +1819,7 @@ _01FF9988: .word 0x0209A2C0
 	arm_func_end FUN_01ff9904
 
 	arm_func_start FUN_01ff998c
- FUN_01ff998c: ; 0x020952AC
+FUN_01ff998c: ; 0x020952AC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, _01FF9C04 ; =0x0209A720
 	ldr r6, [r5, #0xd4]
@@ -1982,7 +1982,7 @@ _01FF9C04: .word 0x0209A720
 	arm_func_end FUN_01ff998c
 
 	arm_func_start FUN_01ff9c08
- FUN_01ff9c08: ; 0x01ff9c08
+FUN_01ff9c08: ; 0x01ff9c08
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r1, #0
@@ -2037,7 +2037,7 @@ _01FF9CB4:
 	blt _01FF9C74
 	cmp r8, #0xb
 	ble _01FF9CCC
-	bl FUN_02004160
+	bl OS_Terminate
 _01FF9CCC:
 	cmp r8, #0xb
 	addlt r1, sp, #0x10
@@ -2369,7 +2369,7 @@ _01FFA128: .word 0x0209BA20
 	arm_func_end FUN_01ff9c28
 
 	arm_func_start FUN_01ffa12c
- FUN_01ffa12c: ; 0x02095A4C
+FUN_01ffa12c: ; 0x02095A4C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
 	ldr r6, _01FFAC10 ; =0x0209BA20
@@ -3135,7 +3135,7 @@ _01FFAC5C: .word 0x0209A0DC
 	arm_func_end FUN_01ffa12c
 
 	arm_func_start FUN_01ffac60
- FUN_01ffac60: ; 0x01ffac60
+FUN_01ffac60: ; 0x01ffac60
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	ldr r7, _01FFAE0C ; =0x0209BA20
@@ -3483,7 +3483,7 @@ _01FFB140: .word 0x0209A720
 	arm_func_end FUN_01ffb118
 
 	arm_func_start FUN_01ffb144
- FUN_01ffb144: ; 0x02096A64
+FUN_01ffb144: ; 0x02096A64
 	ldr r12, _01FFB150 ; = FUN_ov132_021447d0
 	mov r1, #0
 	bx r12
@@ -3491,7 +3491,7 @@ _01FFB150: .word FUN_ov132_021447d0
 	arm_func_end FUN_01ffb144
 
 	arm_func_start FUN_01ffb154
- FUN_01ffb154: ; 0x02096A74
+FUN_01ffb154: ; 0x02096A74
 	stmfd sp!, {r4, r5, r6, lr}
 	add r0, r0, #0x100
 	ldrsb r5, [r0, #0xa6]
@@ -3521,7 +3521,7 @@ _01FFB1A4:
 	arm_func_end FUN_01ffb154
 
 	arm_func_start FUN_01ffb1b0
- FUN_01ffb1b0: ; 0x02096AD0
+FUN_01ffb1b0: ; 0x02096AD0
 	cmp r1, #0
 	rsbeq r2, r2, #0
 	mov r0, r2
@@ -3529,7 +3529,7 @@ _01FFB1A4:
 	arm_func_end FUN_01ffb1b0
 
 	arm_func_start FUN_01ffb1c0
- FUN_01ffb1c0: ; 0x02096AE0
+FUN_01ffb1c0: ; 0x02096AE0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x10
 	mov r7, r1
@@ -3706,7 +3706,7 @@ _01FFB424:
 	arm_func_end FUN_01ffb280
 
 	arm_func_start FUN_01ffb43c
- FUN_01ffb43c: ; 0x02096D5C
+FUN_01ffb43c: ; 0x02096D5C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #8
 	mov r4, #0
@@ -3790,7 +3790,7 @@ _01FFB548:
 	arm_func_end FUN_01ffb43c
 
 	arm_func_start FUN_01ffb56c
- FUN_01ffb56c: ; 0x02096E8C
+FUN_01ffb56c: ; 0x02096E8C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x40
 	mov r10, r0
@@ -4054,7 +4054,7 @@ _01FFB938: .word 0x0209A720
 	arm_func_end FUN_01ffb56c
 
 	arm_func_start FUN_01ffb93c
- FUN_01ffb93c: ; 0x0209725C
+FUN_01ffb93c: ; 0x0209725C
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
 	ldr r12, _01FFB95C ; =0x0209A2C0
@@ -4067,7 +4067,7 @@ _01FFB95C: .word 0x0209A2C0
 	arm_func_end FUN_01ffb93c
 
 	arm_func_start FUN_01ffb960
- FUN_01ffb960: ; 0x01ffb960
+FUN_01ffb960: ; 0x01ffb960
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r1
 	mov r5, r0
@@ -4092,7 +4092,7 @@ _01FFB9A8:
 	arm_func_end FUN_01ffb960
 
 	arm_func_start FUN_01ffb9b0
- FUN_01ffb9b0: ; 0x020972D0
+FUN_01ffb9b0: ; 0x020972D0
 	cmp r1, r2
 	moveq r0, #0
 	bxeq lr
@@ -4109,7 +4109,7 @@ _01FFB9A8:
 	arm_func_end FUN_01ffb9b0
 
 	arm_func_start FUN_01ffb9e4
- FUN_01ffb9e4: ; 0x01ffb9e4
+FUN_01ffb9e4: ; 0x01ffb9e4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r3, [r1, #0x84]
 	mov r6, r0
@@ -4126,7 +4126,7 @@ _01FFB9A8:
 	arm_func_end FUN_01ffb9e4
 
 	arm_func_start FUN_01ffba18
- FUN_01ffba18: ; 0x01ffba18
+FUN_01ffba18: ; 0x01ffba18
 	stmfd sp!, {r3, lr}
 	ldr r0, [r0, #0x198]
 	ldr r2, [r0]
@@ -4136,7 +4136,7 @@ _01FFB9A8:
 	arm_func_end FUN_01ffba18
 
 	arm_func_start FUN_01ffba30
- FUN_01ffba30: ; 0x01ffba30
+FUN_01ffba30: ; 0x01ffba30
 	stmfd sp!, {r3, lr}
 	ldr r12, [sp, #8]
 	subs r2, r2, r12
@@ -4148,7 +4148,7 @@ _01FFB9A8:
 	arm_func_end FUN_01ffba30
 
 	arm_func_start FUN_01ffba50
- FUN_01ffba50: ; 0x01ffba50
+FUN_01ffba50: ; 0x01ffba50
 	ldr r0, _01FFBA60 ; =0x0209BA20
 	ldr r12, _01FFBA64 ; =FUN_02043c2c
 	ldr r0, [r0, #0x860]
@@ -4158,7 +4158,7 @@ _01FFBA64: .word FUN_02043c2c
 	arm_func_end FUN_01ffba50
 
 	arm_func_start FUN_01ffba68
- FUN_01ffba68: ; 0x01ffba68
+FUN_01ffba68: ; 0x01ffba68
 	ldr r0, _01FFBA78 ; =0x0209BA20
 	ldr r12, _01FFBA7C ; =FUN_02043c6c
 	ldr r0, [r0, #0x860]
@@ -4168,7 +4168,7 @@ _01FFBA7C: .word FUN_02043c6c
 	arm_func_end FUN_01ffba68
 
 	arm_func_start FUN_01ffba80
- FUN_01ffba80: ; 0x020973A0
+FUN_01ffba80: ; 0x020973A0
 	ldr r0, _01FFBA90 ; =0x0209BA20
 	ldr r12, _01FFBA94 ; =FUN_02043b68
 	ldr r0, [r0, #0x860]
@@ -4178,7 +4178,7 @@ _01FFBA94: .word FUN_02043b68
 	arm_func_end FUN_01ffba80
 
 	arm_func_start FUN_01ffba98
- FUN_01ffba98: ; 0x020973B8
+FUN_01ffba98: ; 0x020973B8
 	stmfd sp!, {r3, lr}
 	ldr r0, [sp, #8]
 	subs r1, r3, r1
@@ -4205,7 +4205,7 @@ _01FFBA94: .word FUN_02043b68
 	arm_func_end FUN_01ffba98
 
 	arm_func_start FUN_01ffbaf4
- FUN_01ffbaf4: ; 0x01ffbaf4
+FUN_01ffbaf4: ; 0x01ffbaf4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	ldr r0, _01FFBBE4 ; =0x0209BA20
@@ -4274,7 +4274,7 @@ _01FFBBE4: .word 0x0209BA20
 	arm_func_end FUN_01ffbaf4
 
 	arm_func_start FUN_01ffbbe8
- FUN_01ffbbe8: ; 0x01ffbbe8
+FUN_01ffbbe8: ; 0x01ffbbe8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	bl FUN_ov132_0213be1c
@@ -4310,7 +4310,7 @@ _01FFBC5C: .word 0x0209BA20
 	arm_func_end FUN_01ffbbe8
 
 	arm_func_start FUN_01ffbc60
- FUN_01ffbc60: ; 0x01ffbc60
+FUN_01ffbc60: ; 0x01ffbc60
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r1
 	mov r5, r0

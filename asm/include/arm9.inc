@@ -1,9 +1,9 @@
-.public dtcm_bss
+.public OSi_IrqThreadQueue
 .public OS_IRQTable
 .public MIi_UncompressBackward
 .public OSi_ReferSymbol
-.public FUN_01ff8000
-.public FUN_01ff81b8
+.public OS_IrqHandler
+.public OSi_DoResetSystem
 .public FUN_01ff845c
 .public FUN_01ff852c
 .public FUN_ov0_020bdbe8

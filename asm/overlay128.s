@@ -1181,7 +1181,7 @@ _0212BA40:
 	blt _0212BA14
 	cmp r5, #0
 	bne _0212BA58
-	bl FUN_02004160
+	bl OS_Terminate
 _0212BA58:
 	mov r0, #2
 	str r0, [r7]
@@ -2074,7 +2074,7 @@ _0212C674:
 	str r0, [r6, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212C6B4:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212C6BC:
 	ldr r12, [r7, #0x38]
@@ -2112,7 +2112,7 @@ _0212C72C:
 _0212C730:
 	cmp r2, #1
 	bne _0212C73C
-	bl FUN_02004160
+	bl OS_Terminate
 _0212C73C:
 	ldr r1, [r7, #0x3c]
 	ldr r0, [r7, #0x38]
@@ -3673,7 +3673,7 @@ _0212DC64:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DC80:
-	bl FUN_02004160
+	bl OS_Terminate
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DC8C:
@@ -4381,7 +4381,7 @@ _0212E670:
 	cmp r0, #0x16
 	addne sp, sp, #0x28
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	bl FUN_02004160
+	bl OS_Terminate
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E68C:
@@ -4905,7 +4905,7 @@ FUN_ov128_0212ed90: ; 0x0212ED90
 	ldr r0, [r0, #0x320]
 	cmp r0, #0
 	bne _0212EDB8
-	bl FUN_02004160
+	bl OS_Terminate
 _0212EDB8:
 	bl FUN_ov128_0212ed00
 	mov r0, r4
@@ -5217,7 +5217,7 @@ FUN_ov128_0212f19c: ; 0x0212F19C
 _0212F1C0:
 	cmp r6, r4
 	blo _0212F1CC
-	bl FUN_02004160
+	bl OS_Terminate
 _0212F1CC:
 	ldr r0, [r6, #0xc]
 	cmp r0, #0
@@ -5296,9 +5296,9 @@ _0212F2A4:
 _0212F2BC:
 	mov r0, r7
 	mov r1, r4
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	mov r0, r4
-	bl FUN_02001c28
+	bl OS_SleepThread
 	ldr r0, [r7, #0xc0]
 	cmp r0, #0
 	beq _0212F2BC
@@ -5310,7 +5310,7 @@ _0212F2DC:
 	str r1, [r7, #0xc0]
 	ldr r1, [r4, #4]
 	mov r1, r1, lsr #1
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldr r1, [r4, #8]
@@ -5323,7 +5323,7 @@ _0212F318:
 	mov r5, r0
 	mov r0, r7
 	ldr r6, [r4, #0xc]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	ldr r1, [r7, #0xc0]
 	cmp r1, #0
 	moveq r1, #0
@@ -5339,7 +5339,7 @@ _0212F358:
 	cmp r1, r0
 	beq _0212F368
 	mov r0, r7
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 _0212F368:
 	mov r0, #0
 	str r0, [r4]
@@ -5358,7 +5358,7 @@ _0212F38C:
 	bl OS_RestoreInterrupts
 	b _0212F2A4
 _0212F3A4:
-	bl FUN_02001a38
+	bl OS_ExitThread
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov128_0212f29c
 
@@ -5387,9 +5387,9 @@ FUN_ov128_0212f3ac: ; 0x0212F3AC
 	mov r2, r5
 	add r3, r3, r12
 	stmia sp, {r12, lr}
-	bl FUN_02001948
+	bl OS_CreateThread
 	mov r0, r5
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _0212F414:
 	mov r0, r4
 	bl OS_RestoreInterrupts
@@ -5448,7 +5448,7 @@ FUN_ov128_0212f474: ; 0x0212F474
 	cmp r6, #0x1f
 	bls _0212F4F8
 	mov r0, r4
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	cmp r6, #0x20
 	bne _0212F4D4
 	sub r6, r0, #1
@@ -5487,7 +5487,7 @@ _0212F4F8:
 	streq r1, [r0]
 	mov r0, r4
 	str r8, [r4, #0xc0]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	b _0212F5C8
 _0212F550:
 	cmp r8, r0

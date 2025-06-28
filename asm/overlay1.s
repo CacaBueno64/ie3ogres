@@ -976,7 +976,7 @@ _020BD8C0:
 	mov r4, #0x14
 _020BD8E0:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r5
 	bl FUN_0202b7b4
 	cmp r0, #0
@@ -989,7 +989,7 @@ _020BD8F8:
 	mov r4, #0x14
 _020BD90C:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r5
 	bl FUN_0202b7f0
 	cmp r0, #0
@@ -1474,7 +1474,7 @@ _020BDFA0:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BDFBC:
 	mov r0, #8
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, #0x10c
 	bl FUN_0201e014
 	cmp r0, #0

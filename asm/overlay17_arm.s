@@ -4745,7 +4745,7 @@ _020F84C0:
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	ldmeqfd sp!, {r4, r5, pc}
-	bl FUN_02004160
+	bl OS_Terminate
 	add sp, sp, #0x104
 	ldmfd sp!, {r4, r5, pc}
 _020F8550: .word ov17_021161C4
@@ -4921,12 +4921,12 @@ FUN_ov17_020f873c: ; 0x020F873C
 	bl FUN_02003398
 	cmp r0, #0
 	bne _020F8778
-	bl FUN_02004160
+	bl OS_Terminate
 _020F8778:
 	bl FUN_020035f4
 	cmp r0, #0
 	bne _020F8788
-	bl FUN_02004160
+	bl OS_Terminate
 _020F8788:
 	mov r4, #0
 	mov r0, r4
@@ -5398,7 +5398,7 @@ FUN_ov17_020f8d08: ; 0x020F8D08
 	bl FUN_ov17_0210b9d8
 	cmp r0, #0
 	bne _020F8DB0
-	bl FUN_02004160
+	bl OS_Terminate
 _020F8DB0:
 	mov r0, #0
 	ldr r1, _020F8DEC ; =FUN_ov17_020f8ea4
@@ -5681,10 +5681,10 @@ FUN_ov17_020f911c: ; 0x020F911C
 	blx FUN_ov17_020f42ec
 	cmp r0, #1
 	beq _020F9168
-	bl FUN_02004160
+	bl OS_Terminate
 _020F9168:
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _020F9178: .word ov17_021161F4
@@ -5699,7 +5699,7 @@ FUN_ov17_020f9188: ; 0x020F9188
 	blx FUN_ov17_020f43d4
 	cmp r0, #1
 	beq _020F919C
-	bl FUN_02004160
+	bl OS_Terminate
 _020F919C:
 	ldr r0, _020F91A8 ; =0x021161F4
 	bl FUN_ov17_0210e0cc
@@ -5743,7 +5743,7 @@ _020F9210:
 	blx FUN_ov17_020f44a0
 	cmp r0, #1
 	beq _020F9224
-	bl FUN_02004160
+	bl OS_Terminate
 _020F9224:
 	ldr r0, [sp, #0x20]
 	cmp r0, #0
@@ -5774,7 +5774,7 @@ FUN_ov17_020f9264: ; 0x020F9264
 	blx FUN_ov17_020f44a0
 	cmp r0, #1
 	beq _020F9280
-	bl FUN_02004160
+	bl OS_Terminate
 _020F9280:
 	add r0, sp, #0
 	bl FUN_ov17_02107650
@@ -16969,7 +16969,7 @@ _02102610: .word FUN_ov17_02102614
 FUN_ov17_02102614: ; 0x02102614
 	stmfd sp!, {r3, lr}
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov17_021027fc
 	bl FUN_ov17_02102634
 	bl FUN_ov17_0210266c
@@ -17308,7 +17308,7 @@ _02102A3C: .word FUN_ov17_02102a40
 FUN_ov17_02102a40: ; 0x02102A40
 	stmfd sp!, {r3, lr}
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov17_02102c0c
 	bl FUN_ov17_02102a60
 	bl FUN_ov17_02102a98
@@ -17868,7 +17868,7 @@ _0210314C: .word FUN_ov17_02103150
 FUN_ov17_02103150: ; 0x02103150
 	stmfd sp!, {r3, lr}
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov17_02103338
 	bl FUN_ov17_02103170
 	bl FUN_ov17_021031a8
@@ -20122,7 +20122,7 @@ FUN_ov17_02104f34: ; 0x02104F34
 	bl  FUN_ov15_020c3728
 	cmp r0, #0
 	bne _02104F90
-	bl FUN_02004160
+	bl OS_Terminate
 _02104F90:
 	ldr r0, [sp]
 	cmp r0, #0
@@ -22565,7 +22565,7 @@ _02106E54:
 	bl FUN_ov17_02106ce0
 	ldmfd sp!, {r3, pc}
 _02106E5C:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _02106E64: .word ov17_021162A0
 	arm_func_end FUN_ov17_02106e08
@@ -24729,7 +24729,7 @@ _02108AF4:
 	bl FUN_ov17_0210894c
 	ldmfd sp!, {r3, pc}
 _02108AFC:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _02108B04: .word ov17_021162B4
 	arm_func_end FUN_ov17_02108a74
@@ -25854,7 +25854,7 @@ _02109A50:
 	bl  FUN_ov128_0212e720
 	cmp r0, #0
 	beq _02109AB4
-	bl FUN_02004160
+	bl OS_Terminate
 _02109AB4:
 	mov r4, #1
 	mov r1, r4
@@ -25890,7 +25890,7 @@ _02109B18:
 	bl FUN_ov17_02109b30
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov17_02109ae8
 
@@ -26521,7 +26521,7 @@ _0210A3E8:
 	bl FUN_ov17_0210a400
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0210A3F4:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0210A3FC: .word ov17_021162BC
 	arm_func_end FUN_ov17_0210a0e4
@@ -27591,7 +27591,7 @@ FUN_ov17_0210b174: ; 0x0210B174
 	ldr r0, [r0, #0x40]
 	cmp r0, #7
 	beq _0210B190
-	bl FUN_02004160
+	bl OS_Terminate
 _0210B190:
 	mov r0, #1
 	bl FUN_ov17_0210a65c
@@ -27725,7 +27725,7 @@ FUN_ov17_0210b344: ; 0x0210B344
 	ldmnefd sp!, {r3, pc}
 	mov r0, #9
 	bl FUN_ov17_0210a65c
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_0210b344
 
@@ -27789,7 +27789,7 @@ FUN_ov17_0210b400: ; 0x0210B400
 	mov r5, r2
 	cmp r0, #1
 	beq _0210B428
-	bl FUN_02004160
+	bl OS_Terminate
 _0210B428:
 	ldr r0, [r4, #4]
 	mov r1, #0x180
@@ -28042,7 +28042,7 @@ FUN_ov17_0210b75c: ; 0x0210B75C
 	ldr r0, [r0, #0x40]
 	cmp r0, #1
 	beq _0210B778
-	bl FUN_02004160
+	bl OS_Terminate
 _0210B778:
 	mov r0, #3
 	bl FUN_ov17_0210a65c
@@ -28562,7 +28562,7 @@ _0210BE70:
 	bl FUN_ov17_0210b638
 	ldmfd sp!, {r3, pc}
 _0210BE78:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _0210BE80: .word ov17_021162C8
 	arm_func_end FUN_ov17_0210bddc
@@ -29069,9 +29069,9 @@ FUN_ov17_0210c500: ; 0x0210C500
 	bl FS_OpenFile
 	cmp r0, #0
 	bne _0210C540
-	bl FUN_02004160
+	bl OS_Terminate
 _0210C540:
-	bl FUN_02001440
+	bl OS_GetLockID
 	ldr r5, _0210C694 ; =0x021162CC
 	add r7, sp, #0xa0
 	ldr r1, [r5]
@@ -29100,7 +29100,7 @@ _0210C540:
 	bl FUN_0200d624
 	cmp r0, #0
 	bne _0210C5B8
-	bl FUN_02004160
+	bl OS_Terminate
 _0210C5B8:
 	ldr r5, _0210C694 ; =0x021162CC
 	ldr r1, _0210C6A0 ; =FUN_ov17_0210c728
@@ -29124,7 +29124,7 @@ _0210C5B8:
 	bl FUN_0200f7cc
 	cmp r0, #0
 	bne _0210C614
-	bl FUN_02004160
+	bl OS_Terminate
 _0210C614:
 	ldr r4, _0210C694 ; =0x021162CC
 	mov r1, #0
@@ -29185,7 +29185,7 @@ FUN_ov17_0210c6b4: ; 0x0210C6B4
 	bl FUN_0200d724
 	ldr r0, [r4]
 	ldrh r0, [r0, #0xe4]
-	bl FUN_02001498
+	bl OS_ReleaseLockID
 	ldr r0, [r4]
 	mov r5, #0
 	strh r5, [r0, #0xe4]
@@ -29215,7 +29215,7 @@ _0210C748:
 	ldr r0, _0210C788 ; =0x021162CC
 	ldr r0, [r0]
 	ldrh r0, [r0, #0xe4]
-	bl FUN_0200ff8c
+	bl CARD_LockRom
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _0210C760:
@@ -29293,7 +29293,7 @@ FUN_ov17_0210c7fc: ; 0x0210C7FC
 	bl FS_OpenFile
 	cmp r0, #0
 	bne _0210C844
-	bl FUN_02004160
+	bl OS_Terminate
 _0210C844:
 	add r0, sp, #4
 	bl FS_GetLength
@@ -29485,7 +29485,7 @@ FUN_ov17_0210cab0: ; 0x0210CAB0
 	bl FUN_ov17_0210d158
 	mov r5, r0
 	mov r0, #1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldr r1, [r4]
 	mov r6, r0
 	mla r0, r10, r11, r1
@@ -29554,10 +29554,10 @@ _0210CBC0:
 	cmp r4, r0
 	bne _0210CBDC
 _0210CBD8:
-	bl FUN_02004160
+	bl OS_Terminate
 _0210CBDC:
 	mov r0, r6
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r5
 	strb r9, [r5, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -29971,7 +29971,7 @@ FUN_ov17_0210d100: ; 0x0210D100
 	mov r5, r0
 	mov r0, #1
 	mov r4, r1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldrb r2, [r5, #3]
 	mov r6, r0
 	ldrh r1, [r5]
@@ -29981,14 +29981,14 @@ FUN_ov17_0210d100: ; 0x0210D100
 	mov r7, r0
 	cmp r7, r1
 	bne _0210D13C
-	bl FUN_02004160
+	bl OS_Terminate
 _0210D13C:
 	ldrb r1, [r5, #3]
 	mov r0, r6
 	add r1, r5, r1, lsl #2
 	str r4, [r1, #4]
 	strb r7, [r5, #3]
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov17_0210d100
 
@@ -29998,7 +29998,7 @@ FUN_ov17_0210d158: ; 0x0210D158
 	mov r6, r0
 	mov r0, #1
 	mov r4, #0
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldrb r2, [r6, #3]
 	ldrb r1, [r6, #2]
 	mov r5, r0
@@ -30014,7 +30014,7 @@ FUN_ov17_0210d158: ; 0x0210D158
 	ldr r4, [r0, #4]
 _0210D1A0:
 	mov r0, r5
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov17_0210d158
@@ -31114,7 +31114,7 @@ FUN_ov17_0210dff4: ; 0x0210DFF4
 	cmp r0, #0
 	str r0, [r1]
 	ldmnefd sp!, {r4, r5, r6, pc}
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r4, r5, r6, pc}
 _0210E038: .word ov17_021162E4
 	arm_func_end FUN_ov17_0210dff4
@@ -31137,7 +31137,7 @@ FUN_ov17_0210e05c: ; 0x0210E05C
 	mov r6, r0
 	mov r0, #1
 	mov r4, r1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldr r1, _0210E0A4 ; =0x021162E4
 	mov r5, r0
 	ldr r0, [r1]
@@ -31146,10 +31146,10 @@ FUN_ov17_0210e05c: ; 0x0210E05C
 	bl FUN_02017f04
 	movs r4, r0
 	bne _0210E094
-	bl FUN_02004160
+	bl OS_Terminate
 _0210E094:
 	mov r0, r5
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0210E0A4: .word ov17_021162E4
@@ -31173,7 +31173,7 @@ FUN_ov17_0210e0cc: ; 0x0210E0CC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldr r1, [r5]
 	mov r4, r0
 	cmp r1, #0
@@ -31182,7 +31182,7 @@ FUN_ov17_0210e0cc: ; 0x0210E0CC
 	ldr r0, [r0]
 	bl FUN_02017f34
 	mov r0, r4
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, #0
 	str r0, [r5]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -31194,7 +31194,7 @@ FUN_ov17_0210e110: ; 0x0210E110
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	mov r4, r0
 	cmp r5, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -31203,7 +31203,7 @@ FUN_ov17_0210e110: ; 0x0210E110
 	ldr r0, [r0]
 	bl FUN_02017f34
 	mov r0, r4
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}
 _0210E148: .word ov17_021162E4
 	arm_func_end FUN_ov17_0210e110
@@ -31221,7 +31221,7 @@ FUN_ov17_0210e14c: ; 0x0210E14C
 	bl FUN_02015f64
 	cmp r0, #0
 	bne _0210E17C
-	bl FUN_02004160
+	bl OS_Terminate
 _0210E17C:
 	add r0, sp, #0
 	bl FUN_02015ff8
@@ -31238,7 +31238,7 @@ _0210E17C:
 	bl FUN_020166c4
 	cmp r0, #0
 	beq _0210E1BC
-	bl FUN_02004160
+	bl OS_Terminate
 _0210E1BC:
 	bl FUN_ov17_0210e200
 	add sp, sp, #8
@@ -31781,18 +31781,18 @@ FUN_ov17_0210e90c: ; 0x0210E90C
 	ldr r1, [r6]
 	ldr r0, _0210E970 ; =0x00040018
 	str r1, [r4, #4]
-	bl FUN_02000fd0
+	bl OS_SetIrqMask
 	mov r5, #1
 	mov r0, r5
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r5
-	bl FUN_02000eb8
+	bl OS_GetIrqFunction
 	str r0, [r4]
 	ldr r1, _0210E974 ; =FUN_ov17_0210e9b0
 	mov r0, r5
-	bl FUN_02000e30
+	bl OS_SetIrqFunction
 	mov r0, r5
-	bl FUN_0200105c
+	bl OS_ResetRequestIrqMask
 	sub r1, r6, #8
 	ldrh r0, [r1]
 	strh r5, [r1]
@@ -31813,10 +31813,10 @@ FUN_ov17_0210e978: ; 0x0210E978
 	ldr r4, _0210E9AC ; =0x02116300
 	strh r0, [r2]
 	ldr r0, [r4, #4]
-	bl FUN_02000fd0
+	bl OS_SetIrqMask
 	ldr r1, [r4]
 	mov r0, #1
-	bl FUN_02000e30
+	bl OS_SetIrqFunction
 	ldmfd sp!, {r4, pc}
 _0210E9A8: .word 0x04000208
 _0210E9AC: .word ov17_02116300
@@ -31867,7 +31867,7 @@ FUN_ov17_0210ea20: ; 0x0210EA20
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, #1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldmia r4, {r2, r3}
 	str r3, [r2, #4]
 	ldr r3, [r4]
@@ -31876,7 +31876,7 @@ FUN_ov17_0210ea20: ; 0x0210EA20
 	str r3, [r2]
 	str r1, [r4, #4]
 	str r1, [r4]
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov17_0210ea20
 
@@ -31886,13 +31886,13 @@ FUN_ov17_0210ea58: ; 0x0210EA58
 	mov r5, r0
 	mov r0, #1
 	mov r4, r1
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldr r1, [r5]
 	str r4, [r1, #4]
 	ldr r1, [r5]
 	stmia r4, {r1, r5}
 	str r4, [r5]
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov17_0210ea58
 
@@ -32108,7 +32108,7 @@ FUN_ov17_0210ecf0: ; 0x0210ECF0
 	mov r6, r1, asr #2
 	mov r0, #1
 	strh r6, [r5, #0xa]
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	mov r11, r0
 	ldr r1, [r4]
 	mov r0, #0x1a0
@@ -32179,12 +32179,12 @@ _0210EE1C:
 	cmp r4, r0
 	bne _0210EE38
 _0210EE34:
-	bl FUN_02004160
+	bl OS_Terminate
 _0210EE38:
 	ldrh r1, [r5, #8]
 	mov r0, r11
 	str r1, [r8]
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0210EE50: .word ov17_0211630C
@@ -32574,7 +32574,7 @@ FUN_ov17_0210f328: ; 0x0210F328
 	strb r5, [r4, #0x10]
 	mov r0, #1
 	strb r1, [r4, #0x11]
-	bl FUN_0200102c
+	bl OS_DisableIrqMask
 	ldr r1, [r7]
 	mov r7, r0
 	add r0, r1, r6, lsl #6
@@ -32591,7 +32591,7 @@ _0210F394:
 	b _0210F37C
 _0210F39C:
 	mov r0, r7
-	bl FUN_02000ffc
+	bl OS_EnableIrqMask
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0210F3AC: .word ov17_02116344

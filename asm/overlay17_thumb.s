@@ -4120,7 +4120,7 @@ _020EFE76:
 	mov r4, #0x64
 _020EFE80:
 	add r0, r4, #0
-	blx FUN_02001eb0
+	blx OS_Sleep
 	ldr r0, [r5]
 	cmp r0, #0
 	beq _020EFE80
@@ -4849,14 +4849,14 @@ _020F0364:
 	b _020F047C
 _020F0378:
 	add r0, sp, #0x18
-	blx FUN_02003604
+	blx OS_CreateAlarm
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F0494 ; =0x003FEC42
 	ldr r3, _020F0498 ; =0x020F0181
 	add r0, sp, #0x18
 	add r2, r6, #0
-	blx FUN_0200373c
+	blx OS_SetAlarm
 _020F038E:
 	ldr r0, _020F049C ; =0x02114AA0
 	add r1, sp, #0x14
@@ -4970,7 +4970,7 @@ _020F0450:
 	blt _020F0450
 _020F0462:
 	add r0, sp, #0x18
-	blx FUN_02003818
+	blx OS_CancelAlarm
 	ldr r5, _020F049C ; =0x02114AA0
 	add r4, sp, #0x14
 	mov r6, #0
@@ -5075,14 +5075,14 @@ _020F052C:
 	mov r0, #0
 	str r0, [sp, #8]
 	add r0, sp, #0x14
-	blx FUN_02003604
+	blx OS_CreateAlarm
 	mov r0, #0x12
 	str r0, [sp]
 	ldr r1, _020F065C ; =0x003FEC42
 	ldr r3, _020F0660 ; =0x020F0181
 	add r0, sp, #0x14
 	mov r2, #0
-	blx FUN_0200373c
+	blx OS_SetAlarm
 	b _020F061C
 _020F0548:
 	ldr r0, _020F0664 ; =0x02114AA0
@@ -5129,7 +5129,7 @@ _020F0594:
 	cmp r6, #0
 	bne _020F061C
 	add r0, sp, #0x14
-	blx FUN_02003818
+	blx OS_CancelAlarm
 	ldr r0, _020F0668 ; =0x02114AC0
 	mov r1, #1
 	bl FUN_ov17_020f09ac
@@ -5200,7 +5200,7 @@ _020F061C:
 	cmp r4, #0
 	bne _020F0548
 	add r0, sp, #0x14
-	blx FUN_02003818
+	blx OS_CancelAlarm
 	ldr r5, _020F0664 ; =0x02114AA0
 	add r4, sp, #0x10
 	mov r6, #0
@@ -5237,9 +5237,9 @@ _020F066C: .word ov17_02114AC0
 
 	thumb_func_start FUN_020f0670
 FUN_020f0670: ; 0x020F0670
-	ldr r3, _020F0674 ; =FUN_02001eb0
+	ldr r3, _020F0674 ; =OS_Sleep
 	bx r3
-_020F0674: .word FUN_02001eb0
+_020F0674: .word OS_Sleep
 	thumb_func_end FUN_020f0670
 
 	thumb_func_start FUN_ov17_020f0678
@@ -6963,14 +6963,14 @@ FUN_ov17_020f1364: ; 0x020F1364
 	cmp r4, #0
 	ble _020F1386
 	ldr r0, _020F138C ; =0x02114CC4
-	blx FUN_02002408
+	blx OS_LockMutex
 	ldr r1, _020F1390 ; =0x02114C30
 	add r0, r4, #0
 	ldr r1, [r1, #4]
 	blx r1
 	add r4, r0, #0
 	ldr r0, _020F138C ; =0x02114CC4
-	blx FUN_02002458
+	blx OS_UnlockMutex
 	add r0, r4, #0
 	pop {r4, pc}
 _020F1386:
@@ -6989,13 +6989,13 @@ FUN_ov17_020f1394: ; 0x020F1394
 	cmp r2, #0
 	ble _020F13B2
 	ldr r0, _020F13B4 ; =0x02114CC4
-	blx FUN_02002408
+	blx OS_LockMutex
 	ldr r1, _020F13B8 ; =0x02114C30
 	add r0, r4, #0
 	ldr r1, [r1, #0xc]
 	blx r1
 	ldr r0, _020F13B4 ; =0x02114CC4
-	blx FUN_02002458
+	blx OS_UnlockMutex
 _020F13B2:
 	pop {r4, pc}
 _020F13B4: .word ov17_02114CC4
@@ -7141,7 +7141,7 @@ _020F14B4:
 	add r7, r4, #0
 _020F14B8:
 	mov r0, #0xa
-	blx FUN_02001eb0
+	blx OS_Sleep
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
 	beq _020F14E4
@@ -7185,7 +7185,7 @@ FUN_ov17_020f14fc: ; 0x020F14FC
 	mov r7, #0xa
 _020F150E:
 	add r0, r7, #0
-	blx FUN_02001eb0
+	blx OS_Sleep
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
 	beq _020F1536
@@ -7252,14 +7252,14 @@ _020F1572:
 	pop {r3, r4, r5, r6, r7, pc}
 _020F1586:
 	add r0, sp, #4
-	blx FUN_02003604
+	blx OS_CreateAlarm
 	mov r0, #0x12
 	str r0, [sp]
 	ldr r1, _020F1668 ; =0x003FEC42
 	ldr r3, _020F166C ; =0x020F144D
 	add r0, sp, #4
 	mov r2, #0
-	blx FUN_0200373c
+	blx OS_SetAlarm
 	mov r7, #0
 _020F159E:
 	bl FUN_ov17_020f4234
@@ -7280,7 +7280,7 @@ _020F15B0:
 	b _020F1630
 _020F15BE:
 	mov r0, #0xa
-	blx FUN_02001eb0
+	blx OS_Sleep
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
 	beq _020F162C
@@ -7342,7 +7342,7 @@ _020F162C:
 	bne _020F159E
 _020F1630:
 	add r0, sp, #4
-	blx FUN_02003818
+	blx OS_CancelAlarm
 _020F1636:
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
@@ -7390,7 +7390,7 @@ FUN_ov17_020f1678: ; 0x020F1678
 	mov r7, #0xa
 _020F1692:
 	add r0, r7, #0
-	blx FUN_02001eb0
+	blx OS_Sleep
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
 	beq _020F16BA
@@ -7719,21 +7719,21 @@ _020F18E8:
 	b _020F1B06
 _020F190A:
 	add r0, sp, #0x24
-	blx FUN_02003604
+	blx OS_CreateAlarm
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F1B2C ; =0x000FFB10
 	ldr r3, _020F1B30 ; =0x020F144D
 	add r0, sp, #0x24
 	mov r2, #0
-	blx FUN_0200373c
+	blx OS_SetAlarm
 	ldr r7, _020F1B20 ; =0x02114C30
 	mov r5, #1
 	mov r4, #0
 	add r6, sp, #0x24
 _020F1928:
 	mov r0, #0xa
-	blx FUN_02001eb0
+	blx OS_Sleep
 	bl FUN_ov17_020f4234
 	ldr r1, _020F1B24 ; =0x021127C8
 	ldr r1, [r1, #0xc]
@@ -7786,14 +7786,14 @@ _020F1984:
 	ble _020F19B0
 	add r4, r0, #0
 	add r0, r6, #0
-	blx FUN_02003818
+	blx OS_CancelAlarm
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F1B2C ; =0x000FFB10
 	ldr r3, _020F1B30 ; =0x020F144D
 	add r0, r6, #0
 	mov r2, #0
-	blx FUN_0200373c
+	blx OS_SetAlarm
 	b _020F19B0
 _020F19AA:
 	mov r5, #0
@@ -7809,7 +7809,7 @@ _020F19B8:
 	bne _020F1928
 _020F19BC:
 	add r0, sp, #0x24
-	blx FUN_02003818
+	blx OS_CancelAlarm
 _020F19C2:
 	bl FUN_ov17_020f13e4
 	cmp r0, #0
@@ -9312,7 +9312,7 @@ FUN_ov17_020f24b4: ; 0x020F24B4
 _020F24CC:
 	mov r0, #0x7d
 	lsl r0, r0, #2
-	blx FUN_02001eb0
+	blx OS_Sleep
 	ldr r0, _020F27FC ; =0x02114C30
 	ldr r0, [r0, #0x1c]
 	cmp r0, #0xa
@@ -13215,7 +13215,7 @@ _020F4332:
 	add sp, #8
 	pop {r4, r5, r6, pc}
 _020F434C:
-	blx FUN_02001938
+	blx OS_IsThreadAvailable
 	cmp r0, #1
 	beq _020F4360
 	add r0, r6, #0
@@ -13237,7 +13237,7 @@ _020F4360:
 	bic r3, r4
 	mov r2, #0
 	add r3, r5, r3
-	blx FUN_02001948
+	blx OS_CreateThread
 	ldr r0, _020F43BC ; =0x02114C30
 	mov r1, #1
 	str r1, [r0, #0x38]
@@ -13262,7 +13262,7 @@ _020F439E:
 	stmia r5!, {r0, r1}
 	bl FUN_ov17_020f44b4
 	ldr r0, _020F43C4 ; =0x02114CDC
-	blx FUN_02001ce0
+	blx OS_WakeupThreadDirect
 	ldr r1, _020F43BC ; =0x02114C30
 	mov r0, #1
 	str r0, [r1, #0x64]
@@ -13290,7 +13290,7 @@ FUN_ov17_020f43d4: ; 0x020F43D4
 	b _020F43EE
 _020F43E8:
 	add r0, r5, #0
-	blx FUN_02001eb0
+	blx OS_Sleep
 _020F43EE:
 	ldr r0, [r4, #0x38]
 	cmp r0, #1
@@ -13300,19 +13300,19 @@ _020F43EE:
 _020F43F8:
 	mov r0, #0x7d
 	lsl r0, r0, #2
-	blx FUN_02001eb0
+	blx OS_Sleep
 	ldr r0, _020F4464 ; =0x02114CDC
-	blx FUN_02001c14
+	blx OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020F4422
 	ldr r4, _020F4464 ; =0x02114CDC
 _020F440C:
 	add r0, r4, #0
-	blx FUN_02001ce0
+	blx OS_WakeupThreadDirect
 	add r0, r4, #0
-	blx FUN_02001bd8
+	blx OS_JoinThread
 	add r0, r4, #0
-	blx FUN_02001c14
+	blx OS_IsThreadTerminated
 	cmp r0, #0
 	beq _020F440C
 _020F4422:

@@ -53,7 +53,7 @@ _020BCBB4:
 	beq _020BCBF0
 	str r5, [r1, #4]
 	ldr r0, [r1]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020BCBF0:
 	ldr r4, [r4, #0x68]
 	cmp r4, #0
@@ -91,10 +91,10 @@ FUN_ov15_020bcc50: ; 0x020BCC50
 	ldr r0, [r0, #0x24]
 	cmp r0, #0
 	bne _020BCC6C
-	bl FUN_02001d50
+	bl OS_YieldThread
 	ldmfd sp!, {r3, pc}
 _020BCC6C:
-	bl FUN_02001eb0
+	bl OS_Sleep
 	ldmfd sp!, {r3, pc}
 _020BCC74: .word ov15_020E6D40
 	arm_func_end FUN_ov15_020bcc50
@@ -199,7 +199,7 @@ _020BCCB8:
 	ldr r3, _020BCE7C ; =0x020E8F00
 	mov r0, r7
 	mov r2, r4
-	bl FUN_02001948
+	bl OS_CreateThread
 	str r8, [sp]
 	ldr r0, [r5]
 	ldr r6, _020BCE80 ; =0x020E70B8
@@ -208,13 +208,13 @@ _020BCCB8:
 	ldr r3, _020BCE88 ; =0x020E8700
 	mov r0, r6
 	mov r2, r4
-	bl FUN_02001948
+	bl OS_CreateThread
 	mov r0, r7
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	mov r0, r6
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	ldr r0, _020BCE8C ; =0x020E6DD0
-	bl FUN_02003604
+	bl OS_CreateAlarm
 	str r8, [sp]
 	ldr r0, [r5]
 	ldr r1, _020BCE90 ; =FUN_ov15_020c1428
@@ -223,7 +223,7 @@ _020BCCB8:
 	ldr r0, _020BCE94 ; =0x020E6FF8
 	ldr r3, _020BCE98 ; =0x020E7F00
 	mov r2, r4
-	bl FUN_02001948
+	bl OS_CreateThread
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BCE48: .word 0x02000BC4
@@ -256,7 +256,7 @@ FUN_ov15_020bce9c: ; 0x020BCE9C
 	ldr r4, _020BCEE8 ; =0x020E70B8
 	mov r5, r0
 	mov r0, r4
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	movs r6, r0
 	ldreq r1, _020BCEEC ; =0x020E6D40
 	ldreq r0, [r1, #0x58]
@@ -265,7 +265,7 @@ FUN_ov15_020bce9c: ; 0x020BCE9C
 	mov r2, #1
 	mov r0, r4
 	str r2, [r1, #0x58]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020BCED8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
@@ -288,25 +288,25 @@ FUN_ov15_020bcf00: ; 0x020BCF00
 	stmfd sp!, {r3, r4, r5, lr}
 	bl FUN_ov15_020bce9c
 	ldr r0, _020BCF74 ; =0x020E70B8
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	ldr r0, _020BCF78 ; =0x020E7178
-	bl FUN_02001b44
+	bl OS_DestroyThread
 	ldr r0, _020BCF7C ; =0x020E6DD0
-	bl FUN_02003818
+	bl OS_CancelAlarm
 	bl OS_DisableInterrupts
 	ldr r4, _020BCF80 ; =0x020E6FF8
 	mov r5, r0
 	mov r0, r4
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020BCF44
 	mov r0, r4
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020BCF44:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldr r0, _020BCF80 ; =0x020E6FF8
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	mov r5, #0
 	ldr r4, _020BCF84 ; =0x020E6D40
 	mov r0, r5
@@ -330,10 +330,10 @@ FUN_ov15_020bcf88: ; 0x020BCF88
 	ldr r0, _020BCFB8 ; =0x020E7178
 	mov r1, r4
 	str r4, [r2]
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	ldr r0, _020BCFBC ; =0x020E70B8
 	mov r1, r4
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	ldmfd sp!, {r4, pc}
 _020BCFB4: .word ov15_020E4340
 _020BCFB8: .word ov15_020E7178
@@ -754,12 +754,12 @@ FUN_ov15_020bd4e8: ; 0x020BD4E8
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, [r4, #0x54]
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #0x54]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
 _020BD538: .word ov15_020E6D40
@@ -785,7 +785,7 @@ _020BD56C:
 	str r1, [sp]
 	ldr r1, [sp]
 	str r1, [r7, #0x54]
-	bl FUN_02001c28
+	bl OS_SleepThread
 	str r8, [r7, #0x54]
 	ldr r1, [r7, #0x64]
 	ldr r0, [r7, #0x60]
@@ -998,7 +998,7 @@ _020BD85C:
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r10
 	bl FUN_ov15_020bd64c
 	cmp r0, #0
@@ -2080,7 +2080,7 @@ _020BE76C:
 	mov r0, #0
 	str r0, [r4, #4]
 	ldr r0, [r4]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	b _020BE834
 _020BE828:
 	ldr r1, [r1, #0x68]
@@ -2709,7 +2709,7 @@ FUN_ov15_020befe0: ; 0x020BEFE0
 	bl FUN_ov15_020bee80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BF090:
-	bl FUN_02001d50
+	bl OS_YieldThread
 	mov r0, r4
 	mov r1, r6
 	bl FUN_ov15_020be97c
@@ -2740,7 +2740,7 @@ _020BF0E0:
 	bl FUN_ov15_020bed64
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BF0F4:
-	bl FUN_02001d50
+	bl OS_YieldThread
 	ldrh r12, [r5, #6]
 	ldrh r3, [r5, #4]
 	mov r0, r5
@@ -2784,7 +2784,7 @@ _020BF0F4:
 	mov r0, #0
 	str r0, [r4, #4]
 	ldr r0, [r4]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020bf0b8
 
@@ -3115,7 +3115,7 @@ _020BF604:
 	bne _020BF624
 	str r7, [r6, #4]
 	ldr r0, [r6]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020BF624:
 	cmp r4, #0
 	bne _020BF638
@@ -3190,7 +3190,7 @@ _020BF6FC:
 	bne _020BF738
 	str r5, [r6, #4]
 	ldr r0, [r6]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020BF738:
 	cmp r9, #0
 	beq _020BF78C
@@ -3212,7 +3212,7 @@ _020BF738:
 _020BF77C:
 	str r7, [r6, #4]
 	ldr r0, [r6]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	b _020BF858
 _020BF78C:
 	ldr r0, [sp]
@@ -3272,7 +3272,7 @@ _020BF834:
 _020BF854:
 	bl FUN_ov15_020becc4
 _020BF858:
-	bl FUN_02001d50
+	bl OS_YieldThread
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov15_020bf340
 
@@ -3320,7 +3320,7 @@ _020BF8C8:
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	str r1, [r4, #4]
 	ldr r0, [r4]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BF908:
 	ldr r2, [r4, #0x24]
@@ -3347,7 +3347,7 @@ FUN_ov15_020bf944: ; 0x020BF944
 	bl FUN_ov15_020beb04
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_02001d50
+	bl OS_YieldThread
 	mov r1, #0
 	strb r1, [r4, #8]
 	ldr r0, [r4, #4]
@@ -3356,7 +3356,7 @@ FUN_ov15_020bf944: ; 0x020BF944
 	ldmhifd sp!, {r4, pc}
 	str r1, [r4, #4]
 	ldr r0, [r4]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020bf944
 
@@ -3568,7 +3568,7 @@ _020BFC30:
 	mov r0, #0
 	str r0, [r4, #4]
 	ldr r0, [r4]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	b _020BFCB8
 _020BFC80:
 	ldr r3, [r4, #0x44]
@@ -4174,7 +4174,7 @@ _020C044C:
 	beq _020C049C
 	mov r0, r11
 	str r5, [r10, #4]
-	bl FUN_02001c28
+	bl OS_SleepThread
 _020C049C:
 	mov r0, r9
 	bl OS_RestoreInterrupts
@@ -4220,7 +4220,7 @@ _020C0514: .word 0x020939a4
 FUN_ov15_020c0518: ; 0x020C0518
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02001d50
+	bl OS_YieldThread
 	bl OS_DisableInterrupts
 	ldrb r2, [r4, #8]
 	add r1, r2, #0xfd
@@ -4323,7 +4323,7 @@ FUN_ov15_020c063c: ; 0x020C063C
 _020C0664:
 	mov r0, r4
 	str r5, [r8, #4]
-	bl FUN_02001c28
+	bl OS_SleepThread
 	ldr r6, [r8, #0x50]
 	cmp r6, #0
 	beq _020C0664
@@ -4360,7 +4360,7 @@ _020C06B4:
 _020C06DC:
 	mov r0, r6
 	str r7, [r4, #4]
-	bl FUN_02001c28
+	bl OS_SleepThread
 _020C06E8:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
@@ -4373,7 +4373,7 @@ _020C0700:
 	bl OS_RestoreInterrupts
 	b _020C0710
 _020C070C:
-	bl FUN_02001d50
+	bl OS_YieldThread
 _020C0710:
 	ldr r0, [r4, #0x50]
 	str r0, [r5]
@@ -4493,7 +4493,7 @@ _020C088C:
 	mov r1, #0
 	mov r2, #0x30
 	bl MI_CpuFill8
-	bl FUN_02004160
+	bl OS_Terminate
 _020C08A0:
 	mov r0, r4
 	bl OS_RestoreInterrupts
@@ -4571,7 +4571,7 @@ _020C0940:
 	mov r3, #0x18
 	bl FUN_ov15_020bdfd4
 	mov r4, r0
-	bl FUN_02001d50
+	bl OS_YieldThread
 	sub r5, r5, r4
 	add r10, r10, r4
 	sub r9, r9, r4
@@ -4925,7 +4925,7 @@ FUN_ov15_020c0e3c: ; 0x020C0E3C
 	ldr r0, [r4, #0x50]
 	bl FUN_ov15_020bd714
 	mov r0, #0x64
-	bl FUN_02001eb0
+	bl OS_Sleep
 	ldr r0, [r4, #0x50]
 	bl FUN_ov15_020bd714
 	bl FUN_02003410
@@ -4939,7 +4939,7 @@ _020C0E70:
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 _020C0E88:
 	ldr r0, [r4, #0x18]
 	blx r0
@@ -5003,7 +5003,7 @@ FUN_ov15_020c0ef4: ; 0x020C0EF4
 	str r6, [r0, #0x4c]
 _020C0F54:
 	mov r0, #0x3e8
-	bl FUN_02001eb0
+	bl OS_Sleep
 	ldr r0, _020C131C ; =0x020E6D40
 	ldr r0, [r0, #0x58]
 	cmp r0, #0
@@ -5232,7 +5232,7 @@ _020C1258:
 _020C126C:
 	str r8, [r0, #4]
 	ldr r0, [r0]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020C1278:
 	ldr r4, [r4, #0x68]
 	cmp r4, #0
@@ -5339,14 +5339,14 @@ _020C13D8:
 	beq _020C1408
 	ldr r6, _020C1420 ; =0x020E6DD0
 	mov r0, r6
-	bl FUN_02003818
+	bl OS_CancelAlarm
 	mov r4, #0
 	ldr r3, _020C1424 ; =FUN_ov15_020c1468
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0
 	str r4, [sp]
-	bl FUN_0200373c
+	bl OS_SetAlarm
 _020C1408:
 	mov r0, r7
 	bl OS_RestoreInterrupts
@@ -5363,16 +5363,16 @@ FUN_ov15_020c1428: ; 0x020C1428
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _020C1464 ; =0x020E70B8
 	mov r0, r5
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #0
 _020C1444:
 	bl FUN_ov15_020c1338
 	mov r0, r4
-	bl FUN_02001c28
+	bl OS_SleepThread
 	mov r0, r5
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	beq _020C1444
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -5382,10 +5382,10 @@ _020C1464: .word ov15_020E70B8
 	arm_func_start FUN_ov15_020c1468
 FUN_ov15_020c1468: ; 0x020C1468
 	ldr r0, _020C1474 ; =0x020E6FF8
-	ldr r12, _020C1478 ; =FUN_02001ce0
+	ldr r12, _020C1478 ; =OS_WakeupThreadDirect
 	bx r12
 _020C1474: .word ov15_020E6FF8
-_020C1478: .word FUN_02001ce0
+_020C1478: .word OS_WakeupThreadDirect
 	arm_func_end FUN_ov15_020c1468
 
 	arm_func_start FUN_ov15_020c147c
@@ -6099,7 +6099,7 @@ _020C1E60:
 	cmp r0, #0
 	bne _020C1E78
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020C1FB0
 _020C1E78:
 	add r0, sp, #0
@@ -9155,7 +9155,7 @@ _020C46E4:
 	mov r4, #0xa
 _020C46F4:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov15_020c3ae4
 	cmp r0, #0
 	beq _020C46F4
@@ -12057,7 +12057,7 @@ FUN_ov15_020c6cec: ; 0x020C6CEC
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_020023e4
+	bl OS_InitMutex
 	ldr r0, [r4, #4]
 	mov r1, #0
 	add r0, r0, #0x1000
@@ -12069,7 +12069,7 @@ FUN_ov15_020c6cec: ; 0x020C6CEC
 	beq _020C6D44
 	add r0, r1, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r4, pc}
@@ -12085,11 +12085,11 @@ _020C6D44:
 	str r3, [sp, #4]
 	add r0, r0, #0x1000
 	add r3, r12, #0x1000
-	bl FUN_02001948
+	bl OS_CreateThread
 	ldr r0, [r4, #4]
 	add r0, r0, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
 _020C6D8C: .word ov15_020E8F2C
@@ -12106,7 +12106,7 @@ FUN_ov15_020c6d98: ; 0x020C6D98
 	ldmeqfd sp!, {r4, pc}
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [r4, #4]
 	mov r1, #1
 	add r0, r0, #0x1000
@@ -12114,7 +12114,7 @@ FUN_ov15_020c6d98: ; 0x020C6D98
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0x314]
@@ -12130,13 +12130,13 @@ _020C6DF0:
 	ldmeqfd sp!, {r4, pc}
 	add r0, r1, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #4]
 	add r0, r0, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	ldmfd sp!, {r4, pc}
 _020C6E30: .word ov15_020E8F2C
 	arm_func_end FUN_ov15_020c6d98
@@ -12177,13 +12177,13 @@ FUN_ov15_020c6e84: ; 0x020C6E84
 	ldmeqfd sp!, {r4, pc}
 	add r0, r1, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #4]
 	add r0, r0, #0x318
 	add r0, r0, #0x1000
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	ldmfd sp!, {r4, pc}
 _020C6EC8: .word ov15_020E8F2C
 	arm_func_end FUN_ov15_020c6e84
@@ -12198,13 +12198,13 @@ FUN_ov15_020c6ecc: ; 0x020C6ECC
 	ldmeqfd sp!, {r4, pc}
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, [r4, #4]
 	add r0, r1, #0x3d8
 	add r1, r1, #0x1000
 	add r0, r0, #0x1000
 	ldr r4, [r1, #4]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020C6F10: .word ov15_020E8F2C
@@ -12307,7 +12307,7 @@ _020C7010:
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, _020C70A8 ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	ldr r1, [r4, #4]
 	mov r2, r0
 	add r0, r1, #0x1000
@@ -12339,7 +12339,7 @@ _020C70B4:
 	beq _020C7104
 	add r0, r1, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020C7104
 	ldr r0, _020C7358 ; =0x020E8F2C
@@ -12348,7 +12348,7 @@ _020C70B4:
 	ldr r0, [r0, #0x314]
 	add r0, r0, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020C7104:
 	ldr r0, _020C7358 ; =0x020E8F2C
 	ldr r0, [r0, #4]
@@ -12447,7 +12447,7 @@ _020C724C:
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r2, [r4, #4]
 	add r0, r2, #0x1000
 	ldr r1, [r0, #0x3f0]
@@ -12459,16 +12459,16 @@ _020C724C:
 	ldr r0, [r1, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0x14
 	bl FUN_ov15_020c7938
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C7298:
 	add r0, r2, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r6
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_02003410
 	subs r2, r0, r9
 	sbc r0, r1, r10
@@ -12490,7 +12490,7 @@ _020C72DC:
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r0, r11
 	bl FUN_ov15_020c6fa4
 	ldr r1, [r4, #4]
@@ -12506,12 +12506,12 @@ _020C72DC:
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C7344:
 	add r0, r2, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	b _020C70B4
 	arm_func_end FUN_ov15_020c70ac
 
@@ -12932,14 +12932,14 @@ FUN_ov15_020c7938: ; 0x020C7938
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1000
 	str r5, [r0, #4]
 	ldr r0, [r4, #4]
 	add r0, r0, #0x3d8
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C7974: .word ov15_020E8F2C
 	arm_func_end FUN_ov15_020c7938
@@ -13024,7 +13024,7 @@ _020C7A3C:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _020C7A74
-	bl FUN_02004160
+	bl OS_Terminate
 _020C7A74:
 	ldr r4, _020C7C84 ; =0x02FFFE0C
 	add r1, r5, #0x15
@@ -13034,7 +13034,7 @@ _020C7A74:
 	ldrb r0, [r4, #4]
 	cmp r0, #0
 	bne _020C7A98
-	bl FUN_02004160
+	bl OS_Terminate
 _020C7A98:
 	ldr r0, _020C7C88 ; =0x02FFFE10
 	add r1, r5, #0x1a
@@ -13518,10 +13518,10 @@ FUN_ov15_020c819c: ; 0x020C819C
 	add r0, r0, #0x1c00
 	mov r5, r1
 	str r4, [r2, #0xc4c]
-	bl FUN_020023e4
+	bl OS_InitMutex
 	add r0, r6, #0x254
 	add r0, r0, #0x1800
-	bl FUN_020023e4
+	bl OS_InitMutex
 	add r0, r6, #0x1000
 	ldr r0, [r0, #0x18]
 	cmp r0, #1
@@ -13536,7 +13536,7 @@ FUN_ov15_020c819c: ; 0x020C819C
 	beq _020C8218
 	add r0, r6, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -13549,10 +13549,10 @@ _020C8218:
 	add r0, r0, #0x1800
 	add r3, r6, #0x1000
 	str r5, [sp, #4]
-	bl FUN_02001948
+	bl OS_CreateThread
 	add r0, r6, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _020C8250: .word ov15_020E8F4C
@@ -13569,13 +13569,13 @@ FUN_ov15_020c8258: ; 0x020C8258
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #0x34
 	add r0, r0, #0x1c00
-	bl FUN_02002408
+	bl OS_LockMutex
 	add r0, r4, #0x34
 	add r1, r4, #0x1000
 	mov r2, #1
 	add r0, r0, #0x1c00
 	str r2, [r1, #0xc4c]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020c8258
 
@@ -13597,20 +13597,20 @@ FUN_ov15_020c8298: ; 0x020C8298
 _020C82CC:
 	add r0, r4, #0x34
 	add r0, r0, #0x1c00
-	bl FUN_02002408
+	bl OS_LockMutex
 	add r0, r4, #0x1000
 	ldr r0, [r0, #0xc4c]
 	cmp r0, #1
 	add r0, r4, #0x34
 	add r0, r0, #0x1c00
 	bne _020C82FC
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _020C82FC:
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020c8298
@@ -13671,14 +13671,14 @@ FUN_ov15_020c837c: ; 0x020C837C
 	add r1, r5, #0x254
 	add r6, r0, #4
 	add r0, r1, #0x1800
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, [r4, #4]
 	add r0, r5, #0x254
 	sub r2, r1, r6
 	add r1, r5, #0x1000
 	add r0, r0, #0x1800
 	str r2, [r1, #0xa70]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldr r6, _020C8464 ; =0x020E46B4
 	ldr r0, [r4]
 	mov r1, r6
@@ -13698,14 +13698,14 @@ FUN_ov15_020c837c: ; 0x020C837C
 	mov r1, #0
 	add r0, r0, #0x1800
 	strb r1, [r6]
-	bl FUN_02002408
+	bl OS_LockMutex
 	add r0, r8, r7
 	bl FUN_02024640
 	add r1, r5, #0x1000
 	add r2, r5, #0x254
 	str r0, [r1, #0xa6c]
 	add r0, r2, #0x1800
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	strb r4, [r6]
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -13846,12 +13846,12 @@ _020C85DC:
 	strb r0, [r1, r9]
 	bne _020C8684
 	add r0, r5, #0x1800
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, [r6]
 	add r0, r5, #0x1800
 	add r1, r1, r9
 	str r1, [r6]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	b _020C8690
 _020C8684:
 	mov r0, r10
@@ -14798,7 +14798,7 @@ FUN_ov15_020c9304: ; 0x020C9304
 	ldr r0, [r7, #4]
 	add r0, r0, #0x1dc
 	add r0, r0, #0x1000
-	bl FUN_020023e4
+	bl OS_InitMutex
 	bl FUN_ov15_020c9578
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -14888,13 +14888,13 @@ _020C94C8:
 	beq _020C9508
 	add r0, r1, #0x11c
 	add r0, r0, #0x1000
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020C9508
 	ldr r0, [r4, #4]
 	add r0, r0, #0x11c
 	add r0, r0, #0x1000
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020C9508:
 	ldr r0, _020C9520 ; =0x020E8F50
 	mvn r1, #6
@@ -14912,13 +14912,13 @@ FUN_ov15_020c9524: ; 0x020C9524
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1dc
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, [r4, #4]
 	add r0, r1, #0x1dc
 	add r1, r1, #0x1000
 	add r0, r0, #0x1000
 	ldr r4, [r1]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020C955C: .word ov15_020E8F50
@@ -14946,7 +14946,7 @@ FUN_ov15_020c9578: ; 0x020C9578
 	beq _020C95B0
 	add r0, r1, #0x11c
 	add r0, r0, #0x1000
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r4, pc}
@@ -14961,11 +14961,11 @@ _020C95B0:
 	str r3, [sp, #4]
 	add r0, r0, #0x1000
 	add r3, r2, #0x1000
-	bl FUN_02001948
+	bl OS_CreateThread
 	ldr r0, [r4, #4]
 	add r0, r0, #0x11c
 	add r0, r0, #0x1000
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
 _020C95F4: .word ov15_020E8F50
@@ -15033,7 +15033,7 @@ _020C96BC:
 _020C96D0:
 	ldr r0, _020CA21C ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	sub r1, r0, #1
 	ldr r0, [r4]
 	bl FUN_ov15_020c819c
@@ -15044,13 +15044,13 @@ _020C96D0:
 	beq _020C9720
 	add r0, r1, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020C9720
 	ldr r0, [r4]
 	add r0, r0, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020C9720:
 	ldr r0, [r4]
 	add r1, r0, #0x1000
@@ -15214,7 +15214,7 @@ _020C9950:
 	mvn r5, #0
 	ldr r0, [r0, #4]
 	ldr r4, _020CA20C ; =0x020E8F50
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	mov r1, r0
 	ldr r0, [r10]
 	sub r1, r1, #1
@@ -15226,13 +15226,13 @@ _020C9950:
 	beq _020C99AC
 	add r0, r1, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020C99AC
 	ldr r0, [r10]
 	add r0, r0, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020C99AC:
 	ldr r0, [r4]
 	add r1, r0, #0x1000
@@ -15468,7 +15468,7 @@ _020C9CAC:
 _020C9CE8:
 	ldr r0, _020CA21C ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	sub r1, r0, #1
 	ldr r0, [r4]
 	bl FUN_ov15_020c819c
@@ -15479,13 +15479,13 @@ _020C9CE8:
 	beq _020C9D38
 	add r0, r1, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020C9D38
 	ldr r0, [r4]
 	add r0, r0, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020C9D38:
 	ldr r0, [r4]
 	add r1, r0, #0x1000
@@ -15733,7 +15733,7 @@ _020CA084:
 _020CA098:
 	ldr r0, _020CA21C ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	sub r1, r0, #1
 	ldr r0, [r4]
 	bl FUN_ov15_020c819c
@@ -15744,13 +15744,13 @@ _020CA098:
 	beq _020CA0E8
 	add r0, r1, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020CA0E8
 	ldr r0, [r4]
 	add r0, r0, #0x374
 	add r0, r0, #0x1800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 _020CA0E8:
 	ldr r0, [r4]
 	add r1, r0, #0x1000
@@ -15808,7 +15808,7 @@ _020CA188:
 	ldr r0, [r4]
 	bl FUN_ov15_020c8778
 	mov r0, r11
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020C9658
 _020CA1B8:
 	cmp r7, #0
@@ -15868,14 +15868,14 @@ FUN_ov15_020ca26c: ; 0x020CA26C
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1dc
 	add r0, r0, #0x1000
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1000
 	str r5, [r0]
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1dc
 	add r0, r0, #0x1000
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CA2A8: .word ov15_020E8F50
 	arm_func_end FUN_ov15_020ca26c
@@ -15964,10 +15964,10 @@ FUN_ov15_020ca380: ; 0x020CA380
 	beq _020CA3DC
 	add r0, r1, #0x37c
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #0
 	bne _020CA3DC
-	bl FUN_02004160
+	bl OS_Terminate
 _020CA3DC:
 	ldr r0, _020CA5A0 ; =0x020E441C
 	mov r1, #0x1000
@@ -16067,7 +16067,7 @@ _020CA50C:
 _020CA544:
 	ldr r0, _020CA5BC ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	ldr r2, [r4]
 	sub r1, r0, #1
 	add r0, r2, #8
@@ -16113,7 +16113,7 @@ FUN_ov15_020ca5c0: ; 0x020CA5C0
 	ldmeqfd sp!, {r4, pc}
 	add r0, r1, #0x37c
 	add r0, r0, #0x1800
-	bl FUN_02001c14
+	bl OS_IsThreadTerminated
 	cmp r0, #1
 	bne _020CA674
 	ldr r1, [r4]
@@ -16431,7 +16431,7 @@ _020CAA38:
 	bl FUN_ov15_020ca9a4
 	cmp r0, #0
 	bne _020CAA5C
-	bl FUN_02004160
+	bl OS_Terminate
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020CAA5C:
@@ -18464,7 +18464,7 @@ FUN_ov15_020cc544: ; 0x020CC544
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _020CC55C
-	bl FUN_02004160
+	bl OS_Terminate
 _020CC55C:
 	ldr r5, _020CC5F0 ; =0x00001E5C
 	mov r0, #4
@@ -18765,20 +18765,20 @@ FUN_ov15_020cc970: ; 0x020CC970
 	ldr r0, [r4, #0x18]
 	add r0, r0, #0x1b8
 	add r0, r0, #0x800
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	ldr r0, [r4, #0x18]
 	bl FUN_ov15_020cc958
 	ldr r5, _020CC9C4 ; =0x020E908C
 	mov r1, #0
 	mov r0, r5
 	str r1, [r4, #0x18]
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r1, #3
 	mov r0, r5
 	str r1, [r4, #0x14]
 	mov r1, #4
 	str r1, [r4, #0x10]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CC9C0: .word ov15_020E9070
 _020CC9C4: .word ov15_020E908C
@@ -18889,7 +18889,7 @@ _020CCB28:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020CCB40:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020CC9D4
 	arm_func_end FUN_ov15_020cc9c8
 
@@ -18917,7 +18917,7 @@ FUN_ov15_020ccb6c: ; 0x020CCB6C
 	bl FUN_ov15_020cd8e0
 _020CCB8C:
 	ldr r0, _020CCBC4 ; =0x020E908C
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, _020CCBC8 ; =0x020E9070
 	mov r1, #3
 	str r1, [r0, #0x14]
@@ -18928,7 +18928,7 @@ _020CCB8C:
 	movne r1, #4
 	strne r1, [r0, #0x14]
 	ldr r0, _020CCBC4 ; =0x020E908C
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r4, r5, r6, pc}
 _020CCBC4: .word ov15_020E908C
 _020CCBC8: .word ov15_020E9070
@@ -18948,9 +18948,9 @@ FUN_ov15_020ccbcc: ; 0x020CCBCC
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r4, _020CCD48 ; =0x020E908C
 	mov r0, r4
-	bl FUN_020023e4
+	bl OS_InitMutex
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r8, _020CCD4C ; =0x020E9070
 	ldr r0, [r8, #0x14]
 	cmp r0, #0
@@ -18960,7 +18960,7 @@ FUN_ov15_020ccbcc: ; 0x020CCBCC
 	mov r0, #2
 	bl FUN_ov15_020cd8e0
 	mov r0, r4
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	add sp, sp, #8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -18968,7 +18968,7 @@ _020CCC3C:
 	mov r1, #2
 	mov r0, r4
 	str r1, [r8, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r4, #0
 	str r4, [r8, #0x10]
 	str r4, [r8, #0xc]
@@ -19026,11 +19026,11 @@ _020CCD00:
 	str r0, [sp, #4]
 	add r0, r3, #0x800
 	add r3, r3, #0x800
-	bl FUN_02001948
+	bl OS_CreateThread
 	ldr r0, [r8, #0x18]
 	add r0, r0, #0x1b8
 	add r0, r0, #0x800
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -19047,7 +19047,7 @@ FUN_ov15_020ccd5c: ; 0x020CCD5C
 	ldr r0, _020CCE1C ; =0x020E908C
 	mov r4, #0
 	mov r5, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, _020CCE20 ; =0x020E9070
 	ldr r2, [r0, #0x10]
 	cmp r2, #0
@@ -19074,7 +19074,7 @@ _020CCDB4:
 	streq r1, [r0, #0x10]
 	ldr r0, _020CCE1C ; =0x020E908C
 	moveq r5, #1
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldr r2, _020CCE20 ; =0x020E9070
 	ldr r3, [r2]
 	cmp r3, #0
@@ -19108,19 +19108,19 @@ FUN_ov15_020cce24: ; 0x020CCE24
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r5, _020CCEA0 ; =0x020E908C
 	mov r0, r5
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [r4, #0x14]
 	cmp r0, #0
 	bne _020CCE64
 	mov r0, r5
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CCE64:
 	mov r1, #2
 	mov r0, r5
 	str r1, [r4, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldr r0, [r4, #0x18]
 	ldr r0, [r0, #0x40]
 	cmp r0, #0
@@ -19165,7 +19165,7 @@ FUN_ov15_020ccedc: ; 0x020CCEDC
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r5, _020CCF74 ; =0x020E908C
 	mov r0, r5
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r4, _020CCF78 ; =0x020E9070
 	ldr r0, [r4, #0x14]
 	cmp r0, #1
@@ -19175,25 +19175,25 @@ FUN_ov15_020ccedc: ; 0x020CCEDC
 	mov r0, #2
 	bl FUN_ov15_020cd8e0
 	mov r0, r5
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _020CCF30:
 	mov r1, #2
 	mov r0, r5
 	str r1, [r4, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r6
 	bl FUN_ov15_020ce468
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, r5
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r1, #1
 	mov r0, r5
 	str r1, [r4, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _020CCF74: .word ov15_020E908C
@@ -19212,7 +19212,7 @@ FUN_ov15_020ccf7c: ; 0x020CCF7C
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r5, _020CD038 ; =0x020E908C
 	mov r0, r5
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r9, _020CD03C ; =0x020E9070
 	mov r4, #0
 	ldr r0, [r9, #0x14]
@@ -19222,14 +19222,14 @@ FUN_ov15_020ccf7c: ; 0x020CCF7C
 	mov r0, #2
 	bl FUN_ov15_020cd8e0
 	mov r0, r5
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020CCFD8:
 	mov r1, #2
 	mov r0, r5
 	str r1, [r9, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0xb0
 	mul r2, r6, r0
 	mov r0, r8
@@ -19243,11 +19243,11 @@ _020CCFD8:
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r5
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r1, #1
 	mov r0, r5
 	str r1, [r9, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020CD038: .word ov15_020E908C
@@ -19266,7 +19266,7 @@ FUN_ov15_020cd040: ; 0x020CD040
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r4, _020CD0F0 ; =0x020E908C
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r8, _020CD0F4 ; =0x020E9070
 	ldr r0, [r8, #0x14]
 	cmp r0, #1
@@ -19276,14 +19276,14 @@ FUN_ov15_020cd040: ; 0x020CD040
 	mov r0, #2
 	bl FUN_ov15_020cd8e0
 	mov r0, r4
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020CD09C:
 	mov r1, #2
 	mov r0, r4
 	str r1, [r8, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r9, #0
 	mov r0, r7
 	mov r1, r6
@@ -19294,11 +19294,11 @@ _020CD09C:
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r1, #1
 	mov r0, r4
 	str r1, [r8, #0x14]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r9
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020CD0F0: .word ov15_020E908C
@@ -19314,17 +19314,17 @@ FUN_ov15_020cd0f8: ; 0x020CD0F8
 	ldmnefd sp!, {r4, pc}
 	ldr r4, _020CD150 ; =0x020E908C
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, _020CD154 ; =0x020E9070
 	ldr r0, [r0, #0x14]
 	cmp r0, #2
 	mov r0, r4
 	beq _020CD138
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _020CD138:
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	bl FUN_ov15_020cd9b0
 	cmp r0, #0
 	movne r0, #1
@@ -19345,17 +19345,17 @@ FUN_ov15_020cd158: ; 0x020CD158
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r4, _020CD1B4 ; =0x020E908C
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, _020CD1B8 ; =0x020E9070
 	ldr r0, [r0, #0x14]
 	cmp r0, #2
 	mov r0, r4
 	beq _020CD1A0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _020CD1A0:
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r6
 	mov r1, r5
 	bl FUN_ov15_020ce93c
@@ -21323,7 +21323,7 @@ _020CEC80: .word ov15_020E58AC
 FUN_ov15_020cec84: ; 0x020CEC84
 	stmfd sp!, {r3, lr}
 	ldr r0, _020CEC98 ; =0x020E9140
-	bl FUN_020023e4
+	bl OS_InitMutex
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 _020CEC98: .word ov15_020E9140
@@ -21337,26 +21337,26 @@ FUN_ov15_020cec9c: ; 0x020CEC9C
 	arm_func_start FUN_ov15_020ceca0
 FUN_ov15_020ceca0: ; 0x020CECA0
 	ldr r0, _020CECAC ; =0x020E9140
-	ldr r12, _020CECB0 ; =FUN_02002408
+	ldr r12, _020CECB0 ; =OS_LockMutex
 	bx r12
 _020CECAC: .word ov15_020E9140
-_020CECB0: .word FUN_02002408
+_020CECB0: .word OS_LockMutex
 	arm_func_end FUN_ov15_020ceca0
 
 	arm_func_start FUN_ov15_020cecb4
 FUN_ov15_020cecb4: ; 0x020CECB4
 	ldr r0, _020CECC0 ; =0x020E9140
-	ldr r12, _020CECC4 ; =FUN_02002458
+	ldr r12, _020CECC4 ; =OS_UnlockMutex
 	bx r12
 _020CECC0: .word ov15_020E9140
-_020CECC4: .word FUN_02002458
+_020CECC4: .word OS_UnlockMutex
 	arm_func_end FUN_ov15_020cecb4
 
 	arm_func_start FUN_ov15_020cecc8
 FUN_ov15_020cecc8: ; 0x020CECC8
 	stmfd sp!, {r3, lr}
 	ldr r0, _020CECE8 ; =0x020E9128
-	bl FUN_020023e4
+	bl OS_InitMutex
 	ldr r0, _020CECEC ; =0x020E90A4
 	mov r1, #0
 	str r1, [r0, #0x20]
@@ -21375,7 +21375,7 @@ FUN_ov15_020cecf0: ; 0x020CECF0
 FUN_ov15_020cecf4: ; 0x020CECF4
 	stmfd sp!, {r4, lr}
 	ldr r0, _020CED34 ; =0x020E9128
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, _020CED38 ; =0x020E90A4
 	mov r4, #1
 	ldr r0, [r0, #0x20]
@@ -21386,7 +21386,7 @@ FUN_ov15_020cecf4: ; 0x020CECF4
 	movne r1, #1
 	strne r1, [r0, #0x20]
 	ldr r0, _020CED34 ; =0x020E9128
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020CED34: .word ov15_020E9128
@@ -21398,12 +21398,12 @@ FUN_ov15_020ced3c: ; 0x020CED3C
 	stmfd sp!, {r4, lr}
 	ldr r4, _020CED64 ; =0x020E9128
 	mov r0, r4
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, _020CED68 ; =0x020E90A4
 	mov r2, #0
 	mov r0, r4
 	str r2, [r1, #0x20]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r4, pc}
 _020CED64: .word ov15_020E9128
 _020CED68: .word ov15_020E90A4
@@ -21584,16 +21584,16 @@ _020CEF58:
 
 	arm_func_start FUN_ov15_020cef60
 FUN_ov15_020cef60: ; 0x020CEF60
-	ldr r12, _020CEF68 ; =FUN_020023e4
+	ldr r12, _020CEF68 ; =OS_InitMutex
 	bx r12
-_020CEF68: .word FUN_020023e4
+_020CEF68: .word OS_InitMutex
 	arm_func_end FUN_ov15_020cef60
 
 	arm_func_start FUN_ov15_020cef6c
 FUN_ov15_020cef6c: ; 0x020CEF6C
-	ldr r12, _020CEF74 ; =FUN_02002408
+	ldr r12, _020CEF74 ; =OS_LockMutex
 	bx r12
-_020CEF74: .word FUN_02002408
+_020CEF74: .word OS_LockMutex
 	arm_func_end FUN_ov15_020cef6c
 
 	arm_func_start FUN_ov15_020cef78
@@ -21620,9 +21620,9 @@ _020CEFB0:
 	add r3, r4, #0x2000
 	mov r2, #0
 	str r5, [sp, #4]
-	bl FUN_02001948
+	bl OS_CreateThread
 	add r0, r6, #0x2c
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -21637,7 +21637,7 @@ FUN_ov15_020cefe8: ; 0x020CEFE8
 	str r2, [r1, #0x18]
 	bl FUN_ov15_020cf01c
 	add r0, r4, #0x2c
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020cefe8
 
@@ -21677,7 +21677,7 @@ _020CF058:
 	cmp r2, r0
 	ldmnefd sp!, {r3, pc}
 _020CF068:
-	bl FUN_02004160
+	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _020CF070: .word 0x020939a4
 	arm_func_end FUN_ov15_020cf030
@@ -21765,7 +21765,7 @@ _020CF134:
 	b _020CF158
 _020CF148:
 	mov r0, r7
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov15_020d6598
 	add r9, r9, #0x1f4
 _020CF158:
@@ -27231,7 +27231,7 @@ FUN_ov15_020d3b2c: ; 0x020D3B2C
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _020D3B48:
 	add r0, r4, #0x1c
-	bl FUN_02001c28
+	bl OS_SleepThread
 	ldr r0, [r5, #0xc]
 	cmp r0, #0
 	bne _020D3B48
@@ -27246,7 +27246,7 @@ FUN_ov15_020d3b60: ; 0x020D3B60
 	mov r1, #0
 	add r0, r0, #0x1c
 	str r1, [r4, #0xc]
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020d3b60
 
@@ -27712,9 +27712,9 @@ _020D409C: .word FUN_ov15_020cef6c
 
 	arm_func_start FUN_ov15_020d40a0
 FUN_ov15_020d40a0: ; 0x020D40A0
-	ldr r12, _020D40A8 ; =FUN_02002458
+	ldr r12, _020D40A8 ; =OS_UnlockMutex
 	bx r12
-_020D40A8: .word FUN_02002458
+_020D40A8: .word OS_UnlockMutex
 	arm_func_end FUN_ov15_020d40a0
 
 	arm_func_start FUN_ov15_020d40ac
@@ -28557,7 +28557,7 @@ _020D4B38:
 	mov r8, r0
 	bl OS_DisableInterrupts
 	mov r7, r0
-	bl FUN_02001fa8
+	bl OS_DisableScheduler
 	mov r0, r9
 	mov r1, r4
 	mov r2, r4
@@ -28576,7 +28576,7 @@ _020D4B38:
 _020D4BAC:
 	ldr r0, [sp]
 	bl FUN_ov15_020d49d8
-	bl FUN_02001fd8
+	bl OS_EnableScheduler
 	mov r0, r7
 	bl OS_RestoreInterrupts
 	b _020D4B38
@@ -28857,7 +28857,7 @@ FUN_ov15_020d4f24: ; 0x020D4F24
 	mov r1, r7
 	bl FUN_02002174
 	add r0, r6, #0xe0
-	bl FUN_020023e4
+	bl OS_InitMutex
 	ldrh r2, [r5]
 	ldrb r1, [r5, #2]
 	add r0, r6, #0x20
@@ -28866,9 +28866,9 @@ FUN_ov15_020d4f24: ; 0x020D4F24
 	ldr r1, _020D4F94 ; =FUN_ov15_020d4b1c
 	mov r2, r6
 	add r3, r7, r4
-	bl FUN_02001948
+	bl OS_CreateThread
 	add r0, r6, #0x20
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 	add r0, r7, r4
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -29039,7 +29039,7 @@ FUN_ov15_020d51ac: ; 0x020D51AC
 	mov r6, #0
 	ldr r5, [r4, #0xa0]
 	add r0, r5, #0xe0
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrh r0, [r7, #0x10]
 	ldrh r1, [r7, #0x12]
 	ldr r2, [r7, #0x14]
@@ -29053,7 +29053,7 @@ FUN_ov15_020d51ac: ; 0x020D51AC
 	mov r6, r0
 _020D51F4:
 	add r0, r5, #0xe0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	cmp r6, #0
 	ldrnesh r1, [r4, #0xac]
 	mvnne r0, #0x4b
@@ -29094,7 +29094,7 @@ _020D5268:
 	mov r5, #0
 	b _020D529C
 _020D5284:
-	bl FUN_02003e0c
+	bl OS_GetProcMode
 	cmp r0, #0x12
 	addeq sp, sp, #0xc
 	mvneq r0, #0x1b
@@ -29134,14 +29134,14 @@ _020D5304:
 	tst r5, #1
 	add r0, r4, #0xe0
 	bne _020D532C
-	bl FUN_020024b0
+	bl OS_TryLockMutex
 	cmp r0, #0
 	bne _020D5330
 	add sp, sp, #0xc
 	mvn r0, #5
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _020D532C:
-	bl FUN_02002408
+	bl OS_LockMutex
 _020D5330:
 	ldr r0, [sp, #0x28]
 	ldr r12, [sp, #0x2c]
@@ -29154,7 +29154,7 @@ _020D5330:
 	bl FUN_ov15_020d536c
 	mov r5, r0
 	add r0, r4, #0xe0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -29407,7 +29407,7 @@ _020D5680:
 	movne r0, #0
 	bne _020D56D4
 	mov r0, r11
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020D5680
 _020D56D4:
 	ldrsh r1, [r7, #0xac]
@@ -29537,7 +29537,7 @@ _020D586C:
 	mvneq r8, #5
 	beq _020D58C4
 	add r0, r6, #0x10c
-	bl FUN_02001c28
+	bl OS_SleepThread
 	mov r0, r10
 	bl FUN_ov15_020d6db4
 	cmp r0, #0
@@ -29674,7 +29674,7 @@ _020D5A4C:
 	str r1, [r7, #0x1c]
 	streqh r0, [r7, #0xb0]
 	add r0, r4, #0x10c
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	mov r0, r6
 	bl OS_RestoreInterrupts
 	mov r0, #1
@@ -29734,7 +29734,7 @@ _020D5B20:
 	bne _020D5B5C
 _020D5B3C:
 	add r0, r4, #0xe0
-	bl FUN_020024b0
+	bl OS_TryLockMutex
 	cmp r0, #0
 	addeq sp, sp, #8
 	mvneq r0, #5
@@ -29743,7 +29743,7 @@ _020D5B3C:
 	b _020D5B68
 _020D5B5C:
 	add r0, r4, #0xe0
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r12, #1
 _020D5B68:
 	ldr r1, [sp, #0x20]
@@ -29756,7 +29756,7 @@ _020D5B68:
 	bl FUN_ov15_020d5ba0
 	mov r5, r0
 	add r0, r4, #0xe0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -29868,7 +29868,7 @@ _020D5D00:
 	moveq r5, #0
 	beq _020D5D18
 	add r0, r4, #0x104
-	bl FUN_02001c28
+	bl OS_SleepThread
 	b _020D5CD4
 _020D5D18:
 	mov r0, r11
@@ -30078,7 +30078,7 @@ _020D5FD4:
 	add r1, r6, #0x100
 	add r0, r6, #0x104
 	strh r2, [r1, #2]
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	mov r0, r7
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_ov15_020d5eb8
@@ -30360,7 +30360,7 @@ FUN_ov15_020d6364: ; 0x020D6364
 	beq _020D63A0
 	ldr r0, [r4, #0xa4]
 	add r0, r0, #0x20
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	bl FUN_ov15_020c0578
 	bl FUN_ov15_020c05b4
 	bl FUN_ov15_020c03d4
@@ -30436,7 +30436,7 @@ _020D6478:
 	str r1, [r0, #0x104]
 	ldr r0, [r4, #0xa0]
 	add r0, r0, #0x10c
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	ldr r0, [r4, #0xa0]
 	b _020D64B8
 _020D64AC:
@@ -30469,10 +30469,10 @@ FUN_ov15_020d64f8: ; 0x020D64F8
 	movs r9, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r9, #0x20
-	bl FUN_02001bd8
+	bl OS_JoinThread
 	bl OS_DisableInterrupts
 	mov r8, r0
-	bl FUN_02001fa8
+	bl OS_DisableScheduler
 	add r7, sp, #0
 	mov r0, r9
 	mov r1, r7
@@ -30504,8 +30504,8 @@ _020D656C:
 	cmp r0, #0
 	bne _020D6540
 _020D6584:
-	bl FUN_02001fd8
-	bl FUN_02001d34
+	bl OS_EnableScheduler
+	bl OS_RescheduleThread
 	mov r0, r8
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -30548,7 +30548,7 @@ FUN_ov15_020d65d4: ; 0x020D65D4
 	mov r5, #0x64
 _020D6604:
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 	bl FUN_ov15_020d6744
 	cmp r0, r4
 	beq _020D6604
@@ -30801,11 +30801,11 @@ FUN_ov15_020d692c: ; 0x020D692C
 	and r0, r0, #3
 	cmp r0, #1
 	bne _020D697C
-	bl FUN_02003e0c
+	bl OS_GetProcMode
 	cmp r0, #0x12
 	beq _020D697C
 	mov r0, #0xa
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020D697C
 _020D696C:
 	ldr r0, _020D6990 ; =0x020ED464
@@ -31694,7 +31694,7 @@ _020D7480:
 	bge _020D74B4
 _020D749C:
 	mov r0, #1
-	bl FUN_02001eb0
+	bl OS_Sleep
 	ldr r0, _020D74BC ; =0x0000020B
 	subs r9, r9, r0
 	sbc r8, r8, #0
@@ -31770,7 +31770,7 @@ FUN_ov15_020d7580: ; 0x020D7580
 	ldr r6, [r5, #0xa0]
 	add r0, r6, #0xe0
 	ldr r7, [r6, #0xc4]
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r1, [r4, #0x10]
 	cmp r1, #0
 	beq _020D75C0
@@ -31788,7 +31788,7 @@ _020D75C0:
 	str r4, [r7, #0xc]
 _020D75D4:
 	add r0, r6, #0xe0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020d7580
@@ -32035,11 +32035,11 @@ FUN_ov15_020d78dc: ; 0x020D78DC
 	ldr r0, _020D7920 ; =0x020939a4
 	ldr r6, [r0, #4]
 	mov r0, r6
-	bl FUN_02001ea8
+	bl OS_GetThreadPriority
 	mov r5, r0
 	ldr r1, [r4, #4]
 	mov r0, r6
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D791C: .word ov15_020E5A54
@@ -32054,7 +32054,7 @@ FUN_ov15_020d7924: ; 0x020D7924
 	ldmhsfd sp!, {r3, pc}
 	ldr r0, _020D7944 ; =0x020939a4
 	ldr r0, [r0, #4]
-	bl FUN_02001e00
+	bl OS_SetThreadPriority
 	ldmfd sp!, {r3, pc}
 _020D7944: .word 0x020939a4
 	arm_func_end FUN_ov15_020d7924
@@ -35409,7 +35409,7 @@ _020DA764:
 	strb r6, [r1, #8]
 	str r6, [r1, #4]
 	ldr r0, [r1]
-	bl FUN_02001ce0
+	bl OS_WakeupThreadDirect
 _020DA7C8:
 	ldr r4, [r4, #0x68]
 	cmp r4, #0
@@ -37670,7 +37670,7 @@ _020DC6F8:
 	ldr r0, [r0, #4]
 	add r0, r0, #0x294
 	add r0, r0, #0x1000
-	bl FUN_02003604
+	bl OS_CreateAlarm
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	mov r0, #0
@@ -38494,7 +38494,7 @@ FUN_ov15_020dd160: ; 0x020DD160
 	beq _020DD19C
 	add r0, r1, #0x294
 	add r0, r0, #0x1000
-	bl FUN_02003818
+	bl OS_CancelAlarm
 _020DD19C:
 	ldr r0, _020DD1FC ; =0x020ED7F4
 	ldr r0, [r0, #4]
@@ -38508,7 +38508,7 @@ _020DD19C:
 	ldr r0, [r5, #4]
 	add r0, r0, #0x294
 	add r0, r0, #0x1000
-	bl FUN_02003818
+	bl OS_CancelAlarm
 	mov r2, #0
 	str r2, [sp]
 	ldr r0, [r5, #4]
@@ -38516,7 +38516,7 @@ _020DD19C:
 	add r0, r0, #0x294
 	ldr r3, _020DD204 ; =FUN_ov15_020dd270
 	add r0, r0, #0x1000
-	bl FUN_0200373c
+	bl OS_SetAlarm
 _020DD1F0:
 	mov r0, r4
 	bl OS_RestoreInterrupts
@@ -38535,7 +38535,7 @@ FUN_ov15_020dd208: ; 0x020DD208
 	ldr r0, [r5, #4]
 	add r0, r0, #0x294
 	add r0, r0, #0x1000
-	bl FUN_02003818
+	bl OS_CancelAlarm
 	ldr r1, [r5, #4]
 	add r0, r1, #0x1000
 	ldrb r0, [r0, #0x2de]
@@ -38547,7 +38547,7 @@ FUN_ov15_020dd208: ; 0x020DD208
 	ldr r3, _020DD26C ; =FUN_ov15_020dd270
 	add r0, r0, #0x1000
 	str r2, [sp]
-	bl FUN_0200373c
+	bl OS_SetAlarm
 _020DD258:
 	mov r0, r4
 	bl OS_RestoreInterrupts
@@ -39062,7 +39062,7 @@ FUN_ov15_020dd8c4: ; 0x020DD8C4
 	str r5, [r4, #8]
 	ldr r0, _020DD914 ; =0x020ED808
 	str r5, [r4, #4]
-	bl FUN_020023e4
+	bl OS_InitMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DD90C: .word ov15_020ED7FC
 _020DD910: .word ov15_020ED82C
@@ -39171,12 +39171,12 @@ FUN_ov15_020dda04: ; 0x020DDA04
 _020DDA44:
 	ldr r10, _020DDB18 ; =0x020ED808
 	mov r0, r10
-	bl FUN_02002408
+	bl OS_LockMutex
 	bl FUN_ov15_020dcedc
 	movs r4, r0
 	bne _020DDA78
 	mov r0, r10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
@@ -39192,7 +39192,7 @@ _020DDA78:
 	bne _020DDAB0
 _020DDA94:
 	ldr r0, _020DDB18 ; =0x020ED808
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
@@ -39219,7 +39219,7 @@ _020DDAB0:
 	bl FUN_ov15_020de1fc
 _020DDAF8:
 	ldr r0, _020DDB18 ; =0x020ED808
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldr r0, [sp, #0x28]
@@ -39242,7 +39242,7 @@ FUN_ov15_020ddb1c: ; 0x020DDB1C
 	ldmnefd sp!, {r3, pc}
 	mov r1, #0
 	str r1, [r0, #8]
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	ldmfd sp!, {r3, pc}
 _020DDB50: .word 0x01FF8000
 	arm_func_end FUN_ov15_020ddb1c
@@ -39820,7 +39820,7 @@ _020DE284:
 	cmp r5, #0
 	bne _020DE2A4
 	add r0, r4, #4
-	bl FUN_02001c28
+	bl OS_SleepThread
 	ldrh r0, [r4, #0x24]
 	cmp r0, #0
 	mvnne r0, #4
@@ -41019,7 +41019,7 @@ FUN_ov15_020df2b0: ; 0x020DF2B0
 	bl FUN_ov15_020dd208
 _020DF2E4:
 	add r0, r4, #4
-	bl FUN_02001c78
+	bl OS_WakeupThread
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020df2b0
 
@@ -42650,7 +42650,7 @@ FUN_ov15_020e0764: ; 0x020E0764
 	mov r4, #0x14
 _020E0830:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r6
 	bl FUN_0202b7b4
 	cmp r0, #0
@@ -42664,7 +42664,7 @@ _020E0848:
 	mov r4, #0x14
 _020E0860:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r6
 	bl FUN_0202b7f0
 	cmp r0, #0
@@ -43319,7 +43319,7 @@ _020E1104:
 	strh r0, [r2]
 	bl OS_EnableInterrupts
 	mov r0, r6
-	bl FUN_02003ed0
+	bl OS_ResetSystem
 	ldmfd sp!, {r4, r5, r6, pc}
 _020E1140: .word 0x00008003
 _020E1144: .word 0x04000208

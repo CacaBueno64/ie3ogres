@@ -1,4 +1,4 @@
-.public FUN_02004160
+.public OS_Terminate
 .public MIi_CpuCopy16
 .public MIi_CpuClear32
 .public MI_CpuFill8

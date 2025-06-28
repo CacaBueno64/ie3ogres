@@ -1,9 +1,9 @@
-.public FUN_02001948
-.public FUN_02001a38
-.public FUN_02001c28
-.public FUN_02001ce0
-.public FUN_02001e00
-.public FUN_02001ea8
+.public OS_CreateThread
+.public OS_ExitThread
+.public OS_SleepThread
+.public OS_WakeupThreadDirect
+.public OS_SetThreadPriority
+.public OS_GetThreadPriority
 .public DC_InvalidateRange
 .public DC_FlushRange
 .public DC_WaitWriteBufferEmpty
@@ -11,7 +11,7 @@
 .public OS_RestoreInterrupts
 .public FUN_02003e24
 .public FUN_02003f38
-.public FUN_02004160
+.public OS_Terminate
 .public FUN_020070a4
 .public MIi_CpuClear16
 .public MIi_CpuCopy16

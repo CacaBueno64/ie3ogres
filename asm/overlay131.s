@@ -12561,7 +12561,7 @@ _02145AE4: .word 0x020A9C40
 	arm_func_start FUN_ov131_02145ae8
 FUN_ov131_02145ae8: ; 0x02145AE8
 	stmfd sp!, {r3, lr}
-	bl FUN_02004160
+	bl OS_Terminate
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov131_02145ae8

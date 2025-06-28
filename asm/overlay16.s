@@ -5715,7 +5715,7 @@ _020F26A4:
 	strh r0, [r2]
 	bl OS_EnableInterrupts
 	mov r0, r11
-	bl FUN_02003ed0
+	bl OS_ResetSystem
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F26F0: .word 0x0209AC44
 _020F26F4: .word 0x00008003
@@ -7530,7 +7530,7 @@ _020F3DF4:
 	subs r8, r8, r7
 	beq _020F3E38
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 	b _020F3DF4
 _020F3E38:
 	mov r0, r6
@@ -18068,7 +18068,7 @@ FUN_ov16_020fc9f4: ; 0x020FC9F4
 	str r4, [r6, #8]
 	str r4, [r6, #0xc]
 	str r4, [r6, #0x28]
-	bl FUN_020023e4
+	bl OS_InitMutex
 	cmp r5, #0
 	movle r0, r4
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -18228,7 +18228,7 @@ _020FCC08:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	add r0, r4, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [sp, #0x30]
 	str r5, [sp, #0xc]
 	cmp r0, #0
@@ -18281,7 +18281,7 @@ _020FCCD4:
 	bl FUN_ov16_020fc8f0
 _020FCCEC:
 	add r0, r4, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	cmp r5, #0
 	movlt r7, #0
 	mov r0, r7
@@ -18343,7 +18343,7 @@ _020FCDA4:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	add r0, r8, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	cmp r6, #0
 	cmpeq r5, #0
 	streqb r9, [sp, #0x48]
@@ -18417,7 +18417,7 @@ _020FCEC0:
 	bl FUN_ov16_020fc8f0
 _020FCED8:
 	add r0, r8, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	cmp r9, #0
 	moveq r4, #0
 	mov r0, r4
@@ -18482,7 +18482,7 @@ _020FCF98:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	add r0, r8, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	mov r0, r7
 	bl _strlen
 	sub r0, r0, #1
@@ -18557,7 +18557,7 @@ _020FD0BC:
 	bl FUN_ov16_020fc8f0
 _020FD0D4:
 	add r0, r8, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	cmp r10, #0
 	moveq r4, #0
 	mov r0, r4
@@ -18619,7 +18619,7 @@ _020FD188:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	add r0, r8, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	cmp r6, #0
 	cmpne r7, #0
 	beq _020FD200
@@ -18644,7 +18644,7 @@ _020FD188:
 	bl FUN_ov16_020fc8f0
 _020FD200:
 	add r0, r8, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	cmp r6, #0
 	cmpne r7, #0
 	moveq r4, #0
@@ -18665,16 +18665,16 @@ FUN_ov16_020fd21c: ; 0x020FD21C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrh r1, [r4, #0x12]
 	add r0, r5, #0x10
 	add r1, r1, #1
 	strh r1, [r4, #0x12]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	add r0, r5, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov16_020fd21c
@@ -18685,7 +18685,7 @@ FUN_ov16_020fd278: ; 0x020FD278
 	mov r6, r0
 	mov r5, r1
 	add r0, r6, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	cmp r5, #0
 	ldrne r1, [r5, #4]
 	cmpne r1, #0
@@ -18736,12 +18736,12 @@ _020FD30C:
 	b _020FD33C
 _020FD32C:
 	add r0, r6, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FD33C:
 	add r0, r6, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FD34C: .word 0x0209A250
@@ -18754,13 +18754,13 @@ FUN_ov16_020fd350: ; 0x020FD350
 	mov r5, r0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrh r1, [r4, #0x12]
 	add r0, r5, #0x10
 	add r1, r1, #0xff
 	add r1, r1, #0xff00
 	strh r1, [r4, #0x12]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldrh r0, [r4, #0x12]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -18877,7 +18877,7 @@ FUN_ov16_020fd4cc: ; 0x020FD4CC
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	add r0, r6, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r5, #0xe]
 	mov r4, #1
 	cmp r0, #0
@@ -18903,7 +18903,7 @@ _020FD528:
 	strneb r0, [r5, #0xe]
 _020FD550:
 	add r0, r6, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FD560: .word 0x02099F30
@@ -18921,7 +18921,7 @@ FUN_ov16_020fd564: ; 0x020FD564
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r4, #0xc]
 	mov r1, #0
 	cmp r0, #3
@@ -18944,7 +18944,7 @@ _020FD5A8:
 	strb r0, [r4, #0xe]
 _020FD5DC:
 	add r0, r5, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020FD5E8: .word 0x02099F30
 	arm_func_end FUN_ov16_020fd564
@@ -18961,7 +18961,7 @@ FUN_ov16_020fd5ec: ; 0x020FD5EC
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r4, #0xc]
 	mov r1, #0
 	cmp r0, #3
@@ -18979,7 +18979,7 @@ _020FD648:
 	mov r1, #0
 	add r0, r5, #0x10
 	strb r1, [r4, #0xe]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
 _020FD65C: .word 0x02099F30
 	arm_func_end FUN_ov16_020fd5ec
@@ -18992,13 +18992,13 @@ FUN_ov16_020fd660: ; 0x020FD660
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r4, #0xe]
 	mov r4, #1
 	cmp r0, #0
 	add r0, r5, #0x10
 	moveq r4, #0
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov16_020fd660
@@ -19103,7 +19103,7 @@ _020FD7D4:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	add r0, r10, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldr r0, [sp]
 	mov r4, #2
 	str r5, [r0, #4]
@@ -19132,7 +19132,7 @@ _020FD7D4:
 	add r0, r10, #0x10
 	add r1, r1, #1
 	str r1, [r10, #0xc]
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	ldr r0, [sp]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -19150,7 +19150,7 @@ FUN_ov16_020fd878: ; 0x020FD878
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _020FD8D8
@@ -19166,7 +19166,7 @@ FUN_ov16_020fd878: ; 0x020FD878
 	strh r0, [r4, #0x10]
 _020FD8D8:
 	add r0, r5, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
 _020FD8E8: .word 0x02099F30
@@ -19184,7 +19184,7 @@ FUN_ov16_020fd8ec: ; 0x020FD8EC
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x10
-	bl FUN_02002408
+	bl OS_LockMutex
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _020FD950
@@ -19201,7 +19201,7 @@ FUN_ov16_020fd8ec: ; 0x020FD8EC
 	strh r0, [r4, #0x10]
 _020FD950:
 	add r0, r5, #0x10
-	bl FUN_02002458
+	bl OS_UnlockMutex
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
 _020FD960: .word 0x02099F30

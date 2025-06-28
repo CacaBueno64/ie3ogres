@@ -1,6 +1,6 @@
-.public FUN_02002900
-.public FUN_02002914
-.public FUN_02002ac0
+.public OS_GetArenaHi
+.public OS_GetArenaLo
+.public OS_SetArenaLo
 .public FUN_02002dcc
 .public MIi_CpuClearFast
 .public FUN_020095ac

@@ -52,7 +52,7 @@ _02124D80:
 	mov r5, #3
 _02124D9C:
 	mov r0, r6
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r1, r5
 	add r0, r4, #0x3c
 	bl  FUN_ov16_020f330c

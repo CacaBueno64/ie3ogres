@@ -1,4 +1,4 @@
-.public FUN_02001eb0
+.public OS_Sleep
 .public FUN_020053fc
 .public FUN_0200562c
 .public FUN_0200577c

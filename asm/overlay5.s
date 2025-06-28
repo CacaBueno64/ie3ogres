@@ -48,7 +48,7 @@ FUN_ov5_020bcb40: ; 0x020BCB40
 	mov r5, #0x14
 _020BCBE4:
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r6
 	bl FUN_0202b7b4
 	cmp r0, #0
@@ -62,7 +62,7 @@ _020BCBFC:
 	mov r5, #0x14
 _020BCC14:
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 	mov r0, r6
 	bl FUN_0202b7f0
 	cmp r0, #0

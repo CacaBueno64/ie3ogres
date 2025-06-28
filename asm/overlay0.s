@@ -1657,7 +1657,7 @@ _020BE138:
 	cmp r0, #0
 	bne _020BE15C
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 	add r7, r7, #1
 _020BE154:
 	cmp r7, #0x80
@@ -1673,7 +1673,7 @@ _020BE16C:
 	cmp r0, #0
 	bne _020BE190
 	mov r0, r5
-	bl FUN_02001eb0
+	bl OS_Sleep
 	add r7, r7, #1
 _020BE188:
 	cmp r7, #0x80
@@ -24342,7 +24342,7 @@ _020D1E30:
 	ble _020D1E94
 	b _020D203C
 _020D1E90:
-	bl FUN_02004160
+	bl OS_Terminate
 _020D1E94:
 	ldr r0, [sp]
 	ldr r1, [sp, #4]
@@ -24579,7 +24579,7 @@ FUN_ov0_020d2198: ; 0x020D2198
 	ldrne r7, [r1, #0xc]
 	ldrne r4, [r1, #0x10]
 	bne _020D2208
-	bl FUN_02004160
+	bl OS_Terminate
 _020D2208:
 	cmp r6, #0
 	addeq sp, sp, #4
@@ -24956,28 +24956,28 @@ _020D2784:
 	mov r4, r0
 	b _020D27D8
 _020D278C:
-	bl FUN_02004160
+	bl OS_Terminate
 	add r1, sp, #0
 	mov r0, r7
 	mov r2, r5
 	bl FUN_ov0_020d2e58
 	b _020D2784
 _020D27A4:
-	bl FUN_02004160
+	bl OS_Terminate
 	add r1, sp, #0
 	mov r0, r7
 	mov r2, r5
 	bl FUN_ov0_020d3248
 	b _020D2784
 _020D27BC:
-	bl FUN_02004160
+	bl OS_Terminate
 	add r1, sp, #0
 	mov r0, r7
 	mov r2, r5
 	bl FUN_ov0_020d3794
 	b _020D2784
 _020D27D4:
-	bl FUN_02004160
+	bl OS_Terminate
 _020D27D8:
 	ldr r1, [r7, #4]
 	ldr r3, [sp]
@@ -25100,7 +25100,7 @@ _020D297C:
 	ldr r0, [r1, #0xc]
 	cmp r0, #4
 	ble _020D29A0
-	bl FUN_02004160
+	bl OS_Terminate
 _020D29A0:
 	ldr r0, [r10, #4]
 	ldr r5, [r10, #0xc]
@@ -25221,7 +25221,7 @@ _020D2B24:
 	add r0, r0, #0xb000
 	cmp r5, r0
 	blo _020D2B48
-	bl FUN_02004160
+	bl OS_Terminate
 _020D2B48:
 	ldr r0, [r10, #8]
 	add r7, r7, #1

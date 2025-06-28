@@ -3360,7 +3360,7 @@ _0211CE0C:
 	b _0211CE24
 _0211CE1C:
 	mov r0, r4
-	bl FUN_02001eb0
+	bl OS_Sleep
 _0211CE24:
 	mov r0, r10
 	bl FUN_ov73_0211ab18

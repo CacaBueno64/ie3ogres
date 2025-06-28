@@ -1,4 +1,4 @@
-.public FUN_02001eb0
+.public OS_Sleep
 .public DC_FlushRange
 .public FUN_02004d14
 .public FUN_02004db8
