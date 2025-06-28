@@ -391,7 +391,7 @@ _0212AA08:
 FUN_ov127_0212af80: ; 0x0212AF80
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	ldr r0, _0212AFAC ; =0x02000C64
+	ldr r0, _0212AFAC ; =_version_MOBICLIP
 	mov r5, r1
 	mov r4, r2
 	bl OSi_ReferSymbol
@@ -400,7 +400,7 @@ FUN_ov127_0212af80: ; 0x0212AF80
 	mov r2, r4
 	bl MOHandlePrivate__Init
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212AFAC: .word 0x02000C64
+_0212AFAC: .word _version_MOBICLIP
 	arm_func_end FUN_ov127_0212af80
 
 	arm_func_start MO_OpenMovie

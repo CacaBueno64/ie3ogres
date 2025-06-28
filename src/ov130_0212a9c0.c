@@ -1,5 +1,5 @@
 #include "ov130.h"
-#include "nitro/types.h"
+#include "nitro.h"
 
 extern u32 OS_GetArenaLo(u32);
 extern u32 OS_GetArenaHi(u32);

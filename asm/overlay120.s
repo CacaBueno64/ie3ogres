@@ -153,14 +153,14 @@ _02124F14:
 _02124F20: .word ov120_02125C48
 _02124F24: .word ov120_02125C54
 _02124F28: .word ov120_02125C60
-_02124F2C: .word 0x020A0640
-_02124F30: .word 0x0209BA20
+_02124F2C: .word unk_020A0640
+_02124F30: .word unk_0209BA20
 _02124F34: .word ov120_02125C6C
 _02124F38: .word ov120_02125C78
 _02124F3C: .word ov120_02125C84
 _02124F40: .word ov120_02125C90
-_02124F44: .word 0x020A8C40
-_02124F48: .word 0x020A8440
+_02124F44: .word unk_020A8C40
+_02124F48: .word unk_020A8440
 	arm_func_end FUN_ov120_02124d00
 
 	arm_func_start FUN_ov120_02124f4c
@@ -692,11 +692,11 @@ _021256C0:
 	mov r0, #1
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021256F0: .word 0x020A8C40
-_021256F4: .word 0x020A0640
-_021256F8: .word 0x0209A144
-_021256FC: .word 0x02099EF0
-_02125700: .word 0x020A8440
+_021256F0: .word unk_020A8C40
+_021256F4: .word unk_020A0640
+_021256F8: .word unk_0209A144
+_021256FC: .word unk_02099EF0
+_02125700: .word unk_020A8440
 	arm_func_end FUN_ov120_02124fa4
 
 	arm_func_start FUN_ov120_02125704
@@ -760,7 +760,7 @@ _02125788:
 	bgt _02125788
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021257E4: .word 0x020A8C40
+_021257E4: .word unk_020A8C40
 _021257E8: .word 0x66666667
 	arm_func_end FUN_ov120_02125704
 
@@ -825,7 +825,7 @@ _02125870:
 	bgt _02125870
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021258CC: .word 0x020A8C40
+_021258CC: .word unk_020A8C40
 _021258D0: .word 0x66666667
 	arm_func_end FUN_ov120_021257ec
 
@@ -873,7 +873,7 @@ _02125954:
 	mov r1, #0
 	bl  FUN_ov1_020dbccc
 	ldmfd sp!, {r4, pc}
-_0212596C: .word 0x020A8440
+_0212596C: .word unk_020A8440
 	arm_func_end FUN_ov120_021258d4
 
 	arm_func_start FUN_ov120_02125970
@@ -910,7 +910,7 @@ _021259C0:
 	mov r1, #0
 	bl FUN_0200562c
 	ldmfd sp!, {r3, r4, r5, pc}
-_021259E8: .word 0x020A8440
+_021259E8: .word unk_020A8440
 	arm_func_end FUN_ov120_02125970
 
 	arm_func_start FUN_ov120_021259ec
@@ -959,7 +959,7 @@ _02125A80:
 	mov r1, #1
 	bl FUN_ov120_02124d00
 	ldmfd sp!, {r4, pc}
-_02125A90: .word 0x020A0640
+_02125A90: .word unk_020A0640
 	arm_func_end FUN_ov120_021259ec
 
 	arm_func_start FUN_ov120_02125a94

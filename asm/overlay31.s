@@ -222,12 +222,12 @@ _0211A208:
 	str r1, [r4, #0x10]
 	add sp, sp, #0xbc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211A23C: .word 0x02099EB4
-_0211A240: .word 0x02099ED4
-_0211A244: .word 0x02099F44
-_0211A248: .word 0x0209A134
-_0211A24C: .word 0x020A1640
-_0211A250: .word 0x020A0640
+_0211A23C: .word unk_02099EB4
+_0211A240: .word unk_02099ED4
+_0211A244: .word unk_02099F44
+_0211A248: .word unk_0209A134
+_0211A24C: .word unk_020A1640
+_0211A250: .word unk_020A0640
 	arm_func_end FUN_ov31_02119f00
 
 	arm_func_start FUN_ov31_0211a254
@@ -259,10 +259,10 @@ FUN_ov31_0211a254: ; 0x0211A254
 	ldr r0, _0211A2CC ; =0x0209BA20
 	bl FUN_0204ec3c
 	ldmfd sp!, {r4, pc}
-_0211A2C0: .word 0x020A0640
-_0211A2C4: .word 0x02099EB4
-_0211A2C8: .word 0x02099ED4
-_0211A2CC: .word 0x0209BA20
+_0211A2C0: .word unk_020A0640
+_0211A2C4: .word unk_02099EB4
+_0211A2C8: .word unk_02099ED4
+_0211A2CC: .word unk_0209BA20
 	arm_func_end FUN_ov31_0211a254
 
 	arm_func_start FUN_ov31_0211a2d0
@@ -288,7 +288,7 @@ _0211A30C:
 	mov r0, r5
 	bl FUN_ov31_0211a408
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A320: .word 0x02099ED4
+_0211A320: .word unk_02099ED4
 	arm_func_end FUN_ov31_0211a2d0
 
 	arm_func_start FUN_ov31_0211a324
@@ -334,8 +334,8 @@ _0211A3A0:
 	mov r0, r6
 	bl FUN_ov31_0211a408
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A3BC: .word 0x02099ED4
-_0211A3C0: .word 0x02099EB4
+_0211A3BC: .word unk_02099ED4
+_0211A3C0: .word unk_02099EB4
 	arm_func_end FUN_ov31_0211a324
 
 	arm_func_start FUN_ov31_0211a3c4
@@ -355,8 +355,8 @@ FUN_ov31_0211a3c4: ; 0x0211A3C4
 	mov r1, r4
 	bl FUN_0202cf6c
 	ldmfd sp!, {r4, pc}
-_0211A400: .word 0x02099EB4
-_0211A404: .word 0x0209AC44
+_0211A400: .word unk_02099EB4
+_0211A404: .word unk_0209AC44
 	arm_func_end FUN_ov31_0211a3c4
 
 	arm_func_start FUN_ov31_0211a408
@@ -387,8 +387,8 @@ _0211A444:
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, pc}
-_0211A464: .word 0x02099EB4
-_0211A468: .word 0x0209AC44
+_0211A464: .word unk_02099EB4
+_0211A468: .word unk_0209AC44
 	arm_func_end FUN_ov31_0211a408
 
 	arm_func_start FUN_ov31_0211a46c
@@ -468,8 +468,8 @@ FUN_ov31_0211a46c: ; 0x0211A46C
 	bl  FUN_ov16_0210e720
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211A598: .word 0x02099F38
-_0211A59C: .word 0x02099EB4
+_0211A598: .word unk_02099F38
+_0211A59C: .word unk_02099EB4
 	arm_func_end FUN_ov31_0211a46c
 
 	arm_func_start FUN_ov31_0211a5a0
@@ -495,8 +495,8 @@ _0211A5D8:
 	mov r1, r1, lsr #0x10
 	bl  FUN_ov16_0210eab4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A5F0: .word 0x02099F38
-_0211A5F4: .word 0x02099EB4
+_0211A5F0: .word unk_02099F38
+_0211A5F4: .word unk_02099EB4
 	arm_func_end FUN_ov31_0211a5a0
 
 	arm_func_start FUN_ov31_0211a5f8
@@ -659,9 +659,9 @@ _0211A784:
 	bl  FUN_ov16_021139bc
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A868: .word 0x02099F38
-_0211A86C: .word 0x02099ED0
-_0211A870: .word 0x02099F50
+_0211A868: .word unk_02099F38
+_0211A86C: .word unk_02099ED0
+_0211A870: .word unk_02099F50
 	arm_func_end FUN_ov31_0211a5f8
 
 	arm_func_start FUN_ov31_0211a874
@@ -729,9 +729,9 @@ _0211A92C:
 	ldr r0, [r2]
 	bl  FUN_ov16_02116654
 	ldmfd sp!, {r4, pc}
-_0211A944: .word 0x02099ED4
-_0211A948: .word 0x0209A110
-_0211A94C: .word 0x02099F58
+_0211A944: .word unk_02099ED4
+_0211A948: .word unk_0209A110
+_0211A94C: .word unk_02099F58
 	arm_func_end FUN_ov31_0211a874
 
 	arm_func_start FUN_ov31_0211a950
@@ -850,7 +850,7 @@ FUN_ov31_0211aa70: ; 0x0211AA70
 	ldr r0, [r0]
 	bl  FUN_ov16_021123b4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211AAAC: .word 0x02099F38
+_0211AAAC: .word unk_02099F38
 	arm_func_end FUN_ov31_0211aa70
 
 	arm_func_start FUN_ov31_0211aab0
@@ -897,7 +897,7 @@ _0211AB28:
 	ldr r0, [r0]
 	bl  FUN_ov16_021123c4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211AB40: .word 0x02099F38
+_0211AB40: .word unk_02099F38
 	arm_func_end FUN_ov31_0211aab0
 
 	arm_func_start FUN_ov31_0211ab44
@@ -1003,7 +1003,7 @@ FUN_ov31_0211ac0c: ; 0x0211AC0C
 	bl  FUN_ov16_02113ec0
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0211ACC8: .word 0x02099F38
+_0211ACC8: .word unk_02099F38
 	arm_func_end FUN_ov31_0211ac0c
 
 	arm_func_start FUN_ov31_0211accc
@@ -1042,7 +1042,7 @@ _0211AD34:
 	mov r0, #3
 	str r0, [r8, #0xc]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211AD48: .word 0x02099F38
+_0211AD48: .word unk_02099F38
 	arm_func_end FUN_ov31_0211accc
 
 	arm_func_start FUN_ov31_0211ad4c
@@ -1125,7 +1125,7 @@ FUN_ov31_0211ad74: ; 0x0211AD74
 	bl FUN_ov31_0211ac0c
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0211AE74: .word 0x02099F38
+_0211AE74: .word unk_02099F38
 	arm_func_end FUN_ov31_0211ad74
 
 	arm_func_start FUN_ov31_0211ae78
@@ -1623,11 +1623,11 @@ _0211B208:
 	bl FUN_ov31_0211a5f8
 	add sp, sp, #0xe4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B604: .word 0x02099F38
+_0211B604: .word unk_02099F38
 _0211B608: .word ov31_0211BFA0
 _0211B60C: .word ov31_0211BFAC
 _0211B610: .word ov31_0211BFBC
-_0211B614: .word 0x0209BA20
+_0211B614: .word unk_0209BA20
 _0211B618: .word ov31_0211BFC4
 _0211B61C: .word ov31_0211BFC8
 _0211B620: .word ov31_0211BFD4
@@ -1925,8 +1925,8 @@ _0211BA04:
 	bl FUN_ov31_0211a5f8
 	add sp, sp, #0xec
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211BA78: .word 0x02099F38
-_0211BA7C: .word 0x0209BA20
+_0211BA78: .word unk_02099F38
+_0211BA7C: .word unk_0209BA20
 _0211BA80: .word ov31_0211C0E4
 _0211BA84: .word ov31_0211C0E8
 _0211BA88: .word ov31_0211C0F4
@@ -1986,7 +1986,7 @@ _0211BB24:
 	mov r2, #0x104
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211BB40: .word 0x02099F38
+_0211BB40: .word unk_02099F38
 	arm_func_end FUN_ov31_0211baac
 
 	arm_func_start FUN_ov31_0211bb44
@@ -2026,7 +2026,7 @@ FUN_ov31_0211bb44: ; 0x0211BB44
 	mov r3, r8
 	bl  FUN_ov16_02113ec0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211BBD0: .word 0x02099F38
+_0211BBD0: .word unk_02099F38
 	arm_func_end FUN_ov31_0211bb44
 
 	arm_func_start FUN_ov31_0211bbd4
@@ -2111,7 +2111,7 @@ FUN_ov31_0211bc9c: ; 0x0211BC9C
 	mov r0, #5
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_0211BCEC: .word 0x02099ED4
+_0211BCEC: .word unk_02099ED4
 	arm_func_end FUN_ov31_0211bc9c
 
 	arm_func_start FUN_ov31_0211bcf0
@@ -2128,7 +2128,7 @@ FUN_ov31_0211bcf0: ; 0x0211BCF0
 	mov r0, #7
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_0211BD20: .word 0x02099ED4
+_0211BD20: .word unk_02099ED4
 	arm_func_end FUN_ov31_0211bcf0
 
 	arm_func_start FUN_ov31_0211bd24

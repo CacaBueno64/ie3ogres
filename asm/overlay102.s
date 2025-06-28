@@ -84,9 +84,9 @@ _02124D9C:
 	mov r1, r5
 	bl DC_FlushRange
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124E08: .word 0x020A9440
-_02124E0C: .word 0x020A8C40
-_02124E10: .word 0x020A8440
+_02124E08: .word unk_020A9440
+_02124E0C: .word unk_020A8C40
+_02124E10: .word unk_020A8440
 	arm_func_end FUN_ov102_02124d60
 
 	arm_func_start FUN_ov102_02124e14
@@ -158,10 +158,10 @@ _02124E84:
 	bl FUN_020059ac
 	bl  FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124F18: .word 0x020A9440
-_02124F1C: .word 0x020A8C40
-_02124F20: .word 0x020A8440
-_02124F24: .word 0x0209A144
+_02124F18: .word unk_020A9440
+_02124F1C: .word unk_020A8C40
+_02124F20: .word unk_020A8440
+_02124F24: .word unk_0209A144
 	arm_func_end FUN_ov102_02124e14
 
 	arm_func_start FUN_ov102_02124f28
@@ -231,7 +231,7 @@ _02124FDC:
 	mov r1, #0
 	bl FUN_0200562c
 	ldmfd sp!, {r3, r4, r5, pc}
-_02125004: .word 0x020A8440
+_02125004: .word unk_020A8440
 	arm_func_end FUN_ov102_02124f9c
 
 	arm_func_start FUN_ov102_02125008

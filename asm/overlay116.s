@@ -80,8 +80,8 @@ _02124DD8:
 	movne r0, #1
 	strneb r0, [r4, #0x37]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124E1C: .word 0x02099EF0
-_02124E20: .word 0x0209BA20
+_02124E1C: .word unk_02099EF0
+_02124E20: .word unk_0209BA20
 	arm_func_end FUN_ov116_02124d00
 
 	arm_func_start FUN_ov116_02124e24

@@ -139,7 +139,7 @@ _0211A0AC:
 	blt _0211A084
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A0BC: .word 0x02099F38
+_0211A0BC: .word unk_02099F38
 	arm_func_end FUN_ov68_0211a070
 
 	arm_func_start FUN_ov68_0211a0c0
@@ -171,7 +171,7 @@ _0211A114:
 	cmp r6, #0x11
 	blt _0211A0D8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A120: .word 0x02099F38
+_0211A120: .word unk_02099F38
 	arm_func_end FUN_ov68_0211a0c0
 
 	arm_func_start FUN_ov68_0211a124
@@ -285,9 +285,9 @@ _0211A25C:
 	str r0, [r1, #0xcc]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211A2D0: .word 0x02099F38
+_0211A2D0: .word unk_02099F38
 _0211A2D4: .word ov68_0211FE20
-_0211A2D8: .word 0x0209BA20
+_0211A2D8: .word unk_0209BA20
 _0211A2DC: .word ov68_0211FE38
 _0211A2E0: .word ov68_0211FE50
 	arm_func_end FUN_ov68_0211a124
@@ -397,8 +397,8 @@ _0211A448:
 _0211A460:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A468: .word 0x02099F38
-_0211A46C: .word 0x02099F04
+_0211A468: .word unk_02099F38
+_0211A46C: .word unk_02099F04
 	arm_func_end FUN_ov68_0211a2e4
 
 	arm_func_start FUN_ov68_0211a470
@@ -434,7 +434,7 @@ _0211A4CC:
 	cmp r8, #2
 	blt _0211A490
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A4D8: .word 0x02099F38
+_0211A4D8: .word unk_02099F38
 	arm_func_end FUN_ov68_0211a470
 
 	arm_func_start FUN_ov68_0211a4dc
@@ -545,7 +545,7 @@ FUN_ov68_0211a588: ; 0x0211A588
 	bl  FUN_ov16_021142fc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211A64C: .word 0x02099F38
+_0211A64C: .word unk_02099F38
 	arm_func_end FUN_ov68_0211a588
 
 	arm_func_start FUN_ov68_0211a650
@@ -603,7 +603,7 @@ FUN_ov68_0211a650: ; 0x0211A650
 	bl  FUN_ov16_021142fc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211A724: .word 0x02099F38
+_0211A724: .word unk_02099F38
 	arm_func_end FUN_ov68_0211a650
 
 	arm_func_start FUN_ov68_0211a728
@@ -663,8 +663,8 @@ _0211A7F0:
 	cmp r5, #8
 	blt _0211A758
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A7FC: .word 0x0209BA20
-_0211A800: .word 0x02099F38
+_0211A7FC: .word unk_0209BA20
+_0211A800: .word unk_02099F38
 _0211A804: .word 0xCCCCCCCD
 	arm_func_end FUN_ov68_0211a728
 
@@ -1090,8 +1090,8 @@ _0211AE60:
 	mov r3, #1
 	bl  FUN_ov16_021142fc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211AE78: .word 0x02099F38
-_0211AE7C: .word 0x0209BA20
+_0211AE78: .word unk_02099F38
+_0211AE7C: .word unk_0209BA20
 _0211AE80: .word 0x66666667
 	arm_func_end FUN_ov68_0211a808
 
@@ -1515,8 +1515,8 @@ _0211B4D4:
 	mov r3, #1
 	bl  FUN_ov16_021142fc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B4EC: .word 0x02099F38
-_0211B4F0: .word 0x0209BA20
+_0211B4EC: .word unk_02099F38
+_0211B4F0: .word unk_0209BA20
 _0211B4F4: .word 0x66666667
 	arm_func_end FUN_ov68_0211ae84
 
@@ -1597,7 +1597,7 @@ FUN_ov68_0211b4f8: ; 0x0211B4F8
 	mov r3, r9
 	bl  FUN_ov16_02113f7c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B624: .word 0x02099F38
+_0211B624: .word unk_02099F38
 	arm_func_end FUN_ov68_0211b4f8
 
 	arm_func_start FUN_ov68_0211b628
@@ -1638,7 +1638,7 @@ _0211B68C:
 _0211B694:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_0211B69C: .word 0x0209BA20
+_0211B69C: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211b628
 
 	arm_func_start FUN_ov68_0211b6a0
@@ -1726,7 +1726,7 @@ FUN_ov68_0211b6a0: ; 0x0211B6A0
 	bl  FUN_ov16_02113f7c
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211B7EC: .word 0x02099F38
+_0211B7EC: .word unk_02099F38
 	arm_func_end FUN_ov68_0211b6a0
 
 	arm_func_start FUN_ov68_0211b7f0
@@ -1787,7 +1787,7 @@ _0211B840:
 	bl  FUN_ov16_021139bc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211B8CC: .word 0x02099F38
+_0211B8CC: .word unk_02099F38
 	arm_func_end FUN_ov68_0211b7f0
 
 	arm_func_start FUN_ov68_0211b8d0
@@ -2084,7 +2084,7 @@ _0211BB8C:
 	mov r2, r11
 	bl  FUN_ov16_02114370
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211BD40: .word 0x02099F38
+_0211BD40: .word unk_02099F38
 	arm_func_end FUN_ov68_0211b914
 
 	arm_func_start FUN_ov68_0211bd44
@@ -2189,7 +2189,7 @@ _0211BEA8:
 	str r0, [r11, #0x248]
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211BEC0: .word 0x02099F38
+_0211BEC0: .word unk_02099F38
 _0211BEC4: .word 0xCCCCCCCD
 _0211BEC8: .word 0x66666667
 	arm_func_end FUN_ov68_0211bd44
@@ -2250,7 +2250,7 @@ _0211BF18:
 	mov r3, #0x28
 	bl  FUN_ov16_021139bc
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211BFA0: .word 0x02099F38
+_0211BFA0: .word unk_02099F38
 	arm_func_end FUN_ov68_0211becc
 
 	arm_func_start FUN_ov68_0211bfa4
@@ -2351,7 +2351,7 @@ FUN_ov68_0211bfe4: ; 0x0211BFE4
 	bl  FUN_ov16_02114370
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211C114: .word 0x02099F38
+_0211C114: .word unk_02099F38
 	arm_func_end FUN_ov68_0211bfe4
 
 	arm_func_start FUN_ov68_0211c118
@@ -2412,7 +2412,7 @@ _0211C168:
 	bl  FUN_ov16_021139bc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211C1F4: .word 0x02099F38
+_0211C1F4: .word unk_02099F38
 	arm_func_end FUN_ov68_0211c118
 
 	arm_func_start FUN_ov68_0211c1f8
@@ -2593,7 +2593,7 @@ FUN_ov68_0211c268: ; 0x0211C268
 	mov r2, r9
 	bl  FUN_ov16_02114370
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211C4A8: .word 0x02099F38
+_0211C4A8: .word unk_02099F38
 	arm_func_end FUN_ov68_0211c268
 
 	arm_func_start FUN_ov68_0211c4ac
@@ -2654,7 +2654,7 @@ _0211C4FC:
 	bl  FUN_ov16_021139bc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211C588: .word 0x02099F38
+_0211C588: .word unk_02099F38
 	arm_func_end FUN_ov68_0211c4ac
 
 	arm_func_start FUN_ov68_0211c58c
@@ -2734,7 +2734,7 @@ _0211C624:
 	bl FUN_02058ee0
 	str r4, [r6, #0x220]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211C698: .word 0x02099F38
+_0211C698: .word unk_02099F38
 	arm_func_end FUN_ov68_0211c58c
 
 	arm_func_start FUN_ov68_0211c69c
@@ -2804,7 +2804,7 @@ _0211C6F8:
 	bl  FUN_ov16_0210e720
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211C79C: .word 0x02099EB4
+_0211C79C: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211c69c
 
 	arm_func_start FUN_ov68_0211c7a0
@@ -2874,7 +2874,7 @@ _0211C7FC:
 	bl  FUN_ov16_0210e720
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211C8A0: .word 0x02099EB4
+_0211C8A0: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211c7a0
 
 	arm_func_start FUN_ov68_0211c8a4
@@ -2907,7 +2907,7 @@ FUN_ov68_0211c8a4: ; 0x0211C8A4
 	str r1, [r0, #0x28]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211C914: .word 0x02099EB4
+_0211C914: .word unk_02099EB4
 _0211C918: .word FUN_ov68_0211f9ac
 	arm_func_end FUN_ov68_0211c8a4
 
@@ -2977,7 +2977,7 @@ FUN_ov68_0211c91c: ; 0x0211C91C
 	strh r7, [r0, #0xc]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211CA1C: .word 0x02099EB4
+_0211CA1C: .word unk_02099EB4
 _0211CA20: .word  FUN_ov16_0210fa20
 _0211CA24: .word 0x0210FB10
 _0211CA28: .word FUN_ov68_0211f7e4
@@ -3093,7 +3093,7 @@ _0211CB48:
 	str r0, [r5, #0x28]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211CBD4: .word 0x02099EB4
+_0211CBD4: .word unk_02099EB4
 _0211CBD8: .word FUN_ov68_0211f870
 _0211CBDC: .word FUN_ov68_0211f90c
 	arm_func_end FUN_ov68_0211ca2c
@@ -3185,8 +3185,8 @@ _0211CCF4:
 	ldrneh r1, [sp, #0x34]
 	strneh r1, [r0, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211CD2C: .word 0x02099F38
-_0211CD30: .word 0x02099EB4
+_0211CD2C: .word unk_02099F38
+_0211CD30: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211cbe0
 
 	arm_func_start FUN_ov68_0211cd34
@@ -3226,8 +3226,8 @@ _0211CD70:
 	blx r2
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CDB0: .word 0x00003DEF
-_0211CDB4: .word 0x02099F38
-_0211CDB8: .word 0x02099EB4
+_0211CDB4: .word unk_02099F38
+_0211CDB8: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211cd34
 
 	arm_func_start FUN_ov68_0211cdbc
@@ -3393,9 +3393,9 @@ _0211CFF0:
 _0211CFF8:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_0211D000: .word 0x02099ED4
-_0211D004: .word 0x02099F38
-_0211D008: .word 0x02099EB4
+_0211D000: .word unk_02099ED4
+_0211D004: .word unk_02099F38
+_0211D008: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211cdbc
 
 	arm_func_start FUN_ov68_0211d00c
@@ -3696,9 +3696,9 @@ _0211D440:
 	addne r0, r0, #0xf00
 	strneh r1, [r0, #0x38]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211D46C: .word 0x02099EB4
-_0211D470: .word 0x02099F38
-_0211D474: .word 0x0209AC44
+_0211D46C: .word unk_02099EB4
+_0211D470: .word unk_02099F38
+_0211D474: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211d00c
 
 	arm_func_start FUN_ov68_0211d478
@@ -3865,8 +3865,8 @@ _0211D6AC:
 	str r1, [r7, #0x25c]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211D6D8: .word 0x02099F38
-_0211D6DC: .word 0x02099EB4
+_0211D6D8: .word unk_02099F38
+_0211D6DC: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211d478
 
 	arm_func_start FUN_ov68_0211d6e0
@@ -4240,8 +4240,8 @@ _0211DC0C:
 	bl  FUN_ov16_02113f7c
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0211DC50: .word 0x02099F38
-_0211DC54: .word 0x02099EB4
+_0211DC50: .word unk_02099F38
+_0211DC54: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211d6e0
 
 	arm_func_start FUN_ov68_0211dc58
@@ -4526,10 +4526,10 @@ _0211E01C:
 _0211E064:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_0211E06C: .word 0x02099F38
-_0211E070: .word 0x02099ED4
-_0211E074: .word 0x02099EB4
-_0211E078: .word 0x0209AC44
+_0211E06C: .word unk_02099F38
+_0211E070: .word unk_02099ED4
+_0211E074: .word unk_02099EB4
+_0211E078: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211dc58
 
 	arm_func_start FUN_ov68_0211e07c
@@ -4551,7 +4551,7 @@ FUN_ov68_0211e07c: ; 0x0211E07C
 	ldr r1, [sp]
 	bl  FUN_ov16_0210ef88
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211E0C0: .word 0x02099EB4
+_0211E0C0: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211e07c
 
 	arm_func_start FUN_ov68_0211e0c4
@@ -4574,7 +4574,7 @@ _0211E0F8:
 	cmp r5, #3
 	blo _0211E0D4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211E104: .word 0x02099EB4
+_0211E104: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211e0c4
 
 	arm_func_start FUN_ov68_0211e108
@@ -4594,7 +4594,7 @@ _0211E128:
 	str r2, [r0, #0xc]
 	mov r0, #1
 	bx lr
-_0211E140: .word 0x0209A454
+_0211E140: .word unk_0209A454
 	arm_func_end FUN_ov68_0211e108
 
 	arm_func_start FUN_ov68_0211e144
@@ -4710,10 +4710,10 @@ FUN_ov68_0211e158: ; 0x0211E158
 	sub r0, r4, #6
 	str r0, [r9, #0x258]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211E2F0: .word 0x02099EB4
-_0211E2F4: .word 0x02099ED4
-_0211E2F8: .word 0x02099F38
-_0211E2FC: .word 0x0209BA20
+_0211E2F0: .word unk_02099EB4
+_0211E2F4: .word unk_02099ED4
+_0211E2F8: .word unk_02099F38
+_0211E2FC: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211e158
 
 	arm_func_start FUN_ov68_0211e300
@@ -4903,9 +4903,9 @@ _0211E564:
 	mvn r0, #0
 	str r0, [r4, #0x258]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211E5B0: .word 0x02099ED4
-_0211E5B4: .word 0x0209A110
-_0211E5B8: .word 0x02099F58
+_0211E5B0: .word unk_02099ED4
+_0211E5B4: .word unk_0209A110
+_0211E5B8: .word unk_02099F58
 	arm_func_end FUN_ov68_0211e300
 
 	arm_func_start FUN_ov68_0211e5bc
@@ -4980,7 +4980,7 @@ _0211E680:
 _0211E6AC:
 	bl FUN_ov68_0211f4c8
 	ldmfd sp!, {r4, pc}
-_0211E6B4: .word 0x02099ED4
+_0211E6B4: .word unk_02099ED4
 	arm_func_end FUN_ov68_0211e5bc
 
 	arm_func_start FUN_ov68_0211e6b8
@@ -5003,9 +5003,9 @@ FUN_ov68_0211e6bc: ; 0x0211E6BC
 	ldr r0, _0211E6F8 ; =0x0209BA20
 	bl FUN_02071934
 	ldmfd sp!, {r4, pc}
-_0211E6F0: .word 0x02099EB4
-_0211E6F4: .word 0x02099ED4
-_0211E6F8: .word 0x0209BA20
+_0211E6F0: .word unk_02099EB4
+_0211E6F4: .word unk_02099ED4
+_0211E6F8: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211e6bc
 
 	arm_func_start FUN_ov68_0211e6fc
@@ -5077,8 +5077,8 @@ _0211E7B8:
 	str r1, [r0, #0x228]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
-_0211E800: .word 0x02099ED4
-_0211E804: .word 0x0209AC44
+_0211E800: .word unk_02099ED4
+_0211E804: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211e6fc
 
 	arm_func_start FUN_ov68_0211e808
@@ -5155,8 +5155,8 @@ _0211E8D8:
 	str r1, [r0, #0x228]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
-_0211E920: .word 0x02099ED4
-_0211E924: .word 0x0209AC44
+_0211E920: .word unk_02099ED4
+_0211E924: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211e808
 
 	arm_func_start FUN_ov68_0211e928
@@ -5458,9 +5458,9 @@ _0211ED54:
 	bl FUN_0202cf6c
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_0211ED68: .word 0x02099F38
-_0211ED6C: .word 0x0209AC44
-_0211ED70: .word 0x02099EB4
+_0211ED68: .word unk_02099F38
+_0211ED6C: .word unk_0209AC44
+_0211ED70: .word unk_02099EB4
 _0211ED74: .word ov68_0211FED0
 _0211ED78: .word ov68_0211FEE8
 _0211ED7C: .word 0x00003DEF
@@ -5515,10 +5515,10 @@ _0211EE24:
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211EE34: .word 0x02099F38
+_0211EE34: .word unk_02099F38
 _0211EE38: .word 0x00003DEF
-_0211EE3C: .word 0x02099EB4
-_0211EE40: .word 0x0209AC44
+_0211EE3C: .word unk_02099EB4
+_0211EE40: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211ed80
 
 	arm_func_start FUN_ov68_0211ee44
@@ -5529,7 +5529,7 @@ FUN_ov68_0211ee44: ; 0x0211EE44
 	ldr r12, _0211EE60 ; =FUN_0202cf6c
 	mov r1, #1
 	bx r12
-_0211EE5C: .word 0x0209AC44
+_0211EE5C: .word unk_0209AC44
 _0211EE60: .word FUN_0202cf6c
 	arm_func_end FUN_ov68_0211ee44
 
@@ -5576,9 +5576,9 @@ _0211EEA4:
 	strh r1, [r0, #0x32]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211EEF8: .word 0x00007FFF
-_0211EEFC: .word 0x02099F38
+_0211EEFC: .word unk_02099F38
 _0211EF00: .word 0x00003DEF
-_0211EF04: .word 0x02099EB4
+_0211EF04: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211ee64
 
 	arm_func_start FUN_ov68_0211ef08
@@ -5598,7 +5598,7 @@ _0211EF30:
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, pc}
-_0211EF40: .word 0x0209AC44
+_0211EF40: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211ef08
 
 	arm_func_start FUN_ov68_0211ef44
@@ -5647,8 +5647,8 @@ _0211EF98:
 	mov r1, #0x1c4
 	bl FUN_020460a8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211EFEC: .word 0x0209BA20
-_0211EFF0: .word 0x020A9C40
+_0211EFEC: .word unk_0209BA20
+_0211EFF0: .word unk_020A9C40
 	arm_func_end FUN_ov68_0211ef44
 
 	arm_func_start FUN_ov68_0211eff4
@@ -5709,9 +5709,9 @@ _0211F03C:
 	bl  FUN_ov16_0210e7d0
 	strh r9, [r0, #0x32]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211F0CC: .word 0x02099F38
+_0211F0CC: .word unk_02099F38
 _0211F0D0: .word 0x00007FFF
-_0211F0D4: .word 0x02099EB4
+_0211F0D4: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211eff4
 
 	arm_func_start FUN_ov68_0211f0d8
@@ -5727,7 +5727,7 @@ FUN_ov68_0211f0d8: ; 0x0211F0D8
 	movhs r0, #1
 	movlo r0, #0
 	ldmfd sp!, {r4, pc}
-_0211F104: .word 0x0209BA20
+_0211F104: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211f0d8
 
 	arm_func_start FUN_ov68_0211f108
@@ -5778,7 +5778,7 @@ FUN_ov68_0211f164: ; 0x0211F164
 	mov r3, #1
 	bl FUN_02049fc8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211F1AC: .word 0x0209BA20
+_0211F1AC: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211f164
 
 	arm_func_start FUN_ov68_0211f1b0
@@ -5800,7 +5800,7 @@ FUN_ov68_0211f1b0: ; 0x0211F1B0
 	movne r4, #1
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211F1F4: .word 0x0209BA20
+_0211F1F4: .word unk_0209BA20
 	arm_func_end FUN_ov68_0211f1b0
 
 	arm_func_start FUN_ov68_0211f1f8
@@ -5854,9 +5854,9 @@ _0211F238:
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211F2AC: .word 0x00003DEF
-_0211F2B0: .word 0x02099F38
-_0211F2B4: .word 0x02099EB4
-_0211F2B8: .word 0x0209AC44
+_0211F2B0: .word unk_02099F38
+_0211F2B4: .word unk_02099EB4
+_0211F2B8: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211f1f8
 
 	arm_func_start FUN_ov68_0211f2bc
@@ -5867,7 +5867,7 @@ FUN_ov68_0211f2bc: ; 0x0211F2BC
 	ldr r12, _0211F2D8 ; =FUN_0202cf6c
 	mov r1, #1
 	bx r12
-_0211F2D4: .word 0x0209AC44
+_0211F2D4: .word unk_0209AC44
 _0211F2D8: .word FUN_0202cf6c
 	arm_func_end FUN_ov68_0211f2bc
 
@@ -5911,9 +5911,9 @@ _0211F314:
 	strh r1, [r0, #0x32]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211F368: .word 0x00007FFF
-_0211F36C: .word 0x02099F38
+_0211F36C: .word unk_02099F38
 _0211F370: .word 0x00003DEF
-_0211F374: .word 0x02099EB4
+_0211F374: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211f2dc
 
 	arm_func_start FUN_ov68_0211f378
@@ -5933,7 +5933,7 @@ _0211F3A0:
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, pc}
-_0211F3B0: .word 0x0209AC44
+_0211F3B0: .word unk_0209AC44
 	arm_func_end FUN_ov68_0211f378
 
 	arm_func_start FUN_ov68_0211f3b4
@@ -6007,8 +6007,8 @@ _0211F3F0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211F4BC: .word 0x00007FFF
-_0211F4C0: .word 0x02099F38
-_0211F4C4: .word 0x02099EB4
+_0211F4C0: .word unk_02099F38
+_0211F4C4: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211f3b4
 
 	arm_func_start FUN_ov68_0211f4c8
@@ -6056,9 +6056,9 @@ _0211F500:
 	strh r5, [r0, #0x32]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211F568: .word 0x00007FFF
-_0211F56C: .word 0x02099F38
+_0211F56C: .word unk_02099F38
 _0211F570: .word 0x00003DEF
-_0211F574: .word 0x02099EB4
+_0211F574: .word unk_02099EB4
 	arm_func_end FUN_ov68_0211f4c8
 
 	arm_func_start FUN_ov68_0211f578
@@ -6224,7 +6224,7 @@ _0211F788:
 	strb r5, [sp, #0x12]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211F7D4: .word 0x0209BA20
+_0211F7D4: .word unk_0209BA20
 _0211F7D8: .word 0x66666667
 _0211F7DC: .word 0x51EB851F
 _0211F7E0: .word ov68_0211FF38
@@ -6260,7 +6260,7 @@ FUN_ov68_0211f7e4: ; 0x0211F7E4
 	mov r2, r5
 	bl  FUN_ov16_0210e5f0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211F854: .word 0x02099ED4
+_0211F854: .word unk_02099ED4
 	arm_func_end FUN_ov68_0211f7e4
 
 	arm_func_start FUN_ov68_0211f858
@@ -6269,7 +6269,7 @@ FUN_ov68_0211f858: ; 0x0211F858
 	ldr r12, _0211F86C ; = FUN_ov16_0210efac
 	ldr r0, [r0]
 	bx r12
-_0211F868: .word 0x02099EB4
+_0211F868: .word unk_02099EB4
 _0211F86C: .word  FUN_ov16_0210efac
 	arm_func_end FUN_ov68_0211f858
 
@@ -6313,7 +6313,7 @@ FUN_ov68_0211f870: ; 0x0211F870
 	bl  FUN_ov16_0210e5f0
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211F908: .word 0x02099ED4
+_0211F908: .word unk_02099ED4
 	arm_func_end FUN_ov68_0211f870
 
 	arm_func_start FUN_ov68_0211f90c
@@ -6357,7 +6357,7 @@ FUN_ov68_0211f90c: ; 0x0211F90C
 	bl  FUN_ov16_0210e5f0
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211F9A8: .word 0x02099ED4
+_0211F9A8: .word unk_02099ED4
 	arm_func_end FUN_ov68_0211f90c
 
 	arm_func_start FUN_ov68_0211f9ac
@@ -6368,7 +6368,7 @@ FUN_ov68_0211f9ac: ; 0x0211F9AC
 	ldr r12, _0211F9C8 ; = FUN_ov16_0210e5f0
 	mov r2, #4
 	bx r12
-_0211F9C4: .word 0x02099ED4
+_0211F9C4: .word unk_02099ED4
 _0211F9C8: .word  FUN_ov16_0210e5f0
 	arm_func_end FUN_ov68_0211f9ac
 

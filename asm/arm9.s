@@ -4140,10 +4140,13 @@ OS_GetProcMode: ; 0x02003E0C
 	and r0, r0, #0x1f
 	bx lr
 	arm_func_end OS_GetProcMode
-_02003E18:
+
+	arm_func_start FUN_02003e18
+FUN_02003e18: ; 0x02003E18
 	subs r0, r0, #4
-	bhs _02003E18
+	bhs FUN_02003e18
 	bx lr
+	arm_func_end FUN_02003e18
 
 	arm_func_start FUN_02003e24
 FUN_02003e24: ; 0x02003E24
@@ -4152,7 +4155,7 @@ FUN_02003e24: ; 0x02003E24
 	cmp r0, #0x10
 	ldmlsfd sp!, {r3, pc}
 	sub r0, r0, #0x10
-	bl _02003E18
+	bl FUN_02003e18
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02003e24
 
@@ -19657,7 +19660,7 @@ FUN_0201063c: ; 0x0201063C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r0
 	ldr r5, [r9, #0x510]
-	ldr r0, _020107C8 ; =0x02000BAC
+	ldr r0, _020107C8 ; =_version_NINTENDO_BACKUP
 	ldr r6, [r9, #0x518]
 	ldr r10, [r9, #0x514]
 	mov r7, #0x100
@@ -19765,7 +19768,7 @@ _0201079C:
 	str r1, [r9, #0x504]
 	bne _02010688
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020107C8: .word 0x02000BAC
+_020107C8: .word _version_NINTENDO_BACKUP
 _020107CC: .word unk_02095C20
 _020107D0: .word unk_02096160
 	arm_func_end FUN_0201063c
@@ -20036,7 +20039,7 @@ _02010B68: .word unk_02096160
 FUN_02010b6c: ; 0x02010B6C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	ldr r0, _02010BB4 ; =0x02000BAC
+	ldr r0, _02010BB4 ; =_version_NINTENDO_BACKUP
 	mov r5, r1
 	mov r4, r2
 	bl OSi_ReferSymbol
@@ -20053,7 +20056,7 @@ _02010B9C:
 	mov r1, #1
 	bl FUN_02010340
 	ldmfd sp!, {r4, r5, r6, pc}
-_02010BB4: .word 0x02000BAC
+_02010BB4: .word _version_NINTENDO_BACKUP
 _02010BB8: .word unk_02095C20
 	arm_func_end FUN_02010b6c
 
@@ -167786,22 +167789,70 @@ unk_02099E84:
 	.space 0x08
 	.global unk_02099E8C
 unk_02099E8C:
-	.space 0x02
+	.space 0x01
+	.global unk_02099E8D
+unk_02099E8D:
+	.space 0x01
 	.global unk_02099E8E
 unk_02099E8E:
-	.space 0x02
+	.space 0x01
+	.global unk_02099E8F
+unk_02099E8F:
+	.space 0x01
 	.global unk_02099E90
 unk_02099E90:
 	.space 0x01
 	.global unk_02099E91
 unk_02099E91:
-	.space 0x06
+	.space 0x01
+	.global unk_02099E92
+unk_02099E92:
+	.space 0x01
+	.global unk_02099E93
+unk_02099E93:
+	.space 0x01
+	.global unk_02099E94
+unk_02099E94:
+	.space 0x01
+	.global unk_02099E95
+unk_02099E95:
+	.space 0x01
+	.global unk_02099E96
+unk_02099E96:
+	.space 0x01
 	.global unk_02099E97
 unk_02099E97:
 	.space 0x01
 	.global unk_02099E98
 unk_02099E98:
-	.space 0x0E
+	.space 0x01
+	.global unk_02099E99
+unk_02099E99:
+	.space 0x01
+	.global unk_02099E9A
+unk_02099E9A:
+	.space 0x01
+	.global unk_02099E9B
+unk_02099E9B:
+	.space 0x01
+	.global unk_02099E9C
+unk_02099E9C:
+	.space 0x01
+	.global unk_02099E9D
+unk_02099E9D:
+	.space 0x01
+	.global unk_02099E9E
+unk_02099E9E:
+	.space 0x02
+	.global unk_02099EA0
+unk_02099EA0:
+	.space 0x02
+	.global unk_02099EA2
+unk_02099EA2:
+	.space 0x02
+	.global unk_02099EA4
+unk_02099EA4:
+	.space 0x02
 	.global unk_02099EA6
 unk_02099EA6:
 	.space 0x03
@@ -167813,7 +167864,10 @@ unk_02099EAC:
 	.space 0x04
 	.global unk_02099EB0
 unk_02099EB0:
-	.space 0x08
+	.space 0x04
+	.global unk_02099EB4
+unk_02099EB4:
+	.space 0x04
 	.global unk_02099EB8
 unk_02099EB8:
 	.space 0x08
@@ -167828,10 +167882,16 @@ unk_02099ECC:
 	.space 0x04
 	.global unk_02099ED0
 unk_02099ED0:
-	.space 0x08
+	.space 0x04
+	.global unk_02099ED4
+unk_02099ED4:
+	.space 0x04
 	.global unk_02099ED8
 unk_02099ED8:
-	.space 0x08
+	.space 0x04
+	.global unk_02099EDC
+unk_02099EDC:
+	.space 0x04
 	.global unk_02099EE0
 unk_02099EE0:
 	.space 0x04
@@ -167846,7 +167906,10 @@ unk_02099EEC:
 	.space 0x04
 	.global unk_02099EF0
 unk_02099EF0:
-	.space 0x08
+	.space 0x04
+	.global unk_02099EF4
+unk_02099EF4:
+	.space 0x04
 	.global unk_02099EF8
 unk_02099EF8:
 	.space 0x04
@@ -167858,7 +167921,13 @@ unk_02099F00:
 	.space 0x04
 	.global unk_02099F04
 unk_02099F04:
-	.space 0x0C
+	.space 0x04
+	.global unk_02099F08
+unk_02099F08:
+	.space 0x02
+	.global unk_02099F0A
+unk_02099F0A:
+	.space 0x06
 	.global unk_02099F10
 unk_02099F10:
 	.space 0x04
@@ -167888,13 +167957,19 @@ unk_02099F34:
 	.space 0x04
 	.global unk_02099F38
 unk_02099F38:
-	.space 0x0C
+	.space 0x04
+	.global unk_02099F3C
+unk_02099F3C:
+	.space 0x08
 	.global unk_02099F44
 unk_02099F44:
 	.space 0x0C
 	.global unk_02099F50
 unk_02099F50:
-	.space 0x08
+	.space 0x04
+	.global unk_02099F54
+unk_02099F54:
+	.space 0x04
 	.global unk_02099F58
 unk_02099F58:
 	.space 0x04
@@ -167972,7 +168047,10 @@ unk_0209A050:
 	.space 0x10
 	.global unk_0209A060
 unk_0209A060:
-	.space 0x20
+	.space 0x10
+	.global unk_0209A070
+unk_0209A070:
+	.space 0x10
 	.global unk_0209A080
 unk_0209A080:
 	.space 0x10
@@ -167981,13 +168059,28 @@ unk_0209A090:
 	.space 0x1C
 	.global unk_0209A0AC
 unk_0209A0AC:
-	.space 0x30
+	.space 0x28
+	.global unk_0209A0D4
+unk_0209A0D4:
+	.space 0x04
+	.global unk_0209A0D8
+unk_0209A0D8:
+	.space 0x04
 	.global unk_0209A0DC
 unk_0209A0DC:
-	.space 0x0C
+	.space 0x04
+	.global unk_0209A0E0
+unk_0209A0E0:
+	.space 0x04
+	.global unk_0209A0E4
+unk_0209A0E4:
+	.space 0x04
 	.global unk_0209A0E8
 unk_0209A0E8:
-	.space 0x08
+	.space 0x04
+	.global unk_0209A0EC
+unk_0209A0EC:
+	.space 0x04
 	.global unk_0209A0F0
 unk_0209A0F0:
 	.space 0x04
@@ -167996,13 +168089,34 @@ unk_0209A0F4:
 	.space 0x04
 	.global unk_0209A0F8
 unk_0209A0F8:
-	.space 0x14
+	.space 0x04
+	.global unk_0209A0FC
+unk_0209A0FC:
+	.space 0x04
+	.global unk_0209A100
+unk_0209A100:
+	.space 0x01
+	.global unk_0209A101
+unk_0209A101:
+	.space 0x03
+	.global unk_0209A104
+unk_0209A104:
+	.space 0x04
+	.global unk_0209A108
+unk_0209A108:
+	.space 0x04
 	.global unk_0209A10C
 unk_0209A10C:
 	.space 0x04
 	.global unk_0209A110
 unk_0209A110:
-	.space 0x0C
+	.space 0x04
+	.global unk_0209A114
+unk_0209A114:
+	.space 0x04
+	.global unk_0209A118
+unk_0209A118:
+	.space 0x04
 	.global unk_0209A11C
 unk_0209A11C:
 	.space 0x04
@@ -168011,31 +168125,79 @@ unk_0209A120:
 	.space 0x04
 	.global unk_0209A124
 unk_0209A124:
-	.space 0x0C
+	.space 0x04
+	.global unk_0209A128
+unk_0209A128:
+	.space 0x04
+	.global unk_0209A12C
+unk_0209A12C:
+	.space 0x04
 	.global unk_0209A130
 unk_0209A130:
-	.space 0x08
+	.space 0x04
+	.global unk_0209A134
+unk_0209A134:
+	.space 0x04
 	.global unk_0209A138
 unk_0209A138:
-	.space 0x0C
+	.space 0x04
+	.global unk_0209A13C
+unk_0209A13C:
+	.space 0x04
+	.global unk_0209A140
+unk_0209A140:
+	.space 0x04
 	.global unk_0209A144
 unk_0209A144:
 	.space 0x1C
 	.global unk_0209A160
 unk_0209A160:
-	.space 0x48
+	.space 0x18
+	.global unk_0209A178
+unk_0209A178:
+	.space 0x18
+	.global unk_0209A190
+unk_0209A190:
+	.space 0x18
 	.global unk_0209A1A8
 unk_0209A1A8:
-	.space 0x58
+	.space 0x38
+	.global unk_0209A1E0
+unk_0209A1E0:
+	.space 0x20
 	.global unk_0209A200
 unk_0209A200:
-	.space 0x50
+	.space 0x28
+	.global unk_0209A228
+unk_0209A228:
+	.space 0x04
+	.global unk_0209A22C
+unk_0209A22C:
+	.space 0x10
+	.global unk_0209A23C
+unk_0209A23C:
+	.space 0x04
+	.global unk_0209A240
+unk_0209A240:
+	.space 0x10
 	.global unk_0209A250
 unk_0209A250:
 	.space 0x70
 	.global unk_0209A2C0
 unk_0209A2C0:
-	.space 0x60
+	.space 0x0C
+	.global unk_0209A2CC
+unk_0209A2CC:
+	.space 0x0C
+	.global unk_0209A2D8
+unk_0209A2D8:
+	.space 0x08
+	.global unk_0209A2E0
+unk_0209A2E0:
+	.space 0x08
+	.global unk_0209A2E8
+unk_0209A2E8:
+	.space 0x38
 	.global unk_0209A320
 unk_0209A320:
 	.space 0x60
@@ -168047,13 +168209,88 @@ unk_0209A3E0:
 	.space 0x74
 	.global unk_0209A454
 unk_0209A454:
-	.space 0x17C
+	.space 0x0C
+	.global unk_0209A460
+unk_0209A460:
+	.space 0x30
+	.global unk_0209A490
+unk_0209A490:
+	.space 0x04
+	.global unk_0209A494
+unk_0209A494:
+	.space 0x20
+	.global unk_0209A4B4
+unk_0209A4B4:
+	.space 0x2C
+	.global unk_0209A4E0
+unk_0209A4E0:
+	.space 0x04
+	.global unk_0209A4E4
+unk_0209A4E4:
+	.space 0x02
+	.global unk_0209A4E6
+unk_0209A4E6:
+	.space 0x0A
+	.global unk_0209A4F0
+unk_0209A4F0:
+	.space 0x15
+	.global unk_0209A505
+unk_0209A505:
+	.space 0x03
+	.global unk_0209A508
+unk_0209A508:
+	.space 0x05
+	.global unk_0209A50D
+unk_0209A50D:
+	.space 0x2B
+	.global unk_0209A538
+unk_0209A538:
+	.space 0x04
+	.global unk_0209A53C
+unk_0209A53C:
+	.space 0x04
+	.global unk_0209A540
+unk_0209A540:
+	.space 0x10
+	.global unk_0209A550
+unk_0209A550:
+	.space 0x80
 	.global unk_0209A5D0
 unk_0209A5D0:
 	.space 0x150
 	.global unk_0209A720
 unk_0209A720:
-	.space 0xD4
+	.space 0x10
+	.global unk_0209A730
+unk_0209A730:
+	.space 0x10
+	.global unk_0209A740
+unk_0209A740:
+	.space 0x10
+	.global unk_0209A750
+unk_0209A750:
+	.space 0x10
+	.global unk_0209A760
+unk_0209A760:
+	.space 0x10
+	.global unk_0209A770
+unk_0209A770:
+	.space 0x10
+	.global unk_0209A780
+unk_0209A780:
+	.space 0x10
+	.global unk_0209A790
+unk_0209A790:
+	.space 0x10
+	.global unk_0209A7A0
+unk_0209A7A0:
+	.space 0x34
+	.global unk_0209A7D4
+unk_0209A7D4:
+	.space 0x02
+	.global unk_0209A7D6
+unk_0209A7D6:
+	.space 0x1E
 	.global unk_0209A7F4
 unk_0209A7F4:
 	.space 0x08
@@ -168062,10 +168299,19 @@ unk_0209A7FC:
 	.space 0x10
 	.global unk_0209A80C
 unk_0209A80C:
-	.space 0x20
+	.space 0x10
+	.global unk_0209A81C
+unk_0209A81C:
+	.space 0x04
+	.global unk_0209A820
+unk_0209A820:
+	.space 0x0C
 	.global unk_0209A82C
 unk_0209A82C:
-	.space 0x10
+	.space 0x08
+	.global unk_0209A834
+unk_0209A834:
+	.space 0x08
 	.global unk_0209A83C
 unk_0209A83C:
 	.space 0x10
@@ -168077,7 +168323,10 @@ unk_0209A85C:
 	.space 0x20
 	.global unk_0209A87C
 unk_0209A87C:
-	.space 0x08
+	.space 0x04
+	.global unk_0209A880
+unk_0209A880:
+	.space 0x04
 	.global unk_0209A884
 unk_0209A884:
 	.space 0x1C
@@ -168101,16 +168350,58 @@ unk_0209AF54:
 	.space 0x04
 	.global unk_0209AF58
 unk_0209AF58:
-	.space 0xAC8
+	.space 0x1E4
+	.global unk_0209B13C
+unk_0209B13C:
+	.space 0xE4
+	.global unk_0209B220
+unk_0209B220:
+	.space 0x400
+	.global unk_0209B620
+unk_0209B620:
+	.space 0x200
+	.global unk_0209B820
+unk_0209B820:
+	.space 0x200
 	.global unk_0209BA20
 unk_0209BA20:
-	.space 0x8A4
+	.space 0x40C
+	.global unk_0209BE2C
+unk_0209BE2C:
+	.space 0xC0
+	.global unk_0209BEEC
+unk_0209BEEC:
+	.space 0x1A8
+	.global unk_0209C094
+unk_0209C094:
+	.space 0x8C
+	.global unk_0209C120
+unk_0209C120:
+	.space 0x100
+	.global unk_0209C220
+unk_0209C220:
+	.space 0xA4
 	.global unk_0209C2C4
 unk_0209C2C4:
 	.space 0x94C
 	.global unk_0209CC10
 unk_0209CC10:
-	.space 0x1AB0
+	.space 0x01
+	.global unk_0209CC11
+unk_0209CC11:
+	.space 0x01
+	.global unk_0209CC12
+unk_0209CC12:
+	.space 0x01
+	.global unk_0209CC13
+unk_0209CC13:
+	.space 0x01
+	.global unk_0209CC14
+unk_0209CC14:
+	.space 0xBAC
+	.global unk_0209D7C0
+unk_0209D7C0:
+	.space 0xF00
 	.global unk_0209E6C0
 unk_0209E6C0:
 	.space 0xF00
@@ -168122,13 +168413,28 @@ unk_020A0640:
 	.space 0x08
 	.global unk_020A0648
 unk_020A0648:
-	.space 0x74
+	.space 0x18
+	.global unk_020A0660
+unk_020A0660:
+	.space 0x10
+	.global unk_020A0670
+unk_020A0670:
+	.space 0x02
+	.global unk_020A0672
+unk_020A0672:
+	.space 0x04
+	.global unk_020A0676
+unk_020A0676:
+	.space 0x46
 	.global unk_020A06BC
 unk_020A06BC:
 	.space 0x16
 	.global unk_020A06D2
 unk_020A06D2:
-	.space 0x06
+	.space 0x04
+	.global unk_020A06D6
+unk_020A06D6:
+	.space 0x02
 	.global unk_020A06D8
 unk_020A06D8:
 	.space 0x28
@@ -168140,13 +168446,34 @@ unk_020A0A40:
 	.space 0xC0
 	.global unk_020A0B00
 unk_020A0B00:
-	.space 0x40
+	.space 0x34
+	.global unk_020A0B34
+unk_020A0B34:
+	.space 0x08
+	.global unk_020A0B3C
+unk_020A0B3C:
+	.space 0x04
 	.global unk_020A0B40
 unk_020A0B40:
-	.space 0xFC
+	.space 0x0C
+	.global unk_020A0B4C
+unk_020A0B4C:
+	.space 0x20
+	.global unk_020A0B6C
+unk_020A0B6C:
+	.space 0x20
+	.global unk_020A0B8C
+unk_020A0B8C:
+	.space 0x28
+	.global unk_020A0BB4
+unk_020A0BB4:
+	.space 0x88
 	.global unk_020A0C3C
 unk_020A0C3C:
-	.space 0x2C
+	.space 0x28
+	.global unk_020A0C64
+unk_020A0C64:
+	.space 0x04
 	.global unk_020A0C68
 unk_020A0C68:
 	.space 0x148
@@ -168155,7 +168482,13 @@ unk_020A0DB0:
 	.space 0x148
 	.global unk_020A0EF8
 unk_020A0EF8:
-	.space 0x192
+	.space 0x148
+	.global unk_020A1040
+unk_020A1040:
+	.space 0x0A
+	.global unk_020A104A
+unk_020A104A:
+	.space 0x40
 	.global unk_020A108A
 unk_020A108A:
 	.space 0xB6
@@ -168164,25 +168497,61 @@ unk_020A1140:
 	.space 0x9C
 	.global unk_020A11DC
 unk_020A11DC:
-	.space 0x64
+	.space 0x0C
+	.global unk_020A11E8
+unk_020A11E8:
+	.space 0x02
+	.global unk_020A11EA
+unk_020A11EA:
+	.space 0x56
 	.global unk_020A1240
 unk_020A1240:
-	.space 0x38
+	.space 0x08
+	.global unk_020A1248
+unk_020A1248:
+	.space 0x02
+	.global unk_020A124A
+unk_020A124A:
+	.space 0x2E
 	.global unk_020A1278
 unk_020A1278:
-	.space 0x48
+	.space 0x08
+	.global unk_020A1280
+unk_020A1280:
+	.space 0x1F
+	.global unk_020A129F
+unk_020A129F:
+	.space 0x15
+	.global unk_020A12B4
+unk_020A12B4:
+	.space 0x0C
 	.global unk_020A12C0
 unk_020A12C0:
-	.space 0x280
+	.space 0x42
+	.global unk_020A1302
+unk_020A1302:
+	.space 0x23E
 	.global unk_020A1540
 unk_020A1540:
-	.space 0xD2
+	.space 0xC8
+	.global unk_020A1608
+unk_020A1608:
+	.space 0x04
+	.global unk_020A160C
+unk_020A160C:
+	.space 0x06
 	.global unk_020A1612
 unk_020A1612:
 	.space 0x2E
 	.global unk_020A1640
 unk_020A1640:
-	.space 0x24
+	.space 0x16
+	.global unk_020A1656
+unk_020A1656:
+	.space 0x06
+	.global unk_020A165C
+unk_020A165C:
+	.space 0x08
 	.global unk_020A1664
 unk_020A1664:
 	.space 0xDC
@@ -168209,10 +168578,37 @@ unk_020A3CA0:
 	.space 0x74
 	.global unk_020A3D14
 unk_020A3D14:
-	.space 0x5F2C
+	.space 0x2F2C
+	.global unk_020A6C40
+unk_020A6C40:
+	.space 0x800
+	.global unk_020A7440
+unk_020A7440:
+	.space 0x800
+	.global unk_020A7C40
+unk_020A7C40:
+	.space 0x800
+	.global unk_020A8440
+unk_020A8440:
+	.space 0x800
+	.global unk_020A8C40
+unk_020A8C40:
+	.space 0x800
+	.global unk_020A9440
+unk_020A9440:
+	.space 0x800
 	.global unk_020A9C40
 unk_020A9C40:
-	.space 0x5BD8
+	.space 0x404
+	.global unk_020AA044
+unk_020AA044:
+	.space 0x4BFC
+	.global unk_020AEC40
+unk_020AEC40:
+	.space 0xB00
+	.global unk_020AF740
+unk_020AF740:
+	.space 0xD8
 	.global unk_020AF818
 unk_020AF818:
 	.space 0x04

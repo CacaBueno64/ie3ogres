@@ -9,6 +9,7 @@ Static main
 {
     Address 0x02000000
     StackSize 0 2048
+	Object asm/middleware.o
     Object asm/arm9.o
 }
 
