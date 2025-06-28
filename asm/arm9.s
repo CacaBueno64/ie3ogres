@@ -4,12 +4,12 @@
 
 	.text
 
-	arm_func_start NitroMainVeneer
-NitroMainVeneer: ; 0x02000C8C
-	ldr r12, _02000C94 ; =NitroMain
+	arm_func_start NitroMain
+NitroMain: ; 0x02000C8C
+	ldr r12, _02000C94 ; =FUN_02029c08
 	bx r12
-_02000C94: .word NitroMain
-	arm_func_end NitroMainVeneer
+_02000C94: .word FUN_02029c08
+	arm_func_end NitroMain
 
 	arm_func_start OS_WaitIrq
 OS_WaitIrq: ; 0x02000C98
@@ -49809,8 +49809,8 @@ FUN_02029bf8: ; 0x02029BF8
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02029bf8
 
-	arm_func_start NitroMain
-NitroMain: ; 0x02029C08
+	arm_func_start FUN_02029c08
+FUN_02029c08: ; 0x02029C08
 	stmfd sp!, {r3, lr}
 	bl FUN_020290c4
 	bl FUN_02029140
@@ -49834,7 +49834,7 @@ NitroMain: ; 0x02029C08
 	bl FUN_02029be4
 	ldmfd sp!, {r3, pc}
 _02029C60: .word 0x0000007E
-	arm_func_end NitroMain
+	arm_func_end FUN_02029c08
 
 	arm_func_start FUN_02029c64
 FUN_02029c64: ; 0x02029C64

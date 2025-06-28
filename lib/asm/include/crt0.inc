@@ -7,6 +7,6 @@
 .public init_cp15
 .public NitroStartUp
 .public OSi_ReferSymbol
-.public NitroMainVeneer
+.public NitroMain
 .public _fp_init
 .public __call_static_initializers

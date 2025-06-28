@@ -75,7 +75,7 @@ _020008CC:
 	bl _fp_init
 	bl NitroStartUp
 	bl __call_static_initializers
-	ldr r1, _02000934 ; =NitroMainVeneer
+	ldr r1, _02000934 ; =NitroMain
 	ldr lr, _02000938 ; =0xFFFF0000
 	bx r1
 _02000918: .word 0x027E0000
@@ -85,7 +85,7 @@ _02000924: .word 0x07000000
 _02000928: .word _start_ModuleParams
 _0200092C: .word 0x02FFFF9C
 _02000930: .word 0x01FF8000
-_02000934: .word NitroMainVeneer
+_02000934: .word NitroMain
 _02000938: .word 0xFFFF0000
 	arm_func_end _start
 
