@@ -124,7 +124,7 @@ FUN_ov15_020bcc84: ; 0x020BCC84
 	cmpeq r0, #0
 	mov r6, #0
 	bne _020BCCB8
-	bl FUN_02003410
+	bl OS_GetTick
 _020BCCB8:
 	str r0, [r5, #0x78]
 	str r1, [r5, #0x7c]
@@ -879,7 +879,7 @@ _020BD6B0:
 	add r6, r2, r7
 	cmp r8, r1
 	bne _020BD6E0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r2, r0, lsr #0x10
 	ldr r0, _020BD710 ; =0x020E6E62
 	orr r2, r2, r1, lsl #16
@@ -1039,7 +1039,7 @@ FUN_ov15_020bd8b8: ; 0x020BD8B8
 	bl FUN_ov15_020bd1e8
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	mov r0, r0, lsl #0x10
@@ -1783,7 +1783,7 @@ _020BE3C4:
 	mov r0, #0
 	beq _020BE3DC
 	strb r0, [r8, #0x32]
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r8, #0x2c]
 _020BE3DC:
 	sub r0, r7, #0xc
@@ -2461,7 +2461,7 @@ _020BED00:
 	strb r1, [r4, #0x32]
 	cmp r0, #2
 	bhs _020BED40
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r4, #0x2c]
 	ldr r1, _020BED50 ; =0x0001991B
 	sub r0, r0, r2
@@ -2569,7 +2569,7 @@ FUN_ov15_020bee80: ; 0x020BEE80
 	mov r6, r0
 	mov r5, r1
 	strb r2, [r4, #8]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	str r0, [r4, #0x10]
@@ -3683,7 +3683,7 @@ _020BFDDC:
 	str r9, [r6]
 	strh r4, [r6, #6]
 	strh r0, [r6, #8]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	str r0, [r6, #0x2c]
@@ -4157,7 +4157,7 @@ FUN_ov15_020c0428: ; 0x020C0428
 _020C044C:
 	str r8, [r10, #0x34]
 	strb r6, [r10, #8]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r2, r0, lsr #0x10
 	orr r2, r2, r1, lsl #16
 	mov r0, r10
@@ -4280,7 +4280,7 @@ FUN_ov15_020c05b4: ; 0x020C05B4
 	mov r0, r4
 	bl FUN_ov15_020da69c
 _020C05E0:
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r6, r0, lsr #0x10
 	orr r6, r6, r1, lsl #16
 	ldr r5, _020C0638 ; =0x020E6D40
@@ -4294,7 +4294,7 @@ _020C05F8:
 	ldrneb r0, [r4, #8]
 	cmpne r0, #0
 	beq _020C0628
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r0, r0, r6
@@ -4620,7 +4620,7 @@ FUN_ov15_020c0a10: ; 0x020C0A10
 	str r3, [sp, #8]
 	mov r6, r4
 	str r0, [r8, #0x40]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	str r0, [sp, #0xc]
@@ -4634,7 +4634,7 @@ _020C0A54:
 	mov r2, r9
 	str r6, [sp, #4]
 	bl FUN_ov15_020c09d4
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r5, r0, lsr #0x10
 	ldr r4, _020C0C14 ; =0x020E6D40
 	orr r5, r5, r1, lsl #16
@@ -4651,7 +4651,7 @@ _020C0A84:
 	ldr r0, [r8, #0x3c]
 	cmp r1, r0
 	beq _020C0ADC
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r0, r0, r5
@@ -4673,7 +4673,7 @@ _020C0ADC:
 	add r0, r0, r5
 	str r0, [sp, #0x10]
 	beq _020C0B18
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	str r0, [sp, #0xc]
@@ -4688,7 +4688,7 @@ _020C0B18:
 	bne _020C0B9C
 	cmp r6, #0
 	bne _020C0BA0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r7, r0, lsr #0x10
 	orr r7, r7, r1, lsl #16
 	ldr r4, _020C0C14 ; =0x020E6D40
@@ -4703,7 +4703,7 @@ _020C0B64:
 	blx r0
 	cmp r0, #0
 	beq _020C0B8C
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r0, r0, r7
@@ -4737,7 +4737,7 @@ _020C0BC8:
 	ldrb r0, [r8, #8]
 	cmp r0, #4
 	bne _020C0C08
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r2, r0, lsr #0x10
 	ldr r0, [sp, #0xc]
 	orr r2, r2, r1, lsl #16
@@ -4928,7 +4928,7 @@ FUN_ov15_020c0e3c: ; 0x020C0E3C
 	bl OS_Sleep
 	ldr r0, [r4, #0x50]
 	bl FUN_ov15_020bd714
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r6, r0, lsr #0x10
 	orr r6, r6, r1, lsl #16
 	mov r5, #0x64
@@ -4945,7 +4945,7 @@ _020C0E88:
 	blx r0
 	cmp r0, #0
 	beq _020C0EB0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r0, r0, r6
@@ -5008,7 +5008,7 @@ _020C0F54:
 	ldr r0, [r0, #0x58]
 	cmp r0, #0
 	bne _020C12F0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r7, r0, lsr #0x10
 	ldr r0, _020C131C ; =0x020E6D40
 	orr r7, r7, r1, lsl #16
@@ -5296,7 +5296,7 @@ FUN_ov15_020c1338: ; 0x020C1338
 	mvn r5, #0
 	bl OS_DisableInterrupts
 	mov r7, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r1, _020C1418 ; =0x020939a4
 	mov r8, r0
 	ldr r6, [r1, #8]
@@ -5638,7 +5638,7 @@ FUN_ov15_020c17f4: ; 0x020C17F4
 	ldrb r0, [r2, r1]
 	rsb r0, r0, r0, lsl #3
 	str r0, [sp, #4]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r11, r0, lsr #0x10
 	orr r11, r11, r1, lsl #16
 	mov r4, #0
@@ -5855,7 +5855,7 @@ _020C1B14:
 	beq _020C1B4C
 	cmp r4, #0
 	bne _020C1B4C
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r1, r0, r11
@@ -6090,7 +6090,7 @@ _020C1E1C:
 	sub r1, r1, r0
 	strb r3, [r2, #4]
 	bl FUN_ov15_020c0ce8
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r5, r0, lsr #0x10
 	orr r5, r5, r1, lsl #16
 	b _020C1FB0
@@ -6194,7 +6194,7 @@ _020C1FB0:
 	beq _020C1FE4
 	cmp r4, #0
 	bne _020C1FE4
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	sub r0, r0, r5
@@ -7713,7 +7713,7 @@ _020C3428:
 	cmp r0, #9
 	bne _020C3448
 	strb r4, [r8, #0xd15]
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r8, #0xcb0]
 	str r1, [r8, #0xcb4]
 	mov r0, #0xa
@@ -9972,7 +9972,7 @@ _020C5158:
 	cmp r0, #0
 	cmpeq r2, #0
 	bne _020C53A4
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r5]
 	str r0, [r2, #8]
 	str r1, [r2, #0xc]
@@ -9982,7 +9982,7 @@ _020C519C:
 	str r0, [r5, #8]
 	b _020C53A4
 _020C51A8:
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r4, [r5]
 	mov r3, #0
 	ldr r2, [r4, #8]
@@ -9993,7 +9993,7 @@ _020C51A8:
 	ldr r2, _020C53B8 ; =0x000082EA
 	orr r1, r1, r7, lsr #26
 	mov r0, r7, lsl #6
-	bl FUN_0201f954
+	bl _ll_udiv
 	ldr r2, _020C53BC ; =0x00000BB8
 	cmp r1, #0
 	cmpeq r0, r2
@@ -10421,7 +10421,7 @@ FUN_ov15_020c5708: ; 0x020C5708
 	beq _020C5810
 	ldmfd sp!, {r4, r5, r6, pc}
 _020C5738:
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r4, #0xcb0]
 	str r1, [r4, #0xcb4]
 	add r0, r4, #0xd00
@@ -10448,7 +10448,7 @@ _020C5768:
 	moveq r5, #0
 	cmp r5, #1
 	bne _020C57F4
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r4, #0xcb0]
 	str r1, [r4, #0xcb4]
 	ldrb r2, [r4, #0xd0f]
@@ -10478,7 +10478,7 @@ _020C57F4:
 	strb r0, [r2, r1, lsl #2]
 	ldmfd sp!, {r4, r5, r6, pc}
 _020C5810:
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r4, #0xcb0]
 	str r1, [r4, #0xcb4]
 	add r2, r4, #0xd00
@@ -10502,13 +10502,13 @@ _020C5854: .word 0x020E3FF0
 FUN_ov15_020c5858: ; 0x020C5858
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r4, #0xcb0]
 	mov r0, #0
 	str r1, [r4, #0xcb4]
 	bl FUN_ov15_020c5ed0
 	strb r0, [r4, #0xd11]
-	bl FUN_02003410
+	bl OS_GetTick
 	add r2, r4, #0xd00
 	str r0, [r4, #0xcb0]
 	str r1, [r4, #0xcb4]
@@ -10553,7 +10553,7 @@ FUN_ov15_020c58b8: ; 0x020C58B8
 FUN_ov15_020c5904: ; 0x020C5904
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r4, #0xcb0]
 	mov r5, #0
 	subs r12, r0, r2
@@ -10564,7 +10564,7 @@ FUN_ov15_020c5904: ; 0x020C5904
 	mov r3, r5
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl FUN_0201f954
+	bl _ll_udiv
 	add r2, r4, #0xd00
 	ldrh r3, [r2, #0x22]
 	cmp r1, r3, asr #31
@@ -10583,7 +10583,7 @@ FUN_ov15_020c5904: ; 0x020C5904
 	bl FUN_ov15_020c5c7c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C5980:
-	bl FUN_02003410
+	bl OS_GetTick
 	add r2, r4, #0xd00
 	ldrsb r3, [r2, #0x11]
 	ldr r2, _020C59B8 ; =0x020E3CEC
@@ -10607,7 +10607,7 @@ _020C59C0: .word 0x020E3FF0
 FUN_ov15_020c59c4: ; 0x020C59C4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r4, #0xcb0]
 	ldr r3, [r4, #0xcb4]
 	subs r5, r0, r2
@@ -10617,7 +10617,7 @@ FUN_ov15_020c59c4: ; 0x020C59C4
 	orr r1, r1, r5, lsr #26
 	mov r0, r5, lsl #6
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	add r2, r4, #0xd00
 	ldrh r2, [r2, #0x24]
 	cmp r1, r2, asr #31
@@ -10677,7 +10677,7 @@ _020C5AA0:
 	moveq r6, #0
 	cmp r6, #1
 	bne _020C5B28
-	bl FUN_02003410
+	bl OS_GetTick
 	ldrb r5, [r4, #0xd0f]
 	mov r2, #0xc0
 	add r3, r4, #0x74
@@ -10715,7 +10715,7 @@ _020C5B48: .word 0x000082EA
 FUN_ov15_020c5b4c: ; 0x020C5B4C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r4, #0xcb0]
 	ldr r3, [r4, #0xcb4]
 	subs r12, r0, r2
@@ -10725,7 +10725,7 @@ FUN_ov15_020c5b4c: ; 0x020C5B4C
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	add r2, r4, #0xd00
 	ldrh r2, [r2, #0x24]
 	cmp r1, r2, asr #31
@@ -10773,7 +10773,7 @@ _020C5C08:
 	bl FUN_ov15_020c5c7c
 	ldmfd sp!, {r4, pc}
 _020C5C30:
-	bl FUN_02003410
+	bl OS_GetTick
 	add r3, r4, #0xd00
 	ldrb r12, [r4, #0xd0f]
 	add lr, r4, #0x304
@@ -11704,7 +11704,7 @@ FUN_ov15_020c6828: ; 0x020C6828
 	movne r0, #0xd
 	ldmfd sp!, {r4, pc}
 _020C6860:
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r4, #0xcb0]
 	mov r3, #0
 	subs r12, r0, r2
@@ -11714,7 +11714,7 @@ _020C6860:
 	mov r1, r0, lsl #6
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl FUN_0201f954
+	bl _ll_udiv
 	cmp r1, #0
 	cmpeq r0, #0xa
 	movlo r0, #0xc
@@ -12424,10 +12424,10 @@ _020C71F8:
 	add r8, r8, #1
 	mov r11, #1
 _020C7200:
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r9, r0
 	mov r10, r1
-	bl FUN_02003410
+	bl OS_GetTick
 	subs r2, r0, r9
 	sbc r0, r1, r10
 	mov r1, r0, lsl #6
@@ -12436,7 +12436,7 @@ _020C7200:
 	mov r0, r2, lsl #6
 	mov r3, #0
 	mov r2, r7
-	bl FUN_0201f954
+	bl _ll_udiv
 	ldr r6, _020C7364 ; =0x00001388
 	cmp r1, #0
 	cmpeq r0, r6
@@ -12469,7 +12469,7 @@ _020C7298:
 	bl OS_UnlockMutex
 	mov r0, r6
 	bl OS_Sleep
-	bl FUN_02003410
+	bl OS_GetTick
 	subs r2, r0, r9
 	sbc r0, r1, r10
 	mov r1, r0, lsl #6
@@ -12477,7 +12477,7 @@ _020C7298:
 	mov r0, r2, lsl #6
 	mov r2, r7
 	mov r3, r5
-	bl FUN_0201f954
+	bl _ll_udiv
 	cmp r1, #0
 	cmpeq r0, r6
 	blo _020C724C
@@ -13014,12 +13014,12 @@ _020C7A3C:
 	ldr r2, _020C7C7C ; =0x020E4554
 	mov r0, r5
 	str r4, [sp]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldrh r3, [r6, #0x10]
 	ldr r2, _020C7C80 ; =0x020E455C
 	add r0, r5, #0xe
 	mov r1, #7
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r0, _020C7C84 ; =0x02FFFE0C
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -13052,7 +13052,7 @@ _020C7AC8:
 	ldrb r2, [r7, r8]
 	mov r1, r4
 	add r0, r6, r8, lsl #1
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add r8, r8, #1
 	cmp r8, #6
 	blt _020C7AC8
@@ -13067,7 +13067,7 @@ _020C7AC8:
 	ldrb r3, [sp, #0x38]
 	mov r2, r4
 	add r0, r5, #0x2c
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r0, sp, #0x3c
 	add r1, r5, #0x7e
 	mov r2, #0x14
@@ -13078,7 +13078,7 @@ _020C7AC8:
 	str r1, [sp]
 	ldrb r3, [sp, #0x3a]
 	mov r1, #5
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r0, sp, #0x28
 	add r1, sp, #0x1c
 	bl FUN_0200affc
@@ -13100,7 +13100,7 @@ _020C7AC8:
 	ldr r3, [sp, #0x24]
 	str r3, [sp, #0x10]
 	ldr r3, [sp, #0x28]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	bl OS_DisableInterrupts
 	mov r7, r0
 	bl FUN_ov15_020dd944
@@ -13121,7 +13121,7 @@ _020C7BD4:
 	ldrb r2, [r8, r9]
 	mov r1, r4
 	add r0, r6, r9, lsl #1
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add r9, r9, #1
 	cmp r9, #6
 	blt _020C7BD4
@@ -13137,7 +13137,7 @@ _020C7C0C:
 	ldr r2, _020C7C98 ; =0x020E4594
 	add r0, r5, #0x6f
 	mov r1, #0xe
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r0, sp, #0x14
 	bl FUN_ov15_020dd988
 	mov r4, #0x20
@@ -13187,7 +13187,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	mov r1, #0x21
 	mov r3, #5
 	str r12, [sp]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	mov r0, r6
 	bl _strlen
 	mov r3, r0
@@ -13353,7 +13353,7 @@ _020C7F44:
 	mov r1, #0x21
 	mov r3, #5
 	str r12, [sp]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r1, _020C7FE8 ; =0x020E4638
 	mov r0, r5
 	mov r2, r6
@@ -13487,7 +13487,7 @@ FUN_ov15_020c8100: ; 0x020C8100
 	ldr r2, _020C8194 ; =0x020E46A0
 	mov r0, r4
 	mov r1, #7
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r1, _020C8198 ; =0x020E46A4
 	mov r0, r5
 	mov r2, r4
@@ -13803,7 +13803,7 @@ _020C855C:
 	str r1, [r7, #4]
 	add r0, r1, r0
 	str r0, [r7, #8]
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [sp, #8]
 	add r0, r10, #0xa70
 	str r1, [sp, #4]
@@ -13823,7 +13823,7 @@ _020C85DC:
 	cmp r0, #0
 	blt _020C8728
 	ble _020C86AC
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [sp, #8]
 	add r0, sp, #0x10
 	str r1, [sp, #4]
@@ -13874,7 +13874,7 @@ _020C86AC:
 	cmp r0, r1
 	bge _020C8728
 _020C86C4:
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [sp, #8]
 	mov r3, #0
 	subs r2, r0, r2
@@ -13884,7 +13884,7 @@ _020C86C4:
 	orr r1, r1, r2, lsr #26
 	mov r0, r2, lsl #6
 	ldr r2, _020C8774 ; =0x000082EA
-	bl FUN_0201f954
+	bl _ll_udiv
 	cmp r1, r8, asr #31
 	cmpeq r0, r8
 	addhi r0, r10, #0x1000
@@ -14013,7 +14013,7 @@ FUN_ov15_020c8824: ; 0x020C8824
 	ldr r0, [r5, #4]
 	ldr r1, [r5, #0xc]
 	ldr r3, [r3, #0x128]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r1, [r5, #4]
 	add r0, r1, r0
 	str r0, [r5, #4]
@@ -14073,7 +14073,7 @@ _020C895C:
 	mov r3, r7
 	mov r0, r9
 	add r1, r4, #1
-	bl FUN_02001508
+	bl OS_SNPrintf
 	strb r8, [r9, r0]
 	ldr r1, [r5, #4]
 	mov r0, #0
@@ -14133,7 +14133,7 @@ FUN_ov15_020c89c0: ; 0x020C89C0
 _020C8A70:
 	mov r2, r7
 	mov r3, r9
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r2, [r6, #4]
 	ldr r1, [r6, #8]
 	add r2, r2, r0
@@ -14182,7 +14182,7 @@ FUN_ov15_020c8ac8: ; 0x020C8AC8
 _020C8B20:
 	ldr r2, _020C8B48 ; =0x020E4758
 	mov r3, r6
-	bl FUN_02001508
+	bl OS_SNPrintf
 	cmp r0, r4
 	ldreq r1, [r5, #4]
 	movne r0, #1
@@ -16820,7 +16820,7 @@ _020CAEE4:
 	cmp r0, #0
 	movge r8, #1
 _020CAF70:
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [sp]
 	str r1, [sp, #0x40]
 	b _020CAE04
@@ -16909,7 +16909,7 @@ _020CB090:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	tst r0, #0x20
 	bne _020CB0EC
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [sp]
 	mov r12, r8
 	subs lr, r0, r2
@@ -16922,7 +16922,7 @@ _020CB090:
 	mov r12, #0x40
 	mla r1, r10, r12, r1
 	mov r3, r8
-	bl FUN_0201f954
+	bl _ll_udiv
 	cmp r1, #0
 	cmpeq r0, #0xfa0
 	bls _020CB0F4
@@ -17631,10 +17631,10 @@ FUN_ov15_020cba10: ; 0x020CBA10
 	sbcs r2, r1, r0
 	addlt sp, sp, #0x24
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	beq _020CBA98
-	ldr r0, _020CBBC8 ; =FUN_02003410
+	ldr r0, _020CBBC8 ; =OS_GetTick
 	adds r9, r9, r0
 _020CBA98:
 	add r0, sp, #0
@@ -17719,7 +17719,7 @@ _020CBBBC:
 	mov r0, #1
 	add sp, sp, #0x24
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020CBBC8: .word FUN_02003410
+_020CBBC8: .word OS_GetTick
 _020CBBCC: .word 0x5D588B65
 _020CBBD0: .word 0x00269EC3
 _020CBBD4: .word 0x000009BF
@@ -17809,10 +17809,10 @@ FUN_ov15_020cbc70: ; 0x020CBC70
 	addlt sp, sp, #0x24
 	movlt r0, r7
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	beq _020CBD14
-	ldr r0, _020CBDF4 ; =FUN_02003410
+	ldr r0, _020CBDF4 ; =OS_GetTick
 	adds r8, r8, r0
 _020CBD14:
 	add r0, sp, #0
@@ -17874,7 +17874,7 @@ _020CBDE8:
 	mov r0, #1
 	add sp, sp, #0x24
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020CBDF4: .word FUN_02003410
+_020CBDF4: .word OS_GetTick
 _020CBDF8: .word 0x5D588B65
 _020CBDFC: .word 0x00269EC3
 _020CBE00: .word 0x000009BF
@@ -18278,8 +18278,8 @@ FUN_ov15_020cc30c: ; 0x020CC30C
 	mov r9, r2
 	mov r7, #0
 	bl FUN_ov15_020cc3f4
-	bl FUN_02003328
-	bl FUN_020035b8
+	bl OS_InitTick
+	bl OS_InitAlarm
 	bl FUN_0200adc4
 	mov r0, #2
 	mov r1, #0x700
@@ -18821,7 +18821,7 @@ _020CCA34:
 	mov r0, r6
 	add r3, r7, #0x48
 	mov r1, #0x100
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldr r7, [r4, #0x18]
 	add r0, r7, #0x89
 	bl _strlen
@@ -20136,7 +20136,7 @@ FUN_ov15_020cdbdc: ; 0x020CDBDC
 	mov r1, #0x21
 	mov r3, #5
 	str r12, [sp]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	ldmfd sp!, {r3, pc}
 _020CDBFC: .word ov15_020E57E8
 	arm_func_end FUN_ov15_020cdbdc
@@ -21412,10 +21412,10 @@ _020CED68: .word ov15_020E90A4
 	arm_func_start FUN_ov15_020ced6c
 FUN_ov15_020ced6c: ; 0x020CED6C
 	mov r1, #0
-	ldr r12, _020CED7C ; =FUN_0200219c
+	ldr r12, _020CED7C ; =OS_SendMessage
 	mov r2, r1
 	bx r12
-_020CED7C: .word FUN_0200219c
+_020CED7C: .word OS_SendMessage
 	arm_func_end FUN_ov15_020ced6c
 
 	arm_func_start FUN_ov15_020ced80
@@ -21521,7 +21521,7 @@ _020CEE6C:
 	mov r1, r8
 	mov r2, r7
 	mov r3, r6
-	bl FUN_0201f954
+	bl _ll_udiv
 	umull r3, r2, r0, r7
 	mla r2, r0, r6, r2
 	add r0, r0, #0x30
@@ -21609,7 +21609,7 @@ FUN_ov15_020cef78: ; 0x020CEF78
 	mov r0, r6
 	add r1, r6, #0x20
 	mov r2, #3
-	bl FUN_02002174
+	bl OS_InitMessageQueue
 	mov r0, r6
 	bl FUN_ov15_020d114c
 _020CEFB0:
@@ -21646,17 +21646,17 @@ FUN_ov15_020cf008: ; 0x020CF008
 	stmfd sp!, {r3, lr}
 	add r1, sp, #0
 	mov r2, #1
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov15_020cf008
 
 	arm_func_start FUN_ov15_020cf01c
 FUN_ov15_020cf01c: ; 0x020CF01C
 	mov r1, #0
-	ldr r12, _020CF02C ; =FUN_0200219c
+	ldr r12, _020CF02C ; =OS_SendMessage
 	mov r2, r1
 	bx r12
-_020CF02C: .word FUN_0200219c
+_020CF02C: .word OS_SendMessage
 	arm_func_end FUN_ov15_020cf01c
 
 	arm_func_start FUN_ov15_020cf030
@@ -28339,7 +28339,7 @@ FUN_ov15_020d4898: ; 0x020D4898
 	ldr r0, _020D4924 ; =0x020ED4A4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_02002174
+	bl OS_InitMessageQueue
 	cmp r5, #0
 	add r4, r7, r4
 	ble _020D4910
@@ -28387,7 +28387,7 @@ FUN_ov15_020d4970: ; 0x020D4970
 	mov r2, r0
 	ldr r0, _020D4994 ; =0x020ED4A4
 	add r1, sp, #0
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	cmp r0, #0
 	ldrne r0, [sp]
 	moveq r0, #0
@@ -28422,7 +28422,7 @@ FUN_ov15_020d49d8: ; 0x020D49D8
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _020D49F4 ; =0x020ED4A4
 	mov r2, #0
-	bl FUN_0200219c
+	bl OS_SendMessage
 	ldmfd sp!, {r3, pc}
 _020D49F4: .word ov15_020ED4A4
 	arm_func_end FUN_ov15_020d49d8
@@ -28451,7 +28451,7 @@ _020D4A2C:
 	mov r2, #0
 _020D4A30:
 	mov r1, r5
-	bl FUN_0200219c
+	bl OS_SendMessage
 	movs r4, r0
 	bne _020D4A48
 	mov r0, r5
@@ -28487,7 +28487,7 @@ FUN_ov15_020d4a70: ; 0x020D4A70
 	add r1, sp, #0
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02002174
+	bl OS_InitMessageQueue
 	mov r0, r7
 	mov r1, r6
 	str r5, [r6, #8]
@@ -28495,7 +28495,7 @@ FUN_ov15_020d4a70: ; 0x020D4A70
 	add r1, sp, #4
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	b _020D4AD8
 _020D4AC8:
 	mov r2, #0
@@ -28547,7 +28547,7 @@ _020D4B38:
 	mov r0, r9
 	mov r1, r6
 	mov r2, r5
-	bl FUN_0200236c
+	bl OS_ReadMessage
 	ldr r0, [sp]
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -28561,7 +28561,7 @@ _020D4B38:
 	mov r0, r9
 	mov r1, r4
 	mov r2, r4
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	ldr r0, [sp]
 	ldr r0, [r0, #4]
 	cmp r0, #0
@@ -28572,7 +28572,7 @@ _020D4B38:
 	beq _020D4BAC
 	mov r1, r8
 	mov r2, r10
-	bl FUN_0200219c
+	bl OS_SendMessage
 _020D4BAC:
 	ldr r0, [sp]
 	bl FUN_ov15_020d49d8
@@ -28855,7 +28855,7 @@ FUN_ov15_020d4f24: ; 0x020D4F24
 	ldrb r2, [r5, #3]
 	mov r0, r6
 	mov r1, r7
-	bl FUN_02002174
+	bl OS_InitMessageQueue
 	add r0, r6, #0xe0
 	bl OS_InitMutex
 	ldrh r2, [r5]
@@ -30118,7 +30118,7 @@ _020D6054:
 	ble _020D6078
 	mov r0, r4
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r0, #0
 	mulgt r0, r5, r0
 	ldmgtfd sp!, {r3, r4, r5, pc}
@@ -30477,7 +30477,7 @@ FUN_ov15_020d64f8: ; 0x020D64F8
 	mov r0, r9
 	mov r1, r7
 	mov r2, #0
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	cmp r0, #0
 	beq _020D6584
 	mov r5, #0
@@ -30492,7 +30492,7 @@ _020D6540:
 	beq _020D6564
 	mov r1, r6
 	mov r2, r5
-	bl FUN_0200219c
+	bl OS_SendMessage
 _020D6564:
 	ldr r0, [sp]
 	bl FUN_ov15_020d49d8
@@ -30500,7 +30500,7 @@ _020D656C:
 	mov r0, r9
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	cmp r0, #0
 	bne _020D6540
 _020D6584:
@@ -31868,7 +31868,7 @@ _020D76A4:
 	add r0, r4, #0x20
 	mov r2, #0x30
 	bl MI_CpuCopy8
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r0, r0, lsr #0x10
 	orr r0, r0, r1, lsl #16
 	str r0, [r4, #0x50]
@@ -31894,7 +31894,7 @@ FUN_ov15_020d7720: ; 0x020D7720
 	mov r6, r2
 	bl OS_DisableInterrupts
 	mov r11, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r5, r0, lsr #0x10
 	ldr r4, _020D780C ; =0x020ED684
 	mov r3, #0
@@ -37039,7 +37039,7 @@ _020DBE08:
 	bl FUN_ov15_020dbcf4
 	ldr r2, [sp, #0x18]
 	ldr r3, [sp, #0x10]
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r5, r0
 	ldr r0, _020DBED8 ; =0x0000FFFF
 	cmp r5, r0
@@ -37656,15 +37656,15 @@ _020DC680:
 	strb r6, [r0, #0x2df]
 	bl FUN_ov15_020dd00c
 	bl FUN_ov15_020dd8c4
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	bne _020DC6E8
-	bl FUN_02003328
+	bl OS_InitTick
 _020DC6E8:
-	bl FUN_020035f4
+	bl OS_IsAlarmAvailable
 	cmp r0, #0
 	bne _020DC6F8
-	bl FUN_020035b8
+	bl OS_InitAlarm
 _020DC6F8:
 	ldr r0, _020DC71C ; =0x020ED7F4
 	ldr r0, [r0, #4]
@@ -39379,7 +39379,7 @@ _020DDCC8:
 	add r0, r0, r2
 	blt _020DDCC8
 _020DDCDC:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 _020DDCE0:
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
@@ -43202,7 +43202,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	mov r10, r0
 	mov r0, r8
 	mov r1, r9
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r7, _020E1044 ; =0x00000080
 	mov r0, r8
 	mov r1, r7
@@ -43210,7 +43210,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	ldr r6, _020E1048 ; =0x00000010
 	mov r0, r8
 	mov r1, r6
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r5, _020E104C ; =0x00000011
 	mov r0, r8
 	mov r1, r5
@@ -43230,18 +43230,18 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	bl FUN_0202e1c0
 	mov r1, r7
 	mov r0, r8
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	mov r1, r9
 	mov r0, r8
 	bl FS_LoadOverlay
 	mov r1, r5
 	mov r0, r8
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	mov r0, r8
 	mov r1, r6
 	bl FS_LoadOverlay
 	bl FUN_02029bf8
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	mov r0, r10
 	mov r1, #0x16
 	bl FUN_ov15_020e10f4
@@ -43271,7 +43271,7 @@ FUN_ov15_020e1058: ; 0x020E1058
 _020E1088:
 	mov r0, r5
 	bl FUN_0202b768
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	add r6, r6, #1
 _020E1098:
 	cmp r6, #0x3c
@@ -43292,7 +43292,7 @@ _020E1098:
 	bl FUN_0200b93c
 	mov r0, #1
 	bl FUN_0200be58
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	ldmfd sp!, {r4, r5, r6, pc}
 _020E10E8: .word unk_0209AC44
 _020E10EC: .word unk_0209AEC0
@@ -43309,7 +43309,7 @@ _020E1104:
 	mov r0, r4
 	mov r1, r5
 	bl  FUN_ov16_020f1214
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	add r5, r5, #1
 	cmp r5, #0x10
 	ble _020E1104

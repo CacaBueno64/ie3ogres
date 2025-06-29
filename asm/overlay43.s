@@ -5449,7 +5449,7 @@ _0211EAA8:
 	ldr r0, [r0, #0x698]
 	mov r1, r8
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, r6, lsl #0x10
 	add r0, r9, #0x3000
 	str r1, [r0, #0x698]
@@ -5517,7 +5517,7 @@ FUN_ov43_0211eb74: ; 0x0211EB74
 	ldr r5, [r2, #0x6b8]
 	ldr r7, [r2, #0x6b0]
 	mov r11, #2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r10, #0x3000
 	str r1, [r0, #0x6ac]
 	mov r0, r8, lsl #0x10

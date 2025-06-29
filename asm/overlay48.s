@@ -880,7 +880,7 @@ FUN_ov48_0211aabc: ; 0x0211AABC
 _0211AAEC:
 	mov r0, r5
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r7, r0
 	mul r0, r6, r7
 	cmp r7, #0

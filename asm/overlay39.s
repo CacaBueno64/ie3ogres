@@ -1439,7 +1439,7 @@ _0211B2BC:
 	bge _0211B2E4
 	add r0, r0, #1
 	add r1, r2, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	strb r1, [r4, #0x378]
 _0211B2E4:
 	ldr r0, _0211B340 ; =0x0209AC44

@@ -464,7 +464,7 @@ _0213B2AC:
 _0213B2D4:
 	bl FUN_02023c6c
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, #0
 	add r2, sp, #0
 	b _0213B310
@@ -592,7 +592,7 @@ _0213B45C:
 _0213B484:
 	bl FUN_02023c6c
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, #0
 	add r2, sp, #0
 	b _0213B4C0
@@ -8305,7 +8305,7 @@ _02141F48:
 	ble _02141FDC
 	mov r0, #0x64
 	mul r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	strb r0, [r10, #0xb3]
 _02141FDC:
 	mov r7, #0
@@ -8398,7 +8398,7 @@ _021420FC:
 	bne _02142124
 	mul r0, r7, r0
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 _02142124:
 	mov r5, #0
 	strb r0, [r10, #0xb4]
@@ -8429,7 +8429,7 @@ _02142178:
 	mov r0, #0x64
 	mul r0, r6, r0
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	strb r0, [r10, #0xb5]
 	mov r0, #0
 	b _021421A0
@@ -9013,7 +9013,7 @@ _0214292C:
 	add sp, sp, #0x48
 	ldmfd sp!, {r4, r5, r6, pc}
 _02142994: .word ov131_0214C984
-_02142998: .word 0x0208BFB0
+_02142998: .word unk_0208BFB0
 _0214299C: .word 0x02FFFFA8
 _021429A0: .word unk_0209AEC0
 _021429A4: .word 0x0000084C
@@ -10752,7 +10752,7 @@ FUN_ov131_0214419c: ; 0x0214419C
 	ldr r0, [r5, #0x28]
 	movmi r4, #1
 	add r1, r7, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r4, #1
 	beq _021441E4
 	cmp r1, r7
@@ -16465,8 +16465,8 @@ _021490F0: .word ov131_0214CDB0
 _021490F4: .word unk_0209A250
 	arm_func_end FUN_ov131_021490b8
 
-	arm_func_start FUN_ov131_021490f8
-FUN_ov131_021490f8: ; 0x021490F8
+	arm_func_start AntiPiracyCheck
+AntiPiracyCheck: ; 0x021490F8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x80
 	mov r6, #0
@@ -16482,7 +16482,7 @@ FUN_ov131_021490f8: ; 0x021490F8
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl  FUN_ov16_020febf8
+	bl FUN_ov16_020febf8
 	mov r9, #1
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
@@ -16492,7 +16492,7 @@ FUN_ov131_021490f8: ; 0x021490F8
 	mov r0, r6
 	mov r1, r8
 	strb r9, [r5, #0xa]
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r7, _021492E4 ; =0x00000081
 	mov r0, r6
 	mov r1, r7
@@ -16506,20 +16506,20 @@ FUN_ov131_021490f8: ; 0x021490F8
 	ldr r1, _021492F0 ; =FUN_ov131_02148ff8
 	mov r0, r5
 	mov r2, r6
-	.byte 0xf1, 0x86, 0xff, 0xeb ; bl FUN_0212AD60
+	.byte 0xf1, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad60
 	ldr r1, _021492F4 ; =FUN_ov131_02149038
 	mov r0, r5
 	mov r2, r6
-	.byte 0x0b, 0x87, 0xff, 0xeb ; bl FUN_0212ADD8
+	.byte 0x0b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212add8
 	ldr r1, _021492F8 ; =FUN_ov131_02149078
 	mov r0, r5
 	mov r2, r6
-	.byte 0x25, 0x87, 0xff, 0xeb ; bl FUN_0212AE50
+	.byte 0x25, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae50
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r0, r5
 	mov r2, r6
 	mvn r5, r1
-	.byte 0xf3, 0x86, 0xff, 0xeb ; bl FUN_0212AD9C
+	.byte 0xf3, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad9c
 	cmp r5, r0
 	movne r9, r6
 	cmp r9, #0
@@ -16530,7 +16530,7 @@ _021491E0:
 	ldr r0, _021492EC ; =FUN_ov131_02143fa0
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	.byte 0x07, 0x87, 0xff, 0xeb ; bl FUN_0212AE14
+	.byte 0x07, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae14
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16541,7 +16541,7 @@ _02149208:
 	ldr r0, _021492EC ; =FUN_ov131_02143fa0
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	.byte 0x1b, 0x87, 0xff, 0xeb ; bl FUN_0212AE8C
+	.byte 0x1b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae8c
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16550,7 +16550,7 @@ _02149208:
 _02149230:
 	mov r0, r4
 	mov r1, r7
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	mov r0, r4
 	mov r1, r8
 	bl FS_LoadOverlay
@@ -16608,7 +16608,7 @@ _021492F8: .word FUN_ov131_02149078
 _021492FC: .word FUN_ov131_021490b8
 _02149300: .word unk_0209A250
 _02149304: .word ov131_0214CDB0
-	arm_func_end FUN_ov131_021490f8
+	arm_func_end AntiPiracyCheck
 
 	arm_func_start FUN_ov131_02149308
 FUN_ov131_02149308: ; 0x02149308
@@ -19132,7 +19132,7 @@ _0214B6F0:
 	add r5, r0, r5, asr #5
 	mov r0, r7
 	mov r1, r1, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r6, r6, lsr #31
 	mov r1, r1, asr #1
 	sub r1, r1, #1
@@ -19201,7 +19201,7 @@ FUN_ov131_0214b75c: ; 0x0214B75C
 	ldmfd sp!, {r4, r5, r6, pc}
 _0214B80C:
 	sub r0, r5, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, _0214B85C ; =0x0B60B60B
 	mov r2, #0xb6
 	umull r5, r3, r0, r1
@@ -19296,7 +19296,7 @@ _0214B904:
 	ldr r1, [sp, #0x34]
 	addlt r0, r0, #0x168
 	strh r3, [sp]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, _0214B9CC ; =0x0B60B60B
 	mov r2, #0xb6
 	umull r4, r3, r0, r1
@@ -19416,7 +19416,7 @@ _0214BAD0:
 	ldr r1, [sp, #0x34]
 	addlt r0, r0, #0x168
 	strh r3, [sp]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, _0214BB98 ; =0x0B60B60B
 	mov r2, #0xb6
 	umull r4, r3, r0, r1

@@ -535,7 +535,7 @@ FUN_ov69_0211a660: ; 0x0211A660
 	add r0, r0, #1
 	ldr r5, [r7, #0xf8]
 	mov r6, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, r8, lsl #0x10
 	mov r0, r9, lsl #0x10
 	str r1, [r7, #0x7c0]

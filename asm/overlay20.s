@@ -3672,7 +3672,7 @@ FUN_ov20_0211d2c0: ; 0x0211D2C0
 	ldr r1, [r4, #8]
 	mov r6, r2
 	sub r1, r3, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r6, [sp]
 	mov r12, r0
 	ldrsh r3, [r4, #0xb6]

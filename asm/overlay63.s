@@ -6032,7 +6032,7 @@ FUN_ov63_0211f66c: ; 0x0211F66C
 	mov r4, r1
 	ldmia r4, {r0, r1}
 	add r0, r1, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldmia r4, {r2, r3}
 	mov r0, r3, asr #2
 	mov r1, r2, asr #2
@@ -6811,7 +6811,7 @@ _0212012C:
 	add r0, r9, r7
 	mov r1, r7
 	add r0, r6, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r9, r1
 	mov r0, r9, lsl #1
 	ldrh r0, [r4, r0]
@@ -7986,7 +7986,7 @@ FUN_ov63_021211b4: ; 0x021211B4
 	ldr r1, [r4, #8]
 	mov r6, r2
 	sub r1, r3, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r6, [sp]
 	mov lr, r0
 	ldrsh r1, [r4, #0x80]
@@ -8097,7 +8097,7 @@ FUN_ov63_02121340: ; 0x02121340
 	add r0, r1, r12
 	mov r4, r3
 	add r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r1
 	mov r12, #1
 	mov r0, r6
@@ -8125,14 +8125,14 @@ FUN_ov63_0212138c: ; 0x0212138C
 _021213B8:
 	mov r1, r5
 	add r0, r5, r4
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r4, asr #2
 	add r0, r4, r0, lsr #29
 	mov r4, r0, asr #3
 	mov r9, r1
 	mov r1, r5
 	add r0, r5, r4, lsl #3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r9, lsr #0x1f
 	rsb r0, r2, r9, lsl #29
 	add r0, r2, r0, ror #29
@@ -8158,7 +8158,7 @@ FUN_ov63_02121410: ; 0x02121410
 	add r0, r5, r6
 	mov r4, r2
 	mov r7, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r6, asr #2
 	add r0, r6, r0, lsr #29
 	adds r4, r4, r0, asr #3
@@ -8173,7 +8173,7 @@ FUN_ov63_02121410: ; 0x02121410
 _02121464:
 	mov r1, r5
 	add r0, r5, r4, lsl #3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r6, lsr #0x1f
 	rsb r0, r2, r6, lsl #29
 	add r2, r2, r0, ror #29
@@ -9158,7 +9158,7 @@ _021221F4:
 	add r1, r0, #1
 	mul r0, r1, r2
 	ldrsh r1, [r5, #0xc8]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r3, [r5, #4]
 	ldr r1, [r5, #8]
 	mov r2, r0

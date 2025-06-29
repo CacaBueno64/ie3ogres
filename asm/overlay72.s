@@ -1171,7 +1171,7 @@ _0211AE9C:
 	ldr r0, [r8, #0x68]
 	add r0, r0, #1
 _0211AEC4:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r8
 	bl FUN_ov72_0211a518
 	ldrb r2, [r8, #0xbe2]

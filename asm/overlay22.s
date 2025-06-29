@@ -4115,7 +4115,7 @@ _0211D950:
 	mov r6, #0x1f
 	mov r1, r6
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r6, r6, lsr #31
 	str r1, [r5, #0x4d4]
 	cmp r1, r0, asr #1

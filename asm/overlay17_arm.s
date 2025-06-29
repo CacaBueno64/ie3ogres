@@ -4852,7 +4852,7 @@ _020F8674:
 	bl FUN_ov17_0210f264
 	bl FUN_ov17_0210e85c
 	bl FUN_ov17_0210f0dc
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	ldrb r0, [r4, #1]
 	cmp r0, #0
 	beq _020F8674
@@ -4918,12 +4918,12 @@ FUN_ov17_020f873c: ; 0x020F873C
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	bne _020F8778
 	bl OS_Terminate
 _020F8778:
-	bl FUN_020035f4
+	bl OS_IsAlarmAvailable
 	cmp r0, #0
 	bne _020F8788
 	bl OS_Terminate
@@ -6982,7 +6982,7 @@ FUN_ov17_020fa1bc: ; 0x020FA1BC
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	mov r0, #0x800000
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	bl FUN_02016cf0
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_020fa1bc
@@ -7067,7 +7067,7 @@ FUN_ov17_020fa2a4: ; 0x020FA2A4
 	ldrb r3, [sp, #0x19]
 	str r3, [sp, #0x10]
 	ldrb r3, [sp, #0x14]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r8, sp, #0x2e
 	mov r1, r10
 	mov r0, r8
@@ -7105,7 +7105,7 @@ FUN_ov17_020fa2a4: ; 0x020FA2A4
 	mov r2, r8
 	mov r3, r5
 	str r9, [sp, #0x64]
-	bl FUN_0201f954
+	bl _ll_udiv
 	ldr r9, _020FA4A8 ; =0x00002710
 	mov r4, r0
 	mov r7, r1
@@ -7123,7 +7123,7 @@ _020FA3B8:
 	mov r1, r7
 	mov r2, r9
 	mov r3, r8
-	bl FUN_0201f954
+	bl _ll_udiv
 	add r5, r5, #1
 	mov r4, r0
 	mov r7, r1
@@ -7141,7 +7141,7 @@ _020FA3B8:
 	mov r0, r5
 	mov r1, r4
 	str r7, [sp, #8]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r0, sp, #0x2e
 	mov r1, r5
 	mov r2, r4
@@ -7150,7 +7150,7 @@ _020FA440:
 	ldr r2, _020FA4B0 ; =0x02112F94
 	mov r0, r10
 	mov r1, r9
-	bl FUN_02001508
+	bl OS_SNPrintf
 	mov r0, r8
 	mov r1, r10
 	mov r2, r9
@@ -8268,7 +8268,7 @@ FUN_ov17_020fb250: ; 0x020FB250
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	mov r0, #0x800000
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	bl FUN_02016cf0
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_020fb250
@@ -13893,7 +13893,7 @@ _020FFC48:
 	mov r0, r6
 	mov r1, r5
 	rsb r3, r3, #0
-	bl FUN_02001508
+	bl OS_SNPrintf
 	mov r2, r5
 	add r5, sp, #0x1c
 	mov r1, r6
@@ -15697,7 +15697,7 @@ FUN_ov17_021014e0: ; 0x021014E0
 	mov r0, r7
 	mov r1, r6
 	str r5, [sp, #8]
-	bl FUN_02001508
+	bl OS_SNPrintf
 	add r5, sp, #0x1c
 	mov r1, r7
 	mov r0, r5
@@ -22969,7 +22969,7 @@ FUN_ov17_0210733c: ; 0x0210733C
 	str r2, [sp, #4]
 	ldrb r2, [r3, #0x4c0]
 	ldrb r3, [r3, #0x4c1]
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _02107374: .word ov17_021162A4
@@ -22989,7 +22989,7 @@ FUN_ov17_0210737c: ; 0x0210737C
 	str r2, [sp, #4]
 	ldrb r2, [r3, #0x4f0]
 	ldrb r3, [r3, #0x4f1]
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _021073B4: .word ov17_021162A4
@@ -23010,7 +23010,7 @@ FUN_ov17_021073bc: ; 0x021073BC
 	str r2, [sp, #4]
 	ldrb r2, [r12, #0x4c4]
 	ldrb r3, [r3, #0x401]
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _021073F8: .word ov17_021162A4
@@ -23031,7 +23031,7 @@ FUN_ov17_02107400: ; 0x02107400
 	str r2, [sp, #4]
 	ldrb r2, [r12, #0x4c8]
 	ldrb r3, [r3, #0x401]
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _0210743C: .word ov17_021162A4
@@ -23052,7 +23052,7 @@ FUN_ov17_02107444: ; 0x02107444
 	str r2, [sp, #4]
 	ldrb r2, [r12, #0x4cc]
 	ldrb r3, [r3, #0x401]
-	bl FUN_020014c8
+	bl OS_SPrintf
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _02107480: .word ov17_021162A4
@@ -24510,7 +24510,7 @@ FUN_ov17_021087d8: ; 0x021087D8
 	add r1, r0, #0x1000
 	str r0, [r5]
 	str r4, [r1, #0x370]
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r3, [r5]
 	mov r2, #3
 	add r3, r3, #0x1000
@@ -24910,7 +24910,7 @@ _02108D68: .word ov17_021125CA
 FUN_ov17_02108d6c: ; 0x02108D6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	str r0, [sp]
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, _02108E90 ; =0x021162B4
 	ldr r3, _02108E94 ; =0x0017F898
 	ldr r10, [r2]
@@ -28106,12 +28106,12 @@ FUN_ov17_0210b7ac: ; 0x0210B7AC
 	strb r2, [r0, #0xa92]
 	ldr r0, [r5]
 	strb r1, [r0, #0xacc]
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r0, [r5]
 	add r0, r0, #0x24c
 	add r0, r0, #0x400
 	bl  FUN_ov15_020cab04
-	bl FUN_02003410
+	bl OS_GetTick
 	bl FUN_ov17_02107868
 	ldr r1, [r5]
 	str r0, [r1, #0xaa4]
@@ -29077,7 +29077,7 @@ _0210C540:
 	ldr r1, [r5]
 	strh r0, [r1, #0xe4]
 	mov r0, r7
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	mov r6, #8
 	mov r4, r0
 	add r1, sp, #0x18
@@ -29153,7 +29153,7 @@ _0210C614:
 	ldr r1, _0210C6B0 ; =0x02113C40
 	ldr r2, _0210C69C ; =0x021126DC
 	mov r0, r4
-	bl FUN_020014c8
+	bl OS_SPrintf
 	mov r0, r4
 	bl FUN_0200dff0
 	add sp, sp, #0xe8
@@ -31740,13 +31740,13 @@ FUN_ov17_0210e85c: ; 0x0210E85C
 	bl FUN_02017368
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200449c
 	ldr r1, _0210E908 ; =0x04001000
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	mov r0, #0
 	strb r0, [r4]
 	ldmfd sp!, {r4, pc}
@@ -31755,13 +31755,13 @@ _0210E8BC:
 	and r0, r0, #0x8000
 	movs r0, r0, asr #0xf
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200445c
 	ldr r1, _0210E908 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	mov r0, #0
 	bl FUN_02017368
 	cmp r0, #0

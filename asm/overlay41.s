@@ -8135,7 +8135,7 @@ _02121034:
 	add r0, r8, #0x1000
 	ldr r0, [r0, #0xa0]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r8, #0x1000
 	mov r2, r7, lsl #0x10
 	str r1, [r0, #0xa0]
@@ -8205,7 +8205,7 @@ FUN_ov41_02121100: ; 0x02121100
 	ldr r9, [r5, #0xed0]
 	ldr r6, [r2, #0xb4]
 	mov r8, #2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r5, #0x1000
 	mov r2, r10, lsl #0x10
 	str r1, [r0, #0xb0]

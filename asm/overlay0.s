@@ -3462,7 +3462,7 @@ _020BF9EC:
 	add r1, r0, #1
 	mul r0, r1, r2
 	ldrsh r1, [r5, #0xd6]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r3, [r5, #0xa8]
 	ldr r2, [r5, #0xac]
 	mov r1, r0
@@ -15841,7 +15841,7 @@ FUN_ov0_020ca764: ; 0x020CA764
 	ldr r2, [r3, #0xc]
 	mov r0, r5, lsl #5
 	add r4, r3, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	movs r8, r0
 	bne _020CA7D4
 	cmp r5, #0
@@ -22466,7 +22466,7 @@ FUN_ov0_020d055c: ; 0x020D055C
 	mul r0, r1, r0
 	ldr r1, [r5, #0xac]
 	sub r1, r2, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r4, [sp]
 	mov r4, r0
 	ldrsh r3, [r5, #0xd2]
@@ -22919,7 +22919,7 @@ FUN_ov0_020d0b88: ; 0x020D0B88
 	cmp r1, #0
 	ble _020D0BB4
 	add r0, r2, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r1
 _020D0BB4:
 	mov r0, r5
@@ -24915,27 +24915,27 @@ FUN_ov0_020d26c4: ; 0x020D26C4
 	str r1, [sp, #8]
 	ldr r1, [r7, #4]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp]
 	ldr r1, [r7, #4]
 	ldr r0, [sp, #4]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #4]
 	ldr r1, [r7, #4]
 	ldr r0, [sp, #8]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #8]
 	ldr r1, [r7, #4]
 	ldr r0, [r5, #0x10]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x10]
 	ldr r1, [r7, #4]
 	ldr r0, [r5, #0x14]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x14]
 	ldrsb r0, [r5, #0xc]
 	cmp r0, #4
@@ -25419,17 +25419,17 @@ FUN_ov0_020d2dcc: ; 0x020D2DCC
 	str r1, [sp, #8]
 	ldr r1, [r6, #4]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp]
 	ldr r1, [r6, #4]
 	ldr r0, [sp, #4]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #4]
 	ldr r1, [r6, #4]
 	ldr r0, [sp, #8]
 	ldr r1, [r1, #0x1c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #8]
 	mov r1, r5
 	mov r2, r4
@@ -26653,7 +26653,7 @@ FUN_ov0_020d4028: ; 0x020D4028
 	ldr r0, [r8]
 	ldr r1, [r4, #0xc]
 	mov r7, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r8]
 	ldr r0, [r5, #4]
 	mov r4, #0
@@ -26684,7 +26684,7 @@ _020D40B0:
 	add r0, r1, #1
 	mov r1, r6
 	add r4, r4, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r4, r6
 	blt _020D4068
 _020D40C8:

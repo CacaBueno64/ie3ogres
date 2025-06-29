@@ -6057,7 +6057,7 @@ _0211F338:
 	ldr r0, [r0, #0x494]
 	mov r1, r8
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, r6, lsl #0x10
 	add r0, r9, #0x3000
 	str r1, [r0, #0x494]
@@ -6124,7 +6124,7 @@ FUN_ov42_0211f400: ; 0x0211F400
 	ldr r5, [r2, #0x4b4]
 	ldr r7, [r2, #0x4ac]
 	mov r11, #2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r10, #0x3000
 	str r1, [r0, #0x4a8]
 	mov r0, r8, lsl #0x10

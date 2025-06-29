@@ -1,7 +1,7 @@
 .public DC_FlushRange
 .public FUN_0201e014
 .public FUN_0201e078
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201fbc8
 .public FUN_0202c184
 .public FUN_0202c314

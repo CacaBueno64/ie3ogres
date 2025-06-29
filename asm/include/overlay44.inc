@@ -4,7 +4,7 @@
 .public FUN_0201e0b8
 .public FUN_0201e08c
 .public FUN_0201e078
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201fdac
 .public FUN_0202cf6c

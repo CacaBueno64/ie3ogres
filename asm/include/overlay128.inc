@@ -10,11 +10,11 @@
 .public FS_OpenFileEx
 .public FS_ReadFile
 .public FS_SeekFile
-.public FUN_0200fad8
-.public FUN_0200ff80
-.public FUN_0201f9bc
+.public FS_GetFileImageTop
+.public CARD_GetOwnRomHeader
+.public _s32_div_f
 .public FUN_0201fbc8
-.public FUN_02003e24
+.public OS_SpinWaitSysCycles
 .public FUN_02003f38
 .public FUN_02012ad0
 .public FUN_02012bc0

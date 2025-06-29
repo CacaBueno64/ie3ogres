@@ -1,7 +1,7 @@
 .public DC_FlushRange
 .public FUN_0201e078
-.public FUN_0201f9bc
-.public FUN_0201f954
+.public _s32_div_f
+.public _ll_udiv
 .public FUN_0201fbc8
 .public FUN_0202b7f0
 .public FUN_0202c4a0
@@ -50,7 +50,7 @@
 .public FUN_020460a8
 .public FUN_020508fc
 .public FUN_0205107c
-.public FUN_02003410
+.public OS_GetTick
 .public FUN_02009850
 .public FUN_02021288
 .public FUN_02044658

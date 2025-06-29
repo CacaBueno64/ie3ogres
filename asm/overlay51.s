@@ -3202,7 +3202,7 @@ FUN_ov51_0211cc3c: ; 0x0211CC3C
 	ldr r1, [r4, #8]
 	mov r6, r2
 	sub r1, r3, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r6, [sp]
 	mov r12, r0
 	ldrsh r3, [r4, #0x9e]
@@ -3661,7 +3661,7 @@ _0211D2B8:
 	add r1, r0, #1
 	mul r0, r1, r2
 	ldrsh r1, [r4, #0xa2]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r3, [r4, #4]
 	ldr r2, [r4, #8]
 	mov r1, r0

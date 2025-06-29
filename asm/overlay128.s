@@ -1456,7 +1456,7 @@ FUN_ov128_0212bdb4: ; 0x0212BDB4
 	str r2, [sp, #4]
 	str r0, [sp, #0x10]
 	bne _0212BDF8
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	ldrb r0, [r0, #0x12]
 	tst r0, #2
 	ldreq r1, _0212C2C4 ; =0x0212F920
@@ -1596,14 +1596,14 @@ _0212BFB8:
 	mov r0, r10
 	str r1, [r5]
 	mov r11, r5
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	ldr r1, [sp, #8]
 	ldr r2, [r9, #0x20]
 	add r1, r1, r0
 	add r1, r2, r1
 	mov r0, r10
 	str r1, [r5, #4]
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	ldr r1, [sp, #8]
 	ldr r2, [r9, #0x30]
 	add r0, r1, r0
@@ -1618,7 +1618,7 @@ _0212C010:
 	cmp r4, r0
 	blo _0212C0D8
 	mov r0, r10
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	mov r4, r0
 	ldr r1, [r11, #4]
 	ldr r0, [sp, #0xc]
@@ -1667,7 +1667,7 @@ _0212C0D8:
 	cmp r4, #0xcc00
 	blo _0212C1DC
 	mov r0, r10
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	ldr r8, [r11, #4]
 	mov r4, r0
 	ldr r0, [sp, #0xc]
@@ -3483,7 +3483,7 @@ _0212D9C0:
 	cmp r2, #1
 	bne _0212D9D0
 	ldr r0, _0212DCB4 ; =0x00001964
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 _0212D9D0:
 	ldr r0, [r4, #0xc]
 	strb r6, [r0, #0x50c]
@@ -5564,7 +5564,7 @@ FUN_ov128_0212f620: ; 0x0212F620
 	mov r5, #0x1e
 	mov r0, r5
 	str r1, [r4, #8]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0xc]
 	str r5, [r4, #0x10]
 	ldmfd sp!, {r3, r4, r5, pc}

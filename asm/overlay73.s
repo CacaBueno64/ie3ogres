@@ -267,7 +267,7 @@ _0211A228:
 	add r0, r0, #1
 	smulbb r1, r2, r1
 _0211A264:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r5
 	bl FUN_ov73_02119f7c
 	ldrb r2, [r5, #0x90e]

@@ -208,7 +208,7 @@ _0211A16C:
 	ldr r0, [r5, #0x54]
 	add r0, r0, #1
 _0211A194:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r5
 	bl FUN_ov74_02119f38
 	ldrb r2, [r5, #0x886]

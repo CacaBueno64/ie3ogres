@@ -7,7 +7,7 @@
 .public FUN_01ffb144
 .public FUN_0201e014
 .public FUN_0201e078
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201f704
 .public FUN_0201fdac
@@ -121,7 +121,7 @@
 .public FUN_0206eed0
 .public FUN_0206f9dc
 .public FUN_0206f834
-.public FUN_02002f14
+.public OS_GetTotalFreeSize
 .public FUN_02004f78
 .public FUN_02004fac
 .public FUN_02004fcc

@@ -5933,7 +5933,7 @@ _0211F254:
 	ldr r0, [r2, r4, lsl #2]
 	ldr r1, [r1]
 	add r0, r7, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r1
 	cmp r5, #0
 	bne _0211F2D8

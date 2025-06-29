@@ -2096,7 +2096,7 @@ FUN_ov86_0211bb88: ; 0x0211BB88
 	sub r3, r5, r0
 	ldr r1, [r6, #0x58]
 	add r0, r2, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	smull r0, r2, r4, r5
 	add r2, r2, r5, lsr #31
 	add r0, r6, r2, lsl #7
@@ -2125,7 +2125,7 @@ FUN_ov86_0211bbec: ; 0x0211BBEC
 	sub r3, r5, r0
 	ldr r1, [r6, #0x58]
 	add r0, r2, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	smull r0, r2, r4, r5
 	add r2, r2, r5, lsr #31
 	add r0, r6, r2, lsl #7
@@ -2458,13 +2458,13 @@ FUN_ov86_0211c04c: ; 0x0211C04C
 	str r0, [r6, #0x2c]
 	sub r0, r2, r1
 	mov r1, r4
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x34]
 	ldr r2, [r6, #0x2c]
 	ldr r0, [r6, #0x24]
 	mov r1, r4
 	sub r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x38]
 	ldr r2, [r6, #0x28]
 	ldr r0, [r6, #0x20]
@@ -2472,7 +2472,7 @@ FUN_ov86_0211c04c: ; 0x0211C04C
 	ble _0211C100
 	mov r1, r4
 	sub r0, r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	rsb r0, r0, #0
 	str r0, [r6, #0x34]
 _0211C100:
@@ -2482,7 +2482,7 @@ _0211C100:
 	ble _0211C124
 	mov r1, r4
 	sub r0, r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	rsb r0, r0, #0
 	str r0, [r6, #0x38]
 _0211C124:
@@ -2732,7 +2732,7 @@ _0211C464:
 _0211C488:
 	ldr r1, [r10, #0x58]
 	add r0, r2, #3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r1
 	mov r0, r10
 	mov r1, #2

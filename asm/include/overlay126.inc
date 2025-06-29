@@ -18,7 +18,7 @@
 .public FUN_01ffba80
 .public FUN_01ffba98
 .public FUN_0201f5c8
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201f704
 .public FUN_0201fbc8

@@ -13663,7 +13663,7 @@ _021367F8:
 	add r1, r9, r0
 	mov r0, #0x64
 	mul r0, r9, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r9, r0
 	mov r0, r10
 	mov r1, r6
@@ -17604,7 +17604,7 @@ FUN_ov126_02139d64: ; 0x02139D64
 	ldmlefd sp!, {r3, r4, r5, pc}
 	mov r0, #0x64
 	mul r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldmfd sp!, {r3, r4, r5, pc}
 _02139DD4: .word unk_0209A7FC
 	arm_func_end FUN_ov126_02139d64
@@ -17637,7 +17637,7 @@ FUN_ov126_02139dd8: ; 0x02139DD8
 	ldmlefd sp!, {r3, r4, r5, pc}
 	mov r0, #0x64
 	mul r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldmfd sp!, {r3, r4, r5, pc}
 _02139E48: .word unk_0209A7FC
 	arm_func_end FUN_ov126_02139dd8

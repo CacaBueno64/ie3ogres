@@ -1975,7 +1975,7 @@ FUN_ov65_0211b96c: ; 0x0211B96C
 	add r1, r9, #1
 	ldr r6, [r5, #0x480]
 	ldr r8, [r5, #0x3cc]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r4, r1
 	mov r0, r7, lsl #0x10
 	mov r1, r0, asr #0x10

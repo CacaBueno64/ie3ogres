@@ -3,7 +3,7 @@
 .public FUN_0201e08c
 .public FUN_0201e014
 .public FUN_0201e078
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201f704
 .public FUN_0201fdac
@@ -377,6 +377,7 @@
 .public STD_CopyLString
 .public STD_CopyString
 .public STD_GetStringLength
+.public unk_0208BFB0
 .public unk_020A0A40
 .public unk_020A0B00
 .public unk_020A0B3C

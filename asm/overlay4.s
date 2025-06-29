@@ -25669,7 +25669,7 @@ _020D3390:
 	ldrsh r2, [r0, #0x38]
 	ldrsh r0, [r0, #0x34]
 	sub r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r2, r6, #0x600
 	ldrsh r1, [r2, #0x34]
 	mov r0, r0, lsl #0x10
@@ -25679,7 +25679,7 @@ _020D3390:
 	ldr r1, [r6, #0x630]
 	sub r0, r4, r3
 	strh r5, [r2, #0x34]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r6, #0x600
 	ldr r2, [r6, #0x630]
 	ldrsh r3, [r1, #0x36]
@@ -28416,7 +28416,7 @@ FUN_ov4_020d59f8: ; 0x020D59F8
 	str r3, [r0, #0x1b4]
 	str r1, [r0, #0x1b8]
 	bx lr
-_020D5A54: .word 0x0208BFB0
+_020D5A54: .word unk_0208BFB0
 	arm_func_end FUN_ov4_020d59f8
 
 	arm_func_start FUN_ov4_020d5a58
@@ -28869,7 +28869,7 @@ _020D609C:
 _020D60A8: .word 0x0000FFFD
 _020D60AC: .word 0x0000FFFB
 _020D60B0: .word unk_02099F38
-_020D60B4: .word 0x0208BFB0
+_020D60B4: .word unk_0208BFB0
 	arm_func_end FUN_ov4_020d5aac
 
 	arm_func_start FUN_ov4_020d60b8

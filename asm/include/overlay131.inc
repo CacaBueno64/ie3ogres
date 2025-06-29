@@ -1,10 +1,10 @@
 .public FS_LoadOverlay
 .public FUN_0200af48
-.public FUN_0200e5d4
+.public FS_UnloadOverlay
 .public FUN_0201e014
 .public FUN_0201e078
 .public FUN_0201f5c8
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201fbc8
 .public FUN_0201fdac
 .public FUN_0202b7f0
@@ -283,6 +283,7 @@
 .public STD_CopyString
 .public STD_GetStringLength
 .public _strlen
+.public unk_0208BFB0
 .public unk_020A0B00
 .public unk_020A0B40
 .public unk_020A0C3C

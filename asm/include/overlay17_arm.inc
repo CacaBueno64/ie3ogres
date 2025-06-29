@@ -20,7 +20,7 @@
 .public FUN_0200f838
 .public FUN_0200fa24
 .public FUN_0200faa8
-.public FUN_0200fad8
+.public FS_GetFileImageTop
 .public FUN_0200fd94
 .public FUN_0200fffc
 .public FUN_0201a8d4
@@ -35,10 +35,10 @@
 .public FUN_0201b5ec
 .public FUN_0201c2f0
 .public FUN_0201c388
-.public FUN_0201f954
+.public _ll_udiv
 .public FUN_0201f960
-.public FUN_02003e24
-.public FUN_02003e40
+.public OS_SpinWaitSysCycles
+.public OS_WaitVBlankIntr
 .public FUN_02003f38
 .public FUN_02003f54
 .public FUN_02004c8c
@@ -78,8 +78,8 @@
 .public FUN_02017f04
 .public FUN_02017f34
 .public FUN_02019acc
-.public FUN_020014c8
-.public FUN_020035f4
+.public OS_SPrintf
+.public OS_IsAlarmAvailable
 .public FUN_020044e0
 .public FUN_020050fc
 .public FUN_020052d8
@@ -119,9 +119,9 @@
 .public FUN_0201498c
 .public FUN_0201928c
 .public FUN_0201933c
-.public FUN_02001508
-.public FUN_02003398
-.public FUN_02003410
+.public OS_SNPrintf
+.public OS_IsTickAvailable
+.public OS_GetTick
 .public FUN_02004414
 .public FUN_02004548
 .public FUN_02004564

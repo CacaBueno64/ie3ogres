@@ -1303,7 +1303,7 @@ _02125F04:
 	mov r0, #2
 	str r0, [r4, #8]
 _02125F0C:
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	mov r0, r4
 	bl FUN_ov104_02125884
 	mov r0, r4

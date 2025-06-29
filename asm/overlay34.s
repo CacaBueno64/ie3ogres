@@ -772,7 +772,7 @@ FUN_ov34_0211a8f0: ; 0x0211A8F0
 	mov r6, r2
 	add r0, r1, r3
 	mov r1, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r4, r1
 	cmp r6, #0
 	bne _0211A938

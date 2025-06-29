@@ -118,12 +118,12 @@ FUN_ov37_0211a060: ; 0x0211A060
 	ldr r1, [r7, #0x44]
 	sub r0, r0, #2
 	add r0, r0, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r6, r1
 _0211A094:
 	ldr r1, [r7, #0x44]
 	add r0, r6, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r1
 	mov r0, r7
 	mov r1, r4
@@ -916,7 +916,7 @@ _0211AB50:
 	add r1, r0, r0, lsr #31
 	add r0, r2, #4
 	mov r1, r1, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [sp, #4]
 	mov r8, #8
 	mov r9, #0
@@ -927,7 +927,7 @@ _0211AB98:
 	add r2, r1, r0, asr #1
 	mov r1, r0, asr #1
 	sub r0, r2, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [sp, #4]
 	mov r8, #0
 	mov r9, #2
@@ -1051,7 +1051,7 @@ _0211AD60:
 	sub r0, r1, #1
 	add r0, r2, r0
 _0211AD70:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r9, #0
 	movne r8, #0
 	movne r0, #1
@@ -1116,7 +1116,7 @@ _0211AE50:
 	sub r0, r0, #4
 _0211AE54:
 	add r0, r0, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r5, #0xb4]
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov37_0211ae24
@@ -1138,7 +1138,7 @@ _0211AE90:
 	add r0, r0, #8
 _0211AE94:
 	add r0, r0, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r5, #0xb0]
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov37_0211ae64
@@ -1440,7 +1440,7 @@ FUN_ov37_0211b258: ; 0x0211B258
 	mov r3, r0
 	add r0, r2, r1, lsl #1
 	ldr r1, [r3, #0x44]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov37_0211b258

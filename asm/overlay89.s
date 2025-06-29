@@ -3270,7 +3270,7 @@ FUN_ov89_0211cc04: ; 0x0211CC04
 	ldr r2, [r4, #0x3c]
 	sub r0, r1, #1
 	add r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r0, [r4, #0x40]
 	str r1, [r4, #0x3c]
 	cmp r0, #1
@@ -3296,7 +3296,7 @@ FUN_ov89_0211cc60: ; 0x0211CC60
 	ldr r0, [r4, #0x3c]
 	ldr r1, [r4, #0x40]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r0, [r4, #0x40]
 	str r1, [r4, #0x3c]
 	cmp r0, #1
@@ -3478,7 +3478,7 @@ _0211CED8:
 	ldr r2, [r1, r4, lsl #2]
 	ldr r1, [r0]
 	add r0, r7, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r1
 	cmp r5, #0
 	bne _0211CF58

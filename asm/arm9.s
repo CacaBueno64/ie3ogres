@@ -734,50 +734,50 @@ OS_ReleaseLockID: ; 0x02001498
 _020014C4: .word 0x02FFFFB0
 	arm_func_end OS_ReleaseLockID
 
-	arm_func_start FUN_020014c8
-FUN_020014c8: ; 0x020014C8
+	arm_func_start OS_SPrintf
+OS_SPrintf: ; 0x020014C8
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, lr}
 	add r2, sp, #0xc
 	bic r2, r2, #3
 	ldr r1, [sp, #0xc]
 	add r2, r2, #4
-	bl FUN_020014f0
+	bl OS_VSPrintf
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end FUN_020014c8
+	arm_func_end OS_SPrintf
 
-	arm_func_start FUN_020014f0
-FUN_020014f0: ; 0x020014F0
-	ldr r12, _02001504 ; =FUN_02001530
+	arm_func_start OS_VSPrintf
+OS_VSPrintf: ; 0x020014F0
+	ldr r12, _02001504 ; =OS_VSNPrintf
 	mov r3, r2
 	mov r2, r1
 	mvn r1, #0x80000000
 	bx r12
-_02001504: .word FUN_02001530
-	arm_func_end FUN_020014f0
+_02001504: .word OS_VSNPrintf
+	arm_func_end OS_VSPrintf
 
-	arm_func_start FUN_02001508
-FUN_02001508: ; 0x02001508
+	arm_func_start OS_SNPrintf
+OS_SNPrintf: ; 0x02001508
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, lr}
 	add r3, sp, #0x10
 	bic r3, r3, #3
 	ldr r2, [sp, #0x10]
 	add r3, r3, #4
-	bl FUN_02001530
+	bl OS_VSNPrintf
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end FUN_02001508
+	arm_func_end OS_SNPrintf
 
-	arm_func_start FUN_02001530
-FUN_02001530: ; 0x02001530
-	ldr r12, _02001538 ; =FUN_020151b0
+	arm_func_start OS_VSNPrintf
+OS_VSNPrintf: ; 0x02001530
+	ldr r12, _02001538 ; =STD_TVSNPrintf
 	bx r12
-_02001538: .word FUN_020151b0
-	arm_func_end FUN_02001530
+_02001538: .word STD_TVSNPrintf
+	arm_func_end OS_VSNPrintf
 
 	arm_func_start OSi_GetUnusedThreadId
 OSi_GetUnusedThreadId: ; 0x0200153C
@@ -1738,7 +1738,7 @@ OS_GetConsoleType: ; 0x02002110
 	ldmnefd sp!, {r4, pc}
 	mov r0, #0x80000001
 	str r0, [r4, #4]
-	bl FUN_02002144
+	bl OSi_DetectDeviceType
 	ldr r1, [r4, #4]
 	orr r0, r1, r0
 	str r0, [r4, #4]
@@ -1746,28 +1746,28 @@ OS_GetConsoleType: ; 0x02002110
 _02002140: .word unk_0208EC30
 	arm_func_end OS_GetConsoleType
 
-	arm_func_start FUN_02002144
-FUN_02002144: ; 0x02002144
+	arm_func_start OSi_DetectDeviceType
+OSi_DetectDeviceType: ; 0x02002144
 	stmfd sp!, {r3, lr}
-	bl FUN_02003e60
+	bl OS_GetBootType
 	ldr r1, _02002158 ; =0x020877F0
 	ldr r0, [r1, r0, lsl #2]
 	ldmfd sp!, {r3, pc}
 _02002158: .word unk_020877F0
-	arm_func_end FUN_02002144
+	arm_func_end OSi_DetectDeviceType
 
-	arm_func_start FUN_0200215c
-FUN_0200215c: ; 0x0200215C
+	arm_func_start OS_IsRunOnEmulator
+OS_IsRunOnEmulator: ; 0x0200215C
 	stmfd sp!, {r3, lr}
 	bl OS_GetConsoleType
 	tst r0, #0x10000000
 	movne r0, #1
 	moveq r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200215c
+	arm_func_end OS_IsRunOnEmulator
 
-	arm_func_start FUN_02002174
-FUN_02002174: ; 0x02002174
+	arm_func_start OS_InitMessageQueue
+OS_InitMessageQueue: ; 0x02002174
 	mov r3, #0
 	str r3, [r0, #4]
 	str r3, [r0]
@@ -1778,10 +1778,10 @@ FUN_02002174: ; 0x02002174
 	str r3, [r0, #0x18]
 	str r3, [r0, #0x1c]
 	bx lr
-	arm_func_end FUN_02002174
+	arm_func_end OS_InitMessageQueue
 
-	arm_func_start FUN_0200219c
-FUN_0200219c: ; 0x0200219C
+	arm_func_start OS_SendMessage
+OS_SendMessage: ; 0x0200219C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	mov r4, r1
@@ -1810,7 +1810,7 @@ _020021E0:
 _020021F8:
 	ldr r0, [r5, #0x18]
 	add r0, r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r2, [r5, #0x10]
 	add r0, r5, #8
 	str r4, [r2, r1, lsl #2]
@@ -1822,10 +1822,10 @@ _020021F8:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200219c
+	arm_func_end OS_SendMessage
 
-	arm_func_start FUN_02002230
-FUN_02002230: ; 0x02002230
+	arm_func_start OS_ReceiveMessage
+OS_ReceiveMessage: ; 0x02002230
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	mov r5, r1
@@ -1858,7 +1858,7 @@ _02002284:
 	ldr r0, [r6, #0x18]
 	ldr r1, [r6, #0x14]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r2, [r6, #0x1c]
 	mov r0, r6
 	sub r2, r2, #1
@@ -1869,10 +1869,10 @@ _02002284:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02002230
+	arm_func_end OS_ReceiveMessage
 
-	arm_func_start FUN_020022d0
-FUN_020022d0: ; 0x020022D0
+	arm_func_start OS_JamMessage
+OS_JamMessage: ; 0x020022D0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	mov r5, r1
@@ -1902,7 +1902,7 @@ _0200232C:
 	ldr r0, [r6, #0x18]
 	add r0, r0, r1
 	sub r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r0, [r6, #0x10]
 	str r1, [r6, #0x18]
 	str r5, [r0, r1, lsl #2]
@@ -1915,10 +1915,10 @@ _0200232C:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_020022d0
+	arm_func_end OS_JamMessage
 
-	arm_func_start FUN_0200236c
-FUN_0200236c: ; 0x0200236C
+	arm_func_start OS_ReadMessage
+OS_ReadMessage: ; 0x0200236C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	mov r5, r1
@@ -1952,7 +1952,7 @@ _020023C0:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200236c
+	arm_func_end OS_ReadMessage
 
 	arm_func_start OS_InitMutex
 OS_InitMutex: ; 0x020023E4
@@ -2568,8 +2568,8 @@ OS_AllocFromArenaLo: ; 0x02002AD4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end OS_AllocFromArenaLo
 
-	arm_func_start FUN_02002b40
-FUN_02002b40: ; 0x02002B40
+	arm_func_start DLAddFront
+DLAddFront: ; 0x02002B40
 	mov r2, #0
 	str r0, [r1, #4]
 	str r2, [r1]
@@ -2577,10 +2577,10 @@ FUN_02002b40: ; 0x02002B40
 	strne r1, [r0]
 	mov r0, r1
 	bx lr
-	arm_func_end FUN_02002b40
+	arm_func_end DLAddFront
 
-	arm_func_start FUN_02002b5c
-FUN_02002b5c: ; 0x02002B5C
+	arm_func_start DLExtract
+DLExtract: ; 0x02002B5C
 	ldr r3, [r1, #4]
 	cmp r3, #0
 	ldrne r2, [r1]
@@ -2591,10 +2591,10 @@ FUN_02002b5c: ; 0x02002B5C
 	ldrne r1, [r1, #4]
 	strne r1, [r2, #4]
 	bx lr
-	arm_func_end FUN_02002b5c
+	arm_func_end DLExtract
 
-	arm_func_start FUN_02002b84
-FUN_02002b84: ; 0x02002B84
+	arm_func_start DLInsert
+DLInsert: ; 0x02002B84
 	stmfd sp!, {r3, lr}
 	mov lr, r0
 	cmp r0, #0
@@ -2641,10 +2641,10 @@ _02002BEC:
 _02002C24:
 	mov r0, r1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02002b84
+	arm_func_end DLInsert
 
-	arm_func_start FUN_02002c2c
-FUN_02002c2c: ; 0x02002C2C
+	arm_func_start OS_AllocFromHeap
+OS_AllocFromHeap: ; 0x02002C2C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
 	mov r5, r1
@@ -2690,7 +2690,7 @@ _02002CBC:
 	cmp r1, #0x40
 	bhs _02002CDC
 	mov r1, r5
-	bl FUN_02002b5c
+	bl DLExtract
 	str r0, [r4, #4]
 	b _02002D10
 _02002CDC:
@@ -2710,17 +2710,17 @@ _02002CDC:
 _02002D10:
 	ldr r0, [r4, #8]
 	mov r1, r5
-	bl FUN_02002b40
+	bl DLAddFront
 	str r0, [r4, #8]
 	mov r0, r6
 	bl OS_RestoreInterrupts
 	add r0, r5, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02002D30: .word unk_02093C04
-	arm_func_end FUN_02002c2c
+	arm_func_end OS_AllocFromHeap
 
-	arm_func_start FUN_02002d34
-FUN_02002d34: ; 0x02002D34
+	arm_func_start OS_FreeToHeap
+OS_FreeToHeap: ; 0x02002D34
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -2737,20 +2737,20 @@ FUN_02002d34: ; 0x02002D34
 	sub r5, r5, #0x20
 	ldr r0, [r7, #8]
 	mov r1, r5
-	bl FUN_02002b5c
+	bl DLExtract
 	str r0, [r7, #8]
 	ldr r0, [r7, #4]
 	mov r1, r5
-	bl FUN_02002b84
+	bl DLInsert
 	str r0, [r7, #4]
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02002D98: .word unk_02093C04
-	arm_func_end FUN_02002d34
+	arm_func_end OS_FreeToHeap
 
-	arm_func_start FUN_02002d9c
-FUN_02002d9c: ; 0x02002D9C
+	arm_func_start OS_SetCurrentHeap
+OS_SetCurrentHeap: ; 0x02002D9C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	mov r5, r1
@@ -2763,10 +2763,10 @@ FUN_02002d9c: ; 0x02002D9C
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02002DC8: .word unk_02093C04
-	arm_func_end FUN_02002d9c
+	arm_func_end OS_SetCurrentHeap
 
-	arm_func_start FUN_02002dcc
-FUN_02002dcc: ; 0x02002DCC
+	arm_func_start OS_InitAlloc
+OS_InitAlloc: ; 0x02002DCC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r5, r1
@@ -2811,10 +2811,10 @@ _02002E40:
 	ldr r0, [r5, #8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02002E70: .word unk_02093C04
-	arm_func_end FUN_02002dcc
+	arm_func_end OS_InitAlloc
 
-	arm_func_start FUN_02002e74
-FUN_02002e74: ; 0x02002E74
+	arm_func_start OS_CreateHeap
+OS_CreateHeap: ; 0x02002E74
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	mov r6, r1
@@ -2858,10 +2858,10 @@ _02002F04:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _02002F10: .word unk_02093C04
-	arm_func_end FUN_02002e74
+	arm_func_end OS_CreateHeap
 
-	arm_func_start FUN_02002f14
-FUN_02002f14: ; 0x02002F14
+	arm_func_start OS_GetTotalFreeSize
+OS_GetTotalFreeSize: ; 0x02002F14
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -2889,7 +2889,7 @@ _02002F68:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02002F74: .word unk_02093C04
-	arm_func_end FUN_02002f14
+	arm_func_end OS_GetTotalFreeSize
 
 	arm_func_start FUN_02002f78
 FUN_02002f78: ; 0x02002F78
@@ -2905,14 +2905,14 @@ _02002F90:
 _02002F98: .word 0x07000800
 	arm_func_end FUN_02002f78
 
-	arm_func_start FUN_02002f9c
-FUN_02002f9c: ; 0x02002F9C
+	arm_func_start OS_GetDTCMAddress
+OS_GetDTCMAddress: ; 0x02002F9C
 	mrc p15, 0, r0, c9, c1, 0
 	ldr r1, _02002FAC ; =0xFFFFF000
 	and r0, r0, r1
 	bx lr
 _02002FAC: .word 0xFFFFF000
-	arm_func_end FUN_02002f9c
+	arm_func_end OS_GetDTCMAddress
 
 	arm_func_start OS_EnableProtectionUnit
 OS_EnableProtectionUnit: ; 0x02002FB0
@@ -2987,8 +2987,8 @@ OS_DisableWriteBufferForProtectionRegion: ; 0x02003034
 	bx lr
 	arm_func_end OS_DisableWriteBufferForProtectionRegion
 
-	arm_func_start FUN_02003044
-FUN_02003044: ; 0x02003044
+	arm_func_start OS_SetProtectionRegionParam
+OS_SetProtectionRegionParam: ; 0x02003044
 	stmfd sp!, {r3, lr}
 	ldr r2, _0200305C ; =0x0208EC38
 	ldr r2, [r2, r0, lsl #2]
@@ -2996,103 +2996,103 @@ FUN_02003044: ; 0x02003044
 	blx r2
 	ldmfd sp!, {r3, pc}
 _0200305C: .word unk_0208EC38
-	arm_func_end FUN_02003044
+	arm_func_end OS_SetProtectionRegionParam
 
-	arm_func_start FUN_02003060
-FUN_02003060: ; 0x02003060
+	arm_func_start OS_SetProtectionRegion0
+OS_SetProtectionRegion0: ; 0x02003060
 	mcr p15, 0, r0, c6, c0, 0
 	bx lr
-	arm_func_end FUN_02003060
+	arm_func_end OS_SetProtectionRegion0
 
-	arm_func_start FUN_02003068
-FUN_02003068: ; 0x02003068
+	arm_func_start OS_SetProtectionRegion1
+OS_SetProtectionRegion1: ; 0x02003068
 	mcr p15, 0, r0, c6, c1, 0
 	bx lr
-	arm_func_end FUN_02003068
+	arm_func_end OS_SetProtectionRegion1
 
-	arm_func_start FUN_02003070
-FUN_02003070: ; 0x02003070
+	arm_func_start OS_SetProtectionRegion2
+OS_SetProtectionRegion2: ; 0x02003070
 	mcr p15, 0, r0, c6, c2, 0
 	bx lr
-	arm_func_end FUN_02003070
+	arm_func_end OS_SetProtectionRegion2
 
-	arm_func_start FUN_02003078
-FUN_02003078: ; 0x02003078
+	arm_func_start OS_SetProtectionRegion3
+OS_SetProtectionRegion3: ; 0x02003078
 	mcr p15, 0, r0, c6, c3, 0
 	bx lr
-	arm_func_end FUN_02003078
+	arm_func_end OS_SetProtectionRegion3
 
-	arm_func_start FUN_02003080
-FUN_02003080: ; 0x02003080
+	arm_func_start OS_SetProtectionRegion4
+OS_SetProtectionRegion4: ; 0x02003080
 	mcr p15, 0, r0, c6, c4, 0
 	bx lr
-	arm_func_end FUN_02003080
+	arm_func_end OS_SetProtectionRegion4
 
-	arm_func_start FUN_02003088
-FUN_02003088: ; 0x02003088
+	arm_func_start OS_SetProtectionRegion5
+OS_SetProtectionRegion5: ; 0x02003088
 	mcr p15, 0, r0, c6, c5, 0
 	bx lr
-	arm_func_end FUN_02003088
+	arm_func_end OS_SetProtectionRegion5
 
-	arm_func_start FUN_02003090
-FUN_02003090: ; 0x02003090
+	arm_func_start OS_SetProtectionRegion6
+OS_SetProtectionRegion6: ; 0x02003090
 	mcr p15, 0, r0, c6, c6, 0
 	bx lr
-	arm_func_end FUN_02003090
+	arm_func_end OS_SetProtectionRegion6
 
-	arm_func_start FUN_02003098
-FUN_02003098: ; 0x02003098
+	arm_func_start OS_SetProtectionRegion7
+OS_SetProtectionRegion7: ; 0x02003098
 	mcr p15, 0, r0, c6, c7, 0
 	bx lr
-	arm_func_end FUN_02003098
+	arm_func_end OS_SetProtectionRegion7
 
-	arm_func_start FUN_020030a0
-FUN_020030a0: ; 0x020030A0
+	arm_func_start OS_GetProtectionRegion0
+OS_GetProtectionRegion0: ; 0x020030A0
 	mrc p15, 0, r0, c6, c0, 0
 	bx lr
-	arm_func_end FUN_020030a0
+	arm_func_end OS_GetProtectionRegion0
 
-	arm_func_start FUN_020030a8
-FUN_020030a8: ; 0x020030A8
+	arm_func_start OS_GetProtectionRegion1
+OS_GetProtectionRegion1: ; 0x020030A8
 	mrc p15, 0, r0, c6, c1, 0
 	bx lr
-	arm_func_end FUN_020030a8
+	arm_func_end OS_GetProtectionRegion1
 
-	arm_func_start FUN_020030b0
-FUN_020030b0: ; 0x020030B0
+	arm_func_start OS_GetProtectionRegion2
+OS_GetProtectionRegion2: ; 0x020030B0
 	mrc p15, 0, r0, c6, c2, 0
 	bx lr
-	arm_func_end FUN_020030b0
+	arm_func_end OS_GetProtectionRegion2
 
-	arm_func_start FUN_020030b8
-FUN_020030b8: ; 0x020030B8
+	arm_func_start OS_GetProtectionRegion3
+OS_GetProtectionRegion3: ; 0x020030B8
 	mrc p15, 0, r0, c6, c3, 0
 	bx lr
-	arm_func_end FUN_020030b8
+	arm_func_end OS_GetProtectionRegion3
 
-	arm_func_start FUN_020030c0
-FUN_020030c0: ; 0x020030C0
+	arm_func_start OS_GetProtectionRegion4
+OS_GetProtectionRegion4: ; 0x020030C0
 	mrc p15, 0, r0, c6, c4, 0
 	bx lr
-	arm_func_end FUN_020030c0
+	arm_func_end OS_GetProtectionRegion4
 
-	arm_func_start FUN_020030c8
-FUN_020030c8: ; 0x020030C8
+	arm_func_start OS_GetProtectionRegion5
+OS_GetProtectionRegion5: ; 0x020030C8
 	mrc p15, 0, r0, c6, c5, 0
 	bx lr
-	arm_func_end FUN_020030c8
+	arm_func_end OS_GetProtectionRegion5
 
-	arm_func_start FUN_020030d0
-FUN_020030d0: ; 0x020030D0
+	arm_func_start OS_GetProtectionRegion6
+OS_GetProtectionRegion6: ; 0x020030D0
 	mrc p15, 0, r0, c6, c6, 0
 	bx lr
-	arm_func_end FUN_020030d0
+	arm_func_end OS_GetProtectionRegion6
 
-	arm_func_start FUN_020030d8
-FUN_020030d8: ; 0x020030D8
+	arm_func_start OS_GetProtectionRegion7
+OS_GetProtectionRegion7: ; 0x020030D8
 	mrc p15, 0, r0, c6, c7, 0
 	bx lr
-	arm_func_end FUN_020030d8
+	arm_func_end OS_GetProtectionRegion7
 
 	arm_func_start OS_SetProtectionRegionEx
 OS_SetProtectionRegionEx: ; 0x020030E0
@@ -3104,7 +3104,7 @@ OS_SetProtectionRegionEx: ; 0x020030E0
 	and r1, r1, r12, lsl r3
 	orr r1, r2, r1
 	orr r1, r1, #1
-	bl FUN_02003044
+	bl OS_SetProtectionRegionParam
 	ldmfd sp!, {r3, pc}
 	arm_func_end OS_SetProtectionRegionEx
 
@@ -3265,21 +3265,21 @@ _020032FC: .word unk_02093C34
 _02003300: .word _020032D8
 	arm_func_end OSi_DisplayExContext
 
-	arm_func_start FUN_02003304
-FUN_02003304: ; 0x02003304
+	arm_func_start OSi_SetTimerReserved
+OSi_SetTimerReserved: ; 0x02003304
 	ldr r1, _02003324 ; =0x02093CC8
 	mov r2, #1
 	mov r0, r2, lsl r0
 	ldrh r2, [r1]
-	mov r0, r0, lsl #0x10
+	mov r0, r0, lsl #16
 	orr r0, r2, r0, lsr #16
 	strh r0, [r1]
 	bx lr
 _02003324: .word unk_02093CC8
-	arm_func_end FUN_02003304
+	arm_func_end OSi_SetTimerReserved
 
-	arm_func_start FUN_02003328
-FUN_02003328: ; 0x02003328
+	arm_func_start OS_InitTick
+OS_InitTick: ; 0x02003328
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _0200338C ; =0x02093CCC
 	ldrh r0, [r4]
@@ -3289,13 +3289,13 @@ FUN_02003328: ; 0x02003328
 	mov r6, #0
 	mov r0, r6
 	strh r1, [r4]
-	bl FUN_02003304
+	bl OSi_SetTimerReserved
 	str r6, [r4, #8]
 	mov r5, #8
 	ldr r3, _02003390 ; =0x04000102
 	str r6, [r4, #0xc]
 	strh r6, [r3]
-	ldr r1, _02003394 ; =FUN_020033a8
+	ldr r1, _02003394 ; =OSi_CountUpTick
 	mov r0, r5
 	strh r6, [r3, #-2]
 	mov r2, #0xc1
@@ -3307,19 +3307,19 @@ FUN_02003328: ; 0x02003328
 	ldmfd sp!, {r4, r5, r6, pc}
 _0200338C: .word unk_02093CCC
 _02003390: .word 0x04000102
-_02003394: .word FUN_020033a8
-	arm_func_end FUN_02003328
+_02003394: .word OSi_CountUpTick
+	arm_func_end OS_InitTick
 
-	arm_func_start FUN_02003398
-FUN_02003398: ; 0x02003398
+	arm_func_start OS_IsTickAvailable
+OS_IsTickAvailable: ; 0x02003398
 	ldr r0, _020033A4 ; =0x02093CCC
 	ldrh r0, [r0]
 	bx lr
 _020033A4: .word unk_02093CCC
-	arm_func_end FUN_02003398
+	arm_func_end OS_IsTickAvailable
 
-	arm_func_start FUN_020033a8
-FUN_020033a8: ; 0x020033A8
+	arm_func_start OSi_CountUpTick
+OSi_CountUpTick: ; 0x020033A8
 	stmfd sp!, {r3, lr}
 	ldr r0, _02003404 ; =0x02093CCC
 	mov r3, #0
@@ -3340,17 +3340,17 @@ FUN_020033a8: ; 0x020033A8
 	str r3, [r0, #4]
 _020033F0:
 	mov r0, #0
-	ldr r1, _0200340C ; =FUN_020033a8
+	ldr r1, _0200340C ; =OSi_CountUpTick
 	mov r2, r0
 	bl OSi_EnterTimerCallback
 	ldmfd sp!, {r3, pc}
 _02003404: .word unk_02093CCC
 _02003408: .word 0x04000102
-_0200340C: .word FUN_020033a8
-	arm_func_end FUN_020033a8
+_0200340C: .word OSi_CountUpTick
+	arm_func_end OSi_CountUpTick
 
-	arm_func_start FUN_02003410
-FUN_02003410: ; 0x02003410
+	arm_func_start OS_GetTick
+OS_GetTick: ; 0x02003410
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	bl OS_DisableInterrupts
@@ -3392,18 +3392,18 @@ _0200347C:
 _020034A4: .word 0x04000100
 _020034A8: .word 0x0000FFFF
 _020034AC: .word unk_02093CCC
-	arm_func_end FUN_02003410
+	arm_func_end OS_GetTick
 
-	arm_func_start FUN_020034b0
-FUN_020034b0: ; 0x020034B0
+	arm_func_start OS_GetTickLo
+OS_GetTickLo: ; 0x020034B0
 	ldr r0, _020034BC ; =0x04000100
 	ldrh r0, [r0]
 	bx lr
 _020034BC: .word 0x04000100
-	arm_func_end FUN_020034b0
+	arm_func_end OS_GetTickLo
 
-	arm_func_start FUN_020034c0
-FUN_020034c0: ; 0x020034C0
+	arm_func_start OS_SetTick
+OS_SetTick: ; 0x020034C0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	mov r4, r1
@@ -3432,13 +3432,13 @@ FUN_020034c0: ; 0x020034C0
 _02003524: .word 0x04000214
 _02003528: .word unk_02093CCC
 _0200352C: .word 0x04000102
-	arm_func_end FUN_020034c0
+	arm_func_end OS_SetTick
 
-	arm_func_start FUN_02003530
-FUN_02003530: ; 0x02003530
+	arm_func_start OSi_SetTimer
+OSi_SetTimer: ; 0x02003530
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r4, #0
 	ldr r3, _020035A8 ; =0x04000106
 	mov r2, r4
@@ -3471,10 +3471,10 @@ _020035A8: .word 0x04000106
 _020035AC: .word OSi_AlarmHandler
 _020035B0: .word 0x0000FFFE
 _020035B4: .word 0x04000104
-	arm_func_end FUN_02003530
+	arm_func_end OSi_SetTimer
 
-	arm_func_start FUN_020035b8
-FUN_020035b8: ; 0x020035B8
+	arm_func_start OS_InitAlarm
+OS_InitAlarm: ; 0x020035B8
 	stmfd sp!, {r4, lr}
 	ldr r4, _020035F0 ; =0x02093CDC
 	ldrh r0, [r4]
@@ -3482,7 +3482,7 @@ FUN_020035b8: ; 0x020035B8
 	ldmnefd sp!, {r4, pc}
 	mov r0, #1
 	strh r0, [r4]
-	bl FUN_02003304
+	bl OSi_SetTimerReserved
 	mov r1, #0
 	str r1, [r4, #4]
 	mov r0, #0x10
@@ -3490,15 +3490,15 @@ FUN_020035b8: ; 0x020035B8
 	bl OS_DisableIrqMask
 	ldmfd sp!, {r4, pc}
 _020035F0: .word unk_02093CDC
-	arm_func_end FUN_020035b8
+	arm_func_end OS_InitAlarm
 
-	arm_func_start FUN_020035f4
-FUN_020035f4: ; 0x020035F4
+	arm_func_start OS_IsAlarmAvailable
+OS_IsAlarmAvailable: ; 0x020035F4
 	ldr r0, _02003600 ; =0x02093CDC
 	ldrh r0, [r0]
 	bx lr
 _02003600: .word unk_02093CDC
-	arm_func_end FUN_020035f4
+	arm_func_end OS_IsAlarmAvailable
 
 	arm_func_start OS_CreateAlarm
 OS_CreateAlarm: ; 0x02003604
@@ -3508,8 +3508,8 @@ OS_CreateAlarm: ; 0x02003604
 	bx lr
 	arm_func_end OS_CreateAlarm
 
-	arm_func_start FUN_02003614
-FUN_02003614: ; 0x02003614
+	arm_func_start OSi_InsertAlarm
+OSi_InsertAlarm: ; 0x02003614
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
 	ldr r0, [r8, #0x20]
@@ -3520,7 +3520,7 @@ FUN_02003614: ; 0x02003614
 	cmpeq r4, #0
 	mov r9, #0
 	beq _0200368C
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r7, [r8, #0x28]
 	ldr r6, [r8, #0x24]
 	cmp r7, r1
@@ -3532,7 +3532,7 @@ FUN_02003614: ; 0x02003614
 	mov r2, r4
 	mov r3, r5
 	sbc r1, r1, r7
-	bl FUN_0201f954
+	bl _ll_udiv
 	adds r2, r0, #1
 	adc r0, r1, r9
 	umull r3, r1, r4, r2
@@ -3566,7 +3566,7 @@ _020036A4:
 	ldr r1, _02003738 ; =0x02093CDC
 	mov r0, r8
 	str r8, [r1, #4]
-	bl FUN_02003530
+	bl OSi_SetTimer
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020036F4:
 	ldr r2, [r2, #0x18]
@@ -3585,10 +3585,10 @@ _02003700:
 	str r8, [r1, #8]
 	mov r0, r8
 	str r8, [r1, #4]
-	bl FUN_02003530
+	bl OSi_SetTimer
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02003738: .word unk_02093CDC
-	arm_func_end FUN_02003614
+	arm_func_end OSi_InsertAlarm
 
 	arm_func_start OS_SetAlarm
 OS_SetAlarm: ; 0x0200373C
@@ -3612,19 +3612,19 @@ _02003764:
 	str r2, [r8, #0x20]
 	str r5, [r8]
 	str r1, [r8, #4]
-	bl FUN_02003410
+	bl OS_GetTick
 	adds r3, r7, r0
 	adc r2, r6, r1
 	mov r0, r8
 	mov r1, r3
-	bl FUN_02003614
+	bl OSi_InsertAlarm
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end OS_SetAlarm
 
-	arm_func_start FUN_020037a8
-FUN_020037a8: ; 0x020037A8
+	arm_func_start OS_SetPeriodicAlarm
+OS_SetPeriodicAlarm: ; 0x020037A8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	movs r9, r0
 	mov r7, r1
@@ -3651,11 +3651,11 @@ _020037D4:
 	str r8, [r9, #0x28]
 	str r12, [r9]
 	str r3, [r9, #4]
-	bl FUN_02003614
+	bl OSi_InsertAlarm
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_020037a8
+	arm_func_end OS_SetPeriodicAlarm
 
 	arm_func_start OS_CancelAlarm
 OS_CancelAlarm: ; 0x02003818
@@ -3684,7 +3684,7 @@ _0200383C:
 	cmp r0, #0
 	str r0, [r1, #4]
 	beq _0200387C
-	bl FUN_02003530
+	bl OSi_SetTimer
 _0200387C:
 	mov r2, #0
 	mov r0, r4
@@ -3699,13 +3699,13 @@ _02003898: .word unk_02093CDC
 	arm_func_start OSi_AlarmHandler
 OSi_AlarmHandler: ; 0x0200389C
 	stmfd sp!, {r0, lr}
-	bl FUN_020038ac
+	bl OSi_ArrangeTimer
 	ldmfd sp!, {r0, lr}
 	bx lr
 	arm_func_end OSi_AlarmHandler
 
-	arm_func_start FUN_020038ac
-FUN_020038ac: ; 0x020038AC
+	arm_func_start OSi_ArrangeTimer
+OSi_ArrangeTimer: ; 0x020038AC
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _0200398C ; =0x04000106
 	mov r4, #0
@@ -3717,7 +3717,7 @@ FUN_020038ac: ; 0x020038AC
 	ldr r1, [r0, #0xff8]
 	orr r1, r1, #0x10
 	str r1, [r0, #0xff8]
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, _02003994 ; =0x02093CDC
 	ldr r5, [r2, #4]
 	cmp r5, #0
@@ -3728,7 +3728,7 @@ FUN_020038ac: ; 0x020038AC
 	cmpeq r0, r12
 	bhs _0200390C
 	mov r0, r5
-	bl FUN_02003530
+	bl OSi_SetTimer
 	ldmfd sp!, {r3, r4, r5, pc}
 _0200390C:
 	ldr r0, [r5, #0x18]
@@ -3757,18 +3757,18 @@ _0200394C:
 	mov r0, r5
 	mov r2, r1
 	str r4, [r5]
-	bl FUN_02003614
+	bl OSi_InsertAlarm
 _02003974:
 	ldr r0, _02003994 ; =0x02093CDC
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_02003530
+	bl OSi_SetTimer
 	ldmfd sp!, {r3, r4, r5, pc}
 _0200398C: .word 0x04000106
 _02003990: .word OS_IRQTable
 _02003994: .word unk_02093CDC
-	arm_func_end FUN_020038ac
+	arm_func_end OSi_ArrangeTimer
 
 	arm_func_start OS_InitVAlarm
 OS_InitVAlarm: ; 0x02003998
@@ -3790,8 +3790,8 @@ OS_InitVAlarm: ; 0x02003998
 _020039D4: .word unk_02093CE8
 	arm_func_end OS_InitVAlarm
 
-	arm_func_start FUN_020039d8
-FUN_020039d8: ; 0x020039D8
+	arm_func_start OSi_InsertVAlarm
+OSi_InsertVAlarm: ; 0x020039D8
 	stmfd sp!, {r3, lr}
 	ldr r1, _02003A50 ; =0x02093CE8
 	ldr r3, [r1, #0xc]
@@ -3817,20 +3817,20 @@ _02003A10:
 	ldmnefd sp!, {r3, pc}
 	ldr r1, _02003A50 ; =0x02093CE8
 	str r0, [r1, #0xc]
-	bl FUN_02003b64
+	bl OSi_SetNextVAlarm
 	ldmfd sp!, {r3, pc}
 _02003A3C:
 	ldr r3, [r3, #0x18]
 	cmp r3, #0
 	bne _020039F0
 _02003A48:
-	bl FUN_02003a54
+	bl OSi_AppendVAlarm
 	ldmfd sp!, {r3, pc}
 _02003A50: .word unk_02093CE8
-	arm_func_end FUN_020039d8
+	arm_func_end OSi_InsertVAlarm
 
-	arm_func_start FUN_02003a54
-FUN_02003a54: ; 0x02003A54
+	arm_func_start OSi_AppendVAlarm
+OSi_AppendVAlarm: ; 0x02003A54
 	stmfd sp!, {r3, lr}
 	ldr r1, _02003A88 ; =0x02093CE8
 	mov r2, #0
@@ -3842,13 +3842,13 @@ FUN_02003a54: ; 0x02003A54
 	strne r0, [r3, #0x18]
 	ldmnefd sp!, {r3, pc}
 	str r0, [r1, #0xc]
-	bl FUN_02003b64
+	bl OSi_SetNextVAlarm
 	ldmfd sp!, {r3, pc}
 _02003A88: .word unk_02093CE8
-	arm_func_end FUN_02003a54
+	arm_func_end OSi_AppendVAlarm
 
-	arm_func_start FUN_02003a8c
-FUN_02003a8c: ; 0x02003A8C
+	arm_func_start OSi_DetachVAlarm
+OSi_DetachVAlarm: ; 0x02003A8C
 	cmp r0, #0
 	bxeq lr
 	ldr r2, [r0, #0x18]
@@ -3863,19 +3863,19 @@ FUN_02003a8c: ; 0x02003A8C
 	streq r2, [r0, #0xc]
 	bx lr
 _02003AC0: .word unk_02093CE8
-	arm_func_end FUN_02003a8c
+	arm_func_end OSi_DetachVAlarm
 
-	arm_func_start FUN_02003ac4
-FUN_02003ac4: ; 0x02003AC4
+	arm_func_start OS_CreateVAlarm
+OS_CreateVAlarm: ; 0x02003AC4
 	mov r1, #0
 	str r1, [r0]
 	str r1, [r0, #8]
 	str r1, [r0, #0x20]
 	bx lr
-	arm_func_end FUN_02003ac4
+	arm_func_end OS_CreateVAlarm
 
-	arm_func_start FUN_02003ad8
-FUN_02003ad8: ; 0x02003AD8
+	arm_func_start OS_SetVAlarm
+OS_SetVAlarm: ; 0x02003AD8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
 	mov r7, r1
@@ -3894,7 +3894,7 @@ _02003B0C:
 	ldr r0, _02003B60 ; =0x04000006
 	ldrh r9, [r0]
 	mov r0, r9
-	bl FUN_02003d58
+	bl OSi_GetVFrame
 	mov r1, #0
 	cmp r7, r9
 	addle r0, r0, #1
@@ -3908,23 +3908,23 @@ _02003B0C:
 	str r5, [r8]
 	str r2, [r8, #4]
 	str r1, [r8, #0x24]
-	bl FUN_020039d8
+	bl OSi_InsertVAlarm
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02003B60: .word 0x04000006
-	arm_func_end FUN_02003ad8
+	arm_func_end OS_SetVAlarm
 
-	arm_func_start FUN_02003b64
-FUN_02003b64: ; 0x02003B64
+	arm_func_start OSi_SetNextVAlarm
+OSi_SetNextVAlarm: ; 0x02003B64
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #4
 	mov r5, r0
-	ldr r1, _02003BA0 ; =FUN_02003ba4
+	ldr r1, _02003BA0 ; =OSi_VAlarmHandler
 	mov r0, r4
 	bl OS_SetIrqFunction
 	ldrsh r0, [r5, #0x10]
-	bl FUN_020043ec
+	bl GX_SetVCountEqVal
 	sub r2, r4, #0xfc000000
 	ldrh r1, [r2]
 	mov r0, r4
@@ -3932,11 +3932,11 @@ FUN_02003b64: ; 0x02003B64
 	strh r1, [r2]
 	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}
-_02003BA0: .word FUN_02003ba4
-	arm_func_end FUN_02003b64
+_02003BA0: .word OSi_VAlarmHandler
+	arm_func_end OSi_SetNextVAlarm
 
-	arm_func_start FUN_02003ba4
-FUN_02003ba4: ; 0x02003BA4
+	arm_func_start OSi_VAlarmHandler
+OSi_VAlarmHandler: ; 0x02003BA4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r4, #4
 	mov r0, r4
@@ -3958,7 +3958,7 @@ FUN_02003ba4: ; 0x02003BA4
 	and r0, r0, #0x100
 	orr r0, r1, r0
 	sub r0, r0, #1
-	bl FUN_02003d58
+	bl OSi_GetVFrame
 	ldr r4, _02003D04 ; =0x02093CE8
 	ldr r10, [r4, #0xc]
 	cmp r10, #0
@@ -3968,12 +3968,12 @@ FUN_02003ba4: ; 0x02003BA4
 _02003C14:
 	ldrh r7, [r8]
 	mov r0, r7
-	bl FUN_02003d58
+	bl OSi_GetVFrame
 	mov r6, r0
 	mov r0, r10
 	mov r1, r6
 	mov r2, r7
-	bl FUN_02003d0c
+	bl OSi_CompareVCount
 	cmp r0, #0
 	beq _02003C50
 	cmp r0, #1
@@ -3983,7 +3983,7 @@ _02003C14:
 	b _02003CEC
 _02003C50:
 	mov r0, r10
-	bl FUN_02003b64
+	bl OSi_SetNextVAlarm
 	ldrh r1, [r8]
 	ldrsh r0, [r10, #0x10]
 	cmp r0, r1
@@ -4000,7 +4000,7 @@ _02003C50:
 _02003C8C:
 	ldr r6, [r10]
 	mov r0, r10
-	bl FUN_02003a8c
+	bl OSi_DetachVAlarm
 	mov r0, #0
 	str r0, [r10]
 	cmp r6, #0
@@ -4018,13 +4018,13 @@ _02003CB0:
 	b _02003CD8
 _02003CD0:
 	mov r0, r10
-	bl FUN_02003a8c
+	bl OSi_DetachVAlarm
 _02003CD8:
 	ldr r1, [r4, #8]
 	mov r0, r10
 	add r1, r1, #1
 	str r1, [r10, #0xc]
-	bl FUN_020039d8
+	bl OSi_InsertVAlarm
 _02003CEC:
 	ldr r10, [r4, #0xc]
 	cmp r10, #0
@@ -4034,10 +4034,10 @@ _02003CFC: .word OS_IRQTable
 _02003D00: .word 0x0000FFDF
 _02003D04: .word unk_02093CE8
 _02003D08: .word 0x04000006
-	arm_func_end FUN_02003ba4
+	arm_func_end OSi_VAlarmHandler
 
-	arm_func_start FUN_02003d0c
-FUN_02003d0c: ; 0x02003D0C
+	arm_func_start OSi_CompareVCount
+OSi_CompareVCount: ; 0x02003D0C
 	ldrsh r3, [r0, #0x10]
 	ldr r12, [r0, #0xc]
 	subs r1, r1, r12
@@ -4059,10 +4059,10 @@ _02003D38:
 	movle r0, #1
 	movgt r0, #2
 	bx lr
-	arm_func_end FUN_02003d0c
+	arm_func_end OSi_CompareVCount
 
-	arm_func_start FUN_02003d58
-FUN_02003d58: ; 0x02003D58
+	arm_func_start OSi_GetVFrame
+OSi_GetVFrame: ; 0x02003D58
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
@@ -4078,7 +4078,7 @@ FUN_02003d58: ; 0x02003D58
 	ldr r0, [r4, #8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02003D90: .word unk_02093CE8
-	arm_func_end FUN_02003d58
+	arm_func_end OSi_GetVFrame
 
 	arm_func_start OS_EnableInterrupts
 OS_EnableInterrupts: ; 0x02003D94
@@ -4127,12 +4127,12 @@ OS_RestoreInterrupts_IrqAndFiq: ; 0x02003DE8
 	bx lr
 	arm_func_end OS_RestoreInterrupts_IrqAndFiq
 
-	arm_func_start FUN_02003e00
-FUN_02003e00: ; 0x02003E00
+	arm_func_start OS_GetCpsrIrq
+OS_GetCpsrIrq: ; 0x02003E00
 	mrs r0, cpsr
 	and r0, r0, #0x80
 	bx lr
-	arm_func_end FUN_02003e00
+	arm_func_end OS_GetCpsrIrq
 
 	arm_func_start OS_GetProcMode
 OS_GetProcMode: ; 0x02003E0C
@@ -4141,26 +4141,26 @@ OS_GetProcMode: ; 0x02003E0C
 	bx lr
 	arm_func_end OS_GetProcMode
 
-	arm_func_start FUN_02003e18
-FUN_02003e18: ; 0x02003E18
+	arm_func_start OS_SpinWaitCpuCycles
+OS_SpinWaitCpuCycles: ; 0x02003E18
 	subs r0, r0, #4
-	bhs FUN_02003e18
+	bhs OS_SpinWaitCpuCycles
 	bx lr
-	arm_func_end FUN_02003e18
+	arm_func_end OS_SpinWaitCpuCycles
 
-	arm_func_start FUN_02003e24
-FUN_02003e24: ; 0x02003E24
+	arm_func_start OS_SpinWaitSysCycles
+OS_SpinWaitSysCycles: ; 0x02003E24
 	stmfd sp!, {r3, lr}
 	mov r0, r0, lsl #1
 	cmp r0, #0x10
 	ldmlsfd sp!, {r3, pc}
 	sub r0, r0, #0x10
-	bl FUN_02003e18
+	bl OS_SpinWaitCpuCycles
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02003e24
+	arm_func_end OS_SpinWaitSysCycles
 
-	arm_func_start FUN_02003e40
-FUN_02003e40: ; 0x02003E40
+	arm_func_start OS_WaitVBlankIntr
+OS_WaitVBlankIntr: ; 0x02003E40
 	stmfd sp!, {r4, lr}
 	mov r4, #1
 	mov r0, r4
@@ -4169,22 +4169,22 @@ FUN_02003e40: ; 0x02003E40
 	mov r1, r4
 	bl OS_WaitIrq
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02003e40
+	arm_func_end OS_WaitVBlankIntr
 
-	arm_func_start FUN_02003e60
-FUN_02003e60: ; 0x02003E60
+	arm_func_start OS_GetBootType
+OS_GetBootType: ; 0x02003E60
 	stmfd sp!, {r3, lr}
-	bl FUN_02003e70
+	bl OS_GetBootInfo
 	ldrh r0, [r0]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02003e60
+	arm_func_end OS_GetBootType
 
-	arm_func_start FUN_02003e70
-FUN_02003e70: ; 0x02003E70
+	arm_func_start OS_GetBootInfo
+OS_GetBootInfo: ; 0x02003E70
 	ldr r0, _02003E78 ; =0x02FFFC40
 	bx lr
 _02003E78: .word 0x02FFFC40
-	arm_func_end FUN_02003e70
+	arm_func_end OS_GetBootInfo
 
 	arm_func_start OS_InitReset
 OS_InitReset: ; 0x02003E7C
@@ -4314,8 +4314,8 @@ _02004008: .word unk_02093D00
 _0200400C: .word unk_02093D04
 	arm_func_end OSi_InitVramExclusive
 
-	arm_func_start FUN_02004010
-FUN_02004010: ; 0x02004010
+	arm_func_start OSi_UnlockVram
+OSi_UnlockVram: ; 0x02004010
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r5, r0
 	mov r10, r1
@@ -4351,7 +4351,7 @@ _0200407C:
 _02004088: .word unk_02093D00
 _0200408C: .word 0x000001FF
 _02004090: .word unk_02093D04
-	arm_func_end FUN_02004010
+	arm_func_end OSi_UnlockVram
 
 	arm_func_start FUN_02004094
 FUN_02004094: ; 0x02004094
@@ -4360,7 +4360,7 @@ FUN_02004094: ; 0x02004094
 	mov r5, r0
 	ldrh r6, [r1]
 	ldr r4, _02004154 ; =0x02FFFC00
-	bl FUN_020034b0
+	bl OS_GetTickLo
 	orr r0, r0, r6, lsl #16
 	str r0, [r5]
 	ldr r0, _02004158 ; =0x02093CD4
@@ -4445,17 +4445,17 @@ OS_Halt: ; 0x020041A0
 	bx lr
 	arm_func_end OS_Halt
 
-	arm_func_start FUN_020041ac
-FUN_020041ac: ; 0x020041AC
+	arm_func_start OS_InitEvent
+OS_InitEvent: ; 0x020041AC
 	mov r1, #0
 	str r1, [r0, #8]
 	str r1, [r0, #4]
 	str r1, [r0]
 	bx lr
-	arm_func_end FUN_020041ac
+	arm_func_end OS_InitEvent
 
-	arm_func_start FUN_020041c0
-FUN_020041c0: ; 0x020041C0
+	arm_func_start OS_WaitEventEx
+OS_WaitEventEx: ; 0x020041C0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r2
 	mov r8, r0
@@ -4505,10 +4505,10 @@ _02004244:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_020041c0
+	arm_func_end OS_WaitEventEx
 
-	arm_func_start FUN_02004268
-FUN_02004268: ; 0x02004268
+	arm_func_start OS_SignalEvent
+OS_SignalEvent: ; 0x02004268
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	mov r6, r0
@@ -4525,7 +4525,7 @@ _02004298:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02004268
+	arm_func_end OS_SignalEvent
 
 	arm_func_start FUN_020042a4
 FUN_020042a4: ; 0x020042A4
@@ -4618,8 +4618,8 @@ _020043E4: .word 0x04000020
 _020043E8: .word 0x04001026
 	arm_func_end FUN_020042a4
 
-	arm_func_start FUN_020043ec
-FUN_020043ec: ; 0x020043EC
+	arm_func_start GX_SetVCountEqVal
+GX_SetVCountEqVal: ; 0x020043EC
 	ldr r3, _02004410 ; =0x04000004
 	mov r1, r0, lsl #0x18
 	ldrh r2, [r3]
@@ -4630,7 +4630,7 @@ FUN_020043ec: ; 0x020043EC
 	strh r0, [r3]
 	bx lr
 _02004410: .word 0x04000004
-	arm_func_end FUN_020043ec
+	arm_func_end GX_SetVCountEqVal
 
 	arm_func_start FUN_02004414
 FUN_02004414: ; 0x02004414
@@ -7838,7 +7838,7 @@ FUN_02006C30: ; 0x02006C30
 	mov r0, r4, lsl #0x10
 	ldrh r1, [r1]
 	mov r0, r0, lsr #0x10
-	bl FUN_02004010
+	bl OSi_UnlockVram
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02006CC8: .word 0x04000240
@@ -11961,8 +11961,8 @@ _0200A390:
 _0200A39C: .word unk_0208EE44
 	arm_func_end FUN_0200a310
 
-	arm_func_start FUN_0200a3a0
-FUN_0200a3a0: ; 0x0200A3A0
+	arm_func_start MATHi_SetOverlayTableMode
+MATHi_SetOverlayTableMode: ; 0x0200A3A0
 	ldr r1, _0200A3CC ; =0x02093D9C
 	cmp r0, #0
 	ldr r2, [r1]
@@ -11978,7 +11978,7 @@ _0200A3CC: .word unk_02093D9C
 _0200A3D0: .word FUN_0200a2e4
 _0200A3D4: .word unk_0208EE44
 _0200A3D8: .word FUN_0200aaa8
-	arm_func_end FUN_0200a3a0
+	arm_func_end MATHi_SetOverlayTableMode
 
 	arm_func_start FUN_0200a3dc
 FUN_0200a3dc: ; 0x0200A3DC
@@ -12200,8 +12200,8 @@ FUN_0200a6bc: ; 0x0200A6BC
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_0200a6bc
 
-	arm_func_start FUN_0200a700
-FUN_0200a700: ; 0x0200A700
+	arm_func_start MATH_CalcHMACSHA1
+MATH_CalcHMACSHA1: ; 0x0200A700
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x98
 	ldr lr, _0200A784 ; =0x0208B984
@@ -12239,7 +12239,7 @@ _0200A784: .word unk_0208B984
 _0200A788: .word FUN_0200a3dc
 _0200A78C: .word FUN_0200a430
 _0200A790: .word FUN_0200a4c4
-	arm_func_end FUN_0200a700
+	arm_func_end MATH_CalcHMACSHA1
 
 	arm_func_start FUN_0200a794
 FUN_0200a794: ; 0x0200A794
@@ -13901,7 +13901,7 @@ _0200BCC8:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	bl OS_DisableInterrupts
 	mov r4, r0
 	bl FUN_0200c3c4
@@ -14292,7 +14292,7 @@ FUN_0200c194: ; 0x0200C194
 	mov r4, #1
 _0200C1D4:
 	mov r0, r6
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r5
 	mov r1, r4
 	bl PXI_IsCallbackReady
@@ -14343,7 +14343,7 @@ _0200C264: .word unk_02093DE4
 	arm_func_start FUN_0200c268
 FUN_0200c268: ; 0x0200C268
 	stmfd sp!, {r4, lr}
-	bl FUN_0200215c
+	bl OS_IsRunOnEmulator
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r4, pc}
@@ -16661,10 +16661,10 @@ FUN_0200dff0: ; 0x0200DFF0
 _0200DFF8: .word FUN_0200d1e4
 	arm_func_end FUN_0200dff0
 
-	arm_func_start FUN_0200dffc
-FUN_0200dffc: ; 0x0200DFFC
+	arm_func_start FSi_InitOverlay
+FSi_InitOverlay: ; 0x0200DFFC
 	stmfd sp!, {r4, lr}
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #2
 	ldrne r0, _0200E060 ; =0x02095B38
 	mov r1, #0
@@ -16692,10 +16692,10 @@ _0200E034:
 _0200E060: .word unk_02095B38
 _0200E064: .word unk_0208BD74
 _0200E068: .word unk_0208EE7C
-	arm_func_end FUN_0200dffc
+	arm_func_end FSi_InitOverlay
 
-	arm_func_start FUN_0200e06c
-FUN_0200e06c: ; 0x0200E06C
+	arm_func_start FSi_GetOverlayBinarySize
+FSi_GetOverlayBinarySize: ; 0x0200E06C
 	ldr r1, [r0, #0x1c]
 	mov r2, r1, lsr #0x18
 	tst r2, #1
@@ -16703,7 +16703,7 @@ FUN_0200e06c: ; 0x0200E06C
 	movne r0, r0, lsr #8
 	ldreq r0, [r0, #8]
 	bx lr
-	arm_func_end FUN_0200e06c
+	arm_func_end FSi_GetOverlayBinarySize
 
 	arm_func_start FS_ClearOverlayImage
 FS_ClearOverlayImage: ; 0x0200E088
@@ -16724,8 +16724,8 @@ FS_ClearOverlayImage: ; 0x0200E088
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FS_ClearOverlayImage
 
-	arm_func_start FUN_0200e0c4
-FUN_0200e0c4: ; 0x0200E0C4
+	arm_func_start FS_GetOverlayFileID
+FS_GetOverlayFileID: ; 0x0200E0C4
 	sub sp, sp, #8
 	ldr r2, _0200E0EC ; =0x02095B38
 	ldr r1, [r1, #0x18]
@@ -16737,7 +16737,7 @@ FUN_0200e0c4: ; 0x0200E0C4
 	add sp, sp, #8
 	bx lr
 _0200E0EC: .word unk_02095B38
-	arm_func_end FUN_0200e0c4
+	arm_func_end FS_GetOverlayFileID
 
 	arm_func_start FS_LoadOverlayInfo
 FS_LoadOverlayInfo: ; 0x0200E0F0
@@ -16767,7 +16767,7 @@ FS_LoadOverlayInfo: ; 0x0200E0F0
 	mov r1, r5
 	mov r0, r8
 	str r4, [r5, #0x20]
-	bl FUN_0200e0c4
+	bl FS_GetOverlayFileID
 	mov r0, r6
 	ldmia r8, {r1, r2}
 	bl FS_OpenFileFast
@@ -16777,11 +16777,11 @@ FS_LoadOverlayInfo: ; 0x0200E0F0
 _0200E174:
 	cmp r4, #0
 	bne _0200E188
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	add r9, r0, #0x50
 	b _0200E190
 _0200E188:
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	add r9, r0, #0x58
 _0200E190:
 	ldr r0, [r9, #4]
@@ -16813,7 +16813,7 @@ _0200E1EC:
 	mov r1, r5
 	mov r0, r8
 	str r4, [r5, #0x20]
-	bl FUN_0200e0c4
+	bl FS_GetOverlayFileID
 	mov r0, r6
 	ldmia r8, {r1, r2}
 	bl FS_OpenFileFast
@@ -16821,7 +16821,7 @@ _0200E1EC:
 	beq _0200E23C
 _0200E218:
 	mov r0, r6
-	bl FUN_0200fad8
+	bl FS_GetFileImageTop
 	str r0, [r5, #0x24]
 	mov r0, r6
 	bl FS_GetFileLength
@@ -16849,14 +16849,14 @@ FS_LoadOverlayImage: ; 0x0200E250
 	add r4, sp, #0
 	mov r1, r7
 	mov r0, r4
-	bl FUN_0200e0c4
+	bl FS_GetOverlayFileID
 	mov r0, r5
 	ldmia r4, {r1, r2}
 	bl FS_OpenFileFast
 	cmp r0, #0
 	beq _0200E2C4
 	mov r0, r7
-	bl FUN_0200e06c
+	bl FSi_GetOverlayBinarySize
 	mov r4, r0
 	mov r0, r7
 	bl FS_ClearOverlayImage
@@ -16874,8 +16874,8 @@ _0200E2C4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FS_LoadOverlayImage
 
-	arm_func_start FUN_0200e2d0
-FUN_0200e2d0: ; 0x0200E2D0
+	arm_func_start FSi_CompareDigest
+FSi_CompareDigest: ; 0x0200E2D0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x58
 	mov r4, #0
@@ -16895,7 +16895,7 @@ FUN_0200e2d0: ; 0x0200E2D0
 	cmp r5, #0
 	beq _0200E324
 	mov r0, #1
-	bl FUN_0200a3a0
+	bl MATHi_SetOverlayTableMode
 	mov r4, r0
 _0200E324:
 	ldr r1, _0200E38C ; =0x02095B38
@@ -16905,11 +16905,11 @@ _0200E324:
 	mov r1, r7
 	mov r2, r6
 	str r12, [sp]
-	bl FUN_0200a700
+	bl MATH_CalcHMACSHA1
 	cmp r5, #0
 	beq _0200E354
 	mov r0, r4
-	bl FUN_0200a3a0
+	bl MATHi_SetOverlayTableMode
 _0200E354:
 	mov r3, #0
 	add r2, sp, #0x44
@@ -16928,15 +16928,15 @@ _0200E378:
 	add sp, sp, #0x58
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200E38C: .word unk_02095B38
-	arm_func_end FUN_0200e2d0
+	arm_func_end FSi_CompareDigest
 
 	arm_func_start FS_StartOverlay
 FS_StartOverlay: ; 0x0200E390
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_0200e06c
+	bl FSi_GetOverlayBinarySize
 	mov r4, r0
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	beq _0200E420
 	ldr r0, [r5, #0x1c]
@@ -16958,7 +16958,7 @@ FS_StartOverlay: ; 0x0200E390
 	mla r0, r1, r0, r2
 	ldr r1, [r5, #4]
 	mov r2, r4
-	bl FUN_0200e2d0
+	bl FSi_CompareDigest
 	mov r3, r0
 _0200E400:
 	cmp r3, #0
@@ -16999,8 +16999,8 @@ _0200E478: .word unk_0209390C
 _0200E47C: .word 0x66666667
 	arm_func_end FS_StartOverlay
 
-	arm_func_start FUN_0200e480
-FUN_0200e480: ; 0x0200E480
+	arm_func_start FS_EndOverlay
+FS_EndOverlay: ; 0x0200E480
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, r0
 _0200E488:
@@ -17068,21 +17068,17 @@ _0200E558:
 	cmp r5, #0
 	bne _0200E540
 	b _0200E488
-	arm_func_end FUN_0200e480
-
-	arm_func_start FUN_0200e568
-FUN_0200e568: ; 0x0200E568
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0200E56C: .word unk_02099928
-	arm_func_end FUN_0200e568
+	arm_func_end FS_EndOverlay
 
-	arm_func_start FUN_0200e570
-FUN_0200e570: ; 0x0200E570
+	arm_func_start FS_UnloadOverlayImage
+FS_UnloadOverlayImage: ; 0x0200E570
 	stmfd sp!, {r3, lr}
-	bl FUN_0200e480
+	bl FS_EndOverlay
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200e570
+	arm_func_end FS_UnloadOverlayImage
 
 	arm_func_start FS_LoadOverlay
 FS_LoadOverlay: ; 0x0200E580
@@ -17110,8 +17106,8 @@ _0200E5C8:
 	ldmfd sp!, {r4, r5, pc}
 	arm_func_end FS_LoadOverlay
 
-	arm_func_start FUN_0200e5d4
-FUN_0200e5d4: ; 0x0200E5D4
+	arm_func_start FS_UnloadOverlay
+FS_UnloadOverlay: ; 0x0200E5D4
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0x2c
 	add r4, sp, #0
@@ -17123,7 +17119,7 @@ FUN_0200e5d4: ; 0x0200E5D4
 	cmp r0, #0
 	beq _0200E614
 	mov r0, r4
-	bl FUN_0200e570
+	bl FS_UnloadOverlayImage
 	cmp r0, #0
 	addne sp, sp, #0x2c
 	movne r0, #1
@@ -17132,7 +17128,7 @@ _0200E614:
 	mov r0, #0
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_0200e5d4
+	arm_func_end FS_UnloadOverlay
 
 	arm_func_start FUN_0200e620
 FUN_0200e620: ; 0x0200E620
@@ -18711,11 +18707,11 @@ FUN_0200fac4: ; 0x0200FAC4
 	bx lr
 	arm_func_end FUN_0200fac4
 
-	arm_func_start FUN_0200fad8
-FUN_0200fad8: ; 0x0200FAD8
+	arm_func_start FS_GetFileImageTop
+FS_GetFileImageTop: ; 0x0200FAD8
 	ldr r0, [r0, #0x24]
 	bx lr
-	arm_func_end FUN_0200fad8
+	arm_func_end FS_GetFileImageTop
 
 	arm_func_start FUN_0200fae0
 FUN_0200fae0: ; 0x0200FAE0
@@ -18839,12 +18835,12 @@ FUN_0200fbf0: ; 0x0200FBF0
 	mov r0, r4
 	mov r2, r7
 	bl FUN_0200d624
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	bne _0200FCA8
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	mov r6, r0
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	mov r5, r0
 	ldr r1, _0200FD28 ; =FUN_0200fb54
 	ldr r2, _0200FD2C ; =0x00000682
@@ -18951,7 +18947,7 @@ FUN_0200fd94: ; 0x0200FD94
 	mov r2, #1
 	str r2, [r1]
 	bl FUN_0200fbf0
-	bl FUN_0200dffc
+	bl FSi_InitOverlay
 	ldmfd sp!, {r3, pc}
 _0200FDBC: .word unk_02095BB8
 	arm_func_end FUN_0200fd94
@@ -18968,7 +18964,7 @@ FUN_0200fdc0: ; 0x0200FDC0
 	beq _0200FDF4
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02004268
+	bl OS_SignalEvent
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _0200FDF4:
@@ -18977,7 +18973,7 @@ _0200FDF4:
 	add r0, r4, #0xc
 	add r2, r1, #0x47
 	str r4, [sp]
-	bl FUN_02003ad8
+	bl OS_SetVAlarm
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _0200FE14: .word FUN_0200fdc0
@@ -19005,7 +19001,7 @@ CARD_Init: ; 0x0200FE34
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, #1
 	str r0, [r5, #4]
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	bne _0200FE74
 	ldr r0, _0200FF1C ; =0x02FFFE00
@@ -19046,7 +19042,7 @@ _0200FE74:
 	bl OS_WakeupThreadDirect
 	bl FUN_020101c4
 	bl FUN_020113a4
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	bne _0200FF0C
 	mov r0, #1
@@ -19103,12 +19099,12 @@ FUN_0200ff74: ; 0x0200FF74
 _0200FF7C: .word 0x02FFFA80
 	arm_func_end FUN_0200ff74
 
-	arm_func_start FUN_0200ff80
-FUN_0200ff80: ; 0x0200FF80
+	arm_func_start CARD_GetOwnRomHeader
+CARD_GetOwnRomHeader: ; 0x0200FF80
 	ldr r0, _0200FF88 ; =0x02FFFE00
 	bx lr
 _0200FF88: .word 0x02FFFE00
-	arm_func_end FUN_0200ff80
+	arm_func_end CARD_GetOwnRomHeader
 
 	arm_func_start CARD_LockRom
 CARD_LockRom: ; 0x0200FF8C
@@ -19121,9 +19117,9 @@ CARD_LockRom: ; 0x0200FF8C
 	bl FUN_02010050
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_020041ac
+	bl OS_InitEvent
 	add r0, sp, #0xc
-	bl FUN_02003ac4
+	bl OS_CreateVAlarm
 	ldr r1, _0200FFF8 ; =FUN_0200fe18
 	add r0, sp, #0x50
 	str r0, [sp, #0x38]
@@ -19134,7 +19130,7 @@ CARD_LockRom: ; 0x0200FF8C
 	mov r1, r5
 	mov r3, r5
 	mov r2, #0
-	bl FUN_020041c0
+	bl OS_WaitEventEx
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, lr}
 	add sp, sp, #0x10
@@ -19257,7 +19253,7 @@ _02010144: .word unk_02095C20
 	arm_func_start FUN_02010148
 FUN_02010148: ; 0x02010148
 	stmfd sp!, {r3, lr}
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	moveq r0, #7
 	movne r0, #3
@@ -19579,7 +19575,7 @@ FUN_020104ec: ; 0x020104EC
 	mov r4, #0xb
 _02010534:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r4
 	mov r1, r7
 	bl PXI_IsCallbackReady
@@ -20264,7 +20260,7 @@ _02010E34:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02010E54
-	bl FUN_020035f4
+	bl OS_IsAlarmAvailable
 	cmp r0, #0
 	beq _02010E54
 	mov r0, r5
@@ -20509,11 +20505,11 @@ _02011174:
 	cmp r2, #0
 	beq _020111A8
 	mov r6, #1
-	bl FUN_02002f9c
+	bl OS_GetDTCMAddress
 	add r1, r9, r7
 	cmp r1, r0
 	bls _020111A0
-	bl FUN_02002f9c
+	bl OS_GetDTCMAddress
 	add r0, r0, #0x4000
 	cmp r9, r0
 	movlo r6, #0
@@ -20671,10 +20667,10 @@ FUN_020113a4: ; 0x020113A4
 	ldr r1, _02011410 ; =FUN_02010eb4
 	ldr r0, _02011414 ; =0x02096260
 	str r1, [r0, #0xc]
-	bl FUN_02003e60
+	bl OS_GetBootType
 	cmp r0, #1
 	ldmnefd sp!, {r4, pc}
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	ldr r0, [r0, #0x80]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -20683,7 +20679,7 @@ FUN_020113a4: ; 0x020113A4
 	mov r4, r0, lsr #0x10
 	mov r0, r4
 	bl CARD_LockRom
-	bl FUN_0200ff80
+	bl CARD_GetOwnRomHeader
 	ldr r2, [r0, #0x80]
 	ldr r1, _02011418 ; =0x0209628C
 	mov r0, #0
@@ -21594,7 +21590,7 @@ _02011F9C:
 	ldr r1, _02012034 ; =0x02096B68
 	mov r0, r5
 	mov r2, #0xa
-	bl FUN_02002174
+	bl OS_InitMessageQueue
 	mov r7, #0
 	mov r4, #0x8000
 	ldr r10, _02012038 ; =0x02096BE0
@@ -21610,7 +21606,7 @@ _02011FD0:
 	mov r0, r5
 	mov r2, r8
 	add r1, r10, r7, lsl #8
-	bl FUN_0200219c
+	bl OS_SendMessage
 	add r7, r7, #1
 _02011FF8:
 	cmp r7, #0xa
@@ -21684,7 +21680,7 @@ FUN_020120c8: ; 0x020120C8
 	add r1, sp, #0
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	cmp r0, #0
 	moveq r0, r4
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -21698,7 +21694,7 @@ FUN_020120c8: ; 0x020120C8
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, r5
 	mov r2, #1
-	bl FUN_020022d0
+	bl OS_JamMessage
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02012124: .word unk_02096B48
@@ -21743,7 +21739,7 @@ _02012188:
 	ldr r0, _020121D0 ; =0x02096B48
 	mov r1, r4
 	mov r2, #1
-	bl FUN_0200219c
+	bl OS_SendMessage
 	mov r0, #8
 	cmp r5, #0
 	movge r0, #2
@@ -21777,7 +21773,7 @@ FUN_020121d4: ; 0x020121D4
 	ldr r0, _02012240 ; =0x02096B48
 	mov r1, r5
 	mov r2, #1
-	bl FUN_0200219c
+	bl OS_SendMessage
 	mov r0, #8
 	cmp r4, #0
 	movge r0, #2
@@ -25291,14 +25287,14 @@ FUN_02015184: ; 0x02015184
 	add r3, r1, #4
 	ldr r2, [sp, #0xc]
 	mvn r1, #0x80000000
-	bl FUN_020151b0
+	bl STD_TVSNPrintf
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
 	arm_func_end FUN_02015184
 
-	arm_func_start FUN_020151b0
-FUN_020151b0: ; 0x020151B0
+	arm_func_start STD_TVSNPrintf
+STD_TVSNPrintf: ; 0x020151B0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x30
 	mov r10, r2
@@ -25755,7 +25751,7 @@ _020157D0:
 	mov r0, r8
 	mov r2, #0xa
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r2, #0xa
 	umull r3, r2, r0, r2
 	subs r2, r8, r3
@@ -25876,7 +25872,7 @@ _02015974:
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02015988: .word 0xCCCCCCCD
-	arm_func_end FUN_020151b0
+	arm_func_end STD_TVSNPrintf
 
 	arm_func_start PXI_Init
 PXI_Init: ; 0x0201598C
@@ -26886,7 +26882,7 @@ _0201670C:
 	ldr r0, [r5]
 	tst r0, #4
 	beq _02016724
-	bl FUN_02003e00
+	bl OS_GetCpsrIrq
 	cmp r0, #0x80
 	beq _0201673C
 _02016724:
@@ -27102,7 +27098,7 @@ _02016998:
 	beq _020169E4
 _020169BC:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r10
 	mov r1, r9
 	str r7, [sp]
@@ -27117,7 +27113,7 @@ _020169E4:
 	bne _02016A04
 _020169F0:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	ldr r0, [sp, #4]
 	cmp r0, r8
 	beq _020169F0
@@ -27127,7 +27123,7 @@ _02016A04:
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	b _02016998
 	arm_func_end FUN_0201696c
 
@@ -27369,7 +27365,7 @@ FUN_02016cf0: ; 0x02016CF0
 	ldr r4, _02016D28 ; =0x00051D23
 _02016D04:
 	mov r0, r4
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	bl FUN_02016ca4
 	cmp r0, #0
 	bne _02016D04
@@ -27511,7 +27507,7 @@ FUN_02016e7c: ; 0x02016E7C
 	ldr r0, _0201715C ; =0x003FFFFF
 	bl OS_DisableIrqMask
 	str r0, [sp, #0xc]
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	movne r0, #8
 	moveq r0, r4
@@ -27524,7 +27520,7 @@ FUN_02016e7c: ; 0x02016E7C
 	ldrh r0, [r1]
 	strh r5, [r1]
 	beq _02016F14
-	bl FUN_02003e60
+	bl OS_GetBootType
 	add r0, r0, #0xfe
 	add r0, r0, #0xff00
 	mov r0, r0, lsl #0x10
@@ -27554,7 +27550,7 @@ _02016F28:
 	ldr r8, _02017160 ; =0x00051D23
 _02016F60:
 	mov r0, r8
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r10
 	mov r1, r9
 	bl FUN_02016d5c
@@ -27571,7 +27567,7 @@ _02016F7C:
 	mov r8, #0
 _02016F9C:
 	mov r0, r10
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r9
 	mov r1, r8
 	bl FUN_02016c50
@@ -27623,7 +27619,7 @@ _02017050:
 	beq _02017050
 _02017060:
 	mov r8, #0
-	bl FUN_02003398
+	bl OS_IsTickAvailable
 	cmp r0, #0
 	movne r0, #8
 	moveq r0, r8
@@ -27659,7 +27655,7 @@ _020170CC:
 	ldr r9, _02017160 ; =0x00051D23
 _020170E0:
 	mov r0, r9
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r7
 	bl FUN_02016ba0
 	cmp r0, #0
@@ -27671,7 +27667,7 @@ _020170F8:
 	str r5, [r0]
 _02017108:
 	mov r0, #0x360000
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	ldr r5, _02017158 ; =0x04000208
 	ldrh r0, [r5]
 	ldr r0, [sp, #0xc]
@@ -27729,7 +27725,7 @@ _020171B4:
 	beq _02017228
 _020171D4:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r7
 	bl FUN_02016ba0
 	cmp r0, #0
@@ -27744,7 +27740,7 @@ _020171F0:
 	beq _02017228
 _02017208:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r7
 	mov r1, r4
 	mov r2, r4
@@ -27763,7 +27759,7 @@ _02017228:
 	beq _0201734C
 _0201724C:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	ldr r0, [r4, #0x14]
 	bl FUN_02016d2c
 	cmp r0, #0
@@ -27776,7 +27772,7 @@ _02017268:
 	beq _02017290
 _02017278:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r4
 	bl FUN_02016d2c
 	cmp r0, #0
@@ -27811,7 +27807,7 @@ _020172B4:
 	beq _0201734C
 _020172F8:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r7
 	bl FUN_02016ba0
 	cmp r0, #0
@@ -27826,7 +27822,7 @@ _02017314:
 	beq _0201734C
 _0201732C:
 	mov r0, r5
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r7
 	mov r1, r4
 	mov r2, r4
@@ -28064,7 +28060,7 @@ _020175D4: .word FUN_020174a4
 FUN_020175d8: ; 0x020175D8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r0, #0x360000
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	ldr r0, _02017678 ; =0x0208EE9C
 	mov r1, #0xe
 	ldr r4, [r0]
@@ -28082,7 +28078,7 @@ FUN_020175d8: ; 0x020175D8
 	mov r5, #0
 _02017620:
 	mov r0, r7
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r6
 	mov r1, r5
 	bl FUN_02016c50
@@ -28097,7 +28093,7 @@ _0201763C:
 	mov r5, #1
 _02017654:
 	mov r0, r6
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 	mov r0, r5
 	bl FUN_02017368
 	cmp r0, #0
@@ -32848,7 +32844,7 @@ _0201B49C:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_02002230
+	bl OS_ReceiveMessage
 	cmp r0, #0
 	bne _0201B49C
 _0201B4B4:
@@ -34358,7 +34354,7 @@ FUN_0201c848: ; 0x0201C848
 	ldr r0, [r0, #4]
 	sub r0, r0, r4
 	mul r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r4, r0
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201c848
@@ -38034,7 +38030,7 @@ _0201F7C4:
 	orrs r6, r5, r6
 	bne _0201F7F8
 	mov r1, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ands r4, r4, #1
 	movne r0, r1
 	mov r1, r0, asr #0x1f
@@ -38149,12 +38145,12 @@ _0201F940:
 	bx lr
 	arm_func_end FUN_0201f914
 
-	arm_func_start FUN_0201f954
-FUN_0201f954: ; 0x0201F954
+	arm_func_start _ll_udiv
+_ll_udiv: ; 0x0201F954
 	stmfd sp!, {r4, r5, r6, r7, r11, r12, lr}
 	mov r4, #0
 	b _0201F968
-	arm_func_end FUN_0201f954
+	arm_func_end _ll_udiv
 
 	arm_func_start FUN_0201f960
 FUN_0201f960: ; 0x0201F960
@@ -38189,8 +38185,8 @@ FUN_0201f99c: ; 0x0201F99C
 	bx lr
 	arm_func_end FUN_0201f99c
 
-	arm_func_start FUN_0201f9bc
-FUN_0201f9bc: ; 0x0201F9BC
+	arm_func_start _s32_div_f
+_s32_div_f: ; 0x0201F9BC
 	eor r12, r0, r1
 	and r12, r12, #0x80000000
 	cmp r0, #0
@@ -38323,7 +38319,7 @@ _0201FBB4:
 	ands r3, r12, #1
 	rsbne r1, r1, #0
 	bx lr
-	arm_func_end FUN_0201f9bc
+	arm_func_end _s32_div_f
 
 	arm_func_start FUN_0201fbc8
 FUN_0201fbc8: ; 0x0201FBC8
@@ -39859,20 +39855,20 @@ _020211C4: .word unk_02099940
 FUN_020211c8: ; 0x020211C8
 	mov r2, r0
 	mov r0, #0
-	ldr r12, _020211DC ; =FUN_02002c2c
+	ldr r12, _020211DC ; =OS_AllocFromHeap
 	sub r1, r0, #1
 	bx r12
-_020211DC: .word FUN_02002c2c
+_020211DC: .word OS_AllocFromHeap
 	arm_func_end FUN_020211c8
 
 	arm_func_start FUN_020211e0
 FUN_020211e0: ; 0x020211E0
 	mov r2, r0
 	mov r0, #0
-	ldr r12, _020211F4 ; =FUN_02002d34
+	ldr r12, _020211F4 ; =OS_FreeToHeap
 	sub r1, r0, #1
 	bx r12
-_020211F4: .word FUN_02002d34
+_020211F4: .word OS_FreeToHeap
 	arm_func_end FUN_020211e0
 
 	arm_func_start FUN_020211f8
@@ -41214,7 +41210,7 @@ _02022334:
 	mov r1, r9
 	mov r2, r6
 	mov r3, r5
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r10, r0
 	cmp r4, #0xa
 	mov r9, r1
@@ -43940,7 +43936,7 @@ _0202480C:
 	mov r1, r5
 	mov r2, r9
 	mov r3, r8
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r5, r1
 	mov r6, r0
 	cmp r5, #0
@@ -48987,11 +48983,11 @@ FUN_02029078: ; 0x02029078
 	mov r1, r0
 	mov r0, r5
 	add r2, r1, #0x2d000
-	bl FUN_02002e74
+	bl OS_CreateHeap
 	mov r4, r0
 	mov r0, r5
 	mov r1, r4
-	bl FUN_02002d9c
+	bl OS_SetCurrentHeap
 	ldr r0, _020290C0 ; =0x02099E8C
 	str r4, [r0, #0xc0]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -49002,8 +48998,8 @@ _020290C0: .word unk_02099E8C
 FUN_020290c4: ; 0x020290C4
 	stmfd sp!, {r4, lr}
 	bl OS_InitVeneer
-	bl FUN_02003328
-	bl FUN_020035b8
+	bl OS_InitTick
+	bl OS_InitAlarm
 	bl OS_InitThread
 	mvn r0, #0
 	bl FUN_0200fd94
@@ -49146,7 +49142,7 @@ FUN_02029294: ; 0x02029294
 	mov r0, r4
 	strh r4, [r5]
 	bl FUN_02004414
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	ldmfd sp!, {r3, r4, r5, pc}
 _020292E0: .word 0x04000208
 _020292E4: .word FUN_02028fac
@@ -50579,7 +50575,7 @@ _0202A40C:
 	str r6, [r5, #4]
 	ldr r1, [r5, #8]
 	mov r0, r6
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r0, [r4, #8]
 	cmp r0, #2
 	ldr r0, [r4, #4]
@@ -50822,13 +50818,13 @@ _0202A744:
 	bl FUN_020173a4
 	cmp r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200445c
 	ldr r1, _0202A7A4 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	mov r0, #0
 	bl FUN_02017368
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -51382,7 +51378,7 @@ _0202AEA8:
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov16_020f1214
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200449c
 	ldr r1, _0202AF94 ; =0x04001000
 	ldr r0, [r1]
@@ -51392,13 +51388,13 @@ _0202AF10:
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov16_020f1214
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	subs r5, r5, #1
 	bpl _0202AF10
 	mov r0, r4
 	mvn r1, #0xf
 	bl FUN_ov16_020f1214
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 _0202AF38:
 	ldr r4, _0202AF98 ; =0x0209A250
 	mov r1, #1
@@ -51451,7 +51447,7 @@ FUN_0202afd0: ; 0x0202AFD0
 	bl FUN_0202ae38
 	ldr r0, _0202B190 ; =0x02FFFC3C
 	ldr r4, [r0]
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200449c
 	ldr r3, _0202B194 ; =0x04001000
 	ldr r0, _0202B198 ; =0x0209A250
@@ -51484,14 +51480,14 @@ _0202B04C:
 	bne _0202B080
 	mov r0, r6
 	bl FUN_02017368
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	bl FUN_0200449c
 	ldr r1, _0202B194 ; =0x04001000
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
 	str r0, [r1]
 	bl FUN_ov16_020f129c
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 _0202B080:
 	ldr r5, _0202B1AC ; =0x02099F18
 	ldr r0, [r5]
@@ -51537,7 +51533,7 @@ _0202B100:
 _0202B120:
 	ldr r5, _0202B19C ; =0x02099ECC
 _0202B124:
-	bl FUN_02003e40
+	bl OS_WaitVBlankIntr
 	ldr r0, [r5]
 	cmp r0, #0
 	beq _0202B13C
@@ -54465,7 +54461,7 @@ FUN_0202d5d4: ; 0x0202D5D4
 	mla r1, r3, r2, r1
 	mov r2, r5
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r1, r0
 	ldr r0, [r4, r7]
 	b _0202D69C
@@ -54475,7 +54471,7 @@ _0202D65C:
 	mla r1, r3, r2, r1
 	mov r2, r5
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	ldr r5, _0202D6C0 ; =0x88888889
 	mov r2, r0, lsr #0x1f
 	smull r3, r1, r5, r0
@@ -54907,7 +54903,7 @@ _0202DC28:
 	cmp r2, #0
 	beq _0202DC40
 	ldmib r5, {r0, r1}
-	bl FUN_02002d34
+	bl OS_FreeToHeap
 _0202DC40:
 	add r4, r4, #1
 	cmp r4, #5
@@ -54924,7 +54920,7 @@ FUN_0202dc54: ; 0x0202DC54
 	str r1, [r10, #4]
 	mov r1, r2
 	mov r2, r3
-	bl FUN_02002e74
+	bl OS_CreateHeap
 	str r0, [r10, #8]
 	add r0, r10, #0xc
 	bl OS_InitMutex
@@ -54950,7 +54946,7 @@ _0202DCB4:
 	str r6, [r0, #0x24]
 	str r6, [r0, #0x38]
 	ldmib r10, {r0, r1}
-	bl FUN_02002f14
+	bl OS_GetTotalFreeSize
 	cmp r0, #0
 	beq _0202DD7C
 	ldr r1, [r5, r8, lsl #2]
@@ -54977,7 +54973,7 @@ _0202DD0C:
 _0202DD1C:
 	ldmib r10, {r0, r1}
 	mov r2, r9
-	bl FUN_02002c2c
+	bl OS_AllocFromHeap
 	add r1, r10, r8, lsl #2
 	str r0, [r1, #0x24]
 	cmp r0, #0
@@ -55471,7 +55467,7 @@ FUN_0202e38c: ; 0x0202E38C
 	mvnne r0, #0
 	strne r0, [r5]
 	ldmib r8, {r0, r1}
-	bl FUN_02002f14
+	bl OS_GetTotalFreeSize
 	mov r4, #0
 	mov r0, r4
 	bl OS_GetArenaLo
@@ -55552,7 +55548,7 @@ FUN_0202e4ac: ; 0x0202E4AC
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _0202E4C8 ; =0x020B5B80
 	str r1, [r0]
-	bl FUN_02003328
+	bl OS_InitTick
 	ldmfd sp!, {r3, pc}
 _0202E4C8: .word unk_020B5B80
 	arm_func_end FUN_0202e4ac
@@ -55600,7 +55596,7 @@ FUN_0202e520: ; 0x0202E520
 	beq _0202E560
 	ldr r1, _0202E75C ; =0x0000007E
 	mov r0, r4
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r1, _0202E760 ; =0x0000007F
 	mov r0, r4
 	bl FS_LoadOverlay
@@ -55677,7 +55673,7 @@ _0202E5D0:
 _0202E668:
 	add r0, r8, #0x9c
 	bl OS_CreateAlarm
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r5, r0
 	ldr r0, [r8, #0x98]
 	mov r7, r1
@@ -55687,7 +55683,7 @@ _0202E668:
 	ldr r1, _0202E774 ; =0x00000F42
 	mov r0, #0x40000000
 	mov r3, r4
-	bl FUN_0201f954
+	bl _ll_udiv
 	ldr r12, _0202E778 ; =0x000082EA
 	mov r6, r4
 	umull r9, lr, r0, r12
@@ -55697,7 +55693,7 @@ _0202E668:
 	mov r3, r6
 	mov r1, lr, lsr #6
 	orr r0, r0, lr, lsl #26
-	bl FUN_0201f954
+	bl _ll_udiv
 	adds r1, r5, #5
 	ldr r5, _0202E77C ; =FUN_0202ecd8
 	mov r3, r0
@@ -55705,7 +55701,7 @@ _0202E668:
 	adc r2, r7, #0
 	add r0, r8, #0x9c
 	str r4, [sp]
-	bl FUN_020037a8
+	bl OS_SetPeriodicAlarm
 _0202E6E4:
 	mov r0, r8
 	bl FUN_0202ea50
@@ -55940,7 +55936,7 @@ FUN_0202e9c8: ; 0x0202E9C8
 	mov r0, #0xe8000000
 	mov r1, #3
 	mov r3, #0
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r3, r0
 	ldr r2, [r5, #0x1a0]
 	ldr r1, [r5, #0x198]
@@ -55972,7 +55968,7 @@ FUN_0202ea50: ; 0x0202EA50
 	ldmnefd sp!, {r4, pc}
 	orr r0, r0, #0x8000
 	str r0, [r4, #0x18c]
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r0, [r4, #0x90]
 	cmp r0, #0
 	beq _0202EABC
@@ -55988,7 +55984,7 @@ FUN_0202ea50: ; 0x0202EA50
 	ldr r0, [r4, #0x90]
 	bl MO_UnpackFrameImage
 _0202EABC:
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r0, [r4, #0x18c]
 	bic r0, r0, #0x8000
 	str r0, [r4, #0x18c]
@@ -56073,7 +56069,7 @@ _0202EBBC:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r1, _0202EC00 ; =0x0000007F
 	mov r0, r6
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r1, _0202EC04 ; =0x0000007E
 	mov r0, r6
 	bl FS_LoadOverlay
@@ -59288,11 +59284,11 @@ FUN_02031640: ; 0x02031640
 	sub r0, r2, r0
 	str r0, [r4, r7]
 	ldr r0, [r5, r7]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, r7]
 	ldr r0, [r4, r7]
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r8, #0xf7
 	add r1, r1, #0x1300
 	str r0, [r4, r7]
@@ -59416,7 +59412,7 @@ _020318A4:
 	rsb lr, r3, r3, lsl #5
 	sub r0, r3, r2
 	str lr, [r12, #0x41c]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mul r3, r4, r6
 	add r2, r5, r3
 	add r1, r5, #0xf7
@@ -60176,7 +60172,7 @@ FUN_020322bc: ; 0x020322BC
 	strh r1, [r0, #0x26]
 	ldrsb r1, [r0, #0x24]
 	ldr r0, [sp, #4]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r4, #0x1300
 	strh r0, [r1, #0x28]
 	add sp, sp, #0xc
@@ -60242,7 +60238,7 @@ FUN_02032384: ; 0x02032384
 	strh r1, [r0, #0x26]
 	ldrsb r1, [r0, #0x24]
 	ldr r0, [sp, #4]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r7, #0x1300
 	strh r0, [r1, #0x28]
 	add sp, sp, #0xc
@@ -61477,7 +61473,7 @@ _02033558:
 	ldrsb r2, [r0, #0x25]
 	ldrsb r1, [r0, #0x24]
 	add r0, r2, r1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r0, r10, #0x1000
 	strb r1, [r0, #0x325]
 	ldr r0, _02033994 ; =0x0209AC44
@@ -63426,7 +63422,7 @@ _020351BC:
 	ldr r0, [r10, #0xd4]
 	ldr r1, [r10, #0xd8]
 	mov r0, r0, lsl #6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r0
 	add r0, r8, #0x70
 	mul r1, r0, r4
@@ -63472,7 +63468,7 @@ _0203526C:
 	ldr r0, [r10, #0xd4]
 	ldr r1, [r10, #0xd8]
 	mov r0, r0, lsl #6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	rsb r8, r0, #0x40
 	add r0, r8, #0x70
 	mul r1, r0, r4
@@ -63903,15 +63899,15 @@ _02035828:
 	mov r1, r5
 	str r0, [sp, #0x10]
 	str r2, [sp, #0x18]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r12, [sp, #0x10]
 	ldr r2, _02035980 ; =0x0B60B60B
 	ldr r8, [sp, #0x14]
@@ -64482,7 +64478,7 @@ _02036070:
 	str r6, [sp, #0x10]
 	str lr, [sp, #0x14]
 	str r12, [sp, #0x18]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, _02036110 ; =0x0B60B60B
 	mov r2, #0xb6
 	umull r5, r3, r0, r1
@@ -65493,15 +65489,15 @@ _02036DF0:
 	mov r1, r5
 	str r0, [sp, #0x10]
 	str r2, [sp, #0x18]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r12, [sp, #0x10]
 	ldr r2, _02036F4C ; =0x0B60B60B
 	ldr r8, [sp, #0x14]
@@ -66253,11 +66249,11 @@ _020378A4:
 	ldr r2, [r4, #0x18]
 	sub r2, r6, r2
 	str r2, [r4, #0x20]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x1c]
 	ldr r0, [r4, #0x20]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x20]
 	ldrh r0, [r4, #0xe]
 	orr r0, r0, #0x10
@@ -66297,7 +66293,7 @@ FUN_0203793c: ; 0x0203793C
 _020379A4:
 	mov r1, r5
 	sub r0, r2, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x28]
 	strh r5, [r4, #0x12]
 	ldrh r0, [r4, #0xe]
@@ -66976,15 +66972,15 @@ _02038264:
 	mov r1, r5
 	str r0, [sp, #0x10]
 	str r2, [sp, #0x18]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x10]
 	ldr r0, [sp, #0x14]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r12, [sp, #0x10]
 	ldr r2, _020383BC ; =0x0B60B60B
 	ldr r8, [sp, #0x14]
@@ -68945,7 +68941,7 @@ _02039DE8:
 	mov r2, #0x64
 	mov r1, r0
 	smulbb r0, r6, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrb r2, [r4, #0x43]
 	add r1, r10, #0x1000
 	mov r4, r0
@@ -68976,7 +68972,7 @@ _02039E48:
 	mov r2, #0x64
 	mov r1, r0
 	smulbb r0, r4, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r4, r0
 	mov r0, r5
 	bl FUN_0206cc84
@@ -69210,7 +69206,7 @@ _0203A158:
 	add r0, r1, r0, lsr #29
 	mov r1, r7
 	add r0, r2, r0, asr #3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r9, r0
 	mov r3, r9, lsl #0x10
 	mov r7, #1
@@ -69272,7 +69268,7 @@ _0203A248:
 	add r0, r1, r0, lsr #27
 	mov r1, r7
 	add r0, r2, r0, asr #5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r9, r0
 	mov r3, r9, lsl #0x10
 	mov r7, #2
@@ -69695,7 +69691,7 @@ _0203A768:
 	cmp r1, #0
 	ble _0203A8DC
 	mov r0, #0x960
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	bl FUN_0201f704
 	mov r1, r0
 	mov r0, #0x3f000000
@@ -71101,7 +71097,7 @@ _0203BCF4:
 _0203BD0C:
 	mov r1, r0
 	mov r0, #0x1f000
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mul r1, r0, r9
 	str r1, [r8, #0x10]
 _0203BD20:
@@ -72132,7 +72128,7 @@ FUN_0203cad0: ; 0x0203CAD0
 _0203CB40:
 	mov r1, r2
 	mov r0, #0x1f000
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mul r1, r0, r4
 	add r0, r5, #0x1000
 	str r1, [r0, #0x3c8]
@@ -72628,7 +72624,7 @@ _0203D1A8:
 	ldreqh r0, [r0, #0x18]
 	subeq r3, r8, r0
 	mov r0, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r5, #0x3000
 	str r0, [r1, #0xaec]
 _0203D1E0:
@@ -72682,7 +72678,7 @@ _0203D260:
 	ldreqh r0, [r0, #0x18]
 	subeq r8, r8, r0
 	mov r0, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r1, r10, r9
 	add r1, r1, #0x3000
 	str r0, [r1, #0xaec]
@@ -78382,7 +78378,7 @@ _02041D28:
 	bne _02041D70
 	ldr r1, [r4, #0xc]
 	mov r0, #0
-	bl FUN_0200e5d4
+	bl FS_UnloadOverlay
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _02041D64
@@ -80921,7 +80917,7 @@ _02043E04:
 	mov r4, r0
 	mov r0, #0x100
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mul r0, r5, r0
 	cmp r0, r4
 	bne _02043EEC
@@ -95175,7 +95171,7 @@ _0204F854:
 	add r0, r5, r5, lsr #31
 	mov r1, r5
 	add r0, r6, r0, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0204F880: .word unk_0209BA20
 _0204F884: .word unk_0209A0AC
@@ -95311,7 +95307,7 @@ _0204FA14:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl FUN_0201f954
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FA4C:
@@ -95326,7 +95322,7 @@ _0204FA4C:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl FUN_0201f954
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FA84:
@@ -95341,7 +95337,7 @@ _0204FA84:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl FUN_0201f954
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FABC:
@@ -95365,7 +95361,7 @@ _0204FAE4:
 	ldr r0, [lr, #0x560]
 	mov r3, r2, asr #0x1f
 	mov r1, r0, asr #0x1f
-	bl FUN_0201f954
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FB0C:
@@ -98030,7 +98026,7 @@ FUN_02051c10: ; 0x02051C10
 	cmp r0, #0xc1
 	bgt _02051C3C
 	mov r0, #0x188
-	bl FUN_02003e24
+	bl OS_SpinWaitSysCycles
 _02051C3C:
 	ldr r0, _02051C78 ; =0x04000600
 	ldr r0, [r0]
@@ -100088,7 +100084,7 @@ FUN_0205361c: ; 0x0205361C
 	cmple r2, #0
 	bgt _0205376C
 	add r0, r3, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r0, #1
 	addge sp, sp, #0x28
 	movge r0, #1
@@ -100103,7 +100099,7 @@ _02053778:
 	cmpge r2, #0
 	blt _020537A0
 	add r0, r3, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r0, #1
 	addge sp, sp, #0x28
 	movge r0, #1
@@ -103320,11 +103316,11 @@ _0205600C:
 	ldr r1, [sp, #0x14]
 	ldr r4, [r1, #0x8c4]
 	mov r1, r4
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r5, r0
 	mul r0, r6, r11
 	mov r1, r4
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r1, r4
 	mov r4, r0
 	ldr r0, [sp, #0xc]
@@ -115572,7 +115568,7 @@ _02060194:
 	add sp, sp, #0x20c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _020601A8:
-	bl FUN_020034b0
+	bl OS_GetTickLo
 	mov r1, #0
 	add r8, sp, #0
 _020601B4:
@@ -135486,7 +135482,7 @@ _02070DE4:
 	mov r0, #0x64
 	mul r0, r1, r0
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r4, _020713A4 ; =0x020A9C40
 	and r1, r0, #0xff
 	mov r0, r4
@@ -137348,7 +137344,7 @@ _02072658:
 	add r0, r7, r7, lsr #31
 	mov r1, r7
 	add r0, r8, r0, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 _02072680:
 	ldr r1, [r10, #0x7cc]
 	mov r0, r0, lsl #1
@@ -140319,10 +140315,10 @@ _02074A68: .word unk_020A1612
 FUN_02074a6c: ; 0x02074A6C
 	mov r0, #0
 	mov r2, r1
-	ldr r12, _02074A80 ; =FUN_02002c2c
+	ldr r12, _02074A80 ; =OS_AllocFromHeap
 	sub r1, r0, #1
 	bx r12
-_02074A80: .word FUN_02002c2c
+_02074A80: .word OS_AllocFromHeap
 	arm_func_end FUN_02074a6c
 
 	arm_func_start FUN_02074a84
@@ -140332,7 +140328,7 @@ FUN_02074a84: ; 0x02074A84
 	mov r0, #0
 	mov r2, r4
 	sub r1, r0, #1
-	bl FUN_02002d34
+	bl OS_FreeToHeap
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02074a84
@@ -140552,11 +140548,11 @@ _02074D3C:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D60:
-	bl FUN_02003328
+	bl OS_InitTick
 	mov r0, r5
 	mov r1, r0
-	bl FUN_020034c0
-	bl FUN_020035b8
+	bl OS_SetTick
+	bl OS_InitAlarm
 	ldrb r0, [r7, #0x11]
 	ldr r9, _02074EF8 ; =0x020B9FD8
 	mov r6, #0
@@ -142210,7 +142206,7 @@ FUN_02076328: ; 0x02076328
 	mov r0, #0x3e8
 	ldrsh r1, [r1, #0x28]
 	smulbb r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 _02076360:
 	mov r2, #0
 	strh r0, [r4, #0x1a]
@@ -142318,7 +142314,7 @@ _0207649C:
 	moveq r6, r4
 	beq _020764D0
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r10, #0x6c]
 _020764D0:
 	strh r6, [r10, #0x74]
@@ -142380,7 +142376,7 @@ _02076570:
 	moveq r7, #0
 	beq _020765A4
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x4c]
 _020765A4:
 	strh r7, [r5, #0x54]
@@ -142429,7 +142425,7 @@ _02076624:
 	moveq r7, #0
 	beq _02076658
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x5c]
 _02076658:
 	cmp r8, #0
@@ -142481,7 +142477,7 @@ _020766E0:
 	moveq r8, #0
 	beq _0207671C
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x6c]
 _0207671C:
 	cmp r9, #0
@@ -142525,7 +142521,7 @@ _0207678C:
 	moveq r4, #0
 	beq _020767C0
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x7c]
 _020767C0:
 	cmp r7, #0
@@ -142687,7 +142683,7 @@ _020769E0:
 	moveq r5, r4
 	beq _02076A10
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x6c]
 _02076A10:
 	cmp r7, #0
@@ -144123,7 +144119,7 @@ _02077CF8:
 	ldrsb r0, [r5, #0xdc]
 	cmp r0, #1
 	bne _02077DA0
-	bl FUN_020034b0
+	bl OS_GetTickLo
 	ldr r2, [r8, #0xed4]
 	ldr r1, [r8, #0xed8]
 	sub r10, r0, r2
@@ -144186,7 +144182,7 @@ _02077DE8:
 	ldrsb r0, [r5, #0xdc]
 	cmp r0, #1
 	bne _02077CF8
-	bl FUN_020034b0
+	bl OS_GetTickLo
 	str r0, [r8, #0xed8]
 	b _02077CF8
 	arm_func_end FUN_02077cdc
@@ -145088,7 +145084,7 @@ _02078998:
 	moveq r6, #0
 	beq _020789CC
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x6c]
 _020789CC:
 	strh r6, [r4, #0x74]
@@ -145432,7 +145428,7 @@ FUN_02078d68: ; 0x02078D68
 	moveq r5, #0
 	beq _02078DE4
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x20]
 _02078DE4:
 	ldr r0, [r6, #0x1c]
@@ -145691,7 +145687,7 @@ FUN_020790d0: ; 0x020790D0
 	moveq r6, #0
 	beq _02079120
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x30]
 _02079120:
 	strh r6, [r4, #0x38]
@@ -145897,7 +145893,7 @@ FUN_02079378: ; 0x02079378
 	moveq r6, #0
 	beq _020793C8
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x40]
 _020793C8:
 	strh r6, [r4, #0x48]
@@ -148078,7 +148074,7 @@ _0207AE54:
 	mov r1, r1, asr #4
 	b _0207AEEC
 _0207AEEC:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r7, #0x13c]
 _0207AEF4:
 	tst r10, #0x20
@@ -148981,7 +148977,7 @@ _0207BAEC:
 	mul r2, r3, r2
 	mul r0, r2, r0
 	ldrsh r1, [r1, #0x28]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 _0207BB10:
 	str r0, [r5, #0x18]
 	movs r1, r0
@@ -148990,7 +148986,7 @@ _0207BB10:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #0x10]
 	rsb r0, r0, r4, lsl #23
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x14]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207BB38: .word unk_02091C54
@@ -149256,13 +149252,13 @@ _0207BE3C:
 	ldr r11, _0207BF90 ; =0x020B9FD8
 	mul r0, r1, r0
 	ldrsh r1, [r11, #0x28]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	strh r0, [r6, #0x1a]
 	ldrh r2, [r9, #0xc]
 	mov r0, #0x3e8
 	ldrsh r1, [r11, #0x28]
 	mul r0, r2, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	movs r1, r0
 	strh r1, [r6, #0x1e]
 	mov r0, #0x1000000
@@ -149270,7 +149266,7 @@ _0207BE3C:
 	streq r4, [r6, #0x24]
 	beq _0207BED4
 	str r4, [r6, #0x20]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x24]
 	b _0207BED4
 _0207BEC8:
@@ -149290,7 +149286,7 @@ _0207BED4:
 	mul r0, r1, r0
 	ldr r1, _0207BF90 ; =0x020B9FD8
 	ldrsh r1, [r1, #0x28]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	movs r1, r0
 	addeq r1, r1, #1
 	strh r1, [r6, #4]
@@ -149298,7 +149294,7 @@ _0207BED4:
 	ldr r0, [r9, #4]
 	mov r0, r0, lsl #0xa
 	str r0, [r6, #0xc]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x14]
 _0207BF2C:
 	ldrb r2, [r9, #3]
@@ -150660,7 +150656,7 @@ _0207D0C4:
 	ldr r1, _0207D178 ; =0x020B9FD8
 	mul r0, r2, r0
 	ldrsh r1, [r1, #0x28]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrh r1, [r7, #0xc]
 	mov r0, r0, lsl #0x10
 	movs r6, r0, lsr #0x10
@@ -150673,7 +150669,7 @@ _0207D0C4:
 	moveq r6, #0
 	beq _0207D12C
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x34]
 _0207D12C:
 	mov r0, r5
@@ -150788,7 +150784,7 @@ _0207D280:
 	moveq r6, r4
 	beq _0207D2B0
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x34]
 _0207D2B0:
 	strh r6, [r5, #0x3c]
@@ -150809,7 +150805,7 @@ FUN_0207d2c4: ; 0x0207D2C4
 	mov r6, r1
 	ldrsh r1, [r2, #0x28]
 	mov r4, #0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrsb r1, [r5, #0x12]
 	cmp r1, #1
 	moveq r0, r4
@@ -150843,7 +150839,7 @@ _0207D338:
 	moveq r6, r4
 	beq _0207D370
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x34]
 _0207D370:
 	strh r6, [r5, #0x3c]
@@ -150861,7 +150857,7 @@ _0207D378:
 	moveq r6, r4
 	beq _0207D3B0
 	mov r1, r6
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r5, #0x34]
 _0207D3B0:
 	ldrsb r0, [r5, #8]
@@ -150934,7 +150930,7 @@ _0207D474:
 	moveq r5, #0
 	beq _0207D4A4
 	mov r1, r5
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r4, #0x34]
 _0207D4A4:
 	strh r5, [r4, #0x3c]
@@ -151122,7 +151118,7 @@ _0207D6F4:
 	ldrh r1, [r4, #0xa0]
 	mul r2, r0, r2
 	mov r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrb r1, [r4, #0x22]
 	mul r1, r0, r1
 	bic r0, r1, #0x8000000f
@@ -151289,7 +151285,7 @@ FUN_0207d910: ; 0x0207D910
 	add r4, r0, #0x1c0
 	mov r0, r5
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r6, r0
 	ldr r0, [sp]
 	add r1, r6, r6, lsr #31
@@ -151845,7 +151841,7 @@ FUN_0207e0b8: ; 0x0207E0B8
 	ldrsb r0, [r0, #0xe0]
 	cmp r0, #1
 	bne _0207E0D8
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r4, #0x1e4]
 _0207E0D8:
 	mov r0, #0
@@ -151863,7 +151859,7 @@ _0207E0E8:
 	ldrsb r0, [r0, #0xe0]
 	cmp r0, #1
 	bne _0207E118
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r11, r0
 _0207E118:
 	ldrsb r0, [r4, #0x26]
@@ -151934,7 +151930,7 @@ _0207E1FC:
 	ldrsb r0, [r0, #0xe0]
 	cmp r0, #1
 	bne _0207E0E8
-	bl FUN_02003410
+	bl OS_GetTick
 	ldr r2, [r5, #0x1e4]
 	sub r1, r0, r11
 	sub r0, r0, r2
@@ -152103,7 +152099,7 @@ _0207E424:
 	moveq r7, #0
 	beq _0207E458
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x34]
 _0207E458:
 	mov r0, r6
@@ -152874,7 +152870,7 @@ FUN_0207eed4: ; 0x0207EED4
 	ldr r2, [r10, #0x54]
 	ldr r1, [r10, #0x200]
 	str r2, [sp, #8]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	add r2, r0, #1
 	ldrh r0, [r10, #0x9e]
 	ldrb r3, [r10, #0x22]
@@ -152918,9 +152914,9 @@ _0207EFA8:
 	ldrb r1, [r10, #0x22]
 	mov r0, r11
 	ldr r8, [r4, #0x10]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrh r1, [r10, #0x9e]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r2, [r10, #0x200]
 	ldr r1, [r4, #0xc]
 	mla r0, r2, r0, r8
@@ -152938,7 +152934,7 @@ _0207EFE0:
 	movle r7, r11
 	mov r0, r7
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r9, #0
 	mov r5, r0
 	mov r9, #0
@@ -152997,7 +152993,7 @@ _0207F0CC:
 	ldrh r1, [r10, #0x9e]
 	mov r0, r5
 	sub r11, r11, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, [r10, #0x200]
 	cmp r11, #0
 	mla r8, r1, r0, r8
@@ -153056,11 +153052,11 @@ FUN_0207f160: ; 0x0207F160
 	sub r0, r1, r0
 	str r0, [sp]
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r0
 	ldr r0, [sp]
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r1, #0
 	ldrh r0, [r10, #0x9e]
 	addne r8, r8, #1
@@ -153106,7 +153102,7 @@ _0207F254:
 	ldrb r7, [r10, #0x22]
 	mov r0, r11
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrh r1, [r10, #0x9e]
 	mov r6, r0
 	bl FUN_0201fbc8
@@ -153265,7 +153261,7 @@ _0207F48C:
 	ldrb r4, [r7, #0x22]
 	mov r0, r6
 	mov r1, r4
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r8, r0
 	cmp r4, #0
 	mov r9, #0
@@ -154526,7 +154522,7 @@ _020805B4:
 	blt _020805B4
 _020805FC:
 	mov r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	bl FUN_020803e8
 	mov r0, r0, lsl #0x14
 	mov r0, r0, asr #0x10
@@ -154569,7 +154565,7 @@ _0208063C:
 	blt _0208063C
 _0208069C:
 	mov r0, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	bl FUN_020803e8
 	rsb r1, r4, #3
 	mov r0, r0, lsl r1
@@ -155313,11 +155309,11 @@ _020810EC:
 	bgt _0208112C
 	mov r1, r6
 	add r0, r0, r6, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0xe
 	mov r1, r11
 	add r0, r0, r11, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
 	str r0, [sp, #4]
@@ -155330,11 +155326,11 @@ _0208112C:
 	bgt _0208116C
 	mov r1, r6
 	add r0, r0, r6, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0xe
 	mov r1, r5
 	add r0, r0, r5, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
 	str r0, [sp]
@@ -155342,14 +155338,14 @@ _0208116C:
 	mov r0, r11, asr #1
 	mov r1, r11
 	add r0, r0, r6, lsl #8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r0, lsl #0x10
 	mov r0, r5, asr #1
 	mov r2, r2, asr #0x10
 	add r0, r0, r6, lsl #8
 	mov r1, r5
 	str r2, [sp, #0x10]
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldrsh r2, [sp, #0x4c]
 	mov r0, r0, lsl #0x10
 	mov r11, r0, asr #0x10
@@ -155398,13 +155394,13 @@ _020811F0:
 	cmp r6, r5
 	movlt r6, r5
 	add r0, r0, r5, lsl #14
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r0, lsl #0x10
 	mov r0, r6, asr #1
 	add r0, r0, r5, lsl #14
 	mov r1, r6
 	mov r5, r2, asr #0x10
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, [sp, #0x48]
 	mov r0, r0, lsl #0x10
 	cmp r7, r1
@@ -155473,7 +155469,7 @@ _02081330:
 	mov r2, r4, asr #1
 	mov r1, r4
 	add r0, r2, r0, lsl #14
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	cmp r8, #0
 	mov r2, r0, asr #0x10
@@ -155899,7 +155895,7 @@ FUN_02081968: ; 0x02081968
 	mov r1, r4, asr #0x10
 	mov r5, r2
 	mov r4, r3
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	mov r1, r0, asr #0x10
 	rsb r0, r1, #0x4000
@@ -156072,7 +156068,7 @@ _02081B64:
 	bge _02081C44
 	mov r0, r2, lsl #0xe
 	mov r9, #0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	mov r3, r0, asr #0x10
 	add r1, sp, #4
@@ -156404,7 +156400,7 @@ FUN_02082074: ; 0x02082074
 	ldr r0, [r5]
 	str r0, [r6, #0xc]
 	ldmia r5, {r0, r1}
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x14]
 	ldr r7, [r5, #4]
 	mov r0, r0, lsl #2
@@ -157378,7 +157374,7 @@ _02082ECC:
 	mov r1, r0, asr #0x10
 	ldr r0, [sp, #0x70]
 	add r0, r0, r1, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, _0208317C ; =0x00007FFF
 	cmp r0, r1
 	movgt r0, r1
@@ -157681,7 +157677,7 @@ _02083330:
 	ldr r1, [r6, #0xc]
 	add r0, r0, r0, lsl #2
 _0208333C:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	b _020834C8
 _02083344:
 	ldr r0, [r5]
@@ -157765,14 +157761,14 @@ _02083448:
 	ldrsh r8, [r6, #0x58]
 	ldrsh r0, [r6, #0x54]
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	bl FUN_0201f1c4
 	bl FUN_02028814
 	mov r7, r0
 	ldrsh r0, [r6, #0x56]
 	mov r6, r1
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	bl FUN_0201f1c4
 	bl FUN_02028814
 	mov r2, r0
@@ -158360,7 +158356,7 @@ FUN_02083c60: ; 0x02083C60
 	ldr r0, [r5, #8]
 	str r0, [r6, #0x10]
 	ldmib r5, {r0, r1}
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [r6, #0x14]
 	ldr r1, [r5, #0xc]
 	ldr r0, [r6, #4]
@@ -158673,7 +158669,7 @@ _02084130:
 	add r2, r2, #0x52
 	mov r0, r0, asr #0x11
 	add r0, r0, r2, lsl #7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r2, _0208451C ; =0x00007FFF
 	cmp r0, r2
 	movgt r0, r2
@@ -158736,7 +158732,7 @@ _020841EC:
 	mov r0, r0, lsl #3
 	add r0, r0, r9, asr #1
 	mov r1, r9
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0xb
 	str r0, [sp, #0x2c]
 	ldr r3, [r10, #0x5c]
@@ -158884,7 +158880,7 @@ _02084440:
 	ldrsh r0, [r0, r1]
 	mov r1, r6
 	smulbb r0, r0, r0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, [sp, #0x30]
 	add r8, r8, #1
 	add r0, r1, r0
@@ -159086,7 +159082,7 @@ _02084728:
 	ldr r1, [r5, #8]
 	mov r0, r0, lsl #2
 _02084734:
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	ldr r1, [r4]
 	add r0, r1, r0
 	b _02084688
@@ -163963,6 +163959,8 @@ unk_0208BF80:
 	.byte 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global .word unk_0208BFB0
+unk_0208BFB0:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global unk_0208BFB8
 unk_0208BFB8:

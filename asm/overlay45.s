@@ -3058,7 +3058,7 @@ _0211C88C:
 	blt _0211C910
 	mov r0, r5
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r12, r0
 	ldr r3, _0211C934 ; =0x66666667
 	mov r1, #0
@@ -5326,7 +5326,7 @@ _0211E7C4:
 	blt _0211E848
 	mov r0, r5
 	mov r1, r7
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r12, r0
 	ldr r3, _0211E86C ; =0x66666667
 	mov r1, #0

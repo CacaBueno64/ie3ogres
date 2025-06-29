@@ -381,7 +381,7 @@ _0211A3F0:
 	ldr r2, [r1, r12, lsl #2]
 	ldr r1, [r0, r4, lsl #2]
 	add r0, r3, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r2, r1
 	mov r0, r5
 	mov r1, r4
@@ -4394,7 +4394,7 @@ FUN_ov53_0211db08: ; 0x0211DB08
 	add r0, r0, #1
 	ldr r5, [r7, #0x8a0]
 	mov r6, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r3, r8, lsl #0x10
 	mov r0, r9, lsl #0x10
 	str r1, [r7, #0x9d4]
@@ -4559,7 +4559,7 @@ FUN_ov53_0211dd48: ; 0x0211DD48
 	ldr r9, [r5, #0x8a0]
 	ldr r8, [r5, #0x9ec]
 	mov r11, #0
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r10, lsl #0x10
 	mov r10, r1
 	mov r2, r0, asr #0x10

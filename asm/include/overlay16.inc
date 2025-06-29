@@ -9,14 +9,14 @@
 .public FS_ReadFile
 .public FS_StartOverlay
 .public FUN_0200a6bc
-.public FUN_0200e0c4
-.public FUN_0200e5d4
+.public FS_GetOverlayFileID
+.public FS_UnloadOverlay
 .public FUN_0201e014
 .public FUN_0201e078
-.public FUN_0201f9bc
+.public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201f704
-.public FUN_0201f954
+.public _ll_udiv
 .public FUN_0201fbc8
 .public FUN_0201fdac
 .public FUN_0202b7b4
@@ -146,7 +146,7 @@
 .public FUN_0206eed0
 .public FUN_0206efa0
 .public FUN_0206f834
-.public FUN_02003e40
+.public OS_WaitVBlankIntr
 .public FUN_02004bd0
 .public FUN_02004c8c
 .public FUN_02004cc0
@@ -391,7 +391,7 @@
 .public FUN_0207467c
 .public FUN_0208622c
 .public FUN_0208670c
-.public FUN_02003410
+.public OS_GetTick
 .public FUN_02004548
 .public FUN_02005160
 .public FUN_02006058
@@ -580,6 +580,7 @@
 .public SsdInitFile
 .public VEC_Normalize
 .public _strlen
+.public unk_0208BFB0
 .public unk_020A0B00
 .public unk_020A6C40
 .public unk_020A06D2

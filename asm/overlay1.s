@@ -341,7 +341,7 @@ FUN_ov1_020bcfd4: ; 0x020BCFD4
 	mov r0, r5
 	sub r1, r5, #1
 	ldr r7, _020BD504 ; =0x0209BA20
-	bl FUN_02002f14
+	bl OS_GetTotalFreeSize
 	ldr r4, _020BD508 ; =0x020A0640
 	ldr r0, _020BD50C ; =0x020E9480
 	ldrb r1, [r4, #0x87]
@@ -865,7 +865,7 @@ _020BD69C:
 _020BD76C:
 	mov r0, #0
 	sub r1, r0, #1
-	bl FUN_02002f14
+	bl OS_GetTotalFreeSize
 	add r0, r5, #0x1000
 	ldr r4, _020BD7A4 ; =0x0209A250
 	ldr r1, [r0, #0x1f8]
@@ -5677,7 +5677,7 @@ FUN_ov1_020c1910: ; 0x020C1910
 	sub r0, r0, r2
 	add r0, r1, r0
 	sub r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r0, #0
 	movlt r0, #0
 	cmp r0, #0xa
@@ -5712,7 +5712,7 @@ FUN_ov1_020c1988: ; 0x020C1988
 	sub r0, r0, r2
 	add r0, r1, r0
 	sub r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r0, #0
 	movlt r0, #0
 	cmp r0, #0xa
@@ -10904,7 +10904,7 @@ _020C61D4:
 	add r7, r7, #2
 	bl FUN_02009a1c
 	mov r1, r10
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r0, [sp, #4]
 	tst r6, #0x2000
 	ldrneb r0, [r8, r7]
@@ -25247,7 +25247,7 @@ _020D256C:
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, [r10, #0x5c]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r10, #0x5c]
 	mov r0, r10
 	mov r1, #0
@@ -26218,7 +26218,7 @@ _020D3330:
 	ldr r0, [r10, #0x5c]
 	ldr r1, [r10, #0x60]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r10, #0x5c]
 	mov r0, r10
 	mov r1, #0
@@ -26658,7 +26658,7 @@ FUN_ov1_020d3974: ; 0x020D3974
 	ldr r0, [r10, #0x5c]
 	ldr r1, [r10, #0x60]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r10, #0x5c]
 	mov r0, r10
 	mov r1, r6
@@ -27443,7 +27443,7 @@ _020D44DC:
 _020D44FC:
 	ldr r1, [r6, #0x60]
 	add r0, r0, #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r6, #0x5c]
 _020D450C:
 	mov r1, #0
@@ -34505,7 +34505,7 @@ FUN_ov1_020da5c0: ; 0x020DA5C0
 	ldr r2, [r3, #0xc]
 	mov r0, r4, lsl #5
 	add r5, r3, r2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	movs r6, r0
 	bne _020DA634
 	cmp r4, #0

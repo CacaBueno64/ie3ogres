@@ -1966,7 +1966,7 @@ FUN_ov46_0211b960: ; 0x0211B960
 _0211B984:
 	mov r0, r10
 	mov r1, r8
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	mov r0, r0, lsl #0x10
 	movs r7, r0, lsr #0x10
 	cmpeq r6, #1
@@ -5811,7 +5811,7 @@ FUN_ov46_0211efc8: ; 0x0211EFC8
 	str r2, [r5, #0x3d0]
 	strh r3, [r0, #0xd4]
 	strb r12, [r5, #0x3da]
-	bl FUN_02003410
+	bl OS_GetTick
 	str r0, [r5, #0x9c4]
 	str r1, [r5, #0x9c8]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -5832,7 +5832,7 @@ FUN_ov46_0211f008: ; 0x0211F008
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	add r0, r8, #0x300
 	ldrh r5, [r0, #0xd4]
-	bl FUN_02003410
+	bl OS_GetTick
 	mov r4, #0
 	ldr r2, [r8, #0x9c4]
 	mov r6, r0
@@ -5845,7 +5845,7 @@ FUN_ov46_0211f008: ; 0x0211F008
 	mov r3, r4
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl FUN_0201f954
+	bl _ll_udiv
 	mov r0, r0, lsl #0xc
 	cmp r0, #0x23
 	ble _0211F0AC
@@ -8053,7 +8053,7 @@ _02120F30:
 	add r0, r6, r6, lsr #31
 	mov r1, r6
 	add r0, r7, r0, asr #1
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	cmp r9, r0
 	movle r0, #1
 	movgt r0, #0

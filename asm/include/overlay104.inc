@@ -3,7 +3,7 @@
 .public FUN_0202de44
 .public FUN_0202e1c0
 .public FUN_0202eff0
-.public FUN_02003e40
+.public OS_WaitVBlankIntr
 .public FUN_02023c40
 .public FUN_02023e98
 .public FUN_020058cc

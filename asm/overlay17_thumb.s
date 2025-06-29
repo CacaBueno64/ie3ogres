@@ -527,12 +527,12 @@ _020EE26E:
 	str r0, [sp, #0x60]
 	ldr r0, [sp, #0xc]
 	lsl r1, r1, #2
-	blx FUN_0201f9bc
+	blx _s32_div_f
 	str r0, [sp, #0x14]
 	mov r1, #0xfa
 	ldr r0, [sp, #0xc]
 	lsl r1, r1, #2
-	blx FUN_0201f9bc
+	blx _s32_div_f
 	mov r0, #0xfa
 	lsl r0, r0, #2
 	mul r0, r1
@@ -3992,7 +3992,7 @@ FUN_ov17_020efd94: ; 0x020EFD94
 	asr r4, r1, #1
 	add r1, r6, #0
 	add r7, r3, #0
-	blx FUN_0201f9bc
+	blx _s32_div_f
 	mov r0, #0
 	cmp r4, #0
 	ble _020EFDC6
@@ -4565,25 +4565,25 @@ _020F0168: .word FUN_ov17_020f00ac
 
 	thumb_func_start FUN_ov17_020f016c
 FUN_ov17_020f016c: ; 0x020F016C
-	ldr r3, _020F0178 ; =FUN_0200219c
+	ldr r3, _020F0178 ; =OS_SendMessage
 	add r1, r0, #0
 	ldr r0, _020F017C ; =0x02114AA0
 	mov r2, #0
 	bx r3
 	nop
-_020F0178: .word FUN_0200219c
+_020F0178: .word OS_SendMessage
 _020F017C: .word ov17_02114AA0
 	thumb_func_end FUN_ov17_020f016c
 
 	thumb_func_start FUN_overlay_d_17__020f0180
 FUN_overlay_d_17__020f0180:
-	ldr r3, _020F018C ; =FUN_0200219c
+	ldr r3, _020F018C ; =OS_SendMessage
 	add r1, r0, #0x0
 	ldr r0, _020F0190 ; =0x02114AA0
 	mov r2, #0x0
 	bx r3
 	nop
-_020F018C: .word FUN_0200219c
+_020F018C: .word OS_SendMessage
 _020F0190: .word ov17_02114AA0
 	thumb_func_end FUN_overlay_d_17__020f0180
 
@@ -4596,7 +4596,7 @@ FUN_ov17_020f0194: ; 0x020F0194
 	ldr r1, _020F0248 ; =0x02114A90
 	mov r2, #4
 	mov r4, #1
-	blx FUN_02002174
+	blx OS_InitMessageQueue
 	cmp r5, #0
 	beq _020F01AE
 	cmp r6, #0
@@ -4638,7 +4638,7 @@ _020F01EE:
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r7, #0
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	ldr r0, [sp]
 	cmp r0, #0xf
 	bhi _020F022E
@@ -4713,7 +4713,7 @@ _020F027A:
 	add r0, r7, #0
 	add r1, sp, #0
 	mov r2, #1
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	ldr r0, [sp]
 	cmp r0, #0x14
 	bhi _020F02CC
@@ -4785,7 +4785,7 @@ _020F0304:
 	add r0, r4, #0
 	add r1, r6, #0
 	add r2, r7, #0
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	ldr r0, [sp]
 	cmp r0, #0xe
 	bne _020F031A
@@ -4861,7 +4861,7 @@ _020F038E:
 	ldr r0, _020F049C ; =0x02114AA0
 	add r1, sp, #0x14
 	mov r2, #1
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	ldr r0, [sp, #0x14]
 	cmp r0, #0x13
 	bhi _020F0462
@@ -4978,7 +4978,7 @@ _020F046E:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	cmp r0, #1
 	beq _020F046E
 _020F047C:
@@ -5088,7 +5088,7 @@ _020F0548:
 	ldr r0, _020F0664 ; =0x02114AA0
 	add r1, sp, #0x10
 	mov r2, #1
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	ldr r0, [sp, #0x10]
 	cmp r0, #0x13
 	bhi _020F061A
@@ -5208,7 +5208,7 @@ _020F062C:
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	blx FUN_02002230
+	blx OS_ReceiveMessage
 	cmp r0, #1
 	beq _020F062C
 _020F063A:
@@ -13055,14 +13055,14 @@ FUN_ov17_020f420c: ; 0x020F420C
 	thumb_func_start FUN_ov17_020f4234
 FUN_ov17_020f4234: ; 0x020F4234
 	push {r3, lr}
-	blx FUN_02003410
+	blx OS_GetTick
 	lsr r2, r0, #0x1a
 	lsl r1, r1, #6
 	orr r1, r2
 	ldr r2, _020F424C ; =0x000082EA
 	lsl r0, r0, #6
 	mov r3, #0
-	blx FUN_0201f954
+	blx _ll_udiv
 	pop {r3, pc}
 _020F424C: .word 0x000082EA
 	thumb_func_end FUN_ov17_020f4234

@@ -1348,7 +1348,7 @@ FUN_ov18_0211b154: ; 0x0211B154
 	add r0, r1, r0, lsr #30
 	mov r1, r0, asr #2
 	add r0, r2, r0, asr #2
-	bl FUN_0201f9bc
+	bl _s32_div_f
 	str r1, [r6, #0x38]
 	cmp r1, r4
 	beq _0211B1D0
