@@ -269,6 +269,12 @@
 .public FUN_ov16_02114248
 .public FUN_ov16_02114370
 .public FUN_ov126_0213a1c4
+.public FUN_ov129_0212ad60
+.public FUN_ov129_0212add8
+.public FUN_ov129_0212ae50
+.public FUN_ov129_0212ad9c
+.public FUN_ov129_0212ae14
+.public FUN_ov129_0212ae8c
 .public FX_Div
 .public MI_CpuCopy8
 .public MI_CpuFill
