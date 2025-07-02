@@ -3,8 +3,8 @@
 .public FUN_02041eac
 .public FUN_02058e30
 .public FUN_02058ee0
-.public FUN_020044e0
-.public FUN_020095ac
+.public GX_SetGraphicsMode
+.public FX_Sqrt
 .public FUN_020591e8
 .public FUN_02059004
 .public FUN_02059038

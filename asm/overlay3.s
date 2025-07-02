@@ -321,14 +321,14 @@ _020BCF54: .word FUN_ov16_020f33fc
 FUN_ov3_020bcf58: ; 0x020BCF58
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r4, #0x20
 	mov r5, #0
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	ldr r0, _020BD074 ; =0x020A6C40
@@ -343,12 +343,12 @@ FUN_ov3_020bcf58: ; 0x020BCF58
 	ldr r0, [r3, #0x14]
 	add r0, r3, r0
 	bl FUN_02005a1c
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	mov r2, r6
@@ -375,14 +375,14 @@ FUN_ov3_020bcf58: ; 0x020BCF58
 	add r0, r7, r0
 	bl FUN_0200585c
 _020BD034:
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r4, #0x20
 	mov r5, #0
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	ldr r0, _020BD080 ; =0x020A7C40
@@ -548,11 +548,11 @@ FUN_ov3_020bd238: ; 0x020BD238
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020BD280 ; =0x020BD300
 	str r0, [r4, #4]
 	ldr r0, _020BD284 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _020BD288 ; =0x0000EA3C
@@ -573,11 +573,11 @@ FUN_ov3_020bd28c: ; 0x020BD28C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020BD2D4 ; =0x020BD390
 	str r0, [r4, #0x14]
 	ldr r0, _020BD2D8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _020BD2DC ; =0x0000EA3C

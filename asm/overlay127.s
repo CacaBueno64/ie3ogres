@@ -1,5 +1,4 @@
-; contains the mobiclip sdk 1.2.1
-; maybe contains the sound engine?
+; contains the mobiclip library 1.2.1
 
 	.include "/macros/function.inc"
 	.include "/include/overlay127.inc"
@@ -386,9 +385,9 @@ _0212AA08:
 ; yuv.o END
 
 ; libmobiclip.o START
-; Init()
-	arm_func_start FUN_ov127_0212af80
-FUN_ov127_0212af80: ; 0x0212AF80
+
+	arm_func_start MO_Init
+MO_Init: ; 0x0212AF80
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldr r0, _0212AFAC ; =_version_MOBICLIP
@@ -401,7 +400,7 @@ FUN_ov127_0212af80: ; 0x0212AF80
 	bl MOHandlePrivate__Init
 	ldmfd sp!, {r4, r5, r6, pc}
 _0212AFAC: .word _version_MOBICLIP
-	arm_func_end FUN_ov127_0212af80
+	arm_func_end MO_Init
 
 	arm_func_start MO_OpenMovie
 MO_OpenMovie: ; 0x0212AFB0
@@ -409,7 +408,7 @@ MO_OpenMovie: ; 0x0212AFB0
 	mov r5, r0
 	mov r0, #0x14
 	mov r6, r1
-	bl FUN_ov127_0212be54
+	bl MOStreamFile__operator_new
 	movs r4, r0
 	movne r1, #0
 	strne r1, [r4, #4]
@@ -435,7 +434,7 @@ _0212B014:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0212B01C:
 	mov r0, #0xd8
-	bl FUN_ov127_0212b16c
+	bl MOHandlePrivate__operator_new
 	movs r5, r0
 	beq _0212B034
 	bl MOHandlePrivate__MOHandlePrivate
@@ -444,7 +443,7 @@ _0212B034:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov127_0212af80
+	bl MO_Init
 	cmp r0, #0
 	bne _0212B06C
 	cmp r5, #0
@@ -452,7 +451,7 @@ _0212B034:
 	mov r0, r5
 	bl MOHandlePrivate__nMOHandlePrivate
 	mov r0, r5
-	bl FUN_ov127_0212b178
+	bl MOHandlePrivate__operator_delete
 _0212B064:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -466,7 +465,7 @@ _0212B074: .word ov127_021371B8
 FUN_ov127_0212b078: ; 0x0212B078
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov127_0212be60
+	bl MOStreamFile__operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 arm_func_end FUN_ov127_0212b078
@@ -479,7 +478,7 @@ MO_CloseMovie: ; 0x0212B08C
 	ldmeqfd sp!, {r4, pc}
 	bl MOHandlePrivate__nMOHandlePrivate
 	mov r0, r4
-	bl FUN_ov127_0212b178
+	bl MOHandlePrivate__operator_delete
 	ldmfd sp!, {r4, pc}
 	arm_func_end MO_CloseMovie
 
@@ -559,19 +558,19 @@ MO_SkipFrameImage: ; 0x0212B148
 
 ; libmobiclip_priv START
 
-	arm_func_start FUN_ov127_0212b16c
-FUN_ov127_0212b16c: ; 0x0212B16C
+	arm_func_start MOHandlePrivate__operator_new
+MOHandlePrivate__operator_new: ; 0x0212B16C
 	ldr r12, _0212B174 ; =MO_Malloc
 	bx r12
 _0212B174: .word MO_Malloc
-	arm_func_end FUN_ov127_0212b16c
+	arm_func_end MOHandlePrivate__operator_new
 
-	arm_func_start FUN_ov127_0212b178
-FUN_ov127_0212b178: ; 0x0212B178
+	arm_func_start MOHandlePrivate__operator_delete
+MOHandlePrivate__operator_delete: ; 0x0212B178
 	ldr r12, _0212B180 ; =MO_Free
 	bx r12
 _0212B180: .word MO_Free
-	arm_func_end FUN_ov127_0212b178
+	arm_func_end MOHandlePrivate__operator_delete
 
 	arm_func_start MOHandlePrivate__MOHandlePrivate
 MOHandlePrivate__MOHandlePrivate: ; 0x0212B184
@@ -1500,19 +1499,19 @@ _0212BE50: .word ov127_02136CF0
 
 ; libmobiclip_stre START
 
-	arm_func_start FUN_ov127_0212be54
-FUN_ov127_0212be54: ; 0x0212BE54
+	arm_func_start MOStreamFile__operator_new
+MOStreamFile__operator_new: ; 0x0212BE54
 	ldr r12, _0212BE5C ; =MO_Malloc
 	bx r12
 _0212BE5C: .word MO_Malloc
-	arm_func_end FUN_ov127_0212be54
+	arm_func_end MOStreamFile__operator_new
 
-	arm_func_start FUN_ov127_0212be60
-FUN_ov127_0212be60: ; 0x0212BE60
+	arm_func_start MOStreamFile__operator_delete
+MOStreamFile__operator_delete: ; 0x0212BE60
 	ldr r12, _0212BE68 ; =MO_Free
 	bx r12
 _0212BE68: .word MO_Free
-	arm_func_end FUN_ov127_0212be60
+	arm_func_end MOStreamFile__operator_delete
 
 	arm_func_start MOStreamFile__Open
 MOStreamFile__Open: ; 0x0212BE6C

@@ -13,7 +13,7 @@
 .public FUN_0206d600
 .public FUN_0206d620
 .public FUN_02045b50
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_02044600
 .public FUN_02044798
 .public FUN_ov1_020df1dc

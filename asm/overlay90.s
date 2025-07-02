@@ -3906,11 +3906,11 @@ FUN_ov90_0211d520: ; 0x0211D520
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211D568 ; =0x0211D580
 	str r0, [r4]
 	ldr r0, _0211D56C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0211D570 ; =0x0000EA3C

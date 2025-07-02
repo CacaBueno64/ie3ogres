@@ -1,6 +1,6 @@
 .public FUN_0201e078
 .public FUN_0204f02c
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_ov16_020efa80
 .public FUN_ov16_020f07f4
 .public FUN_ov126_021375d4

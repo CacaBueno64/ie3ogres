@@ -5,8 +5,8 @@
 .public FUN_0201f74c
 .public FUN_0201fdac
 .public FUN_0202cf6c
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02023c40
 .public FUN_02029d44
 .public FUN_02041d9c
@@ -15,12 +15,12 @@
 .public FUN_02058ee0
 .public FUN_020054dc
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020727a8
 .public FUN_020728a8
 .public FUN_020728c4
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200569c
 .public FUN_0204204c
 .public FUN_0207249c

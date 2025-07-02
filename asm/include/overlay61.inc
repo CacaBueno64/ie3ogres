@@ -12,8 +12,8 @@
 .public FUN_0206eed0
 .public FUN_0206efa0
 .public FUN_0206efc4
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02023c40
 .public FUN_02029d44
 .public FUN_02041d9c
@@ -22,9 +22,9 @@
 .public FUN_02061b44
 .public FUN_02061bec
 .public FUN_02061c48
-.public FUN_020044e0
+.public GX_SetGraphicsMode
 .public FUN_020051bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020455a0
 .public FUN_020455b8
 .public FUN_020620f8
@@ -32,7 +32,7 @@
 .public FUN_020627a4
 .public FUN_020628dc
 .public FUN_020735a0
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200585c
 .public FUN_0204204c
 .public FUN_0207405c

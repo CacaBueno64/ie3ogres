@@ -4199,7 +4199,7 @@ FUN_01ffba98: ; 0x020973B8
 	orr r3, r3, r2, lsl #20
 	mov r0, r1, asr #4
 	add r0, r0, r3, asr #4
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r0, r0, lsl #3
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_01ffba98

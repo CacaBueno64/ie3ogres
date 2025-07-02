@@ -8,12 +8,12 @@
 .public FUN_0205be20
 .public FUN_0205d28c
 .public FUN_0205ee28
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02005a1c
 .public FUN_02041eac
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020443e8
 .public FUN_0204331c
 .public FUN_02043310

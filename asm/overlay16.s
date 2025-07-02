@@ -4844,16 +4844,16 @@ _020F1B08: ; jump table
 	b _020F1B28 ; case 2
 	b _020F1B30 ; case 3
 _020F1B18:
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	b _020F1B34
 _020F1B20:
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	b _020F1B34
 _020F1B28:
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	b _020F1B34
 _020F1B30:
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 _020F1B34:
 	mov r7, r0
 _020F1B38:
@@ -4941,16 +4941,16 @@ _020F1C44: ; jump table
 	b _020F1C64 ; case 2
 	b _020F1C6C ; case 3
 _020F1C54:
-	bl FUN_02004f58
+	bl G2S_GetBG0CharPtr
 	b _020F1C70
 _020F1C5C:
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	b _020F1C70
 _020F1C64:
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	b _020F1C70
 _020F1C6C:
-	bl FUN_020050b4
+	bl G2S_GetBG3CharPtr
 _020F1C70:
 	mov r7, r0
 _020F1C74:
@@ -5746,7 +5746,7 @@ FUN_ov16_020f2718: ; 0x020F2718
 	mov r2, r5
 	mov r0, #1
 	mov r1, #5
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	mov r0, #0x4000000
 	ldr r2, [r0]
 	ldr r1, _020F2860 ; =0x00006884
@@ -5783,34 +5783,34 @@ FUN_ov16_020f2718: ; 0x020F2718
 	ldrh r0, [r4]
 	orr r0, r0, #2
 	strh r0, [r4]
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	mov r1, r0
 	mov r0, r5
 	mov r4, #0x20000
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004e2c
+	bl G2_GetBG3ScrPtr
 	mov r2, r4
 	mov r1, r0
 	mov r0, r5
 	bl MIi_CpuClearFast
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	mov r4, r0
-	bl FUN_02004e2c
+	bl G2_GetBG3ScrPtr
 	mov r1, r4
 	str r5, [sp]
 	mov r2, r0
 	ldr r0, _020F2864 ; =0x0209A8A0
 	mov r3, r5
 	bl FUN_0202e4cc
-	bl FUN_02004c8c
+	bl G2_GetBG0ScrPtr
 _020F282C:
 	mov r1, r5, lsl #1
 	strh r5, [r0, r1]
 	add r5, r5, #1
 	cmp r5, #0x400
 	blt _020F282C
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	mov r1, r0
 	mov r0, #0
 	mov r2, #0x6000
@@ -6052,7 +6052,7 @@ FUN_ov16_020f2ab4: ; 0x020F2AB4
 	cmp r1, r0
 	addlt sp, sp, #0x1c
 	ldmltfd sp!, {r4, r5, pc}
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	str r5, [sp]
 	mov r1, #8
 	str r1, [sp, #4]
@@ -6079,7 +6079,7 @@ _020F2C04:
 	cmp r1, r0
 	addlt sp, sp, #0x1c
 	ldmltfd sp!, {r4, r5, pc}
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	mov r5, #0
 	str r5, [sp]
 	mov r1, #0xa0
@@ -7673,7 +7673,7 @@ _020F3FD4:
 	mov r1, r6
 	mov r0, #1
 	mov r2, r1
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x20000
 	bic r0, r0, #0x1f00
@@ -7733,7 +7733,7 @@ _020F40D0:
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x60000
 	bic r0, r0, #0x1f00
@@ -7800,7 +7800,7 @@ _020F41C8:
 	mov r1, r6
 	mov r0, #1
 	mov r2, r1
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x20000
 	bic r0, r0, #0x1f00
@@ -7882,11 +7882,11 @@ _020F4320:
 	mov r0, r11
 	mov r1, r6
 	bl FUN_ov16_020f5a58
-	bl FUN_02004e2c
+	bl G2_GetBG3ScrPtr
 	mov r5, r0
-	bl FUN_02004ce0
+	bl G2_GetBG1ScrPtr
 	mov r4, r0
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	mov r1, r6
 	mov r2, r5
 	mov r3, r4
@@ -7906,7 +7906,7 @@ _020F436C:
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x40000
 	bic r0, r0, #0x1f00
@@ -7989,7 +7989,7 @@ _020F44B8:
 	mov r0, #1
 	mov r1, r6
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	bic r0, r0, #0x1f00
 	orr r0, r0, #0xf00
@@ -8012,11 +8012,11 @@ _020F4514:
 	mov r1, r6
 	mov r0, r7
 	bl FUN_ov16_020f5a58
-	bl FUN_02004e2c
+	bl G2_GetBG3ScrPtr
 	mov r5, r0
-	bl FUN_02004ce0
+	bl G2_GetBG1ScrPtr
 	mov r4, r0
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	str r0, [sp]
 	mov r1, r6
 	mov r2, r5
@@ -8031,7 +8031,7 @@ _020F4558:
 	mov r0, #1
 	mov r1, r6
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	bic r0, r0, #0x1f00
 	orr r0, r0, #0xf00
@@ -8063,7 +8063,7 @@ _020F45C4:
 	mov r0, #1
 	mov r1, r6
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x60000
 	bic r0, r0, #0x1f00
@@ -8133,9 +8133,9 @@ _020F45C4:
 	mov r0, r11
 	mov r1, r6
 	bl FUN_ov16_020f5a58
-	bl FUN_02004ce0
+	bl G2_GetBG1ScrPtr
 	mov r4, r0
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	mov r2, r4
 	str r6, [sp]
 	mov r1, r6
@@ -8151,7 +8151,7 @@ _020F4728:
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r0, [r7]
 	mov r1, #0x60000
 	bic r0, r0, #0x1f00
@@ -8285,7 +8285,7 @@ _020F4908:
 	mov r0, #0x80
 	bl FUN_02006a48
 	mov r0, #3
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	mov r1, #0x8000
 	bic r0, r0, #0x1f00
@@ -8348,9 +8348,9 @@ _020F4908:
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
 	bl FUN_ov16_020f5a58
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	mov r4, r0
-	bl FUN_02004d14
+	bl G2S_GetBG1ScrPtr
 	str r0, [sp]
 	mov r1, r10
 	mov r2, r4
@@ -8363,7 +8363,7 @@ _020F4A3C:
 	mov r0, #0x80
 	bl FUN_02006a48
 	mov r0, #3
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	mov r1, #0x8000
 	bic r0, r0, #0x1f00
@@ -8427,9 +8427,9 @@ _020F4A3C:
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
 	bl FUN_ov16_020f5a58
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	mov r4, r0
-	bl FUN_02004d14
+	bl G2S_GetBG1ScrPtr
 	str r0, [sp]
 	mov r1, r10
 	mov r2, r4
@@ -8443,7 +8443,7 @@ _020F4B74:
 	mov r0, #0x180
 	bl FUN_0200693c
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	bic r0, r0, #0x1f00
 	orr r0, r0, #0x700
@@ -8508,7 +8508,7 @@ _020F4C74:
 	mov r0, #0x100
 	bl FUN_020069d8
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	bic r0, r0, #0x1f00
 	orr r0, r0, #0x1100
@@ -8539,7 +8539,7 @@ _020F4CEC:
 	mov r0, #4
 	bl FUN_0200693c
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	bic r0, r0, #0x1f00
 	orr r0, r0, #0x700
@@ -8607,7 +8607,7 @@ _020F4DFC:
 	mov r0, #0x180
 	bl FUN_0200693c
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	mov r1, #0x3000
 	bic r0, r0, #0x1f00
@@ -8663,7 +8663,7 @@ _020F4ED0:
 	mov r0, #0x80
 	bl FUN_02006a48
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
 	mov r11, #0x100
 	bic r0, r0, #0x1f00
@@ -8733,11 +8733,11 @@ _020F4ED0:
 	mov r0, r6
 	mov r1, r10
 	bl FUN_ov16_020f5a58
-	bl FUN_02004db8
+	bl G2S_GetBG2ScrPtr
 	mov r7, r0
-	bl FUN_02004d14
+	bl G2S_GetBG1ScrPtr
 	mov r4, r0
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	str r0, [sp]
 	mov r1, r10
 	mov r2, r7
@@ -8753,7 +8753,7 @@ _020F503C:
 	mov r0, #0x180
 	bl FUN_0200693c
 	mov r0, r5
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	ldr r1, [r8]
 	ldr r0, _020F51A0 ; =0x00001504
 	bic r1, r1, #0x1f00
@@ -8816,11 +8816,11 @@ _020F503C:
 	mov r1, r10
 	bl FUN_ov16_020f5a58
 _020F5140:
-	bl FUN_02004db8
+	bl G2S_GetBG2ScrPtr
 	mov r5, r0
-	bl FUN_02004d14
+	bl G2S_GetBG1ScrPtr
 	mov r4, r0
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	str r0, [sp]
 	mov r1, r10
 	mov r2, r5
@@ -12338,11 +12338,11 @@ _020F7EC0:
 	mov r0, r5
 	mov r2, r5
 	mov r1, r4
-	bl FUN_02009734
+	bl VEC_Add
 	add r0, r5, #0xc
 	mov r1, r4
 	mov r2, r0
-	bl FUN_02009734
+	bl VEC_Add
 	add sp, sp, #0x90
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020F7FBC: .word unk_02087874
@@ -12361,7 +12361,7 @@ FUN_ov16_020f7fc0: ; 0x020F7FC0
 	beq _020F7FF4
 	mov r0, r8
 	mov r1, r10
-	bl FUN_02009a1c
+	bl VEC_Distance
 	mov r7, r0
 _020F7FF4:
 	cmp r4, #0
@@ -12377,7 +12377,7 @@ _020F8018:
 	add r2, sp, #0
 	mov r0, r10
 	mov r1, r8
-	bl FUN_02009764
+	bl VEC_Subtract
 	ldr r0, [sp]
 	cmp r0, #0
 	ldreq r0, [sp, #4]
@@ -12511,7 +12511,7 @@ FUN_ov16_020f81a4: ; 0x020F81A4
 _020F8214:
 	mov r0, r5
 	mov r1, r4
-	bl FUN_02009a1c
+	bl VEC_Distance
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _020F8228:
@@ -12543,10 +12543,10 @@ _020F8228:
 	str r3, [sp]
 	str r12, [sp, #4]
 	str r6, [sp, #8]
-	bl FUN_02009734
+	bl VEC_Add
 	mov r0, r5
 	mov r1, r4
-	bl FUN_02009a1c
+	bl VEC_Distance
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov16_020f81a4
@@ -14259,7 +14259,7 @@ _020F99A0:
 	add r5, sp, #4
 	mov r6, r0
 	mov r0, r5
-	bl FUN_02004bd0
+	bl G3X_GetBoxTestResult
 	cmp r0, #0
 	beq _020F9A98
 	ldr r4, _020F9AD0 ; =0x7D269B01
@@ -14274,7 +14274,7 @@ _020F9A64:
 	strhi r0, [sp, #4]
 	bhi _020F9A98
 	mov r0, r5
-	bl FUN_02004bd0
+	bl G3X_GetBoxTestResult
 	cmp r0, #0
 	bne _020F9A64
 _020F9A98:
@@ -19594,18 +19594,18 @@ _020FDE28: ; jump table
 	b _020FDE4C ; case 2
 	b _020FDE54 ; case 3
 _020FDE38:
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 _020FDE3C:
 	mov r5, r0
 	b _020FDE64
 _020FDE44:
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	b _020FDE3C
 _020FDE4C:
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	b _020FDE3C
 _020FDE54:
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	b _020FDE3C
 _020FDE5C:
 	add sp, sp, #8
@@ -50140,11 +50140,11 @@ FUN_ov16_02117aec: ; 0x02117AEC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117B34 ; =0x021183C0
 	str r0, [r4, #0xc]
 	ldr r0, _02117B38 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _02117B3C ; =0x0000EA3C
@@ -50165,11 +50165,11 @@ FUN_ov16_02117b40: ; 0x02117B40
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117B88 ; =0x0211845C
 	str r0, [r4, #0x14]
 	ldr r0, _02117B8C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02117B90 ; =0x0000EA3C
@@ -50190,11 +50190,11 @@ FUN_ov16_02117b94: ; 0x02117B94
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117BDC ; =0x02118474
 	str r0, [r4, #0x10]
 	ldr r0, _02117BE0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _02117BE4 ; =0x0000EA3C
@@ -50215,11 +50215,11 @@ FUN_ov16_02117be8: ; 0x02117BE8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117C2C ; =0x021184E8
 	str r0, [r4, #0x10]
 	ldr r0, _02117C30 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117C34 ; =0x0000EA3C
 	mov r1, #0x800
@@ -50239,11 +50239,11 @@ FUN_ov16_02117c38: ; 0x02117C38
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117C80 ; =0x02118500
 	str r0, [r4, #0x14]
 	ldr r0, _02117C84 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02117C88 ; =0x0000EA3C
@@ -50264,11 +50264,11 @@ FUN_ov16_02117c8c: ; 0x02117C8C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117CD4 ; =0x02118700
 	str r0, [r4, #0x14]
 	ldr r0, _02117CD8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02117CDC ; =0x0000EA3C
@@ -50289,11 +50289,11 @@ FUN_ov16_02117ce0: ; 0x02117CE0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117D24 ; =0x02118718
 	str r0, [r4, #0x10]
 	ldr r0, _02117D28 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117D2C ; =0x0000EA3C
 	mov r1, #0x800
@@ -50313,11 +50313,11 @@ FUN_ov16_02117d30: ; 0x02117D30
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117D74 ; =0x02118730
 	str r0, [r4, #0x10]
 	ldr r0, _02117D78 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117D7C ; =0x0000EA3C
 	mov r1, #0x800
@@ -50337,11 +50337,11 @@ FUN_ov16_02117d80: ; 0x02117D80
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117DC4 ; =0x02118748
 	str r0, [r4, #0x10]
 	ldr r0, _02117DC8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117DCC ; =0x0000EA3C
 	mov r1, #0x800
@@ -50361,11 +50361,11 @@ FUN_ov16_02117dd0: ; 0x02117DD0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117E14 ; =0x02118760
 	str r0, [r4, #0x10]
 	ldr r0, _02117E18 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117E1C ; =0x0000EA3C
 	mov r1, #0x800
@@ -50385,11 +50385,11 @@ FUN_ov16_02117e20: ; 0x02117E20
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117E64 ; =0x02118778
 	str r0, [r4, #0x10]
 	ldr r0, _02117E68 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117E6C ; =0x0000EA3C
 	mov r1, #0x800
@@ -50409,11 +50409,11 @@ FUN_ov16_02117e70: ; 0x02117E70
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117EB4 ; =0x021187C0
 	str r0, [r4, #0x10]
 	ldr r0, _02117EB8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02117EBC ; =0x0000EA3C
 	mov r1, #0x800
@@ -50433,11 +50433,11 @@ FUN_ov16_02117ec0: ; 0x02117EC0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117F08 ; =0x02118834
 	str r0, [r4, #8]
 	ldr r0, _02117F0C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _02117F10 ; =0x0000EA3C
@@ -50458,11 +50458,11 @@ FUN_ov16_02117f14: ; 0x02117F14
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117F5C ; =0x02118860
 	str r0, [r4, #0x14]
 	ldr r0, _02117F60 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02117F64 ; =0x0000EA3C
@@ -50483,11 +50483,11 @@ FUN_ov16_02117f68: ; 0x02117F68
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02117FB0 ; =0x021188A8
 	str r0, [r4, #8]
 	ldr r0, _02117FB4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _02117FB8 ; =0x0000EA3C
@@ -50508,11 +50508,11 @@ FUN_ov16_02117fbc: ; 0x02117FBC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02118000 ; =0x021188EC
 	str r0, [r4, #0x10]
 	ldr r0, _02118004 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02118008 ; =0x0000EA3C
 	mov r1, #0x800
@@ -50532,11 +50532,11 @@ FUN_ov16_0211800c: ; 0x0211800C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02118054 ; =0x02118904
 	str r0, [r4, #0x14]
 	ldr r0, _02118058 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211805C ; =0x0000EA3C
@@ -50557,11 +50557,11 @@ FUN_ov16_02118060: ; 0x02118060
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021180A8 ; =0x0211892C
 	str r0, [r4, #8]
 	ldr r0, _021180AC ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _021180B0 ; =0x0000EA3C
@@ -50582,11 +50582,11 @@ FUN_ov16_021180b4: ; 0x021180B4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021180FC ; =0x021189F4
 	str r0, [r4, #8]
 	ldr r0, _02118100 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02118104 ; =0x0000EA3C
@@ -50607,11 +50607,11 @@ FUN_ov16_02118108: ; 0x02118108
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211814C ; =0x02119D24
 	str r0, [r4, #0x10]
 	ldr r0, _02118150 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02118154 ; =0x0000EA3C
 	mov r1, #0x800
@@ -50631,11 +50631,11 @@ FUN_ov16_02118158: ; 0x02118158
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021181A0 ; =0x02119DD4
 	str r0, [r4, #0x14]
 	ldr r0, _021181A4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _021181A8 ; =0x0000EA3C
@@ -50656,11 +50656,11 @@ FUN_ov16_021181ac: ; 0x021181AC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021181F0 ; =0x02119DFC
 	str r0, [r4, #0x10]
 	ldr r0, _021181F4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _021181F8 ; =0x0000EA3C
 	mov r1, #0x800
@@ -50680,11 +50680,11 @@ FUN_ov16_021181fc: ; 0x021181FC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02118244 ; =0x02119E14
 	str r0, [r4, #0x14]
 	ldr r0, _02118248 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211824C ; =0x0000EA3C
@@ -50705,11 +50705,11 @@ FUN_ov16_02118250: ; 0x02118250
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02118298 ; =0x02119E3C
 	str r0, [r4, #0x14]
 	ldr r0, _0211829C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _021182A0 ; =0x0000EA3C
@@ -50730,11 +50730,11 @@ FUN_ov16_021182a4: ; 0x021182A4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021182E8 ; =0x02119E64
 	str r0, [r4, #0x10]
 	ldr r0, _021182EC ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _021182F0 ; =0x0000EA3C
 	mov r1, #0x800
@@ -50754,11 +50754,11 @@ FUN_ov16_021182f4: ; 0x021182F4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211833C ; =0x02119E7C
 	str r0, [r4, #0x14]
 	ldr r0, _02118340 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02118344 ; =0x0000EA3C

@@ -10489,11 +10489,11 @@ FUN_ov29_0212355c: ; 0x0212355C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021235A4 ; =0x021235C0
 	str r0, [r4, #0x10]
 	ldr r0, _021235A8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _021235AC ; =0x0000EA3C

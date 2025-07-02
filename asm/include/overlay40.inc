@@ -5,7 +5,7 @@
 .public FUN_0201fdac
 .public FUN_0202cf6c
 .public FUN_0206f9ec
-.public FUN_02004f78
+.public G2_GetBG1CharPtr
 .public FUN_02005a1c
 .public FUN_02041eac
 .public FUN_02046cb4
@@ -16,7 +16,7 @@
 .public FUN_02073ec8
 .public FUN_02073ee0
 .public FUN_02073ef0
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020467ac
 .public FUN_020467c0

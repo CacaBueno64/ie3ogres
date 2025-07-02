@@ -1,8 +1,8 @@
 .public DC_FlushRange
 .public FUN_0201e078
 .public FUN_0205ff0c
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02023c40
 .public FUN_02029d44
 .public FUN_02041eac
@@ -10,12 +10,12 @@
 .public FUN_02054f60
 .public FUN_020054dc
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020418b0
 .public FUN_020443b0
 .public FUN_020455a0
 .public FUN_020630e0
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200569c
 .public FUN_0200593c
 .public FUN_0204204c

@@ -5728,11 +5728,11 @@ FUN_ov70_0211f098: ; 0x0211F098
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211F0E0 ; =0x0211F104
 	str r0, [r4, #0xc]
 	ldr r0, _0211F0E4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _0211F0E8 ; =0x0000EA3C

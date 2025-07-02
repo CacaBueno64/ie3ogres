@@ -1806,11 +1806,11 @@ FUN_ov64_0211b8d8: ; 0x0211B8D8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211B91C ; =0x0211B940
 	str r0, [r4, #0x10]
 	ldr r0, _0211B920 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _0211B924 ; =0x0000EA3C
 	mov r1, #0x800

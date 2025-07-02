@@ -11474,11 +11474,11 @@ FUN_ov52_02123fdc: ; 0x02123FDC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02124024 ; =0x02124048
 	str r0, [r4, #4]
 	ldr r0, _02124028 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _0212402C ; =0x0000EA3C

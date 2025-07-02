@@ -84,13 +84,13 @@ FUN_ov17_020f45d4: ; 0x020F45D4
 	ldr r0, [r4]
 	ldrb r0, [r0, #9]
 	add r0, r0, #1
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldr r2, [r4]
 	mov r1, #5
 	strb r0, [r2, #9]
 	ldr r0, [r4]
 	ldrb r0, [r0, #9]
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldr r2, [r4]
 	add r1, r0, #0x47
 	ldr r2, [r2, #4]
@@ -2479,7 +2479,7 @@ _020F661C:
 _020F665C:
 	add r0, r5, #3
 	mov r1, #4
-	bl FUN_020096f8
+	bl FX_ModS32
 	add r7, sp, #0xd
 	ldrb r1, [r7, r5]
 	mov r6, #0
@@ -4913,7 +4913,7 @@ FUN_ov17_020f873c: ; 0x020F873C
 	mov r0, #0
 	ldrh r1, [r2]
 	strh r0, [r2]
-	bl FUN_0200445c
+	bl GX_DispOff
 	ldr r1, _020F8808 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
@@ -4930,13 +4930,13 @@ _020F8778:
 _020F8788:
 	mov r4, #0
 	mov r0, r4
-	bl FUN_02004414
+	bl GX_VBlankIntr
 	bl FUN_02009c28
 	sub r0, r4, #1
-	bl FUN_0200fd94
+	bl FS_Init
 	bl FUN_02015ef0
 	bl FUN_0200adc4
-	bl FUN_0200445c
+	bl GX_DispOff
 	ldr r1, _020F8808 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
@@ -4968,7 +4968,7 @@ _020F880C: .word ov17_021161CC
 FUN_ov17_020f8810: ; 0x020F8810
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r0, #0
-	bl FUN_02004414
+	bl GX_VBlankIntr
 	mov r0, #1
 	bl FUN_02006058
 	mov r0, #2
@@ -4976,7 +4976,7 @@ FUN_ov17_020f8810: ; 0x020F8810
 	mov r1, #0
 	mov r0, #1
 	mov r2, r1
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	mov r10, #0x4000000
 	ldr r1, [r10]
 	add r0, r10, #0x6c
@@ -4986,7 +4986,7 @@ FUN_ov17_020f8810: ; 0x020F8810
 	mov r1, #0
 	bic r2, r2, #0xe000
 	str r2, [r10]
-	bl FUN_02004564
+	bl GXx_SetMasterBrightness_
 	ldr r1, [r10]
 	ldr r4, _020F8A6C ; =0xFFCFFFEF
 	ldr r11, _020F8A70 ; =0x0000FFBF
@@ -5022,7 +5022,7 @@ FUN_ov17_020f8810: ; 0x020F8810
 	mov r0, #0x100
 	bl FUN_020069d8
 	mov r0, #0
-	bl FUN_02004548
+	bl GXS_SetGraphicsMode
 	add r9, r10, #0x1000
 	ldr r0, [r9]
 	ldr r8, _020F8A78 ; =0x0400106C
@@ -5033,7 +5033,7 @@ FUN_ov17_020f8810: ; 0x020F8810
 	bic r1, r1, #0xe000
 	str r1, [r9]
 	mov r1, #0
-	bl FUN_02004564
+	bl GXx_SetMasterBrightness_
 	ldr r0, [r9]
 	sub r7, r8, #0x64
 	and r0, r0, r4
@@ -5110,12 +5110,12 @@ FUN_ov17_020f8810: ; 0x020F8810
 	bl FUN_ov17_0210eaa8
 	bl FUN_ov17_0210ec30
 	bl FUN_ov17_0210c988
-	bl FUN_0200449c
+	bl GX_DispOn
 	ldr r1, [r9]
 	mov r0, #1
 	orr r1, r1, #0x10000
 	str r1, [r9]
-	bl FUN_02004414
+	bl GX_VBlankIntr
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F8A6C: .word 0xFFCFFFEF
 _020F8A70: .word 0x0000FFBF
@@ -5126,7 +5126,7 @@ _020F8A78: .word 0x0400106C
 	arm_func_start FUN_ov17_020f8a7c
 FUN_ov17_020f8a7c: ; 0x020F8A7C
 	stmfd sp!, {r3, lr}
-	bl FUN_0200445c
+	bl GX_DispOff
 	ldr r1, _020F8AD0 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
@@ -7847,7 +7847,7 @@ _020FAD60:
 	ldrb r0, [r4]
 	add r0, r0, #1
 _020FAD6C:
-	bl FUN_020096f8
+	bl FX_ModS32
 	strb r0, [r4]
 	mov r0, #8
 	bl FUN_ov17_02107c40
@@ -10607,7 +10607,7 @@ _020FCFD4:
 	ldrb r0, [r1, #0x53]
 	ldrh r1, [r1, #0x40]
 	mul r0, r2, r0
-	bl FUN_020096bc
+	bl FX_DivS32
 _020FCFF8:
 	str r0, [sp]
 	mov r0, r4
@@ -10983,7 +10983,7 @@ _020FD4E4:
 	ldrh r2, [r1, #0x40]
 	ldrb r1, [r1, #0x53]
 	mul r0, r2, r0
-	bl FUN_020096bc
+	bl FX_DivS32
 	strh r0, [r4, #2]
 	bl FUN_ov17_020fda30
 	ldr r0, [r4, #4]
@@ -11000,14 +11000,14 @@ _020FD528:
 	ldrh r2, [r1, #0x40]
 	ldrb r1, [r1, #0x53]
 	mul r0, r2, r0
-	bl FUN_020096bc
+	bl FX_DivS32
 	strh r0, [r4, #2]
 	mov r0, #0x13
 	bl FUN_ov17_02107c40
 	bl FUN_ov17_020fda30
 	ldrh r0, [r4, #2]
 	mov r1, #0x1c
-	bl FUN_020096f8
+	bl FX_ModS32
 	cmp r0, #0
 	bne _020FD57C
 	bl FUN_ov17_020fdf20
@@ -11132,7 +11132,7 @@ _020FD6F0:
 _020FD718:
 	ldrh r0, [r4, #2]
 	mov r1, #0x1c
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldrb r12, [r4]
 	ldr r3, [r4, #4]
 	mov r1, #0x2a
@@ -11360,7 +11360,7 @@ FUN_ov17_020fda30: ; 0x020FDA30
 	ldr r4, _020FDAD0 ; =0x02116238
 	mov r1, #0x1c
 	ldrh r0, [r4, #2]
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldr r1, [r4, #4]
 	mov r7, r0
 	ldrb r4, [r1, #0x51]
@@ -11546,7 +11546,7 @@ FUN_ov17_020fdcc8: ; 0x020FDCC8
 	ldr r4, _020FDD78 ; =0x02116238
 	mov r1, #0x1c
 	ldrh r0, [r4, #2]
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldr r1, [r4, #4]
 	rsb r0, r0, #0x36
 	ldrb r1, [r1, #0x51]
@@ -11607,7 +11607,7 @@ FUN_ov17_020fdd80: ; 0x020FDD80
 	strh r1, [r0, #2]
 	ldrh r0, [r5, #2]
 	mov r1, #0x1c
-	bl FUN_020096f8
+	bl FX_ModS32
 	mov r6, r0
 	cmp r6, #0x18
 	bne _020FDDCC
@@ -11631,7 +11631,7 @@ _020FDDE8:
 	ldrb r0, [r1, #0x53]
 	ldrh r1, [r1, #0x40]
 	mul r0, r2, r0
-	bl FUN_020096bc
+	bl FX_DivS32
 	bl FUN_ov17_02106640
 	bl FUN_ov17_0210664c
 	bl FUN_ov17_020fdf20
@@ -11656,7 +11656,7 @@ FUN_ov17_020fde38: ; 0x020FDE38
 	add r0, r0, #4
 	strh r0, [r5, #2]
 	ldrh r0, [r5, #2]
-	bl FUN_020096f8
+	bl FX_ModS32
 	cmp r0, #4
 	blt _020FDE74
 	bl FUN_ov17_020fdcc8
@@ -11672,7 +11672,7 @@ _020FDE74:
 	ldrb r0, [r1, #0x53]
 	ldrh r1, [r1, #0x40]
 	mul r0, r2, r0
-	bl FUN_020096bc
+	bl FX_DivS32
 	bl FUN_ov17_02106640
 	bl FUN_ov17_0210664c
 	bl FUN_ov17_020fdf20
@@ -11695,7 +11695,7 @@ FUN_ov17_020fdec8: ; 0x020FDEC8
 	ldmeqfd sp!, {r4, pc}
 	ldrh r0, [r4, #2]
 	mov r1, #0x1c
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldr r1, _020FDF18 ; =0x01FF0000
 	sub r2, r0, #0x32
 	ldr r0, _020FDF1C ; =0x04000010
@@ -14887,7 +14887,7 @@ _021009CC:
 	bl FUN_ov17_02100e88
 	ldrh r0, [r4, #4]
 	mov r1, #0x1d
-	bl FUN_020096f8
+	bl FX_ModS32
 	cmp r0, #0
 	bne _02100A20
 	bl FUN_ov17_02101cc4
@@ -15216,7 +15216,7 @@ FUN_ov17_02100e88: ; 0x02100E88
 	ldr r4, _02100F3C ; =0x0211624C
 	mov r1, #0x1d
 	ldrh r0, [r4, #4]
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldr r1, [r4, #8]
 	mov r4, r0
 	mov r6, #0
@@ -15731,11 +15731,11 @@ FUN_ov17_02101578: ; 0x02101578
 	ldrh r0, [r5, #4]
 	mov r1, r7
 	ldr r4, _02101720 ; =0xFE00FF00
-	bl FUN_020096bc
+	bl FX_DivS32
 	mov r6, r0
 	ldrh r0, [r5, #4]
 	mov r1, r7
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldr r2, [r5, #8]
 	rsb r1, r0, #0x34
 	ldr r0, [r2, #0x34]
@@ -15853,7 +15853,7 @@ FUN_ov17_02101728: ; 0x02101728
 	ldr r0, _02101994 ; =0x0211624C
 	mov r1, r7
 	ldrh r0, [r0, #4]
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldr r1, _02101998 ; =0x02112298
 	mov r5, r0
 	ldrh r3, [r1, #0xa]
@@ -15888,7 +15888,7 @@ _021017B4:
 	ldr r0, _02101994 ; =0x0211624C
 	mov r1, #0x1d
 	ldrh r0, [r0, #4]
-	bl FUN_020096bc
+	bl FX_DivS32
 	mov r2, #0
 _021017E4:
 	cmp r0, #2
@@ -15940,7 +15940,7 @@ _02101894:
 	ldr r0, _02101994 ; =0x0211624C
 	mov r1, #0x1d
 	ldrh r0, [r0, #4]
-	bl FUN_020096bc
+	bl FX_DivS32
 	mov r2, #0
 _021018A8:
 	cmp r0, #6
@@ -16018,7 +16018,7 @@ FUN_ov17_021019a4: ; 0x021019A4
 	mov r4, r0
 	ldrh r0, [r1, #4]
 	mov r1, #0x1d
-	bl FUN_020096bc
+	bl FX_DivS32
 	mov r1, #0
 _021019C0:
 	cmp r0, r4
@@ -16040,7 +16040,7 @@ FUN_ov17_021019e8: ; 0x021019E8
 	mov r4, r0
 	ldrh r0, [r1, #4]
 	mov r1, #0x1d
-	bl FUN_020096bc
+	bl FX_DivS32
 	add r0, r0, r4
 	ldmfd sp!, {r4, pc}
 _02101A08: .word ov17_0211624C
@@ -16061,7 +16061,7 @@ FUN_ov17_02101a0c: ; 0x02101A0C
 	strh r1, [r0, #4]
 	ldrh r0, [r5, #4]
 	mov r1, #0x1d
-	bl FUN_020096f8
+	bl FX_ModS32
 	mov r6, r0
 	cmp r6, #0x17
 	bne _02101A58
@@ -16113,7 +16113,7 @@ FUN_ov17_02101ad0: ; 0x02101AD0
 	add r0, r0, #6
 	strh r0, [r5, #4]
 	ldrh r0, [r5, #4]
-	bl FUN_020096f8
+	bl FX_ModS32
 	cmp r0, #6
 	blt _02101B0C
 	bl FUN_ov17_02101578
@@ -16156,11 +16156,11 @@ FUN_ov17_02101b6c: ; 0x02101B6C
 	ldrh r0, [r4, #4]
 	mov r6, #0x1d
 	mov r1, r6
-	bl FUN_020096bc
+	bl FX_DivS32
 	mov r5, r0
 	ldrh r0, [r4, #4]
 	mov r1, r6
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldr r2, _02101BE0 ; =0x021122C3
 	ldr r1, _02101BE4 ; =0x01FF0000
 	sub r12, r0, #0x33
@@ -16257,7 +16257,7 @@ _02101CE8:
 	mov r5, r0
 	ldrh r0, [r4, #4]
 	mov r1, #0x1d
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldrb r1, [r4, #2]
 	add r1, r1, r0
 	cmp r1, #2
@@ -22147,7 +22147,7 @@ FUN_ov17_021068b8: ; 0x021068B8
 	mov r0, #0x7f
 	bge _021068F0
 	rsb r1, r4, #6
-	bl FUN_020096bc
+	bl FX_DivS32
 _021068F0:
 	bl FUN_ov17_02107c64
 	cmp r4, #2
@@ -22158,7 +22158,7 @@ _021068F0:
 	bge _0210691C
 	rsb r1, r4, #6
 	mov r0, #0x200
-	bl FUN_020096bc
+	bl FX_DivS32
 	sub r1, r0, #0x100
 _0210691C:
 	ldr r0, _0210692C ; =0x0000FFFF
@@ -29092,12 +29092,12 @@ _0210C540:
 	bl FS_CloseFile
 	ldr r0, [r5]
 	add r0, r0, #0x88
-	bl FUN_0200d600
+	bl FS_InitArchive
 	ldr r0, [r5]
 	ldr r1, _0210C69C ; =0x021126DC
 	add r0, r0, #0x88
 	mov r2, #3
-	bl FUN_0200d624
+	bl FS_RegisterArchiveName
 	cmp r0, #0
 	bne _0210C5B8
 	bl OS_Terminate
@@ -29107,7 +29107,7 @@ _0210C5B8:
 	ldr r0, [r5]
 	ldr r2, _0210C6A4 ; =0x00000602
 	add r0, r0, #0x88
-	bl FUN_0200f8c4
+	bl FS_SetArchiveProc
 	ldr r0, [sp, #0x18]
 	ldr r1, _0210C6A8 ; =FUN_ov17_0210c790
 	str r0, [sp]
@@ -29121,7 +29121,7 @@ _0210C5B8:
 	ldr r3, [sp, #0x14]
 	mov r1, r4
 	add r0, r0, #0x88
-	bl FUN_0200f7cc
+	bl FS_LoadArchive
 	cmp r0, #0
 	bne _0210C614
 	bl OS_Terminate
@@ -29131,7 +29131,7 @@ _0210C614:
 	ldr r0, [r4]
 	mov r2, r1
 	add r0, r0, #0x88
-	bl FUN_0200f8e4
+	bl FS_LoadArchiveTables
 	mov r5, #4
 	mov r1, r5
 	mov r6, r0
@@ -29141,7 +29141,7 @@ _0210C614:
 	str r0, [r1]
 	ldr r0, [r4]
 	ldr r1, [r0], #0x88
-	bl FUN_0200f8e4
+	bl FS_LoadArchiveTables
 	ldr r0, [r4]
 	mov r2, r5
 	add r1, r0, #4
@@ -29176,13 +29176,13 @@ FUN_ov17_0210c6b4: ; 0x0210C6B4
 	ldr r4, _0210C720 ; =0x021162CC
 	ldr r0, [r4]
 	add r0, r0, #0x88
-	bl FUN_0200fa24
+	bl FS_UnloadArchiveTables
 	ldr r0, [r4]
 	add r0, r0, #0x88
-	bl FUN_0200f838
+	bl FS_UnloadArchive
 	ldr r0, [r4]
 	add r0, r0, #0x88
-	bl FUN_0200d724
+	bl FS_ReleaseArchiveName
 	ldr r0, [r4]
 	ldrh r0, [r0, #0xe4]
 	bl OS_ReleaseLockID
@@ -29222,7 +29222,7 @@ _0210C760:
 	ldr r0, _0210C788 ; =0x021162CC
 	ldr r0, [r0]
 	ldrh r0, [r0, #0xe4]
-	bl FUN_0200fffc
+	bl CARD_UnlockRom
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _0210C778:
@@ -29243,7 +29243,7 @@ FUN_ov17_0210c790: ; 0x0210C790
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_0200faa8
+	bl FS_GetArchiveBase
 	ldr r1, _0210C7E0 ; =FUN_ov17_0210c7e4
 	mov lr, r0
 	mov r12, #1
@@ -29253,7 +29253,7 @@ FUN_ov17_0210c790: ; 0x0210C790
 	sub r0, r12, #2
 	add r1, r5, lr
 	stmib sp, {r7, r12}
-	bl FUN_0201121c
+	bl CARDi_ReadRom
 	mov r0, #0x100
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
@@ -29262,10 +29262,10 @@ _0210C7E0: .word FUN_ov17_0210c7e4
 
 	arm_func_start FUN_ov17_0210c7e4
 FUN_ov17_0210c7e4: ; 0x0210C7E4
-	ldr r12, _0210C7F0 ; =FUN_0200d9d4
+	ldr r12, _0210C7F0 ; =FS_NotifyArchiveAsyncEnd
 	mov r1, #0
 	bx r12
-_0210C7F0: .word FUN_0200d9d4
+_0210C7F0: .word FS_NotifyArchiveAsyncEnd
 	arm_func_end FUN_ov17_0210c7e4
 
 	arm_func_start FUN_ov17_0210c7f4
@@ -29976,7 +29976,7 @@ FUN_ov17_0210d100: ; 0x0210D100
 	mov r6, r0
 	ldrh r1, [r5]
 	add r0, r2, #1
-	bl FUN_020096f8
+	bl FX_ModS32
 	ldrb r1, [r5, #2]
 	mov r7, r0
 	cmp r7, r1
@@ -30007,7 +30007,7 @@ FUN_ov17_0210d158: ; 0x0210D158
 	ldrh r1, [r6]
 	add r0, r2, r1
 	sub r0, r0, #1
-	bl FUN_020096f8
+	bl FX_ModS32
 	and r1, r0, #0xff
 	strb r0, [r6, #3]
 	add r0, r6, r1, lsl #2
@@ -30152,7 +30152,7 @@ FUN_ov17_0210d300: ; 0x0210D300
 	strb r3, [sp, #2]
 	strb r2, [sp, #3]
 	add r6, sp, #4
-	bl FUN_020096bc
+	bl FX_DivS32
 	ldrb r2, [r4, #8]
 	mov r1, r0
 	ldrb r0, [r6, r2]
@@ -30461,10 +30461,10 @@ _0210D750:
 	str r1, [r5, #0x20]
 	str r1, [r5, #0x24]
 	bne _0210D7B8
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	b _0210D7BC
 _0210D7B8:
-	bl FUN_02004c8c
+	bl G2_GetBG0ScrPtr
 _0210D7BC:
 	ldr r1, _0210D84C ; =0x021126EC
 	mov r2, r8, lsl #1
@@ -30558,13 +30558,13 @@ FUN_ov17_0210d8dc: ; 0x0210D8DC
 	add r0, r0, #0x610
 	cmp r4, r0
 	bne _0210D918
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	mov r1, r0
 	mov r0, #0
 	mov r2, #0x6000
 	b _0210D928
 _0210D918:
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	mov r1, r0
 	mov r0, #0
 	mov r2, #0x3000
@@ -31389,7 +31389,7 @@ _0210E3B0:
 	mov r1, r8
 	add r4, r4, #1
 	add r0, r0, #4
-	bl FUN_020096f8
+	bl FX_ModS32
 	cmp r4, #4
 	blt _0210E36C
 _0210E3C8:
@@ -31741,7 +31741,7 @@ FUN_ov17_0210e85c: ; 0x0210E85C
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	bl OS_WaitVBlankIntr
-	bl FUN_0200449c
+	bl GX_DispOn
 	ldr r1, _0210E908 ; =0x04001000
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
@@ -31756,7 +31756,7 @@ _0210E8BC:
 	movs r0, r0, asr #0xf
 	ldmeqfd sp!, {r4, pc}
 	bl OS_WaitVBlankIntr
-	bl FUN_0200445c
+	bl GX_DispOff
 	ldr r1, _0210E908 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000

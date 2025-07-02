@@ -21,10 +21,10 @@
 .public FUN_02045b40
 .public FUN_02058e30
 .public FUN_02058ee0
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020460a8
 .public FUN_020737f0
-.public FUN_02009850
+.public VEC_Mag
 .public FUN_02021288
 .public FUN_02058800
 .public FUN_02059004

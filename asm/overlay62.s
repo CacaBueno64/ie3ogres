@@ -7726,11 +7726,11 @@ FUN_ov62_02120d00: ; 0x02120D00
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02120D48 ; =0x02120D60
 	str r0, [r4, #0x10]
 	ldr r0, _02120D4C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02120D50 ; =0x0000EA3C

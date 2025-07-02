@@ -1508,13 +1508,13 @@ FUN_ov88_0211b318: ; 0x0211B318
 	mov r8, #0x20
 	mov r7, r0
 	str r8, [sp, #4]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r6, #0
 	mov r1, r0
 	mov r0, r6
 	mov r2, r8
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r8
 	bl DC_FlushRange
 	mov r4, #1
@@ -3548,11 +3548,11 @@ FUN_ov88_0211d008: ; 0x0211D008
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211D050 ; =0x0211D080
 	str r0, [r4, #0x14]
 	ldr r0, _0211D054 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0211D058 ; =0x0000EA3C

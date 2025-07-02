@@ -3,12 +3,12 @@
 .public FUN_0202e1c0
 .public FUN_0204f02c
 .public FUN_0206cbf8
-.public FUN_02004f58
-.public FUN_02004fac
+.public G2S_GetBG0CharPtr
+.public G2S_GetBG1CharPtr
 .public FUN_020059ac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020420b4
-.public FUN_0200501c
+.public G2S_GetBG2CharPtr
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c

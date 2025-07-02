@@ -7,7 +7,7 @@
 .public FUN_020057ec
 .public FUN_020058cc
 .public FUN_020059ac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c

@@ -5,12 +5,12 @@
 .public FUN_0202bb94
 .public FUN_0202bba0
 .public FUN_0202cf6c
-.public FUN_02004f58
-.public FUN_02004fac
+.public G2S_GetBG0CharPtr
+.public G2S_GetBG1CharPtr
 .public FUN_02041f2c
 .public FUN_02041fec
-.public FUN_020095ac
-.public FUN_0200501c
+.public FX_Sqrt
+.public G2S_GetBG2CharPtr
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c

@@ -5257,11 +5257,11 @@ FUN_ov53_0211e83c: ; 0x0211E83C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211E884 ; =0x0211E8A0
 	str r0, [r4, #0x10]
 	ldr r0, _0211E888 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0211E88C ; =0x0000EA3C

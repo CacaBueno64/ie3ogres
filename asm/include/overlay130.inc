@@ -1,4 +1,4 @@
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020417dc
 .public FUN_020417e8
 .public FUN_020418b0

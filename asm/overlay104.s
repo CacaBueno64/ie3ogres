@@ -1459,11 +1459,11 @@ FUN_ov104_0212610c: ; 0x0212610C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02126154 ; =0x02126180
 	str r0, [r4, #0x14]
 	ldr r0, _02126158 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0212615C ; =0x0000EA3C

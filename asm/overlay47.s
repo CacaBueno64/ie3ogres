@@ -2367,7 +2367,7 @@ _0211BF10:
 	mov r0, #0
 	str r0, [sp, #0x10]
 	add r0, sp, #8
-	bl FUN_02009850
+	bl VEC_Mag
 	mov r9, r0
 	mov r0, #0xa
 	mla r0, r5, r0, r10
@@ -6262,11 +6262,11 @@ FUN_ov47_0211f76c:
 	stmdb sp!,{r3,r4,r5,lr}
 	mov r5,#0x2000
 	mov r0,r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4,_0211F7B4
 	str r0,[r4,#0x14 ]
 	ldr r0,_0211F7B8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1,#0x800
 	str r0,[r4,#0x0 ]
 	ldr r0,_0211F7BC ; =0x0000EA3C

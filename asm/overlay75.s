@@ -357,11 +357,11 @@ FUN_ov75_0211a3b4: ; 0x0211A3B4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211A3FC ; =0x0211A420
 	str r0, [r4, #0x14]
 	ldr r0, _0211A400 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211A404 ; =0x0000EA3C

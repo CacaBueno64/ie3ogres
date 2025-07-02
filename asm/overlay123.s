@@ -372,13 +372,13 @@ _021251C8:
 	addne r0, r1, r0
 	strne r0, [r5, #0x44]
 _021251FC:
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r6, #0x20
 	mov r1, r0
 	mov r2, r6
 	mov r0, #0
 	bl MIi_CpuClearFast
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r1, r6
 	bl DC_FlushRange
 	b _02125248
@@ -621,11 +621,11 @@ FUN_ov123_02125534: ; 0x02125534
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0212557C ; =0x021255A0
 	str r0, [r4, #0x14]
 	ldr r0, _02125580 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02125584 ; =0x0000EA3C

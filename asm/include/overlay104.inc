@@ -8,7 +8,7 @@
 .public FUN_02023e98
 .public FUN_020058cc
 .public FUN_020059ac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f5af0

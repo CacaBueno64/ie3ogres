@@ -2551,13 +2551,13 @@ FUN_ov72_0211c184: ; 0x0211C184
 	str r9, [r1, #4]
 	str r9, [r1, #8]
 	str r9, [r1, #0xc]
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r4, #0x20
 	mov r1, r0
 	mov r0, r9
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	mov r5, #4
@@ -2684,13 +2684,13 @@ _0211C398:
 	ldr r0, [sp, #8]
 	sub r0, r1, r0
 	str r0, [sp, #0x18]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r4, #0x20
 	mov r1, r0
 	mov r0, r11
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	str r4, [sp, #8]
@@ -2794,14 +2794,14 @@ _0211C4E8:
 	ldr r0, [sp, #8]
 	sub r0, r1, r0
 	str r0, [sp, #0x10]
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r9, #0x20
 	mov r4, #0
 	mov r1, r0
 	mov r0, r4
 	mov r2, r9
 	bl MIi_CpuClearFast
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r1, r9
 	bl DC_FlushRange
 	str r9, [sp, #8]
@@ -6107,7 +6107,7 @@ FUN_ov72_0211f450: ; 0x0211F450
 	mov r0, r7
 	mov r2, r7
 	mov r1, r5
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	mov r8, #0xc
 	add r0, r6, #0x214
 	mov r1, #0x16
@@ -9828,11 +9828,11 @@ FUN_ov72_02122d44: ; 0x02122D44
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02122D8C ; =0x02122DA0
 	str r0, [r4, #8]
 	ldr r0, _02122D90 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _02122D94 ; =0x0000EA3C

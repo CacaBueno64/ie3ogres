@@ -446,13 +446,13 @@ _0212532C:
 	mov r0, r10
 	mov r2, r10
 	bl  FUN_ov16_020f1a60
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r6, #0x20
 	mov r1, r0
 	mov r0, r10
 	mov r2, r6
 	bl MIi_CpuClearFast
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r1, r6
 	bl DC_FlushRange
 	ldr r1, [r4, #0x100]
@@ -581,7 +581,7 @@ _02125488:
 	addne r6, r6, #0x580
 	cmp r7, #0
 	beq _02125568
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x14]
 	ldr r0, [r7, #0xc]
@@ -595,7 +595,7 @@ _02125568:
 	ldr r7, [r4, #0xac]
 	cmp r7, #0
 	beq _0212559C
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x18]
 	ldr r0, [r7, #0xc]
@@ -609,7 +609,7 @@ _0212559C:
 	ldr r7, [r4, #0xb8]
 	cmp r7, #0
 	beq _021255D0
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x1c]
 	ldr r0, [r7, #0xc]
@@ -623,7 +623,7 @@ _021255D0:
 	ldr r7, [r4, #0xd0]
 	cmp r7, #0
 	beq _02125604
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x20]
 	ldr r0, [r7, #0xc]
@@ -637,7 +637,7 @@ _02125604:
 	ldr r7, [r4, #0xdc]
 	cmp r7, #0
 	beq _02125638
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x24]
 	ldr r0, [r7, #0xc]
@@ -653,7 +653,7 @@ _02125638:
 	ldrne r7, [r4, #0xf4]
 	cmpne r7, #0
 	beq _02125898
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	add r0, r6, r0
 	str r0, [r4, #0x28]
 	ldr r0, [r7, #0xc]
@@ -1487,11 +1487,11 @@ FUN_ov114_021261f8: ; 0x021261F8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02126240 ; =0x02126260
 	str r0, [r4, #4]
 	ldr r0, _02126244 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02126248 ; =0x0000EA3C

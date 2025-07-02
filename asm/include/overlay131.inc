@@ -106,7 +106,7 @@
 .public FUN_02056ed4
 .public FUN_02058ee0
 .public FUN_02072d28
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020218f4
 .public FUN_020312d8
@@ -162,8 +162,8 @@
 .public FUN_0207461c
 .public FUN_0207478c
 .public FUN_0208622c
-.public FUN_02009734
-.public FUN_02009764
+.public VEC_Add
+.public VEC_Subtract
 .public FUN_02015184
 .public FUN_02020094
 .public FUN_02020274

@@ -1361,11 +1361,11 @@ FUN_ov48_0211b194:
 	stmdb sp!,{r3,r4,r5,lr}
 	mov r5,#0x2000
 	mov r0,r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4,_0211B1DC
 	str r0,[r4,#4 ]
 	ldr r0,_0211B1E0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1,#0x800
 	str r0,[r4,#0x0 ]
 	ldr r0,_0211B1E4 ; =0x0000EA3C

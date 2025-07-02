@@ -5084,11 +5084,11 @@ FUN_ov20_0211e69c: ; 0x0211E69C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211E6E4 ; =0x0211E728
 	str r0, [r4, #0x18]
 	ldr r0, _0211E6E8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _0211E6EC ; =0x0000EA3C

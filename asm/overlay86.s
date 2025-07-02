@@ -1502,13 +1502,13 @@ FUN_ov86_0211b33c: ; 0x0211B33C
 	arm_func_start FUN_ov86_0211b364
 FUN_ov86_0211b364: ; 0x0211B364
 	stmfd sp!, {r4, lr}
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r4, #0x20
 	mov r1, r0
 	mov r2, r4
 	mov r0, #0
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	bl  FUN_ov16_020f10ac
@@ -2901,30 +2901,30 @@ _0211C6D4: .word unk_02099EB4
 	arm_func_start FUN_ov86_0211c6d8
 FUN_ov86_0211c6d8: ; 0x0211C6D8
 	stmfd sp!, {r4, r5, r6, lr}
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r4, #0x20
 	mov r6, #0
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r1, r4
 	bl DC_FlushRange
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	mov r0, r6
@@ -3319,11 +3319,11 @@ FUN_ov86_0211ccc0: ; 0x0211CCC0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211CD08 ; =0x0211CD20
 	str r0, [r4, #4]
 	ldr r0, _0211CD0C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _0211CD10 ; =0x0000EA3C

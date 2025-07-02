@@ -2020,12 +2020,12 @@ FUN_ov83_0211ba60: ; 0x0211BA60
 	mov r4, r7
 	mov r5, #1
 	add r6, sp, #4
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r0
 	mov r0, r7
 	mov r2, r8
 	bl MIi_CpuClearFast
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r8
 	bl DC_FlushRange
 	ldr r0, [r10, #0x474]
@@ -2125,12 +2125,12 @@ _0211BBFC:
 	mov r4, #0x20
 	mov r5, #0
 	str r4, [sp, #4]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	ldr r0, [r10, #0x4a4]
@@ -2193,13 +2193,13 @@ _0211BCDC:
 	bl  FUN_ov1_020dc020
 _0211BCFC:
 	str r11, [sp, #4]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r4, #0x20
 	mov r1, r0
 	mov r0, r11
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	ldr r5, [r10, #0x450]
@@ -3923,11 +3923,11 @@ FUN_ov83_0211d638: ; 0x0211D638
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211D680 ; =0x0211D6A0
 	str r0, [r4, #4]
 	ldr r0, _0211D684 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _0211D688 ; =0x0000EA3C

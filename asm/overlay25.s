@@ -556,7 +556,7 @@ FUN_ov25_0211a5fc: ; 0x0211A5FC
 	mov r4, #0
 	mov r1, r4
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r2, _0211A720 ; =0x04000008
 	mov r0, r5
 	ldrh r1, [r2]
@@ -1715,11 +1715,11 @@ FUN_ov25_0211b6f4: ; 0x0211B6F4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211B73C ; =0x0211B7AC
 	str r0, [r4, #4]
 	ldr r0, _0211B740 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _0211B744 ; =0x0000EA3C

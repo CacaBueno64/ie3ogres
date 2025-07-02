@@ -7,8 +7,8 @@
 .public FUN_0204fca0
 .public FUN_0206c158
 .public FUN_0206c270
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02005a1c
 .public FUN_02023c40
 .public FUN_02023e98
@@ -17,13 +17,13 @@
 .public FUN_02050dac
 .public FUN_02058e30
 .public FUN_02058ee0
-.public FUN_020044e0
+.public GX_SetGraphicsMode
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020465fc
 .public FUN_020735a0
 .public FUN_0200462c
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0204204c
 .public FUN_0207249c
 .public FUN_02058800

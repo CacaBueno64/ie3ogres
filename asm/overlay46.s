@@ -3566,7 +3566,7 @@ _0211CF70:
 	mov r0, #0
 	str r0, [sp, #0x14]
 	add r0, sp, #0xc
-	bl FUN_02009850
+	bl VEC_Mag
 	mov r10, r0
 	ldr r0, [r4, #0x950]
 	sub r1, r6, #1
@@ -8184,11 +8184,11 @@ FUN_ov46_02121140: ; 0x02121140
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02121188 ; =0x021211A0
 	str r0, [r4, #8]
 	ldr r0, _0212118C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02121190 ; =0x0000EA3C

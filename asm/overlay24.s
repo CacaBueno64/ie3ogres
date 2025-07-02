@@ -1002,7 +1002,7 @@ FUN_ov24_0211acec: ; 0x0211ACEC
 	mov r0, r5
 	mov r1, r7
 	mov r2, r5
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r2, _0211AE5C ; =0x04000008
 	mov r0, r8
 	ldrh r1, [r2]
@@ -2170,7 +2170,7 @@ _0211BE88:
 	mov r0, r7
 	mov r1, r4
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r2, _0211BFF0 ; =0x04000008
 	mov r0, #0x1c
 	ldrh r1, [r2]
@@ -2208,7 +2208,7 @@ _0211BF14:
 	mov r0, r7
 	mov r1, r4
 	mov r2, r0
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r2, _0211BFF0 ; =0x04000008
 	mov r0, #3
 	ldrh r1, [r2]
@@ -3777,11 +3777,11 @@ FUN_ov24_0211d588: ; 0x0211D588
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211D5CC ; =0x0211D5E0
 	str r0, [r4, #0xc]
 	ldr r0, _0211D5D0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0x10]
 	ldr r0, _0211D5D4 ; =0x0000EA3C
 	mov r1, #0x800

@@ -1857,44 +1857,44 @@ FUN_ov110_021266f8: ; 0x021266F8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x1c
 	mov r4, r0
-	bl FUN_02004f58
+	bl G2S_GetBG0CharPtr
 	mov r5, #0x20
 	mov r7, #0
 	mov r1, r0
 	mov r0, r7
 	mov r2, r5
 	bl MIi_CpuClearFast
-	bl FUN_02004f58
+	bl G2S_GetBG0CharPtr
 	mov r1, r5
 	bl DC_FlushRange
 	str r7, [sp, #0x18]
 	str r5, [sp, #0xc]
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r7
 	mov r2, r5
 	bl MIi_CpuClearFast
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	mov r1, r5
 	bl DC_FlushRange
 	str r7, [sp, #0x14]
 	str r5, [sp, #8]
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r7
 	mov r2, r5
 	bl MIi_CpuClearFast
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	mov r1, r5
 	bl DC_FlushRange
 	str r7, [sp, #0x10]
 	str r5, [sp, #4]
-	bl FUN_020050b4
+	bl G2S_GetBG3CharPtr
 	mov r1, r0
 	mov r0, r7
 	mov r2, r5
 	bl MIi_CpuClearFast
-	bl FUN_020050b4
+	bl G2S_GetBG3CharPtr
 	mov r1, r5
 	bl DC_FlushRange
 	ldr r0, [r4, #0x14]
@@ -2369,11 +2369,11 @@ FUN_ov110_02126e5c: ; 0x02126E5C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02126EA4 ; =0x02126EC4
 	str r0, [r4]
 	ldr r0, _02126EA8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02126EAC ; =0x0000EA3C

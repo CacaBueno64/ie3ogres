@@ -2,13 +2,13 @@
 .public FUN_0201e078
 .public FUN_0202de44
 .public FUN_0202e1c0
-.public FUN_02004f58
-.public FUN_02004fac
+.public G2S_GetBG0CharPtr
+.public G2S_GetBG1CharPtr
 .public FUN_02023c40
 .public FUN_020058cc
 .public FUN_020059ac
-.public FUN_020095ac
-.public FUN_0200501c
+.public FX_Sqrt
+.public G2S_GetBG2CharPtr
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c

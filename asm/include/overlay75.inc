@@ -1,7 +1,7 @@
 .public FUN_0201e078
 .public FUN_0204eb4c
 .public FUN_02041eac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020724c8
 .public FUN_0205131c
 .public FUN_02044600

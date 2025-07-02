@@ -488,11 +488,11 @@ FUN_ov106_021252fc: ; 0x021252FC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02125344 ; =0x02125360
 	str r0, [r4]
 	ldr r0, _02125348 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _0212534C ; =0x0000EA3C

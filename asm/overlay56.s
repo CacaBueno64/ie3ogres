@@ -7974,11 +7974,11 @@ FUN_ov56_02121108: ; 0x02121108
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02121150 ; =0x02121180
 	str r0, [r4, #0x14]
 	ldr r0, _02121154 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _02121158 ; =0x0000EA3C

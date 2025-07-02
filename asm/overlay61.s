@@ -1685,14 +1685,14 @@ _0211B4E0:
 FUN_ov61_0211b584: ; 0x0211B584
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r6, #0x20
 	mov r7, #0
 	mov r1, r0
 	mov r0, r7
 	mov r2, r6
 	bl MIi_CpuClearFast
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	mov r1, r6
 	bl DC_FlushRange
 	mov r5, #3
@@ -1729,12 +1729,12 @@ FUN_ov61_0211b584: ; 0x0211B584
 	ldr r1, [r4, #0xc4]
 	bl  FUN_ov16_020f19d4
 	str r0, [r4, #0x30]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r7
 	mov r2, r6
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r6
 	bl DC_FlushRange
 	mov r5, #1
@@ -1766,13 +1766,13 @@ FUN_ov61_0211b584: ; 0x0211B584
 	mov r2, r2, lsl #5
 	bl FUN_0200585c
 _0211B6CC:
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r6, #0x20
 	mov r1, r0
 	mov r2, r6
 	mov r0, #0
 	bl MIi_CpuClearFast
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	mov r1, r6
 	bl DC_FlushRange
 	mov r5, #2
@@ -3704,7 +3704,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r0, r5
 	mov r1, r4
 	mov r2, r5
-	bl FUN_020044e0
+	bl GX_SetGraphicsMode
 	ldr r3, _0211D474 ; =0x04000008
 	ldr r0, _0211D478 ; =0x0209A454
 	ldrh r2, [r3]
@@ -5698,11 +5698,11 @@ FUN_ov61_0211ed58: ; 0x0211ED58
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211EDA0 ; =0x0211EEE8
 	str r0, [r4, #0xc]
 	ldr r0, _0211EDA4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0211EDA8 ; =0x0000EA3C
@@ -5723,11 +5723,11 @@ FUN_ov61_0211edac: ; 0x0211EDAC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211EDF4 ; =0x0211F3B8
 	str r0, [r4, #0x14]
 	ldr r0, _0211EDF8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211EDFC ; =0x0000EA3C
@@ -5748,11 +5748,11 @@ FUN_ov61_0211ee00: ; 0x0211EE00
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211EE48 ; =0x0211F474
 	str r0, [r4, #0x14]
 	ldr r0, _0211EE4C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211EE50 ; =0x0000EA3C
@@ -5773,11 +5773,11 @@ FUN_ov61_0211ee54: ; 0x0211EE54
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211EE9C ; =0x0211F524
 	str r0, [r4, #0x14]
 	ldr r0, _0211EEA0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211EEA4 ; =0x0000EA3C

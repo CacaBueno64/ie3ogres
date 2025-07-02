@@ -46,12 +46,12 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FUN_02071fac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020460a8
 .public FUN_020508fc
 .public FUN_0205107c
 .public OS_GetTick
-.public FUN_02009850
+.public VEC_Mag
 .public FUN_02021288
 .public FUN_02044658
 .public FUN_02058800

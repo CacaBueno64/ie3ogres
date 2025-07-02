@@ -4527,8 +4527,8 @@ _02004298:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end OS_SignalEvent
 
-	arm_func_start FUN_020042a4
-FUN_020042a4: ; 0x020042A4
+	arm_func_start GX_Init
+GX_Init: ; 0x020042A4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, _020043D0 ; =0x04000304
 	ldr r4, _020043D4 ; =0xFFFFFDF1
@@ -4543,7 +4543,7 @@ FUN_020042a4: ; 0x020042A4
 	ldrh r0, [r1]
 	orr r0, r0, #1
 	strh r0, [r1]
-	bl FUN_02006f0c
+	bl GX_InitGXState
 	ldr r5, _020043D8 ; =0x02093D20
 	ldrh r0, [r5, #2]
 	cmp r0, #0
@@ -4576,14 +4576,14 @@ _02004318:
 	str r5, [sp]
 	add r1, r6, #8
 	mov r3, #0x60
-	bl FUN_02006f7c
+	bl MIi_DmaFill32
 	strh r7, [r6, #0x6c]
 	str r5, [sp]
 	ldr r0, [r4, #4]
 	mov r2, r7
 	add r1, r6, #0x1000
 	mov r3, #0x70
-	bl FUN_02006f7c
+	bl MIi_DmaFill32
 	b _0200439C
 _02004378:
 	mov r0, r7
@@ -4616,7 +4616,7 @@ _020043DC: .word 0x04000004
 _020043E0: .word unk_0208EC78
 _020043E4: .word 0x04000020
 _020043E8: .word 0x04001026
-	arm_func_end FUN_020042a4
+	arm_func_end GX_Init
 
 	arm_func_start GX_SetVCountEqVal
 GX_SetVCountEqVal: ; 0x020043EC
@@ -4632,8 +4632,8 @@ GX_SetVCountEqVal: ; 0x020043EC
 _02004410: .word 0x04000004
 	arm_func_end GX_SetVCountEqVal
 
-	arm_func_start FUN_02004414
-FUN_02004414: ; 0x02004414
+	arm_func_start GX_VBlankIntr
+GX_VBlankIntr: ; 0x02004414
 	ldr r3, _02004444 ; =0x04000004
 	cmp r0, #0
 	ldrh r0, [r3]
@@ -4648,18 +4648,18 @@ FUN_02004414: ; 0x02004414
 	bx lr
 _02004444: .word 0x04000004
 _02004448: .word 0x0000FFF7
-	arm_func_end FUN_02004414
+	arm_func_end GX_VBlankIntr
 
-	arm_func_start FUN_0200444c
-FUN_0200444c: ; 0x0200444C
+	arm_func_start GX_IsDispOn
+GX_IsDispOn: ; 0x0200444C
 	ldr r0, _02004458 ; =0x0208EC78
 	ldrh r0, [r0]
 	bx lr
 _02004458: .word unk_0208EC78
-	arm_func_end FUN_0200444c
+	arm_func_end GX_IsDispOn
 
-	arm_func_start FUN_0200445c
-FUN_0200445c: ; 0x0200445C
+	arm_func_start GX_DispOff
+GX_DispOff: ; 0x0200445C
 	stmfd sp!, {r3, lr}
 	mov lr, #0x4000000
 	ldr r12, [lr]
@@ -4672,14 +4672,14 @@ FUN_0200445c: ; 0x0200445C
 	strh r2, [r0]
 	bic r0, r12, #0x30000
 	str r0, [lr]
-	bl FUN_02017680
+	bl PMi_SetDispOffCount
 	ldmfd sp!, {r3, pc}
 _02004494: .word unk_0208EC78
 _02004498: .word unk_02093D20
-	arm_func_end FUN_0200445c
+	arm_func_end GX_DispOff
 
-	arm_func_start FUN_0200449c
-FUN_0200449c: ; 0x0200449C
+	arm_func_start GX_DispOn
+GX_DispOn: ; 0x0200449C
 	ldr r0, _020044D8 ; =0x02093D20
 	ldr r1, _020044DC ; =0x0208EC78
 	ldrh r2, [r0]
@@ -4697,10 +4697,10 @@ FUN_0200449c: ; 0x0200449C
 	bx lr
 _020044D8: .word unk_02093D20
 _020044DC: .word unk_0208EC78
-	arm_func_end FUN_0200449c
+	arm_func_end GX_DispOn
 
-	arm_func_start FUN_020044e0
-FUN_020044e0: ; 0x020044E0
+	arm_func_start GX_SetGraphicsMode
+GX_SetGraphicsMode: ; 0x020044E0
 	stmfd sp!, {r3, lr}
 	ldr r3, _0200453C ; =0x0208EC78
 	mov lr, #0x4000000
@@ -4727,10 +4727,10 @@ FUN_020044e0: ; 0x020044E0
 _0200453C: .word unk_0208EC78
 _02004540: .word unk_02093D20
 _02004544: .word 0xFFF0FFF0
-	arm_func_end FUN_020044e0
+	arm_func_end GX_SetGraphicsMode
 
-	arm_func_start FUN_02004548
-FUN_02004548: ; 0x02004548
+	arm_func_start GXS_SetGraphicsMode
+GXS_SetGraphicsMode: ; 0x02004548
 	ldr r2, _02004560 ; =0x04001000
 	ldr r1, [r2]
 	bic r1, r1, #7
@@ -4738,10 +4738,10 @@ FUN_02004548: ; 0x02004548
 	str r0, [r2]
 	bx lr
 _02004560: .word 0x04001000
-	arm_func_end FUN_02004548
+	arm_func_end GXS_SetGraphicsMode
 
-	arm_func_start FUN_02004564
-FUN_02004564: ; 0x02004564
+	arm_func_start GXx_SetMasterBrightness_
+GXx_SetMasterBrightness_: ; 0x02004564
 	cmp r1, #0
 	moveq r1, #0
 	streqh r1, [r0]
@@ -4752,7 +4752,7 @@ FUN_02004564: ; 0x02004564
 	orrle r1, r1, #0x8000
 	strleh r1, [r0]
 	bx lr
-	arm_func_end FUN_02004564
+	arm_func_end GXx_SetMasterBrightness_
 
 	arm_func_start FUN_0200458c
 FUN_0200458c: ; 0x0200458C
@@ -4936,8 +4936,8 @@ _020047E4: .word 0x001F0080
 _020047E8: .word 0x040004A4
 	arm_func_end G3X_Init
 
-	arm_func_start FUN_020047ec
-FUN_020047ec: ; 0x020047EC
+	arm_func_start G3X_Reset
+G3X_Reset: ; 0x020047EC
 	stmfd sp!, {r3, lr}
 	ldr r2, _02004848 ; =0x04000600
 _020047F4:
@@ -4954,7 +4954,7 @@ _020047F4:
 	ldrh r0, [r1]
 	orr r0, r0, #0x1000
 	strh r0, [r1]
-	bl FUN_02004914
+	bl G3X_ResetMtxStack
 	ldr r2, _02004850 ; =0x001F0080
 	ldr r1, _02004854 ; =0x040004A4
 	mov r0, #0
@@ -4966,7 +4966,7 @@ _02004848: .word 0x04000600
 _0200484C: .word 0x04000060
 _02004850: .word 0x001F0080
 _02004854: .word 0x040004A4
-	arm_func_end FUN_020047ec
+	arm_func_end G3X_Reset
 
 	arm_func_start G3X_ClearFifo
 G3X_ClearFifo: ; 0x02004858
@@ -5026,8 +5026,8 @@ _0200490C: .word 0x04000440
 _02004910: .word 0x04000454
 	arm_func_end G3X_InitMtxStack
 
-	arm_func_start FUN_02004914
-FUN_02004914: ; 0x02004914
+	arm_func_start G3X_ResetMtxStack
+G3X_ResetMtxStack: ; 0x02004914
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	ldr r1, _0200499C ; =0x04000600
@@ -5066,10 +5066,10 @@ _02004944:
 	ldmfd sp!, {r4, pc}
 _0200499C: .word 0x04000600
 _020049A0: .word 0x04000440
-	arm_func_end FUN_02004914
+	arm_func_end G3X_ResetMtxStack
 
-	arm_func_start FUN_020049A4
-FUN_020049A4: ; 0x020049A4
+	arm_func_start G3X_SetFog
+G3X_SetFog: ; 0x020049A4
 	cmp r0, #0
 	ldreq r2, _020049EC ; =0x04000060
 	ldreq r0, _020049F0 ; =0x0000CF7F
@@ -5091,7 +5091,7 @@ FUN_020049A4: ; 0x020049A4
 _020049EC: .word 0x04000060
 _020049F0: .word 0x0000CF7F
 _020049F4: .word 0x0400035C
-	arm_func_end FUN_020049A4
+	arm_func_end G3X_SetFog
 
 	arm_func_start G3X_GetClipMtx
 G3X_GetClipMtx: ; 0x020049F8
@@ -5125,37 +5125,37 @@ G3X_GetVectorMtx: ; 0x02004A28
 _02004A54: .word 0x04000600
 	arm_func_end G3X_GetVectorMtx
 
-	arm_func_start FUN_02004A58
-FUN_02004A58: ; 0x02004A58
+	arm_func_start G3X_SetEdgeColorTable
+G3X_SetEdgeColorTable: ; 0x02004A58
 	ldr r1, _02004A68 ; =0x04000330
 	ldr r12, _02004A6C ; =MIi_CpuCopy16
 	mov r2, #0x10
 	bx r12
 _02004A68: .word 0x04000330
 _02004A6C: .word MIi_CpuCopy16
-	arm_func_end FUN_02004A58
+	arm_func_end G3X_SetEdgeColorTable
 
-	arm_func_start FUN_02004a70
-FUN_02004a70: ; 0x02004A70
+	arm_func_start G3X_SetFogTable
+G3X_SetFogTable: ; 0x02004A70
 	ldr r1, _02004A7C ; =0x04000360
 	ldr r12, _02004A80 ; =MI_Copy32B
 	bx r12
 _02004A7C: .word 0x04000360
 _02004A80: .word MI_Copy32B
-	arm_func_end FUN_02004a70
+	arm_func_end G3X_SetFogTable
 
-	arm_func_start FUN_02004a84
-FUN_02004a84: ; 0x02004A84
+	arm_func_start G3X_SetFogG3X_SetToonTableTable
+G3X_SetFogG3X_SetToonTableTable: ; 0x02004A84
 	ldr r1, _02004A94 ; =0x04000380
 	ldr r12, _02004A98 ; =MIi_CpuCopy16
 	mov r2, #0x40
 	bx r12
 _02004A94: .word 0x04000380
 _02004A98: .word MIi_CpuCopy16
-	arm_func_end FUN_02004a84
+	arm_func_end G3X_SetFogG3X_SetToonTableTable
 
-	arm_func_start FUN_02004a9c
-FUN_02004a9c: ; 0x02004A9C
+	arm_func_start G3X_SetClearColor
+G3X_SetClearColor: ; 0x02004A9C
 	ldr r12, [sp]
 	orr r0, r0, r1, lsl #16
 	orr r1, r0, r3, lsl #24
@@ -5166,7 +5166,7 @@ FUN_02004a9c: ; 0x02004A9C
 	strh r2, [r0, #4]
 	bx lr
 _02004AC0: .word 0x04000350
-	arm_func_end FUN_02004a9c
+	arm_func_end G3X_SetClearColor
 
 	arm_func_start G3X_InitTable
 G3X_InitTable: ; 0x02004AC4
@@ -5185,13 +5185,13 @@ G3X_InitTable: ; 0x02004AC4
 	mov r2, r7
 	str r6, [sp, #8]
 	mov r3, #0x10
-	bl FUN_0200714c
+	bl MIi_DmaFill32Async
 	str r6, [sp]
 	ldr r0, [r4]
 	mov r2, r7
 	add r1, r5, #0x30
 	mov r3, #0x60
-	bl FUN_02006f7c
+	bl MIi_DmaFill32
 	b _02004B48
 _02004B20:
 	ldr r4, _02004B70 ; =0x04000330
@@ -5250,8 +5250,8 @@ G3X_GetMtxStackLevelPJ: ; 0x02004BA4
 _02004BCC: .word 0x04000600
 	arm_func_end G3X_GetMtxStackLevelPJ
 
-	arm_func_start FUN_02004bd0
-FUN_02004bd0: ; 0x02004BD0
+	arm_func_start G3X_GetBoxTestResult
+G3X_GetBoxTestResult: ; 0x02004BD0
 	ldr r2, _02004BF4 ; =0x04000600
 	ldr r1, [r2]
 	tst r1, #1
@@ -5262,7 +5262,7 @@ FUN_02004bd0: ; 0x02004BD0
 	moveq r0, #0
 	bx lr
 _02004BF4: .word 0x04000600
-	arm_func_end FUN_02004bd0
+	arm_func_end G3X_GetBoxTestResult
 
 	arm_func_start GXi_NopClearFifo128_
 GXi_NopClearFifo128_: ; 0x02004BF8
@@ -5305,8 +5305,8 @@ GXi_NopClearFifo128_: ; 0x02004BF8
 	bx lr
 	arm_func_end GXi_NopClearFifo128_
 
-	arm_func_start FUN_02004c8c
-FUN_02004c8c: ; 0x02004C8C
+	arm_func_start G2_GetBG0ScrPtr
+G2_GetBG0ScrPtr: ; 0x02004C8C
 	ldr r1, _02004CBC ; =0x04000008
 	mov r0, #0x4000000
 	ldrh r1, [r1]
@@ -5320,10 +5320,10 @@ FUN_02004c8c: ; 0x02004C8C
 	add r0, r0, r1, lsl #11
 	bx lr
 _02004CBC: .word 0x04000008
-	arm_func_end FUN_02004c8c
+	arm_func_end G2_GetBG0ScrPtr
 
-	arm_func_start FUN_02004cc0
-FUN_02004cc0: ; 0x02004CC0
+	arm_func_start G2S_GetBG0ScrPtr
+G2S_GetBG0ScrPtr: ; 0x02004CC0
 	ldr r0, _02004CDC ; =0x04001008
 	ldrh r0, [r0]
 	and r0, r0, #0x1f00
@@ -5332,10 +5332,10 @@ FUN_02004cc0: ; 0x02004CC0
 	add r0, r0, #0x6200000
 	bx lr
 _02004CDC: .word 0x04001008
-	arm_func_end FUN_02004cc0
+	arm_func_end G2S_GetBG0ScrPtr
 
-	arm_func_start FUN_02004ce0
-FUN_02004ce0: ; 0x02004CE0
+	arm_func_start G2_GetBG1ScrPtr
+G2_GetBG1ScrPtr: ; 0x02004CE0
 	ldr r1, _02004D10 ; =0x0400000A
 	mov r0, #0x4000000
 	ldrh r1, [r1]
@@ -5349,10 +5349,10 @@ FUN_02004ce0: ; 0x02004CE0
 	add r0, r0, r1, lsl #11
 	bx lr
 _02004D10: .word 0x0400000A
-	arm_func_end FUN_02004ce0
+	arm_func_end G2_GetBG1ScrPtr
 
-	arm_func_start FUN_02004d14
-FUN_02004d14: ; 0x02004D14
+	arm_func_start G2S_GetBG1ScrPtr
+G2S_GetBG1ScrPtr: ; 0x02004D14
 	ldr r0, _02004D30 ; =0x0400100A
 	ldrh r0, [r0]
 	and r0, r0, #0x1f00
@@ -5361,10 +5361,10 @@ FUN_02004d14: ; 0x02004D14
 	add r0, r0, #0x6200000
 	bx lr
 _02004D30: .word 0x0400100A
-	arm_func_end FUN_02004d14
+	arm_func_end G2S_GetBG1ScrPtr
 
-	arm_func_start FUN_02004d34
-FUN_02004d34: ; 0x02004D34
+	arm_func_start G2_GetBG2ScrPtr
+G2_GetBG2ScrPtr: ; 0x02004D34
 	mov r0, #0x4000000
 	ldr r1, [r0]
 	ldrh r3, [r0, #0xc]
@@ -5403,10 +5403,10 @@ _02004DA8:
 _02004DB0:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02004d34
+	arm_func_end G2_GetBG2ScrPtr
 
-	arm_func_start FUN_02004db8
-FUN_02004db8: ; 0x02004DB8
+	arm_func_start G2S_GetBG2ScrPtr
+G2S_GetBG2ScrPtr: ; 0x02004DB8
 	ldr r1, _02004E28 ; =0x04001000
 	ldr r0, [r1]
 	ldrh r1, [r1, #0xc]
@@ -5441,10 +5441,10 @@ _02004E20:
 	mov r0, #0
 	bx lr
 _02004E28: .word 0x04001000
-	arm_func_end FUN_02004db8
+	arm_func_end G2S_GetBG2ScrPtr
 
-	arm_func_start FUN_02004e2c
-FUN_02004e2c: ; 0x02004E2C
+	arm_func_start G2_GetBG3ScrPtr
+G2_GetBG3ScrPtr: ; 0x02004E2C
 	mov r0, #0x4000000
 	ldr r1, [r0]
 	ldrh r3, [r0, #0xe]
@@ -5483,10 +5483,10 @@ _02004EA0:
 _02004EA8:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02004e2c
+	arm_func_end G2_GetBG3ScrPtr
 
-	arm_func_start FUN_02004eb0
-FUN_02004eb0: ; 0x02004EB0
+	arm_func_start G2S_GetBG3ScrPtr
+G2S_GetBG3ScrPtr: ; 0x02004EB0
 	ldr r1, _02004F20 ; =0x04001000
 	ldr r0, [r1]
 	ldrh r1, [r1, #0xe]
@@ -5521,10 +5521,10 @@ _02004F18:
 	mov r0, #0
 	bx lr
 _02004F20: .word 0x04001000
-	arm_func_end FUN_02004eb0
+	arm_func_end G2S_GetBG3ScrPtr
 
-	arm_func_start FUN_02004f24
-FUN_02004f24: ; 0x02004F24
+	arm_func_start G2_GetBG0CharPtr
+G2_GetBG0CharPtr: ; 0x02004F24
 	ldr r1, _02004F54 ; =0x04000008
 	mov r0, #0x4000000
 	ldrh r1, [r1]
@@ -5538,10 +5538,10 @@ FUN_02004f24: ; 0x02004F24
 	add r0, r0, r1, lsl #14
 	bx lr
 _02004F54: .word 0x04000008
-	arm_func_end FUN_02004f24
+	arm_func_end G2_GetBG0CharPtr
 
-	arm_func_start FUN_02004f58
-FUN_02004f58: ; 0x02004F58
+	arm_func_start G2S_GetBG0CharPtr
+G2S_GetBG0CharPtr: ; 0x02004F58
 	ldr r0, _02004F74 ; =0x04001008
 	ldrh r0, [r0]
 	and r0, r0, #0x3c
@@ -5550,10 +5550,10 @@ FUN_02004f58: ; 0x02004F58
 	add r0, r0, #0x6200000
 	bx lr
 _02004F74: .word 0x04001008
-	arm_func_end FUN_02004f58
+	arm_func_end G2S_GetBG0CharPtr
 
-	arm_func_start FUN_02004f78
-FUN_02004f78: ; 0x02004F78
+	arm_func_start G2_GetBG1CharPtr
+G2_GetBG1CharPtr: ; 0x02004F78
 	ldr r1, _02004FA8 ; =0x0400000A
 	mov r0, #0x4000000
 	ldrh r1, [r1]
@@ -5567,10 +5567,10 @@ FUN_02004f78: ; 0x02004F78
 	add r0, r0, r1, lsl #14
 	bx lr
 _02004FA8: .word 0x0400000A
-	arm_func_end FUN_02004f78
+	arm_func_end G2_GetBG1CharPtr
 
-	arm_func_start FUN_02004fac
-FUN_02004fac: ; 0x02004FAC
+	arm_func_start G2S_GetBG1CharPtr
+G2S_GetBG1CharPtr: ; 0x02004FAC
 	ldr r0, _02004FC8 ; =0x0400100A
 	ldrh r0, [r0]
 	and r0, r0, #0x3c
@@ -5579,10 +5579,10 @@ FUN_02004fac: ; 0x02004FAC
 	add r0, r0, #0x6200000
 	bx lr
 _02004FC8: .word 0x0400100A
-	arm_func_end FUN_02004fac
+	arm_func_end G2S_GetBG1CharPtr
 
-	arm_func_start FUN_02004fcc
-FUN_02004fcc: ; 0x02004FCC
+	arm_func_start G2_GetBG2CharPtr
+G2_GetBG2CharPtr: ; 0x02004FCC
 	mov r1, #0x4000000
 	ldr r0, [r1]
 	ldrh r2, [r1, #0xc]
@@ -5605,10 +5605,10 @@ _02004FEC:
 _02005014:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02004fcc
+	arm_func_end G2_GetBG2CharPtr
 
-	arm_func_start FUN_0200501c
-FUN_0200501c: ; 0x0200501C
+	arm_func_start G2S_GetBG2CharPtr
+G2S_GetBG2CharPtr: ; 0x0200501C
 	ldr r1, _02005058 ; =0x04001000
 	ldr r0, [r1]
 	ldrh r1, [r1, #0xc]
@@ -5627,10 +5627,10 @@ _02005050:
 	mov r0, #0
 	bx lr
 _02005058: .word 0x04001000
-	arm_func_end FUN_0200501c
+	arm_func_end G2S_GetBG2CharPtr
 
-	arm_func_start FUN_0200505c
-FUN_0200505c: ; 0x0200505C
+	arm_func_start G2_GetBG3CharPtr
+G2_GetBG3CharPtr: ; 0x0200505C
 	mov r1, #0x4000000
 	ldr r0, [r1]
 	ldrh r2, [r1, #0xe]
@@ -5655,10 +5655,10 @@ _02005084:
 _020050AC:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200505c
+	arm_func_end G2_GetBG3CharPtr
 
-	arm_func_start FUN_020050b4
-FUN_020050b4: ; 0x020050B4
+	arm_func_start G2S_GetBG3CharPtr
+G2S_GetBG3CharPtr: ; 0x020050B4
 	ldr r1, _020050F8 ; =0x04001000
 	ldr r0, [r1]
 	ldrh r1, [r1, #0xe]
@@ -5679,7 +5679,7 @@ _020050F0:
 	mov r0, #0
 	bx lr
 _020050F8: .word 0x04001000
-	arm_func_end FUN_020050b4
+	arm_func_end G2S_GetBG3CharPtr
 
 	arm_func_start FUN_020050fc
 FUN_020050fc: ; 0x020050FC
@@ -5920,7 +5920,7 @@ FUN_020053fc: ; 0x020053FC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004c8c
+	bl G2_GetBG0ScrPtr
 	ldr r1, _02005468 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -5953,7 +5953,7 @@ FUN_0200546c: ; 0x0200546C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004cc0
+	bl G2S_GetBG0ScrPtr
 	ldr r1, _020054D8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -5986,7 +5986,7 @@ FUN_020054dc: ; 0x020054DC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004ce0
+	bl G2_GetBG1ScrPtr
 	ldr r1, _02005548 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6019,7 +6019,7 @@ FUN_0200554c: ; 0x0200554C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004d14
+	bl G2S_GetBG1ScrPtr
 	ldr r1, _020055B8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6052,7 +6052,7 @@ FUN_020055bc: ; 0x020055BC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004d34
+	bl G2_GetBG2ScrPtr
 	ldr r1, _02005628 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6085,7 +6085,7 @@ FUN_0200562c: ; 0x0200562C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004db8
+	bl G2S_GetBG2ScrPtr
 	ldr r1, _02005698 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6118,7 +6118,7 @@ FUN_0200569c: ; 0x0200569C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004e2c
+	bl G2_GetBG3ScrPtr
 	ldr r1, _02005708 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6151,7 +6151,7 @@ FUN_0200570c: ; 0x0200570C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004eb0
+	bl G2S_GetBG3ScrPtr
 	ldr r1, _02005778 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6184,7 +6184,7 @@ FUN_0200577c: ; 0x0200577C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004f24
+	bl G2_GetBG0CharPtr
 	ldr r1, _020057E8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6217,7 +6217,7 @@ FUN_020057ec: ; 0x020057EC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004f58
+	bl G2S_GetBG0CharPtr
 	ldr r1, _02005858 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6250,7 +6250,7 @@ FUN_0200585c: ; 0x0200585C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	ldr r1, _020058C8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6283,7 +6283,7 @@ FUN_020058cc: ; 0x020058CC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004fac
+	bl G2S_GetBG1CharPtr
 	ldr r1, _02005938 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6316,7 +6316,7 @@ FUN_0200593c: ; 0x0200593C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02004fcc
+	bl G2_GetBG2CharPtr
 	ldr r1, _020059A8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6349,7 +6349,7 @@ FUN_020059ac: ; 0x020059AC
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_0200501c
+	bl G2S_GetBG2CharPtr
 	ldr r1, _02005A18 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6382,7 +6382,7 @@ FUN_02005a1c: ; 0x02005A1C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_0200505c
+	bl G2_GetBG3CharPtr
 	ldr r1, _02005A88 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -6415,7 +6415,7 @@ FUN_02005a8c: ; 0x02005A8C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_020050b4
+	bl G2S_GetBG3CharPtr
 	ldr r1, _02005AF8 ; =0x0208EC7C
 	mov lr, r0
 	ldr r0, [r1]
@@ -8064,8 +8064,8 @@ GX_SendFifo48B: ; 0x02006EE8
 	bx lr
 	arm_func_end GX_SendFifo48B
 
-	arm_func_start FUN_02006f0c
-FUN_02006f0c: ; 0x02006F0C
+	arm_func_start GX_InitGXState
+GX_InitGXState: ; 0x02006F0C
 	ldr r0, _02006F64 ; =0x02093D60
 	mov r2, #0
 	strh r2, [r0]
@@ -8090,7 +8090,7 @@ FUN_02006f0c: ; 0x02006F0C
 	bx lr
 _02006F64: .word unk_02093D60
 _02006F68: .word 0x04000240
-	arm_func_end FUN_02006f0c
+	arm_func_end GX_InitGXState
 
 	arm_func_start FUN_02006f6c
 FUN_02006f6c: ; 0x02006F6C
@@ -8100,8 +8100,8 @@ FUN_02006f6c: ; 0x02006F6C
 _02006F78: .word 0x04000247
 	arm_func_end FUN_02006f6c
 
-	arm_func_start FUN_02006f7c
-FUN_02006f7c: ; 0x02006F7C
+	arm_func_start MIi_DmaFill32
+MIi_DmaFill32: ; 0x02006F7C
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	cmp r3, #0
@@ -8139,7 +8139,7 @@ _02006FEC:
 	bne _02006FEC
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_02006f7c
+	arm_func_end MIi_DmaFill32
 
 	arm_func_start FUN_02007000
 FUN_02007000: ; 0x02007000
@@ -8240,8 +8240,8 @@ _02007138:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_020070a4
 
-	arm_func_start FUN_0200714c
-FUN_0200714c: ; 0x0200714C
+	arm_func_start MIi_DmaFill32Async
+MIi_DmaFill32Async: ; 0x0200714C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	movs r8, r3
@@ -8312,7 +8312,7 @@ _02007230:
 	bl FUN_01ff845c
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200714c
+	arm_func_end MIi_DmaFill32Async
 
 	arm_func_start FUN_02007254
 FUN_02007254: ; 0x02007254
@@ -10366,17 +10366,17 @@ FUN_02008cd8: ; 0x02008CD8
 	str r2, [r6, #0x1c]
 	ldr r2, [sp, #0x20]
 	str r2, [r6, #0x20]
-	bl FUN_02009794
+	bl VEC_DotProduct
 	rsb r0, r0, #0
 	str r0, [r6, #0x24]
 	mov r1, r4
 	mov r0, r8
-	bl FUN_02009794
+	bl VEC_DotProduct
 	rsb r0, r0, #0
 	str r0, [r6, #0x28]
 	mov r1, r5
 	mov r0, r8
-	bl FUN_02009794
+	bl VEC_DotProduct
 	rsb r0, r0, #0
 	str r0, [r6, #0x2c]
 	add sp, sp, #0x24
@@ -10916,16 +10916,16 @@ FX_Div: ; 0x0200958C
 	ldmfd sp!, {r3, pc}
 	arm_func_end FX_Div
 
-	arm_func_start FUN_0200959c
-FUN_0200959c: ; 0x0200959C
+	arm_func_start FX_Inv
+FX_Inv: ; 0x0200959C
 	stmfd sp!, {r3, lr}
 	bl FX_InvAsync
 	bl FX_GetDivResult
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200959c
+	arm_func_end FX_Inv
 
-	arm_func_start FUN_020095ac
-FUN_020095ac: ; 0x020095AC
+	arm_func_start FX_Sqrt
+FX_Sqrt: ; 0x020095AC
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	movle r0, #0
@@ -10936,10 +10936,10 @@ FUN_020095ac: ; 0x020095AC
 	mov r2, #0
 	str r2, [r1, #8]
 	str r0, [r1, #0xc]
-	bl FUN_02009668
+	bl FX_GetSqrtResult
 	ldmfd sp!, {r3, pc}
 _020095DC: .word 0x040002B0
-	arm_func_end FUN_020095ac
+	arm_func_end FX_Sqrt
 
 	arm_func_start FX_GetDivResultFx64c
 FX_GetDivResultFx64c: ; 0x020095E0
@@ -10989,8 +10989,8 @@ FX_InvAsync: ; 0x02009638
 _02009664: .word 0x04000280
 	arm_func_end FX_InvAsync
 
-	arm_func_start FUN_02009668
-FUN_02009668: ; 0x02009668
+	arm_func_start FX_GetSqrtResult
+FX_GetSqrtResult: ; 0x02009668
 	ldr r1, _0200968C ; =0x040002B0
 _0200966C:
 	ldrh r0, [r1]
@@ -11003,7 +11003,7 @@ _0200966C:
 	bx lr
 _0200968C: .word 0x040002B0
 _02009690: .word 0x040002B4
-	arm_func_end FUN_02009668
+	arm_func_end FX_GetSqrtResult
 
 	arm_func_start FX_DivAsync
 FX_DivAsync: ; 0x02009694
@@ -11019,8 +11019,8 @@ FX_DivAsync: ; 0x02009694
 _020096B8: .word 0x04000280
 	arm_func_end FX_DivAsync
 
-	arm_func_start FUN_020096bc
-FUN_020096bc: ; 0x020096BC
+	arm_func_start FX_DivS32
+FX_DivS32: ; 0x020096BC
 	ldr r2, _020096F0 ; =0x04000280
 	mov r3, #0
 	strh r3, [r2]
@@ -11037,10 +11037,10 @@ _020096D8:
 	bx lr
 _020096F0: .word 0x04000280
 _020096F4: .word 0x040002A0
-	arm_func_end FUN_020096bc
+	arm_func_end FX_DivS32
 
-	arm_func_start FUN_020096f8
-FUN_020096f8: ; 0x020096F8
+	arm_func_start FX_ModS32
+FX_ModS32: ; 0x020096F8
 	ldr r2, _0200972C ; =0x04000280
 	mov r3, #0
 	strh r3, [r2]
@@ -11057,10 +11057,10 @@ _02009714:
 	bx lr
 _0200972C: .word 0x04000280
 _02009730: .word 0x040002A8
-	arm_func_end FUN_020096f8
+	arm_func_end FX_ModS32
 
-	arm_func_start FUN_02009734
-FUN_02009734: ; 0x02009734
+	arm_func_start VEC_Add
+VEC_Add: ; 0x02009734
 	stmfd sp!, {r4, lr}
 	ldr lr, [r1]
 	ldr r3, [r1, #4]
@@ -11073,10 +11073,10 @@ FUN_02009734: ; 0x02009734
 	add r0, r3, r0
 	str r0, [r2, #8]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02009734
+	arm_func_end VEC_Add
 
-	arm_func_start FUN_02009764
-FUN_02009764: ; 0x02009764
+	arm_func_start VEC_Subtract
+VEC_Subtract: ; 0x02009764
 	stmfd sp!, {r4, lr}
 	ldr lr, [r1]
 	ldr r3, [r1, #4]
@@ -11089,10 +11089,10 @@ FUN_02009764: ; 0x02009764
 	sub r0, r3, r0
 	str r0, [r2, #8]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02009764
+	arm_func_end VEC_Subtract
 
-	arm_func_start FUN_02009794
-FUN_02009794: ; 0x02009794
+	arm_func_start VEC_DotProduct
+VEC_DotProduct: ; 0x02009794
 	stmfd sp!, {r4, lr}
 	ldr r3, [r0, #4]
 	ldr r2, [r1, #4]
@@ -11108,7 +11108,7 @@ FUN_02009794: ; 0x02009794
 	mov r0, r0, lsr #0xc
 	orr r0, r0, r1, lsl #20
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02009794
+	arm_func_end VEC_DotProduct
 
 	arm_func_start VEC_CrossProduct
 VEC_CrossProduct: ; 0x020097D0
@@ -11146,8 +11146,8 @@ VEC_CrossProduct: ; 0x020097D0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end VEC_CrossProduct
 
-	arm_func_start FUN_02009850
-FUN_02009850: ; 0x02009850
+	arm_func_start VEC_Mag
+VEC_Mag: ; 0x02009850
 	ldr r1, [r0, #4]
 	ldr r2, [r0]
 	smull r12, r3, r1, r1
@@ -11173,7 +11173,7 @@ _02009888:
 	bx lr
 _020098A8: .word 0x040002B0
 _020098AC: .word 0x040002B4
-	arm_func_end FUN_02009850
+	arm_func_end VEC_Mag
 
 	arm_func_start VEC_Normalize
 VEC_Normalize: ; 0x020098B0
@@ -11250,8 +11250,8 @@ _020099BC: .word 0x040002B4
 _020099C0: .word 0x040002A0
 	arm_func_end VEC_Normalize
 
-	arm_func_start FUN_020099c4
-FUN_020099c4: ; 0x020099C4
+	arm_func_start VEC_MultAdd
+VEC_MultAdd: ; 0x020099C4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldmia r1, {r4, r12}
 	smull r6, r5, r0, r4
@@ -11274,10 +11274,10 @@ FUN_020099c4: ; 0x020099C4
 	str r4, [r3, #4]
 	str r0, [r3, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_020099c4
+	arm_func_end VEC_MultAdd
 
-	arm_func_start FUN_02009a1c
-FUN_02009a1c: ; 0x02009A1C
+	arm_func_start VEC_Distance
+VEC_Distance: ; 0x02009A1C
 	stmfd sp!, {r4, lr}
 	ldr r3, [r0, #4]
 	ldr r2, [r1, #4]
@@ -11310,7 +11310,7 @@ _02009A70:
 	ldmfd sp!, {r4, pc}
 _02009A90: .word 0x040002B0
 _02009A94: .word 0x040002B4
-	arm_func_end FUN_02009a1c
+	arm_func_end VEC_Distance
 
 	arm_func_start FUN_02009a98
 FUN_02009a98: ; 0x02009A98
@@ -14854,8 +14854,8 @@ _0200C8BC:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0200c88c
 
-	arm_func_start FUN_0200c8c8
-FUN_0200c8c8: ; 0x0200C8C8
+	arm_func_start FSi_IsEventCommand
+FSi_IsEventCommand: ; 0x0200C8C8
 	sub r3, r0, #9
 	cmp r3, #0x1a
 	mov r0, #0
@@ -14866,7 +14866,7 @@ FUN_0200c8c8: ; 0x0200C8C8
 	movne r0, r2
 	bx lr
 _0200C8EC: .word 0x0400030F
-	arm_func_end FUN_0200c8c8
+	arm_func_end FSi_IsEventCommand
 
 	arm_func_start FSi_EndCommand
 FSi_EndCommand: ; 0x0200C8F0
@@ -14899,7 +14899,7 @@ _0200C948:
 	mov r0, r0, lsr #8
 	and r8, r0, #0xff
 	mov r0, r8
-	bl FUN_0200c8c8
+	bl FSi_IsEventCommand
 	cmp r0, #0
 	bne _0200C970
 	cmp r5, #0
@@ -14917,8 +14917,8 @@ _0200C970:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FSi_EndCommand
 
-	arm_func_start FUN_0200c994
-FUN_0200c994: ; 0x0200C994
+	arm_func_start FSi_WaitForArchiveCompletion
+FSi_WaitForArchiveCompletion: ; 0x0200C994
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	cmp r1, #0x100
@@ -14944,10 +14944,10 @@ _0200C9CC:
 _0200C9E4:
 	mov r0, r1
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c994
+	arm_func_end FSi_WaitForArchiveCompletion
 
-	arm_func_start FUN_0200c9ec
-FUN_0200c9ec: ; 0x0200C9EC
+	arm_func_start FSi_InvokeCommand
+FSi_InvokeCommand: ; 0x0200C9EC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r5, r0
@@ -15204,7 +15204,7 @@ _0200CD18:
 	mov r6, #4
 _0200CD1C:
 	mov r0, r4
-	bl FUN_0200c8c8
+	bl FSi_IsEventCommand
 	cmp r0, #0
 	bne _0200CD60
 	ldr r0, [r5, #0xc]
@@ -15212,7 +15212,7 @@ _0200CD1C:
 	beq _0200CD4C
 	mov r0, r5
 	mov r1, r6
-	bl FUN_0200c994
+	bl FSi_WaitForArchiveCompletion
 	mov r6, r0
 	b _0200CD60
 _0200CD4C:
@@ -15225,10 +15225,10 @@ _0200CD60:
 	mov r0, r6
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_0200c9ec
+	arm_func_end FSi_InvokeCommand
 
-	arm_func_start FUN_0200cd6c
-FUN_0200cd6c: ; 0x0200CD6C
+	arm_func_start FSi_NextCommand
+FSi_NextCommand: ; 0x0200CD6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
 	mov r10, r0
@@ -15296,7 +15296,7 @@ _0200CE3C:
 	beq _0200CE68
 	ldr r0, [r10, #8]
 	mov r1, #9
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 _0200CE68:
 	bl OS_DisableInterrupts
 	cmp r9, #0
@@ -15330,7 +15330,7 @@ _0200CEAC:
 	bic r2, r1, #0x10
 	mov r1, #0xa
 	str r2, [r10, #0x14]
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 _0200CEE4:
 	ldr r0, [r10, #0x14]
 	tst r0, #0x40
@@ -15346,10 +15346,10 @@ _0200CF04:
 	mov r0, r7
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0200cd6c
+	arm_func_end FSi_NextCommand
 
-	arm_func_start FUN_0200cf18
-FUN_0200cf18: ; 0x0200CF18
+	arm_func_start FSi_ExecuteAsyncCommand
+FSi_ExecuteAsyncCommand: ; 0x0200CF18
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r5, r0
 	ldr r4, [r5, #8]
@@ -15376,19 +15376,19 @@ _0200CF58:
 	mov r0, r5
 	mov r1, r1, lsr #8
 	and r1, r1, #0xff
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 	cmp r0, #0x100
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r4
 	mov r1, r6
-	bl FUN_0200cd6c
+	bl FSi_NextCommand
 	movs r5, r0
 	bne _0200CF30
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200cf18
+	arm_func_end FSi_ExecuteAsyncCommand
 
-	arm_func_start FUN_0200cf9c
-FUN_0200cf9c: ; 0x0200CF9C
+	arm_func_start FSi_ExecuteSyncCommand
+FSi_ExecuteSyncCommand: ; 0x0200CF9C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
@@ -15414,18 +15414,18 @@ _0200CFCC:
 	mov r1, r1, lsr #8
 	and r1, r1, #0xff
 	ldr r4, [r5, #8]
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 	mov r1, r0
 	mov r0, r5
 	bl FSi_EndCommand
 	mov r0, r4
 	mov r1, #1
-	bl FUN_0200cd6c
+	bl FSi_NextCommand
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_0200cf18
+	bl FSi_ExecuteAsyncCommand
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200cf9c
+	arm_func_end FSi_ExecuteSyncCommand
 
 	arm_func_start FSi_SendCommand
 FSi_SendCommand: ; 0x0200D020
@@ -15497,11 +15497,11 @@ _0200D0FC:
 	beq _0200D150
 	mov r0, r4
 	mov r1, r6
-	bl FUN_0200cd6c
+	bl FSi_NextCommand
 	cmp r8, #0
 	beq _0200D140
 	mov r0, r9
-	bl FUN_0200cf9c
+	bl FSi_ExecuteSyncCommand
 	ldr r0, [r9, #0x14]
 	mov r7, #1
 	cmp r0, #0
@@ -15510,7 +15510,7 @@ _0200D0FC:
 _0200D140:
 	cmp r0, #0
 	beq _0200D14C
-	bl FUN_0200cf18
+	bl FSi_ExecuteAsyncCommand
 _0200D14C:
 	mov r7, #1
 _0200D150:
@@ -15560,8 +15560,8 @@ _0200D1D0:
 _0200D1E0: .word unk_02095924
 	arm_func_end FS_FindArchive
 
-	arm_func_start FUN_0200d1e4
-FUN_0200d1e4: ; 0x0200D1E4
+	arm_func_start FS_SetCurrentDirectory
+FS_SetCurrentDirectory: ; 0x0200D1E4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x160
 	add r8, sp, #0x5c
@@ -15617,7 +15617,7 @@ _0200D2A4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0200D2B0: .word unk_02095924
 _0200D2B4: .word unk_02095A34
-	arm_func_end FUN_0200d1e4
+	arm_func_end FS_SetCurrentDirectory
 
 	arm_func_start FSi_CopySafeString
 FSi_CopySafeString: ; 0x0200D2B8
@@ -15811,7 +15811,7 @@ _0200D534:
 	subgt r6, r6, #1
 	mov r0, r9
 	mov r1, r6
-	bl FUN_0200db78
+	bl FSi_DecrementSjisPositionToSlash
 	add r6, r0, #1
 	b _0200D5A8
 _0200D568:
@@ -15845,7 +15845,7 @@ _0200D5C8:
 	mov r1, #0
 	mov r0, r9
 	strb r1, [r9, r6]
-	bl FUN_0200dbac
+	bl FSi_TrimSjisTrailingSlash
 _0200D5D8:
 	ldr r0, [sp, #8]
 	cmp r0, #0
@@ -15859,8 +15859,8 @@ _0200D5F8: .word unk_02095A34
 _0200D5FC: .word unk_0208EE78
 	arm_func_end FS_NormalizePath
 
-	arm_func_start FUN_0200d600
-FUN_0200d600: ; 0x0200D600
+	arm_func_start FS_InitArchive
+FS_InitArchive: ; 0x0200D600
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #0
 	mov r1, r4
@@ -15870,10 +15870,10 @@ FUN_0200d600: ; 0x0200D600
 	str r4, [r5, #0x10]
 	str r4, [r5, #0xc]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200d600
+	arm_func_end FS_InitArchive
 
-	arm_func_start FUN_0200d624
-FUN_0200d624: ; 0x0200D624
+	arm_func_start FS_RegisterArchiveName
+FS_RegisterArchiveName: ; 0x0200D624
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r1
 	mov r6, r2
@@ -15947,10 +15947,10 @@ _0200D708:
 _0200D718: .word unk_02095924
 _0200D71C: .word unk_02095924
 _0200D720: .word unk_02095934
-	arm_func_end FUN_0200d624
+	arm_func_end FS_RegisterArchiveName
 
-	arm_func_start FUN_0200d724
-FUN_0200d724: ; 0x0200D724
+	arm_func_start FS_ReleaseArchiveName
+FS_ReleaseArchiveName: ; 0x0200D724
 	stmfd sp!, {r4, lr}
 	ldr r1, _0200D7C8 ; =0x02095924
 	mov r4, r0
@@ -15997,7 +15997,7 @@ _0200D784:
 	ldmfd sp!, {r4, pc}
 _0200D7C8: .word unk_02095924
 _0200D7CC: .word unk_02095924
-	arm_func_end FUN_0200d724
+	arm_func_end FS_ReleaseArchiveName
 
 	arm_func_start FS_GetArchiveName
 FS_GetArchiveName: ; 0x0200D7D0
@@ -16007,8 +16007,8 @@ FS_GetArchiveName: ; 0x0200D7D0
 	bx lr
 	arm_func_end FS_GetArchiveName
 
-	arm_func_start FUN_0200d7e0
-FUN_0200d7e0: ; 0x0200D7E0
+	arm_func_start FS_MountArchive
+FS_MountArchive: ; 0x0200D7E0
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	mov r5, r0
@@ -16020,17 +16020,17 @@ FUN_0200d7e0: ; 0x0200D7E0
 	mov r0, r4
 	str r5, [sp, #8]
 	mov r1, #0x11
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 	ldr r1, [r5, #0x14]
 	mov r0, #1
 	orr r1, r1, #2
 	str r1, [r5, #0x14]
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200d7e0
+	arm_func_end FS_MountArchive
 
-	arm_func_start FUN_0200d828
-FUN_0200d828: ; 0x0200D828
+	arm_func_start FS_UnmountArchive
+FS_UnmountArchive: ; 0x0200D828
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x48
 	mov r5, r0
@@ -16043,7 +16043,7 @@ FUN_0200d828: ; 0x0200D828
 	cmp r0, #0
 	beq _0200D8D4
 	mov r0, r5
-	bl FUN_0200d8e8
+	bl FS_SuspendArchive
 	ldr r1, [r5, #0x14]
 	mov r7, r0
 	ldr r0, [r5, #8]
@@ -16065,7 +16065,7 @@ _0200D894:
 	cmp r7, #0
 	beq _0200D8AC
 	mov r0, r5
-	bl FUN_0200d978
+	bl FS_ResumeArchive
 _0200D8AC:
 	add r6, sp, #0
 	mov r0, r6
@@ -16073,7 +16073,7 @@ _0200D8AC:
 	mov r0, r6
 	str r5, [sp, #8]
 	mov r1, #0x12
-	bl FUN_0200c9ec
+	bl FSi_InvokeCommand
 	ldr r0, [r5, #0x14]
 	bic r0, r0, #0xa2
 	str r0, [r5, #0x14]
@@ -16083,10 +16083,10 @@ _0200D8D4:
 	mov r0, #1
 	add sp, sp, #0x48
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200d828
+	arm_func_end FS_UnmountArchive
 
-	arm_func_start FUN_0200d8e8
-FUN_0200d8e8: ; 0x0200D8E8
+	arm_func_start FS_SuspendArchive
+FS_SuspendArchive: ; 0x0200D8E8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
@@ -16126,10 +16126,10 @@ _0200D968:
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200d8e8
+	arm_func_end FS_SuspendArchive
 
-	arm_func_start FUN_0200d978
-FUN_0200d978: ; 0x0200D978
+	arm_func_start FS_ResumeArchive
+FS_ResumeArchive: ; 0x0200D978
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
@@ -16147,17 +16147,17 @@ FUN_0200d978: ; 0x0200D978
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	mov r1, #1
-	bl FUN_0200cd6c
+	bl FSi_NextCommand
 	cmp r0, #0
 	beq _0200D9CC
-	bl FUN_0200cf18
+	bl FSi_ExecuteAsyncCommand
 _0200D9CC:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200d978
+	arm_func_end FS_ResumeArchive
 
-	arm_func_start FUN_0200d9d4
-FUN_0200d9d4: ; 0x0200D9D4
+	arm_func_start FS_NotifyArchiveAsyncEnd
+FS_NotifyArchiveAsyncEnd: ; 0x0200D9D4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldr r5, [r4, #8]
@@ -16181,12 +16181,12 @@ _0200DA1C:
 	bl FSi_EndCommand
 	mov r0, r4
 	mov r1, #1
-	bl FUN_0200cd6c
+	bl FSi_NextCommand
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl FUN_0200cf18
+	bl FSi_ExecuteAsyncCommand
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200d9d4
+	arm_func_end FS_NotifyArchiveAsyncEnd
 
 	arm_func_start FS_WaitAsync
 FS_WaitAsync: ; 0x0200DA40
@@ -16213,7 +16213,7 @@ _0200DA88:
 	cmp r5, #0
 	beq _0200DAA0
 	mov r0, r4
-	bl FUN_0200cf9c
+	bl FSi_ExecuteSyncCommand
 	b _0200DAD0
 _0200DAA0:
 	bl OS_DisableInterrupts
@@ -16238,8 +16238,8 @@ _0200DAD0:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FS_WaitAsync
 
-	arm_func_start FUN_0200dae4
-FUN_0200dae4: ; 0x0200DAE4
+	arm_func_start FSi_DecrementSjisPosition
+FSi_DecrementSjisPosition: ; 0x0200DAE4
 	sub r3, r1, #1
 	b _0200DAF0
 _0200DAEC:
@@ -16259,10 +16259,10 @@ _0200DB10:
 	and r0, r0, #1
 	sub r0, r1, r0
 	bx lr
-	arm_func_end FUN_0200dae4
+	arm_func_end FSi_DecrementSjisPosition
 
-	arm_func_start FUN_0200db24
-FUN_0200db24: ; 0x0200DB24
+	arm_func_start FSi_IncrementSjisPositionToSlash
+FSi_IncrementSjisPositionToSlash: ; 0x0200DB24
 	stmfd sp!, {r3, lr}
 	mov r3, #0
 	mov r12, #1
@@ -16287,15 +16287,15 @@ _0200DB54:
 _0200DB70:
 	mov r0, r1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200db24
+	arm_func_end FSi_IncrementSjisPositionToSlash
 
-	arm_func_start FUN_0200db78
-FUN_0200db78: ; 0x0200DB78
+	arm_func_start FSi_DecrementSjisPositionToSlash
+FSi_DecrementSjisPositionToSlash: ; 0x0200DB78
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 _0200DB80:
 	mov r0, r4
-	bl FUN_0200dae4
+	bl FSi_DecrementSjisPosition
 	movs r1, r0
 	bmi _0200DBA4
 	ldrb r0, [r4, r1]
@@ -16306,17 +16306,17 @@ _0200DB80:
 _0200DBA4:
 	mov r0, r1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200db78
+	arm_func_end FSi_DecrementSjisPositionToSlash
 
-	arm_func_start FUN_0200dbac
-FUN_0200dbac: ; 0x0200DBAC
+	arm_func_start FSi_TrimSjisTrailingSlash
+FSi_TrimSjisTrailingSlash: ; 0x0200DBAC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl STD_GetStringLength
 	mov r4, r0
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0200dae4
+	bl FSi_DecrementSjisPosition
 	cmp r0, #0
 	blt _0200DBE8
 	ldrb r1, [r5, r0]
@@ -16328,7 +16328,7 @@ FUN_0200dbac: ; 0x0200DBAC
 _0200DBE8:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200dbac
+	arm_func_end FSi_TrimSjisTrailingSlash
 
 	arm_func_start FS_InitFile
 FS_InitFile: ; 0x0200DBF0
@@ -16345,8 +16345,8 @@ FS_InitFile: ; 0x0200DBF0
 	bx lr
 	arm_func_end FS_InitFile
 
-	arm_func_start FUN_0200dc1c
-FUN_0200dc1c: ; 0x0200DC1C
+	arm_func_start FS_CancelFile
+FS_CancelFile: ; 0x0200DC1C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
@@ -16366,7 +16366,7 @@ FUN_0200dc1c: ; 0x0200DC1C
 _0200DC5C:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200dc1c
+	arm_func_end FS_CancelFile
 
 	arm_func_start FUN_0200dc64
 FUN_0200dc64: ; 0x0200DC64
@@ -16656,9 +16656,9 @@ _0200DFEC: .word FS_GetFilePosition
 
 	arm_func_start FUN_0200dff0
 FUN_0200dff0: ; 0x0200DFF0
-	ldr r12, _0200DFF8 ; =FUN_0200d1e4
+	ldr r12, _0200DFF8 ; =FS_SetCurrentDirectory
 	bx r12
-_0200DFF8: .word FUN_0200d1e4
+_0200DFF8: .word FS_SetCurrentDirectory
 	arm_func_end FUN_0200dff0
 
 	arm_func_start FSi_InitOverlay
@@ -17130,8 +17130,8 @@ _0200E614:
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end FS_UnloadOverlay
 
-	arm_func_start FUN_0200e620
-FUN_0200e620: ; 0x0200E620
+	arm_func_start FSi_ReadTable
+FSi_ReadTable: ; 0x0200E620
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldr r5, [r4]
@@ -17152,16 +17152,16 @@ _0200E650:
 	blx r12
 	mov r1, r0
 	ldr r0, [r5, #8]
-	bl FUN_0200c994
+	bl FSi_WaitForArchiveCompletion
 _0200E670:
 	ldr r1, [r4, #4]
 	add r1, r1, r6
 	str r1, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200e620
+	arm_func_end FSi_ReadTable
 
-	arm_func_start FUN_0200e680
-FUN_0200e680: ; 0x0200E680
+	arm_func_start FSi_SeekDirDirect
+FSi_SeekDirDirect: ; 0x0200E680
 	stmfd sp!, {r3, lr}
 	ldr r12, [r0, #8]
 	mov r3, #0
@@ -17171,12 +17171,12 @@ FUN_0200e680: ; 0x0200E680
 	str r12, [r0, #0x30]
 	strh r3, [r0, #0x36]
 	str r3, [r0, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200e680
+	arm_func_end FSi_SeekDirDirect
 
-	arm_func_start FUN_0200e6ac
-FUN_0200e6ac: ; 0x0200E6AC
+	arm_func_start FSi_SeekDirDefault
+FSi_SeekDirDefault: ; 0x0200E6AC
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x10
 	mov r6, r0
@@ -17191,7 +17191,7 @@ FUN_0200e6ac: ; 0x0200E6AC
 	add r3, r3, r2, lsl #3
 	mov r2, #8
 	str r3, [sp, #4]
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	movs r3, r0
 	bne _0200E738
 	add r12, r6, #0x20
@@ -17218,10 +17218,10 @@ _0200E738:
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
 _0200E744: .word 0x00000FFF
-	arm_func_end FUN_0200e6ac
+	arm_func_end FSi_SeekDirDefault
 
-	arm_func_start FUN_0200e748
-FUN_0200e748: ; 0x0200E748
+	arm_func_start FSi_ReadDirDefault
+FSi_ReadDirDefault: ; 0x0200E748
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
 	mov r6, r0
@@ -17235,7 +17235,7 @@ FUN_0200e748: ; 0x0200E748
 	mov r0, r4
 	mov r2, r7
 	str r3, [sp, #8]
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, pc}
@@ -17253,7 +17253,7 @@ FUN_0200e748: ; 0x0200E748
 	bne _0200E7E8
 	mov r0, r4
 	add r1, r5, #0x14
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, pc}
@@ -17282,7 +17282,7 @@ _0200E820:
 	add r0, sp, #4
 	add r1, sp, #2
 	mov r2, #2
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	bne _0200E85C
 	ldr r2, [r6, #8]
@@ -17301,10 +17301,10 @@ _0200E85C:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0200E870: .word 0x00000FFF
-	arm_func_end FUN_0200e748
+	arm_func_end FSi_ReadDirDefault
 
-	arm_func_start FUN_0200e874
-FUN_0200e874: ; 0x0200E874
+	arm_func_start FSi_FindPathDefault
+FSi_FindPathDefault: ; 0x0200E874
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x98
 	mov r10, r0
@@ -17315,14 +17315,14 @@ FUN_0200e874: ; 0x0200E874
 	str r3, [sp]
 	mov r4, r2
 	mov r6, #0
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	ldrsb r0, [r7]
 	cmp r0, #0
 	beq _0200EA60
 _0200E8AC:
 	mov r0, r7
 	mov r1, r6
-	bl FUN_0200db24
+	bl FSi_IncrementSjisPositionToSlash
 	mov r9, r0
 	ldrsb r0, [r7, r9]
 	mov r8, #1
@@ -17349,7 +17349,7 @@ _0200E8AC:
 	beq _0200E924
 	ldr r1, [r10, #0x2c]
 	mov r0, r10
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 _0200E924:
 	add r7, r7, #2
 	b _0200EA44
@@ -17369,7 +17369,7 @@ _0200E954:
 	mov r0, r10
 	mov r1, r11
 	mov r2, r4
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	addne sp, sp, #0x98
 	movne r0, #0xb
@@ -17413,7 +17413,7 @@ _0200E9D8:
 	mov r1, #2
 	mov r2, #1
 	add r7, r7, r9
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	b _0200EA44
 _0200EA10:
 	ldr r0, [sp]
@@ -17448,10 +17448,10 @@ _0200EA60:
 	movne r0, #0
 	add sp, sp, #0x98
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0200e874
+	arm_func_end FSi_FindPathDefault
 
-	arm_func_start FUN_0200ea88
-FUN_0200ea88: ; 0x0200EA88
+	arm_func_start FSi_GetPathDefault
+FSi_GetPathDefault: ; 0x0200EA88
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xe0
 	mov r11, r0
@@ -17479,7 +17479,7 @@ FUN_0200ea88: ; 0x0200EA88
 _0200EAE8:
 	mov r0, r8
 	mov r1, r9
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 	add r2, sp, #0x4c
 	str r2, [sp, #0x34]
 	cmp r9, #0
@@ -17488,7 +17488,7 @@ _0200EAE8:
 	mov r2, r7
 	ldreq r10, [sp, #0x30]
 	str r7, [sp, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	bne _0200EB50
 _0200EB20:
@@ -17501,7 +17501,7 @@ _0200EB20:
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	beq _0200EB20
 _0200EB50:
@@ -17526,7 +17526,7 @@ _0200EB64:
 	add r10, r0, #2
 	add r0, sp, #4
 	mov r1, r5
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 	cmp r4, #0x10000
 	ldrne r0, [sp, #0x5c]
 	add r8, sp, #4
@@ -17536,14 +17536,14 @@ _0200EB64:
 _0200EBBC:
 	ldr r1, [sp, #0x30]
 	mov r0, r8
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 	add r0, sp, #0x4c
 	str r0, [sp, #0x34]
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
 	str r7, [sp, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	bne _0200EC28
 _0200EBEC:
@@ -17560,7 +17560,7 @@ _0200EC10:
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	beq _0200EBEC
 _0200EC28:
@@ -17597,7 +17597,7 @@ _0200EC34:
 	bl MI_CpuCopy8
 	mov r0, r9
 	mov r1, r5
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 	cmp r4, #0x10000
 	beq _0200ED30
 	add r3, sp, #0x4c
@@ -17608,7 +17608,7 @@ _0200EC34:
 	mov r2, r8
 	str r3, [sp, #0x38]
 	mov r10, r1
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	bne _0200ED0C
 _0200ECE0:
@@ -17620,7 +17620,7 @@ _0200ECE0:
 	mov r0, r9
 	mov r1, r10
 	mov r2, r8
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	beq _0200ECE0
 _0200ED0C:
@@ -17649,7 +17649,7 @@ _0200ED40:
 _0200ED5C:
 	ldr r1, [sp, #0x30]
 	mov r0, r10
-	bl FUN_0200e680
+	bl FSi_SeekDirDirect
 	add r1, r7, r6
 	str r9, [sp, #0x34]
 	str r11, [sp, #0x38]
@@ -17659,7 +17659,7 @@ _0200ED5C:
 	mov r1, r8
 	mov r2, r4
 	sub r6, r6, #1
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	bne _0200EDE8
 _0200ED98:
@@ -17681,7 +17681,7 @@ _0200EDD0:
 	mov r0, r10
 	mov r1, r8
 	mov r2, r4
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	beq _0200ED98
 _0200EDE8:
@@ -17693,10 +17693,10 @@ _0200EDF4:
 	add sp, sp, #0xe0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0200EE00: .word unk_0208EE80
-	arm_func_end FUN_0200ea88
+	arm_func_end FSi_GetPathDefault
 
-	arm_func_start FUN_0200ee04
-FUN_0200ee04: ; 0x0200EE04
+	arm_func_start FSi_OpenFileFastDefault
+FSi_OpenFileFastDefault: ; 0x0200EE04
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r5, r0
@@ -17716,7 +17716,7 @@ FUN_0200ee04: ; 0x0200EE04
 	add r1, sp, #8
 	mov r2, #8
 	str r3, [sp, #4]
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	addne sp, sp, #0x10
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -17728,13 +17728,13 @@ FUN_0200ee04: ; 0x0200EE04
 	mov r2, #1
 	str r3, [r5, #0x34]
 	str r4, [r5, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200ee04
+	arm_func_end FSi_OpenFileFastDefault
 
-	arm_func_start FUN_0200ee8c
-FUN_0200ee8c: ; 0x0200EE8C
+	arm_func_start FSi_OpenFileDirectDefault
+FSi_OpenFileDirectDefault: ; 0x0200EE8C
 	ldr r3, [r0, #0x30]
 	ldr r2, [r0, #0x34]
 	ldr r1, [r0, #0x38]
@@ -17744,10 +17744,10 @@ FUN_0200ee8c: ; 0x0200EE8C
 	str r1, [r0, #0x20]
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200ee8c
+	arm_func_end FSi_OpenFileDirectDefault
 
-	arm_func_start FUN_0200eeb0
-FUN_0200eeb0: ; 0x0200EEB0
+	arm_func_start FSi_ReadFileDefault
+FSi_ReadFileDefault: ; 0x0200EEB0
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #8]
 	ldr r2, [r0, #0x2c]
@@ -17760,10 +17760,10 @@ FUN_0200eeb0: ; 0x0200EEB0
 	mov r0, lr
 	blx r12
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200eeb0
+	arm_func_end FSi_ReadFileDefault
 
-	arm_func_start FUN_0200eee0
-FUN_0200eee0: ; 0x0200EEE0
+	arm_func_start FSi_WriteFileDefault
+FSi_WriteFileDefault: ; 0x0200EEE0
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #8]
 	ldr r2, [r0, #0x2c]
@@ -17776,16 +17776,16 @@ FUN_0200eee0: ; 0x0200EEE0
 	mov r0, lr
 	blx r12
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200eee0
+	arm_func_end FSi_WriteFileDefault
 
-	arm_func_start FUN_0200ef10
-FUN_0200ef10: ; 0x0200EF10
+	arm_func_start FSi_IgnoredCommand
+FSi_IgnoredCommand: ; 0x0200EF10
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200ef10
+	arm_func_end FSi_IgnoredCommand
 
-	arm_func_start FUN_0200ef18
-FUN_0200ef18: ; 0x0200EF18
+	arm_func_start FSi_TranslateCommand
+FSi_TranslateCommand: ; 0x0200EF18
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	ldr r3, [r9, #8]
@@ -17835,17 +17835,17 @@ _0200EFC0:
 	beq _0200EFD8
 	mov r0, r9
 	mov r1, r2
-	bl FUN_0200c994
+	bl FSi_WaitForArchiveCompletion
 	mov r2, r0
 _0200EFD8:
 	mov r0, r2
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0200EFE0: .word 0x00000101
 _0200EFE4: .word unk_0208BDB4
-	arm_func_end FUN_0200ef18
+	arm_func_end FSi_TranslateCommand
 
-	arm_func_start FUN_0200efe8
-FUN_0200efe8: ; 0x0200EFE8
+	arm_func_start FSi_ROMFAT_ReadFile
+FSi_ROMFAT_ReadFile: ; 0x0200EFE8
 	stmfd sp!, {r3, lr}
 	ldr r0, [r1, #4]
 	ldr lr, [r3]
@@ -17861,12 +17861,12 @@ FUN_0200efe8: ; 0x0200EFE8
 	str r2, [r1, #0x38]
 	mov r1, #0
 	mov r2, r1
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200efe8
+	arm_func_end FSi_ROMFAT_ReadFile
 
-	arm_func_start FUN_0200f02c
-FUN_0200f02c: ; 0x0200F02C
+	arm_func_start FSi_ROMFAT_WriteFile
+FSi_ROMFAT_WriteFile: ; 0x0200F02C
 	stmfd sp!, {r3, lr}
 	ldr r0, [r1, #4]
 	ldr lr, [r3]
@@ -17882,12 +17882,12 @@ FUN_0200f02c: ; 0x0200F02C
 	str r2, [r1, #0x38]
 	mov r1, #1
 	mov r2, #0
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200f02c
+	arm_func_end FSi_ROMFAT_WriteFile
 
-	arm_func_start FUN_0200f070
-FUN_0200f070: ; 0x0200F070
+	arm_func_start FSi_ROMFAT_SeekDirectory
+FSi_ROMFAT_SeekDirectory: ; 0x0200F070
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
@@ -17900,7 +17900,7 @@ FUN_0200f070: ; 0x0200F070
 	str r5, [r4, #0x30]
 	strh r12, [r4, #0x36]
 	str r3, [r4, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r2, [r4, #0xc]
@@ -17910,10 +17910,10 @@ FUN_0200f070: ; 0x0200F070
 	str r2, [r4, #0xc]
 	stmib r4, {r1, r5}
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f070
+	arm_func_end FSi_ROMFAT_SeekDirectory
 
-	arm_func_start FUN_0200f0c8
-FUN_0200f0c8: ; 0x0200F0C8
+	arm_func_start FSi_ROMFAT_ReadDirectory
+FSi_ROMFAT_ReadDirectory: ; 0x0200F0C8
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xa4
 	add r3, sp, #0x10
@@ -17925,7 +17925,7 @@ FUN_0200f0c8: ; 0x0200F0C8
 	str r4, [r1, #0x34]
 	mov r1, #3
 	mov r2, #1
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	movs r5, r0
 	bne _0200F1E4
 	str r4, [r6, #0x10]
@@ -17965,7 +17965,7 @@ _0200F150:
 	add r1, sp, #8
 	mov r2, #8
 	str r3, [sp, #4]
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	bne _0200F1C8
 	ldr r2, [sp, #0xc]
@@ -17974,7 +17974,7 @@ _0200F150:
 	sub r1, r2, r1
 	str r1, [r6, #0x168]
 	ldr r1, [sp, #8]
-	bl FUN_0200fae0
+	bl FSi_IsUnreadableRomOffset
 	cmp r0, #0
 	ldrne r0, [r6, #0x11c]
 	orrne r0, r0, #0x400
@@ -17991,10 +17991,10 @@ _0200F1E4:
 	mov r0, r5
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200f0c8
+	arm_func_end FSi_ROMFAT_ReadDirectory
 
-	arm_func_start FUN_0200f1f0
-FUN_0200f1f0: ; 0x0200F1F0
+	arm_func_start FSi_ROMFAT_FindPath
+FSi_ROMFAT_FindPath: ; 0x0200F1F0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x54
 	add r4, sp, #0xc
@@ -18018,7 +18018,7 @@ FUN_0200f1f0: ; 0x0200F1F0
 	strh lr, [sp, #0x42]
 	str lr, [sp, #0x44]
 	str r3, [sp, #0x50]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	addne sp, sp, #0x54
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -18030,10 +18030,10 @@ FUN_0200f1f0: ; 0x0200F1F0
 	streq r1, [r5]
 	add sp, sp, #0x54
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200f1f0
+	arm_func_end FSi_ROMFAT_FindPath
 
-	arm_func_start FUN_0200f27c
-FUN_0200f27c: ; 0x0200F27C
+	arm_func_start FSi_ROMFAT_GetPath
+FSi_ROMFAT_GetPath: ; 0x0200F27C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
 	mov r0, #0
@@ -18046,15 +18046,15 @@ FUN_0200f27c: ; 0x0200F27C
 	mov r1, #5
 	mov r2, #1
 	str r3, [r5, #0x34]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	ldreq r1, [r5, #0x34]
 	streq r1, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f27c
+	arm_func_end FSi_ROMFAT_GetPath
 
-	arm_func_start FUN_0200f2c0
-FUN_0200f2c0: ; 0x0200F2C0
+	arm_func_start FSi_ROMFAT_OpenFileFast
+FSi_ROMFAT_OpenFileFast: ; 0x0200F2C0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
@@ -18063,7 +18063,7 @@ FUN_0200f2c0: ; 0x0200F2C0
 	mov r1, #6
 	mov r2, #1
 	str r5, [r4, #0x30]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r2, [r4, #0xc]
@@ -18073,10 +18073,10 @@ FUN_0200f2c0: ; 0x0200F2C0
 	str r2, [r4, #0xc]
 	stmib r4, {r1, r5}
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f2c0
+	arm_func_end FSi_ROMFAT_OpenFileFast
 
-	arm_func_start FUN_0200f308
-FUN_0200f308: ; 0x0200F308
+	arm_func_start FSi_ROMFAT_OpenFileDirect
+FSi_ROMFAT_OpenFileDirect: ; 0x0200F308
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	str r2, [r4, #0x30]
@@ -18088,7 +18088,7 @@ FUN_0200f308: ; 0x0200F308
 	mov r1, #7
 	mov r2, #1
 	str r3, [r4, #0x38]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r2, [r4, #0xc]
@@ -18098,26 +18098,26 @@ FUN_0200f308: ; 0x0200F308
 	str r2, [r4, #0xc]
 	stmib r4, {r1, r5}
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f308
+	arm_func_end FSi_ROMFAT_OpenFileDirect
 
-	arm_func_start FUN_0200f35c
-FUN_0200f35c: ; 0x0200F35C
+	arm_func_start FSi_ROMFAT_CloseFile
+FSi_ROMFAT_CloseFile: ; 0x0200F35C
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	mov r0, r4
 	mov r1, #8
 	mov r2, #1
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	ldr r1, [r4, #0xc]
 	mov r2, #0
 	bic r1, r1, #0x30
 	str r2, [r4, #4]
 	str r1, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200f35c
+	arm_func_end FSi_ROMFAT_CloseFile
 
-	arm_func_start FUN_0200f38c
-FUN_0200f38c: ; 0x0200F38C
+	arm_func_start FSi_ROMFAT_Activate
+FSi_ROMFAT_Activate: ; 0x0200F38C
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	add r4, sp, #0
@@ -18128,13 +18128,13 @@ FUN_0200f38c: ; 0x0200F38C
 	mov r1, #9
 	mov r2, #0
 	str r5, [sp, #8]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f38c
+	arm_func_end FSi_ROMFAT_Activate
 
-	arm_func_start FUN_0200f3c0
-FUN_0200f3c0: ; 0x0200F3C0
+	arm_func_start FSi_ROMFAT_Idle
+FSi_ROMFAT_Idle: ; 0x0200F3C0
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	add r4, sp, #0
@@ -18145,13 +18145,13 @@ FUN_0200f3c0: ; 0x0200F3C0
 	mov r1, #0xa
 	mov r2, #0
 	str r5, [sp, #8]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f3c0
+	arm_func_end FSi_ROMFAT_Idle
 
-	arm_func_start FUN_0200f3f4
-FUN_0200f3f4: ; 0x0200F3F4
+	arm_func_start FSi_ROMFAT_Suspend
+FSi_ROMFAT_Suspend: ; 0x0200F3F4
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	add r4, sp, #0
@@ -18162,13 +18162,13 @@ FUN_0200f3f4: ; 0x0200F3F4
 	mov r1, #0xb
 	mov r2, #0
 	str r5, [sp, #8]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f3f4
+	arm_func_end FSi_ROMFAT_Suspend
 
-	arm_func_start FUN_0200f428
-FUN_0200f428: ; 0x0200F428
+	arm_func_start FSi_ROMFAT_Resume
+FSi_ROMFAT_Resume: ; 0x0200F428
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	add r4, sp, #0
@@ -18179,13 +18179,13 @@ FUN_0200f428: ; 0x0200F428
 	mov r1, #0xc
 	mov r2, #0
 	str r5, [sp, #8]
-	bl FUN_0200ef18
+	bl FSi_TranslateCommand
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f428
+	arm_func_end FSi_ROMFAT_Resume
 
-	arm_func_start FUN_0200f45c
-FUN_0200f45c: ; 0x0200F45C
+	arm_func_start FSi_ROMFAT_OpenFile
+FSi_ROMFAT_OpenFile: ; 0x0200F45C
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	mov r4, r1
@@ -18195,7 +18195,7 @@ FUN_0200f45c: ; 0x0200F45C
 	add r3, sp, #4
 	mov r5, r0
 	str r12, [sp]
-	bl FUN_0200f1f0
+	bl FSi_ROMFAT_FindPath
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -18203,13 +18203,13 @@ FUN_0200f45c: ; 0x0200F45C
 	ldr r3, [sp, #0x18]
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0200f2c0
+	bl FSi_ROMFAT_OpenFileFast
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f45c
+	arm_func_end FSi_ROMFAT_OpenFile
 
-	arm_func_start FUN_0200f4ac
-FUN_0200f4ac: ; 0x0200F4AC
+	arm_func_start FSi_ROMFAT_SeekFile
+FSi_ROMFAT_SeekFile: ; 0x0200F4AC
 	cmp r3, #0
 	ldr r1, [r1, #4]
 	ldr r12, [r2]
@@ -18243,10 +18243,10 @@ _0200F508:
 	str r12, [r2]
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200f4ac
+	arm_func_end FSi_ROMFAT_SeekFile
 
-	arm_func_start FUN_0200f518
-FUN_0200f518: ; 0x0200F518
+	arm_func_start FSi_ROMFAT_GetFileLength
+FSi_ROMFAT_GetFileLength: ; 0x0200F518
 	ldr r1, [r1, #4]
 	mov r0, #0
 	ldr r3, [r1, #8]
@@ -18254,10 +18254,10 @@ FUN_0200f518: ; 0x0200F518
 	sub r1, r3, r1
 	str r1, [r2]
 	bx lr
-	arm_func_end FUN_0200f518
+	arm_func_end FSi_ROMFAT_GetFileLength
 
-	arm_func_start FUN_0200f534
-FUN_0200f534: ; 0x0200F534
+	arm_func_start FSi_ROMFAT_GetFilePosition
+FSi_ROMFAT_GetFilePosition: ; 0x0200F534
 	ldr r1, [r1, #4]
 	mov r0, #0
 	ldr r3, [r1, #0xc]
@@ -18265,13 +18265,13 @@ FUN_0200f534: ; 0x0200F534
 	sub r1, r3, r1
 	str r1, [r2]
 	bx lr
-	arm_func_end FUN_0200f534
+	arm_func_end FSi_ROMFAT_GetFilePosition
 
-	arm_func_start FUN_0200f550
-FUN_0200f550: ; 0x0200F550
+	arm_func_start FSi_ROMFAT_Unmount
+FSi_ROMFAT_Unmount: ; 0x0200F550
 	stmfd sp!, {r4, lr}
 	ldr r4, [r0, #0x20]
-	bl FUN_0200fac4
+	bl FS_IsArchiveTableLoaded
 	mov r0, #0
 	str r0, [r4]
 	str r0, [r4, #4]
@@ -18281,17 +18281,17 @@ FUN_0200f550: ; 0x0200F550
 	str r0, [r4, #0x14]
 	str r0, [r4, #0x18]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200f550
+	arm_func_end FSi_ROMFAT_Unmount
 
-	arm_func_start FUN_0200f580
-FUN_0200f580: ; 0x0200F580
+	arm_func_start FSi_ROMFAT_GetArchiveCaps
+FSi_ROMFAT_GetArchiveCaps: ; 0x0200F580
 	mov r0, #0
 	str r0, [r1]
 	bx lr
-	arm_func_end FUN_0200f580
+	arm_func_end FSi_ROMFAT_GetArchiveCaps
 
-	arm_func_start FUN_0200f58c
-FUN_0200f58c: ; 0x0200F58C
+	arm_func_start FSi_ROMFAT_OpenDirectory
+FSi_ROMFAT_OpenDirectory: ; 0x0200F58C
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r4, #0
@@ -18303,7 +18303,7 @@ FUN_0200f58c: ; 0x0200F58C
 	mov r12, #1
 	mov r6, r0
 	str r12, [sp]
-	bl FUN_0200f1f0
+	bl FSi_ROMFAT_FindPath
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -18311,23 +18311,23 @@ FUN_0200f58c: ; 0x0200F58C
 	mov r0, r6
 	mov r1, r5
 	mov r3, r4
-	bl FUN_0200f070
+	bl FSi_ROMFAT_SeekDirectory
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200f58c
+	arm_func_end FSi_ROMFAT_OpenDirectory
 
-	arm_func_start FUN_0200f5e4
-FUN_0200f5e4: ; 0x0200F5E4
+	arm_func_start FSi_ROMFAT_CloseDirectory
+FSi_ROMFAT_CloseDirectory: ; 0x0200F5E4
 	ldr r2, [r1, #0xc]
 	mov r0, #0
 	bic r2, r2, #0x30
 	str r0, [r1, #4]
 	str r2, [r1, #0xc]
 	bx lr
-	arm_func_end FUN_0200f5e4
+	arm_func_end FSi_ROMFAT_CloseDirectory
 
-	arm_func_start FUN_0200f5fc
-FUN_0200f5fc: ; 0x0200F5FC
+	arm_func_start FSi_ROMFAT_GetPathInfo
+FSi_ROMFAT_GetPathInfo: ; 0x0200F5FC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x18
 	mov r4, #0
@@ -18348,7 +18348,7 @@ FUN_0200f5fc: ; 0x0200F5FC
 	mov r1, r8
 	mov r2, r7
 	mov r3, r10
-	bl FUN_0200f1f0
+	bl FSi_ROMFAT_FindPath
 	cmp r0, #0
 	bne _0200F670
 	mov r0, #0x100
@@ -18363,7 +18363,7 @@ _0200F670:
 	mov r2, r7
 	mov r3, r10
 	str r4, [sp]
-	bl FUN_0200f1f0
+	bl FSi_ROMFAT_FindPath
 	cmp r0, #0
 	bne _0200F710
 	str r4, [r6]
@@ -18383,7 +18383,7 @@ _0200F670:
 	add r1, sp, #0xc
 	mov r2, #8
 	str r3, [sp, #8]
-	bl FUN_0200e620
+	bl FSi_ReadTable
 	cmp r0, #0
 	bne _0200F70C
 	ldr r2, [sp, #0x10]
@@ -18392,7 +18392,7 @@ _0200F670:
 	sub r1, r2, r1
 	str r1, [r6, #0x4c]
 	ldr r1, [sp, #0xc]
-	bl FUN_0200fae0
+	bl FSi_IsUnreadableRomOffset
 	cmp r0, #0
 	ldrne r0, [r6]
 	orrne r0, r0, #0x400
@@ -18406,13 +18406,13 @@ _0200F710:
 	str r1, [r6]
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_0200f5fc
+	arm_func_end FSi_ROMFAT_GetPathInfo
 
-	arm_func_start FUN_0200f728
-FUN_0200f728: ; 0x0200F728
+	arm_func_start FSi_ROMFAT_GetArchiveResource
+FSi_ROMFAT_GetArchiveResource: ; 0x0200F728
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_0200ff74
+	bl CARD_GetRomHeader
 	mov lr, #0
 	str lr, [r4, #0x20]
 	str lr, [r4, #0x24]
@@ -18430,39 +18430,39 @@ FUN_0200f728: ; 0x0200F728
 	str r1, [r4, #0x18]
 	str lr, [r4, #0x1c]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200f728
+	arm_func_end FSi_ROMFAT_GetArchiveResource
 
-	arm_func_start FUN_0200f778
-FUN_0200f778: ; 0x0200F778
+	arm_func_start FSi_ReadMemCallback
+FSi_ReadMemCallback: ; 0x0200F778
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
 	mov r4, r3
 	mov r1, r2
-	bl FUN_0200fab4
+	bl FS_GetArchiveOffset
 	mov r1, r5
 	mov r2, r4
 	bl MI_CpuCopy8
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f778
+	arm_func_end FSi_ReadMemCallback
 
-	arm_func_start FUN_0200f7a0
-FUN_0200f7a0: ; 0x0200F7A0
+	arm_func_start FSi_WriteMemCallback
+FSi_WriteMemCallback: ; 0x0200F7A0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
 	mov r4, r3
 	mov r1, r2
-	bl FUN_0200fab4
+	bl FS_GetArchiveOffset
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MI_CpuCopy8
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200f7a0
+	arm_func_end FSi_WriteMemCallback
 
-	arm_func_start FUN_0200f7cc
-FUN_0200f7cc: ; 0x0200F7CC
+	arm_func_start FS_LoadArchive
+FS_LoadArchive: ; 0x0200F7CC
 	stmfd sp!, {r4, lr}
 	ldr r12, [sp, #8]
 	ldr r4, [sp, #0x10]
@@ -18470,11 +18470,11 @@ FUN_0200f7cc: ; 0x0200F7CC
 	str r12, [r0, #0x40]
 	ldr lr, [sp, #0xc]
 	cmp r4, #0
-	ldreq r4, _0200F82C ; =FUN_0200f778
+	ldreq r4, _0200F82C ; =FSi_ReadMemCallback
 	ldr r12, [sp, #0x14]
 	str r1, [r0, #0x28]
 	cmp r12, #0
-	ldreq r12, _0200F830 ; =FUN_0200f7a0
+	ldreq r12, _0200F830 ; =FSi_WriteMemCallback
 	str r3, [r0, #0x30]
 	mov r3, #0
 	str r2, [r0, #0x2c]
@@ -18485,19 +18485,19 @@ FUN_0200f7cc: ; 0x0200F7CC
 	str r4, [r0, #0x48]
 	str r12, [r0, #0x4c]
 	str r3, [r0, #0x44]
-	bl FUN_0200d7e0
+	bl FS_MountArchive
 	ldmfd sp!, {r4, pc}
-_0200F82C: .word FUN_0200f778
-_0200F830: .word FUN_0200f7a0
+_0200F82C: .word FSi_ReadMemCallback
+_0200F830: .word FSi_WriteMemCallback
 _0200F834: .word unk_0208BDE8
-	arm_func_end FUN_0200f7cc
+	arm_func_end FS_LoadArchive
 
-	arm_func_start FUN_0200f838
-FUN_0200f838: ; 0x0200F838
-	ldr r12, _0200F840 ; =FUN_0200d828
+	arm_func_start FS_UnloadArchive
+FS_UnloadArchive: ; 0x0200F838
+	ldr r12, _0200F840 ; =FS_UnmountArchive
 	bx r12
-_0200F840: .word FUN_0200d828
-	arm_func_end FUN_0200f838
+_0200F840: .word FS_UnmountArchive
+	arm_func_end FS_UnloadArchive
 
 	arm_func_start FSi_GetFileLengthIfProc
 FSi_GetFileLengthIfProc: ; 0x0200F844
@@ -18511,7 +18511,7 @@ FSi_GetFileLengthIfProc: ; 0x0200F844
 	mov r4, #0
 	bne _0200F878
 	mov r1, lr
-	bl FUN_0200f518
+	bl FSi_ROMFAT_GetFileLength
 	cmp r0, #0
 	moveq r4, #1
 _0200F878:
@@ -18532,7 +18532,7 @@ FSi_GetFilePositionIfProc: ; 0x0200F884
 	mov r4, #0
 	bne _0200F8B8
 	mov r1, lr
-	bl FUN_0200f534
+	bl FSi_ROMFAT_GetFilePosition
 	cmp r0, #0
 	moveq r4, #1
 _0200F8B8:
@@ -18541,8 +18541,8 @@ _0200F8B8:
 _0200F8C0: .word unk_0208BDE8
 	arm_func_end FSi_GetFilePositionIfProc
 
-	arm_func_start FUN_0200f8c4
-FUN_0200f8c4: ; 0x0200F8C4
+	arm_func_start FS_SetArchiveProc
+FS_SetArchiveProc: ; 0x0200F8C4
 	cmp r2, #0
 	moveq r1, #0
 	beq _0200F8D8
@@ -18552,21 +18552,21 @@ _0200F8D8:
 	str r1, [r0, #0x54]
 	str r2, [r0, #0x58]
 	bx lr
-	arm_func_end FUN_0200f8c4
+	arm_func_end FS_SetArchiveProc
 
-	arm_func_start FUN_0200f8e4
-FUN_0200f8e4: ; 0x0200F8E4
+	arm_func_start FS_LoadArchiveTables
+FS_LoadArchiveTables: ; 0x0200F8E4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x4c
 	movs r8, r1
 	mov r9, r0
 	mov r4, r2
 	beq _0200F910
-	bl FUN_0200fac4
+	bl FS_IsArchiveTableLoaded
 	cmp r0, #0
 	beq _0200F910
 	mov r0, r9
-	bl FUN_0200fa24
+	bl FS_UnloadArchiveTables
 _0200F910:
 	ldr r5, [r9, #0x20]
 	ldr r1, [r5, #8]
@@ -18642,10 +18642,10 @@ _0200FA18:
 	mov r0, r6
 	add sp, sp, #0x4c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0200f8e4
+	arm_func_end FS_LoadArchiveTables
 
-	arm_func_start FUN_0200fa24
-FUN_0200fa24: ; 0x0200FA24
+	arm_func_start FS_UnloadArchiveTables
+FS_UnloadArchiveTables: ; 0x0200FA24
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	ldr r0, [r7, #0x14]
@@ -18657,10 +18657,10 @@ FUN_0200fa24: ; 0x0200FA24
 	beq _0200FAA0
 	mov r0, r7
 	ldr r5, [r7, #0x20]
-	bl FUN_0200d8e8
+	bl FS_SuspendArchive
 	mov r6, r0
 	mov r0, r7
-	bl FUN_0200fac4
+	bl FS_IsArchiveTableLoaded
 	cmp r0, #0
 	beq _0200FA90
 	ldr r1, [r7, #0x14]
@@ -18677,35 +18677,35 @@ _0200FA90:
 	cmp r6, #0
 	beq _0200FAA0
 	mov r0, r7
-	bl FUN_0200d978
+	bl FS_ResumeArchive
 _0200FAA0:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200fa24
+	arm_func_end FS_UnloadArchiveTables
 
-	arm_func_start FUN_0200faa8
-FUN_0200faa8: ; 0x0200FAA8
+	arm_func_start FS_GetArchiveBase
+FS_GetArchiveBase: ; 0x0200FAA8
 	ldr r0, [r0, #0x20]
 	ldr r0, [r0]
 	bx lr
-	arm_func_end FUN_0200faa8
+	arm_func_end FS_GetArchiveBase
 
-	arm_func_start FUN_0200fab4
-FUN_0200fab4: ; 0x0200FAB4
+	arm_func_start FS_GetArchiveOffset
+FS_GetArchiveOffset: ; 0x0200FAB4
 	ldr r0, [r0, #0x20]
 	ldr r0, [r0]
 	add r0, r0, r1
 	bx lr
-	arm_func_end FUN_0200fab4
+	arm_func_end FS_GetArchiveOffset
 
-	arm_func_start FUN_0200fac4
-FUN_0200fac4: ; 0x0200FAC4
+	arm_func_start FS_IsArchiveTableLoaded
+FS_IsArchiveTableLoaded: ; 0x0200FAC4
 	ldr r0, [r0, #0x14]
 	tst r0, #4
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_0200fac4
+	arm_func_end FS_IsArchiveTableLoaded
 
 	arm_func_start FS_GetFileImageTop
 FS_GetFileImageTop: ; 0x0200FAD8
@@ -18713,30 +18713,30 @@ FS_GetFileImageTop: ; 0x0200FAD8
 	bx lr
 	arm_func_end FS_GetFileImageTop
 
-	arm_func_start FUN_0200fae0
-FUN_0200fae0: ; 0x0200FAE0
+	arm_func_start FSi_IsUnreadableRomOffset
+FSi_IsUnreadableRomOffset: ; 0x0200FAE0
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200fae0
+	arm_func_end FSi_IsUnreadableRomOffset
 
-	arm_func_start FUN_0200fae8
-FUN_0200fae8: ; 0x0200FAE8
+	arm_func_start FSi_OnRomReadDone
+FSi_OnRomReadDone: ; 0x0200FAE8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_020114f8
+	bl CARD_IsPulledOut
 	cmp r0, #0
 	mov r1, #5
 	moveq r1, #0
 	mov r0, r4
-	bl FUN_0200d9d4
+	bl FS_NotifyArchiveAsyncEnd
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200fae8
+	arm_func_end FSi_OnRomReadDone
 
-	arm_func_start FUN_0200fb0c
-FUN_0200fb0c: ; 0x0200FB0C
+	arm_func_start FSi_ReadRomCallback
+FSi_ReadRomCallback: ; 0x0200FB0C
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
-	ldr r12, _0200FB4C ; =FUN_0200fae8
+	ldr r12, _0200FB4C ; =FSi_OnRomReadDone
 	mov lr, r1
 	str r12, [sp]
 	str r0, [sp, #4]
@@ -18746,16 +18746,16 @@ FUN_0200fb0c: ; 0x0200FB0C
 	mov r1, r2
 	ldr r0, [r0]
 	mov r2, lr
-	bl FUN_0201121c
+	bl CARDi_ReadRom
 	mov r0, #0x100
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
-_0200FB4C: .word FUN_0200fae8
+_0200FB4C: .word FSi_OnRomReadDone
 _0200FB50: .word unk_02095B54
-	arm_func_end FUN_0200fb0c
+	arm_func_end FSi_ReadRomCallback
 
-	arm_func_start FUN_0200fb54
-FUN_0200fb54: ; 0x0200FB54
+	arm_func_start FSi_RomArchiveProc
+FSi_RomArchiveProc: ; 0x0200FB54
 	stmfd sp!, {r3, lr}
 	cmp r1, #1
 	beq _0200FBAC
@@ -18777,7 +18777,7 @@ _0200FB90:
 	ldr r0, [r0, #4]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_0200fffc
+	bl CARD_UnlockRom
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _0200FBAC:
@@ -18788,37 +18788,37 @@ _0200FBB4:
 	ldmfd sp!, {r3, pc}
 _0200FBBC: .word unk_02095B54
 _0200FBC0: .word 0x00000102
-	arm_func_end FUN_0200fb54
+	arm_func_end FSi_RomArchiveProc
 
-	arm_func_start FUN_0200fbc4
-FUN_0200fbc4: ; 0x0200FBC4
+	arm_func_start FSi_EmptyArchiveProc
+FSi_EmptyArchiveProc: ; 0x0200FBC4
 	mov r0, #4
 	cmp r1, #1
 	ldrne r0, _0200FBD4 ; =0x00000102
 	bx lr
 _0200FBD4: .word 0x00000102
-	arm_func_end FUN_0200fbc4
+	arm_func_end FSi_EmptyArchiveProc
 
-	arm_func_start FUN_0200fbd8
-FUN_0200fbd8: ; 0x0200FBD8
+	arm_func_start FSi_ReadDummyCallback
+FSi_ReadDummyCallback: ; 0x0200FBD8
 	mov r0, #4
 	bx lr
-	arm_func_end FUN_0200fbd8
+	arm_func_end FSi_ReadDummyCallback
 
-	arm_func_start FUN_0200fbe0
-FUN_0200fbe0: ; 0x0200FBE0
+	arm_func_start FSi_WriteDummyCallback
+FSi_WriteDummyCallback: ; 0x0200FBE0
 	mov r0, #4
 	bx lr
-	arm_func_end FUN_0200fbe0
+	arm_func_end FSi_WriteDummyCallback
 
-	arm_func_start FUN_0200fbe8
-FUN_0200fbe8: ; 0x0200FBE8
+	arm_func_start FSi_OverrideRomArchive
+FSi_OverrideRomArchive: ; 0x0200FBE8
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0200fbe8
+	arm_func_end FSi_OverrideRomArchive
 
-	arm_func_start FUN_0200fbf0
-FUN_0200fbf0: ; 0x0200FBF0
+	arm_func_start FSi_InitRomArchive
+FSi_InitRomArchive: ; 0x0200FBF0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x10
 	mov r4, r0
@@ -18829,12 +18829,12 @@ FUN_0200fbf0: ; 0x0200FBF0
 	ldr r4, _0200FD20 ; =0x02095B5C
 	str r0, [r5, #4]
 	mov r0, r4
-	bl FUN_0200d600
+	bl FS_InitArchive
 	mov r7, #3
 	ldr r1, _0200FD24 ; =0x0208EE84
 	mov r0, r4
 	mov r2, r7
-	bl FUN_0200d624
+	bl FS_RegisterArchiveName
 	bl OS_GetBootType
 	cmp r0, #1
 	bne _0200FCA8
@@ -18842,10 +18842,10 @@ FUN_0200fbf0: ; 0x0200FBF0
 	mov r6, r0
 	bl CARD_GetOwnRomHeader
 	mov r5, r0
-	ldr r1, _0200FD28 ; =FUN_0200fb54
+	ldr r1, _0200FD28 ; =FSi_RomArchiveProc
 	ldr r2, _0200FD2C ; =0x00000682
 	mov r0, r4
-	bl FUN_0200f8c4
+	bl FS_SetArchiveProc
 	ldr r1, [r6, #0x40]
 	sub r0, r7, #4
 	cmp r1, r0
@@ -18856,18 +18856,18 @@ FUN_0200fbf0: ; 0x0200FBF0
 	beq _0200FCB0
 	str r1, [sp]
 	ldr r1, [r6, #0x44]
-	ldr r0, _0200FD30 ; =FUN_0200fb0c
+	ldr r0, _0200FD30 ; =FSi_ReadRomCallback
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	mov r1, #0
 	str r1, [sp, #0xc]
 	ldr r3, [r5, #0x4c]
 	mov r0, r4
-	bl FUN_0200f7cc
+	bl FS_LoadArchive
 	b _0200FCB0
 _0200FCA8:
 	mov r0, r4
-	bl FUN_0200fbe8
+	bl FSi_OverrideRomArchive
 _0200FCB0:
 	ldr r0, _0200FD20 ; =0x02095B5C
 	ldr r0, [r0, #0x14]
@@ -18877,49 +18877,49 @@ _0200FCB0:
 	cmp r0, #0
 	bne _0200FD0C
 	ldr r5, _0200FD20 ; =0x02095B5C
-	ldr r1, _0200FD34 ; =FUN_0200fbc4
+	ldr r1, _0200FD34 ; =FSi_EmptyArchiveProc
 	mov r0, r5
 	mvn r2, #0
-	bl FUN_0200f8c4
+	bl FS_SetArchiveProc
 	mov r1, #0
 	str r1, [sp]
-	ldr r0, _0200FD38 ; =FUN_0200fbd8
+	ldr r0, _0200FD38 ; =FSi_ReadDummyCallback
 	str r1, [sp, #4]
-	ldr r4, _0200FD3C ; =FUN_0200fbe0
+	ldr r4, _0200FD3C ; =FSi_WriteDummyCallback
 	str r0, [sp, #8]
 	mov r0, r5
 	mov r2, r1
 	mov r3, r1
 	str r4, [sp, #0xc]
-	bl FUN_0200f7cc
+	bl FS_LoadArchive
 _0200FD0C:
 	ldr r0, _0200FD40 ; =0x0208EE88
-	bl FUN_0200d1e4
+	bl FS_SetCurrentDirectory
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0200FD1C: .word unk_02095B54
 _0200FD20: .word unk_02095B5C
 _0200FD24: .word unk_0208EE84
-_0200FD28: .word FUN_0200fb54
+_0200FD28: .word FSi_RomArchiveProc
 _0200FD2C: .word 0x00000682
-_0200FD30: .word FUN_0200fb0c
-_0200FD34: .word FUN_0200fbc4
-_0200FD38: .word FUN_0200fbd8
-_0200FD3C: .word FUN_0200fbe0
+_0200FD30: .word FSi_ReadRomCallback
+_0200FD34: .word FSi_EmptyArchiveProc
+_0200FD38: .word FSi_ReadDummyCallback
+_0200FD3C: .word FSi_WriteDummyCallback
 _0200FD40: .word unk_0208EE88
-	arm_func_end FUN_0200fbf0
+	arm_func_end FSi_InitRomArchive
 
-	arm_func_start FUN_0200fd44
-FUN_0200fd44: ; 0x0200FD44
+	arm_func_start FS_TryLoadTable
+FS_TryLoadTable: ; 0x0200FD44
 	mov r3, r0
 	mov r2, r1
 	ldr r0, _0200FD5C ; =0x02095B5C
-	ldr r12, _0200FD60 ; =FUN_0200f8e4
+	ldr r12, _0200FD60 ; =FS_LoadArchiveTables
 	mov r1, r3
 	bx r12
 _0200FD5C: .word unk_02095B5C
-_0200FD60: .word FUN_0200f8e4
-	arm_func_end FUN_0200fd44
+_0200FD60: .word FS_LoadArchiveTables
+	arm_func_end FS_TryLoadTable
 
 	arm_func_start FS_CreateFileFromRom
 FS_CreateFileFromRom: ; 0x0200FD64
@@ -18937,8 +18937,8 @@ _0200FD8C: .word 0x0000FFFF
 _0200FD90: .word unk_02095B5C
 	arm_func_end FS_CreateFileFromRom
 
-	arm_func_start FUN_0200fd94
-FUN_0200fd94: ; 0x0200FD94
+	arm_func_start FS_Init
+FS_Init: ; 0x0200FD94
 	stmfd sp!, {r3, lr}
 	ldr r1, _0200FDBC ; =0x02095BB8
 	ldr r2, [r1]
@@ -18946,11 +18946,11 @@ FUN_0200fd94: ; 0x0200FD94
 	ldmnefd sp!, {r3, pc}
 	mov r2, #1
 	str r2, [r1]
-	bl FUN_0200fbf0
+	bl FSi_InitRomArchive
 	bl FSi_InitOverlay
 	ldmfd sp!, {r3, pc}
 _0200FDBC: .word unk_02095BB8
-	arm_func_end FUN_0200fd94
+	arm_func_end FS_Init
 
 	arm_func_start FUN_0200fdc0
 FUN_0200fdc0: ; 0x0200FDC0
@@ -19092,12 +19092,12 @@ FUN_0200ff60: ; 0x0200FF60
 _0200FF70: .word unk_02095C20
 	arm_func_end FUN_0200ff60
 
-	arm_func_start FUN_0200ff74
-FUN_0200ff74: ; 0x0200FF74
+	arm_func_start CARD_GetRomHeader
+CARD_GetRomHeader: ; 0x0200FF74
 	ldr r0, _0200FF7C ; =0x02FFFA80
 	bx lr
 _0200FF7C: .word 0x02FFFA80
-	arm_func_end FUN_0200ff74
+	arm_func_end CARD_GetRomHeader
 
 	arm_func_start CARD_GetOwnRomHeader
 CARD_GetOwnRomHeader: ; 0x0200FF80
@@ -19138,8 +19138,8 @@ CARD_LockRom: ; 0x0200FF8C
 _0200FFF8: .word FUN_0200fe18
 	arm_func_end CARD_LockRom
 
-	arm_func_start FUN_0200fffc
-FUN_0200fffc: ; 0x0200FFFC
+	arm_func_start CARD_UnlockRom
+CARD_UnlockRom: ; 0x0200FFFC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_UnlockCard
@@ -19147,7 +19147,7 @@ FUN_0200fffc: ; 0x0200FFFC
 	mov r1, #1
 	bl FUN_020100c8
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200fffc
+	arm_func_end CARD_UnlockRom
 
 	arm_func_start FUN_02010018
 FUN_02010018: ; 0x02010018
@@ -20553,8 +20553,8 @@ _02011214: .word unk_02096260
 _02011218: .word unk_02095C20
 	arm_func_end FUN_020111d0
 
-	arm_func_start FUN_0201121c
-FUN_0201121c: ; 0x0201121C
+	arm_func_start CARDi_ReadRom
+CARDi_ReadRom: ; 0x0201121C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r7, r1
@@ -20659,7 +20659,7 @@ _02011394: .word FUN_02010eb4
 _02011398: .word unk_0208EE90
 _0201139C: .word unk_02096270
 _020113A0: .word FUN_020111d0
-	arm_func_end FUN_0201121c
+	arm_func_end CARDi_ReadRom
 
 	arm_func_start FUN_020113a4
 FUN_020113a4: ; 0x020113A4
@@ -20686,7 +20686,7 @@ FUN_020113a4: ; 0x020113A4
 	mov r3, #0x88
 	bl FUN_02010eb4
 	mov r0, r4
-	bl FUN_0200fffc
+	bl CARD_UnlockRom
 	mov r0, r4
 	bl OS_ReleaseLockID
 	ldmfd sp!, {r4, pc}
@@ -20769,13 +20769,13 @@ _020114EC:
 _020114F4: .word unk_02096520
 	arm_func_end FUN_02011468
 
-	arm_func_start FUN_020114f8
-FUN_020114f8: ; 0x020114F8
+	arm_func_start CARD_IsPulledOut
+CARD_IsPulledOut: ; 0x020114F8
 	ldr r0, _02011504 ; =0x02096520
 	ldr r0, [r0, #4]
 	bx lr
 _02011504: .word unk_02096520
-	arm_func_end FUN_020114f8
+	arm_func_end CARD_IsPulledOut
 
 	arm_func_start FUN_02011508
 FUN_02011508: ; 0x02011508
@@ -21549,7 +21549,7 @@ _02011EF4:
 	mov r2, r4
 	str r10, [sp]
 	mov r3, r5
-	bl FUN_02006f7c
+	bl MIi_DmaFill32
 	str r8, [r9, #4]
 	add r0, r8, #0x200
 	str r0, [r8]
@@ -27846,10 +27846,10 @@ FUN_02017368: ; 0x02017368
 	cmp r4, #1
 	beq _0201738C
 	mov r4, #0
-	bl FUN_0200444c
+	bl GX_IsDispOn
 	cmp r0, #0
 	beq _0201738C
-	bl FUN_0200445c
+	bl GX_DispOff
 _0201738C:
 	mov r1, #0
 	mov r0, r4
@@ -28106,8 +28106,8 @@ _02017678: .word unk_0208EE9C
 _0201767C: .word 0x00051D23
 	arm_func_end FUN_020175d8
 
-	arm_func_start FUN_02017680
-FUN_02017680: ; 0x02017680
+	arm_func_start PMi_SetDispOffCount
+PMi_SetDispOffCount: ; 0x02017680
 	ldr r1, _02017694 ; =0x02FFFC3C
 	ldr r0, _02017698 ; =0x02097720
 	ldr r1, [r1]
@@ -28115,7 +28115,7 @@ FUN_02017680: ; 0x02017680
 	bx lr
 _02017694: .word 0x02FFFC3C
 _02017698: .word unk_02097720
-	arm_func_end FUN_02017680
+	arm_func_end PMi_SetDispOffCount
 
 	arm_func_start FUN_0201769c
 FUN_0201769c: ; 0x0201769C
@@ -49002,7 +49002,7 @@ FUN_020290c4: ; 0x020290C4
 	bl OS_InitAlarm
 	bl OS_InitThread
 	mvn r0, #0
-	bl FUN_0200fd94
+	bl FS_Init
 	bl FUN_0200adc4
 	mov r4, #0
 	ldr r1, _02029130 ; =0x00000082
@@ -49013,8 +49013,8 @@ FUN_020290c4: ; 0x020290C4
 	mov r1, #2
 	ldr r0, _02029134 ; =0x0208EC7C
 	str r1, [r0]
-	bl FUN_020042a4
-	bl FUN_0200445c
+	bl GX_Init
+	bl GX_DispOff
 	mov r0, r4
 	ldr r3, _02029138 ; =0x04001000
 	ldr r1, _0202913C ; =0x00000010
@@ -49141,7 +49141,7 @@ FUN_02029294: ; 0x02029294
 	ldrh r0, [r5]
 	mov r0, r4
 	strh r4, [r5]
-	bl FUN_02004414
+	bl GX_VBlankIntr
 	bl OS_WaitVBlankIntr
 	ldmfd sp!, {r3, r4, r5, pc}
 _020292E0: .word 0x04000208
@@ -50819,7 +50819,7 @@ _0202A744:
 	cmp r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
 	bl OS_WaitVBlankIntr
-	bl FUN_0200445c
+	bl GX_DispOff
 	ldr r1, _0202A7A4 ; =0x04001000
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
@@ -51379,7 +51379,7 @@ _0202AEA8:
 	mov r1, r5
 	bl FUN_ov16_020f1214
 	bl OS_WaitVBlankIntr
-	bl FUN_0200449c
+	bl GX_DispOn
 	ldr r1, _0202AF94 ; =0x04001000
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
@@ -51448,7 +51448,7 @@ FUN_0202afd0: ; 0x0202AFD0
 	ldr r0, _0202B190 ; =0x02FFFC3C
 	ldr r4, [r0]
 	bl OS_WaitVBlankIntr
-	bl FUN_0200449c
+	bl GX_DispOn
 	ldr r3, _0202B194 ; =0x04001000
 	ldr r0, _0202B198 ; =0x0209A250
 	ldr r2, [r3]
@@ -51481,7 +51481,7 @@ _0202B04C:
 	mov r0, r6
 	bl FUN_02017368
 	bl OS_WaitVBlankIntr
-	bl FUN_0200449c
+	bl GX_DispOn
 	ldr r1, _0202B194 ; =0x04001000
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
@@ -56218,7 +56218,7 @@ FUN_0202ed70: ; 0x0202ED70
 	mov r1, #3
 	str r2, [r4]
 	bl FS_FindArchive
-	bl FUN_0200fa24
+	bl FS_UnloadArchiveTables
 	add r0, r4, #0x70
 	bl OS_DestroyThread
 	mov r0, r4
@@ -56236,7 +56236,7 @@ FUN_0202eda8: ; 0x0202EDA8
 	mov r1, #3
 	str r2, [r4]
 	bl FS_FindArchive
-	bl FUN_0200fa24
+	bl FS_UnloadArchiveTables
 	add r0, r4, #0x70
 	bl OS_DestroyThread
 	mov r0, r4
@@ -56298,7 +56298,7 @@ FUN_0202ee10: ; 0x0202EE10
 	bl OS_CreateThread
 	mov r0, r6
 	mov r1, r6
-	bl FUN_0200fd44
+	bl FS_TryLoadTable
 	movs r5, r0
 	addeq sp, sp, #8
 	str r6, [r4, #0x93c]
@@ -56314,7 +56314,7 @@ FUN_0202ee10: ; 0x0202EE10
 	str r0, [r4, #0x93c]
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r5
-	bl FUN_0200fd44
+	bl FS_TryLoadTable
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202EED8: .word FUN_0202f7a4
@@ -56940,7 +56940,7 @@ _0202F708:
 	moveq r5, #0
 	beq _0202F71C
 	add r0, r7, #0x28
-	bl FUN_0200dc1c
+	bl FS_CancelFile
 _0202F71C:
 	cmp r6, #0
 	movne r0, #9
@@ -63751,14 +63751,14 @@ FUN_020355f8: ; 0x020355F8
 	add r1, sp, #0x10
 	add r0, sp, #0x1c
 	mov r2, r1
-	bl FUN_02009734
+	bl VEC_Add
 _02035690:
 	ldr r0, [sp, #0x4c]
 	cmp r0, #0
 	beq _020356B4
 	add r0, sp, #0x1c
 	add r1, sp, #0x10
-	bl FUN_02009a1c
+	bl VEC_Distance
 	ldr r1, [sp, #0x4c]
 	bl FX_Div
 	mov r5, r0, asr #0xc
@@ -63779,7 +63779,7 @@ _020356E4:
 	add r0, sp, #0x10
 	add r1, sp, #0x1c
 	mov r2, r0
-	bl FUN_02009764
+	bl VEC_Subtract
 	ldr r0, [sp, #0x10]
 	mov r1, r5, lsl #0xc
 	bl FX_Div
@@ -64072,7 +64072,7 @@ _02035B14:
 	mov r0, r5
 	mov r2, r5
 	add r1, r6, #0x10
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r6, #0xc]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -64363,14 +64363,14 @@ FUN_02035e74: ; 0x02035E74
 	add r1, sp, #0x10
 	add r0, sp, #0x1c
 	mov r2, r1
-	bl FUN_02009734
+	bl VEC_Add
 _02035F1C:
 	ldr r0, [sp, #0x50]
 	cmp r0, #0
 	beq _02035F40
 	add r0, sp, #0x1c
 	add r1, sp, #0x10
-	bl FUN_02009a1c
+	bl VEC_Distance
 	ldr r1, [sp, #0x50]
 	bl FX_Div
 	mov r5, r0, asr #0xc
@@ -64391,7 +64391,7 @@ _02035F70:
 	add r0, sp, #0x10
 	add r1, sp, #0x1c
 	mov r2, r0
-	bl FUN_02009764
+	bl VEC_Subtract
 	ldr r0, [sp, #0x10]
 	mov r1, r5, lsl #0xc
 	bl FX_Div
@@ -64744,7 +64744,7 @@ _02036440:
 	mov r0, r5
 	mov r2, r5
 	add r1, r6, #0x10
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r6, #0xc]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -65220,7 +65220,7 @@ _02036AAC:
 	mov r0, r5
 	mov r2, r5
 	add r1, r6, #0x10
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r6, #0xc]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -65818,7 +65818,7 @@ _02037304:
 	mov r0, r10
 	mov r2, r10
 	add r1, r4, #0x10
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r4, #0xc]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -65864,7 +65864,7 @@ _020373AC:
 	mov r0, r10
 	mov r2, r10
 	add r1, r4, #0x1c
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r4, #0xe]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -67311,7 +67311,7 @@ _02038788:
 	mov r0, r10
 	mov r2, r10
 	add r1, r4, #0x10
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r4, #0xc]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -67357,7 +67357,7 @@ _02038830:
 	mov r0, r10
 	mov r2, r10
 	add r1, r4, #0x1c
-	bl FUN_02009734
+	bl VEC_Add
 	ldrh r0, [r4, #0xe]
 	sub r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -76280,7 +76280,7 @@ _02040280:
 	orr r3, r3, r2, lsl #20
 	orr r1, r1, r0, lsl #20
 	sub r0, r3, r1, lsl #2
-	bl FUN_020095ac
+	bl FX_Sqrt
 	cmp r6, #0
 	beq _020402CC
 	add r0, r0, r5
@@ -76330,7 +76330,7 @@ _0204032C:
 	orr r3, r3, r2, lsl #20
 	orr r1, r1, r0, lsl #20
 	sub r0, r3, r1, lsl #2
-	bl FUN_020095ac
+	bl FX_Sqrt
 	cmp r4, #0
 	beq _02040378
 	add r0, r0, r5
@@ -80564,7 +80564,7 @@ _02043A1C:
 	orr r1, r1, r0, lsl #20
 	mov r0, r1, asr #4
 	add r0, r0, r4, asr #4
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r0, r0, lsl #2
 	str r0, [r8], #4
 	ldr r0, [r10, #8]
@@ -88137,7 +88137,7 @@ FUN_0204996c: ; 0x0204996C
 	orr r1, r1, r0, lsl #20
 	add r0, r3, r1
 	mov r4, #0
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r1, _020499FC ; =0x00036E66
 	ldr r2, _02049A00 ; =0x51EB851F
 	mul r3, r5, r1
@@ -97245,7 +97245,7 @@ _02051228:
 	and r1, r2, r1
 	orr r1, r1, #2
 	strh r1, [r3]
-	bl FUN_02004a84
+	bl G3X_SetFogG3X_SetToonTableTable
 	ldr r3, _020512A4 ; =0xBFFF0000
 	mov r4, #1
 	add r1, sp, #0
@@ -97278,7 +97278,7 @@ FUN_020512a8: ; 0x020512A8
 	ldrb r1, [r12, #0xa]
 	ldr r2, _020512D8 ; =0x00007FFF
 	mov r3, #0x3f
-	bl FUN_02004a9c
+	bl G3X_SetClearColor
 	ldmfd sp!, {r3, pc}
 _020512D8: .word 0x00007FFF
 	arm_func_end FUN_020512a8
@@ -97332,10 +97332,10 @@ _02051360:
 	strh r1, [r2, #0xc]
 	cmp r3, #8
 	blt _02051360
-	ldr r12, _02051380 ; =FUN_02004A58
+	ldr r12, _02051380 ; =G3X_SetEdgeColorTable
 	add r0, r0, #0xc
 	bx r12
-_02051380: .word FUN_02004A58
+_02051380: .word G3X_SetEdgeColorTable
 	arm_func_end FUN_0205135c
 
 	arm_func_start FUN_02051384
@@ -97346,9 +97346,9 @@ FUN_02051384: ; 0x02051384
 	ldrb r1, [r3, #0x20]
 	ldrb r2, [r3, #0x21]
 	ldrh r3, [r3, #0x22]
-	ldr r12, _020513A4 ; =FUN_020049A4
+	ldr r12, _020513A4 ; =G3X_SetFog
 	bx r12
-_020513A4: .word FUN_020049A4
+_020513A4: .word G3X_SetFog
 	arm_func_end FUN_02051384
 
 	arm_func_start FUN_020513a8
@@ -97394,7 +97394,7 @@ FUN_02051408: ; 0x02051408
 	mov r2, #0x20
 	bl MIi_CpuCopyFast
 	mov r0, r4
-	bl FUN_02004a70
+	bl G3X_SetFogTable
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02051408
 
@@ -97402,8 +97402,8 @@ FUN_02051408: ; 0x02051408
 FUN_02051434: ; 0x02051434
 	stmfd sp!, {r3, lr}
 	bl G3X_ClearFifo
-	bl FUN_020047ec
-	bl FUN_02004914
+	bl G3X_Reset
+	bl G3X_ResetMtxStack
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02051434
 
@@ -99428,7 +99428,7 @@ _02052E6C:
 	str r3, [sp, #0xc]
 	str r4, [sp, #0x10]
 	str r11, [sp, #0x14]
-	bl FUN_02009734
+	bl VEC_Add
 	mov r0, #2
 	str r0, [sp]
 	mov r4, #0
@@ -99447,7 +99447,7 @@ _02052E6C:
 	add r1, r10, #0x1c
 	mov r2, r5
 	str r3, [sp, #0x20]
-	bl FUN_02009734
+	bl VEC_Add
 	mov r7, #1
 	str r7, [sp]
 	stmib sp, {r4, r11}
@@ -99488,7 +99488,7 @@ _02052F58:
 	str r3, [sp, #0x18]
 	str r5, [sp, #0x1c]
 	str r6, [sp, #0x20]
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r9
 	ldmia r4, {r1, r2, r3}
 	bl FUN_ov16_020f7bb0
@@ -99684,10 +99684,10 @@ FUN_0205318c: ; 0x0205318C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r5
 	mov r1, r4
-	bl FUN_02009794
+	bl VEC_DotProduct
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_0205318c
@@ -99708,12 +99708,12 @@ FUN_02053214: ; 0x02053214
 	mov r0, r1
 	mov r1, r8
 	mov r2, r5
-	bl FUN_02009764
+	bl VEC_Subtract
 	add r4, sp, #0
 	mov r0, r7
 	mov r1, r8
 	mov r2, r4
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
@@ -99788,12 +99788,12 @@ FUN_02053324: ; 0x02053324
 	mov r2, r9
 	mov r4, r3
 	ldr r6, [sp, #0x40]
-	bl FUN_02009764
+	bl VEC_Subtract
 	add r8, sp, #0xc
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r9
 	mov r1, r8
 	bl FUN_0205330c
@@ -99805,7 +99805,7 @@ FUN_02053324: ; 0x02053324
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r8
 	mov r1, r4
 	bl FUN_0205328c
@@ -99873,22 +99873,22 @@ FUN_0205344c: ; 0x0205344C
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_02009764
+	bl VEC_Subtract
 	add r6, sp, #0x18
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r5
 	add r5, sp, #0xc
 	mov r1, r8
 	mov r2, r5
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r4
 	add r4, sp, #0
 	mov r1, r8
 	mov r2, r4
-	bl FUN_02009764
+	bl VEC_Subtract
 	mov r0, r7
 	mov r1, r6
 	bl FUN_0205328c
@@ -99954,7 +99954,7 @@ FUN_02053554: ; 0x02053554
 	str r4, [r2]
 	str r4, [r2, #4]
 	str r4, [r2, #8]
-	bl FUN_02009764
+	bl VEC_Subtract
 	ldr r0, [sp]
 	cmp r0, #0
 	ldreq r0, [sp, #8]
@@ -99988,7 +99988,7 @@ FUN_020535bc: ; 0x020535BC
 	str r2, [sp, #0xc]
 	str r12, [sp, #0x10]
 	str r3, [sp, #0x14]
-	bl FUN_02009a1c
+	bl VEC_Distance
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_020535bc
@@ -100536,7 +100536,7 @@ FUN_02053cf4: ; 0x02053CF4
 	ldrsh r5, [r6, r5]
 	mov r2, r4
 	ldrsh r6, [r6, r3]
-	bl FUN_02009764
+	bl VEC_Subtract
 	ldr lr, [sp, #0x14]
 	ldr r12, [sp, #0xc]
 	mov r1, r8
@@ -100566,7 +100566,7 @@ FUN_02053cf4: ; 0x02053CF4
 	add r3, r4, r3
 	add r0, sp, #0
 	str r3, [sp, #8]
-	bl FUN_02009734
+	bl VEC_Add
 	ldr r1, [r9, #4]
 	ldr r0, [sp, #0xc]
 	str r1, [sp, #0x10]
@@ -100682,7 +100682,7 @@ FUN_02053efc: ; 0x02053EFC
 	str r2, [sp, #0xc]
 	str r4, [sp, #0x10]
 	str r3, [sp, #0x14]
-	bl FUN_02009a1c
+	bl VEC_Distance
 	ldr r1, [sp, #0x28]
 	add r1, r5, r1
 	cmp r0, r1
@@ -110203,12 +110203,12 @@ _0205BA20:
 	str r12, [sp, #0x5c]
 	str r4, [sp, #0x60]
 	str r3, [sp, #0x64]
-	bl FUN_02009734
+	bl VEC_Add
 	add r4, sp, #0x5c
 	add r1, r5, #0x18
 	mov r0, r4
 	mov r2, r4
-	bl FUN_02009734
+	bl VEC_Add
 	ldr r0, [r5, #0x30]
 	mov r1, r6
 	bl FUN_ov16_020fa448
@@ -117189,7 +117189,7 @@ FUN_020617d8: ; 0x020617D8
 	mov r2, r4
 	bl MI_CpuFill8
 _02061858:
-	bl FUN_0200ff74
+	bl CARD_GetRomHeader
 	mov r0, #0
 	str r0, [sp]
 	ldr r4, _02061B28 ; =0x020B5C60
@@ -122243,13 +122243,13 @@ _02065D14:
 	str r3, [r6]
 	str r2, [r6, #4]
 	str r1, [r6, #8]
-	bl FUN_02009850
+	bl VEC_Mag
 	str r0, [r7]
 	add r0, sp, #0x98
-	bl FUN_02009850
+	bl VEC_Mag
 	str r0, [r7, #4]
 	add r0, sp, #0xa8
-	bl FUN_02009850
+	bl VEC_Mag
 	ldr r1, _02065E78 ; =0x020B6DD8
 	str r0, [r7, #8]
 	ldr r0, [r1, #0xfc]
@@ -122453,13 +122453,13 @@ _0206600C:
 	str r3, [r11]
 	str r2, [r11, #4]
 	str r1, [r11, #8]
-	bl FUN_02009850
+	bl VEC_Mag
 	str r0, [r6]
 	add r0, sp, #0x98
-	bl FUN_02009850
+	bl VEC_Mag
 	str r0, [r6, #4]
 	add r0, sp, #0xa8
-	bl FUN_02009850
+	bl VEC_Mag
 	ldr r1, [sp, #0xa0]
 	str r0, [r6, #8]
 	ldr r0, [sp, #0x9c]
@@ -140879,8 +140879,8 @@ FUN_020751b8: ; 0x020751B8
 	bx lr
 	arm_func_end FUN_020751b8
 
-	arm_func_start FUN_020751e8
-FUN_020751e8: ; 0x020751E8
+	arm_func_start DseUtil_GetRandomNumber
+DseUtil_GetRandomNumber: ; 0x020751E8
 	ldr r1, _02075208 ; =0x020B9FD8
 	ldr r0, _0207520C ; =0x00007FFF
 	ldr r2, [r1, #0x3c]
@@ -140891,7 +140891,7 @@ FUN_020751e8: ; 0x020751E8
 	bx lr
 _02075208: .word unk_020B9FD8
 _0207520C: .word 0x00007FFF
-	arm_func_end FUN_020751e8
+	arm_func_end DseUtil_GetRandomNumber
 
 	arm_func_start FUN_02075210
 FUN_02075210: ; 0x02075210
@@ -141670,7 +141670,7 @@ _02075C68:
 	mov r1, r7, lsl #0x10
 	mov r0, r10
 	mov r1, r1, asr #0x10
-	bl FUN_02075d7c
+	bl ReadWaviEntry
 	cmp r0, #0
 	strne r5, [r0, #0x24]
 	ldrne r2, [r4, #8]
@@ -141748,8 +141748,8 @@ _02075D74: .word 0x04000208
 _02075D78: .word unk_020BA644
 	arm_func_end FUN_02075d04
 
-	arm_func_start FUN_02075d7c
-FUN_02075d7c: ; 0x02075D7C
+	arm_func_start ReadWaviEntry
+ReadWaviEntry: ; 0x02075D7C
 	ldr r2, [r0, #0x10]
 	cmp r2, #0
 	moveq r0, #0
@@ -141764,7 +141764,7 @@ FUN_02075d7c: ; 0x02075D7C
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end FUN_02075d7c
+	arm_func_end ReadWaviEntry
 
 	arm_func_start FUN_02075db4
 FUN_02075db4: ; 0x02075DB4
@@ -141784,8 +141784,8 @@ FUN_02075db4: ; 0x02075DB4
 	bx lr
 	arm_func_end FUN_02075db4
 
-	arm_func_start FUN_02075dec
-FUN_02075dec: ; 0x02075DEC
+	arm_func_start DseSwd_GetNextSplitInRange
+DseSwd_GetNextSplitInRange: ; 0x02075DEC
 	stmfd sp!, {r3, lr}
 	ldrb lr, [r0, #2]
 	cmp lr, #0
@@ -141823,7 +141823,7 @@ _02075E5C:
 	blt _02075E28
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02075dec
+	arm_func_end DseSwd_GetNextSplitInRange
 
 	arm_func_start FUN_02075e74
 FUN_02075e74: ; 0x02075E74
@@ -147679,7 +147679,7 @@ FUN_0207a96c: ; 0x0207A96C
 	ldrb r0, [r5, #0xc]
 	sub r0, r2, r0
 	add r6, r0, #1
-	bl FUN_020751e8
+	bl DseUtil_GetRandomNumber
 	mul r1, r6, r0
 	mov r0, r1, asr #0xe
 	ldrb r2, [r5, #0xc]
@@ -147841,7 +147841,7 @@ FUN_0207ab78: ; 0x0207AB78
 	moveq r0, #0
 	streq r0, [sp]
 	beq _0207ABC4
-	bl FUN_020751e8
+	bl DseUtil_GetRandomNumber
 	mov r1, r4, lsl #1
 	mul r2, r1, r0
 	mov r0, r2, asr #0xe
@@ -147863,7 +147863,7 @@ _0207ABDC:
 	ldrsb r3, [r9, #3]
 	mov r0, r6
 	mov r1, r5
-	bl FUN_02075dec
+	bl DseSwd_GetNextSplitInRange
 	movs r5, r0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -147879,7 +147879,7 @@ _0207ABDC:
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	ldrsh r1, [r5, #0x12]
-	bl FUN_02075d7c
+	bl ReadWaviEntry
 	movs r11, r0
 	beq _0207ABDC
 	ldrb r3, [r10, #5]
@@ -147888,7 +147888,7 @@ _0207ABDC:
 	add r1, sp, #4
 	add r8, r2, r3, lsl #8
 	mov r2, r8
-	bl FUN_0207b2ac
+	bl DseVoice_Allocate
 	movs r4, r0
 	beq _0207ABDC
 	mov r0, #0
@@ -147969,7 +147969,7 @@ _0207AD48:
 	orr r2, r2, #0xff0
 	strh r2, [r4, #6]
 	ldrsb r2, [r10, #0x4d]
-	bl FUN_0207bdc8
+	bl SoundLfoBank_Set
 	add r0, r5, #0x20
 	add r8, r4, #0x3c
 	ldmia r0, {r0, r1, r2, r3}
@@ -147981,23 +147981,20 @@ _0207AD48:
 	beq _0207ADC0
 	mov r0, r8
 	add r1, r10, #0x60
-	bl FUN_0207ba34
+	bl SoundEnvelope_SetParameters
 _0207ADC0:
 	mov r1, r4
 	mov r0, r10
 	ldrb r2, [sp, #7]
-	bl FUN_0207b4b0
+	bl DseVoice_Start
 	b _0207ABDC
-	arm_func_end FUN_0207ab78
-
-	arm_func_start FUN_0207add4
-FUN_0207add4: ; 0x0207ADD4
+_0207ADD4:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207ADDC: .word unk_020B9FD8
 _0207ADE0: .word 0x4186143D
 _0207ADE4: .word 0x82061029
-	arm_func_end FUN_0207add4
+	arm_func_end FUN_0207ab78
 
 	arm_func_start FUN_0207ade8
 FUN_0207ade8: ; 0x0207ADE8
@@ -148346,8 +148343,8 @@ _0207B2A4: .word unk_020BA720
 _0207B2A8: .word unk_020BA6D8
 	arm_func_end FUN_0207b210
 
-	arm_func_start FUN_0207b2ac
-FUN_0207b2ac: ; 0x0207B2AC
+	arm_func_start DseVoice_Allocate
+DseVoice_Allocate: ; 0x0207B2AC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrb r6, [r1, #3]
 	ldr r3, _0207B400 ; =0x020BA6D8
@@ -148447,7 +148444,7 @@ _0207B3F8:
 _0207B400: .word unk_020BA6D8
 _0207B404: .word unk_020BA720
 _0207B408: .word unk_020B9FD8
-	arm_func_end FUN_0207b2ac
+	arm_func_end DseVoice_Allocate
 
 	arm_func_start FUN_0207b40c
 FUN_0207b40c: ; 0x0207B40C
@@ -148498,8 +148495,8 @@ _0207B4A8: .word unk_020B9FD8
 _0207B4AC: .word unk_020BA720
 	arm_func_end FUN_0207b40c
 
-	arm_func_start FUN_0207b4b0
-FUN_0207b4b0: ; 0x0207B4B0
+	arm_func_start DseVoice_Start
+DseVoice_Start: ; 0x0207B4B0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r1, r2, lsl #0x10
@@ -148525,7 +148522,7 @@ FUN_0207b4b0: ; 0x0207B4B0
 	strne r5, [r4, #0x158]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207B510: .word 0x0000FFFD
-	arm_func_end FUN_0207b4b0
+	arm_func_end DseVoice_Start
 
 	arm_func_start FUN_0207b514
 FUN_0207b514: ; 0x0207B514
@@ -148916,8 +148913,8 @@ FUN_0207b9e0: ; 0x0207B9E0
 	bx lr
 	arm_func_end FUN_0207b9e0
 
-	arm_func_start FUN_0207ba34
-FUN_0207ba34: ; 0x0207BA34
+	arm_func_start SoundEnvelope_SetParameters
+SoundEnvelope_SetParameters: ; 0x0207BA34
 	ldrb r2, [r1, #1]
 	cmp r2, #0x7f
 	strlsb r2, [r0, #1]
@@ -148943,7 +148940,7 @@ FUN_0207ba34: ; 0x0207BA34
 	cmp r1, #0x7f
 	strlsb r1, [r0, #0xe]
 	bx lr
-	arm_func_end FUN_0207ba34
+	arm_func_end SoundEnvelope_SetParameters
 
 	arm_func_start FUN_0207ba98
 FUN_0207ba98: ; 0x0207BA98
@@ -149200,8 +149197,8 @@ FUN_0207bdb0: ; 0x0207BDB0
 	bx lr
 	arm_func_end FUN_0207bdb0
 
-	arm_func_start FUN_0207bdc8
-FUN_0207bdc8: ; 0x0207BDC8
+	arm_func_start SoundLfoBank_Set
+SoundLfoBank_Set: ; 0x0207BDC8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x20
 	mov r10, r0
@@ -149325,7 +149322,7 @@ _0207BF88: .word unk_0208C534
 _0207BF8C: .word 0x81020409
 _0207BF90: .word unk_020B9FD8
 _0207BF94: .word unk_02091E54
-	arm_func_end FUN_0207bdc8
+	arm_func_end SoundLfoBank_Set
 
 	arm_func_start FUN_0207bf98
 FUN_0207bf98: ; 0x0207BF98
@@ -149560,7 +149557,7 @@ FUN_0207c260: ; 0x0207C260
 	bne _0207C290
 	ldrh r0, [r4, #4]
 	strh r0, [r4, #6]
-	bl FUN_020751e8
+	bl DseUtil_GetRandomNumber
 	ldr r1, [r4, #0xc]
 	mov r1, r1, asr #0x10
 	mul r0, r1, r0
@@ -149583,7 +149580,7 @@ FUN_0207c2a4: ; 0x0207C2A4
 	ldrh r0, [r4, #4]
 	ldr r5, [r4, #0xc]
 	strh r0, [r4, #6]
-	bl FUN_020751e8
+	bl DseUtil_GetRandomNumber
 	mov r1, r5, asr #0xf
 	mul r0, r1, r0
 	sub r0, r0, r5, asr #1
@@ -161531,11 +161528,11 @@ _02086764: .word FUN_0202e19c
 FUN_02086768: ; 0x02086768
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r0, #0x2000
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086A04 ; =0x0208F680
 	str r0, [r4, #0x10]
 	ldr r0, _02086A08 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov lr, #0x800
 	mov r1, #0x32000
 	umull r2, r3, lr, r1
@@ -161761,11 +161758,11 @@ FUN_02086aec: ; 0x02086AEC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086B34 ; =0x0208F880
 	str r0, [r4, #0x10]
 	ldr r0, _02086B38 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _02086B3C ; =0x0000EA3C
@@ -161786,11 +161783,11 @@ FUN_02086b40: ; 0x02086B40
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086B88 ; =0x0208FA30
 	str r0, [r4, #8]
 	ldr r0, _02086B8C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02086B90 ; =0x0000EA3C
@@ -161811,11 +161808,11 @@ FUN_02086b94: ; 0x02086B94
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086BDC ; =0x0208FBB0
 	str r0, [r4, #0x14]
 	ldr r0, _02086BE0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086BE4 ; =0x0000EA3C
@@ -161836,11 +161833,11 @@ FUN_02086be8: ; 0x02086BE8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086C30 ; =0x0208FC08
 	str r0, [r4, #4]
 	ldr r0, _02086C34 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0xc]
 	ldr r0, _02086C38 ; =0x0000EA3C
@@ -161861,11 +161858,11 @@ FUN_02086c3c: ; 0x02086C3C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086C80 ; =0x0208FF14
 	str r0, [r4, #0x10]
 	ldr r0, _02086C84 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02086C88 ; =0x0000EA3C
 	mov r1, #0x800
@@ -161885,11 +161882,11 @@ FUN_02086c8c: ; 0x02086C8C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086CD4 ; =0x0208FF2C
 	str r0, [r4, #0x14]
 	ldr r0, _02086CD8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086CDC ; =0x0000EA3C
@@ -161910,11 +161907,11 @@ FUN_02086ce0: ; 0x02086CE0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086D28 ; =0x0208FF44
 	str r0, [r4, #0x14]
 	ldr r0, _02086D2C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086D30 ; =0x0000EA3C
@@ -161935,11 +161932,11 @@ FUN_02086d34: ; 0x02086D34
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086D7C ; =0x0208FF5C
 	str r0, [r4, #0x14]
 	ldr r0, _02086D80 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086D84 ; =0x0000EA3C
@@ -161960,11 +161957,11 @@ FUN_02086d88: ; 0x02086D88
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086DD0 ; =0x0208FF74
 	str r0, [r4]
 	ldr r0, _02086DD4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02086DD8 ; =0x0000EA3C
@@ -161985,11 +161982,11 @@ FUN_02086ddc: ; 0x02086DDC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086E24 ; =0x0209000C
 	str r0, [r4, #0x14]
 	ldr r0, _02086E28 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086E2C ; =0x0000EA3C
@@ -162010,11 +162007,11 @@ FUN_02086e30: ; 0x02086E30
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086E78 ; =0x02090034
 	str r0, [r4]
 	ldr r0, _02086E7C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02086E80 ; =0x0000EA3C
@@ -162035,11 +162032,11 @@ FUN_02086e84: ; 0x02086E84
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086ECC ; =0x0209005C
 	str r0, [r4]
 	ldr r0, _02086ED0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02086ED4 ; =0x0000EA3C
@@ -162060,11 +162057,11 @@ FUN_02086ed8: ; 0x02086ED8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086F20 ; =0x0209010C
 	str r0, [r4, #0x14]
 	ldr r0, _02086F24 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02086F28 ; =0x0000EA3C
@@ -162085,11 +162082,11 @@ FUN_02086f2c: ; 0x02086F2C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086F74 ; =0x020901D0
 	str r0, [r4, #0x14]
 	ldr r0, _02086F78 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _02086F7C ; =0x0000EA3C
@@ -162110,11 +162107,11 @@ FUN_02086f80: ; 0x02086F80
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02086FC8 ; =0x02090224
 	str r0, [r4, #8]
 	ldr r0, _02086FCC ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _02086FD0 ; =0x0000EA3C
@@ -162135,11 +162132,11 @@ FUN_02086fd4: ; 0x02086FD4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0208701C ; =0x020902D0
 	str r0, [r4, #8]
 	ldr r0, _02087020 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02087024 ; =0x0000EA3C
@@ -162160,11 +162157,11 @@ FUN_02087028: ; 0x02087028
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087070 ; =0x02090408
 	str r0, [r4, #0x14]
 	ldr r0, _02087074 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02087078 ; =0x0000EA3C
@@ -162185,11 +162182,11 @@ FUN_0208707c: ; 0x0208707C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020870C4 ; =0x02090464
 	str r0, [r4, #0x14]
 	ldr r0, _020870C8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _020870CC ; =0x0000EA3C
@@ -162210,11 +162207,11 @@ FUN_020870d0: ; 0x020870D0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087114 ; =0x020904C0
 	str r0, [r4, #0x10]
 	ldr r0, _02087118 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _0208711C ; =0x0000EA3C
 	mov r1, #0x800
@@ -162234,11 +162231,11 @@ FUN_02087120: ; 0x02087120
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087168 ; =0x020904F4
 	str r0, [r4, #0x14]
 	ldr r0, _0208716C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02087170 ; =0x0000EA3C
@@ -162259,11 +162256,11 @@ FUN_02087174: ; 0x02087174
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020871BC ; =0x0209055C
 	str r0, [r4, #0x14]
 	ldr r0, _020871C0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _020871C4 ; =0x0000EA3C
@@ -162284,11 +162281,11 @@ FUN_020871c8: ; 0x020871C8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0208720C ; =0x02090584
 	str r0, [r4, #0x10]
 	ldr r0, _02087210 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02087214 ; =0x0000EA3C
 	mov r1, #0x800
@@ -162308,11 +162305,11 @@ FUN_02087218: ; 0x02087218
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0208725C ; =0x0209059C
 	str r0, [r4, #0x10]
 	ldr r0, _02087260 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _02087264 ; =0x0000EA3C
 	mov r1, #0x800
@@ -162332,11 +162329,11 @@ FUN_02087268: ; 0x02087268
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020872B0 ; =0x020905B4
 	str r0, [r4]
 	ldr r0, _020872B4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _020872B8 ; =0x0000EA3C
@@ -162357,11 +162354,11 @@ FUN_020872bc: ; 0x020872BC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087304 ; =0x020905E8
 	str r0, [r4]
 	ldr r0, _02087308 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _0208730C ; =0x0000EA3C
@@ -162382,11 +162379,11 @@ FUN_02087310: ; 0x02087310
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087354 ; =0x02090698
 	str r0, [r4, #0x10]
 	ldr r0, _02087358 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _0208735C ; =0x0000EA3C
 	mov r1, #0x800
@@ -162406,11 +162403,11 @@ FUN_02087360: ; 0x02087360
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020873A8 ; =0x020906B0
 	str r0, [r4]
 	ldr r0, _020873AC ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _020873B0 ; =0x0000EA3C
@@ -162431,11 +162428,11 @@ FUN_020873b4: ; 0x020873B4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020873FC ; =0x020906C8
 	str r0, [r4, #0x14]
 	ldr r0, _02087400 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _02087404 ; =0x0000EA3C
@@ -162456,11 +162453,11 @@ FUN_02087408: ; 0x02087408
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087450 ; =0x020906FC
 	str r0, [r4]
 	ldr r0, _02087454 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _02087458 ; =0x0000EA3C
@@ -162481,11 +162478,11 @@ FUN_0208745c: ; 0x0208745C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020874A4 ; =0x020907BC
 	str r0, [r4]
 	ldr r0, _020874A8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _020874AC ; =0x0000EA3C
@@ -162506,11 +162503,11 @@ FUN_020874b0: ; 0x020874B0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020874F4 ; =0x02090804
 	str r0, [r4, #0x10]
 	ldr r0, _020874F8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _020874FC ; =0x0000EA3C
 	mov r1, #0x800
@@ -162530,11 +162527,11 @@ FUN_02087500: ; 0x02087500
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087548 ; =0x02090894
 	str r0, [r4, #4]
 	ldr r0, _0208754C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _02087550 ; =0x0000EA3C
@@ -162555,11 +162552,11 @@ FUN_02087554: ; 0x02087554
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0208759C ; =0x0209093C
 	str r0, [r4, #8]
 	ldr r0, _020875A0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _020875A4 ; =0x0000EA3C
@@ -162580,11 +162577,11 @@ FUN_020875a8: ; 0x020875A8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020875F0 ; =0x020909B0
 	str r0, [r4]
 	ldr r0, _020875F4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _020875F8 ; =0x0000EA3C
@@ -162605,11 +162602,11 @@ FUN_020875fc: ; 0x020875FC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087644 ; =0x02090B3C
 	str r0, [r4, #4]
 	ldr r0, _02087648 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0208764C ; =0x0000EA3C
@@ -162630,11 +162627,11 @@ FUN_02087650: ; 0x02087650
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087698 ; =0x02090DB4
 	str r0, [r4, #0x14]
 	ldr r0, _0208769C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _020876A0 ; =0x0000EA3C
@@ -162655,11 +162652,11 @@ FUN_020876a4: ; 0x020876A4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020876EC ; =0x020912B0
 	str r0, [r4, #0x14]
 	ldr r0, _020876F0 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _020876F4 ; =0x0000EA3C
@@ -162680,11 +162677,11 @@ FUN_020876f8: ; 0x020876F8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087740 ; =0x020912D8
 	str r0, [r4, #4]
 	ldr r0, _02087744 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _02087748 ; =0x0000EA3C
@@ -162705,11 +162702,11 @@ FUN_0208774c: ; 0x0208774C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02087794 ; =0x020938A0
 	str r0, [r4]
 	ldr r0, _02087798 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _0208779C ; =0x0000EA3C
@@ -162730,11 +162727,11 @@ FUN_020877a0: ; 0x020877A0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _020877E4 ; =0x020938F4
 	str r0, [r4, #0x10]
 	ldr r0, _020877E8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	str r0, [r4, #0xc]
 	ldr r0, _020877EC ; =0x0000EA3C
 	mov r1, #0x800

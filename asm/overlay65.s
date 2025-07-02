@@ -3321,11 +3321,11 @@ FUN_ov65_0211cd5c: ; 0x0211CD5C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211CDA4 ; =0x0211CDC0
 	str r0, [r4, #0xc]
 	ldr r0, _0211CDA8 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211CDAC ; =0x0000EA3C

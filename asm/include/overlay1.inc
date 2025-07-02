@@ -122,11 +122,11 @@
 .public FUN_0206f9dc
 .public FUN_0206f834
 .public OS_GetTotalFreeSize
-.public FUN_02004f78
-.public FUN_02004fac
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2S_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02006b80
-.public FUN_02009a1c
+.public VEC_Distance
 .public FUN_02009a98
 .public FUN_02023c40
 .public FUN_02023e98
@@ -169,7 +169,7 @@
 .public FUN_02085e4c
 .public FUN_020054dc
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020176e0
 .public FUN_020177e8
 .public FUN_020204a4
@@ -201,7 +201,7 @@
 .public FUN_020724dc
 .public FUN_020728e8
 .public FUN_020731a4
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c
@@ -225,8 +225,8 @@
 .public FUN_0207224c
 .public FUN_0207249c
 .public FUN_0207477c
-.public FUN_02009734
-.public FUN_02009764
+.public VEC_Add
+.public VEC_Subtract
 .public FUN_02015184
 .public FUN_02017734
 .public FUN_02017784

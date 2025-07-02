@@ -2975,11 +2975,11 @@ FUN_ov54_0211c7fc: ; 0x0211C7FC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211C844 ; =0x0211C8C0
 	str r0, [r4, #4]
 	ldr r0, _0211C848 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211C84C ; =0x0000EA3C
@@ -3000,11 +3000,11 @@ FUN_ov54_0211c850: ; 0x0211C850
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211C898 ; =0x0211CA14
 	str r0, [r4, #8]
 	ldr r0, _0211C89C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x14]
 	ldr r0, _0211C8A0 ; =0x0000EA3C

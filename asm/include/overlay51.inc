@@ -2,8 +2,8 @@
 .public FUN_0201e078
 .public _s32_div_f
 .public FUN_0202cf6c
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02023c40
 .public FUN_02041eac
 .public FUN_02041ef0
@@ -12,11 +12,11 @@
 .public FUN_02058ee0
 .public FUN_020054dc
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020425fc
 .public FUN_020460a8
 .public FUN_020724c8
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200569c
 .public FUN_0200593c
 .public FUN_0204204c

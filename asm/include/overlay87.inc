@@ -5,14 +5,14 @@
 .public FUN_0201fdac
 .public FUN_0202cf6c
 .public FUN_0206d64c
-.public FUN_02004f78
+.public G2_GetBG1CharPtr
 .public FUN_02005a1c
 .public FUN_02041eac
 .public FUN_02046cb4
 .public FUN_02046e28
 .public FUN_02058e30
 .public FUN_02058ee0
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020467ac
 .public FUN_020467c0

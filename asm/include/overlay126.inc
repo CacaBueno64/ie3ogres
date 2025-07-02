@@ -107,7 +107,7 @@
 .public FUN_02049fc8
 .public FUN_02073e14
 .public FUN_02073e54
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020219ac
 .public FUN_020401a0

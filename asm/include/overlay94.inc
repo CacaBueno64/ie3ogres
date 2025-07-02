@@ -23,7 +23,7 @@
 .public FUN_0206d64c
 .public FUN_0206dcd4
 .public FUN_0206ed40
-.public FUN_02004fac
+.public G2S_GetBG1CharPtr
 .public FUN_02005c3c
 .public FUN_02005c54
 .public FUN_02005cbc
@@ -32,10 +32,10 @@
 .public FUN_020057ec
 .public FUN_020058cc
 .public FUN_020059ac
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020460fc
 .public FUN_020466c0
-.public FUN_0200501c
+.public G2S_GetBG2CharPtr
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c

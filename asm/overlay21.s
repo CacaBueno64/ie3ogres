@@ -3741,11 +3741,11 @@ FUN_ov21_0211d324: ; 0x0211D324
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211D36C ; =0x0211D380
 	str r0, [r4, #0x14]
 	ldr r0, _0211D370 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #0x10]
 	ldr r0, _0211D374 ; =0x0000EA3C

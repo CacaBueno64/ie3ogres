@@ -16,7 +16,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FUN_02085f50
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020418b0
 .public FUN_020591e8

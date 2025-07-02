@@ -6448,11 +6448,11 @@ FUN_ov60_0211fbc0: ; 0x0211FBC0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211FC08 ; =0x0211FC20
 	str r0, [r4]
 	ldr r0, _0211FC0C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #8]
 	ldr r0, _0211FC10 ; =0x0000EA3C

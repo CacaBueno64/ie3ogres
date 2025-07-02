@@ -44,8 +44,8 @@
 .public FUN_0206dcd4
 .public FUN_0206dcdc
 .public FUN_0206ed40
-.public FUN_02004f78
-.public FUN_02004fcc
+.public G2_GetBG1CharPtr
+.public G2_GetBG2CharPtr
 .public FUN_02005a1c
 .public FUN_02023ab4
 .public FUN_02023c40
@@ -58,7 +58,7 @@
 .public FUN_02074a2c
 .public FUN_020054dc
 .public FUN_020055bc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_020218f4
 .public FUN_020418b0
 .public FUN_020425fc
@@ -69,7 +69,7 @@
 .public FUN_020732e0
 .public FUN_020736e8
 .public FUN_020744f0
-.public FUN_0200505c
+.public G2_GetBG3CharPtr
 .public FUN_0200569c
 .public FUN_0205106c
 .public FUN_0205107c

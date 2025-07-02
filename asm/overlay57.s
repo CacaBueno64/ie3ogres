@@ -2604,13 +2604,13 @@ FUN_ov57_0211c1dc: ; 0x0211C1DC
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}
 	mov r4, #0x20
 	str r4, [sp, #8]
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r5, #0
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
 	bl MIi_CpuClearFast
-	bl FUN_02004f78
+	bl G2_GetBG1CharPtr
 	mov r1, r4
 	bl DC_FlushRange
 	mov r7, #1
@@ -11604,11 +11604,11 @@ FUN_ov57_02124330: ; 0x02124330
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _02124378 ; =0x021243A8
 	str r0, [r4, #0x14]
 	ldr r0, _0212437C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _02124380 ; =0x0000EA3C

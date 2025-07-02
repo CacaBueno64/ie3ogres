@@ -6506,11 +6506,11 @@ FUN_ov43_0211f9d0: ; 0x0211F9D0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _0211FA18 ; =0x0211FA40
 	str r0, [r4, #8]
 	ldr r0, _0211FA1C ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4, #4]
 	ldr r0, _0211FA20 ; =0x0000EA3C

@@ -9348,11 +9348,11 @@ FUN_ov22_021225a8: ; 0x021225A8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x2000
 	mov r0, r5
-	bl FUN_020095ac
+	bl FX_Sqrt
 	ldr r4, _021225F0 ; =0x02122630
 	str r0, [r4, #4]
 	ldr r0, _021225F4 ; =0x00009CCD
-	bl FUN_020095ac
+	bl FX_Sqrt
 	mov r1, #0x800
 	str r0, [r4]
 	ldr r0, _021225F8 ; =0x0000EA3C

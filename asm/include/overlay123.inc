@@ -3,9 +3,9 @@
 .public FUN_0202de44
 .public FUN_0202e1c0
 .public FUN_0204b0ac
-.public FUN_02004fac
+.public G2S_GetBG1CharPtr
 .public FUN_020058cc
-.public FUN_020095ac
+.public FX_Sqrt
 .public FUN_0200546c
 .public FUN_0200554c
 .public FUN_0200562c
