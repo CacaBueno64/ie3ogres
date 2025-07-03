@@ -1,7 +1,6 @@
 #ifndef IE3OGRES_CONFIG_H
 #define IE3OGRES_CONFIG_H
 
-// Sets English as default. Add here all supported ROM languages.
 #if !defined(JAPANESE)
 #define JAPANESE
 #endif

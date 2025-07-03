@@ -141419,7 +141419,7 @@ FUN_020758c4: ; 0x020758C4
 	ldmmifd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_02075ec8
+	bl DseSwd_GetBankById
 	cmp r0, #0
 	beq _02075920
 	sub r4, r5, #0x4c
@@ -141587,7 +141587,7 @@ FUN_02075b44: ; 0x02075B44
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	mov r6, r1
-	bl FUN_02075ec8
+	bl DseSwd_GetBankById
 	movs r4, r0
 	bne _02075B78
 	mvn r4, #0x40
@@ -141766,8 +141766,8 @@ ReadWaviEntry: ; 0x02075D7C
 	bx lr
 	arm_func_end ReadWaviEntry
 
-	arm_func_start FUN_02075db4
-FUN_02075db4: ; 0x02075DB4
+	arm_func_start DseSwd_GetInstrument
+DseSwd_GetInstrument: ; 0x02075DB4
 	ldr r2, [r0, #0x14]
 	cmp r2, #0
 	moveq r0, #0
@@ -141782,7 +141782,7 @@ FUN_02075db4: ; 0x02075DB4
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end FUN_02075db4
+	arm_func_end DseSwd_GetInstrument
 
 	arm_func_start DseSwd_GetNextSplitInRange
 DseSwd_GetNextSplitInRange: ; 0x02075DEC
@@ -141852,8 +141852,8 @@ _02075EC0: .word 0x04000208
 _02075EC4: .word unk_020BAFD8
 	arm_func_end FUN_02075e74
 
-	arm_func_start FUN_02075ec8
-FUN_02075ec8: ; 0x02075EC8
+	arm_func_start DseSwd_GetBankById
+DseSwd_GetBankById: ; 0x02075EC8
 	ldr r3, _02075F14 ; =0x04000208
 	mov r2, #0
 	ldrh r12, [r3]
@@ -141877,7 +141877,7 @@ _02075F00:
 	bx lr
 _02075F14: .word 0x04000208
 _02075F18: .word unk_020B9FD8
-	arm_func_end FUN_02075ec8
+	arm_func_end DseSwd_GetBankById
 
 	arm_func_start FUN_02075f1c
 FUN_02075f1c: ; 0x02075F1C
@@ -144174,7 +144174,7 @@ _02077DA0:
 	bl FUN_02079820
 _02077DE8:
 	bl FUN_0207b124
-	bl FUN_0207ae2c
+	bl DseVoice_UpdateParameters
 	bl FUN_0207b77c
 	bl FUN_0207b210
 	mov r0, #0
@@ -144226,7 +144226,7 @@ _02077E6C:
 	bne _02077EB0
 	mov r0, r7
 	mov r1, r8
-	bl FUN_0207ade8
+	bl DseVoice_ReleaseNote
 	ldr r0, [r4, #0x658]
 	mov r1, r6
 	str r0, [r8, #8]
@@ -144342,21 +144342,21 @@ _02077FE8:
 	ldrb r2, [r7, #7]
 	add r1, sp, #0
 	mov r0, r5
-	bl FUN_0207aaac
+	bl DseChannel_ChangeNote
 	b _0207806C
 _0207803C:
 	add r9, sp, #0
 	mov r0, r5
 	mov r1, r9
-	bl FUN_0207ab3c
+	bl DseChannel_ReleaseNote
 	mov r0, r5
 	mov r1, r9
 	str r4, [r5, #0x1c]
-	bl FUN_0207a96c
+	bl DseChannel_AllocateNote
 	movs r1, r0
 	beq _0207806C
 	mov r0, r5
-	bl FUN_0207ab78
+	bl DseVoice_PlayNote
 _0207806C:
 	ldrb r0, [sp, #2]
 	strb r0, [r7, #7]
@@ -144986,7 +144986,7 @@ FUN_02078874: ; 0x02078874
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl FUN_0207a82c
+	bl DseChannel_SetBank
 	add r0, r4, #2
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02078874
@@ -145002,7 +145002,7 @@ FUN_020788a0: ; 0x020788A0
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl FUN_0207a82c
+	bl DseChannel_SetBank
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020788a0
@@ -145018,7 +145018,7 @@ FUN_020788d0: ; 0x020788D0
 	add r1, r2, r1
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl FUN_0207a82c
+	bl DseChannel_SetBank
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020788d0
@@ -145037,7 +145037,7 @@ FUN_02078908: ; 0x02078908
 	mov r4, r3
 	ldrb r1, [r6]
 	mov r0, r4
-	bl FUN_0207a864
+	bl DseChannel_SetInstrument
 	movs r2, r0
 	bpl _02078948
 	ldrh r1, [r4, #0xe]
@@ -145098,7 +145098,7 @@ FUN_020789dc: ; 0x020789DC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r3, #0x60
-	bl FUN_0207b9c4
+	bl SoundEnvelopeParameters_Reset
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020789dc
@@ -145192,7 +145192,7 @@ FUN_02078ad0: ; 0x02078AD0
 	mov r4, r0
 	ldrsb r1, [r4]
 	mov r0, r3
-	bl FUN_0207a8f0
+	bl DseChannel_SetLfoConstEnvelopeLevel
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02078ad0
@@ -145497,7 +145497,7 @@ FUN_02078e94: ; 0x02078E94
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl FUN_0207a924
+	bl DseChannel_SetKeyBend
 	add r0, r4, #2
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02078e94
@@ -146316,7 +146316,7 @@ _020798F0:
 _02079914:
 	mov r0, r10
 	mov r1, r7
-	bl FUN_0207a9fc
+	bl DseChannel_ReleaseNoteInternal
 	b _020799D4
 _02079924:
 	ldrb r0, [sp, #0xb]
@@ -146329,14 +146329,14 @@ _02079924:
 	mov r0, r10
 	mov r1, r7
 	strb r5, [sp]
-	bl FUN_0207ab3c
+	bl DseChannel_ReleaseNote
 	mov r0, r10
 	mov r1, r7
-	bl FUN_0207a96c
+	bl DseChannel_AllocateNote
 	movs r1, r0
 	beq _020799D4
 	mov r0, r10
-	bl FUN_0207ab78
+	bl DseVoice_PlayNote
 	b _020799D4
 _02079970:
 	strb r4, [sp]
@@ -146356,7 +146356,7 @@ _02079984:
 _020799A4:
 	ldrb r1, [sp, #0xa]
 	mov r0, r10
-	bl FUN_0207a864
+	bl DseChannel_SetInstrument
 	b _020799D4
 _020799B4:
 	ldrb r2, [sp, #0xa]
@@ -146366,7 +146366,7 @@ _020799B4:
 	sub r1, r1, #0x2000
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl FUN_0207a924
+	bl DseChannel_SetKeyBend
 _020799D4:
 	add r0, sp, #8
 	bl FUN_0207969c
@@ -146381,35 +146381,35 @@ _020799F0: .word unk_02091954
 	arm_func_start FUN_020799f4
 FUN_020799f4: ; 0x020799F4
 	ldrh r2, [r0, #0xe]
-	ldr r12, _02079A10 ; =FUN_0207a82c
+	ldr r12, _02079A10 ; =DseChannel_SetBank
 	and r2, r2, #0xff
 	add r1, r2, r1, lsl #8
 	strh r1, [r0, #0xe]
 	ldrh r1, [r0, #0xe]
 	bx r12
-_02079A10: .word FUN_0207a82c
+_02079A10: .word DseChannel_SetBank
 	arm_func_end FUN_020799f4
 
 	arm_func_start FUN_02079a14
 FUN_02079a14: ; 0x02079A14
 	ldrh r2, [r0, #0xe]
-	ldr r12, _02079A30 ; =FUN_0207a82c
+	ldr r12, _02079A30 ; =DseChannel_SetBank
 	bic r2, r2, #0xff
 	add r1, r2, r1
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
 	bx r12
-_02079A30: .word FUN_0207a82c
+_02079A30: .word DseChannel_SetBank
 	arm_func_end FUN_02079a14
 
 	arm_func_start FUN_02079a34
 FUN_02079a34: ; 0x02079A34
 	mov r1, r1, lsl #0x18
 	mov r1, r1, asr #0x18
-	ldr r12, _02079A48 ; =FUN_0207a8f0
+	ldr r12, _02079A48 ; =DseChannel_SetLfoConstEnvelopeLevel
 	strb r1, [r0, #0x4d]
 	bx r12
-_02079A48: .word FUN_0207a8f0
+_02079A48: .word DseChannel_SetLfoConstEnvelopeLevel
 	arm_func_end FUN_02079a34
 
 	arm_func_start FUN_02079a4c
@@ -146741,10 +146741,10 @@ _02079DA8: .word FUN_0207b9e0
 
 	arm_func_start FUN_02079dac
 FUN_02079dac: ; 0x02079DAC
-	ldr r12, _02079DB8 ; =FUN_0207b9c4
+	ldr r12, _02079DB8 ; =SoundEnvelopeParameters_Reset
 	add r0, r0, #0x60
 	bx r12
-_02079DB8: .word FUN_0207b9c4
+_02079DB8: .word SoundEnvelopeParameters_Reset
 	arm_func_end FUN_02079dac
 
 	arm_func_start FUN_02079dbc
@@ -147103,7 +147103,7 @@ _0207A1C8:
 _0207A1D4:
 	mov r0, r5
 	mov r1, r7
-	bl FUN_0207ab78
+	bl DseVoice_PlayNote
 	ldr r7, [r7, #8]
 	cmp r7, #0
 	bne _0207A1D4
@@ -147358,10 +147358,10 @@ _0207A524:
 	blt _0207A558
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0207a82c
+	bl DseChannel_SetBank
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0207a864
+	bl DseChannel_SetInstrument
 _0207A558:
 	ldrb r0, [r10, #1]
 	add r7, r7, #1
@@ -147436,7 +147436,7 @@ _0207A648:
 	cmp r0, #4
 	blt _0207A648
 	add r0, r4, #0x60
-	bl FUN_0207b9c4
+	bl SoundEnvelopeParameters_Reset
 	ldr r1, _0207A724 ; =0x04000208
 	str r5, [r4, #0xb0]
 	ldrh lr, [r1]
@@ -147567,13 +147567,13 @@ _0207A81C:
 	bx lr
 	arm_func_end FUN_0207a7b0
 
-	arm_func_start FUN_0207a82c
-FUN_0207a82c: ; 0x0207A82C
+	arm_func_start DseChannel_SetBank
+DseChannel_SetBank: ; 0x0207A82C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	strh r1, [r4, #0xe]
-	bl FUN_02075ec8
+	bl DseSwd_GetBankById
 	str r0, [r4, #0xb8]
 	cmp r0, #0
 	moveq r0, #0
@@ -147581,12 +147581,12 @@ FUN_0207a82c: ; 0x0207A82C
 	ldmeqfd sp!, {r4, pc}
 	ldrh r1, [r4, #0x10]
 	mov r0, r4
-	bl FUN_0207a864
+	bl DseChannel_SetInstrument
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207a82c
+	arm_func_end DseChannel_SetBank
 
-	arm_func_start FUN_0207a864
-FUN_0207a864: ; 0x0207A864
+	arm_func_start DseChannel_SetInstrument
+DseChannel_SetInstrument: ; 0x0207A864
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r5, r0
 	ldr r0, [r5, #0xb8]
@@ -147599,7 +147599,7 @@ FUN_0207a864: ; 0x0207A864
 	mov r1, r4, lsl #0x10
 	mov r1, r1, asr #0x10
 	strh r1, [r5, #0x10]
-	bl FUN_02075db4
+	bl DseSwd_GetInstrument
 	movs lr, r0
 	beq _0207A8DC
 	mov r6, #0
@@ -147622,13 +147622,13 @@ _0207A8DC:
 	str lr, [r5, #0xbc]
 _0207A8E0:
 	add r0, r5, #0x60
-	bl FUN_0207b9c4
+	bl SoundEnvelopeParameters_Reset
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0207a864
+	arm_func_end DseChannel_SetInstrument
 
-	arm_func_start FUN_0207a8f0
-FUN_0207a8f0: ; 0x0207A8F0
+	arm_func_start DseChannel_SetLfoConstEnvelopeLevel
+DseChannel_SetLfoConstEnvelopeLevel: ; 0x0207A8F0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, [r0, #0xb0]
 	mov r5, r1
@@ -147638,15 +147638,15 @@ FUN_0207a8f0: ; 0x0207A8F0
 _0207A908:
 	mov r1, r5
 	add r0, r4, #0x5c
-	bl FUN_0207bf98
+	bl SoundLfoBank_SetConstEnvelopes
 	ldr r4, [r4, #0x154]
 	cmp r4, #0
 	bne _0207A908
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0207a8f0
+	arm_func_end DseChannel_SetLfoConstEnvelopeLevel
 
-	arm_func_start FUN_0207a924
-FUN_0207a924: ; 0x0207A924
+	arm_func_start DseChannel_SetKeyBend
+DseChannel_SetKeyBend: ; 0x0207A924
 	ldr r2, [r0, #0xb0]
 	strh r1, [r0, #0x4e]
 	cmp r2, #0
@@ -147666,10 +147666,10 @@ _0207A938:
 	cmp r2, #0
 	bne _0207A938
 	bx lr
-	arm_func_end FUN_0207a924
+	arm_func_end DseChannel_SetKeyBend
 
-	arm_func_start FUN_0207a96c
-FUN_0207a96c: ; 0x0207A96C
+	arm_func_start DseChannel_AllocateNote
+DseChannel_AllocateNote: ; 0x0207A96C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldrb r2, [r5, #0xd]
@@ -147707,10 +147707,10 @@ _0207A9AC:
 	str r0, [r5, #0xb4]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207A9F8: .word unk_020B9FD8
-	arm_func_end FUN_0207a96c
+	arm_func_end DseChannel_AllocateNote
 
-	arm_func_start FUN_0207a9fc
-FUN_0207a9fc: ; 0x0207A9FC
+	arm_func_start DseChannel_ReleaseNoteInternal
+DseChannel_ReleaseNoteInternal: ; 0x0207A9FC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	ldr r4, [r7, #0xb4]
@@ -147733,7 +147733,7 @@ _0207AA34:
 	bne _0207AA50
 	mov r0, r7
 	mov r1, r8
-	bl FUN_0207b56c
+	bl DseVoice_Release
 _0207AA50:
 	ldr r8, [r8, #0x154]
 	cmp r8, #0
@@ -147762,10 +147762,10 @@ _0207AAA0:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207AAA8: .word unk_020B9FD8
-	arm_func_end FUN_0207a9fc
+	arm_func_end DseChannel_ReleaseNoteInternal
 
-	arm_func_start FUN_0207aaac
-FUN_0207aaac: ; 0x0207AAAC
+	arm_func_start DseChannel_ChangeNote
+DseChannel_ChangeNote: ; 0x0207AAAC
 	stmfd sp!, {r4, lr}
 	ldr r4, [r0, #0xb4]
 	cmp r4, #0
@@ -147807,10 +147807,10 @@ _0207AB2C:
 	cmp r12, #0
 	bne _0207AAFC
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207aaac
+	arm_func_end DseChannel_ChangeNote
 
-	arm_func_start FUN_0207ab3c
-FUN_0207ab3c: ; 0x0207AB3C
+	arm_func_start DseChannel_ReleaseNote
+DseChannel_ReleaseNote: ; 0x0207AB3C
 	stmfd sp!, {r3, lr}
 	ldr r2, [r0, #0xb4]
 	cmp r2, #0
@@ -147821,17 +147821,17 @@ _0207AB50:
 	cmp r1, r3
 	bne _0207AB68
 	mov r1, r2
-	bl FUN_0207a9fc
+	bl DseChannel_ReleaseNoteInternal
 	ldmfd sp!, {r3, pc}
 _0207AB68:
 	ldr r2, [r2, #8]
 	cmp r2, #0
 	bne _0207AB50
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0207ab3c
+	arm_func_end DseChannel_ReleaseNote
 
-	arm_func_start FUN_0207ab78
-FUN_0207ab78: ; 0x0207AB78
+	arm_func_start DseVoice_PlayNote
+DseVoice_PlayNote: ; 0x0207AB78
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -147994,10 +147994,10 @@ _0207ADD4:
 _0207ADDC: .word unk_020B9FD8
 _0207ADE0: .word 0x4186143D
 _0207ADE4: .word 0x82061029
-	arm_func_end FUN_0207ab78
+	arm_func_end DseVoice_PlayNote
 
-	arm_func_start FUN_0207ade8
-FUN_0207ade8: ; 0x0207ADE8
+	arm_func_start DseVoice_ReleaseNote
+DseVoice_ReleaseNote: ; 0x0207ADE8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldr r4, [r6, #0xb0]
@@ -148011,16 +148011,16 @@ _0207AE00:
 	bne _0207AE1C
 	mov r0, r6
 	mov r1, r4
-	bl FUN_0207b56c
+	bl DseVoice_Release
 _0207AE1C:
 	ldr r4, [r4, #0x154]
 	cmp r4, #0
 	bne _0207AE00
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0207ade8
+	arm_func_end DseVoice_ReleaseNote
 
-	arm_func_start FUN_0207ae2c
-FUN_0207ae2c: ; 0x0207AE2C
+	arm_func_start DseVoice_UpdateParameters
+DseVoice_UpdateParameters: ; 0x0207AE2C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r11, _0207AFAC ; =0x020BA6D8
 	ldr r7, _0207AFB0 ; =0x020BA720
@@ -148131,7 +148131,7 @@ _0207AFB8: .word unk_02092098
 _0207AFBC: .word 0x00FFB0FF
 _0207AFC0: .word 0x828CBFBF
 _0207AFC4: .word unk_020BAFD8
-	arm_func_end FUN_0207ae2c
+	arm_func_end DseVoice_UpdateParameters
 
 	arm_func_start FUN_0207afc8
 FUN_0207afc8: ; 0x0207AFC8
@@ -148542,7 +148542,7 @@ _0207B538:
 	addgt r5, r1, #8
 	bgt _0207B554
 	mov r0, r6
-	bl FUN_0207a9fc
+	bl DseChannel_ReleaseNoteInternal
 _0207B554:
 	mov r1, r4
 	cmp r4, #0
@@ -148553,8 +148553,8 @@ _0207B560:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0207b514
 
-	arm_func_start FUN_0207b56c
-FUN_0207b56c: ; 0x0207B56C
+	arm_func_start DseVoice_Release
+DseVoice_Release: ; 0x0207B56C
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	ldrh r1, [r4, #4]
@@ -148574,7 +148574,7 @@ FUN_0207b56c: ; 0x0207B56C
 	strh r0, [r4, #6]
 	ldmfd sp!, {r4, pc}
 _0207B5B4: .word 0x0000FFFE
-	arm_func_end FUN_0207b56c
+	arm_func_end DseVoice_Release
 
 	arm_func_start FUN_0207b5b8
 FUN_0207b5b8: ; 0x0207B5B8
@@ -148877,8 +148877,8 @@ FUN_0207b9b0: ; 0x0207B9B0
 	bx lr
 	arm_func_end FUN_0207b9b0
 
-	arm_func_start FUN_0207b9c4
-FUN_0207b9c4: ; 0x0207B9C4
+	arm_func_start SoundEnvelopeParameters_Reset
+SoundEnvelopeParameters_Reset: ; 0x0207B9C4
 	mvn r2, #0xff
 	add r1, r2, #0xff
 	str r2, [r0]
@@ -148886,7 +148886,7 @@ FUN_0207b9c4: ; 0x0207B9C4
 	str r1, [r0, #8]
 	str r1, [r0, #0xc]
 	bx lr
-	arm_func_end FUN_0207b9c4
+	arm_func_end SoundEnvelopeParameters_Reset
 
 	arm_func_start FUN_0207b9e0
 FUN_0207b9e0: ; 0x0207B9E0
@@ -149324,8 +149324,8 @@ _0207BF90: .word unk_020B9FD8
 _0207BF94: .word unk_02091E54
 	arm_func_end SoundLfoBank_Set
 
-	arm_func_start FUN_0207bf98
-FUN_0207bf98: ; 0x0207BF98
+	arm_func_start SoundLfoBank_SetConstEnvelopes
+SoundLfoBank_SetConstEnvelopes: ; 0x0207BF98
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #0xc]
 	cmp lr, #0
@@ -149346,7 +149346,7 @@ _0207BFC4:
 	bne _0207BFC4
 	ldmfd sp!, {r3, pc}
 _0207BFE0: .word 0x81020409
-	arm_func_end FUN_0207bf98
+	arm_func_end SoundLfoBank_SetConstEnvelopes
 
 	arm_func_start FUN_0207bfe4
 FUN_0207bfe4: ; 0x0207BFE4
