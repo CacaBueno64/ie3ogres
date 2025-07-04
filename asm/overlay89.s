@@ -806,12 +806,12 @@ FUN_ov89_0211a9c8: ; 0x0211A9C8
 	ldrb r2, [r5, #0x89]
 	mov r0, r8
 	add r2, r2, #1
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r5, #0x89]
 	ldr r1, _0211AAC8 ; =0x0211D7EC
 	mov r0, r6
 	add r2, r2, #1
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	add r0, r4, #0x5c
 	bl  FUN_ov16_020f5868
 	cmp r0, #0

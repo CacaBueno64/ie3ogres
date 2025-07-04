@@ -18,7 +18,7 @@
 .public FUN_0204294c
 .public FUN_02005218
 .public FUN_02005398
-.public FUN_02015184
+.public STD_TSNPrintf
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f5a58

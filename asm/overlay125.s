@@ -119,19 +119,19 @@ FUN_ov125_02124e28: ; 0x02124E28
 	ldr r1, _02124F50 ; =0x021263E4
 	mov r0, r6
 	smulbb r2, r2, r7
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r9, #0x89]
 	ldr r1, _02124F54 ; =0x021263F4
 	mov r0, r5
 	smulbb r2, r2, r7
 	add r2, r2, #1
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r9, #0x89]
 	ldr r1, _02124F58 ; =0x02126404
 	mov r0, r4
 	smulbb r2, r2, r7
 	add r2, r2, #3
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldr r12, _02124F5C ; =0x0212628C
 	add r9, sp, #0
 	ldmia r12!, {r0, r1, r2, r3}

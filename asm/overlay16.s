@@ -6221,7 +6221,7 @@ _020F2DE4:
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	ldr r0, _020F2E28 ; =0x00000083
-	bl FUN_ov16_020f3e40
+	bl FUN_ov16_LoadOverlay
 	mov r0, #0x38
 	bl FUN_0201e014
 	cmp r0, #0
@@ -6258,7 +6258,7 @@ _020F2E5C:
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	ldr r0, _020F2EA0 ; =0x00000084
-	bl FUN_ov16_020f3e40
+	bl FUN_ov16_LoadOverlay
 	ldr r0, _020F2EA4 ; =0x000005C8
 	bl FUN_0201e014
 	cmp r0, #0
@@ -7537,8 +7537,8 @@ _020F3E38:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_ov16_020f3dd8
 
-	arm_func_start FUN_ov16_020f3e40
-FUN_ov16_020f3e40: ; 0x020F3E40
+	arm_func_start FUN_ov16_LoadOverlay
+FUN_ov16_LoadOverlay: ; 0x020F3E40
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x7c
 	mov r4, #0
@@ -7589,7 +7589,7 @@ _020F3EF4:
 	mov r0, r4
 	add sp, sp, #0x7c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f3e40
+	arm_func_end FUN_ov16_LoadOverlay
 
 	arm_func_start FUN_ov16_020f3f00
 FUN_ov16_020f3f00: ; 0x020F3F00

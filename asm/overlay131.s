@@ -16506,20 +16506,20 @@ AntiPiracyCheck: ; 0x021490F8
 	ldr r1, _021492F0 ; =FUN_ov131_02148ff8
 	mov r0, r5
 	mov r2, r6
-	bl FUN_ov129_0212ad60
+	.byte 0xf1, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad60
 	ldr r1, _021492F4 ; =FUN_ov131_02149038
 	mov r0, r5
 	mov r2, r6
-	bl FUN_ov129_0212add8
+	.byte 0x0b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212add8
 	ldr r1, _021492F8 ; =FUN_ov131_02149078
 	mov r0, r5
 	mov r2, r6
-	bl FUN_ov129_0212ae50
+	.byte 0x25, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae50
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r0, r5
 	mov r2, r6
 	mvn r5, r1
-	bl FUN_ov129_0212ad9c
+	.byte 0xf3, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad9c
 	cmp r5, r0
 	movne r9, r6
 	cmp r9, #0
@@ -16530,7 +16530,7 @@ _021491E0:
 	ldr r0, _021492EC ; =FUN_ov131_02143fa0
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	bl FUN_ov129_0212ae14
+	.byte 0x07, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae14
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16541,7 +16541,7 @@ _02149208:
 	ldr r0, _021492EC ; =FUN_ov131_02143fa0
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	bl FUN_ov129_0212ae8c
+	.byte 0x1b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae8c
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16658,7 +16658,7 @@ FUN_ov131_02149388: ; 0x02149388
 	ldr r1, _02149AA0 ; =0x0214CAB0
 	mov r0, r4
 	mov r5, r3
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	add r0, r6, #0x6000
 	mov r10, #0
 	ldr r1, _02149AA4 ; =0x0209A200

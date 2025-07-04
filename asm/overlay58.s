@@ -412,7 +412,7 @@ FUN_ov58_0211a450: ; 0x0211A450
 	ldr r1, _0211A498 ; =0x0211B72C
 	mov r0, r4
 	add r2, r3, r2
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	mov r0, r4
 	add r1, r5, #0xc
 	bl  FUN_ov16_020f316c
@@ -511,7 +511,7 @@ _0211A5AC:
 	ldr r1, _0211A610 ; =0x0211B744
 	mov r0, r6
 	add r2, r3, r2
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	mov r5, #0
 	str r5, [sp]
 	ldr r1, [r4, #0xc]
@@ -1053,7 +1053,7 @@ FUN_ov58_0211acf4: ; 0x0211ACF4
 	ldr r1, _0211AD64 ; =0x0211B75C
 	mov r0, r4
 	add r2, r2, #8
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	mov r0, r4
 	add r1, r5, #0x18
 	bl  FUN_ov16_020f316c
@@ -1511,7 +1511,7 @@ FUN_ov58_0211b308: ; 0x0211B308
 	ldr r1, _0211B368 ; =0x0211B770
 	mov r0, r4
 	add r2, r3, r2
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	mov r0, r4
 	add r1, r5, #0x30
 	bl  FUN_ov16_020f316c

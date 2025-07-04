@@ -10,3 +10,5 @@
 .public NitroMain
 .public _fp_init
 .public __call_static_initializers
+.public OS_IrqHandler
+.public OS_IRQTable

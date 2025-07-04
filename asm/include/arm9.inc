@@ -60,7 +60,7 @@
 .public FUN_ov16_020f3bb4
 .public FUN_ov16_020f3c08
 .public FUN_ov16_020f3c28
-.public FUN_ov16_020f3e40
+.public FUN_ov16_LoadOverlay
 .public FUN_ov16_020f3f00
 .public FUN_ov16_020f06ac
 .public FUN_ov16_020f06d8

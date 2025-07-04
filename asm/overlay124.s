@@ -162,28 +162,28 @@ FUN_ov124_02124e98: ; 0x02124E98
 	ldr r1, _02125010 ; =0x02126A64
 	ldrb r2, [r6, #0x89]
 	mov r0, r4
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r6, #0x89]
 	ldr r1, _02125014 ; =0x02126A74
 	mov r0, r10
 	add r2, r2, #3
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r6, #0x89]
 	ldr r1, _02125018 ; =0x02126A84
 	mov r0, r9
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r6, #0x89]
 	mov r4, #0xa
 	ldr r1, _0212501C ; =0x02126A94
 	smulbb r2, r2, r4
 	mov r0, r8
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldrb r2, [r6, #0x89]
 	ldr r1, _02125020 ; =0x02126AA4
 	mov r0, r7
 	smulbb r2, r2, r4
 	add r2, r2, #2
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldr r12, _02125024 ; =0x02126814
 	add r6, sp, #0xa0
 	mov r4, #7

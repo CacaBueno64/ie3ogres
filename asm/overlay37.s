@@ -162,7 +162,7 @@ _0211A0F8:
 	ldrsh r2, [r1, r0]
 	ldr r1, _0211A18C ; =0x0211BE04
 	mov r0, r4
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldr r0, _0211A190 ; =0x02099F38
 	ldr r2, [r6, #0x70]
 	ldr r0, [r0]
@@ -213,7 +213,7 @@ _0211A1C0:
 	mov r0, r7
 	mov r1, r11
 	add r2, r9, #1
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	ldr r2, [r10, #0x74]
 	ldr r0, [r4]
 	mov r1, #5

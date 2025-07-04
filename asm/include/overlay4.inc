@@ -240,7 +240,7 @@
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f3d08
-.public FUN_ov16_020f3e40
+.public FUN_ov16_LoadOverlay
 .public FUN_ov16_020f3f48
 .public FUN_ov16_020f3f54
 .public FUN_ov16_020f3f60

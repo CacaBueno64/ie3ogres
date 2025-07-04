@@ -240,7 +240,7 @@
 .public VEC_Subtract
 .public VEC_DotProduct
 .public VEC_Mag
-.public FUN_02015184
+.public STD_TSNPrintf
 .public FUN_02020274
 .public FUN_02021294
 .public FUN_02021940
@@ -320,7 +320,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2fe4
-.public FUN_ov16_020f3e40
+.public FUN_ov16_LoadOverlay
 .public FUN_ov16_020f3f60
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f5af0

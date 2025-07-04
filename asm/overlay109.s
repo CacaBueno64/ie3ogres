@@ -1582,7 +1582,7 @@ _02126304:
 	ldr r2, [r12, r5, lsl #2]
 	ldr r1, _021263AC ; =0x0212A99C
 	mov r0, r6
-	bl FUN_02015184
+	bl STD_TSNPrintf
 	mov r1, #3
 	str r1, [sp]
 	str r1, [sp, #4]

@@ -2122,7 +2122,7 @@ FUN_ov4_020be778: ; 0x020BE778
 	cmp r1, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4, #0xc]
-	bl FUN_ov16_020f3e40
+	bl FUN_ov16_LoadOverlay
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r1, [r4]
@@ -2564,7 +2564,7 @@ FUN_ov4_020bed70: ; 0x020BED70
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #0xc]
-	bl FUN_ov16_020f3e40
+	bl FUN_ov16_LoadOverlay
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r1, [r4]

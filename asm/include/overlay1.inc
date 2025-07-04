@@ -227,7 +227,7 @@
 .public FUN_0207477c
 .public VEC_Add
 .public VEC_Subtract
-.public FUN_02015184
+.public STD_TSNPrintf
 .public FUN_02017734
 .public FUN_02017784
 .public FUN_02017848
@@ -302,7 +302,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2fe4
-.public FUN_ov16_020f3e40
+.public FUN_ov16_LoadOverlay
 .public FUN_ov16_020f3f60
 .public FUN_ov16_020f5a04
 .public FUN_ov16_020f5a58

@@ -126,7 +126,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2fe4
-.public FUN_ov16_020f3e40
+.public FUN_ov16_LoadOverlay
 .public FUN_ov16_020f3f60
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f5af0

@@ -1,5 +1,12 @@
 	.include "include/crt0.inc"
 	.include "asm/macros/function.inc"
+	.public SDK_AUTOLOAD_DTCM_START
+	.public SDK_AUTOLOAD_LIST
+	.public SDK_AUTOLOAD_LIST_END
+	.public SDK_AUTOLOAD_START
+	.public SDK_STATIC_BSS_START
+	.public SDK_STATIC_BSS_END
+	.public SDK_IRQ_STACKSIZE
 
 	.text
 
@@ -14,18 +21,18 @@ _02000808:
 	bl init_cp15
 	mov r0, #0x13
 	msr cpsr_c, r0
-	ldr r0, _02000918 ; =0x027E0000
+	ldr r0, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r0, r0, #0x3fc0
 	mov sp, r0
 	mov r0, #0x12
 	msr cpsr_c, r0
-	ldr r0, _02000918 ; =0x027E0000
+	ldr r0, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r0, r0, #0x3fc0
 	sub r0, r0, #0x40
 	sub sp, r0, #4
 	tst sp, #4
 	subeq sp, sp, #4
-	ldr r1, _0200091C ; =0x00000400
+	ldr r1, _0200091C ; =SDK_IRQ_STACKSIZE
 	sub r1, r0, r1
 	mov r0, #0x1f
 	msr cpsr_fsxc, r0
@@ -33,7 +40,7 @@ _02000808:
 	tst sp, #4
 	subne sp, sp, #4
 	mov r0, #0
-	ldr r1, _02000918 ; =0x027E0000
+	ldr r1, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	mov r2, #0x4000
 	bl INITi_CpuClear32
 	mov r0, #0
@@ -67,10 +74,10 @@ _020008CC:
 	blt _020008CC
 	ldr r1, _0200092C ; =0x02FFFF9C
 	str r0, [r1]
-	ldr r1, _02000918 ; =0x027E0000
+	ldr r1, _02000918 ; =SDK_AUTOLOAD_DTCM_START
 	add r1, r1, #0x3fc0
 	add r1, r1, #0x3c
-	ldr r0, _02000930 ; =0x01FF8000
+	ldr r0, _02000930 ; =OS_IrqHandler
 	str r0, [r1]
 	bl _fp_init
 	bl NitroStartUp
@@ -78,13 +85,13 @@ _020008CC:
 	ldr r1, _02000934 ; =NitroMain
 	ldr lr, _02000938 ; =0xFFFF0000
 	bx r1
-_02000918: .word 0x027E0000
-_0200091C: .word 0x00000400
+_02000918: .word SDK_AUTOLOAD_DTCM_START
+_0200091C: .word SDK_IRQ_STACKSIZE
 _02000920: .word 0x05000000
 _02000924: .word 0x07000000
 _02000928: .word _start_ModuleParams
 _0200092C: .word 0x02FFFF9C
-_02000930: .word 0x01FF8000
+_02000930: .word OS_IrqHandler
 _02000934: .word NitroMain
 _02000938: .word 0xFFFF0000
 	arm_func_end _start
@@ -216,7 +223,7 @@ init_cp15: ; 0x02000A78
 	mcr p15, 0, r0, c6, c2, 0
 	ldr r0, _02000B40 ; =0x08000035
 	mcr p15, 0, r0, c6, c3, 0
-	ldr r0, _02000B44 ; =0x027E0000
+	ldr r0, _02000B44 ; =SDK_AUTOLOAD_DTCM_START
 	orr r0, r0, #0x1a
 	orr r0, r0, #1
 	mcr p15, 0, r0, c6, c4, 0
@@ -228,7 +235,7 @@ init_cp15: ; 0x02000A78
 	mcr p15, 0, r0, c6, c7, 0
 	mov r0, #0x20
 	mcr p15, 0, r0, c9, c1, 1
-	ldr r0, _02000B44 ; =0x027E0000
+	ldr r0, _02000B44 ; =SDK_AUTOLOAD_DTCM_START
 	orr r0, r0, #0xa
 	mcr p15, 0, r0, c9, c1, 0
 	mov r0, #0x4a
@@ -251,7 +258,7 @@ _02000B34: .word 0x04000033
 _02000B38: .word 0x02000031
 _02000B3C: .word 0x027FF017
 _02000B40: .word 0x08000035
-_02000B44: .word 0x027E0000
+_02000B44: .word OS_IRQTable
 _02000B48: .word 0x0100002F
 _02000B4C: .word 0xFFFF001D
 _02000B50: .word 0x02FFF017
@@ -270,19 +277,26 @@ OSi_ReferSymbol: ; 0x02000B64
 	bx lr
 	arm_func_end OSi_ReferSymbol
 
-_02000B68:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x09, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x33, 0x81, 0xC0, 0xDE, 0xDE, 0xC0, 0x81, 0x33
-
 	.rodata
+	.public _start_BuildParams
+_start_BuildParams: ; 0x02000B68
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0x00000900
+	.word 0x00000001
+	.word 0xDEC08133
+	.word 0x3381C0DE
+
 	.public _start_ModuleParams
 _start_ModuleParams: ; 0x02000B88
-	.word 0x020976A0
-	.word 0x020976B8
-	.word 0x02093920
-	.word 0x02093920
-	.word 0x020BCB40
-	.word 0x020628E8
+	.word SDK_AUTOLOAD_LIST
+	.word SDK_AUTOLOAD_LIST_END
+	.word SDK_AUTOLOAD_START
+	.word SDK_STATIC_BSS_START
+	.word SDK_STATIC_BSS_END
+	.word 0
 	.word 0x05047531
 	.word 0xDEC00621
 	.word 0x2106C0DE

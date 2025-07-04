@@ -50,7 +50,7 @@
 .public FUN_0205107c
 .public FUN_0207224c
 .public FUN_0207249c
-.public FUN_02015184
+.public STD_TSNPrintf
 .public FUN_02043310
 .public FUN_ov16_020ee1e4
 .public FUN_ov16_020ee008

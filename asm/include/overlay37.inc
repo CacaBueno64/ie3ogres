@@ -20,7 +20,7 @@
 .public FUN_020204a4
 .public FUN_020418b0
 .public FUN_020591e8
-.public FUN_02015184
+.public STD_TSNPrintf
 .public FUN_02020274
 .public FUN_02058684
 .public FUN_02059004
