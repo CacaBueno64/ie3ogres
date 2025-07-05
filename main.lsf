@@ -535,6 +535,7 @@ Overlay overlay101
 {
 	After overlay57
 	Object asm/overlay101.o
+	Object src/ov101.o
 }
 Overlay overlay102
 {

@@ -5,12 +5,12 @@
 .public FUN_0204a2c4
 .public G2S_GetBG1CharPtr
 .public FUN_02023c40
-.public FUN_020057ec
-.public FUN_020058cc
-.public FUN_020059ac
+.public GXS_LoadBG0Char
+.public GXS_LoadBG1Char
+.public GXS_LoadBG2Char
 .public FX_Sqrt
 .public G2S_GetBG2CharPtr
-.public FUN_0200546c
+.public GXS_LoadBG0Scr
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f5a58

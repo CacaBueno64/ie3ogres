@@ -551,7 +551,7 @@ FUN_ov118_02125420: ; 0x02125420
 	ldr r2, [r8, #0x10]
 	mov r1, r7
 	add r0, r8, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02125470:
 	bl  FUN_ov1_020db2f0
 	cmp r0, #0
@@ -584,7 +584,7 @@ _021254BC:
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x18]
 	add r0, r7, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	mov r6, #2
 	ldr r1, [r5, #0x58]
 	ldr r2, [r7, #0x18]
@@ -625,7 +625,7 @@ _0212551C:
 	ldr r0, [r5, #0x18]
 	mov r1, r4
 	mov r2, #0x180
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	add r4, r4, #0x180
 _02125580:
 	ldr r0, [r5, #0x28]
@@ -639,7 +639,7 @@ _02125580:
 	ldr r0, [r5, #0x2c]
 	mov r1, r4
 	mov r2, #0xfc0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _021255B0:
 	bl  FUN_ov16_020f10c8
 	mov r0, #1
@@ -995,7 +995,7 @@ _02125A84:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r4, _02125AD4 ; =0x020A8440
 	mov r1, r6
 	mov r0, r4
@@ -1003,7 +1003,7 @@ _02125A84:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r4, r5, r6, pc}
 _02125AD0: .word unk_020A8C40
 _02125AD4: .word unk_020A8440

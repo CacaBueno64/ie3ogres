@@ -150,9 +150,9 @@
 .public FUN_02059e58
 .public FUN_02085e4c
 .public FUN_02085f50
-.public FUN_020052d8
-.public FUN_020058cc
-.public FUN_020059ac
+.public GXS_LoadOAM
+.public GXS_LoadBG1Char
+.public GXS_LoadBG2Char
 .public FX_Sqrt
 .public VEC_MultAdd
 .public FUN_020204a4
@@ -203,7 +203,7 @@
 .public FUN_020866d8
 .public G2S_GetBG2CharPtr
 .public G2_GetBG3CharPtr
-.public FUN_0200546c
+.public GXS_LoadBG0Scr
 .public FUN_0200693c
 .public FUN_0200867c
 .public FUN_0204201c
@@ -233,8 +233,8 @@
 .public FUN_0207273c
 .public FUN_0208622c
 .public FUN_0208670c
-.public FUN_02005218
-.public FUN_02005398
+.public GXS_LoadOBJPltt
+.public GXS_LoadOBJ
 .public FUN_02008698
 .public VEC_Add
 .public VEC_Subtract

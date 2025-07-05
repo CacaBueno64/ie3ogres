@@ -4829,8 +4829,8 @@ _0200467C:
 	bx lr
 	arm_func_end FUN_02004650
 
-	arm_func_start FUN_02004694
-FUN_02004694: ; 0x02004694
+	arm_func_start G3_LoadMtx43
+G3_LoadMtx43: ; 0x02004694
 	ldr r1, _020046A8 ; =0x04000400
 	mov r2, #0x17
 	ldr r12, _020046AC ; =GX_SendFifo48B
@@ -4838,10 +4838,10 @@ FUN_02004694: ; 0x02004694
 	bx r12
 _020046A8: .word 0x04000400
 _020046AC: .word GX_SendFifo48B
-	arm_func_end FUN_02004694
+	arm_func_end G3_LoadMtx43
 
-	arm_func_start FUN_020046b0
-FUN_020046b0: ; 0x020046B0
+	arm_func_start G3_MultMtx43
+G3_MultMtx43: ; 0x020046B0
 	ldr r1, _020046C4 ; =0x04000400
 	mov r2, #0x19
 	ldr r12, _020046C8 ; =GX_SendFifo48B
@@ -4849,10 +4849,10 @@ FUN_020046b0: ; 0x020046B0
 	bx r12
 _020046C4: .word 0x04000400
 _020046C8: .word GX_SendFifo48B
-	arm_func_end FUN_020046b0
+	arm_func_end G3_MultMtx43
 
-	arm_func_start FUN_020046cc
-FUN_020046cc: ; 0x020046CC
+	arm_func_start G3_MultMtx33
+G3_MultMtx33: ; 0x020046CC
 	ldr r1, _020046E0 ; =0x04000400
 	mov r2, #0x1a
 	ldr r12, _020046E4 ; =MI_Copy36B
@@ -4860,7 +4860,7 @@ FUN_020046cc: ; 0x020046CC
 	bx r12
 _020046E0: .word 0x04000400
 _020046E4: .word MI_Copy36B
-	arm_func_end FUN_020046cc
+	arm_func_end G3_MultMtx33
 
 	arm_func_start G3X_Init
 G3X_Init: ; 0x020046E8
@@ -5677,8 +5677,8 @@ _020050F0:
 _020050F8: .word 0x04001000
 	arm_func_end G2S_GetBG3CharPtr
 
-	arm_func_start FUN_020050fc
-FUN_020050fc: ; 0x020050FC
+	arm_func_start GX_LoadBGPltt
+GX_LoadBGPltt: ; 0x020050FC
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r3, _0200515C ; =0x0208EC7C
@@ -5694,7 +5694,7 @@ FUN_020050fc: ; 0x020050FC
 	mov r1, r4
 	add r2, lr, #0x5000000
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _02005144:
@@ -5705,10 +5705,10 @@ _02005144:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _0200515C: .word unk_0208EC7C
-	arm_func_end FUN_020050fc
+	arm_func_end GX_LoadBGPltt
 
-	arm_func_start FUN_02005160
-FUN_02005160: ; 0x02005160
+	arm_func_start GXS_LoadBGPltt
+GXS_LoadBGPltt: ; 0x02005160
 	stmfd sp!, {r3, lr}
 	ldr r3, _020051B8 ; =0x0208EC7C
 	mov lr, r0
@@ -5723,7 +5723,7 @@ FUN_02005160: ; 0x02005160
 	mov r1, lr
 	add r2, r2, #0x5000000
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldmfd sp!, {r3, pc}
 _020051A0:
 	add r1, r1, #0x400
@@ -5733,10 +5733,10 @@ _020051A0:
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
 _020051B8: .word unk_0208EC7C
-	arm_func_end FUN_02005160
+	arm_func_end GXS_LoadBGPltt
 
-	arm_func_start FUN_020051bc
-FUN_020051bc: ; 0x020051BC
+	arm_func_start GX_LoadOBJPltt
+GX_LoadOBJPltt: ; 0x020051BC
 	stmfd sp!, {r3, lr}
 	ldr r3, _02005214 ; =0x0208EC7C
 	mov lr, r0
@@ -5751,7 +5751,7 @@ FUN_020051bc: ; 0x020051BC
 	mov r1, lr
 	add r2, r2, #0x5000000
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldmfd sp!, {r3, pc}
 _020051FC:
 	add r1, r1, #0x200
@@ -5761,10 +5761,10 @@ _020051FC:
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
 _02005214: .word unk_0208EC7C
-	arm_func_end FUN_020051bc
+	arm_func_end GX_LoadOBJPltt
 
-	arm_func_start FUN_02005218
-FUN_02005218: ; 0x02005218
+	arm_func_start GXS_LoadOBJPltt
+GXS_LoadOBJPltt: ; 0x02005218
 	stmfd sp!, {r3, lr}
 	ldr r3, _02005270 ; =0x0208EC7C
 	mov lr, r0
@@ -5779,7 +5779,7 @@ FUN_02005218: ; 0x02005218
 	mov r1, lr
 	add r2, r2, #0x5000000
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldmfd sp!, {r3, pc}
 _02005258:
 	add r1, r1, #0x600
@@ -5789,10 +5789,10 @@ _02005258:
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
 _02005270: .word unk_0208EC7C
-	arm_func_end FUN_02005218
+	arm_func_end GXS_LoadOBJPltt
 
-	arm_func_start FUN_02005274
-FUN_02005274: ; 0x02005274
+	arm_func_start GX_LoadOAM
+GX_LoadOAM: ; 0x02005274
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r3, _020052D4 ; =0x0208EC7C
@@ -5808,7 +5808,7 @@ FUN_02005274: ; 0x02005274
 	mov r1, r4
 	add r2, lr, #0x7000000
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020052BC:
@@ -5819,10 +5819,10 @@ _020052BC:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020052D4: .word unk_0208EC7C
-	arm_func_end FUN_02005274
+	arm_func_end GX_LoadOAM
 
-	arm_func_start FUN_020052d8
-FUN_020052d8: ; 0x020052D8
+	arm_func_start GXS_LoadOAM
+GXS_LoadOAM: ; 0x020052D8
 	stmfd sp!, {r3, lr}
 	ldr r3, _02005330 ; =0x0208EC7C
 	mov lr, r0
@@ -5837,7 +5837,7 @@ FUN_020052d8: ; 0x020052D8
 	mov r1, lr
 	add r2, r2, #0x7000000
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	ldmfd sp!, {r3, pc}
 _02005318:
 	add r1, r1, #0x400
@@ -5847,10 +5847,10 @@ _02005318:
 	bl MIi_CpuCopy32
 	ldmfd sp!, {r3, pc}
 _02005330: .word unk_0208EC7C
-	arm_func_end FUN_020052d8
+	arm_func_end GXS_LoadOAM
 
-	arm_func_start FUN_02005334
-FUN_02005334: ; 0x02005334
+	arm_func_start GX_LoadOBJ
+GX_LoadOBJ: ; 0x02005334
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r3, _02005394 ; =0x0208EC7C
@@ -5866,7 +5866,7 @@ FUN_02005334: ; 0x02005334
 	mov r1, r4
 	add r2, lr, #0x6400000
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _0200537C:
@@ -5877,10 +5877,10 @@ _0200537C:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _02005394: .word unk_0208EC7C
-	arm_func_end FUN_02005334
+	arm_func_end GX_LoadOBJ
 
-	arm_func_start FUN_02005398
-FUN_02005398: ; 0x02005398
+	arm_func_start GXS_LoadOBJ
+GXS_LoadOBJ: ; 0x02005398
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r3, _020053F8 ; =0x0208EC7C
@@ -5896,7 +5896,7 @@ FUN_02005398: ; 0x02005398
 	mov r1, r4
 	add r2, lr, #0x6600000
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020053E0:
@@ -5907,10 +5907,10 @@ _020053E0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020053F8: .word unk_0208EC7C
-	arm_func_end FUN_02005398
+	arm_func_end GXS_LoadOBJ
 
-	arm_func_start FUN_020053fc
-FUN_020053fc: ; 0x020053FC
+	arm_func_start GX_LoadBG0Scr
+GX_LoadBG0Scr: ; 0x020053FC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -5929,7 +5929,7 @@ FUN_020053fc: ; 0x020053FC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005450:
@@ -5940,10 +5940,10 @@ _02005450:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005468: .word unk_0208EC7C
-	arm_func_end FUN_020053fc
+	arm_func_end GX_LoadBG0Scr
 
-	arm_func_start FUN_0200546c
-FUN_0200546c: ; 0x0200546C
+	arm_func_start GXS_LoadBG0Scr
+GXS_LoadBG0Scr: ; 0x0200546C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -5962,7 +5962,7 @@ FUN_0200546c: ; 0x0200546C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020054C0:
@@ -5973,10 +5973,10 @@ _020054C0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020054D8: .word unk_0208EC7C
-	arm_func_end FUN_0200546c
+	arm_func_end GXS_LoadBG0Scr
 
-	arm_func_start FUN_020054dc
-FUN_020054dc: ; 0x020054DC
+	arm_func_start GX_LoadBG1Scr
+GX_LoadBG1Scr: ; 0x020054DC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -5995,7 +5995,7 @@ FUN_020054dc: ; 0x020054DC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005530:
@@ -6006,10 +6006,10 @@ _02005530:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005548: .word unk_0208EC7C
-	arm_func_end FUN_020054dc
+	arm_func_end GX_LoadBG1Scr
 
-	arm_func_start FUN_0200554c
-FUN_0200554c: ; 0x0200554C
+	arm_func_start GXS_LoadBG1Scr
+GXS_LoadBG1Scr: ; 0x0200554C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6028,7 +6028,7 @@ FUN_0200554c: ; 0x0200554C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020055A0:
@@ -6039,10 +6039,10 @@ _020055A0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020055B8: .word unk_0208EC7C
-	arm_func_end FUN_0200554c
+	arm_func_end GXS_LoadBG1Scr
 
-	arm_func_start FUN_020055bc
-FUN_020055bc: ; 0x020055BC
+	arm_func_start GX_LoadBG2Scr
+GX_LoadBG2Scr: ; 0x020055BC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6061,7 +6061,7 @@ FUN_020055bc: ; 0x020055BC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005610:
@@ -6072,10 +6072,10 @@ _02005610:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005628: .word unk_0208EC7C
-	arm_func_end FUN_020055bc
+	arm_func_end GX_LoadBG2Scr
 
-	arm_func_start FUN_0200562c
-FUN_0200562c: ; 0x0200562C
+	arm_func_start GXS_LoadBG2Scr
+GXS_LoadBG2Scr: ; 0x0200562C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6094,7 +6094,7 @@ FUN_0200562c: ; 0x0200562C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005680:
@@ -6105,10 +6105,10 @@ _02005680:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005698: .word unk_0208EC7C
-	arm_func_end FUN_0200562c
+	arm_func_end GXS_LoadBG2Scr
 
-	arm_func_start FUN_0200569c
-FUN_0200569c: ; 0x0200569C
+	arm_func_start GX_LoadBG3Scr
+GX_LoadBG3Scr: ; 0x0200569C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6127,7 +6127,7 @@ FUN_0200569c: ; 0x0200569C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020056F0:
@@ -6138,10 +6138,10 @@ _020056F0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005708: .word unk_0208EC7C
-	arm_func_end FUN_0200569c
+	arm_func_end GX_LoadBG3Scr
 
-	arm_func_start FUN_0200570c
-FUN_0200570c: ; 0x0200570C
+	arm_func_start GXS_LoadBG3Scr
+GXS_LoadBG3Scr: ; 0x0200570C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6160,7 +6160,7 @@ FUN_0200570c: ; 0x0200570C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005760:
@@ -6171,10 +6171,10 @@ _02005760:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005778: .word unk_0208EC7C
-	arm_func_end FUN_0200570c
+	arm_func_end GXS_LoadBG3Scr
 
-	arm_func_start FUN_0200577c
-FUN_0200577c: ; 0x0200577C
+	arm_func_start GX_LoadBG0Char
+GX_LoadBG0Char: ; 0x0200577C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6193,7 +6193,7 @@ FUN_0200577c: ; 0x0200577C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020057D0:
@@ -6204,10 +6204,10 @@ _020057D0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020057E8: .word unk_0208EC7C
-	arm_func_end FUN_0200577c
+	arm_func_end GX_LoadBG0Char
 
-	arm_func_start FUN_020057ec
-FUN_020057ec: ; 0x020057EC
+	arm_func_start GXS_LoadBG0Char
+GXS_LoadBG0Char: ; 0x020057EC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6226,7 +6226,7 @@ FUN_020057ec: ; 0x020057EC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005840:
@@ -6237,10 +6237,10 @@ _02005840:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005858: .word unk_0208EC7C
-	arm_func_end FUN_020057ec
+	arm_func_end GXS_LoadBG0Char
 
-	arm_func_start FUN_0200585c
-FUN_0200585c: ; 0x0200585C
+	arm_func_start GX_LoadBG1Char
+GX_LoadBG1Char: ; 0x0200585C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6259,7 +6259,7 @@ FUN_0200585c: ; 0x0200585C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020058B0:
@@ -6270,10 +6270,10 @@ _020058B0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020058C8: .word unk_0208EC7C
-	arm_func_end FUN_0200585c
+	arm_func_end GX_LoadBG1Char
 
-	arm_func_start FUN_020058cc
-FUN_020058cc: ; 0x020058CC
+	arm_func_start GXS_LoadBG1Char
+GXS_LoadBG1Char: ; 0x020058CC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6292,7 +6292,7 @@ FUN_020058cc: ; 0x020058CC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005920:
@@ -6303,10 +6303,10 @@ _02005920:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005938: .word unk_0208EC7C
-	arm_func_end FUN_020058cc
+	arm_func_end GXS_LoadBG1Char
 
-	arm_func_start FUN_0200593c
-FUN_0200593c: ; 0x0200593C
+	arm_func_start GX_LoadBG2Char
+GX_LoadBG2Char: ; 0x0200593C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6325,7 +6325,7 @@ FUN_0200593c: ; 0x0200593C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005990:
@@ -6336,10 +6336,10 @@ _02005990:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020059A8: .word unk_0208EC7C
-	arm_func_end FUN_0200593c
+	arm_func_end GX_LoadBG2Char
 
-	arm_func_start FUN_020059ac
-FUN_020059ac: ; 0x020059AC
+	arm_func_start GXS_LoadBG2Char
+GXS_LoadBG2Char: ; 0x020059AC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6358,7 +6358,7 @@ FUN_020059ac: ; 0x020059AC
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005A00:
@@ -6369,10 +6369,10 @@ _02005A00:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005A18: .word unk_0208EC7C
-	arm_func_end FUN_020059ac
+	arm_func_end GXS_LoadBG2Char
 
-	arm_func_start FUN_02005a1c
-FUN_02005a1c: ; 0x02005A1C
+	arm_func_start GX_LoadBG3Char
+GX_LoadBG3Char: ; 0x02005A1C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6391,7 +6391,7 @@ FUN_02005a1c: ; 0x02005A1C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005A70:
@@ -6402,10 +6402,10 @@ _02005A70:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005A88: .word unk_0208EC7C
-	arm_func_end FUN_02005a1c
+	arm_func_end GX_LoadBG3Char
 
-	arm_func_start FUN_02005a8c
-FUN_02005a8c: ; 0x02005A8C
+	arm_func_start GXS_LoadBG3Char
+GXS_LoadBG3Char: ; 0x02005A8C
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r0
@@ -6424,7 +6424,7 @@ FUN_02005a8c: ; 0x02005A8C
 	mov r3, r4
 	add r2, lr, r5
 	str r12, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005AE0:
@@ -6435,10 +6435,10 @@ _02005AE0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005AF8: .word unk_0208EC7C
-	arm_func_end FUN_02005a8c
+	arm_func_end GXS_LoadBG3Char
 
-	arm_func_start FUN_02005afc
-FUN_02005afc: ; 0x02005AFC
+	arm_func_start GX_BeginLoadBGExtPltt
+GX_BeginLoadBGExtPltt: ; 0x02005AFC
 	stmfd sp!, {r3, lr}
 	bl FUN_02006b94
 	ldr r1, _02005B78 ; =0x02093D24
@@ -6477,10 +6477,10 @@ _02005B78: .word unk_02093D24
 _02005B7C: .word 0x06880000
 _02005B80: .word 0x06894000
 _02005B84: .word 0x06890000
-	arm_func_end FUN_02005afc
+	arm_func_end GX_BeginLoadBGExtPltt
 
-	arm_func_start FUN_02005b88
-FUN_02005b88: ; 0x02005B88
+	arm_func_start GX_LoadBGExtPltt
+GX_LoadBGExtPltt: ; 0x02005B88
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	ldr r12, _02005BF4 ; =0x02093D24
@@ -6501,7 +6501,7 @@ FUN_02005b88: ; 0x02005B88
 	mov r0, lr
 	mov r2, r4
 	str r12, [sp, #8]
-	bl FUN_02007254
+	bl MIi_DmaCopy32Async
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
 _02005BE4:
@@ -6511,10 +6511,10 @@ _02005BE4:
 	ldmfd sp!, {r3, r4, pc}
 _02005BF4: .word unk_02093D24
 _02005BF8: .word unk_0208EC7C
-	arm_func_end FUN_02005b88
+	arm_func_end GX_LoadBGExtPltt
 
-	arm_func_start FUN_02005bfc
-FUN_02005bfc: ; 0x02005BFC
+	arm_func_start GX_EndLoadBGExtPltt
+GX_EndLoadBGExtPltt: ; 0x02005BFC
 	stmfd sp!, {r4, lr}
 	ldr r0, _02005C34 ; =0x0208EC7C
 	ldr r0, [r0]
@@ -6524,7 +6524,7 @@ FUN_02005bfc: ; 0x02005BFC
 _02005C14:
 	ldr r4, _02005C38 ; =0x02093D24
 	ldr r0, [r4, #0x14]
-	bl FUN_0200638c
+	bl GX_SetBankForBGExtPltt
 	mov r0, #0
 	str r0, [r4, #0x14]
 	str r0, [r4, #0x10]
@@ -6532,20 +6532,20 @@ _02005C14:
 	ldmfd sp!, {r4, pc}
 _02005C34: .word unk_0208EC7C
 _02005C38: .word unk_02093D24
-	arm_func_end FUN_02005bfc
+	arm_func_end GX_EndLoadBGExtPltt
 
-	arm_func_start FUN_02005c3c
-FUN_02005c3c: ; 0x02005C3C
+	arm_func_start GXS_BeginLoadBGExtPltt
+GXS_BeginLoadBGExtPltt: ; 0x02005C3C
 	stmfd sp!, {r3, lr}
-	bl FUN_02006c08
+	bl GX_ResetBankForSubBGExtPltt
 	ldr r1, _02005C50 ; =0x02093D24
 	str r0, [r1]
 	ldmfd sp!, {r3, pc}
 _02005C50: .word unk_02093D24
-	arm_func_end FUN_02005c3c
+	arm_func_end GXS_BeginLoadBGExtPltt
 
-	arm_func_start FUN_02005c54
-FUN_02005c54: ; 0x02005C54
+	arm_func_start GXS_LoadBGExtPltt
+GXS_LoadBGExtPltt: ; 0x02005C54
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	ldr r3, _02005CB8 ; =0x0208EC7C
@@ -6563,7 +6563,7 @@ FUN_02005c54: ; 0x02005C54
 	mov r1, r4
 	add r2, r2, #0x6800000
 	str r12, [sp, #8]
-	bl FUN_02007254
+	bl MIi_DmaCopy32Async
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
 _02005CA4:
@@ -6573,10 +6573,10 @@ _02005CA4:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
 _02005CB8: .word unk_0208EC7C
-	arm_func_end FUN_02005c54
+	arm_func_end GXS_LoadBGExtPltt
 
-	arm_func_start FUN_02005cbc
-FUN_02005cbc: ; 0x02005CBC
+	arm_func_start GXS_EndLoadBGExtPltt
+GXS_EndLoadBGExtPltt: ; 0x02005CBC
 	stmfd sp!, {r4, lr}
 	ldr r0, _02005CEC ; =0x0208EC7C
 	ldr r0, [r0]
@@ -6592,7 +6592,7 @@ _02005CD4:
 	ldmfd sp!, {r4, pc}
 _02005CEC: .word unk_0208EC7C
 _02005CF0: .word unk_02093D24
-	arm_func_end FUN_02005cbc
+	arm_func_end GXS_EndLoadBGExtPltt
 
 	arm_func_start GX_BeginLoadTex
 GX_BeginLoadTex: ; 0x02005CF4
@@ -6657,7 +6657,7 @@ GX_LoadTex: ; 0x02005D50
 	mov r3, r5
 	add r2, r8, r12
 	str lr, [sp]
-	bl FUN_02007000
+	bl MIi_DmaCopy32
 	b _02005DF0
 _02005DE0:
 	mov r0, r7
@@ -6677,7 +6677,7 @@ _02005DF0:
 	add r1, r7, r5
 	sub r3, r6, r5
 	str r4, [sp, #8]
-	bl FUN_02007254
+	bl MIi_DmaCopy32Async
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02005E2C:
@@ -6699,7 +6699,7 @@ _02005E44:
 	mov r1, r7
 	mov r3, r6
 	str r4, [sp, #8]
-	bl FUN_02007254
+	bl MIi_DmaCopy32Async
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02005E7C:
@@ -6773,7 +6773,7 @@ GX_LoadTexPltt: ; 0x02005F14
 	mov r1, r6
 	add r2, r4, r5
 	str r12, [sp, #8]
-	bl FUN_02007254
+	bl MIi_DmaCopy32Async
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02005F6C:
@@ -7104,8 +7104,8 @@ _02006384: .word 0x04000245
 _02006388: .word 0x04000244
 	arm_func_end FUN_0200625c
 
-	arm_func_start FUN_0200638c
-FUN_0200638c: ; 0x0200638C
+	arm_func_start GX_SetBankForBGExtPltt
+GX_SetBankForBGExtPltt: ; 0x0200638C
 	stmfd sp!, {r3, lr}
 	ldr r1, _02006478 ; =0x02093D60
 	mvn r12, r0
@@ -7176,7 +7176,7 @@ _02006468:
 _02006478: .word unk_02093D60
 _0200647C: .word 0x04000246
 _02006480: .word 0x04000245
-	arm_func_end FUN_0200638c
+	arm_func_end GX_SetBankForBGExtPltt
 
 	arm_func_start FUN_02006484
 FUN_02006484: ; 0x02006484
@@ -7783,8 +7783,8 @@ _02006C00: .word unk_02093D74
 _02006C04: .word FUN_02006B48
 	arm_func_end FUN_02006bf4
 
-	arm_func_start FUN_02006c08
-FUN_02006c08: ; 0x02006C08
+	arm_func_start GX_ResetBankForSubBGExtPltt
+GX_ResetBankForSubBGExtPltt: ; 0x02006C08
 	ldr r2, _02006C24 ; =0x04001000
 	ldr r0, _02006C28 ; =0x02093D76
 	ldr r1, [r2]
@@ -7795,7 +7795,7 @@ FUN_02006c08: ; 0x02006C08
 _02006C24: .word 0x04001000
 _02006C28: .word unk_02093D76
 _02006C2C: .word FUN_02006B48
-	arm_func_end FUN_02006c08
+	arm_func_end GX_ResetBankForSubBGExtPltt
 
 	arm_func_start FUN_02006C30
 FUN_02006C30: ; 0x02006C30
@@ -8137,8 +8137,8 @@ _02006FEC:
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end MIi_DmaFill32
 
-	arm_func_start FUN_02007000
-FUN_02007000: ; 0x02007000
+	arm_func_start MIi_DmaCopy32
+MIi_DmaCopy32: ; 0x02007000
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	movs r5, r3
@@ -8184,10 +8184,10 @@ _02007090:
 	bne _02007090
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02007000
+	arm_func_end MIi_DmaCopy32
 
-	arm_func_start FUN_020070a4
-FUN_020070a4: ; 0x020070A4
+	arm_func_start MIi_DmaCopy16
+MIi_DmaCopy16: ; 0x020070A4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	movs r5, r3
@@ -8234,7 +8234,7 @@ _02007138:
 	bne _02007138
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020070a4
+	arm_func_end MIi_DmaCopy16
 
 	arm_func_start MIi_DmaFill32Async
 MIi_DmaFill32Async: ; 0x0200714C
@@ -8310,8 +8310,8 @@ _02007230:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end MIi_DmaFill32Async
 
-	arm_func_start FUN_02007254
-FUN_02007254: ; 0x02007254
+	arm_func_start MIi_DmaCopy32Async
+MIi_DmaCopy32Async: ; 0x02007254
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, r3
 	mov r4, #0
@@ -8379,7 +8379,7 @@ _02007330:
 	str r4, [sp]
 	bl FUN_01ff845c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02007254
+	arm_func_end MIi_DmaCopy32Async
 
 	arm_func_start MI_WaitDma
 MI_WaitDma: ; 0x02007350
@@ -21191,7 +21191,7 @@ FUN_020119cc: ; 0x020119CC
 	mov r3, #0x40
 	str r7, [sp]
 	mov r0, r7
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldrh r1, [r6]
 	add r0, sp, #4
 	bic r1, r1, #0x8000
@@ -122627,7 +122627,7 @@ _02066258:
 	ldrb r9, [r6]
 	str r9, [r3]
 	str r2, [r3, #-0x10]
-	bl FUN_020046b0
+	bl G3_MultMtx43
 _020662C4:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
@@ -122783,7 +122783,7 @@ _020664F8:
 	mov r2, #2
 	add r0, r0, #0x30
 	str r2, [r1]
-	bl FUN_020046cc
+	bl G3_MultMtx33
 _02066528:
 	ldrb r0, [r6, #2]
 	ldr r1, _02066924 ; =0x020B8480
@@ -123015,12 +123015,12 @@ _020666C4:
 	adds r1, r1, r2
 	add r0, sp, #0xe0
 	str r1, [sp, #0x100]
-	bl FUN_02004694
+	bl G3_LoadMtx43
 	ldr r4, _02066918 ; =0x04000440
 	mov r5, #1
 	add r0, sp, #0xb0
 	str r5, [r4]
-	bl FUN_02004694
+	bl G3_LoadMtx43
 	mov r0, #0
 	str r0, [r4]
 	str r5, [r4, #0x10]

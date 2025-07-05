@@ -150,7 +150,7 @@ FUN_ov107_02124ea8: ; 0x02124EA8
 	ldr r2, [r4, #0x18]
 	mov r1, r5
 	add r0, r4, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r4, #0xc]
 	ldr r2, [r4, #0x10]
 	mov r1, r5
@@ -161,7 +161,7 @@ _02124F0C:
 	mov r1, r5
 	mov r2, #0x800
 _02124F18:
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	bl G2S_GetBG1CharPtr
 	mov r5, #0x20
 	mov r6, #0
@@ -176,7 +176,7 @@ _02124F18:
 	ldr r0, _02124FB0 ; =0x020A8C40
 	mov r1, r6
 	mov r2, r4
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	bl G2S_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r6
@@ -188,14 +188,14 @@ _02124F18:
 	mov r2, r4
 	ldr r0, _02124FB4 ; =0x020A8440
 	mov r1, r6
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	mov r1, r6
 	ldr r0, _02124FB8 ; =0x0209A144
 	ldr r3, [r0]
 	ldr r0, [r3, #0x14]
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	bl  FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02124FAC: .word unk_020A9440
@@ -262,7 +262,7 @@ _02125054:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
 _0212507C: .word unk_020A8440
 	arm_func_end FUN_ov107_02125014

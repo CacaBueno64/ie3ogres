@@ -105,7 +105,7 @@ FUN_ov101_02124e10: ; 0x02124E10
 	ldr r2, [r4, #0x18]
 	mov r1, r5
 	add r0, r4, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r4, #0xc]
 	ldr r2, [r4, #0x10]
 	mov r1, r5
@@ -116,7 +116,7 @@ _02124E74:
 	mov r1, r5
 	mov r2, #0x800
 _02124E80:
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	bl G2S_GetBG1CharPtr
 	mov r5, #0x20
 	mov r6, #0
@@ -131,7 +131,7 @@ _02124E80:
 	ldr r0, _02124F18 ; =0x020A8C40
 	mov r1, r6
 	mov r2, r4
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	bl G2S_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r6
@@ -143,14 +143,14 @@ _02124E80:
 	mov r2, r4
 	ldr r0, _02124F1C ; =0x020A8440
 	mov r1, r6
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	mov r1, r6
 	ldr r0, _02124F20 ; =0x0209A144
 	ldr r3, [r0]
 	ldr r0, [r3, #0x14]
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	bl  FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02124F14: .word unk_020A9440
@@ -221,81 +221,64 @@ _02124FCC:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124FF4: .word unk_020A8440
 	arm_func_end FUN_ov101_02124f8c
 
-	arm_func_start FUN_ov101_02124ff8
-FUN_ov101_02124ff8: ; 0x02124FF8
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	add r0, r4, #0x10
-	mov r1, #1
-	bl  FUN_ov16_020f338c
-	mov r0, r4
-	bl FUN_ov101_02124d4c
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov101_02124ff8
-
-	arm_func_start FUN_ov101_02125018
-FUN_ov101_02125018: ; 0x02125018
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_0201e078
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov101_02125018
-
-	arm_func_start FUN_ov101_0212502c
-FUN_ov101_0212502c: ; 0x0212502C
-	bx lr
-	arm_func_end FUN_ov101_0212502c
-
-	arm_func_start FUN_ov101_02125030
-FUN_ov101_02125030: ; 0x02125030
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02125078 ; =0x021250A0
-	str r0, [r4, #0x14]
-	ldr r0, _0212507C ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4, #0x10]
-	ldr r0, _02125080 ; =0x0000EA3C
-	str r1, [r4, #0xc]
-	str r0, [r4, #8]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #4]
-	add r0, r1, #0x840000
-	str r0, [r4]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02125078: .word ov101_021250A0
-_0212507C: .word 0x00009CCD
-_02125080: .word 0x0000EA3C
-	arm_func_end FUN_ov101_02125030
-
-	.section .sinit, 4
-ov101_02125084:
-	.word FUN_ov101_02125030
-
 	.data
 	.global ov101_021250A0
 ov101_021250A0:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x2C, 0x50, 0x12, 0x02, 0x18, 0x50, 0x12, 0x02, 0xA8, 0xB2, 0x02, 0x02, 0xA4, 0xB2, 0x02, 0x02
-	.byte 0x24, 0x4F, 0x12, 0x02, 0x08, 0xB2, 0x02, 0x02, 0x50, 0x4F, 0x12, 0x02, 0x8C, 0x4F, 0x12, 0x02
-	.byte 0xF8, 0x4F, 0x12, 0x02, 0x04, 0xB2, 0x02, 0x02, 0x00, 0xB2, 0x02, 0x02, 0xF8, 0xB1, 0x02, 0x02
-	.byte 0xF0, 0xB1, 0x02, 0x02, 0xE8, 0xB1, 0x02, 0x02, 0xE0, 0xB1, 0x02, 0x02, 0x94, 0xB2, 0x02, 0x02
-	.byte 0x84, 0xB2, 0x02, 0x02, 0x78, 0xB2, 0x02, 0x02, 0x6C, 0xB2, 0x02, 0x02, 0x5C, 0xB2, 0x02, 0x02
-	.byte 0x4C, 0xB2, 0x02, 0x02, 0x3C, 0xB2, 0x02, 0x02, 0x30, 0xB2, 0x02, 0x02, 0x24, 0xB2, 0x02, 0x02
-	.byte 0xD8, 0xB1, 0x02, 0x02, 0xD0, 0xB1, 0x02, 0x02, 0xC8, 0xB1, 0x02, 0x02
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+
+	.word FUN_ov101_0212502c
+	.word FUN_ov101_02125018
+	.word FUN_0202b2a8
+	.word FUN_0202b2a4
+
+	.word FUN_ov101_02124f24
+	.word FUN_0202b208
+	.word FUN_ov101_02124f50
+	.word FUN_ov101_02124f8c
+
+	.word FUN_ov101_02124ff8
+	.word FUN_0202b204
+	.word FUN_0202b200
+	.word FUN_0202b1f8
+
+	.word FUN_0202b1f0
+	.word FUN_0202b1e8
+	.word FUN_0202b1e0
+	.word FUN_0202b294
+
+	.word FUN_0202b284
+	.word FUN_0202b278
+	.word FUN_0202b26c
+	.word FUN_0202b25c
+
+	.word FUN_0202b24c
+	.word FUN_0202b23c
+	.word FUN_0202b230
+	.word FUN_0202b224
+
+	.word FUN_0202b1d8
+	.word FUN_0202b1d0
+	.word FUN_0202b1c8
+
+	.balign 4, 0
 	.global ov101_0212512C
 ov101_0212512C:
-	.byte 0x2F, 0x64, 0x61, 0x74
-	.byte 0x61, 0x5F, 0x69, 0x7A, 0x2F, 0x70, 0x69, 0x63, 0x32, 0x64, 0x2F, 0x6D, 0x65, 0x6E, 0x75, 0x2F
-	.byte 0x70, 0x77, 0x75, 0x70, 0x5F, 0x62, 0x67, 0x30, 0x30, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.asciz "/data_iz/pic2d/menu/pwup_bg00.pac_"
+	
+	.word 0
+	.word 0
+	.word 0
+	.word 0

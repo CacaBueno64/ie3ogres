@@ -1119,7 +1119,7 @@ FUN_ov51_0211aed4: ; 0x0211AED4
 	mov r1, r4
 	mov r7, #0x800
 	mov r2, r7
-	bl FUN_0200569c
+	bl GX_LoadBG3Scr
 	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r4
@@ -1131,7 +1131,7 @@ FUN_ov51_0211aed4: ; 0x0211AED4
 	ldr r0, _0211AFE4 ; =0x020A7440
 	mov r1, r4
 	mov r2, r7
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	bl G2_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r4
@@ -1143,7 +1143,7 @@ FUN_ov51_0211aed4: ; 0x0211AED4
 	ldr r0, _0211AFE8 ; =0x020A7C40
 	mov r1, r4
 	mov r2, r7
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	ldr r5, [r5, #0x3e0]
 	cmp r5, #0
 	beq _0211AFD8
@@ -1162,12 +1162,12 @@ FUN_ov51_0211aed4: ; 0x0211AED4
 	ldr r2, [r5, #0x18]
 	mov r1, r8
 	add r0, r5, r0
-	bl FUN_0200593c
+	bl GX_LoadBG2Char
 	ldr r0, [r5, #0xc]
 	mov r1, r4
 	add r0, r5, r0
 	mov r2, r7
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211AFD8:
 	bl  FUN_ov16_020f10ac
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}

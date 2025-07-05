@@ -6,7 +6,7 @@
 .public FUN_0202cf6c
 .public FUN_0206d64c
 .public G2_GetBG1CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02041eac
 .public FUN_02046cb4
 .public FUN_02046e28

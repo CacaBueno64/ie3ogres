@@ -44289,7 +44289,7 @@ _020E1CB0:
 	ldr r2, [r3, #0x10]
 	mov r1, r4
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _020E1DF0:
 	bl  FUN_ov16_020f10ac
 	add sp, sp, #0xc
@@ -44318,7 +44318,7 @@ FUN_ov15_020e1dfc: ; 0x020E1DFC
 	ldr r1, [lr, #0x60]
 	mov r2, r3, lsl #5
 	strb r12, [lr, #0x68]
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov15_020e1dfc
 
@@ -45563,18 +45563,18 @@ FUN_ov15_020e2f50: ; 0x020E2F50
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020053fc
+	bl GX_LoadBG0Scr
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200577c
-	bl FUN_02005afc
+	bl GX_LoadBG0Char
+	bl GX_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_02005b88
-	bl FUN_02005bfc
+	bl GX_LoadBGExtPltt
+	bl GX_EndLoadBGExtPltt
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020e2f50
 
@@ -45964,12 +45964,12 @@ FUN_ov15_020e3484: ; 0x020E3484
 	ldr r2, [r6, #0x18]
 	mov r1, r5
 	add r0, r6, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	mov r1, r5
 	add r0, r6, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _020E34C4:
 	bl G2S_GetBG1CharPtr
 	mov r5, #0x20
@@ -46039,7 +46039,7 @@ FUN_ov15_020e3574: ; 0x020E3574
 	ldr r1, [lr, #0x28]
 	mov r2, r3, lsl #5
 	strb r12, [lr, #0x30]
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov15_020e3574
 

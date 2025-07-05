@@ -1,11 +1,11 @@
 .public DC_FlushRange
 .public FUN_0201e078
 .public G2S_GetBG1CharPtr
-.public FUN_020059ac
+.public GXS_LoadBG2Char
 .public FX_Sqrt
-.public FUN_0200546c
-.public FUN_0200554c
-.public FUN_0200562c
+.public GXS_LoadBG0Scr
+.public GXS_LoadBG1Scr
+.public GXS_LoadBG2Scr
 .public FUN_ov1_020db2ac
 .public FUN_ov1_020db2f0
 .public FUN_ov1_020dbe00

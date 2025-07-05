@@ -9,12 +9,12 @@
 .public FUN_0202de58
 .public FUN_0202e1c0
 .public G2_GetBG1CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02023c40
 .public FUN_02041eac
 .public FUN_02041fec
 .public FUN_02046cb4
-.public FUN_020055bc
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020724c8
 .public FUN_020724dc

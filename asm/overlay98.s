@@ -639,15 +639,15 @@ _021255AC:
 	ldr r0, _02125810 ; =0x020A9440
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	ldr r0, _02125814 ; =0x020A8C40
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r0, _02125818 ; =0x020A8440
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	b _02125804
 _021255E4:
 	add r0, sp, #0x1c
@@ -874,12 +874,12 @@ FUN_ov98_021258cc: ; 0x021258CC
 _02125910:
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	b _0212592C
 _02125920:
 	mov r1, r5
 	mov r2, r4
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _0212592C:
 	add r5, r5, r4
 _02125930:

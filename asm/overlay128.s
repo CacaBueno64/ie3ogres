@@ -4008,7 +4008,7 @@ _0212E0E4:
 	mov r1, r4
 	mov r3, r5
 	str r7, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldr r0, [sp, #0x1c]
 	str r6, [r11, #0x5ec]
 	add r1, r0, #0x50
@@ -4059,7 +4059,7 @@ _0212E154:
 	mov r1, r4
 	mov r3, r5
 	str r9, [sp]
-	bl FUN_020070a4
+	bl MIi_DmaCopy16
 	ldr r0, [sp, #0x1c]
 	str r6, [r11, #0x5ec]
 	add r1, r0, #0x50

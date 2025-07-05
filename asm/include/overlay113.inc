@@ -3,12 +3,12 @@
 .public G2S_GetBG1CharPtr
 .public FUN_02023c40
 .public FUN_02023e98
-.public FUN_020057ec
-.public FUN_020059ac
+.public GXS_LoadBG0Char
+.public GXS_LoadBG2Char
 .public FX_Sqrt
 .public FUN_020219ac
 .public G2S_GetBG2CharPtr
-.public FUN_0200546c
+.public GXS_LoadBG0Scr
 .public FUN_0204331c
 .public FUN_02043310
 .public FUN_ov16_020f1a60

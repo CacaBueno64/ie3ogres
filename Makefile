@@ -21,8 +21,7 @@ $(ASM_OBJS): $(WORK_DIR)/include/config.h
 $(C_OBJS):   $(WORK_DIR)/include/global.h
 
 ROM             := $(BUILD_DIR)/$(buildname).nds
-#BANNER          := $(ROM:%.nds=%.bnr)
-BANNER          := $(buildname)/banner.bnr
+BANNER          := $(ROM:%.nds=%.bnr)
 BANNER_SPEC     := $(buildname)/banner.bsf
 ICON_PNG        := $(buildname)/icon.png
 HEADER_TEMPLATE := $(buildname)/rom_header_template.sbin
@@ -76,7 +75,7 @@ $(BUILD_DIR)/component.files: main ;
 
 $(HEADER_TEMPLATE): ;
 
-$(ROM): $(ROMSPEC) tools filesystem main_lz #$(BANNER) #sub
+$(ROM): $(ROMSPEC) filesystem main_lz $(BANNER) #sub
 	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -M$(NITROFS_FILES_FILE) -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 ifeq ($(COMPARE),1)
@@ -85,12 +84,3 @@ endif
 
 $(BANNER): $(BANNER_SPEC) $(ICON_PNG:%.png=%.nbfp) $(ICON_PNG:%.png=%.nbfc)
 	$(WINE) $(MAKEBNR) $< $@
-
-# TODO: move to NitroSDK makefile
-FX_CONST_H := $(WORK_DIR)/lib/include/nitro/fx/fx_const.h
-PROJECT_CLEAN_TARGETS += $(FX_CONST_H)
-$(FX_CONST_H): $(MKFXCONST) $(TOOLSDIR)/gen_fx_consts/fx_const.csv
-	$(MKFXCONST) $@
-sdk: $(FX_CONST_H)
-$(WORK_DIR)/include/global.h: $(FX_CONST_H) ;
-

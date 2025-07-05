@@ -397,12 +397,12 @@ FUN_ov113_0212524c: ; 0x0212524C
 	ldr r2, [r6, #0x18]
 	mov r1, r4
 	add r0, r6, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	mov r1, r4
 	add r0, r6, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _0212528C:
 	bl G2S_GetBG1CharPtr
 	mov r6, #0x20
@@ -544,7 +544,7 @@ _02125454:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _02125498:
 	add r8, r8, #1
 	cmp r8, #7

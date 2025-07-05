@@ -2341,7 +2341,7 @@ FUN_ov105_02126ddc: ; 0x02126DDC
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -2494,12 +2494,12 @@ FUN_ov105_02126fe8: ; 0x02126FE8
 	ldr r2, [r8, #0x18]
 	mov r1, r6
 	add r0, r8, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r8, #0xc]
 	ldr r2, [r8, #0x10]
 	mov r1, r6
 	add r0, r8, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02127058:
 	bl G2S_GetBG1CharPtr
 	mov r7, #0x20
@@ -2539,7 +2539,7 @@ _02127058:
 	ldr r1, [sp, #4]
 	ldr r2, [r8, #0x18]
 	add r0, r8, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldr r1, [sp, #4]
 	ldr r0, [r8, #0x18]
 	add r0, r1, r0
@@ -2562,17 +2562,17 @@ _02127130:
 	ldr r0, _02127438 ; =0x020A8C40
 	mov r1, r6
 	mov r2, r4
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r0, _0212743C ; =0x020A8440
 	mov r1, r6
 	mov r2, r4
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	b _0212742C
 _02127158:
 	ldr r0, _0212743C ; =0x020A8440
 	mov r1, #0
 	mov r2, #0x800
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6

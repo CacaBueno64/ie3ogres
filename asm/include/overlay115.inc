@@ -4,11 +4,11 @@
 .public FUN_02023c40
 .public FUN_02041fec
 .public FUN_02073ea4
-.public FUN_020059ac
+.public GXS_LoadBG2Char
 .public FX_Sqrt
-.public FUN_0200546c
-.public FUN_0200554c
-.public FUN_0200562c
+.public GXS_LoadBG0Scr
+.public GXS_LoadBG1Scr
+.public GXS_LoadBG2Scr
 .public FUN_0207039c
 .public FUN_0207249c
 .public FUN_0207318c

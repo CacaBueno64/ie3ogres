@@ -750,7 +750,7 @@ FUN_ov104_02125720: ; 0x02125720
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -832,7 +832,7 @@ FUN_ov104_02125834: ; 0x02125834
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0

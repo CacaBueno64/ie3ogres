@@ -167,8 +167,8 @@
 .public FUN_02072b0c
 .public FUN_02072b54
 .public FUN_02085e4c
-.public FUN_020054dc
-.public FUN_020055bc
+.public GX_LoadBG1Scr
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020176e0
 .public FUN_020177e8
@@ -202,11 +202,11 @@
 .public FUN_020728e8
 .public FUN_020731a4
 .public G2_GetBG3CharPtr
-.public FUN_0200546c
-.public FUN_0200554c
-.public FUN_0200562c
-.public FUN_0200569c
-.public FUN_0200585c
+.public GXS_LoadBG0Scr
+.public GXS_LoadBG1Scr
+.public GXS_LoadBG2Scr
+.public GX_LoadBG3Scr
+.public GX_LoadBG1Char
 .public FUN_0201769c
 .public FUN_0204201c
 .public FUN_0204204c

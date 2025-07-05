@@ -1386,7 +1386,7 @@ _0211B174:
 	ldr r0, [r0, #0x40]
 	ldr r1, [sp, #4]
 	mov r2, #0x3c0
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldr r0, [sp, #4]
 	add r0, r0, #0x3c0
 	str r0, [sp, #4]
@@ -1493,7 +1493,7 @@ _0211B308:
 	ldr r2, [r3, #0x10]
 	mov r1, r6
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211B370:
 	ldr r1, [r10, #0x44c]
 	cmp r1, #0
@@ -1502,7 +1502,7 @@ _0211B370:
 	ldr r2, [r1, #0x10]
 	add r0, r1, r0
 	mov r1, #0
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 _0211B390:
 	mov r0, #1
 	add sp, sp, #8
@@ -1659,7 +1659,7 @@ _0211B5B8:
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	add r0, r8, r0
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	add r0, r10, r9, lsl #2
 	add r0, r0, #0x400
 	ldrh r0, [r0, #0x1c]
@@ -1728,7 +1728,7 @@ _0211B688:
 	ldr r0, [r10, #0x40]
 	ldr r1, [sp, #0x1c]
 	mov r2, #0x3c0
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldr r0, [sp, #0x1c]
 	add r0, r0, #0x3c0
 	str r0, [sp, #0x1c]
@@ -1811,7 +1811,7 @@ _0211B7E0:
 	ldr r2, [r1, #0x10]
 	add r0, r1, r0
 	mov r1, #0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211B80C:
 	mov r0, #1
 	add sp, sp, #0x20

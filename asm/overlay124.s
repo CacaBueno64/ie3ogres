@@ -1479,7 +1479,7 @@ FUN_ov124_021261b4: ; 0x021261B4
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -1540,13 +1540,13 @@ FUN_ov124_02126268: ; 0x02126268
 	mov r0, #2
 	bl  FUN_ov16_020f1a60
 	str r0, [r8]
-	bl FUN_02005c3c
+	bl GXS_BeginLoadBGExtPltt
 	mov r1, r4, lsl #9
 	ldmib r7, {r0, r2}
 	add r0, r7, r0
 	add r1, r1, #0x4000
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov124_02126268
 

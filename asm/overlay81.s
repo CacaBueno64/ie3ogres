@@ -2793,11 +2793,11 @@ FUN_ov81_0211c5bc: ; 0x0211C5BC
 	mov r0, r6
 	mov r1, r8
 	mov r2, r5
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	mov r0, r6
 	mov r2, r5
 	mov r1, r8
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r8

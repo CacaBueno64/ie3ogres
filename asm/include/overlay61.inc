@@ -23,7 +23,7 @@
 .public FUN_02061bec
 .public FUN_02061c48
 .public GX_SetGraphicsMode
-.public FUN_020051bc
+.public GX_LoadOBJPltt
 .public FX_Sqrt
 .public FUN_020455a0
 .public FUN_020455b8
@@ -33,12 +33,12 @@
 .public FUN_020628dc
 .public FUN_020735a0
 .public G2_GetBG3CharPtr
-.public FUN_0200585c
+.public GX_LoadBG1Char
 .public FUN_0204204c
 .public FUN_0207405c
 .public FUN_0207477c
-.public FUN_02005274
-.public FUN_02005334
+.public GX_LoadOAM
+.public GX_LoadOBJ
 .public FUN_02062800
 .public FUN_02062888
 .public FUN_02062924

@@ -222,12 +222,12 @@ FUN_ov119_02124fcc: ; 0x02124FCC
 	ldr r2, [r6, #0x18]
 	mov r1, r5
 	add r0, r6, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	mov r1, r5
 	add r0, r6, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _0212500C:
 	bl G2S_GetBG1CharPtr
 	mov r5, #0x20
@@ -301,7 +301,7 @@ FUN_ov119_021250cc: ; 0x021250CC
 	ldr r1, [lr, #0x28]
 	mov r2, r3, lsl #5
 	strb r12, [lr, #0x30]
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov119_021250cc
 

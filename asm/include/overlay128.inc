@@ -23,7 +23,7 @@
 .public FUN_02014a9c
 .public FUN_02014b60
 .public FUN_02014bb4
-.public FUN_020070a4
+.public MIi_DmaCopy16
 .public FUN_020130b4
 .public FUN_020131ac
 .public FUN_020132d8

@@ -1788,15 +1788,15 @@ FUN_ov19_0211b770: ; 0x0211B770
 	ldr r0, _0211B7B0 ; =0x020A9440
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldr r0, _0211B7B4 ; =0x020A8C40
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r0, _0211B7B8 ; =0x020A8440
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B7B0: .word unk_020A9440
 _0211B7B4: .word unk_020A8C40

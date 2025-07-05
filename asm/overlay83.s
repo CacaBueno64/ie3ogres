@@ -2215,7 +2215,7 @@ _0211BCFC:
 	ldr r2, [r5, #0x10]
 	mov r1, r11
 	add r0, r5, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211BD5C:
 	bl  FUN_ov16_020f10ac
 	mov r0, #1
@@ -2249,7 +2249,7 @@ _0211BD88:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 _0211BDCC:
 	add r8, r8, #1
 	cmp r8, #3

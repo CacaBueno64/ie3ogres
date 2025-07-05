@@ -2242,7 +2242,7 @@ _0211BD78:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 _0211BDBC:
 	add r8, r8, #1
 	cmp r8, #3

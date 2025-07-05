@@ -1559,7 +1559,7 @@ FUN_ov87_0211b328: ; 0x0211B328
 	ldr r1, [sp, #4]
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldrh r1, [r4, #0xc]
 	ldrh r0, [r4, #0xe]
 	ldr r2, [sp, #4]

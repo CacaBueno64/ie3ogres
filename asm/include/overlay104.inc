@@ -6,8 +6,8 @@
 .public OS_WaitVBlankIntr
 .public FUN_02023c40
 .public FUN_02023e98
-.public FUN_020058cc
-.public FUN_020059ac
+.public GXS_LoadBG1Char
+.public GXS_LoadBG2Char
 .public FX_Sqrt
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f5a58

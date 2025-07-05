@@ -701,7 +701,7 @@ FUN_ov111_02125624: ; 0x02125624
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -756,7 +756,7 @@ FUN_ov111_021256dc: ; 0x021256DC
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -857,12 +857,12 @@ FUN_ov111_02125808: ; 0x02125808
 	ldr r2, [r7, #0x18]
 	mov r1, r6
 	add r0, r7, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r7, #0xc]
 	ldr r2, [r7, #0x10]
 	add r0, r7, r0
 	mov r1, r6
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02125878:
 	bl G2S_GetBG1CharPtr
 	mov r5, #0x20

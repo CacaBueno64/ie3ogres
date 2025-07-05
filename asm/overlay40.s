@@ -1042,7 +1042,7 @@ FUN_ov40_0211abd0: ; 0x0211ABD0
 	ldr r1, [sp, #4]
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldrh r1, [r4, #0x6c]
 	ldrh r0, [r4, #0x6e]
 	ldr r2, [sp, #4]

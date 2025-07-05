@@ -233,7 +233,7 @@ _02124FA0:
 	ldr r0, [r4, #0x14]
 	ldr r2, [r4, #0x18]
 	add r0, r4, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldr r2, [r4, #0x18]
 	ldr r1, [r10, #0x78]
 	mov r0, r11
@@ -270,7 +270,7 @@ _02125098:
 	ldr r2, [r3, #0x10]
 	mov r1, r9
 	add r0, r3, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _021250B8:
 	ldr r0, _021254BC ; =0x0209F5C0
 	mov r1, r8
@@ -564,7 +564,7 @@ _021254D8:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _02125514:
 	add r8, r8, #1
 	cmp r8, #3
@@ -1139,7 +1139,7 @@ _02125D40:
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r0, _02125D78 ; =0x020E9480
 	strb r4, [r0]
 	add sp, sp, #8
@@ -1499,7 +1499,7 @@ _0212625C:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
 _02126284: .word unk_0209F5C0
 _02126288: .word unk_020A8440

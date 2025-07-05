@@ -420,12 +420,12 @@ FUN_ov6_020bd050: ; 0x020BD050
 	ldr r2, [r4, #0x10]
 	mov r1, r6
 	add r0, r4, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	ldr r0, [r4, #0x14]
 	ldr r2, [r4, #0x18]
 	mov r1, r6
 	add r0, r4, r0
-	bl FUN_0200593c
+	bl GX_LoadBG2Char
 	mov r0, r4
 	mov r1, r6
 	mov r2, r5
@@ -434,7 +434,7 @@ FUN_ov6_020bd050: ; 0x020BD050
 	ldr r2, [r4, #8]
 	mov r1, #0x20
 	add r0, r4, r0
-	bl FUN_020050fc
+	bl GX_LoadBGPltt
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BD0D8:
 	mov r5, #2
@@ -446,12 +446,12 @@ _020BD0D8:
 	ldr r2, [r4, #0x10]
 	mov r1, r6
 	add r0, r4, r0
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	ldr r0, [r4, #0x14]
 	ldr r2, [r4, #0x18]
 	mov r1, r6
 	add r0, r4, r0
-	bl FUN_0200585c
+	bl GX_LoadBG1Char
 	mov r0, r4
 	mov r1, r6
 	mov r2, r5
@@ -460,7 +460,7 @@ _020BD0D8:
 	ldr r2, [r4, #8]
 	mov r1, #0x40
 	add r0, r4, r0
-	bl FUN_020050fc
+	bl GX_LoadBGPltt
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov6_020bd050
 
@@ -1018,12 +1018,12 @@ FUN_ov6_020bd888: ; 0x020BD888
 	mov r0, r4
 	mov r1, r5
 	bl DC_FlushRange
-	bl FUN_02005c3c
+	bl GXS_BeginLoadBGExtPltt
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0x4000
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 	bl FUN_ov16_020f10c8
 	mov r0, r6
 	mov r1, r4
@@ -1124,18 +1124,18 @@ FUN_ov6_020bd9dc: ; 0x020BD9DC
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020059ac
-	bl FUN_02005c3c
+	bl GXS_LoadBG2Char
+	bl GXS_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	add r0, r5, r0
 	mov r1, #0x4000
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 _020BDA38:
 	bl FUN_ov16_020f10c8
 	ldmfd sp!, {r3, r4, r5, pc}

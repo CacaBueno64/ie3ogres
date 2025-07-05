@@ -9,7 +9,7 @@
 .public FUN_02041eac
 .public FUN_02058ee0
 .public GX_SetGraphicsMode
-.public FUN_020055bc
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020591e8
 .public FUN_0200462c

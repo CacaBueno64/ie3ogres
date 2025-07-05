@@ -1764,7 +1764,7 @@ FUN_ov61_0211b584: ; 0x0211B584
 	str r1, [r4, #0x44]
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_0200585c
+	bl GX_LoadBG1Char
 _0211B6CC:
 	bl G2_GetBG2CharPtr
 	mov r6, #0x20
@@ -1911,7 +1911,7 @@ FUN_ov61_0211b864: ; 0x0211B864
 	ldr r1, [lr, #0x44]
 	mov r2, r3, lsl #5
 	strb r12, [lr, #0x4c]
-	bl FUN_0200585c
+	bl GX_LoadBG1Char
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov61_0211b864
 
@@ -3916,7 +3916,7 @@ FUN_ov61_0211d55c: ; 0x0211D55C
 	mov r0, r8
 	mov r1, r4
 	mov r2, r6
-	bl FUN_02005274
+	bl GX_LoadOAM
 	mov r0, r4
 	bl  FUN_ov16_020f5248
 	ldr r0, [r5, #0x204]
@@ -4289,17 +4289,17 @@ FUN_ov61_0211d9f4: ; 0x0211D9F4
 	ldr r0, [r4, #0xc]
 	mov r1, r5
 	mov r2, #0x800
-	bl FUN_02005334
+	bl GX_LoadOBJ
 	ldr r0, [r4, #0x14]
 	mov r1, #0x20
 	mov r2, #0xa0
-	bl FUN_020051bc
+	bl GX_LoadOBJPltt
 	str r5, [r4, #8]
 _0211DA68:
 	ldr r0, _0211DA8C ; =0x0211F600
 	mov r1, #0
 	mov r2, #0x20
-	bl FUN_02005274
+	bl GX_LoadOAM
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211DA7C: .word ov61_0211F5E0
 _0211DA80: .word 0x01FF0000

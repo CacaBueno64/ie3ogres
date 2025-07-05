@@ -3,7 +3,7 @@
 .public FUN_0202cf6c
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02041d9c
 .public FUN_02041eac
 .public FUN_02046da4
@@ -13,7 +13,7 @@
 .public FUN_02046ed4
 .public FUN_02046fa4
 .public FUN_02046fac
-.public FUN_020055bc
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020418b0
 .public FUN_020465fc

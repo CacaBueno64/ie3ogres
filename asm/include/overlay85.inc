@@ -10,11 +10,11 @@
 .public FUN_0204f02c
 .public FUN_0206cbf8
 .public G2_GetBG1CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02041eac
 .public FUN_02041ef0
-.public FUN_020054dc
-.public FUN_020055bc
+.public GX_LoadBG1Scr
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020731a4
 .public FUN_020732d8

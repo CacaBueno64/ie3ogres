@@ -2818,7 +2818,7 @@ _0211C4E8:
 	ldr r2, [r3, #0x10]
 	mov r1, r4
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211C5D4:
 	bl  FUN_ov16_020f10ac
 	ldr r1, [r8, #8]
@@ -2854,7 +2854,7 @@ _0211C608:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 _0211C64C:
 	add r8, r8, #1
 	cmp r8, #7

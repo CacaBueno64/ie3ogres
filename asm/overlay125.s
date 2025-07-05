@@ -1047,7 +1047,7 @@ FUN_ov125_02125b28: ; 0x02125B28
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -1072,7 +1072,7 @@ FUN_ov125_02125b78: ; 0x02125B78
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -1163,13 +1163,13 @@ FUN_ov125_02125c94: ; 0x02125C94
 	mov r0, #2
 	bl  FUN_ov16_020f1a60
 	str r0, [r8]
-	bl FUN_02005c3c
+	bl GXS_BeginLoadBGExtPltt
 	mov r1, r4, lsl #9
 	ldmib r7, {r0, r2}
 	add r0, r7, r0
 	add r1, r1, #0x4000
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov125_02125c94
 
@@ -1270,11 +1270,11 @@ _02125E08:
 	ldr r0, [r5, #0x14]
 	mov r1, r4
 	mov r2, #0xa80
-	bl FUN_02005398
+	bl GXS_LoadOBJ
 	ldr r0, [r5, #0x18]
 	mov r1, #0x20
 	mov r2, #0xc0
-	bl FUN_02005218
+	bl GXS_LoadOBJPltt
 	strb r4, [r5, #0x7c]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -1475,7 +1475,7 @@ _02126140:
 	add r0, r4, #0x1c
 	mov r1, #0
 	mov r2, #0x60
-	bl FUN_020052d8
+	bl GXS_LoadOAM
 	ldr r0, _02126160 ; =0x0209F5C0
 	mov r1, #1
 	bl  FUN_ov16_020f6a9c
@@ -1496,7 +1496,7 @@ FUN_ov125_02126164: ; 0x02126164
 	mov r1, r7
 	mov r2, r5
 	add r0, r4, #0x1c
-	bl FUN_020052d8
+	bl GXS_LoadOAM
 	ldr r1, [r4, #0x18]
 	cmp r1, #0
 	beq _021261AC

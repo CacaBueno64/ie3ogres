@@ -478,7 +478,7 @@ FUN_ov96_02125350: ; 0x02125350
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -578,7 +578,7 @@ FUN_ov96_0212546c: ; 0x0212546C
 	ldr r2, [r3, #0x10]
 	mov r1, r4
 	add r0, r3, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _021254E4:
 	ldr r0, [r5]
 	sub r0, r0, r7

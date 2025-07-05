@@ -335,14 +335,14 @@ FUN_ov3_020bcf58: ; 0x020BCF58
 	mov r1, r5
 	mov r6, #0x800
 	mov r2, r6
-	bl FUN_0200569c
+	bl GX_LoadBG3Scr
 	ldr r0, _020BD078 ; =0x0209A144
 	mov r1, r5
 	ldr r3, [r0]
 	ldr r2, [r3, #0x18]
 	ldr r0, [r3, #0x14]
 	add r0, r3, r0
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	bl G2_GetBG1CharPtr
 	mov r1, r0
 	mov r0, r5
@@ -354,7 +354,7 @@ FUN_ov3_020bcf58: ; 0x020BCF58
 	mov r2, r6
 	ldr r0, _020BD07C ; =0x020A7440
 	mov r1, r5
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	ldr r7, [r7, #0xc]
 	cmp r7, #0
 	beq _020BD034
@@ -373,7 +373,7 @@ FUN_ov3_020bcf58: ; 0x020BCF58
 	ldr r2, [r7, #0x18]
 	mov r1, r4
 	add r0, r7, r0
-	bl FUN_0200585c
+	bl GX_LoadBG1Char
 _020BD034:
 	bl G2_GetBG2CharPtr
 	mov r4, #0x20
@@ -388,7 +388,7 @@ _020BD034:
 	ldr r0, _020BD080 ; =0x020A7C40
 	mov r1, r5
 	mov r2, #0x800
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	bl FUN_ov16_020f10ac
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BD074: .word unk_020A6C40

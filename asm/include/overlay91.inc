@@ -14,13 +14,13 @@
 .public FUN_02041f2c
 .public FUN_02058e30
 .public FUN_02058ee0
-.public FUN_020054dc
-.public FUN_020055bc
+.public GX_LoadBG1Scr
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020728c4
 .public G2_GetBG3CharPtr
-.public FUN_0200569c
+.public GX_LoadBG3Scr
 .public FUN_0207249c
 .public FUN_0207273c
 .public FUN_02020274

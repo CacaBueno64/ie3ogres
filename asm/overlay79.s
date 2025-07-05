@@ -101,7 +101,7 @@ FUN_ov79_02119f80: ; 0x02119F80
 	ldr r2, [r3, #0x10]
 	mov r1, r4
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211A054:
 	ldr r0, [r6, #0x2c]
 	cmp r0, #0
@@ -655,7 +655,7 @@ _0211A7C0:
 	ldr r1, [r4, #0x34]
 	mov r2, r3, lsl #5
 	strb r12, [r4, #0x3c]
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 _0211A80C:
 	ldr r0, _0211A81C ; =0x0209F5C0
 	mov r1, #0

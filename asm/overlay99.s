@@ -217,12 +217,12 @@ FUN_ov99_02124fb8: ; 0x02124FB8
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r5, #0xc]
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02124FF8:
 	bl G2S_GetBG1CharPtr
 	mov r4, #0x20
@@ -477,7 +477,7 @@ _02125210:
 	ldr r1, [r10, #0x18]
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021253B0: .word 0x02125618
@@ -621,7 +621,7 @@ FUN_ov99_02125534: ; 0x02125534
 	ldr r1, [r4, #0x18]
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 _02125594:
 	add r0, r4, #0x2c
 	mov r1, #3

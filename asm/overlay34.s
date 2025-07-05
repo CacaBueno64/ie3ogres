@@ -1691,7 +1691,7 @@ FUN_ov34_0211b2fc: ; 0x0211B2FC
 	ldr r2, [r3, #0x10]
 	mov r1, r9
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211B548:
 	bl  FUN_ov16_020f10ac
 	add sp, sp, #0xc

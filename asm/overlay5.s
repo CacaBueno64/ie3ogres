@@ -498,18 +498,18 @@ FUN_ov5_020bd13c: ; 0x020BD13C
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020053fc
+	bl GX_LoadBG0Scr
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200577c
-	bl FUN_02005afc
+	bl GX_LoadBG0Char
+	bl GX_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_02005b88
-	bl FUN_02005bfc
+	bl GX_LoadBGExtPltt
+	bl GX_EndLoadBGExtPltt
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov5_020bd13c
 
@@ -841,18 +841,18 @@ _020BD590:
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020059ac
-	bl FUN_02005c3c
+	bl GXS_LoadBG2Char
+	bl GXS_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	add r0, r5, r0
 	mov r1, #0x4000
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 _020BD5DC:
 	bl FUN_ov16_020f10c8
 	ldmfd sp!, {r3, r4, r5, pc}

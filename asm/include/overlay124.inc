@@ -12,10 +12,10 @@
 .public G2S_GetBG2ScrPtr
 .public G2S_GetBG0CharPtr
 .public G2S_GetBG1CharPtr
-.public FUN_02005c3c
-.public FUN_02005c54
-.public FUN_02005cbc
-.public FUN_020058cc
+.public GXS_BeginLoadBGExtPltt
+.public GXS_LoadBGExtPltt
+.public GXS_EndLoadBGExtPltt
+.public GXS_LoadBG1Char
 .public FX_Sqrt
 .public FUN_0204294c
 .public FUN_0204378c

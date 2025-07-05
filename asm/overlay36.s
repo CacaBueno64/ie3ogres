@@ -508,18 +508,18 @@ FUN_ov36_0211a550: ; 0x0211A550
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020053fc
+	bl GX_LoadBG0Scr
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200577c
-	bl FUN_02005afc
+	bl GX_LoadBG0Char
+	bl GX_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_02005b88
-	bl FUN_02005bfc
+	bl GX_LoadBGExtPltt
+	bl GX_EndLoadBGExtPltt
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov36_0211a550
 

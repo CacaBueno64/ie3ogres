@@ -12,9 +12,9 @@
 .public FUN_02041fec
 .public FX_Sqrt
 .public G2S_GetBG2CharPtr
-.public FUN_0200546c
-.public FUN_0200554c
-.public FUN_0200562c
+.public GXS_LoadBG0Scr
+.public GXS_LoadBG1Scr
+.public GXS_LoadBG2Scr
 .public FUN_02042054
 .public FUN_02044658
 .public FUN_ov16_020f1a60

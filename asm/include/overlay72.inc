@@ -10,7 +10,7 @@
 .public FUN_0206c270
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02007c60
 .public FUN_02023c40
 .public FUN_02023e98
@@ -22,7 +22,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public GX_SetGraphicsMode
-.public FUN_020055bc
+.public GX_LoadBG2Scr
 .public FX_Sqrt
 .public FUN_020465fc
 .public FUN_020466c0

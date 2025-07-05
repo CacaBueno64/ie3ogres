@@ -1204,7 +1204,7 @@ _0211AE38:
 	ldr r2, [r3, #0x10]
 	mov r1, r4
 	add r0, r3, r0
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 _0211AF58:
 	bl  FUN_ov16_020f10ac
 	add sp, sp, #0xc
@@ -1233,7 +1233,7 @@ FUN_ov73_0211af64: ; 0x0211AF64
 	ldr r1, [lr, #0xbc]
 	mov r2, r3, lsl #5
 	strb r12, [lr, #0xc4]
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov73_0211af64
 

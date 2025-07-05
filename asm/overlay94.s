@@ -3154,7 +3154,7 @@ FUN_ov94_021279a0: ; 0x021279A0
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -3179,7 +3179,7 @@ FUN_ov94_021279f0: ; 0x021279F0
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -3365,19 +3365,19 @@ FUN_ov94_02127c84: ; 0x02127C84
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r5, #0xc]
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200546c
-	bl FUN_02005c3c
+	bl GXS_LoadBG0Scr
+	bl GXS_BeginLoadBGExtPltt
 	ldr r0, [r5, #4]
 	ldr r2, [r5, #8]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 	b _02127D50
 _02127CF8:
 	cmp r5, #0
@@ -3396,12 +3396,12 @@ _02127CF8:
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r5, #0xc]
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02127D50:
 	mov r6, #8
 	bl G2S_GetBG1CharPtr
@@ -3444,7 +3444,7 @@ _02127D50:
 	ldr r1, [sp, #4]
 	ldr r2, [r5, #0x18]
 	add r0, r5, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldr r1, [sp, #4]
 	ldr r0, [r5, #0x18]
 	add r0, r1, r0
@@ -3476,11 +3476,11 @@ _02127E54:
 	ldr r0, _02128234 ; =0x020A8C40
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r0, _02128238 ; =0x020A8440
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	b _02128228
 _02127E7C:
 	mov r4, #4
@@ -3717,7 +3717,7 @@ _021281F0:
 	ldr r0, _02128238 ; =0x020A8440
 	mov r1, #0
 	mov r2, #0x800
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldr r2, [sp, #0xc]
 	mov r0, r7
 	mov r1, r6
@@ -3766,18 +3766,18 @@ FUN_ov94_0212823c: ; 0x0212823C
 	ldr r2, [r5, #0x18]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_020057ec
+	bl GXS_LoadBG0Char
 	ldr r0, [r5, #0xc]
 	ldr r2, [r5, #0x10]
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_0200546c
-	bl FUN_02005c3c
+	bl GXS_LoadBG0Scr
+	bl GXS_BeginLoadBGExtPltt
 	ldmib r5, {r0, r2}
 	mov r1, r4
 	add r0, r5, r0
-	bl FUN_02005c54
-	bl FUN_02005cbc
+	bl GXS_LoadBGExtPltt
+	bl GXS_EndLoadBGExtPltt
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
 _021282E4: .word 0x02128AA8

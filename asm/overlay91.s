@@ -2686,15 +2686,15 @@ FUN_ov91_0211c350: ; 0x0211C350
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_0200569c
+	bl GX_LoadBG3Scr
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211C414: .word unk_020A6C40
 	arm_func_end FUN_ov91_0211c350

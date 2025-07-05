@@ -2,7 +2,7 @@
 .public FUN_0201e078
 .public G2S_GetBG1CharPtr
 .public FX_Sqrt
-.public FUN_0200546c
+.public GXS_LoadBG0Scr
 .public FUN_0207249c
 .public FUN_ov1_020dbd38
 .public FUN_ov1_020dbe00

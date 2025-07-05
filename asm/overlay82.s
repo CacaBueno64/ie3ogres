@@ -1891,7 +1891,7 @@ _0211B8E0:
 	ldmib r7, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 	b _0211BA10
 _0211B9A0:
 	ldr r0, [sp, #0x14]
@@ -1977,7 +1977,7 @@ _0211BA40:
 	ldmib r10, {r0, r1}
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_02005a1c
+	bl GX_LoadBG3Char
 _0211BAE8:
 	ldr r0, _0211BE40 ; =0x02099EF0
 	add r9, r9, #1
@@ -5131,21 +5131,21 @@ FUN_ov82_0211e6f0: ; 0x0211E6F0
 	mov r0, r9
 	mov r1, r7
 	mov r2, r8
-	bl FUN_020055bc
+	bl GX_LoadBG2Scr
 	mov r0, r6
 	mov r1, r8
 	bl DC_FlushRange
 	mov r0, r6
 	mov r1, r7
 	mov r2, r8
-	bl FUN_020054dc
+	bl GX_LoadBG1Scr
 	mov r0, r4
 	mov r1, r8
 	bl DC_FlushRange
 	mov r0, r4
 	mov r2, r8
 	mov r1, r7
-	bl FUN_0200569c
+	bl GX_LoadBG3Scr
 	bl G2_GetBG1CharPtr
 	mov r8, #0x20
 	mov r1, r0
@@ -5222,7 +5222,7 @@ _0211E844:
 	ldr r0, [r9, #4]
 	ldr r1, [sp, #4]
 	mov r2, #0x200
-	bl FUN_0200585c
+	bl GX_LoadBG1Char
 	ldr r0, [sp, #4]
 	add r0, r0, #0x200
 	str r0, [sp, #4]

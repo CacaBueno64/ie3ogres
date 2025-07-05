@@ -168,7 +168,7 @@ FUN_ov121_02124ebc: ; 0x02124EBC
 	ldr r2, [r6, #0x10]
 	mov r1, r5
 	add r0, r6, r0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02124F2C:
 	mov r8, #0x20
 	str r8, [sp, #4]

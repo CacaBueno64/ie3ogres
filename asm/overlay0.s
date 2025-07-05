@@ -12303,7 +12303,7 @@ FUN_ov0_020c7638: ; 0x020C7638
 	add r0, r1, r0
 	movhi r2, #0x800
 	mov r1, #0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov0_020c7638
@@ -12404,7 +12404,7 @@ _020C7788:
 	mov r2, r4
 	add r0, r10, #0x298
 	mov r1, #0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -15533,7 +15533,7 @@ _020CA318:
 	mov r1, r9
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r7, #0xc]
 	ldrh r0, [r7, #0xe]
 	mul r0, r1, r0
@@ -15636,7 +15636,7 @@ _020CA49C:
 	mov r1, r6
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r10, #0xa4]
 	ldrh r0, [r10, #0xa6]
 	mul r0, r1, r0
@@ -15656,7 +15656,7 @@ _020CA4E8:
 	mov r1, r6
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r10, #0xb8]
 	ldrh r0, [r10, #0xba]
 	mul r0, r1, r0
@@ -15676,7 +15676,7 @@ _020CA534:
 	mov r1, r6
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrh r1, [r10, #0xcc]
 	ldrh r0, [r10, #0xce]
 	mul r0, r1, r0
@@ -15696,7 +15696,7 @@ _020CA580:
 	mov r1, r6
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _020CA5BC:
 	bl FUN_ov16_020f10c8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24160,7 +24160,7 @@ FUN_ov0_020d1c04: ; 0x020D1C04
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_020052d8
+	bl GXS_LoadOAM
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov0_020d1c04
 
@@ -24189,18 +24189,18 @@ FUN_ov0_020d1c58: ; 0x020D1C58
 	bl FUN_ov0_020d1978
 	mov r1, r4
 	mov r2, #0x200
-	bl FUN_02005218
+	bl GXS_LoadOBJPltt
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov0_020d1c58
 
 	arm_func_start FUN_ov0_020d1c90
 FUN_ov0_020d1c90: ; 0x020D1C90
-	ldr r12, _020D1CA4 ; =FUN_02005398
+	ldr r12, _020D1CA4 ; =GXS_LoadOBJ
 	mov r0, r1
 	mov r1, r2
 	mov r2, r3
 	bx r12
-_020D1CA4: .word FUN_02005398
+_020D1CA4: .word GXS_LoadOBJ
 	arm_func_end FUN_ov0_020d1c90
 
 	arm_func_start fun_ov0_020d1ca8

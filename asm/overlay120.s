@@ -384,7 +384,7 @@ _0212522C:
 	ldr r0, [r10, #0x14]
 	ldr r2, [r10, #0x18]
 	add r0, r10, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	ldrb r0, [r5, #0x1a]
 	ldr r9, [r10, #0x18]
 	cmp r0, #0
@@ -408,7 +408,7 @@ _02125294:
 	ldr r0, [r4, #0x18]
 	mov r1, r9
 	mov r2, #0x300
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	add r9, r9, #0x300
 _021252D8:
 	mov r0, r8
@@ -426,7 +426,7 @@ _021252D8:
 	ldr r0, [r4, #0x2c]
 	mov r1, r9
 	mov r2, #0x300
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 	add r9, r9, #0x300
 _0212531C:
 	ldrb r0, [r5, #0x1a]
@@ -448,7 +448,7 @@ _0212533C:
 	ldr r2, [r10, #0x10]
 	mov r1, r9
 	add r0, r10, r0
-	bl FUN_020059ac
+	bl GXS_LoadBG2Char
 _02125368:
 	ldr r1, [r4, #0x60]
 	cmp r1, #0
@@ -457,7 +457,7 @@ _02125368:
 	ldr r2, [r1, #0x10]
 	add r0, r1, r0
 	mov r1, #0
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 _02125388:
 	ldrb r0, [r5, #0x8c]
 	ldr r10, [r4, #0x78]
@@ -628,7 +628,7 @@ _021255E0:
 	mov r0, r7
 	mov r2, r6
 	mov r1, #0
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldrb r0, [r5, #0x1a]
 	cmp r0, #0
 	bne _02125618
@@ -688,7 +688,7 @@ _021256C0:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	mov r0, #1
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -908,7 +908,7 @@ _021259C0:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
 _021259E8: .word unk_020A8440
 	arm_func_end FUN_ov120_02125970

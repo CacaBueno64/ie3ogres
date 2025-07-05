@@ -36,7 +36,7 @@
 .public FUN_0206e20c
 .public FUN_0206fb74
 .public G2_GetBG1CharPtr
-.public FUN_02005a1c
+.public GX_LoadBG3Char
 .public FUN_02023c40
 .public FUN_02029d54
 .public FUN_02041eac

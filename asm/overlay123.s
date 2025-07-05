@@ -305,7 +305,7 @@ FUN_ov123_021250e0: ; 0x021250E0
 	mov r1, r4
 	mul r2, r3, r2
 	mov r2, r2, lsl #5
-	bl FUN_020058cc
+	bl GXS_LoadBG1Char
 	ldrh r1, [r5, #8]
 	ldrh r0, [r5, #0xa]
 	mul r0, r1, r0
@@ -505,7 +505,7 @@ _021253AC:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200546c
+	bl GXS_LoadBG0Scr
 	ldr r4, _0212542C ; =0x020A8C40
 	mov r1, r6
 	mov r0, r4
@@ -513,7 +513,7 @@ _021253AC:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200554c
+	bl GXS_LoadBG1Scr
 	ldr r4, _02125430 ; =0x020A8440
 	mov r1, r6
 	mov r0, r4
@@ -521,7 +521,7 @@ _021253AC:
 	mov r0, r4
 	mov r1, r5
 	mov r2, r6
-	bl FUN_0200562c
+	bl GXS_LoadBG2Scr
 	bl  FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
 _0212541C: .word unk_020A0640
