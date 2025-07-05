@@ -4,7 +4,6 @@ Arm9
 	OverlayDefs $(BUILD_DIR)/main_defs.sbin_LZ
 	OverlayTable $(BUILD_DIR)/main_table.sbin_LZ
 	Elf $(BUILD_DIR)/main.elf
-#	Nef $(BUILD_DIR)/main.nef
 }
 
 Arm7
@@ -17,7 +16,7 @@ Property
 {
 	RomHeaderTemplate "$(HEADER_TEMPLATE)"
 	TitleName "$(TITLE_NAME)"
-	MakerCode "01"
+	MakerCode "HF"
 	RemasterVersion 0
 	RomSpeedType 1TROM
 	RomSize 4G
