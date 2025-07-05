@@ -15,7 +15,7 @@
 .public _s32_div_f
 .public FUN_0201fbc8
 .public OS_SpinWaitSysCycles
-.public FUN_02003f38
+.public OS_GetMacAddress
 .public FUN_02012ad0
 .public FUN_02012bc0
 .public FUN_02012ef8

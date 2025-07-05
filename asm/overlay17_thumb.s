@@ -8606,7 +8606,7 @@ _020F1F98: .word ov17_02115164
 	thumb_func_start FUN_ov17_020f1f9c
 FUN_ov17_020f1f9c: ; 0x020F1F9C
 	push {r3, lr}
-	blx FUN_02003f38
+	blx OS_GetMacAddress
 	mov r0, #1
 	pop {r3, pc}
 	thumb_func_end FUN_ov17_020f1f9c

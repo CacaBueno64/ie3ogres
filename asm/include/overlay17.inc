@@ -33,8 +33,8 @@
 .public OS_RestoreInterrupts
 .public OS_SpinWaitSysCycles
 .public OS_WaitVBlankIntr
-.public FUN_02003f38
-.public FUN_02003f54
+.public OS_GetMacAddress
+.public OS_GetOwnerInfo
 .public OS_Terminate
 .public GX_VBlankIntr
 .public GX_DispOff

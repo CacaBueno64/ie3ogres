@@ -7,7 +7,7 @@
 .public FUN_0201f99c
 .public _ll_udiv
 .public FUN_0201fbc8
-.public FUN_02003f38
+.public OS_GetMacAddress
 .public FUN_02023e98
 .public FUN_020218d4
 .public FUN_020219ac

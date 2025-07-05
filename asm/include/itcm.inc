@@ -68,7 +68,7 @@
 .public FUN_02073d8c
 .public FUN_02073dec
 .public FUN_02073e40
-.public FUN_020010bc
+.public OS_IsResetOccurred
 .public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020403a8

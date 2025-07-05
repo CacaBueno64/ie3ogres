@@ -4738,7 +4738,7 @@ _020F84C0:
 	strh r2, [r0, #0xe]
 	ldr r0, [r1, #4]
 	add r0, r0, #0x110
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldr r0, _020F8558 ; =FUN_ov17_020f8604
 	ldr r1, _020F855C ; =FUN_ov17_020f8614
 	blx FUN_ov17_020f0194
@@ -7050,7 +7050,7 @@ FUN_ov17_020fa2a4: ; 0x020FA2A4
 	bl FUN_ov17_0210d6ec
 	mov r6, r0
 	add r0, sp, #0x14
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldrb r0, [sp, #0x15]
 	add r10, sp, #0x1a
 	mov r9, #0x14
@@ -21226,7 +21226,7 @@ FUN_ov17_02105d04: ; 0x02105D04
 	mov r0, #2
 	bl FUN_ov17_020f4ec4
 	add r0, sp, #0x16
-	bl FUN_02003f54
+	bl OS_GetOwnerInfo
 	add r4, sp, #0
 	mov r0, r5
 	mov r1, r4
@@ -24551,7 +24551,7 @@ _02108860:
 	add r1, r1, #0x1300
 	strh r0, [r1, #0x7c]
 	add r0, sp, #0
-	bl FUN_02003f54
+	bl OS_GetOwnerInfo
 	ldr r1, [r5]
 	ldr r0, _02108940 ; =0x021125CA
 	add r1, r1, #0x388
@@ -27403,7 +27403,7 @@ FUN_ov17_0210aef8: ; 0x0210AEF8
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	add r0, sp, #0
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldr r2, _0210AFC8 ; =0x02FFFC3C
 	ldrh r0, [sp]
 	ldr r3, [r2]

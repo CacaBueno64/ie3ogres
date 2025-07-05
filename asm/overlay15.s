@@ -187,7 +187,7 @@ _020BCCB8:
 	add r1, r1, #0x400
 	ldr r0, _020BCE6C ; =0x020E6DA8
 	strh r1, [r5, #6]
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	strb r4, [r5, #1]
 	mov r8, #0x800
 	ldr r7, _020BCE70 ; =0x020E7178
@@ -13044,7 +13044,7 @@ _020C7A98:
 	mov r1, #0x30
 	mov r0, r7
 	strb r1, [r5, #0x1d]
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldr r4, _020C7C8C ; =0x020E4564
 	mov r8, #0
 	add r6, r5, #0x1f
@@ -13057,7 +13057,7 @@ _020C7AC8:
 	cmp r8, #6
 	blt _020C7AC8
 	add r0, sp, #0x38
-	bl FUN_02003f54
+	bl OS_GetOwnerInfo
 	ldrb r0, [sp, #0x38]
 	ldr r4, _020C7C8C ; =0x020E4564
 	mov r1, #3
@@ -13589,7 +13589,7 @@ FUN_ov15_020c8298: ; 0x020C8298
 	bne _020C82CC
 	add r0, r4, #0xa10
 	add r0, r0, #0x1000
-	bl FUN_02004094
+	bl OS_GetLowEntropyData
 	add r0, r4, #0xa10
 	add r0, r0, #0x1000
 	mov r1, #0x20
@@ -17638,7 +17638,7 @@ FUN_ov15_020cba10: ; 0x020CBA10
 	adds r9, r9, r0
 _020CBA98:
 	add r0, sp, #0
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldrb r0, [sp, #1]
 	ldr r6, _020CBBCC ; =0x5D588B65
 	ldr r7, _020CBBD0 ; =0x00269EC3
@@ -17816,7 +17816,7 @@ FUN_ov15_020cbc70: ; 0x020CBC70
 	adds r8, r8, r0
 _020CBD14:
 	add r0, sp, #0
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldrb r0, [sp, #1]
 	ldr r6, _020CBDF8 ; =0x5D588B65
 	ldr r7, _020CBDFC ; =0x00269EC3
@@ -21425,7 +21425,7 @@ FUN_ov15_020ced80: ; 0x020CED80
 	add r6, sp, #0
 	mov r8, r0
 	mov r0, r6
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	mov r7, #0
 	add r5, sp, #6
 	mov r4, #2
@@ -21707,7 +21707,7 @@ FUN_ov15_020cf094: ; 0x020CF094
 	stmfd sp!, {r4, lr}
 	ldr r4, _020CF0B4 ; =0x020E92B0
 	mov r0, r4
-	bl FUN_02004094
+	bl OS_GetLowEntropyData
 	mov r0, r4
 	mov r1, #0x20
 	bl FUN_ov15_020d9a88
@@ -39427,7 +39427,7 @@ FUN_ov15_020ddd50: ; 0x020DDD50
 	mov r1, r1, lsl #0x10
 	add r0, r0, #0x1000
 	mov r1, r1, lsr #0x10
-	bl FUN_02011dec
+	bl WM_Init
 	cmp r0, #6
 	addls pc, pc, r0, lsl #2
 	b _020DDDC4
@@ -39468,7 +39468,7 @@ _020DDDD8:
 _020DDDFC:
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	mov r0, r4
 	bl FUN_ov15_020ddb54
 	ldr r0, _020DDE84 ; =FUN_ov15_020de3f4
@@ -39710,7 +39710,7 @@ FUN_ov15_020de114: ; 0x020DE114
 	stmfd sp!, {r3, r4, r5, lr}
 	bl FUN_ov15_020dcedc
 	mov r5, r0
-	bl FUN_02012750
+	bl WMi_GetStatusAddress
 	mov r4, r0
 	mov r1, #2
 	bl DC_InvalidateRange
@@ -39723,7 +39723,7 @@ FUN_ov15_020de114: ; 0x020DE114
 	beq _020DE180
 	b _020DE18C
 _020DE150:
-	bl FUN_02012040
+	bl WM_Finish
 	cmp r0, #0
 	bne _020DE1A0
 	mov r0, #1
@@ -39980,7 +39980,7 @@ _020DE484:
 	bl FUN_02013028
 	b _020DE588
 _020DE490:
-	bl FUN_02012040
+	bl WM_Finish
 	cmp r0, #0
 	bne _020DE4C0
 	mov r0, #1

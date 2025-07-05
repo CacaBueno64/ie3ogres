@@ -39,8 +39,8 @@
 .public FUN_0201f960
 .public OS_SpinWaitSysCycles
 .public OS_WaitVBlankIntr
-.public FUN_02003f38
-.public FUN_02003f54
+.public OS_GetMacAddress
+.public OS_GetOwnerInfo
 .public G2_GetBG0ScrPtr
 .public G2S_GetBG0ScrPtr
 .public G2_GetBG0CharPtr

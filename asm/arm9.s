@@ -371,13 +371,13 @@ _020010B4: .word 0x7BF9DD5B
 _020010B8: .word 0x00000400
 	arm_func_end OS_SetIrqStackChecker
 
-	arm_func_start FUN_020010bc
-FUN_020010bc: ; 0x020010BC
+	arm_func_start OS_IsResetOccurred
+OS_IsResetOccurred: ; 0x020010BC
 	ldr r0, _020010C8 ; =0x02093980
 	ldrh r0, [r0]
 	bx lr
 _020010C8: .word unk_02093980
-	arm_func_end FUN_020010bc
+	arm_func_end OS_IsResetOccurred
 
 	arm_func_start OSi_CommonCallback
 OSi_CommonCallback: ; 0x020010CC
@@ -604,12 +604,12 @@ _0200136C: .word OSi_FreeCartridgeBus
 _02001370: .word OSi_DoUnlockByWord
 	arm_func_end OS_UnLockCartridge
 
-	arm_func_start FUN_02001374
-FUN_02001374: ; 0x02001374
+	arm_func_start OS_UnlockCartridge
+OS_UnlockCartridge: ; 0x02001374
 	ldr r1, _0200137C ; =OS_UnLockCartridge
 	bx r1
 _0200137C: .word OS_UnLockCartridge
-	arm_func_end FUN_02001374
+	arm_func_end OS_UnlockCartridge
 
 	arm_func_start OS_TryLockCartridge
 OS_TryLockCartridge: ; 0x02001380
@@ -4243,8 +4243,8 @@ _02003F30: .word 0x02FFFC40
 _02003F34: .word 0x02FFFC20
 	arm_func_end OS_ResetSystem
 
-	arm_func_start FUN_02003f38
-FUN_02003f38: ; 0x02003F38
+	arm_func_start OS_GetMacAddress
+OS_GetMacAddress: ; 0x02003F38
 	mov r1, r0
 	ldr r0, _02003F4C ; =0x02FFFCF4
 	ldr r12, _02003F50 ; =MI_CpuCopy8
@@ -4252,10 +4252,10 @@ FUN_02003f38: ; 0x02003F38
 	bx r12
 _02003F4C: .word 0x02FFFCF4
 _02003F50: .word MI_CpuCopy8
-	arm_func_end FUN_02003f38
+	arm_func_end OS_GetMacAddress
 
-	arm_func_start FUN_02003f54
-FUN_02003f54: ; 0x02003F54
+	arm_func_start OS_GetOwnerInfo
+OS_GetOwnerInfo: ; 0x02003F54
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _02003FD0 ; =0x02FFFC80
 	mov r5, r0
@@ -4288,7 +4288,7 @@ FUN_02003f54: ; 0x02003F54
 	strh r0, [r5, #0x50]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02003FD0: .word 0x02FFFC80
-	arm_func_end FUN_02003f54
+	arm_func_end OS_GetOwnerInfo
 
 	arm_func_start OsCountZeroBits
 OsCountZeroBits: ; 0x02003FD4
@@ -4353,8 +4353,8 @@ _0200408C: .word 0x000001FF
 _02004090: .word unk_02093D04
 	arm_func_end OSi_UnlockVram
 
-	arm_func_start FUN_02004094
-FUN_02004094: ; 0x02004094
+	arm_func_start OS_GetLowEntropyData
+OS_GetLowEntropyData: ; 0x02004094
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _02004150 ; =0x04000006
 	mov r5, r0
@@ -4400,17 +4400,13 @@ FUN_02004094: ; 0x02004094
 	ldrh r3, [r0, #0x98]
 	orr r0, r2, r1
 	orr r0, r0, r3, lsl #16
-	arm_func_end FUN_02004094
-
-	arm_func_start FUN_02004148
-FUN_02004148: ; 0x02004148
 	str r0, [r5, #0x1c]
 	ldmfd sp!, {r4, r5, r6, pc}
 _02004150: .word 0x04000006
 _02004154: .word 0x02FFFC00
 _02004158: .word unk_02093CD4
 _0200415C: .word 0x04000600
-	arm_func_end FUN_02004148
+	arm_func_end OS_GetLowEntropyData
 
 	arm_func_start OS_Terminate
 OS_Terminate: ; 0x02004160
@@ -21027,7 +21023,7 @@ FUN_02011818: ; 0x02011818
 	ldr r1, [r4]
 	cmp r1, #0
 	bne _02011830
-	bl FUN_02001374
+	bl OS_UnlockCartridge
 _02011830:
 	ldr r0, [r4, #4]
 	bl OS_RestoreInterrupts
@@ -21462,11 +21458,11 @@ _02011DDC:
 _02011DE8: .word unk_02096708
 	arm_func_end FUN_02011cfc
 
-	arm_func_start FUN_02011dec
-FUN_02011dec: ; 0x02011DEC
+	arm_func_start WM_Init
+WM_Init: ; 0x02011DEC
 	stmfd sp!, {r3, lr}
 	mov r2, #0xf00
-	bl FUN_02011e14
+	bl WmInitCore
 	cmp r0, #0
 	ldreq r1, _02011E10 ; =0x02096B30
 	moveq r2, #0
@@ -21474,10 +21470,10 @@ FUN_02011dec: ; 0x02011DEC
 	streqh r2, [r1, #0x16]
 	ldmfd sp!, {r3, pc}
 _02011E10: .word unk_02096B30
-	arm_func_end FUN_02011dec
+	arm_func_end WM_Init
 
-	arm_func_start FUN_02011e14
-FUN_02011e14: ; 0x02011E14
+	arm_func_start WmInitCore
+WmInitCore: ; 0x02011E14
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mov r8, r0
@@ -21565,7 +21561,7 @@ _02011EF4:
 	ldr r0, [r1, #0xc]
 	add r0, r0, #0x100
 	str r0, [r1, #0x10]
-	bl FUN_0201272c
+	bl WmClearFifoRecvFlag
 	ldr r0, [r9, #4]
 	mov r1, r4
 	strh r7, [r0, #0x14]
@@ -21611,7 +21607,7 @@ _02011FD0:
 _02011FF8:
 	cmp r7, #0xa
 	blt _02011FD0
-	ldr r1, _0201203C ; =FUN_02012344
+	ldr r1, _0201203C ; =WmReceiveFifo
 	mov r0, #0xa
 	bl PXI_SetFifoRecvCallback
 	ldr r1, _0201202C ; =0x02096B30
@@ -21626,15 +21622,15 @@ _0201202C: .word unk_02096B30
 _02012030: .word unk_02096B48
 _02012034: .word unk_02096B68
 _02012038: .word unk_02096BE0
-_0201203C: .word FUN_02012344
-	arm_func_end FUN_02011e14
+_0201203C: .word WmReceiveFifo
+	arm_func_end WmInitCore
 
-	arm_func_start FUN_02012040
-FUN_02012040: ; 0x02012040
+	arm_func_start WM_Finish
+WM_Finish: ; 0x02012040
 	stmfd sp!, {r3, r4, r5, lr}
 	bl OS_DisableInterrupts
 	mov r5, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	beq _02012068
 	mov r0, r5
@@ -21645,10 +21641,10 @@ _02012068:
 	mov r4, #0
 	mov r1, r4
 	mov r0, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_0201272c
+	bl WmClearFifoRecvFlag
 	mov r1, r4
 	mov r0, #0xa
 	bl PXI_SetFifoRecvCallback
@@ -21660,20 +21656,20 @@ _02012068:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _020120AC: .word unk_02096B30
-	arm_func_end FUN_02012040
+	arm_func_end WM_Finish
 
-	arm_func_start FUN_020120b0
-FUN_020120b0: ; 0x020120B0
+	arm_func_start WMi_SetCallbackTable
+WMi_SetCallbackTable: ; 0x020120B0
 	ldr r2, _020120C4 ; =0x02096B30
 	ldr r2, [r2, #4]
 	add r0, r2, r0, lsl #2
 	str r1, [r0, #0x18]
 	bx lr
 _020120C4: .word unk_02096B30
-	arm_func_end FUN_020120b0
+	arm_func_end WMi_SetCallbackTable
 
-	arm_func_start FUN_020120c8
-FUN_020120c8: ; 0x020120C8
+	arm_func_start WmGetCommandBuffer4Arm7
+WmGetCommandBuffer4Arm7: ; 0x020120C8
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _02012124 ; =0x02096B48
 	mov r4, #0
@@ -21698,14 +21694,14 @@ FUN_020120c8: ; 0x020120C8
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02012124: .word unk_02096B48
-	arm_func_end FUN_020120c8
+	arm_func_end WmGetCommandBuffer4Arm7
 
-	arm_func_start FUN_02012128
-FUN_02012128: ; 0x02012128
+	arm_func_start WMi_SendCommand
+WMi_SendCommand: ; 0x02012128
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_020120c8
+	bl WmGetCommandBuffer4Arm7
 	movs r4, r0
 	moveq r0, #8
 	ldmeqfd sp!, {r3, r4, r5, lr}
@@ -21747,14 +21743,14 @@ _02012188:
 	add sp, sp, #0x10
 	bx lr
 _020121D0: .word unk_02096B48
-	arm_func_end FUN_02012128
+	arm_func_end WMi_SendCommand
 
-	arm_func_start FUN_020121d4
-FUN_020121d4: ; 0x020121D4
+	arm_func_start WMi_SendCommandDirect
+WMi_SendCommandDirect: ; 0x020121D4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r4, r1
-	bl FUN_020120c8
+	bl WmGetCommandBuffer4Arm7
 	movs r5, r0
 	moveq r0, #8
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -21779,18 +21775,18 @@ FUN_020121d4: ; 0x020121D4
 	movge r0, #2
 	ldmfd sp!, {r4, r5, r6, pc}
 _02012240: .word unk_02096B48
-	arm_func_end FUN_020121d4
+	arm_func_end WMi_SendCommandDirect
 
-	arm_func_start FUN_02012244
-FUN_02012244: ; 0x02012244
+	arm_func_start WMi_GetSystemWork
+WMi_GetSystemWork: ; 0x02012244
 	ldr r0, _02012250 ; =0x02096B30
 	ldr r0, [r0, #4]
 	bx lr
 _02012250: .word unk_02096B30
-	arm_func_end FUN_02012244
+	arm_func_end WMi_GetSystemWork
 
-	arm_func_start FUN_02012254
-FUN_02012254: ; 0x02012254
+	arm_func_start WMi_CheckInitialized
+WMi_CheckInitialized: ; 0x02012254
 	ldr r0, _0201226C ; =0x02096B30
 	ldrh r0, [r0]
 	cmp r0, #0
@@ -21798,12 +21794,12 @@ FUN_02012254: ; 0x02012254
 	moveq r0, #3
 	bx lr
 _0201226C: .word unk_02096B30
-	arm_func_end FUN_02012254
+	arm_func_end WMi_CheckInitialized
 
-	arm_func_start FUN_02012270
-FUN_02012270: ; 0x02012270
+	arm_func_start WMi_CheckIdle
+WMi_CheckIdle: ; 0x02012270
 	stmfd sp!, {r4, lr}
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	ldr r4, _020122B0 ; =0x02096B30
@@ -21819,13 +21815,13 @@ FUN_02012270: ; 0x02012270
 	movhi r0, #0
 	ldmfd sp!, {r4, pc}
 _020122B0: .word unk_02096B30
-	arm_func_end FUN_02012270
+	arm_func_end WMi_CheckIdle
 
-	arm_func_start FUN_020122b4
-FUN_020122b4: ; 0x020122B4
+	arm_func_start WMi_CheckStateEx
+WMi_CheckStateEx: ; 0x020122B4
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r4, lr}
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	ldmnefd sp!, {r4, lr}
 	addne sp, sp, #0x10
@@ -21860,10 +21856,10 @@ _02012318:
 	add sp, sp, #0x10
 	bx lr
 _02012340: .word unk_02096B30
-	arm_func_end FUN_020122b4
+	arm_func_end WMi_CheckStateEx
 
-	arm_func_start FUN_02012344
-FUN_02012344: ; 0x02012344
+	arm_func_start WmReceiveFifo
+WmReceiveFifo: ; 0x02012344
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r0, _02012718 ; =0x02096B30
@@ -21972,7 +21968,7 @@ _020124B8:
 	cmp r0, #0
 	beq _020124C8
 _020124C4:
-	bl FUN_02012808
+	bl WMi_DeleteSleepCallback
 _020124C8:
 	ldrh r1, [r10]
 	cmp r1, #2
@@ -21981,7 +21977,7 @@ _020124C8:
 	add r0, r4, r1, lsl #2
 	bne _02012504
 	ldr r4, [r0, #0x18]
-	bl FUN_02012040
+	bl WM_Finish
 	cmp r4, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -22120,7 +22116,7 @@ _020126D4:
 	ldr r0, [r4, #0x10]
 	mov r1, r5
 	bl DC_InvalidateRange
-	bl FUN_0201272c
+	bl WmClearFifoRecvFlag
 	ldr r0, [r4, #0x10]
 	cmp r10, r0
 	addeq sp, sp, #8
@@ -22138,10 +22134,10 @@ _0201271C: .word unk_02096B90
 _02012720: .word 0x0000FFFF
 _02012724: .word unk_02096BA4
 _02012728: .word unk_02096BB4
-	arm_func_end FUN_02012344
+	arm_func_end WmReceiveFifo
 
-	arm_func_start FUN_0201272c
-FUN_0201272c: ; 0x0201272C
+	arm_func_start WmClearFifoRecvFlag
+WmClearFifoRecvFlag: ; 0x0201272C
 	ldr r2, _02012748 ; =0x02FFFF96
 	ldrh r1, [r2]
 	tst r1, #1
@@ -22151,12 +22147,12 @@ FUN_0201272c: ; 0x0201272C
 	bx lr
 _02012748: .word 0x02FFFF96
 _0201274C: .word 0x0000FFFE
-	arm_func_end FUN_0201272c
+	arm_func_end WmClearFifoRecvFlag
 
-	arm_func_start FUN_02012750
-FUN_02012750: ; 0x02012750
+	arm_func_start WMi_GetStatusAddress
+WMi_GetStatusAddress: ; 0x02012750
 	stmfd sp!, {r3, lr}
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	movne r0, #0
 	ldreq r0, _02012770 ; =0x02096B30
@@ -22164,10 +22160,10 @@ FUN_02012750: ; 0x02012750
 	ldreq r0, [r0, #4]
 	ldmfd sp!, {r3, pc}
 _02012770: .word unk_02096B30
-	arm_func_end FUN_02012750
+	arm_func_end WMi_GetStatusAddress
 
-	arm_func_start FUN_02012774
-FUN_02012774: ; 0x02012774
+	arm_func_start WM_GetAID
+WM_GetAID: ; 0x02012774
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
 	ldr r1, _020127A0 ; =0x02096B30
@@ -22180,10 +22176,10 @@ FUN_02012774: ; 0x02012774
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020127A0: .word unk_02096B30
-	arm_func_end FUN_02012774
+	arm_func_end WM_GetAID
 
-	arm_func_start FUN_020127a4
-FUN_020127a4: ; 0x020127A4
+	arm_func_start WM_GetConnectedAIDs
+WM_GetConnectedAIDs: ; 0x020127A4
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
 	ldr r1, _020127D0 ; =0x02096B30
@@ -22196,11 +22192,11 @@ FUN_020127a4: ; 0x020127A4
 	mov r0, r0, lsr #0x10
 	ldmfd sp!, {r4, pc}
 _020127D0: .word unk_02096B30
-	arm_func_end FUN_020127a4
+	arm_func_end WM_GetConnectedAIDs
 
-	arm_func_start FUN_020127d4
-FUN_020127d4: ; 0x020127D4
-	ldr r1, _020127F8 ; =FUN_0201281c
+	arm_func_start WMi_RegisterSleepCallback
+WMi_RegisterSleepCallback: ; 0x020127D4
+	ldr r1, _020127F8 ; =WmSleepCallback
 	ldr r2, _020127FC ; =0x02096B30
 	ldr r0, _02012800 ; =0x02096B38
 	str r1, [r2, #8]
@@ -22209,27 +22205,27 @@ FUN_020127d4: ; 0x020127D4
 	mov r1, #0x3e8
 	str r3, [r2, #0xc]
 	bx r12
-_020127F8: .word FUN_0201281c
+_020127F8: .word WmSleepCallback
 _020127FC: .word unk_02096B30
 _02012800: .word unk_02096B38
 _02012804: .word FUN_02017584
-	arm_func_end FUN_020127d4
+	arm_func_end WMi_RegisterSleepCallback
 
-	arm_func_start FUN_02012808
-FUN_02012808: ; 0x02012808
+	arm_func_start WMi_DeleteSleepCallback
+WMi_DeleteSleepCallback: ; 0x02012808
 	ldr r0, _02012814 ; =0x02096B38
 	ldr r12, _02012818 ; =FUN_020175a8
 	bx r12
 _02012814: .word unk_02096B38
 _02012818: .word FUN_020175a8
-	arm_func_end FUN_02012808
+	arm_func_end WMi_DeleteSleepCallback
 
-	arm_func_start FUN_0201281c
-FUN_0201281c: ; 0x0201281C
+	arm_func_start WmSleepCallback
+WmSleepCallback: ; 0x0201281C
 	ldr r12, _02012824 ; =OS_Terminate
 	bx r12
 _02012824: .word OS_Terminate
-	arm_func_end FUN_0201281c
+	arm_func_end WmSleepCallback
 
 	arm_func_start FUN_02012828
 FUN_02012828: ; 0x02012828
@@ -22237,7 +22233,7 @@ FUN_02012828: ; 0x02012828
 	mov r6, r0
 	bl OS_DisableInterrupts
 	mov r5, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	movs r4, r0
 	beq _02012854
 	mov r0, r5
@@ -22245,7 +22241,7 @@ FUN_02012828: ; 0x02012828
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02012854:
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	str r6, [r0, #0xc8]
 	mov r0, r5
 	bl OS_RestoreInterrupts
@@ -22280,11 +22276,11 @@ FUN_0201286c: ; 0x0201286C
 	strh r1, [sp, #0x1a]
 	str r4, [sp, #0x1c]
 	strh r7, [sp, #0x12]
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 _020128D4:
 	bl OS_DisableInterrupts
 	mov r8, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	movs r7, r0
 	beq _020128FC
 	mov r0, r8
@@ -22293,15 +22289,15 @@ _020128D4:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _020128FC:
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	add r0, r0, r6, lsl #2
 	str r5, [r0, #0xcc]
 	str r4, [r0, #0x10c]
 	cmp r5, #0
 	beq _0201292C
-	bl FUN_020127a4
+	bl WM_GetConnectedAIDs
 	strh r0, [sp, #0x22]
-	bl FUN_02012774
+	bl WM_GetAID
 	strh r0, [sp, #0x20]
 	add r0, sp, #0
 	blx r5
@@ -22318,9 +22314,9 @@ _02012940: .word 0x0000FFFF
 FUN_02012944: ; 0x02012944
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	cmp r6, #0
@@ -22341,12 +22337,12 @@ FUN_02012944: ; 0x02012944
 	arm_func_start FUN_02012994
 FUN_02012994: ; 0x02012994
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, r0
 	mov r0, #2
 	mov r1, #7
 	mov r2, #8
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -22373,13 +22369,13 @@ FUN_02012994: ; 0x02012994
 	arm_func_start FUN_02012a04
 FUN_02012a04: ; 0x02012A04
 	stmfd sp!, {r4, r5, r6, lr}
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, #2
 	mov r4, r0
 	mov r0, r5
 	mov r1, #7
 	mov r2, #8
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -22431,9 +22427,9 @@ FUN_02012ad0: ; 0x02012AD0
 	sub sp, sp, #0x3c
 	mov r5, r0
 	mov r4, r1
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r6, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	addne sp, sp, #0x3c
 	movne r0, #0
@@ -22497,7 +22493,7 @@ _02012B7C:
 	arm_func_start FUN_02012bc0
 FUN_02012bc0: ; 0x02012BC0
 	stmfd sp!, {r3, lr}
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	movne r0, #0x8000
 	ldreq r0, _02012BDC ; =0x02FFFCFA
@@ -22509,9 +22505,9 @@ _02012BDC: .word 0x02FFFCFA
 	arm_func_start FUN_02012be0
 FUN_02012be0: ; 0x02012BE0
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, r0
-	bl FUN_02012254
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -22556,7 +22552,7 @@ FUN_02012c74: ; 0x02012C74
 	sub sp, sp, #8
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	mov r2, #0
 	mov r1, r2
 _02012C90:
@@ -22598,7 +22594,7 @@ FUN_02012d08: ; 0x02012D08
 	sub sp, sp, #8
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	mov r1, #0
 	mov r2, r1
 _02012D24:
@@ -22783,23 +22779,23 @@ FUN_02012F78: ; 0x02012F78
 	mov r5, r1
 	mov r0, #1
 	mov r1, #0
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r4, #3
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020120b0
-	bl FUN_020127d4
-	bl FUN_02012244
+	bl WMi_SetCallbackTable
+	bl WMi_RegisterSleepCallback
+	bl WMi_GetSystemWork
 	mov r3, r0
 	ldr r2, [r3, #0x10]
 	mov r0, r4
 	stmia sp, {r2, r5}
 	mov r1, #4
 	ldmia r3, {r2, r3}
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #8
@@ -22812,16 +22808,16 @@ FUN_02012fe4: ; 0x02012FE4
 	mov r5, r0
 	mov r0, #1
 	mov r1, r0
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #4
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -22833,16 +22829,16 @@ FUN_02013028: ; 0x02013028
 	mov r5, r0
 	mov r0, #1
 	mov r1, r0
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #5
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -22855,16 +22851,16 @@ FUN_0201306c: ; 0x0201306C
 	mov r6, r0
 	mov r1, r5
 	mov r0, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r4, #6
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -22885,23 +22881,23 @@ FUN_020130C4: ; 0x020130C4
 	mov r6, r1
 	mov r1, r2
 	mov r5, r3
-	bl FUN_02011dec
+	bl WM_Init
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r4, #0
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020120b0
-	bl FUN_020127d4
-	bl FUN_02012244
+	bl WMi_SetCallbackTable
+	bl WMi_RegisterSleepCallback
+	bl WMi_GetSystemWork
 	mov r3, r0
 	ldr r2, [r3, #0x10]
 	mov r0, r4
 	stmia sp, {r2, r5}
 	mov r1, #4
 	ldmia r3, {r2, r3}
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #8
@@ -22912,16 +22908,16 @@ FUN_020130C4: ; 0x020130C4
 FUN_0201312c: ; 0x0201312C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_02012270
+	bl WMi_CheckIdle
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #1
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -22934,15 +22930,15 @@ FUN_02013168: ; 0x02013168
 	mov r5, r0
 	mov r1, r4
 	mov r0, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -22955,7 +22951,7 @@ FUN_020131ac: ; 0x020131AC
 	mov r4, r1
 	mov r0, #1
 	mov r1, #2
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	cmp r4, #0
@@ -22992,7 +22988,7 @@ _02013238:
 	bl FUN_02013288
 	mov r1, r5
 	mov r0, #7
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0x40
 	bl DC_StoreRange
@@ -23005,7 +23001,7 @@ _0201326C:
 	mov r2, r4
 	mov r0, #7
 	mov r1, #1
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -23048,10 +23044,10 @@ FUN_020132d8: ; 0x020132D8
 	mov r7, r1
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	add r1, r0, #0x100
 	mov r2, #0
 	strh r2, [r1, #0x50]
@@ -23059,11 +23055,11 @@ FUN_020132d8: ; 0x020132D8
 	str r2, [r0, #0x14c]
 	mov r0, r4
 	mov r1, r8
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, r6
 	mov r2, r7
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -23083,16 +23079,16 @@ FUN_02013350: ; 0x02013350
 	mov r5, r0
 	mov r0, #1
 	mov r1, #7
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #9
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -23108,7 +23104,7 @@ FUN_02013394: ; 0x02013394
 	mov r2, r0
 	mov r1, #2
 	mov r3, #5
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x3c
 	ldmnefd sp!, {r3, r4, r5, r6, pc}
@@ -23154,7 +23150,7 @@ _0201345C:
 	mov r6, #0x26
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	ldrh lr, [r4, #6]
 	ldrh r5, [r4, #4]
 	ldrh r3, [r4, #8]
@@ -23180,7 +23176,7 @@ _0201345C:
 	bl MI_CpuCopy8
 	add r0, sp, #0
 	mov r1, #0x3c
-	bl FUN_020121d4
+	bl WMi_SendCommandDirect
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #0x3c
@@ -23193,16 +23189,16 @@ FUN_020134e4: ; 0x020134E4
 	mov r5, r0
 	mov r0, #1
 	mov r1, #5
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #0xb
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -23218,7 +23214,7 @@ FUN_02013528: ; 0x02013528
 	mov r1, #2
 	mov r5, r2
 	mov r4, r3
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x28
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -23230,7 +23226,7 @@ FUN_02013528: ; 0x02013528
 	mov r0, r6
 	mov r1, r1, lsl #1
 	bl DC_StoreRange
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	add r1, r0, #0x100
 	mov r9, #0
 	strh r9, [r1, #0x50]
@@ -23238,7 +23234,7 @@ FUN_02013528: ; 0x02013528
 	str r9, [r0, #0x14c]
 	mov r0, r8
 	mov r1, r7
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	strh r8, [sp]
 	str r6, [sp, #4]
 	cmp r5, #0
@@ -23258,7 +23254,7 @@ _020135CC:
 	mov r1, #0x28
 	str r4, [sp, #0x20]
 	strh r2, [sp, #0x26]
-	bl FUN_020121d4
+	bl WMi_SendCommandDirect
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #0x28
@@ -23271,7 +23267,7 @@ FUN_020135f4: ; 0x020135F4
 	sub sp, sp, #8
 	mov r5, r0
 	mov r4, r1
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r1, #0xa
 	mov r7, r0
 	str r1, [sp]
@@ -23281,7 +23277,7 @@ FUN_020135f4: ; 0x020135F4
 	mov r2, #9
 	mov r3, #8
 	str r6, [sp, #4]
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
@@ -23323,11 +23319,11 @@ _020136B4:
 	mov r6, #0xd
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r1, #1
 	mov r2, r1, lsl r4
 	mov r0, r6
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #8
@@ -23342,13 +23338,13 @@ FUN_020136e4: ; 0x020136E4
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r9, #2
 	ldr r7, [r0, #4]
 	mov r0, r9
 	mov r1, #7
 	mov r2, #8
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x40
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -23403,7 +23399,7 @@ _020137E0:
 	mov r10, #0xe
 	mov r0, r10
 	mov r1, r8
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	add r8, sp, #0
 	mov r9, #0
 	mov r7, #0x40
@@ -23428,7 +23424,7 @@ _020137E0:
 	bl MIi_CpuCopy32
 	mov r0, r8
 	mov r1, r7
-	bl FUN_020121d4
+	bl WMi_SendCommandDirect
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #0x40
@@ -23516,15 +23512,15 @@ FUN_02013970: ; 0x02013970
 	sub sp, sp, #0x20
 	mov r4, r0
 	mov r7, r1
-	bl FUN_02012244
-	bl FUN_02012254
+	bl WMi_GetSystemWork
+	bl WMi_CheckInitialized
 	cmp r0, #0
 	addne sp, sp, #0x20
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r6, #0x23
 	mov r0, r6
 	mov r1, r4
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	add r5, sp, #0
 	mov r4, #0x20
 	mov r1, r5
@@ -23538,7 +23534,7 @@ FUN_02013970: ; 0x02013970
 	bl MIi_CpuCopy32
 	mov r0, r5
 	mov r1, r4
-	bl FUN_020121d4
+	bl WMi_SendCommandDirect
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #0x20
@@ -23598,13 +23594,13 @@ FUN_02013a7c: ; 0x02013A7C
 	mov r6, r2
 	mov r5, r3
 	mov r10, #1
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r9, #2
 	ldr r4, [r0, #4]
 	mov r0, r9
 	mov r1, #9
 	mov r2, #0xa
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x14
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -23665,7 +23661,7 @@ _02013B00:
 	mov r0, #0xf
 	mov r1, #7
 	str r7, [sp, #0x10]
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r9
 	add sp, sp, #0x14
@@ -23676,13 +23672,13 @@ _02013B00:
 FUN_02013bb4: ; 0x02013BB4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, #2
 	mov r4, r0
 	mov r0, r5
 	mov r1, #9
 	mov r2, #0xa
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4, #4]
@@ -23697,10 +23693,10 @@ FUN_02013bb4: ; 0x02013BB4
 	mov r4, #0x10
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -23712,11 +23708,11 @@ FUN_02013c2c: ; 0x02013C2C
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r7, r0
 	mov r0, #1
 	mov r1, #8
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, [r7, #4]
@@ -23740,13 +23736,13 @@ FUN_02013c2c: ; 0x02013C2C
 	mov r7, #0x11
 	mov r0, r7
 	mov r1, r6
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r6, #2
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
 	mov r3, r4
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -23760,11 +23756,11 @@ FUN_02013cd4: ; 0x02013CD4
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r9, r0
 	mov r0, #1
 	mov r1, #0xb
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x10
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -23790,7 +23786,7 @@ FUN_02013cd4: ; 0x02013CD4
 	mov r9, #0x12
 	mov r0, r9
 	mov r1, r8
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	add r1, sp, #8
 	mov r0, r7
 	mov r2, #6
@@ -23801,7 +23797,7 @@ FUN_02013cd4: ; 0x02013CD4
 	ldr r3, [sp, #0xc]
 	mov r0, r9
 	mov r1, r4
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #0x10
@@ -23812,11 +23808,11 @@ FUN_02013cd4: ; 0x02013CD4
 FUN_02013da4: ; 0x02013DA4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r4, r0
 	mov r0, #1
 	mov r1, #0xb
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #4]
@@ -23831,10 +23827,10 @@ FUN_02013da4: ; 0x02013DA4
 	mov r4, #0x13
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -23852,7 +23848,7 @@ FUN_02013e14: ; 0x02013E14
 	mov r2, #0xa
 	mov r5, r3
 	mov r8, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -23868,10 +23864,10 @@ FUN_02013e14: ; 0x02013E14
 	addeq sp, sp, #0xc
 	moveq r0, #6
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	bl FUN_02012774
+	bl WM_GetAID
 	movs r11, r0
 	bne _02013E90
-	bl FUN_020127a4
+	bl WM_GetConnectedAIDs
 	mov r8, r0
 _02013E90:
 	mov r4, #0
@@ -24031,7 +24027,7 @@ FUN_020140a0: ; 0x020140A0
 	mov r2, #0xa
 	mov r5, #0
 	mov r11, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0x10
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24047,10 +24043,10 @@ FUN_020140a0: ; 0x020140A0
 	addeq sp, sp, #0x10
 	moveq r0, #6
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	bl FUN_02012774
+	bl WM_GetAID
 	movs r6, r0
 	bne _0201411C
-	bl FUN_020127a4
+	bl WM_GetConnectedAIDs
 	mov r4, r0
 _0201411C:
 	add r0, r10, #0x800
@@ -24239,7 +24235,7 @@ _020143CC: .word FUN_020143d0
 FUN_020143d0: ; 0x020143D0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	ldrh r2, [r5, #0xa]
 	ldr r1, _020144A0 ; =FUN_020144a8
 	add r0, r0, r2, lsl #2
@@ -24256,7 +24252,7 @@ _02014404:
 	ldr r0, [r5, #0x20]
 	cmp r4, r0
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_02012774
+	bl WM_GetAID
 	ldrh r1, [r5, #2]
 	cmp r1, #0
 	bne _02014460
@@ -24410,7 +24406,7 @@ _0201462C:
 	ldr r7, [r8, #0xc]
 	ldrh r5, [r8, #0x10]
 	ldrh r6, [r7]
-	bl FUN_02012774
+	bl WM_GetAID
 	add r1, r4, #0x800
 	ldrh r1, [r1, #0x14]
 	cmp r5, r1
@@ -24521,7 +24517,7 @@ FUN_02014790: ; 0x02014790
 	ldrh r1, [r10, r1]
 	cmp r1, #0
 	bne _020148CC
-	bl FUN_020127a4
+	bl WM_GetConnectedAIDs
 	add r1, r10, #0x800
 	ldrh r6, [r1, #8]
 	ldrh r1, [r1, #0x18]
@@ -24662,7 +24658,7 @@ FUN_0201498c: ; 0x0201498C
 	mov r4, r0
 	mov r7, r1
 	mov r6, r2
-	bl FUN_02012270
+	bl WMi_CheckIdle
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r7, #3
@@ -24680,13 +24676,13 @@ _020149D4:
 	mov r5, #0x14
 	mov r0, r5
 	mov r1, r4
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r4, #2
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
 	mov r3, r6
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -24700,7 +24696,7 @@ FUN_02014a08: ; 0x02014A08
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	bl FUN_02012270
+	bl WMi_CheckIdle
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -24721,13 +24717,13 @@ _02014A64:
 	mov r4, #0x27
 	mov r0, r4
 	mov r1, r8
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r2, r7
 	mov r3, r5
 	mov r1, #3
 	str r6, [sp]
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #4
@@ -24746,7 +24742,7 @@ FUN_02014a9c: ; 0x02014A9C
 	mov r1, #7
 	mov r2, #9
 	mov r7, r3
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -24769,7 +24765,7 @@ FUN_02014a9c: ; 0x02014A9C
 	mov r4, #0x18
 	mov r1, r9
 	mov r0, r4
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	ldrh lr, [sp, #0x28]
 	str r7, [sp]
 	ldrb r12, [sp, #0x2c]
@@ -24779,7 +24775,7 @@ FUN_02014a9c: ; 0x02014A9C
 	mov r3, r8
 	mov r1, #5
 	str r12, [sp, #8]
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, r6
 	add sp, sp, #0xc
@@ -24792,7 +24788,7 @@ FUN_02014b60: ; 0x02014B60
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
-	bl FUN_02012270
+	bl WMi_CheckIdle
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	cmp r5, #0
@@ -24802,11 +24798,11 @@ FUN_02014b60: ; 0x02014B60
 	mov r4, #0x19
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	mov r0, r4
 	mov r2, r5
 	mov r1, #1
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -24820,21 +24816,21 @@ FUN_02014bb4: ; 0x02014BB4
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	bl FUN_02012270
+	bl WMi_CheckIdle
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r4, #0x1d
 	mov r0, r4
 	mov r1, r8
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	ldrh r12, [sp, #0x20]
 	mov r0, r4
 	mov r2, r7
 	mov r3, r6
 	mov r1, #4
 	stmia sp, {r5, r12}
-	bl FUN_02012128
+	bl WMi_SendCommand
 	cmp r0, #0
 	moveq r0, #2
 	add sp, sp, #8
@@ -24849,18 +24845,18 @@ FUN_02014c18: ; 0x02014C18
 	mov r8, r1
 	mov r7, r2
 	mov r6, r3
-	bl FUN_02012244
+	bl WMi_GetSystemWork
 	mov r5, #2
 	mov r1, r5
 	mov r0, #1
-	bl FUN_020122b4
+	bl WMi_CheckStateEx
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	mov r4, #0x1e
 	mov r0, r4
 	mov r1, r9
-	bl FUN_020120b0
+	bl WMi_SetCallbackTable
 	ldrh r2, [sp, #0x28]
 	add r0, sp, #0
 	mov r1, #0xa
@@ -24869,7 +24865,7 @@ FUN_02014c18: ; 0x02014C18
 	strh r7, [sp, #4]
 	strh r6, [sp, #6]
 	strh r2, [sp, #8]
-	bl FUN_020121d4
+	bl WMi_SendCommandDirect
 	cmp r0, #0
 	moveq r0, r5
 	add sp, sp, #0xc
@@ -48974,7 +48970,7 @@ _02029074: .word OS_IRQTable
 	arm_func_start FUN_02029078
 FUN_02029078: ; 0x02029078
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_ov130_0212a9c0 ; may be ov126 ov127 ov128
+	bl FUN_ov130_0212a9c0
 	mov r5, #0
 	mov r0, r5
 	mov r1, #0x2d000
@@ -84009,9 +84005,9 @@ FUN_0204643c: ; 0x0204643C
 	strb r5, [r4, #0x66]
 	add r0, r4, #4
 	strb r5, [r1]
-	bl FUN_02003f54
+	bl OS_GetOwnerInfo
 	add r0, r4, #0x2bc
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldr r0, _020464F0 ; =0x020901D0
 	add r1, r4, #0x2e0
 	ldr r0, [r0, #0x10]
@@ -133835,7 +133831,7 @@ FUN_0206f6b4: ; 0x0206F6B4
 	bl FUN_02023c6c
 	str r0, [sp, #0xc]
 	add r0, sp, #0
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	ldrb r1, [sp, #3]
 	ldrb r0, [sp, #4]
 	smulbb r0, r1, r0

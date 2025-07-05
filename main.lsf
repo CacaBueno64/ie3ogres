@@ -610,6 +610,7 @@ Overlay overlay116
 {
 	After overlay57
 	Object asm/overlay116.o
+	Object src/ov116.o
 }
 Overlay overlay117
 {
@@ -678,9 +679,9 @@ Overlay overlay129
 }
 Overlay overlay130
 {
-	Object src/ov130_0212a9c0.o
-	Object asm/overlay130_0212aa14.o
 	After overlay109
+	Object asm/ov130_data.o
+	Object src/ov130.o
 }
 Overlay overlay131
 {

@@ -4404,7 +4404,7 @@ FUN_ov128_0212e6b8: ; 0x0212E6B8
 	sub sp, sp, #8
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_02003f38
+	bl OS_GetMacAddress
 	mov r1, #0
 	mov r3, r1
 _0212E6D4:

@@ -134,7 +134,7 @@ _01FF81B4: .word CPi_RestoreContext
 OSi_DoResetSystem: ; 0x02093AD8
 	stmfd sp!, {r3, lr}
 _01FF81BC:
-	bl FUN_020010bc
+	bl OS_IsResetOccurred
 	cmp r0, #0
 	beq _01FF81BC
 	ldr r1, _01FF81E0 ; =0x04000208

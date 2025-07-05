@@ -36,8 +36,8 @@
 .public FUN_0202de44
 .public FUN_0202e1c0
 .public OS_WaitVBlankIntr
-.public FUN_02003f38
-.public FUN_02003f54
+.public OS_GetMacAddress
+.public OS_GetOwnerInfo
 .public G2_GetBG1CharPtr
 .public G2S_GetBG1CharPtr
 .public G2_GetBG2CharPtr
@@ -49,7 +49,7 @@
 .public FUN_02007c60
 .public FUN_02007f50
 .public FUN_02009d28
-.public FUN_02011dec
+.public WM_Init
 .public FUN_02012bc0
 .public FUN_02012d08
 .public FUN_02012f68
@@ -108,9 +108,9 @@
 .public OS_InitTick
 .public OS_IsTickAvailable
 .public OS_GetTick
-.public FUN_02004094
-.public FUN_02012040
-.public FUN_02012750
+.public OS_GetLowEntropyData
+.public WM_Finish
+.public WMi_GetStatusAddress
 .public FUN_02012828
 .public FUN_02013028
 .public FUN_02013168
