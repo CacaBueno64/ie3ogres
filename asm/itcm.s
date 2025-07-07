@@ -424,7 +424,7 @@ _01FF8568:
 	mov r0, r5, asr #4
 	mov r2, r0, lsl #1
 	add r0, r2, #1
-	ldr r3, _01FF8754 ; =0x02087874
+	ldr r3, _01FF8754 ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	ldrsh r6, [r3, r1]
 	mov r4, r4, lsl #1
@@ -534,7 +534,7 @@ _01FF873C:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _01FF8750: .word 0x00007FFF
-_01FF8754: .word 0x02087874
+_01FF8754: .word FX_SinCosTable_
 	arm_func_end FUN_01ff852c
 
 	arm_func_start FUN_01ff8758

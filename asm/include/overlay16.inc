@@ -170,12 +170,12 @@
 .public FUN_02006be0
 .public FUN_02006bf4
 .public GX_ResetBankForSubBGExtPltt
-.public FUN_02008a28
-.public FUN_02008cd8
-.public FUN_02008e4c
-.public FUN_02008e7c
+.public MTX_Concat43
+.public MTX_LookAt
+.public MTX_RotY44_
+.public MTX_Concat44
 .public VEC_Distance
-.public FUN_02009a98
+.public FX_Atan2Idx
 .public FUN_02023c40
 .public FUN_02023e98
 .public FUN_02023fb0
@@ -352,9 +352,9 @@
 .public FUN_0200625c
 .public GX_SetBankForBGExtPltt
 .public FUN_0200693c
-.public FUN_0200865c
-.public FUN_0200867c
-.public FUN_0200922c
+.public MTX_RotX43_
+.public MTX_RotY43_
+.public MTX_PerspectiveW
 .public FUN_0203194c
 .public FUN_0203247c
 .public FUN_0203533c
@@ -397,8 +397,8 @@
 .public FUN_02006058
 .public FUN_02006520
 .public FUN_02006698
-.public FUN_02008698
-.public FUN_02009378
+.public MTX_RotZ43_
+.public MTX_OrthoW
 .public VEC_Add
 .public VEC_Subtract
 .public FUN_02020274
@@ -678,4 +678,4 @@
 .public unk_02099F54
 .public unk_02099F58
 .public unk_02099F78
-.public unk_02087874
+.public FX_SinCosTable_

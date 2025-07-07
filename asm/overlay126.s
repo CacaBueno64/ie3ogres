@@ -518,7 +518,7 @@ _0212B044:
 _0212B050:
 	ldrh r2, [r8, #0x52]
 	cmp r1, #0
-	ldr r0, _0212B37C ; =0x02087874
+	ldr r0, _0212B37C ; =FX_SinCosTable_
 	mov r2, r2, asr #4
 	mov r2, r2, lsl #1
 	add r2, r2, #1
@@ -734,7 +734,7 @@ _0212B360:
 	str r1, [r10, #4]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212B37C: .word unk_02087874
+_0212B37C: .word FX_SinCosTable_
 _0212B380: .word 0x00009CCD
 	arm_func_end FUN_ov126_0212aff8
 
@@ -980,7 +980,7 @@ FUN_ov126_0212b684: ; 0x0212B684
 	mov r0, r7
 	bl FUN_ov126_0212f398
 	ldr r1, _0212BC18 ; =0x0209A80C
-	ldr r3, _0212BC1C ; =0x02087874
+	ldr r3, _0212BC1C ; =FX_SinCosTable_
 	ldr r2, [r1, #8]
 	ldr r1, [r1]
 	str r2, [sp, #0x38]
@@ -1039,7 +1039,7 @@ FUN_ov126_0212b684: ; 0x0212B684
 	orr r2, r2, r0, lsl #20
 	mov r1, r1, asr #1
 	add r0, lr, r2
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldrh r1, [r4]
 	ldr r2, [sp, #0x14]
 	cmp r0, r1
@@ -1278,14 +1278,14 @@ _0212BAA8:
 	beq _0212BB74
 	mov r1, r5
 	add r0, r6, #0x3000
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	add sp, sp, #0x40
 	strh r0, [r4]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212BB74:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldrh r1, [r4]
 	cmp r0, r1
 	blo _0212BB98
@@ -1328,7 +1328,7 @@ _0212BBDC:
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212BC18: .word unk_0209A80C
-_0212BC1C: .word unk_02087874
+_0212BC1C: .word FX_SinCosTable_
 _0212BC20: .word 0x00001C71
 _0212BC24: .word 0x00004E66
 _0212BC28: .word 0x000018E3
@@ -1963,7 +1963,7 @@ _0212C4BC:
 	mov r1, r1, asr #4
 	mov r1, r1, lsl #1
 	add r2, r1, #1
-	ldr r1, _0212CA08 ; =0x02087874
+	ldr r1, _0212CA08 ; =FX_SinCosTable_
 	mov r2, r2, lsl #1
 	ldrsh r1, [r1, r2]
 	smull r2, r1, r0, r1
@@ -2047,7 +2047,7 @@ _0212C65C:
 	ldr r1, [r11]
 	sub r0, r8, r0
 	sub r1, r9, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	str r0, [sp, #0x20]
 	mov r0, r4
 	bl FUN_02040148
@@ -2115,7 +2115,7 @@ _0212C6B8:
 	ldr r0, [sp, #0x18]
 	sub r1, r9, r1
 	sub r0, r0, r2
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	str r0, [sp, #0x20]
 _0212C780:
 	ldr r0, [sp, #0x20]
@@ -2157,7 +2157,7 @@ _0212C7F8:
 	ldr r0, [r0, #4]
 	sub r1, r9, r1
 	sub r0, r8, r0
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	cmp r7, #0xe
 	beq _0212C824
 	cmp r7, #0xf
@@ -2293,7 +2293,7 @@ _0212C9B0:
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212CA04: .word unk_0209A2C0
-_0212CA08: .word unk_02087874
+_0212CA08: .word FX_SinCosTable_
 _0212CA0C: .word unk_0209A80C
 _0212CA10: .word unk_0209A720
 _0212CA14: .word unk_02099F14
@@ -2355,7 +2355,7 @@ _0212CAB4:
 	mov r7, r0
 	sub r0, r4, r2
 	sub r1, r5, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	add r1, sp, #0x1c
 	mov r3, r9
 	mov r9, r0
@@ -2381,7 +2381,7 @@ _0212CB2C:
 	ldr r0, [r0, #4]
 	sub r1, r5, r1
 	sub r0, r4, r0
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r0, r0, lsl #0x10
 	ldr r1, [r8, #0x84]
 	mov r0, r0, lsr #0x10
@@ -2502,7 +2502,7 @@ _0212CCF8:
 	ldr r1, [r6]
 	sub r0, r8, r0
 	sub r1, r9, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r8, r0
 	mov r0, r8, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -2568,7 +2568,7 @@ FUN_ov126_0212cda0: ; 0x0212CDA0
 	mov r1, r7, asr #4
 	mov r1, r1, lsl #1
 	add r2, r1, #1
-	ldr r3, _0212D25C ; =0x02087874
+	ldr r3, _0212D25C ; =FX_SinCosTable_
 	mov r2, r2, lsl #1
 	mov r1, r1, lsl #1
 	mov r11, r0
@@ -2621,7 +2621,7 @@ _0212CE84:
 	mov r1, r4
 	bl FUN_ov126_0212fbe0
 	ldr r0, [r10, #0x30]
-	ldr r2, _0212D25C ; =0x02087874
+	ldr r2, _0212D25C ; =FX_SinCosTable_
 	cmp r0, #0
 	strge r0, [r10, #0x40]
 	movlt r0, r4
@@ -2698,7 +2698,7 @@ _0212CF64:
 	ldr r1, [sp, #0x10]
 	bl FX_Div
 	ldr r1, [sp, #0x18]
-	ldr r12, _0212D25C ; =0x02087874
+	ldr r12, _0212D25C ; =FX_SinCosTable_
 	add r1, r7, r1, lsr #16
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
@@ -2784,7 +2784,7 @@ _0212D140:
 	mov r0, r0, asr #4
 	mov r0, r0, lsl #1
 	add r1, r0, #1
-	ldr r0, _0212D25C ; =0x02087874
+	ldr r0, _0212D25C ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	ldrsh r1, [r0, r1]
 	smull r2, r1, r6, r1
@@ -2853,7 +2853,7 @@ _0212D1DC:
 	bl  FUN_ov132_02150334
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212D25C: .word unk_02087874
+_0212D25C: .word FX_SinCosTable_
 _0212D260: .word 0x0000EAAB
 _0212D264: .word 0x00000AAA
 _0212D268: .word 0x00001555
@@ -4456,7 +4456,7 @@ _0212E864:
 	ldr r1, [r8]
 	sub r0, r3, r0
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldr r1, [r6, #0x84]
 	strh r0, [r1, #0x18]
 	bl  FUN_ov16_020efd3c
@@ -4625,7 +4625,7 @@ FUN_ov126_0212eac8: ; 0x0212EAC8
 	bl  FUN_ov132_02159124
 	ldrh r2, [r7, #0x52]
 	mov r4, r0
-	ldr r1, _0212EC48 ; =0x02087874
+	ldr r1, _0212EC48 ; =FX_SinCosTable_
 	mov r0, r2, asr #4
 	mov r0, r0, lsl #1
 	add r0, r0, #1
@@ -4663,7 +4663,7 @@ _0212EB6C:
 	bl FUN_0201fdac
 	ldrh r2, [r7, #0x52]
 	str r0, [r6]
-	ldr r1, _0212EC48 ; =0x02087874
+	ldr r1, _0212EC48 ; =FX_SinCosTable_
 	mov r0, r2, asr #4
 	mov r0, r0, lsl #2
 	ldrsh r9, [r1, r0]
@@ -4717,7 +4717,7 @@ _0212EBF4:
 	add r0, r2, r1
 	str r0, [r5]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212EC48: .word unk_02087874
+_0212EC48: .word FX_SinCosTable_
 _0212EC4C: .word 0x45800000
 	arm_func_end FUN_ov126_0212eac8
 
@@ -5659,7 +5659,7 @@ _0212F948:
 	mov r0, r0, asr #4
 	mov r0, r0, lsl #1
 	add r1, r0, #1
-	ldr r2, _0212FAB4 ; =0x02087874
+	ldr r2, _0212FAB4 ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	mov r0, r0, lsl #1
 	ldrsh r1, [r2, r1]
@@ -5745,7 +5745,7 @@ _0212FA30:
 	strh r4, [r5, #0x54]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212FAB0: .word unk_0209A2C0
-_0212FAB4: .word unk_02087874
+_0212FAB4: .word FX_SinCosTable_
 	arm_func_end FUN_ov126_0212f7cc
 
 	arm_func_start FUN_ov126_0212fab8
@@ -8377,12 +8377,12 @@ _02131EBC:
 	ldr r0, [r0, #4]
 	sub r1, r1, r3
 	sub r0, r0, r2
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r0, r0, asr #4
 	mov r1, r0, lsl #1
 	add r0, r1, #1
 	mov r2, r0, lsl #1
-	ldr r0, _021321C0 ; =0x02087874
+	ldr r0, _021321C0 ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	ldrsh r10, [r0, r2]
 	ldrsh r1, [r0, r1]
@@ -8558,7 +8558,7 @@ _021321B0: .word unk_0209BA20
 _021321B4: .word unk_020A0640
 _021321B8: .word unk_0209AEC0
 _021321BC: .word unk_0209AC44
-_021321C0: .word unk_02087874
+_021321C0: .word FX_SinCosTable_
 _021321C4: .word unk_02099F14
 	arm_func_end FUN_ov126_02131c04
 
@@ -11376,11 +11376,11 @@ _021348C4:
 	ldr r0, [r0, #4]
 	sub r1, r1, r7
 	sub r0, r0, r8
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r0, r0, asr #4
 	mov r2, r0, lsl #1
 	add r0, r2, #1
-	ldr r1, _02134BC8 ; =0x02087874
+	ldr r1, _02134BC8 ; =FX_SinCosTable_
 	mov r0, r0, lsl #1
 	ldrsh r0, [r1, r0]
 	ldr r5, [sp, #0x10]
@@ -11565,7 +11565,7 @@ _02134BB8:
 	blt _02134B14
 	add sp, sp, #0x90
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02134BC8: .word unk_02087874
+_02134BC8: .word FX_SinCosTable_
 _02134BCC: .word unk_0209A720
 _02134BD0: .word 0x00010010
 	arm_func_end FUN_ov126_02134878
@@ -11612,7 +11612,7 @@ FUN_ov126_02134bd4: ; 0x02134BD4
 	mov r1, r0, lsl #1
 	add r0, r1, #1
 	mov r2, r0, lsl #1
-	ldr r3, _02134DB0 ; =0x02087874
+	ldr r3, _02134DB0 ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	ldr r0, [sp, #0x30]
 	ldrsh r2, [r3, r2]
@@ -11649,7 +11649,7 @@ _02134CE4:
 	mov r10, r1, lsl #1
 	add r1, r10, #1
 	mov r3, r1, lsl #1
-	ldr r2, _02134DB0 ; =0x02087874
+	ldr r2, _02134DB0 ; =FX_SinCosTable_
 	mov r1, r10, lsl #1
 	ldrsh r10, [r2, r3]
 	ldrsh r3, [r2, r1]
@@ -11693,7 +11693,7 @@ _02134CE4:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02134DAC: .word 0x0000099A
-_02134DB0: .word unk_02087874
+_02134DB0: .word FX_SinCosTable_
 	arm_func_end FUN_ov126_02134bd4
 
 	arm_func_start FUN_ov126_02134db4
@@ -11756,7 +11756,7 @@ _02134E0C:
 	bgt _02134FEC
 	mov r0, r10
 	mov r1, r9
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	cmp r9, #0
 	mov r9, r0
 	cmpeq r10, #0
@@ -11772,12 +11772,12 @@ _02134EBC:
 	mov r0, r9, asr #4
 	mov r3, r0, lsl #1
 	str r1, [sp, #8]
-	ldr r1, _02135028 ; =0x02087874
+	ldr r1, _02135028 ; =FX_SinCosTable_
 	ldr r0, [sp, #0x1c]
 	add r1, r1, r3, lsl #1
 	mov r2, r3, lsl #1
 	ldrsh r3, [r1, #2]
-	ldr r1, _02135028 ; =0x02087874
+	ldr r1, _02135028 ; =FX_SinCosTable_
 	rsb r0, r0, #0xc800
 	ldrsh r2, [r1, r2]
 	mov r1, #1
@@ -11859,7 +11859,7 @@ _02134FEC:
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02135024: .word unk_0209BA20
-_02135028: .word unk_02087874
+_02135028: .word FX_SinCosTable_
 	arm_func_end FUN_ov126_02134db4
 
 	arm_func_start FUN_ov126_0213502c
@@ -15950,7 +15950,7 @@ _02138774:
 	mov r0, r0, asr #4
 	mov r2, r0, lsl #1
 	add r0, r2, #1
-	ldr r1, _02138A28 ; =0x02087874
+	ldr r1, _02138A28 ; =FX_SinCosTable_
 	mov r2, r2, lsl #1
 	mov r0, r0, lsl #1
 	ldrsh r12, [r1, r2]
@@ -16056,7 +16056,7 @@ _02138A18: .word ov126_0213AC60
 _02138A1C: .word unk_0209A2C0
 _02138A20: .word 0x51EB851F
 _02138A24: .word 0x6C16C16D
-_02138A28: .word unk_02087874
+_02138A28: .word FX_SinCosTable_
 _02138A2C: .word unk_020A0640
 _02138A30: .word unk_0209AEC0
 	arm_func_end FUN_ov126_02138700
@@ -16498,7 +16498,7 @@ FUN_ov126_02138f98: ; 0x02138F98
 	mov r5, r0
 	sub r0, r3, r12
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r2, r0, lsl #0x10
 	mov r0, r5
 	mov r1, r4
@@ -16536,7 +16536,7 @@ FUN_ov126_02139010: ; 0x02139010
 	ldr r1, [r0, #4]
 	sub r0, r3, r1
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldr r1, [r4, #0x84]
 	ldrh r1, [r1, #0x18]
 	subs r0, r0, r1
@@ -17822,12 +17822,12 @@ _0213A090:
 	ldr r0, [r5, #4]
 	sub r1, r4, r3
 	sub r0, r2, r0
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 _0213A0EC:
 	mov r0, r0, asr #4
 	mov r1, r0, lsl #1
 	add r0, r1, #1
-	ldr r3, _0213A178 ; =0x02087874
+	ldr r3, _0213A178 ; =FX_SinCosTable_
 	mov r0, r0, lsl #1
 	ldrsh r2, [r3, r0]
 	mov r0, #0xc000
@@ -17859,7 +17859,7 @@ _0213A0EC:
 	str r1, [r0, #4]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0213A178: .word unk_02087874
+_0213A178: .word FX_SinCosTable_
 	arm_func_end FUN_ov126_02139e4c
 
 	arm_func_start FUN_ov126_0213a17c

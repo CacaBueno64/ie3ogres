@@ -4579,7 +4579,7 @@ _0211E0E8:
 	sub r1, r0, #0x8c
 	mov r0, r2, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldr r2, _0211E240 ; =0xC00C00C1
 	add r3, r9, #0x100
 	smull r1, r5, r2, r0
@@ -4904,7 +4904,7 @@ _0211E584:
 	sub r1, r0, #0x8c
 	mov r0, r2, lsl #0xc
 	mov r1, r1, lsl #0xc
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldr r2, _0211E754 ; =0xC00C00C1
 	add r3, r6, #0x100
 	smull r1, r5, r2, r0

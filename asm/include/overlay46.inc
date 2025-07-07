@@ -40,7 +40,7 @@
 .public FUN_0206de90
 .public FUN_0206e4a4
 .public FUN_0206ecc4
-.public FUN_02009a98
+.public FX_Atan2Idx
 .public FUN_02023c40
 .public FUN_02041f2c
 .public FUN_02058e30

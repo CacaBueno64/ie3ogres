@@ -127,7 +127,7 @@
 .public G2_GetBG2CharPtr
 .public FUN_02006b80
 .public VEC_Distance
-.public FUN_02009a98
+.public FX_Atan2Idx
 .public FUN_02023c40
 .public FUN_02023e98
 .public FUN_02041b00
@@ -743,4 +743,4 @@
 .public unk_02099F38
 .public unk_02099F58
 .public unk_02099F78
-.public unk_02087874
+.public FX_SinCosTable_

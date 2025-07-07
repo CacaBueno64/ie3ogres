@@ -138,8 +138,8 @@
 .public FUN_0206dbb4
 .public FUN_0206dc98
 .public FUN_0206dcd4
-.public FUN_02009a98
-.public FUN_02009c2c
+.public FX_Atan2Idx
+.public FX_AsinIdx
 .public FUN_02040a80
 .public FUN_02040aa8
 .public FUN_02040ae4
@@ -412,4 +412,4 @@
 .public unk_02099EF0
 .public unk_02099F14
 .public unk_02099F78
-.public unk_02087874
+.public FX_SinCosTable_

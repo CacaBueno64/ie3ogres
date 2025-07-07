@@ -226,3 +226,4 @@
 .public OSi_DoBoot
 .public OSi_IrqThreadQueue
 .public OSi_ReloadRomData
+.public FX_SinCosTable_
