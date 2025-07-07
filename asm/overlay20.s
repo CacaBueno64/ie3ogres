@@ -1865,7 +1865,7 @@ FUN_ov20_0211b89c: ; 0x0211B89C
 _0211B8F4:
 	mov r0, r7
 	mov r1, r9
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	and r2, r0, #0xff
 	mul r1, r2, r9
 	mov r3, r9

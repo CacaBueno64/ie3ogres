@@ -8,7 +8,7 @@
 .public FUN_0201e078
 .public FUN_0201f1c4
 .public FUN_0201f704
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_0201fdac
 .public FUN_0201fe20
 .public FUN_0202cf6c

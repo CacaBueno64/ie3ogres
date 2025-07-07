@@ -1,7 +1,7 @@
 .public FUN_0201e078
 .public _ll_udiv
 .public FUN_0201f960
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_0202cf6c
 .public FUN_0204fe90
 .public FUN_0206cbf8

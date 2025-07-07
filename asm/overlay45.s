@@ -5602,7 +5602,7 @@ _0211EBB0:
 	sub r1, r0, r7
 	mul r0, r1, r11
 	sub r1, r5, r7
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r6, r0
 _0211EBE8:
 	ldr r0, [r9, #4]
@@ -5627,7 +5627,7 @@ _0211EC20:
 	mul r0, r1, r11
 _0211EC34:
 	sub r1, r5, r7
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r7, r0
 	cmp r7, #0x64
 	movgt r7, #0x64

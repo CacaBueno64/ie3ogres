@@ -6,7 +6,7 @@
 .public _s32_div_f
 .public FUN_0201f99c
 .public _ll_udiv
-.public FUN_0201fbc8
+.public _u32_div_f
 .public OS_GetMacAddress
 .public FUN_02023e98
 .public FUN_020218d4

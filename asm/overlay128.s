@@ -2173,7 +2173,7 @@ _0212C7F0:
 	ldr r8, [r7, #8]
 	add r0, r8, r1
 	sub r0, r0, #1
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r1, r9, lsl #1
 	ldrh r3, [r6, r1]
 	mov r2, r0, lsl #0x10

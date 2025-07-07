@@ -4405,7 +4405,7 @@ _0211DBE4:
 _0211DC08:
 	mov r0, r10
 	mov r1, r6
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r1, #0
 	str r1, [sp]
 	mov r0, r0, lsl #0x10

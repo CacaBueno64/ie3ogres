@@ -3255,7 +3255,7 @@ FUN_ov83_0211cc3c: ; 0x0211CC3C
 	mov r0, #0x64
 	mul r0, r2, r0
 	add r0, r0, r1, lsr #1
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	rsb r1, r0, #0x64
 	str r0, [sp, #0x28]
 	str r1, [sp, #0x2c]

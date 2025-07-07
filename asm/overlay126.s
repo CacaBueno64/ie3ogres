@@ -7420,7 +7420,7 @@ _02131154:
 	bhs _02131188
 	mov r0, r1
 	mov r1, r7
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	add r0, sp, #0x10
 	ldr r0, [r0, r1, lsl #2]
 	add sp, sp, #0x30
@@ -14220,7 +14220,7 @@ _0213701C:
 	bhs _02137050
 	mov r0, r8
 	mov r1, r6
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	add r0, sp, #0x10
 	ldr r0, [r0, r1, lsl #2]
 	add sp, sp, #0x20
@@ -14301,7 +14301,7 @@ _02137148:
 	bhs _0213717C
 	mov r0, r8
 	mov r1, r6
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	add r0, sp, #0x10
 	ldr r0, [r0, r1, lsl #2]
 	add sp, sp, #0x20
@@ -14951,7 +14951,7 @@ _02137A20:
 	mov r0, #0x64
 	bl  FUN_ov16_020ef928
 	mov r1, r5
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r1, [r7, r1, lsl #2]
 	ldr r0, _02137AB0 ; =0x02099EF0
 	str r1, [r6]
@@ -15601,7 +15601,7 @@ _021383C4:
 	bhs _021383E8
 	mov r0, r11
 	mov r1, r10
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r0, [r6, r1, lsl #2]
 	b _02138404
 _021383E8:
@@ -15715,7 +15715,7 @@ _02138558:
 	bhs _02138588
 	mov r0, r7
 	mov r1, r6
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	add r0, sp, #0xc
 	ldr r0, [r0, r1, lsl #2]
 	add sp, sp, #0x1c

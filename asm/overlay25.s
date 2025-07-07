@@ -265,7 +265,7 @@ _0211A25C:
 	ldrb r5, [r7, r4]
 	bl FUN_ov25_0211a1ac
 	sub r1, r6, #2
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldrb r0, [r7, r1]
 	strb r0, [r7, r4]
 	strb r5, [r7, r1]

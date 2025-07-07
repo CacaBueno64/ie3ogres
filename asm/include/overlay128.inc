@@ -13,7 +13,7 @@
 .public FS_GetFileImageTop
 .public CARD_GetOwnRomHeader
 .public _s32_div_f
-.public FUN_0201fbc8
+.public _u32_div_f
 .public OS_SpinWaitSysCycles
 .public OS_GetMacAddress
 .public FUN_02012ad0

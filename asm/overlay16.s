@@ -42789,7 +42789,7 @@ _02111800:
 _02111844:
 	ldr r0, [sp, #8]
 	mov r1, r9
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r9, r0
 _02111854:
 	ldrb r1, [r8, #0x34]
@@ -46579,7 +46579,7 @@ FUN_ov16_02114918: ; 0x02114918
 	str r0, [sp, #0x34]
 	ldr r0, [sp, #0x30]
 	ldr r0, [r0, #0x10]
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r1, #0
 	mov r0, r0, lsr #1
 	str r0, [sp, #0x24]
@@ -47014,7 +47014,7 @@ _02114F6C:
 	mov r4, r0
 	ldr r0, [sp, #0xc]
 	mov r1, r4
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldrb r1, [r8, #8]
 	cmp r1, r0
 	ldr r0, [sp, #0x10]

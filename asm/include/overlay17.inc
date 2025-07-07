@@ -187,7 +187,7 @@
 .public FUN_0201f960
 .public FUN_0201f99c
 .public _s32_div_f
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_020218d4
 .public FUN_02021940
 .public FUN_020219ac

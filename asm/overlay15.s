@@ -22411,7 +22411,7 @@ _020CF940:
 	blo _020CF974
 	mov r0, r9
 	mov r1, r8
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mul r1, r0, r8
 	add r0, r0, #0x30
 	strb r0, [r10, r7]
@@ -40209,7 +40209,7 @@ _020DE79C:
 	beq _020DE7F8
 	add r0, r8, #0x2000
 	ldr r0, [r0, #0x2e4]
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	cmp r1, #0
 	bne _020DE7F8
 	ldr r0, _020DE904 ; =0x0000036A
@@ -41639,7 +41639,7 @@ _020DFACC:
 	ldr r2, [r6, #0x394]
 	mov r0, #0x64
 	mul r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r1, [r6, #0x39c]
 	cmp r1, r0
 	strne r0, [r6, #0x39c]
@@ -41686,7 +41686,7 @@ _020DFB7C:
 	ldr r2, [r6, #0x394]
 	mov r0, #0x64
 	mul r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r1, [r6, #0x39c]
 	cmp r1, r0
 	strne r0, [r6, #0x39c]

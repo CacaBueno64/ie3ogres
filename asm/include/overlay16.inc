@@ -17,7 +17,7 @@
 .public FUN_0201f74c
 .public FUN_0201f704
 .public _ll_udiv
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_0201fdac
 .public FUN_0202b7b4
 .public FUN_0202b7f0

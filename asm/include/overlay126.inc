@@ -21,7 +21,7 @@
 .public _s32_div_f
 .public FUN_0201f74c
 .public FUN_0201f704
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_0201fdac
 .public FUN_0202cf6c
 .public FUN_0203fb5c

@@ -3755,7 +3755,7 @@ _020EFBE4:
 	ldr r1, [sp]
 	add r0, r7, r0
 	ldr r1, [r1, #0xc]
-	blx FUN_0201fbc8
+	blx _u32_div_f
 	ldrb r0, [r4, r1]
 	add r6, r6, #1
 	strb r7, [r4, r1]
@@ -3810,14 +3810,14 @@ FUN_ov17_020efc40: ; 0x020EFC40
 	ldr r0, [r5]
 	ldr r1, [sp]
 	add r0, r0, #1
-	blx FUN_0201fbc8
+	blx _u32_div_f
 	lsl r0, r1, #0x18
 	lsr r7, r0, #0x18
 	ldrb r6, [r4, r7]
 	ldr r0, [r5, #4]
 	ldr r1, [sp]
 	add r0, r6, r0
-	blx FUN_0201fbc8
+	blx _u32_div_f
 	lsl r0, r1, #0x18
 	lsr r1, r0, #0x18
 	ldrb r0, [r4, r1]
@@ -3827,7 +3827,7 @@ FUN_ov17_020efc40: ; 0x020EFC40
 	strb r0, [r4, r7]
 	ldr r1, [r5, #0xc]
 	add r0, r6, r0
-	blx FUN_0201fbc8
+	blx _u32_div_f
 	ldrb r0, [r4, r1]
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end FUN_ov17_020efc40

@@ -4019,7 +4019,7 @@ _0211D630:
 	add r5, r0, r1
 	ldr r1, [r4, #0xc]
 	add r0, r2, r5, lsr #8
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r0, [r4]
 	add r4, sp, #8
 	ldr r1, [r0, r1, lsl #2]
@@ -4183,7 +4183,7 @@ _0211D834:
 	ldr r1, [r10, #0x14]
 	sub r0, r0, #1
 	str r2, [r10, #0x10]
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r2, [r10, #8]
 	add r0, r10, #8
 	str r5, [r2, r1, lsl #2]
@@ -4270,7 +4270,7 @@ _0211D9A0:
 	ldr r1, [r10, #0x14]
 	add r0, r2, r0
 	sub r0, r0, #1
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r2, [r10, #8]
 	add r0, r10, #8
 	str r8, [r2, r1, lsl #2]
@@ -4297,7 +4297,7 @@ _0211D9E0:
 	add r8, sp, #0xb4
 	beq _0211DA20
 	add r0, r1, r1
-	bl FUN_0201fbc8
+	bl _u32_div_f
 _0211DA20:
 	ldr r5, [r8]
 	ldr r2, [r8, #4]
@@ -4366,7 +4366,7 @@ _0211DB10:
 	ldr r1, [r9, #0xc]
 	add r0, r2, r0
 	sub r0, r0, #1
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r2, [r9]
 	mov r0, r9
 	str r8, [r2, r1, lsl #2]
@@ -4387,7 +4387,7 @@ _0211DB48:
 	ldr r2, [r10, #0xc]
 	ldr r0, [r10, #0x10]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 _0211DB78:
 	ldr r6, [r10, #8]
 	ldr r3, [r10, #0xc]
@@ -4513,7 +4513,7 @@ FUN_ov80_0211dd1c: ; 0x0211DD1C
 	ldr r2, [r5, #0xc]
 	ldr r0, [r5, #0x10]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r3, r1
 _0211DD5C:
 	ldr r2, [r5, #8]
@@ -4595,7 +4595,7 @@ FUN_ov80_0211ddfc: ; 0x0211DDFC
 	ldr r2, [r6, #4]
 	ldr r0, [r6, #8]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r4, r1
 _0211DE74:
 	ldr r2, [r6]
@@ -4657,7 +4657,7 @@ FUN_ov80_0211df24: ; 0x0211DF24
 	bhs _0211DF78
 	ldr r0, [r6, #4]
 	add r0, r0, r3
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r0, [r6]
 	add sp, sp, #0x38
 	adds r1, r0, r1, lsl #2
@@ -4699,7 +4699,7 @@ _0211DF78:
 	ldr r2, [r6, #4]
 	ldr r0, [r6, #8]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 _0211DFF8:
 	ldr r2, [r6]
 	mov r5, #0
@@ -4976,7 +4976,7 @@ _0211E3EC:
 	moveq r1, #0
 	beq _0211E408
 	add r0, r0, r2
-	bl FUN_0201fbc8
+	bl _u32_div_f
 _0211E408:
 	ldr r5, [r10]
 	ldr r2, [r10, #4]
@@ -5140,7 +5140,7 @@ _0211E660:
 	ldr r2, [r10, #4]
 	ldr r0, [r10, #8]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 _0211E680:
 	ldr r2, [r10]
 	add r4, sp, #0x190
@@ -5544,7 +5544,7 @@ FUN_ov80_0211ec20: ; 0x0211EC20
 	ldr r2, [r5, #0xc]
 	ldr r0, [r5, #0x10]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r3, r1
 _0211EC60:
 	ldr r2, [r5, #8]
@@ -5776,7 +5776,7 @@ FUN_ov80_0211ef68: ; 0x0211EF68
 	ldr r1, [r7, #0xc]
 	add r0, r3, r0
 	mov r5, r2
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	ldr r2, [r7]
 	ldr r0, [r5]
 	add r4, r2, r1, lsl #2
@@ -5966,7 +5966,7 @@ FUN_ov80_0211f1e8: ; 0x0211F1E8
 	ldr r0, [r7, #8]
 	ldr r1, [r7, #0xc]
 	add r0, r2, r0
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	add r4, r4, r1, lsl #2
 	mov r0, r5
 	mov r1, r6
@@ -7608,7 +7608,7 @@ _021208EC:
 	sub r1, r0, r9
 	mul r0, r1, r11
 	sub r1, r7, r9
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r8, r0
 _02120924:
 	ldr r0, [r6, #4]
@@ -7633,7 +7633,7 @@ _0212095C:
 	mul r0, r1, r11
 _02120970:
 	sub r1, r7, r9
-	bl FUN_0201fbc8
+	bl _u32_div_f
 	mov r9, r0
 	cmp r9, #0x64
 	movgt r9, #0x64

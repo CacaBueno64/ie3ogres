@@ -23,7 +23,7 @@
 .public FUN_0201e078
 .public _s32_div_f
 .public _ll_udiv
-.public FUN_0201fbc8
+.public _u32_div_f
 .public FUN_0202b7b4
 .public FUN_0202b7f0
 .public FUN_0202b758
