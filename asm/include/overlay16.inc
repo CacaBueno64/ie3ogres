@@ -49,7 +49,7 @@
 .public FUN_0202e4cc
 .public FUN_0202e4ec
 .public FUN_0202e78c
-.public FUN_0202e520
+.public L5_PlayOpeningMovie
 .public FUN_0202e784
 .public FUN_0202eb00
 .public FUN_0202ec30
