@@ -55,7 +55,7 @@ OSi_IrqCallback: ; 0x02000D10
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r1, #0xc
 	mul r5, r0, r1
-	ldr r2, _02000D84 ; =0x02093920
+	ldr r2, _02000D84 ; =OSi_IrqCallbackInfo
 	ldr r3, _02000D88 ; =0x0208EC20
 	mov r4, r0, lsl #1
 	ldr r1, [r2, r5]
@@ -82,7 +82,7 @@ _02000D54:
 	mov r0, r4
 	bl OS_DisableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}
-_02000D84: .word unk_02093920
+_02000D84: .word OSi_IrqCallbackInfo
 _02000D88: .word unk_0208EC20
 _02000D8C: .word unk_02093928
 _02000D90: .word OS_IRQTable
@@ -169,7 +169,7 @@ OS_SetIrqFunction: ; 0x02000E30
 	mov r8, #0
 	mov r2, #0xc
 	ldr r4, _02000EB0 ; =OS_IRQTable
-	ldr r6, _02000EB4 ; =0x02093920
+	ldr r6, _02000EB4 ; =OSi_IrqCallbackInfo
 	mov r7, r8
 	mov lr, r8
 	mov r12, #1
@@ -203,7 +203,7 @@ _02000E9C:
 	blt _02000E54
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02000EB0: .word OS_IRQTable
-_02000EB4: .word unk_02093920
+_02000EB4: .word OSi_IrqCallbackInfo
 	arm_func_end OS_SetIrqFunction
 
 	arm_func_start OS_GetIrqFunction
@@ -220,7 +220,7 @@ _02000EC0:
 	sub r1, r1, #8
 	mov r0, #0xc
 	mul r2, r1, r0
-	ldr r0, _02000F40 ; =0x02093920
+	ldr r0, _02000F40 ; =OSi_IrqCallbackInfo
 	ldr r0, [r0, r2]
 	bx lr
 _02000EF0:
@@ -231,7 +231,7 @@ _02000EF0:
 	add r1, r1, #1
 	mov r0, #0xc
 	mul r2, r1, r0
-	ldr r0, _02000F40 ; =0x02093920
+	ldr r0, _02000F40 ; =OSi_IrqCallbackInfo
 	ldr r0, [r0, r2]
 	bx lr
 _02000F18:
@@ -246,7 +246,7 @@ _02000F20:
 	mov r0, #0
 	bx lr
 _02000F3C: .word OS_IRQTable
-_02000F40: .word unk_02093920
+_02000F40: .word OSi_IrqCallbackInfo
 	arm_func_end OS_GetIrqFunction
 
 	arm_func_start OSi_EnterDmaCallback
@@ -254,7 +254,7 @@ OSi_EnterDmaCallback: ; 0x02000F44
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r3, #0xc
 	mul r6, r0, r3
-	ldr r12, _02000F80 ; =0x02093920
+	ldr r12, _02000F80 ; =OSi_IrqCallbackInfo
 	add r4, r0, #8
 	mov r5, #1
 	mov r0, r5, lsl r4
@@ -266,7 +266,7 @@ OSi_EnterDmaCallback: ; 0x02000F44
 	ldr r0, _02000F88 ; =0x02093924
 	str r1, [r0, r6]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02000F80: .word unk_02093920
+_02000F80: .word OSi_IrqCallbackInfo
 _02000F84: .word unk_02093928
 _02000F88: .word unk_02093924
 	arm_func_end OSi_EnterDmaCallback
@@ -1062,7 +1062,7 @@ OS_InitThread: ; 0x020017EC
 	mov r12, #0xc8
 	mov r2, r4
 	ldr r1, _02001930 ; =OSi_IdleThreadProc
-	ldr r3, _02001934 ; =0x02093BFC
+	ldr r3, _02001934 ; =OSi_Initialized
 	mov r0, r5
 	str r12, [sp]
 	mov r4, #0x1f
@@ -1087,7 +1087,7 @@ _02001924: .word unk_020939A4
 _02001928: .word 0x02FFFFA0
 _0200192C: .word unk_020939B4
 _02001930: .word OSi_IdleThreadProc
-_02001934: .word unk_02093BFC
+_02001934: .word OSi_Initialized
 	arm_func_end OS_InitThread
 
 	arm_func_start OS_IsThreadAvailable
@@ -1732,7 +1732,7 @@ _0200210C: .word CPi_RestoreContext
 	arm_func_start OS_GetConsoleType
 OS_GetConsoleType: ; 0x02002110
 	stmfd sp!, {r4, lr}
-	ldr r4, _02002140 ; =0x0208EC30
+	ldr r4, _02002140 ; =OSi_RunningConsoleTypeCache
 	ldr r0, [r4, #4]
 	cmn r0, #1
 	ldmnefd sp!, {r4, pc}
@@ -1743,17 +1743,17 @@ OS_GetConsoleType: ; 0x02002110
 	orr r0, r1, r0
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
-_02002140: .word unk_0208EC30
+_02002140: .word OSi_RunningConsoleTypeCache
 	arm_func_end OS_GetConsoleType
 
 	arm_func_start OSi_DetectDeviceType
 OSi_DetectDeviceType: ; 0x02002144
 	stmfd sp!, {r3, lr}
 	bl OS_GetBootType
-	ldr r1, _02002158 ; =0x020877F0
+	ldr r1, _02002158 ; =table
 	ldr r0, [r1, r0, lsl #2]
 	ldmfd sp!, {r3, pc}
-_02002158: .word unk_020877F0
+_02002158: .word table
 	arm_func_end OSi_DetectDeviceType
 
 	arm_func_start OS_IsRunOnEmulator
@@ -2285,7 +2285,7 @@ OS_Init: ; 0x02002754
 	arm_func_start OS_InitArena
 OS_InitArena: ; 0x0200279C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _020028B4 ; =0x02093BFC
+	ldr r1, _020028B4 ; =OSi_Initialized
 	ldr r0, [r1]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -2354,7 +2354,7 @@ OS_InitArena: ; 0x0200279C
 	mov r0, r4
 	bl OS_SetArenaLo
 	ldmfd sp!, {r3, r4, r5, pc}
-_020028B4: .word unk_02093BFC
+_020028B4: .word OSi_Initialized
 	arm_func_end OS_InitArena
 
 	arm_func_start OS_InitArenaEx
@@ -2415,7 +2415,7 @@ _02002954:
 	ldr r0, _020029E8 ; =0x023E0000
 	ldmfd sp!, {r3, pc}
 _0200295C:
-	ldr r0, _020029EC ; =0x02093BFC
+	ldr r0, _020029EC ; =OSi_Initialized
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	moveq r0, #0
@@ -2457,7 +2457,7 @@ _020029E0:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _020029E8: .word 0x023E0000
-_020029EC: .word unk_02093BFC
+_020029EC: .word OSi_Initialized
 _020029F0: .word OS_IRQTable
 _020029F4: .word 0x00000000
 _020029F8: .word 0x00000400
@@ -2484,7 +2484,7 @@ _02002A34:
 	ldr r0, _02002A90 ; =0x021604C0
 	ldmfd sp!, {r3, pc}
 _02002A3C:
-	ldr r0, _02002A94 ; =0x02093BFC
+	ldr r0, _02002A94 ; =OSi_Initialized
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	moveq r0, #0
@@ -2511,7 +2511,7 @@ _02002A88:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02002A90: .word 0x021604C0
-_02002A94: .word unk_02093BFC
+_02002A94: .word OSi_Initialized
 _02002A98: .word 0x023E0000
 _02002A9C: .word 0x01FFBD20
 _02002AA0: .word 0x027E0080
@@ -2650,7 +2650,7 @@ OS_AllocFromHeap: ; 0x02002C2C
 	mov r5, r1
 	mov r7, r2
 	bl OS_DisableInterrupts
-	ldr r1, _02002D30 ; =0x02093C04
+	ldr r1, _02002D30 ; =OSiHeapInfo
 	mov r6, r0
 	ldr r1, [r1, r4, lsl #2]
 	cmp r1, #0
@@ -2716,7 +2716,7 @@ _02002D10:
 	bl OS_RestoreInterrupts
 	add r0, r5, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02002D30: .word unk_02093C04
+_02002D30: .word OSiHeapInfo
 	arm_func_end OS_AllocFromHeap
 
 	arm_func_start OS_FreeToHeap
@@ -2726,7 +2726,7 @@ OS_FreeToHeap: ; 0x02002D34
 	mov r6, r1
 	mov r5, r2
 	bl OS_DisableInterrupts
-	ldr r1, _02002D98 ; =0x02093C04
+	ldr r1, _02002D98 ; =OSiHeapInfo
 	mov r4, r0
 	ldr r0, [r1, r7, lsl #2]
 	cmp r6, #0
@@ -2746,7 +2746,7 @@ OS_FreeToHeap: ; 0x02002D34
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02002D98: .word unk_02093C04
+_02002D98: .word OSiHeapInfo
 	arm_func_end OS_FreeToHeap
 
 	arm_func_start OS_SetCurrentHeap
@@ -2755,14 +2755,14 @@ OS_SetCurrentHeap: ; 0x02002D9C
 	mov r4, r0
 	mov r5, r1
 	bl OS_DisableInterrupts
-	ldr r1, _02002DC8 ; =0x02093C04
+	ldr r1, _02002DC8 ; =OSiHeapInfo
 	ldr r1, [r1, r4, lsl #2]
 	ldr r4, [r1]
 	str r5, [r1]
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_02002DC8: .word unk_02093C04
+_02002DC8: .word OSiHeapInfo
 	arm_func_end OS_SetCurrentHeap
 
 	arm_func_start OS_InitAlloc
@@ -2774,7 +2774,7 @@ OS_InitAlloc: ; 0x02002DCC
 	mov r6, r3
 	bl OS_DisableInterrupts
 	mov r1, #0xc
-	ldr r2, _02002E70 ; =0x02093C04
+	ldr r2, _02002E70 ; =OSiHeapInfo
 	mul r1, r6, r1
 	str r5, [r2, r7, lsl #2]
 	add r2, r5, #0x14
@@ -2810,7 +2810,7 @@ _02002E40:
 	bl OS_RestoreInterrupts
 	ldr r0, [r5, #8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02002E70: .word unk_02093C04
+_02002E70: .word OSiHeapInfo
 	arm_func_end OS_InitAlloc
 
 	arm_func_start OS_CreateHeap
@@ -2820,7 +2820,7 @@ OS_CreateHeap: ; 0x02002E74
 	mov r6, r1
 	mov r5, r2
 	bl OS_DisableInterrupts
-	ldr r2, _02002F10 ; =0x02093C04
+	ldr r2, _02002F10 ; =OSiHeapInfo
 	add r1, r6, #0x1f
 	ldr r2, [r2, r4, lsl #2]
 	bic r6, r1, #0x1f
@@ -2857,7 +2857,7 @@ _02002F04:
 	bl OS_RestoreInterrupts
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_02002F10: .word unk_02093C04
+_02002F10: .word OSiHeapInfo
 	arm_func_end OS_CreateHeap
 
 	arm_func_start OS_GetTotalFreeSize
@@ -2867,7 +2867,7 @@ OS_GetTotalFreeSize: ; 0x02002F14
 	mov r5, r1
 	mov r4, #0
 	bl OS_DisableInterrupts
-	ldr r1, _02002F74 ; =0x02093C04
+	ldr r1, _02002F74 ; =OSiHeapInfo
 	cmp r5, #0
 	ldr r1, [r1, r6, lsl #2]
 	ldrlt r5, [r1]
@@ -2888,7 +2888,7 @@ _02002F68:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_02002F74: .word unk_02093C04
+_02002F74: .word OSiHeapInfo
 	arm_func_end OS_GetTotalFreeSize
 
 	arm_func_start FUN_02002f78
@@ -3111,7 +3111,7 @@ OS_SetProtectionRegionEx: ; 0x020030E0
 	arm_func_start OS_InitException
 OS_InitException: ; 0x02003108
 	ldr r1, _02003164 ; =0x02FFFD9C
-	ldr r0, _02003168 ; =0x02093C28
+	ldr r0, _02003168 ; =OSi_DebuggerHandler
 	ldr r2, [r1]
 	mov r1, #0
 	str r2, [r0, #8]
@@ -3120,7 +3120,7 @@ OS_InitException: ; 0x02003108
 	cmp r2, #0x2800000
 	movlo r1, #1
 _0200312C:
-	ldr r0, _02003168 ; =0x02093C28
+	ldr r0, _02003168 ; =OSi_DebuggerHandler
 	cmp r1, #0
 	moveq r2, #0
 	cmp r2, #0
@@ -3130,26 +3130,26 @@ _0200312C:
 	biceq r0, r1, #0x800000
 	streq r2, [r1]
 	streq r2, [r0]
-	ldr r0, _02003168 ; =0x02093C28
+	ldr r0, _02003168 ; =OSi_DebuggerHandler
 	mov r1, #0
 	str r1, [r0, #0xc]
 	bx lr
 _02003164: .word 0x02FFFD9C
-_02003168: .word unk_02093C28
+_02003168: .word OSi_DebuggerHandler
 _0200316C: .word OSi_ExceptionHandler
 	arm_func_end OS_InitException
 
 	arm_func_start FUN_02003170
 FUN_02003170: ; 0x02003170
-	ldr r0, _0200317C ; =0x02093C28
+	ldr r0, _0200317C ; =OSi_DebuggerHandler
 	ldr r0, [r0, #8]
 	bx lr
-_0200317C: .word unk_02093C28
+_0200317C: .word OSi_DebuggerHandler
 	arm_func_end FUN_02003170
 
 	arm_func_start OSi_ExceptionHandler
 OSi_ExceptionHandler: ; 0x02003180
-	ldr r12, _020031EC ; =0x02093C28
+	ldr r12, _020031EC ; =OSi_DebuggerHandler
 	ldr r12, [r12]
 	cmp r12, #0
 	movne lr, pc
@@ -3169,7 +3169,7 @@ _020031BC:
 	bne _020031C8
 	bl OSi_GetAndDisplayContext
 _020031C8:
-	ldr r12, _020031EC ; =0x02093C28
+	ldr r12, _020031EC ; =OSi_DebuggerHandler
 	ldr r12, [r12]
 	cmp r12, #0
 _020031D4:
@@ -3180,7 +3180,7 @@ _020031D8:
 	ldmfd sp!, {r0, r1, r2, r3, r12, lr}
 	mov sp, r12
 	bx lr
-_020031EC: .word unk_02093C28
+_020031EC: .word OSi_DebuggerHandler
 _020031F0: .word 0x02000000
 	arm_func_end OSi_ExceptionHandler
 
@@ -3232,7 +3232,7 @@ _02003284: .word unk_02093C58
 	arm_func_start OSi_DisplayExContext
 OSi_DisplayExContext: ; 0x02003288
 	stmfd sp!, {r3, lr}
-	ldr r0, _020032EC ; =0x02093C28
+	ldr r0, _020032EC ; =OSi_DebuggerHandler
 	ldr r0, [r0, #0xc]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
@@ -3257,7 +3257,7 @@ _020032D8:
 	mov sp, r1
 	msr cpsr_cxsf, r2
 	ldmia sp!, {r3, pc}
-_020032EC: .word unk_02093C28
+_020032EC: .word OSi_DebuggerHandler
 _020032F0: .word 0x0000009F
 _020032F4: .word unk_02093C58
 _020032F8: .word unk_02093C2C
@@ -3476,7 +3476,7 @@ _020035B4: .word 0x04000104
 	arm_func_start OS_InitAlarm
 OS_InitAlarm: ; 0x020035B8
 	stmfd sp!, {r4, lr}
-	ldr r4, _020035F0 ; =0x02093CDC
+	ldr r4, _020035F0 ; =OSi_UseAlarm
 	ldrh r0, [r4]
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -3489,15 +3489,15 @@ OS_InitAlarm: ; 0x020035B8
 	str r1, [r4, #8]
 	bl OS_DisableIrqMask
 	ldmfd sp!, {r4, pc}
-_020035F0: .word unk_02093CDC
+_020035F0: .word OSi_UseAlarm
 	arm_func_end OS_InitAlarm
 
 	arm_func_start OS_IsAlarmAvailable
 OS_IsAlarmAvailable: ; 0x020035F4
-	ldr r0, _02003600 ; =0x02093CDC
+	ldr r0, _02003600 ; =OSi_UseAlarm
 	ldrh r0, [r0]
 	bx lr
-_02003600: .word unk_02093CDC
+_02003600: .word OSi_UseAlarm
 	arm_func_end OS_IsAlarmAvailable
 
 	arm_func_start OS_CreateAlarm
@@ -3541,7 +3541,7 @@ OSi_InsertAlarm: ; 0x02003614
 	adds r6, r6, r3
 	adc r7, r7, r1
 _0200368C:
-	ldr r0, _02003738 ; =0x02093CDC
+	ldr r0, _02003738 ; =OSi_UseAlarm
 	str r6, [r8, #0xc]
 	str r7, [r8, #0x10]
 	ldr r2, [r0, #4]
@@ -3563,7 +3563,7 @@ _020036A4:
 	cmp r0, #0
 	strne r8, [r0, #0x18]
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r1, _02003738 ; =0x02093CDC
+	ldr r1, _02003738 ; =OSi_UseAlarm
 	mov r0, r8
 	str r8, [r1, #4]
 	bl OSi_SetTimer
@@ -3573,7 +3573,7 @@ _020036F4:
 	cmp r2, #0
 	bne _020036A4
 _02003700:
-	ldr r1, _02003738 ; =0x02093CDC
+	ldr r1, _02003738 ; =OSi_UseAlarm
 	mov r0, #0
 	str r0, [r8, #0x18]
 	ldr r0, [r1, #8]
@@ -3587,7 +3587,7 @@ _02003700:
 	str r8, [r1, #4]
 	bl OSi_SetTimer
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02003738: .word unk_02093CDC
+_02003738: .word OSi_UseAlarm
 	arm_func_end OSi_InsertAlarm
 
 	arm_func_start OS_SetAlarm
@@ -3672,7 +3672,7 @@ _0200383C:
 	ldr r0, [r5, #0x18]
 	cmp r0, #0
 	ldreq r2, [r5, #0x14]
-	ldreq r1, _02003898 ; =0x02093CDC
+	ldreq r1, _02003898 ; =OSi_UseAlarm
 	streq r2, [r1, #8]
 	ldrne r1, [r5, #0x14]
 	strne r1, [r0, #0x14]
@@ -3680,7 +3680,7 @@ _0200383C:
 	cmp r1, #0
 	strne r0, [r1, #0x18]
 	bne _0200387C
-	ldr r1, _02003898 ; =0x02093CDC
+	ldr r1, _02003898 ; =OSi_UseAlarm
 	cmp r0, #0
 	str r0, [r1, #4]
 	beq _0200387C
@@ -3693,7 +3693,7 @@ _0200387C:
 	str r2, [r5, #0x20]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_02003898: .word unk_02093CDC
+_02003898: .word OSi_UseAlarm
 	arm_func_end OS_CancelAlarm
 
 	arm_func_start OSi_AlarmHandler
@@ -3718,7 +3718,7 @@ OSi_ArrangeTimer: ; 0x020038AC
 	orr r1, r1, #0x10
 	str r1, [r0, #0xff8]
 	bl OS_GetTick
-	ldr r2, _02003994 ; =0x02093CDC
+	ldr r2, _02003994 ; =OSi_UseAlarm
 	ldr r5, [r2, #4]
 	cmp r5, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -3759,7 +3759,7 @@ _0200394C:
 	str r4, [r5]
 	bl OSi_InsertAlarm
 _02003974:
-	ldr r0, _02003994 ; =0x02093CDC
+	ldr r0, _02003994 ; =OSi_UseAlarm
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -3767,7 +3767,7 @@ _02003974:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0200398C: .word 0x04000106
 _02003990: .word OS_IRQTable
-_02003994: .word unk_02093CDC
+_02003994: .word OSi_UseAlarm
 	arm_func_end OSi_ArrangeTimer
 
 	arm_func_start OS_InitVAlarm
@@ -4363,7 +4363,7 @@ OS_GetLowEntropyData: ; 0x02004094
 	bl OS_GetTickLo
 	orr r0, r0, r6, lsl #16
 	str r0, [r5]
-	ldr r0, _02004158 ; =0x02093CD4
+	ldr r0, _02004158 ; =OSi_TickCounter
 	ldrh r1, [r4, #0xf8]
 	ldr r2, [r0]
 	ldr r3, [r0, #4]
@@ -4404,7 +4404,7 @@ OS_GetLowEntropyData: ; 0x02004094
 	ldmfd sp!, {r4, r5, r6, pc}
 _02004150: .word 0x04000006
 _02004154: .word 0x02FFFC00
-_02004158: .word unk_02093CD4
+_02004158: .word OSi_TickCounter
 _0200415C: .word 0x04000600
 	arm_func_end OS_GetLowEntropyData
 
@@ -162736,8 +162736,8 @@ _020877EC: .word 0x0000EA3C
 	; 0x020877F0
 
 	.rodata
-	.global unk_020877F0
-unk_020877F0:
+	.global table
+table:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x04, 0x00
 	.byte 0x00, 0x80, 0x00, 0x00
 	.global unk_02087804
@@ -164845,8 +164845,8 @@ unk_0208EB60:
 	.global unk_0208EC20
 unk_0208EC20:
 	.byte 0x08, 0x00, 0x09, 0x00, 0x0A, 0x00, 0x0B, 0x00, 0x03, 0x00, 0x04, 0x00, 0x05, 0x00, 0x06, 0x00
-	.global unk_0208EC30
-unk_0208EC30:
+	.global OSi_RunningConsoleTypeCache
+OSi_RunningConsoleTypeCache:
 	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
 	.global unk_0208EC38
 unk_0208EC38:
@@ -167329,8 +167329,8 @@ unk_0209390C:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.bss
-	.global unk_02093920
-unk_02093920:
+	.global OSi_IrqCallbackInfo
+OSi_IrqCallbackInfo:
 	.space 0x04
 	.global unk_02093924
 unk_02093924:
@@ -167371,14 +167371,14 @@ unk_020939B4:
 	.global unk_02093A74
 unk_02093A74:
 	.space 0x188
-	.global unk_02093BFC
-unk_02093BFC:
+	.global OSi_Initialized
+OSi_Initialized:
 	.space 0x08
-	.global unk_02093C04
-unk_02093C04:
+	.global OSiHeapInfo
+OSiHeapInfo:
 	.space 0x24
-	.global unk_02093C28
-unk_02093C28:
+	.global OSi_DebuggerHandler
+OSi_DebuggerHandler:
 	.space 0x04
 	.global unk_02093C2C
 unk_02093C2C:
@@ -167395,11 +167395,11 @@ unk_02093CC8:
 	.global unk_02093CCC
 unk_02093CCC:
 	.space 0x08
-	.global unk_02093CD4
-unk_02093CD4:
+	.global OSi_TickCounter
+OSi_TickCounter:
 	.space 0x08
-	.global unk_02093CDC
-unk_02093CDC:
+	.global OSi_UseAlarm
+OSi_UseAlarm:
 	.space 0x0C
 	.global unk_02093CE8
 unk_02093CE8:
