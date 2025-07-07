@@ -43286,12 +43286,12 @@ _020E1098:
 	mov r4, #0
 	mov r0, r4
 	bl FUN_02074fb8
-	bl FUN_0200bb68
+	bl SND_Init
 	ldr r0, _020E10F0 ; =0x0000FFFF
 	mov r1, r4
-	bl FUN_0200b93c
+	bl SND_UnlockChannel
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	bl OS_WaitVBlankIntr
 	ldmfd sp!, {r4, r5, r6, pc}
 _020E10E8: .word unk_0209AC44
