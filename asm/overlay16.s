@@ -48267,13 +48267,13 @@ FUN_ov16_02116140: ; 0x02116140
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _021161C4
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021161D0
 _021161C4:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021161D0:
@@ -48365,13 +48365,13 @@ _021162E0:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _0211631C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _02116328
 _0211631C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02116328:

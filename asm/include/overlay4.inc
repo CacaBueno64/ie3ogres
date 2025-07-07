@@ -4,7 +4,7 @@
 .public FUN_0201e014
 .public FUN_0201e078
 .public _s32_div_f
-.public FUN_0201f74c
+.public _ffltu
 .public FUN_0201f704
 .public FUN_0201fdac
 .public FUN_0202b7b4
@@ -184,9 +184,9 @@
 .public FUN_0205998c
 .public FUN_0207249c
 .public FUN_0207477c
-.public FUN_02020094
+.public _fmul
 .public FUN_02020274
-.public FUN_02020728
+.public _fdiv
 .public FUN_02042054
 .public FUN_02042084
 .public FUN_02043310

@@ -330,8 +330,8 @@ _01FF8454: .word 0x040001A1
 _01FF8458: .word 0x04100010
 	arm_func_end OSi_ReadCardRom32
 
-	arm_func_start FUN_01ff845c
-FUN_01ff845c: ; 0x02093D7C
+	arm_func_start MIi_DmaSetParameters
+MIi_DmaSetParameters: ; 0x02093D7C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r7, [sp, #0x20]
 	mov r4, r0
@@ -389,7 +389,7 @@ _01FF8510:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _01FF8524: .word 0x040000B0
 _01FF8528: .word 0x81400001
-	arm_func_end FUN_01ff845c
+	arm_func_end MIi_DmaSetParameters
 
 	arm_func_start FUN_01ff852c
 FUN_01ff852c: ; 0x02093E4C
@@ -2419,7 +2419,7 @@ _01FFA1CC:
 	mov r6, #0x3d800000
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0
 	bl FUN_0201f5c8
 	mov r0, r7
@@ -2427,10 +2427,10 @@ _01FFA1CC:
 	bl FUN_0201f704
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	sub r0, r6, #0xf8000000
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
@@ -2439,10 +2439,10 @@ _01FFA220:
 	bl FUN_0201f704
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	sub r0, r6, #0xf8000000
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _01FFA244:
@@ -2464,7 +2464,7 @@ _01FFA270:
 	ldr r6, _01FFAC20 ; =0x3C4CCCCD
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0
 	bl FUN_0201f5c8
 	mov r0, r7
@@ -2472,10 +2472,10 @@ _01FFA270:
 	bl FUN_0201f704
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	ldr r0, _01FFAC24 ; =0x45800000
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
@@ -2484,10 +2484,10 @@ _01FFA2C4:
 	bl FUN_0201f704
 	mov r1, r0
 	mov r0, r6
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	ldr r0, _01FFAC24 ; =0x45800000
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _01FFA2E8:

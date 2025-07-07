@@ -45,9 +45,9 @@
 .public GX_BeginLoadBGExtPltt
 .public GX_LoadBGExtPltt
 .public GX_EndLoadBGExtPltt
-.public FUN_02007c30
-.public FUN_02007c60
-.public FUN_02007f50
+.public MI_CpuComp8
+.public MI_CpuCopy
+.public MI_CpuMove
 .public FUN_02009d28
 .public WM_Init
 .public FUN_02012bc0

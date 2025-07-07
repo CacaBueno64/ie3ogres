@@ -592,7 +592,7 @@ FUN_ov15_020bd2a8: ; 0x020BD2A8
 	add r1, r7, #6
 	mov r2, #6
 	mov r4, r3
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r0, r7
 	mov r3, r5
 	add r1, r7, #6
@@ -706,21 +706,21 @@ _020BD440:
 	mov r2, r7
 	add r1, r3, r1
 	add r1, r1, #2
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r2, [r9, #0x20]
 	ldr r1, [r9, #0x60]
 	mov r0, r6
 	add r1, r2, r1
 	mov r2, r7
 	add r1, r1, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r2, [r9, #0x20]
 	ldr r1, [r9, #0x60]
 	add r0, r5, #6
 	add r1, r2, r1
 	add r1, r1, #0xe
 	sub r2, r4, #6
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, [sp, #0x20]
 	cmp r0, #0
 	ldrne r2, [sp, #0x24]
@@ -731,7 +731,7 @@ _020BD440:
 	add r1, r3, r1
 	add r1, r1, #8
 	add r1, r1, r4
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020BD4D4:
 	str r8, [r9, #0x60]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -924,7 +924,7 @@ FUN_ov15_020bd714: ; 0x020BD714
 	add r1, sp, #6
 	mov r0, r9
 	mov r2, r4
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r1, #1
 	ldr r2, _020BD818 ; =0x00000608
 	strb r1, [sp, #0xf]
@@ -937,7 +937,7 @@ FUN_ov15_020bd714: ; 0x020BD714
 	mov r0, r9
 	mov r2, r4
 	add r1, sp, #0x16
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r2, _020BD81C ; =0x020E6D40
 	mov r1, r5
 	mov r3, r8, lsr #0x10
@@ -1058,7 +1058,7 @@ _020BD920:
 	add r1, r12, #4
 	mov r2, #6
 	strh r6, [r3, lr]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BD950:
 	add r3, r3, #1
@@ -1096,7 +1096,7 @@ _020BD9B4:
 	add r1, r1, #4
 	mov r2, #6
 	str r4, [r3, r7]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, _020BD9F0 ; =0x020E6E62
 	strh r6, [r0, r7]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -1136,7 +1136,7 @@ _020BDA50:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	sub r1, r8, #0xe
 	mov r2, #6
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	b _020BDA98
 _020BDA68:
 	mov r0, r4, lsr #0x10
@@ -1155,7 +1155,7 @@ _020BDA98:
 	ldr r0, _020BDAC0 ; =0x020E6DA8
 	sub r1, r8, #8
 	mov r2, #6
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r2, r6
 	mov r3, r5
 	sub r0, r8, #0xe
@@ -1225,7 +1225,7 @@ _020BDB98:
 	ldr r0, _020BDBE4 ; =0x020E4368
 	sub r1, r8, #0x1c
 	mov r2, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	bl OS_DisableInterrupts
 	mov r4, r0
 	ldr r0, _020BDBE8 ; =0x020E6DA8
@@ -1836,13 +1836,13 @@ FUN_ov15_020be478: ; 0x020BE478
 	add r1, r6, #0x12
 	mov r2, #0xa
 	strh r3, [r6, #6]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r5, _020BE520 ; =0x020E6DA8
 	mov r4, #6
 	mov r0, r5
 	mov r2, r4
 	add r1, r6, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r3, _020BE524 ; =0x020E6D40
 	mov r2, r4
 	ldr r1, [r3, #0x50]
@@ -1860,11 +1860,11 @@ FUN_ov15_020be478: ; 0x020BE478
 	mov r3, r12, lsl #8
 	orr r3, r3, r12, asr #8
 	strh r3, [r6, #0x10]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r0, r5
 	mov r2, r4
 	sub r1, r6, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	sub r0, r6, #0xe
 	mov r1, #0x2a
 	mov r2, #0
@@ -2073,7 +2073,7 @@ _020BE76C:
 	ldr r1, [r4, #0x4c]
 	ldr r2, [r4, #0x50]
 	add r0, r7, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, [r4, #4]
 	cmp r0, #3
 	bne _020BE834
@@ -2994,7 +2994,7 @@ _020BF444:
 	and r0, r0, #0xf0
 	add r0, r5, r0, lsr #2
 	add r1, r1, r7
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r2, r6, r11
 	str r7, [r2, #0x70]
 	mov r0, r6
@@ -3020,7 +3020,7 @@ _020BF490:
 	add r0, r5, r0, lsr #2
 	add r1, r1, r7
 	sub r2, r2, r7
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r2, r6, #0x74
 	ldr r0, [r4, r11]
 	ldr r1, [r2, r11]
@@ -3045,7 +3045,7 @@ _020BF4F4:
 	mov r2, r4
 	sub r0, r0, r7
 	add r1, r3, r1
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r2, r6, #0x74
 	ldr r1, [r2, r11]
 	mov r0, r6
@@ -3149,7 +3149,7 @@ _020BF638:
 	sub r2, r2, r1
 	add r0, r5, r0, lsr #2
 	add r1, r3, r1
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r2, [r6, #0x70]
 	ldr r1, [r6, #0x74]
 	ldr r0, [r6, #0x50]
@@ -3161,7 +3161,7 @@ _020BF6BC:
 	mov r2, r4
 	add r0, r5, r0, lsr #2
 	add r1, r3, r1
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020BF6D0:
 	mov r0, r6
 	str r7, [r6, #0x70]
@@ -3174,7 +3174,7 @@ _020BF6E0:
 	and r0, r0, #0xf0
 	add r0, r5, r0, lsr #2
 	add r1, r3, r1
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020BF6FC:
 	ldr r1, [r6, #0x50]
 	mov r0, r6
@@ -3561,7 +3561,7 @@ _020BFC30:
 	ldr r1, [r4, #0x4c]
 	ldr r2, [r4, #0x50]
 	add r0, r7, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, [r4, #4]
 	cmp r0, #3
 	bne _020BFC80
@@ -3695,7 +3695,7 @@ _020BFDDC:
 	ldr r1, [r6, #0x34]
 	mov r2, r5
 	add r1, r1, #0xe
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020BFE48:
 	ldrh r0, [r7, #4]
 	mov r6, #0
@@ -3734,7 +3734,7 @@ _020BFE84:
 	strh r1, [r7, #4]
 	ldr r1, [r7, #0x30]
 	add r1, r1, r11, lsl #3
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldrh r3, [r7, #8]
 	cmp r3, #0
 	addeq sp, sp, #0xc
@@ -4438,7 +4438,7 @@ _020C07C0:
 	sub r2, r6, r9
 	add r0, r1, r9
 	str r2, [r7, #0x50]
-	bl FUN_02007f50
+	bl MI_CpuMove
 _020C07E0:
 	ldr r2, [r7, #0x70]
 	cmp r2, #0
@@ -4471,7 +4471,7 @@ _020C0820:
 	add r3, r3, r1
 	sub r1, r0, r6
 	sub r2, r3, r2
-	bl FUN_02007f50
+	bl MI_CpuMove
 	mov r3, #0
 	mov r0, #0xc
 	b _020C0870
@@ -4842,7 +4842,7 @@ FUN_ov15_020c0ce8: ; 0x020C0CE8
 	ldr r1, [r5, #0x68]
 	sub r2, r2, r4
 	add r0, r1, r4
-	bl FUN_02007f50
+	bl MI_CpuMove
 	ldr r1, [r5, #0x6c]
 	mov r0, #0
 	sub r1, r1, r4
@@ -5432,7 +5432,7 @@ FUN_ov15_020c147c: ; 0x020C147C
 	mov r3, r12, lsl #8
 	orr r3, r3, r12, asr #8
 	strh r3, [r8, #0xe]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, _020C15B8 ; =0x00008263
 	ldr r2, _020C15BC ; =0x00006353
 	strh r0, [r8, #0xec]
@@ -5449,14 +5449,14 @@ FUN_ov15_020c147c: ; 0x020C147C
 	add r1, r8, #0xf6
 	strb r3, [r8, #0xf4]
 	strb r6, [r8, #0xf5]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r0, #0xc
 	strb r0, [r8, #0xfc]
 	mov r2, #0xa
 	strb r2, [r8, #0xfd]
 	ldr r0, _020C15C0 ; =0x020E4374
 	add r1, r8, #0xfe
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	strb r6, [r8, #0x10a]
 	mov r1, #3
 	strb r5, [r8, #0x10c]
@@ -6175,7 +6175,7 @@ _020C1F78:
 	bhi _020C1FA8
 	mov r1, r11
 	add r0, r0, #0xa
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r4, #1
 	b _020C1FA8
 _020C1F98:
@@ -29272,7 +29272,7 @@ FUN_ov15_020d5478: ; 0x020D5478
 	mov r1, r8
 	mov r2, r7
 	movne r5, r7
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r1, [r9, #0xa0]
 	ldrsb r0, [r1, #0xfe]
 	cmp r0, #0
@@ -29427,7 +29427,7 @@ _020D56D4:
 	movhi r10, r1
 	ldr r1, [sp, #0xc]
 	mov r2, r10
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r0, r10
 	bl FUN_ov15_020c08dc
 	add sp, sp, #0x14
@@ -29568,7 +29568,7 @@ _020D58C4:
 	ldr r1, [sp]
 	ldr r2, [sp, #4]
 	add r0, r7, #0xc
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	cmp r11, #0
 	ldrneh r0, [r7, #6]
 	ldr r1, [sp, #0x30]
@@ -29643,7 +29643,7 @@ FUN_ov15_020d5970: ; 0x020D5970
 	ldr r3, [r7, #0x1c]
 	add r1, r5, #0xc
 	str r3, [r5, #8]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, [r4, #0x100]
 	cmp r0, #0
 	ldrne r0, [r4, #0x100]
@@ -29936,12 +29936,12 @@ _020D5DD4:
 	mov r2, r7
 	add r0, r6, r0
 	str r7, [r5, #0x1c]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020D5DFC:
 	ldr r1, [r5, #0x10]
 	ldr r2, [r5, #0x14]
 	mov r0, r6
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r0, r4, #0x100
 	ldrh r6, [r0]
 	strh r7, [r5, #0x20]
@@ -30149,7 +30149,7 @@ _020D60B8:
 	ldr r0, [r6, #0x10]
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r1, [r6, #0x10]
 	ldr r0, [r6, #0x14]
 	add r1, r1, r4
@@ -30162,7 +30162,7 @@ _020D60E8:
 	ldr r0, [r6, #0x18]
 	mov r2, r5
 	add r1, r7, r4
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r1, [r6, #0x18]
 	ldr r0, [r6, #0x1c]
 	add r1, r1, r5
@@ -38996,13 +38996,13 @@ _020DD804:
 	add r1, sp, #9
 	mov r2, #4
 	add r0, r5, #2
-	bl FUN_02007c30
+	bl MI_CpuComp8
 	cmp r0, #0
 	beq _020DD83C
 	add r1, sp, #4
 	mov r2, #5
 	add r0, r5, #2
-	bl FUN_02007c30
+	bl MI_CpuComp8
 	cmp r0, #0
 	bne _020DD86C
 _020DD83C:
@@ -39010,7 +39010,7 @@ _020DD83C:
 	mov r0, r5
 	mov r1, r6
 	and r2, r10, #0xff
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldrh r0, [r4, #0x3e]
 	and r1, r10, #0xff
 	add r1, r7, r1
@@ -39250,11 +39250,11 @@ _020DDB50: .word 0x01FF8000
 	arm_func_start FUN_ov15_020ddb54
 FUN_ov15_020ddb54: ; 0x020DDB54
 	ldr r1, _020DDB64 ; =0x020ED82C
-	ldr r12, _020DDB68 ; =FUN_02007c60
+	ldr r12, _020DDB68 ; =MI_CpuCopy
 	mov r2, #6
 	bx r12
 _020DDB64: .word ov15_020ED82C
-_020DDB68: .word FUN_02007c60
+_020DDB68: .word MI_CpuCopy
 	arm_func_end FUN_ov15_020ddb54
 
 	arm_func_start FUN_ov15_020ddb6c
@@ -39265,14 +39265,14 @@ FUN_ov15_020ddb6c: ; 0x020DDB6C
 	mov r2, r5
 	mov r6, r1
 	ldr r4, [sp, #0x14]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	ldrne r2, [sp, #0x14]
 	cmpne r2, #0
 	beq _020DDBA4
 	add r1, r6, r5
-	bl FUN_02007c60
+	bl MI_CpuCopy
 _020DDBA4:
 	add r0, r5, r4
 	ldmfd sp!, {r4, r5, r6, pc}

@@ -27,7 +27,7 @@
 .public FUN_0201e078
 .public FUN_0201f5c8
 .public _s32_div_f
-.public FUN_0201f74c
+.public _ffltu
 .public FUN_0201f704
 .public FUN_0201fdac
 .public FUN_0201fde0
@@ -202,7 +202,7 @@
 .public FUN_0207249c
 .public FUN_0207318c
 .public FUN_0207470c
-.public FUN_02020094
+.public _fmul
 .public FUN_02020274
 .public FUN_02040118
 .public FUN_02040128

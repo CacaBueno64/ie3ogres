@@ -165,7 +165,7 @@
 .public VEC_Add
 .public VEC_Subtract
 .public STD_TSNPrintf
-.public FUN_02020094
+.public _fmul
 .public FUN_02020274
 .public FUN_02021040
 .public FUN_02021940

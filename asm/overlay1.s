@@ -34991,13 +34991,13 @@ _020DACFC:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _020DAD38
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, r8
 	bl FUN_02020274
 	b _020DAD44
 _020DAD38:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r8
 	bl FUN_020204a4
 _020DAD44:
@@ -35027,13 +35027,13 @@ _020DAD84:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _020DADBC
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, r8
 	bl FUN_02020274
 	b _020DADC8
 _020DADBC:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r8
 	bl FUN_020204a4
 _020DADC8:
@@ -41294,13 +41294,13 @@ _020E0404:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _020E042C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _020E0438
 _020E042C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _020E0438:
@@ -44751,13 +44751,13 @@ _020E34D4:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _020E357C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _020E3588
 _020E357C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _020E3588:
@@ -45575,13 +45575,13 @@ FUN_ov1_020e4038: ; 0x020E4038
 	cmp r3, #0
 	mov r0, r3, lsl #0xc
 	beq _020E406C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _020E4078
 _020E406C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _020E4078:
@@ -45612,13 +45612,13 @@ FUN_ov1_020e40b4: ; 0x020E40B4
 	cmp r3, #0
 	mov r0, r3, lsl #0xc
 	beq _020E40E8
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _020E40F4
 _020E40E8:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _020E40F4:
@@ -45655,13 +45655,13 @@ FUN_ov1_020e4148: ; 0x020E4148
 	cmp r3, #0
 	mov r0, r3, lsl #0xc
 	beq _020E417C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _020E4188
 _020E417C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _020E4188:

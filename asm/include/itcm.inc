@@ -89,7 +89,7 @@
 .public FUN_0205107c
 .public FUN_0207249c
 .public FUN_0207318c
-.public FUN_02020094
+.public _fmul
 .public FUN_02020274
 .public FUN_02040128
 .public FUN_02040138

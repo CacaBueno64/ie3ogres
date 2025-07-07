@@ -16774,13 +16774,13 @@ _02149544:
 	ldr r1, [r4, #0x18]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _02149570
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _0214957C
 _02149570:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _0214957C:
@@ -16791,13 +16791,13 @@ _0214957C:
 	ldr r1, [r4, #0x14]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021495AC
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021495B8
 _021495AC:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021495B8:
@@ -16808,13 +16808,13 @@ _021495B8:
 	ldr r1, [r4, #0x10]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021495E8
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021495F4
 _021495E8:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021495F4:
@@ -16840,13 +16840,13 @@ _021495F4:
 	ldr r1, [r4, #0x24]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _02149660
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _0214966C
 _02149660:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _0214966C:
@@ -16857,13 +16857,13 @@ _0214966C:
 	ldr r1, [r4, #0x20]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _0214969C
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021496A8
 _0214969C:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021496A8:
@@ -16874,13 +16874,13 @@ _021496A8:
 	ldr r1, [r4, #0x1c]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021496D8
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021496E4
 _021496D8:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021496E4:
@@ -16926,13 +16926,13 @@ _02149734:
 	ldr r1, [r4, #0x24]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _02149794
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021497A0
 _02149794:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021497A0:
@@ -16943,13 +16943,13 @@ _021497A0:
 	ldr r1, [r4, #0x1c]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021497D0
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021497DC
 _021497D0:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021497DC:
@@ -17018,13 +17018,13 @@ _021498A4:
 	ldr r1, [r4, #0x18]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021498D0
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021498DC
 _021498D0:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021498DC:
@@ -17035,13 +17035,13 @@ _021498DC:
 	ldr r1, [r4, #0x14]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _0214990C
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _02149918
 _0214990C:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02149918:
@@ -17052,13 +17052,13 @@ _02149918:
 	ldr r1, [r4, #0x10]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _02149948
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _02149954
 _02149948:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02149954:
@@ -17084,13 +17084,13 @@ _02149954:
 	ldr r1, [r4, #0x24]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021499C0
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _021499CC
 _021499C0:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _021499CC:
@@ -17101,13 +17101,13 @@ _021499CC:
 	ldr r1, [r4, #0x20]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _021499FC
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _02149A08
 _021499FC:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02149A08:
@@ -17118,13 +17118,13 @@ _02149A08:
 	ldr r1, [r4, #0x1c]
 	ldr r0, _02149AB4 ; =0x45800000
 	bls _02149A38
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _02149A44
 _02149A38:
-	bl FUN_02020094
+	bl _fmul
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02149A44:

@@ -368,7 +368,7 @@
 .public FUN_ov132_02148610
 .public FUN_ov132_02151958
 .public FUN_01ff852c
-.public FUN_01ff845c
+.public MIi_DmaSetParameters
 .public OS_IRQTable
 .public OSi_IrqThreadQueue
 .public _version_NINTENDO_BACKUP

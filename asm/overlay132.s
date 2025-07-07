@@ -13080,13 +13080,13 @@ FUN_ov132_02146014: ; 0x02146014
 	mov r0, #0x29
 	bl  FUN_ov16_020ef928
 	add r0, r0, #0x50
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	ldr r0, _02146094 ; =0x3C23D70A
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, r4
-	bl FUN_02020094
+	bl _fmul
 	bl FUN_0201fde0
 	mov r0, r0, lsl #0x10
 	cmp r5, #0
@@ -13118,7 +13118,7 @@ FUN_ov132_0214609c: ; 0x0214609C
 	mov r4, #0x3f000000
 	mov r1, r0
 	mov r0, r4
-	bl FUN_02020094
+	bl _fmul
 	add r1, r4, #0x2f00000
 	mov r5, r0
 	bl FUN_0201f5c8
@@ -13126,13 +13126,13 @@ FUN_ov132_0214609c: ; 0x0214609C
 	addhi r5, r4, #0x2f00000
 	bl  FUN_ov16_020ef928
 	add r0, r0, #0x50
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	ldr r0, _02146138 ; =0x3C23D70A
-	bl FUN_02020094
+	bl _fmul
 	mov r1, r0
 	mov r0, r5
-	bl FUN_02020094
+	bl _fmul
 	bl FUN_0201fde0
 	mov r0, r0, lsl #0x10
 	mov r5, r0, lsr #0x10
@@ -33172,7 +33172,7 @@ _02157CAC:
 	bl  FUN_ov16_020ef928
 	add r0, r0, #0x18
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
@@ -33181,7 +33181,7 @@ _02157CF4:
 	bl  FUN_ov16_020ef928
 	add r0, r0, #0x18
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _02157D0C:

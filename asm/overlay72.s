@@ -9698,19 +9698,19 @@ _02122650:
 	add r1, r10, #0xb4
 	mov r2, #0x10
 	str r5, [r10, #0xa8]
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r0, sp, #0x410
 	add r1, r10, #0xc4
 	mov r2, #8
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add r0, sp, #0x430
 	add r1, r10, #0xcc
 	mov r2, #0x100
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	mov r0, r4
 	add r1, r10, #0x1cc
 	mov r2, #0x19
-	bl FUN_02007c60
+	bl MI_CpuCopy
 	add sp, sp, #0x570
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021227DC: .word ov72_021235A8

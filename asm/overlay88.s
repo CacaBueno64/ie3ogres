@@ -3367,13 +3367,13 @@ _0211CD34:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	beq _0211CD6C
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
 	bl FUN_02020274
 	b _0211CD78
 _0211CD6C:
-	bl FUN_0201f74c
+	bl _ffltu
 	mov r1, #0x3f000000
 	bl FUN_020204a4
 _0211CD78:
