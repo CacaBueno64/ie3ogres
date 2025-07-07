@@ -1,5 +1,5 @@
 ############################################################
-### Linker spec file for Pokemon HeartGold/SoulSilver US ###
+###        Linker spec file for Inazuma Eleven 3         ###
 ###      Pass this to the SDK's makelcf.exe utility      ###
 ###           along with the ARM9-TS template.           ###
 ###                        WIP                           ###
@@ -7,10 +7,10 @@
 
 Static main
 {
-    Address 0x02000000
-    StackSize 0 1024
+	Address 0x02000000
+	StackSize 0 1024
 	Object asm/middleware.o
-    Object asm/arm9.o
+	Object asm/arm9.o
 }
 
 Autoload ITCM

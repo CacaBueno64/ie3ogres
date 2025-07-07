@@ -142321,7 +142321,7 @@ _020764D0:
 	bne _020764F4
 	ldr r0, [r10, #0x24]
 	mov r1, r5
-	bl FUN_0207a388
+	bl DseSynth_SetVolume
 _020764F4:
 	mov r0, #1
 	strb r0, [r10, #5]
@@ -142435,7 +142435,7 @@ _02076658:
 	mov r1, r1, asr #0x10
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl FUN_0207a2f4
+	bl DseSynth_SetBend
 _02076688:
 	ldrb r0, [r4]
 	tst r0, #4
@@ -142485,7 +142485,7 @@ _0207671C:
 	mov r1, r7, lsl #0x18
 	ldr r0, [r5, #0x24]
 	mov r1, r1, asr #0x18
-	bl FUN_0207a388
+	bl DseSynth_SetVolume
 _02076744:
 	ldrb r0, [r4]
 	tst r0, #8
@@ -142532,7 +142532,7 @@ _020767C0:
 	mov r1, r1, lsl #0x18
 	mov r1, r1, asr #0x18
 	and r1, r1, #0xff
-	bl FUN_0207a458
+	bl DseSynth_SetPan
 _020767F4:
 	ldrsh r0, [r5, #0x1a]
 	cmp r0, #0
@@ -142690,7 +142690,7 @@ _02076A10:
 	bne _02076A70
 	ldr r0, [r6, #0x24]
 	mov r1, #0
-	bl FUN_0207a388
+	bl DseSynth_SetVolume
 	b _02076A70
 _02076A38:
 	ldr r0, _02076A7C ; =0x04000208
@@ -144675,7 +144675,7 @@ _020784A8:
 	mov r1, r1, lsl #0x10
 	ldr r0, [r4, #0x24]
 	mov r1, r1, asr #0x10
-	bl FUN_0207a2f4
+	bl DseSynth_SetBend
 	ldrh r0, [r4, #0x64]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -144699,7 +144699,7 @@ _02078504:
 	mov r1, r1, lsl #0x18
 	ldr r0, [r4, #0x24]
 	mov r1, r1, asr #0x18
-	bl FUN_0207a388
+	bl DseSynth_SetVolume
 	ldrh r0, [r4, #0x74]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -144722,7 +144722,7 @@ _02078560:
 	mov r1, r1, asr #0x10
 	ldr r0, [r4, #0x24]
 	and r1, r1, #0xff
-	bl FUN_0207a458
+	bl DseSynth_SetPan
 	ldrh r0, [r4, #0x84]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -144814,7 +144814,7 @@ FUN_0207866c: ; 0x0207866C
 	mov r0, r3
 	strb r1, [r2, #2]
 	sub r4, r4, #1
-	bl FUN_0207a72c
+	bl DseChannel_DeallocateVoices
 	b _020786E8
 _02078698:
 	ldrh r0, [r2, #0xa]
@@ -146622,19 +146622,19 @@ FUN_02079c78: ; 0x02079C78
 	ldr r0, _02079C94 ; =0x020BBEBC
 	mov r1, #0
 	ldr r0, [r0]
-	ldr r12, _02079C98 ; =FUN_0207a4ec
+	ldr r12, _02079C98 ; =DseSynth_SetBankAndSequence
 	ldr r0, [r0]
 	mov r2, r1
 	bx r12
 _02079C94: .word unk_020BBEBC
-_02079C98: .word FUN_0207a4ec
+_02079C98: .word DseSynth_SetBankAndSequence
 	arm_func_end FUN_02079c78
 
 	arm_func_start FUN_02079c9c
 FUN_02079c9c: ; 0x02079C9C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl FUN_0207a72c
+	bl DseChannel_DeallocateVoices
 	ldr r1, _02079D14 ; =0x04000208
 	mov r0, #0
 	ldrh r5, [r1]
@@ -147033,7 +147033,7 @@ FUN_0207a0f8: ; 0x0207A0F8
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0207a4ec
+	bl DseSynth_SetBankAndSequence
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0207a0f8
 
@@ -147046,7 +147046,7 @@ FUN_0207a120: ; 0x0207A120
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0207A134:
 	mov r0, r4
-	bl FUN_0207a72c
+	bl DseChannel_DeallocateVoices
 	subs r5, r5, #1
 	add r4, r4, #0xc4
 	bne _0207A134
@@ -147069,7 +147069,7 @@ FUN_0207a14c: ; 0x0207A14C
 _0207A178:
 	mov r0, r4
 	mov r1, r7
-	bl FUN_0207a7b0
+	bl DseChannel_ResetTimerAndVolumeForVoices
 	subs r5, r5, #1
 	add r4, r4, #0xc4
 	bne _0207A178
@@ -147181,8 +147181,8 @@ _0207A2EC: .word 0x04000208
 _0207A2F0: .word 0x82061029
 	arm_func_end FUN_0207a20c
 
-	arm_func_start FUN_0207a2f4
-FUN_0207a2f4: ; 0x0207A2F4
+	arm_func_start DseSynth_SetBend
+DseSynth_SetBend: ; 0x0207A2F4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r2, [r0, #1]
 	strh r1, [r0, #4]
@@ -147223,10 +147223,10 @@ _0207A364:
 	blt _0207A318
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A384: .word 0x04000208
-	arm_func_end FUN_0207a2f4
+	arm_func_end DseSynth_SetBend
 
-	arm_func_start FUN_0207a388
-FUN_0207a388: ; 0x0207A388
+	arm_func_start DseSynth_SetVolume
+DseSynth_SetVolume: ; 0x0207A388
 	stmfd sp!, {r4, r5, r6, lr}
 	strb r1, [r0, #6]
 	ldrb r4, [r0, #2]
@@ -147282,10 +147282,10 @@ _0207A42C:
 _0207A44C: .word 0x81020409
 _0207A450: .word 0x04000208
 _0207A454: .word 0x82061029
-	arm_func_end FUN_0207a388
+	arm_func_end DseSynth_SetVolume
 
-	arm_func_start FUN_0207a458
-FUN_0207a458: ; 0x0207A458
+	arm_func_start DseSynth_SetPan
+DseSynth_SetPan: ; 0x0207A458
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r2, [r0, #1]
 	strb r1, [r0, #7]
@@ -147326,10 +147326,10 @@ _0207A4C8:
 	blt _0207A47C
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A4E8: .word 0x04000208
-	arm_func_end FUN_0207a458
+	arm_func_end DseSynth_SetPan
 
-	arm_func_start FUN_0207a4ec
-FUN_0207a4ec: ; 0x0207A4EC
+	arm_func_start DseSynth_SetBankAndSequence
+DseSynth_SetBankAndSequence: ; 0x0207A4EC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r3, _0207A578 ; =0x020B9FD8
 	mov r10, r0
@@ -147346,10 +147346,10 @@ FUN_0207a4ec: ; 0x0207A4EC
 	mov r4, r0, lsr #0x10
 _0207A524:
 	mov r0, r5
-	bl FUN_0207a72c
+	bl DseChannel_DeallocateVoices
 	mov r0, r5
 	mov r1, r8
-	bl FUN_0207a57c
+	bl DseChannel_Init
 	cmp r9, #0
 	blt _0207A558
 	mov r0, r5
@@ -147369,10 +147369,10 @@ _0207A56C:
 	strb r6, [r0, #0x45]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0207A578: .word unk_020B9FD8
-	arm_func_end FUN_0207a4ec
+	arm_func_end DseSynth_SetBankAndSequence
 
-	arm_func_start FUN_0207a57c
-FUN_0207a57c: ; 0x0207A57C
+	arm_func_start DseChannel_Init
+DseChannel_Init: ; 0x0207A57C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	mov r0, #0
@@ -147484,10 +147484,10 @@ _0207A71C: .word unk_020BA6D8
 _0207A720: .word unk_020B9FD8
 _0207A724: .word 0x04000208
 _0207A728: .word 0x82061029
-	arm_func_end FUN_0207a57c
+	arm_func_end DseChannel_Init
 
-	arm_func_start FUN_0207a72c
-FUN_0207a72c: ; 0x0207A72C
+	arm_func_start DseChannel_DeallocateVoices
+DseChannel_DeallocateVoices: ; 0x0207A72C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, [r0, #0xb0]
 	mov r1, #0
@@ -147502,7 +147502,7 @@ _0207A74C:
 	strh r4, [r5, #4]
 	str r4, [r5, #0x158]
 	str r4, [r5, #0x154]
-	bl FUN_0207bc2c
+	bl SoundEnvelope_Stop
 	ldr r0, [r5, #0x14c]
 	cmp r6, #0
 	and r0, r0, #0xff
@@ -147522,10 +147522,10 @@ _0207A74C:
 	bne _0207A74C
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207A7AC: .word unk_020BA6D8
-	arm_func_end FUN_0207a72c
+	arm_func_end DseChannel_DeallocateVoices
 
-	arm_func_start FUN_0207a7b0
-FUN_0207a7b0: ; 0x0207A7B0
+	arm_func_start DseChannel_ResetTimerAndVolumeForVoices
+DseChannel_ResetTimerAndVolumeForVoices: ; 0x0207A7B0
 	cmp r1, #1
 	bne _0207A7F8
 	ldrb r1, [r0, #4]
@@ -147561,7 +147561,7 @@ _0207A81C:
 	and r1, r1, #0xbf
 	strb r1, [r0, #4]
 	bx lr
-	arm_func_end FUN_0207a7b0
+	arm_func_end DseChannel_ResetTimerAndVolumeForVoices
 
 	arm_func_start DseChannel_SetBank
 DseChannel_SetBank: ; 0x0207A82C
@@ -148601,7 +148601,7 @@ _0207B608:
 	strh r5, [r4, #4]
 	str r5, [r4, #0x158]
 	str r5, [r4, #0x154]
-	bl FUN_0207bc2c
+	bl SoundEnvelope_Stop
 	ldr r1, [r4, #0x14c]
 	ldrh r0, [r4, #0xa]
 	and r3, r1, #0xff
@@ -148624,7 +148624,7 @@ _0207B660:
 	strh r5, [r4, #4]
 	str r5, [r4, #0x158]
 	str r5, [r4, #0x154]
-	bl FUN_0207bc2c
+	bl SoundEnvelope_Stop
 	ldr r1, [r4, #0x14c]
 	ldrh r0, [r4, #0xa]
 	and r3, r1, #0xff
@@ -149059,15 +149059,15 @@ FUN_0207bc00: ; 0x0207BC00
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0207bc00
 
-	arm_func_start FUN_0207bc2c
-FUN_0207bc2c: ; 0x0207BC2C
+	arm_func_start SoundEnvelope_Stop
+SoundEnvelope_Stop: ; 0x0207BC2C
 	mov r1, #0
 	strb r1, [r0, #0x1c]
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x18]
 	strb r1, [r0, #0x1e]
 	bx lr
-	arm_func_end FUN_0207bc2c
+	arm_func_end SoundEnvelope_Stop
 
 	arm_func_start FUN_0207bc44
 FUN_0207bc44: ; 0x0207BC44
