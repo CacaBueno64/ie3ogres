@@ -16,7 +16,7 @@
 .public FUN_0206c110
 .public FUN_0206c158
 .public FUN_0206c300
-.public FUN_02009a98
+.public FX_Atan2Idx
 .public FUN_02020af8
 .public FUN_02023ab4
 .public FUN_02023c6c

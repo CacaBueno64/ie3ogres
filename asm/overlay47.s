@@ -2346,7 +2346,7 @@ _0211BE68:
 	str r0, [sp, #4]
 	ldr r1, [sp, #4]
 	mov r0, r9
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r8, r0
 	smlabb r0, r7, r11, r10
 	ldrb r1, [r0, #0x453]

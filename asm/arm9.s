@@ -9676,8 +9676,8 @@ _02008428:
 	bx lr
 	arm_func_end MI_UncompressHuffman
 
-	arm_func_start FUN_02008434
-FUN_02008434: ; 0x02008434
+	arm_func_start MIi_CardDmaCopy32
+MIi_CardDmaCopy32: ; 0x02008434
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	mov r6, r0
@@ -9710,7 +9710,7 @@ _02008480:
 	bl MIi_DmaSetParameters
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020084AC: .word 0xAF000001
-	arm_func_end FUN_02008434
+	arm_func_end MIi_CardDmaCopy32
 
 	arm_func_start MI_Init
 MI_Init: ; 0x020084B0
@@ -9745,8 +9745,8 @@ MTX_Identity33_: ; 0x020084E0
 	bx lr
 	arm_func_end MTX_Identity33_
 
-	arm_func_start FUN_02008504
-FUN_02008504: ; 0x02008504
+	arm_func_start MTX_ScaleApply33
+MTX_ScaleApply33: ; 0x02008504
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r6, [r0]
 	ldr r5, [r0, #4]
@@ -9797,7 +9797,7 @@ FUN_02008504: ; 0x02008504
 	str r4, [r1, #0x1c]
 	str r2, [r1, #0x20]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02008504
+	arm_func_end MTX_ScaleApply33
 
 	arm_func_start MTX_Identity43_
 MTX_Identity43_: ; 0x020085CC
@@ -9830,14 +9830,14 @@ MTX_Copy43To44_: ; 0x020085F4
 	bx lr
 	arm_func_end MTX_Copy43To44_
 
-	arm_func_start FUN_02008628
-FUN_02008628: ; 0x02008628
+	arm_func_start MTX_ScaleApply43
+MTX_ScaleApply43: ; 0x02008628
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r12, [sp, #0x10]
 	mov r5, r0
 	mov r4, r1
 	str r12, [sp]
-	bl FUN_02008504
+	bl MTX_ScaleApply33
 	ldr r2, [r5, #0x24]
 	ldr r1, [r5, #0x28]
 	ldr r0, [r5, #0x2c]
@@ -9845,10 +9845,10 @@ FUN_02008628: ; 0x02008628
 	str r1, [r4, #0x28]
 	str r0, [r4, #0x2c]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02008628
+	arm_func_end MTX_ScaleApply43
 
-	thumb_func_start FUN_0200865c
-FUN_0200865c: ; 0x0200865C
+	thumb_func_start MTX_RotX43_
+MTX_RotX43_: ; 0x0200865C
 	str r1, [r0, #0x14]
 	neg r1, r1
 	str r1, [r0, #0x1c]
@@ -9864,10 +9864,10 @@ FUN_0200865c: ; 0x0200865C
 	stmia r0!, {r2, r3}
 	stmia r0!, {r1, r3}
 	bx lr
-	thumb_func_end FUN_0200865c
+	thumb_func_end MTX_RotX43_
 
-	thumb_func_start FUN_0200867c
-FUN_0200867c: ; 0x0200867C
+	thumb_func_start MTX_RotY43_
+MTX_RotY43_: ; 0x0200867C
 	str r1, [r0, #0x18]
 	mov r3, #0
 	stmia r0!, {r2, r3}
@@ -9881,10 +9881,10 @@ FUN_0200867c: ; 0x0200867C
 	stmia r0!, {r1, r2, r3}
 	stmia r0!, {r1, r3}
 	bx lr
-	thumb_func_end FUN_0200867c
+	thumb_func_end MTX_RotY43_
 
-	thumb_func_start FUN_02008698
-FUN_02008698: ; 0x02008698
+	thumb_func_start MTX_RotZ43_
+MTX_RotZ43_: ; 0x02008698
 	stmia r0!, {r2}
 	mov r3, #0
 	stmia r0!, {r1, r3}
@@ -9898,7 +9898,7 @@ FUN_02008698: ; 0x02008698
 	mov r3, #0
 	stmia r0!, {r1, r2, r3}
 	bx lr
-	thumb_func_end FUN_02008698
+	thumb_func_end MTX_RotZ43_
 
 	arm_func_start MTX_Inverse43
 MTX_Inverse43: ; 0x020086B4
@@ -10126,8 +10126,8 @@ _02008A1C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end MTX_Inverse43
 
-	arm_func_start FUN_02008a28
-FUN_02008a28: ; 0x02008A28
+	arm_func_start MTX_Concat43
+MTX_Concat43: ; 0x02008A28
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x30
 	ldr r8, [r0, #4]
@@ -10262,7 +10262,7 @@ FUN_02008a28: ; 0x02008A28
 	stmia r12, {r0, r1, r2, r3}
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_02008a28
+	arm_func_end MTX_Concat43
 
 	arm_func_start MTX_MultVec43
 MTX_MultVec43: ; 0x02008C40
@@ -10306,8 +10306,8 @@ MTX_MultVec43: ; 0x02008C40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end MTX_MultVec43
 
-	arm_func_start FUN_02008cd8
-FUN_02008cd8: ; 0x02008CD8
+	arm_func_start MTX_LookAt
+MTX_LookAt: ; 0x02008CD8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x24
 	mov r8, r0
@@ -10377,7 +10377,7 @@ FUN_02008cd8: ; 0x02008CD8
 	str r0, [r6, #0x2c]
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02008cd8
+	arm_func_end MTX_LookAt
 
 	arm_func_start MTX_Identity44_
 MTX_Identity44_: ; 0x02008DEC
@@ -10411,8 +10411,8 @@ MTX_Copy44To43_: ; 0x02008E18
 	bx lr
 	arm_func_end MTX_Copy44To43_
 
-	thumb_func_start FUN_02008e4c
-FUN_02008e4c: ; 0x02008E4C
+	thumb_func_start MTX_RotY44_
+MTX_RotY44_: ; 0x02008E4C
 	str r2, [r0]
 	str r2, [r0, #0x28]
 	str r1, [r0, #0x20]
@@ -10431,10 +10431,10 @@ FUN_02008e4c: ; 0x02008E4C
 	stmia r0!, {r1, r2}
 	stmia r0!, {r1, r2, r3}
 	bx lr
-	thumb_func_end FUN_02008e4c
+	thumb_func_end MTX_RotY44_
 
-	arm_func_start FUN_02008e7c
-FUN_02008e7c: ; 0x02008E70
+	arm_func_start MTX_Concat44
+MTX_Concat44: ; 0x02008E70
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x74
 	ldr r9, [r0, #4]
@@ -10674,10 +10674,10 @@ FUN_02008e7c: ; 0x02008E70
 	stmia r4, {r0, r1, r2, r3}
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02008e7c
+	arm_func_end MTX_Concat44
 
-	arm_func_start FUN_0200922c
-FUN_0200922c: ; 0x0200922C
+	arm_func_start MTX_PerspectiveW
+MTX_PerspectiveW: ; 0x0200922C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, r0
 	mov r0, r1
@@ -10734,7 +10734,7 @@ FUN_0200922c: ; 0x0200922C
 	mov r1, r3
 	mov r3, r4
 	mov r2, #0x1000
-	bl FUN_0201f7a4
+	bl _ll_sdiv
 _02009310:
 	ldr r4, [sp, #0x20]
 	mov r2, r8, lsl #1
@@ -10762,10 +10762,10 @@ _02009310:
 	str r0, [r6]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02009374: .word 0x04000290
-	arm_func_end FUN_0200922c
+	arm_func_end MTX_PerspectiveW
 
-	arm_func_start FUN_02009378
-FUN_02009378: ; 0x02009378
+	arm_func_start MTX_OrthoW
+MTX_OrthoW: ; 0x02009378
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	str r2, [sp]
@@ -10807,7 +10807,7 @@ FUN_02009378: ; 0x02009378
 	mla r1, r4, r3, r1
 	mla r1, r6, r9, r1
 	mov r3, r5
-	bl FUN_0201f7a4
+	bl _ll_sdiv
 	mov r4, r0
 	mov r6, r1
 _02009428:
@@ -10837,7 +10837,7 @@ _02009428:
 	mla r1, r5, r3, r1
 	mla r1, r7, r9, r1
 	mov r3, #0
-	bl FUN_0201f7a4
+	bl _ll_sdiv
 	mov r5, r0
 	mov r7, r1
 _0200949C:
@@ -10861,7 +10861,7 @@ _0200949C:
 	ldr r0, [sp, #8]
 	mov r2, #0x1000
 	mov r1, r12
-	bl FUN_0201f7a4
+	bl _ll_sdiv
 _020094F0:
 	ldr r3, [sp, #4]
 	ldr r2, [sp]
@@ -10902,7 +10902,7 @@ _020094F0:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02009588: .word 0x04000290
-	arm_func_end FUN_02009378
+	arm_func_end MTX_OrthoW
 
 	arm_func_start FX_Div
 FX_Div: ; 0x0200958C
@@ -11308,8 +11308,8 @@ _02009A90: .word 0x040002B0
 _02009A94: .word 0x040002B4
 	arm_func_end VEC_Distance
 
-	arm_func_start FUN_02009a98
-FUN_02009a98: ; 0x02009A98
+	arm_func_start FX_Atan2Idx
+FX_Atan2Idx: ; 0x02009A98
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	ble _02009B1C
@@ -11402,7 +11402,7 @@ _02009BC4:
 	beq _02009C00
 	bl FX_Div
 	mov r1, r0, asr #5
-	ldr r0, _02009C24 ; =0x0208B874
+	ldr r0, _02009C24 ; =FX_AtanIdxTable_
 	mov r1, r1, lsl #1
 	ldrsh r0, [r0, r1]
 	add r0, r4, r0
@@ -11412,23 +11412,23 @@ _02009BC4:
 _02009C00:
 	bl FX_Div
 	mov r1, r0, asr #5
-	ldr r0, _02009C24 ; =0x0208B874
+	ldr r0, _02009C24 ; =FX_AtanIdxTable_
 	mov r1, r1, lsl #1
 	ldrsh r0, [r0, r1]
 	sub r0, r4, r0
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
 	ldmfd sp!, {r4, pc}
-_02009C24: .word unk_0208B874
-	arm_func_end FUN_02009a98
+_02009C24: .word FX_AtanIdxTable_
+	arm_func_end FX_Atan2Idx
 
 	arm_func_start FUN_02009c28
 FUN_02009c28: ; 0x02009C28
 	bx lr
 	arm_func_end FUN_02009c28
 
-	arm_func_start FUN_02009c2c
-FUN_02009c2c: ; 0x02009C2C
+	arm_func_start FX_AsinIdx
+FX_AsinIdx: ; 0x02009C2C
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	movge r2, #0
@@ -11439,7 +11439,7 @@ FUN_02009c2c: ; 0x02009C2C
 	cmp r2, r3
 	mov lr, r0, asr #0x10
 	bgt _02009C88
-	ldr r1, _02009CA8 ; =0x02087874
+	ldr r1, _02009CA8 ; =FX_SinCosTable_
 _02009C58:
 	add r0, r2, r3
 	add r0, r0, r0, lsr #31
@@ -11462,8 +11462,8 @@ _02009C88:
 	mov r0, r0, lsl #3
 	mov r0, r0, lsr #0x10
 	ldmfd sp!, {r3, pc}
-_02009CA8: .word unk_02087874
-	arm_func_end FUN_02009c2c
+_02009CA8: .word FX_SinCosTable_
+	arm_func_end FX_AsinIdx
 
 	arm_func_start CP_SaveContext
 CP_SaveContext: ; 0x02009CAC
@@ -38007,8 +38007,8 @@ FUN_0201f794: ; 0x0201F794
 	b _0201F7B4
 	arm_func_end FUN_0201f794
 
-	arm_func_start FUN_0201f7a4
-FUN_0201f7a4: ; 0x0201F7A4
+	arm_func_start _ll_sdiv
+_ll_sdiv: ; 0x0201F7A4
 	stmfd sp!, {r4, r5, r6, r7, r11, r12, lr}
 	eor r4, r1, r3
 	mov r4, r4, asr #1
@@ -38115,7 +38115,7 @@ _0201F8E4:
 	orr r0, r0, r1, lsl r7
 	mov r1, r1, lsr r5
 	b _0201F91C
-	arm_func_end FUN_0201f7a4
+	arm_func_end _ll_sdiv
 
 	arm_func_start FUN_0201f914
 FUN_0201f914: ; 0x0201F914
@@ -70437,7 +70437,7 @@ _0203B328:
 	ldr r0, [sp, #0x18]
 	sub r1, r1, r4
 	sub r0, r0, r6
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	strh r0, [r7, #0x40]
 	b _0203B408
 _0203B3B4:
@@ -70446,7 +70446,7 @@ _0203B3B4:
 	add r1, r0, #1
 	mov r2, r1, lsl #1
 	mov r1, r0, lsl #1
-	ldr r3, _0203B874 ; =0x02087874
+	ldr r3, _0203B874 ; =FX_SinCosTable_
 	ldr r0, [r7, #0x3c]
 	ldrsh r2, [r3, r2]
 	ldrsh r1, [r3, r1]
@@ -70768,7 +70768,7 @@ _0203B864: .word unk_02099F58
 _0203B868: .word unk_02099F38
 _0203B86C: .word 0x0000FFFB
 _0203B870: .word 0x00001333
-_0203B874: .word unk_02087874
+_0203B874: .word FX_SinCosTable_
 _0203B878: .word 0x00002710
 _0203B87C: .word 0x0000EFFF
 _0203B880: .word 0x0000F7FF
@@ -72363,7 +72363,7 @@ FUN_0203cdc4: ; 0x0203CDC4
 	mov r2, r2, asr #4
 	mov r2, r2, lsl #1
 	add r3, r2, #1
-	ldr r2, _0203CF30 ; =0x02087874
+	ldr r2, _0203CF30 ; =FX_SinCosTable_
 	mov r3, r3, lsl #1
 	ldrsh r2, [r2, r3]
 	ldr r0, [r0, #0x84]
@@ -72380,7 +72380,7 @@ FUN_0203cdc4: ; 0x0203CDC4
 	b _0203CEC8
 _0203CE8C:
 	mov r3, r2, asr #4
-	ldr r2, _0203CF30 ; =0x02087874
+	ldr r2, _0203CF30 ; =FX_SinCosTable_
 	mov r3, r3, lsl #2
 	ldrsh r2, [r2, r3]
 	ldr r0, [r0, #0x84]
@@ -72425,7 +72425,7 @@ _0203CF1C:
 _0203CF24: .word unk_0209A7FC
 _0203CF28: .word unk_02099EF0
 _0203CF2C: .word 0xB60B60B7
-_0203CF30: .word unk_02087874
+_0203CF30: .word FX_SinCosTable_
 	arm_func_end FUN_0203cdc4
 
 	arm_func_start FUN_0203cf34
@@ -75750,7 +75750,7 @@ FUN_0203fb5c: ; 0x0203FB5C
 	mov r0, r0, asr #4
 	mov r3, r0, lsl #1
 	add r0, r3, #1
-	ldr r2, _0203FBD0 ; =0x02087874
+	ldr r2, _0203FBD0 ; =FX_SinCosTable_
 	mov r1, r0, lsl #1
 	mov r0, r3, lsl #1
 	ldrsh r1, [r2, r1]
@@ -75772,7 +75772,7 @@ FUN_0203fb5c: ; 0x0203FB5C
 	str r3, [r5, #8]
 	str r0, [r5, #0xc]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0203FBD0: .word unk_02087874
+_0203FBD0: .word FX_SinCosTable_
 	arm_func_end FUN_0203fb5c
 
 	arm_func_start FUN_0203fbd4
@@ -75784,7 +75784,7 @@ FUN_0203fbd4: ; 0x0203FBD4
 	mov r0, r0, asr #4
 	mov r3, r0, lsl #1
 	add r0, r3, #1
-	ldr r1, _0203FC6C ; =0x02087874
+	ldr r1, _0203FC6C ; =FX_SinCosTable_
 	mov r2, r0, lsl #1
 	mov r0, r3, lsl #1
 	ldrsh r2, [r1, r2]
@@ -75815,7 +75815,7 @@ FUN_0203fbd4: ; 0x0203FBD4
 	str r1, [r6, #8]
 	str r0, [r6, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0203FC6C: .word unk_02087874
+_0203FC6C: .word FX_SinCosTable_
 	arm_func_end FUN_0203fbd4
 
 	arm_func_start FUN_0203fc70
@@ -75867,7 +75867,7 @@ _0203FCDC:
 	ldr r2, [r5]
 	ldr r1, [r9]
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	add r0, r0, #0x4000
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -75875,7 +75875,7 @@ _0203FCDC:
 	mov r1, r0, lsl #1
 	add r0, r1, #1
 	mov r2, r0, lsl #1
-	ldr r9, _0203FDEC ; =0x02087874
+	ldr r9, _0203FDEC ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	ldrsh r3, [r9, r2]
 	ldrsh r2, [r9, r1]
@@ -75898,7 +75898,7 @@ _0203FCDC:
 	ldr r1, [r4]
 	sub r0, r3, r0
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	add r0, r0, #0x4000
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -75921,7 +75921,7 @@ _0203FCDC:
 	bl FUN_01ff852c
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0203FDEC: .word unk_02087874
+_0203FDEC: .word FX_SinCosTable_
 	arm_func_end FUN_0203fc98
 
 	arm_func_start FUN_0203fdf0
@@ -76027,7 +76027,7 @@ _0203FF54:
 	mov r0, r7, asr #4
 	mov r3, r0, lsl #1
 	add r1, r3, #1
-	ldr r0, _02040114 ; =0x02087874
+	ldr r0, _02040114 ; =FX_SinCosTable_
 	mov r2, r2, lsl #1
 	ldrsh r6, [r0, r2]
 	mov r5, r5, lsl #1
@@ -76135,7 +76135,7 @@ _02040100:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02040110: .word 0x00007FFF
-_02040114: .word unk_02087874
+_02040114: .word FX_SinCosTable_
 	arm_func_end FUN_0203fdf0
 
 	arm_func_start FUN_02040118
@@ -76349,7 +76349,7 @@ FUN_02040388: ; 0x02040388
 	ldmia r0, {r1, r3}
 	sub r0, r12, r3
 	sub r1, r2, r1
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02040388
 
@@ -76361,7 +76361,7 @@ FUN_020403a8: ; 0x020403A8
 	ldr r3, [r0, #4]
 	sub r1, r2, r1
 	sub r0, r12, r3
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	add r0, r0, #0x10000
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -76472,13 +76472,13 @@ FUN_020404dc: ; 0x020404DC
 	sub r0, r6, r4
 	sub r1, r3, r5
 	mov r8, r2
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	ldr r1, [r7, #8]
 	ldr r2, [r7, #0xc]
 	mov r6, r0
 	sub r0, r2, r4
 	sub r1, r1, r5
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r2, r0
 	mov r3, #1
 	mov r1, r6
@@ -99915,7 +99915,7 @@ FUN_02053500: ; 0x02053500
 	ldr r0, [r1]
 	ldr r1, [r3]
 	mov r4, r2
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	strh r0, [r4]
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02053500
@@ -99926,7 +99926,7 @@ FUN_02053520: ; 0x02053520
 	mov r0, r0, asr #4
 	mov lr, r0, lsl #1
 	add r0, lr, #1
-	ldr r12, _02053550 ; =0x02087874
+	ldr r12, _02053550 ; =FX_SinCosTable_
 	mov r3, r0, lsl #1
 	mov r0, lr, lsl #1
 	ldrsh r3, [r12, r3]
@@ -99934,7 +99934,7 @@ FUN_02053520: ; 0x02053520
 	str r3, [r1]
 	str r0, [r2]
 	ldmfd sp!, {r3, pc}
-_02053550: .word unk_02087874
+_02053550: .word FX_SinCosTable_
 	arm_func_end FUN_02053520
 
 	arm_func_start FUN_02053554
@@ -100342,45 +100342,45 @@ FUN_02053a70: ; 0x02053A70
 	mov r7, r2, lsl #1
 	bl MTX_Identity43_
 	add r0, r8, #1
-	ldr r4, _02053B44 ; =0x02087874
+	ldr r4, _02053B44 ; =FX_SinCosTable_
 	mov r1, r8, lsl #1
 	mov r0, r0, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r0]
 	add r5, sp, #0
 	mov r0, r5
-	blx FUN_02008698
+	blx MTX_RotZ43_
 	mov r0, r9
 	mov r1, r5
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add r2, r7, #1
 	mov r1, r7, lsl #1
 	mov r2, r2, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r2]
 	mov r0, r5
-	blx FUN_0200867c
+	blx MTX_RotY43_
 	mov r0, r9
 	mov r1, r5
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add r2, r6, #1
 	mov r1, r6, lsl #1
 	mov r2, r2, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r2]
 	mov r0, r5
-	blx FUN_0200865c
+	blx MTX_RotX43_
 	mov r1, r5
 	mov r0, r9
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	add sp, sp, #0x10
 	bx lr
-_02053B44: .word unk_02087874
+_02053B44: .word FX_SinCosTable_
 	arm_func_end FUN_02053a70
 
 	arm_func_start FUN_02053b48
@@ -100400,45 +100400,45 @@ FUN_02053b48: ; 0x02053B48
 	mov r8, r1, lsl #1
 	bl MTX_Identity43_
 	add r0, r6, #1
-	ldr r4, _02053C1C ; =0x02087874
+	ldr r4, _02053C1C ; =FX_SinCosTable_
 	mov r1, r6, lsl #1
 	mov r0, r0, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r0]
 	add r5, sp, #0
 	mov r0, r5
-	blx FUN_0200865c
+	blx MTX_RotX43_
 	mov r0, r9
 	mov r1, r5
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add r2, r7, #1
 	mov r1, r7, lsl #1
 	mov r2, r2, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r2]
 	mov r0, r5
-	blx FUN_0200867c
+	blx MTX_RotY43_
 	mov r0, r9
 	mov r1, r5
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add r2, r8, #1
 	mov r1, r8, lsl #1
 	mov r2, r2, lsl #1
 	ldrsh r1, [r4, r1]
 	ldrsh r2, [r4, r2]
 	mov r0, r5
-	blx FUN_02008698
+	blx MTX_RotZ43_
 	mov r1, r5
 	mov r0, r9
 	mov r2, r9
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	add sp, sp, #0x10
 	bx lr
-_02053C1C: .word unk_02087874
+_02053C1C: .word FX_SinCosTable_
 	arm_func_end FUN_02053b48
 
 	arm_func_start FUN_02053c20
@@ -100526,7 +100526,7 @@ FUN_02053cf4: ; 0x02053CF4
 	mov r3, r2, lsl #1
 	add r2, r3, #1
 	mov r5, r3, lsl #1
-	ldr r6, _02053DEC ; =0x02087874
+	ldr r6, _02053DEC ; =FX_SinCosTable_
 	add r4, sp, #0xc
 	mov r3, r2, lsl #1
 	ldrsh r5, [r6, r5]
@@ -100574,7 +100574,7 @@ FUN_02053cf4: ; 0x02053CF4
 	str r1, [r7, #8]
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02053DEC: .word unk_02087874
+_02053DEC: .word FX_SinCosTable_
 	arm_func_end FUN_02053cf4
 
 	arm_func_start FUN_02053df0
@@ -108088,7 +108088,7 @@ _02059F10:
 	mov r0, r0, asr #4
 	mov r1, r0, lsl #1
 	add r0, r1, #1
-	ldr r2, _02059FA0 ; =0x02087874
+	ldr r2, _02059FA0 ; =FX_SinCosTable_
 	mov r1, r1, lsl #1
 	mov r0, r0, lsl #1
 	ldrsh r1, [r2, r1]
@@ -108111,7 +108111,7 @@ _02059F90: .word unk_02090888
 _02059F94: .word 0x01001000
 _02059F98: .word 0x00000DDB
 _02059F9C: .word 0x0B60B60B
-_02059FA0: .word unk_02087874
+_02059FA0: .word FX_SinCosTable_
 _02059FA4: .word unk_02099F24
 _02059FA8: .word 0x00001555
 	arm_func_end FUN_02059e58
@@ -110302,7 +110302,7 @@ _0205BBE0:
 	tst r0, #0x2000
 	bne _0205BC28
 	ldr r0, [r4, #0x84]
-	ldr r1, _0205BCA0 ; =0x02087874
+	ldr r1, _0205BCA0 ; =FX_SinCosTable_
 	ldrh r2, [r0, #0x18]
 	mov r0, #0
 	mov r2, r2, asr #4
@@ -110348,7 +110348,7 @@ _0205BC88:
 _0205BC94: .word unk_02099EB0
 _0205BC98: .word unk_02099EF0
 _0205BC9C: .word unk_02099EEC
-_0205BCA0: .word unk_02087874
+_0205BCA0: .word FX_SinCosTable_
 	arm_func_end FUN_0205b9b8
 
 	arm_func_start FUN_0205bca4
@@ -112960,11 +112960,11 @@ FUN_0205dec8: ; 0x0205DEC8
 	ldrsh r2, [r0, #2]
 	ldrsh r1, [r0]
 	mov r0, r4
-	blx FUN_0200867c
+	blx MTX_RotY43_
 	add r0, r5, #0x2c
 	mov r1, r4
 	mov r2, r0
-	bl FUN_02008a28
+	bl MTX_Concat43
 _0205DF90:
 	add r4, sp, #0
 	mov r0, r4
@@ -112978,9 +112978,9 @@ _0205DF90:
 	str lr, [sp, #0x24]
 	str r12, [sp, #0x28]
 	str r3, [sp, #0x2c]
-	bl FUN_02008a28
+	bl MTX_Concat43
 	ldr r0, [sp, #0x34]
-	ldr r1, _0205E018 ; =0x02087874
+	ldr r1, _0205E018 ; =FX_SinCosTable_
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
 	mov r0, r0, asr #4
@@ -112991,16 +112991,16 @@ _0205DF90:
 	ldrsh r2, [r1, r2]
 	ldrsh r1, [r1, r0]
 	mov r0, r4
-	blx FUN_0200867c
+	blx MTX_RotY43_
 	add r0, r5, #0x2c
 	mov r1, r4
 	mov r2, r0
-	bl FUN_02008a28
+	bl MTX_Concat43
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205E010: .word unk_020A0640
 _0205E014: .word unk_02089874
-_0205E018: .word unk_02087874
+_0205E018: .word FX_SinCosTable_
 	arm_func_end FUN_0205dec8
 
 	arm_func_start FUN_0205e01c
@@ -120459,7 +120459,7 @@ calcSrtCameraMtx_: ; 0x02064478
 	ldr r0, _020644CC ; =0x020B6E94
 	ldr r1, _020644D0 ; =0x020B6E24
 	mov r2, r4
-	bl FUN_02008a28
+	bl MTX_Concat43
 	ldr r3, _020644D4 ; =0x020B6DD8
 	mov r0, r4
 	ldr r2, [r3, #0xf4]
@@ -120467,7 +120467,7 @@ calcSrtCameraMtx_: ; 0x02064478
 	str r2, [sp]
 	ldr r2, [r3, #0xec]
 	ldr r3, [r3, #0xf0]
-	bl FUN_02008628
+	bl MTX_ScaleApply43
 	ldr r1, _020644D8 ; =0x020B6F38
 	mov r0, r4
 	bl MTX_Inverse43
@@ -122230,7 +122230,7 @@ _02065CFC:
 	mov r0, r4
 	mov r1, r11
 	mov r2, r4
-	bl FUN_02008e7c
+	bl MTX_Concat44
 _02065D14:
 	ldr r3, [sp, #0xb8]
 	ldr r2, [sp, #0xbc]
@@ -122440,7 +122440,7 @@ _02065FE8:
 	add r1, sp, #8
 _02066004:
 	mov r2, r4
-	bl FUN_02008e7c
+	bl MTX_Concat44
 _0206600C:
 	ldr r3, [sp, #0xb8]
 	ldr r2, [sp, #0xbc]
@@ -151098,7 +151098,7 @@ _0207D6F4:
 	smull r0, r1, r5, r0
 	mov r2, #0x3e8
 	mov r3, #0
-	bl FUN_0201f7a4
+	bl _ll_sdiv
 	ldrh r2, [r4, #0x9e]
 	ldrh r1, [r4, #0xa0]
 	mul r2, r0, r2
@@ -162759,8 +162759,8 @@ unk_02087818:
 	.byte 0x20, 0x68, 0x60, 0x68, 0x20, 0x00, 0x00, 0x68, 0x60, 0x68, 0x40, 0x00, 0x40, 0x68, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x68, 0x40, 0x68, 0x20, 0x00, 0x20, 0x68, 0x00, 0x00, 0x00, 0x00, 0x00, 0x68
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_02087874
-unk_02087874:
+	.global FX_SinCosTable_
+FX_SinCosTable_:
 	.byte 0x00, 0x00, 0x00, 0x10, 0x06, 0x00, 0x00, 0x10, 0x0D, 0x00, 0x00, 0x10
 	.byte 0x13, 0x00, 0x00, 0x10, 0x19, 0x00, 0x00, 0x10, 0x1F, 0x00, 0x00, 0x10, 0x26, 0x00, 0x00, 0x10
 	.byte 0x2C, 0x00, 0x00, 0x10, 0x32, 0x00, 0x00, 0x10, 0x39, 0x00, 0x00, 0x10, 0x3F, 0x00, 0x00, 0x10
@@ -163789,8 +163789,8 @@ unk_02089874:
 	.byte 0xC7, 0xFF, 0x00, 0x10, 0xCE, 0xFF, 0x00, 0x10, 0xD4, 0xFF, 0x00, 0x10, 0xDA, 0xFF, 0x00, 0x10
 	.byte 0xE1, 0xFF, 0x00, 0x10, 0xE7, 0xFF, 0x00, 0x10, 0xED, 0xFF, 0x00, 0x10, 0xF3, 0xFF, 0x00, 0x10
 	.byte 0xFA, 0xFF, 0x00, 0x10
-	.global unk_0208B874
-unk_0208B874:
+	.global FX_AtanIdxTable_
+FX_AtanIdxTable_:
 	.byte 0x00, 0x00, 0x51, 0x00, 0xA3, 0x00, 0xF4, 0x00, 0x46, 0x01, 0x97, 0x01
 	.byte 0xE9, 0x01, 0x3A, 0x02, 0x8B, 0x02, 0xDC, 0x02, 0x2D, 0x03, 0x7E, 0x03, 0xCF, 0x03, 0x20, 0x04
 	.byte 0x70, 0x04, 0xC1, 0x04, 0x11, 0x05, 0x61, 0x05, 0xB1, 0x05, 0x01, 0x06, 0x51, 0x06, 0xA0, 0x06

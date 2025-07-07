@@ -86,7 +86,7 @@
 .public FUN_02006be0
 .public FUN_02006ed0
 .public VEC_Distance
-.public FUN_02009a98
+.public FX_Atan2Idx
 .public FUN_02020af8
 .public FUN_02023c40
 .public FUN_02023fb0
@@ -205,7 +205,7 @@
 .public G2_GetBG3CharPtr
 .public GXS_LoadBG0Scr
 .public FUN_0200693c
-.public FUN_0200867c
+.public MTX_RotY43_
 .public FUN_0204201c
 .public FUN_0204331c
 .public FUN_0204451c
@@ -235,7 +235,7 @@
 .public FUN_0208670c
 .public GXS_LoadOBJPltt
 .public GXS_LoadOBJ
-.public FUN_02008698
+.public MTX_RotZ43_
 .public VEC_Add
 .public VEC_Subtract
 .public VEC_DotProduct
@@ -542,4 +542,4 @@
 .public unk_02099F54
 .public unk_02099F58
 .public unk_02099F78
-.public unk_02087874
+.public FX_SinCosTable_

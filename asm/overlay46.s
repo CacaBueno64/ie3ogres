@@ -3544,7 +3544,7 @@ _0211CEE0:
 	str r0, [sp, #4]
 	ldr r1, [sp, #4]
 	mov r0, r10
-	bl FUN_02009a98
+	bl FX_Atan2Idx
 	mov r9, r0
 	mul r0, r8, r11
 	ldr r2, [r4, #0x4f8]
