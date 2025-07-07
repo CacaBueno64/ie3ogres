@@ -13,9 +13,9 @@
 .public FUN_0200af48
 .public FUN_0200affc
 .public FUN_0200b61c
-.public FUN_0200b93c
-.public FUN_0200bb68
-.public FUN_0200be58
+.public SND_UnlockChannel
+.public SND_Init
+.public SND_FlushCommand
 .public FS_UnloadOverlay
 .public FUN_0201e0b8
 .public FUN_0201e08c

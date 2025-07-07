@@ -13412,20 +13412,20 @@ _0200B72C: .word 0x66666667
 _0200B730: .word 0x92492493
 	arm_func_end FUN_0200b678
 
-	arm_func_start FUN_0200b734
-FUN_0200b734: ; 0x0200B734
+	arm_func_start SND_StopSeq
+SND_StopSeq: ; 0x0200B734
 	stmfd sp!, {r3, lr}
 	mov r2, #0
 	mov r1, r0
 	mov r3, r2
 	mov r0, #1
 	str r2, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b734
+	arm_func_end SND_StopSeq
 
-	arm_func_start FUN_0200b754
-FUN_0200b754: ; 0x0200B754
+	arm_func_start SND_PrepareSeq
+SND_PrepareSeq: ; 0x0200B754
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r12, r2
@@ -13434,55 +13434,55 @@ FUN_0200b754: ; 0x0200B754
 	mov r2, lr
 	mov r3, r12
 	mov r0, #2
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b754
+	arm_func_end SND_PrepareSeq
 
-	arm_func_start FUN_0200b77c
-FUN_0200b77c: ; 0x0200B77C
+	arm_func_start SND_StartPreparedSeq
+SND_StartPreparedSeq: ; 0x0200B77C
 	stmfd sp!, {r3, lr}
 	mov r2, #0
 	mov r1, r0
 	mov r3, r2
 	mov r0, #3
 	str r2, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b77c
+	arm_func_end SND_StartPreparedSeq
 
-	arm_func_start FUN_0200b79c
-FUN_0200b79c: ; 0x0200B79C
-	ldr r12, _0200B7B0 ; =FUN_0200bad4
+	arm_func_start SND_SetPlayerVolume
+SND_SetPlayerVolume: ; 0x0200B79C
+	ldr r12, _0200B7B0 ; =SNDi_SetPlayerParam
 	mov r2, r1
 	mov r1, #6
 	mov r3, #2
 	bx r12
-_0200B7B0: .word FUN_0200bad4
-	arm_func_end FUN_0200b79c
+_0200B7B0: .word SNDi_SetPlayerParam
+	arm_func_end SND_SetPlayerVolume
 
-	arm_func_start FUN_0200b7b4
-FUN_0200b7b4: ; 0x0200B7B4
-	ldr r12, _0200B7C8 ; =FUN_0200bad4
+	arm_func_start SND_SetPlayerChannelPriority
+SND_SetPlayerChannelPriority: ; 0x0200B7B4
+	ldr r12, _0200B7C8 ; =SNDi_SetPlayerParam
 	mov r2, r1
 	mov r1, #4
 	mov r3, #1
 	bx r12
-_0200B7C8: .word FUN_0200bad4
-	arm_func_end FUN_0200b7b4
+_0200B7C8: .word SNDi_SetPlayerParam
+	arm_func_end SND_SetPlayerChannelPriority
 
-	arm_func_start FUN_0200b7cc
-FUN_0200b7cc: ; 0x0200B7CC
+	arm_func_start SND_SetTrackPitch
+SND_SetTrackPitch: ; 0x0200B7CC
 	stmfd sp!, {r3, lr}
 	mov r3, r2
 	mov r12, #2
 	mov r2, #0xc
 	str r12, [sp]
-	bl FUN_0200bafc
+	bl SNDi_SetTrackParam
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b7cc
+	arm_func_end SND_SetTrackPitch
 
-	arm_func_start FUN_0200b7e8
-FUN_0200b7e8: ; 0x0200B7E8
+	arm_func_start SND_SetTrackAllocatableChannel
+SND_SetTrackAllocatableChannel: ; 0x0200B7E8
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r3, r2
@@ -13491,12 +13491,12 @@ FUN_0200b7e8: ; 0x0200B7E8
 	mov r2, lr
 	mov r0, #9
 	str r12, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b7e8
+	arm_func_end SND_SetTrackAllocatableChannel
 
-	arm_func_start FUN_0200b810
-FUN_0200b810: ; 0x0200B810
+	arm_func_start SND_StartTimer
+SND_StartTimer: ; 0x0200B810
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r12, r2
@@ -13505,12 +13505,12 @@ FUN_0200b810: ; 0x0200B810
 	mov r2, lr
 	mov r3, r12
 	mov r0, #0xc
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b810
+	arm_func_end SND_StartTimer
 
-	arm_func_start FUN_0200b838
-FUN_0200b838: ; 0x0200B838
+	arm_func_start SND_StopTimer
+SND_StopTimer: ; 0x0200B838
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r2
 	mov r9, r0
@@ -13523,7 +13523,7 @@ _0200B858:
 	tst r5, #1
 	beq _0200B868
 	mov r0, r4
-	bl FUN_0200c2e0
+	bl SNDi_IncAlarmId
 _0200B868:
 	add r4, r4, #1
 	mov r5, r5, lsr #1
@@ -13538,12 +13538,12 @@ _0200B880:
 	mov r3, r7
 	mov r0, #0xd
 	str r6, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0200b838
+	arm_func_end SND_StopTimer
 
-	arm_func_start FUN_0200b89c
-FUN_0200b89c: ; 0x0200B89C
+	arm_func_start SND_SetupCapture
+SND_SetupCapture: ; 0x0200B89C
 	stmfd sp!, {r3, lr}
 	mov r1, r1, lsl #0x1e
 	orr r0, r1, r0, lsl #31
@@ -13558,12 +13558,12 @@ FUN_0200b89c: ; 0x0200B89C
 	orr r3, r0, r12, lsl #27
 	mov r0, #0x11
 	str lr, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b89c
+	arm_func_end SND_SetupCapture
 
-	arm_func_start FUN_0200b8dc
-FUN_0200b8dc: ; 0x0200B8DC
+	arm_func_start SND_SetupAlarm
+SND_SetupAlarm: ; 0x0200B8DC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r4, r2
@@ -13571,55 +13571,55 @@ FUN_0200b8dc: ; 0x0200B8DC
 	ldr r2, [sp, #0x18]
 	mov r6, r0
 	mov r1, r3
-	bl FUN_0200c300
+	bl SNDi_SetAlarmHandler
 	str r0, [sp]
 	mov r1, r6
 	mov r2, r5
 	mov r3, r4
 	mov r0, #0x12
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_0200b8dc
+	arm_func_end SND_SetupAlarm
 
-	arm_func_start FUN_0200b91c
-FUN_0200b91c: ; 0x0200B91C
+	arm_func_start SND_LockChannel
+SND_LockChannel: ; 0x0200B91C
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x1a
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b91c
+	arm_func_end SND_LockChannel
 
-	arm_func_start FUN_0200b93c
-FUN_0200b93c: ; 0x0200B93C
+	arm_func_start SND_UnlockChannel
+SND_UnlockChannel: ; 0x0200B93C
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x1b
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b93c
+	arm_func_end SND_UnlockChannel
 
-	arm_func_start FUN_0200b95c
-FUN_0200b95c: ; 0x0200B95C
+	arm_func_start SND_SetChannelTimer
+SND_SetChannelTimer: ; 0x0200B95C
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x13
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b95c
+	arm_func_end SND_SetChannelTimer
 
-	arm_func_start FUN_0200b97c
-FUN_0200b97c: ; 0x0200B97C
+	arm_func_start SND_SetChannelVolume
+SND_SetChannelVolume: ; 0x0200B97C
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r3, r2
@@ -13628,24 +13628,24 @@ FUN_0200b97c: ; 0x0200B97C
 	mov r2, lr
 	mov r0, #0x14
 	str r12, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b97c
+	arm_func_end SND_SetChannelVolume
 
-	arm_func_start FUN_0200b9a4
-FUN_0200b9a4: ; 0x0200B9A4
+	arm_func_start SND_SetChannelPan
+SND_SetChannelPan: ; 0x0200B9A4
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x15
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200b9a4
+	arm_func_end SND_SetChannelPan
 
-	arm_func_start FUN_0200b9c4
-FUN_0200b9c4: ; 0x0200B9C4
+	arm_func_start SND_SetupChannelPcm
+SND_SetupChannelPcm: ; 0x0200B9C4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r12, [sp, #0x1c]
 	mov r1, r1, lsl #0x18
@@ -13663,12 +13663,12 @@ FUN_0200b9c4: ; 0x0200B9C4
 	orr r3, r12, r3
 	mov r0, #0xe
 	str r4, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200b9c4
+	arm_func_end SND_SetupChannelPcm
 
-	arm_func_start FUN_0200ba10
-FUN_0200ba10: ; 0x0200BA10
+	arm_func_start SND_SetupChannelPsg
+SND_SetupChannelPsg: ; 0x0200BA10
 	stmfd sp!, {r3, lr}
 	ldr lr, [sp, #8]
 	ldr r12, [sp, #0xc]
@@ -13677,12 +13677,12 @@ FUN_0200ba10: ; 0x0200BA10
 	mov r1, r0
 	orr r3, r12, lr, lsl #8
 	mov r0, #0xf
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200ba10
+	arm_func_end SND_SetupChannelPsg
 
-	arm_func_start FUN_0200ba38
-FUN_0200ba38: ; 0x0200BA38
+	arm_func_start SND_SetupChannelNoise
+SND_SetupChannelNoise: ; 0x0200BA38
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r12, [sp, #0x10]
@@ -13693,37 +13693,37 @@ FUN_0200ba38: ; 0x0200BA38
 	orr r3, r12, r3, lsl #8
 	mov r0, #0x10
 	str lr, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_0200ba38
+	arm_func_end SND_SetupChannelNoise
 
-	arm_func_start FUN_0200ba6c
-FUN_0200ba6c: ; 0x0200BA6C
+	arm_func_start SND_InvalidateBankData
+SND_InvalidateBankData: ; 0x0200BA6C
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x1f
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200ba6c
+	arm_func_end SND_InvalidateBankData
 
-	arm_func_start FUN_0200ba8c
-FUN_0200ba8c: ; 0x0200BA8C
+	arm_func_start SND_InvalidateWaveData
+SND_InvalidateWaveData: ; 0x0200BA8C
 	stmfd sp!, {r3, lr}
 	mov r2, r1
 	mov r3, #0
 	mov r1, r0
 	mov r0, #0x20
 	str r3, [sp]
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200ba8c
+	arm_func_end SND_InvalidateWaveData
 
-	arm_func_start FUN_0200baac
-FUN_0200baac: ; 0x0200BAAC
+	arm_func_start SND_SetOutputSelector
+SND_SetOutputSelector: ; 0x0200BAAC
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r12, r2
@@ -13732,12 +13732,12 @@ FUN_0200baac: ; 0x0200BAAC
 	mov r2, lr
 	mov r3, r12
 	mov r0, #0x19
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200baac
+	arm_func_end SND_SetOutputSelector
 
-	arm_func_start FUN_0200bad4
-FUN_0200bad4: ; 0x0200BAD4
+	arm_func_start SNDi_SetPlayerParam
+SNDi_SetPlayerParam: ; 0x0200BAD4
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r12, r2
@@ -13746,12 +13746,12 @@ FUN_0200bad4: ; 0x0200BAD4
 	mov r2, lr
 	mov r3, r12
 	mov r0, #6
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200bad4
+	arm_func_end SNDi_SetPlayerParam
 
-	arm_func_start FUN_0200bafc
-FUN_0200bafc: ; 0x0200BAFC
+	arm_func_start SNDi_SetTrackParam
+SNDi_SetTrackParam: ; 0x0200BAFC
 	stmfd sp!, {r3, lr}
 	ldr r12, [sp, #8]
 	mov lr, r2
@@ -13760,19 +13760,19 @@ FUN_0200bafc: ; 0x0200BAFC
 	orr r1, r0, r12, lsl #24
 	mov r3, lr
 	mov r0, #7
-	bl FUN_0200bb24
+	bl PushCommand_impl
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200bafc
+	arm_func_end SNDi_SetTrackParam
 
-	arm_func_start FUN_0200bb24
-FUN_0200bb24: ; 0x0200BB24
+	arm_func_start PushCommand_impl
+PushCommand_impl: ; 0x0200BB24
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r0, #1
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_0200bd98
+	bl SND_AllocCommand
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	str r7, [r0, #4]
@@ -13781,52 +13781,52 @@ FUN_0200bb24: ; 0x0200BB24
 	ldr r1, [sp, #0x18]
 	str r4, [r0, #0x10]
 	str r1, [r0, #0x14]
-	bl FUN_0200be20
+	bl SND_PushCommand
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200bb24
+	arm_func_end PushCommand_impl
 
-	arm_func_start FUN_0200bb68
-FUN_0200bb68: ; 0x0200BB68
+	arm_func_start SND_Init
+SND_Init: ; 0x0200BB68
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200BB98 ; =0x02093DC8
+	ldr r1, _0200BB98 ; =initialized_0x2093DC8
 	ldr r0, [r1]
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
-	ldr r0, _0200BB9C ; =0x02093DCC
+	ldr r0, _0200BB9C ; =sSndMutex
 	mov r2, #1
 	str r2, [r1]
 	bl OS_InitMutex
-	bl FUN_0200bbc8
-	bl FUN_0200c2a8
+	bl SND_CommandInit
+	bl SND_AlarmInit
 	ldmfd sp!, {r3, pc}
-_0200BB98: .word unk_02093DC8
-_0200BB9C: .word unk_02093DCC
-	arm_func_end FUN_0200bb68
+_0200BB98: .word initialized_0x2093DC8
+_0200BB9C: .word sSndMutex
+	arm_func_end SND_Init
 
-	arm_func_start FUN_0200bba0
-FUN_0200bba0: ; 0x0200BBA0
-	ldr r0, _0200BBAC ; =0x02093DCC
+	arm_func_start SNDi_LockMutex
+SNDi_LockMutex: ; 0x0200BBA0
+	ldr r0, _0200BBAC ; =sSndMutex
 	ldr r12, _0200BBB0 ; =OS_LockMutex
 	bx r12
-_0200BBAC: .word unk_02093DCC
+_0200BBAC: .word sSndMutex
 _0200BBB0: .word OS_LockMutex
-	arm_func_end FUN_0200bba0
+	arm_func_end SNDi_LockMutex
 
-	arm_func_start FUN_0200bbb4
-FUN_0200bbb4: ; 0x0200BBB4
-	ldr r0, _0200BBC0 ; =0x02093DCC
+	arm_func_start SNDi_UnlockMutex
+SNDi_UnlockMutex: ; 0x0200BBB4
+	ldr r0, _0200BBC0 ; =sSndMutex
 	ldr r12, _0200BBC4 ; =OS_UnlockMutex
 	bx r12
-_0200BBC0: .word unk_02093DCC
+_0200BBC0: .word sSndMutex
 _0200BBC4: .word OS_UnlockMutex
-	arm_func_end FUN_0200bbb4
+	arm_func_end SNDi_UnlockMutex
 
-	arm_func_start FUN_0200bbc8
-FUN_0200bbc8: ; 0x0200BBC8
+	arm_func_start SND_CommandInit
+SND_CommandInit: ; 0x0200BBC8
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_0200c194
-	ldr r5, _0200BC80 ; =0x020940C0
-	ldr r0, _0200BC84 ; =0x02093DE4
+	bl InitPXI
+	ldr r5, _0200BC80 ; =sCommandArray
+	ldr r0, _0200BC84 ; =sFreeList
 	mov r12, #0
 	str r5, [r0]
 	mov r0, #0x18
@@ -13845,7 +13845,7 @@ _0200BC00:
 	mov r3, #0
 	str r3, [r0, #0x7e8]
 	ldr r2, _0200BC8C ; =0x020958A8
-	ldr r1, _0200BC84 ; =0x02093DE4
+	ldr r1, _0200BC84 ; =sFreeList
 	mov r5, #1
 	str r2, [r1, #0x10]
 	str r3, [r1, #8]
@@ -13854,41 +13854,41 @@ _0200BC00:
 	str r3, [r1, #0x14]
 	str r3, [r1, #0x18]
 	str r5, [r1, #0x20]
-	ldr r0, _0200BC90 ; =0x02093E40
-	ldr r4, _0200BC94 ; =0x02095920
+	ldr r0, _0200BC90 ; =sSharedWork
+	ldr r4, _0200BC94 ; =SNDi_SharedWork
 	str r3, [r1, #4]
 	str r0, [r4]
-	bl FUN_0200c3e8
+	bl SNDi_InitSharedWork
 	mov r0, r5
-	bl FUN_0200bd98
+	bl SND_AllocCommand
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r1, #0x1d
 	str r1, [r0, #4]
 	ldr r1, [r4]
 	str r1, [r0, #8]
-	bl FUN_0200be20
+	bl SND_PushCommand
 	mov r0, r5
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	ldmfd sp!, {r3, r4, r5, pc}
-_0200BC80: .word unk_020940C0
-_0200BC84: .word unk_02093DE4
+_0200BC80: .word sCommandArray
+_0200BC84: .word sFreeList
 _0200BC88: .word unk_020950C0
 _0200BC8C: .word unk_020958A8
-_0200BC90: .word unk_02093E40
-_0200BC94: .word unk_02095920
-	arm_func_end FUN_0200bbc8
+_0200BC90: .word sSharedWork
+_0200BC94: .word SNDi_SharedWork
+	arm_func_end SND_CommandInit
 
-	arm_func_start FUN_0200bc98
-FUN_0200bc98: ; 0x0200BC98
+	arm_func_start SND_RecvCommandReply
+SND_RecvCommandReply: ; 0x0200BC98
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
-	ldr r6, _0200BD90 ; =0x02093DE4
+	ldr r6, _0200BD90 ; =sFreeList
 	bl OS_DisableInterrupts
 	mov r4, r0
 	tst r5, #1
 	beq _0200BCF4
-	bl FUN_0200c3c4
+	bl SNDi_GetFinishedCommandTag
 	ldr r1, [r6, #4]
 	cmp r1, r0
 	bne _0200BD14
@@ -13900,13 +13900,13 @@ _0200BCC8:
 	bl OS_SpinWaitSysCycles
 	bl OS_DisableInterrupts
 	mov r4, r0
-	bl FUN_0200c3c4
+	bl SNDi_GetFinishedCommandTag
 	ldr r1, [r6, #4]
 	cmp r1, r0
 	beq _0200BCC8
 	b _0200BD14
 _0200BCF4:
-	bl FUN_0200c3c4
+	bl SNDi_GetFinishedCommandTag
 	ldr r1, [r6, #4]
 	cmp r1, r0
 	bne _0200BD14
@@ -13916,7 +13916,7 @@ _0200BCF4:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0200BD14:
 	ldr r2, [r6, #0x14]
-	ldr r1, _0200BD94 ; =0x02093E08
+	ldr r1, _0200BD94 ; =sWaitingCommandListQueue
 	add r0, r2, #1
 	ldr r5, [r1, r2, lsl #2]
 	cmp r0, #8
@@ -13948,58 +13948,58 @@ _0200BD54:
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-_0200BD90: .word unk_02093DE4
-_0200BD94: .word unk_02093E08
-	arm_func_end FUN_0200bc98
+_0200BD90: .word sFreeList
+_0200BD94: .word sWaitingCommandListQueue
+	arm_func_end SND_RecvCommandReply
 
-	arm_func_start FUN_0200bd98
-FUN_0200bd98: ; 0x0200BD98
+	arm_func_start SND_AllocCommand
+SND_AllocCommand: ; 0x0200BD98
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0200c268
+	bl IsCommandAvailable
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0200c220
+	bl AllocCommand
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	tst r4, #1
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0200c154
+	bl SND_CountWaitingCommand
 	cmp r0, #0
 	ble _0200BDF8
 	mov r4, #0
 _0200BDD8:
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	cmp r0, #0
 	bne _0200BDD8
-	bl FUN_0200c220
+	bl AllocCommand
 	cmp r0, #0
 	beq _0200BE00
 	ldmfd sp!, {r4, pc}
 _0200BDF8:
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 _0200BE00:
-	bl FUN_0200c1f8
+	bl RequestCommandProc
 	mov r4, #1
 _0200BE08:
 	mov r0, r4
-	bl FUN_0200bc98
-	bl FUN_0200c220
+	bl SND_RecvCommandReply
+	bl AllocCommand
 	cmp r0, #0
 	beq _0200BE08
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200bd98
+	arm_func_end SND_AllocCommand
 
-	arm_func_start FUN_0200be20
-FUN_0200be20: ; 0x0200BE20
+	arm_func_start SND_PushCommand
+SND_PushCommand: ; 0x0200BE20
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r1, _0200BE54 ; =0x02093DE4
+	ldr r1, _0200BE54 ; =sFreeList
 	ldr r2, [r1, #0xc]
 	cmp r2, #0
 	streq r4, [r1, #8]
@@ -14009,16 +14009,16 @@ FUN_0200be20: ; 0x0200BE20
 	str r1, [r4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0200BE54: .word unk_02093DE4
-	arm_func_end FUN_0200be20
+_0200BE54: .word sFreeList
+	arm_func_end SND_PushCommand
 
-	arm_func_start FUN_0200be58
-FUN_0200be58: ; 0x0200BE58
+	arm_func_start SND_FlushCommand
+SND_FlushCommand: ; 0x0200BE58
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r8, r0
 	mov r5, #0
 	bl OS_DisableInterrupts
-	ldr r9, _0200BFE8 ; =0x02093DE4
+	ldr r9, _0200BFE8 ; =sFreeList
 	mov r7, r0
 	ldr r1, [r9, #8]
 	cmp r1, #0
@@ -14039,7 +14039,7 @@ _0200BEA8:
 	mov r4, #1
 _0200BEAC:
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	ldr r0, [r9, #0x1c]
 	cmp r0, #8
 	bge _0200BEAC
@@ -14051,7 +14051,7 @@ _0200BEAC:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0200BEDC:
-	ldr r6, _0200BFEC ; =0x020940C0
+	ldr r6, _0200BFEC ; =sCommandArray
 	mov r1, #0x1800
 	mov r0, r6
 	bl DC_FlushRange
@@ -14075,7 +14075,7 @@ _0200BF28:
 	mov r0, r7
 	bl OS_RestoreInterrupts
 	mov r0, r5
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	bl OS_DisableInterrupts
 	mov r7, r0
 	mov r0, r6
@@ -14101,7 +14101,7 @@ _0200BF68:
 _0200BF8C:
 	ldr r2, [r9, #0x18]
 	ldr r3, [r9, #8]
-	ldr r1, _0200BFF0 ; =0x02093E08
+	ldr r1, _0200BFF0 ; =sWaitingCommandListQueue
 	add r0, r2, #1
 	str r3, [r1, r2, lsl #2]
 	str r0, [r9, #0x18]
@@ -14119,53 +14119,53 @@ _0200BF8C:
 	bl OS_RestoreInterrupts
 	tst r8, #2
 	beq _0200BFE0
-	bl FUN_0200c1f8
+	bl RequestCommandProc
 _0200BFE0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0200BFE8: .word unk_02093DE4
-_0200BFEC: .word unk_020940C0
-_0200BFF0: .word unk_02093E08
-	arm_func_end FUN_0200be58
+_0200BFE8: .word sFreeList
+_0200BFEC: .word sCommandArray
+_0200BFF0: .word sWaitingCommandListQueue
+	arm_func_end SND_FlushCommand
 
-	arm_func_start FUN_0200bff4
-FUN_0200bff4: ; 0x0200BFF4
+	arm_func_start SND_WaitForCommandProc
+SND_WaitForCommandProc: ; 0x0200BFF4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_0200c08c
+	bl SND_IsFinishedCommandTag
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #0
 _0200C00C:
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	cmp r0, #0
 	bne _0200C00C
 	mov r0, r5
-	bl FUN_0200c08c
+	bl SND_IsFinishedCommandTag
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_0200c1f8
+	bl RequestCommandProc
 	mov r0, r5
-	bl FUN_0200c08c
+	bl SND_IsFinishedCommandTag
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #1
 _0200C044:
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	mov r0, r5
-	bl FUN_0200c08c
+	bl SND_IsFinishedCommandTag
 	cmp r0, #0
 	beq _0200C044
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200bff4
+	arm_func_end SND_WaitForCommandProc
 
-	arm_func_start FUN_0200c060
-FUN_0200c060: ; 0x0200C060
+	arm_func_start SND_GetCurrentCommandTag
+SND_GetCurrentCommandTag: ; 0x0200C060
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _0200C088 ; =0x02093DE4
+	ldr r1, _0200C088 ; =sFreeList
 	ldr r2, [r1, #8]
 	cmp r2, #0
 	ldreq r4, [r1, #4]
@@ -14173,15 +14173,15 @@ FUN_0200c060: ; 0x0200C060
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200C088: .word unk_02093DE4
-	arm_func_end FUN_0200c060
+_0200C088: .word sFreeList
+	arm_func_end SND_GetCurrentCommandTag
 
-	arm_func_start FUN_0200c08c
-FUN_0200c08c: ; 0x0200C08C
+	arm_func_start SND_IsFinishedCommandTag
+SND_IsFinishedCommandTag: ; 0x0200C08C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r1, _0200C0D8 ; =0x02093DE4
+	ldr r1, _0200C0D8 ; =sFreeList
 	ldr r1, [r1, #4]
 	cmp r4, r1
 	bls _0200C0BC
@@ -14199,14 +14199,14 @@ _0200C0CC:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200C0D8: .word unk_02093DE4
-	arm_func_end FUN_0200c08c
+_0200C0D8: .word sFreeList
+	arm_func_end SND_IsFinishedCommandTag
 
-	arm_func_start FUN_0200c0dc
-FUN_0200c0dc: ; 0x0200C0DC
+	arm_func_start SND_CountFreeCommand
+SND_CountFreeCommand: ; 0x0200C0DC
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _0200C114 ; =0x02093DE4
+	ldr r1, _0200C114 ; =sFreeList
 	mov r4, #0
 	ldr r1, [r1]
 	cmp r1, #0
@@ -14220,14 +14220,14 @@ _0200C108:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200C114: .word unk_02093DE4
-	arm_func_end FUN_0200c0dc
+_0200C114: .word sFreeList
+	arm_func_end SND_CountFreeCommand
 
-	arm_func_start FUN_0200c118
-FUN_0200c118: ; 0x0200C118
+	arm_func_start SND_CountReservedCommand
+SND_CountReservedCommand: ; 0x0200C118
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _0200C150 ; =0x02093DE4
+	ldr r1, _0200C150 ; =sFreeList
 	mov r4, #0
 	ldr r1, [r1, #8]
 	cmp r1, #0
@@ -14241,41 +14241,41 @@ _0200C144:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200C150: .word unk_02093DE4
-	arm_func_end FUN_0200c118
+_0200C150: .word sFreeList
+	arm_func_end SND_CountReservedCommand
 
-	arm_func_start FUN_0200c154
-FUN_0200c154: ; 0x0200C154
+	arm_func_start SND_CountWaitingCommand
+SND_CountWaitingCommand: ; 0x0200C154
 	stmfd sp!, {r4, lr}
-	bl FUN_0200c0dc
+	bl SND_CountFreeCommand
 	mov r4, r0
-	bl FUN_0200c118
+	bl SND_CountReservedCommand
 	rsb r1, r4, #0x100
 	sub r0, r1, r0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200c154
+	arm_func_end SND_CountWaitingCommand
 
-	arm_func_start FUN_0200c170
-FUN_0200c170: ; 0x0200C170
+	arm_func_start PxiFifoCallback
+PxiFifoCallback: ; 0x0200C170
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
 	bl OS_DisableInterrupts
 	mov r4, r0
 	mov r0, r5
-	bl FUN_0200c330
+	bl SNDi_CallAlarmHandler
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c170
+	arm_func_end PxiFifoCallback
 
-	arm_func_start FUN_0200c194
-FUN_0200c194: ; 0x0200C194
+	arm_func_start InitPXI
+InitPXI: ; 0x0200C194
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, #7
-	ldr r1, _0200C1F4 ; =FUN_0200c170
+	ldr r1, _0200C1F4 ; =PxiFifoCallback
 	mov r0, r4
 	bl PXI_SetFifoRecvCallback
-	bl FUN_0200c268
+	bl IsCommandAvailable
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r4
@@ -14295,11 +14295,11 @@ _0200C1D4:
 	cmp r0, #0
 	beq _0200C1D4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0200C1F4: .word FUN_0200c170
-	arm_func_end FUN_0200c194
+_0200C1F4: .word PxiFifoCallback
+	arm_func_end InitPXI
 
-	arm_func_start FUN_0200c1f8
-FUN_0200c1f8: ; 0x0200C1F8
+	arm_func_start RequestCommandProc
+RequestCommandProc: ; 0x0200C1F8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #7
 	mov r4, #0
@@ -14311,13 +14311,13 @@ _0200C204:
 	cmp r0, #0
 	blt _0200C204
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c1f8
+	arm_func_end RequestCommandProc
 
-	arm_func_start FUN_0200c220
-FUN_0200c220: ; 0x0200C220
+	arm_func_start AllocCommand
+AllocCommand: ; 0x0200C220
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _0200C264 ; =0x02093DE4
+	ldr r1, _0200C264 ; =sFreeList
 	ldr r4, [r1]
 	cmp r4, #0
 	bne _0200C244
@@ -14333,11 +14333,11 @@ _0200C244:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200C264: .word unk_02093DE4
-	arm_func_end FUN_0200c220
+_0200C264: .word sFreeList
+	arm_func_end AllocCommand
 
-	arm_func_start FUN_0200c268
-FUN_0200c268: ; 0x0200C268
+	arm_func_start IsCommandAvailable
+IsCommandAvailable: ; 0x0200C268
 	stmfd sp!, {r4, lr}
 	bl OS_IsRunOnEmulator
 	cmp r0, #0
@@ -14354,12 +14354,12 @@ FUN_0200c268: ; 0x0200C268
 	moveq r0, #0
 	ldmfd sp!, {r4, pc}
 _0200C2A4: .word 0x04FFF200
-	arm_func_end FUN_0200c268
+	arm_func_end IsCommandAvailable
 
-	arm_func_start FUN_0200c2a8
-FUN_0200c2a8: ; 0x0200C2A8
+	arm_func_start SND_AlarmInit
+SND_AlarmInit: ; 0x0200C2A8
 	mov r12, #0
-	ldr r3, _0200C2DC ; =0x020958C0
+	ldr r3, _0200C2DC ; =sCallbackTable
 	mov r1, r12
 	mov r0, #0xc
 _0200C2B8:
@@ -14372,26 +14372,26 @@ _0200C2B8:
 	cmp r12, #8
 	blt _0200C2B8
 	bx lr
-_0200C2DC: .word unk_020958C0
-	arm_func_end FUN_0200c2a8
+_0200C2DC: .word sCallbackTable
+	arm_func_end SND_AlarmInit
 
-	arm_func_start FUN_0200c2e0
-FUN_0200c2e0: ; 0x0200C2E0
-	ldr r2, _0200C2FC ; =0x020958C0
+	arm_func_start SNDi_IncAlarmId
+SNDi_IncAlarmId: ; 0x0200C2E0
+	ldr r2, _0200C2FC ; =sCallbackTable
 	mov r1, #0xc
 	mla r1, r0, r1, r2
 	ldrb r0, [r1, #8]
 	add r0, r0, #1
 	strb r0, [r1, #8]
 	bx lr
-_0200C2FC: .word unk_020958C0
-	arm_func_end FUN_0200c2e0
+_0200C2FC: .word sCallbackTable
+	arm_func_end SNDi_IncAlarmId
 
-	arm_func_start FUN_0200c300
-FUN_0200c300: ; 0x0200C300
+	arm_func_start SNDi_SetAlarmHandler
+SNDi_SetAlarmHandler: ; 0x0200C300
 	mov r3, #0xc
 	mul r3, r0, r3
-	ldr r0, _0200C32C ; =0x020958C0
+	ldr r0, _0200C32C ; =sCallbackTable
 	str r1, [r0, r3]
 	add r1, r0, r3
 	str r2, [r1, #4]
@@ -14400,13 +14400,13 @@ FUN_0200c300: ; 0x0200C300
 	strb r0, [r1, #8]
 	and r0, r0, #0xff
 	bx lr
-_0200C32C: .word unk_020958C0
-	arm_func_end FUN_0200c300
+_0200C32C: .word sCallbackTable
+	arm_func_end SNDi_SetAlarmHandler
 
-	arm_func_start FUN_0200c330
-FUN_0200c330: ; 0x0200C330
+	arm_func_start SNDi_CallAlarmHandler
+SNDi_CallAlarmHandler: ; 0x0200C330
 	stmfd sp!, {r3, lr}
-	ldr r3, _0200C370 ; =0x020958C0
+	ldr r3, _0200C370 ; =sCallbackTable
 	and r2, r0, #0xff
 	mov r1, #0xc
 	mla r3, r2, r1, r3
@@ -14421,13 +14421,13 @@ FUN_0200c330: ; 0x0200C330
 	ldr r0, [r3, #4]
 	blx r1
 	ldmfd sp!, {r3, pc}
-_0200C370: .word unk_020958C0
-	arm_func_end FUN_0200c330
+_0200C370: .word sCallbackTable
+	arm_func_end SNDi_CallAlarmHandler
 
-	arm_func_start FUN_0200c374
-FUN_0200c374: ; 0x0200C374
+	arm_func_start SND_GetPlayerStatus
+SND_GetPlayerStatus: ; 0x0200C374
 	stmfd sp!, {r4, lr}
-	ldr r4, _0200C398 ; =0x02095920
+	ldr r4, _0200C398 ; =SNDi_SharedWork
 	mov r1, #4
 	ldr r0, [r4]
 	add r0, r0, #4
@@ -14435,13 +14435,13 @@ FUN_0200c374: ; 0x0200C374
 	ldr r0, [r4]
 	ldr r0, [r0, #4]
 	ldmfd sp!, {r4, pc}
-_0200C398: .word unk_02095920
-	arm_func_end FUN_0200c374
+_0200C398: .word SNDi_SharedWork
+	arm_func_end SND_GetPlayerStatus
 
-	arm_func_start FUN_0200c39c
-FUN_0200c39c: ; 0x0200C39C
+	arm_func_start SND_GetChannelStatus
+SND_GetChannelStatus: ; 0x0200C39C
 	stmfd sp!, {r4, lr}
-	ldr r4, _0200C3C0 ; =0x02095920
+	ldr r4, _0200C3C0 ; =SNDi_SharedWork
 	mov r1, #2
 	ldr r0, [r4]
 	add r0, r0, #8
@@ -14449,24 +14449,24 @@ FUN_0200c39c: ; 0x0200C39C
 	ldr r0, [r4]
 	ldrh r0, [r0, #8]
 	ldmfd sp!, {r4, pc}
-_0200C3C0: .word unk_02095920
-	arm_func_end FUN_0200c39c
+_0200C3C0: .word SNDi_SharedWork
+	arm_func_end SND_GetChannelStatus
 
-	arm_func_start FUN_0200c3c4
-FUN_0200c3c4: ; 0x0200C3C4
+	arm_func_start SNDi_GetFinishedCommandTag
+SNDi_GetFinishedCommandTag: ; 0x0200C3C4
 	stmfd sp!, {r4, lr}
-	ldr r4, _0200C3E4 ; =0x02095920
+	ldr r4, _0200C3E4 ; =SNDi_SharedWork
 	mov r1, #4
 	ldr r0, [r4]
 	bl DC_InvalidateRange
 	ldr r0, [r4]
 	ldr r0, [r0]
 	ldmfd sp!, {r4, pc}
-_0200C3E4: .word unk_02095920
-	arm_func_end FUN_0200c3c4
+_0200C3E4: .word SNDi_SharedWork
+	arm_func_end SNDi_GetFinishedCommandTag
 
-	arm_func_start FUN_0200c3e8
-FUN_0200c3e8: ; 0x0200C3E8
+	arm_func_start SNDi_InitSharedWork
+SNDi_InitSharedWork: ; 0x0200C3E8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov lr, #0
 	str lr, [r0, #4]
@@ -14501,10 +14501,10 @@ _0200C440:
 	mov r1, #0x280
 	bl DC_FlushRange
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c3e8
+	arm_func_end SNDi_InitSharedWork
 
-	arm_func_start FUN_0200c464
-FUN_0200c464: ; 0x0200C464
+	arm_func_start SND_CalcChannelVolume
+SND_CalcChannelVolume: ; 0x0200C464
 	ldr r1, _0200C4CC ; =0xFFFFFD2D
 	cmp r0, r1
 	movlt r0, r1
@@ -14515,7 +14515,7 @@ _0200C47C:
 	add r1, r0, #0xd3
 	mvn r2, #0xef
 	cmp r0, r2
-	ldr r3, _0200C4D0 ; =0x0208BAA0
+	ldr r3, _0200C4D0 ; =VolumeTable
 	add r1, r1, #0x200
 	ldrb r3, [r3, r1]
 	movlt r0, #3
@@ -14534,23 +14534,23 @@ _0200C4BC:
 	mov r0, r0, lsr #0x10
 	bx lr
 _0200C4CC: .word 0xFFFFFD2D
-_0200C4D0: .word unk_0208BAA0
-	arm_func_end FUN_0200c464
+_0200C4D0: .word VolumeTable
+	arm_func_end SND_CalcChannelVolume
 
-	arm_func_start FUN_0200c4d4
-FUN_0200c4d4: ; 0x0200C4D4
+	arm_func_start SND_AssignWaveArc
+SND_AssignWaveArc: ; 0x0200C4D4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_0200bba0
+	bl SNDi_LockMutex
 	add r3, r6, r5, lsl #3
 	ldr r2, [r3, #0x18]
 	cmp r2, #0
 	beq _0200C564
 	cmp r4, r2
 	bne _0200C508
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	ldmfd sp!, {r4, r5, r6, pc}
 _0200C508:
 	add r1, r6, #0x18
@@ -14588,7 +14588,7 @@ _0200C564:
 	add r0, r6, r5, lsl #3
 	str r1, [r0, #0x1c]
 	str r4, [r0, #0x18]
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	mov r5, #0x3c
 	mov r0, r6
 	mov r1, r5
@@ -14597,13 +14597,13 @@ _0200C564:
 	mov r1, r5
 	bl DC_StoreRange
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200c4d4
+	arm_func_end SND_AssignWaveArc
 
-	arm_func_start FUN_0200c5a4
-FUN_0200c5a4: ; 0x0200C5A4
+	arm_func_start SND_DestroyBank
+SND_DestroyBank: ; 0x0200C5A4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
-	bl FUN_0200bba0
+	bl SNDi_LockMutex
 	mov r6, #0
 	add r5, r7, #0x18
 	mov r8, #8
@@ -14643,15 +14643,15 @@ _0200C628:
 	add r6, r6, #1
 	cmp r6, #4
 	blt _0200C5C0
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200c5a4
+	arm_func_end SND_DestroyBank
 
-	arm_func_start FUN_0200c63c
-FUN_0200c63c: ; 0x0200C63C
+	arm_func_start SND_DestroyWaveArc
+SND_DestroyWaveArc: ; 0x0200C63C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
-	bl FUN_0200bba0
+	bl SNDi_LockMutex
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	beq _0200C67C
@@ -14667,12 +14667,12 @@ _0200C65C:
 	cmp r6, #0
 	bne _0200C65C
 _0200C67C:
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200c63c
+	arm_func_end SND_DestroyWaveArc
 
-	arm_func_start FUN_0200c684
-FUN_0200c684: ; 0x0200C684
+	arm_func_start SND_GetFirstInstDataPos
+SND_GetFirstInstDataPos: ; 0x0200C684
 	sub sp, sp, #8
 	mov r1, #0
 	str r1, [sp]
@@ -14681,10 +14681,10 @@ FUN_0200c684: ; 0x0200C684
 	str r1, [r0, #4]
 	add sp, sp, #8
 	bx lr
-	arm_func_end FUN_0200c684
+	arm_func_end SND_GetFirstInstDataPos
 
-	arm_func_start FUN_0200c6a4
-FUN_0200c6a4: ; 0x0200C6A4
+	arm_func_start SND_GetNextInstData
+SND_GetNextInstData: ; 0x0200C6A4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, [r2]
 	ldr r3, [r0, #0x38]
@@ -14804,37 +14804,37 @@ _0200C830:
 _0200C848:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c6a4
+	arm_func_end SND_GetNextInstData
 
-	arm_func_start FUN_0200c850
-FUN_0200c850: ; 0x0200C850
+	arm_func_start SND_GetWaveDataCount
+SND_GetWaveDataCount: ; 0x0200C850
 	ldr r0, [r0, #0x38]
 	bx lr
-	arm_func_end FUN_0200c850
+	arm_func_end SND_GetWaveDataCount
 
-	arm_func_start FUN_0200c858
-FUN_0200c858: ; 0x0200C858
+	arm_func_start SND_SetWaveDataAddress
+SND_SetWaveDataAddress: ; 0x0200C858
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_0200bba0
+	bl SNDi_LockMutex
 	add r0, r6, #0x3c
 	add r2, r6, r5, lsl #2
 	add r0, r0, r5, lsl #2
 	mov r1, #4
 	str r4, [r2, #0x3c]
 	bl DC_StoreRange
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200c858
+	arm_func_end SND_SetWaveDataAddress
 
-	arm_func_start FUN_0200c88c
-FUN_0200c88c: ; 0x0200C88C
+	arm_func_start SND_GetWaveDataAddress
+SND_GetWaveDataAddress: ; 0x0200C88C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_0200bba0
+	bl SNDi_LockMutex
 	add r0, r5, r4, lsl #2
 	ldr r4, [r0, #0x3c]
 	cmp r4, #0
@@ -14845,10 +14845,10 @@ FUN_0200c88c: ; 0x0200C88C
 _0200C8B8:
 	mov r4, #0
 _0200C8BC:
-	bl FUN_0200bbb4
+	bl SNDi_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0200c88c
+	arm_func_end SND_GetWaveDataAddress
 
 	arm_func_start FSi_IsEventCommand
 FSi_IsEventCommand: ; 0x0200C8C8
@@ -31860,7 +31860,7 @@ FUN_0201a858: ; 0x0201A858
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r6, #1
 	str r6, [r4, #0xc]
-	bl FUN_0200bb68
+	bl SND_Init
 	ldr r0, _0201A8C4 ; =FUN_0201a904
 	mov r5, #0
 	str r0, [r4, #0x10]
@@ -31892,14 +31892,14 @@ FUN_0201a8d4: ; 0x0201A8D4
 	mov r4, #0
 _0201A8DC:
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	cmp r0, #0
 	bne _0201A8DC
 	bl FUN_0201ac24
 	bl FUN_0201b3b0
 	bl FUN_0201c4d0
 	mov r0, r4
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201a8d4
 
@@ -31911,13 +31911,13 @@ FUN_0201a904: ; 0x0201A904
 	mov r1, r0
 	mov r2, r0
 	mov r3, r0
-	bl FUN_0200b838
-	bl FUN_0200c060
+	bl SND_StopTimer
+	bl SND_GetCurrentCommandTag
 	mov r4, r0
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r4
-	bl FUN_0200bff4
+	bl SND_WaitForCommandProc
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201a904
 
@@ -31934,7 +31934,7 @@ FUN_0201a948: ; 0x0201A948
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
 	mov r1, #0
-	bl FUN_0200b93c
+	bl SND_UnlockChannel
 	ldr r0, _0201A974 ; =0x020977CC
 	mvn r1, r4
 	ldr r2, [r0, #8]
@@ -32099,7 +32099,7 @@ FUN_0201ab04: ; 0x0201AB04
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, [r0]
 	ldrb r0, [r0, #0x3c]
-	bl FUN_0200b7b4
+	bl SND_SetPlayerChannelPriority
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_0201ab04
 
@@ -32111,7 +32111,7 @@ FUN_0201ab24: ; 0x0201AB24
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, [r0]
 	ldrb r0, [r0, #0x3c]
-	bl FUN_0200b7cc
+	bl SND_SetTrackPitch
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_0201ab24
 
@@ -32184,7 +32184,7 @@ _0201AC20: .word unk_02097C30
 	arm_func_start FUN_0201ac24
 FUN_0201ac24: ; 0x0201AC24
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	bl FUN_0200c374
+	bl SND_GetPlayerStatus
 	mov r11, r0
 	ldr r0, _0201AD7C ; =0x020977E4
 	mov r1, #0
@@ -32192,7 +32192,7 @@ FUN_0201ac24: ; 0x0201AC24
 	movs r6, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r4, #0x8000
-	ldr r5, _0201AD80 ; =0x0208B9A0
+	ldr r5, _0201AD80 ; =SNDi_DecibelTable
 	rsb r4, r4, #0
 _0201AC50:
 	ldr r0, _0201AD7C ; =0x020977E4
@@ -32203,7 +32203,7 @@ _0201AC50:
 	cmp r1, #0
 	bne _0201AC80
 	ldr r0, [r6, #0x30]
-	bl FUN_0200c08c
+	bl SND_IsFinishedCommandTag
 	cmp r0, #0
 	movne r0, #1
 	strneb r0, [r6, #0x2d]
@@ -32251,7 +32251,7 @@ _0201AD10:
 	beq _0201AD2C
 	ldrb r0, [r6, #0x3c]
 	mov r1, r8
-	bl FUN_0200b79c
+	bl SND_SetPlayerVolume
 	strh r8, [r6, #0x3e]
 _0201AD2C:
 	ldrb r0, [r6, #0x2c]
@@ -32268,7 +32268,7 @@ _0201AD50:
 	cmp r0, #0
 	beq _0201AD6C
 	ldrb r0, [r6, #0x3c]
-	bl FUN_0200b77c
+	bl SND_StartPreparedSeq
 	mov r0, #0
 	strb r0, [r6, #0x2f]
 _0201AD6C:
@@ -32277,7 +32277,7 @@ _0201AD6C:
 	bne _0201AC50
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0201AD7C: .word unk_020977E4
-_0201AD80: .word unk_0208B9A0
+_0201AD80: .word SNDi_DecibelTable
 _0201AD84: .word 0x00007FFF
 	arm_func_end FUN_0201ac24
 
@@ -32339,17 +32339,17 @@ FUN_0201ae30: ; 0x0201AE30
 	mov r5, r0
 	ldrb r0, [r5, #0x3c]
 	ldr r4, [r5, #4]
-	bl FUN_0200b754
+	bl SND_PrepareSeq
 	ldr r2, [r4, #0x1c]
 	cmp r2, #0
 	beq _0201AE5C
 	ldrb r0, [r5, #0x3c]
 	ldr r1, _0201AE7C ; =0x0000FFFF
-	bl FUN_0200b7e8
+	bl SND_SetTrackAllocatableChannel
 _0201AE5C:
 	mov r0, r5
 	bl FUN_0201af28
-	bl FUN_0200c060
+	bl SND_GetCurrentCommandTag
 	mov r1, #1
 	str r0, [r5, #0x30]
 	strb r1, [r5, #0x2f]
@@ -32493,10 +32493,10 @@ FUN_0201b014: ; 0x0201B014
 	bne _0201B034
 	ldrb r0, [r4, #0x3c]
 	ldr r1, _0201B048 ; =0xFFFFFD2D
-	bl FUN_0200b79c
+	bl SND_SetPlayerVolume
 _0201B034:
 	ldrb r0, [r4, #0x3c]
-	bl FUN_0200b734
+	bl SND_StopSeq
 	mov r0, r4
 	bl FUN_0201b0b8
 	ldmfd sp!, {r4, pc}
@@ -32650,7 +32650,7 @@ FUN_0201b210: ; 0x0201B210
 	mov r2, r2, lsl r0
 	ldr r0, [r4, #0x4c]
 	mov r3, r1
-	bl FUN_0200b810
+	bl SND_StartTimer
 	ldr r0, [r4, #0x2c]
 	mov r0, r0, lsl #0x1e
 	movs r0, r0, asr #0x1f
@@ -32694,12 +32694,12 @@ _0201B2A4:
 	add r0, r4, r5, lsl #3
 	ldr r0, [r0, #4]
 	add r0, r1, r0
-	bl FUN_0200c464
+	bl SND_CalcChannelVolume
 	mov r2, r0
 	mov r0, r8, lsl r5
 	and r1, r2, #0xff
 	mov r2, r2, asr #8
-	bl FUN_0200b97c
+	bl SND_SetChannelVolume
 	ldr r0, [r7, #0x50]
 	add r6, r6, #1
 	cmp r6, r0
@@ -32722,7 +32722,7 @@ FUN_0201b2ec: ; 0x0201B2EC
 	mov r2, r6, lsl r0
 	ldr r0, [r4, #0x4c]
 	mov r3, r1
-	bl FUN_0200b838
+	bl SND_StopTimer
 	add r0, r4, #8
 	bl FUN_020175a8
 	add r0, r4, #0x18
@@ -32730,12 +32730,12 @@ FUN_0201b2ec: ; 0x0201B2EC
 	ldr r0, [r4, #0x2c]
 	bic r0, r0, #2
 	str r0, [r4, #0x2c]
-	bl FUN_0200c060
+	bl SND_GetCurrentCommandTag
 	mov r5, r0
 	mov r0, r6
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r5
-	bl FUN_0200bff4
+	bl SND_WaitForCommandProc
 _0201B354:
 	mov r0, r4
 	bl FUN_0201b360
@@ -32801,7 +32801,7 @@ _0201B3FC:
 	ldr r0, [r4, #0x24]
 	mov r1, r5
 	mov r2, #0
-	bl FUN_0200b97c
+	bl SND_SetChannelVolume
 	str r5, [r4, #0x50]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201B42C: .word unk_02098188
@@ -32826,15 +32826,15 @@ FUN_0201b430: ; 0x0201B430
 	ldr r1, [r6, #0x28]
 	moveq r2, #0
 	mov r3, #0
-	bl FUN_0200b838
+	bl SND_StopTimer
 	cmp r7, #0
 	beq _0201B4B4
-	bl FUN_0200c060
+	bl SND_GetCurrentCommandTag
 	mov r5, r0
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r5
-	bl FUN_0200bff4
+	bl SND_WaitForCommandProc
 	ldr r5, _0201B510 ; =0x02098148
 _0201B49C:
 	mov r0, r5
@@ -32866,7 +32866,7 @@ _0201B4E4:
 	mov r1, r0
 	mov r2, r0
 	mov r3, r0
-	bl FUN_0200baac
+	bl SND_SetOutputSelector
 _0201B504:
 	str r4, [r6]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -32889,13 +32889,13 @@ FUN_0201b514: ; 0x0201B514
 	ldr r1, [r3, #0x28]
 	movlt r2, #0
 	mov r3, #0
-	bl FUN_0200b838
-	bl FUN_0200c060
+	bl SND_StopTimer
+	bl SND_GetCurrentCommandTag
 	mov r4, r0
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r4
-	bl FUN_0200bff4
+	bl SND_WaitForCommandProc
 	ldmfd sp!, {r4, pc}
 _0201B568: .word unk_02098188
 	arm_func_end FUN_0201b514
@@ -32931,7 +32931,7 @@ FUN_0201b56c: ; 0x0201B56C
 	ldr r0, [r4, #0x24]
 	ldr r1, [r4, #0x28]
 	mov r2, r5
-	bl FUN_0200b810
+	bl SND_StartTimer
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201B5E8: .word unk_02098188
 	arm_func_end FUN_0201b56c
@@ -33394,12 +33394,12 @@ FUN_0201bb84: ; 0x0201BB84
 	arm_func_start FUN_0201bbc0
 FUN_0201bbc0: ; 0x0201BBC0
 	stmfd sp!, {r4, lr}
-	bl FUN_0200c060
+	bl SND_GetCurrentCommandTag
 	mov r4, r0
 	mov r0, #1
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r4
-	bl FUN_0200bff4
+	bl SND_WaitForCommandProc
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201bbc0
 
@@ -33478,7 +33478,7 @@ _0201BCDC:
 	beq _0201BCF8
 	mov r0, r6
 	mov r1, r7
-	bl FUN_0200c4d4
+	bl SND_AssignWaveArc
 _0201BCF8:
 	add r7, r7, #1
 	cmp r7, #4
@@ -33761,9 +33761,9 @@ FUN_0201c0a0: ; 0x0201C0A0
 	bl FUN_0201c048
 	mov r0, r5
 	add r1, r5, r4
-	bl FUN_0200ba6c
+	bl SND_InvalidateBankData
 	mov r0, r5
-	bl FUN_0200c5a4
+	bl SND_DestroyBank
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0201c0a0
 
@@ -33777,9 +33777,9 @@ FUN_0201c0d0: ; 0x0201C0D0
 	bl FUN_0201c048
 	mov r0, r5
 	add r1, r5, r4
-	bl FUN_0200ba8c
+	bl SND_InvalidateWaveData
 	mov r0, r5
-	bl FUN_0200c63c
+	bl SND_DestroyWaveArc
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0201c0d0
 
@@ -33791,7 +33791,7 @@ FUN_0201c100: ; 0x0201C100
 	mov r2, r3
 	bl FUN_0201c048
 	mov r0, r4
-	bl FUN_0200c63c
+	bl SND_DestroyWaveArc
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201c100
 
@@ -33804,17 +33804,17 @@ FUN_0201c120: ; 0x0201C120
 	mov r6, r1
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0200c88c
+	bl SND_GetWaveDataAddress
 	cmp r7, r0
 	bne _0201C158
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0
-	bl FUN_0200c858
+	bl SND_SetWaveDataAddress
 _0201C158:
 	mov r0, r7
 	add r1, r7, r6
-	bl FUN_0200ba8c
+	bl SND_InvalidateWaveData
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_0201c120
 
@@ -33825,12 +33825,12 @@ FUN_0201c168: ; 0x0201C168
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	bl FUN_0200c88c
+	bl SND_GetWaveDataAddress
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r8
-	bl FUN_0200c850
+	bl SND_GetWaveDataCount
 	ldr r1, [r8, #0x38]
 	sub r0, r0, #1
 	add r1, r1, r7
@@ -33866,7 +33866,7 @@ FUN_0201c168: ; 0x0201C168
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_0200c858
+	bl SND_SetWaveDataAddress
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0201C22C: .word FUN_0201c120
@@ -33882,7 +33882,7 @@ FUN_0201c230: ; 0x0201C230
 	mov r8, r2
 	mov r7, r3
 	ldr r6, [sp, #0x40]
-	bl FUN_0200c684
+	bl SND_GetFirstInstDataPos
 	ldr r1, [sp]
 	ldr r0, [sp, #4]
 	str r1, [sp, #8]
@@ -33896,7 +33896,7 @@ FUN_0201c230: ; 0x0201C230
 	mov r0, r9
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200c6a4
+	bl SND_GetNextInstData
 	cmp r0, #0
 	beq _0201C2E4
 _0201C294:
@@ -33918,7 +33918,7 @@ _0201C2CC:
 	mov r0, r9
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0200c6a4
+	bl SND_GetNextInstData
 	cmp r0, #0
 	bne _0201C294
 _0201C2E4:
@@ -34066,7 +34066,7 @@ _0201C480:
 	arm_func_start FUN_0201c4d0
 FUN_0201c4d0: ; 0x0201C4D0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r4, _0201C5D4 ; =0x0208B9A0
+	ldr r4, _0201C5D4 ; =SNDi_DecibelTable
 	ldr r5, _0201C5D8 ; =0x0209824C
 	mov r7, #0
 	mov r9, #0x17c
@@ -34136,7 +34136,7 @@ _0201C5C4:
 	cmp r7, #4
 	blt _0201C4E4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0201C5D4: .word unk_0208B9A0
+_0201C5D4: .word SNDi_DecibelTable
 _0201C5D8: .word unk_0209824C
 	arm_func_end FUN_0201c4d0
 
@@ -51885,12 +51885,12 @@ FUN_0202b448: ; 0x0202B448
 	sub sp, sp, #0x40
 	mov r4, r0
 	str r1, [r4]
-	bl FUN_0200bb68
+	bl SND_Init
 	ldr r8, _0202B704 ; =0x0000FFFF
 	mov r9, #0
 	mov r0, r8
 	mov r1, r9
-	bl FUN_0200b91c
+	bl SND_LockChannel
 	mov r7, #4
 	mov r6, #1
 	ldr r0, [r4]
@@ -144006,17 +144006,17 @@ DseDriver_StartTickTimer: ; 0x02077B80
 	mov r0, r5
 	mov r2, r1
 	str r4, [sp]
-	bl FUN_0200b8dc
+	bl SND_SetupAlarm
 	mov r4, #1
 	mov r0, r5
 	mov r1, r5
 	mov r2, r4
 	mov r3, r5
-	bl FUN_0200b810
+	bl SND_StartTimer
 	mov r0, r4
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 _02077BDC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -144035,7 +144035,7 @@ FUN_02077bf4: ; 0x02077BF4
 	mov r1, r4
 	mov r3, r4
 	mov r2, #1
-	bl FUN_0200b838
+	bl SND_StopTimer
 	ldr r0, _02077C7C ; =0x020BAFD8
 	ldrb r0, [r0, #0xde4]
 	cmp r0, #0
@@ -144045,13 +144045,13 @@ FUN_02077bf4: ; 0x02077BF4
 	mov r2, r4
 	mov r3, r4
 	str r4, [sp]
-	bl FUN_0200b8dc
+	bl SND_SetupAlarm
 _02077C3C:
 	mov r4, #1
 	mov r0, r4
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	mov r0, r4
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	ldr r2, _02077C80 ; =0x020BA6D8
 	mov r0, #0
 	strh r0, [r2, #0x3c]
@@ -144150,7 +144150,7 @@ _02077DA0:
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, #0
-	bl FUN_0200bc98
+	bl SND_RecvCommandReply
 	ldr r0, [r6, #0x2c]
 	add r0, r0, #1
 	str r0, [r6, #0x2c]
@@ -144170,7 +144170,7 @@ _02077DE8:
 	bl DseVoice_UpdateHardware
 	bl DseVoice_Cleanup
 	mov r0, #0
-	bl FUN_0200be58
+	bl SND_FlushCommand
 	ldrsb r0, [r5, #0xdc]
 	cmp r0, #1
 	bne _02077CF8
@@ -148206,12 +148206,12 @@ _0207B0A8:
 	mov r2, r4
 	mov r3, r4
 	str lr, [r12, #0xd14]
-	bl FUN_0200b810
+	bl SND_StartTimer
 	ldr r0, _0207B120 ; =0x0000FFFF
 	mov r3, r4
 	mov r1, r0
 	mov r2, r0
-	bl FUN_0200b838
+	bl SND_StopTimer
 	ldmfd sp!, {r4, pc}
 _0207B114: .word unk_020BA6D8
 _0207B118: .word unk_020BAFD8
@@ -148289,7 +148289,7 @@ _0207B20C: .word unk_020BAFD8
 DseVoice_Cleanup: ; 0x0207B210
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r6, _0207B2A4 ; =0x020BA720
-	bl FUN_0200c39c
+	bl SND_GetChannelStatus
 	ldr r4, _0207B2A8 ; =0x020BA6D8
 	mov r0, r0, lsl #0x10
 	ldrh r2, [r4, #0x3c]
@@ -148745,7 +148745,7 @@ _0207B7F4:
 	str r0, [sp, #0x14]
 	ldrh r0, [r7, #8]
 	ldr r2, [r7, #0x30]
-	bl FUN_0200b9c4
+	bl SND_SetupChannelPcm
 	b _0207B874
 _0207B830:
 	ldr r0, [r7, #0x13c]
@@ -148756,7 +148756,7 @@ _0207B830:
 	ldrh r0, [r7, #8]
 	ldrb r1, [r7, #0x25]
 	ldr r2, [r7, #0x140]
-	bl FUN_0200ba10
+	bl SND_SetupChannelPsg
 	b _0207B874
 _0207B858:
 	ldr r0, [r7, #0x144]
@@ -148765,7 +148765,7 @@ _0207B858:
 	ldrh r0, [r7, #8]
 	ldr r1, [r7, #0x140]
 	ldr r3, [r7, #0x13c]
-	bl FUN_0200ba38
+	bl SND_SetupChannelNoise
 _0207B874:
 	mov r0, r7
 	bl FUN_0207b6bc
@@ -148781,20 +148781,20 @@ _0207B894:
 	beq _0207B8A8
 	ldrh r0, [r7, #0xa]
 	ldr r1, [r7, #0x13c]
-	bl FUN_0200b95c
+	bl SND_SetChannelTimer
 _0207B8A8:
 	tst r9, #0x20
 	beq _0207B8C0
 	ldrh r0, [r7, #0xa]
 	ldr r1, [r7, #0x140]
 	mov r2, #0
-	bl FUN_0200b97c
+	bl SND_SetChannelVolume
 _0207B8C0:
 	tst r9, #0x40
 	beq _0207B8D4
 	ldrh r0, [r7, #0xa]
 	ldr r1, [r7, #0x144]
-	bl FUN_0200b9a4
+	bl SND_SetChannelPan
 _0207B8D4:
 	strh r5, [r7, #6]
 _0207B8D8:
@@ -148819,7 +148819,7 @@ _0207B8EC:
 	ldrh r0, [r6, #0x3e]
 	ldrb r1, [r5, #0x746]
 	mov r3, r4
-	bl FUN_0200b810
+	bl SND_StartTimer
 	and r0, r4, #0xff
 	strb r4, [r5, #0x744]
 	strb r0, [r5, #0x746]
@@ -148842,7 +148842,7 @@ _0207B93C:
 	ldrb r1, [r5, #0x747]
 	mov r3, r4
 	orr r0, r7, r0
-	bl FUN_0200b838
+	bl SND_StopTimer
 	and r0, r4, #0xff
 	strb r4, [r5, #0x745]
 	strb r0, [r5, #0x747]
@@ -152226,7 +152226,7 @@ _0207E61C:
 	ldr r3, _0207E7F8 ; =FUN_0207df10
 	mov r0, #2
 	mov r2, r1
-	bl FUN_0200b8dc
+	bl SND_SetupAlarm
 	ldr r0, [r10, #0x30]
 	ldrb r1, [r10, #0xc4]
 	mov r0, r0, asr #0x10
@@ -159823,7 +159823,7 @@ _02085104:
 	mov r1, #2
 _02085110:
 	mov r3, r2
-	bl FUN_0200baac
+	bl SND_SetOutputSelector
 	mov r9, #0
 	stmia sp, {r8, r9}
 	str r9, [sp, #8]
@@ -159832,7 +159832,7 @@ _02085110:
 	mov r0, r9
 	mov r1, r9
 	mov r3, r3, lsr #2
-	bl FUN_0200b89c
+	bl SND_SetupCapture
 	stmia sp, {r8, r9}
 	str r9, [sp, #8]
 	ldr r1, [r4, #0x14]
@@ -159840,13 +159840,13 @@ _02085110:
 	mov r3, r1, lsr #2
 	mov r0, r8
 	mov r1, r9
-	bl FUN_0200b89c
+	bl SND_SetupCapture
 	ldr r3, _02085268 ; =FUN_02085310
 	mov r1, r6
 	mov r2, r5
 	mov r0, #4
 	str r4, [sp]
-	bl FUN_0200b8dc
+	bl SND_SetupAlarm
 	ldr r1, _0208526C ; =0x04000208
 	ldrh r0, [r1]
 	str r0, [sp, #0xc]
@@ -159952,7 +159952,7 @@ _020852B8:
 	strb r5, [r12, #0x747]
 	ldrh r12, [lr]
 	strh r4, [lr]
-	bl FUN_0200baac
+	bl SND_SetOutputSelector
 	ldmfd sp!, {r4, r5, r6, pc}
 _02085304: .word unk_020BC404
 _02085308: .word 0x04000208
@@ -163819,8 +163819,8 @@ unk_0208B979:
 unk_0208B984:
 	.byte 0x14, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208B9A0
-unk_0208B9A0:
+	.global SNDi_DecibelTable
+SNDi_DecibelTable:
 	.byte 0x00, 0x80, 0x5B, 0xFE, 0x97, 0xFE, 0xBB, 0xFE, 0xD4, 0xFE, 0xE7, 0xFE, 0xF7, 0xFE, 0x04, 0xFF
 	.byte 0x10, 0xFF, 0x1A, 0xFF, 0x23, 0xFF, 0x2C, 0xFF, 0x33, 0xFF, 0x3A, 0xFF, 0x40, 0xFF, 0x46, 0xFF
 	.byte 0x4C, 0xFF, 0x51, 0xFF, 0x56, 0xFF, 0x5B, 0xFF, 0x5F, 0xFF, 0x64, 0xFF, 0x68, 0xFF, 0x6C, 0xFF
@@ -163837,8 +163837,8 @@ unk_0208B9A0:
 	.byte 0xEF, 0xFF, 0xEF, 0xFF, 0xF0, 0xFF, 0xF1, 0xFF, 0xF2, 0xFF, 0xF3, 0xFF, 0xF4, 0xFF, 0xF4, 0xFF
 	.byte 0xF5, 0xFF, 0xF6, 0xFF, 0xF7, 0xFF, 0xF7, 0xFF, 0xF8, 0xFF, 0xF9, 0xFF, 0xFA, 0xFF, 0xFA, 0xFF
 	.byte 0xFB, 0xFF, 0xFC, 0xFF, 0xFD, 0xFF, 0xFD, 0xFF, 0xFE, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00
-	.global unk_0208BAA0
-unk_0208BAA0:
+	.global VolumeTable
+VolumeTable:
 	.byte 0x00, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
 	.byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
 	.byte 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01
@@ -167479,23 +167479,23 @@ unk_02093DA0:
 	.global unk_02093DA4
 unk_02093DA4:
 	.space 0x24
-	.global unk_02093DC8
-unk_02093DC8:
+	.global initialized_0x2093DC8
+initialized_0x2093DC8:
 	.space 0x04
-	.global unk_02093DCC
-unk_02093DCC:
+	.global sSndMutex
+sSndMutex:
 	.space 0x18
-	.global unk_02093DE4
-unk_02093DE4:
+	.global sFreeList
+sFreeList:
 	.space 0x24
-	.global unk_02093E08
-unk_02093E08:
+	.global sWaitingCommandListQueue
+sWaitingCommandListQueue:
 	.space 0x38
-	.global unk_02093E40
-unk_02093E40:
+	.global sSharedWork
+sSharedWork:
 	.space 0x280
-	.global unk_020940C0
-unk_020940C0:
+	.global sCommandArray
+sCommandArray:
 	.space 0x1000
 	.global unk_020950C0
 unk_020950C0:
@@ -167503,11 +167503,11 @@ unk_020950C0:
 	.global unk_020958A8
 unk_020958A8:
 	.space 0x18
-	.global unk_020958C0
-unk_020958C0:
+	.global sCallbackTable
+sCallbackTable:
 	.space 0x60
-	.global unk_02095920
-unk_02095920:
+	.global SNDi_SharedWork
+SNDi_SharedWork:
 	.space 0x04
 	.global unk_02095924
 unk_02095924:
