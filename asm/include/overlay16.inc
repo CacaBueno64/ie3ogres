@@ -576,8 +576,8 @@
 .public STD_ConcatenateString
 .public STD_CopyString
 .public STD_GetStringLength
-.public SsdGetNextInstructionWraper
-.public SsdInitFile
+.public SSD_GetNextInstructionWraper
+.public SSD_InitFile
 .public VEC_Normalize
 .public _strlen
 .public unk_0208BFB0

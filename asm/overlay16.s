@@ -16090,7 +16090,7 @@ FUN_ov16_020fb050: ; 0x020FB050
 	mov r2, r5
 	ldr r1, [r0, #4]
 	add r0, r6, #0xc
-	bl SsdInitFile
+	bl SSD_InitFile
 	cmp r0, #0
 	movne r5, #1
 	strne r5, [r6, #8]
@@ -16147,7 +16147,7 @@ FUN_ov16_020fb110: ; 0x020FB110
 	mov r2, r5
 	ldr r1, [r0, #4]
 	add r0, r6, #0xc
-	bl SsdInitFile
+	bl SSD_InitFile
 	cmp r0, #0
 	movne r5, #1
 	strne r5, [r6, #8]
@@ -20525,9 +20525,9 @@ _020FE9E0: .word FUN_02047c68
 	arm_func_start FUN_ov16_020fe9e4
 FUN_ov16_020fe9e4: ; 0x020FE9E4
 	ldr r0, [r0, #8]
-	ldr r12, _020FE9F0 ; =SsdGetNextInstructionWraper
+	ldr r12, _020FE9F0 ; =SSD_GetNextInstructionWraper
 	bx r12
-_020FE9F0: .word SsdGetNextInstructionWraper
+_020FE9F0: .word SSD_GetNextInstructionWraper
 	arm_func_end FUN_ov16_020fe9e4
 
 	arm_func_start FUN_ov16_020fe9f4

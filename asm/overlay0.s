@@ -10037,12 +10037,12 @@ _020C562C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C5684:
 	mov r2, r4
-	bl SsdInitFile
+	bl SSD_InitFile
 _020C568C:
 	add r5, sp, #0x48
 	mov r1, r4
 	mov r0, r5
-	bl SsdGetNextInstruction
+	bl SSD_GetNextInstruction
 	movs r4, r0
 	beq _020C6294
 	ldrb r0, [r4, #6]
@@ -11385,7 +11385,7 @@ FUN_ov0_020c6a1c: ; 0x020C6A1C
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C6A84:
 	mov r2, r4
-	bl SsdInitFile
+	bl SSD_InitFile
 	mov r1, r4
 	add r0, sp, #0xac
 	mov r2, #0x240
@@ -11401,7 +11401,7 @@ _020C6A84:
 _020C6ABC:
 	add r0, sp, #0x94
 	mov r1, r4
-	bl SsdGetNextInstruction
+	bl SSD_GetNextInstruction
 	movs r4, r0
 	beq _020C6C64
 	ldrb r0, [r4, #6]

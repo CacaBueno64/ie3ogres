@@ -57403,8 +57403,8 @@ FUN_0202fd44: ; 0x0202FD44
 	bx lr
 	arm_func_end FUN_0202fd44
 
-	arm_func_start SsdInitFile
-SsdInitFile: ; 0x0202FD48
+	arm_func_start SSD_InitFile
+SSD_InitFile: ; 0x0202FD48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	cmp r1, #0
@@ -57541,10 +57541,10 @@ _0202FF10:
 _0202FF2C:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end SsdInitFile
+	arm_func_end SSD_InitFile
 
-	arm_func_start SsdGetNextInstruction
-SsdGetNextInstruction: ; 0x0202FF34
+	arm_func_start SSD_GetNextInstruction
+SSD_GetNextInstruction: ; 0x0202FF34
 	cmp r1, #0
 	ldreq r0, [r0, #4]
 	bxeq lr
@@ -57556,7 +57556,7 @@ SsdGetNextInstruction: ; 0x0202FF34
 	cmp r2, r1
 	movhs r0, #0
 	bx lr
-	arm_func_end SsdGetNextInstruction
+	arm_func_end SSD_GetNextInstruction
 
 	arm_func_start FUN_0202ff60
 FUN_0202ff60: ; 0x0202FF60
@@ -87373,9 +87373,9 @@ FUN_02049038: ; 0x02049038
 	ldmltfd sp!, {r3, r4, r5, pc}
 _0204909C:
 	ldr r1, [r4, #0x1c]
-	ldr r2, _02049124 ; =0x020903C0
+	ldr r2, _02049124 ; =SSD_FileIdentifier
 	add r0, r4, #4
-	bl SsdInitFile
+	bl SSD_InitFile
 	cmp r0, #0
 	bne _020490C0
 	add r1, sp, #8
@@ -87387,7 +87387,7 @@ _020490C0:
 	str r1, [r4, #0x20]
 _020490CC:
 	mov r0, r4
-	bl SsdGetNextInstructionWraper
+	bl SSD_GetNextInstructionWraper
 	movs r1, r0
 	beq _020490F4
 	ldrh r0, [r1, #4]
@@ -87409,7 +87409,7 @@ _020490F4:
 	mov r0, #1
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
-_02049124: .word unk_020903C0
+_02049124: .word SSD_FileIdentifier
 _02049128: .word 0x00003001
 	arm_func_end FUN_02049038
 
@@ -87424,7 +87424,7 @@ FUN_0204912c: ; 0x0204912C
 	mov r1, r4
 	mov r2, r4
 	add r0, r5, #4
-	bl SsdInitFile
+	bl SSD_InitFile
 	ldr r1, [r5, #0x1c]
 	ldr r0, _02049174 ; =0x0209A250
 	bl FUN_0202e1c0
@@ -87485,9 +87485,9 @@ _020491FC:
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r1, [r5, #0x1c]
-	ldr r2, _02049274 ; =0x020903C4
+	ldr r2, _02049274 ; =SSD_FileIdentifier2
 	add r0, r5, #4
-	bl SsdInitFile
+	bl SSD_InitFile
 	cmp r0, #0
 	bne _02049230
 	add r1, sp, #0
@@ -87499,7 +87499,7 @@ _02049230:
 	str r1, [r5, #0x20]
 _0204923C:
 	mov r0, r5
-	bl SsdGetNextInstructionWraper
+	bl SSD_GetNextInstructionWraper
 	movs r1, r0
 	beq _02049264
 	ldrh r0, [r1, #4]
@@ -87513,7 +87513,7 @@ _02049264:
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, pc}
 _02049270: .word unk_0209A250
-_02049274: .word unk_020903C4
+_02049274: .word SSD_FileIdentifier2
 _02049278: .word 0x00003001
 	arm_func_end FUN_020491b0
 
@@ -87634,13 +87634,13 @@ FUN_020493dc: ; 0x020493DC
 	bx lr
 	arm_func_end FUN_020493dc
 
-	arm_func_start SsdGetNextInstructionWraper
-SsdGetNextInstructionWraper: ; 0x020493F0
-	ldr r12, _020493FC ; =SsdGetNextInstruction
+	arm_func_start SSD_GetNextInstructionWraper
+SSD_GetNextInstructionWraper: ; 0x020493F0
+	ldr r12, _020493FC ; =SSD_GetNextInstruction
 	add r0, r0, #4
 	bx r12
-_020493FC: .word SsdGetNextInstruction
-	arm_func_end SsdGetNextInstructionWraper
+_020493FC: .word SSD_GetNextInstruction
+	arm_func_end SSD_GetNextInstructionWraper
 
 	arm_func_start FUN_02049400
 FUN_02049400: ; 0x02049400
@@ -87654,7 +87654,7 @@ FUN_02049400: ; 0x02049400
 	ldr r6, _02049478 ; =0x00003001
 _02049420:
 	mov r0, r5
-	bl SsdGetNextInstructionWraper
+	bl SSD_GetNextInstructionWraper
 	movs r1, r0
 	beq _02049470
 	ldrh r0, [r1, #4]
@@ -165848,13 +165848,16 @@ unk_020903A4:
 	.global unk_020903B8
 unk_020903B8:
 	.byte 0x2E, 0x73, 0x73, 0x74, 0x00, 0x00, 0x00, 0x00
-	.global unk_020903C0
-unk_020903C0:
-	.byte 0x53, 0x53, 0x44, 0x00
-	.global unk_020903C4
-unk_020903C4:
-	.byte 0x53, 0x53, 0x44, 0x00
+	.global SSD_FileIdentifier
+	.balign 4, 0
+SSD_FileIdentifier:
+	.asciz "SSD"
+	.global SSD_FileIdentifier2
+	.balign 4, 0
+SSD_FileIdentifier2:
+	.asciz "SSD"
 	.global unk_020903C8
+	.balign 4, 0
 unk_020903C8:
 	.byte 0x65, 0x76, 0x65, 0x25, 0x30, 0x38, 0x64, 0x2E
 	.byte 0x73, 0x73, 0x64, 0x5F, 0x00, 0x00, 0x00, 0x00

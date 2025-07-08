@@ -494,8 +494,8 @@
 .public STD_CompareString
 .public STD_ConcatenateString
 .public STD_CopyString
-.public SsdGetNextInstruction
-.public SsdInitFile
+.public SSD_GetNextInstruction
+.public SSD_InitFile
 .public VEC_CrossProduct
 .public VEC_Normalize
 .public _strlen
