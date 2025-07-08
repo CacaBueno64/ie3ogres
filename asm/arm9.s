@@ -100471,7 +100471,7 @@ FUN_02053c20: ; 0x02053C20
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	add r1, sp, #0
 	mov r0, r5
-	bl FUN_02067c64
+	bl NNS_G3dGetResDictIdxByName
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_02053c20
@@ -120885,8 +120885,8 @@ _02064A58:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end NNSi_G3dAnmBlendJnt
 
-	arm_func_start FUN_02064a74
-FUN_02064a74: ; 0x02064A74
+	arm_func_start NNSi_G3dAnmBlendVis
+NNSi_G3dAnmBlendVis: ; 0x02064A74
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	mov r7, r0
@@ -120923,7 +120923,7 @@ _02064AE8:
 	bne _02064A98
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02064a74
+	arm_func_end NNSi_G3dAnmBlendVis
 
 	arm_func_start G3dDrawInternal_Loop_
 G3dDrawInternal_Loop_: ; 0x02064AFC
@@ -124460,8 +124460,8 @@ _02067C5C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end NNS_G3dGetResDataByName
 
-	arm_func_start FUN_02067c64
-FUN_02067c64: ; 0x02067C64
+	arm_func_start NNS_G3dGetResDictIdxByName
+NNS_G3dGetResDictIdxByName: ; 0x02067C64
 	stmfd sp!, {r4, r5, r6, lr}
 	cmp r1, #0
 	mvneq r0, #0
@@ -124560,7 +124560,7 @@ _02067D88:
 _02067DC0:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02067c64
+	arm_func_end NNS_G3dGetResDictIdxByName
 
 	arm_func_start NNS_G3dGetMdlSet
 NNS_G3dGetMdlSet: ; 0x02067DC8
@@ -124591,8 +124591,8 @@ _02067E08:
 _02067E14: .word 0x30585442
 	arm_func_end NNS_G3dGetTex
 
-	arm_func_start FUN_02067e18
-FUN_02067e18: ; 0x02067E18
+	arm_func_start NNS_G3dGetAnmByIdx
+NNS_G3dGetAnmByIdx: ; 0x02067E18
 	cmp r0, #0
 	beq _02067E6C
 	ldrh r2, [r0, #0xc]
@@ -124619,7 +124619,7 @@ _02067E5C:
 _02067E6C:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02067e18
+	arm_func_end NNS_G3dGetAnmByIdx
 
 	arm_func_start NNSi_G3dGetTexPatAnmTexNameByIdx
 NNSi_G3dGetTexPatAnmTexNameByIdx: ; 0x02067E74
@@ -124656,7 +124656,7 @@ NNSi_G3dGetTexPatAnmFV: ; 0x02067EC4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r2
-	bl FUN_02067f38
+	bl NNSi_G3dGetTexPatAnmDataByIdx
 	ldrsh r1, [r0, #4]
 	ldrh r3, [r0, #6]
 	mul r2, r1, r4
@@ -124690,8 +124690,8 @@ _02067F30:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end NNSi_G3dGetTexPatAnmFV
 
-	arm_func_start FUN_02067f38
-FUN_02067f38: ; 0x02067F38
+	arm_func_start NNSi_G3dGetTexPatAnmDataByIdx
+NNSi_G3dGetTexPatAnmDataByIdx: ; 0x02067F38
 	adds r3, r0, #0xc
 	beq _02067F64
 	ldrb r2, [r0, #0xd]
@@ -124706,7 +124706,7 @@ FUN_02067f38: ; 0x02067F38
 _02067F64:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02067f38
+	arm_func_end NNSi_G3dGetTexPatAnmDataByIdx
 
 	arm_func_start NNSi_G3dAnmObjInitNsBca
 NNSi_G3dAnmObjInitNsBca: ; 0x02067F6C
@@ -126431,7 +126431,7 @@ _02069794:
 	moveq r0, r4
 	beq _020697A8
 	add r0, r8, #4
-	bl FUN_02067c64
+	bl NNS_G3dGetResDictIdxByName
 _020697A8:
 	cmp r0, #0
 	orrge r1, r7, #0x100
@@ -126781,7 +126781,7 @@ _02069C68:
 	moveq r0, r4
 	beq _02069C7C
 	add r0, r8, #4
-	bl FUN_02067c64
+	bl NNS_G3dGetResDictIdxByName
 _02069C7C:
 	cmp r0, #0
 	orrge r1, r7, #0x100
@@ -126870,7 +126870,7 @@ _02069D98:
 	moveq r0, r4
 	beq _02069DAC
 	add r0, r8, #4
-	bl FUN_02067c64
+	bl NNS_G3dGetResDictIdxByName
 _02069DAC:
 	cmp r0, #0
 	orrge r1, r7, #0x100
@@ -128011,8 +128011,8 @@ _0206AD80: .word 0x00101710
 _0206AD84: .word 0x00101910
 	arm_func_end NNSi_G3dSendTexSRTSi3d
 
-	arm_func_start FUN_0206ad88
-FUN_0206ad88: ; 0x0206AD88
+	arm_func_start texmtxCalc_flag_3dsMax
+texmtxCalc_flag_3dsMax: ; 0x0206AD88
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -128078,10 +128078,10 @@ FUN_0206ad88: ; 0x0206AD88
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206ad88
+	arm_func_end texmtxCalc_flag_3dsMax
 
-	arm_func_start FUN_0206ae8c
-FUN_0206ae8c: ; 0x0206AE8C
+	arm_func_start texmtxCalc_flagS_3dsMax
+texmtxCalc_flagS_3dsMax: ; 0x0206AE8C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128136,10 +128136,10 @@ FUN_0206ae8c: ; 0x0206AE8C
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0206ae8c
+	arm_func_end texmtxCalc_flagS_3dsMax
 
-	arm_func_start FUN_0206af64
-FUN_0206af64: ; 0x0206AF64
+	arm_func_start texmtxCalc_flagR_3dsMax
+texmtxCalc_flagR_3dsMax: ; 0x0206AF64
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrh r3, [r1, #0x2e]
 	ldrh r2, [r1, #0x2c]
@@ -128169,10 +128169,10 @@ FUN_0206af64: ; 0x0206AF64
 	str r3, [r0, #0x34]
 	str r1, [r0, #0x10]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0206af64
+	arm_func_end texmtxCalc_flagR_3dsMax
 
-	arm_func_start FUN_0206afd8
-FUN_0206afd8: ; 0x0206AFD8
+	arm_func_start texmtxCalc_flagRS_3dsMax
+texmtxCalc_flagRS_3dsMax: ; 0x0206AFD8
 	stmfd sp!, {r3, lr}
 	ldr r2, [r1, #0x24]
 	ldrh r3, [r1, #0x2c]
@@ -128192,10 +128192,10 @@ FUN_0206afd8: ; 0x0206AFD8
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0206afd8
+	arm_func_end texmtxCalc_flagRS_3dsMax
 
-	arm_func_start FUN_0206b024
-FUN_0206b024: ; 0x0206B024
+	arm_func_start texmtxCalc_flagT_3dsMax
+texmtxCalc_flagT_3dsMax: ; 0x0206B024
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	ldrh r2, [r9, #0x2c]
@@ -128257,10 +128257,10 @@ FUN_0206b024: ; 0x0206B024
 	mov r0, r0, asr #0xc
 	str r0, [r10, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206b024
+	arm_func_end texmtxCalc_flagT_3dsMax
 
-	arm_func_start FUN_0206b118
-FUN_0206b118: ; 0x0206B118
+	arm_func_start texmtxCalc_flagTS_3dsMax
+texmtxCalc_flagTS_3dsMax: ; 0x0206B118
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, r1
 	ldrh r2, [r5, #0x2c]
@@ -128311,10 +128311,10 @@ FUN_0206b118: ; 0x0206B118
 	mov r0, r0, asr #0xc
 	str r0, [r6, #0x10]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0206b118
+	arm_func_end texmtxCalc_flagTS_3dsMax
 
-	arm_func_start FUN_0206b1e0
-FUN_0206b1e0: ; 0x0206B1E0
+	arm_func_start texmtxCalc_flagTR_3dsMax
+texmtxCalc_flagTR_3dsMax: ; 0x0206B1E0
 	stmfd sp!, {r4, lr}
 	ldr lr, [r1, #0x1c]
 	ldr r4, [r1, #0x18]
@@ -128333,10 +128333,10 @@ FUN_0206b1e0: ; 0x0206B1E0
 	str r1, [r0, #0x34]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0206b1e0
+	arm_func_end texmtxCalc_flagTR_3dsMax
 
-	arm_func_start FUN_0206b228
-FUN_0206b228: ; 0x0206B228
+	arm_func_start texmtxCalc_flagTRS_3dsMax
+texmtxCalc_flagTRS_3dsMax: ; 0x0206B228
 	mov r1, #0
 	mov r2, #0x1000
 	str r2, [r0]
@@ -128346,7 +128346,7 @@ FUN_0206b228: ; 0x0206B228
 	str r1, [r0, #0x30]
 	str r1, [r0, #0x34]
 	bx lr
-	arm_func_end FUN_0206b228
+	arm_func_end texmtxCalc_flagTRS_3dsMax
 
 	arm_func_start NNSi_G3dSendTexSRT3dsMax
 NNSi_G3dSendTexSRT3dsMax: ; 0x0206B24C

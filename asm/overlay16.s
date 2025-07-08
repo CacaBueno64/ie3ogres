@@ -17802,7 +17802,7 @@ _020FC690:
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r1, r4
-	bl FUN_02067e18
+	bl NNS_G3dGetAnmByIdx
 	mov r7, #0x100
 	ldr r0, _020FC710 ; =0x0209A250
 	mov r1, r7
@@ -17912,7 +17912,7 @@ _020FC7E8:
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldrh r1, [r5, #0xa]
-	bl FUN_02067e18
+	bl NNS_G3dGetAnmByIdx
 	mov r6, r0
 	cmp r4, #0
 	bne _020FC848

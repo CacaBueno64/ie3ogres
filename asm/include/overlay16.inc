@@ -256,7 +256,7 @@
 .public FUN_02059b8c
 .public FUN_02059bb4
 .public FUN_02059cc0
-.public FUN_02067e18
+.public NNS_G3dGetAnmByIdx
 .public FUN_02071d74
 .public FUN_02072b3c
 .public FUN_02073f08
