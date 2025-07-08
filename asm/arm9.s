@@ -43703,7 +43703,7 @@ _02024534:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02024574: .word unk_0208C038
 _02024578: .word unk_0208BFB8
-	arm_func_end _02024314
+	arm_func_end FUN_0202420c
 
 	arm_func_start FUN_0202457c
 FUN_0202457c: ; 0x0202457C
