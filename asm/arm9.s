@@ -2253,15 +2253,15 @@ _02002734:
 	bx lr
 	arm_func_end OSi_WaitVCount0
 
-	arm_func_start OS_InitVeneer
-OS_InitVeneer: ; 0x02002748
-	ldr r12, _02002750 ; =OS_Init
-	bx r12
-_02002750: .word OS_Init
-	arm_func_end OS_InitVeneer
-
 	arm_func_start OS_Init
-OS_Init: ; 0x02002754
+OS_Init: ; 0x02002748
+	ldr r12, _02002750 ; =OSi_InitCommon
+	bx r12
+_02002750: .word OSi_InitCommon
+	arm_func_end OS_Init
+
+	arm_func_start OSi_InitCommon
+OSi_InitCommon: ; 0x02002754
 	stmfd sp!, {r3, lr}
 	bl PXI_Init
 	bl OS_InitArena
@@ -2280,7 +2280,7 @@ OS_Init: ; 0x02002754
 	bl PM_Init
 	bl OSi_WaitVCount0
 	ldmfd sp!, {r3, pc}
-	arm_func_end OS_Init
+	arm_func_end OSi_InitCommon
 
 	arm_func_start OS_InitArena
 OS_InitArena: ; 0x0200279C
@@ -2891,8 +2891,8 @@ _02002F68:
 _02002F74: .word OSiHeapInfo
 	arm_func_end OS_GetTotalFreeSize
 
-	arm_func_start FUN_02002f78
-FUN_02002f78: ; 0x02002F78
+	arm_func_start OS_IsOnVram
+OS_IsOnVram: ; 0x02002F78
 	cmp r0, #0x5000000
 	blo _02002F90
 	ldr r1, _02002F98 ; =0x07000800
@@ -2903,7 +2903,7 @@ _02002F90:
 	mov r0, #0
 	bx lr
 _02002F98: .word 0x07000800
-	arm_func_end FUN_02002f78
+	arm_func_end OS_IsOnVram
 
 	arm_func_start OS_GetDTCMAddress
 OS_GetDTCMAddress: ; 0x02002F9C
@@ -3139,13 +3139,13 @@ _02003168: .word OSi_DebuggerHandler
 _0200316C: .word OSi_ExceptionHandler
 	arm_func_end OS_InitException
 
-	arm_func_start FUN_02003170
-FUN_02003170: ; 0x02003170
+	arm_func_start OSi_GetOriginalExceptionHandler
+OSi_GetOriginalExceptionHandler: ; 0x02003170
 	ldr r0, _0200317C ; =OSi_DebuggerHandler
 	ldr r0, [r0, #8]
 	bx lr
 _0200317C: .word OSi_DebuggerHandler
-	arm_func_end FUN_02003170
+	arm_func_end OSi_GetOriginalExceptionHandler
 
 	arm_func_start OSi_ExceptionHandler
 OSi_ExceptionHandler: ; 0x02003180
@@ -4235,7 +4235,7 @@ _02003EEC:
 	mov r0, #0x10
 	str r5, [r4]
 	bl OSi_SendToPxi
-	bl FUN_02003170
+	bl OSi_GetOriginalExceptionHandler
 	str r0, [r4, #0x37c]
 	bl OSi_DoResetSystem
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -7849,26 +7849,26 @@ _02006CE8: .word 0x04000249
 _02006CEC: .word GXi_VRamLockId
 	arm_func_end disableBankForX_
 
-	arm_func_start FUN_02006cf0
-FUN_02006cf0: ; 0x02006CF0
+	arm_func_start GX_DisableBankForBG
+GX_DisableBankForBG: ; 0x02006CF0
 	ldr r0, _02006CFC ; =0x02093D62
 	ldr r12, _02006D00 ; =disableBankForX_
 	bx r12
 _02006CFC: .word unk_02093D62
 _02006D00: .word disableBankForX_
-	arm_func_end FUN_02006cf0
+	arm_func_end GX_DisableBankForBG
 
-	arm_func_start FUN_02006d04
-FUN_02006d04: ; 0x02006D04
+	arm_func_start GX_DisableBankForOBJ
+GX_DisableBankForOBJ: ; 0x02006D04
 	ldr r0, _02006D10 ; =0x02093D64
 	ldr r12, _02006D14 ; =disableBankForX_
 	bx r12
 _02006D10: .word unk_02093D64
 _02006D14: .word disableBankForX_
-	arm_func_end FUN_02006d04
+	arm_func_end GX_DisableBankForOBJ
 
-	arm_func_start FUN_02006d18
-FUN_02006d18: ; 0x02006D18
+	arm_func_start GX_DisableBankForBGExtPltt
+GX_DisableBankForBGExtPltt: ; 0x02006D18
 	mov r2, #0x4000000
 	ldr r1, [r2]
 	ldr r0, _02006D34 ; =0x02093D6E
@@ -7878,10 +7878,10 @@ FUN_02006d18: ; 0x02006D18
 	bx r12
 _02006D34: .word unk_02093D6E
 _02006D38: .word disableBankForX_
-	arm_func_end FUN_02006d18
+	arm_func_end GX_DisableBankForBGExtPltt
 
-	arm_func_start FUN_02006d3c
-FUN_02006d3c: ; 0x02006D3C
+	arm_func_start GX_DisableBankForOBJExtPltt
+GX_DisableBankForOBJExtPltt: ; 0x02006D3C
 	mov r2, #0x4000000
 	ldr r1, [r2]
 	ldr r0, _02006D58 ; =0x02093D70
@@ -7891,73 +7891,73 @@ FUN_02006d3c: ; 0x02006D3C
 	bx r12
 _02006D58: .word unk_02093D70
 _02006D5C: .word disableBankForX_
-	arm_func_end FUN_02006d3c
+	arm_func_end GX_DisableBankForOBJExtPltt
 
-	arm_func_start FUN_02006d60
-FUN_02006d60: ; 0x02006D60
+	arm_func_start GX_DisableBankForTex
+GX_DisableBankForTex: ; 0x02006D60
 	ldr r0, _02006D6C ; =0x02093D68
 	ldr r12, _02006D70 ; =disableBankForX_
 	bx r12
 _02006D6C: .word unk_02093D68
 _02006D70: .word disableBankForX_
-	arm_func_end FUN_02006d60
+	arm_func_end GX_DisableBankForTex
 
-	arm_func_start FUN_02006d74
-FUN_02006d74: ; 0x02006D74
+	arm_func_start GX_DisableBankForTexPltt
+GX_DisableBankForTexPltt: ; 0x02006D74
 	ldr r0, _02006D80 ; =0x02093D6A
 	ldr r12, _02006D84 ; =disableBankForX_
 	bx r12
 _02006D80: .word unk_02093D6A
 _02006D84: .word disableBankForX_
-	arm_func_end FUN_02006d74
+	arm_func_end GX_DisableBankForTexPltt
 
-	arm_func_start FUN_02006d88
-FUN_02006d88: ; 0x02006D88
+	arm_func_start GX_DisableBankForClearImage
+GX_DisableBankForClearImage: ; 0x02006D88
 	ldr r0, _02006D94 ; =0x02093D6C
 	ldr r12, _02006D98 ; =disableBankForX_
 	bx r12
 _02006D94: .word unk_02093D6C
 _02006D98: .word disableBankForX_
-	arm_func_end FUN_02006d88
+	arm_func_end GX_DisableBankForClearImage
 
-	arm_func_start FUN_02006d9c
-FUN_02006d9c: ; 0x02006D9C
+	arm_func_start GX_DisableBankForARM7
+GX_DisableBankForARM7: ; 0x02006D9C
 	ldr r0, _02006DA8 ; =0x02093D66
 	ldr r12, _02006DAC ; =disableBankForX_
 	bx r12
 _02006DA8: .word unk_02093D66
 _02006DAC: .word disableBankForX_
-	arm_func_end FUN_02006d9c
+	arm_func_end GX_DisableBankForARM7
 
-	arm_func_start FUN_02006db0
-FUN_02006db0: ; 0x02006DB0
+	arm_func_start GX_DisableBankForLCDC
+GX_DisableBankForLCDC: ; 0x02006DB0
 	ldr r0, _02006DBC ; =gGXState
 	ldr r12, _02006DC0 ; =disableBankForX_
 	bx r12
 _02006DBC: .word gGXState
 _02006DC0: .word disableBankForX_
-	arm_func_end FUN_02006db0
+	arm_func_end GX_DisableBankForLCDC
 
-	arm_func_start FUN_02006dc4
-FUN_02006dc4: ; 0x02006DC4
+	arm_func_start GX_DisableBankForSubBG
+GX_DisableBankForSubBG: ; 0x02006DC4
 	ldr r0, _02006DD0 ; =0x02093D72
 	ldr r12, _02006DD4 ; =disableBankForX_
 	bx r12
 _02006DD0: .word unk_02093D72
 _02006DD4: .word disableBankForX_
-	arm_func_end FUN_02006dc4
+	arm_func_end GX_DisableBankForSubBG
 
-	arm_func_start FUN_02006dd8
-FUN_02006dd8: ; 0x02006DD8
+	arm_func_start GX_DisableBankForSubOBJ
+GX_DisableBankForSubOBJ: ; 0x02006DD8
 	ldr r0, _02006DE4 ; =0x02093D74
 	ldr r12, _02006DE8 ; =disableBankForX_
 	bx r12
 _02006DE4: .word unk_02093D74
 _02006DE8: .word disableBankForX_
-	arm_func_end FUN_02006dd8
+	arm_func_end GX_DisableBankForSubOBJ
 
-	arm_func_start FUN_02006dec
-FUN_02006dec: ; 0x02006DEC
+	arm_func_start GX_DisableBankForSubBGExtPltt
+GX_DisableBankForSubBGExtPltt: ; 0x02006DEC
 	ldr r2, _02006E08 ; =0x04001000
 	ldr r0, _02006E0C ; =0x02093D76
 	ldr r1, [r2]
@@ -7968,10 +7968,10 @@ FUN_02006dec: ; 0x02006DEC
 _02006E08: .word 0x04001000
 _02006E0C: .word unk_02093D76
 _02006E10: .word disableBankForX_
-	arm_func_end FUN_02006dec
+	arm_func_end GX_DisableBankForSubBGExtPltt
 
-	arm_func_start FUN_02006e14
-FUN_02006e14: ; 0x02006E14
+	arm_func_start GX_DisableBankForSubOBJExtPltt
+GX_DisableBankForSubOBJExtPltt: ; 0x02006E14
 	ldr r2, _02006E30 ; =0x04001000
 	ldr r0, _02006E34 ; =0x02093D78
 	ldr r1, [r2]
@@ -7982,7 +7982,7 @@ FUN_02006e14: ; 0x02006E14
 _02006E30: .word 0x04001000
 _02006E34: .word unk_02093D78
 _02006E38: .word disableBankForX_
-	arm_func_end FUN_02006e14
+	arm_func_end GX_DisableBankForSubOBJExtPltt
 
 	arm_func_start GX_GetBankForTex
 GX_GetBankForTex: ; 0x02006E3C
@@ -8017,25 +8017,25 @@ GX_GetSizeOfX_: ; 0x02006E4C
 	bx lr
 	arm_func_end GX_GetSizeOfX_
 
-	arm_func_start FUN_02006ea0
-FUN_02006ea0: ; 0x02006EA0
+	arm_func_start GX_GetSizeOfTex
+GX_GetSizeOfTex: ; 0x02006EA0
 	ldr r0, _02006EB0 ; =gGXState
 	ldr r12, _02006EB4 ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #8]
 	bx r12
 _02006EB0: .word gGXState
 _02006EB4: .word GX_GetSizeOfX_
-	arm_func_end FUN_02006ea0
+	arm_func_end GX_GetSizeOfTex
 
-	arm_func_start FUN_02006eb8
-FUN_02006eb8: ; 0x02006EB8
+	arm_func_start GX_GetSizeOfTexPltt
+GX_GetSizeOfTexPltt: ; 0x02006EB8
 	ldr r0, _02006EC8 ; =gGXState
 	ldr r12, _02006ECC ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #0xa]
 	bx r12
 _02006EC8: .word gGXState
 _02006ECC: .word GX_GetSizeOfX_
-	arm_func_end FUN_02006eb8
+	arm_func_end GX_GetSizeOfTexPltt
 
 	arm_func_start FUN_02006ed0
 FUN_02006ed0: ; 0x02006ED0
@@ -11422,10 +11422,10 @@ _02009C00:
 _02009C24: .word FX_AtanIdxTable_
 	arm_func_end FX_Atan2Idx
 
-	arm_func_start FUN_02009c28
-FUN_02009c28: ; 0x02009C28
+	arm_func_start FX_Init ; this is only a guess based on context
+FX_Init: ; 0x02009C28
 	bx lr
-	arm_func_end FUN_02009c28
+	arm_func_end FX_Init
 
 	arm_func_start FX_AsinIdx
 FX_AsinIdx: ; 0x02009C2C
@@ -11504,8 +11504,8 @@ CPi_RestoreContext: ; 0x02009CEC
 _02009D24: .word 0x04000290
 	arm_func_end CPi_RestoreContext
 
-	arm_func_start FUN_02009d28
-FUN_02009d28: ; 0x02009D28
+	arm_func_start MATH_CountPopulation
+MATH_CountPopulation: ; 0x02009D28
 	ldr r1, _02009D60 ; =0x55555555
 	ldr r2, _02009D64 ; =0x33333333
 	and r1, r1, r0, lsr #1
@@ -11523,15 +11523,15 @@ FUN_02009d28: ; 0x02009D28
 _02009D60: .word 0x55555555
 _02009D64: .word 0x33333333
 _02009D68: .word 0x0F0F0F0F
-	arm_func_end FUN_02009d28
+	arm_func_end MATH_CountPopulation
 
-	arm_func_start FUN_02009d6c
-FUN_02009d6c: ; 0x02009D6C
+	arm_func_start ProcessBlock
+ProcessBlock: ; 0x02009D6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldmia r0, {r2, r3, r12}
 	add r4, r0, #0x18
 	ldr lr, [r0, #0xc]
-	ldr r5, _0200A11C ; =0x0208ED44
+	ldr r5, _0200A11C ; =ProcessBlock_t
 	mov r7, r4
 	mov r8, #0
 _02009D88:
@@ -11767,12 +11767,12 @@ _0200A014:
 	str r2, [r0, #8]
 	str r1, [r0, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0200A11C: .word unk_0208ED44
+_0200A11C: .word ProcessBlock_t
 _0200A120: .word unk_0208EC84
-	arm_func_end FUN_02009d6c
+	arm_func_end ProcessBlock
 
-	arm_func_start FUN_0200a124
-FUN_0200a124: ; 0x0200A124
+	arm_func_start MATH_MD5Init
+MATH_MD5Init: ; 0x0200A124
 	stmfd sp!, {r3, lr}
 	ldr lr, _0200A158 ; =0x67452301
 	mov r2, #0
@@ -11790,10 +11790,10 @@ _0200A158: .word 0x67452301
 _0200A15C: .word 0xEFCDAB89
 _0200A160: .word 0x98BADCFE
 _0200A164: .word 0x10325476
-	arm_func_end FUN_0200a124
+	arm_func_end MATH_MD5Init
 
-	arm_func_start FUN_0200a168
-FUN_0200a168: ; 0x0200A168
+	arm_func_start MATH_MD5Update
+MATH_MD5Update: ; 0x0200A168
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	ldr r4, [r7, #0x10]
@@ -11822,7 +11822,7 @@ _0200A1BC:
 	add r1, r1, r3
 	bl MI_CpuCopy8
 	mov r0, r7
-	bl FUN_02009d6c
+	bl ProcessBlock
 	sub r5, r5, r4
 	mov r8, r5, lsr #6
 	cmp r8, #0
@@ -11836,7 +11836,7 @@ _0200A1F0:
 	bl MI_CpuCopy8
 	mov r0, r7
 	add r6, r6, #0x40
-	bl FUN_02009d6c
+	bl ProcessBlock
 	sub r8, r8, #1
 	cmp r8, #0
 	bgt _0200A1F0
@@ -11847,10 +11847,10 @@ _0200A218:
 	add r1, r7, #0x18
 	bl MI_CpuCopy8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200a168
+	arm_func_end MATH_MD5Update
 
-	arm_func_start FUN_0200a230
-FUN_0200a230: ; 0x0200A230
+	arm_func_start MATH_MD5GetHash
+MATH_MD5GetHash: ; 0x0200A230
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r5, r0
 	ldr r2, [r5, #0x14]
@@ -11861,7 +11861,7 @@ FUN_0200a230: ; 0x0200A230
 	mov r2, #1
 	orr r7, r7, r12, lsr #29
 	mov r6, r12, lsl #3
-	bl FUN_0200a168
+	bl MATH_MD5Update
 	ldr r0, [r5, #0x10]
 	mov r1, #0
 	and r8, r0, #0x3f
@@ -11873,7 +11873,7 @@ FUN_0200a230: ; 0x0200A230
 	mov r8, r1
 	bl MI_CpuFill8
 	mov r0, r5
-	bl FUN_02009d6c
+	bl ProcessBlock
 	mov r2, #0x40
 _0200A290:
 	cmp r2, #8
@@ -11887,7 +11887,7 @@ _0200A2AC:
 	mov r0, r5
 	str r6, [r5, #0x50]
 	str r7, [r5, #0x54]
-	bl FUN_02009d6c
+	bl ProcessBlock
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0x10
@@ -11898,10 +11898,10 @@ _0200A2AC:
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200A2E0: .word unk_0208EC80
-	arm_func_end FUN_0200a230
+	arm_func_end MATH_MD5GetHash
 
-	arm_func_start FUN_0200a2e4
-FUN_0200a2e4: ; 0x0200A2E4
+	arm_func_start MATHi_SHA1ProcessBlockForOverlay
+MATHi_SHA1ProcessBlockForOverlay: ; 0x0200A2E4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldr r4, [r6, #0x2c]
@@ -11909,20 +11909,20 @@ FUN_0200a2e4: ; 0x0200A2E4
 	ldr r5, [r6, #0x4c]
 	str r1, [r6, #0x2c]
 	str r1, [r6, #0x4c]
-	bl FUN_0200aaa8
+	bl MATHi_SHA1ProcessBlock
 	str r4, [r6, #0x2c]
 	str r5, [r6, #0x4c]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0200a2e4
+	arm_func_end MATHi_SHA1ProcessBlockForOverlay
 
-	arm_func_start FUN_0200a310
-FUN_0200a310: ; 0x0200A310
+	arm_func_start MATHi_SHA1Fill
+MATHi_SHA1Fill: ; 0x0200A310
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	movs r7, r2
 	mov r9, r0
 	mov r8, r1
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r10, _0200A39C ; =0x0208EE44
+	ldr r10, _0200A39C ; =MATHi_SHA1ProcessMessageBlockFunc
 	add r5, r9, #0x14
 	mov r4, #0
 _0200A330:
@@ -11954,8 +11954,8 @@ _0200A390:
 	cmp r7, #0
 	bne _0200A330
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0200A39C: .word unk_0208EE44
-	arm_func_end FUN_0200a310
+_0200A39C: .word MATHi_SHA1ProcessMessageBlockFunc
+	arm_func_end MATHi_SHA1Fill
 
 	arm_func_start MATHi_SetOverlayTableMode
 MATHi_SetOverlayTableMode: ; 0x0200A3A0
@@ -11963,21 +11963,21 @@ MATHi_SetOverlayTableMode: ; 0x0200A3A0
 	cmp r0, #0
 	ldr r2, [r1]
 	str r0, [r1]
-	ldrne r1, _0200A3D0 ; =FUN_0200a2e4
-	ldrne r0, _0200A3D4 ; =0x0208EE44
-	ldreq r1, _0200A3D8 ; =FUN_0200aaa8
-	ldreq r0, _0200A3D4 ; =0x0208EE44
+	ldrne r1, _0200A3D0 ; =MATHi_SHA1ProcessBlockForOverlay
+	ldrne r0, _0200A3D4 ; =MATHi_SHA1ProcessMessageBlockFunc
+	ldreq r1, _0200A3D8 ; =MATHi_SHA1ProcessBlock
+	ldreq r0, _0200A3D4 ; =MATHi_SHA1ProcessMessageBlockFunc
 	str r1, [r0]
 	mov r0, r2
 	bx lr
 _0200A3CC: .word unk_02093D9C
-_0200A3D0: .word FUN_0200a2e4
-_0200A3D4: .word unk_0208EE44
-_0200A3D8: .word FUN_0200aaa8
+_0200A3D0: .word MATHi_SHA1ProcessBlockForOverlay
+_0200A3D4: .word MATHi_SHA1ProcessMessageBlockFunc
+_0200A3D8: .word MATHi_SHA1ProcessBlock
 	arm_func_end MATHi_SetOverlayTableMode
 
-	arm_func_start FUN_0200a3dc
-FUN_0200a3dc: ; 0x0200A3DC
+	arm_func_start MATH_SHA1Init
+MATH_SHA1Init: ; 0x0200A3DC
 	stmfd sp!, {r4, lr}
 	ldr lr, _0200A41C ; =0x67452301
 	mov r4, #0
@@ -11999,16 +11999,16 @@ _0200A420: .word 0xEFCDAB89
 _0200A424: .word 0x98BADCFE
 _0200A428: .word 0x10325476
 _0200A42C: .word 0xC3D2E1F0
-	arm_func_end FUN_0200a3dc
+	arm_func_end MATH_SHA1Init
 
-	arm_func_start FUN_0200a430
-FUN_0200a430: ; 0x0200A430
+	arm_func_start MATH_SHA1Update
+MATH_SHA1Update: ; 0x0200A430
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	movs r7, r2
 	mov r9, r0
 	mov r8, r1
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r10, _0200A4C0 ; =0x0208EE44
+	ldr r10, _0200A4C0 ; =MATHi_SHA1ProcessMessageBlockFunc
 	add r5, r9, #0x14
 	mov r4, #0
 _0200A450:
@@ -12041,11 +12041,11 @@ _0200A4B4:
 	cmp r7, #0
 	bne _0200A450
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0200A4C0: .word unk_0208EE44
-	arm_func_end FUN_0200a430
+_0200A4C0: .word MATHi_SHA1ProcessMessageBlockFunc
+	arm_func_end MATH_SHA1Update
 
-	arm_func_start FUN_0200a4c4
-FUN_0200a4c4: ; 0x0200A4C4
+	arm_func_start MATH_SHA1GetHash
+MATH_SHA1GetHash: ; 0x0200A4C4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	mov r4, r0
@@ -12083,24 +12083,24 @@ FUN_0200a4c4: ; 0x0200A4C4
 	ldr r1, _0200A6B4 ; =0x0208B978
 	str r2, [sp]
 	mov r2, #1
-	bl FUN_0200a430
+	bl MATH_SHA1Update
 	ldr r0, [r4, #0x54]
 	rsb r2, r0, #0x40
 	cmp r2, #8
 	bhs _0200A578
 	ldr r1, _0200A6B8 ; =0x0208B979
 	mov r0, r4
-	bl FUN_0200a430
+	bl MATH_SHA1Update
 _0200A578:
 	ldr r1, [r4, #0x54]
 	mov r0, r4
 	rsb r2, r1, #0x38
 	mov r1, #0
-	bl FUN_0200a310
+	bl MATHi_SHA1Fill
 	add r1, sp, #0
 	mov r0, r4
 	mov r2, #8
-	bl FUN_0200a430
+	bl MATH_SHA1Update
 	ldmia r4, {r5, r12}
 	mov r1, r5, lsr #0x18
 	and r7, r1, #0xff
@@ -12173,10 +12173,10 @@ _0200A578:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0200A6B4: .word unk_0208B978
 _0200A6B8: .word unk_0208B979
-	arm_func_end FUN_0200a4c4
+	arm_func_end MATH_SHA1GetHash
 
-	arm_func_start FUN_0200a6bc
-FUN_0200a6bc: ; 0x0200A6BC
+	arm_func_start MATH_CalcSHA1
+MATH_CalcSHA1: ; 0x0200A6BC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x60
 	add r4, sp, #0
@@ -12184,17 +12184,17 @@ FUN_0200a6bc: ; 0x0200A6BC
 	mov r6, r1
 	mov r5, r2
 	mov r0, r4
-	bl FUN_0200a3dc
+	bl MATH_SHA1Init
 	mov r0, r4
 	mov r1, r6
 	mov r2, r5
-	bl FUN_0200a430
+	bl MATH_SHA1Update
 	mov r0, r4
 	mov r1, r7
-	bl FUN_0200a4c4
+	bl MATH_SHA1GetHash
 	add sp, sp, #0x60
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0200a6bc
+	arm_func_end MATH_CalcSHA1
 
 	arm_func_start MATH_CalcHMACSHA1
 MATH_CalcHMACSHA1: ; 0x0200A700
@@ -12214,11 +12214,11 @@ MATH_CalcHMACSHA1: ; 0x0200A700
 	add lr, sp, #0x38
 	add r12, sp, #0x24
 	str lr, [sp, #0x10]
-	ldr lr, _0200A788 ; =FUN_0200a3dc
+	ldr lr, _0200A788 ; =MATH_SHA1Init
 	str r12, [sp, #0x14]
-	ldr r12, _0200A78C ; =FUN_0200a430
+	ldr r12, _0200A78C ; =MATH_SHA1Update
 	str lr, [sp, #0x18]
-	ldr lr, _0200A790 ; =FUN_0200a4c4
+	ldr lr, _0200A790 ; =MATH_SHA1GetHash
 	str r12, [sp, #0x1c]
 	ldr r12, [sp, #0xb0]
 	str lr, [sp, #0x20]
@@ -12228,17 +12228,17 @@ MATH_CalcHMACSHA1: ; 0x0200A700
 	mov r1, r7
 	mov r2, r6
 	str r4, [sp, #4]
-	bl FUN_0200a794
+	bl MATHi_CalcHMAC
 	add sp, sp, #0x98
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200A784: .word unk_0208B984
-_0200A788: .word FUN_0200a3dc
-_0200A78C: .word FUN_0200a430
-_0200A790: .word FUN_0200a4c4
+_0200A788: .word MATH_SHA1Init
+_0200A78C: .word MATH_SHA1Update
+_0200A790: .word MATH_SHA1GetHash
 	arm_func_end MATH_CalcHMACSHA1
 
-	arm_func_start FUN_0200a794
-FUN_0200a794: ; 0x0200A794
+	arm_func_start MATHi_CalcHMAC
+MATHi_CalcHMAC: ; 0x0200A794
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0xc0
 	ldr r5, [sp, #0xe0]
@@ -12356,10 +12356,10 @@ _0200A8F8:
 	blx r2
 	add sp, sp, #0xc0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0200a794
+	arm_func_end MATHi_CalcHMAC
 
-	arm_func_start FUN_0200a944
-FUN_0200a944: ; 0x0200A944
+	arm_func_start MATHi_CRC16InitTableRev
+MATHi_CRC16InitTableRev: ; 0x0200A944
 	stmfd sp!, {r3, lr}
 	mov lr, #0
 	mov r3, lr
@@ -12379,10 +12379,10 @@ _0200A958:
 	cmp lr, #0x100
 	blo _0200A950
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200a944
+	arm_func_end MATHi_CRC16InitTableRev
 
-	arm_func_start FUN_0200a988
-FUN_0200a988: ; 0x0200A988
+	arm_func_start MATHi_CRC16UpdateRev
+MATHi_CRC16UpdateRev: ; 0x0200A988
 	stmfd sp!, {r4, lr}
 	cmp r3, #0
 	ldrh lr, [r1]
@@ -12401,10 +12401,10 @@ _0200A99C:
 _0200A9C0:
 	strh lr, [r1]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200a988
+	arm_func_end MATHi_CRC16UpdateRev
 
-	arm_func_start FUN_0200a9c8
-FUN_0200a9c8: ; 0x0200A9C8
+	arm_func_start MATHi_CRC32InitTableRev
+MATHi_CRC32InitTableRev: ; 0x0200A9C8
 	stmfd sp!, {r3, lr}
 	mov r12, #0
 	mov r2, r12
@@ -12423,10 +12423,10 @@ _0200A9DC:
 	cmp r12, #0x100
 	blo _0200A9D4
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200a9c8
+	arm_func_end MATHi_CRC32InitTableRev
 
-	arm_func_start FUN_0200aa08
-FUN_0200aa08: ; 0x0200AA08
+	arm_func_start MATHi_CRC32UpdateRev
+MATHi_CRC32UpdateRev: ; 0x0200AA08
 	stmfd sp!, {r4, lr}
 	cmp r3, #0
 	ldr lr, [r1]
@@ -12444,10 +12444,10 @@ _0200AA1C:
 _0200AA3C:
 	str lr, [r1]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200aa08
+	arm_func_end MATHi_CRC32UpdateRev
 
-	arm_func_start FUN_0200aa44
-FUN_0200aa44: ; 0x0200AA44
+	arm_func_start MATH_CalcCRC16
+MATH_CalcCRC16: ; 0x0200AA44
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mov r12, #0
@@ -12455,13 +12455,13 @@ FUN_0200aa44: ; 0x0200AA44
 	add r1, sp, #0
 	mov r2, lr
 	strh r12, [sp]
-	bl FUN_0200a988
+	bl MATHi_CRC16UpdateRev
 	ldrh r0, [sp]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0200aa44
+	arm_func_end MATH_CalcCRC16
 
-	arm_func_start FUN_0200aa6c
-FUN_0200aa6c: ; 0x0200AA6C
+	arm_func_start MATH_CalcCRC32
+MATH_CalcCRC32: ; 0x0200AA6C
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	mvn r12, #0
@@ -12469,7 +12469,7 @@ FUN_0200aa6c: ; 0x0200AA6C
 	add r1, sp, #0
 	mov r2, lr
 	str r12, [sp]
-	bl FUN_0200aa08
+	bl MATHi_CRC32UpdateRev
 	ldr r0, [sp]
 	mvn r0, r0
 	ldmfd sp!, {r3, pc}
@@ -12477,10 +12477,10 @@ _0200AA98: .word 0x5A827999
 _0200AA9C: .word 0x6ED9EBA1
 _0200AAA0: .word 0x8F1BBCDC
 _0200AAA4: .word 0xCA62C1D6
-	arm_func_end FUN_0200aa6c
+	arm_func_end MATH_CalcCRC32
 
-	arm_func_start FUN_0200aaa8
-FUN_0200aaa8: ; 0x0200AAA8
+	arm_func_start MATHi_SHA1ProcessBlock
+MATHi_SHA1ProcessBlock: ; 0x0200AAA8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, r12, lr}
 	mov r11, r0
 	sub sp, sp, #0x40
@@ -12686,10 +12686,10 @@ _0200AD18:
 	stmia r11, {r1, r2, r3, r9, r10}
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, r12, pc}
-	arm_func_end FUN_0200aaa8
+	arm_func_end MATHi_SHA1ProcessBlock
 
-	arm_func_start FUN_0200adc4
-FUN_0200adc4: ; 0x0200ADC4
+	arm_func_start RTC_Init
+RTC_Init: ; 0x0200ADC4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _0200AE28 ; =0x02093DA0
 	ldrh r1, [r0]
@@ -12712,16 +12712,16 @@ _0200AE04:
 	bl PXI_IsCallbackReady
 	cmp r0, #0
 	beq _0200AE04
-	ldr r1, _0200AE2C ; =FUN_0200b034
+	ldr r1, _0200AE2C ; =RtcCommonCallback
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
 _0200AE28: .word unk_02093DA0
-_0200AE2C: .word FUN_0200b034
-	arm_func_end FUN_0200adc4
+_0200AE2C: .word RtcCommonCallback
+	arm_func_end RTC_Init
 
-	arm_func_start FUN_0200ae30
-FUN_0200ae30: ; 0x0200AE30
+	arm_func_start RTC_GetDateAsync
+RTC_GetDateAsync: ; 0x0200AE30
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -12744,36 +12744,36 @@ _0200AE60:
 	str r8, [r4, #0xc]
 	str r7, [r4, #8]
 	str r6, [r4, #0x14]
-	bl FUN_0200b514
+	bl RTCi_ReadRawDateAsync
 	cmp r0, #0
 	movne r0, r5
 	streq r5, [r4, #4]
 	moveq r0, #3
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200AE9C: .word unk_02093DA0
-	arm_func_end FUN_0200ae30
+	arm_func_end RTC_GetDateAsync
 
-	arm_func_start FUN_0200aea0
-FUN_0200aea0: ; 0x0200AEA0
+	arm_func_start RTC_GetDate
+RTC_GetDate: ; 0x0200AEA0
 	stmfd sp!, {r3, lr}
 	ldr r1, _0200AED0 ; =FUN_0200b4dc
 	mov r2, #0
-	bl FUN_0200ae30
+	bl RTC_GetDateAsync
 	ldr r1, _0200AED4 ; =0x02093DA0
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200AEC4
-	bl FUN_0200b4ec
+	bl RtcWaitBusy
 _0200AEC4:
 	ldr r0, _0200AED4 ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200AED0: .word FUN_0200b4dc
 _0200AED4: .word unk_02093DA0
-	arm_func_end FUN_0200aea0
+	arm_func_end RTC_GetDate
 
-	arm_func_start FUN_0200aed8
-FUN_0200aed8: ; 0x0200AED8
+	arm_func_start RTC_GetTimeAsync
+RTC_GetTimeAsync: ; 0x0200AED8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -12796,36 +12796,36 @@ _0200AF08:
 	str r8, [r4, #0xc]
 	str r7, [r4, #8]
 	str r6, [r4, #0x14]
-	bl FUN_0200b524
+	bl RTCi_ReadRawTimeAsync
 	cmp r0, #0
 	movne r0, r5
 	streq r5, [r4, #4]
 	moveq r0, #3
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200AF44: .word unk_02093DA0
-	arm_func_end FUN_0200aed8
+	arm_func_end RTC_GetTimeAsync
 
-	arm_func_start FUN_0200af48
-FUN_0200af48: ; 0x0200AF48
+	arm_func_start RTC_GetTime
+RTC_GetTime: ; 0x0200AF48
 	stmfd sp!, {r3, lr}
 	ldr r1, _0200AF78 ; =FUN_0200b4dc
 	mov r2, #0
-	bl FUN_0200aed8
+	bl RTC_GetTimeAsync
 	ldr r1, _0200AF7C ; =0x02093DA0
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200AF6C
-	bl FUN_0200b4ec
+	bl RtcWaitBusy
 _0200AF6C:
 	ldr r0, _0200AF7C ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200AF78: .word FUN_0200b4dc
 _0200AF7C: .word unk_02093DA0
-	arm_func_end FUN_0200af48
+	arm_func_end RTC_GetTime
 
-	arm_func_start FUN_0200af80
-FUN_0200af80: ; 0x0200AF80
+	arm_func_start RTC_GetDateTimeAsync
+RTC_GetDateTimeAsync: ; 0x0200AF80
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	mov r6, r1
@@ -12851,36 +12851,36 @@ _0200AFB4:
 	str r6, [r8, #0x10]
 	str r5, [r8, #8]
 	str r4, [r8, #0x14]
-	bl FUN_0200b504
+	bl RTCi_ReadRawDateTimeAsync
 	cmp r0, #0
 	movne r0, r9
 	streq r9, [r8, #4]
 	moveq r0, #3
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0200AFF8: .word unk_02093DA0
-	arm_func_end FUN_0200af80
+	arm_func_end RTC_GetDateTimeAsync
 
-	arm_func_start FUN_0200affc
-FUN_0200affc: ; 0x0200AFFC
+	arm_func_start RTC_GetDateTime
+RTC_GetDateTime: ; 0x0200AFFC
 	stmfd sp!, {r3, lr}
 	ldr r2, _0200B02C ; =FUN_0200b4dc
 	mov r3, #0
-	bl FUN_0200af80
+	bl RTC_GetDateTimeAsync
 	ldr r1, _0200B030 ; =0x02093DA0
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200B020
-	bl FUN_0200b4ec
+	bl RtcWaitBusy
 _0200B020:
 	ldr r0, _0200B030 ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200B02C: .word FUN_0200b4dc
 _0200B030: .word unk_02093DA0
-	arm_func_end FUN_0200affc
+	arm_func_end RTC_GetDateTime
 
-	arm_func_start FUN_0200b034
-FUN_0200b034: ; 0x0200B034
+	arm_func_start RtcCommonCallback
+RtcCommonCallback: ; 0x0200B034
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	cmp r2, #0
 	ldr r0, _0200B464 ; =0x02FFFDEA
@@ -12944,20 +12944,20 @@ _0200B10C:
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x18
 	mov r0, r0, lsr #0x18
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8]
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x13
 	mov r0, r0, lsr #0x1b
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #4]
 	ldr r0, [r7]
 	mov r0, r0, lsl #0xa
 	mov r0, r0, lsr #0x1a
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #8]
 	mov r0, r8
-	bl FUN_0200b678
+	bl RTC_GetDayOfWeek
 	str r0, [r8, #0xc]
 	b _0200B42C
 _0200B160:
@@ -12966,18 +12966,18 @@ _0200B160:
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x1a
 	mov r0, r0, lsr #0x1a
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8]
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x11
 	mov r0, r0, lsr #0x19
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #4]
 	ldr r0, [r7]
 _0200B194:
 	mov r0, r0, lsl #9
 	mov r0, r0, lsr #0x19
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #8]
 	b _0200B42C
 _0200B1A8:
@@ -12985,31 +12985,31 @@ _0200B1A8:
 	ldr r8, [r6, #0xc]
 	ldr r0, [r7]
 	and r0, r0, #0xff
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8]
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x13
 	mov r0, r0, lsr #0x1b
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #4]
 	ldr r0, [r7]
 	mov r0, r0, lsl #0xa
 	mov r0, r0, lsr #0x1a
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #8]
 	mov r0, r8
-	bl FUN_0200b678
+	bl RTC_GetDayOfWeek
 	str r0, [r8, #0xc]
 	ldr r0, [r7, #4]
 	ldr r8, [r6, #0x10]
 	mov r0, r0, lsl #0x1a
 	mov r0, r0, lsr #0x1a
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8]
 	ldr r0, [r7, #4]
 	mov r0, r0, lsl #0x11
 	mov r0, r0, lsr #0x19
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #4]
 	ldr r0, [r7, #4]
 	b _0200B194
@@ -13042,12 +13042,12 @@ _0200B26C:
 	ldr r0, [r7]
 	mov r0, r0, lsl #0x12
 	mov r0, r0, lsr #0x1a
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #4]
 	ldr r0, [r7]
 	mov r0, r0, lsl #9
 	mov r0, r0, lsr #0x19
-	bl FUN_0200b474
+	bl RtcHEX2BCD
 	str r0, [r8, #8]
 	str r5, [r8, #0xc]
 	ldr r0, [r7]
@@ -13127,7 +13127,7 @@ _0200B3B0:
 	bic r1, r1, #0x40
 _0200B3C8:
 	strh r1, [r0]
-	bl FUN_0200b534
+	bl RTCi_WriteRawStatus2Async
 	cmp r0, #0
 	streq r5, [r6, #0x1c]
 	moveq r5, #3
@@ -13179,10 +13179,10 @@ _0200B464: .word 0x02FFFDEA
 _0200B468: .word unk_02093DA0
 _0200B46C: .word 0x02FFFDE8
 _0200B470: .word 0x02FFFDEC
-	arm_func_end FUN_0200b034
+	arm_func_end RtcCommonCallback
 
-	arm_func_start FUN_0200b474
-FUN_0200b474: ; 0x0200B474
+	arm_func_start RtcHEX2BCD
+RtcHEX2BCD: ; 0x0200B474
 	stmfd sp!, {r4, lr}
 	mov r12, #0
 	mov r2, r12
@@ -13211,7 +13211,7 @@ _0200B4B0:
 	blt _0200B4B0
 	mov r0, r12
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200b474
+	arm_func_end RtcHEX2BCD
 
 	arm_func_start FUN_0200b4dc
 FUN_0200b4dc: ; 0x0200B4DC
@@ -13221,8 +13221,8 @@ FUN_0200b4dc: ; 0x0200B4DC
 _0200B4E8: .word unk_02093DA0
 	arm_func_end FUN_0200b4dc
 
-	arm_func_start FUN_0200b4ec
-FUN_0200b4ec: ; 0x0200B4EC
+	arm_func_start RtcWaitBusy
+RtcWaitBusy: ; 0x0200B4EC
 	ldr r12, _0200B500 ; =0x02093DA4
 _0200B4F0:
 	ldr r0, [r12]
@@ -13230,42 +13230,42 @@ _0200B4F0:
 	beq _0200B4F0
 	bx lr
 _0200B500: .word unk_02093DA4
-	arm_func_end FUN_0200b4ec
+	arm_func_end RtcWaitBusy
 
-	arm_func_start FUN_0200b504
-FUN_0200b504: ; 0x0200B504
-	ldr r12, _0200B510 ; =FUN_0200B544
+	arm_func_start RTCi_ReadRawDateTimeAsync
+RTCi_ReadRawDateTimeAsync: ; 0x0200B504
+	ldr r12, _0200B510 ; =RtcSendPxiCommand
 	mov r0, #0x10
 	bx r12
-_0200B510: .word FUN_0200B544
-	arm_func_end FUN_0200b504
+_0200B510: .word RtcSendPxiCommand
+	arm_func_end RTCi_ReadRawDateTimeAsync
 
-	arm_func_start FUN_0200b514
-FUN_0200b514: ; 0x0200B514
-	ldr r12, _0200B520 ; =FUN_0200B544
+	arm_func_start RTCi_ReadRawDateAsync
+RTCi_ReadRawDateAsync: ; 0x0200B514
+	ldr r12, _0200B520 ; =RtcSendPxiCommand
 	mov r0, #0x11
 	bx r12
-_0200B520: .word FUN_0200B544
-	arm_func_end FUN_0200b514
+_0200B520: .word RtcSendPxiCommand
+	arm_func_end RTCi_ReadRawDateAsync
 
-	arm_func_start FUN_0200b524
-FUN_0200b524: ; 0x0200B524
-	ldr r12, _0200B530 ; =FUN_0200B544
+	arm_func_start RTCi_ReadRawTimeAsync
+RTCi_ReadRawTimeAsync: ; 0x0200B524
+	ldr r12, _0200B530 ; =RtcSendPxiCommand
 	mov r0, #0x12
 	bx r12
-_0200B530: .word FUN_0200B544
-	arm_func_end FUN_0200b524
+_0200B530: .word RtcSendPxiCommand
+	arm_func_end RTCi_ReadRawTimeAsync
 
-	arm_func_start FUN_0200b534
-FUN_0200b534: ; 0x0200B534
-	ldr r12, _0200B540 ; =FUN_0200B544
+	arm_func_start RTCi_WriteRawStatus2Async
+RTCi_WriteRawStatus2Async: ; 0x0200B534
+	ldr r12, _0200B540 ; =RtcSendPxiCommand
 	mov r0, #0x27
 	bx r12
-_0200B540: .word FUN_0200B544
-	arm_func_end FUN_0200b534
+_0200B540: .word RtcSendPxiCommand
+	arm_func_end RTCi_WriteRawStatus2Async
 
-	arm_func_start FUN_0200B544
-FUN_0200B544: ; 0x0200B544
+	arm_func_start RtcSendPxiCommand
+RtcSendPxiCommand: ; 0x0200B544
 	stmfd sp!, {r4, lr}
 	mov r0, r0, lsl #8
 	mov r4, #0
@@ -13277,10 +13277,10 @@ FUN_0200B544: ; 0x0200B544
 	movge r4, #1
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0200B544
+	arm_func_end RtcSendPxiCommand
 
-	arm_func_start FUN_0200b570
-FUN_0200b570: ; 0x0200B570
+	arm_func_start RTC_ConvertDateToDay
+RTC_ConvertDateToDay: ; 0x0200B570
 	ldr r3, [r0]
 	cmp r3, #0x64
 	bhs _0200B5C0
@@ -13305,7 +13305,7 @@ _0200B5C0:
 	mvn r0, #0
 	bx lr
 _0200B5C8:
-	ldr r0, _0200B5FC ; =0x0208EE44
+	ldr r0, _0200B5FC ; =MATHi_SHA1ProcessMessageBlockFunc
 	sub r1, r1, #1
 	ldr r0, [r0, r2, lsl #2]
 	cmp r2, #3
@@ -13319,25 +13319,25 @@ _0200B5E8:
 	mla r0, r3, r0, r2
 	add r0, r0, r1, lsr #2
 	bx lr
-_0200B5FC: .word unk_0208EE44
+_0200B5FC: .word MATHi_SHA1ProcessMessageBlockFunc
 _0200B600: .word 0x0000016D
-	arm_func_end FUN_0200b570
+	arm_func_end RTC_ConvertDateToDay
 
-	arm_func_start FUN_0200b604
-FUN_0200b604: ; 0x0200B604
+	arm_func_start RTCi_ConvertTimeToSecond
+RTCi_ConvertTimeToSecond: ; 0x0200B604
 	mov r1, #0x3c
 	ldmia r0, {r2, r3}
 	mla r3, r2, r1, r3
 	ldr r0, [r0, #8]
 	mla r0, r3, r1, r0
 	bx lr
-	arm_func_end FUN_0200b604
+	arm_func_end RTCi_ConvertTimeToSecond
 
-	arm_func_start FUN_0200b61c
-FUN_0200b61c: ; 0x0200B61C
+	arm_func_start RTC_ConvertDateTimeToSecond
+RTC_ConvertDateTimeToSecond: ; 0x0200B61C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r1
-	bl FUN_0200b570
+	bl RTC_ConvertDateToDay
 	mov r4, r0
 	mvn r5, #0
 	cmp r4, r5
@@ -13345,7 +13345,7 @@ FUN_0200b61c: ; 0x0200B61C
 	moveq r1, r5
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r6
-	bl FUN_0200b604
+	bl RTCi_ConvertTimeToSecond
 	cmp r0, r5
 	moveq r1, r5
 	beq _0200B66C
@@ -13359,10 +13359,10 @@ _0200B66C:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _0200B674: .word 0x00015180
-	arm_func_end FUN_0200b61c
+	arm_func_end RTC_ConvertDateTimeToSecond
 
-	arm_func_start FUN_0200b678
-FUN_0200b678: ; 0x0200B678
+	arm_func_start RTC_GetDayOfWeek
+RTC_GetDayOfWeek: ; 0x0200B678
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, [r0, #4]
 	ldr r2, [r0]
@@ -13410,7 +13410,7 @@ FUN_0200b678: ; 0x0200B678
 _0200B728: .word 0x51EB851F
 _0200B72C: .word 0x66666667
 _0200B730: .word 0x92492493
-	arm_func_end FUN_0200b678
+	arm_func_end RTC_GetDayOfWeek
 
 	arm_func_start SND_StopSeq
 SND_StopSeq: ; 0x0200B734
@@ -16364,8 +16364,8 @@ _0200DC5C:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FS_CancelFile
 
-	arm_func_start FUN_0200dc64
-FUN_0200dc64: ; 0x0200DC64
+	arm_func_start FS_ConvertPathToFileID
+FS_ConvertPathToFileID: ; 0x0200DC64
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x174
 	add r6, sp, #0x5c
@@ -16402,7 +16402,7 @@ _0200DCE4:
 	mov r0, r7
 	add sp, sp, #0x174
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0200dc64
+	arm_func_end FS_ConvertPathToFileID
 
 	arm_func_start FS_OpenFileDirect
 FS_OpenFileDirect: ; 0x0200DCF0
@@ -21498,7 +21498,7 @@ _02011E50:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _02011E68:
 	mov r0, r8
-	bl FUN_02002f78
+	bl OS_IsOnVram
 	cmp r0, #0
 	beq _02011E8C
 	mov r0, r6
@@ -22738,9 +22738,9 @@ FUN_02012ef8: ; 0x02012EF8
 	ldr r0, [r4]
 	cmp r0, #0x10000
 	bne _02012F3C
-	bl FUN_0200adc4
+	bl RTC_Init
 	add r0, sp, #0
-	bl FUN_0200af48
+	bl RTC_GetTime
 	cmp r0, #0
 	bne _02012F3C
 	ldr r1, [sp, #8]
@@ -23892,7 +23892,7 @@ _02013E90:
 	orr r0, r6, r0, lsr #16
 	strh r4, [r1, #0x18]
 	strh r0, [r1, #0xe]
-	bl FUN_02009d28
+	bl MATH_CountPopulation
 	add r3, r10, #0x800
 	mul r1, r5, r0
 	strh r1, [r3, #0x14]
@@ -24627,7 +24627,7 @@ FUN_02014934: ; 0x02014934
 	mov r5, r0
 	and r0, r1, r3
 	mov r4, r2
-	bl FUN_02009d28
+	bl MATH_CountPopulation
 	add r1, r5, #0x800
 	ldrh r1, [r1, #0x10]
 	mla r0, r1, r0, r4
@@ -48993,19 +48993,19 @@ _020290C0: .word unk_02099E8C
 	arm_func_start FUN_020290c4
 FUN_020290c4: ; 0x020290C4
 	stmfd sp!, {r4, lr}
-	bl OS_InitVeneer
+	bl OS_Init
 	bl OS_InitTick
 	bl OS_InitAlarm
 	bl OS_InitThread
 	mvn r0, #0
 	bl FS_Init
-	bl FUN_0200adc4
+	bl RTC_Init
 	mov r4, #0
 	ldr r1, _02029130 ; =0x00000082
 	mov r0, r4
 	bl FS_LoadOverlay
 	bl FUN_02029078
-	bl FUN_02009c28
+	bl FX_Init
 	mov r1, #2
 	ldr r0, _02029134 ; =GXi_DmaId
 	str r1, [r0]
@@ -49095,7 +49095,7 @@ FUN_0202921c: ; 0x0202921C
 	mov r1, #0x6800000
 	mov r2, #0xa4000
 	bl MIi_CpuClearFast
-	bl FUN_02006db0
+	bl GX_DisableBankForLCDC
 	mov r6, #0xc0
 	mov r5, #0x400
 	mov r0, r6
@@ -54360,7 +54360,7 @@ FUN_0202d4c4: ; 0x0202D4C4
 	bl STD_ConcatenateString
 	add r0, sp, #0
 	mov r1, r4
-	bl FUN_0200dc64
+	bl FS_ConvertPathToFileID
 	cmp r0, #0
 	addeq sp, sp, #0x28
 	moveq r0, #0
@@ -56638,7 +56638,7 @@ _0202F2E0:
 	bl FS_InitFile
 	mov r1, r4
 	add r0, r5, #0x58
-	bl FUN_0200dc64
+	bl FS_ConvertPathToFileID
 	cmp r0, #0
 	beq _0202F340
 	add r1, r5, #0x58
@@ -56799,11 +56799,11 @@ _0202F55C:
 
 	arm_func_start FUN_0202f568
 FUN_0202f568: ; 0x0202F568
-	ldr r12, _0202F578 ; =FUN_0200dc64
+	ldr r12, _0202F578 ; =FS_ConvertPathToFileID
 	mov r0, r1
 	mov r1, r2
 	bx r12
-_0202F578: .word FUN_0200dc64
+_0202F578: .word FS_ConvertPathToFileID
 	arm_func_end FUN_0202f568
 
 	arm_func_start FUN_0202f57c
@@ -97455,9 +97455,9 @@ FUN_020514f0: ; 0x020514F0
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r4, r0
-	bl FUN_02006ea0
+	bl GX_GetSizeOfTex
 	mov r5, r0
-	bl FUN_02006eb8
+	bl GX_GetSizeOfTexPltt
 	mov r6, r0
 	cmp r5, #0
 	beq _0205153C
@@ -160480,11 +160480,11 @@ FUN_020859d8: ; 0x020859D8
 	mov r3, r0
 	mov r2, r1
 	ldr r0, _020859F0 ; =0x020BC738
-	ldr r12, _020859F4 ; =FUN_0200aa6c
+	ldr r12, _020859F4 ; =MATH_CalcCRC32
 	mov r1, r3
 	bx r12
 _020859F0: .word unk_020BC738
-_020859F4: .word FUN_0200aa6c
+_020859F4: .word MATH_CalcCRC32
 	arm_func_end FUN_020859d8
 
 	arm_func_start FUN_020859f8
@@ -160761,7 +160761,7 @@ FUN_02085d7c: ; 0x02085D7C
 	mov r6, r2
 	mov r5, r3
 	ldr r4, [sp, #0x78]
-	bl FUN_0200dc64
+	bl FS_ConvertPathToFileID
 	cmp r0, #0
 	bne _02085DAC
 	bl OS_Terminate
@@ -160858,7 +160858,7 @@ _02085E94:
 	add r1, sp, #4
 	add r0, r0, #8
 	str r2, [r4, r6]
-	bl FUN_0200dc64
+	bl FS_ConvertPathToFileID
 	cmp r0, #0
 	bne _02085F14
 	bl OS_Terminate
@@ -160925,7 +160925,7 @@ _02085F8C:
 	add r1, sp, #4
 	add r0, r7, #8
 	strh r3, [r2, r5]
-	bl FUN_0200dc64
+	bl FS_ConvertPathToFileID
 	cmp r0, #0
 	bne _02086004
 	bl OS_Terminate
@@ -161301,7 +161301,7 @@ FUN_020864b4: ; 0x020864B4
 	sub sp, sp, #8
 	ldr r0, _02086548 ; =0x020BC738
 	ldr r1, _0208654C ; =0xEDB88320
-	bl FUN_0200a9c8
+	bl MATHi_CRC32InitTableRev
 	mov r6, #0
 	ldr r0, _02086550 ; =0x020BC5D0
 	mov r1, r6
@@ -161364,7 +161364,7 @@ _02086594:
 	bne _020865B0
 	ldr r0, _020865C8 ; =0x020BC738
 	add r1, sp, #0
-	bl FUN_0200aa6c
+	bl MATH_CalcCRC32
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, pc}
 _020865B0:
@@ -164879,8 +164879,8 @@ unk_0208EC84:
 	.byte 0x01, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
 	.byte 0x0D, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 	.byte 0x09, 0x00, 0x00, 0x00
-	.global unk_0208ED44
-unk_0208ED44:
+	.global ProcessBlock_t
+ProcessBlock_t:
 	.byte 0x78, 0xA4, 0x6A, 0xD7, 0x56, 0xB7, 0xC7, 0xE8, 0xDB, 0x70, 0x20, 0x24
 	.byte 0xEE, 0xCE, 0xBD, 0xC1, 0xAF, 0x0F, 0x7C, 0xF5, 0x2A, 0xC6, 0x87, 0x47, 0x13, 0x46, 0x30, 0xA8
 	.byte 0x01, 0x95, 0x46, 0xFD, 0xD8, 0x98, 0x80, 0x69, 0xAF, 0xF7, 0x44, 0x8B, 0xB1, 0x5B, 0xFF, 0xFF
@@ -164898,9 +164898,10 @@ unk_0208ED44:
 	.byte 0xD1, 0x5D, 0x84, 0x85, 0x4F, 0x7E, 0xA8, 0x6F, 0xE0, 0xE6, 0x2C, 0xFE, 0x14, 0x43, 0x01, 0xA3
 	.byte 0xA1, 0x11, 0x08, 0x4E, 0x82, 0x7E, 0x53, 0xF7, 0x35, 0xF2, 0x3A, 0xBD, 0xBB, 0xD2, 0xD7, 0x2A
 	.byte 0x91, 0xD3, 0x86, 0xEB
-	.global unk_0208EE44
-unk_0208EE44:
-	.byte 0xA8, 0xAA, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00
+	.global MATHi_SHA1ProcessMessageBlockFunc
+MATHi_SHA1ProcessMessageBlockFunc:
+	.word MATHi_SHA1ProcessBlock
+	.byte 0x00, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00
 	.byte 0x3B, 0x00, 0x00, 0x00, 0x5A, 0x00, 0x00, 0x00, 0x78, 0x00, 0x00, 0x00, 0x97, 0x00, 0x00, 0x00
 	.byte 0xB5, 0x00, 0x00, 0x00, 0xD4, 0x00, 0x00, 0x00, 0xF3, 0x00, 0x00, 0x00, 0x11, 0x01, 0x00, 0x00
 	.byte 0x30, 0x01, 0x00, 0x00, 0x4E, 0x01, 0x00, 0x00

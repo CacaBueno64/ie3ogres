@@ -2,7 +2,7 @@
 .public FUN_020eff78
 .public FUN_020f0bac
 .public FUN_020f0670
-.public FUN_0200af48
+.public RTC_GetTime
 .public _s32_div_f
 .public FUN_0201f99c
 .public _ll_udiv

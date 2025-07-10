@@ -8,7 +8,7 @@
 .public FS_OpenFileFast
 .public FS_ReadFile
 .public FS_StartOverlay
-.public FUN_0200a6bc
+.public MATH_CalcSHA1
 .public FS_GetOverlayFileID
 .public FS_UnloadOverlay
 .public FUN_0201e014
