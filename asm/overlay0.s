@@ -1322,7 +1322,7 @@ _020BDCBC: .word FUN_ov16_020f2ab4
 FUN_ov0_020bdcc0: ; 0x020BDCC0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02006b80
+	bl GX_ResetBankForBG
 	ldr r0, [r4, #4]
 	mov r1, #0
 	ldr r2, [r0]
@@ -11877,9 +11877,9 @@ _020C7078:
 _020C7080:
 	mov r4, #0
 _020C7084:
-	bl FUN_02006be0
+	bl GX_ResetBankForSubBG
 	mov r0, #0x80
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	ldr r2, _020C70CC ; =0x04001008
 	ldr r0, _020C70D0 ; =0x0000FFBF
 	ldrh r1, [r2]

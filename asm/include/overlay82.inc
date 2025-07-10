@@ -34,7 +34,7 @@
 .public FUN_020724c8
 .public FUN_020728f8
 .public FUN_020731a4
-.public FUN_0200462c
+.public G2x_SetBlendBrightness_
 .public G2_GetBG3CharPtr
 .public GX_LoadBG3Scr
 .public GX_LoadBG1Char

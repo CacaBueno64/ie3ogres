@@ -89,7 +89,7 @@ FUN_ov34_02119f9c: ; 0x02119F9C
 	mov r1, #6
 	ldr r0, _0211A06C ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _0211A01C:
 	mov r0, r4
 	mov r1, #2
@@ -174,7 +174,7 @@ FUN_ov34_0211a0b8: ; 0x0211A0B8
 	mov r1, #6
 	ldr r0, _0211A1C0 ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _0211A138:
 	mov r0, r6
 	mov r1, #5
@@ -252,7 +252,7 @@ FUN_ov34_0211a1d8: ; 0x0211A1D8
 	mov r1, #6
 	ldr r0, _0211A2AC ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _0211A258:
 	mov r0, r4
 	mov r1, #3
@@ -330,7 +330,7 @@ FUN_ov34_0211a2e8: ; 0x0211A2E8
 	mov r1, #6
 	ldr r0, _0211A3B4 ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _0211A368:
 	mov r0, r4
 	mov r1, #4
@@ -388,7 +388,7 @@ FUN_ov34_0211a3b8: ; 0x0211A3B8
 	mov r1, #6
 	ldr r0, _0211A484 ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _0211A438:
 	mov r0, r4
 	mov r1, #4
@@ -743,7 +743,7 @@ _0211A89C:
 	ldr r0, _0211A8EC ; =0x04000050
 	mov r1, #0xf
 	mov r2, #0
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r0, r4
 	mov r1, #1
 	bl FUN_ov34_0211ab34
@@ -753,7 +753,7 @@ _0211A89C:
 _0211A8C4:
 	ldr r0, _0211A8EC ; =0x04000050
 	mov r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r0, r4
 	mov r1, #6
 	bl FUN_ov34_0211ab34

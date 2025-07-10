@@ -172,9 +172,9 @@ _0211A120: .word ov24_0211D7B4
 FUN_ov24_0211a124: ; 0x0211A124
 	stmfd sp!, {r3, lr}
 	bl FUN_ov24_0211a144
-	bl FUN_02006b80
-	bl FUN_02006bb8
-	bl FUN_02006bcc
+	bl GX_ResetBankForBG
+	bl GX_ResetBankForTex
+	bl GX_ResetBankForTexPltt
 	mov r0, #2
 	bl  FUN_ov16_020f3f60
 	ldmfd sp!, {r3, pc}

@@ -4750,8 +4750,8 @@ GXx_SetMasterBrightness_: ; 0x02004564
 	bx lr
 	arm_func_end GXx_SetMasterBrightness_
 
-	arm_func_start FUN_0200458c
-FUN_0200458c: ; 0x0200458C
+	arm_func_start G2x_SetBGyAffine_
+G2x_SetBGyAffine_: ; 0x0200458C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, [sp, #0x1c]
 	ldr r5, [r1, #4]
@@ -4792,10 +4792,10 @@ FUN_0200458c: ; 0x0200458C
 	mov r1, r3, asr #4
 	str r1, [r0, #0xc]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0200458c
+	arm_func_end G2x_SetBGyAffine_
 
-	arm_func_start FUN_0200462c
-FUN_0200462c: ; 0x0200462C
+	arm_func_start G2x_SetBlendBrightness_
+G2x_SetBlendBrightness_: ; 0x0200462C
 	cmp r2, #0
 	orrlt r1, r1, #0xc0
 	strlth r1, [r0]
@@ -4805,10 +4805,10 @@ FUN_0200462c: ; 0x0200462C
 	strgeh r1, [r0]
 	strgeh r2, [r0, #4]
 	bx lr
-	arm_func_end FUN_0200462c
+	arm_func_end G2x_SetBlendBrightness_
 
-	arm_func_start FUN_02004650
-FUN_02004650: ; 0x02004650
+	arm_func_start G2x_ChangeBlendBrightness_
+G2x_ChangeBlendBrightness_: ; 0x02004650
 	ldrh r3, [r0]
 	cmp r1, #0
 	and r2, r3, #0xc0
@@ -4827,7 +4827,7 @@ _0200467C:
 	streqh r2, [r0]
 	strh r1, [r0, #4]
 	bx lr
-	arm_func_end FUN_02004650
+	arm_func_end G2x_ChangeBlendBrightness_
 
 	arm_func_start G3_LoadMtx43
 G3_LoadMtx43: ; 0x02004694
@@ -5168,7 +5168,7 @@ _02004AC0: .word 0x04000350
 G3X_InitTable: ; 0x02004AC4
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r4, _02004B6C ; =0x0208EC7C
+	ldr r4, _02004B6C ; =GXi_DmaId
 	ldr r0, [r4]
 	cmn r0, #1
 	beq _02004B20
@@ -5211,7 +5211,7 @@ _02004B54:
 	blt _02004B54
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_02004B6C: .word unk_0208EC7C
+_02004B6C: .word GXi_DmaId
 _02004B70: .word 0x04000330
 _02004B74: .word 0x040004D0
 	arm_func_end G3X_InitTable
@@ -5681,7 +5681,7 @@ _020050F8: .word 0x04001000
 GX_LoadBGPltt: ; 0x020050FC
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r3, _0200515C ; =0x0208EC7C
+	ldr r3, _0200515C ; =GXi_DmaId
 	mov r4, r0
 	ldr r0, [r3]
 	mov lr, r1
@@ -5704,13 +5704,13 @@ _02005144:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_0200515C: .word unk_0208EC7C
+_0200515C: .word GXi_DmaId
 	arm_func_end GX_LoadBGPltt
 
 	arm_func_start GXS_LoadBGPltt
 GXS_LoadBGPltt: ; 0x02005160
 	stmfd sp!, {r3, lr}
-	ldr r3, _020051B8 ; =0x0208EC7C
+	ldr r3, _020051B8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r3]
 	mov r3, r2
@@ -5732,13 +5732,13 @@ _020051A0:
 	add r1, r1, #0x5000000
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
-_020051B8: .word unk_0208EC7C
+_020051B8: .word GXi_DmaId
 	arm_func_end GXS_LoadBGPltt
 
 	arm_func_start GX_LoadOBJPltt
 GX_LoadOBJPltt: ; 0x020051BC
 	stmfd sp!, {r3, lr}
-	ldr r3, _02005214 ; =0x0208EC7C
+	ldr r3, _02005214 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r3]
 	mov r3, r2
@@ -5760,13 +5760,13 @@ _020051FC:
 	add r1, r1, #0x5000000
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
-_02005214: .word unk_0208EC7C
+_02005214: .word GXi_DmaId
 	arm_func_end GX_LoadOBJPltt
 
 	arm_func_start GXS_LoadOBJPltt
 GXS_LoadOBJPltt: ; 0x02005218
 	stmfd sp!, {r3, lr}
-	ldr r3, _02005270 ; =0x0208EC7C
+	ldr r3, _02005270 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r3]
 	mov r3, r2
@@ -5788,14 +5788,14 @@ _02005258:
 	add r1, r1, #0x5000000
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, pc}
-_02005270: .word unk_0208EC7C
+_02005270: .word GXi_DmaId
 	arm_func_end GXS_LoadOBJPltt
 
 	arm_func_start GX_LoadOAM
 GX_LoadOAM: ; 0x02005274
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r3, _020052D4 ; =0x0208EC7C
+	ldr r3, _020052D4 ; =GXi_DmaId
 	mov r4, r0
 	ldr r0, [r3]
 	mov lr, r1
@@ -5818,13 +5818,13 @@ _020052BC:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_020052D4: .word unk_0208EC7C
+_020052D4: .word GXi_DmaId
 	arm_func_end GX_LoadOAM
 
 	arm_func_start GXS_LoadOAM
 GXS_LoadOAM: ; 0x020052D8
 	stmfd sp!, {r3, lr}
-	ldr r3, _02005330 ; =0x0208EC7C
+	ldr r3, _02005330 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r3]
 	mov r3, r2
@@ -5846,14 +5846,14 @@ _02005318:
 	add r1, r1, #0x7000000
 	bl MIi_CpuCopy32
 	ldmfd sp!, {r3, pc}
-_02005330: .word unk_0208EC7C
+_02005330: .word GXi_DmaId
 	arm_func_end GXS_LoadOAM
 
 	arm_func_start GX_LoadOBJ
 GX_LoadOBJ: ; 0x02005334
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r3, _02005394 ; =0x0208EC7C
+	ldr r3, _02005394 ; =GXi_DmaId
 	mov r4, r0
 	ldr r0, [r3]
 	mov lr, r1
@@ -5876,14 +5876,14 @@ _0200537C:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_02005394: .word unk_0208EC7C
+_02005394: .word GXi_DmaId
 	arm_func_end GX_LoadOBJ
 
 	arm_func_start GXS_LoadOBJ
 GXS_LoadOBJ: ; 0x02005398
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r3, _020053F8 ; =0x0208EC7C
+	ldr r3, _020053F8 ; =GXi_DmaId
 	mov r4, r0
 	ldr r0, [r3]
 	mov lr, r1
@@ -5906,7 +5906,7 @@ _020053E0:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_020053F8: .word unk_0208EC7C
+_020053F8: .word GXi_DmaId
 	arm_func_end GXS_LoadOBJ
 
 	arm_func_start GX_LoadBG0Scr
@@ -5917,7 +5917,7 @@ GX_LoadBG0Scr: ; 0x020053FC
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG0ScrPtr
-	ldr r1, _02005468 ; =0x0208EC7C
+	ldr r1, _02005468 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -5939,7 +5939,7 @@ _02005450:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005468: .word unk_0208EC7C
+_02005468: .word GXi_DmaId
 	arm_func_end GX_LoadBG0Scr
 
 	arm_func_start GXS_LoadBG0Scr
@@ -5950,7 +5950,7 @@ GXS_LoadBG0Scr: ; 0x0200546C
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG0ScrPtr
-	ldr r1, _020054D8 ; =0x0208EC7C
+	ldr r1, _020054D8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -5972,7 +5972,7 @@ _020054C0:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020054D8: .word unk_0208EC7C
+_020054D8: .word GXi_DmaId
 	arm_func_end GXS_LoadBG0Scr
 
 	arm_func_start GX_LoadBG1Scr
@@ -5983,7 +5983,7 @@ GX_LoadBG1Scr: ; 0x020054DC
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG1ScrPtr
-	ldr r1, _02005548 ; =0x0208EC7C
+	ldr r1, _02005548 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6005,7 +6005,7 @@ _02005530:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005548: .word unk_0208EC7C
+_02005548: .word GXi_DmaId
 	arm_func_end GX_LoadBG1Scr
 
 	arm_func_start GXS_LoadBG1Scr
@@ -6016,7 +6016,7 @@ GXS_LoadBG1Scr: ; 0x0200554C
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG1ScrPtr
-	ldr r1, _020055B8 ; =0x0208EC7C
+	ldr r1, _020055B8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6038,7 +6038,7 @@ _020055A0:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020055B8: .word unk_0208EC7C
+_020055B8: .word GXi_DmaId
 	arm_func_end GXS_LoadBG1Scr
 
 	arm_func_start GX_LoadBG2Scr
@@ -6049,7 +6049,7 @@ GX_LoadBG2Scr: ; 0x020055BC
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG2ScrPtr
-	ldr r1, _02005628 ; =0x0208EC7C
+	ldr r1, _02005628 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6071,7 +6071,7 @@ _02005610:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005628: .word unk_0208EC7C
+_02005628: .word GXi_DmaId
 	arm_func_end GX_LoadBG2Scr
 
 	arm_func_start GXS_LoadBG2Scr
@@ -6082,7 +6082,7 @@ GXS_LoadBG2Scr: ; 0x0200562C
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG2ScrPtr
-	ldr r1, _02005698 ; =0x0208EC7C
+	ldr r1, _02005698 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6104,7 +6104,7 @@ _02005680:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005698: .word unk_0208EC7C
+_02005698: .word GXi_DmaId
 	arm_func_end GXS_LoadBG2Scr
 
 	arm_func_start GX_LoadBG3Scr
@@ -6115,7 +6115,7 @@ GX_LoadBG3Scr: ; 0x0200569C
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG3ScrPtr
-	ldr r1, _02005708 ; =0x0208EC7C
+	ldr r1, _02005708 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6137,7 +6137,7 @@ _020056F0:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005708: .word unk_0208EC7C
+_02005708: .word GXi_DmaId
 	arm_func_end GX_LoadBG3Scr
 
 	arm_func_start GXS_LoadBG3Scr
@@ -6148,7 +6148,7 @@ GXS_LoadBG3Scr: ; 0x0200570C
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG3ScrPtr
-	ldr r1, _02005778 ; =0x0208EC7C
+	ldr r1, _02005778 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6170,7 +6170,7 @@ _02005760:
 	bl MIi_CpuCopy16
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005778: .word unk_0208EC7C
+_02005778: .word GXi_DmaId
 	arm_func_end GXS_LoadBG3Scr
 
 	arm_func_start GX_LoadBG0Char
@@ -6181,7 +6181,7 @@ GX_LoadBG0Char: ; 0x0200577C
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG0CharPtr
-	ldr r1, _020057E8 ; =0x0208EC7C
+	ldr r1, _020057E8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6203,7 +6203,7 @@ _020057D0:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020057E8: .word unk_0208EC7C
+_020057E8: .word GXi_DmaId
 	arm_func_end GX_LoadBG0Char
 
 	arm_func_start GXS_LoadBG0Char
@@ -6214,7 +6214,7 @@ GXS_LoadBG0Char: ; 0x020057EC
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG0CharPtr
-	ldr r1, _02005858 ; =0x0208EC7C
+	ldr r1, _02005858 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6236,7 +6236,7 @@ _02005840:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005858: .word unk_0208EC7C
+_02005858: .word GXi_DmaId
 	arm_func_end GXS_LoadBG0Char
 
 	arm_func_start GX_LoadBG1Char
@@ -6247,7 +6247,7 @@ GX_LoadBG1Char: ; 0x0200585C
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG1CharPtr
-	ldr r1, _020058C8 ; =0x0208EC7C
+	ldr r1, _020058C8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6269,7 +6269,7 @@ _020058B0:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020058C8: .word unk_0208EC7C
+_020058C8: .word GXi_DmaId
 	arm_func_end GX_LoadBG1Char
 
 	arm_func_start GXS_LoadBG1Char
@@ -6280,7 +6280,7 @@ GXS_LoadBG1Char: ; 0x020058CC
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG1CharPtr
-	ldr r1, _02005938 ; =0x0208EC7C
+	ldr r1, _02005938 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6302,7 +6302,7 @@ _02005920:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005938: .word unk_0208EC7C
+_02005938: .word GXi_DmaId
 	arm_func_end GXS_LoadBG1Char
 
 	arm_func_start GX_LoadBG2Char
@@ -6313,7 +6313,7 @@ GX_LoadBG2Char: ; 0x0200593C
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG2CharPtr
-	ldr r1, _020059A8 ; =0x0208EC7C
+	ldr r1, _020059A8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6335,7 +6335,7 @@ _02005990:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020059A8: .word unk_0208EC7C
+_020059A8: .word GXi_DmaId
 	arm_func_end GX_LoadBG2Char
 
 	arm_func_start GXS_LoadBG2Char
@@ -6346,7 +6346,7 @@ GXS_LoadBG2Char: ; 0x020059AC
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG2CharPtr
-	ldr r1, _02005A18 ; =0x0208EC7C
+	ldr r1, _02005A18 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6368,7 +6368,7 @@ _02005A00:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005A18: .word unk_0208EC7C
+_02005A18: .word GXi_DmaId
 	arm_func_end GXS_LoadBG2Char
 
 	arm_func_start GX_LoadBG3Char
@@ -6379,7 +6379,7 @@ GX_LoadBG3Char: ; 0x02005A1C
 	mov r5, r1
 	mov r4, r2
 	bl G2_GetBG3CharPtr
-	ldr r1, _02005A88 ; =0x0208EC7C
+	ldr r1, _02005A88 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6401,7 +6401,7 @@ _02005A70:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005A88: .word unk_0208EC7C
+_02005A88: .word GXi_DmaId
 	arm_func_end GX_LoadBG3Char
 
 	arm_func_start GXS_LoadBG3Char
@@ -6412,7 +6412,7 @@ GXS_LoadBG3Char: ; 0x02005A8C
 	mov r5, r1
 	mov r4, r2
 	bl G2S_GetBG3CharPtr
-	ldr r1, _02005AF8 ; =0x0208EC7C
+	ldr r1, _02005AF8 ; =GXi_DmaId
 	mov lr, r0
 	ldr r0, [r1]
 	cmn r0, #1
@@ -6434,13 +6434,13 @@ _02005AE0:
 	bl MIi_CpuCopy32
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005AF8: .word unk_0208EC7C
+_02005AF8: .word GXi_DmaId
 	arm_func_end GXS_LoadBG3Char
 
 	arm_func_start GX_BeginLoadBGExtPltt
 GX_BeginLoadBGExtPltt: ; 0x02005AFC
 	stmfd sp!, {r3, lr}
-	bl FUN_02006b94
+	bl GX_ResetBankForBGExtPltt
 	ldr r1, _02005B78 ; =0x02093D24
 	cmp r0, #0x20
 	str r0, [r1, #0x14]
@@ -6484,7 +6484,7 @@ GX_LoadBGExtPltt: ; 0x02005B88
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	ldr r12, _02005BF4 ; =0x02093D24
-	ldr r3, _02005BF8 ; =0x0208EC7C
+	ldr r3, _02005BF8 ; =GXi_DmaId
 	ldr r4, [r12, #0x10]
 	ldr lr, [r3]
 	ldr r12, [r12, #0xc]
@@ -6510,13 +6510,13 @@ _02005BE4:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
 _02005BF4: .word unk_02093D24
-_02005BF8: .word unk_0208EC7C
+_02005BF8: .word GXi_DmaId
 	arm_func_end GX_LoadBGExtPltt
 
 	arm_func_start GX_EndLoadBGExtPltt
 GX_EndLoadBGExtPltt: ; 0x02005BFC
 	stmfd sp!, {r4, lr}
-	ldr r0, _02005C34 ; =0x0208EC7C
+	ldr r0, _02005C34 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005C14
@@ -6530,7 +6530,7 @@ _02005C14:
 	str r0, [r4, #0x10]
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_02005C34: .word unk_0208EC7C
+_02005C34: .word GXi_DmaId
 _02005C38: .word unk_02093D24
 	arm_func_end GX_EndLoadBGExtPltt
 
@@ -6548,7 +6548,7 @@ _02005C50: .word unk_02093D24
 GXS_LoadBGExtPltt: ; 0x02005C54
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
-	ldr r3, _02005CB8 ; =0x0208EC7C
+	ldr r3, _02005CB8 ; =GXi_DmaId
 	mov r4, r0
 	ldr lr, [r3]
 	mov r3, r2
@@ -6572,13 +6572,13 @@ _02005CA4:
 	bl MIi_CpuCopy32
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
-_02005CB8: .word unk_0208EC7C
+_02005CB8: .word GXi_DmaId
 	arm_func_end GXS_LoadBGExtPltt
 
 	arm_func_start GXS_EndLoadBGExtPltt
 GXS_EndLoadBGExtPltt: ; 0x02005CBC
 	stmfd sp!, {r4, lr}
-	ldr r0, _02005CEC ; =0x0208EC7C
+	ldr r0, _02005CEC ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005CD4
@@ -6586,18 +6586,18 @@ GXS_EndLoadBGExtPltt: ; 0x02005CBC
 _02005CD4:
 	ldr r4, _02005CF0 ; =0x02093D24
 	ldr r0, [r4]
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	mov r0, #0
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
-_02005CEC: .word unk_0208EC7C
+_02005CEC: .word GXi_DmaId
 _02005CF0: .word unk_02093D24
 	arm_func_end GXS_EndLoadBGExtPltt
 
 	arm_func_start GX_BeginLoadTex
 GX_BeginLoadTex: ; 0x02005CF4
 	stmfd sp!, {r3, lr}
-	bl FUN_02006bb8
+	bl GX_ResetBankForTex
 	mov r1, #6
 	mul lr, r0, r1
 	ldr r2, _02005D40 ; =0x02087814
@@ -6605,7 +6605,7 @@ GX_BeginLoadTex: ; 0x02005CF4
 	ldrh r12, [r2, lr]
 	ldr r2, _02005D48 ; =0x02087818
 	ldrh r3, [r1, lr]
-	ldr r1, _02005D4C ; =0x02093D40
+	ldr r1, _02005D4C ; =sClrImg
 	ldrh r2, [r2, lr]
 	str r0, [r1, #0x14]
 	mov r0, r12, lsl #0xc
@@ -6615,17 +6615,17 @@ GX_BeginLoadTex: ; 0x02005CF4
 	mov r0, r2, lsl #0xc
 	str r0, [r1, #0x1c]
 	ldmfd sp!, {r3, pc}
-_02005D40: .word unk_02087814
+_02005D40: .word sTexStartAddrTable
 _02005D44: .word unk_02087816
 _02005D48: .word unk_02087818
-_02005D4C: .word unk_02093D40
+_02005D4C: .word sClrImg
 	arm_func_end GX_BeginLoadTex
 
 	arm_func_start GX_LoadTex
 GX_LoadTex: ; 0x02005D50
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xc
-	ldr r3, _02005E94 ; =0x02093D40
+	ldr r3, _02005E94 ; =sClrImg
 	mov r7, r0
 	ldr r4, [r3, #0x18]
 	mov r12, r1
@@ -6644,7 +6644,7 @@ GX_LoadTex: ; 0x02005D50
 	addhs r0, r4, r12
 	subhs r2, r0, r1
 	bhs _02005E44
-	ldr r0, _02005E98 ; =0x0208EC7C
+	ldr r0, _02005E98 ; =GXi_DmaId
 	sub r5, r1, r12
 	ldr r0, [r0]
 	ldr r8, [r3, #4]
@@ -6665,7 +6665,7 @@ _02005DE0:
 	add r1, r8, r12
 	bl MIi_CpuCopy32
 _02005DF0:
-	ldr r0, _02005E98 ; =0x0208EC7C
+	ldr r0, _02005E98 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005E2C
@@ -6688,7 +6688,7 @@ _02005E2C:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02005E44:
-	ldr r0, _02005E98 ; =0x0208EC7C
+	ldr r0, _02005E98 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005E7C
@@ -6709,38 +6709,38 @@ _02005E7C:
 	bl MIi_CpuCopy32
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_02005E94: .word unk_02093D40
-_02005E98: .word unk_0208EC7C
+_02005E94: .word sClrImg
+_02005E98: .word GXi_DmaId
 	arm_func_end GX_LoadTex
 
 	arm_func_start GX_EndLoadTex
 GX_EndLoadTex: ; 0x02005E9C
 	stmfd sp!, {r4, lr}
-	ldr r0, _02005ED8 ; =0x0208EC7C
+	ldr r0, _02005ED8 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005EB4
 	bl MI_WaitDma
 _02005EB4:
-	ldr r4, _02005EDC ; =0x02093D40
+	ldr r4, _02005EDC ; =sClrImg
 	ldr r0, [r4, #0x14]
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0
 	str r0, [r4, #0x1c]
 	str r0, [r4, #0x18]
 	str r0, [r4, #4]
 	str r0, [r4, #0x14]
 	ldmfd sp!, {r4, pc}
-_02005ED8: .word unk_0208EC7C
-_02005EDC: .word unk_02093D40
+_02005ED8: .word GXi_DmaId
+_02005EDC: .word sClrImg
 	arm_func_end GX_EndLoadTex
 
 	arm_func_start GX_BeginLoadTexPltt
 GX_BeginLoadTexPltt: ; 0x02005EE0
 	stmfd sp!, {r3, lr}
-	bl FUN_02006bcc
+	bl GX_ResetBankForTexPltt
 	mov r3, r0, asr #4
-	ldr r1, _02005F0C ; =0x02093D40
+	ldr r1, _02005F0C ; =sClrImg
 	ldr r2, _02005F10 ; =0x02087804
 	mov r3, r3, lsl #1
 	ldrh r2, [r2, r3]
@@ -6748,16 +6748,16 @@ GX_BeginLoadTexPltt: ; 0x02005EE0
 	mov r0, r2, lsl #0xc
 	str r0, [r1, #8]
 	ldmfd sp!, {r3, pc}
-_02005F0C: .word unk_02093D40
-_02005F10: .word unk_02087804
+_02005F0C: .word sClrImg
+_02005F10: .word sTexPlttStartAddrTable
 	arm_func_end GX_BeginLoadTexPltt
 
 	arm_func_start GX_LoadTexPltt
 GX_LoadTexPltt: ; 0x02005F14
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0xc
-	ldr r3, _02005F7C ; =0x0208EC7C
-	ldr r12, _02005F80 ; =0x02093D40
+	ldr r3, _02005F7C ; =GXi_DmaId
+	ldr r12, _02005F80 ; =sClrImg
 	ldr lr, [r3]
 	mov r6, r0
 	mov r5, r1
@@ -6781,32 +6781,32 @@ _02005F6C:
 	bl MIi_CpuCopy32
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02005F7C: .word unk_0208EC7C
-_02005F80: .word unk_02093D40
+_02005F7C: .word GXi_DmaId
+_02005F80: .word sClrImg
 	arm_func_end GX_LoadTexPltt
 
 	arm_func_start GX_EndLoadTexPltt
 GX_EndLoadTexPltt: ; 0x02005F84
 	stmfd sp!, {r4, lr}
-	ldr r0, _02005FB8 ; =0x0208EC7C
+	ldr r0, _02005FB8 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmn r0, #1
 	beq _02005F9C
 	bl MI_WaitDma
 _02005F9C:
-	ldr r4, _02005FBC ; =0x02093D40
+	ldr r4, _02005FBC ; =sClrImg
 	ldr r0, [r4, #0xc]
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #0
 	str r0, [r4, #0xc]
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
-_02005FB8: .word unk_0208EC7C
-_02005FBC: .word unk_02093D40
+_02005FB8: .word GXi_DmaId
+_02005FBC: .word sClrImg
 	arm_func_end GX_EndLoadTexPltt
 
-	arm_func_start FUN_02005fc0
-FUN_02005fc0: ; 0x02005FC0
+	arm_func_start GX_VRAMCNT_SetLCDC_
+GX_VRAMCNT_SetLCDC_: ; 0x02005FC0
 	tst r0, #1
 	ldrne r1, _02006034 ; =0x04000240
 	mov r2, #0x80
@@ -6845,12 +6845,12 @@ _02006048: .word 0x04000245
 _0200604C: .word 0x04000246
 _02006050: .word 0x04000248
 _02006054: .word 0x04000249
-	arm_func_end FUN_02005fc0
+	arm_func_end GX_VRAMCNT_SetLCDC_
 
-	arm_func_start FUN_02006058
-FUN_02006058: ; 0x02006058
+	arm_func_start GX_SetBankForBG
+GX_SetBankForBG: ; 0x02006058
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200623C ; =0x02093D60
+	ldr r1, _0200623C ; =gGXState
 	mvn lr, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #2]
@@ -6994,11 +6994,11 @@ _02006224:
 _02006228:
 	strb r2, [r0]
 _0200622C:
-	ldr r0, _0200623C ; =0x02093D60
+	ldr r0, _0200623C ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_0200623C: .word unk_02093D60
+_0200623C: .word gGXState
 _02006240: .word 0x04000243
 _02006244: .word 0x04000246
 _02006248: .word 0x04000242
@@ -7006,12 +7006,12 @@ _0200624C: .word 0x04000241
 _02006250: .word 0x04000240
 _02006254: .word 0x04000245
 _02006258: .word 0x04000244
-	arm_func_end FUN_02006058
+	arm_func_end GX_SetBankForBG
 
-	arm_func_start FUN_0200625c
-FUN_0200625c: ; 0x0200625C
+	arm_func_start GX_SetBankForOBJ
+GX_SetBankForOBJ: ; 0x0200625C
 	stmfd sp!, {r3, lr}
-	ldr r2, _02006374 ; =0x02093D60
+	ldr r2, _02006374 ; =gGXState
 	mvn lr, r0
 	ldrh r12, [r2]
 	ldrh r3, [r2, #4]
@@ -7092,22 +7092,22 @@ _0200635C:
 _02006360:
 	strb r1, [r0]
 _02006364:
-	ldr r0, _02006374 ; =0x02093D60
+	ldr r0, _02006374 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006374: .word unk_02093D60
+_02006374: .word gGXState
 _02006378: .word 0x04000246
 _0200637C: .word 0x04000241
 _02006380: .word 0x04000240
 _02006384: .word 0x04000245
 _02006388: .word 0x04000244
-	arm_func_end FUN_0200625c
+	arm_func_end GX_SetBankForOBJ
 
 	arm_func_start GX_SetBankForBGExtPltt
 GX_SetBankForBGExtPltt: ; 0x0200638C
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006478 ; =0x02093D60
+	ldr r1, _02006478 ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0xe]
@@ -7169,19 +7169,19 @@ _0200644C:
 	orr r0, r0, #0x40000000
 	str r0, [r1]
 _02006468:
-	ldr r0, _02006478 ; =0x02093D60
+	ldr r0, _02006478 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006478: .word unk_02093D60
+_02006478: .word gGXState
 _0200647C: .word 0x04000246
 _02006480: .word 0x04000245
 	arm_func_end GX_SetBankForBGExtPltt
 
-	arm_func_start FUN_02006484
-FUN_02006484: ; 0x02006484
+	arm_func_start GX_SetBankForOBJExtPltt
+GX_SetBankForOBJExtPltt: ; 0x02006484
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006514 ; =0x02093D60
+	ldr r1, _02006514 ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0x10]
@@ -7217,19 +7217,19 @@ _020064F4:
 	bic r0, r0, #0x80000000
 	str r0, [r1]
 _02006504:
-	ldr r0, _02006514 ; =0x02093D60
+	ldr r0, _02006514 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006514: .word unk_02093D60
+_02006514: .word gGXState
 _02006518: .word 0x04000245
 _0200651C: .word 0x04000246
-	arm_func_end FUN_02006484
+	arm_func_end GX_SetBankForOBJExtPltt
 
-	arm_func_start FUN_02006520
-FUN_02006520: ; 0x02006520
+	arm_func_start GX_SetBankForTex
+GX_SetBankForTex: ; 0x02006520
 	stmfd sp!, {r4, lr}
-	ldr r1, _02006680 ; =0x02093D60
+	ldr r1, _02006680 ; =gGXState
 	mvn r12, r0
 	ldrh r4, [r1]
 	ldrh r3, [r1, #8]
@@ -7331,22 +7331,22 @@ _02006668:
 _0200666C:
 	strb r1, [r0]
 _02006670:
-	ldr r0, _02006680 ; =0x02093D60
+	ldr r0, _02006680 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r4, pc}
-_02006680: .word unk_02093D60
+_02006680: .word gGXState
 _02006684: .word 0x04000243
 _02006688: .word 0x04000060
 _0200668C: .word 0x0000CFFE
 _02006690: .word 0x04000241
 _02006694: .word 0x04000240
-	arm_func_end FUN_02006520
+	arm_func_end GX_SetBankForTex
 
-	arm_func_start FUN_02006698
-FUN_02006698: ; 0x02006698
+	arm_func_start GX_SetBankForTexPltt
+GX_SetBankForTexPltt: ; 0x02006698
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006764 ; =0x02093D60
+	ldr r1, _02006764 ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0xa]
@@ -7401,20 +7401,20 @@ _02006748:
 	mov r1, #0x83
 	strb r1, [r0]
 _02006754:
-	ldr r0, _02006764 ; =0x02093D60
+	ldr r0, _02006764 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006764: .word unk_02093D60
+_02006764: .word gGXState
 _02006768: .word 0x04000246
 _0200676C: .word 0x04000245
 _02006770: .word 0x04000244
-	arm_func_end FUN_02006698
+	arm_func_end GX_SetBankForTexPltt
 
-	arm_func_start FUN_02006774
-FUN_02006774: ; 0x02006774
+	arm_func_start GX_SetBankForClearImage
+GX_SetBankForClearImage: ; 0x02006774
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006858 ; =0x02093D60
+	ldr r1, _02006858 ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0xc]
@@ -7477,23 +7477,23 @@ _0200683C:
 	orr r0, r0, #0x4000
 	strh r0, [r1]
 _02006848:
-	ldr r0, _02006858 ; =0x02093D60
+	ldr r0, _02006858 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006858: .word unk_02093D60
+_02006858: .word gGXState
 _0200685C: .word 0x04000240
 _02006860: .word 0x04000241
 _02006864: .word 0x04000242
 _02006868: .word 0x04000243
 _0200686C: .word 0x04000060
 _02006870: .word 0x0000BFFF
-	arm_func_end FUN_02006774
+	arm_func_end GX_SetBankForClearImage
 
-	arm_func_start FUN_02006874
-FUN_02006874: ; 0x02006874
+	arm_func_start GX_SetBankForARM7
+GX_SetBankForARM7: ; 0x02006874
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200690C ; =0x02093D60
+	ldr r1, _0200690C ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #6]
@@ -7529,32 +7529,32 @@ _020068F0:
 	mov r1, #0x82
 	strb r1, [r0]
 _020068FC:
-	ldr r0, _0200690C ; =0x02093D60
+	ldr r0, _0200690C ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_0200690C: .word unk_02093D60
+_0200690C: .word gGXState
 _02006910: .word 0x04000242
 _02006914: .word 0x04000243
-	arm_func_end FUN_02006874
+	arm_func_end GX_SetBankForARM7
 
-	arm_func_start FUN_02006918
-FUN_02006918: ; 0x02006918
-	ldr r2, _02006934 ; =0x02093D60
+	arm_func_start GX_SetBankForLCDC
+GX_SetBankForLCDC: ; 0x02006918
+	ldr r2, _02006934 ; =gGXState
 	mov r1, r0, lsl #0x10
 	ldrh r3, [r2]
-	ldr r12, _02006938 ; =FUN_02005fc0
+	ldr r12, _02006938 ; =GX_VRAMCNT_SetLCDC_
 	orr r1, r3, r1, lsr #16
 	strh r1, [r2]
 	bx r12
-_02006934: .word unk_02093D60
-_02006938: .word FUN_02005fc0
-	arm_func_end FUN_02006918
+_02006934: .word gGXState
+_02006938: .word GX_VRAMCNT_SetLCDC_
+	arm_func_end GX_SetBankForLCDC
 
-	arm_func_start FUN_0200693c
-FUN_0200693c: ; 0x0200693C
+	arm_func_start GX_SetBankForSubBG
+GX_SetBankForSubBG: ; 0x0200693C
 	stmfd sp!, {r3, lr}
-	ldr r1, _020069C8 ; =0x02093D60
+	ldr r1, _020069C8 ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0x12]
@@ -7587,20 +7587,20 @@ _020069AC:
 	mov r1, #0x81
 	strb r1, [r0]
 _020069B8:
-	ldr r0, _020069C8 ; =0x02093D60
+	ldr r0, _020069C8 ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_020069C8: .word unk_02093D60
+_020069C8: .word gGXState
 _020069CC: .word 0x04000242
 _020069D0: .word 0x04000249
 _020069D4: .word 0x04000248
-	arm_func_end FUN_0200693c
+	arm_func_end GX_SetBankForSubBG
 
-	arm_func_start FUN_020069d8
-FUN_020069d8: ; 0x020069D8
+	arm_func_start GX_SetBankForSubOBJ
+GX_SetBankForSubOBJ: ; 0x020069D8
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006A3C ; =0x02093D60
+	ldr r1, _02006A3C ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0x14]
@@ -7622,19 +7622,19 @@ _02006A20:
 	mov r1, #0x84
 	strb r1, [r0]
 _02006A2C:
-	ldr r0, _02006A3C ; =0x02093D60
+	ldr r0, _02006A3C ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006A3C: .word unk_02093D60
+_02006A3C: .word gGXState
 _02006A40: .word 0x04000249
 _02006A44: .word 0x04000243
-	arm_func_end FUN_020069d8
+	arm_func_end GX_SetBankForSubOBJ
 
-	arm_func_start FUN_02006a48
-FUN_02006a48: ; 0x02006A48
+	arm_func_start GX_SetBankForSubBGExtPltt
+GX_SetBankForSubBGExtPltt: ; 0x02006A48
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006ABC ; =0x02093D60
+	ldr r1, _02006ABC ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0x16]
@@ -7660,19 +7660,19 @@ _02006A9C:
 	bic r0, r0, #0x40000000
 	str r0, [r1]
 _02006AAC:
-	ldr r0, _02006ABC ; =0x02093D60
+	ldr r0, _02006ABC ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006ABC: .word unk_02093D60
+_02006ABC: .word gGXState
 _02006AC0: .word 0x04001000
 _02006AC4: .word 0x04000248
-	arm_func_end FUN_02006a48
+	arm_func_end GX_SetBankForSubBGExtPltt
 
-	arm_func_start FUN_02006ac8
-FUN_02006ac8: ; 0x02006AC8
+	arm_func_start GX_SetBankForSubOBJExtPltt
+GX_SetBankForSubOBJExtPltt: ; 0x02006AC8
 	stmfd sp!, {r3, lr}
-	ldr r1, _02006B3C ; =0x02093D60
+	ldr r1, _02006B3C ; =gGXState
 	mvn r12, r0
 	ldrh r3, [r1]
 	ldrh r2, [r1, #0x18]
@@ -7698,107 +7698,107 @@ _02006B1C:
 	bic r0, r0, #0x80000000
 	str r0, [r1]
 _02006B2C:
-	ldr r0, _02006B3C ; =0x02093D60
+	ldr r0, _02006B3C ; =gGXState
 	ldrh r0, [r0]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	ldmfd sp!, {r3, pc}
-_02006B3C: .word unk_02093D60
+_02006B3C: .word gGXState
 _02006B40: .word 0x04001000
 _02006B44: .word 0x04000249
-	arm_func_end FUN_02006ac8
+	arm_func_end GX_SetBankForSubOBJExtPltt
 
-	arm_func_start FUN_02006B48
-FUN_02006B48: ; 0x02006B48
+	arm_func_start resetBankForX_
+resetBankForX_: ; 0x02006B48
 	stmfd sp!, {r4, lr}
 	ldrh r4, [r0]
 	mov r1, #0
-	ldr r2, _02006B7C ; =0x02093D60
+	ldr r2, _02006B7C ; =gGXState
 	strh r1, [r0]
 	ldrh r3, [r2]
 	mov r1, r4, lsl #0x10
 	mov r0, r4
 	orr r1, r3, r1, lsr #16
 	strh r1, [r2]
-	bl FUN_02005fc0
+	bl GX_VRAMCNT_SetLCDC_
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02006B7C: .word unk_02093D60
-	arm_func_end FUN_02006B48
+_02006B7C: .word gGXState
+	arm_func_end resetBankForX_
 
-	arm_func_start FUN_02006b80
-FUN_02006b80: ; 0x02006B80
+	arm_func_start GX_ResetBankForBG
+GX_ResetBankForBG: ; 0x02006B80
 	ldr r0, _02006B8C ; =0x02093D62
-	ldr r12, _02006B90 ; =FUN_02006B48
+	ldr r12, _02006B90 ; =resetBankForX_
 	bx r12
 _02006B8C: .word unk_02093D62
-_02006B90: .word FUN_02006B48
-	arm_func_end FUN_02006b80
+_02006B90: .word resetBankForX_
+	arm_func_end GX_ResetBankForBG
 
-	arm_func_start FUN_02006b94
-FUN_02006b94: ; 0x02006B94
+	arm_func_start GX_ResetBankForBGExtPltt
+GX_ResetBankForBGExtPltt: ; 0x02006B94
 	mov r2, #0x4000000
 	ldr r1, [r2]
 	ldr r0, _02006BB0 ; =0x02093D6E
 	bic r1, r1, #0x40000000
-	ldr r12, _02006BB4 ; =FUN_02006B48
+	ldr r12, _02006BB4 ; =resetBankForX_
 	str r1, [r2]
 	bx r12
 _02006BB0: .word unk_02093D6E
-_02006BB4: .word FUN_02006B48
-	arm_func_end FUN_02006b94
+_02006BB4: .word resetBankForX_
+	arm_func_end GX_ResetBankForBGExtPltt
 
-	arm_func_start FUN_02006bb8
-FUN_02006bb8: ; 0x02006BB8
+	arm_func_start GX_ResetBankForTex
+GX_ResetBankForTex: ; 0x02006BB8
 	ldr r0, _02006BC4 ; =0x02093D68
-	ldr r12, _02006BC8 ; =FUN_02006B48
+	ldr r12, _02006BC8 ; =resetBankForX_
 	bx r12
 _02006BC4: .word unk_02093D68
-_02006BC8: .word FUN_02006B48
-	arm_func_end FUN_02006bb8
+_02006BC8: .word resetBankForX_
+	arm_func_end GX_ResetBankForTex
 
-	arm_func_start FUN_02006bcc
-FUN_02006bcc: ; 0x02006BCC
+	arm_func_start GX_ResetBankForTexPltt
+GX_ResetBankForTexPltt: ; 0x02006BCC
 	ldr r0, _02006BD8 ; =0x02093D6A
-	ldr r12, _02006BDC ; =FUN_02006B48
+	ldr r12, _02006BDC ; =resetBankForX_
 	bx r12
 _02006BD8: .word unk_02093D6A
-_02006BDC: .word FUN_02006B48
-	arm_func_end FUN_02006bcc
+_02006BDC: .word resetBankForX_
+	arm_func_end GX_ResetBankForTexPltt
 
-	arm_func_start FUN_02006be0
-FUN_02006be0: ; 0x02006BE0
+	arm_func_start GX_ResetBankForSubBG
+GX_ResetBankForSubBG: ; 0x02006BE0
 	ldr r0, _02006BEC ; =0x02093D72
-	ldr r12, _02006BF0 ; =FUN_02006B48
+	ldr r12, _02006BF0 ; =resetBankForX_
 	bx r12
 _02006BEC: .word unk_02093D72
-_02006BF0: .word FUN_02006B48
-	arm_func_end FUN_02006be0
+_02006BF0: .word resetBankForX_
+	arm_func_end GX_ResetBankForSubBG
 
-	arm_func_start FUN_02006bf4
-FUN_02006bf4: ; 0x02006BF4
+	arm_func_start GX_ResetBankForSubOBJ
+GX_ResetBankForSubOBJ: ; 0x02006BF4
 	ldr r0, _02006C00 ; =0x02093D74
-	ldr r12, _02006C04 ; =FUN_02006B48
+	ldr r12, _02006C04 ; =resetBankForX_
 	bx r12
 _02006C00: .word unk_02093D74
-_02006C04: .word FUN_02006B48
-	arm_func_end FUN_02006bf4
+_02006C04: .word resetBankForX_
+	arm_func_end GX_ResetBankForSubOBJ
 
 	arm_func_start GX_ResetBankForSubBGExtPltt
 GX_ResetBankForSubBGExtPltt: ; 0x02006C08
 	ldr r2, _02006C24 ; =0x04001000
 	ldr r0, _02006C28 ; =0x02093D76
 	ldr r1, [r2]
-	ldr r12, _02006C2C ; =FUN_02006B48
+	ldr r12, _02006C2C ; =resetBankForX_
 	bic r1, r1, #0x40000000
 	str r1, [r2]
 	bx r12
 _02006C24: .word 0x04001000
 _02006C28: .word unk_02093D76
-_02006C2C: .word FUN_02006B48
+_02006C2C: .word resetBankForX_
 	arm_func_end GX_ResetBankForSubBGExtPltt
 
-	arm_func_start FUN_02006C30
-FUN_02006C30: ; 0x02006C30
+	arm_func_start disableBankForX_
+disableBankForX_: ; 0x02006C30
 	stmfd sp!, {r4, lr}
 	ldrh r4, [r0]
 	mov r1, #0
@@ -7830,7 +7830,7 @@ FUN_02006C30: ; 0x02006C30
 	tst r4, #0x100
 	ldrne r0, _02006CE8 ; =0x04000249
 	strneb r1, [r0]
-	ldr r1, _02006CEC ; =0x02093D22
+	ldr r1, _02006CEC ; =GXi_VRamLockId
 	mov r0, r4, lsl #0x10
 	ldrh r1, [r1]
 	mov r0, r0, lsr #0x10
@@ -7846,25 +7846,25 @@ _02006CDC: .word 0x04000245
 _02006CE0: .word 0x04000246
 _02006CE4: .word 0x04000248
 _02006CE8: .word 0x04000249
-_02006CEC: .word unk_02093D22
-	arm_func_end FUN_02006C30
+_02006CEC: .word GXi_VRamLockId
+	arm_func_end disableBankForX_
 
 	arm_func_start FUN_02006cf0
 FUN_02006cf0: ; 0x02006CF0
 	ldr r0, _02006CFC ; =0x02093D62
-	ldr r12, _02006D00 ; =FUN_02006C30
+	ldr r12, _02006D00 ; =disableBankForX_
 	bx r12
 _02006CFC: .word unk_02093D62
-_02006D00: .word FUN_02006C30
+_02006D00: .word disableBankForX_
 	arm_func_end FUN_02006cf0
 
 	arm_func_start FUN_02006d04
 FUN_02006d04: ; 0x02006D04
 	ldr r0, _02006D10 ; =0x02093D64
-	ldr r12, _02006D14 ; =FUN_02006C30
+	ldr r12, _02006D14 ; =disableBankForX_
 	bx r12
 _02006D10: .word unk_02093D64
-_02006D14: .word FUN_02006C30
+_02006D14: .word disableBankForX_
 	arm_func_end FUN_02006d04
 
 	arm_func_start FUN_02006d18
@@ -7873,11 +7873,11 @@ FUN_02006d18: ; 0x02006D18
 	ldr r1, [r2]
 	ldr r0, _02006D34 ; =0x02093D6E
 	bic r1, r1, #0x40000000
-	ldr r12, _02006D38 ; =FUN_02006C30
+	ldr r12, _02006D38 ; =disableBankForX_
 	str r1, [r2]
 	bx r12
 _02006D34: .word unk_02093D6E
-_02006D38: .word FUN_02006C30
+_02006D38: .word disableBankForX_
 	arm_func_end FUN_02006d18
 
 	arm_func_start FUN_02006d3c
@@ -7886,74 +7886,74 @@ FUN_02006d3c: ; 0x02006D3C
 	ldr r1, [r2]
 	ldr r0, _02006D58 ; =0x02093D70
 	bic r1, r1, #0x80000000
-	ldr r12, _02006D5C ; =FUN_02006C30
+	ldr r12, _02006D5C ; =disableBankForX_
 	str r1, [r2]
 	bx r12
 _02006D58: .word unk_02093D70
-_02006D5C: .word FUN_02006C30
+_02006D5C: .word disableBankForX_
 	arm_func_end FUN_02006d3c
 
 	arm_func_start FUN_02006d60
 FUN_02006d60: ; 0x02006D60
 	ldr r0, _02006D6C ; =0x02093D68
-	ldr r12, _02006D70 ; =FUN_02006C30
+	ldr r12, _02006D70 ; =disableBankForX_
 	bx r12
 _02006D6C: .word unk_02093D68
-_02006D70: .word FUN_02006C30
+_02006D70: .word disableBankForX_
 	arm_func_end FUN_02006d60
 
 	arm_func_start FUN_02006d74
 FUN_02006d74: ; 0x02006D74
 	ldr r0, _02006D80 ; =0x02093D6A
-	ldr r12, _02006D84 ; =FUN_02006C30
+	ldr r12, _02006D84 ; =disableBankForX_
 	bx r12
 _02006D80: .word unk_02093D6A
-_02006D84: .word FUN_02006C30
+_02006D84: .word disableBankForX_
 	arm_func_end FUN_02006d74
 
 	arm_func_start FUN_02006d88
 FUN_02006d88: ; 0x02006D88
 	ldr r0, _02006D94 ; =0x02093D6C
-	ldr r12, _02006D98 ; =FUN_02006C30
+	ldr r12, _02006D98 ; =disableBankForX_
 	bx r12
 _02006D94: .word unk_02093D6C
-_02006D98: .word FUN_02006C30
+_02006D98: .word disableBankForX_
 	arm_func_end FUN_02006d88
 
 	arm_func_start FUN_02006d9c
 FUN_02006d9c: ; 0x02006D9C
 	ldr r0, _02006DA8 ; =0x02093D66
-	ldr r12, _02006DAC ; =FUN_02006C30
+	ldr r12, _02006DAC ; =disableBankForX_
 	bx r12
 _02006DA8: .word unk_02093D66
-_02006DAC: .word FUN_02006C30
+_02006DAC: .word disableBankForX_
 	arm_func_end FUN_02006d9c
 
 	arm_func_start FUN_02006db0
 FUN_02006db0: ; 0x02006DB0
-	ldr r0, _02006DBC ; =0x02093D60
-	ldr r12, _02006DC0 ; =FUN_02006C30
+	ldr r0, _02006DBC ; =gGXState
+	ldr r12, _02006DC0 ; =disableBankForX_
 	bx r12
-_02006DBC: .word unk_02093D60
-_02006DC0: .word FUN_02006C30
+_02006DBC: .word gGXState
+_02006DC0: .word disableBankForX_
 	arm_func_end FUN_02006db0
 
 	arm_func_start FUN_02006dc4
 FUN_02006dc4: ; 0x02006DC4
 	ldr r0, _02006DD0 ; =0x02093D72
-	ldr r12, _02006DD4 ; =FUN_02006C30
+	ldr r12, _02006DD4 ; =disableBankForX_
 	bx r12
 _02006DD0: .word unk_02093D72
-_02006DD4: .word FUN_02006C30
+_02006DD4: .word disableBankForX_
 	arm_func_end FUN_02006dc4
 
 	arm_func_start FUN_02006dd8
 FUN_02006dd8: ; 0x02006DD8
 	ldr r0, _02006DE4 ; =0x02093D74
-	ldr r12, _02006DE8 ; =FUN_02006C30
+	ldr r12, _02006DE8 ; =disableBankForX_
 	bx r12
 _02006DE4: .word unk_02093D74
-_02006DE8: .word FUN_02006C30
+_02006DE8: .word disableBankForX_
 	arm_func_end FUN_02006dd8
 
 	arm_func_start FUN_02006dec
@@ -7961,13 +7961,13 @@ FUN_02006dec: ; 0x02006DEC
 	ldr r2, _02006E08 ; =0x04001000
 	ldr r0, _02006E0C ; =0x02093D76
 	ldr r1, [r2]
-	ldr r12, _02006E10 ; =FUN_02006C30
+	ldr r12, _02006E10 ; =disableBankForX_
 	bic r1, r1, #0x40000000
 	str r1, [r2]
 	bx r12
 _02006E08: .word 0x04001000
 _02006E0C: .word unk_02093D76
-_02006E10: .word FUN_02006C30
+_02006E10: .word disableBankForX_
 	arm_func_end FUN_02006dec
 
 	arm_func_start FUN_02006e14
@@ -7975,25 +7975,25 @@ FUN_02006e14: ; 0x02006E14
 	ldr r2, _02006E30 ; =0x04001000
 	ldr r0, _02006E34 ; =0x02093D78
 	ldr r1, [r2]
-	ldr r12, _02006E38 ; =FUN_02006C30
+	ldr r12, _02006E38 ; =disableBankForX_
 	bic r1, r1, #0x80000000
 	str r1, [r2]
 	bx r12
 _02006E30: .word 0x04001000
 _02006E34: .word unk_02093D78
-_02006E38: .word FUN_02006C30
+_02006E38: .word disableBankForX_
 	arm_func_end FUN_02006e14
 
-	arm_func_start FUN_02006e3c
-FUN_02006e3c: ; 0x02006E3C
-	ldr r0, _02006E48 ; =0x02093D60
+	arm_func_start GX_GetBankForTex
+GX_GetBankForTex: ; 0x02006E3C
+	ldr r0, _02006E48 ; =gGXState
 	ldrh r0, [r0, #8]
 	bx lr
-_02006E48: .word unk_02093D60
-	arm_func_end FUN_02006e3c
+_02006E48: .word gGXState
+	arm_func_end GX_GetBankForTex
 
-	arm_func_start FUN_02006e4c
-FUN_02006e4c: ; 0x02006E4C
+	arm_func_start GX_GetSizeOfX_
+GX_GetSizeOfX_: ; 0x02006E4C
 	mov r1, #0
 	tst r0, #1
 	addne r1, r1, #0x20000
@@ -8015,36 +8015,36 @@ FUN_02006e4c: ; 0x02006E4C
 	addne r1, r1, #0x4000
 	mov r0, r1
 	bx lr
-	arm_func_end FUN_02006e4c
+	arm_func_end GX_GetSizeOfX_
 
 	arm_func_start FUN_02006ea0
 FUN_02006ea0: ; 0x02006EA0
-	ldr r0, _02006EB0 ; =0x02093D60
-	ldr r12, _02006EB4 ; =FUN_02006e4c
+	ldr r0, _02006EB0 ; =gGXState
+	ldr r12, _02006EB4 ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #8]
 	bx r12
-_02006EB0: .word unk_02093D60
-_02006EB4: .word FUN_02006e4c
+_02006EB0: .word gGXState
+_02006EB4: .word GX_GetSizeOfX_
 	arm_func_end FUN_02006ea0
 
 	arm_func_start FUN_02006eb8
 FUN_02006eb8: ; 0x02006EB8
-	ldr r0, _02006EC8 ; =0x02093D60
-	ldr r12, _02006ECC ; =FUN_02006e4c
+	ldr r0, _02006EC8 ; =gGXState
+	ldr r12, _02006ECC ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #0xa]
 	bx r12
-_02006EC8: .word unk_02093D60
-_02006ECC: .word FUN_02006e4c
+_02006EC8: .word gGXState
+_02006ECC: .word GX_GetSizeOfX_
 	arm_func_end FUN_02006eb8
 
 	arm_func_start FUN_02006ed0
 FUN_02006ed0: ; 0x02006ED0
-	ldr r0, _02006EE0 ; =0x02093D60
-	ldr r12, _02006EE4 ; =FUN_02006e4c
+	ldr r0, _02006EE0 ; =gGXState
+	ldr r12, _02006EE4 ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #0x14]
 	bx r12
-_02006EE0: .word unk_02093D60
-_02006EE4: .word FUN_02006e4c
+_02006EE0: .word gGXState
+_02006EE4: .word GX_GetSizeOfX_
 	arm_func_end FUN_02006ed0
 
 	arm_func_start GX_SendFifo48B
@@ -8062,7 +8062,7 @@ GX_SendFifo48B: ; 0x02006EE8
 
 	arm_func_start GX_InitGXState
 GX_InitGXState: ; 0x02006F0C
-	ldr r0, _02006F64 ; =0x02093D60
+	ldr r0, _02006F64 ; =gGXState
 	mov r2, #0
 	strh r2, [r0]
 	strh r2, [r0, #2]
@@ -8084,7 +8084,7 @@ GX_InitGXState: ; 0x02006F0C
 	strb r2, [r1, #6]
 	strh r2, [r1, #8]
 	bx lr
-_02006F64: .word unk_02093D60
+_02006F64: .word gGXState
 _02006F68: .word 0x04000240
 	arm_func_end GX_InitGXState
 
@@ -49007,7 +49007,7 @@ FUN_020290c4: ; 0x020290C4
 	bl FUN_02029078
 	bl FUN_02009c28
 	mov r1, #2
-	ldr r0, _02029134 ; =0x0208EC7C
+	ldr r0, _02029134 ; =GXi_DmaId
 	str r1, [r0]
 	bl GX_Init
 	bl GX_DispOff
@@ -49020,7 +49020,7 @@ FUN_020290c4: ; 0x020290C4
 	bl FS_LoadOverlay
 	ldmfd sp!, {r4, pc}
 _02029130: .word 0x00000082
-_02029134: .word unk_0208EC7C
+_02029134: .word GXi_DmaId
 _02029138: .word 0x04001000
 _0202913C: .word 0x00000010
 	arm_func_end FUN_020290c4
@@ -49089,7 +49089,7 @@ _02029218: .word unk_0209A8A0
 FUN_0202921c: ; 0x0202921C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, _02029290 ; =0x000001FF
-	bl FUN_02006918
+	bl GX_SetBankForLCDC
 	mov r7, #0
 	mov r0, r7
 	mov r1, #0x6800000
@@ -97406,7 +97406,7 @@ FUN_02051434: ; 0x02051434
 	arm_func_start FUN_02051448
 FUN_02051448: ; 0x02051448
 	stmfd sp!, {r3, lr}
-	ldr r0, _020514E0 ; =0x0208EC7C
+	ldr r0, _020514E0 ; =GXi_DmaId
 	ldr r0, [r0]
 	cmp r0, #3
 	mvnhi r0, #0
@@ -97444,7 +97444,7 @@ _020514CC:
 	mov r1, #1
 	str r1, [r0]
 	ldmfd sp!, {r3, pc}
-_020514E0: .word unk_0208EC7C
+_020514E0: .word GXi_DmaId
 _020514E4: .word 0x04000060
 _020514E8: .word 0x04000600
 _020514EC: .word 0x04000540
@@ -98014,7 +98014,7 @@ _02051C08:
 FUN_02051c10: ; 0x02051C10
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02006e3c
+	bl GX_GetBankForTex
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _02051C74 ; =0x04000006
@@ -123692,7 +123692,7 @@ NNS_G3dGeSendDL: ; 0x020671FC
 	mov r5, r0
 	cmp r4, #0x100
 	blo _02067224
-	ldr r7, _020672A4 ; =0x0208EC7C
+	ldr r7, _020672A4 ; =GXi_DmaId
 	mvn r6, #0
 	ldr r0, [r7]
 	cmp r0, r6
@@ -123732,7 +123732,7 @@ _02067280:
 	str r6, [sp]
 	bl MI_SendGXCommandAsync
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020672A4: .word unk_0208EC7C
+_020672A4: .word GXi_DmaId
 _020672A8: .word unk_020B9D40
 _020672AC: .word unk_020B9D44
 _020672B0: .word simpleUnlock_
@@ -162740,12 +162740,12 @@ _020877EC: .word 0x0000EA3C
 table:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x04, 0x00
 	.byte 0x00, 0x80, 0x00, 0x00
-	.global unk_02087804
-unk_02087804:
+	.global sTexPlttStartAddrTable
+sTexPlttStartAddrTable:
 	.byte 0x00, 0x00, 0x80, 0x68, 0x90, 0x68, 0x80, 0x68, 0x94, 0x68, 0x00, 0x00
 	.byte 0x90, 0x68, 0x80, 0x68
-	.global unk_02087814
-unk_02087814:
+	.global sTexStartAddrTable
+sTexStartAddrTable:
 	.byte 0x00, 0x00
 	.global unk_02087816
 unk_02087816:
@@ -164858,8 +164858,8 @@ unk_0208EC38:
 	.global unk_0208EC78
 unk_0208EC78:
 	.byte 0x01, 0x00, 0x00, 0x00
-	.global unk_0208EC7C
-unk_0208EC7C:
+	.global GXi_DmaId
+GXi_DmaId:
 	.byte 0x03, 0x00, 0x00, 0x00
 	.global unk_0208EC80
 unk_0208EC80:
@@ -167422,17 +167422,17 @@ unk_02093D18:
 	.global unk_02093D20
 unk_02093D20:
 	.space 0x02
-	.global unk_02093D22
-unk_02093D22:
+	.global GXi_VRamLockId
+GXi_VRamLockId:
 	.space 0x02
 	.global unk_02093D24
 unk_02093D24:
 	.space 0x1C
-	.global unk_02093D40
-unk_02093D40:
+	.global sClrImg
+sClrImg:
 	.space 0x20
-	.global unk_02093D60
-unk_02093D60:
+	.global gGXState
+gGXState:
 	.space 0x02
 	.global unk_02093D62
 unk_02093D62:

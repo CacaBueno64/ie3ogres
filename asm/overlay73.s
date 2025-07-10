@@ -1721,7 +1721,7 @@ _0211B648:
 	ldr r0, _0211B764 ; =0x04000050
 	mov r1, #7
 	sub r2, r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B72C: .word ov73_0211D840
 _0211B730: .word ov73_0211D560
@@ -2827,7 +2827,7 @@ _0211C6AC:
 	ldr r0, _0211C910 ; =0x04000050
 	mov r2, r8
 	mov r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	b _0211C8F8
 _0211C6E4:
 	mov r9, #0
@@ -2936,7 +2936,7 @@ _0211C850:
 	ldr r0, _0211C910 ; =0x04000050
 	mov r2, r8
 	mov r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r0, r4
 	ldr r1, [r0]
 	ldr r1, [r1, #0x50]

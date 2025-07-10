@@ -385,7 +385,7 @@ _020BD004: .word FUN_ov16_020f2ab4
 FUN_ov5_020bd008: ; 0x020BD008
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02006b80
+	bl GX_ResetBankForBG
 	ldr r0, [r4, #4]
 	mov r1, #0
 	ldr r2, [r0]

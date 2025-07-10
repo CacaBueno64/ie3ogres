@@ -12,7 +12,7 @@
 .public GXS_BeginLoadBGExtPltt
 .public GXS_LoadBGExtPltt
 .public GXS_EndLoadBGExtPltt
-.public FUN_02006b80
+.public GX_ResetBankForBG
 .public FUN_02029d44
 .public FUN_02041b00
 .public FUN_02041eac

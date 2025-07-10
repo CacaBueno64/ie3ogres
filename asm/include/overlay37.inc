@@ -8,9 +8,9 @@
 .public FUN_0202d00c
 .public FUN_0202e958
 .public FUN_0202eff0
-.public FUN_02006b80
-.public FUN_02006bb8
-.public FUN_02006bcc
+.public GX_ResetBankForBG
+.public GX_ResetBankForTex
+.public GX_ResetBankForTexPltt
 .public FUN_02029d44
 .public FUN_02041eac
 .public FUN_02058e30

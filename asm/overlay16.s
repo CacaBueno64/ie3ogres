@@ -5741,7 +5741,7 @@ FUN_ov16_020f2718: ; 0x020F2718
 	ldrh r1, [r4]
 	bic r1, r1, #0x8000
 	strh r1, [r4]
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r5, #0
 	mov r2, r5
 	mov r0, #1
@@ -7661,15 +7661,15 @@ _020F3F94: ; jump table
 	b _020F41C8 ; case 15
 _020F3FD4:
 	mov r0, #3
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0x20
 	bl GX_SetBankForBGExtPltt
 	mov r0, r10
-	bl FUN_0200625c
+	bl GX_SetBankForOBJ
 	mov r0, #8
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x40
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r1, r6
 	mov r0, #1
 	mov r2, r1
@@ -7725,11 +7725,11 @@ _020F3FD4:
 	b _020F42C0
 _020F40D0:
 	mov r0, #1
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0xe
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x20
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
@@ -7788,15 +7788,15 @@ _020F40D0:
 	b _020F4460
 _020F41C8:
 	mov r0, #8
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0x20
 	bl GX_SetBankForBGExtPltt
 	mov r0, r10
-	bl FUN_0200625c
+	bl GX_SetBankForOBJ
 	mov r0, #3
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x40
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r1, r6
 	mov r0, #1
 	mov r2, r1
@@ -7898,11 +7898,11 @@ _020F4364:
 	b _020F47CC
 _020F436C:
 	mov r0, #1
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0xa
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x20
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
@@ -7983,9 +7983,9 @@ _020F4460:
 	b _020F4320
 _020F44B8:
 	mov r0, #0xf
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x20
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #1
 	mov r1, r6
 	mov r2, r0
@@ -8025,9 +8025,9 @@ _020F4514:
 	b _020F4364
 _020F4558:
 	mov r0, #0xb
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x60
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #1
 	mov r1, r6
 	mov r2, r0
@@ -8053,11 +8053,11 @@ _020F4558:
 	b _020F4514
 _020F45C4:
 	mov r0, #1
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0xe
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x20
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #0x40
 	bl GX_SetBankForBGExtPltt
 	mov r0, #1
@@ -8143,11 +8143,11 @@ _020F45C4:
 	b _020F4360
 _020F4728:
 	mov r0, #1
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #0xe
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	mov r0, #0x20
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	mov r0, #1
 	mov r2, r0
 	mov r1, r6
@@ -8221,20 +8221,20 @@ _020F4814: ; jump table
 	b _020F4864 ; case 11
 	b _020F4864 ; case 12
 _020F4848:
-	bl FUN_02006b80
-	bl FUN_02006b94
+	bl GX_ResetBankForBG
+	bl GX_ResetBankForBGExtPltt
 	b _020F4868
 _020F4854:
-	bl FUN_02006b80
-	bl FUN_02006bb8
-	bl FUN_02006b94
+	bl GX_ResetBankForBG
+	bl GX_ResetBankForTex
+	bl GX_ResetBankForBGExtPltt
 	b _020F486C
 _020F4864:
-	bl FUN_02006b80
+	bl GX_ResetBankForBG
 _020F4868:
-	bl FUN_02006bb8
+	bl GX_ResetBankForTex
 _020F486C:
-	bl FUN_02006bcc
+	bl GX_ResetBankForTexPltt
 _020F4870:
 	ldr r3, _020F488C ; =0x0209A228
 	mov r1, #0
@@ -8281,9 +8281,9 @@ _020F48C4: ; jump table
 	b _020F503C ; case 16
 _020F4908:
 	mov r0, #4
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, #0x80
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	mov r0, #3
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8359,9 +8359,9 @@ _020F4908:
 	b _020F4B70
 _020F4A3C:
 	mov r0, #4
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, #0x80
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	mov r0, #3
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8439,9 +8439,9 @@ _020F4B70:
 	b _020F5168
 _020F4B74:
 	mov r0, r5
-	bl FUN_020069d8
+	bl GX_SetBankForSubOBJ
 	mov r0, #0x180
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8504,9 +8504,9 @@ _020F4B74:
 	b _020F4DEC
 _020F4C74:
 	mov r0, #0x80
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, #0x100
-	bl FUN_020069d8
+	bl GX_SetBankForSubOBJ
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8535,9 +8535,9 @@ _020F4C74:
 	b _020F516C
 _020F4CEC:
 	mov r0, #0x80
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	mov r0, #4
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8605,7 +8605,7 @@ _020F4DEC:
 	b _020F5140
 _020F4DFC:
 	mov r0, #0x180
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8659,9 +8659,9 @@ _020F4DFC:
 	b _020F516C
 _020F4ED0:
 	mov r0, #4
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, #0x80
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r0, [r8]
@@ -8673,7 +8673,7 @@ _020F4ED0:
 	mov r0, r11
 	bic r1, r1, #0xe000
 	str r1, [r8]
-	bl FUN_020069d8
+	bl GX_SetBankForSubOBJ
 	ldr r2, [r8]
 	ldr r0, _020F5198 ; =0xFFCFFFEF
 	mov r1, #0x8000
@@ -8751,7 +8751,7 @@ _020F4ED0:
 	b _020F516C
 _020F503C:
 	mov r0, #0x180
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, r5
 	bl GXS_SetGraphicsMode
 	ldr r1, [r8]
@@ -8873,18 +8873,18 @@ _020F51C0: ; jump table
 	b _020F5224 ; case 15
 	b _020F5220 ; case 16
 _020F5204:
-	bl FUN_02006be0
+	bl GX_ResetBankForSubBG
 	bl GX_ResetBankForSubBGExtPltt
 	b _020F5224
 _020F5210:
-	bl FUN_02006be0
+	bl GX_ResetBankForSubBG
 _020F5214:
-	bl FUN_02006bf4
+	bl GX_ResetBankForSubOBJ
 	b _020F5224
 _020F521C:
 	b _020F5214
 _020F5220:
-	bl FUN_02006be0
+	bl GX_ResetBankForSubBG
 _020F5224:
 	ldr r3, _020F5240 ; =0x0209A228
 	mov r1, #0

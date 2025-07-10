@@ -32001,7 +32001,7 @@ _020D8450: .word FUN_ov16_020f2ab4
 FUN_ov1_020d8454: ; 0x020D8454
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02006b80
+	bl GX_ResetBankForBG
 	ldr r0, [r4, #4]
 	mov r1, #0
 	ldr r2, [r0]

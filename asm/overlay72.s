@@ -3388,7 +3388,7 @@ _0211CD20:
 	ldr r0, _0211CE04 ; =0x04000050
 	mov r1, r6
 	mov r2, r5
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r0, [sp, #0x14]
 	mov r1, r4
 	ldr r0, [r0, #4]
@@ -3625,7 +3625,7 @@ _0211D138:
 	ldr r0, _0211D1B4 ; =0x04000050
 	mov r2, r5
 	mov r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r4, #1
 	ldr r0, [r10, #4]
 	mov r1, r4
@@ -3922,7 +3922,7 @@ _0211D560:
 	strb lr, [r5, #0xbe0]
 	strb r12, [r5, #0xbe1]
 	strb r3, [r5, #0xbe2]
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	add r1, r6, #0x4000002
 	ldrh r0, [r1]
 	sub r3, r4, #0x42
@@ -3960,7 +3960,7 @@ FUN_ov72_0211d5fc: ; 0x0211D5FC
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	sub r2, r4, #0xfc000001
 	ldrh r0, [r2]
 	sub r1, r6, #0x42
@@ -4334,7 +4334,7 @@ _0211DB18:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r10
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r0, [sp, #0x14]
 	sub r5, r6, #0x48
 	cmp r0, #0
@@ -4647,7 +4647,7 @@ _0211E008:
 	mov r2, r4
 	mov r1, #0xf
 	strb r3, [r7, #0x8d]
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r1, _0211E0B8 ; =0x020A1640
 	add r0, r7, #0x88
 	ldr r1, [r1, #0x230]
@@ -5253,7 +5253,7 @@ _0211E8E0:
 	mov r1, r5
 	mov r0, r4
 	sub r2, r5, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	add r1, r5, #0x4000002
 	ldrh r0, [r1]
 	sub r3, r4, #0x42
@@ -5561,7 +5561,7 @@ _0211ED14:
 	ldr r0, _0211EE7C ; =0x04000050
 	mov r2, #0
 	mov r1, #0xf
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r0, [sp, #0x20]
 	cmp r0, #0
 	beq _0211EDD8
@@ -5936,7 +5936,7 @@ _0211F278:
 	mov r1, r4
 	sub r2, r4, #0xf
 	strb r6, [r7, #0xbe0]
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	sub r2, r5, #0x42
 	ldrh r0, [r2]
 	add r3, r4, #0x4000001
@@ -8493,7 +8493,7 @@ _02121688:
 	ldr r0, _02121840 ; =0x04000050
 	mov r1, #0xf
 	mov r2, r8
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r1, [r9, #0xbf8]
 	mov r0, r9
 	b _02120FA4
@@ -8775,7 +8775,7 @@ _02121A68:
 	ldr r0, _02121A84 ; =0x04000050
 	mov r1, #0xf
 	mov r2, #0
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldmfd sp!, {r3, r4, r5, pc}
 _02121A7C: .word unk_0209A104
 _02121A80: .word unk_020A0640

@@ -125,7 +125,7 @@
 .public G2_GetBG1CharPtr
 .public G2S_GetBG1CharPtr
 .public G2_GetBG2CharPtr
-.public FUN_02006b80
+.public GX_ResetBankForBG
 .public VEC_Distance
 .public FX_Atan2Idx
 .public FUN_02023c40

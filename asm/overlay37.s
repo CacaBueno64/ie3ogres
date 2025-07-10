@@ -1315,9 +1315,9 @@ FUN_ov37_0211b098: ; 0x0211B098
 FUN_ov37_0211b0d4: ; 0x0211B0D4
 	stmfd sp!, {r3, lr}
 	bl FUN_ov37_0211bae0
-	bl FUN_02006b80
-	bl FUN_02006bb8
-	bl FUN_02006bcc
+	bl GX_ResetBankForBG
+	bl GX_ResetBankForTex
+	bl GX_ResetBankForTexPltt
 	mov r0, #0xc
 	bl  FUN_ov16_020f3f60
 	ldmfd sp!, {r3, pc}

@@ -83,7 +83,7 @@
 .public GXS_BeginLoadBGExtPltt
 .public GXS_LoadBGExtPltt
 .public GXS_EndLoadBGExtPltt
-.public FUN_02006b80
+.public GX_ResetBankForBG
 .public FUN_02023c40
 .public FUN_02029d44
 .public FUN_02041b00
@@ -158,8 +158,8 @@
 .public FUN_020628dc
 .public FUN_020724c8
 .public FUN_020744f0
-.public FUN_0200458c
-.public FUN_0200462c
+.public G2x_SetBGyAffine_
+.public G2x_SetBlendBrightness_
 .public G2S_GetBG2CharPtr
 .public G2_GetBG3CharPtr
 .public GXS_LoadBG0Scr

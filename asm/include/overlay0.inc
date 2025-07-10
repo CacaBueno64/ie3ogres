@@ -82,8 +82,8 @@
 .public G2_GetBG3ScrPtr
 .public G2S_GetBG0CharPtr
 .public G2S_GetBG1CharPtr
-.public FUN_02006b80
-.public FUN_02006be0
+.public GX_ResetBankForBG
+.public GX_ResetBankForSubBG
 .public FUN_02006ed0
 .public VEC_Distance
 .public FX_Atan2Idx
@@ -204,7 +204,7 @@
 .public G2S_GetBG2CharPtr
 .public G2_GetBG3CharPtr
 .public GXS_LoadBG0Scr
-.public FUN_0200693c
+.public GX_SetBankForSubBG
 .public MTX_RotY43_
 .public FUN_0204201c
 .public FUN_0204331c

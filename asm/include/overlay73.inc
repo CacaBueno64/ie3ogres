@@ -22,7 +22,7 @@
 .public FX_Sqrt
 .public FUN_020465fc
 .public FUN_020735a0
-.public FUN_0200462c
+.public G2x_SetBlendBrightness_
 .public G2_GetBG3CharPtr
 .public FUN_0204204c
 .public FUN_0207249c

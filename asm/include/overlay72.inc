@@ -29,7 +29,7 @@
 .public FUN_020591e8
 .public FUN_020724c8
 .public FUN_020735a0
-.public FUN_0200462c
+.public G2x_SetBlendBrightness_
 .public G2_GetBG3CharPtr
 .public FUN_0204204c
 .public FUN_0204331c

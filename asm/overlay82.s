@@ -2235,7 +2235,7 @@ FUN_ov82_0211be68: ; 0x0211BE68
 	arm_func_start FUN_ov82_0211be7c
 FUN_ov82_0211be7c: ; 0x0211BE7C
 	ldr r1, [r0, #0x4c]
-	ldr r12, _0211BEA8 ; =FUN_0200462c
+	ldr r12, _0211BEA8 ; =G2x_SetBlendBrightness_
 	cmp r1, #0
 	subgt r1, r1, #1
 	strgt r1, [r0, #0x4c]
@@ -2245,7 +2245,7 @@ FUN_ov82_0211be7c: ; 0x0211BE7C
 	ldr r0, _0211BEAC ; =0x04000050
 	sub r2, r2, r3
 	bx r12
-_0211BEA8: .word FUN_0200462c
+_0211BEA8: .word G2x_SetBlendBrightness_
 _0211BEAC: .word 0x04000050
 	arm_func_end FUN_ov82_0211be7c
 
@@ -2280,12 +2280,12 @@ FUN_ov82_0211bedc: ; 0x0211BEDC
 	arm_func_start FUN_ov82_0211bef0
 FUN_ov82_0211bef0: ; 0x0211BEF0
 	ldr r0, _0211BF04 ; =0x04000050
-	ldr r12, _0211BF08 ; =FUN_0200462c
+	ldr r12, _0211BF08 ; =G2x_SetBlendBrightness_
 	mov r1, #1
 	mov r2, #0
 	bx r12
 _0211BF04: .word 0x04000050
-_0211BF08: .word FUN_0200462c
+_0211BF08: .word G2x_SetBlendBrightness_
 	arm_func_end FUN_ov82_0211bef0
 
 	arm_func_start FUN_ov82_0211bf0c

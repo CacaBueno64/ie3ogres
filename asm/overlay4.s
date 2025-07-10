@@ -3617,7 +3617,7 @@ _020BFB84: .word FUN_ov16_020f2ab4
 FUN_ov4_020bfb88: ; 0x020BFB88
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02006b80
+	bl GX_ResetBankForBG
 	ldr r0, [r4, #4]
 	mov r1, #0
 	ldr r2, [r0]
@@ -6099,7 +6099,7 @@ FUN_ov4_020c1c98: ; 0x020C1C98
 	ldr r0, _020C2290 ; =0x04000050
 	mov r1, #0xf
 	mov r2, #0
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _020C1CF0:
 	ldr r10, _020C2294 ; =0x020A0640
 	str r8, [r9, #0xc]
@@ -14975,7 +14975,7 @@ _020C9A48:
 	mov r1, #6
 	ldr r0, _020CA350 ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _020C9A98:
 	ldr r0, [r4, #0x40]
 	cmp r0, #5
@@ -15999,7 +15999,7 @@ _020CA914:
 	mov r1, #6
 	ldr r0, _020CA350 ; =0x04000050
 	sub r2, r1, #0xe
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 _020CA96C:
 	add sp, sp, #0x118
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -29428,7 +29428,7 @@ _020D683C:
 	str r2, [sp]
 	mov r4, #0xc0
 	str r4, [sp, #4]
-	bl FUN_0200458c
+	bl G2x_SetBGyAffine_
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D687C: .word unk_020A8C40
@@ -29953,7 +29953,7 @@ FUN_ov4_020d6efc: ; 0x020D6EFC
 	add r1, sp, #8
 	mov r2, #0x58
 	mov r3, #0x14
-	bl FUN_0200458c
+	bl G2x_SetBGyAffine_
 	ldr r0, [r4, #0x18]
 	str r0, [r4, #0x14]
 	add sp, sp, #0x18

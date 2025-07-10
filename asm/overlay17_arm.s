@@ -4970,9 +4970,9 @@ FUN_ov17_020f8810: ; 0x020F8810
 	mov r0, #0
 	bl GX_VBlankIntr
 	mov r0, #1
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	mov r0, #2
-	bl FUN_0200625c
+	bl GX_SetBankForOBJ
 	mov r1, #0
 	mov r0, #1
 	mov r2, r1
@@ -5016,11 +5016,11 @@ FUN_ov17_020f8810: ; 0x020F8810
 	str r3, [r10, #0x14]
 	str r3, [r10, #0x18]
 	str r3, [r10, #0x1c]
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r0, #0x80
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	mov r0, #0x100
-	bl FUN_020069d8
+	bl GX_SetBankForSubOBJ
 	mov r0, #0
 	bl GXS_SetGraphicsMode
 	add r9, r10, #0x1000
@@ -5062,7 +5062,7 @@ FUN_ov17_020f8810: ; 0x020F8810
 	str r3, [r8, #-0x58]
 	str r3, [r8, #-0x54]
 	str r3, [r8, #-0x50]
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldrh r0, [r10, #8]
 	and r0, r0, #0x43
 	orr r0, r0, #0xc00
@@ -25036,7 +25036,7 @@ FUN_ov17_02108e9c: ; 0x02108E9C
 	mov r1, #0x1f
 	strb r2, [r3, #0x1e]
 	mov r2, r9
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldr r1, _02109198 ; =0x0211261C
 	mov r0, r9
 	ldrb r1, [r1, r10]
@@ -25251,7 +25251,7 @@ FUN_ov17_0210922c: ; 0x0210922C
 	strb r1, [r2, #0x1a]
 	ldr r1, [r5]
 	ldrsb r1, [r1, #0x1a]
-	bl FUN_02004650
+	bl G2x_ChangeBlendBrightness_
 	ldr r0, [r5]
 	ldrsb r0, [r0, #0x1a]
 	cmn r0, #0xc
@@ -25714,7 +25714,7 @@ FUN_ov17_02109898: ; 0x02109898
 	strb r1, [r2, #0x1a]
 	ldr r1, [r5]
 	ldrsb r1, [r1, #0x1a]
-	bl FUN_02004650
+	bl G2x_ChangeBlendBrightness_
 	ldr r0, [r5]
 	ldrsb r0, [r0, #0x1a]
 	cmp r0, #0
@@ -30033,11 +30033,11 @@ FUN_ov17_0210d1b0: ; 0x0210D1B0
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x1000
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	ldmfd sp!, {r4, r5, r6, pc}
 _0210D1F8: .word ov17_021162DC
 _0210D1FC: .word 0x04000050
@@ -30099,7 +30099,7 @@ FUN_ov17_0210d238: ; 0x0210D238
 _0210D2AC:
 	ldr r0, _0210D2F8 ; =0x04000050
 _0210D2B0:
-	bl FUN_0200462c
+	bl G2x_SetBlendBrightness_
 	mov r7, #1
 	ldr r1, _0210D2FC ; =FUN_ov17_0210d300
 	mov r0, r7
@@ -30169,7 +30169,7 @@ FUN_ov17_0210d300: ; 0x0210D300
 _0210D3AC:
 	ldr r0, _0210D420 ; =0x04000050
 _0210D3B0:
-	bl FUN_02004650
+	bl G2x_ChangeBlendBrightness_
 	ldrsh r1, [r4, #4]
 	ldrh r0, [r4, #6]
 	cmp r1, r0
@@ -30187,7 +30187,7 @@ _0210D3E8:
 	ldr r0, _0210D420 ; =0x04000050
 _0210D3EC:
 	ldrsb r1, [r1, r2]
-	bl FUN_02004650
+	bl G2x_ChangeBlendBrightness_
 	mov r2, #0
 	mov r1, r5
 	mov r0, #1
@@ -32282,7 +32282,7 @@ FUN_ov17_0210ef08: ; 0x0210EF08
 	bl FUN_02006db0
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x2c]
-	bl FUN_02006874
+	bl GX_SetBankForARM7
 	bl FUN_ov17_0210f050
 	ldmfd sp!, {r4, pc}
 _0210EF88: .word ov17_02116310
@@ -32298,29 +32298,29 @@ FUN_ov17_0210ef8c: ; 0x0210EF8C
 	bl FUN_ov17_0210f050
 	ldr r4, _0210F044 ; =0x02116310
 	ldr r0, [r4]
-	bl FUN_02006058
+	bl GX_SetBankForBG
 	ldr r0, [r4, #4]
-	bl FUN_0200625c
+	bl GX_SetBankForOBJ
 	ldr r0, [r4, #8]
 	bl GX_SetBankForBGExtPltt
 	ldr r0, [r4, #0xc]
-	bl FUN_02006484
+	bl GX_SetBankForOBJExtPltt
 	ldr r0, [r4, #0x10]
-	bl FUN_02006520
+	bl GX_SetBankForTex
 	ldr r0, [r4, #0x14]
-	bl FUN_02006698
+	bl GX_SetBankForTexPltt
 	ldr r0, [r4, #0x18]
-	bl FUN_02006774
+	bl GX_SetBankForClearImage
 	ldr r0, [r4, #0x1c]
-	bl FUN_0200693c
+	bl GX_SetBankForSubBG
 	ldr r0, [r4, #0x20]
-	bl FUN_020069d8
+	bl GX_SetBankForSubOBJ
 	ldr r0, [r4, #0x24]
-	bl FUN_02006a48
+	bl GX_SetBankForSubBGExtPltt
 	ldr r0, [r4, #0x28]
-	bl FUN_02006ac8
+	bl GX_SetBankForSubOBJExtPltt
 	ldr r0, [r4, #0x30]
-	bl FUN_02006918
+	bl GX_SetBankForLCDC
 	mov r3, #0
 	ldr r2, _0210F048 ; =0x04000050
 	ldr r0, _0210F04C ; =0x04001014
@@ -32345,7 +32345,7 @@ _0210F04C: .word 0x04001014
 FUN_ov17_0210f050: ; 0x0210F050
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, _0210F0D8 ; =0x000001F3
-	bl FUN_02006918
+	bl GX_SetBankForLCDC
 	mov r7, #0
 	mov r4, #0x6800000
 	mov r0, r7
