@@ -4931,7 +4931,7 @@ _020F8788:
 	mov r4, #0
 	mov r0, r4
 	bl GX_VBlankIntr
-	bl FUN_02009c28
+	bl FX_Init
 	sub r0, r4, #1
 	bl FS_Init
 	bl FUN_02015ef0
@@ -32254,32 +32254,32 @@ _0210EEF4:
 	arm_func_start FUN_ov17_0210ef08
 FUN_ov17_0210ef08: ; 0x0210EF08
 	stmfd sp!, {r4, lr}
-	bl FUN_02006cf0
+	bl GX_DisableBankForBG
 	ldr r4, _0210EF88 ; =0x02116310
 	str r0, [r4]
-	bl FUN_02006d04
+	bl GX_DisableBankForOBJ
 	str r0, [r4, #4]
-	bl FUN_02006d18
+	bl GX_DisableBankForBGExtPltt
 	str r0, [r4, #8]
-	bl FUN_02006d3c
+	bl GX_DisableBankForOBJExtPltt
 	str r0, [r4, #0xc]
-	bl FUN_02006d60
+	bl GX_DisableBankForTex
 	str r0, [r4, #0x10]
-	bl FUN_02006d74
+	bl GX_DisableBankForTexPltt
 	str r0, [r4, #0x14]
-	bl FUN_02006d88
+	bl GX_DisableBankForClearImage
 	str r0, [r4, #0x18]
-	bl FUN_02006dc4
+	bl GX_DisableBankForSubBG
 	str r0, [r4, #0x1c]
-	bl FUN_02006dd8
+	bl GX_DisableBankForSubOBJ
 	str r0, [r4, #0x20]
-	bl FUN_02006dec
+	bl GX_DisableBankForSubBGExtPltt
 	str r0, [r4, #0x24]
-	bl FUN_02006e14
+	bl GX_DisableBankForSubOBJExtPltt
 	str r0, [r4, #0x28]
-	bl FUN_02006d9c
+	bl GX_DisableBankForARM7
 	str r0, [r4, #0x2c]
-	bl FUN_02006db0
+	bl GX_DisableBankForLCDC
 	str r0, [r4, #0x30]
 	ldr r0, [r4, #0x2c]
 	bl GX_SetBankForARM7
@@ -32291,10 +32291,10 @@ _0210EF88: .word ov17_02116310
 	arm_func_start FUN_ov17_0210ef8c
 FUN_ov17_0210ef8c: ; 0x0210EF8C
 	stmfd sp!, {r4, lr}
-	bl FUN_02006cf0
-	bl FUN_02006d04
-	bl FUN_02006dc4
-	bl FUN_02006dd8
+	bl GX_DisableBankForBG
+	bl GX_DisableBankForOBJ
+	bl GX_DisableBankForSubBG
+	bl GX_DisableBankForSubOBJ
 	bl FUN_ov17_0210f050
 	ldr r4, _0210F044 ; =0x02116310
 	ldr r0, [r4]
@@ -32356,7 +32356,7 @@ FUN_ov17_0210f050: ; 0x0210F050
 	add r1, r4, #0x80000
 	mov r2, #0x24000
 	bl MIi_CpuClearFast
-	bl FUN_02006db0
+	bl GX_DisableBankForLCDC
 	mov r6, #0x200
 	mov r0, r6
 	mov r1, #0x7000000

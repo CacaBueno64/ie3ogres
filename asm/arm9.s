@@ -2253,15 +2253,15 @@ _02002734:
 	bx lr
 	arm_func_end OSi_WaitVCount0
 
-	arm_func_start OS_InitVeneer
-OS_InitVeneer: ; 0x02002748
-	ldr r12, _02002750 ; =OS_Init
-	bx r12
-_02002750: .word OS_Init
-	arm_func_end OS_InitVeneer
-
 	arm_func_start OS_Init
-OS_Init: ; 0x02002754
+OS_Init: ; 0x02002748
+	ldr r12, _02002750 ; =OSi_InitCommon
+	bx r12
+_02002750: .word OSi_InitCommon
+	arm_func_end OS_Init
+
+	arm_func_start OSi_InitCommon
+OSi_InitCommon: ; 0x02002754
 	stmfd sp!, {r3, lr}
 	bl PXI_Init
 	bl OS_InitArena
@@ -2280,7 +2280,7 @@ OS_Init: ; 0x02002754
 	bl PM_Init
 	bl OSi_WaitVCount0
 	ldmfd sp!, {r3, pc}
-	arm_func_end OS_Init
+	arm_func_end OSi_InitCommon
 
 	arm_func_start OS_InitArena
 OS_InitArena: ; 0x0200279C
@@ -2891,8 +2891,8 @@ _02002F68:
 _02002F74: .word OSiHeapInfo
 	arm_func_end OS_GetTotalFreeSize
 
-	arm_func_start FUN_02002f78
-FUN_02002f78: ; 0x02002F78
+	arm_func_start OS_IsOnVram
+OS_IsOnVram: ; 0x02002F78
 	cmp r0, #0x5000000
 	blo _02002F90
 	ldr r1, _02002F98 ; =0x07000800
@@ -2903,7 +2903,7 @@ _02002F90:
 	mov r0, #0
 	bx lr
 _02002F98: .word 0x07000800
-	arm_func_end FUN_02002f78
+	arm_func_end OS_IsOnVram
 
 	arm_func_start OS_GetDTCMAddress
 OS_GetDTCMAddress: ; 0x02002F9C
@@ -3139,13 +3139,13 @@ _02003168: .word OSi_DebuggerHandler
 _0200316C: .word OSi_ExceptionHandler
 	arm_func_end OS_InitException
 
-	arm_func_start FUN_02003170
-FUN_02003170: ; 0x02003170
+	arm_func_start OSi_GetOriginalExceptionHandler
+OSi_GetOriginalExceptionHandler: ; 0x02003170
 	ldr r0, _0200317C ; =OSi_DebuggerHandler
 	ldr r0, [r0, #8]
 	bx lr
 _0200317C: .word OSi_DebuggerHandler
-	arm_func_end FUN_02003170
+	arm_func_end OSi_GetOriginalExceptionHandler
 
 	arm_func_start OSi_ExceptionHandler
 OSi_ExceptionHandler: ; 0x02003180
@@ -4235,7 +4235,7 @@ _02003EEC:
 	mov r0, #0x10
 	str r5, [r4]
 	bl OSi_SendToPxi
-	bl FUN_02003170
+	bl OSi_GetOriginalExceptionHandler
 	str r0, [r4, #0x37c]
 	bl OSi_DoResetSystem
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -7849,26 +7849,26 @@ _02006CE8: .word 0x04000249
 _02006CEC: .word GXi_VRamLockId
 	arm_func_end disableBankForX_
 
-	arm_func_start FUN_02006cf0
-FUN_02006cf0: ; 0x02006CF0
+	arm_func_start GX_DisableBankForBG
+GX_DisableBankForBG: ; 0x02006CF0
 	ldr r0, _02006CFC ; =0x02093D62
 	ldr r12, _02006D00 ; =disableBankForX_
 	bx r12
 _02006CFC: .word unk_02093D62
 _02006D00: .word disableBankForX_
-	arm_func_end FUN_02006cf0
+	arm_func_end GX_DisableBankForBG
 
-	arm_func_start FUN_02006d04
-FUN_02006d04: ; 0x02006D04
+	arm_func_start GX_DisableBankForOBJ
+GX_DisableBankForOBJ: ; 0x02006D04
 	ldr r0, _02006D10 ; =0x02093D64
 	ldr r12, _02006D14 ; =disableBankForX_
 	bx r12
 _02006D10: .word unk_02093D64
 _02006D14: .word disableBankForX_
-	arm_func_end FUN_02006d04
+	arm_func_end GX_DisableBankForOBJ
 
-	arm_func_start FUN_02006d18
-FUN_02006d18: ; 0x02006D18
+	arm_func_start GX_DisableBankForBGExtPltt
+GX_DisableBankForBGExtPltt: ; 0x02006D18
 	mov r2, #0x4000000
 	ldr r1, [r2]
 	ldr r0, _02006D34 ; =0x02093D6E
@@ -7878,10 +7878,10 @@ FUN_02006d18: ; 0x02006D18
 	bx r12
 _02006D34: .word unk_02093D6E
 _02006D38: .word disableBankForX_
-	arm_func_end FUN_02006d18
+	arm_func_end GX_DisableBankForBGExtPltt
 
-	arm_func_start FUN_02006d3c
-FUN_02006d3c: ; 0x02006D3C
+	arm_func_start GX_DisableBankForOBJExtPltt
+GX_DisableBankForOBJExtPltt: ; 0x02006D3C
 	mov r2, #0x4000000
 	ldr r1, [r2]
 	ldr r0, _02006D58 ; =0x02093D70
@@ -7891,73 +7891,73 @@ FUN_02006d3c: ; 0x02006D3C
 	bx r12
 _02006D58: .word unk_02093D70
 _02006D5C: .word disableBankForX_
-	arm_func_end FUN_02006d3c
+	arm_func_end GX_DisableBankForOBJExtPltt
 
-	arm_func_start FUN_02006d60
-FUN_02006d60: ; 0x02006D60
+	arm_func_start GX_DisableBankForTex
+GX_DisableBankForTex: ; 0x02006D60
 	ldr r0, _02006D6C ; =0x02093D68
 	ldr r12, _02006D70 ; =disableBankForX_
 	bx r12
 _02006D6C: .word unk_02093D68
 _02006D70: .word disableBankForX_
-	arm_func_end FUN_02006d60
+	arm_func_end GX_DisableBankForTex
 
-	arm_func_start FUN_02006d74
-FUN_02006d74: ; 0x02006D74
+	arm_func_start GX_DisableBankForTexPltt
+GX_DisableBankForTexPltt: ; 0x02006D74
 	ldr r0, _02006D80 ; =0x02093D6A
 	ldr r12, _02006D84 ; =disableBankForX_
 	bx r12
 _02006D80: .word unk_02093D6A
 _02006D84: .word disableBankForX_
-	arm_func_end FUN_02006d74
+	arm_func_end GX_DisableBankForTexPltt
 
-	arm_func_start FUN_02006d88
-FUN_02006d88: ; 0x02006D88
+	arm_func_start GX_DisableBankForClearImage
+GX_DisableBankForClearImage: ; 0x02006D88
 	ldr r0, _02006D94 ; =0x02093D6C
 	ldr r12, _02006D98 ; =disableBankForX_
 	bx r12
 _02006D94: .word unk_02093D6C
 _02006D98: .word disableBankForX_
-	arm_func_end FUN_02006d88
+	arm_func_end GX_DisableBankForClearImage
 
-	arm_func_start FUN_02006d9c
-FUN_02006d9c: ; 0x02006D9C
+	arm_func_start GX_DisableBankForARM7
+GX_DisableBankForARM7: ; 0x02006D9C
 	ldr r0, _02006DA8 ; =0x02093D66
 	ldr r12, _02006DAC ; =disableBankForX_
 	bx r12
 _02006DA8: .word unk_02093D66
 _02006DAC: .word disableBankForX_
-	arm_func_end FUN_02006d9c
+	arm_func_end GX_DisableBankForARM7
 
-	arm_func_start FUN_02006db0
-FUN_02006db0: ; 0x02006DB0
+	arm_func_start GX_DisableBankForLCDC
+GX_DisableBankForLCDC: ; 0x02006DB0
 	ldr r0, _02006DBC ; =gGXState
 	ldr r12, _02006DC0 ; =disableBankForX_
 	bx r12
 _02006DBC: .word gGXState
 _02006DC0: .word disableBankForX_
-	arm_func_end FUN_02006db0
+	arm_func_end GX_DisableBankForLCDC
 
-	arm_func_start FUN_02006dc4
-FUN_02006dc4: ; 0x02006DC4
+	arm_func_start GX_DisableBankForSubBG
+GX_DisableBankForSubBG: ; 0x02006DC4
 	ldr r0, _02006DD0 ; =0x02093D72
 	ldr r12, _02006DD4 ; =disableBankForX_
 	bx r12
 _02006DD0: .word unk_02093D72
 _02006DD4: .word disableBankForX_
-	arm_func_end FUN_02006dc4
+	arm_func_end GX_DisableBankForSubBG
 
-	arm_func_start FUN_02006dd8
-FUN_02006dd8: ; 0x02006DD8
+	arm_func_start GX_DisableBankForSubOBJ
+GX_DisableBankForSubOBJ: ; 0x02006DD8
 	ldr r0, _02006DE4 ; =0x02093D74
 	ldr r12, _02006DE8 ; =disableBankForX_
 	bx r12
 _02006DE4: .word unk_02093D74
 _02006DE8: .word disableBankForX_
-	arm_func_end FUN_02006dd8
+	arm_func_end GX_DisableBankForSubOBJ
 
-	arm_func_start FUN_02006dec
-FUN_02006dec: ; 0x02006DEC
+	arm_func_start GX_DisableBankForSubBGExtPltt
+GX_DisableBankForSubBGExtPltt: ; 0x02006DEC
 	ldr r2, _02006E08 ; =0x04001000
 	ldr r0, _02006E0C ; =0x02093D76
 	ldr r1, [r2]
@@ -7968,10 +7968,10 @@ FUN_02006dec: ; 0x02006DEC
 _02006E08: .word 0x04001000
 _02006E0C: .word unk_02093D76
 _02006E10: .word disableBankForX_
-	arm_func_end FUN_02006dec
+	arm_func_end GX_DisableBankForSubBGExtPltt
 
-	arm_func_start FUN_02006e14
-FUN_02006e14: ; 0x02006E14
+	arm_func_start GX_DisableBankForSubOBJExtPltt
+GX_DisableBankForSubOBJExtPltt: ; 0x02006E14
 	ldr r2, _02006E30 ; =0x04001000
 	ldr r0, _02006E34 ; =0x02093D78
 	ldr r1, [r2]
@@ -7982,7 +7982,7 @@ FUN_02006e14: ; 0x02006E14
 _02006E30: .word 0x04001000
 _02006E34: .word unk_02093D78
 _02006E38: .word disableBankForX_
-	arm_func_end FUN_02006e14
+	arm_func_end GX_DisableBankForSubOBJExtPltt
 
 	arm_func_start GX_GetBankForTex
 GX_GetBankForTex: ; 0x02006E3C
@@ -8017,25 +8017,25 @@ GX_GetSizeOfX_: ; 0x02006E4C
 	bx lr
 	arm_func_end GX_GetSizeOfX_
 
-	arm_func_start FUN_02006ea0
-FUN_02006ea0: ; 0x02006EA0
+	arm_func_start GX_GetSizeOfTex
+GX_GetSizeOfTex: ; 0x02006EA0
 	ldr r0, _02006EB0 ; =gGXState
 	ldr r12, _02006EB4 ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #8]
 	bx r12
 _02006EB0: .word gGXState
 _02006EB4: .word GX_GetSizeOfX_
-	arm_func_end FUN_02006ea0
+	arm_func_end GX_GetSizeOfTex
 
-	arm_func_start FUN_02006eb8
-FUN_02006eb8: ; 0x02006EB8
+	arm_func_start GX_GetSizeOfTexPltt
+GX_GetSizeOfTexPltt: ; 0x02006EB8
 	ldr r0, _02006EC8 ; =gGXState
 	ldr r12, _02006ECC ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #0xa]
 	bx r12
 _02006EC8: .word gGXState
 _02006ECC: .word GX_GetSizeOfX_
-	arm_func_end FUN_02006eb8
+	arm_func_end GX_GetSizeOfTexPltt
 
 	arm_func_start FUN_02006ed0
 FUN_02006ed0: ; 0x02006ED0
@@ -11422,10 +11422,10 @@ _02009C00:
 _02009C24: .word FX_AtanIdxTable_
 	arm_func_end FX_Atan2Idx
 
-	arm_func_start FUN_02009c28
-FUN_02009c28: ; 0x02009C28
+	arm_func_start FX_Init ; this is only a guess based on context
+FX_Init: ; 0x02009C28
 	bx lr
-	arm_func_end FUN_02009c28
+	arm_func_end FX_Init
 
 	arm_func_start FX_AsinIdx
 FX_AsinIdx: ; 0x02009C2C
@@ -21498,7 +21498,7 @@ _02011E50:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _02011E68:
 	mov r0, r8
-	bl FUN_02002f78
+	bl OS_IsOnVram
 	cmp r0, #0
 	beq _02011E8C
 	mov r0, r6
@@ -48993,7 +48993,7 @@ _020290C0: .word unk_02099E8C
 	arm_func_start FUN_020290c4
 FUN_020290c4: ; 0x020290C4
 	stmfd sp!, {r4, lr}
-	bl OS_InitVeneer
+	bl OS_Init
 	bl OS_InitTick
 	bl OS_InitAlarm
 	bl OS_InitThread
@@ -49005,7 +49005,7 @@ FUN_020290c4: ; 0x020290C4
 	mov r0, r4
 	bl FS_LoadOverlay
 	bl FUN_02029078
-	bl FUN_02009c28
+	bl FX_Init
 	mov r1, #2
 	ldr r0, _02029134 ; =GXi_DmaId
 	str r1, [r0]
@@ -49095,7 +49095,7 @@ FUN_0202921c: ; 0x0202921C
 	mov r1, #0x6800000
 	mov r2, #0xa4000
 	bl MIi_CpuClearFast
-	bl FUN_02006db0
+	bl GX_DisableBankForLCDC
 	mov r6, #0xc0
 	mov r5, #0x400
 	mov r0, r6
@@ -97455,9 +97455,9 @@ FUN_020514f0: ; 0x020514F0
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r4, r0
-	bl FUN_02006ea0
+	bl GX_GetSizeOfTex
 	mov r5, r0
-	bl FUN_02006eb8
+	bl GX_GetSizeOfTexPltt
 	mov r6, r0
 	cmp r5, #0
 	beq _0205153C
