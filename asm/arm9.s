@@ -142285,7 +142285,7 @@ _02076444:
 	strb r4, [r10, #6]
 	ldr r0, [r10, #0x24]
 	mov r1, r4
-	bl DseSynth_ResetAllVoiceTimersAndVolumes
+	bl DseSynth_UpdateVoicesTimerAndVolume
 _02076470:
 	cmp r9, #0
 	ldrsb r5, [r10, #0x98]
@@ -144603,7 +144603,7 @@ _020783F8:
 	mov r1, #1
 	strb r1, [r4, #6]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_ResetAllVoiceTimersAndVolumes
+	bl DseSynth_UpdateVoicesTimerAndVolume
 	ldr r0, [r4, #0x28]
 	ldr r3, [r4, #0xa0]
 	ldr r5, [r4, #0x9c]
@@ -145174,16 +145174,16 @@ DseTrackEvent_SetNoteDurationMultiplier: ; 0x02078AC4
 	bx lr
 	arm_func_end DseTrackEvent_SetNoteDurationMultiplier
 
-	arm_func_start DseTrackEvent_ForceLfoEnvelopeLevel
-DseTrackEvent_ForceLfoEnvelopeLevel: ; 0x02078AD0
+	arm_func_start DseTrackEvent_SetModulationDepth
+DseTrackEvent_SetModulationDepth: ; 0x02078AD0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrsb r1, [r4]
 	mov r0, r3
-	bl DseChannel_SetLfoConstEnvelopeLevel
+	bl DseChannel_SetModulationDepth
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_ForceLfoEnvelopeLevel
+	arm_func_end DseTrackEvent_SetModulationDepth
 
 	arm_func_start DseTrackEvent_SetHoldNotes
 DseTrackEvent_SetHoldNotes: ; 0x02078AEC
@@ -146394,10 +146394,10 @@ _02079A30: .word DseChannel_SetBank
 DseMidiCC_ModulationDepth: ; 0x02079A34
 	mov r1, r1, lsl #0x18
 	mov r1, r1, asr #0x18
-	ldr r12, _02079A48 ; =DseChannel_SetLfoConstEnvelopeLevel
+	ldr r12, _02079A48 ; =DseChannel_SetModulationDepth
 	strb r1, [r0, #0x4d]
 	bx r12
-_02079A48: .word DseChannel_SetLfoConstEnvelopeLevel
+_02079A48: .word DseChannel_SetModulationDepth
 	arm_func_end DseMidiCC_ModulationDepth
 
 	arm_func_start DseMidiCC_MaybePortamentoTime
@@ -147045,8 +147045,8 @@ _0207A134:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end DseSynth_StopChannels
 
-	arm_func_start DseSynth_ResetAllVoiceTimersAndVolumes
-DseSynth_ResetAllVoiceTimersAndVolumes: ; 0x0207A14C
+	arm_func_start DseSynth_UpdateVoicesTimerAndVolume
+DseSynth_UpdateVoicesTimerAndVolume: ; 0x0207A14C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _0207A1A0 ; =0x04000208
 	mov r2, #0
@@ -147061,7 +147061,7 @@ DseSynth_ResetAllVoiceTimersAndVolumes: ; 0x0207A14C
 _0207A178:
 	mov r0, r4
 	mov r1, r7
-	bl DseChannel_ResetTimerAndVolumeForVoices
+	bl DseChannel_UpdateVoicesTimerAndVolume
 	subs r5, r5, #1
 	add r4, r4, #0xc4
 	bne _0207A178
@@ -147071,7 +147071,7 @@ _0207A190:
 	strh r6, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207A1A0: .word 0x04000208
-	arm_func_end DseSynth_ResetAllVoiceTimersAndVolumes
+	arm_func_end DseSynth_UpdateVoicesTimerAndVolume
 
 	arm_func_start DseSynth_RestoreHeldNotes
 DseSynth_RestoreHeldNotes: ; 0x0207A1A4
@@ -147516,8 +147516,8 @@ _0207A74C:
 _0207A7AC: .word unk_020BA6D8
 	arm_func_end DseChannel_DeallocateVoices
 
-	arm_func_start DseChannel_ResetTimerAndVolumeForVoices
-DseChannel_ResetTimerAndVolumeForVoices: ; 0x0207A7B0
+	arm_func_start DseChannel_UpdateVoicesTimerAndVolume
+DseChannel_UpdateVoicesTimerAndVolume: ; 0x0207A7B0
 	cmp r1, #1
 	bne _0207A7F8
 	ldrb r1, [r0, #4]
@@ -147553,7 +147553,7 @@ _0207A81C:
 	and r1, r1, #0xbf
 	strb r1, [r0, #4]
 	bx lr
-	arm_func_end DseChannel_ResetTimerAndVolumeForVoices
+	arm_func_end DseChannel_UpdateVoicesTimerAndVolume
 
 	arm_func_start DseChannel_SetBank
 DseChannel_SetBank: ; 0x0207A82C
@@ -147615,8 +147615,8 @@ _0207A8E0:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end DseChannel_SetProgram
 
-	arm_func_start DseChannel_SetLfoConstEnvelopeLevel
-DseChannel_SetLfoConstEnvelopeLevel: ; 0x0207A8F0
+	arm_func_start DseChannel_SetModulationDepth
+DseChannel_SetModulationDepth: ; 0x0207A8F0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, [r0, #0xb0]
 	mov r5, r1
@@ -147626,12 +147626,12 @@ DseChannel_SetLfoConstEnvelopeLevel: ; 0x0207A8F0
 _0207A908:
 	mov r1, r5
 	add r0, r4, #0x5c
-	bl DseLfoBank_SetConstEnvelopes
+	bl DseLfoBank_SetModulationDepth
 	ldr r4, [r4, #0x154]
 	cmp r4, #0
 	bne _0207A908
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseChannel_SetLfoConstEnvelopeLevel
+	arm_func_end DseChannel_SetModulationDepth
 
 	arm_func_start DseChannel_SetKeyBend
 DseChannel_SetKeyBend: ; 0x0207A924
@@ -147876,7 +147876,7 @@ _0207ABDC:
 	add r1, sp, #4
 	add r8, r2, r3, lsl #8
 	mov r2, r8
-	bl DseVoice_Allocate
+	bl DseChannel_AllocateVoice
 	movs r4, r0
 	beq _0207ABDC
 	mov r0, #0
@@ -148331,8 +148331,8 @@ _0207B2A4: .word unk_020BA720
 _0207B2A8: .word unk_020BA6D8
 	arm_func_end Dse_CleanupVoices
 
-	arm_func_start DseVoice_Allocate
-DseVoice_Allocate: ; 0x0207B2AC
+	arm_func_start DseChannel_AllocateVoice
+DseChannel_AllocateVoice: ; 0x0207B2AC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrb r6, [r1, #3]
 	ldr r3, _0207B400 ; =0x020BA6D8
@@ -148432,7 +148432,7 @@ _0207B3F8:
 _0207B400: .word unk_020BA6D8
 _0207B404: .word unk_020BA720
 _0207B408: .word unk_020B9FD8
-	arm_func_end DseVoice_Allocate
+	arm_func_end DseChannel_AllocateVoice
 
 	arm_func_start FUN_0207b40c
 FUN_0207b40c: ; 0x0207B40C
@@ -149312,8 +149312,8 @@ _0207BF90: .word unk_020B9FD8
 _0207BF94: .word DSE_LFO_WAVEFORM_CALLBACKS
 	arm_func_end DseLfoBank_Set
 
-	arm_func_start DseLfoBank_SetConstEnvelopes
-DseLfoBank_SetConstEnvelopes: ; 0x0207BF98
+	arm_func_start DseLfoBank_SetModulationDepth
+DseLfoBank_SetModulationDepth: ; 0x0207BF98
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #0xc]
 	cmp lr, #0
@@ -149334,7 +149334,7 @@ _0207BFC4:
 	bne _0207BFC4
 	ldmfd sp!, {r3, pc}
 _0207BFE0: .word 0x81020409
-	arm_func_end DseLfoBank_SetConstEnvelopes
+	arm_func_end DseLfoBank_SetModulationDepth
 
 	arm_func_start DseLfoBank_Tick
 DseLfoBank_Tick: ; 0x0207BFE4
@@ -166786,7 +166786,7 @@ DSE_TRACK_EVENT_TABLE:
 	.word DseTrackEvent_Invalid
 	.word DseTrackEvent_SetNoteDurationMultiplier
 	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_ForceLfoEnvelopeLevel
+	.word DseTrackEvent_SetModulationDepth
 	.word DseTrackEvent_SetHoldNotes
 	.word DseTrackEvent_SetFlagBit1Unknown
 	.word DseTrackEvent_Invalid
