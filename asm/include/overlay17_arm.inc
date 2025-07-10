@@ -77,7 +77,7 @@
 .public FUN_02017ef8
 .public FUN_02017f04
 .public FUN_02017f34
-.public FUN_02019acc
+.public NNSi_G2dTextCanvasDrawTextRect
 .public OS_SPrintf
 .public OS_IsAlarmAvailable
 .public GX_SetGraphicsMode
@@ -100,11 +100,11 @@
 .public FUN_020166c4
 .public FUN_020173c0
 .public FUN_020173dc
-.public FUN_020182ac
-.public FUN_020182f4
-.public FUN_020192b8
-.public FUN_020194a4
-.public FUN_020199a8
+.public NNS_G2dFontFindGlyphIndex
+.public NNS_G2dFontGetCharWidthsFromIndex
+.public NNS_G2dCharCanvasInitForOBJ1D
+.public NNS_G2dArrangeOBJ1D
+.public NNSi_G2dTextCanvasDrawText
 .public FUN_020219ac
 .public GX_DispOff
 .public GX_DispOn
@@ -117,8 +117,8 @@
 .public CARDi_ReadRom
 .public FUN_0201312c
 .public FUN_0201498c
-.public FUN_0201928c
-.public FUN_0201933c
+.public NNS_G2dCharCanvasInitForBG
+.public NNS_G2dMapScrToCharText
 .public OS_SNPrintf
 .public OS_IsTickAvailable
 .public OS_GetTick
@@ -147,8 +147,8 @@
 .public FUN_02016590
 .public FUN_02017368
 .public FUN_02018264
-.public FUN_02019170
-.public FUN_02019448
+.public NNS_G2dCharCanvasDrawChar
+.public NNSi_G2dCalcRequiredOBJ
 .public FUN_02021940
 .public FUN_02024640
 .public FUN_ov1_020cabf0

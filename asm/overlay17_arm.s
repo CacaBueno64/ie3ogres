@@ -30359,7 +30359,7 @@ FUN_ov17_0210d5e4: ; 0x0210D5E4
 	mov r0, r6
 	strh r1, [r4, #0x2c]
 	mov r1, r5
-	bl FUN_02019448
+	bl NNSi_G2dCalcRequiredOBJ
 	ldr r1, [sp, #0x20]
 	mov r12, #0x6600000
 	str r0, [r1]
@@ -30372,7 +30372,7 @@ FUN_ov17_0210d5e4: ; 0x0210D5E4
 	mov r2, r6
 	mov r3, r5
 	add r1, r12, r7, lsl #7
-	bl FUN_020192b8
+	bl NNS_G2dCharCanvasInitForOBJ1D
 	ldr r1, [r4, #0x14]
 	mov r0, r4
 	ldr r2, [r1, #4]
@@ -30450,7 +30450,7 @@ _0210D750:
 	mov r0, r5
 	mov r2, r7
 	mov r3, r6
-	bl FUN_0201928c
+	bl NNS_G2dCharCanvasInitForBG
 	ldr r0, _0210D834 ; =0x021162E0
 	mov r1, #1
 	ldr r0, [r0]
@@ -30479,7 +30479,7 @@ _0210D7BC:
 	str r12, [sp, #8]
 	mov r6, #0xf
 	str r6, [sp, #0xc]
-	bl FUN_0201933c
+	bl NNS_G2dMapScrToCharText
 	mov r0, r5
 	mov r1, r4
 	bl FUN_ov17_0210dba8
@@ -30638,7 +30638,7 @@ _0210D9D8:
 	strb lr, [sp, #8]
 	add r0, r0, #0x18
 	strb r12, [sp, #9]
-	bl FUN_020199a8
+	bl NNSi_G2dTextCanvasDrawText
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov17_0210d960
@@ -30656,7 +30656,7 @@ FUN_ov17_0210da08: ; 0x0210DA08
 	mov r3, r2
 	mov r2, r1
 	add r1, lr, r12, lsl #3
-	bl FUN_02019170
+	bl NNS_G2dCharCanvasDrawChar
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _0210DA40: .word ov17_021162E0
@@ -30682,14 +30682,14 @@ _0210DA78:
 	ldr r0, [r0]
 	add r4, r0, r5, lsl #3
 	mov r0, r4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	ldr r0, _0210DAEC ; =0x0000FFFF
 	cmp r1, r0
 	ldreq r0, [r4]
 	ldreqh r1, [r0, #2]
 	mov r0, r4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrh r1, [r6]
 	mov r2, r0
 	mov r0, r10
@@ -30763,7 +30763,7 @@ _0210DB68:
 	strb lr, [sp, #0x10]
 	add r0, r0, #0x18
 	strb r12, [sp, #0x11]
-	bl FUN_02019acc
+	bl NNSi_G2dTextCanvasDrawTextRect
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov17_0210daf0
@@ -30815,7 +30815,7 @@ FUN_ov17_0210dbbc: ; 0x0210DBBC
 	str r1, [sp, #0xc]
 	ldrb r1, [r4, #0x2e]
 	ldrb r2, [r4, #0x2f]
-	bl FUN_020194a4
+	bl NNS_G2dArrangeOBJ1D
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_ov17_0210dbbc

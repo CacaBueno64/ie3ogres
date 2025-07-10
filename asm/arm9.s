@@ -28973,8 +28973,8 @@ _02018140:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02018128
 
-	arm_func_start FUN_02018154
-FUN_02018154: ; 0x02018154
+	arm_func_start NNS_G2dFindBinaryBlock
+NNS_G2dFindBinaryBlock: ; 0x02018154
 	ldrh r2, [r0, #0xc]
 	ldrh r12, [r0, #0xe]
 	mov r3, #0
@@ -28995,10 +28995,10 @@ _0201816C:
 _02018194:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02018154
+	arm_func_end NNS_G2dFindBinaryBlock
 
-	arm_func_start FUN_0201819c
-FUN_0201819c: ; 0x0201819C
+	arm_func_start GetGlyphIndex
+GetGlyphIndex: ; 0x0201819C
 	stmfd sp!, {r3, lr}
 	ldrh r3, [r0, #4]
 	ldr r2, _02018260 ; =0x0000FFFF
@@ -29055,7 +29055,7 @@ _02018258:
 	mov r0, r2
 	ldmfd sp!, {r3, pc}
 _02018260: .word 0x0000FFFF
-	arm_func_end FUN_0201819c
+	arm_func_end GetGlyphIndex
 
 	arm_func_start FUN_02018264
 FUN_02018264: ; 0x02018264
@@ -29063,7 +29063,7 @@ FUN_02018264: ; 0x02018264
 	mov r4, r0
 	mov r0, r1
 	mov r1, r4
-	bl FUN_02019bac
+	bl NNSi_G2dGetUnpackedFont
 	ldr r0, _02018284 ; =FUN_02019ea8
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
@@ -29076,15 +29076,15 @@ FUN_02018288: ; 0x02018288
 	mov r4, r0
 	mov r0, r1
 	mov r1, r4
-	bl FUN_02019bac
+	bl NNSi_G2dGetUnpackedFont
 	ldr r0, _020182A8 ; =FUN_02019ebc
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
 _020182A8: .word FUN_02019ebc
 	arm_func_end FUN_02018288
 
-	arm_func_start FUN_020182ac
-FUN_020182ac: ; 0x020182AC
+	arm_func_start NNS_G2dFontFindGlyphIndex
+NNS_G2dFontFindGlyphIndex: ; 0x020182AC
 	stmfd sp!, {r3, lr}
 	ldr r0, [r0]
 	ldr r0, [r0, #0x10]
@@ -29096,7 +29096,7 @@ _020182C0:
 	ldrlsh r2, [r0, #2]
 	cmpls r1, r2
 	bhi _020182DC
-	bl FUN_0201819c
+	bl GetGlyphIndex
 	ldmfd sp!, {r3, pc}
 _020182DC:
 	ldr r0, [r0, #8]
@@ -29106,10 +29106,10 @@ _020182E8:
 	ldr r0, _020182F0 ; =0x0000FFFF
 	ldmfd sp!, {r3, pc}
 _020182F0: .word 0x0000FFFF
-	arm_func_end FUN_020182ac
+	arm_func_end NNS_G2dFontFindGlyphIndex
 
-	arm_func_start FUN_020182f4
-FUN_020182f4: ; 0x020182F4
+	arm_func_start NNS_G2dFontGetCharWidthsFromIndex
+NNS_G2dFontGetCharWidthsFromIndex: ; 0x020182F4
 	ldr r12, [r0]
 	ldr r3, [r12, #0xc]
 	cmp r3, #0
@@ -29130,10 +29130,10 @@ _02018304:
 _02018334:
 	add r0, r12, #4
 	bx lr
-	arm_func_end FUN_020182f4
+	arm_func_end NNS_G2dFontGetCharWidthsFromIndex
 
-	arm_func_start FUN_0201833c
-FUN_0201833c: ; 0x0201833C
+	arm_func_start NNSi_G2dFontGetStringWidth
+NNSi_G2dFontGetStringWidth: ; 0x0201833C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mov r9, r0
@@ -29152,13 +29152,13 @@ _02018374:
 	cmp r1, #0xa
 	beq _020183B8
 	mov r0, r9
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	cmp r1, r10
 	ldreq r0, [r9]
 	ldreqh r1, [r0, #2]
 	mov r0, r9
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrsb r1, [r0, #2]
 	mov r0, r4
 	add r1, r8, r1
@@ -29180,10 +29180,10 @@ _020183D0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _020183E4: .word 0x0000FFFF
-	arm_func_end FUN_0201833c
+	arm_func_end NNSi_G2dFontGetStringWidth
 
-	arm_func_start FUN_020183e8
-FUN_020183e8: ; 0x020183E8
+	arm_func_start NNSi_G2dFontGetTextHeight
+NNSi_G2dFontGetTextHeight: ; 0x020183E8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xc
 	mov r8, r0
@@ -29215,10 +29215,10 @@ _02018440:
 	sub r0, r0, r4
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020183e8
+	arm_func_end NNSi_G2dFontGetTextHeight
 
-	arm_func_start FUN_0201845c
-FUN_0201845c: ; 0x0201845C
+	arm_func_start NNSi_G2dFontGetTextRect
+NNSi_G2dFontGetTextRect: ; 0x0201845C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #8
 	mov r6, r2
@@ -29238,7 +29238,7 @@ _02018498:
 	mov r0, r7
 	mov r1, r6
 	mov r3, r9
-	bl FUN_0201833c
+	bl NNSi_G2dFontGetStringWidth
 	ldr r1, [sp]
 	ldr r2, [sp, #0x28]
 	cmp r0, r1
@@ -29258,10 +29258,10 @@ _020184C4:
 	str r1, [sp, #4]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0201845c
+	arm_func_end NNSi_G2dFontGetTextRect
 
-	arm_func_start FUN_020184f0
-FUN_020184f0: ; 0x020184F0
+	arm_func_start GetCharIndex1D
+GetCharIndex1D: ; 0x020184F0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov lr, #3
 	ldr r8, [sp, #0x20]
@@ -29321,16 +29321,12 @@ _02018594:
 	ldrb r8, [r4, r8, lsl #1]
 	ldrb r7, [r7, #1]
 	b _02018510
-	arm_func_end FUN_020184f0
-
-	arm_func_start FUN_020185d0
-FUN_020185d0: ; 0x020185D0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020185D4: .word unk_0208BF20
-	arm_func_end FUN_020185d0
+	arm_func_end GetCharIndex1D
 
-	arm_func_start FUN_020185d8
-FUN_020185d8: ; 0x020185D8
+	arm_func_start OBJSizeToShape
+OBJSizeToShape: ; 0x020185D8
 	ldrb r3, [r0, #1]
 	ldr r2, _020185F0 ; =0x0208BF40
 	ldrb r1, [r0]
@@ -29338,10 +29334,10 @@ FUN_020185d8: ; 0x020185D8
 	ldr r0, [r0, r1, lsl #2]
 	bx lr
 _020185F0: .word unk_0208BF40
-	arm_func_end FUN_020185d8
+	arm_func_end OBJSizeToShape
 
-	arm_func_start FUN_020185f4
-FUN_020185f4: ; 0x020185F4
+	arm_func_start ClearChar
+ClearChar: ; 0x020185F4
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r3, #8
 	ldreq r4, [sp, #0x10]
@@ -29422,10 +29418,10 @@ _020186F4:
 	cmp r4, r12
 	blo _020186F4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_020185f4
+	arm_func_end ClearChar
 
-	arm_func_start FUN_02018724
-FUN_02018724: ; 0x02018724
+	arm_func_start LetterChar
+LetterChar: ; 0x02018724
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x28
 	ldr r5, [r0, #8]
@@ -29492,7 +29488,7 @@ _020187F8:
 	strb r0, [sp, #0x25]
 	mov r0, r5
 	add r1, r1, r2, ror #29
-	bl FUN_02019e48
+	bl NNSi_G2dBitReaderRead
 	ldr r6, [sp]
 	mov r0, r6
 	cmp r0, r10
@@ -29500,7 +29496,7 @@ _020187F8:
 _0201883C:
 	mov r0, r5
 	mov r1, r8
-	bl FUN_02019e48
+	bl NNSi_G2dBitReaderRead
 	cmp r0, #0
 	mvnne r1, r11, lsl r6
 	addne r0, r7, r0
@@ -29540,7 +29536,7 @@ _020188AC:
 	add r0, r0, r4, lsr #3
 	str r0, [sp, #0x18]
 	add r0, sp, #0x18
-	bl FUN_02019e48
+	bl NNSi_G2dBitReaderRead
 	ldr r9, [sp]
 	mov r0, r9
 	cmp r0, r10
@@ -29548,7 +29544,7 @@ _020188AC:
 _020188EC:
 	add r0, sp, #0x18
 	mov r1, r8
-	bl FUN_02019e48
+	bl NNSi_G2dBitReaderRead
 	cmp r0, #0
 	beq _02018928
 	add r1, r5, r0
@@ -29575,10 +29571,10 @@ _02018934:
 	blo _020188AC
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02018724
+	arm_func_end LetterChar
 
-	arm_func_start FUN_02018958
-FUN_02018958: ; 0x02018958
+	arm_func_start DrawGlyphLine
+DrawGlyphLine: ; 0x02018958
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
 	ldr r4, [sp, #0x54]
@@ -29670,7 +29666,7 @@ _02018AB0:
 	mov r0, r4
 	str r7, [sp, #4]
 	str r5, [sp, #0xc]
-	bl FUN_02018724
+	bl LetterChar
 	sub r5, r5, #8
 	cmp r5, r6
 	add r7, r7, r8
@@ -29683,10 +29679,10 @@ _02018AD0:
 	bgt _02018AA0
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02018958
+	arm_func_end DrawGlyphLine
 
-	arm_func_start FUN_02018aec
-FUN_02018aec: ; 0x02018AEC
+	arm_func_start DrawGlyph1D
+DrawGlyph1D: ; 0x02018AEC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x4c
 	ldr r4, [sp, #0x74]
@@ -29800,12 +29796,12 @@ _02018C90:
 	mov r0, r6
 	mov r1, r10
 	str r7, [sp, #4]
-	bl FUN_020184f0
+	bl GetCharIndex1D
 	mla r1, r0, r9, r11
 	add r0, sp, #0x24
 	str r4, [sp, #0x2c]
 	str r1, [sp, #0x24]
-	bl FUN_02018724
+	bl LetterChar
 	sub r4, r4, #8
 	add r6, r6, #1
 	cmp r4, r5
@@ -29820,10 +29816,10 @@ _02018CD0:
 	bgt _02018C74
 	add sp, sp, #0x4c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02018aec
+	arm_func_end DrawGlyph1D
 
-	arm_func_start FUN_02018cf4
-FUN_02018cf4: ; 0x02018CF4
+	arm_func_start ClearContinuous
+ClearContinuous: ; 0x02018CF4
 	stmfd sp!, {r3, lr}
 	mov r3, r0
 	ldrb r2, [r3, #0xc]
@@ -29844,10 +29840,10 @@ FUN_02018cf4: ; 0x02018CF4
 	ldr r1, [r3]
 	bl MIi_CpuClearFast
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02018cf4
+	arm_func_end ClearContinuous
 
-	arm_func_start FUN_02018d44
-FUN_02018d44: ; 0x02018D44
+	arm_func_start ClearLine
+ClearLine: ; 0x02018D44
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	ldrb r2, [r7, #0xc]
@@ -29881,10 +29877,10 @@ _02018D9C:
 	add r9, r9, r5
 	blt _02018D9C
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02018d44
+	arm_func_end ClearLine
 
-	arm_func_start FUN_02018dc4
-FUN_02018dc4: ; 0x02018DC4
+	arm_func_start ClearAreaLine
+ClearAreaLine: ; 0x02018DC4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x30
 	ldr r4, [sp, #0x58]
@@ -29971,7 +29967,7 @@ _02018EE8:
 	mov r0, r7
 	mov r2, r8
 	stmia sp, {r5, r10, r11}
-	bl FUN_020185f4
+	bl ClearChar
 	ldr r0, [sp, #0x14]
 	add r4, r4, #8
 	add r7, r7, r0
@@ -29990,10 +29986,10 @@ _02018F2C:
 	blt _02018EA0
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02018dc4
+	arm_func_end ClearAreaLine
 
-	arm_func_start FUN_02018f5c
-FUN_02018f5c: ; 0x02018F5C
+	arm_func_start ClearArea1D
+ClearArea1D: ; 0x02018F5C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
 	ldrb r4, [r0, #0xc]
@@ -30089,7 +30085,7 @@ _020190B0:
 	str r0, [sp, #4]
 	mov r0, r6
 	mov r1, r8
-	bl FUN_020184f0
+	bl GetCharIndex1D
 	ldr r2, [sp, #0x3c]
 	sub r1, r10, r4
 	cmp r4, r10
@@ -30105,7 +30101,7 @@ _020190B0:
 	ldr r2, [sp, #0x30]
 	mla r0, r12, r0, r2
 	mov r2, r9
-	bl FUN_020185f4
+	bl ClearChar
 	add r4, r4, #8
 	add r6, r6, #1
 	cmp r4, r7
@@ -30120,10 +30116,10 @@ _02019124:
 	blt _02019068
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02018f5c
+	arm_func_end ClearArea1D
 
-	arm_func_start FUN_02019148
-FUN_02019148: ; 0x02019148
+	arm_func_start InitCharCanvas
+InitCharCanvas: ; 0x02019148
 	stmfd sp!, {r4, lr}
 	ldr r4, [sp, #8]
 	str r3, [r0, #8]
@@ -30134,10 +30130,10 @@ FUN_02019148: ; 0x02019148
 	str lr, [r0, #0x14]
 	str r12, [r0, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02019148
+	arm_func_end InitCharCanvas
 
-	arm_func_start FUN_02019170
-FUN_02019170: ; 0x02019170
+	arm_func_start NNS_G2dCharCanvasDrawChar
+NNS_G2dCharCanvasDrawChar: ; 0x02019170
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x10
 	mov r7, r1
@@ -30146,7 +30142,7 @@ FUN_02019170: ; 0x02019170
 	mov r0, r7
 	mov r6, r2
 	mov r5, r3
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r1, _02019288 ; =0x0000FFFF
 	mov r4, r0
 	cmp r4, r1
@@ -30154,7 +30150,7 @@ FUN_02019170: ; 0x02019170
 	ldreqh r4, [r0, #2]
 	mov r0, r7
 	mov r1, r4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldr r3, [r7]
 	str r0, [sp, #8]
 	ldr r2, [r3, #8]
@@ -30216,10 +30212,10 @@ _0201924C:
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02019288: .word 0x0000FFFF
-	arm_func_end FUN_02019170
+	arm_func_end NNS_G2dCharCanvasDrawChar
 
-	arm_func_start FUN_0201928c
-FUN_0201928c: ; 0x0201928C
+	arm_func_start NNS_G2dCharCanvasInitForBG
+NNS_G2dCharCanvasInitForBG: ; 0x0201928C
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	ldr lr, [sp, #0x10]
@@ -30227,14 +30223,14 @@ FUN_0201928c: ; 0x0201928C
 	str lr, [sp]
 	str r12, [sp, #4]
 	str r2, [sp, #8]
-	bl FUN_02019148
+	bl InitCharCanvas
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
-_020192B4: .word unk_0208BF08
-	arm_func_end FUN_0201928c
+_020192B4: .word VTABLE_BG
+	arm_func_end NNS_G2dCharCanvasInitForBG
 
-	arm_func_start FUN_020192b8
-FUN_020192b8: ; 0x020192B8
+	arm_func_start NNS_G2dCharCanvasInitForOBJ1D
+NNS_G2dCharCanvasInitForOBJ1D: ; 0x020192B8
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x10
 	cmp r2, #8
@@ -30263,15 +30259,15 @@ FUN_020192b8: ; 0x020192B8
 	str r12, [sp, #4]
 	orr r4, lr, r4, lsr #16
 	str r4, [sp, #8]
-	bl FUN_02019148
+	bl InitCharCanvas
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
 _02019334: .word unk_0208BF20
-_02019338: .word unk_0208BF14
-	arm_func_end FUN_020192b8
+_02019338: .word VTABLE_OBJ1D
+	arm_func_end NNS_G2dCharCanvasInitForOBJ1D
 
-	arm_func_start FUN_0201933c
-FUN_0201933c: ; 0x0201933C
+	arm_func_start NNS_G2dMapScrToCharText
+NNS_G2dMapScrToCharText: ; 0x0201933C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	ldr r5, [sp, #0x24]
@@ -30284,7 +30280,7 @@ FUN_0201933c: ; 0x0201933C
 	mov r3, r5
 	add r0, r0, r4, lsl #1
 	stmia sp, {r12, lr}
-	bl FUN_020193ec
+	bl NNS_G2dMapScrToChar256x16Pltt
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02019378:
@@ -30320,10 +30316,10 @@ _020193D8:
 	blt _02019394
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0201933c
+	arm_func_end NNS_G2dMapScrToCharText
 
-	arm_func_start FUN_020193ec
-FUN_020193ec: ; 0x020193EC
+	arm_func_start NNS_G2dMapScrToChar256x16Pltt
+NNS_G2dMapScrToChar256x16Pltt: ; 0x020193EC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, [sp, #0x1c]
 	ldr r8, [sp, #0x18]
@@ -30350,10 +30346,10 @@ _02019434:
 	add r0, r0, r3, lsl #1
 	blt _0201940C
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020193ec
+	arm_func_end NNS_G2dMapScrToChar256x16Pltt
 
-	arm_func_start FUN_02019448
-FUN_02019448: ; 0x02019448
+	arm_func_start NNSi_G2dCalcRequiredOBJ
+NNSi_G2dCalcRequiredOBJ: ; 0x02019448
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r3, r0, lsr #3
 	mov r5, r1, lsr #3
@@ -30377,10 +30373,10 @@ FUN_02019448: ; 0x02019448
 	add r0, r4, lr, lsr #2
 	mla r0, r1, r0, r12
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02019448
+	arm_func_end NNSi_G2dCalcRequiredOBJ
 
-	arm_func_start FUN_020194a4
-FUN_020194a4: ; 0x020194A4
+	arm_func_start NNS_G2dArrangeOBJ1D
+NNS_G2dArrangeOBJ1D: ; 0x020194A4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x3c
 	mov r6, r0
@@ -30427,7 +30423,7 @@ FUN_020194a4: ; 0x020194A4
 	strne r1, [sp, #0x18]
 	mov r1, #0
 	str r1, [sp, #0x24]
-	bl FUN_020185d8
+	bl OBJSizeToShape
 	ldr r2, [sp, #0x10]
 	ldr r1, [sp, #0x34]
 	mov r9, r2, asr r1
@@ -30507,7 +30503,7 @@ _02019628:
 	mov r0, r6
 	mov r1, r7
 	str r4, [sp, #0xc]
-	bl FUN_020194a4
+	bl NNS_G2dArrangeOBJ1D
 	ldr r1, [sp, #0x18]
 	add r6, r6, r0, lsl #3
 	mul r2, r1, r7
@@ -30535,7 +30531,7 @@ _020196B4:
 	ldr r1, [sp, #0x2c]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_020194a4
+	bl NNS_G2dArrangeOBJ1D
 	ldr r2, [sp, #0x18]
 	ldr r1, [sp, #0x2c]
 	add r6, r6, r0, lsl #3
@@ -30569,7 +30565,7 @@ _02019720:
 	mov r0, r6
 	add r3, r3, r5, lsl #3
 	str r4, [sp, #0xc]
-	bl FUN_020194a4
+	bl NNS_G2dArrangeOBJ1D
 	ldr r1, [sp, #0x24]
 	add r0, r1, r0
 	str r0, [sp, #0x24]
@@ -30580,10 +30576,10 @@ _0201978C:
 _02019798: .word unk_0208BF20
 _0201979C: .word 0xFE00FF00
 _020197A0: .word 0x3FFF3FFF
-	arm_func_end FUN_020194a4
+	arm_func_end NNS_G2dArrangeOBJ1D
 
-	arm_func_start FUN_020197a4
-FUN_020197a4: ; 0x020197A4
+	arm_func_start NNSi_G2dTextCanvasDrawString
+NNSi_G2dTextCanvasDrawString: ; 0x020197A4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
@@ -30611,7 +30607,7 @@ _020197E8:
 	ldr r0, [r10]
 	mov r1, r4
 	mov r3, r8
-	bl FUN_02019170
+	bl NNS_G2dCharCanvasDrawChar
 	add r0, r11, r0
 	mla r9, r0, r6, r9
 	mla r8, r0, r7, r8
@@ -30631,10 +30627,10 @@ _0201982C:
 	str r1, [r0]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_020197a4
+	arm_func_end NNSi_G2dTextCanvasDrawString
 
-	arm_func_start FUN_02019858
-FUN_02019858: ; 0x02019858
+	arm_func_start NNSi_G2dTextCanvasDrawTextAlign
+NNSi_G2dTextCanvasDrawTextAlign: ; 0x02019858
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x30
 	mov r10, r0
@@ -30685,7 +30681,7 @@ _020198EC:
 	ldr r2, [sp, #0x2c]
 	mov r3, #0
 	ldmib r10, {r0, r1}
-	bl FUN_0201833c
+	bl NNSi_G2dFontGetStringWidth
 	sub r0, r9, r0
 	b _02019954
 _02019928:
@@ -30694,7 +30690,7 @@ _02019928:
 	ldr r2, [sp, #0x2c]
 	mov r3, #0
 	ldmib r10, {r0, r1}
-	bl FUN_0201833c
+	bl NNSi_G2dFontGetStringWidth
 	add r0, r0, #1
 	add r0, r0, r0, lsr #31
 	mov r1, r0, asr #1
@@ -30716,17 +30712,17 @@ _0201995C:
 	mov r0, r10
 	strb r3, [sp, #9]
 	ldr r3, [sp, #0x58]
-	bl FUN_020197a4
+	bl NNSi_G2dTextCanvasDrawString
 	ldr r0, [sp, #0x2c]
 	add r4, r4, #1
 	cmp r0, #0
 	bne _020198EC
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02019858
+	arm_func_end NNSi_G2dTextCanvasDrawTextAlign
 
-	arm_func_start FUN_020199a8
-FUN_020199a8: ; 0x020199A8
+	arm_func_start NNSi_G2dTextCanvasDrawText
+NNSi_G2dTextCanvasDrawText: ; 0x020199A8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x28
 	mov r8, r0
@@ -30739,7 +30735,7 @@ FUN_020199a8: ; 0x020199A8
 	mov r6, r2
 	ldmib r8, {r1, r2}
 	ldr r4, [sp, #0x40]
-	bl FUN_0201845c
+	bl NNSi_G2dFontGetTextRect
 	ldr r2, [sp, #0x18]
 	ldr r0, [sp, #0x1c]
 	str r2, [sp, #0x10]
@@ -30801,13 +30797,13 @@ _02019A90:
 	mov r1, r7
 	mov r2, r6
 	strb r4, [sp, #0xd]
-	bl FUN_02019858
+	bl NNSi_G2dTextCanvasDrawTextAlign
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020199a8
+	arm_func_end NNSi_G2dTextCanvasDrawText
 
-	arm_func_start FUN_02019acc
-FUN_02019acc: ; 0x02019ACC
+	arm_func_start NNSi_G2dTextCanvasDrawTextRect
+NNSi_G2dTextCanvasDrawTextRect: ; 0x02019ACC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x10
 	ldr r12, [sp, #0x30]
@@ -30820,7 +30816,7 @@ FUN_02019acc: ; 0x02019ACC
 	ldr r0, [r7, #4]
 	ldr r1, [r7, #0xc]
 	ldr r2, [sp, #0x34]
-	bl FUN_020183e8
+	bl NNSi_G2dFontGetTextHeight
 	ldrsb r2, [sp, #0x39]
 	ldr r3, [sp, #0x28]
 	ldrsb r1, [sp, #0x38]
@@ -30835,7 +30831,7 @@ _02019B20:
 	ldr r0, [r7, #4]
 	ldr r1, [r7, #0xc]
 	ldr r2, [sp, #0x34]
-	bl FUN_020183e8
+	bl NNSi_G2dFontGetTextHeight
 	ldr r1, [sp, #0x28]
 	add r0, r0, #1
 	ldrsb r3, [sp, #0x39]
@@ -30863,13 +30859,13 @@ _02019B68:
 	mov r2, r5
 	mov r3, r4
 	strb r12, [sp, #0xd]
-	bl FUN_02019858
+	bl NNSi_G2dTextCanvasDrawTextAlign
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02019acc
+	arm_func_end NNSi_G2dTextCanvasDrawTextRect
 
-	arm_func_start FUN_02019bac
-FUN_02019bac: ; 0x02019BAC
+	arm_func_start NNSi_G2dGetUnpackedFont
+NNSi_G2dGetUnpackedFont: ; 0x02019BAC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, #0
 	movs r7, r0
@@ -30984,10 +30980,10 @@ _02019D1C:
 	mov r5, #1
 _02019D20:
 	mov r0, r7
-	bl FUN_02019d70
+	bl NNSi_G2dUnpackNFT
 	ldr r1, _02019D6C ; =0x46494E46
 	mov r0, r7
-	bl FUN_02018154
+	bl NNS_G2dFindBinaryBlock
 	cmp r0, #0
 	moveq r0, #0
 	streq r0, [r6]
@@ -31003,10 +30999,10 @@ _02019D60: .word 0x4E465452
 _02019D64: .word 0x00000102
 _02019D68: .word 0x00000101
 _02019D6C: .word 0x46494E46
-	arm_func_end FUN_02019bac
+	arm_func_end NNSi_G2dGetUnpackedFont
 
-	arm_func_start FUN_02019d70
-FUN_02019d70: ; 0x02019D70
+	arm_func_start NNSi_G2dUnpackNFT
+NNSi_G2dUnpackNFT: ; 0x02019D70
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrh r1, [r0, #0xc]
 	ldrh r3, [r0, #0xe]
@@ -31067,10 +31063,10 @@ _02019E38: .word 0x46494E46
 _02019E3C: .word 0x43574448
 _02019E40: .word 0x434D4150
 _02019E44: .word 0x43474C50
-	arm_func_end FUN_02019d70
+	arm_func_end NNSi_G2dUnpackNFT
 
-	arm_func_start FUN_02019e48
-FUN_02019e48: ; 0x02019E48
+	arm_func_start NNSi_G2dBitReaderRead
+NNSi_G2dBitReaderRead: ; 0x02019E48
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrsb r3, [r0, #4]
 	ldrb r4, [r0, #5]
@@ -31089,14 +31085,14 @@ FUN_02019e48: ; 0x02019E48
 	mov r1, r6
 	strb r3, [r0, #5]
 	strb r2, [r0, #4]
-	bl FUN_02019e48
+	bl NNSi_G2dBitReaderRead
 	orr r2, r0, r4, lsl r6
 _02019E98:
 	rsb r0, r5, #8
 	mov r1, #0xff
 	and r0, r2, r1, asr r0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02019e48
+	arm_func_end NNSi_G2dBitReaderRead
 
 	arm_func_start FUN_02019ea8
 FUN_02019ea8: ; 0x02019EA8
@@ -79222,19 +79218,19 @@ _02042788:
 	mov r11, r0
 	add r0, r10, #4
 	mov r1, r11
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	ldr r0, _02042948 ; =0x0000FFFF
 	cmp r1, r0
 	ldreq r0, [r10, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	mov r1, r11
 	str r0, [sp, #0x18]
 	ldrsb r11, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r1, _02042948 ; =0x0000FFFF
 	ldr r2, [r10, #4]
 	cmp r0, r1
@@ -79357,13 +79353,13 @@ _02042974:
 	bl FUN_020425c4
 	mov r1, r0
 	add r0, r8, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	cmp r1, r9
 	ldreq r0, [r8, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r8, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrsb r1, [r0, #2]
 	cmp r1, #0
 	cmpne r5, #0
@@ -79406,13 +79402,13 @@ _02042A20:
 	bl FUN_020425c4
 	mov r1, r0
 	add r0, r5, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	cmp r1, r6
 	ldreq r0, [r5, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r5, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrsb r1, [r0, #2]
 	cmp r1, #0
 	cmpne r7, #0
@@ -79474,14 +79470,14 @@ FUN_02042b0c: ; 0x02042B0C
 	bl FUN_020425c4
 	mov r1, r0
 	add r0, r4, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r2, _02042B48 ; =0x0000FFFF
 	mov r1, r0
 	cmp r1, r2
 	ldreq r0, [r4, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r4, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	ldrsb r0, [r0, #2]
 	ldmfd sp!, {r4, pc}
 _02042B48: .word 0x0000FFFF
@@ -79769,19 +79765,19 @@ _02042F2C:
 	mov r5, r0
 	add r0, r10, #4
 	mov r1, r5
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	ldr r0, _020430AC ; =0x0000FFFF
 	cmp r1, r0
 	ldreq r0, [r10, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	mov r1, r5
 	str r0, [sp, #0x18]
 	ldrsb r5, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r1, _020430AC ; =0x0000FFFF
 	ldr r2, [r10, #4]
 	cmp r0, r1
@@ -79932,19 +79928,19 @@ _02043190:
 	mov r5, r0
 	add r0, r10, #4
 	mov r1, r5
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	mov r1, r0
 	ldr r0, _0204330C ; =0x0000FFFF
 	cmp r1, r0
 	ldreq r0, [r10, #4]
 	ldreqh r1, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182f4
+	bl NNS_G2dFontGetCharWidthsFromIndex
 	mov r1, r5
 	str r0, [sp, #0x18]
 	ldrsb r5, [r0, #2]
 	add r0, r10, #4
-	bl FUN_020182ac
+	bl NNS_G2dFontFindGlyphIndex
 	ldr r1, _0204330C ; =0x0000FFFF
 	ldr r2, [r10, #4]
 	cmp r0, r1
@@ -163922,12 +163918,12 @@ unk_0208BEE8:
 	.byte 0x34, 0x84, 0x00, 0x02, 0xAC, 0x73, 0x00, 0x02
 	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x58, 0x89, 0x01, 0x02
 	.byte 0x44, 0x8D, 0x01, 0x02, 0xC4, 0x8D, 0x01, 0x02
-	.global unk_0208BF08
-unk_0208BF08:
+	.global VTABLE_BG
+VTABLE_BG:
 	.byte 0x58, 0x89, 0x01, 0x02, 0xF4, 0x8C, 0x01, 0x02
 	.byte 0xC4, 0x8D, 0x01, 0x02
-	.global unk_0208BF14
-unk_0208BF14:
+	.global VTABLE_OBJ1D
+VTABLE_OBJ1D:
 	.byte 0xEC, 0x8A, 0x01, 0x02, 0xF4, 0x8C, 0x01, 0x02, 0x5C, 0x8F, 0x01, 0x02
 	.global unk_0208BF20
 unk_0208BF20:
@@ -165362,6 +165358,7 @@ unk_0208FA10:
 	.asciz "/data_iz/pic2d/debfont8.pac"
 	.global unk_0208FA30
 	.balign 4, 0
+	.byte 0x00, 0x00, 0x00, 0x00
 unk_0208FA30:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
