@@ -4935,7 +4935,7 @@ _020F8788:
 	sub r0, r4, #1
 	bl FS_Init
 	bl FUN_02015ef0
-	bl FUN_0200adc4
+	bl RTC_Init
 	bl GX_DispOff
 	ldr r1, _020F8808 ; =0x04001000
 	ldr r0, [r1]
@@ -22713,7 +22713,7 @@ FUN_ov17_02107044: ; 0x02107044
 	str r0, [r4]
 	ldr r1, _02107080 ; =0x0000A001
 	add r0, r2, #0x400
-	bl FUN_0200a944
+	bl MATHi_CRC16InitTableRev
 	ldr r0, [r4]
 	bl  FUN_ov15_020cab04
 	ldmfd sp!, {r4, pc}
@@ -23488,7 +23488,7 @@ _02107A3C:
 	add r0, r1, #0xf8
 	add r0, r0, #0x400
 	add r1, r1, r5, lsl #8
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	ldr r1, [r6]
 	add r1, r1, r5, lsl #8
 	strh r0, [r1, #0xfe]

@@ -1,5 +1,5 @@
 .public FS_LoadOverlay
-.public FUN_0200af48
+.public RTC_GetTime
 .public FS_UnloadOverlay
 .public FUN_0201e014
 .public FUN_0201e078

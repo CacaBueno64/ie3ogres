@@ -4398,7 +4398,7 @@ FUN_ov17_020f0028: ; 0x020F0028
 	mov r2, #0xc
 	bl FUN_ov17_020efef0
 	add r0, sp, #0
-	blx FUN_0200af48
+	blx RTC_GetTime
 	cmp r0, #0
 	bne _020F005A
 	ldr r0, [sp]

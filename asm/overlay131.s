@@ -8874,7 +8874,7 @@ _02142778:
 	cmp r4, #0x14
 	blo _02142778
 	add r0, sp, #0
-	bl FUN_0200af48
+	bl RTC_GetTime
 	ldr r0, [sp]
 	ldr r2, [sp, #4]
 	mov r0, r0, lsl #0x1c

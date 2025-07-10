@@ -93,10 +93,10 @@
 .public FX_DivS32
 .public FX_ModS32
 .public FX_Init
-.public FUN_0200a944
-.public FUN_0200aa44
-.public FUN_0200adc4
-.public FUN_0200af48
+.public MATHi_CRC16InitTableRev
+.public MATH_CalcCRC16
+.public RTC_Init
+.public RTC_GetTime
 .public FS_InitArchive
 .public FS_RegisterArchiveName
 .public FS_ReleaseArchiveName

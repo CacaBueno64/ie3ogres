@@ -1529,7 +1529,7 @@ _020EF1F0:
 	mov r1, r0
 	mov r0, r4
 	mov r2, #4
-	bl FUN_0200a6bc
+	bl MATH_CalcSHA1
 	mov r3, #1
 	mov r9, #0
 	add r2, sp, #0x14

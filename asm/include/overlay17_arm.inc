@@ -6,9 +6,9 @@
 .public FS_InitFile
 .public FS_OpenFile
 .public FS_ReadFile
-.public FUN_0200a944
-.public FUN_0200aa44
-.public FUN_0200adc4
+.public MATHi_CRC16InitTableRev
+.public MATH_CalcCRC16
+.public RTC_Init
 .public FS_NotifyArchiveAsyncEnd
 .public FS_InitArchive
 .public FS_RegisterArchiveName

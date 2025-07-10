@@ -6523,13 +6523,13 @@ _020C2370:
 	add r1, r1, #0x1800
 	add r2, r10, r9
 	mov r3, r8
-	bl FUN_0200a988
+	bl MATHi_CRC16UpdateRev
 	ldr r0, [r7]
 	add r1, r10, r9
 	add r0, r0, #0x96
 	mov r2, r8
 	add r0, r0, #0x1a00
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	ldr r8, [r7]
 	add r1, r8, #0x1000
 	ldr r2, [r1, #0xa8c]
@@ -6645,7 +6645,7 @@ FUN_ov15_020c25ac: ; 0x020C25AC
 	ldr r0, [r7]
 	add r0, r0, #0x96
 	add r0, r0, #0x1a00
-	bl FUN_0200a944
+	bl MATHi_CRC16InitTableRev
 	ldr r0, [r7]
 	mov r1, r6
 	mov r2, r5
@@ -11278,14 +11278,14 @@ FUN_ov15_020c62a4: ; 0x020C62A4
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
-	bl FUN_0200a124
+	bl MATH_MD5Init
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0x18
-	bl FUN_0200a168
+	bl MATH_MD5Update
 	add r1, sp, #0
 	mov r0, r4
-	bl FUN_0200a230
+	bl MATH_MD5GetHash
 	add r0, sp, #3
 	mov r1, r5
 	mov r2, #0xd
@@ -13081,7 +13081,7 @@ _020C7AC8:
 	bl OS_SNPrintf
 	add r0, sp, #0x28
 	add r1, sp, #0x1c
-	bl FUN_0200affc
+	bl RTC_GetDateTime
 	cmp r0, #0
 	addne sp, sp, #0x8c
 	movne r0, #0
@@ -16418,7 +16418,7 @@ FUN_ov15_020caa0c: ; 0x020CAA0C
 	bl FUN_ov15_020cb32c
 	ldr r1, _020CAAB8 ; =0x0000A001
 	add r0, r9, #0x200
-	bl FUN_0200a944
+	bl MATHi_CRC16InitTableRev
 	ldr r6, _020CAABC ; =0x020E900C
 	mov r8, #0
 	mov r5, #0xe
@@ -16442,7 +16442,7 @@ _020CAA5C:
 	mov r1, r9
 	mov r2, r4
 	add r0, r9, #0x200
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	strh r0, [r9, #0xfe]
 _020CAA80:
 	mov r0, r9
@@ -16533,7 +16533,7 @@ _020CAB84:
 	mov r2, r4
 	add r0, r7, #0x500
 	add r1, r7, r5, lsl #8
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	add r1, r7, r5, lsl #8
 	strh r0, [r1, #0xfe]
 	mov r6, r1
@@ -17185,7 +17185,7 @@ FUN_ov15_020cb3f8: ; 0x020CB3F8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r1, _020CB6EC ; =0x0000A001
 	add r0, r8, #0x500
-	bl FUN_0200a944
+	bl MATHi_CRC16InitTableRev
 	mov r0, r8
 	bl FUN_ov15_020cab04
 	cmp r0, #0
@@ -17204,7 +17204,7 @@ _020CB46C:
 	mov r1, r7
 	mov r2, r4
 	add r0, r8, #0x500
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	mov r1, r7
 	ldrh r1, [r1, #0xfe]
 	cmp r0, r1
@@ -17220,7 +17220,7 @@ _020CB4A0:
 	add r0, r8, #0x500
 	add r1, r8, #0x300
 	mov r2, #0xfe
-	bl FUN_0200aa44
+	bl MATH_CalcCRC16
 	add r1, r8, #0x300
 	ldrh r1, [r1, #0xfe]
 	cmp r0, r1
@@ -17607,24 +17607,24 @@ FUN_ov15_020cba10: ; 0x020CBA10
 	mov r5, r0
 	mov r8, #0
 	bl FUN_ov15_020ca8e0
-	bl FUN_0200adc4
+	bl RTC_Init
 	add r6, sp, #0x14
 	mov r0, r6
-	bl FUN_0200aea0
+	bl RTC_GetDate
 	cmp r0, #0
 	addne sp, sp, #0x24
 	movne r0, r8
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	add r4, sp, #8
 	mov r0, r4
-	bl FUN_0200af48
+	bl RTC_GetTime
 	cmp r0, #0
 	addne sp, sp, #0x24
 	movne r0, r8
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r6
 	mov r1, r4
-	bl FUN_0200b61c
+	bl RTC_ConvertDateTimeToSecond
 	mov r9, r0
 	mov r0, r8
 	subs r2, r9, r0
@@ -17785,24 +17785,24 @@ FUN_ov15_020cbc70: ; 0x020CBC70
 	strb r7, [r1, #4]
 	strb r7, [r1, #5]
 	bl FUN_ov15_020ca8e0
-	bl FUN_0200adc4
+	bl RTC_Init
 	add r6, sp, #0x14
 	mov r0, r6
-	bl FUN_0200aea0
+	bl RTC_GetDate
 	cmp r0, #0
 	addne sp, sp, #0x24
 	movne r0, r7
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	add r4, sp, #8
 	mov r0, r4
-	bl FUN_0200af48
+	bl RTC_GetTime
 	cmp r0, #0
 	addne sp, sp, #0x24
 	movne r0, r7
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r6
 	mov r1, r4
-	bl FUN_0200b61c
+	bl RTC_ConvertDateTimeToSecond
 	mov r8, r0
 	subs r0, r8, r7
 	sbcs r0, r1, r7
@@ -18280,7 +18280,7 @@ FUN_ov15_020cc30c: ; 0x020CC30C
 	bl FUN_ov15_020cc3f4
 	bl OS_InitTick
 	bl OS_InitAlarm
-	bl FUN_0200adc4
+	bl RTC_Init
 	mov r0, #2
 	mov r1, #0x700
 	bl FUN_ov15_020cc408
@@ -18629,12 +18629,12 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 	add r5, sp, #0x20
 	mov r0, r6
 	mov r1, r5
-	bl FUN_0200affc
+	bl RTC_GetDateTime
 	cmp r0, #0
 	bne _020CC924
 	mov r0, r6
 	mov r1, r5
-	bl FUN_0200b61c
+	bl RTC_ConvertDateTimeToSecond
 	mov r5, r0
 	mov r6, r1
 	mvn r0, #0
@@ -18712,7 +18712,7 @@ _020CC858:
 	beq _020CC924
 	add r0, sp, #0x2c
 	add r1, sp, #0x20
-	bl FUN_0200b61c
+	bl RTC_ConvertDateTimeToSecond
 	sub r3, r4, #1
 	mov r2, r3
 	cmp r1, r3
@@ -31994,13 +31994,13 @@ FUN_ov15_020d787c: ; 0x020D787C
 	sub sp, sp, #0x1c
 	add r5, sp, #0xc
 	mov r0, r5
-	bl FUN_0200aea0
+	bl RTC_GetDate
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_0200af48
+	bl RTC_GetTime
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0200b61c
+	bl RTC_ConvertDateTimeToSecond
 	ldr r1, _020D78B8 ; =0x386D4380
 	add r0, r0, r1
 	add sp, sp, #0x1c
@@ -32788,7 +32788,7 @@ FUN_ov15_020d82bc: ; 0x020D82BC
 	add r0, sp, #8
 	str r5, [r10, #0x45c]
 	add r8, r3, r1, lsl #8
-	bl FUN_0200aea0
+	bl RTC_GetDate
 	mov r6, #0
 	ldr r1, [sp, #8]
 	ldr r0, [sp, #0xc]
@@ -40204,7 +40204,7 @@ _020DE79C:
 	bne _020DE7F8
 	ldr r0, _020DE900 ; =0x00003FFE
 	and r0, r1, r0
-	bl FUN_02009d28
+	bl MATH_CountPopulation
 	movs r1, r0
 	beq _020DE7F8
 	add r0, r8, #0x2000
