@@ -22227,8 +22227,8 @@ WmSleepCallback: ; 0x0201281C
 _02012824: .word OS_Terminate
 	arm_func_end WmSleepCallback
 
-	arm_func_start FUN_02012828
-FUN_02012828: ; 0x02012828
+	arm_func_start WM_SetIndCallback
+WM_SetIndCallback: ; 0x02012828
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
@@ -22247,10 +22247,10 @@ _02012854:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02012828
+	arm_func_end WM_SetIndCallback
 
-	arm_func_start FUN_0201286c
-FUN_0201286c: ; 0x0201286C
+	arm_func_start WM_SetPortCallback
+WM_SetPortCallback: ; 0x0201286C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x44
 	movs r5, r1
@@ -22308,10 +22308,10 @@ _0201292C:
 	add sp, sp, #0x44
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02012940: .word 0x0000FFFF
-	arm_func_end FUN_0201286c
+	arm_func_end WM_SetPortCallback
 
-	arm_func_start FUN_02012944
-FUN_02012944: ; 0x02012944
+	arm_func_start WM_ReadStatus
+WM_ReadStatus: ; 0x02012944
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl WMi_GetSystemWork
@@ -22332,10 +22332,10 @@ FUN_02012944: ; 0x02012944
 	bl MIi_CpuCopyFast
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02012944
+	arm_func_end WM_ReadStatus
 
-	arm_func_start FUN_02012994
-FUN_02012994: ; 0x02012994
+	arm_func_start WM_GetMPSendBufferSize
+WM_GetMPSendBufferSize: ; 0x02012994
 	stmfd sp!, {r3, r4, r5, lr}
 	bl WMi_GetSystemWork
 	mov r5, r0
@@ -22364,10 +22364,10 @@ FUN_02012994: ; 0x02012994
 	add r0, r0, #0x1f
 	bic r0, r0, #0x1f
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02012994
+	arm_func_end WM_GetMPSendBufferSize
 
-	arm_func_start FUN_02012a04
-FUN_02012a04: ; 0x02012A04
+	arm_func_start WM_GetMPReceiveBufferSize
+WM_GetMPReceiveBufferSize: ; 0x02012A04
 	stmfd sp!, {r4, r5, r6, lr}
 	bl WMi_GetSystemWork
 	mov r5, #2
@@ -22419,10 +22419,10 @@ FUN_02012a04: ; 0x02012A04
 	bic r0, r0, #0x1f
 	mov r0, r0, lsl #1
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02012a04
+	arm_func_end WM_GetMPReceiveBufferSize
 
-	arm_func_start FUN_02012ad0
-FUN_02012ad0: ; 0x02012AD0
+	arm_func_start WM_ReadMPData
+WM_ReadMPData: ; 0x02012AD0
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x3c
 	mov r5, r0
@@ -22488,10 +22488,10 @@ _02012B7C:
 	mov r0, #0
 	add sp, sp, #0x3c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_02012ad0
+	arm_func_end WM_ReadMPData
 
-	arm_func_start FUN_02012bc0
-FUN_02012bc0: ; 0x02012BC0
+	arm_func_start WM_GetAllowedChannel
+WM_GetAllowedChannel: ; 0x02012BC0
 	stmfd sp!, {r3, lr}
 	bl WMi_CheckInitialized
 	cmp r0, #0
@@ -22500,10 +22500,10 @@ FUN_02012bc0: ; 0x02012BC0
 	ldreqh r0, [r0]
 	ldmfd sp!, {r3, pc}
 _02012BDC: .word 0x02FFFCFA
-	arm_func_end FUN_02012bc0
+	arm_func_end WM_GetAllowedChannel
 
-	arm_func_start FUN_02012be0
-FUN_02012be0: ; 0x02012BE0
+	arm_func_start WM_GetLinkLevel
+WM_GetLinkLevel: ; 0x02012BE0
 	stmfd sp!, {r3, r4, r5, lr}
 	bl WMi_GetSystemWork
 	mov r5, r0
@@ -22544,10 +22544,10 @@ _02012C54:
 _02012C6C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02012be0
+	arm_func_end WM_GetLinkLevel
 
-	arm_func_start FUN_02012c74
-FUN_02012c74: ; 0x02012C74
+	arm_func_start WM_GetDispersionBeaconPeriod
+WM_GetDispersionBeaconPeriod: ; 0x02012C74
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	add r4, sp, #0
@@ -22586,10 +22586,10 @@ _02012C90:
 	ldmfd sp!, {r4, pc}
 _02012D00: .word 0x02FFFC3C
 _02012D04: .word 0x66666667
-	arm_func_end FUN_02012c74
+	arm_func_end WM_GetDispersionBeaconPeriod
 
-	arm_func_start FUN_02012d08
-FUN_02012d08: ; 0x02012D08
+	arm_func_start WM_GetDispersionScanPeriod
+WM_GetDispersionScanPeriod: ; 0x02012D08
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	add r4, sp, #0
@@ -22629,10 +22629,10 @@ _02012D24:
 	ldmfd sp!, {r4, pc}
 _02012D98: .word 0x02FFFC3C
 _02012D9C: .word 0x66666667
-	arm_func_end FUN_02012d08
+	arm_func_end WM_GetDispersionScanPeriod
 
-	arm_func_start FUN_02012da0
-FUN_02012da0: ; 0x02012DA0
+	arm_func_start WM_GetOtherElements
+WM_GetOtherElements: ; 0x02012DA0
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x84
 	ldrh r2, [r1, #0x3c]
@@ -22728,10 +22728,10 @@ _02012ED8:
 	str r0, [lr]
 	add sp, sp, #0x84
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_02012da0
+	arm_func_end WM_GetOtherElements
 
-	arm_func_start FUN_02012ef8
-FUN_02012ef8: ; 0x02012EF8
+	arm_func_start WM_GetNextTgid
+WM_GetNextTgid: ; 0x02012EF8
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	ldr r4, _02012F64 ; =0x0208EE98
@@ -22761,18 +22761,18 @@ _02012F3C:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
 _02012F64: .word unk_0208EE98
-	arm_func_end FUN_02012ef8
+	arm_func_end WM_GetNextTgid
 
-	arm_func_start FUN_02012f68
-FUN_02012f68: ; 0x02012F68
-	ldr r12, _02012F74 ; =FUN_02012F78
+	arm_func_start WM_Enable
+WM_Enable: ; 0x02012F68
+	ldr r12, _02012F74 ; =WMi_EnableEx
 	mov r1, #0
 	bx r12
-_02012F74: .word FUN_02012F78
-	arm_func_end FUN_02012f68
+_02012F74: .word WMi_EnableEx
+	arm_func_end WM_Enable
 
-	arm_func_start FUN_02012F78
-FUN_02012F78: ; 0x02012F78
+	arm_func_start WMi_EnableEx
+WMi_EnableEx: ; 0x02012F78
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r6, r0
@@ -22800,10 +22800,10 @@ FUN_02012F78: ; 0x02012F78
 	moveq r0, #2
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02012F78
+	arm_func_end WMi_EnableEx
 
-	arm_func_start FUN_02012fe4
-FUN_02012fe4: ; 0x02012FE4
+	arm_func_start WM_Disable
+WM_Disable: ; 0x02012FE4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
@@ -22821,10 +22821,10 @@ FUN_02012fe4: ; 0x02012FE4
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02012fe4
+	arm_func_end WM_Disable
 
-	arm_func_start FUN_02013028
-FUN_02013028: ; 0x02013028
+	arm_func_start WM_PowerOn
+WM_PowerOn: ; 0x02013028
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
@@ -22842,10 +22842,10 @@ FUN_02013028: ; 0x02013028
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02013028
+	arm_func_end WM_PowerOn
 
-	arm_func_start FUN_0201306c
-FUN_0201306c: ; 0x0201306C
+	arm_func_start WM_PowerOff
+WM_PowerOff: ; 0x0201306C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, #2
 	mov r6, r0
@@ -22864,18 +22864,18 @@ FUN_0201306c: ; 0x0201306C
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0201306c
+	arm_func_end WM_PowerOff
 
-	arm_func_start FUN_020130b4
-FUN_020130b4: ; 0x020130B4
-	ldr r12, _020130C0 ; =FUN_020130C4
+	arm_func_start WM_Initialize
+WM_Initialize: ; 0x020130B4
+	ldr r12, _020130C0 ; =WMi_InitializeEx
 	mov r3, #0
 	bx r12
-_020130C0: .word FUN_020130C4
-	arm_func_end FUN_020130b4
+_020130C0: .word WMi_InitializeEx
+	arm_func_end WM_Initialize
 
-	arm_func_start FUN_020130C4
-FUN_020130C4: ; 0x020130C4
+	arm_func_start WMi_InitializeEx
+WMi_InitializeEx: ; 0x020130C4
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r6, r1
@@ -22902,10 +22902,10 @@ FUN_020130C4: ; 0x020130C4
 	moveq r0, #2
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_020130C4
+	arm_func_end WMi_InitializeEx
 
-	arm_func_start FUN_0201312c
-FUN_0201312c: ; 0x0201312C
+	arm_func_start WM_Reset
+WM_Reset: ; 0x0201312C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl WMi_CheckIdle
@@ -22921,10 +22921,10 @@ FUN_0201312c: ; 0x0201312C
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0201312c
+	arm_func_end WM_Reset
 
-	arm_func_start FUN_02013168
-FUN_02013168: ; 0x02013168
+	arm_func_start WM_End
+WM_End: ; 0x02013168
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #2
 	mov r5, r0
@@ -22942,10 +22942,10 @@ FUN_02013168: ; 0x02013168
 	cmp r0, #0
 	moveq r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02013168
+	arm_func_end WM_End
 
-	arm_func_start FUN_020131ac
-FUN_020131ac: ; 0x020131AC
+	arm_func_start WM_SetParentParameter
+WM_SetParentParameter: ; 0x020131AC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -22985,7 +22985,7 @@ _02013230:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02013238:
 	mov r0, r4
-	bl FUN_02013288
+	bl WmCheckParentParameter
 	mov r1, r5
 	mov r0, #7
 	bl WMi_SetCallbackTable
@@ -23005,10 +23005,10 @@ _0201326C:
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_020131ac
+	arm_func_end WM_SetParentParameter
 
-	arm_func_start FUN_02013288
-FUN_02013288: ; 0x02013288
+	arm_func_start WmCheckParentParameter
+WmCheckParentParameter: ; 0x02013288
 	ldrh r1, [r0, #4]
 	cmp r1, #0x70
 	movhi r0, #0
@@ -23033,10 +23033,10 @@ _020132C8:
 _020132D0:
 	mov r0, #1
 	bx lr
-	arm_func_end FUN_02013288
+	arm_func_end WmCheckParentParameter
 
-	arm_func_start FUN_020132d8
-FUN_020132d8: ; 0x020132D8
+	arm_func_start WMi_StartParentEx
+WMi_StartParentEx: ; 0x020132D8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, #1
 	mov r8, r0
@@ -23063,18 +23063,18 @@ FUN_020132d8: ; 0x020132D8
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020132d8
+	arm_func_end WMi_StartParentEx
 
-	arm_func_start FUN_02013340
-FUN_02013340: ; 0x02013340
-	ldr r12, _0201334C ; =FUN_020132d8
+	arm_func_start WM_StartParent
+WM_StartParent: ; 0x02013340
+	ldr r12, _0201334C ; =WMi_StartParentEx
 	mov r1, #1
 	bx r12
-_0201334C: .word FUN_020132d8
-	arm_func_end FUN_02013340
+_0201334C: .word WMi_StartParentEx
+	arm_func_end WM_StartParent
 
-	arm_func_start FUN_02013350
-FUN_02013350: ; 0x02013350
+	arm_func_start WM_EndParent
+WM_EndParent: ; 0x02013350
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
@@ -23092,10 +23092,10 @@ FUN_02013350: ; 0x02013350
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02013350
+	arm_func_end WM_EndParent
 
-	arm_func_start FUN_02013394
-FUN_02013394: ; 0x02013394
+	arm_func_start WM_StartScanEx
+WM_StartScanEx: ; 0x02013394
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x3c
 	mov r5, r0
@@ -23181,10 +23181,10 @@ _0201345C:
 	moveq r0, #2
 	add sp, sp, #0x3c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_02013394
+	arm_func_end WM_StartScanEx
 
-	arm_func_start FUN_020134e4
-FUN_020134e4: ; 0x020134E4
+	arm_func_start WM_EndScan
+WM_EndScan: ; 0x020134E4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, #1
@@ -23202,10 +23202,10 @@ FUN_020134e4: ; 0x020134E4
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_020134e4
+	arm_func_end WM_EndScan
 
-	arm_func_start FUN_02013528
-FUN_02013528: ; 0x02013528
+	arm_func_start WM_StartConnectEx
+WM_StartConnectEx: ; 0x02013528
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x28
 	mov r7, r0
@@ -23259,10 +23259,10 @@ _020135CC:
 	moveq r0, #2
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02013528
+	arm_func_end WM_StartConnectEx
 
-	arm_func_start FUN_020135f4
-FUN_020135f4: ; 0x020135F4
+	arm_func_start WM_Disconnect
+WM_Disconnect: ; 0x020135F4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	mov r5, r0
@@ -23328,10 +23328,10 @@ _020136B4:
 	moveq r0, #2
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_020135f4
+	arm_func_end WM_Disconnect
 
-	arm_func_start FUN_020136e4
-FUN_020136e4: ; 0x020136E4
+	arm_func_start WMi_StartMP
+WMi_StartMP: ; 0x020136E4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x40
 	mov r8, r0
@@ -23385,12 +23385,12 @@ FUN_020136e4: ; 0x020136E4
 	ldrh r0, [r7, #0x9c]
 	cmp r0, #0
 	bne _020137E0
-	bl FUN_02012a04
+	bl WM_GetMPReceiveBufferSize
 	cmp r5, r0
 	addlt sp, sp, #0x40
 	movlt r0, #6
 	ldmltfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	bl FUN_02012994
+	bl WM_GetMPSendBufferSize
 	cmp r9, r0
 	addlt sp, sp, #0x40
 	movlt r0, #6
@@ -23429,10 +23429,10 @@ _020137E0:
 	moveq r0, #2
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_020136e4
+	arm_func_end WMi_StartMP
 
-	arm_func_start FUN_02013864
-FUN_02013864: ; 0x02013864
+	arm_func_start WM_StartMPEx
+WM_StartMPEx: ; 0x02013864
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x18
 	mov r7, r1
@@ -23470,14 +23470,14 @@ FUN_02013864: ; 0x02013864
 	mov r2, r6
 	mov r3, r5
 	str r4, [sp, #4]
-	bl FUN_020136e4
+	bl WMi_StartMP
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02013904: .word 0x00001E03
-	arm_func_end FUN_02013864
+	arm_func_end WM_StartMPEx
 
-	arm_func_start FUN_02013908
-FUN_02013908: ; 0x02013908
+	arm_func_start WM_StartMP
+WM_StartMP: ; 0x02013908
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x18
 	add r4, sp, #8
@@ -23501,13 +23501,13 @@ FUN_02013908: ; 0x02013908
 	mov r3, r5
 	str r12, [sp]
 	str r4, [sp, #4]
-	bl FUN_020136e4
+	bl WMi_StartMP
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02013908
+	arm_func_end WM_StartMP
 
-	arm_func_start FUN_02013970
-FUN_02013970: ; 0x02013970
+	arm_func_start WM_SetMPParameter
+WM_SetMPParameter: ; 0x02013970
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x20
 	mov r4, r0
@@ -23539,10 +23539,10 @@ FUN_02013970: ; 0x02013970
 	moveq r0, #2
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02013970
+	arm_func_end WM_SetMPParameter
 
-	arm_func_start FUN_020139ec
-FUN_020139ec: ; 0x020139EC
+	arm_func_start WM_SetMPParentSize
+WM_SetMPParentSize: ; 0x020139EC
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x1c
 	add r4, sp, #0
@@ -23557,13 +23557,13 @@ FUN_020139ec: ; 0x020139EC
 	mov r1, r4
 	str r2, [sp]
 	strh r5, [sp, #0xa]
-	bl FUN_02013970
+	bl WM_SetMPParameter
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_020139ec
+	arm_func_end WM_SetMPParentSize
 
-	arm_func_start FUN_02013a30
-FUN_02013a30: ; 0x02013A30
+	arm_func_start WM_SetMPTiming
+WM_SetMPTiming: ; 0x02013A30
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x1c
 	add r4, sp, #0
@@ -23580,13 +23580,13 @@ FUN_02013a30: ; 0x02013A30
 	str r2, [sp]
 	strh r6, [sp, #0x12]
 	strh r5, [sp, #0x14]
-	bl FUN_02013970
+	bl WM_SetMPParameter
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_02013a30
+	arm_func_end WM_SetMPTiming
 
-	arm_func_start FUN_02013a7c
-FUN_02013a7c: ; 0x02013A7C
+	arm_func_start WM_SetMPDataToPortEx
+WM_SetMPDataToPortEx: ; 0x02013A7C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x14
 	mov r8, r0
@@ -23666,10 +23666,10 @@ _02013B00:
 	moveq r0, r9
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_02013a7c
+	arm_func_end WM_SetMPDataToPortEx
 
-	arm_func_start FUN_02013bb4
-FUN_02013bb4: ; 0x02013BB4
+	arm_func_start WM_EndMP
+WM_EndMP: ; 0x02013BB4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl WMi_GetSystemWork
@@ -23700,10 +23700,10 @@ FUN_02013bb4: ; 0x02013BB4
 	cmp r0, #0
 	moveq r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02013bb4
+	arm_func_end WM_EndMP
 
-	arm_func_start FUN_02013c2c
-FUN_02013c2c: ; 0x02013C2C
+	arm_func_start WM_StartDCF
+WM_StartDCF: ; 0x02013C2C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	mov r5, r1
@@ -23746,10 +23746,10 @@ FUN_02013c2c: ; 0x02013C2C
 	cmp r0, #0
 	moveq r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02013c2c
+	arm_func_end WM_StartDCF
 
-	arm_func_start FUN_02013cd4
-FUN_02013cd4: ; 0x02013CD4
+	arm_func_start WM_SetDCFData
+WM_SetDCFData: ; 0x02013CD4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x10
 	mov r8, r0
@@ -23802,10 +23802,10 @@ FUN_02013cd4: ; 0x02013CD4
 	moveq r0, #2
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02013cd4
+	arm_func_end WM_SetDCFData
 
-	arm_func_start FUN_02013da4
-FUN_02013da4: ; 0x02013DA4
+	arm_func_start WM_EndDCF
+WM_EndDCF: ; 0x02013DA4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl WMi_GetSystemWork
@@ -23834,10 +23834,10 @@ FUN_02013da4: ; 0x02013DA4
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02013da4
+	arm_func_end WM_EndDCF
 
-	arm_func_start FUN_02013e14
-FUN_02013e14: ; 0x02013E14
+	arm_func_start WM_StartDataSharing
+WM_StartDataSharing: ; 0x02013E14
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -23919,14 +23919,14 @@ _02013F34:
 	strh r1, [r10, r0]
 	cmp r2, #4
 	blt _02013F34
-	ldr r1, _02014044 ; =FUN_020144a8
+	ldr r1, _02014044 ; =WmDataSharingReceiveCallback_Parent
 	mov r0, r9
 	mov r2, r10
-	bl FUN_0201286c
+	bl WM_SetPortCallback
 	mov r9, #0
 	add r4, r10, #0x800
 	mov r11, #2
-	ldr r6, _02014048 ; =FUN_020143d0
+	ldr r6, _02014048 ; =WmDataSharingSetDataCallback
 	ldr r5, _0201404C ; =0x0000FFFF
 	b _02014004
 _02013F78:
@@ -23945,7 +23945,7 @@ _02013F78:
 	add r2, r10, r9, lsl #9
 	stmib sp, {r3, r7}
 	ldrh r3, [r4, #0x14]
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	cmp r0, #7
 	bne _02013FE0
 	add r0, r10, r9, lsl #1
@@ -23976,24 +23976,24 @@ _02014004:
 	blt _02013F78
 	b _02014038
 _02014020:
-	ldr r1, _02014050 ; =FUN_020145dc
+	ldr r1, _02014050 ; =WmDataSharingReceiveCallback_Child
 	mov r4, #3
 	mov r0, r9
 	mov r2, r10
 	strh r4, [r3, #0xa]
-	bl FUN_0201286c
+	bl WM_SetPortCallback
 _02014038:
 	mov r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02014044: .word FUN_020144a8
-_02014048: .word FUN_020143d0
+_02014044: .word WmDataSharingReceiveCallback_Parent
+_02014048: .word WmDataSharingSetDataCallback
 _0201404C: .word 0x0000FFFF
-_02014050: .word FUN_020145dc
-	arm_func_end FUN_02013e14
+_02014050: .word WmDataSharingReceiveCallback_Child
+	arm_func_end WM_StartDataSharing
 
-	arm_func_start FUN_02014054
-FUN_02014054: ; 0x02014054
+	arm_func_start WM_EndDataSharing
+WM_EndDataSharing: ; 0x02014054
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r0
 	moveq r0, #6
@@ -24007,16 +24007,16 @@ FUN_02014054: ; 0x02014054
 	mov r4, #0
 	mov r1, r4
 	mov r2, r4
-	bl FUN_0201286c
+	bl WM_SetPortCallback
 	add r1, r5, #0x800
 	mov r0, r4
 	strh r4, [r1, #0xe]
 	strh r4, [r1, #0x1c]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02014054
+	arm_func_end WM_EndDataSharing
 
-	arm_func_start FUN_020140a0
-FUN_020140a0: ; 0x020140A0
+	arm_func_start WM_StepDataSharing
+WM_StepDataSharing: ; 0x020140A0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
@@ -24080,10 +24080,10 @@ _0201411C:
 	and r6, r0, #3
 	stmib sp, {r1, r11}
 	ldrh r3, [r2, #0x14]
-	ldr r0, _020143CC ; =FUN_020143d0
+	ldr r0, _020143CC ; =WmDataSharingSetDataCallback
 	mov r1, r10
 	add r2, r10, r6, lsl #9
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	cmp r0, #7
 	bne _020141D8
 	add r0, r10, r6, lsl #1
@@ -24148,20 +24148,20 @@ _0201428C:
 	mov r4, #0
 	mov r0, r10
 	mov r1, r4
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	cmp r5, #0
 	beq _020143C0
 	mov r0, r10
 	mov r1, r4
 	mov r2, r9
-	bl FUN_020146c0
+	bl WmDataSharingReceiveData
 	add r0, r10, #0x800
 	ldrh r0, [r0, #0x18]
 	cmp r0, #0
 	bne _020143C0
 	ldr r1, [sp, #0xc]
 	mov r0, r10
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	b _020143C0
 _020142D4:
 	cmp r0, #4
@@ -24206,14 +24206,14 @@ _0201434C:
 	bl MIi_CpuCopy16
 	add r3, r10, #0x800
 	ldrh r1, [r3, #0xe]
-	ldr r0, _020143CC ; =FUN_020143d0
+	ldr r0, _020143CC ; =WmDataSharingSetDataCallback
 	add r2, r5, #0x20
 	str r1, [sp]
 	ldrh r4, [r3, #0x16]
 	mov r1, r10
 	stmib sp, {r4, r11}
 	ldrh r3, [r3, #0x10]
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	add r1, r10, #0x800
 	ldrh r2, [r1, #0xa]
 	cmp r0, #2
@@ -24228,22 +24228,22 @@ _020143C0:
 	mov r0, r7
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020143CC: .word FUN_020143d0
-	arm_func_end FUN_020140a0
+_020143CC: .word WmDataSharingSetDataCallback
+	arm_func_end WM_StepDataSharing
 
-	arm_func_start FUN_020143d0
-FUN_020143d0: ; 0x020143D0
+	arm_func_start WmDataSharingSetDataCallback
+WmDataSharingSetDataCallback: ; 0x020143D0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl WMi_GetSystemWork
 	ldrh r2, [r5, #0xa]
-	ldr r1, _020144A0 ; =FUN_020144a8
+	ldr r1, _020144A0 ; =WmDataSharingReceiveCallback_Parent
 	add r0, r0, r2, lsl #2
 	ldr r2, [r0, #0xcc]
 	ldr r4, [r0, #0x10c]
 	cmp r2, r1
 	beq _02014404
-	ldr r0, _020144A4 ; =FUN_020145dc
+	ldr r0, _020144A4 ; =WmDataSharingReceiveCallback_Child
 	cmp r2, r0
 	ldmnefd sp!, {r3, r4, r5, pc}
 _02014404:
@@ -24288,12 +24288,12 @@ _02014490:
 	mov r1, #5
 	strh r1, [r0, #0x1c]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020144A0: .word FUN_020144a8
-_020144A4: .word FUN_020145dc
-	arm_func_end FUN_020143d0
+_020144A0: .word WmDataSharingReceiveCallback_Parent
+_020144A4: .word WmDataSharingReceiveCallback_Child
+	arm_func_end WmDataSharingSetDataCallback
 
-	arm_func_start FUN_020144a8
-FUN_020144a8: ; 0x020144A8
+	arm_func_start WmDataSharingReceiveCallback_Parent
+WmDataSharingReceiveCallback_Parent: ; 0x020144A8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, [r0, #0x1c]
 	cmp r4, #0
@@ -24326,15 +24326,15 @@ _02014514:
 	ldrh r1, [r0, #0x12]
 	ldr r2, [r0, #0xc]
 	mov r0, r4
-	bl FUN_020146c0
+	bl WmDataSharingReceiveData
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	ldmfd sp!, {r4, r5, r6, pc}
 _02014534:
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	ldmfd sp!, {r4, r5, r6, pc}
 _02014544:
 	ldrh r5, [r0, #0x12]
@@ -24363,24 +24363,24 @@ _02014598:
 	mov r5, #0
 	mov r0, r4
 	mov r1, r5
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	add r0, r4, #0x800
 	ldrh r0, [r0, #0x18]
 	cmp r0, #1
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, r4
 	mov r1, r5
-	bl FUN_02014790
+	bl WmDataSharingSendDataSet
 	ldmfd sp!, {r4, r5, r6, pc}
 _020145CC:
 	add r0, r4, #0x800
 	mov r1, #5
 	strh r1, [r0, #0x1c]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_020144a8
+	arm_func_end WmDataSharingReceiveCallback_Parent
 
-	arm_func_start FUN_020145dc
-FUN_020145dc: ; 0x020145DC
+	arm_func_start WmDataSharingReceiveCallback_Child
+WmDataSharingReceiveCallback_Child: ; 0x020145DC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	ldr r4, [r8, #0x1c]
@@ -24442,10 +24442,10 @@ _020146B0:
 	mov r1, #5
 	strh r1, [r0, #0x1c]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020145dc
+	arm_func_end WmDataSharingReceiveCallback_Child
 
-	arm_func_start FUN_020146c0
-FUN_020146c0: ; 0x020146C0
+	arm_func_start WmDataSharingReceiveData
+WmDataSharingReceiveData: ; 0x020146C0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	mov r3, r1
@@ -24475,7 +24475,7 @@ _02014724:
 	add r2, r6, r4, lsl #9
 	mov r0, r6
 	add r2, r2, #4
-	bl FUN_02014934
+	bl WmGetSharedDataAddress
 	mov r1, r0
 	add r0, r6, #0x800
 	cmp r5, #0
@@ -24501,10 +24501,10 @@ _0201475C:
 	strh r1, [r2, r4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_020146c0
+	arm_func_end WmDataSharingReceiveData
 
-	arm_func_start FUN_02014790
-FUN_02014790: ; 0x02014790
+	arm_func_start WmDataSharingSendDataSet
+WmDataSharingSendDataSet: ; 0x02014790
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -24552,7 +24552,7 @@ FUN_02014790: ; 0x02014790
 	add r3, r10, #0x800
 	ldrh r1, [r3, #0xe]
 	mov r4, #1
-	ldr r0, _020148DC ; =FUN_020143d0
+	ldr r0, _020148DC ; =WmDataSharingSetDataCallback
 	and r1, r1, r7
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
@@ -24563,7 +24563,7 @@ FUN_02014790: ; 0x02014790
 	str r5, [sp, #4]
 	str r4, [sp, #8]
 	ldrh r3, [r3, #0x14]
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	cmp r0, #7
 	bne _020148B0
 	add r0, r10, r6, lsl #1
@@ -24590,11 +24590,11 @@ _020148CC:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _020148D8: .word 0x0000FFFE
-_020148DC: .word FUN_020143d0
-	arm_func_end FUN_02014790
+_020148DC: .word WmDataSharingSetDataCallback
+	arm_func_end WmDataSharingSendDataSet
 
-	arm_func_start FUN_020148e0
-FUN_020148e0: ; 0x020148E0
+	arm_func_start WM_GetSharedDataAddress
+WM_GetSharedDataAddress: ; 0x020148E0
 	stmfd sp!, {r3, lr}
 	mov r3, r2
 	cmp r0, #0
@@ -24614,12 +24614,12 @@ FUN_020148e0: ; 0x020148E0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
 	add r2, lr, #4
-	bl FUN_02014934
+	bl WmGetSharedDataAddress
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020148e0
+	arm_func_end WM_GetSharedDataAddress
 
-	arm_func_start FUN_02014934
-FUN_02014934: ; 0x02014934
+	arm_func_start WmGetSharedDataAddress
+WmGetSharedDataAddress: ; 0x02014934
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r12, #1
 	mov r3, r12, lsl r3
@@ -24632,28 +24632,28 @@ FUN_02014934: ; 0x02014934
 	ldrh r1, [r1, #0x10]
 	mla r0, r1, r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02014934
+	arm_func_end WmGetSharedDataAddress
 
-	arm_func_start FUN_02014964
-FUN_02014964: ; 0x02014964
+	arm_func_start WM_StartKeySharing
+WM_StartKeySharing: ; 0x02014964
 	stmfd sp!, {r3, lr}
 	mov r12, #1
 	rsb r2, r12, #0x10000
 	mov r3, #2
 	str r12, [sp]
-	bl FUN_02013e14
+	bl WM_StartDataSharing
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02014964
+	arm_func_end WM_StartKeySharing
 
-	arm_func_start FUN_02014980
-FUN_02014980: ; 0x02014980
-	ldr r12, _02014988 ; =FUN_02014054
+	arm_func_start WM_EndKeySharing
+WM_EndKeySharing: ; 0x02014980
+	ldr r12, _02014988 ; =WM_EndDataSharing
 	bx r12
-_02014988: .word FUN_02014054
-	arm_func_end FUN_02014980
+_02014988: .word WM_EndDataSharing
+	arm_func_end WM_EndKeySharing
 
-	arm_func_start FUN_0201498c
-FUN_0201498c: ; 0x0201498C
+	arm_func_start WM_SetWEPKey
+WM_SetWEPKey: ; 0x0201498C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
 	mov r7, r1
@@ -24686,10 +24686,10 @@ _020149D4:
 	cmp r0, #0
 	moveq r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0201498c
+	arm_func_end WM_SetWEPKey
 
-	arm_func_start FUN_02014a08
-FUN_02014a08: ; 0x02014A08
+	arm_func_start WM_SetWEPKeyEx
+WM_SetWEPKeyEx: ; 0x02014A08
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	mov r8, r0
@@ -24728,10 +24728,10 @@ _02014A64:
 	moveq r0, #2
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02014a08
+	arm_func_end WM_SetWEPKeyEx
 
-	arm_func_start FUN_02014a9c
-FUN_02014a9c: ; 0x02014A9C
+	arm_func_start WM_SetGameInfo
+WM_SetGameInfo: ; 0x02014A9C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0xc
 	mov r6, #2
@@ -24781,10 +24781,10 @@ FUN_02014a9c: ; 0x02014A9C
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02014B5C: .word unk_020975E0
-	arm_func_end FUN_02014a9c
+	arm_func_end WM_SetGameInfo
 
-	arm_func_start FUN_02014b60
-FUN_02014b60: ; 0x02014B60
+	arm_func_start WM_SetBeaconIndication
+WM_SetBeaconIndication: ; 0x02014B60
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -24806,10 +24806,10 @@ FUN_02014b60: ; 0x02014B60
 	cmp r0, #0
 	moveq r0, #2
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02014b60
+	arm_func_end WM_SetBeaconIndication
 
-	arm_func_start FUN_02014bb4
-FUN_02014bb4: ; 0x02014BB4
+	arm_func_start WM_SetLifeTime
+WM_SetLifeTime: ; 0x02014BB4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r8, r0
@@ -24835,10 +24835,10 @@ FUN_02014bb4: ; 0x02014BB4
 	moveq r0, #2
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02014bb4
+	arm_func_end WM_SetLifeTime
 
-	arm_func_start FUN_02014c18
-FUN_02014c18: ; 0x02014C18
+	arm_func_start WM_MeasureChannel
+WM_MeasureChannel: ; 0x02014C18
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0xc
 	mov r9, r0
@@ -24870,7 +24870,7 @@ FUN_02014c18: ; 0x02014C18
 	moveq r0, r5
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02014c18
+	arm_func_end WM_MeasureChannel
 
 	arm_func_start STD_CopyString
 STD_CopyString: ; 0x02014C94
@@ -73717,7 +73717,7 @@ _0203E04C:
 	ldr r1, _0203E1CC ; =FUN_0203e2f4
 	bic r0, r0, #0x1f
 	mov r2, #3
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #2
 	movne r0, r4
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -73823,9 +73823,9 @@ FUN_0203E1FC: ; 0x0203E1FC
 
 	arm_func_start FUN_0203e208
 FUN_0203e208: ; 0x0203E208
-	ldr r12, _0203E210 ; =FUN_02012be0
+	ldr r12, _0203E210 ; =WM_GetLinkLevel
 	bx r12
-_0203E210: .word FUN_02012be0
+_0203E210: .word WM_GetLinkLevel
 	arm_func_end FUN_0203e208
 
 	arm_func_start FUN_0203e214
@@ -73848,7 +73848,7 @@ FUN_0203e214: ; 0x0203E214
 	ldrh r2, [r1, #0x24]
 	ldr r1, [r3, #0x320]
 	ldr r3, [r3, #0x328]
-	bl FUN_02014a9c
+	bl WM_SetGameInfo
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _0203E268: .word FUN_0203e2cc
@@ -73876,7 +73876,7 @@ FUN_0203e26c: ; 0x0203E26C
 	ldrh r2, [r3, #0x24]
 	ldr r1, [r12, #0x320]
 	ldr r3, [r12, #0x328]
-	bl FUN_02014a9c
+	bl WM_SetGameInfo
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 _0203E2C8: .word FUN_0203e2cc
@@ -73914,7 +73914,7 @@ FUN_0203e2f4: ; 0x0203E2F4
 	strneh r1, [r0, #0x6a]
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _0203E350 ; =FUN_0203e354
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	cmp r0, #0
 	ldr r0, [r4]
 	movne r1, #9
@@ -73940,7 +73940,7 @@ FUN_0203e358: ; 0x0203E358
 	mov r2, #2
 	ldr r0, _0203E380 ; =FUN_0203e384
 	strh r2, [r1, #0x6a]
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -74009,7 +74009,7 @@ _0203E434:
 	b _0203E4B8
 _0203E444:
 	add r0, r4, #0x1400
-	bl FUN_02014054
+	bl WM_EndDataSharing
 	cmp r0, #0
 	beq _0203E458
 	b _0203E4B8
@@ -74091,7 +74091,7 @@ FUN_0203e52c: ; 0x0203E52C
 	movne r0, r7
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
 	ldr r0, _0203E604 ; =FUN_0203e500
-	bl FUN_02013168
+	bl WM_End
 	cmp r0, #2
 	movne r0, r7
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
@@ -74171,7 +74171,7 @@ FUN_0203e60c: ; 0x0203E60C
 	bic r1, r12, #0x1f
 	mov r2, r2, lsr #0x10
 	bic r3, r3, #0x1f
-	bl FUN_02013908
+	bl WM_StartMP
 	cmp r0, #2
 	addne r1, r5, #0x2000
 	strne r0, [r1, #0x440]
@@ -74243,7 +74243,7 @@ _0203E72C:
 	add r0, r12, #0xc20
 	add r0, r0, #0x1000
 	mov r1, #0xd
-	bl FUN_02014964
+	bl WM_StartKeySharing
 	cmp r0, #0
 	beq _0203E790
 	ldr r1, [r4]
@@ -74274,7 +74274,7 @@ _0203E7AC:
 	mov r1, r1, lsl #0x10
 	mov r2, r1, lsr #0x10
 	mov r1, #0xd
-	bl FUN_02013e14
+	bl WM_StartDataSharing
 	cmp r0, #0
 	ldreq r0, [r4]
 	moveq r1, #6
@@ -74309,7 +74309,7 @@ FUN_0203e838: ; 0x0203E838
 	ldrh r1, [r0, #0x6e]
 	ldrh r2, [r0, #0x70]
 	ldr r0, _0203E86C ; =FUN_0203e870
-	bl FUN_02013a30
+	bl WM_SetMPTiming
 	cmp r0, #2
 	addne r1, r4, #0x2000
 	strne r0, [r1, #0x440]
@@ -74345,7 +74345,7 @@ FUN_0203e89c: ; 0x0203E89C
 	ldmnefd sp!, {r3, pc}
 	add r0, r2, #0x1400
 	add r2, r2, #4
-	bl FUN_020140a0
+	bl WM_StepDataSharing
 	cmp r0, #0
 	beq _0203E8D4
 	cmp r0, #5
@@ -74414,7 +74414,7 @@ FUN_0203e930: ; 0x0203E930
 	str r12, [sp, #4]
 	mov r4, #1
 	str r4, [sp, #8]
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	ldr r1, _0203E9D8 ; =0x020B5BB0
 	cmp r0, #2
 	ldr r1, [r1]
@@ -74464,13 +74464,13 @@ FUN_0203ea40: ; 0x0203EA40
 	ldr r2, _0203EA5C ; =0x020B5BB0
 	ldr r1, _0203EA60 ; =FUN_0203e9dc
 	str r0, [r2, #4]
-	ldr r12, _0203EA64 ; =FUN_0201286c
+	ldr r12, _0203EA64 ; =WM_SetPortCallback
 	mov r0, #0xe
 	mov r2, #0
 	bx r12
 _0203EA5C: .word unk_020B5BB0
 _0203EA60: .word FUN_0203e9dc
-_0203EA64: .word FUN_0201286c
+_0203EA64: .word WM_SetPortCallback
 	arm_func_end FUN_0203ea40
 
 	arm_func_start FUN_0203ea68
@@ -74494,11 +74494,11 @@ _0203EA98: .word 0x0000FFEF
 FUN_0203ea9c: ; 0x0203EA9C
 	mov r1, r1, lsl #0x10
 	ldr r0, _0203EAB0 ; =FUN_0203ea68
-	ldr r12, _0203EAB4 ; =FUN_020139ec
+	ldr r12, _0203EAB4 ; =WM_SetMPParentSize
 	mov r1, r1, lsr #0x10
 	bx r12
 _0203EAB0: .word FUN_0203ea68
-_0203EAB4: .word FUN_020139ec
+_0203EAB4: .word WM_SetMPParentSize
 	arm_func_end FUN_0203ea9c
 
 	arm_func_start FUN_0203eab8
@@ -74510,7 +74510,7 @@ FUN_0203eab8: ; 0x0203EAB8
 	add r0, r4, #0x1400
 	add r1, r4, #4
 	mov r4, r3
-	bl FUN_020148e0
+	bl WM_GetSharedDataAddress
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -74527,7 +74527,7 @@ FUN_0203eaf8: ; 0x0203EAF8
 	mov r4, r0
 	add r0, r4, #0xc20
 	add r0, r0, #0x1000
-	bl FUN_02014980
+	bl WM_EndKeySharing
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -74543,7 +74543,7 @@ FUN_0203eaf8: ; 0x0203EAF8
 FUN_0203eb30: ; 0x0203EB30
 	stmfd sp!, {r3, lr}
 	ldr r0, _0203EB4C ; =FUN_0203eb50
-	bl FUN_02013bb4
+	bl WM_EndMP
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -74587,7 +74587,7 @@ _0203EBB0: .word unk_020B5BB0
 FUN_0203ebb4: ; 0x0203EBB4
 	stmfd sp!, {r3, lr}
 	ldr r0, _0203EBD0 ; =FUN_0203ebd4
-	bl FUN_02013350
+	bl WM_EndParent
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -74624,7 +74624,7 @@ FUN_0203ec20: ; 0x0203EC20
 	mov r4, #0
 	ldr r0, _0203EC54 ; =FUN_0203ec5c
 	mov r1, r4
-	bl FUN_020135f4
+	bl WM_Disconnect
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r4, pc}
@@ -74680,7 +74680,7 @@ FUN_0203eca8: ; 0x0203ECA8
 	mov r12, #8
 	add r2, r5, #0x220
 	strh r12, [r3, #0x6a]
-	bl FUN_0201498c
+	bl WM_SetWEPKey
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -74742,7 +74742,7 @@ FUN_0203eda8: ; 0x0203EDA8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0x8000
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -74773,7 +74773,7 @@ _0203EE04:
 	mov r1, #3
 	mov r2, #0x11
 	str r4, [sp]
-	bl FUN_02014c18
+	bl WM_MeasureChannel
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
 	cmp r0, #2
@@ -74848,7 +74848,7 @@ FUN_0203eefc: ; 0x0203EEFC
 	mov r4, #0
 	strh r1, [r0, #0x68]
 	strh r4, [r0, #0x5c]
-	bl FUN_02012ef8
+	bl WM_GetNextTgid
 	add r1, r7, #0x200
 	strh r0, [r1, #0x34]
 	add r0, r7, #0x2400
@@ -74857,7 +74857,7 @@ FUN_0203eefc: ; 0x0203EEFC
 	ldrh r0, [r0, #0x62]
 	strh r2, [r1, #0x2c]
 	strh r0, [r1, #0x52]
-	bl FUN_02012c74
+	bl WM_GetDispersionBeaconPeriod
 	add r2, r7, #0x2400
 	add r1, r7, #0x300
 	ldrh r8, [r2, #0x5e]
@@ -74884,7 +74884,7 @@ FUN_0203eefc: ; 0x0203EEFC
 	strh r8, [r4, #0x60]
 	strh r6, [r4, #0x6e]
 	strh r5, [r4, #0x70]
-	bl FUN_020131ac
+	bl WM_SetParentParameter
 	cmp r0, #2
 	movne r0, r8
 	moveq r0, #1
@@ -74912,7 +74912,7 @@ FUN_0203efd8: ; 0x0203EFD8
 	ldmfd sp!, {r3, pc}
 _0203F018:
 	ldr r0, _0203F028 ; =FUN_0203f02c
-	bl FUN_02013340
+	bl WM_StartParent
 	ldmfd sp!, {r3, pc}
 _0203F024: .word unk_020B5BB0
 _0203F028: .word FUN_0203f02c
@@ -75070,7 +75070,7 @@ _0203F228: .word 0x00001078
 FUN_0203f22c: ; 0x0203F22C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0x8000
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -75106,7 +75106,7 @@ _0203F270:
 	strh r5, [r12, #0x90]
 	strh r4, [r12, #0x92]
 	bl MI_CpuFill8
-	bl FUN_02012d08
+	bl WM_GetDispersionScanPeriod
 	add r2, r6, #0x2400
 	ldrh r3, [r2, #0x6c]
 	add r1, r6, #0x300
@@ -75115,7 +75115,7 @@ _0203F270:
 	ldr r0, _0203F2F8 ; =FUN_0203f330
 	add r1, r6, #0x380
 	strh r3, [r2, #0x6c]
-	bl FUN_02013394
+	bl WM_StartScanEx
 	cmp r0, #2
 	movne r0, r4
 	moveq r0, r5
@@ -75479,7 +75479,7 @@ FUN_0203f7bc: ; 0x0203F7BC
 	ldr r0, _0203F7E4 ; =FUN_0203f7e8
 	mov r2, #2
 	strh r2, [r1, #0x6a]
-	bl FUN_020134e4
+	bl WM_EndScan
 	ldmfd sp!, {r3, pc}
 _0203F7E4: .word FUN_0203f7e8
 	arm_func_end FUN_0203f7bc
@@ -75562,7 +75562,7 @@ _0203F880:
 	mov r3, r4
 	add r2, r2, #0x2400
 	str r5, [sp]
-	bl FUN_02013528
+	bl WM_StartConnectEx
 	cmp r0, #2
 	movne r0, #0
 	moveq r0, r4
@@ -75575,7 +75575,7 @@ FUN_0203f91c: ; 0x0203F91C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, _0203F948 ; =FUN_0203f94c
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	movne r0, #0
 	addeq r0, r4, #0x2400

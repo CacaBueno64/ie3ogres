@@ -853,7 +853,7 @@ _0212B55C:
 _0212B5A0:
 	mov r0, r4
 	mov r1, r6
-	bl FUN_02012ad0
+	bl WM_ReadMPData
 	cmp r0, #0
 	ldrneh r1, [r0]
 	cmpne r1, r5
@@ -2687,7 +2687,7 @@ FUN_ov128_0212ce70: ; 0x0212CE70
 	mov r3, r5
 	mov r2, #0x70
 	str r12, [sp, #4]
-	bl FUN_02014a9c
+	bl WM_SetGameInfo
 	add sp, sp, #8
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -2821,7 +2821,7 @@ _0212CFBC:
 	str r5, [sp]
 	mov r0, #0
 	str r4, [sp, #4]
-	bl FUN_02014a9c
+	bl WM_SetGameInfo
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212D0B0: .word ov128_0212F9A8
@@ -2991,7 +2991,7 @@ _0212D2A4:
 	mov r0, #0
 	mov r2, #0x70
 	str r5, [sp, #4]
-	bl FUN_02014a9c
+	bl WM_SetGameInfo
 	ldr r0, [r4, #0x10]
 	cmp r0, #1
 	addne sp, sp, #0x14
@@ -3032,7 +3032,7 @@ _0212D374:
 FUN_ov128_0212d37c: ; 0x0212D37C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -3095,7 +3095,7 @@ FUN_ov128_0212d444: ; 0x0212D444
 	sub sp, sp, #4
 	ldr r4, _0212D498 ; =FUN_ov128_0212d4e4
 	mov r0, r4
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	mov r1, r0
 	mov r0, #0x80
 	bl FUN_ov128_0212f150
@@ -3106,7 +3106,7 @@ FUN_ov128_0212d444: ; 0x0212D444
 	ldrh r1, [r3, #4]
 	ldrh r2, [r3, #2]
 	ldrh r3, [r3, #6]
-	bl FUN_02014bb4
+	bl WM_SetLifeTime
 	mov r1, r0
 	mov r0, #0x1d
 	bl FUN_ov128_0212f150
@@ -3208,7 +3208,7 @@ _0212D5AC:
 _0212D5D4:
 	ldr r1, [r4, #0xc]
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
-	bl FUN_020131ac
+	bl WM_SetParentParameter
 	mov r1, r0
 	mov r0, #7
 	bl FUN_ov128_0212f150
@@ -3222,7 +3222,7 @@ _0212D5F4:
 	blx r2
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
 	mov r1, r5
-	bl FUN_02014b60
+	bl WM_SetBeaconIndication
 	mov r1, r0
 	mov r0, #0x19
 	bl FUN_ov128_0212f150
@@ -3247,7 +3247,7 @@ _0212D660:
 	ldr r1, _0212DCB0 ; =0x0212F96C
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
 	ldr r1, [r1, #8]
-	bl FUN_020132d8
+	bl WMi_StartParentEx
 	mov r1, r0
 	mov r0, #8
 	bl FUN_ov128_0212f150
@@ -3361,7 +3361,7 @@ _0212D754:
 	ldr r1, [r3, #0x504]
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
 	add r3, r3, #0x40
-	bl FUN_02013864
+	bl WM_StartMPEx
 	mov r1, r0
 	mov r0, #0xe
 	bl FUN_ov128_0212f150
@@ -3557,7 +3557,7 @@ _0212DACC:
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
 	add r1, r1, #0x500
 	strh r6, [r1, #0x28]
-	bl FUN_02013168
+	bl WM_End
 	mov r1, r0
 	mov r0, #2
 	bl FUN_ov128_0212f150
@@ -3567,9 +3567,9 @@ _0212DAF8:
 	mov r1, r6
 	mov r2, r6
 	mov r0, r5
-	bl FUN_0201286c
+	bl WM_SetPortCallback
 	mov r0, r6
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	ldrh r0, [r8, #2]
 	cmp r0, #0
 	beq _0212DB44
@@ -3586,7 +3586,7 @@ _0212DAF8:
 _0212DB44:
 	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
 	mov r1, r6
-	bl FUN_02014b60
+	bl WM_SetBeaconIndication
 	mov r1, r0
 	mov r0, #0x19
 	bl FUN_ov128_0212f150
@@ -3792,7 +3792,7 @@ _0212DDEC:
 	ldrh r1, [r3, #4]
 	ldrh r2, [r3, #2]
 	ldrh r3, [r3, #6]
-	bl FUN_02014bb4
+	bl WM_SetLifeTime
 	mov r1, r0
 	mov r0, #0x1d
 	bl FUN_ov128_0212f150
@@ -3829,7 +3829,7 @@ _0212DE50:
 	str r6, [r11, #0x5e4]
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	str r6, [r11, #0x5e8]
-	bl FUN_02013394
+	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
 	bl FUN_ov128_0212f150
@@ -4103,7 +4103,7 @@ _0212E254:
 _0212E284:
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	ldr r1, _0212E6A8 ; =0x0212FA80
-	bl FUN_02013394
+	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
 	bl FUN_ov128_0212f150
@@ -4129,7 +4129,7 @@ _0212E2A4:
 _0212E2E4:
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	ldr r1, _0212E6A8 ; =0x0212FA80
-	bl FUN_02013394
+	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
 	bl FUN_ov128_0212f150
@@ -4158,7 +4158,7 @@ _0212E340:
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	mov r3, r6
 	str r2, [sp]
-	bl FUN_02013528
+	bl WM_StartConnectEx
 	mov r1, r0
 	mov r0, #0xc
 	bl FUN_ov128_0212f150
@@ -4215,7 +4215,7 @@ _0212E3EC:
 	mov r0, r6
 	mov r2, r4
 	strh r6, [r3, #0x2a]
-	bl FUN_0201286c
+	bl WM_SetPortCallback
 	cmp r0, #0
 	addne sp, sp, #0x28
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4237,7 +4237,7 @@ _0212E3EC:
 	ldr r1, [r11, #0x504]
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	add r3, r11, #0x40
-	bl FUN_02013864
+	bl WM_StartMPEx
 	mov r1, r0
 	mov r0, #0xe
 	bl FUN_ov128_0212f150
@@ -4342,7 +4342,7 @@ _0212E5D8:
 	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
 	add r1, r1, #0x500
 	strh r5, [r1, #0x28]
-	bl FUN_02013168
+	bl WM_End
 	mov r1, r0
 	mov r0, #2
 	bl FUN_ov128_0212f150
@@ -4450,7 +4450,7 @@ FUN_ov128_0212e720: ; 0x0212E720
 	cmp r4, #0x10000
 	bic r9, r0, #0x1f
 	bne _0212E774
-	bl FUN_02012ef8
+	bl WM_GetNextTgid
 	mov r4, r0
 _0212E774:
 	bl OS_DisableInterrupts
@@ -4664,7 +4664,7 @@ _0212EA54:
 	ldrh r2, [r5]
 	ldr r0, [r5, #4]
 	ldr r1, [r1, #0x508]
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #4
 	beq _0212EA54
 	cmp r0, #2
@@ -4673,7 +4673,7 @@ _0212EA54:
 	ldr r4, _0212EAC4 ; =0x0212FA50
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #0x508]
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	ldr r0, [r4, #0xc]
 	mov r1, #1
 	strb r1, [r0, #0x50d]
@@ -4682,7 +4682,7 @@ _0212EA54:
 _0212EAA0:
 	ldr r0, [r5, #0xc]
 	ldr r0, [r0, #0x508]
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	strb r1, [r0, #0x50d]
@@ -4832,7 +4832,7 @@ FUN_ov128_0212ecbc: ; 0x0212ECBC
 	ldr r0, _0212ECF0 ; =0x0212FA50
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0x508]
-	bl FUN_0201312c
+	bl WM_Reset
 	mov r4, r0
 	mov r1, r4
 	mov r0, #1
@@ -4920,7 +4920,7 @@ FUN_ov128_0212edcc: ; 0x0212EDCC
 	mov r8, r0
 	ldr r0, _0212EF5C ; =FUN_ov128_0212d4e4
 	mov r1, r8
-	bl FUN_020135f4
+	bl WM_Disconnect
 	cmp r8, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	cmp r8, #0x10
@@ -5043,7 +5043,7 @@ FUN_ov128_0212ef74: ; 0x0212EF74
 	mov r4, #3
 	mov r1, #0
 	str r4, [sp, #8]
-	bl FUN_02013a7c
+	bl WM_SetMPDataToPortEx
 	mov r4, r0
 	mov r1, r4
 	mov r0, #0xf

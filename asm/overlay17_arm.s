@@ -1222,10 +1222,10 @@ FUN_ov17_020f54e4: ; 0x020F54E4
 	mov r4, #0
 	ldrh r6, [r0]
 	strh r4, [r0]
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0x8000
 	beq _020F550C
-	bl FUN_02012be0
+	bl WM_GetLinkLevel
 	mov r4, r0
 _020F550C:
 	ldr r2, _020F5578 ; =0x04000208
@@ -22385,7 +22385,7 @@ FUN_ov17_02106be4: ; 0x02106BE4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
 _02106BF8:
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0x8000
 	bne _02106BF8
 	ldr r0, _02106C14 ; =0x021162A0
@@ -22408,7 +22408,7 @@ FUN_ov17_02106c18: ; 0x02106C18
 	ldr r0, [r4]
 	ldr r1, _02106CD8 ; =FUN_ov17_02106e08
 	mov r2, #3
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #2
 	movne r0, r5
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -22416,7 +22416,7 @@ _02106C54:
 	ldr r0, [r4]
 	add r0, r0, #0x28c
 	add r0, r0, #0x1400
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r12, [r4]
 	add r0, r12, #0x1600
 	ldrh r0, [r0, #0x8c]
@@ -22436,7 +22436,7 @@ _02106C88:
 	str r0, [lr]
 	add r0, r12, #0x1000
 	str r1, [r0, #0x648]
-	bl FUN_02012d08
+	bl WM_GetDispersionScanPeriod
 	ldr r1, _02106CD4 ; =0x021162A0
 	ldr r1, [r1]
 	add r1, r1, #0x1600
@@ -22459,7 +22459,7 @@ FUN_ov17_02106ce0: ; 0x02106CE0
 	ldr r1, [r1]
 	add r1, r1, #0x248
 	add r1, r1, #0x1400
-	bl FUN_02013394
+	bl WM_StartScanEx
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -22479,14 +22479,14 @@ FUN_ov17_02106d14: ; 0x02106D14
 	ldr r0, [r4]
 	add r0, r0, #0x28c
 	add r0, r0, #0x1400
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r0, [r4]
 	add r0, r0, #0x1600
 	ldrh r0, [r0, #0x8c]
 	cmp r0, #2
 	beq _02106D88
 	ldr r0, _02106DA4 ; =FUN_ov17_02106e08
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -22494,7 +22494,7 @@ _02106D64:
 	ldr r0, [r4]
 	add r0, r0, #0x28c
 	add r0, r0, #0x1400
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r0, [r4]
 	add r0, r0, #0x1600
 	ldrh r0, [r0, #0x8c]
@@ -22502,7 +22502,7 @@ _02106D64:
 	bne _02106D64
 _02106D88:
 	ldr r0, _02106DA4 ; =FUN_ov17_02106e08
-	bl FUN_02013168
+	bl WM_End
 	cmp r0, #2
 	movne r0, #0
 	moveq r0, #1
@@ -22658,7 +22658,7 @@ _02106F4C:
 	mov r0, r5
 	mov r1, r4
 	strb r2, [r9, #0x28]
-	bl FUN_02012da0
+	bl WM_GetOtherElements
 	ldrb r8, [sp, #4]
 	mov r7, #0
 	cmp r8, #0
@@ -24518,14 +24518,14 @@ FUN_ov17_021087d8: ; 0x021087D8
 	str r1, [r3, #0xb8c]
 	ldr r0, [r5]
 	ldr r1, _02108938 ; =FUN_ov17_02108a74
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #2
 	bne _0210891C
 _0210882C:
 	ldr r0, [r5]
 	add r0, r0, #0x3b8
 	add r0, r0, #0x1000
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r4, [r5]
 	add r0, r4, #0x1300
 	ldrh r0, [r0, #0xb8]
@@ -24545,7 +24545,7 @@ _02108860:
 	str r0, [r12]
 	add r0, r4, #0x1000
 	str r1, [r0, #0x374]
-	bl FUN_02012d08
+	bl WM_GetDispersionScanPeriod
 	ldr r5, _02108934 ; =0x021162B4
 	ldr r1, [r5]
 	add r1, r1, #0x1300
@@ -24606,7 +24606,7 @@ FUN_ov17_0210894c: ; 0x0210894C
 	ldr r1, [r1]
 	add r1, r1, #0x374
 	add r1, r1, #0x1000
-	bl FUN_02013394
+	bl WM_StartScanEx
 	cmp r0, #2
 	moveq r0, #1
 	movne r0, #0
@@ -24626,14 +24626,14 @@ FUN_ov17_02108980: ; 0x02108980
 	ldr r0, [r4]
 	add r0, r0, #0x3b8
 	add r0, r0, #0x1000
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r0, [r4]
 	add r0, r0, #0x1300
 	ldrh r0, [r0, #0xb8]
 	cmp r0, #2
 	beq _021089F4
 	ldr r0, _02108A54 ; =FUN_ov17_02108a74
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -24641,7 +24641,7 @@ _021089D0:
 	ldr r0, [r4]
 	add r0, r0, #0x3b8
 	add r0, r0, #0x1000
-	bl FUN_02012944
+	bl WM_ReadStatus
 	ldr r0, [r4]
 	add r0, r0, #0x1300
 	ldrh r0, [r0, #0xb8]
@@ -24649,7 +24649,7 @@ _021089D0:
 	bne _021089D0
 _021089F4:
 	ldr r0, _02108A54 ; =FUN_ov17_02108a74
-	bl FUN_02013168
+	bl WM_End
 	cmp r0, #2
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -26764,7 +26764,7 @@ FUN_ov17_0210a6f8: ; 0x0210A6F8
 	ldr r1, _0210A734 ; =0x021162C0
 	ldr r0, _0210A738 ; =FUN_ov17_0210a73c
 	ldr r1, [r1, #4]
-	bl FUN_020131ac
+	bl WM_SetParentParameter
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -26825,7 +26825,7 @@ FUN_ov17_0210a7a8: ; 0x0210A7A8
 	mov r1, r0
 	ldr r0, _0210A804 ; =FUN_ov17_0210a808
 	add r2, r2, #0x13c0
-	bl FUN_0201498c
+	bl WM_SetWEPKey
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r4, pc}
@@ -26868,7 +26868,7 @@ FUN_ov17_0210a840: ; 0x0210A840
 	movls r0, #1
 	ldmlsfd sp!, {r4, pc}
 	ldr r0, _0210A89C ; =FUN_ov17_0210a8a0
-	bl FUN_02013340
+	bl WM_StartParent
 	cmp r0, #2
 	beq _0210A87C
 	bl FUN_ov17_0210a6d8
@@ -26937,7 +26937,7 @@ _0210A92C:
 	bne _0210A970
 	ldrh r1, [r4, #0x10]
 	mov r0, #0
-	bl FUN_020135f4
+	bl WM_Disconnect
 	cmp r0, #2
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	bl FUN_ov17_0210a6d8
@@ -27015,7 +27015,7 @@ FUN_ov17_0210aa00: ; 0x0210AA00
 	add r1, r1, #0x1000
 	mov r2, r2, lsr #0x10
 	add r3, r3, #0xf80
-	bl FUN_02013908
+	bl WM_StartMP
 	cmp r0, #2
 	addeq sp, sp, #8
 	moveq r0, r4
@@ -27091,7 +27091,7 @@ _0210AB4C:
 	mov r2, #7
 	mov r3, #0x44
 	str r4, [sp]
-	bl FUN_02013e14
+	bl WM_StartDataSharing
 	cmp r0, #0
 	beq _0210AB90
 	bl FUN_ov17_0210a6d8
@@ -27135,7 +27135,7 @@ FUN_ov17_0210abe4: ; 0x0210ABE4
 	mov r1, #0xd
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1e00
-	bl FUN_02014964
+	bl WM_StartKeySharing
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27151,7 +27151,7 @@ FUN_ov17_0210ac20: ; 0x0210AC20
 	ldr r0, _0210AC4C ; =0x021162C0
 	ldr r0, [r0, #4]
 	add r0, r0, #0x1e00
-	bl FUN_02014980
+	bl WM_EndKeySharing
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27167,7 +27167,7 @@ FUN_ov17_0210ac50: ; 0x0210AC50
 	mov r0, #3
 	bl FUN_ov17_0210a65c
 	ldr r0, _0210AC7C ; =FUN_ov17_0210ac80
-	bl FUN_02013bb4
+	bl WM_EndMP
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27208,7 +27208,7 @@ _0210ACD0: .word ov17_02113AD8
 FUN_ov17_0210acd4: ; 0x0210ACD4
 	stmfd sp!, {r3, lr}
 	ldr r0, _0210ACF8 ; =FUN_ov17_0210acfc
-	bl FUN_02013350
+	bl WM_EndParent
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27245,7 +27245,7 @@ FUN_ov17_0210ad20: ; 0x0210AD20
 	bl FUN_ov17_0210a65c
 	ldr r0, [r4, #4]
 	add r0, r0, #0x1e00
-	bl FUN_02014980
+	bl WM_EndKeySharing
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r4, pc}
@@ -27261,7 +27261,7 @@ FUN_ov17_0210ad6c: ; 0x0210AD6C
 	mov r0, #3
 	bl FUN_ov17_0210a65c
 	ldr r0, _0210AD98 ; =FUN_ov17_0210ad9c
-	bl FUN_02013bb4
+	bl WM_EndMP
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27297,7 +27297,7 @@ FUN_ov17_0210add0: ; 0x0210ADD0
 	mov r4, #0
 	ldr r0, _0210AE08 ; =FUN_ov17_0210ae0c
 	mov r1, r4
-	bl FUN_020135f4
+	bl WM_Disconnect
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r4, pc}
@@ -27328,7 +27328,7 @@ FUN_ov17_0210ae30: ; 0x0210AE30
 	mov r0, #3
 	bl FUN_ov17_0210a65c
 	ldr r0, _0210AE5C ; =FUN_ov17_0210ae60
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27462,7 +27462,7 @@ _0210AFD0: .word 0x00010DCD
 FUN_ov17_0210afd4: ; 0x0210AFD4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0x8000
 	bne _0210B004
 	mov r4, #3
@@ -27579,7 +27579,7 @@ FUN_ov17_0210b154: ; 0x0210B154
 	mov r1, #3
 	mov r2, #0x11
 	str r12, [sp]
-	bl FUN_02014c18
+	bl WM_MeasureChannel
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_0210b154
 
@@ -27739,7 +27739,7 @@ FUN_ov17_0210b364: ; 0x0210B364
 	ldr r0, [r0, #4]
 	mov r2, #2
 	add r0, r0, #0x80
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -27764,7 +27764,7 @@ FUN_ov17_0210b3b0: ; 0x0210B3B0
 	ldmfd sp!, {r3, pc}
 _0210B3D0:
 	ldr r0, _0210B3FC ; =FUN_ov17_0210b344
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	cmp r0, #0
 	beq _0210B3F0
 	bl FUN_ov17_0210a6d8
@@ -27827,7 +27827,7 @@ _0210B490:
 	strh r6, [r0, #0xc]
 	ldr r0, [r4, #4]
 	strh r5, [r0, #0x32]
-	bl FUN_02012c74
+	bl WM_GetDispersionBeaconPeriod
 	ldr r1, [r4, #4]
 	mov r2, #0xd0
 	strh r0, [r1, #0x18]
@@ -27888,13 +27888,13 @@ FUN_ov17_0210b570: ; 0x0210B570
 	ldr r1, _0210B590 ; =0x021162C0
 	mov r2, r0
 	ldr r1, [r1, #4]
-	ldr r12, _0210B594 ; =FUN_020148e0
+	ldr r12, _0210B594 ; =WM_GetSharedDataAddress
 	add r0, r1, #0x3e0
 	add r0, r0, #0x1000
 	add r1, r1, #0x1c00
 	bx r12
 _0210B590: .word ov17_021162C0
-_0210B594: .word FUN_020148e0
+_0210B594: .word WM_GetSharedDataAddress
 	arm_func_end FUN_ov17_0210b570
 
 	arm_func_start FUN_ov17_0210b598
@@ -27906,7 +27906,7 @@ FUN_ov17_0210b598: ; 0x0210B598
 	add r0, r2, #0x3e0
 	add r0, r0, #0x1000
 	add r2, r2, #0x1c00
-	bl FUN_020140a0
+	bl WM_StepDataSharing
 	mov r5, r0
 	cmp r5, #7
 	bne _0210B5E4
@@ -28047,7 +28047,7 @@ _0210B778:
 	mov r0, #3
 	bl FUN_ov17_0210a65c
 	ldr r0, _0210B7A8 ; =FUN_ov17_0210ae94
-	bl FUN_02013168
+	bl WM_End
 	cmp r0, #2
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -28191,7 +28191,7 @@ FUN_ov17_0210b964: ; 0x0210B964
 	ldr r0, [r4]
 	mov r1, #1
 	strb r1, [r0, #0xa90]
-	bl FUN_02012ef8
+	bl WM_GetNextTgid
 	ldr r1, [r4]
 	mov r2, #0x40
 	add r1, r1, #0x600
