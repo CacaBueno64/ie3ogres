@@ -72,7 +72,7 @@
 .public FUN_02015ef0
 .public FUN_02015f64
 .public FUN_02015ff8
-.public FUN_02016cf0
+.public PM_ForceToPowerOff
 .public FUN_02017ec0
 .public FUN_02017ef8
 .public FUN_02017f04

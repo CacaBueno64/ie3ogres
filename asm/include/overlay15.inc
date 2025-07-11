@@ -60,7 +60,7 @@
 .public FUN_02014a08
 .public FUN_02014b60
 .public FUN_02014bb4
-.public FUN_02015b04
+.public PXI_SendWordByFifo
 .public FUN_02023c40
 .public FUN_02023e98
 .public FUN_02023fe0

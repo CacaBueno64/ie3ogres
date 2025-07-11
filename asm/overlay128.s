@@ -1531,7 +1531,7 @@ _0212BEE0:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	beq _0212BF08
-	bl FUN_02011428
+	bl CARDi_GetOwnSignature
 	mov r1, r5
 	mov r2, #0x88
 	bl MI_CpuCopy8

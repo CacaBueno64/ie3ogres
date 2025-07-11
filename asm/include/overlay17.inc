@@ -152,7 +152,7 @@
 .public FUN_02016590
 .public FUN_020166ac
 .public FUN_020166c4
-.public FUN_02016cf0
+.public PM_ForceToPowerOff
 .public FUN_02017368
 .public FUN_020173c0
 .public FUN_020173dc

@@ -16744,35 +16744,35 @@ _020CAE40:
 	ldr r1, [sp, #8]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0xc]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x10]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x14]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
@@ -16787,35 +16787,35 @@ _020CAEE4:
 	ldr r1, [sp, #0x20]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	mov r0, r4
 	mov r1, r5
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x24]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x28]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x2c]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	mov r8, r7
 	cmp r0, #0
 	movge r8, #1
@@ -16828,14 +16828,14 @@ _020CAF80:
 	ldr r1, [sp, #0x30]
 	mov r0, #4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x34]
 	mov r0, #4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
@@ -16852,7 +16852,7 @@ _020CAFD4:
 	mov r0, #4
 _020CAFDC:
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	mov r8, r7
 	cmp r0, #0
 	movge r8, #1

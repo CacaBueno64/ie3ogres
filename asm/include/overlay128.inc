@@ -30,7 +30,7 @@
 .public FUN_020135f4
 .public FUN_0201286c
 .public FUN_0201312c
-.public FUN_02011428
+.public CARDi_GetOwnSignature
 .public FUN_02012828
 .public FUN_02013168
 .public FUN_02013394

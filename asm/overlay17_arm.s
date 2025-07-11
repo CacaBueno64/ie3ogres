@@ -6983,7 +6983,7 @@ FUN_ov17_020fa1bc: ; 0x020FA1BC
 	ldmnefd sp!, {r3, pc}
 	mov r0, #0x800000
 	bl OS_SpinWaitSysCycles
-	bl FUN_02016cf0
+	bl PM_ForceToPowerOff
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_020fa1bc
 
@@ -8269,7 +8269,7 @@ FUN_ov17_020fb250: ; 0x020FB250
 	ldmnefd sp!, {r3, pc}
 	mov r0, #0x800000
 	bl OS_SpinWaitSysCycles
-	bl FUN_02016cf0
+	bl PM_ForceToPowerOff
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_020fb250
 
