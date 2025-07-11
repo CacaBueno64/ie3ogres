@@ -24205,9 +24205,9 @@ _020D1CA4: .word GXS_LoadOBJ
 
 	arm_func_start fun_ov0_020d1ca8
 fun_ov0_020d1ca8:
-	ldr r12, _020D1CB0 ; =FUN_02006ed0
+	ldr r12, _020D1CB0 ; =GX_GetSizeOfSubOBJ
 	bx r12
-_020D1CB0: .word FUN_02006ed0
+_020D1CB0: .word GX_GetSizeOfSubOBJ
 	arm_func_start fun_ov0_020d1ca8
 
 	arm_func_start FUN_ov0_020d1cb4

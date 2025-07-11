@@ -8037,15 +8037,15 @@ _02006EC8: .word gGXState
 _02006ECC: .word GX_GetSizeOfX_
 	arm_func_end GX_GetSizeOfTexPltt
 
-	arm_func_start FUN_02006ed0
-FUN_02006ed0: ; 0x02006ED0
+	arm_func_start GX_GetSizeOfSubOBJ
+GX_GetSizeOfSubOBJ: ; 0x02006ED0
 	ldr r0, _02006EE0 ; =gGXState
 	ldr r12, _02006EE4 ; =GX_GetSizeOfX_
 	ldrh r0, [r0, #0x14]
 	bx r12
 _02006EE0: .word gGXState
 _02006EE4: .word GX_GetSizeOfX_
-	arm_func_end FUN_02006ed0
+	arm_func_end GX_GetSizeOfSubOBJ
 
 	arm_func_start GX_SendFifo48B
 GX_SendFifo48B: ; 0x02006EE8

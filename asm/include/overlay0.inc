@@ -84,7 +84,7 @@
 .public G2S_GetBG1CharPtr
 .public GX_ResetBankForBG
 .public GX_ResetBankForSubBG
-.public FUN_02006ed0
+.public GX_GetSizeOfSubOBJ
 .public VEC_Distance
 .public FX_Atan2Idx
 .public FUN_02020af8
