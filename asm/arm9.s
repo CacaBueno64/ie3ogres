@@ -20841,8 +20841,8 @@ _020115BC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end CARDi_SendtoPxi
 
-	arm_func_start FUN_020115e0
-FUN_020115e0: ; 0x020115E0
+	arm_func_start CTRDG_IsExistedAtInit
+CTRDG_IsExistedAtInit: ; 0x020115E0
 	ldr r1, _020115FC ; =0x02FFFC30
 	ldr r0, _02011600 ; =0x0000FFFF
 	ldrh r1, [r1]
@@ -20852,10 +20852,10 @@ FUN_020115e0: ; 0x020115E0
 	bx lr
 _020115FC: .word 0x02FFFC30
 _02011600: .word 0x0000FFFF
-	arm_func_end FUN_020115e0
+	arm_func_end CTRDG_IsExistedAtInit
 
-	arm_func_start FUN_02011604
-FUN_02011604: ; 0x02011604
+	arm_func_start CTRDGi_InitCommon
+CTRDGi_InitCommon: ; 0x02011604
 	stmfd sp!, {r3, lr}
 	ldr r1, _02011630 ; =0x02096530
 	mov r3, #0
@@ -20870,14 +20870,14 @@ FUN_02011604: ; 0x02011604
 _02011630: .word unk_02096530
 _02011634: .word 0x05000001
 _02011638: .word unk_0209652C
-	arm_func_end FUN_02011604
+	arm_func_end CTRDGi_InitCommon
 
-	arm_func_start FUN_0201163c
-FUN_0201163c: ; 0x0201163C
+	arm_func_start CTRDG_IsExisting
+CTRDG_IsExisting: ; 0x0201163C
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r4, #1
-	bl FUN_020115e0
+	bl CTRDG_IsExistedAtInit
 	cmp r0, #0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -20893,9 +20893,9 @@ FUN_0201163c: ; 0x0201163C
 	ldr r0, _02011738 ; =0x0209652C
 	add r1, sp, #8
 	ldrh r0, [r0, #6]
-	bl FUN_020117bc
+	bl CTRDGi_LockByProcessor
 	add r0, sp, #0
-	bl FUN_02011740
+	bl CTRDGi_ChangeLatestAccessCycle
 	mov r0, #0x8000000
 	ldrb r2, [r0, #0xb2]
 	cmp r2, #0x96
@@ -20932,21 +20932,21 @@ _020116FC:
 	strb r0, [r1, #5]
 _02011710:
 	add r0, sp, #0
-	bl FUN_02011788
+	bl CTRDGi_RestoreAccessCycle
 	ldr r0, _02011738 ; =0x0209652C
 	add r1, sp, #8
 	ldrh r0, [r0, #6]
-	bl FUN_02011818
+	bl CTRDGi_UnlockByProcessor
 	mov r0, r4
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
 _02011734: .word 0x02FFFC30
 _02011738: .word unk_0209652C
 _0201173C: .word 0x0801FFFE
-	arm_func_end FUN_0201163c
+	arm_func_end CTRDG_IsExisting
 
-	arm_func_start FUN_02011740
-FUN_02011740: ; 0x02011740
+	arm_func_start CTRDGi_ChangeLatestAccessCycle
+CTRDGi_ChangeLatestAccessCycle: ; 0x02011740
 	ldr r2, _02011784 ; =0x04000204
 	ldrh r1, [r2]
 	and r1, r1, #0xc
@@ -20965,10 +20965,10 @@ FUN_02011740: ; 0x02011740
 	strh r0, [r2]
 	bx lr
 _02011784: .word 0x04000204
-	arm_func_end FUN_02011740
+	arm_func_end CTRDGi_ChangeLatestAccessCycle
 
-	arm_func_start FUN_02011788
-FUN_02011788: ; 0x02011788
+	arm_func_start CTRDGi_RestoreAccessCycle
+CTRDGi_RestoreAccessCycle: ; 0x02011788
 	ldr r3, _020117B8 ; =0x04000204
 	ldr r2, [r0]
 	ldrh r1, [r3]
@@ -20982,10 +20982,10 @@ FUN_02011788: ; 0x02011788
 	strh r0, [r3]
 	bx lr
 _020117B8: .word 0x04000204
-	arm_func_end FUN_02011788
+	arm_func_end CTRDGi_RestoreAccessCycle
 
-	arm_func_start FUN_020117bc
-FUN_020117bc: ; 0x020117BC
+	arm_func_start CTRDGi_LockByProcessor
+CTRDGi_LockByProcessor: ; 0x020117BC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, _02011814 ; =0x02FFFFE8
 	mov r7, r0
@@ -21008,7 +21008,7 @@ _020117D0:
 	mov r0, r4
 	blx SVC_WaitByLoop
 	b _020117D0
-	arm_func_end FUN_020117bc
+	arm_func_end CTRDGi_LockByProcessor
 
 	arm_func_start FUN_02011810
 FUN_02011810: ; 0x02011810
@@ -21016,8 +21016,8 @@ FUN_02011810: ; 0x02011810
 _02011814: .word 0x02FFFFE8
 	arm_func_end FUN_02011810
 
-	arm_func_start FUN_02011818
-FUN_02011818: ; 0x02011818
+	arm_func_start CTRDGi_UnlockByProcessor
+CTRDGi_UnlockByProcessor: ; 0x02011818
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	ldr r1, [r4]
@@ -21028,10 +21028,10 @@ _02011830:
 	ldr r0, [r4, #4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02011818
+	arm_func_end CTRDGi_UnlockByProcessor
 
-	arm_func_start FUN_0201183c
-FUN_0201183c: ; 0x0201183C
+	arm_func_start CTRDGi_SendtoPxi
+CTRDGi_SendtoPxi: ; 0x0201183C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r1, r7
@@ -21053,17 +21053,17 @@ _02011868:
 	cmp r0, #0
 	bne _02011868
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0201183c
+	arm_func_end CTRDGi_SendtoPxi
 
-	arm_func_start FUN_0201188c
-FUN_0201188c: ; 0x0201188C
+	arm_func_start CTRDG_Enable
+CTRDG_Enable: ; 0x0201188C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
 	ldr r1, _02011918 ; =0x0209652C
 	mov r5, r0
 	str r4, [r1]
-	bl FUN_020115e0
+	bl CTRDG_IsExistedAtInit
 	cmp r0, #0
 	beq _0201190C
 	mov r1, #0x1000
@@ -21095,7 +21095,7 @@ _0201190C:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
 _02011918: .word unk_0209652C
-	arm_func_end FUN_0201188c
+	arm_func_end CTRDG_Enable
 
 	arm_func_start CTRDG_Init
 CTRDG_Init: ; 0x0201191C
@@ -21106,7 +21106,7 @@ CTRDG_Init: ; 0x0201191C
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, #1
 	str r0, [r4, #8]
-	bl FUN_02011604
+	bl CTRDGi_InitCommon
 	mov r0, #0
 	str r0, [r4, #0xc]
 	bl PXI_Init
@@ -21118,36 +21118,36 @@ _02011950:
 	bl PXI_IsCallbackReady
 	cmp r0, #0
 	beq _02011950
-	ldr r1, _020119BC ; =FUN_02011bb0
+	ldr r1, _020119BC ; =CTRDGi_CallbackForInitModuleInfo
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
-	bl FUN_020119cc
+	bl CTRDGi_InitModuleInfo
 	mov r4, #0
 	mov r0, r5
 	mov r1, r4
 	bl PXI_SetFifoRecvCallback
-	ldr r1, _020119C0 ; =FUN_02011bd8
+	ldr r1, _020119C0 ; =CTRDGi_PulledOutCallback
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldr r1, _020119B8 ; =0x02096534
 	ldr r0, _020119C4 ; =0x02096620
 	str r4, [r1, #0x18]
-	bl FUN_02011c5c
+	bl CTRDGi_InitTaskThread
 	ldr r1, _020119C8 ; =FUN_02011c48
 	mov r0, #0x11
 	bl PXI_SetFifoRecvCallback
 	mov r0, r4
-	bl FUN_0201188c
+	bl CTRDG_Enable
 	ldmfd sp!, {r3, r4, r5, pc}
 _020119B8: .word unk_02096534
-_020119BC: .word FUN_02011bb0
-_020119C0: .word FUN_02011bd8
+_020119BC: .word CTRDGi_CallbackForInitModuleInfo
+_020119C0: .word CTRDGi_PulledOutCallback
 _020119C4: .word unk_02096620
 _020119C8: .word FUN_02011c48
 	arm_func_end CTRDG_Init
 
-	arm_func_start FUN_020119cc
-FUN_020119cc: ; 0x020119CC
+	arm_func_start CTRDGi_InitModuleInfo
+CTRDGi_InitModuleInfo: ; 0x020119CC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	ldr r0, _02011B88 ; =0x02096534
@@ -21172,13 +21172,13 @@ FUN_020119cc: ; 0x020119CC
 	add r11, sp, #0xc
 	ldrh r0, [r4, #2]
 	mov r1, r11
-	bl FUN_020117bc
+	bl CTRDGi_LockByProcessor
 	sub r6, r5, #0xfc
 	ldrh r0, [r6]
 	and r0, r0, #0x8000
 	mov r10, r0, asr #0xf
 	add r0, sp, #4
-	bl FUN_02011740
+	bl CTRDGi_ChangeLatestAccessCycle
 	ldrh r0, [r6]
 	ldr r5, _02011B94 ; =0x02096560
 	mov r1, #0x40
@@ -21197,10 +21197,10 @@ FUN_020119cc: ; 0x020119CC
 	bic r1, r1, #0x8000
 	orr r1, r1, r10, lsl #15
 	strh r1, [r6]
-	bl FUN_02011788
+	bl CTRDGi_RestoreAccessCycle
 	ldrh r0, [r4, #2]
 	mov r1, r11
-	bl FUN_02011818
+	bl CTRDGi_UnlockByProcessor
 	ldr r1, _02011B9C ; =0x02FFFF9B
 	ldrb r0, [r1]
 	cmp r0, #0
@@ -21228,7 +21228,7 @@ _02011AE8:
 	strh r0, [r4, #6]
 	ldr r0, [r3, #0xac]
 	str r0, [r4, #8]
-	bl FUN_0201163c
+	bl CTRDG_IsExisting
 	cmp r0, #0
 	mov r2, #1
 	ldr r1, _02011B9C ; =0x02FFFF9B
@@ -21247,7 +21247,7 @@ _02011B20:
 	mov r0, r0, lsr #5
 	mov r0, r0, lsl #6
 	orr r0, r0, #1
-	bl FUN_0201183c
+	bl CTRDGi_SendtoPxi
 	mov r5, #1
 	ldr r4, _02011B90 ; =0x02096530
 	b _02011B60
@@ -21275,10 +21275,10 @@ _02011BA0: .word 0x02FFFC30
 _02011BA4: .word 0xFFFF0020
 _02011BA8: .word unk_02096564
 _02011BAC: .word 0x04000208
-	arm_func_end FUN_020119cc
+	arm_func_end CTRDGi_InitModuleInfo
 
-	arm_func_start FUN_02011bb0
-FUN_02011bb0: ; 0x02011BB0
+	arm_func_start CTRDGi_CallbackForInitModuleInfo
+CTRDGi_CallbackForInitModuleInfo: ; 0x02011BB0
 	stmfd sp!, {r3, lr}
 	and r0, r1, #0x3f
 	cmp r0, #1
@@ -21289,10 +21289,10 @@ FUN_02011bb0: ; 0x02011BB0
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _02011BD4: .word unk_02096530
-	arm_func_end FUN_02011bb0
+	arm_func_end CTRDGi_CallbackForInitModuleInfo
 
-	arm_func_start FUN_02011bd8
-FUN_02011bd8: ; 0x02011BD8
+	arm_func_start CTRDGi_PulledOutCallback
+CTRDGi_PulledOutCallback: ; 0x02011BD8
 	stmfd sp!, {r3, lr}
 	and r0, r1, #0x3f
 	cmp r0, #0x11
@@ -21309,7 +21309,7 @@ FUN_02011bd8: ; 0x02011BD8
 _02011C0C:
 	cmp r0, #0
 	beq _02011C18
-	bl FUN_02011c34
+	bl CTRDG_TerminateForPulledOut
 _02011C18:
 	ldr r0, _02011C30 ; =0x02096534
 	mov r1, #1
@@ -21319,16 +21319,16 @@ _02011C28:
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _02011C30: .word unk_02096534
-	arm_func_end FUN_02011bd8
+	arm_func_end CTRDGi_PulledOutCallback
 
-	arm_func_start FUN_02011c34
-FUN_02011c34: ; 0x02011C34
+	arm_func_start CTRDG_TerminateForPulledOut
+CTRDG_TerminateForPulledOut: ; 0x02011C34
 	stmfd sp!, {r3, lr}
 	mov r0, #2
-	bl FUN_0201183c
+	bl CTRDGi_SendtoPxi
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02011c34
+	arm_func_end CTRDG_TerminateForPulledOut
 
 	arm_func_start FUN_02011c48
 FUN_02011c48: ; 0x02011C48
@@ -21339,8 +21339,8 @@ FUN_02011c48: ; 0x02011C48
 _02011C58: .word unk_02096534
 	arm_func_end FUN_02011c48
 
-	arm_func_start FUN_02011c5c
-FUN_02011c5c: ; 0x02011C5C
+	arm_func_start CTRDGi_InitTaskThread
+CTRDGi_InitTaskThread: ; 0x02011C5C
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	mov r5, r0
@@ -21352,13 +21352,13 @@ FUN_02011c5c: ; 0x02011C5C
 	bne _02011CC8
 	add r0, r5, #0xc4
 	str r5, [r1]
-	bl FUN_02011ce8
+	bl CTRDGi_InitTaskInfo
 	ldr r0, _02011CDC ; =0x0209670C
-	bl FUN_02011ce8
+	bl CTRDGi_InitTaskInfo
 	mov r0, #0
 	str r0, [r5, #0xc0]
 	mov r2, #0x400
-	ldr r1, _02011CE0 ; =FUN_02011cfc
+	ldr r1, _02011CE0 ; =CTRDGi_TaskThread
 	ldr r3, _02011CE4 ; =0x02096B30
 	mov r0, r5
 	str r2, [sp]
@@ -21375,21 +21375,21 @@ _02011CC8:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02011CD8: .word unk_02096708
 _02011CDC: .word unk_0209670C
-_02011CE0: .word FUN_02011cfc
+_02011CE0: .word CTRDGi_TaskThread
 _02011CE4: .word unk_02096B30
-	arm_func_end FUN_02011c5c
+	arm_func_end CTRDGi_InitTaskThread
 
-	arm_func_start FUN_02011ce8
-FUN_02011ce8: ; 0x02011CE8
+	arm_func_start CTRDGi_InitTaskInfo
+CTRDGi_InitTaskInfo: ; 0x02011CE8
 	ldr r12, _02011CF8 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x24
 	bx r12
 _02011CF8: .word MI_CpuFill8
-	arm_func_end FUN_02011ce8
+	arm_func_end CTRDGi_InitTaskInfo
 
-	arm_func_start FUN_02011cfc
-FUN_02011cfc: ; 0x02011CFC
+	arm_func_start CTRDGi_TaskThread
+CTRDGi_TaskThread: ; 0x02011CFC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x24
 	mov r4, #0
@@ -21456,7 +21456,7 @@ _02011DDC:
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02011DE8: .word unk_02096708
-	arm_func_end FUN_02011cfc
+	arm_func_end CTRDGi_TaskThread
 
 	arm_func_start WM_Init
 WM_Init: ; 0x02011DEC
@@ -27526,7 +27526,7 @@ FUN_02016e7c: ; 0x02016E7C
 _02016F14:
 	tst r7, #0x10
 	beq _02016F28
-	bl FUN_0201163c
+	bl CTRDG_IsExisting
 	cmp r0, #0
 	biceq r7, r7, #0x10
 _02016F28:
