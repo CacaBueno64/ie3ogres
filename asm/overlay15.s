@@ -6649,7 +6649,7 @@ FUN_ov15_020c25ac: ; 0x020C25AC
 	ldr r0, [r7]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_020130b4
+	bl WM_Initialize
 	cmp r0, #2
 	moveq r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -6670,7 +6670,7 @@ FUN_ov15_020c2630: ; 0x020C2630
 	add r1, r1, #0x1000
 	str r3, [r1, #0xa90]
 	str r4, [r2]
-	bl FUN_02013168
+	bl WM_End
 	cmp r0, #2
 	moveq r0, r4
 	ldmfd sp!, {r4, pc}
@@ -6692,11 +6692,11 @@ FUN_ov15_020c2670: ; 0x020C2670
 	ldr r0, [r4]
 	add r0, r0, #0x1300
 	strh r1, [r0, #4]
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	ldr r1, [r4]
 	add r1, r1, #0x1300
 	strh r0, [r1, #6]
-	bl FUN_02012d08
+	bl WM_GetDispersionScanPeriod
 	ldr r1, [r4]
 	mov r5, #1
 	add r1, r1, #0x1300
@@ -6719,7 +6719,7 @@ FUN_ov15_020c2670: ; 0x020C2670
 	str r5, [r1, #0xa90]
 	ldr r1, [r4]
 	add r1, r1, #0x1300
-	bl FUN_02013394
+	bl WM_StartScanEx
 	cmp r0, #2
 	moveq r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -6738,7 +6738,7 @@ FUN_ov15_020c2728: ; 0x020C2728
 	ldr r1, [r1]
 	add r1, r1, #0x1000
 	str r2, [r1, #0xa90]
-	bl FUN_020134e4
+	bl WM_EndScan
 	cmp r0, #2
 	moveq r0, #0
 	ldmfd sp!, {r3, pc}
@@ -16744,35 +16744,35 @@ _020CAE40:
 	ldr r1, [sp, #8]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0xc]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x10]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x14]
 	mov r0, r6
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
@@ -16787,35 +16787,35 @@ _020CAEE4:
 	ldr r1, [sp, #0x20]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	mov r0, r4
 	mov r1, r5
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x24]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x28]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAF70
 	ldr r1, [sp, #0x2c]
 	mov r0, r4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	mov r8, r7
 	cmp r0, #0
 	movge r8, #1
@@ -16828,14 +16828,14 @@ _020CAF80:
 	ldr r1, [sp, #0x30]
 	mov r0, #4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
 	ldr r1, [sp, #0x34]
 	mov r0, #4
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	cmp r0, #0
 	movlt r8, r7
 	blt _020CAE04
@@ -16852,7 +16852,7 @@ _020CAFD4:
 	mov r0, #4
 _020CAFDC:
 	mov r2, r7
-	bl FUN_02015b04
+	bl PXI_SendWordByFifo
 	mov r8, r7
 	cmp r0, #0
 	movge r8, #1
@@ -37768,7 +37768,7 @@ _020DC82C:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020DC838:
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0
 	moveq r0, #5
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -39457,7 +39457,7 @@ _020DDDC4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DDDD8:
 	ldr r0, _020DDE80 ; =FUN_ov15_020de380
-	bl FUN_02012828
+	bl WM_SetIndCallback
 	cmp r0, #0
 	beq _020DDDFC
 	mov r0, #0xb
@@ -39472,7 +39472,7 @@ _020DDDFC:
 	mov r0, r4
 	bl FUN_ov15_020ddb54
 	ldr r0, _020DDE84 ; =FUN_ov15_020de3f4
-	bl FUN_02012f68
+	bl WM_Enable
 	cmp r0, #2
 	beq _020DDE34
 	cmp r0, #3
@@ -39513,7 +39513,7 @@ FUN_ov15_020dde88: ; 0x020DDE88
 	bl FUN_ov15_020dcedc
 	mov r4, r0
 	ldr r0, _020DDEF0 ; =FUN_ov15_020de3f4
-	bl FUN_0201306c
+	bl WM_PowerOff
 	cmp r0, #2
 	beq _020DDEB8
 	cmp r0, #3
@@ -39593,7 +39593,7 @@ _020DDF68:
 	ldr r0, _020DDFF8 ; =FUN_ov15_020de690
 	add r1, r1, #0x2000
 	str r3, [r2, #0x2e4]
-	bl FUN_02013394
+	bl WM_StartScanEx
 	cmp r0, #2
 	beq _020DDFC8
 	cmp r0, #3
@@ -39637,7 +39637,7 @@ FUN_ov15_020ddffc: ; 0x020DDFFC
 	ldr r0, _020DE0A4 ; =FUN_ov15_020de3f4
 	mov r3, r1
 	str r1, [sp]
-	bl FUN_02014bb4
+	bl WM_SetLifeTime
 	cmp r0, #2
 	beq _020DE05C
 	cmp r0, #3
@@ -39676,7 +39676,7 @@ FUN_ov15_020de0a8: ; 0x020DE0A8
 	bl FUN_ov15_020dcedc
 	mov r4, r0
 	ldr r0, _020DE110 ; =FUN_ov15_020ded7c
-	bl FUN_02013da4
+	bl WM_EndDCF
 	cmp r0, #2
 	beq _020DE0D8
 	cmp r0, #3
@@ -39734,18 +39734,18 @@ _020DE150:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DE174:
 	ldr r0, _020DE1F4 ; =FUN_ov15_020de3f4
-	bl FUN_02012fe4
+	bl WM_Disable
 	b _020DE1A0
 _020DE180:
 	ldr r0, _020DE1F4 ; =FUN_ov15_020de3f4
-	bl FUN_0201306c
+	bl WM_PowerOff
 	b _020DE1A0
 _020DE18C:
 	ldr r0, _020DE1F8 ; =FUN_ov15_020dee90
 	add r1, r5, #0x1000
 	mov r2, #1
 	strb r2, [r1, #0x2dd]
-	bl FUN_0201312c
+	bl WM_Reset
 _020DE1A0:
 	cmp r0, #2
 	beq _020DE1BC
@@ -39799,7 +39799,7 @@ _020DE234:
 	mov r3, r6
 	str r5, [r4, #0x2c]
 _020DE248:
-	bl FUN_02013cd4
+	bl WM_SetDCFData
 	cmp r0, #8
 	addls pc, pc, r0, lsl #2
 	b _020DE27C
@@ -39835,7 +39835,7 @@ _020DE2B0: .word FUN_ov15_020df2f0
 	arm_func_start FUN_ov15_020de2b4
 FUN_ov15_020de2b4: ; 0x020DE2B4
 	stmfd sp!, {r3, lr}
-	bl FUN_02012bc0
+	bl WM_GetAllowedChannel
 	cmp r0, #0
 	mov r3, #0x8000
 	mov r2, #1
@@ -39881,7 +39881,7 @@ FUN_ov15_020de32c: ; 0x020DE32C
 	mov r2, #1
 	ldr r0, _020DE37C ; =FUN_ov15_020dee90
 	strb r2, [r1, #0x2dd]
-	bl FUN_0201312c
+	bl WM_Reset
 	cmp r0, #2
 	ldmeqfd sp!, {r3, pc}
 	mov r0, #0xb
@@ -39977,7 +39977,7 @@ _020DE478:
 	b _020DE58C
 _020DE484:
 	ldr r0, _020DE688 ; =FUN_ov15_020de3f4
-	bl FUN_02013028
+	bl WM_PowerOn
 	b _020DE588
 _020DE490:
 	bl WM_Finish
@@ -40014,12 +40014,12 @@ _020DE4E4:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020DE508:
 	ldr r0, _020DE688 ; =FUN_ov15_020de3f4
-	bl FUN_02012fe4
+	bl WM_Disable
 	b _020DE588
 _020DE514:
 	ldr r0, _020DE688 ; =FUN_ov15_020de3f4
 	mov r1, #0
-	bl FUN_02014b60
+	bl WM_SetBeaconIndication
 	b _020DE588
 _020DE524:
 	add r0, r4, #0x1000
@@ -40027,7 +40027,7 @@ _020DE524:
 	ldrb r2, [r0, #0x291]
 	ldr r0, _020DE688 ; =FUN_ov15_020de3f4
 	add r3, r4, #0x1240
-	bl FUN_02014a08
+	bl WM_SetWEPKeyEx
 	b _020DE588
 _020DE540:
 	add r0, r4, #0x1000
@@ -40047,7 +40047,7 @@ _020DE540:
 	add r1, r1, #0x1000
 	mov r2, #0
 	str r12, [sp]
-	bl FUN_02013528
+	bl WM_StartConnectEx
 _020DE588:
 	mov r5, r0
 _020DE58C:
@@ -40247,13 +40247,13 @@ _020DE7F8:
 	ldr r0, _020DE90C ; =FUN_ov15_020de690
 	add r1, r1, #0x2000
 	str r2, [r3]
-	bl FUN_02013394
+	bl WM_StartScanEx
 _020DE864:
 	mov r6, r0
 	b _020DE880
 _020DE86C:
 	ldr r0, _020DE910 ; =FUN_ov15_020de918
-	bl FUN_020134e4
+	bl WM_EndScan
 	b _020DE864
 _020DE878:
 	bl FUN_ov15_020de32c
@@ -40436,7 +40436,7 @@ _020DEAAC:
 	add r1, r4, #0x600
 	mov r2, #0x620
 	strh r5, [r3, #0xe8]
-	bl FUN_02013c2c
+	bl WM_StartDCF
 	cmp r0, #2
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	cmp r0, #3
@@ -40660,7 +40660,7 @@ _020DEDD0:
 	mov r4, #0
 	ldr r0, _020DEE84 ; =FUN_ov15_020debb4
 	mov r1, r4
-	bl FUN_020135f4
+	bl WM_Disconnect
 	cmp r0, #2
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	cmp r0, #3
@@ -40793,7 +40793,7 @@ _020DEF58:
 	add r1, r1, #0x1000
 	mov r2, #0
 	str r6, [sp]
-	bl FUN_02013528
+	bl WM_StartConnectEx
 	cmp r0, #2
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, r5, r6, pc}
@@ -40857,7 +40857,7 @@ _020DF080:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020DF0A8:
 	ldr r0, _020DF17C ; =FUN_ov15_020de3f4
-	bl FUN_0201306c
+	bl WM_PowerOff
 	cmp r0, #2
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, r5, r6, pc}
@@ -40944,7 +40944,7 @@ FUN_ov15_020df184: ; 0x020DF184
 	ldrh r0, [r0, #0xd8]
 	cmp r0, #0
 	bne _020DF1F0
-	bl FUN_02012d08
+	bl WM_GetDispersionScanPeriod
 _020DF1F0:
 	add r1, r5, #0x2200
 	strh r0, [r1, #0xa8]
