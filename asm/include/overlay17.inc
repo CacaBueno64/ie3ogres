@@ -160,7 +160,7 @@
 .public FUN_02017ef8
 .public FUN_02017f04
 .public FUN_02017f34
-.public FUN_02018264
+.public NNS_G2dFontInitUTF16
 .public NNS_G2dFontFindGlyphIndex
 .public NNS_G2dFontGetCharWidthsFromIndex
 .public NNS_G2dCharCanvasDrawChar

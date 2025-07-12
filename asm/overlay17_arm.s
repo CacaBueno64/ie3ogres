@@ -30280,7 +30280,7 @@ _0210D504:
 	add r0, r2, r8, lsl #2
 	ldr r1, [r0, #0x674]
 	add r0, r2, r8, lsl #3
-	bl FUN_02018264
+	bl NNS_G2dFontInitUTF16
 	add r8, r8, #1
 	cmp r8, #2
 	blt _0210D504
@@ -30300,7 +30300,7 @@ _0210D54C:
 	add r0, r2, r8, lsl #2
 	ldr r1, [r0, #0x674]
 	add r0, r2, r8, lsl #3
-	bl FUN_02018264
+	bl NNS_G2dFontInitUTF16
 	add r8, r8, #1
 	cmp r8, #2
 	blt _0210D54C

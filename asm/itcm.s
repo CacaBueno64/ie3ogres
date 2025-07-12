@@ -52,11 +52,11 @@ _01FF8074:
 	ldr r12, _01FF81A8 ; =OSi_IrqThreadQueue
 	str r3, [r12]
 	str r3, [r12, #4]
-	ldr r12, _01FF81AC ; =0x020939a4
+	ldr r12, _01FF81AC ; =OSi_ThreadInfo
 	mov r1, #1
 	strh r1, [r12]
 _01FF80A8:
-	ldr r12, _01FF81AC ; =0x020939a4
+	ldr r12, _01FF81AC ; =OSi_ThreadInfo
 	ldrh r1, [r12]
 	cmp r1, #0
 	ldreq pc, [sp], #4
@@ -125,7 +125,7 @@ _01FF8120:
 	stmda sp!, {r0, r1, r2, r3, r12, lr}
 	ldmia sp!, {pc}
 _01FF81A8: .word OSi_IrqThreadQueue
-_01FF81AC: .word 0x020939a4
+_01FF81AC: .word OSi_ThreadInfo
 _01FF81B0: .word CP_SaveContext
 _01FF81B4: .word CPi_RestoreContext
 	arm_func_end OS_IrqHandler_ThreadSwitch

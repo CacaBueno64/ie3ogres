@@ -3,19 +3,19 @@
 	.include "/include/overlay15.inc"
 
 	.text
-	arm_func_start FUN_ov15_020bcb40
-FUN_ov15_020bcb40: ; 0x020BCB40
-	ldr r1, _020BCB4C ; =0x020E6D40
+	arm_func_start CPS_SetCheckNConfigCallback
+CPS_SetCheckNConfigCallback: ; 0x020BCB40
+	ldr r1, _020BCB4C ; =wfailed
 	str r0, [r1, #0x48]
 	bx lr
-_020BCB4C: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bcb40
+_020BCB4C: .word wfailed
+	arm_func_end CPS_SetCheckNConfigCallback
 
-	arm_func_start FUN_ov15_020bcb50
-FUN_ov15_020bcb50: ; 0x020BCB50
+	arm_func_start reset_network_vars
+reset_network_vars: ; 0x020BCB50
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r1, _020BCC40 ; =0x020E6D40
-	ldr r2, _020BCC40 ; =0x020E6D40
+	ldr r1, _020BCC40 ; =wfailed
+	ldr r2, _020BCC40 ; =wfailed
 	ldr r1, [r1, #0x50]
 	str r0, [r2, #0x4c]
 	cmp r1, #0
@@ -34,7 +34,7 @@ FUN_ov15_020bcb50: ; 0x020BCB50
 	ldr r0, _020BCC44 ; =0x020E6E58
 	mov r2, #0x60
 	bl MI_CpuFill8
-	ldr r0, _020BCC48 ; =0x020939a4
+	ldr r0, _020BCC48 ; =OSi_ThreadInfo
 	ldr r4, [r0, #8]
 	cmp r4, #0
 	beq _020BCBFC
@@ -60,7 +60,7 @@ _020BCBF0:
 	bne _020BCBB4
 _020BCBFC:
 	ldr r4, _020BCC4C ; =0x020E7538
-	ldr r9, _020BCC40 ; =0x020E6D40
+	ldr r9, _020BCC40 ; =wfailed
 	mov r6, #0
 	mov r8, #0x38
 _020BCC0C:
@@ -76,18 +76,18 @@ _020BCC2C:
 	add r6, r6, #1
 	cmp r6, #8
 	blt _020BCC0C
-	bl FUN_ov15_020da7e4
+	bl CPSi_SslCleanup
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020BCC40: .word ov15_020E6D40
+_020BCC40: .word wfailed
 _020BCC44: .word ov15_020E6E58
-_020BCC48: .word 0x020939a4
+_020BCC48: .word OSi_ThreadInfo
 _020BCC4C: .word ov15_020E7538
-	arm_func_end FUN_ov15_020bcb50
+	arm_func_end reset_network_vars
 
-	arm_func_start FUN_ov15_020bcc50
-FUN_ov15_020bcc50: ; 0x020BCC50
+	arm_func_start OS_YieldThread__
+OS_YieldThread__: ; 0x020BCC50
 	stmfd sp!, {r3, lr}
-	ldr r0, _020BCC74 ; =0x020E6D40
+	ldr r0, _020BCC74 ; =wfailed
 	ldr r0, [r0, #0x24]
 	cmp r0, #0
 	bne _020BCC6C
@@ -96,27 +96,27 @@ FUN_ov15_020bcc50: ; 0x020BCC50
 _020BCC6C:
 	bl OS_Sleep
 	ldmfd sp!, {r3, pc}
-_020BCC74: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bcc50
+_020BCC74: .word wfailed
+	arm_func_end OS_YieldThread__
 
-	arm_func_start FUN_ov15_020bcc78
-FUN_ov15_020bcc78: ; 0x020BCC78
+	arm_func_start empty_func
+empty_func: ; 0x020BCC78
 	bx lr
-	arm_func_end FUN_ov15_020bcc78
+	arm_func_end empty_func
 
-	arm_func_start FUN_ov15_020bcc7c
-FUN_ov15_020bcc7c: ; 0x020BCC7C
+	arm_func_start default_link_is_on
+default_link_is_on: ; 0x020BCC7C
 	mov r0, #1
 	bx lr
-	arm_func_end FUN_ov15_020bcc7c
+	arm_func_end default_link_is_on
 
-	arm_func_start FUN_ov15_020bcc84
-FUN_ov15_020bcc84: ; 0x020BCC84
+	arm_func_start CPS_Startup
+CPS_Startup: ; 0x020BCC84
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r4, r0
 	ldr r0, _020BCE48 ; =_version_UBIQUITOUS_CPS
-	ldr r5, _020BCE4C ; =0x020E6D40
+	ldr r5, _020BCE4C ; =wfailed
 	bl OSi_ReferSymbol
 	ldr r1, [r4, #0x18]
 	ldr r0, [r4, #0x14]
@@ -141,7 +141,7 @@ _020BCCB8:
 	cmpne r0, #0
 	strne r1, [r5, #0x14]
 	strne r0, [r5, #0x44]
-	ldreq r0, _020BCE5C ; =FUN_ov15_020bcc78
+	ldreq r0, _020BCE5C ; =empty_func
 	streq r0, [r5, #0x14]
 	streq r0, [r5, #0x44]
 	ldr r0, [r4]
@@ -156,11 +156,11 @@ _020BCCB8:
 	str r0, [r5, #0x24]
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
-	ldreq r0, _020BCE5C ; =FUN_ov15_020bcc78
+	ldreq r0, _020BCE5C ; =empty_func
 	str r0, [r5, #0x28]
 	ldr r0, [r4, #0x10]
 	cmp r0, #0
-	ldreq r0, _020BCE64 ; =FUN_ov15_020bcc7c
+	ldreq r0, _020BCE64 ; =default_link_is_on
 	str r0, [r5, #0x18]
 	ldr r0, [r4, #0x1c]
 	str r0, [r5, #0x20]
@@ -185,16 +185,16 @@ _020BCCB8:
 	str r6, [r5, #0x78]
 	str r2, [r5, #0x7c]
 	add r1, r1, #0x400
-	ldr r0, _020BCE6C ; =0x020E6DA8
+	ldr r0, _020BCE6C ; =CPSMyMac
 	strh r1, [r5, #6]
 	bl OS_GetMacAddress
 	strb r4, [r5, #1]
 	mov r8, #0x800
-	ldr r7, _020BCE70 ; =0x020E7178
+	ldr r7, _020BCE70 ; =tcpip_thread
 	ldr r5, _020BCE74 ; =0x020E4340
 	str r8, [sp]
 	ldr r2, [r5]
-	ldr r1, _020BCE78 ; =FUN_ov15_020c0178
+	ldr r1, _020BCE78 ; =tcpip
 	str r2, [sp, #4]
 	ldr r3, _020BCE7C ; =0x020E8F00
 	mov r0, r7
@@ -204,7 +204,7 @@ _020BCCB8:
 	ldr r0, [r5]
 	ldr r6, _020BCE80 ; =0x020E70B8
 	str r0, [sp, #4]
-	ldr r1, _020BCE84 ; =FUN_ov15_020c0ef4
+	ldr r1, _020BCE84 ; =scavenger
 	ldr r3, _020BCE88 ; =0x020E8700
 	mov r0, r6
 	mov r2, r4
@@ -217,7 +217,7 @@ _020BCCB8:
 	bl OS_CreateAlarm
 	str r8, [sp]
 	ldr r0, [r5]
-	ldr r1, _020BCE90 ; =FUN_ov15_020c1428
+	ldr r1, _020BCE90 ; =dacktimer
 	sub r0, r0, #1
 	str r0, [sp, #4]
 	ldr r0, _020BCE94 ; =0x020E6FF8
@@ -227,30 +227,30 @@ _020BCCB8:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BCE48: .word _version_UBIQUITOUS_CPS
-_020BCE4C: .word ov15_020E6D40
+_020BCE4C: .word wfailed
 _020BCE50: .word 0x6C078965
 _020BCE54: .word 0x5D588B65
 _020BCE58: .word 0x00269EC3
-_020BCE5C: .word FUN_ov15_020bcc78
+_020BCE5C: .word empty_func
 _020BCE60: .word 0x000005B4
-_020BCE64: .word FUN_ov15_020bcc7c
+_020BCE64: .word default_link_is_on
 _020BCE68: .word 0x00000F88
-_020BCE6C: .word ov15_020E6DA8
-_020BCE70: .word ov15_020E7178
+_020BCE6C: .word CPSMyMac
+_020BCE70: .word tcpip_thread
 _020BCE74: .word ov15_020E4340
-_020BCE78: .word FUN_ov15_020c0178
+_020BCE78: .word tcpip
 _020BCE7C: .word ov15_020E8F00
 _020BCE80: .word ov15_020E70B8
-_020BCE84: .word FUN_ov15_020c0ef4
+_020BCE84: .word scavenger
 _020BCE88: .word ov15_020E8700
 _020BCE8C: .word ov15_020E6DD0
-_020BCE90: .word FUN_ov15_020c1428
+_020BCE90: .word dacktimer
 _020BCE94: .word ov15_020E6FF8
 _020BCE98: .word ov15_020E7F00
-	arm_func_end FUN_ov15_020bcc84
+	arm_func_end CPS_Startup
 
-	arm_func_start FUN_ov15_020bce9c
-FUN_ov15_020bce9c: ; 0x020BCE9C
+	arm_func_start CPS_CalmDown
+CPS_CalmDown: ; 0x020BCE9C
 	stmfd sp!, {r4, r5, r6, lr}
 	bl OS_DisableInterrupts
 	ldr r4, _020BCEE8 ; =0x020E70B8
@@ -258,7 +258,7 @@ FUN_ov15_020bce9c: ; 0x020BCE9C
 	mov r0, r4
 	bl OS_IsThreadTerminated
 	movs r6, r0
-	ldreq r1, _020BCEEC ; =0x020E6D40
+	ldreq r1, _020BCEEC ; =wfailed
 	ldreq r0, [r1, #0x58]
 	cmpeq r0, #0
 	bne _020BCED8
@@ -272,24 +272,24 @@ _020BCED8:
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BCEE8: .word ov15_020E70B8
-_020BCEEC: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bce9c
+_020BCEEC: .word wfailed
+	arm_func_end CPS_CalmDown
 
-	arm_func_start FUN_ov15_020bcef0
-FUN_ov15_020bcef0: ; 0x020BCEF0
-	ldr r1, _020BCEFC ; =0x020E6D40
+	arm_func_start CPS_SetScavengerCallback
+CPS_SetScavengerCallback: ; 0x020BCEF0
+	ldr r1, _020BCEFC ; =wfailed
 	str r0, [r1, #0x34]
 	bx lr
-_020BCEFC: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bcef0
+_020BCEFC: .word wfailed
+	arm_func_end CPS_SetScavengerCallback
 
-	arm_func_start FUN_ov15_020bcf00
-FUN_ov15_020bcf00: ; 0x020BCF00
+	arm_func_start CPS_Cleanup
+CPS_Cleanup: ; 0x020BCF00
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_ov15_020bce9c
+	bl CPS_CalmDown
 	ldr r0, _020BCF74 ; =0x020E70B8
 	bl OS_JoinThread
-	ldr r0, _020BCF78 ; =0x020E7178
+	ldr r0, _020BCF78 ; =tcpip_thread
 	bl OS_DestroyThread
 	ldr r0, _020BCF7C ; =0x020E6DD0
 	bl OS_CancelAlarm
@@ -308,26 +308,26 @@ _020BCF44:
 	ldr r0, _020BCF80 ; =0x020E6FF8
 	bl OS_JoinThread
 	mov r5, #0
-	ldr r4, _020BCF84 ; =0x020E6D40
+	ldr r4, _020BCF84 ; =wfailed
 	mov r0, r5
 	str r5, [r4, #0x54]
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 	str r5, [r4, #0x20]
 	str r5, [r4, #0x5c]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BCF74: .word ov15_020E70B8
-_020BCF78: .word ov15_020E7178
+_020BCF78: .word tcpip_thread
 _020BCF7C: .word ov15_020E6DD0
 _020BCF80: .word ov15_020E6FF8
-_020BCF84: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bcf00
+_020BCF84: .word wfailed
+	arm_func_end CPS_Cleanup
 
-	arm_func_start FUN_ov15_020bcf88
-FUN_ov15_020bcf88: ; 0x020BCF88
+	arm_func_start CPS_SetThreadPriority
+CPS_SetThreadPriority: ; 0x020BCF88
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r2, _020BCFB4 ; =0x020E4340
-	ldr r0, _020BCFB8 ; =0x020E7178
+	ldr r0, _020BCFB8 ; =tcpip_thread
 	mov r1, r4
 	str r4, [r2]
 	bl OS_SetThreadPriority
@@ -336,12 +336,12 @@ FUN_ov15_020bcf88: ; 0x020BCF88
 	bl OS_SetThreadPriority
 	ldmfd sp!, {r4, pc}
 _020BCFB4: .word ov15_020E4340
-_020BCFB8: .word ov15_020E7178
+_020BCFB8: .word tcpip_thread
 _020BCFBC: .word ov15_020E70B8
-	arm_func_end FUN_ov15_020bcf88
+	arm_func_end CPS_SetThreadPriority
 
-	arm_func_start FUN_ov15_020bcfc0
-FUN_ov15_020bcfc0: ; 0x020BCFC0
+	arm_func_start calc_checksum_do
+calc_checksum_do: ; 0x020BCFC0
 	stmfd sp!, {r4, lr}
 	ands lr, r0, #3
 	mov r4, #0
@@ -418,39 +418,39 @@ _020BD08C:
 	mov r1, r1, lsr #0x10
 	add r0, r1, r0, lsr #16
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020bcfc0
+	arm_func_end calc_checksum_do
 
-	arm_func_start FUN_ov15_020bd0c8
-FUN_ov15_020bd0c8: ; 0x020BD0C8
+	arm_func_start invert_checksum
+invert_checksum: ; 0x020BD0C8
 	ldr r1, _020BD0D8 ; =0x0000FFFF
 	eors r0, r0, r1
 	moveq r0, r1
 	bx lr
 _020BD0D8: .word 0x0000FFFF
-	arm_func_end FUN_ov15_020bd0c8
+	arm_func_end invert_checksum
 
-	arm_func_start FUN_ov15_020bd0dc
-FUN_ov15_020bd0dc: ; 0x020BD0DC
+	arm_func_start calc_checksum
+calc_checksum: ; 0x020BD0DC
 	stmfd sp!, {r3, lr}
 	mov r2, #0
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_ov15_020bd0c8
+	bl invert_checksum
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020bd0dc
+	arm_func_end calc_checksum
 
-	arm_func_start FUN_ov15_020bd0f8
-FUN_ov15_020bd0f8: ; 0x020BD0F8
+	arm_func_start check_tcpudpsum
+check_tcpudpsum: ; 0x020BD0F8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r2
 	mov r2, r3
 	mov r5, r1
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r2, r0
 	add r0, r4, #0xc
 	mov r1, #8
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	add r1, r0, r5
 	tst r1, #0x10000
 	addne r0, r1, #1
@@ -462,17 +462,17 @@ FUN_ov15_020bd0f8: ; 0x020BD0F8
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BD144: .word 0x0000FFFF
-	arm_func_end FUN_ov15_020bd0f8
+	arm_func_end check_tcpudpsum
 
-	arm_func_start FUN_ov15_020bd148
-FUN_ov15_020bd148: ; 0x020BD148
+	arm_func_start ip_islocal
+ip_islocal: ; 0x020BD148
 	mov r12, #1
 	sub r1, r12, #2
 	cmp r0, r1
 	subne r1, r12, #0x81000000
 	cmpne r0, r1
 	beq _020BD17C
-	ldr r1, _020BD184 ; =0x020E6D40
+	ldr r1, _020BD184 ; =wfailed
 	ldr r3, [r1, #0x10]
 	ldr r1, [r1, #0x50]
 	and r2, r0, r3
@@ -482,31 +482,31 @@ FUN_ov15_020bd148: ; 0x020BD148
 _020BD17C:
 	mov r0, r12
 	bx lr
-_020BD184: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd148
+_020BD184: .word wfailed
+	arm_func_end ip_islocal
 
-	arm_func_start FUN_ov15_020bd188
-FUN_ov15_020bd188: ; 0x020BD188
+	arm_func_start get_targetip
+get_targetip: ; 0x020BD188
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020bd148
+	bl ip_islocal
 	cmp r0, #0
-	ldreq r0, _020BD1A8 ; =0x020E6D40
+	ldreq r0, _020BD1A8 ; =wfailed
 	ldreq r4, [r0, #0x2c]
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020BD1A8: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd188
+_020BD1A8: .word wfailed
+	arm_func_end get_targetip
 
-	arm_func_start FUN_ov15_020bd1ac
-FUN_ov15_020bd1ac: ; 0x020BD1AC
+	arm_func_start is_broadcast
+is_broadcast: ; 0x020BD1AC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
-	bl FUN_ov15_020bd148
+	bl ip_islocal
 	cmp r0, #0
 	beq _020BD1DC
-	ldr r0, _020BD1E4 ; =0x020E6D40
+	ldr r0, _020BD1E4 ; =wfailed
 	ldr r0, [r0, #0x10]
 	mvn r1, r0
 	and r0, r1, r5
@@ -515,22 +515,22 @@ FUN_ov15_020bd1ac: ; 0x020BD1AC
 _020BD1DC:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD1E4: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd1ac
+_020BD1E4: .word wfailed
+	arm_func_end is_broadcast
 
-	arm_func_start FUN_ov15_020bd1e8
-FUN_ov15_020bd1e8: ; 0x020BD1E8
+	arm_func_start is_multicast
+is_multicast: ; 0x020BD1E8
 	and r0, r0, #0xf0000000
 	cmp r0, #0xe0000000
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020bd1e8
+	arm_func_end is_multicast
 
-	arm_func_start FUN_ov15_020bd1fc
-FUN_ov15_020bd1fc: ; 0x020BD1FC
+	arm_func_start ip_isme
+ip_isme: ; 0x020BD1FC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _020BD274 ; =0x020E6D40
+	ldr r1, _020BD274 ; =wfailed
 	mov r4, #1
 	ldr r1, [r1, #0x50]
 	mov r6, r0
@@ -549,25 +549,25 @@ _020BD23C:
 	cmp r2, #0
 	bne _020BD254
 	mov r0, r6
-	bl FUN_ov15_020bd1ac
+	bl is_broadcast
 	cmp r0, #0
 	moveq r5, #0
 _020BD254:
 	cmp r5, #0
 	bne _020BD26C
 	mov r0, r6
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	moveq r4, #0
 _020BD26C:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BD274: .word ov15_020E6D40
+_020BD274: .word wfailed
 _020BD278: .word 0x7F000001
-	arm_func_end FUN_ov15_020bd1fc
+	arm_func_end ip_isme
 
-	arm_func_start FUN_ov15_020bd27c
-FUN_ov15_020bd27c: ; 0x020BD27C
+	arm_func_start maccmp
+maccmp: ; 0x020BD27C
 	mov r12, #0
 _020BD280:
 	ldrh r3, [r0], #2
@@ -580,10 +580,10 @@ _020BD280:
 	blt _020BD280
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020bd27c
+	arm_func_end maccmp
 
-	arm_func_start FUN_ov15_020bd2a8
-FUN_ov15_020bd2a8: ; 0x020BD2A8
+	arm_func_start send_packet
+send_packet: ; 0x020BD2A8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -598,21 +598,21 @@ FUN_ov15_020bd2a8: ; 0x020BD2A8
 	add r1, r7, #6
 	sub r2, r6, #6
 	str r4, [sp]
-	bl FUN_ov15_020dda04
+	bl WCM_SendDCFDataEx
 	cmp r0, #0
 	mov r1, #1
-	ldr r0, _020BD300 ; =0x020E6D40
+	ldr r0, _020BD300 ; =wfailed
 	movge r1, #0
 	strb r1, [r0]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BD2FC: .word ov15_020E4368
-_020BD300: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd2a8
+_020BD300: .word wfailed
+	arm_func_end send_packet
 
-	arm_func_start FUN_ov15_020bd304
-FUN_ov15_020bd304: ; 0x020BD304
+	arm_func_start put_in_buffer
+put_in_buffer: ; 0x020BD304
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r12, _020BD4DC ; =0x020E6D40
+	ldr r12, _020BD4DC ; =wfailed
 	mov r6, r0
 	ldr r7, [r12, #0x20]
 	mov r5, r2
@@ -661,7 +661,7 @@ _020BD390:
 	cmp r0, r8
 	ldmlsfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020BD3C4:
-	ldr r0, _020BD4DC ; =0x020E6D40
+	ldr r0, _020BD4DC ; =wfailed
 	ldr r3, [r0, #0x5c]
 	cmp r8, r3
 	bne _020BD3E8
@@ -691,11 +691,11 @@ _020BD404:
 	ldrhs r0, [r0, #0x60]
 	movhs r3, #0
 	strhsh r3, [r7, r0]
-	ldr r0, _020BD4DC ; =0x020E6D40
+	ldr r0, _020BD4DC ; =wfailed
 	mov r3, #0
 	str r3, [r0, #0x60]
 _020BD440:
-	ldr r9, _020BD4DC ; =0x020E6D40
+	ldr r9, _020BD4DC ; =wfailed
 	mov r0, r1
 	ldr r12, [r9, #0x20]
 	ldr r3, [r9, #0x60]
@@ -735,20 +735,20 @@ _020BD440:
 _020BD4D4:
 	str r8, [r9, #0x60]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020BD4DC: .word ov15_020E6D40
+_020BD4DC: .word wfailed
 _020BD4E0: .word 0x000005E4
 _020BD4E4: .word ov15_020E4368
-	arm_func_end FUN_ov15_020bd304
+	arm_func_end put_in_buffer
 
-	arm_func_start FUN_ov15_020bd4e8
-FUN_ov15_020bd4e8: ; 0x020BD4E8
+	arm_func_start CPSi_RecvCallbackFunc
+CPSi_RecvCallbackFunc: ; 0x020BD4E8
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	mov r4, #0
 	str r4, [sp]
 	str r4, [sp, #4]
-	bl FUN_ov15_020bd304
-	ldr r4, _020BD538 ; =0x020E6D40
+	bl put_in_buffer
+	ldr r4, _020BD538 ; =wfailed
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	addeq sp, sp, #8
@@ -762,22 +762,22 @@ FUN_ov15_020bd4e8: ; 0x020BD4E8
 	bl OS_WakeupThreadDirect
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
-_020BD538: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd4e8
+_020BD538: .word wfailed
+	arm_func_end CPSi_RecvCallbackFunc
 
-	arm_func_start FUN_ov15_020bd53c
-FUN_ov15_020bd53c: ; 0x020BD53C
+	arm_func_start receive_packet
+receive_packet: ; 0x020BD53C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r7, _020BD600 ; =0x020E6D40
+	ldr r7, _020BD600 ; =wfailed
 	mov r4, r0
 	ldr r1, [r7, #0x64]
 	ldr r0, [r7, #0x60]
 	cmp r1, r0
 	bne _020BD598
-	ldr r6, _020BD604 ; =0x020939a4
+	ldr r6, _020BD604 ; =OSi_ThreadInfo
 	mov r8, #0
 _020BD56C:
 	ldr r1, [r6, #4]
@@ -794,7 +794,7 @@ _020BD56C:
 _020BD598:
 	mov r0, r4
 	bl OS_RestoreInterrupts
-	ldr r0, _020BD600 ; =0x020E6D40
+	ldr r0, _020BD600 ; =wfailed
 	mov r3, #0
 	ldr r6, [r0, #0x20]
 	mov r1, r3
@@ -811,7 +811,7 @@ _020BD5B0:
 	cmp r2, #0
 	beq _020BD5B0
 	sub r1, r2, #2
-	ldr r0, _020BD600 ; =0x020E6D40
+	ldr r0, _020BD600 ; =wfailed
 	str r1, [r5]
 	ldr r1, [r0, #0x20]
 	ldr r0, [r0, #0x64]
@@ -819,15 +819,15 @@ _020BD5B0:
 	add r0, r0, #2
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020BD600: .word ov15_020E6D40
-_020BD604: .word 0x020939a4
-	arm_func_end FUN_ov15_020bd53c
+_020BD600: .word wfailed
+_020BD604: .word OSi_ThreadInfo
+	arm_func_end receive_packet
 
-	arm_func_start FUN_ov15_020bd608
-FUN_ov15_020bd608: ; 0x020BD608
+	arm_func_start throw_packet
+throw_packet: ; 0x020BD608
 	stmfd sp!, {r3, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020BD648 ; =0x020E6D40
+	ldr r1, _020BD648 ; =wfailed
 	ldr r12, [r1, #0x64]
 	ldr r3, [r1, #0x20]
 	ldr r2, [r1, #0x64]
@@ -841,29 +841,29 @@ FUN_ov15_020bd608: ; 0x020BD608
 	strhs r2, [r1, #0x64]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, pc}
-_020BD648: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd608
+_020BD648: .word wfailed
+	arm_func_end throw_packet
 
-	arm_func_start FUN_ov15_020bd64c
-FUN_ov15_020bd64c: ; 0x020BD64C
+	arm_func_start inq_arpcache
+inq_arpcache: ; 0x020BD64C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	bl OS_DisableInterrupts
 	ldr r1, _020BD6FC ; =0x7F000001
 	mov r5, r0
 	cmp r8, r1
-	ldrne r0, _020BD700 ; =0x020E6D40
+	ldrne r0, _020BD700 ; =wfailed
 	mov r4, #0
 	ldrne r0, [r0, #0x50]
 	cmpne r8, r0
-	ldreq r4, _020BD704 ; =0x020E6DA8
+	ldreq r4, _020BD704 ; =CPSMyMac
 	beq _020BD6EC
 	mov r0, r8
-	bl FUN_ov15_020bd1ac
+	bl is_broadcast
 	cmp r0, #0
 	bne _020BD69C
 	mov r0, r8
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	beq _020BD6A4
 _020BD69C:
@@ -896,15 +896,15 @@ _020BD6EC:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BD6FC: .word 0x7F000001
-_020BD700: .word ov15_020E6D40
-_020BD704: .word ov15_020E6DA8
+_020BD700: .word wfailed
+_020BD704: .word CPSMyMac
 _020BD708: .word ov15_020E4349
 _020BD70C: .word ov15_020E6E58
 _020BD710: .word ov15_020E6E62
-	arm_func_end FUN_ov15_020bd64c
+	arm_func_end inq_arpcache
 
-	arm_func_start FUN_ov15_020bd714
-FUN_ov15_020bd714: ; 0x020BD714
+	arm_func_start send_arprequest
+send_arprequest: ; 0x020BD714
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x2c
 	mov r6, #0
@@ -920,7 +920,7 @@ FUN_ov15_020bd714: ; 0x020BD714
 	mov r2, r4
 	mov r1, #0xff
 	bl MI_CpuFill8
-	ldr r9, _020BD814 ; =0x020E6DA8
+	ldr r9, _020BD814 ; =CPSMyMac
 	add r1, sp, #6
 	mov r0, r9
 	mov r2, r4
@@ -938,7 +938,7 @@ FUN_ov15_020bd714: ; 0x020BD714
 	mov r2, r4
 	add r1, sp, #0x16
 	bl MI_CpuCopy
-	ldr r2, _020BD81C ; =0x020E6D40
+	ldr r2, _020BD81C ; =wfailed
 	mov r1, r5
 	mov r3, r8, lsr #0x10
 	ldr r5, [r2, #0x50]
@@ -966,27 +966,27 @@ FUN_ov15_020bd714: ; 0x020BD714
 	strh r2, [sp, #0x28]
 	mov r2, r6
 	mov r3, r6
-	bl FUN_ov15_020bd2a8
+	bl send_packet
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_020BD814: .word ov15_020E6DA8
+_020BD814: .word CPSMyMac
 _020BD818: .word 0x00000608
-_020BD81C: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd714
+_020BD81C: .word wfailed
+	arm_func_end send_arprequest
 
-	arm_func_start FUN_ov15_020bd820
-FUN_ov15_020bd820: ; 0x020BD820
+	arm_func_start arprequest
+arprequest: ; 0x020BD820
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r8, #0
 	ldr r7, _020BD8AC ; =0x020E4350
 	ldr r4, _020BD8B0 ; =0x51EB851F
-	ldr r5, _020BD8B4 ; =0x020E6D40
+	ldr r5, _020BD8B4 ; =wfailed
 	mov r10, r0
 	mov r6, #0x64
 	mov r11, r8
 _020BD840:
 	mov r0, r10
-	bl FUN_ov15_020bd714
+	bl send_arprequest
 	ldr r1, [r7, r8, lsl #2]
 	mov r9, r11
 	umull r0, r2, r1, r4
@@ -1000,7 +1000,7 @@ _020BD85C:
 	mov r0, r6
 	bl OS_Sleep
 	mov r0, r10
-	bl FUN_ov15_020bd64c
+	bl inq_arpcache
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, [r7, r8, lsl #2]
@@ -1016,27 +1016,27 @@ _020BD898:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BD8AC: .word ov15_020E4350
 _020BD8B0: .word 0x51EB851F
-_020BD8B4: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bd820
+_020BD8B4: .word wfailed
+	arm_func_end arprequest
 
-	arm_func_start FUN_ov15_020bd8b8
-FUN_ov15_020bd8b8: ; 0x020BD8B8
+	arm_func_start reg_arpcache
+reg_arpcache: ; 0x020BD8B8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _020BD9E4 ; =0x7F000001
 	mov r4, r1
 	mov r5, r0
 	cmp r4, r3
-	ldrne r0, _020BD9E8 ; =0x020E6D40
+	ldrne r0, _020BD9E8 ; =wfailed
 	mov r7, r2
 	ldrne r0, [r0, #0x50]
 	cmpne r4, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
-	bl FUN_ov15_020bd148
+	bl ip_islocal
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	bl OS_GetTick
@@ -1101,13 +1101,13 @@ _020BD9B4:
 	strh r6, [r0, r7]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BD9E4: .word 0x7F000001
-_020BD9E8: .word ov15_020E6D40
+_020BD9E8: .word wfailed
 _020BD9EC: .word ov15_020E6E58
 _020BD9F0: .word ov15_020E6E62
-	arm_func_end FUN_ov15_020bd8b8
+	arm_func_end reg_arpcache
 
-	arm_func_start FUN_ov15_020bd9f4
-FUN_ov15_020bd9f4: ; 0x020BD9F4
+	arm_func_start send_ether
+send_ether: ; 0x020BD9F4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldrh r5, [sp, #0x1c]
 	ldr r4, [sp, #0x18]
@@ -1119,18 +1119,18 @@ FUN_ov15_020bd9f4: ; 0x020BD9F4
 	mov r6, r2
 	mov r5, r3
 	strh r12, [r8, #-2]
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	bne _020BDA68
 	mov r0, r4
-	bl FUN_ov15_020bd188
+	bl get_targetip
 	movs r4, r0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	bl FUN_ov15_020bd64c
+	bl inq_arpcache
 	cmp r0, #0
 	bne _020BDA50
 	mov r0, r4
-	bl FUN_ov15_020bd820
+	bl arprequest
 _020BDA50:
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -1152,7 +1152,7 @@ _020BDA68:
 	strb r0, [r8, #-0xa]
 	strb r4, [r8, #-9]
 _020BDA98:
-	ldr r0, _020BDAC0 ; =0x020E6DA8
+	ldr r0, _020BDAC0 ; =CPSMyMac
 	sub r1, r8, #8
 	mov r2, #6
 	bl MI_CpuCopy
@@ -1160,13 +1160,13 @@ _020BDA98:
 	mov r3, r5
 	sub r0, r8, #0xe
 	add r1, r7, #0xe
-	bl FUN_ov15_020bd2a8
+	bl send_packet
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020BDAC0: .word ov15_020E6DA8
-	arm_func_end FUN_ov15_020bd9f4
+_020BDAC0: .word CPSMyMac
+	arm_func_end send_ether
 
-	arm_func_start FUN_ov15_020bdac4
-FUN_ov15_020bdac4: ; 0x020BDAC4
+	arm_func_start send_ip_frag
+send_ip_frag: ; 0x020BDAC4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r7, r1
@@ -1191,13 +1191,13 @@ FUN_ov15_020bdac4: ; 0x020BDAC4
 	strh r12, [r8, #-0x12]
 	strh r3, [r8, #-0xa]
 	ldr r4, [sp, #0x20]
-	bl FUN_ov15_020bd0dc
+	bl calc_checksum
 	mov r2, r0, lsl #8
 	ldr r1, _020BDBDC ; =0x7F000001
 	orr r0, r2, r0, asr #8
 	strh r0, [r8, #-0xa]
 	cmp r4, r1
-	ldrne r0, _020BDBE0 ; =0x020E6D40
+	ldrne r0, _020BDBE0 ; =wfailed
 	ldrne r0, [r0, #0x50]
 	cmpne r4, r0
 	beq _020BDB6C
@@ -1208,16 +1208,16 @@ FUN_ov15_020bdac4: ; 0x020BDAC4
 	sub r0, r8, #0x14
 	add r1, r7, #0x14
 	str r12, [sp, #4]
-	bl FUN_ov15_020bd9f4
+	bl send_ether
 _020BDB6C:
 	ldr r0, _020BDBDC ; =0x7F000001
 	cmp r4, r0
-	ldrne r0, _020BDBE0 ; =0x020E6D40
+	ldrne r0, _020BDBE0 ; =wfailed
 	ldrne r0, [r0, #0x50]
 	cmpne r4, r0
 	beq _020BDB98
 	mov r0, r4
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -1228,31 +1228,31 @@ _020BDB98:
 	bl MI_CpuCopy
 	bl OS_DisableInterrupts
 	mov r4, r0
-	ldr r0, _020BDBE8 ; =0x020E6DA8
+	ldr r0, _020BDBE8 ; =CPSMyMac
 	str r6, [sp]
 	mov r1, r0
 	str r5, [sp, #4]
 	sub r2, r8, #0x1c
 	add r3, r7, #0x1c
-	bl FUN_ov15_020bd304
+	bl put_in_buffer
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BDBDC: .word 0x7F000001
-_020BDBE0: .word ov15_020E6D40
+_020BDBE0: .word wfailed
 _020BDBE4: .word ov15_020E4368
-_020BDBE8: .word ov15_020E6DA8
-	arm_func_end FUN_ov15_020bdac4
+_020BDBE8: .word CPSMyMac
+	arm_func_end send_ip_frag
 
-	arm_func_start FUN_ov15_020bdbec
-FUN_ov15_020bdbec: ; 0x020BDBEC
+	arm_func_start send_ip
+send_ip: ; 0x020BDBEC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r10, r0
 	mov r4, #0
 	mov r0, #0x45
-	ldr r7, _020BDDDC ; =0x020E6D40
+	ldr r7, _020BDDDC ; =wfailed
 	strb r4, [r10, #-0x13]
 	strb r0, [r10, #-0x14]
 	ldrh r0, [r7, #2]
@@ -1307,7 +1307,7 @@ _020BDCBC:
 	str r6, [sp]
 	orr r12, r4, #0x2000
 	str r12, [sp, #4]
-	bl FUN_ov15_020bdac4
+	bl send_ip_frag
 	add r1, r4, #0xb9
 	add r0, r5, #0x1c8
 	sub r9, r9, r11
@@ -1336,7 +1336,7 @@ _020BDD2C:
 	mov r3, r9
 	str r4, [sp, #4]
 _020BDD40:
-	bl FUN_ov15_020bdac4
+	bl send_ip_frag
 	mov r0, r9, lsl #0xd
 	add r0, r4, r0, lsr #16
 	mov r0, r0, lsl #0x10
@@ -1356,7 +1356,7 @@ _020BDD68:
 	str r6, [sp]
 	orr r9, r4, #0x2000
 	str r9, [sp, #4]
-	bl FUN_ov15_020bdac4
+	bl send_ip_frag
 	add r0, r4, #0xb9
 	sub r7, r7, r5
 	mov r0, r0, lsl #0x10
@@ -1375,22 +1375,22 @@ _020BDDAC:
 	mov r2, r8
 	mov r3, r7
 	str r4, [sp, #4]
-	bl FUN_ov15_020bdac4
+	bl send_ip_frag
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020BDDDC: .word ov15_020E6D40
+_020BDDDC: .word wfailed
 _020BDDE0: .word 0x000005C8
-	arm_func_end FUN_ov15_020bdbec
+	arm_func_end send_ip
 
-	arm_func_start FUN_ov15_020bdde4
-FUN_ov15_020bdde4: ; 0x020BDDE4
+	arm_func_start send_ping
+send_ping: ; 0x020BDDE4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r6, r2
 	ldr r5, [r6, #0x58]
 	mov r4, #8
-	ldr r3, _020BDE90 ; =0x020E6D40
-	ldr r2, _020BDE94 ; =0x020939a4
+	ldr r3, _020BDE90 ; =wfailed
+	ldr r2, _020BDE94 ; =OSi_ThreadInfo
 	strh r4, [r5, #0x22]
 	ldr r2, [r2, #4]
 	ldrh lr, [r3, #8]
@@ -1405,14 +1405,14 @@ FUN_ov15_020bdde4: ; 0x020BDDE4
 	add r0, r5, #0x22
 	strh r12, [r3, #8]
 	strh lr, [r5, #0x28]
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r2, r0
 	mov r0, r8
 	mov r1, r7
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_ov15_020bd0c8
+	bl invert_checksum
 	mov r1, r4
 	mov r2, r8
 	mov r3, r7
@@ -1424,18 +1424,18 @@ FUN_ov15_020bdde4: ; 0x020BDDE4
 	str r4, [sp]
 	mov r4, #1
 	str r4, [sp, #4]
-	bl FUN_ov15_020bdbec
+	bl send_ip
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020BDE90: .word ov15_020E6D40
-_020BDE94: .word 0x020939a4
-	arm_func_end FUN_ov15_020bdde4
+_020BDE90: .word wfailed
+_020BDE94: .word OSi_ThreadInfo
+	arm_func_end send_ping
 
-	arm_func_start FUN_ov15_020bde98
-FUN_ov15_020bde98: ; 0x020BDE98
+	arm_func_start send_udp
+send_udp: ; 0x020BDE98
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
-	ldr r7, _020BDFD0 ; =0x020E6D40
+	ldr r7, _020BDFD0 ; =wfailed
 	mov r5, r2
 	ldr r2, [r7, #0x50]
 	mov r6, r1
@@ -1489,14 +1489,14 @@ FUN_ov15_020bde98: ; 0x020BDE98
 	orr r12, r12, lr, asr #8
 	strh r12, [r3, #0x22]
 	strh r2, [r4, #6]
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r2, r0
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_ov15_020bd0c8
+	bl invert_checksum
 	mov r2, r7
 	mov r3, r6
 	mov r1, r0, lsl #8
@@ -1508,14 +1508,14 @@ FUN_ov15_020bde98: ; 0x020BDE98
 	mov r1, #0x11
 	str r1, [sp, #4]
 	mov r1, #8
-	bl FUN_ov15_020bdbec
+	bl send_ip
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BDFD0: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bde98
+_020BDFD0: .word wfailed
+	arm_func_end send_udp
 
-	arm_func_start FUN_ov15_020bdfd4
-FUN_ov15_020bdfd4: ; 0x020BDFD4
+	arm_func_start _send_tcp
+_send_tcp: ; 0x020BDFD4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	mov r11, r3
@@ -1528,8 +1528,8 @@ FUN_ov15_020bdfd4: ; 0x020BDFD4
 	addeq sp, sp, #0x14
 	moveq r0, r1
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _020BE460 ; =0x020939a4
-	ldr r1, _020BE464 ; =0x020E7178
+	ldr r0, _020BE460 ; =OSi_ThreadInfo
+	ldr r1, _020BE464 ; =tcpip_thread
 	ldr r0, [r0, #4]
 	cmp r0, r1
 	ldreq r7, _020BE468 ; =0x020E6E1E
@@ -1654,7 +1654,7 @@ _020BE19C:
 	strh r3, [r7, #0x14]
 	orr r1, r1, r2, asr #8
 	strh r1, [r7, #0x16]
-	ldr r1, _020BE470 ; =0x020E6D40
+	ldr r1, _020BE470 ; =wfailed
 	ldrh r2, [r8, #0x3a]
 	ldrh r1, [r1, #4]
 	add r4, r0, #0x18
@@ -1670,7 +1670,7 @@ _020BE19C:
 _020BE210:
 	mov r4, #0x14
 _020BE214:
-	ldr r0, _020BE470 ; =0x020E6D40
+	ldr r0, _020BE470 ; =wfailed
 	ldr r1, [sp, #0xc]
 	ldr r3, [r0, #0x50]
 	add r1, r4, r1
@@ -1789,14 +1789,14 @@ _020BE3DC:
 	sub r0, r7, #0xc
 	add r1, r4, #0xc
 	mov r2, #0
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r2, r0
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
-	bl FUN_ov15_020bcfc0
+	bl calc_checksum_do
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl FUN_ov15_020bd0c8
+	bl invert_checksum
 	mov r1, r0, lsl #8
 	orr r0, r1, r0, asr #8
 	strh r0, [r7, #0x10]
@@ -1815,20 +1815,20 @@ _020BE3DC:
 	str r5, [sp]
 	mov r4, #6
 	str r4, [sp, #4]
-	bl FUN_ov15_020bdbec
+	bl send_ip
 	ldr r0, [sp, #0xc]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020BE460: .word 0x020939a4
-_020BE464: .word ov15_020E7178
+_020BE460: .word OSi_ThreadInfo
+_020BE464: .word tcpip_thread
 _020BE468: .word ov15_020E6E1E
 _020BE46C: .word 0x01010500
-_020BE470: .word ov15_020E6D40
+_020BE470: .word wfailed
 _020BE474: .word 0x00000101
-	arm_func_end FUN_ov15_020bdfd4
+	arm_func_end _send_tcp
 
-	arm_func_start FUN_ov15_020be478
-FUN_ov15_020be478: ; 0x020BE478
+	arm_func_start reply_arp
+reply_arp: ; 0x020BE478
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r3, #0x200
@@ -1837,13 +1837,13 @@ FUN_ov15_020be478: ; 0x020BE478
 	mov r2, #0xa
 	strh r3, [r6, #6]
 	bl MI_CpuCopy
-	ldr r5, _020BE520 ; =0x020E6DA8
+	ldr r5, _020BE520 ; =CPSMyMac
 	mov r4, #6
 	mov r0, r5
 	mov r2, r4
 	add r1, r6, #8
 	bl MI_CpuCopy
-	ldr r3, _020BE524 ; =0x020E6D40
+	ldr r3, _020BE524 ; =wfailed
 	mov r2, r4
 	ldr r1, [r3, #0x50]
 	add r0, r6, #0x12
@@ -1869,23 +1869,23 @@ FUN_ov15_020be478: ; 0x020BE478
 	mov r1, #0x2a
 	mov r2, #0
 	mov r3, r2
-	bl FUN_ov15_020bd2a8
+	bl send_packet
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BE520: .word ov15_020E6DA8
-_020BE524: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020be478
+_020BE520: .word CPSMyMac
+_020BE524: .word wfailed
+	arm_func_end reply_arp
 
-	arm_func_start FUN_ov15_020be528
-FUN_ov15_020be528: ; 0x020BE528
+	arm_func_start dispatch_arp
+dispatch_arp: ; 0x020BE528
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	cmp r1, #0x1c
 	ldmlofd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, _020BE664 ; =0x020E6DA8
+	ldr r1, _020BE664 ; =CPSMyMac
 	add r0, r6, #8
-	bl FUN_ov15_020bd27c
+	bl maccmp
 	cmp r0, #0
-	ldrne r0, _020BE668 ; =0x020E6D40
+	ldrne r0, _020BE668 ; =wfailed
 	ldrne r0, [r0, #0x50]
 	cmpne r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -1917,7 +1917,7 @@ _020BE59C:
 	mov r0, r3, lsl #0x10
 	mov r1, r1, lsl #0x10
 	ldrh r12, [r6, #0x18]
-	ldr r2, _020BE668 ; =0x020E6D40
+	ldr r2, _020BE668 ; =wfailed
 	mov r3, r0, lsr #0x10
 	mov r1, r1, lsr #0x10
 	ldr r0, [r2, #0x50]
@@ -1941,31 +1941,31 @@ _020BE59C:
 	bne _020BE628
 	mov r2, r7
 	add r0, r6, #8
-	bl FUN_ov15_020bd8b8
+	bl reg_arpcache
 _020BE628:
 	cmp r4, #1
 	bne _020BE644
 	cmp r7, #0
 	beq _020BE644
 	mov r0, r6
-	bl FUN_ov15_020be478
+	bl reply_arp
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BE644:
 	cmp r4, #2
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r7, #0
 	cmpne r5, #0
-	ldrne r0, _020BE668 ; =0x020E6D40
+	ldrne r0, _020BE668 ; =wfailed
 	movne r1, #1
 	strneb r1, [r0, #1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BE664: .word ov15_020E6DA8
-_020BE668: .word ov15_020E6D40
+_020BE664: .word CPSMyMac
+_020BE668: .word wfailed
 _020BE66C: .word 0x00000406
-	arm_func_end FUN_ov15_020be528
+	arm_func_end dispatch_arp
 
-	arm_func_start FUN_ov15_020be670
-FUN_ov15_020be670: ; 0x020BE670
+	arm_func_start reply_icmp
+reply_icmp: ; 0x020BE670
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	mov r6, r0
@@ -1982,15 +1982,15 @@ FUN_ov15_020be670: ; 0x020BE670
 	mov r0, r1, lsr #0x10
 	orr r0, r0, r3, lsl #16
 	mov r4, r2
-	bl FUN_ov15_020bd188
+	bl get_targetip
 	movs r7, r0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov15_020bd64c
+	bl inq_arpcache
 	cmp r0, #0
 	bne _020BE6DC
 	mov r0, r7
-	bl FUN_ov15_020bd714
+	bl send_arprequest
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BE6DC:
@@ -2017,19 +2017,19 @@ _020BE6DC:
 	str r5, [sp]
 	mov r4, #1
 	str r4, [sp, #4]
-	bl FUN_ov15_020bdbec
+	bl send_ip
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020be670
+	arm_func_end reply_icmp
 
-	arm_func_start FUN_ov15_020be744
-FUN_ov15_020be744: ; 0x020BE744
+	arm_func_start process_icmp_reply
+process_icmp_reply: ; 0x020BE744
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
 	mov r6, r2
 	bl OS_DisableInterrupts
-	ldr r1, _020BE840 ; =0x020939a4
+	ldr r1, _020BE840 ; =OSi_ThreadInfo
 	mov r5, r0
 	ldr r1, [r1, #8]
 	cmp r1, #0
@@ -2090,40 +2090,40 @@ _020BE834:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020BE840: .word 0x020939a4
-	arm_func_end FUN_ov15_020be744
+_020BE840: .word OSi_ThreadInfo
+	arm_func_end process_icmp_reply
 
-	arm_func_start FUN_ov15_020be844
-FUN_ov15_020be844: ; 0x020BE844
+	arm_func_start valid_IP
+valid_IP: ; 0x020BE844
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r0
 	mov r4, r1
 	beq _020BE89C
-	bl FUN_ov15_020bd1ac
+	bl is_broadcast
 	cmp r0, #0
 	bne _020BE89C
 	mov r0, r5
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	bne _020BE89C
 	cmp r4, #0
 	beq _020BE89C
 	mov r0, r4
-	bl FUN_ov15_020bd1ac
+	bl is_broadcast
 	cmp r0, #0
 	bne _020BE89C
 	mov r0, r4
-	bl FUN_ov15_020bd1e8
+	bl is_multicast
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _020BE89C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020be844
+	arm_func_end valid_IP
 
-	arm_func_start FUN_ov15_020be8a4
-FUN_ov15_020be8a4: ; 0x020BE8A4
+	arm_func_start dispatch_icmp
+dispatch_icmp: ; 0x020BE8A4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r2
 	mov r6, r0
@@ -2132,7 +2132,7 @@ FUN_ov15_020be8a4: ; 0x020BE8A4
 	ldmlofd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020bd0dc
+	bl calc_checksum
 	ldr r1, _020BE978 ; =0x0000FFFF
 	cmp r0, r1
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
@@ -2158,7 +2158,7 @@ FUN_ov15_020be8a4: ; 0x020BE8A4
 	mov r1, r3, lsr #0x10
 	orr r0, r0, r12, lsl #16
 	orr r1, r1, r2, lsl #16
-	bl FUN_ov15_020be844
+	bl valid_IP
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	ldrb r0, [r5]
@@ -2171,21 +2171,21 @@ _020BE950:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020be744
+	bl process_icmp_reply
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BE964:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020be670
+	bl reply_icmp
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BE978: .word 0x0000FFFF
-	arm_func_end FUN_ov15_020be8a4
+	arm_func_end dispatch_icmp
 
-	arm_func_start FUN_ov15_020be97c
-FUN_ov15_020be97c: ; 0x020BE97C
+	arm_func_start check_listener
+check_listener: ; 0x020BE97C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r2, _020BEA4C ; =0x020939a4
+	ldr r2, _020BEA4C ; =OSi_ThreadInfo
 	ldr r12, [r2, #8]
 	cmp r12, #0
 	beq _020BEA44
@@ -2241,11 +2241,11 @@ _020BEA38:
 _020BEA44:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BEA4C: .word 0x020939a4
-	arm_func_end FUN_ov15_020be97c
+_020BEA4C: .word OSi_ThreadInfo
+	arm_func_end check_listener
 
-	arm_func_start FUN_ov15_020bea50
-FUN_ov15_020bea50: ; 0x020BEA50
+	arm_func_start check_socket
+check_socket: ; 0x020BEA50
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrb r4, [r2, #8]
 	mov r3, #0
@@ -2294,12 +2294,12 @@ _020BEABC:
 _020BEAFC:
 	mov r0, r3
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020bea50
+	arm_func_end check_socket
 
-	arm_func_start FUN_ov15_020beb04
-FUN_ov15_020beb04: ; 0x020BEB04
+	arm_func_start find_socket
+find_socket: ; 0x020BEB04
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r2, _020BEB64 ; =0x020939a4
+	ldr r2, _020BEB64 ; =OSi_ThreadInfo
 	mov r7, r0
 	ldr r5, [r2, #8]
 	mov r6, r1
@@ -2314,7 +2314,7 @@ _020BEB20:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov15_020bea50
+	bl check_socket
 	cmp r0, #0
 	movne r0, r4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
@@ -2325,11 +2325,11 @@ _020BEB50:
 _020BEB5C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BEB64: .word 0x020939a4
-	arm_func_end FUN_ov15_020beb04
+_020BEB64: .word OSi_ThreadInfo
+	arm_func_end find_socket
 
-	arm_func_start FUN_ov15_020beb68
-FUN_ov15_020beb68: ; 0x020BEB68
+	arm_func_start parse_mss
+parse_mss: ; 0x020BEB68
 	stmfd sp!, {r3, lr}
 	mov r2, #0x218
 	strh r2, [r1, #0x3a]
@@ -2394,29 +2394,29 @@ _020BEC3C:
 	sub lr, lr, #1
 	bgt _020BEBA0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020beb68
+	arm_func_end parse_mss
 
-	arm_func_start FUN_ov15_020bec4c
-FUN_ov15_020bec4c: ; 0x020BEC4C
+	arm_func_start no_need_inq
+no_need_inq: ; 0x020BEC4C
 	stmfd sp!, {r3, lr}
-	bl FUN_ov15_020bd188
+	bl get_targetip
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov15_020bd64c
+	bl inq_arpcache
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020bec4c
+	arm_func_end no_need_inq
 
-	arm_func_start FUN_ov15_020bec68
-FUN_ov15_020bec68: ; 0x020BEC68
+	arm_func_start _tcp_send_handshake
+_tcp_send_handshake: ; 0x020BEC68
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5, #0x1c]
 	mov r4, r1
-	bl FUN_ov15_020bec4c
+	bl no_need_inq
 	cmp r0, #0
-	ldreq r0, _020BECBC ; =0x020939a4
-	ldreq r1, _020BECC0 ; =0x020E7178
+	ldreq r0, _020BECBC ; =OSi_ThreadInfo
+	ldreq r1, _020BECC0 ; =tcpip_thread
 	ldreq r0, [r0, #4]
 	cmpeq r0, r1
 	beq _020BECAC
@@ -2424,19 +2424,19 @@ FUN_ov15_020bec68: ; 0x020BEC68
 	mov r1, r0
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov15_020bdfd4
+	bl _send_tcp
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BECAC:
 	ldr r0, [r5, #0x1c]
-	bl FUN_ov15_020bd188
-	bl FUN_ov15_020bd714
+	bl get_targetip
+	bl send_arprequest
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BECBC: .word 0x020939a4
-_020BECC0: .word ov15_020E7178
-	arm_func_end FUN_ov15_020bec68
+_020BECBC: .word OSi_ThreadInfo
+_020BECC0: .word tcpip_thread
+	arm_func_end _tcp_send_handshake
 
-	arm_func_start FUN_ov15_020becc4
-FUN_ov15_020becc4: ; 0x020BECC4
+	arm_func_start _tcp_send_ack
+_tcp_send_ack: ; 0x020BECC4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	cmp r1, #2
@@ -2467,26 +2467,26 @@ _020BED00:
 	sub r0, r0, r2
 	cmp r0, r1
 	bhs _020BED40
-	bl FUN_ov15_020c1338
+	bl dacktimer_reschedule
 	ldmfd sp!, {r4, pc}
 _020BED40:
 	mov r0, r4
 	mov r1, #0x10
-	bl FUN_ov15_020bec68
+	bl _tcp_send_handshake
 	ldmfd sp!, {r4, pc}
 _020BED50: .word 0x0001991B
-	arm_func_end FUN_ov15_020becc4
+	arm_func_end _tcp_send_ack
 
-	arm_func_start FUN_ov15_020bed54
-FUN_ov15_020bed54: ; 0x020BED54
-	ldr r12, _020BED60 ; =FUN_ov15_020bec68
+	arm_func_start _tcp_send_finack
+_tcp_send_finack: ; 0x020BED54
+	ldr r12, _020BED60 ; =_tcp_send_handshake
 	mov r1, #0x11
 	bx r12
-_020BED60: .word FUN_ov15_020bec68
-	arm_func_end FUN_ov15_020bed54
+_020BED60: .word _tcp_send_handshake
+	arm_func_end _tcp_send_finack
 
-	arm_func_start FUN_ov15_020bed64
-FUN_ov15_020bed64: ; 0x020BED64
+	arm_func_start _tcp_send_rst
+_tcp_send_rst: ; 0x020BED64
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r5, _020BEE7C ; =0x020E6F58
 	mov r4, #0
@@ -2534,7 +2534,7 @@ FUN_ov15_020bed64: ; 0x020BED64
 	orr r2, r1, r3, lsl #16
 	mov r1, #4
 	str r2, [r5, #0x34]
-	bl FUN_ov15_020bec68
+	bl _tcp_send_handshake
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BEE28:
 	str r4, [r5, #0x34]
@@ -2556,13 +2556,13 @@ _020BEE28:
 	strne r0, [r5, #0x24]
 	mov r0, r5
 	mov r1, #0x14
-	bl FUN_ov15_020bec68
+	bl _tcp_send_handshake
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BEE7C: .word ov15_020E6F58
-	arm_func_end FUN_ov15_020bed64
+	arm_func_end _tcp_send_rst
 
-	arm_func_start FUN_ov15_020bee80
-FUN_ov15_020bee80: ; 0x020BEE80
+	arm_func_start dt_syn_LISTEN
+dt_syn_LISTEN: ; 0x020BEE80
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r2
 	mov r2, #3
@@ -2616,20 +2616,20 @@ FUN_ov15_020bee80: ; 0x020BEE80
 	orr r2, r2, r5, lsl #16
 	add r2, r2, #1
 	str r2, [r4, #0x24]
-	bl FUN_ov15_020beb68
+	bl parse_mss
 	mov r0, r4
 	mov r1, #0x12
-	bl FUN_ov15_020bec68
+	bl _tcp_send_handshake
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020bee80
+	arm_func_end dt_syn_LISTEN
 
-	arm_func_start FUN_ov15_020bef68
-FUN_ov15_020bef68: ; 0x020BEF68
+	arm_func_start find_specific_socket
+find_specific_socket: ; 0x020BEF68
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020beb04
+	bl find_socket
 	movs r2, r0
 	beq _020BEFD8
 	ldrb r0, [r2, #8]
@@ -2638,7 +2638,7 @@ FUN_ov15_020bef68: ; 0x020BEF68
 	mov r0, r6
 	mov r1, r5
 _020BEF98:
-	bl FUN_ov15_020bee80
+	bl dt_syn_LISTEN
 	b _020BEFD0
 _020BEFA0:
 	cmp r0, #3
@@ -2653,17 +2653,17 @@ _020BEFC0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 _020BEFD0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BEFD8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020bef68
+	arm_func_end find_specific_socket
 
-	arm_func_start FUN_ov15_020befe0
-FUN_ov15_020befe0: ; 0x020BEFE0
+	arm_func_start dt_syn
+dt_syn: ; 0x020BEFE0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r0
 	ldrh r0, [r4, #0x12]
@@ -2690,44 +2690,44 @@ FUN_ov15_020befe0: ; 0x020BEFE0
 	mov r6, r1
 	orr r1, r3, r12, lsl #16
 	mov r5, r2
-	bl FUN_ov15_020be844
+	bl valid_IP
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r4
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020bef68
+	bl find_specific_socket
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020be97c
+	bl check_listener
 	movs r2, r0
 	beq _020BF090
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020bee80
+	bl dt_syn_LISTEN
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BF090:
 	bl OS_YieldThread
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020be97c
+	bl check_listener
 	movs r2, r0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020bee80
+	bl dt_syn_LISTEN
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020befe0
+	arm_func_end dt_syn
 
-	arm_func_start FUN_ov15_020bf0b8
-FUN_ov15_020bf0b8: ; 0x020BF0B8
+	arm_func_start dt_synack
+dt_synack: ; 0x020BF0B8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r5, r1
 	mov r6, r2
-	bl FUN_ov15_020beb04
+	bl find_socket
 	movs r4, r0
 	beq _020BF0E0
 	ldrb r0, [r4, #8]
@@ -2737,7 +2737,7 @@ _020BF0E0:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BF0F4:
 	bl OS_YieldThread
@@ -2772,10 +2772,10 @@ _020BF0F4:
 	mov r2, r3, lsl #8
 	orr r2, r2, r3, asr #8
 	strh r2, [r4, #0x38]
-	bl FUN_ov15_020beb68
+	bl parse_mss
 	mov r0, r4
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	mov r0, #4
 	strb r0, [r4, #8]
 	ldr r0, [r4, #4]
@@ -2786,10 +2786,10 @@ _020BF0F4:
 	ldr r0, [r4]
 	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020bf0b8
+	arm_func_end dt_synack
 
-	arm_func_start FUN_ov15_020bf1ac
-FUN_ov15_020bf1ac: ; 0x020BF1AC
+	arm_func_start mark_rwin_chunk
+mark_rwin_chunk: ; 0x020BF1AC
 	stmfd sp!, {r4, lr}
 	mov lr, #0
 	mov r12, lr
@@ -2813,10 +2813,10 @@ _020BF1E8:
 	add r1, lr, #1
 	str r1, [r0, #0x78]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020bf1ac
+	arm_func_end mark_rwin_chunk
 
-	arm_func_start FUN_ov15_020bf1fc
-FUN_ov15_020bf1fc: ; 0x020BF1FC
+	arm_func_start merge_rwin_chunks
+merge_rwin_chunks: ; 0x020BF1FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 _020BF204:
@@ -2836,7 +2836,7 @@ _020BF204:
 	str r3, [r4, #0x24]
 	str r2, [r4, #0x50]
 	str r1, [r4, #0x70]
-	bl FUN_ov15_020bf2ac
+	bl pull_rwin_chunks
 _020BF248:
 	mov lr, #0
 	mov r0, #0xc
@@ -2858,17 +2858,17 @@ _020BF250:
 	str r1, [r12, #0x74]
 	mov r1, #0
 	str r1, [r12, #0x7c]
-	bl FUN_ov15_020bf2ac
+	bl pull_rwin_chunks
 	b _020BF204
 _020BF29C:
 	add lr, lr, #1
 	cmp lr, #3
 	blt _020BF250
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020bf1fc
+	arm_func_end merge_rwin_chunks
 
-	arm_func_start FUN_ov15_020bf2ac
-FUN_ov15_020bf2ac: ; 0x020BF2AC
+	arm_func_start pull_rwin_chunks
+pull_rwin_chunks: ; 0x020BF2AC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, #0
 	mov r6, r0
@@ -2887,10 +2887,10 @@ _020BF2C0:
 	cmp r5, #3
 	blt _020BF2C0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020bf2ac
+	arm_func_end pull_rwin_chunks
 
-	arm_func_start FUN_ov15_020bf2f0
-FUN_ov15_020bf2f0: ; 0x020BF2F0
+	arm_func_start push_rwin_chunks
+push_rwin_chunks: ; 0x020BF2F0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
@@ -2913,22 +2913,22 @@ _020BF32C:
 	mov r1, #0
 	str r1, [r0, #0x70]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020bf2f0
+	arm_func_end push_rwin_chunks
 
-	arm_func_start FUN_ov15_020bf340
-FUN_ov15_020bf340: ; 0x020BF340
+	arm_func_start dt_ack
+dt_ack: ; 0x020BF340
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r5, r1
 	mov r4, r2
 	mov r7, #0
-	bl FUN_ov15_020beb04
+	bl find_socket
 	movs r6, r0
 	bne _020BF374
 	mov r0, r10
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BF374:
 	ldrh r8, [r5, #0xa]
@@ -3001,9 +3001,9 @@ _020BF444:
 	mov r1, r8
 	str r4, [r2, #0x74]
 _020BF480:
-	bl FUN_ov15_020bf1ac
+	bl mark_rwin_chunk
 	mov r0, r6
-	bl FUN_ov15_020bf1fc
+	bl merge_rwin_chunks
 	b _020BF588
 _020BF490:
 	ldr r0, [r10, #0x74]
@@ -3051,10 +3051,10 @@ _020BF4F4:
 	mov r0, r6
 	add r1, r1, r4
 	str r1, [r2, r11]
-	bl FUN_ov15_020bf1fc
+	bl merge_rwin_chunks
 	mov r0, r6
 	mov r1, r8
-	bl FUN_ov15_020bf1ac
+	bl mark_rwin_chunk
 	b _020BF588
 _020BF554:
 	cmp r2, r7
@@ -3066,7 +3066,7 @@ _020BF564:
 	bhs _020BF57C
 	mov r0, r6
 	mov r1, r8
-	bl FUN_ov15_020bf2f0
+	bl push_rwin_chunks
 	b _020BF444
 _020BF57C:
 	add r8, r8, #1
@@ -3077,7 +3077,7 @@ _020BF588:
 	bl OS_RestoreInterrupts
 	mov r0, r6
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BF5A0:
 	ldrh r1, [r5, #0xe]
@@ -3105,7 +3105,7 @@ _020BF5E8:
 	mov r0, r10
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 	b _020BF858
 _020BF604:
 	mov r0, #4
@@ -3165,7 +3165,7 @@ _020BF6BC:
 _020BF6D0:
 	mov r0, r6
 	str r7, [r6, #0x70]
-	bl FUN_ov15_020bf2ac
+	bl pull_rwin_chunks
 	b _020BF6FC
 _020BF6E0:
 	ldrb r0, [r5, #0xc]
@@ -3184,7 +3184,7 @@ _020BF6FC:
 	mov r5, #0
 	add r1, r1, r4
 	str r1, [r6, #0x24]
-	bl FUN_ov15_020bf1fc
+	bl merge_rwin_chunks
 	ldr r0, [r6, #4]
 	cmp r0, #2
 	bne _020BF738
@@ -3204,7 +3204,7 @@ _020BF738:
 	strb r1, [r6, #8]
 	bl OS_RestoreInterrupts
 	mov r0, r6
-	bl FUN_ov15_020bed54
+	bl _tcp_send_finack
 	cmp r4, #0
 	ldreq r0, [r6, #4]
 	cmpeq r0, #2
@@ -3233,7 +3233,7 @@ _020BF7A8:
 	bl OS_RestoreInterrupts
 	mov r0, r6
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	strb r7, [r6, #8]
 	ldr r0, [r6, #4]
 	cmp r0, #2
@@ -3270,19 +3270,19 @@ _020BF834:
 	strne r0, [r6, #0x24]
 	mov r0, r6
 _020BF854:
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 _020BF858:
 	bl OS_YieldThread
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020bf340
+	arm_func_end dt_ack
 
-	arm_func_start FUN_ov15_020bf860
-FUN_ov15_020bf860: ; 0x020BF860
+	arm_func_start dt_fin
+dt_fin: ; 0x020BF860
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_ov15_020beb04
+	bl find_socket
 	movs r4, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	bl OS_DisableInterrupts
@@ -3303,7 +3303,7 @@ _020BF8A0:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BF8C8:
 	ldr r1, [r4, #0x24]
@@ -3312,7 +3312,7 @@ _020BF8C8:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	mov r1, #0
 	strb r1, [r4, #8]
 	ldr r0, [r4, #4]
@@ -3330,21 +3330,21 @@ _020BF908:
 	strb r1, [r4, #8]
 	bl OS_RestoreInterrupts
 	mov r0, r4
-	bl FUN_ov15_020bed54
+	bl _tcp_send_finack
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BF92C:
 	bl OS_RestoreInterrupts
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020bf860
+	arm_func_end dt_fin
 
-	arm_func_start FUN_ov15_020bf944
-FUN_ov15_020bf944: ; 0x020BF944
+	arm_func_start dt_rst
+dt_rst: ; 0x020BF944
 	stmfd sp!, {r4, lr}
-	bl FUN_ov15_020beb04
+	bl find_socket
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
 	bl OS_YieldThread
@@ -3358,10 +3358,10 @@ FUN_ov15_020bf944: ; 0x020BF944
 	ldr r0, [r4]
 	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020bf944
+	arm_func_end dt_rst
 
-	arm_func_start FUN_ov15_020bf980
-FUN_ov15_020bf980: ; 0x020BF980
+	arm_func_start dispatch_tcp
+dispatch_tcp: ; 0x020BF980
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r2
 	mov r6, r0
@@ -3378,7 +3378,7 @@ FUN_ov15_020bf980: ; 0x020BF980
 	mov r1, r4
 	mov r2, r6
 	mov r3, #6
-	bl FUN_ov15_020bd0f8
+	bl check_tcpudpsum
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldrb r0, [r5, #0xc]
@@ -3413,7 +3413,7 @@ _020BFA30:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020befe0
+	bl dt_syn
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BFA4C:
 	tst r2, #0x28
@@ -3421,35 +3421,35 @@ _020BFA4C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bf0b8
+	bl dt_synack
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BFA68:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bf340
+	bl dt_ack
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BFA7C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bf860
+	bl dt_fin
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BFA90:
 	tst r2, #4
 	mov r0, r6
 	mov r1, r5
 	beq _020BFAA8
-	bl FUN_ov15_020bf944
+	bl dt_rst
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BFAA8:
 	mov r2, r4
-	bl FUN_ov15_020bed64
+	bl _tcp_send_rst
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020bf980
+	arm_func_end dispatch_tcp
 
-	arm_func_start FUN_ov15_020bfab4
-FUN_ov15_020bfab4: ; 0x020BFAB4
+	arm_func_start dispatch_udp
+dispatch_udp: ; 0x020BFAB4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r6, r2
 	mov r8, r0
@@ -3463,12 +3463,12 @@ FUN_ov15_020bfab4: ; 0x020BFAB4
 	mov r1, r6
 	mov r2, r8
 	mov r3, #0x11
-	bl FUN_ov15_020bd0f8
+	bl check_tcpudpsum
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020BFAF4:
 	bl OS_DisableInterrupts
-	ldr r1, _020BFCC4 ; =0x020939a4
+	ldr r1, _020BFCC4 ; =OSi_ThreadInfo
 	mov r5, r0
 	ldr r1, [r1, #8]
 	cmp r1, #0
@@ -3590,11 +3590,11 @@ _020BFCB8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020BFCC4: .word 0x020939a4
-	arm_func_end FUN_ov15_020bfab4
+_020BFCC4: .word OSi_ThreadInfo
+	arm_func_end dispatch_udp
 
-	arm_func_start FUN_ov15_020bfcc8
-FUN_ov15_020bfcc8: ; 0x020BFCC8
+	arm_func_start check_frag
+check_frag: ; 0x020BFCC8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r6, #0
@@ -3669,7 +3669,7 @@ _020BFDD0:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BFDDC:
-	ldr r1, _020BFF90 ; =0x020E6D40
+	ldr r1, _020BFF90 ; =wfailed
 	add r0, r5, #0xe
 	ldr r1, [r1, #0x14]
 	add r0, r0, #0x1000
@@ -3705,7 +3705,7 @@ _020BFE48:
 	mov r4, r6
 	bls _020BFE84
 _020BFE64:
-	ldr r1, _020BFF90 ; =0x020E6D40
+	ldr r1, _020BFF90 ; =wfailed
 	strh r6, [r7, #4]
 	ldr r0, [r7, #0x34]
 	ldr r1, [r1, #0x44]
@@ -3785,11 +3785,11 @@ _020BFF30:
 _020BFF84: .word 0x00003FFF
 _020BFF88: .word ov15_020E7538
 _020BFF8C: .word 0x00001FFF
-_020BFF90: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bfcc8
+_020BFF90: .word wfailed
+	arm_func_end check_frag
 
-	arm_func_start FUN_ov15_020bff94
-FUN_ov15_020bff94: ; 0x020BFF94
+	arm_func_start dispatch_ip
+dispatch_ip: ; 0x020BFF94
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
 	ldrh r7, [r4, #0xe]
@@ -3831,20 +3831,20 @@ FUN_ov15_020bff94: ; 0x020BFF94
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r1, r2
 	ldmlofd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov15_020bd1fc
+	bl ip_isme
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrb r1, [r4]
 	mov r0, r4
 	mov r1, r1, lsl #0x1c
 	mov r1, r1, lsr #0x1a
-	bl FUN_ov15_020bd0dc
+	bl calc_checksum
 	ldr r1, _020C0170 ; =0x0000FFFF
 	cmp r0, r1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrh r12, [r4, #0x12]
 	ldrh r3, [r4, #0x10]
-	ldr r2, _020C0174 ; =0x020E6D40
+	ldr r2, _020C0174 ; =wfailed
 	mov r0, r12, lsl #8
 	mov r1, r3, lsl #8
 	orr r3, r1, r3, asr #8
@@ -3870,11 +3870,11 @@ FUN_ov15_020bff94: ; 0x020BFF94
 	mov r1, r2, lsr #0x10
 	orr r1, r1, r3, lsl #16
 	mov r2, #1
-	bl FUN_ov15_020bd8b8
+	bl reg_arpcache
 _020C00D8:
 	add r1, sp, #0
 	mov r0, r4
-	bl FUN_ov15_020bfcc8
+	bl check_frag
 	movs r4, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrh r2, [r4, #2]
@@ -3889,42 +3889,42 @@ _020C00D8:
 	add r1, r4, r3, lsr #26
 	sub r2, r2, r3, lsr #26
 	bne _020C0124
-	bl FUN_ov15_020bfab4
+	bl dispatch_udp
 	b _020C0150
 _020C0124:
-	ldr r3, _020C0174 ; =0x020E6D40
+	ldr r3, _020C0174 ; =wfailed
 	ldr r3, [r3, #0x50]
 	cmp r3, #0
 	beq _020C0150
 	cmp r12, #1
 	bne _020C0144
-	bl FUN_ov15_020be8a4
+	bl dispatch_icmp
 	b _020C0150
 _020C0144:
 	cmp r12, #6
 	bne _020C0150
-	bl FUN_ov15_020bf980
+	bl dispatch_tcp
 _020C0150:
 	ldr r0, [sp]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, _020C0174 ; =0x020E6D40
+	ldr r1, _020C0174 ; =wfailed
 	sub r0, r4, #0xe
 	ldr r1, [r1, #0x44]
 	blx r1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C0170: .word 0x0000FFFF
-_020C0174: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020bff94
+_020C0174: .word wfailed
+	arm_func_end dispatch_ip
 
-	arm_func_start FUN_ov15_020c0178
-FUN_ov15_020c0178: ; 0x020C0178
+	arm_func_start tcpip
+tcpip: ; 0x020C0178
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _020C01E4 ; =0x00000806
 	add r4, sp, #0
 _020C0184:
 	mov r0, r4
-	bl FUN_ov15_020bd53c
+	bl receive_packet
 	ldr r3, [sp]
 	cmp r3, #0x22
 	bls _020C01DC
@@ -3941,23 +3941,23 @@ _020C0184:
 _020C01C0:
 	add r0, r0, #0xe
 	sub r1, r3, #0xe
-	bl FUN_ov15_020bff94
+	bl dispatch_ip
 	b _020C01DC
 _020C01D0:
 	add r0, r0, #0xe
 	sub r1, r3, #0xe
-	bl FUN_ov15_020be528
+	bl dispatch_arp
 _020C01DC:
-	bl FUN_ov15_020bd608
+	bl throw_packet
 	b _020C0184
 _020C01E4: .word 0x00000806
-	arm_func_end FUN_ov15_020c0178
+	arm_func_end tcpip
 
-	arm_func_start FUN_ov15_020c01e8
-FUN_ov15_020c01e8: ; 0x020C01E8
+	arm_func_start CPS_SocGetEport
+CPS_SocGetEport: ; 0x020C01E8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r0, _020C0284 ; =0x020939a4
-	ldr r2, _020C0288 ; =0x020E6D40
+	ldr r0, _020C0284 ; =OSi_ThreadInfo
+	ldr r2, _020C0288 ; =wfailed
 	ldr r0, [r0, #8]
 	ldr r1, _020C028C ; =0x00001388
 	mov r4, #0x400
@@ -3997,18 +3997,18 @@ _020C0264:
 _020C0270:
 	cmp r6, #0
 	bne _020C0208
-	ldr r0, _020C0288 ; =0x020E6D40
+	ldr r0, _020C0288 ; =wfailed
 	ldrh r0, [r0, #6]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020C0284: .word 0x020939a4
-_020C0288: .word ov15_020E6D40
+_020C0284: .word OSi_ThreadInfo
+_020C0288: .word wfailed
 _020C028C: .word 0x00001388
-	arm_func_end FUN_ov15_020c01e8
+	arm_func_end CPS_SocGetEport
 
-	arm_func_start FUN_ov15_020c0290
-FUN_ov15_020c0290: ; 0x020C0290
+	arm_func_start get_seqno
+get_seqno: ; 0x020C0290
 	stmfd sp!, {r3, lr}
-	ldr r1, _020C02D0 ; =0x020E6D40
+	ldr r1, _020C02D0 ; =wfailed
 	ldr r12, [r1, #0x80]
 	ldr r0, [r1, #0x78]
 	ldr r2, [r1, #0x7c]
@@ -4023,31 +4023,31 @@ FUN_ov15_020c0290: ; 0x020C0290
 	adc r0, r0, r3
 	str r0, [r1, #0x7c]
 	ldmfd sp!, {r3, pc}
-_020C02D0: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0290
+_020C02D0: .word wfailed
+	arm_func_end get_seqno
 
-	arm_func_start FUN_ov15_020c02d4
-FUN_ov15_020c02d4: ; 0x020C02D4
-	ldr r1, _020C02E4 ; =0x020939a4
+	arm_func_start CPS_SocRegister
+CPS_SocRegister: ; 0x020C02D4
+	ldr r1, _020C02E4 ; =OSi_ThreadInfo
 	ldr r1, [r1, #4]
 	str r0, [r1, #0xa4]
 	bx lr
-_020C02E4: .word 0x020939a4
-	arm_func_end FUN_ov15_020c02d4
+_020C02E4: .word OSi_ThreadInfo
+	arm_func_end CPS_SocRegister
 
-	arm_func_start FUN_ov15_020c02e8
-FUN_ov15_020c02e8: ; 0x020C02E8
-	ldr r0, _020C02FC ; =0x020939a4
+	arm_func_start CPS_SocUnRegister
+CPS_SocUnRegister: ; 0x020C02E8
+	ldr r0, _020C02FC ; =OSi_ThreadInfo
 	mov r1, #0
 	ldr r0, [r0, #4]
 	str r1, [r0, #0xa4]
 	bx lr
-_020C02FC: .word 0x020939a4
-	arm_func_end FUN_ov15_020c02e8
+_020C02FC: .word OSi_ThreadInfo
+	arm_func_end CPS_SocUnRegister
 
-	arm_func_start FUN_ov15_020c0300
-FUN_ov15_020c0300: ; 0x020C0300
-	ldr r0, _020C0324 ; =0x020939a4
+	arm_func_start CPS_SocDatagramMode
+CPS_SocDatagramMode: ; 0x020C0300
+	ldr r0, _020C0324 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r1, [r0, #0xa4]
 	cmp r1, #0
@@ -4056,20 +4056,20 @@ FUN_ov15_020c0300: ; 0x020C0300
 	movne r0, #0
 	strne r0, [r1, #0x50]
 	bx lr
-_020C0324: .word 0x020939a4
-	arm_func_end FUN_ov15_020c0300
+_020C0324: .word OSi_ThreadInfo
+	arm_func_end CPS_SocDatagramMode
 
-	arm_func_start FUN_ov15_020c0328
-FUN_ov15_020c0328: ; 0x020C0328
+	arm_func_start CPS_SocBind
+CPS_SocBind: ; 0x020C0328
 	stmfd sp!, {r4, lr}
-	ldr r3, _020C037C ; =0x020939a4
+	ldr r3, _020C037C ; =OSi_ThreadInfo
 	ldr r3, [r3, #4]
 	ldr r4, [r3, #0xa4]
 	cmp r4, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r3, _020C0380 ; =0x7F000001
 	cmp r2, r3
-	ldreq r2, _020C0384 ; =0x020E6D40
+	ldreq r2, _020C0384 ; =wfailed
 	ldreq r2, [r2, #0x50]
 	cmp r0, #0
 	strh r1, [r4, #0x1a]
@@ -4079,18 +4079,18 @@ FUN_ov15_020c0328: ; 0x020C0328
 	str r2, [r4, #0x1c]
 	strneh r0, [r4, #0xa]
 	ldmnefd sp!, {r4, pc}
-	bl FUN_ov15_020c01e8
+	bl CPS_SocGetEport
 	strh r0, [r4, #0xa]
 	ldmfd sp!, {r4, pc}
-_020C037C: .word 0x020939a4
+_020C037C: .word OSi_ThreadInfo
 _020C0380: .word 0x7F000001
-_020C0384: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0328
+_020C0384: .word wfailed
+	arm_func_end CPS_SocBind
 
-	arm_func_start FUN_ov15_020c0388
-FUN_ov15_020c0388: ; 0x020C0388
+	arm_func_start CPS_SocUse
+CPS_SocUse: ; 0x020C0388
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _020C03D0 ; =0x020939a4
+	ldr r0, _020C03D0 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r5, [r0, #0xa4]
 	cmp r5, #0
@@ -4107,49 +4107,49 @@ FUN_ov15_020c0388: ; 0x020C0388
 	str r4, [r5, #0x44]
 	strb r4, [r5, #0x33]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020C03D0: .word 0x020939a4
-	arm_func_end FUN_ov15_020c0388
+_020C03D0: .word OSi_ThreadInfo
+	arm_func_end CPS_SocUse
 
-	arm_func_start FUN_ov15_020c03d4
-FUN_ov15_020c03d4: ; 0x020C03D4
-	ldr r0, _020C03F0 ; =0x020939a4
+	arm_func_start CPS_SocRelease
+CPS_SocRelease: ; 0x020C03D4
+	ldr r0, _020C03F0 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r1, [r0, #0xa4]
 	cmp r1, #0
 	movne r0, #0
 	strne r0, [r1]
 	bx lr
-_020C03F0: .word 0x020939a4
-	arm_func_end FUN_ov15_020c03d4
+_020C03F0: .word OSi_ThreadInfo
+	arm_func_end CPS_SocRelease
 
-	arm_func_start FUN_ov15_020c03f4
-FUN_ov15_020c03f4: ; 0x020C03F4
-	ldr r1, _020C0408 ; =0x020939a4
+	arm_func_start CPS_SocDup
+CPS_SocDup: ; 0x020C03F4
+	ldr r1, _020C0408 ; =OSi_ThreadInfo
 	ldr r1, [r1, #4]
 	ldr r1, [r1, #0xa4]
 	str r1, [r0, #0xa4]
 	bx lr
-_020C0408: .word 0x020939a4
-	arm_func_end FUN_ov15_020c03f4
+_020C0408: .word OSi_ThreadInfo
+	arm_func_end CPS_SocDup
 
-	arm_func_start FUN_ov15_020c040c
-FUN_ov15_020c040c: ; 0x020C040C
-	ldr r1, _020C0424 ; =0x020939a4
+	arm_func_start CPS_SetUdpCallback
+CPS_SetUdpCallback: ; 0x020C040C
+	ldr r1, _020C0424 ; =OSi_ThreadInfo
 	ldr r1, [r1, #4]
 	ldr r1, [r1, #0xa4]
 	cmp r1, #0
 	strne r0, [r1, #0x44]
 	bx lr
-_020C0424: .word 0x020939a4
-	arm_func_end FUN_ov15_020c040c
+_020C0424: .word OSi_ThreadInfo
+	arm_func_end CPS_SetUdpCallback
 
-	arm_func_start FUN_ov15_020c0428
-FUN_ov15_020c0428: ; 0x020C0428
+	arm_func_start CPSi_TcpConnectRaw
+CPSi_TcpConnectRaw: ; 0x020C0428
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
-	bl FUN_ov15_020c0290
+	bl get_seqno
 	mov r7, #0
-	ldr r4, _020C04D4 ; =0x020E6D40
+	ldr r4, _020C04D4 ; =wfailed
 	mov r8, r0
 	mov r5, #1
 	mov r11, r7
@@ -4163,7 +4163,7 @@ _020C044C:
 	mov r0, r10
 	mov r1, r6
 	str r2, [r10, #0x10]
-	bl FUN_ov15_020bec68
+	bl _tcp_send_handshake
 	bl OS_DisableInterrupts
 	ldrb r1, [r10, #8]
 	mov r9, r0
@@ -4191,13 +4191,13 @@ _020C049C:
 _020C04CC:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020C04D4: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0428
+_020C04D4: .word wfailed
+	arm_func_end CPSi_TcpConnectRaw
 
-	arm_func_start FUN_ov15_020c04d8
-FUN_ov15_020c04d8: ; 0x020C04D8
+	arm_func_start CPS_TcpConnect
+CPS_TcpConnect: ; 0x020C04D8
 	stmfd sp!, {r3, lr}
-	ldr r0, _020C0514 ; =0x020939a4
+	ldr r0, _020C0514 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0xa4]
 	cmp r0, #0
@@ -4205,19 +4205,19 @@ FUN_ov15_020c04d8: ; 0x020C04D8
 	ldrb r1, [r0, #9]
 	cmp r1, #0
 	beq _020C0504
-	bl FUN_ov15_020da1a8
+	bl CPSi_SslConnect
 	ldmfd sp!, {r3, pc}
 _020C0504:
-	bl FUN_ov15_020c0428
+	bl CPSi_TcpConnectRaw
 	ldmfd sp!, {r3, pc}
 _020C050C:
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
-_020C0514: .word 0x020939a4
-	arm_func_end FUN_ov15_020c04d8
+_020C0514: .word OSi_ThreadInfo
+	arm_func_end CPS_TcpConnect
 
-	arm_func_start FUN_ov15_020c0518
-FUN_ov15_020c0518: ; 0x020C0518
+	arm_func_start CPSi_TcpShutdownRaw
+CPSi_TcpShutdownRaw: ; 0x020C0518
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_YieldThread
@@ -4231,7 +4231,7 @@ FUN_ov15_020c0518: ; 0x020C0518
 	strb r1, [r4, #8]
 	bl OS_RestoreInterrupts
 	mov r0, r4
-	bl FUN_ov15_020bed54
+	bl _tcp_send_finack
 	ldmfd sp!, {r4, pc}
 _020C0554:
 	cmp r2, #0
@@ -4239,17 +4239,17 @@ _020C0554:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	mov r1, #2
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	ldmfd sp!, {r4, pc}
 _020C0570:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020c0518
+	arm_func_end CPSi_TcpShutdownRaw
 
-	arm_func_start FUN_ov15_020c0578
-FUN_ov15_020c0578: ; 0x020C0578
+	arm_func_start CPS_TcpShutdown
+CPS_TcpShutdown: ; 0x020C0578
 	stmfd sp!, {r4, lr}
-	ldr r0, _020C05B0 ; =0x020939a4
+	ldr r0, _020C05B0 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r4, [r0, #0xa4]
 	cmp r4, #0
@@ -4258,18 +4258,18 @@ FUN_ov15_020c0578: ; 0x020C0578
 	cmp r0, #0
 	beq _020C05A4
 	mov r0, r4
-	bl FUN_ov15_020da618
+	bl CPSi_SslShutdown
 _020C05A4:
 	mov r0, r4
-	bl FUN_ov15_020c0518
+	bl CPSi_TcpShutdownRaw
 	ldmfd sp!, {r4, pc}
-_020C05B0: .word 0x020939a4
-	arm_func_end FUN_ov15_020c0578
+_020C05B0: .word OSi_ThreadInfo
+	arm_func_end CPS_TcpShutdown
 
-	arm_func_start FUN_ov15_020c05b4
-FUN_ov15_020c05b4: ; 0x020C05B4
+	arm_func_start CPS_TcpClose
+CPS_TcpClose: ; 0x020C05B4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r0, _020C0634 ; =0x020939a4
+	ldr r0, _020C0634 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r4, [r0, #0xa4]
 	cmp r4, #0
@@ -4278,15 +4278,15 @@ FUN_ov15_020c05b4: ; 0x020C05B4
 	cmp r0, #0
 	beq _020C05E0
 	mov r0, r4
-	bl FUN_ov15_020da69c
+	bl CPSi_SslClose
 _020C05E0:
 	bl OS_GetTick
 	mov r6, r0, lsr #0x10
 	orr r6, r6, r1, lsl #16
-	ldr r5, _020C0638 ; =0x020E6D40
+	ldr r5, _020C0638 ; =wfailed
 	b _020C05F8
 _020C05F4:
-	bl FUN_ov15_020bcc50
+	bl OS_YieldThread__
 _020C05F8:
 	ldr r0, [r5, #0x18]
 	blx r0
@@ -4304,12 +4304,12 @@ _020C0628:
 	mov r0, #0
 	strb r0, [r4, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
-_020C0634: .word 0x020939a4
-_020C0638: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c05b4
+_020C0634: .word OSi_ThreadInfo
+_020C0638: .word wfailed
+	arm_func_end CPS_TcpClose
 
-	arm_func_start FUN_ov15_020c063c
-FUN_ov15_020c063c: ; 0x020C063C
+	arm_func_start udp_read_raw
+udp_read_raw: ; 0x020C063C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r1
 	mov r9, r0
@@ -4333,10 +4333,10 @@ _020C067C:
 	str r6, [r9]
 	ldr r0, [r8, #0x4c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020c063c
+	arm_func_end udp_read_raw
 
-	arm_func_start FUN_ov15_020c0690
-FUN_ov15_020c0690: ; 0x020C0690
+	arm_func_start CPSi_TcpReadRaw
+CPSi_TcpReadRaw: ; 0x020C0690
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r1
 	ldrb r1, [r4, #8]
@@ -4345,7 +4345,7 @@ FUN_ov15_020c0690: ; 0x020C0690
 	bne _020C06B4
 	mov r0, r4
 	mov r1, #1
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 _020C06B4:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
@@ -4381,12 +4381,12 @@ _020C0710:
 	ldrne r0, [r4, #0x4c]
 	moveq r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020c0690
+	arm_func_end CPSi_TcpReadRaw
 
-	arm_func_start FUN_ov15_020c0728
-FUN_ov15_020c0728: ; 0x020C0728
+	arm_func_start CPS_SocRead
+CPS_SocRead: ; 0x020C0728
 	stmfd sp!, {r3, lr}
-	ldr r1, _020C0788 ; =0x020939a4
+	ldr r1, _020C0788 ; =OSi_ThreadInfo
 	ldr r1, [r1, #4]
 	ldr r1, [r1, #0xa4]
 	cmp r1, #0
@@ -4396,27 +4396,27 @@ FUN_ov15_020c0728: ; 0x020C0728
 	and r2, r2, #0xff
 	cmp r2, #1
 	bhi _020C075C
-	bl FUN_ov15_020c063c
+	bl udp_read_raw
 	ldmfd sp!, {r3, pc}
 _020C075C:
 	ldrb r2, [r1, #9]
 	cmp r2, #0
 	beq _020C0770
-	bl FUN_ov15_020da1fc
+	bl CPSi_SslRead
 	ldmfd sp!, {r3, pc}
 _020C0770:
-	bl FUN_ov15_020c0690
+	bl CPSi_TcpReadRaw
 	ldmfd sp!, {r3, pc}
 _020C0778:
 	mov r1, #0
 	str r1, [r0]
 	mov r0, r1
 	ldmfd sp!, {r3, pc}
-_020C0788: .word 0x020939a4
-	arm_func_end FUN_ov15_020c0728
+_020C0788: .word OSi_ThreadInfo
+	arm_func_end CPS_SocRead
 
-	arm_func_start FUN_ov15_020c078c
-FUN_ov15_020c078c: ; 0x020C078C
+	arm_func_start CPSi_SocConsumeRaw
+CPSi_SocConsumeRaw: ; 0x020C078C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r1
 	mov r9, r0
@@ -4509,14 +4509,14 @@ _020C08A0:
 _020C08CC:
 	mov r0, r7
 	mov r1, #0
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020c078c
+	arm_func_end CPSi_SocConsumeRaw
 
-	arm_func_start FUN_ov15_020c08dc
-FUN_ov15_020c08dc: ; 0x020C08DC
+	arm_func_start CPS_SocConsume
+CPS_SocConsume: ; 0x020C08DC
 	stmfd sp!, {r3, lr}
-	ldr r1, _020C0910 ; =0x020939a4
+	ldr r1, _020C0910 ; =OSi_ThreadInfo
 	ldr r1, [r1, #4]
 	ldr r1, [r1, #0xa4]
 	cmp r1, #0
@@ -4524,16 +4524,16 @@ FUN_ov15_020c08dc: ; 0x020C08DC
 	ldrb r2, [r1, #9]
 	cmp r2, #0
 	beq _020C0908
-	bl FUN_ov15_020da2d4
+	bl CPSi_SslConsume
 	ldmfd sp!, {r3, pc}
 _020C0908:
-	bl FUN_ov15_020c078c
+	bl CPSi_SocConsumeRaw
 	ldmfd sp!, {r3, pc}
-_020C0910: .word 0x020939a4
-	arm_func_end FUN_ov15_020c08dc
+_020C0910: .word OSi_ThreadInfo
+	arm_func_end CPS_SocConsume
 
-	arm_func_start FUN_ov15_020c0914
-FUN_ov15_020c0914: ; 0x020C0914
+	arm_func_start tcp_write_do
+tcp_write_do: ; 0x020C0914
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r8, r2
 	ldr r6, [r8, #0x40]
@@ -4546,7 +4546,7 @@ FUN_ov15_020c0914: ; 0x020C0914
 	add r7, r0, #4
 	b _020C09B4
 _020C0940:
-	ldr r0, _020C09D0 ; =0x020E6D40
+	ldr r0, _020C09D0 ; =wfailed
 	ldrh r4, [r8, #0x3a]
 	ldrh r0, [r0, #4]
 	ldr r1, [r8, #0x40]
@@ -4569,7 +4569,7 @@ _020C0940:
 	mov r1, r4
 	mov r2, r8
 	mov r3, #0x18
-	bl FUN_ov15_020bdfd4
+	bl _send_tcp
 	mov r4, r0
 	bl OS_YieldThread
 	sub r5, r5, r4
@@ -4584,17 +4584,17 @@ _020C09B4:
 _020C09C8:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020C09D0: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0914
+_020C09D0: .word wfailed
+	arm_func_end tcp_write_do
 
-	arm_func_start FUN_ov15_020c09d4
-FUN_ov15_020c09d4: ; 0x020C09D4
+	arm_func_start tcp_write_do2
+tcp_write_do2: ; 0x020C09D4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r2
 	mov r4, r3
 	ldr r2, [sp, #0x10]
 	ldr r3, [sp, #0x14]
-	bl FUN_ov15_020c0914
+	bl tcp_write_do
 	cmp r0, #0
 	cmpne r4, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -4602,12 +4602,12 @@ FUN_ov15_020c09d4: ; 0x020C09D4
 	mov r0, r5
 	mov r1, r4
 	mov r3, #0
-	bl FUN_ov15_020c0914
+	bl tcp_write_do
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020c09d4
+	arm_func_end tcp_write_do2
 
-	arm_func_start FUN_ov15_020c0a10
-FUN_ov15_020c0a10: ; 0x020C0A10
+	arm_func_start CPSi_TcpWrite2Raw
+CPSi_TcpWrite2Raw: ; 0x020C0A10
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	mov r4, #0
@@ -4633,13 +4633,13 @@ _020C0A54:
 	mov r1, r10
 	mov r2, r9
 	str r6, [sp, #4]
-	bl FUN_ov15_020c09d4
+	bl tcp_write_do2
 	bl OS_GetTick
 	mov r5, r0, lsr #0x10
-	ldr r4, _020C0C14 ; =0x020E6D40
+	ldr r4, _020C0C14 ; =wfailed
 	orr r5, r5, r1, lsl #16
 _020C0A84:
-	bl FUN_ov15_020bcc50
+	bl OS_YieldThread__
 	ldr r0, [r4, #0x18]
 	blx r0
 	cmp r0, #0
@@ -4691,10 +4691,10 @@ _020C0B18:
 	bl OS_GetTick
 	mov r7, r0, lsr #0x10
 	orr r7, r7, r1, lsl #16
-	ldr r4, _020C0C14 ; =0x020E6D40
+	ldr r4, _020C0C14 ; =wfailed
 	b _020C0B64
 _020C0B54:
-	bl FUN_ov15_020bcc50
+	bl OS_YieldThread__
 	ldrh r0, [r8, #0x38]
 	cmp r0, #0
 	bne _020C0B8C
@@ -4728,7 +4728,7 @@ _020C0BA0:
 	sub r10, r0, r1
 	str r9, [sp, #8]
 _020C0BC8:
-	ldr r0, _020C0C14 ; =0x020E6D40
+	ldr r0, _020C0C14 ; =wfailed
 	ldr r0, [r0, #0x18]
 	blx r0
 	cmp r0, #0
@@ -4748,13 +4748,13 @@ _020C0C08:
 	ldr r0, [sp, #0x10]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020C0C14: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0a10
+_020C0C14: .word wfailed
+	arm_func_end CPSi_TcpWrite2Raw
 
-	arm_func_start FUN_ov15_020c0c18
-FUN_ov15_020c0c18: ; 0x020C0C18
+	arm_func_start CPSi_SocWrite2
+CPSi_SocWrite2: ; 0x020C0C18
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r12, _020C0CE0 ; =0x020939a4
+	ldr r12, _020C0CE0 ; =OSi_ThreadInfo
 	mov r7, r1
 	ldr r12, [r12, #4]
 	mov r6, r2
@@ -4768,14 +4768,14 @@ FUN_ov15_020c0c18: ; 0x020C0C18
 	cmp r7, #0
 	beq _020C0C58
 	mov r2, r4
-	bl FUN_ov15_020bde98
+	bl send_udp
 _020C0C58:
 	cmp r5, #0
 	beq _020C0C70
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bde98
+	bl send_udp
 _020C0C70:
 	add r0, r7, r5
 	b _020C0CC8
@@ -4785,14 +4785,14 @@ _020C0C78:
 	cmp r7, #0
 	beq _020C0C90
 	mov r2, r4
-	bl FUN_ov15_020bdde4
+	bl send_ping
 _020C0C90:
 	cmp r5, #0
 	beq _020C0CA8
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020bdde4
+	bl send_ping
 _020C0CA8:
 	b _020C0C70
 _020C0CAC:
@@ -4800,26 +4800,26 @@ _020C0CAC:
 	cmp r12, #0
 	str r4, [sp]
 	beq _020C0CC4
-	bl FUN_ov15_020da4e0
+	bl CPSi_SslWrite2
 	b _020C0CC8
 _020C0CC4:
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 _020C0CC8:
-	ldr r1, _020C0CE4 ; =0x020E6D40
+	ldr r1, _020C0CE4 ; =wfailed
 	ldrb r1, [r1]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C0CD8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020C0CE0: .word 0x020939a4
-_020C0CE4: .word ov15_020E6D40
-	arm_func_end FUN_ov15_020c0c18
+_020C0CE0: .word OSi_ThreadInfo
+_020C0CE4: .word wfailed
+	arm_func_end CPSi_SocWrite2
 
 	arm_func_start FUN_ov15_020c0ce8
 FUN_ov15_020c0ce8: ; 0x020C0CE8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r3, _020C0D78 ; =0x020939a4
+	ldr r3, _020C0D78 ; =OSi_ThreadInfo
 	mov r2, r0
 	ldr r4, [r3, #4]
 	mov r3, r1
@@ -4831,7 +4831,7 @@ FUN_ov15_020c0ce8: ; 0x020C0CE8
 	beq _020C0D60
 	ldr r0, [r5, #0x68]
 	mov r1, r4
-	bl FUN_ov15_020c0c18
+	bl CPSi_SocWrite2
 	ldr r2, [r5, #0x6c]
 	mov r4, r0
 	cmp r4, r2
@@ -4851,18 +4851,18 @@ FUN_ov15_020c0ce8: ; 0x020C0CE8
 _020C0D60:
 	mov r2, #0
 	mov r3, r2
-	bl FUN_ov15_020c0c18
+	bl CPSi_SocWrite2
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C0D70:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_020C0D78: .word 0x020939a4
+_020C0D78: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020c0ce8
 
 	arm_func_start FUN_ov15_020c0d7c
 FUN_ov15_020c0d7c: ; 0x020C0D7C
 	stmfd sp!, {r4, lr}
-	ldr r0, _020C0DF8 ; =0x020939a4
+	ldr r0, _020C0DF8 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r4, [r0, #0xa4]
 	cmp r4, #0
@@ -4872,7 +4872,7 @@ FUN_ov15_020c0d7c: ; 0x020C0D7C
 	bne _020C0DAC
 	mov r0, r4
 	mov r1, #1
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 _020C0DAC:
 	ldrb r0, [r4, #9]
 	cmp r0, #0
@@ -4895,13 +4895,13 @@ _020C0DC4:
 _020C0DF0:
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-_020C0DF8: .word 0x020939a4
+_020C0DF8: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020c0d7c
 
 	arm_func_start FUN_ov15_020c0dfc
 FUN_ov15_020c0dfc: ; 0x020C0DFC
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _020C0E38 ; =0x020939a4
+	ldr r0, _020C0E38 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r5, [r0, #0xa4]
 	cmp r5, #0
@@ -4912,22 +4912,22 @@ FUN_ov15_020c0dfc: ; 0x020C0DFC
 	ldr r0, [r5, #0x68]
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov15_020c0c18
+	bl CPSi_SocWrite2
 	str r4, [r5, #0x6c]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020C0E38: .word 0x020939a4
+_020C0E38: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020c0dfc
 
 	arm_func_start FUN_ov15_020c0e3c
 FUN_ov15_020c0e3c: ; 0x020C0E3C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _020C0EB8 ; =0x020E6D40
+	ldr r4, _020C0EB8 ; =wfailed
 	ldr r0, [r4, #0x50]
-	bl FUN_ov15_020bd714
+	bl send_arprequest
 	mov r0, #0x64
 	bl OS_Sleep
 	ldr r0, [r4, #0x50]
-	bl FUN_ov15_020bd714
+	bl send_arprequest
 	bl OS_GetTick
 	mov r6, r0, lsr #0x10
 	orr r6, r6, r1, lsl #16
@@ -4954,13 +4954,13 @@ _020C0E88:
 _020C0EB0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-_020C0EB8: .word ov15_020E6D40
+_020C0EB8: .word wfailed
 	arm_func_end FUN_ov15_020c0e3c
 
 	arm_func_start FUN_ov15_020c0ebc
 FUN_ov15_020c0ebc: ; 0x020C0EBC
 	stmfd sp!, {r4, lr}
-	ldr r4, _020C0EF0 ; =0x020E6D40
+	ldr r4, _020C0EF0 ; =wfailed
 	ldr r0, [r4, #0x28]
 	blx r0
 	ldr r0, [r4, #0x50]
@@ -4970,18 +4970,18 @@ FUN_ov15_020c0ebc: ; 0x020C0EBC
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	mov r0, #4
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 	ldmfd sp!, {r4, pc}
-_020C0EF0: .word ov15_020E6D40
+_020C0EF0: .word wfailed
 	arm_func_end FUN_ov15_020c0ebc
 
-	arm_func_start FUN_ov15_020c0ef4
-FUN_ov15_020c0ef4: ; 0x020C0EF4
+	arm_func_start scavenger
+scavenger: ; 0x020C0EF4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r4, _020C1318 ; =0x020E6EB8
 	mov r5, #0
-	ldr r3, _020C131C ; =0x020E6D40
+	ldr r3, _020C131C ; =wfailed
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0xa0
@@ -4995,22 +4995,22 @@ FUN_ov15_020c0ef4: ; 0x020C0EF4
 	str r2, [r4, #0x54]
 	mov r0, r4
 	str r1, [r4, #0x58]
-	bl FUN_ov15_020c02d4
+	bl CPS_SocRegister
 	mov r6, #1
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	str r6, [sp, #4]
 	str r6, [sp]
 	str r6, [r0, #0x4c]
 _020C0F54:
 	mov r0, #0x3e8
 	bl OS_Sleep
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x58]
 	cmp r0, #0
 	bne _020C12F0
 	bl OS_GetTick
 	mov r7, r0, lsr #0x10
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	orr r7, r7, r1, lsl #16
 	ldr r0, [r0, #0x18]
 	blx r0
@@ -5020,7 +5020,7 @@ _020C0F54:
 	subs r0, r0, #1
 	str r0, [sp, #4]
 	bne _020C1168
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0xc]
 	tst r0, #1
 	beq _020C0FC0
@@ -5041,7 +5041,7 @@ _020C0FCC: ; jump table
 _020C0FDC:
 	ldr r0, [sp]
 	cmp r0, #0
-	ldrne r0, _020C131C ; =0x020E6D40
+	ldrne r0, _020C131C ; =wfailed
 	movne r1, #2
 	strne r1, [r0, #0x4c]
 	movne r0, #0
@@ -5058,7 +5058,7 @@ _020C0FDC:
 _020C101C:
 	b _020C104C
 _020C1020:
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _020C103C
@@ -5070,7 +5070,7 @@ _020C103C:
 	beq _020C1058
 _020C1044:
 	mov r0, #5
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 _020C104C:
 	bl FUN_ov15_020c0ebc
 _020C1050:
@@ -5083,7 +5083,7 @@ _020C1058:
 	bne _020C1168
 _020C1068:
 	mov r0, #4
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 	b _020C1050
 _020C1074:
 	add r0, sp, #4
@@ -5096,7 +5096,7 @@ _020C1074:
 	movlo r5, #2
 	blo _020C1168
 _020C1098:
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _020C10BC
@@ -5122,7 +5122,7 @@ _020C10DC:
 	bl FUN_ov15_020c1bbc
 	cmp r0, #0
 	beq _020C1138
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x48]
 	cmp r0, #0
 	beq _020C1114
@@ -5148,13 +5148,13 @@ _020C1138:
 	cmp r0, #0x3c
 	bhs _020C1168
 	mov r0, #3
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 	mov r6, #1
 	b _020C1160
 _020C1154:
 	mov r6, #1
 	mov r0, r6
-	bl FUN_ov15_020bcb50
+	bl reset_network_vars
 _020C1160:
 	str r6, [sp, #4]
 	mov r5, #0
@@ -5177,7 +5177,7 @@ _020C1178:
 	strlt r3, [r1]
 	cmp r2, #8
 	blt _020C1178
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	mov r9, #1
 	ldr r0, [r0, #0x2c]
 	mov r8, #0
@@ -5185,10 +5185,10 @@ _020C1178:
 	beq _020C11D4
 	subs r6, r6, #1
 	bne _020C11D4
-	bl FUN_ov15_020bd714
+	bl send_arprequest
 	mov r6, #0x69
 _020C11D4:
-	ldr r0, _020C1330 ; =0x020939a4
+	ldr r0, _020C1330 ; =OSi_ThreadInfo
 	ldr r4, [r0, #8]
 	cmp r4, #0
 	beq _020C1284
@@ -5239,7 +5239,7 @@ _020C1278:
 	bne _020C11E4
 _020C1284:
 	mov r10, #0
-	ldr r11, _020C131C ; =0x020E6D40
+	ldr r11, _020C131C ; =wfailed
 	ldr r4, _020C1334 ; =0x020E7538
 	mov r9, r10
 _020C1294:
@@ -5261,14 +5261,14 @@ _020C12C4:
 	blt _020C1294
 	mov r0, r7
 	bl FUN_ov15_020da704
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x34]
 	cmp r0, #0
 	beq _020C0F54
 	blx r0
 	b _020C0F54
 _020C12F0:
-	ldr r0, _020C131C ; =0x020E6D40
+	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0xc]
 	tst r0, #1
 	bne _020C130C
@@ -5276,28 +5276,28 @@ _020C12F0:
 	beq _020C130C
 	bl FUN_ov15_020c1cb8
 _020C130C:
-	bl FUN_ov15_020c02e8
+	bl CPS_SocUnRegister
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C1318: .word ov15_020E6EB8
-_020C131C: .word ov15_020E6D40
+_020C131C: .word wfailed
 _020C1320: .word ov15_020E73B8
 _020C1324: .word ov15_020E7238
 _020C1328: .word ov15_020E6E58
 _020C132C: .word 0x000003BD
-_020C1330: .word 0x020939a4
+_020C1330: .word OSi_ThreadInfo
 _020C1334: .word ov15_020E7538
-	arm_func_end FUN_ov15_020c0ef4
+	arm_func_end scavenger
 
-	arm_func_start FUN_ov15_020c1338
-FUN_ov15_020c1338: ; 0x020C1338
+	arm_func_start dacktimer_reschedule
+dacktimer_reschedule: ; 0x020C1338
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mvn r5, #0
 	bl OS_DisableInterrupts
 	mov r7, r0
 	bl OS_GetTick
-	ldr r1, _020C1418 ; =0x020939a4
+	ldr r1, _020C1418 ; =OSi_ThreadInfo
 	mov r8, r0
 	ldr r6, [r1, #8]
 	cmp r6, #0
@@ -5322,7 +5322,7 @@ _020C1370:
 	cmp r2, r10
 	blo _020C13B8
 	mov r1, r4
-	bl FUN_ov15_020becc4
+	bl _tcp_send_ack
 	b _020C13CC
 _020C13B8:
 	subs r1, r10, r2
@@ -5341,7 +5341,7 @@ _020C13D8:
 	mov r0, r6
 	bl OS_CancelAlarm
 	mov r4, #0
-	ldr r3, _020C1424 ; =FUN_ov15_020c1468
+	ldr r3, _020C1424 ; =dacktimer_alarmhandler
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0
@@ -5352,14 +5352,14 @@ _020C1408:
 	bl OS_RestoreInterrupts
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020C1418: .word 0x020939a4
+_020C1418: .word OSi_ThreadInfo
 _020C141C: .word 0x0001991B
 _020C1420: .word ov15_020E6DD0
-_020C1424: .word FUN_ov15_020c1468
-	arm_func_end FUN_ov15_020c1338
+_020C1424: .word dacktimer_alarmhandler
+	arm_func_end dacktimer_reschedule
 
-	arm_func_start FUN_ov15_020c1428
-FUN_ov15_020c1428: ; 0x020C1428
+	arm_func_start dacktimer
+dacktimer: ; 0x020C1428
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _020C1464 ; =0x020E70B8
 	mov r0, r5
@@ -5368,7 +5368,7 @@ FUN_ov15_020c1428: ; 0x020C1428
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #0
 _020C1444:
-	bl FUN_ov15_020c1338
+	bl dacktimer_reschedule
 	mov r0, r4
 	bl OS_SleepThread
 	mov r0, r5
@@ -5377,16 +5377,16 @@ _020C1444:
 	beq _020C1444
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C1464: .word ov15_020E70B8
-	arm_func_end FUN_ov15_020c1428
+	arm_func_end dacktimer
 
-	arm_func_start FUN_ov15_020c1468
-FUN_ov15_020c1468: ; 0x020C1468
+	arm_func_start dacktimer_alarmhandler
+dacktimer_alarmhandler: ; 0x020C1468
 	ldr r0, _020C1474 ; =0x020E6FF8
 	ldr r12, _020C1478 ; =OS_WakeupThreadDirect
 	bx r12
 _020C1474: .word ov15_020E6FF8
 _020C1478: .word OS_WakeupThreadDirect
-	arm_func_end FUN_ov15_020c1468
+	arm_func_end dacktimer_alarmhandler
 
 	arm_func_start FUN_ov15_020c147c
 FUN_ov15_020c147c: ; 0x020C147C
@@ -5399,11 +5399,11 @@ FUN_ov15_020c147c: ; 0x020C147C
 	bl MI_CpuFill8
 	mov r5, #6
 	add r0, r6, #0x15
-	ldr r3, _020C15B0 ; =0x020E6D40
+	ldr r3, _020C15B0 ; =wfailed
 	strh r0, [r8]
 	strb r5, [r8, #2]
 	ldr r0, [r3, #0x30]
-	ldr r4, _020C15B4 ; =0x020E6DA8
+	ldr r4, _020C15B4 ; =CPSMyMac
 	mov r0, r0, lsr #0x10
 	mov r0, r0, lsl #0x10
 	mov r1, r0, lsr #0x10
@@ -5467,8 +5467,8 @@ FUN_ov15_020c147c: ; 0x020C147C
 	mov r1, #0x37
 	strb r1, [r8, #0x108]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020C15B0: .word ov15_020E6D40
-_020C15B4: .word ov15_020E6DA8
+_020C15B0: .word wfailed
+_020C15B4: .word CPSMyMac
 _020C15B8: .word 0x00008263
 _020C15BC: .word 0x00006353
 _020C15C0: .word ov15_020E4374
@@ -5495,7 +5495,7 @@ _020C15F0:
 	arm_func_start FUN_ov15_020c15f8
 FUN_ov15_020c15f8: ; 0x020C15F8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _020C16E4 ; =0x020E6D40
+	ldr r5, _020C16E4 ; =wfailed
 	ldr r4, _020C16E8 ; =0x020E7262
 	ldr r2, [r5, #0x80]
 	ldr r0, [r5, #0x78]
@@ -5551,10 +5551,10 @@ _020C16AC:
 	mov r0, r4
 	sub r1, r1, r4
 	bl FUN_ov15_020c0ce8
-	ldr r0, _020C16E4 ; =0x020E6D40
+	ldr r0, _020C16E4 ; =wfailed
 	ldr r0, [r0, #0x30]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020C16E4: .word ov15_020E6D40
+_020C16E4: .word wfailed
 _020C16E8: .word ov15_020E7262
 	arm_func_end FUN_ov15_020c15f8
 
@@ -5572,7 +5572,7 @@ FUN_ov15_020c16ec: ; 0x020C16EC
 	mov r0, #0x32
 	strb r0, [r12]
 	mov r0, #4
-	ldr r2, _020C17F0 ; =0x020E6D40
+	ldr r2, _020C17F0 ; =wfailed
 	strb r0, [r12, #1]
 	ldr r1, [r2, #0x38]
 	mov r3, #0x36
@@ -5622,11 +5622,11 @@ _020C17B4:
 	mov r0, r4
 	sub r1, r1, r4
 	bl FUN_ov15_020c0ce8
-	ldr r0, _020C17F0 ; =0x020E6D40
+	ldr r0, _020C17F0 ; =wfailed
 	ldr r0, [r0, #0x30]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C17EC: .word ov15_020E7262
-_020C17F0: .word ov15_020E6D40
+_020C17F0: .word wfailed
 	arm_func_end FUN_ov15_020c16ec
 
 	arm_func_start FUN_ov15_020c17f4
@@ -5647,11 +5647,11 @@ _020C1824:
 	bl FUN_ov15_020c0d7c
 	cmp r0, #0
 	bne _020C1838
-	bl FUN_ov15_020bcc50
+	bl OS_YieldThread__
 	b _020C1B14
 _020C1838:
 	add r0, sp, #8
-	bl FUN_ov15_020c0728
+	bl CPS_SocRead
 	ldr r1, [sp, #8]
 	mov r5, r0
 	cmp r1, #0xf0
@@ -5673,9 +5673,9 @@ _020C1838:
 	ldr r0, [sp]
 	cmp r0, r1
 	bne _020C1B0C
-	ldr r1, _020C1B5C ; =0x020E6DA8
+	ldr r1, _020C1B5C ; =CPSMyMac
 	add r0, r5, #0x1c
-	bl FUN_ov15_020bd27c
+	bl maccmp
 	cmp r0, #0
 	bne _020C1B0C
 	ldrb r3, [r5, #0x10]
@@ -5702,7 +5702,7 @@ _020C1838:
 	addeq r3, r5, #0xf0
 	cmpeq r0, #0x63
 	bne _020C1B0C
-	ldr lr, _020C1B60 ; =0x020E6D40
+	ldr lr, _020C1B60 ; =wfailed
 	mov r9, #2
 	ldr r0, [lr, #0xc]
 	mov r10, #1
@@ -5846,9 +5846,9 @@ _020C1AF8:
 	bne _020C1924
 _020C1B0C:
 	ldr r0, [sp, #8]
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 _020C1B14:
-	ldr r0, _020C1B60 ; =0x020E6D40
+	ldr r0, _020C1B60 ; =wfailed
 	ldr r0, [r0, #0x18]
 	blx r0
 	cmp r0, #0
@@ -5867,19 +5867,19 @@ _020C1B4C:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C1B58: .word ov15_020E4344
-_020C1B5C: .word ov15_020E6DA8
-_020C1B60: .word ov15_020E6D40
+_020C1B5C: .word CPSMyMac
+_020C1B60: .word wfailed
 	arm_func_end FUN_ov15_020c17f4
 
 	arm_func_start FUN_ov15_020c1b64
 FUN_ov15_020c1b64: ; 0x020C1B64
 	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_ov15_020c0388
-	bl FUN_ov15_020c0300
+	bl CPS_SocUse
+	bl CPS_SocDatagramMode
 	mov r1, #0x43
 	sub r2, r1, #0x44
 	mov r0, #0x44
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 	mov r5, #0
 _020C1B84:
 	bl FUN_ov15_020c15f8
@@ -5892,7 +5892,7 @@ _020C1B84:
 	cmp r5, #5
 	blt _020C1B84
 _020C1BA8:
-	bl FUN_ov15_020c03d4
+	bl CPS_SocRelease
 	mov r0, #1
 	cmp r4, #1
 	movne r0, #0
@@ -5904,12 +5904,12 @@ FUN_ov15_020c1bbc: ; 0x020C1BBC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r1
 	mov r5, r0
-	bl FUN_ov15_020c0388
-	bl FUN_ov15_020c0300
+	bl CPS_SocUse
+	bl CPS_SocDatagramMode
 	cmp r4, #1
 	mov r0, #0x44
 	bne _020C1BEC
-	ldr r1, _020C1CB4 ; =0x020E6D40
+	ldr r1, _020C1CB4 ; =wfailed
 	ldr r2, [r1, #0x1c]
 	mov r1, #0x43
 	b _020C1BF4
@@ -5917,7 +5917,7 @@ _020C1BEC:
 	mov r1, #0x43
 	sub r2, r1, #0x44
 _020C1BF4:
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 	mov r7, #0
 _020C1BFC:
 	mov r0, r4
@@ -5931,10 +5931,10 @@ _020C1BFC:
 	cmp r7, #5
 	blt _020C1BFC
 _020C1C24:
-	bl FUN_ov15_020c03d4
+	bl CPS_SocRelease
 	cmp r6, #2
 	bne _020C1C58
-	ldr r1, _020C1CB4 ; =0x020E6D40
+	ldr r1, _020C1CB4 ; =wfailed
 	mov r0, #1
 	ldr r2, [r1, #0x3c]
 	mov r2, r2, lsr #1
@@ -5945,7 +5945,7 @@ _020C1C24:
 	str r2, [r1, #0x40]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C1C58:
-	ldr r0, _020C1CB4 ; =0x020E6D40
+	ldr r0, _020C1CB4 ; =wfailed
 	cmp r4, #1
 	ldr r1, [r0, #0x40]
 	mov r1, r1, lsr #1
@@ -5971,19 +5971,19 @@ _020C1CA0:
 _020C1CAC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020C1CB4: .word ov15_020E6D40
+_020C1CB4: .word wfailed
 	arm_func_end FUN_ov15_020c1bbc
 
 	arm_func_start FUN_ov15_020c1cb8
 FUN_ov15_020c1cb8: ; 0x020C1CB8
 	stmfd sp!, {r4, lr}
-	bl FUN_ov15_020c0388
-	bl FUN_ov15_020c0300
-	ldr r1, _020C1D18 ; =0x020E6D40
+	bl CPS_SocUse
+	bl CPS_SocDatagramMode
+	ldr r1, _020C1D18 ; =wfailed
 	mov r0, #0x44
 	ldr r2, [r1, #0x1c]
 	mov r1, #0x43
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 	ldr r4, _020C1D1C ; =0x020E7262
 	mov r1, #7
 	mov r0, r4
@@ -5998,9 +5998,9 @@ FUN_ov15_020c1cb8: ; 0x020C1CB8
 	sub r1, r0, r4
 	mov r0, r4
 	bl FUN_ov15_020c0ce8
-	bl FUN_ov15_020c03d4
+	bl CPS_SocRelease
 	ldmfd sp!, {r4, pc}
-_020C1D18: .word ov15_020E6D40
+_020C1D18: .word wfailed
 _020C1D1C: .word ov15_020E7262
 	arm_func_end FUN_ov15_020c1cb8
 
@@ -6103,7 +6103,7 @@ _020C1E60:
 	b _020C1FB0
 _020C1E78:
 	add r0, sp, #0
-	bl FUN_ov15_020c0728
+	bl CPS_SocRead
 	ldr r1, [sp]
 	cmp r1, #0xc
 	bls _020C1FA8
@@ -6185,9 +6185,9 @@ _020C1F98:
 	blo _020C1F00
 _020C1FA8:
 	ldr r0, [sp]
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 _020C1FB0:
-	ldr r0, _020C1FF4 ; =0x020E6D40
+	ldr r0, _020C1FF4 ; =wfailed
 	ldr r0, [r0, #0x18]
 	blx r0
 	cmp r0, #0
@@ -6205,7 +6205,7 @@ _020C1FE4:
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C1FF0: .word 0x00001001
-_020C1FF4: .word ov15_020E6D40
+_020C1FF4: .word wfailed
 	arm_func_end FUN_ov15_020c1d50
 
 	arm_func_start FUN_ov15_020c1ff8
@@ -6282,13 +6282,13 @@ FUN_ov15_020c20cc: ; 0x020C20CC
 	mov r5, r2
 	mvneq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov15_020c0388
-	bl FUN_ov15_020c0300
+	bl CPS_SocUse
+	bl CPS_SocDatagramMode
 	mov r4, #0
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0x35
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 	mov r0, r7
 	mov r2, r5
 	str r4, [sp]
@@ -6296,7 +6296,7 @@ FUN_ov15_020c20cc: ; 0x020C20CC
 	mov r1, #1
 	bl FUN_ov15_020c1d50
 	mov r4, r0
-	bl FUN_ov15_020c03d4
+	bl CPS_SocRelease
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020c20cc
@@ -6305,7 +6305,7 @@ FUN_ov15_020c20cc: ; 0x020C20CC
 FUN_ov15_020c2128: ; 0x020C2128
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
-	ldr r2, _020C229C ; =0x020E6D40
+	ldr r2, _020C229C ; =wfailed
 	mov r1, #0
 	str r1, [sp, #0xc]
 	ldr r8, [r2, #0x80]
@@ -6360,18 +6360,18 @@ _020C21EC:
 	ldr r0, [r6, r9, lsl #2]
 	cmp r0, #0
 	beq _020C2210
-	bl FUN_ov15_020bd188
+	bl get_targetip
 	movs r5, r0
 	bne _020C2218
 _020C2210:
 	strb r8, [r7, r9]
 	b _020C2268
 _020C2218:
-	bl FUN_ov15_020bd64c
+	bl inq_arpcache
 	cmp r0, #0
 	bne _020C2238
 	mov r0, r5
-	bl FUN_ov15_020bd820
+	bl arprequest
 	cmp r0, #0
 	streqb r8, [r7, r9]
 	beq _020C2268
@@ -6404,7 +6404,7 @@ _020C2288:
 	moveq r0, #0
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020C229C: .word ov15_020E6D40
+_020C229C: .word wfailed
 _020C22A0: .word ov15_020E6DB0
 	arm_func_end FUN_ov15_020c2128
 
@@ -12305,7 +12305,7 @@ _020C7010:
 	cmp r0, #0
 	movne r0, #4
 	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r0, _020C70A8 ; =0x020939a4
+	ldr r0, _020C70A8 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
 	ldr r1, [r4, #4]
@@ -12321,7 +12321,7 @@ _020C7098: .word ov15_020E4438
 _020C709C: .word ov15_020E8F2C
 _020C70A0: .word ov15_020E441C
 _020C70A4: .word ov15_020E8F38
-_020C70A8: .word 0x020939a4
+_020C70A8: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020c6fa4
 
 	arm_func_start FUN_ov15_020c70ac
@@ -13635,7 +13635,7 @@ FUN_ov15_020c8310: ; 0x020C8310
 	str r12, [r1, #0x184]
 	str r3, [r1, #0x18c]
 	str r2, [r1, #0x190]
-	bl FUN_ov15_020c02d4
+	bl CPS_SocRegister
 	ldmfd sp!, {r4, pc}
 _020C8360: .word 0x00000B68
 _020C8364: .word 0x000005EA
@@ -13741,7 +13741,7 @@ FUN_ov15_020c846c: ; 0x020C846C
 	addeq sp, sp, #0x14
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	str r6, [r0, #0x12c]
-	bl FUN_ov15_020c0388
+	bl CPS_SocUse
 	add r0, r10, #0x1000
 	ldr r0, [r0, #0x130]
 	cmp r0, #1
@@ -13766,15 +13766,15 @@ _020C8520:
 	ldrh r1, [r0, #0x34]
 	mov r2, r6
 	mov r0, #0
-	bl FUN_ov15_020c0328
-	bl FUN_ov15_020c04d8
+	bl CPS_SocBind
+	bl CPS_TcpConnect
 	cmp r0, #0
 	add r0, r10, #0x1000
 	beq _020C855C
 	mov r1, #3
 	str r1, [r0, #0x20]
-	bl FUN_ov15_020c03d4
-	bl FUN_ov15_020c02e8
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C855C:
@@ -13827,7 +13827,7 @@ _020C85DC:
 	str r0, [sp, #8]
 	add r0, sp, #0x10
 	str r1, [sp, #4]
-	bl FUN_ov15_020c0728
+	bl CPS_SocRead
 	cmp r0, #0
 	beq _020C8728
 	ldmib r7, {r1, r2}
@@ -13861,11 +13861,11 @@ _020C8690:
 	ldr r0, [sp, #0x10]
 	cmp r0, r9
 	bls _020C86A4
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 	b _020C8728
 _020C86A4:
 	mov r0, r9
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 _020C86AC:
 	ldr r1, [r4, #0xa6c]
 	cmp r1, #0
@@ -13900,20 +13900,20 @@ _020C86C4:
 	str r1, [r0, #0x20]
 	b _020C874C
 _020C8728:
-	bl FUN_ov15_020c0578
-	bl FUN_ov15_020c05b4
-	bl FUN_ov15_020c03d4
-	bl FUN_ov15_020c02e8
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add r0, r10, #0x1000
 	mov r1, #8
 	str r1, [r0, #0x20]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C874C:
-	bl FUN_ov15_020c0578
-	bl FUN_ov15_020c05b4
-	bl FUN_ov15_020c03d4
-	bl FUN_ov15_020c02e8
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
+	bl CPS_SocUnRegister
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C8764: .word 0x0000EA60
@@ -15031,7 +15031,7 @@ _020C96BC:
 	beq _020C96D0
 	b _020C96A8
 _020C96D0:
-	ldr r0, _020CA21C ; =0x020939a4
+	ldr r0, _020CA21C ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
 	sub r1, r0, #1
@@ -15210,7 +15210,7 @@ _020C9914:
 	beq _020C9950
 	b _020C9868
 _020C9950:
-	ldr r0, _020CA21C ; =0x020939a4
+	ldr r0, _020CA21C ; =OSi_ThreadInfo
 	mvn r5, #0
 	ldr r0, [r0, #4]
 	ldr r4, _020CA20C ; =0x020E8F50
@@ -15466,7 +15466,7 @@ _020C9CAC:
 	beq _020C9CE8
 	b _020C96A8
 _020C9CE8:
-	ldr r0, _020CA21C ; =0x020939a4
+	ldr r0, _020CA21C ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
 	sub r1, r0, #1
@@ -15731,7 +15731,7 @@ _020CA084:
 	beq _020CA098
 	b _020C96A8
 _020CA098:
-	ldr r0, _020CA21C ; =0x020939a4
+	ldr r0, _020CA21C ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
 	sub r1, r0, #1
@@ -15838,7 +15838,7 @@ _020CA20C: .word ov15_020E8F50
 _020CA210: .word 0x00009C40
 _020CA214: .word ov15_020E4798
 _020CA218: .word ov15_020E8F80
-_020CA21C: .word 0x020939a4
+_020CA21C: .word OSi_ThreadInfo
 _020CA220: .word ov15_020E47C4
 _020CA224: .word unk_02099E60
 _020CA228: .word 0x0000012E
@@ -16065,7 +16065,7 @@ _020CA50C:
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020CA544:
-	ldr r0, _020CA5BC ; =0x020939a4
+	ldr r0, _020CA5BC ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_GetThreadPriority
 	ldr r2, [r4]
@@ -16095,7 +16095,7 @@ _020CA5AC: .word 0xFFFFA1DC
 _020CA5B0: .word ov15_020E4860
 _020CA5B4: .word ov15_020E4868
 _020CA5B8: .word ov15_020E4870
-_020CA5BC: .word 0x020939a4
+_020CA5BC: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020ca380
 
 	arm_func_start FUN_ov15_020ca5c0
@@ -21662,7 +21662,7 @@ _020CF02C: .word OS_SendMessage
 	arm_func_start FUN_ov15_020cf030
 FUN_ov15_020cf030: ; 0x020CF030
 	stmfd sp!, {r3, lr}
-	ldr r2, _020CF070 ; =0x020939a4
+	ldr r2, _020CF070 ; =OSi_ThreadInfo
 	add r0, r0, #0x2c
 	ldr r2, [r2, #4]
 	cmp r2, #0
@@ -21679,7 +21679,7 @@ _020CF058:
 _020CF068:
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
-_020CF070: .word 0x020939a4
+_020CF070: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020cf030
 
 	arm_func_start FUN_ov15_020cf074
@@ -28242,15 +28242,15 @@ _020D4798:
 	ldr r0, [r6, #0x2c]
 	cmp r0, #0
 	moveq r0, #0xb
-	bl FUN_ov15_020bcf88
-	ldr r0, _020D47F0 ; =FUN_ov15_020bd4e8
+	bl CPS_SetThreadPriority
+	ldr r0, _020D47F0 ; =CPSi_RecvCallbackFunc
 	bl FUN_ov15_020dd9e4
 	ldr r0, _020D47F4 ; =FUN_ov15_020d6598
-	bl FUN_ov15_020bcef0
+	bl CPS_SetScavengerCallback
 	ldr r0, _020D47F8 ; =FUN_ov15_020d6bb8
-	bl FUN_ov15_020bcb40
+	bl CPS_SetCheckNConfigCallback
 	mov r0, r5
-	bl FUN_ov15_020bcc84
+	bl CPS_Startup
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020D47CC: .word ov15_020E59F8
 _020D47D0: .word ov15_020ED470
@@ -28261,7 +28261,7 @@ _020D47E0: .word ov15_020E5A1C
 _020D47E4: .word ov15_020E6D90
 _020D47E8: .word FUN_ov15_020d47fc
 _020D47EC: .word FUN_ov15_020d4868
-_020D47F0: .word FUN_ov15_020bd4e8
+_020D47F0: .word CPSi_RecvCallbackFunc
 _020D47F4: .word FUN_ov15_020d6598
 _020D47F8: .word FUN_ov15_020d6bb8
 	arm_func_end FUN_ov15_020d4680
@@ -28644,7 +28644,7 @@ FUN_ov15_020d4c80: ; 0x020D4C80
 	stmfd sp!, {r4, lr}
 	ldr r4, [r0, #4]
 	mov r0, r4
-	bl FUN_ov15_020c02d4
+	bl CPS_SocRegister
 	ldrsb r0, [r4, #0xaf]
 	ldr r1, [r4, #0xa4]
 	cmp r0, #4
@@ -28658,17 +28658,17 @@ _020D4CA4: ; jump table
 	b _020D4CB8 ; case 4
 _020D4CB8:
 	add r0, r1, #0x20
-	bl FUN_ov15_020c03f4
-	bl FUN_ov15_020c0388
+	bl CPS_SocDup
+	bl CPS_SocUse
 	b _020D4CE0
 _020D4CC8:
-	bl FUN_ov15_020c0388
-	bl FUN_ov15_020c0300
+	bl CPS_SocUse
+	bl CPS_SocDatagramMode
 	ldr r0, _020D4CF0 ; =FUN_ov15_020d5970
-	bl FUN_ov15_020c040c
+	bl CPS_SetUdpCallback
 	b _020D4CE0
 _020D4CDC:
-	bl FUN_ov15_020c0300
+	bl CPS_SocDatagramMode
 _020D4CE0:
 	mov r0, #1
 	strh r0, [r4, #0xac]
@@ -29043,13 +29043,13 @@ FUN_ov15_020d51ac: ; 0x020D51AC
 	ldrh r0, [r7, #0x10]
 	ldrh r1, [r7, #0x12]
 	ldr r2, [r7, #0x14]
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 	str r6, [r5, #0xf8]
 	ldrsb r0, [r7, #0xc]
 	cmp r0, #0
 	cmpne r0, #4
 	bne _020D51F4
-	bl FUN_ov15_020c04d8
+	bl CPS_TcpConnect
 	mov r6, r0
 _020D51F4:
 	add r0, r5, #0xe0
@@ -29389,7 +29389,7 @@ FUN_ov15_020d5640: ; 0x020D5640
 	add r6, sp, #0x10
 _020D5680:
 	mov r0, r6
-	bl FUN_ov15_020c0728
+	bl CPS_SocRead
 	cmp r0, #0
 	beq _020D56D4
 	ldr r1, [sp, #0x10]
@@ -29429,7 +29429,7 @@ _020D56D4:
 	mov r2, r10
 	bl MI_CpuCopy
 	mov r0, r10
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 	add sp, sp, #0x14
 	mov r0, r10
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -29506,7 +29506,7 @@ FUN_ov15_020d57f0: ; 0x020D57F0
 	mov r1, #0
 	mov r0, r6
 	str r1, [r4, #0xf8]
-	bl FUN_ov15_020c08dc
+	bl CPS_SocConsume
 _020D581C:
 	mov r0, r5
 	bl OS_RestoreInterrupts
@@ -29953,7 +29953,7 @@ _020D5DFC:
 	ldrh r0, [r9, #0xb0]
 	cmp r0, #0
 	bne _020D5E48
-	bl FUN_ov15_020c01e8
+	bl CPS_SocGetEport
 	strh r0, [r9, #0xb0]
 	ldrh r0, [r9, #0xb0]
 	strh r0, [r9, #0xa]
@@ -30020,7 +30020,7 @@ _020D5F00:
 	beq _020D5F18
 	ldrh r0, [r9, #0x24]
 	ldrh r1, [r9, #0x26]
-	bl FUN_ov15_020c0328
+	bl CPS_SocBind
 _020D5F18:
 	ldrsb r1, [r5, #0xaf]
 	mov r0, #1
@@ -30065,7 +30065,7 @@ _020D5F60:
 	ldrsh r0, [r5, #0xac]
 	orr r0, r0, #0x80
 	strh r0, [r5, #0xac]
-	bl FUN_ov15_020c05b4
+	bl CPS_TcpClose
 _020D5FC4:
 	b _020D5FD0
 _020D5FC8:
@@ -30086,7 +30086,7 @@ _020D5FD4:
 	arm_func_start FUN_ov15_020d5ff0
 FUN_ov15_020d5ff0: ; 0x020D5FF0
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _020D6080 ; =0x020939a4
+	ldr r1, _020D6080 ; =OSi_ThreadInfo
 	mov r4, r0
 	ldr r0, [r1, #4]
 	ldr r5, [r0, #0xa4]
@@ -30125,7 +30125,7 @@ _020D6054:
 _020D6078:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_020D6080: .word 0x020939a4
+_020D6080: .word OSi_ThreadInfo
 _020D6084: .word ov15_020ED470
 	arm_func_end FUN_ov15_020d5ff0
 
@@ -30236,7 +30236,7 @@ FUN_ov15_020d61cc: ; 0x020D61CC
 	movne r1, #0
 	cmp r1, #0
 	beq _020D61F4
-	bl FUN_ov15_020c0578
+	bl CPS_TcpShutdown
 _020D61F4:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
@@ -30361,11 +30361,11 @@ FUN_ov15_020d6364: ; 0x020D6364
 	ldr r0, [r4, #0xa4]
 	add r0, r0, #0x20
 	bl OS_JoinThread
-	bl FUN_ov15_020c0578
-	bl FUN_ov15_020c05b4
-	bl FUN_ov15_020c03d4
+	bl CPS_TcpShutdown
+	bl CPS_TcpClose
+	bl CPS_SocRelease
 _020D63A0:
-	bl FUN_ov15_020c02e8
+	bl CPS_SocUnRegister
 	ldrsh r0, [r4, #0xac]
 	mov r6, #0
 	mov r1, r6
@@ -30583,12 +30583,12 @@ _020D6670: .word ov15_020ED470
 	arm_func_start FUN_ov15_020d6674
 FUN_ov15_020d6674: ; 0x020D6674
 	stmfd sp!, {r4, lr}
-	bl FUN_ov15_020bcf00
+	bl CPS_Cleanup
 	mov r4, #0
 	mov r0, r4
-	bl FUN_ov15_020bcef0
+	bl CPS_SetScavengerCallback
 	mov r0, r4
-	bl FUN_ov15_020bcb40
+	bl CPS_SetCheckNConfigCallback
 	mov r0, r4
 	bl FUN_ov15_020dd9e4
 	ldmfd sp!, {r4, pc}
@@ -30669,7 +30669,7 @@ _020D6784:
 	bl FUN_ov15_020d6598
 	b _020D67A8
 _020D678C:
-	bl FUN_ov15_020bce9c
+	bl CPS_CalmDown
 	cmp r0, #0
 	mvneq r5, #0x19
 	beq _020D67A8
@@ -30719,11 +30719,11 @@ FUN_ov15_020d67b4: ; 0x020D67B4
 	str r3, [sp, #0x48]
 	str r2, [sp, #0x58]
 	str r1, [sp, #0x54]
-	bl FUN_ov15_020c02d4
+	bl CPS_SocRegister
 	mov r0, r7
 	bl FUN_ov15_020c2128
 	mov r4, r0
-	bl FUN_ov15_020c02e8
+	bl CPS_SocUnRegister
 	ldr r1, [r8]
 	mov r0, r5
 	ldr r1, [r1, #0x1c]
@@ -32032,7 +32032,7 @@ FUN_ov15_020d78dc: ; 0x020D78DC
 	cmp r0, #0x20
 	mvnhs r0, #0
 	ldmhsfd sp!, {r4, r5, r6, pc}
-	ldr r0, _020D7920 ; =0x020939a4
+	ldr r0, _020D7920 ; =OSi_ThreadInfo
 	ldr r6, [r0, #4]
 	mov r0, r6
 	bl OS_GetThreadPriority
@@ -32043,7 +32043,7 @@ FUN_ov15_020d78dc: ; 0x020D78DC
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D791C: .word ov15_020E5A54
-_020D7920: .word 0x020939a4
+_020D7920: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020d78dc
 
 	arm_func_start FUN_ov15_020d7924
@@ -32052,16 +32052,16 @@ FUN_ov15_020d7924: ; 0x020D7924
 	mov r1, r0
 	cmp r1, #0x20
 	ldmhsfd sp!, {r3, pc}
-	ldr r0, _020D7944 ; =0x020939a4
+	ldr r0, _020D7944 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	bl OS_SetThreadPriority
 	ldmfd sp!, {r3, pc}
-_020D7944: .word 0x020939a4
+_020D7944: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020d7924
 
 	arm_func_start FUN_ov15_020d7948
 FUN_ov15_020d7948: ; 0x020D7948
-	ldr r2, _020D796C ; =0x020939a4
+	ldr r2, _020D796C ; =OSi_ThreadInfo
 	ldr r2, [r2, #4]
 	ldr r2, [r2, #0xa4]
 	cmp r2, #0
@@ -32070,7 +32070,7 @@ FUN_ov15_020d7948: ; 0x020D7948
 	strne r0, [r2, #0x814]
 	strne r1, [r2, #0x818]
 	bx lr
-_020D796C: .word 0x020939a4
+_020D796C: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020d7948
 
 	arm_func_start FUN_ov15_020d7970
@@ -34010,7 +34010,7 @@ FUN_ov15_020d9428: ; 0x020D9428
 _020D943C:
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov15_020c0690
+	bl CPSi_TcpReadRaw
 	ldr r1, [sp]
 	cmp r1, #0
 	mvneq r0, #0
@@ -34022,7 +34022,7 @@ _020D943C:
 	bl MI_CpuCopy8
 	ldr r0, [sp]
 	mov r1, r5
-	bl FUN_ov15_020c078c
+	bl CPSi_SocConsumeRaw
 	ldr r0, [sp]
 	sub r6, r6, r0
 	cmp r6, #0
@@ -34286,7 +34286,7 @@ FUN_ov15_020d97d8: ; 0x020D97D8
 _020D97EC:
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov15_020c0690
+	bl CPSi_TcpReadRaw
 	ldr r1, [sp]
 	cmp r1, #5
 	bhs _020D9824
@@ -34313,7 +34313,7 @@ _020D9824:
 	mov r1, r5
 	mov r0, #2
 	str r2, [sp]
-	bl FUN_ov15_020c078c
+	bl CPSi_SocConsumeRaw
 	ldr r1, _020D995C ; =0x020E6D54
 	ldr r0, [sp]
 	ldr r1, [r1]
@@ -34581,7 +34581,7 @@ FUN_ov15_020d9b00: ; 0x020D9B00
 	mov r2, r5
 	mov r3, r5
 	str r9, [sp]
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 	ldr r1, _020D9C54 ; =0x020E6D84
 	mov r0, r7
 	ldr r1, [r1]
@@ -34686,7 +34686,7 @@ _020D9D30:
 	mov r3, r2
 	add r1, r4, #5
 	str r7, [sp]
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 	mov r0, r5
 	mov r2, r4
 	add r1, r6, #5
@@ -34716,7 +34716,7 @@ FUN_ov15_020d9df8: ; 0x020D9DF8
 	mov r3, r2
 	mov r1, #7
 	str r10, [sp]
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 _020D9E2C:
 	mov r0, #3
 	strb r0, [r4]
@@ -34863,7 +34863,7 @@ _020DA048:
 	mov r3, r2
 	add r1, r9, #9
 	str r10, [sp]
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 	mov r0, r4
 	add r1, r6, #5
 	add r2, r9, #4
@@ -34961,15 +34961,15 @@ _020DA198:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020da0dc
 
-	arm_func_start FUN_ov15_020da1a8
-FUN_ov15_020da1a8: ; 0x020DA1A8
+	arm_func_start CPSi_SslConnect
+CPSi_SslConnect: ; 0x020DA1A8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldrb r1, [r5, #8]
 	ldr r4, [r5, #0xc]
 	cmp r1, #4
 	beq _020DA1D0
-	bl FUN_ov15_020c0428
+	bl CPSi_TcpConnectRaw
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -34985,10 +34985,10 @@ _020DA1D0:
 	mov r0, r5
 	bl FUN_ov15_020da0dc
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020da1a8
+	arm_func_end CPSi_SslConnect
 
-	arm_func_start FUN_ov15_020da1fc
-FUN_ov15_020da1fc: ; 0x020DA1FC
+	arm_func_start CPSi_SslRead
+CPSi_SslRead: ; 0x020DA1FC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	ldr r4, [r5, #0xc]
@@ -35047,10 +35047,10 @@ _020DA2B0:
 	add r0, r1, r0
 	ldmfd sp!, {r4, r5, r6, pc}
 _020DA2D0: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020da1fc
+	arm_func_end CPSi_SslRead
 
-	arm_func_start FUN_ov15_020da2d4
-FUN_ov15_020da2d4: ; 0x020DA2D4
+	arm_func_start CPSi_SslConsume
+CPSi_SslConsume: ; 0x020DA2D4
 	stmfd sp!, {r4, lr}
 	ldr r4, [r1, #0xc]
 	ldr r2, [r4, #0x828]
@@ -35073,7 +35073,7 @@ _020DA314:
 	str r0, [r4, #0x82c]
 	ldmfd sp!, {r4, pc}
 _020DA320: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020da2d4
+	arm_func_end CPSi_SslConsume
 
 	arm_func_start FUN_ov15_020da324
 FUN_ov15_020da324: ; 0x020DA324
@@ -35090,7 +35090,7 @@ FUN_ov15_020da324: ; 0x020DA324
 	ldmlofd sp!, {r3, r4, r5, r6, pc}
 	add r0, sp, #0
 	mov r1, r5
-	bl FUN_ov15_020c0690
+	bl CPSi_TcpReadRaw
 	ldrb r2, [r0, #3]
 	ldrb r0, [r0, #4]
 	ldr r1, _020DA460 ; =0x00004805
@@ -35124,7 +35124,7 @@ _020DA3C4:
 _020DA3D0:
 	add r0, sp, #0
 	mov r1, r5
-	bl FUN_ov15_020c0690
+	bl CPSi_TcpReadRaw
 	ldr r3, [r4, #0x828]
 	ldr r2, [r4, #0x82c]
 	ldr r1, [sp]
@@ -35140,7 +35140,7 @@ _020DA3D0:
 	bl MI_CpuCopy8
 	ldr r0, [sp]
 	mov r1, r5
-	bl FUN_ov15_020c078c
+	bl CPSi_SocConsumeRaw
 	cmp r6, #0
 	beq _020DA448
 	ldr r1, [r4, #0x824]
@@ -35200,8 +35200,8 @@ _020DA4D8:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020da468
 
-	arm_func_start FUN_ov15_020da4e0
-FUN_ov15_020da4e0: ; 0x020DA4E0
+	arm_func_start CPSi_SslWrite2
+CPSi_SslWrite2: ; 0x020DA4E0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	ldr r4, [sp, #0x30]
@@ -35261,7 +35261,7 @@ _020DA514:
 	mov r0, r4
 	mov r1, r7
 	mov r3, r2
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 	cmp r0, r7
 	ldr r1, _020DA614 ; =0x020E6D84
 	mov r0, r4
@@ -35282,10 +35282,10 @@ _020DA600:
 _020DA60C: .word 0x00000B4F
 _020DA610: .word ov15_020E6D54
 _020DA614: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020da4e0
+	arm_func_end CPSi_SslWrite2
 
-	arm_func_start FUN_ov15_020da618
-FUN_ov15_020da618: ; 0x020DA618
+	arm_func_start CPSi_SslShutdown
+CPSi_SslShutdown: ; 0x020DA618
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x20
 	mov r5, r0
@@ -35314,16 +35314,16 @@ FUN_ov15_020da618: ; 0x020DA618
 	mov r2, r7
 	mov r3, r7
 	str r5, [sp]
-	bl FUN_ov15_020c0a10
+	bl CPSi_TcpWrite2Raw
 _020DA68C:
 	mov r0, #0
 	strb r0, [r4, #0x455]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020da618
+	arm_func_end CPSi_SslShutdown
 
-	arm_func_start FUN_ov15_020da69c
-FUN_ov15_020da69c: ; 0x020DA69C
+	arm_func_start CPSi_SslClose
+CPSi_SslClose: ; 0x020DA69C
 	stmfd sp!, {r4, lr}
 	ldr r4, [r0, #0xc]
 	mov r0, #0
@@ -35339,7 +35339,7 @@ _020DA6C4:
 	str r0, [r4, #0x824]
 	ldmfd sp!, {r4, pc}
 _020DA6D0: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020da69c
+	arm_func_end CPSi_SslClose
 
 	arm_func_start FUN_ov15_020da6d4
 FUN_ov15_020da6d4: ; 0x020DA6D4
@@ -35347,14 +35347,14 @@ FUN_ov15_020da6d4: ; 0x020DA6D4
 	mov r4, r0
 	ldr r0, _020DA6FC ; =_version_UBIQUITOUS_SSL
 	bl OSi_ReferSymbol
-	ldr r0, _020DA700 ; =0x020939a4
+	ldr r0, _020DA700 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
 	ldr r0, [r0, #0xa4]
 	cmp r0, #0
 	strneb r4, [r0, #9]
 	ldmfd sp!, {r4, pc}
 _020DA6FC: .word _version_UBIQUITOUS_SSL
-_020DA700: .word 0x020939a4
+_020DA700: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020da6d4
 
 	arm_func_start FUN_ov15_020da704
@@ -35379,7 +35379,7 @@ _020DA724:
 	cmp lr, #4
 	blt _020DA724
 	bl OS_RestoreInterrupts
-	ldr r0, _020DA7E0 ; =0x020939a4
+	ldr r0, _020DA7E0 ; =OSi_ThreadInfo
 	ldr r4, [r0, #8]
 	cmp r4, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -35417,11 +35417,11 @@ _020DA7C8:
 	ldmfd sp!, {r4, r5, r6, pc}
 _020DA7D8: .word ov15_020ED684
 _020DA7DC: .word 0x000003BD
-_020DA7E0: .word 0x020939a4
+_020DA7E0: .word OSi_ThreadInfo
 	arm_func_end FUN_ov15_020da704
 
-	arm_func_start FUN_ov15_020da7e4
-FUN_ov15_020da7e4: ; 0x020DA7E4
+	arm_func_start CPSi_SslCleanup
+CPSi_SslCleanup: ; 0x020DA7E4
 	ldr r0, _020DA7F8 ; =0x020ED684
 	ldr r12, _020DA7FC ; =MI_CpuFill8
 	mov r1, #0
@@ -35429,7 +35429,7 @@ FUN_ov15_020da7e4: ; 0x020DA7E4
 	bx r12
 _020DA7F8: .word ov15_020ED684
 _020DA7FC: .word MI_CpuFill8
-	arm_func_end FUN_ov15_020da7e4
+	arm_func_end CPSi_SslCleanup
 
 	arm_func_start FUN_ov15_020da800
 FUN_ov15_020da800: ; 0x020DA800
@@ -39150,8 +39150,8 @@ FUN_ov15_020dd9e4: ; 0x020DD9E4
 _020DDA00: .word ov15_020ED7FC
 	arm_func_end FUN_ov15_020dd9e4
 
-	arm_func_start FUN_ov15_020dda04
-FUN_ov15_020dda04: ; 0x020DDA04
+	arm_func_start WCM_SendDCFDataEx
+WCM_SendDCFDataEx: ; 0x020DDA04
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #8
 	mov r9, r0
@@ -39227,7 +39227,7 @@ _020DDAF8:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020DDB18: .word ov15_020ED808
-	arm_func_end FUN_ov15_020dda04
+	arm_func_end WCM_SendDCFDataEx
 
 	arm_func_start FUN_ov15_020ddb1c
 FUN_ov15_020ddb1c: ; 0x020DDB1C
@@ -48068,8 +48068,8 @@ ov15_020E6D24:
 	.byte 0x52, 0x81, 0x5B, 0x83, 0x68, 0x25, 0x73, 0x81, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.bss
-	.global ov15_020E6D40
-ov15_020E6D40:
+	.global wfailed
+wfailed:
 	.space 0x0C
 	.global ov15_020E6D4C
 ov15_020E6D4C:
@@ -48092,8 +48092,8 @@ ov15_020E6D8C:
 	.global ov15_020E6D90
 ov15_020E6D90:
 	.space 0x18
-	.global ov15_020E6DA8
-ov15_020E6DA8:
+	.global CPSMyMac
+CPSMyMac:
 	.space 0x08
 	.global ov15_020E6DB0
 ov15_020E6DB0:
@@ -48125,8 +48125,8 @@ ov15_020E6FF8:
 	.global ov15_020E70B8
 ov15_020E70B8:
 	.space 0xC0
-	.global ov15_020E7178
-ov15_020E7178:
+	.global tcpip_thread
+tcpip_thread:
 	.space 0xC0
 	.global ov15_020E7238
 ov15_020E7238:

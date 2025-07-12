@@ -953,7 +953,7 @@ OSi_RescheduleThread: ; 0x02001728
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldrh r0, [r5, #0x1e]
-	ldr r4, _020017E8 ; =0x020939a4
+	ldr r4, _020017E8 ; =OSi_ThreadInfo
 	cmp r0, #0
 	bne _02001758
 	bl OS_GetProcMode
@@ -1000,7 +1000,7 @@ _020017D0:
 	bl OS_LoadContext
 	ldmfd sp!, {r4, r5, r6, pc}
 _020017E4: .word unk_02093988
-_020017E8: .word unk_020939A4
+_020017E8: .word OSi_ThreadInfo
 	arm_func_end OSi_RescheduleThread
 
 	arm_func_start OS_InitThread
@@ -1053,7 +1053,7 @@ OS_InitThread: ; 0x020017EC
 	str r4, [r1, #0x9c]
 	strh r4, [r0, #0x1c]
 	strh r4, [r0, #0x1e]
-	ldr r2, _02001924 ; =0x020939a4
+	ldr r2, _02001924 ; =OSi_ThreadInfo
 	ldr r1, _02001928 ; =0x02FFFFA0
 	mov r0, r4
 	str r2, [r1]
@@ -1083,7 +1083,7 @@ _02001914: .word OS_IRQTable
 _02001918: .word 0x00000400
 _0200191C: .word 0xFDDB597D
 _02001920: .word 0x7BF9DD5B
-_02001924: .word unk_020939A4
+_02001924: .word OSi_ThreadInfo
 _02001928: .word 0x02FFFFA0
 _0200192C: .word unk_020939B4
 _02001930: .word OSi_IdleThreadProc
@@ -1972,7 +1972,7 @@ OS_LockMutex: ; 0x02002408
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02002454 ; =0x020939a4
+	ldr r1, _02002454 ; =OSi_ThreadInfo
 	mov r5, r0
 	ldr r6, [r1, #4]
 	mov r4, #0
@@ -1990,7 +1990,7 @@ _02002448:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02002454: .word unk_020939A4
+_02002454: .word OSi_ThreadInfo
 	arm_func_end OS_LockMutex
 
 	arm_func_start OS_UnlockMutex
@@ -2030,7 +2030,7 @@ OS_TryLockMutex: ; 0x020024B0
 	mov r6, r0
 	bl OS_DisableInterrupts
 	ldr r2, [r6, #8]
-	ldr r1, _02002540 ; =0x020939a4
+	ldr r1, _02002540 ; =OSi_ThreadInfo
 	mov r4, r0
 	cmp r2, #0
 	ldr r0, [r1, #4]
@@ -2064,7 +2064,7 @@ _02002530:
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-_02002540: .word unk_020939A4
+_02002540: .word OSi_ThreadInfo
 	arm_func_end OS_TryLockMutex
 
 	arm_func_start OSi_UnlockMutexCore
@@ -2075,7 +2075,7 @@ OSi_UnlockMutexCore: ; 0x02002544
 	bl OS_DisableInterrupts
 	cmp r5, #0
 	ldrne r3, [r6, #0xc]
-	ldr r1, _02002618 ; =0x020939a4
+	ldr r1, _02002618 ; =OSi_ThreadInfo
 	andne r3, r3, #0xff000000
 	ldr r2, [r1, #4]
 	mov r4, r0
@@ -2128,7 +2128,7 @@ _0200260C:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, pc}
-_02002618: .word unk_020939A4
+_02002618: .word OSi_ThreadInfo
 	arm_func_end OSi_UnlockMutexCore
 
 	arm_func_start OSi_EnqueueTail
@@ -19587,7 +19587,7 @@ _02010560:
 	mov r1, #0x60
 	bl DC_FlushRange
 	bl DC_WaitWriteBufferEmpty
-	ldr r0, _02010638 ; =0x020939a4
+	ldr r0, _02010638 ; =OSi_ThreadInfo
 	mov r6, #0xb
 	ldr r0, [r0, #4]
 	mov r5, r6
@@ -19644,7 +19644,7 @@ _02010628:
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02010638: .word unk_020939A4
+_02010638: .word OSi_ThreadInfo
 	arm_func_end CARDi_Request
 
 	arm_func_start CARDi_RequestStreamCommandCore
@@ -29053,31 +29053,31 @@ _02018258:
 _02018260: .word 0x0000FFFF
 	arm_func_end GetGlyphIndex
 
-	arm_func_start FUN_02018264
-FUN_02018264: ; 0x02018264
+	arm_func_start NNS_G2dFontInitUTF16
+NNS_G2dFontInitUTF16: ; 0x02018264
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	mov r1, r4
 	bl NNSi_G2dGetUnpackedFont
-	ldr r0, _02018284 ; =FUN_02019ea8
+	ldr r0, _02018284 ; =NNSi_G2dSplitCharUTF16
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
-_02018284: .word FUN_02019ea8
-	arm_func_end FUN_02018264
+_02018284: .word NNSi_G2dSplitCharUTF16
+	arm_func_end NNS_G2dFontInitUTF16
 
-	arm_func_start FUN_02018288
-FUN_02018288: ; 0x02018288
+	arm_func_start NNS_G2dFontInitShiftJIS
+NNS_G2dFontInitShiftJIS: ; 0x02018288
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	mov r1, r4
 	bl NNSi_G2dGetUnpackedFont
-	ldr r0, _020182A8 ; =FUN_02019ebc
+	ldr r0, _020182A8 ; =NNSi_G2dSplitCharShiftJIS
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
-_020182A8: .word FUN_02019ebc
-	arm_func_end FUN_02018288
+_020182A8: .word NNSi_G2dSplitCharShiftJIS
+	arm_func_end NNS_G2dFontInitShiftJIS
 
 	arm_func_start NNS_G2dFontFindGlyphIndex
 NNS_G2dFontFindGlyphIndex: ; 0x020182AC
@@ -31090,17 +31090,17 @@ _02019E98:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end NNSi_G2dBitReaderRead
 
-	arm_func_start FUN_02019ea8
-FUN_02019ea8: ; 0x02019EA8
+	arm_func_start NNSi_G2dSplitCharUTF16
+NNSi_G2dSplitCharUTF16: ; 0x02019EA8
 	ldr r1, [r0]
 	ldrh r2, [r1], #2
 	str r1, [r0]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_02019ea8
+	arm_func_end NNSi_G2dSplitCharUTF16
 
-	arm_func_start FUN_02019ebc
-FUN_02019ebc: ; 0x02019EBC
+	arm_func_start NNSi_G2dSplitCharShiftJIS
+NNSi_G2dSplitCharShiftJIS: ; 0x02019EBC
 	ldr r1, [r0]
 	ldrb r3, [r1]
 	cmp r3, #0x81
@@ -31126,7 +31126,7 @@ _02019EFC:
 _02019F08:
 	mov r0, r3
 	bx lr
-	arm_func_end FUN_02019ebc
+	arm_func_end NNSi_G2dSplitCharShiftJIS
 
 	arm_func_start FUN_02019f10
 FUN_02019f10: ; 0x02019F10
@@ -39766,7 +39766,7 @@ FUN_020210ac: ; 0x020210AC
 	bl OS_TryLockMutex
 	cmp r0, #0
 	bne _020210E8
-	ldr r0, _020211B4 ; =0x020939a4
+	ldr r0, _020211B4 ; =OSi_ThreadInfo
 	ldr r1, _020211B8 ; =0x02099A40
 	ldr r2, [r0, #4]
 	ldr r0, _020211BC ; =0x02099A64
@@ -39776,7 +39776,7 @@ FUN_020210ac: ; 0x020210AC
 	str r2, [r0]
 	b _02021134
 _020210E8:
-	ldr r4, _020211B4 ; =0x020939a4
+	ldr r4, _020211B4 ; =OSi_ThreadInfo
 	ldr r5, _020211B8 ; =0x02099A40
 	ldr r0, [r4, #4]
 	ldr r1, [r5]
@@ -39832,7 +39832,7 @@ _020211A0:
 	bl FUN_0201c8ac
 	ldmfd sp!, {r4, r5, r6, pc}
 _020211B0: .word unk_02099A88
-_020211B4: .word unk_020939A4
+_020211B4: .word OSi_ThreadInfo
 _020211B8: .word unk_02099A40
 _020211BC: .word unk_02099A64
 _020211C0: .word unk_02099930
@@ -42877,7 +42877,7 @@ FUN_02023ab4: ; 0x02023AB4
 	bl OS_TryLockMutex
 	cmp r0, #0
 	bne _02023B20
-	ldr r0, _02023BCC ; =0x020939a4
+	ldr r0, _02023BCC ; =OSi_ThreadInfo
 	ldr r1, _02023BD0 ; =0x02099A40
 	ldr r2, [r0, #4]
 	ldr r0, _02023BD4 ; =0x02099A64
@@ -42887,7 +42887,7 @@ FUN_02023ab4: ; 0x02023AB4
 	str r2, [r0, #0xc]
 	b _02023B6C
 _02023B20:
-	ldr r4, _02023BCC ; =0x020939a4
+	ldr r4, _02023BCC ; =OSi_ThreadInfo
 	ldr r5, _02023BD0 ; =0x02099A40
 	ldr r0, [r4, #4]
 	ldr r1, [r5, #0xc]
@@ -42932,7 +42932,7 @@ _02023BB0:
 	bx lr
 _02023BC4: .word unk_0208F098
 _02023BC8: .word unk_02099AD0
-_02023BCC: .word unk_020939A4
+_02023BCC: .word OSi_ThreadInfo
 _02023BD0: .word unk_02099A40
 _02023BD4: .word unk_02099A64
 _02023BD8: .word FUN_02023a44
@@ -43082,7 +43082,7 @@ _02023D74:
 	bl OS_TryLockMutex
 	cmp r0, #0
 	bne _02023DAC
-	ldr r0, _02023E6C ; =0x020939a4
+	ldr r0, _02023E6C ; =OSi_ThreadInfo
 	ldr r1, _02023E70 ; =0x02099A40
 	ldr r2, [r0, #4]
 	ldr r0, _02023E74 ; =0x02099A64
@@ -43092,7 +43092,7 @@ _02023D74:
 	str r2, [r0, #0x1c]
 	b _02023DF8
 _02023DAC:
-	ldr r4, _02023E6C ; =0x020939a4
+	ldr r4, _02023E6C ; =OSi_ThreadInfo
 	ldr r6, _02023E70 ; =0x02099A40
 	ldr r0, [r4, #4]
 	ldr r1, [r6, #0x1c]
@@ -43145,7 +43145,7 @@ _02023E58:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02023E68: .word unk_02099B30
-_02023E6C: .word unk_020939A4
+_02023E6C: .word OSi_ThreadInfo
 _02023E70: .word unk_02099A40
 _02023E74: .word unk_02099A64
 _02023E78: .word unk_02099E68
@@ -80052,10 +80052,10 @@ FUN_02043330: ; 0x02043330
 	cmp r4, #0
 	add r0, r5, #4
 	beq _02043370
-	bl FUN_02018264
+	bl NNS_G2dFontInitUTF16
 	b _02043374
 _02043370:
-	bl FUN_02018288
+	bl NNS_G2dFontInitShiftJIS
 _02043374:
 	strb r4, [r5, #0x20]
 	mov r0, #1
@@ -167546,8 +167546,8 @@ unk_02093988:
 	.global unk_02093994
 unk_02093994:
 	.space 0x10
-	.global unk_020939A4
-unk_020939A4:
+	.global OSi_ThreadInfo
+OSi_ThreadInfo:
 	.space 0x04
 	.global unk_020939A8
 unk_020939A8:

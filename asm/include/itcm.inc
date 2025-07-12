@@ -1,3 +1,4 @@
+.public OSi_ThreadInfo
 .public CP_SaveContext
 .public CPi_RestoreContext
 .public FUN_01ff8bf4

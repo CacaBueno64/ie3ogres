@@ -146,7 +146,7 @@
 .public FUN_02016394
 .public FUN_02016590
 .public FUN_02017368
-.public FUN_02018264
+.public NNS_G2dFontInitUTF16
 .public NNS_G2dCharCanvasDrawChar
 .public NNSi_G2dCalcRequiredOBJ
 .public FUN_02021940
