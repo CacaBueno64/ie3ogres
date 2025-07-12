@@ -29155,7 +29155,7 @@ _0210C614:
 	mov r0, r4
 	bl OS_SPrintf
 	mov r0, r4
-	bl FUN_0200dff0
+	bl FS_ChangeDir
 	add sp, sp, #0xe8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0210C694: .word ov17_021162CC
@@ -29172,7 +29172,7 @@ _0210C6B0: .word ov17_02113C40
 FUN_ov17_0210c6b4: ; 0x0210C6B4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _0210C71C ; =0x02113C48
-	bl FUN_0200dff0
+	bl FS_ChangeDir
 	ldr r4, _0210C720 ; =0x021162CC
 	ldr r0, [r4]
 	add r0, r0, #0x88

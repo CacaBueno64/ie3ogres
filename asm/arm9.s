@@ -12756,7 +12756,7 @@ _0200AE9C: .word unk_02093DA0
 	arm_func_start RTC_GetDate
 RTC_GetDate: ; 0x0200AEA0
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200AED0 ; =FUN_0200b4dc
+	ldr r1, _0200AED0 ; =RtcGetResultCallback
 	mov r2, #0
 	bl RTC_GetDateAsync
 	ldr r1, _0200AED4 ; =0x02093DA0
@@ -12768,7 +12768,7 @@ _0200AEC4:
 	ldr r0, _0200AED4 ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
-_0200AED0: .word FUN_0200b4dc
+_0200AED0: .word RtcGetResultCallback
 _0200AED4: .word unk_02093DA0
 	arm_func_end RTC_GetDate
 
@@ -12808,7 +12808,7 @@ _0200AF44: .word unk_02093DA0
 	arm_func_start RTC_GetTime
 RTC_GetTime: ; 0x0200AF48
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200AF78 ; =FUN_0200b4dc
+	ldr r1, _0200AF78 ; =RtcGetResultCallback
 	mov r2, #0
 	bl RTC_GetTimeAsync
 	ldr r1, _0200AF7C ; =0x02093DA0
@@ -12820,7 +12820,7 @@ _0200AF6C:
 	ldr r0, _0200AF7C ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
-_0200AF78: .word FUN_0200b4dc
+_0200AF78: .word RtcGetResultCallback
 _0200AF7C: .word unk_02093DA0
 	arm_func_end RTC_GetTime
 
@@ -12863,7 +12863,7 @@ _0200AFF8: .word unk_02093DA0
 	arm_func_start RTC_GetDateTime
 RTC_GetDateTime: ; 0x0200AFFC
 	stmfd sp!, {r3, lr}
-	ldr r2, _0200B02C ; =FUN_0200b4dc
+	ldr r2, _0200B02C ; =RtcGetResultCallback
 	mov r3, #0
 	bl RTC_GetDateTimeAsync
 	ldr r1, _0200B030 ; =0x02093DA0
@@ -12875,7 +12875,7 @@ _0200B020:
 	ldr r0, _0200B030 ; =0x02093DA0
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
-_0200B02C: .word FUN_0200b4dc
+_0200B02C: .word RtcGetResultCallback
 _0200B030: .word unk_02093DA0
 	arm_func_end RTC_GetDateTime
 
@@ -13213,13 +13213,13 @@ _0200B4B0:
 	ldmfd sp!, {r4, pc}
 	arm_func_end RtcHEX2BCD
 
-	arm_func_start FUN_0200b4dc
-FUN_0200b4dc: ; 0x0200B4DC
+	arm_func_start RtcGetResultCallback
+RtcGetResultCallback: ; 0x0200B4DC
 	ldr r1, _0200B4E8 ; =0x02093DA0
 	str r0, [r1, #0x24]
 	bx lr
 _0200B4E8: .word unk_02093DA0
-	arm_func_end FUN_0200b4dc
+	arm_func_end RtcGetResultCallback
 
 	arm_func_start RtcWaitBusy
 RtcWaitBusy: ; 0x0200B4EC
@@ -16650,12 +16650,12 @@ FS_GetPosition: ; 0x0200DFE4
 _0200DFEC: .word FS_GetFilePosition
 	arm_func_end FS_GetPosition
 
-	arm_func_start FUN_0200dff0
-FUN_0200dff0: ; 0x0200DFF0
+	arm_func_start FS_ChangeDir
+FS_ChangeDir: ; 0x0200DFF0
 	ldr r12, _0200DFF8 ; =FS_SetCurrentDirectory
 	bx r12
 _0200DFF8: .word FS_SetCurrentDirectory
-	arm_func_end FUN_0200dff0
+	arm_func_end FS_ChangeDir
 
 	arm_func_start FSi_InitOverlay
 FSi_InitOverlay: ; 0x0200DFFC
@@ -21008,13 +21008,9 @@ _020117D0:
 	mov r0, r4
 	blx SVC_WaitByLoop
 	b _020117D0
-	arm_func_end CTRDGi_LockByProcessor
-
-	arm_func_start FUN_02011810
-FUN_02011810: ; 0x02011810
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02011814: .word 0x02FFFFE8
-	arm_func_end FUN_02011810
+	arm_func_end CTRDGi_LockByProcessor
 
 	arm_func_start CTRDGi_UnlockByProcessor
 CTRDGi_UnlockByProcessor: ; 0x02011818
@@ -21133,7 +21129,7 @@ _02011950:
 	ldr r0, _020119C4 ; =0x02096620
 	str r4, [r1, #0x18]
 	bl CTRDGi_InitTaskThread
-	ldr r1, _020119C8 ; =FUN_02011c48
+	ldr r1, _020119C8 ; =CTRDGi_CallbackForSetPhi
 	mov r0, #0x11
 	bl PXI_SetFifoRecvCallback
 	mov r0, r4
@@ -21143,7 +21139,7 @@ _020119B8: .word unk_02096534
 _020119BC: .word CTRDGi_CallbackForInitModuleInfo
 _020119C0: .word CTRDGi_PulledOutCallback
 _020119C4: .word unk_02096620
-_020119C8: .word FUN_02011c48
+_020119C8: .word CTRDGi_CallbackForSetPhi
 	arm_func_end CTRDG_Init
 
 	arm_func_start CTRDGi_InitModuleInfo
@@ -21330,14 +21326,14 @@ CTRDG_TerminateForPulledOut: ; 0x02011C34
 	ldmfd sp!, {r3, pc}
 	arm_func_end CTRDG_TerminateForPulledOut
 
-	arm_func_start FUN_02011c48
-FUN_02011c48: ; 0x02011C48
+	arm_func_start CTRDGi_CallbackForSetPhi
+CTRDGi_CallbackForSetPhi: ; 0x02011C48
 	ldr r0, _02011C58 ; =0x02096534
 	mov r1, #0
 	str r1, [r0, #4]
 	bx lr
 _02011C58: .word unk_02096534
-	arm_func_end FUN_02011c48
+	arm_func_end CTRDGi_CallbackForSetPhi
 
 	arm_func_start CTRDGi_InitTaskThread
 CTRDGi_InitTaskThread: ; 0x02011C5C
@@ -161310,7 +161306,7 @@ FUN_020864b4: ; 0x020864B4
 	ldr r4, _02086554 ; =0x020BC504
 	str r0, [r4, #8]
 	ldr r0, _02086558 ; =0x020938E8
-	bl FUN_0200dff0
+	bl FS_ChangeDir
 	mov r1, r5
 	mov r5, #0x800
 	mov r0, r5

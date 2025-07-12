@@ -13,7 +13,7 @@
 .public FS_InitArchive
 .public FS_RegisterArchiveName
 .public FS_ReleaseArchiveName
-.public FUN_0200dff0
+.public FS_ChangeDir
 .public FS_LoadArchive
 .public FS_SetArchiveProc
 .public FS_LoadArchiveTables

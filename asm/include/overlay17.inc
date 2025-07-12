@@ -106,7 +106,7 @@
 .public FS_ReadFile
 .public FS_OpenFile
 .public FS_GetLength
-.public FUN_0200dff0
+.public FS_ChangeDir
 .public FS_LoadArchive
 .public FS_UnloadArchive
 .public FS_SetArchiveProc
