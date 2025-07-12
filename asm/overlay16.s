@@ -7482,7 +7482,7 @@ _020F3D7C:
 	ldr r0, [r5, r4, lsl #4]
 	mov r1, r10
 	add r0, r9, r0
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	beq _020F3DA0
 	add r4, r4, #1
@@ -16167,7 +16167,7 @@ _020FB184:
 _020FB1B4:
 	ldr r0, [r6, #8]
 	mov r1, r4
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -25120,13 +25120,13 @@ _02102914:
 _02102918:
 	ldr r1, _02102B40 ; =0x02119C70
 	add r0, sp, #0x1f
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	ldreq r0, _02102B44 ; =0x02119C7C
 	ldr r1, _02102B48 ; =0x02119C80
 	streq r0, [sp, #0x40]
 	add r0, sp, #0x1f
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	ldreq r0, _02102B4C ; =0x02119C8C
 	streq r0, [sp, #0x40]
@@ -33079,7 +33079,7 @@ _0210969C:
 	ldr r10, [r0, #4]
 	mov r1, r6
 	mov r0, r10
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	beq _0210972C
 	ldr r2, [r7, r9, lsl #3]

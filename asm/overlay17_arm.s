@@ -12802,7 +12802,7 @@ FUN_ov17_020fed1c: ; 0x020FED1C
 	ldr r1, _020FEE7C ; =0x02113160
 	add r0, r7, #8
 	mov r2, r5
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	strneb r5, [r7, #0x14]
 	bne _020FEDE0
@@ -22528,7 +22528,7 @@ _02106DD0:
 	mov r1, r6
 	mov r2, r5
 	add r0, r0, #0x20
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	add r8, r8, #1
 	addne r7, r7, #1
@@ -22605,7 +22605,7 @@ _02106ED4:
 	mov r2, r8
 	add r0, r4, #4
 	add r1, r1, #0x20
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02106EFC
 	add r5, r5, #1
@@ -22624,7 +22624,7 @@ _02106F18:
 	mov r1, r9
 	mov r2, r8
 	add r0, r0, #0x20
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02106F40
 	add r5, r5, #1
@@ -22680,7 +22680,7 @@ _02106FC4:
 	ldr r0, [r1, #8]
 	mov r1, r4
 	mov r2, r11
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #2
 	streqb r0, [r9, #0x28]
@@ -23090,7 +23090,7 @@ _021074BC:
 	strb r0, [r12, #0x4f4]
 	add r0, r4, #0xc0
 	mov r2, #4
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	mov r1, #0
 	mov r6, #4
@@ -23101,13 +23101,13 @@ _021074BC:
 	mov r2, r6
 	mov r1, r7
 	add r0, r4, #0xc8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02107538
 	mov r1, r7
 	mov r2, r6
 	add r0, r4, #0xcc
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02107544
 _02107538:
@@ -24752,7 +24752,7 @@ _02108B20:
 	ldr r1, _02108C54 ; =0x021125CA
 	add r0, r7, #0xc
 	mov r2, #8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02108C3C
 	ldr r0, _02108C58 ; =0x021162B4
@@ -24765,7 +24765,7 @@ _02108B64:
 	mov r2, r4
 	add r0, r7, #4
 	add r1, r5, r9
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02108BBC
 	add r0, r8, r9
@@ -24796,7 +24796,7 @@ _02108BD8:
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, r9
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02108C30
 	add r1, r8, #0x1300
@@ -24863,7 +24863,7 @@ _02108CC0:
 	ldr r1, _02108D68 ; =0x021125CA
 	mov r2, #8
 	add r0, r6, #0xc
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02108D50
 	ldrb r0, [r6, #0x15]
@@ -24875,7 +24875,7 @@ _02108CF0:
 	mov r2, r4
 	add r0, r6, #4
 	add r1, r5, r9
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _02108D44
 	add r0, r10, r9
@@ -24933,7 +24933,7 @@ _02108DBC:
 	mov r1, r4
 	mov r2, r11
 	add r0, r5, r9
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02108DF0
 	add r0, r10, r9
@@ -29379,7 +29379,7 @@ FUN_ov17_0210c930: ; 0x0210C930
 	mov r2, r5
 	add r0, r7, r3
 	add r1, r6, r1
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0

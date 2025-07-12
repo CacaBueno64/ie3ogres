@@ -4816,8 +4816,8 @@ _020C0CE0: .word OSi_ThreadInfo
 _020C0CE4: .word wfailed
 	arm_func_end CPSi_SocWrite2
 
-	arm_func_start FUN_ov15_020c0ce8
-FUN_ov15_020c0ce8: ; 0x020C0CE8
+	arm_func_start CPS_SocWrite
+CPS_SocWrite: ; 0x020C0CE8
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r3, _020C0D78 ; =OSi_ThreadInfo
 	mov r2, r0
@@ -4857,10 +4857,10 @@ _020C0D70:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C0D78: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020c0ce8
+	arm_func_end CPS_SocWrite
 
-	arm_func_start FUN_ov15_020c0d7c
-FUN_ov15_020c0d7c: ; 0x020C0D7C
+	arm_func_start CPS_SocGetLength
+CPS_SocGetLength: ; 0x020C0D7C
 	stmfd sp!, {r4, lr}
 	ldr r0, _020C0DF8 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
@@ -4878,7 +4878,7 @@ _020C0DAC:
 	cmp r0, #0
 	beq _020C0DC4
 	mov r0, r4
-	bl FUN_ov15_020da468
+	bl CPSi_SslGetLength
 	ldmfd sp!, {r4, pc}
 _020C0DC4:
 	ldr r0, [r4, #0x50]
@@ -4896,10 +4896,10 @@ _020C0DF0:
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _020C0DF8: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020c0d7c
+	arm_func_end CPS_SocGetLength
 
-	arm_func_start FUN_ov15_020c0dfc
-FUN_ov15_020c0dfc: ; 0x020C0DFC
+	arm_func_start CPS_SocFlush
+CPS_SocFlush: ; 0x020C0DFC
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _020C0E38 ; =OSi_ThreadInfo
 	ldr r0, [r0, #4]
@@ -4916,10 +4916,10 @@ FUN_ov15_020c0dfc: ; 0x020C0DFC
 	str r4, [r5, #0x6c]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C0E38: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020c0dfc
+	arm_func_end CPS_SocFlush
 
-	arm_func_start FUN_ov15_020c0e3c
-FUN_ov15_020c0e3c: ; 0x020C0E3C
+	arm_func_start garprequest
+garprequest: ; 0x020C0E3C
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _020C0EB8 ; =wfailed
 	ldr r0, [r4, #0x50]
@@ -4955,10 +4955,10 @@ _020C0EB0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _020C0EB8: .word wfailed
-	arm_func_end FUN_ov15_020c0e3c
+	arm_func_end garprequest
 
-	arm_func_start FUN_ov15_020c0ebc
-FUN_ov15_020c0ebc: ; 0x020C0EBC
+	arm_func_start set_fixed_ip
+set_fixed_ip: ; 0x020C0EBC
 	stmfd sp!, {r4, lr}
 	ldr r4, _020C0EF0 ; =wfailed
 	ldr r0, [r4, #0x28]
@@ -4966,14 +4966,14 @@ FUN_ov15_020c0ebc: ; 0x020C0EBC
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_ov15_020c0e3c
+	bl garprequest
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	mov r0, #4
 	bl reset_network_vars
 	ldmfd sp!, {r4, pc}
 _020C0EF0: .word wfailed
-	arm_func_end FUN_ov15_020c0ebc
+	arm_func_end set_fixed_ip
 
 	arm_func_start scavenger
 scavenger: ; 0x020C0EF4
@@ -5026,7 +5026,7 @@ _020C0F54:
 	beq _020C0FC0
 	cmp r5, #0
 	bne _020C1168
-	bl FUN_ov15_020c0ebc
+	bl set_fixed_ip
 	mov r5, #1
 	b _020C1168
 _020C0FC0:
@@ -5046,13 +5046,13 @@ _020C0FDC:
 	strne r1, [r0, #0x4c]
 	movne r0, #0
 	strne r0, [sp]
-	bl FUN_ov15_020c1b64
+	bl dhcp_discover_server
 	cmp r0, #0
 	beq _020C101C
 	mov r4, #0
 	add r0, sp, #4
 	mov r1, r4
-	bl FUN_ov15_020c1bbc
+	bl dhcp_request_server
 	cmp r0, #0
 	bne _020C1020
 _020C101C:
@@ -5072,13 +5072,13 @@ _020C1044:
 	mov r0, #5
 	bl reset_network_vars
 _020C104C:
-	bl FUN_ov15_020c0ebc
+	bl set_fixed_ip
 _020C1050:
 	mov r5, #3
 	b _020C1168
 _020C1058:
 	mov r5, #1
-	bl FUN_ov15_020c0e3c
+	bl garprequest
 	cmp r0, #0
 	bne _020C1168
 _020C1068:
@@ -5088,7 +5088,7 @@ _020C1068:
 _020C1074:
 	add r0, sp, #4
 	mov r1, #1
-	bl FUN_ov15_020c1bbc
+	bl dhcp_request_server
 	cmp r0, #0
 	bne _020C1098
 	ldr r0, [sp, #4]
@@ -5112,14 +5112,14 @@ _020C10C0:
 	beq _020C10CC
 	b _020C1044
 _020C10CC:
-	bl FUN_ov15_020c0e3c
+	bl garprequest
 	cmp r0, #0
 	bne _020C1168
 	b _020C1068
 _020C10DC:
 	add r0, sp, #4
 	mov r1, #2
-	bl FUN_ov15_020c1bbc
+	bl dhcp_request_server
 	cmp r0, #0
 	beq _020C1138
 	ldr r0, _020C131C ; =wfailed
@@ -5139,7 +5139,7 @@ _020C1118:
 	b _020C1044
 _020C1124:
 	mov r5, #1
-	bl FUN_ov15_020c0e3c
+	bl garprequest
 	cmp r0, #0
 	bne _020C1168
 	b _020C1068
@@ -5260,7 +5260,7 @@ _020C12C4:
 	cmp r9, #8
 	blt _020C1294
 	mov r0, r7
-	bl FUN_ov15_020da704
+	bl CPSi_SslPeriodical
 	ldr r0, _020C131C ; =wfailed
 	ldr r0, [r0, #0x34]
 	cmp r0, #0
@@ -5274,7 +5274,7 @@ _020C12F0:
 	bne _020C130C
 	cmp r5, #3
 	beq _020C130C
-	bl FUN_ov15_020c1cb8
+	bl dhcp_release_server
 _020C130C:
 	bl CPS_SocUnRegister
 	add sp, sp, #8
@@ -5388,8 +5388,8 @@ _020C1474: .word ov15_020E6FF8
 _020C1478: .word OS_WakeupThreadDirect
 	arm_func_end dacktimer_alarmhandler
 
-	arm_func_start FUN_ov15_020c147c
-FUN_ov15_020c147c: ; 0x020C147C
+	arm_func_start dhcp_setcommon
+dhcp_setcommon: ; 0x020C147C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, #0xec
 	mov r7, r1
@@ -5472,10 +5472,10 @@ _020C15B4: .word CPSMyMac
 _020C15B8: .word 0x00008263
 _020C15BC: .word 0x00006353
 _020C15C0: .word ov15_020E4374
-	arm_func_end FUN_ov15_020c147c
+	arm_func_end dhcp_setcommon
 
-	arm_func_start FUN_ov15_020c15c4
-FUN_ov15_020c15c4: ; 0x020C15C4
+	arm_func_start pad_mem
+pad_mem: ; 0x020C15C4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r12, r0
 	mov r5, r2
@@ -5490,10 +5490,10 @@ FUN_ov15_020c15c4: ; 0x020C15C4
 _020C15F0:
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020c15c4
+	arm_func_end pad_mem
 
-	arm_func_start FUN_ov15_020c15f8
-FUN_ov15_020c15f8: ; 0x020C15F8
+	arm_func_start dhcp_send_discover
+dhcp_send_discover: ; 0x020C15F8
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _020C16E4 ; =wfailed
 	ldr r4, _020C16E8 ; =0x020E7262
@@ -5513,7 +5513,7 @@ FUN_ov15_020c15f8: ; 0x020C15F8
 	mov r0, r4
 	str r1, [r5, #0x30]
 	mov r1, #1
-	bl FUN_ov15_020c147c
+	bl dhcp_setcommon
 	ldr r1, [r5, #0x38]
 	mov r12, r0
 	cmp r1, #0
@@ -5546,26 +5546,26 @@ _020C16AC:
 	mov r0, #0
 	mov r1, #0x12c
 	strb r5, [r12]
-	bl FUN_ov15_020c15c4
+	bl pad_mem
 	mov r1, r0
 	mov r0, r4
 	sub r1, r1, r4
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	ldr r0, _020C16E4 ; =wfailed
 	ldr r0, [r0, #0x30]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C16E4: .word wfailed
 _020C16E8: .word ov15_020E7262
-	arm_func_end FUN_ov15_020c15f8
+	arm_func_end dhcp_send_discover
 
-	arm_func_start FUN_ov15_020c16ec
-FUN_ov15_020c16ec: ; 0x020C16EC
+	arm_func_start dhcp_send_request
+dhcp_send_request: ; 0x020C16EC
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _020C17EC ; =0x020E7262
 	mov r5, r0
 	mov r0, r4
 	mov r1, #3
-	bl FUN_ov15_020c147c
+	bl dhcp_setcommon
 	mov r12, r0
 	cmp r5, #0
 	bne _020C17B4
@@ -5617,20 +5617,20 @@ _020C17B4:
 	mov r0, #0
 	mov r1, #0x12c
 	strb lr, [r12]
-	bl FUN_ov15_020c15c4
+	bl pad_mem
 	mov r1, r0
 	mov r0, r4
 	sub r1, r1, r4
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	ldr r0, _020C17F0 ; =wfailed
 	ldr r0, [r0, #0x30]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C17EC: .word ov15_020E7262
 _020C17F0: .word wfailed
-	arm_func_end FUN_ov15_020c16ec
+	arm_func_end dhcp_send_request
 
-	arm_func_start FUN_ov15_020c17f4
-FUN_ov15_020c17f4: ; 0x020C17F4
+	arm_func_start dhcp_analyze_response
+dhcp_analyze_response: ; 0x020C17F4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	ldr r2, _020C1B58 ; =0x020E4344
@@ -5644,7 +5644,7 @@ FUN_ov15_020c17f4: ; 0x020C17F4
 	mov r4, #0
 	b _020C1B14
 _020C1824:
-	bl FUN_ov15_020c0d7c
+	bl CPS_SocGetLength
 	cmp r0, #0
 	bne _020C1838
 	bl OS_YieldThread__
@@ -5869,10 +5869,10 @@ _020C1B4C:
 _020C1B58: .word ov15_020E4344
 _020C1B5C: .word CPSMyMac
 _020C1B60: .word wfailed
-	arm_func_end FUN_ov15_020c17f4
+	arm_func_end dhcp_analyze_response
 
-	arm_func_start FUN_ov15_020c1b64
-FUN_ov15_020c1b64: ; 0x020C1B64
+	arm_func_start dhcp_discover_server
+dhcp_discover_server: ; 0x020C1B64
 	stmfd sp!, {r3, r4, r5, lr}
 	bl CPS_SocUse
 	bl CPS_SocDatagramMode
@@ -5882,9 +5882,9 @@ FUN_ov15_020c1b64: ; 0x020C1B64
 	bl CPS_SocBind
 	mov r5, #0
 _020C1B84:
-	bl FUN_ov15_020c15f8
+	bl dhcp_send_discover
 	mov r1, r5
-	bl FUN_ov15_020c17f4
+	bl dhcp_analyze_response
 	mov r4, r0
 	cmp r4, #1
 	beq _020C1BA8
@@ -5897,10 +5897,10 @@ _020C1BA8:
 	cmp r4, #1
 	movne r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020c1b64
+	arm_func_end dhcp_discover_server
 
-	arm_func_start FUN_ov15_020c1bbc
-FUN_ov15_020c1bbc: ; 0x020C1BBC
+	arm_func_start dhcp_request_server
+dhcp_request_server: ; 0x020C1BBC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r1
 	mov r5, r0
@@ -5921,9 +5921,9 @@ _020C1BF4:
 	mov r7, #0
 _020C1BFC:
 	mov r0, r4
-	bl FUN_ov15_020c16ec
+	bl dhcp_send_request
 	mov r1, r7
-	bl FUN_ov15_020c17f4
+	bl dhcp_analyze_response
 	movs r6, r0
 	cmpne r6, #1
 	bne _020C1C24
@@ -5972,10 +5972,10 @@ _020C1CAC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C1CB4: .word wfailed
-	arm_func_end FUN_ov15_020c1bbc
+	arm_func_end dhcp_request_server
 
-	arm_func_start FUN_ov15_020c1cb8
-FUN_ov15_020c1cb8: ; 0x020C1CB8
+	arm_func_start dhcp_release_server
+dhcp_release_server: ; 0x020C1CB8
 	stmfd sp!, {r4, lr}
 	bl CPS_SocUse
 	bl CPS_SocDatagramMode
@@ -5987,25 +5987,25 @@ FUN_ov15_020c1cb8: ; 0x020C1CB8
 	ldr r4, _020C1D1C ; =0x020E7262
 	mov r1, #7
 	mov r0, r4
-	bl FUN_ov15_020c147c
+	bl dhcp_setcommon
 	mov r1, #0xff
 	add r2, r0, #1
 	strb r1, [r0]
 	mov r0, #0
 	mov r1, #0x12c
 	sub r3, r2, r4
-	bl FUN_ov15_020c15c4
+	bl pad_mem
 	sub r1, r0, r4
 	mov r0, r4
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	bl CPS_SocRelease
 	ldmfd sp!, {r4, pc}
 _020C1D18: .word wfailed
 _020C1D1C: .word ov15_020E7262
-	arm_func_end FUN_ov15_020c1cb8
+	arm_func_end dhcp_release_server
 
-	arm_func_start FUN_ov15_020c1d20
-FUN_ov15_020c1d20: ; 0x020C1D20
+	arm_func_start dns_skipname
+dns_skipname: ; 0x020C1D20
 	ldrb r2, [r0], #1
 	cmp r2, #0
 	bxeq lr
@@ -6019,10 +6019,10 @@ _020C1D2C:
 	cmp r2, #0
 	bne _020C1D2C
 	bx lr
-	arm_func_end FUN_ov15_020c1d20
+	arm_func_end dns_skipname
 
-	arm_func_start FUN_ov15_020c1d50
-FUN_ov15_020c1d50: ; 0x020C1D50
+	arm_func_start resolve_common
+resolve_common: ; 0x020C1D50
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
 	mov r9, r2
@@ -6089,13 +6089,13 @@ _020C1E1C:
 	mov r3, #1
 	sub r1, r1, r0
 	strb r3, [r2, #4]
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	bl OS_GetTick
 	mov r5, r0, lsr #0x10
 	orr r5, r5, r1, lsl #16
 	b _020C1FB0
 _020C1E60:
-	bl FUN_ov15_020c0d7c
+	bl CPS_SocGetLength
 	cmp r0, #0
 	bne _020C1E78
 	mov r0, #0xa
@@ -6130,7 +6130,7 @@ _020C1E78:
 	sub r7, r1, #1
 	beq _020C1EF8
 _020C1EE4:
-	bl FUN_ov15_020c1d20
+	bl dns_skipname
 	cmp r7, #0
 	add r0, r0, #4
 	sub r7, r7, #1
@@ -6139,7 +6139,7 @@ _020C1EF8:
 	cmp r0, r6
 	bhs _020C1FA8
 _020C1F00:
-	bl FUN_ov15_020c1d20
+	bl dns_skipname
 	ldrb r7, [r0, #8]
 	ldrb r1, [r0, #9]
 	ldrb r3, [r0]
@@ -6206,10 +6206,10 @@ _020C1FE4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C1FF0: .word 0x00001001
 _020C1FF4: .word wfailed
-	arm_func_end FUN_ov15_020c1d50
+	arm_func_end resolve_common
 
-	arm_func_start FUN_ov15_020c1ff8
-FUN_ov15_020c1ff8: ; 0x020C1FF8
+	arm_func_start strtol10
+strtol10: ; 0x020C1FF8
 	str r0, [r1]
 	mov r12, #0
 	mov r2, #0xa
@@ -6224,10 +6224,10 @@ _020C2004:
 	bls _020C2004
 	mov r0, r12
 	bx lr
-	arm_func_end FUN_ov15_020c1ff8
+	arm_func_end strtol10
 
-	arm_func_start FUN_ov15_020c202c
-FUN_ov15_020c202c: ; 0x020C202C
+	arm_func_start rawip
+rawip: ; 0x020C202C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
 	mov r5, #0
@@ -6238,7 +6238,7 @@ FUN_ov15_020c202c: ; 0x020C202C
 _020C2048:
 	mov r0, r8
 	mov r1, r4
-	bl FUN_ov15_020c1ff8
+	bl strtol10
 	ldr r2, [sp]
 	cmp r8, r2
 	addeq sp, sp, #4
@@ -6272,10 +6272,10 @@ _020C20AC:
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020c202c
+	arm_func_end rawip
 
-	arm_func_start FUN_ov15_020c20cc
-FUN_ov15_020c20cc: ; 0x020C20CC
+	arm_func_start resolve_sub
+resolve_sub: ; 0x020C20CC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1
 	mov r7, r0
@@ -6294,15 +6294,15 @@ FUN_ov15_020c20cc: ; 0x020C20CC
 	str r4, [sp]
 	mov r3, r4
 	mov r1, #1
-	bl FUN_ov15_020c1d50
+	bl resolve_common
 	mov r4, r0
 	bl CPS_SocRelease
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020c20cc
+	arm_func_end resolve_sub
 
-	arm_func_start FUN_ov15_020c2128
-FUN_ov15_020c2128: ; 0x020C2128
+	arm_func_start CPS_Resolve
+CPS_Resolve: ; 0x020C2128
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	ldr r2, _020C229C ; =wfailed
@@ -6338,7 +6338,7 @@ FUN_ov15_020c2128: ; 0x020C2128
 	str r4, [r2, #0x7c]
 	strh r7, [sp, #6]
 	strh r3, [sp, #8]
-	bl FUN_ov15_020c202c
+	bl rawip
 	cmp r0, #0
 	ldrne r0, [sp, #0xc]
 	addne sp, sp, #0x10
@@ -6380,7 +6380,7 @@ _020C2238:
 	ldrh r2, [r11, r0]
 	ldr r1, [r6, r9, lsl #2]
 	mov r0, r10
-	bl FUN_ov15_020c20cc
+	bl resolve_sub
 	str r0, [sp, #0xc]
 	cmp r0, #0
 	beq _020C2260
@@ -6406,7 +6406,7 @@ _020C2288:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C229C: .word wfailed
 _020C22A0: .word ov15_020E6DB0
-	arm_func_end FUN_ov15_020c2128
+	arm_func_end CPS_Resolve
 
 	arm_func_start FUN_ov15_020c22a4
 FUN_ov15_020c22a4: ; 0x020C22A4
@@ -8750,7 +8750,7 @@ FUN_ov15_020c4134: ; 0x020C4134
 	str r5, [r8, #0x14]
 	strb r5, [r8, #0x10]
 	str r8, [r4, #4]
-	bl FUN_ov15_020d78cc
+	bl CPS_SetSslHandshakePriority
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020C4194: .word ov15_020E8F18
 	arm_func_end FUN_ov15_020c4134
@@ -9073,7 +9073,7 @@ _020C45C8:
 	cmp r0, #0
 	bne _020C4654
 	ldrh r7, [r10, #8]
-	bl FUN_ov15_020d78bc
+	bl CPS_GetSslHandshakePriority
 	ldr r1, [r4, #4]
 	mov r11, r0
 	ldrb r8, [r1, #0x10]
@@ -11128,7 +11128,7 @@ FUN_ov15_020c60bc: ; 0x020C60BC
 	ldr r1, _020C60F4 ; =0x020E43F4
 	mov r0, r4
 	mov r2, #8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -11163,7 +11163,7 @@ FUN_ov15_020c6124: ; 0x020C6124
 	ldr r1, _020C6170 ; =0x020E43F4
 	mov r0, r4
 	mov r2, #8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	addne sp, sp, #0x18
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -11181,7 +11181,7 @@ FUN_ov15_020c6174: ; 0x020C6174
 	stmfd sp!, {r3, lr}
 	ldr r1, _020C6194 ; =0x020E4400
 	mov r2, #8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -12260,7 +12260,7 @@ FUN_ov15_020c6fa4: ; 0x020C6FA4
 	mov r4, r0
 	ldr r0, [r5]
 	ldr r1, _020C7098 ; =0x020E4438
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r5, #0x14]
@@ -13593,7 +13593,7 @@ FUN_ov15_020c8298: ; 0x020C8298
 	add r0, r4, #0xa10
 	add r0, r0, #0x1000
 	mov r1, #0x20
-	bl FUN_ov15_020d9a88
+	bl CPS_SslAddRandomSeed
 _020C82CC:
 	add r0, r4, #0x34
 	add r0, r0, #0x1c00
@@ -13645,9 +13645,9 @@ _020C8364: .word 0x000005EA
 FUN_ov15_020c8368: ; 0x020C8368
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0x124]
-	ldr r12, _020C8378 ; =FUN_ov15_020c2128
+	ldr r12, _020C8378 ; =CPS_Resolve
 	bx r12
-_020C8378: .word FUN_ov15_020c2128
+_020C8378: .word CPS_Resolve
 	arm_func_end FUN_ov15_020c8368
 
 	arm_func_start FUN_ov15_020c837c
@@ -13758,9 +13758,9 @@ FUN_ov15_020c846c: ; 0x020C846C
 	str r3, [r5, #0x810]
 	str r2, [r5, #0x800]
 	str r5, [r4, #0xc]
-	bl FUN_ov15_020d7948
+	bl CPS_SetRootCa
 	mov r0, #1
-	bl FUN_ov15_020da6d4
+	bl CPS_SetSsl
 _020C8520:
 	add r0, r10, #0x1100
 	ldrh r1, [r0, #0x34]
@@ -13783,14 +13783,14 @@ _020C855C:
 	bl _strlen
 	mov r1, r0
 	mov r0, r4
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	cmp r0, #0
 	str r0, [sp, #0x10]
 	addle r0, r10, #0x1000
 	movle r1, #5
 	strle r1, [r0, #0x20]
 	ble _020C874C
-	bl FUN_ov15_020c0dfc
+	bl CPS_SocFlush
 	mov r0, r10
 	bl FUN_ov15_020c8298
 	cmp r0, #0
@@ -13818,7 +13818,7 @@ _020C85DC:
 	moveq r1, #5
 	streq r1, [r0, #0x20]
 	beq _020C874C
-	bl FUN_ov15_020c0d7c
+	bl CPS_SocGetLength
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	blt _020C8728
@@ -14658,7 +14658,7 @@ _020C91BC:
 	cmp r1, #0
 	beq _020C91F8
 	mov r0, r5
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	addeq r0, r6, r4, lsl #3
 	addeq r0, r0, #0x1000
@@ -15134,7 +15134,7 @@ _020C97E0:
 	str r6, [r10, #0x40]
 	ldr r1, _020CA234 ; =0x020E47D0
 	str r2, [r10, #0x48]
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r10, #0x44]
@@ -15404,7 +15404,7 @@ _020C9BC8:
 	ldr r2, _020CA210 ; =0x00009C40
 	str r6, [r4, #0x40]
 	str r2, [r4, #0x48]
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r4, #0x44]
@@ -15981,7 +15981,7 @@ _020CA3DC:
 	str r2, [sp, #0xc]
 	ldr r2, [r6, #4]
 	str r2, [sp, #0x10]
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [sp, #0x14]
@@ -17052,7 +17052,7 @@ FUN_ov15_020cb248: ; 0x020CB248
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x100
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	movne r4, #0
 	mov r0, r4
@@ -17398,7 +17398,7 @@ FUN_ov15_020cb6fc: ; 0x020CB6FC
 	ldr r1, _020CB7D8 ; =0x020E3DB0
 	add r0, r5, #0xc0
 	mov r2, #4
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _020CB794
 	add r0, r5, #0xc4
@@ -17423,7 +17423,7 @@ _020CB794:
 	ldr r1, _020CB7D8 ; =0x020E3DB0
 	add r0, r5, #0xc8
 	mov r2, #4
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _020CB7D0
 	add r0, r5, #0xc8
@@ -18668,7 +18668,7 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 _020CC830:
 	ldr r0, [r8, r4, lsl #2]
 	mov r1, r7
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	addeq r0, r4, #1
 	streq r0, [sp, #0x30]
@@ -21710,7 +21710,7 @@ FUN_ov15_020cf094: ; 0x020CF094
 	bl OS_GetLowEntropyData
 	mov r0, r4
 	mov r1, #0x20
-	bl FUN_ov15_020d9a88
+	bl CPS_SslAddRandomSeed
 	ldmfd sp!, {r4, pc}
 _020CF0B4: .word ov15_020E92B0
 	arm_func_end FUN_ov15_020cf094
@@ -30049,7 +30049,7 @@ _020D5F60:
 	cmp r1, #0
 	ble _020D5FD4
 	add r0, r4, r8
-	bl FUN_ov15_020c0ce8
+	bl CPS_SocWrite
 	cmp r0, #0
 	bgt _020D5FC8
 	ldrsb r0, [r5, #0xaf]
@@ -30721,7 +30721,7 @@ FUN_ov15_020d67b4: ; 0x020D67B4
 	str r1, [sp, #0x54]
 	bl CPS_SocRegister
 	mov r0, r7
-	bl FUN_ov15_020c2128
+	bl CPS_Resolve
 	mov r4, r0
 	bl CPS_SocUnRegister
 	ldr r1, [r8]
@@ -30748,7 +30748,7 @@ FUN_ov15_020d687c: ; 0x020D687C
 	str r1, [r4]
 	mov r0, r5
 	str r1, [r4, #4]
-	bl FUN_ov15_020c2128
+	bl CPS_Resolve
 	mov r5, r0
 	mov r0, r6
 	stmia r4, {r7, r8}
@@ -31776,7 +31776,7 @@ FUN_ov15_020d7580: ; 0x020D7580
 	beq _020D75C0
 	mov r0, #1
 	str r1, [r7, #0xc]
-	bl FUN_ov15_020da6d4
+	bl CPS_SetSsl
 	mov r0, #4
 	strb r0, [r5, #0xaf]
 	b _020D75D4
@@ -31784,7 +31784,7 @@ _020D75C0:
 	mov r4, #0
 	mov r0, r4
 	strb r4, [r5, #0xaf]
-	bl FUN_ov15_020da6d4
+	bl CPS_SetSsl
 	str r4, [r7, #0xc]
 _020D75D4:
 	add r0, r6, #0xe0
@@ -31793,13 +31793,13 @@ _020D75D4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020d7580
 
-	arm_func_start FUN_ov15_020d75e4
-FUN_ov15_020d75e4: ; 0x020D75E4
+	arm_func_start find_session_from_id
+find_session_from_id: ; 0x020D75E4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r8, r0
 	bl OS_DisableInterrupts
 	mov r5, #0
-	ldr r4, _020D7678 ; =0x020ED684
+	ldr r4, _020D7678 ; =session
 	mov r7, r0
 	strb r5, [r8, #0x30]
 	mov r10, #0x20
@@ -31817,7 +31817,7 @@ _020D7608:
 	mov r0, r6
 	mov r2, r10
 	add r1, r8, #0x74
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _020D7660
 	mov r1, r8
@@ -31835,11 +31835,11 @@ _020D766C:
 	mov r0, r7
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020D7678: .word ov15_020ED684
-	arm_func_end FUN_ov15_020d75e4
+_020D7678: .word session
+	arm_func_end find_session_from_id
 
-	arm_func_start FUN_ov15_020d767c
-FUN_ov15_020d767c: ; 0x020D767C
+	arm_func_start find_session_from_IP
+find_session_from_IP: ; 0x020D767C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -31847,7 +31847,7 @@ FUN_ov15_020d767c: ; 0x020D767C
 	bl OS_DisableInterrupts
 	mov r3, #0
 	mov r5, r0
-	ldr r2, _020D771C ; =0x020ED684
+	ldr r2, _020D771C ; =session
 	strb r3, [r8, #0x30]
 	mov r0, #0x5c
 _020D76A4:
@@ -31883,11 +31883,11 @@ _020D7710:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020D771C: .word ov15_020ED684
-	arm_func_end FUN_ov15_020d767c
+_020D771C: .word session
+	arm_func_end find_session_from_IP
 
-	arm_func_start FUN_ov15_020d7720
-FUN_ov15_020d7720: ; 0x020D7720
+	arm_func_start cache_session
+cache_session: ; 0x020D7720
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r8, r0
 	mov r7, r1
@@ -31896,7 +31896,7 @@ FUN_ov15_020d7720: ; 0x020D7720
 	mov r11, r0
 	bl OS_GetTick
 	mov r5, r0, lsr #0x10
-	ldr r4, _020D780C ; =0x020ED684
+	ldr r4, _020D780C ; =session
 	mov r3, #0
 	mov r2, r3
 	orr r5, r5, r1, lsl #16
@@ -31951,15 +31951,15 @@ _020D77CC:
 	strh r6, [r4, #0x58]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020D780C: .word ov15_020ED684
-	arm_func_end FUN_ov15_020d7720
+_020D780C: .word session
+	arm_func_end cache_session
 
-	arm_func_start FUN_ov15_020d7810
-FUN_ov15_020d7810: ; 0x020D7810
+	arm_func_start purge_session
+purge_session: ; 0x020D7810
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r8, r0
 	bl OS_DisableInterrupts
-	ldr r4, _020D7878 ; =0x020ED684
+	ldr r4, _020D7878 ; =session
 	mov r7, r0
 	mov r5, #0
 	mov r10, #0x20
@@ -31972,7 +31972,7 @@ _020D7830:
 	mov r0, r6
 	mov r2, r10
 	add r1, r8, #0x74
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #0
 	streqb r0, [r6, #0x5a]
@@ -31985,11 +31985,11 @@ _020D786C:
 	mov r0, r7
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020D7878: .word ov15_020ED684
-	arm_func_end FUN_ov15_020d7810
+_020D7878: .word session
+	arm_func_end purge_session
 
-	arm_func_start FUN_ov15_020d787c
-FUN_ov15_020d787c: ; 0x020D787C
+	arm_func_start date2sec
+date2sec: ; 0x020D787C
 	stmfd sp!, {r4, r5, lr}
 	sub sp, sp, #0x1c
 	add r5, sp, #0xc
@@ -32006,26 +32006,26 @@ FUN_ov15_020d787c: ; 0x020D787C
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
 _020D78B8: .word 0x386D4380
-	arm_func_end FUN_ov15_020d787c
+	arm_func_end date2sec
 
-	arm_func_start FUN_ov15_020d78bc
-FUN_ov15_020d78bc: ; 0x020D78BC
+	arm_func_start CPS_GetSslHandshakePriority
+CPS_GetSslHandshakePriority: ; 0x020D78BC
 	ldr r0, _020D78C8 ; =0x020E5A54
 	ldr r0, [r0, #4]
 	bx lr
 _020D78C8: .word ov15_020E5A54
-	arm_func_end FUN_ov15_020d78bc
+	arm_func_end CPS_GetSslHandshakePriority
 
-	arm_func_start FUN_ov15_020d78cc
-FUN_ov15_020d78cc: ; 0x020D78CC
+	arm_func_start CPS_SetSslHandshakePriority
+CPS_SetSslHandshakePriority: ; 0x020D78CC
 	ldr r1, _020D78D8 ; =0x020E5A54
 	str r0, [r1, #4]
 	bx lr
 _020D78D8: .word ov15_020E5A54
-	arm_func_end FUN_ov15_020d78cc
+	arm_func_end CPS_SetSslHandshakePriority
 
-	arm_func_start FUN_ov15_020d78dc
-FUN_ov15_020d78dc: ; 0x020D78DC
+	arm_func_start enter_computebound
+enter_computebound: ; 0x020D78DC
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _020D791C ; =0x020E5A54
 	ldr r0, [r4, #4]
@@ -32044,10 +32044,10 @@ FUN_ov15_020d78dc: ; 0x020D78DC
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D791C: .word ov15_020E5A54
 _020D7920: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020d78dc
+	arm_func_end enter_computebound
 
-	arm_func_start FUN_ov15_020d7924
-FUN_ov15_020d7924: ; 0x020D7924
+	arm_func_start exit_computebound
+exit_computebound: ; 0x020D7924
 	stmfd sp!, {r3, lr}
 	mov r1, r0
 	cmp r1, #0x20
@@ -32057,10 +32057,10 @@ FUN_ov15_020d7924: ; 0x020D7924
 	bl OS_SetThreadPriority
 	ldmfd sp!, {r3, pc}
 _020D7944: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020d7924
+	arm_func_end exit_computebound
 
-	arm_func_start FUN_ov15_020d7948
-FUN_ov15_020d7948: ; 0x020D7948
+	arm_func_start CPS_SetRootCa
+CPS_SetRootCa: ; 0x020D7948
 	ldr r2, _020D796C ; =OSi_ThreadInfo
 	ldr r2, [r2, #4]
 	ldr r2, [r2, #0xa4]
@@ -32071,10 +32071,10 @@ FUN_ov15_020d7948: ; 0x020D7948
 	strne r1, [r2, #0x818]
 	bx lr
 _020D796C: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020d7948
+	arm_func_end CPS_SetRootCa
 
-	arm_func_start FUN_ov15_020d7970
-FUN_ov15_020d7970: ; 0x020D7970
+	arm_func_start get_rootCA
+get_rootCA: ; 0x020D7970
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r6, [r0, #0x818]
 	mov r8, r1
@@ -32086,7 +32086,7 @@ _020D798C:
 	ldr r7, [r5, r4, lsl #2]
 	mov r1, r8
 	ldr r0, [r7]
-	bl FUN_02023fe0
+	bl _strcmp
 	cmp r0, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -32096,10 +32096,10 @@ _020D798C:
 _020D79B4:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d7970
+	arm_func_end get_rootCA
 
-	arm_func_start FUN_ov15_020d79bc
-FUN_ov15_020d79bc: ; 0x020D79BC
+	arm_func_start cert_item_len
+cert_item_len: ; 0x020D79BC
 	ldr r1, [r0]
 	ldrb r2, [r1]
 	add r3, r1, #1
@@ -32122,10 +32122,10 @@ _020D7A00:
 	str r3, [r0]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_ov15_020d79bc
+	arm_func_end cert_item_len
 
-	arm_func_start FUN_ov15_020d7a0c
-FUN_ov15_020d7a0c: ; 0x020D7A0C
+	arm_func_start make_dn
+make_dn: ; 0x020D7A0C
 	ldrsb r3, [r0]
 	mov r12, r0
 	cmp r3, #0
@@ -32157,10 +32157,10 @@ _020D7A6C:
 	mov r1, #0
 	strb r1, [r0]
 	bx lr
-	arm_func_end FUN_ov15_020d7a0c
+	arm_func_end make_dn
 
-	arm_func_start FUN_ov15_020d7a78
-FUN_ov15_020d7a78: ; 0x020D7A78
+	arm_func_start parse_time
+parse_time: ; 0x020D7A78
 	stmfd sp!, {r4, lr}
 	ldrb r12, [r0, #1]
 	ldrb r3, [r0], #2
@@ -32195,10 +32195,10 @@ _020D7AC4:
 	sub r0, r1, #0x210
 	add r0, r2, r0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d7a78
+	arm_func_end parse_time
 
-	arm_func_start FUN_ov15_020d7af8
-FUN_ov15_020d7af8: ; 0x020D7AF8
+	arm_func_start cert_item
+cert_item: ; 0x020D7AF8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r11, r1
@@ -32212,7 +32212,7 @@ FUN_ov15_020d7af8: ; 0x020D7AF8
 	mov r6, r3
 	ldr r8, [sp, #0x30]
 	ldrb r10, [r4]
-	bl FUN_ov15_020d79bc
+	bl cert_item_len
 	movs r4, r0
 	bmi _020D7B40
 	cmp r4, #0x7d0
@@ -32340,7 +32340,7 @@ _020D7CC8:
 	mov r2, r7
 	mov r3, r5
 	str r8, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	addne sp, sp, #8
 	movne r0, #1
@@ -32360,7 +32360,7 @@ _020D7D20:
 	mov r2, r0
 	mov r0, r6
 	mov r1, r7
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _020D7D90
 	cmp r5, #5
@@ -32402,7 +32402,7 @@ _020D7DA0:
 	ldr r1, [sp, #4]
 	mov r2, r4
 	add r0, r9, #0x6b0
-	bl FUN_ov15_020d7a0c
+	bl make_dn
 	ldrb r0, [r9, #0x5ae]
 	cmp r0, #5
 	bne _020D7E08
@@ -32419,7 +32419,7 @@ _020D7DF8:
 	ldr r1, [sp, #4]
 	mov r2, r4
 	add r0, r9, #0x5b0
-	bl FUN_ov15_020d7a0c
+	bl make_dn
 _020D7E08:
 	strb r5, [r9, #0x5ae]
 	b _020D7F80
@@ -32429,7 +32429,7 @@ _020D7E10:
 	mov r7, #0
 	beq _020D7E48
 	ldr r0, [sp, #4]
-	bl FUN_ov15_020d7a78
+	bl parse_time
 	cmp r6, #0
 	ldr r1, [r9, #0x80c]
 	bne _020D7E40
@@ -32465,7 +32465,7 @@ _020D7E8C:
 	mov r3, r5
 	add r2, r7, #1
 	str r8, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	add r5, r5, #1
 	addne sp, sp, #8
@@ -32493,7 +32493,7 @@ _020D7EF0:
 	mov r3, r6
 	add r2, r7, #1
 	str r8, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	addne sp, sp, #8
 	movne r0, #1
@@ -32517,7 +32517,7 @@ _020D7F48:
 	mov r3, r5
 	add r2, r7, #1
 	str r8, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	addne sp, sp, #8
 	movne r0, #1
@@ -32537,10 +32537,10 @@ _020D7F8C:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D7FA0: .word ov15_020E5A5C
-	arm_func_end FUN_ov15_020d7af8
+	arm_func_end cert_item
 
-	arm_func_start FUN_ov15_020d7fa4
-FUN_ov15_020d7fa4: ; 0x020D7FA4
+	arm_func_start validate_signature
+validate_signature: ; 0x020D7FA4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mov r8, r0
@@ -32561,7 +32561,7 @@ FUN_ov15_020d7fa4: ; 0x020D7FA4
 	moveq r0, #2
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r0, lsl #1
-	ldr r1, _020D8144 ; =0x020E6D54
+	ldr r1, _020D8144 ; =CPSiAlloc
 	add r0, r0, r0, lsr #31
 	mov r5, r0, asr #1
 	ldr r1, [r1]
@@ -32578,32 +32578,32 @@ FUN_ov15_020d7fa4: ; 0x020D7FA4
 	mov r0, r6
 	mov r3, r5
 	add r10, r9, r5, lsl #1
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r1, [r7, #0x10]
 	ldr r2, [r7, #0xc]
 	mov r0, r9
 	mov r3, r5
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r1, [r7, #8]
 	ldr r2, [r7, #4]
 	mov r0, r10
 	mov r3, r5
-	bl FUN_ov15_020dc504
-	bl FUN_ov15_020d78dc
+	bl CPSi_big_from_char
+	bl enter_computebound
 	mov r2, r9
 	mov r9, r0
 	mov r0, r4
 	mov r1, r6
 	mov r3, r5
 	str r10, [sp]
-	bl FUN_ov15_020dbedc
+	bl CPSi_big_power
 	mov r0, r9
-	bl FUN_ov15_020d7924
+	bl exit_computebound
 	ldr r2, [r7, #4]
 	mov r0, r6
 	mov r1, r4
 	mov r3, r5
-	bl FUN_ov15_020dc560
+	bl CPSi_char_from_big
 	ldrb r0, [r4, r5, lsl #1]
 	mov r5, #0
 	cmp r0, #0
@@ -32636,25 +32636,25 @@ _020D80E4:
 	add r1, r6, r3
 	add r0, r0, #0x400
 	sub r1, r1, r2
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _020D8128
 _020D8124:
 	mov r5, #2
 _020D8128:
-	ldr r1, _020D8148 ; =0x020E6D84
+	ldr r1, _020D8148 ; =CPSiFree
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
 	mov r0, r5
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020D8144: .word ov15_020E6D54
-_020D8148: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d7fa4
+_020D8144: .word CPSiAlloc
+_020D8148: .word CPSiFree
+	arm_func_end validate_signature
 
-	arm_func_start FUN_ov15_020d814c
-FUN_ov15_020d814c: ; 0x020D814C
+	arm_func_start auth_cert
+auth_cert: ; 0x020D814C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldrb r0, [r5, #0x5af]
@@ -32673,32 +32673,32 @@ FUN_ov15_020d814c: ; 0x020D814C
 	b _020D81F8
 _020D818C:
 	add r0, r5, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	ldr r1, [r5, #0x460]
 	ldr r2, [r5, #0x464]
 	add r0, r5, #0x3fc
 	sub r2, r2, r1
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r1, r5, #0x68
 	add r0, r5, #0x3fc
 	add r1, r1, #0x400
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	mov r0, #0x10
 _020D81BC:
 	str r0, [r5, #0x47c]
 	b _020D8200
 _020D81C4:
 	add r0, r5, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	ldr r1, [r5, #0x460]
 	ldr r2, [r5, #0x464]
 	add r0, r5, #0x348
 	sub r2, r2, r1
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r1, r5, #0x68
 	add r0, r5, #0x348
 	add r1, r1, #0x400
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	mov r0, #0x14
 	b _020D81BC
 _020D81F8:
@@ -32707,18 +32707,18 @@ _020D81F8:
 _020D8200:
 	mov r0, r5
 	add r1, r5, #0x5b0
-	bl FUN_ov15_020d7970
+	bl get_rootCA
 	movs r1, r0
 	orreq r0, r4, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
-	bl FUN_ov15_020d7fa4
+	bl validate_signature
 	orr r0, r4, r0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d814c
+	arm_func_end auth_cert
 
-	arm_func_start FUN_ov15_020d8228
-FUN_ov15_020d8228: ; 0x020D8228
+	arm_func_start chars_till_end
+chars_till_end: ; 0x020D8228
 	mov r2, r0
 	b _020D8234
 _020D8230:
@@ -32732,10 +32732,10 @@ _020D8234:
 _020D8248:
 	sub r0, r0, r2
 	bx lr
-	arm_func_end FUN_ov15_020d8228
+	arm_func_end chars_till_end
 
-	arm_func_start FUN_ov15_020d8250
-FUN_ov15_020d8250: ; 0x020D8250
+	arm_func_start compare_fqdn
+compare_fqdn: ; 0x020D8250
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -32754,25 +32754,21 @@ _020D826C:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	sub r6, r6, #1
 	mov r0, r6
-	bl FUN_ov15_020d8228
+	bl chars_till_end
 	mov r4, r0
 	mov r0, r5
-	bl FUN_ov15_020d8228
+	bl chars_till_end
 	cmp r0, r4
 	movgt r0, #1
 	ldmgtfd sp!, {r4, r5, r6, pc}
 	sub r0, r4, r0
 	add r6, r6, r0
 	b _020D826C
-	arm_func_end FUN_ov15_020d8250
-
-	arm_func_start FUN_ov15_020d82b8
-FUN_ov15_020d82b8: ; 0x020D82B8
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d82b8
+	arm_func_end compare_fqdn
 
-	arm_func_start FUN_ov15_020d82bc
-FUN_ov15_020d82bc: ; 0x020D82BC
+	arm_func_start rcv_certificate
+rcv_certificate: ; 0x020D82BC
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
@@ -32830,7 +32826,7 @@ _020D8338:
 	str r7, [r10, #0x804]
 	mov r3, r4
 	str r6, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	bne _020D83C0
 	ldr r0, [r10, #0x594]
@@ -32848,7 +32844,7 @@ _020D83C0:
 	bx lr
 _020D83D8:
 	mov r0, r10
-	bl FUN_ov15_020d814c
+	bl auth_cert
 	mov r7, r0
 	cmp r9, #0
 	bne _020D8408
@@ -32856,7 +32852,7 @@ _020D83D8:
 	cmp r0, #0
 	beq _020D8408
 	add r1, r10, #0x7b0
-	bl FUN_ov15_020d8250
+	bl compare_fqdn
 	cmp r0, #0
 	orrne r7, r7, #0x4000
 _020D8408:
@@ -32875,7 +32871,7 @@ _020D8408:
 	add r1, sp, #4
 	mov r3, r2
 	str r11, [sp]
-	bl FUN_ov15_020d7af8
+	bl cert_item
 	cmp r0, #0
 	movne r0, #9
 	addne sp, sp, #0x18
@@ -32885,7 +32881,7 @@ _020D8408:
 	bxne lr
 	mov r0, r10
 	add r1, r10, #0x480
-	bl FUN_ov15_020d7fa4
+	bl validate_signature
 	bic r1, r7, #0xff
 	orr r7, r1, r0
 _020D8478:
@@ -32916,10 +32912,10 @@ _020D84B8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end FUN_ov15_020d82bc
+	arm_func_end rcv_certificate
 
-	arm_func_start FUN_ov15_020d84dc
-FUN_ov15_020d84dc: ; 0x020D84DC
+	arm_func_start rcv_server_hello
+rcv_server_hello: ; 0x020D84DC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, #0x20
 	mov r6, r0
@@ -32938,7 +32934,7 @@ FUN_ov15_020d84dc: ; 0x020D84DC
 	mov r1, r5
 	mov r2, r7
 	add r0, r6, #0x74
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	moveq r0, #1
 	streqb r0, [r6, #0x31]
@@ -32947,7 +32943,7 @@ _020D8538:
 	cmp r8, #0
 	beq _020D8548
 	mov r0, r6
-	bl FUN_ov15_020d7810
+	bl purge_session
 _020D8548:
 	cmp r4, #0
 	moveq r0, #0
@@ -32975,10 +32971,10 @@ _020D8574:
 	moveq r0, #2
 	streqb r0, [r6, #0x455]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d84dc
+	arm_func_end rcv_server_hello
 
-	arm_func_start FUN_ov15_020d85a8
-FUN_ov15_020d85a8: ; 0x020D85A8
+	arm_func_start has_method
+has_method: ; 0x020D85A8
 	stmfd sp!, {r4, lr}
 	cmp r1, #0
 	mov r4, #0
@@ -33000,10 +32996,10 @@ _020D85B8:
 _020D85EC:
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d85a8
+	arm_func_end has_method
 
-	arm_func_start FUN_ov15_020d85f4
-FUN_ov15_020d85f4: ; 0x020D85F4
+	arm_func_start select_method
+select_method: ; 0x020D85F4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, _020D8648 ; =0x020E5A54
 	mov r8, r0
@@ -33016,7 +33012,7 @@ _020D860C:
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov15_020d85a8
+	bl has_method
 	cmp r0, #0
 	movne r0, r5, lsl #1
 	ldrneh r0, [r4, r0]
@@ -33027,24 +33023,24 @@ _020D860C:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D8648: .word ov15_020E5A54
-	arm_func_end FUN_ov15_020d85f4
+	arm_func_end select_method
 
-	arm_func_start FUN_ov15_020d864c
-FUN_ov15_020d864c: ; 0x020D864C
+	arm_func_start version_ok
+version_ok: ; 0x020D864C
 	cmp r0, #3
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020d864c
+	arm_func_end version_ok
 
-	arm_func_start FUN_ov15_020d865c
-FUN_ov15_020d865c: ; 0x020D865C
+	arm_func_start client_hello_v2
+client_hello_v2: ; 0x020D865C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r1
 	mov r7, r0
 	ldrb r0, [r6]
 	ldrb r1, [r6, #1]
-	bl FUN_ov15_020d864c
+	bl version_ok
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrb r2, [r6, #2]
@@ -33055,7 +33051,7 @@ FUN_ov15_020d865c: ; 0x020D865C
 	smull r2, r1, r3, r4
 	add r1, r1, r4, lsr #31
 	mov r2, #3
-	bl FUN_ov15_020d85f4
+	bl select_method
 	mov r0, r0, lsl #0x10
 	movs r0, r0, lsr #0x10
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -33090,16 +33086,16 @@ _020D870C:
 	strb r0, [r7, #0x455]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020D871C: .word 0x55555556
-	arm_func_end FUN_ov15_020d865c
+	arm_func_end client_hello_v2
 
-	arm_func_start FUN_ov15_020d8720
-FUN_ov15_020d8720: ; 0x020D8720
+	arm_func_start client_hello
+client_hello: ; 0x020D8720
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r1
 	mov r4, r0
 	ldrb r0, [r7]
 	ldrb r1, [r7, #1]
-	bl FUN_ov15_020d864c
+	bl version_ok
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r5, #0x20
@@ -33118,7 +33114,7 @@ FUN_ov15_020d8720: ; 0x020D8720
 	add r1, r4, #0x74
 	bl MI_CpuCopy8
 	mov r0, r4
-	bl FUN_ov15_020d75e4
+	bl find_session_from_id
 _020D8784:
 	add r0, r7, r6
 	ldrb r1, [r0, #1]
@@ -33128,17 +33124,17 @@ _020D8784:
 	add r1, r1, r3, lsl #8
 	add r1, r1, r1, lsr #31
 	mov r1, r1, asr #1
-	bl FUN_ov15_020d85f4
+	bl select_method
 	mov r0, r0, lsl #0x10
 	movs r0, r0, lsr #0x10
 	strh r0, [r4, #0x32]
 	movne r0, #1
 	strneb r0, [r4, #0x455]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d8720
+	arm_func_end client_hello
 
-	arm_func_start FUN_ov15_020d87c0
-FUN_ov15_020d87c0: ; 0x020D87C0
+	arm_func_start decrypt_premaster_secret
+decrypt_premaster_secret: ; 0x020D87C0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
 	movs r10, r2
@@ -33154,7 +33150,7 @@ FUN_ov15_020d87c0: ; 0x020D87C0
 	add r4, r0, #1
 	mov r0, #0x14
 	mul r0, r4, r0
-	ldr r1, _020D89F8 ; =0x020E6D54
+	ldr r1, _020D89F8 ; =CPSiAlloc
 	ldr r1, [r1]
 	blx r1
 	movs r5, r0
@@ -33172,97 +33168,97 @@ FUN_ov15_020d87c0: ; 0x020D87C0
 	mov r1, r11
 	mov r3, r4
 	add r11, r9, r4, lsl #1
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r1, [r10, #0x1c]
 	ldr r2, [r10, #0x18]
 	mov r0, r6
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r1, [r10, #0xc]
 	ldr r2, [r10, #8]
 	mov r0, r8
 	mov r3, r4
-	bl FUN_ov15_020dc504
-	bl FUN_ov15_020d78dc
+	bl CPSi_big_from_char
+	bl enter_computebound
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x10]
 	str r8, [sp]
 	mov r1, r5
 	mov r2, r6
 	mov r3, r4
-	bl FUN_ov15_020dc2e8
+	bl CPSi_big_montpower
 	ldr r1, [r10, #0x24]
 	ldr r2, [r10, #0x20]
 	mov r0, r6
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r1, [r10, #0x14]
 	ldr r2, [r10, #0x10]
 	mov r0, r8
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	ldr r0, [sp, #0xc]
 	mov r1, r5
 	mov r2, r6
 	mov r3, r4
 	str r8, [sp]
-	bl FUN_ov15_020dc2e8
+	bl CPSi_big_montpower
 	ldr r0, [sp, #0x14]
-	bl FUN_ov15_020d7924
+	bl exit_computebound
 	ldr r1, [sp, #0x10]
 	ldr r2, [sp, #0xc]
 	mov r0, r5
 	mov r3, r4
-	bl FUN_ov15_020db8f8
+	bl CPSi_big_sub
 	ldr r1, [r10, #0x2c]
 	ldr r2, [r10, #0x28]
 	mov r0, r6
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
 	mov r3, r4
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	ldr r1, [r10, #0x14]
 	ldr r2, [r10, #0x10]
 	mov r0, r6
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	mov r0, r5
 	mov r1, r7
 	mov r2, r6
 	mov r3, r4
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	ldr r2, [sp, #0xc]
 	mov r0, r7
 	mov r1, r5
 	mov r3, r4
-	bl FUN_ov15_020db7bc
+	bl CPSi_big_add
 	ldr r1, [r10, #4]
 	ldr r2, [r10]
 	mov r0, r6
 	mov r3, r4
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020db78c
+	bl CPSi_big_sign
 	cmp r0, #0
 	bge _020D89B4
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020db8b8
+	bl CPSi_big_negate
 	mov r1, r7
 	mov r2, r6
 	mov r3, r9
 	mov r0, #0
 	stmia sp, {r4, r11}
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	mov r0, r9
 	mov r1, r6
 	mov r2, r9
 	mov r3, r4
-	bl FUN_ov15_020db8f8
+	bl CPSi_big_sub
 	b _020D89CC
 _020D89B4:
 	mov r1, r7
@@ -33270,70 +33266,70 @@ _020D89B4:
 	mov r3, r9
 	mov r0, #0
 	stmia sp, {r4, r11}
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 _020D89CC:
 	ldr r0, [sp, #8]
 	mov r1, r9
 	mov r3, r4
 	mov r2, #0x30
-	bl FUN_ov15_020dc560
-	ldr r1, _020D89FC ; =0x020E6D84
+	bl CPSi_char_from_big
+	ldr r1, _020D89FC ; =CPSiFree
 	mov r0, r5
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020D89F8: .word ov15_020E6D54
-_020D89FC: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d87c0
+_020D89F8: .word CPSiAlloc
+_020D89FC: .word CPSiFree
+	arm_func_end decrypt_premaster_secret
 
-	arm_func_start FUN_ov15_020d8a00
-FUN_ov15_020d8a00: ; 0x020D8A00
+	arm_func_start create_ms_sub
+create_ms_sub: ; 0x020D8A00
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x14
 	mov r6, r2
 	mov r7, r0
 	mov r4, r1
 	add r0, r6, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	mov r0, r4
 	bl _strlen
 	mov r2, r0
 	mov r1, r4
 	add r0, r6, #0x348
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r5, #0x30
 	add r0, r6, #0x348
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r6, #0x348
 	add r1, r6, #0x34
 	mov r2, #0x40
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r4, sp, #0
 	add r0, r6, #0x348
 	mov r1, r4
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r0, r6, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	mov r2, r5
 	add r0, r6, #0x3fc
 	mov r1, r6
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r1, r4
 	add r0, r6, #0x3fc
 	mov r2, #0x14
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r6, #0x3fc
 	mov r1, r7
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d8a00
+	arm_func_end create_ms_sub
 
-	arm_func_start FUN_ov15_020d8aa4
-FUN_ov15_020d8aa4: ; 0x020D8AA4
+	arm_func_start create_master_secret
+create_master_secret: ; 0x020D8AA4
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x30
 	mov r5, r0
@@ -33341,15 +33337,15 @@ FUN_ov15_020d8aa4: ; 0x020D8AA4
 	ldr r1, _020D8AFC ; =0x020E5AA0
 	mov r0, r4
 	mov r2, r5
-	bl FUN_ov15_020d8a00
+	bl create_ms_sub
 	ldr r1, _020D8B00 ; =0x020E5AA4
 	add r0, sp, #0x10
 	mov r2, r5
-	bl FUN_ov15_020d8a00
+	bl create_ms_sub
 	ldr r1, _020D8B04 ; =0x020E5AA8
 	add r0, sp, #0x20
 	mov r2, r5
-	bl FUN_ov15_020d8a00
+	bl create_ms_sub
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x30
@@ -33359,10 +33355,10 @@ FUN_ov15_020d8aa4: ; 0x020D8AA4
 _020D8AFC: .word ov15_020E5AA0
 _020D8B00: .word ov15_020E5AA4
 _020D8B04: .word ov15_020E5AA8
-	arm_func_end FUN_ov15_020d8aa4
+	arm_func_end create_master_secret
 
-	arm_func_start FUN_ov15_020d8b08
-FUN_ov15_020d8b08: ; 0x020D8B08
+	arm_func_start create_key_block
+create_key_block: ; 0x020D8B08
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x20
 	mov r10, r0
@@ -33395,7 +33391,7 @@ _020D8B4C:
 	mov r4, #1
 _020D8B78:
 	add r0, r10, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	add r0, r7, #0x41
 	add r6, r7, #1
 	strb r0, [sp, #8]
@@ -33406,7 +33402,7 @@ _020D8B98:
 	add r0, r10, #0x348
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r8, r8, #1
 	cmp r8, r6
 	blt _020D8B98
@@ -33414,31 +33410,31 @@ _020D8BB4:
 	mov r1, r10
 	add r0, r10, #0x348
 	mov r2, #0x30
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r10, #0x348
 	add r1, r10, #0x54
 	mov r2, #0x20
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r10, #0x348
 	add r1, r10, #0x34
 	mov r2, #0x20
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r10, #0x348
 	add r1, sp, #9
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r0, r10, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	add r0, r10, #0x3fc
 	mov r1, r10
 	mov r2, #0x30
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r10, #0x3fc
 	add r1, sp, #9
 	mov r2, #0x14
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r10, #0x3fc
 	add r1, r11, r7, lsl #4
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add r7, r7, #1
 	cmp r9, r7, lsl #4
 	bgt _020D8B78
@@ -33474,36 +33470,36 @@ _020D8C94:
 	ldr r1, [r10, #0x1d8]
 	mov r2, r4
 	add r0, r10, #0x1e0
-	bl FUN_ov15_020db680
+	bl CPSi_rc4_init
 	ldr r1, [r10, #0xc0]
 	mov r2, r4
 	add r0, r10, #0xc8
-	bl FUN_ov15_020db680
+	bl CPSi_rc4_init
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d8b08
+	arm_func_end create_key_block
 
-	arm_func_start FUN_ov15_020d8cc0
-FUN_ov15_020d8cc0: ; 0x020D8CC0
+	arm_func_start rcv_client_key_exchange
+rcv_client_key_exchange: ; 0x020D8CC0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r2, [r4, #0x81c]
-	bl FUN_ov15_020d87c0
+	bl decrypt_premaster_secret
 	mov r0, r4
-	bl FUN_ov15_020d8aa4
+	bl create_master_secret
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl FUN_ov15_020d7720
+	bl cache_session
 	mov r0, r4
-	bl FUN_ov15_020d8b08
+	bl create_key_block
 	mov r0, #5
 	strb r0, [r4, #0x455]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d8cc0
+	arm_func_end rcv_client_key_exchange
 
-	arm_func_start FUN_ov15_020d8cfc
-FUN_ov15_020d8cfc: ; 0x020D8CFC
+	arm_func_start finished_md5
+finished_md5: ; 0x020D8CFC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x30
 	mov r7, r0
@@ -33518,12 +33514,12 @@ _020D8D24:
 	ldr r1, _020D8DD4 ; =0x020E5AB4
 _020D8D28:
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r5, #0x30
 	mov r1, r7
 	mov r2, r5
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r4, sp, #0
 	mov r2, r5
 	mov r0, r4
@@ -33532,16 +33528,16 @@ _020D8D28:
 	mov r1, r4
 	mov r2, r5
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r1, r6
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	add r0, r7, #0x3a4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r0, r4
 	mov r1, #0x5c
 	mov r2, r5
@@ -33549,22 +33545,22 @@ _020D8D28:
 	mov r1, r4
 	mov r2, r5
 	add r0, r7, #0x3a4
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3a4
 	mov r1, r6
 	mov r2, #0x10
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3a4
 	mov r1, r6
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020D8DD0: .word ov15_020E5AAC
 _020D8DD4: .word ov15_020E5AB4
-	arm_func_end FUN_ov15_020d8cfc
+	arm_func_end finished_md5
 
-	arm_func_start FUN_ov15_020d8dd8
-FUN_ov15_020d8dd8: ; 0x020D8DD8
+	arm_func_start finished_sha1
+finished_sha1: ; 0x020D8DD8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x28
 	mov r8, r0
@@ -33579,12 +33575,12 @@ _020D8E00:
 	ldr r1, _020D8EB4 ; =0x020E5AB4
 _020D8E04:
 	add r0, r8, #0x2ec
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r6, #0x30
 	mov r1, r8
 	mov r2, r6
 	add r0, r8, #0x2ec
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r5, sp, #0
 	mov r4, #0x28
 	mov r0, r5
@@ -33594,16 +33590,16 @@ _020D8E04:
 	mov r1, r5
 	mov r2, r4
 	add r0, r8, #0x2ec
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r8, #0x2ec
 	mov r1, r7
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r0, r8, #0x2ec
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	mov r2, r6
 	add r0, r8, #0x2ec
 	mov r1, r8
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r5
 	mov r1, #0x5c
 	mov r2, r4
@@ -33611,22 +33607,22 @@ _020D8E04:
 	mov r1, r5
 	mov r2, r4
 	add r0, r8, #0x2ec
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r8, #0x2ec
 	mov r1, r7
 	mov r2, #0x14
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r8, #0x2ec
 	mov r1, r7
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D8EB0: .word ov15_020E5AAC
 _020D8EB4: .word ov15_020E5AB4
-	arm_func_end FUN_ov15_020d8dd8
+	arm_func_end finished_sha1
 
-	arm_func_start FUN_ov15_020d8eb8
-FUN_ov15_020d8eb8: ; 0x020D8EB8
+	arm_func_start rcv_finished
+rcv_finished: ; 0x020D8EB8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x14
 	mov r4, r0
@@ -33641,7 +33637,7 @@ FUN_ov15_020d8eb8: ; 0x020D8EB8
 	mov r0, r4
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov15_020d8cfc
+	bl finished_md5
 	mov r2, r5
 	add r0, r4, #0x3fc
 	add r1, r4, #0x3a4
@@ -33649,7 +33645,7 @@ FUN_ov15_020d8eb8: ; 0x020D8EB8
 	mov r0, r8
 	mov r1, r7
 	mov r2, #0x10
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	movne r0, #9
 	addne sp, sp, #0x14
@@ -33663,7 +33659,7 @@ FUN_ov15_020d8eb8: ; 0x020D8EB8
 	mov r0, r4
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov15_020d8dd8
+	bl finished_sha1
 	mov r2, r5
 	add r0, r4, #0x348
 	add r1, r4, #0x2ec
@@ -33671,7 +33667,7 @@ FUN_ov15_020d8eb8: ; 0x020D8EB8
 	mov r1, r7
 	add r0, r8, #0x10
 	mov r2, #0x14
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	movne r0, #9
 	strneb r0, [r4, #0x455]
@@ -33679,10 +33675,10 @@ FUN_ov15_020d8eb8: ; 0x020D8EB8
 	streqb r0, [r4, #0x455]
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d8eb8
+	arm_func_end rcv_finished
 
-	arm_func_start FUN_ov15_020d8f88
-FUN_ov15_020d8f88: ; 0x020D8F88
+	arm_func_start add1_be8
+add1_be8: ; 0x020D8F88
 	mov r2, #8
 _020D8F8C:
 	ldrb r1, [r0, #-1]!
@@ -33693,20 +33689,20 @@ _020D8F8C:
 	subs r2, r2, #1
 	bne _020D8F8C
 	bx lr
-	arm_func_end FUN_ov15_020d8f88
+	arm_func_end add1_be8
 
-	arm_func_start FUN_ov15_020d8fac
-FUN_ov15_020d8fac: ; 0x020D8FAC
+	arm_func_start decrypt
+decrypt: ; 0x020D8FAC
 	stmfd sp!, {r4, lr}
 	add r0, r0, #0x1e0
 	mov r4, r2
-	bl FUN_ov15_020db6f8
+	bl CPSi_rc4_crypt
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d8fac
+	arm_func_end decrypt
 
-	arm_func_start FUN_ov15_020d8fc4
-FUN_ov15_020d8fc4: ; 0x020D8FC4
+	arm_func_start make_plaintext
+make_plaintext: ; 0x020D8FC4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x44
 	mov r6, r1
@@ -33715,7 +33711,7 @@ FUN_ov15_020d8fc4: ; 0x020D8FC4
 	mov r7, r0
 	add r1, r6, #5
 	add r2, r2, r3, lsl #8
-	bl FUN_ov15_020d8fac
+	bl decrypt
 	ldrh r1, [r7, #0x32]
 	mov r4, r0
 	cmp r1, #4
@@ -33729,12 +33725,12 @@ _020D9004:
 	strb r0, [r6, #3]
 	strb r4, [r6, #4]
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	mov r5, #0x10
 	ldr r1, [r7, #0x1d4]
 	mov r2, r5
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r10, sp, #0
 	mov r9, #0x30
 	mov r0, r10
@@ -33744,29 +33740,29 @@ _020D9004:
 	add r0, r7, #0x3fc
 	mov r1, r10
 	mov r2, r9
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	add r1, r7, #0x2e4
 	mov r2, #8
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	mov r1, r6
 	mov r2, #1
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	add r1, r6, #3
 	add r2, r4, #2
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r8, sp, #0x30
 	add r0, r7, #0x3fc
 	mov r1, r8
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	ldr r1, [r7, #0x1d4]
 	add r0, r7, #0x3fc
 	mov r2, r5
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r0, r10
 	mov r1, #0x5c
 	mov r2, r9
@@ -33774,14 +33770,14 @@ _020D9004:
 	mov r1, r10
 	mov r2, r9
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r1, r8
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	b _020D91D8
 _020D90F0:
 	sub r4, r4, #0x14
@@ -33789,12 +33785,12 @@ _020D90F0:
 	strb r0, [r6, #3]
 	strb r4, [r6, #4]
 	add r0, r7, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	mov r5, #0x14
 	ldr r1, [r7, #0x1d4]
 	mov r2, r5
 	add r0, r7, #0x348
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r10, sp, #0
 	mov r9, #0x28
 	mov r0, r10
@@ -33804,29 +33800,29 @@ _020D90F0:
 	add r0, r7, #0x348
 	mov r1, r10
 	mov r2, r9
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	add r1, r7, #0x2e4
 	mov r2, #8
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	mov r1, r6
 	mov r2, #1
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	add r1, r6, #3
 	add r2, r4, #2
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r8, sp, #0x30
 	add r0, r7, #0x348
 	mov r1, r8
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r0, r7, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	ldr r1, [r7, #0x1d4]
 	add r0, r7, #0x348
 	mov r2, r5
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r10
 	mov r1, #0x5c
 	mov r2, r9
@@ -33834,32 +33830,32 @@ _020D90F0:
 	mov r1, r10
 	mov r2, r9
 	add r0, r7, #0x348
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r1, r8
 	add r0, r7, #0x348
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 _020D91D8:
 	add r0, r6, #5
 	add r1, sp, #0x30
 	mov r2, r5
 	add r0, r0, r4
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	movne r0, #9
 	strneb r0, [r7, #0x455]
 	add r0, r7, #0x2ec
-	bl FUN_ov15_020d8f88
+	bl add1_be8
 	add r0, r4, #5
 	add sp, sp, #0x44
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov15_020d8fc4
+	arm_func_end make_plaintext
 
-	arm_func_start FUN_ov15_020d920c
-FUN_ov15_020d920c: ; 0x020D920C
+	arm_func_start make_ciphertext
+make_ciphertext: ; 0x020D920C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x30
 	mov r6, r1
@@ -33876,12 +33872,12 @@ FUN_ov15_020d920c: ; 0x020D920C
 	b _020D93F8
 _020D9244:
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	mov r10, #0x10
 	ldr r1, [r7, #0xbc]
 	mov r2, r10
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r9, sp, #0
 	mov r8, #0x30
 	mov r0, r9
@@ -33891,28 +33887,28 @@ _020D9244:
 	add r0, r7, #0x3fc
 	mov r1, r9
 	mov r2, r8
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	add r1, r7, #0x1cc
 	mov r2, #8
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	mov r1, r6
 	mov r2, #1
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	add r1, r6, #3
 	add r2, r5, #2
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r0, r7, #0x3fc
 	add r1, r4, r5
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	ldr r1, [r7, #0xbc]
 	add r0, r7, #0x3fc
 	mov r2, r10
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r0, r9
 	mov r1, #0x5c
 	mov r2, r8
@@ -33920,24 +33916,24 @@ _020D9244:
 	mov r1, r9
 	mov r2, r8
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r2, r10
 	add r0, r7, #0x3fc
 	add r1, r4, r5
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	add r1, r4, r5
 	add r0, r7, #0x3fc
-	bl FUN_ov15_020dad30
+	bl CPSi_md5_result
 	add r5, r5, #0x10
 	b _020D93F8
 _020D9320:
 	add r0, r7, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	mov r10, #0x14
 	ldr r1, [r7, #0xbc]
 	mov r2, r10
 	add r0, r7, #0x348
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r9, sp, #0
 	mov r8, #0x28
 	mov r0, r9
@@ -33947,28 +33943,28 @@ _020D9320:
 	add r0, r7, #0x348
 	mov r1, r9
 	mov r2, r8
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	add r1, r7, #0x1cc
 	mov r2, #8
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	mov r1, r6
 	mov r2, #1
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	add r1, r6, #3
 	add r2, r5, #2
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r0, r7, #0x348
 	add r1, r4, r5
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r0, r7, #0x348
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	ldr r1, [r7, #0xbc]
 	add r0, r7, #0x348
 	mov r2, r10
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r9
 	mov r1, #0x5c
 	mov r2, r8
@@ -33976,14 +33972,14 @@ _020D9320:
 	mov r1, r9
 	mov r2, r8
 	add r0, r7, #0x348
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r2, r10
 	add r0, r7, #0x348
 	add r1, r4, r5
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	add r1, r4, r5
 	add r0, r7, #0x348
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	add r5, r5, #0x14
 _020D93F8:
 	mov r3, r5, asr #8
@@ -33992,16 +33988,16 @@ _020D93F8:
 	add r1, r6, #5
 	strb r3, [r6, #3]
 	strb r5, [r6, #4]
-	bl FUN_ov15_020db6f8
+	bl CPSi_rc4_crypt
 	add r0, r7, #0x1d4
-	bl FUN_ov15_020d8f88
+	bl add1_be8
 	add r0, r5, #5
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov15_020d920c
+	arm_func_end make_ciphertext
 
-	arm_func_start FUN_ov15_020d9428
-FUN_ov15_020d9428: ; 0x020D9428
+	arm_func_start tcp_read_raw_nbytes
+tcp_read_raw_nbytes: ; 0x020D9428
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -34030,25 +34026,25 @@ _020D943C:
 	bgt _020D943C
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d9428
+	arm_func_end tcp_read_raw_nbytes
 
-	arm_func_start FUN_ov15_020d9494
-FUN_ov15_020d9494: ; 0x020D9494
+	arm_func_start update_digest
+update_digest: ; 0x020D9494
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
 	add r0, r6, #0x2ec
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r1, r5
 	mov r2, r4
 	add r0, r6, #0x3a4
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d9494
+	arm_func_end update_digest
 
-	arm_func_start FUN_ov15_020d94c0
-FUN_ov15_020d94c0: ; 0x020D94C0
+	arm_func_start parse_record_in_buf
+parse_record_in_buf: ; 0x020D94C0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r0
 	ldrb r2, [r9, #0x455]
@@ -34056,7 +34052,7 @@ FUN_ov15_020d94c0: ; 0x020D94C0
 	mov r4, #9
 	cmp r2, #9
 	bne _020D94F0
-	ldr r1, _020D97D4 ; =0x020E6D84
+	ldr r1, _020D97D4 ; =CPSiFree
 	mov r0, r10
 	ldr r1, [r1]
 	blx r1
@@ -34084,12 +34080,12 @@ _020D9528:
 _020D9538:
 	mov r0, r9
 	mov r1, r10
-	bl FUN_ov15_020d8fc4
+	bl make_plaintext
 	ldrb r2, [r9, #0x455]
 	mov r6, r0
 	cmp r2, #9
 	bne _020D9568
-	ldr r1, _020D97D4 ; =0x020E6D84
+	ldr r1, _020D97D4 ; =CPSiFree
 	mov r0, r10
 	ldr r1, [r1]
 	blx r1
@@ -34178,7 +34174,7 @@ _020D9674:
 	bne _020D9698
 	mov r0, r9
 	mov r1, r5
-	bl FUN_ov15_020d8720
+	bl client_hello
 	b _020D9750
 _020D9698:
 	b _020D974C
@@ -34189,7 +34185,7 @@ _020D969C:
 	beq _020D9750
 	mov r0, r9
 	mov r1, r5
-	bl FUN_ov15_020d8cc0
+	bl rcv_client_key_exchange
 	b _020D9750
 _020D96BC:
 	cmp r8, #0x26
@@ -34199,7 +34195,7 @@ _020D96BC:
 	bne _020D9750
 	mov r0, r9
 	mov r1, r5
-	bl FUN_ov15_020d84dc
+	bl rcv_server_hello
 	b _020D9750
 _020D96E0:
 	cmp r2, #2
@@ -34209,7 +34205,7 @@ _020D96E0:
 	bne _020D9750
 	mov r0, r9
 	mov r1, r5
-	bl FUN_ov15_020d82bc
+	bl rcv_certificate
 	strb r11, [r9, #0x5ac]
 	b _020D9750
 _020D9708:
@@ -34231,7 +34227,7 @@ _020D9734:
 _020D973C:
 	mov r0, r9
 	mov r1, r5
-	bl FUN_ov15_020d8eb8
+	bl rcv_finished
 	b _020D9750
 _020D974C:
 	strb r4, [r9, #0x455]
@@ -34243,7 +34239,7 @@ _020D9750:
 	mov r0, r9
 	sub r1, r5, #4
 	mov r2, r7
-	bl FUN_ov15_020d9494
+	bl update_digest
 	add r5, r5, r8
 	sub r6, r6, r7
 _020D9778:
@@ -34268,16 +34264,16 @@ _020D9790:
 _020D97BC:
 	strb r4, [r9, #0x455]
 _020D97C0:
-	ldr r1, _020D97D4 ; =0x020E6D84
+	ldr r1, _020D97D4 ; =CPSiFree
 	mov r0, r10
 	ldr r1, [r1]
 	blx r1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020D97D4: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d94c0
+_020D97D4: .word CPSiFree
+	arm_func_end parse_record_in_buf
 
-	arm_func_start FUN_ov15_020d97d8
-FUN_ov15_020d97d8: ; 0x020D97D8
+	arm_func_start parse_record
+parse_record: ; 0x020D97D8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	ldr r4, [r5, #0xc]
@@ -34314,7 +34310,7 @@ _020D9824:
 	mov r0, #2
 	str r2, [sp]
 	bl CPSi_SocConsumeRaw
-	ldr r1, _020D995C ; =0x020E6D54
+	ldr r1, _020D995C ; =CPSiAlloc
 	ldr r0, [sp]
 	ldr r1, [r1]
 	blx r1
@@ -34324,7 +34320,7 @@ _020D9824:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r1, [sp]
 	mov r2, r5
-	bl FUN_ov15_020d9428
+	bl tcp_read_raw_nbytes
 	cmp r0, #0
 	ldreqb r0, [r7]
 	cmpeq r0, #1
@@ -34332,13 +34328,13 @@ _020D9824:
 	bne _020D98A8
 	mov r0, r4
 	add r1, r7, #1
-	bl FUN_ov15_020d865c
+	bl client_hello_v2
 _020D98A8:
 	ldr r2, [sp]
 	mov r0, r4
 	mov r1, r7
-	bl FUN_ov15_020d9494
-	ldr r1, _020D9960 ; =0x020E6D84
+	bl update_digest
+	ldr r1, _020D9960 ; =CPSiFree
 	mov r0, r7
 	ldr r1, [r1]
 	blx r1
@@ -34357,7 +34353,7 @@ _020D98D4:
 	movhi r0, #9
 	strhib r0, [r4, #0x455]
 	ldmhifd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, _020D995C ; =0x020E6D54
+	ldr r1, _020D995C ; =CPSiAlloc
 	ldr r1, [r1]
 	blx r1
 	movs r6, r0
@@ -34366,10 +34362,10 @@ _020D98D4:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r1, [sp]
 	mov r2, r5
-	bl FUN_ov15_020d9428
+	bl tcp_read_raw_nbytes
 	cmp r0, #0
 	beq _020D9948
-	ldr r1, _020D9960 ; =0x020E6D84
+	ldr r1, _020D9960 ; =CPSiFree
 	mov r0, r6
 	ldr r1, [r1]
 	blx r1
@@ -34379,17 +34375,17 @@ _020D98D4:
 _020D9948:
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020d94c0
+	bl parse_record_in_buf
 _020D9954:
 	ldrb r0, [r4, #0x455]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020D995C: .word ov15_020E6D54
-_020D9960: .word ov15_020E6D84
+_020D995C: .word CPSiAlloc
+_020D9960: .word CPSiFree
 _020D9964: .word 0x00004805
-	arm_func_end FUN_ov15_020d97d8
+	arm_func_end parse_record
 
-	arm_func_start FUN_ov15_020d9968
-FUN_ov15_020d9968: ; 0x020D9968
+	arm_func_start set_random
+set_random: ; 0x020D9968
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x74
 	ldr r2, _020D9A7C ; =0x020ED668
@@ -34398,7 +34394,7 @@ FUN_ov15_020d9968: ; 0x020D9968
 	mov r9, r1
 	cmp r0, #0
 	bne _020D99C8
-	ldr r2, _020D9A80 ; =0x020E6DB8
+	ldr r2, _020D9A80 ; =CPSiRand32ctx
 	add r0, sp, #0
 	ldmia r2, {r4, r5, r6}
 	umull r7, r3, r6, r4
@@ -34413,7 +34409,7 @@ FUN_ov15_020d9968: ; 0x020D9968
 	mov r1, #4
 	str r3, [r2, #4]
 	str r3, [sp]
-	bl FUN_ov15_020d9a88
+	bl CPS_SslAddRandomSeed
 _020D99C8:
 	cmp r9, #0
 	mov r8, #0
@@ -34428,16 +34424,16 @@ _020D99EC:
 	cmp r1, #0x14
 	bne _020D9A58
 	mov r0, r6
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	bl OS_DisableInterrupts
 	mov r7, r0
 	mov r0, r6
 	mov r1, r5
 	mov r2, r11
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r6
 	mov r1, r4
-	bl FUN_ov15_020db650
+	bl CPSi_sha1_result_prng
 	mov r1, #1
 	mov r0, #0x13
 _020D9A28:
@@ -34464,33 +34460,33 @@ _020D9A58:
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D9A7C: .word ov15_020ED668
-_020D9A80: .word ov15_020E6DB8
+_020D9A80: .word CPSiRand32ctx
 _020D9A84: .word ov15_020ED670
-	arm_func_end FUN_ov15_020d9968
+	arm_func_end set_random
 
-	arm_func_start FUN_ov15_020d9a88
-FUN_ov15_020d9a88: ; 0x020D9A88
+	arm_func_start CPS_SslAddRandomSeed
+CPS_SslAddRandomSeed: ; 0x020D9A88
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x5c
 	add r6, sp, #0
 	mov r8, r0
 	mov r0, r6
 	mov r7, r1
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	bl OS_DisableInterrupts
 	ldr r4, _020D9AF8 ; =0x020ED670
 	mov r5, r0
 	mov r0, r6
 	mov r1, r4
 	mov r2, #0x14
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r1, r8
 	mov r2, r7
 	mov r0, r6
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r6
 	mov r1, r4
-	bl FUN_ov15_020db5e8
+	bl CPSi_sha1_result
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldr r0, _020D9AFC ; =0x020ED668
@@ -34500,13 +34496,13 @@ FUN_ov15_020d9a88: ; 0x020D9A88
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _020D9AF8: .word ov15_020ED670
 _020D9AFC: .word ov15_020ED668
-	arm_func_end FUN_ov15_020d9a88
+	arm_func_end CPS_SslAddRandomSeed
 
-	arm_func_start FUN_ov15_020d9b00
-FUN_ov15_020d9b00: ; 0x020D9B00
+	arm_func_start send_change_cipher_spec_and_finished
+send_change_cipher_spec_and_finished: ; 0x020D9B00
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
-	ldr r1, _020D9C50 ; =0x020E6D54
+	ldr r1, _020D9C50 ; =CPSiAlloc
 	mov r9, r0
 	ldr r1, [r1]
 	mov r0, #0x83
@@ -34551,7 +34547,7 @@ FUN_ov15_020d9b00: ; 0x020D9B00
 	mov r0, r8
 	add r1, r7, #0xf
 	mov r2, r5
-	bl FUN_ov15_020d8cfc
+	bl finished_md5
 	mov r2, r10
 	add r0, r8, #0x3fc
 	add r1, r8, #0x3a4
@@ -34564,7 +34560,7 @@ FUN_ov15_020d9b00: ; 0x020D9B00
 	mov r0, r8
 	add r1, r7, #0x1f
 	mov r2, r5
-	bl FUN_ov15_020d8dd8
+	bl finished_sha1
 	mov r2, r6
 	add r0, r8, #0x348
 	add r1, r8, #0x2ec
@@ -34572,31 +34568,31 @@ FUN_ov15_020d9b00: ; 0x020D9B00
 	mov r2, r4
 	mov r0, r8
 	add r1, r7, #0xb
-	bl FUN_ov15_020d9494
+	bl update_digest
 	mov r0, r8
 	add r1, r7, #6
-	bl FUN_ov15_020d920c
+	bl make_ciphertext
 	add r1, r0, #6
 	mov r0, r7
 	mov r2, r5
 	mov r3, r5
 	str r9, [sp]
 	bl CPSi_TcpWrite2Raw
-	ldr r1, _020D9C54 ; =0x020E6D84
+	ldr r1, _020D9C54 ; =CPSiFree
 	mov r0, r7
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020D9C50: .word ov15_020E6D54
-_020D9C54: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d9b00
+_020D9C50: .word CPSiAlloc
+_020D9C54: .word CPSiFree
+	arm_func_end send_change_cipher_spec_and_finished
 
-	arm_func_start FUN_ov15_020d9c58
-FUN_ov15_020d9c58: ; 0x020D9C58
+	arm_func_start send_client_hello
+send_client_hello: ; 0x020D9C58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #4
-	ldr r1, _020D9DEC ; =0x020E6D54
+	ldr r1, _020D9DEC ; =CPSiAlloc
 	mov r7, r0
 	ldr r1, [r1]
 	mov r0, #0x98
@@ -34611,7 +34607,7 @@ FUN_ov15_020d9c58: ; 0x020D9C58
 	strb r0, [r6, #9]
 	mov r4, #0
 	strb r4, [r6, #0xa]
-	bl FUN_ov15_020d787c
+	bl date2sec
 	mov r1, r0, lsr #0x18
 	strb r1, [r5, #0x34]
 	mov r1, r0, lsr #0x10
@@ -34621,7 +34617,7 @@ FUN_ov15_020d9c58: ; 0x020D9C58
 	strb r0, [r5, #0x37]
 	add r0, r5, #0x38
 	mov r1, #0x1c
-	bl FUN_ov15_020d9968
+	bl set_random
 	mov r8, #0x20
 	mov r2, r8
 	add r0, r5, #0x34
@@ -34630,7 +34626,7 @@ FUN_ov15_020d9c58: ; 0x020D9C58
 	ldrh r2, [r7, #0x18]
 	ldr r1, [r7, #0x1c]
 	mov r0, r5
-	bl FUN_ov15_020d767c
+	bl find_session_from_IP
 	ldrb r0, [r5, #0x30]
 	cmp r0, #0
 	streqb r4, [r6, #0x2b]
@@ -34690,20 +34686,20 @@ _020D9D30:
 	mov r0, r5
 	mov r2, r4
 	add r1, r6, #5
-	bl FUN_ov15_020d9494
-	ldr r1, _020D9DF4 ; =0x020E6D84
+	bl update_digest
+	ldr r1, _020D9DF4 ; =CPSiFree
 	mov r0, r6
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020D9DEC: .word ov15_020E6D54
+_020D9DEC: .word CPSiAlloc
 _020D9DF0: .word ov15_020E5A54
-_020D9DF4: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d9c58
+_020D9DF4: .word CPSiFree
+	arm_func_end send_client_hello
 
-	arm_func_start FUN_ov15_020d9df8
-FUN_ov15_020d9df8: ; 0x020D9DF8
+	arm_func_start send_client_key_exchange
+send_client_key_exchange: ; 0x020D9DF8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r10, r0
@@ -34724,11 +34720,11 @@ _020D9E2C:
 	strb r0, [r4, #1]
 	add r0, r4, #2
 	mov r1, #0x2e
-	bl FUN_ov15_020d9968
+	bl set_random
 	ldr r9, [r4, #0x594]
 	mov r0, r9, lsl #1
 	add r1, r0, r0, lsr #31
-	ldr r0, _020DA0A4 ; =0x020E6D54
+	ldr r0, _020DA0A4 ; =CPSiAlloc
 	mov r7, r1, asr #1
 	ldr r2, [r0]
 	mov r0, r9
@@ -34744,7 +34740,7 @@ _020D9E2C:
 	add r0, r8, #2
 	sub r1, r9, #0x33
 	strb r2, [r8, #1]
-	bl FUN_ov15_020d9968
+	bl set_random
 	sub r3, r9, #0x31
 	mov r1, #0
 	add r2, r8, r9
@@ -34753,13 +34749,13 @@ _020D9E2C:
 	mov r0, r4
 	mov r2, #0x30
 	bl MI_CpuCopy8
-	ldr r0, _020DA0A4 ; =0x020E6D54
+	ldr r0, _020DA0A4 ; =CPSiAlloc
 	ldr r1, [r0]
 	mov r0, r7, lsl #3
 	blx r1
 	movs r5, r0
 	bne _020D9EF0
-	ldr r1, _020DA0A8 ; =0x020E6D84
+	ldr r1, _020DA0A8 ; =CPSiFree
 	mov r0, r8
 	ldr r1, [r1]
 	blx r1
@@ -34775,36 +34771,36 @@ _020D9EF0:
 	mov r3, r7
 	str r0, [sp, #4]
 	add r6, r11, r7, lsl #1
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	add r1, r4, #0x198
 	ldr r2, [r4, #0x5a0]
 	mov r0, r11
 	add r1, r1, #0x400
 	mov r3, r7
-	bl FUN_ov15_020dc504
+	bl CPSi_big_from_char
 	add r1, r4, #0x94
 	mov r0, r6
 	add r1, r1, #0x400
 	mov r2, r9
 	mov r3, r7
-	bl FUN_ov15_020dc504
-	bl FUN_ov15_020d78dc
+	bl CPSi_big_from_char
+	bl enter_computebound
 	str r6, [sp]
 	mov r6, r0
 	ldr r1, [sp, #4]
 	mov r2, r11
 	mov r3, r7
 	mov r0, r5
-	bl FUN_ov15_020dbedc
+	bl CPSi_big_power
 	mov r0, r6
-	bl FUN_ov15_020d7924
-	ldr r0, _020DA0A4 ; =0x020E6D54
+	bl exit_computebound
+	ldr r0, _020DA0A4 ; =CPSiAlloc
 	ldr r1, [r0]
 	add r0, r9, #0x49
 	blx r1
 	movs r6, r0
 	bne _020D9FAC
-	ldr r6, _020DA0A8 ; =0x020E6D84
+	ldr r6, _020DA0A8 ; =CPSiFree
 	mov r0, r8
 	ldr r1, [r6]
 	blx r1
@@ -34867,8 +34863,8 @@ _020DA048:
 	mov r0, r4
 	add r1, r6, #5
 	add r2, r9, #4
-	bl FUN_ov15_020d9494
-	ldr r4, _020DA0A8 ; =0x020E6D84
+	bl update_digest
+	ldr r4, _020DA0A8 ; =CPSiFree
 	mov r0, r6
 	ldr r1, [r4]
 	blx r1
@@ -34881,35 +34877,35 @@ _020DA048:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020DA0A0: .word 0x020E3FE0
-_020DA0A4: .word ov15_020E6D54
-_020DA0A8: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020d9df8
+_020DA0A4: .word CPSiAlloc
+_020DA0A8: .word CPSiFree
+	arm_func_end send_client_key_exchange
 
-	arm_func_start FUN_ov15_020da0ac
-FUN_ov15_020da0ac: ; 0x020DA0AC
+	arm_func_start mustget_change_cipher_spec_and_finished
+mustget_change_cipher_spec_and_finished: ; 0x020DA0AC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d97d8
+	bl parse_record
 	cmp r0, #7
 	movne r0, #1
 	ldmnefd sp!, {r4, pc}
 	mov r0, r4
-	bl FUN_ov15_020d97d8
+	bl parse_record
 	cmp r0, #6
 	movne r0, #1
 	moveq r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020da0ac
+	arm_func_end mustget_change_cipher_spec_and_finished
 
-	arm_func_start FUN_ov15_020da0dc
-FUN_ov15_020da0dc: ; 0x020DA0DC
+	arm_func_start ssl_connect_try
+ssl_connect_try: ; 0x020DA0DC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r4, [r5, #0xc]
-	bl FUN_ov15_020d9c58
+	bl send_client_hello
 _020DA0EC:
 	mov r0, r5
-	bl FUN_ov15_020d97d8
+	bl parse_record
 	cmp r0, #9
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -34923,34 +34919,34 @@ _020DA114:
 	cmp r0, #0
 	beq _020DA148
 	mov r0, r4
-	bl FUN_ov15_020d8b08
+	bl create_key_block
 	mov r0, r5
-	bl FUN_ov15_020da0ac
+	bl mustget_change_cipher_spec_and_finished
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, r5
-	bl FUN_ov15_020d9b00
+	bl send_change_cipher_spec_and_finished
 	b _020DA198
 _020DA148:
 	mov r0, r5
-	bl FUN_ov15_020d9df8
+	bl send_client_key_exchange
 	mov r0, r4
-	bl FUN_ov15_020d8aa4
+	bl create_master_secret
 	ldrb r0, [r4, #0x30]
 	cmp r0, #0
 	beq _020DA174
 	ldrh r2, [r5, #0x18]
 	ldr r1, [r5, #0x1c]
 	mov r0, r4
-	bl FUN_ov15_020d7720
+	bl cache_session
 _020DA174:
 	mov r0, r4
-	bl FUN_ov15_020d8b08
+	bl create_key_block
 	mov r0, r5
-	bl FUN_ov15_020d9b00
+	bl send_change_cipher_spec_and_finished
 	mov r0, r5
-	bl FUN_ov15_020da0ac
+	bl mustget_change_cipher_spec_and_finished
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -34959,7 +34955,7 @@ _020DA198:
 	strb r0, [r4, #0x455]
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020da0dc
+	arm_func_end ssl_connect_try
 
 	arm_func_start CPSi_SslConnect
 CPSi_SslConnect: ; 0x020DA1A8
@@ -34979,11 +34975,11 @@ _020DA1D0:
 	str r1, [r4, #0x1d4]
 	add r0, r4, #0x2ec
 	strb r1, [r4, #0x454]
-	bl FUN_ov15_020db4dc
+	bl CPSi_sha1_init
 	add r0, r4, #0x3a4
-	bl FUN_ov15_020dac30
+	bl CPSi_md5_init
 	mov r0, r5
-	bl FUN_ov15_020da0dc
+	bl ssl_connect_try
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end CPSi_SslConnect
 
@@ -35004,10 +35000,10 @@ CPSi_SslRead: ; 0x020DA1FC
 	mov r2, r5
 	add r0, r12, r3
 	sub r1, r1, r3
-	bl FUN_ov15_020d9428
+	bl tcp_read_raw_nbytes
 	cmp r0, #0
 	beq _020DA264
-	ldr r1, _020DA2D0 ; =0x020E6D84
+	ldr r1, _020DA2D0 ; =CPSiFree
 	ldr r0, [r4, #0x824]
 	ldr r1, [r1]
 	blx r1
@@ -35018,7 +35014,7 @@ CPSi_SslRead: ; 0x020DA1FC
 _020DA264:
 	ldr r1, [r4, #0x824]
 	mov r0, r4
-	bl FUN_ov15_020d94c0
+	bl parse_record_in_buf
 	ldrb r0, [r4, #0x456]
 	cmp r0, #0
 	moveq r0, #0
@@ -35029,7 +35025,7 @@ _020DA280:
 	bne _020DA2B0
 _020DA28C:
 	mov r0, r5
-	bl FUN_ov15_020d97d8
+	bl parse_record
 	cmp r0, #9
 	moveq r0, #0
 	streq r0, [r6]
@@ -35046,7 +35042,7 @@ _020DA2B0:
 	ldr r0, [r4, #0x82c]
 	add r0, r1, r0
 	ldmfd sp!, {r4, r5, r6, pc}
-_020DA2D0: .word ov15_020E6D84
+_020DA2D0: .word CPSiFree
 	arm_func_end CPSi_SslRead
 
 	arm_func_start CPSi_SslConsume
@@ -35061,7 +35057,7 @@ CPSi_SslConsume: ; 0x020DA2D4
 	ldr r0, [r4, #0x824]
 	cmp r0, #0
 	beq _020DA308
-	ldr r1, _020DA320 ; =0x020E6D84
+	ldr r1, _020DA320 ; =CPSiFree
 	ldr r1, [r1]
 	blx r1
 _020DA308:
@@ -35072,11 +35068,11 @@ _020DA314:
 	add r0, r1, r0
 	str r0, [r4, #0x82c]
 	ldmfd sp!, {r4, pc}
-_020DA320: .word ov15_020E6D84
+_020DA320: .word CPSiFree
 	arm_func_end CPSi_SslConsume
 
-	arm_func_start FUN_ov15_020da324
-FUN_ov15_020da324: ; 0x020DA324
+	arm_func_start try_fill_record
+try_fill_record: ; 0x020DA324
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r5, r0
@@ -35102,7 +35098,7 @@ FUN_ov15_020da324: ; 0x020DA324
 	addhi sp, sp, #4
 	strhib r0, [r4, #0x455]
 	ldmhifd sp!, {r3, r4, r5, r6, pc}
-	ldr r1, _020DA464 ; =0x020E6D54
+	ldr r1, _020DA464 ; =CPSiAlloc
 	ldr r1, [r1]
 	blx r1
 	cmp r0, #0
@@ -35145,7 +35141,7 @@ _020DA3D0:
 	beq _020DA448
 	ldr r1, [r4, #0x824]
 	mov r0, r4
-	bl FUN_ov15_020d94c0
+	bl parse_record_in_buf
 	ldrb r0, [r4, #0x456]
 	add sp, sp, #4
 	cmp r0, #0
@@ -35160,11 +35156,11 @@ _020DA448:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020DA460: .word 0x00004805
-_020DA464: .word ov15_020E6D54
-	arm_func_end FUN_ov15_020da324
+_020DA464: .word CPSiAlloc
+	arm_func_end try_fill_record
 
-	arm_func_start FUN_ov15_020da468
-FUN_ov15_020da468: ; 0x020DA468
+	arm_func_start CPSi_SslGetLength
+CPSi_SslGetLength: ; 0x020DA468
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r4, [r5, #0xc]
@@ -35174,7 +35170,7 @@ FUN_ov15_020da468: ; 0x020DA468
 	cmpne r0, #0
 	bne _020DA490
 	mov r0, r5
-	bl FUN_ov15_020da324
+	bl try_fill_record
 _020DA490:
 	ldr r1, [r4, #0x824]
 	cmp r1, #0
@@ -35198,7 +35194,7 @@ _020DA4D0:
 _020DA4D8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020da468
+	arm_func_end CPSi_SslGetLength
 
 	arm_func_start CPSi_SslWrite2
 CPSi_SslWrite2: ; 0x020DA4E0
@@ -35217,7 +35213,7 @@ CPSi_SslWrite2: ; 0x020DA4E0
 	str r0, [sp, #4]
 _020DA514:
 	ldr r0, _020DA60C ; =0x00000B4F
-	ldr r1, _020DA610 ; =0x020E6D54
+	ldr r1, _020DA610 ; =CPSiAlloc
 	mov r6, r0
 	cmp r5, r0
 	movle r6, r5
@@ -35253,7 +35249,7 @@ _020DA514:
 	mov r1, r4
 	add r8, r8, r11
 	strb r6, [r4, #4]
-	bl FUN_ov15_020d920c
+	bl make_ciphertext
 	ldr r1, [sp, #0x30]
 	mov r7, r0
 	mov r2, #0
@@ -35263,7 +35259,7 @@ _020DA514:
 	mov r3, r2
 	bl CPSi_TcpWrite2Raw
 	cmp r0, r7
-	ldr r1, _020DA614 ; =0x020E6D84
+	ldr r1, _020DA614 ; =CPSiFree
 	mov r0, r4
 	ldr r1, [r1]
 	movlo r6, #0
@@ -35280,8 +35276,8 @@ _020DA600:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020DA60C: .word 0x00000B4F
-_020DA610: .word ov15_020E6D54
-_020DA614: .word ov15_020E6D84
+_020DA610: .word CPSiAlloc
+_020DA614: .word CPSiFree
 	arm_func_end CPSi_SslWrite2
 
 	arm_func_start CPSi_SslShutdown
@@ -35308,7 +35304,7 @@ CPSi_SslShutdown: ; 0x020DA618
 	strb r3, [sp, #8]
 	strb r2, [sp, #9]
 	strb r7, [sp, #0xa]
-	bl FUN_ov15_020d920c
+	bl make_ciphertext
 	mov r1, r0
 	mov r0, r6
 	mov r2, r7
@@ -35331,18 +35327,18 @@ CPSi_SslClose: ; 0x020DA69C
 	ldr r0, [r4, #0x824]
 	cmp r0, #0
 	beq _020DA6C4
-	ldr r1, _020DA6D0 ; =0x020E6D84
+	ldr r1, _020DA6D0 ; =CPSiFree
 	ldr r1, [r1]
 	blx r1
 _020DA6C4:
 	mov r0, #0
 	str r0, [r4, #0x824]
 	ldmfd sp!, {r4, pc}
-_020DA6D0: .word ov15_020E6D84
+_020DA6D0: .word CPSiFree
 	arm_func_end CPSi_SslClose
 
-	arm_func_start FUN_ov15_020da6d4
-FUN_ov15_020da6d4: ; 0x020DA6D4
+	arm_func_start CPS_SetSsl
+CPS_SetSsl: ; 0x020DA6D4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, _020DA6FC ; =_version_UBIQUITOUS_SSL
@@ -35355,15 +35351,15 @@ FUN_ov15_020da6d4: ; 0x020DA6D4
 	ldmfd sp!, {r4, pc}
 _020DA6FC: .word _version_UBIQUITOUS_SSL
 _020DA700: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020da6d4
+	arm_func_end CPS_SetSsl
 
-	arm_func_start FUN_ov15_020da704
-FUN_ov15_020da704: ; 0x020DA704
+	arm_func_start CPSi_SslPeriodical
+CPSi_SslPeriodical: ; 0x020DA704
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
 	mov lr, #0
-	ldr r6, _020DA7D8 ; =0x020ED684
+	ldr r6, _020DA7D8 ; =session
 	ldr r1, _020DA7DC ; =0x000003BD
 	mov r3, lr
 	mov r2, #0x5c
@@ -35415,19 +35411,19 @@ _020DA7C8:
 	cmp r4, #0
 	bne _020DA764
 	ldmfd sp!, {r4, r5, r6, pc}
-_020DA7D8: .word ov15_020ED684
+_020DA7D8: .word session
 _020DA7DC: .word 0x000003BD
 _020DA7E0: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020da704
+	arm_func_end CPSi_SslPeriodical
 
 	arm_func_start CPSi_SslCleanup
 CPSi_SslCleanup: ; 0x020DA7E4
-	ldr r0, _020DA7F8 ; =0x020ED684
+	ldr r0, _020DA7F8 ; =session
 	ldr r12, _020DA7FC ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x170
 	bx r12
-_020DA7F8: .word ov15_020ED684
+_020DA7F8: .word session
 _020DA7FC: .word MI_CpuFill8
 	arm_func_end CPSi_SslCleanup
 
@@ -35715,8 +35711,8 @@ _020DAC28: .word ov15_020E5B3C
 _020DAC2C: .word ov15_020E5ABC
 	arm_func_end FUN_ov15_020da830
 
-	arm_func_start FUN_ov15_020dac30
-FUN_ov15_020dac30: ; 0x020DAC30
+	arm_func_start CPSi_md5_init
+CPSi_md5_init: ; 0x020DAC30
 	stmfd sp!, {r4, lr}
 	mov r1, #0
 	mov r2, #0x58
@@ -35735,10 +35731,10 @@ _020DAC68: .word 0x67452301
 _020DAC6C: .word 0xEFCDAB89
 _020DAC70: .word 0x98BADCFE
 _020DAC74: .word 0x10325476
-	arm_func_end FUN_ov15_020dac30
+	arm_func_end CPSi_md5_init
 
-	arm_func_start FUN_ov15_020dac78
-FUN_ov15_020dac78: ; 0x020DAC78
+	arm_func_start CPSi_md5_calc
+CPSi_md5_calc: ; 0x020DAC78
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	ldr r3, [r8, #0x10]
@@ -35788,10 +35784,10 @@ _020DAD18:
 	sub r2, r6, r5
 	bl MI_CpuCopy8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020dac78
+	arm_func_end CPSi_md5_calc
 
-	arm_func_start FUN_ov15_020dad30
-FUN_ov15_020dad30: ; 0x020DAD30
+	arm_func_start CPSi_md5_result
+CPSi_md5_result: ; 0x020DAD30
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -35807,18 +35803,18 @@ FUN_ov15_020dad30: ; 0x020DAD30
 	cmp r0, #0x38
 	rsbge r2, r0, #0x78
 	mov r0, r5
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r0, r5
 	mov r1, r4
 	mov r2, #8
-	bl FUN_ov15_020dac78
+	bl CPSi_md5_calc
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x10
 	bl FUN_ov15_020da800
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DAD94: .word ov15_020E5AFC
-	arm_func_end FUN_ov15_020dad30
+	arm_func_end CPSi_md5_result
 
 	arm_func_start FUN_ov15_020dad98
 FUN_ov15_020dad98: ; 0x020DAD98
@@ -36307,8 +36303,8 @@ _020DB4D4: .word 0x8F1BBCDC
 _020DB4D8: .word 0xCA62C1D6
 	arm_func_end FUN_ov15_020dae68
 
-	arm_func_start FUN_ov15_020db4dc
-FUN_ov15_020db4dc: ; 0x020DB4DC
+	arm_func_start CPSi_sha1_init
+CPSi_sha1_init: ; 0x020DB4DC
 	stmfd sp!, {r4, lr}
 	mov r1, #0
 	mov r2, #0x5c
@@ -36330,10 +36326,10 @@ _020DB520: .word 0xEFCDAB89
 _020DB524: .word 0x98BADCFE
 _020DB528: .word 0x10325476
 _020DB52C: .word 0xC3D2E1F0
-	arm_func_end FUN_ov15_020db4dc
+	arm_func_end CPSi_sha1_init
 
-	arm_func_start FUN_ov15_020db530
-FUN_ov15_020db530: ; 0x020DB530
+	arm_func_start CPSi_sha1_calc
+CPSi_sha1_calc: ; 0x020DB530
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	ldr r3, [r8, #0x18]
@@ -36383,10 +36379,10 @@ _020DB5D0:
 	sub r2, r6, r5
 	bl MI_CpuCopy8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020db530
+	arm_func_end CPSi_sha1_calc
 
-	arm_func_start FUN_ov15_020db5e8
-FUN_ov15_020db5e8: ; 0x020DB5E8
+	arm_func_start CPSi_sha1_result
+CPSi_sha1_result: ; 0x020DB5E8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -36402,37 +36398,37 @@ FUN_ov15_020db5e8: ; 0x020DB5E8
 	cmp r0, #0x38
 	rsbge r2, r0, #0x78
 	mov r0, r5
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r5
 	mov r1, r4
 	mov r2, #8
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x14
 	bl FUN_ov15_020daddc
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DB64C: .word ov15_020E5C3C
-	arm_func_end FUN_ov15_020db5e8
+	arm_func_end CPSi_sha1_result
 
-	arm_func_start FUN_ov15_020db650
-FUN_ov15_020db650: ; 0x020DB650
+	arm_func_start CPSi_sha1_result_prng
+CPSi_sha1_result_prng: ; 0x020DB650
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	ldr r1, _020DB67C ; =0x020E5C3D
 	mov r5, r0
 	mov r2, #0x2c
-	bl FUN_ov15_020db530
+	bl CPSi_sha1_calc
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x14
 	bl FUN_ov15_020daddc
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DB67C: .word ov15_020E5C3D
-	arm_func_end FUN_ov15_020db650
+	arm_func_end CPSi_sha1_result_prng
 
-	arm_func_start FUN_ov15_020db680
-FUN_ov15_020db680: ; 0x020DB680
+	arm_func_start CPSi_rc4_init
+CPSi_rc4_init: ; 0x020DB680
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r3, #0
 	strb r3, [r0]
@@ -36465,10 +36461,10 @@ _020DB6B4:
 	cmp r7, #0x100
 	blt _020DB6B4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020db680
+	arm_func_end CPSi_rc4_init
 
-	arm_func_start FUN_ov15_020db6f8
-FUN_ov15_020db6f8: ; 0x020DB6F8
+	arm_func_start CPSi_rc4_crypt
+CPSi_rc4_crypt: ; 0x020DB6F8
 	stmfd sp!, {r4, r5, r6, lr}
 	cmp r2, #0
 	add r4, r0, #2
@@ -36498,7 +36494,7 @@ _020DB758:
 	strb r12, [r0]
 	strb lr, [r0, #1]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020db6f8
+	arm_func_end CPSi_rc4_crypt
 
 	arm_func_start FUN_ov15_020db764
 FUN_ov15_020db764: ; 0x020DB764
@@ -36517,8 +36513,8 @@ _020DB784:
 	mov r0, r1
 	bx lr
 
-	arm_func_start FUN_ov15_020db78c
-FUN_ov15_020db78c: ; 0x020DB78C
+	arm_func_start CPSi_big_sign
+CPSi_big_sign: ; 0x020DB78C
 	stmfd sp!, {r3, lr}
 	sub r2, r1, #1
 	mov r2, r2, lsl #1
@@ -36531,10 +36527,10 @@ FUN_ov15_020db78c: ; 0x020DB78C
 	movne r0, #1
 	moveq r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020db78c
+	arm_func_end CPSi_big_sign
 
-	arm_func_start FUN_ov15_020db7bc
-FUN_ov15_020db7bc: ; 0x020DB7BC
+	arm_func_start CPSi_big_add
+CPSi_big_add: ; 0x020DB7BC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r1
 	mov r5, r3
@@ -36576,7 +36572,7 @@ _020DB834:
 	mov r1, #0
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020db7bc
+	arm_func_end CPSi_big_add
 
 	arm_func_start FUN_ov15_020db858
 FUN_ov15_020db858: ; 0x020DB858
@@ -36609,8 +36605,8 @@ _020DB89C:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020db858
 
-	arm_func_start FUN_ov15_020db8b8
-FUN_ov15_020db8b8: ; 0x020DB8B8
+	arm_func_start CPSi_big_negate
+CPSi_big_negate: ; 0x020DB8B8
 	stmfd sp!, {r3, lr}
 	mov r3, r1
 	cmp r3, #0
@@ -36629,10 +36625,10 @@ _020DB8E8:
 	mov r2, #1
 	bl FUN_ov15_020db858
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020db8b8
+	arm_func_end CPSi_big_negate
 
-	arm_func_start FUN_ov15_020db8f8
-FUN_ov15_020db8f8: ; 0x020DB8F8
+	arm_func_start CPSi_big_sub
+CPSi_big_sub: ; 0x020DB8F8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r1
 	mov r5, r3
@@ -36678,7 +36674,7 @@ _020DB97C:
 	mov r1, #0
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020db8f8
+	arm_func_end CPSi_big_sub
 
 	arm_func_start FUN_ov15_020db9a0
 FUN_ov15_020db9a0: ; 0x020DB9A0
@@ -36751,8 +36747,8 @@ _020DBA5C:
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov15_020dba3c
 
-	arm_func_start FUN_ov15_020dba70
-FUN_ov15_020dba70: ; 0x020DBA70
+	arm_func_start CPSi_big_mult
+CPSi_big_mult: ; 0x020DBA70
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r8, r3
@@ -36801,7 +36797,7 @@ _020DBB08:
 	blt _020DBAC4
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020dba70
+	arm_func_end CPSi_big_mult
 
 	arm_func_start FUN_ov15_020dbb20
 FUN_ov15_020dbb20: ; 0x020DBB20
@@ -36962,8 +36958,8 @@ FUN_ov15_020dbcf4: ; 0x020DBCF4
 	bx lr
 	arm_func_end FUN_ov15_020dbcf4
 
-	arm_func_start FUN_ov15_020dbd10
-FUN_ov15_020dbd10: ; 0x020DBD10
+	arm_func_start CPSi_big_div
+CPSi_big_div: ; 0x020DBD10
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x20
 	ldr r9, [sp, #0x48]
@@ -37062,7 +37058,7 @@ _020DBE3C:
 	mov r1, r7
 	mov r2, r8
 	mov r3, r9
-	bl FUN_ov15_020db8f8
+	bl CPSi_big_sub
 	strh r5, [r6]
 	add r4, r4, #1
 	cmp r4, r9
@@ -37087,13 +37083,13 @@ _020DBEB0:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020DBED8: .word 0x0000FFFF
-	arm_func_end FUN_ov15_020dbd10
+	arm_func_end CPSi_big_div
 
-	arm_func_start FUN_ov15_020dbedc
-FUN_ov15_020dbedc: ; 0x020DBEDC
+	arm_func_start CPSi_big_power
+CPSi_big_power: ; 0x020DBEDC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
-	ldr r4, _020DC068 ; =0x020E6D54
+	ldr r4, _020DC068 ; =CPSiAlloc
 	mov r8, r3
 	ldr r3, [r4]
 	mov r10, r0
@@ -37159,7 +37155,7 @@ _020DBF9C:
 	mov r2, r7
 	mov r3, r10
 	str r5, [sp, #4]
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 _020DBFE0:
 	sub r0, r8, r6, asr #4
 	add r0, r9, r0, lsl #1
@@ -37172,7 +37168,7 @@ _020DBFE0:
 	mov r0, r4
 	mov r1, r10
 	mov r3, r8
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	mov r0, r4
 	mov r1, r10
 	mov r2, r11
@@ -37185,21 +37181,21 @@ _020DBFE0:
 	mov r2, r7
 	mov r3, r10
 	str r5, [sp, #4]
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 _020DC044:
 	add r6, r6, #1
 	cmp r6, r8, lsl #4
 	blo _020DBF9C
 _020DC050:
-	ldr r1, _020DC06C ; =0x020E6D84
+	ldr r1, _020DC06C ; =CPSiFree
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020DC068: .word ov15_020E6D54
-_020DC06C: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020dbedc
+_020DC068: .word CPSiAlloc
+_020DC06C: .word CPSiFree
+	arm_func_end CPSi_big_power
 
 	arm_func_start FUN_ov15_020dc070
 FUN_ov15_020dc070: ; 0x020DC070
@@ -37229,7 +37225,7 @@ FUN_ov15_020dc070: ; 0x020DC070
 	strh r0, [r4, r8]
 	mov r0, r9
 	mov r1, r10
-	bl FUN_ov15_020db78c
+	bl CPSi_big_sign
 	cmp r0, #0
 	ble _020DC180
 _020DC0E4:
@@ -37240,7 +37236,7 @@ _020DC0E4:
 	mov r1, r4
 	mov r2, r9
 	mov r3, r7
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	mov r0, r9
 	mov r1, r4
 	mov r2, r8
@@ -37253,12 +37249,12 @@ _020DC0E4:
 	mov r1, r11
 	mov r2, r5
 	mov r3, r10
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	mov r0, r7
 	mov r1, r6
 	mov r2, r7
 	mov r3, r10
-	bl FUN_ov15_020db8f8
+	bl CPSi_big_sub
 	mov r0, r5
 	mov r1, r6
 	mov r2, r8
@@ -37269,7 +37265,7 @@ _020DC0E4:
 	bl MI_CpuCopy8
 	mov r0, r9
 	mov r1, r10
-	bl FUN_ov15_020db78c
+	bl CPSi_big_sign
 	cmp r0, #0
 	bgt _020DC0E4
 _020DC180:
@@ -37277,7 +37273,7 @@ _020DC180:
 	mov r0, r6
 	mov r1, r6
 	mov r3, r10
-	bl FUN_ov15_020db7bc
+	bl CPSi_big_add
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #8]
 	ldr r4, [sp, #0x10]
@@ -37285,7 +37281,7 @@ _020DC180:
 	mov r1, r6
 	mov r0, #0
 	str r4, [sp, #4]
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov15_020dc070
@@ -37315,13 +37311,13 @@ _020DC1FC:
 	mov r1, r9
 	mov r2, r8
 	mov r3, r6
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 _020DC218:
 	ldr r0, [sp, #0x2c]
 	ldr r2, [sp, #0x28]
 	mov r1, r7
 	mov r3, r5
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	sub r1, r6, r5
 	ldr r0, [sp, #0x2c]
 	mov r9, r1, lsl #1
@@ -37334,12 +37330,12 @@ _020DC218:
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x24]
 	mov r3, r6
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	mov r0, r7
 	mov r1, r7
 	ldr r2, [sp, #0x30]
 	mov r3, r6
-	bl FUN_ov15_020db7bc
+	bl CPSi_big_add
 	mov r2, r9
 	mov r0, r7
 	add r1, r7, r5, lsl #1
@@ -37369,18 +37365,18 @@ _020DC2D0:
 	mov r0, r7
 	mov r1, r7
 	mov r3, r6
-	bl FUN_ov15_020db8f8
+	bl CPSi_big_sub
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov15_020dc1bc
 
-	arm_func_start FUN_ov15_020dc2e8
-FUN_ov15_020dc2e8: ; 0x020DC2E8
+	arm_func_start CPSi_big_montpower
+CPSi_big_montpower: ; 0x020DC2E8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x30
 	mov r10, r3
 	mov r3, #0x16
 	mul r4, r10, r3
-	ldr r3, _020DC4FC ; =0x020E6D54
+	ldr r3, _020DC4FC ; =CPSiAlloc
 	mov r11, r0
 	ldr r3, [r3]
 	mov r0, r4
@@ -37425,7 +37421,7 @@ FUN_ov15_020dc2e8: ; 0x020DC2E8
 	mov r0, r7
 	mov r2, r6
 	mov r3, r10
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	mov r2, #1
 	mov r0, r6
 	mov r1, r7
@@ -37438,12 +37434,12 @@ FUN_ov15_020dc2e8: ; 0x020DC2E8
 	mov r1, r6
 	mov r2, r9
 	mov r3, r5
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	ldr r1, [sp, #0x14]
 	ldr r0, [sp, #0x28]
 	ldr r2, [sp, #0x2c]
 	mov r3, r10
-	bl FUN_ov15_020dba70
+	bl CPSi_big_mult
 	ldr r1, [sp, #0x28]
 	ldr r0, [sp, #0x20]
 	str r10, [sp]
@@ -37451,7 +37447,7 @@ FUN_ov15_020dc2e8: ; 0x020DC2E8
 	mov r0, r5
 	mov r2, r9
 	mov r3, r1
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	ldr r0, [sp, #0x20]
 	str r10, [sp]
 	str r0, [sp, #4]
@@ -37459,7 +37455,7 @@ FUN_ov15_020dc2e8: ; 0x020DC2E8
 	mov r0, r5
 	mov r2, r9
 	mov r3, r11
-	bl FUN_ov15_020dbd10
+	bl CPSi_big_div
 	movs r0, r4, lsl #4
 	str r0, [sp, #0x1c]
 	beq _020DC4C0
@@ -37505,18 +37501,18 @@ _020DC4C0:
 	mov r2, #0
 	str r8, [sp, #0x10]
 	bl FUN_ov15_020dc1bc
-	ldr r1, _020DC500 ; =0x020E6D84
+	ldr r1, _020DC500 ; =CPSiFree
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020DC4FC: .word ov15_020E6D54
-_020DC500: .word ov15_020E6D84
-	arm_func_end FUN_ov15_020dc2e8
+_020DC4FC: .word CPSiAlloc
+_020DC500: .word CPSiFree
+	arm_func_end CPSi_big_montpower
 
-	arm_func_start FUN_ov15_020dc504
-FUN_ov15_020dc504: ; 0x020DC504
+	arm_func_start CPSi_big_from_char
+CPSi_big_from_char: ; 0x020DC504
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r1
 	mov r5, r2
@@ -37542,10 +37538,10 @@ _020DC550:
 	ldrgtb r0, [r6]
 	strgth r0, [r4]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020dc504
+	arm_func_end CPSi_big_from_char
 
-	arm_func_start FUN_ov15_020dc560
-FUN_ov15_020dc560: ; 0x020DC560
+	arm_func_start CPSi_char_from_big
+CPSi_char_from_big: ; 0x020DC560
 	sub r3, r2, #1
 	cmp r2, #1
 	add r0, r0, r3
@@ -37565,7 +37561,7 @@ _020DC594:
 	ldrgth r1, [r1]
 	strgtb r1, [r0]
 	bx lr
-	arm_func_end FUN_ov15_020dc560
+	arm_func_end CPSi_char_from_big
 
 	arm_func_start FUN_ov15_020dc5a4
 FUN_ov15_020dc5a4: ; 0x020DC5A4
@@ -48077,14 +48073,14 @@ ov15_020E6D4C:
 	.global ov15_020E6D50
 ov15_020E6D50:
 	.space 0x04
-	.global ov15_020E6D54
-ov15_020E6D54:
+	.global CPSiAlloc
+CPSiAlloc:
 	.space 0x18
 	.global ov15_020E6D6C
 ov15_020E6D6C:
 	.space 0x18
-	.global ov15_020E6D84
-ov15_020E6D84:
+	.global CPSiFree
+CPSiFree:
 	.space 0x08
 	.global ov15_020E6D8C
 ov15_020E6D8C:
@@ -48098,8 +48094,8 @@ CPSMyMac:
 	.global ov15_020E6DB0
 ov15_020E6DB0:
 	.space 0x08
-	.global ov15_020E6DB8
-ov15_020E6DB8:
+	.global CPSiRand32ctx
+CPSiRand32ctx:
 	.space 0x18
 	.global ov15_020E6DD0
 ov15_020E6DD0:
@@ -48338,8 +48334,8 @@ ov15_020ED668:
 	.global ov15_020ED670
 ov15_020ED670:
 	.space 0x14
-	.global ov15_020ED684
-ov15_020ED684:
+	.global session
+session:
 	.space 0x170
 	.global ov15_020ED7F4
 ov15_020ED7F4:

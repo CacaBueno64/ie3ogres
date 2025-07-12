@@ -10,7 +10,7 @@
 .public OS_GetMacAddress
 .public FUN_02023e98
 .public FUN_020218d4
-.public FUN_020219ac
+.public _memcmp
 .public OS_SendMessage
 .public OS_InitMessageQueue
 .public OS_ReceiveMessage

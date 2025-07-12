@@ -87,7 +87,7 @@
 .public WM_EndScan
 .public WM_Disconnect
 .public FUN_020218f4
-.public FUN_020219ac
+.public _memcmp
 .public FUN_020240f4
 .public FUN_020241a0
 .public FUN_020246c4

@@ -259,7 +259,7 @@ FUN_ov99_02125054: ; 0x02125054
 	add r0, r4, #0x24
 	add r1, r4, #0x28
 	mov r2, #4
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02125098
 _02125080:

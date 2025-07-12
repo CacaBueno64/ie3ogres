@@ -7500,14 +7500,14 @@ _020F1750:
 	add r0, sp, #0x48
 	add r0, #2
 	add r1, r4, #4
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	bne _020F178A
 	add r1, r4, #0
 	ldr r0, [sp, #0x24]
 	add r1, #0x28
 	mov r2, #6
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	bne _020F178A
 	ldrh r1, [r6, #0x2e]
@@ -7577,7 +7577,7 @@ _020F17DC:
 	add r2, r0, #0
 	ldr r1, _020F18A4 ; =0x02112834
 	add r0, r7, #0
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	bne _020F180C
 	ldrh r0, [r5, #0x2e]
@@ -7622,7 +7622,7 @@ _020F1828:
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	bne _020F186A
 	ldrh r0, [r4, #0x2e]
@@ -8666,7 +8666,7 @@ FUN_ov17_020f1fa8: ; 0x020F1FA8
 	add r0, sp, #4
 	add r0, #2
 	mov r2, #6
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	bgt _020F203C
 	add r1, sp, #0
@@ -10246,7 +10246,7 @@ _020F2C22:
 	add r0, sp, #0x48
 	add r1, sp, #0x58
 	mov r2, #8
-	blx FUN_020219ac
+	blx _memcmp
 	cmp r0, #0
 	beq _020F2C34
 	mov r0, #0

@@ -10,7 +10,7 @@
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
 .public FX_Sqrt
-.public FUN_020219ac
+.public _memcmp
 .public FUN_020420b4
 .public G2S_GetBG2CharPtr
 .public GXS_LoadBG0Scr

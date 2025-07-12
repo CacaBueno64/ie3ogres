@@ -457,7 +457,7 @@ FUN_ov112_0212533c: ; 0x0212533C
 	add r0, r4, #0x124
 	add r1, r4, #0x12c
 	mov r2, #8
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02125380
 _02125368:

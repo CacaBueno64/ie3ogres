@@ -109,7 +109,7 @@
 .public FUN_02073e54
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020219ac
+.public _memcmp
 .public FUN_020401a0
 .public FUN_020403a8
 .public FUN_020404cc

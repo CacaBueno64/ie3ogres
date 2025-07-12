@@ -38,7 +38,7 @@ _02124D60:
 	mov r0, r7
 	mov r2, r6
 	add r1, r5, #0x354
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _02124DA0
 	mov r0, r7
@@ -1771,7 +1771,7 @@ FUN_ov113_021265d8: ; 0x021265D8
 	add r0, r4, #0xc
 	add r1, r4, #0x34
 	mov r2, #0x28
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	beq _0212665C
 _0212660C:

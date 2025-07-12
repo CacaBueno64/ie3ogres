@@ -190,7 +190,7 @@
 .public _u32_div_f
 .public FUN_020218d4
 .public FUN_02021940
-.public FUN_020219ac
+.public _memcmp
 .public _strlen
 .public FUN_02023e98
 .public _strncpy

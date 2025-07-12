@@ -105,7 +105,7 @@
 .public NNS_G2dCharCanvasInitForOBJ1D
 .public NNS_G2dArrangeOBJ1D
 .public NNSi_G2dTextCanvasDrawText
-.public FUN_020219ac
+.public _memcmp
 .public GX_DispOff
 .public GX_DispOn
 .public G2x_SetBlendBrightness_

@@ -13323,7 +13323,7 @@ FUN_ov126_021363ac: ; 0x021363AC
 	add r0, r4, #0x17c
 	add r0, r0, #0x400
 	mov r2, #0x16
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	movne r0, #1
 	moveq r0, #0

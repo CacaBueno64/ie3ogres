@@ -3289,7 +3289,7 @@ _020BF758:
 	bl FUN_0205107c
 	mov r2, r4
 	add r1, r5, r7, lsl #5
-	bl FUN_020219ac
+	bl _memcmp
 	cmp r0, #0
 	bne _020BF7A8
 	add r3, r8, r7, lsl #1
