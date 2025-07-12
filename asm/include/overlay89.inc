@@ -37,7 +37,7 @@
 .public FUN_0205722c
 .public FUN_0205935c
 .public FUN_0207249c
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public FUN_02020274
 .public FUN_02043310
 .public FUN_02054070

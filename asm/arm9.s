@@ -25270,8 +25270,8 @@ _02015168:
 	ldmfd sp!, {r4, pc}
 	arm_func_end string_put_string
 
-	arm_func_start STD_TSNPrintf
-STD_TSNPrintf: ; 0x02015184
+	arm_func_start STD_TSPrintf
+STD_TSPrintf: ; 0x02015184
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, lr}
 	add r1, sp, #0xc
@@ -25283,7 +25283,7 @@ STD_TSNPrintf: ; 0x02015184
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end STD_TSNPrintf
+	arm_func_end STD_TSPrintf
 
 	arm_func_start STD_TVSNPrintf
 STD_TVSNPrintf: ; 0x020151B0
@@ -52595,7 +52595,7 @@ _0202BDA4:
 	ldrsh r2, [r5, #4]
 	ldr r1, _0202BE14 ; =0x0208FB28
 	add r0, r6, #0x1e8
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldrsh r1, [r5, #4]
 	ldr r0, _0202BE10 ; =0x020B5B78
 	ldr r0, [r0, #4]
@@ -52651,7 +52651,7 @@ FUN_0202be40: ; 0x0202BE40
 	ldr r1, _0202BE9C ; =0x0208FB30
 	mov r0, r4
 	mov r2, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0202BEA0 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
@@ -52833,7 +52833,7 @@ FUN_0202c0b0: ; 0x0202C0B0
 	ldr r1, _0202C17C ; =0x0208FB58
 	add r0, r0, r5
 	strh r2, [r3, #0x30]
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202C104:
 	mov r12, #0x1c
@@ -52866,7 +52866,7 @@ _0202C148:
 	ldr r1, _0202C180 ; =0x0208FB60
 	add r0, r0, r12
 	strh r2, [r3, #0x88]
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202C17C: .word unk_0208FB58
 _0202C180: .word unk_0208FB60
@@ -53071,7 +53071,7 @@ FUN_0202c3e0: ; 0x0202C3E0
 	bne _0202C420
 	ldr r1, _0202C448 ; =0x0208FB78
 	mov r2, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	b _0202C428
 _0202C420:
 	mov r1, r5
@@ -53815,7 +53815,7 @@ FUN_0202cdd4: ; 0x0202CDD4
 	mov r6, r0
 	ldr r1, _0202CE1C ; =0x0208FB80
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0202CE20 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
@@ -53880,7 +53880,7 @@ FUN_0202ceb0: ; 0x0202CEB0
 	mov r6, r0
 	ldr r1, _0202CEF8 ; =0x0208FB88
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0202CEFC ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
@@ -55598,7 +55598,7 @@ _0202E560:
 	ldr r1, _0202E764 ; =0x0208FBC8
 	mov r0, r6
 	mov r2, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	mov r0, r8
 	bl FS_InitFile
 	mov r0, r8
@@ -55645,7 +55645,7 @@ _0202E5D0:
 	mov r0, r6
 	mov r2, r5
 	strb r7, [r3, #6]
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, [r8, #0x18c]
 	tst r0, #0x200
 	bne _0202E668
@@ -59080,7 +59080,7 @@ _02031418:
 	ldr r1, _02031544 ; =0x0208FD04
 	mov r0, r4
 	mov r2, r8
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _02031548 ; =0x0209A200
 	ldr r0, [r5]
 	ldr r2, [r1, #0x1c]
@@ -59098,7 +59098,7 @@ _0203145C:
 	ldr r1, _0203154C ; =0x0208FD0C
 	mov r0, r11
 	mov r2, r8
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _02031548 ; =0x0209A200
 	ldr r0, [r5]
 	ldr r2, [r1, #0x20]
@@ -59114,7 +59114,7 @@ _02031498:
 	ldr r1, _02031550 ; =0x0208FD14
 	mov r0, r11
 	mov r2, r8
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, [r5]
 	mov r2, r11
 	str r6, [sp]
@@ -65905,7 +65905,7 @@ FUN_02037440: ; 0x02037440
 	mov r0, r11
 	mov r10, r2
 	mov r9, r3
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r5, _02037508 ; =0x0209A200
 	ldr r4, _0203750C ; =0x02099F58
 	ldr r2, [r5, #0x24]
@@ -65923,7 +65923,7 @@ FUN_02037440: ; 0x02037440
 	ldr r1, _02037510 ; =0x0208FE08
 	mov r2, r10
 	mov r0, r11
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, [r4]
 	ldr r2, [r5, #0x24]
 	mov r3, r11
@@ -67028,7 +67028,7 @@ FUN_020383c4: ; 0x020383C4
 	add r4, sp, #0
 	ldr r1, _02038428 ; =0x0208FE10
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0203842C ; =0x02099EE8
 	ldr r1, [r5, #4]
 	ldr r0, [r0]
@@ -67092,7 +67092,7 @@ FUN_020384a4: ; 0x020384A4
 	add r5, sp, #0
 	ldr r1, _02038514 ; =0x0208FE18
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r4, _02038518 ; =0x02099EE8
 	ldr r1, [r6, #4]
 	ldr r0, [r4]
@@ -68092,7 +68092,7 @@ _02039200:
 	cmp r2, #0
 	ldreqh r2, [r4, #0x20]
 _02039214:
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0203956C ; =0x0209BA20
 	mov r1, #1
 	bl FUN_0207249c
@@ -68121,7 +68121,7 @@ _02039264:
 	cmp r2, #0
 	ldreqh r2, [r4, #0x20]
 _02039278:
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r4, _0203958C ; =0x0209A200
 	ldr r5, _02039590 ; =0x02099F38
 	ldr r2, [r4, #0x18]
@@ -68835,7 +68835,7 @@ _02039C80:
 	ldrb r2, [r0, r9]
 	ldr r1, _02039EFC ; =0x0208FEA4
 	mov r0, r7
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _02039F00 ; =0x0209A200
 	mov r1, #5
 	ldr r2, [r0]
@@ -69612,7 +69612,7 @@ _0203A768:
 	ldr r1, _0203AA44 ; =0x0208FEF4
 	mov r0, r7
 	add r2, r2, #0x32
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _0203AA48 ; =0x0209A200
 	mov r3, r7
 	ldr r2, [r1, #0x1c]
@@ -104462,7 +104462,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldr r1, _02057010 ; =0x02090744
 	mov r0, r6
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	mov r5, #2
 	mov r3, r4
 	add r0, r10, #0x28
@@ -104475,7 +104475,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldr r1, _02057014 ; =0x02090754
 	mov r0, r6
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	mov r3, r4
 	mov r4, #3
 	add r0, r10, #0x70
@@ -104495,7 +104495,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldr r1, _02057018 ; =0x02090760
 	mov r0, r6
 	mov r2, r7
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	mov r1, r5
 	mov r3, r7
 	add r0, r10, #4
@@ -104508,7 +104508,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldr r1, _0205701C ; =0x02090770
 	mov r0, r6
 	mov r2, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	add r0, r10, #0x4c
 	mov r1, r4
 	mov r2, r6
@@ -112238,7 +112238,7 @@ FUN_0205d56c: ; 0x0205D56C
 	ldr r2, [r12, r6, lsl #2]
 	ldr r1, _0205D5E4 ; =0x02090B10
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	cmp r5, #0
 	mov r1, r4
 	mov r0, #0
@@ -112306,7 +112306,7 @@ FUN_0205d630: ; 0x0205D630
 	ldr r1, _0205D72C ; =0x02090B1C
 	add r0, sp, #4
 	mov r2, r6
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldrsb r0, [r6, #1]
 	cmp r0, #0x72
 	beq _0205D698
@@ -112488,7 +112488,7 @@ FUN_0205d8e4: ; 0x0205D8E4
 	ldr r1, _0205D9A0 ; =0x02090B28
 	add r0, sp, #4
 	mov r2, r7
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldrsb r0, [r7, #1]
 	mov r7, #4
 	cmp r0, #0x72
@@ -112637,7 +112637,7 @@ FUN_0205daf0: ; 0x0205DAF0
 	ldr r1, _0205DBD4 ; =0x02090B34
 	mov r0, r8
 	mov r2, r6
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, _0205DBD8 ; =0x02099EE4
 	ldr r1, [r4, #0x60]
 	ldr r0, [r0]
@@ -114335,7 +114335,7 @@ FUN_0205f150: ; 0x0205F150
 	ldr r2, [r12, r6, lsl #2]
 	ldr r1, _0205F1C8 ; =0x02090D98
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	cmp r5, #0
 	mov r1, r4
 	mov r0, #0
@@ -114442,7 +114442,7 @@ FUN_0205f2b8: ; 0x0205F2B8
 	ldr r1, _0205F3C4 ; =0x02090DA4
 	add r0, sp, #0
 	mov r2, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	b _0205F2F0
 _0205F2EC:
 	bl OS_Terminate
@@ -160810,11 +160810,11 @@ FUN_02085e4c: ; 0x02085E4C
 	ldr r1, _02085F3C ; =0x020938B8
 	add r0, sp, #0x84
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _02085F40 ; =0x020938C0
 	add r0, sp, #4
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	cmp r5, #0
 	moveq r5, #0
 	str r5, [sp]
@@ -160882,11 +160882,11 @@ FUN_02085f50: ; 0x02085F50
 	ldr r1, _0208602C ; =0x020938C8
 	add r0, sp, #0x84
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _02086030 ; =0x020938D0
 	add r0, sp, #4
 	mov r2, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r2, _02086034 ; =0x020BC5D0
 	mov r4, #0
 	mov r0, #0x14
@@ -161150,7 +161150,7 @@ FUN_02086284: ; 0x02086284
 	add r6, sp, #4
 	ldr r1, _02086310 ; =0x020938D8
 	mov r0, r6
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	mov r0, r5
 	str r6, [sp]
 	add r2, r7, #8
@@ -161253,7 +161253,7 @@ FUN_020863fc: ; 0x020863FC
 	add r8, sp, #8
 	ldr r1, _0208647C ; =0x020938E0
 	mov r0, r8
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	stmia sp, {r5, r8}
 	add r2, r9, #8
 	mov r0, r7

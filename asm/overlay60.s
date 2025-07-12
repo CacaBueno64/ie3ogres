@@ -840,11 +840,11 @@ _0211AA64:
 	ldr r1, _0211ABF0 ; =0x021201E4
 	ldrb r2, [r4, #0x89]
 	mov r0, r7
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldrb r2, [r4, #0x89]
 	ldr r1, _0211ABF4 ; =0x021201F8
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r6, _0211ABF8 ; =0x0211F930
 	add r5, sp, #0x4c
 	mov r4, #0xd

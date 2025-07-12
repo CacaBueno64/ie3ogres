@@ -20,7 +20,7 @@
 .public FUN_0204294c
 .public FUN_0204378c
 .public FUN_0207249c
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0b3c
 .public FUN_ov16_020f0c30

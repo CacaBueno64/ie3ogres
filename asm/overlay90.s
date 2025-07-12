@@ -725,7 +725,7 @@ FUN_ov90_0211a8a4: ; 0x0211A8A4
 	ldr r1, _0211A94C ; =0x0211D790
 	ldrb r2, [r0, #0x89]
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r5, _0211A950 ; =0x0211D4A0
 	add lr, sp, #0x24
 	mov r12, #8

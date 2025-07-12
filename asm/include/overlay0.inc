@@ -240,7 +240,7 @@
 .public VEC_Subtract
 .public VEC_DotProduct
 .public VEC_Mag
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public FUN_02020274
 .public labs
 .public memset

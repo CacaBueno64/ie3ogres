@@ -227,7 +227,7 @@
 .public FUN_0207477c
 .public VEC_Add
 .public VEC_Subtract
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public NNS_FndPrependListObject
 .public NNS_FndInsertListObject
 .public NNS_FndGetNextListObject

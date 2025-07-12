@@ -40259,7 +40259,7 @@ _020DF590:
 	beq _020DF5F0
 	ldr r1, _020DF680 ; =0x020E93A8
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, [r11]
 	ldr r2, [r4, #0x24]
 	mov r3, #1
@@ -40282,7 +40282,7 @@ _020DF5F4:
 	beq _020DF648
 	ldr r1, _020DF684 ; =0x020E93B4
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r0, [r11]
 	ldr r2, [r4, #0x24]
 	mov r3, #1
@@ -40448,7 +40448,7 @@ _020DF82C:
 	mov r0, r7
 	mov r2, r6
 _020DF850:
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r2, [r4, #0x14]
 	b _020DF8B4
 _020DF85C:
@@ -40473,7 +40473,7 @@ _020DF894:
 	beq _020DF8DC
 	ldr r1, _020DFA2C ; =0x020E93D0
 	mov r0, r7
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r2, [r4]
 _020DF8B4:
 	ldr r0, _020DFA30 ; =0x02099F38
@@ -46443,12 +46443,12 @@ FUN_ov0_020e4c08: ; 0x020E4C08
 	add r0, sp, #0xc
 	bne _020E4C74
 	ldr r1, _020E4D60 ; =0x020E9414
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r2, [r5, #0x1c]
 	b _020E4C80
 _020E4C74:
 	ldr r1, _020E4D64 ; =0x020E9424
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r2, [r5, #0x20]
 _020E4C80:
 	ldr r0, [r4]
@@ -46465,7 +46465,7 @@ _020E4C80:
 	add r4, sp, #0xc
 	ldr r1, _020E4D68 ; =0x020E9434
 	mov r0, r4
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _020E4D54 ; =0x0209A200
 	ldr r0, _020E4D58 ; =0x02099F38
 	ldr r2, [r1, #0x1c]
@@ -46483,7 +46483,7 @@ _020E4CEC:
 	add r5, sp, #0xc
 	ldr r1, _020E4D6C ; =0x020E9444
 	mov r0, r5
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	ldr r1, _020E4D54 ; =0x0209A200
 	ldr r0, _020E4D58 ; =0x02099F38
 	ldr r2, [r1, #0x20]
