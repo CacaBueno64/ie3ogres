@@ -108,7 +108,7 @@
 .public FUN_02072d28
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020218f4
+.public _memmove
 .public FUN_020312d8
 .public FUN_020381a0
 .public FUN_020383c4

@@ -40402,8 +40402,8 @@ _020218E0:
 	bx lr
 	arm_func_end FUN_020218d4
 
-	arm_func_start FUN_020218f4
-FUN_020218f4: ; 0x020218F4
+	arm_func_start _memmove
+_memmove: ; 0x020218F4
 	cmp r1, r0
 	blo _0202191C
 	mov r12, r0
@@ -40426,7 +40426,7 @@ _0202192C:
 	strb r1, [r12, #-1]!
 	bne _0202192C
 	bx lr
-	arm_func_end FUN_020218f4
+	arm_func_end _memmove
 
 	arm_func_start FUN_02021940
 FUN_02021940: ; 0x02021940
@@ -48642,7 +48642,7 @@ _02028C8C:
 	add r0, r0, r4
 	sub r2, r11, r1
 	str r0, [sp, #8]
-	bl FUN_020218f4
+	bl _memmove
 	ldr r0, [sp, #0x14]
 	cmp r0, #0
 	beq _02028CC8
@@ -48713,12 +48713,12 @@ _02028D8C:
 	mov r2, r0
 	add r0, r1, r9
 	add r1, r1, r8
-	bl FUN_020218f4
+	bl _memmove
 _02028DAC:
 	ldr r1, [sp]
 	mov r2, r9
 	add r0, r6, r4
-	bl FUN_020218f4
+	bl _memmove
 	ldr r0, [sp, #4]
 	ldr r1, _02028E30 ; =0x0208F534
 	cmp r0, #0

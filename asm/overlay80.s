@@ -5409,7 +5409,7 @@ _0211EA3C:
 	mov r2, r0, asr #2
 	sub r0, r3, r2, lsl #2
 	mov r2, r2, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r0, [r7]
 	sub r0, r0, r6, lsl #2
 	str r0, [r7]
@@ -5493,7 +5493,7 @@ _0211EB80:
 	mov r2, r0, lsl #2
 	ldr r1, [r9]
 	ldr r0, [r7]
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r9]
 	sub r0, r6, #1
 	add r1, r1, r0, lsl #2
@@ -5714,7 +5714,7 @@ FUN_ov80_0211ee60: ; 0x0211EE60
 	mov r3, r2, asr #2
 	mov r2, r3, lsl #2
 	sub r0, r0, r3, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r5]
 	ldr r0, [r6]
 	ldr r2, [r7, #8]
@@ -5735,7 +5735,7 @@ _0211EED4:
 	sub r4, r0, r2, lsl #2
 	mov r0, r4
 	mov r2, r2, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r6]
 	ldr r0, [r6, #0xc]
 	sub r2, r0, r1
@@ -5744,7 +5744,7 @@ _0211EED4:
 	mov r0, r0, asr #2
 	mov r2, r0, lsl #2
 	sub r0, r4, r0, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r6, #0xc]
 	ldr r0, [r6]
 	ldr r4, [r5]
@@ -5789,7 +5789,7 @@ FUN_ov80_0211ef68: ; 0x0211EF68
 	mov r2, r0, asr #2
 	mov r0, r4
 	mov r2, r2, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r5]
 	ldr r0, [r6]
 	ldr r2, [r7, #8]
@@ -5807,7 +5807,7 @@ _0211EFE4:
 	add r2, r3, r2, lsr #30
 	mov r8, r2, asr #2
 	mov r2, r8, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r5, #4]
 	ldr r2, [r5]
 	add r0, r4, r8, lsl #2
@@ -5816,7 +5816,7 @@ _0211EFE4:
 	add r2, r3, r2, lsr #30
 	mov r2, r2, asr #2
 	mov r2, r2, lsl #2
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r5]
 	ldr r0, [r5, #4]
 	ldr r4, [r6, #0xc]
@@ -6085,7 +6085,7 @@ _0211F38C:
 	mov r5, r0, asr #2
 	mov r2, r5, lsl #2
 	mov r0, r10
-	bl FUN_020218f4
+	bl _memmove
 	ldr r1, [r4]
 	sub r0, r9, #1
 	add r2, r1, r0, lsl #2

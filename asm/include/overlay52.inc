@@ -65,7 +65,7 @@
 .public FX_Sqrt
 .public FUN_020204a4
 .public FUN_020218d4
-.public FUN_020218f4
+.public _memmove
 .public FUN_020418b0
 .public FUN_020425fc
 .public FUN_020508fc
