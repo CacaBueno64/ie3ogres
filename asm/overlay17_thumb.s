@@ -4106,7 +4106,7 @@ FUN_ov17_020efe44: ; 0x020EFE44
 	ldr r1, _020EFE90 ; =0x02112724
 	str r0, [r1, #0x20]
 	ldr r0, _020EFE94 ; =0x0211272C
-	blx  FUN_ov15_020d71f4
+	blx  SOC_Startup
 	cmp r0, #0
 	bge _020EFE76
 	mov r0, #0
@@ -4135,7 +4135,7 @@ _020EFE98: .word 0x020E6D90
 	thumb_func_start FUN_ov17_020efe9c
 FUN_ov17_020efe9c: ; 0x020EFE9C
 	push {r3, lr}
-	blx  FUN_ov15_020d7388
+	blx  SOC_Cleanup
 	cmp r0, #0
 	bge _020EFEAC
 	mov r0, #0
@@ -4205,7 +4205,7 @@ FUN_ov17_020efefc: ; 0x020EFEFC
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	blx  FUN_ov15_020d6ee4
+	blx  SOC_RecvFrom
 	pop {r3, r4, r5, pc}
 	thumb_func_end FUN_ov17_020efefc
 
@@ -4244,7 +4244,7 @@ FUN_ov17_020eff10: ; 0x020EFF10
 	add r0, sp, #0
 	mov r1, #1
 	add r3, r4, #0
-	blx  FUN_ov15_020d740c
+	blx  SOC_Poll
 	add sp, #8
 	pop {r4, r5, r6, pc}
 	nop
@@ -4258,7 +4258,7 @@ FUN_ov17_020eff64: ; 0x020EFF64
 	ldr r4, [sp, #0x10]
 	strb r5, [r4]
 	str r4, [sp]
-	blx  FUN_ov15_020d6f98
+	blx  SOC_SendTo
 	pop {r3, r4, r5, pc}
 	thumb_func_end FUN_ov17_020eff64
 
@@ -4269,25 +4269,25 @@ FUN_ov17_020eff74: ; 0x020EFF74
 
 	thumb_func_start FUN_020eff78
 FUN_020eff78: ; 0x020EFF78
-	ldr r3, _020EFF7C ; = FUN_ov15_020d6e0c
+	ldr r3, _020EFF7C ; = SOC_Socket
 	bx r3
-_020EFF7C: .word  FUN_ov15_020d6e0c
+_020EFF7C: .word  SOC_Socket
 	thumb_func_end FUN_020eff78
 
 	thumb_func_start FUN_ov17_020eff80
 FUN_ov17_020eff80: ; 0x020EFF80
-	ldr r3, _020EFF88 ; = FUN_ov15_020d6e38
+	ldr r3, _020EFF88 ; = SOC_Bind
 	strb r2, [r1]
 	bx r3
 	nop
-_020EFF88: .word  FUN_ov15_020d6e38
+_020EFF88: .word  SOC_Bind
 	thumb_func_end FUN_ov17_020eff80
 
 	thumb_func_start FUN_020eff8c
 FUN_020eff8c: ; 0x020EFF8C
-	ldr r3, _020EFF90 ; = FUN_ov15_020d7028
+	ldr r3, _020EFF90 ; = SOC_Close
 	bx r3
-_020EFF90: .word  FUN_ov15_020d7028
+_020EFF90: .word  SOC_Close
 	thumb_func_end FUN_020eff8c
 
 	thumb_func_start FUN_ov17_020eff94
@@ -7353,7 +7353,7 @@ _020F1636:
 	mov r1, #1
 	str r1, [r0, #0x20]
 	ldr r0, _020F1674 ; =0x021127DC
-	blx  FUN_ov15_020d71f4
+	blx  SOC_Startup
 	cmp r0, #0
 	bge _020F1658
 	mov r5, #1
@@ -7423,7 +7423,7 @@ _020F16C4:
 	beq _020F16D4
 	mov r1, #0
 	str r1, [r0, #0x24]
-	blx  FUN_ov15_020d7388
+	blx  SOC_Cleanup
 _020F16D4:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
@@ -8008,7 +8008,7 @@ FUN_ov17_020f1b3c: ; 0x020F1B3C
 	str r1, [sp]
 	add r1, r3, #0
 	mov r3, #0
-	blx  FUN_ov15_020d6f98
+	blx  SOC_SendTo
 	cmp r0, #0
 	bge _020F1B52
 	mov r0, #3
@@ -8035,7 +8035,7 @@ FUN_ov17_020f1b54: ; 0x020F1B54
 	strh r1, [r0, #6]
 	blx  FUN_ov15_020d692c
 	add r1, sp, #4
-	blx  FUN_ov15_020d73ec
+	blx  SOC_U32to4U8
 	add r0, r5, #0
 	add r1, sp, #8
 	add r2, sp, #4
@@ -9369,7 +9369,7 @@ _020F2536:
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
-	blx  FUN_ov15_020d6e0c
+	blx  SOC_Socket
 	add r4, r0, #0
 	bpl _020F254E
 	mov r0, #1
@@ -9391,7 +9391,7 @@ _020F254E:
 	strh r3, [r2, #0x16]
 	str r1, [sp, #0x28]
 	add r1, r5, #0
-	blx  FUN_ov15_020d6e38
+	blx  SOC_Bind
 	str r0, [sp, #8]
 	cmp r0, #0
 	bge _020F257C
@@ -9412,7 +9412,7 @@ _020F2584:
 	cmp r0, r1
 	blo _020F25A0
 	add r0, r4, #0
-	blx  FUN_ov15_020d7028
+	blx  SOC_Close
 	mov r0, #2
 	mvn r0, r0
 	str r0, [sp, #8]
@@ -9432,7 +9432,7 @@ _020F25A0:
 	add r0, r4, #0
 	lsl r2, r2, #0xa
 	mov r3, #4
-	blx  FUN_ov15_020d6ee4
+	blx  SOC_RecvFrom
 	cmp r0, #0
 	ble _020F269E
 	ldr r0, _020F280C ; =0x02115964
@@ -9475,7 +9475,7 @@ _020F2610:
 	cmp r0, r1
 	blo _020F262C
 	add r0, r4, #0
-	blx  FUN_ov15_020d7028
+	blx  SOC_Close
 	mov r0, #3
 	mvn r0, r0
 	str r0, [sp, #8]
@@ -9489,7 +9489,7 @@ _020F262C:
 	add r0, r4, #0
 	lsl r2, r2, #0xa
 	mov r3, #4
-	blx  FUN_ov15_020d6ee4
+	blx  SOC_RecvFrom
 	cmp r0, #0
 	ble _020F26A0
 	ldr r0, _020F280C ; =0x02115964
@@ -9602,7 +9602,7 @@ _020F2716:
 	add r0, r4, #0
 	lsl r2, r2, #0xa
 	mov r3, #4
-	blx  FUN_ov15_020d6ee4
+	blx  SOC_RecvFrom
 	cmp r0, #0
 	ble _020F276C
 	ldr r0, _020F280C ; =0x02115964
@@ -9651,7 +9651,7 @@ _020F276C:
 	cmp r0, #0xa
 	blt _020F2796
 	add r0, r4, #0
-	blx  FUN_ov15_020d7028
+	blx  SOC_Close
 	mov r0, #1
 	mvn r0, r0
 	str r0, [sp, #8]
@@ -9754,7 +9754,7 @@ _020F2874:
 	cmp r4, #0
 	beq _020F287E
 	add r0, r4, #0
-	blx  FUN_ov15_020d7028
+	blx  SOC_Close
 _020F287E:
 	ldr r0, _020F2894 ; =0x02114C30
 	ldr r0, [r0, #0x10]

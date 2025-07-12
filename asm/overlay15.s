@@ -1,3 +1,4 @@
+; contains the TwlDWC and TwlWifi libraries
 
 	.include "/macros/function.inc"
 	.include "/include/overlay15.inc"
@@ -7536,7 +7537,7 @@ FUN_ov15_020c31a8: ; 0x020C31A8
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, pc}
-	bl FUN_ov15_020d7388
+	bl SOC_Cleanup
 	cmp r0, #0
 	cmnne r0, #0x27
 	moveq r0, #1
@@ -11676,7 +11677,7 @@ FUN_ov15_020c67c4: ; 0x020C67C4
 	ldr r1, _020C6824 ; =0x020ED460
 	mov r0, r4
 	str r5, [r1]
-	bl FUN_ov15_020d71f4
+	bl SOC_Startup
 	cmp r0, #0
 	moveq r0, #0xc
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -11691,7 +11692,7 @@ _020C6824: .word ov15_020ED460
 FUN_ov15_020c6828: ; 0x020C6828
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d70f8
+	bl SOC_GetHostID
 	cmp r0, #0
 	beq _020C6860
 	mov r0, r4
@@ -11805,7 +11806,7 @@ FUN_ov15_020c6994: ; 0x020C6994
 	cmp r0, #0
 	movne r0, #0xb
 	ldmnefd sp!, {r3, pc}
-	bl FUN_ov15_020d7388
+	bl SOC_Cleanup
 	cmp r0, #0
 	cmnne r0, #0x27
 	moveq r0, #9
@@ -11954,7 +11955,7 @@ FUN_ov15_020c6b30: ; 0x020C6B30
 	str r0, [sp]
 	add r0, sp, #4
 	add r1, sp, #0
-	bl FUN_ov15_020d7130
+	bl SOC_SetResolver
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020c6b30
@@ -21727,7 +21728,7 @@ FUN_ov15_020cf0b8: ; 0x020CF0B8
 	add r1, sp, #0
 	mov r3, r4
 	mov r2, #1
-	bl FUN_ov15_020d6ec0
+	bl SOC_Recv
 	sub r1, r4, #0xa
 	cmp r0, r1
 	subne r5, r4, #5
@@ -21738,12 +21739,12 @@ _020CF0F0:
 
 	arm_func_start FUN_ov15_020cf0f8
 FUN_ov15_020cf0f8: ; 0x020CF0F8
-	ldr r12, _020CF10C ; =FUN_ov15_020d6e0c
+	ldr r12, _020CF10C ; =SOC_Socket
 	mov r0, #2
 	mov r1, #1
 	mov r2, #0
 	bx r12
-_020CF10C: .word FUN_ov15_020d6e0c
+_020CF10C: .word SOC_Socket
 	arm_func_end FUN_ov15_020cf0f8
 
 	arm_func_start FUN_ov15_020cf110
@@ -21752,7 +21753,7 @@ FUN_ov15_020cf110: ; 0x020CF110
 	mov r10, r2
 	mov r0, r10
 	mov r4, r1
-	bl FUN_ov15_020d7028
+	bl SOC_Close
 	movs r8, r0
 	beq _020CF134
 	cmn r8, #0x1a
@@ -21770,7 +21771,7 @@ _020CF148:
 	add r9, r9, #0x1f4
 _020CF158:
 	mov r0, r10
-	bl FUN_ov15_020d7028
+	bl SOC_Close
 	mov r8, r0
 	cmp r8, r6
 	bne _020CF174
@@ -21825,7 +21826,7 @@ FUN_ov15_020cf1a0: ; 0x020CF1A0
 _020CF214:
 	add r1, sp, #0
 	mov r0, r5
-	bl FUN_ov15_020d6e64
+	bl SOC_Connect
 	cmp r0, #0
 	bge _020CF240
 	ldr r0, [r4]
@@ -21900,7 +21901,7 @@ FUN_ov15_020cf2e0: ; 0x020CF2E0
 	mov r0, r1
 	mov r1, r4
 	mov r2, #0x8000
-	bl FUN_ov15_020d6ec0
+	bl SOC_Recv
 	cmp r0, #0
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r1, r9, #0x8000
@@ -21979,9 +21980,9 @@ _020CF424: .word 0xFFFFFC16
 
 	arm_func_start FUN_ov15_020cf428
 FUN_ov15_020cf428: ; 0x020CF428
-	ldr r12, _020CF430 ; =FUN_ov15_020d6f74
+	ldr r12, _020CF430 ; =SOC_Send
 	bx r12
-_020CF430: .word FUN_ov15_020d6f74
+_020CF430: .word SOC_Send
 	arm_func_end FUN_ov15_020cf428
 
 	arm_func_start FUN_ov15_020cf434
@@ -22016,7 +22017,7 @@ FUN_ov15_020cf47c: ; 0x020CF47C
 	blt _020CF4A0
 	mov r0, r4
 	mov r1, #2
-	bl FUN_ov15_020d701c
+	bl SOC_Shutdown
 _020CF4A0:
 	mov r0, r5
 	bl FUN_ov15_020d40a0
@@ -22032,13 +22033,13 @@ FUN_ov15_020cf4ac: ; 0x020CF4AC
 	add r1, sp, #0
 	mov r0, r4
 	str r2, [sp, #4]
-	bl FUN_ov15_020d7394
+	bl SOC_InetAtoN
 	cmp r0, #0
 	ldrne r0, [sp]
 	strne r0, [sp, #4]
 	bne _020CF508
 	mov r0, r4
-	bl FUN_ov15_020d7034
+	bl SOC_GetHostByName
 	cmp r0, #0
 	ldrnesh r1, [r0, #0xa]
 	cmpne r1, #0
@@ -28116,8 +28117,8 @@ _020D45E0:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov15_020d4578
 
-	arm_func_start FUN_ov15_020d45e8
-FUN_ov15_020d45e8: ; 0x020D45E8
+	arm_func_start SOCL_Startup
+SOCL_Startup: ; 0x020D45E8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, _020D4638 ; =_version_NINTENDO_WIFI
@@ -28141,7 +28142,7 @@ _020D4630:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D4638: .word _version_NINTENDO_WIFI
 _020D463C: .word ov15_020E59F8
-	arm_func_end FUN_ov15_020d45e8
+	arm_func_end SOCL_Startup
 
 	arm_func_start FUN_ov15_020d4640
 FUN_ov15_020d4640: ; 0x020D4640
@@ -28211,7 +28212,7 @@ _020D4700:
 	movlt r2, #0x240
 _020D4728:
 	ldr r7, [r6, #0x34]
-	ldr r1, _020D47E0 ; =0x020E5A1C
+	ldr r1, _020D47E0 ; =SOCLSocketParamTCP
 	sub r4, r2, #0x28
 	cmp r7, #0
 	moveq r7, #0x10c0
@@ -28257,7 +28258,7 @@ _020D47D0: .word ov15_020ED470
 _020D47D4: .word ov15_020ED460
 _020D47D8: .word FUN_ov15_020d4880
 _020D47DC: .word 0x000005DC
-_020D47E0: .word ov15_020E5A1C
+_020D47E0: .word SOCLSocketParamTCP
 _020D47E4: .word ov15_020E6D90
 _020D47E8: .word FUN_ov15_020d47fc
 _020D47EC: .word FUN_ov15_020d4868
@@ -28875,8 +28876,8 @@ FUN_ov15_020d4f24: ; 0x020D4F24
 _020D4F94: .word FUN_ov15_020d4b1c
 	arm_func_end FUN_ov15_020d4f24
 
-	arm_func_start FUN_ov15_020d4f98
-FUN_ov15_020d4f98: ; 0x020D4F98
+	arm_func_start SOCL_Bind
+SOCL_Bind: ; 0x020D4F98
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -28906,10 +28907,10 @@ _020D4FCC:
 	mov r0, r5
 	bl FUN_ov15_020d5154
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d4f98
+	arm_func_end SOCL_Bind
 
-	arm_func_start FUN_ov15_020d5008
-FUN_ov15_020d5008: ; 0x020D5008
+	arm_func_start SOCL_Connect
+SOCL_Connect: ; 0x020D5008
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -29003,7 +29004,7 @@ _020D5138:
 _020D5148: .word ov15_020E6D90
 _020D514C: .word ov15_020E6D50
 _020D5150: .word ov15_020E5A00
-	arm_func_end FUN_ov15_020d5008
+	arm_func_end SOCL_Connect
 
 	arm_func_start FUN_ov15_020d5154
 FUN_ov15_020d5154: ; 0x020D5154
@@ -29066,8 +29067,8 @@ _020D51F4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020d51ac
 
-	arm_func_start FUN_ov15_020d5224
-FUN_ov15_020d5224: ; 0x020D5224
+	arm_func_start SOCL_ReadFrom
+SOCL_ReadFrom: ; 0x020D5224
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0xc
 	mov r9, r0
@@ -29158,7 +29159,7 @@ _020D5330:
 	mov r0, r5
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020d5224
+	arm_func_end SOCL_ReadFrom
 
 	arm_func_start FUN_ov15_020d536c
 FUN_ov15_020d536c: ; 0x020D536C
@@ -29683,8 +29684,8 @@ _020D5A84: .word ov15_020E59F8
 _020D5A88: .word ov15_020ED4C4
 	arm_func_end FUN_ov15_020d5970
 
-	arm_func_start FUN_ov15_020d5a8c
-FUN_ov15_020d5a8c: ; 0x020D5A8C
+	arm_func_start SOCL_WriteTo
+SOCL_WriteTo: ; 0x020D5A8C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r8, r0
@@ -29760,7 +29761,7 @@ _020D5B68:
 	mov r0, r5
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d5a8c
+	arm_func_end SOCL_WriteTo
 
 	arm_func_start FUN_ov15_020d5ba0
 FUN_ov15_020d5ba0: ; 0x020D5BA0
@@ -30174,8 +30175,8 @@ _020D6118:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020d6088
 
-	arm_func_start FUN_ov15_020d6120
-FUN_ov15_020d6120: ; 0x020D6120
+	arm_func_start SOCL_Shutdown
+SOCL_Shutdown: ; 0x020D6120
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	bl FUN_ov15_020d6db4
@@ -30223,7 +30224,7 @@ _020D61C0:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D61C8: .word FUN_ov15_020d61cc
-	arm_func_end FUN_ov15_020d6120
+	arm_func_end SOCL_Shutdown
 
 	arm_func_start FUN_ov15_020d61cc
 FUN_ov15_020d61cc: ; 0x020D61CC
@@ -30260,8 +30261,8 @@ _020D6228:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020d61fc
 
-	arm_func_start FUN_ov15_020d6230
-FUN_ov15_020d6230: ; 0x020D6230
+	arm_func_start SOCL_Close
+SOCL_Close: ; 0x020D6230
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	cmp r4, #0
@@ -30345,7 +30346,7 @@ _020D6334:
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D635C: .word ov15_020ED4CC
 _020D6360: .word FUN_ov15_020d6364
-	arm_func_end FUN_ov15_020d6230
+	arm_func_end SOCL_Close
 
 	arm_func_start FUN_ov15_020d6364
 FUN_ov15_020d6364: ; 0x020D6364
@@ -30532,8 +30533,8 @@ _020D65C4:
 _020D65D0: .word ov15_020ED4D8
 	arm_func_end FUN_ov15_020d6598
 
-	arm_func_start FUN_ov15_020d65d4
-FUN_ov15_020d65d4: ; 0x020D65D4
+	arm_func_start SOCL_Cleanup
+SOCL_Cleanup: ; 0x020D65D4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _020D6664 ; =0x020ED464
 	ldr r0, [r1]
@@ -30578,7 +30579,7 @@ _020D6664: .word ov15_020ED464
 _020D6668: .word ov15_020E6D90
 _020D666C: .word ov15_020E59F8
 _020D6670: .word ov15_020ED470
-	arm_func_end FUN_ov15_020d65d4
+	arm_func_end SOCL_Cleanup
 
 	arm_func_start FUN_ov15_020d6674
 FUN_ov15_020d6674: ; 0x020D6674
@@ -30620,7 +30621,7 @@ _020D66DC:
 	cmp r6, #0
 	beq _020D66F4
 	mov r0, r6
-	bl FUN_ov15_020d6230
+	bl SOCL_Close
 	b _020D66A8
 _020D66F4:
 	ldr r0, _020D673C ; =0x020ED4D4
@@ -30658,7 +30659,7 @@ FUN_ov15_020d6744: ; 0x020D6744
 	movs r5, r0
 	bne _020D6784
 	ldr r0, [r4]
-	bl FUN_ov15_020d6230
+	bl SOCL_Close
 	ldr r0, [r4]
 	bl FUN_ov15_020d61fc
 	cmp r0, #0
@@ -30682,8 +30683,8 @@ _020D67A8:
 _020D67B0: .word ov15_020ED46C
 	arm_func_end FUN_ov15_020d6744
 
-	arm_func_start FUN_ov15_020d67b4
-FUN_ov15_020d67b4: ; 0x020D67B4
+	arm_func_start SOCL_Resolve
+SOCL_Resolve: ; 0x020D67B4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xa0
 	ldr r8, _020D6870 ; =0x020E59F8
@@ -30734,10 +30735,10 @@ FUN_ov15_020d67b4: ; 0x020D67B4
 _020D6870: .word ov15_020E59F8
 _020D6874: .word 0x00001708
 _020D6878: .word 0x00000B9E
-	arm_func_end FUN_ov15_020d67b4
+	arm_func_end SOCL_Resolve
 
-	arm_func_start FUN_ov15_020d687c
-FUN_ov15_020d687c: ; 0x020D687C
+	arm_func_start SOCL_InetAtoH
+SOCL_InetAtoH: ; 0x020D687C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
@@ -30756,7 +30757,7 @@ FUN_ov15_020d687c: ; 0x020D687C
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D68C0: .word ov15_020E6DB0
-	arm_func_end FUN_ov15_020d687c
+	arm_func_end SOCL_InetAtoH
 
 	arm_func_start FUN_ov15_020d68c4
 FUN_ov15_020d68c4: ; 0x020D68C4
@@ -30821,8 +30822,8 @@ _020D698C: .word ov15_020ED468
 _020D6990: .word ov15_020ED464
 	arm_func_end FUN_ov15_020d692c
 
-	arm_func_start FUN_ov15_020d6994
-FUN_ov15_020d6994: ; 0x020D6994
+	arm_func_start OCL_GetStatus
+OCL_GetStatus: ; 0x020D6994
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, #0
 	mov r5, r0
@@ -30879,7 +30880,7 @@ _020D6A44:
 _020D6A5C:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d6994
+	arm_func_end OCL_GetStatus
 
 	arm_func_start FUN_ov15_020d6a64
 FUN_ov15_020d6a64: ; 0x020D6A64
@@ -31192,26 +31193,26 @@ FUN_ov15_020d6de8: ; 0x020D6DE8
 _020D6E08: .word ov15_020ED4D8
 	arm_func_end FUN_ov15_020d6de8
 
-	arm_func_start FUN_ov15_020d6e0c
-FUN_ov15_020d6e0c: ; 0x020D6E0C
+	arm_func_start SOC_Socket
+SOC_Socket: ; 0x020D6E0C
 	stmfd sp!, {r3, lr}
 	cmp r1, #1
 	bne _020D6E24
-	ldr r0, _020D6E30 ; =0x020E5A1C
+	ldr r0, _020D6E30 ; =SOCLSocketParamTCP
 	bl FUN_ov15_020d4bcc
 	ldmfd sp!, {r3, pc}
 _020D6E24:
-	ldr r0, _020D6E34 ; =0x020E5A04
+	ldr r0, _020D6E34 ; =SOCLSocketParamUDP
 	bl FUN_ov15_020d4bcc
 	ldmfd sp!, {r3, pc}
-_020D6E30: .word ov15_020E5A1C
-_020D6E34: .word ov15_020E5A04
-	arm_func_end FUN_ov15_020d6e0c
+_020D6E30: .word SOCLSocketParamTCP
+_020D6E34: .word SOCLSocketParamUDP
+	arm_func_end SOC_Socket
 
-	arm_func_start FUN_ov15_020d6e38
-FUN_ov15_020d6e38: ; 0x020D6E38
+	arm_func_start SOC_Bind
+SOC_Bind: ; 0x020D6E38
 	ldrh r1, [r1, #2]
-	ldr r12, _020D6E60 ; =FUN_ov15_020d4f98
+	ldr r12, _020D6E60 ; =SOCL_Bind
 	mov r2, r1, asr #8
 	mov r1, r1, lsl #8
 	and r2, r2, #0xff
@@ -31220,11 +31221,11 @@ FUN_ov15_020d6e38: ; 0x020D6E38
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
 	bx r12
-_020D6E60: .word FUN_ov15_020d4f98
-	arm_func_end FUN_ov15_020d6e38
+_020D6E60: .word SOCL_Bind
+	arm_func_end SOC_Bind
 
-	arm_func_start FUN_ov15_020d6e64
-FUN_ov15_020d6e64: ; 0x020D6E64
+	arm_func_start SOC_Connect
+SOC_Connect: ; 0x020D6E64
 	stmfd sp!, {r4, lr}
 	ldrh r2, [r1, #2]
 	ldr lr, [r1, #4]
@@ -31246,32 +31247,32 @@ FUN_ov15_020d6e64: ; 0x020D6E64
 	orr r2, r12, r2
 	mov r1, r1, lsr #0x10
 	orr r2, r3, r2
-	bl FUN_ov15_020d5008
+	bl SOCL_Connect
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d6e64
+	arm_func_end SOC_Connect
 
-	arm_func_start FUN_ov15_020d6ec0
-FUN_ov15_020d6ec0: ; 0x020D6EC0
+	arm_func_start SOC_Recv
+SOC_Recv: ; 0x020D6EC0
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
 	mov r12, #0
 	str r12, [sp]
 	str r3, [sp, #4]
 	mov r3, r12
-	bl FUN_ov15_020d5224
+	bl SOCL_ReadFrom
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d6ec0
+	arm_func_end SOC_Recv
 
-	arm_func_start FUN_ov15_020d6ee4
-FUN_ov15_020d6ee4: ; 0x020D6EE4
+	arm_func_start SOC_RecvFrom
+SOC_RecvFrom: ; 0x020D6EE4
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #0x10
 	add r12, sp, #0xc
 	str r12, [sp]
 	str r3, [sp, #4]
 	add r3, sp, #8
-	bl FUN_ov15_020d5224
+	bl SOCL_ReadFrom
 	cmp r0, #0
 	addlt sp, sp, #0x10
 	ldmltfd sp!, {r3, pc}
@@ -31301,23 +31302,23 @@ FUN_ov15_020d6ee4: ; 0x020D6EE4
 	str r2, [r1, #4]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d6ee4
+	arm_func_end SOC_RecvFrom
 
-	arm_func_start FUN_ov15_020d6f74
-FUN_ov15_020d6f74: ; 0x020D6F74
+	arm_func_start SOC_Send
+SOC_Send: ; 0x020D6F74
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
 	mov r12, #0
 	str r12, [sp]
 	str r3, [sp, #4]
 	mov r3, r12
-	bl FUN_ov15_020d5a8c
+	bl SOCL_WriteTo
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d6f74
+	arm_func_end SOC_Send
 
-	arm_func_start FUN_ov15_020d6f98
-FUN_ov15_020d6f98: ; 0x020D6F98
+	arm_func_start SOC_SendTo
+SOC_SendTo: ; 0x020D6F98
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	ldr r5, [sp, #0x20]
@@ -31349,30 +31350,30 @@ _020D7004:
 	str r4, [sp]
 	str r3, [sp, #4]
 	mov r3, r5
-	bl FUN_ov15_020d5a8c
+	bl SOCL_WriteTo
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d6f98
+	arm_func_end SOC_SendTo
 
-	arm_func_start FUN_ov15_020d701c
-FUN_ov15_020d701c: ; 0x020D701C
-	ldr r12, _020D7024 ; =FUN_ov15_020d6120
+	arm_func_start SOC_Shutdown
+SOC_Shutdown: ; 0x020D701C
+	ldr r12, _020D7024 ; =SOCL_Shutdown
 	bx r12
-_020D7024: .word FUN_ov15_020d6120
-	arm_func_end FUN_ov15_020d701c
+_020D7024: .word SOCL_Shutdown
+	arm_func_end SOC_Shutdown
 
-	arm_func_start FUN_ov15_020d7028
-FUN_ov15_020d7028: ; 0x020D7028
-	ldr r12, _020D7030 ; =FUN_ov15_020d6230
+	arm_func_start SOC_Close
+SOC_Close: ; 0x020D7028
+	ldr r12, _020D7030 ; =SOCL_Close
 	bx r12
-_020D7030: .word FUN_ov15_020d6230
-	arm_func_end FUN_ov15_020d7028
+_020D7030: .word SOCL_Close
+	arm_func_end SOC_Close
 
-	arm_func_start FUN_ov15_020d7034
-FUN_ov15_020d7034: ; 0x020D7034
+	arm_func_start SOC_GetHostByName
+SOC_GetHostByName: ; 0x020D7034
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
-	bl FUN_ov15_020d67b4
+	bl SOCL_Resolve
 	movs r5, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -31419,10 +31420,10 @@ _020D70E8: .word ov15_020ED4DC
 _020D70EC: .word ov15_020ED4F4
 _020D70F0: .word ov15_020ED4DC
 _020D70F4: .word ov15_020ED4FC
-	arm_func_end FUN_ov15_020d7034
+	arm_func_end SOC_GetHostByName
 
-	arm_func_start FUN_ov15_020d70f8
-FUN_ov15_020d70f8: ; 0x020D70F8
+	arm_func_start SOC_GetHostID
+SOC_GetHostID: ; 0x020D70F8
 	stmfd sp!, {r3, lr}
 	bl FUN_ov15_020d692c
 	mov r2, r0, lsr #0x18
@@ -31437,10 +31438,10 @@ FUN_ov15_020d70f8: ; 0x020D70F8
 	orr r0, r1, r0
 	orr r0, r2, r0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d70f8
+	arm_func_end SOC_GetHostID
 
-	arm_func_start FUN_ov15_020d7130
-FUN_ov15_020d7130: ; 0x020D7130
+	arm_func_start SOC_SetResolver
+SOC_SetResolver: ; 0x020D7130
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r12, [r1]
 	ldr r0, [r0]
@@ -31468,10 +31469,10 @@ FUN_ov15_020d7130: ; 0x020D7130
 	orr r1, r2, r1
 	bl FUN_ov15_020d68c4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d7130
+	arm_func_end SOC_SetResolver
 
-	arm_func_start FUN_ov15_020d719c
-FUN_ov15_020d719c: ; 0x020D719C
+	arm_func_start AllocFunc_SOCL
+AllocFunc_SOCL: ; 0x020D719C
 	stmfd sp!, {r4, lr}
 	ldr r1, _020D71C4 ; =0x020ED4DC
 	add r4, r0, #4
@@ -31483,10 +31484,10 @@ FUN_ov15_020d719c: ; 0x020D719C
 	strne r4, [r0], #4
 	ldmfd sp!, {r4, pc}
 _020D71C4: .word ov15_020ED4DC
-	arm_func_end FUN_ov15_020d719c
+	arm_func_end AllocFunc_SOCL
 
-	arm_func_start FUN_ov15_020d71c8
-FUN_ov15_020d71c8: ; 0x020D71C8
+	arm_func_start FreeFunc_SOCL
+FreeFunc_SOCL: ; 0x020D71C8
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
@@ -31498,10 +31499,10 @@ FUN_ov15_020d71c8: ; 0x020D71C8
 	blx r3
 	ldmfd sp!, {r3, pc}
 _020D71F0: .word ov15_020ED4DC
-	arm_func_end FUN_ov15_020d71c8
+	arm_func_end FreeFunc_SOCL
 
-	arm_func_start FUN_ov15_020d71f4
-FUN_ov15_020d71f4: ; 0x020D71F4
+	arm_func_start SOC_Startup
+SOC_Startup: ; 0x020D71F4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	ldr r1, [r0, #0xc]
@@ -31581,8 +31582,8 @@ FUN_ov15_020d71f4: ; 0x020D71F4
 	orr r1, r2, r1
 	str r4, [r6, #0x60]
 	str r1, [r6, #0x64]
-	ldr r2, _020D737C ; =FUN_ov15_020d719c
-	ldr r1, _020D7380 ; =FUN_ov15_020d71c8
+	ldr r2, _020D737C ; =AllocFunc_SOCL
+	ldr r1, _020D7380 ; =FreeFunc_SOCL
 	str r2, [r6, #0x68]
 	str r1, [r6, #0x6c]
 	ldr r2, [r0, #4]
@@ -31596,27 +31597,27 @@ FUN_ov15_020d71f4: ; 0x020D71F4
 	str r2, [r6, #0x80]
 	ldr r0, _020D7384 ; =0x020ED52C
 	str r1, [r6, #0x84]
-	bl FUN_ov15_020d45e8
+	bl SOCL_Startup
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D7378: .word ov15_020ED4DC
-_020D737C: .word FUN_ov15_020d719c
-_020D7380: .word FUN_ov15_020d71c8
+_020D737C: .word AllocFunc_SOCL
+_020D7380: .word FreeFunc_SOCL
 _020D7384: .word ov15_020ED52C
-	arm_func_end FUN_ov15_020d71f4
+	arm_func_end SOC_Startup
 
-	arm_func_start FUN_ov15_020d7388
-FUN_ov15_020d7388: ; 0x020D7388
-	ldr r12, _020D7390 ; =FUN_ov15_020d65d4
+	arm_func_start SOC_Cleanup
+SOC_Cleanup: ; 0x020D7388
+	ldr r12, _020D7390 ; =SOCL_Cleanup
 	bx r12
-_020D7390: .word FUN_ov15_020d65d4
-	arm_func_end FUN_ov15_020d7388
+_020D7390: .word SOCL_Cleanup
+	arm_func_end SOC_Cleanup
 
-	arm_func_start FUN_ov15_020d7394
-FUN_ov15_020d7394: ; 0x020D7394
+	arm_func_start SOC_InetAtoN
+SOC_InetAtoN: ; 0x020D7394
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_ov15_020d687c
+	bl SOCL_InetAtoH
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -31637,10 +31638,10 @@ FUN_ov15_020d7394: ; 0x020D7394
 _020D73E4:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d7394
+	arm_func_end SOC_InetAtoN
 
-	arm_func_start FUN_ov15_020d73ec
-FUN_ov15_020d73ec: ; 0x020D73EC
+	arm_func_start SOC_U32to4U8
+SOC_U32to4U8: ; 0x020D73EC
 	mov r12, r0, lsr #0x18
 	mov r3, r0, lsr #0x10
 	mov r2, r0, lsr #8
@@ -31649,10 +31650,10 @@ FUN_ov15_020d73ec: ; 0x020D73EC
 	strb r2, [r1, #2]
 	strb r0, [r1, #3]
 	bx lr
-	arm_func_end FUN_ov15_020d73ec
+	arm_func_end SOC_U32to4U8
 
-	arm_func_start FUN_ov15_020d740c
-FUN_ov15_020d740c: ; 0x020D740C
+	arm_func_start SOC_Poll
+SOC_Poll: ; 0x020D740C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	movs r10, r1
 	mov r9, r2
@@ -31676,7 +31677,7 @@ _020D7454:
 	ldrsh r1, [r4, #4]
 	ldr r0, [r4]
 	orr r7, r1, #0xe0
-	bl FUN_ov15_020d6994
+	bl OCL_GetStatus
 	ands r0, r7, r0
 	strh r0, [r4, #6]
 	add r5, r5, #1
@@ -31703,7 +31704,7 @@ _020D74B4:
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D74BC: .word 0x0000020B
-	arm_func_end FUN_ov15_020d740c
+	arm_func_end SOC_Poll
 
 	arm_func_start FUN_ov15_020d74c0
 FUN_ov15_020d74c0: ; 0x020D74C0
@@ -47561,12 +47562,12 @@ ov15_020E59F8:
 	.global ov15_020E5A00
 ov15_020E5A00:
 	.byte 0xE6, 0xFF, 0xFF, 0xFF
-	.global ov15_020E5A04
-ov15_020E5A04:
+	.global SOCLSocketParamUDP
+SOCLSocketParamUDP:
 	.byte 0x01, 0x01, 0xC0, 0x05, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x08, 0x00, 0x08, 0x0C, 0x20, 0x00, 0x00, 0x00, 0x00
-	.global ov15_020E5A1C
-ov15_020E5A1C:
+	.global SOCLSocketParamTCP
+SOCLSocketParamTCP:
 	.byte 0x00, 0x01, 0x00, 0x00
 	.byte 0x00, 0x00, 0x9E, 0x0B, 0x00, 0x00, 0x00, 0x00, 0xD1, 0x16, 0x00, 0x00, 0x00, 0x08, 0x0C, 0x20
 	.byte 0x00, 0x08, 0x0D, 0x20
