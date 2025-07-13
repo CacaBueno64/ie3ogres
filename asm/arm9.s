@@ -56,7 +56,7 @@ OSi_IrqCallback: ; 0x02000D10
 	mov r1, #0xc
 	mul r5, r0, r1
 	ldr r2, _02000D84 ; =OSi_IrqCallbackInfo
-	ldr r3, _02000D88 ; =0x0208EC20
+	ldr r3, _02000D88 ; =OSi_IrqCallbackInfoIndex
 	mov r4, r0, lsl #1
 	ldr r1, [r2, r5]
 	mov r0, #0
@@ -83,7 +83,7 @@ _02000D54:
 	bl OS_DisableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}
 _02000D84: .word OSi_IrqCallbackInfo
-_02000D88: .word unk_0208EC20
+_02000D88: .word OSi_IrqCallbackInfoIndex
 _02000D8C: .word unk_02093928
 _02000D90: .word OS_IRQTable
 _02000D94: .word unk_02093924
@@ -373,10 +373,10 @@ _020010B8: .word 0x00000400
 
 	arm_func_start OS_IsResetOccurred
 OS_IsResetOccurred: ; 0x020010BC
-	ldr r0, _020010C8 ; =0x02093980
+	ldr r0, _020010C8 ; =OSi_IsResetOccurred
 	ldrh r0, [r0]
 	bx lr
-_020010C8: .word unk_02093980
+_020010C8: .word OSi_IsResetOccurred
 	arm_func_end OS_IsResetOccurred
 
 	arm_func_start OSi_CommonCallback
@@ -386,13 +386,13 @@ OSi_CommonCallback: ; 0x020010CC
 	mov r0, r0, lsl #8
 	mov r0, r0, lsr #0x10
 	cmp r0, #0x10
-	ldreq r0, _020010F8 ; =0x02093980
+	ldreq r0, _020010F8 ; =OSi_IsResetOccurred
 	moveq r1, #1
 	streqh r1, [r0]
 	ldmeqfd sp!, {r3, pc}
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
-_020010F8: .word unk_02093980
+_020010F8: .word OSi_IsResetOccurred
 	arm_func_end OSi_CommonCallback
 
 	arm_func_start OSi_SendToPxi
@@ -414,7 +414,7 @@ _0200110C:
 	arm_func_start OS_InitLock
 OS_InitLock: ; 0x02001128
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r3, _020011E8 ; =0x02093984
+	ldr r3, _020011E8 ; =isInitialized_02093984
 	ldr r0, [r3]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -463,7 +463,7 @@ _02001180:
 	mov r0, #0x7f
 	bl OS_LockByWord
 	ldmfd sp!, {r3, r4, r5, pc}
-_020011E8: .word unk_02093984
+_020011E8: .word isInitialized_02093984
 _020011EC: .word 0x02FFFFF0
 _020011F0: .word 0x02FFFFB0
 _020011F4: .word 0x04000204
@@ -781,12 +781,12 @@ _02001538: .word STD_TVSNPrintf
 
 	arm_func_start OSi_GetUnusedThreadId
 OSi_GetUnusedThreadId: ; 0x0200153C
-	ldr r1, _02001550 ; =0x02093988
+	ldr r1, _02001550 ; =OSi_SystemCallbackInSwitchThread
 	ldr r0, [r1, #0x18]
 	add r0, r0, #1
 	str r0, [r1, #0x18]
 	bx lr
-_02001550: .word unk_02093988
+_02001550: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OSi_GetUnusedThreadId
 
 	arm_func_start OSi_InsertLinkToQueue
@@ -893,7 +893,7 @@ _0200167C:
 	arm_func_start OSi_InsertThreadToList
 OSi_InsertThreadToList: ; 0x02001684
 	stmfd sp!, {r3, lr}
-	ldr r1, _020016DC ; =0x02093988
+	ldr r1, _020016DC ; =OSi_SystemCallbackInSwitchThread
 	mov r12, #0
 	ldr lr, [r1, #0x24]
 	mov r3, lr
@@ -910,19 +910,19 @@ _020016A4:
 	blo _0200169C
 _020016BC:
 	cmp r12, #0
-	ldreq r1, _020016DC ; =0x02093988
+	ldreq r1, _020016DC ; =OSi_SystemCallbackInSwitchThread
 	streq lr, [r0, #0x68]
 	streq r0, [r1, #0x24]
 	ldrne r1, [r12, #0x68]
 	strne r1, [r0, #0x68]
 	strne r0, [r12, #0x68]
 	ldmfd sp!, {r3, pc}
-_020016DC: .word unk_02093988
+_020016DC: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OSi_InsertThreadToList
 
 	arm_func_start OSi_RemoveThreadFromList
 OSi_RemoveThreadFromList: ; 0x020016E0
-	ldr r1, _02001724 ; =0x02093988
+	ldr r1, _02001724 ; =OSi_SystemCallbackInSwitchThread
 	mov r2, #0
 	ldr r1, [r1, #0x24]
 	b _020016F8
@@ -937,18 +937,18 @@ _020016F8:
 _02001708:
 	cmp r2, #0
 	ldreq r1, [r0, #0x68]
-	ldreq r0, _02001724 ; =0x02093988
+	ldreq r0, _02001724 ; =OSi_SystemCallbackInSwitchThread
 	streq r1, [r0, #0x24]
 	ldrne r0, [r0, #0x68]
 	strne r0, [r2, #0x68]
 	bx lr
-_02001724: .word unk_02093988
+_02001724: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OSi_RemoveThreadFromList
 
 	arm_func_start OSi_RescheduleThread
 OSi_RescheduleThread: ; 0x02001728
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r5, _020017E4 ; =0x02093988
+	ldr r5, _020017E4 ; =OSi_SystemCallbackInSwitchThread
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -979,7 +979,7 @@ _02001764:
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 _0200179C:
-	ldr r0, _020017E4 ; =0x02093988
+	ldr r0, _020017E4 ; =OSi_SystemCallbackInSwitchThread
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020017B8
@@ -994,12 +994,12 @@ _020017B8:
 	mov r1, r5
 	blx r2
 _020017D0:
-	ldr r1, _020017E4 ; =0x02093988
+	ldr r1, _020017E4 ; =OSi_SystemCallbackInSwitchThread
 	mov r0, r5
 	str r5, [r1, #0x20]
 	bl OS_LoadContext
 	ldmfd sp!, {r4, r5, r6, pc}
-_020017E4: .word unk_02093988
+_020017E4: .word OSi_SystemCallbackInSwitchThread
 _020017E8: .word OSi_ThreadInfo
 	arm_func_end OSi_RescheduleThread
 
@@ -1007,7 +1007,7 @@ _020017E8: .word OSi_ThreadInfo
 OS_InitThread: ; 0x020017EC
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
-	ldr r0, _02001900 ; =0x02093988
+	ldr r0, _02001900 ; =OSi_SystemCallbackInSwitchThread
 	ldr r1, [r0, #0xc]
 	cmp r1, #0
 	addne sp, sp, #8
@@ -1016,7 +1016,7 @@ OS_InitThread: ; 0x020017EC
 	ldr r2, _02001904 ; =0x020939A8
 	str r3, [r0, #0xc]
 	str r2, [r0, #8]
-	ldr r1, _02001908 ; =0x02093A74
+	ldr r1, _02001908 ; =OSi_LauncherThread
 	mov r2, #0x10
 	str r2, [r1, #0x70]
 	mov r2, #0
@@ -1038,7 +1038,7 @@ OS_InitThread: ; 0x020017EC
 	ldr r0, _02001918 ; =0x00000400
 	add r2, r1, #0x3f80
 	sub r2, r2, r0
-	ldr r1, _02001908 ; =0x02093A74
+	ldr r1, _02001908 ; =OSi_LauncherThread
 	mov r4, #0
 	str r2, [r1, #0x94]
 	str r3, [r1, #0x90]
@@ -1047,7 +1047,7 @@ OS_InitThread: ; 0x020017EC
 	str r0, [r2, #-8]
 	ldr r2, [r1, #0x90]
 	ldr r3, _02001920 ; =0x7BF9DD5B
-	ldr r0, _02001900 ; =0x02093988
+	ldr r0, _02001900 ; =OSi_SystemCallbackInSwitchThread
 	str r3, [r2]
 	str r4, [r1, #0xa0]
 	str r4, [r1, #0x9c]
@@ -1058,7 +1058,7 @@ OS_InitThread: ; 0x020017EC
 	mov r0, r4
 	str r2, [r1]
 	bl OS_SetSwitchThreadCallback
-	ldr r5, _0200192C ; =0x020939B4
+	ldr r5, _0200192C ; =OSi_IdleThread
 	mov r12, #0xc8
 	mov r2, r4
 	ldr r1, _02001930 ; =OSi_IdleThreadProc
@@ -1074,9 +1074,9 @@ OS_InitThread: ; 0x020017EC
 	str r0, [r5, #0x64]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_02001900: .word unk_02093988
+_02001900: .word OSi_SystemCallbackInSwitchThread
 _02001904: .word unk_020939A8
-_02001908: .word unk_02093A74
+_02001908: .word OSi_LauncherThread
 _0200190C: .word 0x00000000
 _02001910: .word 0x027E0080
 _02001914: .word OS_IRQTable
@@ -1085,17 +1085,17 @@ _0200191C: .word 0xFDDB597D
 _02001920: .word 0x7BF9DD5B
 _02001924: .word OSi_ThreadInfo
 _02001928: .word 0x02FFFFA0
-_0200192C: .word unk_020939B4
+_0200192C: .word OSi_IdleThread
 _02001930: .word OSi_IdleThreadProc
 _02001934: .word OSi_Initialized
 	arm_func_end OS_InitThread
 
 	arm_func_start OS_IsThreadAvailable
 OS_IsThreadAvailable: ; 0x02001938
-	ldr r0, _02001944 ; =0x02093994
+	ldr r0, _02001944 ; =OSi_IsThreadInitialized
 	ldr r0, [r0]
 	bx lr
-_02001944: .word unk_02093994
+_02001944: .word OSi_IsThreadInitialized
 	arm_func_end OS_IsThreadAvailable
 
 	arm_func_start OS_CreateThread
@@ -1166,18 +1166,18 @@ _02001A34: .word OS_ExitThread
 OS_ExitThread: ; 0x02001A38
 	stmfd sp!, {r3, lr}
 	bl OS_DisableInterrupts
-	ldr r0, _02001A54 ; =0x02093988
+	ldr r0, _02001A54 ; =OSi_SystemCallbackInSwitchThread
 	mov r1, #0
 	ldr r0, [r0, #0x20]
 	bl OSi_ExitThread_ArgSpecified
 	ldmfd sp!, {r3, pc}
-_02001A54: .word unk_02093988
+_02001A54: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_ExitThread
 
 	arm_func_start OSi_ExitThread_ArgSpecified
 OSi_ExitThread_ArgSpecified: ; 0x02001A58
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r2, _02001AA8 ; =0x02093988
+	ldr r2, _02001AA8 ; =OSi_SystemCallbackInSwitchThread
 	mov r5, r0
 	ldr r2, [r2, #0x14]
 	mov r4, r1
@@ -1197,14 +1197,14 @@ _02001A9C:
 	mov r0, r4
 	bl OSi_ExitThread
 	ldmfd sp!, {r3, r4, r5, pc}
-_02001AA8: .word unk_02093988
+_02001AA8: .word OSi_SystemCallbackInSwitchThread
 _02001AAC: .word OSi_ExitThread
 	arm_func_end OSi_ExitThread_ArgSpecified
 
 	arm_func_start OSi_ExitThread
 OSi_ExitThread: ; 0x02001AB0
 	stmfd sp!, {r3, lr}
-	ldr r1, _02001AE4 ; =0x02093988
+	ldr r1, _02001AE4 ; =OSi_SystemCallbackInSwitchThread
 	ldr r1, [r1, #8]
 	ldr r3, [r1]
 	ldr r2, [r3, #0xb4]
@@ -1217,13 +1217,13 @@ OSi_ExitThread: ; 0x02001AB0
 _02001ADC:
 	bl OSi_ExitThread_Destroy
 	ldmfd sp!, {r3, pc}
-_02001AE4: .word unk_02093988
+_02001AE4: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OSi_ExitThread
 
 	arm_func_start OSi_ExitThread_Destroy
 OSi_ExitThread_Destroy: ; 0x02001AE8
 	stmfd sp!, {r4, lr}
-	ldr r0, _02001B40 ; =0x02093988
+	ldr r0, _02001B40 ; =OSi_SystemCallbackInSwitchThread
 	ldr r0, [r0, #8]
 	ldr r4, [r0]
 	bl OS_DisableScheduler
@@ -1245,7 +1245,7 @@ _02001B18:
 	bl OS_RescheduleThread
 	bl OS_Terminate
 	ldmfd sp!, {r4, pc}
-_02001B40: .word unk_02093988
+_02001B40: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OSi_ExitThread_Destroy
 
 	arm_func_start OS_DestroyThread
@@ -1253,7 +1253,7 @@ OS_DestroyThread: ; 0x02001B44
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02001BBC ; =0x02093988
+	ldr r1, _02001BBC ; =OSi_SystemCallbackInSwitchThread
 	mov r4, r0
 	ldr r0, [r1, #0x20]
 	cmp r0, r5
@@ -1282,7 +1282,7 @@ _02001B90:
 	bl OS_RestoreInterrupts
 	bl OS_RescheduleThread
 	ldmfd sp!, {r3, r4, r5, pc}
-_02001BBC: .word unk_02093988
+_02001BBC: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_DestroyThread
 
 	arm_func_start OSi_CancelThreadAlarmForSleep
@@ -1330,7 +1330,7 @@ OS_SleepThread: ; 0x02001C28
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02001C74 ; =0x02093988
+	ldr r1, _02001C74 ; =OSi_SystemCallbackInSwitchThread
 	mov r4, r0
 	ldr r0, [r1, #8]
 	cmp r6, #0
@@ -1347,7 +1347,7 @@ _02001C5C:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, pc}
-_02001C74: .word unk_02093988
+_02001C74: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_SleepThread
 
 	arm_func_start OS_WakeupThread
@@ -1399,7 +1399,7 @@ OS_WakeupThreadDirect: ; 0x02001CE0
 
 	arm_func_start OS_SelectThread
 OS_SelectThread: ; 0x02001D08
-	ldr r0, _02001D30 ; =0x02093988
+	ldr r0, _02001D30 ; =OSi_SystemCallbackInSwitchThread
 	ldr r0, [r0, #0x24]
 	b _02001D18
 _02001D14:
@@ -1411,7 +1411,7 @@ _02001D18:
 	cmp r1, #1
 	bne _02001D14
 	bx lr
-_02001D30: .word unk_02093988
+_02001D30: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_SelectThread
 
 	arm_func_start OS_RescheduleThread
@@ -1428,7 +1428,7 @@ OS_RescheduleThread: ; 0x02001D34
 	arm_func_start OS_YieldThread
 OS_YieldThread: ; 0x02001D50
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r5, _02001DFC ; =0x02093988
+	ldr r5, _02001DFC ; =OSi_SystemCallbackInSwitchThread
 	mov r7, #0
 	mov r4, r7
 	mov r8, r7
@@ -1463,7 +1463,7 @@ _02001DBC:
 _02001DC8:
 	cmp r7, #0
 	ldreq r1, [r6, #0x68]
-	ldreq r0, _02001DFC ; =0x02093988
+	ldreq r0, _02001DFC ; =OSi_SystemCallbackInSwitchThread
 	streq r1, [r0, #0x24]
 	ldrne r0, [r6, #0x68]
 	strne r0, [r7, #0x68]
@@ -1474,13 +1474,13 @@ _02001DC8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02001DFC: .word unk_02093988
+_02001DFC: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_YieldThread
 
 	arm_func_start OS_SetThreadPriority
 OS_SetThreadPriority: ; 0x02001E00
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r2, _02001EA0 ; =0x02093988
+	ldr r2, _02001EA0 ; =OSi_SystemCallbackInSwitchThread
 	mov r7, r0
 	mov r6, r1
 	ldr r8, [r2, #0x24]
@@ -1498,7 +1498,7 @@ _02001E2C:
 	bne _02001E24
 _02001E3C:
 	cmp r8, #0
-	ldrne r0, _02001EA4 ; =0x020939B4
+	ldrne r0, _02001EA4 ; =OSi_IdleThread
 	cmpne r8, r0
 	bne _02001E5C
 	mov r0, r5
@@ -1511,7 +1511,7 @@ _02001E5C:
 	beq _02001E90
 	cmp r4, #0
 	ldreq r1, [r7, #0x68]
-	ldreq r0, _02001EA0 ; =0x02093988
+	ldreq r0, _02001EA0 ; =OSi_SystemCallbackInSwitchThread
 	streq r1, [r0, #0x24]
 	ldrne r0, [r7, #0x68]
 	strne r0, [r4, #0x68]
@@ -1524,8 +1524,8 @@ _02001E90:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02001EA0: .word unk_02093988
-_02001EA4: .word unk_020939B4
+_02001EA0: .word OSi_SystemCallbackInSwitchThread
+_02001EA4: .word OSi_IdleThread
 	arm_func_end OS_SetThreadPriority
 
 	arm_func_start OS_GetThreadPriority
@@ -1542,7 +1542,7 @@ OS_Sleep: ; 0x02001EB0
 	mov r5, r0
 	mov r0, r4
 	bl OS_CreateAlarm
-	ldr r0, _02001F44 ; =0x02093988
+	ldr r0, _02001F44 ; =OSi_SystemCallbackInSwitchThread
 	ldr r0, [r0, #8]
 	ldr r0, [r0]
 	str r0, [sp, #4]
@@ -1575,7 +1575,7 @@ _02001F34:
 	bl OS_RestoreInterrupts
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, pc}
-_02001F44: .word unk_02093988
+_02001F44: .word OSi_SystemCallbackInSwitchThread
 _02001F48: .word 0x000082EA
 _02001F4C: .word OSi_SleepAlarmCallback
 	arm_func_end OS_Sleep
@@ -1597,13 +1597,13 @@ OS_SetSwitchThreadCallback: ; 0x02001F70
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02001F94 ; =0x02093988
+	ldr r1, _02001F94 ; =OSi_SystemCallbackInSwitchThread
 	ldr r4, [r1, #0x28]
 	str r5, [r1, #0x28]
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_02001F94: .word unk_02093988
+_02001F94: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_SetSwitchThreadCallback
 
 	arm_func_start OSi_IdleThreadProc
@@ -1619,7 +1619,7 @@ _02001FA0:
 OS_DisableScheduler: ; 0x02001FA8
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _02001FD4 ; =0x02093988
+	ldr r1, _02001FD4 ; =OSi_SystemCallbackInSwitchThread
 	ldr r3, [r1, #4]
 	cmn r3, #1
 	addlo r2, r3, #1
@@ -1628,14 +1628,14 @@ OS_DisableScheduler: ; 0x02001FA8
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02001FD4: .word unk_02093988
+_02001FD4: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_DisableScheduler
 
 	arm_func_start OS_EnableScheduler
 OS_EnableScheduler: ; 0x02001FD8
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _02002008 ; =0x02093988
+	ldr r1, _02002008 ; =OSi_SystemCallbackInSwitchThread
 	mov r4, #0
 	ldr r3, [r1, #4]
 	cmp r3, #0
@@ -1645,7 +1645,7 @@ OS_EnableScheduler: ; 0x02001FD8
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02002008: .word unk_02093988
+_02002008: .word OSi_SystemCallbackInSwitchThread
 	arm_func_end OS_EnableScheduler
 
 	arm_func_start OS_SetThreadDestructor
@@ -2990,12 +2990,12 @@ OS_DisableWriteBufferForProtectionRegion: ; 0x02003034
 	arm_func_start OS_SetProtectionRegionParam
 OS_SetProtectionRegionParam: ; 0x02003044
 	stmfd sp!, {r3, lr}
-	ldr r2, _0200305C ; =0x0208EC38
+	ldr r2, _0200305C ; =f_0208ec38
 	ldr r2, [r2, r0, lsl #2]
 	mov r0, r1
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0200305C: .word unk_0208EC38
+_0200305C: .word f_0208ec38
 	arm_func_end OS_SetProtectionRegionParam
 
 	arm_func_start OS_SetProtectionRegion0
@@ -3195,7 +3195,7 @@ OSi_GetAndDisplayContext: ; 0x020031F4
 
 	arm_func_start OSi_SetExContext
 OSi_SetExContext: ; 0x02003208
-	ldr r1, _02003284 ; =0x02093C58
+	ldr r1, _02003284 ; =OSi_ExContext
 	str r0, [r1, #0x6c]
 	ldr r0, [r12]
 	str r0, [r1, #4]
@@ -3226,7 +3226,7 @@ OSi_SetExContext: ; 0x02003208
 	mrs r2, spsr
 	msr cpsr_fsxc, r0
 	bx lr
-_02003284: .word unk_02093C58
+_02003284: .word OSi_ExContext
 	arm_func_end OSi_SetExContext
 
 	arm_func_start OSi_DisplayExContext
@@ -3244,10 +3244,10 @@ OSi_DisplayExContext: ; 0x02003288
 	mov sp, r0
 	stmfd sp!, {r1, r2}
 	bl OS_EnableProtectionUnit
-	ldr r0, _020032F4 ; =0x02093C58
-	ldr r1, _020032F8 ; =0x02093C2C
+	ldr r0, _020032F4 ; =OSi_ExContext
+	ldr r1, _020032F8 ; =OSi_UserExceptionHandlerArg
 	ldr r1, [r1]
-	ldr r12, _020032FC ; =0x02093C34
+	ldr r12, _020032FC ; =OSi_UserExceptionHandler
 	ldr r12, [r12]
 	ldr lr, _02003300 ; =_020032D8
 	bx r12
@@ -3259,15 +3259,15 @@ _020032D8:
 	ldmia sp!, {r3, pc}
 _020032EC: .word OSi_DebuggerHandler
 _020032F0: .word 0x0000009F
-_020032F4: .word unk_02093C58
-_020032F8: .word unk_02093C2C
-_020032FC: .word unk_02093C34
+_020032F4: .word OSi_ExContext
+_020032F8: .word OSi_UserExceptionHandlerArg
+_020032FC: .word OSi_UserExceptionHandler
 _02003300: .word _020032D8
 	arm_func_end OSi_DisplayExContext
 
 	arm_func_start OSi_SetTimerReserved
 OSi_SetTimerReserved: ; 0x02003304
-	ldr r1, _02003324 ; =0x02093CC8
+	ldr r1, _02003324 ; =OSi_TimerReserved
 	mov r2, #1
 	mov r0, r2, lsl r0
 	ldrh r2, [r1]
@@ -3275,13 +3275,13 @@ OSi_SetTimerReserved: ; 0x02003304
 	orr r0, r2, r0, lsr #16
 	strh r0, [r1]
 	bx lr
-_02003324: .word unk_02093CC8
+_02003324: .word OSi_TimerReserved
 	arm_func_end OSi_SetTimerReserved
 
 	arm_func_start OS_InitTick
 OS_InitTick: ; 0x02003328
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0200338C ; =0x02093CCC
+	ldr r4, _0200338C ; =OSi_UseTick
 	ldrh r0, [r4]
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -3305,23 +3305,23 @@ OS_InitTick: ; 0x02003328
 	bl OS_EnableIrqMask
 	str r6, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0200338C: .word unk_02093CCC
+_0200338C: .word OSi_UseTick
 _02003390: .word 0x04000102
 _02003394: .word OSi_CountUpTick
 	arm_func_end OS_InitTick
 
 	arm_func_start OS_IsTickAvailable
 OS_IsTickAvailable: ; 0x02003398
-	ldr r0, _020033A4 ; =0x02093CCC
+	ldr r0, _020033A4 ; =OSi_UseTick
 	ldrh r0, [r0]
 	bx lr
-_020033A4: .word unk_02093CCC
+_020033A4: .word OSi_UseTick
 	arm_func_end OS_IsTickAvailable
 
 	arm_func_start OSi_CountUpTick
 OSi_CountUpTick: ; 0x020033A8
 	stmfd sp!, {r3, lr}
-	ldr r0, _02003404 ; =0x02093CCC
+	ldr r0, _02003404 ; =OSi_UseTick
 	mov r3, #0
 	ldr r2, [r0, #8]
 	ldr r12, [r0, #0xc]
@@ -3344,7 +3344,7 @@ _020033F0:
 	mov r2, r0
 	bl OSi_EnterTimerCallback
 	ldmfd sp!, {r3, pc}
-_02003404: .word unk_02093CCC
+_02003404: .word OSi_UseTick
 _02003408: .word 0x04000102
 _0200340C: .word OSi_CountUpTick
 	arm_func_end OSi_CountUpTick
@@ -3357,7 +3357,7 @@ OS_GetTick: ; 0x02003410
 	ldr r4, _020034A4 ; =0x04000100
 	ldr r2, _020034A8 ; =0x0000FFFF
 	ldrh r12, [r4]
-	ldr r3, _020034AC ; =0x02093CCC
+	ldr r3, _020034AC ; =OSi_UseTick
 	sub r1, r2, #0x10000
 	strh r12, [sp]
 	ldr r12, [r3, #8]
@@ -3391,7 +3391,7 @@ _0200347C:
 	ldmfd sp!, {r3, r4, pc}
 _020034A4: .word 0x04000100
 _020034A8: .word 0x0000FFFF
-_020034AC: .word unk_02093CCC
+_020034AC: .word OSi_UseTick
 	arm_func_end OS_GetTick
 
 	arm_func_start OS_GetTickLo
@@ -3413,7 +3413,7 @@ OS_SetTick: ; 0x020034C0
 	rsb r1, r3, #0x10000
 	ldr lr, _02003524 ; =0x04000214
 	mov r6, #8
-	ldr r2, _02003528 ; =0x02093CCC
+	ldr r2, _02003528 ; =OSi_UseTick
 	str r6, [lr]
 	str r3, [r2, #4]
 	orr r12, r12, r4, lsl #16
@@ -3430,7 +3430,7 @@ OS_SetTick: ; 0x020034C0
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, pc}
 _02003524: .word 0x04000214
-_02003528: .word unk_02093CCC
+_02003528: .word OSi_UseTick
 _0200352C: .word 0x04000102
 	arm_func_end OS_SetTick
 
@@ -3773,7 +3773,7 @@ _02003994: .word OSi_UseAlarm
 	arm_func_start OS_InitVAlarm
 OS_InitVAlarm: ; 0x02003998
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _020039D4 ; =0x02093CE8
+	ldr r4, _020039D4 ; =OSi_UseVAlarm
 	ldrh r0, [r4]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -3787,13 +3787,13 @@ OS_InitVAlarm: ; 0x02003998
 	str r5, [r4, #8]
 	str r5, [r4, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020039D4: .word unk_02093CE8
+_020039D4: .word OSi_UseVAlarm
 	arm_func_end OS_InitVAlarm
 
 	arm_func_start OSi_InsertVAlarm
 OSi_InsertVAlarm: ; 0x020039D8
 	stmfd sp!, {r3, lr}
-	ldr r1, _02003A50 ; =0x02093CE8
+	ldr r1, _02003A50 ; =OSi_UseVAlarm
 	ldr r3, [r1, #0xc]
 	cmp r3, #0
 	beq _02003A48
@@ -3815,7 +3815,7 @@ _02003A10:
 	cmp r1, #0
 	strne r0, [r1, #0x18]
 	ldmnefd sp!, {r3, pc}
-	ldr r1, _02003A50 ; =0x02093CE8
+	ldr r1, _02003A50 ; =OSi_UseVAlarm
 	str r0, [r1, #0xc]
 	bl OSi_SetNextVAlarm
 	ldmfd sp!, {r3, pc}
@@ -3826,13 +3826,13 @@ _02003A3C:
 _02003A48:
 	bl OSi_AppendVAlarm
 	ldmfd sp!, {r3, pc}
-_02003A50: .word unk_02093CE8
+_02003A50: .word OSi_UseVAlarm
 	arm_func_end OSi_InsertVAlarm
 
 	arm_func_start OSi_AppendVAlarm
 OSi_AppendVAlarm: ; 0x02003A54
 	stmfd sp!, {r3, lr}
-	ldr r1, _02003A88 ; =0x02093CE8
+	ldr r1, _02003A88 ; =OSi_UseVAlarm
 	mov r2, #0
 	ldr r3, [r1, #0x10]
 	str r3, [r0, #0x14]
@@ -3844,7 +3844,7 @@ OSi_AppendVAlarm: ; 0x02003A54
 	str r0, [r1, #0xc]
 	bl OSi_SetNextVAlarm
 	ldmfd sp!, {r3, pc}
-_02003A88: .word unk_02093CE8
+_02003A88: .word OSi_UseVAlarm
 	arm_func_end OSi_AppendVAlarm
 
 	arm_func_start OSi_DetachVAlarm
@@ -3854,15 +3854,15 @@ OSi_DetachVAlarm: ; 0x02003A8C
 	ldr r2, [r0, #0x18]
 	ldr r1, [r0, #0x14]
 	cmp r2, #0
-	ldreq r0, _02003AC0 ; =0x02093CE8
+	ldreq r0, _02003AC0 ; =OSi_UseVAlarm
 	strne r1, [r2, #0x14]
 	streq r1, [r0, #0x10]
 	cmp r1, #0
-	ldreq r0, _02003AC0 ; =0x02093CE8
+	ldreq r0, _02003AC0 ; =OSi_UseVAlarm
 	strne r2, [r1, #0x18]
 	streq r2, [r0, #0xc]
 	bx lr
-_02003AC0: .word unk_02093CE8
+_02003AC0: .word OSi_UseVAlarm
 	arm_func_end OSi_DetachVAlarm
 
 	arm_func_start OS_CreateVAlarm
@@ -3959,7 +3959,7 @@ OSi_VAlarmHandler: ; 0x02003BA4
 	orr r0, r1, r0
 	sub r0, r0, #1
 	bl OSi_GetVFrame
-	ldr r4, _02003D04 ; =0x02093CE8
+	ldr r4, _02003D04 ; =OSi_UseVAlarm
 	ldr r10, [r4, #0xc]
 	cmp r10, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4032,7 +4032,7 @@ _02003CEC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02003CFC: .word OS_IRQTable
 _02003D00: .word 0x0000FFDF
-_02003D04: .word unk_02093CE8
+_02003D04: .word OSi_UseVAlarm
 _02003D08: .word 0x04000006
 	arm_func_end OSi_VAlarmHandler
 
@@ -4066,8 +4066,8 @@ OSi_GetVFrame: ; 0x02003D58
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02003D90 ; =0x02093CE8
-	ldr r4, _02003D90 ; =0x02093CE8
+	ldr r1, _02003D90 ; =OSi_UseVAlarm
+	ldr r4, _02003D90 ; =OSi_UseVAlarm
 	ldr r2, [r1, #4]
 	cmp r5, r2
 	ldrlt r2, [r1, #8]
@@ -4077,7 +4077,7 @@ OSi_GetVFrame: ; 0x02003D58
 	bl OS_RestoreInterrupts
 	ldr r0, [r4, #8]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02003D90: .word unk_02093CE8
+_02003D90: .word OSi_UseVAlarm
 	arm_func_end OSi_GetVFrame
 
 	arm_func_start OS_EnableInterrupts
@@ -4189,7 +4189,7 @@ _02003E78: .word 0x02FFFC40
 	arm_func_start OS_InitReset
 OS_InitReset: ; 0x02003E7C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _02003EC8 ; =0x02093CFC
+	ldr r0, _02003EC8 ; =OSi_IsInitReset
 	ldrh r1, [r0]
 	cmp r1, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -4208,7 +4208,7 @@ _02003EA4:
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
-_02003EC8: .word unk_02093CFC
+_02003EC8: .word OSi_IsInitReset
 _02003ECC: .word OSi_CommonCallback
 	arm_func_end OS_InitReset
 
@@ -4298,10 +4298,10 @@ OsCountZeroBits: ; 0x02003FD4
 
 	arm_func_start OSi_InitVramExclusive
 OSi_InitVramExclusive: ; 0x02003FDC
-	ldr r0, _02004008 ; =0x02093D00
+	ldr r0, _02004008 ; =OSi_vramExclusive
 	mov r3, #0
 	str r3, [r0]
-	ldr r0, _0200400C ; =0x02093D04
+	ldr r0, _0200400C ; =OSi_vramLockId
 	mov r2, r3
 _02003FF0:
 	mov r1, r3, lsl #1
@@ -4310,8 +4310,8 @@ _02003FF0:
 	cmp r3, #9
 	blt _02003FF0
 	bx lr
-_02004008: .word unk_02093D00
-_0200400C: .word unk_02093D04
+_02004008: .word OSi_vramExclusive
+_0200400C: .word OSi_vramLockId
 	arm_func_end OSi_InitVramExclusive
 
 	arm_func_start OSi_UnlockVram
@@ -4320,12 +4320,12 @@ OSi_UnlockVram: ; 0x02004010
 	mov r5, r0
 	mov r10, r1
 	bl OS_DisableInterrupts
-	ldr r4, _02004088 ; =0x02093D00
+	ldr r4, _02004088 ; =OSi_vramExclusive
 	ldr r1, _0200408C ; =0x000001FF
 	ldr r2, [r4]
 	mov r9, r0
 	and r0, r5, r2
-	ldr r6, _02004090 ; =0x02093D04
+	ldr r6, _02004090 ; =OSi_vramLockId
 	and r8, r0, r1
 	mov r7, #1
 	mov r5, #0
@@ -4348,9 +4348,9 @@ _0200407C:
 	mov r0, r9
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02004088: .word unk_02093D00
+_02004088: .word OSi_vramExclusive
 _0200408C: .word 0x000001FF
-_02004090: .word unk_02093D04
+_02004090: .word OSi_vramLockId
 	arm_func_end OSi_UnlockVram
 
 	arm_func_start OS_GetLowEntropyData
@@ -4411,7 +4411,7 @@ _0200415C: .word 0x04000600
 	arm_func_start OS_Terminate
 OS_Terminate: ; 0x02004160
 	stmfd sp!, {r3, lr}
-	ldr r0, _0200418C ; =0x02093D18
+	ldr r0, _0200418C ; =OSi_TerminateCallback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _02004184
@@ -4422,7 +4422,7 @@ OS_Terminate: ; 0x02004160
 _02004184:
 	bl OSi_TerminateCore
 	ldmfd sp!, {r3, pc}
-_0200418C: .word unk_02093D18
+_0200418C: .word OSi_TerminateCallback
 	arm_func_end OS_Terminate
 
 	arm_func_start OSi_TerminateCore
@@ -4540,7 +4540,7 @@ GX_Init: ; 0x020042A4
 	orr r0, r0, #1
 	strh r0, [r1]
 	bl GX_InitGXState
-	ldr r5, _020043D8 ; =0x02093D20
+	ldr r5, _020043D8 ; =sDispMode
 	ldrh r0, [r5, #2]
 	cmp r0, #0
 	bne _02004318
@@ -4561,7 +4561,7 @@ _02004318:
 	mov r7, #0
 	mov r6, #0x4000000
 	strh r7, [r0]
-	ldr r4, _020043E0 ; =0x0208EC78
+	ldr r4, _020043E0 ; =sIsDispOn
 	str r7, [r6]
 	ldr r0, [r4, #4]
 	sub r1, r6, #0x4000001
@@ -4607,9 +4607,9 @@ _0200439C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020043D0: .word 0x04000304
 _020043D4: .word 0xFFFFFDF1
-_020043D8: .word unk_02093D20
+_020043D8: .word sDispMode
 _020043DC: .word 0x04000004
-_020043E0: .word unk_0208EC78
+_020043E0: .word sIsDispOn
 _020043E4: .word 0x04000020
 _020043E8: .word 0x04001026
 	arm_func_end GX_Init
@@ -4648,10 +4648,10 @@ _02004448: .word 0x0000FFF7
 
 	arm_func_start GX_IsDispOn
 GX_IsDispOn: ; 0x0200444C
-	ldr r0, _02004458 ; =0x0208EC78
+	ldr r0, _02004458 ; =sIsDispOn
 	ldrh r0, [r0]
 	bx lr
-_02004458: .word unk_0208EC78
+_02004458: .word sIsDispOn
 	arm_func_end GX_IsDispOn
 
 	arm_func_start GX_DispOff
@@ -4659,10 +4659,10 @@ GX_DispOff: ; 0x0200445C
 	stmfd sp!, {r3, lr}
 	mov lr, #0x4000000
 	ldr r12, [lr]
-	ldr r1, _02004494 ; =0x0208EC78
+	ldr r1, _02004494 ; =sIsDispOn
 	and r2, r12, #0x30000
 	mov r3, #0
-	ldr r0, _02004498 ; =0x02093D20
+	ldr r0, _02004498 ; =sDispMode
 	mov r2, r2, lsr #0x10
 	strh r3, [r1]
 	strh r2, [r0]
@@ -4670,14 +4670,14 @@ GX_DispOff: ; 0x0200445C
 	str r0, [lr]
 	bl PMi_SetDispOffCount
 	ldmfd sp!, {r3, pc}
-_02004494: .word unk_0208EC78
-_02004498: .word unk_02093D20
+_02004494: .word sIsDispOn
+_02004498: .word sDispMode
 	arm_func_end GX_DispOff
 
 	arm_func_start GX_DispOn
 GX_DispOn: ; 0x0200449C
-	ldr r0, _020044D8 ; =0x02093D20
-	ldr r1, _020044DC ; =0x0208EC78
+	ldr r0, _020044D8 ; =sDispMode
+	ldr r1, _020044DC ; =sIsDispOn
 	ldrh r2, [r0]
 	mov r0, #1
 	strh r0, [r1]
@@ -4691,18 +4691,18 @@ GX_DispOn: ; 0x0200449C
 	orreq r0, r0, #0x10000
 	streq r0, [r1]
 	bx lr
-_020044D8: .word unk_02093D20
-_020044DC: .word unk_0208EC78
+_020044D8: .word sDispMode
+_020044DC: .word sIsDispOn
 	arm_func_end GX_DispOn
 
 	arm_func_start GX_SetGraphicsMode
 GX_SetGraphicsMode: ; 0x020044E0
 	stmfd sp!, {r3, lr}
-	ldr r3, _0200453C ; =0x0208EC78
+	ldr r3, _0200453C ; =sIsDispOn
 	mov lr, #0x4000000
 	ldrh r12, [r3]
 	ldr lr, [lr]
-	ldr r3, _02004540 ; =0x02093D20
+	ldr r3, _02004540 ; =sDispMode
 	cmp r12, #0
 	strh r0, [r3]
 	ldr r3, _02004544 ; =0xFFF0FFF0
@@ -4712,16 +4712,16 @@ GX_SetGraphicsMode: ; 0x020044E0
 	orr r0, r1, r0
 	orr r1, r0, r2, lsl #3
 	mov r12, #0x4000000
-	ldr r0, _02004540 ; =0x02093D20
+	ldr r0, _02004540 ; =sDispMode
 	str r1, [r12]
 	ldrh r0, [r0]
 	cmp r0, #0
-	ldreq r0, _0200453C ; =0x0208EC78
+	ldreq r0, _0200453C ; =sIsDispOn
 	moveq r1, #0
 	streqh r1, [r0]
 	ldmfd sp!, {r3, pc}
-_0200453C: .word unk_0208EC78
-_02004540: .word unk_02093D20
+_0200453C: .word sIsDispOn
+_02004540: .word sDispMode
 _02004544: .word 0xFFF0FFF0
 	arm_func_end GX_SetGraphicsMode
 
@@ -6441,7 +6441,7 @@ _02005AF8: .word GXi_DmaId
 GX_BeginLoadBGExtPltt: ; 0x02005AFC
 	stmfd sp!, {r3, lr}
 	bl GX_ResetBankForBGExtPltt
-	ldr r1, _02005B78 ; =0x02093D24
+	ldr r1, _02005B78 ; =sSubBGExtPltt
 	cmp r0, #0x20
 	str r0, [r1, #0x14]
 	bgt _02005B3C
@@ -6468,12 +6468,12 @@ _02005B58:
 	ldmnefd sp!, {r3, pc}
 _02005B60:
 	ldr r2, _02005B84 ; =0x06890000
-	ldr r0, _02005B78 ; =0x02093D24
+	ldr r0, _02005B78 ; =sSubBGExtPltt
 	mov r1, #0
 	str r2, [r0, #0x10]
 	str r1, [r0, #0xc]
 	ldmfd sp!, {r3, pc}
-_02005B78: .word unk_02093D24
+_02005B78: .word sSubBGExtPltt
 _02005B7C: .word 0x06880000
 _02005B80: .word 0x06894000
 _02005B84: .word 0x06890000
@@ -6483,7 +6483,7 @@ _02005B84: .word 0x06890000
 GX_LoadBGExtPltt: ; 0x02005B88
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
-	ldr r12, _02005BF4 ; =0x02093D24
+	ldr r12, _02005BF4 ; =sSubBGExtPltt
 	ldr r3, _02005BF8 ; =GXi_DmaId
 	ldr r4, [r12, #0x10]
 	ldr lr, [r3]
@@ -6509,7 +6509,7 @@ _02005BE4:
 	bl MIi_CpuCopy32
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
-_02005BF4: .word unk_02093D24
+_02005BF4: .word sSubBGExtPltt
 _02005BF8: .word GXi_DmaId
 	arm_func_end GX_LoadBGExtPltt
 
@@ -6522,7 +6522,7 @@ GX_EndLoadBGExtPltt: ; 0x02005BFC
 	beq _02005C14
 	bl MI_WaitDma
 _02005C14:
-	ldr r4, _02005C38 ; =0x02093D24
+	ldr r4, _02005C38 ; =sSubBGExtPltt
 	ldr r0, [r4, #0x14]
 	bl GX_SetBankForBGExtPltt
 	mov r0, #0
@@ -6531,17 +6531,17 @@ _02005C14:
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
 _02005C34: .word GXi_DmaId
-_02005C38: .word unk_02093D24
+_02005C38: .word sSubBGExtPltt
 	arm_func_end GX_EndLoadBGExtPltt
 
 	arm_func_start GXS_BeginLoadBGExtPltt
 GXS_BeginLoadBGExtPltt: ; 0x02005C3C
 	stmfd sp!, {r3, lr}
 	bl GX_ResetBankForSubBGExtPltt
-	ldr r1, _02005C50 ; =0x02093D24
+	ldr r1, _02005C50 ; =sSubBGExtPltt
 	str r0, [r1]
 	ldmfd sp!, {r3, pc}
-_02005C50: .word unk_02093D24
+_02005C50: .word sSubBGExtPltt
 	arm_func_end GXS_BeginLoadBGExtPltt
 
 	arm_func_start GXS_LoadBGExtPltt
@@ -6584,14 +6584,14 @@ GXS_EndLoadBGExtPltt: ; 0x02005CBC
 	beq _02005CD4
 	bl MI_WaitDma
 _02005CD4:
-	ldr r4, _02005CF0 ; =0x02093D24
+	ldr r4, _02005CF0 ; =sSubBGExtPltt
 	ldr r0, [r4]
 	bl GX_SetBankForSubBGExtPltt
 	mov r0, #0
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
 _02005CEC: .word GXi_DmaId
-_02005CF0: .word unk_02093D24
+_02005CF0: .word sSubBGExtPltt
 	arm_func_end GXS_EndLoadBGExtPltt
 
 	arm_func_start GX_BeginLoadTex
@@ -8538,7 +8538,7 @@ MI_SendGXCommandAsync: ; 0x0200751C
 	blx r3
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02007540:
-	ldr r0, _020075FC ; =0x02093D7C
+	ldr r0, _020075FC ; =MIi_GXDmaParams
 _02007544:
 	ldr r5, [r0]
 	cmp r5, #0
@@ -8550,7 +8550,7 @@ _02007554:
 	mov r0, r0, lsr #0x18
 	tst r0, #2
 	beq _02007554
-	ldr r6, _020075FC ; =0x02093D7C
+	ldr r6, _020075FC ; =MIi_GXDmaParams
 	mov r0, #1
 	str r0, [r6]
 	str r4, [r6, #4]
@@ -8587,7 +8587,7 @@ _02007554:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020075FC: .word unk_02093D7C
+_020075FC: .word MIi_GXDmaParams
 _02007600: .word 0x04000600
 _02007604: .word MIi_FIFOCallback
 	arm_func_end MI_SendGXCommandAsync
@@ -8595,11 +8595,11 @@ _02007604: .word MIi_FIFOCallback
 	arm_func_start MIi_FIFOCallback
 MIi_FIFOCallback: ; 0x02007608
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r0, _020076AC ; =0x02093D7C
+	ldr r0, _020076AC ; =MIi_GXDmaParams
 	ldr r5, [r0, #0xc]
 	cmp r5, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r6, _020076AC ; =0x02093D7C
+	ldr r6, _020076AC ; =MIi_GXDmaParams
 	cmp r5, #0x1d8
 	ldr r0, [r6, #0xc]
 	movhs r5, #0x1d8
@@ -8636,7 +8636,7 @@ _02007680:
 	mov r0, #0x200000
 	bl OS_ResetRequestIrqMask
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020076AC: .word unk_02093D7C
+_020076AC: .word MIi_GXDmaParams
 _020076B0: .word MIi_DMACallback
 _020076B4: .word 0x04000400
 _020076B8: .word 0x84400000
@@ -8649,7 +8649,7 @@ MIi_DMACallback: ; 0x020076BC
 	mov r0, r5
 	bl OS_DisableIrqMask
 	ldr r1, _02007714 ; =0x04000600
-	ldr r4, _02007718 ; =0x02093D7C
+	ldr r4, _02007718 ; =MIi_GXDmaParams
 	ldr r0, [r1]
 	ldr r2, [r4, #0x18]
 	bic r0, r0, #0xc0000000
@@ -8667,7 +8667,7 @@ MIi_DMACallback: ; 0x020076BC
 	blx r1
 	ldmfd sp!, {r3, r4, r5, pc}
 _02007714: .word 0x04000600
-_02007718: .word unk_02093D7C
+_02007718: .word MIi_GXDmaParams
 	arm_func_end MIi_DMACallback
 
 	arm_func_start MI_SendGXCommandAsyncFast
@@ -8683,12 +8683,12 @@ MI_SendGXCommandAsyncFast: ; 0x0200771C
 	blx r3
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02007744:
-	ldr r0, _020077CC ; =0x02093D7C
+	ldr r0, _020077CC ; =MIi_GXDmaParams
 _02007748:
 	ldr r1, [r0]
 	cmp r1, #0
 	bne _02007748
-	ldr r2, _020077CC ; =0x02093D7C
+	ldr r2, _020077CC ; =MIi_GXDmaParams
 	mov r0, #1
 	str r0, [r2]
 	str r6, [r2, #4]
@@ -8718,7 +8718,7 @@ _02007748:
 	ldr r2, _020077D4 ; =0x04000400
 	bl MIi_DmaSetParameters
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020077CC: .word unk_02093D7C
+_020077CC: .word MIi_GXDmaParams
 _020077D0: .word MIi_DMAFastCallback
 _020077D4: .word 0x04000400
 	arm_func_end MI_SendGXCommandAsyncFast
@@ -8726,7 +8726,7 @@ _020077D4: .word 0x04000400
 	arm_func_start MIi_DMAFastCallback
 MIi_DMAFastCallback: ; 0x020077D8
 	stmfd sp!, {r3, lr}
-	ldr r0, _02007800 ; =0x02093D7C
+	ldr r0, _02007800 ; =MIi_GXDmaParams
 	mov r1, #0
 	str r1, [r0]
 	ldr r1, [r0, #0x10]
@@ -8735,7 +8735,7 @@ MIi_DMAFastCallback: ; 0x020077D8
 	ldmeqfd sp!, {r3, pc}
 	blx r1
 	ldmfd sp!, {r3, pc}
-_02007800: .word unk_02093D7C
+_02007800: .word MIi_GXDmaParams
 	arm_func_end MIi_DMAFastCallback
 
 	arm_func_start MIi_CpuClear16
@@ -11531,7 +11531,7 @@ ProcessBlock: ; 0x02009D6C
 	ldmia r0, {r2, r3, r12}
 	add r4, r0, #0x18
 	ldr lr, [r0, #0xc]
-	ldr r5, _0200A11C ; =ProcessBlock_t
+	ldr r5, _0200A11C ; =t_0208ed44
 	mov r7, r4
 	mov r8, #0
 _02009D88:
@@ -11588,7 +11588,7 @@ _02009D88:
 	add r8, r8, #1
 	cmp r8, #4
 	blt _02009D88
-	ldr r1, _0200A120 ; =0x0208EC84
+	ldr r1, _0200A120 ; =k_0208ec84
 	mov r6, #0
 _02009E64:
 	mvn r7, lr
@@ -11767,8 +11767,8 @@ _0200A014:
 	str r2, [r0, #8]
 	str r1, [r0, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0200A11C: .word ProcessBlock_t
-_0200A120: .word unk_0208EC84
+_0200A11C: .word t_0208ed44
+_0200A120: .word k_0208ec84
 	arm_func_end ProcessBlock
 
 	arm_func_start MATH_MD5Init
@@ -11857,7 +11857,7 @@ MATH_MD5GetHash: ; 0x0200A230
 	mov r4, r1
 	ldr r12, [r5, #0x10]
 	mov r7, r2, lsl #3
-	ldr r1, _0200A2E0 ; =0x0208EC80
+	ldr r1, _0200A2E0 ; =padding_0208ec80
 	mov r2, #1
 	orr r7, r7, r12, lsr #29
 	mov r6, r12, lsl #3
@@ -11897,7 +11897,7 @@ _0200A2AC:
 	mov r2, #0x58
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0200A2E0: .word unk_0208EC80
+_0200A2E0: .word padding_0208ec80
 	arm_func_end MATH_MD5GetHash
 
 	arm_func_start MATHi_SHA1ProcessBlockForOverlay
@@ -11959,7 +11959,7 @@ _0200A39C: .word MATHi_SHA1ProcessMessageBlockFunc
 
 	arm_func_start MATHi_SetOverlayTableMode
 MATHi_SetOverlayTableMode: ; 0x0200A3A0
-	ldr r1, _0200A3CC ; =0x02093D9C
+	ldr r1, _0200A3CC ; =MATHi_OverlayTableMode
 	cmp r0, #0
 	ldr r2, [r1]
 	str r0, [r1]
@@ -11970,7 +11970,7 @@ MATHi_SetOverlayTableMode: ; 0x0200A3A0
 	str r1, [r0]
 	mov r0, r2
 	bx lr
-_0200A3CC: .word unk_02093D9C
+_0200A3CC: .word MATHi_OverlayTableMode
 _0200A3D0: .word MATHi_SHA1ProcessBlockForOverlay
 _0200A3D4: .word MATHi_SHA1ProcessMessageBlockFunc
 _0200A3D8: .word MATHi_SHA1ProcessBlock
@@ -12080,7 +12080,7 @@ MATH_SHA1GetHash: ; 0x0200A4C4
 	and r3, r7, #0xff000000
 	orr r1, r2, r1
 	orr r2, r3, r1
-	ldr r1, _0200A6B4 ; =0x0208B978
+	ldr r1, _0200A6B4 ; =padlead
 	str r2, [sp]
 	mov r2, #1
 	bl MATH_SHA1Update
@@ -12088,7 +12088,7 @@ MATH_SHA1GetHash: ; 0x0200A4C4
 	rsb r2, r0, #0x40
 	cmp r2, #8
 	bhs _0200A578
-	ldr r1, _0200A6B8 ; =0x0208B979
+	ldr r1, _0200A6B8 ; =padalign
 	mov r0, r4
 	bl MATH_SHA1Update
 _0200A578:
@@ -12171,8 +12171,8 @@ _0200A578:
 	bl MI_CpuCopy8
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0200A6B4: .word unk_0208B978
-_0200A6B8: .word unk_0208B979
+_0200A6B4: .word padlead
+_0200A6B8: .word padalign
 	arm_func_end MATH_SHA1GetHash
 
 	arm_func_start MATH_CalcSHA1
@@ -12200,7 +12200,7 @@ MATH_CalcSHA1: ; 0x0200A6BC
 MATH_CalcHMACSHA1: ; 0x0200A700
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x98
-	ldr lr, _0200A784 ; =0x0208B984
+	ldr lr, _0200A784 ; =initializer_list_0208b984
 	add r12, sp, #8
 	mov r8, r0
 	mov r7, r1
@@ -12231,7 +12231,7 @@ MATH_CalcHMACSHA1: ; 0x0200A700
 	bl MATHi_CalcHMAC
 	add sp, sp, #0x98
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0200A784: .word unk_0208B984
+_0200A784: .word initializer_list_0208b984
 _0200A788: .word MATH_SHA1Init
 _0200A78C: .word MATH_SHA1Update
 _0200A790: .word MATH_SHA1GetHash
@@ -12691,7 +12691,7 @@ _0200AD18:
 	arm_func_start RTC_Init
 RTC_Init: ; 0x0200ADC4
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _0200AE28 ; =0x02093DA0
+	ldr r0, _0200AE28 ; =rtcInitialized
 	ldrh r1, [r0]
 	cmp r1, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -12716,7 +12716,7 @@ _0200AE04:
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
-_0200AE28: .word unk_02093DA0
+_0200AE28: .word rtcInitialized
 _0200AE2C: .word RtcCommonCallback
 	arm_func_end RTC_Init
 
@@ -12727,7 +12727,7 @@ RTC_GetDateAsync: ; 0x0200AE30
 	mov r7, r1
 	mov r6, r2
 	bl OS_DisableInterrupts
-	ldr r4, _0200AE9C ; =0x02093DA0
+	ldr r4, _0200AE9C ; =rtcInitialized
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _0200AE60
@@ -12750,7 +12750,7 @@ _0200AE60:
 	streq r5, [r4, #4]
 	moveq r0, #3
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0200AE9C: .word unk_02093DA0
+_0200AE9C: .word rtcInitialized
 	arm_func_end RTC_GetDateAsync
 
 	arm_func_start RTC_GetDate
@@ -12759,17 +12759,17 @@ RTC_GetDate: ; 0x0200AEA0
 	ldr r1, _0200AED0 ; =RtcGetResultCallback
 	mov r2, #0
 	bl RTC_GetDateAsync
-	ldr r1, _0200AED4 ; =0x02093DA0
+	ldr r1, _0200AED4 ; =rtcInitialized
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200AEC4
 	bl RtcWaitBusy
 _0200AEC4:
-	ldr r0, _0200AED4 ; =0x02093DA0
+	ldr r0, _0200AED4 ; =rtcInitialized
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200AED0: .word RtcGetResultCallback
-_0200AED4: .word unk_02093DA0
+_0200AED4: .word rtcInitialized
 	arm_func_end RTC_GetDate
 
 	arm_func_start RTC_GetTimeAsync
@@ -12779,7 +12779,7 @@ RTC_GetTimeAsync: ; 0x0200AED8
 	mov r7, r1
 	mov r6, r2
 	bl OS_DisableInterrupts
-	ldr r4, _0200AF44 ; =0x02093DA0
+	ldr r4, _0200AF44 ; =rtcInitialized
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _0200AF08
@@ -12802,7 +12802,7 @@ _0200AF08:
 	streq r5, [r4, #4]
 	moveq r0, #3
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0200AF44: .word unk_02093DA0
+_0200AF44: .word rtcInitialized
 	arm_func_end RTC_GetTimeAsync
 
 	arm_func_start RTC_GetTime
@@ -12811,17 +12811,17 @@ RTC_GetTime: ; 0x0200AF48
 	ldr r1, _0200AF78 ; =RtcGetResultCallback
 	mov r2, #0
 	bl RTC_GetTimeAsync
-	ldr r1, _0200AF7C ; =0x02093DA0
+	ldr r1, _0200AF7C ; =rtcInitialized
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200AF6C
 	bl RtcWaitBusy
 _0200AF6C:
-	ldr r0, _0200AF7C ; =0x02093DA0
+	ldr r0, _0200AF7C ; =rtcInitialized
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200AF78: .word RtcGetResultCallback
-_0200AF7C: .word unk_02093DA0
+_0200AF7C: .word rtcInitialized
 	arm_func_end RTC_GetTime
 
 	arm_func_start RTC_GetDateTimeAsync
@@ -12832,7 +12832,7 @@ RTC_GetDateTimeAsync: ; 0x0200AF80
 	mov r5, r2
 	mov r4, r3
 	bl OS_DisableInterrupts
-	ldr r8, _0200AFF8 ; =0x02093DA0
+	ldr r8, _0200AFF8 ; =rtcInitialized
 	ldr r1, [r8, #4]
 	cmp r1, #0
 	beq _0200AFB4
@@ -12857,7 +12857,7 @@ _0200AFB4:
 	streq r9, [r8, #4]
 	moveq r0, #3
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0200AFF8: .word unk_02093DA0
+_0200AFF8: .word rtcInitialized
 	arm_func_end RTC_GetDateTimeAsync
 
 	arm_func_start RTC_GetDateTime
@@ -12866,17 +12866,17 @@ RTC_GetDateTime: ; 0x0200AFFC
 	ldr r2, _0200B02C ; =RtcGetResultCallback
 	mov r3, #0
 	bl RTC_GetDateTimeAsync
-	ldr r1, _0200B030 ; =0x02093DA0
+	ldr r1, _0200B030 ; =rtcInitialized
 	cmp r0, #0
 	str r0, [r1, #0x24]
 	bne _0200B020
 	bl RtcWaitBusy
 _0200B020:
-	ldr r0, _0200B030 ; =0x02093DA0
+	ldr r0, _0200B030 ; =rtcInitialized
 	ldr r0, [r0, #0x24]
 	ldmfd sp!, {r3, pc}
 _0200B02C: .word RtcGetResultCallback
-_0200B030: .word unk_02093DA0
+_0200B030: .word rtcInitialized
 	arm_func_end RTC_GetDateTime
 
 	arm_func_start RtcCommonCallback
@@ -12885,7 +12885,7 @@ RtcCommonCallback: ; 0x0200B034
 	cmp r2, #0
 	ldr r0, _0200B464 ; =0x02FFFDEA
 	mov r4, #0
-	ldr r6, _0200B468 ; =0x02093DA0
+	ldr r6, _0200B468 ; =rtcInitialized
 	beq _0200B084
 	ldr r0, [r6, #0x1c]
 	cmp r0, #0
@@ -13176,7 +13176,7 @@ _0200B42C:
 	blx r2
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0200B464: .word 0x02FFFDEA
-_0200B468: .word unk_02093DA0
+_0200B468: .word rtcInitialized
 _0200B46C: .word 0x02FFFDE8
 _0200B470: .word 0x02FFFDEC
 	arm_func_end RtcCommonCallback
@@ -13215,21 +13215,21 @@ _0200B4B0:
 
 	arm_func_start RtcGetResultCallback
 RtcGetResultCallback: ; 0x0200B4DC
-	ldr r1, _0200B4E8 ; =0x02093DA0
+	ldr r1, _0200B4E8 ; =rtcInitialized
 	str r0, [r1, #0x24]
 	bx lr
-_0200B4E8: .word unk_02093DA0
+_0200B4E8: .word rtcInitialized
 	arm_func_end RtcGetResultCallback
 
 	arm_func_start RtcWaitBusy
 RtcWaitBusy: ; 0x0200B4EC
-	ldr r12, _0200B500 ; =0x02093DA4
+	ldr r12, _0200B500 ; =rtcWork
 _0200B4F0:
 	ldr r0, [r12]
 	cmp r0, #1
 	beq _0200B4F0
 	bx lr
-_0200B500: .word unk_02093DA4
+_0200B500: .word rtcWork
 	arm_func_end RtcWaitBusy
 
 	arm_func_start RTCi_ReadRawDateTimeAsync
@@ -15520,7 +15520,7 @@ FS_FindArchive: ; 0x0200D158
 	mov r9, r0
 	mov r8, r1
 	bl OS_DisableInterrupts
-	ldr r1, _0200D1E0 ; =0x02095924
+	ldr r1, _0200D1E0 ; =arc_list
 	mov r6, r0
 	ldr r7, [r1]
 	cmp r7, #0
@@ -15553,7 +15553,7 @@ _0200D1D0:
 	bl OS_RestoreInterrupts
 	mov r0, r7
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0200D1E0: .word unk_02095924
+_0200D1E0: .word arc_list
 	arm_func_end FS_FindArchive
 
 	arm_func_start FS_SetCurrentDirectory
@@ -15568,8 +15568,8 @@ FS_SetCurrentDirectory: ; 0x0200D1E4
 	bl FS_NormalizePath
 	movs r7, r0
 	beq _0200D2A4
-	ldr r9, _0200D2B0 ; =0x02095924
-	ldr r6, _0200D2B4 ; =0x02095A34
+	ldr r9, _0200D2B0 ; =arc_list
+	ldr r6, _0200D2B4 ; =current_dir_path
 	str r7, [r9, #4]
 	strh r4, [r9, #8]
 	strh r4, [r9, #0xa]
@@ -15611,8 +15611,8 @@ _0200D2A4:
 	mov r0, r4
 	add sp, sp, #0x160
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0200D2B0: .word unk_02095924
-_0200D2B4: .word unk_02095A34
+_0200D2B0: .word arc_list
+_0200D2B4: .word current_dir_path
 	arm_func_end FS_SetCurrentDirectory
 
 	arm_func_start FSi_CopySafeString
@@ -15651,7 +15651,7 @@ _0200D308:
 FS_NormalizePath: ; 0x0200D318
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
-	ldr r3, _0200D5F4 ; =0x02095924
+	ldr r3, _0200D5F4 ; =arc_list
 	mov r6, #0
 	ldr r4, [r3, #4]
 	mov r7, r1
@@ -15663,7 +15663,7 @@ FS_NormalizePath: ; 0x0200D318
 	mov r5, r6
 	bne _0200D368
 	ldr r2, [r3]
-	ldr r0, _0200D5F8 ; =0x02095A34
+	ldr r0, _0200D5F8 ; =current_dir_path
 	str r2, [r3, #4]
 	strh r6, [r3, #8]
 	str r6, [r3, #0xc]
@@ -15676,7 +15676,7 @@ _0200D368:
 	cmp r0, #0x5c
 	bne _0200D394
 _0200D37C:
-	ldr r0, _0200D5F4 ; =0x02095924
+	ldr r0, _0200D5F4 ; =arc_list
 	cmp r7, #0
 	ldr r0, [r0, #4]
 	add r10, r10, #1
@@ -15692,7 +15692,7 @@ _0200D398:
 	cmp r0, #0x5c
 	bne _0200D42C
 _0200D3B0:
-	ldr r1, _0200D5F4 ; =0x02095924
+	ldr r1, _0200D5F4 ; =arc_list
 	cmp r7, #0
 	ldr r0, [r1, #4]
 	str r0, [sp, #4]
@@ -15700,11 +15700,11 @@ _0200D3B0:
 	strne r0, [r7]
 	cmp r9, #0
 	beq _0200D484
-	ldr r0, _0200D5F4 ; =0x02095924
+	ldr r0, _0200D5F4 ; =arc_list
 	ldrh r0, [r0, #8]
 	cmp r0, #0
 	bne _0200D484
-	ldr r2, _0200D5F8 ; =0x02095A34
+	ldr r2, _0200D5F8 ; =current_dir_path
 	ldrsb r0, [r2]
 	cmp r0, #0
 	beq _0200D484
@@ -15850,8 +15850,8 @@ _0200D5D8:
 	ldr r0, [sp, #4]
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0200D5F4: .word unk_02095924
-_0200D5F8: .word unk_02095A34
+_0200D5F4: .word arc_list
+_0200D5F8: .word current_dir_path
 _0200D5FC: .word unk_0208EE78
 	arm_func_end FS_NormalizePath
 
@@ -15882,8 +15882,8 @@ FS_RegisterArchiveName: ; 0x0200D624
 	bl FS_FindArchive
 	cmp r0, #0
 	bne _0200D708
-	ldr r0, _0200D718 ; =0x02095924
-	ldr r1, _0200D71C ; =0x02095924
+	ldr r0, _0200D718 ; =arc_list
+	ldr r1, _0200D71C ; =arc_list
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0200D678
@@ -15906,7 +15906,7 @@ _0200D678:
 _0200D6A0:
 	cmp r6, #0xf
 	bhi _0200D6F4
-	ldr r9, _0200D720 ; =0x02095934
+	ldr r9, _0200D720 ; =FSiLongNameTable
 	mov r5, #0
 _0200D6B0:
 	cmp r5, #0x10
@@ -15940,15 +15940,15 @@ _0200D708:
 	bl OS_RestoreInterrupts
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0200D718: .word unk_02095924
-_0200D71C: .word unk_02095924
-_0200D720: .word unk_02095934
+_0200D718: .word arc_list
+_0200D71C: .word arc_list
+_0200D720: .word FSiLongNameTable
 	arm_func_end FS_RegisterArchiveName
 
 	arm_func_start FS_ReleaseArchiveName
 FS_ReleaseArchiveName: ; 0x0200D724
 	stmfd sp!, {r4, lr}
-	ldr r1, _0200D7C8 ; =0x02095924
+	ldr r1, _0200D7C8 ; =arc_list
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r4, r0
@@ -15959,8 +15959,8 @@ _0200D740:
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	bl OS_DisableInterrupts
-	ldr r1, _0200D7C8 ; =0x02095924
-	ldr r2, _0200D7CC ; =0x02095924
+	ldr r1, _0200D7C8 ; =arc_list
+	ldr r2, _0200D7CC ; =arc_list
 	ldr r1, [r1]
 	cmp r1, #0
 	beq _0200D784
@@ -15983,7 +15983,7 @@ _0200D784:
 	ldr r1, [r4, #0x14]
 	str r3, [r4]
 	bic r2, r1, #1
-	ldr r1, _0200D7C8 ; =0x02095924
+	ldr r1, _0200D7C8 ; =arc_list
 	str r3, [r4, #4]
 	str r2, [r4, #0x14]
 	ldr r2, [r1, #4]
@@ -15991,8 +15991,8 @@ _0200D784:
 	streq r3, [r1, #4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0200D7C8: .word unk_02095924
-_0200D7CC: .word unk_02095924
+_0200D7C8: .word arc_list
+_0200D7CC: .word arc_list
 	arm_func_end FS_ReleaseArchiveName
 
 	arm_func_start FS_GetArchiveName
@@ -16662,21 +16662,21 @@ FSi_InitOverlay: ; 0x0200DFFC
 	stmfd sp!, {r4, lr}
 	bl OS_GetBootType
 	cmp r0, #2
-	ldrne r0, _0200E060 ; =0x02095B38
+	ldrne r0, _0200E060 ; =FSiOverlayContext
 	mov r1, #0
 	strne r1, [r0, #4]
 	strne r1, [r0, #8]
 	strne r1, [r0, #0xc]
 	bne _0200E034
-	ldr r0, _0200E060 ; =0x02095B38
+	ldr r0, _0200E060 ; =FSiOverlayContext
 	mvn r2, #0
 	str r2, [r0, #4]
 	str r1, [r0, #8]
 	str r2, [r0, #0xc]
 _0200E034:
 	str r1, [r0, #0x10]
-	ldr r1, _0200E064 ; =0x0208BD74
-	ldr r4, _0200E060 ; =0x02095B38
+	ldr r1, _0200E064 ; =fsi_def_digest_key
+	ldr r4, _0200E060 ; =FSiOverlayContext
 	ldr r0, _0200E068 ; =0x0208EE7C
 	str r1, [r4, #0x14]
 	mov r2, #0x40
@@ -16685,8 +16685,8 @@ _0200E034:
 	bl FS_FindArchive
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
-_0200E060: .word unk_02095B38
-_0200E064: .word unk_0208BD74
+_0200E060: .word FSiOverlayContext
+_0200E064: .word fsi_def_digest_key
 _0200E068: .word unk_0208EE7C
 	arm_func_end FSi_InitOverlay
 
@@ -16723,7 +16723,7 @@ FS_ClearOverlayImage: ; 0x0200E088
 	arm_func_start FS_GetOverlayFileID
 FS_GetOverlayFileID: ; 0x0200E0C4
 	sub sp, sp, #8
-	ldr r2, _0200E0EC ; =0x02095B38
+	ldr r2, _0200E0EC ; =FSiOverlayContext
 	ldr r1, [r1, #0x18]
 	ldr r2, [r2]
 	str r1, [sp, #4]
@@ -16732,7 +16732,7 @@ FS_GetOverlayFileID: ; 0x0200E0C4
 	str r1, [r0, #4]
 	add sp, sp, #8
 	bx lr
-_0200E0EC: .word unk_02095B38
+_0200E0EC: .word FSiOverlayContext
 	arm_func_end FS_GetOverlayFileID
 
 	arm_func_start FS_LoadOverlayInfo
@@ -16883,7 +16883,7 @@ FSi_CompareDigest: ; 0x0200E2D0
 	mov r2, #0x14
 	mov r5, r3
 	bl MI_CpuFill8
-	ldr r2, _0200E38C ; =0x02095B38
+	ldr r2, _0200E38C ; =FSiOverlayContext
 	add r1, sp, #4
 	ldr r0, [r2, #0x14]
 	ldr r2, [r2, #0x18]
@@ -16894,7 +16894,7 @@ FSi_CompareDigest: ; 0x0200E2D0
 	bl MATHi_SetOverlayTableMode
 	mov r4, r0
 _0200E324:
-	ldr r1, _0200E38C ; =0x02095B38
+	ldr r1, _0200E38C ; =FSiOverlayContext
 	add r0, sp, #0x44
 	ldr r12, [r1, #0x18]
 	add r3, sp, #4
@@ -16923,7 +16923,7 @@ _0200E378:
 	movne r0, #0
 	add sp, sp, #0x58
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0200E38C: .word unk_02095B38
+_0200E38C: .word FSiOverlayContext
 	arm_func_end FSi_CompareDigest
 
 	arm_func_start FS_StartOverlay
@@ -17821,7 +17821,7 @@ _0200EF94:
 	cmp r8, #0xd
 	movhs r2, #4
 	bhs _0200EFC0
-	ldr r1, _0200EFE4 ; =0x0208BDB4
+	ldr r1, _0200EFE4 ; =default_table
 	mov r0, r9
 	ldr r1, [r1, r8, lsl #2]
 	blx r1
@@ -17837,7 +17837,7 @@ _0200EFD8:
 	mov r0, r2
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0200EFE0: .word 0x00000101
-_0200EFE4: .word unk_0208BDB4
+_0200EFE4: .word default_table
 	arm_func_end FSi_TranslateCommand
 
 	arm_func_start FSi_ROMFAT_ReadFile
@@ -18475,7 +18475,7 @@ FS_LoadArchive: ; 0x0200F7CC
 	mov r3, #0
 	str r2, [r0, #0x2c]
 	str r2, [r0, #0x3c]
-	ldr r2, _0200F834 ; =0x0208BDE8
+	ldr r2, _0200F834 ; =FSiArchiveProcInterface
 	add r1, r0, #0x28
 	str lr, [r0, #0x38]
 	str r4, [r0, #0x48]
@@ -18485,7 +18485,7 @@ FS_LoadArchive: ; 0x0200F7CC
 	ldmfd sp!, {r4, pc}
 _0200F82C: .word FSi_ReadMemCallback
 _0200F830: .word FSi_WriteMemCallback
-_0200F834: .word unk_0208BDE8
+_0200F834: .word FSiArchiveProcInterface
 	arm_func_end FS_LoadArchive
 
 	arm_func_start FS_UnloadArchive
@@ -18500,7 +18500,7 @@ FSi_GetFileLengthIfProc: ; 0x0200F844
 	stmfd sp!, {r4, lr}
 	mov lr, r0
 	ldr r0, [lr, #8]
-	ldr r3, _0200F880 ; =0x0208BDE8
+	ldr r3, _0200F880 ; =FSiArchiveProcInterface
 	ldr r12, [r0, #0x24]
 	mov r2, r1
 	cmp r12, r3
@@ -18513,7 +18513,7 @@ FSi_GetFileLengthIfProc: ; 0x0200F844
 _0200F878:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200F880: .word unk_0208BDE8
+_0200F880: .word FSiArchiveProcInterface
 	arm_func_end FSi_GetFileLengthIfProc
 
 	arm_func_start FSi_GetFilePositionIfProc
@@ -18521,7 +18521,7 @@ FSi_GetFilePositionIfProc: ; 0x0200F884
 	stmfd sp!, {r4, lr}
 	mov lr, r0
 	ldr r0, [lr, #8]
-	ldr r3, _0200F8C0 ; =0x0208BDE8
+	ldr r3, _0200F8C0 ; =FSiArchiveProcInterface
 	ldr r12, [r0, #0x24]
 	mov r2, r1
 	cmp r12, r3
@@ -18534,7 +18534,7 @@ FSi_GetFilePositionIfProc: ; 0x0200F884
 _0200F8B8:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0200F8C0: .word unk_0208BDE8
+_0200F8C0: .word FSiArchiveProcInterface
 	arm_func_end FSi_GetFilePositionIfProc
 
 	arm_func_start FS_SetArchiveProc
@@ -18737,7 +18737,7 @@ FSi_ReadRomCallback: ; 0x0200FB0C
 	str r12, [sp]
 	str r0, [sp, #4]
 	mov r1, #1
-	ldr r0, _0200FB50 ; =0x02095B54
+	ldr r0, _0200FB50 ; =fsi_default_dma_no
 	str r1, [sp, #8]
 	mov r1, r2
 	ldr r0, [r0]
@@ -18747,7 +18747,7 @@ FSi_ReadRomCallback: ; 0x0200FB0C
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
 _0200FB4C: .word FSi_OnRomReadDone
-_0200FB50: .word unk_02095B54
+_0200FB50: .word fsi_default_dma_no
 	arm_func_end FSi_ReadRomCallback
 
 	arm_func_start FSi_RomArchiveProc
@@ -18761,7 +18761,7 @@ FSi_RomArchiveProc: ; 0x0200FB54
 	beq _0200FB90
 	b _0200FBB4
 _0200FB74:
-	ldr r0, _0200FBBC ; =0x02095B54
+	ldr r0, _0200FBBC ; =fsi_default_dma_no
 	ldr r0, [r0, #4]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -18769,7 +18769,7 @@ _0200FB74:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _0200FB90:
-	ldr r0, _0200FBBC ; =0x02095B54
+	ldr r0, _0200FBBC ; =fsi_default_dma_no
 	ldr r0, [r0, #4]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
@@ -18782,7 +18782,7 @@ _0200FBAC:
 _0200FBB4:
 	ldr r0, _0200FBC0 ; =0x00000102
 	ldmfd sp!, {r3, pc}
-_0200FBBC: .word unk_02095B54
+_0200FBBC: .word fsi_default_dma_no
 _0200FBC0: .word 0x00000102
 	arm_func_end FSi_RomArchiveProc
 
@@ -18819,10 +18819,10 @@ FSi_InitRomArchive: ; 0x0200FBF0
 	sub sp, sp, #0x10
 	mov r4, r0
 	bl CARD_Init
-	ldr r5, _0200FD1C ; =0x02095B54
+	ldr r5, _0200FD1C ; =fsi_default_dma_no
 	str r4, [r5]
 	bl OS_GetLockID
-	ldr r4, _0200FD20 ; =0x02095B5C
+	ldr r4, _0200FD20 ; =fsi_arc_rom
 	str r0, [r5, #4]
 	mov r0, r4
 	bl FS_InitArchive
@@ -18865,14 +18865,14 @@ _0200FCA8:
 	mov r0, r4
 	bl FSi_OverrideRomArchive
 _0200FCB0:
-	ldr r0, _0200FD20 ; =0x02095B5C
+	ldr r0, _0200FD20 ; =fsi_arc_rom
 	ldr r0, [r0, #0x14]
 	tst r0, #2
 	movne r0, #1
 	moveq r0, #0
 	cmp r0, #0
 	bne _0200FD0C
-	ldr r5, _0200FD20 ; =0x02095B5C
+	ldr r5, _0200FD20 ; =fsi_arc_rom
 	ldr r1, _0200FD34 ; =FSi_EmptyArchiveProc
 	mov r0, r5
 	mvn r2, #0
@@ -18893,8 +18893,8 @@ _0200FD0C:
 	bl FS_SetCurrentDirectory
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0200FD1C: .word unk_02095B54
-_0200FD20: .word unk_02095B5C
+_0200FD1C: .word fsi_default_dma_no
+_0200FD20: .word fsi_arc_rom
 _0200FD24: .word unk_0208EE84
 _0200FD28: .word FSi_RomArchiveProc
 _0200FD2C: .word 0x00000682
@@ -18909,11 +18909,11 @@ _0200FD40: .word unk_0208EE88
 FS_TryLoadTable: ; 0x0200FD44
 	mov r3, r0
 	mov r2, r1
-	ldr r0, _0200FD5C ; =0x02095B5C
+	ldr r0, _0200FD5C ; =fsi_arc_rom
 	ldr r12, _0200FD60 ; =FS_LoadArchiveTables
 	mov r1, r3
 	bx r12
-_0200FD5C: .word unk_02095B5C
+_0200FD5C: .word fsi_arc_rom
 _0200FD60: .word FS_LoadArchiveTables
 	arm_func_end FS_TryLoadTable
 
@@ -18923,20 +18923,20 @@ FS_CreateFileFromRom: ; 0x0200FD64
 	mov lr, r1
 	mov r3, r2
 	ldr r12, _0200FD8C ; =0x0000FFFF
-	ldr r1, _0200FD90 ; =0x02095B5C
+	ldr r1, _0200FD90 ; =fsi_arc_rom
 	mov r2, lr
 	add r3, lr, r3
 	str r12, [sp]
 	bl FS_OpenFileDirect
 	ldmfd sp!, {r3, pc}
 _0200FD8C: .word 0x0000FFFF
-_0200FD90: .word unk_02095B5C
+_0200FD90: .word fsi_arc_rom
 	arm_func_end FS_CreateFileFromRom
 
 	arm_func_start FS_Init
 FS_Init: ; 0x0200FD94
 	stmfd sp!, {r3, lr}
-	ldr r1, _0200FDBC ; =0x02095BB8
+	ldr r1, _0200FDBC ; =is_init_02095bb8
 	ldr r2, [r1]
 	cmp r2, #0
 	ldmnefd sp!, {r3, pc}
@@ -18945,7 +18945,7 @@ FS_Init: ; 0x0200FD94
 	bl FSi_InitRomArchive
 	bl FSi_InitOverlay
 	ldmfd sp!, {r3, pc}
-_0200FDBC: .word unk_02095BB8
+_0200FDBC: .word is_init_02095bb8
 	arm_func_end FS_Init
 
 	arm_func_start CARDi_PeekEventListener
@@ -18990,7 +18990,7 @@ CARDi_LockBusCondition: ; 0x0200FE18
 CARD_Init: ; 0x0200FE34
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r5, _0200FF18 ; =0x02095C20
+	ldr r5, _0200FF18 ; =cardi_common
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	addne sp, sp, #8
@@ -19006,7 +19006,7 @@ CARD_Init: ; 0x0200FE34
 	bl MI_CpuCopy8
 _0200FE74:
 	mov r4, #0
-	ldr r0, _0200FF20 ; =0x02096260
+	ldr r0, _0200FF20 ; =cardi_rom_base
 	sub r3, r4, #1
 	mov r6, #0x400
 	mov r2, #0x2400
@@ -19047,18 +19047,18 @@ _0200FF0C:
 	bl CARD_InitPulledOutCallback
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0200FF18: .word unk_02095C20
+_0200FF18: .word cardi_common
 _0200FF1C: .word 0x02FFFE00
-_0200FF20: .word unk_02096260
+_0200FF20: .word cardi_rom_base
 _0200FF24: .word CARDi_OldTypeTaskThread
 	arm_func_end CARD_Init
 
 	arm_func_start CARD_IsEnabled
 CARD_IsEnabled: ; 0x0200FF28
-	ldr r0, _0200FF34 ; =0x02095BBC
+	ldr r0, _0200FF34 ; =CARDi_EnableFlag
 	ldr r0, [r0]
 	bx lr
-_0200FF34: .word unk_02095BBC
+_0200FF34: .word CARDi_EnableFlag
 	arm_func_end CARD_IsEnabled
 
 	arm_func_start CARD_CheckEnabled
@@ -19073,19 +19073,19 @@ CARD_CheckEnabled: ; 0x0200FF38
 
 	arm_func_start CARD_Enable
 CARD_Enable: ; 0x0200FF50
-	ldr r1, _0200FF5C ; =0x02095BBC
+	ldr r1, _0200FF5C ; =CARDi_EnableFlag
 	str r0, [r1]
 	bx lr
-_0200FF5C: .word unk_02095BBC
+_0200FF5C: .word CARDi_EnableFlag
 	arm_func_end CARD_Enable
 
 	arm_func_start CARD_GetResultCode
 CARD_GetResultCode: ; 0x0200FF60
-	ldr r0, _0200FF70 ; =0x02095C20
+	ldr r0, _0200FF70 ; =cardi_common
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bx lr
-_0200FF70: .word unk_02095C20
+_0200FF70: .word cardi_common
 	arm_func_end CARD_GetResultCode
 
 	arm_func_start CARD_GetRomHeader
@@ -19171,7 +19171,7 @@ _02010040:
 	arm_func_start CARDi_LockResource
 CARDi_LockResource: ; 0x02010050
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r5, _020100C4 ; =0x02095C20
+	ldr r5, _020100C4 ; =cardi_common
 	mov r8, r0
 	mov r7, r1
 	bl OS_DisableInterrupts
@@ -19203,13 +19203,13 @@ _020100AC:
 	str r1, [r5, #0x18]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020100C4: .word unk_02095C20
+_020100C4: .word cardi_common
 	arm_func_end CARDi_LockResource
 
 	arm_func_start CARDi_UnlockResource
 CARDi_UnlockResource: ; 0x020100C8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _02010144 ; =0x02095C20
+	ldr r4, _02010144 ; =cardi_common
 	mov r7, r0
 	mov r6, r1
 	bl OS_DisableInterrupts
@@ -19243,7 +19243,7 @@ _02010138:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02010144: .word unk_02095C20
+_02010144: .word cardi_common
 	arm_func_end CARDi_UnlockResource
 
 	arm_func_start CARDi_GetAccessLevel
@@ -19259,29 +19259,29 @@ CARDi_GetAccessLevel: ; 0x02010148
 	arm_func_start CARDi_WaitAsync
 CARDi_WaitAsync: ; 0x02010160
 	mov r1, #0
-	ldr r0, _02010178 ; =0x02095C20
+	ldr r0, _02010178 ; =cardi_common
 	ldr r12, _0201017C ; =CARDi_WaitForTask
 	mov r2, r1
 	mov r3, r1
 	bx r12
-_02010178: .word unk_02095C20
+_02010178: .word cardi_common
 _0201017C: .word CARDi_WaitForTask
 	arm_func_end CARDi_WaitAsync
 
 	arm_func_start CARDi_TryWaitAsync
 CARDi_TryWaitAsync: ; 0x02010180
-	ldr r0, _02010198 ; =0x02095C20
+	ldr r0, _02010198 ; =cardi_common
 	ldr r0, [r0, #4]
 	tst r0, #4
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-_02010198: .word unk_02095C20
+_02010198: .word cardi_common
 	arm_func_end CARDi_TryWaitAsync
 
 	arm_func_start CARDi_InitResourceLock
 CARDi_InitResourceLock: ; 0x0201019C
-	ldr r2, _020101C0 ; =0x02095C20
+	ldr r2, _020101C0 ; =cardi_common
 	mov r0, #0
 	mvn r1, #2
 	str r1, [r2, #0x14]
@@ -19290,14 +19290,14 @@ CARDi_InitResourceLock: ; 0x0201019C
 	str r0, [r2, #0x20]
 	str r0, [r2, #0x1c]
 	bx lr
-_020101C0: .word unk_02095C20
+_020101C0: .word cardi_common
 	arm_func_end CARDi_InitResourceLock
 
 	arm_func_start CARDi_InitCommand
 CARDi_InitCommand: ; 0x020101C4
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _02010204 ; =0x02095BC0
-	ldr r3, _02010208 ; =0x02095C20
+	ldr r5, _02010204 ; =cardi_arg
+	ldr r3, _02010208 ; =cardi_common
 	mov r4, #0x60
 	mov r1, r5
 	mov r2, r4
@@ -19311,8 +19311,8 @@ CARDi_InitCommand: ; 0x020101C4
 	mov r0, #0xb
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
-_02010204: .word unk_02095BC0
-_02010208: .word unk_02095C20
+_02010204: .word cardi_arg
+_02010208: .word cardi_common
 _0201020C: .word CARDi_OnFifoRecv
 	arm_func_end CARDi_InitCommand
 
@@ -19322,10 +19322,10 @@ CARDi_NotifyEvent: ; 0x02010210
 	mov r5, r0
 	mov r4, r1
 	bl OS_DisableInterrupts
-	ldr r1, _02010278 ; =0x02096140
+	ldr r1, _02010278 ; =CARDiHookChain
 	mov r6, r0
 	ldr r8, [r1]
-	ldr r7, _0201027C ; =0x02096140
+	ldr r7, _0201027C ; =CARDiHookChain
 	cmp r8, #0
 	beq _0201026C
 _02010238:
@@ -19347,8 +19347,8 @@ _0201026C:
 	mov r0, r6
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02010278: .word unk_02096140
-_0201027C: .word unk_02096140
+_02010278: .word CARDiHookChain
+_0201027C: .word CARDiHookChain
 	arm_func_end CARDi_NotifyEvent
 
 	arm_func_start CARDi_ExecuteOldTypeTask
@@ -19356,7 +19356,7 @@ CARDi_ExecuteOldTypeTask: ; 0x02010280
 	stmfd sp!, {r4, r5, r6, lr}
 	movs r5, r1
 	mov r6, r0
-	ldr r4, _020102F0 ; =0x02095C20
+	ldr r4, _020102F0 ; =cardi_common
 	beq _020102BC
 	ldr r1, [r4, #8]
 	add r0, r4, #0x28
@@ -19383,14 +19383,14 @@ _020102CC:
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_020102F0: .word unk_02095C20
+_020102F0: .word cardi_common
 	arm_func_end CARDi_ExecuteOldTypeTask
 
 	arm_func_start CARDi_OldTypeTaskThread
 CARDi_OldTypeTaskThread: ; 0x020102F4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, #0
-	ldr r6, _0201033C ; =0x02095C20
+	ldr r6, _0201033C ; =cardi_common
 	mov r4, r5
 _02010304:
 	bl OS_DisableInterrupts
@@ -19409,7 +19409,7 @@ _02010324:
 	mov r1, r4
 	bl CARDi_ExecuteOldTypeTask
 	b _02010304
-_0201033C: .word unk_02095C20
+_0201033C: .word cardi_common
 	arm_func_end CARDi_OldTypeTaskThread
 
 	arm_func_start CARDi_WaitForTask
@@ -19482,13 +19482,13 @@ CARDi_GetDmaInterface: ; 0x02010404
 	cmp r0, #3
 	bhi _02010434
 	cmp r1, #0
-	ldreq r4, _0201043C ; =0x0208BEE8
+	ldreq r4, _0201043C ; =CARDiDmaUsingFormer
 	beq _02010434
 	bl OS_Terminate
 _02010434:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0201043C: .word unk_0208BEE8
+_0201043C: .word CARDiDmaUsingFormer
 	arm_func_end CARDi_GetDmaInterface
 
 	arm_func_start CARDi_ICInvalidateSmart
@@ -19539,14 +19539,14 @@ CARDi_OnFifoRecv: ; 0x020104B8
 	ldmnefd sp!, {r3, pc}
 	cmp r2, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r0, _020104E8 ; =0x02095C20
+	ldr r0, _020104E8 ; =cardi_common
 	ldr r1, [r0, #4]
 	bic r1, r1, #0x20
 	str r1, [r0, #4]
 	ldr r0, [r0, #0x51c]
 	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r3, pc}
-_020104E8: .word unk_02095C20
+_020104E8: .word cardi_common
 	arm_func_end CARDi_OnFifoRecv
 
 	arm_func_start CARDi_Request
@@ -19664,11 +19664,11 @@ CARDi_RequestStreamCommandCore: ; 0x0201063C
 	b _02010680
 _02010670:
 	cmp r5, #0xf
-	ldreq r0, _020107CC ; =0x02095C20
+	ldreq r0, _020107CC ; =cardi_common
 	ldreq r0, [r0]
 	ldreq r7, [r0, #0x20]
 _02010680:
-	ldr r4, _020107D0 ; =0x02096160
+	ldr r4, _020107D0 ; =CARDi_backup_cache_page_buf
 	mov r11, #9
 _02010688:
 	ldr r8, [r9, #0x504]
@@ -19761,14 +19761,14 @@ _0201079C:
 	bne _02010688
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020107C8: .word _version_NINTENDO_BACKUP
-_020107CC: .word unk_02095C20
-_020107D0: .word unk_02096160
+_020107CC: .word cardi_common
+_020107D0: .word CARDi_backup_cache_page_buf
 	arm_func_end CARDi_RequestStreamCommandCore
 
 	arm_func_start CARDi_IdentifyBackupCore2
 CARDi_IdentifyBackupCore2: ; 0x020107D4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r1, _02010AF8 ; =0x02095C20
+	ldr r1, _02010AF8 ; =cardi_common
 	mov r4, #0x48
 	ldr r6, [r1]
 	mov r5, #0
@@ -19987,12 +19987,12 @@ _02010AD8:
 	mov r1, #0
 	str r1, [r6, #4]
 	str r1, [r6, #0x18]
-	ldr r0, _02010AF8 ; =0x02095C20
+	ldr r0, _02010AF8 ; =cardi_common
 	mov r1, #3
 	ldr r0, [r0]
 	str r1, [r0]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02010AF8: .word unk_02095C20
+_02010AF8: .word cardi_common
 _02010AFC: .word 0x0000203F
 _02010B00: .word 0x00001388
 _02010B04: .word 0x00002710
@@ -20015,7 +20015,7 @@ CARDi_IdentifyBackupCore: ; 0x02010B1C
 	mov r1, #0
 	str r1, [r0, #0xc]
 	ldr r1, [r5]
-	ldr r2, _02010B68 ; =0x02096160
+	ldr r2, _02010B68 ; =CARDi_backup_cache_page_buf
 	mov r0, r5
 	str r2, [r1, #0x10]
 	ldr r3, [r5]
@@ -20024,7 +20024,7 @@ CARDi_IdentifyBackupCore: ; 0x02010B1C
 	str r4, [r3, #0x14]
 	bl CARDi_Request
 	ldmfd sp!, {r3, r4, r5, pc}
-_02010B68: .word unk_02096160
+_02010B68: .word CARDi_backup_cache_page_buf
 	arm_func_end CARDi_IdentifyBackupCore
 
 	arm_func_start CARDi_BeginBackupCommand
@@ -20042,14 +20042,14 @@ CARDi_BeginBackupCommand: ; 0x02010B6C
 	beq _02010B9C
 	bl OS_Terminate
 _02010B9C:
-	ldr r0, _02010BB8 ; =0x02095C20
+	ldr r0, _02010BB8 ; =cardi_common
 	mov r2, r5
 	mov r3, r4
 	mov r1, #1
 	bl CARDi_WaitForTask
 	ldmfd sp!, {r4, r5, r6, pc}
 _02010BB4: .word _version_NINTENDO_BACKUP
-_02010BB8: .word unk_02095C20
+_02010BB8: .word cardi_common
 	arm_func_end CARDi_BeginBackupCommand
 
 	arm_func_start CARDi_RequestStreamCommand
@@ -20065,7 +20065,7 @@ CARDi_RequestStreamCommand: ; 0x02010BBC
 	movne r0, #2
 	mov r1, r3
 	bl CARDi_BeginBackupCommand
-	ldr r2, _02010C20 ; =0x02095C20
+	ldr r2, _02010C20 ; =cardi_common
 	ldr r1, [sp, #0x18]
 	str r6, [r2, #0x4fc]
 	str r5, [r2, #0x500]
@@ -20079,7 +20079,7 @@ CARDi_RequestStreamCommand: ; 0x02010BBC
 	str r3, [r2, #0x518]
 	bl CARDi_ExecuteOldTypeTask
 	ldmfd sp!, {r4, r5, r6, pc}
-_02010C20: .word unk_02095C20
+_02010C20: .word cardi_common
 _02010C24: .word CARDi_RequestStreamCommandCore
 	arm_func_end CARDi_RequestStreamCommand
 
@@ -20106,11 +20106,11 @@ _02010C64: .word CARDi_IdentifyBackupCore
 
 	arm_func_start CARD_GetBackupSectorSize
 CARD_GetBackupSectorSize: ; 0x02010C68
-	ldr r0, _02010C78 ; =0x02095C20
+	ldr r0, _02010C78 ; =cardi_common
 	ldr r0, [r0]
 	ldr r0, [r0, #0x1c]
 	bx lr
-_02010C78: .word unk_02095C20
+_02010C78: .word cardi_common
 	arm_func_end CARD_GetBackupSectorSize
 
 	arm_func_start CARD_WaitBackupAsync
@@ -20250,7 +20250,7 @@ CARDi_RefreshRom: ; 0x02010E08
 	bl CARDi_ReadRomStatusCore
 	tst r0, #0x20
 	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r4, _02010E64 ; =0x02093994
+	ldr r4, _02010E64 ; =OSi_IsThreadInitialized
 	mov r5, #1
 _02010E34:
 	ldr r0, [r4]
@@ -20266,7 +20266,7 @@ _02010E54:
 	tst r0, #0x20
 	beq _02010E34
 	ldmfd sp!, {r3, r4, r5, pc}
-_02010E64: .word unk_02093994
+_02010E64: .word OSi_IsThreadInitialized
 	arm_func_end CARDi_RefreshRom
 
 	arm_func_start CARDi_RefreshRomCore
@@ -20297,7 +20297,7 @@ _02010EB0: .word 0x040001A4
 CARDi_ReadRomWithCPU: ; 0x02010EB4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
-	ldr r0, _02010FC0 ; =0x0208EE90
+	ldr r0, _02010FC0 ; =cache_page
 	mov r8, r3
 	ldr r0, [r0]
 	mov r10, r1
@@ -20315,7 +20315,7 @@ _02010EE4:
 	mov r5, r10
 	cmp r6, r0
 	mov r7, #0x200
-	ldreq r5, _02010FCC ; =0x02096320
+	ldreq r5, _02010FCC ; =CARDi_cache_buf
 	beq _02010F5C
 	cmp r6, r9
 	bne _02010F24
@@ -20325,7 +20325,7 @@ _02010EE4:
 	cmp r8, r0
 	bhs _02010F2C
 _02010F24:
-	ldr r5, _02010FCC ; =0x02096320
+	ldr r5, _02010FCC ; =CARDi_cache_buf
 	str r6, [sp]
 _02010F2C:
 	mov r0, r6
@@ -20343,12 +20343,12 @@ _02010F54:
 	tst r2, #0x80000000
 	bne _02010F38
 _02010F5C:
-	ldr r0, _02010FCC ; =0x02096320
+	ldr r0, _02010FCC ; =CARDi_cache_buf
 	cmp r5, r0
 	bne _02010F8C
 	sub r3, r9, r6
 	rsb r7, r3, #0x200
-	ldr r0, _02010FCC ; =0x02096320
+	ldr r0, _02010FCC ; =CARDi_cache_buf
 	cmp r8, r7
 	movls r7, r8
 	mov r1, r10
@@ -20364,22 +20364,22 @@ _02010F98:
 	bne _02010EE4
 	bl CARDi_ReadRomIDCore
 	bl CARDi_CheckPulledOutCore
-	ldr r2, _02010FC0 ; =0x0208EE90
+	ldr r2, _02010FC0 ; =cache_page
 	ldr r1, [sp]
 	ldr r0, [sp, #4]
 	str r1, [r2]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02010FC0: .word unk_0208EE90
+_02010FC0: .word cache_page
 _02010FC4: .word 0x04100010
 _02010FC8: .word 0x040001A4
-_02010FCC: .word unk_02096320
+_02010FCC: .word CARDi_cache_buf
 	arm_func_end CARDi_ReadRomWithCPU
 
 	arm_func_start CARDi_DmaReadPageCallback
 CARDi_DmaReadPageCallback: ; 0x02010FD0
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r5, _02011068 ; =0x02096260
+	ldr r5, _02011068 ; =cardi_rom_base
 	ldr r4, [r5, #8]
 	cmp r4, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -20397,7 +20397,7 @@ CARDi_DmaReadPageCallback: ; 0x02010FD0
 	bl CARDi_StartRomPageTransfer
 	ldmfd sp!, {r4, r5, r6, pc}
 _02011018:
-	ldr r0, _0201106C ; =0x02095C20
+	ldr r0, _0201106C ; =cardi_common
 	ldr r1, [r0, #0x50c]
 	ldr r0, [r0, #0x508]
 	ldr r1, [r1, #4]
@@ -20417,8 +20417,8 @@ _02011018:
 	ldr r0, [r4, #8]
 	blx r1
 	ldmfd sp!, {r4, r5, r6, pc}
-_02011068: .word unk_02096260
-_0201106C: .word unk_02095C20
+_02011068: .word cardi_rom_base
+_0201106C: .word cardi_common
 	arm_func_end CARDi_DmaReadPageCallback
 
 	arm_func_start CARDi_ReadRomWithDMA
@@ -20426,7 +20426,7 @@ CARDi_ReadRomWithDMA: ; 0x02011070
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
-	ldr r2, _020110DC ; =0x02096260
+	ldr r2, _020110DC ; =cardi_rom_base
 	mov r4, #0x80000
 	mov r5, r0
 	ldr r1, _020110E0 ; =CARDi_DmaReadPageCallback
@@ -20439,7 +20439,7 @@ CARDi_ReadRomWithDMA: ; 0x02011070
 	bl OS_EnableIrqMask
 	mov r0, r5
 	bl OS_RestoreInterrupts
-	ldr r2, _020110E4 ; =0x02095C20
+	ldr r2, _020110E4 ; =cardi_common
 	ldr r1, _020110E8 ; =0x04100010
 	ldr r0, [r2, #0x508]
 	ldr r3, [r2, #0x50c]
@@ -20450,9 +20450,9 @@ CARDi_ReadRomWithDMA: ; 0x02011070
 	ldr r0, [r6, #0xc]
 	bl CARDi_StartRomPageTransfer
 	ldmfd sp!, {r4, r5, r6, pc}
-_020110DC: .word unk_02096260
+_020110DC: .word cardi_rom_base
 _020110E0: .word CARDi_DmaReadPageCallback
-_020110E4: .word unk_02095C20
+_020110E4: .word cardi_common
 _020110E8: .word 0x04100010
 	arm_func_end CARDi_ReadRomWithDMA
 
@@ -20463,13 +20463,13 @@ CARDi_DmaReadDone: ; 0x020110EC
 	bl CARDi_CheckPulledOutCore
 	mov r0, #8
 	bl CARDi_RefreshRom
-	ldr r0, _02011118 ; =0x02095C20
+	ldr r0, _02011118 ; =cardi_common
 	mov r2, #0
 	ldr r1, [r0]
 	str r2, [r1]
 	bl CARDi_EndTask
 	ldmfd sp!, {r3, pc}
-_02011118: .word unk_02095C20
+_02011118: .word cardi_common
 	arm_func_end CARDi_DmaReadDone
 
 	arm_func_start CARDi_IsRomDmaAvailable
@@ -20529,7 +20529,7 @@ _020111CC: .word 0x000001FF
 	arm_func_start CARDi_ReadRomSyncCore
 CARDi_ReadRomSyncCore: ; 0x020111D0
 	stmfd sp!, {r4, lr}
-	ldr r12, _02011214 ; =0x02096260
+	ldr r12, _02011214 ; =cardi_rom_base
 	mov r4, #0
 	ldr r1, [r0, #0x500]
 	ldr r2, [r0, #0x4fc]
@@ -20541,12 +20541,12 @@ CARDi_ReadRomSyncCore: ; 0x020111D0
 	bl CARDi_CheckPulledOutCore
 	mov r0, #8
 	bl CARDi_RefreshRom
-	ldr r0, _02011218 ; =0x02095C20
+	ldr r0, _02011218 ; =cardi_common
 	ldr r0, [r0]
 	str r4, [r0]
 	ldmfd sp!, {r4, pc}
-_02011214: .word unk_02096260
-_02011218: .word unk_02095C20
+_02011214: .word cardi_rom_base
+_02011218: .word cardi_common
 	arm_func_end CARDi_ReadRomSyncCore
 
 	arm_func_start CARDi_ReadRom
@@ -20556,7 +20556,7 @@ CARDi_ReadRom: ; 0x0201121C
 	mov r7, r1
 	mov r6, r2
 	mov r5, r3
-	ldr r4, _02011388 ; =0x02095C20
+	ldr r4, _02011388 ; =cardi_common
 	bl CARD_CheckEnabled
 	bl CARDi_GetAccessLevel
 	tst r0, #4
@@ -20582,7 +20582,7 @@ _02011248:
 	ldr r1, [r1, #4]
 	blx r1
 _02011290:
-	ldr r8, _0201138C ; =0x02096260
+	ldr r8, _0201138C ; =cardi_rom_base
 	ldr r0, _02011390 ; =CARDi_DmaReadDone
 	ldr r1, [r8]
 	str r6, [r4, #0x500]
@@ -20616,7 +20616,7 @@ _02011290:
 	ldr r2, [r4, #0xc]
 	bl CARDi_ICInvalidateSmart
 _02011314:
-	ldr r0, _02011398 ; =0x0208EE90
+	ldr r0, _02011398 ; =cache_page
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _02011334
@@ -20627,7 +20627,7 @@ _02011314:
 _02011334:
 	mov r0, r5
 	bl OS_RestoreInterrupts
-	ldr r0, _0201139C ; =0x02096270
+	ldr r0, _0201139C ; =CARDiDmaReadInfo
 	bl CARDi_ReadRomWithDMA
 	ldr r0, [sp, #0x28]
 	cmp r0, #0
@@ -20635,7 +20635,7 @@ _02011334:
 	bl CARD_WaitRomAsync
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02011358:
-	ldr r0, _0201138C ; =0x02096260
+	ldr r0, _0201138C ; =cardi_rom_base
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _02011378
@@ -20648,12 +20648,12 @@ _02011378:
 	ldr r0, _020113A0 ; =CARDi_ReadRomSyncCore
 	bl CARDi_ExecuteOldTypeTask
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02011388: .word unk_02095C20
-_0201138C: .word unk_02096260
+_02011388: .word cardi_common
+_0201138C: .word cardi_rom_base
 _02011390: .word CARDi_DmaReadDone
 _02011394: .word CARDi_ReadRomWithCPU
-_02011398: .word unk_0208EE90
-_0201139C: .word unk_02096270
+_02011398: .word cache_page
+_0201139C: .word CARDiDmaReadInfo
 _020113A0: .word CARDi_ReadRomSyncCore
 	arm_func_end CARDi_ReadRom
 
@@ -20661,7 +20661,7 @@ _020113A0: .word CARDi_ReadRomSyncCore
 CARDi_InitRom: ; 0x020113A4
 	stmfd sp!, {r4, lr}
 	ldr r1, _02011410 ; =CARDi_ReadRomWithCPU
-	ldr r0, _02011414 ; =0x02096260
+	ldr r0, _02011414 ; =cardi_rom_base
 	str r1, [r0, #0xc]
 	bl OS_GetBootType
 	cmp r0, #1
@@ -20677,7 +20677,7 @@ CARDi_InitRom: ; 0x020113A4
 	bl CARD_LockRom
 	bl CARD_GetOwnRomHeader
 	ldr r2, [r0, #0x80]
-	ldr r1, _02011418 ; =0x0209628C
+	ldr r1, _02011418 ; =CARDiOwnSignature
 	mov r0, #0
 	mov r3, #0x88
 	bl CARDi_ReadRomWithCPU
@@ -20687,8 +20687,8 @@ CARDi_InitRom: ; 0x020113A4
 	bl OS_ReleaseLockID
 	ldmfd sp!, {r4, pc}
 _02011410: .word CARDi_ReadRomWithCPU
-_02011414: .word unk_02096260
-_02011418: .word unk_0209628C
+_02011414: .word cardi_rom_base
+_02011418: .word CARDiOwnSignature
 	arm_func_end CARDi_InitRom
 
 	arm_func_start CARD_WaitRomAsync
@@ -20700,16 +20700,16 @@ _02011424: .word CARDi_WaitAsync
 
 	arm_func_start CARDi_GetOwnSignature
 CARDi_GetOwnSignature: ; 0x02011428
-	ldr r0, _02011430 ; =0x0209628C
+	ldr r0, _02011430 ; =CARDiOwnSignature
 	bx lr
-_02011430: .word unk_0209628C
+_02011430: .word CARDiOwnSignature
 	arm_func_end CARDi_GetOwnSignature
 
 	arm_func_start CARD_InitPulledOutCallback
 CARD_InitPulledOutCallback: ; 0x02011434
 	stmfd sp!, {r3, r4, r5, lr}
 	bl PXI_Init
-	ldr r4, _02011460 ; =0x02096520
+	ldr r4, _02011460 ; =CARDiSlotResetCount
 	mov r5, #0
 	str r5, [r4]
 	ldr r1, _02011464 ; =CARDi_PulledOutCallback
@@ -20718,7 +20718,7 @@ CARD_InitPulledOutCallback: ; 0x02011434
 	bl PXI_SetFifoRecvCallback
 	str r5, [r4, #8]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02011460: .word unk_02096520
+_02011460: .word CARDiSlotResetCount
 _02011464: .word CARDi_PulledOutCallback
 	arm_func_end CARD_InitPulledOutCallback
 
@@ -20728,7 +20728,7 @@ CARDi_PulledOutCallback: ; 0x02011468
 	and r0, r1, #0x3f
 	cmp r0, #0x11
 	bne _020114C0
-	ldr r4, _020114F4 ; =0x02096520
+	ldr r4, _020114F4 ; =CARDiSlotResetCount
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -20750,7 +20750,7 @@ _020114B0:
 _020114C0:
 	cmp r0, #2
 	bne _020114EC
-	ldr r2, _020114F4 ; =0x02096520
+	ldr r2, _020114F4 ; =CARDiSlotResetCount
 	mov r1, #0
 	ldr r3, [r2]
 	mov r0, #2
@@ -20762,15 +20762,15 @@ _020114C0:
 _020114EC:
 	bl OS_Terminate
 	ldmfd sp!, {r3, r4, r5, pc}
-_020114F4: .word unk_02096520
+_020114F4: .word CARDiSlotResetCount
 	arm_func_end CARDi_PulledOutCallback
 
 	arm_func_start CARD_IsPulledOut
 CARD_IsPulledOut: ; 0x020114F8
-	ldr r0, _02011504 ; =0x02096520
+	ldr r0, _02011504 ; =CARDiSlotResetCount
 	ldr r0, [r0, #4]
 	bx lr
-_02011504: .word unk_02096520
+_02011504: .word CARDiSlotResetCount
 	arm_func_end CARD_IsPulledOut
 
 	arm_func_start CARD_TerminateForPulledOut
@@ -20857,19 +20857,19 @@ _02011600: .word 0x0000FFFF
 	arm_func_start CTRDGi_InitCommon
 CTRDGi_InitCommon: ; 0x02011604
 	stmfd sp!, {r3, lr}
-	ldr r1, _02011630 ; =0x02096530
+	ldr r1, _02011630 ; =CTRDGi_Work
 	mov r3, #0
 	ldr r2, _02011634 ; =0x05000001
 	add r0, sp, #0
 	str r3, [sp]
 	blx SVC_CpuSet
 	bl OS_GetLockID
-	ldr r1, _02011638 ; =0x0209652C
+	ldr r1, _02011638 ; =CTRDGi_EnableFlag
 	strh r0, [r1, #6]
 	ldmfd sp!, {r3, pc}
-_02011630: .word unk_02096530
+_02011630: .word CTRDGi_Work
 _02011634: .word 0x05000001
-_02011638: .word unk_0209652C
+_02011638: .word CTRDGi_EnableFlag
 	arm_func_end CTRDGi_InitCommon
 
 	arm_func_start CTRDG_IsExisting
@@ -20890,7 +20890,7 @@ CTRDG_IsExisting: ; 0x0201163C
 	addeq sp, sp, #0x10
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _02011738 ; =0x0209652C
+	ldr r0, _02011738 ; =CTRDGi_EnableFlag
 	add r1, sp, #8
 	ldrh r0, [r0, #6]
 	bl CTRDGi_LockByProcessor
@@ -20933,7 +20933,7 @@ _020116FC:
 _02011710:
 	add r0, sp, #0
 	bl CTRDGi_RestoreAccessCycle
-	ldr r0, _02011738 ; =0x0209652C
+	ldr r0, _02011738 ; =CTRDGi_EnableFlag
 	add r1, sp, #8
 	ldrh r0, [r0, #6]
 	bl CTRDGi_UnlockByProcessor
@@ -20941,7 +20941,7 @@ _02011710:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
 _02011734: .word 0x02FFFC30
-_02011738: .word unk_0209652C
+_02011738: .word CTRDGi_EnableFlag
 _0201173C: .word 0x0801FFFE
 	arm_func_end CTRDG_IsExisting
 
@@ -21056,7 +21056,7 @@ CTRDG_Enable: ; 0x0201188C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02011918 ; =0x0209652C
+	ldr r1, _02011918 ; =CTRDGi_EnableFlag
 	mov r5, r0
 	str r4, [r1]
 	bl CTRDG_IsExistedAtInit
@@ -21090,13 +21090,13 @@ _0201190C:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_02011918: .word unk_0209652C
+_02011918: .word CTRDGi_EnableFlag
 	arm_func_end CTRDG_Enable
 
 	arm_func_start CTRDG_Init
 CTRDG_Init: ; 0x0201191C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _020119B8 ; =0x02096534
+	ldr r4, _020119B8 ; =isInfoInitialized
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -21125,8 +21125,8 @@ _02011950:
 	ldr r1, _020119C0 ; =CTRDGi_PulledOutCallback
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
-	ldr r1, _020119B8 ; =0x02096534
-	ldr r0, _020119C4 ; =0x02096620
+	ldr r1, _020119B8 ; =isInfoInitialized
+	ldr r0, _020119C4 ; =CTRDGTaskList
 	str r4, [r1, #0x18]
 	bl CTRDGi_InitTaskThread
 	ldr r1, _020119C8 ; =CTRDGi_CallbackForSetPhi
@@ -21135,10 +21135,10 @@ _02011950:
 	mov r0, r4
 	bl CTRDG_Enable
 	ldmfd sp!, {r3, r4, r5, pc}
-_020119B8: .word unk_02096534
+_020119B8: .word isInfoInitialized
 _020119BC: .word CTRDGi_CallbackForInitModuleInfo
 _020119C0: .word CTRDGi_PulledOutCallback
-_020119C4: .word unk_02096620
+_020119C4: .word CTRDGTaskList
 _020119C8: .word CTRDGi_CallbackForSetPhi
 	arm_func_end CTRDG_Init
 
@@ -21146,7 +21146,7 @@ _020119C8: .word CTRDGi_CallbackForSetPhi
 CTRDGi_InitModuleInfo: ; 0x020119CC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
-	ldr r0, _02011B88 ; =0x02096534
+	ldr r0, _02011B88 ; =isInfoInitialized
 	ldr r1, [r0]
 	cmp r1, #0
 	addne sp, sp, #0x14
@@ -21162,7 +21162,7 @@ CTRDGi_InitModuleInfo: ; 0x020119CC
 	bl OS_SetIrqMask
 	sub r1, r5, #0xf8
 	ldrh r9, [r1]
-	ldr r4, _02011B90 ; =0x02096530
+	ldr r4, _02011B90 ; =CTRDGi_Work
 	mov r8, r0
 	strh r7, [r1]
 	add r11, sp, #0xc
@@ -21176,7 +21176,7 @@ CTRDGi_InitModuleInfo: ; 0x020119CC
 	add r0, sp, #4
 	bl CTRDGi_ChangeLatestAccessCycle
 	ldrh r0, [r6]
-	ldr r5, _02011B94 ; =0x02096560
+	ldr r5, _02011B94 ; =headerBuf
 	mov r1, #0x40
 	bic r0, r0, #0x8000
 	strh r0, [r6]
@@ -21205,7 +21205,7 @@ CTRDGi_InitModuleInfo: ; 0x020119CC
 	cmp r0, #0
 	bne _02011B20
 _02011ABC:
-	ldr r3, _02011B94 ; =0x02096560
+	ldr r3, _02011B94 ; =headerBuf
 	ldr r4, _02011BA0 ; =0x02FFFC30
 	ldrh r0, [r3, #0xbe]
 	mov r2, #0
@@ -21238,14 +21238,14 @@ _02011B20:
 	mov r2, #0x9c
 	bl MIi_CpuCopy32
 	bl DC_FlushAll
-	ldr r0, _02011B94 ; =0x02096560
+	ldr r0, _02011B94 ; =headerBuf
 	add r0, r0, #0xfe000000
 	mov r0, r0, lsr #5
 	mov r0, r0, lsl #6
 	orr r0, r0, #1
 	bl CTRDGi_SendtoPxi
 	mov r5, #1
-	ldr r4, _02011B90 ; =0x02096530
+	ldr r4, _02011B90 ; =CTRDGi_Work
 	b _02011B60
 _02011B58:
 	mov r0, r5
@@ -21261,10 +21261,10 @@ _02011B60:
 	bl OS_SetIrqMask
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02011B88: .word unk_02096534
+_02011B88: .word isInfoInitialized
 _02011B8C: .word 0x04000300
-_02011B90: .word unk_02096530
-_02011B94: .word unk_02096560
+_02011B90: .word CTRDGi_Work
+_02011B94: .word headerBuf
 _02011B98: .word 0x08000080
 _02011B9C: .word 0x02FFFF9B
 _02011BA0: .word 0x02FFFC30
@@ -21278,13 +21278,13 @@ CTRDGi_CallbackForInitModuleInfo: ; 0x02011BB0
 	stmfd sp!, {r3, lr}
 	and r0, r1, #0x3f
 	cmp r0, #1
-	ldreq r0, _02011BD4 ; =0x02096530
+	ldreq r0, _02011BD4 ; =CTRDGi_Work
 	moveq r1, #1
 	streqh r1, [r0]
 	ldmeqfd sp!, {r3, pc}
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
-_02011BD4: .word unk_02096530
+_02011BD4: .word CTRDGi_Work
 	arm_func_end CTRDGi_CallbackForInitModuleInfo
 
 	arm_func_start CTRDGi_PulledOutCallback
@@ -21293,7 +21293,7 @@ CTRDGi_PulledOutCallback: ; 0x02011BD8
 	and r0, r1, #0x3f
 	cmp r0, #0x11
 	bne _02011C28
-	ldr r0, _02011C30 ; =0x02096534
+	ldr r0, _02011C30 ; =isInfoInitialized
 	ldr r1, [r0, #0xc]
 	cmp r1, #0
 	ldmnefd sp!, {r3, pc}
@@ -21307,14 +21307,14 @@ _02011C0C:
 	beq _02011C18
 	bl CTRDG_TerminateForPulledOut
 _02011C18:
-	ldr r0, _02011C30 ; =0x02096534
+	ldr r0, _02011C30 ; =isInfoInitialized
 	mov r1, #1
 	str r1, [r0, #0xc]
 	ldmfd sp!, {r3, pc}
 _02011C28:
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
-_02011C30: .word unk_02096534
+_02011C30: .word isInfoInitialized
 	arm_func_end CTRDGi_PulledOutCallback
 
 	arm_func_start CTRDG_TerminateForPulledOut
@@ -21328,11 +21328,11 @@ CTRDG_TerminateForPulledOut: ; 0x02011C34
 
 	arm_func_start CTRDGi_CallbackForSetPhi
 CTRDGi_CallbackForSetPhi: ; 0x02011C48
-	ldr r0, _02011C58 ; =0x02096534
+	ldr r0, _02011C58 ; =isInfoInitialized
 	mov r1, #0
 	str r1, [r0, #4]
 	bx lr
-_02011C58: .word unk_02096534
+_02011C58: .word isInfoInitialized
 	arm_func_end CTRDGi_CallbackForSetPhi
 
 	arm_func_start CTRDGi_InitTaskThread
@@ -21341,7 +21341,7 @@ CTRDGi_InitTaskThread: ; 0x02011C5C
 	sub sp, sp, #8
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r1, _02011CD8 ; =0x02096708
+	ldr r1, _02011CD8 ; =ctrdgi_task_work
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -21349,13 +21349,13 @@ CTRDGi_InitTaskThread: ; 0x02011C5C
 	add r0, r5, #0xc4
 	str r5, [r1]
 	bl CTRDGi_InitTaskInfo
-	ldr r0, _02011CDC ; =0x0209670C
+	ldr r0, _02011CDC ; =ctrdgi_task_list
 	bl CTRDGi_InitTaskInfo
 	mov r0, #0
 	str r0, [r5, #0xc0]
 	mov r2, #0x400
 	ldr r1, _02011CE0 ; =CTRDGi_TaskThread
-	ldr r3, _02011CE4 ; =0x02096B30
+	ldr r3, _02011CE4 ; =wmInitialized
 	mov r0, r5
 	str r2, [sp]
 	mov r2, #0x14
@@ -21369,10 +21369,10 @@ _02011CC8:
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_02011CD8: .word unk_02096708
-_02011CDC: .word unk_0209670C
+_02011CD8: .word ctrdgi_task_work
+_02011CDC: .word ctrdgi_task_list
 _02011CE0: .word CTRDGi_TaskThread
-_02011CE4: .word unk_02096B30
+_02011CE4: .word wmInitialized
 	arm_func_end CTRDGi_InitTaskThread
 
 	arm_func_start CTRDGi_InitTaskInfo
@@ -21431,7 +21431,7 @@ _02011D54:
 _02011D98:
 	bl OS_DisableInterrupts
 	ldr r2, [sp, #4]
-	ldr r1, _02011DE8 ; =0x02096708
+	ldr r1, _02011DE8 ; =ctrdgi_task_work
 	mov r6, r0
 	strb r9, [r1, #0x26]
 	cmp r2, #0
@@ -21439,7 +21439,7 @@ _02011D98:
 	mov r0, r5
 	blx r2
 _02011DBC:
-	ldr r0, _02011DE8 ; =0x02096708
+	ldr r0, _02011DE8 ; =ctrdgi_task_work
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02011DDC
@@ -21451,7 +21451,7 @@ _02011DDC:
 	bl OS_ExitThread
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02011DE8: .word unk_02096708
+_02011DE8: .word ctrdgi_task_work
 	arm_func_end CTRDGi_TaskThread
 
 	arm_func_start WM_Init
@@ -21460,12 +21460,12 @@ WM_Init: ; 0x02011DEC
 	mov r2, #0xf00
 	bl WmInitCore
 	cmp r0, #0
-	ldreq r1, _02011E10 ; =0x02096B30
+	ldreq r1, _02011E10 ; =wmInitialized
 	moveq r2, #0
 	ldreq r1, [r1, #4]
 	streqh r2, [r1, #0x16]
 	ldmfd sp!, {r3, pc}
-_02011E10: .word unk_02096B30
+_02011E10: .word wmInitialized
 	arm_func_end WM_Init
 
 	arm_func_start WmInitCore
@@ -21476,7 +21476,7 @@ WmInitCore: ; 0x02011E14
 	mov r7, r1
 	mov r5, r2
 	bl OS_DisableInterrupts
-	ldr r9, _0201202C ; =0x02096B30
+	ldr r9, _0201202C ; =wmInitialized
 	mov r6, r0
 	ldrh r1, [r9]
 	cmp r1, #0
@@ -21578,14 +21578,14 @@ _02011F80:
 _02011F9C:
 	cmp r4, #0x10
 	blt _02011F80
-	ldr r5, _02012030 ; =0x02096B48
-	ldr r1, _02012034 ; =0x02096B68
+	ldr r5, _02012030 ; =bufMsgQ
+	ldr r1, _02012034 ; =bufMsg
 	mov r0, r5
 	mov r2, #0xa
 	bl OS_InitMessageQueue
 	mov r7, #0
 	mov r4, #0x8000
-	ldr r10, _02012038 ; =0x02096BE0
+	ldr r10, _02012038 ; =fifoBuf
 	mov r9, #2
 	mov r8, #1
 	b _02011FF8
@@ -21606,7 +21606,7 @@ _02011FF8:
 	ldr r1, _0201203C ; =WmReceiveFifo
 	mov r0, #0xa
 	bl PXI_SetFifoRecvCallback
-	ldr r1, _0201202C ; =0x02096B30
+	ldr r1, _0201202C ; =wmInitialized
 	mov r2, #1
 	mov r0, r6
 	strh r2, [r1]
@@ -21614,10 +21614,10 @@ _02011FF8:
 	mov r0, #0
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_0201202C: .word unk_02096B30
-_02012030: .word unk_02096B48
-_02012034: .word unk_02096B68
-_02012038: .word unk_02096BE0
+_0201202C: .word wmInitialized
+_02012030: .word bufMsgQ
+_02012034: .word bufMsg
+_02012038: .word fifoBuf
 _0201203C: .word WmReceiveFifo
 	arm_func_end WmInitCore
 
@@ -21644,30 +21644,30 @@ _02012068:
 	mov r1, r4
 	mov r0, #0xa
 	bl PXI_SetFifoRecvCallback
-	ldr r1, _020120AC ; =0x02096B30
+	ldr r1, _020120AC ; =wmInitialized
 	mov r0, r5
 	str r4, [r1, #4]
 	strh r4, [r1]
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_020120AC: .word unk_02096B30
+_020120AC: .word wmInitialized
 	arm_func_end WM_Finish
 
 	arm_func_start WMi_SetCallbackTable
 WMi_SetCallbackTable: ; 0x020120B0
-	ldr r2, _020120C4 ; =0x02096B30
+	ldr r2, _020120C4 ; =wmInitialized
 	ldr r2, [r2, #4]
 	add r0, r2, r0, lsl #2
 	str r1, [r0, #0x18]
 	bx lr
-_020120C4: .word unk_02096B30
+_020120C4: .word wmInitialized
 	arm_func_end WMi_SetCallbackTable
 
 	arm_func_start WmGetCommandBuffer4Arm7
 WmGetCommandBuffer4Arm7: ; 0x020120C8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _02012124 ; =0x02096B48
+	ldr r5, _02012124 ; =bufMsgQ
 	mov r4, #0
 	add r1, sp, #0
 	mov r0, r5
@@ -21689,7 +21689,7 @@ WmGetCommandBuffer4Arm7: ; 0x020120C8
 	bl OS_JamMessage
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_02012124: .word unk_02096B48
+_02012124: .word bufMsgQ
 	arm_func_end WmGetCommandBuffer4Arm7
 
 	arm_func_start WMi_SendCommand
@@ -21728,7 +21728,7 @@ _02012188:
 	mov r2, #0
 	bl PXI_SendWordByFifo
 	mov r5, r0
-	ldr r0, _020121D0 ; =0x02096B48
+	ldr r0, _020121D0 ; =bufMsgQ
 	mov r1, r4
 	mov r2, #1
 	bl OS_SendMessage
@@ -21738,7 +21738,7 @@ _02012188:
 	ldmfd sp!, {r3, r4, r5, lr}
 	add sp, sp, #0x10
 	bx lr
-_020121D0: .word unk_02096B48
+_020121D0: .word bufMsgQ
 	arm_func_end WMi_SendCommand
 
 	arm_func_start WMi_SendCommandDirect
@@ -21762,7 +21762,7 @@ WMi_SendCommandDirect: ; 0x020121D4
 	mov r2, #0
 	bl PXI_SendWordByFifo
 	mov r4, r0
-	ldr r0, _02012240 ; =0x02096B48
+	ldr r0, _02012240 ; =bufMsgQ
 	mov r1, r5
 	mov r2, #1
 	bl OS_SendMessage
@@ -21770,26 +21770,26 @@ WMi_SendCommandDirect: ; 0x020121D4
 	cmp r4, #0
 	movge r0, #2
 	ldmfd sp!, {r4, r5, r6, pc}
-_02012240: .word unk_02096B48
+_02012240: .word bufMsgQ
 	arm_func_end WMi_SendCommandDirect
 
 	arm_func_start WMi_GetSystemWork
 WMi_GetSystemWork: ; 0x02012244
-	ldr r0, _02012250 ; =0x02096B30
+	ldr r0, _02012250 ; =wmInitialized
 	ldr r0, [r0, #4]
 	bx lr
-_02012250: .word unk_02096B30
+_02012250: .word wmInitialized
 	arm_func_end WMi_GetSystemWork
 
 	arm_func_start WMi_CheckInitialized
 WMi_CheckInitialized: ; 0x02012254
-	ldr r0, _0201226C ; =0x02096B30
+	ldr r0, _0201226C ; =wmInitialized
 	ldrh r0, [r0]
 	cmp r0, #0
 	movne r0, #0
 	moveq r0, #3
 	bx lr
-_0201226C: .word unk_02096B30
+_0201226C: .word wmInitialized
 	arm_func_end WMi_CheckInitialized
 
 	arm_func_start WMi_CheckIdle
@@ -21798,7 +21798,7 @@ WMi_CheckIdle: ; 0x02012270
 	bl WMi_CheckInitialized
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
-	ldr r4, _020122B0 ; =0x02096B30
+	ldr r4, _020122B0 ; =wmInitialized
 	mov r1, #2
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #4]
@@ -21810,7 +21810,7 @@ WMi_CheckIdle: ; 0x02012270
 	movls r0, #3
 	movhi r0, #0
 	ldmfd sp!, {r4, pc}
-_020122B0: .word unk_02096B30
+_020122B0: .word wmInitialized
 	arm_func_end WMi_CheckIdle
 
 	arm_func_start WMi_CheckStateEx
@@ -21822,7 +21822,7 @@ WMi_CheckStateEx: ; 0x020122B4
 	ldmnefd sp!, {r4, lr}
 	addne sp, sp, #0x10
 	bxne lr
-	ldr r4, _02012340 ; =0x02096B30
+	ldr r4, _02012340 ; =wmInitialized
 	mov r1, #2
 	ldr r0, [r4, #4]
 	ldr r0, [r0, #4]
@@ -21851,14 +21851,14 @@ _02012318:
 	ldmfd sp!, {r4, lr}
 	add sp, sp, #0x10
 	bx lr
-_02012340: .word unk_02096B30
+_02012340: .word wmInitialized
 	arm_func_end WMi_CheckStateEx
 
 	arm_func_start WmReceiveFifo
 WmReceiveFifo: ; 0x02012344
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
-	ldr r0, _02012718 ; =0x02096B30
+	ldr r0, _02012718 ; =wmInitialized
 	cmp r2, #0
 	ldr r4, [r0, #4]
 	mov r10, r1
@@ -21987,7 +21987,7 @@ _02012504:
 	beq _0201252C
 	mov r0, r10
 	blx r1
-	ldr r0, _02012718 ; =0x02096B30
+	ldr r0, _02012718 ; =wmInitialized
 	ldrh r0, [r0]
 	cmp r0, #0
 	addeq sp, sp, #8
@@ -22043,10 +22043,10 @@ _020125B8:
 	str r0, [r4, #0x14c]
 	add r1, r4, #0x100
 	strh r7, [r1, #0x50]
-	ldr r0, _0201271C ; =0x02096B90
+	ldr r0, _0201271C ; =cb_Port
 	mov r1, #0
 	bl MI_CpuFill8
-	ldr r1, _0201271C ; =0x02096B90
+	ldr r1, _0201271C ; =cb_Port
 	mov r2, #0x82
 	strh r2, [r1]
 	mov r2, #0
@@ -22062,7 +22062,7 @@ _020125B8:
 	strh r3, [r1, #0x22]
 	strh r2, [r1, #0x1a]
 	ldr r3, [sp, #4]
-	ldr r2, _0201271C ; =0x02096B90
+	ldr r2, _0201271C ; =cb_Port
 	ldr r0, [sp]
 	strh r3, [r2, #0x3c]
 	ldr r1, _02012724 ; =0x02096BA4
@@ -22083,9 +22083,9 @@ _02012670:
 	mov r1, r8
 	cmp r7, #0
 	movne r1, r9
-	ldr r0, _0201271C ; =0x02096B90
+	ldr r0, _0201271C ; =cb_Port
 	cmp r7, #0
-	ldr r5, _0201271C ; =0x02096B90
+	ldr r5, _0201271C ; =cb_Port
 	strh r1, [r0, #0x40]
 	movne r9, r8
 	mov r6, #0
@@ -22125,8 +22125,8 @@ _020126D4:
 	bl DC_StoreRange
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02012718: .word unk_02096B30
-_0201271C: .word unk_02096B90
+_02012718: .word wmInitialized
+_0201271C: .word cb_Port
 _02012720: .word 0x0000FFFF
 _02012724: .word unk_02096BA4
 _02012728: .word unk_02096BB4
@@ -22151,18 +22151,18 @@ WMi_GetStatusAddress: ; 0x02012750
 	bl WMi_CheckInitialized
 	cmp r0, #0
 	movne r0, #0
-	ldreq r0, _02012770 ; =0x02096B30
+	ldreq r0, _02012770 ; =wmInitialized
 	ldreq r0, [r0, #4]
 	ldreq r0, [r0, #4]
 	ldmfd sp!, {r3, pc}
-_02012770: .word unk_02096B30
+_02012770: .word wmInitialized
 	arm_func_end WMi_GetStatusAddress
 
 	arm_func_start WM_GetAID
 WM_GetAID: ; 0x02012774
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020127A0 ; =0x02096B30
+	ldr r1, _020127A0 ; =wmInitialized
 	ldr r1, [r1, #4]
 	cmp r1, #0
 	addne r1, r1, #0x100
@@ -22171,14 +22171,14 @@ WM_GetAID: ; 0x02012774
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020127A0: .word unk_02096B30
+_020127A0: .word wmInitialized
 	arm_func_end WM_GetAID
 
 	arm_func_start WM_GetConnectedAIDs
 WM_GetConnectedAIDs: ; 0x020127A4
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _020127D0 ; =0x02096B30
+	ldr r1, _020127D0 ; =wmInitialized
 	ldr r1, [r1, #4]
 	cmp r1, #0
 	ldrne r4, [r1, #0x14c]
@@ -22187,14 +22187,14 @@ WM_GetConnectedAIDs: ; 0x020127A4
 	mov r0, r4, lsl #0x10
 	mov r0, r0, lsr #0x10
 	ldmfd sp!, {r4, pc}
-_020127D0: .word unk_02096B30
+_020127D0: .word wmInitialized
 	arm_func_end WM_GetConnectedAIDs
 
 	arm_func_start WMi_RegisterSleepCallback
 WMi_RegisterSleepCallback: ; 0x020127D4
 	ldr r1, _020127F8 ; =WmSleepCallback
-	ldr r2, _020127FC ; =0x02096B30
-	ldr r0, _02012800 ; =0x02096B38
+	ldr r2, _020127FC ; =wmInitialized
+	ldr r0, _02012800 ; =sleepCbInfo
 	str r1, [r2, #8]
 	mov r3, #0
 	ldr r12, _02012804 ; =PMi_InsertPostSleepCallbackEx
@@ -22202,17 +22202,17 @@ WMi_RegisterSleepCallback: ; 0x020127D4
 	str r3, [r2, #0xc]
 	bx r12
 _020127F8: .word WmSleepCallback
-_020127FC: .word unk_02096B30
-_02012800: .word unk_02096B38
+_020127FC: .word wmInitialized
+_02012800: .word sleepCbInfo
 _02012804: .word PMi_InsertPostSleepCallbackEx
 	arm_func_end WMi_RegisterSleepCallback
 
 	arm_func_start WMi_DeleteSleepCallback
 WMi_DeleteSleepCallback: ; 0x02012808
-	ldr r0, _02012814 ; =0x02096B38
+	ldr r0, _02012814 ; =sleepCbInfo
 	ldr r12, _02012818 ; =PM_DeletePreSleepCallback
 	bx r12
-_02012814: .word unk_02096B38
+_02012814: .word sleepCbInfo
 _02012818: .word PM_DeletePreSleepCallback
 	arm_func_end WMi_DeleteSleepCallback
 
@@ -22730,7 +22730,7 @@ _02012ED8:
 WM_GetNextTgid: ; 0x02012EF8
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
-	ldr r4, _02012F64 ; =0x0208EE98
+	ldr r4, _02012F64 ; =WM_GetNextTgid_tgid_bak
 	ldr r0, [r4]
 	cmp r0, #0x10000
 	bne _02012F3C
@@ -22746,7 +22746,7 @@ WM_GetNextTgid: ; 0x02012EF8
 	mov r0, r0, lsr #0x10
 	str r0, [r4]
 _02012F3C:
-	ldr r1, _02012F64 ; =0x0208EE98
+	ldr r1, _02012F64 ; =WM_GetNextTgid_tgid_bak
 	ldr r0, [r1]
 	add r0, r0, #1
 	mov r0, r0, lsl #0x10
@@ -22756,7 +22756,7 @@ _02012F3C:
 	mov r0, r0, lsr #0x10
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
-_02012F64: .word unk_0208EE98
+_02012F64: .word WM_GetNextTgid_tgid_bak
 	arm_func_end WM_GetNextTgid
 
 	arm_func_start WM_Enable
@@ -24750,7 +24750,7 @@ WM_SetGameInfo: ; 0x02014A9C
 	addhi sp, sp, #0xc
 	movhi r0, #6
 	ldmhifd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	ldr r5, _02014B5C ; =0x020975E0
+	ldr r5, _02014B5C ; =tmpUserGameInfoBuf
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
@@ -24776,7 +24776,7 @@ WM_SetGameInfo: ; 0x02014A9C
 	moveq r0, r6
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_02014B5C: .word unk_020975E0
+_02014B5C: .word tmpUserGameInfoBuf
 	arm_func_end WM_SetGameInfo
 
 	arm_func_start WM_SetBeaconIndication
@@ -25877,7 +25877,7 @@ _02015994: .word FUN_02015998
 FUN_02015998: ; 0x02015998
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _02015A7C ; =0x02097660
+	ldr r1, _02015A7C ; =FifoCtrlInit
 	mov r4, r0
 	ldrh r0, [r1]
 	cmp r0, #0
@@ -25888,7 +25888,7 @@ FUN_02015998: ; 0x02015998
 	ldr r0, _02015A80 ; =0x02FFFC00
 	mov r5, r1
 	str r1, [r0, #0x388]
-	ldr r0, _02015A84 ; =0x02097664
+	ldr r0, _02015A84 ; =FifoRecvCallbackTable
 _020159D0:
 	str r5, [r0, r1, lsl #2]
 	add r1, r1, #1
@@ -25938,9 +25938,9 @@ _02015A70:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02015A7C: .word unk_02097660
+_02015A7C: .word FifoCtrlInit
 _02015A80: .word 0x02FFFC00
-_02015A84: .word unk_02097664
+_02015A84: .word FifoRecvCallbackTable
 _02015A88: .word 0x0000C408
 _02015A8C: .word 0x04000184
 _02015A90: .word FUN_02015b7c
@@ -25952,7 +25952,7 @@ PXI_SetFifoRecvCallback: ; 0x02015A94
 	mov r4, r0
 	mov r5, r1
 	bl OS_DisableInterrupts
-	ldr r1, _02015AD8 ; =0x02097664
+	ldr r1, _02015AD8 ; =FifoRecvCallbackTable
 	ldr r3, _02015ADC ; =0x02FFFC00
 	str r5, [r1, r4, lsl #2]
 	cmp r5, #0
@@ -25965,7 +25965,7 @@ PXI_SetFifoRecvCallback: ; 0x02015A94
 	str r1, [r3, #0x388]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_02015AD8: .word unk_02097664
+_02015AD8: .word FifoRecvCallbackTable
 _02015ADC: .word 0x02FFFC00
 	arm_func_end PXI_SetFifoRecvCallback
 
@@ -26024,7 +26024,7 @@ FUN_02015b7c: ; 0x02015B7C
 	mvn r7, #3
 	ldr r9, [sp]
 	ldr r8, _02015C74 ; =0x04000184
-	ldr r4, _02015C78 ; =0x02097664
+	ldr r4, _02015C78 ; =FifoRecvCallbackTable
 	add r10, r7, #1
 	mov r6, #0x4100000
 	mov r5, #0
@@ -26092,7 +26092,7 @@ FUN_02015c6c: ; 0x02015C6C
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _02015C74: .word 0x04000184
-_02015C78: .word unk_02097664
+_02015C78: .word FifoRecvCallbackTable
 	arm_func_end FUN_02015c6c
 
 	arm_func_start TPi_TpCallback
@@ -26106,7 +26106,7 @@ TPi_TpCallback: ; 0x02015C7C
 	cmp r2, #0
 	mov r0, r0, lsr #0x10
 	mov r2, #0
-	ldr r3, _02015EE8 ; =0x020976E4
+	ldr r3, _02015EE8 ; =initial_020976e4
 	beq _02015CE4
 	mov r1, #1
 	mov r1, r1, lsl r0
@@ -26264,14 +26264,14 @@ _02015EDC:
 	bl OS_Terminate
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02015EE8: .word unk_020976E4
+_02015EE8: .word initial_020976e4
 _02015EEC: .word 0x02FFFFAA
 	arm_func_end TPi_TpCallback
 
 	arm_func_start TP_Init
 TP_Init: ; 0x02015EF0
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _02015F5C ; =0x020976E4
+	ldr r4, _02015F5C ; =initial_020976e4
 	ldrh r0, [r4]
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -26298,7 +26298,7 @@ _02015F38:
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
-_02015F5C: .word unk_020976E4
+_02015F5C: .word initial_020976e4
 _02015F60: .word TPi_TpCallback
 	arm_func_end TP_Init
 
@@ -26348,7 +26348,7 @@ _02015FF4: .word 0x02FFFC80
 	arm_func_start TP_SetCalibrateParam
 TP_SetCalibrateParam: ; 0x02015FF8
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r6, _020160DC ; =0x020976E4
+	ldr r6, _020160DC ; =initial_020976e4
 	movs r5, r0
 	mov r4, #0
 	streqh r4, [r6, #0x34]
@@ -26410,7 +26410,7 @@ _020160CC:
 	mov r0, #1
 	strh r0, [r6, #0x34]
 	ldmfd sp!, {r4, r5, r6, pc}
-_020160DC: .word unk_020976E4
+_020160DC: .word initial_020976e4
 _020160E0: .word 0x04000280
 _020160E4: .word 0x040002A0
 	arm_func_end TP_SetCalibrateParam
@@ -26431,7 +26431,7 @@ TP_RequestSamplingAsync: ; 0x020160E8
 	bne _02016150
 	mov r0, r4
 	bl OS_RestoreInterrupts
-	ldr r0, _0201617C ; =0x020976E4
+	ldr r0, _0201617C ; =initial_020976e4
 	ldrh r1, [r0, #0x38]
 	orr r1, r1, #1
 	strh r1, [r0, #0x38]
@@ -26444,7 +26444,7 @@ TP_RequestSamplingAsync: ; 0x020160E8
 	blx r3
 	ldmfd sp!, {r3, r4, r5, pc}
 _02016150:
-	ldr r2, _0201617C ; =0x020976E4
+	ldr r2, _0201617C ; =initial_020976e4
 	ldr r1, _02016180 ; =0x0000FFFE
 	ldrh r3, [r2, #0x3a]
 	mov r0, r4
@@ -26455,14 +26455,14 @@ _02016150:
 	strh r1, [r2, #0x38]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_0201617C: .word unk_020976E4
+_0201617C: .word initial_020976e4
 _02016180: .word 0x0000FFFE
 	arm_func_end TP_RequestSamplingAsync
 
 	arm_func_start TP_GetCalibratedResult
 TP_GetCalibratedResult: ; 0x02016184
 	stmfd sp!, {r3, lr}
-	ldr r2, _020161CC ; =0x020976E4
+	ldr r2, _020161CC ; =initial_020976e4
 	ldrh r1, [r2, #0x38]
 	tst r1, #1
 	movne r0, #1
@@ -26479,7 +26479,7 @@ TP_GetCalibratedResult: ; 0x02016184
 	bl TP_GetCalibratedPoint
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_020161CC: .word unk_020976E4
+_020161CC: .word initial_020976e4
 	arm_func_end TP_GetCalibratedResult
 
 	arm_func_start TP_WaitCalibratedResult
@@ -26496,7 +26496,7 @@ TP_WaitCalibratedResult: ; 0x020161D0
 	arm_func_start TP_RequestAutoSamplingStartAsync
 TP_RequestAutoSamplingStartAsync: ; 0x020161EC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r12, _020162EC ; =0x020976E4
+	ldr r12, _020162EC ; =initial_020976e4
 	mov r5, #0
 	str r2, [r12, #0x14]
 	mov r6, r1
@@ -26539,7 +26539,7 @@ _02016280:
 	bne _020162C0
 	mov r0, r6
 	bl OS_RestoreInterrupts
-	ldr r0, _020162EC ; =0x020976E4
+	ldr r0, _020162EC ; =initial_020976e4
 	ldrh r1, [r0, #0x38]
 	orr r1, r1, #2
 	strh r1, [r0, #0x38]
@@ -26552,7 +26552,7 @@ _02016280:
 	blx r3
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020162C0:
-	ldr r2, _020162EC ; =0x020976E4
+	ldr r2, _020162EC ; =initial_020976e4
 	ldr r1, _020162F0 ; =0x0000FFFD
 	ldrh r3, [r2, #0x3a]
 	mov r0, r6
@@ -26563,7 +26563,7 @@ _020162C0:
 	strh r1, [r2, #0x38]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020162EC: .word unk_020976E4
+_020162EC: .word initial_020976e4
 _020162F0: .word 0x0000FFFD
 	arm_func_end TP_RequestAutoSamplingStartAsync
 
@@ -26583,7 +26583,7 @@ TP_RequestAutoSamplingStopAsync: ; 0x020162F4
 	bne _0201635C
 	mov r0, r4
 	bl OS_RestoreInterrupts
-	ldr r0, _0201638C ; =0x020976E4
+	ldr r0, _0201638C ; =initial_020976e4
 	ldrh r1, [r0, #0x38]
 	orr r1, r1, #4
 	strh r1, [r0, #0x38]
@@ -26596,7 +26596,7 @@ TP_RequestAutoSamplingStopAsync: ; 0x020162F4
 	blx r3
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201635C:
-	ldr r2, _0201638C ; =0x020976E4
+	ldr r2, _0201638C ; =initial_020976e4
 	ldr r1, _02016390 ; =0x0000FFFB
 	ldrh r3, [r2, #0x3a]
 	mov r0, r4
@@ -26608,16 +26608,16 @@ _0201635C:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
 _02016388: .word 0x03000200
-_0201638C: .word unk_020976E4
+_0201638C: .word initial_020976e4
 _02016390: .word 0x0000FFFB
 	arm_func_end TP_RequestAutoSamplingStopAsync
 
 	arm_func_start TP_GetLatestIndexInAuto
 TP_GetLatestIndexInAuto: ; 0x02016394
-	ldr r0, _020163A0 ; =0x020976E4
+	ldr r0, _020163A0 ; =initial_020976e4
 	ldrh r0, [r0, #0x10]
 	bx lr
-_020163A0: .word unk_020976E4
+_020163A0: .word initial_020976e4
 	arm_func_end TP_GetLatestIndexInAuto
 
 	arm_func_start TP_CalcCalibrateParam
@@ -26760,7 +26760,7 @@ _0201658C: .word 0x040002A0
 	arm_func_start TP_GetCalibratedPoint
 TP_GetCalibratedPoint: ; 0x02016590
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r2, _020166A4 ; =0x020976E4
+	ldr r2, _020166A4 ; =initial_020976e4
 	ldrh r2, [r2, #0x34]
 	cmp r2, #0
 	bne _020165C8
@@ -26830,39 +26830,39 @@ _02016648:
 	movgt r1, #0xbf
 	strgth r1, [r0, #2]
 	ldmfd sp!, {r4, r5, r6, pc}
-_020166A4: .word unk_020976E4
+_020166A4: .word initial_020976e4
 _020166A8: .word unk_02097700
 	arm_func_end TP_GetCalibratedPoint
 
 	arm_func_start TP_WaitBusy
 TP_WaitBusy: ; 0x020166AC
-	ldr r1, _020166C0 ; =0x020976E4
+	ldr r1, _020166C0 ; =initial_020976e4
 _020166B0:
 	ldrh r2, [r1, #0x3a]
 	tst r2, r0
 	bne _020166B0
 	bx lr
-_020166C0: .word unk_020976E4
+_020166C0: .word initial_020976e4
 	arm_func_end TP_WaitBusy
 
 	arm_func_start TP_CheckError
 TP_CheckError: ; 0x020166C4
-	ldr r1, _020166D4 ; =0x020976E4
+	ldr r1, _020166D4 ; =initial_020976e4
 	ldrh r1, [r1, #0x38]
 	and r0, r1, r0
 	bx lr
-_020166D4: .word unk_020976E4
+_020166D4: .word initial_020976e4
 	arm_func_end TP_CheckError
 
 	arm_func_start PMi_WaitBusy
 PMi_WaitBusy: ; 0x020166D8
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _02016750 ; =0x0209774C
+	ldr r4, _02016750 ; =PMi_Work
 	ldr r0, [r4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r6, _02016754 ; =0x04000208
-	ldr r5, _02016758 ; =0x0208EE9C
+	ldr r5, _02016758 ; =PMi_WaitBusyMethod
 _020166F4:
 	ldr r0, [r5]
 	tst r0, #2
@@ -26891,9 +26891,9 @@ _02016740:
 	cmp r0, #0
 	bne _020166F4
 	ldmfd sp!, {r4, r5, r6, pc}
-_02016750: .word unk_0209774C
+_02016750: .word PMi_Work
 _02016754: .word 0x04000208
-_02016758: .word unk_0208EE9C
+_02016758: .word PMi_WaitBusyMethod
 	arm_func_end PMi_WaitBusy
 
 	arm_func_start PMi_DummyCallback
@@ -27331,7 +27331,7 @@ PMi_ForceToPowerOff: ; 0x02016CA4
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, pc}
-	ldr r4, _02016CEC ; =0x0208EE9C
+	ldr r4, _02016CEC ; =PMi_WaitBusyMethod
 	mov r0, #0xc
 	str r0, [r4]
 	bl PMi_WaitBusy
@@ -27341,7 +27341,7 @@ PMi_ForceToPowerOff: ; 0x02016CA4
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _02016CE8: .word PMi_DummyCallback
-_02016CEC: .word unk_0208EE9C
+_02016CEC: .word PMi_WaitBusyMethod
 	arm_func_end PMi_ForceToPowerOff
 
 	arm_func_start PM_ForceToPowerOff
@@ -27431,7 +27431,7 @@ _02016DCC:
 PMi_PreSleepForDma: ; 0x02016DE8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _02016E74 ; =0x040001A4
-	ldr r5, _02016E78 ; =0x0209773C
+	ldr r5, _02016E78 ; =PMi_PreDmaCnt
 	mov r6, #0
 _02016DF8:
 	mov r0, #0xc
@@ -27472,7 +27472,7 @@ _02016E64:
 	bls _02016DF8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02016E74: .word 0x040001A4
-_02016E78: .word unk_0209773C
+_02016E78: .word PMi_PreDmaCnt
 	arm_func_end PMi_PreSleepForDma
 
 	arm_func_start PM_GoSleepMode
@@ -27978,36 +27978,36 @@ _02017508:
 	arm_func_start PM_AppendPreSleepCallback
 PM_AppendPreSleepCallback: ; 0x02017524
 	mov r1, r0
-	ldr r0, _0201753C ; =0x02097730
+	ldr r0, _0201753C ; =PMi_PreSleepCallbackList
 	ldr r12, _02017540 ; =PMi_InsertList
 	mov r2, #0xff
 	mov r3, #0
 	bx r12
-_0201753C: .word unk_02097730
+_0201753C: .word PMi_PreSleepCallbackList
 _02017540: .word PMi_InsertList
 	arm_func_end PM_AppendPreSleepCallback
 
 	arm_func_start PM_PrependPreSleepCallback
 PM_PrependPreSleepCallback: ; 0x02017544
 	mov r1, r0
-	ldr r0, _0201755C ; =0x02097730
+	ldr r0, _0201755C ; =PMi_PreSleepCallbackList
 	ldr r12, _02017560 ; =PMi_InsertList
 	mvn r2, #0xfe
 	mov r3, #1
 	bx r12
-_0201755C: .word unk_02097730
+_0201755C: .word PMi_PreSleepCallbackList
 _02017560: .word PMi_InsertList
 	arm_func_end PM_PrependPreSleepCallback
 
 	arm_func_start PM_AppendPostSleepCallback
 PM_AppendPostSleepCallback: ; 0x02017564
 	mov r1, r0
-	ldr r0, _0201757C ; =0x02097738
+	ldr r0, _0201757C ; =PMi_PostSleepCallbackList
 	ldr r12, _02017580 ; =PMi_InsertList
 	mov r2, #0xff
 	mov r3, #0
 	bx r12
-_0201757C: .word unk_02097738
+_0201757C: .word PMi_PostSleepCallbackList
 _02017580: .word PMi_InsertList
 	arm_func_end PM_AppendPostSleepCallback
 
@@ -28016,31 +28016,31 @@ PMi_InsertPostSleepCallbackEx: ; 0x02017584
 	mov r3, r0
 	mov r2, r1
 	mov r1, r3
-	ldr r0, _020175A0 ; =0x02097730
+	ldr r0, _020175A0 ; =PMi_PreSleepCallbackList
 	ldr r12, _020175A4 ; =PMi_InsertList
 	mov r3, #0
 	bx r12
-_020175A0: .word unk_02097730
+_020175A0: .word PMi_PreSleepCallbackList
 _020175A4: .word PMi_InsertList
 	arm_func_end PMi_InsertPostSleepCallbackEx
 
 	arm_func_start PM_DeletePreSleepCallback
 PM_DeletePreSleepCallback: ; 0x020175A8
 	mov r1, r0
-	ldr r0, _020175B8 ; =0x02097730
+	ldr r0, _020175B8 ; =PMi_PreSleepCallbackList
 	ldr r12, _020175BC ; =PMi_DeleteList
 	bx r12
-_020175B8: .word unk_02097730
+_020175B8: .word PMi_PreSleepCallbackList
 _020175BC: .word PMi_DeleteList
 	arm_func_end PM_DeletePreSleepCallback
 
 	arm_func_start PM_DeletePostSleepCallback
 PM_DeletePostSleepCallback: ; 0x020175C0
 	mov r1, r0
-	ldr r0, _020175D0 ; =0x02097738
+	ldr r0, _020175D0 ; =PMi_PostSleepCallbackList
 	ldr r12, _020175D4 ; =PMi_DeleteList
 	bx r12
-_020175D0: .word unk_02097738
+_020175D0: .word PMi_PostSleepCallbackList
 _020175D4: .word PMi_DeleteList
 	arm_func_end PM_DeletePostSleepCallback
 
@@ -28049,7 +28049,7 @@ PMi_LCDOnAvoidReset: ; 0x020175D8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r0, #0x360000
 	bl OS_SpinWaitSysCycles
-	ldr r0, _02017678 ; =0x0208EE9C
+	ldr r0, _02017678 ; =PMi_WaitBusyMethod
 	mov r1, #0xe
 	ldr r4, [r0]
 	str r1, [r0]
@@ -28087,10 +28087,10 @@ _02017654:
 	cmp r0, #0
 	beq _02017654
 _0201766C:
-	ldr r0, _02017678 ; =0x0208EE9C
+	ldr r0, _02017678 ; =PMi_WaitBusyMethod
 	str r4, [r0]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02017678: .word unk_0208EE9C
+_02017678: .word PMi_WaitBusyMethod
 _0201767C: .word 0x00051D23
 	arm_func_end PMi_LCDOnAvoidReset
 
@@ -163796,15 +163796,15 @@ FX_AtanIdxTable_:
 	.byte 0xED, 0x1C, 0x1B, 0x1D, 0x4A, 0x1D, 0x78, 0x1D, 0xA5, 0x1D, 0xD3, 0x1D, 0xFF, 0x1D, 0x2C, 0x1E
 	.byte 0x58, 0x1E, 0x84, 0x1E, 0xB0, 0x1E, 0xDB, 0x1E, 0x06, 0x1F, 0x30, 0x1F, 0x5A, 0x1F, 0x84, 0x1F
 	.byte 0xAE, 0x1F, 0xD7, 0x1F, 0x00, 0x20, 0x00, 0x00
-	.global unk_0208B978
-unk_0208B978:
+	.global padlead
+padlead:
 	.byte 0x80
-	.global unk_0208B979
-unk_0208B979:
+	.global padalign
+padalign:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_0208B984
-unk_0208B984:
+	.global initializer_list_0208b984
+initializer_list_0208b984:
 	.byte 0x14, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global SNDi_DecibelTable
@@ -163873,21 +163873,21 @@ VolumeTable:
 	.byte 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x61, 0x62, 0x63, 0x65, 0x66
 	.byte 0x67, 0x68, 0x69, 0x6A, 0x6C, 0x6D, 0x6E, 0x6F, 0x71, 0x72, 0x73, 0x75, 0x76, 0x77, 0x79, 0x7A
 	.byte 0x7C, 0x7D, 0x7E, 0x7F
-	.global unk_0208BD74
-unk_0208BD74:
+	.global fsi_def_digest_key
+fsi_def_digest_key:
 	.byte 0x21, 0x06, 0xC0, 0xDE, 0xBA, 0x98, 0xCE, 0x3F, 0xA6, 0x92, 0xE3, 0x9D
 	.byte 0x46, 0xF2, 0xED, 0x01, 0x76, 0xE3, 0xCC, 0x08, 0x56, 0x23, 0x63, 0xFA, 0xCA, 0xD4, 0xEC, 0xDF
 	.byte 0x9A, 0x62, 0x78, 0x34, 0x8F, 0x6D, 0x63, 0x3C, 0xFE, 0x22, 0xCA, 0x92, 0x20, 0x88, 0x97, 0x23
 	.byte 0xD2, 0xCF, 0xAE, 0xC2, 0x32, 0x67, 0x8D, 0xFE, 0xCA, 0x83, 0x64, 0x98, 0xAC, 0xFD, 0x3E, 0x37
 	.byte 0x87, 0x46, 0x58, 0x24
-	.global unk_0208BDB4
-unk_0208BDB4:
+	.global default_table
+default_table:
 	.byte 0xB0, 0xEE, 0x00, 0x02, 0xE0, 0xEE, 0x00, 0x02, 0xAC, 0xE6, 0x00, 0x02
 	.byte 0x48, 0xE7, 0x00, 0x02, 0x74, 0xE8, 0x00, 0x02, 0x88, 0xEA, 0x00, 0x02, 0x04, 0xEE, 0x00, 0x02
 	.byte 0x8C, 0xEE, 0x00, 0x02, 0x10, 0xEF, 0x00, 0x02, 0x10, 0xEF, 0x00, 0x02, 0x10, 0xEF, 0x00, 0x02
 	.byte 0x10, 0xEF, 0x00, 0x02, 0x10, 0xEF, 0x00, 0x02
-	.global unk_0208BDE8
-unk_0208BDE8:
+	.global FSiArchiveProcInterface
+FSiArchiveProcInterface:
 	.byte 0xE8, 0xEF, 0x00, 0x02, 0x2C, 0xF0, 0x00, 0x02
 	.byte 0x70, 0xF0, 0x00, 0x02, 0xC8, 0xF0, 0x00, 0x02, 0xF0, 0xF1, 0x00, 0x02, 0x7C, 0xF2, 0x00, 0x02
 	.byte 0xC0, 0xF2, 0x00, 0x02, 0x08, 0xF3, 0x00, 0x02, 0x5C, 0xF3, 0x00, 0x02, 0x8C, 0xF3, 0x00, 0x02
@@ -163905,8 +163905,8 @@ unk_0208BDE8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208BEE8
-unk_0208BEE8:
+	.global CARDiDmaUsingFormer
+CARDiDmaUsingFormer:
 	.byte 0x34, 0x84, 0x00, 0x02, 0xAC, 0x73, 0x00, 0x02
 	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x58, 0x89, 0x01, 0x02
 	.byte 0x44, 0x8D, 0x01, 0x02, 0xC4, 0x8D, 0x01, 0x02
@@ -164830,30 +164830,43 @@ unk_0208EB60:
 	.word FUN_020877a0
 
 	.data
-	.global unk_0208EC20
-unk_0208EC20:
+	.global OSi_IrqCallbackInfoIndex
+OSi_IrqCallbackInfoIndex:
 	.byte 0x08, 0x00, 0x09, 0x00, 0x0A, 0x00, 0x0B, 0x00, 0x03, 0x00, 0x04, 0x00, 0x05, 0x00, 0x06, 0x00
 	.global OSi_RunningConsoleTypeCache
 OSi_RunningConsoleTypeCache:
 	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-	.global unk_0208EC38
-unk_0208EC38:
-	.byte 0x60, 0x30, 0x00, 0x02, 0x68, 0x30, 0x00, 0x02
-	.byte 0x70, 0x30, 0x00, 0x02, 0x78, 0x30, 0x00, 0x02, 0x80, 0x30, 0x00, 0x02, 0x88, 0x30, 0x00, 0x02
-	.byte 0x90, 0x30, 0x00, 0x02, 0x98, 0x30, 0x00, 0x02, 0xA0, 0x30, 0x00, 0x02, 0xA8, 0x30, 0x00, 0x02
-	.byte 0xB0, 0x30, 0x00, 0x02, 0xB8, 0x30, 0x00, 0x02, 0xC0, 0x30, 0x00, 0x02, 0xC8, 0x30, 0x00, 0x02
-	.byte 0xD0, 0x30, 0x00, 0x02, 0xD8, 0x30, 0x00, 0x02
-	.global unk_0208EC78
-unk_0208EC78:
+	.global f_0208ec38
+f_0208ec38:
+	.word OS_SetProtectionRegion0
+	.word OS_SetProtectionRegion1
+	.word OS_SetProtectionRegion2
+	.word OS_SetProtectionRegion3
+	.word OS_SetProtectionRegion4
+	.word OS_SetProtectionRegion5
+	.word OS_SetProtectionRegion6
+	.word OS_SetProtectionRegion7
+	.global f_0208ec58
+f_0208ec58:
+	.word OS_GetProtectionRegion0
+	.word OS_GetProtectionRegion1
+	.word OS_GetProtectionRegion2
+	.word OS_GetProtectionRegion3
+	.word OS_GetProtectionRegion4
+	.word OS_GetProtectionRegion5
+	.word OS_GetProtectionRegion6
+	.word OS_GetProtectionRegion7
+	.global sIsDispOn
+sIsDispOn:
 	.byte 0x01, 0x00, 0x00, 0x00
 	.global GXi_DmaId
 GXi_DmaId:
 	.byte 0x03, 0x00, 0x00, 0x00
-	.global unk_0208EC80
-unk_0208EC80:
+	.global padding_0208ec80
+padding_0208ec80:
 	.byte 0x80, 0x00, 0x00, 0x00
-	.global unk_0208EC84
-unk_0208EC84:
+	.global k_0208ec84
+k_0208ec84:
 	.byte 0x01, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x05, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00
 	.byte 0x04, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0E, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00
@@ -164867,8 +164880,8 @@ unk_0208EC84:
 	.byte 0x01, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x0F, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
 	.byte 0x0D, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00, 0x0B, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
 	.byte 0x09, 0x00, 0x00, 0x00
-	.global ProcessBlock_t
-ProcessBlock_t:
+	.global t_0208ed44
+t_0208ed44:
 	.byte 0x78, 0xA4, 0x6A, 0xD7, 0x56, 0xB7, 0xC7, 0xE8, 0xDB, 0x70, 0x20, 0x24
 	.byte 0xEE, 0xCE, 0xBD, 0xC1, 0xAF, 0x0F, 0x7C, 0xF5, 0x2A, 0xC6, 0x87, 0x47, 0x13, 0x46, 0x30, 0xA8
 	.byte 0x01, 0x95, 0x46, 0xFD, 0xD8, 0x98, 0x80, 0x69, 0xAF, 0xF7, 0x44, 0x8B, 0xB1, 0x5B, 0xFF, 0xFF
@@ -164889,99 +164902,168 @@ ProcessBlock_t:
 	.global MATHi_SHA1ProcessMessageBlockFunc
 MATHi_SHA1ProcessMessageBlockFunc:
 	.word MATHi_SHA1ProcessBlock
+	.global sDayOfYear
+sDayOfYear:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x1F, 0x00, 0x00, 0x00
 	.byte 0x3B, 0x00, 0x00, 0x00, 0x5A, 0x00, 0x00, 0x00, 0x78, 0x00, 0x00, 0x00, 0x97, 0x00, 0x00, 0x00
 	.byte 0xB5, 0x00, 0x00, 0x00, 0xD4, 0x00, 0x00, 0x00, 0xF3, 0x00, 0x00, 0x00, 0x11, 0x01, 0x00, 0x00
 	.byte 0x30, 0x01, 0x00, 0x00, 0x4E, 0x01, 0x00, 0x00
 	.global unk_0208EE78
 unk_0208EE78:
-	.byte 0x2F, 0x00, 0x00, 0x00
+	.asciz "/"
 	.global unk_0208EE7C
+	.balign 4,0
 unk_0208EE7C:
-	.byte 0x72, 0x6F, 0x6D, 0x00
+	.asciz "rom"
 	.global unk_0208EE80
+	.balign 4,0
 unk_0208EE80:
-	.byte 0x3A, 0x2F, 0x00, 0x00
+	.asciz ":/"
 	.global unk_0208EE84
+	.balign 4,0
 unk_0208EE84:
-	.byte 0x72, 0x6F, 0x6D, 0x00
+	.asciz "rom"
 	.global unk_0208EE88
+	.balign 4,0
 unk_0208EE88:
-	.byte 0x72, 0x6F, 0x6D, 0x3A, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208EE90
-unk_0208EE90:
-	.byte 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.global unk_0208EE98
-unk_0208EE98:
+	.asciz "rom:"
+	.global cache_page
+	.balign 4,0
+cache_page:
+	.byte 0x01, 0x00, 0x00, 0x00
+	.global CARDiEnableCacheInvalidationDC
+CARDiEnableCacheInvalidationDC:
+	.byte 0x01, 0x00, 0x00, 0x00
+	.global WM_GetNextTgid_tgid_bak
+WM_GetNextTgid_tgid_bak:
 	.byte 0x00, 0x00, 0x01, 0x00
-	.global unk_0208EE9C
-unk_0208EE9C:
+	.global PMi_WaitBusyMethod
+PMi_WaitBusyMethod:
 	.byte 0x02, 0x00, 0x00, 0x00
 	.global unk_0208EEA0
 unk_0208EEA0:
-	.byte 0x10, 0x9F, 0x01, 0x02
+	.word FUN_02019f10
 	.global unk_0208EEA4
 unk_0208EEA4:
-	.byte 0x18, 0x9F, 0x01, 0x02
+	.word FUN_02019f18
 	.global unk_0208EEA8
 unk_0208EEA8:
-	.byte 0x20, 0x9F, 0x01, 0x02
+	.word FUN_02019f20
 	.global unk_0208EEAC
 unk_0208EEAC:
-	.byte 0x28, 0x9F, 0x01, 0x02
-	.byte 0x00, 0xF0, 0x08, 0x02, 0xD4, 0xEE, 0x08, 0x02, 0xF0, 0xEF, 0x08, 0x02, 0xE4, 0xEE, 0x08, 0x02
-	.byte 0xB0, 0xEE, 0x08, 0x02
+	.word FUN_02019f28
+	.global unk_0208EEB0
+unk_0208EEB0:
+	.word unk_0208F000
+	.word unk_0208EED4
+	.global unk_0208EEB8
+unk_0208EEB8:
+	.word unk_0208EFF0
+	.word unk_0208EEE4
+	.word unk_0208EEB0
 	.global unk_0208EEC4
 unk_0208EEC4:
-	.byte 0x62, 0x61, 0x64, 0x5F, 0x65, 0x78, 0x63, 0x65, 0x70, 0x74, 0x69, 0x6F
-	.byte 0x6E, 0x00, 0x00, 0x00, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x65, 0x78, 0x63, 0x65, 0x70, 0x74, 0x69
-	.byte 0x6F, 0x6E, 0x00, 0x00, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x62, 0x61, 0x64, 0x5F, 0x65, 0x78, 0x63
-	.byte 0x65, 0x70, 0x74, 0x69, 0x6F, 0x6E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xB8, 0xEE, 0x08, 0x02
+	.asciz "bad_exception"
+	.global unk_0208EED4
+	.balign 4,0
+unk_0208EED4:
+	.asciz "std::exception"
+	.global unk_0208EEE4
+	.balign 4,0
+unk_0208EEE4:
+	.asciz "std::bad_exception"
+	.global unk_0208EEF8
+	.balign 4,0
+unk_0208EEF8:
+	.byte 0x00, 0x00, 0x00, 0x00 
+	.word unk_0208EEB8
 	.global unk_0208EF00
 unk_0208EF00:
-	.byte 0x68, 0xD9, 0x01, 0x02, 0x20, 0xDD, 0x01, 0x02, 0x34, 0xDD, 0x01, 0x02
+	.word FUN_0201d968
+	.word FUN_0201dd20
+	.word FUN_0201dd34
 	.global unk_0208EF0C
 unk_0208EF0C:
-	.byte 0x21, 0x73, 0x74, 0x64
-	.byte 0x3A, 0x3A, 0x62, 0x61, 0x64, 0x5F, 0x65, 0x78, 0x63, 0x65, 0x70, 0x74, 0x69, 0x6F, 0x6E, 0x21
-	.byte 0x21, 0x00, 0x00, 0x00
+	.asciz "!std::bad_exception!!"
 	.global unk_0208EF24
+	.balign 4,0
 unk_0208EF24:
-	.byte 0x21, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x65, 0x78, 0x63, 0x65, 0x70, 0x74
-	.byte 0x69, 0x6F, 0x6E, 0x21, 0x21, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x62, 0x61, 0x64, 0x5F, 0x65, 0x78
-	.byte 0x63, 0x65, 0x70, 0x74, 0x69, 0x6F, 0x6E, 0x21, 0x21, 0x00, 0x00, 0x00
+	.asciz "!std::exception!!std::bad_exception!!"
 	.global unk_0208EF4C
+	.balign 4,0
 unk_0208EF4C:
-	.byte 0xB4, 0xDD, 0x01, 0x02
-	.byte 0xC0, 0xDD, 0x01, 0x02
+	.word FUN_0201ddb4
+	.word FUN_0201ddc0
 	.global unk_0208EF54
 unk_0208EF54:
 	.byte 0x01, 0x00, 0x00, 0x00
 	.global unk_0208EF58
 unk_0208EF58:
-	.byte 0x62, 0x61, 0x64, 0x5F, 0x61, 0x6C, 0x6C, 0x6F
-	.byte 0x63, 0x00, 0x00, 0x00, 0xF0, 0xEF, 0x08, 0x02, 0x70, 0xEF, 0x08, 0x02, 0xB0, 0xEE, 0x08, 0x02
-	.byte 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x62, 0x61, 0x64, 0x5F, 0x61, 0x6C, 0x6C, 0x6F, 0x63, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x64, 0xEF, 0x08, 0x02
+	.asciz "bad_alloc"
+	.global unk_0208EF64
+	.balign 4,0
+unk_0208EF64:
+	.word unk_0208EFF0
+	.word unk_0208EF70
+	.word unk_0208EEB0
+	.global unk_0208EF70
+unk_0208EF70:
+	.asciz "std::bad_alloc"
+	.global unk_0208EF80
+	.balign 4,0
+unk_0208EF80:
+	.byte 0x00, 0x00, 0x00, 0x00, 
+	.word unk_0208EF64
 	.global unk_0208EF88
 unk_0208EF88:
-	.byte 0x10, 0xE0, 0x01, 0x02, 0xC4, 0xE0, 0x01, 0x02
-	.byte 0xD8, 0xE0, 0x01, 0x02
+	.word FUN_0201e010
+	.word FUN_0201e0c4
+	.word FUN_0201e0d8
 	.global unk_0208EF94
 unk_0208EF94:
-	.byte 0x21, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x65, 0x78, 0x63, 0x65, 0x70, 0x74
-	.byte 0x69, 0x6F, 0x6E, 0x21, 0x21, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x62, 0x61, 0x64, 0x5F, 0x61, 0x6C
-	.byte 0x6C, 0x6F, 0x63, 0x21, 0x21, 0x00, 0x00, 0x00, 0x00, 0xF0, 0x08, 0x02, 0xD8, 0xEF, 0x08, 0x02
-	.byte 0xF0, 0xEF, 0x08, 0x02, 0x28, 0xF0, 0x08, 0x02, 0xCC, 0xEF, 0x08, 0x02, 0xF0, 0xEF, 0x08, 0x02
-	.byte 0x08, 0xF0, 0x08, 0x02, 0xB8, 0xEF, 0x08, 0x02, 0x73, 0x74, 0x64, 0x3A, 0x3A, 0x74, 0x79, 0x70
-	.byte 0x65, 0x5F, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xC0, 0xEF, 0x08, 0x02
-	.byte 0x40, 0xE4, 0x01, 0x02, 0x54, 0xE4, 0x01, 0x02, 0x00, 0x00, 0x00, 0x00, 0xCC, 0xEF, 0x08, 0x02
-	.byte 0xFC, 0xE3, 0x01, 0x02, 0x10, 0xE4, 0x01, 0x02, 0x5F, 0x5F, 0x63, 0x78, 0x78, 0x61, 0x62, 0x69
-	.byte 0x76, 0x31, 0x3A, 0x3A, 0x5F, 0x5F, 0x63, 0x6C, 0x61, 0x73, 0x73, 0x5F, 0x74, 0x79, 0x70, 0x65
-	.byte 0x5F, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00, 0x00, 0x5F, 0x5F, 0x63, 0x78, 0x78, 0x61, 0x62, 0x69
-	.byte 0x76, 0x31, 0x3A, 0x3A, 0x5F, 0x5F, 0x73, 0x69, 0x5F, 0x63, 0x6C, 0x61, 0x73, 0x73, 0x5F, 0x74
-	.byte 0x79, 0x70, 0x65, 0x5F, 0x69, 0x6E, 0x66, 0x6F, 0x00, 0x00, 0x00, 0x00
+	.asciz "!std::exception!!std::bad_alloc!!"
+	.global unk_0208EFB8
+	.balign 4,0
+unk_0208EFB8:
+	.word unk_0208F000
+	.word unk_0208EFD8
+	.global unk_0208EFC0
+unk_0208EFC0:
+	.word unk_0208EFF0
+	.word unk_0208F028
+	.word unk_0208EFCC
+	.global unk_0208EFCC
+unk_0208EFCC:
+	.word unk_0208EFF0
+	.word unk_0208F008
+	.word unk_0208EFB8
+	.global unk_0208EFD8
+unk_0208EFD8:
+	.asciz "std::type_info"
+	.global unk_0208EFE8
+	.balign 4,0
+unk_0208EFE8:
+	.byte 0x00, 0x00, 0x00, 0x00, 
+	.word unk_0208EFC0
+	.global unk_0208EFF0
+unk_0208EFF0:
+	.word FUN_0201e440
+	.word FUN_0201e454
+	.byte 0x00, 0x00, 0x00, 0x00, 
+	.word unk_0208EFCC
+	.global unk_0208F000
+unk_0208F000:
+	.word FUN_0201e3fc
+	.word FUN_0201e410
+	.global unk_0208F008
+unk_0208F008:
+	.asciz "__cxxabiv1::__class_type_info"
+	.global unk_0208F028
+	.balign 4,0
+unk_0208F028:
+	.asciz "__cxxabiv1::__si_class_type_info"
 	.global __files
+	.balign 4,0
 __files:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -167530,87 +167612,168 @@ unk_02093954:
 	.global unk_02093958
 unk_02093958:
 	.space 0x28
-	.global unk_02093980
-unk_02093980:
+	.global OSi_IsResetOccurred
+OSi_IsResetOccurred:
 	.space 0x04
-	.global unk_02093984
-unk_02093984:
+	.global isInitialized_02093984
+isInitialized_02093984:
 	.space 0x04
-	.global unk_02093988
-unk_02093988:
-	.space 0x0C
-	.global unk_02093994
-unk_02093994:
-	.space 0x10
+	.global OSi_SystemCallbackInSwitchThread
+OSi_SystemCallbackInSwitchThread:
+	.space 0x04
+	.global OSi_RescheduleCount
+OSi_RescheduleCount:
+	.space 0x04
+	.global OSi_CurrentThreadPtr
+OSi_CurrentThreadPtr:
+	.space 0x04
+	.global OSi_IsThreadInitialized
+OSi_IsThreadInitialized:
+	.space 0x4
+	.global OSi_SystemStackBuffer
+OSi_SystemStackBuffer:
+	.space 0x4
+	.global OSi_StackForDestructor
+OSi_StackForDestructor:
+	.space 0x4
+	.global OSi_ThreadIdCount
+OSi_ThreadIdCount:
+	.space 0x4
 	.global OSi_ThreadInfo
 OSi_ThreadInfo:
 	.space 0x04
 	.global unk_020939A8
 unk_020939A8:
 	.space 0x0C
-	.global unk_020939B4
-unk_020939B4:
+	.global OSi_IdleThread
+OSi_IdleThread:
 	.space 0xC0
-	.global unk_02093A74
-unk_02093A74:
-	.space 0x188
+	.global OSi_LauncherThread
+OSi_LauncherThread:
+	.space 0xC0
+	.global OSi_IdleThreadStack
+OSi_IdleThreadStack:
+	.space 0xC8
 	.global OSi_Initialized
 OSi_Initialized:
-	.space 0x08
+	.space 0x04
+	.global OSi_MainExArenaEnabled
+OSi_MainExArenaEnabled:
+	.space 0x04
 	.global OSiHeapInfo
 OSiHeapInfo:
 	.space 0x24
 	.global OSi_DebuggerHandler
 OSi_DebuggerHandler:
 	.space 0x04
-	.global unk_02093C2C
-unk_02093C2C:
+	.global OSi_UserExceptionHandlerArg
+OSi_UserExceptionHandlerArg:
 	.space 0x08
-	.global unk_02093C34
-unk_02093C34:
-	.space 0x24
-	.global unk_02093C58
-unk_02093C58:
-	.space 0x70
-	.global unk_02093CC8
-unk_02093CC8:
+	.global OSi_UserExceptionHandler
+OSi_UserExceptionHandler:
 	.space 0x04
-	.global unk_02093CCC
-unk_02093CCC:
-	.space 0x08
+	.global OSi_ExceptionHookStack
+OSi_ExceptionHookStack:
+	.space 0x20
+	.global OSi_ExContext
+OSi_ExContext:
+	.space 0x70
+	.global OSi_TimerReserved
+OSi_TimerReserved:
+	.space 0x04
+	.global OSi_UseTick
+OSi_UseTick:
+	.space 0x04
+	.global OSi_NeedResetTimer
+OSi_NeedResetTimer:
+	.space 0x04
 	.global OSi_TickCounter
 OSi_TickCounter:
 	.space 0x08
 	.global OSi_UseAlarm
 OSi_UseAlarm:
-	.space 0x0C
-	.global unk_02093CE8
-unk_02093CE8:
-	.space 0x14
-	.global unk_02093CFC
-unk_02093CFC:
 	.space 0x04
-	.global unk_02093D00
-unk_02093D00:
-	.space 0x04
-	.global unk_02093D04
-unk_02093D04:
-	.space 0x14
-	.global unk_02093D18
-unk_02093D18:
+	.global OSi_AlarmQueue
+OSi_AlarmQueue:
 	.space 0x08
-	.global unk_02093D20
-unk_02093D20:
+	.global OSi_UseVAlarm
+OSi_UseVAlarm:
+	.space 0x04
+	.global OSi_PreviousVCount
+OSi_PreviousVCount:
+	.space 0x04
+	.global OSi_VFrameCount
+OSi_VFrameCount:
+	.space 0x04
+	.global OSi_VAlarmQueue
+OSi_VAlarmQueue:
+	.space 0x08
+	.global OSi_IsInitReset
+OSi_IsInitReset:
+	.space 0x04
+	.global OSi_vramExclusive
+OSi_vramExclusive:
+	.space 0x04
+	.global OSi_vramLockId
+OSi_vramLockId:
+	.space 0x14
+	.global OSi_TerminateCallback
+OSi_TerminateCallback:
+	.space 0x04
+	.global OSi_TerminateCallbackArg
+OSi_TerminateCallbackArg:
+	.space 0x04
+	.global sDispMode
+sDispMode:
 	.space 0x02
 	.global GXi_VRamLockId
 GXi_VRamLockId:
 	.space 0x02
-	.global unk_02093D24
-unk_02093D24:
-	.space 0x1C
+	.global sSubBGExtPltt
+sSubBGExtPltt:
+	.space 0x04
+	.global sOBJExtPlttLCDCBlk
+sOBJExtPlttLCDCBlk:
+	.space 0x04
+	.global sOBJExtPltt
+sOBJExtPltt:
+	.space 0x04
+	.global sBGExtPlttLCDCOffset
+sBGExtPlttLCDCOffset:
+	.space 0x04
+	.global sBGExtPlttLCDCBlk
+sBGExtPlttLCDCBlk:
+	.space 0x04
+	.global sBGExtPltt
+sBGExtPltt:
+	.space 0x04
+	.global sSubOBJExtPltt
+sSubOBJExtPltt:
+	.space 0x04
 	.global sClrImg
 sClrImg:
-	.space 0x20
+	.space 0x04
+	.global sTexLCDCBlk1
+sTexLCDCBlk1:
+	.space 0x04
+	.global sTexPlttLCDCBlk
+sTexPlttLCDCBlk:
+	.space 0x04
+	.global sTexPltt
+sTexPltt:
+	.space 0x04
+	.global sClrImgLCDCBlk
+sClrImgLCDCBlk:
+	.space 0x04
+	.global sTex
+sTex:
+	.space 0x04
+	.global sTexLCDCBlk2
+sTexLCDCBlk2:
+	.space 0x04
+	.global sSzTexBlk1
+sSzTexBlk1:
+	.space 0x04
 	.global gGXState
 gGXState:
 	.space 0x02
@@ -167650,17 +167813,17 @@ unk_02093D76:
 	.global unk_02093D78
 unk_02093D78:
 	.space 0x04
-	.global unk_02093D7C
-unk_02093D7C:
+	.global MIi_GXDmaParams
+MIi_GXDmaParams:
 	.space 0x20
-	.global unk_02093D9C
-unk_02093D9C:
+	.global MATHi_OverlayTableMode
+MATHi_OverlayTableMode:
 	.space 0x04
-	.global unk_02093DA0
-unk_02093DA0:
+	.global rtcInitialized
+rtcInitialized:
 	.space 0x04
-	.global unk_02093DA4
-unk_02093DA4:
+	.global rtcWork
+rtcWork:
 	.space 0x24
 	.global initialized_02093DC8
 initialized_02093DC8:
@@ -167670,7 +167833,31 @@ sSndMutex:
 	.space 0x18
 	.global sFreeList
 sFreeList:
-	.space 0x24
+	.space 0x04
+	.global sFinishedTag
+sFinishedTag:
+	.space 0x04
+	.global sReserveList
+sReserveList:
+	.space 0x04
+	.global sReserveListEnd
+sReserveListEnd:
+	.space 0x04
+	.global sFreeListEnd
+sFreeListEnd:
+	.space 0x04
+	.global sWaitingCommandListQueueRead
+sWaitingCommandListQueueRead:
+	.space 0x04
+	.global sWaitingCommandListQueueWrite
+sWaitingCommandListQueueWrite:
+	.space 0x04
+	.global sWaitingCommandListCount
+sWaitingCommandListCount:
+	.space 0x04
+	.global sCurrentTag
+sCurrentTag:
+	.space 0x04
 	.global sWaitingCommandListQueue
 sWaitingCommandListQueue:
 	.space 0x38
@@ -167692,17 +167879,20 @@ sCallbackTable:
 	.global SNDi_SharedWork
 SNDi_SharedWork:
 	.space 0x04
-	.global unk_02095924
-unk_02095924:
-	.space 0x10
-	.global unk_02095934
-unk_02095934:
+	.global arc_list
+arc_list:
+	.space 0x04
+	.global current_dir_pos
+current_dir_pos:
+	.space 0x0C
+	.global FSiLongNameTable
+FSiLongNameTable:
 	.space 0x100
-	.global unk_02095A34
-unk_02095A34:
+	.global current_dir_path
+current_dir_path:
 	.space 0x104
-	.global unk_02095B38
-unk_02095B38:
+	.global FSiOverlayContext
+FSiOverlayContext:
 	.space 0x04
 	.global unk_02095B3C
 unk_02095B3C:
@@ -167710,83 +167900,125 @@ unk_02095B3C:
 	.global unk_02095B44
 unk_02095B44:
 	.space 0x10
-	.global unk_02095B54
-unk_02095B54:
-	.space 0x08
-	.global unk_02095B5C
-unk_02095B5C:
+	.global fsi_default_dma_no
+fsi_default_dma_no:
+	.space 0x04
+	.global fsi_card_lock_id
+fsi_card_lock_id:
+	.space 0x04
+	.global fsi_arc_rom
+fsi_arc_rom:
 	.space 0x5C
-	.global unk_02095BB8
-unk_02095BB8:
+	.global is_init_02095bb8
+is_init_02095bb8:
 	.space 0x04
-	.global unk_02095BBC
-unk_02095BBC:
+	.global CARDi_EnableFlag
+CARDi_EnableFlag:
 	.space 0x04
-	.global unk_02095BC0
-unk_02095BC0:
+	.global cardi_arg
+cardi_arg:
 	.space 0x60
-	.global unk_02095C20
-unk_02095C20:
+	.global cardi_common
+cardi_common:
 	.space 0x520
-	.global unk_02096140
-unk_02096140:
+	.global CARDiHookChain
+CARDiHookChain:
 	.space 0x20
-	.global unk_02096160
-unk_02096160:
+	.global CARDi_backup_cache_page_buf
+CARDi_backup_cache_page_buf:
 	.space 0x100
-	.global unk_02096260
-unk_02096260:
-	.space 0x10
-	.global unk_02096270
-unk_02096270:
+	.global cardi_rom_base
+cardi_rom_base:
+	.space 0x04
+	.global CARDiEnableCacheInvalidationIC
+CARDiEnableCacheInvalidationIC:
+	.space 0x04
+	.global CARDiDmaReadRegisteredInfo
+CARDiDmaReadRegisteredInfo:
+	.space 0x04
+	.global CARDiReadRomFunction
+CARDiReadRomFunction:
+	.space 0x04
+	.global CARDiDmaReadInfo
+CARDiDmaReadInfo:
 	.space 0x1C
-	.global unk_0209628C
-unk_0209628C:
+	.global CARDiOwnSignature
+CARDiOwnSignature:
 	.space 0x94
-	.global unk_02096320
-unk_02096320:
+	.global CARDi_cache_buf
+CARDi_cache_buf:
 	.space 0x200
-	.global unk_02096520
-unk_02096520:
-	.space 0x0C
-	.global unk_0209652C
-unk_0209652C:
+	.global CARDiSlotResetCount
+CARDiSlotResetCount:
 	.space 0x04
-	.global unk_02096530
-unk_02096530:
+	.global CARDi_IsPulledOutFlag
+CARDi_IsPulledOutFlag:
 	.space 0x04
-	.global unk_02096534
-unk_02096534:
-	.space 0x2C
-	.global unk_02096560
-unk_02096560:
+	.global CARD_UserCallback
+CARD_UserCallback:
+	.space 0x04
+	.global CTRDGi_EnableFlag
+CTRDGi_EnableFlag:
+	.space 0x04
+	.global CTRDGi_Work
+CTRDGi_Work:
+	.space 0x04
+	.global isInfoInitialized
+isInfoInitialized:
+	.space 0x04
+	.global CTRDGi_Lock
+CTRDGi_Lock:
+	.space 0x04
+	.global isInitialized_0209653c
+isInitialized_0209653c:
+	.space 0x04
+	.global ctrdg_already_pullout
+ctrdg_already_pullout:
+	.space 0x04
+	.global skipCheck
+skipCheck:
+	.space 0x04
+	.global isCartridgePullOut
+isCartridgePullOut:
+	.space 0x04
+	.global CTRDG_UserCallback
+CTRDG_UserCallback:
+	.space 0x14
+	.global headerBuf
+headerBuf:
 	.space 0x04
 	.global unk_02096564
 unk_02096564:
 	.space 0xBC
-	.global unk_02096620
-unk_02096620:
+	.global CTRDGTaskList
+CTRDGTaskList:
 	.space 0xE8
-	.global unk_02096708
-unk_02096708:
+	.global ctrdgi_task_work
+ctrdgi_task_work:
 	.space 0x04
-	.global unk_0209670C
-unk_0209670C:
-	.space 0x424
-	.global unk_02096B30
-unk_02096B30:
-	.space 0x08
-	.global unk_02096B38
-unk_02096B38:
+	.global ctrdgi_task_list
+ctrdgi_task_list:
+	.space 0x24
+	.global ctrdg_task_stack
+ctrdg_task_stack:
+	.space 0x400
+	.global wmInitialized
+wmInitialized:
+	.space 0x04
+	.global wm9buf
+wm9buf:
+	.space 0x04
+	.global sleepCbInfo
+sleepCbInfo:
 	.space 0x10
-	.global unk_02096B48
-unk_02096B48:
+	.global bufMsgQ
+bufMsgQ:
 	.space 0x20
-	.global unk_02096B68
-unk_02096B68:
+	.global bufMsg
+bufMsg:
 	.space 0x28
-	.global unk_02096B90
-unk_02096B90:
+	.global cb_Port
+cb_Port:
 	.space 0x14
 	.global unk_02096BA4
 unk_02096BA4:
@@ -167794,38 +168026,53 @@ unk_02096BA4:
 	.global unk_02096BB4
 unk_02096BB4:
 	.space 0x2C
-	.global unk_02096BE0
-unk_02096BE0:
+	.global fifoBuf
+fifoBuf:
 	.space 0xA00
-	.global unk_020975E0
-unk_020975E0:
+	.global tmpUserGameInfoBuf
+tmpUserGameInfoBuf:
 	.space 0x80
-	.global unk_02097660
-unk_02097660:
+	.global FifoCtrlInit
+FifoCtrlInit:
 	.space 0x04
-	.global unk_02097664
-unk_02097664:
+	.global FifoRecvCallbackTable
+FifoRecvCallbackTable:
 	.space 0x80
-	.global unk_020976E4
-unk_020976E4:
-	.space 0x1C
+	.global initial_020976e4
+initial_020976e4:
+	.space 0x04
+	.global tpState
+tpState:
+	.space 0x18
 	.global unk_02097700
 unk_02097700:
 	.space 0x20
 	.global unk_02097720
 unk_02097720:
-	.space 0x10
-	.global unk_02097730
-unk_02097730:
-	.space 0x08
-	.global unk_02097738
-unk_02097738:
 	.space 0x04
-	.global unk_0209773C
-unk_0209773C:
+	.global PMi_LCDCount
+PMi_LCDCount:
+	.space 0x04
+	.global PMi_DispOffCount
+PMi_DispOffCount:
+	.space 0x04
+	.global PMi_SleepEndFlag
+PMi_SleepEndFlag:
+	.space 0x04
+	.global PMi_PreSleepCallbackList
+PMi_PreSleepCallbackList:
+	.space 0x04
+	.global sAmpSwitch
+sAmpSwitch:
+	.space 0x04
+	.global PMi_PostSleepCallbackList
+PMi_PostSleepCallbackList:
+	.space 0x04
+	.global PMi_PreDmaCnt
+PMi_PreDmaCnt:
 	.space 0x10
-	.global unk_0209774C
-unk_0209774C:
+	.global PMi_Work
+PMi_Work:
 	.space 0x10
 	.global unk_0209775C
 unk_0209775C:
