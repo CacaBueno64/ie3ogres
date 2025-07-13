@@ -22197,23 +22197,23 @@ WMi_RegisterSleepCallback: ; 0x020127D4
 	ldr r0, _02012800 ; =0x02096B38
 	str r1, [r2, #8]
 	mov r3, #0
-	ldr r12, _02012804 ; =FUN_02017584
+	ldr r12, _02012804 ; =PMi_InsertPostSleepCallbackEx
 	mov r1, #0x3e8
 	str r3, [r2, #0xc]
 	bx r12
 _020127F8: .word WmSleepCallback
 _020127FC: .word unk_02096B30
 _02012800: .word unk_02096B38
-_02012804: .word FUN_02017584
+_02012804: .word PMi_InsertPostSleepCallbackEx
 	arm_func_end WMi_RegisterSleepCallback
 
 	arm_func_start WMi_DeleteSleepCallback
 WMi_DeleteSleepCallback: ; 0x02012808
 	ldr r0, _02012814 ; =0x02096B38
-	ldr r12, _02012818 ; =FUN_020175a8
+	ldr r12, _02012818 ; =PM_DeletePreSleepCallback
 	bx r12
 _02012814: .word unk_02096B38
-_02012818: .word FUN_020175a8
+_02012818: .word PM_DeletePreSleepCallback
 	arm_func_end WMi_DeleteSleepCallback
 
 	arm_func_start WmSleepCallback
@@ -26095,8 +26095,8 @@ _02015C74: .word 0x04000184
 _02015C78: .word unk_02097664
 	arm_func_end FUN_02015c6c
 
-	arm_func_start FUN_02015c7c
-FUN_02015c7c: ; 0x02015C7C
+	arm_func_start TPi_TpCallback
+TPi_TpCallback: ; 0x02015C7C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	mov r0, r1, lsl #0x10
@@ -26266,10 +26266,10 @@ _02015EDC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02015EE8: .word unk_020976E4
 _02015EEC: .word 0x02FFFFAA
-	arm_func_end FUN_02015c7c
+	arm_func_end TPi_TpCallback
 
-	arm_func_start FUN_02015ef0
-FUN_02015ef0: ; 0x02015EF0
+	arm_func_start TP_Init
+TP_Init: ; 0x02015EF0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _02015F5C ; =0x020976E4
 	ldrh r0, [r4]
@@ -26294,16 +26294,16 @@ _02015F38:
 	bl PXI_IsCallbackReady
 	cmp r0, #0
 	beq _02015F38
-	ldr r1, _02015F60 ; =FUN_02015c7c
+	ldr r1, _02015F60 ; =TPi_TpCallback
 	mov r0, r5
 	bl PXI_SetFifoRecvCallback
 	ldmfd sp!, {r3, r4, r5, pc}
 _02015F5C: .word unk_020976E4
-_02015F60: .word FUN_02015c7c
-	arm_func_end FUN_02015ef0
+_02015F60: .word TPi_TpCallback
+	arm_func_end TP_Init
 
-	arm_func_start FUN_02015f64
-FUN_02015f64: ; 0x02015F64
+	arm_func_start TP_GetUserInfo
+TP_GetUserInfo: ; 0x02015F64
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x14
 	ldr r12, _02015FF4 ; =0x02FFFC80
@@ -26326,7 +26326,7 @@ FUN_02015f64: ; 0x02015F64
 	str r6, [sp, #0xc]
 	mov r0, r4
 	str r12, [sp, #0x10]
-	bl FUN_020163a4
+	bl TP_CalcCalibrateParam
 	cmp r0, #0
 	beq _02015FE8
 _02015FC8:
@@ -26343,10 +26343,10 @@ _02015FE8:
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02015FF4: .word 0x02FFFC80
-	arm_func_end FUN_02015f64
+	arm_func_end TP_GetUserInfo
 
-	arm_func_start FUN_02015ff8
-FUN_02015ff8: ; 0x02015FF8
+	arm_func_start TP_SetCalibrateParam
+TP_SetCalibrateParam: ; 0x02015FF8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r6, _020160DC ; =0x020976E4
 	movs r5, r0
@@ -26413,10 +26413,10 @@ _020160CC:
 _020160DC: .word unk_020976E4
 _020160E0: .word 0x04000280
 _020160E4: .word 0x040002A0
-	arm_func_end FUN_02015ff8
+	arm_func_end TP_SetCalibrateParam
 
-	arm_func_start FUN_020160e8
-FUN_020160e8: ; 0x020160E8
+	arm_func_start TP_RequestSamplingAsync
+TP_RequestSamplingAsync: ; 0x020160E8
 	stmfd sp!, {r3, r4, r5, lr}
 	bl OS_DisableInterrupts
 	mov r5, #0
@@ -26457,10 +26457,10 @@ _02016150:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201617C: .word unk_020976E4
 _02016180: .word 0x0000FFFE
-	arm_func_end FUN_020160e8
+	arm_func_end TP_RequestSamplingAsync
 
-	arm_func_start FUN_02016184
-FUN_02016184: ; 0x02016184
+	arm_func_start TP_GetCalibratedResult
+TP_GetCalibratedResult: ; 0x02016184
 	stmfd sp!, {r3, lr}
 	ldr r2, _020161CC ; =0x020976E4
 	ldrh r1, [r2, #0x38]
@@ -26476,25 +26476,25 @@ FUN_02016184: ; 0x02016184
 	ldrh r2, [r2, #0xe]
 	strh r3, [r0, #4]
 	strh r2, [r0, #6]
-	bl FUN_02016590
+	bl TP_GetCalibratedPoint
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _020161CC: .word unk_020976E4
-	arm_func_end FUN_02016184
+	arm_func_end TP_GetCalibratedResult
 
-	arm_func_start FUN_020161d0
-FUN_020161d0: ; 0x020161D0
+	arm_func_start TP_WaitCalibratedResult
+TP_WaitCalibratedResult: ; 0x020161D0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, #1
-	bl FUN_020166ac
+	bl TP_WaitBusy
 	mov r0, r4
-	bl FUN_02016184
+	bl TP_GetCalibratedResult
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020161d0
+	arm_func_end TP_WaitCalibratedResult
 
-	arm_func_start FUN_020161ec
-FUN_020161ec: ; 0x020161EC
+	arm_func_start TP_RequestAutoSamplingStartAsync
+TP_RequestAutoSamplingStartAsync: ; 0x020161EC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r12, _020162EC ; =0x020976E4
 	mov r5, #0
@@ -26565,10 +26565,10 @@ _020162C0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020162EC: .word unk_020976E4
 _020162F0: .word 0x0000FFFD
-	arm_func_end FUN_020161ec
+	arm_func_end TP_RequestAutoSamplingStartAsync
 
-	arm_func_start FUN_020162f4
-FUN_020162f4: ; 0x020162F4
+	arm_func_start TP_RequestAutoSamplingStopAsync
+TP_RequestAutoSamplingStopAsync: ; 0x020162F4
 	stmfd sp!, {r3, r4, r5, lr}
 	bl OS_DisableInterrupts
 	mov r5, #0
@@ -26610,18 +26610,18 @@ _0201635C:
 _02016388: .word 0x03000200
 _0201638C: .word unk_020976E4
 _02016390: .word 0x0000FFFB
-	arm_func_end FUN_020162f4
+	arm_func_end TP_RequestAutoSamplingStopAsync
 
-	arm_func_start FUN_02016394
-FUN_02016394: ; 0x02016394
+	arm_func_start TP_GetLatestIndexInAuto
+TP_GetLatestIndexInAuto: ; 0x02016394
 	ldr r0, _020163A0 ; =0x020976E4
 	ldrh r0, [r0, #0x10]
 	bx lr
 _020163A0: .word unk_020976E4
-	arm_func_end FUN_02016394
+	arm_func_end TP_GetLatestIndexInAuto
 
-	arm_func_start FUN_020163a4
-FUN_020163a4: ; 0x020163A4
+	arm_func_start TP_CalcCalibrateParam
+TP_CalcCalibrateParam: ; 0x020163A4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r9, r1
 	mov r8, r2
@@ -26755,10 +26755,10 @@ _0201657C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02016588: .word 0x04000280
 _0201658C: .word 0x040002A0
-	arm_func_end FUN_020163a4
+	arm_func_end TP_CalcCalibrateParam
 
-	arm_func_start FUN_02016590
-FUN_02016590: ; 0x02016590
+	arm_func_start TP_GetCalibratedPoint
+TP_GetCalibratedPoint: ; 0x02016590
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r2, _020166A4 ; =0x020976E4
 	ldrh r2, [r2, #0x34]
@@ -26832,10 +26832,10 @@ _02016648:
 	ldmfd sp!, {r4, r5, r6, pc}
 _020166A4: .word unk_020976E4
 _020166A8: .word unk_02097700
-	arm_func_end FUN_02016590
+	arm_func_end TP_GetCalibratedPoint
 
-	arm_func_start FUN_020166ac
-FUN_020166ac: ; 0x020166AC
+	arm_func_start TP_WaitBusy
+TP_WaitBusy: ; 0x020166AC
 	ldr r1, _020166C0 ; =0x020976E4
 _020166B0:
 	ldrh r2, [r1, #0x3a]
@@ -26843,19 +26843,19 @@ _020166B0:
 	bne _020166B0
 	bx lr
 _020166C0: .word unk_020976E4
-	arm_func_end FUN_020166ac
+	arm_func_end TP_WaitBusy
 
-	arm_func_start FUN_020166c4
-FUN_020166c4: ; 0x020166C4
+	arm_func_start TP_CheckError
+TP_CheckError: ; 0x020166C4
 	ldr r1, _020166D4 ; =0x020976E4
 	ldrh r1, [r1, #0x38]
 	and r0, r1, r0
 	bx lr
 _020166D4: .word unk_020976E4
-	arm_func_end FUN_020166c4
+	arm_func_end TP_CheckError
 
-	arm_func_start FUN_020166d8
-FUN_020166d8: ; 0x020166D8
+	arm_func_start PMi_WaitBusy
+PMi_WaitBusy: ; 0x020166D8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _02016750 ; =0x0209774C
 	ldr r0, [r4]
@@ -26894,17 +26894,17 @@ _02016740:
 _02016750: .word unk_0209774C
 _02016754: .word 0x04000208
 _02016758: .word unk_0208EE9C
-	arm_func_end FUN_020166d8
+	arm_func_end PMi_WaitBusy
 
-	arm_func_start FUN_0201675c
-FUN_0201675c: ; 0x0201675C
+	arm_func_start PMi_DummyCallback
+PMi_DummyCallback: ; 0x0201675C
 	cmp r1, #0
 	strne r0, [r1]
 	bx lr
-	arm_func_end FUN_0201675c
+	arm_func_end PMi_DummyCallback
 
-	arm_func_start FUN_02016768
-FUN_02016768: ; 0x02016768
+	arm_func_start PMi_CallCallbackAndUnlock
+PMi_CallCallbackAndUnlock: ; 0x02016768
 	stmfd sp!, {r3, lr}
 	ldr r2, _02016794 ; =0x02097720
 	mov r3, #0
@@ -26917,10 +26917,10 @@ FUN_02016768: ; 0x02016768
 	blx r12
 	ldmfd sp!, {r3, pc}
 _02016794: .word unk_02097720
-	arm_func_end FUN_02016768
+	arm_func_end PMi_CallCallbackAndUnlock
 
-	arm_func_start FUN_02016798
-FUN_02016798: ; 0x02016798
+	arm_func_start PMi_WaitVBlank
+PMi_WaitVBlank: ; 0x02016798
 	stmdb sp!, {r3}
 	sub sp, sp, #4
 	ldr r2, _020167C8 ; =0x02FFFC3C
@@ -26935,7 +26935,7 @@ _020167AC:
 	ldmia sp!, {r3}
 	bx lr
 _020167C8: .word 0x02FFFC3C
-	arm_func_end FUN_02016798
+	arm_func_end PMi_WaitVBlank
 
 	arm_func_start PM_Init
 PM_Init: ; 0x020167CC
@@ -26993,7 +26993,7 @@ PMi_CommonCallback: ; 0x02016860
 	cmpne r1, #0x62
 	moveq r0, #1
 	movne r0, #2
-	bl FUN_02016768
+	bl PMi_CallCallbackAndUnlock
 	ldmfd sp!, {r3, pc}
 _02016894:
 	sub r1, r1, #0x60
@@ -27020,13 +27020,13 @@ _020168D0:
 	mov r2, #1
 	str r2, [r1, #0xc]
 _020168DC:
-	bl FUN_02016768
+	bl PMi_CallCallbackAndUnlock
 	ldmfd sp!, {r3, pc}
 _020168E4: .word unk_02097720
 	arm_func_end PMi_CommonCallback
 
-	arm_func_start FUN_020168e8
-FUN_020168e8: ; 0x020168E8
+	arm_func_start PMi_TryToSendPxiData
+PMi_TryToSendPxiData: ; 0x020168E8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -27053,7 +27053,7 @@ _02016920:
 	ble _02016958
 _02016944:
 	ldr r0, [r8, r5, lsl #2]
-	bl FUN_02016dbc
+	bl PMi_SendPxiData
 	add r5, r5, #1
 	cmp r5, r7
 	blt _02016944
@@ -27063,16 +27063,16 @@ _02016958:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02016968: .word unk_02097720
-	arm_func_end FUN_020168e8
+	arm_func_end PMi_TryToSendPxiData
 
-	arm_func_start FUN_0201696c
-FUN_0201696c: ; 0x0201696C
+	arm_func_start PMi_TryToSendPxiDataTillSuccess
+PMi_TryToSendPxiDataTillSuccess: ; 0x0201696C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r8, #0x10000
 	mov r4, #0
 	ldr r5, _02016A28 ; =0x00051D23
-	ldr r6, _02016A2C ; =FUN_0201675c
+	ldr r6, _02016A2C ; =PMi_DummyCallback
 	mov r10, r0
 	mov r9, r1
 	rsb r8, r8, #0
@@ -27085,7 +27085,7 @@ _02016998:
 	mov r2, r11
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_020168e8
+	bl PMi_TryToSendPxiData
 	cmp r0, #0
 	beq _020169E4
 _020169BC:
@@ -27096,7 +27096,7 @@ _020169BC:
 	str r7, [sp]
 	mov r2, r4
 	mov r3, r6
-	bl FUN_020168e8
+	bl PMi_TryToSendPxiData
 	cmp r0, #0
 	bne _020169BC
 _020169E4:
@@ -27117,18 +27117,14 @@ _02016A04:
 	mov r0, r5
 	bl OS_SpinWaitSysCycles
 	b _02016998
-	arm_func_end FUN_0201696c
-
-	arm_func_start FUN_02016a20
-FUN_02016a20: ; 0x02016A20
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02016A28: .word 0x00051D23
-_02016A2C: .word FUN_0201675c
-	arm_func_end FUN_02016a20
+_02016A2C: .word PMi_DummyCallback
+	arm_func_end PMi_TryToSendPxiDataTillSuccess
 
-	arm_func_start FUN_02016a30
-FUN_02016a30: ; 0x02016A30
+	arm_func_start PMi_SendSleepStart
+PMi_SendSleepStart: ; 0x02016A30
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	ldr r2, _02016AB4 ; =0x03006000
@@ -27137,7 +27133,7 @@ FUN_02016a30: ; 0x02016A30
 	add r0, sp, #0
 	mov r1, #1
 	str r2, [sp]
-	bl FUN_0201696c
+	bl PMi_TryToSendPxiDataTillSuccess
 	mov r5, #0
 	mov r4, #2
 	mov r7, #1
@@ -27146,7 +27142,7 @@ _02016A60:
 	mov r1, r4
 	mov r2, r5
 	mov r3, r7
-	bl FUN_02017168
+	bl PMi_SetLCDPower
 	cmp r0, #1
 	bne _02016A60
 	and r0, r8, #0xff
@@ -27159,16 +27155,16 @@ _02016A60:
 	mov r1, r4
 	str r3, [sp]
 	str r2, [sp, #4]
-	bl FUN_0201696c
+	bl PMi_TryToSendPxiDataTillSuccess
 	mov r0, r5
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02016AB4: .word 0x03006000
 _02016AB8: .word 0x01010000
-	arm_func_end FUN_02016a30
+	arm_func_end PMi_SendSleepStart
 
-	arm_func_start FUN_02016abc
-FUN_02016abc: ; 0x02016ABC
+	arm_func_start PM_SendUtilityCommandAsync
+PM_SendUtilityCommandAsync: ; 0x02016ABC
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	and r0, r0, #0xff
@@ -27183,32 +27179,32 @@ FUN_02016abc: ; 0x02016ABC
 	add r0, sp, #4
 	mov r1, #2
 	str r12, [sp]
-	bl FUN_020168e8
+	bl PMi_TryToSendPxiData
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
 _02016B00: .word 0x01010000
-	arm_func_end FUN_02016abc
+	arm_func_end PM_SendUtilityCommandAsync
 
-	arm_func_start FUN_02016b04
-FUN_02016b04: ; 0x02016B04
+	arm_func_start PM_SendUtilityCommand
+PM_SendUtilityCommand: ; 0x02016B04
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
-	ldr r3, _02016B38 ; =FUN_0201675c
+	ldr r3, _02016B38 ; =PMi_DummyCallback
 	add r12, sp, #4
 	str r12, [sp]
-	bl FUN_02016abc
+	bl PM_SendUtilityCommandAsync
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r3, pc}
-	bl FUN_020166d8
+	bl PMi_WaitBusy
 	ldr r0, [sp, #4]
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
-_02016B38: .word FUN_0201675c
-	arm_func_end FUN_02016b04
+_02016B38: .word PMi_DummyCallback
+	arm_func_end PM_SendUtilityCommand
 
-	arm_func_start FUN_02016b3c
-FUN_02016b3c: ; 0x02016B3C
+	arm_func_start PMi_SetLEDAsync
+PMi_SetLEDAsync: ; 0x02016B3C
 	stmfd sp!, {r3, lr}
 	mov r3, r1
 	cmp r0, #1
@@ -27236,27 +27232,27 @@ _02016B7C:
 	mov r1, #0
 	str r2, [sp]
 	mov r2, r1
-	bl FUN_02016abc
+	bl PM_SendUtilityCommandAsync
 	ldmfd sp!, {r3, pc}
 _02016B9C: .word 0x0000FFFF
-	arm_func_end FUN_02016b3c
+	arm_func_end PMi_SetLEDAsync
 
-	arm_func_start FUN_02016ba0
-FUN_02016ba0: ; 0x02016BA0
+	arm_func_start PMi_SetLED
+PMi_SetLED: ; 0x02016BA0
 	stmfd sp!, {r3, lr}
-	ldr r1, _02016BC4 ; =FUN_0201675c
+	ldr r1, _02016BC4 ; =PMi_DummyCallback
 	add r2, sp, #0
-	bl FUN_02016b3c
+	bl PMi_SetLEDAsync
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
-	bl FUN_020166d8
+	bl PMi_WaitBusy
 	ldr r0, [sp]
 	ldmfd sp!, {r3, pc}
-_02016BC4: .word FUN_0201675c
-	arm_func_end FUN_02016ba0
+_02016BC4: .word PMi_DummyCallback
+	arm_func_end PMi_SetLED
 
-	arm_func_start FUN_02016bc8
-FUN_02016bc8: ; 0x02016BC8
+	arm_func_start PM_SetBackLightAsync
+PM_SetBackLightAsync: ; 0x02016BC8
 	stmfd sp!, {r3, lr}
 	mov r12, r2
 	cmp r0, #0
@@ -27291,74 +27287,74 @@ _02016C24:
 	mov r0, r2
 	mov r2, r1
 	mov r3, r12
-	bl FUN_02016abc
+	bl PM_SendUtilityCommandAsync
 	ldmfd sp!, {r3, pc}
 _02016C4C: .word 0x0000FFFF
-	arm_func_end FUN_02016bc8
+	arm_func_end PM_SetBackLightAsync
 
-	arm_func_start FUN_02016c50
-FUN_02016c50: ; 0x02016C50
+	arm_func_start PM_SetBackLight
+PM_SetBackLight: ; 0x02016C50
 	stmfd sp!, {r3, lr}
-	ldr r2, _02016C74 ; =FUN_0201675c
+	ldr r2, _02016C74 ; =PMi_DummyCallback
 	add r3, sp, #0
-	bl FUN_02016bc8
+	bl PM_SetBackLightAsync
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
-	bl FUN_020166d8
+	bl PMi_WaitBusy
 	ldr r0, [sp]
 	ldmfd sp!, {r3, pc}
-_02016C74: .word FUN_0201675c
-	arm_func_end FUN_02016c50
+_02016C74: .word PMi_DummyCallback
+	arm_func_end PM_SetBackLight
 
-	arm_func_start FUN_02016c78
-FUN_02016c78: ; 0x02016C78
+	arm_func_start PM_ForceToPowerOffAsync
+PM_ForceToPowerOffAsync: ; 0x02016C78
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_020175d8
+	bl PMi_LCDOnAvoidReset
 	mov r1, #0
 	mov r2, r1
 	mov r3, r5
 	mov r0, #0xe
 	str r4, [sp]
-	bl FUN_02016abc
+	bl PM_SendUtilityCommandAsync
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02016c78
+	arm_func_end PM_ForceToPowerOffAsync
 
-	arm_func_start FUN_02016ca4
-FUN_02016ca4: ; 0x02016CA4
+	arm_func_start PMi_ForceToPowerOff
+PMi_ForceToPowerOff: ; 0x02016CA4
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r0, _02016CE8 ; =FUN_0201675c
+	ldr r0, _02016CE8 ; =PMi_DummyCallback
 	add r1, sp, #0
-	bl FUN_02016c78
+	bl PM_ForceToPowerOffAsync
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, pc}
 	ldr r4, _02016CEC ; =0x0208EE9C
 	mov r0, #0xc
 	str r0, [r4]
-	bl FUN_020166d8
+	bl PMi_WaitBusy
 	mov r0, #2
 	str r0, [r4]
 	ldr r0, [sp]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_02016CE8: .word FUN_0201675c
+_02016CE8: .word PMi_DummyCallback
 _02016CEC: .word unk_0208EE9C
-	arm_func_end FUN_02016ca4
+	arm_func_end PMi_ForceToPowerOff
 
 	arm_func_start PM_ForceToPowerOff
 PM_ForceToPowerOff: ; 0x02016CF0
 	stmfd sp!, {r4, lr}
-	bl FUN_02016ca4
+	bl PMi_ForceToPowerOff
 	cmp r0, #0
 	beq _02016D18
 	ldr r4, _02016D28 ; =0x00051D23
 _02016D04:
 	mov r0, r4
 	bl OS_SpinWaitSysCycles
-	bl FUN_02016ca4
+	bl PMi_ForceToPowerOff
 	cmp r0, #0
 	bne _02016D04
 _02016D18:
@@ -27370,11 +27366,11 @@ _02016D20:
 _02016D28: .word 0x00051D23
 	arm_func_end PM_ForceToPowerOff
 
-	arm_func_start FUN_02016d2c
-FUN_02016d2c: ; 0x02016D2C
+	arm_func_start PMi_SetAmp
+PMi_SetAmp: ; 0x02016D2C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_020173a4
+	bl PM_GetLCDPower
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -27382,19 +27378,19 @@ FUN_02016d2c: ; 0x02016D2C
 	mov r1, r0, lsr #0x10
 	mov r0, #0x10
 	mov r2, #0
-	bl FUN_02016b04
+	bl PM_SendUtilityCommand
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02016d2c
+	arm_func_end PMi_SetAmp
 
-	arm_func_start FUN_02016d5c
-FUN_02016d5c: ; 0x02016D5C
+	arm_func_start PM_GetBackLight
+PM_GetBackLight: ; 0x02016D5C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
 	add r2, sp, #0
 	mov r0, #0xf
 	mov r1, #3
-	bl FUN_02016b04
+	bl PM_SendUtilityCommand
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	cmp r5, #0
@@ -27413,10 +27409,10 @@ _02016D9C:
 	moveq r1, #0
 	str r1, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02016d5c
+	arm_func_end PM_GetBackLight
 
-	arm_func_start FUN_02016dbc
-FUN_02016dbc: ; 0x02016DBC
+	arm_func_start PMi_SendPxiData
+PMi_SendPxiData: ; 0x02016DBC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, #8
@@ -27429,10 +27425,10 @@ _02016DCC:
 	cmp r0, #0
 	bne _02016DCC
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02016dbc
+	arm_func_end PMi_SendPxiData
 
-	arm_func_start FUN_02016de8
-FUN_02016de8: ; 0x02016DE8
+	arm_func_start PMi_PreSleepForDma
+PMi_PreSleepForDma: ; 0x02016DE8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _02016E74 ; =0x040001A4
 	ldr r5, _02016E78 ; =0x0209773C
@@ -27477,10 +27473,10 @@ _02016E64:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02016E74: .word 0x040001A4
 _02016E78: .word unk_0209773C
-	arm_func_end FUN_02016de8
+	arm_func_end PMi_PreSleepForDma
 
-	arm_func_start FUN_02016e7c
-FUN_02016e7c: ; 0x02016E7C
+	arm_func_start PM_GoSleepMode
+PM_GoSleepMode: ; 0x02016E7C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	ldr r3, _02017154 ; =0x02097720
@@ -27490,7 +27486,7 @@ FUN_02016e7c: ; 0x02016E7C
 	str r2, [sp, #4]
 	mov r5, #1
 	mov r4, #0
-	bl FUN_020174fc
+	bl PMi_ExecuteList
 	ldr r0, _02017158 ; =0x04000208
 	ldrh r6, [r0]
 	strh r4, [r0]
@@ -27530,13 +27526,13 @@ _02016F28:
 	add r0, r1, #0x1000
 	ldr r11, [r1]
 	ldr r5, [r0]
-	bl FUN_020173a4
+	bl PM_GetLCDPower
 	add r9, sp, #0x14
 	add r10, sp, #0x18
 	str r0, [sp, #8]
 	mov r0, r10
 	mov r1, r9
-	bl FUN_02016d5c
+	bl PM_GetBackLight
 	cmp r0, #0
 	beq _02016F7C
 	ldr r8, _02017160 ; =0x00051D23
@@ -27545,13 +27541,13 @@ _02016F60:
 	bl OS_SpinWaitSysCycles
 	mov r0, r10
 	mov r1, r9
-	bl FUN_02016d5c
+	bl PM_GetBackLight
 	cmp r0, #0
 	bne _02016F60
 _02016F7C:
 	mov r0, #2
 	mov r1, #0
-	bl FUN_02016c50
+	bl PM_SetBackLight
 	cmp r0, #0
 	beq _02016FB8
 	ldr r10, _02017160 ; =0x00051D23
@@ -27562,11 +27558,11 @@ _02016F9C:
 	bl OS_SpinWaitSysCycles
 	mov r0, r9
 	mov r1, r8
-	bl FUN_02016c50
+	bl PM_SetBackLight
 	cmp r0, #0
 	bne _02016F9C
 _02016FB8:
-	bl FUN_02016798
+	bl PMi_WaitVBlank
 	mov r2, #0x4000000
 	ldr r0, [r2]
 	add r1, r2, #0x1000
@@ -27575,9 +27571,9 @@ _02016FB8:
 	ldr r0, [r1]
 	bic r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_02016798
-	bl FUN_02016798
-	bl FUN_02016de8
+	bl PMi_WaitVBlank
+	bl PMi_WaitVBlank
+	bl PMi_PreSleepForDma
 	ldr r1, [sp, #0x14]
 	ldr r0, _02017154 ; =0x02097720
 	mov r8, #0
@@ -27599,7 +27595,7 @@ _02016FB8:
 	mov r1, r1, lsl #0x10
 	mov r0, r0, lsr #0x10
 	mov r1, r1, lsr #0x10
-	bl FUN_02016a30
+	bl PMi_SendSleepStart
 	ldr r8, _02017154 ; =0x02097720
 	ldr r0, [r8, #0xc]
 	cmp r0, #0
@@ -27635,13 +27631,13 @@ _020170AC:
 	mov r1, r7
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02017168
+	bl PMi_SetLCDPower
 	cmp r0, #1
 	bne _020170AC
 	b _020170F8
 _020170CC:
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	beq _020170F8
 	ldr r9, _02017160 ; =0x00051D23
@@ -27649,7 +27645,7 @@ _020170E0:
 	mov r0, r9
 	bl OS_SpinWaitSysCycles
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	bne _020170E0
 _020170F8:
@@ -27675,7 +27671,7 @@ _02017108:
 _02017140:
 	ldr r0, _02017154 ; =0x02097720
 	ldr r0, [r0, #0x18]
-	bl FUN_020174fc
+	bl PMi_ExecuteList
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02017154: .word unk_02097720
@@ -27683,10 +27679,10 @@ _02017158: .word 0x04000208
 _0201715C: .word 0x003FFFFF
 _02017160: .word 0x00051D23
 _02017164: .word 0x04000214
-	arm_func_end FUN_02016e7c
+	arm_func_end PM_GoSleepMode
 
-	arm_func_start FUN_02017168
-FUN_02017168: ; 0x02017168
+	arm_func_start PMi_SetLCDPower
+PMi_SetLCDPower: ; 0x02017168
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r1
 	mov r6, r3
@@ -27712,14 +27708,14 @@ _020171B4:
 	cmp r6, #0
 	beq _020171F0
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	beq _02017228
 _020171D4:
 	mov r0, r5
 	bl OS_SpinWaitSysCycles
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	bne _020171D4
 	b _02017228
@@ -27727,7 +27723,7 @@ _020171F0:
 	mov r1, #0
 	mov r0, r7
 	mov r2, r1
-	bl FUN_02016b3c
+	bl PMi_SetLEDAsync
 	cmp r0, #0
 	beq _02017228
 _02017208:
@@ -27736,7 +27732,7 @@ _02017208:
 	mov r0, r7
 	mov r1, r4
 	mov r2, r4
-	bl FUN_02016b3c
+	bl PMi_SetLEDAsync
 	cmp r0, #0
 	bne _02017208
 _02017228:
@@ -27746,27 +27742,27 @@ _02017228:
 	orr r0, r0, #1
 	strh r0, [r1]
 	ldr r0, [r4, #0x14]
-	bl FUN_02016d2c
+	bl PMi_SetAmp
 	cmp r0, #0
 	beq _0201734C
 _0201724C:
 	mov r0, r5
 	bl OS_SpinWaitSysCycles
 	ldr r0, [r4, #0x14]
-	bl FUN_02016d2c
+	bl PMi_SetAmp
 	cmp r0, #0
 	bne _0201724C
 	b _0201734C
 _02017268:
 	mov r0, r4
-	bl FUN_02016d2c
+	bl PMi_SetAmp
 	cmp r0, #0
 	beq _02017290
 _02017278:
 	mov r0, r5
 	bl OS_SpinWaitSysCycles
 	mov r0, r4
-	bl FUN_02016d2c
+	bl PMi_SetAmp
 	cmp r0, #0
 	bne _02017278
 _02017290:
@@ -27777,8 +27773,8 @@ _02017290:
 	sub r0, r1, r0
 	cmp r0, #2
 	bhi _020172B4
-	bl FUN_02016798
-	bl FUN_02016798
+	bl PMi_WaitVBlank
+	bl PMi_WaitVBlank
 _020172B4:
 	ldr r12, _02017360 ; =0x04000304
 	ldr r0, _02017364 ; =0x0000FFFE
@@ -27794,14 +27790,14 @@ _020172B4:
 	cmp r6, #0
 	beq _02017314
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	beq _0201734C
 _020172F8:
 	mov r0, r5
 	bl OS_SpinWaitSysCycles
 	mov r0, r7
-	bl FUN_02016ba0
+	bl PMi_SetLED
 	cmp r0, #0
 	bne _020172F8
 	b _0201734C
@@ -27809,7 +27805,7 @@ _02017314:
 	mov r1, #0
 	mov r0, r7
 	mov r2, r1
-	bl FUN_02016b3c
+	bl PMi_SetLEDAsync
 	cmp r0, #0
 	beq _0201734C
 _0201732C:
@@ -27818,7 +27814,7 @@ _0201732C:
 	mov r0, r7
 	mov r1, r4
 	mov r2, r4
-	bl FUN_02016b3c
+	bl PMi_SetLEDAsync
 	cmp r0, #0
 	bne _0201732C
 _0201734C:
@@ -27829,10 +27825,10 @@ _02017358: .word 0x02FFFC3C
 _0201735C: .word unk_02097720
 _02017360: .word 0x04000304
 _02017364: .word 0x0000FFFE
-	arm_func_end FUN_02017168
+	arm_func_end PMi_SetLCDPower
 
-	arm_func_start FUN_02017368
-FUN_02017368: ; 0x02017368
+	arm_func_start PM_SetLCDPower
+PM_SetLCDPower: ; 0x02017368
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	cmp r4, #1
@@ -27847,12 +27843,12 @@ _0201738C:
 	mov r0, r4
 	mov r2, r1
 	mov r3, #1
-	bl FUN_02017168
+	bl PMi_SetLCDPower
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02017368
+	arm_func_end PM_SetLCDPower
 
-	arm_func_start FUN_020173a4
-FUN_020173a4: ; 0x020173A4
+	arm_func_start PM_GetLCDPower
+PM_GetLCDPower: ; 0x020173A4
 	ldr r0, _020173BC ; =0x04000304
 	ldrh r0, [r0]
 	tst r0, #1
@@ -27860,28 +27856,28 @@ FUN_020173a4: ; 0x020173A4
 	moveq r0, #0
 	bx lr
 _020173BC: .word 0x04000304
-	arm_func_end FUN_020173a4
+	arm_func_end PM_GetLCDPower
 
-	arm_func_start FUN_020173c0
-FUN_020173c0: ; 0x020173C0
+	arm_func_start PMi_SendLEDPatternCommand
+PMi_SendLEDPatternCommand: ; 0x020173C0
 	mov r0, r0, lsl #0x10
 	mov r1, r0, lsr #0x10
-	ldr r12, _020173D8 ; =FUN_02016b04
+	ldr r12, _020173D8 ; =PM_SendUtilityCommand
 	mov r0, #0x12
 	mov r2, #0
 	bx r12
-_020173D8: .word FUN_02016b04
-	arm_func_end FUN_020173c0
+_020173D8: .word PM_SendUtilityCommand
+	arm_func_end PMi_SendLEDPatternCommand
 
-	arm_func_start FUN_020173dc
-FUN_020173dc: ; 0x020173DC
+	arm_func_start PM_GetLEDPattern
+PM_GetLEDPattern: ; 0x020173DC
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	mov r4, r0
 	add r2, sp, #0
 	mov r0, #0xf
 	mov r1, #8
-	bl FUN_02016b04
+	bl PM_SendUtilityCommand
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, pc}
@@ -27890,10 +27886,10 @@ FUN_020173dc: ; 0x020173DC
 	strne r1, [r4]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_020173dc
+	arm_func_end PM_GetLEDPattern
 
-	arm_func_start FUN_02017418
-FUN_02017418: ; 0x02017418
+	arm_func_start PMi_InsertList
+PMi_InsertList: ; 0x02017418
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r7, r0
 	mov r6, r1
@@ -27933,10 +27929,10 @@ _02017480:
 	streq r6, [r7]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02017418
+	arm_func_end PMi_InsertList
 
-	arm_func_start FUN_020174a4
-FUN_020174a4: ; 0x020174A4
+	arm_func_start PMi_DeleteList
+PMi_DeleteList: ; 0x020174A4
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r0
 	mov r4, r1
@@ -27962,10 +27958,10 @@ _020174E4:
 _020174F4:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_020174a4
+	arm_func_end PMi_DeleteList
 
-	arm_func_start FUN_020174fc
-FUN_020174fc: ; 0x020174FC
+	arm_func_start PMi_ExecuteList
+PMi_ExecuteList: ; 0x020174FC
 	stmfd sp!, {r4, lr}
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
@@ -27977,79 +27973,79 @@ _02017508:
 	cmp r4, #0
 	bne _02017508
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020174fc
+	arm_func_end PMi_ExecuteList
 
-	arm_func_start FUN_02017524
-FUN_02017524: ; 0x02017524
+	arm_func_start PM_AppendPreSleepCallback
+PM_AppendPreSleepCallback: ; 0x02017524
 	mov r1, r0
 	ldr r0, _0201753C ; =0x02097730
-	ldr r12, _02017540 ; =FUN_02017418
+	ldr r12, _02017540 ; =PMi_InsertList
 	mov r2, #0xff
 	mov r3, #0
 	bx r12
 _0201753C: .word unk_02097730
-_02017540: .word FUN_02017418
-	arm_func_end FUN_02017524
+_02017540: .word PMi_InsertList
+	arm_func_end PM_AppendPreSleepCallback
 
-	arm_func_start FUN_02017544
-FUN_02017544: ; 0x02017544
+	arm_func_start PM_PrependPreSleepCallback
+PM_PrependPreSleepCallback: ; 0x02017544
 	mov r1, r0
 	ldr r0, _0201755C ; =0x02097730
-	ldr r12, _02017560 ; =FUN_02017418
+	ldr r12, _02017560 ; =PMi_InsertList
 	mvn r2, #0xfe
 	mov r3, #1
 	bx r12
 _0201755C: .word unk_02097730
-_02017560: .word FUN_02017418
-	arm_func_end FUN_02017544
+_02017560: .word PMi_InsertList
+	arm_func_end PM_PrependPreSleepCallback
 
-	arm_func_start FUN_02017564
-FUN_02017564: ; 0x02017564
+	arm_func_start PM_AppendPostSleepCallback
+PM_AppendPostSleepCallback: ; 0x02017564
 	mov r1, r0
 	ldr r0, _0201757C ; =0x02097738
-	ldr r12, _02017580 ; =FUN_02017418
+	ldr r12, _02017580 ; =PMi_InsertList
 	mov r2, #0xff
 	mov r3, #0
 	bx r12
 _0201757C: .word unk_02097738
-_02017580: .word FUN_02017418
-	arm_func_end FUN_02017564
+_02017580: .word PMi_InsertList
+	arm_func_end PM_AppendPostSleepCallback
 
-	arm_func_start FUN_02017584
-FUN_02017584: ; 0x02017584
+	arm_func_start PMi_InsertPostSleepCallbackEx
+PMi_InsertPostSleepCallbackEx: ; 0x02017584
 	mov r3, r0
 	mov r2, r1
 	mov r1, r3
 	ldr r0, _020175A0 ; =0x02097730
-	ldr r12, _020175A4 ; =FUN_02017418
+	ldr r12, _020175A4 ; =PMi_InsertList
 	mov r3, #0
 	bx r12
 _020175A0: .word unk_02097730
-_020175A4: .word FUN_02017418
-	arm_func_end FUN_02017584
+_020175A4: .word PMi_InsertList
+	arm_func_end PMi_InsertPostSleepCallbackEx
 
-	arm_func_start FUN_020175a8
-FUN_020175a8: ; 0x020175A8
+	arm_func_start PM_DeletePreSleepCallback
+PM_DeletePreSleepCallback: ; 0x020175A8
 	mov r1, r0
 	ldr r0, _020175B8 ; =0x02097730
-	ldr r12, _020175BC ; =FUN_020174a4
+	ldr r12, _020175BC ; =PMi_DeleteList
 	bx r12
 _020175B8: .word unk_02097730
-_020175BC: .word FUN_020174a4
-	arm_func_end FUN_020175a8
+_020175BC: .word PMi_DeleteList
+	arm_func_end PM_DeletePreSleepCallback
 
-	arm_func_start FUN_020175c0
-FUN_020175c0: ; 0x020175C0
+	arm_func_start PM_DeletePostSleepCallback
+PM_DeletePostSleepCallback: ; 0x020175C0
 	mov r1, r0
 	ldr r0, _020175D0 ; =0x02097738
-	ldr r12, _020175D4 ; =FUN_020174a4
+	ldr r12, _020175D4 ; =PMi_DeleteList
 	bx r12
 _020175D0: .word unk_02097738
-_020175D4: .word FUN_020174a4
-	arm_func_end FUN_020175c0
+_020175D4: .word PMi_DeleteList
+	arm_func_end PM_DeletePostSleepCallback
 
-	arm_func_start FUN_020175d8
-FUN_020175d8: ; 0x020175D8
+	arm_func_start PMi_LCDOnAvoidReset
+PMi_LCDOnAvoidReset: ; 0x020175D8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r0, #0x360000
 	bl OS_SpinWaitSysCycles
@@ -28057,12 +28053,12 @@ FUN_020175d8: ; 0x020175D8
 	mov r1, #0xe
 	ldr r4, [r0]
 	str r1, [r0]
-	bl FUN_020173a4
+	bl PM_GetLCDPower
 	cmp r0, #1
 	beq _0201766C
 	mov r0, #2
 	mov r1, #0
-	bl FUN_02016c50
+	bl PM_SetBackLight
 	cmp r0, #0
 	beq _0201763C
 	ldr r7, _0201767C ; =0x00051D23
@@ -28073,12 +28069,12 @@ _02017620:
 	bl OS_SpinWaitSysCycles
 	mov r0, r6
 	mov r1, r5
-	bl FUN_02016c50
+	bl PM_SetBackLight
 	cmp r0, #0
 	bne _02017620
 _0201763C:
 	mov r0, #1
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	cmp r0, #0
 	bne _0201766C
 	mov r6, #5
@@ -28087,7 +28083,7 @@ _02017654:
 	mov r0, r6
 	bl OS_SpinWaitSysCycles
 	mov r0, r5
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	cmp r0, #0
 	beq _02017654
 _0201766C:
@@ -28096,7 +28092,7 @@ _0201766C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02017678: .word unk_0208EE9C
 _0201767C: .word 0x00051D23
-	arm_func_end FUN_020175d8
+	arm_func_end PMi_LCDOnAvoidReset
 
 	arm_func_start PMi_SetDispOffCount
 PMi_SetDispOffCount: ; 0x02017680
@@ -31861,9 +31857,9 @@ FUN_0201a858: ; 0x0201A858
 	str r0, [r4, #0x20]
 	ldr r0, _0201A8CC ; =0x020977AC
 	str r5, [r4, #0x24]
-	bl FUN_02017544
+	bl PM_PrependPreSleepCallback
 	ldr r0, _0201A8D0 ; =0x020977BC
-	bl FUN_02017564
+	bl PM_AppendPostSleepCallback
 	bl FUN_0201a9b4
 	bl FUN_0201b390
 	bl FUN_0201ab70
@@ -32648,9 +32644,9 @@ FUN_0201b210: ; 0x0201B210
 	movs r0, r0, asr #0x1f
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #8
-	bl FUN_02017544
+	bl PM_PrependPreSleepCallback
 	add r0, r4, #0x18
-	bl FUN_02017564
+	bl PM_AppendPostSleepCallback
 	ldr r0, [r4, #0x2c]
 	orr r0, r0, #2
 	str r0, [r4, #0x2c]
@@ -32716,9 +32712,9 @@ FUN_0201b2ec: ; 0x0201B2EC
 	mov r3, r1
 	bl SND_StopTimer
 	add r0, r4, #8
-	bl FUN_020175a8
+	bl PM_DeletePreSleepCallback
 	add r0, r4, #0x18
-	bl FUN_020175c0
+	bl PM_DeletePostSleepCallback
 	ldr r0, [r4, #0x2c]
 	bic r0, r0, #2
 	str r0, [r4, #0x2c]
@@ -49345,10 +49341,10 @@ _020295A8: .word 0x04000304
 FUN_020295ac: ; 0x020295AC
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
-	bl FUN_02015ef0
+	bl TP_Init
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_02015f64
+	bl TP_GetUserInfo
 	cmp r0, #0
 	bne _020295D8
 	bl OS_Terminate
@@ -49356,7 +49352,7 @@ FUN_020295ac: ; 0x020295AC
 	ldmfd sp!, {r4, pc}
 _020295D8:
 	mov r0, r4
-	bl FUN_02015ff8
+	bl TP_SetCalibrateParam
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020295ac
@@ -50763,9 +50759,9 @@ FUN_0202a698: ; 0x0202A698
 	str r0, [r1, #0x44]
 	ldr r0, _0202A6DC ; =0x020B5B14
 	str r2, [r1, #0x48]
-	bl FUN_02017524
+	bl PM_AppendPreSleepCallback
 	ldr r0, _0202A6E0 ; =0x020B5B24
-	bl FUN_02017564
+	bl PM_AppendPostSleepCallback
 	ldmfd sp!, {r3, pc}
 _0202A6D0: .word FUN_0202a628
 _0202A6D4: .word unk_020B5AE0
@@ -50803,7 +50799,7 @@ FUN_0202a6e4: ; 0x0202A6E4
 _0202A744:
 	cmp r5, #0
 	beq _0202A780
-	bl FUN_020173a4
+	bl PM_GetLCDPower
 	cmp r0, #1
 	ldmnefd sp!, {r3, r4, r5, pc}
 	bl OS_WaitVBlankIntr
@@ -50814,13 +50810,13 @@ _0202A744:
 	str r0, [r1]
 	bl OS_WaitVBlankIntr
 	mov r0, #0
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A780:
 	mov r1, #0
 	mov r2, r1
 	mov r0, #0xc
-	bl FUN_02016e7c
+	bl PM_GoSleepMode
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A794: .word unk_0209A0F8
 _0202A798: .word unk_0209A5D0
@@ -50901,9 +50897,9 @@ FUN_0202a870: ; 0x0202A870
 	ldr r0, _0202A8F0 ; =0x02FFFFA8
 	ldrh r1, [r1]
 	ldrh r0, [r0]
-	bl FUN_020160e8
+	bl TP_RequestSamplingAsync
 	ldr r0, _0202A8F4 ; =0x020B5B00
-	bl FUN_020161d0
+	bl TP_WaitCalibratedResult
 	ldr r3, _0202A8F8 ; =0x020B5AE0
 	ldr r0, _0202A8FC ; =0x020B5B40
 	strb r4, [r3]
@@ -51007,9 +51003,9 @@ FUN_0202aa14: ; 0x0202AA14
 	ldr r5, _0202AB74 ; =0x020B5B40
 	ldr r0, [r4, #0x10]
 	add r6, r5, r0, lsl #3
-	bl FUN_020160e8
+	bl TP_RequestSamplingAsync
 	mov r0, r6
-	bl FUN_020161d0
+	bl TP_WaitCalibratedResult
 	ldrb r0, [r4]
 	cmp r0, #0
 	bne _0202AA60
@@ -51463,11 +51459,11 @@ _0202B01C:
 	ldr r4, [r5, #-0x36c]
 	b _0202B080
 _0202B04C:
-	bl FUN_020173a4
+	bl PM_GetLCDPower
 	cmp r0, #0
 	bne _0202B080
 	mov r0, r6
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	bl OS_WaitVBlankIntr
 	bl GX_DispOn
 	ldr r1, _0202B194 ; =0x04001000
