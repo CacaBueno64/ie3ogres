@@ -28109,18 +28109,18 @@ _02017694: .word 0x02FFFC3C
 _02017698: .word unk_02097720
 	arm_func_end PMi_SetDispOffCount
 
-	arm_func_start FUN_0201769c
-FUN_0201769c: ; 0x0201769C
+	arm_func_start NNS_FndInitList
+NNS_FndInitList: ; 0x0201769C
 	mov r2, #0
 	str r2, [r0]
 	str r2, [r0, #4]
 	strh r2, [r0, #8]
 	strh r1, [r0, #0xa]
 	bx lr
-	arm_func_end FUN_0201769c
+	arm_func_end NNS_FndInitList
 
-	arm_func_start FUN_020176b4
-FUN_020176b4: ; 0x020176B4
+	arm_func_start SetFirstObject
+SetFirstObject: ; 0x020176B4
 	ldrh r3, [r0, #0xa]
 	mov r2, #0
 	add r12, r1, r3
@@ -28132,15 +28132,15 @@ FUN_020176b4: ; 0x020176B4
 	add r1, r2, #1
 	strh r1, [r0, #8]
 	bx lr
-	arm_func_end FUN_020176b4
+	arm_func_end SetFirstObject
 
-	arm_func_start FUN_020176e0
-FUN_020176e0: ; 0x020176E0
+	arm_func_start NNS_FndAppendListObject
+NNS_FndAppendListObject: ; 0x020176E0
 	stmfd sp!, {r3, lr}
 	ldr r2, [r0]
 	cmp r2, #0
 	bne _020176F8
-	bl FUN_020176b4
+	bl SetFirstObject
 	ldmfd sp!, {r3, pc}
 _020176F8:
 	ldrh r12, [r0, #0xa]
@@ -28158,15 +28158,15 @@ _020176F8:
 	add r1, r2, #1
 	strh r1, [r0, #8]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020176e0
+	arm_func_end NNS_FndAppendListObject
 
-	arm_func_start FUN_02017734
-FUN_02017734: ; 0x02017734
+	arm_func_start NNS_FndPrependListObject
+NNS_FndPrependListObject: ; 0x02017734
 	stmfd sp!, {r3, lr}
 	ldr r2, [r0]
 	cmp r2, #0
 	bne _0201774C
-	bl FUN_020176b4
+	bl SetFirstObject
 	ldmfd sp!, {r3, pc}
 _0201774C:
 	ldrh r3, [r0, #0xa]
@@ -28183,22 +28183,22 @@ _0201774C:
 	add r1, r2, #1
 	strh r1, [r0, #8]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02017734
+	arm_func_end NNS_FndPrependListObject
 
-	arm_func_start FUN_02017784
-FUN_02017784: ; 0x02017784
+	arm_func_start NNS_FndInsertListObject
+NNS_FndInsertListObject: ; 0x02017784
 	stmfd sp!, {r3, lr}
 	cmp r1, #0
 	bne _0201779C
 	mov r1, r2
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	ldmfd sp!, {r3, pc}
 _0201779C:
 	ldr r3, [r0]
 	cmp r1, r3
 	bne _020177B4
 	mov r1, r2
-	bl FUN_02017734
+	bl NNS_FndPrependListObject
 	ldmfd sp!, {r3, pc}
 _020177B4:
 	ldrh lr, [r0, #0xa]
@@ -28214,10 +28214,10 @@ _020177B4:
 	add r1, r1, #1
 	strh r1, [r0, #8]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02017784
+	arm_func_end NNS_FndInsertListObject
 
-	arm_func_start FUN_020177e8
-FUN_020177e8: ; 0x020177E8
+	arm_func_start NNS_FndRemoveListObject
+NNS_FndRemoveListObject: ; 0x020177E8
 	stmfd sp!, {r3, lr}
 	ldrh r12, [r0, #0xa]
 	ldr r3, [r1, r12]
@@ -28242,35 +28242,35 @@ FUN_020177e8: ; 0x020177E8
 	sub r1, r1, #1
 	strh r1, [r0, #8]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020177e8
+	arm_func_end NNS_FndRemoveListObject
 
-	arm_func_start FUN_02017848
-FUN_02017848: ; 0x02017848
+	arm_func_start NNS_FndGetNextListObject
+NNS_FndGetNextListObject: ; 0x02017848
 	cmp r1, #0
 	ldreq r0, [r0]
 	ldrneh r0, [r0, #0xa]
 	addne r0, r1, r0
 	ldrne r0, [r0, #4]
 	bx lr
-	arm_func_end FUN_02017848
+	arm_func_end NNS_FndGetNextListObject
 
-	arm_func_start FUN_02017860
-FUN_02017860: ; 0x02017860
+	arm_func_start NNS_FndGetPrevListObject
+NNS_FndGetPrevListObject: ; 0x02017860
 	cmp r1, #0
 	ldreq r0, [r0, #4]
 	ldrneh r0, [r0, #0xa]
 	ldrne r0, [r1, r0]
 	bx lr
-	arm_func_end FUN_02017860
+	arm_func_end NNS_FndGetPrevListObject
 
-	arm_func_start FUN_02017874
-FUN_02017874: ; 0x02017874
+	arm_func_start NNS_FndGetNthListObject
+NNS_FndGetNthListObject: ; 0x02017874
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, #0
 	mov r5, r1
 	mov r1, r4
 	mov r6, r0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	beq _020178B4
 _02017894:
@@ -28279,21 +28279,21 @@ _02017894:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r6
 	add r4, r4, #1
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	bne _02017894
 _020178B4:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02017874
+	arm_func_end NNS_FndGetNthListObject
 
-	arm_func_start FUN_020178bc
-FUN_020178bc: ; 0x020178BC
+	arm_func_start FindContainHeap
+FindContainHeap: ; 0x020178BC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	mov r1, #0
 	mov r6, r0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r4, r0
 	beq _0201791C
 _020178D8:
@@ -28305,37 +28305,37 @@ _020178D8:
 	bhs _02017908
 	mov r1, r5
 	add r0, r4, #0xc
-	bl FUN_020178bc
+	bl FindContainHeap
 	cmp r0, #0
 	moveq r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02017908:
 	mov r0, r6
 	mov r1, r4
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r4, r0
 	bne _020178D8
 _0201791C:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_020178bc
+	arm_func_end FindContainHeap
 
-	arm_func_start FUN_02017924
-FUN_02017924: ; 0x02017924
+	arm_func_start FindListContainHeap
+FindListContainHeap: ; 0x02017924
 	stmfd sp!, {r4, lr}
 	ldr r4, _02017948 ; =0x02097760
 	mov r1, r0
 	mov r0, r4
-	bl FUN_020178bc
+	bl FindContainHeap
 	cmp r0, #0
 	addne r4, r0, #0xc
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02017948: .word unk_02097760
-	arm_func_end FUN_02017924
+	arm_func_end FindListContainHeap
 
-	arm_func_start FUN_0201794c
-FUN_0201794c: ; 0x0201794C
+	arm_func_start NNSi_FndInitHeapHead
+NNSi_FndInitHeapHead: ; 0x0201794C
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrh r5, [sp, #0x10]
 	mov r4, r0
@@ -28350,38 +28350,38 @@ FUN_0201794c: ; 0x0201794C
 	str r2, [r4, #0x18]
 	str r3, [r4, #0x1c]
 	str r5, [r4, #0x20]
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	ldr r5, _020179C0 ; =0x0209775C
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _020179AC
 	ldr r0, _020179C4 ; =0x02097760
 	mov r1, r6
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r0, #1
 	str r0, [r5]
 _020179AC:
 	mov r0, r4
-	bl FUN_02017924
+	bl FindListContainHeap
 	mov r1, r4
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	ldmfd sp!, {r4, r5, r6, pc}
 _020179C0: .word unk_0209775C
 _020179C4: .word unk_02097760
-	arm_func_end FUN_0201794c
+	arm_func_end NNSi_FndInitHeapHead
 
-	arm_func_start FUN_020179c8
-FUN_020179c8: ; 0x020179C8
+	arm_func_start NNSi_FndFinalizeHeap
+NNSi_FndFinalizeHeap: ; 0x020179C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02017924
+	bl FindListContainHeap
 	mov r1, r4
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020179c8
+	arm_func_end NNSi_FndFinalizeHeap
 
-	arm_func_start FUN_020179e0
-FUN_020179e0: ; 0x020179E0
+	arm_func_start GetRegionOfMBlock
+GetRegionOfMBlock: ; 0x020179E0
 	ldrh r2, [r1, #2]
 	add r3, r1, #0x10
 	mov r2, r2, asr #8
@@ -28393,10 +28393,10 @@ FUN_020179e0: ; 0x020179E0
 	add r1, r1, r3
 	str r1, [r0, #4]
 	bx lr
-	arm_func_end FUN_020179e0
+	arm_func_end GetRegionOfMBlock
 
-	arm_func_start FUN_02017a0c
-FUN_02017a0c: ; 0x02017A0C
+	arm_func_start RemoveMBlock
+RemoveMBlock: ; 0x02017A0C
 	ldr r2, [r1, #8]
 	ldr r1, [r1, #0xc]
 	cmp r2, #0
@@ -28407,10 +28407,10 @@ FUN_02017a0c: ; 0x02017A0C
 	streq r2, [r0, #4]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_02017a0c
+	arm_func_end RemoveMBlock
 
-	arm_func_start FUN_02017a34
-FUN_02017a34: ; 0x02017A34
+	arm_func_start InsertMBlock
+InsertMBlock: ; 0x02017A34
 	str r2, [r1, #8]
 	cmp r2, #0
 	ldrne r3, [r2, #0xc]
@@ -28423,10 +28423,10 @@ FUN_02017a34: ; 0x02017A34
 	streq r1, [r0, #4]
 	mov r0, r1
 	bx lr
-	arm_func_end FUN_02017a34
+	arm_func_end InsertMBlock
 
-	arm_func_start FUN_02017a64
-FUN_02017a64: ; 0x02017A64
+	arm_func_start InitMBlock
+InitMBlock: ; 0x02017A64
 	ldr r3, [r0]
 	ldr r2, [r0, #4]
 	add r0, r3, #0x10
@@ -28438,10 +28438,10 @@ FUN_02017a64: ; 0x02017A64
 	mov r0, r3
 	str r1, [r3, #0xc]
 	bx lr
-	arm_func_end FUN_02017a64
+	arm_func_end InitMBlock
 
-	arm_func_start FUN_02017a90
-FUN_02017a90: ; 0x02017A90
+	arm_func_start InitExpHeap
+InitExpHeap: ; 0x02017A90
 	stmfd sp!, {r4, r5, lr}
 	sub sp, sp, #0xc
 	mov r3, r1
@@ -28449,7 +28449,7 @@ FUN_02017a90: ; 0x02017A90
 	str r2, [sp]
 	ldr r1, _02017AF8 ; =0x45585048
 	add r2, r5, #0x38
-	bl FUN_0201794c
+	bl NNSi_FndInitHeapHead
 	mov r4, #0
 	bic r1, r4, #1
 	strh r1, [r5, #0x36]
@@ -28460,7 +28460,7 @@ FUN_02017a90: ; 0x02017A90
 	ldr r1, _02017AFC ; =0x00004652
 	add r0, sp, #4
 	str r2, [sp, #8]
-	bl FUN_02017a64
+	bl InitMBlock
 	str r0, [r5, #0x24]
 	str r0, [r5, #0x28]
 	mov r0, r5
@@ -28470,10 +28470,10 @@ FUN_02017a90: ; 0x02017A90
 	ldmfd sp!, {r4, r5, pc}
 _02017AF8: .word 0x45585048
 _02017AFC: .word 0x00004652
-	arm_func_end FUN_02017a90
+	arm_func_end InitExpHeap
 
-	arm_func_start FUN_02017b00
-FUN_02017b00: ; 0x02017B00
+	arm_func_start AllocUsedBlockFromFreeBlock
+AllocUsedBlockFromFreeBlock: ; 0x02017B00
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x18
 	add r4, sp, #0x10
@@ -28482,7 +28482,7 @@ FUN_02017b00: ; 0x02017B00
 	mov r5, r1
 	mov r7, r2
 	mov r9, r3
-	bl FUN_020179e0
+	bl GetRegionOfMBlock
 	ldr r3, [sp, #0x14]
 	sub r6, r7, #0x10
 	add r2, r9, r7
@@ -28491,7 +28491,7 @@ FUN_02017b00: ; 0x02017B00
 	str r6, [sp, #0x14]
 	str r3, [sp, #0xc]
 	str r2, [sp, #8]
-	bl FUN_02017a0c
+	bl RemoveMBlock
 	ldr r2, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	mov r5, r0
@@ -28501,11 +28501,11 @@ FUN_02017b00: ; 0x02017B00
 	blo _02017B84
 	ldr r1, _02017C64 ; =0x00004652
 	mov r0, r4
-	bl FUN_02017a64
+	bl InitMBlock
 	mov r1, r0
 	mov r0, r8
 	mov r2, r5
-	bl FUN_02017a34
+	bl InsertMBlock
 	mov r5, r0
 _02017B84:
 	ldr r1, [sp, #0xc]
@@ -28516,11 +28516,11 @@ _02017B84:
 	blo _02017BB8
 	ldr r1, _02017C64 ; =0x00004652
 	add r0, sp, #8
-	bl FUN_02017a64
+	bl InitMBlock
 	mov r1, r0
 	mov r0, r8
 	mov r2, r5
-	bl FUN_02017a34
+	bl InsertMBlock
 _02017BB8:
 	ldr r0, [r8, #-4]
 	ldr r1, [sp, #0x14]
@@ -28537,7 +28537,7 @@ _02017BDC:
 	add r0, sp, #0
 	str r6, [sp]
 	str r2, [sp, #4]
-	bl FUN_02017a64
+	bl InitMBlock
 	mov r1, r0
 	ldrh r3, [r1, #2]
 	ldrh r2, [sp, #0x38]
@@ -28562,16 +28562,16 @@ _02017BDC:
 	orr r2, r2, r3
 	strh r2, [r1, #2]
 	ldr r2, [r8, #0xc]
-	bl FUN_02017a34
+	bl InsertMBlock
 	mov r0, r7
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02017C64: .word 0x00004652
 _02017C68: .word 0x00005544
-	arm_func_end FUN_02017b00
+	arm_func_end AllocUsedBlockFromFreeBlock
 
-	arm_func_start FUN_02017c6c
-FUN_02017c6c: ; 0x02017C6C
+	arm_func_start AllocFromHead
+AllocFromHead: ; 0x02017C6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrh r4, [r0, #0x36]
 	mov r3, r1
@@ -28618,12 +28618,12 @@ _02017CFC:
 	mov r2, r4
 	add r0, r0, #0x24
 	str r5, [sp]
-	bl FUN_02017b00
+	bl AllocUsedBlockFromFreeBlock
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02017c6c
+	arm_func_end AllocFromHead
 
-	arm_func_start FUN_02017d20
-FUN_02017d20: ; 0x02017D20
+	arm_func_start AllocFromTail
+AllocFromTail: ; 0x02017D20
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrh r4, [r0, #0x36]
 	mov r3, r1
@@ -28669,12 +28669,12 @@ _02017DAC:
 	mov r2, r4
 	add r0, r0, #0x24
 	str r5, [sp]
-	bl FUN_02017b00
+	bl AllocUsedBlockFromFreeBlock
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_02017d20
+	arm_func_end AllocFromTail
 
-	arm_func_start FUN_02017dd0
-FUN_02017dd0: ; 0x02017DD0
+	arm_func_start RecycleRegion
+RecycleRegion: ; 0x02017DD0
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r5, r1
@@ -28700,7 +28700,7 @@ _02017E04:
 	add r2, r2, r0
 	mov r0, r6
 	str r2, [sp, #4]
-	bl FUN_02017a0c
+	bl RemoveMBlock
 	b _02017E44
 _02017E38:
 	ldr r1, [r1, #0xc]
@@ -28718,7 +28718,7 @@ _02017E44:
 	mov r0, r6
 	mov r1, r4
 	str r4, [sp]
-	bl FUN_02017a0c
+	bl RemoveMBlock
 	mov r4, r0
 _02017E78:
 	ldr r1, [sp, #4]
@@ -28730,19 +28730,19 @@ _02017E78:
 	ldmlofd sp!, {r4, r5, r6, pc}
 	ldr r1, _02017EBC ; =0x00004652
 	add r0, sp, #0
-	bl FUN_02017a64
+	bl InitMBlock
 	mov r1, r0
 	mov r0, r6
 	mov r2, r4
-	bl FUN_02017a34
+	bl InsertMBlock
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02017EBC: .word 0x00004652
-	arm_func_end FUN_02017dd0
+	arm_func_end RecycleRegion
 
-	arm_func_start FUN_02017ec0
-FUN_02017ec0: ; 0x02017EC0
+	arm_func_start NNS_FndCreateExpHeapEx
+NNS_FndCreateExpHeapEx: ; 0x02017EC0
 	stmfd sp!, {r3, lr}
 	add r1, r1, r0
 	add r0, r0, #3
@@ -28757,19 +28757,19 @@ _02017EE8:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02017EF0:
-	bl FUN_02017a90
+	bl InitExpHeap
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02017ec0
+	arm_func_end NNS_FndCreateExpHeapEx
 
-	arm_func_start FUN_02017ef8
-FUN_02017ef8: ; 0x02017EF8
-	ldr r12, _02017F00 ; =FUN_020179c8
+	arm_func_start NNS_FndDestroyExpHeap
+NNS_FndDestroyExpHeap: ; 0x02017EF8
+	ldr r12, _02017F00 ; =NNSi_FndFinalizeHeap
 	bx r12
-_02017F00: .word FUN_020179c8
-	arm_func_end FUN_02017ef8
+_02017F00: .word NNSi_FndFinalizeHeap
+	arm_func_end NNS_FndDestroyExpHeap
 
-	arm_func_start FUN_02017f04
-FUN_02017f04: ; 0x02017F04
+	arm_func_start NNS_FndAllocFromExpHeapEx
+NNS_FndAllocFromExpHeapEx: ; 0x02017F04
 	stmfd sp!, {r3, lr}
 	cmp r1, #0
 	moveq r1, #1
@@ -28777,16 +28777,16 @@ FUN_02017f04: ; 0x02017F04
 	cmp r2, #0
 	bic r1, r1, #3
 	blt _02017F28
-	bl FUN_02017c6c
+	bl AllocFromHead
 	ldmfd sp!, {r3, pc}
 _02017F28:
 	rsb r2, r2, #0
-	bl FUN_02017d20
+	bl AllocFromTail
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02017f04
+	arm_func_end NNS_FndAllocFromExpHeapEx
 
-	arm_func_start FUN_02017f34
-FUN_02017f34: ; 0x02017F34
+	arm_func_start NNS_FndFreeToExpHeap
+NNS_FndFreeToExpHeap: ; 0x02017F34
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	sub r5, r1, #0x10
@@ -28794,19 +28794,19 @@ FUN_02017f34: ; 0x02017F34
 	mov r6, r0
 	mov r0, r4
 	mov r1, r5
-	bl FUN_020179e0
+	bl GetRegionOfMBlock
 	mov r1, r5
 	add r0, r6, #0x2c
-	bl FUN_02017a0c
+	bl RemoveMBlock
 	mov r1, r4
 	add r0, r6, #0x24
-	bl FUN_02017dd0
+	bl RecycleRegion
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02017f34
+	arm_func_end NNS_FndFreeToExpHeap
 
-	arm_func_start FUN_02017f74
-FUN_02017f74: ; 0x02017F74
+	arm_func_start InitFrameHeap
+InitFrameHeap: ; 0x02017F74
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	mov r3, r1
@@ -28814,7 +28814,7 @@ FUN_02017f74: ; 0x02017F74
 	str r2, [sp]
 	ldr r1, _02017FB8 ; =0x46524D48
 	add r2, r4, #0x30
-	bl FUN_0201794c
+	bl NNSi_FndInitHeapHead
 	ldr r3, [r4, #0x18]
 	ldr r2, [r4, #0x1c]
 	mov r1, #0
@@ -28825,10 +28825,10 @@ FUN_02017f74: ; 0x02017F74
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _02017FB8: .word 0x46524D48
-	arm_func_end FUN_02017f74
+	arm_func_end InitFrameHeap
 
-	arm_func_start FUN_02017fbc
-FUN_02017fbc: ; 0x02017FBC
+	arm_func_start AllocFromHead
+AllocFromHead: ; 0x02017FBC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldr r3, [r4]
@@ -28853,10 +28853,10 @@ _0201800C:
 	mov r0, r5
 	str r6, [r4]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02017fbc
+	arm_func_end AllocFromHead
 
-	arm_func_start FUN_02018018
-FUN_02018018: ; 0x02018018
+	arm_func_start AllocFromTail
+AllocFromTail: ; 0x02018018
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldr r3, [r4, #4]
@@ -28880,19 +28880,19 @@ _02018064:
 	mov r0, r5
 	str r5, [r4, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02018018
+	arm_func_end AllocFromTail
 
-	arm_func_start FUN_02018070
-FUN_02018070: ; 0x02018070
+	arm_func_start FreeHead
+FreeHead: ; 0x02018070
 	ldr r2, [r0, #0x18]
 	mov r1, #0
 	str r2, [r0, #0x24]
 	str r1, [r0, #0x2c]
 	bx lr
-	arm_func_end FUN_02018070
+	arm_func_end FreeHead
 
-	arm_func_start FUN_02018084
-FUN_02018084: ; 0x02018084
+	arm_func_start FreeTail
+FreeTail: ; 0x02018084
 	ldr r2, [r0, #0x2c]
 	cmp r2, #0
 	beq _020180A4
@@ -28906,10 +28906,10 @@ _020180A4:
 	ldr r1, [r0, #0x1c]
 	str r1, [r0, #0x28]
 	bx lr
-	arm_func_end FUN_02018084
+	arm_func_end FreeTail
 
-	arm_func_start FUN_020180b0
-FUN_020180b0: ; 0x020180B0
+	arm_func_start NNS_FndCreateFrmHeapEx
+NNS_FndCreateFrmHeapEx: ; 0x020180B0
 	stmfd sp!, {r3, lr}
 	add r1, r1, r0
 	add r0, r0, #3
@@ -28924,19 +28924,19 @@ _020180D8:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _020180E0:
-	bl FUN_02017f74
+	bl InitFrameHeap
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020180b0
+	arm_func_end NNS_FndCreateFrmHeapEx
 
-	arm_func_start FUN_020180e8
-FUN_020180e8: ; 0x020180E8
-	ldr r12, _020180F0 ; =FUN_020179c8
+	arm_func_start NNS_FndDestroyFrmHeap
+NNS_FndDestroyFrmHeap: ; 0x020180E8
+	ldr r12, _020180F0 ; =NNSi_FndFinalizeHeap
 	bx r12
-_020180F0: .word FUN_020179c8
-	arm_func_end FUN_020180e8
+_020180F0: .word NNSi_FndFinalizeHeap
+	arm_func_end NNS_FndDestroyFrmHeap
 
-	arm_func_start FUN_020180f4
-FUN_020180f4: ; 0x020180F4
+	arm_func_start NNS_FndAllocFromFrmHeapEx
+NNS_FndAllocFromFrmHeapEx: ; 0x020180F4
 	stmfd sp!, {r3, lr}
 	cmp r1, #0
 	moveq r1, #1
@@ -28945,29 +28945,29 @@ FUN_020180f4: ; 0x020180F4
 	bic r1, r1, #3
 	add r0, r0, #0x24
 	blt _0201811C
-	bl FUN_02017fbc
+	bl AllocFromHead
 	ldmfd sp!, {r3, pc}
 _0201811C:
 	rsb r2, r2, #0
-	bl FUN_02018018
+	bl AllocFromTail
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020180f4
+	arm_func_end NNS_FndAllocFromFrmHeapEx
 
-	arm_func_start FUN_02018128
-FUN_02018128: ; 0x02018128
+	arm_func_start NNS_FndFreeToFrmHeap
+NNS_FndFreeToFrmHeap: ; 0x02018128
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
 	tst r4, #1
 	beq _02018140
-	bl FUN_02018070
+	bl FreeHead
 _02018140:
 	tst r4, #2
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
-	bl FUN_02018084
+	bl FreeTail
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02018128
+	arm_func_end NNS_FndFreeToFrmHeap
 
 	arm_func_start NNS_G2dFindBinaryBlock
 NNS_G2dFindBinaryBlock: ; 0x02018154
@@ -32032,7 +32032,7 @@ FUN_0201aa20: ; 0x0201AA20
 	str r0, [r4, #8]
 	mov r1, r4
 	add r0, r2, #0xc
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0201AA9C: .word FUN_0201b138
@@ -32128,11 +32128,11 @@ FUN_0201ab70: ; 0x0201AB70
 	mov r4, #0x14
 	ldr r0, _0201AC14 ; =0x020977E4
 	mov r1, r4
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	ldr r6, _0201AC18 ; =0x020977D8
 	mov r1, r4
 	mov r0, r6
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r7, #0
 	ldr r5, _0201AC1C ; =0x020977F0
 	mov r10, r7
@@ -32142,7 +32142,7 @@ _0201ABA4:
 	strb r10, [r1, #0x2c]
 	mov r0, r6
 	strb r7, [r1, #0x3c]
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	add r7, r7, #1
 	cmp r7, #0x10
 	blt _0201ABA4
@@ -32156,10 +32156,10 @@ _0201ABDC:
 	mla r9, r10, r4, r8
 	mov r0, r9
 	mov r1, r11
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r1, r7
 	add r0, r9, #0xc
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	strb r6, [r9, #0x20]
 	str r5, [r9, #0x18]
 	add r10, r10, #1
@@ -32180,7 +32180,7 @@ FUN_0201ac24: ; 0x0201AC24
 	mov r11, r0
 	ldr r0, _0201AD7C ; =0x020977E4
 	mov r1, #0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r6, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r4, #0x8000
@@ -32189,7 +32189,7 @@ FUN_0201ac24: ; 0x0201AC24
 _0201AC50:
 	ldr r0, _0201AD7C ; =0x020977E4
 	mov r1, r6
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	ldrb r1, [r6, #0x2d]
 	mov r7, r0
 	cmp r1, #0
@@ -32293,7 +32293,7 @@ _0201ADB0:
 	mov r7, #0
 	mov r0, r4
 	mov r1, r7
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	cmp r0, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -32385,13 +32385,13 @@ FUN_0201aed0: ; 0x0201AED0
 	mov r7, r1
 	mov r1, r5
 	add r0, r6, #0xc
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r4, r0
 	moveq r0, r5
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r1, r4
 	add r0, r6, #0xc
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	str r7, [r4, #0xc]
 	str r4, [r7, #8]
 	ldr r0, [r4, #8]
@@ -32429,7 +32429,7 @@ FUN_0201af70: ; 0x0201AF70
 	mov r4, r1
 	mov r1, #0
 	mov r5, r0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	beq _0201AFAC
 _0201AF8C:
@@ -32438,13 +32438,13 @@ _0201AF8C:
 	cmp r2, r0
 	blo _0201AFAC
 	mov r0, r5
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	bne _0201AF8C
 _0201AFAC:
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02017784
+	bl NNS_FndInsertListObject
 	str r5, [r4, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0201af70
@@ -32456,7 +32456,7 @@ FUN_0201afc0: ; 0x0201AFC0
 	mov r5, r0
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	beq _0201B000
 _0201AFE0:
@@ -32465,13 +32465,13 @@ _0201AFE0:
 	cmp r2, r0
 	blo _0201B000
 	mov r0, r4
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r1, r0
 	bne _0201AFE0
 _0201B000:
 	ldr r0, _0201B010 ; =0x020977E4
 	mov r2, r5
-	bl FUN_02017784
+	bl NNS_FndInsertListObject
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201B010: .word unk_020977E4
 	arm_func_end FUN_0201afc0
@@ -32502,12 +32502,12 @@ FUN_0201b04c: ; 0x0201B04C
 	mov r4, #0
 	ldr r0, _0201B0B0 ; =0x020977D8
 	mov r1, r4
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r5, r0
 	bne _0201B090
 	ldr r0, _0201B0B4 ; =0x020977E4
 	mov r1, r4
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	mov r5, r0
 	ldrb r1, [r5, #0x3d]
 	cmp r6, r1
@@ -32517,7 +32517,7 @@ FUN_0201b04c: ; 0x0201B04C
 _0201B090:
 	ldr r0, _0201B0B0 ; =0x020977D8
 	mov r1, r5
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r0, r5
 	strb r6, [r5, #0x3d]
 	bl FUN_0201afc0
@@ -32539,24 +32539,24 @@ FUN_0201b0b8: ; 0x0201B0B8
 	strne r0, [r6]
 	mov r1, r6
 	mov r0, r5
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	ldr r1, [r6, #8]
 	mov r4, #0
 	str r4, [r6, #4]
 	cmp r1, #0
 	beq _0201B10C
 	add r0, r5, #0xc
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	ldr r0, [r6, #8]
 	str r4, [r0, #0xc]
 	str r4, [r6, #8]
 _0201B10C:
 	ldr r0, _0201B130 ; =0x020977E4
 	mov r1, r6
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	ldr r0, _0201B134 ; =0x020977D8
 	mov r1, r6
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	mov r0, #0
 	strb r0, [r6, #0x2c]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -32583,7 +32583,7 @@ FUN_0201b138: ; 0x0201B138
 	mla r0, r1, r0, r2
 	mov r1, r4
 	add r0, r0, #0xc
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	ldmfd sp!, {r4, pc}
 _0201B184: .word unk_02097C30
 	arm_func_end FUN_0201b138
@@ -32598,13 +32598,13 @@ FUN_0201b188: ; 0x0201B188
 	beq _0201B1B4
 	mov r0, r4
 	mov r1, r6
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r0, #0
 	str r0, [r6, #4]
 _0201B1B4:
 	ldr r0, _0201B1E4 ; =0x020977E4
 	mov r1, r6
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	strb r5, [r6, #0x3d]
 	cmp r4, #0
 	beq _0201B1D8
@@ -32742,7 +32742,7 @@ FUN_0201b360: ; 0x0201B360
 	bl FUN_0201a994
 	ldr r0, _0201B38C ; =0x020980B4
 	mov r1, r4
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	ldr r0, [r4, #0x2c]
 	bic r0, r0, #1
 	str r0, [r4, #0x2c]
@@ -33226,7 +33226,7 @@ FUN_0201b990: ; 0x0201B990
 	mov r2, r5
 	add r0, r6, #0x10
 	sub r1, r1, #0x10
-	bl FUN_020180b0
+	bl NNS_FndCreateFrmHeapEx
 	movs r4, r0
 	moveq r0, r5
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -33237,7 +33237,7 @@ FUN_0201b990: ; 0x0201B990
 	movne r0, r6
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, r4
-	bl FUN_020180e8
+	bl NNS_FndDestroyFrmHeap
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0201b990
@@ -33248,7 +33248,7 @@ FUN_0201ba04: ; 0x0201BA04
 	mov r4, r0
 	bl FUN_0201ba1c
 	ldr r0, [r4]
-	bl FUN_020180e8
+	bl NNS_FndDestroyFrmHeap
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0201ba04
 
@@ -33259,7 +33259,7 @@ FUN_0201ba1c: ; 0x0201BA1C
 	mov r6, #0
 	mov r1, r6
 	add r0, r8, #4
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	movs r5, r0
 	beq _0201BAB4
 	mov r10, #1
@@ -33268,7 +33268,7 @@ FUN_0201ba1c: ; 0x0201BA1C
 _0201BA48:
 	mov r0, r5
 	mov r1, r4
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	movs r7, r0
 	beq _0201BA94
 _0201BA5C:
@@ -33284,22 +33284,22 @@ _0201BA5C:
 _0201BA80:
 	mov r0, r5
 	mov r1, r7
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	movs r7, r0
 	bne _0201BA5C
 _0201BA94:
 	mov r1, r5
 	add r0, r8, #4
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r1, r9
 	add r0, r8, #4
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	movs r5, r0
 	bne _0201BA48
 _0201BAB4:
 	ldr r0, [r8]
 	mov r1, #3
-	bl FUN_02018128
+	bl NNS_FndFreeToFrmHeap
 	cmp r6, #0
 	beq _0201BACC
 	bl FUN_0201bbc0
@@ -33321,30 +33321,30 @@ FUN_0201bad8: ; 0x0201BAD8
 	add r1, r1, #0x20
 	mov r2, #0x20
 	mov r5, r3
-	bl FUN_020180f4
+	bl NNS_FndAllocFromFrmHeapEx
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	add r0, r8, #4
 	mov r1, #0
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	str r7, [r4, #8]
 	str r6, [r4, #0xc]
 	ldr r2, [sp, #0x18]
 	str r5, [r4, #0x10]
 	mov r1, r4
 	str r2, [r4, #0x14]
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	add r0, r4, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_0201bad8
 
 	arm_func_start FUN_0201bb40
 FUN_0201bb40: ; 0x0201BB40
-	ldr r12, _0201BB4C ; =FUN_0201769c
+	ldr r12, _0201BB4C ; =NNS_FndInitList
 	mov r1, #0
 	bx r12
-_0201BB4C: .word FUN_0201769c
+_0201BB4C: .word NNS_FndInitList
 	arm_func_end FUN_0201bb40
 
 	arm_func_start FUN_0201bb50
@@ -33354,7 +33354,7 @@ FUN_0201bb50: ; 0x0201BB50
 	mov r4, r1
 	add r0, r5, #4
 	mov r1, #0xc
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r0, r5
 	str r4, [r5]
 	bl FUN_0201bb84
@@ -33371,14 +33371,14 @@ FUN_0201bb84: ; 0x0201BB84
 	ldr r0, [r5]
 	mov r1, #0x14
 	mov r2, #4
-	bl FUN_020180f4
+	bl NNS_FndAllocFromFrmHeapEx
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	bl FUN_0201bb40
 	mov r1, r4
 	add r0, r5, #4
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0201bb84
@@ -34245,20 +34245,20 @@ FUN_0201c72c: ; 0x0201C72C
 	mov r4, r0
 	mov r0, r8
 	mov r1, #0
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	movs r5, r0
 	beq _0201C790
 _0201C754:
 	mov r0, r8
 	mov r1, r5
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	ldr r1, [r5, #8]
 	mov r6, r0
 	cmp r1, r7
 	bne _0201C784
 	mov r0, r8
 	mov r1, r5
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r0, r5
 	bl FUN_0201c79c
 _0201C784:
@@ -34279,7 +34279,7 @@ FUN_0201c79c: ; 0x0201C79C
 	mov r4, r0
 	ldr r0, _0201C7C4 ; =0x02098228
 	mov r1, r5
-	bl FUN_020176e0
+	bl NNS_FndAppendListObject
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}

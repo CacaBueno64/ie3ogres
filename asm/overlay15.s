@@ -19790,7 +19790,7 @@ FUN_ov15_020cd68c: ; 0x020CD68C
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov15_020d38f4
+	bl NHTTP_Startup
 	sub r1, r7, #0x12
 	cmp r0, r1
 	beq _020CD78C
@@ -22581,7 +22581,7 @@ FUN_ov15_020cfb6c: ; 0x020CFB6C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	ldr r2, [r0]
 	cmp r2, #0
 	moveq r0, #0
@@ -22596,7 +22596,7 @@ FUN_ov15_020cfb6c: ; 0x020CFB6C
 FUN_ov15_020cfb9c: ; 0x020CFB9C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	ldr r1, [r0, #4]
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
@@ -22623,8 +22623,8 @@ FUN_ov15_020cfbd0: ; 0x020CFBD0
 	bx lr
 	arm_func_end FUN_ov15_020cfbd0
 
-	arm_func_start FUN_ov15_020cfbd8
-FUN_ov15_020cfbd8: ; 0x020CFBD8
+	arm_func_start NHTTPi_Startup
+NHTTPi_Startup: ; 0x020CFBD8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r9, r1
@@ -22689,10 +22689,10 @@ _020CFC94:
 	bl FUN_ov15_020d4090
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020cfbd8
+	arm_func_end NHTTPi_Startup
 
-	arm_func_start FUN_ov15_020cfcd4
-FUN_ov15_020cfcd4: ; 0x020CFCD4
+	arm_func_start NHTTPi_CleanupAsync
+NHTTPi_CleanupAsync: ; 0x020CFCD4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -22729,7 +22729,7 @@ _020CFD34:
 	sub r0, r4, #1
 	str r0, [r5, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020cfcd4
+	arm_func_end NHTTPi_CleanupAsync
 
 	arm_func_start FUN_ov15_020cfd60
 FUN_ov15_020cfd60: ; 0x020CFD60
@@ -24612,7 +24612,7 @@ FUN_ov15_020d1630: ; 0x020D1630
 	mov r9, r0
 	mov r8, r1
 	mov r7, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4004
 	mov r5, r0
@@ -24647,7 +24647,7 @@ FUN_ov15_020d1630: ; 0x020D1630
 FUN_ov15_020d16b8: ; 0x020D16B8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4010
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
@@ -24682,7 +24682,7 @@ _020D1730: .word ov15_020E58FC
 FUN_ov15_020d1734: ; 0x020D1734
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4010
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
@@ -24718,7 +24718,7 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4010
 	ldr r1, [r0]
@@ -24865,7 +24865,7 @@ _020D19E8: .word ov15_020E593C
 FUN_ov15_020d19ec: ; 0x020D19EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x210
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4010
 	mov r5, r0
@@ -24997,7 +24997,7 @@ _020D1BCC: .word ov15_020E5964
 FUN_ov15_020d1bd0: ; 0x020D1BD0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4010
 	ldr r0, [r0]
 	ldr r7, [r0, #0xc]
@@ -25055,7 +25055,7 @@ FUN_ov15_020d1c9c: ; 0x020D1C9C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x1c
 	mov r8, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
 	bl FUN_ov15_020d4020
 	mov r5, r0
@@ -25160,7 +25160,7 @@ FUN_ov15_020d1e20: ; 0x020D1E20
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r10, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4020
 	mov r6, r0
@@ -25409,7 +25409,7 @@ FUN_ov15_020d21d0: ; 0x020D21D0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4020
 	mov r7, r0
@@ -25638,7 +25638,7 @@ FUN_ov15_020d24cc: ; 0x020D24CC
 FUN_ov15_020d251c: ; 0x020D251C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4004
 	mov r4, r0
@@ -25727,7 +25727,7 @@ _020D2658:
 FUN_ov15_020d2664: ; 0x020D2664
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r5, r0
 	bl FUN_ov15_020d4020
 	mov r6, r0
@@ -25762,7 +25762,7 @@ _020D26B0:
 FUN_ov15_020d26dc: ; 0x020D26DC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4010
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
@@ -25843,7 +25843,7 @@ FUN_ov15_020d27f4: ; 0x020D27F4
 	sub sp, sp, #8
 	mov r8, r0
 	mov r9, #0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4004
 	mov r4, r0
@@ -25950,7 +25950,7 @@ _020D297C:
 FUN_ov15_020d2988: ; 0x020D2988
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
 	bl FUN_ov15_020d4004
 	mov r4, r0
@@ -26026,7 +26026,7 @@ FUN_ov15_020d2a94: ; 0x020D2A94
 	sub sp, sp, #4
 	mov r4, r0
 	mov r5, #0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4010
 	ldr r1, [r0]
@@ -26272,7 +26272,7 @@ FUN_ov15_020d2e14: ; 0x020D2E14
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
 	bl FUN_ov15_020d4010
 	ldr r1, [r0]
@@ -26398,7 +26398,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	sub sp, sp, #0xc
 	mov r8, r0
 	mov r9, #7
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4010
 	ldr r1, [r0]
@@ -26586,7 +26586,7 @@ FUN_ov15_020d32a4: ; 0x020D32A4
 	sub sp, sp, #0x10
 	mov r10, r0
 	mov r9, #0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r8, r0
 	bl FUN_ov15_020d4010
 	ldr r1, [r0]
@@ -26928,7 +26928,7 @@ _020D3774:
 FUN_ov15_020d3780: ; 0x020D3780
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x340
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4004
 	mov r8, r0
@@ -27038,31 +27038,31 @@ _020D38E0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov15_020d3780
 
-	arm_func_start FUN_ov15_020d38f4
-FUN_ov15_020d38f4: ; 0x020D38F4
+	arm_func_start NHTTP_Startup
+NHTTP_Startup: ; 0x020D38F4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r1, r6
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov15_020cfbd8
+	bl NHTTPi_Startup
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	rsb r0, r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d38f4
+	arm_func_end NHTTP_Startup
 
 	arm_func_start FUN_ov15_020d392c
 FUN_ov15_020d392c: ; 0x020D392C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r1, r4
-	bl FUN_ov15_020cfcd4
+	bl NHTTPi_CleanupAsync
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020d392c
 
@@ -27072,7 +27072,7 @@ FUN_ov15_020d3944: ; 0x020D3944
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r6
 	bl FUN_ov15_020d3cd8
@@ -27088,7 +27088,7 @@ FUN_ov15_020d3974: ; 0x020D3974
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4004
 	mov r1, r0
 	cmp r6, #0
@@ -27115,7 +27115,7 @@ FUN_ov15_020d39d0: ; 0x020D39D0
 	mov r8, r0
 	mov r7, r1
 	mov r6, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r5, r0
 	bl FUN_ov15_020d4004
 	mov r4, r0
@@ -27140,7 +27140,7 @@ FUN_ov15_020d3a24: ; 0x020D3A24
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r6
 	bl FUN_ov15_020d3cf4
@@ -27158,7 +27158,7 @@ FUN_ov15_020d3a60: ; 0x020D3A60
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r5
 	bl FUN_ov15_020d3cd8
@@ -27175,7 +27175,7 @@ FUN_ov15_020d3a90: ; 0x020D3A90
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r6
 	bl FUN_ov15_020d3cd8
@@ -27609,8 +27609,8 @@ FUN_ov15_020d3f8c: ; 0x020D3F8C
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020d3f8c
 
-	arm_func_start FUN_ov15_020d3fd0
-FUN_ov15_020d3fd0: ; 0x020D3FD0
+	arm_func_start NHTTPi_GetSystemInfoP
+NHTTPi_GetSystemInfoP: ; 0x020D3FD0
 	stmfd sp!, {r4, lr}
 	ldr r1, _020D3FFC ; =0x020E92D0
 	ldr r4, [r1, #4]
@@ -27625,7 +27625,7 @@ _020D3FF4:
 	ldmfd sp!, {r4, pc}
 _020D3FFC: .word ov15_020E92D0
 _020D4000: .word ov15_020E9300
-	arm_func_end FUN_ov15_020d3fd0
+	arm_func_end NHTTPi_GetSystemInfoP
 
 	arm_func_start FUN_ov15_020d4004
 FUN_ov15_020d4004: ; 0x020D4004
@@ -27760,7 +27760,7 @@ FUN_ov15_020d4114: ; 0x020D4114
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4004
 	mov r6, r0
@@ -27840,7 +27840,7 @@ _020D4248: .word 0x0000804C
 FUN_ov15_020d424c: ; 0x020D424C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	bl FUN_ov15_020d3cc8
@@ -27855,7 +27855,7 @@ FUN_ov15_020d424c: ; 0x020D424C
 FUN_ov15_020d4278: ; 0x020D4278
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4020
 	mov r4, r0
@@ -27917,7 +27917,7 @@ _020D4334:
 FUN_ov15_020d4350: ; 0x020D4350
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4018
 	mov r7, r0
@@ -27954,7 +27954,7 @@ _020D43C8:
 FUN_ov15_020d43d0: ; 0x020D43D0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
 	bl FUN_ov15_020d4020
 	mov r1, r4
@@ -27986,7 +27986,7 @@ _020D4434:
 FUN_ov15_020d443c: ; 0x020D443C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
 	bl FUN_ov15_020d4020
 	mov r1, r5
@@ -28008,7 +28008,7 @@ FUN_ov15_020d443c: ; 0x020D443C
 FUN_ov15_020d4484: ; 0x020D4484
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	bl FUN_ov15_020d3cc8
@@ -28024,7 +28024,7 @@ FUN_ov15_020d44ac: ; 0x020D44AC
 	mov r4, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	mov r4, r0
@@ -28051,7 +28051,7 @@ _020D4504:
 FUN_ov15_020d450c: ; 0x020D450C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	mov r4, r0
@@ -28073,7 +28073,7 @@ _020D4548:
 FUN_ov15_020d4550: ; 0x020D4550
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	bl FUN_ov15_020d3cc8
@@ -28089,7 +28089,7 @@ FUN_ov15_020d4578: ; 0x020D4578
 	mov r4, r0
 	mov r6, r1
 	mov r5, r2
-	bl FUN_ov15_020d3fd0
+	bl NHTTPi_GetSystemInfoP
 	bl FUN_ov15_020d4020
 	mov r1, r4
 	mov r4, r0

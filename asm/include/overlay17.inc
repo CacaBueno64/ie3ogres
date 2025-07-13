@@ -156,10 +156,10 @@
 .public FUN_02017368
 .public FUN_020173c0
 .public FUN_020173dc
-.public FUN_02017ec0
-.public FUN_02017ef8
-.public FUN_02017f04
-.public FUN_02017f34
+.public NNS_FndCreateExpHeapEx
+.public NNS_FndDestroyExpHeap
+.public NNS_FndAllocFromExpHeapEx
+.public NNS_FndFreeToExpHeap
 .public NNS_G2dFontInitUTF16
 .public NNS_G2dFontFindGlyphIndex
 .public NNS_G2dFontGetCharWidthsFromIndex

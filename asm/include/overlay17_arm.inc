@@ -73,10 +73,10 @@
 .public FUN_02015f64
 .public FUN_02015ff8
 .public PM_ForceToPowerOff
-.public FUN_02017ec0
-.public FUN_02017ef8
-.public FUN_02017f04
-.public FUN_02017f34
+.public NNS_FndCreateExpHeapEx
+.public NNS_FndDestroyExpHeap
+.public NNS_FndAllocFromExpHeapEx
+.public NNS_FndFreeToExpHeap
 .public NNSi_G2dTextCanvasDrawTextRect
 .public OS_SPrintf
 .public OS_IsAlarmAvailable

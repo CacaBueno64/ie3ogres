@@ -31109,7 +31109,7 @@ FUN_ov17_0210dff4: ; 0x0210DFF4
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_02017ec0
+	bl NNS_FndCreateExpHeapEx
 	ldr r1, _0210E038 ; =0x021162E4
 	cmp r0, #0
 	str r0, [r1]
@@ -31124,7 +31124,7 @@ FUN_ov17_0210e03c: ; 0x0210E03C
 	stmfd sp!, {r4, lr}
 	ldr r4, _0210E058 ; =0x021162E4
 	ldr r0, [r4]
-	bl FUN_02017ef8
+	bl NNS_FndDestroyExpHeap
 	mov r0, #0
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
@@ -31143,7 +31143,7 @@ FUN_ov17_0210e05c: ; 0x0210E05C
 	ldr r0, [r1]
 	mov r1, r6
 	mov r2, r4
-	bl FUN_02017f04
+	bl NNS_FndAllocFromExpHeapEx
 	movs r4, r0
 	bne _0210E094
 	bl OS_Terminate
@@ -31180,7 +31180,7 @@ FUN_ov17_0210e0cc: ; 0x0210E0CC
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _0210E10C ; =0x021162E4
 	ldr r0, [r0]
-	bl FUN_02017f34
+	bl NNS_FndFreeToExpHeap
 	mov r0, r4
 	bl OS_EnableIrqMask
 	mov r0, #0
@@ -31201,7 +31201,7 @@ FUN_ov17_0210e110: ; 0x0210E110
 	ldr r0, _0210E148 ; =0x021162E4
 	mov r1, r5
 	ldr r0, [r0]
-	bl FUN_02017f34
+	bl NNS_FndFreeToExpHeap
 	mov r0, r4
 	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, pc}

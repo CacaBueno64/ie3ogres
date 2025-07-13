@@ -170,8 +170,8 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020176e0
-.public FUN_020177e8
+.public NNS_FndAppendListObject
+.public NNS_FndRemoveListObject
 .public FUN_020204a4
 .public FUN_020418b0
 .public FUN_020425fc
@@ -207,7 +207,7 @@
 .public GXS_LoadBG2Scr
 .public GX_LoadBG3Scr
 .public GX_LoadBG1Char
-.public FUN_0201769c
+.public NNS_FndInitList
 .public FUN_0204201c
 .public FUN_0204204c
 .public FUN_0204331c
@@ -228,11 +228,11 @@
 .public VEC_Add
 .public VEC_Subtract
 .public STD_TSNPrintf
-.public FUN_02017734
-.public FUN_02017784
-.public FUN_02017848
-.public FUN_02017860
-.public FUN_02017874
+.public NNS_FndPrependListObject
+.public NNS_FndInsertListObject
+.public NNS_FndGetNextListObject
+.public NNS_FndGetPrevListObject
+.public NNS_FndGetNthListObject
 .public FUN_02020274
 .public FUN_02042054
 .public FUN_02042084

@@ -39571,13 +39571,13 @@ FUN_ov1_020decc0: ; 0x020DECC0
 	mov r4, #8
 	mov r1, r4
 	add r0, r7, #0x380
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r1, r4
 	add r0, r7, #0x38c
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r1, r4
 	add r0, r7, #0x398
-	bl FUN_0201769c
+	bl NNS_FndInitList
 	mov r6, #0
 	add r4, r7, #0x290
 	mov r5, r6
@@ -39587,7 +39587,7 @@ _020DECFC:
 	add r0, r7, #0x380
 	add r1, r4, r6, lsl #4
 	str r5, [r2, #0x290]
-	bl FUN_02017734
+	bl NNS_FndPrependListObject
 	add r6, r6, #1
 	cmp r6, #0xf
 	blt _020DECFC
@@ -39600,11 +39600,11 @@ FUN_ov1_020ded24: ; 0x020DED24
 	mov r5, r0
 	add r0, r5, #0x380
 	mov r1, #0
-	bl FUN_02017874
+	bl NNS_FndGetNthListObject
 	mov r4, r0
 	mov r1, r4
 	add r0, r5, #0x380
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov1_020ded24
@@ -39615,33 +39615,33 @@ FUN_ov1_020ded50: ; 0x020DED50
 	mov r5, r0
 	mov r4, r1
 	add r0, r5, #0x38c
-	bl FUN_020177e8
+	bl NNS_FndRemoveListObject
 	mov r2, #0
 	mov r1, r4
 	add r0, r5, #0x380
 	str r2, [r4, #4]
 	str r2, [r4]
-	bl FUN_02017734
+	bl NNS_FndPrependListObject
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov1_020ded50
 
 	arm_func_start FUN_ov1_020ded80
 FUN_ov1_020ded80: ; 0x020DED80
-	ldr r12, _020DED8C ; =FUN_020176e0
+	ldr r12, _020DED8C ; =NNS_FndAppendListObject
 	add r0, r0, #0x38c
 	bx r12
-_020DED8C: .word FUN_020176e0
+_020DED8C: .word NNS_FndAppendListObject
 	arm_func_end FUN_ov1_020ded80
 
 	arm_func_start FUN_ov1_020ded90
 FUN_ov1_020ded90: ; 0x020DED90
 	mov r3, r1
 	mov r1, r2
-	ldr r12, _020DEDA8 ; =FUN_02017784
+	ldr r12, _020DEDA8 ; =NNS_FndInsertListObject
 	mov r2, r3
 	add r0, r0, #0x38c
 	bx r12
-_020DEDA8: .word FUN_02017784
+_020DEDA8: .word NNS_FndInsertListObject
 	arm_func_end FUN_ov1_020ded90
 
 	arm_func_start FUN_ov1_020dedac
@@ -39683,7 +39683,7 @@ FUN_ov1_020dee00: ; 0x020DEE00
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x38c
-	bl FUN_02017860
+	bl NNS_FndGetPrevListObject
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	mov r0, r4
@@ -39696,7 +39696,7 @@ FUN_ov1_020dee24: ; 0x020DEE24
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x38c
-	bl FUN_02017848
+	bl NNS_FndGetNextListObject
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	mov r0, r4
@@ -39707,10 +39707,10 @@ FUN_ov1_020dee24: ; 0x020DEE24
 
 	arm_func_start FUN_ov1_020dee4c
 FUN_ov1_020dee4c: ; 0x020DEE4C
-	ldr r12, _020DEE58 ; =FUN_02017848
+	ldr r12, _020DEE58 ; =NNS_FndGetNextListObject
 	add r0, r0, #0x38c
 	bx r12
-_020DEE58: .word FUN_02017848
+_020DEE58: .word NNS_FndGetNextListObject
 	arm_func_end FUN_ov1_020dee4c
 
 	arm_func_start FUN_ov1_020dee5c
@@ -39722,35 +39722,35 @@ FUN_ov1_020dee5c: ; 0x020DEE5C
 	arm_func_start FUN_ov1_020dee64
 FUN_ov1_020dee64: ; 0x020DEE64
 	mov r1, r1, lsl #0x10
-	ldr r12, _020DEE78 ; =FUN_02017874
+	ldr r12, _020DEE78 ; =NNS_FndGetNthListObject
 	add r0, r0, #0x38c
 	mov r1, r1, lsr #0x10
 	bx r12
-_020DEE78: .word FUN_02017874
+_020DEE78: .word NNS_FndGetNthListObject
 	arm_func_end FUN_ov1_020dee64
 
 	arm_func_start FUN_ov1_020dee7c
 FUN_ov1_020dee7c: ; 0x020DEE7C
-	ldr r12, _020DEE88 ; =FUN_020177e8
+	ldr r12, _020DEE88 ; =NNS_FndRemoveListObject
 	add r0, r0, #0x38c
 	bx r12
-_020DEE88: .word FUN_020177e8
+_020DEE88: .word NNS_FndRemoveListObject
 	arm_func_end FUN_ov1_020dee7c
 
 	arm_func_start FUN_ov1_020dee8c
 FUN_ov1_020dee8c: ; 0x020DEE8C
-	ldr r12, _020DEE98 ; =FUN_02017848
+	ldr r12, _020DEE98 ; =NNS_FndGetNextListObject
 	add r0, r0, #0x398
 	bx r12
-_020DEE98: .word FUN_02017848
+_020DEE98: .word NNS_FndGetNextListObject
 	arm_func_end FUN_ov1_020dee8c
 
 	arm_func_start FUN_ov1_020dee9c
 FUN_ov1_020dee9c: ; 0x020DEE9C
-	ldr r12, _020DEEA8 ; =FUN_020176e0
+	ldr r12, _020DEEA8 ; =NNS_FndAppendListObject
 	add r0, r0, #0x398
 	bx r12
-_020DEEA8: .word FUN_020176e0
+_020DEEA8: .word NNS_FndAppendListObject
 	arm_func_end FUN_ov1_020dee9c
 
 	arm_func_start FUN_ov1_020deeac
