@@ -2349,7 +2349,7 @@ FUN_ov108_02126d5c: ; 0x02126D5C
 	mov r0, r4
 	mov r6, r1
 	mov r5, r2
-	bl _strlen
+	bl strlen
 	add r0, r4, r0
 	ldrb r12, [sp, #8]
 	str r0, [sp]

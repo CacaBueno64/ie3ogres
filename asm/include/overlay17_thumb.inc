@@ -8,14 +8,14 @@
 .public _ll_udiv
 .public _u32_div_f
 .public OS_GetMacAddress
-.public FUN_02023e98
-.public FUN_020218d4
-.public _memcmp
+.public strcpy
+.public memcpy
+.public memcmp
 .public OS_SendMessage
 .public OS_InitMessageQueue
 .public OS_ReceiveMessage
 .public OS_GetTick
-.public FUN_02021940
+.public memset
 .public SOC_Socket
 .public SOC_Bind
 .public SOC_RecvFrom
@@ -55,4 +55,4 @@
 .public OS_Sleep
 .public OS_UnlockMutex
 .public OS_WakeupThreadDirect
-.public _strlen
+.public strlen

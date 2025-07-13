@@ -13,7 +13,7 @@
 .public FUN_02041ef0
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020218d4
+.public memcpy
 .public FUN_020460a8
 .public G2_GetBG3CharPtr
 .public GX_LoadBG1Char
@@ -71,7 +71,7 @@
 .public STD_CompareNString
 .public STD_CopyString
 .public STD_GetStringLength
-.public _strlen
+.public strlen
 .public unk_020A0BB4
 .public unk_020A9C40
 .public unk_0209A0F4

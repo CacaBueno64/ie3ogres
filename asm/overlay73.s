@@ -2920,7 +2920,7 @@ _0211C81C:
 	cmp r0, #1
 	bne _0211C850
 	mov r0, r10
-	bl _strlen
+	bl strlen
 	cmp r0, #0
 	ldrneb r0, [r10, #0x2d]
 	cmpne r0, #0
@@ -3224,14 +3224,14 @@ FUN_ov73_0211cbac: ; 0x0211CBAC
 	add r1, r4, #0x1c
 	strh r3, [r5, #0x4e]
 	str r2, [r5, #0x70]
-	bl FUN_02023e98
+	bl strcpy
 	add r1, r4, #0x394
 	add r0, r5, #0x18
 	add r1, r1, #0x400
-	bl FUN_02023e98
+	bl strcpy
 	add r0, r5, #0x56
 	add r1, r4, #0x34
-	bl FUN_02023e98
+	bl strcpy
 	ldrh r0, [r4, #0x12]
 	add r2, r5, #0x30
 	mov r3, #0x18

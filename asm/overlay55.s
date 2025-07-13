@@ -561,7 +561,7 @@ FUN_ov55_0211a640: ; 0x0211A640
 	mov r8, #1
 	mov r7, #0
 	ldr r6, _0211AA1C ; =0x0209A460
-	bl _strlen
+	bl strlen
 	cmp r0, #0x10
 	blo _0211A6A0
 	ldrh r1, [r4, #0x4c]
@@ -696,7 +696,7 @@ _0211A834:
 	bhs _0211A7B0
 _0211A848:
 	ldr r0, _0211AA1C ; =0x0209A460
-	bl _strlen
+	bl strlen
 	cmp r0, #0x10
 	blo _0211A9E4
 	cmp r8, #0
@@ -765,7 +765,7 @@ _0211A930:
 	bhs _0211A8AC
 _0211A944:
 	ldr r0, _0211AA1C ; =0x0209A460
-	bl _strlen
+	bl strlen
 	cmp r0, #0x10
 	blo _0211A9E4
 	cmp r8, #0
@@ -809,7 +809,7 @@ _0211A9D4:
 	blx r1
 _0211A9E4:
 	ldr r0, _0211AA1C ; =0x0209A460
-	bl _strlen
+	bl strlen
 	cmp r0, #0x10
 	ldmlofd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldrh r1, [r4, #0x4c]
@@ -1950,7 +1950,7 @@ _0211B9BC:
 	ldr r0, [r4, #0x80]
 	ldr r1, [r4, #0x17c]
 	ldr r2, [r4, #0x8c]
-	bl FUN_020218d4
+	bl memcpy
 	ldr r8, [r4, #0x80]
 	ldr r0, [r4, #0x8c]
 	mov r6, #0
@@ -3273,7 +3273,7 @@ FUN_ov55_0211cbf4: ; 0x0211CBF4
 	mov r0, r6
 	bl STD_CopyString
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	str r0, [r5, #8]
 _0211CD0C:
 	ldr r7, _0211CD88 ; =0x0209F5C0
@@ -3877,7 +3877,7 @@ _0211D4E0:
 	mov r1, r8
 	mov r2, r4
 	add r0, r5, r6, lsl #1
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	moveq r0, r6
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}

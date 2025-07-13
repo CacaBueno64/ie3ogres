@@ -5,7 +5,7 @@
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG3Char
-.public FUN_02023e98
+.public strcpy
 .public FUN_02041d9c
 .public FUN_02041eac
 .public FUN_02041ef0

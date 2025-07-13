@@ -129,7 +129,7 @@
 .public VEC_Distance
 .public FX_Atan2Idx
 .public FUN_02023c40
-.public FUN_02023e98
+.public strcpy
 .public FUN_02041b00
 .public FUN_02041c58
 .public FUN_02041d14
@@ -667,7 +667,7 @@
 .public STD_CopyString
 .public STD_GetStringLength
 .public VEC_Normalize
-.public _strlen
+.public strlen
 .public unk_020A0B00
 .public unk_020A3D14
 .public unk_020A6C40

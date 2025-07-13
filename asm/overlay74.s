@@ -1037,7 +1037,7 @@ _0211ABF0:
 	add r0, r4, #0x890
 	strh r2, [r1, #0xde]
 	mov r1, r9
-	bl FUN_02023e98
+	bl strcpy
 	mov r0, r11
 	mov r1, r8
 	bl FUN_020724c8
@@ -1064,7 +1064,7 @@ _0211ABF0:
 	strb r3, [r4, #0x8d9]
 	add r0, r4, #0xa8
 	add r0, r0, #0x800
-	bl FUN_02023e98
+	bl strcpy
 	mov r3, r7
 	ldr r1, [r9, #0x24]
 	add r0, r4, #0x800
@@ -2248,7 +2248,7 @@ _0211BD20:
 	add r0, r4, #0x890
 	strh r2, [r1, #0xde]
 	mov r1, r7
-	bl FUN_02023e98
+	bl strcpy
 	mov r0, r5
 	mov r1, r6
 	bl FUN_020724c8
@@ -2275,7 +2275,7 @@ _0211BD20:
 	strb r3, [r4, #0x8d9]
 	add r0, r4, #0xa8
 	add r0, r0, #0x800
-	bl FUN_02023e98
+	bl strcpy
 	ldr r1, [r7, #0x24]
 	add r0, r4, #0x800
 	strh r1, [r0, #0xdc]

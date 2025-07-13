@@ -7626,7 +7626,7 @@ FUN_ov62_02120b18: ; 0x02120B18
 	mov r0, r4
 	mov r6, r1
 	mov r5, r2
-	bl _strlen
+	bl strlen
 	add r0, r4, r0
 	ldrb r12, [sp, #8]
 	str r0, [sp]
@@ -7659,7 +7659,7 @@ FUN_ov62_02120b64: ; 0x02120B64
 	bls _02120BAC
 	ldr r0, _02120BE8 ; =0x02121130
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 _02120BAC:
 	ldr r0, [sp, #0x20]
 	sub r1, r7, r4
@@ -7671,7 +7671,7 @@ _02120BAC:
 	mov r0, r5
 	mov r2, r7
 	add r1, r6, r4
-	bl FUN_020218d4
+	bl memcpy
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, lr}
 	add sp, sp, #0x10

@@ -177,9 +177,9 @@
 .public VEC_Distance
 .public FX_Atan2Idx
 .public FUN_02023c40
-.public FUN_02023e98
-.public FUN_02023fb0
-.public FUN_02023fe0
+.public strcpy
+.public strcat
+.public strcmp
 .public FUN_02029d54
 .public FUN_02030f54
 .public FUN_02030fa0
@@ -402,10 +402,10 @@
 .public VEC_Add
 .public VEC_Subtract
 .public FUN_02020274
-.public FUN_02021288
-.public FUN_02021294
-.public FUN_02024128
-.public FUN_02024160
+.public abs
+.public labs
+.public strchr
+.public strrchr
 .public FUN_02030790
 .public FUN_02031048
 .public FUN_02031084
@@ -579,7 +579,7 @@
 .public SSD_GetNextInstructionWraper
 .public SSD_InitFile
 .public VEC_Normalize
-.public _strlen
+.public strlen
 .public unk_0208BFB0
 .public unk_020A0B00
 .public unk_020A6C40

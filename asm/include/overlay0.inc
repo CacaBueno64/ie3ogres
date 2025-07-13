@@ -1,5 +1,5 @@
 .public DC_FlushRange
-.public FUN_0201e9a8
+.public _dsub
 .public FUN_0201e014
 .public FUN_0201e078
 .public FUN_0201e678
@@ -89,7 +89,7 @@
 .public FX_Atan2Idx
 .public FUN_02020af8
 .public FUN_02023c40
-.public FUN_02023fb0
+.public strcat
 .public FUN_02029d44
 .public FUN_02037c98
 .public FUN_02037fb0
@@ -242,10 +242,10 @@
 .public VEC_Mag
 .public STD_TSNPrintf
 .public FUN_02020274
-.public FUN_02021294
-.public FUN_02021940
-.public FUN_02024128
-.public FUN_02024160
+.public labs
+.public memset
+.public strchr
+.public strrchr
 .public FUN_02028820
 .public FUN_02038058
 .public FUN_02038554
@@ -498,8 +498,8 @@
 .public SSD_InitFile
 .public VEC_CrossProduct
 .public VEC_Normalize
-.public _strlen
-.public _strncpy
+.public strlen
+.public strncpy
 .public unk_020A9C40
 .public unk_020A0640
 .public unk_020A1640

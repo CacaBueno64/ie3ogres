@@ -13,7 +13,7 @@
 .public GX_LoadBG3Char
 .public MI_CpuCopy
 .public FUN_02023c40
-.public FUN_02023e98
+.public strcpy
 .public FUN_02041d9c
 .public FUN_02041eac
 .public FUN_02041ef0
@@ -115,7 +115,7 @@
 .public MI_CpuFill8
 .public MIi_CpuClearFast
 .public OS_Sleep
-.public _strlen
+.public strlen
 .public unk_020A0640
 .public unk_020A1640
 .public unk_020AF81C

@@ -9082,14 +9082,14 @@ FUN_ov72_02121e28: ; 0x02121E28
 	add r1, r4, #0x1c
 	strh r3, [r5, #0x4e]
 	str r2, [r5, #0x70]
-	bl FUN_02023e98
+	bl strcpy
 	add r1, r4, #0x394
 	add r0, r5, #0x18
 	add r1, r1, #0x400
-	bl FUN_02023e98
+	bl strcpy
 	add r0, r5, #0x56
 	add r1, r4, #0x34
-	bl FUN_02023e98
+	bl strcpy
 	ldrh r1, [r4, #0x12]
 	ldr r0, _02121F30 ; =0x0209BA20
 	add r2, r5, #0x30
@@ -9409,7 +9409,7 @@ FUN_ov72_02122310: ; 0x02122310
 	cmp r0, #0xb
 	mov r0, r6
 	orrlt r4, r4, #2
-	bl _strlen
+	bl strlen
 	cmp r0, #0
 	ldrb r0, [r6, #0x2d]
 	orreq r4, r4, #1

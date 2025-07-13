@@ -2,11 +2,11 @@
 .public FUN_0201e078
 .public G2S_GetBG1CharPtr
 .public FUN_02023c40
-.public FUN_02023e98
+.public strcpy
 .public GXS_LoadBG0Char
 .public GXS_LoadBG2Char
 .public FX_Sqrt
-.public _memcmp
+.public memcmp
 .public G2S_GetBG2CharPtr
 .public GXS_LoadBG0Scr
 .public FUN_0204331c
@@ -39,6 +39,6 @@
 .public MI_CpuFill8
 .public MIi_CpuClearFast
 .public OS_Sleep
-.public _strlen
+.public strlen
 .public unk_0209F5C0
 .public unk_02099F50

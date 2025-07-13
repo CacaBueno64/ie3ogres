@@ -61,7 +61,7 @@
 .public FUN_0207181c
 .public FUN_0207224c
 .public FUN_02020274
-.public FUN_02021940
+.public memset
 .public FUN_02043310
 .public FUN_02059004
 .public FUN_02059038

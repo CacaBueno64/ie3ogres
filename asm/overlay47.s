@@ -1439,14 +1439,14 @@ _0211B23C:
 	ldr r0, [sp, #0x18]
 	ldrsh r9, [r0, #0x56]
 	sub r0, r9, r8
-	bl FUN_02021288
+	bl abs
 	add r1, r4, #0x400
 	mov r4, r0
 	ldr r0, [sp, #0x18]
 	ldrsh r7, [r1, #0x58]
 	ldrsh r11, [r0, #0x58]
 	sub r0, r11, r7
-	bl FUN_02021288
+	bl abs
 	ldr r1, [sp, #4]
 	cmp r1, #5
 	addls pc, pc, r1, lsl #2
@@ -3517,7 +3517,7 @@ _0211CFF8:
 	add r0, sp, #0x18
 	add r1, r1, r3
 _0211D034:
-	bl FUN_02023e98
+	bl strcpy
 _0211D038:
 	ldr r0, [r10, #0x1d0]
 	mov r11, #1
@@ -4503,7 +4503,7 @@ FUN_ov47_0211dd98: ; 0x0211DD98
 	sub r12, r6, r0
 	sub r2, r4, r1
 	sub r0, r12, r2
-	bl FUN_02021288
+	bl abs
 	cmp r0, #1
 	ldrleb r0, [r7, #0x418]
 	cmple r0, #0
@@ -4568,7 +4568,7 @@ _0211DEB0:
 	bl FUN_ov47_0211a938
 	ldr r0, [r7, #0x410]
 	sub r0, r0, r6
-	bl FUN_02021288
+	bl abs
 	cmp r0, #1
 	add r0, r7, r6, lsl #3
 	ldmib r0, {r1, r2}

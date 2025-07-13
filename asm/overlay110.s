@@ -632,10 +632,10 @@ _021255A4:
 	mov r0, r4
 	mla r1, r6, r7, r1
 	add r1, r1, #0x1c
-	bl FUN_02023fb0
+	bl strcat
 	mov r0, r4
 	mov r1, r8
-	bl FUN_02023fb0
+	bl strcat
 	add r6, r6, #1
 	cmp r6, #8
 	blt _021255A4
@@ -691,10 +691,10 @@ _02125684:
 	mla r1, r0, r7, r1
 	mov r0, r4
 	add r1, r1, #0x1c
-	bl FUN_02023fb0
+	bl strcat
 	mov r0, r4
 	mov r1, r8
-	bl FUN_02023fb0
+	bl strcat
 	add r6, r6, #1
 	cmp r6, #8
 	blt _02125684

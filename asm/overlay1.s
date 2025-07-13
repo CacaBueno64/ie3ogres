@@ -44923,14 +44923,14 @@ _020E37B8:
 	movs r9, r0
 	beq _020E3878
 	add r0, r9, #0x1c
-	bl _strlen
+	bl strlen
 	mov r6, r0
 	cmp r6, #8
 	ble _020E3804
 	add r0, sp, #0x40
 	add r1, r9, #0x1c
 	mov r6, #8
-	bl FUN_02023e98
+	bl strcpy
 	mov r2, #0
 	add r1, sp, #0x40
 	mov r0, r6

@@ -259,7 +259,7 @@ FUN_ov99_02125054: ; 0x02125054
 	add r0, r4, #0x24
 	add r1, r4, #0x28
 	mov r2, #4
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _02125098
 _02125080:
@@ -354,7 +354,7 @@ FUN_ov99_0212515c: ; 0x0212515C
 	bl G2S_GetBG2ScrPtr
 	mov r1, #0
 	mov r2, #0x800
-	bl FUN_02021940
+	bl memset
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021251D0:

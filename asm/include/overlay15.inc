@@ -63,8 +63,8 @@
 .public WM_SetLifeTime
 .public PXI_SendWordByFifo
 .public FUN_02023c40
-.public FUN_02023e98
-.public FUN_02023fe0
+.public strcpy
+.public strcmp
 .public FUN_02029bf8
 .public FUN_02029d44
 .public FUN_02041b00
@@ -86,10 +86,10 @@
 .public WM_Initialize
 .public WM_EndScan
 .public WM_Disconnect
-.public _memmove
-.public _memcmp
-.public FUN_020240f4
-.public FUN_020241a0
+.public memmove
+.public memcmp
+.public strncmp
+.public strstr
 .public FUN_020246c4
 .public OS_SendMessage
 .public OS_ReadMessage
@@ -99,7 +99,7 @@
 .public GX_LoadBG0Char
 .public WM_PowerOff
 .public WM_Reset
-.public FUN_0202457c
+.public strtoul
 .public FUN_0204201c
 .public FUN_0204331c
 .public FUN_0204665c
@@ -217,8 +217,8 @@
 .public STD_GetStringLength
 .public STD_GetStringNLength
 .public SVC_WaitByLoop
-.public _strlen
-.public _strncpy
+.public strlen
+.public strncpy
 .public _version_NINTENDO_DWC
 .public _version_NINTENDO_WIFI
 .public _version_UBIQUITOUS_CPS

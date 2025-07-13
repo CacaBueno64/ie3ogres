@@ -494,7 +494,7 @@ FUN_ov38_0211a530: ; 0x0211A530
 	add r0, r4, #0xf8
 	mov r6, #1
 	mov r5, #0
-	bl _strlen
+	bl strlen
 	cmp r0, #0x6c
 	blo _0211A590
 	ldrh r1, [r4, #0x54]
@@ -631,7 +631,7 @@ _0211A728:
 	bhs _0211A6A4
 _0211A73C:
 	add r0, r4, #0xf8
-	bl _strlen
+	bl strlen
 	cmp r0, #0x6c
 	blo _0211A8FC
 	cmp r6, #0
@@ -702,7 +702,7 @@ _0211A82C:
 	bhs _0211A7A8
 _0211A840:
 	add r0, r4, #0xf8
-	bl _strlen
+	bl strlen
 	cmp r0, #0x6c
 	blo _0211A8FC
 	cmp r6, #0
@@ -753,7 +753,7 @@ _0211A8F4:
 	bl FUN_ov38_0211afc8
 _0211A8FC:
 	add r0, r4, #0xf8
-	bl _strlen
+	bl strlen
 	cmp r0, #0x6c
 	ldmlofd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrh r1, [r4, #0x54]
@@ -1754,7 +1754,7 @@ _0211B690:
 	ldr r0, [r4, #0x17c]
 	ldr r1, [r4, #0x270]
 	ldr r2, [r4, #0x188]
-	bl FUN_020218d4
+	bl memcpy
 	ldr r8, [r4, #0x17c]
 	ldr r0, [r4, #0x188]
 	mov r6, #0

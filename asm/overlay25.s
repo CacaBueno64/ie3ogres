@@ -46,7 +46,7 @@ _02119F78:
 	mov r1, r9
 	mov r2, r6
 	mov r3, r5
-	bl FUN_0201f960
+	bl _ull_mod
 	ldrsb r2, [r4, r0]
 	mov r0, r10
 	mov r1, r9
@@ -163,13 +163,13 @@ _0211A100:
 _0211A11C:
 	mov r0, r8
 	mov r1, r4
-	bl FUN_02023fb0
+	bl strcat
 	sub r9, r9, r7
 	cmp r9, #0
 	bgt _0211A088
 _0211A134:
 	mov r0, r8
-	bl _strlen
+	bl strlen
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A144: .word ov25_0211B7A0
@@ -323,7 +323,7 @@ FUN_ov25_0211a304: ; 0x0211A304
 	beq _0211A340
 	ldrsh r2, [r3, #4]
 	mov r1, #0
-	bl FUN_02021940
+	bl memset
 _0211A340:
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
@@ -1063,13 +1063,13 @@ _0211ABF8:
 	mov r0, r8
 	mov r1, r7
 	add r4, r3, #1
-	bl FUN_02021940
+	bl memset
 	add r1, sp, #0x22c
 	mov r0, r8
 	mov r2, r10
-	bl FUN_020218d4
+	bl memcpy
 	ldr r0, _0211B244 ; =0x0211B918
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	mov r0, r8
 	add r8, sp, #0x12c
@@ -1087,7 +1087,7 @@ _0211ABF8:
 	mov r1, #0
 	mov r0, r8
 	mov r2, #0x100
-	bl FUN_02021940
+	bl memset
 	ldr r1, _0211B24C ; =0x0211B948
 	mov r0, r8
 	bl FUN_02023c40
@@ -1105,7 +1105,7 @@ _0211AE40:
 	mov r0, r10
 	mov r1, r5
 	mov r2, #0x100
-	bl FUN_02021940
+	bl memset
 	mov r2, #0xb
 _0211AE7C:
 	ldrb r0, [r8, #1]
@@ -1117,15 +1117,15 @@ _0211AE7C:
 	add r8, sp, #0x12c
 	ldr r1, _0211B250 ; =0x0211B95C
 	mov r0, r8
-	bl FUN_02023fb0
+	bl strcat
 	add r0, sp, #0x32c
-	bl _strlen
+	bl strlen
 	sub r2, r0, #0x16
 	add r0, sp, #0x100
 	add r1, sp, #0x300
 	add r0, r0, #0x43
 	add r1, r1, #0x42
-	bl FUN_020218d4
+	bl memcpy
 	add r0, r9, #0x44
 	bl  FUN_ov16_021109a0
 	add r0, r9, #0x44

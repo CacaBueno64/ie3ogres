@@ -1244,7 +1244,7 @@ _02125E04:
 	mov r8, r0
 	ldr r1, _02125FD0 ; =0x021260CE
 	mov r0, r6
-	bl FUN_02023e98
+	bl strcpy
 	ldrsh r0, [r4, #0xe]
 	mov r0, r0, lsl #1
 	ldrh r0, [r8, r0]
@@ -1255,7 +1255,7 @@ _02125E04:
 	beq _02125E64
 	mov r0, r6
 	add r1, r4, #0x10
-	bl FUN_02023e98
+	bl strcpy
 _02125E64:
 	str r7, [sp]
 	ldrsh r0, [r5, #0x12]
@@ -1272,7 +1272,7 @@ _02125E64:
 	bl FUN_ov104_02125084
 	ldr r1, _02125FD0 ; =0x021260CE
 	mov r0, r6
-	bl FUN_02023e98
+	bl strcpy
 	ldrsh r0, [r4, #0xe]
 	mov r0, r0, lsl #1
 	ldrh r0, [r8, r0]
@@ -1283,7 +1283,7 @@ _02125E64:
 	beq _02125ED0
 	mov r0, r6
 	add r1, r4, #0x26
-	bl FUN_02023e98
+	bl strcpy
 _02125ED0:
 	str r7, [sp]
 	ldrsh r0, [r5, #0xe]

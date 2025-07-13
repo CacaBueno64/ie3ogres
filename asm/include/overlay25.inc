@@ -1,6 +1,6 @@
 .public FUN_0201e078
 .public _ll_udiv
-.public FUN_0201f960
+.public _ull_mod
 .public _u32_div_f
 .public FUN_0202cf6c
 .public FUN_0204fe90
@@ -8,16 +8,16 @@
 .public FUN_0206cc34
 .public FUN_02023ab4
 .public FUN_02023c40
-.public FUN_02023fb0
+.public strcat
 .public FUN_02041eac
 .public FUN_02058e30
 .public FUN_02058ee0
 .public GX_SetGraphicsMode
 .public FX_Sqrt
-.public FUN_020218d4
+.public memcpy
 .public FUN_020591e8
 .public FUN_0205106c
-.public FUN_02021940
+.public memset
 .public FUN_02050244
 .public FUN_02059004
 .public FUN_02059038
@@ -78,7 +78,7 @@
 .public FUN_ov16_02112724
 .public MI_CpuFill8
 .public MIi_CpuClearFast
-.public _strlen
+.public strlen
 .public unk_0209A0AC
 .public unk_0209A110
 .public unk_0209AC44

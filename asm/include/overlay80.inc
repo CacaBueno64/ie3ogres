@@ -59,7 +59,7 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public _memmove
+.public memmove
 .public FUN_020418b0
 .public FUN_020425fc
 .public FUN_020463e8
@@ -76,7 +76,7 @@
 .public FUN_0205935c
 .public FUN_0207039c
 .public FUN_0207249c
-.public FUN_02021040
+.public abort
 .public FUN_02044644
 .public FUN_02050244
 .public FUN_02058800

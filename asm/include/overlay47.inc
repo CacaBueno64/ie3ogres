@@ -13,7 +13,7 @@
 .public FUN_0206c7dc
 .public FX_Atan2Idx
 .public FUN_02023c40
-.public FUN_02023e98
+.public strcpy
 .public FUN_02041d9c
 .public FUN_02041eac
 .public FUN_02041ef0
@@ -25,7 +25,7 @@
 .public FUN_020460a8
 .public FUN_020737f0
 .public VEC_Mag
-.public FUN_02021288
+.public abs
 .public FUN_02058800
 .public FUN_02059004
 .public FUN_02059038

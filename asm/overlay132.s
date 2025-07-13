@@ -7650,7 +7650,7 @@ FUN_ov132_021417d8: ; 0x021417D8
 	mov r2, #0x20
 	add r7, r3, r1, lsl #5
 	mov r1, r7
-	bl FUN_020218d4
+	bl memcpy
 	mov r1, #0
 	ldr r0, _02141DD8 ; =0x0209BA20
 	str r1, [sp, #0x10]

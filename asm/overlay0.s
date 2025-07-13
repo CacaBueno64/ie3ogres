@@ -3175,7 +3175,7 @@ _020BF5E0:
 	mov r1, r0
 	mov r0, r5
 	add r1, r1, #0x1c
-	bl FUN_02023fb0
+	bl strcat
 _020BF628:
 	ldr r0, _020BF698 ; =0x020D6100
 	mov r1, r5
@@ -4822,27 +4822,27 @@ _020C0C74:
 	ldr r1, [sp, #0x88]
 	ldr r0, [sp, #0xac]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	ldr r2, [sp, #0x8c]
 	ldr r1, [sp, #0xbc]
 	mov r9, r0
 	sub r0, r2, r1
-	bl FUN_02021294
+	bl labs
 	ldr r2, [sp, #0x90]
 	ldr r1, [sp, #0x9c]
 	mov r8, r0
 	sub r0, r2, r1
-	bl FUN_02021294
+	bl labs
 	ldr r2, [sp, #0x88]
 	ldr r1, [r5]
 	mov r4, r0
 	sub r0, r2, r1
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x58]
 	ldr r1, [sp, #0xac]
 	ldr r0, [r5]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	ldr r1, [sp, #0x58]
 	str r0, [sp, #0x5c]
 	cmp r1, r9
@@ -4851,12 +4851,12 @@ _020C0C74:
 	ldr r1, [sp, #0x8c]
 	ldr r0, [r5, #4]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x60]
 	ldr r1, [sp, #0xbc]
 	ldr r0, [r5, #4]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	ldr r1, [sp, #0x60]
 	str r0, [sp, #0x64]
 	cmp r1, r8
@@ -4867,12 +4867,12 @@ _020C0C74:
 	ldr r1, [sp, #0x90]
 	ldr r0, [r5, #8]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x68]
 	ldr r1, [sp, #0x9c]
 	ldr r0, [r5, #8]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	ldr r1, [sp, #0x68]
 	str r0, [sp, #0x6c]
 	cmp r1, r4
@@ -4888,7 +4888,7 @@ _020C0C74:
 	str r11, [sp, #0x50]
 	str r3, [sp, #0x54]
 	ldr r10, [r1]
-	bl FUN_02021294
+	bl labs
 	movs r4, r0
 	add r0, r4, #1
 	str r0, [sp, #0x5c]
@@ -4898,19 +4898,19 @@ _020C0C74:
 	ldr r1, [r7, #0x20]
 	ldr r0, [r5]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x58]
 	ldr r1, [r7, #0x2c]
 	ldr r0, [r5]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x5c]
 	str r0, [sp, #0x60]
 _020C0DD8:
 	ldr r1, [r7, #0x24]
 	ldr r0, [r7, #0x30]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	movs r8, r0
 	add r0, r8, #1
 	str r0, [sp, #0x68]
@@ -4920,19 +4920,19 @@ _020C0DD8:
 	ldr r1, [r7, #0x24]
 	ldr r0, [r5, #4]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x64]
 	ldr r1, [r7, #0x30]
 	ldr r0, [r5, #4]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x68]
 	str r0, [sp, #0x6c]
 _020C0E2C:
 	ldr r1, [r7, #0x28]
 	ldr r0, [r7, #0x34]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	movs r9, r0
 	add r0, r9, #1
 	str r0, [sp, #0x74]
@@ -4942,12 +4942,12 @@ _020C0E2C:
 	ldr r1, [r7, #0x28]
 	ldr r0, [r5, #8]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x70]
 	ldr r1, [r7, #0x34]
 	ldr r0, [r5, #8]
 	sub r0, r1, r0
-	bl FUN_02021294
+	bl labs
 	str r0, [sp, #0x74]
 	str r0, [sp, #0x78]
 _020C0E80:
@@ -5040,7 +5040,7 @@ _020C0EC0:
 	mov r3, r1
 	mov r0, r11
 	sub r1, r4, #0x100000
-	bl FUN_0201e9a8
+	bl _dsub
 	mov r8, r1
 	ldr r1, [r7, #4]
 	mov r4, r0
@@ -7614,7 +7614,7 @@ FUN_ov0_020c33f4: ; 0x020C33F4
 	mov r1, r9
 	mov r2, #0x16c
 	mov r5, r9
-	bl FUN_02021940
+	bl memset
 	ldr r0, _020C34E4 ; =0x020A9C40
 	bl FUN_02045ed0
 	ldr r7, _020C34E8 ; =0x0209BA20
@@ -11432,12 +11432,12 @@ _020C6B14:
 	bl STD_CopyString
 	mov r0, r6
 	mov r1, #0x41
-	bl FUN_02024128
+	bl strchr
 	cmp r0, #0
 	bne _020C6B58
 	mov r0, r6
 	mov r1, #0x61
-	bl FUN_02024128
+	bl strchr
 	cmp r0, #0
 	beq _020C6B60
 _020C6B58:
@@ -11449,7 +11449,7 @@ _020C6B64:
 	strb r0, [r6, #0x20]
 	mov r0, r6
 	mov r1, #0x2e
-	bl FUN_02024160
+	bl strrchr
 	cmp r0, #0
 	movne r1, #0
 	strneb r1, [r0]
@@ -20604,7 +20604,7 @@ FUN_ov0_020ce9f4: ; 0x020CE9F4
 	mov r3, r3, lsl #0x10
 	mov r1, r2
 	mov r2, r3, lsr #0x10
-	bl _strncpy
+	bl strncpy
 	ldmfd sp!, {r3, pc}
 _020CEA5C:
 	str r2, [r12, r1, lsl #2]
@@ -20638,7 +20638,7 @@ _020CEAA8:
 	cmp r6, #0
 	beq _020CEAD0
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	add r0, r0, #1
 	add r6, r6, r0
 _020CEAD0:
@@ -22827,11 +22827,11 @@ _020D0A5C:
 
 	arm_func_start FUN_ov0_020d0a9c
 FUN_ov0_020d0a9c: ; 0x020D0A9C
-	ldr r12, _020D0AAC ; =_strncpy
+	ldr r12, _020D0AAC ; =strncpy
 	add r0, r0, #0xf0
 	mov r2, #0xf
 	bx r12
-_020D0AAC: .word _strncpy
+_020D0AAC: .word strncpy
 	arm_func_end FUN_ov0_020d0a9c
 
 	arm_func_start FUN_ov0_020d0ab0

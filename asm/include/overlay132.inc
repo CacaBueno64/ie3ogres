@@ -164,7 +164,7 @@
 .public FUN_02073f08
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020218d4
+.public memcpy
 .public FUN_020401b8
 .public FUN_020403a8
 .public FUN_020403d4

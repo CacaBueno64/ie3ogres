@@ -5685,10 +5685,10 @@ _020F265C:
 	bl FUN_ov16_020f1214
 	bl OS_WaitVBlankIntr
 	mov r0, r9
-	bl FUN_02021288
+	bl abs
 	mov r4, r0
 	mov r0, r7
-	bl FUN_02021288
+	bl abs
 	cmp r4, r0
 	addlt r9, r9, r8
 	add r10, r10, #1
@@ -6179,15 +6179,15 @@ _020F2D58:
 	ldr r1, _020F2DA4 ; =0x0211789C
 	add r0, sp, #0
 	add r1, r1, r6, lsl #1
-	bl FUN_02023fb0
+	bl strcat
 _020F2D70:
 	add r5, sp, #0
 	ldr r1, _020F2DA8 ; =0x021184E0
 	mov r0, r5
-	bl FUN_02023fb0
+	bl strcat
 	mov r0, r4
 	mov r1, r5
-	bl FUN_02023e98
+	bl strcpy
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020F2D94: .word unk_02099F78
@@ -7460,12 +7460,12 @@ FUN_ov16_020f3d08: ; 0x020F3D08
 	bl FUN_02053914
 	mov r0, r4
 	mov r1, #0x5c
-	bl FUN_02024160
+	bl strrchr
 	movs r10, r0
 	bne _020F3D54
 	mov r0, r4
 	mov r1, #0x2f
-	bl FUN_02024160
+	bl strrchr
 	mov r10, r0
 _020F3D54:
 	ldr r0, [r9, #0x20]
@@ -7482,7 +7482,7 @@ _020F3D7C:
 	ldr r0, [r5, r4, lsl #4]
 	mov r1, r10
 	add r0, r9, r0
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	beq _020F3DA0
 	add r4, r4, #1
@@ -16167,7 +16167,7 @@ _020FB184:
 _020FB1B4:
 	ldr r0, [r6, #8]
 	mov r1, r4
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -18484,7 +18484,7 @@ _020FCF98:
 	add r0, r8, #0x10
 	bl OS_LockMutex
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	sub r0, r0, #1
 	ldrsb r0, [r7, r0]
 	mov r10, #0
@@ -25081,9 +25081,9 @@ _0210285C:
 	add r1, sp, #0x104
 	mov r0, r8
 	str r1, [sp, #0x40]
-	bl FUN_02023e98
+	bl strcpy
 	mov r0, r8
-	bl _strlen
+	bl strlen
 	cmp r0, #0
 	beq _02102948
 	cmp r0, #1
@@ -25099,7 +25099,7 @@ _021028CC:
 	sub r1, r0, #2
 	add r0, sp, #0x1c
 	add r1, r8, r1
-	bl FUN_02023e98
+	bl strcpy
 	ldrb r0, [sp, #0x1c]
 	cmp r0, #0x82
 	bne _02102900
@@ -25120,13 +25120,13 @@ _02102914:
 _02102918:
 	ldr r1, _02102B40 ; =0x02119C70
 	add r0, sp, #0x1f
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	ldreq r0, _02102B44 ; =0x02119C7C
 	ldr r1, _02102B48 ; =0x02119C80
 	streq r0, [sp, #0x40]
 	add r0, sp, #0x1f
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	ldreq r0, _02102B4C ; =0x02119C8C
 	streq r0, [sp, #0x40]
@@ -33079,7 +33079,7 @@ _0210969C:
 	ldr r10, [r0, #4]
 	mov r1, r6
 	mov r0, r10
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	beq _0210972C
 	ldr r2, [r7, r9, lsl #3]
@@ -41039,7 +41039,7 @@ _021101DC:
 _02110210:
 	mov r0, r9
 	mov r1, r4
-	bl FUN_02024128
+	bl strchr
 	movs r9, r0
 	addne r9, r9, #1
 	add r6, r6, #1
@@ -47152,7 +47152,7 @@ _02115138:
 	ldr r0, [r0, #4]
 	rsb r0, r0, #0x8000
 	str r0, [sp, #4]
-	bl FUN_02021294
+	bl labs
 	rsb r12, r0, #0x8000
 	mov lr, #0x60
 	umull r3, r2, r12, lr

@@ -36,7 +36,7 @@
 .public FUN_0201c2f0
 .public FUN_0201c388
 .public _ll_udiv
-.public FUN_0201f960
+.public _ull_mod
 .public OS_SpinWaitSysCycles
 .public OS_WaitVBlankIntr
 .public OS_GetMacAddress
@@ -105,7 +105,7 @@
 .public NNS_G2dCharCanvasInitForOBJ1D
 .public NNS_G2dArrangeOBJ1D
 .public NNSi_G2dTextCanvasDrawText
-.public _memcmp
+.public memcmp
 .public GX_DispOff
 .public GX_DispOn
 .public G2x_SetBlendBrightness_
@@ -149,7 +149,7 @@
 .public NNS_G2dFontInitUTF16
 .public NNS_G2dCharCanvasDrawChar
 .public NNSi_G2dCalcRequiredOBJ
-.public FUN_02021940
+.public memset
 .public FUN_02024640
 .public FUN_ov1_020cabf0
 .public FUN_ov1_020cb3f8
@@ -204,5 +204,5 @@
 .public OS_SetIrqMask
 .public OS_Sleep
 .public OS_Terminate
-.public _strlen
-.public _strncpy
+.public strlen
+.public strncpy

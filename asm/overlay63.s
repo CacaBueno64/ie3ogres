@@ -3997,7 +3997,7 @@ _0211D844:
 	mov r1, r9
 	add r0, r10, #0x870
 	mov r2, #0x1800
-	bl FUN_02021940
+	bl memset
 	add r4, r10, #0x2000
 	str r9, [r4, #0x70]
 	cmp r8, #0

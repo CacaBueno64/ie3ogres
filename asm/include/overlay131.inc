@@ -108,7 +108,7 @@
 .public FUN_02072d28
 .public FX_Sqrt
 .public FUN_020204a4
-.public _memmove
+.public memmove
 .public FUN_020312d8
 .public FUN_020381a0
 .public FUN_020383c4
@@ -167,8 +167,8 @@
 .public STD_TSNPrintf
 .public _fmul
 .public FUN_02020274
-.public FUN_02021040
-.public FUN_02021940
+.public abort
+.public memset
 .public FUN_02031554
 .public FUN_02038058
 .public FUN_02038554
@@ -288,7 +288,7 @@
 .public STD_CopyLString
 .public STD_CopyString
 .public STD_GetStringLength
-.public _strlen
+.public strlen
 .public unk_0208BFB0
 .public unk_020A0B00
 .public unk_020A0B40

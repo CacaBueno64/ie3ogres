@@ -47,7 +47,7 @@
 .public MI_CpuFill8
 .public MIi_CpuClear32
 .public MIi_CpuClearFast
-.public _strlen
+.public strlen
 .public unk_020A8C40
 .public unk_020A8440
 .public unk_0209A250

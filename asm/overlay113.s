@@ -22,14 +22,14 @@ FUN_ov113_02124d00: ; 0x02124D00
 	cmp r1, #0
 	beq _02124D48
 	add r0, r5, #0x234
-	bl FUN_02023e98
+	bl strcpy
 _02124D48:
 	ldr r1, [r4, #0x14]
 	cmp r1, #0
 	beq _02124D60
 	add r0, r5, #0x35
 	add r0, r0, #0x300
-	bl FUN_02023e98
+	bl strcpy
 _02124D60:
 	ldr r7, [r4, #0x1c]
 	cmp r7, #0
@@ -38,7 +38,7 @@ _02124D60:
 	mov r0, r7
 	mov r2, r6
 	add r1, r5, #0x354
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _02124DA0
 	mov r0, r7
@@ -1175,7 +1175,7 @@ _02125C0C:
 	mov r3, r3, asr #0x18
 	bl FUN_ov113_02125738
 	add r0, r9, #0x56
-	bl _strlen
+	bl strlen
 	cmp r0, #0
 	beq _02125DF0
 	add r5, sp, #0x20
@@ -1430,7 +1430,7 @@ _02126104:
 	ldrb r1, [r10, #0x31]
 	strb r1, [r0, #0x13]
 	ldr r1, [r10, #0x20]
-	bl FUN_02023e98
+	bl strcpy
 	ldrb r0, [r10, #0x228]
 	strb r4, [r10, #0x24]
 	add r0, r0, #1
@@ -1771,7 +1771,7 @@ FUN_ov113_021265d8: ; 0x021265D8
 	add r0, r4, #0xc
 	add r1, r4, #0x34
 	mov r2, #0x28
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _0212665C
 _0212660C:

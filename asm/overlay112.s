@@ -426,7 +426,7 @@ _021252C0:
 	bl G2S_GetBG1ScrPtr
 	mov r1, r5
 	mov r2, #0x800
-	bl FUN_02021940
+	bl memset
 	ldr r6, _02125338 ; =0x0209F5C0
 	mov r1, r4
 	mov r0, r6
@@ -457,7 +457,7 @@ FUN_ov112_0212533c: ; 0x0212533C
 	add r0, r4, #0x124
 	add r1, r4, #0x12c
 	mov r2, #8
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _02125380
 _02125368:
@@ -504,7 +504,7 @@ FUN_ov112_021253a0: ; 0x021253A0
 	bl G2S_GetBG2ScrPtr
 	mov r1, #0
 	mov r2, #0x800
-	bl FUN_02021940
+	bl memset
 	cmp r5, #0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}

@@ -52,7 +52,7 @@
 .public FUN_0205107c
 .public OS_GetTick
 .public VEC_Mag
-.public FUN_02021288
+.public abs
 .public FUN_02044658
 .public FUN_02058800
 .public FUN_02059004

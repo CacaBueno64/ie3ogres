@@ -10,11 +10,11 @@
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
 .public FX_Sqrt
-.public _memcmp
+.public memcmp
 .public FUN_020420b4
 .public G2S_GetBG2CharPtr
 .public GXS_LoadBG0Scr
-.public FUN_02021940
+.public memset
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2f20

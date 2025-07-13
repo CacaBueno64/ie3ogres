@@ -2122,12 +2122,12 @@ _0211BB7C:
 	ldrh r11, [r4, #6]
 	mov r0, r0
 	sub r0, r11, r0
-	bl FUN_02021288
+	bl abs
 	ldrh r9, [r4, #8]
 	ldrh r8, [r8, #8]
 	mov r4, r0
 	sub r0, r9, r8
-	bl FUN_02021288
+	bl abs
 	cmp r10, #3
 	bne _0211BBF0
 	cmp r9, r8
@@ -2248,10 +2248,10 @@ _0211BD2C:
 	ldrh r9, [r0, #8]
 	ldrh r7, [r1, #8]
 	sub r0, r6, r8
-	bl FUN_02021288
+	bl abs
 	mov r4, r0
 	sub r0, r7, r9
-	bl FUN_02021288
+	bl abs
 	mul r1, r4, r4
 	mla r1, r0, r0, r1
 	ldr r0, [sp, #0xc]
@@ -5578,7 +5578,7 @@ FUN_ov46_0211ec58: ; 0x0211EC58
 	sub r8, r6, r1
 	sub r3, r0, r2
 	sub r0, r8, r3
-	bl FUN_02021288
+	bl abs
 	cmp r0, #1
 	ldrleb r0, [r7, #0x3da]
 	cmple r0, #0
@@ -5714,7 +5714,7 @@ _0211EE78:
 	bl FUN_ov46_0211ad9c
 	ldrb r0, [r7, #0x3d8]
 	sub r0, r0, r6
-	bl FUN_02021288
+	bl abs
 	cmp r0, #1
 	add r0, r7, r6, lsl #3
 	ldr r1, [r0, #8]

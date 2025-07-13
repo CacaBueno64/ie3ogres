@@ -5,7 +5,7 @@
 .public FUN_0202eff0
 .public OS_WaitVBlankIntr
 .public FUN_02023c40
-.public FUN_02023e98
+.public strcpy
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
 .public FX_Sqrt

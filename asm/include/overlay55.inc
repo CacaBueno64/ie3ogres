@@ -15,8 +15,8 @@
 .public FUN_02045b40
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020218d4
-.public FUN_020240f4
+.public memcpy
+.public strncmp
 .public FUN_020460a8
 .public G2_GetBG3CharPtr
 .public GX_LoadBG1Char
@@ -66,7 +66,7 @@
 .public STD_CompareString
 .public STD_CopyString
 .public STD_GetStringLength
-.public _strlen
+.public strlen
 .public unk_020A9C40
 .public unk_020A1640
 .public unk_0209A0F4

@@ -64,8 +64,8 @@
 .public FUN_02071fac
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020218d4
-.public _memmove
+.public memcpy
+.public memmove
 .public FUN_020418b0
 .public FUN_020425fc
 .public FUN_020508fc
@@ -76,8 +76,8 @@
 .public FUN_0205935c
 .public FUN_0207249c
 .public FUN_02020274
-.public FUN_02021040
-.public FUN_02021940
+.public abort
+.public memset
 .public FUN_02028820
 .public FUN_02043310
 .public FUN_02059004

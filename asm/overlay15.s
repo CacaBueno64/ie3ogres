@@ -7017,7 +7017,7 @@ _020C2AE4:
 	mov r2, r9
 	add r0, r6, #0xc
 	add r1, r4, #4
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	ldreqb r0, [r4, #1]
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -7061,7 +7061,7 @@ _020C2B68:
 	mov r2, r6
 	add r0, r9, #0xc
 	add r1, r4, r1
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	addeq r0, r8, r5, lsl #2
 	ldreqb r0, [r0, #0x445]
@@ -7148,7 +7148,7 @@ _020C2CA4:
 	ldrh r2, [r5, #0xa]
 	add r1, r0, r9
 	add r0, r5, #0xc
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	streq r7, [sp, #0xc]
 	beq _020C2CD8
@@ -7793,7 +7793,7 @@ _020C351C:
 	ldr r1, [sp, #8]
 	add r0, r5, #0xc
 	add r1, r1, r7
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	bne _020C3588
 	cmp r9, #0
@@ -8700,7 +8700,7 @@ _020C40C8:
 	ldrh r2, [r0, #0x7a]
 	add r0, r5, r4
 	add r1, r5, r1
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	moveq r0, #2
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -9627,7 +9627,7 @@ _020C4CEC:
 	ldr r1, _020C4D14 ; =0x020E3CD8
 	mov r2, r4
 	add r0, r5, #0xc
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	moveq r0, r4
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -11129,7 +11129,7 @@ FUN_ov15_020c60bc: ; 0x020C60BC
 	ldr r1, _020C60F4 ; =0x020E43F4
 	mov r0, r4
 	mov r2, #8
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -11164,7 +11164,7 @@ FUN_ov15_020c6124: ; 0x020C6124
 	ldr r1, _020C6170 ; =0x020E43F4
 	mov r0, r4
 	mov r2, #8
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	addne sp, sp, #0x18
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -11182,7 +11182,7 @@ FUN_ov15_020c6174: ; 0x020C6174
 	stmfd sp!, {r3, lr}
 	ldr r1, _020C6194 ; =0x020E4400
 	mov r2, #8
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -12261,7 +12261,7 @@ FUN_ov15_020c6fa4: ; 0x020C6FA4
 	mov r4, r0
 	ldr r0, [r5]
 	ldr r1, _020C7098 ; =0x020E4438
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r5, #0x14]
@@ -12706,12 +12706,12 @@ _020C75AC:
 	add r1, sp, #0
 	add r0, r0, #0x1000
 	mov r2, #0xa
-	bl FUN_0202457c
+	bl strtoul
 	ldr r7, [r4, #4]
 	mov r5, r0
 	add r0, r7, #0xc
 	add r0, r0, #0x1000
-	bl _strlen
+	bl strlen
 	add r1, r7, #0xc
 	add r1, r1, #0x1000
 	ldr r2, [sp]
@@ -12823,7 +12823,7 @@ FUN_ov15_020c7784: ; 0x020C7784
 	bne _020C77E4
 	ldr r6, _020C7914 ; =0x020E44AC
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7918 ; =0x020E44B8
 	mov r0, r5
@@ -12837,7 +12837,7 @@ FUN_ov15_020c7784: ; 0x020C7784
 _020C77E4:
 	ldr r6, _020C791C ; =0x020E44C0
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7918 ; =0x020E44B8
 	mov r0, r5
@@ -12848,7 +12848,7 @@ _020C77E4:
 	movne r0, #8
 	ldmnefd sp!, {r4, r5, r6, r7, pc}
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7920 ; =0x020E44C8
 	mov r0, r5
@@ -12882,7 +12882,7 @@ _020C7840:
 	bne _020C78C4
 	ldr r6, _020C792C ; =0x020E44D0
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7930 ; =0x020E44D4
 	mov r0, r5
@@ -13190,7 +13190,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	str r12, [sp]
 	bl OS_SNPrintf
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FAC ; =0x020E45B0
 	mov r2, r6
@@ -13201,7 +13201,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FB0 ; =0x020E45B8
 	mov r0, r5
@@ -13212,7 +13212,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0xe
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FB4 ; =0x020E45C0
 	mov r0, r5
@@ -13223,7 +13223,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x41
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FB8 ; =0x020E45C8
 	mov r0, r5
@@ -13234,7 +13234,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x6f
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FBC ; =0x020E45D0
 	mov r0, r5
@@ -13245,7 +13245,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x15
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FC0 ; =0x020E45D8
 	mov r0, r5
@@ -13256,7 +13256,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x1a
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FC4 ; =0x020E45E0
 	mov r0, r5
@@ -13267,7 +13267,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x1d
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FC8 ; =0x020E45E8
 	mov r0, r5
@@ -13278,7 +13278,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x1f
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FCC ; =0x020E45F0
 	mov r0, r5
@@ -13289,7 +13289,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x2c
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FD0 ; =0x020E45F8
 	mov r0, r5
@@ -13300,7 +13300,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x2f
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FD4 ; =0x020E4600
 	mov r0, r5
@@ -13311,7 +13311,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x34
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FD8 ; =0x020E4608
 	mov r0, r5
@@ -13336,7 +13336,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	cmp r7, #1
 	bne _020C7F44
 	add r0, r4, #0x4e
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r1, _020C7FE0 ; =0x020E4618
 	mov r0, r5
@@ -13479,9 +13479,9 @@ FUN_ov15_020c8100: ; 0x020C8100
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0xa34]
 	ldr r1, _020C8190 ; =0x020E4698
-	bl FUN_020241a0
+	bl strstr
 	add r0, r0, #4
-	bl _strlen
+	bl strlen
 	movs r3, r0
 	beq _020C817C
 	add r4, sp, #0
@@ -13662,13 +13662,13 @@ FUN_ov15_020c837c: ; 0x020C837C
 	mov r0, r7
 	mov r1, r6
 	add r4, r2, #0x1800
-	bl FUN_020241a0
+	bl strstr
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r7
 	mov r1, r6
-	bl FUN_020241a0
+	bl strstr
 	add r1, r5, #0x254
 	add r6, r0, #4
 	add r0, r1, #0x1800
@@ -13683,16 +13683,16 @@ FUN_ov15_020c837c: ; 0x020C837C
 	ldr r6, _020C8464 ; =0x020E46B4
 	ldr r0, [r4]
 	mov r1, r6
-	bl FUN_020241a0
+	bl strstr
 	movs r8, r0
 	moveq r0, #1
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	mov r7, r0
 	ldr r1, _020C8468 ; =0x020E46C8
 	add r0, r8, r7
-	bl FUN_020241a0
+	bl strstr
 	mov r6, r0
 	add r0, r5, #0x254
 	ldrsb r4, [r6]
@@ -13781,7 +13781,7 @@ _020C8520:
 _020C855C:
 	ldr r4, [r0, #0xa34]
 	mov r0, r4
-	bl _strlen
+	bl strlen
 	mov r1, r0
 	mov r0, r4
 	bl CPS_SocWrite
@@ -13987,14 +13987,14 @@ FUN_ov15_020c8824: ; 0x020C8824
 	cmp r1, #0
 	ldrne r6, _020C88E0 ; =0x020E4720
 	ldr r0, [r0, #0x124]
-	bl _strlen
+	bl strlen
 	mov r4, r0
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	add r1, r7, #0x1000
 	mov r8, r0
 	ldr r0, [r1, #0x128]
-	bl _strlen
+	bl strlen
 	sub r1, r8, #4
 	add r0, r1, r0
 	add r2, r4, r0
@@ -14034,13 +14034,13 @@ FUN_ov15_020c88e4: ; 0x020C88E4
 	mov r0, r6
 	mov r7, r1
 	add r5, r2, #0x1800
-	bl _strlen
+	bl strlen
 	mov r4, r0
 	ldr r0, _020C89B8 ; =0x020E4740
-	bl _strlen
+	bl strlen
 	mov r9, r0
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	sub r1, r9, #4
 	add r0, r1, r0
 	add r4, r4, r0
@@ -14060,15 +14060,15 @@ FUN_ov15_020c88e4: ; 0x020C88E4
 _020C895C:
 	ldr r0, [r5]
 	ldr r1, _020C89BC ; =0x020E4698
-	bl FUN_020241a0
+	bl strstr
 	add r9, r0, #2
 	ldrsb r8, [r0, #2]
 	mov r0, r9
-	bl _strlen
+	bl strlen
 	add r2, r0, #1
 	add r0, r9, r4
 	mov r1, r9
-	bl _memmove
+	bl memmove
 	ldr r2, _020C89B8 ; =0x020E4740
 	str r6, [sp]
 	mov r3, r7
@@ -14110,10 +14110,10 @@ FUN_ov15_020c89c0: ; 0x020C89C0
 	bl FUN_ov15_020cbea8
 	mov r5, r0
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	mov r4, r0
 	mov r0, r9
-	bl _strlen
+	bl strlen
 	sub r1, r4, #2
 	add r2, r1, r0
 	ldmib r6, {r0, r1}
@@ -14164,7 +14164,7 @@ FUN_ov15_020c8ac8: ; 0x020C8AC8
 	add r1, r7, #0x234
 	mov r0, r6
 	add r5, r1, #0x1800
-	bl _strlen
+	bl strlen
 	mov r4, r0
 	ldmib r5, {r0, r1}
 	sub r1, r1, r0
@@ -14295,7 +14295,7 @@ FUN_ov15_020c8c80: ; 0x020C8C80
 	mov r5, r0
 	mov r0, r6
 	mov r4, #0
-	bl _strlen
+	bl strlen
 	cmp r0, #0x100
 	movhs r0, r4
 	ldmhsfd sp!, {r4, r5, r6, pc}
@@ -14303,20 +14303,20 @@ FUN_ov15_020c8c80: ; 0x020C8C80
 	mov r1, r6
 	add r0, r0, #0x1000
 	mov r2, #0x100
-	bl _strncpy
+	bl strncpy
 	mov r0, r6
-	bl _strlen
+	bl strlen
 	add r1, r5, #0x24
 	mov r6, r0
 	add r0, r1, #0x1000
-	bl _strlen
+	bl strlen
 	cmp r6, r0
 	movne r0, r4
 	ldmnefd sp!, {r4, r5, r6, pc}
 	add r0, r5, #0x24
 	ldr r1, _020C8DB8 ; =0x020E475C
 	add r0, r0, #0x1000
-	bl FUN_020241a0
+	bl strstr
 	cmp r0, #0
 	beq _020C8D14
 	add r0, r5, #0x2b
@@ -14331,7 +14331,7 @@ _020C8D14:
 	add r0, r5, #0x24
 	ldr r1, _020C8DBC ; =0x020E4764
 	add r0, r0, #0x1000
-	bl FUN_020241a0
+	bl strstr
 	cmp r0, #0
 	moveq r0, r4
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -14347,7 +14347,7 @@ _020C8D4C:
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0x124]
 	ldr r1, _020C8DC0 ; =0x020E4770
-	bl FUN_020241a0
+	bl strstr
 	cmp r0, #0
 	movne r1, #0
 	strneb r1, [r0]
@@ -14355,7 +14355,7 @@ _020C8D4C:
 	add r0, r5, #0x1000
 	ldr r0, [r0, #0x124]
 	ldr r1, _020C8DC4 ; =0x020E4774
-	bl FUN_020241a0
+	bl strstr
 	mov r1, #0
 	cmp r0, #0
 	strneb r1, [r0]
@@ -14392,7 +14392,7 @@ FUN_ov15_020c8dc8: ; 0x020C8DC8
 	movgt r0, r4
 	ldmgtfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r8
-	bl _strlen
+	bl strlen
 	mov r1, r0
 	mov r0, r4
 	add r1, r1, #1
@@ -14406,7 +14406,7 @@ FUN_ov15_020c8dc8: ; 0x020C8DC8
 	cmp r0, #0
 	beq _020C8EA8
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	mov r1, r0
 	mov r0, r4
 	add r1, r1, #1
@@ -14423,13 +14423,13 @@ FUN_ov15_020c8dc8: ; 0x020C8DC8
 	beq _020C8EA8
 	ldr r0, [r2, r1, lsl #3]
 	mov r1, r8
-	bl FUN_02023e98
+	bl strcpy
 	ldr r2, [r9]
 	ldr r0, [r9, #8]
 	mov r1, r7
 	add r0, r2, r0, lsl #3
 	ldr r0, [r0, #4]
-	bl FUN_02023e98
+	bl strcpy
 	ldr r1, [r9, #8]
 	mov r0, #1
 	add r1, r1, #1
@@ -14484,21 +14484,21 @@ FUN_ov15_020c8f08: ; 0x020C8F08
 	ldr r5, [r0, #0xa44]
 	ldr r1, _020C918C ; =0x020E4698
 	mov r0, r5
-	bl FUN_020241a0
+	bl strstr
 	str r0, [sp, #4]
 	cmp r0, #0
 	addeq sp, sp, #0x14
 	moveq r0, r4
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r0, #4
-	bl _strlen
+	bl strlen
 	ldr r1, [sp, #4]
 	add r1, r1, #4
 	add r0, r1, r0
 	str r0, [sp]
 	ldr r1, _020C9190 ; =0x020E4778
 	mov r0, r5
-	bl FUN_020241a0
+	bl strstr
 	movs r5, r0
 	addeq sp, sp, #0x14
 	moveq r0, r4
@@ -14521,7 +14521,7 @@ FUN_ov15_020c8f08: ; 0x020C8F08
 	ldr r1, _020C9198 ; =0x020E4788
 	add r0, r5, #1
 	mov r2, #3
-	bl FUN_020240f4
+	bl strncmp
 	cmp r0, #0
 	beq _020C8FFC
 _020C8FF0:
@@ -14532,7 +14532,7 @@ _020C8FFC:
 	ldr r1, _020C919C ; =0x020E46C8
 	add r0, r5, #5
 	mov r11, r4
-	bl FUN_020241a0
+	bl strstr
 	cmp r0, #0
 	addeq sp, sp, #0x14
 	moveq r0, r4
@@ -14541,7 +14541,7 @@ _020C8FFC:
 _020C9020:
 	ldr r1, _020C91A0 ; =0x020E478C
 	mov r0, r8
-	bl FUN_020241a0
+	bl strstr
 	movs r5, r0
 	beq _020C90BC
 	ldrsb r6, [r5]
@@ -14549,7 +14549,7 @@ _020C9020:
 	ldr r1, _020C919C ; =0x020E46C8
 	mov r0, r9
 	strb r11, [r5]
-	bl FUN_020241a0
+	bl strstr
 	movs r4, r0
 	streqb r6, [r5]
 	beq _020C90BC
@@ -14567,7 +14567,7 @@ _020C9020:
 	strneb r7, [r4]
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r9
-	bl _strlen
+	bl strlen
 	strb r6, [r5]
 	add r0, r9, r0
 	strb r7, [r4]
@@ -14589,7 +14589,7 @@ _020C90BC:
 _020C90D4:
 	ldr r1, _020C91A4 ; =0x020E4790
 	mov r0, r6
-	bl FUN_020241a0
+	bl strstr
 	movs r4, r0
 	beq _020C9180
 	ldrsb r8, [r4]
@@ -14597,12 +14597,12 @@ _020C90D4:
 	ldr r1, _020C91A8 ; =0x020E4794
 	mov r0, r5
 	strb r11, [r4]
-	bl FUN_020241a0
+	bl strstr
 	movs r9, r0
 	bne _020C9118
 	ldr r1, _020C919C ; =0x020E46C8
 	mov r0, r5
-	bl FUN_020241a0
+	bl strstr
 	mov r9, r0
 _020C9118:
 	cmp r9, #0
@@ -14623,7 +14623,7 @@ _020C9118:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C9158:
 	mov r0, r5
-	bl _strlen
+	bl strlen
 	add r0, r5, r0
 	add r6, r0, #1
 	ldr r0, [sp]
@@ -14659,7 +14659,7 @@ _020C91BC:
 	cmp r1, #0
 	beq _020C91F8
 	mov r0, r5
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	addeq r0, r6, r4, lsl #3
 	addeq r0, r0, #0x1000
@@ -14682,7 +14682,7 @@ FUN_ov15_020c9200: ; 0x020C9200
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl _strlen
+	bl strlen
 	mov r1, r0
 	mov r0, r4
 	mov r2, r6
@@ -14705,13 +14705,13 @@ FUN_ov15_020c924c: ; 0x020C924C
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl _strlen
+	bl strlen
 	cmp r0, r5
 	movge r0, #0
 	ldmgefd sp!, {r4, r5, r6, pc}
 	mov r0, r6
 	mov r1, r4
-	bl FUN_02023e98
+	bl strcpy
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov15_020c924c
@@ -15135,7 +15135,7 @@ _020C97E0:
 	str r6, [r10, #0x40]
 	ldr r1, _020CA234 ; =0x020E47D0
 	str r2, [r10, #0x48]
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r10, #0x44]
@@ -15180,7 +15180,7 @@ _020C98B4:
 	add r0, r0, #0x1000
 	ldr r4, [r0, #0x118]
 	mov r0, r4
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r0, [r10]
 	ldr r1, _020CA240 ; =0x020E4800
@@ -15266,7 +15266,7 @@ _020C99F4:
 	b _020C977C
 _020C9A0C:
 	mov r0, r11
-	bl _strlen
+	bl strlen
 	add r1, r0, #1
 	mov r0, #0
 	blx r5
@@ -15289,12 +15289,12 @@ _020C9A54:
 	b _020CA1B8
 _020C9A5C:
 	mov r0, r11
-	bl _strlen
+	bl strlen
 	mov r2, r0
 	ldr r0, [sp, #4]
 	mov r1, r11
 	add r2, r2, #1
-	bl _strncpy
+	bl strncpy
 	b _020C9A8C
 _020C9A7C:
 	ldr r0, [r0]
@@ -15405,7 +15405,7 @@ _020C9BC8:
 	ldr r2, _020CA210 ; =0x00009C40
 	str r6, [r4, #0x40]
 	str r2, [r4, #0x48]
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r4, #0x44]
@@ -15440,7 +15440,7 @@ _020C9C5C:
 	add r0, r0, #0x1000
 	ldr r10, [r0, #0x114]
 	mov r0, r10
-	bl _strlen
+	bl strlen
 	mov r3, r0
 	ldr r0, [r4]
 	ldr r1, _020CA250 ; =0x020E4818
@@ -15784,7 +15784,7 @@ _020CA134:
 	b _020C977C
 _020CA14C:
 	mov r0, r10
-	bl _strlen
+	bl strlen
 	add r1, r0, #1
 	mov r0, #0
 	blx r5
@@ -15800,12 +15800,12 @@ _020CA14C:
 	b _020C9A44
 _020CA188:
 	mov r0, r10
-	bl _strlen
+	bl strlen
 	mov r2, r0
 	ldr r0, [sp]
 	mov r1, r10
 	add r2, r2, #1
-	bl _strncpy
+	bl strncpy
 	ldr r0, [r4]
 	bl FUN_ov15_020c8778
 	mov r0, r11
@@ -15982,7 +15982,7 @@ _020CA3DC:
 	str r2, [sp, #0xc]
 	ldr r2, [r6, #4]
 	str r2, [sp, #0x10]
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [sp, #0x14]
@@ -17053,7 +17053,7 @@ FUN_ov15_020cb248: ; 0x020CB248
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0x100
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	movne r4, #0
 	mov r0, r4
@@ -17399,7 +17399,7 @@ FUN_ov15_020cb6fc: ; 0x020CB6FC
 	ldr r1, _020CB7D8 ; =0x020E3DB0
 	add r0, r5, #0xc0
 	mov r2, #4
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _020CB794
 	add r0, r5, #0xc4
@@ -17424,7 +17424,7 @@ _020CB794:
 	ldr r1, _020CB7D8 ; =0x020E3DB0
 	add r0, r5, #0xc8
 	mov r2, #4
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _020CB7D0
 	add r0, r5, #0xc8
@@ -18421,7 +18421,7 @@ FUN_ov15_020cc488: ; 0x020CC488
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, pc}
 	mov r0, r5
-	bl _strlen
+	bl strlen
 	cmp r0, #0
 	bne _020CC4E8
 	ldr r0, _020CC51C ; =0x020E5640
@@ -18608,10 +18608,10 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x3c
 	mov r4, r0
-	bl _strlen
+	bl strlen
 	mov r5, r0
 	ldr r0, _020CC930 ; =0x020E56AC
-	bl _strlen
+	bl strlen
 	cmp r5, r0
 	ldreqsb r0, [r4, #7]
 	cmpeq r0, #0x20
@@ -18644,7 +18644,7 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 	beq _020CC924
 	add r0, sp, #0
 	mov r1, r4
-	bl FUN_02023e98
+	bl strcpy
 	mov r4, #0
 	ldr r7, _020CC934 ; =0x02099E60
 	add r0, sp, #0xc
@@ -18669,7 +18669,7 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 _020CC830:
 	ldr r0, [r8, r4, lsl #2]
 	mov r1, r7
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	addeq r0, r4, #1
 	streq r0, [sp, #0x30]
@@ -18803,10 +18803,10 @@ _020CC9F4:
 	ldr r4, _020CCB54 ; =0x020E9070
 	ldr r7, [r4, #0x18]
 	add r0, r7, #0x48
-	bl _strlen
+	bl strlen
 	mov r5, r0
 	ldr r0, _020CCB58 ; =0x020E56CC
-	bl _strlen
+	bl strlen
 	add r0, r5, r0
 	cmp r0, #0xff
 	bls _020CCA34
@@ -18825,7 +18825,7 @@ _020CCA34:
 	bl OS_SNPrintf
 	ldr r7, [r4, #0x18]
 	add r0, r7, #0x89
-	bl _strlen
+	bl strlen
 	add r5, sp, #0x10
 	mov r1, r0
 	mov r2, r5
@@ -18998,12 +18998,12 @@ _020CCC98:
 	ldr r0, [r8, #0x18]
 	mov r1, r6
 	mov r2, r7
-	bl _strncpy
+	bl strncpy
 	ldr r0, [r8, #0x18]
 	mov r1, r5
 	mov r2, r7
 	add r0, r0, #0x20
-	bl _strncpy
+	bl strncpy
 	ldr r1, [r8, #0x18]
 	ldr r0, _020CCD54 ; =0x020E56F4
 	add r1, r1, #0x44
@@ -21448,16 +21448,16 @@ _020CEDA4:
 
 	arm_func_start FUN_ov15_020cedd8
 FUN_ov15_020cedd8: ; 0x020CEDD8
-	ldr r12, _020CEDE0 ; =_strlen
+	ldr r12, _020CEDE0 ; =strlen
 	bx r12
-_020CEDE0: .word _strlen
+_020CEDE0: .word strlen
 	arm_func_end FUN_ov15_020cedd8
 
 	arm_func_start FUN_ov15_020cede4
 FUN_ov15_020cede4: ; 0x020CEDE4
-	ldr r12, _020CEDEC ; =FUN_020240f4
+	ldr r12, _020CEDEC ; =strncmp
 	bx r12
-_020CEDEC: .word FUN_020240f4
+_020CEDEC: .word strncmp
 	arm_func_end FUN_ov15_020cede4
 
 	arm_func_start FUN_ov15_020cedf0
@@ -31818,7 +31818,7 @@ _020D7608:
 	mov r0, r6
 	mov r2, r10
 	add r1, r8, #0x74
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	bne _020D7660
 	mov r1, r8
@@ -31973,7 +31973,7 @@ _020D7830:
 	mov r0, r6
 	mov r2, r10
 	add r1, r8, #0x74
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	moveq r0, #0
 	streqb r0, [r6, #0x5a]
@@ -32087,7 +32087,7 @@ _020D798C:
 	ldr r7, [r5, r4, lsl #2]
 	mov r1, r8
 	ldr r0, [r7]
-	bl _strcmp
+	bl strcmp
 	cmp r0, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -32357,11 +32357,11 @@ _020D7D14:
 _020D7D20:
 	ldr r7, [r10, r5, lsl #2]
 	mov r0, r7
-	bl _strlen
+	bl strlen
 	mov r2, r0
 	mov r0, r6
 	mov r1, r7
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	bne _020D7D90
 	cmp r5, #5
@@ -32637,7 +32637,7 @@ _020D80E4:
 	add r1, r6, r3
 	add r0, r0, #0x400
 	sub r1, r1, r2
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	beq _020D8128
 _020D8124:
@@ -32935,7 +32935,7 @@ rcv_server_hello: ; 0x020D84DC
 	mov r1, r5
 	mov r2, r7
 	add r0, r6, #0x74
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	moveq r0, #1
 	streqb r0, [r6, #0x31]
@@ -33294,7 +33294,7 @@ create_ms_sub: ; 0x020D8A00
 	add r0, r6, #0x348
 	bl CPSi_sha1_init
 	mov r0, r4
-	bl _strlen
+	bl strlen
 	mov r2, r0
 	mov r1, r4
 	add r0, r6, #0x348
@@ -33646,7 +33646,7 @@ rcv_finished: ; 0x020D8EB8
 	mov r0, r8
 	mov r1, r7
 	mov r2, #0x10
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	movne r0, #9
 	addne sp, sp, #0x14
@@ -33668,7 +33668,7 @@ rcv_finished: ; 0x020D8EB8
 	mov r1, r7
 	add r0, r8, #0x10
 	mov r2, #0x14
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	movne r0, #9
 	strneb r0, [r4, #0x455]
@@ -33844,7 +33844,7 @@ _020D91D8:
 	add r1, sp, #0x30
 	mov r2, r5
 	add r0, r0, r4
-	bl _memcmp
+	bl memcmp
 	cmp r0, #0
 	movne r0, #9
 	strneb r0, [r7, #0x455]
@@ -35428,25 +35428,25 @@ _020DA7F8: .word session
 _020DA7FC: .word MI_CpuFill8
 	arm_func_end CPSi_SslCleanup
 
-	arm_func_start char_from_long
-char_from_long: ; 0x020DA800
+	arm_func_start char_from_long_020da800
+char_from_long_020da800: ; 0x020DA800
 	mov r3, r0
 	mov r0, r1
 	ldr r12, _020DA814 ; =MI_CpuCopy8
 	mov r1, r3
 	bx r12
 _020DA814: .word MI_CpuCopy8
-	arm_func_end char_from_long
+	arm_func_end char_from_long_020da800
 
-	arm_func_start long_from_char
-long_from_char: ; 0x020DA818
+	arm_func_start long_from_char_020da818
+long_from_char_020da818: ; 0x020DA818
 	mov r3, r0
 	mov r0, r1
 	ldr r12, _020DA82C ; =MI_CpuCopy8
 	mov r1, r3
 	bx r12
 _020DA82C: .word MI_CpuCopy8
-	arm_func_end long_from_char
+	arm_func_end long_from_char_020da818
 
 	arm_func_start CPSi_md5_block
 CPSi_md5_block: ; 0x020DA830
@@ -35459,7 +35459,7 @@ CPSi_md5_block: ; 0x020DA830
 	mov r2, #0x40
 	ldmia r3, {r5, r6, r7}
 	ldr r8, [r3, #0xc]
-	bl long_from_char
+	bl long_from_char_020da818
 	mov lr, #0
 	ldr r11, _020DAC28 ; =0x020E5B3C
 	mov r9, lr
@@ -35795,7 +35795,7 @@ CPSi_md5_result: ; 0x020DAD30
 	mov r0, r4
 	add r1, r5, #0x10
 	mov r2, #8
-	bl char_from_long
+	bl char_from_long_020da800
 	ldr r0, [r5, #0x10]
 	ldr r1, _020DAD94 ; =0x020E5AFC
 	mov r0, r0, lsr #3
@@ -35812,7 +35812,7 @@ CPSi_md5_result: ; 0x020DAD30
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x10
-	bl char_from_long
+	bl char_from_long_020da800
 	ldmfd sp!, {r3, r4, r5, pc}
 _020DAD94: .word ov15_020E5AFC
 	arm_func_end CPSi_md5_result
@@ -37031,7 +37031,7 @@ _020DBE08:
 	ldr r2, [sp, #0x14]
 	mov r1, r6
 	add r0, r6, #2
-	bl _memmove
+	bl memmove
 	add r0, r7, r11
 	bl get64bits
 	ldr r2, [sp, #0x18]
@@ -37340,7 +37340,7 @@ _020DC218:
 	mov r2, r9
 	mov r0, r7
 	add r1, r7, r5, lsl #1
-	bl _memmove
+	bl memmove
 	add r0, r7, r6, lsl #1
 	sub r0, r0, r5, lsl #1
 	mov r2, r5, lsl #1

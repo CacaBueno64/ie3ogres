@@ -4263,7 +4263,7 @@ _0211D984:
 	bne _0211D9A0
 	mov r0, r4
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 _0211D9A0:
 	ldr r2, [r10, #0xc]
 	ldr r0, [r10, #0x10]
@@ -4359,7 +4359,7 @@ _0211DAF4:
 	bne _0211DB10
 	mov r0, r11
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 _0211DB10:
 	ldr r2, [r9, #4]
 	ldr r0, [r9, #8]
@@ -4561,7 +4561,7 @@ _0211DDD8:
 FUN_ov80_0211ddec: ; 0x0211DDEC
 	stmfd sp!, {r3, lr}
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov80_0211ddec
 
@@ -4826,7 +4826,7 @@ FUN_ov80_0211e1b4: ; 0x0211E1B4
 	stmfd sp!, {r3, lr}
 	ldr r0, _0211E1C8 ; =0x02122A1C
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 	ldmfd sp!, {r3, pc}
 _0211E1C8: .word ov80_02122A1C
 	arm_func_end FUN_ov80_0211e1b4
@@ -5409,7 +5409,7 @@ _0211EA3C:
 	mov r2, r0, asr #2
 	sub r0, r3, r2, lsl #2
 	mov r2, r2, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r0, [r7]
 	sub r0, r0, r6, lsl #2
 	str r0, [r7]
@@ -5493,7 +5493,7 @@ _0211EB80:
 	mov r2, r0, lsl #2
 	ldr r1, [r9]
 	ldr r0, [r7]
-	bl _memmove
+	bl memmove
 	ldr r1, [r9]
 	sub r0, r6, #1
 	add r1, r1, r0, lsl #2
@@ -5684,7 +5684,7 @@ _0211EE24:
 	bne _0211EE44
 	ldr r0, _0211EE5C ; =0x02122800
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 _0211EE44:
 	add r0, r4, #1
 	str r6, [r5]
@@ -5714,7 +5714,7 @@ FUN_ov80_0211ee60: ; 0x0211EE60
 	mov r3, r2, asr #2
 	mov r2, r3, lsl #2
 	sub r0, r0, r3, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r5]
 	ldr r0, [r6]
 	ldr r2, [r7, #8]
@@ -5735,7 +5735,7 @@ _0211EED4:
 	sub r4, r0, r2, lsl #2
 	mov r0, r4
 	mov r2, r2, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r6]
 	ldr r0, [r6, #0xc]
 	sub r2, r0, r1
@@ -5744,7 +5744,7 @@ _0211EED4:
 	mov r0, r0, asr #2
 	mov r2, r0, lsl #2
 	sub r0, r4, r0, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r6, #0xc]
 	ldr r0, [r6]
 	ldr r4, [r5]
@@ -5789,7 +5789,7 @@ FUN_ov80_0211ef68: ; 0x0211EF68
 	mov r2, r0, asr #2
 	mov r0, r4
 	mov r2, r2, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r5]
 	ldr r0, [r6]
 	ldr r2, [r7, #8]
@@ -5807,7 +5807,7 @@ _0211EFE4:
 	add r2, r3, r2, lsr #30
 	mov r8, r2, asr #2
 	mov r2, r8, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r5, #4]
 	ldr r2, [r5]
 	add r0, r4, r8, lsl #2
@@ -5816,7 +5816,7 @@ _0211EFE4:
 	add r2, r3, r2, lsr #30
 	mov r2, r2, asr #2
 	mov r2, r2, lsl #2
-	bl _memmove
+	bl memmove
 	ldr r1, [r5]
 	ldr r0, [r5, #4]
 	ldr r4, [r6, #0xc]
@@ -6085,7 +6085,7 @@ _0211F38C:
 	mov r5, r0, asr #2
 	mov r2, r5, lsl #2
 	mov r0, r10
-	bl _memmove
+	bl memmove
 	ldr r1, [r4]
 	sub r0, r9, #1
 	add r2, r1, r0, lsl #2
@@ -6133,7 +6133,7 @@ _0211F470:
 	bne _0211F490
 	ldr r0, _0211F4A8 ; =0x02122800
 	bl FUN_02023ab4
-	bl FUN_02021040
+	bl abort
 _0211F490:
 	add r0, r4, #1
 	str r6, [r5]

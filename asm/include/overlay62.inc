@@ -23,7 +23,7 @@
 .public FUN_02058ee0
 .public FUN_02074a2c
 .public FX_Sqrt
-.public FUN_020218d4
+.public memcpy
 .public FUN_020425fc
 .public FUN_020460fc
 .public FUN_0202895c
@@ -31,7 +31,7 @@
 .public FUN_0205107c
 .public FUN_0205935c
 .public FUN_0207249c
-.public FUN_02021040
+.public abort
 .public FUN_02028984
 .public FUN_02043310
 .public FUN_02054070
@@ -148,7 +148,7 @@
 .public MI_CpuFill8
 .public MIi_CpuClear16
 .public MIi_CpuClearFast
-.public _strlen
+.public strlen
 .public unk_020A9C40
 .public unk_020A1612
 .public unk_020A1640

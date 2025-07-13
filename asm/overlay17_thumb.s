@@ -7464,7 +7464,7 @@ _020F1708:
 	add r0, #2
 	add r1, r6, #4
 	mov r2, #0x20
-	blx FUN_020218d4
+	blx memcpy
 	add r0, sp, #0x48
 	ldr r1, [r6]
 	mov r7, #0
@@ -7495,19 +7495,19 @@ _020F173A:
 _020F1750:
 	add r0, sp, #0x48
 	add r0, #2
-	blx _strlen
+	blx strlen
 	add r2, r0, #0
 	add r0, sp, #0x48
 	add r0, #2
 	add r1, r4, #4
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	bne _020F178A
 	add r1, r4, #0
 	ldr r0, [sp, #0x24]
 	add r1, #0x28
 	mov r2, #6
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	bne _020F178A
 	ldrh r1, [r6, #0x2e]
@@ -7568,16 +7568,16 @@ _020F17DC:
 	add r0, r7, #0
 	add r1, r5, #4
 	mov r2, #0x20
-	blx FUN_020218d4
+	blx memcpy
 	ldr r1, [r5]
 	mov r0, #0
 	strb r0, [r7, r1]
 	ldr r0, _020F18A4 ; =0x02112834
-	blx _strlen
+	blx strlen
 	add r2, r0, #0
 	ldr r1, _020F18A4 ; =0x02112834
 	add r0, r7, #0
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	bne _020F180C
 	ldrh r0, [r5, #0x2e]
@@ -7606,23 +7606,23 @@ _020F1828:
 	add r0, r5, #0
 	add r1, r4, #4
 	mov r2, #0x20
-	blx FUN_020218d4
+	blx memcpy
 	ldr r1, [r4]
 	mov r0, #0
 	strb r0, [r5, r1]
 	add r0, r5, #0
-	blx _strlen
+	blx strlen
 	add r6, r0, #0
 	add r0, r7, #0
-	blx _strlen
+	blx strlen
 	cmp r6, r0
 	bne _020F186A
 	add r0, r7, #0
-	blx _strlen
+	blx strlen
 	add r2, r0, #0
 	add r0, r5, #0
 	add r1, r7, #0
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	bne _020F186A
 	ldrh r0, [r4, #0x2e]
@@ -7848,7 +7848,7 @@ _020F19FE:
 	ldr r0, [sp, #4]
 	add r1, #0xc
 	mov r2, #0x20
-	blx FUN_020218d4
+	blx memcpy
 	ldrh r0, [r5, #0xa]
 	str r0, [r7, #4]
 	ldrh r0, [r5, #0xa]
@@ -7914,7 +7914,7 @@ _020F1A5A:
 	add r1, r4, #4
 	str r2, [r0, #0x18]
 	ldr r0, _020F1B34 ; =0x02115140
-	blx FUN_02023e98
+	blx strcpy
 	add r0, r4, #0
 	add r4, #0x28
 	ldrb r2, [r4]
@@ -7938,7 +7938,7 @@ _020F1AB4:
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
-	blx FUN_020218d4
+	blx memcpy
 	ldr r0, _020F1B20 ; =0x02114C30
 	mov r1, #2
 	str r1, [r0, #0x38]
@@ -8234,7 +8234,7 @@ FUN_ov17_020f1c90: ; 0x020F1C90
 _020F1CE0:
 	add r0, r6, #6
 	add r2, r7, #0
-	blx FUN_020218d4
+	blx memcpy
 _020F1CE8:
 	mov r0, #0
 	strb r0, [r6]
@@ -8333,11 +8333,11 @@ FUN_ov17_020f1d54: ; 0x020F1D54
 	add r0, r5, #0
 	add r1, r3, #0
 	add r2, r6, #0
-	blx FUN_02021940
+	blx memset
 	add r0, r5, #0
 	add r1, r7, #0
 	add r2, r4, #0
-	blx FUN_020218d4
+	blx memcpy
 	add r0, r5, r6
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end FUN_ov17_020f1d54
@@ -8522,7 +8522,7 @@ _020F1ED8:
 _020F1EF2:
 	ldr r2, [sp, #4]
 	add r0, r6, #0
-	blx FUN_020218d4
+	blx memcpy
 _020F1EFA:
 	ldr r0, [sp, #4]
 	add sp, #0xc
@@ -8666,7 +8666,7 @@ FUN_ov17_020f1fa8: ; 0x020F1FA8
 	add r0, sp, #4
 	add r0, #2
 	mov r2, #6
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	bgt _020F203C
 	add r1, sp, #0
@@ -8804,7 +8804,7 @@ _020F210E:
 	ldr r2, [sp, #0xc]
 	add r0, r3, #0
 	add r1, r5, #0
-	blx FUN_020218d4
+	blx memcpy
 	mov r0, #1
 	str r0, [sp]
 	b _020F223E
@@ -8894,7 +8894,7 @@ _020F21BA:
 	mov r2, #0x20
 	add r0, r1, r0
 	mov r1, #0
-	blx FUN_02021940
+	blx memset
 	ldr r0, _020F2264 ; =0x02114FB0
 	ldr r1, _020F2270 ; =0x00000206
 	ldr r0, [r0, #0x30]
@@ -8931,7 +8931,7 @@ _020F2204:
 	add r0, r0, r1
 	ldr r2, [sp, #0xc]
 	add r1, r5, #0
-	blx FUN_020218d4
+	blx memcpy
 	b _020F223E
 _020F221A:
 	ldr r3, _020F2274 ; =0x02115080
@@ -8950,7 +8950,7 @@ _020F221A:
 	ldr r2, [sp, #0xc]
 	add r0, r3, #0
 	add r1, r5, #0
-	blx FUN_020218d4
+	blx memcpy
 _020F223E:
 	ldr r2, [sp, #4]
 	ldr r1, [sp, #8]
@@ -9091,7 +9091,7 @@ FUN_ov17_020f232c: ; 0x020F232C
 	str r0, [sp]
 	ldr r0, _020F2494 ; =0x02114D9C
 	ldr r1, _020F2498 ; =0x02114F84
-	blx FUN_02023e98
+	blx strcpy
 	ldr r1, _020F249C ; =0x02114FB0
 	ldr r0, [r1]
 	cmp r0, #3
@@ -9133,12 +9133,12 @@ _020F237C:
 	add r0, sp, #4
 	add r1, r6, #0
 	mov r2, #0x20
-	blx FUN_020218d4
+	blx memcpy
 	mov r1, #0
 	add r0, sp, #0x24
 	strb r1, [r0]
 	add r0, sp, #4
-	blx _strlen
+	blx strlen
 	cmp r0, #0x10
 	bhi _020F23B4
 	cmp r0, #0xa
@@ -9839,7 +9839,7 @@ _020F2902:
 	add r1, r5, #0
 	add r0, #8
 	add r2, r4, #0
-	blx FUN_020218d4
+	blx memcpy
 	add r3, sp, #0x58
 	add r2, sp, #0x48
 	mov r1, #8
@@ -10082,7 +10082,7 @@ _020F2AD2:
 	ldr r0, [sp]
 	add r1, r5, #0
 	sub r2, r4, #1
-	blx FUN_020218d4
+	blx memcpy
 	mov r0, #5
 	str r0, [sp, #0x24]
 	ldr r0, [sp, #0x14]
@@ -10246,7 +10246,7 @@ _020F2C22:
 	add r0, sp, #0x48
 	add r1, sp, #0x58
 	mov r2, #8
-	blx _memcmp
+	blx memcmp
 	cmp r0, #0
 	beq _020F2C34
 	mov r0, #0
@@ -13080,7 +13080,7 @@ FUN_ov17_020f4250: ; 0x020F4250
 	beq _020F426A
 	mov r1, #0
 	add r2, r4, #0
-	blx FUN_02021940
+	blx memset
 _020F426A:
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
@@ -13388,7 +13388,7 @@ FUN_ov17_020f44a0: ; 0x020F44A0
 	push {r3, lr}
 	ldr r1, _020F44B0 ; =0x02114D9C
 	mov r2, #0xe8
-	blx FUN_020218d4
+	blx memcpy
 	mov r0, #1
 	pop {r3, pc}
 	nop
