@@ -9,7 +9,7 @@
 .public FUN_020204a4
 .public FUN_020461b4
 .public FUN_0204615c
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public FUN_02020274
 .public FUN_02044658
 .public FUN_02044734

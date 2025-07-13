@@ -18,7 +18,7 @@
 .public FUN_0204294c
 .public GXS_LoadOBJPltt
 .public GXS_LoadOBJ
-.public STD_TSNPrintf
+.public STD_TSPrintf
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f5a58

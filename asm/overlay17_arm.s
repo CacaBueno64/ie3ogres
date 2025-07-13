@@ -4934,7 +4934,7 @@ _020F8788:
 	bl FX_Init
 	sub r0, r4, #1
 	bl FS_Init
-	bl FUN_02015ef0
+	bl TP_Init
 	bl RTC_Init
 	bl GX_DispOff
 	ldr r1, _020F8808 ; =0x04001000
@@ -5133,7 +5133,7 @@ FUN_ov17_020f8a7c: ; 0x020F8A7C
 	str r0, [r1]
 	bl FUN_ov17_0210f108
 	mov r0, #1
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	bl FUN_ov17_0210e1cc
 	bl FUN_ov17_0210e978
 	bl FUN_ov17_02107c14
@@ -31218,24 +31218,24 @@ FUN_ov17_0210e14c: ; 0x0210E14C
 	ldr r1, _0210E1C8 ; =0x021162E8
 	str r0, [r1, #4]
 	add r0, sp, #0
-	bl FUN_02015f64
+	bl TP_GetUserInfo
 	cmp r0, #0
 	bne _0210E17C
 	bl OS_Terminate
 _0210E17C:
 	add r0, sp, #0
-	bl FUN_02015ff8
+	bl TP_SetCalibrateParam
 	ldr r1, _0210E1C8 ; =0x021162E8
 	mov r0, #0
 	ldr r2, [r1, #4]
 	mov r1, #4
 	mov r3, #5
-	bl FUN_020161ec
+	bl TP_RequestAutoSamplingStartAsync
 	mov r4, #2
 	mov r0, r4
-	bl FUN_020166ac
+	bl TP_WaitBusy
 	mov r0, r4
-	bl FUN_020166c4
+	bl TP_CheckError
 	cmp r0, #0
 	beq _0210E1BC
 	bl OS_Terminate
@@ -31251,11 +31251,11 @@ FUN_ov17_0210e1cc: ; 0x0210E1CC
 	stmfd sp!, {r4, lr}
 	mov r4, #4
 _0210E1D4:
-	bl FUN_020162f4
+	bl TP_RequestAutoSamplingStopAsync
 	mov r0, r4
-	bl FUN_020166ac
+	bl TP_WaitBusy
 	mov r0, r4
-	bl FUN_020166c4
+	bl TP_CheckError
 	cmp r0, #0
 	bne _0210E1D4
 	ldr r0, _0210E1FC ; =0x021162EC
@@ -31358,7 +31358,7 @@ FUN_ov17_0210e320: ; 0x0210E320
 	movs r0, r0, lsr #0x1f
 	movne r6, #1
 	moveq r6, #0
-	bl FUN_02016394
+	bl TP_GetLatestIndexInAuto
 	ldr r7, _0210E4B4 ; =0x021162E8
 	mov r4, r5
 	ldr r3, [r7, #4]
@@ -31377,7 +31377,7 @@ _0210E36C:
 	bne _0210E3B0
 	add r0, sp, #0
 	mov r5, #1
-	bl FUN_02016590
+	bl TP_GetCalibratedPoint
 	ldr r1, _0210E4B4 ; =0x021162E8
 	ldrh r0, [sp]
 	ldr r2, [r1, #4]
@@ -31737,7 +31737,7 @@ FUN_ov17_0210e85c: ; 0x0210E85C
 	movs r0, r0, asr #0xf
 	ldmnefd sp!, {r4, pc}
 	mov r0, #1
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	bl OS_WaitVBlankIntr
@@ -31763,7 +31763,7 @@ _0210E8BC:
 	str r0, [r1]
 	bl OS_WaitVBlankIntr
 	mov r0, #0
-	bl FUN_02017368
+	bl PM_SetLCDPower
 	cmp r0, #0
 	movne r0, #1
 	strneb r0, [r4]
@@ -32384,23 +32384,23 @@ _0210F0D8: .word 0x000001F3
 FUN_ov17_0210f0dc: ; 0x0210F0DC
 	stmfd sp!, {r3, lr}
 	add r0, sp, #0
-	bl FUN_020173dc
+	bl PM_GetLEDPattern
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	ldr r0, [sp]
 	cmp r0, #0xf
 	ldmeqfd sp!, {r3, pc}
 	mov r0, #0xf
-	bl FUN_020173c0
+	bl PMi_SendLEDPatternCommand
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov17_0210f0dc
 
 	arm_func_start FUN_ov17_0210f108
 FUN_ov17_0210f108: ; 0x0210F108
-	ldr r12, _0210F114 ; =FUN_020173c0
+	ldr r12, _0210F114 ; =PMi_SendLEDPatternCommand
 	mov r0, #1
 	bx r12
-_0210F114: .word FUN_020173c0
+_0210F114: .word PMi_SendLEDPatternCommand
 	arm_func_end FUN_ov17_0210f108
 
 	arm_func_start FUN_ov17_0210f118

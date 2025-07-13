@@ -16658,7 +16658,7 @@ FUN_ov131_02149388: ; 0x02149388
 	ldr r1, _02149AA0 ; =0x0214CAB0
 	mov r0, r4
 	mov r5, r3
-	bl STD_TSNPrintf
+	bl STD_TSPrintf
 	add r0, r6, #0x6000
 	mov r10, #0
 	ldr r1, _02149AA4 ; =0x0209A200
