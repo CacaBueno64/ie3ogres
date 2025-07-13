@@ -163,7 +163,7 @@ _0211A0A0:
 	mov r1, r5
 	bl FUN_0207249c
 	ldr r1, _0211A180 ; =0x0211A788
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _0211A184 ; =0x02099F78
 	ldr r1, _0211A188 ; =0x0211A790
 	bl FUN_020418b0
@@ -306,7 +306,7 @@ _0211A2E4:
 	ldr r2, [r0, r4, lsl #2]
 	ldr r1, _0211A384 ; =0x0211A7A0
 	mov r0, r6
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r6
 	add r1, r5, #0x1c
 	bl  FUN_ov16_020f316c

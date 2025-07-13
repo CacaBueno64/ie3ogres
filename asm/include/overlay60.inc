@@ -49,7 +49,7 @@
 .public FUN_0206dcd4
 .public FUN_0206def8
 .public FUN_0206ed40
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02045b50

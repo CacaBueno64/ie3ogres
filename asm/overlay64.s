@@ -1405,7 +1405,7 @@ _0211B28C:
 	ldr r1, _0211B4DC ; =0x0211BBB4
 _0211B290:
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 _0211B298:
 	mov r6, #0
 	ldr r11, _0211B4E0 ; =0x40240000
@@ -1488,7 +1488,7 @@ _0211B3B4:
 	add r2, r2, #0x1c
 	str r6, [sp]
 _0211B3C8:
-	bl FUN_02023c40
+	bl sprintf
 	ldr r6, _0211B4B4 ; =0x02099F38
 	mov r1, #5
 	ldr r0, [r6]

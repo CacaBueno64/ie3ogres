@@ -4,7 +4,7 @@
 .public FUN_0202e1c0
 .public FUN_0202eff0
 .public OS_WaitVBlankIntr
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char

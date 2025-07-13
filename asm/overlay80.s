@@ -4262,7 +4262,7 @@ _0211D984:
 	movs r8, r0
 	bne _0211D9A0
 	mov r0, r4
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 _0211D9A0:
 	ldr r2, [r10, #0xc]
@@ -4358,7 +4358,7 @@ _0211DAF4:
 	movs r8, r0
 	bne _0211DB10
 	mov r0, r11
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 _0211DB10:
 	ldr r2, [r9, #4]
@@ -4560,7 +4560,7 @@ _0211DDD8:
 	arm_func_start FUN_ov80_0211ddec
 FUN_ov80_0211ddec: ; 0x0211DDEC
 	stmfd sp!, {r3, lr}
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov80_0211ddec
@@ -4825,7 +4825,7 @@ _0211E1B0: .word 0xCCCCCCCD
 FUN_ov80_0211e1b4: ; 0x0211E1B4
 	stmfd sp!, {r3, lr}
 	ldr r0, _0211E1C8 ; =0x02122A1C
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 	ldmfd sp!, {r3, pc}
 _0211E1C8: .word ov80_02122A1C
@@ -5683,7 +5683,7 @@ _0211EE24:
 	movs r6, r0
 	bne _0211EE44
 	ldr r0, _0211EE5C ; =0x02122800
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 _0211EE44:
 	add r0, r4, #1
@@ -6132,7 +6132,7 @@ _0211F470:
 	movs r6, r0
 	bne _0211F490
 	ldr r0, _0211F4A8 ; =0x02122800
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 _0211F490:
 	add r0, r4, #1
@@ -6291,7 +6291,7 @@ _0211F6A4:
 	ldr r2, [r8, r9, lsl #2]
 	mov r0, r7
 	mov r1, r11
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x76c]
 	mov r0, r7
 	add r2, sp, #0x18

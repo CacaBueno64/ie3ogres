@@ -254,7 +254,7 @@ FUN_ov26_0211a0dc: ; 0x0211A0DC
 	ldrb r2, [r4, #0x62]
 	ldr r1, _0211A2F8 ; =0x0211B9FC
 	add r0, sp, #0x84
-	bl FUN_02023c40
+	bl sprintf
 	ldr r12, _0211A2FC ; =0x0211B738
 	add r5, sp, #0xc
 	mov r4, #7
@@ -989,7 +989,7 @@ _0211ACA0:
 	ldr r1, _0211B2F4 ; =0x0211BA70
 	add r0, sp, #0x80
 	add r2, r6, #0x1c
-	bl FUN_02023c40
+	bl sprintf
 	str r7, [sp]
 	str r5, [sp, #4]
 	str r5, [sp, #8]
@@ -1027,7 +1027,7 @@ _0211ACA0:
 	ldr r1, _0211B2F8 ; =0x0211BA88
 	mov r0, r7
 	add r2, r6, #0x1c
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r4, #0xec
 	bl  FUN_ov16_021109a0
 	add r0, r4, #0xec
@@ -1099,7 +1099,7 @@ _0211AF28:
 	bl MIi_CpuClearFast
 	ldr r1, _0211B2FC ; =0x0211BAAC
 	add r0, sp, #0x80
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r4, #0xec
 	bl  FUN_ov16_021109a0
 	add r0, r4, #0xec
@@ -1211,7 +1211,7 @@ _0211B0DC:
 	bl MIi_CpuClearFast
 	ldr r1, _0211B300 ; =0x0211BAC0
 	mov r0, r6
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r4, #0xec
 	bl  FUN_ov16_021109a0
 	ldr r2, [r4, #0x70]
@@ -1244,7 +1244,7 @@ _0211B15C:
 	bl MIi_CpuClearFast
 	ldr r1, _0211B304 ; =0x0211BAE4
 	mov r0, r6
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r4, #0xec
 	bl  FUN_ov16_021109a0
 	ldr r2, [r4, #0x68]

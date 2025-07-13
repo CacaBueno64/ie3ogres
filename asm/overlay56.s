@@ -7843,7 +7843,7 @@ _02120D74:
 	ldr r1, _02120E44 ; =0x021214B8
 	mov r0, r7
 	mov r8, #0
-	bl FUN_02023c40
+	bl sprintf
 	mov r6, #1
 	ldr r5, _02120E38 ; =0x02099F38
 	str r6, [sp]

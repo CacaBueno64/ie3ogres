@@ -3107,7 +3107,7 @@ _0211C888:
 	mov r2, r0
 	ldr r1, _0211CA1C ; =0x0211EB2C
 	add r0, sp, #0x18
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r10, #0x8c0
 	stmia sp, {r0, r8}
 	str r6, [sp, #8]
@@ -3455,7 +3455,7 @@ _0211CDB4:
 	mov r2, r0
 	ldr r1, _0211CED4 ; =0x0211EB4C
 	add r0, sp, #0x18
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r10, #0x9f0
 	str r0, [sp]
 	stmib sp, {r4, r11}

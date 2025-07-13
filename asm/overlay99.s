@@ -421,7 +421,7 @@ _02125210:
 	bl MIi_CpuClearFast
 	ldr r1, _021253C0 ; =0x02125770
 	add r0, sp, #0x22
-	bl FUN_02023c40
+	bl sprintf
 	mov r6, #3
 	str r6, [sp]
 	mov r5, #8
@@ -449,7 +449,7 @@ _02125210:
 	mov r2, r8
 	mov r3, r7
 	add r0, sp, #0x22
-	bl FUN_02023c40
+	bl sprintf
 	str r6, [sp]
 	str r5, [sp, #4]
 	str r4, [sp, #8]

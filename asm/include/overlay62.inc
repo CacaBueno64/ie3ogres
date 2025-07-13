@@ -14,8 +14,8 @@
 .public FUN_0204fd68
 .public FUN_0206cc00
 .public FUN_0206d64c
-.public FUN_02023ab4
-.public FUN_02023c40
+.public printf
+.public sprintf
 .public FUN_02028a98
 .public FUN_02041eac
 .public FUN_02041f2c

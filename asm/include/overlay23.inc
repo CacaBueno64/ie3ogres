@@ -6,8 +6,8 @@
 .public FUN_0202e1c0
 .public FUN_0202eff0
 .public FUN_0206c7dc
-.public FUN_02023c6c
-.public FUN_02023c40
+.public rand
+.public sprintf
 .public FUN_02041eac
 .public FUN_02045b40
 .public FUN_02058e30

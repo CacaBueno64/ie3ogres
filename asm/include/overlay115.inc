@@ -1,7 +1,7 @@
 .public DC_FlushRange
 .public FUN_0201e078
 .public G2S_GetBG1CharPtr
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041fec
 .public FUN_02073ea4
 .public GXS_LoadBG2Char

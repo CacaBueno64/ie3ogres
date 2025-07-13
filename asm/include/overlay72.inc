@@ -12,7 +12,7 @@
 .public G2_GetBG2CharPtr
 .public GX_LoadBG3Char
 .public MI_CpuCopy
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public FUN_02041d9c
 .public FUN_02041eac

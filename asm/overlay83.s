@@ -3275,7 +3275,7 @@ _0211CCD4:
 	movgt r2, #0x63
 	cmp r2, #0xa
 	subge r9, r6, #1
-	bl FUN_02023c40
+	bl sprintf
 	mov r1, r9
 	mov r0, r10
 	mov r2, #4
@@ -3291,7 +3291,7 @@ _0211CCD4:
 	ldr r1, _0211D064 ; =0x0211D8D0
 	subge r8, r6, #1
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r1, r8
 	mov r0, r10
 	mov r2, #7
@@ -3307,7 +3307,7 @@ _0211CCD4:
 _0211CD6C:
 	ldr r1, _0211D068 ; =0x0211D8D4
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r1, r8
 	mov r0, r10
 	mov r2, #0xa

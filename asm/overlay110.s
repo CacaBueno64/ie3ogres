@@ -147,7 +147,7 @@ _02124EC4:
 	ldrb r2, [r1, #0x1ad]
 	ldr r1, _02124F68 ; =0x02127038
 	add r2, r2, #1
-	bl FUN_02023c40
+	bl sprintf
 	ldr r12, _02124F6C ; =0x02126E0C
 	add r6, sp, #0x20
 	mov r4, #5

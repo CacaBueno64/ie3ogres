@@ -2523,7 +2523,7 @@ _0211C270:
 	ldr r3, [r0, r8, lsl #2]
 	ldr r1, _0211C33C ; =0x0211F38C
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, _0211C340 ; =0x0211EFDC
 	ldr r0, _0211C344 ; =0x0211EFCC
 	ldr r2, [r1, r7, lsl #2]

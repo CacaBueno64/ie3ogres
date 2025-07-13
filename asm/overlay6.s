@@ -349,7 +349,7 @@ _020BCFA4:
 	mov r1, r11
 _020BCFAC:
 	add r2, r10, #1
-	bl FUN_02023c40
+	bl sprintf
 	mla r1, r10, r4, r5
 	mov r0, r9
 	bl FUN_ov16_020f3054
@@ -1064,7 +1064,7 @@ FUN_ov6_020bd914: ; 0x020BD914
 	mla r2, r5, r0, r1
 	ldr r1, _020BD96C ; =0x020BE018
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	add r1, r6, #8
 	mov r0, #0xc
 	mla r1, r5, r0, r1

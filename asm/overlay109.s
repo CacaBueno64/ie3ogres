@@ -536,7 +536,7 @@ FUN_ov109_0212543c: ; 0x0212543C
 	ldr r1, _02125480 ; =0x0212A7F4
 	mov r0, r4
 	mov r2, r3
-	bl FUN_02023c40
+	bl sprintf
 	add r1, r6, #0x128
 	mov r0, #0xc
 	mla r1, r5, r0, r1

@@ -4,7 +4,7 @@
 .public FUN_0202e1c0
 .public G2S_GetBG0CharPtr
 .public G2S_GetBG1CharPtr
-.public FUN_02023c40
+.public sprintf
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
 .public FX_Sqrt

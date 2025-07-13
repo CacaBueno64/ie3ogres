@@ -1182,7 +1182,7 @@ _02125C0C:
 	ldr r1, _02125F08 ; =0x02126DF8
 	mov r0, r5
 	add r2, r9, #0x56
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r7, #0x71
 	str r0, [sp]
 	mov r0, #0

@@ -5763,7 +5763,7 @@ _0211EE94:
 	mov r2, r0
 	ldr r1, _0211F030 ; =0x0212271C
 	mov r0, r7
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r10, #0x184
 	add r0, r0, #0x9400
 	stmia sp, {r0, r8}
@@ -5917,7 +5917,7 @@ _0211F100:
 	mov r2, r0
 	ldr r1, _0211F26C ; =0x0212273C
 	mov r0, r9
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r8, #0x188
 	add r0, r0, #0x9400
 	stmia sp, {r0, r6}
@@ -6068,7 +6068,7 @@ _0211F330:
 	mov r2, r0
 	ldr r1, _0211F49C ; =0x0212275C
 	mov r0, r9
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r8, #0x188
 	add r0, r0, #0x9400
 	stmia sp, {r0, r6}

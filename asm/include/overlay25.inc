@@ -6,8 +6,8 @@
 .public FUN_0204fe90
 .public FUN_0206cbf8
 .public FUN_0206cc34
-.public FUN_02023ab4
-.public FUN_02023c40
+.public printf
+.public sprintf
 .public strcat
 .public FUN_02041eac
 .public FUN_02058e30

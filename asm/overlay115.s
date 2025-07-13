@@ -614,7 +614,7 @@ FUN_ov115_02125528: ; 0x02125528
 	ldr r1, _021256C0 ; =0x0212648C
 	mov r0, r6
 	add r2, r4, r2, asr #5
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r9, lsl #0x10
 	mov r7, #0
 	mov r4, r0, asr #0x10

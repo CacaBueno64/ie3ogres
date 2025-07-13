@@ -6,7 +6,7 @@
 .public FUN_0202de44
 .public FUN_0202e1c0
 .public FUN_0202eff0
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02058e30
 .public FUN_02058ee0

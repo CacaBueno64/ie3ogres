@@ -4,7 +4,7 @@
 .public FUN_0202cf6c
 .public FUN_0204bd64
 .public FUN_0204ec3c
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02058e30

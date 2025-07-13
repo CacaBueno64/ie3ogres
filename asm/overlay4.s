@@ -502,7 +502,7 @@ FUN_ov4_020bd190: ; 0x020BD190
 	b _020BD204
 _020BD1FC:
 	ldr r1, _020BD2FC ; =0x020D932C
-	bl FUN_02023c40
+	bl sprintf
 _020BD204:
 	ldr r7, _020BD300 ; =0x02099F50
 	mov r1, #1
@@ -1077,7 +1077,7 @@ FUN_ov4_020bd8d8: ; 0x020BD8D8
 	add r8, sp, #0x20
 	ldr r1, _020BDAF4 ; =0x020D946C
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 	add r4, sp, #0x26
 	mov r0, r8
 	mov r1, r4
@@ -1091,7 +1091,7 @@ FUN_ov4_020bd8d8: ; 0x020BD8D8
 	ldr r1, _020BDAF8 ; =0x020D9470
 	ldr r2, [r7, #0x18]
 	mov r4, r0
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r6}
@@ -10321,7 +10321,7 @@ FUN_ov4_020c5708: ; 0x020C5708
 	ldrne r2, _020C578C ; =0x020DA18C
 	ldr r1, _020C5790 ; =0x020DA194
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	add r1, r5, #0x540
 	bl FUN_ov16_020f316c
@@ -10383,7 +10383,7 @@ FUN_ov4_020c57fc: ; 0x020C57FC
 	mov r10, r0
 	ldr r1, _020C58A8 ; =0x020DA208
 	mov r0, r11
-	bl FUN_02023c40
+	bl sprintf
 	mov r9, #0
 	mov r6, r9
 	mov r5, #1
@@ -10395,7 +10395,7 @@ _020C5834:
 	ldr r2, [r7, r9, lsl #2]
 	ldr r1, _020C58B4 ; =0x020DA224
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x720]
 	mov r0, r8
 	add r2, sp, #0x18
@@ -15199,7 +15199,7 @@ _020C9DA4:
 	ldr r1, _020CA3A8 ; =0x020DA9B8
 _020C9DA8:
 	add r2, r2, #0x200
-	bl FUN_02023c40
+	bl sprintf
 _020C9DB0:
 	ldrb r0, [r4, #0x72]
 	ldr r1, _020CA3AC ; =0x020DAA2C
@@ -18293,7 +18293,7 @@ _020CC8E4:
 	ldr r2, [r5, r9, lsl #2]
 	mov r0, r8
 	mov r1, r7
-	bl FUN_02023c40
+	bl sprintf
 	ldr r3, [sp, #0x20]
 	mov r0, r10
 	mov r1, r8
@@ -19490,7 +19490,7 @@ _020CDA04:
 	ldr r2, [r4, #0x680]
 	ldr r1, _020CE358
 	add r0, r0, #0x4c
-	bl FUN_02023c40
+	bl sprintf
 	b _020CDC28
 _020CDA80:
 	cmp r0, #0x1
@@ -20430,7 +20430,7 @@ _020CE794:
 	add r2, sp, #0x1f4
 	add r0, r0, #0x400
 	str r3, [r4, #0x994]
-	bl FUN_02023c40
+	bl sprintf
 _020CE7D8:
 	ldr r0, [sp, #0x1f0]
 	tst r0, #1
@@ -24735,7 +24735,7 @@ _020D25D8:
 	mov r0, r8
 	add r2, r2, #0x400
 	strb r5, [r7, #0x64d]
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, #0x14
 	stmia sp, {r0, r5, r11}
 	str r4, [sp, #0xc]

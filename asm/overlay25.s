@@ -156,7 +156,7 @@ _0211A100:
 	ldr r1, [sp, #8]
 	ldr r2, [sp, #0xc]
 	ldr r0, _0211A144 ; =0x0211B7A0
-	bl FUN_02023ab4
+	bl printf
 	add sp, sp, #0x1c
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1090,7 +1090,7 @@ _0211ABF8:
 	bl memset
 	ldr r1, _0211B24C ; =0x0211B948
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 _0211AE40:
 	add r8, sp, #0x32c
 	add r10, sp, #0x12c

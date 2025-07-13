@@ -6039,7 +6039,7 @@ _0211F3F8:
 	mov r2, r6
 	mov r3, r4
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, #4
 	str r0, [sp]
 	ldr r2, [sp, #0x10]

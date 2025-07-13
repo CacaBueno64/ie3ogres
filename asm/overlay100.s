@@ -399,7 +399,7 @@ _02125208:
 	ldr r1, _02125360 ; =0x02125714
 	ldr r2, [r10, #0x28]
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	mov r1, r8
 	bl  FUN_ov16_020f1f5c
@@ -429,7 +429,7 @@ _02125208:
 	ldr r1, _02125364 ; =0x0212571C
 	ldr r2, [r10, #0x2c]
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 	str r7, [sp]
 	str r6, [sp, #4]
 	str r5, [sp, #8]

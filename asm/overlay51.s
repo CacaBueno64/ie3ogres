@@ -74,7 +74,7 @@ FUN_ov51_02119fcc: ; 0x02119FCC
 	mov r10, r0
 	ldr r1, _0211A080 ; =0x0211E51C
 	mov r0, r11
-	bl FUN_02023c40
+	bl sprintf
 	mov r9, #0
 	mov r6, r9
 	mov r5, #1
@@ -86,7 +86,7 @@ _0211A004:
 	ldr r2, [r7, r9, lsl #2]
 	ldr r1, _0211A08C ; =0x0211E538
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x1c]
 	mov r0, r8
 	add r2, sp, #0x18

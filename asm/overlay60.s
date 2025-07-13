@@ -3633,7 +3633,7 @@ _0211D18C:
 	mov r2, r0
 	ldr r1, _0211D338 ; =0x02120244
 	add r0, sp, #0x18
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r9, #0x198
 	add r0, r0, #0x3000
 	stmia sp, {r0, r6, r10}
@@ -3800,7 +3800,7 @@ _0211D400:
 	add r0, sp, #0x18
 	sub r8, r8, #1
 	mov r10, #0x44
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r9, #0x198
 	add r0, r0, #0x3000
 	stmia sp, {r0, r6, r10}
@@ -3974,7 +3974,7 @@ _0211D690:
 	add r0, sp, #0x18
 	sub r8, r8, #1
 	mov r10, #0x3e
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r9, #0x198
 	add r0, r0, #0x3000
 	stmia sp, {r0, r6, r10}
@@ -4159,7 +4159,7 @@ _0211D940:
 	add r0, sp, #0x18
 	sub r8, r8, #1
 	mov r10, #0x4c
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r9, #0x198
 	add r0, r0, #0x3000
 	stmia sp, {r0, r6, r10}
@@ -4325,7 +4325,7 @@ _0211DC08:
 	add r2, r9, #0x158
 	ldr r1, _0211DD10 ; =0x021202F0
 	add r2, r2, #0x3000
-	bl FUN_02023c40
+	bl sprintf
 _0211DC18:
 	add r0, r9, #0x3000
 	str r7, [r0, #0x280]

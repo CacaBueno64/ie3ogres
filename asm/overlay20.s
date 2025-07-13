@@ -87,7 +87,7 @@ FUN_ov20_0211a010: ; 0x0211A010
 	mov r10, r0
 	ldr r1, _0211A0DC ; =0x0211EA54
 	mov r0, r11
-	bl FUN_02023c40
+	bl sprintf
 	mov r9, #0
 	mov r6, r9
 	mov r5, #1
@@ -99,7 +99,7 @@ _0211A048:
 	ldr r2, [r7, r9, lsl #2]
 	ldr r1, _0211A0E8 ; =0x0211EA70
 	mov r0, r8
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x18]
 	mov r0, r8
 	add r2, sp, #0x18

@@ -12,7 +12,7 @@
 .public FUN_0202dbd0
 .public FUN_0206c7dc
 .public FX_Atan2Idx
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public FUN_02041d9c
 .public FUN_02041eac

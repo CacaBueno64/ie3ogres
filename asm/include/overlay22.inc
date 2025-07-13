@@ -18,7 +18,7 @@
 .public FUN_0206cbf8
 .public FUN_0206cc00
 .public FUN_0206d64c
-.public FUN_02023c40
+.public sprintf
 .public FUN_02029d44
 .public FUN_02041eac
 .public FUN_02041ef0

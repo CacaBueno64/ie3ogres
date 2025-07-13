@@ -563,7 +563,7 @@ FUN_ov98_02125478: ; 0x02125478
 	ldr r1, _021254F8 ; =0x02126524
 	mov r0, r4
 	ldr r5, [r6, #0x170]
-	bl FUN_02023c40
+	bl sprintf
 	ldrh r1, [r6, #0x24]
 	mov r12, #0
 	add r2, sp, #8
@@ -1076,7 +1076,7 @@ FUN_ov98_02125b7c: ; 0x02125B7C
 	ldrb r1, [r6, #0x21]
 	mov r0, r7
 	ldr r1, [r8, r1, lsl #2]
-	bl FUN_02023c40
+	bl sprintf
 	mov r1, #3
 	str r1, [sp]
 	str r1, [sp, #4]

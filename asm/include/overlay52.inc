@@ -54,7 +54,7 @@
 .public FUN_0206ed40
 .public FUN_0206fc44
 .public FUN_02020af8
-.public FUN_02023ab4
+.public printf
 .public FUN_02041f2c
 .public FUN_02050b1c
 .public FUN_02050bdc

@@ -65,16 +65,16 @@ _02119FA4:
 	ldrb r2, [r5, #0x1ad]
 	add r0, sp, #0x44
 	add r2, r2, #1
-	bl FUN_02023c40
+	bl sprintf
 	ldrb r2, [r5, #0x1ad]
 	ldr r1, _0211A068 ; =0x02120FB0
 	add r0, sp, #0x24
 	add r2, r2, #1
-	bl FUN_02023c40
+	bl sprintf
 	ldrb r2, [r5, #0x1ad]
 	ldr r1, _0211A06C ; =0x02120FC4
 	add r0, sp, #4
-	bl FUN_02023c40
+	bl sprintf
 	ldr lr, _0211A070 ; =0x02120C50
 	add r12, sp, #0x64
 	mov r5, #0xb
@@ -3339,7 +3339,7 @@ _0211CD64:
 	str r0, [sp]
 	ldrsb r3, [r4, #8]
 	mov r0, r10
-	bl FUN_02023c40
+	bl sprintf
 	add r1, sp, #0x8c
 	mov r0, r10
 	bl  FUN_ov16_020f1f5c
@@ -3517,7 +3517,7 @@ _0211D00C:
 	ldr r2, [r2, r1, lsl #2]
 	ldr r1, _0211D3AC ; =0x02121080
 	mov r0, r10
-	bl FUN_02023c40
+	bl sprintf
 	add r1, sp, #0x8c
 	mov r0, r10
 	bl  FUN_ov16_020f1f5c
@@ -3653,7 +3653,7 @@ _0211D20C:
 	add r0, sp, #0x8c
 	add r2, r2, #0x1c
 	mov r3, r10
-	bl FUN_02023c40
+	bl sprintf
 _0211D294:
 	ldr r0, [r9]
 	mov r1, r6
@@ -7658,7 +7658,7 @@ FUN_ov62_02120b64: ; 0x02120B64
 	cmp r4, r7
 	bls _02120BAC
 	ldr r0, _02120BE8 ; =0x02121130
-	bl FUN_02023ab4
+	bl printf
 	bl abort
 _02120BAC:
 	ldr r0, [sp, #0x20]

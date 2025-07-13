@@ -56,10 +56,10 @@
 .public FUN_0206e574
 .public FUN_0206e644
 .public FUN_0206e714
-.public FUN_02023ab4
-.public FUN_02023c6c
-.public FUN_02023c40
-.public FUN_02023ca0
+.public printf
+.public rand
+.public sprintf
+.public srand
 .public FUN_02031a08
 .public FUN_02031ae0
 .public FUN_02037c58

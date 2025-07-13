@@ -372,7 +372,7 @@ FUN_ov105_021251f0: ; 0x021251F0
 	ldr r1, _02125234 ; =0x02127A9C
 	mov r0, r4
 	mov r2, r3
-	bl FUN_02023c40
+	bl sprintf
 	add r1, r6, #0x84
 	mov r0, #0xc
 	mla r1, r5, r0, r1

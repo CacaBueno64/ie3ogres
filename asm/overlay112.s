@@ -105,7 +105,7 @@ _02124E40:
 	ldr r2, [sp, #0x10]
 	add r0, r4, #0xd
 	add r1, r2, r1
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [sp, #0x10]
 	ldr r0, _02124E78 ; =0x0209A250
 	bl FUN_0202e1c0

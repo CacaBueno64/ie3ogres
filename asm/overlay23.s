@@ -293,7 +293,7 @@ FUN_ov23_0211a294: ; 0x0211A294
 	ldr r4, _0211A2FC ; =0x2AAAAAAB
 	mov r8, #6
 _0211A2AC:
-	bl FUN_02023c6c
+	bl rand
 	smull r1, r2, r4, r0
 	add r2, r2, r0, lsr #31
 	smull r1, r2, r8, r2
@@ -304,7 +304,7 @@ _0211A2AC:
 	beq _0211A2AC
 	strb r0, [r7, #0xf6]
 _0211A2D4:
-	bl FUN_02023c6c
+	bl rand
 	mov r1, r0, lsr #0x1f
 	rsb r0, r1, r0, lsl #29
 	add r0, r1, r0, ror #29
@@ -897,7 +897,7 @@ _0211A940:
 	str r6, [r9, #0xe8]
 	str r6, [r9, #0xd4]
 	str r0, [r9, #0xd8]
-	bl FUN_02023c6c
+	bl rand
 	mov r1, r0, lsr #0x1f
 	rsb r0, r1, r0, lsl #29
 	add r0, r1, r0, ror #29
@@ -1561,7 +1561,7 @@ _0211B4EC:
 	strb r6, [r2]
 	strb r5, [r2, #1]
 	strb r3, [r2, #2]
-	bl FUN_02023c40
+	bl sprintf
 _0211B504:
 	mov r5, #5
 	mov r10, r5

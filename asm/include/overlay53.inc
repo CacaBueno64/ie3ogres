@@ -34,7 +34,7 @@
 .public FUN_0206d968
 .public FUN_0206dcd4
 .public FUN_0206fb74
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02055c20

@@ -39,7 +39,7 @@ _02119F5C:
 	ldr r1, _02119F88 ; =0x021208D0
 	add r0, sp, #0
 _02119F6C:
-	bl FUN_02023c40
+	bl sprintf
 _02119F70:
 	add r0, sp, #0
 	add r1, r4, #0x28
@@ -118,7 +118,7 @@ _0211A05C:
 	add r0, sp, #4
 _0211A074:
 	str r3, [r2, #8]
-	bl FUN_02023c40
+	bl sprintf
 _0211A07C:
 	ldr r0, _0211A0B0 ; =0x02120528
 	mov r1, #0
@@ -2262,7 +2262,7 @@ _0211BDDC:
 	ldr r1, _0211BE08 ; =0x02120A3C
 	add r0, sp, #0
 _0211BDEC:
-	bl FUN_02023c40
+	bl sprintf
 _0211BDF0:
 	add r0, sp, #0
 	add r1, r4, #0x150
@@ -2341,7 +2341,7 @@ _0211BEE8:
 	ldr r1, _0211BF30 ; =0x02120A94
 	add r0, sp, #4
 _0211BEF8:
-	bl FUN_02023c40
+	bl sprintf
 _0211BEFC:
 	mov r4, #0
 	str r4, [sp]

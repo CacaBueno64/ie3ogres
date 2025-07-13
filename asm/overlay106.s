@@ -25,7 +25,7 @@ FUN_ov106_02124d08: ; 0x02124D08
 	ldr r1, _02124D88 ; =0x021253EC
 	mov r0, r7
 	mov r2, r8
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _02124D8C ; =0x02099F38
 	mov r2, r7
 	ldr r0, [r0]

@@ -1089,7 +1089,7 @@ _02125B74:
 	ldr r1, _02125FB4 ; =0x021262F0
 	ldr r2, _02125FB8 ; =0x021262F4
 	add r0, sp, #0x2a
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _02125FBC ; =0x02099E8E
 	ldr r5, _02125FC0 ; =0x021260B8
 	ldrb r2, [r0]
@@ -1112,7 +1112,7 @@ _02125C1C:
 	ldr r1, _02125FC4 ; =0x02126300
 	mov r0, r8
 	add r2, r2, #1
-	bl FUN_02023c40
+	bl sprintf
 	b _02125C7C
 _02125C64:
 	add r9, r9, #1

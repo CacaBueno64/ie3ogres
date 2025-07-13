@@ -15,7 +15,7 @@ FUN_ov102_02124d00: ; 0x02124D00
 	add r4, sp, #0
 	ldr r1, _02124D48 ; =0x0212512C
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	add r1, r5, #0x10
 	bl  FUN_ov16_020f316c

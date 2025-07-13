@@ -88,7 +88,7 @@
 .public VEC_Distance
 .public FX_Atan2Idx
 .public FUN_02020af8
-.public FUN_02023c40
+.public sprintf
 .public strcat
 .public FUN_02029d44
 .public FUN_02037c98

@@ -9478,7 +9478,7 @@ FUN_ov72_021223a8: ; 0x021223A8
 	ldr r1, _021227DC ; =0x021235A8
 	ldr r2, _021227E0 ; =0x021235B4
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	add r4, sp, #0x12c
 	mov r0, r5
 	mov r1, r4
@@ -9591,7 +9591,7 @@ _02122580:
 	ldr r2, _021227EC ; =0x021235E0
 	ldr r3, [sp, #0x3e4]
 	mov r0, r6
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r6
 	add r6, sp, #0x12c
 	mov r1, r6
@@ -9660,7 +9660,7 @@ _02122650:
 	ldr r2, _021227F4 ; =0x0212360C
 	ldr r3, [sp, #0x3e4]
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	add r9, sp, #0x12c
 	mov r0, r5
 	mov r1, r9
@@ -9687,7 +9687,7 @@ _02122650:
 	strb r6, [sp, #0x135]
 	strb r6, [sp, #0x136]
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	str r5, [r10, #0xac]
 	str r5, [r10, #0xa0]
 	ldr r1, [sp, #0x3ec]

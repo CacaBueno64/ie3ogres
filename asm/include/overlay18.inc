@@ -5,7 +5,7 @@
 .public FUN_0202eff0
 .public FUN_0202f57c
 .public FUN_0204bd64
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041f2c
 .public FUN_02042b0c
 .public FUN_02045cb0

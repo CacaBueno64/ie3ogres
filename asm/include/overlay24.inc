@@ -9,7 +9,7 @@
 .public GX_ResetBankForBG
 .public GX_ResetBankForTex
 .public GX_ResetBankForTexPltt
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02058e30
 .public FUN_02058ee0

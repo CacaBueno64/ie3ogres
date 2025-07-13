@@ -21,7 +21,7 @@
 .public FUN_0206dcd4
 .public FUN_0206e9ec
 .public FUN_02020af8
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041f2c
 .public FUN_02058e30
 .public FUN_02058ee0

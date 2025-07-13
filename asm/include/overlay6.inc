@@ -14,7 +14,7 @@
 .public GXS_BeginLoadBGExtPltt
 .public GXS_LoadBGExtPltt
 .public GXS_EndLoadBGExtPltt
-.public FUN_02023c40
+.public sprintf
 .public FUN_02029d44
 .public FUN_02041b00
 .public FUN_02041eac

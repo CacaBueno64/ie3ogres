@@ -2780,7 +2780,7 @@ FUN_ov61_0211c470: ; 0x0211C470
 	cmp r6, #1
 	movlt r6, #1
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	cmp r6, #0xa
 	blt _0211C59C
 	cmp r6, #0x14

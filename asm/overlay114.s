@@ -1143,7 +1143,7 @@ FUN_ov114_02125cc4: ; 0x02125CC4
 	mov r0, r5
 	add r2, lr, r2, asr #5
 	sub r3, r12, r3
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r6
 	mov r3, r5
 	mov r1, #0xb

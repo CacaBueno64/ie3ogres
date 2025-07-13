@@ -37711,8 +37711,8 @@ _0201F404:
 	b _0201F384
 	arm_func_end FUN_0201f370
 
-	arm_func_start FUN_0201f414
-FUN_0201f414: ; 0x0201F414
+	arm_func_start _dls
+_dls: ; 0x0201F414
 	mov r12, #0x200000
 	cmn r12, r1, lsl #1
 	bhs _0201F48C
@@ -37758,7 +37758,7 @@ _0201F4A0:
 	cmp r2, #0
 	bhi _0201F444
 	b _0201F428
-	arm_func_end FUN_0201f414
+	arm_func_end _dls
 
 	arm_func_start _deq
 _deq: ; 0x0201F4B0
@@ -39981,8 +39981,8 @@ _02021340:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end __flush_buffer
 
-	arm_func_start _fwrite
-_fwrite: ; 0x02021350
+	arm_func_start __fwrite
+__fwrite: ; 0x02021350
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r9, r3
@@ -40163,7 +40163,7 @@ _020215C8:
 	bl _u32_div_f
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end _fwrite
+	arm_func_end __fwrite
 
 	arm_func_start fflush
 fflush: ; 0x020215F0
@@ -40353,8 +40353,8 @@ FUN_02021840: ; 0x02021840
 _02021858: .word unk_0208F188
 	arm_func_end FUN_02021840
 
-	arm_func_start FUN_0202185c
-FUN_0202185c: ; 0x0202185C
+	arm_func_start wcstombs
+wcstombs: ; 0x0202185C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	movs r4, r0
 	mov r9, r1
@@ -40387,7 +40387,7 @@ _02021880:
 _020218CC:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0202185c
+	arm_func_end wcstombs
 
 	arm_func_start memcpy
 memcpy: ; 0x020218D4
@@ -40549,8 +40549,8 @@ _02021A88:
 	bx lr
 	arm_func_end __fill_mem
 
-	arm_func_start FUN_02021a98
-FUN_02021a98: ; 0x02021A98
+	arm_func_start parse_format
+parse_format: ; 0x02021A98
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x10
 	ldrb lr, [r0, #1]
@@ -40640,7 +40640,7 @@ _02021B88:
 	strlt r2, [sp, #8]
 	b _02021C0C
 _02021BD0:
-	ldr r6, _02021F9C ; =0x0208C038
+	ldr r6, _02021F9C ; =__ctype_mapC
 	mov r2, #0xa
 	b _02021BF0
 _02021BDC:
@@ -40688,7 +40688,7 @@ _02021C40:
 	strltb r0, [sp, #2]
 	b _02021CB8
 _02021C7C:
-	ldr r6, _02021F9C ; =0x0208C038
+	ldr r6, _02021F9C ; =__ctype_mapC
 	mov r1, #0xa
 	b _02021C9C
 _02021C88:
@@ -40923,12 +40923,12 @@ _02021F84:
 	add r0, r12, #1
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02021F9C: .word unk_0208C038
+_02021F9C: .word __ctype_mapC
 _02021FA0: .word 0x000001FD
-	arm_func_end FUN_02021a98
+	arm_func_end parse_format
 
-	arm_func_start FUN_02021fa4
-FUN_02021fa4: ; 0x02021FA4
+	arm_func_start long2str
+long2str: ; 0x02021FA4
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
@@ -41094,10 +41094,10 @@ _020221DC:
 	add sp, sp, #0x10
 	bx lr
 _020221F0: .word 0x000001FD
-	arm_func_end FUN_02021fa4
+	arm_func_end long2str
 
-	arm_func_start FUN_020221f4
-FUN_020221f4: ; 0x020221F4
+	arm_func_start longlong2str
+longlong2str: ; 0x020221F4
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
@@ -41296,10 +41296,10 @@ _020224B0:
 	add sp, sp, #0x10
 	bx lr
 _020224C4: .word 0x000001FD
-	arm_func_end FUN_020221f4
+	arm_func_end longlong2str
 
-	arm_func_start FUN_020224c8
-FUN_020224c8: ; 0x020224C8
+	arm_func_start double2hex
+double2hex: ; 0x020224C8
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x4c
@@ -41515,7 +41515,7 @@ _02022798:
 	mov r0, r9
 	mov r1, r8
 	ldmia r7, {r2, r3}
-	bl FUN_02021fa4
+	bl long2str
 	cmp r5, #0x61
 	sub r7, r0, #1
 	moveq r0, #0x70
@@ -41615,10 +41615,10 @@ _02022964: .word unk_0208F370
 _02022968: .word unk_0208F378
 _0202296C: .word unk_0208F37C
 _02022970: .word 0x000007FF
-	arm_func_end FUN_020224c8
+	arm_func_end double2hex
 
-	arm_func_start FUN_02022974
-FUN_02022974: ; 0x02022974
+	arm_func_start round_decimal
+round_decimal: ; 0x02022974
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r1, #0
 	mov r2, #1
@@ -41700,10 +41700,10 @@ _02022A78:
 	beq _02022984
 	strb r1, [r0, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02022974
+	arm_func_end round_decimal
 
-	arm_func_start FUN_02022a88
-FUN_02022a88: ; 0x02022A88
+	arm_func_start float2str
+float2str: ; 0x02022A88
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
@@ -41767,11 +41767,11 @@ _02022B60:
 	mov r0, r8
 	mov r1, r11
 	mov r3, r2
-	bl FUN_0201f414
+	bl _dls
 	bhs _02022C14
 	cmp r6, #0x80
 	movhs r1, #0
-	ldrlo r1, _02023170 ; =0x0208C038
+	ldrlo r1, _02023170 ; =__ctype_mapC
 	movlo r2, r6, lsl #1
 	ldrloh r1, [r1, r2]
 	sub r0, r9, #5
@@ -41812,7 +41812,7 @@ _02022BD8:
 _02022C14:
 	cmp r6, #0x80
 	movhs r1, #0
-	ldrlo r1, _02023170 ; =0x0208C038
+	ldrlo r1, _02023170 ; =__ctype_mapC
 	movlo r2, r6, lsl #1
 	ldrloh r1, [r1, r2]
 	sub r0, r9, #4
@@ -41852,7 +41852,7 @@ _02022CA0:
 	beq _02022D48
 	cmp r6, #0x80
 	movhs r1, #0
-	ldrlo r1, _02023170 ; =0x0208C038
+	ldrlo r1, _02023170 ; =__ctype_mapC
 	movlo r2, r6, lsl #1
 	ldrloh r1, [r1, r2]
 	sub r0, r9, #5
@@ -41893,7 +41893,7 @@ _02022D0C:
 _02022D48:
 	cmp r6, #0x80
 	movhs r1, #0
-	ldrlo r1, _02023170 ; =0x0208C038
+	ldrlo r1, _02023170 ; =__ctype_mapC
 	movlo r2, r6, lsl #1
 	ldrloh r1, [r1, r2]
 	sub r0, r9, #4
@@ -41963,7 +41963,7 @@ _02022E40:
 	ble _02022E58
 	add r0, sp, #4
 	mov r1, r7
-	bl FUN_02022974
+	bl round_decimal
 _02022E58:
 	ldrsh r0, [sp, #6]
 	cmn r0, #4
@@ -41995,7 +41995,7 @@ _02022EB0:
 	cmp r0, r1
 	ble _02022EC8
 	add r0, sp, #4
-	bl FUN_02022974
+	bl round_decimal
 _02022EC8:
 	ldrsh lr, [sp, #6]
 	mov r11, #0x2b
@@ -42087,7 +42087,7 @@ _02022FEC:
 	sub r1, r1, r7
 	add r0, sp, #4
 	sub r1, r2, r1
-	bl FUN_02022974
+	bl round_decimal
 	ldrsh r3, [sp, #6]
 	ldrb r2, [sp, #8]
 	sub r0, r2, r3
@@ -42189,7 +42189,7 @@ _02023158:
 	add sp, sp, #0x10
 	bx lr
 _0202316C: .word 0x000001FD
-_02023170: .word unk_0208C038
+_02023170: .word __ctype_mapC
 _02023174: .word unk_0208F350
 _02023178: .word unk_0208F358
 _0202317C: .word unk_0208F360
@@ -42199,10 +42199,10 @@ _02023188: .word unk_0208F370
 _0202318C: .word unk_0208F378
 _02023190: .word unk_0208F37C
 _02023194: .word 0x66666667
-	arm_func_end FUN_02022a88
+	arm_func_end float2str
 
-	arm_func_start FUN_02023198
-FUN_02023198: ; 0x02023198
+	arm_func_start __pformatter
+__pformatter: ; 0x02023198
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x22c
@@ -42256,7 +42256,7 @@ _02023254:
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0x25c
 	add r2, sp, #0x1c
-	bl FUN_02021a98
+	bl parse_format
 	ldrb r1, [sp, #0x21]
 	mov r11, r0
 	cmp r1, #0x61
@@ -42376,7 +42376,7 @@ _020233EC:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	add r2, sp, #0x22c
-	bl FUN_020221f4
+	bl longlong2str
 	movs r7, r0
 	beq _02023820
 	b _02023444
@@ -42388,7 +42388,7 @@ _0202341C:
 	mov r0, r10
 	add r1, sp, #0x22c
 	ldmia r5, {r2, r3}
-	bl FUN_02021fa4
+	bl long2str
 	movs r7, r0
 	beq _02023820
 _02023444:
@@ -42454,7 +42454,7 @@ _02023504:
 	ldr r0, [sp, #0x10]
 	ldr r1, [sp, #0x14]
 	add r2, sp, #0x22c
-	bl FUN_020221f4
+	bl longlong2str
 	movs r7, r0
 	beq _02023820
 	b _0202355C
@@ -42466,7 +42466,7 @@ _02023534:
 	mov r0, r10
 	add r1, sp, #0x22c
 	ldmia r5, {r2, r3}
-	bl FUN_02021fa4
+	bl long2str
 	movs r7, r0
 	beq _02023820
 _0202355C:
@@ -42490,7 +42490,7 @@ _02023560:
 	mov r0, r6
 	mov r1, r7
 	add r2, sp, #0x22c
-	bl FUN_02022a88
+	bl float2str
 	movs r7, r0
 	beq _02023820
 	b _02023444
@@ -42513,7 +42513,7 @@ _020235B8:
 	mov r0, r6
 	mov r1, r7
 	add r2, sp, #0x22c
-	bl FUN_020224c8
+	bl double2hex
 	movs r7, r0
 	beq _02023820
 	b _02023444
@@ -42534,7 +42534,7 @@ _02023610:
 	mvn r4, #0
 	mov r1, r0
 	mov r2, r4
-	bl FUN_02023d28
+	bl __msl_runtime_constraint_violation_s
 	add sp, sp, #0x22c
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -42546,7 +42546,7 @@ _02023668:
 	ldreq r1, _02023A3C ; =0x0208F380
 	mov r2, #0x200
 	mov r0, r7
-	bl FUN_0202185c
+	bl wcstombs
 	cmp r0, #0
 	blt _02023820
 	b _0202369C
@@ -42565,7 +42565,7 @@ _0202369C:
 	mvn r4, #0
 	mov r1, r0
 	mov r2, r4
-	bl FUN_02023d28
+	bl __msl_runtime_constraint_violation_s
 	add sp, sp, #0x22c
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -42613,7 +42613,7 @@ _02023744:
 	mvn r4, #0
 	mov r1, r0
 	mov r2, r4
-	bl FUN_02023d28
+	bl __msl_runtime_constraint_violation_s
 	add sp, sp, #0x22c
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -42819,25 +42819,25 @@ _02023A28:
 	bx lr
 _02023A3C: .word unk_0208F380
 _02023A40: .word unk_0208F384
-	arm_func_end FUN_02023198
+	arm_func_end __pformatter
 
-	arm_func_start FUN_02023a44
-FUN_02023a44: ; 0x02023A44
+	arm_func_start __FileWrite
+__FileWrite: ; 0x02023A44
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, r1
 	mov r3, r5
 	mov r1, #1
 	mov r4, r2
-	bl _fwrite
+	bl __fwrite
 	cmp r4, r0
 	movne r5, #0
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02023a44
+	arm_func_end __FileWrite
 
-	arm_func_start FUN_02023a70
-FUN_02023a70: ; 0x02023A70
+	arm_func_start __StringWrite
+__StringWrite: ; 0x02023A70
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldr r3, [r4, #8]
@@ -42855,10 +42855,10 @@ FUN_02023a70: ; 0x02023A70
 	add r1, r1, r5
 	str r1, [r4, #8]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02023a70
+	arm_func_end __StringWrite
 
-	arm_func_start FUN_02023ab4
-FUN_02023ab4: ; 0x02023AB4
+	arm_func_start printf
+printf: ; 0x02023AB4
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
@@ -42912,10 +42912,10 @@ _02023B6C:
 	add r0, sp, #0x18
 	bic r3, r0, #3
 	ldr r2, [sp, #0x18]
-	ldr r0, _02023BD8 ; =FUN_02023a44
+	ldr r0, _02023BD8 ; =__FileWrite
 	ldr r1, _02023BC4 ; =0x0208F098
 	add r3, r3, #4
-	bl FUN_02023198
+	bl __pformatter
 	ldr r1, _02023BD4 ; =0x02099A64
 	mov r4, r0
 	ldr r0, [r1, #0xc]
@@ -42935,23 +42935,23 @@ _02023BC8: .word unk_02099AD0
 _02023BCC: .word OSi_ThreadInfo
 _02023BD0: .word unk_02099A40
 _02023BD4: .word unk_02099A64
-_02023BD8: .word FUN_02023a44
-	arm_func_end FUN_02023ab4
+_02023BD8: .word __FileWrite
+	arm_func_end printf
 
-	arm_func_start FUN_02023bdc
-FUN_02023bdc: ; 0x02023BDC
+	arm_func_start vsnprintf
+vsnprintf: ; 0x02023BDC
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x10
 	mov r6, r0
 	mov r5, r1
 	mov r4, #0
-	ldr r0, _02023C3C ; =FUN_02023a70
+	ldr r0, _02023C3C ; =__StringWrite
 	add r1, sp, #4
 	str r6, [sp, #4]
 	str r5, [sp, #8]
 	str r4, [sp, #0xc]
 	str r4, [sp]
-	bl FUN_02023198
+	bl __pformatter
 	cmp r6, #0
 	addeq sp, sp, #0x10
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -42964,11 +42964,11 @@ FUN_02023bdc: ; 0x02023BDC
 	strneb r4, [r1, #-1]
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
-_02023C3C: .word FUN_02023a70
-	arm_func_end FUN_02023bdc
+_02023C3C: .word __StringWrite
+	arm_func_end vsnprintf
 
-	arm_func_start FUN_02023c40
-FUN_02023c40: ; 0x02023C40
+	arm_func_start sprintf
+sprintf: ; 0x02023C40
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, lr}
 	add r1, sp, #0xc
@@ -42976,15 +42976,15 @@ FUN_02023c40: ; 0x02023C40
 	add r3, r1, #4
 	ldr r2, [sp, #0xc]
 	mvn r1, #0
-	bl FUN_02023bdc
+	bl vsnprintf
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
-	arm_func_end FUN_02023c40
+	arm_func_end sprintf
 
-	arm_func_start FUN_02023c6c
-FUN_02023c6c: ; 0x02023C6C
-	ldr r2, _02023C94 ; =0x0208F388
+	arm_func_start rand
+rand: ; 0x02023C6C
+	ldr r2, _02023C94 ; =random_next
 	ldr r0, _02023C98 ; =0x41C64E6D
 	ldr r3, [r2]
 	ldr r1, _02023C9C ; =0x00007FFF
@@ -42994,18 +42994,18 @@ FUN_02023c6c: ; 0x02023C6C
 	str r0, [r2]
 	and r0, r1, r0, lsr #16
 	bx lr
-_02023C94: .word unk_0208F388
+_02023C94: .word random_next
 _02023C98: .word 0x41C64E6D
 _02023C9C: .word 0x00007FFF
-	arm_func_end FUN_02023c6c
+	arm_func_end rand
 
-	arm_func_start FUN_02023ca0
-FUN_02023ca0: ; 0x02023CA0
-	ldr r1, _02023CAC ; =0x0208F388
+	arm_func_start srand
+srand: ; 0x02023CA0
+	ldr r1, _02023CAC ; =random_next
 	str r0, [r1]
 	bx lr
-_02023CAC: .word unk_0208F388
-	arm_func_end FUN_02023ca0
+_02023CAC: .word random_next
+	arm_func_end srand
 
 	arm_func_start __StringRead
 __StringRead: ; 0x02023CB0
@@ -43045,25 +43045,25 @@ _02023D20:
 	bx lr
 	arm_func_end __StringRead
 
-	arm_func_start FUN_02023d28
-FUN_02023d28: ; 0x02023D28
+	arm_func_start __msl_runtime_constraint_violation_s
+__msl_runtime_constraint_violation_s: ; 0x02023D28
 	stmfd sp!, {r3, lr}
-	ldr r3, _02023D4C ; =0x02099E64
+	ldr r3, _02023D4C ; =__msl_constraint_handler
 	ldr r3, [r3]
 	cmp r3, #0
 	beq _02023D44
 	blx r3
 	ldmfd sp!, {r3, pc}
 _02023D44:
-	bl FUN_02023d50
+	bl ignore_handler_s
 	ldmfd sp!, {r3, pc}
-_02023D4C: .word unk_02099E64
-	arm_func_end FUN_02023d28
+_02023D4C: .word __msl_constraint_handler
+	arm_func_end __msl_runtime_constraint_violation_s
 
-	arm_func_start FUN_02023d50
-FUN_02023d50: ; 0x02023D50
+	arm_func_start ignore_handler_s
+ignore_handler_s: ; 0x02023D50
 	bx lr
-	arm_func_end FUN_02023d50
+	arm_func_end ignore_handler_s
 
 	arm_func_start raise
 raise: ; 0x02023D54
@@ -43524,7 +43524,7 @@ _02024308:
 _02024314:
 	cmp r6, #0x80
 	movhs r0, #0
-	ldrlo r0, _02024574 ; =0x0208C038
+	ldrlo r0, _02024574 ; =__ctype_mapC
 	movlo r1, r6, lsl #1
 	ldrloh r0, [r0, r1]
 	andlo r0, r0, #0x100
@@ -43603,7 +43603,7 @@ _02024400:
 _02024424:
 	cmp r6, #0x80
 	movhs r0, #0
-	ldrlo r0, _02024574 ; =0x0208C038
+	ldrlo r0, _02024574 ; =__ctype_mapC
 	movlo r1, r6, lsl #1
 	ldrloh r0, [r0, r1]
 	andlo r0, r0, #8
@@ -43620,7 +43620,7 @@ _02024424:
 _02024464:
 	cmp r6, #0x80
 	movhs r0, #0
-	ldrlo r0, _02024574 ; =0x0208C038
+	ldrlo r0, _02024574 ; =__ctype_mapC
 	movlo r1, r6, lsl #1
 	ldrloh r0, [r0, r1]
 	andlo r0, r0, #1
@@ -43693,7 +43693,7 @@ _02024534:
 	mov r0, r10
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02024574: .word unk_0208C038
+_02024574: .word __ctype_mapC
 _02024578: .word unk_0208BFB8
 	arm_func_end __strtoul
 
@@ -52279,7 +52279,7 @@ _0202B9D4:
 	ldr r1, _0202BACC ; =0x0208FB10
 	mov r0, r5
 	mov r2, r8
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
@@ -52298,7 +52298,7 @@ _0202BA18:
 	ldr r1, _0202BAD0 ; =0x0208FB18
 	mov r0, r5
 	mov r2, r6
-	bl FUN_02023c40
+	bl sprintf
 	mov r1, #1
 	mov r0, r4
 	mov r2, r5
@@ -62826,7 +62826,7 @@ _020349AC:
 	mov r2, r8
 	mov r0, r6
 _020349B8:
-	bl FUN_02023c40
+	bl sprintf
 	b _02034A40
 _020349C0:
 	mov r2, r8
@@ -63139,7 +63139,7 @@ _02034E1C:
 	mov r2, r8
 	mov r0, r5
 _02034E28:
-	bl FUN_02023c40
+	bl sprintf
 	b _02034EB8
 _02034E30:
 	mov r2, r8
@@ -84008,7 +84008,7 @@ FUN_0204643c: ; 0x0204643C
 	add r0, r4, #0xc2
 	ldr r1, _020464F4 ; =0x0209020C
 	add r0, r0, #0x200
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r5
 	ldr r1, _020464F8 ; =0x0209AA60
 	mov r2, #0x1e4
@@ -86018,7 +86018,7 @@ _02047E84:
 	ldr r1, _02047F78 ; =0x020902A0
 	ldr r2, [r7, r8, lsl #2]
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	mov r1, #4
 	bl FUN_0202e19c
@@ -86046,7 +86046,7 @@ _02047EE8:
 	beq _02047F58
 	ldr r1, _02047F7C ; =0x020902B4
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	mov r1, #4
 	bl FUN_0202e19c
@@ -87213,7 +87213,7 @@ _02048E28:
 	add r4, sp, #0x48
 	ldr r1, _02049020 ; =0x02090360
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _02049018 ; =0x0209C2C4
 	mov r2, r4
 	add r1, r10, #0x16c
@@ -87528,7 +87528,7 @@ _020492A8:
 	ldr r2, [r2, #0x28]
 	ldr r1, _020492FC ; =0x020903C8
 _020492B4:
-	bl FUN_02023c40
+	bl sprintf
 	b _020492F4
 _020492BC:
 	mov r0, r1
@@ -109612,7 +109612,7 @@ _0205B2FC:
 	ldr r2, [r8, r10, lsl #2]
 	mov r0, r6
 	mov r1, r5
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r6
 	mov r1, r9
 	bl FUN_ov16_020f316c
@@ -113517,7 +113517,7 @@ FUN_0205e674: ; 0x0205E674
 	mov r0, r4
 	mov r2, lr
 	mov r3, r12
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
@@ -113545,7 +113545,7 @@ _0205E6E8:
 	ldr r1, _0205E718 ; =0x02090D8C
 	mov r0, r4
 	mov r3, r12
-	bl FUN_02023c40
+	bl sprintf
 	ldr r2, [sp, #0x30]
 	mov r0, r5
 	mov r1, r4
@@ -115956,7 +115956,7 @@ _020606C0:
 	mov r0, r4
 	add r2, r9, #0x3c
 	add r3, r6, r3
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _020608D0 ; =0x020B5DD8
 	ldr r5, [r0, r7, lsl #2]
 	cmp r5, #0
@@ -116001,7 +116001,7 @@ _020607D4:
 	ldr r1, _020608D8 ; =0x02090F68
 	add r0, r9, #0x3c
 _020607DC:
-	bl FUN_02023c40
+	bl sprintf
 	ldr r4, [r9, #0x38]
 	add r1, sp, #0x14
 	str r11, [sp]
@@ -116449,7 +116449,7 @@ _02060DB8:
 	ldr r1, _02061518 ; =0x02090F70
 	mov r0, r4
 	add r2, r10, #0x3c
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	bl FUN_020608dc
 	ldr r0, _0206151C ; =0x020B5BFC
@@ -116838,7 +116838,7 @@ _020612D8:
 _02061380:
 	ldr r1, _0206152C ; =0x02090F84
 _02061384:
-	bl FUN_02023c40
+	bl sprintf
 	add r1, sp, #0x34
 	str r1, [sp]
 	ldr r1, [sp, #0x34]
@@ -116885,7 +116885,7 @@ _0206140C:
 	add r0, r10, #0x3c
 	add r2, sp, #0x190
 	add r3, sp, #0x38
-	bl FUN_02023c40
+	bl sprintf
 	add r0, sp, #0x34
 	str r0, [sp]
 	ldr r1, [sp, #0x34]
@@ -116982,7 +116982,7 @@ _0206156C:
 _02061590:
 	ldr r1, _02061620 ; =0x02090FB4
 	add r0, sp, #0x10
-	bl FUN_02023c40
+	bl sprintf
 _0206159C:
 	mov r5, #1
 	ldr r0, _02061624 ; =0x0209A250
@@ -133814,27 +133814,27 @@ FUN_0206f6b4: ; 0x0206F6B4
 	str r4, [r1, #4]
 	str r4, [r1, #8]
 	str r4, [r1, #0xc]
-	bl FUN_02023ca0
-	bl FUN_02023c6c
+	bl srand
+	bl rand
 	ldr r1, _0206F774 ; =0x02FFFC3C
 	str r0, [sp, #8]
 	ldr r0, [r1]
-	bl FUN_02023ca0
-	bl FUN_02023c6c
+	bl srand
+	bl rand
 	str r0, [sp, #0xc]
 	add r0, sp, #0
 	bl OS_GetMacAddress
 	ldrb r1, [sp, #3]
 	ldrb r0, [sp, #4]
 	smulbb r0, r1, r0
-	bl FUN_02023ca0
-	bl FUN_02023c6c
+	bl srand
+	bl rand
 	str r0, [sp, #0x10]
 	ldrb r1, [sp, #1]
 	ldrb r0, [sp, #5]
 	smulbb r0, r1, r0
-	bl FUN_02023ca0
-	bl FUN_02023c6c
+	bl srand
+	bl rand
 	mov r1, r4
 	ldr r4, _0206F778 ; =0x020A0B00
 	str r0, [sp, #0x14]
@@ -163950,8 +163950,8 @@ unk_0208BFB8:
 	.byte 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5E, 0x5F, 0x60, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47
 	.byte 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4E, 0x4F, 0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57
 	.byte 0x58, 0x59, 0x5A, 0x7B, 0x7C, 0x7D, 0x7E, 0x7F
-	.global unk_0208C038
-unk_0208C038:
+	.global __ctype_mapC
+__ctype_mapC:
 	.byte 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00
 	.byte 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x06, 0x01, 0x04, 0x01, 0x04, 0x01
 	.byte 0x04, 0x01, 0x04, 0x01, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00, 0x04, 0x00
@@ -165074,8 +165074,8 @@ unk_0208F380:
 	.global unk_0208F384
 unk_0208F384:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F388
-unk_0208F388:
+	.global random_next
+random_next:
 	.byte 0x01, 0x00, 0x00, 0x00
 	.global unk_0208F38C
 unk_0208F38C:
@@ -167951,8 +167951,8 @@ unk_02099B30:
 	.global unk_02099E60
 unk_02099E60:
 	.space 0x04
-	.global unk_02099E64
-unk_02099E64:
+	.global __msl_constraint_handler
+__msl_constraint_handler:
 	.space 0x04
 	.global unk_02099E68
 unk_02099E68:

@@ -2,7 +2,7 @@
 .public FUN_0202cf6c
 .public FUN_0204c50c
 .public FUN_0204fbe8
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041d9c
 .public FUN_02041eac
 .public FUN_02041ef0

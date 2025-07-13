@@ -2549,7 +2549,7 @@ _0211C148:
 	subgt r2, r0, r1
 	ldr r1, _0211C4E8 ; =0x0211F05C
 	add r0, sp, #0x50
-	bl FUN_02023c40
+	bl sprintf
 	add r0, sp, #0x50
 	add r1, sp, #0x40
 	bl  FUN_ov16_020f1f5c
@@ -2577,7 +2577,7 @@ _0211C224:
 	subgt r2, r0, r1
 	ldr r1, _0211C4F0 ; =0x0211F084
 	add r0, sp, #0x50
-	bl FUN_02023c40
+	bl sprintf
 	add r0, sp, #0x50
 	add r1, sp, #0x40
 	bl  FUN_ov16_020f1f5c
@@ -2613,7 +2613,7 @@ _0211C2E4:
 _0211C2E8:
 	mla r2, r9, r4, r5
 _0211C2EC:
-	bl FUN_02023c40
+	bl sprintf
 _0211C2F0:
 	ldr r0, [sp, #0x14]
 	cmp r0, #0
@@ -3303,7 +3303,7 @@ _0211CCD4:
 	mov r4, r6
 	mov r5, #8
 _0211CCEC:
-	bl FUN_02023c40
+	bl sprintf
 _0211CCF0:
 	ldr r6, _0211CE40 ; =0x02099F38
 	mov r1, #5

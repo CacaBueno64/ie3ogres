@@ -219,7 +219,7 @@ FUN_ov111_02124fa8: ; 0x02124FA8
 	ldr r1, _02124FEC ; =0x02125D74
 	mov r0, r4
 	mov r2, r3
-	bl FUN_02023c40
+	bl sprintf
 	add r1, r6, #0x148
 	mov r0, #0xc
 	mla r1, r5, r0, r1

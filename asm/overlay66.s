@@ -70,7 +70,7 @@ FUN_ov66_02119fa8: ; 0x02119FA8
 	ldr r2, _0211A028 ; =0x0211A508
 	mov r0, r4
 	str r3, [r6, #0x18]
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _0211A02C ; =0x02099F38
 	mov r1, #0
 	ldr r0, [r0]

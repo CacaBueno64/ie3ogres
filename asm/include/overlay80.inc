@@ -47,8 +47,8 @@
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG3Char
-.public FUN_02023ab4
-.public FUN_02023c40
+.public printf
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02045b40

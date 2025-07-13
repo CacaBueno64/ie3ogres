@@ -32,7 +32,7 @@
 .public FUN_0206dcd4
 .public FUN_0206ed40
 .public G2S_GetBG1CharPtr
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041fec
 .public GXS_LoadBG0Char
 .public GXS_LoadBG1Char

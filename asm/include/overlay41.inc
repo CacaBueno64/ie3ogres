@@ -29,7 +29,7 @@
 .public FUN_0206e294
 .public G2_GetBG1CharPtr
 .public GX_LoadBG3Char
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02045dec
 .public FUN_02046cb4

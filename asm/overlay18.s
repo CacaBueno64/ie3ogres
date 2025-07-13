@@ -239,7 +239,7 @@ _0211A200:
 	ldr r2, [r7, r4, lsl #2]
 	mov r0, r8
 	mov r1, r9
-	bl FUN_02023c40
+	bl sprintf
 	ldr r3, [sp, #0x14]
 	mov r0, r5
 	mov r1, r8

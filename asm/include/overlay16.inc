@@ -176,7 +176,7 @@
 .public MTX_Concat44
 .public VEC_Distance
 .public FX_Atan2Idx
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public strcat
 .public strcmp

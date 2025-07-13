@@ -1668,7 +1668,7 @@ _0211B5E8:
 	mov r1, r5
 	bl FUN_0207249c
 	ldr r1, _0211B6BC ; =0x0211B86C
-	bl FUN_02023c40
+	bl sprintf
 	ldr r6, _0211B6C0 ; =0x020AF81C
 	mov r0, r6
 	bl FUN_020443b0

@@ -2291,7 +2291,7 @@ _0211BD68:
 	ldr r1, _0211BF60 ; =0x0211CFCC
 	mov r0, r5
 	mov r6, #0x48
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r10, #0x3d8
 	stmia sp, {r0, r7}
 	str r6, [sp, #8]

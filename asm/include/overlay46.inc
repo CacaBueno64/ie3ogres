@@ -41,7 +41,7 @@
 .public FUN_0206e4a4
 .public FUN_0206ecc4
 .public FX_Atan2Idx
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041f2c
 .public FUN_02058e30
 .public FUN_02058ee0

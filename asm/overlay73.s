@@ -3317,7 +3317,7 @@ _0211CD70:
 	ldr r1, _0211CE4C ; =0x0211D814
 	add r0, sp, #0x1c
 	mov r6, #0
-	bl FUN_02023c40
+	bl sprintf
 	mov r9, #0xa
 	mov r5, #1
 	add r8, sp, #0x11c
@@ -3330,7 +3330,7 @@ _0211CDA4:
 	ldr r2, [r7, r0, lsl #2]
 	mov r0, r8
 	mov r1, r11
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x170]
 	mov r0, r8
 	add r2, sp, #0x18

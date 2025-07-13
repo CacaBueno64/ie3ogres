@@ -265,7 +265,7 @@ FUN_ov24_0211a218: ; 0x0211A218
 	ldr r2, _0211A2F4 ; =0x0211D808
 	ldr r3, [r7, #0xc4]
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, _0211A2F8 ; =0x0211D820
 	add r1, r7, #0xc
 	bl  FUN_ov16_020f3054

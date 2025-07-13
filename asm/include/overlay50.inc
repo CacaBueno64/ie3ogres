@@ -18,7 +18,7 @@
 .public FUN_0206cc00
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02058e30

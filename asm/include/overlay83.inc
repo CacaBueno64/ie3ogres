@@ -10,7 +10,7 @@
 .public FUN_0202e1c0
 .public G2_GetBG1CharPtr
 .public GX_LoadBG3Char
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041fec
 .public FUN_02046cb4

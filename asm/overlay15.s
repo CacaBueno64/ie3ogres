@@ -46097,7 +46097,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	add r5, sp, #0x20
 	ldr r1, _020E37F0 ; =0x020E6D20
 	mov r0, r5
-	bl FUN_02023c40
+	bl sprintf
 	add r4, sp, #0x26
 	mov r0, r5
 	mov r1, r4
@@ -46111,7 +46111,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	ldr r2, [r8, #0x18]
 	mov r3, r4
 	mov r5, r0
-	bl FUN_02023c40
+	bl sprintf
 	mov r4, #3
 	str r4, [sp]
 	stmib sp, {r4, r7}

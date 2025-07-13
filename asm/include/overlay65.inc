@@ -16,7 +16,7 @@
 .public FUN_0206d64c
 .public FUN_0206d714
 .public FUN_0206dcd4
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02058e30

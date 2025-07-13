@@ -39,7 +39,7 @@
 .public FUN_0206d150
 .public FUN_0206d688
 .public FUN_0206d824
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041eac
 .public FUN_02041f2c
 .public FUN_02049ea4

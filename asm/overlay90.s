@@ -2449,7 +2449,7 @@ _0211C090:
 	ldr r1, _0211C1B4 ; =0x0211D8CC
 	add r0, sp, #0x1c
 _0211C0D8:
-	bl FUN_02023c40
+	bl sprintf
 	ldr r0, [r7, #0x1dc]
 	mov r1, #0x38
 	cmp r0, #0

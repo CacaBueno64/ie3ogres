@@ -62,7 +62,7 @@
 .public WM_SetBeaconIndication
 .public WM_SetLifeTime
 .public PXI_SendWordByFifo
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public strcmp
 .public FUN_02029bf8

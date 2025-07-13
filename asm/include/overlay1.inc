@@ -128,7 +128,7 @@
 .public GX_ResetBankForBG
 .public VEC_Distance
 .public FX_Atan2Idx
-.public FUN_02023c40
+.public sprintf
 .public strcpy
 .public FUN_02041b00
 .public FUN_02041c58

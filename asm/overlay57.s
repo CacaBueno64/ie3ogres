@@ -242,7 +242,7 @@ _0211A220:
 	ldr r0, [r5, #0x10]
 	ldr r1, _0211A280 ; =0x02124930
 _0211A230:
-	bl FUN_02023c40
+	bl sprintf
 _0211A234:
 	mov r0, #0
 	str r0, [sp]
@@ -9542,7 +9542,7 @@ _02122438:
 	ldr r1, _021224F8 ; =0x02124C90
 	mov r0, r7
 	mov r8, #0
-	bl FUN_02023c40
+	bl sprintf
 	mov r5, #1
 	str r5, [sp]
 	ldr r4, _021224E8 ; =0x02099F38

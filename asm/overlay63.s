@@ -7042,7 +7042,7 @@ _02120448:
 	add r0, sp, #4
 	add r2, r3, r2, lsl #5
 _02120458:
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r9
 	mov r1, #0x32
 	bl FUN_ov63_02121750
@@ -7140,7 +7140,7 @@ _0212058C:
 	ldr r1, _0212076C ; =0x02124A9C
 	add r2, r7, #0x1c
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	add r0, r9, #0x2000
 	str r5, [sp]
 	ldr r0, [r0, #0x74]
@@ -7161,7 +7161,7 @@ _021205FC:
 	ldr r1, _02120770 ; =0x02124AC8
 	add r2, r7, #0x1c
 	mov r0, r4
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r9
 	mov r1, #0x33
 	bl FUN_ov63_02121750

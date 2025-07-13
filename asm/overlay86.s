@@ -606,7 +606,7 @@ FUN_ov86_0211a728: ; 0x0211A728
 	ldr r1, _0211A760 ; =0x0211CE54
 	mov r0, r4
 	mov r2, r3
-	bl FUN_02023c40
+	bl sprintf
 	mov r0, r4
 	mov r1, r5
 	bl  FUN_ov16_020f316c

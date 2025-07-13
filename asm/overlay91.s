@@ -431,7 +431,7 @@ _0211A4CC:
 	ldr r1, _0211A4F0 ; =0x0211CA2C
 _0211A4D0:
 	mov r2, r12
-	bl FUN_02023c40
+	bl sprintf
 	add r0, sp, #0
 	mov r1, r4
 	bl  FUN_ov16_020f316c

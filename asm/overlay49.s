@@ -40,7 +40,7 @@ FUN_ov49_02119f34: ; 0x02119F34
 	stmia r4, {r0, r1, r2, r3}
 	ldr r1, _0211A018 ; =0x0211C9D0
 	add r0, sp, #0x1c
-	bl FUN_02023c40
+	bl sprintf
 	mov r9, #0
 	mov r6, r9
 	mov r5, #1
@@ -52,7 +52,7 @@ _02119F8C:
 	ldr r2, [r8, r9, lsl #2]
 	mov r0, r7
 	mov r1, r11
-	bl FUN_02023c40
+	bl sprintf
 	ldr r1, [r10, #0x10]
 	mov r0, r7
 	add r2, sp, #0x18

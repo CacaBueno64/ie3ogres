@@ -3,7 +3,7 @@
 .public _s32_div_f
 .public FUN_0202cf6c
 .public FUN_0204c470
-.public FUN_02023c40
+.public sprintf
 .public FUN_02041f2c
 .public FUN_02058e30
 .public FUN_02058ee0

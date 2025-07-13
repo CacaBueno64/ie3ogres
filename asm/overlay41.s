@@ -7770,7 +7770,7 @@ _02120AEC:
 	ldr r1, _02120BE0 ; =0x0212238C
 	mov r0, r5
 	add r2, r3, r2, lsl #2
-	bl FUN_02023c40
+	bl sprintf
 	mov r4, #1
 	str r4, [sp]
 	ldr r7, _02120BCC ; =0x02099F38

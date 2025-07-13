@@ -18,9 +18,9 @@
 .public FUN_0206c300
 .public FX_Atan2Idx
 .public FUN_02020af8
-.public FUN_02023ab4
-.public FUN_02023c6c
-.public FUN_02023c40
+.public printf
+.public rand
+.public sprintf
 .public strcpy
 .public FUN_02041f2c
 .public FUN_02045b40

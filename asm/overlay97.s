@@ -312,7 +312,7 @@ FUN_ov97_021250f4: ; 0x021250F4
 	ldr r1, _02125138 ; =0x02126E68
 	mov r0, r4
 	mov r2, r3
-	bl FUN_02023c40
+	bl sprintf
 	add r1, r6, #0x220
 	mov r0, #0xc
 	mla r1, r5, r0, r1
