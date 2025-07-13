@@ -31097,14 +31097,14 @@ _020D6CFC: .word SOCLi_SocketRegisterList
 SOCLi_SocketUnregister: ; 0x020D6D00
 	mov r1, r0
 	ldr r0, _020D6D10 ; =SOCLiSocketList
-	ldr r12, _020D6D14 ; =SOCLi_SocketRegisterList
+	ldr r12, _020D6D14 ; =SOCLi_SocketUnregisterList
 	bx r12
 _020D6D10: .word SOCLiSocketList
-_020D6D14: .word SOCLi_SocketRegisterList
+_020D6D14: .word SOCLi_SocketUnregisterList
 	arm_func_end SOCLi_SocketUnregister
 
-	arm_func_start SOCLi_SocketRegisterList
-SOCLi_SocketRegisterList: ; 0x020D6D18
+	arm_func_start SOCLi_SocketUnregisterList
+SOCLi_SocketUnregisterList: ; 0x020D6D18
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -31119,7 +31119,7 @@ SOCLi_SocketRegisterList: ; 0x020D6D18
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end SOCLi_SocketRegisterList
+	arm_func_end SOCLi_SocketUnregisterList
 
 	arm_func_start SOCLi_SocketGetNextPtr
 SOCLi_SocketGetNextPtr: ; 0x020D6D50
@@ -31151,10 +31151,10 @@ _020D6D90:
 SOCLi_SocketUnregisterTrash: ; 0x020D6D9C
 	mov r1, r0
 	ldr r0, _020D6DAC ; =SOCLiSocketListTrash
-	ldr r12, _020D6DB0 ; =SOCLi_SocketRegisterList
+	ldr r12, _020D6DB0 ; =SOCLi_SocketUnregisterList
 	bx r12
 _020D6DAC: .word SOCLiSocketListTrash
-_020D6DB0: .word SOCLi_SocketRegisterList
+_020D6DB0: .word SOCLi_SocketUnregisterList
 	arm_func_end SOCLi_SocketUnregisterTrash
 
 	arm_func_start SOCL_SocketIsInvalid

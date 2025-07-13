@@ -28570,8 +28570,8 @@ _02017C64: .word 0x00004652
 _02017C68: .word 0x00005544
 	arm_func_end AllocUsedBlockFromFreeBlock
 
-	arm_func_start AllocFromHead
-AllocFromHead: ; 0x02017C6C
+	arm_func_start AllocFromHead_02017C6C
+AllocFromHead_02017C6C: ; 0x02017C6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrh r4, [r0, #0x36]
 	mov r3, r1
@@ -28620,10 +28620,10 @@ _02017CFC:
 	str r5, [sp]
 	bl AllocUsedBlockFromFreeBlock
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end AllocFromHead
+	arm_func_end AllocFromHead_02017C6C
 
-	arm_func_start AllocFromTail
-AllocFromTail: ; 0x02017D20
+	arm_func_start AllocFromTail_02017D20
+AllocFromTail_02017D20: ; 0x02017D20
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrh r4, [r0, #0x36]
 	mov r3, r1
@@ -28671,7 +28671,7 @@ _02017DAC:
 	str r5, [sp]
 	bl AllocUsedBlockFromFreeBlock
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end AllocFromTail
+	arm_func_end AllocFromTail_02017D20
 
 	arm_func_start RecycleRegion
 RecycleRegion: ; 0x02017DD0
@@ -28777,11 +28777,11 @@ NNS_FndAllocFromExpHeapEx: ; 0x02017F04
 	cmp r2, #0
 	bic r1, r1, #3
 	blt _02017F28
-	bl AllocFromHead
+	bl AllocFromHead_02017C6C
 	ldmfd sp!, {r3, pc}
 _02017F28:
 	rsb r2, r2, #0
-	bl AllocFromTail
+	bl AllocFromTail_02017D20
 	ldmfd sp!, {r3, pc}
 	arm_func_end NNS_FndAllocFromExpHeapEx
 
