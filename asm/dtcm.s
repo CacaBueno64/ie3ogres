@@ -11,7 +11,6 @@ OSi_IrqThreadQueue:
 OS_IRQTable:
 	.word OS_IrqDummy
 	.word OS_IrqDummy
-	
 	.word OS_IrqDummy
 
 	.word OSi_IrqTimer0
@@ -24,7 +23,6 @@ OS_IRQTable:
 	.word OSi_IrqDma0
 	.word OSi_IrqDma1
 	.word OSi_IrqDma2
-	
 	.word OSi_IrqDma3
 
 	.word OS_IrqDummy

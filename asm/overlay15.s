@@ -6498,7 +6498,7 @@ _020C2370:
 	add r0, r0, #0x96
 	mov r2, #8
 	add r0, r0, #0x1c00
-	bl FUN_ov15_020e3bd4
+	bl CRYPTO_RC4Init
 	ldr r3, [r7]
 	mov r2, r4
 	add r0, r3, #0x348
@@ -6510,7 +6510,7 @@ _020C2370:
 	add r1, r8, r3
 	add r0, r0, #0x1c00
 	add r3, r8, r3
-	bl FUN_ov15_020e3c54
+	bl CRYPTO_RC4Encrypt
 	ldr r2, [r7]
 	mov r8, #0x6e
 	add r0, r2, #0x348
@@ -46465,8 +46465,8 @@ FUN_ov15_020e3bc0: ; 0x020E3BC0
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e3bc0
 
-	arm_func_start FUN_ov15_020e3bd4
-FUN_ov15_020e3bd4: ; 0x020E3BD4
+	arm_func_start CRYPTO_RC4Init
+CRYPTO_RC4Init: ; 0x020E3BD4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r3, #0
 	cmp r2, #0x10
@@ -46501,10 +46501,10 @@ _020E3C14:
 	cmp r7, #0x100
 	blt _020E3C14
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020e3bd4
+	arm_func_end CRYPTO_RC4Init
 
-	arm_func_start FUN_ov15_020e3c54
-FUN_ov15_020e3c54: ; 0x020E3C54
+	arm_func_start CRYPTO_RC4Encrypt
+CRYPTO_RC4Encrypt: ; 0x020E3C54
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	ldrb r7, [r0]
 	ldrb r6, [r0, #1]
@@ -46537,7 +46537,7 @@ _020E3CB4:
 	strb r7, [r0, #-4]
 	strb r6, [r0, #-3]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020e3c54
+	arm_func_end CRYPTO_RC4Encrypt
 _020E3CCC:
 	.byte 0x21, 0x53, 0x44, 0x57
 	.byte 0x57, 0x61, 0x79, 0x70, 0x6F, 0x72, 0x74, 0x32, 0x46, 0x52, 0x45, 0x45, 0x53, 0x50, 0x4F, 0x54
