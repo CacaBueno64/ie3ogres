@@ -8033,7 +8033,7 @@ FUN_ov17_020f1b54: ; 0x020F1B54
 	ldr r1, _020F1B8C ; =0x000001E6
 	add r4, r2, #0
 	strh r1, [r0, #6]
-	blx  FUN_ov15_020d692c
+	blx  SOCL_GetHostID
 	add r1, sp, #4
 	blx  SOC_U32to4U8
 	add r0, r5, #0

@@ -22,7 +22,7 @@
 .public SOC_SendTo
 .public SOC_Startup
 .public SOC_U32to4U8
-.public FUN_ov15_020d692c
+.public SOCL_GetHostID
 .public SOC_Poll
 .public SOC_Close
 .public SOC_Cleanup

@@ -226,7 +226,7 @@
 .public FUN_ov15_020cb32c
 .public FUN_ov15_020cb3ec
 .public FUN_ov15_020cba10
-.public FUN_ov15_020d692c
+.public SOCL_GetHostID
 .public SOC_Socket
 .public SOC_Bind
 .public SOC_RecvFrom
