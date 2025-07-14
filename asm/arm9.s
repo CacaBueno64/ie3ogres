@@ -31124,29 +31124,29 @@ _02019F08:
 	bx lr
 	arm_func_end NNSi_G2dSplitCharShiftJIS
 
-	arm_func_start FUN_02019f10
-FUN_02019f10: ; 0x02019F10
+	arm_func_start AllocTexVram_
+AllocTexVram_: ; 0x02019F10
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02019f10
+	arm_func_end AllocTexVram_
 
-	arm_func_start FUN_02019f18
-FUN_02019f18: ; 0x02019F18
+	arm_func_start FreeTexVram_
+FreeTexVram_: ; 0x02019F18
 	mvn r0, #0
 	bx lr
-	arm_func_end FUN_02019f18
+	arm_func_end FreeTexVram_
 
-	arm_func_start FUN_02019f20
-FUN_02019f20: ; 0x02019F20
+	arm_func_start AllocPlttVram_
+AllocPlttVram_: ; 0x02019F20
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02019f20
+	arm_func_end AllocPlttVram_
 
-	arm_func_start FUN_02019f28
-FUN_02019f28: ; 0x02019F28
+	arm_func_start FreePlttVram_
+FreePlttVram_: ; 0x02019F28
 	mvn r0, #0
 	bx lr
-	arm_func_end FUN_02019f28
+	arm_func_end FreePlttVram_
 
 	arm_func_start FUN_02019f30
 FUN_02019f30: ; 0x02019F30
@@ -31466,17 +31466,17 @@ FUN_0201a328: ; 0x0201A328
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
 	ldr r3, _0201A370 ; =FUN_0201a380
-	ldr r1, _0201A374 ; =0x0208EEA0
+	ldr r1, _0201A374 ; =NNS_GfdDefaultFuncAllocTexVram
 	ldr r2, _0201A378 ; =FUN_0201a404
-	ldr r0, _0201A37C ; =0x0208EEA4
+	ldr r0, _0201A37C ; =NNS_GfdDefaultFuncFreeTexVram
 	str r3, [r1]
 	str r2, [r0]
 	ldmfd sp!, {r3, pc}
 _0201A36C: .word unk_0209776C
 _0201A370: .word FUN_0201a380
-_0201A374: .word unk_0208EEA0
+_0201A374: .word NNS_GfdDefaultFuncAllocTexVram
 _0201A378: .word FUN_0201a404
-_0201A37C: .word unk_0208EEA4
+_0201A37C: .word NNS_GfdDefaultFuncFreeTexVram
 	arm_func_end FUN_0201a328
 
 	arm_func_start FUN_0201a380
@@ -31719,17 +31719,17 @@ FUN_0201a690: ; 0x0201A690
 	cmp r4, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r3, _0201A6D4 ; =FUN_0201a6e4
-	ldr r1, _0201A6D8 ; =0x0208EEA8
+	ldr r1, _0201A6D8 ; =NNS_GfdDefaultFuncAllocPlttVram
 	ldr r2, _0201A6DC ; =FUN_0201a7b8
-	ldr r0, _0201A6E0 ; =0x0208EEAC
+	ldr r0, _0201A6E0 ; =NNS_GfdDefaultFuncFreePlttVram
 	str r3, [r1]
 	str r2, [r0]
 	ldmfd sp!, {r4, pc}
 _0201A6D0: .word unk_02097788
 _0201A6D4: .word FUN_0201a6e4
-_0201A6D8: .word unk_0208EEA8
+_0201A6D8: .word NNS_GfdDefaultFuncAllocPlttVram
 _0201A6DC: .word FUN_0201a7b8
-_0201A6E0: .word unk_0208EEAC
+_0201A6E0: .word NNS_GfdDefaultFuncFreePlttVram
 	arm_func_end FUN_0201a690
 
 	arm_func_start FUN_0201a6e4
@@ -98249,7 +98249,7 @@ _02051EEC:
 	mov r8, r0
 	cmp r5, #0
 	beq _02051F5C
-	ldr r0, _02052094 ; =0x0208EEA0
+	ldr r0, _02052094 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0
 	ldr r3, [r0]
 	mov r0, r5
@@ -98264,7 +98264,7 @@ _02051F5C:
 _02051F60:
 	cmp r7, #0
 	beq _02051F8C
-	ldr r0, _02052094 ; =0x0208EEA0
+	ldr r0, _02052094 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0
 	ldr r3, [r0]
 	mov r0, r7
@@ -98279,7 +98279,7 @@ _02051F90:
 	cmp r8, #0
 	beq _02051FC0
 	ldrh r1, [r6, #0x20]
-	ldr r0, _02052098 ; =0x0208EEA8
+	ldr r0, _02052098 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0
 	ldr r3, [r0]
 	mov r0, r8
@@ -98296,11 +98296,11 @@ _02051FC4:
 	cmpne r9, #0
 	cmpne r10, #0
 	bne _0205200C
-	ldr r1, _0205209C ; =0x0208EEAC
+	ldr r1, _0205209C ; =NNS_GfdDefaultFuncFreePlttVram
 	mov r0, r8
 	ldr r1, [r1]
 	blx r1
-	ldr r4, _020520A0 ; =0x0208EEA4
+	ldr r4, _020520A0 ; =NNS_GfdDefaultFuncFreeTexVram
 	mov r0, r7
 	ldr r1, [r4]
 	blx r1
@@ -98348,10 +98348,10 @@ _02052080:
 _02052088: .word 0x30415642
 _0205208C: .word 0x30505442
 _02052090: .word 0x30444D42
-_02052094: .word unk_0208EEA0
-_02052098: .word unk_0208EEA8
-_0205209C: .word unk_0208EEAC
-_020520A0: .word unk_0208EEA4
+_02052094: .word NNS_GfdDefaultFuncAllocTexVram
+_02052098: .word NNS_GfdDefaultFuncAllocPlttVram
+_0205209C: .word NNS_GfdDefaultFuncFreePlttVram
+_020520A0: .word NNS_GfdDefaultFuncFreeTexVram
 	arm_func_end FUN_02051e70
 
 	arm_func_start FUN_020520a4
@@ -119314,7 +119314,7 @@ NNS_G3dAnmObjInit: ; 0x0206360C
 	mov r12, #0
 	mov r5, #0x7f
 	mov r4, #0x1000
-	ldr lr, _02063698 ; =0x0209100C
+	ldr lr, _02063698 ; =NNS_G3dAnmFmtNum
 	str r12, [r0]
 	str r1, [r0, #8]
 	str r12, [r0, #0x10]
@@ -119327,7 +119327,7 @@ NNS_G3dAnmObjInit: ; 0x0206360C
 	cmp r6, #0
 	ldmlsfd sp!, {r4, r5, r6, pc}
 	ldrb r5, [r1]
-	ldr r4, _0206369C ; =0x02091030
+	ldr r4, _0206369C ; =NNS_G3dAnmObjInitFuncArray
 _02063654:
 	ldrb r3, [r4, r12, lsl #3]
 	cmp r5, r3
@@ -119336,7 +119336,7 @@ _02063654:
 	ldreqh r3, [r3, #2]
 	cmpeq lr, r3
 	bne _02063688
-	ldr r3, _020636A0 ; =0x02091034
+	ldr r3, _020636A0 ; =NNS_G3dAnmObjInitFuncArray[1]
 	ldr r3, [r3, r12, lsl #3]
 	cmp r3, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -119347,9 +119347,9 @@ _02063688:
 	cmp r12, r6
 	blo _02063654
 	ldmfd sp!, {r4, r5, r6, pc}
-_02063698: .word unk_0209100C
-_0206369C: .word unk_02091030
-_020636A0: .word unk_02091034
+_02063698: .word NNS_G3dAnmFmtNum
+_0206369C: .word NNS_G3dAnmObjInitFuncArray
+_020636A0: .word NNS_G3dAnmObjInitFuncArray + 4
 	arm_func_end NNS_G3dAnmObjInit
 
 	arm_func_start NNS_G3dRenderObjInit
@@ -119361,10 +119361,10 @@ NNS_G3dRenderObjInit: ; 0x020636A4
 	mov r0, #0
 	mov r2, #0x54
 	bl MIi_CpuClear32
-	ldr r0, _020636EC ; =0x0209102C
-	ldr r1, _020636F0 ; =0x02091028
+	ldr r0, _020636EC ; =NNS_G3dFuncBlendMatDefault
+	ldr r1, _020636F0 ; =NNS_G3dFuncBlendJntDefault
 	ldr r2, [r0]
-	ldr r0, _020636F4 ; =0x02091024
+	ldr r0, _020636F4 ; =NNS_G3dFuncBlendVisDefault
 	str r2, [r5, #0xc]
 	ldr r1, [r1]
 	str r1, [r5, #0x14]
@@ -119372,9 +119372,9 @@ NNS_G3dRenderObjInit: ; 0x020636A4
 	str r0, [r5, #0x1c]
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020636EC: .word unk_0209102C
-_020636F0: .word unk_02091028
-_020636F4: .word unk_02091024
+_020636EC: .word NNS_G3dFuncBlendMatDefault
+_020636F0: .word NNS_G3dFuncBlendJntDefault
+_020636F4: .word NNS_G3dFuncBlendVisDefault
 	arm_func_end NNS_G3dRenderObjInit
 
 	arm_func_start addLink_
@@ -120288,7 +120288,7 @@ _0206422C:
 NNS_G3dGlbInit: ; 0x02064250
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _02064350 ; =0x17101610
-	ldr r5, _02064354 ; =0x020B6DD8
+	ldr r5, _02064354 ; =NNS_G3dGlb
 	mov r4, #0
 	stmia r5, {r0, r4}
 	mov r1, #2
@@ -120300,10 +120300,10 @@ NNS_G3dGlbInit: ; 0x02064250
 	ldr r0, _02064360 ; =0x33333333
 	ldr r1, _02064364 ; =0x002A1B19
 	str r0, [r5, #0xa4]
-	ldr r0, _02064368 ; =0x020B6E24
+	ldr r0, _02064368 ; =NNS_G3dGlb_cameraMtx
 	str r1, [r5, #0xb8]
 	bl MTX_Identity43_
-	ldr r0, _0206436C ; =0x020B6DE0
+	ldr r0, _0206436C ; =NNS_G3dGlb_projMtx
 	bl MTX_Identity44_
 	ldr r0, _02064370 ; =0x2D8B62D8
 	ldr r3, _02064374 ; =0x40000200
@@ -120330,7 +120330,7 @@ NNS_G3dGlbInit: ; 0x02064250
 	str r0, [r5, #0xb4]
 	str r4, [r5, #0xe0]
 	str r4, [r5, #0xe4]
-	ldr r0, _0206438C ; =0x020B6E94
+	ldr r0, _0206438C ; =NNS_G3dGlb_prmBaseRot
 	str r4, [r5, #0xe8]
 	bl MTX_Identity33_
 	mov r0, #0x1000
@@ -120351,13 +120351,13 @@ NNS_G3dGlbInit: ; 0x02064250
 	str r0, [r5, #0x260]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02064350: .word 0x17101610
-_02064354: .word unk_020B6DD8
+_02064354: .word NNS_G3dGlb
 _02064358: .word 0x32323232
 _0206435C: .word 0x60293130
 _02064360: .word 0x33333333
 _02064364: .word 0x002A1B19
-_02064368: .word unk_020B6E24
-_0206436C: .word unk_020B6DE0
+_02064368: .word NNS_G3dGlb_cameraMtx
+_0206436C: .word NNS_G3dGlb_projMtx
 _02064370: .word 0x2D8B62D8
 _02064374: .word 0x40000200
 _02064378: .word 0xC0080000
@@ -120365,13 +120365,13 @@ _0206437C: .word 0x4210C210
 _02064380: .word 0x001F008F
 _02064384: .word 0x00007FFF
 _02064388: .word 0x800003E0
-_0206438C: .word unk_020B6E94
+_0206438C: .word NNS_G3dGlb_prmBaseRot
 	arm_func_end NNS_G3dGlbInit
 
 	arm_func_start NNS_G3dGlbFlushP
 NNS_G3dGlbFlushP: ; 0x02064390
 	stmfd sp!, {r4, lr}
-	ldr r4, _020643BC ; =0x020B6DD8
+	ldr r4, _020643BC ; =NNS_G3dGlb
 	mov r2, #0x3e
 	ldr r0, [r4]
 	add r1, r4, #4
@@ -120381,17 +120381,17 @@ NNS_G3dGlbFlushP: ; 0x02064390
 	bic r0, r0, #2
 	str r0, [r4, #0xfc]
 	ldmfd sp!, {r4, pc}
-_020643BC: .word unk_020B6DD8
+_020643BC: .word NNS_G3dGlb
 	arm_func_end NNS_G3dGlbFlushP
 
 	arm_func_start NNS_G3dGlbFlushVP
 NNS_G3dGlbFlushVP: ; 0x020643C0
 	stmfd sp!, {r3, lr}
 	ldr r0, _02064424 ; =0x00001610
-	ldr r1, _02064428 ; =0x020B6DDC
+	ldr r1, _02064428 ; =NNS_G3dGlb_mtxmode_proj
 	mov r2, #0x11
 	bl NNS_G3dGeBufferOP_N
-	ldr r1, _0206442C ; =0x020B6E24
+	ldr r1, _0206442C ; =NNS_G3dGlb_cameraMtx
 	mov r0, #0x19
 	mov r2, #0xc
 	bl NNS_G3dGeBufferOP_N
@@ -120401,54 +120401,54 @@ NNS_G3dGlbFlushVP: ; 0x020643C0
 	mov r2, #1
 	str r3, [sp]
 	bl NNS_G3dGeBufferOP_N
-	ldr r1, _02064430 ; =0x020B6E54
+	ldr r1, _02064430 ; =NNS_G3dGlb_cmd1
 	mov r0, #0x15
 	mov r2, #0x20
 	bl NNS_G3dGeBufferOP_N
-	ldr r0, _02064434 ; =0x020B6DD8
+	ldr r0, _02064434 ; =NNS_G3dGlb
 	ldr r1, [r0, #0xfc]
 	bic r1, r1, #1
 	orr r1, r1, #2
 	str r1, [r0, #0xfc]
 	ldmfd sp!, {r3, pc}
 _02064424: .word 0x00001610
-_02064428: .word unk_020B6DDC
-_0206442C: .word unk_020B6E24
-_02064430: .word unk_020B6E54
-_02064434: .word unk_020B6DD8
+_02064428: .word NNS_G3dGlb_mtxmode_proj
+_0206442C: .word NNS_G3dGlb_cameraMtx
+_02064430: .word NNS_G3dGlb_cmd1
+_02064434: .word NNS_G3dGlb
 	arm_func_end NNS_G3dGlbFlushVP
 
 	arm_func_start NNS_G3dGlbGetInvV
 NNS_G3dGlbGetInvV: ; 0x02064438
 	stmfd sp!, {r4, lr}
-	ldr r4, _0206446C ; =0x020B6DD8
+	ldr r4, _0206446C ; =NNS_G3dGlb
 	ldr r0, [r4, #0xfc]
 	tst r0, #8
 	bne _02064464
-	ldr r0, _02064470 ; =0x020B6E24
-	ldr r1, _02064474 ; =0x020B6ED8
+	ldr r0, _02064470 ; =NNS_G3dGlb_cameraMtx
+	ldr r1, _02064474 ; =NNS_G3dGlb_invCameraMtx
 	bl MTX_Inverse43
 	ldr r0, [r4, #0xfc]
 	orr r0, r0, #8
 	str r0, [r4, #0xfc]
 _02064464:
-	ldr r0, _02064474 ; =0x020B6ED8
+	ldr r0, _02064474 ; =NNS_G3dGlb_invCameraMtx
 	ldmfd sp!, {r4, pc}
-_0206446C: .word unk_020B6DD8
-_02064470: .word unk_020B6E24
-_02064474: .word unk_020B6ED8
+_0206446C: .word NNS_G3dGlb
+_02064470: .word NNS_G3dGlb_cameraMtx
+_02064474: .word NNS_G3dGlb_invCameraMtx
 	arm_func_end NNS_G3dGlbGetInvV
 
 	arm_func_start calcSrtCameraMtx_
 calcSrtCameraMtx_: ; 0x02064478
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r4, _020644C8 ; =0x020B6F08
-	ldr r0, _020644CC ; =0x020B6E94
-	ldr r1, _020644D0 ; =0x020B6E24
+	ldr r4, _020644C8 ; =NNS_G3dGlb_srtCameraMtx
+	ldr r0, _020644CC ; =NNS_G3dGlb_prmBaseRot
+	ldr r1, _020644D0 ; =NNS_G3dGlb_cameraMtx
 	mov r2, r4
 	bl MTX_Concat43
-	ldr r3, _020644D4 ; =0x020B6DD8
+	ldr r3, _020644D4 ; =NNS_G3dGlb
 	mov r0, r4
 	ldr r2, [r3, #0xf4]
 	mov r1, r4
@@ -120456,22 +120456,22 @@ calcSrtCameraMtx_: ; 0x02064478
 	ldr r2, [r3, #0xec]
 	ldr r3, [r3, #0xf0]
 	bl MTX_ScaleApply43
-	ldr r1, _020644D8 ; =0x020B6F38
+	ldr r1, _020644D8 ; =NNS_G3dGlb_invSrtCameraMtx
 	mov r0, r4
 	bl MTX_Inverse43
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_020644C8: .word unk_020B6F08
-_020644CC: .word unk_020B6E94
-_020644D0: .word unk_020B6E24
-_020644D4: .word unk_020B6DD8
-_020644D8: .word unk_020B6F38
+_020644C8: .word NNS_G3dGlb_srtCameraMtx
+_020644CC: .word NNS_G3dGlb_prmBaseRot
+_020644D0: .word NNS_G3dGlb_cameraMtx
+_020644D4: .word NNS_G3dGlb
+_020644D8: .word NNS_G3dGlb_invSrtCameraMtx
 	arm_func_end calcSrtCameraMtx_
 
 	arm_func_start NNS_G3dGlbGetWV
 NNS_G3dGlbGetWV: ; 0x020644DC
 	stmfd sp!, {r4, lr}
-	ldr r4, _02064508 ; =0x020B6DD8
+	ldr r4, _02064508 ; =NNS_G3dGlb
 	ldr r0, [r4, #0xfc]
 	tst r0, #0x80
 	bne _02064500
@@ -120480,16 +120480,16 @@ NNS_G3dGlbGetWV: ; 0x020644DC
 	orr r0, r0, #0x80
 	str r0, [r4, #0xfc]
 _02064500:
-	ldr r0, _0206450C ; =0x020B6F08
+	ldr r0, _0206450C ; =NNS_G3dGlb_srtCameraMtx
 	ldmfd sp!, {r4, pc}
-_02064508: .word unk_020B6DD8
-_0206450C: .word unk_020B6F08
+_02064508: .word NNS_G3dGlb
+_0206450C: .word NNS_G3dGlb_srtCameraMtx
 	arm_func_end NNS_G3dGlbGetWV
 
 	arm_func_start NNS_G3dGlbGetInvWV
 NNS_G3dGlbGetInvWV: ; 0x02064510
 	stmfd sp!, {r4, lr}
-	ldr r4, _0206453C ; =0x020B6DD8
+	ldr r4, _0206453C ; =NNS_G3dGlb
 	ldr r0, [r4, #0xfc]
 	tst r0, #0x80
 	bne _02064534
@@ -120498,39 +120498,39 @@ NNS_G3dGlbGetInvWV: ; 0x02064510
 	orr r0, r0, #0x80
 	str r0, [r4, #0xfc]
 _02064534:
-	ldr r0, _02064540 ; =0x020B6F38
+	ldr r0, _02064540 ; =NNS_G3dGlb_invSrtCameraMtx
 	ldmfd sp!, {r4, pc}
-_0206453C: .word unk_020B6DD8
-_02064540: .word unk_020B6F38
+_0206453C: .word NNS_G3dGlb
+_02064540: .word NNS_G3dGlb_invSrtCameraMtx
 	arm_func_end NNS_G3dGlbGetInvWV
 
 	arm_func_start NNS_G3dGlbGetViewPort
 NNS_G3dGlbGetViewPort: ; 0x02064544
 	cmp r0, #0
-	ldrne r12, _020645A4 ; =0x020B6DD8
+	ldrne r12, _020645A4 ; =NNS_G3dGlb
 	ldrne r12, [r12, #0xa0]
 	andne r12, r12, #0xff
 	strne r12, [r0]
 	cmp r1, #0
-	ldrne r0, _020645A4 ; =0x020B6DD8
+	ldrne r0, _020645A4 ; =NNS_G3dGlb
 	ldrne r0, [r0, #0xa0]
 	movne r0, r0, lsr #8
 	andne r0, r0, #0xff
 	strne r0, [r1]
 	cmp r2, #0
-	ldrne r0, _020645A4 ; =0x020B6DD8
+	ldrne r0, _020645A4 ; =NNS_G3dGlb
 	ldrne r0, [r0, #0xa0]
 	movne r0, r0, lsr #0x10
 	andne r0, r0, #0xff
 	strne r0, [r2]
 	cmp r3, #0
-	ldrne r0, _020645A4 ; =0x020B6DD8
+	ldrne r0, _020645A4 ; =NNS_G3dGlb
 	ldrne r0, [r0, #0xa0]
 	movne r0, r0, lsr #0x18
 	andne r0, r0, #0xff
 	strne r0, [r3]
 	bx lr
-_020645A4: .word unk_020B6DD8
+_020645A4: .word NNS_G3dGlb
 	arm_func_end NNS_G3dGlbGetViewPort
 
 	arm_func_start NNSi_G3dAnmBlendMat
@@ -120916,7 +120916,7 @@ _02064AE8:
 	arm_func_start G3dDrawInternal_Loop_
 G3dDrawInternal_Loop_: ; 0x02064AFC
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _02064B40 ; =0x020911A8
+	ldr r5, _02064B40 ; =NNS_G3dFuncSbcTable
 	mov r4, r0
 _02064B08:
 	ldr r1, [r4, #8]
@@ -120933,7 +120933,7 @@ _02064B08:
 	tst r0, #0x20
 	beq _02064B08
 	ldmfd sp!, {r3, r4, r5, pc}
-_02064B40: .word unk_020911A8
+_02064B40: .word NNS_G3dFuncSbcTable
 	arm_func_end G3dDrawInternal_Loop_
 
 	arm_func_start G3dDrawInternal_
@@ -120949,7 +120949,7 @@ G3dDrawInternal_: ; 0x02064B44
 	str r0, [r5, #0xc4]
 	str r0, [r5, #8]
 	ldr r0, [r4, #0x30]
-	ldr r2, _02064CD0 ; =0x0209108C
+	ldr r2, _02064CD0 ; =NNS_G3dGetJointScale_FuncArray
 	cmp r0, #0
 	ldreq r1, [r4, #4]
 	ldreq r0, [r1, #4]
@@ -120975,9 +120975,9 @@ G3dDrawInternal_: ; 0x02064B44
 	moveq r0, #0
 	str r0, [r5, #0xdc]
 	ldr r0, [r4, #4]
-	ldr r1, _02064CD4 ; =0x02091080
+	ldr r1, _02064CD4 ; =NNS_G3dSendJointSRT_FuncArray
 	ldrb r3, [r0, #0x15]
-	ldr r0, _02064CD8 ; =0x02091098
+	ldr r0, _02064CD8 ; =NNS_G3dSendTexSRT_FuncArray
 	ldr r2, [r2, r3, lsl #2]
 	str r2, [r5, #0xe8]
 	ldr r2, [r4, #4]
@@ -121039,9 +121039,9 @@ _02064CB8:
 	bic r0, r0, #1
 	str r0, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02064CD0: .word unk_0209108C
-_02064CD4: .word unk_02091080
-_02064CD8: .word unk_02091098
+_02064CD0: .word NNS_G3dGetJointScale_FuncArray
+_02064CD4: .word NNS_G3dSendJointSRT_FuncArray
+_02064CD8: .word NNS_G3dSendTexSRT_FuncArray
 	arm_func_end G3dDrawInternal_
 
 	arm_func_start Sbc_updateHintVec_
@@ -121121,7 +121121,7 @@ _02064DD0:
 	bic r0, r0, #0x10
 	str r0, [r4]
 _02064DDC:
-	ldr r5, _02064E1C ; =0x020B703C
+	ldr r5, _02064E1C ; =NNS_G3dRS
 	ldr r0, [r5]
 	cmp r0, #0
 	beq _02064DFC
@@ -121138,7 +121138,7 @@ _02064DFC:
 	str r0, [r5]
 	add sp, sp, #0x188
 	ldmfd sp!, {r4, r5, r6, pc}
-_02064E1C: .word unk_020B703C
+_02064E1C: .word NNS_G3dRS
 	arm_func_end NNS_G3dDraw
 
 	arm_func_start NNSi_G3dFuncSbc_NOP
@@ -121400,7 +121400,7 @@ _02065174:
 	mov r1, #0x38
 	cmp r0, #0
 	mlane r4, r6, r1, r0
-	ldreq r0, _02065514 ; =0x020B7040
+	ldreq r0, _02065514 ; =NNS_G3dRSOnGlb
 	mlaeq r4, r6, r1, r0
 	b _020653FC
 _020651A8:
@@ -121424,7 +121424,7 @@ _020651E0:
 	bne _02065210
 	add r1, r8, #0xbc
 	mov r0, r6, lsr #5
-	ldr r3, _02065514 ; =0x020B7040
+	ldr r3, _02065514 ; =NNS_G3dRSOnGlb
 	ldr r11, [r1, r0, lsl #2]
 	and r4, r6, #0x1f
 	mov r10, #1
@@ -121459,13 +121459,13 @@ _02065260:
 _02065264:
 	ldrh r0, [r0, #0x1e]
 	ldrh r10, [r7, #0x1e]
-	ldr r2, _02065518 ; =0x0208C49C
+	ldr r2, _02065518 ; =matColorMask_
 	tst r0, #0x20
 	ldrne r0, [r4]
 	mov r1, r10, asr #6
 	orrne r0, r0, #0x20
 	strne r0, [r4]
-	ldr r11, _0206551C ; =0x020B6DD8
+	ldr r11, _0206551C ; =NNS_G3dGlb
 	and r1, r1, #7
 	ldr r9, [r2, r1, lsl #2]
 	ldr r3, [r7, #4]
@@ -121639,9 +121639,9 @@ _020654E8:
 	blx r1
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02065514: .word unk_020B7040
-_02065518: .word unk_0208C49C
-_0206551C: .word unk_020B6DD8
+_02065514: .word NNS_G3dRSOnGlb
+_02065518: .word matColorMask_
+_0206551C: .word NNS_G3dGlb
 _02065520: .word 0x00293130
 _02065524: .word 0x00002B2A
 	arm_func_end NNSi_G3dFuncSbc_MAT_InternalDefault
@@ -121688,7 +121688,7 @@ _020655AC:
 	mov r2, #0
 _020655B0:
 	ldrh lr, [r2]
-	ldr r12, _020655D4 ; =0x020910B8
+	ldr r12, _020655D4 ; =NNS_G3dFuncSbcMatTable
 	mov r0, r4
 	ldr r12, [r12, lr, lsl #2]
 	blx r12
@@ -121697,7 +121697,7 @@ _020655C4:
 	add r0, r0, #2
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
-_020655D4: .word unk_020910B8
+_020655D4: .word NNS_G3dFuncSbcMatTable
 	arm_func_end NNSi_G3dFuncSbc_MAT
 
 	arm_func_start NNSi_G3dFuncSbc_SHP_InternalDefault
@@ -121798,7 +121798,7 @@ _02065720:
 	mov r2, #0
 _02065724:
 	ldrh lr, [r2]
-	ldr r12, _02065748 ; =0x020910C8
+	ldr r12, _02065748 ; =NNS_G3dFuncSbcShpTable
 	mov r0, r4
 	ldr r12, [r12, lr, lsl #2]
 	blx r12
@@ -121807,7 +121807,7 @@ _02065738:
 	add r0, r0, #2
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
-_02065748: .word unk_020910C8
+_02065748: .word NNS_G3dFuncSbcShpTable
 	arm_func_end NNSi_G3dFuncSbc_SHP
 
 	arm_func_start NNSi_G3dFuncSbc_NODEDESC
@@ -121981,8 +121981,8 @@ _02065970:
 	str r1, [sp, #4]
 	blx MI_Zero36B
 	ldrh r0, [r7]
-	ldr r2, _02065B98 ; =0x0208C4BC
-	ldr r1, _02065B9C ; =0x0208C4BD
+	ldr r2, _02065B98 ; =pivotUtil_
+	ldr r1, _02065B9C ; =pivotUtil_[1]
 	tst r0, #0x100
 	mov r0, #0x1000
 	ldrb r2, [r2, r11, lsl #2]
@@ -122002,7 +122002,7 @@ _02065970:
 	ldrne r0, [sp, #4]
 	rsbne r0, r0, #0
 	strne r0, [sp, #4]
-	ldr r0, _02065BA0 ; =0x0208C4BE
+	ldr r0, _02065BA0 ; =pivotUtil_[2]
 	ldrb r0, [r0, r11, lsl #2]
 	add r1, r5, r0, lsl #2
 	ldr r0, [sp, #4]
@@ -122012,7 +122012,7 @@ _02065970:
 	ldrne r0, [sp]
 	rsbne r0, r0, #0
 	strne r0, [sp]
-	ldr r0, _02065BA4 ; =0x0208C4BF
+	ldr r0, _02065BA4 ; =pivotUtil_[3]
 	ldrb r0, [r0, r11, lsl #2]
 	add r1, r5, r0, lsl #2
 	ldr r0, [sp]
@@ -122112,10 +122112,10 @@ _02065B84:
 	str r0, [r10]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02065B98: .word unk_0208C4BC
-_02065B9C: .word unk_0208C4BD
-_02065BA0: .word unk_0208C4BE
-_02065BA4: .word unk_0208C4BF
+_02065B98: .word pivotUtil_
+_02065B9C: .word pivotUtil_ + 1
+_02065BA0: .word pivotUtil_ + 2
+_02065BA4: .word pivotUtil_ + 3
 	arm_func_end NNSi_G3dFuncSbc_NODEDESC
 
 	arm_func_start NNSi_G3dFuncSbc_BB
@@ -122200,7 +122200,7 @@ _02065CC0:
 	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _02065CC0
-	ldr r0, _02065E78 ; =0x020B6DD8
+	ldr r0, _02065E78 ; =NNS_G3dGlb
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02065CEC
@@ -122210,7 +122210,7 @@ _02065CC0:
 _02065CEC:
 	tst r0, #2
 	beq _02065D14
-	ldr r0, _02065E7C ; =0x020B6E24
+	ldr r0, _02065E7C ; =NNS_G3dGlb_cameraMtx
 	add r11, sp, #8
 _02065CFC:
 	mov r1, r11
@@ -122234,7 +122234,7 @@ _02065D14:
 	str r0, [r7, #4]
 	add r0, sp, #0xa8
 	bl VEC_Mag
-	ldr r1, _02065E78 ; =0x020B6DD8
+	ldr r1, _02065E78 ; =NNS_G3dGlb
 	str r0, [r7, #8]
 	ldr r0, [r1, #0xfc]
 	tst r0, #1
@@ -122271,7 +122271,7 @@ _02065DA8:
 	bl NNS_G3dGlbGetInvV
 	b _02065D80
 _02065DD4:
-	ldr r0, _02065E90 ; =0x02091118
+	ldr r0, _02065E90 ; =Sbc_BB_bbcmd1
 	ldr r1, _02065E74 ; =0x04000400
 	mov r2, #0x48
 	bl MIi_CpuSend32
@@ -122312,17 +122312,17 @@ _02065E54:
 	str r0, [r10]
 	add sp, sp, #0xc8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02065E68: .word unk_02091148
-_02065E6C: .word unk_02091154
+_02065E68: .word Sbc_BB_bbcmd1 + 48
+_02065E6C: .word Sbc_BB_bbcmd1 + 60
 _02065E70: .word 0x00151110
 _02065E74: .word 0x04000400
-_02065E78: .word unk_020B6DD8
-_02065E7C: .word unk_020B6E24
+_02065E78: .word NNS_G3dGlb
+_02065E7C: .word NNS_G3dGlb_cameraMtx
 _02065E80: .word 0x00171012
-_02065E84: .word unk_0209111C
+_02065E84: .word Sbc_BB_bbcmd1 + 4
 _02065E88: .word 0x00001B19
-_02065E8C: .word unk_02091124
-_02065E90: .word unk_02091118
+_02065E8C: .word Sbc_BB_bbcmd1 + 12
+_02065E90: .word Sbc_BB_bbcmd1
 	arm_func_end NNSi_G3dFuncSbc_BB
 
 	arm_func_start NNSi_G3dFuncSbc_BBY
@@ -122408,7 +122408,7 @@ _02065FB0:
 	bl G3X_GetClipMtx
 	cmp r0, #0
 	bne _02065FB0
-	ldr r0, _020661C8 ; =0x020B6DD8
+	ldr r0, _020661C8 ; =NNS_G3dGlb
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02065FE8
@@ -122421,7 +122421,7 @@ _02065FB0:
 _02065FE8:
 	tst r0, #2
 	beq _0206600C
-	ldr r0, _020661CC ; =0x020B6E24
+	ldr r0, _020661CC ; =NNS_G3dGlb_cameraMtx
 	add r1, sp, #8
 	bl MTX_Copy43To44_
 	mov r0, r4
@@ -122466,7 +122466,7 @@ _0206600C:
 	add r1, r7, #0xc
 	add r2, r7, #0x18
 	bl VEC_CrossProduct
-	ldr r0, _020661C8 ; =0x020B6DD8
+	ldr r0, _020661C8 ; =NNS_G3dGlb
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _020660F4
@@ -122502,7 +122502,7 @@ _020660F4:
 	bl NNS_G3dGlbGetInvV
 	b _020660CC
 _02066120:
-	ldr r0, _020661DC ; =0x02091160
+	ldr r0, _020661DC ; =Sbc_BBY_bbcmd1
 	ldr r1, _020661C4 ; =0x04000400
 	mov r2, #0x48
 	bl MIi_CpuSend32
@@ -122543,17 +122543,17 @@ _020661A0:
 	str r0, [r10]
 	add sp, sp, #0xc8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020661B4: .word unk_02091190
-_020661B8: .word unk_0209119C
-_020661BC: .word unk_0209116C
+_020661B4: .word Sbc_BBY_bbcmd1 + 48
+_020661B8: .word Sbc_BBY_bbcmd1 + 60
+_020661BC: .word Sbc_BBY_bbcmd1 + 12
 _020661C0: .word 0x00151110
 _020661C4: .word 0x04000400
-_020661C8: .word unk_020B6DD8
-_020661CC: .word unk_020B6E24
+_020661C8: .word NNS_G3dGlb
+_020661CC: .word NNS_G3dGlb_cameraMtx
 _020661D0: .word 0x00171012
-_020661D4: .word unk_02091164
+_020661D4: .word Sbc_BBY_bbcmd1 + 4
 _020661D8: .word 0x00001B19
-_020661DC: .word unk_02091160
+_020661DC: .word Sbc_BBY_bbcmd1
 	arm_func_end NNSi_G3dFuncSbc_BBY
 
 	arm_func_start NNSi_G3dFuncSbc_NODEMIX
@@ -123029,9 +123029,9 @@ _020666C4:
 	add sp, sp, #0x104
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02066918: .word 0x04000440
-_0206691C: .word unk_020B8440
+_0206691C: .word NNS_G3dRSOnGlb_evpCache_M
 _02066920: .word 0x04000450
-_02066924: .word unk_020B8480
+_02066924: .word NNS_G3dRSOnGlb_evpCache_N
 	arm_func_end NNSi_G3dFuncSbc_NODEMIX
 
 	arm_func_start NNSi_G3dFuncSbc_CALLDL
@@ -123147,7 +123147,7 @@ NNSi_G3dFuncSbc_ENVMAP: ; 0x02066A6C
 	bic r0, r0, #0xc0000000
 	str r0, [r2, #0x10]
 	ldr r3, [r8, #0xb0]
-	ldr r0, _02066DA8 ; =0x020910A8
+	ldr r0, _02066DA8 ; =Sbc_ENVMAP_cmd
 	ldr r2, [r3, #0x10]
 	ldr r1, _02066DAC ; =0x020910B4
 	orr r2, r2, #0x80000000
@@ -123309,17 +123309,17 @@ _02066CBC:
 	mov r2, r5
 	str r3, [sp, #4]
 	bl NNS_G3dGeBufferOP_N
-	ldr r0, _02066DB0 ; =0x020B6DD8
+	ldr r0, _02066DB0 ; =NNS_G3dGlb
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02066D54
 	mov r6, #0x1a
 	mov r5, #9
-	ldr r1, _02066DB4 ; =0x020B6E24
+	ldr r1, _02066DB4 ; =NNS_G3dGlb_cameraMtx
 	mov r0, r6
 	mov r2, r5
 	bl NNS_G3dGeBufferOP_N
-	ldr r1, _02066DB8 ; =0x020B6E94
+	ldr r1, _02066DB8 ; =NNS_G3dGlb_prmBaseRot
 _02066D34:
 	mov r0, r6
 	mov r2, r5
@@ -123334,7 +123334,7 @@ _02066D54:
 	beq _02066D6C
 	mov r6, #0x1a
 	mov r5, #9
-	ldr r1, _02066DB4 ; =0x020B6E24
+	ldr r1, _02066DB4 ; =NNS_G3dGlb_cameraMtx
 	b _02066D34
 _02066D6C:
 	mov r1, r4
@@ -123354,11 +123354,11 @@ _02066D94:
 	str r0, [r8]
 	add sp, sp, #0x44
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_02066DA8: .word unk_020910A8
-_02066DAC: .word unk_020910B4
-_02066DB0: .word unk_020B6DD8
-_02066DB4: .word unk_020B6E24
-_02066DB8: .word unk_020B6E94
+_02066DA8: .word Sbc_ENVMAP_cmd
+_02066DAC: .word Sbc_ENVMAP_cmd + 12
+_02066DB0: .word NNS_G3dGlb
+_02066DB4: .word NNS_G3dGlb_cameraMtx
+_02066DB8: .word NNS_G3dGlb_prmBaseRot
 	arm_func_end NNSi_G3dFuncSbc_ENVMAP
 
 	arm_func_start NNSi_G3dFuncSbc_PRJMAP
@@ -123390,7 +123390,7 @@ NNSi_G3dFuncSbc_PRJMAP: ; 0x02066DBC
 	bic r0, r0, #0xc0000000
 	str r0, [r2, #0x10]
 	ldr r3, [r5, #0xb0]
-	ldr r0, _02067150 ; =0x020910A8
+	ldr r0, _02067150 ; =Sbc_ENVMAP_cmd
 	ldr r2, [r3, #0x10]
 	ldr r1, _02067154 ; =0x020910AC
 	orr r2, r2, #0xc0000000
@@ -123427,7 +123427,7 @@ _02066EA4:
 	cmp r0, #0
 	bne _02066EE8
 	ldr r0, [r5, #0xb0]
-	ldr r1, _02067158 ; =0x020910D8
+	ldr r1, _02067158 ; =Sbc_PRJMAP_mtx
 	ldrh r7, [r0, #0x2e]
 	ldrh r3, [r0, #0x2c]
 	mov r0, #0x16
@@ -123516,15 +123516,15 @@ _02066FBC:
 _02066FE8:
 	cmp r0, #0
 	bne _02067108
-	ldr r0, _0206715C ; =0x020B6DD8
+	ldr r0, _0206715C ; =NNS_G3dGlb
 	ldr r0, [r0, #0xfc]
 	tst r0, #1
 	beq _02067030
-	ldr r1, _02067160 ; =0x020B6EB8
+	ldr r1, _02067160 ; =NNS_G3dGlb_prmBaseTrans
 	mov r0, #0x1c
 	mov r2, #3
 	bl NNS_G3dGeBufferOP_N
-	ldr r1, _02067164 ; =0x020B6E94
+	ldr r1, _02067164 ; =NNS_G3dGlb_prmBaseRot
 	mov r0, #0x1a
 	mov r2, #9
 	bl NNS_G3dGeBufferOP_N
@@ -123610,12 +123610,12 @@ _0206713C:
 	str r0, [r5]
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02067150: .word unk_020910A8
-_02067154: .word unk_020910AC
-_02067158: .word unk_020910D8
-_0206715C: .word unk_020B6DD8
-_02067160: .word unk_020B6EB8
-_02067164: .word unk_020B6E94
+_02067150: .word Sbc_ENVMAP_cmd
+_02067154: .word Sbc_ENVMAP_cmd + 4
+_02067158: .word Sbc_PRJMAP_mtx
+_0206715C: .word NNS_G3dGlb
+_02067160: .word NNS_G3dGlb_prmBaseTrans
+_02067164: .word NNS_G3dGlb_prmBaseRot
 _02067168: .word 0x04000440
 _0206716C: .word 0x04000448
 	arm_func_end NNSi_G3dFuncSbc_PRJMAP
@@ -123623,13 +123623,13 @@ _0206716C: .word 0x04000448
 	arm_func_start NNS_G3dGeFlushBuffer
 NNS_G3dGeFlushBuffer: ; 0x02067170
 	stmfd sp!, {r4, lr}
-	ldr r0, _020671C0 ; =0x020B9D40
+	ldr r0, _020671C0 ; =NNS_G3dGeBuffer
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _02067188
 	bl NNS_G3dGeWaitSendDL
 _02067188:
-	ldr r4, _020671C0 ; =0x020B9D40
+	ldr r4, _020671C0 ; =NNS_G3dGeBuffer
 	ldr r0, [r4]
 	cmp r0, #0
 	ldrne r2, [r0]
@@ -123643,19 +123643,19 @@ _02067188:
 	mov r1, #0
 	str r1, [r0]
 	ldmfd sp!, {r4, pc}
-_020671C0: .word unk_020B9D40
+_020671C0: .word NNS_G3dGeBuffer
 _020671C4: .word 0x04000400
 	arm_func_end NNS_G3dGeFlushBuffer
 
 	arm_func_start NNS_G3dGeWaitSendDL
 NNS_G3dGeWaitSendDL: ; 0x020671C8
-	ldr r0, _020671DC ; =0x020B9D40
+	ldr r0, _020671DC ; =NNS_G3dGeBuffer
 _020671CC:
 	ldr r1, [r0, #4]
 	cmp r1, #0
 	bne _020671CC
 	bx lr
-_020671DC: .word unk_020B9D40
+_020671DC: .word NNS_G3dGeBuffer
 	arm_func_end NNS_G3dGeWaitSendDL
 
 	arm_func_start simpleUnlock_
@@ -123667,10 +123667,10 @@ simpleUnlock_: ; 0x020671E0
 
 	arm_func_start NNS_G3dGeUseFastDma
 NNS_G3dGeUseFastDma: ; 0x020671EC
-	ldr r1, _020671F8 ; =0x020B9D40
+	ldr r1, _020671F8 ; =NNS_G3dGeBuffer
 	str r0, [r1, #8]
 	bx lr
-_020671F8: .word unk_020B9D40
+_020671F8: .word NNS_G3dGeBuffer
 	arm_func_end NNS_G3dGeUseFastDma
 
 	arm_func_start NNS_G3dGeSendDL
@@ -123694,7 +123694,7 @@ _02067224:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0206723C:
 	bl NNS_G3dGeFlushBuffer
-	ldr r0, _020672A8 ; =0x020B9D40
+	ldr r0, _020672A8 ; =NNS_G3dGeBuffer
 	mov r1, #1
 	str r1, [r0, #4]
 	ldr r0, [r0, #8]
@@ -123703,7 +123703,7 @@ _0206723C:
 	beq _02067280
 	cmp r0, #3
 	movhi r0, r6
-	ldr r6, _020672AC ; =0x020B9D44
+	ldr r6, _020672AC ; =NNS_G3dFlagGXDmaAsync
 	ldr r3, _020672B0 ; =simpleUnlock_
 	mov r1, r5
 	mov r2, r4
@@ -123713,7 +123713,7 @@ _0206723C:
 _02067280:
 	cmp r0, #3
 	movhi r0, r6
-	ldr r6, _020672AC ; =0x020B9D44
+	ldr r6, _020672AC ; =NNS_G3dFlagGXDmaAsync
 	ldr r3, _020672B0 ; =simpleUnlock_
 	mov r1, r5
 	mov r2, r4
@@ -123721,15 +123721,15 @@ _02067280:
 	bl MI_SendGXCommandAsync
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020672A4: .word GXi_DmaId
-_020672A8: .word unk_020B9D40
-_020672AC: .word unk_020B9D44
+_020672A8: .word NNS_G3dGeBuffer
+_020672AC: .word NNS_G3dFlagGXDmaAsync
 _020672B0: .word simpleUnlock_
 	arm_func_end NNS_G3dGeSendDL
 
 	arm_func_start NNS_G3dGeBufferOP_N
 NNS_G3dGeBufferOP_N: ; 0x020672B4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r7, _02067388 ; =0x020B9D40
+	ldr r7, _02067388 ; =NNS_G3dGeBuffer
 	mov r6, r0
 	ldr r3, [r7]
 	mov r5, r1
@@ -123768,7 +123768,7 @@ _02067338:
 	bl NNS_G3dGeFlushBuffer
 	b _02067370
 _0206734C:
-	ldr r0, _02067388 ; =0x020B9D40
+	ldr r0, _02067388 ; =NNS_G3dGeBuffer
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _02067370
@@ -123786,7 +123786,7 @@ _02067370:
 	str r6, [r1]
 	bl MIi_CpuSend32
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02067388: .word unk_020B9D40
+_02067388: .word NNS_G3dGeBuffer
 _0206738C: .word 0x04000400
 	arm_func_end NNS_G3dGeBufferOP_N
 
@@ -123900,7 +123900,7 @@ _020674BC:
 	str r0, [sp]
 	cmp r9, #0
 	beq _02067524
-	ldr r0, _02067674 ; =0x0208EEA0
+	ldr r0, _02067674 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r1, #0
 	ldr r3, [r0]
 	mov r0, r9
@@ -123914,7 +123914,7 @@ _02067524:
 _02067528:
 	cmp r8, #0
 	beq _02067554
-	ldr r0, _02067674 ; =0x0208EEA0
+	ldr r0, _02067674 ; =NNS_GfdDefaultFuncAllocTexVram
 	mov r2, #0
 	ldr r3, [r0]
 	mov r0, r8
@@ -123930,7 +123930,7 @@ _02067558:
 	cmp r0, #0
 	beq _0206758C
 	ldrh r1, [r4, #0x20]
-	ldr r0, _02067678 ; =0x0208EEA8
+	ldr r0, _02067678 ; =NNS_GfdDefaultFuncAllocPlttVram
 	mov r2, #0
 	ldr r3, [r0]
 	ldr r0, [sp]
@@ -123950,21 +123950,21 @@ _02067590:
 _020675A4:
 	cmp r7, #0
 	beq _020675BC
-	ldr r1, _0206767C ; =0x0208EEAC
+	ldr r1, _0206767C ; =NNS_GfdDefaultFuncFreePlttVram
 	mov r0, r9
 	ldr r1, [r1]
 	blx r1
 _020675BC:
 	cmp r6, #0
 	beq _020675D4
-	ldr r1, _02067680 ; =0x0208EEA4
+	ldr r1, _02067680 ; =NNS_GfdDefaultFuncFreeTexVram
 	mov r0, r8
 	ldr r1, [r1]
 	blx r1
 _020675D4:
 	cmp r5, #0
 	beq _020675EC
-	ldr r1, _02067680 ; =0x0208EEA4
+	ldr r1, _02067680 ; =NNS_GfdDefaultFuncFreeTexVram
 	mov r0, r11
 	ldr r1, [r1]
 	blx r1
@@ -124008,10 +124008,10 @@ _02067660:
 _02067668: .word 0x30415642
 _0206766C: .word 0x30505442
 _02067670: .word 0x30444D42
-_02067674: .word unk_0208EEA0
-_02067678: .word unk_0208EEA8
-_0206767C: .word unk_0208EEAC
-_02067680: .word unk_0208EEA4
+_02067674: .word NNS_GfdDefaultFuncAllocTexVram
+_02067678: .word NNS_GfdDefaultFuncAllocPlttVram
+_0206767C: .word NNS_GfdDefaultFuncFreePlttVram
+_02067680: .word NNS_GfdDefaultFuncFreeTexVram
 	arm_func_end NNS_G3dResDefaultSetup
 
 	arm_func_start NNS_G3dResDefaultRelease
@@ -124069,7 +124069,7 @@ _02067714:
 	bl NNS_G3dTexReleaseTexKey
 	cmp r4, #0
 	beq _02067758
-	ldr r1, _020677A0 ; =0x0208EEAC
+	ldr r1, _020677A0 ; =NNS_GfdDefaultFuncFreePlttVram
 	mov r0, r4
 	ldr r1, [r1]
 	blx r1
@@ -124077,7 +124077,7 @@ _02067758:
 	ldr r0, [sp]
 	cmp r0, #0
 	beq _02067770
-	ldr r1, _020677A4 ; =0x0208EEA4
+	ldr r1, _020677A4 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1]
 	blx r1
 _02067770:
@@ -124085,7 +124085,7 @@ _02067770:
 	cmp r0, #0
 	addeq sp, sp, #8
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r1, _020677A4 ; =0x0208EEA4
+	ldr r1, _020677A4 ; =NNS_GfdDefaultFuncFreeTexVram
 	ldr r1, [r1]
 	blx r1
 	add sp, sp, #8
@@ -124093,8 +124093,8 @@ _02067770:
 _02067794: .word 0x30415642
 _02067798: .word 0x30505442
 _0206779C: .word 0x30444D42
-_020677A0: .word unk_0208EEAC
-_020677A4: .word unk_0208EEA4
+_020677A0: .word NNS_GfdDefaultFuncFreePlttVram
+_020677A4: .word NNS_GfdDefaultFuncFreeTexVram
 	arm_func_end NNS_G3dResDefaultRelease
 
 	arm_func_start NNS_G3dWorldPosToScrPos
@@ -124103,8 +124103,8 @@ NNS_G3dWorldPosToScrPos: ; 0x020677A8
 	sub sp, sp, #0x1c
 	mov r5, r1
 	mov r4, r2
-	ldr r6, _02067928 ; =0x020B6DE0
-	ldr r1, _0206792C ; =0x020B6E24
+	ldr r6, _02067928 ; =NNS_G3dGlb_projMtx
+	ldr r1, _0206792C ; =NNS_G3dGlb_cameraMtx
 	add r2, sp, #0x10
 	bl MTX_MultVec43
 	ldr r1, [sp, #0x14]
@@ -124197,8 +124197,8 @@ _020678C8:
 	str r1, [r4]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_02067928: .word unk_020B6DE0
-_0206792C: .word unk_020B6E24
+_02067928: .word NNS_G3dGlb_projMtx
+_0206792C: .word NNS_G3dGlb_cameraMtx
 	arm_func_end NNS_G3dWorldPosToScrPos
 
 	arm_func_start NNS_G3dMdlSetMdlDiff
@@ -124701,7 +124701,7 @@ NNSi_G3dAnmObjInitNsBca: ; 0x02067F6C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
-	ldr r0, _02067FE4 ; =0x02091014
+	ldr r0, _02067FE4 ; =NNS_G3dFuncAnmJntNsBcaDefault
 	str r5, [r6, #8]
 	ldr r1, [r0]
 	ldrb r2, [r2, #0x17]
@@ -124729,7 +124729,7 @@ _02067FB4:
 	cmp r4, r0
 	blo _02067FB4
 	ldmfd sp!, {r4, r5, r6, pc}
-_02067FE4: .word unk_02091014
+_02067FE4: .word NNS_G3dFuncAnmJntNsBcaDefault
 	arm_func_end NNSi_G3dAnmObjInitNsBca
 
 	arm_func_start NNSi_G3dAnmCalcNsBca
@@ -124754,7 +124754,7 @@ _02068014:
 
 	arm_func_start getMdlTrans_
 getMdlTrans_: ; 0x02068024
-	ldr r1, _020680B4 ; =0x020B703C
+	ldr r1, _020680B4 ; =NNS_G3dRS
 	ldr r2, [r1]
 	ldr r1, [r2]
 	ldr r12, [r2, #0xd4]
@@ -124794,13 +124794,13 @@ _02068080:
 	ldr r1, [r2, #0xc]
 	str r1, [r0, #0x54]
 	bx lr
-_020680B4: .word unk_020B703C
+_020680B4: .word NNS_G3dRS
 	arm_func_end getMdlTrans_
 
 	arm_func_start getMdlScale_
 getMdlScale_: ; 0x020680B8
 	stmfd sp!, {r4, lr}
-	ldr r1, _02068144 ; =0x020B703C
+	ldr r1, _02068144 ; =NNS_G3dRS
 	ldr r12, [r1]
 	ldr r2, [r12]
 	ldr r4, [r12, #0xd4]
@@ -124839,13 +124839,13 @@ _02068138:
 	ldr r12, [r12, #0xe8]
 	blx r12
 	ldmfd sp!, {r4, pc}
-_02068144: .word unk_020B703C
+_02068144: .word NNS_G3dRS
 	arm_func_end getMdlScale_
 
 	arm_func_start getMdlRot_
 getMdlRot_: ; 0x02068148
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r1, _020682B4 ; =0x020B703C
+	ldr r1, _020682B4 ; =NNS_G3dRS
 	mov r8, r0
 	ldr r1, [r1]
 	ldr r0, [r1]
@@ -124941,11 +124941,11 @@ _020682A4:
 	orr r0, r0, #2
 	str r0, [r8]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020682B4: .word unk_020B703C
-_020682B8: .word unk_0208C4E0
-_020682BC: .word unk_0208C4E1
-_020682C0: .word unk_0208C4E2
-_020682C4: .word unk_0208C4E3
+_020682B4: .word NNS_G3dRS
+_020682B8: .word pivotUtil_1
+_020682BC: .word pivotUtil_1 + 1
+_020682C0: .word pivotUtil_1 + 2
+_020682C4: .word pivotUtil_1 + 3
 	arm_func_end getMdlRot_
 
 	arm_func_start getJntSRTAnmResult_
@@ -125186,7 +125186,7 @@ _020685E0:
 	ldr r0, [r7]
 	add r1, sp, #0x18
 	tst r0, #1
-	ldr r0, _02068618 ; =0x020B703C
+	ldr r0, _02068618 ; =NNS_G3dRS
 	movne r3, #4
 	ldr r4, [r0]
 	moveq r3, #0
@@ -125197,7 +125197,7 @@ _020685E0:
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02068614: .word 0x00000FFF
-_02068618: .word unk_020B703C
+_02068618: .word NNS_G3dRS
 	arm_func_end getJntSRTAnmResult_
 
 	arm_func_start getTransData_
@@ -126204,10 +126204,10 @@ _02069408:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _020694A4: .word 0x00007FFF
-_020694A8: .word unk_0208C4E1
-_020694AC: .word unk_0208C4E0
-_020694B0: .word unk_0208C4E2
-_020694B4: .word unk_0208C4E3
+_020694A8: .word pivotUtil_1 + 1
+_020694AC: .word pivotUtil_1
+_020694B0: .word pivotUtil_1 + 2
+_020694B4: .word pivotUtil_1 + 3
 	arm_func_end getRotDataByIdx_
 
 	arm_func_start GetMatColAnmValue_
@@ -126383,7 +126383,7 @@ NNSi_G3dAnmObjInitNsBma: ; 0x02069704
 	mov r9, r1
 	cmpne r0, #0
 	addne r8, r2, r0
-	ldr r0, _020697CC ; =0x02091020
+	ldr r0, _020697CC ; =NNS_G3dFuncAnmMatNsBmaDefault
 	mov r7, #0
 	ldr r1, [r0]
 	mov r0, r7
@@ -126430,7 +126430,7 @@ _020697A8:
 	cmp r7, r0
 	blo _02069764
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020697CC: .word unk_02091020
+_020697CC: .word NNS_G3dFuncAnmMatNsBmaDefault
 	arm_func_end NNSi_G3dAnmObjInitNsBma
 
 	arm_func_start NNSi_G3dAnmCalcNsBma
@@ -126733,7 +126733,7 @@ NNSi_G3dAnmObjInitNsBta: ; 0x02069BD8
 	mov r9, r1
 	cmpne r0, #0
 	addne r8, r2, r0
-	ldr r0, _02069CA0 ; =0x02091018
+	ldr r0, _02069CA0 ; =NNS_G3dFuncAnmMatNsBtaDefault
 	mov r7, #0
 	ldr r1, [r0]
 	mov r0, r7
@@ -126780,7 +126780,7 @@ _02069C7C:
 	cmp r7, r0
 	blo _02069C38
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02069CA0: .word unk_02091018
+_02069CA0: .word NNS_G3dFuncAnmMatNsBtaDefault
 	arm_func_end NNSi_G3dAnmObjInitNsBta
 
 	arm_func_start NNSi_G3dAnmCalcNsBta
@@ -126821,7 +126821,7 @@ NNSi_G3dAnmObjInitNsBtp: ; 0x02069D04
 	mov r9, r1
 	cmpne r0, #0
 	addne r8, r2, r0
-	ldr r0, _02069DD0 ; =0x0209101C
+	ldr r0, _02069DD0 ; =NNS_G3dFuncAnmMatNsBtpDefault
 	mov r7, #0
 	ldr r1, [r0]
 	mov r0, r7
@@ -126869,7 +126869,7 @@ _02069DAC:
 	cmp r7, r0
 	blo _02069D68
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02069DD0: .word unk_0209101C
+_02069DD0: .word NNS_G3dFuncAnmMatNsBtpDefault
 	arm_func_end NNSi_G3dAnmObjInitNsBtp
 
 	arm_func_start SetTexParamaters_
@@ -127005,7 +127005,7 @@ _02069F3C:
 
 	arm_func_start NNSi_G3dAnmObjInitNsBva
 NNSi_G3dAnmObjInitNsBva: ; 0x02069F9C
-	ldr r3, _02069FE0 ; =0x02091010
+	ldr r3, _02069FE0 ; =NNS_G3dFuncAnmVisNsBvaDefault
 	ldrb r2, [r2, #0x17]
 	ldr r3, [r3]
 	mov r12, #0
@@ -127023,7 +127023,7 @@ _02069FC0:
 	cmp r12, r1
 	blo _02069FC0
 	bx lr
-_02069FE0: .word unk_02091010
+_02069FE0: .word NNS_G3dFuncAnmVisNsBvaDefault
 	arm_func_end NNSi_G3dAnmObjInitNsBva
 
 	arm_func_start NNSi_G3dAnmCalcNsBva
@@ -127178,7 +127178,7 @@ NNSi_G3dGetJointScaleMaya: ; 0x0206A1A4
 	orr r0, r0, #1
 	str r0, [lr]
 	beq _0206A270
-	ldr r0, _0206A2DC ; =0x020B703C
+	ldr r0, _0206A2DC ; =NNS_G3dRS
 	ldrb r6, [r2, #1]
 	ldr r0, [r0]
 	mov r1, #1
@@ -127198,7 +127198,7 @@ _0206A1F8:
 	str r0, [lr, #0xc]
 	tst r12, #2
 	beq _0206A270
-	ldr r0, _0206A2DC ; =0x020B703C
+	ldr r0, _0206A2DC ; =NNS_G3dRS
 	ldrb r7, [r2, #1]
 	ldr r0, [r0]
 	mov r4, #0x18
@@ -127226,7 +127226,7 @@ _0206A270:
 	ldr r0, [lr]
 	ldrb r4, [r2, #2]
 	orr r3, r0, #0x20
-	ldr r0, _0206A2DC ; =0x020B703C
+	ldr r0, _0206A2DC ; =NNS_G3dRS
 	str r3, [lr]
 	ldr r1, [r0]
 	mov r0, r4, lsr #5
@@ -127249,7 +127249,7 @@ _0206A2CC:
 	orr r0, r0, #0x10
 	str r0, [lr]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0206A2DC: .word unk_020B703C
+_0206A2DC: .word NNS_G3dRS
 _0206A2E0: .word unk_020B7E4C
 _0206A2E4: .word unk_020B7E50
 _0206A2E8: .word unk_020B7E54
@@ -127588,7 +127588,7 @@ NNSi_G3dSendTexSRTMaya: ; 0x0206A768
 	ldreq r0, _0206A898 ; =0x00101810
 	and r1, r1, #7
 	streq r0, [sp]
-	ldr r0, _0206A89C ; =0x02091228
+	ldr r0, _0206A89C ; =calcTexMtx_Maya
 	mov lr, #3
 	ldr r2, [r0, r1, lsl #2]
 	mov r12, #2
@@ -127655,7 +127655,7 @@ _0206A878:
 	ldmfd sp!, {r4, r5, pc}
 _0206A894: .word 0x00101610
 _0206A898: .word 0x00101810
-_0206A89C: .word unk_02091228
+_0206A89C: .word calcTexMtx_Maya
 	arm_func_end NNSi_G3dSendTexSRTMaya
 
 	arm_func_start NNSi_G3dSendJointSRTSi3d
@@ -127751,7 +127751,7 @@ NNSi_G3dGetJointScaleSi3d: ; 0x0206A9C4
 	ldrb r0, [r2, #2]
 	beq _0206AA64
 	ldr r2, [r5]
-	ldr r1, _0206ABBC ; =0x020B703C
+	ldr r1, _0206ABBC ; =NNS_G3dRS
 	orr r2, r2, #1
 	str r2, [r5]
 	ldr r3, [r1]
@@ -127789,7 +127789,7 @@ _0206AA64:
 	ldr r10, [r1]
 	ldr r9, [r1, #4]
 	ldr r8, [r1, #8]
-	ldr r6, _0206ABBC ; =0x020B703C
+	ldr r6, _0206ABBC ; =NNS_G3dRS
 	str r10, [r5, #4]
 	str r9, [r5, #8]
 	str r8, [r5, #0xc]
@@ -127873,7 +127873,7 @@ _0206AAE8:
 	str r5, [r6, r3]
 	bl MIi_CpuCopy32
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0206ABBC: .word unk_020B703C
+_0206ABBC: .word NNS_G3dRS
 _0206ABC0: .word unk_020B7E40
 _0206ABC4: .word unk_020B7E44
 _0206ABC8: .word unk_020B7E48
@@ -128350,7 +128350,7 @@ NNSi_G3dSendTexSRT3dsMax: ; 0x0206B24C
 	ldreq r0, _0206B37C ; =0x00101810
 	and r1, r1, #7
 	streq r0, [sp]
-	ldr r0, _0206B380 ; =0x02091248
+	ldr r0, _0206B380 ; =calcTexMtx_3dsMax
 	mov lr, #3
 	ldr r2, [r0, r1, lsl #2]
 	mov r12, #2
@@ -128417,7 +128417,7 @@ _0206B35C:
 	ldmfd sp!, {r4, r5, pc}
 _0206B378: .word 0x00101610
 _0206B37C: .word 0x00101810
-_0206B380: .word unk_02091248
+_0206B380: .word calcTexMtx_3dsMax
 	arm_func_end NNSi_G3dSendTexSRT3dsMax
 
 	arm_func_start texmtxCalc_flag_Xsi
@@ -128791,7 +128791,7 @@ NNSi_G3dSendTexSRTXsi: ; 0x0206B850
 	movne r0, #0
 	strne r0, [r4, #0x28]
 	strne r0, [r4, #0x24]
-	ldr r0, _0206B9C0 ; =0x02091268
+	ldr r0, _0206B9C0 ; =calcTexMtx_Xsi
 	and r1, r1, #7
 	str r2, [sp, #0x40]
 	str r2, [sp, #0x34]
@@ -128852,10 +128852,10 @@ _0206B99C:
 	mov r2, #0x12
 	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x4c
-	ldmfd sp!, {r4, r5, pc}
+	ldmfd sp!, {r4, r5, pc}	
 _0206B9B8: .word 0x00101610
 _0206B9BC: .word 0x00101810
-_0206B9C0: .word unk_02091268
+_0206B9C0: .word calcTexMtx_Xsi
 	arm_func_end NNSi_G3dSendTexSRTXsi
 
 	arm_func_start FUN_0206b9c4
@@ -164089,37 +164089,19 @@ unk_0208C47C:
 unk_0208C48C:
 	.byte 0x07, 0x00, 0x00, 0x00
 	.byte 0x08, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-	.global unk_0208C49C
-unk_0208C49C:
+	.global matColorMask_
+matColorMask_:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0xFF, 0x7F, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x7F, 0xFF, 0x7F, 0xFF, 0x7F, 0x00, 0x80, 0x00, 0x00
 	.byte 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x80, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF, 0x7F
-	.global unk_0208C4BC
-unk_0208C4BC:
-	.byte 0x04
-	.global unk_0208C4BD
-unk_0208C4BD:
-	.byte 0x05
-	.global unk_0208C4BE
-unk_0208C4BE:
-	.byte 0x07
-	.global unk_0208C4BF
-unk_0208C4BF:
-	.byte 0x08
+	.global pivotUtil_
+pivotUtil_:
+	.byte 0x04, 0x05, 0x07, 0x08
 	.byte 0x03, 0x05, 0x06, 0x08, 0x03, 0x04, 0x06, 0x07, 0x01, 0x02, 0x07, 0x08, 0x00, 0x02, 0x06, 0x08
 	.byte 0x00, 0x01, 0x06, 0x07, 0x01, 0x02, 0x04, 0x05, 0x00, 0x02, 0x03, 0x05, 0x00, 0x01, 0x03, 0x04
-	.global unk_0208C4E0
-unk_0208C4E0:
-	.byte 0x04
-	.global unk_0208C4E1
-unk_0208C4E1:
-	.byte 0x05
-	.global unk_0208C4E2
-unk_0208C4E2:
-	.byte 0x07
-	.global unk_0208C4E3
-unk_0208C4E3:
-	.byte 0x08, 0x03, 0x05, 0x06, 0x08, 0x03, 0x04, 0x06, 0x07, 0x01, 0x02, 0x07, 0x08
+	.global pivotUtil_1
+pivotUtil_1:
+	.byte 0x04, 0x05, 0x07, 0x08, 0x03, 0x05, 0x06, 0x08, 0x03, 0x04, 0x06, 0x07, 0x01, 0x02, 0x07, 0x08
 	.byte 0x00, 0x02, 0x06, 0x08, 0x00, 0x01, 0x06, 0x07, 0x01, 0x02, 0x04, 0x05, 0x00, 0x02, 0x03, 0x05
 	.byte 0x00, 0x01, 0x03, 0x04
 	.global unk_0208C504
@@ -164940,18 +164922,18 @@ WM_GetNextTgid_tgid_bak:
 	.global PMi_WaitBusyMethod
 PMi_WaitBusyMethod:
 	.byte 0x02, 0x00, 0x00, 0x00
-	.global unk_0208EEA0
-unk_0208EEA0:
-	.word FUN_02019f10
-	.global unk_0208EEA4
-unk_0208EEA4:
-	.word FUN_02019f18
-	.global unk_0208EEA8
-unk_0208EEA8:
-	.word FUN_02019f20
-	.global unk_0208EEAC
-unk_0208EEAC:
-	.word FUN_02019f28
+	.global NNS_GfdDefaultFuncAllocTexVram
+NNS_GfdDefaultFuncAllocTexVram:
+	.word AllocTexVram_
+	.global NNS_GfdDefaultFuncFreeTexVram
+NNS_GfdDefaultFuncFreeTexVram:
+	.word FreeTexVram_
+	.global NNS_GfdDefaultFuncAllocPlttVram
+NNS_GfdDefaultFuncAllocPlttVram:
+	.word AllocPlttVram_
+	.global NNS_GfdDefaultFuncFreePlttVram
+NNS_GfdDefaultFuncFreePlttVram:
+	.word FreePlttVram_
 	.global unk_0208EEB0
 unk_0208EEB0:
 	.word unk_0208F000
@@ -166453,139 +166435,134 @@ unk_02090FF0:
 	.global unk_02091000
 unk_02091000:
 	.byte 0x67, 0x6C, 0x6F, 0x62, 0x61, 0x6C, 0x6D, 0x61, 0x70, 0x00, 0x00, 0x00
-	.global unk_0209100C
-unk_0209100C:
+	.global NNS_G3dAnmFmtNum
+NNS_G3dAnmFmtNum:
 	.byte 0x05, 0x00, 0x00, 0x00
-	.global unk_02091010
-unk_02091010:
-	.byte 0xE4, 0x9F, 0x06, 0x02
-	.global unk_02091014
-unk_02091014:
-	.byte 0xE8, 0x7F, 0x06, 0x02
-	.global unk_02091018
-unk_02091018:
-	.byte 0xA4, 0x9C, 0x06, 0x02
-	.global unk_0209101C
-unk_0209101C:
-	.byte 0x0C, 0x9F, 0x06, 0x02
-	.global unk_02091020
-unk_02091020:
-	.byte 0xD0, 0x97, 0x06, 0x02
-	.global unk_02091024
-unk_02091024:
-	.byte 0x74, 0x4A, 0x06, 0x02
-	.global unk_02091028
-unk_02091028:
-	.byte 0x84, 0x46, 0x06, 0x02
-	.global unk_0209102C
-unk_0209102C:
-	.byte 0xA8, 0x45, 0x06, 0x02
-	.global unk_02091030
-unk_02091030:
+	.global NNS_G3dFuncAnmVisNsBvaDefault
+NNS_G3dFuncAnmVisNsBvaDefault:
+	.word NNSi_G3dAnmCalcNsBva
+	.global NNS_G3dFuncAnmJntNsBcaDefault
+NNS_G3dFuncAnmJntNsBcaDefault:
+	.word NNSi_G3dAnmCalcNsBca
+	.global NNS_G3dFuncAnmMatNsBtaDefault
+NNS_G3dFuncAnmMatNsBtaDefault:
+	.word NNSi_G3dAnmCalcNsBta
+	.global NNS_G3dFuncAnmMatNsBtpDefault
+NNS_G3dFuncAnmMatNsBtpDefault:
+	.word NNSi_G3dAnmCalcNsBtp
+	.global NNS_G3dFuncAnmMatNsBmaDefault
+NNS_G3dFuncAnmMatNsBmaDefault:
+	.word NNSi_G3dAnmCalcNsBma
+	.global NNS_G3dFuncBlendVisDefault
+NNS_G3dFuncBlendVisDefault:
+	.word NNSi_G3dAnmBlendVis
+	.global NNS_G3dFuncBlendJntDefault
+NNS_G3dFuncBlendJntDefault:
+	.word NNSi_G3dAnmBlendJnt
+	.global NNS_G3dFuncBlendMatDefault
+NNS_G3dFuncBlendMatDefault:
+	.word NNSi_G3dAnmBlendMat
+	.global NNS_G3dAnmObjInitFuncArray
+NNS_G3dAnmObjInitFuncArray:
 	.byte 0x4D, 0x00, 0x41, 0x4D
-	.global unk_02091034
-unk_02091034:
-	.byte 0x04, 0x97, 0x06, 0x02, 0x4D, 0x00, 0x50, 0x54, 0x04, 0x9D, 0x06, 0x02
-	.byte 0x4D, 0x00, 0x41, 0x54, 0xD8, 0x9B, 0x06, 0x02, 0x56, 0x00, 0x41, 0x56, 0x9C, 0x9F, 0x06, 0x02
-	.byte 0x4A, 0x00, 0x41, 0x43, 0x6C, 0x7F, 0x06, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word NNSi_G3dAnmObjInitNsBma
+	.byte 0x4D, 0x00, 0x50, 0x54
+	.word NNSi_G3dAnmObjInitNsBtp
+	.byte 0x4D, 0x00, 0x41, 0x54
+	.word NNSi_G3dAnmObjInitNsBta
+	.byte 0x56, 0x00, 0x41, 0x56
+	.word NNSi_G3dAnmObjInitNsBva
+	.byte 0x4A, 0x00, 0x41, 0x43
+	.word NNSi_G3dAnmObjInitNsBca
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_02091080
-unk_02091080:
-	.byte 0x38, 0xA0, 0x06, 0x02, 0xE8, 0xA0, 0x06, 0x02, 0xA0, 0xA8, 0x06, 0x02
-	.global unk_0209108C
-unk_0209108C:
-	.byte 0xAC, 0xA0, 0x06, 0x02
-	.byte 0xA4, 0xA1, 0x06, 0x02, 0xC4, 0xA9, 0x06, 0x02
-	.global unk_02091098
-unk_02091098:
-	.byte 0x68, 0xA7, 0x06, 0x02, 0xD8, 0xAB, 0x06, 0x02
-	.byte 0x4C, 0xB2, 0x06, 0x02, 0x50, 0xB8, 0x06, 0x02
-	.global unk_020910A8
-unk_020910A8:
-	.byte 0x2A, 0x00, 0x00, 0x00
-	.global unk_020910AC
-unk_020910AC:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x2A, 0x00, 0x00, 0x00
-	.global unk_020910B4
-unk_020910B4:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_020910B8
-unk_020910B8:
-	.byte 0xB4, 0x50, 0x06, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_020910C8
-unk_020910C8:
-	.byte 0xD8, 0x55, 0x06, 0x02, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_020910D8
-unk_020910D8:
+	.global NNS_G3dSendJointSRT_FuncArray
+NNS_G3dSendJointSRT_FuncArray:
+	.word NNSi_G3dSendJointSRTBasic
+	.word NNSi_G3dSendJointSRTMaya
+	.word NNSi_G3dSendJointSRTSi3d
+	.global NNS_G3dGetJointScale_FuncArray
+NNS_G3dGetJointScale_FuncArray:
+	.word NNSi_G3dGetJointScaleBasic
+	.word NNSi_G3dGetJointScaleMaya
+	.word NNSi_G3dGetJointScaleSi3d
+	.global NNS_G3dSendTexSRT_FuncArray
+NNS_G3dSendTexSRT_FuncArray:
+	.word NNSi_G3dSendTexSRTMaya
+	.word NNSi_G3dSendTexSRTSi3d
+	.word NNSi_G3dSendTexSRT3dsMax
+	.word NNSi_G3dSendTexSRTXsi
+	.global Sbc_ENVMAP_cmd
+Sbc_ENVMAP_cmd:
+	.byte 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global NNS_G3dFuncSbcMatTable
+NNS_G3dFuncSbcMatTable:
+	.word NNSi_G3dFuncSbc_MAT_InternalDefault
+	.word 0
+	.word 0
+	.word 0
+	.global NNS_G3dFuncSbcShpTable
+NNS_G3dFuncSbcShpTable:
+	.word NNSi_G3dFuncSbc_SHP_InternalDefault
+	.word 0
+	.word 0
+	.word 0
+	.global Sbc_PRJMAP_mtx
+Sbc_PRJMAP_mtx:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00
-	.global unk_02091118
-unk_02091118:
-	.byte 0x12, 0x10, 0x17, 0x1B
-	.global unk_0209111C
-unk_0209111C:
-	.byte 0x01, 0x00, 0x00, 0x00
-	.byte 0x02, 0x00, 0x00, 0x00
-	.global unk_02091124
-unk_02091124:
-	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global Sbc_BB_bbcmd1
+Sbc_BB_bbcmd1:
+	.byte 0x12, 0x10, 0x17, 0x1B, 0x01, 0x00, 0x00, 0x00
+	.byte 0x02, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.global unk_02091148
-unk_02091148:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_02091154
-unk_02091154:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_02091160
-unk_02091160:
-	.byte 0x12, 0x10, 0x17, 0x1B
-	.global unk_02091164
-unk_02091164:
-	.byte 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00
-	.global unk_0209116C
-unk_0209116C:
-	.byte 0x00, 0x10, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global Sbc_BBY_bbcmd1
+Sbc_BBY_bbcmd1:
+	.byte 0x12, 0x10, 0x17, 0x1B, 0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.global unk_02091190
-unk_02091190:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0209119C
-unk_0209119C:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_020911A8
-unk_020911A8:
-	.byte 0x20, 0x4E, 0x06, 0x02, 0x48, 0x4E, 0x06, 0x02
-	.byte 0x70, 0x4E, 0x06, 0x02, 0xE8, 0x4F, 0x06, 0x02, 0x28, 0x55, 0x06, 0x02, 0xAC, 0x56, 0x06, 0x02
-	.byte 0x4C, 0x57, 0x06, 0x02, 0xA8, 0x5B, 0x06, 0x02, 0x94, 0x5E, 0x06, 0x02, 0xE0, 0x61, 0x06, 0x02
-	.byte 0x28, 0x69, 0x06, 0x02, 0x04, 0x6A, 0x06, 0x02, 0x6C, 0x6A, 0x06, 0x02, 0xBC, 0x6D, 0x06, 0x02
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_02091228
-unk_02091228:
+	.global NNS_G3dFuncSbcTable
+NNS_G3dFuncSbcTable:
+	.word NNSi_G3dFuncSbc_NOP
+	.word NNSi_G3dFuncSbc_RET
+	.word NNSi_G3dFuncSbc_NODE
+	.word NNSi_G3dFuncSbc_MTX
+	.word NNSi_G3dFuncSbc_MAT
+	.word NNSi_G3dFuncSbc_SHP
+	.word NNSi_G3dFuncSbc_NODEDESC
+	.word NNSi_G3dFuncSbc_BB
+	.word NNSi_G3dFuncSbc_BBY
+	.word NNSi_G3dFuncSbc_NODEMIX
+	.word NNSi_G3dFuncSbc_CALLDL
+	.word NNSi_G3dFuncSbc_POSSCALE
+	.word NNSi_G3dFuncSbc_ENVMAP
+	.word NNSi_G3dFuncSbc_PRJMAP
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global calcTexMtx_Maya
+calcTexMtx_Maya:
 	.byte 0xEC, 0xA2, 0x06, 0x02, 0xF4, 0xA3, 0x06, 0x02
 	.byte 0xB8, 0xA4, 0x06, 0x02, 0x2C, 0xA5, 0x06, 0x02, 0x78, 0xA5, 0x06, 0x02, 0x58, 0xA6, 0x06, 0x02
 	.byte 0x04, 0xA7, 0x06, 0x02, 0x44, 0xA7, 0x06, 0x02
-	.global unk_02091248
-unk_02091248:
+	.global calcTexMtx_3dsMax
+calcTexMtx_3dsMax:
 	.byte 0x88, 0xAD, 0x06, 0x02, 0x8C, 0xAE, 0x06, 0x02
 	.byte 0x64, 0xAF, 0x06, 0x02, 0xD8, 0xAF, 0x06, 0x02, 0x24, 0xB0, 0x06, 0x02, 0x18, 0xB1, 0x06, 0x02
 	.byte 0xE0, 0xB1, 0x06, 0x02, 0x28, 0xB2, 0x06, 0x02
-	.global unk_02091268
-unk_02091268:
+	.global calcTexMtx_Xsi
+calcTexMtx_Xsi:
 	.byte 0x84, 0xB3, 0x06, 0x02, 0xE4, 0xB4, 0x06, 0x02
 	.byte 0xBC, 0xB5, 0x06, 0x02, 0x34, 0xB6, 0x06, 0x02, 0x84, 0xB6, 0x06, 0x02, 0x50, 0xB7, 0x06, 0x02
 	.byte 0xF0, 0xB7, 0x06, 0x02, 0x2C, 0xB8, 0x06, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -169100,41 +169077,41 @@ unk_020B5D1C:
 	.global unk_020B5DD8
 unk_020B5DD8:
 	.space 0x1000
-	.global unk_020B6DD8
-unk_020B6DD8:
+	.global NNS_G3dGlb
+NNS_G3dGlb:
 	.space 0x04
-	.global unk_020B6DDC
-unk_020B6DDC:
+	.global NNS_G3dGlb_mtxmode_proj
+NNS_G3dGlb_mtxmode_proj:
 	.space 0x04
-	.global unk_020B6DE0
-unk_020B6DE0:
+	.global NNS_G3dGlb_projMtx
+NNS_G3dGlb_projMtx:
 	.space 0x44
-	.global unk_020B6E24
-unk_020B6E24:
+	.global NNS_G3dGlb_cameraMtx
+NNS_G3dGlb_cameraMtx:
 	.space 0x30
-	.global unk_020B6E54
-unk_020B6E54:
+	.global NNS_G3dGlb_cmd1
+NNS_G3dGlb_cmd1:
 	.space 0x40
-	.global unk_020B6E94
-unk_020B6E94:
+	.global NNS_G3dGlb_prmBaseRot
+NNS_G3dGlb_prmBaseRot:
 	.space 0x24
-	.global unk_020B6EB8
-unk_020B6EB8:
+	.global NNS_G3dGlb_prmBaseTrans
+NNS_G3dGlb_prmBaseTrans:
 	.space 0x20
-	.global unk_020B6ED8
-unk_020B6ED8:
+	.global NNS_G3dGlb_invCameraMtx
+NNS_G3dGlb_invCameraMtx:
 	.space 0x30
-	.global unk_020B6F08
-unk_020B6F08:
+	.global NNS_G3dGlb_srtCameraMtx
+NNS_G3dGlb_srtCameraMtx:
 	.space 0x30
-	.global unk_020B6F38
-unk_020B6F38:
+	.global NNS_G3dGlb_invSrtCameraMtx
+NNS_G3dGlb_invSrtCameraMtx:
 	.space 0x104
-	.global unk_020B703C
-unk_020B703C:
+	.global NNS_G3dRS
+NNS_G3dRS:
 	.space 0x04
-	.global unk_020B7040
-unk_020B7040:
+	.global NNS_G3dRSOnGlb
+NNS_G3dRSOnGlb:
 	.space 0xE00
 	.global unk_020B7E40
 unk_020B7E40:
@@ -169154,17 +169131,17 @@ unk_020B7E50:
 	.global unk_020B7E54
 unk_020B7E54:
 	.space 0x5EC
-	.global unk_020B8440
-unk_020B8440:
+	.global NNS_G3dRSOnGlb_evpCache_M
+NNS_G3dRSOnGlb_evpCache_M:
 	.space 0x40
-	.global unk_020B8480
-unk_020B8480:
+	.global NNS_G3dRSOnGlb_evpCache_N
+NNS_G3dRSOnGlb_evpCache_N:
 	.space 0x18C0
-	.global unk_020B9D40
-unk_020B9D40:
+	.global NNS_G3dGeBuffer
+NNS_G3dGeBuffer:
 	.space 0x04
-	.global unk_020B9D44
-unk_020B9D44:
+	.global NNS_G3dFlagGXDmaAsync
+NNS_G3dFlagGXDmaAsync:
 	.space 0x08
 	.global unk_020B9D4C
 unk_020B9D4C:

@@ -599,9 +599,9 @@
 .public unk_020A1302
 .public unk_020A1640
 .public unk_020AF81C
-.public unk_020B6DD8
-.public unk_020B6DE0
-.public unk_020B6E24
+.public NNS_G3dGlb
+.public NNS_G3dGlb_projMtx
+.public NNS_G3dGlb_cameraMtx
 .public unk_0208F6F0
 .public unk_0209A0AC
 .public unk_0209A0D4

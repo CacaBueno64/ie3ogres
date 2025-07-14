@@ -506,7 +506,7 @@
 .public unk_020AA044
 .public unk_020AF8AC
 .public unk_020AF81C
-.public unk_020B6E24
+.public NNS_G3dGlb_cameraMtx
 .public unk_0209A0F4
 .public unk_0209A1A8
 .public unk_0209A3E0

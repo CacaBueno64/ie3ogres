@@ -23061,7 +23061,7 @@ FUN_ov0_020d0d48: ; 0x020D0D48
 	sub sp, sp, #0x18
 	mov r6, r0
 	ldr r0, [r6, #8]
-	ldr r4, _020D0E68 ; =0x020B6E24
+	ldr r4, _020D0E68 ; =NNS_G3dGlb_cameraMtx
 	cmp r0, #0
 	addle sp, sp, #0x18
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -23133,7 +23133,7 @@ _020D0DE0:
 	strh r0, [r6, #0x12]
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, pc}
-_020D0E68: .word unk_020B6E24
+_020D0E68: .word NNS_G3dGlb_cameraMtx
 	arm_func_end FUN_ov0_020d0d48
 
 	arm_func_start FUN_ov0_020d0e6c

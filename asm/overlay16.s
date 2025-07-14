@@ -11698,14 +11698,14 @@ _020F7684:
 	bl FUN_ov16_020f7c04
 	mov r1, r0
 	ldr r2, [r7, #0x3c]
-	ldr r4, _020F77A8 ; =0x020B6DD8
+	ldr r4, _020F77A8 ; =NNS_G3dGlb
 	add r0, r7, #0x3c
 	str r2, [r4, #0x240]
 	ldr r3, [r7, #0x40]
 	mov r2, r8
 	str r3, [r4, #0x244]
 	ldr r5, [r7, #0x44]
-	ldr r3, _020F77AC ; =0x020B6E24
+	ldr r3, _020F77AC ; =NNS_G3dGlb_cameraMtx
 	str r5, [r4, #0x248]
 	ldr r5, [r1]
 	str r5, [r4, #0x24c]
@@ -11729,8 +11729,8 @@ _020F7798: .word 0x0000FFFE
 _020F779C: .word 0x0000FFFB
 _020F77A0: .word 0x0000FFFD
 _020F77A4: .word 0x0000FFF7
-_020F77A8: .word unk_020B6DD8
-_020F77AC: .word unk_020B6E24
+_020F77A8: .word NNS_G3dGlb
+_020F77AC: .word NNS_G3dGlb_cameraMtx
 	arm_func_end FUN_ov16_020f74dc
 
 	arm_func_start FUN_ov16_020f77b0
@@ -11760,13 +11760,13 @@ FUN_ov16_020f77e4: ; 0x020F77E4
 	ldr r0, [r3, #0x10]
 	mov r1, #0x1000
 	str r0, [sp]
-	ldr r0, _020F7840 ; =0x020B6DE0
+	ldr r0, _020F7840 ; =NNS_G3dGlb_projMtx
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	ldmia r3, {r0, r1, r2}
 	ldr r3, [r3, #0xc]
 	bl MTX_PerspectiveW
-	ldr r2, _020F7844 ; =0x020B6DD8
+	ldr r2, _020F7844 ; =NNS_G3dGlb
 	mov r0, r4
 	ldr r3, [r2, #0xfc]
 	mov r1, #0
@@ -11775,8 +11775,8 @@ FUN_ov16_020f77e4: ; 0x020F77E4
 	bl FUN_ov16_020f74dc
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
-_020F7840: .word unk_020B6DE0
-_020F7844: .word unk_020B6DD8
+_020F7840: .word NNS_G3dGlb_projMtx
+_020F7844: .word NNS_G3dGlb
 	arm_func_end FUN_ov16_020f77e4
 
 	arm_func_start FUN_ov16_020f7848
@@ -11813,7 +11813,7 @@ FUN_ov16_020f7894: ; 0x020F7894
 	mov r1, #0x1800
 	str r0, [sp]
 	ldr r2, [r3, #0x28]
-	ldr r0, _020F7900 ; =0x020B6DE0
+	ldr r0, _020F7900 ; =NNS_G3dGlb_projMtx
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	str r0, [sp, #0xc]
@@ -11822,7 +11822,7 @@ FUN_ov16_020f7894: ; 0x020F7894
 	ldr r2, [r3, #0x1c]
 	ldr r3, [r3, #0x20]
 	bl MTX_OrthoW
-	ldr r2, _020F7904 ; =0x020B6DD8
+	ldr r2, _020F7904 ; =NNS_G3dGlb
 	mov r0, r4
 	ldr r3, [r2, #0xfc]
 	mov r1, #0
@@ -11831,8 +11831,8 @@ FUN_ov16_020f7894: ; 0x020F7894
 	bl FUN_ov16_020f74dc
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
-_020F7900: .word unk_020B6DE0
-_020F7904: .word unk_020B6DD8
+_020F7900: .word NNS_G3dGlb_projMtx
+_020F7904: .word NNS_G3dGlb
 	arm_func_end FUN_ov16_020f7894
 
 	arm_func_start FUN_ov16_020f7908
@@ -14026,7 +14026,7 @@ FUN_ov16_020f96dc: ; 0x020F96DC
 	ldrh r0, [r4, #0x40]
 	tst r0, #0x10
 	beq _020F9748
-	ldr lr, _020F9784 ; =0x020B6E24
+	ldr lr, _020F9784 ; =NNS_G3dGlb_cameraMtx
 	add r12, sp, #0
 	ldmia lr!, {r0, r1, r2, r3}
 	mov r5, r12
@@ -14060,7 +14060,7 @@ _020F975C:
 	bl NNS_G3dGeBufferOP_N
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, pc}
-_020F9784: .word unk_020B6E24
+_020F9784: .word NNS_G3dGlb_cameraMtx
 	arm_func_end FUN_ov16_020f96dc
 
 	arm_func_start FUN_ov16_020f9788
@@ -43004,7 +43004,7 @@ _02111B28:
 	bl NNS_G3dGeBufferOP_N
 	cmp r5, #0
 	bne _02111BA8
-	ldr lr, _02111C98 ; =0x020B6E24
+	ldr lr, _02111C98 ; =NNS_G3dGlb_cameraMtx
 	add r12, sp, #0x38
 	ldmia lr!, {r0, r1, r2, r3}
 	mov r7, r12
@@ -43086,7 +43086,7 @@ _02111C18:
 	mov r0, #1
 	add sp, sp, #0x74
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_02111C98: .word unk_020B6E24
+_02111C98: .word NNS_G3dGlb_cameraMtx
 _02111C9C: .word FX_SinCosTable_
 	arm_func_end FUN_ov16_02111918
 
@@ -47399,7 +47399,7 @@ _02115428:
 _0211551C:
 	cmp r11, #0
 	bne _02115574
-	ldr r12, _02115904 ; =0x020B6E24
+	ldr r12, _02115904 ; =NNS_G3dGlb_cameraMtx
 	add lr, sp, #0xe0
 	ldmia r12!, {r0, r1, r2, r3}
 	str lr, [sp, #0x14]
@@ -47674,7 +47674,7 @@ _021158F4: .word unk_02099F24
 _021158F8: .word 0x51EB851F
 _021158FC: .word FX_SinCosTable_
 _02115900: .word 0x0208A874
-_02115904: .word unk_020B6E24
+_02115904: .word NNS_G3dGlb_cameraMtx
 _02115908: .word 0x0000FFEF
 _0211590C: .word 0x0000FFDF
 	arm_func_end FUN_ov16_02115058
