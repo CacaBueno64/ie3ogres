@@ -172,7 +172,7 @@
 .public NNSi_G2dTextCanvasDrawText
 .public NNSi_G2dTextCanvasDrawTextRect
 .public NNS_SndInit
-.public FUN_0201a8d4
+.public NNS_SndMain
 .public FUN_0201a9d0
 .public FUN_0201a9e8
 .public FUN_0201aa08

@@ -23,7 +23,7 @@
 .public FS_GetFileImageTop
 .public FS_Init
 .public CARD_UnlockRom
-.public FUN_0201a8d4
+.public NNS_SndMain
 .public FUN_0201a9d0
 .public FUN_0201a9e8
 .public NNS_SndInit

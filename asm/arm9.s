@@ -31842,40 +31842,40 @@ _0201A854: .word unk_0209778C
 	arm_func_start NNS_SndInit
 NNS_SndInit: ; 0x0201A858
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0201A8C0 ; =0x0209779C
+	ldr r4, _0201A8C0 ; =sCurDriverInfo
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r6, #1
 	str r6, [r4, #0xc]
 	bl SND_Init
-	ldr r0, _0201A8C4 ; =FUN_0201a904
+	ldr r0, _0201A8C4 ; =BeginSleep
 	mov r5, #0
 	str r0, [r4, #0x10]
-	ldr r0, _0201A8C8 ; =FUN_0201a93c
+	ldr r0, _0201A8C8 ; =EndSleep
 	str r5, [r4, #0x14]
 	str r0, [r4, #0x20]
-	ldr r0, _0201A8CC ; =0x020977AC
+	ldr r0, _0201A8CC ; =sPreSleepCallback
 	str r5, [r4, #0x24]
 	bl PM_PrependPreSleepCallback
-	ldr r0, _0201A8D0 ; =0x020977BC
+	ldr r0, _0201A8D0 ; =sPostSleepCallback
 	bl PM_AppendPostSleepCallback
-	bl FUN_0201a9b4
+	bl NNSi_SndInitResourceMgr
 	bl FUN_0201b390
 	bl FUN_0201ab70
 	sub r0, r5, #1
 	strb r0, [r4]
 	str r6, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0201A8C0: .word unk_0209779C
-_0201A8C4: .word FUN_0201a904
-_0201A8C8: .word FUN_0201a93c
-_0201A8CC: .word unk_020977AC
-_0201A8D0: .word unk_020977BC
+_0201A8C0: .word sCurDriverInfo
+_0201A8C4: .word BeginSleep
+_0201A8C8: .word EndSleep
+_0201A8CC: .word sPreSleepCallback
+_0201A8D0: .word sPostSleepCallback
 	arm_func_end NNS_SndInit
 
-	arm_func_start FUN_0201a8d4
-FUN_0201a8d4: ; 0x0201A8D4
+	arm_func_start NNS_SndMain
+NNS_SndMain: ; 0x0201A8D4
 	stmfd sp!, {r4, lr}
 	mov r4, #0
 _0201A8DC:
@@ -31883,16 +31883,16 @@ _0201A8DC:
 	bl SND_RecvCommandReply
 	cmp r0, #0
 	bne _0201A8DC
-	bl FUN_0201ac24
-	bl FUN_0201b3b0
-	bl FUN_0201c4d0
+	bl NNSi_SndPlayerMain
+	bl NNSi_SndCaptureMain
+	bl NNSi_SndArcStrmMain
 	mov r0, r4
 	bl SND_FlushCommand
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0201a8d4
+	arm_func_end NNS_SndMain
 
-	arm_func_start FUN_0201a904
-FUN_0201a904: ; 0x0201A904
+	arm_func_start BeginSleep
+BeginSleep: ; 0x0201A904
 	stmfd sp!, {r4, lr}
 	bl FUN_0201b514
 	mov r0, #0
@@ -31907,64 +31907,64 @@ FUN_0201a904: ; 0x0201A904
 	mov r0, r4
 	bl SND_WaitForCommandProc
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0201a904
+	arm_func_end BeginSleep
 
-	arm_func_start FUN_0201a93c
-FUN_0201a93c: ; 0x0201A93C
+	arm_func_start EndSleep
+EndSleep: ; 0x0201A93C
 	ldr r12, _0201A944 ; =FUN_0201b56c
 	bx r12
 _0201A944: .word FUN_0201b56c
-	arm_func_end FUN_0201a93c
+	arm_func_end EndSleep
 
-	arm_func_start FUN_0201a948
-FUN_0201a948: ; 0x0201A948
+	arm_func_start NNS_SndUnlockChannel
+NNS_SndUnlockChannel: ; 0x0201A948
 	stmfd sp!, {r4, lr}
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
 	mov r1, #0
 	bl SND_UnlockChannel
-	ldr r0, _0201A974 ; =0x020977CC
+	ldr r0, _0201A974 ; =sCaptureLock
 	mvn r1, r4
 	ldr r2, [r0, #8]
 	and r1, r2, r1
 	str r1, [r0, #8]
 	ldmfd sp!, {r4, pc}
-_0201A974: .word unk_020977CC
-	arm_func_end FUN_0201a948
+_0201A974: .word sCaptureLock
+	arm_func_end NNS_SndUnlockChannel
 
-	arm_func_start FUN_0201a978
-FUN_0201a978: ; 0x0201A978
-	ldr r1, _0201A990 ; =0x020977CC
+	arm_func_start NNS_SndUnlockCapture
+NNS_SndUnlockCapture: ; 0x0201A978
+	ldr r1, _0201A990 ; =sCaptureLock
 	mvn r0, r0
 	ldr r2, [r1]
 	and r0, r2, r0
 	str r0, [r1]
 	bx lr
-_0201A990: .word unk_020977CC
-	arm_func_end FUN_0201a978
+_0201A990: .word sCaptureLock
+	arm_func_end NNS_SndUnlockCapture
 
-	arm_func_start FUN_0201a994
-FUN_0201a994: ; 0x0201A994
-	ldr r1, _0201A9B0 ; =0x020977CC
+	arm_func_start NNS_SndFreeAlarm
+NNS_SndFreeAlarm: ; 0x0201A994
+	ldr r1, _0201A9B0 ; =sCaptureLock
 	mov r2, #1
 	mvn r0, r2, lsl r0
 	ldr r2, [r1, #4]
 	and r0, r2, r0
 	str r0, [r1, #4]
 	bx lr
-_0201A9B0: .word unk_020977CC
-	arm_func_end FUN_0201a994
+_0201A9B0: .word sCaptureLock
+	arm_func_end NNS_SndFreeAlarm
 
-	arm_func_start FUN_0201a9b4
-FUN_0201a9b4: ; 0x0201A9B4
-	ldr r0, _0201A9CC ; =0x020977CC
+	arm_func_start NNSi_SndInitResourceMgr
+NNSi_SndInitResourceMgr: ; 0x0201A9B4
+	ldr r0, _0201A9CC ; =sCaptureLock
 	mov r1, #0
 	str r1, [r0, #8]
 	str r1, [r0]
 	str r1, [r0, #4]
 	bx lr
-_0201A9CC: .word unk_020977CC
-	arm_func_end FUN_0201a9b4
+_0201A9CC: .word sCaptureLock
+	arm_func_end NNSi_SndInitResourceMgr
 
 	arm_func_start FUN_0201a9d0
 FUN_0201a9d0: ; 0x0201A9D0
@@ -32169,8 +32169,8 @@ _0201AC1C: .word unk_020977F0
 _0201AC20: .word unk_02097C30
 	arm_func_end FUN_0201ab70
 
-	arm_func_start FUN_0201ac24
-FUN_0201ac24: ; 0x0201AC24
+	arm_func_start NNSi_SndPlayerMain
+NNSi_SndPlayerMain: ; 0x0201AC24
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	bl SND_GetPlayerStatus
 	mov r11, r0
@@ -32267,7 +32267,7 @@ _0201AD6C:
 _0201AD7C: .word unk_020977E4
 _0201AD80: .word SNDi_DecibelTable
 _0201AD84: .word 0x00007FFF
-	arm_func_end FUN_0201ac24
+	arm_func_end NNSi_SndPlayerMain
 
 	arm_func_start FUN_0201ad88
 FUN_0201ad88: ; 0x0201AD88
@@ -32621,7 +32621,7 @@ FUN_0201b1e8: ; 0x0201B1E8
 	ldr r0, [r4, #0x4c]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0201a948
+	bl NNS_SndUnlockChannel
 	mov r0, #0
 	str r0, [r4, #0x4c]
 	str r0, [r4, #0x50]
@@ -32735,7 +32735,7 @@ FUN_0201b360: ; 0x0201B360
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r4, #0x48]
-	bl FUN_0201a994
+	bl NNS_SndFreeAlarm
 	ldr r0, _0201B38C ; =0x020980B4
 	mov r1, r4
 	bl NNS_FndRemoveListObject
@@ -32758,8 +32758,8 @@ _0201B3A8: .word unk_02098140
 _0201B3AC: .word unk_02098188
 	arm_func_end FUN_0201b390
 
-	arm_func_start FUN_0201b3b0
-FUN_0201b3b0: ; 0x0201B3B0
+	arm_func_start NNSi_SndCaptureMain
+NNSi_SndCaptureMain: ; 0x0201B3B0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _0201B42C ; =0x02098188
 	ldr r0, [r4]
@@ -32793,7 +32793,7 @@ _0201B3FC:
 	str r5, [r4, #0x50]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201B42C: .word unk_02098188
-	arm_func_end FUN_0201b3b0
+	arm_func_end NNSi_SndCaptureMain
 
 	arm_func_start FUN_0201b430
 FUN_0201b430: ; 0x0201B430
@@ -32835,17 +32835,17 @@ _0201B4B4:
 	ldr r0, [r6, #0x28]
 	cmp r0, #0
 	beq _0201B4C4
-	bl FUN_0201a978
+	bl NNS_SndUnlockCapture
 _0201B4C4:
 	ldr r0, [r6, #0x20]
 	cmp r0, #0
 	beq _0201B4D4
-	bl FUN_0201a948
+	bl NNS_SndUnlockChannel
 _0201B4D4:
 	cmp r7, #0
 	beq _0201B4E4
 	ldr r0, [r6, #0x2c]
-	bl FUN_0201a994
+	bl NNS_SndFreeAlarm
 _0201B4E4:
 	ldr r0, [r6, #4]
 	cmp r0, #1
@@ -34051,8 +34051,8 @@ _0201C480:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_0201c408
 
-	arm_func_start FUN_0201c4d0
-FUN_0201c4d0: ; 0x0201C4D0
+	arm_func_start NNSi_SndArcStrmMain
+NNSi_SndArcStrmMain: ; 0x0201C4D0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r4, _0201C5D4 ; =SNDi_DecibelTable
 	ldr r5, _0201C5D8 ; =0x0209824C
@@ -34126,7 +34126,7 @@ _0201C5C4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0201C5D4: .word SNDi_DecibelTable
 _0201C5D8: .word unk_0209824C
-	arm_func_end FUN_0201c4d0
+	arm_func_end NNSi_SndArcStrmMain
 
 	arm_func_start FUN_0201c5dc
 FUN_0201c5dc: ; 0x0201C5DC
@@ -168072,17 +168072,17 @@ mgr_02097788:
 	.global unk_0209778C
 unk_0209778C:
 	.space 0x10
-	.global unk_0209779C
-unk_0209779C:
+	.global sCurDriverInfo
+sCurDriverInfo:
 	.space 0x10
-	.global unk_020977AC
-unk_020977AC:
+	.global sPreSleepCallback
+sPreSleepCallback:
 	.space 0x10
-	.global unk_020977BC
-unk_020977BC:
+	.global sPostSleepCallback
+sPostSleepCallback:
 	.space 0x10
-	.global unk_020977CC
-unk_020977CC:
+	.global sCaptureLock
+sCaptureLock:
 	.space 0x0C
 	.global unk_020977D8
 unk_020977D8:
