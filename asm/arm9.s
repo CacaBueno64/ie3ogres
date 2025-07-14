@@ -31148,8 +31148,8 @@ FreePlttVram_: ; 0x02019F28
 	bx lr
 	arm_func_end FreePlttVram_
 
-	arm_func_start FUN_02019f30
-FUN_02019f30: ; 0x02019F30
+	arm_func_start TryToMergeBlockRegion_
+TryToMergeBlockRegion_: ; 0x02019F30
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, [r0]
 	mov lr, #0
@@ -31211,17 +31211,17 @@ _0201A000:
 _0201A00C:
 	mov r0, lr
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02019f30
+	arm_func_end TryToMergeBlockRegion_
 
-	arm_func_start FUN_0201a014
-FUN_0201a014: ; 0x0201A014
+	arm_func_start NNSi_GfdInitLnkVramMan
+NNSi_GfdInitLnkVramMan: ; 0x0201A014
 	mov r1, #0
 	str r1, [r0]
 	bx lr
-	arm_func_end FUN_0201a014
+	arm_func_end NNSi_GfdInitLnkVramMan
 
-	arm_func_start FUN_0201a020
-FUN_0201a020: ; 0x0201A020
+	arm_func_start NNSi_GfdInitLnkVramBlockPool
+NNSi_GfdInitLnkVramBlockPool: ; 0x0201A020
 	stmfd sp!, {r3, lr}
 	subs lr, r1, #1
 	mov r12, #0
@@ -31241,10 +31241,10 @@ _0201A050:
 	add r1, r0, r1, lsl #4
 	str r2, [r1, #-4]
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0201a020
+	arm_func_end NNSi_GfdInitLnkVramBlockPool
 
-	arm_func_start FUN_0201a064
-FUN_0201a064: ; 0x0201A064
+	arm_func_start NNSi_GfdAddNewFreeBlock
+NNSi_GfdAddNewFreeBlock: ; 0x0201A064
 	stmfd sp!, {r3, lr}
 	ldr lr, [r1]
 	cmp lr, #0
@@ -31269,19 +31269,19 @@ FUN_0201a064: ; 0x0201A064
 _0201A0B8:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0201a064
+	arm_func_end NNSi_GfdAddNewFreeBlock
 
-	arm_func_start FUN_0201a0c0
-FUN_0201a0c0: ; 0x0201A0C0
+	arm_func_start NNSi_GfdAllocLnkVram
+NNSi_GfdAllocLnkVram: ; 0x0201A0C0
 	stmfd sp!, {r3, lr}
 	mov r12, #0
 	str r12, [sp]
-	bl FUN_0201a0d4
+	bl NNSi_GfdAllocLnkVramAligned
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0201a0c0
+	arm_func_end NNSi_GfdAllocLnkVram
 
-	arm_func_start FUN_0201a0d4
-FUN_0201a0d4: ; 0x0201A0D4
+	arm_func_start NNSi_GfdAllocLnkVramAligned
+NNSi_GfdAllocLnkVramAligned: ; 0x0201A0D4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r7, [r0]
 	ldr r9, [sp, #0x28]
@@ -31366,10 +31366,10 @@ _0201A200:
 	mov r0, #0
 	str r0, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0201a0d4
+	arm_func_end NNSi_GfdAllocLnkVramAligned
 
-	arm_func_start FUN_0201a20c
-FUN_0201a20c: ; 0x0201A20C
+	arm_func_start NNSi_GfdMergeAllFreeBlocks
+NNSi_GfdMergeAllFreeBlocks: ; 0x0201A20C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	mov r7, r0
@@ -31389,7 +31389,7 @@ _0201A230:
 	add r3, r3, r2
 	mov r2, r4
 	str r3, [sp, #4]
-	bl FUN_02019f30
+	bl TryToMergeBlockRegion_
 	cmp r0, #0
 	ldreq r5, [r5, #0xc]
 	beq _0201A280
@@ -31405,10 +31405,10 @@ _0201A280:
 	bne _0201A230
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0201a20c
+	arm_func_end NNSi_GfdMergeAllFreeBlocks
 
-	arm_func_start FUN_0201a290
-FUN_0201a290: ; 0x0201A290
+	arm_func_start NNSi_GfdFreeLnkVram
+NNSi_GfdFreeLnkVram: ; 0x0201A290
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	add r3, r2, r3
@@ -31417,7 +31417,7 @@ FUN_0201a290: ; 0x0201A290
 	mov r5, r1
 	str r3, [sp, #4]
 	mov r4, r0
-	bl FUN_02019f30
+	bl TryToMergeBlockRegion_
 	ldr r3, [r5]
 	cmp r3, #0
 	ldrne r0, [r3, #0xc]
@@ -31445,42 +31445,42 @@ FUN_0201a290: ; 0x0201A290
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0201a290
+	arm_func_end NNSi_GfdFreeLnkVram
 
-	arm_func_start FUN_0201a320
-FUN_0201a320: ; 0x0201A320
+	arm_func_start NNS_GfdGetLnkTexVramManagerWorkSize
+NNS_GfdGetLnkTexVramManagerWorkSize: ; 0x0201A320
 	mov r0, r0, lsl #4
 	bx lr
-	arm_func_end FUN_0201a320
+	arm_func_end NNS_GfdGetLnkTexVramManagerWorkSize
 
-	arm_func_start FUN_0201a328
-FUN_0201a328: ; 0x0201A328
+	arm_func_start NNS_GfdInitLnkTexVramManager
+NNS_GfdInitLnkTexVramManager: ; 0x0201A328
 	stmfd sp!, {r3, lr}
-	ldr r12, _0201A36C ; =0x0209776C
+	ldr r12, _0201A36C ; =mgr_0209776C
 	str r0, [r12, #0xc]
 	str r1, [r12, #0x10]
 	str r2, [r12, #0x14]
 	str r3, [r12, #0x18]
-	bl FUN_0201a470
+	bl NNS_GfdResetLnkTexVramState
 	ldr r0, [sp, #8]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r3, _0201A370 ; =FUN_0201a380
+	ldr r3, _0201A370 ; =NNS_GfdAllocLnkTexVram
 	ldr r1, _0201A374 ; =NNS_GfdDefaultFuncAllocTexVram
-	ldr r2, _0201A378 ; =FUN_0201a404
+	ldr r2, _0201A378 ; =NNS_GfdFreeLnkTexVram
 	ldr r0, _0201A37C ; =NNS_GfdDefaultFuncFreeTexVram
 	str r3, [r1]
 	str r2, [r0]
 	ldmfd sp!, {r3, pc}
-_0201A36C: .word unk_0209776C
-_0201A370: .word FUN_0201a380
+_0201A36C: .word mgr_0209776C
+_0201A370: .word NNS_GfdAllocLnkTexVram
 _0201A374: .word NNS_GfdDefaultFuncAllocTexVram
-_0201A378: .word FUN_0201a404
+_0201A378: .word NNS_GfdFreeLnkTexVram
 _0201A37C: .word NNS_GfdDefaultFuncFreeTexVram
-	arm_func_end FUN_0201a328
+	arm_func_end NNS_GfdInitLnkTexVramManager
 
-	arm_func_start FUN_0201a380
-FUN_0201a380: ; 0x0201A380
+	arm_func_start NNS_GfdAllocLnkTexVram
+NNS_GfdAllocLnkTexVram: ; 0x0201A380
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r0, #0
 	moveq r5, #0x10
@@ -31497,11 +31497,11 @@ FUN_0201a380: ; 0x0201A380
 	ldr r0, _0201A3F8 ; =0x02097770
 	b _0201A3C0
 _0201A3BC:
-	ldr r0, _0201A3FC ; =0x0209776C
+	ldr r0, _0201A3FC ; =mgr_0209776C
 _0201A3C0:
 	ldr r1, _0201A400 ; =0x02097774
 	mov r3, r5
-	bl FUN_0201a0c0
+	bl NNSi_GfdAllocLnkVram
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -31514,12 +31514,12 @@ _0201A3C0:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0201A3F4: .word 0x0007FFF0
 _0201A3F8: .word unk_02097770
-_0201A3FC: .word unk_0209776C
+_0201A3FC: .word mgr_0209776C
 _0201A400: .word unk_02097774
-	arm_func_end FUN_0201a380
+	arm_func_end NNS_GfdAllocLnkTexVram
 
-	arm_func_start FUN_0201a404
-FUN_0201a404: ; 0x0201A404
+	arm_func_start NNS_GfdFreeLnkTexVram
+NNS_GfdFreeLnkTexVram: ; 0x0201A404
 	stmfd sp!, {r3, lr}
 	ldr r1, _0201A460 ; =0x7FFF0000
 	mov r2, r0, lsl #0x10
@@ -31535,10 +31535,10 @@ FUN_0201a404: ; 0x0201A404
 	ldr r0, _0201A464 ; =0x02097770
 	b _0201A440
 _0201A43C:
-	ldr r0, _0201A468 ; =0x0209776C
+	ldr r0, _0201A468 ; =mgr_0209776C
 _0201A440:
 	ldr r1, _0201A46C ; =0x02097774
-	bl FUN_0201a290
+	bl NNSi_GfdFreeLnkVram
 	cmp r0, #0
 	movne r0, #0
 	moveq r0, #1
@@ -31548,12 +31548,12 @@ _0201A458:
 	ldmfd sp!, {r3, pc}
 _0201A460: .word 0x7FFF0000
 _0201A464: .word unk_02097770
-_0201A468: .word unk_0209776C
+_0201A468: .word mgr_0209776C
 _0201A46C: .word unk_02097774
-	arm_func_end FUN_0201a404
+	arm_func_end NNS_GfdFreeLnkTexVram
 
-	arm_func_start FUN_0201a470
-FUN_0201a470: ; 0x0201A470
+	arm_func_start NNS_GfdResetLnkTexVramState
+NNS_GfdResetLnkTexVramState: ; 0x0201A470
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x30
 	ldr r5, _0201A674 ; =0x0208BF80
@@ -31565,7 +31565,7 @@ FUN_0201a470: ; 0x0201A470
 	stmia r4!, {r0, r1, r2, r3}
 	ldmia r5, {r0, r1, r2, r3}
 	stmia r4, {r0, r1, r2, r3}
-	ldr r0, _0201A678 ; =0x0209776C
+	ldr r0, _0201A678 ; =mgr_0209776C
 	ldr r4, _0201A67C ; =0x02097774
 	ldr r1, [r0, #0x10]
 	ldr r2, [r0, #0xc]
@@ -31625,16 +31625,16 @@ _0201A56C:
 	add r7, r7, #1
 	cmp r7, #4
 	blo _0201A530
-	ldr r0, _0201A680 ; =0x0209776C
-	bl FUN_0201a014
+	ldr r0, _0201A680 ; =mgr_0209776C
+	bl NNSi_GfdInitLnkVramMan
 	ldr r7, _0201A684 ; =0x02097770
 	mov r0, r7
-	bl FUN_0201a014
-	ldr r6, _0201A678 ; =0x0209776C
+	bl NNSi_GfdInitLnkVramMan
+	ldr r6, _0201A678 ; =mgr_0209776C
 	ldr r1, [r6, #0x18]
 	ldr r0, [r6, #0x14]
 	mov r1, r1, lsr #4
-	bl FUN_0201a020
+	bl NNSi_GfdInitLnkVramBlockPool
 	str r0, [r6, #8]
 	ldr r6, [sp, #8]
 	cmp r6, #0
@@ -31643,15 +31643,15 @@ _0201A56C:
 	mov r0, r7
 	mov r3, r6
 	mov r2, #0
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A5C4:
 	ldr r3, [sp, #4]
 	cmp r3, #0
 	beq _0201A5E0
-	ldr r0, _0201A680 ; =0x0209776C
+	ldr r0, _0201A680 ; =mgr_0209776C
 	ldr r1, _0201A67C ; =0x02097774
 	mov r2, r6
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A5E0:
 	ldr r6, [sp, #0x20]
 	cmp r6, #0
@@ -31660,80 +31660,80 @@ _0201A5E0:
 	ldr r1, _0201A67C ; =0x02097774
 	mov r3, r6
 	mov r2, #0x40000
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A600:
 	ldr r3, [sp, #0x1c]
 	cmp r3, #0
 	beq _0201A61C
-	ldr r0, _0201A680 ; =0x0209776C
+	ldr r0, _0201A680 ; =mgr_0209776C
 	ldr r1, _0201A67C ; =0x02097774
 	add r2, r6, #0x40000
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A61C:
 	ldr r3, [sp, #0x28]
 	cmp r3, #0
 	beq _0201A638
-	ldr r0, _0201A680 ; =0x0209776C
+	ldr r0, _0201A680 ; =mgr_0209776C
 	ldr r1, _0201A67C ; =0x02097774
 	mov r2, #0x60000
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A638:
 	ldr r3, [sp, #0x10]
 	cmp r3, #0
 	beq _0201A654
-	ldr r0, _0201A680 ; =0x0209776C
+	ldr r0, _0201A680 ; =mgr_0209776C
 	ldr r1, _0201A67C ; =0x02097774
 	add r2, r5, #0x20000
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 _0201A654:
-	ldr r0, _0201A680 ; =0x0209776C
+	ldr r0, _0201A680 ; =mgr_0209776C
 	mov r1, r4
-	bl FUN_0201a20c
+	bl NNSi_GfdMergeAllFreeBlocks
 	ldr r0, _0201A684 ; =0x02097770
 	mov r1, r4
-	bl FUN_0201a20c
+	bl NNSi_GfdMergeAllFreeBlocks
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0201A674: .word unk_0208BF80
-_0201A678: .word unk_0209776C
+_0201A678: .word mgr_0209776C
 _0201A67C: .word unk_02097774
-_0201A680: .word unk_0209776C
+_0201A680: .word mgr_0209776C
 _0201A684: .word unk_02097770
-	arm_func_end FUN_0201a470
+	arm_func_end NNS_GfdResetLnkTexVramState
 
-	arm_func_start FUN_0201a688
-FUN_0201a688: ; 0x0201A688
+	arm_func_start NNS_GfdGetLnkPlttVramManagerWorkSize
+NNS_GfdGetLnkPlttVramManagerWorkSize: ; 0x0201A688
 	mov r0, r0, lsl #4
 	bx lr
-	arm_func_end FUN_0201a688
+	arm_func_end NNS_GfdGetLnkPlttVramManagerWorkSize
 
-	arm_func_start FUN_0201a690
-FUN_0201a690: ; 0x0201A690
+	arm_func_start NNS_GfdInitLnkPlttVramManager
+NNS_GfdInitLnkPlttVramManager: ; 0x0201A690
 	stmfd sp!, {r4, lr}
-	ldr r12, _0201A6D0 ; =0x02097788
+	ldr r12, _0201A6D0 ; =mgr_02097788
 	mov r4, r3
 	str r0, [r12, #8]
 	str r1, [r12, #0xc]
 	str r2, [r12, #0x10]
-	bl FUN_0201a7fc
+	bl NNS_GfdResetLnkPlttVramState
 	cmp r4, #0
 	ldmeqfd sp!, {r4, pc}
-	ldr r3, _0201A6D4 ; =FUN_0201a6e4
+	ldr r3, _0201A6D4 ; =NNS_GfdAllocLnkPlttVram
 	ldr r1, _0201A6D8 ; =NNS_GfdDefaultFuncAllocPlttVram
-	ldr r2, _0201A6DC ; =FUN_0201a7b8
+	ldr r2, _0201A6DC ; =NNS_GfdFreeLnkPlttVram
 	ldr r0, _0201A6E0 ; =NNS_GfdDefaultFuncFreePlttVram
 	str r3, [r1]
 	str r2, [r0]
 	ldmfd sp!, {r4, pc}
-_0201A6D0: .word unk_02097788
-_0201A6D4: .word FUN_0201a6e4
+_0201A6D0: .word mgr_02097788
+_0201A6D4: .word NNS_GfdAllocLnkPlttVram
 _0201A6D8: .word NNS_GfdDefaultFuncAllocPlttVram
-_0201A6DC: .word FUN_0201a7b8
+_0201A6DC: .word NNS_GfdFreeLnkPlttVram
 _0201A6E0: .word NNS_GfdDefaultFuncFreePlttVram
-	arm_func_end FUN_0201a690
+	arm_func_end NNS_GfdInitLnkPlttVramManager
 
-	arm_func_start FUN_0201a6e4
-FUN_0201a6e4: ; 0x0201A6E4
+	arm_func_start NNS_GfdAllocLnkPlttVram
+NNS_GfdAllocLnkPlttVram: ; 0x0201A6E4
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	cmp r0, #0
@@ -31748,14 +31748,14 @@ FUN_0201a6e4: ; 0x0201A6E4
 	cmp r1, #0
 	add r2, sp, #4
 	beq _0201A768
-	ldr r6, _0201A7B0 ; =0x02097788
+	ldr r6, _0201A7B0 ; =mgr_02097788
 	ldr r5, _0201A7B4 ; =0x0209778C
 	mov r12, #8
 	mov r0, r6
 	mov r1, r5
 	mov r3, r4
 	str r12, [sp]
-	bl FUN_0201a0d4
+	bl NNSi_GfdAllocLnkVramAligned
 	ldr r2, [sp, #4]
 	add r1, r2, r4
 	cmp r1, #0x10000
@@ -31763,17 +31763,17 @@ FUN_0201a6e4: ; 0x0201A6E4
 	mov r0, r6
 	mov r1, r5
 	mov r3, r4
-	bl FUN_0201a290
+	bl NNSi_GfdFreeLnkVram
 	add sp, sp, #8
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0201A768:
-	ldr r0, _0201A7B0 ; =0x02097788
+	ldr r0, _0201A7B0 ; =mgr_02097788
 	mov r12, #0x10
 	ldr r1, _0201A7B4 ; =0x0209778C
 	mov r3, r4
 	str r12, [sp]
-	bl FUN_0201a0d4
+	bl NNSi_GfdAllocLnkVramAligned
 _0201A780:
 	cmp r0, #0
 	addeq sp, sp, #8
@@ -31787,60 +31787,60 @@ _0201A780:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _0201A7AC: .word 0x0007FFF8
-_0201A7B0: .word unk_02097788
+_0201A7B0: .word mgr_02097788
 _0201A7B4: .word unk_0209778C
-	arm_func_end FUN_0201a6e4
+	arm_func_end NNS_GfdAllocLnkPlttVram
 
-	arm_func_start FUN_0201a7b8
-FUN_0201a7b8: ; 0x0201A7B8
+	arm_func_start NNS_GfdFreeLnkPlttVram
+NNS_GfdFreeLnkPlttVram: ; 0x0201A7B8
 	stmfd sp!, {r3, lr}
 	mov r1, #0x10000
 	rsb r1, r1, #0
 	and r1, r0, r1
 	mov r2, r0, lsl #0x10
 	mov r3, r1, lsr #0x10
-	ldr r0, _0201A7F4 ; =0x02097788
+	ldr r0, _0201A7F4 ; =mgr_02097788
 	ldr r1, _0201A7F8 ; =0x0209778C
 	mov r2, r2, lsr #0xd
 	mov r3, r3, lsl #3
-	bl FUN_0201a290
+	bl NNSi_GfdFreeLnkVram
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, pc}
-_0201A7F4: .word unk_02097788
+_0201A7F4: .word mgr_02097788
 _0201A7F8: .word unk_0209778C
-	arm_func_end FUN_0201a7b8
+	arm_func_end NNS_GfdFreeLnkPlttVram
 
-	arm_func_start FUN_0201a7fc
-FUN_0201a7fc: ; 0x0201A7FC
+	arm_func_start NNS_GfdResetLnkPlttVramState
+NNS_GfdResetLnkPlttVramState: ; 0x0201A7FC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0201A84C ; =0x02097788
+	ldr r4, _0201A84C ; =mgr_02097788
 	ldr r1, [r4, #0x10]
 	ldr r0, [r4, #0xc]
 	mov r1, r1, lsr #4
-	bl FUN_0201a020
-	ldr r6, _0201A850 ; =0x02097788
+	bl NNSi_GfdInitLnkVramBlockPool
+	ldr r6, _0201A850 ; =mgr_02097788
 	str r0, [r4, #4]
 	mov r0, r6
-	bl FUN_0201a014
+	bl NNSi_GfdInitLnkVramMan
 	ldr r5, _0201A854 ; =0x0209778C
 	ldr r3, [r4, #8]
 	mov r0, r6
 	mov r1, r5
 	mov r2, #0
-	bl FUN_0201a064
+	bl NNSi_GfdAddNewFreeBlock
 	mov r0, r6
 	mov r1, r5
-	bl FUN_0201a20c
+	bl NNSi_GfdMergeAllFreeBlocks
 	ldmfd sp!, {r4, r5, r6, pc}
-_0201A84C: .word unk_02097788
-_0201A850: .word unk_02097788
+_0201A84C: .word mgr_02097788
+_0201A850: .word mgr_02097788
 _0201A854: .word unk_0209778C
-	arm_func_end FUN_0201a7fc
+	arm_func_end NNS_GfdResetLnkPlttVramState
 
-	arm_func_start FUN_0201a858
-FUN_0201a858: ; 0x0201A858
+	arm_func_start NNS_SndInit
+NNS_SndInit: ; 0x0201A858
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _0201A8C0 ; =0x0209779C
 	ldr r0, [r4, #0xc]
@@ -31872,7 +31872,7 @@ _0201A8C4: .word FUN_0201a904
 _0201A8C8: .word FUN_0201a93c
 _0201A8CC: .word unk_020977AC
 _0201A8D0: .word unk_020977BC
-	arm_func_end FUN_0201a858
+	arm_func_end NNS_SndInit
 
 	arm_func_start FUN_0201a8d4
 FUN_0201a8d4: ; 0x0201A8D4
@@ -97455,7 +97455,7 @@ FUN_020514f0: ; 0x020514F0
 	ldr r3, [r4, #0x24]
 	mov r0, r5
 	mov r1, #0
-	bl FUN_0201a328
+	bl NNS_GfdInitLnkTexVramManager
 	ldr r0, [r4, #0x2c]
 	orr r0, r0, #1
 	str r0, [r4, #0x2c]
@@ -97466,7 +97466,7 @@ _0205153C:
 	ldr r2, [r4, #0x28]
 	mov r0, r6
 	mov r3, #1
-	bl FUN_0201a690
+	bl NNS_GfdInitLnkPlttVramManager
 	ldr r0, [r4, #0x2c]
 	orr r0, r0, #2
 	str r0, [r4, #0x2c]
@@ -97601,7 +97601,7 @@ FUN_02051690: ; 0x02051690
 	movle r0, #0
 	ldmlefd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r4
-	bl FUN_0201a320
+	bl NNS_GfdGetLnkTexVramManagerWorkSize
 	mov r1, r0
 	ldr r4, _02051774 ; =0x0209A250
 	str r1, [r8, #0x24]
@@ -97609,7 +97609,7 @@ FUN_02051690: ; 0x02051690
 	bl FUN_0202de44
 	str r0, [r8]
 	mov r0, r7
-	bl FUN_0201a688
+	bl NNS_GfdGetLnkPlttVramManagerWorkSize
 	mov r1, r0
 	mov r0, r4
 	str r1, [r8, #0x28]
@@ -97646,12 +97646,12 @@ FUN_02051778: ; 0x02051778
 	ldr r0, [r4, #0x2c]
 	tst r0, #1
 	beq _02051790
-	bl FUN_0201a470
+	bl NNS_GfdResetLnkTexVramState
 _02051790:
 	ldr r0, [r4, #0x2c]
 	tst r0, #2
 	beq _020517A0
-	bl FUN_0201a7fc
+	bl NNS_GfdResetLnkPlttVramState
 _020517A0:
 	mov r0, r4
 	bl FUN_020514f0
@@ -97673,7 +97673,7 @@ FUN_020517ac: ; 0x020517AC
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_0201a380
+	bl NNS_GfdAllocLnkTexVram
 	cmp r0, #0
 	moveq r0, r4
 	strne r0, [r6, #4]
@@ -97698,7 +97698,7 @@ FUN_02051800: ; 0x02051800
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_0201a6e4
+	bl NNS_GfdAllocLnkPlttVram
 	cmp r0, #0
 	moveq r0, r4
 	movne r1, #2
@@ -97723,10 +97723,10 @@ FUN_02051858: ; 0x02051858
 	beq _0205188C
 	ldmfd sp!, {r4, pc}
 _02051884:
-	bl FUN_0201a404
+	bl NNS_GfdFreeLnkTexVram
 	b _02051890
 _0205188C:
-	bl FUN_0201a7b8
+	bl NNS_GfdFreeLnkPlttVram
 _02051890:
 	mov r0, #0
 	str r0, [r4]
@@ -98117,10 +98117,10 @@ FUN_02051d3c: ; 0x02051D3C
 	beq _02051D8C
 	b _02051D94
 _02051D84:
-	bl FUN_0201a404
+	bl NNS_GfdFreeLnkTexVram
 	b _02051DA4
 _02051D8C:
-	bl FUN_0201a7b8
+	bl NNS_GfdFreeLnkPlttVram
 	b _02051DA4
 _02051D94:
 	add r0, r5, #8
@@ -168057,8 +168057,8 @@ unk_0209775C:
 	.global unk_02097760
 unk_02097760:
 	.space 0x0C
-	.global unk_0209776C
-unk_0209776C:
+	.global mgr_0209776C
+mgr_0209776C:
 	.space 0x04
 	.global unk_02097770
 unk_02097770:
@@ -168066,8 +168066,8 @@ unk_02097770:
 	.global unk_02097774
 unk_02097774:
 	.space 0x14
-	.global unk_02097788
-unk_02097788:
+	.global mgr_02097788
+mgr_02097788:
 	.space 0x04
 	.global unk_0209778C
 unk_0209778C:

@@ -23577,7 +23577,7 @@ FUN_ov17_02107b50: ; 0x02107B50
 	bl FUN_ov17_0210c7fc
 	ldr r1, [r4]
 	str r0, [r1, #0xa4]
-	bl FUN_0201a858
+	bl NNS_SndInit
 	ldr r0, [r4]
 	ldr r1, [r0, #0xa4]
 	bl FUN_0201b5ec

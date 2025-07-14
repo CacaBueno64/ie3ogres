@@ -171,7 +171,7 @@
 .public NNS_G2dArrangeOBJ1D
 .public NNSi_G2dTextCanvasDrawText
 .public NNSi_G2dTextCanvasDrawTextRect
-.public FUN_0201a858
+.public NNS_SndInit
 .public FUN_0201a8d4
 .public FUN_0201a9d0
 .public FUN_0201a9e8

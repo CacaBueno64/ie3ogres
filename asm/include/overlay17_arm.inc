@@ -26,7 +26,7 @@
 .public FUN_0201a8d4
 .public FUN_0201a9d0
 .public FUN_0201a9e8
-.public FUN_0201a858
+.public NNS_SndInit
 .public FUN_0201aa08
 .public FUN_0201aaa4
 .public FUN_0201aab4
