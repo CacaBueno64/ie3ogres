@@ -38,7 +38,6 @@ Overlay overlay1
 Overlay overlay2
 {
 	After main
-	Object asm/ov2.o
 }
 Overlay overlay3
 {
@@ -63,42 +62,34 @@ Overlay overlay6
 Overlay overlay7
 {
 	After main
-	Object asm/ov7.o
 }
 Overlay overlay8
 {
 	After main
-	Object asm/ov8.o
 }
 Overlay overlay9
 {
 	After main
-	Object asm/ov9.o
 }
 Overlay overlay10
 {
 	After main
-	Object asm/ov10.o
 }
 Overlay overlay11
 {
 	After main
-	Object asm/ov11.o
 }
 Overlay overlay12
 {
 	After main
-	Object asm/ov12.o
 }
 Overlay overlay13
 {
 	After main
-	Object asm/ov13.o
 }
 Overlay overlay14
 {
 	After main
-	Object asm/ov14.o
 }
 Overlay overlay15
 {
@@ -419,7 +410,6 @@ Overlay overlay77
 Overlay overlay78
 {
 	After overlay16
-	Object asm/ov78.o
 }
 Overlay overlay79
 {
