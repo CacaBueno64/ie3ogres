@@ -7745,7 +7745,7 @@ _020C35C4:
 	mov r6, r0
 	ldr r1, _020C368C ; =0x020D5AE0
 	mov r0, r5
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	str r0, [r4, #0xe4]
 	mov r0, #0x64
 	bl FUN_ov16_020ef928
@@ -7753,7 +7753,7 @@ _020C35C4:
 	bls _020C361C
 	ldr r1, _020C3690 ; =0x020D5AF4
 	mov r0, r5
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	sub r0, r0, #1
 	bl FUN_ov16_020ef928
 	str r0, [r4, #0xe8]
@@ -7771,7 +7771,7 @@ _020C361C:
 _020C3644:
 	ldr r0, _020C3688 ; =0x02099F78
 	ldr r1, _020C3694 ; =0x020D5B08
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r1, #0x1e
 	mul r2, r0, r1
 	mov r1, #0xb
@@ -8146,12 +8146,12 @@ _020C3B3C:
 	ldr r4, _020C3BFC ; =0x02099F78
 	ldr r1, _020C3C00 ; =0x020D5B2C
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r0, r0, lsl #1
 	str r0, [r7, #0xe4]
 	ldr r1, _020C3C04 ; =0x020D5B40
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r1, #0x1e
 	mul r1, r0, r1
 	ldr r0, [r7, #4]
@@ -8298,7 +8298,7 @@ _020C3D84:
 	bne _020C3DBC
 	ldr r0, _020C4890 ; =0x02099F78
 	ldr r1, _020C4894 ; =0x020D5B54
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	str r0, [sp, #0xc]
 _020C3DBC:
 	ldr r0, [sp, #0x10]
@@ -8306,7 +8306,7 @@ _020C3DBC:
 	bne _020C3DD8
 	ldr r0, _020C4890 ; =0x02099F78
 	ldr r1, _020C4898 ; =0x020D5B64
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	str r0, [sp, #0x10]
 _020C3DD8:
 	ldr r0, [r4]
@@ -8316,11 +8316,11 @@ _020C3DD8:
 	ldr r4, _020C4890 ; =0x02099F78
 	ldr r1, _020C489C ; =0x020D5B74
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	str r0, [sp, #0x14]
 	ldr r1, _020C48A0 ; =0x020D5B84
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	ldr r1, [sp, #0x14]
 	str r0, [sp, #0x18]
 	cmp r1, #0

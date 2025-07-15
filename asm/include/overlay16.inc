@@ -301,7 +301,7 @@
 .public FUN_020390e8
 .public FUN_020391a8
 .public FUN_020397b4
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020435b0
 .public FUN_020443a4

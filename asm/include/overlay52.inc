@@ -66,7 +66,7 @@
 .public FUN_020204a4
 .public memcpy
 .public memmove
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020508fc
 .public FUN_020509d8

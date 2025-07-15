@@ -21,7 +21,7 @@
 .public GX_LoadBG0Scr
 .public GXS_LoadBG2Char
 .public FX_Sqrt
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public GXS_LoadBG2Scr
 .public GX_LoadBG0Char
 .public FUN_0204201c

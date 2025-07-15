@@ -28,7 +28,7 @@
 .public FUN_02058ee0
 .public FX_Sqrt
 .public memmove
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020460f0
 .public FUN_020460fc
 .public FUN_020509d8

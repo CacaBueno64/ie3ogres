@@ -39,7 +39,7 @@
 .public FUN_02058ee0
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020466c0
 .public FUN_020467ac

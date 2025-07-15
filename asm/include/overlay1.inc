@@ -173,7 +173,7 @@
 .public NNS_FndAppendListObject
 .public NNS_FndRemoveListObject
 .public FUN_020204a4
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020443c0
 .public FUN_020443d4

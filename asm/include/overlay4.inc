@@ -131,7 +131,7 @@
 .public FX_Sqrt
 .public FUN_020204a4
 .public memcmp
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020460c0
 .public FUN_020465fc

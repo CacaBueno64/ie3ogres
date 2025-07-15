@@ -881,7 +881,7 @@ FUN_ov21_0211aa8c: ; 0x0211AA8C
 	bl MI_CpuFill8
 	ldr r0, _0211ADCC ; =0x02099F78
 	ldr r1, _0211ADD0 ; =0x0211D56C
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	ldr r9, [r10, #0xaf8]
 	str r7, [r10, #0x79c]
 	cmp r9, #0

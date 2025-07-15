@@ -15,7 +15,7 @@
 .public FUN_02046fac
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020465fc
 .public FUN_020466c0
 .public FUN_020466e4

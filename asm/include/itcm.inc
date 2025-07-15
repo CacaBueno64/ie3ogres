@@ -75,7 +75,7 @@
 .public FUN_020403a8
 .public FUN_020403d4
 .public FUN_020404cc
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020724b8
 .public FUN_020724dc
 .public FUN_020725ac

@@ -86,13 +86,13 @@ _02119FB8:
 	ldr r1, _0211A188 ; =0x021248E4
 	mov r0, r6
 	strb r4, [r2, #0x7d]
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	cmp r0, #0
 	ble _0211A054
 	ldr r1, _0211A18C ; =0x021248F8
 	mov r0, r6
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl FUN_0201f704
@@ -103,7 +103,7 @@ _02119FB8:
 _0211A054:
 	ldr r1, _0211A190 ; =0x0212490C
 	mov r0, r6
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl FUN_0201f704
@@ -115,12 +115,12 @@ _0211A074:
 	mov r6, r0
 	ldr r1, _0211A194 ; =0x02124920
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	cmp r0, #0
 	ble _0211A0B8
 	ldr r1, _0211A198 ; =0x02124934
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
 	bl FUN_0201f704
 	mov r1, r0
@@ -130,7 +130,7 @@ _0211A074:
 _0211A0B8:
 	ldr r1, _0211A19C ; =0x02124948
 	mov r0, r4
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
 	bl FUN_0201f704
 	mov r1, #0x3f000000
@@ -144,7 +144,7 @@ _0211A0D4:
 	ldr r1, _0211A1A0 ; =0x0212495C
 	str r2, [sp, #0x14]
 	str r6, [sp, #0x10]
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	ldr r1, [sp, #0x14]
 	ldr r4, _0211A17C ; =0x02099EEC
 	str r1, [sp]

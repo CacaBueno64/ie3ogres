@@ -50,7 +50,7 @@
 .public FUN_02074a2c
 .public FX_Sqrt
 .public FUN_020204a4
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020591e8
 .public FUN_020731a4

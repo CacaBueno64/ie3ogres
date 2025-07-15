@@ -3791,7 +3791,7 @@ _0211D368:
 	ldr r0, _0211D408 ; =0x02099F78
 	ldr r1, _0211D40C ; =0x02122964
 _0211D370:
-	bl FUN_020418b0
+	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0x10
 	mov r4, r0, lsr #0x10
 	b _0211D3F0

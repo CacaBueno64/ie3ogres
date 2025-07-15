@@ -8,7 +8,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FX_Sqrt
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020460a8
 .public FUN_0204204c

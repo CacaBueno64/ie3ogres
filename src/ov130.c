@@ -1,5 +1,6 @@
 #include "ov130.h"
 #include "nitro.h"
+#include "global.h"
 
 extern u32 OS_GetArenaLo(u32);
 extern u32 OS_GetArenaHi(u32);
@@ -20,19 +21,7 @@ void FUN_ov130_0212a9c0(void)
 extern void FUN_020417dc(void *);
 extern void FUN_020418e4(void *);
 extern void FUN_020417e8(void *, char[]);
-extern u32 FUN_020418b0(void *, char[]);
-
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u32 unk4;
-    u32 unk8;
-    u32 unkC;
-    u32 unk10;
-    u32 unk14;
-    u16 unk18;
-} UnkStruct_0209A1A8;
+extern u32 L5_IniFileGetParam(void *, char[]);
 
 extern UnkStruct_0209A1A8 unk_0209A1A8;
 
@@ -47,16 +36,15 @@ void FUN_ov130_0212aa14(void)
     
     FUN_020417e8(&unk_02099F78, "INAZUMA.INI");
     
-    ptr->unk0 = FUN_020418b0(&unk_02099F78, "IZ_TYPE");
-    ptr->unk1 = FUN_020418b0(&unk_02099F78, "GEOMETRY_UNDERFLOW_CHECK");
-    ptr->unk2 = FUN_020418b0(&unk_02099F78, "MENU_MOVIE_MAX");
-    
-    ptr->unk4 = FUN_020418b0(&unk_02099F78, "RPG_MOVEACCEL_UP");
-    ptr->unk8 = FUN_020418b0(&unk_02099F78, "RPG_MOVEACCEL_DOWN");
-    ptr->unkC = FUN_020418b0(&unk_02099F78, "RPG_MOVESPEED");
-    ptr->unk10 = FUN_020418b0(&unk_02099F78, "RPG_STANDDIST");
-    ptr->unk14 = FUN_020418b0(&unk_02099F78, "RPG_GIVEUPMOVE_DIST");
-    ptr->unk18 = FUN_020418b0(&unk_02099F78, "RPG_MINIMAP_SCROLL_VEROCITY");
+    ptr->izType                   = L5_IniFileGetParam(&unk_02099F78, "IZ_TYPE");
+    ptr->geometryUnderflowCheck   = L5_IniFileGetParam(&unk_02099F78, "GEOMETRY_UNDERFLOW_CHECK");
+    ptr->menuMovieMax             = L5_IniFileGetParam(&unk_02099F78, "MENU_MOVIE_MAX");
+    ptr->rpgMoveAccelUp           = L5_IniFileGetParam(&unk_02099F78, "RPG_MOVEACCEL_UP");
+    ptr->rpgMoveAccelDown         = L5_IniFileGetParam(&unk_02099F78, "RPG_MOVEACCEL_DOWN");
+    ptr->rpgMoveSpeed             = L5_IniFileGetParam(&unk_02099F78, "RPG_MOVESPEED");
+    ptr->rpgStandDist             = L5_IniFileGetParam(&unk_02099F78, "RPG_STANDDIST");
+    ptr->rpgGiveupMoveDist        = L5_IniFileGetParam(&unk_02099F78, "RPG_GIVEUPMOVE_DIST");
+    ptr->rpgMinimapScrollVelocity = L5_IniFileGetParam(&unk_02099F78, "RPG_MINIMAP_SCROLL_VEROCITY");
 }
 
 extern u32 FX_Sqrt(u32);

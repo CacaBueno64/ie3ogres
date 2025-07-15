@@ -60,7 +60,7 @@
 .public GX_LoadBG2Scr
 .public FX_Sqrt
 .public memmove
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020463e8
 .public FUN_020724c8

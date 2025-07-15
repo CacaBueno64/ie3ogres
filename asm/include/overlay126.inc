@@ -116,7 +116,7 @@
 .public FUN_020404dc
 .public FUN_020405a4
 .public FUN_020406a4
-.public FUN_020418b0
+.public L5_IniFileGetParam
 .public FUN_020497cc
 .public FUN_020497d8
 .public FUN_020724dc
