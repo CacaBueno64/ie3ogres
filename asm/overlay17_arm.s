@@ -23603,7 +23603,7 @@ _02107BB4:
 	add r7, r7, #1
 	cmp r7, #0x20
 	blt _02107BB4
-	ldr r1, _02107C10 ; =0x02107CC8
+	ldr r1, _02107C10 ; =FUN_ov17_02107cc8
 	mov r0, r4
 	mov r2, r4
 	mov r3, #0xc8
@@ -23614,7 +23614,7 @@ _02107BB4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02107C08: .word ov17_021162A8
 _02107C0C: .word ov17_02113544
-_02107C10: .word 0x02107CC8
+_02107C10: .word FUN_ov17_02107cc8
 	arm_func_end FUN_ov17_02107b50
 
 	arm_func_start FUN_ov17_02107c14

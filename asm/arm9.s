@@ -17008,7 +17008,7 @@ _0200E488:
 	mov r5, r4
 	add r7, r6, r0
 	bl OS_DisableInterrupts
-	ldr r1, _0200E56C ; =0x02099928
+	ldr r1, _0200E56C ; =__global_destructor_chain
 	mov r12, r4
 	ldr lr, [r1]
 	mov r8, lr
@@ -17065,7 +17065,7 @@ _0200E558:
 	bne _0200E540
 	b _0200E488
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0200E56C: .word unk_02099928
+_0200E56C: .word __global_destructor_chain
 	arm_func_end FS_EndOverlay
 
 	arm_func_start FS_UnloadOverlayImage
@@ -34365,34 +34365,34 @@ FUN_0201c894: ; 0x0201C894
 
 	arm_func_start _ExitProcess
 _ExitProcess: ; 0x0201C8AC
-	ldr r12, _0201C8B4 ; =FUN_0201c8c8
+	ldr r12, _0201C8B4 ; =sys_exit
 	bx r12
-_0201C8B4: .word FUN_0201c8c8
+_0201C8B4: .word sys_exit
 	arm_func_end _ExitProcess
 
-	arm_func_start FUN_0201c8b8
-FUN_0201c8b8: ; 0x0201C8B8
+	arm_func_start sys_writec
+sys_writec: ; 0x0201C8B8
 	bx lr
-	arm_func_end FUN_0201c8b8
+	arm_func_end sys_writec
 
-	arm_func_start FUN_0201c8bc
-FUN_0201c8bc: ; 0x0201C8BC
+	arm_func_start sys_write0
+sys_write0: ; 0x0201C8BC
 	bx lr
-	arm_func_end FUN_0201c8bc
+	arm_func_end sys_write0
 
-	arm_func_start FUN_0201c8c0
-FUN_0201c8c0: ; 0x0201C8C0
+	arm_func_start sys_readc
+sys_readc: ; 0x0201C8C0
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0201c8c0
+	arm_func_end sys_readc
 
-	arm_func_start FUN_0201c8c8
-FUN_0201c8c8: ; 0x0201C8C8
+	arm_func_start sys_exit
+sys_exit: ; 0x0201C8C8
 	bx lr
-	arm_func_end FUN_0201c8c8
+	arm_func_end sys_exit
 
-	arm_func_start FUN_0201c8cc
-FUN_0201c8cc: ; 0x0201C8CC
+	arm_func_start __read_console
+__read_console: ; 0x0201C8CC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r2
 	ldr r5, [r6]
@@ -34401,7 +34401,7 @@ FUN_0201c8cc: ; 0x0201C8CC
 	mov r4, #0
 	bls _0201C914
 _0201C8E8:
-	bl FUN_0201c8c0
+	bl sys_readc
 	and r1, r0, #0xff
 	cmp r1, #0xd
 	strb r0, [r7, r4]
@@ -34415,10 +34415,10 @@ _0201C8E8:
 _0201C914:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0201c8cc
+	arm_func_end __read_console
 
-	arm_func_start FUN_0201c91c
-FUN_0201c91c: ; 0x0201C91C
+	arm_func_start __write_console
+__write_console: ; 0x0201C91C
 	stmfd sp!, {r3, lr}
 	ldr r0, [r2]
 	cmp r0, #1
@@ -34429,22 +34429,22 @@ FUN_0201c91c: ; 0x0201C91C
 	mov r1, #0
 	strb r2, [sp]
 	strb r1, [r3, #-1]
-	bl FUN_0201c8bc
+	bl sys_write0
 	add r0, sp, #0
 	b _0201C954
 _0201C950:
 	mov r0, r1
 _0201C954:
-	bl FUN_0201c8b8
+	bl sys_writec
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0201c91c
+	arm_func_end __write_console
 
-	arm_func_start FUN_0201c960
-FUN_0201c960: ; 0x0201C960
+	arm_func_start __close_console
+__close_console: ; 0x0201C960
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0201c960
+	arm_func_end __close_console
 
 	arm_func_start FUN_0201c968
 FUN_0201c968: ; 0x0201C968
@@ -35890,7 +35890,7 @@ _0201DD3C: .word unk_0208EEC4
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x0201DD40
 	stmfd sp!, {r4, lr}
-	ldr r4, _0201DD6C ; =0x0208EB60
+	ldr r4, _0201DD6C ; =__sinit__
 	b _0201DD54
 _0201DD4C:
 	blx r0
@@ -35902,13 +35902,13 @@ _0201DD54:
 	cmp r0, #0
 	bne _0201DD4C
 	ldmfd sp!, {r4, pc}
-_0201DD6C: .word unk_0208EB60
+_0201DD6C: .word __sinit__
 	arm_func_end __call_static_initializers
 
 	arm_func_start __destroy_global_chain
 __destroy_global_chain: ; 0x0201DD70
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _0201DDB0 ; =0x02099928
+	ldr r4, _0201DDB0 ; =__global_destructor_chain
 	ldr r2, [r4]
 	cmp r2, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -35924,7 +35924,7 @@ _0201DD88:
 	cmp r2, #0
 	bne _0201DD88
 	ldmfd sp!, {r3, r4, r5, pc}
-_0201DDB0: .word unk_02099928
+_0201DDB0: .word __global_destructor_chain
 	arm_func_end __destroy_global_chain
 
 	arm_func_start FUN_0201ddb4
@@ -35963,14 +35963,14 @@ _0201DDF8: .word unk_0208EF4C
 
 	arm_func_start FUN_0201ddfc
 FUN_0201ddfc: ; 0x0201DDFC
-	ldr r3, _0201DE18 ; =0x02099928
+	ldr r3, _0201DE18 ; =__global_destructor_chain
 	ldr r12, [r3]
 	str r12, [r2]
 	str r1, [r2, #4]
 	str r0, [r2, #8]
 	str r2, [r3]
 	bx lr
-_0201DE18: .word unk_02099928
+_0201DE18: .word __global_destructor_chain
 	arm_func_end FUN_0201ddfc
 
 	arm_func_start FUN_0201de1c
@@ -36136,7 +36136,7 @@ FUN_0201e014: ; 0x0201E014
 	moveq r6, #4
 _0201E02C:
 	mov r0, r6
-	bl FUN_020211f8
+	bl malloc
 	movs r5, r0
 	bne _0201E054
 	ldr r0, [r4]
@@ -36150,29 +36150,21 @@ _0201E054:
 	add sp, r11, #0x18
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r11, pc}
-	arm_func_end FUN_0201e014
-
-	arm_func_start FUN_0201e060
-FUN_0201e060: ; 0x0201E060
 	add r0, r11, #0
 	bl FUN_0201d8bc
 _0201E068:
 	b _0201E068
-	arm_func_end FUN_0201e060
-
-	arm_func_start FUN_0201e06c
-FUN_0201e06c: ; 0x0201E06C
 	add sp, r11, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r11, pc}
 _0201E074: .word unk_0209992C
-	arm_func_end FUN_0201e06c
+	arm_func_end FUN_0201e014
 
 	arm_func_start FUN_0201e078
 FUN_0201e078: ; 0x0201E078
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_02021210
+	bl free
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_0201e078
 
@@ -36184,21 +36176,13 @@ FUN_0201e08c: ; 0x0201E08C
 	bl FUN_0201e014
 	add sp, r11, #0x18
 	ldmfd sp!, {r11, pc}
-	arm_func_end FUN_0201e08c
-
-	arm_func_start FUN_0201e0a4
-FUN_0201e0a4: ; 0x0201E0A4
 	add r0, r11, #0
 	bl FUN_0201d8bc
 _0201E0AC:
 	b _0201E0AC
-	arm_func_end FUN_0201e0a4
-
-	arm_func_start FUN_0201e0b0
-FUN_0201e0b0: ; 0x0201E0B0
 	add sp, r11, #0x18
 	ldmfd sp!, {r11, pc}
-	arm_func_end FUN_0201e0b0
+	arm_func_end FUN_0201e08c
 
 	arm_func_start FUN_0201e0b8
 FUN_0201e0b8: ; 0x0201E0B8
@@ -39835,44 +39819,44 @@ _020211C0: .word __console_exit
 _020211C4: .word unk_02099940
 	arm_func_end __exit
 
-	arm_func_start FUN_020211c8
-FUN_020211c8: ; 0x020211C8
+	arm_func_start __sys_alloc
+__sys_alloc: ; 0x020211C8
 	mov r2, r0
 	mov r0, #0
 	ldr r12, _020211DC ; =OS_AllocFromHeap
 	sub r1, r0, #1
 	bx r12
 _020211DC: .word OS_AllocFromHeap
-	arm_func_end FUN_020211c8
+	arm_func_end __sys_alloc
 
-	arm_func_start FUN_020211e0
-FUN_020211e0: ; 0x020211E0
+	arm_func_start __sys_free
+__sys_free: ; 0x020211E0
 	mov r2, r0
 	mov r0, #0
 	ldr r12, _020211F4 ; =OS_FreeToHeap
 	sub r1, r0, #1
 	bx r12
 _020211F4: .word OS_FreeToHeap
-	arm_func_end FUN_020211e0
+	arm_func_end __sys_free
 
-	arm_func_start FUN_020211f8
-FUN_020211f8: ; 0x020211F8
+	arm_func_start malloc
+malloc: ; 0x020211F8
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_020211c8
+	bl __sys_alloc
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020211f8
+	arm_func_end malloc
 
-	arm_func_start FUN_02021210
-FUN_02021210: ; 0x02021210
+	arm_func_start free
+free: ; 0x02021210
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_020211e0
+	bl __sys_free
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02021210
+	arm_func_end free
 
 	arm_func_start __flush_all
 __flush_all: ; 0x02021224
@@ -164768,7 +164752,7 @@ unk_0208EAE0:
 	.byte 0x4B, 0x00, 0xE7, 0xFF, 0xD9, 0xFF, 0x0F, 0x00, 0x12, 0x00, 0xF9, 0xFF, 0xF9, 0xFF, 0x02, 0x00
 
 	.section .sinit, 4
-unk_0208EB60:
+__sinit__:
 	.word FUN_02086768
 	.word FUN_02086aec
 	.word FUN_02086b40
@@ -168141,8 +168125,8 @@ unk_02099904:
 	.global unk_0209991C
 unk_0209991C:
 	.space 0x0C
-	.global unk_02099928
-unk_02099928:
+	.global __global_destructor_chain
+__global_destructor_chain:
 	.space 0x04
 	.global unk_0209992C
 unk_0209992C:
