@@ -4,7 +4,7 @@
 #include "nitro.h"
 
 void FUN_ov101_02124ff8(u32 *);
-u32 FUN_ov101_02125018(u32);
+void * FUN_ov101_02125018(void *);
 void FUN_ov101_0212502c(void);
 static void FUN_ov101_Init(void);
 

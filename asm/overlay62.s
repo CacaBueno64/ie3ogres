@@ -5829,7 +5829,7 @@ _0211F15C:
 	strb r6, [r5, #0x1c]
 	bl  FUN_ov16_020f5278
 	mov r0, #0x74
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _0211F1DC
 	bl  FUN_ov16_02110558
@@ -7571,7 +7571,7 @@ _02120A8C: .word unk_020A1612
 FUN_ov62_02120a90: ; 0x02120A90
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov62_02120a90

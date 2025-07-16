@@ -945,7 +945,7 @@ _0211AB44:
 FUN_ov36_0211ab4c: ; 0x0211AB4C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov36_0211ab4c

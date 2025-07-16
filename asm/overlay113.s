@@ -2130,7 +2130,7 @@ _02126ADC: .word unk_0209F5C0
 FUN_ov113_02126ae0: ; 0x02126AE0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov113_02126ae0

@@ -3521,7 +3521,7 @@ FUN_ov55_0211d044: ; 0x0211D044
 	add r0, r4, #0x194
 	bl FUN_ov55_0211d15c
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov55_0211d044
@@ -3640,7 +3640,7 @@ FUN_ov55_0211d17c: ; 0x0211D17C
 	str r1, [r4]
 	bl FUN_ov55_0211d1c4
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0211D1A0: .word ov55_0211DA5C

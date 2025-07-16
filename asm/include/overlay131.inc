@@ -1,8 +1,8 @@
 .public FS_LoadOverlay
 .public RTC_GetTime
 .public FS_UnloadOverlay
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public FUN_0201f5c8
 .public _s32_div_f
 .public _u32_div_f

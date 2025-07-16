@@ -760,7 +760,7 @@ FUN_ov112_02125748: ; 0x02125748
 FUN_ov112_02125774: ; 0x02125774
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov112_02125774

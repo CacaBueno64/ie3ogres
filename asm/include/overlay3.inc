@@ -1,5 +1,5 @@
 .public DC_FlushRange
-.public FUN_0201e078
+.public operator_delete
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG3Char

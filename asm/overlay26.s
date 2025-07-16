@@ -146,7 +146,7 @@ FUN_ov26_0211a0b4: ; 0x0211A0B4
 	add r0, r4, #0xa4
 	bl FUN_0206c110
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov26_0211a0b4

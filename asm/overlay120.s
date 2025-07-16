@@ -978,7 +978,7 @@ FUN_ov120_02125a94: ; 0x02125A94
 FUN_ov120_02125ab4: ; 0x02125AB4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov120_02125ab4

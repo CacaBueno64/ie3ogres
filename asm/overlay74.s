@@ -2322,7 +2322,7 @@ _0211BF48: .word 0x88888889
 FUN_ov74_0211bf4c: ; 0x0211BF4C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov74_0211bf4c

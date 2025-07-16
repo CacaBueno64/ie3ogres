@@ -3156,7 +3156,7 @@ FUN_ov23_0211cacc: ; 0x0211CACC
 	add r0, r4, #0x58
 	bl  FUN_ov16_02110578
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov23_0211cacc

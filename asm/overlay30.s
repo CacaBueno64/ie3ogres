@@ -563,7 +563,7 @@ FUN_ov30_0211a648: ; 0x0211A648
 FUN_ov30_0211a65c: ; 0x0211A65C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov30_0211a65c

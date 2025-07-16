@@ -1,7 +1,7 @@
 .public FUN_01ff998c
 .public FUN_01ff9904
 .public FUN_01ffa12c
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0204baa8
 .public FUN_0204baf0
 .public FUN_0204bb48

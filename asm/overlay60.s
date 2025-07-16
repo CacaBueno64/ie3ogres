@@ -6378,7 +6378,7 @@ FUN_ov60_0211f880: ; 0x0211F880
 	add r0, r4, #0x33c0
 	bl FUN_0206c110
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov60_0211f880

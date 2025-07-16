@@ -1,7 +1,7 @@
 .public DC_FlushRange
 .public _dsub
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public FUN_0201e678
 .public FUN_0201ed5c
 .public FUN_0201f1c4

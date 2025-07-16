@@ -2168,7 +2168,7 @@ _0211BD74:
 FUN_ov31_0211bd94: ; 0x0211BD94
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov31_0211bd94

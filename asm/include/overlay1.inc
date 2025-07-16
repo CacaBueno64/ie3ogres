@@ -5,8 +5,8 @@
 .public FUN_01ff9700
 .public FUN_01ffac60
 .public FUN_01ffb144
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public _s32_div_f
 .public _ffltu
 .public FUN_0201f704

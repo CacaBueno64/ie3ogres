@@ -1,11 +1,11 @@
 #include "ov116.h"
 #include "nitro.h"
 
-extern void FUN_0201e078(void);
+extern void operator_delete(void *ptr);
 
-u32 FUN_ov116_02124e24(u32 param1) {
-    FUN_0201e078();
-    return param1;
+void * FUN_ov116_02124e24(void *ptr) {
+    operator_delete(ptr);
+    return ptr;
 }
 
 void FUN_ov116_02124e38(void) { }

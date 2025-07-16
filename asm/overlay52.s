@@ -235,7 +235,7 @@ FUN_ov52_0211a17c: ; 0x0211A17C
 	add r0, r0, #0xc00
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov52_0211a17c
@@ -1747,7 +1747,7 @@ FUN_ov52_0211b6b8: ; 0x0211B6B8
 FUN_ov52_0211b6bc: ; 0x0211B6BC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_0211b6bc
@@ -8955,7 +8955,7 @@ FUN_ov52_021219e8: ; 0x021219E8
 	mov r0, r4
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_021219e8
@@ -8966,7 +8966,7 @@ FUN_ov52_02121a18: ; 0x02121A18
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121a18
@@ -8977,7 +8977,7 @@ FUN_ov52_02121a34: ; 0x02121A34
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121a34
@@ -8988,7 +8988,7 @@ FUN_ov52_02121a50: ; 0x02121A50
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121a50
@@ -8999,7 +8999,7 @@ FUN_ov52_02121a6c: ; 0x02121A6C
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121a6c
@@ -9010,7 +9010,7 @@ FUN_ov52_02121a88: ; 0x02121A88
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121a88
@@ -9021,7 +9021,7 @@ FUN_ov52_02121aa4: ; 0x02121AA4
 	mov r4, r0
 	bl FUN_ov52_0211b6d0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov52_02121aa4
@@ -9075,7 +9075,7 @@ _02121B58:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -9219,7 +9219,7 @@ _02121D24:
 	mov r5, #0x400
 _02121D5C:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _02121D78
 	mov r0, r4
@@ -9315,7 +9315,7 @@ _02121DF8:
 	mov r5, #0x400
 _02121ECC:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _02121EE8
 	mov r0, r11
@@ -9532,7 +9532,7 @@ _021221D4:
 	ldr r7, [r5]
 	mov r8, r1
 	ldr r0, [r7, r8, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	sub r6, r6, #0x100
 	str r4, [r7, r8, lsl #2]
 	cmp r6, #0x200
@@ -9581,7 +9581,7 @@ _02122298:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021222AC
-	bl FUN_0201e078
+	bl operator_delete
 _021222AC:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -9615,7 +9615,7 @@ _02122308:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -9675,7 +9675,7 @@ _021223D8:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021223EC
-	bl FUN_0201e078
+	bl operator_delete
 _021223EC:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -10785,7 +10785,7 @@ _021233FC:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02123410
-	bl FUN_0201e078
+	bl operator_delete
 _02123410:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -10868,7 +10868,7 @@ FUN_ov52_0212350c: ; 0x0212350C
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl FUN_0201e078
+	bl operator_delete
 _02123534:
 	mov r0, r4
 	add sp, sp, #4
@@ -10896,7 +10896,7 @@ FUN_ov52_02123540: ; 0x02123540
 _02123580:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl FUN_0201e014
+	bl operator_new
 	movs r6, r0
 	bne _021235A0
 	ldr r0, _021235B8 ; =0x02124344
@@ -11063,7 +11063,7 @@ FUN_ov52_021237c4: ; 0x021237C4
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl FUN_0201e078
+	bl operator_delete
 _021237EC:
 	mov r0, r4
 	add sp, sp, #4
@@ -11345,7 +11345,7 @@ FUN_ov52_02123b8c: ; 0x02123B8C
 _02123BCC:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl FUN_0201e014
+	bl operator_new
 	movs r6, r0
 	bne _02123BEC
 	ldr r0, _02123C04 ; =0x02124344

@@ -1528,7 +1528,7 @@ _021262C4: .word unk_0209F5C0
 FUN_ov115_021262c8: ; 0x021262C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov115_021262c8

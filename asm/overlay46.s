@@ -8165,7 +8165,7 @@ FUN_ov46_021210a0: ; 0x021210A0
 	add r0, r4, #0x78
 	bl FUN_0206c110
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov46_021210a0

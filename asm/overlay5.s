@@ -255,7 +255,7 @@ FUN_ov5_020bce7c: ; 0x020BCE7C
 	mov r4, r0
 	bl FUN_02041b00
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bce7c
@@ -398,7 +398,7 @@ FUN_ov5_020bd008: ; 0x020BD008
 FUN_ov5_020bd02c: ; 0x020BD02C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd02c
@@ -744,7 +744,7 @@ _020BD47C: .word unk_0209F5C0
 FUN_ov5_020bd480: ; 0x020BD480
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd480
@@ -971,7 +971,7 @@ _020BD72C: .word FUN_ov5_020bd538
 FUN_ov5_020bd730: ; 0x020BD730
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd730

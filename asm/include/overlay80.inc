@@ -1,6 +1,6 @@
 .public DC_FlushRange
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public _s32_div_f
 .public _u32_div_f
 .public FUN_0202c184

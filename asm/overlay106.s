@@ -184,10 +184,10 @@ FUN_ov106_02124f1c: ; 0x02124F1C
 	str r4, [r0, #4]
 	str r4, [r0, #8]
 	mov r0, #0xc000
-	bl FUN_0201e08c
+	bl operator_new_array
 	str r0, [r5, #0xbc]
 	mov r0, #0x600
-	bl FUN_0201e08c
+	bl operator_new_array
 	str r0, [r5, #0xb8]
 _02124F68:
 	ldr r1, [r5, #0xb8]
@@ -310,11 +310,11 @@ FUN_ov106_021250d0: ; 0x021250D0
 	ldr r0, [r0]
 	bl  FUN_ov16_021123c4
 	ldr r0, [r5, #0xbc]
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	mov r4, #0
 	ldr r0, [r5, #0xb8]
 	str r4, [r5, #0xbc]
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	str r4, [r5, #0xb8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125108: .word unk_02099F38
@@ -463,7 +463,7 @@ _021252D8: .word ov106_02125420
 FUN_ov106_021252dc: ; 0x021252DC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov106_021252dc

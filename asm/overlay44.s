@@ -7791,7 +7791,7 @@ _02120C4C:
 	cmp r0, #0
 	beq _02120CF4
 	ldr r0, _02121130 ; =0x000030F0
-	bl FUN_0201e08c
+	bl operator_new_array
 	mov r1, #0
 	mov r2, #4
 	mov r4, r0
@@ -7822,7 +7822,7 @@ _02120C4C:
 	mov r1, #0
 	bl MI_CpuFill8
 	mov r0, r4
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	add r1, r9, #0x9000
 	ldr r0, [r1, #0x368]
 	str r0, [r1, #0x36c]
@@ -7955,7 +7955,7 @@ _02120E98:
 	b _021210E0
 _02120EB0:
 	mov r0, r6, lsl #2
-	bl FUN_0201e08c
+	bl operator_new_array
 	mov r7, r0
 	ldr r0, [sp]
 	cmp r0, #0xa
@@ -8116,7 +8116,7 @@ _021210C4:
 	blt _0212104C
 _021210D8:
 	mov r0, r7
-	bl FUN_0201e0b8
+	bl operator_delete_array
 _021210E0:
 	mov r0, r9
 	bl FUN_ov44_0211f4a4
@@ -9147,7 +9147,7 @@ _02121EF4:
 FUN_ov44_02121f20: ; 0x02121F20
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov44_02121f20

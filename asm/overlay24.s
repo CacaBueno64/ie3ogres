@@ -3749,7 +3749,7 @@ _0211D4BC: .word 0x66666667
 FUN_ov24_0211d4c0: ; 0x0211D4C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov24_0211d4c0

@@ -1,6 +1,6 @@
 .public DC_FlushRange
 .public FUN_01ff9c08
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0201f704
 .public FUN_0201fdac
 .public FUN_0202b838

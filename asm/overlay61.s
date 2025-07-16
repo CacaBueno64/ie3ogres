@@ -4583,7 +4583,7 @@ _0211DE50: .word unk_0209A5D0
 FUN_ov61_0211de54: ; 0x0211DE54
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov61_0211de54
@@ -4986,7 +4986,7 @@ _0211E330:
 FUN_ov61_0211e338: ; 0x0211E338
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov61_0211e338
@@ -5230,7 +5230,7 @@ FUN_ov61_0211e634: ; 0x0211E634
 FUN_ov61_0211e648: ; 0x0211E648
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov61_0211e648
@@ -5645,7 +5645,7 @@ _0211EB50:
 FUN_ov61_0211eb58: ; 0x0211EB58
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov61_0211eb58

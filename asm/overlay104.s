@@ -1437,7 +1437,7 @@ FUN_ov104_0212608c: ; 0x0212608C
 FUN_ov104_021260a0: ; 0x021260A0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov104_021260a0

@@ -3885,7 +3885,7 @@ FUN_ov89_0211d470: ; 0x0211D470
 	add r0, r4, #0x1dc
 	bl FUN_0206c110
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov89_0211d470

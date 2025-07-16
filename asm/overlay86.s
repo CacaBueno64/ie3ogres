@@ -3052,7 +3052,7 @@ _0211C7C4:
 	mov r1, #0
 	mov r0, #0x74
 	strb r1, [r5, #0x941]
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _0211C934
 	bl  FUN_ov16_02110558
@@ -3298,7 +3298,7 @@ _0211CC5C: .word unk_0209F5C0
 FUN_ov86_0211cc60: ; 0x0211CC60
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov86_0211cc60
