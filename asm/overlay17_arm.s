@@ -13230,7 +13230,7 @@ _020FF374:
 	blt _020FF374
 _020FF390:
 	add r0, sp, #0
-	bl FUN_02024640
+	bl atoi
 	cmp r0, r4
 	movge r0, #1
 	movlt r0, #0
@@ -23543,7 +23543,7 @@ _02107AF8:
 	blt _02107AF8
 _02107B14:
 	mov r0, r6
-	bl FUN_02024640
+	bl atoi
 	strb r0, [r8, r7]
 	add r7, r7, #1
 	cmp r7, #4

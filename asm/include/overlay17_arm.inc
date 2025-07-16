@@ -150,7 +150,7 @@
 .public NNS_G2dCharCanvasDrawChar
 .public NNSi_G2dCalcRequiredOBJ
 .public memset
-.public FUN_02024640
+.public atoi
 .public FUN_ov1_020cabf0
 .public DWC_BM_Init
 .public FUN_ov15_020c3ae4

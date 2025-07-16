@@ -1,5 +1,6 @@
 .public FUN_ov0_020bdbe8
 .public FUN_ov0_020bff3c
+.public FUN_ov0_020cc844
 .public FUN_ov0_020cd0ec
 .public FUN_ov0_020cd1f0
 .public FUN_ov0_020cd2a8
