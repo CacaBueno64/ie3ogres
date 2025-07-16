@@ -9994,7 +9994,7 @@ _020C51A8:
 	ldr r2, _020C53B8 ; =0x000082EA
 	orr r1, r1, r7, lsr #26
 	mov r0, r7, lsl #6
-	bl _ll_udiv
+	bl _ull_div
 	ldr r2, _020C53BC ; =0x00000BB8
 	cmp r1, #0
 	cmpeq r0, r2
@@ -10565,7 +10565,7 @@ FUN_ov15_020c5904: ; 0x020C5904
 	mov r3, r5
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl _ll_udiv
+	bl _ull_div
 	add r2, r4, #0xd00
 	ldrh r3, [r2, #0x22]
 	cmp r1, r3, asr #31
@@ -10618,7 +10618,7 @@ FUN_ov15_020c59c4: ; 0x020C59C4
 	orr r1, r1, r5, lsr #26
 	mov r0, r5, lsl #6
 	mov r3, #0
-	bl _ll_udiv
+	bl _ull_div
 	add r2, r4, #0xd00
 	ldrh r2, [r2, #0x24]
 	cmp r1, r2, asr #31
@@ -10726,7 +10726,7 @@ FUN_ov15_020c5b4c: ; 0x020C5B4C
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
 	mov r3, #0
-	bl _ll_udiv
+	bl _ull_div
 	add r2, r4, #0xd00
 	ldrh r2, [r2, #0x24]
 	cmp r1, r2, asr #31
@@ -11715,7 +11715,7 @@ _020C6860:
 	mov r1, r0, lsl #6
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl _ll_udiv
+	bl _ull_div
 	cmp r1, #0
 	cmpeq r0, #0xa
 	movlo r0, #0xc
@@ -12437,7 +12437,7 @@ _020C7200:
 	mov r0, r2, lsl #6
 	mov r3, #0
 	mov r2, r7
-	bl _ll_udiv
+	bl _ull_div
 	ldr r6, _020C7364 ; =0x00001388
 	cmp r1, #0
 	cmpeq r0, r6
@@ -12478,7 +12478,7 @@ _020C7298:
 	mov r0, r2, lsl #6
 	mov r2, r7
 	mov r3, r5
-	bl _ll_udiv
+	bl _ull_div
 	cmp r1, #0
 	cmpeq r0, r6
 	blo _020C724C
@@ -13885,7 +13885,7 @@ _020C86C4:
 	orr r1, r1, r2, lsr #26
 	mov r0, r2, lsl #6
 	ldr r2, _020C8774 ; =0x000082EA
-	bl _ll_udiv
+	bl _ull_div
 	cmp r1, r8, asr #31
 	cmpeq r0, r8
 	addhi r0, r10, #0x1000
@@ -16923,7 +16923,7 @@ _020CB090:
 	mov r12, #0x40
 	mla r1, r10, r12, r1
 	mov r3, r8
-	bl _ll_udiv
+	bl _ull_div
 	cmp r1, #0
 	cmpeq r0, #0xfa0
 	bls _020CB0F4
@@ -21522,7 +21522,7 @@ _020CEE6C:
 	mov r1, r8
 	mov r2, r7
 	mov r3, r6
-	bl _ll_udiv
+	bl _ull_div
 	umull r3, r2, r0, r7
 	mla r2, r0, r6, r2
 	add r0, r0, #0x30
@@ -37032,7 +37032,7 @@ _020DBE08:
 	bl get64bits
 	ldr r2, [sp, #0x18]
 	ldr r3, [sp, #0x10]
-	bl _ll_udiv
+	bl _ull_div
 	mov r5, r0
 	ldr r0, _020DBED8 ; =0x0000FFFF
 	cmp r5, r0

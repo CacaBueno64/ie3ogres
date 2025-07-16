@@ -35,7 +35,7 @@
 .public FUN_0201b5ec
 .public FUN_0201c2f0
 .public FUN_0201c388
-.public _ll_udiv
+.public _ull_div
 .public _ull_mod
 .public OS_SpinWaitSysCycles
 .public OS_WaitVBlankIntr

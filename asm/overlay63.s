@@ -95,10 +95,10 @@ _02119FB8:
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211A074
 _0211A054:
 	ldr r1, _0211A190 ; =0x0212490C
@@ -106,11 +106,11 @@ _0211A054:
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211A074:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r4, _0211A184 ; =0x02099F78
 	mov r6, r0
 	ldr r1, _0211A194 ; =0x02124920
@@ -122,21 +122,21 @@ _0211A074:
 	mov r0, r4
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211A0D4
 _0211A0B8:
 	ldr r1, _0211A19C ; =0x02124948
 	mov r0, r4
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211A0D4:
-	bl FUN_0201fdac
+	bl _ffix
 	mov r2, #0x1a4000
 	str r0, [sp, #0xc]
 	rsb r2, r2, #0

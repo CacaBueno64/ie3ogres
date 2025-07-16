@@ -2,7 +2,7 @@
 .public operator_new
 .public operator_delete
 .public _ffltu
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0206f9ec
 .public G2_GetBG1CharPtr
@@ -17,12 +17,12 @@
 .public FUN_02073ee0
 .public FUN_02073ef0
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020467ac
 .public FUN_020467c0
 .public FUN_020728e8
 .public FUN_0207318c
-.public FUN_02020274
+.public _fadd
 .public FUN_02059004
 .public FUN_02059038
 .public FUN_ov1_020db97c

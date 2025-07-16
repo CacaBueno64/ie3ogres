@@ -1,7 +1,7 @@
 .public DC_FlushRange
 .public operator_delete
 .public _ffltu
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0204a2c4
 .public FUN_0204b0c4
@@ -15,13 +15,13 @@
 .public FUN_02058ee0
 .public FUN_02059a78
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020460a8
 .public FUN_020739f4
 .public FUN_0205998c
 .public FUN_0207181c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02058800
 .public FUN_02059004
 .public FUN_02059038

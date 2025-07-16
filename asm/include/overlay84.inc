@@ -1,6 +1,6 @@
 .public operator_delete
 .public _ffltu
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0206d4fc
 .public FUN_0206d6b0
@@ -15,7 +15,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020425fc
 .public FUN_020568a4
 .public FUN_020568c4
@@ -26,7 +26,7 @@
 .public FUN_0205722c
 .public FUN_0205935c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02043310
 .public FUN_02046730
 .public FUN_02046744

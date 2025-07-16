@@ -15,10 +15,10 @@
 .public operator_delete
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201f704
-.public _ll_udiv
+.public _fflt
+.public _ull_div
 .public _u32_div_f
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202b7b4
 .public FUN_0202b7f0
 .public FUN_0202b758
@@ -272,7 +272,7 @@
 .public GXS_LoadBG2Char
 .public GX_SetBankForSubOBJ
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020311b8
 .public FUN_020312cc
 .public FUN_020312d8
@@ -401,7 +401,7 @@
 .public MTX_OrthoW
 .public VEC_Add
 .public VEC_Subtract
-.public FUN_02020274
+.public _fadd
 .public abs
 .public labs
 .public strchr

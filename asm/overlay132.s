@@ -13075,7 +13075,7 @@ FUN_ov132_02146014: ; 0x02146014
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r0, r1, lsl #1
 	mov r5, r2
-	bl FUN_0201f704
+	bl _fflt
 	mov r4, r0
 	mov r0, #0x29
 	bl FUN_ov16_020ef928
@@ -13087,7 +13087,7 @@ FUN_ov132_02146014: ; 0x02146014
 	mov r1, r0
 	mov r0, r4
 	bl _fmul
-	bl FUN_0201fde0
+	bl _ffixu
 	mov r0, r0, lsl #0x10
 	cmp r5, #0
 	mov r5, r0, lsr #0x10
@@ -13114,14 +13114,14 @@ FUN_ov132_0214609c: ; 0x0214609C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r0, r1
 	mov r6, r2
-	bl FUN_0201f704
+	bl _fflt
 	mov r4, #0x3f000000
 	mov r1, r0
 	mov r0, r4
 	bl _fmul
 	add r1, r4, #0x2f00000
 	mov r5, r0
-	bl FUN_0201f5c8
+	bl _fgr
 	mov r0, #0x29
 	addhi r5, r4, #0x2f00000
 	bl FUN_ov16_020ef928
@@ -13133,7 +13133,7 @@ FUN_ov132_0214609c: ; 0x0214609C
 	mov r1, r0
 	mov r0, r5
 	bl _fmul
-	bl FUN_0201fde0
+	bl _ffixu
 	mov r0, r0, lsl #0x10
 	mov r5, r0, lsr #0x10
 	cmp r6, #0
@@ -15907,34 +15907,34 @@ _0214867C:
 	cmp r6, #0
 	mov r0, r6, lsl #0xc
 	ble _0214869C
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _021486A8
 _0214869C:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _021486A8:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r1, [r4]
 	cmp r5, #0
 	add r0, r1, r0
 	str r0, [r7]
 	mov r0, r5, lsl #0xc
 	ble _021486D8
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _021486E4
 _021486D8:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _021486E4:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r1, [r4, #4]
 	add r0, r1, r0
 	b _02148784
@@ -15942,33 +15942,33 @@ _021486F4:
 	cmp r6, #0
 	mov r0, r6, lsl #0xc
 	ble _02148714
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02148720
 _02148714:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02148720:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r1, [r4]
 	cmp r5, #0
 	add r6, r1, r0
 	mov r0, r5, lsl #0xc
 	ble _0214874C
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02148758
 _0214874C:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02148758:
-	bl FUN_0201fdac
+	bl _ffix
 	ldmia r4, {r1, r3}
 	ldr r2, [r4, #8]
 	add r3, r3, r0
@@ -16167,33 +16167,33 @@ _02148A0C:
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	ble _02148A30
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02148A3C
 _02148A30:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02148A3C:
-	bl FUN_0201fdac
+	bl _ffix
 	str r0, [sp, #4]
 	ldr r0, [r4]
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
 	ble _02148A68
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02148A74
 _02148A68:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02148A74:
-	bl FUN_0201fdac
+	bl _ffix
 	str r0, [sp]
 	add r0, sp, #4
 	add r1, sp, #0
@@ -27257,17 +27257,17 @@ _0215271C:
 	cmp r9, #0
 	mov r0, r9, lsl #0xc
 	ble _0215277C
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02152788
 _0215277C:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02152788:
-	bl FUN_0201fdac
+	bl _ffix
 	str r0, [sp, #0x20]
 	ldr r2, [r7, #0x84]
 	mov r0, r8
@@ -33175,7 +33175,7 @@ _02157CAC:
 	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _02157D0C
 _02157CF4:
 	bl FUN_ov16_020ef928
@@ -33183,9 +33183,9 @@ _02157CF4:
 	mov r0, r0, lsl #0xc
 	bl _ffltu
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _02157D0C:
-	bl FUN_0201fdac
+	bl _ffix
 	mov r4, r0
 	ldr r2, [r11, #8]
 	ldr r0, [r11]
@@ -39254,34 +39254,34 @@ _0215CFFC:
 	ldr r7, [sp, #0x10]
 	mov r0, r0, lsl #0xc
 	ble _0215D028
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0215D034
 _0215D028:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0215D034:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r1, _0215D0E0 ; =0x0209A720
 	mov r5, r0
 	cmp r6, #0
 	ldr r4, [r1, #0xd4]
 	mov r0, r6, lsl #0xc
 	ble _0215D064
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0215D070
 _0215D064:
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0215D070:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r1, _0215D0E0 ; =0x0209A720
 	ldr r10, _0215D0DC ; =0x02099EF0
 	ldr r1, [r1, #0xd8]

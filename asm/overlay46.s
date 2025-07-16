@@ -5845,7 +5845,7 @@ FUN_ov46_0211f008: ; 0x0211F008
 	mov r3, r4
 	orr r1, r1, r12, lsr #26
 	mov r0, r12, lsl #6
-	bl _ll_udiv
+	bl _ull_div
 	mov r0, r0, lsl #0xc
 	cmp r0, #0x23
 	ble _0211F0AC

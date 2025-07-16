@@ -501,7 +501,7 @@ _0211A5D8:
 	b _0211A6C4
 _0211A614:
 	rsb r0, r9, #1
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
@@ -512,11 +512,11 @@ _0211A614:
 	mov r10, r1
 	bl FUN_0206dcd4
 	ldrb r0, [r0, #0x4a]
-	bl FUN_0201f204
+	bl _dfltu
 	mov r2, r5
 	mov r3, r10
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	ldr r2, _0211B2E8 ; =0x66666667
 	smull r3, r1, r2, r0
 	mov r2, r0, lsr #0x1f
@@ -566,7 +566,7 @@ _0211A6C4:
 	b _0211A7B8
 _0211A70C:
 	rsb r0, r9, #2
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
@@ -576,11 +576,11 @@ _0211A70C:
 	mov r10, r1
 	mov r0, r6
 	bl FUN_0206ccec
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r2, r5
 	mov r3, r10
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	ldr r2, _0211B2E8 ; =0x66666667
 	smull r3, r1, r2, r0
 	mov r2, r0, lsr #0x1f
@@ -630,7 +630,7 @@ _0211A7B8:
 	b _0211A8AC
 _0211A800:
 	rsb r0, r9, #2
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
@@ -640,11 +640,11 @@ _0211A800:
 	mov r10, r1
 	mov r0, r6
 	bl FUN_0206cc94
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r2, r5
 	mov r3, r10
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	ldr r2, _0211B2E8 ; =0x66666667
 	smull r3, r1, r2, r0
 	mov r2, r0, lsr #0x1f

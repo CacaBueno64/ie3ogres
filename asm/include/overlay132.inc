@@ -25,12 +25,12 @@
 .public FUN_01ffbc60
 .public operator_new
 .public operator_delete
-.public FUN_0201f5c8
+.public _fgr
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201f704
-.public FUN_0201fdac
-.public FUN_0201fde0
+.public _fflt
+.public _ffix
+.public _ffixu
 .public FUN_0202de44
 .public FUN_0202e1c0
 .public FUN_0203ba04
@@ -163,7 +163,7 @@
 .public FUN_02073eac
 .public FUN_02073f08
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public memcpy
 .public FUN_020401b8
 .public FUN_020403a8
@@ -203,7 +203,7 @@
 .public FUN_0207318c
 .public FUN_0207470c
 .public _fmul
-.public FUN_02020274
+.public _fadd
 .public FUN_02040118
 .public FUN_02040128
 .public FUN_02040138

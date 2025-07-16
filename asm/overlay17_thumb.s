@@ -4223,7 +4223,7 @@ FUN_ov17_020eff10: ; 0x020EFF10
 	ldr r2, _020EFF60 ; =0x01FF6210
 	asr r1, r0, #0x1f
 	add r3, r4, #0
-	blx FUN_0201f99c
+	blx __llmul
 	lsr r3, r0, #6
 	lsl r2, r1, #0x1a
 	orr r3, r2
@@ -4234,7 +4234,7 @@ FUN_ov17_020eff10: ; 0x020EFF10
 	ldr r2, _020EFF60 ; =0x01FF6210
 	asr r1, r0, #0x1f
 	mov r3, #0
-	blx FUN_0201f99c
+	blx __llmul
 	lsr r3, r0, #6
 	lsl r2, r1, #0x1a
 	orr r3, r2
@@ -9865,7 +9865,7 @@ _020F2940:
 	ldr r2, [sp, #0x20]
 	ldr r1, [sp, #0x18]
 	asr r3, r2, #0x1f
-	blx FUN_0201f99c
+	blx __llmul
 	str r0, [sp, #0xc]
 	mov r0, #0
 	str r1, [sp, #8]
@@ -10098,7 +10098,7 @@ _020F2AFE:
 	ldr r2, [sp, #0x24]
 	ldr r1, [sp, #0x18]
 	asr r3, r2, #0x1f
-	blx FUN_0201f99c
+	blx __llmul
 	str r0, [sp, #0xc]
 	mov r0, #0
 	str r1, [sp, #8]
@@ -13062,7 +13062,7 @@ FUN_ov17_020f4234: ; 0x020F4234
 	ldr r2, _020F424C ; =0x000082EA
 	lsl r0, r0, #6
 	mov r3, #0
-	blx _ll_udiv
+	blx _ull_div
 	pop {r3, pc}
 _020F424C: .word 0x000082EA
 	thumb_func_end FUN_ov17_020f4234

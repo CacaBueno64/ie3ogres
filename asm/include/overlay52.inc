@@ -6,11 +6,11 @@
 .public FS_SeekFile
 .public operator_new
 .public operator_delete
-.public FUN_0201f1c4
-.public FUN_0201f704
+.public _dflt
+.public _fflt
 .public _u32_div_f
-.public FUN_0201fdac
-.public FUN_0201fe20
+.public _ffix
+.public _dfix
 .public FUN_0202cf6c
 .public FUN_0202e1c0
 .public FUN_0202eff0
@@ -53,7 +53,7 @@
 .public FUN_0206e43c
 .public FUN_0206ed40
 .public FUN_0206fc44
-.public FUN_02020af8
+.public _ddiv
 .public printf
 .public FUN_02041f2c
 .public FUN_02050b1c
@@ -63,7 +63,7 @@
 .public FUN_02058ee0
 .public FUN_02071fac
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public memcpy
 .public memmove
 .public L5_IniFileGetParam
@@ -75,7 +75,7 @@
 .public FUN_0205131c
 .public FUN_0205935c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public abort
 .public memset
 .public FUN_02028820

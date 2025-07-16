@@ -1,8 +1,8 @@
 .public operator_delete
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201f704
-.public FUN_0201fdac
+.public _fflt
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0202e1c0
 .public FUN_0202eff0
@@ -39,7 +39,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_0204331c
@@ -47,7 +47,7 @@
 .public FUN_0205131c
 .public FUN_0205935c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02043310
 .public FUN_02054070
 .public FUN_02059004

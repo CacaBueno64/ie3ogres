@@ -7105,7 +7105,7 @@ FUN_ov17_020fa2a4: ; 0x020FA2A4
 	mov r2, r8
 	mov r3, r5
 	str r9, [sp, #0x64]
-	bl _ll_udiv
+	bl _ull_div
 	ldr r9, _020FA4A8 ; =0x00002710
 	mov r4, r0
 	mov r7, r1
@@ -7123,7 +7123,7 @@ _020FA3B8:
 	mov r1, r7
 	mov r2, r9
 	mov r3, r8
-	bl _ll_udiv
+	bl _ull_div
 	add r5, r5, #1
 	mov r4, r0
 	mov r7, r1

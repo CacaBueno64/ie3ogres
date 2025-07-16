@@ -17,12 +17,12 @@
 .public FUN_01ffba50
 .public FUN_01ffba80
 .public FUN_01ffba98
-.public FUN_0201f5c8
+.public _fgr
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201f704
+.public _fflt
 .public _u32_div_f
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0203fb5c
 .public FUN_0203fc70
@@ -108,7 +108,7 @@
 .public FUN_02073e14
 .public FUN_02073e54
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public memcmp
 .public FUN_020401a0
 .public FUN_020403a8
@@ -129,7 +129,7 @@
 .public FUN_0207249c
 .public FUN_0207318c
 .public _fmul
-.public FUN_02020274
+.public _fadd
 .public _fdiv
 .public FUN_02040118
 .public FUN_02040128

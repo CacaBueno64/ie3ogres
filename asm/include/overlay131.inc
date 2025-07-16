@@ -3,10 +3,10 @@
 .public FS_UnloadOverlay
 .public operator_new
 .public operator_delete
-.public FUN_0201f5c8
+.public _fgr
 .public _s32_div_f
 .public _u32_div_f
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202b7f0
 .public FUN_0202ceb0
 .public FUN_0202cf6c
@@ -107,7 +107,7 @@
 .public FUN_02058ee0
 .public FUN_02072d28
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public memmove
 .public FUN_020312d8
 .public FUN_020381a0
@@ -166,7 +166,7 @@
 .public VEC_Subtract
 .public STD_TSPrintf
 .public _fmul
-.public FUN_02020274
+.public _fadd
 .public abort
 .public memset
 .public FUN_02031554

@@ -16,9 +16,9 @@
 .public FUN_01ffba18
 .public FUN_01ffba80
 .public FUN_01ffbcb0
-.public FUN_0201f5c8
-.public FUN_0201f704
-.public FUN_0201fdac
+.public _fgr
+.public _fflt
+.public _ffix
 .public FUN_0204a2c4
 .public FUN_0204b540
 .public FUN_0204c5d0
@@ -71,7 +71,7 @@
 .public FUN_02073e40
 .public OS_IsResetOccurred
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020403a8
 .public FUN_020403d4
 .public FUN_020404cc
@@ -91,7 +91,7 @@
 .public FUN_0207249c
 .public FUN_0207318c
 .public _fmul
-.public FUN_02020274
+.public _fadd
 .public FUN_02040128
 .public FUN_02040138
 .public FUN_02040148

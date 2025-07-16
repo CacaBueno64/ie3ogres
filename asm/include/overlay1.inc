@@ -9,8 +9,8 @@
 .public operator_delete
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201f704
-.public FUN_0201fdac
+.public _fflt
+.public _ffix
 .public FUN_0202b7b4
 .public FUN_0202b7f0
 .public FUN_0202b838
@@ -172,7 +172,7 @@
 .public FX_Sqrt
 .public NNS_FndAppendListObject
 .public NNS_FndRemoveListObject
-.public FUN_020204a4
+.public _fsub
 .public L5_IniFileGetParam
 .public FUN_020425fc
 .public FUN_020443c0
@@ -233,7 +233,7 @@
 .public NNS_FndGetNextListObject
 .public NNS_FndGetPrevListObject
 .public NNS_FndGetNthListObject
-.public FUN_02020274
+.public _fadd
 .public FUN_02042054
 .public FUN_02042084
 .public FUN_02043310

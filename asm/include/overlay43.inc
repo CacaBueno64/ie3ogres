@@ -3,7 +3,7 @@
 .public operator_delete
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public FUN_0204b2f4
 .public FUN_0204b754
@@ -48,7 +48,7 @@
 .public FUN_02058e30
 .public FUN_02058ee0
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020425fc
 .public FUN_020501bc
 .public FUN_020502a8
@@ -64,7 +64,7 @@
 .public FUN_0205430c
 .public FUN_0205935c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02043310
 .public FUN_02050144
 .public FUN_02050244

@@ -2727,14 +2727,14 @@ _0211C488:
 	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211C4CC
 _0211C4C0:
 	bl _ffltu
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211C4CC:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r2, _0211C50C ; =0x02099F58
 	mov r1, r0
 	ldr r0, [r2]
