@@ -33,15 +33,15 @@ _02119F5C:
 	cmp r0, #0
 	beq _02119FD8
 	mov r0, r4
-	bl  FUN_ov16_020f09c0
+	bl FUN_ov16_020f09c0
 	mov r7, #1
 	mov r8, r0
 	mov r0, r7
-	bl  FUN_ov16_020f09c0
+	bl FUN_ov16_020f09c0
 	mov r6, r0
 	ldr r0, _0211A040 ; =0x0209AEC0
 	bl FUN_02046730
-	bl  FUN_ov16_020f085c
+	bl FUN_ov16_020f085c
 	cmp r0, #0
 	bne _02119FB0
 	strb r4, [r5, #0x96]
@@ -59,7 +59,7 @@ _02119FB0:
 _02119FC4:
 	ldr r0, _0211A040 ; =0x0209AEC0
 	bl FUN_02046730
-	bl  FUN_ov16_020f085c
+	bl FUN_ov16_020f085c
 	strb r0, [r5, #0x9a]
 	b _02119FFC
 _02119FD8:
@@ -76,7 +76,7 @@ _02119FFC:
 	ldrb r0, [r5, #0x1a]
 	cmp r0, #0
 	bne _0211A014
-	bl  FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211A014:
@@ -106,9 +106,9 @@ FUN_ov75_0211a048: ; 0x0211A048
 	mov r1, r4
 	bl FUN_0205131c
 	mov r0, r5
-	bl  FUN_ov1_020be6f8
+	bl FUN_ov1_020be6f8
 	mov r0, r5
-	bl  FUN_ov1_020be73c
+	bl FUN_ov1_020be73c
 	ldr r1, _0211A20C ; =0x020EAA94
 	ldr r3, _0211A210 ; =0x0209A12C
 	mov r12, #0
@@ -136,7 +136,7 @@ FUN_ov75_0211a048: ; 0x0211A048
 	str r2, [r0]
 	cmp r1, #0
 	bne _0211A0F0
-	bl  FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17
 	cmp r0, #0
 	beq _0211A104
 _0211A0F0:
@@ -269,8 +269,8 @@ _0211A2C0:
 	mov r2, #0x20
 	bl STD_CopyLString
 _0211A2D8:
-	bl  FUN_ov16_020f081c
-	bl  FUN_ov16_020f09c0
+	bl FUN_ov16_020f081c
+	bl FUN_ov16_020f09c0
 	cmp r0, #2
 	blt _0211A314
 	ldr r5, [r5, #4]
@@ -285,8 +285,8 @@ _0211A2D8:
 	bl FUN_02041eac
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A314:
-	bl  FUN_ov16_020f083c
-	bl  FUN_ov16_020f09c0
+	bl FUN_ov16_020f083c
+	bl FUN_ov16_020f09c0
 	ldr r4, [r5, #4]
 	mov r1, #0
 	mov r0, r4

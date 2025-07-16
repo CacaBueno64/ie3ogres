@@ -19874,7 +19874,7 @@ FUN_ov15_020cd860: ; 0x020CD860
 	ldr r0, [r1, #0x10]
 	bl FUN_ov15_020cd890
 	ldr r0, _020CD88C ; =FUN_ov15_020cd824
-	bl FUN_ov15_020d392c
+	bl NHTTP_CleanupAsync
 	ldmfd sp!, {r3, pc}
 _020CD888: .word ov15_020E90A4
 _020CD88C: .word FUN_ov15_020cd824
@@ -19890,9 +19890,9 @@ FUN_ov15_020cd890: ; 0x020CD890
 	cmp r0, #0
 	beq _020CD8CC
 	ldr r0, [sp, #8]
-	bl FUN_ov15_020d4484
+	bl NHTTP_GetConnectionStatus
 	ldr r0, [sp, #8]
-	bl FUN_ov15_020d424c
+	bl NHTTP_DeleteConnection
 	cmp r0, #0
 	moveq r0, #0
 	movne r4, #0
@@ -19999,7 +19999,7 @@ FUN_ov15_020cd9b0: ; 0x020CD9B0
 	ldr r4, [r4, #0x10]
 	bl FUN_ov15_020cecb4
 	mov r0, r4
-	bl FUN_ov15_020d443c
+	bl NHTTP_CancelConnection
 	cmp r0, #0
 	moveq r5, #1
 	add sp, sp, #8
@@ -20151,7 +20151,7 @@ FUN_ov15_020cdc00: ; 0x020CDC00
 	mov r4, r2
 	mov r11, #0
 	mvn r7, #0
-	bl FUN_ov15_020d450c
+	bl NHTTP_GetUserParam
 	str r0, [sp, #4]
 	ldmia r0, {r5, r6}
 	ldr r0, [r0, #8]
@@ -20163,14 +20163,14 @@ FUN_ov15_020cdc00: ; 0x020CDC00
 	cmp r10, #4
 	bne _020CDE70
 	mov r0, r8
-	bl FUN_ov15_020d4550
+	bl NHTTP_GetConnectionError
 	cmp r0, #8
 	moveq r9, #6
 	beq _020CDE0C
 	ldr r1, _020CDE7C ; =0x020E5800
 	add r2, sp, #0x10
 	mov r0, r8
-	bl FUN_ov15_020d3a24
+	bl NHTTP_GetHeaderField
 	cmp r0, #3
 	movne r9, #3
 	bne _020CDE0C
@@ -20185,7 +20185,7 @@ FUN_ov15_020cdc00: ; 0x020CDC00
 	add r2, sp, #0x14
 	mov r0, r8
 	mov r10, r11
-	bl FUN_ov15_020d44ac
+	bl NHTTP_GetBodyBuffer
 	movs r8, r0
 	movmi r9, r4
 	bmi _020CDE0C
@@ -20458,7 +20458,7 @@ _020CE010:
 	ldr r3, [sp, #0x130]
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov15_020d4114
+	bl NHTTP_CreateConnection
 	movs r7, r0
 	bne _020CE074
 	bl FUN_ov15_020ced3c
@@ -20475,48 +20475,48 @@ _020CE074:
 	str r6, [r10]
 	mov r2, r5
 	str r7, [r9]
-	bl FUN_ov15_020d3a90
+	bl NHTTP_SetRootCA
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	mov r0, r7
 	mov r1, #0
-	bl FUN_ov15_020d3a60
+	bl NHTTP_SetVerifyOption
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3CC ; =0x020E581C
 	ldr r2, _020CE3D0 ; =0x020E9171
 	mov r0, r7
-	bl FUN_ov15_020d3944
+	bl NHTTP_AddHeaderField
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3D4 ; =0x020E5828
 	ldr r2, _020CE3D8 ; =0x020E90D5
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3DC ; =0x020E5830
 	ldr r2, _020CE3B8 ; =0x020E90CC
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3E0 ; =0x020E583C
 	ldr r2, _020CE3E4 ; =0x020E9158
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r2, [r4, #0x18]
 	ldr r1, _020CE3E8 ; =0x020E5844
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
@@ -20524,21 +20524,21 @@ _020CE074:
 	ldr r2, _020CE3BC ; =0x020E9112
 	mov r0, r7
 	mov r9, r4
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3F0 ; =0x020E5854
 	ldr r2, _020CE3F4 ; =0x020E90EC
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
 	ldr r1, _020CE3F8 ; =0x020E585C
 	mov r0, r7
 	mov r2, r11
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
@@ -20548,7 +20548,7 @@ _020CE074:
 	beq _020CE1B8
 	ldr r1, _020CE3FC ; =0x020E5864
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #2
 	cmp r0, r1
 	beq _020CE390
@@ -20558,7 +20558,7 @@ _020CE1B8:
 	beq _020CE1D8
 	ldr r1, _020CE400 ; =0x020E586C
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	cmn r0, #1
 	beq _020CE390
 _020CE1D8:
@@ -20567,7 +20567,7 @@ _020CE1D8:
 	beq _020CE1F8
 	ldr r1, _020CE404 ; =0x020E5874
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	cmn r0, #1
 	beq _020CE390
 _020CE1F8:
@@ -20577,7 +20577,7 @@ _020CE1F8:
 	ldr r1, _020CE408 ; =0x020E587C
 	ldr r2, _020CE40C ; =0x020E90FD
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	cmn r0, #1
 	beq _020CE390
 _020CE21C:
@@ -20610,7 +20610,7 @@ _020CE25C:
 	ldr r1, _020CE414 ; =0x020E5884
 	mov r2, r10
 	mov r0, r7
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r4, #0x5a
 	cmp r0, r1
 	beq _020CE390
@@ -20723,7 +20723,7 @@ FUN_ov15_020ce418: ; 0x020CE418
 	mov r4, r1
 	bl FUN_ov15_020ceca0
 	mov r0, r4
-	bl FUN_ov15_020d43d0
+	bl NHTTP_StartConnection
 	cmp r0, #0
 	beq _020CE450
 	mov r4, #0
@@ -20883,14 +20883,14 @@ _020CE668:
 	ldr r0, [sp, #0xc]
 	ldr r1, _020CE778 ; =0x020E5894
 	mov r2, r8
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #1
 	cmp r0, r1
 	beq _020CE720
 	ldr r0, [sp, #0xc]
 	ldr r1, _020CE77C ; =0x020E589C
 	mov r2, r9
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r5, #1
 	cmp r0, r1
 	beq _020CE720
@@ -21030,7 +21030,7 @@ _020CE870:
 	ldr r0, [sp, #8]
 	ldr r1, _020CE938 ; =0x020E58A0
 	mov r2, r6
-	bl FUN_ov15_020d39d0
+	bl NHTTP_AddPostDataAscii
 	sub r1, r4, #1
 	cmp r0, r1
 	beq _020CE900
@@ -21087,7 +21087,7 @@ FUN_ov15_020ce93c: ; 0x020CE93C
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, [r3, #0x10]
 	mov r1, r12
-	bl FUN_ov15_020d4578
+	bl NHTTP_GetConnectionProgress
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -21102,7 +21102,7 @@ FUN_ov15_020ce97c: ; 0x020CE97C
 	mov r4, r1
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_ov15_020d44ac
+	bl NHTTP_GetBodyBuffer
 	movs r1, r0
 	bmi _020CE9C8
 	ldr r0, [sp, #4]
@@ -21129,7 +21129,7 @@ FUN_ov15_020ce9d4: ; 0x020CE9D4
 	mov r4, r1
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_ov15_020d44ac
+	bl NHTTP_GetBodyBuffer
 	ldr r1, [r4, #0x10]
 	cmp r0, r1
 	moveq r0, #1
@@ -21155,7 +21155,7 @@ FUN_ov15_020cea04: ; 0x020CEA04
 	ldr r1, _020CEC80 ; =0x020E58AC
 	add r2, sp, #0xc
 	mov r0, r4
-	bl FUN_ov15_020d3a24
+	bl NHTTP_GetHeaderField
 	cmp r0, #0
 	ble _020CEA6C
 	ldr r1, [sp, #0xc]
@@ -21170,7 +21170,7 @@ _020CEA6C:
 	add r1, sp, #0x14
 	add r2, sp, #0x10
 	mov r0, r4
-	bl FUN_ov15_020d44ac
+	bl NHTTP_GetBodyBuffer
 	mov r4, r0
 	cmp r4, #0
 	ldrgt r0, [sp]
@@ -21481,16 +21481,16 @@ _020CEE18: .word MI_CpuCopy8
 
 	arm_func_start FUN_ov15_020cee1c
 FUN_ov15_020cee1c: ; 0x020CEE1C
-	ldr r12, _020CEE24 ; =FUN_ov15_020cf85c
+	ldr r12, _020CEE24 ; =NHTTPi_strToInt
 	bx r12
-_020CEE24: .word FUN_ov15_020cf85c
+_020CEE24: .word NHTTPi_strToInt
 	arm_func_end FUN_ov15_020cee1c
 
 	arm_func_start FUN_ov15_020cee28
 FUN_ov15_020cee28: ; 0x020CEE28
-	ldr r12, _020CEE30 ; =FUN_ov15_020cf8f8
+	ldr r12, _020CEE30 ; =NHTTPi_intToStr
 	bx r12
-_020CEE30: .word FUN_ov15_020cf8f8
+_020CEE30: .word NHTTPi_intToStr
 	arm_func_end FUN_ov15_020cee28
 
 	arm_func_start FUN_ov15_020cee34
@@ -21583,28 +21583,28 @@ _020CEF58:
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov15_020cef08
 
-	arm_func_start FUN_ov15_020cef60
-FUN_ov15_020cef60: ; 0x020CEF60
+	arm_func_start NHTTPi_InitMutex
+NHTTPi_InitMutex: ; 0x020CEF60
 	ldr r12, _020CEF68 ; =OS_InitMutex
 	bx r12
 _020CEF68: .word OS_InitMutex
-	arm_func_end FUN_ov15_020cef60
+	arm_func_end NHTTPi_InitMutex
 
-	arm_func_start FUN_ov15_020cef6c
-FUN_ov15_020cef6c: ; 0x020CEF6C
+	arm_func_start NHTTPi_LockMutex
+NHTTPi_LockMutex: ; 0x020CEF6C
 	ldr r12, _020CEF74 ; =OS_LockMutex
 	bx r12
 _020CEF74: .word OS_LockMutex
-	arm_func_end FUN_ov15_020cef6c
+	arm_func_end NHTTPi_LockMutex
 
-	arm_func_start FUN_ov15_020cef78
-FUN_ov15_020cef78: ; 0x020CEF78
+	arm_func_start NHTTPi_createCommThread
+NHTTPi_createCommThread: ; 0x020CEF78
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov15_020d1164
+	bl NHTTPi_IsCreateCommThreadMessageQueue
 	cmp r0, #0
 	bne _020CEFB0
 	mov r0, r6
@@ -21612,11 +21612,11 @@ FUN_ov15_020cef78: ; 0x020CEF78
 	mov r2, #3
 	bl OS_InitMessageQueue
 	mov r0, r6
-	bl FUN_ov15_020d114c
+	bl NHTTPi_IsCreateCommThreadMessageQueueOn
 _020CEFB0:
 	mov r0, #0x2000
 	str r0, [sp]
-	ldr r1, _020CEFE4 ; =FUN_ov15_020cf074
+	ldr r1, _020CEFE4 ; =NHTTPi_CommThreadProc
 	add r0, r6, #0x2c
 	add r3, r4, #0x2000
 	mov r2, #0
@@ -21627,41 +21627,41 @@ _020CEFB0:
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_020CEFE4: .word FUN_ov15_020cf074
-	arm_func_end FUN_ov15_020cef78
+_020CEFE4: .word NHTTPi_CommThreadProc
+	arm_func_end NHTTPi_createCommThread
 
-	arm_func_start FUN_ov15_020cefe8
-FUN_ov15_020cefe8: ; 0x020CEFE8
+	arm_func_start NHTTPi_destroyCommThread
+NHTTPi_destroyCommThread: ; 0x020CEFE8
 	stmfd sp!, {r4, lr}
 	mov r2, #1
 	mov r4, r0
 	str r2, [r1, #0x18]
-	bl FUN_ov15_020cf01c
+	bl NHTTPi_kickCommThread
 	add r0, r4, #0x2c
 	bl OS_JoinThread
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020cefe8
+	arm_func_end NHTTPi_destroyCommThread
 
-	arm_func_start FUN_ov15_020cf008
-FUN_ov15_020cf008: ; 0x020CF008
+	arm_func_start NHTTPi_idleCommThread
+NHTTPi_idleCommThread: ; 0x020CF008
 	stmfd sp!, {r3, lr}
 	add r1, sp, #0
 	mov r2, #1
 	bl OS_ReceiveMessage
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020cf008
+	arm_func_end NHTTPi_idleCommThread
 
-	arm_func_start FUN_ov15_020cf01c
-FUN_ov15_020cf01c: ; 0x020CF01C
+	arm_func_start NHTTPi_kickCommThread
+NHTTPi_kickCommThread: ; 0x020CF01C
 	mov r1, #0
 	ldr r12, _020CF02C ; =OS_SendMessage
 	mov r2, r1
 	bx r12
 _020CF02C: .word OS_SendMessage
-	arm_func_end FUN_ov15_020cf01c
+	arm_func_end NHTTPi_kickCommThread
 
-	arm_func_start FUN_ov15_020cf030
-FUN_ov15_020cf030: ; 0x020CF030
+	arm_func_start NHTTPi_CheckCurrentThread
+NHTTPi_CheckCurrentThread: ; 0x020CF030
 	stmfd sp!, {r3, lr}
 	ldr r2, _020CF070 ; =OSi_ThreadInfo
 	add r0, r0, #0x2c
@@ -21681,43 +21681,43 @@ _020CF068:
 	bl OS_Terminate
 	ldmfd sp!, {r3, pc}
 _020CF070: .word OSi_ThreadInfo
-	arm_func_end FUN_ov15_020cf030
+	arm_func_end NHTTPi_CheckCurrentThread
 
-	arm_func_start FUN_ov15_020cf074
-FUN_ov15_020cf074: ; 0x020CF074
-	ldr r12, _020CF07C ; =FUN_ov15_020d3780
+	arm_func_start NHTTPi_CommThreadProc
+NHTTPi_CommThreadProc: ; 0x020CF074
+	ldr r12, _020CF07C ; =NHTTPi_CommThreadProcMain
 	bx r12
-_020CF07C: .word FUN_ov15_020d3780
-	arm_func_end FUN_ov15_020cf074
+_020CF07C: .word NHTTPi_CommThreadProcMain
+	arm_func_end NHTTPi_CommThreadProc
 
-	arm_func_start FUN_ov15_020cf080
-FUN_ov15_020cf080: ; 0x020CF080
+	arm_func_start NHTTPi_CpsAuthCallback
+NHTTPi_CpsAuthCallback: ; 0x020CF080
 	tst r0, #0x8000
 	bicne r0, r0, #0x8000
 	bx lr
-	arm_func_end FUN_ov15_020cf080
+	arm_func_end NHTTPi_CpsAuthCallback
 
-	arm_func_start FUN_ov15_020cf08c
-FUN_ov15_020cf08c: ; 0x020CF08C
+	arm_func_start NHTTPi_CpsAuthCallbackForDebug
+NHTTPi_CpsAuthCallbackForDebug: ; 0x020CF08C
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020cf08c
+	arm_func_end NHTTPi_CpsAuthCallbackForDebug
 
-	arm_func_start FUN_ov15_020cf094
-FUN_ov15_020cf094: ; 0x020CF094
+	arm_func_start NHTTPi_SetSSLseed
+NHTTPi_SetSSLseed: ; 0x020CF094
 	stmfd sp!, {r4, lr}
-	ldr r4, _020CF0B4 ; =0x020E92B0
+	ldr r4, _020CF0B4 ; =ssl_seed
 	mov r0, r4
 	bl OS_GetLowEntropyData
 	mov r0, r4
 	mov r1, #0x20
 	bl CPS_SslAddRandomSeed
 	ldmfd sp!, {r4, pc}
-_020CF0B4: .word ov15_020E92B0
-	arm_func_end FUN_ov15_020cf094
+_020CF0B4: .word ssl_seed
+	arm_func_end NHTTPi_SetSSLseed
 
-	arm_func_start FUN_ov15_020cf0b8
-FUN_ov15_020cf0b8: ; 0x020CF0B8
+	arm_func_start NHTTPi_checkKeepAlive
+NHTTPi_checkKeepAlive: ; 0x020CF0B8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0
 	sub r1, r5, #1
@@ -21735,20 +21735,20 @@ FUN_ov15_020cf0b8: ; 0x020CF0B8
 _020CF0F0:
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020cf0b8
+	arm_func_end NHTTPi_checkKeepAlive
 
-	arm_func_start FUN_ov15_020cf0f8
-FUN_ov15_020cf0f8: ; 0x020CF0F8
+	arm_func_start NHTTPi_SocOpen
+NHTTPi_SocOpen: ; 0x020CF0F8
 	ldr r12, _020CF10C ; =SOC_Socket
 	mov r0, #2
 	mov r1, #1
 	mov r2, #0
 	bx r12
 _020CF10C: .word SOC_Socket
-	arm_func_end FUN_ov15_020cf0f8
+	arm_func_end NHTTPi_SocOpen
 
-	arm_func_start FUN_ov15_020cf110
-FUN_ov15_020cf110: ; 0x020CF110
+	arm_func_start NHTTPi_SocClose
+NHTTPi_SocClose: ; 0x020CF110
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r10, r2
 	mov r0, r10
@@ -21783,17 +21783,17 @@ _020CF174:
 	ldrne r0, [r4, #0xac]
 	cmpne r0, #0
 	beq _020CF194
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, #0
 	str r0, [r4, #0xac]
 _020CF194:
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CF19C: .word 0x00002710
-	arm_func_end FUN_ov15_020cf110
+	arm_func_end NHTTPi_SocClose
 
-	arm_func_start FUN_ov15_020cf1a0
-FUN_ov15_020cf1a0: ; 0x020CF1A0
+	arm_func_start NHTTPi_SocConnect
+NHTTPi_SocConnect: ; 0x020CF1A0
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	ldr r4, [sp, #0x1c]
@@ -21819,7 +21819,7 @@ FUN_ov15_020cf1a0: ; 0x020CF1A0
 	ldr r12, [r4, #0xc]
 	cmp r12, #0
 	bne _020CF214
-	bl FUN_ov15_020cf250
+	bl NHTTPi_SocSSLConnect
 	cmp r0, #0
 	addlt sp, sp, #8
 	ldmltfd sp!, {r4, r5, r6, pc}
@@ -21840,10 +21840,10 @@ _020CF240:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _020CF24C: .word 0xFFFFFC16
-	arm_func_end FUN_ov15_020cf1a0
+	arm_func_end NHTTPi_SocConnect
 
-	arm_func_start FUN_ov15_020cf250
-FUN_ov15_020cf250: ; 0x020CF250
+	arm_func_start NHTTPi_SocSSLConnect
+NHTTPi_SocSSLConnect: ; 0x020CF250
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r2
 	ldr r4, [r7, #0xac]
@@ -21853,11 +21853,11 @@ FUN_ov15_020cf250: ; 0x020CF250
 	mov r6, #0x830
 	mov r0, r6
 	mov r1, #4
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	mov r4, r0
 	mov r1, r6
 	str r4, [r7, #0xac]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 _020CF288:
 	ldr r0, [r7, #0xc0]
 	mov r1, r4
@@ -21868,23 +21868,23 @@ _020CF288:
 	str r0, [r4, #0x800]
 	ldr r0, [r7, #0xd8]
 	cmp r0, #0
-	ldrne r0, _020CF2D8 ; =FUN_ov15_020cf08c
-	ldreq r0, _020CF2DC ; =FUN_ov15_020cf080
+	ldrne r0, _020CF2D8 ; =NHTTPi_CpsAuthCallbackForDebug
+	ldreq r0, _020CF2DC ; =NHTTPi_CpsAuthCallback
 	str r0, [r4, #0x810]
 	mov r0, r5
 	bl SOCL_EnableSsl
 	cmp r0, #0
 	mvnlt r0, #0x3e8
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov15_020cf094
+	bl NHTTPi_SetSSLseed
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020CF2D8: .word FUN_ov15_020cf08c
-_020CF2DC: .word FUN_ov15_020cf080
-	arm_func_end FUN_ov15_020cf250
+_020CF2D8: .word NHTTPi_CpsAuthCallbackForDebug
+_020CF2DC: .word NHTTPi_CpsAuthCallback
+	arm_func_end NHTTPi_SocSSLConnect
 
-	arm_func_start FUN_ov15_020cf2e0
-FUN_ov15_020cf2e0: ; 0x020CF2E0
+	arm_func_start NHTTPi_SocRecv_sub
+NHTTPi_SocRecv_sub: ; 0x020CF2E0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r7, r3
@@ -21919,7 +21919,7 @@ _020CF338:
 	mov r0, r8
 	mov r2, r6
 	add r1, r4, r1
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	add r0, r9, #0x8000
 	ldr r1, [r0, #0x44]
 	subs r1, r1, r6
@@ -21929,7 +21929,7 @@ _020CF338:
 	bne _020CF398
 	mov r0, r4
 	mov r1, #0x8000
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	add r0, r9, #0x8000
 	mov r1, #0
 _020CF398:
@@ -21938,16 +21938,16 @@ _020CF398:
 _020CF3A0:
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020cf2e0
+	arm_func_end NHTTPi_SocRecv_sub
 
-	arm_func_start FUN_ov15_020cf3a8
-FUN_ov15_020cf3a8: ; 0x020CF3A8
+	arm_func_start NHTTPi_SocRecv
+NHTTPi_SocRecv: ; 0x020CF3A8
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r1
 	mov r5, r2
 	mov r4, r3
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	cmp r0, #0
 	beq _020CF3E4
 	ldr r12, [sp, #0x1c]
@@ -21955,7 +21955,7 @@ FUN_ov15_020cf3a8: ; 0x020CF3A8
 	mov r1, r5
 	mov r2, r4
 	str r12, [sp]
-	bl FUN_ov15_020cf2e0
+	bl NHTTPi_SocRecv_sub
 	b _020CF3F0
 _020CF3E4:
 	add sp, sp, #4
@@ -21976,24 +21976,24 @@ _020CF3F0:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020CF424: .word 0xFFFFFC16
-	arm_func_end FUN_ov15_020cf3a8
+	arm_func_end NHTTPi_SocRecv
 
-	arm_func_start FUN_ov15_020cf428
-FUN_ov15_020cf428: ; 0x020CF428
+	arm_func_start NHTTPi_SocSend_sub
+NHTTPi_SocSend_sub: ; 0x020CF428
 	ldr r12, _020CF430 ; =SOC_Send
 	bx r12
 _020CF430: .word SOC_Send
-	arm_func_end FUN_ov15_020cf428
+	arm_func_end NHTTPi_SocSend_sub
 
-	arm_func_start FUN_ov15_020cf434
-FUN_ov15_020cf434: ; 0x020CF434
+	arm_func_start NHTTPi_SocSend
+NHTTPi_SocSend: ; 0x020CF434
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	mov r1, r2
 	mov r2, r3
 	ldr r3, [sp, #8]
-	bl FUN_ov15_020cf428
+	bl NHTTPi_SocSend_sub
 	cmp r0, #0
 	ldmgefd sp!, {r4, pc}
 	ldr r1, [r4]
@@ -22005,14 +22005,14 @@ FUN_ov15_020cf434: ; 0x020CF434
 	mvnne r0, #0x3e8
 	ldmfd sp!, {r4, pc}
 _020CF478: .word 0xFFFFFC16
-	arm_func_end FUN_ov15_020cf434
+	arm_func_end NHTTPi_SocSend
 
-	arm_func_start FUN_ov15_020cf47c
-FUN_ov15_020cf47c: ; 0x020CF47C
+	arm_func_start NHTTPi_SocCancel
+NHTTPi_SocCancel: ; 0x020CF47C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r2
 	mov r5, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	cmp r4, #0
 	blt _020CF4A0
 	mov r0, r4
@@ -22020,12 +22020,12 @@ FUN_ov15_020cf47c: ; 0x020CF47C
 	bl SOC_Shutdown
 _020CF4A0:
 	mov r0, r5
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020cf47c
+	arm_func_end NHTTPi_SocCancel
 
-	arm_func_start FUN_ov15_020cf4ac
-FUN_ov15_020cf4ac: ; 0x020CF4AC
+	arm_func_start NHTTPi_resolveHostname
+NHTTPi_resolveHostname: ; 0x020CF4AC
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	mov r4, r1
@@ -22048,55 +22048,55 @@ FUN_ov15_020cf4ac: ; 0x020CF4AC
 	add r0, sp, #4
 	ldr r1, [r1]
 	mov r2, #4
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 _020CF508:
 	ldr r0, [sp, #4]
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020cf4ac
+	arm_func_end NHTTPi_resolveHostname
 
-	arm_func_start FUN_ov15_020cf514
-FUN_ov15_020cf514: ; 0x020CF514
+	arm_func_start NHTTPi_memcpy
+NHTTPi_memcpy: ; 0x020CF514
 	mov r3, r0
 	mov r0, r1
 	ldr r12, _020CF528 ; =MI_CpuCopy8
 	mov r1, r3
 	bx r12
 _020CF528: .word MI_CpuCopy8
-	arm_func_end FUN_ov15_020cf514
+	arm_func_end NHTTPi_memcpy
 
-	arm_func_start FUN_ov15_020cf52c
-FUN_ov15_020cf52c: ; 0x020CF52C
+	arm_func_start NHTTPi_strlen
+NHTTPi_strlen: ; 0x020CF52C
 	ldr r12, _020CF534 ; =STD_GetStringLength
 	bx r12
 _020CF534: .word STD_GetStringLength
-	arm_func_end FUN_ov15_020cf52c
+	arm_func_end NHTTPi_strlen
 
-	arm_func_start FUN_ov15_020cf538
-FUN_ov15_020cf538: ; 0x020CF538
+	arm_func_start NHTTPi_strnlen
+NHTTPi_strnlen: ; 0x020CF538
 	ldr r12, _020CF540 ; =STD_GetStringNLength
 	bx r12
 _020CF540: .word STD_GetStringNLength
-	arm_func_end FUN_ov15_020cf538
+	arm_func_end NHTTPi_strnlen
 
-	arm_func_start FUN_ov15_020cf544
-FUN_ov15_020cf544: ; 0x020CF544
+	arm_func_start NHTTPi_strcmp
+NHTTPi_strcmp: ; 0x020CF544
 	ldr r12, _020CF54C ; =STD_CompareString
 	bx r12
 _020CF54C: .word STD_CompareString
-	arm_func_end FUN_ov15_020cf544
+	arm_func_end NHTTPi_strcmp
 
-	arm_func_start FUN_ov15_020cf550
-FUN_ov15_020cf550: ; 0x020CF550
+	arm_func_start NHTTPi_memclr
+NHTTPi_memclr: ; 0x020CF550
 	ldr r12, _020CF560 ; =MI_CpuFill8
 	mov r2, r1
 	mov r1, #0
 	bx r12
 _020CF560: .word MI_CpuFill8
-	arm_func_end FUN_ov15_020cf550
+	arm_func_end NHTTPi_memclr
 
-	arm_func_start FUN_ov15_020cf564
-FUN_ov15_020cf564: ; 0x020CF564
+	arm_func_start NHTTPi_strnicmp
+NHTTPi_strnicmp: ; 0x020CF564
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	cmp r2, #0
 	mov r4, #0
@@ -22142,10 +22142,10 @@ _020CF5AC:
 _020CF600:
 	mov r0, r2
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020cf564
+	arm_func_end NHTTPi_strnicmp
 
-	arm_func_start FUN_ov15_020cf608
-FUN_ov15_020cf608: ; 0x020CF608
+	arm_func_start NHTTPi_getUrlEncodedSize
+NHTTPi_getUrlEncodedSize: ; 0x020CF608
 	ldrsb r2, [r0], #1
 	mov r1, #0
 	cmp r2, #0
@@ -22180,10 +22180,10 @@ _020CF65C:
 _020CF668:
 	mov r0, r1
 	bx lr
-	arm_func_end FUN_ov15_020cf608
+	arm_func_end NHTTPi_getUrlEncodedSize
 
-	arm_func_start FUN_ov15_020cf670
-FUN_ov15_020cf670: ; 0x020CF670
+	arm_func_start NHTTPi_getUrlEncodedSize2
+NHTTPi_getUrlEncodedSize2: ; 0x020CF670
 	mov r2, #0
 	cmp r1, #0
 	mov r3, r2
@@ -22221,10 +22221,10 @@ _020CF6CC:
 _020CF6DC:
 	mov r0, r3
 	bx lr
-	arm_func_end FUN_ov15_020cf670
+	arm_func_end NHTTPi_getUrlEncodedSize2
 
-	arm_func_start FUN_ov15_020cf6e4
-FUN_ov15_020cf6e4: ; 0x020CF6E4
+	arm_func_start NHTTPi_encodeUrlChar
+NHTTPi_encodeUrlChar: ; 0x020CF6E4
 	cmp r1, #0x20
 	moveq r1, #0x2b
 	streqb r1, [r0]
@@ -22264,10 +22264,10 @@ _020CF734:
 	strb r1, [r0, #2]
 	mov r0, #3
 	bx lr
-	arm_func_end FUN_ov15_020cf6e4
+	arm_func_end NHTTPi_encodeUrlChar
 
-	arm_func_start FUN_ov15_020cf770
-FUN_ov15_020cf770: ; 0x020CF770
+	arm_func_start NHTTPi_strToHex
+NHTTPi_strToHex: ; 0x020CF770
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	cmp r1, #8
 	mvngt r0, #0
@@ -22334,10 +22334,10 @@ _020CF848:
 _020CF854:
 	mov r0, r8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020cf770
+	arm_func_end NHTTPi_strToHex
 
-	arm_func_start FUN_ov15_020cf85c
-FUN_ov15_020cf85c: ; 0x020CF85C
+	arm_func_start NHTTPi_strToInt
+NHTTPi_strToInt: ; 0x020CF85C
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r1, #0xa
 	mvngt r0, #0
@@ -22384,10 +22384,10 @@ _020CF8E4:
 _020CF8F0:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020cf85c
+	arm_func_end NHTTPi_strToInt
 
-	arm_func_start FUN_ov15_020cf8f8
-FUN_ov15_020cf8f8: ; 0x020CF8F8
+	arm_func_start NHTTPi_intToStr
+NHTTPi_intToStr: ; 0x020CF8F8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x24
 	ldr r6, _020CF9A0 ; =0x020E3ED0
@@ -22434,10 +22434,10 @@ _020CF980:
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CF9A0: .word 0x020E3ED0
-	arm_func_end FUN_ov15_020cf8f8
+	arm_func_end NHTTPi_intToStr
 
-	arm_func_start FUN_ov15_020cf9a4
-FUN_ov15_020cf9a4: ; 0x020CF9A4
+	arm_func_start NHTTPi_compareToken
+NHTTPi_compareToken: ; 0x020CF9A4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, #1
 	mov lr, #0
@@ -22476,10 +22476,10 @@ _020CF9D8:
 	beq _020CF9C0
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020cf9a4
+	arm_func_end NHTTPi_compareToken
 
-	arm_func_start FUN_ov15_020cfa34
-FUN_ov15_020cfa34: ; 0x020CFA34
+	arm_func_start NHTTPi_strtonum
+NHTTPi_strtonum: ; 0x020CFA34
 	stmfd sp!, {r3, lr}
 	mov r12, #0
 	cmp r1, #0
@@ -22511,10 +22511,10 @@ _020CFA94:
 	mvneq lr, #0
 	mov r0, lr
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020cfa34
+	arm_func_end NHTTPi_strtonum
 
-	arm_func_start FUN_ov15_020cfaa4
-FUN_ov15_020cfaa4: ; 0x020CFAA4
+	arm_func_start NHTTPi_memfind
+NHTTPi_memfind: ; 0x020CFAA4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	cmp r1, r3
 	mvnlt r0, #0
@@ -22553,10 +22553,10 @@ _020CFB14:
 _020CFB20:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020cfaa4
+	arm_func_end NHTTPi_memfind
 
-	arm_func_start FUN_ov15_020cfb28
-FUN_ov15_020cfb28: ; 0x020CFB28
+	arm_func_start NHTTPi_InitBgnEndInfo
+NHTTPi_InitBgnEndInfo: ; 0x020CFB28
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #0
 	mov r5, r0
@@ -22566,18 +22566,18 @@ FUN_ov15_020cfb28: ; 0x020CFB28
 	str r4, [r5, #4]
 	str r4, [r5, #8]
 	str r2, [r5, #0xc]
-	bl FUN_ov15_020cfbc8
+	bl NHTTPi_SetSSLError
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	str r4, [r5, #0x18]
 	str r4, [r5, #0x1c]
 	str r4, [r5, #0x20]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020cfb28
+	arm_func_end NHTTPi_InitBgnEndInfo
 
-	arm_func_start FUN_ov15_020cfb6c
-FUN_ov15_020cfb6c: ; 0x020CFB6C
+	arm_func_start NHTTPi_alloc
+NHTTPi_alloc: ; 0x020CFB6C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -22590,10 +22590,10 @@ FUN_ov15_020cfb6c: ; 0x020CFB6C
 	mov r1, r4
 	blx r2
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020cfb6c
+	arm_func_end NHTTPi_alloc
 
-	arm_func_start FUN_ov15_020cfb9c
-FUN_ov15_020cfb9c: ; 0x020CFB9C
+	arm_func_start NHTTPi_free
+NHTTPi_free: ; 0x020CFB9C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
@@ -22603,25 +22603,25 @@ FUN_ov15_020cfb9c: ; 0x020CFB9C
 	mov r0, r4
 	blx r1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020cfb9c
+	arm_func_end NHTTPi_free
 
-	arm_func_start FUN_ov15_020cfbc0
-FUN_ov15_020cfbc0: ; 0x020CFBC0
+	arm_func_start NHTTPi_SetError
+NHTTPi_SetError: ; 0x020CFBC0
 	str r1, [r0, #0x14]
 	bx lr
-	arm_func_end FUN_ov15_020cfbc0
+	arm_func_end NHTTPi_SetError
 
-	arm_func_start FUN_ov15_020cfbc8
-FUN_ov15_020cfbc8: ; 0x020CFBC8
+	arm_func_start NHTTPi_SetSSLError
+NHTTPi_SetSSLError: ; 0x020CFBC8
 	str r1, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_ov15_020cfbc8
+	arm_func_end NHTTPi_SetSSLError
 
-	arm_func_start FUN_ov15_020cfbd0
-FUN_ov15_020cfbd0: ; 0x020CFBD0
+	arm_func_start NHTTPi_GetSSLError
+NHTTPi_GetSSLError: ; 0x020CFBD0
 	ldr r0, [r0, #0x10]
 	bx lr
-	arm_func_end FUN_ov15_020cfbd0
+	arm_func_end NHTTPi_GetSSLError
 
 	arm_func_start NHTTPi_Startup
 NHTTPi_Startup: ; 0x020CFBD8
@@ -22630,19 +22630,19 @@ NHTTPi_Startup: ; 0x020CFBD8
 	mov r9, r1
 	mov r8, r2
 	mov r7, r3
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r6, r0
 	mov r0, r10
-	bl FUN_ov15_020d4008
+	bl NHTTPi_GetListInfoP
 	mov r5, r0
 	mov r0, r10
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r4, r0
 	mov r0, r10
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r11, r0
 	mov r0, r10
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	str r9, [r6]
 	str r8, [r6, #4]
 	mov r8, r0
@@ -22652,41 +22652,41 @@ NHTTPi_Startup: ; 0x020CFBD8
 	str r5, [r6, #0x10]
 	str r5, [r6, #0x18]
 	str r5, [r6, #0x24]
-	bl FUN_ov15_020d0030
+	bl NHTTPi_InitListInfo
 	mov r0, r4
-	bl FUN_ov15_020d0704
+	bl NHTTPi_InitRequestInfo
 	mov r0, r11
-	bl FUN_ov15_020d406c
-	bl FUN_ov15_020d4034
+	bl NHTTPi_initLockReqList
+	bl NHTTPi_InitConnectionList
 	sub r0, r5, #1
 	str r0, [r6, #0xc]
 	mov r0, #0x2000
 	mov r1, #8
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r6, #0x1c]
 	movs r2, r0
 	bne _020CFC94
 	mov r0, r6
 	mov r1, #1
-	bl FUN_ov15_020cfbc0
-	bl FUN_ov15_020d4090
+	bl NHTTPi_SetError
+	bl NHTTPi_exitLockReqList
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CFC94:
 	mov r0, r8
 	mov r1, r7
-	bl FUN_ov15_020cef78
+	bl NHTTPi_createCommThread
 	cmp r0, #0
 	movne r0, #1
 	strne r0, [r6, #8]
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6
 	mov r1, #9
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	ldr r0, [r6, #0x1c]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	str r5, [r6, #0x1c]
-	bl FUN_ov15_020d4090
+	bl NHTTPi_exitLockReqList
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end NHTTPi_Startup
@@ -22696,43 +22696,43 @@ NHTTPi_CleanupAsync: ; 0x020CFCD4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r5, r0
 	mov r0, r7
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r1, #1
 	mov r4, r0
-	bl FUN_ov15_020cf030
+	bl NHTTPi_CheckCurrentThread
 	mov r0, r7
-	bl FUN_ov15_020d0df0
+	bl NHTTPi_cancelAllRequests
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov15_020cefe8
+	bl NHTTPi_destroyCommThread
 	ldr r0, [r5, #0x1c]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r4, #0
 	str r4, [r5, #0x1c]
-	bl FUN_ov15_020d4090
+	bl NHTTPi_exitLockReqList
 	str r4, [r5, #8]
 	cmp r6, #0
 	beq _020CFD34
 	blx r6
 _020CFD34:
-	bl FUN_ov15_020d3d10
+	bl NHTTPi_GetConnectionListLength
 	ldr r2, [r5, #0xc]
 	cmp r2, #0
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r4, #0
 	mov r0, r4
 	mov r1, r4
-	bl FUN_ov15_020cf110
+	bl NHTTPi_SocClose
 	sub r0, r4, #1
 	str r0, [r5, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end NHTTPi_CleanupAsync
 
-	arm_func_start FUN_ov15_020cfd60
-FUN_ov15_020cfd60: ; 0x020CFD60
+	arm_func_start addHdrList
+addHdrList: ; 0x020CFD60
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r9, r0
 	ldr r10, [r9]
@@ -22745,7 +22745,7 @@ FUN_ov15_020cfd60: ; 0x020CFD60
 	ldr r1, [r10, #8]
 	mov r0, r7
 	mov r5, r10
-	bl FUN_ov15_020cf9a4
+	bl NHTTPi_compareToken
 	cmp r0, #0
 	beq _020CFDD8
 	ldr r5, [r10, #4]
@@ -22755,7 +22755,7 @@ FUN_ov15_020cfd60: ; 0x020CFD60
 _020CFDAC:
 	ldr r1, [r5, #8]
 	mov r0, r7
-	bl FUN_ov15_020cf9a4
+	bl NHTTPi_compareToken
 	cmp r0, #0
 	moveq r4, #1
 	beq _020CFDDC
@@ -22772,12 +22772,12 @@ _020CFDDC:
 	bne _020CFE60
 	mov r0, #0x18
 	mov r1, #4
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	cmp r0, #0
 	bne _020CFE10
 	mov r0, r8
 	mov r1, #1
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CFE10:
@@ -22804,10 +22804,10 @@ _020CFE10:
 _020CFE60:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov15_020cfd60
+	arm_func_end addHdrList
 
-	arm_func_start FUN_ov15_020cfe68
-FUN_ov15_020cfe68: ; 0x020CFE68
+	arm_func_start incAscii
+incAscii: ; 0x020CFE68
 	add r0, r0, #1
 	and r0, r0, #0xff
 	cmp r0, #0x7b
@@ -22822,10 +22822,10 @@ _020CFE90:
 	mov r0, r0, lsl #0x18
 	mov r0, r0, asr #0x18
 	bx lr
-	arm_func_end FUN_ov15_020cfe68
+	arm_func_end incAscii
 
-	arm_func_start FUN_ov15_020cfe9c
-FUN_ov15_020cfe9c: ; 0x020CFE9C
+	arm_func_start checkTagPost
+checkTagPost: ; 0x020CFE9C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r9, r1
@@ -22834,7 +22834,7 @@ FUN_ov15_020cfe9c: ; 0x020CFE9C
 	mov r1, r8
 	add r2, r10, #0x3a
 	mov r3, #0x12
-	bl FUN_ov15_020cfaa4
+	bl NHTTPi_memfind
 	cmp r0, #0
 	movlt r0, #1
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -22847,7 +22847,7 @@ _020CFED4:
 	ldrsb r7, [r0, r11]
 _020CFEE4:
 	and r0, r5, #0xff
-	bl FUN_ov15_020cfe68
+	bl incAscii
 	mov r5, r0
 	strb r5, [r6, #0x38]
 	cmp r5, r7
@@ -22856,7 +22856,7 @@ _020CFEE4:
 	mov r1, r8
 	mov r3, r4
 	add r2, r10, #0x3a
-	bl FUN_ov15_020cfaa4
+	bl NHTTPi_memfind
 	cmp r0, #0
 	bge _020CFEE4
 	mov r0, #1
@@ -22868,10 +22868,10 @@ _020CFF20:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CFF34: .word 0x020E3EF4
-	arm_func_end FUN_ov15_020cfe9c
+	arm_func_end checkTagPost
 
-	arm_func_start FUN_ov15_020cff38
-FUN_ov15_020cff38: ; 0x020CFF38
+	arm_func_start NHTTPi_getHdrFromList
+NHTTPi_getHdrFromList: ; 0x020CFF38
 	ldr r3, [r0]
 	cmp r3, #0
 	beq _020CFF74
@@ -22890,22 +22890,22 @@ FUN_ov15_020cff38: ; 0x020CFF38
 _020CFF74:
 	mov r0, r3
 	bx lr
-	arm_func_end FUN_ov15_020cff38
+	arm_func_end NHTTPi_getHdrFromList
 
-	arm_func_start FUN_ov15_020cff7c
-FUN_ov15_020cff7c: ; 0x020CFF7C
+	arm_func_start NHTTPi_AddRequestHeaderField
+NHTTPi_AddRequestHeaderField: ; 0x020CFF7C
 	stmfd sp!, {r3, lr}
 	ldr r12, [r0, #4]
 	cmp r12, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, pc}
 	add r0, r0, #0x30
-	bl FUN_ov15_020cfd60
+	bl addHdrList
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020cff7c
+	arm_func_end NHTTPi_AddRequestHeaderField
 
-	arm_func_start FUN_ov15_020cff9c
-FUN_ov15_020cff9c: ; 0x020CFF9C
+	arm_func_start NHTTPi_AddRequestPostDataAscii
+NHTTPi_AddRequestPostDataAscii: ; 0x020CFF9C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	ldr r0, [r9, #4]
@@ -22924,20 +22924,20 @@ FUN_ov15_020cff9c: ; 0x020CFF9C
 	cmp r6, #0
 	beq _020CFFEC
 	mov r0, r6
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	mov r5, r0
 _020CFFEC:
 	mov r0, r9
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020cfe9c
+	bl checkTagPost
 	cmp r0, #0
 	beq _020D0028
 	mov r1, r8
 	mov r2, r7
 	mov r3, r6
 	add r0, r9, #0x34
-	bl FUN_ov15_020cfd60
+	bl addHdrList
 	movs r4, r0
 	ldrne r0, [r9, #0x34]
 	ldrne r0, [r0]
@@ -22945,25 +22945,25 @@ _020CFFEC:
 _020D0028:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020cff9c
+	arm_func_end NHTTPi_AddRequestPostDataAscii
 
-	arm_func_start FUN_ov15_020d0030
-FUN_ov15_020d0030: ; 0x020D0030
+	arm_func_start NHTTPi_InitListInfo
+NHTTPi_InitListInfo: ; 0x020D0030
 	mov r1, #0
 	str r1, [r0]
 	str r1, [r0, #4]
 	bx lr
-	arm_func_end FUN_ov15_020d0030
+	arm_func_end NHTTPi_InitListInfo
 
-	arm_func_start FUN_ov15_020d0040
-FUN_ov15_020d0040: ; 0x020D0040
+	arm_func_start NHTTPi_setReqQueue
+NHTTPi_setReqQueue: ; 0x020D0040
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r0, #0x14
 	mov r1, #4
 	mvn r4, #0
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	cmp r0, #0
 	beq _020D00D0
 	ldr r1, [r6]
@@ -22997,10 +22997,10 @@ _020D00A0:
 _020D00D0:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d0040
+	arm_func_end NHTTPi_setReqQueue
 
-	arm_func_start FUN_ov15_020d00d8
-FUN_ov15_020d00d8: ; 0x020D00D8
+	arm_func_start NHTTPi_findReqQueue
+NHTTPi_findReqQueue: ; 0x020D00D8
 	ldr r3, [r0]
 	mov r0, #0
 	cmp r3, #0
@@ -23021,16 +23021,16 @@ _020D0104:
 	cmp r12, r3
 	bne _020D0104
 	bx lr
-	arm_func_end FUN_ov15_020d00d8
+	arm_func_end NHTTPi_findReqQueue
 
-	arm_func_start FUN_ov15_020d0124
-FUN_ov15_020d0124: ; 0x020D0124
+	arm_func_start NHTTPi_freeReqQueue
+NHTTPi_freeReqQueue: ; 0x020D0124
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r1
 	mov r1, r2
 	mov r6, r0
 	mov r7, #0
-	bl FUN_ov15_020d00d8
+	bl NHTTPi_findReqQueue
 	movs r4, r0
 	beq _020D01CC
 	ldr r1, [r6]
@@ -23052,31 +23052,31 @@ _020D017C:
 _020D0180:
 	ldr r1, [r4, #0xc]
 	mov r0, r5
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	mov r6, r0
 	ldr r1, [r4, #0xc]
 	mov r0, r5
-	bl FUN_ov15_020d0c78
+	bl NHTTPi_destroyRequestObject
 	mov r0, r4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	cmp r6, #0
 	beq _020D01C8
 	mov r2, #8
 	mov r0, r5
 	mov r1, r6
 	str r2, [r6, #4]
-	bl FUN_ov15_020d3ee4
+	bl NHTTPi_CompleteCallback
 	mov r0, r6
-	bl FUN_ov15_020d4278
+	bl NHTTPi_DeleteConnection
 _020D01C8:
 	mov r7, #1
 _020D01CC:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d0124
+	arm_func_end NHTTPi_freeReqQueue
 
-	arm_func_start FUN_ov15_020d01d4
-FUN_ov15_020d01d4: ; 0x020D01D4
+	arm_func_start NHTTPi_allFreeReqQueue
+NHTTPi_allFreeReqQueue: ; 0x020D01D4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5]
@@ -23087,22 +23087,22 @@ _020D01EC:
 	ldr r2, [r0, #8]
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d0124
+	bl NHTTPi_freeReqQueue
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _020D01EC
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d01d4
+	arm_func_end NHTTPi_allFreeReqQueue
 
-	arm_func_start FUN_ov15_020d020c
-FUN_ov15_020d020c: ; 0x020D020C
-	ldr r12, _020D0214 ; =FUN_ov15_020cff38
+	arm_func_start NHTTPi_getReqFromReqQueue
+NHTTPi_getReqFromReqQueue: ; 0x020D020C
+	ldr r12, _020D0214 ; =NHTTPi_getHdrFromList
 	bx r12
-_020D0214: .word FUN_ov15_020cff38
-	arm_func_end FUN_ov15_020d020c
+_020D0214: .word NHTTPi_getHdrFromList
+	arm_func_end NHTTPi_getReqFromReqQueue
 
-	arm_func_start FUN_ov15_020d0218
-FUN_ov15_020d0218: ; 0x020D0218
+	arm_func_start setupGetcharFromHdrRecvBuf
+setupGetcharFromHdrRecvBuf: ; 0x020D0218
 	stmfd sp!, {r3, lr}
 	cmp r1, #0x400
 	movlt r0, #0
@@ -23127,10 +23127,10 @@ _020D0254:
 	str r0, [r3]
 	ldmfd sp!, {r3, pc}
 _020D026C: .word 0x000001FF
-	arm_func_end FUN_ov15_020d0218
+	arm_func_end setupGetcharFromHdrRecvBuf
 
-	arm_func_start FUN_ov15_020d0270
-FUN_ov15_020d0270: ; 0x020D0270
+	arm_func_start getcharFromHdrRecvBuf
+getcharFromHdrRecvBuf: ; 0x020D0270
 	ldr r3, [r1]
 	cmp r3, #0
 	bne _020D02AC
@@ -23162,10 +23162,10 @@ _020D02C8:
 	add r0, r0, r3
 	ldrsb r0, [r0, #4]
 	bx lr
-	arm_func_end FUN_ov15_020d0270
+	arm_func_end getcharFromHdrRecvBuf
 
-	arm_func_start FUN_ov15_020d02e4
-FUN_ov15_020d02e4: ; 0x020D02E4
+	arm_func_start NHTTPi_findNextLineHdrRecvBuf
+NHTTPi_findNextLineHdrRecvBuf: ; 0x020D02E4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	movs r8, r3
@@ -23183,7 +23183,7 @@ FUN_ov15_020d02e4: ; 0x020D02E4
 	add r3, sp, #0
 	mvn r6, #0
 	mov r5, #0
-	bl FUN_ov15_020d0218
+	bl setupGetcharFromHdrRecvBuf
 	cmp r10, r9
 	bge _020D03F4
 	sub r4, r9, #1
@@ -23191,7 +23191,7 @@ _020D0338:
 	mov r0, r11
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_ov15_020d0270
+	bl getcharFromHdrRecvBuf
 	cmp r0, #0x3a
 	bne _020D0360
 	cmp r8, #0
@@ -23244,10 +23244,10 @@ _020D03F4:
 	mvn r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d02e4
+	arm_func_end NHTTPi_findNextLineHdrRecvBuf
 
-	arm_func_start FUN_ov15_020d0400
-FUN_ov15_020d0400: ; 0x020D0400
+	arm_func_start NHTTPi_skipSpaceHdrRecvBuf
+NHTTPi_skipSpaceHdrRecvBuf: ; 0x020D0400
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r7, r1
@@ -23259,14 +23259,14 @@ FUN_ov15_020d0400: ; 0x020D0400
 	add r4, sp, #0
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov15_020d0218
+	bl setupGetcharFromHdrRecvBuf
 	cmp r7, r6
 	bge _020D0464
 _020D0438:
 	mov r0, r8
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d0270
+	bl getcharFromHdrRecvBuf
 	cmp r0, #0x20
 	addne sp, sp, #8
 	movne r0, r7
@@ -23278,10 +23278,10 @@ _020D0464:
 	mvn r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d0400
+	arm_func_end NHTTPi_skipSpaceHdrRecvBuf
 
-	arm_func_start FUN_ov15_020d0470
-FUN_ov15_020d0470: ; 0x020D0470
+	arm_func_start NHTTPi_compareTokenN_HdrRecvBuf
+NHTTPi_compareTokenN_HdrRecvBuf: ; 0x020D0470
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r9, r1
@@ -23293,11 +23293,11 @@ FUN_ov15_020d0470: ; 0x020D0470
 	bge _020D0548
 	add r2, sp, #4
 	add r3, sp, #0
-	bl FUN_ov15_020d0218
+	bl setupGetcharFromHdrRecvBuf
 	mov r0, r10
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_ov15_020d0270
+	bl getcharFromHdrRecvBuf
 	mov r5, #1
 	sub r6, r4, #1
 	mov r4, #0
@@ -23314,7 +23314,7 @@ _020D04C4:
 	mov r0, r10
 	add r1, sp, #4
 	add r2, sp, #0
-	bl FUN_ov15_020d0270
+	bl getcharFromHdrRecvBuf
 	add r9, r9, #1
 	add r8, r8, #1
 _020D04F8:
@@ -23342,10 +23342,10 @@ _020D0548:
 	mvn r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d0470
+	arm_func_end NHTTPi_compareTokenN_HdrRecvBuf
 
-	arm_func_start FUN_ov15_020d0554
-FUN_ov15_020d0554: ; 0x020D0554
+	arm_func_start NHTTPi_loadFromHdrRecvBuf
+NHTTPi_loadFromHdrRecvBuf: ; 0x020D0554
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, r0
 	mov r7, r2
@@ -23366,7 +23366,7 @@ FUN_ov15_020d0554: ; 0x020D0554
 	mov r0, r8
 	mov r2, r5
 	add r1, r1, r7
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	add r7, r7, r5
 	sub r6, r6, r5
 	add r8, r8, r5
@@ -23397,7 +23397,7 @@ _020D05F4:
 	mov r0, r8
 	mov r2, r5
 	add r1, r1, r7
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	add r0, r7, r5
 	and r7, r0, r9
 	subs r6, r6, r5
@@ -23411,19 +23411,19 @@ _020D0634:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020D063C: .word 0x000001FF
-	arm_func_end FUN_ov15_020d0554
+	arm_func_end NHTTPi_loadFromHdrRecvBuf
 
-	arm_func_start FUN_ov15_020d0640
-FUN_ov15_020d0640: ; 0x020D0640
+	arm_func_start NHTTPi_isRecvBufFull
+NHTTPi_isRecvBufFull: ; 0x020D0640
 	ldr r0, [r0, #0x1c]
 	cmp r0, r1
 	movls r0, #1
 	movhi r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020d0640
+	arm_func_end NHTTPi_isRecvBufFull
 
-	arm_func_start FUN_ov15_020d0654
-FUN_ov15_020d0654: ; 0x020D0654
+	arm_func_start NHTTPi_RecvBuf
+NHTTPi_RecvBuf: ; 0x020D0654
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	ldr r4, [r1, #0x2c]
@@ -23434,13 +23434,13 @@ FUN_ov15_020d0654: ; 0x020D0654
 	str r12, [sp, #4]
 	ldr r12, [r4, #0x28]
 	add r3, r12, r3
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d0654
+	arm_func_end NHTTPi_RecvBuf
 
-	arm_func_start FUN_ov15_020d0688
-FUN_ov15_020d0688: ; 0x020D0688
+	arm_func_start NHTTPi_RecvBufN
+NHTTPi_RecvBufN: ; 0x020D0688
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r7, r1
@@ -23450,7 +23450,7 @@ FUN_ov15_020d0688: ; 0x020D0688
 	mov r0, r4
 	mov r1, r5
 	mov r6, r2
-	bl FUN_ov15_020d0640
+	bl NHTTPi_isRecvBufFull
 	cmp r0, #0
 	addne sp, sp, #8
 	ldrne r0, _020D0700 ; =0xFFFFFC15
@@ -23468,21 +23468,21 @@ FUN_ov15_020d0688: ; 0x020D0688
 	mov r0, r8
 	mov r2, r6
 	add r3, r3, r5
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D0700: .word 0xFFFFFC15
-	arm_func_end FUN_ov15_020d0688
+	arm_func_end NHTTPi_RecvBufN
 
-	arm_func_start FUN_ov15_020d0704
-FUN_ov15_020d0704: ; 0x020D0704
+	arm_func_start NHTTPi_InitRequestInfo
+NHTTPi_InitRequestInfo: ; 0x020D0704
 	mov r1, #0
 	str r1, [r0]
 	bx lr
-	arm_func_end FUN_ov15_020d0704
+	arm_func_end NHTTPi_InitRequestInfo
 
-	arm_func_start FUN_ov15_020d0710
-FUN_ov15_020d0710: ; 0x020D0710
+	arm_func_start NHTTPi_CreateRequest
+NHTTPi_CreateRequest: ; 0x020D0710
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x208
 	mov r8, r1
@@ -23502,29 +23502,29 @@ _020D0748:
 	mov r5, #0x258
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	movs r7, r0
 	bne _020D0770
 _020D0760:
 	ldr r0, [sp]
 	mov r1, #1
 _020D0768:
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	b _020D0B9C
 _020D0770:
 	mov r1, r5
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	rsb r9, r4, #0x440
 	mov r0, r9
 	mov r1, r4
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r7, #0x2c]
 	cmp r0, #0
 	bne _020D0798
 	b _020D0760
 _020D0798:
 	mov r1, r9
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldr r0, [r7, #0x2c]
 	ldr r2, [sp, #0x230]
 	str r6, [r0, #0x28]
@@ -23538,7 +23538,7 @@ _020D0798:
 	mov r0, r8
 	sub r1, r5, #0x59
 	str r3, [r2, #0x30]
-	bl FUN_ov15_020cf538
+	bl NHTTPi_strnlen
 	mov r5, r0
 	cmp r5, #7
 	bgt _020D07E8
@@ -23547,18 +23547,18 @@ _020D07E8:
 	add r6, sp, #8
 	mov r1, #0x200
 	mov r0, r6
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	mov r0, r6
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	mov r8, #7
 	mov r0, #0x50
 	str r0, [r7, #0x20]
 	ldr r1, _020D0BE8 ; =0x020E58BC
 	mov r0, r6
 	mov r2, r8
-	bl FUN_ov15_020cf564
+	bl NHTTPi_strnicmp
 	cmp r0, #0
 	beq _020D0864
 	mov r8, #8
@@ -23566,7 +23566,7 @@ _020D07E8:
 	mov r0, r6
 	mov r2, r8
 	mov r6, #1
-	bl FUN_ov15_020cf564
+	bl NHTTPi_strnicmp
 	cmp r0, #0
 	beq _020D0858
 _020D084C:
@@ -23602,7 +23602,7 @@ _020D0898:
 	sub r0, r5, #1
 	mov r1, r11
 	add r0, r6, r0
-	bl FUN_ov15_020cf770
+	bl NHTTPi_strToHex
 	mov r0, r0, lsl #0x18
 	movs r0, r0, asr #0x18
 	sub r10, r10, #1
@@ -23635,18 +23635,18 @@ _020D0918:
 	add r0, r8, r4
 	sub r5, r0, r9, lsl #1
 	add r0, r5, #1
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r7, #0x24]
 	cmp r0, #0
 	bne _020D0938
 	b _020D0760
 _020D0938:
 	add r1, r5, #1
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldr r0, [r7, #0x24]
 	add r1, sp, #8
 	mov r2, r8
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	mov r9, #0
 	mov r5, r9
 	mov r10, r9
@@ -23662,7 +23662,7 @@ _020D0968:
 	sub r0, r9, #1
 	add r0, r6, r0
 	mov r1, #2
-	bl FUN_ov15_020cf770
+	bl NHTTPi_strToHex
 	mov r0, r0, lsl #0x18
 	mov r1, r0, asr #0x18
 	ldr r0, [r7, #0x24]
@@ -23743,7 +23743,7 @@ _020D0A88:
 	ldr r1, [r7, #0x18]
 	add r0, r0, r2
 	sub r1, r1, r2
-	bl FUN_ov15_020cfa34
+	bl NHTTPi_strtonum
 	cmp r0, #0
 	ldrlt r0, [r7, #0x20]
 	blt _020D0AD0
@@ -23764,14 +23764,14 @@ _020D0ADC:
 	sub r5, r0, r2
 	mov r1, #4
 	add r0, r5, #1
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r7, #0x28]
 	cmp r0, #0
 	bne _020D0B10
 	b _020D0760
 _020D0B10:
 	add r1, r5, #1
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldr r0, [r7, #8]
 	mov r3, #8
 	cmp r0, #0
@@ -23780,11 +23780,11 @@ _020D0B10:
 	ldr r0, [r7, #0x28]
 	mov r2, r5
 	add r1, r1, r3
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	ldr r1, _020D0BF4 ; =0x020E3EF4
 	add r0, r7, #0x38
 	mov r2, #0x14
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	ldr r0, [sp, #4]
 	ldr r2, [sp, #0x234]
 	str r0, [r7, #0x1c]
@@ -23811,20 +23811,20 @@ _020D0B9C:
 	ldr r0, [r7, #0x24]
 	cmp r0, #0
 	beq _020D0BB4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0BB4:
 	ldr r0, [r7, #0x28]
 	cmp r0, #0
 	beq _020D0BC4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0BC4:
 	ldr r0, [r7, #0x2c]
 	cmp r0, #0
 	beq _020D0BD4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0BD4:
 	mov r0, r7
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0BDC:
 	mov r0, #0
 	add sp, sp, #0x208
@@ -23833,29 +23833,29 @@ _020D0BE8: .word ov15_020E58BC
 _020D0BEC: .word ov15_020E58C4
 _020D0BF0: .word 0x0000FFFF
 _020D0BF4: .word 0x020E3EF4
-	arm_func_end FUN_ov15_020d0710
+	arm_func_end NHTTPi_CreateRequest
 
-	arm_func_start FUN_ov15_020d0bf8
-FUN_ov15_020d0bf8: ; 0x020D0BF8
+	arm_func_start NHTTPi_DestroyRequest
+NHTTPi_DestroyRequest: ; 0x020D0BF8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r5
 	mov r4, r0
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	cmp r0, #0
 	movne r1, #0
 	strne r1, [r0, #0x14]
 	ldr r0, [r5, #0x2c]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov15_020d0c78
+	bl NHTTPi_destroyRequestObject
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d0bf8
+	arm_func_end NHTTPi_DestroyRequest
 
-	arm_func_start FUN_ov15_020d0c34
-FUN_ov15_020d0c34: ; 0x020D0C34
+	arm_func_start deleteStrList
+deleteStrList: ; 0x020D0C34
 	stmfd sp!, {r4, r5, r6, lr}
 	movs r6, r0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -23865,53 +23865,53 @@ _020D0C44:
 	cmp r6, r0
 	beq _020D0C60
 	ldr r5, [r0]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	str r5, [r6]
 	b _020D0C6C
 _020D0C60:
 	mov r0, r6
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r6, r4
 _020D0C6C:
 	cmp r6, #0
 	bne _020D0C44
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d0c34
+	arm_func_end deleteStrList
 
-	arm_func_start FUN_ov15_020d0c78
-FUN_ov15_020d0c78: ; 0x020D0C78
+	arm_func_start NHTTPi_destroyRequestObject
+NHTTPi_destroyRequestObject: ; 0x020D0C78
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	cmp r0, #0
 	movne r1, #0
 	strne r1, [r0, #0x10]
 	ldr r0, [r4, #0x30]
-	bl FUN_ov15_020d0c34
+	bl deleteStrList
 	ldr r0, [r4, #0x34]
-	bl FUN_ov15_020d0c34
+	bl deleteStrList
 	ldr r0, [r4, #0x24]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	ldr r0, [r4, #0x28]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, r4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d0c78
+	arm_func_end NHTTPi_destroyRequestObject
 
-	arm_func_start FUN_ov15_020d0cc0
-FUN_ov15_020d0cc0: ; 0x020D0CC0
+	arm_func_start NHTTPi_SendRequestAsync
+NHTTPi_SendRequestAsync: ; 0x020D0CC0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	mov r8, r1
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r5, r0
 	mov r0, r7
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r4, r0
 	mov r0, r7
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r1, [r8, #4]
 	mov r6, r0
 	cmp r1, #0
@@ -23919,45 +23919,45 @@ FUN_ov15_020d0cc0: ; 0x020D0CC0
 	mov r4, #0xb
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	sub r0, r4, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D0D10:
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	mov r0, r7
-	bl FUN_ov15_020d4008
+	bl NHTTPi_GetListInfoP
 	mov r1, r8
-	bl FUN_ov15_020d0040
+	bl NHTTPi_setReqQueue
 	movs r7, r0
 	mov r1, #1
 	bmi _020D0D40
 	mov r0, r4
 	str r1, [r8, #4]
-	bl FUN_ov15_020cf01c
+	bl NHTTPi_kickCommThread
 	b _020D0D48
 _020D0D40:
 	mov r0, r5
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 _020D0D48:
 	mov r0, r6
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	mov r0, r7
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d0cc0
+	arm_func_end NHTTPi_SendRequestAsync
 
-	arm_func_start FUN_ov15_020d0d58
-FUN_ov15_020d0d58: ; 0x020D0D58
+	arm_func_start NHTTPi_CancelRequestAsync
+NHTTPi_CancelRequestAsync: ; 0x020D0D58
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
 	mov r4, #0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r5, r0
 	mov r0, r8
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r6, [r5]
 	mov r5, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	cmp r6, #0
 	beq _020D0DC0
 	ldr r0, [r6, #8]
@@ -23972,37 +23972,37 @@ FUN_ov15_020d0d58: ; 0x020D0D58
 	ldr r1, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	mov r0, r5
-	bl FUN_ov15_020cf47c
+	bl NHTTPi_SocCancel
 _020D0DC0:
 	cmp r4, #0
 	bne _020D0DE0
 	mov r0, r8
-	bl FUN_ov15_020d4008
+	bl NHTTPi_GetListInfoP
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov15_020d0124
+	bl NHTTPi_freeReqQueue
 	mov r4, r0
 _020D0DE0:
 	mov r0, r5
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d0d58
+	arm_func_end NHTTPi_CancelRequestAsync
 
-	arm_func_start FUN_ov15_020d0df0
-FUN_ov15_020d0df0: ; 0x020D0DF0
+	arm_func_start NHTTPi_cancelAllRequests
+NHTTPi_cancelAllRequests: ; 0x020D0DF0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4008
+	bl NHTTPi_GetListInfoP
 	mov r5, r0
 	mov r0, r6
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r6, [r4]
 	mov r4, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	cmp r6, #0
 	beq _020D0E54
 	ldr r0, [r6, #0xc]
@@ -24015,18 +24015,18 @@ FUN_ov15_020d0df0: ; 0x020D0DF0
 	ldr r1, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	mov r0, r4
-	bl FUN_ov15_020cf47c
+	bl NHTTPi_SocCancel
 _020D0E54:
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d01d4
+	bl NHTTPi_allFreeReqQueue
 	mov r0, r4
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d0df0
+	arm_func_end NHTTPi_cancelAllRequests
 
-	arm_func_start FUN_ov15_020d0e6c
-FUN_ov15_020d0e6c: ; 0x020D0E6C
+	arm_func_start NHTTPi_DestroyResponse
+NHTTPi_DestroyResponse: ; 0x020D0E6C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	mov r6, r0
@@ -24035,7 +24035,7 @@ FUN_ov15_020d0e6c: ; 0x020D0E6C
 	beq _020D0E9C
 _020D0E84:
 	ldr r4, [r0]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, r4
 	str r4, [r5, #0x34]
 	cmp r4, #0
@@ -24044,19 +24044,19 @@ _020D0E9C:
 	ldr r0, [r5, #0x20]
 	cmp r0, #0
 	beq _020D0EAC
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0EAC:
 	ldr r0, [r5, #0x24]
 	cmp r0, #0
 	beq _020D0EBC
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 _020D0EBC:
 	ldr r3, [r5, #0x30]
 	cmp r3, #0
 	beq _020D0EE4
 	ldr r0, [r5, #0x28]
 	ldr r2, [r5, #0x438]
-	ldr r1, _020D0F08 ; =FUN_ov15_020cfb9c
+	ldr r1, _020D0F08 ; =NHTTPi_free
 	blx r3
 	mov r0, #0
 	str r0, [r5, #0x28]
@@ -24064,18 +24064,18 @@ _020D0EBC:
 _020D0EE4:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_ov15_020d3cb8
+	bl NHTTPi_Response2Connection
 	cmp r0, #0
 	movne r1, #0
 	strne r1, [r0, #0x14]
 	mov r0, r5
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	ldmfd sp!, {r4, r5, r6, pc}
-_020D0F08: .word FUN_ov15_020cfb9c
-	arm_func_end FUN_ov15_020d0e6c
+_020D0F08: .word NHTTPi_free
+	arm_func_end NHTTPi_DestroyResponse
 
-	arm_func_start FUN_ov15_020d0f0c
-FUN_ov15_020d0f0c: ; 0x020D0F0C
+	arm_func_start NHTTPi_getHeaderValue
+NHTTPi_getHeaderValue: ; 0x020D0F0C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -24089,7 +24089,7 @@ FUN_ov15_020d0f0c: ; 0x020D0F0C
 	mov r3, r5
 	mov r1, #0xc
 	str r6, [sp]
-	bl FUN_ov15_020d02e4
+	bl NHTTPi_findNextLineHdrRecvBuf
 	mov r7, r0
 	cmp r7, #0
 	ble _020D1028
@@ -24100,7 +24100,7 @@ _020D0F54:
 	mov r1, r7
 	mov r3, r5
 	str r6, [sp]
-	bl FUN_ov15_020d02e4
+	bl NHTTPi_findNextLineHdrRecvBuf
 	ldr r2, [sp, #8]
 	mov r8, r0
 	cmp r2, #0
@@ -24109,7 +24109,7 @@ _020D0F54:
 	mov r1, r7
 	mov r3, r9
 	str r4, [sp]
-	bl FUN_ov15_020d0470
+	bl NHTTPi_compareTokenN_HdrRecvBuf
 	cmp r0, #0
 	bne _020D101C
 	ldr r1, [sp, #8]
@@ -24121,7 +24121,7 @@ _020D0F54:
 	mov r0, r10
 	mov r3, r4
 	str r6, [sp]
-	bl FUN_ov15_020d02e4
+	bl NHTTPi_findNextLineHdrRecvBuf
 	cmp r0, #0
 	ldrle r4, [r10]
 	ble _020D0FE4
@@ -24136,7 +24136,7 @@ _020D0FE4:
 	mov r0, r10
 	mov r2, r4
 	add r1, r1, #1
-	bl FUN_ov15_020d0400
+	bl NHTTPi_skipSpaceHdrRecvBuf
 	cmp r0, #0
 	movlt r0, r4
 	str r0, [r11]
@@ -24155,10 +24155,10 @@ _020D1028:
 	mvn r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d0f0c
+	arm_func_end NHTTPi_getHeaderValue
 
-	arm_func_start FUN_ov15_020d1034
-FUN_ov15_020d1034: ; 0x020D1034
+	arm_func_start NHTTP_GetResponseHeaderField
+NHTTP_GetResponseHeaderField: ; 0x020D1034
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	ldr r0, [r5, #0x14]
@@ -24170,20 +24170,20 @@ FUN_ov15_020d1034: ; 0x020D1034
 	ldr r0, [r5, #0x24]
 	cmp r0, #0
 	beq _020D106C
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, #0
 	str r0, [r5, #0x24]
 _020D106C:
 	add r2, sp, #0
 	mov r0, r5
 	mov r1, r6
-	bl FUN_ov15_020d0f0c
+	bl NHTTPi_getHeaderValue
 	movs r7, r0
 	bmi _020D10D0
 	mov r6, #4
 	mov r1, r6
 	add r0, r7, #1
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r5, #0x24]
 	cmp r0, #0
 	subeq r0, r6, #5
@@ -24194,7 +24194,7 @@ _020D106C:
 	ldr r2, [sp]
 	mov r0, r5
 	mov r3, r7
-	bl FUN_ov15_020d0554
+	bl NHTTPi_loadFromHdrRecvBuf
 	ldr r1, [r5, #0x24]
 	mov r0, r7
 	str r1, [r4]
@@ -24202,13 +24202,13 @@ _020D106C:
 _020D10D0:
 	ldr r0, _020D113C ; =0x020E58D0
 	mov r1, r6
-	bl FUN_ov15_020cf544
+	bl NHTTPi_strcmp
 	cmp r0, #0
 	bne _020D1134
 	mov r6, #4
 	mov r0, r6
 	mov r1, r6
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r5, #0x24]
 	cmp r0, #0
 	subeq r0, r6, #5
@@ -24220,7 +24220,7 @@ _020D10D0:
 	mov r0, r5
 	mov r3, r6
 	mov r2, #9
-	bl FUN_ov15_020d0554
+	bl NHTTPi_loadFromHdrRecvBuf
 	ldr r1, [r5, #0x24]
 	mov r0, r6
 	str r1, [r4]
@@ -24229,37 +24229,37 @@ _020D1134:
 	mvn r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020D113C: .word ov15_020E58D0
-	arm_func_end FUN_ov15_020d1034
+	arm_func_end NHTTP_GetResponseHeaderField
 
-	arm_func_start FUN_ov15_020d1140
-FUN_ov15_020d1140: ; 0x020D1140
-	ldr r12, _020D1148 ; =FUN_ov15_020d1158
+	arm_func_start NHTTPi_InitThreadInfo
+NHTTPi_InitThreadInfo: ; 0x020D1140
+	ldr r12, _020D1148 ; =NHTTPi_IsCreateCommThreadMessageQueueOff
 	bx r12
-_020D1148: .word FUN_ov15_020d1158
-	arm_func_end FUN_ov15_020d1140
+_020D1148: .word NHTTPi_IsCreateCommThreadMessageQueueOff
+	arm_func_end NHTTPi_InitThreadInfo
 
-	arm_func_start FUN_ov15_020d114c
-FUN_ov15_020d114c: ; 0x020D114C
+	arm_func_start NHTTPi_IsCreateCommThreadMessageQueueOn
+NHTTPi_IsCreateCommThreadMessageQueueOn: ; 0x020D114C
 	mov r1, #1
 	str r1, [r0, #0xec]
 	bx lr
-	arm_func_end FUN_ov15_020d114c
+	arm_func_end NHTTPi_IsCreateCommThreadMessageQueueOn
 
-	arm_func_start FUN_ov15_020d1158
-FUN_ov15_020d1158: ; 0x020D1158
+	arm_func_start NHTTPi_IsCreateCommThreadMessageQueueOff
+NHTTPi_IsCreateCommThreadMessageQueueOff: ; 0x020D1158
 	mov r1, #0
 	str r1, [r0, #0xec]
 	bx lr
-	arm_func_end FUN_ov15_020d1158
+	arm_func_end NHTTPi_IsCreateCommThreadMessageQueueOff
 
-	arm_func_start FUN_ov15_020d1164
-FUN_ov15_020d1164: ; 0x020D1164
+	arm_func_start NHTTPi_IsCreateCommThreadMessageQueue
+NHTTPi_IsCreateCommThreadMessageQueue: ; 0x020D1164
 	ldr r0, [r0, #0xec]
 	bx lr
-	arm_func_end FUN_ov15_020d1164
+	arm_func_end NHTTPi_IsCreateCommThreadMessageQueue
 
-	arm_func_start FUN_ov15_020d116c
-FUN_ov15_020d116c: ; 0x020D116C
+	arm_func_start NHTTPi_CheckHeaderEnd
+NHTTPi_CheckHeaderEnd: ; 0x020D116C
 	sub r2, r1, #2
 	and r2, r2, #3
 	ldrsb r2, [r0, r2]
@@ -24293,10 +24293,10 @@ FUN_ov15_020d116c: ; 0x020D116C
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_ov15_020d116c
+	arm_func_end NHTTPi_CheckHeaderEnd
 
-	arm_func_start FUN_ov15_020d11f0
-FUN_ov15_020d11f0: ; 0x020D11F0
+	arm_func_start NHTTPi_SaveBuf
+NHTTPi_SaveBuf: ; 0x020D11F0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r4, [sp, #0x34]
@@ -24323,7 +24323,7 @@ _020D1224:
 	movle r5, r4
 	mov r2, r5
 	add r0, r9, r0
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	ldr r0, [r7]
 	add r6, r6, r5
 	add r0, r0, r5
@@ -24336,7 +24336,7 @@ _020D1224:
 	mov r2, r9
 	mov r3, #0x4000
 	str r11, [sp]
-	bl FUN_ov15_020cf434
+	bl NHTTPi_SocSend
 	cmp r0, #0
 	addle sp, sp, #8
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24350,10 +24350,10 @@ _020D12AC:
 	ldr r0, [sp, #4]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d11f0
+	arm_func_end NHTTPi_SaveBuf
 
-	arm_func_start FUN_ov15_020d12b8
-FUN_ov15_020d12b8: ; 0x020D12B8
+	arm_func_start NHTTPi_SkipLineBuf
+NHTTPi_SkipLineBuf: ; 0x020D12B8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r7, #0
@@ -24373,7 +24373,7 @@ _020D12EC:
 	mov r2, r8
 	add r3, r4, r3
 	stmia sp, {r5, r11}
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	cmp r0, #0
 	addle sp, sp, #0xc
 	ldmlefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24391,10 +24391,10 @@ _020D1318:
 	mov r0, r7
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d12b8
+	arm_func_end NHTTPi_SkipLineBuf
 
-	arm_func_start FUN_ov15_020d1344
-FUN_ov15_020d1344: ; 0x020D1344
+	arm_func_start NHTTPi_GetPostContentlength
+NHTTPi_GetPostContentlength: ; 0x020D1344
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r6, [sp, #0x28]
 	mov r10, r0
@@ -24402,7 +24402,7 @@ FUN_ov15_020d1344: ; 0x020D1344
 	mov r8, r2
 	mov r7, r3
 	mov r4, #0
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	movs r5, r0
 	moveq r0, r4
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24418,7 +24418,7 @@ _020D1378:
 	mov r2, r8
 	mov r3, r4
 	str r11, [r5, #0x28]
-	bl FUN_ov15_020d3d3c
+	bl NHTTPi_PostSendCallback
 	cmp r0, #0
 	movlt r0, r11
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24441,7 +24441,7 @@ _020D13E4:
 	add r0, r0, r1
 	b _020D13FC
 _020D13F0:
-	bl FUN_ov15_020cf670
+	bl NHTTPi_getUrlEncodedSize2
 	ldr r1, [r7]
 	add r0, r1, r0
 _020D13FC:
@@ -24450,10 +24450,10 @@ _020D13FC:
 _020D1404:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d1344
+	arm_func_end NHTTPi_GetPostContentlength
 
-	arm_func_start FUN_ov15_020d140c
-FUN_ov15_020d140c: ; 0x020D140C
+	arm_func_start NHTTPi_SendPostData
+NHTTPi_SendPostData: ; 0x020D140C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r11, r2
@@ -24466,7 +24466,7 @@ FUN_ov15_020d140c: ; 0x020D140C
 	mov r10, r1
 	str r3, [sp, #0xc]
 	str r2, [sp, #0x14]
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	str r0, [sp, #0x10]
 	cmp r0, #0
 	addeq sp, sp, #0x1c
@@ -24488,7 +24488,7 @@ _020D1460:
 	ldr r0, [sp, #8]
 	ldr r2, [sp, #0xc]
 	ldr r3, [sp, #0x14]
-	bl FUN_ov15_020d3d3c
+	bl NHTTPi_PostSendCallback
 	cmp r0, #0
 	addlt sp, sp, #0x1c
 	movlt r0, #3
@@ -24520,7 +24520,7 @@ _020D14F4:
 	mov r2, r9
 	mov r3, r8
 	str r5, [sp, #4]
-	bl FUN_ov15_020d11f0
+	bl NHTTPi_SaveBuf
 	cmp r0, #0
 	addlt sp, sp, #0x1c
 	movlt r0, #1
@@ -24536,17 +24536,17 @@ _020D1530:
 _020D153C:
 	mov r0, r4
 	mov r1, #3
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldrsb r1, [r6, r7]
 	mov r0, r4
-	bl FUN_ov15_020cf6e4
+	bl NHTTPi_encodeUrlChar
 	str r4, [sp]
 	str r0, [sp, #4]
 	mov r0, r10
 	mov r1, r11
 	mov r2, r9
 	mov r3, r8
-	bl FUN_ov15_020d11f0
+	bl NHTTPi_SaveBuf
 	cmp r0, #0
 	addlt sp, sp, #0x1c
 	movlt r0, #1
@@ -24562,17 +24562,17 @@ _020D159C:
 	mov r0, #0
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d140c
+	arm_func_end NHTTPi_SendPostData
 
-	arm_func_start FUN_ov15_020d15a8
-FUN_ov15_020d15a8: ; 0x020D15A8
+	arm_func_start NHTTPi_BufFull
+NHTTPi_BufFull: ; 0x020D15A8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r1
 	ldr r1, [r5, #4]
 	mov r6, r0
 	mov r0, r5
 	mov r4, #0
-	bl FUN_ov15_020d0640
+	bl NHTTPi_isRecvBufFull
 	ldr r1, [r5, #0x1c]
 	cmp r1, #0
 	ldrne r1, [r5, #0x28]
@@ -24583,11 +24583,11 @@ FUN_ov15_020d15a8: ; 0x020D15A8
 _020D15E0:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_ov15_020d3cb8
+	bl NHTTPi_Response2Connection
 	movs r1, r0
 	beq _020D1628
 	mov r0, r6
-	bl FUN_ov15_020d3dcc
+	bl NHTTPi_BufferFullCallback
 	ldr r0, [r5, #0x28]
 	cmp r0, #0
 	ldrne r0, [r5, #0x1c]
@@ -24595,7 +24595,7 @@ _020D15E0:
 	beq _020D1628
 	ldr r1, [r5, #4]
 	mov r0, r5
-	bl FUN_ov15_020d0640
+	bl NHTTPi_isRecvBufFull
 	cmp r0, #0
 	b _020D1624
 _020D1624:
@@ -24603,10 +24603,10 @@ _020D1624:
 _020D1628:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d15a8
+	arm_func_end NHTTPi_BufFull
 
-	arm_func_start FUN_ov15_020d1630
-FUN_ov15_020d1630: ; 0x020D1630
+	arm_func_start NHTTPi_SendData
+NHTTPi_SendData: ; 0x020D1630
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #8
 	mov r9, r0
@@ -24614,13 +24614,13 @@ FUN_ov15_020d1630: ; 0x020D1630
 	mov r7, r2
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r5, r0
 	mov r0, r6
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r0, [r0]
 	cmp r7, #0
 	ldr r0, [r0, #0xc]
@@ -24632,7 +24632,7 @@ FUN_ov15_020d1630: ; 0x020D1630
 	ldr r2, [r5, #0xc]
 	add r1, r4, #0x100
 	add r3, r9, #0x324
-	bl FUN_ov15_020d11f0
+	bl NHTTPi_SaveBuf
 	cmp r0, #0
 	addlt sp, sp, #8
 	movlt r0, #1
@@ -24641,14 +24641,14 @@ FUN_ov15_020d1630: ; 0x020D1630
 	movne r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020d1630
+	arm_func_end NHTTPi_SendData
 
-	arm_func_start FUN_ov15_020d16b8
-FUN_ov15_020d16b8: ; 0x020D16B8
+	arm_func_start NHTTPi_SendProxyAuthorization
+NHTTPi_SendProxyAuthorization: ; 0x020D16B8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
 	ldr r0, [r4, #0x244]
@@ -24658,32 +24658,32 @@ FUN_ov15_020d16b8: ; 0x020D16B8
 	ldr r1, _020D172C ; =0x020E58E0
 	mov r0, r5
 	mov r2, #0x1b
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r2, [r4, #0x244]
 	mov r0, r5
 	add r1, r4, #0x1e8
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r1, _020D1730 ; =0x020E58FC
 	mov r0, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D172C: .word ov15_020E58E0
 _020D1730: .word ov15_020E58FC
-	arm_func_end FUN_ov15_020d16b8
+	arm_func_end NHTTPi_SendProxyAuthorization
 
-	arm_func_start FUN_ov15_020d1734
-FUN_ov15_020d1734: ; 0x020D1734
+	arm_func_start NHTTPi_SendBasicAuthorization
+NHTTPi_SendBasicAuthorization: ; 0x020D1734
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
 	ldr r0, [r4, #0xa8]
@@ -24693,51 +24693,51 @@ FUN_ov15_020d1734: ; 0x020D1734
 	ldr r1, _020D17A8 ; =0x020E5900
 	mov r0, r5
 	mov r2, #0x15
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r2, [r4, #0xa8]
 	mov r0, r5
 	add r1, r4, #0x4c
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r1, _020D17AC ; =0x020E58FC
 	mov r0, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D17A8: .word ov15_020E5900
 _020D17AC: .word ov15_020E58FC
-	arm_func_end FUN_ov15_020d1734
+	arm_func_end NHTTPi_SendBasicAuthorization
 
-	arm_func_start FUN_ov15_020d17b0
-FUN_ov15_020d17b0: ; 0x020D17B0
+	arm_func_start NHTTPi_SendProxyConnectMethod
+NHTTPi_SendProxyConnectMethod: ; 0x020D17B0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r4
 	ldr r9, [r1, #0xc]
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r8, r0
 	mov r0, r4
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	add r6, sp, #4
 	mov r7, r0
 	ldr r1, [r9, #0x20]
 	mov r0, r6
-	bl FUN_ov15_020cf8f8
+	bl NHTTPi_intToStr
 	mov r5, r0
 	ldr r1, _020D19D4 ; =0x020E5918
 	mov r0, r10
 	mov r2, #8
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24746,7 +24746,7 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	mov r0, r10
 	add r1, r1, #8
 	sub r2, r2, #8
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24755,28 +24755,28 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	mov r0, r10
 	mov r1, r4
 	mov r2, r11
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D19DC ; =0x020E5928
 	mov r0, r10
 	mov r2, #0xb
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D19E0 ; =0x020E5934
 	mov r0, r10
 	mov r2, #6
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24785,21 +24785,21 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	mov r0, r10
 	add r1, r1, #8
 	sub r2, r2, #8
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r4
 	mov r2, r11
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24808,26 +24808,26 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	mov r0, r10
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D19E8 ; =0x020E593C
 	mov r0, r10
 	mov r2, #0x25
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
-	bl FUN_ov15_020d16b8
+	bl NHTTPi_SendProxyAuthorization
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	ldr r3, [r10, #0x324]
 	cmp r3, #0
 	ble _020D19B4
@@ -24836,7 +24836,7 @@ FUN_ov15_020d17b0: ; 0x020D17B0
 	ldr r1, [r7, #0xc]
 	mov r0, r9
 	add r2, r8, #0x100
-	bl FUN_ov15_020cf434
+	bl NHTTPi_SocSend
 	cmp r0, #0
 	addlt sp, sp, #0xc
 	movlt r0, r11
@@ -24849,7 +24849,7 @@ _020D19B4:
 	add r0, r8, #0x100
 	mov r1, #0x4000
 	str r4, [r10, #0x324]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	mov r0, r4
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -24859,24 +24859,24 @@ _020D19DC: .word ov15_020E5928
 _020D19E0: .word ov15_020E5934
 _020D19E4: .word ov15_020E58FC
 _020D19E8: .word ov15_020E593C
-	arm_func_end FUN_ov15_020d17b0
+	arm_func_end NHTTPi_SendProxyConnectMethod
 
-	arm_func_start FUN_ov15_020d19ec
-FUN_ov15_020d19ec: ; 0x020D19EC
+	arm_func_start NHTTPi_RecvProxyConnectHeader
+NHTTPi_RecvProxyConnectHeader: ; 0x020D19EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x210
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r5, r0
 	mov r0, r6
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	str r0, [sp, #0xc]
 	mov r0, r6
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r2, [r5]
 	mov r1, #0
 	ldr r6, [r2, #0xc]
@@ -24894,17 +24894,17 @@ _020D1A40:
 	mov r0, r5
 	mov r1, r6
 	add r3, r9, r8
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	mov r11, r0
 	add r0, sp, #0x19
 	mov r1, #3
 	add r8, r8, r11
-	bl FUN_ov15_020cf85c
+	bl NHTTPi_strToInt
 	str r0, [r7, #0x18]
 	ldr r1, _020D1BCC ; =0x020E5964
 	mov r0, r9
 	mov r2, #5
-	bl FUN_ov15_020cf564
+	bl NHTTPi_strnicmp
 	cmp r0, #0
 	ldreqsb r0, [sp, #0x18]
 	mov r12, #0
@@ -24981,7 +24981,7 @@ _020D1B74:
 	mov r0, r5
 	mov r1, r6
 	add r3, r3, #0x100
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	cmp r0, #0
 	addlt sp, sp, #0x210
 	movlt r0, r9
@@ -24991,18 +24991,18 @@ _020D1B74:
 	add sp, sp, #0x210
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D1BCC: .word ov15_020E5964
-	arm_func_end FUN_ov15_020d19ec
+	arm_func_end NHTTPi_RecvProxyConnectHeader
 
-	arm_func_start FUN_ov15_020d1bd0
-FUN_ov15_020d1bd0: ; 0x020D1BD0
+	arm_func_start NHTTPi_SendHeaderList
+NHTTPi_SendHeaderList: ; 0x020D1BD0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r0, [r0]
 	ldr r7, [r0, #0xc]
 	add r0, r7, #0x30
-	bl FUN_ov15_020cff38
+	bl NHTTPi_getHdrFromList
 	movs r8, r0
 	beq _020D1C8C
 	ldr r6, _020D1C94 ; =0x020E596C
@@ -25010,37 +25010,37 @@ FUN_ov15_020d1bd0: ; 0x020D1BD0
 	mov r5, #2
 _020D1C04:
 	ldr r0, [r8, #8]
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	mov r2, r0
 	ldr r1, [r8, #8]
 	mov r0, r9
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r9
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, [r8, #0xc]
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	mov r2, r0
 	ldr r1, [r8, #0xc]
 	mov r0, r9
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r9
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r8
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	add r0, r7, #0x30
-	bl FUN_ov15_020cff38
+	bl NHTTPi_getHdrFromList
 	movs r8, r0
 	bne _020D1C04
 _020D1C8C:
@@ -25048,26 +25048,26 @@ _020D1C8C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020D1C94: .word ov15_020E596C
 _020D1C98: .word ov15_020E58FC
-	arm_func_end FUN_ov15_020d1bd0
+	arm_func_end NHTTPi_SendHeaderList
 
-	arm_func_start FUN_ov15_020d1c9c
-FUN_ov15_020d1c9c: ; 0x020D1C9C
+	arm_func_start NHTTPi_SendProcPostDataRaw
+NHTTPi_SendProcPostDataRaw: ; 0x020D1C9C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x1c
 	mov r8, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r5, r0
 	mov r0, r7
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r7
 	ldr r6, [r1, #0xc]
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r4, r0
 	mov r0, r7
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r7, r0
 	mov r2, #0
 	str r2, [sp, #0xc]
@@ -25078,7 +25078,7 @@ FUN_ov15_020d1c9c: ; 0x020D1C9C
 	mov r0, r5
 	mov r1, r6
 	str r2, [sp]
-	bl FUN_ov15_020d1344
+	bl NHTTPi_GetPostContentlength
 	cmp r0, #0
 	bne _020D1D24
 	add sp, sp, #0x1c
@@ -25091,19 +25091,19 @@ _020D1D24:
 	add r10, sp, #0x10
 	ldr r1, [sp, #0xc]
 	mov r0, r10
-	bl FUN_ov15_020cf8f8
+	bl NHTTPi_intToStr
 	mov r9, r0
 	ldr r1, _020D1E18 ; =0x020E5970
 	mov r0, r8
 	mov r2, #0x10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r8
 	mov r1, r10
 	mov r2, r9
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -25112,14 +25112,14 @@ _020D1D24:
 	mov r0, r8
 	mov r1, r10
 	mov r2, r9
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r8
 	mov r1, r10
 	mov r2, r9
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -25135,7 +25135,7 @@ _020D1D24:
 	mov r3, #0
 	add r2, r4, #0x100
 	str r3, [sp, #8]
-	bl FUN_ov15_020d140c
+	bl NHTTPi_SendPostData
 	cmp r0, #0
 	beq _020D1E0C
 	add sp, sp, #0x1c
@@ -25143,7 +25143,7 @@ _020D1D24:
 _020D1DF4:
 	ldr r2, [r6, #0x250]
 	mov r0, r8
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -25153,26 +25153,26 @@ _020D1E0C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _020D1E18: .word ov15_020E5970
 _020D1E1C: .word ov15_020E58FC
-	arm_func_end FUN_ov15_020d1c9c
+	arm_func_end NHTTPi_SendProcPostDataRaw
 
-	arm_func_start FUN_ov15_020d1e20
-FUN_ov15_020d1e20: ; 0x020D1E20
+	arm_func_start NHTTPi_SendProcPostDataBinary
+NHTTPi_SendProcPostDataBinary: ; 0x020D1E20
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r10, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r6, r0
 	mov r0, r4
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r4
 	ldr r7, [r1, #0xc]
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r11, r0
 	mov r0, r4
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r1, #0
 	str r1, [sp, #0xc]
 	ldr r5, [r7, #0x34]
@@ -25185,7 +25185,7 @@ _020D1E80:
 	add r1, r1, #0x16
 	str r1, [sp, #0xc]
 	ldr r0, [r5, #8]
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	ldr r1, [sp, #0xc]
 	add r0, r0, #0x29
 	add r1, r1, r0
@@ -25203,7 +25203,7 @@ _020D1E80:
 	mov r0, r6
 	mov r1, r7
 	mov r3, r9
-	bl FUN_ov15_020d1344
+	bl NHTTPi_GetPostContentlength
 	cmp r0, #0
 	bne _020D1EF8
 	add sp, sp, #0x1c
@@ -25229,19 +25229,19 @@ _020D1F20:
 	add r1, r1, #0x18
 	mov r0, r9
 	str r1, [sp, #0xc]
-	bl FUN_ov15_020cf8f8
+	bl NHTTPi_intToStr
 	mov r4, r0
 	ldr r1, _020D21B4 ; =0x020E3F33
 	mov r0, r10
 	mov r2, #0x2c
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	add r1, r7, #0x3a
 	mov r2, #0x12
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25249,35 +25249,35 @@ _020D1F20:
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D21BC ; =0x020E5970
 	mov r0, r10
 	mov r2, #0x10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r9
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25289,37 +25289,37 @@ _020D2010:
 	mov r0, r10
 	add r1, r7, #0x38
 	mov r2, #0x14
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D21C0 ; =0x020E3F0C
 	mov r0, r10
 	mov r2, #0x26
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, [r9, #8]
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	mov r2, r0
 	ldr r1, [r9, #8]
 	mov r0, r10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D21C4 ; =0x020E5984
 	mov r0, r10
 	mov r2, #3
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25329,7 +25329,7 @@ _020D2010:
 	ldr r1, _020D21C8 ; =0x020E3F94
 	mov r0, r10
 	mov r2, #0x4b
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25337,7 +25337,7 @@ _020D20CC:
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25352,7 +25352,7 @@ _020D20CC:
 	ldr r3, [r9, #8]
 	mov r1, r7
 	add r2, r11, #0x100
-	bl FUN_ov15_020d140c
+	bl NHTTPi_SendPostData
 	cmp r0, #0
 	beq _020D2140
 	add sp, sp, #0x1c
@@ -25360,7 +25360,7 @@ _020D20CC:
 _020D2128:
 	ldr r2, [r9, #0x10]
 	mov r0, r10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25368,7 +25368,7 @@ _020D2140:
 	mov r0, r10
 	mov r1, r5
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25383,14 +25383,14 @@ _020D2178:
 	mov r0, r10
 	add r1, r7, #0x38
 	mov r2, #0x14
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D21CC ; =0x020E5988
 	mov r0, r10
 	mov r2, #4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	moveq r0, #0
 	add sp, sp, #0x1c
@@ -25402,26 +25402,26 @@ _020D21C0: .word 0x020E3F0C
 _020D21C4: .word ov15_020E5984
 _020D21C8: .word 0x020E3F94
 _020D21CC: .word ov15_020E5988
-	arm_func_end FUN_ov15_020d1e20
+	arm_func_end NHTTPi_SendProcPostDataBinary
 
-	arm_func_start FUN_ov15_020d21d0
-FUN_ov15_020d21d0: ; 0x020D21D0
+	arm_func_start NHTTPi_SendProcPostDataAscii
+NHTTPi_SendProcPostDataAscii: ; 0x020D21D0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r7, r0
 	mov r0, r4
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r4
 	ldr r8, [r1, #0xc]
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r11, r0
 	mov r0, r4
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r1, #0
 	str r1, [sp, #0xc]
 	ldr r6, [r8, #0x34]
@@ -25432,7 +25432,7 @@ FUN_ov15_020d21d0: ; 0x020D21D0
 	add r10, sp, #0xc
 _020D2230:
 	ldr r0, [r6, #8]
-	bl FUN_ov15_020cf608
+	bl NHTTPi_getUrlEncodedSize
 	ldr r1, [sp, #0xc]
 	add r0, r1, r0
 	add r0, r0, #1
@@ -25445,14 +25445,14 @@ _020D2230:
 	mov r0, r7
 	mov r1, r8
 	mov r3, r10
-	bl FUN_ov15_020d1344
+	bl NHTTPi_GetPostContentlength
 	cmp r0, #0
 	bne _020D2290
 	add sp, sp, #0x1c
 	mov r0, #3
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D2280:
-	bl FUN_ov15_020cf608
+	bl NHTTPi_getUrlEncodedSize
 	ldr r1, [sp, #0xc]
 	add r0, r1, r0
 	str r0, [sp, #0xc]
@@ -25471,26 +25471,26 @@ _020D22B8:
 	add r6, sp, #0x10
 	ldr r1, [sp, #0xc]
 	mov r0, r6
-	bl FUN_ov15_020cf8f8
+	bl NHTTPi_intToStr
 	mov r4, r0
 	ldr r1, _020D24B8 ; =0x020E3F60
 	mov r0, r5
 	mov r2, #0x31
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _020D24BC ; =0x020E5970
 	mov r0, r5
 	mov r2, #0x10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25499,14 +25499,14 @@ _020D22B8:
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25523,11 +25523,11 @@ _020D236C:
 _020D2384:
 	ldrsb r1, [r1, r10]
 	mov r0, r6
-	bl FUN_ov15_020cf6e4
+	bl NHTTPi_encodeUrlChar
 	mov r2, r0
 	mov r0, r5
 	mov r1, r6
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25540,7 +25540,7 @@ _020D23C0:
 	ldr r1, _020D24C4 ; =0x020E5990
 	mov r0, r5
 	mov r2, #1
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25557,7 +25557,7 @@ _020D23C0:
 	mov r0, r7
 	mov r1, r8
 	add r2, r11, #0x100
-	bl FUN_ov15_020d140c
+	bl NHTTPi_SendPostData
 	cmp r0, #0
 	beq _020D2474
 	add sp, sp, #0x1c
@@ -25571,11 +25571,11 @@ _020D2424:
 _020D2438:
 	ldrsb r1, [r1, r10]
 	mov r0, r6
-	bl FUN_ov15_020cf6e4
+	bl NHTTPi_encodeUrlChar
 	mov r2, r0
 	mov r0, r5
 	mov r1, r6
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25592,7 +25592,7 @@ _020D2474:
 	ldr r1, _020D24C8 ; =0x020E5994
 	mov r0, r5
 	mov r2, #1
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25608,20 +25608,20 @@ _020D24BC: .word ov15_020E5970
 _020D24C0: .word ov15_020E58FC
 _020D24C4: .word ov15_020E5990
 _020D24C8: .word ov15_020E5994
-	arm_func_end FUN_ov15_020d21d0
+	arm_func_end NHTTPi_SendProcPostDataAscii
 
-	arm_func_start FUN_ov15_020d24cc
-FUN_ov15_020d24cc: ; 0x020D24CC
+	arm_func_start NHTTPi_ThreadInit
+NHTTPi_ThreadInit: ; 0x020D24CC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mvn r4, #0
 	add r0, r5, #4
 	mov r1, #0x100
 	str r4, [r5]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	add r0, r5, #0x104
 	mov r1, #0x200
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	mov r0, #0
 	str r4, [r5, #0x314]
 	str r4, [r5, #0x318]
@@ -25632,27 +25632,27 @@ FUN_ov15_020d24cc: ; 0x020D24CC
 	str r0, [r5, #0x32c]
 	str r0, [r5, #0x330]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d24cc
+	arm_func_end NHTTPi_ThreadInit
 
-	arm_func_start FUN_ov15_020d251c
-FUN_ov15_020d251c: ; 0x020D251C
+	arm_func_start NHTTPi_ThreadReqEnd
+NHTTPi_ThreadReqEnd: ; 0x020D251C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r5, r0
 	mov r0, r6
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r1, [r5]
 	mov r6, r0
 	ldr r7, [r1, #0xc]
 	mov r1, r7
 	ldr r8, [r7, #0x2c]
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	mov r9, r0
 	ldr r0, [r7]
 	cmp r0, #0
@@ -25668,7 +25668,7 @@ FUN_ov15_020d251c: ; 0x020D251C
 	blt _020D25B4
 	mov r0, r6
 	mov r1, r7
-	bl FUN_ov15_020cf110
+	bl NHTTPi_SocClose
 	cmp r0, #0
 	movlt r0, #0xa
 	strlt r0, [r10, #0x330]
@@ -25684,7 +25684,7 @@ _020D25B4:
 	str r11, [r8, #0x10]
 	ldr r1, [r10, #0x330]
 	mov r0, r4
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	ldr r1, [r8, #0x28]
 	add r0, r10, #0x104
 	cmp r1, r0
@@ -25695,16 +25695,16 @@ _020D25F0:
 	ldrne r0, [r10, #0x330]
 	strne r0, [r9, #4]
 	mov r0, r6
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	ldr r0, [r5]
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r1, #0
 	mov r0, r6
 	str r1, [r5]
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	mov r0, r6
 	mov r1, r7
-	bl FUN_ov15_020d0c78
+	bl NHTTPi_destroyRequestObject
 	cmp r9, #0
 	ldrne r0, [r8, #0x10]
 	mov r1, r9
@@ -25712,58 +25712,58 @@ _020D25F0:
 	movne r0, #5
 	strne r0, [r9]
 	mov r0, r6
-	bl FUN_ov15_020d3ee4
+	bl NHTTPi_CompleteCallback
 	cmp r9, #0
 	beq _020D2658
 	mov r0, r9
-	bl FUN_ov15_020d3b60
+	bl NHTTPi_NotifyCompletion
 _020D2658:
 	mov r0, r9
-	bl FUN_ov15_020d4278
+	bl NHTTPi_DeleteConnection
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d251c
+	arm_func_end NHTTPi_ThreadReqEnd
 
-	arm_func_start FUN_ov15_020d2664
-FUN_ov15_020d2664: ; 0x020D2664
+	arm_func_start NHTTPi_ThreadExecReqQueue
+NHTTPi_ThreadExecReqQueue: ; 0x020D2664
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r5, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	mov r0, r5
-	bl FUN_ov15_020d4008
-	bl FUN_ov15_020d020c
+	bl NHTTPi_GetListInfoP
+	bl NHTTPi_getReqFromReqQueue
 	movs r4, r0
 	mvneq r0, #0
 	streq r0, [r7]
 	beq _020D26B0
 	mov r0, r5
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r4, #8]
 	str r1, [r7]
 	str r4, [r0]
 _020D26B0:
 	mov r0, r6
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	ldr r0, [r7]
 	cmp r0, #0
 	movge r0, #1
 	ldmgefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r5
-	bl FUN_ov15_020d4018
-	bl FUN_ov15_020cf008
+	bl NHTTPi_GetThreadInfoP
+	bl NHTTPi_idleCommThread
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov15_020d2664
+	arm_func_end NHTTPi_ThreadExecReqQueue
 
-	arm_func_start FUN_ov15_020d26dc
-FUN_ov15_020d26dc: ; 0x020D26DC
+	arm_func_start NHTTPi_ThreadHostAddrProc
+NHTTPi_ThreadHostAddrProc: ; 0x020D26DC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r0, [r0]
 	ldr r4, [r0, #0xc]
 	ldr r0, [r4, #0xc]
@@ -25771,18 +25771,18 @@ FUN_ov15_020d26dc: ; 0x020D26DC
 	cmp r0, #0
 	addne r6, r4, #0xe4
 	mov r0, r6
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	cmp r0, #0
 	beq _020D2728
 	mov r0, r6
 	add r1, r5, #4
-	bl FUN_ov15_020cf544
+	bl NHTTPi_strcmp
 	cmp r0, #0
 	beq _020D2764
 _020D2728:
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov15_020cf4ac
+	bl NHTTPi_resolveHostname
 	str r0, [r5, #0x314]
 	cmp r0, #0
 	bne _020D276C
@@ -25801,14 +25801,14 @@ _020D2764:
 _020D276C:
 	add r0, r5, #4
 	mov r1, #0x100
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	mov r0, r6
 	mov r1, #0xff
-	bl FUN_ov15_020cf538
+	bl NHTTPi_strnlen
 	mov r2, r0
 	mov r1, r6
 	add r0, r5, #4
-	bl FUN_ov15_020cf514
+	bl NHTTPi_memcpy
 	ldr r0, [r4, #0x20]
 	ldr r1, [r5, #0x314]
 	str r0, [r5, #0x31c]
@@ -25835,31 +25835,31 @@ _020D27DC:
 	str r0, [r5, #0x320]
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d26dc
+	arm_func_end NHTTPi_ThreadHostAddrProc
 
-	arm_func_start FUN_ov15_020d27f4
-FUN_ov15_020d27f4: ; 0x020D27F4
+	arm_func_start NHTTPi_ThreadConnectProc
+NHTTPi_ThreadConnectProc: ; 0x020D27F4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #8
 	mov r8, r0
 	mov r9, #0
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r5, r0
 	ldr r1, [r5]
 	mov r0, r6
 	ldr r6, [r1, #0xc]
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r1, [r8, #0x338]
 	mov r7, r0
 	cmp r1, #1
 	bne _020D2850
 	ldr r0, [r4, #0xc]
-	bl FUN_ov15_020cf0b8
+	bl NHTTPi_checkKeepAlive
 	cmn r0, #1
 	streq r9, [r8, #0x338]
 _020D2850:
@@ -25871,7 +25871,7 @@ _020D2850:
 	blt _020D2898
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov15_020cf110
+	bl NHTTPi_SocClose
 	cmp r0, #0
 	bge _020D2898
 	mvn r0, #0
@@ -25883,7 +25883,7 @@ _020D2850:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020D2898:
 	mov r0, r6
-	bl FUN_ov15_020cf0f8
+	bl NHTTPi_SocOpen
 	cmp r0, #0
 	str r0, [r4, #0xc]
 	movlt r0, #3
@@ -25892,12 +25892,12 @@ _020D2898:
 	movlt r0, #0
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r7
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	ldr r2, [r4, #0xc]
 	ldr r1, [r5]
 	mov r0, r7
 	str r2, [r1, #0x10]
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	ldr r0, [r6]
 	cmp r0, #0
 	addne sp, sp, #8
@@ -25911,7 +25911,7 @@ _020D2898:
 	str r2, [sp, #4]
 	ldr r3, [r4, #0xc]
 	mov r2, r6
-	bl FUN_ov15_020cf1a0
+	bl NHTTPi_SocConnect
 	cmp r0, #0
 	bge _020D297C
 	ldr r0, [r6, #0xc]
@@ -25922,7 +25922,7 @@ _020D2898:
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r0, r4
-	bl FUN_ov15_020cfbd0
+	bl NHTTPi_GetSSLError
 	cmp r0, #0
 	movne r0, #0xe
 	strne r0, [r8, #0x330]
@@ -25934,31 +25934,31 @@ _020D2898:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020D2960:
 	mov r0, r7
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	ldr r2, [r4, #0xc]
 	ldr r1, [r5]
 	mov r0, r7
 	str r2, [r1, #0x10]
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 _020D297C:
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020d27f4
+	arm_func_end NHTTPi_ThreadConnectProc
 
-	arm_func_start FUN_ov15_020d2988
-FUN_ov15_020d2988: ; 0x020D2988
+	arm_func_start NHTTPi_ThreadProxyProc
+NHTTPi_ThreadProxyProc: ; 0x020D2988
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r4, r0
 	mov r0, r7
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	mov r5, r0
 	mov r0, r7
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r2, [r5]
 	mov r7, #0
 	ldr r5, [r2, #0xc]
@@ -25972,11 +25972,11 @@ FUN_ov15_020d2988: ; 0x020D2988
 	cmpne r0, #0
 	beq _020D2A8C
 	mov r0, r6
-	bl FUN_ov15_020d17b0
+	bl NHTTPi_SendProxyConnectMethod
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r6
-	bl FUN_ov15_020d19ec
+	bl NHTTPi_RecvProxyConnectHeader
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -25984,14 +25984,14 @@ FUN_ov15_020d2988: ; 0x020D2988
 	mov r0, r4
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov15_020cf250
+	bl NHTTPi_SocSSLConnect
 	cmp r0, #0
 	beq _020D2A8C
 	sub r1, r7, #0x3ec
 	cmp r0, r1
 	bne _020D2A4C
 	mov r0, r4
-	bl FUN_ov15_020cfbd0
+	bl NHTTPi_GetSSLError
 	cmp r0, #0
 	movne r0, #0x10
 	strne r0, [r6, #0x330]
@@ -26002,14 +26002,14 @@ _020D2A4C:
 	cmp r0, r1
 	mov r0, r4
 	bne _020D2A74
-	bl FUN_ov15_020cfbd0
+	bl NHTTPi_GetSSLError
 	cmp r0, #0
 	movne r0, #0x11
 	strne r0, [r6, #0x330]
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020D2A74:
-	bl FUN_ov15_020cfbd0
+	bl NHTTPi_GetSSLError
 	cmp r0, #0
 	movne r0, #0xe
 	strne r0, [r6, #0x330]
@@ -26018,34 +26018,34 @@ _020D2A74:
 _020D2A8C:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d2988
+	arm_func_end NHTTPi_ThreadProxyProc
 
-	arm_func_start FUN_ov15_020d2a94
-FUN_ov15_020d2a94: ; 0x020D2A94
+	arm_func_start NHTTPi_ThreadSendProc
+NHTTPi_ThreadSendProc: ; 0x020D2A94
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mov r4, r0
 	mov r5, #0
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r6
 	ldr r8, [r1, #0xc]
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r7, r0
 	mov r0, r6
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r9, r0
 	mov r0, r7
 	mov r1, r8
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	mov r7, r0
 	mov r0, r6
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r6, r0
 	ldr r0, [r8, #0x24]
-	bl FUN_ov15_020cf52c
+	bl NHTTPi_strlen
 	mov r1, #0xa
 	mov r10, r0
 	cmp r7, #0
@@ -26076,7 +26076,7 @@ _020D2B50:
 	mov r0, r4
 	mov r2, #5
 _020D2B58:
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 _020D2B5C:
 	cmp r0, #0
 	addne sp, sp, #4
@@ -26090,7 +26090,7 @@ _020D2B5C:
 	ldr r1, [r8, #0x24]
 	mov r0, r4
 	mov r2, r10
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	beq _020D2BEC
 	add sp, sp, #4
@@ -26103,7 +26103,7 @@ _020D2BA0:
 	mov r0, r4
 	add r1, r1, r2
 	sub r2, r10, r2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	beq _020D2BEC
 	add sp, sp, #4
@@ -26112,7 +26112,7 @@ _020D2BD0:
 	ldr r1, _020D2E04 ; =0x020E59B0
 	mov r0, r4
 	mov r2, #1
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26120,7 +26120,7 @@ _020D2BEC:
 	ldr r1, _020D2E08 ; =0x020E5928
 	mov r0, r4
 	mov r2, #0xb
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26131,7 +26131,7 @@ _020D2BEC:
 	mov r0, r4
 	mov r2, #6
 	moveq r7, #7
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26140,14 +26140,14 @@ _020D2BEC:
 	mov r0, r4
 	add r1, r1, r7
 	sub r2, r2, r7
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r1, _020D2E10 ; =0x020E58FC
 	mov r0, r4
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26158,18 +26158,18 @@ _020D2BEC:
 	cmp r0, #0
 	bne _020D2CA0
 	mov r0, r4
-	bl FUN_ov15_020d16b8
+	bl NHTTPi_SendProxyAuthorization
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _020D2CA0:
 	mov r0, r4
-	bl FUN_ov15_020d1734
+	bl NHTTPi_SendBasicAuthorization
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, r4
-	bl FUN_ov15_020d1bd0
+	bl NHTTPi_SendHeaderList
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26180,7 +26180,7 @@ _020D2CA0:
 	cmp r0, #0
 	beq _020D2CEC
 	mov r0, r4
-	bl FUN_ov15_020d1c9c
+	bl NHTTPi_SendProcPostDataRaw
 	b _020D2D5C
 _020D2CEC:
 	ldr r0, [r8, #0xd4]
@@ -26211,10 +26211,10 @@ _020D2D44:
 	cmp r1, #0
 	mov r0, r4
 	beq _020D2D58
-	bl FUN_ov15_020d1e20
+	bl NHTTPi_SendProcPostDataBinary
 	b _020D2D5C
 _020D2D58:
-	bl FUN_ov15_020d21d0
+	bl NHTTPi_SendProcPostDataAscii
 _020D2D5C:
 	cmp r0, #0
 	beq _020D2D94
@@ -26227,7 +26227,7 @@ _020D2D78:
 	ldr r1, _020D2E10 ; =0x020E58FC
 	mov r0, r4
 	mov r2, #2
-	bl FUN_ov15_020d1630
+	bl NHTTPi_SendData
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26240,12 +26240,12 @@ _020D2D94:
 	ldr r1, [r9, #0xc]
 	mov r0, r8
 	add r2, r6, #0x100
-	bl FUN_ov15_020cf434
+	bl NHTTPi_SocSend
 	mov r7, r0
 	add r0, r6, #0x100
 	mov r1, #0x4000
 	str r10, [r4, #0x324]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	cmp r7, #0
 	movlt r10, #1
 	cmp r7, #0
@@ -26254,7 +26254,7 @@ _020D2DDC:
 	add r0, r6, #0x100
 	mov r1, #0x4000
 	str r5, [r4, #0x324]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	mov r0, r10
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
@@ -26265,27 +26265,27 @@ _020D2E04: .word ov15_020E59B0
 _020D2E08: .word ov15_020E5928
 _020D2E0C: .word ov15_020E5934
 _020D2E10: .word ov15_020E58FC
-	arm_func_end FUN_ov15_020d2a94
+	arm_func_end NHTTPi_ThreadSendProc
 
-	arm_func_start FUN_ov15_020d2e14
-FUN_ov15_020d2e14: ; 0x020D2E14
+	arm_func_start NHTTPi_ThreadRecvHeaderProc
+NHTTPi_ThreadRecvHeaderProc: ; 0x020D2E14
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r7, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r7
 	ldr r4, [r1, #0xc]
 	ldr r5, [r4, #0x2c]
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r6, r0
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	mov r8, r0
 	mov r0, r7
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	add r1, sp, #0xc
 	mov r11, #0
 	mov r7, r0
@@ -26299,7 +26299,7 @@ FUN_ov15_020d2e14: ; 0x020D2E14
 	str r11, [r5]
 	add r0, r10, #0x304
 	mov r1, #0xe
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldr r8, [r5, #0x34]
 	add r0, r5, #0x38
 	str r11, [r10, #0x328]
@@ -26320,7 +26320,7 @@ _020D2EA0:
 	ldr r2, [r7, #0xc]
 	mov r0, r6
 	mov r1, r4
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	ldr r2, [r10, #0x328]
 	add r1, r5, r2
 	ldrsb r3, [r1, #0x38]
@@ -26334,12 +26334,12 @@ _020D2EF4:
 	mov r0, #0x204
 	mov r1, #4
 	beq _020D2F20
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	str r0, [r8]
 	mov r8, r0
 	b _020D2F2C
 _020D2F20:
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	mov r8, r0
 	str r8, [r5, #0x34]
 _020D2F2C:
@@ -26358,7 +26358,7 @@ _020D2F48:
 	mov r0, r6
 	mov r1, r4
 	add r3, r3, r9
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	add r1, r8, r9
 	ldrsb r3, [r1, #4]
 	ldr r1, [r10, #0x328]
@@ -26376,7 +26376,7 @@ _020D2F78:
 	add r1, r1, r0
 	add r0, sp, #0xc
 	str r1, [r10, #0x328]
-	bl FUN_ov15_020d116c
+	bl NHTTPi_CheckHeaderEnd
 	cmp r0, #0
 	beq _020D2EA0
 	ldr r0, [r10, #0x328]
@@ -26390,29 +26390,29 @@ _020D2F78:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D2FDC: .word 0x000001FF
-	arm_func_end FUN_ov15_020d2e14
+	arm_func_end NHTTPi_ThreadRecvHeaderProc
 
-	arm_func_start FUN_ov15_020d2fe0
-FUN_ov15_020d2fe0: ; 0x020D2FE0
+	arm_func_start NHTTPi_ThreadParseHeaderProc
+NHTTPi_ThreadParseHeaderProc: ; 0x020D2FE0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0xc
 	mov r8, r0
 	mov r9, #7
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r4
 	ldr r6, [r1, #0xc]
 	ldr r7, [r6, #0x2c]
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r4, #0
 	mov r5, r0
 	mov r0, r7
 	add r1, r8, #0x304
 	mov r2, r4
 	mov r3, #0xe
-	bl FUN_ov15_020d0554
+	bl NHTTPi_loadFromHdrRecvBuf
 	cmp r0, #0
 	moveq r1, r9
 	addeq sp, sp, #0xc
@@ -26422,7 +26422,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	ldr r1, _020D328C ; =0x020E5964
 	add r0, r8, #0x304
 	mov r2, #5
-	bl FUN_ov15_020cf564
+	bl NHTTPi_strnicmp
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r4
@@ -26438,7 +26438,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	add r0, r8, #0xd
 	add r0, r0, #0x300
 	mov r1, #3
-	bl FUN_ov15_020cf85c
+	bl NHTTPi_strToInt
 	cmp r0, #0
 	str r0, [r7, #0x18]
 	addlt sp, sp, #0xc
@@ -26451,7 +26451,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	add r3, sp, #8
 	mov r0, r7
 	mov r1, r10
-	bl FUN_ov15_020d02e4
+	bl NHTTPi_findNextLineHdrRecvBuf
 	cmp r0, #0
 	movlt r1, r9
 	addlt sp, sp, #0xc
@@ -26462,7 +26462,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	add r2, sp, #4
 	mov r0, r7
 	mov r9, r4
-	bl FUN_ov15_020d0f0c
+	bl NHTTPi_getHeaderValue
 	movs r3, r0
 	addeq sp, sp, #0xc
 	str r3, [r8, #0x32c]
@@ -26480,7 +26480,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	ldr r2, [sp, #4]
 	mov r0, r7
 	add r1, r5, #0x100
-	bl FUN_ov15_020d0554
+	bl NHTTPi_loadFromHdrRecvBuf
 	cmp r0, #0
 	moveq r1, #7
 	addeq sp, sp, #0xc
@@ -26490,7 +26490,7 @@ FUN_ov15_020d2fe0: ; 0x020D2FE0
 	ldr r1, [r8, #0x32c]
 	add r0, r5, #0x100
 	mov r5, #7
-	bl FUN_ov15_020cf85c
+	bl NHTTPi_strToInt
 	cmp r0, #0
 	str r0, [r8, #0x32c]
 	addlt sp, sp, #0xc
@@ -26510,7 +26510,7 @@ _020D3184:
 	ldr r1, _020D3294 ; =0x020E59C4
 	add r2, sp, #4
 	mov r0, r7
-	bl FUN_ov15_020d0f0c
+	bl NHTTPi_getHeaderValue
 	movs r2, r0
 	moveq r0, #0
 	addeq sp, sp, #0xc
@@ -26527,7 +26527,7 @@ _020D3184:
 	mov r0, r7
 	add r2, r1, r2
 	str r9, [sp]
-	bl FUN_ov15_020d0470
+	bl NHTTPi_compareTokenN_HdrRecvBuf
 	cmp r0, #0
 	moveq r0, #1
 	streq r0, [r8, #0x338]
@@ -26539,7 +26539,7 @@ _020D3208:
 	ldr r1, _020D329C ; =0x020E59DC
 	add r2, sp, #4
 	mov r0, r7
-	bl FUN_ov15_020d0f0c
+	bl NHTTPi_getHeaderValue
 	movs r2, r0
 	addeq sp, sp, #0xc
 	str r2, [r8, #0x33c]
@@ -26557,7 +26557,7 @@ _020D3208:
 	mov r0, r7
 	add r2, r1, r2
 	str r4, [sp]
-	bl FUN_ov15_020d0470
+	bl NHTTPi_compareTokenN_HdrRecvBuf
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -26578,31 +26578,31 @@ _020D3294: .word ov15_020E59C4
 _020D3298: .word ov15_020E59D0
 _020D329C: .word ov15_020E59DC
 _020D32A0: .word ov15_020E59F0
-	arm_func_end FUN_ov15_020d2fe0
+	arm_func_end NHTTPi_ThreadParseHeaderProc
 
-	arm_func_start FUN_ov15_020d32a4
-FUN_ov15_020d32a4: ; 0x020D32A4
+	arm_func_start NHTTPi_ThreadRecvBodyProc
+NHTTPi_ThreadRecvBodyProc: ; 0x020D32A4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
 	mov r9, #0
 	bl NHTTPi_GetSystemInfoP
 	mov r8, r0
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	ldr r1, [r0]
 	mov r0, r8
 	ldr r4, [r1, #0xc]
 	ldr r5, [r4, #0x2c]
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r6, r0
 	mov r0, r8
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r7, r0
-	bl FUN_ov15_020d3ca8
+	bl NHTTPi_Request2Connection
 	str r0, [sp, #8]
 	mov r0, r8
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	add r8, r0, #0x100
 	ldr r0, [r4, #0x1c]
 	cmp r0, #2
@@ -26621,7 +26621,7 @@ _020D3324:
 _020D3330:
 	ldr r0, [sp, #8]
 	mov r1, #0
-	bl FUN_ov15_020d4028
+	bl NHTTPi_SetVirtualContentLength
 	ldr r0, [sp, #8]
 	cmp r0, #0
 	movne r1, #4
@@ -26630,7 +26630,7 @@ _020D3330:
 	cmp r1, #0
 	blt _020D3460
 	ldr r0, [sp, #8]
-	bl FUN_ov15_020d4028
+	bl NHTTPi_SetVirtualContentLength
 	ldr r0, [r10, #0x32c]
 	cmp r0, #0
 	ble _020D3420
@@ -26642,7 +26642,7 @@ _020D3374:
 	beq _020D33A0
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov15_020d15a8
+	bl NHTTPi_BufFull
 	cmp r0, #0
 	streq r11, [r10, #0x330]
 	streq r8, [r5, #0x28]
@@ -26663,7 +26663,7 @@ _020D33C8:
 	ldr r3, [r5, #4]
 	mov r1, r4
 _020D33D0:
-	bl FUN_ov15_020d0688
+	bl NHTTPi_RecvBufN
 	cmp r0, #0
 	addlt sp, sp, #0x10
 	movlt r0, #0
@@ -26693,7 +26693,7 @@ _020D3420:
 	beq _020D3458
 	ldr r1, [r5, #4]
 	mov r0, r5
-	bl FUN_ov15_020d0640
+	bl NHTTPi_isRecvBufFull
 	cmp r0, #0
 	movne r0, #6
 	moveq r0, #0xa
@@ -26725,7 +26725,7 @@ _020D3490:
 	ldr r2, [r6, #0xc]
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	cmp r0, #0
 	addlt sp, sp, #0x10
 	movlt r0, #0
@@ -26751,7 +26751,7 @@ _020D34FC:
 	ldr r2, [r6, #0xc]
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020d12b8
+	bl NHTTPi_SkipLineBuf
 	cmp r0, #0
 	addle sp, sp, #0x10
 	movle r0, #0
@@ -26763,7 +26763,7 @@ _020D3528:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r8
 	mov r1, r11
-	bl FUN_ov15_020cf770
+	bl NHTTPi_strToHex
 	movs r9, r0
 	bpl _020D356C
 	add sp, sp, #0x10
@@ -26788,7 +26788,7 @@ _020D356C:
 	ble _020D3684
 	ldr r0, [sp, #8]
 	mov r1, r9
-	bl FUN_ov15_020d4028
+	bl NHTTPi_SetVirtualContentLength
 	cmp r9, #0
 	ble _020D3478
 	add r11, r10, #0x104
@@ -26798,7 +26798,7 @@ _020D35AC:
 	beq _020D35DC
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov15_020d15a8
+	bl NHTTPi_BufFull
 	cmp r0, #0
 	moveq r0, #6
 	streq r0, [r10, #0x330]
@@ -26821,7 +26821,7 @@ _020D3608:
 	ldr r2, [r6, #0xc]
 	ldr r3, [r5, #4]
 _020D3610:
-	bl FUN_ov15_020d0688
+	bl NHTTPi_RecvBufN
 	cmp r0, #0
 	addle sp, sp, #0x10
 	movle r0, #0
@@ -26842,7 +26842,7 @@ _020D3610:
 	mov r0, r7
 	mov r1, r4
 	mov r3, r8
-	bl FUN_ov15_020cf3a8
+	bl NHTTPi_SocRecv
 	cmp r0, #0
 	addle sp, sp, #0x10
 	movle r0, #0
@@ -26855,7 +26855,7 @@ _020D3684:
 	ldr r2, [r6, #0xc]
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020d12b8
+	bl NHTTPi_SkipLineBuf
 	str r11, [r10, #0x330]
 	b _020D3748
 _020D369C:
@@ -26864,7 +26864,7 @@ _020D369C:
 _020D36A4:
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov15_020d15a8
+	bl NHTTPi_BufFull
 	cmp r0, #0
 	streq r11, [r10, #0x330]
 	streq r8, [r5, #0x28]
@@ -26887,7 +26887,7 @@ _020D36E8:
 	mov r0, r7
 	mov r1, r4
 _020D3700:
-	bl FUN_ov15_020d0654
+	bl NHTTPi_RecvBuf
 	cmp r0, #0
 	addlt sp, sp, #0x10
 	movlt r0, #0
@@ -26909,7 +26909,7 @@ _020D372C:
 _020D3748:
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov15_020d3cb8
+	bl NHTTPi_Response2Connection
 	ldr r2, [r10, #0x330]
 	mov r1, r0
 	cmp r2, #0
@@ -26917,27 +26917,27 @@ _020D3748:
 	cmp r1, #0
 	beq _020D3774
 	mov r0, r7
-	bl FUN_ov15_020d3e58
+	bl NHTTPi_ReceivedCallback
 _020D3774:
 	mov r0, #1
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov15_020d32a4
+	arm_func_end NHTTPi_ThreadRecvBodyProc
 
-	arm_func_start FUN_ov15_020d3780
-FUN_ov15_020d3780: ; 0x020D3780
+	arm_func_start NHTTPi_CommThreadProcMain
+NHTTPi_CommThreadProcMain: ; 0x020D3780
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x340
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r8, r0
 	mov r0, r4
-	bl FUN_ov15_020d4010
+	bl NHTTPi_GetReqInfoP
 	add r7, sp, #0
 	mov r9, r0
 	mov r0, r7
-	bl FUN_ov15_020d24cc
+	bl NHTTPi_ThreadInit
 	ldr r0, [r8, #0x18]
 	cmp r0, #0
 	addne sp, sp, #0x340
@@ -26950,7 +26950,7 @@ _020D37CC:
 	cmp r0, #0
 	bne _020D3814
 	mov r0, r7
-	bl FUN_ov15_020d2664
+	bl NHTTPi_ThreadExecReqQueue
 	cmp r0, #0
 	beq _020D38E0
 	ldr r0, [r9]
@@ -26962,7 +26962,7 @@ _020D37CC:
 _020D3800:
 	b _020D38DC
 _020D3804:
-	bl FUN_ov15_020d26dc
+	bl NHTTPi_ThreadHostAddrProc
 	cmp r0, #0
 	bne _020D3814
 	b _020D38D8
@@ -26971,13 +26971,13 @@ _020D3814:
 	cmp r0, #1
 	mov r0, r7
 	streq r6, [sp, #0x334]
-	bl FUN_ov15_020d27f4
+	bl NHTTPi_ThreadConnectProc
 	cmp r0, #0
 	mov r0, r7
 	bne _020D3838
 	b _020D3800
 _020D3838:
-	bl FUN_ov15_020d2988
+	bl NHTTPi_ThreadProxyProc
 	cmp r0, #0
 	beq _020D3860
 	cmp r0, #1
@@ -26990,7 +26990,7 @@ _020D385C:
 	b _020D38D8
 _020D3860:
 	mov r0, r7
-	bl FUN_ov15_020d2a94
+	bl NHTTPi_ThreadSendProc
 	cmp r0, #3
 	addls pc, pc, r0, lsl #2
 	b _020D3890
@@ -27013,30 +27013,30 @@ _020D3890:
 	beq _020D38AC
 	b _020D3800
 _020D38AC:
-	bl FUN_ov15_020d2e14
+	bl NHTTPi_ThreadRecvHeaderProc
 	cmp r0, #0
 	mov r0, r7
 	bne _020D38C0
 	b _020D3800
 _020D38C0:
-	bl FUN_ov15_020d2fe0
+	bl NHTTPi_ThreadParseHeaderProc
 	cmp r0, #0
 	mov r0, r7
 	bne _020D38D4
 	b _020D3800
 _020D38D4:
-	bl FUN_ov15_020d32a4
+	bl NHTTPi_ThreadRecvBodyProc
 _020D38D8:
 	mov r0, r7
 _020D38DC:
-	bl FUN_ov15_020d251c
+	bl NHTTPi_ThreadReqEnd
 _020D38E0:
 	ldr r0, [r8, #0x18]
 	cmp r0, #0
 	beq _020D37CC
 	add sp, sp, #0x340
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov15_020d3780
+	arm_func_end NHTTPi_CommThreadProcMain
 
 	arm_func_start NHTTP_Startup
 NHTTP_Startup: ; 0x020D38F4
@@ -27056,40 +27056,40 @@ NHTTP_Startup: ; 0x020D38F4
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end NHTTP_Startup
 
-	arm_func_start FUN_ov15_020d392c
-FUN_ov15_020d392c: ; 0x020D392C
+	arm_func_start NHTTP_CleanupAsync
+NHTTP_CleanupAsync: ; 0x020D392C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r1, r4
 	bl NHTTPi_CleanupAsync
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d392c
+	arm_func_end NHTTP_CleanupAsync
 
-	arm_func_start FUN_ov15_020d3944
-FUN_ov15_020d3944: ; 0x020D3944
+	arm_func_start NHTTP_AddHeaderField
+NHTTP_AddHeaderField: ; 0x020D3944
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r6
-	bl FUN_ov15_020d3cd8
+	bl NHTTPi_GetRequest
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d3974
+	bl NHTTP_AddRequestHeaderField
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d3944
+	arm_func_end NHTTP_AddHeaderField
 
-	arm_func_start FUN_ov15_020d3974
-FUN_ov15_020d3974: ; 0x020D3974
+	arm_func_start NHTTP_AddRequestHeaderField
+NHTTP_AddRequestHeaderField: ; 0x020D3974
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r1, r0
 	cmp r6, #0
 	mvneq r0, #0
@@ -27101,92 +27101,92 @@ FUN_ov15_020d3974: ; 0x020D3974
 	mov r0, r6
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov15_020cff7c
+	bl NHTTPi_AddRequestHeaderField
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	rsb r0, r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d3974
+	arm_func_end NHTTP_AddRequestHeaderField
 
-	arm_func_start FUN_ov15_020d39d0
-FUN_ov15_020d39d0: ; 0x020D39D0
+	arm_func_start NHTTP_AddPostDataAscii
+NHTTP_AddPostDataAscii: ; 0x020D39D0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
 	mov r6, r2
 	bl NHTTPi_GetSystemInfoP
 	mov r5, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r4, r0
 	mov r0, r5
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r8
-	bl FUN_ov15_020d3cd8
+	bl NHTTPi_GetRequest
 	mov r1, r4
 	mov r2, r7
 	mov r3, r6
-	bl FUN_ov15_020cff9c
+	bl NHTTPi_AddRequestPostDataAscii
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	rsb r0, r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d39d0
+	arm_func_end NHTTP_AddPostDataAscii
 
-	arm_func_start FUN_ov15_020d3a24
-FUN_ov15_020d3a24: ; 0x020D3A24
+	arm_func_start NHTTP_GetHeaderField
+NHTTP_GetHeaderField: ; 0x020D3A24
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r6
-	bl FUN_ov15_020d3cf4
+	bl NHTTPi_GetResponse
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d1034
+	bl NHTTP_GetResponseHeaderField
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d3a24
+	arm_func_end NHTTP_GetHeaderField
 
-	arm_func_start FUN_ov15_020d3a60
-FUN_ov15_020d3a60: ; 0x020D3A60
+	arm_func_start NHTTP_SetVerifyOption
+NHTTP_SetVerifyOption: ; 0x020D3A60
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r5
-	bl FUN_ov15_020d3cd8
+	bl NHTTPi_GetRequest
 	cmp r0, #0
 	mvneq r0, #0
 	strne r4, [r0, #0xd0]
 	movne r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d3a60
+	arm_func_end NHTTP_SetVerifyOption
 
-	arm_func_start FUN_ov15_020d3a90
-FUN_ov15_020d3a90: ; 0x020D3A90
+	arm_func_start NHTTP_SetRootCA
+NHTTP_SetRootCA: ; 0x020D3A90
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r6
-	bl FUN_ov15_020d3cd8
+	bl NHTTPi_GetRequest
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov15_020d3ac0
+	bl NHTTP_SetRequestRootCA
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d3a90
+	arm_func_end NHTTP_SetRootCA
 
-	arm_func_start FUN_ov15_020d3ac0
-FUN_ov15_020d3ac0: ; 0x020D3AC0
+	arm_func_start NHTTP_SetRequestRootCA
+NHTTP_SetRequestRootCA: ; 0x020D3AC0
 	cmp r0, #0
 	mvneq r0, #0
 	bxeq lr
@@ -27197,18 +27197,18 @@ FUN_ov15_020d3ac0: ; 0x020D3AC0
 	str r2, [r0, #0xc4]
 	mov r0, r3
 	bx lr
-	arm_func_end FUN_ov15_020d3ac0
+	arm_func_end NHTTP_SetRequestRootCA
 
-	arm_func_start FUN_ov15_020d3ae8
-FUN_ov15_020d3ae8: ; 0x020D3AE8
+	arm_func_start NHTTPi_GetStaticResource
+NHTTPi_GetStaticResource: ; 0x020D3AE8
 	stmfd sp!, {r4, lr}
-	ldr r0, _020D3B24 ; =0x020E92D0
-	ldr r4, _020D3B28 ; =0x020E92D8
+	ldr r0, _020D3B24 ; =l_nhttp_connection_list_p
+	ldr r4, _020D3B28 ; =NHTTPiStaticResource
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	bne _020D3B1C
 	add r0, r4, #4
-	bl FUN_ov15_020cef60
+	bl NHTTPi_InitMutex
 	mov r1, #0
 	mov r0, #1
 	str r1, [r4, #0x20]
@@ -27217,15 +27217,15 @@ FUN_ov15_020d3ae8: ; 0x020D3AE8
 _020D3B1C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020D3B24: .word ov15_020E92D0
-_020D3B28: .word ov15_020E92D8
-	arm_func_end FUN_ov15_020d3ae8
+_020D3B24: .word l_nhttp_connection_list_p
+_020D3B28: .word NHTTPiStaticResource
+	arm_func_end NHTTPi_GetStaticResource
 
-	arm_func_start FUN_ov15_020d3b2c
-FUN_ov15_020d3b2c: ; 0x020D3B2C
+	arm_func_start NHTTPi_WaitForCompletion
+NHTTPi_WaitForCompletion: ; 0x020D3B2C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov15_020d3ae8
+	bl NHTTPi_GetStaticResource
 	ldr r1, [r5, #0xc]
 	mov r4, r0
 	cmp r1, #0
@@ -27237,39 +27237,39 @@ _020D3B48:
 	cmp r0, #0
 	bne _020D3B48
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d3b2c
+	arm_func_end NHTTPi_WaitForCompletion
 
-	arm_func_start FUN_ov15_020d3b60
-FUN_ov15_020d3b60: ; 0x020D3B60
+	arm_func_start NHTTPi_NotifyCompletion
+NHTTPi_NotifyCompletion: ; 0x020D3B60
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d3ae8
+	bl NHTTPi_GetStaticResource
 	mov r1, #0
 	add r0, r0, #0x1c
 	str r1, [r4, #0xc]
 	bl OS_WakeupThread
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d3b60
+	arm_func_end NHTTPi_NotifyCompletion
 
-	arm_func_start FUN_ov15_020d3b80
-FUN_ov15_020d3b80: ; 0x020D3B80
+	arm_func_start NHTTPi_ControlConnectionList
+NHTTPi_ControlConnectionList: ; 0x020D3B80
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r2
 	mov r7, r0
 	mov r6, r1
 	mov r4, #0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	cmp r5, #3
 	bne _020D3BB8
-	ldr r0, _020D3C48 ; =0x020E92D0
+	ldr r0, _020D3C48 ; =l_nhttp_connection_list_p
 	mov r4, r6
 	ldr r1, [r0]
 	str r1, [r6, #0x20]
 	str r6, [r0]
 	b _020D3C38
 _020D3BB8:
-	ldr r0, _020D3C48 ; =0x020E92D0
-	ldr r1, _020D3C4C ; =0x020E92D0
+	ldr r0, _020D3C48 ; =l_nhttp_connection_list_p
+	ldr r1, _020D3C4C ; =l_nhttp_connection_list_p
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020D3C38
@@ -27311,96 +27311,96 @@ _020D3C1C:
 	bne _020D3BCC
 _020D3C38:
 	mov r0, r7
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020D3C48: .word ov15_020E92D0
-_020D3C4C: .word ov15_020E92D0
-	arm_func_end FUN_ov15_020d3b80
+_020D3C48: .word l_nhttp_connection_list_p
+_020D3C4C: .word l_nhttp_connection_list_p
+	arm_func_end NHTTPi_ControlConnectionList
 
-	arm_func_start FUN_ov15_020d3c50
-FUN_ov15_020d3c50: ; 0x020D3C50
+	arm_func_start NHTTPi_CommitConnectionList
+NHTTPi_CommitConnectionList: ; 0x020D3C50
 	stmfd sp!, {r3, lr}
 	mov r2, #3
-	bl FUN_ov15_020d3b80
+	bl NHTTPi_ControlConnectionList
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	rsb r0, r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d3c50
+	arm_func_end NHTTPi_CommitConnectionList
 
-	arm_func_start FUN_ov15_020d3c70
-FUN_ov15_020d3c70: ; 0x020D3C70
+	arm_func_start NHTTPi_OmitConnectionList
+NHTTPi_OmitConnectionList: ; 0x020D3C70
 	stmfd sp!, {r3, lr}
 	mov r2, #4
-	bl FUN_ov15_020d3b80
+	bl NHTTPi_ControlConnectionList
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
 	rsb r0, r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d3c70
+	arm_func_end NHTTPi_OmitConnectionList
 
-	arm_func_start FUN_ov15_020d3c90
-FUN_ov15_020d3c90: ; 0x020D3C90
+	arm_func_start NHTTPi_Connection2Response
+NHTTPi_Connection2Response: ; 0x020D3C90
 	stmfd sp!, {r3, lr}
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	ldrne r0, [r0, #0x14]
 	moveq r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov15_020d3c90
+	arm_func_end NHTTPi_Connection2Response
 
-	arm_func_start FUN_ov15_020d3ca8
-FUN_ov15_020d3ca8: ; 0x020D3CA8
-	ldr r12, _020D3CB4 ; =FUN_ov15_020d3b80
+	arm_func_start NHTTPi_Request2Connection
+NHTTPi_Request2Connection: ; 0x020D3CA8
+	ldr r12, _020D3CB4 ; =NHTTPi_ControlConnectionList
 	mov r2, #1
 	bx r12
-_020D3CB4: .word FUN_ov15_020d3b80
-	arm_func_end FUN_ov15_020d3ca8
+_020D3CB4: .word NHTTPi_ControlConnectionList
+	arm_func_end NHTTPi_Request2Connection
 
-	arm_func_start FUN_ov15_020d3cb8
-FUN_ov15_020d3cb8: ; 0x020D3CB8
-	ldr r12, _020D3CC4 ; =FUN_ov15_020d3b80
+	arm_func_start NHTTPi_Response2Connection
+NHTTPi_Response2Connection: ; 0x020D3CB8
+	ldr r12, _020D3CC4 ; =NHTTPi_ControlConnectionList
 	mov r2, #2
 	bx r12
-_020D3CC4: .word FUN_ov15_020d3b80
-	arm_func_end FUN_ov15_020d3cb8
+_020D3CC4: .word NHTTPi_ControlConnectionList
+	arm_func_end NHTTPi_Response2Connection
 
-	arm_func_start FUN_ov15_020d3cc8
-FUN_ov15_020d3cc8: ; 0x020D3CC8
-	ldr r12, _020D3CD4 ; =FUN_ov15_020d3b80
+	arm_func_start NHTTPi_GetConnection
+NHTTPi_GetConnection: ; 0x020D3CC8
+	ldr r12, _020D3CD4 ; =NHTTPi_ControlConnectionList
 	mov r2, #0
 	bx r12
-_020D3CD4: .word FUN_ov15_020d3b80
-	arm_func_end FUN_ov15_020d3cc8
+_020D3CD4: .word NHTTPi_ControlConnectionList
+	arm_func_end NHTTPi_GetConnection
 
-	arm_func_start FUN_ov15_020d3cd8
-FUN_ov15_020d3cd8: ; 0x020D3CD8
+	arm_func_start NHTTPi_GetRequest
+NHTTPi_GetRequest: ; 0x020D3CD8
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	ldrne r4, [r0, #0x10]
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d3cd8
+	arm_func_end NHTTPi_GetRequest
 
-	arm_func_start FUN_ov15_020d3cf4
-FUN_ov15_020d3cf4: ; 0x020D3CF4
+	arm_func_start NHTTPi_GetResponse
+NHTTPi_GetResponse: ; 0x020D3CF4
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	ldrne r4, [r0, #0x14]
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d3cf4
+	arm_func_end NHTTPi_GetResponse
 
-	arm_func_start FUN_ov15_020d3d10
-FUN_ov15_020d3d10: ; 0x020D3D10
-	ldr r1, _020D3D38 ; =0x020E92D0
+	arm_func_start NHTTPi_GetConnectionListLength
+NHTTPi_GetConnectionListLength: ; 0x020D3D10
+	ldr r1, _020D3D38 ; =l_nhttp_connection_list_p
 	mov r0, #0
 	ldr r1, [r1]
 	cmp r1, #0
@@ -27411,11 +27411,11 @@ _020D3D24:
 	cmp r1, #0
 	bne _020D3D24
 	bx lr
-_020D3D38: .word ov15_020E92D0
-	arm_func_end FUN_ov15_020d3d10
+_020D3D38: .word l_nhttp_connection_list_p
+	arm_func_end NHTTPi_GetConnectionListLength
 
-	arm_func_start FUN_ov15_020d3d3c
-FUN_ov15_020d3d3c: ; 0x020D3D3C
+	arm_func_start NHTTPi_PostSendCallback
+NHTTPi_PostSendCallback: ; 0x020D3D3C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x10
 	mov r5, r0
@@ -27423,12 +27423,12 @@ FUN_ov15_020d3d3c: ; 0x020D3D3C
 	mov r8, r2
 	mov r7, r3
 	mvn r6, #0
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	beq _020D3DC0
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	ldrne r3, [r4, #0x1c]
 	cmpne r3, #0
@@ -27448,26 +27448,26 @@ FUN_ov15_020d3d3c: ; 0x020D3D3C
 	ldr r3, [sp, #8]
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d3f14
+	bl NHTTPi_SetPostDataBuffer
 _020D3DC0:
 	mov r0, r6
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d3d3c
+	arm_func_end NHTTPi_PostSendCallback
 
-	arm_func_start FUN_ov15_020d3dcc
-FUN_ov15_020d3dcc: ; 0x020D3DCC
+	arm_func_start NHTTPi_BufferFullCallback
+NHTTPi_BufferFullCallback: ; 0x020D3DCC
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r5, r0
 	mov r4, r1
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	addeq sp, sp, #0x10
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	ldrne r12, [r4, #0x1c]
 	cmpne r12, #0
@@ -27489,24 +27489,24 @@ FUN_ov15_020d3dcc: ; 0x020D3DCC
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	mov r1, r4
-	bl FUN_ov15_020d3f3c
+	bl NHTTPi_SetBodyBuffer
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d3dcc
+	arm_func_end NHTTPi_BufferFullCallback
 
-	arm_func_start FUN_ov15_020d3e58
-FUN_ov15_020d3e58: ; 0x020D3E58
+	arm_func_start NHTTPi_ReceivedCallback
+NHTTPi_ReceivedCallback: ; 0x020D3E58
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r5, r0
 	mov r4, r1
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	addeq sp, sp, #0x10
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	ldrne r12, [r4, #0x1c]
 	cmpne r12, #0
@@ -27528,16 +27528,16 @@ FUN_ov15_020d3e58: ; 0x020D3E58
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	mov r1, r4
-	bl FUN_ov15_020d3f3c
+	bl NHTTPi_SetBodyBuffer
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d3e58
+	arm_func_end NHTTPi_ReceivedCallback
 
-	arm_func_start FUN_ov15_020d3ee4
-FUN_ov15_020d3ee4: ; 0x020D3EE4
+	arm_func_start NHTTPi_CompleteCallback
+NHTTPi_CompleteCallback: ; 0x020D3EE4
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	ldrne r3, [r4, #0x1c]
 	cmpne r3, #0
@@ -27547,33 +27547,33 @@ FUN_ov15_020d3ee4: ; 0x020D3EE4
 	mov r2, #0
 	blx r3
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d3ee4
+	arm_func_end NHTTPi_CompleteCallback
 
-	arm_func_start FUN_ov15_020d3f14
-FUN_ov15_020d3f14: ; 0x020D3F14
+	arm_func_start NHTTPi_SetPostDataBuffer
+NHTTPi_SetPostDataBuffer: ; 0x020D3F14
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r2
 	mov r4, r3
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	mvneq r0, #0
 	strne r5, [r0, #0x24]
 	strne r4, [r0, #0x28]
 	movne r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d3f14
+	arm_func_end NHTTPi_SetPostDataBuffer
 
-	arm_func_start FUN_ov15_020d3f3c
-FUN_ov15_020d3f3c: ; 0x020D3F3C
+	arm_func_start NHTTPi_SetBodyBuffer
+NHTTPi_SetBodyBuffer: ; 0x020D3F3C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r2
 	mov r4, r3
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r1, r0
 	beq _020D3F84
 	mov r0, r6
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -27586,174 +27586,174 @@ FUN_ov15_020d3f3c: ; 0x020D3F3C
 _020D3F84:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d3f3c
+	arm_func_end NHTTPi_SetBodyBuffer
 
-	arm_func_start FUN_ov15_020d3f8c
-FUN_ov15_020d3f8c: ; 0x020D3F8C
+	arm_func_start NHTTPi_InitSystemInfo
+NHTTPi_InitSystemInfo: ; 0x020D3F8C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov15_020d4004
-	bl FUN_ov15_020cfb28
+	bl NHTTPi_GetBgnEndInfoP
+	bl NHTTPi_InitBgnEndInfo
 	mov r0, r4
-	bl FUN_ov15_020d4008
-	bl FUN_ov15_020d0030
+	bl NHTTPi_GetListInfoP
+	bl NHTTPi_InitListInfo
 	mov r0, r4
-	bl FUN_ov15_020d4010
-	bl FUN_ov15_020d0704
+	bl NHTTPi_GetReqInfoP
+	bl NHTTPi_InitRequestInfo
 	mov r0, r4
-	bl FUN_ov15_020d4020
-	bl FUN_ov15_020d4060
+	bl NHTTPi_GetMutexInfoP
+	bl NHTTPi_InitMutexInfo
 	mov r0, r4
-	bl FUN_ov15_020d4018
-	bl FUN_ov15_020d1140
+	bl NHTTPi_GetThreadInfoP
+	bl NHTTPi_InitThreadInfo
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d3f8c
+	arm_func_end NHTTPi_InitSystemInfo
 
 	arm_func_start NHTTPi_GetSystemInfoP
 NHTTPi_GetSystemInfoP: ; 0x020D3FD0
 	stmfd sp!, {r4, lr}
-	ldr r1, _020D3FFC ; =0x020E92D0
+	ldr r1, _020D3FFC ; =l_nhttp_connection_list_p
 	ldr r4, [r1, #4]
 	cmp r4, #0
 	bne _020D3FF4
-	ldr r4, _020D4000 ; =0x020E9300
+	ldr r4, _020D4000 ; =sysInfo
 	mov r0, r4
 	str r4, [r1, #4]
-	bl FUN_ov15_020d3f8c
+	bl NHTTPi_InitSystemInfo
 _020D3FF4:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020D3FFC: .word ov15_020E92D0
-_020D4000: .word ov15_020E9300
+_020D3FFC: .word l_nhttp_connection_list_p
+_020D4000: .word sysInfo
 	arm_func_end NHTTPi_GetSystemInfoP
 
-	arm_func_start FUN_ov15_020d4004
-FUN_ov15_020d4004: ; 0x020D4004
+	arm_func_start NHTTPi_GetBgnEndInfoP
+NHTTPi_GetBgnEndInfoP: ; 0x020D4004
 	bx lr
-	arm_func_end FUN_ov15_020d4004
+	arm_func_end NHTTPi_GetBgnEndInfoP
 
-	arm_func_start FUN_ov15_020d4008
-FUN_ov15_020d4008: ; 0x020D4008
+	arm_func_start NHTTPi_GetListInfoP
+NHTTPi_GetListInfoP: ; 0x020D4008
 	add r0, r0, #0x28
 	bx lr
-	arm_func_end FUN_ov15_020d4008
+	arm_func_end NHTTPi_GetListInfoP
 
-	arm_func_start FUN_ov15_020d4010
-FUN_ov15_020d4010: ; 0x020D4010
+	arm_func_start NHTTPi_GetReqInfoP
+NHTTPi_GetReqInfoP: ; 0x020D4010
 	add r0, r0, #0x30
 	bx lr
-	arm_func_end FUN_ov15_020d4010
+	arm_func_end NHTTPi_GetReqInfoP
 
-	arm_func_start FUN_ov15_020d4018
-FUN_ov15_020d4018: ; 0x020D4018
+	arm_func_start NHTTPi_GetThreadInfoP
+NHTTPi_GetThreadInfoP: ; 0x020D4018
 	add r0, r0, #0x50
 	bx lr
-	arm_func_end FUN_ov15_020d4018
+	arm_func_end NHTTPi_GetThreadInfoP
 
-	arm_func_start FUN_ov15_020d4020
-FUN_ov15_020d4020: ; 0x020D4020
+	arm_func_start NHTTPi_GetMutexInfoP
+NHTTPi_GetMutexInfoP: ; 0x020D4020
 	add r0, r0, #0x34
 	bx lr
-	arm_func_end FUN_ov15_020d4020
+	arm_func_end NHTTPi_GetMutexInfoP
 
-	arm_func_start FUN_ov15_020d4028
-FUN_ov15_020d4028: ; 0x020D4028
+	arm_func_start NHTTPi_SetVirtualContentLength
+NHTTPi_SetVirtualContentLength: ; 0x020D4028
 	cmp r0, #0
 	strne r1, [r0, #0x2c]
 	bx lr
-	arm_func_end FUN_ov15_020d4028
+	arm_func_end NHTTPi_SetVirtualContentLength
 
-	arm_func_start FUN_ov15_020d4034
-FUN_ov15_020d4034: ; 0x020D4034
+	arm_func_start NHTTPi_InitConnectionList
+NHTTPi_InitConnectionList: ; 0x020D4034
 	stmfd sp!, {r3, lr}
-	ldr r0, _020D405C ; =0x020E92D0
+	ldr r0, _020D405C ; =l_nhttp_connection_list_p
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _020D404C
-	bl FUN_ov15_020d3d10
+	bl NHTTPi_GetConnectionListLength
 _020D404C:
-	ldr r0, _020D405C ; =0x020E92D0
+	ldr r0, _020D405C ; =l_nhttp_connection_list_p
 	mov r1, #0
 	str r1, [r0]
 	ldmfd sp!, {r3, pc}
-_020D405C: .word ov15_020E92D0
-	arm_func_end FUN_ov15_020d4034
+_020D405C: .word l_nhttp_connection_list_p
+	arm_func_end NHTTPi_InitConnectionList
 
-	arm_func_start FUN_ov15_020d4060
-FUN_ov15_020d4060: ; 0x020D4060
+	arm_func_start NHTTPi_InitMutexInfo
+NHTTPi_InitMutexInfo: ; 0x020D4060
 	mov r1, #0
 	str r1, [r0, #0x18]
 	bx lr
-	arm_func_end FUN_ov15_020d4060
+	arm_func_end NHTTPi_InitMutexInfo
 
-	arm_func_start FUN_ov15_020d406c
-FUN_ov15_020d406c: ; 0x020D406C
+	arm_func_start NHTTPi_initLockReqList
+NHTTPi_initLockReqList: ; 0x020D406C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r1, [r4, #0x18]
 	cmp r1, #0
 	ldmnefd sp!, {r4, pc}
-	bl FUN_ov15_020cef60
+	bl NHTTPi_InitMutex
 	mov r0, #1
 	str r0, [r4, #0x18]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d406c
+	arm_func_end NHTTPi_initLockReqList
 
-	arm_func_start FUN_ov15_020d4090
-FUN_ov15_020d4090: ; 0x020D4090
+	arm_func_start NHTTPi_exitLockReqList
+NHTTPi_exitLockReqList: ; 0x020D4090
 	bx lr
-	arm_func_end FUN_ov15_020d4090
+	arm_func_end NHTTPi_exitLockReqList
 
-	arm_func_start FUN_ov15_020d4094
-FUN_ov15_020d4094: ; 0x020D4094
-	ldr r12, _020D409C ; =FUN_ov15_020cef6c
+	arm_func_start NHTTPi_lockReqList
+NHTTPi_lockReqList: ; 0x020D4094
+	ldr r12, _020D409C ; =NHTTPi_LockMutex
 	bx r12
-_020D409C: .word FUN_ov15_020cef6c
-	arm_func_end FUN_ov15_020d4094
+_020D409C: .word NHTTPi_LockMutex
+	arm_func_end NHTTPi_lockReqList
 
-	arm_func_start FUN_ov15_020d40a0
-FUN_ov15_020d40a0: ; 0x020D40A0
+	arm_func_start NHTTPi_unlockReqList
+NHTTPi_unlockReqList: ; 0x020D40A0
 	ldr r12, _020D40A8 ; =OS_UnlockMutex
 	bx r12
 _020D40A8: .word OS_UnlockMutex
-	arm_func_end FUN_ov15_020d40a0
+	arm_func_end NHTTPi_unlockReqList
 
-	arm_func_start FUN_ov15_020d40ac
-FUN_ov15_020d40ac: ; 0x020D40AC
+	arm_func_start NHTTPi_addRef
+NHTTPi_addRef: ; 0x020D40AC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	add r1, r4, #0x8000
 	ldr r2, [r1, #0x48]
 	mov r0, r5
 	add r2, r2, #1
 	str r2, [r1, #0x48]
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	add r0, r4, #0x8000
 	ldr r0, [r0, #0x48]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d40ac
+	arm_func_end NHTTPi_addRef
 
-	arm_func_start FUN_ov15_020d40e0
-FUN_ov15_020d40e0: ; 0x020D40E0
+	arm_func_start NHTTPi_decRef
+NHTTPi_decRef: ; 0x020D40E0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
-	bl FUN_ov15_020d4094
+	bl NHTTPi_lockReqList
 	add r1, r4, #0x8000
 	ldr r2, [r1, #0x48]
 	mov r0, r5
 	sub r2, r2, #1
 	str r2, [r1, #0x48]
-	bl FUN_ov15_020d40a0
+	bl NHTTPi_unlockReqList
 	add r0, r4, #0x8000
 	ldr r0, [r0, #0x48]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d40e0
+	arm_func_end NHTTPi_decRef
 
-	arm_func_start FUN_ov15_020d4114
-FUN_ov15_020d4114: ; 0x020D4114
+	arm_func_start NHTTP_CreateConnection
+NHTTP_CreateConnection: ; 0x020D4114
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r10, r0
@@ -27762,26 +27762,26 @@ FUN_ov15_020d4114: ; 0x020D4114
 	mov r7, r3
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4004
+	bl NHTTPi_GetBgnEndInfoP
 	mov r6, r0
 	mov r0, r4
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	ldr r11, _020D4248 ; =0x0000804C
 	mov r5, r0
 	mov r0, r11
 	mov r1, #0x20
-	bl FUN_ov15_020cfb6c
+	bl NHTTPi_alloc
 	movs r4, r0
 	bne _020D4178
 	mov r0, r6
 	mov r1, #1
-	bl FUN_ov15_020cfbc0
+	bl NHTTPi_SetError
 	add sp, sp, #0x10
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D4178:
 	mov r1, r11
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	ldr r0, [sp, #0x3c]
 	str r7, [sp]
 	str r0, [sp, #4]
@@ -27792,12 +27792,12 @@ _020D4178:
 	mov r2, r9
 	mov r3, r8
 	str r7, [sp, #0xc]
-	bl FUN_ov15_020d0710
+	bl NHTTPi_CreateRequest
 	str r0, [r4, #0x10]
 	cmp r0, #0
 	bne _020D41CC
 	mov r0, r4
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	add sp, sp, #0x10
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -27813,54 +27813,54 @@ _020D41CC:
 	str r7, [r4, #0x28]
 	sub r2, r7, #1
 	str r2, [r4, #0x18]
-	bl FUN_ov15_020d3c50
+	bl NHTTPi_CommitConnectionList
 	mov r0, #0xf
 	stmib r4, {r0, r7}
 	mov r5, #1
 	mov r0, r4
 	mov r1, r7
 	str r5, [r4, #0xc]
-	bl FUN_ov15_020d4028
+	bl NHTTPi_SetVirtualContentLength
 	str r7, [r4, #0x30]
 	add r2, r4, #0x8000
 	str r7, [r2, #0x40]
 	add r0, r4, #0x40
 	mov r1, #0x8000
 	str r7, [r2, #0x44]
-	bl FUN_ov15_020cf550
+	bl NHTTPi_memclr
 	add r1, r4, #0x8000
 	mov r0, r4
 	str r5, [r1, #0x48]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D4248: .word 0x0000804C
-	arm_func_end FUN_ov15_020d4114
+	arm_func_end NHTTP_CreateConnection
 
-	arm_func_start FUN_ov15_020d424c
-FUN_ov15_020d424c: ; 0x020D424C
+	arm_func_start NHTTP_DeleteConnection
+NHTTP_DeleteConnection: ; 0x020D424C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_ov15_020d4278
+	bl NHTTPi_DeleteConnection
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d424c
+	arm_func_end NHTTP_DeleteConnection
 
-	arm_func_start FUN_ov15_020d4278
-FUN_ov15_020d4278: ; 0x020D4278
+	arm_func_start NHTTPi_DeleteConnection
+NHTTPi_DeleteConnection: ; 0x020D4278
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r4, r0
 	mov r0, r6
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	cmp r5, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -27872,13 +27872,13 @@ FUN_ov15_020d4278: ; 0x020D4278
 	cmp r1, #0
 	blt _020D42D0
 	mov r0, r6
-	bl FUN_ov15_020d0d58
+	bl NHTTPi_CancelRequestAsync
 	mvn r0, #0
 	str r0, [r5, #0x18]
 _020D42D0:
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov15_020d40e0
+	bl NHTTPi_decRef
 	cmp r0, #0
 	movgt r0, #0
 	ldmgtfd sp!, {r4, r5, r6, pc}
@@ -27889,7 +27889,7 @@ _020D42D0:
 	cmp r0, #0
 	bne _020D4308
 	mov r0, r6
-	bl FUN_ov15_020d0bf8
+	bl NHTTPi_DestroyRequest
 _020D4308:
 	ldr r0, [r5, #0x14]
 	cmp r0, #0
@@ -27898,68 +27898,68 @@ _020D4308:
 	cmp r0, #0
 	beq _020D4328
 	mov r0, r5
-	bl FUN_ov15_020d4350
+	bl NHTTP_WaitForConnection
 _020D4328:
 	ldr r1, [r5, #0x14]
 	mov r0, r4
-	bl FUN_ov15_020d0e6c
+	bl NHTTPi_DestroyResponse
 _020D4334:
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov15_020d3c70
+	bl NHTTPi_OmitConnectionList
 	mov r0, r5
-	bl FUN_ov15_020cfb9c
+	bl NHTTPi_free
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d4278
+	arm_func_end NHTTPi_DeleteConnection
 
-	arm_func_start FUN_ov15_020d4350
-FUN_ov15_020d4350: ; 0x020D4350
+	arm_func_start NHTTP_WaitForConnection
+NHTTP_WaitForConnection: ; 0x020D4350
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4018
+	bl NHTTPi_GetThreadInfoP
 	mov r7, r0
 	mov r0, r4
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r8
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r6, r0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r0, r8
-	bl FUN_ov15_020d4484
+	bl NHTTP_GetConnectionStatus
 	mov r4, #1
 	mov r5, r0
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov15_020cf030
+	bl NHTTPi_CheckCurrentThread
 	sub r0, r4, #2
 	cmp r5, r0
 	cmpne r5, #0
 	beq _020D43C8
 	mov r0, r8
-	bl FUN_ov15_020d4550
+	bl NHTTP_GetConnectionError
 	cmp r0, #0xf
 	bne _020D43C8
 	mov r0, r6
-	bl FUN_ov15_020d3b2c
+	bl NHTTPi_WaitForCompletion
 _020D43C8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov15_020d4350
+	arm_func_end NHTTP_WaitForConnection
 
-	arm_func_start FUN_ov15_020d43d0
-FUN_ov15_020d43d0: ; 0x020D43D0
+	arm_func_start NHTTP_StartConnection
+NHTTP_StartConnection: ; 0x020D43D0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r6, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r5, r0
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r4, r0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -27968,7 +27968,7 @@ FUN_ov15_020d43d0: ; 0x020D43D0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r6
-	bl FUN_ov15_020d0cc0
+	bl NHTTPi_SendRequestAsync
 	str r0, [r4, #0x18]
 	cmp r0, #0
 	blt _020D4434
@@ -27976,21 +27976,21 @@ FUN_ov15_020d43d0: ; 0x020D43D0
 	mov r0, r5
 	mov r1, r4
 	str r2, [r4]
-	bl FUN_ov15_020d40ac
+	bl NHTTPi_addRef
 _020D4434:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d43d0
+	arm_func_end NHTTP_StartConnection
 
-	arm_func_start FUN_ov15_020d443c
-FUN_ov15_020d443c: ; 0x020D443C
+	arm_func_start NHTTP_CancelConnection
+NHTTP_CancelConnection: ; 0x020D443C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl NHTTPi_GetSystemInfoP
 	mov r4, r0
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r5
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -27999,40 +27999,40 @@ FUN_ov15_020d443c: ; 0x020D443C
 	mvnlt r0, #0
 	ldmltfd sp!, {r3, r4, r5, pc}
 	mov r0, r4
-	bl FUN_ov15_020d0d58
+	bl NHTTPi_CancelRequestAsync
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov15_020d443c
+	arm_func_end NHTTP_CancelConnection
 
-	arm_func_start FUN_ov15_020d4484
-FUN_ov15_020d4484: ; 0x020D4484
+	arm_func_start NHTTP_GetConnectionStatus
+NHTTP_GetConnectionStatus: ; 0x020D4484
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	mvneq r0, #0
 	ldrne r0, [r0]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d4484
+	arm_func_end NHTTP_GetConnectionStatus
 
-	arm_func_start FUN_ov15_020d44ac
-FUN_ov15_020d44ac: ; 0x020D44AC
+	arm_func_start NHTTP_GetBodyBuffer
+NHTTP_GetBodyBuffer: ; 0x020D44AC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	mov r6, r1
 	mov r5, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r4, r0
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r1, r0
 	beq _020D4504
 	mov r0, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -28045,21 +28045,21 @@ FUN_ov15_020d44ac: ; 0x020D44AC
 _020D4504:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d44ac
+	arm_func_end NHTTP_GetBodyBuffer
 
-	arm_func_start FUN_ov15_020d450c
-FUN_ov15_020d450c: ; 0x020D450C
+	arm_func_start NHTTP_GetUserParam
+NHTTP_GetUserParam: ; 0x020D450C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r4, r0
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r1, r0
 	beq _020D4548
 	mov r0, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	ldrne r0, [r0, #0x438]
 	moveq r0, #0
@@ -28067,37 +28067,37 @@ FUN_ov15_020d450c: ; 0x020D450C
 _020D4548:
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d450c
+	arm_func_end NHTTP_GetUserParam
 
-	arm_func_start FUN_ov15_020d4550
-FUN_ov15_020d4550: ; 0x020D4550
+	arm_func_start NHTTP_GetConnectionError
+NHTTP_GetConnectionError: ; 0x020D4550
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	cmp r0, #0
 	ldrne r0, [r0, #4]
 	mvneq r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov15_020d4550
+	arm_func_end NHTTP_GetConnectionError
 
-	arm_func_start FUN_ov15_020d4578
-FUN_ov15_020d4578: ; 0x020D4578
+	arm_func_start NHTTP_GetConnectionProgress
+NHTTP_GetConnectionProgress: ; 0x020D4578
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	mov r6, r1
 	mov r5, r2
 	bl NHTTPi_GetSystemInfoP
-	bl FUN_ov15_020d4020
+	bl NHTTPi_GetMutexInfoP
 	mov r1, r4
 	mov r4, r0
-	bl FUN_ov15_020d3cc8
+	bl NHTTPi_GetConnection
 	movs r1, r0
 	beq _020D45E0
 	mov r0, r4
-	bl FUN_ov15_020d3c90
+	bl NHTTPi_Connection2Response
 	cmp r0, #0
 	beq _020D45D8
 	ldr r1, [r0, #8]
@@ -28115,7 +28115,7 @@ _020D45D8:
 _020D45E0:
 	mvn r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov15_020d4578
+	arm_func_end NHTTP_GetConnectionProgress
 
 	arm_func_start SOCL_Startup
 SOCL_Startup: ; 0x020D45E8
@@ -41943,7 +41943,7 @@ FUN_ov15_020dfee8: ; 0x020DFEE8
 _020DFF14:
 	mov r0, r7
 	mov r1, r6
-	bl  FUN_ov131_02142694
+	bl FUN_ov131_02142694
 	strb r0, [r4, r6]
 	add r6, r6, #1
 _020DFF28:
@@ -41957,7 +41957,7 @@ _020DFF28:
 _020DFF44:
 	mov r0, r7
 	mov r1, r6
-	bl  FUN_ov131_02142694
+	bl FUN_ov131_02142694
 	strb r0, [r4, r6]
 	add r6, r6, #1
 _020DFF58:
@@ -41968,7 +41968,7 @@ _020DFF58:
 	ldr r0, [r0]
 	mov r1, r8
 	mov r2, #0x34
-	bl  FUN_ov131_02140f30
+	bl FUN_ov131_02140f30
 	mov r9, #0
 	ldr r4, _020E0084 ; =0x020A9C40
 	mov r11, #7
@@ -42556,13 +42556,13 @@ FUN_ov15_020e06f4: ; 0x020E06F4
 	cmpne r4, #2
 	bne _020E070C
 	mov r0, #1
-	bl  FUN_ov16_020f3f60
+	bl FUN_ov16_020f3f60
 _020E070C:
 	sub r0, r4, #1
 	cmp r0, #1
 	ldmhifd sp!, {r4, pc}
 	mov r0, #1
-	bl  FUN_ov16_020f4894
+	bl FUN_ov16_020f4894
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e06f4
 
@@ -42572,12 +42572,12 @@ FUN_ov15_020e0724: ; 0x020E0724
 	movs r4, r1
 	cmpne r4, #2
 	bne _020E0738
-	bl  FUN_ov16_020f47fc
+	bl FUN_ov16_020f47fc
 _020E0738:
 	sub r0, r4, #1
 	cmp r0, #1
 	bhi _020E0748
-	bl  FUN_ov16_020f51a8
+	bl FUN_ov16_020f51a8
 _020E0748:
 	cmp r4, #2
 	ldmnefd sp!, {r4, pc}
@@ -42597,7 +42597,7 @@ FUN_ov15_020e0764: ; 0x020E0764
 	str r4, [r5, #0x498]
 	str r4, [r5, #0x49c]
 	str r4, [r5, #0x4a0]
-	bl  FUN_ov16_020f1320
+	bl FUN_ov16_020f1320
 	mov r0, r5
 	ldr r2, [r0]
 	mov r1, #2
@@ -42700,8 +42700,8 @@ _020E08DC:
 	ldr r1, [r1, #0x20]
 	blx r1
 _020E08F4:
-	bl  FUN_ov16_020f47fc
-	bl  FUN_ov16_020f51a8
+	bl FUN_ov16_020f47fc
+	bl FUN_ov16_020f51a8
 	ldr r0, [r4, #0x498]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -42719,7 +42719,7 @@ FUN_ov15_020e0914: ; 0x020E0914
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #0xc]
-	bl  FUN_ov16_LoadOverlay
+	bl FUN_ov16_LoadOverlay
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4]
@@ -43009,7 +43009,7 @@ _020E0D00:
 	mov r1, #2
 	mov r0, #1
 	str r1, [r5, #0x5a0]
-	bl  FUN_ov16_020f069c
+	bl FUN_ov16_020f069c
 	b _020E0DA8
 _020E0D34:
 	add r0, r5, #0x90
@@ -43099,13 +43099,13 @@ _020E0E60:
 	add r0, r5, #0x90
 	bl FUN_ov15_020e0088
 	mov r0, #0
-	bl  FUN_ov16_020f069c
+	bl FUN_ov16_020f069c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E0E74:
 	mov r1, #8
 	mov r0, #0
 	str r1, [r5, #0x5a0]
-	bl  FUN_ov16_020f069c
+	bl FUN_ov16_020f069c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E0E88:
 	add r0, r5, #0x90
@@ -43122,7 +43122,7 @@ _020E0E88:
 	moveq r0, #0xe
 	str r0, [r5, #0x5a0]
 	mov r0, #0
-	bl  FUN_ov16_020f069c
+	bl FUN_ov16_020f069c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E0EC8:
 	add r0, r5, #0x90
@@ -43131,7 +43131,7 @@ _020E0EC8:
 	mov r1, #0xd
 	mov r0, #0
 	str r1, [r5, #0x5a0]
-	bl  FUN_ov16_020f069c
+	bl FUN_ov16_020f069c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E0EE8: .word ov15_020E64C4
 	arm_func_end FUN_ov15_020e0c90
@@ -43174,7 +43174,7 @@ FUN_ov15_020e0f1c: ; 0x020E0F1C
 	mov r1, r4
 	bl FUN_0202e1c0
 	mov r0, #6
-	bl  FUN_ov16_020f1490
+	bl FUN_ov16_020f1490
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E0F64: .word unk_0209A250
 _020E0F68: .word 0x4245384A
@@ -43217,7 +43217,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	bic r0, r0, #0x1f
 	mov r1, r8
 	mov r2, #0x10
-	bl  FUN_ov17_020f8620
+	bl FUN_ov17_020f8620
 	mov r0, r11
 	mov r1, r4
 	bl FUN_0202e1c0
@@ -43301,7 +43301,7 @@ FUN_ov15_020e10f4: ; 0x020E10F4
 _020E1104:
 	mov r0, r4
 	mov r1, r5
-	bl  FUN_ov16_020f1214
+	bl FUN_ov16_020f1214
 	bl OS_WaitVBlankIntr
 	add r5, r5, #1
 	cmp r5, #0x10
@@ -43390,7 +43390,7 @@ FUN_ov15_020e11e0: ; 0x020E11E0
 	mov r0, #6
 	orr r2, r2, #0x40
 	strb r2, [r1, #0x83]
-	bl  FUN_ov16_020f153c
+	bl FUN_ov16_020f153c
 	mov r0, r4
 	bl FUN_02029d44
 	ldmfd sp!, {r4, pc}
@@ -43445,7 +43445,7 @@ _020E12A4:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl  FUN_ov16_020f6084
+	bl FUN_ov16_020f6084
 	add r0, r6, #1
 	and r6, r0, #0xff
 	cmp r6, #0x13
@@ -43529,12 +43529,12 @@ _020E13B8:
 	mov r0, r7
 	mov r1, r6
 	str r2, [r4, #0xfc]
-	bl  FUN_ov16_020f64cc
+	bl FUN_ov16_020f64cc
 	mov r5, #9
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl  FUN_ov16_020f6084
+	bl FUN_ov16_020f6084
 	mov r0, r4
 	bl FUN_ov15_020e22e8
 	ldr r3, _020E1488 ; =0x020E6704
@@ -43562,7 +43562,7 @@ _020E1438:
 	ldr r0, _020E1484 ; =0x0209F5C0
 	mov r1, r5
 	str r2, [r4, #0xfc]
-	bl  FUN_ov16_020f64cc
+	bl FUN_ov16_020f64cc
 	sub r0, r5, #1
 	str r5, [r4, #0x28]
 	str r0, [r4, #0x2c]
@@ -43642,7 +43642,7 @@ FUN_ov15_020e1510: ; 0x020E1510
 	mov r4, #0
 	mov r0, r6
 	mov r1, r4
-	bl  FUN_ov16_020f6584
+	bl FUN_ov16_020f6584
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	tst r7, #1
@@ -43728,7 +43728,7 @@ _020E1658:
 	add r0, r5, r6
 	ldrb r1, [r0, #0x50]
 	ldr r0, _020E17E8 ; =0x0209F5C0
-	bl  FUN_ov16_020f6530
+	bl FUN_ov16_020f6530
 	str r4, [r5, #0x28]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020E1670:
@@ -43760,7 +43760,7 @@ _020E16C0:
 	bl FUN_0202cf6c
 	ldrb r1, [r5, #0x53]
 	mov r0, r6
-	bl  FUN_ov16_020f6530
+	bl FUN_ov16_020f6530
 	mov r0, #9
 	str r0, [r5, #0x28]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -43770,7 +43770,7 @@ _020E16E4:
 	bl FUN_0202cf6c
 	ldrb r1, [r5, #0x52]
 	mov r0, r6
-	bl  FUN_ov16_020f6530
+	bl FUN_ov16_020f6530
 	mov r0, #7
 	str r0, [r5, #0x28]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -43804,7 +43804,7 @@ _020E1754:
 	add r1, r5, r1
 	ldrb r1, [r1, #0x50]
 	mov r2, #1
-	bl  FUN_ov16_020f6e8c
+	bl FUN_ov16_020f6e8c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020E1778:
 	tst r7, #0x10
@@ -43836,7 +43836,7 @@ _020E17C4:
 	add r1, r5, r1
 	ldrb r1, [r1, #0x50]
 	mov r2, #1
-	bl  FUN_ov16_020f6e8c
+	bl FUN_ov16_020f6e8c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020E17E8: .word unk_0209F5C0
 _020E17EC: .word unk_0209AC44
@@ -43871,7 +43871,7 @@ FUN_ov15_020e1814: ; 0x020E1814
 _020E1840:
 	ldr r1, [r4, #0x1c]
 	ldr r0, _020E1850 ; =0x0209A070
-	bl  FUN_ov16_020f6e2c
+	bl FUN_ov16_020f6e2c
 	ldmfd sp!, {r4, pc}
 _020E1850: .word unk_0209A070
 	arm_func_end FUN_ov15_020e1814
@@ -43884,17 +43884,17 @@ FUN_ov15_020e1854: ; 0x020E1854
 	cmp r0, r1
 	bne _020E1874
 	ldr r0, _020E1898 ; =0x0209A070
-	bl  FUN_ov16_020f6e2c
+	bl FUN_ov16_020f6e2c
 	ldmfd sp!, {r4, pc}
 _020E1874:
 	ldr r4, _020E1898 ; =0x0209A070
 	mov r0, r4
-	bl  FUN_ov16_020f6d3c
+	bl FUN_ov16_020f6d3c
 	movs r1, r0
 	ldmmifd sp!, {r4, pc}
 	mov r0, r4
 	mov r2, #1
-	bl  FUN_ov16_020f6e8c
+	bl FUN_ov16_020f6e8c
 	ldmfd sp!, {r4, pc}
 _020E1898: .word unk_0209A070
 	arm_func_end FUN_ov15_020e1854
@@ -43952,16 +43952,16 @@ _020E193C:
 	ldr r5, _020E1980 ; =0x0209A070
 	ldr r1, [r6, #0x1c]
 	mov r0, r5
-	bl  FUN_ov16_020f6d3c
+	bl FUN_ov16_020f6d3c
 	movs r4, r0
 	bmi _020E1970
 	mov r0, r5
 	mov r1, r4
 	mov r2, #1
-	bl  FUN_ov16_020f6e8c
+	bl FUN_ov16_020f6e8c
 	ldr r0, _020E1984 ; =0x0209F5C0
 	mov r1, r4
-	bl  FUN_ov16_020f6530
+	bl FUN_ov16_020f6530
 _020E1970:
 	ldr r0, [r6, #0x1c]
 	str r0, [r6, #0x28]
@@ -43981,7 +43981,7 @@ FUN_ov15_020e1988: ; 0x020E1988
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, _020E1A74 ; =0x0209F5C0
 	mov r1, #0
-	bl  FUN_ov16_020f6584
+	bl FUN_ov16_020f6584
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldrh r0, [r5, #4]
@@ -44048,7 +44048,7 @@ FUN_ov15_020e1a78: ; 0x020E1A78
 	bl MI_CpuFill8
 	ldr r0, _020E1AA8 ; =0x020E676C
 	add r1, r4, #0x6c
-	bl  FUN_ov16_020f316c
+	bl FUN_ov16_020f316c
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -44071,7 +44071,7 @@ _020E1AD0:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl  FUN_ov16_020f32b4
+	bl FUN_ov16_020f32b4
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020E1AD0
@@ -44087,7 +44087,7 @@ FUN_ov15_020e1af8: ; 0x020E1AF8
 	mov r4, #0xc
 _020E1B08:
 	mla r0, r6, r4, r5
-	bl  FUN_ov16_020f33fc
+	bl FUN_ov16_020f33fc
 	add r6, r6, #1
 	cmp r6, #0xc
 	blt _020E1B08
@@ -44109,14 +44109,14 @@ FUN_ov15_020e1b20: ; 0x020E1B20
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl  FUN_ov16_020f18e8
+	bl FUN_ov16_020f18e8
 	mov r7, r0
 	cmp r5, #0
 	beq _020E1B78
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl  FUN_ov16_020f19d4
+	bl FUN_ov16_020f19d4
 	str r0, [r5]
 _020E1B78:
 	cmp r6, #0
@@ -44124,7 +44124,7 @@ _020E1B78:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E1B90:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -44195,7 +44195,7 @@ FUN_ov15_020e1b98: ; 0x020E1B98
 	add r2, r3, #1
 	mov r3, #0
 	str r4, [r5, #0x60]
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	ldrh r1, [r5, #0x64]
 	ldrh r0, [r5, #0x66]
 	ldr r2, [sp, #8]
@@ -44284,7 +44284,7 @@ _020E1CB0:
 	add r0, r3, r0
 	bl GX_LoadBG2Scr
 _020E1DF0:
-	bl  FUN_ov16_020f10ac
+	bl FUN_ov16_020f10ac
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov15_020e1b98
@@ -44346,7 +44346,7 @@ FUN_ov15_020e1e54: ; 0x020E1E54
 	mov r2, r1
 	mov r3, r1
 	str r12, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _020E1ED4: .word unk_0209F5C0
@@ -44360,7 +44360,7 @@ FUN_ov15_020e1ed8: ; 0x020E1ED8
 	add r0, r4, #0x58
 	mov r8, r1
 	mov r7, r2
-	bl  FUN_ov16_020f2f20
+	bl FUN_ov16_020f2f20
 	ldr r5, _020E1F74 ; =0x02099F50
 	mov r6, #1
 	ldr r0, [r5]
@@ -44381,7 +44381,7 @@ FUN_ov15_020e1ed8: ; 0x020E1ED8
 	ldr r1, [r4, #0x5c]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl  FUN_ov16_020f2184
+	bl FUN_ov16_020f2184
 	ldr r0, [r5]
 	bl FUN_0204331c
 	ldrh r2, [r4, #0x64]
@@ -44440,11 +44440,11 @@ FUN_ov15_020e1f78: ; 0x020E1F78
 	mov r3, r4
 	mov r2, #1
 	str r6, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	mov r0, r5
 	mov r1, r4
 	mov r2, #6
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E2034:
 	ldr r0, [sp, #0x20]
 	ldr r1, [r0, #0x84]
@@ -44478,7 +44478,7 @@ _020E2060:
 	mov r3, r6
 	movne r9, #7
 	str r7, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	mov r0, #0x30
 	strh r0, [sp, #0x30]
 	mov r0, #0x18
@@ -44501,7 +44501,7 @@ _020E2060:
 	mov r1, r6
 	mov r2, r6
 	str r6, [sp, #0x10]
-	bl  FUN_ov16_020f5c34
+	bl FUN_ov16_020f5c34
 	add r10, r10, #1
 	add r7, r7, #0x48
 	cmp r10, #2
@@ -44514,7 +44514,7 @@ _020E2120:
 	mov r2, #5
 	mov r3, #4
 	str r5, [sp]
-	bl  FUN_ov16_020f6c8c
+	bl FUN_ov16_020f6c8c
 	ldr r1, [sp, #0x20]
 	mov r2, #7
 	strb r0, [r1, #0x51]
@@ -44522,7 +44522,7 @@ _020E2120:
 	mov r1, r5
 	mov r3, #6
 	str r5, [sp]
-	bl  FUN_ov16_020f6c8c
+	bl FUN_ov16_020f6c8c
 	ldr r1, [sp, #0x20]
 	strb r0, [r1, #0x52]
 	add sp, sp, #0x3c
@@ -44558,7 +44558,7 @@ FUN_ov15_020e2178: ; 0x020E2178
 	add r5, r5, r3
 	mov r3, r1
 	str r5, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 _020E21E0:
 	ldr r2, [r4, #0x9c]
 	cmp r2, #0
@@ -44590,7 +44590,7 @@ _020E21E0:
 	mov r2, r1
 	mov r3, #9
 	str r1, [sp, #0x10]
-	bl  FUN_ov16_020f5c34
+	bl FUN_ov16_020f5c34
 _020E225C:
 	ldr r1, [r4, #0xb4]
 	cmp r1, #0
@@ -44619,7 +44619,7 @@ _020E2290:
 	mov r2, r11
 	mov r3, r1
 	str r10, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	add r0, r9, #1
 	and r9, r0, #0xff
 	cmp r9, #4
@@ -44665,7 +44665,7 @@ FUN_ov15_020e22e8: ; 0x020E22E8
 	mov r2, r1
 	mov r3, #0xa
 	str r1, [sp, #0x10]
-	bl  FUN_ov16_020f5c34
+	bl FUN_ov16_020f5c34
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, pc}
 _020E2378: .word unk_0209F5C0
@@ -44698,7 +44698,7 @@ FUN_ov15_020e237c: ; 0x020E237C
 	add r12, r12, r3
 	mov r3, r1
 	str r12, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 _020E23E4:
 	ldr r2, [r4, #0x90]
 	cmp r2, #0
@@ -44730,7 +44730,7 @@ _020E23E4:
 	mov r2, r1
 	mov r3, #0x10
 	str r1, [sp, #0x10]
-	bl  FUN_ov16_020f5c34
+	bl FUN_ov16_020f5c34
 	add sp, sp, #0x38
 	ldmfd sp!, {r4, pc}
 _020E2468: .word unk_0209F5C0
@@ -44763,7 +44763,7 @@ FUN_ov15_020e246c: ; 0x020E246C
 	add r5, r5, r3
 	mov r3, r1
 	str r5, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 _020E24D4:
 	ldr r2, [r4, #0x90]
 	cmp r2, #0
@@ -44796,7 +44796,7 @@ _020E24D4:
 	mov r2, r1
 	mov r3, #0x12
 	str r1, [sp, #0x10]
-	bl  FUN_ov16_020f5c34
+	bl FUN_ov16_020f5c34
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, pc}
 _020E255C: .word unk_0209F5C0
@@ -44840,7 +44840,7 @@ FUN_ov15_020e2574: ; 0x020E2574
 	bl MI_CpuFill8
 	ldr r0, _020E2628 ; =0x0209A070
 	mov r1, r4
-	bl  FUN_ov16_020f6c20
+	bl FUN_ov16_020f6c20
 	add r0, r7, #0x58
 	str r5, [r7, #0x3c]
 	mov r1, #1
@@ -44849,11 +44849,11 @@ FUN_ov15_020e2574: ; 0x020E2574
 	str r6, [r7, #0x40]
 	strb r6, [r7, #0x44]
 	strb r6, [r7, #0x45]
-	bl  FUN_ov16_020f2f7c
+	bl FUN_ov16_020f2f7c
 	add r0, r7, #0x58
 	mov r1, #0x16
 	mov r2, #0xc
-	bl  FUN_ov16_020f2fa8
+	bl FUN_ov16_020f2fa8
 	mov r0, r7
 	bl FUN_ov15_020e1a78
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -44879,7 +44879,7 @@ _020E2644: ; jump table
 _020E265C:
 	add r0, r4, #0x6c
 	mov r1, #0xc
-	bl  FUN_ov16_020f330c
+	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r4
@@ -44923,10 +44923,10 @@ _020E26CC:
 	mov r5, #0
 	mov r0, r6
 	mov r1, r5
-	bl  FUN_ov16_020f672c
+	bl FUN_ov16_020f672c
 	mov r0, r6
 	mov r1, r5
-	bl  FUN_ov16_020f6584
+	bl FUN_ov16_020f6584
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4, #0x28]
@@ -44936,7 +44936,7 @@ _020E26CC:
 	bl FUN_ov15_020e12cc
 	mov r0, r6
 	mov r1, r5
-	bl  FUN_ov16_020f672c
+	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, r5, r6, pc}
 _020E273C: .word ov15_020E64D4
 _020E2740: .word unk_0209F5C0
@@ -44953,7 +44953,7 @@ FUN_ov15_020e2744: ; 0x020E2744
 	bl FUN_ov15_020e1dfc
 	ldr r0, _020E2770 ; =0x0209F5C0
 	mov r1, #0
-	bl  FUN_ov16_020f6a9c
+	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r3, pc}
 _020E2770: .word unk_0209F5C0
 	arm_func_end FUN_ov15_020e2744
@@ -44964,17 +44964,17 @@ FUN_ov15_020e2774: ; 0x020E2774
 	mov r4, r0
 	ldr r0, _020E27B4 ; =0x0209F5C0
 	mov r1, #0
-	bl  FUN_ov16_020f5af0
+	bl FUN_ov16_020f5af0
 	ldr r0, _020E27B8 ; =0x0209A070
-	bl  FUN_ov16_020f6c58
+	bl FUN_ov16_020f6c58
 	add r0, r4, #0x6c
 	mov r1, #0xc
-	bl  FUN_ov16_020f338c
+	bl FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov15_020e1af8
 	add r0, r4, #0x58
 	mov r1, #1
-	bl  FUN_ov16_020f2fe4
+	bl FUN_ov16_020f2fe4
 	ldmfd sp!, {r4, pc}
 _020E27B4: .word unk_0209F5C0
 _020E27B8: .word unk_0209A070
@@ -44988,9 +44988,9 @@ FUN_ov15_020e27bc: ; 0x020E27BC
 	ldr r0, _020E2988 ; =0x0209F5C0
 	mov r1, r4
 	mov r2, r4
-	bl  FUN_ov16_020f5ff4
+	bl FUN_ov16_020f5ff4
 	ldr r0, _020E298C ; =0x0209A070
-	bl  FUN_ov16_020f6c4c
+	bl FUN_ov16_020f6c4c
 	mov r0, r5
 	bl FUN_ov15_020e1e54
 	ldr r0, [r5, #0xc]
@@ -45159,34 +45159,34 @@ _020E2A24:
 	mov r2, #3
 	str r6, [r7, #0x2c]
 	str r8, [r7, #0x30]
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	ldr r1, [r7, #0x2c]
 	ldr r0, _020E2BC4 ; =0x0209A070
 	add r1, r1, #1
 	add r1, r7, r1
 	ldrb r1, [r1, #0x50]
 	mov r2, #1
-	bl  FUN_ov16_020f6e8c
+	bl FUN_ov16_020f6e8c
 	b _020E2BB0
 _020E2A78:
 	mov r0, r4
 	mov r1, r5
 	mov r2, #8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	ldr r0, _020E2BC4 ; =0x0209A070
 	mov r1, r5
 	mov r3, r5
 	str r6, [sp]
 	mov r2, #9
-	bl  FUN_ov16_020f6c8c
+	bl FUN_ov16_020f6c8c
 	strb r0, [r7, #0x53]
 	str r5, [r7, #0x19c]
 	str r6, [r7, #0xfc]
@@ -45195,29 +45195,29 @@ _020E2AC0:
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0xf
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	ldr r0, _020E2BC4 ; =0x0209A070
 	mov r1, r5
 	mov r3, r5
 	str r8, [sp]
 	mov r2, #0x10
 _020E2AF4:
-	bl  FUN_ov16_020f6c8c
+	bl FUN_ov16_020f6c8c
 	strb r0, [r7, #0x54]
 	b _020E2BB0
 _020E2B00:
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x11
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r1, #3
 	mov r6, #0x12
 	str r1, [sp]
@@ -45225,14 +45225,14 @@ _020E2B00:
 	mov r1, r5
 	mov r2, r6
 	mov r3, r5
-	bl  FUN_ov16_020f6c8c
+	bl FUN_ov16_020f6c8c
 	ldr r1, [r7, #0xfc]
 	strb r0, [r7, #0x54]
 	cmp r1, #0xe
 	bne _020E2BB0
 	mov r0, r4
 	mov r1, r5
-	bl  FUN_ov16_020f64cc
+	bl FUN_ov16_020f64cc
 	sub r0, r6, #0x13
 	str r5, [r7, #0x28]
 	str r0, [r7, #0x2c]
@@ -45241,11 +45241,11 @@ _020E2B6C:
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0x11
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r0, r4
 	mov r1, r5
 	mov r2, r8
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	mov r2, #3
 	str r2, [sp]
 	ldr r0, _020E2BC4 ; =0x0209A070
@@ -45298,10 +45298,10 @@ _020E2C08:
 	mov r0, r5
 	mov r1, r4
 	bne _020E2C40
-	bl  FUN_ov16_020f60f8
+	bl FUN_ov16_020f60f8
 	b _020E2C44
 _020E2C40:
-	bl  FUN_ov16_020f6084
+	bl FUN_ov16_020f6084
 _020E2C44:
 	add r6, r6, #1
 	cmp r6, #4
@@ -45422,7 +45422,7 @@ FUN_ov15_020e2dbc: ; 0x020E2DBC
 	mov r0, r3
 	orr r2, r2, #0x40
 	strb r2, [r1, #0x83]
-	bl  FUN_ov16_020f153c
+	bl FUN_ov16_020f153c
 	mov r0, r4
 	bl FUN_02029d44
 	ldmfd sp!, {r4, pc}
@@ -45490,7 +45490,7 @@ FUN_ov15_020e2ea0: ; 0x020E2EA0
 	bl MI_CpuFill8
 	ldr r0, _020E2ED0 ; =0x020E6BD4
 	add r1, r4, #0x18
-	bl  FUN_ov16_020f316c
+	bl FUN_ov16_020f316c
 	mov r0, #1
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
@@ -45514,7 +45514,7 @@ _020E2EFC:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl  FUN_ov16_020f32b4
+	bl FUN_ov16_020f32b4
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020E2EFC
@@ -45531,7 +45531,7 @@ FUN_ov15_020e2f28: ; 0x020E2F28
 	mov r4, #0xc
 _020E2F38:
 	mla r0, r6, r4, r5
-	bl  FUN_ov16_020f33fc
+	bl FUN_ov16_020f33fc
 	add r6, r6, #1
 	cmp r6, #3
 	blt _020E2F38
@@ -45687,7 +45687,7 @@ _020E310C: ; jump table
 _020E3128:
 	add r0, r4, #0x18
 	mov r1, #3
-	bl  FUN_ov16_020f330c
+	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -45746,7 +45746,7 @@ FUN_ov15_020e31dc: ; 0x020E31DC
 	mov r4, r0
 	add r0, r4, #0x18
 	mov r1, #3
-	bl  FUN_ov16_020f338c
+	bl FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov15_020e2f28
 	ldmfd sp!, {r4, pc}
@@ -45795,7 +45795,7 @@ FUN_ov15_020e3260: ; 0x020E3260
 	bl MI_CpuFill8
 	ldr r0, _020E3290 ; =0x020E6D04
 	add r1, r4, #0x34
-	bl  FUN_ov16_020f316c
+	bl FUN_ov16_020f316c
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -45819,7 +45819,7 @@ _020E32BC:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl  FUN_ov16_020f32b4
+	bl FUN_ov16_020f32b4
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020E32BC
@@ -45836,7 +45836,7 @@ FUN_ov15_020e32e8: ; 0x020E32E8
 	mov r4, #0xc
 _020E32F8:
 	mla r0, r6, r4, r5
-	bl  FUN_ov16_020f33fc
+	bl FUN_ov16_020f33fc
 	add r6, r6, #1
 	cmp r6, #6
 	blt _020E32F8
@@ -45856,11 +45856,11 @@ FUN_ov15_020e3310: ; 0x020E3310
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E3350:
 	ldr r8, [r6, #0x58]
 	mov r5, #0
@@ -45872,12 +45872,12 @@ _020E3350:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E3390:
 	ldr r8, [r6, #0x64]
 	cmp r8, #0
@@ -45888,12 +45888,12 @@ _020E3390:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r5, r0
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E33CC:
 	ldr r8, [r6, #0x70]
 	cmp r8, #0
@@ -45904,11 +45904,11 @@ _020E33CC:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E3404:
 	ldr r8, [r6, #0x4c]
 	mov r5, #0
@@ -45920,12 +45920,12 @@ _020E3404:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _020E3444:
 	ldr r0, [r6, #0x20]
 	mov r2, #0
@@ -45941,7 +45941,7 @@ _020E3444:
 	mov r3, #0
 	mul r1, r4, r1
 	mov r1, r1, lsl #1
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov15_020e3310
 
@@ -45978,15 +45978,15 @@ _020E34C4:
 	ldr r1, [r4, #0x58]
 	mov r0, r7
 	mov r2, r5
-	bl  FUN_ov16_020f1a60
+	bl FUN_ov16_020f1a60
 	mov r2, r0
 	ldr r1, [r4, #0x64]
 	mov r0, r7
-	bl  FUN_ov16_020f1a60
+	bl FUN_ov16_020f1a60
 	mov r2, r0
 	ldr r1, [r4, #0x70]
 	mov r0, r7
-	bl  FUN_ov16_020f1a60
+	bl FUN_ov16_020f1a60
 	bl G2S_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r6
@@ -45998,7 +45998,7 @@ _020E34C4:
 	ldr r1, [r4, #0x4c]
 	mov r2, r5
 	mov r0, #2
-	bl  FUN_ov16_020f1a60
+	bl FUN_ov16_020f1a60
 	ldr r1, [r4, #0x20]
 	cmp r1, #0
 	ldrne r1, [r4, #0x24]
@@ -46006,7 +46006,7 @@ _020E34C4:
 	moveq r7, #0
 	cmp r7, #0
 	strne r0, [r4, #0x28]
-	bl  FUN_ov16_020f10c8
+	bl FUN_ov16_020f10c8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov15_020e3484
 
@@ -46071,14 +46071,14 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	mov r2, r6
 	mov r3, r6
 	str r5, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	ldrb r0, [r8, #0x1c]
 	cmp r0, #0
 	addeq sp, sp, #0x34
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	add r0, r8, #0x20
 	strb r6, [r8, #0x1c]
-	bl  FUN_ov16_020f2f20
+	bl FUN_ov16_020f2f20
 	ldr r0, _020E37EC ; =0x02099F50
 	mov r1, r7
 	ldr r0, [r0]
@@ -46097,7 +46097,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	add r4, sp, #0x26
 	mov r0, r5
 	mov r1, r4
-	bl  FUN_ov16_020f1f5c
+	bl FUN_ov16_020f1f5c
 	ldr r0, [r8, #0x18]
 	bl STD_GetStringLength
 	add r0, r0, #0x28
@@ -46129,7 +46129,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	ldr r1, [r8, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl  FUN_ov16_020f2184
+	bl FUN_ov16_020f2184
 	mov r0, r5
 	bl operator_delete_array
 	sub r0, r4, #4
@@ -46160,7 +46160,7 @@ _020E3754:
 	ldr r1, [r8, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl  FUN_ov16_020f2184
+	bl FUN_ov16_020f2184
 _020E37B4:
 	ldr r0, _020E37EC ; =0x02099F50
 	ldr r0, [r0]
@@ -46191,7 +46191,7 @@ FUN_ov15_020e37f8: ; 0x020E37F8
 	ldr r0, _020E38BC ; =0x0209F5C0
 	mov r2, r1
 	mov r3, r5
-	bl  FUN_ov16_020f5eec
+	bl FUN_ov16_020f5eec
 	ldr r4, [r6, #0x4c]
 	cmp r4, #0
 	addeq sp, sp, #0x20
@@ -46229,7 +46229,7 @@ FUN_ov15_020e37f8: ; 0x020E37F8
 	str r12, [sp, #0x18]
 	add r4, r4, r5, lsl #3
 	str r4, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
 _020E38BC: .word unk_0209F5C0
@@ -46248,7 +46248,7 @@ FUN_ov15_020e38c4: ; 0x020E38C4
 	mov r1, r8
 	mov r2, r8
 	mov r3, r7
-	bl  FUN_ov16_020f5f64
+	bl FUN_ov16_020f5f64
 	ldr r0, [r6, #0x10]
 	mov r10, #2
 	cmp r0, #8
@@ -46282,7 +46282,7 @@ _020E392C:
 	mov r2, r8
 	mov r3, r7
 	str r9, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 _020E3970:
 	ldr r8, [r6, #0x10]
 	cmp r8, #0
@@ -46311,7 +46311,7 @@ _020E3970:
 	mov r2, r1
 	mov r3, #0
 	str r12, [sp, #0x1c]
-	bl  FUN_ov16_020f5da0
+	bl FUN_ov16_020f5da0
 _020E39E0:
 	mov r0, r6
 	mov r1, r4
@@ -46321,7 +46321,7 @@ _020E39E0:
 	bl FUN_ov15_020e37f8
 	ldr r0, _020E3A0C ; =0x0209F5C0
 	mov r1, #1
-	bl  FUN_ov16_020f672c
+	bl FUN_ov16_020f672c
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020E3A0C: .word unk_0209F5C0
@@ -46338,7 +46338,7 @@ FUN_ov15_020e3a10: ; 0x020E3A10
 	ldr r2, [r2, #0x28]
 	blx r2
 	mov r0, #6
-	bl  FUN_ov16_020f4894
+	bl FUN_ov16_020f4894
 	mov r3, #0
 	sub r2, r3, #1
 	ldr r0, _020E3A98 ; =0x0209F5C0
@@ -46352,14 +46352,14 @@ FUN_ov15_020e3a10: ; 0x020E3A10
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
 	str r3, [r5, #0x80]
-	bl  FUN_ov16_020f5a58
+	bl FUN_ov16_020f5a58
 	mov r1, r4
 	add r0, r5, #0x20
-	bl  FUN_ov16_020f2f7c
+	bl FUN_ov16_020f2f7c
 	add r0, r5, #0x20
 	mov r1, #0x1e
 	mov r2, #0x10
-	bl  FUN_ov16_020f2fa8
+	bl FUN_ov16_020f2fa8
 	mov r0, r5
 	bl FUN_ov15_020e3260
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -46379,7 +46379,7 @@ FUN_ov15_020e3a9c: ; 0x020E3A9C
 _020E3ABC:
 	add r0, r4, #0x34
 	mov r1, #6
-	bl  FUN_ov16_020f330c
+	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -46426,7 +46426,7 @@ _020E3B54:
 	bl FUN_ov15_020e3574
 	ldr r0, _020E3B68 ; =0x0209F5C0
 	mov r1, #1
-	bl  FUN_ov16_020f6a9c
+	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
 _020E3B68: .word unk_0209F5C0
 	arm_func_end FUN_ov15_020e3b14
@@ -46437,16 +46437,16 @@ FUN_ov15_020e3b6c: ; 0x020E3B6C
 	mov r5, r0
 	add r0, r5, #0x34
 	mov r1, #6
-	bl  FUN_ov16_020f338c
+	bl FUN_ov16_020f338c
 	mov r0, r5
 	bl FUN_ov15_020e32e8
 	mov r4, #1
 	ldr r0, _020E3BBC ; =0x0209F5C0
 	mov r1, r4
-	bl  FUN_ov16_020f5af0
+	bl FUN_ov16_020f5af0
 	mov r1, r4
 	add r0, r5, #0x20
-	bl  FUN_ov16_020f2fe4
+	bl FUN_ov16_020f2fe4
 	ldr r0, [r5, #4]
 	mov r1, r4
 	ldr r2, [r0]
@@ -48265,17 +48265,17 @@ ov15_020E91D4:
 	.global ov15_020E9230
 ov15_020E9230:
 	.space 0x80
-	.global ov15_020E92B0
-ov15_020E92B0:
+	.global ssl_seed
+ssl_seed:
 	.space 0x20
-	.global ov15_020E92D0
-ov15_020E92D0:
+	.global l_nhttp_connection_list_p
+l_nhttp_connection_list_p:
 	.space 0x08
-	.global ov15_020E92D8
-ov15_020E92D8:
+	.global NHTTPiStaticResource
+NHTTPiStaticResource:
 	.space 0x28
-	.global ov15_020E9300
-ov15_020E9300:
+	.global sysInfo
+sysInfo:
 	.space 0x4160
 	.global SOCLiYieldWait
 SOCLiYieldWait:

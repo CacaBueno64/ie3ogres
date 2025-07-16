@@ -18,7 +18,7 @@ FUN_ov101_02124d00: ; 0x02124D00
 	bl sprintf
 	mov r0, r4
 	add r1, r5, #0x10
-	bl  FUN_ov16_020f316c
+	bl FUN_ov16_020f316c
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x80
@@ -46,11 +46,11 @@ FUN_ov101_02124d5c: ; 0x02124D5C
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl  FUN_ov16_020f1868
+	bl FUN_ov16_020f1868
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl  FUN_ov16_020f1138
+	bl FUN_ov16_020f1138
 _02124D98:
 	ldr r4, _02124E04 ; =0x020A9440
 	mov r6, #0
@@ -151,7 +151,7 @@ _02124E80:
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
 	bl GXS_LoadBG2Char
-	bl  FUN_ov16_020f10c8
+	bl FUN_ov16_020f10c8
 	ldmfd sp!, {r4, r5, r6, pc}
 _02124F14: .word unk_020A9440
 _02124F18: .word unk_020A8C40
@@ -183,7 +183,7 @@ FUN_ov101_02124f50: ; 0x02124F50
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #0x10
 	mov r1, #1
-	bl  FUN_ov16_020f330c
+	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4

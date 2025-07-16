@@ -250,7 +250,7 @@ FUN_ov0_020bce94: ; 0x020BCE94
 	cmp r1, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4, #0xc]
-	bl  FUN_ov16_LoadOverlay
+	bl FUN_ov16_LoadOverlay
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4]
@@ -745,7 +745,7 @@ FUN_ov0_020bd534: ; 0x020BD534
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #0xc]
-	bl  FUN_ov16_LoadOverlay
+	bl FUN_ov16_LoadOverlay
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4]
