@@ -1,4 +1,4 @@
-.public FUN_020eff8c
+.public AOSS_Close
 .public FUN_020eff78
 .public FUN_020f0bac
 .public FUN_020f0670

@@ -11960,21 +11960,21 @@ FUN_ov15_020c6b30: ; 0x020C6B30
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020c6b30
 
-	arm_func_start FUN_ov15_020c6bb8
-FUN_ov15_020c6bb8: ; 0x020C6BB8
+	arm_func_start DWC_Auth_SetCustomNas
+DWC_Auth_SetCustomNas: ; 0x020C6BB8
 	ldr r1, _020C6BC4 ; =0x020E441C
 	str r0, [r1]
 	bx lr
 _020C6BC4: .word ov15_020E441C
-	arm_func_end FUN_ov15_020c6bb8
+	arm_func_end DWC_Auth_SetCustomNas
 
-	arm_func_start FUN_ov15_020c6bc8
-FUN_ov15_020c6bc8: ; 0x020C6BC8
+	arm_func_start DWC_Auth_GetCustomNas
+DWC_Auth_GetCustomNas: ; 0x020C6BC8
 	ldr r0, _020C6BD4 ; =0x020E441C
 	ldr r0, [r0]
 	bx lr
 _020C6BD4: .word ov15_020E441C
-	arm_func_end FUN_ov15_020c6bc8
+	arm_func_end DWC_Auth_GetCustomNas
 
 	arm_func_start FUN_ov15_020c6bd8
 FUN_ov15_020c6bd8: ; 0x020C6BD8
@@ -12958,7 +12958,7 @@ FUN_ov15_020c7978: ; 0x020C7978
 _020C7998:
 	ldr r0, _020C79C4 ; =0x020E44E8
 _020C799C:
-	bl FUN_ov15_020c6bb8
+	bl DWC_Auth_SetCustomNas
 	b _020C79BC
 _020C79A4:
 	ldr r0, _020C79C8 ; =0x020E4510
@@ -17169,8 +17169,8 @@ FUN_ov15_020cb3ec: ; 0x020CB3EC
 _020CB3F4: .word ov15_020E900C
 	arm_func_end FUN_ov15_020cb3ec
 
-	arm_func_start FUN_ov15_020cb3f8
-FUN_ov15_020cb3f8: ; 0x020CB3F8
+	arm_func_start DWC_BM_Init
+DWC_BM_Init: ; 0x020CB3F8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x10
 	mov r6, #0
@@ -17378,7 +17378,7 @@ _020CB6EC: .word 0x0000A001
 _020CB6F0: .word 0xFFFFD8F0
 _020CB6F4: .word 0xFFFFD8ED
 _020CB6F8: .word 0xFFFFD8EE
-	arm_func_end FUN_ov15_020cb3f8
+	arm_func_end DWC_BM_Init
 
 	arm_func_start FUN_ov15_020cb6fc
 FUN_ov15_020cb6fc: ; 0x020CB6FC
@@ -18288,7 +18288,7 @@ FUN_ov15_020cc30c: ; 0x020CC30C
 	movs r8, r0
 	moveq r0, #4
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	bl FUN_ov15_020cb3f8
+	bl DWC_BM_Init
 	mov r5, r0
 	bl FUN_ov15_020cbe58
 	cmp r0, #0
@@ -43217,7 +43217,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	bic r0, r0, #0x1f
 	mov r1, r8
 	mov r2, #0x10
-	bl FUN_ov17_020f8620
+	bl DWC_StartUtility
 	mov r0, r11
 	mov r1, r4
 	bl FUN_0202e1c0

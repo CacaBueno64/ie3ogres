@@ -4,30 +4,30 @@
 
 	.text
 
-	thumb_func_start FUN_ov17_020ede60
-FUN_ov17_020ede60: ; 0x020EDE60
+	thumb_func_start AOSS_MALLOC
+AOSS_MALLOC: ; 0x020EDE60
 	push {r3, lr}
-	ldr r1, _020EDE6C ; =0x02114A80
+	ldr r1, _020EDE6C ; =AOSSi_Alloc
 	ldr r1, [r1]
 	blx r1
 	pop {r3, pc}
 	nop
-_020EDE6C: .word ov17_02114A80
-	thumb_func_end FUN_ov17_020ede60
+_020EDE6C: .word AOSSi_Alloc
+	thumb_func_end AOSS_MALLOC
 
-	thumb_func_start FUN_ov17_020ede70
-FUN_ov17_020ede70: ; 0x020EDE70
+	thumb_func_start AOSS_FREE
+AOSS_FREE: ; 0x020EDE70
 	push {r3, lr}
-	ldr r1, _020EDE7C ; =0x02114A8C
+	ldr r1, _020EDE7C ; =AOSSi_Free
 	ldr r1, [r1]
 	blx r1
 	pop {r3, pc}
 	nop
-_020EDE7C: .word ov17_02114A8C
-	thumb_func_end FUN_ov17_020ede70
+_020EDE7C: .word AOSSi_Free
+	thumb_func_end AOSS_FREE
 
-	thumb_func_start FUN_ov17_020ede80
-FUN_ov17_020ede80: ; 0x020EDE80
+	thumb_func_start AOSSi_Init
+AOSSi_Init: ; 0x020EDE80
 	push {r4, lr}
 	ldr r2, _020EDF54 ; =0x00000106
 	add r4, r0, #0
@@ -75,11 +75,11 @@ _020EDED0:
 _020EDED6:
 	mov r1, #0
 _020EDED8:
-	ldr r0, _020EDF58 ; =0x02114A80
+	ldr r0, _020EDF58 ; =AOSSi_Alloc
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _020EDEE8
-	ldr r0, _020EDF5C ; =0x02114A8C
+	ldr r0, _020EDF5C ; =AOSSi_Free
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _020EDEEC
@@ -94,57 +94,57 @@ _020EDEEC:
 	ldr r0, _020EDF60 ; =0x00000116
 	mov r1, #0xf
 	strb r1, [r4, r0]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, pc}
 _020EDF04:
 	ldr r0, _020EDF64 ; =0x000005F8
-	bl FUN_ov17_020ede60
-	ldr r1, _020EDF68 ; =0x02113CA0
+	bl AOSS_MALLOC
+	ldr r1, _020EDF68 ; =aoss_SecurityType
 	cmp r0, #0
 	str r0, [r1, #0x14]
 	bne _020EDF22
 	ldr r0, _020EDF60 ; =0x00000116
 	mov r1, #0xf
 	strb r1, [r4, r0]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, pc}
 _020EDF22:
 	mov r0, #0
 	mvn r0, r0
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r0, r4, #0
-	bl FUN_ov17_020edf70
+	bl AOSS_Init_old
 	add r4, r0, #0
-	ldr r0, _020EDF68 ; =0x02113CA0
+	ldr r0, _020EDF68 ; =aoss_SecurityType
 	ldr r0, [r0, #0x14]
-	bl FUN_ov17_020ede70
-	bl FUN_ov17_020ee9a0
-	ldr r0, _020EDF6C ; =0x02112724
+	bl AOSS_FREE
+	bl aoss_release
+	ldr r0, _020EDF6C ; =aoss_s_sFd
 	mov r1, #0
 	ldr r0, [r0]
 	mvn r1, r1
 	cmp r0, r1
 	beq _020EDF4E
-	bl FUN_020eff8c
+	bl AOSS_Close
 _020EDF4E:
 	add r0, r4, #0
 	pop {r4, pc}
 	nop
 _020EDF54: .word 0x00000106
-_020EDF58: .word ov17_02114A80
-_020EDF5C: .word ov17_02114A8C
+_020EDF58: .word AOSSi_Alloc
+_020EDF5C: .word AOSSi_Free
 _020EDF60: .word 0x00000116
 _020EDF64: .word 0x000005F8
-_020EDF68: .word ov17_02113CA0
-_020EDF6C: .word ov17_02112724
-	thumb_func_end FUN_ov17_020ede80
+_020EDF68: .word aoss_SecurityType
+_020EDF6C: .word aoss_s_sFd
+	thumb_func_end AOSSi_Init
 
-	thumb_func_start FUN_ov17_020edf70
-FUN_ov17_020edf70: ; 0x020EDF70
+	thumb_func_start AOSS_Init_old
+AOSS_Init_old: ; 0x020EDF70
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0xc8
 	ldr r1, _020EE2C4 ; =0x0210F440
@@ -167,7 +167,7 @@ FUN_ov17_020edf70: ; 0x020EDF70
 	str r0, [sp, #0x1c]
 	add r0, sp, #0xb0
 	mov r2, #0x18
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	ldr r1, _020EE2C8 ; =0x00000106
 	ldr r0, [sp, #8]
 	ldrsh r0, [r0, r1]
@@ -235,20 +235,20 @@ _020EE004:
 	str r0, [sp, #0xc]
 _020EE01A:
 	ldr r0, [sp, #8]
-	bl FUN_ov17_020ee9cc
-	ldr r0, _020EE2D4 ; =0x02113CA0
+	bl aoss_data_init
+	ldr r0, _020EE2D4 ; =aoss_SecurityType
 	ldr r1, [r0, #0x2c]
 	mov r0, #1
 	and r0, r1
 	cmp r0, #1
 	beq _020EE046
 	mov r0, #0x13
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE2D8 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -256,18 +256,18 @@ _020EE01A:
 _020EE046:
 	mov r4, #0
 	add r0, r4, #0
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r1, sp, #0x2c
 	mov r0, #0x32
 	ldrsh r6, [r1, r0]
 	mov r0, #0x30
 	ldrsh r7, [r1, r0]
-	ldr r5, _020EE2D4 ; =0x02113CA0
+	ldr r5, _020EE2D4 ; =aoss_SecurityType
 _020EE05A:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _020EE068
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE068:
@@ -281,21 +281,21 @@ _020EE068:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE08A:
 	ldr r0, [r5, #4]
-	bl FUN_ov17_020eec58
+	bl aoss_checkAP
 	cmp r0, #4
 	bne _020EE0A8
 	ldr r1, _020EE2D8 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #2
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -309,7 +309,7 @@ _020EE0A8:
 	ldr r0, [sp, #8]
 	mov r2, #1
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -323,28 +323,28 @@ _020EE0C4:
 	b _020EE05A
 _020EE0D2:
 	mov r0, #1
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r0, sp, #0x74
 	mov r1, #0
 	mov r2, #0x3c
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r0, sp, #0x74
-	bl FUN_ov17_020eecd4
+	bl AOSS_set_APInfo
 	cmp r0, #0
 	beq _020EE100
 	ldr r1, _020EE2D8 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE100:
 	mov r0, #0x58
-	bl FUN_ov17_020ede60
-	ldr r1, _020EE2D4 ; =0x02113CA0
+	bl AOSS_MALLOC
+	ldr r1, _020EE2D4 ; =aoss_SecurityType
 	cmp r0, #0
 	str r0, [r1, #0xc]
 	bne _020EE122
@@ -352,7 +352,7 @@ _020EE100:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -360,14 +360,14 @@ _020EE100:
 _020EE122:
 	mov r1, #0
 	mov r2, #0x58
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r1, sp, #0x2c
 	mov r0, #0x30
 	ldrsh r5, [r1, r0]
 	mov r4, #0
 	cmp r5, #0
 	ble _020EE17A
-	ldr r7, _020EE2D4 ; =0x02113CA0
+	ldr r7, _020EE2D4 ; =aoss_SecurityType
 _020EE138:
 	ldr r1, [r7, #0xc]
 	add r0, sp, #0x74
@@ -380,7 +380,7 @@ _020EE138:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -411,7 +411,7 @@ _020EE17A:
 	mov r2, #0xf
 	add r1, #0xe6
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -425,30 +425,30 @@ _020EE198:
 	cmp r0, #0
 	beq _020EE1C2
 	mov r0, #0xc
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE2D8 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE1C2:
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r3, #0x11
 	ldr r2, [sp, #8]
 	lsl r3, r3, #4
 	mov r0, #3
 	add r1, sp, #0xb0
 	add r2, r2, r3
-	bl FUN_ov17_020eed18
+	bl aoss_MakeSendSeqID
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
 	bl FUN_020eff78
-	ldr r1, _020EE2E4 ; =0x02112724
+	ldr r1, _020EE2E4 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
 	bge _020EE1FC
@@ -456,7 +456,7 @@ _020EE1C2:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -471,12 +471,12 @@ _020EE1FC:
 	cmp r0, #0
 	bge _020EE228
 	mov r0, #0xb
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE2D8 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -485,18 +485,18 @@ _020EE228:
 	add r0, sp, #0x2c
 	mov r1, #0
 	mov r2, #8
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r1, #2
 	add r0, sp, #0x2c
 	strb r1, [r0, #1]
 	ldr r0, _020EE2E0 ; =0xC0A80B65
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp, #0x30]
 	ldr r0, _020EE2EC ; =0x00005790
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r1, sp, #0x2c
 	strh r0, [r1, #2]
-	ldr r0, _020EE2E4 ; =0x02112724
+	ldr r0, _020EE2E4 ; =aoss_s_sFd
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
@@ -507,19 +507,19 @@ _020EE228:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE26E:
-	ldr r0, _020EE2D4 ; =0x02113CA0
+	ldr r0, _020EE2D4 ; =aoss_SecurityType
 	mov r1, #0
 	ldr r0, [r0, #0x14]
 	mov r2, #0x14
 	str r0, [sp, #0x18]
 	add r0, sp, #0x60
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	ldr r0, _020EE2E0 ; =0xC0A80B65
 	mov r1, #0xfa
 	str r0, [sp, #0x70]
@@ -540,7 +540,7 @@ _020EE26E:
 	mov r1, #0x30
 	add r0, sp, #0x2c
 	ldrsh r7, [r0, r1]
-	ldr r5, _020EE2D4 ; =0x02113CA0
+	ldr r5, _020EE2D4 ; =aoss_SecurityType
 _020EE2AC:
 	ldr r0, [sp, #0x24]
 	cmp r0, #1
@@ -553,18 +553,18 @@ _020EE2AC:
 _020EE2BC:
 	b _020EE538
 _020EE2BE:
-	ldr r0, _020EE2E4 ; =0x02112724
+	ldr r0, _020EE2E4 ; =aoss_s_sFd
 	b _020EE2F4
 	nop
 _020EE2C4: .word ov17_0210F440
 _020EE2C8: .word 0x00000106
 _020EE2CC: .word 0x0000010A
 _020EE2D0: .word 0x0000010E
-_020EE2D4: .word ov17_02113CA0
+_020EE2D4: .word aoss_SecurityType
 _020EE2D8: .word 0x00000116
 _020EE2DC: .word ov17_02113CA4
 _020EE2E0: .word 0xC0A80B65
-_020EE2E4: .word ov17_02112724
+_020EE2E4: .word aoss_s_sFd
 _020EE2E8: .word 0x0000FFFF
 _020EE2EC: .word 0x00005790
 _020EE2F0: .word ov17_02113CC0
@@ -574,10 +574,10 @@ _020EE2F4:
 	mvn r1, r1
 	cmp r0, r1
 	beq _020EE302
-	bl FUN_020eff8c
+	bl AOSS_Close
 _020EE302:
 	mov r1, #0
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
 	bl FUN_ov17_020efe9c
@@ -587,14 +587,14 @@ _020EE302:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE326:
 	mov r0, #0x58
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	str r0, [r5, #4]
 	cmp r0, #0
 	bne _020EE346
@@ -602,7 +602,7 @@ _020EE326:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -611,7 +611,7 @@ _020EE346:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _020EE354
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE354:
@@ -626,21 +626,21 @@ _020EE354:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE378:
 	ldr r0, [r5, #4]
-	bl FUN_ov17_020eec58
+	bl aoss_checkAP
 	cmp r0, #4
 	bne _020EE396
 	ldr r1, _020EE638 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #2
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -654,7 +654,7 @@ _020EE396:
 	ldr r0, [sp, #8]
 	mov r2, #1
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -676,14 +676,14 @@ _020EE3C0:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE3DE:
 	mov r0, #0x58
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	str r0, [r5, #0xc]
 	cmp r0, #0
 	bne _020EE3FE
@@ -691,7 +691,7 @@ _020EE3DE:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -699,7 +699,7 @@ _020EE3DE:
 _020EE3FE:
 	mov r1, #0
 	mov r2, #0x58
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r4, #0
 	cmp r7, #0
 	ble _020EE44E
@@ -715,7 +715,7 @@ _020EE40C:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -743,7 +743,7 @@ _020EE44E:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -751,7 +751,7 @@ _020EE44E:
 _020EE466:
 	ldr r0, [r5, #0x34]
 	ldr r1, [r5, #0x38]
-	bl FUN_ov17_020ee988
+	bl aoss_IP_sta
 	ldr r1, [r5, #0x38]
 	add r2, r0, #0
 	str r0, [sp, #0x1c]
@@ -759,12 +759,12 @@ _020EE466:
 	cmp r0, #0
 	beq _020EE496
 	mov r0, #0xc
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE638 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -773,12 +773,12 @@ _020EE496:
 	ldr r0, _020EE640 ; =0x02113CC0
 	mov r1, #1
 	strb r1, [r0, #0x1c]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
 	bl FUN_020eff78
-	ldr r1, _020EE634 ; =0x02112724
+	ldr r1, _020EE634 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
 	bge _020EE4C6
@@ -786,7 +786,7 @@ _020EE496:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -801,12 +801,12 @@ _020EE4C6:
 	cmp r0, #0
 	bge _020EE4F2
 	mov r0, #0xb
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE638 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -815,18 +815,18 @@ _020EE4F2:
 	add r0, sp, #0x2c
 	mov r1, #0
 	mov r2, #8
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r1, #2
 	add r0, sp, #0x2c
 	strb r1, [r0, #1]
 	ldr r0, [sp, #0x1c]
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp, #0x30]
 	ldr r0, _020EE648 ; =0x00005790
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r1, sp, #0x2c
 	strh r0, [r1, #2]
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
@@ -837,18 +837,18 @@ _020EE4F2:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE538:
-	ldr r3, _020EE634 ; =0x02112724
+	ldr r3, _020EE634 ; =aoss_s_sFd
 	ldr r0, [sp, #0x24]
 	ldr r3, [r3]
 	add r1, sp, #0x60
 	add r2, sp, #0xb0
-	bl FUN_ov17_020ef62c
+	bl aoss_SendMessage
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -857,12 +857,12 @@ _020EE538:
 	ldr r0, [sp, #0x24]
 	lsl r1, r1, #0xc
 	add r0, r0, r1
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE638 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -871,10 +871,10 @@ _020EE56E:
 	ldr r0, [sp, #0x18]
 	ldr r2, _020EE64C ; =0x000005F8
 	mov r1, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r0, sp, #0x3c
 	bl FUN_ov17_020f0098
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	add r1, sp, #0x3c
 	ldr r0, [r0]
 	bl FUN_ov17_020f00a4
@@ -886,7 +886,7 @@ _020EE56E:
 	str r0, [sp, #0x38]
 	add r0, sp, #0x34
 	str r0, [sp]
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	add r3, r2, #0
 	ldr r0, [r0]
 	add r0, r0, #1
@@ -905,17 +905,17 @@ _020EE56E:
 	cmp r0, #0
 	bne _020EE5C6
 	mov r0, #0xf
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EE5D8
 _020EE5C6:
 	cmp r0, #1
 	bne _020EE5D2
 	mov r0, #0x10
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EE5D8
 _020EE5D2:
 	mov r0, #0x11
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 _020EE5D8:
 	mov r5, #0
 	mvn r5, r5
@@ -932,36 +932,36 @@ _020EE5E8:
 	str r0, [sp]
 	add r0, sp, #0x44
 	str r0, [sp, #4]
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	ldr r1, [sp, #0x18]
 	ldr r0, [r0]
 	ldr r2, _020EE650 ; =0x000005DC
 	add r1, #0xc
 	mov r3, #0
 	bl FUN_ov17_020efefc
-	ldr r1, _020EE634 ; =0x02112724
+	ldr r1, _020EE634 ; =aoss_s_sFd
 	lsl r0, r0, #0x10
 	ldr r2, [r1]
 	ldr r1, [sp, #0x18]
 	lsr r0, r0, #0x10
 	str r2, [r1]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	ldr r1, [sp, #0x18]
 	add r2, sp, #0x50
 	str r0, [r1, #4]
-	ldr r0, _020EE634 ; =0x02112724
+	ldr r0, _020EE634 ; =aoss_s_sFd
 	add r3, sp, #0xb0
 	ldr r0, [r0]
 	str r0, [sp]
 	ldr r0, [sp, #0x24]
-	bl FUN_ov17_020eed74
+	bl aoss_RecvMessage
 	str r0, [sp, #0x20]
 	cmp r0, #0x64
 	bne _020EE654
 	mov r5, #0
 	b _020EE8C6
 	nop
-_020EE634: .word ov17_02112724
+_020EE634: .word aoss_s_sFd
 _020EE638: .word 0x00000116
 _020EE63C: .word ov17_02113CA4
 _020EE640: .word ov17_02113CC0
@@ -985,14 +985,14 @@ _020EE666:
 	beq _020EE66C
 	b _020EE882
 _020EE66C:
-	ldr r0, _020EE970 ; =0x02112724
+	ldr r0, _020EE970 ; =aoss_s_sFd
 	ldr r0, [r0]
 	cmp r0, r5
 	beq _020EE678
-	bl FUN_020eff8c
+	bl AOSS_Close
 _020EE678:
 	mov r1, #0
-	ldr r0, _020EE970 ; =0x02112724
+	ldr r0, _020EE970 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
 	bl FUN_ov17_020efe9c
@@ -1002,7 +1002,7 @@ _020EE678:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1010,16 +1010,16 @@ _020EE678:
 _020EE69C:
 	mov r0, #4
 	mov r4, #0
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r1, sp, #0x2c
 	mov r0, #0x30
 	ldrsh r7, [r1, r0]
-	ldr r5, _020EE978 ; =0x02113CA0
+	ldr r5, _020EE978 ; =aoss_SecurityType
 _020EE6AC:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _020EE6BA
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE6BA:
@@ -1033,21 +1033,21 @@ _020EE6BA:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE6DC:
 	ldr r0, [r5, #4]
-	bl FUN_ov17_020eec58
+	bl aoss_checkAP
 	cmp r0, #4
 	bne _020EE6FA
 	ldr r1, _020EE974 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #2
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1061,7 +1061,7 @@ _020EE6FA:
 	ldr r0, [sp, #8]
 	mov r2, #1
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1075,8 +1075,8 @@ _020EE716:
 	b _020EE6AC
 _020EE724:
 	mov r0, #0x58
-	bl FUN_ov17_020ede60
-	ldr r1, _020EE978 ; =0x02113CA0
+	bl AOSS_MALLOC
+	ldr r1, _020EE978 ; =aoss_SecurityType
 	cmp r0, #0
 	str r0, [r1, #0xc]
 	bne _020EE746
@@ -1084,7 +1084,7 @@ _020EE724:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1092,14 +1092,14 @@ _020EE724:
 _020EE746:
 	mov r1, #0
 	mov r2, #0x58
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r1, sp, #0x2c
 	mov r0, #0x30
 	ldrsh r5, [r1, r0]
 	mov r4, #0
 	cmp r5, #0
 	ble _020EE79E
-	ldr r7, _020EE978 ; =0x02113CA0
+	ldr r7, _020EE978 ; =aoss_SecurityType
 _020EE75C:
 	ldr r1, [r7, #0xc]
 	add r0, sp, #0x74
@@ -1112,7 +1112,7 @@ _020EE75C:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1143,13 +1143,13 @@ _020EE79E:
 	mov r2, #0xf
 	add r1, #0xe6
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE7BC:
-	ldr r1, _020EE978 ; =0x02113CA0
+	ldr r1, _020EE978 ; =aoss_SecurityType
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r1, #0x38]
 	add r2, r0, #0
@@ -1157,23 +1157,23 @@ _020EE7BC:
 	cmp r0, #0
 	beq _020EE7E6
 	mov r0, #0xc
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE974 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE7E6:
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
 	bl FUN_020eff78
-	ldr r1, _020EE970 ; =0x02112724
+	ldr r1, _020EE970 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
 	bge _020EE810
@@ -1181,7 +1181,7 @@ _020EE7E6:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1196,12 +1196,12 @@ _020EE810:
 	cmp r0, #0
 	bge _020EE83C
 	mov r0, #0xb
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r1, _020EE974 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1210,18 +1210,18 @@ _020EE83C:
 	add r0, sp, #0x2c
 	mov r1, #0
 	mov r2, #8
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r1, #2
 	add r0, sp, #0x2c
 	strb r1, [r0, #1]
 	ldr r0, [sp, #0x1c]
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp, #0x30]
 	ldr r0, _020EE984 ; =0x00005790
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r1, sp, #0x2c
 	strh r0, [r1, #2]
-	ldr r0, _020EE970 ; =0x02112724
+	ldr r0, _020EE970 ; =aoss_s_sFd
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
@@ -1232,7 +1232,7 @@ _020EE83C:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1253,17 +1253,17 @@ _020EE888:
 	cmp r0, #0
 	bne _020EE8A4
 	mov r0, #0xf
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EE8B6
 _020EE8A4:
 	cmp r0, #1
 	bne _020EE8B0
 	mov r0, #0x10
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EE8B6
 _020EE8B0:
 	mov r0, #0x11
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 _020EE8B6:
 	mov r5, #0
 	mvn r5, r5
@@ -1274,16 +1274,16 @@ _020EE8BC:
 	bl FUN_020f0670
 	b _020EE26E
 _020EE8C6:
-	ldr r0, _020EE970 ; =0x02112724
+	ldr r0, _020EE970 ; =aoss_s_sFd
 	mov r1, #0
 	ldr r0, [r0]
 	mvn r1, r1
 	cmp r0, r1
 	beq _020EE8D6
-	bl FUN_020eff8c
+	bl AOSS_Close
 _020EE8D6:
 	mov r1, #0
-	ldr r0, _020EE970 ; =0x02112724
+	ldr r0, _020EE970 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
 	bl FUN_ov17_020efe9c
@@ -1293,7 +1293,7 @@ _020EE8D6:
 	ldr r0, [sp, #8]
 	mov r2, #0xf
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1301,7 +1301,7 @@ _020EE8D6:
 _020EE8FA:
 	cmp r5, #0
 	beq _020EE94A
-	bl FUN_ov17_020eea30
+	bl aoss_get_error
 	sub r0, #0xf
 	cmp r0, #6
 	bhi _020EE936
@@ -1340,21 +1340,21 @@ _020EE938:
 	ldr r1, _020EE974 ; =0x00000116
 	ldr r0, [sp, #8]
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE94A:
 	ldr r0, [sp, #8]
-	bl FUN_ov17_020eea3c
+	bl AOSS_seq_data_copy
 	cmp r0, #0
 	beq _020EE968
 	ldr r1, _020EE974 ; =0x00000116
 	ldr r0, [sp, #8]
 	mov r2, #6
 	strb r2, [r0, r1]
-	bl FUN_ov17_020ee9a0
+	bl aoss_release
 	mov r0, #0
 	add sp, #0xc8
 	mvn r0, r0
@@ -1364,16 +1364,16 @@ _020EE968:
 	add sp, #0xc8
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020EE970: .word ov17_02112724
+_020EE970: .word aoss_s_sFd
 _020EE974: .word 0x00000116
-_020EE978: .word ov17_02113CA0
+_020EE978: .word aoss_SecurityType
 _020EE97C: .word ov17_02113CA4
 _020EE980: .word 0x0000FFFF
 _020EE984: .word 0x00005790
-	thumb_func_end FUN_ov17_020edf70
+	thumb_func_end AOSS_Init_old
 
-	thumb_func_start FUN_ov17_020ee988
-FUN_ov17_020ee988: ; 0x020EE988
+	thumb_func_start aoss_IP_sta
+aoss_IP_sta: ; 0x020EE988
 	add r2, r0, #0
 	and r2, r1
 	mvn r1, r1
@@ -1387,49 +1387,49 @@ FUN_ov17_020ee988: ; 0x020EE988
 	orr r0, r2
 _020EE99E:
 	bx lr
-	thumb_func_end FUN_ov17_020ee988
+	thumb_func_end aoss_IP_sta
 
-	thumb_func_start FUN_ov17_020ee9a0
-FUN_ov17_020ee9a0: ; 0x020EE9A0
+	thumb_func_start aoss_release
+aoss_release: ; 0x020EE9A0
 	push {r3, lr}
-	ldr r0, _020EE9C8 ; =0x02113CA0
+	ldr r0, _020EE9C8 ; =aoss_SecurityType
 	ldr r0, [r0, #0xc]
 	cmp r0, #0
 	beq _020EE9B4
-	bl FUN_ov17_020ede70
-	ldr r0, _020EE9C8 ; =0x02113CA0
+	bl AOSS_FREE
+	ldr r0, _020EE9C8 ; =aoss_SecurityType
 	mov r1, #0
 	str r1, [r0, #0xc]
 _020EE9B4:
-	ldr r0, _020EE9C8 ; =0x02113CA0
+	ldr r0, _020EE9C8 ; =aoss_SecurityType
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _020EE9C6
-	bl FUN_ov17_020ede70
-	ldr r0, _020EE9C8 ; =0x02113CA0
+	bl AOSS_FREE
+	ldr r0, _020EE9C8 ; =aoss_SecurityType
 	mov r1, #0
 	str r1, [r0, #4]
 _020EE9C6:
 	pop {r3, pc}
-_020EE9C8: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020ee9a0
+_020EE9C8: .word aoss_SecurityType
+	thumb_func_end aoss_release
 
-	thumb_func_start FUN_ov17_020ee9cc
-FUN_ov17_020ee9cc: ; 0x020EE9CC
+	thumb_func_start aoss_data_init
+aoss_data_init: ; 0x020EE9CC
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _020EEA10 ; =0x02114A00
+	ldr r0, _020EEA10 ; =aoss_gSeqID
 	mov r1, #0
 	mov r2, #8
-	bl FUN_ov17_020efef0
-	ldr r0, _020EEA14 ; =0x02113CA0
+	bl AOSS_Memset
+	ldr r0, _020EEA14 ; =aoss_SecurityType
 	mov r1, #1
 	str r1, [r0, #0x10]
-	ldr r0, _020EEA18 ; =0x02113CC4
+	ldr r0, _020EEA18 ; =gData
 	mov r1, #0
 	mov r2, #0x1c
-	bl FUN_ov17_020efef0
-	ldr r1, _020EEA14 ; =0x02113CA0
+	bl AOSS_Memset
+	ldr r1, _020EEA14 ; =aoss_SecurityType
 	add r0, r4, #6
 	str r0, [r1, #0x24]
 	ldrh r0, [r4, #4]
@@ -1448,33 +1448,33 @@ FUN_ov17_020ee9cc: ; 0x020EE9CC
 	strb r3, [r0, #0x1c]
 	pop {r4, pc}
 	nop
-_020EEA10: .word ov17_02114A00
-_020EEA14: .word ov17_02113CA0
-_020EEA18: .word ov17_02113CC4
+_020EEA10: .word aoss_gSeqID
+_020EEA14: .word aoss_SecurityType
+_020EEA18: .word gData
 _020EEA1C: .word ov17_02113CC0
 _020EEA20: .word 0xC0A80B01
-	thumb_func_end FUN_ov17_020ee9cc
+	thumb_func_end aoss_data_init
 
-	thumb_func_start FUN_ov17_020eea24
-FUN_ov17_020eea24: ; 0x020EEA24
-	ldr r1, _020EEA2C ; =0x02113CA0
+	thumb_func_start aoss_set_error
+aoss_set_error: ; 0x020EEA24
+	ldr r1, _020EEA2C ; =aoss_SecurityType
 	str r0, [r1, #0x10]
 	bx lr
 	nop
-_020EEA2C: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020eea24
+_020EEA2C: .word aoss_SecurityType
+	thumb_func_end aoss_set_error
 
-	thumb_func_start FUN_ov17_020eea30
-FUN_ov17_020eea30: ; 0x020EEA30
-	ldr r0, _020EEA38 ; =0x02113CA0
+	thumb_func_start aoss_get_error
+aoss_get_error: ; 0x020EEA30
+	ldr r0, _020EEA38 ; =aoss_SecurityType
 	ldr r0, [r0, #0x10]
 	bx lr
 	nop
-_020EEA38: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020eea30
+_020EEA38: .word aoss_SecurityType
+	thumb_func_end aoss_get_error
 
-	thumb_func_start FUN_ov17_020eea3c
-FUN_ov17_020eea3c: ; 0x020EEA3C
+	thumb_func_start AOSS_seq_data_copy
+AOSS_seq_data_copy: ; 0x020EEA3C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r7, r0, #0
@@ -1492,7 +1492,7 @@ FUN_ov17_020eea3c: ; 0x020EEA3C
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEA5C:
-	ldr r1, _020EEC28 ; =0x02113CA0
+	ldr r1, _020EEC28 ; =aoss_SecurityType
 	add r2, #0x3d
 	ldr r0, [r1, #0x2c]
 	ldr r1, [r1, #0x30]
@@ -1500,7 +1500,7 @@ _020EEA5C:
 	strh r0, [r7]
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	ldrh r1, [r7]
 	mov r0, #1
 	tst r0, r1
@@ -1509,44 +1509,44 @@ _020EEA5C:
 	ldr r2, [r6, #4]
 	add r0, r4, #0
 	add r1, #0x30
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r1, r6, #0
 	ldr r2, [r6, #4]
 	add r0, r4, #6
 	add r1, #0x70
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #0
 	add r1, r6, #0
 	ldr r2, [r6, #4]
 	add r0, #0xc
 	add r1, #0xb0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #0
 	add r1, r6, #0
 	ldr r2, [r6, #4]
 	add r0, #0x12
 	add r1, #0xf0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r6, #0
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r1, r0, #0
 	add r0, r6, #0
 	add r0, #8
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	beq _020EEAC4
 	b _020EEC00
 _020EEAC4:
 	add r0, r6, #0
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r2, r0, #0
 	add r0, r4, #0
 	add r6, #8
 	add r0, #0x18
 	add r1, r6, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 _020EEADA:
 	ldrh r1, [r7]
 	mov r0, #2
@@ -1557,43 +1557,43 @@ _020EEADA:
 	ldr r2, [r5, #4]
 	add r0, #0x39
 	add r1, #0x30
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #0
 	add r1, r5, #0
 	ldr r2, [r5, #4]
 	add r0, #0x47
 	add r1, #0x70
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #0
 	add r1, r5, #0
 	ldr r2, [r5, #4]
 	add r0, #0x55
 	add r1, #0xb0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #0
 	add r1, r5, #0
 	ldr r2, [r5, #4]
 	add r0, #0x63
 	add r1, #0xf0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r1, r0, #0
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	bne _020EEC00
 	add r0, r5, #0
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r2, r0, #0
 	add r0, r4, #0
 	add r5, #8
 	add r0, #0x71
 	add r1, r5, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 _020EEB46:
 	ldrh r1, [r7]
 	mov r0, #4
@@ -1604,7 +1604,7 @@ _020EEB46:
 	ldr r1, [r1, #4]
 	add r0, #0x30
 	sub r1, r1, #1
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	bne _020EEC00
 	ldr r2, [sp, #4]
@@ -1613,26 +1613,26 @@ _020EEB46:
 	ldr r2, [r2, #4]
 	add r0, #0x92
 	add r1, #0x30
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, [sp, #4]
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r1, r0, #0
 	ldr r0, [sp, #4]
 	add r0, #8
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	bne _020EEC00
 	ldr r0, [sp, #4]
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	ldr r1, [sp, #4]
 	add r2, r0, #0
 	add r0, r4, #0
 	add r1, #8
 	add r0, #0xd2
 	str r1, [sp, #4]
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 _020EEB9E:
 	ldrh r1, [r7]
 	mov r0, #8
@@ -1643,7 +1643,7 @@ _020EEB9E:
 	ldr r1, [r1, #4]
 	add r0, #0x30
 	sub r1, r1, #1
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	bne _020EEC00
 	ldr r2, [sp]
@@ -1652,26 +1652,26 @@ _020EEB9E:
 	ldr r2, [r2, #4]
 	add r0, #0xf3
 	add r1, #0x30
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, [sp]
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r1, r0, #0
 	ldr r0, [sp]
 	add r0, #8
-	bl FUN_ov17_020eec34
+	bl aoss_check_str
 	cmp r0, #0
 	bne _020EEC00
 	ldr r0, [sp]
 	add r0, #8
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r2, r0, #0
 	ldr r0, _020EEC2C ; =0x00000133
 	ldr r1, [sp]
 	add r0, r4, r0
 	add r1, #8
 	str r1, [sp]
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 _020EEBF6:
 	ldr r1, _020EEC30 ; =0x00000116
 	mov r0, #0
@@ -1683,7 +1683,7 @@ _020EEC00:
 	add r0, r4, #0
 	mov r1, #0
 	lsl r2, r2, #2
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r0, #0
 	mvn r0, r0
 	add sp, #8
@@ -1693,13 +1693,13 @@ _020EEC18: .word 0x00000117
 _020EEC1C: .word ov17_02114638
 _020EEC20: .word ov17_02114368
 _020EEC24: .word ov17_02114498
-_020EEC28: .word ov17_02113CA0
+_020EEC28: .word aoss_SecurityType
 _020EEC2C: .word 0x00000133
 _020EEC30: .word 0x00000116
-	thumb_func_end FUN_ov17_020eea3c
+	thumb_func_end AOSS_seq_data_copy
 
-	thumb_func_start FUN_ov17_020eec34
-FUN_ov17_020eec34: ; 0x020EEC34
+	thumb_func_start aoss_check_str
+aoss_check_str: ; 0x020EEC34
 	mov r3, #0
 	cmp r1, #0
 	ble _020EEC52
@@ -1721,10 +1721,10 @@ _020EEC4C:
 _020EEC52:
 	mov r0, #0
 	bx lr
-	thumb_func_end FUN_ov17_020eec34
+	thumb_func_end aoss_check_str
 
-	thumb_func_start FUN_ov17_020eec58
-FUN_ov17_020eec58: ; 0x020EEC58
+	thumb_func_start aoss_checkAP
+aoss_checkAP: ; 0x020EEC58
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r5, r0, #0
@@ -1755,16 +1755,16 @@ _020EEC84:
 	tst r0, r1
 	beq _020EECAE
 	ldr r0, _020EECD0 ; =0x02112784
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	ldr r1, [r5, #4]
 	cmp r1, r0
 	bne _020EECAE
 	ldr r0, _020EECD0 ; =0x02112784
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r2, r0, #0
 	ldr r1, _020EECD0 ; =0x02112784
 	add r0, r6, #0
-	bl FUN_ov17_020efec0
+	bl AOSS_Memcmp
 	cmp r0, #0
 	bne _020EECAE
 	add r4, r4, #1
@@ -1790,23 +1790,23 @@ _020EECCA:
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
 _020EECD0: .word ov17_02112784
-	thumb_func_end FUN_ov17_020eec58
+	thumb_func_end aoss_checkAP
 
-	thumb_func_start FUN_ov17_020eecd4
-FUN_ov17_020eecd4: ; 0x020EECD4
+	thumb_func_start AOSS_set_APInfo
+AOSS_set_APInfo: ; 0x020EECD4
 	push {r4, lr}
 	add r4, r0, #0
 	ldr r0, _020EED10 ; =0x02112784
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	str r0, [r4]
 	ldr r1, _020EED10 ; =0x02112784
 	ldr r2, [r4]
 	add r0, r4, #4
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	mov r0, #1
 	str r0, [r4, #0x24]
 	ldr r0, _020EED14 ; =0x02112790
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r2, r0, #0
 	str r0, [r4, #0x28]
 	cmp r2, #0xd
@@ -1818,15 +1818,15 @@ _020EED02:
 	add r4, #0x2c
 	ldr r1, _020EED14 ; =0x02112790
 	add r0, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	mov r0, #0
 	pop {r4, pc}
 _020EED10: .word ov17_02112784
 _020EED14: .word ov17_02112790
-	thumb_func_end FUN_ov17_020eecd4
+	thumb_func_end AOSS_set_APInfo
 
-	thumb_func_start FUN_ov17_020eed18
-FUN_ov17_020eed18: ; 0x020EED18
+	thumb_func_start aoss_MakeSendSeqID
+aoss_MakeSendSeqID: ; 0x020EED18
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	add r5, r1, #0
@@ -1838,11 +1838,11 @@ _020EED26:
 	add r0, r5, #0
 	add r1, r7, #0
 	mov r2, #6
-	bl FUN_ov17_020efee0
-	bl FUN_ov17_020f0028
+	bl AOSS_Memcpy
+	bl AOSS_Rand
 	strh r0, [r5, #6]
 	ldrh r0, [r5, #6]
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #6]
 	add r4, r4, #1
 	add r5, #8
@@ -1850,36 +1850,36 @@ _020EED26:
 	blt _020EED26
 _020EED46:
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020eed18
+	thumb_func_end aoss_MakeSendSeqID
 
-	thumb_func_start FUN_ov17_020eed48
-FUN_ov17_020eed48: ; 0x020EED48
+	thumb_func_start AOSS_StatusExclusion
+AOSS_StatusExclusion: ; 0x020EED48
 	push {r3, lr}
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EED5A
-	ldr r1, _020EED70 ; =0x02112724
+	ldr r1, _020EED70 ; =aoss_s_sFd
 	str r0, [r1, #4]
 	mov r0, #0
 	pop {r3, pc}
 _020EED5A:
-	ldr r1, _020EED70 ; =0x02112724
+	ldr r1, _020EED70 ; =aoss_s_sFd
 	ldr r2, [r1, #4]
 	cmp r2, r0
 	beq _020EED6A
 	str r0, [r1, #4]
-	bl FUN_ov17_020f0678
+	bl AOSSi_Status
 	pop {r3, pc}
 _020EED6A:
 	mov r0, #0
 	pop {r3, pc}
 	nop
-_020EED70: .word ov17_02112724
-	thumb_func_end FUN_ov17_020eed48
+_020EED70: .word aoss_s_sFd
+	thumb_func_end AOSS_StatusExclusion
 
-	thumb_func_start FUN_ov17_020eed74
-FUN_ov17_020eed74: ; 0x020EED74
+	thumb_func_start aoss_RecvMessage
+aoss_RecvMessage: ; 0x020EED74
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r1, #0
 	add r5, r0, #0
@@ -1888,7 +1888,7 @@ FUN_ov17_020eed74: ; 0x020EED74
 	add r4, r2, #0
 	str r3, [sp]
 	add r7, #0xc
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	cmp r0, #1
 	bhs _020EED96
 	ldr r0, [r4]
@@ -1908,7 +1908,7 @@ _020EED96:
 _020EEDA6:
 	add r0, r6, #0
 	add r0, #0xc
-	bl FUN_ov17_020ef06c
+	bl aoss_DecodePacket
 	cmp r0, #0
 	ble _020EEDBC
 	ldr r0, [r4]
@@ -1918,7 +1918,7 @@ _020EEDA6:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEDBC:
 	ldrh r0, [r7, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	ldr r1, _020EEE08 ; =0x00001010
 	cmp r0, r1
 	beq _020EEDD6
@@ -1934,7 +1934,7 @@ _020EEDD6:
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_ov17_020eee14
+	bl aoss_AstsSetInitRes
 	add r5, r0, #0
 	b _020EEE04
 _020EEDE6:
@@ -1942,7 +1942,7 @@ _020EEDE6:
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_ov17_020eeef0
+	bl aoss_AstsSetSecureRes
 	add r5, r0, #0
 	b _020EEE04
 _020EEDF6:
@@ -1950,7 +1950,7 @@ _020EEDF6:
 	add r0, r5, #0
 	add r1, r6, #0
 	add r2, r4, #0
-	bl FUN_ov17_020eefc8
+	bl aoss_AstsRestartRes
 	add r5, r0, #0
 _020EEE04:
 	add r0, r5, #0
@@ -1958,10 +1958,10 @@ _020EEE04:
 _020EEE08: .word 0x00001010
 _020EEE0C: .word 0x00002010
 _020EEE10: .word 0x00003010
-	thumb_func_end FUN_ov17_020eed74
+	thumb_func_end aoss_RecvMessage
 
-	thumb_func_start FUN_ov17_020eee14
-FUN_ov17_020eee14: ; 0x020EEE14
+	thumb_func_start aoss_AstsSetInitRes
+aoss_AstsSetInitRes: ; 0x020EEE14
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	add r5, r2, #0
@@ -1979,7 +1979,7 @@ _020EEE26:
 	add r0, r3, #0
 	add r1, #0x10
 	add r4, #0x24
-	bl FUN_ov17_020ef1a4
+	bl aoss_CheckRecvSeqID
 	cmp r0, #0
 	bge _020EEE46
 	ldr r0, [r5]
@@ -1989,7 +1989,7 @@ _020EEE26:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEE46:
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	cmp r0, #0
 	bne _020EEE5A
 	ldr r0, [r5]
@@ -2002,27 +2002,27 @@ _020EEE5A:
 	cmp r0, #7
 	bne _020EEE98
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EEE76
 	mov r0, #0x14
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EEE92
 _020EEE76:
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #2
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EEE8C
 	mov r0, #0x15
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EEE92
 _020EEE8C:
 	mov r0, #0x18
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 _020EEE92:
 	mov r0, #0
 	mvn r0, r0
@@ -2036,9 +2036,9 @@ _020EEE98:
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEEA6:
-	ldr r1, _020EEEE8 ; =0x02113CE0
+	ldr r1, _020EEEE8 ; =aoss_ProductInfo
 	add r0, r4, #4
-	bl FUN_ov17_020ef1f0
+	bl aoss_GetProductInfo
 	cmp r0, #0
 	bge _020EEED0
 	mov r1, #1
@@ -2046,7 +2046,7 @@ _020EEEA6:
 	cmp r0, r1
 	bne _020EEEC6
 	mov r0, #0x16
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
@@ -2058,21 +2058,21 @@ _020EEEC6:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEED0:
 	ldrh r0, [r7, #0xc]
-	bl FUN_ov17_020efffc
-	bl FUN_ov17_020ef61c
-	ldr r1, _020EEEEC ; =0x02113CA0
+	bl AOSS_Ntohs
+	bl aoss_GetSecurityType
+	ldr r1, _020EEEEC ; =aoss_SecurityType
 	str r0, [r1]
 	mov r0, #0
 	str r0, [r5]
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020EEEE8: .word ov17_02113CE0
-_020EEEEC: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020eee14
+_020EEEE8: .word aoss_ProductInfo
+_020EEEEC: .word aoss_SecurityType
+	thumb_func_end aoss_AstsSetInitRes
 
-	thumb_func_start FUN_ov17_020eeef0
-FUN_ov17_020eeef0: ; 0x020EEEF0
+	thumb_func_start aoss_AstsSetSecureRes
+aoss_AstsSetSecureRes: ; 0x020EEEF0
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
 	add r5, r2, #0
@@ -2091,7 +2091,7 @@ _020EEF02:
 	add r0, r3, #0
 	add r1, #0x10
 	add r4, #0x24
-	bl FUN_ov17_020ef1a4
+	bl aoss_CheckRecvSeqID
 	cmp r0, #0
 	bge _020EEF24
 	ldr r0, [r5]
@@ -2101,7 +2101,7 @@ _020EEF02:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEF24:
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	cmp r0, #0
 	bne _020EEF38
 	ldr r0, [r5]
@@ -2114,46 +2114,46 @@ _020EEF38:
 	cmp r0, #7
 	bne _020EEF76
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EEF54
 	mov r0, #0x14
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EEF70
 _020EEF54:
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #2
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EEF6A
 	mov r0, #0x15
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	b _020EEF70
 _020EEF6A:
 	mov r0, #0x18
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 _020EEF70:
 	mov r0, #0
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEF76:
 	mov r2, #0x6a
-	ldr r0, _020EEFBC ; =0x02114360
+	ldr r0, _020EEFBC ; =aoss_SecurityInfo
 	mov r1, #0
 	lsl r2, r2, #4
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	ldrh r0, [r7, #0xa]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r2, r0, #0
-	ldr r0, _020EEFC0 ; =0x02113CE0
-	ldr r3, _020EEFBC ; =0x02114360
+	ldr r0, _020EEFC0 ; =aoss_ProductInfo
+	ldr r3, _020EEFBC ; =aoss_SecurityInfo
 	str r0, [sp]
 	mov r0, #0
 	add r1, r4, #0
-	bl FUN_ov17_020ef50c
+	bl aoss_GetSecurityData
 	cmp r0, #0
 	bge _020EEFA6
 	ldr r0, [r5]
@@ -2162,7 +2162,7 @@ _020EEF76:
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EEFA6:
-	ldr r0, _020EEFC4 ; =0x02113CA0
+	ldr r0, _020EEFC4 ; =aoss_SecurityType
 	ldr r1, [r0, #0x30]
 	ldr r0, [r0, #0x2c]
 	tst r0, r1
@@ -2174,13 +2174,13 @@ _020EEFB4:
 	str r0, [r5]
 	mov r0, #2
 	pop {r3, r4, r5, r6, r7, pc}
-_020EEFBC: .word ov17_02114360
-_020EEFC0: .word ov17_02113CE0
-_020EEFC4: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020eeef0
+_020EEFBC: .word aoss_SecurityInfo
+_020EEFC0: .word aoss_ProductInfo
+_020EEFC4: .word aoss_SecurityType
+	thumb_func_end aoss_AstsSetSecureRes
 
-	thumb_func_start FUN_ov17_020eefc8
-FUN_ov17_020eefc8: ; 0x020EEFC8
+	thumb_func_start aoss_AstsRestartRes
+aoss_AstsRestartRes: ; 0x020EEFC8
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	add r5, r2, #0
@@ -2197,7 +2197,7 @@ _020EEFDA:
 	add r0, r3, #0
 	add r1, #0x10
 	add r4, #0x24
-	bl FUN_ov17_020ef1a4
+	bl aoss_CheckRecvSeqID
 	cmp r0, #0
 	bge _020EEFF8
 	ldr r0, [r5]
@@ -2216,7 +2216,7 @@ _020EEFF8:
 	pop {r4, r5, r6, pc}
 _020EF008:
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	cmp r0, #0
 	bne _020EF01C
 	ldr r0, [r5]
@@ -2226,45 +2226,45 @@ _020EF008:
 	pop {r4, r5, r6, pc}
 _020EF01C:
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	cmp r0, #0
 	bne _020EF02A
 	mov r0, #0x64
 	pop {r4, r5, r6, pc}
 _020EF02A:
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #1
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EF044
 	mov r0, #0x14
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
 _020EF044:
 	ldr r0, [r4, #4]
-	bl FUN_ov17_020effd4
+	bl AOSS_Ntohl
 	mov r1, #2
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EF05E
 	mov r0, #0x15
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
 _020EF05E:
 	mov r0, #0x18
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
-	thumb_func_end FUN_ov17_020eefc8
+	thumb_func_end aoss_AstsRestartRes
 
-	thumb_func_start FUN_ov17_020ef06c
-FUN_ov17_020ef06c: ; 0x020EF06C
+	thumb_func_start aoss_DecodePacket
+aoss_DecodePacket: ; 0x020EF06C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r0, #0
@@ -2274,44 +2274,44 @@ FUN_ov17_020ef06c: ; 0x020EF06C
 	add r1, #0x10
 	mov r2, #8
 	add r4, #0x18
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, _020EF158 ; =0x02112790
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r3, r0, #0
 	ldr r2, _020EF158 ; =0x02112790
 	add r0, sp, #0xc
 	mov r1, #8
-	bl FUN_ov17_020efd18
+	bl aoss_CryptSeqNo
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
 	bne _020EF0AA
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0x63
 	add sp, #0x14
 	mvn r0, r0
 	pop {r4, r5, r6, r7, pc}
 _020EF0AA:
 	ldrh r0, [r5, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r1, sp, #0xc
-	bl FUN_ov17_020ef160
+	bl aoss_CheckSeqID
 	cmp r0, #0
 	bne _020EF152
 	ldrh r0, [r5, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	mov r1, #1
 	lsl r1, r1, #0xc
 	cmp r0, r1
 	bne _020EF0D2
-	ldr r0, _020EF15C ; =0x02114A00
+	ldr r0, _020EF15C ; =aoss_gSeqID
 	add r1, sp, #0xc
 	mov r2, #8
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 _020EF0D2:
 	ldrh r0, [r5, #0xc]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	mov r1, #0xf
 	tst r0, r1
 	bne _020EF0E4
@@ -2320,20 +2320,20 @@ _020EF0D2:
 	pop {r4, r5, r6, r7, pc}
 _020EF0E4:
 	ldrh r0, [r4]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r6, r0, #0
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	add r7, r0, #0
 	bne _020EF100
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	add sp, #0x14
 	mov r0, #0x64
 	pop {r4, r5, r6, r7, pc}
 _020EF100:
 	add r0, r4, #2
 	str r0, [sp]
-	ldr r0, _020EF15C ; =0x02114A00
+	ldr r0, _020EF15C ; =aoss_gSeqID
 	add r1, r7, #0
 	str r0, [sp, #4]
 	mov r0, #8
@@ -2341,12 +2341,12 @@ _020EF100:
 	ldrb r3, [r5, #0xe]
 	add r0, r4, #4
 	add r2, r6, #0
-	bl FUN_ov17_020efb28
+	bl DecodeRC4
 	cmp r0, #0
 	bge _020EF136
 	add r0, r7, #0
-	bl FUN_ov17_020ede70
-	bl FUN_ov17_020eea30
+	bl AOSS_FREE
+	bl aoss_get_error
 	cmp r0, #2
 	bne _020EF130
 	add sp, #0x14
@@ -2360,27 +2360,27 @@ _020EF136:
 	add r0, r4, #0
 	add r1, r7, #0
 	add r2, r6, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #0xa]
 	add r0, r7, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 _020EF152:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 	nop
 _020EF158: .word ov17_02112790
-_020EF15C: .word ov17_02114A00
-	thumb_func_end FUN_ov17_020ef06c
+_020EF15C: .word aoss_gSeqID
+	thumb_func_end aoss_DecodePacket
 
-	thumb_func_start FUN_ov17_020ef160
-FUN_ov17_020ef160: ; 0x020EF160
+	thumb_func_start aoss_CheckSeqID
+aoss_CheckSeqID: ; 0x020EF160
 	push {r4, r5, r6, lr}
 	mov r4, #0
-	ldr r6, _020EF1A0 ; =0x02114A00
+	ldr r6, _020EF1A0 ; =aoss_gSeqID
 	add r5, r4, #0
 	add r3, r4, #0
 _020EF16A:
@@ -2397,9 +2397,9 @@ _020EF174:
 _020EF17C:
 	cmp r5, #0
 	beq _020EF190
-	ldr r0, _020EF1A0 ; =0x02114A00
+	ldr r0, _020EF1A0 ; =aoss_gSeqID
 	mov r2, #6
-	bl FUN_ov17_020efec0
+	bl AOSS_Memcmp
 	cmp r0, #0
 	beq _020EF19A
 	mov r4, #1
@@ -2414,36 +2414,36 @@ _020EF19A:
 	add r0, r4, #0
 	pop {r4, r5, r6, pc}
 	nop
-_020EF1A0: .word ov17_02114A00
-	thumb_func_end FUN_ov17_020ef160
+_020EF1A0: .word aoss_gSeqID
+	thumb_func_end aoss_CheckSeqID
 
-	thumb_func_start FUN_ov17_020ef1a4
-FUN_ov17_020ef1a4: ; 0x020EF1A4
+	thumb_func_start aoss_CheckRecvSeqID
+aoss_CheckRecvSeqID: ; 0x020EF1A4
 	push {r4, r5, r6, lr}
 	add r6, r0, #0
 	ldr r0, _020EF1EC ; =0x02112790
 	add r5, r1, #0
 	mov r4, #0
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r3, r0, #0
 	ldr r2, _020EF1EC ; =0x02112790
 	add r0, r5, #0
 	mov r1, #8
-	bl FUN_ov17_020efd18
+	bl aoss_CryptSeqNo
 	add r0, r6, #0
 	add r1, r5, #0
 	mov r2, #6
-	bl FUN_ov17_020efec0
+	bl AOSS_Memcmp
 	cmp r0, #0
 	beq _020EF1D0
 	sub r4, r4, #1
 	b _020EF1E6
 _020EF1D0:
 	ldrh r0, [r6, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r6, r0, #0
 	ldrh r0, [r5, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r1, r6, #1
 	cmp r1, r0
 	beq _020EF1E6
@@ -2453,10 +2453,10 @@ _020EF1E6:
 	pop {r4, r5, r6, pc}
 	nop
 _020EF1EC: .word ov17_02112790
-	thumb_func_end FUN_ov17_020ef1a4
+	thumb_func_end aoss_CheckRecvSeqID
 
-	thumb_func_start FUN_ov17_020ef1f0
-FUN_ov17_020ef1f0: ; 0x020EF1F0
+	thumb_func_start aoss_GetProductInfo
+aoss_GetProductInfo: ; 0x020EF1F0
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	mov r2, #0x41
@@ -2464,13 +2464,13 @@ FUN_ov17_020ef1f0: ; 0x020EF1F0
 	add r0, r5, #0
 	mov r1, #0
 	lsl r2, r2, #2
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r7, r5, #0
 	add r4, r6, #0
 	add r7, #0x80
 _020EF208:
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r2, r0, #0
 	cmp r2, #0
 	bgt _020EF21A
@@ -2498,23 +2498,23 @@ _020EF22C: ; jump table
 _020EF23A:
 	add r0, r5, #0
 	add r1, r4, #6
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	b _020EF296
 _020EF244:
 	add r0, r7, #0
 	add r1, r4, #6
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	b _020EF296
 _020EF24E:
 	mov r0, #1
 	lsl r0, r0, #8
 	add r0, r5, r0
 	add r1, r4, #6
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	b _020EF296
 _020EF25C:
 	ldrb r0, [r4, #6]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	cmp r0, #0
 	bgt _020EF296
 	mov r0, #1
@@ -2523,17 +2523,17 @@ _020EF25C:
 _020EF26C:
 	add r0, r4, #6
 	add r1, r2, #0
-	bl FUN_ov17_020ef2ac
-	bl FUN_ov17_020effd4
-	ldr r1, _020EF2A8 ; =0x02113CA0
+	bl aoss_get_bin
+	bl AOSS_Ntohl
+	ldr r1, _020EF2A8 ; =aoss_SecurityType
 	str r0, [r1, #0x34]
 	b _020EF296
 _020EF27E:
 	add r0, r4, #6
 	add r1, r2, #0
-	bl FUN_ov17_020ef2ac
-	bl FUN_ov17_020effd4
-	ldr r1, _020EF2A8 ; =0x02113CA0
+	bl aoss_get_bin
+	bl AOSS_Ntohl
+	ldr r1, _020EF2A8 ; =aoss_SecurityType
 	str r0, [r1, #0x38]
 	b _020EF296
 _020EF290:
@@ -2544,17 +2544,17 @@ _020EF296:
 	ldrh r0, [r4, #4]
 	cmp r0, #0
 	beq _020EF2A4
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r4, r6, r0
 	b _020EF208
 _020EF2A4:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020EF2A8: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020ef1f0
+_020EF2A8: .word aoss_SecurityType
+	thumb_func_end aoss_GetProductInfo
 
-	thumb_func_start FUN_ov17_020ef2ac
-FUN_ov17_020ef2ac: ; 0x020EF2AC
+	thumb_func_start aoss_get_bin
+aoss_get_bin: ; 0x020EF2AC
 	push {r4, r5}
 	mov r3, #0
 	sub r2, r1, #1
@@ -2574,10 +2574,10 @@ _020EF2C8:
 	add r0, r3, #0
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020ef2ac
+	thumb_func_end aoss_get_bin
 
-	thumb_func_start FUN_ov17_020ef2d0
-FUN_ov17_020ef2d0: ; 0x020EF2D0
+	thumb_func_start aoss_GetWEPData
+aoss_GetWEPData: ; 0x020EF2D0
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r1, #0
@@ -2603,7 +2603,7 @@ FUN_ov17_020ef2d0: ; 0x020EF2D0
 	str r5, [sp, #0x10]
 _020EF2FE:
 	ldrh r0, [r5, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r4, r0, #0
 	ldrb r0, [r5]
 	cmp r0, #0x21
@@ -2704,28 +2704,28 @@ _020EF3AC:
 	add r0, r7, #0
 	add r1, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	str r4, [r6, #4]
 	b _020EF40C
 _020EF3BA:
 	ldr r0, [sp]
 	add r1, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	str r4, [r6, #4]
 	b _020EF40C
 _020EF3C8:
 	ldr r0, [sp, #4]
 	add r1, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	str r4, [r6, #4]
 	b _020EF40C
 _020EF3D6:
 	ldr r0, [sp, #8]
 	add r1, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	str r4, [r6, #4]
 	b _020EF40C
 _020EF3E4:
@@ -2743,7 +2743,7 @@ _020EF3F8:
 	ldr r0, [sp, #0xc]
 	add r1, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	b _020EF40C
 _020EF404:
 	mov r0, #0
@@ -2754,7 +2754,7 @@ _020EF40C:
 	ldrh r0, [r5, #4]
 	cmp r0, #0
 	beq _020EF41C
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	ldr r1, [sp, #0x10]
 	add r5, r1, r0
 	b _020EF2FE
@@ -2762,10 +2762,10 @@ _020EF41C:
 	mov r0, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020ef2d0
+	thumb_func_end aoss_GetWEPData
 
-	thumb_func_start FUN_ov17_020ef424
-FUN_ov17_020ef424: ; 0x020EF424
+	thumb_func_start aoss_GetWPAData
+aoss_GetWPAData: ; 0x020EF424
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r6, r1, #0
@@ -2779,7 +2779,7 @@ FUN_ov17_020ef424: ; 0x020EF424
 	str r4, [sp, #4]
 _020EF43A:
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r5, r0, #0
 	ldrb r0, [r4]
 	cmp r0, #0x35
@@ -2831,7 +2831,7 @@ _020EF490:
 	add r0, r7, #0
 	add r1, r4, #6
 	add r2, r5, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	str r5, [r6, #4]
 	b _020EF4C6
 _020EF49E:
@@ -2849,7 +2849,7 @@ _020EF4B2:
 	ldr r0, [sp]
 	add r1, r4, #6
 	add r2, r5, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	b _020EF4C6
 _020EF4BE:
 	mov r0, #0
@@ -2860,7 +2860,7 @@ _020EF4C6:
 	ldrh r0, [r4, #4]
 	cmp r0, #0
 	beq _020EF4D6
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	ldr r1, [sp, #4]
 	add r4, r1, r0
 	b _020EF43A
@@ -2868,15 +2868,15 @@ _020EF4D6:
 	mov r0, #0
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020ef424
+	thumb_func_end aoss_GetWPAData
 
-	thumb_func_start FUN_ov17_020ef4dc
-FUN_ov17_020ef4dc: ; 0x020EF4DC
+	thumb_func_start aoss_GetBssidData
+aoss_GetBssidData: ; 0x020EF4DC
 	push {r3, r4, r5, lr}
 	add r4, r0, #6
 	ldrh r0, [r4, #2]
 	add r5, r1, #0
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r2, r0, #0
 	cmp r2, #0
 	bgt _020EF4F4
@@ -2893,13 +2893,13 @@ _020EF4F4:
 _020EF500:
 	add r0, r5, #0
 	add r1, r4, #6
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	mov r0, #0
 	pop {r3, r4, r5, pc}
-	thumb_func_end FUN_ov17_020ef4dc
+	thumb_func_end aoss_GetBssidData
 
-	thumb_func_start FUN_ov17_020ef50c
-FUN_ov17_020ef50c: ; 0x020EF50C
+	thumb_func_start aoss_GetSecurityData
+aoss_GetSecurityData: ; 0x020EF50C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r6, r2, #0
@@ -2913,7 +2913,7 @@ FUN_ov17_020ef50c: ; 0x020EF50C
 	sub r0, r5, #2
 	pop {r4, r5, r6, r7, pc}
 _020EF524:
-	ldr r7, _020EF614 ; =0x02112720
+	ldr r7, _020EF614 ; =aoss_AttrNo
 _020EF526:
 	ldr r2, [sp]
 	ldrb r0, [r4]
@@ -2922,7 +2922,7 @@ _020EF526:
 	cmp r0, r2
 	beq _020EF54A
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r0, r0, #4
 	sub r6, r6, r0
 	add r4, r4, r0
@@ -2935,7 +2935,7 @@ _020EF526:
 _020EF54A:
 	ldrh r0, [r1, #2]
 	add r4, r4, #4
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r7, r0, #0
 	mov r1, #0x35
 	ldr r0, [sp]
@@ -2978,7 +2978,7 @@ _020EF586: ; jump table
 _020EF59C:
 	ldr r1, [sp, #0x10]
 	add r0, r4, #0
-	bl FUN_ov17_020ef2d0
+	bl aoss_GetWEPData
 	mov r1, #1
 	orr r5, r1
 	b _020EF5F2
@@ -2987,7 +2987,7 @@ _020EF5AA:
 	lsl r1, r1, #2
 	add r0, r4, #0
 	add r1, r6, r1
-	bl FUN_ov17_020ef2d0
+	bl aoss_GetWEPData
 	mov r1, #2
 	orr r5, r1
 	b _020EF5F2
@@ -2996,7 +2996,7 @@ _020EF5BC:
 	lsl r1, r1, #2
 	add r0, r4, #0
 	add r1, r6, r1
-	bl FUN_ov17_020ef424
+	bl aoss_GetWPAData
 	mov r1, #4
 	orr r5, r1
 	b _020EF5F2
@@ -3005,7 +3005,7 @@ _020EF5CE:
 	lsl r1, r1, #2
 	add r0, r4, #0
 	add r1, r6, r1
-	bl FUN_ov17_020ef424
+	bl aoss_GetWPAData
 	mov r1, #8
 	orr r5, r1
 	b _020EF5F2
@@ -3014,7 +3014,7 @@ _020EF5E0:
 	ldr r1, [sp, #0xc]
 	add r0, r4, #0
 	add r1, r2, r1
-	bl FUN_ov17_020ef4dc
+	bl aoss_GetBssidData
 	b _020EF5F2
 _020EF5EE:
 	mov r0, #2
@@ -3023,13 +3023,13 @@ _020EF5F2:
 	cmp r0, #0
 	bne _020EF610
 	ldrh r0, [r4, #2]
-	bl FUN_ov17_020efffc
+	bl AOSS_Ntohs
 	add r0, r0, #4
 	sub r7, r7, r0
 	add r4, r4, r0
 	cmp r7, #0
 	bgt _020EF574
-	ldr r0, _020EF618 ; =0x02113CA0
+	ldr r0, _020EF618 ; =aoss_SecurityType
 	ldr r1, [r0, #0x30]
 	orr r1, r5
 	str r1, [r0, #0x30]
@@ -3037,12 +3037,12 @@ _020EF5F2:
 _020EF610:
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
-_020EF614: .word ov17_02112720
-_020EF618: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020ef50c
+_020EF614: .word aoss_AttrNo
+_020EF618: .word aoss_SecurityType
+	thumb_func_end aoss_GetSecurityData
 
-	thumb_func_start FUN_ov17_020ef61c
-FUN_ov17_020ef61c: ; 0x020EF61C
+	thumb_func_start aoss_GetSecurityType
+aoss_GetSecurityType: ; 0x020EF61C
 	mov r1, #0x10
 	mov r2, #0
 	tst r0, r1
@@ -3051,10 +3051,10 @@ FUN_ov17_020ef61c: ; 0x020EF61C
 _020EF626:
 	add r0, r2, #0
 	bx lr
-	thumb_func_end FUN_ov17_020ef61c
+	thumb_func_end aoss_GetSecurityType
 
-	thumb_func_start FUN_ov17_020ef62c
-FUN_ov17_020ef62c: ; 0x020EF62C
+	thumb_func_start aoss_SendMessage
+aoss_SendMessage: ; 0x020EF62C
 	push {r4, r5, r6, lr}
 	add r5, r1, #0
 	add r4, r2, #0
@@ -3068,36 +3068,36 @@ FUN_ov17_020ef62c: ; 0x020EF62C
 	b _020EF678
 _020EF642:
 	mov r0, #2
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_ov17_020ef680
+	bl aoss_AstsSetInitReq
 	pop {r4, r5, r6, pc}
 _020EF654:
 	mov r0, #3
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_ov17_020ef7c4
+	bl aoss_AstsSetSecureReq
 	pop {r4, r5, r6, pc}
 _020EF666:
 	mov r0, #5
-	bl FUN_ov17_020eed48
+	bl AOSS_StatusExclusion
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_ov17_020ef8a0
+	bl aoss_AstsRestartReq
 	pop {r4, r5, r6, pc}
 _020EF678:
 	mov r0, #0
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
-	thumb_func_end FUN_ov17_020ef62c
+	thumb_func_end aoss_SendMessage
 
-	thumb_func_start FUN_ov17_020ef680
-FUN_ov17_020ef680: ; 0x020EF680
+	thumb_func_start aoss_AstsSetInitReq
+aoss_AstsSetInitReq: ; 0x020EF680
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x20
 	add r7, r1, #0
@@ -3106,19 +3106,19 @@ FUN_ov17_020ef680: ; 0x020EF680
 	strb r1, [r0]
 	strh r1, [r0, #4]
 	strh r1, [r0, #2]
-	ldr r0, _020EF7B4 ; =0x02113CA0
+	ldr r0, _020EF7B4 ; =aoss_SecurityType
 	str r2, [sp, #0xc]
 	ldr r5, [r0, #0x14]
 	ldr r2, _020EF7B8 ; =0x000005DC
 	add r0, r5, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r0, #0x21
 	lsl r0, r0, #4
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	add r4, r0, #0
 	bne _020EF6B8
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	add sp, #0x20
 	mvn r0, r0
@@ -3127,20 +3127,20 @@ _020EF6B8:
 	mov r2, #0x21
 	mov r1, #0
 	lsl r2, r2, #4
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r6, r5, #0
-	ldr r0, _020EF7BC ; =0x02114A00
+	ldr r0, _020EF7BC ; =aoss_gSeqID
 	add r1, r7, #0
 	mov r2, #8
 	add r6, #0x18
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, sp, #0x14
-	ldr r1, _020EF7BC ; =0x02114A00
+	ldr r1, _020EF7BC ; =aoss_gSeqID
 	add r0, #2
 	mov r2, #8
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, #4
-	bl FUN_ov17_020ef90c
+	bl aoss_SetStaData
 	add r1, sp, #0x10
 	strh r0, [r1, #4]
 	mov r0, #4
@@ -3148,11 +3148,11 @@ _020EF6B8:
 	cmp r0, #0
 	bge _020EF706
 	mov r0, #3
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	cmp r4, #0
 	beq _020EF6FE
 	add r0, r4, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 _020EF6FE:
 	mov r0, #0
 	add sp, #0x20
@@ -3162,7 +3162,7 @@ _020EF706:
 	mov r0, #0
 	strb r0, [r4]
 	ldrh r0, [r1, #4]
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r4, #2]
 	add r1, sp, #0x10
 	mov r0, #4
@@ -3178,7 +3178,7 @@ _020EF706:
 	str r0, [sp, #4]
 	mov r0, #0
 	add r1, r6, #0
-	bl FUN_ov17_020ef998
+	bl aoss_PacketDataSet
 	add r1, sp, #0x10
 	mov r0, #2
 	ldrsh r2, [r1, r0]
@@ -3190,15 +3190,15 @@ _020EF706:
 	ldr r2, _020EF7C0 ; =0x02112790
 	add r0, #2
 	mov r1, #8
-	bl FUN_ov17_020efd18
+	bl aoss_CryptSeqNo
 	cmp r0, #0
 	beq _020EF768
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	cmp r4, #0
 	beq _020EF760
 	add r0, r4, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 _020EF760:
 	mov r0, #0
 	add sp, #0x20
@@ -3221,7 +3221,7 @@ _020EF768:
 	ldrsh r3, [r3, r6]
 	add r0, r5, #0
 	lsl r1, r1, #0xc
-	bl FUN_ov17_020ef9ec
+	bl aoss_SetPacketHeader
 	add r2, sp, #0x10
 	mov r1, #4
 	ldrsh r0, [r2, r1]
@@ -3231,24 +3231,24 @@ _020EF768:
 	ldrsh r1, [r2, r1]
 	add r0, r5, #0
 	mov r2, #0xff
-	bl FUN_ov17_020efa44
+	bl aoss_SendPacketUDP
 	cmp r4, #0
 	beq _020EF7AC
 	add r0, r4, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 _020EF7AC:
 	mov r0, #0
 	add sp, #0x20
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020EF7B4: .word ov17_02113CA0
+_020EF7B4: .word aoss_SecurityType
 _020EF7B8: .word 0x000005DC
-_020EF7BC: .word ov17_02114A00
+_020EF7BC: .word aoss_gSeqID
 _020EF7C0: .word ov17_02112790
-	thumb_func_end FUN_ov17_020ef680
+	thumb_func_end aoss_AstsSetInitReq
 
-	thumb_func_start FUN_ov17_020ef7c4
-FUN_ov17_020ef7c4: ; 0x020EF7C4
+	thumb_func_start aoss_AstsSetSecureReq
+aoss_AstsSetSecureReq: ; 0x020EF7C4
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x24
 	add r5, r1, #0
@@ -3257,29 +3257,29 @@ FUN_ov17_020ef7c4: ; 0x020EF7C4
 	strb r1, [r0]
 	strh r1, [r0, #4]
 	strh r1, [r0, #2]
-	ldr r0, _020EF894 ; =0x02113CA0
+	ldr r0, _020EF894 ; =aoss_SecurityType
 	add r6, r2, #0
 	ldr r4, [r0, #0x14]
 	add r0, sp, #0x14
 	mov r2, #8
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	ldr r2, _020EF898 ; =0x000005DC
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r1, #2
 	add r0, sp, #0xc
 	strb r1, [r0, #8]
 	mov r1, #0
 	strb r1, [r0, #9]
 	mov r0, #4
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r1, sp, #0xc
 	strh r0, [r1, #0xa]
-	ldr r0, _020EF894 ; =0x02113CA0
+	ldr r0, _020EF894 ; =aoss_SecurityType
 	ldr r0, [r0, #0x2c]
 	str r0, [sp, #0x18]
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp, #0x18]
 	mov r1, #8
 	add r0, sp, #0xc
@@ -3289,27 +3289,27 @@ FUN_ov17_020ef7c4: ; 0x020EF7C4
 	str r0, [sp]
 	add r0, sp, #0xc
 	str r0, [sp, #4]
-	ldr r0, _020EF894 ; =0x02113CA0
+	ldr r0, _020EF894 ; =aoss_SecurityType
 	add r1, r4, #0
 	ldr r0, [r0]
 	add r1, #0x18
 	add r2, sp, #0x14
 	add r3, sp, #0x10
-	bl FUN_ov17_020ef998
+	bl aoss_PacketDataSet
 	add r5, #8
 	add r0, sp, #0x1c
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r2, _020EF89C ; =0x02112790
 	add r0, sp, #0x1c
 	mov r1, #8
 	mov r3, #6
-	bl FUN_ov17_020efd18
+	bl aoss_CryptSeqNo
 	cmp r0, #0
 	beq _020EF856
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	add sp, #0x24
 	mvn r0, r0
@@ -3330,7 +3330,7 @@ _020EF856:
 	ldrsh r3, [r3, r5]
 	add r0, r4, #0
 	lsl r1, r1, #0xc
-	bl FUN_ov17_020ef9ec
+	bl aoss_SetPacketHeader
 	add r2, sp, #0xc
 	mov r1, #4
 	ldrsh r0, [r2, r1]
@@ -3340,39 +3340,39 @@ _020EF856:
 	ldrsh r1, [r2, r1]
 	add r0, r4, #0
 	mov r2, #0
-	bl FUN_ov17_020efa44
+	bl aoss_SendPacketUDP
 	mov r0, #0
 	add sp, #0x24
 	pop {r3, r4, r5, r6, pc}
-_020EF894: .word ov17_02113CA0
+_020EF894: .word aoss_SecurityType
 _020EF898: .word 0x000005DC
 _020EF89C: .word ov17_02112790
-	thumb_func_end FUN_ov17_020ef7c4
+	thumb_func_end aoss_AstsSetSecureReq
 
-	thumb_func_start FUN_ov17_020ef8a0
-FUN_ov17_020ef8a0: ; 0x020EF8A0
+	thumb_func_start aoss_AstsRestartReq
+aoss_AstsRestartReq: ; 0x020EF8A0
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0x14
-	ldr r0, _020EF900 ; =0x02113CA0
+	ldr r0, _020EF900 ; =aoss_SecurityType
 	add r6, r2, #0
 	ldr r4, [r0, #0x14]
 	ldr r2, _020EF904 ; =0x000005DC
 	add r5, r1, #0
 	add r0, r4, #0
 	mov r1, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r5, #0x10
 	add r0, sp, #0xc
 	add r1, r5, #0
 	mov r2, #8
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, _020EF908 ; =0x02112790
-	bl FUN_ov17_020f0014
+	bl AOSS_Strlen
 	add r3, r0, #0
 	ldr r2, _020EF908 ; =0x02112790
 	add r0, sp, #0xc
 	mov r1, #8
-	bl FUN_ov17_020efd18
+	bl aoss_CryptSeqNo
 	mov r2, #0
 	mov r1, #3
 	str r2, [sp]
@@ -3383,29 +3383,29 @@ FUN_ov17_020ef8a0: ; 0x020EF8A0
 	add r0, r4, #0
 	lsl r1, r1, #0xc
 	add r3, r2, #0
-	bl FUN_ov17_020ef9ec
+	bl aoss_SetPacketHeader
 	add r0, r4, #0
 	mov r1, #0x18
 	mov r2, #0
 	add r3, r6, #0
-	bl FUN_ov17_020efa44
+	bl aoss_SendPacketUDP
 	mov r0, #0
 	add sp, #0x14
 	pop {r3, r4, r5, r6, pc}
 	nop
-_020EF900: .word ov17_02113CA0
+_020EF900: .word aoss_SecurityType
 _020EF904: .word 0x000005DC
 _020EF908: .word ov17_02112790
-	thumb_func_end FUN_ov17_020ef8a0
+	thumb_func_end aoss_AstsRestartReq
 
-	thumb_func_start FUN_ov17_020ef90c
-FUN_ov17_020ef90c: ; 0x020EF90C
+	thumb_func_start aoss_SetStaData
+aoss_SetStaData: ; 0x020EF90C
 	push {r3, r4, r5, r6, r7, lr}
 	ldr r1, _020EF990 ; =0x02113CC0
 	add r5, r0, #0
 	mov r0, #0x1d
 	ldrsb r0, [r1, r0]
-	ldr r1, _020EF994 ; =0x02113CA0
+	ldr r1, _020EF994 ; =aoss_SecurityType
 	mov r6, #0
 	strb r0, [r5]
 	mov r0, #1
@@ -3416,10 +3416,10 @@ FUN_ov17_020ef90c: ; 0x020EF90C
 	asr r4, r0, #0x10
 	add r0, r5, #6
 	add r2, r4, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #2]
 	add r0, r4, #6
 	lsl r0, r0, #0x10
@@ -3432,7 +3432,7 @@ FUN_ov17_020ef90c: ; 0x020EF90C
 	asr r7, r0, #0x10
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #4]
 	add r0, r6, r7
 	lsl r0, r0, #0x10
@@ -3442,17 +3442,17 @@ FUN_ov17_020ef90c: ; 0x020EF90C
 	add r4, r5, r7
 	mov r0, #0
 	strb r0, [r4, #1]
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r4, #4]
 	mov r0, #0xe
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp]
 	add r0, r4, #6
 	add r1, sp, #0
 	mov r2, #4
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	mov r0, #4
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r6, #0xa
 	strh r0, [r4, #2]
 	lsl r0, r6, #0x10
@@ -3460,11 +3460,11 @@ FUN_ov17_020ef90c: ; 0x020EF90C
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _020EF990: .word ov17_02113CC0
-_020EF994: .word ov17_02113CA0
-	thumb_func_end FUN_ov17_020ef90c
+_020EF994: .word aoss_SecurityType
+	thumb_func_end aoss_SetStaData
 
-	thumb_func_start FUN_ov17_020ef998
-FUN_ov17_020ef998: ; 0x020EF998
+	thumb_func_start aoss_PacketDataSet
+aoss_PacketDataSet: ; 0x020EF998
 	push {r4, r5, lr}
 	sub sp, #0xc
 	add r5, r1, #0
@@ -3476,7 +3476,7 @@ FUN_ov17_020ef998: ; 0x020EF998
 	strh r1, [r0]
 	add r0, r5, #2
 	str r0, [sp]
-	ldr r0, _020EF9E8 ; =0x02114A00
+	ldr r0, _020EF9E8 ; =aoss_gSeqID
 	ldr r3, [sp, #0x1c]
 	str r0, [sp, #4]
 	mov r0, #8
@@ -3485,9 +3485,9 @@ FUN_ov17_020ef998: ; 0x020EF998
 	mov r2, #0
 	ldrsh r2, [r4, r2]
 	add r1, r5, #4
-	bl FUN_ov17_020efaac
+	bl EncodeRC4
 	ldrh r0, [r4]
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5]
 	mov r0, #0
 	ldrsh r0, [r4, r0]
@@ -3500,38 +3500,38 @@ _020EF9D8:
 	mov r2, #0
 	ldrsh r2, [r4, r2]
 	add r0, r5, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add sp, #0xc
 	pop {r4, r5, pc}
-_020EF9E8: .word ov17_02114A00
-	thumb_func_end FUN_ov17_020ef998
+_020EF9E8: .word aoss_gSeqID
+	thumb_func_end aoss_PacketDataSet
 
-	thumb_func_start FUN_ov17_020ef9ec
-FUN_ov17_020ef9ec: ; 0x020EF9EC
+	thumb_func_start aoss_SetPacketHeader
+aoss_SetPacketHeader: ; 0x020EF9EC
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	mov r0, #1
 	add r4, r1, #0
 	add r6, r2, #0
 	add r7, r3, #0
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5]
 	mov r0, #0
 	strh r0, [r5, #2]
 	strh r0, [r5, #4]
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #6]
 	mov r0, #0
 	strh r0, [r5, #8]
 	lsl r0, r6, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #0xa]
 	lsl r0, r7, #0x10
 	lsr r0, r0, #0x10
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	strh r0, [r5, #0xc]
 	add r1, sp, #8
 	mov r0, #0x10
@@ -3544,12 +3544,12 @@ FUN_ov17_020ef9ec: ; 0x020EF9EC
 	strb r0, [r5, #0xf]
 	add r5, #0x10
 	add r0, r5, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020ef9ec
+	thumb_func_end aoss_SetPacketHeader
 
-	thumb_func_start FUN_ov17_020efa44
-FUN_ov17_020efa44: ; 0x020EFA44
+	thumb_func_start aoss_SendPacketUDP
+aoss_SendPacketUDP: ; 0x020EFA44
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r5, r0, #0
@@ -3559,17 +3559,17 @@ FUN_ov17_020efa44: ; 0x020EFA44
 	mov r1, #0
 	mov r2, #8
 	add r7, r3, #0
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	mov r1, #2
 	add r0, sp, #8
 	strb r1, [r0, #1]
 	ldr r0, _020EFAA0 ; =0x00005790
-	bl FUN_ov17_020effbc
+	bl AOSS_Htons
 	add r1, sp, #8
 	strh r0, [r1, #2]
-	ldr r0, _020EFAA4 ; =0x02113CA0
+	ldr r0, _020EFAA4 ; =aoss_SecurityType
 	ldr r0, [r0, #0x34]
-	bl FUN_ov17_020eff94
+	bl AOSS_Htonl
 	str r0, [sp, #0xc]
 	cmp r4, #0xff
 	beq _020EFA82
@@ -3595,12 +3595,12 @@ _020EFA88:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFAA0: .word 0x00005790
-_020EFAA4: .word ov17_02113CA0
+_020EFAA4: .word aoss_SecurityType
 _020EFAA8: .word ov17_02113CC0
-	thumb_func_end FUN_ov17_020efa44
+	thumb_func_end aoss_SendPacketUDP
 
-	thumb_func_start FUN_ov17_020efaac
-FUN_ov17_020efaac: ; 0x020EFAAC
+	thumb_func_start EncodeRC4
+EncodeRC4: ; 0x020EFAAC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x14
 	add r5, r2, #0
@@ -3611,7 +3611,7 @@ FUN_ov17_020efaac: ; 0x020EFAAC
 	bl FUN_ov17_020efc80
 	strb r0, [r4]
 	add r0, r5, #0
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	str r0, [sp, #0xc]
 	cmp r0, #0
 	bne _020EFAD4
@@ -3620,21 +3620,21 @@ FUN_ov17_020efaac: ; 0x020EFAAC
 	mvn r0, r0
 	pop {r4, r5, r6, r7, pc}
 _020EFAD4:
-	bl FUN_ov17_020f0028
+	bl AOSS_Rand
 	add r1, sp, #0
 	strh r0, [r1]
 	ldr r0, [sp, #0x28]
 	add r1, sp, #0
 	mov r2, #2
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, _020EFB20 ; =0x02114A08
 	ldr r1, [sp, #0x28]
 	mov r2, #2
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, _020EFB24 ; =0x02114A0A
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x30]
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r2, [sp, #0x30]
 	ldr r1, _020EFB20 ; =0x02114A08
 	add r0, sp, #4
@@ -3647,16 +3647,16 @@ _020EFAD4:
 	add r3, r5, #0
 	bl FUN_ov17_020efc14
 	ldr r0, [sp, #0xc]
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
 _020EFB20: .word ov17_02114A08
 _020EFB24: .word ov17_02114A0A
-	thumb_func_end FUN_ov17_020efaac
+	thumb_func_end EncodeRC4
 
-	thumb_func_start FUN_ov17_020efb28
-FUN_ov17_020efb28: ; 0x020EFB28
+	thumb_func_start DecodeRC4
+DecodeRC4: ; 0x020EFB28
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r4, r2, #0
@@ -3664,12 +3664,12 @@ FUN_ov17_020efb28: ; 0x020EFB28
 	add r0, r4, #0
 	add r5, r1, #0
 	add r6, r3, #0
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	str r0, [sp, #8]
 	cmp r0, #0
 	bne _020EFB4E
 	mov r0, #2
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	mov r0, #0
 	add sp, #0x10
 	mvn r0, r0
@@ -3678,11 +3678,11 @@ _020EFB4E:
 	ldr r0, _020EFBA8 ; =0x02114A08
 	ldr r1, [sp, #0x28]
 	mov r2, #2
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r0, _020EFBAC ; =0x02114A0A
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x30]
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	ldr r2, [sp, #0x30]
 	ldr r1, _020EFBA8 ; =0x02114A08
 	add r0, sp, #0
@@ -3700,22 +3700,22 @@ _020EFB4E:
 	cmp r0, r6
 	beq _020EFB9C
 	mov r0, #0x12
-	bl FUN_ov17_020eea24
+	bl aoss_set_error
 	ldr r0, [sp, #8]
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x10
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFB9C:
 	ldr r0, [sp, #8]
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFBA8: .word ov17_02114A08
 _020EFBAC: .word ov17_02114A0A
-	thumb_func_end FUN_ov17_020efb28
+	thumb_func_end DecodeRC4
 
 	thumb_func_start FUN_ov17_020efbb0
 FUN_ov17_020efbb0: ; 0x020EFBB0
@@ -3922,8 +3922,8 @@ _020EFD00:
 _020EFD14: .word 0xEDB88320
 	thumb_func_end FUN_ov17_020efce0
 
-	thumb_func_start FUN_ov17_020efd18
-FUN_ov17_020efd18: ; 0x020EFD18
+	thumb_func_start aoss_CryptSeqNo
+aoss_CryptSeqNo: ; 0x020EFD18
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	add r5, r1, #0
@@ -3933,7 +3933,7 @@ FUN_ov17_020efd18: ; 0x020EFD18
 	asr r0, r0, #1
 	str r2, [sp, #4]
 	str r3, [sp, #8]
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	add r6, r0, #0
 	bne _020EFD3A
 	mov r0, #0
@@ -3942,12 +3942,12 @@ FUN_ov17_020efd18: ; 0x020EFD18
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFD3A:
 	add r0, r5, #0
-	bl FUN_ov17_020ede60
+	bl AOSS_MALLOC
 	str r0, [sp, #0xc]
 	cmp r0, #0
 	bne _020EFD54
 	add r0, r6, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x10
 	mvn r0, r0
@@ -3974,13 +3974,13 @@ _020EFD56:
 	cmp r4, #2
 	blt _020EFD56
 	add r0, r6, #0
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	ldr r0, [sp, #0xc]
-	bl FUN_ov17_020ede70
+	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efd18
+	thumb_func_end aoss_CryptSeqNo
 
 	thumb_func_start FUN_ov17_020efd94
 FUN_ov17_020efd94: ; 0x020EFD94
@@ -4050,15 +4050,15 @@ FUN_ov17_020efdec: ; 0x020EFDEC
 	add r0, r4, #0
 	add r1, r5, r7
 	add r2, r7, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r4, r7
 	add r1, r5, #0
 	add r2, r7, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	add r0, r5, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_ov17_020efee0
+	bl AOSS_Memcpy
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end FUN_ov17_020efdec
 
@@ -4068,25 +4068,25 @@ FUN_ov17_020efe1c:
 	cmp r1, #0x0
 	ble _020EFE2C
 	add r0, r1, #0x0
-	ldr r1, _020EFE30 ; =0x02114A80
+	ldr r1, _020EFE30 ; =AOSSi_Alloc
 	ldr r1, [r1, #0x0]
 	blx r1
 	pop {r3, pc}
 _020EFE2C:
 	mov r0,#0x0
 	pop {r3, pc}
-_020EFE30: .word ov17_02114A80
+_020EFE30: .word AOSSi_Alloc
 	thumb_func_end FUN_ov17_020efe1c
 
 	thumb_func_start FUN_ov17_020efe34
 FUN_ov17_020efe34:
 	push {r3, lr}
 	add r0, r1, #0x0
-	ldr r1, _020EFE40 ; =0x02114A8C
+	ldr r1, _020EFE40 ; =AOSSi_Free
 	ldr r1, [r1, #0x0]
 	blx r1
 	pop {r3, pc}
-_020EFE40: .word ov17_02114A8C
+_020EFE40: .word AOSSi_Free
 	thumb_func_end FUN_ov17_020efe34
 
 	thumb_func_start FUN_ov17_020efe44
@@ -4094,16 +4094,16 @@ FUN_ov17_020efe44: ; 0x020EFE44
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	add r4, r2, #0
-	bl FUN_ov17_020eff94
-	ldr r1, _020EFE90 ; =0x02112724
+	bl AOSS_Htonl
+	ldr r1, _020EFE90 ; =aoss_s_sFd
 	str r0, [r1, #0x18]
 	add r0, r5, #0
-	bl FUN_ov17_020eff94
-	ldr r1, _020EFE90 ; =0x02112724
+	bl AOSS_Htonl
+	ldr r1, _020EFE90 ; =aoss_s_sFd
 	str r0, [r1, #0x1c]
 	add r0, r4, #0
-	bl FUN_ov17_020eff94
-	ldr r1, _020EFE90 ; =0x02112724
+	bl AOSS_Htonl
+	ldr r1, _020EFE90 ; =aoss_s_sFd
 	str r0, [r1, #0x20]
 	ldr r0, _020EFE94 ; =0x0211272C
 	blx  SOC_Startup
@@ -4127,7 +4127,7 @@ _020EFE80:
 _020EFE8C:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
-_020EFE90: .word ov17_02112724
+_020EFE90: .word aoss_s_sFd
 _020EFE94: .word ov17_0211272C
 _020EFE98: .word 0x020E6D90
 	thumb_func_end FUN_ov17_020efe44
@@ -4154,8 +4154,8 @@ _020EFEBA:
 	pop {r3, pc}
 	thumb_func_end FUN_ov17_020efe9c
 
-	thumb_func_start FUN_ov17_020efec0
-FUN_ov17_020efec0: ; 0x020EFEC0
+	thumb_func_start AOSS_Memcmp
+AOSS_Memcmp: ; 0x020EFEC0
 	push {r3, r4}
 	mov r3, #0
 	b _020EFECA
@@ -4175,10 +4175,10 @@ _020EFEDA:
 	add r0, r3, #0
 	pop {r3, r4}
 	bx lr
-	thumb_func_end FUN_ov17_020efec0
+	thumb_func_end AOSS_Memcmp
 
-	thumb_func_start FUN_ov17_020efee0
-FUN_ov17_020efee0: ; 0x020EFEE0
+	thumb_func_start AOSS_Memcpy
+AOSS_Memcpy: ; 0x020EFEE0
 	add r3, r0, #0
 	add r0, r1, #0
 	add r1, r3, #0
@@ -4186,16 +4186,16 @@ FUN_ov17_020efee0: ; 0x020EFEE0
 	bx r3
 	nop
 _020EFEEC: .word MI_CpuCopy8
-	thumb_func_end FUN_ov17_020efee0
+	thumb_func_end AOSS_Memcpy
 
-	thumb_func_start FUN_ov17_020efef0
-FUN_ov17_020efef0: ; 0x020EFEF0
+	thumb_func_start AOSS_Memset
+AOSS_Memset: ; 0x020EFEF0
 	ldr r3, _020EFEF8 ; =MI_CpuFill8
 	lsl r1, r1, #0x18
 	lsr r1, r1, #0x18
 	bx r3
 _020EFEF8: .word MI_CpuFill8
-	thumb_func_end FUN_ov17_020efef0
+	thumb_func_end AOSS_Memset
 
 	thumb_func_start FUN_ov17_020efefc
 FUN_ov17_020efefc: ; 0x020EFEFC
@@ -4283,15 +4283,15 @@ FUN_ov17_020eff80: ; 0x020EFF80
 _020EFF88: .word  SOC_Bind
 	thumb_func_end FUN_ov17_020eff80
 
-	thumb_func_start FUN_020eff8c
-FUN_020eff8c: ; 0x020EFF8C
+	thumb_func_start AOSS_Close
+AOSS_Close: ; 0x020EFF8C
 	ldr r3, _020EFF90 ; = SOC_Close
 	bx r3
 _020EFF90: .word  SOC_Close
-	thumb_func_end FUN_020eff8c
+	thumb_func_end AOSS_Close
 
-	thumb_func_start FUN_ov17_020eff94
-FUN_ov17_020eff94: ; 0x020EFF94
+	thumb_func_start AOSS_Htonl
+AOSS_Htonl: ; 0x020EFF94
 	push {r4, r5}
 	mov r3, #0xff
 	lsl r1, r0, #0x18
@@ -4312,10 +4312,10 @@ FUN_ov17_020eff94: ; 0x020EFF94
 	orr r0, r2
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020eff94
+	thumb_func_end AOSS_Htonl
 
-	thumb_func_start FUN_ov17_020effbc
-FUN_ov17_020effbc: ; 0x020EFFBC
+	thumb_func_start AOSS_Htons
+AOSS_Htons: ; 0x020EFFBC
 	asr r1, r0, #8
 	lsl r1, r1, #0x18
 	lsr r2, r1, #0x18
@@ -4327,10 +4327,10 @@ FUN_ov17_020effbc: ; 0x020EFFBC
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bx lr
-	thumb_func_end FUN_ov17_020effbc
+	thumb_func_end AOSS_Htons
 
-	thumb_func_start FUN_ov17_020effd4
-FUN_ov17_020effd4: ; 0x020EFFD4
+	thumb_func_start AOSS_Ntohl
+AOSS_Ntohl: ; 0x020EFFD4
 	push {r4, r5}
 	mov r3, #0xff
 	lsl r1, r0, #0x18
@@ -4351,10 +4351,10 @@ FUN_ov17_020effd4: ; 0x020EFFD4
 	orr r0, r2
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020effd4
+	thumb_func_end AOSS_Ntohl
 
-	thumb_func_start FUN_ov17_020efffc
-FUN_ov17_020efffc: ; 0x020EFFFC
+	thumb_func_start AOSS_Ntohs
+AOSS_Ntohs: ; 0x020EFFFC
 	asr r1, r0, #8
 	lsl r1, r1, #0x18
 	lsr r2, r1, #0x18
@@ -4366,10 +4366,10 @@ FUN_ov17_020efffc: ; 0x020EFFFC
 	lsl r0, r0, #0x10
 	lsr r0, r0, #0x10
 	bx lr
-	thumb_func_end FUN_ov17_020efffc
+	thumb_func_end AOSS_Ntohs
 
-	thumb_func_start FUN_ov17_020f0014
-FUN_ov17_020f0014: ; 0x020F0014
+	thumb_func_start AOSS_Strlen
+AOSS_Strlen: ; 0x020F0014
 	mov r2, #0
 	ldrsb r1, [r0, r2]
 	cmp r1, #0
@@ -4382,13 +4382,13 @@ _020F001C:
 _020F0024:
 	add r0, r2, #0
 	bx lr
-	thumb_func_end FUN_ov17_020f0014
+	thumb_func_end AOSS_Strlen
 
-	thumb_func_start FUN_ov17_020f0028
-FUN_ov17_020f0028: ; 0x020F0028
+	thumb_func_start AOSS_Rand
+AOSS_Rand: ; 0x020F0028
 	push {r3, r4, lr}
 	sub sp, #0xc
-	ldr r0, _020F0088 ; =0x02113CA0
+	ldr r0, _020F0088 ; =aoss_SecurityType
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	bne _020F006A
@@ -4396,7 +4396,7 @@ FUN_ov17_020f0028: ; 0x020F0028
 	add r0, sp, #0
 	add r1, r4, #0
 	mov r2, #0xc
-	bl FUN_ov17_020efef0
+	bl AOSS_Memset
 	add r0, sp, #0
 	blx RTC_GetTime
 	cmp r0, #0
@@ -4410,7 +4410,7 @@ FUN_ov17_020f0028: ; 0x020F0028
 	ldr r0, [sp, #8]
 	add r4, r1, r0
 _020F005A:
-	ldr r0, _020F0088 ; =0x02113CA0
+	ldr r0, _020F0088 ; =aoss_SecurityType
 	ldr r1, _020F008C ; =0x5D588B65
 	str r4, [r0, #0x18]
 	str r1, [r0, #0x1c]
@@ -4419,7 +4419,7 @@ _020F005A:
 	mov r1, #1
 	str r1, [r0, #8]
 _020F006A:
-	ldr r0, _020F0088 ; =0x02113CA0
+	ldr r0, _020F0088 ; =aoss_SecurityType
 	ldr r2, [r0, #0x1c]
 	ldr r1, [r0, #0x18]
 	ldr r3, [r0, #0x20]
@@ -4434,11 +4434,11 @@ _020F006A:
 	lsr r0, r0, #0x10
 	add sp, #0xc
 	pop {r3, r4, pc}
-_020F0088: .word ov17_02113CA0
+_020F0088: .word aoss_SecurityType
 _020F008C: .word 0x5D588B65
 _020F0090: .word 0x00269EC3
 _020F0094: .word 0x00007FFF
-	thumb_func_end FUN_ov17_020f0028
+	thumb_func_end AOSS_Rand
 
 	thumb_func_start FUN_ov17_020f0098
 FUN_ov17_020f0098: ; 0x020F0098
@@ -4607,16 +4607,16 @@ _020F01AE:
 	pop {r3, r4, r5, r6, r7, pc}
 _020F01B4:
 	blx OS_DisableInterrupts
-	ldr r1, _020F024C ; =0x02114A80
+	ldr r1, _020F024C ; =AOSSi_Alloc
 	str r5, [r1]
 	str r6, [r1, #0xc]
 	blx OS_RestoreInterrupts
-	ldr r1, _020F024C ; =0x02114A80
+	ldr r1, _020F024C ; =AOSSi_Alloc
 	ldr r0, _020F0250 ; =0x00005890
 	ldr r1, [r1]
 	blx r1
 	add r1, r0, #0
-	ldr r0, _020F024C ; =0x02114A80
+	ldr r0, _020F024C ; =AOSSi_Alloc
 	str r1, [r0, #8]
 	bne _020F01D6
 	sub r0, r4, #2
@@ -4674,7 +4674,7 @@ _020F0230:
 	cmp r4, #0
 	bne _020F01EE
 _020F0234:
-	ldr r1, _020F024C ; =0x02114A80
+	ldr r1, _020F024C ; =AOSSi_Alloc
 	ldr r0, [r1, #8]
 	ldr r1, [r1, #0xc]
 	blx r1
@@ -4684,7 +4684,7 @@ _020F0234:
 	nop
 _020F0244: .word ov17_02114AA0
 _020F0248: .word ov17_02114A90
-_020F024C: .word ov17_02114A80
+_020F024C: .word AOSSi_Alloc
 _020F0250: .word 0x00005890
 _020F0254: .word FUN_ov17_020f016c
 	thumb_func_end FUN_ov17_020f0194
@@ -4692,7 +4692,7 @@ _020F0254: .word FUN_ov17_020f016c
 	thumb_func_start FUN_ov17_020f0258
 FUN_ov17_020f0258: ; 0x020F0258
 	push {r3, r4, r5, r6, r7, lr}
-	ldr r0, _020F02E8 ; =0x02114A80
+	ldr r0, _020F02E8 ; =AOSSi_Alloc
 	mov r4, #1
 	ldr r0, [r0, #0xc]
 	sub r5, r4, #2
@@ -4708,7 +4708,7 @@ _020F026A:
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0276:
 	ldr r7, _020F02EC ; =0x02114AA0
-	ldr r6, _020F02E8 ; =0x02114A80
+	ldr r6, _020F02E8 ; =AOSSi_Alloc
 _020F027A:
 	add r0, r7, #0
 	add r1, sp, #0
@@ -4758,7 +4758,7 @@ _020F02CE:
 	cmp r4, #0
 	bne _020F027A
 	blx OS_DisableInterrupts
-	ldr r1, _020F02E8 ; =0x02114A80
+	ldr r1, _020F02E8 ; =AOSSi_Alloc
 	mov r2, #0
 	str r2, [r1]
 	str r2, [r1, #0xc]
@@ -4766,7 +4766,7 @@ _020F02CE:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F02E8: .word ov17_02114A80
+_020F02E8: .word AOSSi_Alloc
 _020F02EC: .word ov17_02114AA0
 	thumb_func_end FUN_ov17_020f0258
 
@@ -4814,7 +4814,7 @@ FUN_ov17_020f0328: ; 0x020F0328
 	mov r0, #1
 	str r0, [sp, #0xc]
 	mov r6, #0
-	ldr r0, _020F048C ; =0x02114A80
+	ldr r0, _020F048C ; =AOSSi_Alloc
 	add r7, r6, #0
 	ldr r1, [r0]
 	add r5, r6, #0
@@ -4937,7 +4937,7 @@ _020F0418:
 	sub r1, r7, #1
 	mov r0, #0x54
 	mul r0, r1
-	ldr r1, _020F048C ; =0x02114A80
+	ldr r1, _020F048C ; =AOSSi_Alloc
 	add r0, #0x58
 	ldr r1, [r1]
 	blx r1
@@ -4945,7 +4945,7 @@ _020F0418:
 	bne _020F0442
 	b _020F0462
 _020F0436:
-	ldr r1, _020F048C ; =0x02114A80
+	ldr r1, _020F048C ; =AOSSi_Alloc
 	mov r0, #0x58
 	ldr r1, [r1]
 	blx r1
@@ -4982,7 +4982,7 @@ _020F046E:
 	cmp r0, #1
 	beq _020F046E
 _020F047C:
-	ldr r1, _020F048C ; =0x02114A80
+	ldr r1, _020F048C ; =AOSSi_Alloc
 	ldr r0, [sp, #8]
 	ldr r1, [r1, #0xc]
 	blx r1
@@ -4990,7 +4990,7 @@ _020F047C:
 	add sp, #0x44
 	pop {r4, r5, r6, r7, pc}
 	nop
-_020F048C: .word ov17_02114A80
+_020F048C: .word AOSSi_Alloc
 _020F0490: .word 0x0030BFFE
 _020F0494: .word 0x003FEC42
 _020F0498: .word 0x020F0181
@@ -5242,10 +5242,10 @@ FUN_020f0670: ; 0x020F0670
 _020F0674: .word OS_Sleep
 	thumb_func_end FUN_020f0670
 
-	thumb_func_start FUN_ov17_020f0678
-FUN_ov17_020f0678: ; 0x020F0678
+	thumb_func_start AOSSi_Status
+AOSSi_Status: ; 0x020F0678
 	push {r3, lr}
-	ldr r1, _020F0688 ; =0x02114A80
+	ldr r1, _020F0688 ; =AOSSi_Alloc
 	ldr r1, [r1, #4]
 	cmp r1, #0
 	beq _020F0684
@@ -5253,8 +5253,8 @@ FUN_ov17_020f0678: ; 0x020F0678
 _020F0684:
 	mov r0, #0
 	pop {r3, pc}
-_020F0688: .word ov17_02114A80
-	thumb_func_end FUN_ov17_020f0678
+_020F0688: .word AOSSi_Alloc
+	thumb_func_end AOSSi_Status
 
 	thumb_func_start FUN_ov17_020f068c
 FUN_ov17_020f068c: ; 0x020F068C

@@ -152,11 +152,11 @@
 .public memset
 .public FUN_02024640
 .public FUN_ov1_020cabf0
-.public FUN_ov1_020cb3f8
+.public DWC_BM_Init
 .public FUN_ov15_020c3ae4
 .public FUN_ov15_020c3c3c
-.public FUN_ov15_020c6bb8
-.public FUN_ov15_020c6bc8
+.public DWC_Auth_SetCustomNas
+.public DWC_Auth_GetCustomNas
 .public FUN_ov15_020c38f0
 .public FUN_ov15_020c39dc
 .public FUN_ov15_020c3728

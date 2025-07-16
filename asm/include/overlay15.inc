@@ -173,7 +173,7 @@
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6584
-.public FUN_ov17_020f8620
+.public DWC_StartUtility
 .public FUN_ov131_02140f30
 .public FUN_ov131_02142694
 .public MI_CpuCopy8
