@@ -11,8 +11,8 @@
 .public MATH_CalcSHA1
 .public FS_GetOverlayFileID
 .public FS_UnloadOverlay
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public _s32_div_f
 .public _ffltu
 .public FUN_0201f704

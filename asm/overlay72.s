@@ -6187,7 +6187,7 @@ _0211F608:
 	bne _0211F70C
 	mov r5, #0x70
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	mov r1, r0
 	ldr r2, _0211F79C ; =0x0209A0FC
 	ldr r0, _0211F788 ; =0x020A1640
@@ -6198,13 +6198,13 @@ _0211F608:
 	add r0, r0, #0x5000
 	bl MI_CpuCopy8
 	ldr r0, _0211F7A0 ; =0x000032FC
-	bl FUN_0201e014
+	bl operator_new
 	ldr r2, _0211F7A4 ; =0x0209A104
 	mov r1, #0
 	str r0, [r2]
 	bl  FUN_ov131_021426e8
 	mov r0, #0x3b4
-	bl FUN_0201e014
+	bl operator_new
 	ldr r1, _0211F798 ; =0x0209A134
 	str r0, [r1]
 	mov r0, r6
@@ -6557,7 +6557,7 @@ _0211FBAC:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _0211FBD8
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, #0
 	str r0, [r4]
 _0211FBD8:
@@ -6569,7 +6569,7 @@ _0211FBD8:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _0211FBFC
-	bl FUN_0201e078
+	bl operator_delete
 _0211FBFC:
 	ldr r0, _0211FC40 ; =0x0209A104
 	mov r1, #0
@@ -6579,7 +6579,7 @@ _0211FC08:
 	ldr r0, [r4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, #0
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
@@ -9728,7 +9728,7 @@ _021227FC: .word ov72_02123634
 FUN_ov72_02122800: ; 0x02122800
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov72_02122800

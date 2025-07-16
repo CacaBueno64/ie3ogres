@@ -1,4 +1,4 @@
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0202cf6c
 .public sprintf
 .public FUN_02041f2c

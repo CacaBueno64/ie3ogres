@@ -3,7 +3,7 @@
 
 #include "nitro.h"
 
-u32 FUN_ov116_02124e24(u32);
+void * FUN_ov116_02124e24(void *);
 void FUN_ov116_02124e38(void);
 static void FUN_ov116_Init(void);
 

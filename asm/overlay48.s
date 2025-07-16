@@ -1341,7 +1341,7 @@ FUN_ov48_0211b0f8: ; 0x0211B0F8
 FUN_ov48_0211b0fc: ; 0x0211B0FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov48_0211b0fc

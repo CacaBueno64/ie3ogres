@@ -1721,16 +1721,16 @@ _0211B5F0:
 _0211B62C:
 	ldr r0, [r6, #0x44]
 	mov r0, r0, lsl #2
-	bl FUN_0201e08c
+	bl operator_new_array
 	ldr r1, [r6, #0x44]
 	mov r7, #0x74
 	str r0, [r6, #0xa4]
 	mul r0, r1, r7
-	bl FUN_0201e08c
+	bl operator_new_array
 	ldr r1, [r6, #0x44]
 	str r0, [r6, #0xb8]
 	rsb r0, r1, r1, lsl #1
-	bl FUN_0201e08c
+	bl operator_new_array
 	mov r5, #0
 	str r0, [r6, #0xc8]
 	mov r1, r5
@@ -2087,20 +2087,20 @@ FUN_ov37_0211bb1c: ; 0x0211BB1C
 	ldr r0, [r5, #0xc8]
 	cmp r0, #0
 	beq _0211BB50
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	str r4, [r5, #0xc8]
 _0211BB50:
 	ldr r0, [r5, #0xb8]
 	cmp r0, #0
 	beq _0211BB68
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	mov r0, #0
 	str r0, [r5, #0xb8]
 _0211BB68:
 	ldr r0, [r5, #0xa4]
 	cmp r0, #0
 	beq _0211BB80
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	mov r0, #0
 	str r0, [r5, #0xa4]
 _0211BB80:
@@ -2120,7 +2120,7 @@ _0211BBA4: .word 0x020DBEC1
 FUN_ov37_0211bba8: ; 0x0211BBA8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov37_0211bba8

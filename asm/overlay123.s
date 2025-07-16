@@ -606,7 +606,7 @@ _02125518: .word 0x04001000
 FUN_ov123_0212551c: ; 0x0212551C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov123_0212551c

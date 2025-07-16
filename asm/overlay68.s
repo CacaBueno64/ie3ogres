@@ -6376,7 +6376,7 @@ _0211F9C8: .word  FUN_ov16_0210e5f0
 FUN_ov68_0211f9cc: ; 0x0211F9CC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov68_0211f9cc

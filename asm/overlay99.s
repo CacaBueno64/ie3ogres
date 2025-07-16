@@ -659,7 +659,7 @@ FUN_ov99_021255d0: ; 0x021255D0
 FUN_ov99_021255fc: ; 0x021255FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov99_021255fc

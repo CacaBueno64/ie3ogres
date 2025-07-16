@@ -7918,7 +7918,7 @@ _02120E80: .word unk_02099EB4
 FUN_ov56_02120e84: ; 0x02120E84
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov56_02120e84

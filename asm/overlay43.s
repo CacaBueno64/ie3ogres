@@ -1858,7 +1858,7 @@ _0211B8A4:
 _0211B8BC:
 	ldr r0, [sp]
 	mov r0, r0, lsl #2
-	bl FUN_0201e08c
+	bl operator_new_array
 	mov r7, r0
 	cmp r5, #0xa
 	addls pc, pc, r5, lsl #2
@@ -2035,7 +2035,7 @@ _0211BB18:
 	blt _0211BAA0
 _0211BB28:
 	mov r0, r7
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	add sp, sp, #0x64
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov43_0211b6b4
@@ -6474,7 +6474,7 @@ _0211F8BC: .word 0x00000449
 FUN_ov43_0211f8c0: ; 0x0211F8C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov43_0211f8c0

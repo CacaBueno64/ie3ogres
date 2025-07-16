@@ -21,7 +21,7 @@ FUN_ov18_02119f14: ; 0x02119F14
 FUN_ov18_02119f18: ; 0x02119F18
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov18_02119f18

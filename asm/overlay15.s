@@ -42726,7 +42726,7 @@ FUN_ov15_020e0914: ; 0x020E0914
 	cmp r0, #0x16
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, #0x214
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	ldrne r1, _020E0964 ; =0x0211F3D8
 	stmneia r0, {r1, r5}
@@ -43151,7 +43151,7 @@ FUN_ov15_020e0f00: ; 0x020E0F00
 	mov r4, r0
 	bl FUN_02041b00
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e0f00
@@ -43353,7 +43353,7 @@ FUN_ov15_020e118c: ; 0x020E118C
 	mov r4, r0
 	bl FUN_02041b00
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e118c
@@ -45405,7 +45405,7 @@ _020E2DA4: .word ov15_020E6A54
 FUN_ov15_020e2da8: ; 0x020E2DA8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e2da8
@@ -45756,7 +45756,7 @@ FUN_ov15_020e31dc: ; 0x020E31DC
 FUN_ov15_020e31fc: ; 0x020E31FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e31fc
@@ -46102,7 +46102,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	bl STD_GetStringLength
 	add r0, r0, #0x28
 	rsb r0, r0, r0, lsl #1
-	bl FUN_0201e08c
+	bl operator_new_array
 	ldr r1, _020E37F4 ; =0x020E6D24
 	ldr r2, [r8, #0x18]
 	mov r3, r4
@@ -46131,7 +46131,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	mov r3, r3, lsl #3
 	bl  FUN_ov16_020f2184
 	mov r0, r5
-	bl FUN_0201e0b8
+	bl operator_delete_array
 	sub r0, r4, #4
 	str r7, [r8, #0x80]
 	str r0, [r8, #0x7c]
@@ -46460,7 +46460,7 @@ _020E3BBC: .word unk_0209F5C0
 FUN_ov15_020e3bc0: ; 0x020E3BC0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020e3bc0

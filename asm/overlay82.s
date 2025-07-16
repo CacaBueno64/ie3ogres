@@ -6765,7 +6765,7 @@ _0211FE38: .word unk_02099EF0
 FUN_ov82_0211fe3c: ; 0x0211FE3C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov82_0211fe3c

@@ -71,7 +71,7 @@ FUN_ov132_0213acc0: ; 0x0213ACC0
 	mov r0, r5
 	bl FUN_ov132_0214352c
 	mov r0, #0xc
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _0213ADD8
 	bl FUN_ov132_021589a4
@@ -109,7 +109,7 @@ FUN_ov132_0213ae24: ; 0x0213AE24
 	str r1, [r4]
 	bl FUN_ov132_0213ae4c
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0213AE48: .word ov132_021602E8
@@ -34102,7 +34102,7 @@ FUN_ov132_021589bc: ; 0x021589BC
 FUN_ov132_021589c0: ; 0x021589C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov132_021589c0

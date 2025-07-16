@@ -1,5 +1,5 @@
-.public FUN_0201e014
-.public FUN_0201e078
+.public operator_new
+.public operator_delete
 .public _ffltu
 .public FUN_0201fdac
 .public FUN_0202cf6c

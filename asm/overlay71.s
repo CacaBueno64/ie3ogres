@@ -1031,7 +1031,7 @@ _0211AD44: .word unk_0209BA20
 FUN_ov71_0211ad48: ; 0x0211AD48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov71_0211ad48

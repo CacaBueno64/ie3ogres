@@ -4935,7 +4935,7 @@ FUN_ov50_0211e484: ; 0x0211E484
 	add r0, r4, #0x3a8
 	bl FUN_0206c110
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov50_0211e484

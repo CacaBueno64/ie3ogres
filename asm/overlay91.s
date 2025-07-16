@@ -3011,7 +3011,7 @@ _0211C870: .word unk_0209F5C0
 FUN_ov91_0211c874: ; 0x0211C874
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov91_0211c874

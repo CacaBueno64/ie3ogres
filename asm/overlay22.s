@@ -9275,7 +9275,7 @@ FUN_ov22_02122210: ; 0x02122210
 FUN_ov22_02122214: ; 0x02122214
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov22_02122214

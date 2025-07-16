@@ -1734,7 +1734,7 @@ _0211B610: .word 0x30C30C31
 FUN_ov58_0211b614: ; 0x0211B614
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov58_0211b614

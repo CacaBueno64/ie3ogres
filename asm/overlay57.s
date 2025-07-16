@@ -7856,7 +7856,7 @@ _02120B7C:
 	mov r0, r10
 	bl FUN_ov57_02123994
 	mov r0, #0x74
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _02120C74
 	bl  FUN_ov16_02110558
@@ -11551,7 +11551,7 @@ _021240D0: .word unk_0209AC44
 FUN_ov57_021240d4: ; 0x021240D4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov57_021240d4

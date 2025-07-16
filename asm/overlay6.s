@@ -259,7 +259,7 @@ FUN_ov6_020bce90: ; 0x020BCE90
 	mov r4, r0
 	bl FUN_02041b00
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bce90
@@ -909,7 +909,7 @@ _020BD74C: .word unk_02099F18
 FUN_ov6_020bd750: ; 0x020BD750
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bd750
@@ -1310,7 +1310,7 @@ FUN_ov6_020bdc48: ; 0x020BDC48
 FUN_ov6_020bdc60: ; 0x020BDC60
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bdc60

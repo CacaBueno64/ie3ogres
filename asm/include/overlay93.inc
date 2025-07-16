@@ -1,6 +1,6 @@
-.public FUN_0201e0b8
-.public FUN_0201e08c
-.public FUN_0201e078
+.public operator_delete_array
+.public operator_new_array
+.public operator_delete
 .public sprintf
 .public FUN_02041fec
 .public FUN_02058e30

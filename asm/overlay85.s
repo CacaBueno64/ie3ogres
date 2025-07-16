@@ -3327,7 +3327,7 @@ _0211CDC4: .word 0x04000018
 FUN_ov85_0211cdc8: ; 0x0211CDC8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov85_0211cdc8

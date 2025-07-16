@@ -1,6 +1,6 @@
 .public FUN_01ff95b0
 .public FUN_01ffac60
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0202d4c4
 .public FUN_0202d594
 .public FUN_0204c778

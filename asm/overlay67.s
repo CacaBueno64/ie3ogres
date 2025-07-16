@@ -4194,7 +4194,7 @@ _0211D94C:
 	strb r4, [r6, #0x2c]
 	mov r0, #0x74
 	str r5, [r9, #0x15c]
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _0211D980
 	bl  FUN_ov16_02110558
@@ -4479,7 +4479,7 @@ _0211DD4C: .word unk_02099F18
 FUN_ov67_0211dd50: ; 0x0211DD50
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov67_0211dd50
@@ -9246,7 +9246,7 @@ _02121F9C: .word unk_02099F18
 FUN_ov67_02121fa0: ; 0x02121FA0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov67_02121fa0

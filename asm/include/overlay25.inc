@@ -1,4 +1,4 @@
-.public FUN_0201e078
+.public operator_delete
 .public _ll_udiv
 .public _ull_mod
 .public _u32_div_f

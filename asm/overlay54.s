@@ -1673,7 +1673,7 @@ _0211B5C4: .word unk_0209A454
 FUN_ov54_0211b5c8: ; 0x0211B5C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov54_0211b5c8
@@ -2679,7 +2679,7 @@ FUN_ov54_0211c34c: ; 0x0211C34C
 	mov r2, #8
 	bl MI_CpuFill8
 	mov r0, #0x74
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _0211C3C8
 	bl  FUN_ov16_02110558
@@ -2952,7 +2952,7 @@ _0211C774: .word unk_02099F38
 FUN_ov54_0211c778: ; 0x0211C778
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov54_0211c778

@@ -3878,7 +3878,7 @@ FUN_ov90_0211d450: ; 0x0211D450
 FUN_ov90_0211d454: ; 0x0211D454
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov90_0211d454

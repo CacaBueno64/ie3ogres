@@ -10862,7 +10862,7 @@ _021239A8:
 	mov r0, r6
 	bl FUN_ov63_02121908
 	mov r0, #0x74
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _02123A50
 	bl  FUN_ov16_02110558
@@ -10870,7 +10870,7 @@ _02123A50:
 	add r1, r6, #0x2000
 	str r0, [r1, #0x74]
 	mov r0, #0x74
-	bl FUN_0201e014
+	bl operator_new
 	cmp r0, #0
 	beq _02123A6C
 	bl  FUN_ov16_02110558
@@ -11387,7 +11387,7 @@ _021241B0: .word unk_02099F38
 FUN_ov63_021241b4: ; 0x021241B4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov63_021241b4

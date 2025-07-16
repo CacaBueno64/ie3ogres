@@ -9,11 +9,11 @@ void FUN_ov101_02124ff8(u32 *ptr) {
     FUN_ov101_02124d4c(ptr);
 }
 
-extern void FUN_0201e078(void);
+extern void operator_delete(void *ptr);
 
-u32 FUN_ov101_02125018(u32 param1) {
-    FUN_0201e078();
-    return param1;
+void * FUN_ov101_02125018(void *ptr) {
+    operator_delete(ptr);
+    return ptr;
 }
 
 void FUN_ov101_0212502c(void) { }

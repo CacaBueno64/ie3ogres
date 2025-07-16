@@ -241,7 +241,7 @@ FUN_ov29_0211a1f0: ; 0x0211A1F0
 	add r0, r4, #0xf4
 	bl FUN_ov29_02120af0
 	mov r0, r4
-	bl FUN_0201e078
+	bl operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov29_0211a1f0
@@ -6281,7 +6281,7 @@ _0211F844:
 	mov r5, #0x400
 _0211F87C:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _0211F898
 	mov r0, r4
@@ -6377,7 +6377,7 @@ _0211F918:
 	mov r5, #0x400
 _0211F9EC:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _0211FA08
 	mov r0, r11
@@ -6560,7 +6560,7 @@ _0211FC94:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0211FCA8
-	bl FUN_0201e078
+	bl operator_delete
 _0211FCA8:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -6636,7 +6636,7 @@ _0211FD94:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -6765,7 +6765,7 @@ _0211FF3C:
 	mov r5, #0x3e8
 _0211FF74:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _0211FF90
 	mov r0, r4
@@ -6861,7 +6861,7 @@ _02120010:
 	mov r5, #0x3e8
 _021200E4:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _02120100
 	mov r0, r11
@@ -7022,7 +7022,7 @@ _0212033C:
 	ldr r1, [r5, #8]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r5, #0xc]
 	ldr r0, [r5, #0x14]
 	add r1, r1, #1
@@ -7085,7 +7085,7 @@ _02120418:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0212042C
-	bl FUN_0201e078
+	bl operator_delete
 _0212042C:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -7156,7 +7156,7 @@ _02120508:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -7280,7 +7280,7 @@ _02120698:
 	mov r5, #0x400
 _021206D0:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _021206EC
 	mov r0, r4
@@ -7376,7 +7376,7 @@ _0212076C:
 	mov r5, #0x400
 _02120840:
 	mov r0, r5
-	bl FUN_0201e014
+	bl operator_new
 	movs r8, r0
 	bne _0212085C
 	mov r0, r11
@@ -7536,7 +7536,7 @@ _02120A94:
 	ldr r1, [r5, #8]
 	ldr r0, [r5, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl FUN_0201e078
+	bl operator_delete
 	ldr r1, [r5, #0xc]
 	ldr r0, [r5, #0x14]
 	add r1, r1, #1
@@ -7599,7 +7599,7 @@ _02120B70:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02120B84
-	bl FUN_0201e078
+	bl operator_delete
 _02120B84:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -9616,7 +9616,7 @@ _0212293C:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02122950
-	bl FUN_0201e078
+	bl operator_delete
 _02122950:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -9728,7 +9728,7 @@ _02122ACC:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02122AE0
-	bl FUN_0201e078
+	bl operator_delete
 _02122AE0:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -9848,7 +9848,7 @@ _02122C7C:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02122C90
-	bl FUN_0201e078
+	bl operator_delete
 _02122C90:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -9931,7 +9931,7 @@ FUN_ov29_02122d8c: ; 0x02122D8C
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl FUN_0201e078
+	bl operator_delete
 _02122DB4:
 	mov r0, r4
 	add sp, sp, #4
@@ -9959,7 +9959,7 @@ FUN_ov29_02122dc0: ; 0x02122DC0
 _02122E00:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl FUN_0201e014
+	bl operator_new
 	movs r6, r0
 	bne _02122E20
 	ldr r0, _02122E38 ; =0x02123640
@@ -10126,7 +10126,7 @@ FUN_ov29_02123044: ; 0x02123044
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl FUN_0201e078
+	bl operator_delete
 _0212306C:
 	mov r0, r4
 	add sp, sp, #4
@@ -10408,7 +10408,7 @@ FUN_ov29_0212340c: ; 0x0212340C
 _0212344C:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl FUN_0201e014
+	bl operator_new
 	movs r6, r0
 	bne _0212346C
 	ldr r0, _02123484 ; =0x02123640

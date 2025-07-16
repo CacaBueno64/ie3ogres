@@ -1,4 +1,4 @@
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0204eb4c
 .public FUN_02041eac
 .public FX_Sqrt

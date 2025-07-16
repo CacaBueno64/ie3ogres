@@ -1,4 +1,4 @@
-.public FUN_0201e078
+.public operator_delete
 .public FUN_0202cf6c
 .public FUN_02041eac
 .public FUN_02058e30
