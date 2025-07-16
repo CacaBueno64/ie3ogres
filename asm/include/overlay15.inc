@@ -1,3 +1,4 @@
+.public OS_IrqHandler
 .public OSi_ThreadInfo
 .public DC_FlushRange
 .public DC_InvalidateRange

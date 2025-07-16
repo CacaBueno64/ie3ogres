@@ -5062,7 +5062,7 @@ _020F0500:
 	ldr r2, [r7, #0x28]
 	add r0, #0x2c
 	blx MI_CpuCopy8
-	blx  FUN_ov15_020dd284
+	blx  WCM_ClearApList
 	ldr r2, [r7]
 	ldr r3, _020F0658 ; =0x0030BFFE
 	mov r0, #0
@@ -5307,7 +5307,7 @@ _020F06DA:
 	ldr r0, [r2, #0x10]
 	ldr r1, [r2, #0x14]
 	ldr r2, [r2, #4]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0732
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5326,7 +5326,7 @@ _020F0700:
 	ldr r0, [r2, #0x20]
 	ldr r1, [r2, #0x24]
 	ldr r2, [r2, #0xc]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0732
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5429,7 +5429,7 @@ _020F07BE:
 	ldr r0, [r2, #0x10]
 	ldr r1, [r2, #0x14]
 	ldr r2, [r2, #4]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0836
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5445,7 +5445,7 @@ _020F07BE:
 _020F07E4:
 	cmp r0, #2
 	bne _020F0804
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0836
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5464,7 +5464,7 @@ _020F0804:
 	ldr r0, [r2, #0x20]
 	ldr r1, [r2, #0x24]
 	ldr r2, [r2, #0xc]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0836
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5513,7 +5513,7 @@ _020F085E:
 	ldr r0, [r2, #0x10]
 	ldr r1, [r2, #0x14]
 	ldr r2, [r2, #4]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F093C
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5529,7 +5529,7 @@ _020F085E:
 _020F0884:
 	cmp r0, #2
 	bne _020F08A4
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F093C
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5548,7 +5548,7 @@ _020F08A4:
 	ldr r0, [r2, #0x20]
 	ldr r1, [r2, #0x24]
 	ldr r2, [r2, #0xc]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F093C
 	ldr r0, _020F0940 ; =0x02114BE0
@@ -5584,7 +5584,7 @@ _020F08E2:
 	ldr r0, [r0, #0x18]
 	cmp r0, #2
 	bne _020F093C
-	blx  FUN_ov15_020dc720
+	blx  WCM_Finish
 	ldr r0, _020F0940 ; =0x02114BE0
 	mov r1, #0
 	str r1, [r0, #0x18]
@@ -5656,13 +5656,13 @@ _020F096C:
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F099E
 	mov r0, #0
 	pop {r3, pc}
 _020F097E:
-	blx  FUN_ov15_020dcbf4
+	blx  WCM_DisconnectAsync
 	cmp r0, #3
 	beq _020F099E
 	mov r0, #0
@@ -5670,7 +5670,7 @@ _020F097E:
 _020F098A:
 	ldr r0, [r1, #8]
 	ldr r1, _020F09A8 ; =FUN_ov17_020f068c
-	blx  FUN_ov15_020dc7b0
+	blx  WCM_StartupAsync
 	cmp r0, #3
 	beq _020F099E
 	mov r0, #0
@@ -5692,8 +5692,8 @@ FUN_ov17_020f09ac: ; 0x020F09AC
 	add r5, r0, #0
 	mov r0, #1
 	add r7, r1, #0
-	blx  FUN_ov15_020dd32c
-	blx  FUN_ov15_020dd2d4
+	blx  WCM_LockApList
+	blx  WCM_CountApList
 	add r6, r0, #0
 	cmp r6, #0
 	ble _020F09E4
@@ -5705,7 +5705,7 @@ _020F09C8:
 	bge _020F09E4
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx  FUN_ov15_020dd3a4
+	blx  WCM_PointApList
 	add r1, r5, #0
 	mov r2, #0xc0
 	blx MIi_CpuCopy32
@@ -5715,7 +5715,7 @@ _020F09C8:
 	blt _020F09C8
 _020F09E4:
 	mov r0, #0
-	blx  FUN_ov15_020dd32c
+	blx  WCM_LockApList
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end FUN_ov17_020f09ac
@@ -5808,7 +5808,7 @@ _020F0A82:
 	ldr r0, [r2, #0x10]
 	ldr r1, [r2, #0x14]
 	ldr r2, [r2, #4]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	bne _020F0AC0
 	ldr r0, _020F0ACC ; =0x02114BE0
@@ -5854,7 +5854,7 @@ FUN_ov17_020f0ae0: ; 0x020F0AE0
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	bne _020F0B0E
 	ldr r0, _020F0B18 ; =0x02114BE0
@@ -5881,7 +5881,7 @@ FUN_ov17_020f0b1c: ; 0x020F0B1C
 	ldr r0, [r0, #0x18]
 	cmp r0, #7
 	bne _020F0B44
-	blx  FUN_ov15_020dcbf4
+	blx  WCM_DisconnectAsync
 	cmp r0, #3
 	bne _020F0B44
 	ldr r0, _020F0B50 ; =0x02114BE0
@@ -5909,7 +5909,7 @@ FUN_ov17_020f0b54: ; 0x020F0B54
 	ldr r0, [r0, #0x18]
 	cmp r0, #3
 	bne _020F0B86
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0B76
 	add r0, r4, #0
@@ -5989,7 +5989,7 @@ _020F0BFC:
 	ldr r0, [r2, #0x20]
 	ldr r1, [r2, #0x24]
 	ldr r2, [r2, #0xc]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	bne _020F0C22
 	ldr r0, _020F0C2C ; =0x02114BE0
@@ -6053,7 +6053,7 @@ FUN_ov17_020f0c30: ; 0x020F0C30
 	sub r3, #0x1f
 	ldr r0, [r2]
 	add r1, r3, #0
-	blx  FUN_ov15_020dc5a4
+	blx  WCM_Init
 	cmp r0, #0
 	beq _020F0C9C
 	add r0, r4, #0
@@ -6071,7 +6071,7 @@ _020F0CA2:
 	bne _020F0CD0
 	ldr r0, [r0, #8]
 	ldr r1, _020F0CE4 ; =FUN_ov17_020f068c
-	blx  FUN_ov15_020dc7b0
+	blx  WCM_StartupAsync
 	cmp r0, #3
 	beq _020F0CC0
 	add r0, r4, #0
@@ -6151,7 +6151,7 @@ _020F0D3C:
 	ldr r0, [r2, #0x44]
 	ldr r1, [r2, #0x48]
 	ldr r2, [r2, #0x60]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0DD0
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6171,7 +6171,7 @@ _020F0D64:
 	ldr r0, [r2, #0x4c]
 	ldr r1, [r2, #0x28]
 	ldr r2, [r2, #0x58]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0DD0
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6281,7 +6281,7 @@ _020F0E30:
 	ldr r0, [r2, #0x44]
 	ldr r1, [r2, #0x48]
 	ldr r2, [r2, #0x60]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0ED2
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6298,7 +6298,7 @@ _020F0E30:
 _020F0E58:
 	cmp r0, #2
 	bne _020F0E7A
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0ED2
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6318,7 +6318,7 @@ _020F0E7A:
 	ldr r0, [r2, #0x4c]
 	ldr r1, [r2, #0x28]
 	ldr r2, [r2, #0x58]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0ED2
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6370,7 +6370,7 @@ _020F0EDA:
 	ldr r0, [r2, #0x44]
 	ldr r1, [r2, #0x48]
 	ldr r2, [r2, #0x60]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0FEA
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6387,7 +6387,7 @@ _020F0EDA:
 _020F0F02:
 	cmp r0, #2
 	bne _020F0F24
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0FEA
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6407,7 +6407,7 @@ _020F0F24:
 	ldr r0, [r2, #0x4c]
 	ldr r1, [r2, #0x28]
 	ldr r2, [r2, #0x58]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0FEA
 	ldr r0, _020F0FEC ; =0x02114C30
@@ -6447,7 +6447,7 @@ _020F0F6A:
 	ldr r0, [r0, #0x2c]
 	cmp r0, #2
 	bne _020F0FEA
-	blx  FUN_ov15_020dc720
+	blx  WCM_Finish
 	ldr r0, _020F0FEC ; =0x02114C30
 	mov r1, #0
 	str r1, [r0, #0x2c]
@@ -6540,13 +6540,13 @@ _020F101C:
 	mov r0, #0
 	add r1, r0, #0
 	add r2, r0, #0
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	beq _020F104E
 	mov r0, #0
 	pop {r3, pc}
 _020F102E:
-	blx  FUN_ov15_020dcbf4
+	blx  WCM_DisconnectAsync
 	cmp r0, #3
 	beq _020F104E
 	mov r0, #0
@@ -6554,7 +6554,7 @@ _020F102E:
 _020F103A:
 	ldr r0, [r1, #8]
 	ldr r1, _020F1058 ; =FUN_ov17_020f0ce8
-	blx  FUN_ov15_020dc7b0
+	blx  WCM_StartupAsync
 	cmp r0, #3
 	beq _020F104E
 	mov r0, #0
@@ -6576,8 +6576,8 @@ FUN_ov17_020f105c: ; 0x020F105C
 	add r5, r0, #0
 	mov r0, #1
 	add r7, r1, #0
-	blx  FUN_ov15_020dd32c
-	blx  FUN_ov15_020dd2d4
+	blx  WCM_LockApList
+	blx  WCM_CountApList
 	add r6, r0, #0
 	cmp r6, #0
 	ble _020F1094
@@ -6589,7 +6589,7 @@ _020F1078:
 	bge _020F1094
 	lsl r0, r4, #0x10
 	lsr r0, r0, #0x10
-	blx  FUN_ov15_020dd3a4
+	blx  WCM_PointApList
 	add r1, r5, #0
 	mov r2, #0xc0
 	blx MIi_CpuCopy32
@@ -6599,7 +6599,7 @@ _020F1078:
 	blt _020F1078
 _020F1094:
 	mov r0, #0
-	blx  FUN_ov15_020dd32c
+	blx  WCM_LockApList
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end FUN_ov17_020f105c
@@ -6687,7 +6687,7 @@ _020F112A:
 	ldr r1, [r2, #0x48]
 	ldr r0, _020F1178 ; =0x021150E8
 	ldr r2, [r2, #0x60]
-	blx  FUN_ov15_020dc914
+	blx  WCM_SearchAsync
 	cmp r0, #3
 	bne _020F1168
 	ldr r0, _020F1174 ; =0x02114C30
@@ -6730,7 +6730,7 @@ FUN_ov17_020f1188: ; 0x020F1188
 	ldr r0, [r0, #0x2c]
 	cmp r0, #7
 	bne _020F11B0
-	blx  FUN_ov15_020dcbf4
+	blx  WCM_DisconnectAsync
 	cmp r0, #3
 	bne _020F11B0
 	ldr r0, _020F11BC ; =0x02114C30
@@ -6758,7 +6758,7 @@ FUN_ov17_020f11c0: ; 0x020F11C0
 	ldr r0, [r0, #0x2c]
 	cmp r0, #3
 	bne _020F11F2
-	blx  FUN_ov15_020dc87c
+	blx  WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F11E2
 	add r0, r4, #0
@@ -6838,7 +6838,7 @@ _020F1268:
 	ldr r0, [r2, #0x4c]
 	ldr r1, [r2, #0x28]
 	ldr r2, [r2, #0x58]
-	blx  FUN_ov15_020dca44
+	blx  WCM_ConnectAsync
 	cmp r0, #3
 	bne _020F128E
 	ldr r0, _020F1298 ; =0x02114C30
@@ -6903,7 +6903,7 @@ FUN_ov17_020f129c: ; 0x020F129C
 	sub r3, #0x1f
 	ldr r0, [r2, #0x3c]
 	add r1, r3, #0
-	blx  FUN_ov15_020dc5a4
+	blx  WCM_Init
 	cmp r0, #0
 	beq _020F130A
 	add r0, r4, #0
@@ -6921,7 +6921,7 @@ _020F1310:
 	bne _020F133E
 	ldr r0, [r0, #8]
 	ldr r1, _020F1354 ; =FUN_ov17_020f0ce8
-	blx  FUN_ov15_020dc7b0
+	blx  WCM_StartupAsync
 	cmp r0, #3
 	beq _020F132E
 	add r0, r4, #0
