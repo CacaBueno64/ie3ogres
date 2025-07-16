@@ -194,7 +194,7 @@
 .public strlen
 .public strcpy
 .public strncpy
-.public FUN_02024640
+.public atoi
 .public _start
 .public FUN_ov1_020cabf0
 .public FUN_ov1_020cb3f8

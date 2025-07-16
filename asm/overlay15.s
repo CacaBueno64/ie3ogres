@@ -12666,7 +12666,7 @@ _020C7538:
 	ldr r0, [r0, #0x314]
 	ldr r1, _020C7760 ; =0x020E4460
 	bl FUN_ov15_020c91ac
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r5]
 	cmp r1, #0x22
 	bne _020C7588
@@ -12706,7 +12706,7 @@ _020C75AC:
 	add r1, sp, #0
 	add r0, r0, #0x1000
 	mov r2, #0xa
-	bl strtoul
+	bl strtol
 	ldr r7, [r4, #4]
 	mov r5, r0
 	add r0, r7, #0xc
@@ -12894,11 +12894,11 @@ _020C7840:
 	ldmnefd sp!, {r4, r5, r6, r7, pc}
 _020C78C4:
 	mov r0, r4
-	bl FUN_020246c4
+	bl wcslen
 	cmp r0, #0
 	beq _020C7904
 	mov r0, r4
-	bl FUN_020246c4
+	bl wcslen
 	mov r3, r0
 	ldr r1, _020C7934 ; =0x020E44DC
 	mov r0, r5
@@ -13322,7 +13322,7 @@ FUN_ov15_020c7c9c: ; 0x020C7C9C
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, #0x7e
-	bl FUN_020246c4
+	bl wcslen
 	mov r3, r0
 	ldr r1, _020C7FDC ; =0x020E4610
 	mov r0, r5
@@ -13701,7 +13701,7 @@ FUN_ov15_020c837c: ; 0x020C837C
 	strb r1, [r6]
 	bl OS_LockMutex
 	add r0, r8, r7
-	bl FUN_02024640
+	bl atoi
 	add r1, r5, #0x1000
 	add r2, r5, #0x254
 	str r0, [r1, #0xa6c]
@@ -14365,7 +14365,7 @@ _020C8D4C:
 	cmp r4, #0
 	beq _020C8DB0
 	mov r0, r4
-	bl FUN_02024640
+	bl atoi
 	add r1, r5, #0x1100
 	strh r0, [r1, #0x34]
 _020C8DB0:
@@ -15087,7 +15087,7 @@ _020C9784:
 	ldr r0, [r4]
 	ldr r1, _020CA220 ; =0x020E47C4
 	bl FUN_ov15_020c91ac
-	bl FUN_02024640
+	bl atoi
 	mov r10, r0
 	ldr r0, _020CA224 ; =0x02099E60
 	ldr r0, [r0]
@@ -15530,7 +15530,7 @@ _020C9DBC:
 	ldr r0, [r4]
 	ldr r1, _020CA220 ; =0x020E47C4
 	bl FUN_ov15_020c91ac
-	bl FUN_02024640
+	bl atoi
 	mov r10, r0
 	ldr r0, _020CA224 ; =0x02099E60
 	ldr r0, [r0]
@@ -15573,7 +15573,7 @@ _020C9E44:
 	b _020C9A54
 _020C9E58:
 	add r0, sp, #0x20
-	bl FUN_02024640
+	bl atoi
 	ldr r1, _020CA224 ; =0x02099E60
 	ldr r1, [r1]
 	cmp r1, #0x22
@@ -15684,7 +15684,7 @@ _020C9FE0:
 	mov r1, r11
 	strb r1, [r9, r0]
 	mov r0, r9
-	bl FUN_02024640
+	bl atoi
 	ldr r1, _020CA224 ; =0x02099E60
 	ldr r1, [r1]
 	cmp r1, #0x22
@@ -16194,7 +16194,7 @@ _020CA6DC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020CA708:
-	bl FUN_02024640
+	bl atoi
 	ldr r6, _020CA8B0 ; =0x02099E60
 	mov r2, r0
 	ldr r0, [r6]
@@ -16233,7 +16233,7 @@ _020CA75C:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020CA794:
 	mov r0, r4
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r6]
 	mov r2, r0
 	cmp r1, #0x22
@@ -18655,7 +18655,7 @@ FUN_ov15_020cc73c: ; 0x020CC73C
 	strb r4, [sp, #0x13]
 	strb r4, [sp, #0x16]
 	strb r4, [sp, #0x19]
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r7]
 	str r0, [sp, #0x2c]
 	cmp r1, #0x22
@@ -18685,28 +18685,28 @@ _020CC858:
 	mov r4, #0
 	add r0, sp, #5
 	str r4, [r7]
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r7]
 	str r0, [sp, #0x34]
 	cmp r1, #0x22
 	beq _020CC924
 	add r0, sp, #0x11
 	str r4, [r7]
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r7]
 	str r0, [sp, #0x20]
 	cmp r1, #0x22
 	beq _020CC924
 	add r0, sp, #0x14
 	str r4, [r7]
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r7]
 	str r0, [sp, #0x24]
 	cmp r1, #0x22
 	beq _020CC924
 	add r0, sp, #0x17
 	str r4, [r7]
-	bl FUN_02024640
+	bl atoi
 	ldr r1, [r7]
 	str r0, [sp, #0x28]
 	cmp r1, #0x22

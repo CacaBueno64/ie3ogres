@@ -91,7 +91,7 @@
 .public memcmp
 .public strncmp
 .public strstr
-.public FUN_020246c4
+.public wcslen
 .public OS_SendMessage
 .public OS_ReadMessage
 .public G2S_GetBG2CharPtr
@@ -100,7 +100,7 @@
 .public GX_LoadBG0Char
 .public WM_PowerOff
 .public WM_Reset
-.public strtoul
+.public strtol
 .public FUN_0204201c
 .public FUN_0204331c
 .public FUN_0204665c
@@ -118,7 +118,7 @@
 .public WM_End
 .public WM_StartScanEx
 .public WM_StartConnectEx
-.public FUN_02024640
+.public atoi
 .public FUN_02042054
 .public FUN_02042084
 .public FUN_02043310
