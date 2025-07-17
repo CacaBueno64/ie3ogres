@@ -23580,26 +23580,26 @@ DWCi_SNDlInit: ; 0x02107B50
 	bl NNS_SndInit
 	ldr r0, [r4]
 	ldr r1, [r0, #0xa4]
-	bl FUN_0201b5ec
+	bl NNS_SndArcInitOnMemory
 	mov r7, #0
 	mov r0, r7
-	bl FUN_0201c2f0
+	bl NNS_SndArcPlayerSetup
 	ldr r0, [r4]
 	add r0, r0, #0xa0
-	bl FUN_0201aab4
+	bl NNS_SndHandleInit
 	mov r6, #0x7f
 	mov r5, #1
 	mov r4, r7
 _02107BB4:
 	mov r0, r7
 	mov r1, r6
-	bl FUN_0201a9d0
+	bl NNS_SndPlayerSetPlayerVolume
 	mov r0, r7
 	mov r1, r5
-	bl FUN_0201a9e8
+	bl NNS_SndPlayerSetPlayableSeqCount
 	mov r0, r7
 	mov r1, r4
-	bl FUN_0201aa08
+	bl NNS_SndPlayerSetAllocatableChannel
 	add r7, r7, #1
 	cmp r7, #0x20
 	blt _02107BB4
@@ -23637,12 +23637,12 @@ FUN_ov17_02107c40: ; 0x02107C40
 	ldr r1, _02107C5C ; =0x021162A8
 	mov r2, r0
 	ldr r0, [r1]
-	ldr r12, _02107C60 ; =FUN_0201c388
+	ldr r12, _02107C60 ; =NNS_SndArcPlayerStartSeqArc
 	mov r1, #0
 	add r0, r0, #0xa0
 	bx r12
 _02107C5C: .word ov17_021162A8
-_02107C60: .word FUN_0201c388
+_02107C60: .word NNS_SndArcPlayerStartSeqArc
 	arm_func_end FUN_ov17_02107c40
 
 	arm_func_start FUN_ov17_02107c64
@@ -23650,36 +23650,36 @@ FUN_ov17_02107c64: ; 0x02107C64
 	ldr r2, _02107C7C ; =0x021162A8
 	mov r1, r0
 	ldr r0, [r2]
-	ldr r12, _02107C80 ; =FUN_0201aadc
+	ldr r12, _02107C80 ; =NNS_SndPlayerSetVolume
 	add r0, r0, #0xa0
 	bx r12
 _02107C7C: .word ov17_021162A8
-_02107C80: .word FUN_0201aadc
+_02107C80: .word NNS_SndPlayerSetVolume
 	arm_func_end FUN_ov17_02107c64
 
 	arm_func_start FUN_ov17_02107c84
 FUN_ov17_02107c84: ; 0x02107C84
 	ldr r2, _02107CA0 ; =0x021162A8
-	ldr r12, _02107CA4 ; =FUN_0201ab24
+	ldr r12, _02107CA4 ; =NNS_SndPlayerSetTrackPitch
 	ldr r3, [r2]
 	mov r2, r1
 	mov r1, r0
 	add r0, r3, #0xa0
 	bx r12
 _02107CA0: .word ov17_021162A8
-_02107CA4: .word FUN_0201ab24
+_02107CA4: .word NNS_SndPlayerSetTrackPitch
 	arm_func_end FUN_ov17_02107c84
 
 	arm_func_start FUN_ov17_02107ca8
 FUN_ov17_02107ca8: ; 0x02107CA8
 	ldr r0, _02107CC0 ; =0x021162A8
-	ldr r12, _02107CC4 ; =FUN_0201aaa4
+	ldr r12, _02107CC4 ; =NNS_SndPlayerStopSeq
 	ldr r0, [r0]
 	mov r1, #0
 	add r0, r0, #0xa0
 	bx r12
 _02107CC0: .word ov17_021162A8
-_02107CC4: .word FUN_0201aaa4
+_02107CC4: .word NNS_SndPlayerStopSeq
 	arm_func_end FUN_ov17_02107ca8
 
 	arm_func_start FUN_ov17_02107cc8
