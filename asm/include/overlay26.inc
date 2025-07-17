@@ -1,8 +1,8 @@
 .public DC_FlushRange
 .public operator_delete
-.public FUN_0201f1c4
-.public FUN_0201f204
-.public FUN_0201fe20
+.public _dflt
+.public _dfltu
+.public _dfix
 .public FUN_0202cf6c
 .public FUN_0206c0d8
 .public FUN_0206c6fc
@@ -14,7 +14,7 @@
 .public FUN_0206ccec
 .public FUN_0206cd70
 .public FUN_0206dcd4
-.public FUN_02020af8
+.public _ddiv
 .public sprintf
 .public FUN_02041eac
 .public FUN_02045b50

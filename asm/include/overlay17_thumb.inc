@@ -4,8 +4,8 @@
 .public FUN_020f0670
 .public RTC_GetTime
 .public _s32_div_f
-.public FUN_0201f99c
-.public _ll_udiv
+.public __llmul
+.public _ull_div
 .public _u32_div_f
 .public OS_GetMacAddress
 .public strcpy

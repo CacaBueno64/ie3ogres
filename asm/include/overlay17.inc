@@ -183,9 +183,9 @@
 .public FUN_0201b5ec
 .public FUN_0201c2f0
 .public FUN_0201c388
-.public _ll_udiv
+.public _ull_div
 .public _ull_mod
-.public FUN_0201f99c
+.public __llmul
 .public _s32_div_f
 .public _u32_div_f
 .public memcpy

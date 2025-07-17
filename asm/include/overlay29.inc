@@ -1,8 +1,8 @@
 .public operator_new
 .public operator_delete
-.public FUN_0201f1c4
+.public _dflt
 .public _u32_div_f
-.public FUN_0201fe20
+.public _dfix
 .public FUN_0202cdd4
 .public FUN_0202cf00
 .public FUN_0202cf6c
@@ -17,7 +17,7 @@
 .public FUN_0206c158
 .public FUN_0206c300
 .public FX_Atan2Idx
-.public FUN_02020af8
+.public _ddiv
 .public printf
 .public rand
 .public sprintf

@@ -1300,14 +1300,14 @@ _0211B06C:
 	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211B0B8
 _0211B0AC:
 	bl _ffltu
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211B0B8:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r2, _0211B1B0 ; =0x02099F58
 	mov r1, r0
 	ldr r0, [r2]

@@ -1107,7 +1107,7 @@ _0211AEA4:
 	b _0211AF88
 _0211AEC0:
 	rsb r0, r7, #2
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _0211B7CC ; =0x40240000
@@ -1119,11 +1119,11 @@ _0211AEC0:
 	ldrb r1, [r0, #0x1d0]
 	ldrb r0, [r0, #0x1d3]
 	sub r0, r1, r0
-	bl FUN_0201f1c4
+	bl _dflt
 	ldr r2, [sp, #0x14]
 	mov r3, r11
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	ldr r2, _0211B7D0 ; =0x66666667
 	smull r3, r1, r2, r0
 	mov r2, r0, lsr #0x1f

@@ -19715,14 +19715,14 @@ _020CDD60:
 	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _020CDDC4
 _020CDDB8:
 	bl _ffltu
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _020CDDC4:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r2, _020CE378 ; =_02099F58
 	mov r1, r0
 	ldr r0, [r2, #0x0] ; =_02099f58
@@ -25784,17 +25784,17 @@ FUN_ov4_020d350c: ; 0x020D350C
 	cmp r0, #1
 	blt _020D356C
 	ldr r0, [r4, #0x96c]
-	bl FUN_0201f704
+	bl _fflt
 	ldr r1, [r4, #0x66c]
 	mov r5, r0
 	mul r0, r1, r1
-	bl FUN_0201f704
+	bl _fflt
 	ldr r1, _020D35E8 ; =0x45610000
 	bl _fdiv
 	mov r1, r0
 	mov r0, r5
 	bl _fmul
-	bl FUN_0201fdac
+	bl _ffix
 	str r0, [r4, #0x970]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D356C:

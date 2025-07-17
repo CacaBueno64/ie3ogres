@@ -54,7 +54,7 @@ _02119F78:
 	mov r2, r6
 	add r7, r7, #1
 	mov r3, r5
-	bl _ll_udiv
+	bl _ull_div
 	mov r10, r0
 	mov r9, r1
 	cmp r9, #0

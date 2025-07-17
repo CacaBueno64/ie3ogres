@@ -1,8 +1,8 @@
 .public DC_FlushRange
 .public FUN_01ff9c08
 .public operator_delete
-.public FUN_0201f704
-.public FUN_0201fdac
+.public _fflt
+.public _ffix
 .public FUN_0202b838
 .public FUN_0202c470
 .public FUN_0202cdd4
@@ -28,7 +28,7 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020508fc
 .public FUN_020509d8
 .public FUN_020724c8
@@ -42,7 +42,7 @@
 .public FUN_0204204c
 .public FUN_0205107c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02042054
 .public FUN_02042110
 .public FUN_02046730

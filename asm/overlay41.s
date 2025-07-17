@@ -1986,14 +1986,14 @@ _0211B9E4:
 	bl _ffltu
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211BA30
 _0211BA24:
 	bl _ffltu
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211BA30:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r2, _0211BAD8 ; =0x02099F58
 	mov r1, r0
 	ldr r0, [r2]

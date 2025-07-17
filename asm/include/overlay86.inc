@@ -3,7 +3,7 @@
 .public operator_delete
 .public _s32_div_f
 .public _ffltu
-.public FUN_0201fdac
+.public _ffix
 .public FUN_0202cf6c
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
@@ -16,7 +16,7 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020727a8
 .public FUN_020728a8
 .public FUN_020728c4
@@ -24,7 +24,7 @@
 .public GX_LoadBG3Scr
 .public FUN_0204204c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02058800
 .public FUN_02059004
 .public FUN_02059038

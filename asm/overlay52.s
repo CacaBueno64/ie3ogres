@@ -5214,10 +5214,10 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211E57C
 _0211E55C:
 	ldr r1, _0211E6EC ; =0x02124710
@@ -5225,11 +5225,11 @@ _0211E55C:
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211E57C:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r4, _0211E6E0 ; =0x02099F78
 	mov r5, r0
 	ldr r1, _0211E6F0 ; =0x02124724
@@ -5241,21 +5241,21 @@ _0211E57C:
 	mov r0, r4
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211E5DC
 _0211E5C0:
 	ldr r1, _0211E6F8 ; =0x0212474C
 	mov r0, r4
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211E5DC:
-	bl FUN_0201fdac
+	bl _ffix
 	str r0, [r6, #0x178]
 	mov r2, #0x168000
 	rsb r2, r2, #0
@@ -7422,7 +7422,7 @@ _021204B0:
 	mov r9, #0
 _021204B8:
 	rsb r0, r9, #2
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _02120628 ; =0x40240000
@@ -7431,11 +7431,11 @@ _021204B8:
 	mov r5, r0
 	mov r10, r1
 	add r0, r6, #1
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r2, r5
 	mov r3, r10
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	ldr r1, _0212062C ; =0x66666667
 	smull r2, r5, r1, r0
 	mov r1, r0, lsr #0x1f
@@ -7473,7 +7473,7 @@ _02120554:
 	mov r8, r6
 _02120578:
 	rsb r0, r8, #2
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r3, r1
 	mov r2, r0
 	ldr r1, _02120628 ; =0x40240000
@@ -7482,11 +7482,11 @@ _02120578:
 	mov r5, r0
 	mov r10, r1
 	mov r0, r7
-	bl FUN_0201f1c4
+	bl _dflt
 	mov r2, r5
 	mov r3, r10
-	bl FUN_02020af8
-	bl FUN_0201fe20
+	bl _ddiv
+	bl _dfix
 	smull r1, r5, r11, r0
 	mov r1, r0, lsr #0x1f
 	add r5, r1, r5, asr #2

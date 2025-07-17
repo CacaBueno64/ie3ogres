@@ -132,10 +132,10 @@ _0211A02C:
 	rsb r0, r0, #0
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211A104
 _0211A0E0:
 	ldr r1, _0211A230 ; =0x0212234C
@@ -144,11 +144,11 @@ _0211A0E0:
 	rsb r0, r0, #0
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211A104:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r4, _0211A224 ; =0x02099F78
 	mov r5, r0
 	ldr r1, _0211A234 ; =0x02122360
@@ -162,10 +162,10 @@ _0211A104:
 	bl L5_IniFileGetParam
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211A170
 _0211A150:
 	ldr r1, _0211A23C ; =0x02122388
@@ -173,11 +173,11 @@ _0211A150:
 	bl L5_IniFileGetParam
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211A170:
-	bl FUN_0201fdac
+	bl _ffix
 	mov r2, #0x1a4000
 	str r0, [sp, #0xc]
 	rsb r2, r2, #0
@@ -4981,10 +4981,10 @@ _0211E378:
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211E448
 _0211E428:
 	ldr r1, _0211E554 ; =0x02122648
@@ -4992,11 +4992,11 @@ _0211E428:
 	bl L5_IniFileGetParam
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211E448:
-	bl FUN_0201fdac
+	bl _ffix
 	ldr r5, _0211E548 ; =0x02099F78
 	mov r6, r0
 	ldr r1, _0211E558 ; =0x0212265C
@@ -5008,21 +5008,21 @@ _0211E448:
 	mov r0, r5
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, r0
 	mov r0, #0x3f000000
-	bl FUN_02020274
+	bl _fadd
 	b _0211E4A8
 _0211E48C:
 	ldr r1, _0211E560 ; =0x02122684
 	mov r0, r5
 	bl L5_IniFileGetParam
 	mov r0, r0, lsl #0xc
-	bl FUN_0201f704
+	bl _fflt
 	mov r1, #0x3f000000
-	bl FUN_020204a4
+	bl _fsub
 _0211E4A8:
-	bl FUN_0201fdac
+	bl _ffix
 	mov r1, #0x1f4000
 	rsb r1, r1, #0
 	str r1, [sp, #0x14]

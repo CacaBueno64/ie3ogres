@@ -1,10 +1,10 @@
 .public DC_FlushRange
 .public operator_delete
-.public FUN_0201f1c4
+.public _dflt
 .public _ffltu
-.public FUN_0201f204
-.public FUN_0201fdac
-.public FUN_0201fe20
+.public _dfltu
+.public _ffix
+.public _dfix
 .public FUN_0202cf6c
 .public FUN_0202e1c0
 .public FUN_0202eff0
@@ -20,7 +20,7 @@
 .public FUN_0206cd60
 .public FUN_0206dcd4
 .public FUN_0206e9ec
-.public FUN_02020af8
+.public _ddiv
 .public sprintf
 .public FUN_02041f2c
 .public FUN_02058e30
@@ -28,7 +28,7 @@
 .public FUN_02059a78
 .public FUN_02073a10
 .public FX_Sqrt
-.public FUN_020204a4
+.public _fsub
 .public FUN_020425fc
 .public FUN_020460a8
 .public FUN_020460fc
@@ -38,7 +38,7 @@
 .public FUN_0205935c
 .public FUN_0205998c
 .public FUN_0207249c
-.public FUN_02020274
+.public _fadd
 .public FUN_02028820
 .public FUN_02043310
 .public FUN_02054070
