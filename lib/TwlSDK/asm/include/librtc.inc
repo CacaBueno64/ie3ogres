@@ -3,11 +3,4 @@
 .public PXI_SetFifoRecvCallback
 .public OS_DisableInterrupts
 .public OS_RestoreInterrupts
-.public OS_RestoreInterrupts
-.public OS_DisableInterrupts
-.public OS_RestoreInterrupts
-.public OS_RestoreInterrupts
-.public OS_DisableInterrupts
-.public OS_RestoreInterrupts
-.public OS_RestoreInterrupts
 .public PXI_SendWordByFifo

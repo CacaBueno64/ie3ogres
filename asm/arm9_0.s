@@ -62816,7 +62816,7 @@ _02051228:
 	and r1, r2, r1
 	orr r1, r1, #2
 	strh r1, [r3]
-	bl G3X_SetFogG3X_SetToonTableTable
+	bl G3X_SetToonTable
 	ldr r3, _020512A4 ; =0xBFFF0000
 	mov r4, #1
 	add r1, sp, #0

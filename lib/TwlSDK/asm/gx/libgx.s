@@ -620,15 +620,15 @@ _02004A7C: .word 0x04000360
 _02004A80: .word MI_Copy32B
 	arm_func_end G3X_SetFogTable
 
-	arm_func_start G3X_SetFogG3X_SetToonTableTable
-G3X_SetFogG3X_SetToonTableTable: ; 0x02004A84
+	arm_func_start G3X_SetToonTable
+G3X_SetToonTable: ; 0x02004A84
 	ldr r1, _02004A94 ; =0x04000380
 	ldr r12, _02004A98 ; =MIi_CpuCopy16
 	mov r2, #0x40
 	bx r12
 _02004A94: .word 0x04000380
 _02004A98: .word MIi_CpuCopy16
-	arm_func_end G3X_SetFogG3X_SetToonTableTable
+	arm_func_end G3X_SetToonTable
 
 	arm_func_start G3X_SetClearColor
 G3X_SetClearColor: ; 0x02004A9C
