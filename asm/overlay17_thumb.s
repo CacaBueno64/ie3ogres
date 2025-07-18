@@ -12790,7 +12790,7 @@ _020F3D94:
 	add r1, r1, r2
 	mvn r3, r5
 	orr r3, r1
-	add r4, r2, #0&
+	add r4, r2, #0
 	eor r4, r3
 	ldr r3, [sp, #0x24]
 	add r4, r3, r4
