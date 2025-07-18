@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/include/overlay17.inc"
+	.include "/include/overlay17_arm.inc"
 
 	.text
 	arm_func_start DWCi_ANIMElInitEx
@@ -28512,7 +28512,7 @@ FUN_ov17_0210bdcc: ; 0x0210BDCC
 	ldr r12, _0210BDD8 ; = FUN_ov128_0212a9e8
 	mov r0, #1
 	bx r12
-_0210BDD8: .word  FUN_ov128_0212a9e8
+_0210BDD8: .word FUN_ov128_0212a9e8
 	arm_func_end FUN_ov17_0210bdcc
 
 	arm_func_start FUN_ov17_0210bddc

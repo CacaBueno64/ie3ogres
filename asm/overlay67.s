@@ -11,7 +11,7 @@ FUN_ov67_02119f00: ; 0x02119F00
 	add r1, r1, #0x14
 	bx r12
 _02119F14: .word ov67_021222EC
-_02119F18: .word  FUN_ov16_020f3054
+_02119F18: .word FUN_ov16_020f3054
 	arm_func_end FUN_ov67_02119f00
 
 	arm_func_start FUN_ov67_02119f1c

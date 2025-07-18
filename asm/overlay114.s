@@ -254,7 +254,7 @@ FUN_ov114_0212506c: ; 0x0212506C
 	add r1, r1, #0x94
 	bx r12
 _02125084: .word 0x021261B0
-_02125088: .word  FUN_ov1_020dbfdc
+_02125088: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov114_0212506c
 
 	arm_func_start FUN_ov114_0212508c

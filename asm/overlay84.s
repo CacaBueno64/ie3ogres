@@ -286,7 +286,7 @@ FUN_ov84_0211a288: ; 0x0211A288
 	add r1, r1, #0x10
 	bx r12
 _0211A29C: .word ov84_0211BE34
-_0211A2A0: .word  FUN_ov16_020f316c
+_0211A2A0: .word FUN_ov16_020f316c
 	arm_func_end FUN_ov84_0211a288
 
 	arm_func_start FUN_ov84_0211a2a4

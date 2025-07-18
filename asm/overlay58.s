@@ -1424,7 +1424,7 @@ _0211B220:
 	mov r2, r2, lsr #0x10
 	bx r12
 _0211B244: .word unk_02099F38
-_0211B248: .word  FUN_ov16_02114204
+_0211B248: .word FUN_ov16_02114204
 	arm_func_end FUN_ov58_0211b1d8
 
 	arm_func_start FUN_ov58_0211b24c
@@ -1436,7 +1436,7 @@ FUN_ov58_0211b24c: ; 0x0211B24C
 	bx r12
 _0211B260: .word unk_02099F38
 _0211B264: .word 0x00007FFF
-_0211B268: .word  FUN_ov16_02114204
+_0211B268: .word FUN_ov16_02114204
 	arm_func_end FUN_ov58_0211b24c
 
 	arm_func_start FUN_ov58_0211b26c

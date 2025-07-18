@@ -5102,7 +5102,7 @@ FUN_ov46_0211e600: ; 0x0211E600
 	ldr r12, _0211E614 ; = FUN_ov16_020f153c
 	mov r0, r1
 	bx r12
-_0211E614: .word  FUN_ov16_020f153c
+_0211E614: .word FUN_ov16_020f153c
 	arm_func_end FUN_ov46_0211e600
 
 	arm_func_start FUN_ov46_0211e618
@@ -6812,7 +6812,7 @@ FUN_ov46_0211fe10: ; 0x0211FE10
 	bx r12
 _0211FE28: .word unk_02099ED4
 _0211FE2C: .word unk_0209A110
-_0211FE30: .word  FUN_ov16_0210e10c
+_0211FE30: .word FUN_ov16_0210e10c
 	arm_func_end FUN_ov46_0211fe10
 
 	arm_func_start FUN_ov46_0211fe34

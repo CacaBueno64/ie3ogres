@@ -172,7 +172,7 @@ FUN_ov120_02124f4c: ; 0x02124F4C
 	add r1, r1, #0x3c
 	bx r12
 _02124F64: .word 0x02125ACC
-_02124F68: .word  FUN_ov1_020dbfdc
+_02124F68: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov120_02124f4c
 
 	arm_func_start FUN_ov120_02124f6c

@@ -2848,7 +2848,7 @@ FUN_ov49_0211c6b0: ; 0x0211C6B0
 	bx r12
 _0211C6CC: .word unk_020A1640
 _0211C6D0: .word unk_02099F44
-_0211C6D4: .word  FUN_ov131_021421f4
+_0211C6D4: .word FUN_ov131_021421f4
 	arm_func_end FUN_ov49_0211c6b0
 
 	arm_func_start FUN_ov49_0211c6d8

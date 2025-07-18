@@ -660,7 +660,7 @@ FUN_ov111_021255c4: ; 0x021255C4
 	mov r1, #1
 	bx r12
 _021255D4: .word unk_0209F5C0
-_021255D8: .word  FUN_ov16_020f672c
+_021255D8: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov111_021255c4
 
 	arm_func_start FUN_ov111_021255dc

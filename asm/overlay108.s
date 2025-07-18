@@ -1733,7 +1733,7 @@ FUN_ov108_02126544: ; 0x02126544
 	mov r1, #1
 	bx r12
 _02126554: .word unk_0209F5C0
-_02126558: .word  FUN_ov16_020f672c
+_02126558: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov108_02126544
 
 	arm_func_start FUN_ov108_0212655c

@@ -2034,7 +2034,7 @@ FUN_ov55_0211baf4: ; 0x0211BAF4
 	mla r0, r1, r0, r2
 	ldr r12, _0211BB08 ; = FUN_ov16_020f33fc
 	bx r12
-_0211BB08: .word  FUN_ov16_020f33fc
+_0211BB08: .word FUN_ov16_020f33fc
 	arm_func_end FUN_ov55_0211baf4
 
 	arm_func_start FUN_ov55_0211bb0c
@@ -3389,7 +3389,7 @@ FUN_ov55_0211ce90: ; 0x0211CE90
 	add r0, r0, #0xa4
 	mov r1, #0x14
 	bx r12
-_0211CEA0: .word  FUN_ov16_020f330c
+_0211CEA0: .word FUN_ov16_020f330c
 	arm_func_end FUN_ov55_0211ce90
 
 	arm_func_start FUN_ov55_0211cea4
@@ -3511,7 +3511,7 @@ FUN_ov55_0211d030: ; 0x0211D030
 	add r0, r0, #0xa4
 	mov r1, #0x14
 	bx r12
-_0211D040: .word  FUN_ov16_020f338c
+_0211D040: .word FUN_ov16_020f338c
 	arm_func_end FUN_ov55_0211d030
 
 	arm_func_start FUN_ov55_0211d044
@@ -3556,7 +3556,7 @@ FUN_ov55_0211d09c: ; 0x0211D09C
 	ldr r12, _0211D0B4 ; = FUN_ov16_020f1138
 	mov r1, #0
 	bx r12
-_0211D0B4: .word  FUN_ov16_020f1138
+_0211D0B4: .word FUN_ov16_020f1138
 	arm_func_end FUN_ov55_0211d09c
 
 	arm_func_start FUN_ov55_0211d0b8
@@ -3567,7 +3567,7 @@ FUN_ov55_0211d0b8: ; 0x0211D0B8
 	ldr r12, _0211D0D0 ; = FUN_ov16_020f19d4
 	mov r0, #3
 	bx r12
-_0211D0D0: .word  FUN_ov16_020f19d4
+_0211D0D0: .word FUN_ov16_020f19d4
 	arm_func_end FUN_ov55_0211d0b8
 
 	arm_func_start FUN_ov55_0211d0d4
@@ -3578,7 +3578,7 @@ FUN_ov55_0211d0d4: ; 0x0211D0D4
 	ldr r12, _0211D0EC ; = FUN_ov16_020f19d4
 	mov r0, #2
 	bx r12
-_0211D0EC: .word  FUN_ov16_020f19d4
+_0211D0EC: .word FUN_ov16_020f19d4
 	arm_func_end FUN_ov55_0211d0d4
 
 	arm_func_start FUN_ov55_0211d0f0
@@ -3589,7 +3589,7 @@ FUN_ov55_0211d0f0: ; 0x0211D0F0
 	ldr r12, _0211D108 ; = FUN_ov16_020f19d4
 	mov r0, #1
 	bx r12
-_0211D108: .word  FUN_ov16_020f19d4
+_0211D108: .word FUN_ov16_020f19d4
 	arm_func_end FUN_ov55_0211d0f0
 
 	arm_func_start FUN_ov55_0211d10c
@@ -3600,7 +3600,7 @@ FUN_ov55_0211d10c: ; 0x0211D10C
 	ldr r12, _0211D124 ; = FUN_ov16_020f19d4
 	mov r0, #0
 	bx r12
-_0211D124: .word  FUN_ov16_020f19d4
+_0211D124: .word FUN_ov16_020f19d4
 	arm_func_end FUN_ov55_0211d10c
 
 	arm_func_start FUN_ov55_0211d128
@@ -3655,7 +3655,7 @@ FUN_ov55_0211d1a4: ; 0x0211D1A4
 	add r1, r2, #4
 	bx r12
 _0211D1BC: .word ov55_0211DA64
-_0211D1C0: .word  FUN_ov16_020f3054
+_0211D1C0: .word FUN_ov16_020f3054
 	arm_func_end FUN_ov55_0211d1a4
 
 	arm_func_start FUN_ov55_0211d1c4

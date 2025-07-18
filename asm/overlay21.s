@@ -19,7 +19,7 @@ FUN_ov21_02119f10: ; 0x02119F10
 	add r1, r1, #0x400
 	bx r12
 _02119F24: .word ov21_0211D4F0
-_02119F28: .word  FUN_ov16_020f316c
+_02119F28: .word FUN_ov16_020f316c
 	arm_func_end FUN_ov21_02119f10
 
 	arm_func_start FUN_ov21_02119f2c
@@ -2074,7 +2074,7 @@ FUN_ov21_0211bbfc: ; 0x0211BBFC
 	mov r1, r1, lsr #0x10
 	bx r12
 _0211BC1C: .word unk_02099EB4
-_0211BC20: .word  FUN_ov16_0210efac
+_0211BC20: .word FUN_ov16_0210efac
 	arm_func_end FUN_ov21_0211bbfc
 
 	arm_func_start FUN_ov21_0211bc24

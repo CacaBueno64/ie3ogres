@@ -43852,7 +43852,7 @@ FUN_ov15_020e17f4: ; 0x020E17F4
 	mov r1, #0
 	bx r12
 _020E180C: .word unk_0209F5C0
-_020E1810: .word  FUN_ov16_020f6b3c
+_020E1810: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov15_020e17f4
 
 	arm_func_start FUN_ov15_020e1814
@@ -44808,7 +44808,7 @@ FUN_ov15_020e2560: ; 0x020E2560
 	ldr r12, _020E2570 ; = FUN_ov16_020f6274
 	bx r12
 _020E256C: .word unk_0209F5C0
-_020E2570: .word  FUN_ov16_020f6274
+_020E2570: .word FUN_ov16_020f6274
 	arm_func_end FUN_ov15_020e2560
 
 	arm_func_start FUN_ov15_020e2574

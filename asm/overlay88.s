@@ -754,7 +754,7 @@ FUN_ov88_0211a8e4: ; 0x0211A8E4
 	add r1, r3, #0x5000
 	bx r12
 _0211A900: .word 0x0211CF88
-_0211A904: .word  FUN_ov1_020dbfdc
+_0211A904: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov88_0211a8e4
 
 	arm_func_start FUN_ov88_0211a908

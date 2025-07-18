@@ -3886,7 +3886,7 @@ FUN_ov70_0211d63c: ; 0x0211D63C
 	add r0, r0, #0xbc
 	mov r1, #8
 	bx r12
-_0211D670: .word  FUN_ov16_020f5278
+_0211D670: .word FUN_ov16_020f5278
 	arm_func_end FUN_ov70_0211d63c
 
 	arm_func_start FUN_ov70_0211d674
@@ -3951,7 +3951,7 @@ FUN_ov70_0211d700: ; 0x0211D700
 	add r0, r0, #0xc4
 	mov r1, #0x10
 	bx r12
-_0211D734: .word  FUN_ov16_020f5278
+_0211D734: .word FUN_ov16_020f5278
 	arm_func_end FUN_ov70_0211d700
 
 	arm_func_start FUN_ov70_0211d738

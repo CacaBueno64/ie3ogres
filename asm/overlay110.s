@@ -1688,7 +1688,7 @@ FUN_ov110_021264c8: ; 0x021264C8
 	mov r1, #1
 	bx r12
 _021264D8: .word unk_0209F5C0
-_021264DC: .word  FUN_ov16_020f672c
+_021264DC: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov110_021264c8
 
 	arm_func_start FUN_ov110_021264e0

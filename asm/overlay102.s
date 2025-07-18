@@ -36,7 +36,7 @@ FUN_ov102_02124d50: ; 0x02124D50
 	ldr r12, _02124D5C ; = FUN_ov16_020f33fc
 	add r0, r0, #0x10
 	bx r12
-_02124D5C: .word  FUN_ov16_020f33fc
+_02124D5C: .word FUN_ov16_020f33fc
 	arm_func_end FUN_ov102_02124d50
 
 	arm_func_start FUN_ov102_02124d60

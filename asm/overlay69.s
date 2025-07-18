@@ -1134,7 +1134,7 @@ _0211AE38:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211AF1C: .word unk_02099EB4
-_0211AF20: .word  FUN_ov16_0210fa20
+_0211AF20: .word FUN_ov16_0210fa20
 _0211AF24: .word 0x0210FB10
 _0211AF28: .word FUN_ov69_0211c520
 _0211AF2C: .word unk_02099F38
