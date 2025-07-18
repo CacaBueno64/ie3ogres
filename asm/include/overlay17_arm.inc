@@ -9,9 +9,9 @@
 .public MIi_CpuClear16
 .public MI_CpuCopy8
 .public OS_GetMacAddress
-.public FUN_ov17_020f0194
+.public AOSSi_InitLocal
 .public OS_Terminate
-.public FUN_ov17_020f0258
+.public AOSSi_EndLocal
 .public AOSSi_Init
 .public DWC_Auth_GetCustomNas
 .public DWC_Auth_SetCustomNas
@@ -36,10 +36,10 @@
 .public GX_DispOn
 .public PM_SetLCDPower
 .public MIi_CpuCopy16
-.public FUN_ov17_020f42ec
+.public ATERMi_ApConfigStart
 .public OS_Sleep
-.public FUN_ov17_020f43d4
-.public FUN_ov17_020f44a0
+.public ATERMi_ApConfigEnd
+.public ATERMi_ApConfigGetResult
 .public GX_LoadBGPltt
 .public GXS_LoadBG1Scr
 .public GX_LoadBG2Scr

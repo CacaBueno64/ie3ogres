@@ -731,7 +731,7 @@ FUN_ov17_020f4e84: ; 0x020F4E84
 	bl FUN_ov17_020f4e20
 	add r1, sp, #0
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [sp]
 	mov r4, r0
 	bl DC_FlushRange
@@ -740,7 +740,7 @@ FUN_ov17_020f4e84: ; 0x020F4E84
 	mov r1, #0
 	blx r5
 	mov r0, r4
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov17_020f4e84
 
@@ -1088,14 +1088,14 @@ FUN_ov17_020f5324: ; 0x020F5324
 	mov r5, #0
 	mov r1, r5
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, _020F537C ; =0x021161B4
 	mov r4, r0
 	ldr r1, [r1]
 	mov r2, #0xc0
 	bl MIi_CpuCopyFast
 	mov r0, r4
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r2, r5
 	mov r0, #1
 	ldr r1, _020F5380 ; =FUN_ov17_020f53b4
@@ -4741,7 +4741,7 @@ _020F84C0:
 	bl OS_GetMacAddress
 	ldr r0, _020F8558 ; =FUN_ov17_020f8604
 	ldr r1, _020F855C ; =FUN_ov17_020f8614
-	blx FUN_ov17_020f0194
+	blx AOSSi_InitLocal
 	cmp r0, #0
 	addeq sp, sp, #0x104
 	ldmeqfd sp!, {r4, r5, pc}
@@ -4758,7 +4758,7 @@ _020F855C: .word FUN_ov17_020f8614
 FUN_ov17_020f8560: ; 0x020F8560
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	blx FUN_ov17_020f0258
+	blx AOSSi_EndLocal
 	cmp r4, #0
 	beq _020F859C
 	ldr r0, _020F85A8 ; =0x021161C4
@@ -5273,7 +5273,7 @@ FUN_ov17_020f8bf4: ; 0x020F8BF4
 	mov r0, #8
 	str r1, [r4]
 	mov r2, #0xc
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r4]
 	str r0, [r1, #0x60]
 	ldmfd sp!, {r4, pc}
@@ -5296,12 +5296,12 @@ FUN_ov17_020f8c40: ; 0x020F8C40
 	mov r5, r0
 	ldr r0, [r1]
 	ldr r0, [r0, #0x60]
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	mov r4, r0
 	add r1, sp, #0
 	mov r0, r5
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	add r2, r0, #0x20
 	str r0, [r4, #8]
 	add r0, r2, #0x10
@@ -5320,12 +5320,12 @@ FUN_ov17_020f8c98: ; 0x020F8C98
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r4, #8]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	ldr r0, _020F8CC0 ; =0x021161EC
 	mov r1, r4
 	ldr r0, [r0]
 	ldr r0, [r0, #0x60]
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r4, pc}
 _020F8CC0: .word ov17_021161EC
 	arm_func_end FUN_ov17_020f8c98
@@ -5678,7 +5678,7 @@ FUN_ov17_020f911c: ; 0x020F911C
 	mov r0, #0xf
 	mov r1, #0x40
 	str r12, [sp, #4]
-	blx FUN_ov17_020f42ec
+	blx ATERMi_ApConfigStart
 	cmp r0, #1
 	beq _020F9168
 	bl OS_Terminate
@@ -5696,7 +5696,7 @@ _020F9184: .word FUN_ov17_020f92a8
 	arm_func_start FUN_ov17_020f9188
 FUN_ov17_020f9188: ; 0x020F9188
 	stmfd sp!, {r3, lr}
-	blx FUN_ov17_020f43d4
+	blx ATERMi_ApConfigEnd
 	cmp r0, #1
 	beq _020F919C
 	bl OS_Terminate
@@ -5740,7 +5740,7 @@ _020F9204:
 	ldmfd sp!, {r3, pc}
 _020F9210:
 	add r0, sp, #0
-	blx FUN_ov17_020f44a0
+	blx ATERMi_ApConfigGetResult
 	cmp r0, #1
 	beq _020F9224
 	bl OS_Terminate
@@ -5771,7 +5771,7 @@ FUN_ov17_020f9264: ; 0x020F9264
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #0xe8
 	add r0, sp, #0
-	blx FUN_ov17_020f44a0
+	blx ATERMi_ApConfigGetResult
 	cmp r0, #1
 	beq _020F9280
 	bl OS_Terminate
@@ -6111,7 +6111,7 @@ _020F96AC:
 	bl FUN_ov17_020f4e20
 	mov r1, #0
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, _020F9770 ; =0x021161FC
 	ldr r2, _020F9774 ; =0x04001008
 	str r0, [r1, #4]
@@ -6391,7 +6391,7 @@ FUN_ov17_020f9a58: ; 0x020F9A58
 	bl FUN_ov17_020f4de8
 	ldr r4, _020F9AF8 ; =0x021161FC
 	ldr r0, [r4, #4]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r0, r6
 	mov r1, r6
 	bl FUN_ov17_0210dd24
@@ -7445,14 +7445,14 @@ _020FA7CC:
 	mov r5, #4
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, _020FA91C ; =0x02116208
 	str r0, [r1, #4]
 	add r0, sp, #0x2b
 	bl FUN_ov17_020f4e20
 	mov r2, r5
 	mov r1, r4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	mov r5, r0
 	add r0, sp, #0
 	bl FUN_ov15_020ca8e0
@@ -7484,7 +7484,7 @@ _020FA88C:
 	mov r1, #0
 	bl GX_LoadBGPltt
 	mov r0, r5
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	ldr r2, _020FA920 ; =0x04001008
 	ldr r1, _020FA924 ; =0x0400000A
 	ldrh r0, [r2]
@@ -7779,7 +7779,7 @@ FUN_ov17_020fac34: ; 0x020FAC34
 	bl FUN_ov17_020f5258
 	bl FUN_ov17_020f4de8
 	ldr r0, [r4, #4]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r0, r6
 	mov r1, r6
 	bl FUN_ov17_0210dd24
@@ -10520,7 +10520,7 @@ _020FCE70:
 	mov r5, #4
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r4, _020FCF6C ; =0x02116238
 	ldr r1, [r4, #4]
 	str r0, [r1, #4]
@@ -10532,7 +10532,7 @@ _020FCE70:
 	bl FUN_ov17_020f4e20
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [r4, #4]
 	ldr r3, _020FCF70 ; =0x04001008
 	str r0, [r1, #8]
@@ -11272,10 +11272,10 @@ _020FD8CC:
 	bl FUN_ov17_02106358
 	ldr r0, [r7, #4]
 	ldr r0, [r0, #4]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	ldr r0, [r7, #4]
 	ldr r0, [r0, #8]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r5, #1
 	mov r0, r5
 	mov r1, r5
@@ -14319,7 +14319,7 @@ _021001BC:
 	mov r6, #4
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r5, _02100344 ; =0x0211624C
 	ldr r1, [r5, #8]
 	str r0, [r1, #8]
@@ -14331,14 +14331,14 @@ _021001BC:
 	bl FUN_ov17_020f4e20
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [r5, #8]
 	str r0, [r1, #0xc]
 	add r0, sp, #0
 	bl FUN_ov17_020f4e20
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r2, [r5, #8]
 	ldr r1, _02100348 ; =0x04001008
 	str r0, [r2, #0x10]
@@ -15060,13 +15060,13 @@ _02100C5C:
 	bl FUN_ov17_02106358
 	ldr r0, [r6, #8]
 	ldr r0, [r0, #8]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r5, #0
 _02100C70:
 	ldr r0, [r6, #8]
 	add r0, r0, r5, lsl #2
 	ldr r0, [r0, #0xc]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	add r5, r5, #1
 	cmp r5, #2
 	blt _02100C70
@@ -18537,7 +18537,7 @@ _02103998:
 	bl FUN_ov17_020f4e20
 	mov r1, #0
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r2, _02103A80 ; =0x0211626C
 	mov r1, #0x10
 	ldr r2, [r2, #4]
@@ -18996,7 +18996,7 @@ _02103FEC:
 	ldr r4, _021040E0 ; =0x0211626C
 	ldr r0, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	ldr r0, _021040E4 ; =0x021133D0
 	ldr r1, _021040E8 ; =0x020051BC
 	bl FUN_ov17_020f4e84
@@ -19541,7 +19541,7 @@ _02104768:
 	bl FUN_ov17_020f4e20
 	mov r1, #0
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, _0210482C ; =0x02116274
 	ldr r2, _02104830 ; =0x04001008
 	str r0, [r1, #4]
@@ -19851,7 +19851,7 @@ FUN_ov17_02104b78: ; 0x02104B78
 	bl FUN_ov17_020f4de8
 	ldr r4, _02104C94 ; =0x02116274
 	ldr r0, [r4, #4]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r0, r6
 	mov r1, r6
 	bl FUN_ov17_0210dd24
@@ -23574,7 +23574,7 @@ DWCi_SNDlInit: ; 0x02107B50
 	str r0, [r4]
 	ldr r0, _02107C0C ; =0x02113544
 	mov r2, #0x20
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [r4]
 	str r0, [r1, #0xa4]
 	bl NNS_SndInit
@@ -24462,7 +24462,7 @@ FUN_ov17_02108744: ; 0x02108744
 	mov r4, #0
 	mov r1, r4
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r2, _02108788 ; =0x021162AC
 	ldr r1, _0210878C ; =FUN_ov17_02108790
 	str r0, [r2]
@@ -24490,7 +24490,7 @@ FUN_ov17_02108790: ; 0x02108790
 	mov r1, #0
 	bl GXS_LoadBG1Scr
 	ldr r0, [r4]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r1, r6
 	mov r0, #1
 	bl FUN_ov17_0210f3b8
@@ -29059,7 +29059,7 @@ DWCi_ARClInit: ; 0x0210C500
 	mov r0, #0xe8
 	mov r1, #4
 	bl DWCi_HEAPlAllocEx
-	ldr r1, _0210C694 ; =0x021162CC
+	ldr r1, _0210C694 ; =dwc_MemArchive
 	add r4, sp, #0xa0
 	str r0, [r1]
 	mov r0, r4
@@ -29072,7 +29072,7 @@ DWCi_ARClInit: ; 0x0210C500
 	bl OS_Terminate
 _0210C540:
 	bl OS_GetLockID
-	ldr r5, _0210C694 ; =0x021162CC
+	ldr r5, _0210C694 ; =dwc_MemArchive
 	add r7, sp, #0xa0
 	ldr r1, [r5]
 	strh r0, [r1, #0xe4]
@@ -29094,7 +29094,7 @@ _0210C540:
 	add r0, r0, #0x88
 	bl FS_InitArchive
 	ldr r0, [r5]
-	ldr r1, _0210C69C ; =0x021126DC
+	ldr r1, _0210C69C ; =dwc_ARCHIVE_NAME
 	add r0, r0, #0x88
 	mov r2, #3
 	bl FS_RegisterArchiveName
@@ -29102,17 +29102,17 @@ _0210C540:
 	bne _0210C5B8
 	bl OS_Terminate
 _0210C5B8:
-	ldr r5, _0210C694 ; =0x021162CC
-	ldr r1, _0210C6A0 ; =FUN_ov17_0210c728
+	ldr r5, _0210C694 ; =dwc_MemArchive
+	ldr r1, _0210C6A0 ; =dwc_userProc
 	ldr r0, [r5]
 	ldr r2, _0210C6A4 ; =0x00000602
 	add r0, r0, #0x88
 	bl FS_SetArchiveProc
 	ldr r0, [sp, #0x18]
-	ldr r1, _0210C6A8 ; =FUN_ov17_0210c790
+	ldr r1, _0210C6A8 ; =dwc_cbRead
 	str r0, [sp]
 	ldr r2, [sp, #0x1c]
-	ldr r0, _0210C6AC ; =FUN_ov17_0210c7f4
+	ldr r0, _0210C6AC ; =dwc_cbWrite
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	str r0, [sp, #0xc]
@@ -29126,7 +29126,7 @@ _0210C5B8:
 	bne _0210C614
 	bl OS_Terminate
 _0210C614:
-	ldr r4, _0210C694 ; =0x021162CC
+	ldr r4, _0210C694 ; =dwc_MemArchive
 	mov r1, #0
 	ldr r0, [r4]
 	mov r2, r1
@@ -29146,25 +29146,25 @@ _0210C614:
 	mov r2, r5
 	add r1, r0, #4
 	mov r0, #0x20
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r4]
 	add r4, sp, #0x20
 	str r0, [r1, #0x84]
 	ldr r1, _0210C6B0 ; =0x02113C40
-	ldr r2, _0210C69C ; =0x021126DC
+	ldr r2, _0210C69C ; =dwc_ARCHIVE_NAME
 	mov r0, r4
 	bl OS_SPrintf
 	mov r0, r4
 	bl FS_ChangeDir
 	add sp, sp, #0xe8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0210C694: .word ov17_021162CC
+_0210C694: .word dwc_MemArchive
 _0210C698: .word ov17_02113C28
-_0210C69C: .word ov17_021126DC
-_0210C6A0: .word FUN_ov17_0210c728
+_0210C69C: .word dwc_ARCHIVE_NAME
+_0210C6A0: .word dwc_userProc
 _0210C6A4: .word 0x00000602
-_0210C6A8: .word FUN_ov17_0210c790
-_0210C6AC: .word FUN_ov17_0210c7f4
+_0210C6A8: .word dwc_cbRead
+_0210C6AC: .word dwc_cbWrite
 _0210C6B0: .word ov17_02113C40
 	arm_func_end DWCi_ARClInit
 
@@ -29173,7 +29173,7 @@ DWCi_ARClEnd: ; 0x0210C6B4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _0210C71C ; =0x02113C48
 	bl FS_ChangeDir
-	ldr r4, _0210C720 ; =0x021162CC
+	ldr r4, _0210C720 ; =dwc_MemArchive
 	ldr r0, [r4]
 	add r0, r0, #0x88
 	bl FS_UnloadArchiveTables
@@ -29192,17 +29192,17 @@ DWCi_ARClEnd: ; 0x0210C6B4
 	ldr r0, [r4]
 	bl DWCi_HEAPlFree_
 	ldr r1, [r4]
-	ldr r0, _0210C724 ; =0x021162CC
+	ldr r0, _0210C724 ; =dwc_MemArchive
 	str r5, [r1]
 	bl DWCi_HEAPlFree_
 	ldmfd sp!, {r3, r4, r5, pc}
 _0210C71C: .word ov17_02113C48
-_0210C720: .word ov17_021162CC
-_0210C724: .word ov17_021162CC
+_0210C720: .word dwc_MemArchive
+_0210C724: .word dwc_MemArchive
 	arm_func_end DWCi_ARClEnd
 
-	arm_func_start FUN_ov17_0210c728
-FUN_ov17_0210c728: ; 0x0210C728
+	arm_func_start dwc_userProc
+dwc_userProc: ; 0x0210C728
 	stmfd sp!, {r3, lr}
 	cmp r1, #1
 	beq _0210C778
@@ -29212,14 +29212,14 @@ FUN_ov17_0210c728: ; 0x0210C728
 	beq _0210C760
 	b _0210C780
 _0210C748:
-	ldr r0, _0210C788 ; =0x021162CC
+	ldr r0, _0210C788 ; =dwc_MemArchive
 	ldr r0, [r0]
 	ldrh r0, [r0, #0xe4]
 	bl CARD_LockRom
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _0210C760:
-	ldr r0, _0210C788 ; =0x021162CC
+	ldr r0, _0210C788 ; =dwc_MemArchive
 	ldr r0, [r0]
 	ldrh r0, [r0, #0xe4]
 	bl CARD_UnlockRom
@@ -29231,12 +29231,12 @@ _0210C778:
 _0210C780:
 	ldr r0, _0210C78C ; =0x00000102
 	ldmfd sp!, {r3, pc}
-_0210C788: .word ov17_021162CC
+_0210C788: .word dwc_MemArchive
 _0210C78C: .word 0x00000102
-	arm_func_end FUN_ov17_0210c728
+	arm_func_end dwc_userProc
 
-	arm_func_start FUN_ov17_0210c790
-FUN_ov17_0210c790: ; 0x0210C790
+	arm_func_start dwc_cbRead
+dwc_cbRead: ; 0x0210C790
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
 	mov r7, r0
@@ -29244,7 +29244,7 @@ FUN_ov17_0210c790: ; 0x0210C790
 	mov r5, r2
 	mov r4, r3
 	bl FS_GetArchiveBase
-	ldr r1, _0210C7E0 ; =FUN_ov17_0210c7e4
+	ldr r1, _0210C7E0 ; =dwc_cbReadRom
 	mov lr, r0
 	mov r12, #1
 	str r1, [sp]
@@ -29257,34 +29257,34 @@ FUN_ov17_0210c790: ; 0x0210C790
 	mov r0, #0x100
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0210C7E0: .word FUN_ov17_0210c7e4
-	arm_func_end FUN_ov17_0210c790
+_0210C7E0: .word dwc_cbReadRom
+	arm_func_end dwc_cbRead
 
-	arm_func_start FUN_ov17_0210c7e4
-FUN_ov17_0210c7e4: ; 0x0210C7E4
+	arm_func_start dwc_cbReadRom
+dwc_cbReadRom: ; 0x0210C7E4
 	ldr r12, _0210C7F0 ; =FS_NotifyArchiveAsyncEnd
 	mov r1, #0
 	bx r12
 _0210C7F0: .word FS_NotifyArchiveAsyncEnd
-	arm_func_end FUN_ov17_0210c7e4
+	arm_func_end dwc_cbReadRom
 
-	arm_func_start FUN_ov17_0210c7f4
-FUN_ov17_0210c7f4: ; 0x0210C7F4
+	arm_func_start dwc_cbWrite
+dwc_cbWrite: ; 0x0210C7F4
 	mov r0, #1
 	bx lr
-	arm_func_end FUN_ov17_0210c7f4
+	arm_func_end dwc_cbWrite
 
-	arm_func_start FUN_ov17_0210c7fc
-FUN_ov17_0210c7fc: ; 0x0210C7FC
+	arm_func_start DWCi_ARClReadEx
+DWCi_ARClReadEx: ; 0x0210C7FC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x4c
-	ldr r3, _0210C8F4 ; =0x021162CC
+	ldr r3, _0210C8F4 ; =dwc_MemArchive
 	mov r6, r0
 	ldr r0, [r3]
 	mov r5, r1
 	ldr r0, [r0, #0x84]
 	mov r4, r2
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	add r7, sp, #4
 	mov r0, r7
 	bl FS_InitFile
@@ -29304,7 +29304,7 @@ _0210C844:
 	mov r0, r6
 	mov r2, r7
 	strne r8, [r5]
-	bl FUN_ov17_0210c930
+	bl dwc_cmpBack
 	cmp r0, #0
 	sub r7, r7, #6
 	moveq r7, r4
@@ -29339,29 +29339,29 @@ _0210C844:
 	mov r0, r4
 	add sp, sp, #0x4c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0210C8F4: .word ov17_021162CC
+_0210C8F4: .word dwc_MemArchive
 _0210C8F8: .word ov17_02113C50
-	arm_func_end FUN_ov17_0210c7fc
+	arm_func_end DWCi_ARClReadEx
 
-	arm_func_start FUN_ov17_0210c8fc
-FUN_ov17_0210c8fc: ; 0x0210C8FC
+	arm_func_start DWCi_ARClRelease
+DWCi_ARClRelease: ; 0x0210C8FC
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, lr}
 	add r0, sp, #8
 	bl DWCi_HEAPlFree_
-	ldr r0, _0210C92C ; =0x021162CC
+	ldr r0, _0210C92C ; =dwc_MemArchive
 	ldr r1, [sp, #8]
 	ldr r0, [r0]
 	ldr r0, [r0, #0x84]
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r3, lr}
 	add sp, sp, #0x10
 	bx lr
-_0210C92C: .word ov17_021162CC
-	arm_func_end FUN_ov17_0210c8fc
+_0210C92C: .word dwc_MemArchive
+	arm_func_end DWCi_ARClRelease
 
-	arm_func_start FUN_ov17_0210c930
-FUN_ov17_0210c930: ; 0x0210C930
+	arm_func_start dwc_cmpBack
+dwc_cmpBack: ; 0x0210C930
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r1
 	mov r7, r0
@@ -29384,7 +29384,7 @@ FUN_ov17_0210c930: ; 0x0210C930
 	moveq r0, #1
 	movne r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov17_0210c930
+	arm_func_end dwc_cmpBack
 
 	arm_func_start DWCi_CELLlInit
 DWCi_CELLlInit: ; 0x0210C988
@@ -29406,7 +29406,7 @@ _0210C9B8:
 	mov r0, r8
 	mov r2, r7
 	add r1, r1, r10
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r5]
 	add r1, r1, r10
 	str r0, [r1, #0x224]
@@ -29482,7 +29482,7 @@ FUN_ov17_0210cab0: ; 0x0210CAB0
 	mov r8, r2
 	add r0, r0, r7
 	ldr r0, [r0, #0x224]
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	mov r5, r0
 	mov r0, #1
 	bl OS_DisableIrqMask
@@ -29596,7 +29596,7 @@ _0210CC38:
 	mla r0, r4, r0, r1
 	ldr r0, [r0, #0x224]
 	mov r1, r5
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r3, r4, r5, pc}
 _0210CC6C: .word 0xC1FFFCFF
 _0210CC70: .word ov17_021162D0
@@ -29815,7 +29815,7 @@ FUN_ov17_0210cf14: ; 0x0210CF14
 	mov r0, r1
 	add r1, sp, #0
 	mov r2, #4
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, _0210CF40 ; =0x021162D4
 	str r0, [r1, r4, lsl #2]
 	add sp, sp, #4
@@ -29829,7 +29829,7 @@ FUN_ov17_0210cf44: ; 0x0210CF44
 	ldr r4, _0210CF64 ; =0x021162D4
 	mov r5, r0
 	ldr r0, [r4, r5, lsl #2]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	mov r0, #0
 	str r0, [r4, r5, lsl #2]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -29932,8 +29932,8 @@ FUN_ov17_0210d070: ; 0x0210D070
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov17_0210d070
 
-	arm_func_start FUN_ov17_0210d0a4
-FUN_ov17_0210d0a4: ; 0x0210D0A4
+	arm_func_start DWCi_QUElFormEx
+DWCi_QUElFormEx: ; 0x0210D0A4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -29952,7 +29952,7 @@ _0210D0C4:
 _0210D0DC:
 	strb r6, [r0, #3]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov17_0210d0a4
+	arm_func_end DWCi_QUElFormEx
 
 	arm_func_start FUN_ov17_0210d0e4
 FUN_ov17_0210d0e4: ; 0x0210D0E4
@@ -29965,8 +29965,8 @@ FUN_ov17_0210d0e4: ; 0x0210D0E4
 	bx lr
 	arm_func_end FUN_ov17_0210d0e4
 
-	arm_func_start FUN_ov17_0210d100
-FUN_ov17_0210d100: ; 0x0210D100
+	arm_func_start DWCi_QUElPushBack
+DWCi_QUElPushBack: ; 0x0210D100
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	mov r0, #1
@@ -29990,10 +29990,10 @@ _0210D13C:
 	strb r7, [r5, #3]
 	bl OS_EnableIrqMask
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov17_0210d100
+	arm_func_end DWCi_QUElPushBack
 
-	arm_func_start FUN_ov17_0210d158
-FUN_ov17_0210d158: ; 0x0210D158
+	arm_func_start DWCi_QUElPopBack
+DWCi_QUElPopBack: ; 0x0210D158
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r0, #1
@@ -30017,7 +30017,7 @@ _0210D1A0:
 	bl OS_EnableIrqMask
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov17_0210d158
+	arm_func_end DWCi_QUElPopBack
 
 	arm_func_start DWCi_EFFlInit
 DWCi_EFFlInit: ; 0x0210D1B0
@@ -30258,7 +30258,7 @@ DWCi_FNTlInit: ; 0x0210D4B8
 	str r0, [r4]
 	mov r0, #0x20
 	mov r2, #0x30
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r4]
 	str r0, [r1, #0x670]
 	bl DWCi_Language
@@ -30272,7 +30272,7 @@ _0210D504:
 	ldr r0, [r7, r8, lsl #2]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [r4]
 	add r1, r1, r8, lsl #2
 	str r0, [r1, #0x674]
@@ -30292,7 +30292,7 @@ _0210D54C:
 	ldr r0, [r7, r8, lsl #2]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov17_0210c7fc
+	bl DWCi_ARClReadEx
 	ldr r1, [r4]
 	add r1, r1, r8, lsl #2
 	str r0, [r1, #0x674]
@@ -30319,7 +30319,7 @@ _0210D5A4:
 	ldr r0, [r4]
 	add r0, r0, r5, lsl #2
 	ldr r0, [r0, #0x674]
-	bl FUN_ov17_0210c8fc
+	bl DWCi_ARClRelease
 	add r5, r5, #1
 	cmp r5, #2
 	blt _0210D5A4
@@ -30345,7 +30345,7 @@ FUN_ov17_0210d5e4: ; 0x0210D5E4
 	ldr r0, [r0, #0x670]
 	mov r5, r2
 	mov r8, r3
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	mov r4, r0
 	strb r6, [r4, #0x2e]
 	mul r1, r6, r5
@@ -30403,7 +30403,7 @@ FUN_ov17_0210d6c0: ; 0x0210D6C0
 	mov r1, r4
 	ldr r0, [r0]
 	ldr r0, [r0, #0x670]
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r4, pc}
 _0210D6E8: .word ov17_021162E0
 	arm_func_end FUN_ov17_0210d6c0
@@ -31932,7 +31932,7 @@ _0210EADC:
 	mov r0, r6
 	mov r2, r5
 	add r1, r1, r7, lsl #10
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r4]
 	add r1, r1, r7, lsl #2
 	add r7, r7, #1
@@ -31993,13 +31993,13 @@ _0210EBA8: .word ov17_02116308
 	arm_func_start FUN_ov17_0210ebac
 FUN_ov17_0210ebac: ; 0x0210EBAC
 	ldr r1, _0210EBC4 ; =0x02116308
-	ldr r12, _0210EBC8 ; =FUN_ov17_0210d158
+	ldr r12, _0210EBC8 ; =DWCi_QUElPopBack
 	ldr r1, [r1]
 	add r0, r1, r0, lsl #2
 	ldr r0, [r0, #0x800]
 	bx r12
 _0210EBC4: .word ov17_02116308
-_0210EBC8: .word FUN_ov17_0210d158
+_0210EBC8: .word DWCi_QUElPopBack
 	arm_func_end FUN_ov17_0210ebac
 
 	arm_func_start DWCi_OBJlDelete
@@ -32018,11 +32018,11 @@ DWCi_OBJlDelete: ; 0x0210EBCC
 	movhs r2, #1
 	add r0, r3, r2, lsl #2
 	ldr r0, [r0, #0x800]
-	ldr r12, _0210EC14 ; =FUN_ov17_0210d100
+	ldr r12, _0210EC14 ; =DWCi_QUElPushBack
 	bx r12
 _0210EC0C: .word 0xC1FFFCFF
 _0210EC10: .word ov17_02116308
-_0210EC14: .word FUN_ov17_0210d100
+_0210EC14: .word DWCi_QUElPushBack
 	arm_func_end DWCi_OBJlDelete
 
 	arm_func_start FUN_ov17_0210ec18
@@ -32055,7 +32055,7 @@ _0210EC60:
 	mov r0, r8
 	mov r2, r11
 	add r1, r1, r10
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r5]
 	add r1, r1, r10
 	str r0, [r1, #0x19c]
@@ -32101,7 +32101,7 @@ FUN_ov17_0210ecf0: ; 0x0210ECF0
 	add r0, r0, r7
 	ldr r0, [r0, #0x19c]
 	mov r8, r3
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	add r1, r5, #3
 	bic r1, r1, #3
 	mov r5, r0
@@ -32205,7 +32205,7 @@ FUN_ov17_0210ee54: ; 0x0210EE54
 	mla r0, r4, r0, r1
 	ldr r0, [r0, #0x19c]
 	mov r1, r5
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r3, r4, r5, pc}
 _0210EE90: .word ov17_0211630C
 	arm_func_end FUN_ov17_0210ee54
@@ -32433,7 +32433,7 @@ _0210F148:
 	mov r0, r10
 	add r1, r1, r9, lsl #6
 	ldr r1, [r1, #0x3c]
-	bl FUN_ov17_0210d0a4
+	bl DWCi_QUElFormEx
 	ldr r1, [r4]
 	str r0, [r1, r9, lsl #6]
 	mov r0, r10
@@ -32532,7 +32532,7 @@ _0210F2BC:
 _0210F2D8:
 	add r0, r4, r0
 	ldr r0, [r0, #4]
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	movs r1, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r6
@@ -32566,7 +32566,7 @@ FUN_ov17_0210f328: ; 0x0210F328
 	ldr r0, [r0, r6, lsl #6]
 	mov r8, r2
 	mov r5, r3
-	bl FUN_ov17_0210d158
+	bl DWCi_QUElPopBack
 	mov r4, r0
 	str r9, [r4, #8]
 	str r8, [r4, #0xc]
@@ -32606,13 +32606,13 @@ FUN_ov17_0210f3b0: ; 0x0210F3B0
 	arm_func_start FUN_ov17_0210f3b8
 FUN_ov17_0210f3b8: ; 0x0210F3B8
 	ldr r2, _0210F3D0 ; =0x02116344
-	ldr r12, _0210F3D4 ; =FUN_ov17_0210d100
+	ldr r12, _0210F3D4 ; =DWCi_QUElPushBack
 	ldr r2, [r2]
 	add r0, r2, r0, lsl #6
 	ldr r0, [r0, #4]
 	bx r12
 _0210F3D0: .word ov17_02116344
-_0210F3D4: .word FUN_ov17_0210d100
+_0210F3D4: .word DWCi_QUElPushBack
 	arm_func_end FUN_ov17_0210f3b8
 
 	arm_func_start DWCi_TSKlDeleteEx
@@ -32639,7 +32639,7 @@ _0210F404:
 	mov r1, r4
 	ldr r0, [r0]
 	ldr r0, [r0, r5, lsl #6]
-	bl FUN_ov17_0210d100
+	bl DWCi_QUElPushBack
 	ldmfd sp!, {r3, r4, r5, pc}
 _0210F424: .word ov17_02116344
 	arm_func_end FUN_ov17_0210f3e4
@@ -33955,8 +33955,8 @@ ov17_021126AC:
 	.global ov17_021126D4
 ov17_021126D4:
 	.byte 0x01, 0x01, 0x00, 0x00, 0x01, 0x01, 0x00, 0x00
-	.global ov17_021126DC
-ov17_021126DC:
+	.global dwc_ARCHIVE_NAME
+dwc_ARCHIVE_NAME:
 	.byte 0x64, 0x77, 0x63, 0x00
 	.global ov17_021126E0
 ov17_021126E0:
@@ -33990,8 +33990,8 @@ aoss_AttrNo:
 	.global aoss_s_sFd
 aoss_s_sFd:
 	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-	.global ov17_0211272C
-ov17_0211272C:
+	.global soconfig
+soconfig:
 	.byte 0x00, 0x00, 0x00, 0x01
 	.byte 0x1D, 0xFE, 0x0E, 0x02, 0x35, 0xFE, 0x0E, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -34005,18 +34005,18 @@ ov17_02112784:
 	.global ov17_02112790
 ov17_02112790:
 	.byte 0x4D, 0x45, 0x4C, 0x43, 0x4F, 0x00, 0x00, 0x00
-	.global ov17_02112798
-ov17_02112798:
+	.global aoss_rateset_table
+aoss_rateset_table:
 	.byte 0x01, 0x00, 0x02, 0x00, 0x02, 0x00, 0x04, 0x00
 	.byte 0x04, 0x00, 0x0B, 0x00, 0x08, 0x00, 0x0C, 0x00, 0x10, 0x00, 0x12, 0x00, 0x20, 0x00, 0x16, 0x00
 	.byte 0x40, 0x00, 0x18, 0x00, 0x80, 0x00, 0x24, 0x00, 0x00, 0x01, 0x30, 0x00, 0x00, 0x02, 0x48, 0x00
 	.byte 0x00, 0x04, 0x60, 0x00, 0x00, 0x08, 0x6C, 0x00
-	.global ov17_021127C8
-ov17_021127C8:
+	.global lpElementData
+lpElementData:
 	.byte 0x6C, 0x51, 0x11, 0x02, 0x01, 0x00, 0x00, 0x00
 	.byte 0x00, 0x08, 0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0x40, 0x00, 0x00, 0x00
-	.global ov17_021127DC
-ov17_021127DC:
+	.global AtermSOConfig
+AtermSOConfig:
 	.byte 0x00, 0x00, 0x00, 0x01
 	.byte 0x65, 0x13, 0x0F, 0x02, 0x95, 0x13, 0x0F, 0x02, 0x00, 0x00, 0x00, 0x00, 0xC0, 0xA8, 0x00, 0xB0
 	.byte 0xFF, 0xFF, 0xFF, 0x00, 0xC0, 0xA8, 0x00, 0xC8, 0xC0, 0xA8, 0x00, 0x20, 0x00, 0x00, 0x00, 0x00
@@ -34024,8 +34024,8 @@ ov17_021127DC:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x3C, 0x28, 0x11, 0x02, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global ov17_02112834
-ov17_02112834:
+	.global gszStealth
+gszStealth:
 	.byte 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x2A, 0x00, 0x00, 0x4E, 0x49, 0x4E, 0x54
 	.byte 0x45, 0x4E, 0x44, 0x4F, 0x2D, 0x44, 0x53, 0x00
 	.global ov17_02112848
@@ -34700,8 +34700,8 @@ ov17_02113C5C:
 	.global aoss_SecurityType
 aoss_SecurityType:
 	.space 0x04
-	.global ov17_02113CA4
-ov17_02113CA4:
+	.global aoss_bssList
+aoss_bssList:
 	.space 0x1C
 	.global ov17_02113CC0
 ov17_02113CC0:
@@ -34712,8 +34712,8 @@ gData:
 	.global aoss_ProductInfo
 aoss_ProductInfo:
 	.space 0x280
-	.global ov17_02113F60
-ov17_02113F60:
+	.global aoss_crc_table
+aoss_crc_table:
 	.space 0x400
 	.global aoss_SecurityInfo
 aoss_SecurityInfo:
@@ -34733,59 +34733,56 @@ ov17_02114638:
 	.global aoss_gSeqID
 aoss_gSeqID:
 	.space 0x08
-	.global ov17_02114A08
-ov17_02114A08:
-	.space 0x02
-	.global ov17_02114A0A
-ov17_02114A0A:
-	.space 0x76
+	.global aoss_TANE
+aoss_TANE:
+	.space 0x78
 	.global AOSSi_Alloc
 AOSSi_Alloc:
 	.space 0x0C
 	.global AOSSi_Free
 AOSSi_Free:
 	.space 0x04
-	.global ov17_02114A90
-ov17_02114A90:
+	.global aoss_msgArray
+aoss_msgArray:
 	.space 0x10
-	.global ov17_02114AA0
-ov17_02114AA0:
+	.global aoss_mq
+aoss_mq:
 	.space 0x20
-	.global ov17_02114AC0
-ov17_02114AC0:
+	.global connect_bssdesc
+connect_bssdesc:
 	.space 0xC0
-	.global ov17_02114B80
-ov17_02114B80:
+	.global wep_buf
+wep_buf:
 	.space 0x60
-	.global ov17_02114BE0
-ov17_02114BE0:
+	.global apci_WCMBuffer
+apci_WCMBuffer:
 	.space 0x28
-	.global ov17_02114C08
-ov17_02114C08:
+	.global apci_bssid_buf
+apci_bssid_buf:
 	.space 0x08
 	.global ov17_02114C10
 ov17_02114C10:
 	.space 0x20
-	.global ov17_02114C30
-ov17_02114C30:
+	.global btAutoResult
+btAutoResult:
 	.space 0x50
 	.global ov17_02114C80
 ov17_02114C80:
 	.space 0x30
-	.global ov17_02114CB0
-ov17_02114CB0:
+	.global apci_user_callback
+apci_user_callback:
 	.space 0x04
-	.global ov17_02114CB4
-ov17_02114CB4:
+	.global atermapc_event_buf
+atermapc_event_buf:
 	.space 0x10
-	.global ov17_02114CC4
-ov17_02114CC4:
+	.global atermapc_AllocLock
+atermapc_AllocLock:
 	.space 0x18
 	.global ov17_02114CDC
 ov17_02114CDC:
 	.space 0xC0
-	.global ov17_02114D9C
-ov17_02114D9C:
+	.global gAtermApConfigParam
+gAtermApConfigParam:
 	.space 0x14
 	.global ov17_02114DB0
 ov17_02114DB0:
@@ -34796,8 +34793,8 @@ ov17_02114DC4:
 	.global ov17_02114E44
 ov17_02114E44:
 	.space 0x40
-	.global ov17_02114E84
-ov17_02114E84:
+	.global atermapc_AutoProfile
+atermapc_AutoProfile:
 	.space 0xEC
 	.global ov17_02114F70
 ov17_02114F70:
@@ -34814,11 +34811,11 @@ ov17_02114FE8:
 	.global ov17_02115080
 ov17_02115080:
 	.space 0x58
-	.global ov17_021150D8
-ov17_021150D8:
+	.global btAdapterMAC
+btAdapterMAC:
 	.space 0x08
-	.global ov17_021150E0
-ov17_021150E0:
+	.global gAPMac
+gAPMac:
 	.space 0x08
 	.global ov17_021150E8
 ov17_021150E8:
@@ -34835,11 +34832,11 @@ ov17_02115108:
 	.global ov17_02115120
 ov17_02115120:
 	.space 0x20
-	.global ov17_02115140
-ov17_02115140:
+	.global gAPSSID
+gAPSSID:
 	.space 0x24
-	.global ov17_02115164
-ov17_02115164:
+	.global atermapc_ElementData
+atermapc_ElementData:
 	.space 0x800
 	.global ov17_02115964
 ov17_02115964:
@@ -35021,8 +35018,8 @@ ov17_021162C0:
 	.global ov17_021162C8
 ov17_021162C8:
 	.space 0x04
-	.global ov17_021162CC
-ov17_021162CC:
+	.global dwc_MemArchive
+dwc_MemArchive:
 	.space 0x04
 	.global ov17_021162D0
 ov17_021162D0:

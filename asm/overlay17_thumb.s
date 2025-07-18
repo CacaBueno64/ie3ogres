@@ -271,8 +271,8 @@ _020EE05A:
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE068:
-	ldr r0, _020EE2DC ; =0x02113CA4
-	bl FUN_ov17_020f0328
+	ldr r0, _020EE2DC ; =aoss_bssList
+	bl AOSSi_WLANGetBSSList
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -316,7 +316,7 @@ _020EE0A8:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE0C4:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -371,7 +371,7 @@ _020EE122:
 _020EE138:
 	ldr r1, [r7, #0xc]
 	add r0, sp, #0x74
-	bl FUN_ov17_020f04a0
+	bl AOSSi_WLANConnect
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -395,7 +395,7 @@ _020EE15C:
 	beq _020EE17A
 _020EE16A:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -421,7 +421,7 @@ _020EE198:
 	mov r1, #0xff
 	mvn r1, r1
 	add r2, r0, #0
-	bl FUN_ov17_020efe44
+	bl AOSS_SetIPAddr
 	cmp r0, #0
 	beq _020EE1C2
 	mov r0, #0xc
@@ -447,7 +447,7 @@ _020EE1C2:
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
-	bl FUN_020eff78
+	bl AOSS_Socket
 	ldr r1, _020EE2E4 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
@@ -467,7 +467,7 @@ _020EE1FC:
 	ldr r1, _020EE2E8 ; =0x0000FFFF
 	mov r2, #1
 	add r3, sp, #0x54
-	bl FUN_ov17_020eff74
+	bl AOSS_Setsockopt
 	cmp r0, #0
 	bge _020EE228
 	mov r0, #0xb
@@ -500,7 +500,7 @@ _020EE228:
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
-	bl FUN_ov17_020eff80
+	bl AOSS_Bind
 	cmp r0, #0
 	bge _020EE26E
 	ldr r1, _020EE2D8 ; =0x00000116
@@ -562,7 +562,7 @@ _020EE2CC: .word 0x0000010A
 _020EE2D0: .word 0x0000010E
 _020EE2D4: .word aoss_SecurityType
 _020EE2D8: .word 0x00000116
-_020EE2DC: .word ov17_02113CA4
+_020EE2DC: .word aoss_bssList
 _020EE2E0: .word 0xC0A80B65
 _020EE2E4: .word aoss_s_sFd
 _020EE2E8: .word 0x0000FFFF
@@ -580,7 +580,7 @@ _020EE302:
 	ldr r0, _020EE634 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
-	bl FUN_ov17_020efe9c
+	bl AOSS_Disconnect
 	cmp r0, #0
 	beq _020EE326
 	ldr r1, _020EE638 ; =0x00000116
@@ -615,8 +615,8 @@ _020EE346:
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE354:
-	ldr r0, _020EE63C ; =0x02113CA4
-	bl FUN_ov17_020f0328
+	ldr r0, _020EE63C ; =aoss_bssList
+	bl AOSSi_WLANGetBSSList
 	mov r1, #0
 	mvn r1, r1
 	str r0, [sp, #0x28]
@@ -661,7 +661,7 @@ _020EE396:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE3B2:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -706,7 +706,7 @@ _020EE3FE:
 _020EE40C:
 	ldr r1, [r5, #0xc]
 	add r0, sp, #0x74
-	bl FUN_ov17_020f04a0
+	bl AOSSi_WLANConnect
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -730,7 +730,7 @@ _020EE430:
 	beq _020EE44E
 _020EE43E:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -755,7 +755,7 @@ _020EE466:
 	ldr r1, [r5, #0x38]
 	add r2, r0, #0
 	str r0, [sp, #0x1c]
-	bl FUN_ov17_020efe44
+	bl AOSS_SetIPAddr
 	cmp r0, #0
 	beq _020EE496
 	mov r0, #0xc
@@ -777,7 +777,7 @@ _020EE496:
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
-	bl FUN_020eff78
+	bl AOSS_Socket
 	ldr r1, _020EE634 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
@@ -797,7 +797,7 @@ _020EE4C6:
 	ldr r1, _020EE644 ; =0x0000FFFF
 	mov r2, #1
 	add r3, sp, #0x54
-	bl FUN_ov17_020eff74
+	bl AOSS_Setsockopt
 	cmp r0, #0
 	bge _020EE4F2
 	mov r0, #0xb
@@ -830,7 +830,7 @@ _020EE4F2:
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
-	bl FUN_ov17_020eff80
+	bl AOSS_Bind
 	cmp r0, #0
 	bge _020EE538
 	ldr r1, _020EE638 ; =0x00000116
@@ -873,11 +873,11 @@ _020EE56E:
 	mov r1, #0
 	bl AOSS_Memset
 	add r0, sp, #0x3c
-	bl FUN_ov17_020f0098
+	bl AOSS_FD_ZERO
 	ldr r0, _020EE634 ; =aoss_s_sFd
 	add r1, sp, #0x3c
 	ldr r0, [r0]
-	bl FUN_ov17_020f00a4
+	bl AOSS_FD_SET
 	ldr r0, [sp, #0x14]
 	mov r2, #0
 	str r0, [sp, #0x34]
@@ -890,7 +890,7 @@ _020EE56E:
 	add r3, r2, #0
 	ldr r0, [r0]
 	add r0, r0, #1
-	bl FUN_ov17_020eff10
+	bl AOSS_Select
 	cmp r0, #0
 	bgt _020EE5E8
 	ldr r0, [sp, #0x50]
@@ -923,7 +923,7 @@ _020EE5D8:
 _020EE5DE:
 	mov r0, #0x2e
 	ldrsh r0, [r1, r0]
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	b _020EE2AC
 _020EE5E8:
 	mov r0, #8
@@ -938,7 +938,7 @@ _020EE5E8:
 	ldr r2, _020EE650 ; =0x000005DC
 	add r1, #0xc
 	mov r3, #0
-	bl FUN_ov17_020efefc
+	bl AOSS_Recvfrom
 	ldr r1, _020EE634 ; =aoss_s_sFd
 	lsl r0, r0, #0x10
 	ldr r2, [r1]
@@ -963,7 +963,7 @@ _020EE5E8:
 	nop
 _020EE634: .word aoss_s_sFd
 _020EE638: .word 0x00000116
-_020EE63C: .word ov17_02113CA4
+_020EE63C: .word aoss_bssList
 _020EE640: .word ov17_02113CC0
 _020EE644: .word 0x0000FFFF
 _020EE648: .word 0x00005790
@@ -995,7 +995,7 @@ _020EE678:
 	ldr r0, _020EE970 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
-	bl FUN_ov17_020efe9c
+	bl AOSS_Disconnect
 	cmp r0, #0
 	beq _020EE69C
 	ldr r1, _020EE974 ; =0x00000116
@@ -1023,8 +1023,8 @@ _020EE6AC:
 	mov r0, #0
 	str r0, [r5, #4]
 _020EE6BA:
-	ldr r0, _020EE97C ; =0x02113CA4
-	bl FUN_ov17_020f0328
+	ldr r0, _020EE97C ; =aoss_bssList
+	bl AOSSi_WLANGetBSSList
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -1068,7 +1068,7 @@ _020EE6FA:
 	pop {r3, r4, r5, r6, r7, pc}
 _020EE716:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -1103,7 +1103,7 @@ _020EE746:
 _020EE75C:
 	ldr r1, [r7, #0xc]
 	add r0, sp, #0x74
-	bl FUN_ov17_020f04a0
+	bl AOSSi_WLANConnect
 	mov r1, #0
 	mvn r1, r1
 	cmp r0, r1
@@ -1127,7 +1127,7 @@ _020EE780:
 	beq _020EE79E
 _020EE78E:
 	add r0, r6, #0
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	add r0, r4, #1
 	lsl r0, r0, #0x10
 	asr r4, r0, #0x10
@@ -1153,7 +1153,7 @@ _020EE7BC:
 	ldr r0, [sp, #0x1c]
 	ldr r1, [r1, #0x38]
 	add r2, r0, #0
-	bl FUN_ov17_020efe44
+	bl AOSS_SetIPAddr
 	cmp r0, #0
 	beq _020EE7E6
 	mov r0, #0xc
@@ -1172,7 +1172,7 @@ _020EE7E6:
 	mov r0, #2
 	add r1, r0, #0
 	mov r2, #0
-	bl FUN_020eff78
+	bl AOSS_Socket
 	ldr r1, _020EE970 ; =aoss_s_sFd
 	cmp r0, #0
 	str r0, [r1]
@@ -1192,7 +1192,7 @@ _020EE810:
 	ldr r1, _020EE980 ; =0x0000FFFF
 	mov r2, #1
 	add r3, sp, #0x54
-	bl FUN_ov17_020eff74
+	bl AOSS_Setsockopt
 	cmp r0, #0
 	bge _020EE83C
 	mov r0, #0xb
@@ -1225,7 +1225,7 @@ _020EE83C:
 	add r1, sp, #0x2c
 	ldr r0, [r0]
 	mov r2, #8
-	bl FUN_ov17_020eff80
+	bl AOSS_Bind
 	cmp r0, #0
 	bge _020EE882
 	ldr r1, _020EE974 ; =0x00000116
@@ -1271,7 +1271,7 @@ _020EE8B6:
 _020EE8BC:
 	mov r0, #0x2e
 	ldrsh r0, [r1, r0]
-	bl FUN_020f0670
+	bl AOSSi_Sleep
 	b _020EE26E
 _020EE8C6:
 	ldr r0, _020EE970 ; =aoss_s_sFd
@@ -1286,7 +1286,7 @@ _020EE8D6:
 	ldr r0, _020EE970 ; =aoss_s_sFd
 	mvn r1, r1
 	str r1, [r0]
-	bl FUN_ov17_020efe9c
+	bl AOSS_Disconnect
 	cmp r0, #0
 	beq _020EE8FA
 	ldr r1, _020EE974 ; =0x00000116
@@ -1367,7 +1367,7 @@ _020EE968:
 _020EE970: .word aoss_s_sFd
 _020EE974: .word 0x00000116
 _020EE978: .word aoss_SecurityType
-_020EE97C: .word ov17_02113CA4
+_020EE97C: .word aoss_bssList
 _020EE980: .word 0x0000FFFF
 _020EE984: .word 0x00005790
 	thumb_func_end AOSS_Init_old
@@ -3591,7 +3591,7 @@ _020EFA88:
 	add r1, r5, #0
 	add r2, r6, #0
 	mov r3, #0
-	bl FUN_ov17_020eff64
+	bl AOSS_Sendto
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFAA0: .word 0x00005790
@@ -3608,7 +3608,7 @@ EncodeRC4: ; 0x020EFAAC
 	add r4, r3, #0
 	add r1, r5, #0
 	add r6, r0, #0
-	bl FUN_ov17_020efc80
+	bl aoss_crc
 	strb r0, [r4]
 	add r0, r5, #0
 	bl AOSS_MALLOC
@@ -3627,32 +3627,32 @@ _020EFAD4:
 	add r1, sp, #0
 	mov r2, #2
 	bl AOSS_Memcpy
-	ldr r0, _020EFB20 ; =0x02114A08
+	ldr r0, _020EFB20 ; =aoss_TANE
 	ldr r1, [sp, #0x28]
 	mov r2, #2
 	bl AOSS_Memcpy
-	ldr r0, _020EFB24 ; =0x02114A0A
+	ldr r0, _020EFB24 ; =aoss_TANE + 2
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x30]
 	bl AOSS_Memcpy
 	ldr r2, [sp, #0x30]
-	ldr r1, _020EFB20 ; =0x02114A08
+	ldr r1, _020EFB20 ; =aoss_TANE
 	add r0, sp, #4
 	add r2, r2, #2
 	add r3, r5, #0
-	bl FUN_ov17_020efbb0
+	bl RC4init
 	add r0, sp, #4
 	add r1, r7, #0
 	add r2, r6, #0
 	add r3, r5, #0
-	bl FUN_ov17_020efc14
+	bl RC4encrypt
 	ldr r0, [sp, #0xc]
 	bl AOSS_FREE
 	mov r0, #0
 	add sp, #0x14
 	pop {r4, r5, r6, r7, pc}
-_020EFB20: .word ov17_02114A08
-_020EFB24: .word ov17_02114A0A
+_020EFB20: .word aoss_TANE
+_020EFB24: .word aoss_TANE + 2
 	thumb_func_end EncodeRC4
 
 	thumb_func_start DecodeRC4
@@ -3675,28 +3675,28 @@ DecodeRC4: ; 0x020EFB28
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 _020EFB4E:
-	ldr r0, _020EFBA8 ; =0x02114A08
+	ldr r0, _020EFBA8 ; =aoss_TANE
 	ldr r1, [sp, #0x28]
 	mov r2, #2
 	bl AOSS_Memcpy
-	ldr r0, _020EFBAC ; =0x02114A0A
+	ldr r0, _020EFBAC ; =aoss_TANE + 2
 	ldr r1, [sp, #0x2c]
 	ldr r2, [sp, #0x30]
 	bl AOSS_Memcpy
 	ldr r2, [sp, #0x30]
-	ldr r1, _020EFBA8 ; =0x02114A08
+	ldr r1, _020EFBA8 ; =aoss_TANE
 	add r0, sp, #0
 	add r2, r2, #2
 	add r3, r4, #0
-	bl FUN_ov17_020efbb0
+	bl RC4init
 	add r0, sp, #0
 	add r1, r5, #0
 	add r2, r7, #0
 	add r3, r4, #0
-	bl FUN_ov17_020efc14
+	bl RC4encrypt
 	add r0, r5, #0
 	add r1, r4, #0
-	bl FUN_ov17_020efc80
+	bl aoss_crc
 	cmp r0, r6
 	beq _020EFB9C
 	mov r0, #0x12
@@ -3713,12 +3713,12 @@ _020EFB9C:
 	mov r0, #0
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
-_020EFBA8: .word ov17_02114A08
-_020EFBAC: .word ov17_02114A0A
+_020EFBA8: .word aoss_TANE
+_020EFBAC: .word aoss_TANE + 2
 	thumb_func_end DecodeRC4
 
-	thumb_func_start FUN_ov17_020efbb0
-FUN_ov17_020efbb0: ; 0x020EFBB0
+	thumb_func_start RC4init
+RC4init: ; 0x020EFBB0
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	str r0, [sp]
@@ -3772,10 +3772,10 @@ _020EFC06:
 _020EFC0E:
 	add sp, #0x10
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efbb0
+	thumb_func_end RC4init
 
-	thumb_func_start FUN_ov17_020efc14
-FUN_ov17_020efc14: ; 0x020EFC14
+	thumb_func_start RC4encrypt
+RC4encrypt: ; 0x020EFC14
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
 	add r5, r1, #0
@@ -3785,7 +3785,7 @@ FUN_ov17_020efc14: ; 0x020EFC14
 	beq _020EFC38
 _020EFC22:
 	ldr r0, [sp]
-	bl FUN_ov17_020efc40
+	bl aoss_arcfour_byte
 	lsl r0, r0, #0x18
 	lsr r1, r0, #0x18
 	ldrb r0, [r6, r4]
@@ -3798,10 +3798,10 @@ _020EFC38:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _020EFC3C: .word 0x00000000
-	thumb_func_end FUN_ov17_020efc14
+	thumb_func_end RC4encrypt
 
-	thumb_func_start FUN_ov17_020efc40
-FUN_ov17_020efc40: ; 0x020EFC40
+	thumb_func_start aoss_arcfour_byte
+aoss_arcfour_byte: ; 0x020EFC40
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldr r0, [r5, #0xc]
@@ -3830,20 +3830,20 @@ FUN_ov17_020efc40: ; 0x020EFC40
 	blx _u32_div_f
 	ldrb r0, [r4, r1]
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efc40
+	thumb_func_end aoss_arcfour_byte
 
-	thumb_func_start FUN_ov17_020efc80
-FUN_ov17_020efc80: ; 0x020EFC80
+	thumb_func_start aoss_crc
+aoss_crc: ; 0x020EFC80
 	push {r3, lr}
 	add r3, r0, #0
-	ldr r0, _020EFCA4 ; =0x02113F60
+	ldr r0, _020EFCA4 ; =aoss_crc_table
 	add r2, r1, #0
 	str r0, [sp]
 	mov r0, #0
 	add r1, r3, #0
 	mvn r0, r0
 	mov r3, #0
-	bl FUN_ov17_020efca8
+	bl aoss_update_crc
 	mov r1, #0
 	mvn r1, r1
 	eor r0, r1
@@ -3851,11 +3851,11 @@ FUN_ov17_020efc80: ; 0x020EFC80
 	lsr r0, r0, #0x18
 	pop {r3, pc}
 	nop
-_020EFCA4: .word ov17_02113F60
-	thumb_func_end FUN_ov17_020efc80
+_020EFCA4: .word aoss_crc_table
+	thumb_func_end aoss_crc
 
-	thumb_func_start FUN_ov17_020efca8
-FUN_ov17_020efca8: ; 0x020EFCA8
+	thumb_func_start aoss_update_crc
+aoss_update_crc: ; 0x020EFCA8
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r7, r1, #0
@@ -3865,7 +3865,7 @@ FUN_ov17_020efca8: ; 0x020EFCA8
 	bne _020EFCBE
 	add r0, r3, #0
 	add r1, r6, #0
-	bl FUN_ov17_020efce0
+	bl aoss_make_crc_table
 _020EFCBE:
 	mov r1, #0
 	cmp r4, #0
@@ -3885,10 +3885,10 @@ _020EFCC4:
 _020EFCDA:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efca8
+	thumb_func_end aoss_update_crc
 
-	thumb_func_start FUN_ov17_020efce0
-FUN_ov17_020efce0: ; 0x020EFCE0
+	thumb_func_start aoss_make_crc_table
+aoss_make_crc_table: ; 0x020EFCE0
 	push {r4, r5, r6, r7}
 	mov r5, #1
 	add r3, r5, #0
@@ -3920,7 +3920,7 @@ _020EFD00:
 	bx lr
 	nop
 _020EFD14: .word 0xEDB88320
-	thumb_func_end FUN_ov17_020efce0
+	thumb_func_end aoss_make_crc_table
 
 	thumb_func_start aoss_CryptSeqNo
 aoss_CryptSeqNo: ; 0x020EFD18
@@ -3961,15 +3961,15 @@ _020EFD56:
 	add r0, r4, #0
 	add r1, r6, #0
 	add r2, r5, #0
-	bl FUN_ov17_020efd94
+	bl aoss_MakeKey
 	add r0, r6, #0
 	add r1, r7, #0
 	add r2, r5, #0
-	bl FUN_ov17_020efdc8
+	bl aoss_AddKey
 	ldr r2, [sp, #0xc]
 	add r0, r7, #0
 	add r1, r5, #0
-	bl FUN_ov17_020efdec
+	bl aoss_Rotate
 	add r4, r4, #1
 	cmp r4, #2
 	blt _020EFD56
@@ -3982,8 +3982,8 @@ _020EFD56:
 	pop {r3, r4, r5, r6, r7, pc}
 	thumb_func_end aoss_CryptSeqNo
 
-	thumb_func_start FUN_ov17_020efd94
-FUN_ov17_020efd94: ; 0x020EFD94
+	thumb_func_start aoss_MakeKey
+aoss_MakeKey: ; 0x020EFD94
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	lsr r1, r2, #0x1f
@@ -4012,10 +4012,10 @@ _020EFDC0:
 	blt _020EFDAE
 _020EFDC6:
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efd94
+	thumb_func_end aoss_MakeKey
 
-	thumb_func_start FUN_ov17_020efdc8
-FUN_ov17_020efdc8: ; 0x020EFDC8
+	thumb_func_start aoss_AddKey
+aoss_AddKey: ; 0x020EFDC8
 	push {r4, r5}
 	lsr r3, r2, #0x1f
 	add r3, r2, r3
@@ -4036,10 +4036,10 @@ _020EFDD8:
 _020EFDE8:
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020efdc8
+	thumb_func_end aoss_AddKey
 
-	thumb_func_start FUN_ov17_020efdec
-FUN_ov17_020efdec: ; 0x020EFDEC
+	thumb_func_start aoss_Rotate
+aoss_Rotate: ; 0x020EFDEC
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r1, #0
 	add r5, r0, #0
@@ -4060,10 +4060,10 @@ FUN_ov17_020efdec: ; 0x020EFDEC
 	add r2, r6, #0
 	bl AOSS_Memcpy
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020efdec
+	thumb_func_end aoss_Rotate
 
-	thumb_func_start FUN_ov17_020efe1c
-FUN_ov17_020efe1c:
+	thumb_func_start aoss_Alloc
+aoss_Alloc:
 	push {r3, lr}
 	cmp r1, #0x0
 	ble _020EFE2C
@@ -4076,10 +4076,10 @@ _020EFE2C:
 	mov r0,#0x0
 	pop {r3, pc}
 _020EFE30: .word AOSSi_Alloc
-	thumb_func_end FUN_ov17_020efe1c
+	thumb_func_end aoss_Alloc
 
-	thumb_func_start FUN_ov17_020efe34
-FUN_ov17_020efe34:
+	thumb_func_start aoss_Free
+aoss_Free:
 	push {r3, lr}
 	add r0, r1, #0x0
 	ldr r1, _020EFE40 ; =AOSSi_Free
@@ -4087,10 +4087,10 @@ FUN_ov17_020efe34:
 	blx r1
 	pop {r3, pc}
 _020EFE40: .word AOSSi_Free
-	thumb_func_end FUN_ov17_020efe34
+	thumb_func_end aoss_Free
 
-	thumb_func_start FUN_ov17_020efe44
-FUN_ov17_020efe44: ; 0x020EFE44
+	thumb_func_start AOSS_SetIPAddr
+AOSS_SetIPAddr: ; 0x020EFE44
 	push {r3, r4, r5, lr}
 	add r5, r1, #0
 	add r4, r2, #0
@@ -4105,7 +4105,7 @@ FUN_ov17_020efe44: ; 0x020EFE44
 	bl AOSS_Htonl
 	ldr r1, _020EFE90 ; =aoss_s_sFd
 	str r0, [r1, #0x20]
-	ldr r0, _020EFE94 ; =0x0211272C
+	ldr r0, _020EFE94 ; =soconfig
 	blx SOC_Startup
 	cmp r0, #0
 	bge _020EFE76
@@ -4113,7 +4113,7 @@ FUN_ov17_020efe44: ; 0x020EFE44
 	mvn r0, r0
 	pop {r3, r4, r5, pc}
 _020EFE76:
-	ldr r5, _020EFE98 ; =0x020E6D90
+	ldr r5, _020EFE98 ; =CPSMyIp
 	ldr r0, [r5]
 	cmp r0, #0
 	bne _020EFE8C
@@ -4128,12 +4128,12 @@ _020EFE8C:
 	mov r0, #0
 	pop {r3, r4, r5, pc}
 _020EFE90: .word aoss_s_sFd
-_020EFE94: .word ov17_0211272C
-_020EFE98: .word 0x020E6D90
-	thumb_func_end FUN_ov17_020efe44
+_020EFE94: .word soconfig
+_020EFE98: .word CPSMyIp
+	thumb_func_end AOSS_SetIPAddr
 
-	thumb_func_start FUN_ov17_020efe9c
-FUN_ov17_020efe9c: ; 0x020EFE9C
+	thumb_func_start AOSS_Disconnect
+AOSS_Disconnect: ; 0x020EFE9C
 	push {r3, lr}
 	blx SOC_Cleanup
 	cmp r0, #0
@@ -4142,7 +4142,7 @@ FUN_ov17_020efe9c: ; 0x020EFE9C
 	mvn r0, r0
 	pop {r3, pc}
 _020EFEAC:
-	bl FUN_ov17_020f02f0
+	bl AOSSi_Disconnect
 	cmp r0, #0
 	beq _020EFEB8
 	mov r0, #1
@@ -4152,7 +4152,7 @@ _020EFEB8:
 _020EFEBA:
 	neg r0, r0
 	pop {r3, pc}
-	thumb_func_end FUN_ov17_020efe9c
+	thumb_func_end AOSS_Disconnect
 
 	thumb_func_start AOSS_Memcmp
 AOSS_Memcmp: ; 0x020EFEC0
@@ -4197,8 +4197,8 @@ AOSS_Memset: ; 0x020EFEF0
 _020EFEF8: .word MI_CpuFill8
 	thumb_func_end AOSS_Memset
 
-	thumb_func_start FUN_ov17_020efefc
-FUN_ov17_020efefc: ; 0x020EFEFC
+	thumb_func_start AOSS_Recvfrom
+AOSS_Recvfrom: ; 0x020EFEFC
 	push {r3, r4, r5, lr}
 	ldr r4, [sp, #0x14]
 	ldr r5, [r4]
@@ -4207,10 +4207,10 @@ FUN_ov17_020efefc: ; 0x020EFEFC
 	str r4, [sp]
 	blx SOC_RecvFrom
 	pop {r3, r4, r5, pc}
-	thumb_func_end FUN_ov17_020efefc
+	thumb_func_end AOSS_Recvfrom
 
-	thumb_func_start FUN_ov17_020eff10
-FUN_ov17_020eff10: ; 0x020EFF10
+	thumb_func_start AOSS_Select
+AOSS_Select: ; 0x020EFF10
 	push {r4, r5, r6, lr}
 	sub sp, #8
 	ldr r2, [r1]
@@ -4249,10 +4249,10 @@ FUN_ov17_020eff10: ; 0x020EFF10
 	pop {r4, r5, r6, pc}
 	nop
 _020EFF60: .word 0x01FF6210
-	thumb_func_end FUN_ov17_020eff10
+	thumb_func_end AOSS_Select
 
-	thumb_func_start FUN_ov17_020eff64
-FUN_ov17_020eff64: ; 0x020EFF64
+	thumb_func_start AOSS_Sendto
+AOSS_Sendto: ; 0x020EFF64
 	push {r3, r4, r5, lr}
 	ldr r5, [sp, #0x14]
 	ldr r4, [sp, #0x10]
@@ -4260,28 +4260,28 @@ FUN_ov17_020eff64: ; 0x020EFF64
 	str r4, [sp]
 	blx SOC_SendTo
 	pop {r3, r4, r5, pc}
-	thumb_func_end FUN_ov17_020eff64
+	thumb_func_end AOSS_Sendto
 
-	thumb_func_start FUN_ov17_020eff74
-FUN_ov17_020eff74: ; 0x020EFF74
+	thumb_func_start AOSS_Setsockopt
+AOSS_Setsockopt: ; 0x020EFF74
 	bx lr
-	thumb_func_end FUN_ov17_020eff74
+	thumb_func_end AOSS_Setsockopt
 
-	thumb_func_start FUN_020eff78
-FUN_020eff78: ; 0x020EFF78
+	thumb_func_start AOSS_Socket
+AOSS_Socket: ; 0x020EFF78
 	ldr r3, _020EFF7C ; = SOC_Socket
 	bx r3
 _020EFF7C: .word  SOC_Socket
-	thumb_func_end FUN_020eff78
+	thumb_func_end AOSS_Socket
 
-	thumb_func_start FUN_ov17_020eff80
-FUN_ov17_020eff80: ; 0x020EFF80
+	thumb_func_start AOSS_Bind
+AOSS_Bind: ; 0x020EFF80
 	ldr r3, _020EFF88 ; = SOC_Bind
 	strb r2, [r1]
 	bx r3
 	nop
 _020EFF88: .word  SOC_Bind
-	thumb_func_end FUN_ov17_020eff80
+	thumb_func_end AOSS_Bind
 
 	thumb_func_start AOSS_Close
 AOSS_Close: ; 0x020EFF8C
@@ -4440,25 +4440,25 @@ _020F0090: .word 0x00269EC3
 _020F0094: .word 0x00007FFF
 	thumb_func_end AOSS_Rand
 
-	thumb_func_start FUN_ov17_020f0098
-FUN_ov17_020f0098: ; 0x020F0098
+	thumb_func_start AOSS_FD_ZERO
+AOSS_FD_ZERO: ; 0x020F0098
 	mov r1, #0
 	str r1, [r0]
 	strh r1, [r0, #4]
 	strh r1, [r0, #6]
 	bx lr
-	thumb_func_end FUN_ov17_020f0098
+	thumb_func_end AOSS_FD_ZERO
 
-	thumb_func_start FUN_ov17_020f00a4
-FUN_ov17_020f00a4: ; 0x020F00A4
+	thumb_func_start AOSS_FD_SET
+AOSS_FD_SET: ; 0x020F00A4
 	str r0, [r1]
 	mov r0, #1
 	strh r0, [r1, #4]
 	bx lr
-	thumb_func_end FUN_ov17_020f00a4
+	thumb_func_end AOSS_FD_SET
 
-	thumb_func_start FUN_ov17_020f00ac
-FUN_ov17_020f00ac: ; 0x020F00AC
+	thumb_func_start Set_WLLA_BSS_INFO
+Set_WLLA_BSS_INFO: ; 0x020F00AC
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	ldrh r0, [r5, #0xa]
@@ -4477,7 +4477,7 @@ FUN_ov17_020f00ac: ; 0x020F00AC
 	mov r2, #6
 	blx MIi_CpuCopy16
 	mov r1, #0
-	ldr r2, _020F0134 ; =0x02112798
+	ldr r2, _020F0134 ; =aoss_rateset_table
 	add r0, r1, #0
 	mov r6, #0x80
 _020F00DA:
@@ -4530,11 +4530,11 @@ _020F012C:
 	str r0, [r4, #0x50]
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F0134: .word ov17_02112798
-	thumb_func_end FUN_ov17_020f00ac
+_020F0134: .word aoss_rateset_table
+	thumb_func_end Set_WLLA_BSS_INFO
 
-	thumb_func_start FUN_ov17_020f0138
-FUN_ov17_020f0138: ; 0x020F0138
+	thumb_func_start Get_WLLA_SSID_PARAM
+Get_WLLA_SSID_PARAM: ; 0x020F0138
 	push {r3, r4, r5, lr}
 	add r5, r0, #0
 	add r4, r1, #0
@@ -4550,50 +4550,50 @@ FUN_ov17_020f0138: ; 0x020F0138
 	add r1, #0xc
 	blx MI_CpuCopy8
 	pop {r3, r4, r5, pc}
-	thumb_func_end FUN_ov17_020f0138
+	thumb_func_end Get_WLLA_SSID_PARAM
 
-	thumb_func_start FUN_ov17_020f015c
-FUN_ov17_020f015c: ; 0x020F015C
+	thumb_func_start Set_WLLA_LINK_STAT
+Set_WLLA_LINK_STAT: ; 0x020F015C
 	add r3, r0, #0
 	add r0, r1, #0
 	str r2, [r3]
 	add r1, r3, #4
-	ldr r3, _020F0168 ; =FUN_ov17_020f00ac
+	ldr r3, _020F0168 ; =Set_WLLA_BSS_INFO
 	bx r3
-_020F0168: .word FUN_ov17_020f00ac
-	thumb_func_end FUN_ov17_020f015c
+_020F0168: .word Set_WLLA_BSS_INFO
+	thumb_func_end Set_WLLA_LINK_STAT
 
-	thumb_func_start FUN_ov17_020f016c
-FUN_ov17_020f016c: ; 0x020F016C
+	thumb_func_start aoss_apc_callback
+aoss_apc_callback: ; 0x020F016C
 	ldr r3, _020F0178 ; =OS_SendMessage
 	add r1, r0, #0
-	ldr r0, _020F017C ; =0x02114AA0
+	ldr r0, _020F017C ; =aoss_mq
 	mov r2, #0
 	bx r3
 	nop
 _020F0178: .word OS_SendMessage
-_020F017C: .word ov17_02114AA0
-	thumb_func_end FUN_ov17_020f016c
+_020F017C: .word aoss_mq
+	thumb_func_end aoss_apc_callback
 
-	thumb_func_start FUN_overlay_d_17__020f0180
-FUN_overlay_d_17__020f0180:
+	thumb_func_start aosslink_alarmCallback
+aosslink_alarmCallback: ; 0x020F0181
 	ldr r3, _020F018C ; =OS_SendMessage
 	add r1, r0, #0x0
-	ldr r0, _020F0190 ; =0x02114AA0
+	ldr r0, _020F0190 ; =aoss_mq
 	mov r2, #0x0
 	bx r3
 	nop
 _020F018C: .word OS_SendMessage
-_020F0190: .word ov17_02114AA0
-	thumb_func_end FUN_overlay_d_17__020f0180
+_020F0190: .word aoss_mq
+	thumb_func_end aosslink_alarmCallback
 
-	thumb_func_start FUN_ov17_020f0194
-FUN_ov17_020f0194: ; 0x020F0194
+	thumb_func_start AOSSi_InitLocal
+AOSSi_InitLocal: ; 0x020F0194
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r6, r1, #0
-	ldr r0, _020F0244 ; =0x02114AA0
-	ldr r1, _020F0248 ; =0x02114A90
+	ldr r0, _020F0244 ; =aoss_mq
+	ldr r1, _020F0248 ; =aoss_msgArray
 	mov r2, #4
 	mov r4, #1
 	blx OS_InitMessageQueue
@@ -4622,16 +4622,16 @@ _020F01B4:
 	sub r0, r4, #2
 	pop {r3, r4, r5, r6, r7, pc}
 _020F01D6:
-	ldr r0, _020F0254 ; =FUN_ov17_020f016c
+	ldr r0, _020F0254 ; =aoss_apc_callback
 	ldr r2, _020F0250 ; =0x00005890
-	bl FUN_ov17_020f0c30
+	bl APC_Init
 	cmp r0, #0
 	bne _020F01E4
 	mov r4, #0
 _020F01E4:
 	cmp r4, #0
 	beq _020F0234
-	ldr r5, _020F0244 ; =0x02114AA0
+	ldr r5, _020F0244 ; =aoss_mq
 	add r6, sp, #0
 	mov r7, #1
 _020F01EE:
@@ -4682,15 +4682,15 @@ _020F0234:
 	mvn r0, r0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F0244: .word ov17_02114AA0
-_020F0248: .word ov17_02114A90
+_020F0244: .word aoss_mq
+_020F0248: .word aoss_msgArray
 _020F024C: .word AOSSi_Alloc
 _020F0250: .word 0x00005890
-_020F0254: .word FUN_ov17_020f016c
-	thumb_func_end FUN_ov17_020f0194
+_020F0254: .word aoss_apc_callback
+	thumb_func_end AOSSi_InitLocal
 
-	thumb_func_start FUN_ov17_020f0258
-FUN_ov17_020f0258: ; 0x020F0258
+	thumb_func_start AOSSi_EndLocal
+AOSSi_EndLocal: ; 0x020F0258
 	push {r3, r4, r5, r6, r7, lr}
 	ldr r0, _020F02E8 ; =AOSSi_Alloc
 	mov r4, #1
@@ -4701,13 +4701,13 @@ FUN_ov17_020f0258: ; 0x020F0258
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020F026A:
-	bl FUN_ov17_020f0b54
+	bl APC_End
 	cmp r0, #0
 	bne _020F0276
 	sub r0, r4, #2
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0276:
-	ldr r7, _020F02EC ; =0x02114AA0
+	ldr r7, _020F02EC ; =aoss_mq
 	ldr r6, _020F02E8 ; =AOSSi_Alloc
 _020F027A:
 	add r0, r7, #0
@@ -4767,18 +4767,18 @@ _020F02CE:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _020F02E8: .word AOSSi_Alloc
-_020F02EC: .word ov17_02114AA0
-	thumb_func_end FUN_ov17_020f0258
+_020F02EC: .word aoss_mq
+	thumb_func_end AOSSi_EndLocal
 
-	thumb_func_start FUN_ov17_020f02f0
-FUN_ov17_020f02f0: ; 0x020F02F0
+	thumb_func_start AOSSi_Disconnect
+AOSSi_Disconnect: ; 0x020F02F0
 	push {r3, r4, r5, r6, r7, lr}
 	mov r5, #0
 	mvn r5, r5
-	bl FUN_ov17_020f0b1c
+	bl APC_Disconnect
 	cmp r0, #0
 	beq _020F0320
-	ldr r4, _020F0324 ; =0x02114AA0
+	ldr r4, _020F0324 ; =aoss_mq
 	add r6, sp, #0
 	mov r7, #1
 _020F0304:
@@ -4800,11 +4800,11 @@ _020F031C:
 _020F0320:
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020F0324: .word ov17_02114AA0
-	thumb_func_end FUN_ov17_020f02f0
+_020F0324: .word aoss_mq
+	thumb_func_end AOSSi_Disconnect
 
-	thumb_func_start FUN_ov17_020f0328
-FUN_ov17_020f0328: ; 0x020F0328
+	thumb_func_start AOSSi_WLANGetBSSList
+AOSSi_WLANGetBSSList: ; 0x020F0328
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x44
 	str r0, [sp, #4]
@@ -4843,7 +4843,7 @@ _020F0364:
 	add r1, r0, #0
 	add r2, r0, #0
 	str r4, [sp, #8]
-	bl FUN_ov17_020f09f0
+	bl APC_SearchStart
 	cmp r0, #0
 	bne _020F0378
 	b _020F047C
@@ -4853,12 +4853,12 @@ _020F0378:
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F0494 ; =0x003FEC42
-	ldr r3, _020F0498 ; =0x020F0181
+	ldr r3, _020F0498 ; =aosslink_alarmCallback
 	add r0, sp, #0x18
 	add r2, r6, #0
 	blx OS_SetAlarm
 _020F038E:
-	ldr r0, _020F049C ; =0x02114AA0
+	ldr r0, _020F049C ; =aoss_mq
 	add r1, sp, #0x14
 	mov r2, #1
 	blx OS_ReceiveMessage
@@ -4899,10 +4899,10 @@ _020F03D2:
 	beq _020F03E4
 	add r0, r4, #0
 	mov r1, #0x40
-	bl FUN_ov17_020f09ac
+	bl APC_GetAPList
 	add r7, r0, #0
 _020F03E4:
-	bl FUN_ov17_020f0ae0
+	bl APC_SearchEnd
 	cmp r0, #0
 	beq _020F0462
 	mov r6, #1
@@ -4917,9 +4917,9 @@ _020F03F0:
 _020F03FC:
 	add r0, r4, #0
 	mov r1, #0x40
-	bl FUN_ov17_020f09ac
+	bl APC_GetAPList
 	add r7, r0, #0
-	bl FUN_ov17_020f0ae0
+	bl APC_SearchEnd
 	cmp r0, #0
 	beq _020F0462
 	mov r6, #1
@@ -4962,7 +4962,7 @@ _020F0442:
 _020F0450:
 	add r0, r4, #0
 	add r1, r5, #0
-	bl FUN_ov17_020f00ac
+	bl Set_WLLA_BSS_INFO
 	add r6, r6, #1
 	add r4, #0xc0
 	add r5, #0x54
@@ -4971,7 +4971,7 @@ _020F0450:
 _020F0462:
 	add r0, sp, #0x18
 	blx OS_CancelAlarm
-	ldr r5, _020F049C ; =0x02114AA0
+	ldr r5, _020F049C ; =aoss_mq
 	add r4, sp, #0x14
 	mov r6, #0
 _020F046E:
@@ -4993,12 +4993,12 @@ _020F047C:
 _020F048C: .word AOSSi_Alloc
 _020F0490: .word 0x0030BFFE
 _020F0494: .word 0x003FEC42
-_020F0498: .word 0x020F0181
-_020F049C: .word ov17_02114AA0
-	thumb_func_end FUN_ov17_020f0328
+_020F0498: .word aosslink_alarmCallback
+_020F049C: .word aoss_mq
+	thumb_func_end AOSSi_WLANGetBSSList
 
-	thumb_func_start FUN_ov17_020f04a0
-FUN_ov17_020f04a0: ; 0x020F04A0
+	thumb_func_start AOSSi_WLANConnect
+AOSSi_WLANConnect: ; 0x020F04A0
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x40
 	mov r4, #1
@@ -5021,28 +5021,28 @@ _020F04C2:
 	mov r0, #3
 	lsl r0, r0, #0x10
 	orr r5, r0
-	ldr r0, _020F0654 ; =0x02114B80
+	ldr r0, _020F0654 ; =wep_buf
 	mov r1, #0
 	mov r2, #0x60
 	blx MI_CpuFill8
 	ldr r0, [r7, #0x28]
 	cmp r0, #5
 	bne _020F04E0
-	ldr r0, _020F0654 ; =0x02114B80
+	ldr r0, _020F0654 ; =wep_buf
 	mov r1, #1
 	strb r1, [r0]
 	b _020F0500
 _020F04E0:
 	cmp r0, #0xd
 	bne _020F04EC
-	ldr r0, _020F0654 ; =0x02114B80
+	ldr r0, _020F0654 ; =wep_buf
 	mov r1, #2
 	strb r1, [r0]
 	b _020F0500
 _020F04EC:
 	cmp r0, #0x10
 	bne _020F04F8
-	ldr r0, _020F0654 ; =0x02114B80
+	ldr r0, _020F0654 ; =wep_buf
 	mov r1, #3
 	strb r1, [r0]
 	b _020F0500
@@ -5053,7 +5053,7 @@ _020F04F8:
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0500:
 	mov r1, #0x14
-	ldr r2, _020F0654 ; =0x02114B80
+	ldr r2, _020F0654 ; =wep_buf
 	mul r1, r6
 	add r1, r1, #2
 	add r0, r7, #0
@@ -5067,7 +5067,7 @@ _020F0500:
 	ldr r3, _020F0658 ; =0x0030BFFE
 	mov r0, #0
 	add r1, r7, #4
-	bl FUN_ov17_020f09f0
+	bl APC_SearchStart
 	cmp r0, #0
 	bne _020F052C
 	b _020F063A
@@ -5079,13 +5079,13 @@ _020F052C:
 	mov r0, #0x12
 	str r0, [sp]
 	ldr r1, _020F065C ; =0x003FEC42
-	ldr r3, _020F0660 ; =0x020F0181
+	ldr r3, _020F0660 ; =aosslink_alarmCallback
 	add r0, sp, #0x14
 	mov r2, #0
 	blx OS_SetAlarm
 	b _020F061C
 _020F0548:
-	ldr r0, _020F0664 ; =0x02114AA0
+	ldr r0, _020F0664 ; =aoss_mq
 	add r1, sp, #0x10
 	mov r2, #1
 	blx OS_ReceiveMessage
@@ -5130,18 +5130,18 @@ _020F0594:
 	bne _020F061C
 	add r0, sp, #0x14
 	blx OS_CancelAlarm
-	ldr r0, _020F0668 ; =0x02114AC0
+	ldr r0, _020F0668 ; =connect_bssdesc
 	mov r1, #1
-	bl FUN_ov17_020f09ac
+	bl APC_GetAPList
 	cmp r0, #1
 	beq _020F05AE
 	mov r4, #0
 	b _020F061C
 _020F05AE:
-	ldr r1, _020F0668 ; =0x02114AC0
+	ldr r1, _020F0668 ; =connect_bssdesc
 	add r0, r7, #0
-	bl FUN_ov17_020f0138
-	ldr r1, _020F066C ; =0x02114AC0
+	bl Get_WLLA_SSID_PARAM
+	ldr r1, _020F066C ; =connect_bssdesc
 	mov r0, #0
 	ldrh r1, [r1, #0xa]
 	b _020F05C0
@@ -5150,10 +5150,10 @@ _020F05BE:
 _020F05C0:
 	cmp r0, r1
 	blt _020F05BE
-	ldr r0, _020F0668 ; =0x02114AC0
-	ldr r1, _020F0654 ; =0x02114B80
+	ldr r0, _020F0668 ; =connect_bssdesc
+	ldr r1, _020F0654 ; =wep_buf
 	add r2, r5, #0
-	bl FUN_020f0bac
+	bl APC_Connect
 	cmp r0, #0
 	bne _020F05D6
 	mov r4, #0
@@ -5162,13 +5162,13 @@ _020F05D6:
 	mov r6, #1
 	b _020F061C
 _020F05DA:
-	ldr r1, _020F0668 ; =0x02114AC0
+	ldr r1, _020F0668 ; =connect_bssdesc
 	add r0, r7, #0
-	bl FUN_ov17_020f0138
-	ldr r0, _020F0668 ; =0x02114AC0
-	ldr r1, _020F0654 ; =0x02114B80
+	bl Get_WLLA_SSID_PARAM
+	ldr r0, _020F0668 ; =connect_bssdesc
+	ldr r1, _020F0654 ; =wep_buf
 	add r2, r5, #0
-	bl FUN_020f0bac
+	bl APC_Connect
 	cmp r0, #0
 	bne _020F061C
 	mov r4, #0
@@ -5183,10 +5183,10 @@ _020F05FA:
 	str r0, [sp, #8]
 	cmp r0, #3
 	bge _020F0616
-	ldr r0, _020F0668 ; =0x02114AC0
-	ldr r1, _020F0654 ; =0x02114B80
+	ldr r0, _020F0668 ; =connect_bssdesc
+	ldr r1, _020F0654 ; =wep_buf
 	add r2, r5, #0
-	bl FUN_020f0bac
+	bl APC_Connect
 	cmp r0, #0
 	bne _020F061C
 	mov r4, #0
@@ -5201,7 +5201,7 @@ _020F061C:
 	bne _020F0548
 	add r0, sp, #0x14
 	blx OS_CancelAlarm
-	ldr r5, _020F0664 ; =0x02114AA0
+	ldr r5, _020F0664 ; =aoss_mq
 	add r4, sp, #0x10
 	mov r6, #0
 _020F062C:
@@ -5221,26 +5221,26 @@ _020F0644:
 	mov r2, #0
 _020F0646:
 	ldr r0, [sp, #4]
-	ldr r1, _020F0668 ; =0x02114AC0
-	bl FUN_ov17_020f015c
+	ldr r1, _020F0668 ; =connect_bssdesc
+	bl Set_WLLA_LINK_STAT
 	ldr r0, [sp, #0xc]
 	add sp, #0x40
 	pop {r3, r4, r5, r6, r7, pc}
-_020F0654: .word ov17_02114B80
+_020F0654: .word wep_buf
 _020F0658: .word 0x0030BFFE
 _020F065C: .word 0x003FEC42
-_020F0660: .word 0x020F0181
-_020F0664: .word ov17_02114AA0
-_020F0668: .word ov17_02114AC0
-_020F066C: .word ov17_02114AC0
-	thumb_func_end FUN_ov17_020f04a0
+_020F0660: .word aosslink_alarmCallback
+_020F0664: .word aoss_mq
+_020F0668: .word connect_bssdesc
+_020F066C: .word connect_bssdesc
+	thumb_func_end AOSSi_WLANConnect
 
-	thumb_func_start FUN_020f0670
-FUN_020f0670: ; 0x020F0670
+	thumb_func_start AOSSi_Sleep
+AOSSi_Sleep: ; 0x020F0670
 	ldr r3, _020F0674 ; =OS_Sleep
 	bx r3
 _020F0674: .word OS_Sleep
-	thumb_func_end FUN_020f0670
+	thumb_func_end AOSSi_Sleep
 
 	thumb_func_start AOSSi_Status
 AOSSi_Status: ; 0x020F0678
@@ -5256,8 +5256,8 @@ _020F0684:
 _020F0688: .word AOSSi_Alloc
 	thumb_func_end AOSSi_Status
 
-	thumb_func_start FUN_ov17_020f068c
-FUN_ov17_020f068c: ; 0x020F068C
+	thumb_func_start APCi_Notify
+APCi_Notify: ; 0x020F068C
 	push {r3, lr}
 	cmp r0, #0
 	bne _020F0694
@@ -5289,7 +5289,7 @@ _020F06BA:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0726
-	ldr r2, _020F0940 ; =0x02114BE0
+	ldr r2, _020F0940 ; =apci_WCMBuffer
 	ldr r0, [r2, #0x18]
 	cmp r0, #4
 	bne _020F06DA
@@ -5310,7 +5310,7 @@ _020F06DA:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0732
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5329,7 +5329,7 @@ _020F0700:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0732
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5340,7 +5340,7 @@ _020F0700:
 	blx r2
 	pop {r3, pc}
 _020F0726:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r3, #1
 	str r3, [r0, #0x18]
 	ldr r3, [r0, #0x1c]
@@ -5357,7 +5357,7 @@ _020F073A:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F075A
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	ldr r2, [r0, #0x18]
 	cmp r2, #6
 	bne _020F0836
@@ -5370,7 +5370,7 @@ _020F073A:
 	blx r2
 	pop {r3, pc}
 _020F075A:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r2, #3
 	str r2, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5384,7 +5384,7 @@ _020F076C:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F078C
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	ldr r2, [r0, #0x18]
 	cmp r2, #8
 	bne _020F0836
@@ -5397,7 +5397,7 @@ _020F076C:
 	blx r2
 	pop {r3, pc}
 _020F078C:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r2, #3
 	str r2, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5411,7 +5411,7 @@ _020F079E:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F082A
-	ldr r2, _020F0940 ; =0x02114BE0
+	ldr r2, _020F0940 ; =apci_WCMBuffer
 	ldr r0, [r2, #0x18]
 	cmp r0, #4
 	bne _020F07BE
@@ -5432,7 +5432,7 @@ _020F07BE:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0836
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5448,7 +5448,7 @@ _020F07E4:
 	blx WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0836
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5467,7 +5467,7 @@ _020F0804:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0836
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5478,7 +5478,7 @@ _020F0804:
 	blx r2
 	pop {r3, pc}
 _020F082A:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r2, #3
 	str r2, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5495,7 +5495,7 @@ _020F083E:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F08D0
-	ldr r2, _020F0940 ; =0x02114BE0
+	ldr r2, _020F0940 ; =apci_WCMBuffer
 	ldr r0, [r2, #0x18]
 	cmp r0, #4
 	bne _020F085E
@@ -5516,7 +5516,7 @@ _020F085E:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F093C
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5532,7 +5532,7 @@ _020F0884:
 	blx WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F093C
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5551,7 +5551,7 @@ _020F08A4:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F093C
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #3
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5566,7 +5566,7 @@ _020F08CA:
 	str r0, [r2, #0x18]
 	pop {r3, pc}
 _020F08D0:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r2, #3
 	str r2, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5580,12 +5580,12 @@ _020F08E2:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0908
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	ldr r0, [r0, #0x18]
 	cmp r0, #2
 	bne _020F093C
 	blx WCM_Finish
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r1, #0
 	str r1, [r0, #0x18]
 	ldr r2, [r0, #0x1c]
@@ -5595,7 +5595,7 @@ _020F08E2:
 	blx r2
 	pop {r3, pc}
 _020F0908:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	mov r3, #3
 	str r3, [r0, #0x18]
 	ldr r3, [r0, #0x1c]
@@ -5605,7 +5605,7 @@ _020F0908:
 	blx r3
 	pop {r3, pc}
 _020F091A:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	ldr r2, [r0, #0x18]
 	cmp r2, #5
 	bne _020F093C
@@ -5616,7 +5616,7 @@ _020F091A:
 	blx r2
 	pop {r3, pc}
 _020F092E:
-	ldr r0, _020F0940 ; =0x02114BE0
+	ldr r0, _020F0940 ; =apci_WCMBuffer
 	ldr r2, [r0, #0x1c]
 	cmp r2, #0
 	beq _020F093C
@@ -5626,13 +5626,13 @@ _020F092E:
 _020F093C:
 	pop {r3, pc}
 	nop
-_020F0940: .word ov17_02114BE0
-	thumb_func_end FUN_ov17_020f068c
+_020F0940: .word apci_WCMBuffer
+	thumb_func_end APCi_Notify
 
-	thumb_func_start FUN_ov17_020f0944
-FUN_ov17_020f0944: ; 0x020F0944
+	thumb_func_start APCi_MoveIdleState
+APCi_MoveIdleState: ; 0x020F0944
 	push {r3, lr}
-	ldr r1, _020F09A4 ; =0x02114BE0
+	ldr r1, _020F09A4 ; =apci_WCMBuffer
 	ldr r0, [r1, #0x18]
 	cmp r0, #8
 	bhi _020F099A
@@ -5669,7 +5669,7 @@ _020F097E:
 	pop {r3, pc}
 _020F098A:
 	ldr r0, [r1, #8]
-	ldr r1, _020F09A8 ; =FUN_ov17_020f068c
+	ldr r1, _020F09A8 ; =APCi_Notify
 	blx WCM_StartupAsync
 	cmp r0, #3
 	beq _020F099E
@@ -5682,12 +5682,12 @@ _020F099E:
 	mov r0, #1
 	pop {r3, pc}
 	nop
-_020F09A4: .word ov17_02114BE0
-_020F09A8: .word FUN_ov17_020f068c
-	thumb_func_end FUN_ov17_020f0944
+_020F09A4: .word apci_WCMBuffer
+_020F09A8: .word APCi_Notify
+	thumb_func_end APCi_MoveIdleState
 
-	thumb_func_start FUN_ov17_020f09ac
-FUN_ov17_020f09ac: ; 0x020F09AC
+	thumb_func_start APC_GetAPList
+APC_GetAPList: ; 0x020F09AC
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	mov r0, #1
@@ -5718,10 +5718,10 @@ _020F09E4:
 	blx WCM_LockApList
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f09ac
+	thumb_func_end APC_GetAPList
 
-	thumb_func_start FUN_ov17_020f09f0
-FUN_ov17_020f09f0: ; 0x020F09F0
+	thumb_func_start APC_SearchStart
+APC_SearchStart: ; 0x020F09F0
 	push {r3, r4, r5, r6, r7, lr}
 	str r3, [sp]
 	add r5, r0, #0
@@ -5729,12 +5729,12 @@ FUN_ov17_020f09f0: ; 0x020F09F0
 	add r6, r2, #0
 	blx OS_DisableInterrupts
 	add r7, r0, #0
-	ldr r1, _020F0ACC ; =0x02114BE0
+	ldr r1, _020F0ACC ; =apci_WCMBuffer
 	ldr r0, [sp]
 	cmp r5, #0
 	str r0, [r1, #4]
 	beq _020F0A24
-	ldr r2, _020F0AD0 ; =0x02114C08
+	ldr r2, _020F0AD0 ; =apci_bssid_buf
 	mov r1, #0
 _020F0A0E:
 	ldrb r0, [r5]
@@ -5744,17 +5744,17 @@ _020F0A0E:
 	add r2, r2, #1
 	cmp r1, #6
 	blt _020F0A0E
-	ldr r1, _020F0AD0 ; =0x02114C08
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r1, _020F0AD0 ; =apci_bssid_buf
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x10]
 	b _020F0A34
 _020F0A24:
-	ldr r0, _020F0AD0 ; =0x02114C08
+	ldr r0, _020F0AD0 ; =apci_bssid_buf
 	mov r1, #0xff
 	mov r2, #6
 	blx MI_CpuFill8
 	ldr r1, _020F0AD4 ; =0x020E3FE8
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x10]
 _020F0A34:
 	cmp r4, #0
@@ -5789,7 +5789,7 @@ _020F0A60:
 	blt _020F0A60
 _020F0A6A:
 	ldr r1, _020F0AD8 ; =0x02114C10
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x14]
 	b _020F0A82
 _020F0A72:
@@ -5798,10 +5798,10 @@ _020F0A72:
 	mov r2, #0x20
 	blx MI_CpuFill8
 	ldr r1, _020F0ADC ; =0x020E3FF0
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x14]
 _020F0A82:
-	ldr r2, _020F0ACC ; =0x02114BE0
+	ldr r2, _020F0ACC ; =apci_WCMBuffer
 	ldr r0, [r2, #0x18]
 	cmp r0, #3
 	bne _020F0AA8
@@ -5811,7 +5811,7 @@ _020F0A82:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	bne _020F0AC0
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	mov r1, #6
 	str r1, [r0, #0x18]
 	add r0, r7, #0
@@ -5819,10 +5819,10 @@ _020F0A82:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0AA8:
-	bl FUN_ov17_020f0944
+	bl APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F0AC0
-	ldr r0, _020F0ACC ; =0x02114BE0
+	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	mov r1, #6
 	str r1, [r0, #0x18]
 	add r0, r7, #0
@@ -5835,19 +5835,19 @@ _020F0AC0:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F0ACC: .word ov17_02114BE0
-_020F0AD0: .word ov17_02114C08
+_020F0ACC: .word apci_WCMBuffer
+_020F0AD0: .word apci_bssid_buf
 _020F0AD4: .word 0x020E3FE8
 _020F0AD8: .word ov17_02114C10
 _020F0ADC: .word 0x020E3FF0
-	thumb_func_end FUN_ov17_020f09f0
+	thumb_func_end APC_SearchStart
 
-	thumb_func_start FUN_ov17_020f0ae0
-FUN_ov17_020f0ae0: ; 0x020F0AE0
+	thumb_func_start APC_SearchEnd
+APC_SearchEnd: ; 0x020F0AE0
 	push {r4, lr}
 	blx OS_DisableInterrupts
 	add r4, r0, #0
-	ldr r0, _020F0B18 ; =0x02114BE0
+	ldr r0, _020F0B18 ; =apci_WCMBuffer
 	ldr r0, [r0, #0x18]
 	cmp r0, #5
 	bne _020F0B0E
@@ -5857,7 +5857,7 @@ FUN_ov17_020f0ae0: ; 0x020F0AE0
 	blx WCM_SearchAsync
 	cmp r0, #3
 	bne _020F0B0E
-	ldr r0, _020F0B18 ; =0x02114BE0
+	ldr r0, _020F0B18 ; =apci_WCMBuffer
 	mov r1, #4
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -5869,22 +5869,22 @@ _020F0B0E:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r4, pc}
-_020F0B18: .word ov17_02114BE0
-	thumb_func_end FUN_ov17_020f0ae0
+_020F0B18: .word apci_WCMBuffer
+	thumb_func_end APC_SearchEnd
 
-	thumb_func_start FUN_ov17_020f0b1c
-FUN_ov17_020f0b1c: ; 0x020F0B1C
+	thumb_func_start APC_Disconnect
+APC_Disconnect: ; 0x020F0B1C
 	push {r4, lr}
 	blx OS_DisableInterrupts
 	add r4, r0, #0
-	ldr r0, _020F0B50 ; =0x02114BE0
+	ldr r0, _020F0B50 ; =apci_WCMBuffer
 	ldr r0, [r0, #0x18]
 	cmp r0, #7
 	bne _020F0B44
 	blx WCM_DisconnectAsync
 	cmp r0, #3
 	bne _020F0B44
-	ldr r0, _020F0B50 ; =0x02114BE0
+	ldr r0, _020F0B50 ; =apci_WCMBuffer
 	mov r1, #4
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -5897,15 +5897,15 @@ _020F0B44:
 	mov r0, #0
 	pop {r4, pc}
 	nop
-_020F0B50: .word ov17_02114BE0
-	thumb_func_end FUN_ov17_020f0b1c
+_020F0B50: .word apci_WCMBuffer
+	thumb_func_end APC_Disconnect
 
-	thumb_func_start FUN_ov17_020f0b54
-FUN_ov17_020f0b54: ; 0x020F0B54
+	thumb_func_start APC_End
+APC_End: ; 0x020F0B54
 	push {r4, lr}
 	blx OS_DisableInterrupts
 	add r4, r0, #0
-	ldr r0, _020F0BA8 ; =0x02114BE0
+	ldr r0, _020F0BA8 ; =apci_WCMBuffer
 	ldr r0, [r0, #0x18]
 	cmp r0, #3
 	bne _020F0B86
@@ -5917,7 +5917,7 @@ FUN_ov17_020f0b54: ; 0x020F0B54
 	mov r0, #0
 	pop {r4, pc}
 _020F0B76:
-	ldr r0, _020F0BA8 ; =0x02114BE0
+	ldr r0, _020F0BA8 ; =apci_WCMBuffer
 	mov r1, #2
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -5925,10 +5925,10 @@ _020F0B76:
 	mov r0, #1
 	pop {r4, pc}
 _020F0B86:
-	bl FUN_ov17_020f0944
+	bl APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F0B9E
-	ldr r0, _020F0BA8 ; =0x02114BE0
+	ldr r0, _020F0BA8 ; =apci_WCMBuffer
 	mov r1, #2
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -5940,17 +5940,17 @@ _020F0B9E:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r4, pc}
-_020F0BA8: .word ov17_02114BE0
-	thumb_func_end FUN_ov17_020f0b54
+_020F0BA8: .word apci_WCMBuffer
+	thumb_func_end APC_End
 
-	thumb_func_start FUN_020f0bac
-FUN_020f0bac: ; 0x020F0BAC
+	thumb_func_start APC_Connect
+APC_Connect: ; 0x020F0BAC
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
 	add r6, r2, #0
 	blx OS_DisableInterrupts
-	ldr r1, _020F0C2C ; =0x02114BE0
+	ldr r1, _020F0C2C ; =apci_WCMBuffer
 	add r4, r0, #0
 	str r6, [r1, #0xc]
 	cmp r5, #0
@@ -5966,15 +5966,15 @@ _020F0BCE:
 	mov r2, #0x50
 	blx MI_CpuFill8
 _020F0BD8:
-	ldr r1, _020F0C2C ; =0x02114BE0
+	ldr r1, _020F0C2C ; =apci_WCMBuffer
 	add r0, r7, #0
 	ldr r1, [r1, #0x20]
 	mov r2, #0xc0
 	blx MIi_CpuCopy32
-	bl FUN_ov17_020f0944
+	bl APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F0BFC
-	ldr r0, _020F0C2C ; =0x02114BE0
+	ldr r0, _020F0C2C ; =apci_WCMBuffer
 	mov r1, #8
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -5982,7 +5982,7 @@ _020F0BD8:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0BFC:
-	ldr r2, _020F0C2C ; =0x02114BE0
+	ldr r2, _020F0C2C ; =apci_WCMBuffer
 	ldr r0, [r2, #0x18]
 	cmp r0, #3
 	bne _020F0C22
@@ -5992,7 +5992,7 @@ _020F0BFC:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	bne _020F0C22
-	ldr r0, _020F0C2C ; =0x02114BE0
+	ldr r0, _020F0C2C ; =apci_WCMBuffer
 	mov r1, #8
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -6004,11 +6004,11 @@ _020F0C22:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020F0C2C: .word ov17_02114BE0
-	thumb_func_end FUN_020f0bac
+_020F0C2C: .word apci_WCMBuffer
+	thumb_func_end APC_Connect
 
-	thumb_func_start FUN_ov17_020f0c30
-FUN_ov17_020f0c30: ; 0x020F0C30
+	thumb_func_start APC_Init
+APC_Init: ; 0x020F0C30
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	add r7, r0, #0
@@ -6016,7 +6016,7 @@ FUN_ov17_020f0c30: ; 0x020F0C30
 	blx OS_DisableInterrupts
 	add r4, r0, #0
 	add r0, r5, #0
-	ldr r2, _020F0CDC ; =0x02114BE0
+	ldr r2, _020F0CDC ; =apci_WCMBuffer
 	add r0, #0x53
 	mov r1, #3
 	bic r0, r1
@@ -6061,16 +6061,16 @@ FUN_ov17_020f0c30: ; 0x020F0C30
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0C9C:
-	ldr r0, _020F0CDC ; =0x02114BE0
+	ldr r0, _020F0CDC ; =apci_WCMBuffer
 	mov r1, #1
 	str r1, [r0, #0x18]
 _020F0CA2:
-	ldr r0, _020F0CDC ; =0x02114BE0
+	ldr r0, _020F0CDC ; =apci_WCMBuffer
 	ldr r1, [r0, #0x18]
 	cmp r1, #1
 	bne _020F0CD0
 	ldr r0, [r0, #8]
-	ldr r1, _020F0CE4 ; =FUN_ov17_020f068c
+	ldr r1, _020F0CE4 ; =APCi_Notify
 	blx WCM_StartupAsync
 	cmp r0, #3
 	beq _020F0CC0
@@ -6079,7 +6079,7 @@ _020F0CA2:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020F0CC0:
-	ldr r0, _020F0CDC ; =0x02114BE0
+	ldr r0, _020F0CDC ; =apci_WCMBuffer
 	mov r1, #4
 	str r1, [r0, #0x18]
 	add r0, r4, #0
@@ -6092,13 +6092,13 @@ _020F0CD0:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F0CDC: .word ov17_02114BE0
+_020F0CDC: .word apci_WCMBuffer
 _020F0CE0: .word 0x0000231F
-_020F0CE4: .word FUN_ov17_020f068c
-	thumb_func_end FUN_ov17_020f0c30
+_020F0CE4: .word APCi_Notify
+	thumb_func_end APC_Init
 
-	thumb_func_start FUN_ov17_020f0ce8
-FUN_ov17_020f0ce8: ; 0x020F0CE8
+	thumb_func_start atermapc_APCi_Notify
+atermapc_APCi_Notify: ; 0x020F0CE8
 	push {r3, lr}
 	cmp r0, #0
 	bne _020F0CF0
@@ -6132,13 +6132,13 @@ _020F0D1A:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0D8C
-	ldr r2, _020F0FEC ; =0x02114C30
+	ldr r2, _020F0FEC ; =btAutoResult
 	ldr r0, [r2, #0x2c]
 	cmp r0, #4
 	bne _020F0D3C
 	mov r0, #3
 	str r0, [r2, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0DD0
@@ -6154,10 +6154,10 @@ _020F0D3C:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0DD0
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0DD0
@@ -6174,10 +6174,10 @@ _020F0D64:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0DD0
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0DD0
@@ -6186,10 +6186,10 @@ _020F0D64:
 	blx r2
 	pop {r3, pc}
 _020F0D8C:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r3, #1
 	str r3, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r3, [r0]
 	cmp r3, #0
 	beq _020F0DD0
@@ -6201,13 +6201,13 @@ _020F0DA0:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0DC2
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	ldr r2, [r0, #0x2c]
 	cmp r2, #6
 	bne _020F0DD0
 	mov r2, #5
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0DD0
@@ -6215,10 +6215,10 @@ _020F0DA0:
 	blx r2
 	pop {r3, pc}
 _020F0DC2:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r2, #3
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	bne _020F0DD2
@@ -6233,13 +6233,13 @@ _020F0DD8:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0DFA
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	ldr r2, [r0, #0x2c]
 	cmp r2, #8
 	bne _020F0ED2
 	mov r2, #7
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6247,10 +6247,10 @@ _020F0DD8:
 	blx r2
 	pop {r3, pc}
 _020F0DFA:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r2, #3
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6262,13 +6262,13 @@ _020F0E0E:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0EA2
-	ldr r2, _020F0FEC ; =0x02114C30
+	ldr r2, _020F0FEC ; =btAutoResult
 	ldr r0, [r2, #0x2c]
 	cmp r0, #4
 	bne _020F0E30
 	mov r0, #3
 	str r0, [r2, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6284,10 +6284,10 @@ _020F0E30:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0ED2
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6301,10 +6301,10 @@ _020F0E58:
 	blx WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0ED2
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6321,10 +6321,10 @@ _020F0E7A:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0ED2
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6333,10 +6333,10 @@ _020F0E7A:
 	blx r2
 	pop {r3, pc}
 _020F0EA2:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r2, #3
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0ED2
@@ -6348,13 +6348,13 @@ _020F0EB6:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0F56
-	ldr r2, _020F0FEC ; =0x02114C30
+	ldr r2, _020F0FEC ; =btAutoResult
 	ldr r0, [r2, #0x2c]
 	cmp r0, #4
 	bne _020F0EDA
 	mov r0, #3
 	str r0, [r2, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	bne _020F0ED4
@@ -6373,10 +6373,10 @@ _020F0EDA:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	beq _020F0FEA
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6390,10 +6390,10 @@ _020F0F02:
 	blx WCM_CleanupAsync
 	cmp r0, #3
 	beq _020F0FEA
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6410,10 +6410,10 @@ _020F0F24:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	beq _020F0FEA
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6428,10 +6428,10 @@ _020F0F4C:
 	str r0, [r2, #0x2c]
 	pop {r3, pc}
 _020F0F56:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r2, #3
 	str r2, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6443,15 +6443,15 @@ _020F0F6A:
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
 	bne _020F0F92
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	ldr r0, [r0, #0x2c]
 	cmp r0, #2
 	bne _020F0FEA
 	blx WCM_Finish
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r1, #0
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6459,10 +6459,10 @@ _020F0F6A:
 	blx r2
 	pop {r3, pc}
 _020F0F92:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	mov r3, #3
 	str r3, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r3, [r0]
 	cmp r3, #0
 	beq _020F0FEA
@@ -6470,11 +6470,11 @@ _020F0F92:
 	blx r3
 	pop {r3, pc}
 _020F0FA6:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	ldr r0, [r0, #0x2c]
 	cmp r0, #5
 	bne _020F0FEA
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6482,7 +6482,7 @@ _020F0FA6:
 	blx r2
 	pop {r3, pc}
 _020F0FBC:
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6490,9 +6490,9 @@ _020F0FBC:
 	blx r2
 	pop {r3, pc}
 _020F0FCA:
-	ldr r0, _020F0FEC ; =0x02114C30
+	ldr r0, _020F0FEC ; =btAutoResult
 	str r1, [r0, #0x2c]
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6500,7 +6500,7 @@ _020F0FCA:
 	blx r2
 	pop {r3, pc}
 _020F0FDC:
-	ldr r0, _020F0FF0 ; =0x02114CB0
+	ldr r0, _020F0FF0 ; =apci_user_callback
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _020F0FEA
@@ -6509,14 +6509,14 @@ _020F0FDC:
 	blx r2
 _020F0FEA:
 	pop {r3, pc}
-_020F0FEC: .word ov17_02114C30
-_020F0FF0: .word ov17_02114CB0
-	thumb_func_end FUN_ov17_020f0ce8
+_020F0FEC: .word btAutoResult
+_020F0FF0: .word apci_user_callback
+	thumb_func_end atermapc_APCi_Notify
 
-	thumb_func_start FUN_ov17_020f0ff4
-FUN_ov17_020f0ff4: ; 0x020F0FF4
+	thumb_func_start atermapc_APCi_MoveIdleState
+atermapc_APCi_MoveIdleState: ; 0x020F0FF4
 	push {r3, lr}
-	ldr r1, _020F1054 ; =0x02114C30
+	ldr r1, _020F1054 ; =btAutoResult
 	ldr r0, [r1, #0x2c]
 	cmp r0, #8
 	bhi _020F104A
@@ -6553,7 +6553,7 @@ _020F102E:
 	pop {r3, pc}
 _020F103A:
 	ldr r0, [r1, #8]
-	ldr r1, _020F1058 ; =FUN_ov17_020f0ce8
+	ldr r1, _020F1058 ; =atermapc_APCi_Notify
 	blx WCM_StartupAsync
 	cmp r0, #3
 	beq _020F104E
@@ -6566,12 +6566,12 @@ _020F104E:
 	mov r0, #1
 	pop {r3, pc}
 	nop
-_020F1054: .word ov17_02114C30
-_020F1058: .word FUN_ov17_020f0ce8
-	thumb_func_end FUN_ov17_020f0ff4
+_020F1054: .word btAutoResult
+_020F1058: .word atermapc_APCi_Notify
+	thumb_func_end atermapc_APCi_MoveIdleState
 
-	thumb_func_start FUN_ov17_020f105c
-FUN_ov17_020f105c: ; 0x020F105C
+	thumb_func_start atermapc_APC_GetAPList
+atermapc_APC_GetAPList: ; 0x020F105C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	mov r0, #1
@@ -6602,10 +6602,10 @@ _020F1094:
 	blx WCM_LockApList
 	add r0, r6, #0
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f105c
+	thumb_func_end atermapc_APC_GetAPList
 
-	thumb_func_start FUN_ov17_020f10a0
-FUN_ov17_020f10a0: ; 0x020F10A0
+	thumb_func_start atermapc_APC_SearchStart
+atermapc_APC_SearchStart: ; 0x020F10A0
 	push {r3, r4, r5, r6, r7, lr}
 	str r3, [sp]
 	add r5, r0, #0
@@ -6613,7 +6613,7 @@ FUN_ov17_020f10a0: ; 0x020F10A0
 	add r6, r2, #0
 	blx OS_DisableInterrupts
 	add r7, r0, #0
-	ldr r1, _020F1174 ; =0x02114C30
+	ldr r1, _020F1174 ; =btAutoResult
 	ldr r0, [sp]
 	cmp r5, #0
 	str r0, [r1, #0x60]
@@ -6635,11 +6635,11 @@ _020F10D0:
 	mov r2, #6
 	blx MI_CpuFill8
 	ldr r1, _020F117C ; =0x020E3FE8
-	ldr r0, _020F1174 ; =0x02114C30
+	ldr r0, _020F1174 ; =btAutoResult
 	str r1, [r0, #0x44]
 _020F10DE:
 	ldr r2, _020F1180 ; =0x02115120
-	ldr r0, _020F1174 ; =0x02114C30
+	ldr r0, _020F1174 ; =btAutoResult
 	cmp r4, #0
 	str r2, [r0, #0x48]
 	beq _020F111A
@@ -6677,10 +6677,10 @@ _020F111A:
 	mov r2, #0x20
 	blx MI_CpuFill8
 	ldr r1, _020F1184 ; =0x020E3FF0
-	ldr r0, _020F1174 ; =0x02114C30
+	ldr r0, _020F1174 ; =btAutoResult
 	str r1, [r0, #0x48]
 _020F112A:
-	ldr r2, _020F1174 ; =0x02114C30
+	ldr r2, _020F1174 ; =btAutoResult
 	ldr r0, [r2, #0x2c]
 	cmp r0, #3
 	bne _020F1150
@@ -6690,7 +6690,7 @@ _020F112A:
 	blx WCM_SearchAsync
 	cmp r0, #3
 	bne _020F1168
-	ldr r0, _020F1174 ; =0x02114C30
+	ldr r0, _020F1174 ; =btAutoResult
 	mov r1, #6
 	str r1, [r0, #0x2c]
 	add r0, r7, #0
@@ -6698,10 +6698,10 @@ _020F112A:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _020F1150:
-	bl FUN_ov17_020f0ff4
+	bl atermapc_APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F1168
-	ldr r0, _020F1174 ; =0x02114C30
+	ldr r0, _020F1174 ; =btAutoResult
 	mov r1, #6
 	str r1, [r0, #0x2c]
 	add r0, r7, #0
@@ -6714,26 +6714,26 @@ _020F1168:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F1174: .word ov17_02114C30
+_020F1174: .word btAutoResult
 _020F1178: .word ov17_021150E8
 _020F117C: .word 0x020E3FE8
 _020F1180: .word ov17_02115120
 _020F1184: .word 0x020E3FF0
-	thumb_func_end FUN_ov17_020f10a0
+	thumb_func_end atermapc_APC_SearchStart
 
-	thumb_func_start FUN_ov17_020f1188
-FUN_ov17_020f1188: ; 0x020F1188
+	thumb_func_start atermapc_APC_Disconnect
+atermapc_APC_Disconnect: ; 0x020F1188
 	push {r4, lr}
 	blx OS_DisableInterrupts
 	add r4, r0, #0
-	ldr r0, _020F11BC ; =0x02114C30
+	ldr r0, _020F11BC ; =btAutoResult
 	ldr r0, [r0, #0x2c]
 	cmp r0, #7
 	bne _020F11B0
 	blx WCM_DisconnectAsync
 	cmp r0, #3
 	bne _020F11B0
-	ldr r0, _020F11BC ; =0x02114C30
+	ldr r0, _020F11BC ; =btAutoResult
 	mov r1, #4
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6746,15 +6746,15 @@ _020F11B0:
 	mov r0, #0
 	pop {r4, pc}
 	nop
-_020F11BC: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1188
+_020F11BC: .word btAutoResult
+	thumb_func_end atermapc_APC_Disconnect
 
-	thumb_func_start FUN_ov17_020f11c0
-FUN_ov17_020f11c0: ; 0x020F11C0
+	thumb_func_start atermapc_APC_End
+atermapc_APC_End: ; 0x020F11C0
 	push {r4, lr}
 	blx OS_DisableInterrupts
 	add r4, r0, #0
-	ldr r0, _020F1214 ; =0x02114C30
+	ldr r0, _020F1214 ; =btAutoResult
 	ldr r0, [r0, #0x2c]
 	cmp r0, #3
 	bne _020F11F2
@@ -6766,7 +6766,7 @@ FUN_ov17_020f11c0: ; 0x020F11C0
 	mov r0, #0
 	pop {r4, pc}
 _020F11E2:
-	ldr r0, _020F1214 ; =0x02114C30
+	ldr r0, _020F1214 ; =btAutoResult
 	mov r1, #2
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6774,10 +6774,10 @@ _020F11E2:
 	mov r0, #1
 	pop {r4, pc}
 _020F11F2:
-	bl FUN_ov17_020f0ff4
+	bl atermapc_APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F120A
-	ldr r0, _020F1214 ; =0x02114C30
+	ldr r0, _020F1214 ; =btAutoResult
 	mov r1, #2
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6789,17 +6789,17 @@ _020F120A:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r4, pc}
-_020F1214: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f11c0
+_020F1214: .word btAutoResult
+	thumb_func_end atermapc_APC_End
 
-	thumb_func_start FUN_ov17_020f1218
-FUN_ov17_020f1218: ; 0x020F1218
+	thumb_func_start atermapc_APC_Connect
+atermapc_APC_Connect: ; 0x020F1218
 	push {r3, r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r5, r1, #0
 	add r6, r2, #0
 	blx OS_DisableInterrupts
-	ldr r1, _020F1298 ; =0x02114C30
+	ldr r1, _020F1298 ; =btAutoResult
 	add r4, r0, #0
 	str r6, [r1, #0x58]
 	cmp r5, #0
@@ -6815,15 +6815,15 @@ _020F123A:
 	mov r2, #0x60
 	blx MI_CpuFill8
 _020F1244:
-	ldr r1, _020F1298 ; =0x02114C30
+	ldr r1, _020F1298 ; =btAutoResult
 	add r0, r7, #0
 	ldr r1, [r1, #0x4c]
 	mov r2, #0xc0
 	blx MIi_CpuCopy32
-	bl FUN_ov17_020f0ff4
+	bl atermapc_APCi_MoveIdleState
 	cmp r0, #1
 	bne _020F1268
-	ldr r0, _020F1298 ; =0x02114C30
+	ldr r0, _020F1298 ; =btAutoResult
 	mov r1, #8
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6831,7 +6831,7 @@ _020F1244:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
 _020F1268:
-	ldr r2, _020F1298 ; =0x02114C30
+	ldr r2, _020F1298 ; =btAutoResult
 	ldr r0, [r2, #0x2c]
 	cmp r0, #3
 	bne _020F128E
@@ -6841,7 +6841,7 @@ _020F1268:
 	blx WCM_ConnectAsync
 	cmp r0, #3
 	bne _020F128E
-	ldr r0, _020F1298 ; =0x02114C30
+	ldr r0, _020F1298 ; =btAutoResult
 	mov r1, #8
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6853,11 +6853,11 @@ _020F128E:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020F1298: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1218
+_020F1298: .word btAutoResult
+	thumb_func_end atermapc_APC_Connect
 
-	thumb_func_start FUN_ov17_020f129c
-FUN_ov17_020f129c: ; 0x020F129C
+	thumb_func_start atermapc_APC_Init
+atermapc_APC_Init: ; 0x020F129C
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r1, #0
 	add r7, r0, #0
@@ -6865,7 +6865,7 @@ FUN_ov17_020f129c: ; 0x020F129C
 	blx OS_DisableInterrupts
 	add r4, r0, #0
 	add r0, r5, #0
-	ldr r2, _020F1348 ; =0x02114C30
+	ldr r2, _020F1348 ; =btAutoResult
 	add r0, #0x63
 	mov r1, #3
 	bic r0, r1
@@ -6895,7 +6895,7 @@ FUN_ov17_020f129c: ; 0x020F129C
 	ldr r0, [r2, #8]
 	mov r1, #3
 	str r1, [r0]
-	ldr r0, _020F1350 ; =0x02114CB0
+	ldr r0, _020F1350 ; =apci_user_callback
 	str r7, [r0]
 	ldr r0, [r2, #0x2c]
 	cmp r0, #0
@@ -6911,16 +6911,16 @@ FUN_ov17_020f129c: ; 0x020F129C
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020F130A:
-	ldr r0, _020F1348 ; =0x02114C30
+	ldr r0, _020F1348 ; =btAutoResult
 	mov r1, #1
 	str r1, [r0, #0x2c]
 _020F1310:
-	ldr r0, _020F1348 ; =0x02114C30
+	ldr r0, _020F1348 ; =btAutoResult
 	ldr r1, [r0, #0x2c]
 	cmp r1, #1
 	bne _020F133E
 	ldr r0, [r0, #8]
-	ldr r1, _020F1354 ; =FUN_ov17_020f0ce8
+	ldr r1, _020F1354 ; =atermapc_APCi_Notify
 	blx WCM_StartupAsync
 	cmp r0, #3
 	beq _020F132E
@@ -6929,7 +6929,7 @@ _020F1310:
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
 _020F132E:
-	ldr r0, _020F1348 ; =0x02114C30
+	ldr r0, _020F1348 ; =btAutoResult
 	mov r1, #4
 	str r1, [r0, #0x2c]
 	add r0, r4, #0
@@ -6941,35 +6941,35 @@ _020F133E:
 	blx OS_RestoreInterrupts
 	mov r0, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020F1348: .word ov17_02114C30
+_020F1348: .word btAutoResult
 _020F134C: .word 0x0000231F
-_020F1350: .word ov17_02114CB0
-_020F1354: .word FUN_ov17_020f0ce8
-	thumb_func_end FUN_ov17_020f129c
+_020F1350: .word apci_user_callback
+_020F1354: .word atermapc_APCi_Notify
+	thumb_func_end atermapc_APC_Init
 
-	thumb_func_start FUN_ov17_020f1358
-FUN_ov17_020f1358: ; 0x020F1358
-	ldr r0, _020F1360 ; =0x02114C30
+	thumb_func_start atermapc_APC_GetState
+atermapc_APC_GetState: ; 0x020F1358
+	ldr r0, _020F1360 ; =btAutoResult
 	ldr r0, [r0, #0x2c]
 	bx lr
 	nop
-_020F1360: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1358
+_020F1360: .word btAutoResult
+	thumb_func_end atermapc_APC_GetState
 
-	thumb_func_start FUN_ov17_020f1364
-FUN_ov17_020f1364: ; 0x020F1364
+	thumb_func_start atermapc_soAlloc
+atermapc_soAlloc: ; 0x020F1364
 	push {r4, lr}
 	add r4, r1, #0
 	cmp r4, #0
 	ble _020F1386
-	ldr r0, _020F138C ; =0x02114CC4
+	ldr r0, _020F138C ; =atermapc_AllocLock
 	blx OS_LockMutex
-	ldr r1, _020F1390 ; =0x02114C30
+	ldr r1, _020F1390 ; =btAutoResult
 	add r0, r4, #0
 	ldr r1, [r1, #4]
 	blx r1
 	add r4, r0, #0
-	ldr r0, _020F138C ; =0x02114CC4
+	ldr r0, _020F138C ; =atermapc_AllocLock
 	blx OS_UnlockMutex
 	add r0, r4, #0
 	pop {r4, pc}
@@ -6977,40 +6977,40 @@ _020F1386:
 	mov r0, #0
 	pop {r4, pc}
 	nop
-_020F138C: .word ov17_02114CC4
-_020F1390: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1364
+_020F138C: .word atermapc_AllocLock
+_020F1390: .word btAutoResult
+	thumb_func_end atermapc_soAlloc
 
-	thumb_func_start FUN_ov17_020f1394
-FUN_ov17_020f1394: ; 0x020F1394
+	thumb_func_start atermapc_soFree
+atermapc_soFree: ; 0x020F1394
 	push {r4, lr}
 	add r4, r1, #0
 	beq _020F13B2
 	cmp r2, #0
 	ble _020F13B2
-	ldr r0, _020F13B4 ; =0x02114CC4
+	ldr r0, _020F13B4 ; =atermapc_AllocLock
 	blx OS_LockMutex
-	ldr r1, _020F13B8 ; =0x02114C30
+	ldr r1, _020F13B8 ; =btAutoResult
 	add r0, r4, #0
 	ldr r1, [r1, #0xc]
 	blx r1
-	ldr r0, _020F13B4 ; =0x02114CC4
+	ldr r0, _020F13B4 ; =atermapc_AllocLock
 	blx OS_UnlockMutex
 _020F13B2:
 	pop {r4, pc}
-_020F13B4: .word ov17_02114CC4
-_020F13B8: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1394
+_020F13B4: .word atermapc_AllocLock
+_020F13B8: .word btAutoResult
+	thumb_func_end atermapc_soFree
 
-	thumb_func_start FUN_ov17_020f13bc
-FUN_ov17_020f13bc: ; 0x020F13BC
+	thumb_func_start AtermApc_InitEventBuf
+AtermApc_InitEventBuf: ; 0x020F13BC
 	push {r3, lr}
 	blx OS_DisableInterrupts
-	ldr r1, _020F13DC ; =0x02114C30
+	ldr r1, _020F13DC ; =btAutoResult
 	mov r2, #0
 	str r2, [r1, #0x68]
 	str r2, [r1, #0x6c]
-	ldr r3, _020F13E0 ; =0x02114CB4
+	ldr r3, _020F13E0 ; =atermapc_event_buf
 	add r1, r2, #0
 _020F13CE:
 	add r2, r2, #1
@@ -7019,15 +7019,15 @@ _020F13CE:
 	blt _020F13CE
 	blx OS_RestoreInterrupts
 	pop {r3, pc}
-_020F13DC: .word ov17_02114C30
-_020F13E0: .word ov17_02114CB4
-	thumb_func_end FUN_ov17_020f13bc
+_020F13DC: .word btAutoResult
+_020F13E0: .word atermapc_event_buf
+	thumb_func_end AtermApc_InitEventBuf
 
-	thumb_func_start FUN_ov17_020f13e4
-FUN_ov17_020f13e4: ; 0x020F13E4
+	thumb_func_start AtermApc_GetEvent
+AtermApc_GetEvent: ; 0x020F13E4
 	push {r3, r4, r5, lr}
 	blx OS_DisableInterrupts
-	ldr r1, _020F1414 ; =0x02114C30
+	ldr r1, _020F1414 ; =btAutoResult
 	ldr r5, [r1, #0x6c]
 	ldr r2, [r1, #0x68]
 	cmp r2, r5
@@ -7035,7 +7035,7 @@ FUN_ov17_020f13e4: ; 0x020F13E4
 	mov r4, #0
 	b _020F140A
 _020F13F8:
-	ldr r2, _020F1418 ; =0x02114CB4
+	ldr r2, _020F1418 ; =atermapc_event_buf
 	lsl r3, r5, #2
 	ldr r4, [r2, r3]
 	add r2, r5, #1
@@ -7049,14 +7049,14 @@ _020F140A:
 	add r0, r4, #0
 	pop {r3, r4, r5, pc}
 	nop
-_020F1414: .word ov17_02114C30
-_020F1418: .word ov17_02114CB4
-	thumb_func_end FUN_ov17_020f13e4
+_020F1414: .word btAutoResult
+_020F1418: .word atermapc_event_buf
+	thumb_func_end AtermApc_GetEvent
 
-	thumb_func_start FUN_ov17_020f141c
-FUN_ov17_020f141c:
+	thumb_func_start AtermApc_callback
+AtermApc_callback: ; AtermApc_callback
 	push {r3, r4}
-	ldr r1, _020F1444 ; =0x02114C30
+	ldr r1, _020F1444 ; =btAutoResult
 	ldr r3, [r1, #0x68]
 	ldr r2, [r1, #0x6c]
 	add r4, r3, #0x1
@@ -7065,7 +7065,7 @@ FUN_ov17_020f141c:
 	add r2, r2, #0x3
 	cmp r3, r2
 	beq _020F1440
-	ldr r2, _020F1448 ; =0x02114CB4
+	ldr r2, _020F1448 ; =atermapc_event_buf
 	lsl r3, r3, #0x2
 	str r0, [r2, r3]
 	str r4, [r1, #0x68]
@@ -7076,27 +7076,27 @@ FUN_ov17_020f141c:
 _020F1440:
 	pop {r3, r4}
 	bx lr
-_020F1444: .word ov17_02114C30
-_020F1448: .word ov17_02114CB4
-	thumb_func_start FUN_ov17_020f141c
+_020F1444: .word btAutoResult
+_020F1448: .word atermapc_event_buf
+	thumb_func_start AtermApc_callback
 
-	thumb_func_start FUN_ov17_020f144c
-FUN_ov17_020f144c:
-	ldr r3, _020F1454 ; =0x020F141D
+	thumb_func_start atermapc_alarmCallback
+atermapc_alarmCallback: ; 0x020F144D
+	ldr r3, _020F1454 ; =AtermApc_callback
 	mov r1, #0x0
 	bx r3
 	nop
-_020F1454: .word 0x020F141D
-	thumb_func_end FUN_ov17_020f144c
+_020F1454: .word AtermApc_callback
+	thumb_func_end atermapc_alarmCallback
 
-	thumb_func_start FUN_ov17_020f1458
-FUN_ov17_020f1458: ; 0x020F1458
+	thumb_func_start InitAtermApcNetwork
+InitAtermApcNetwork: ; 0x020F1458
 	push {r3, r4, r5, r6, r7, lr}
 	add r6, r0, #0
-	ldr r0, _020F14EC ; =0x02114C30
+	ldr r0, _020F14EC ; =btAutoResult
 	mov r4, #1
 	str r6, [r0, #0x70]
-	bl FUN_ov17_020f13bc
+	bl AtermApc_InitEventBuf
 	mov r0, #0xd0
 	add r7, r6, #0
 	mul r7, r0
@@ -7105,10 +7105,10 @@ FUN_ov17_020f1458: ; 0x020F1458
 	mov r0, #0xc0
 	mul r0, r6
 	add r0, r1, r0
-	ldr r1, _020F14EC ; =0x02114C30
+	ldr r1, _020F14EC ; =btAutoResult
 	ldr r1, [r1, #4]
 	blx r1
-	ldr r6, _020F14EC ; =0x02114C30
+	ldr r6, _020F14EC ; =btAutoResult
 	cmp r0, #0
 	str r0, [r6, #0x54]
 	bne _020F1488
@@ -7129,9 +7129,9 @@ _020F1488:
 	sub r1, #0x3f
 	and r0, r1
 	str r0, [r6, #0x5c]
-	ldr r0, _020F14F8 ; =0x020F141D
+	ldr r0, _020F14F8 ; =AtermApc_callback
 	add r1, r3, #0
-	bl FUN_ov17_020f129c
+	bl atermapc_APC_Init
 	cmp r0, #0
 	bne _020F14B4
 	sub r0, r4, #3
@@ -7142,7 +7142,7 @@ _020F14B4:
 _020F14B8:
 	mov r0, #0xa
 	blx OS_Sleep
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	beq _020F14E4
 _020F14C6:
@@ -7159,7 +7159,7 @@ _020F14D8:
 	mov r4, #0
 	sub r5, r4, #2
 _020F14DC:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F14C6
 _020F14E4:
@@ -7167,17 +7167,17 @@ _020F14E4:
 	bne _020F14B8
 	add r0, r5, #0
 	pop {r3, r4, r5, r6, r7, pc}
-_020F14EC: .word ov17_02114C30
+_020F14EC: .word btAutoResult
 _020F14F0: .word 0x000024D0
 _020F14F4: .word 0x00002490
-_020F14F8: .word 0x020F141D
-	thumb_func_end FUN_ov17_020f1458
+_020F14F8: .word AtermApc_callback
+	thumb_func_end InitAtermApcNetwork
 
-	thumb_func_start FUN_ov17_020f14fc
-FUN_ov17_020f14fc: ; 0x020F14FC
+	thumb_func_start FreeAtermApcNetwork
+FreeAtermApcNetwork: ; 0x020F14FC
 	push {r3, r4, r5, r6, r7, lr}
 	mov r5, #1
-	bl FUN_ov17_020f11c0
+	bl atermapc_APC_End
 	cmp r0, #0
 	beq _020F153A
 	mov r6, #0
@@ -7186,7 +7186,7 @@ FUN_ov17_020f14fc: ; 0x020F14FC
 _020F150E:
 	add r0, r7, #0
 	blx OS_Sleep
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	beq _020F1536
 _020F151C:
@@ -7201,33 +7201,33 @@ _020F151C:
 _020F152C:
 	add r5, r6, #0
 _020F152E:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F151C
 _020F1536:
 	cmp r5, #0
 	bne _020F150E
 _020F153A:
-	ldr r1, _020F1550 ; =0x02114C30
+	ldr r1, _020F1550 ; =btAutoResult
 	ldr r0, [r1, #0x54]
 	cmp r0, #0
 	beq _020F154C
 	ldr r1, [r1, #0xc]
 	blx r1
-	ldr r0, _020F1550 ; =0x02114C30
+	ldr r0, _020F1550 ; =btAutoResult
 	mov r1, #0
 	str r1, [r0, #0x54]
 _020F154C:
 	mov r0, #1
 	pop {r3, r4, r5, r6, r7, pc}
-_020F1550: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f14fc
+_020F1550: .word btAutoResult
+	thumb_func_end FreeAtermApcNetwork
 
-	thumb_func_start FUN_ov17_020f1554
-FUN_ov17_020f1554: ; 0x020F1554
+	thumb_func_start atermapc_ConnectAP
+atermapc_ConnectAP: ; 0x020F1554
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x30
-	ldr r0, _020F1664 ; =0x02114C30
+	ldr r0, _020F1664 ; =btAutoResult
 	mov r4, #1
 	ldr r3, [r0, #0x5c]
 	ldr r0, [r0, #0x18]
@@ -7244,7 +7244,7 @@ _020F1572:
 	add r0, r6, #0
 	mov r1, #0
 	lsl r2, r2, #0xa
-	bl FUN_ov17_020f1218
+	bl atermapc_APC_Connect
 	cmp r0, #0
 	bne _020F1586
 	add sp, #0x30
@@ -7256,14 +7256,14 @@ _020F1586:
 	mov r0, #0x12
 	str r0, [sp]
 	ldr r1, _020F1668 ; =0x003FEC42
-	ldr r3, _020F166C ; =0x020F144D
+	ldr r3, _020F166C ; =atermapc_alarmCallback
 	add r0, sp, #4
 	mov r2, #0
 	blx OS_SetAlarm
 	mov r7, #0
 _020F159E:
-	bl FUN_ov17_020f4234
-	ldr r1, _020F1670 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F1670 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	blo _020F15B0
@@ -7271,7 +7271,7 @@ _020F159E:
 	mvn r5, r5
 	b _020F1630
 _020F15B0:
-	ldr r0, _020F1664 ; =0x02114C30
+	ldr r0, _020F1664 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	beq _020F15BE
@@ -7281,7 +7281,7 @@ _020F15B0:
 _020F15BE:
 	mov r0, #0xa
 	blx OS_Sleep
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	beq _020F162C
 _020F15CC:
@@ -7312,7 +7312,7 @@ _020F15F6:
 	mov r5, #1
 	b _020F1624
 _020F15FC:
-	ldr r0, _020F1664 ; =0x02114C30
+	ldr r0, _020F1664 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	beq _020F160C
@@ -7325,7 +7325,7 @@ _020F160C:
 	add r0, r6, #0
 	mov r1, #0
 	lsl r2, r2, #0x10
-	bl FUN_ov17_020f1218
+	bl atermapc_APC_Connect
 	cmp r0, #0
 	bne _020F1624
 	add sp, #0x30
@@ -7334,7 +7334,7 @@ _020F160C:
 _020F1622:
 	mov r4, #0
 _020F1624:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F15CC
 _020F162C:
@@ -7344,15 +7344,15 @@ _020F1630:
 	add r0, sp, #4
 	blx OS_CancelAlarm
 _020F1636:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F1636
 	cmp r5, #0
 	ble _020F165E
-	ldr r0, _020F1664 ; =0x02114C30
+	ldr r0, _020F1664 ; =btAutoResult
 	mov r1, #1
 	str r1, [r0, #0x20]
-	ldr r0, _020F1674 ; =0x021127DC
+	ldr r0, _020F1674 ; =AtermSOConfig
 	blx SOC_Startup
 	cmp r0, #0
 	bge _020F1658
@@ -7360,29 +7360,29 @@ _020F1636:
 	mvn r5, r5
 	b _020F165E
 _020F1658:
-	ldr r0, _020F1664 ; =0x02114C30
+	ldr r0, _020F1664 ; =btAutoResult
 	mov r1, #1
 	str r1, [r0, #0x24]
 _020F165E:
 	add r0, r5, #0
 	add sp, #0x30
 	pop {r3, r4, r5, r6, r7, pc}
-_020F1664: .word ov17_02114C30
+_020F1664: .word btAutoResult
 _020F1668: .word 0x003FEC42
-_020F166C: .word 0x020F144D
-_020F1670: .word ov17_021127C8
-_020F1674: .word ov17_021127DC
-	thumb_func_end FUN_ov17_020f1554
+_020F166C: .word atermapc_alarmCallback
+_020F1670: .word lpElementData
+_020F1674: .word AtermSOConfig
+	thumb_func_end atermapc_ConnectAP
 
-	thumb_func_start FUN_ov17_020f1678
-FUN_ov17_020f1678: ; 0x020F1678
+	thumb_func_start atermapc_DisconnectAP
+atermapc_DisconnectAP: ; 0x020F1678
 	push {r3, r4, r5, r6, r7, lr}
-	ldr r0, _020F16D8 ; =0x02114C30
+	ldr r0, _020F16D8 ; =btAutoResult
 	mov r5, #1
 	ldr r0, [r0, #0x20]
 	cmp r0, #0
 	beq _020F16C4
-	bl FUN_ov17_020f1188
+	bl atermapc_APC_Disconnect
 	cmp r0, #0
 	beq _020F16BE
 	mov r6, #0
@@ -7391,7 +7391,7 @@ FUN_ov17_020f1678: ; 0x020F1678
 _020F1692:
 	add r0, r7, #0
 	blx OS_Sleep
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	beq _020F16BA
 _020F16A0:
@@ -7406,18 +7406,18 @@ _020F16A0:
 _020F16B0:
 	add r5, r6, #0
 _020F16B2:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F16A0
 _020F16BA:
 	cmp r5, #0
 	bne _020F1692
 _020F16BE:
-	ldr r0, _020F16D8 ; =0x02114C30
+	ldr r0, _020F16D8 ; =btAutoResult
 	mov r1, #0
 	str r1, [r0, #0x20]
 _020F16C4:
-	ldr r0, _020F16D8 ; =0x02114C30
+	ldr r0, _020F16D8 ; =btAutoResult
 	ldr r1, [r0, #0x24]
 	cmp r1, #0
 	beq _020F16D4
@@ -7427,11 +7427,11 @@ _020F16C4:
 _020F16D4:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F16D8: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f1678
+_020F16D8: .word btAutoResult
+	thumb_func_end atermapc_DisconnectAP
 
-	thumb_func_start FUN_ov17_020f16dc
-FUN_ov17_020f16dc: ; 0x020F16DC
+	thumb_func_start atermapc_CheckAccessPoint
+atermapc_CheckAccessPoint: ; 0x020F16DC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x6c
 	str r0, [sp]
@@ -7572,10 +7572,10 @@ _020F17DC:
 	ldr r1, [r5]
 	mov r0, #0
 	strb r0, [r7, r1]
-	ldr r0, _020F18A4 ; =0x02112834
+	ldr r0, _020F18A4 ; =gszStealth
 	blx strlen
 	add r2, r0, #0
-	ldr r1, _020F18A4 ; =0x02112834
+	ldr r1, _020F18A4 ; =gszStealth
 	add r0, r7, #0
 	blx memcmp
 	cmp r0, #0
@@ -7600,7 +7600,7 @@ _020F1818:
 	ldr r0, [r0]
 	cmp r0, #0
 	bls _020F187C
-	ldr r7, _020F18A4 ; =0x02112834
+	ldr r7, _020F18A4 ; =gszStealth
 	add r5, sp, #0x28
 _020F1828:
 	add r0, r5, #0
@@ -7664,17 +7664,17 @@ _020F189C:
 	add sp, #0x6c
 	pop {r4, r5, r6, r7, pc}
 	nop
-_020F18A4: .word ov17_02112834
-	thumb_func_end FUN_ov17_020f16dc
+_020F18A4: .word gszStealth
+	thumb_func_end atermapc_CheckAccessPoint
 
-	thumb_func_start FUN_ov17_020f18a8
-FUN_ov17_020f18a8: ; 0x020F18A8
+	thumb_func_start atermapc_ScanAP
+atermapc_ScanAP: ; 0x020F18A8
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x70
 	mov r0, #0
 	str r0, [sp, #8]
 	str r0, [sp, #0x20]
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	mov r4, #0
 	ldr r1, [r0, #0x70]
 	mov r0, #0x30
@@ -7685,13 +7685,13 @@ FUN_ov17_020f18a8: ; 0x020F18A8
 	ldr r1, [sp, #0x10]
 	mov r0, #1
 	mvn r4, r4
-	bl FUN_ov17_020f4250
+	bl atermapc_Calloc
 	str r0, [sp, #0xc]
 	cmp r0, #0
 	beq _020F18E0
 	ldr r1, [sp, #0x10]
 	mov r0, #1
-	bl FUN_ov17_020f4250
+	bl atermapc_Calloc
 	str r0, [sp, #8]
 	cmp r0, #0
 	bne _020F18E2
@@ -7702,8 +7702,8 @@ _020F18E2:
 	str r0, [sp, #0x1c]
 	b _020F1ACE
 _020F18E8:
-	bl FUN_ov17_020f4234
-	ldr r1, _020F1B24 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F1B24 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	bhs _020F19D2
@@ -7711,7 +7711,7 @@ _020F18E8:
 	ldr r3, _020F1B28 ; =0x0030BFFE
 	add r1, r0, #0
 	add r2, r0, #0
-	bl FUN_ov17_020f10a0
+	bl atermapc_APC_SearchStart
 	cmp r0, #0
 	bne _020F190A
 	mov r4, #1
@@ -7723,26 +7723,26 @@ _020F190A:
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F1B2C ; =0x000FFB10
-	ldr r3, _020F1B30 ; =0x020F144D
+	ldr r3, _020F1B30 ; =atermapc_alarmCallback
 	add r0, sp, #0x24
 	mov r2, #0
 	blx OS_SetAlarm
-	ldr r7, _020F1B20 ; =0x02114C30
+	ldr r7, _020F1B20 ; =btAutoResult
 	mov r5, #1
 	mov r4, #0
 	add r6, sp, #0x24
 _020F1928:
 	mov r0, #0xa
 	blx OS_Sleep
-	bl FUN_ov17_020f4234
-	ldr r1, _020F1B24 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F1B24 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	bhs _020F19BC
 	ldr r0, [r7, #0x10]
 	cmp r0, #0
 	bne _020F19BC
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	beq _020F19B8
 _020F1948:
@@ -7781,7 +7781,7 @@ _020F1980:
 _020F1984:
 	ldr r0, [r7, #0x5c]
 	ldr r1, [r7, #0x70]
-	bl FUN_ov17_020f105c
+	bl atermapc_APC_GetAPList
 	cmp r0, r4
 	ble _020F19B0
 	add r4, r0, #0
@@ -7790,7 +7790,7 @@ _020F1984:
 	mov r0, #0x13
 	str r0, [sp]
 	ldr r1, _020F1B2C ; =0x000FFB10
-	ldr r3, _020F1B30 ; =0x020F144D
+	ldr r3, _020F1B30 ; =atermapc_alarmCallback
 	add r0, r6, #0
 	mov r2, #0
 	blx OS_SetAlarm
@@ -7801,7 +7801,7 @@ _020F19AA:
 _020F19AE:
 	mov r5, #0
 _020F19B0:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F1948
 _020F19B8:
@@ -7811,10 +7811,10 @@ _020F19BC:
 	add r0, sp, #0x24
 	blx OS_CancelAlarm
 _020F19C2:
-	bl FUN_ov17_020f13e4
+	bl AtermApc_GetEvent
 	cmp r0, #0
 	bne _020F19C2
-	ldr r1, _020F1B20 ; =0x02114C30
+	ldr r1, _020F1B20 ; =btAutoResult
 	ldr r0, [r1, #0x10]
 	cmp r0, #0
 	beq _020F19D4
@@ -7894,14 +7894,14 @@ _020F1A24:
 _020F1A5A:
 	ldr r0, [sp, #0xc]
 	str r4, [r0]
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	ldr r0, [r0, #0x38]
 	cmp r0, #1
 	beq _020F1AB4
 	ldr r0, [sp, #0xc]
 	ldr r1, [sp, #8]
 	add r2, sp, #0x20
-	bl FUN_ov17_020f16dc
+	bl atermapc_CheckAccessPoint
 	cmp r0, #0
 	beq _020F1AB4
 	ldr r0, [sp, #0xc]
@@ -7910,15 +7910,15 @@ _020F1A5A:
 	mov r0, #0x30
 	mul r0, r2
 	add r4, r1, r0
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	add r1, r4, #4
 	str r2, [r0, #0x18]
-	ldr r0, _020F1B34 ; =0x02115140
+	ldr r0, _020F1B34 ; =gAPSSID
 	blx strcpy
 	add r0, r4, #0
 	add r4, #0x28
 	ldrb r2, [r4]
-	ldr r1, _020F1B38 ; =0x021150E0
+	ldr r1, _020F1B38 ; =gAPMac
 	add r0, #0x28
 	strb r2, [r1]
 	ldrb r2, [r0, #1]
@@ -7932,17 +7932,17 @@ _020F1A5A:
 	ldrb r0, [r0, #5]
 	strb r0, [r1, #5]
 	add r0, sp, #0x50
-	bl FUN_ov17_020f42b8
+	bl atermapc_PutMac
 	b _020F1ADE
 _020F1AB4:
 	ldr r0, [sp, #8]
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	blx memcpy
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	mov r1, #2
 	str r1, [r0, #0x38]
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 	ldr r0, [sp, #0x1c]
 	add r0, r0, #1
 	str r0, [sp, #0x1c]
@@ -7950,7 +7950,7 @@ _020F1ACE:
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0x1e
 	bge _020F1ADE
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	bne _020F1ADE
@@ -7959,8 +7959,8 @@ _020F1ADE:
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0x1e
 	bge _020F1AF0
-	bl FUN_ov17_020f4234
-	ldr r1, _020F1B24 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F1B24 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	bls _020F1AF6
@@ -7969,7 +7969,7 @@ _020F1AF0:
 	mvn r4, r4
 	b _020F1B06
 _020F1AF6:
-	ldr r0, _020F1B20 ; =0x02114C30
+	ldr r0, _020F1B20 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	beq _020F1B04
@@ -7982,27 +7982,27 @@ _020F1B06:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	beq _020F1B10
-	bl FUN_ov17_020f4274
+	bl atermapc_Free
 _020F1B10:
 	ldr r0, [sp, #8]
 	cmp r0, #0
 	beq _020F1B1A
-	bl FUN_ov17_020f4274
+	bl atermapc_Free
 _020F1B1A:
 	add r0, r4, #0
 	add sp, #0x70
 	pop {r3, r4, r5, r6, r7, pc}
-_020F1B20: .word ov17_02114C30
-_020F1B24: .word ov17_021127C8
+_020F1B20: .word btAutoResult
+_020F1B24: .word lpElementData
 _020F1B28: .word 0x0030BFFE
 _020F1B2C: .word 0x000FFB10
-_020F1B30: .word 0x020F144D
-_020F1B34: .word ov17_02115140
-_020F1B38: .word ov17_021150E0
-	thumb_func_end FUN_ov17_020f18a8
+_020F1B30: .word atermapc_alarmCallback
+_020F1B34: .word gAPSSID
+_020F1B38: .word gAPMac
+	thumb_func_end atermapc_ScanAP
 
-	thumb_func_start FUN_ov17_020f1b3c
-FUN_ov17_020f1b3c: ; 0x020F1B3C
+	thumb_func_start atermapc_SendFrameViaInterface
+atermapc_SendFrameViaInterface: ; 0x020F1B3C
 	push {r3, lr}
 	ldr r2, [sp, #8]
 	str r1, [sp]
@@ -8015,10 +8015,10 @@ FUN_ov17_020f1b3c: ; 0x020F1B3C
 	mvn r0, r0
 _020F1B52:
 	pop {r3, pc}
-	thumb_func_end FUN_ov17_020f1b3c
+	thumb_func_end atermapc_SendFrameViaInterface
 
-	thumb_func_start FUN_ov17_020f1b54
-FUN_ov17_020f1b54: ; 0x020F1B54
+	thumb_func_start atermapc_SendBroadcast
+atermapc_SendBroadcast: ; 0x020F1B54
 	push {r4, r5, r6, lr}
 	sub sp, #0x10
 	add r5, r0, #0
@@ -8041,23 +8041,23 @@ FUN_ov17_020f1b54: ; 0x020F1B54
 	add r2, sp, #4
 	add r3, r6, #0
 	str r4, [sp]
-	bl FUN_ov17_020f1b3c
+	bl atermapc_SendFrameViaInterface
 	add sp, #0x10
 	pop {r4, r5, r6, pc}
 _020F1B8C: .word 0x000001E6
-	thumb_func_end FUN_ov17_020f1b54
+	thumb_func_end atermapc_SendBroadcast
 
-	thumb_func_start FUN_ov17_020f1b90
-FUN_ov17_020f1b90: ; 0x020F1B90
+	thumb_func_start atermapc_SendFrame
+atermapc_SendFrame: ; 0x020F1B90
 	add r1, r2, #0
 	add r2, r3, #0
-	ldr r3, _020F1B98 ; =FUN_ov17_020f1b54
+	ldr r3, _020F1B98 ; =atermapc_SendBroadcast
 	bx r3
-_020F1B98: .word FUN_ov17_020f1b54
-	thumb_func_end FUN_ov17_020f1b90
+_020F1B98: .word atermapc_SendBroadcast
+	thumb_func_end atermapc_SendFrame
 
-	thumb_func_start FUN_ov17_020f1b9c
-FUN_ov17_020f1b9c: ; 0x020F1B9C
+	thumb_func_start atermapc_GetFrameData
+atermapc_GetFrameData: ; 0x020F1B9C
 	push {r3, r4, r5, r6}
 	ldrh r5, [r0]
 	mov r3, #0
@@ -8116,10 +8116,10 @@ _020F1C04:
 	add r0, r0, #6
 	pop {r3, r4, r5, r6}
 	bx lr
-	thumb_func_end FUN_ov17_020f1b9c
+	thumb_func_end atermapc_GetFrameData
 
-	thumb_func_start FUN_ov17_020f1c0c
-FUN_ov17_020f1c0c: ; 0x020F1C0C
+	thumb_func_start atermapc_GetElementData
+atermapc_GetElementData: ; 0x020F1C0C
 	push {r3, r4, r5, r6}
 	add r4, r0, #0
 	ldr r0, [r4]
@@ -8160,10 +8160,10 @@ _020F1C1C:
 	str r1, [r4]
 	pop {r3, r4, r5, r6}
 	bx lr
-	thumb_func_end FUN_ov17_020f1c0c
+	thumb_func_end atermapc_GetElementData
 
-	thumb_func_start FUN_ov17_020f1c5c
-FUN_ov17_020f1c5c: ; 0x020F1C5C
+	thumb_func_start atermapc_GetFirstElement
+atermapc_GetFirstElement: ; 0x020F1C5C
 	push {r3, r4, r5, r6, lr}
 	sub sp, #4
 	add r5, r0, #0
@@ -8185,13 +8185,13 @@ FUN_ov17_020f1c5c: ; 0x020F1C5C
 	lsr r1, r1, #0x10
 	add r1, r5, r1
 	add r2, r4, #0
-	bl FUN_ov17_020f1c0c
+	bl atermapc_GetElementData
 	add sp, #4
 	pop {r3, r4, r5, r6, pc}
-	thumb_func_end FUN_ov17_020f1c5c
+	thumb_func_end atermapc_GetFirstElement
 
-	thumb_func_start FUN_ov17_020f1c90
-FUN_ov17_020f1c90: ; 0x020F1C90
+	thumb_func_start atermapc_SetFrameData
+atermapc_SetFrameData: ; 0x020F1C90
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #8
 	add r7, r3, #0
@@ -8228,7 +8228,7 @@ FUN_ov17_020f1c90: ; 0x020F1C90
 	str r0, [sp]
 	add r0, r6, #6
 	add r2, r7, #0
-	bl FUN_ov17_020f28d0
+	bl atermapc_keywrap_encrypt
 	add r7, #8
 	b _020F1CE8
 _020F1CE0:
@@ -8291,10 +8291,10 @@ _020F1D34:
 	sub r0, r0, r6
 	add sp, #8
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f1c90
+	thumb_func_end atermapc_SetFrameData
 
-	thumb_func_start FUN_ov17_020f1d54
-FUN_ov17_020f1d54: ; 0x020F1D54
+	thumb_func_start atermapc_SetElementData
+atermapc_SetElementData: ; 0x020F1D54
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	lsl r0, r1, #0x10
@@ -8340,10 +8340,10 @@ FUN_ov17_020f1d54: ; 0x020F1D54
 	blx memcpy
 	add r0, r5, r6
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f1d54
+	thumb_func_end atermapc_SetElementData
 
-	thumb_func_start FUN_ov17_020f1db4
-FUN_ov17_020f1db4: ; 0x020F1DB4
+	thumb_func_start atermapc_SetSingleElement
+atermapc_SetSingleElement: ; 0x020F1DB4
 	push {r4, lr}
 	add r4, r0, #0
 	mov r0, #0
@@ -8357,22 +8357,22 @@ FUN_ov17_020f1db4: ; 0x020F1DB4
 	strb r0, [r4, #7]
 	add r0, r4, #0
 	add r0, #8
-	bl FUN_ov17_020f1d54
+	bl atermapc_SetElementData
 	sub r0, r0, r4
 	add r1, r0, #0
 	sub r1, #8
 	strh r1, [r4]
 	pop {r4, pc}
-	thumb_func_end FUN_ov17_020f1db4
+	thumb_func_end atermapc_SetSingleElement
 
-	thumb_func_start FUN_ov17_020f1ddc
-FUN_ov17_020f1ddc: ; 0x020F1DDC
+	thumb_func_start atermapc_IsSearchCommand
+atermapc_IsSearchCommand: ; 0x020F1DDC
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x1c
 	str r1, [sp]
 	add r1, sp, #0x18
 	add r2, sp, #0x14
-	bl FUN_ov17_020f1b9c
+	bl atermapc_GetFrameData
 	mov r6, #0
 	add r5, r0, #0
 	add r7, r6, #0
@@ -8399,7 +8399,7 @@ _020F1E0A:
 	add r1, r5, r4
 	add r2, sp, #0x10
 	add r3, sp, #0xc
-	bl FUN_ov17_020f1c0c
+	bl atermapc_GetElementData
 	cmp r0, #0
 	beq _020F1E8A
 _020F1E22:
@@ -8455,7 +8455,7 @@ _020F1E7A:
 	add r1, r5, r4
 	add r2, sp, #0x10
 	add r3, sp, #0xc
-	bl FUN_ov17_020f1c0c
+	bl atermapc_GetElementData
 	cmp r0, #0
 	bne _020F1E22
 _020F1E8A:
@@ -8482,10 +8482,10 @@ _020F1EA8:
 	mov r0, #1
 	add sp, #0x1c
 	pop {r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f1ddc
+	thumb_func_end atermapc_IsSearchCommand
 
-	thumb_func_start FUN_ov17_020f1eb0
-FUN_ov17_020f1eb0: ; 0x020F1EB0
+	thumb_func_start atermapc_GetCommandElement
+atermapc_GetCommandElement: ; 0x020F1EB0
 	push {r3, r4, r5, r6, lr}
 	sub sp, #0xc
 	add r5, r1, #0
@@ -8493,7 +8493,7 @@ FUN_ov17_020f1eb0: ; 0x020F1EB0
 	add r1, sp, #8
 	add r2, sp, #4
 	add r4, r3, #0
-	bl FUN_ov17_020f1b9c
+	bl atermapc_GetFrameData
 	add r1, r0, #0
 	bne _020F1ECC
 	add sp, #0xc
@@ -8514,7 +8514,7 @@ _020F1ED8:
 	ldr r2, [sp, #4]
 	add r0, r6, #0
 	add r3, r4, #0
-	bl FUN_ov17_020f2a88
+	bl atermapc_keywrap_decrypt
 	ldr r0, [sp, #4]
 	sub r0, #8
 	str r0, [sp, #4]
@@ -8527,10 +8527,10 @@ _020F1EFA:
 	ldr r0, [sp, #4]
 	add sp, #0xc
 	pop {r3, r4, r5, r6, pc}
-	thumb_func_end FUN_ov17_020f1eb0
+	thumb_func_end atermapc_GetCommandElement
 
-	thumb_func_start FUN_ov17_020f1f00
-FUN_ov17_020f1f00: ; 0x020F1F00
+	thumb_func_start atermapc_SetSearchRes
+atermapc_SetSearchRes: ; 0x020F1F00
 	push {r4, lr}
 	sub sp, #0x10
 	mov r1, #1
@@ -8549,70 +8549,70 @@ _020F1F16:
 	add r2, r2, #1
 	sub r1, r1, #1
 	bne _020F1F16
-	ldr r0, _020F1F8C ; =0x021127C8
+	ldr r0, _020F1F8C ; =lpElementData
 	mov r1, #1
 	ldr r0, [r0]
 	add r2, sp, #4
 	mov r3, #2
-	bl FUN_ov17_020f1d54
+	bl atermapc_SetElementData
 	mov r1, #2
 	add r2, sp, #4
 	add r3, r1, #0
-	bl FUN_ov17_020f1d54
-	ldr r1, _020F1F90 ; =0x02114C30
+	bl atermapc_SetElementData
+	ldr r1, _020F1F90 ; =btAutoResult
 	ldr r1, [r1, #0x50]
 	cmp r1, #0
 	beq _020F1F4C
 	mov r1, #5
 	add r2, sp, #4
 	mov r3, #2
-	bl FUN_ov17_020f1d54
+	bl atermapc_SetElementData
 _020F1F4C:
 	add r2, sp, #4
 	mov r1, #3
 	add r2, #2
 	mov r3, #7
-	bl FUN_ov17_020f1d54
-	ldr r1, _020F1F90 ; =0x02114C30
+	bl atermapc_SetElementData
+	ldr r1, _020F1F90 ; =btAutoResult
 	add r3, r0, #0
 	ldr r1, [r1, #0x50]
 	cmp r1, #0
 	beq _020F1F6E
-	ldr r2, _020F1F94 ; =0x021150D8
+	ldr r2, _020F1F94 ; =btAdapterMAC
 	mov r1, #4
 	mov r3, #6
-	bl FUN_ov17_020f1d54
+	bl atermapc_SetElementData
 	add r3, r0, #0
 _020F1F6E:
 	mov r0, #0
 	str r0, [sp]
 	add r0, r4, #0
-	ldr r4, _020F1F8C ; =0x021127C8
-	ldr r2, _020F1F98 ; =0x02115164
+	ldr r4, _020F1F8C ; =lpElementData
+	ldr r2, _020F1F98 ; =atermapc_ElementData
 	ldr r4, [r4]
 	mov r1, #2
 	sub r3, r3, r4
 	add r3, #8
-	bl FUN_ov17_020f1c90
+	bl atermapc_SetFrameData
 	add sp, #0x10
 	pop {r4, pc}
 _020F1F88: .word ov17_0210F444
-_020F1F8C: .word ov17_021127C8
-_020F1F90: .word ov17_02114C30
-_020F1F94: .word ov17_021150D8
-_020F1F98: .word ov17_02115164
-	thumb_func_end FUN_ov17_020f1f00
+_020F1F8C: .word lpElementData
+_020F1F90: .word btAutoResult
+_020F1F94: .word btAdapterMAC
+_020F1F98: .word atermapc_ElementData
+	thumb_func_end atermapc_SetSearchRes
 
-	thumb_func_start FUN_ov17_020f1f9c
-FUN_ov17_020f1f9c: ; 0x020F1F9C
+	thumb_func_start atermapc_GetAdapterMac
+atermapc_GetAdapterMac: ; 0x020F1F9C
 	push {r3, lr}
 	blx OS_GetMacAddress
 	mov r0, #1
 	pop {r3, pc}
-	thumb_func_end FUN_ov17_020f1f9c
+	thumb_func_end atermapc_GetAdapterMac
 
-	thumb_func_start FUN_ov17_020f1fa8
-FUN_ov17_020f1fa8: ; 0x020F1FA8
+	thumb_func_start atermapc_GetMacEncKey
+atermapc_GetMacEncKey: ; 0x020F1FA8
 	push {r3, r4, lr}
 	sub sp, #0x4c
 	ldr r1, _020F2094 ; =0x02112888
@@ -8629,7 +8629,7 @@ FUN_ov17_020f1fa8: ; 0x020F1FA8
 	add r1, sp, #4
 	add r1, #2
 	strb r0, [r2, #3]
-	ldr r0, _020F2098 ; =0x021150E0
+	ldr r0, _020F2098 ; =gAPMac
 	ldrb r2, [r0]
 	strb r2, [r1]
 	ldrb r2, [r0, #1]
@@ -8648,10 +8648,10 @@ FUN_ov17_020f1fa8: ; 0x020F1FA8
 	and r0, r2
 	strb r0, [r1, #6]
 	add r0, sp, #0
-	bl FUN_ov17_020f1f9c
+	bl atermapc_GetAdapterMac
 	add r1, sp, #0
 	ldrb r2, [r1]
-	ldr r0, _020F209C ; =0x021150D8
+	ldr r0, _020F209C ; =btAdapterMAC
 	strb r2, [r0]
 	ldrb r2, [r1, #1]
 	strb r2, [r0, #1]
@@ -8714,30 +8714,30 @@ _020F205A:
 	strb r0, [r4, #0xa]
 	ldrb r0, [r1, #5]
 	strb r0, [r4, #0xb]
-	ldr r0, _020F20A0 ; =0x021127C8
+	ldr r0, _020F20A0 ; =lpElementData
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	beq _020F208C
 	add r0, sp, #0x2c
 	add r1, sp, #0
-	bl FUN_ov17_020f42b8
+	bl atermapc_PutMac
 	add r1, sp, #4
 	add r0, sp, #0xc
 	add r1, #2
-	bl FUN_ov17_020f42b8
+	bl atermapc_PutMac
 _020F208C:
 	mov r0, #1
 	add sp, #0x4c
 	pop {r3, r4, pc}
 	nop
 _020F2094: .word ov17_02112888
-_020F2098: .word ov17_021150E0
-_020F209C: .word ov17_021150D8
-_020F20A0: .word ov17_021127C8
-	thumb_func_end FUN_ov17_020f1fa8
+_020F2098: .word gAPMac
+_020F209C: .word btAdapterMAC
+_020F20A0: .word lpElementData
+	thumb_func_end atermapc_GetMacEncKey
 
-	thumb_func_start FUN_ov17_020f20a4
-FUN_ov17_020f20a4: ; 0x020F20A4
+	thumb_func_start atermapc_GetWLanSetElement
+atermapc_GetWLanSetElement: ; 0x020F20A4
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x18
 	add r1, r0, #0
@@ -8765,7 +8765,7 @@ FUN_ov17_020f20a4: ; 0x020F20A4
 	add r0, sp, #0x14
 	add r1, r2, r1
 	add r2, sp, #0x10
-	bl FUN_ov17_020f1c0c
+	bl atermapc_GetElementData
 	add r5, r0, #0
 	bne _020F20E4
 	b _020F2254
@@ -8825,7 +8825,7 @@ _020F212E:
 	b _020F223E
 _020F214A:
 	ldrh r3, [r5]
-	ldr r1, _020F2268 ; =0x02114E84
+	ldr r1, _020F2268 ; =atermapc_AutoProfile
 	mov r0, #0
 	asr r2, r3, #8
 	lsl r2, r2, #0x18
@@ -8849,7 +8849,7 @@ _020F2172:
 	b _020F223E
 _020F2174:
 	ldrh r3, [r5]
-	ldr r0, _020F2268 ; =0x02114E84
+	ldr r0, _020F2268 ; =atermapc_AutoProfile
 	mov r1, #0
 	asr r2, r3, #8
 	lsl r2, r2, #0x18
@@ -8915,7 +8915,7 @@ _020F21EE:
 	ldrsb r1, [r5, r7]
 	add r0, r4, #0
 	add r5, r5, #1
-	bl FUN_ov17_020f4284
+	bl atermapc_PutHex
 	add r4, r4, r0
 	ldr r0, [sp, #0xc]
 	add r6, r6, #1
@@ -8958,7 +8958,7 @@ _020F223E:
 	add r1, r2, r1
 	add r2, sp, #0x10
 	add r3, sp, #0xc
-	bl FUN_ov17_020f1c0c
+	bl atermapc_GetElementData
 	add r5, r0, #0
 	beq _020F2254
 	b _020F20E4
@@ -8970,14 +8970,14 @@ _020F2254:
 _020F225C: .word 0x00000201
 _020F2260: .word ov17_02114F84
 _020F2264: .word ov17_02114FB0
-_020F2268: .word ov17_02114E84
+_020F2268: .word atermapc_AutoProfile
 _020F226C: .word ov17_02114FE8
 _020F2270: .word 0x00000206
 _020F2274: .word ov17_02115080
-	thumb_func_end FUN_ov17_020f20a4
+	thumb_func_end atermapc_GetWLanSetElement
 
-	thumb_func_start FUN_ov17_020f2278
-FUN_ov17_020f2278: ; 0x020F2278
+	thumb_func_start atermapc_AsciiToHex
+atermapc_AsciiToHex: ; 0x020F2278
 	push {r4, r5, r6, r7}
 	add r4, r2, #0
 	mov r2, #0
@@ -9081,15 +9081,15 @@ _020F2326:
 	mov r0, #1
 	pop {r4, r5, r6, r7}
 	bx lr
-	thumb_func_end FUN_ov17_020f2278
+	thumb_func_end atermapc_AsciiToHex
 
-	thumb_func_start FUN_ov17_020f232c
-FUN_ov17_020f232c: ; 0x020F232C
+	thumb_func_start atermapc_StoreNetParam
+atermapc_StoreNetParam: ; 0x020F232C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x28
 	mov r0, #1
 	str r0, [sp]
-	ldr r0, _020F2494 ; =0x02114D9C
+	ldr r0, _020F2494 ; =gAtermApConfigParam
 	ldr r1, _020F2498 ; =0x02114F84
 	blx strcpy
 	ldr r1, _020F249C ; =0x02114FB0
@@ -9189,7 +9189,7 @@ _020F23DE:
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r2, #0xa
-	bl FUN_ov17_020f2278
+	bl atermapc_AsciiToHex
 	b _020F244E
 _020F23F0:
 	ldr r0, _020F24A0 ; =0x02114DB0
@@ -9213,7 +9213,7 @@ _020F240A:
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r2, #0x1a
-	bl FUN_ov17_020f2278
+	bl atermapc_AsciiToHex
 	b _020F244E
 _020F241C:
 	ldr r0, _020F24A0 ; =0x02114DB0
@@ -9237,7 +9237,7 @@ _020F2436:
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r2, #0x20
-	bl FUN_ov17_020f2278
+	bl atermapc_AsciiToHex
 	b _020F244E
 _020F2448:
 	mov r0, #6
@@ -9285,7 +9285,7 @@ _020F248C:
 	add sp, #0x28
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
-_020F2494: .word ov17_02114D9C
+_020F2494: .word gAtermApConfigParam
 _020F2498: .word ov17_02114F84
 _020F249C: .word ov17_02114FB0
 _020F24A0: .word ov17_02114DB0
@@ -9293,16 +9293,16 @@ _020F24A4: .word ov17_02114FE8
 _020F24A8: .word ov17_02114DC4
 _020F24AC: .word ov17_02114E44
 _020F24B0: .word ov17_02115080
-	thumb_func_end FUN_ov17_020f232c
+	thumb_func_end atermapc_StoreNetParam
 
-	thumb_func_start FUN_ov17_020f24b4
-FUN_ov17_020f24b4: ; 0x020F24B4
+	thumb_func_start atermapc_AutoConfigThreadEx
+atermapc_AutoConfigThreadEx: ; 0x020F24B4
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x2c
 	mov r4, #0
 	sub r0, r4, #5
 	str r0, [sp, #8]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #1
 	str r4, [sp, #0xc]
 	str r4, [sp, #4]
@@ -9313,7 +9313,7 @@ _020F24CC:
 	mov r0, #0x7d
 	lsl r0, r0, #2
 	blx OS_Sleep
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	ldr r0, [r0, #0x1c]
 	cmp r0, #0xa
 	bls _020F24DE
@@ -9338,30 +9338,30 @@ _020F24EA: ; jump table
 	.short _020F279E - _020F24EA - 2 ; case 9
 	.short _020F283C - _020F24EA - 2 ; case 10
 _020F2500:
-	bl FUN_ov17_020f18a8
+	bl atermapc_ScanAP
 	str r0, [sp, #8]
 	cmp r0, #1
 	beq _020F250E
 	mov r6, #1
 	b _020F2866
 _020F250E:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x38]
-	bl FUN_ov17_020f44b4
-	ldr r0, _020F27FC ; =0x02114C30
+	bl atermapc_SendNotify
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #2
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F2520:
-	bl FUN_ov17_020f1554
+	bl atermapc_ConnectAP
 	str r0, [sp, #8]
 	cmp r0, #1
 	beq _020F252E
 	mov r6, #1
 	b _020F2866
 _020F252E:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #3
 	str r1, [r0, #0x1c]
 	b _020F2866
@@ -9401,13 +9401,13 @@ _020F254E:
 	mov r6, #1
 	b _020F2866
 _020F257C:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #4
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F2584:
-	bl FUN_ov17_020f4234
-	ldr r1, _020F2804 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F2804 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	blo _020F25A0
@@ -9424,7 +9424,7 @@ _020F25A0:
 	strb r1, [r0, #0xc]
 	ldr r0, _020F2808 ; =0x021150F0
 	add r1, sp, #0x1c
-	bl FUN_ov17_020f1fa8
+	bl atermapc_GetMacEncKey
 	add r0, sp, #0x1c
 	mov r2, #2
 	str r0, [sp]
@@ -9437,40 +9437,40 @@ _020F25A0:
 	ble _020F269E
 	ldr r0, _020F280C ; =0x02115964
 	ldr r1, _020F2810 ; =0x02114C80
-	bl FUN_ov17_020f1ddc
+	bl atermapc_IsSearchCommand
 	cmp r0, #0
 	beq _020F269E
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	ldr r1, _020F2814 ; =0x00007530
 	add r1, r0, r1
-	ldr r0, _020F2804 ; =0x021127C8
+	ldr r0, _020F2804 ; =lpElementData
 	str r1, [r0, #0xc]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #5
 	str r1, [r0, #0x1c]
 	mov r1, #4
 	str r1, [r0, #0x38]
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 	b _020F2866
 _020F25EC:
 	ldr r0, _020F280C ; =0x02115964
-	bl FUN_ov17_020f1f00
+	bl atermapc_SetSearchRes
 	add r3, r0, #0
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	ldr r2, _020F280C ; =0x02115964
 	str r3, [r0, #0x14]
 	add r0, r4, #0
 	add r1, sp, #0x1c
-	bl FUN_ov17_020f1b90
-	bl FUN_ov17_020f4234
+	bl atermapc_SendFrame
+	bl atermapc_GetTickCount
 	str r0, [sp, #0xc]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #6
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F2610:
-	bl FUN_ov17_020f4234
-	ldr r1, _020F2804 ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F2804 ; =lpElementData
 	ldr r1, [r1, #0xc]
 	cmp r0, r1
 	blo _020F262C
@@ -9493,22 +9493,22 @@ _020F262C:
 	cmp r0, #0
 	ble _020F26A0
 	ldr r0, _020F280C ; =0x02115964
-	ldr r2, _020F2818 ; =0x02115164
+	ldr r2, _020F2818 ; =atermapc_ElementData
 	ldr r3, _020F2808 ; =0x021150F0
 	mov r1, #3
-	bl FUN_ov17_020f1eb0
+	bl atermapc_GetCommandElement
 	cmp r0, #0
 	beq _020F26A0
-	ldr r0, _020F2818 ; =0x02115164
+	ldr r0, _020F2818 ; =atermapc_ElementData
 	add r1, sp, #0x18
 	add r2, sp, #0x14
-	bl FUN_ov17_020f1c5c
+	bl atermapc_GetFirstElement
 	add r5, r0, #0
 	ldr r1, [sp, #0x18]
 	ldr r0, _020F281C ; =0x00000101
 	cmp r1, r0
 	bne _020F269E
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	ldr r2, _020F2820 ; =0x02115100
 	str r0, [sp, #0x10]
 	mov r1, #8
@@ -9522,22 +9522,22 @@ _020F2670:
 	ldr r0, _020F2824 ; =0x02115108
 	add r1, sp, #0x10
 	mov r2, #4
-	bl FUN_ov17_020f420c
+	bl MD5Encode
 	mov r0, #0
 	str r0, [sp, #4]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #7
 	str r1, [r0, #0x1c]
 	mov r1, #5
 	str r1, [r0, #0x38]
-	ldr r0, _020F2804 ; =0x021127C8
+	ldr r0, _020F2804 ; =lpElementData
 	sub r1, r1, #6
 	str r1, [r0, #0xc]
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 _020F269E:
 	b _020F2866
 _020F26A0:
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	mov r2, #0xfa
 	ldr r1, [sp, #0xc]
 	lsl r2, r2, #2
@@ -9546,37 +9546,37 @@ _020F26A0:
 	bhs _020F26B2
 	b _020F2866
 _020F26B2:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #5
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F26BA:
-	ldr r0, _020F2818 ; =0x02115164
+	ldr r0, _020F2818 ; =atermapc_ElementData
 	ldr r1, _020F2828 ; =0x00000102
 	ldr r2, _020F2824 ; =0x02115108
 	mov r3, #8
-	bl FUN_ov17_020f1db4
-	ldr r3, _020F27FC ; =0x02114C30
-	ldr r2, _020F2818 ; =0x02115164
+	bl atermapc_SetSingleElement
+	ldr r3, _020F27FC ; =btAutoResult
+	ldr r2, _020F2818 ; =atermapc_ElementData
 	str r0, [r3, #0x34]
 	ldr r0, _020F2808 ; =0x021150F0
 	mov r1, #4
 	str r0, [sp]
 	ldr r0, _020F280C ; =0x02115964
 	ldr r3, [r3, #0x34]
-	bl FUN_ov17_020f1c90
+	bl atermapc_SetFrameData
 	add r3, r0, #0
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	ldr r2, _020F280C ; =0x02115964
 	str r3, [r0, #0x14]
 	add r0, r4, #0
 	add r1, sp, #0x1c
-	bl FUN_ov17_020f1b90
-	bl FUN_ov17_020f4234
+	bl atermapc_SendFrame
+	bl atermapc_GetTickCount
 	str r0, [sp, #0xc]
 	mov r0, #0
 	mov r5, #0x12
-	ldr r7, _020F282C ; =0x02114E84
+	ldr r7, _020F282C ; =atermapc_AutoProfile
 	add r1, r0, #0
 	add r2, r0, #0
 	add r3, r0, #0
@@ -9590,7 +9590,7 @@ _020F26FE:
 	bne _020F26FE
 	stmia r7!, {r0, r1, r2, r3}
 	str r0, [r7]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #8
 	str r1, [r0, #0x1c]
 	b _020F2866
@@ -9606,16 +9606,16 @@ _020F2716:
 	cmp r0, #0
 	ble _020F276C
 	ldr r0, _020F280C ; =0x02115964
-	ldr r2, _020F2818 ; =0x02115164
+	ldr r2, _020F2818 ; =atermapc_ElementData
 	ldr r3, _020F2820 ; =0x02115100
 	mov r1, #5
-	bl FUN_ov17_020f1eb0
-	ldr r1, _020F27FC ; =0x02114C30
+	bl atermapc_GetCommandElement
+	ldr r1, _020F27FC ; =btAutoResult
 	cmp r0, #0
 	str r0, [r1, #0x34]
 	beq _020F276C
-	ldr r0, _020F2818 ; =0x02115164
-	bl FUN_ov17_020f20a4
+	ldr r0, _020F2818 ; =atermapc_ElementData
+	bl atermapc_GetWLanSetElement
 	cmp r0, #0
 	beq _020F276C
 	ldr r1, _020F2830 ; =0x02114F70
@@ -9624,21 +9624,21 @@ _020F2716:
 	cmp r0, #0
 	beq _020F275A
 	mov r1, #1
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	b _020F275E
 _020F275A:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #0
 _020F275E:
 	strb r1, [r0]
 	mov r0, #0
 	str r0, [sp, #4]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #9
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F276C:
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	mov r2, #0xfa
 	ldr r1, [sp, #0xc]
 	lsl r2, r2, #2
@@ -9658,71 +9658,71 @@ _020F276C:
 	mov r6, #1
 	b _020F2866
 _020F2796:
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #7
 	str r1, [r0, #0x1c]
 	b _020F2866
 _020F279E:
-	ldr r0, _020F2818 ; =0x02115164
+	ldr r0, _020F2818 ; =atermapc_ElementData
 	ldr r1, _020F2834 ; =0x00000301
-	ldr r2, _020F2838 ; =0x02114C30
+	ldr r2, _020F2838 ; =btAutoResult
 	mov r3, #1
-	bl FUN_ov17_020f1db4
-	ldr r3, _020F27FC ; =0x02114C30
-	ldr r2, _020F2818 ; =0x02115164
+	bl atermapc_SetSingleElement
+	ldr r3, _020F27FC ; =btAutoResult
+	ldr r2, _020F2818 ; =atermapc_ElementData
 	str r0, [r3, #0x34]
 	ldr r0, _020F2820 ; =0x02115100
 	mov r1, #6
 	str r0, [sp]
 	ldr r0, _020F280C ; =0x02115964
 	ldr r3, [r3, #0x34]
-	bl FUN_ov17_020f1c90
-	ldr r1, _020F27FC ; =0x02114C30
+	bl atermapc_SetFrameData
+	ldr r1, _020F27FC ; =btAutoResult
 	str r0, [r1, #0x14]
-	bl FUN_ov17_020f1358
+	bl atermapc_APC_GetState
 	cmp r0, #7
 	beq _020F27E0
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	mov r1, #0xfa
 	lsl r1, r1, #2
 	add r0, r0, r1
 	str r0, [sp, #0xc]
 	mov r0, #0xa
-	ldr r1, _020F27FC ; =0x02114C30
+	ldr r1, _020F27FC ; =btAutoResult
 	str r0, [sp, #4]
 	str r0, [r1, #0x1c]
 	b _020F2866
 _020F27E0:
-	ldr r3, _020F27FC ; =0x02114C30
+	ldr r3, _020F27FC ; =btAutoResult
 	ldr r2, _020F280C ; =0x02115964
 	ldr r3, [r3, #0x14]
 	add r0, r4, #0
 	add r1, sp, #0x1c
-	bl FUN_ov17_020f1b90
-	bl FUN_ov17_020f4234
+	bl atermapc_SendFrame
+	bl atermapc_GetTickCount
 	str r0, [sp, #0xc]
-	ldr r0, _020F27FC ; =0x02114C30
+	ldr r0, _020F27FC ; =btAutoResult
 	mov r1, #0xa
 	str r1, [r0, #0x1c]
 	b _020F2866
-_020F27FC: .word ov17_02114C30
+_020F27FC: .word btAutoResult
 _020F2800: .word 0x000001E6
-_020F2804: .word ov17_021127C8
+_020F2804: .word lpElementData
 _020F2808: .word ov17_021150F0
 _020F280C: .word ov17_02115964
 _020F2810: .word ov17_02114C80
 _020F2814: .word 0x00007530
-_020F2818: .word ov17_02115164
+_020F2818: .word atermapc_ElementData
 _020F281C: .word 0x00000101
 _020F2820: .word ov17_02115100
 _020F2824: .word ov17_02115108
 _020F2828: .word 0x00000102
-_020F282C: .word ov17_02114E84
+_020F282C: .word atermapc_AutoProfile
 _020F2830: .word ov17_02114F70
 _020F2834: .word 0x00000301
-_020F2838: .word ov17_02114C30
+_020F2838: .word btAutoResult
 _020F283C:
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	mov r2, #0xfa
 	ldr r1, [sp, #0xc]
 	lsl r2, r2, #2
@@ -9735,17 +9735,17 @@ _020F283C:
 	cmp r0, #0xa
 	blt _020F2860
 	mov r6, #1
-	bl FUN_ov17_020f232c
+	bl atermapc_StoreNetParam
 	str r0, [sp, #8]
 	b _020F2866
 _020F2860:
-	ldr r0, _020F2894 ; =0x02114C30
+	ldr r0, _020F2894 ; =btAutoResult
 	mov r1, #9
 	str r1, [r0, #0x1c]
 _020F2866:
 	cmp r6, #0
 	bne _020F2874
-	ldr r0, _020F2894 ; =0x02114C30
+	ldr r0, _020F2894 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	bne _020F2874
@@ -9756,7 +9756,7 @@ _020F2874:
 	add r0, r4, #0
 	blx SOC_Close
 _020F287E:
-	ldr r0, _020F2894 ; =0x02114C30
+	ldr r0, _020F2894 ; =btAutoResult
 	ldr r0, [r0, #0x10]
 	cmp r0, #0
 	beq _020F288C
@@ -9768,40 +9768,40 @@ _020F288C:
 	add sp, #0x2c
 	pop {r4, r5, r6, r7, pc}
 	nop
-_020F2894: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f24b4
+_020F2894: .word btAutoResult
+	thumb_func_end atermapc_AutoConfigThreadEx
 
-	thumb_func_start FUN_ov17_020f2898
-FUN_ov17_020f2898:
+	thumb_func_start atermapc_AutoConfigThread
+atermapc_AutoConfigThread:
 	push {r4, lr}
-	bl FUN_ov17_020f24b4
+	bl atermapc_AutoConfigThreadEx
 	add r4, r0, #0x0
-	ldr r0, _020F28C8 ; =0x02114C30
+	ldr r0, _020F28C8 ; =btAutoResult
 	str r4, [r0, #0x78]
-	bl FUN_ov17_020f1678
+	bl atermapc_DisconnectAP
 	cmp r4, #0x1
 	bne _020F28B2
 	mov r1, #0x6
-	ldr r0, _020F28C8 ; =0x02114C30
+	ldr r0, _020F28C8 ; =btAutoResult
 	b _020F28B6
 _020F28B2:
-	ldr r0, _020F28C8 ; =0x02114C30
+	ldr r0, _020F28C8 ; =btAutoResult
 	mov r1, #0x7
 _020F28B6:
 	str r1, [r0, #0x38]
 	mov r1, #0x0
-	ldr r0, _020F28CC ; =0x021127C8
+	ldr r0, _020F28CC ; =lpElementData
 	mvn r1, r1
 	str r1, [r0, #0xc]
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 	pop {r4, pc}
 	nop
-_020F28C8: .word ov17_02114C30
-_020F28CC: .word ov17_021127C8
-	thumb_func_end FUN_ov17_020f2898
+_020F28C8: .word btAutoResult
+_020F28CC: .word lpElementData
+	thumb_func_end atermapc_AutoConfigThread
 
-	thumb_func_start FUN_ov17_020f28d0
-FUN_ov17_020f28d0: ; 0x020F28D0
+	thumb_func_start atermapc_keywrap_encrypt
+atermapc_keywrap_encrypt: ; 0x020F28D0
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x1a8
 	str r0, [sp]
@@ -9833,7 +9833,7 @@ _020F2902:
 	add r0, sp, #0x68
 	add r1, r3, #0
 	lsl r2, r2, #3
-	bl FUN_ov17_020f2c88
+	bl atermapc_rijndaelKeySetupEnc
 	str r0, [sp, #0x1c]
 	ldr r0, [sp]
 	add r1, r5, #0
@@ -9894,7 +9894,7 @@ _020F296A:
 	ldr r1, [sp, #0x1c]
 	add r0, sp, #0x68
 	add r3, r2, #0
-	bl FUN_ov17_020f30d0
+	bl atermapc_rijndaelEncrypt
 	ldr r0, [sp, #0xc]
 	asr r1, r4, #0x1f
 	add r3, r4, r0
@@ -9990,7 +9990,7 @@ _020F296A:
 	add r0, sp, #0x58
 	add r1, sp, #0x50
 	add r2, r0, #0
-	bl FUN_ov17_020f2c40
+	bl atermapc_aeskw_xor64
 	add r2, sp, #0x60
 	mov r1, #8
 _020F2A48:
@@ -10028,10 +10028,10 @@ _020F2A6C:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _020F2A84: .word 0xA6A6A6A6
-	thumb_func_end FUN_ov17_020f28d0
+	thumb_func_end atermapc_keywrap_encrypt
 
-	thumb_func_start FUN_ov17_020f2a88
-FUN_ov17_020f2a88: ; 0x020F2A88
+	thumb_func_start atermapc_keywrap_decrypt
+atermapc_keywrap_decrypt: ; 0x020F2A88
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x1a8
 	str r0, [sp]
@@ -10066,7 +10066,7 @@ _020F2AC0:
 	add r0, sp, #0x68
 	add r1, r3, #0
 	lsl r2, r2, #3
-	bl FUN_ov17_020f2f40
+	bl atermapc_rijndaelKeySetupDec
 	str r0, [sp, #0x20]
 	add r3, sp, #0x58
 	add r2, r5, #0
@@ -10204,7 +10204,7 @@ _020F2B1C:
 	add r0, sp, #0x58
 	add r1, sp, #0x50
 	add r2, r0, #0
-	bl FUN_ov17_020f2c40
+	bl atermapc_aeskw_xor64
 	sub r0, r4, #1
 	lsl r1, r0, #3
 	ldr r0, [sp]
@@ -10223,7 +10223,7 @@ _020F2BEA:
 	ldr r1, [sp, #0x20]
 	add r0, sp, #0x68
 	add r3, r2, #0
-	bl FUN_ov17_020f348c
+	bl atermapc_rijndaelDecrypt
 	add r2, sp, #0x60
 	mov r1, #8
 _020F2C06:
@@ -10257,10 +10257,10 @@ _020F2C34:
 	pop {r3, r4, r5, r6, r7, pc}
 	nop
 _020F2C3C: .word 0xA6A6A6A6
-	thumb_func_end FUN_ov17_020f2a88
+	thumb_func_end atermapc_keywrap_decrypt
 
-	thumb_func_start FUN_ov17_020f2c40
-FUN_ov17_020f2c40: ; 0x020F2C40
+	thumb_func_start atermapc_aeskw_xor64
+atermapc_aeskw_xor64: ; 0x020F2C40
 	push {r3, r4}
 	ldrb r4, [r0]
 	ldrb r3, [r1]
@@ -10296,10 +10296,10 @@ FUN_ov17_020f2c40: ; 0x020F2C40
 	strb r0, [r2, #7]
 	pop {r3, r4}
 	bx lr
-	thumb_func_end FUN_ov17_020f2c40
+	thumb_func_end atermapc_aeskw_xor64
 
-	thumb_func_start FUN_ov17_020f2c88
-FUN_ov17_020f2c88: ; 0x020F2C88
+	thumb_func_start atermapc_rijndaelKeySetupEnc
+atermapc_rijndaelKeySetupEnc: ; 0x020F2C88
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x18
 	add r3, r1, #0
@@ -10655,13 +10655,13 @@ _020F2F32:
 	pop {r3, r4, r5, r6, r7, pc}
 _020F2F38: .word ov17_0210F44C
 _020F2F3C: .word ov17_02111074
-	thumb_func_end FUN_ov17_020f2c88
+	thumb_func_end atermapc_rijndaelKeySetupEnc
 
-	thumb_func_start FUN_ov17_020f2f40
-FUN_ov17_020f2f40: ; 0x020F2F40
+	thumb_func_start atermapc_rijndaelKeySetupDec
+atermapc_rijndaelKeySetupDec: ; 0x020F2F40
 	push {r3, r4, r5, r6, r7, lr}
 	add r4, r0, #0
-	bl FUN_ov17_020f2c88
+	bl atermapc_rijndaelKeySetupEnc
 	mov r12, r0
 	mov r1, r12
 	lsl r6, r1, #2
@@ -10858,10 +10858,10 @@ _020F30C0: .word ov17_0210F874
 _020F30C4: .word ov17_0210F474
 _020F30C8: .word ov17_02111474
 _020F30CC: .word ov17_02111874
-	thumb_func_end FUN_ov17_020f2f40
+	thumb_func_end atermapc_rijndaelKeySetupDec
 
-	thumb_func_start FUN_ov17_020f30d0
-FUN_ov17_020f30d0: ; 0x020F30D0
+	thumb_func_start atermapc_rijndaelEncrypt
+atermapc_rijndaelEncrypt: ; 0x020F30D0
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x4c
 	add r7, r1, #0
@@ -11337,10 +11337,10 @@ _020F347C: .word ov17_02110874
 _020F3480: .word ov17_02110074
 _020F3484: .word ov17_02110474
 _020F3488: .word ov17_02111074
-	thumb_func_end FUN_ov17_020f30d0
+	thumb_func_end atermapc_rijndaelEncrypt
 
-	thumb_func_start FUN_ov17_020f348c
-FUN_ov17_020f348c: ; 0x020F348C
+	thumb_func_start atermapc_rijndaelDecrypt
+atermapc_rijndaelDecrypt: ; 0x020F348C
 	push {r3, r4, r5, r6, r7, lr}
 	sub sp, #0x48
 	add r7, r1, #0
@@ -11816,10 +11816,10 @@ _020F3838: .word ov17_0210F474
 _020F383C: .word ov17_02111474
 _020F3840: .word ov17_02111874
 _020F3844: .word ov17_0210FC74
-	thumb_func_end FUN_ov17_020f348c
+	thumb_func_end atermapc_rijndaelDecrypt
 
-	thumb_func_start FUN_ov17_020f3848
-FUN_ov17_020f3848: ; 0x020F3848
+	thumb_func_start MY_MD5Init
+MY_MD5Init: ; 0x020F3848
 	mov r1, #0
 	str r1, [r0, #0x14]
 	str r1, [r0, #0x10]
@@ -11836,10 +11836,10 @@ _020F3860: .word 0x67452301
 _020F3864: .word 0xEFCDAB89
 _020F3868: .word 0x98BADCFE
 _020F386C: .word 0x10325476
-	thumb_func_end FUN_ov17_020f3848
+	thumb_func_end MY_MD5Init
 
-	thumb_func_start FUN_ov17_020f3870
-FUN_ov17_020f3870: ; 0x020F3870
+	thumb_func_start MY_MD5Update
+MY_MD5Update: ; 0x020F3870
 	push {r3, r4, r5, r6, r7, lr}
 	add r5, r0, #0
 	add r7, r1, #0
@@ -11870,11 +11870,11 @@ _020F3890:
 	add r0, r1, r0
 	add r1, r7, #0
 	add r2, r4, #0
-	bl FUN_ov17_020f41dc
+	bl MD5_memcpy
 	add r1, r5, #0
 	add r0, r5, #0
 	add r1, #0x18
-	bl FUN_ov17_020f393c
+	bl MD5Transform
 	add r0, r4, #0
 	add r0, #0x3f
 	cmp r0, r6
@@ -11882,7 +11882,7 @@ _020F3890:
 _020F38C0:
 	add r0, r5, #0
 	add r1, r7, r4
-	bl FUN_ov17_020f393c
+	bl MD5Transform
 	add r4, #0x40
 	add r0, r4, #0
 	add r0, #0x3f
@@ -11898,12 +11898,12 @@ _020F38D8:
 	add r0, r5, r0
 	add r1, r7, r4
 	sub r2, r6, r4
-	bl FUN_ov17_020f41dc
+	bl MD5_memcpy
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f3870
+	thumb_func_end MY_MD5Update
 
-	thumb_func_start FUN_ov17_020f38e8
-FUN_ov17_020f38e8: ; 0x020F38E8
+	thumb_func_start MY_MD5Final
+MY_MD5Final: ; 0x020F38E8
 	push {r3, r4, r5, lr}
 	sub sp, #8
 	add r5, r0, #0
@@ -11911,7 +11911,7 @@ FUN_ov17_020f38e8: ; 0x020F38E8
 	add r0, sp, #0
 	add r1, #0x10
 	mov r2, #8
-	bl FUN_ov17_020f4184
+	bl atermapc_Encode
 	ldr r0, [r4, #0x10]
 	lsr r1, r0, #3
 	mov r0, #0x3f
@@ -11926,26 +11926,26 @@ _020F390C:
 	sub r2, r0, r1
 	ldr r1, _020F3938 ; =0x02112848
 	add r0, r4, #0
-	bl FUN_ov17_020f3870
+	bl MY_MD5Update
 	add r0, r4, #0
 	add r1, sp, #0
 	mov r2, #8
-	bl FUN_ov17_020f3870
+	bl MY_MD5Update
 	add r0, r5, #0
 	add r1, r4, #0
 	mov r2, #0x10
-	bl FUN_ov17_020f4184
+	bl atermapc_Encode
 	add r0, r4, #0
 	mov r1, #0
 	mov r2, #0x58
-	bl FUN_ov17_020f41f4
+	bl MD5_memset
 	add sp, #8
 	pop {r3, r4, r5, pc}
 _020F3938: .word ov17_02112848
-	thumb_func_end FUN_ov17_020f38e8
+	thumb_func_end MY_MD5Final
 
-	thumb_func_start FUN_ov17_020f393c
-FUN_ov17_020f393c: ; 0x020F393C
+	thumb_func_start MD5Transform
+MD5Transform: ; 0x020F393C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x84
 	add r7, r0, #0
@@ -11956,7 +11956,7 @@ FUN_ov17_020f393c: ; 0x020F393C
 	ldr r4, [r7, #4]
 	ldr r5, [r7, #8]
 	ldr r6, [r7, #0xc]
-	bl FUN_ov17_020f41b0
+	bl atermapc_Decode
 	ldr r0, [sp, #0x44]
 	add r1, r4, #0
 	str r0, [sp, #4]
@@ -12790,7 +12790,7 @@ _020F3D94:
 	add r1, r1, r2
 	mvn r3, r5
 	orr r3, r1
-	add r4, r2, #0
+	add r4, r2, #0&
 	eor r4, r3
 	ldr r3, [sp, #0x24]
 	add r4, r3, r4
@@ -12906,7 +12906,7 @@ _020F3D94:
 	add r0, r0, r5
 	str r0, [r7, #0xc]
 	add r0, sp, #0x44
-	bl FUN_ov17_020f41f4
+	bl MD5_memset
 	add sp, #0x84
 	pop {r4, r5, r6, r7, pc}
 _020F4104: .word 0x0005C6BE
@@ -12941,10 +12941,10 @@ _020F4174: .word 0x08AC817E
 _020F4178: .word 0x42C50DCB
 _020F417C: .word 0x2AD7D2BB
 _020F4180: .word 0x14792C6F
-	thumb_func_end FUN_ov17_020f393c
+	thumb_func_end MD5Transform
 
-	thumb_func_start FUN_ov17_020f4184
-FUN_ov17_020f4184: ; 0x020F4184
+	thumb_func_start atermapc_Encode
+atermapc_Encode: ; 0x020F4184
 	push {r4, r5}
 	mov r4, #0
 	cmp r2, #0
@@ -12969,10 +12969,10 @@ _020F418C:
 _020F41AC:
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020f4184
+	thumb_func_end atermapc_Encode
 
-	thumb_func_start FUN_ov17_020f41b0
-FUN_ov17_020f41b0: ; 0x020F41B0
+	thumb_func_start atermapc_Decode
+atermapc_Decode: ; 0x020F41B0
 	push {r4, r5, r6, r7}
 	mov r7, #0
 	cmp r2, #0
@@ -12996,10 +12996,10 @@ _020F41B8:
 _020F41D6:
 	pop {r4, r5, r6, r7}
 	bx lr
-	thumb_func_end FUN_ov17_020f41b0
+	thumb_func_end atermapc_Decode
 
-	thumb_func_start FUN_ov17_020f41dc
-FUN_ov17_020f41dc: ; 0x020F41DC
+	thumb_func_start MD5_memcpy
+MD5_memcpy: ; 0x020F41DC
 	push {r3, r4}
 	mov r4, #0
 	cmp r2, #0
@@ -13013,10 +13013,10 @@ _020F41E4:
 _020F41EE:
 	pop {r3, r4}
 	bx lr
-	thumb_func_end FUN_ov17_020f41dc
+	thumb_func_end MD5_memcpy
 
-	thumb_func_start FUN_ov17_020f41f4
-FUN_ov17_020f41f4: ; 0x020F41F4
+	thumb_func_start MD5_memset
+MD5_memset: ; 0x020F41F4
 	mov r3, #0
 	cmp r2, #0
 	bls _020F4208
@@ -13030,30 +13030,30 @@ _020F41FE:
 	blo _020F41FE
 _020F4208:
 	bx lr
-	thumb_func_end FUN_ov17_020f41f4
+	thumb_func_end MD5_memset
 
-	thumb_func_start FUN_ov17_020f420c
-FUN_ov17_020f420c: ; 0x020F420C
+	thumb_func_start MD5Encode
+MD5Encode: ; 0x020F420C
 	push {r4, r5, r6, lr}
 	sub sp, #0x58
 	add r5, r0, #0
 	add r4, r1, #0
 	add r6, r2, #0
 	add r0, sp, #0
-	bl FUN_ov17_020f3848
+	bl MY_MD5Init
 	add r0, sp, #0
 	add r1, r4, #0
 	add r2, r6, #0
-	bl FUN_ov17_020f3870
+	bl MY_MD5Update
 	add r0, r5, #0
 	add r1, sp, #0
-	bl FUN_ov17_020f38e8
+	bl MY_MD5Final
 	add sp, #0x58
 	pop {r4, r5, r6, pc}
-	thumb_func_end FUN_ov17_020f420c
+	thumb_func_end MD5Encode
 
-	thumb_func_start FUN_ov17_020f4234
-FUN_ov17_020f4234: ; 0x020F4234
+	thumb_func_start atermapc_GetTickCount
+atermapc_GetTickCount: ; 0x020F4234
 	push {r3, lr}
 	blx OS_GetTick
 	lsr r2, r0, #0x1a
@@ -13065,14 +13065,14 @@ FUN_ov17_020f4234: ; 0x020F4234
 	blx _ull_div
 	pop {r3, pc}
 _020F424C: .word 0x000082EA
-	thumb_func_end FUN_ov17_020f4234
+	thumb_func_end atermapc_GetTickCount
 
-	thumb_func_start FUN_ov17_020f4250
-FUN_ov17_020f4250: ; 0x020F4250
+	thumb_func_start atermapc_Calloc
+atermapc_Calloc: ; 0x020F4250
 	push {r3, r4, r5, lr}
 	add r4, r0, #0
 	mul r4, r1
-	ldr r1, _020F4270 ; =0x02114C30
+	ldr r1, _020F4270 ; =btAutoResult
 	add r0, r4, #0
 	ldr r1, [r1, #4]
 	blx r1
@@ -13085,22 +13085,22 @@ _020F426A:
 	add r0, r5, #0
 	pop {r3, r4, r5, pc}
 	nop
-_020F4270: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f4250
+_020F4270: .word btAutoResult
+	thumb_func_end atermapc_Calloc
 
-	thumb_func_start FUN_ov17_020f4274
-FUN_ov17_020f4274: ; 0x020F4274
+	thumb_func_start atermapc_Free
+atermapc_Free: ; 0x020F4274
 	push {r3, lr}
-	ldr r1, _020F4280 ; =0x02114C30
+	ldr r1, _020F4280 ; =btAutoResult
 	ldr r1, [r1, #0xc]
 	blx r1
 	pop {r3, pc}
 	nop
-_020F4280: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f4274
+_020F4280: .word btAutoResult
+	thumb_func_end atermapc_Free
 
-	thumb_func_start FUN_ov17_020f4284
-FUN_ov17_020f4284: ; 0x020F4284
+	thumb_func_start atermapc_PutHex
+atermapc_PutHex: ; 0x020F4284
 	push {r4, r5}
 	lsl r1, r1, #0x18
 	lsr r3, r1, #0x18
@@ -13130,10 +13130,10 @@ _020F42A2:
 	sub r0, r2, r0
 	pop {r4, r5}
 	bx lr
-	thumb_func_end FUN_ov17_020f4284
+	thumb_func_end atermapc_PutHex
 
-	thumb_func_start FUN_ov17_020f42b8
-FUN_ov17_020f42b8: ; 0x020F42B8
+	thumb_func_start atermapc_PutMac
+atermapc_PutMac: ; 0x020F42B8
 	push {r3, r4, r5, r6, r7, lr}
 	str r0, [sp]
 	add r6, r1, #0
@@ -13145,7 +13145,7 @@ _020F42C4:
 	ldrsb r1, [r6, r1]
 	add r0, r4, #0
 	add r6, r6, #1
-	bl FUN_ov17_020f4284
+	bl atermapc_PutHex
 	add r0, r4, r0
 	add r4, r0, #0
 	cmp r5, #5
@@ -13161,14 +13161,14 @@ _020F42DC:
 	ldr r0, [sp]
 	sub r0, r4, r0
 	pop {r3, r4, r5, r6, r7, pc}
-	thumb_func_end FUN_ov17_020f42b8
+	thumb_func_end atermapc_PutMac
 
-	thumb_func_start FUN_ov17_020f42ec
-FUN_ov17_020f42ec: ; 0x020F42EC
+	thumb_func_start ATERMi_ApConfigStart
+ATERMi_ApConfigStart: ; 0x020F42EC
 	push {r4, r5, r6, lr}
 	sub sp, #8
 	add r4, r0, #0
-	ldr r0, _020F43BC ; =0x02114C30
+	ldr r0, _020F43BC ; =btAutoResult
 	ldr r0, [r0, #0x38]
 	cmp r0, #1
 	blt _020F4306
@@ -13179,8 +13179,8 @@ FUN_ov17_020f42ec: ; 0x020F42EC
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
 _020F4306:
-	ldr r5, _020F43C0 ; =0x021127C8
-	ldr r0, _020F43BC ; =0x02114C30
+	ldr r5, _020F43C0 ; =lpElementData
+	ldr r0, _020F43BC ; =btAutoResult
 	mov r6, #7
 	str r1, [r5, #0x10]
 	str r6, [r0, #0x38]
@@ -13191,9 +13191,9 @@ _020F4306:
 	ldr r0, [sp, #0x1c]
 	str r0, [r5, #8]
 	add r0, r1, #0
-	bl FUN_ov17_020f1458
+	bl InitAtermApcNetwork
 	mov r2, #1
-	ldr r1, _020F43BC ; =0x02114C30
+	ldr r1, _020F43BC ; =btAutoResult
 	cmp r0, #0
 	str r2, [r1, #0x74]
 	bge _020F4332
@@ -13205,7 +13205,7 @@ _020F4332:
 	ldr r0, [r0, #8]
 	ldr r1, [r1, #4]
 	blx r1
-	ldr r1, _020F43BC ; =0x02114C30
+	ldr r1, _020F43BC ; =btAutoResult
 	cmp r0, #0
 	str r0, [r1, #0x30]
 	bne _020F434C
@@ -13219,7 +13219,7 @@ _020F434C:
 	cmp r0, #1
 	beq _020F4360
 	add r0, r6, #0
-	ldr r1, _020F43BC ; =0x02114C30
+	ldr r1, _020F43BC ; =btAutoResult
 	sub r0, #0x10
 	str r0, [r1, #0x78]
 	add sp, #8
@@ -13230,26 +13230,26 @@ _020F4360:
 	ldr r0, _020F43C4 ; =0x02114CDC
 	str r3, [sp]
 	str r4, [sp, #4]
-	ldr r4, _020F43BC ; =0x02114C30
-	ldr r1, _020F43C8 ; =0x020F2899
+	ldr r4, _020F43BC ; =btAutoResult
+	ldr r1, _020F43C8 ; =atermapc_AutoConfigThread
 	ldr r5, [r4, #0x30]
 	mov r4, #7
 	bic r3, r4
 	mov r2, #0
 	add r3, r5, r3
 	blx OS_CreateThread
-	ldr r0, _020F43BC ; =0x02114C30
+	ldr r0, _020F43BC ; =btAutoResult
 	mov r1, #1
 	str r1, [r0, #0x38]
-	bl FUN_ov17_020f4234
+	bl atermapc_GetTickCount
 	ldr r1, _020F43CC ; =0x0000EA60
-	ldr r5, _020F43D0 ; =0x02114D9C
+	ldr r5, _020F43D0 ; =gAtermApConfigParam
 	add r1, r0, r1
-	ldr r0, _020F43C0 ; =0x021127C8
+	ldr r0, _020F43C0 ; =lpElementData
 	add r4, r6, #0
 	str r1, [r0, #0xc]
 	mov r0, #0
-	ldr r1, _020F43BC ; =0x02114C30
+	ldr r1, _020F43BC ; =btAutoResult
 	add r2, r0, #0
 	str r0, [r1, #0x10]
 	add r1, r0, #0
@@ -13260,26 +13260,26 @@ _020F439E:
 	sub r4, r4, #1
 	bne _020F439E
 	stmia r5!, {r0, r1}
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 	ldr r0, _020F43C4 ; =0x02114CDC
 	blx OS_WakeupThreadDirect
-	ldr r1, _020F43BC ; =0x02114C30
+	ldr r1, _020F43BC ; =btAutoResult
 	mov r0, #1
 	str r0, [r1, #0x64]
 	add sp, #8
 	pop {r4, r5, r6, pc}
-_020F43BC: .word ov17_02114C30
-_020F43C0: .word ov17_021127C8
+_020F43BC: .word btAutoResult
+_020F43C0: .word lpElementData
 _020F43C4: .word ov17_02114CDC
-_020F43C8: .word 0x020F2899
+_020F43C8: .word atermapc_AutoConfigThread
 _020F43CC: .word 0x0000EA60
-_020F43D0: .word ov17_02114D9C
-	thumb_func_end FUN_ov17_020f42ec
+_020F43D0: .word gAtermApConfigParam
+	thumb_func_end ATERMi_ApConfigStart
 
-	thumb_func_start FUN_ov17_020f43d4
-FUN_ov17_020f43d4: ; 0x020F43D4
+	thumb_func_start ATERMi_ApConfigEnd
+ATERMi_ApConfigEnd: ; 0x020F43D4
 	push {r4, r5, r6, lr}
-	ldr r4, _020F4460 ; =0x02114C30
+	ldr r4, _020F4460 ; =btAutoResult
 	ldr r0, [r4, #0x64]
 	cmp r0, #0
 	beq _020F4444
@@ -13316,30 +13316,30 @@ _020F440C:
 	cmp r0, #0
 	beq _020F440C
 _020F4422:
-	ldr r1, _020F4460 ; =0x02114C30
+	ldr r1, _020F4460 ; =btAutoResult
 	ldr r0, [r1, #0x30]
 	cmp r0, #0
 	beq _020F4434
 	ldr r1, [r1, #0xc]
 	blx r1
-	ldr r0, _020F4460 ; =0x02114C30
+	ldr r0, _020F4460 ; =btAutoResult
 	mov r1, #0
 	str r1, [r0, #0x30]
 _020F4434:
-	ldr r0, _020F4460 ; =0x02114C30
+	ldr r0, _020F4460 ; =btAutoResult
 	mov r1, #0
 	str r1, [r0, #0x64]
 	ldr r0, [r0, #0x38]
 	cmp r6, r0
 	beq _020F4444
-	bl FUN_ov17_020f44b4
+	bl atermapc_SendNotify
 _020F4444:
-	ldr r0, _020F4460 ; =0x02114C30
+	ldr r0, _020F4460 ; =btAutoResult
 	ldr r0, [r0, #0x74]
 	cmp r0, #0
 	ble _020F4458
-	bl FUN_ov17_020f14fc
-	ldr r1, _020F4460 ; =0x02114C30
+	bl FreeAtermApcNetwork
+	ldr r1, _020F4460 ; =btAutoResult
 	mov r2, #0
 	str r2, [r1, #0x74]
 	pop {r4, r5, r6, pc}
@@ -13348,18 +13348,18 @@ _020F4458:
 	mvn r0, r0
 	pop {r4, r5, r6, pc}
 	nop
-_020F4460: .word ov17_02114C30
+_020F4460: .word btAutoResult
 _020F4464: .word ov17_02114CDC
-	thumb_func_end FUN_ov17_020f43d4
+	thumb_func_end ATERMi_ApConfigEnd
 
-	thumb_func_start FUN_ov17_020f4468
-FUN_ov17_020f4468: ; 0x020F4468
+	thumb_func_start ATERMi_ApConfigGetState
+ATERMi_ApConfigGetState: ; 0x020F4468
 	push {r4, lr}
 	add r4, r0, #0
-	ldr r0, _020F4498 ; =0x02114C30
+	ldr r0, _020F4498 ; =btAutoResult
 	ldr r0, [r0, #0x38]
 	str r0, [r4]
-	ldr r0, _020F449C ; =0x021127C8
+	ldr r0, _020F449C ; =lpElementData
 	ldr r1, [r0, #0xc]
 	mov r0, #0
 	mvn r0, r0
@@ -13367,46 +13367,46 @@ FUN_ov17_020f4468: ; 0x020F4468
 	bne _020F4480
 	b _020F448A
 _020F4480:
-	bl FUN_ov17_020f4234
-	ldr r1, _020F449C ; =0x021127C8
+	bl atermapc_GetTickCount
+	ldr r1, _020F449C ; =lpElementData
 	ldr r1, [r1, #0xc]
 	sub r0, r1, r0
 _020F448A:
 	str r0, [r4, #4]
-	ldr r0, _020F4498 ; =0x02114C30
+	ldr r0, _020F4498 ; =btAutoResult
 	ldr r0, [r0, #0x78]
 	str r0, [r4, #8]
 	mov r0, #1
 	pop {r4, pc}
 	nop
-_020F4498: .word ov17_02114C30
-_020F449C: .word ov17_021127C8
-	thumb_func_end FUN_ov17_020f4468
+_020F4498: .word btAutoResult
+_020F449C: .word lpElementData
+	thumb_func_end ATERMi_ApConfigGetState
 
-	thumb_func_start FUN_ov17_020f44a0
-FUN_ov17_020f44a0: ; 0x020F44A0
+	thumb_func_start ATERMi_ApConfigGetResult
+ATERMi_ApConfigGetResult: ; 0x020F44A0
 	push {r3, lr}
-	ldr r1, _020F44B0 ; =0x02114D9C
+	ldr r1, _020F44B0 ; =gAtermApConfigParam
 	mov r2, #0xe8
 	blx memcpy
 	mov r0, #1
 	pop {r3, pc}
 	nop
-_020F44B0: .word ov17_02114D9C
-	thumb_func_end FUN_ov17_020f44a0
+_020F44B0: .word gAtermApConfigParam
+	thumb_func_end ATERMi_ApConfigGetResult
 
-	thumb_func_start FUN_ov17_020f44b4
-FUN_ov17_020f44b4: ; 0x020F44B4
+	thumb_func_start atermapc_SendNotify
+atermapc_SendNotify: ; 0x020F44B4
 	push {lr}
 	sub sp, #0xc
 	add r0, sp, #0
-	bl FUN_ov17_020f4468
-	ldr r1, _020F44CC ; =0x02114C30
+	bl ATERMi_ApConfigGetState
+	ldr r1, _020F44CC ; =btAutoResult
 	add r0, sp, #0
 	ldr r1, [r1, #0x7c]
 	blx r1
 	add sp, #0xc
 	pop {pc}
 	nop
-_020F44CC: .word ov17_02114C30
-	thumb_func_end FUN_ov17_020f44b4
+_020F44CC: .word btAutoResult
+	thumb_func_end atermapc_SendNotify
