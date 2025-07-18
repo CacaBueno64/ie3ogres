@@ -12,7 +12,7 @@ FUN_ov121_02124d00: ; 0x02124D00
 	add r1, r1, #0x28
 	bx r12
 _02124D18: .word 0x021259A8
-_02124D1C: .word  FUN_ov1_020dbfdc
+_02124D1C: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov121_02124d00
 
 	arm_func_start FUN_ov121_02124d20

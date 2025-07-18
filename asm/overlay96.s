@@ -753,7 +753,7 @@ FUN_ov96_02125730: ; 0x02125730
 	add r0, r0, #0x30
 	mov r1, #0xb
 	bx r12
-_02125740: .word  FUN_ov16_020f330c
+_02125740: .word FUN_ov16_020f330c
 	arm_func_end FUN_ov96_02125730
 
 	arm_func_start FUN_ov96_02125744

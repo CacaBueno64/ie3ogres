@@ -3,7 +3,6 @@
 	.include "/include/itcm.inc"
 
 	.section .itcm
-
 	arm_func_start OS_IrqHandler
 OS_IrqHandler: ; 0x01ff8000
 	stmdb sp!, {lr}

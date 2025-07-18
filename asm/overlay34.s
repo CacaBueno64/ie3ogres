@@ -1209,7 +1209,7 @@ FUN_ov34_0211ae94: ; 0x0211AE94
 	mov r1, #0
 	bx r12
 _0211AEAC: .word unk_0209F5C0
-_0211AEB0: .word  FUN_ov16_020f6b3c
+_0211AEB0: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov34_0211ae94
 
 	arm_func_start FUN_ov34_0211aeb4

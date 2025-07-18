@@ -1,0 +1,10 @@
+.public MIi_DmaSetParameters
+.public OSi_EnterDmaCallback
+.public OS_DisableInterrupts
+.public OS_RestoreInterrupts
+.public OS_Terminate
+.public OS_GetIrqFunction
+.public OS_SetIrqFunction
+.public OS_EnableIrqMask
+.public OS_ResetRequestIrqMask
+.public OS_DisableIrqMask

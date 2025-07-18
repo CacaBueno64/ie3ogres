@@ -340,7 +340,7 @@ FUN_ov80_0211a30c: ; 0x0211A30C
 	add r1, r1, #0x1dc
 	bx r12
 _0211A324: .word 0x021224B4
-_0211A328: .word  FUN_ov1_020dbfdc
+_0211A328: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov80_0211a30c
 
 	arm_func_start FUN_ov80_0211a32c
@@ -3748,7 +3748,7 @@ FUN_ov80_0211d2e8: ; 0x0211D2E8
 	ldr r0, [r0, #0x398]
 	ldr r12, _0211D2F4 ; = FUN_ov16_020ef8d4
 	bx r12
-_0211D2F4: .word  FUN_ov16_020ef8d4
+_0211D2F4: .word FUN_ov16_020ef8d4
 	arm_func_end FUN_ov80_0211d2e8
 
 	arm_func_start FUN_ov80_0211d2f8

@@ -2872,7 +2872,7 @@ FUN_ov86_0211c674: ; 0x0211C674
 	mov r1, #0
 	bx r12
 _0211C684: .word unk_0209F5C0
-_0211C688: .word  FUN_ov16_020f672c
+_0211C688: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov86_0211c674
 
 	arm_func_start FUN_ov86_0211c68c

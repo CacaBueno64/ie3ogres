@@ -1393,7 +1393,7 @@ FUN_ov92_02126070: ; 0x02126070
 	add r0, r0, #0x54
 	mov r1, #0xd
 	bx r12
-_02126080: .word  FUN_ov16_020f330c
+_02126080: .word FUN_ov16_020f330c
 	arm_func_end FUN_ov92_02126070
 
 	arm_func_start FUN_ov92_02126084

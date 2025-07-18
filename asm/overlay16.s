@@ -5730,7 +5730,7 @@ FUN_ov16_020f2700: ; 0x020F2700
 	ldr r0, [r0]
 	bx r12
 _020F2710: .word unk_02099EF0
-_020F2714: .word  FUN_ov132_02146218
+_020F2714: .word FUN_ov132_02146218
 	arm_func_end FUN_ov16_020f2700
 
 	arm_func_start FUN_ov16_020f2718

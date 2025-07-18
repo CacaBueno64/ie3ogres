@@ -15,7 +15,7 @@ FUN_ov118_02124d00: ; 0x02124D00
 	add r1, r1, #0x40
 	bx r12
 _02124D24: .word 0x02125BC8
-_02124D28: .word  FUN_ov1_020dbfdc
+_02124D28: .word FUN_ov1_020dbfdc
 _02124D2C: .word 0x02125C30
 	arm_func_end FUN_ov118_02124d00
 

@@ -9493,7 +9493,7 @@ FUN_ov57_02122370: ; 0x02122370
 	mov r3, r2
 	bx r12
 _02122394: .word unk_02099F38
-_02122398: .word  FUN_ov16_02113f7c
+_02122398: .word FUN_ov16_02113f7c
 	arm_func_end FUN_ov57_02122370
 
 	arm_func_start FUN_ov57_0212239c
@@ -9617,7 +9617,7 @@ FUN_ov57_02122538: ; 0x02122538
 	mov r1, #0x44
 	bx r12
 _0212254C: .word unk_02099EB4
-_02122550: .word  FUN_ov16_0210efac
+_02122550: .word FUN_ov16_0210efac
 	arm_func_end FUN_ov57_02122538
 
 	arm_func_start FUN_ov57_02122554

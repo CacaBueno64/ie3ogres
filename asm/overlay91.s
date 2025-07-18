@@ -2619,7 +2619,7 @@ FUN_ov91_0211c2ec: ; 0x0211C2EC
 	mov r1, #0
 	bx r12
 _0211C2FC: .word unk_0209F5C0
-_0211C300: .word  FUN_ov16_020f672c
+_0211C300: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov91_0211c2ec
 
 	arm_func_start FUN_ov91_0211c304

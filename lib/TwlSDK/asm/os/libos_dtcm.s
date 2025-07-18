@@ -1,5 +1,5 @@
 
-	.include "/include/dtcm.inc"
+	.include "libos_dtcm.inc"
 
 	.bss
 	.global OSi_IrqThreadQueue
@@ -16,7 +16,7 @@ OS_IRQTable:
 	.word OSi_IrqTimer0
 	.word OSi_IrqTimer1
 	.word OSi_IrqTimer2
-	.word OSi_IrqTimer3 
+	.word OSi_IrqTimer3
 	
 	.word OS_IrqDummy
 

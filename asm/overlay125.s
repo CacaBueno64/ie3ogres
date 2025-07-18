@@ -1006,7 +1006,7 @@ FUN_ov125_02125ac8: ; 0x02125AC8
 	mov r1, #1
 	bx r12
 _02125AD8: .word unk_0209F5C0
-_02125ADC: .word  FUN_ov16_020f672c
+_02125ADC: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov125_02125ac8
 
 	arm_func_start FUN_ov125_02125ae0

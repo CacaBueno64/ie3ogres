@@ -1212,7 +1212,7 @@ FUN_ov72_0211af34: ; 0x0211AF34
 	mov r1, #0
 	bx r12
 _0211AF4C: .word unk_0209F5C0
-_0211AF50: .word  FUN_ov16_020f6b3c
+_0211AF50: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov72_0211af34
 
 	arm_func_start FUN_ov72_0211af54
@@ -6027,7 +6027,7 @@ FUN_ov72_0211f43c: ; 0x0211F43C
 	ldr r12, _0211F44C ; = FUN_ov16_020f6274
 	bx r12
 _0211F448: .word unk_0209F5C0
-_0211F44C: .word  FUN_ov16_020f6274
+_0211F44C: .word FUN_ov16_020f6274
 	arm_func_end FUN_ov72_0211f43c
 
 	arm_func_start FUN_ov72_0211f450

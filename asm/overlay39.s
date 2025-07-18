@@ -214,7 +214,7 @@ FUN_ov39_0211a1a8: ; 0x0211A1A8
 	add r1, r1, #0x2f0
 	bx r12
 _0211A1BC: .word ov39_0211BD5C
-_0211A1C0: .word  FUN_ov16_020f316c
+_0211A1C0: .word FUN_ov16_020f316c
 	arm_func_end FUN_ov39_0211a1a8
 
 	arm_func_start FUN_ov39_0211a1c4

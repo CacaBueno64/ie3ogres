@@ -1061,7 +1061,7 @@ FUN_ov61_0211acb8: ; 0x0211ACB8
 	mov r1, #0
 	bx r12
 _0211ACD0: .word unk_0209F5C0
-_0211ACD4: .word  FUN_ov16_020f6b3c
+_0211ACD4: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov61_0211acb8
 
 	arm_func_start FUN_ov61_0211acd8

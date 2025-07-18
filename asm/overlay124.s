@@ -1438,7 +1438,7 @@ FUN_ov124_02126154: ; 0x02126154
 	mov r1, #1
 	bx r12
 _02126164: .word unk_0209F5C0
-_02126168: .word  FUN_ov16_020f672c
+_02126168: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov124_02126154
 
 	arm_func_start FUN_ov124_0212616c

@@ -1576,7 +1576,7 @@ FUN_ov97_0212632c: ; 0x0212632C
 	mov r1, #1
 	bx r12
 _0212633C: .word unk_0209F5C0
-_02126340: .word  FUN_ov16_020f672c
+_02126340: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov97_0212632c
 
 	arm_func_start FUN_ov97_02126344

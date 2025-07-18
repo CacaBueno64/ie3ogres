@@ -692,7 +692,7 @@ FUN_ov43_0211a85c: ; 0x0211A85C
 	ldr r0, [r0]
 	bx r12
 _0211A86C: .word unk_02099EB4
-_0211A870: .word  FUN_ov16_0210efac
+_0211A870: .word FUN_ov16_0210efac
 	arm_func_end FUN_ov43_0211a85c
 
 	arm_func_start FUN_ov43_0211a874

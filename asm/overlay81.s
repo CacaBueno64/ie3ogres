@@ -2905,7 +2905,7 @@ FUN_ov81_0211c784: ; 0x0211C784
 	add r1, r1, #0x3f8
 	bx r12
 _0211C79C: .word 0x0211D0D8
-_0211C7A0: .word  FUN_ov1_020dbfdc
+_0211C7A0: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov81_0211c784
 
 	arm_func_start FUN_ov81_0211c7a4

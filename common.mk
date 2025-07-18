@@ -77,13 +77,14 @@ NATIVE_TOOLS := \
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
 # Directories
-NITROSDK_SRC_SUBDIRS      := os mi
+TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm
+TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
 
-LIB_SUBDIRS               := cw NitroSDK NitroSystem NitroDWC NitroWiFi libCPS libVCT MSL_C
+LIB_SUBDIRS               := cw TwlSDK TwlSystem TwlDWC TwlWiFi libCPS libVCT MSL_C
 SRC_SUBDIR                := src
 ASM_SUBDIR                := asm
-LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(NITROSDK_SRC_SUBDIRS:%=lib/NitroSDK/src/%)
-LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm)
+LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%)
+LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/asm/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/asm/%)
 ALL_SUBDIRS               := $(SRC_SUBDIR) $(ASM_SUBDIR) $(LIB_SRC_SUBDIR) $(LIB_ASM_SUBDIR)
 
 SRC_BUILDDIR              := $(addprefix $(BUILD_DIR)/,$(SRC_SUBDIR))
@@ -121,7 +122,7 @@ EXCCFLAGS         := -Cpp_exceptions off
 
 MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -sym on -enum int -lang c99 $(EXCCFLAGS) -gccext,on -proc $(PROC) -msgstyle gcc -gccinc -i ./src -i ./include -i ./include/library -i $(WORK_DIR)/files -I$(WORK_DIR)/lib/include -ipa file -interworking -inline on,noauto -char signed -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
 
-MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/NitroDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/NitroSDK/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -i $(WORK_DIR)/files/msgdata -I$(WORK_DIR)/lib/include -DSDK_ASM
+MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/TwlDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/TwlSDK/asm/include -i $(WORK_DIR)/lib/TwlSystem/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -i $(WORK_DIR)/files/msgdata -I$(WORK_DIR)/lib/include -DSDK_ASM
 MWLDFLAGS         := -proc $(PROC) -sym on -nopic -nopid -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 ARFLAGS           := rcS
 
@@ -170,7 +171,7 @@ BUILD_C ?= $(MW_COMPILE) -c -o
 
 $(DEPFILES):
 
-#$(BUILD_DIR)/lib/NitroSDK/%.o: MWCCVER := 2.0/sp2p3
+$(BUILD_DIR)/lib/NitroSDK/%.o: MWCCVER := 2.0/sp2p3
 
 $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
@@ -227,10 +228,6 @@ CRT0_OBJ := lib/asm/crt0.o
 .INTERMEDIATE: $(BUILD_DIR)/obj.list
 
 $(SBIN): build/%.sbin: build/%.elf
-#ifeq ($(SBIN),$(BUILD_DIR)/main.sbin)
-# Overlay 123 is encrypted in the retail ROM, so we need to reencrypt it after building it
-#	cd $(BUILD_DIR) && $(MOD123ENCRY) encry main OVY_123_enc.sbin 123 && mv OVY_123_enc.sbin OVY_123.sbin
-#endif
 ifeq ($(COMPARE),1)
 	$(SHA1SUM) --quiet -c $*.sha1
 endif

@@ -19,7 +19,7 @@ FUN_ov51_02119f10: ; 0x02119F10
 	add r1, r1, #0x1c
 	bx r12
 _02119F24: .word ov51_0211E4C0
-_02119F28: .word  FUN_ov16_020f316c
+_02119F28: .word FUN_ov16_020f316c
 	arm_func_end FUN_ov51_02119f10
 
 	arm_func_start FUN_ov51_02119f2c

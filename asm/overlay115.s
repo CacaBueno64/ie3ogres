@@ -49,7 +49,7 @@ FUN_ov115_02124d84: ; 0x02124D84
 	add r1, r1, #0x54
 	bx r12
 _02124D9C: .word 0x021262E0
-_02124DA0: .word  FUN_ov1_020dbfdc
+_02124DA0: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov115_02124d84
 
 	arm_func_start FUN_ov115_02124da4

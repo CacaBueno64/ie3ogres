@@ -410,7 +410,7 @@ FUN_ov40_0211a408: ; 0x0211A408
 	add r1, r1, #0x74
 	bx r12
 _0211A420: .word 0x0211C6E0
-_0211A424: .word  FUN_ov1_020dbfdc
+_0211A424: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov40_0211a408
 
 	arm_func_start FUN_ov40_0211a428

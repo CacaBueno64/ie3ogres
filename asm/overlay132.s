@@ -10354,7 +10354,7 @@ FUN_ov132_02143cd0: ; 0x02143CD0
 	ldr r12, _02143CDC ; = FUN_ov16_020f078c
 	mov r0, r1
 	bx r12
-_02143CDC: .word  FUN_ov16_020f078c
+_02143CDC: .word FUN_ov16_020f078c
 	arm_func_end FUN_ov132_02143cd0
 
 	arm_func_start FUN_ov132_02143ce0

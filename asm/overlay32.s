@@ -352,7 +352,7 @@ FUN_ov32_0211a394: ; 0x0211A394
 	ldr r12, _0211A3A0 ; = FUN_ov16_020f33fc
 	add r0, r0, #0x1c
 	bx r12
-_0211A3A0: .word  FUN_ov16_020f33fc
+_0211A3A0: .word FUN_ov16_020f33fc
 	arm_func_end FUN_ov32_0211a394
 
 	arm_func_start FUN_ov32_0211a3a4

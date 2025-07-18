@@ -9,8 +9,37 @@ Static main
 {
 	Address 0x02000000
 	StackSize 0 1024
+
 	Object asm/middleware.o
-	Object asm/arm9.o
+	Object asm/main.o
+
+	Object lib/TwlSDK/asm/os/libos.o
+	Object lib/TwlSDK/asm/gx/libgx.o
+	Object lib/TwlSDK/asm/memory/libmi.o
+	Object lib/TwlSDK/asm/fx/libfx.o
+	Object lib/TwlSDK/asm/cp/libcp.o
+	Object lib/TwlSDK/asm/math/libmath.o
+	Object lib/TwlSDK/asm/rtc/librtc.o
+	Object lib/TwlSDK/asm/snd/libsnd.o
+	Object lib/TwlSDK/asm/fs/libfs.o
+	Object lib/TwlSDK/asm/card/libcard.o
+	Object lib/TwlSDK/asm/ctrdg/libctrdg.o
+	Object lib/TwlSDK/asm/wm/libwm.o
+	Object lib/TwlSDK/asm/std/libstd.o
+	Object lib/TwlSDK/asm/pxi/libpxi.o
+	Object lib/TwlSDK/asm/tp/libtp.o
+	Object lib/TwlSDK/asm/pm/libpm.o
+
+	Object lib/TwlSystem/asm/fnd/libnnsfnd.o
+	Object lib/TwlSystem/asm/g2d/libnnsg2d.o
+	Object lib/TwlSystem/asm/gfd/libnnsgfd.o
+	Object lib/TwlSystem/asm/snd/libnnssnd.o
+
+	Object asm/arm9_0.o
+
+	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
+
+	Object asm/arm9_1.o
 }
 
 Autoload ITCM
@@ -22,9 +51,10 @@ Autoload ITCM
 Autoload DTCM
 {
 	Address 0x027E0000
-	Object asm/dtcm.o (.dtcm)
-	Object asm/dtcm.o (.bss)
+	Object lib/TwlSDK/asm/os/libos_dtcm.o (.dtcm)
+	Object lib/TwlSDK/asm/os/libos_dtcm.o (.bss)
 }
+
 Overlay overlay0
 {
 	After main

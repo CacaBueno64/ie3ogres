@@ -44,7 +44,7 @@ FUN_ov79_02119f60: ; 0x02119F60
 	add r1, r1, #0x40
 	bx r12
 _02119F78: .word 0x0211A984
-_02119F7C: .word  FUN_ov1_020dbfdc
+_02119F7C: .word FUN_ov1_020dbfdc
 	arm_func_end FUN_ov79_02119f60
 
 	arm_func_start FUN_ov79_02119f80
@@ -383,7 +383,7 @@ FUN_ov79_0211a438: ; 0x0211A438
 	mov r1, #0
 	bx r12
 _0211A450: .word unk_0209F5C0
-_0211A454: .word  FUN_ov16_020f6b3c
+_0211A454: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov79_0211a438
 
 	arm_func_start FUN_ov79_0211a458

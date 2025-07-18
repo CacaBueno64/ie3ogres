@@ -1195,7 +1195,7 @@ FUN_ov44_0211af94: ; 0x0211AF94
 	ldr r0, [r0]
 	bx r12
 _0211AFA4: .word unk_02099EB4
-_0211AFA8: .word  FUN_ov16_0210efac
+_0211AFA8: .word FUN_ov16_0210efac
 	arm_func_end FUN_ov44_0211af94
 
 	arm_func_start FUN_ov44_0211afac
