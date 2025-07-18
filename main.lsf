@@ -45,7 +45,6 @@ Static main
 Autoload ITCM
 {
 	Address 0x01FF8000
-	Object lib/TwlSDK/asm/os/libos_itcm.o (.itcm)
 	Object asm/itcm.o (.itcm)
 }
 

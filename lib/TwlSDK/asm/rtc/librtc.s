@@ -620,7 +620,7 @@ _0200B5C0:
 	mvn r0, #0
 	bx lr
 _0200B5C8:
-	ldr r0, _0200B5FC ; =MATHi_SHA1ProcessMessageBlockFunc
+	ldr r0, _0200B5FC ; =sDayOfYear
 	sub r1, r1, #1
 	ldr r0, [r0, r2, lsl #2]
 	cmp r2, #3
@@ -634,7 +634,7 @@ _0200B5E8:
 	mla r0, r3, r0, r2
 	add r0, r0, r1, lsr #2
 	bx lr
-_0200B5FC: .word sDayOfYear
+_0200B5FC: .word sDayOfYear - 4 ; doesn't match if not -4 
 _0200B600: .word 0x0000016D
 	arm_func_end RTC_ConvertDateToDay
 
