@@ -223,7 +223,7 @@ $(RESPONSE): $(LSF) $(RESPONSE_TEMPLATE)
 	$(WINE) $(MAKELCF) $(MAKELCF_FLAGS) $< $(RESPONSE_TEMPLATE_NT) $@
 
 # Locate crt0.o
-CRT0_OBJ := lib/TwlSDK/asm/init/crt0.o
+CRT0_OBJ := lib/TwlSDK/src/init/crt0.o
 
 .INTERMEDIATE: $(BUILD_DIR)/obj.list
 
