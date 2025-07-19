@@ -1,6 +1,6 @@
-#include "ov130.h"
-#include "nitro.h"
-#include "global.h"
+#include <ov130.h>
+#include <nitro.h>
+#include <global.h>
 
 extern u32 OS_GetArenaLo(u32);
 extern u32 OS_GetArenaHi(u32);
@@ -61,4 +61,4 @@ static void FUN_ov130_Init(void) {
 }
 
 #define NitroStaticInit FUN_ov130_Init
-#include "sinit.h"
+#include <nitro/sinit.h>

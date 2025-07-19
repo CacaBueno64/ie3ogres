@@ -1,9 +1,9 @@
-#include "ov116.h"
-#include "nitro.h"
+#include <ov116.h>
+#include <nitro.h>
 
 extern void operator_delete(void *ptr);
 
-void * FUN_ov116_02124e24(void *ptr) {
+void *FUN_ov116_02124e24(void *ptr) {
     operator_delete(ptr);
     return ptr;
 }
@@ -24,4 +24,4 @@ static void FUN_ov116_Init(void) {
 }
 
 #define NitroStaticInit FUN_ov116_Init
-#include "sinit.h"
+#include <nitro/sinit.h>

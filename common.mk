@@ -77,7 +77,7 @@ NATIVE_TOOLS := \
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
 # Directories
-TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm
+TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm init
 TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
 
 LIB_SUBDIRS               := cw TwlSDK TwlSystem TwlDWC TwlWiFi libCPS libVCT MSL_C
@@ -223,7 +223,7 @@ $(RESPONSE): $(LSF) $(RESPONSE_TEMPLATE)
 	$(WINE) $(MAKELCF) $(MAKELCF_FLAGS) $< $(RESPONSE_TEMPLATE_NT) $@
 
 # Locate crt0.o
-CRT0_OBJ := lib/asm/crt0.o
+CRT0_OBJ := lib/TwlSDK/asm/init/crt0.o
 
 .INTERMEDIATE: $(BUILD_DIR)/obj.list
 

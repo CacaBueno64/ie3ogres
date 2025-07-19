@@ -5840,7 +5840,7 @@ FUN_ov16_020f2868: ; 0x020F2868
 	mov r2, r4
 	mov r3, r4
 	str r6, [sp]
-	bl L5_PlayOpeningMovie
+	bl L5_PlayMovie
 	mov r0, #6
 	bl FUN_ov16_020f1468
 	add r7, sp, #0x44

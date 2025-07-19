@@ -181,7 +181,7 @@
 .public FUN_0202e4cc
 .public G2_GetBG0ScrPtr
 .public unk_0209A8A0
-.public L5_PlayOpeningMovie
+.public L5_PlayMovie
 .public FS_InitFile
 .public sprintf
 .public FS_OpenFile

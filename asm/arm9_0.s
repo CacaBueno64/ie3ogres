@@ -21153,8 +21153,8 @@ FUN_0202e4ec: ; 0x0202E4EC
 _0202E51C: .word unk_020B5B80
 	arm_func_end FUN_0202e4ec
 
-	arm_func_start L5_PlayOpeningMovie
-L5_PlayOpeningMovie: ; 0x0202E520
+	arm_func_start L5_PlayMovie
+L5_PlayMovie: ; 0x0202E520
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x4c
 	ldrb r4, [sp, #0x68]
@@ -21315,7 +21315,7 @@ _0202E774: .word 0x00000F42
 _0202E778: .word 0x000082EA
 _0202E77C: .word FUN_0202ecd8
 _0202E780: .word FUN_0202ec08
-	arm_func_end L5_PlayOpeningMovie
+	arm_func_end L5_PlayMovie
 
 	arm_func_start FUN_0202e784
 FUN_0202e784: ; 0x0202E784

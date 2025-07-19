@@ -1,5 +1,5 @@
-#include "ov101.h"
-#include "nitro.h"
+#include <ov101.h>
+#include <nitro.h>
 
 extern void FUN_ov16_020f338c(u32 *, u32);
 extern void FUN_ov101_02124d4c(u32 *);
@@ -32,4 +32,4 @@ void FUN_ov101_Init(void) {
 }
 
 #define NitroStaticInit FUN_ov101_Init
-#include "sinit.h"
+#include <nitro/sinit.h>
