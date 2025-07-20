@@ -16,14 +16,14 @@ extern "C" {
 #define HW_ITCM_END             (HW_ITCM + HW_ITCM_SIZE)
 
 //----------------------------- DTCM
-#ifdef SDK_ASM
+#ifndef SDK_ASM
 #include <nitro/types.h>
 extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_DTCM                 ((u32)SDK_AUTOLOAD_DTCM_START)
-#else
+#else // SDK_ASM
 .extern SDK_AUTOLOAD_DTCM_START
 #define HW_DTCM                 SDK_AUTOLOAD_DTCM_START
-#endif
+#endif // SDK_ASM
 #define HW_DTCM_SIZE            0x4000
 #define HW_DTCM_END             (HW_DTCM + HW_DTCM_SIZE)
 //----------------------------- MAIN

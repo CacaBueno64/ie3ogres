@@ -1,4 +1,4 @@
-#ifdef TWLSDK_VERSION_H_
+#ifndef TWLSDK_VERSION_H_
 #define TWLSDK_VERSION_H_
 
 //#define SDK_VERSION_DATE  UNK
