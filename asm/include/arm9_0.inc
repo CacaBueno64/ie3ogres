@@ -1,4 +1,6 @@
 .public __sinit__
+.public SDK_STATIC_ETABLE_START
+.public SDK_STATIC_ETABLE_END
 .public FUN_02086768
 .public OS_TryLockMutex
 .public OS_LockMutex

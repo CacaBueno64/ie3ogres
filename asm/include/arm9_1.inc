@@ -157,7 +157,7 @@
 .public _dflt
 .public _ddiv
 .public _dmul
-.public FUN_0202869c
+.public sin
 .public _dsub
 .public _dadd
 .public _dfix
@@ -184,7 +184,7 @@
 .public FUN_0202de58
 .public FX_Sqrt
 .public FUN_020417a0
-.public FUN_0201ddfc
+.public __register_global_object
 .public FUN_0202ed48
 .public FUN_0205ff80
 .public FUN_02063400

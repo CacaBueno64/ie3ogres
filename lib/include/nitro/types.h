@@ -2,7 +2,7 @@
 #define NITRO_TYPES_H_
 
 #ifdef __MWERKS__
-#pragma enumsalwaysint on
+//#pragma enumsalwaysint on
 #endif
 
 #define SDK_LITTLE_ENDIAN

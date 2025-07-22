@@ -9158,14 +9158,14 @@ _02072F04:
 	bl FUN_0204bc4c
 	cmp r0, r5
 	beq _02072F44
-	mov r1, #0x68
+	mov r1, #0x68 ; =sizeof(Unitbase_FileEntry)
 	mul r1, r0, r1
 	mov r0, r8
 	mov r2, #0
 	bl FS_SeekFile
 	mla r1, r6, r11, r7
 	mov r0, r8
-	mov r2, #0x68
+	mov r2, #0x68 ; =sizeof(Unitbase_FileEntry)
 	bl FS_ReadFile
 _02072F44:
 	add r6, r6, #1
@@ -22726,7 +22726,7 @@ _0207DD74:
 	mov r0, r5
 	mov r1, r4
 	bl _dmul
-	bl FUN_0202869c
+	bl sin
 	b _0207DDD4
 _0207DD9C:
 	sub r10, r8, r9
@@ -22737,7 +22737,7 @@ _0207DD9C:
 	mov r0, r5
 	mov r1, r4
 	bl _dmul
-	bl FUN_0202869c
+	bl sin
 	mov r2, r0
 	mov r0, #0
 	mov r3, r1
@@ -32645,6 +32645,7 @@ _02086760: .word unk_0209A250
 _02086764: .word FUN_0202e19c
 	arm_func_end FUN_02086750
 
+	.section .init, 4
 	arm_func_start FUN_02086768
 FUN_02086768: ; 0x02086768
 	stmfd sp!, {r4, r5, r6, lr}
@@ -32696,49 +32697,49 @@ FUN_02086768: ; 0x02086768
 	mov r0, r4
 	ldr r1, _02086A14 ; =FUN_020417b4
 	ldr r2, _02086A18 ; =0x02099FA8
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A1C ; =0x0209C2C4
 	mov r0, r4
 	bl FUN_0202ed48
 	mov r0, r4
 	ldr r1, _02086A20 ; =FUN_0202ed70
 	ldr r2, _02086A24 ; =0x02099FB4
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A28 ; =0x0209A5D0
 	mov r0, r4
 	bl FUN_0205ff80
 	mov r0, r4
 	ldr r1, _02086A2C ; =FUN_0205ff98
 	ldr r2, _02086A30 ; =0x02099FC0
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A34 ; =0x0209A014
 	mov r0, r4
 	bl FUN_02063400
 	mov r0, r4
 	ldr r1, _02086A38 ; =FUN_02063404
 	ldr r2, _02086A3C ; =0x02099FCC
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A40 ; =0x0209A250
 	mov r0, r4
 	bl FUN_0202dbf8
 	mov r0, r4
 	ldr r1, _02086A44 ; =FUN_0202dc1c
 	ldr r2, _02086A48 ; =0x02099FD8
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A4C ; =0x0209AC44
 	mov r0, r4
 	bl FUN_0202b3dc
 	mov r0, r4
 	ldr r1, _02086A50 ; =FUN_0202b3e0
 	ldr r2, _02086A54 ; =0x02099FE4
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A58 ; =0x0209A8A0
 	mov r0, r4
 	bl FUN_0202e474
 	mov r0, r4
 	ldr r1, _02086A5C ; =FUN_0202e480
 	ldr r2, _02086A60 ; =0x02099FF0
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r2, _02086A64 ; =0x0208F6C0
 	ldr r0, _02086A68 ; =0x020A3D14
 	ldr r1, _02086A6C ; =0x0208F6B0
@@ -32764,55 +32765,55 @@ FUN_02086768: ; 0x02086768
 	mov r0, r4
 	ldr r1, _02086A8C ; =FUN_02029d18
 	ldr r2, _02086A90 ; =0x02099FFC
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086A94 ; =0x020A9C40
 	mov r0, r4
 	bl FUN_020453e0
 	mov r0, r4
 	ldr r1, _02086A98 ; =FUN_02045458
 	ldr r2, _02086A9C ; =0x0209A008
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086AA0 ; =0x0209BA20
 	mov r0, r4
 	bl FUN_0206f0b8
 	mov r0, r4
 	ldr r1, _02086AA4 ; =FUN_0206f150
 	ldr r2, _02086AA8 ; =0x0209A020
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086AAC ; =0x0209A320
 	mov r0, r4
 	bl FUN_020495b4
 	mov r0, r4
 	ldr r1, _02086AB0 ; =FUN_020495cc
 	ldr r2, _02086AB4 ; =0x0209A02C
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086AB8 ; =0x0209A380
 	mov r0, r4
 	bl FUN_0204947c
 	mov r0, r4
 	ldr r1, _02086ABC ; =FUN_0204949c
 	ldr r2, _02086AC0 ; =0x0209A038
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086AC4 ; =0x0209A0AC
 	mov r0, r4
 	bl FUN_0206c0d8
 	mov r0, r4
 	ldr r1, _02086AC8 ; =FUN_0206c110
 	ldr r2, _02086ACC ; =0x0209A044
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r4, _02086AD0 ; =0x020A18A0
 	mov r0, r4
 	bl FUN_0203df80
 	mov r0, r4
 	ldr r1, _02086AD4 ; =FUN_0203df84
 	ldr r2, _02086AD8 ; =0x02099F90
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldr r2, _02086ADC ; =0x02090204
 	ldr r0, _02086AE0 ; =0x0209AEC0
 	ldr r1, _02086AE4 ; =FUN_020463f4
 	str r2, [r0]
 	ldr r2, _02086AE8 ; =0x02099F9C
-	bl FUN_0201ddfc
+	bl __register_global_object
 	ldmfd sp!, {r4, r5, r6, pc}
 _02086A04: .word unk_0208F680
 _02086A08: .word 0x00009CCD

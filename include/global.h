@@ -1,6 +1,8 @@
 #ifndef IE3OGRES_GLOBAL_H
 #define IE3OGRES_GLOBAL_H
 
+#include <nitro.h>
+
 typedef struct {
     u8  izType;
     u8  geometryUnderflowCheck;

@@ -97,8 +97,10 @@ extern u32 SDK_AUTOLOAD_DTCM_START[];
 #define HW_EXT_WRAM_ARM7         0x06000000
 #define HW_EXT_WRAM_ARM7_END     0x06040000
 #define HW_EXT_WRAM_ARM7_SIZE    (HW_EXT_WRAM_ARM7_END-HW_EXT_WRAM_ARM7)
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
 /* NITRO_HW_MMAP_GLOBAL_H_ */
 #endif

@@ -6,13 +6,13 @@ Using a terminal or git client, clone this repository to your local device. All 
 
 ### 1. Install MWCC compiler
 
-The build system requires the use of the Metrowerks C Compiler versions dsi/1.6sp2 (or sp1) to compile matching files. Download mwccarm.zip zip from https://github.com/decompme/compilers/releases and extract it to tools/. At the end of this operation, you should have i.e. the file `tools/mwccarm/dsi/1.6sp2/mwccarm.exe`. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
+The build system requires the use of the Metrowerks C Compiler to compile matching files. Download mwccarm.zip zip from https://github.com/decompme/compilers/releases and extract it to tools/. At the end of this operation, you should have i.e. the file `tools/mwccarm/dsi/1.6sp2/mwccarm.exe`. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
 
 In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
 
 ### 2. Install Nitro SDK
 
-For Nitro SDK, download [NitroSDK-4_2-071210-jp.7z](https://github.com/pret/pmd-sky/raw/workflows/assets/NitroSDK-4_2-071210-jp.7z). Extract and copy the folder `tools/bin` from the Nitro SDK into the folder `tools` in your `pmd-sky` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `pmd-sky` clone. Finally, copy `include/nitro/specfiles/ARM7-TS.lcf.template` into the subdirectory `sub`, and `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
+For Nitro SDK, download the [TwlSDK](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_1-20090303.zip). Extract and copy the folder `tools/bin` from the Nitro SDK into the folder `tools` in your `pmd-sky` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `pmd-sky` clone. Finally, copy `include/nitro/specfiles/ARM7-TS.lcf.template` into the subdirectory `sub`, and `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
 
 ### 3. Dependencies
 
