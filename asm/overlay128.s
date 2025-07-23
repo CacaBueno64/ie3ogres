@@ -3,32 +3,32 @@
 	.include "/include/overlay128.inc"
 
 	.text
-	arm_func_start FUN_ov128_0212a9c0
-FUN_ov128_0212a9c0: ; 0x0212A9C0
+	arm_func_start MB_CommSetParentStateCallback
+MB_CommSetParentStateCallback: ; 0x0212A9C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl OS_DisableInterrupts
-	ldr r1, _0212A9E4 ; =0x0212FA60
+	ldr r1, _0212A9E4 ; =mbc
 	ldr r1, [r1]
 	add r1, r1, #0x1000
 	str r4, [r1, #0x4e4]
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0212A9E4: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212a9c0
+_0212A9E4: .word mbc
+	arm_func_end MB_CommSetParentStateCallback
 
-	arm_func_start FUN_ov128_0212a9e8
-FUN_ov128_0212a9e8: ; 0x0212A9E8
+	arm_func_start MB_CommGetChildUser
+MB_CommGetChildUser: ; 0x0212A9E8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl OS_DisableInterrupts
-	ldr r4, _0212AA60 ; =0x0212FA60
+	ldr r4, _0212AA60 ; =mbc
 	mov r5, r0
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _0212AA50
 	mov r0, r6
-	bl FUN_ov128_0212bcfc
+	bl mbparent_IsChildAidValid
 	cmp r0, #0
 	beq _0212AA50
 	ldr r3, [r4]
@@ -50,18 +50,18 @@ _0212AA50:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212AA60: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212a9e8
+_0212AA60: .word mbc
+	arm_func_end MB_CommGetChildUser
 
-	arm_func_start FUN_ov128_0212aa64
-FUN_ov128_0212aa64: ; 0x0212AA64
+	arm_func_start MB_CommIsBootable
+MB_CommIsBootable: ; 0x0212AA64
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _0212AAB0 ; =0x0212FA60
+	ldr r4, _0212AAB0 ; =mbc
 	mov r5, r0
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _0212AAA8
-	bl FUN_ov128_0212bcfc
+	bl mbparent_IsChildAidValid
 	cmp r0, #0
 	beq _0212AAA8
 	ldr r1, [r4]
@@ -75,11 +75,11 @@ FUN_ov128_0212aa64: ; 0x0212AA64
 _0212AAA8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212AAB0: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212aa64
+_0212AAB0: .word mbc
+	arm_func_end MB_CommIsBootable
 
-	arm_func_start FUN_ov128_0212aab4
-FUN_ov128_0212aab4: ; 0x0212AAB4
+	arm_func_start MB_CommResponseRequest
+MB_CommResponseRequest: ; 0x0212AAB4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r1
 	mov r7, r0
@@ -115,12 +115,12 @@ _0212AB14:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212AB24:
-	ldr r8, _0212AB8C ; =0x0212FA60
+	ldr r8, _0212AB8C ; =mbc
 	ldr r0, [r8]
 	cmp r0, #0
 	beq _0212AB7C
 	mov r0, r7
-	bl FUN_ov128_0212bcfc
+	bl mbparent_IsChildAidValid
 	cmp r0, #0
 	beq _0212AB7C
 	ldr r1, [r8]
@@ -142,19 +142,19 @@ _0212AB7C:
 	bl OS_RestoreInterrupts
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212AB8C: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212aab4
+_0212AB8C: .word mbc
+	arm_func_end MB_CommResponseRequest
 
-	arm_func_start FUN_ov128_0212ab90
-FUN_ov128_0212ab90: ; 0x0212AB90
+	arm_func_start MBi_CommChangeParentState
+MBi_CommChangeParentState: ; 0x0212AB90
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl FUN_ov128_0212bcfc
+	bl mbparent_IsChildAidValid
 	cmp r0, #0
 	beq _0212ABC4
-	ldr r0, _0212ABD8 ; =0x0212FA60
+	ldr r0, _0212ABD8 ; =mbc
 	sub r1, r6, #1
 	ldr r0, [r0]
 	add r0, r0, r1, lsl #2
@@ -164,15 +164,15 @@ _0212ABC4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov128_0212abdc
+	bl MBi_CommChangeParentStateCallbackOnly
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212ABD8: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212ab90
+_0212ABD8: .word mbc
+	arm_func_end MBi_CommChangeParentState
 
-	arm_func_start FUN_ov128_0212abdc
-FUN_ov128_0212abdc: ; 0x0212ABDC
+	arm_func_start MBi_CommChangeParentStateCallbackOnly
+MBi_CommChangeParentStateCallbackOnly: ; 0x0212ABDC
 	stmfd sp!, {r3, lr}
-	ldr r3, _0212AC00 ; =0x0212FA60
+	ldr r3, _0212AC00 ; =mbc
 	ldr r3, [r3]
 	add r3, r3, #0x1000
 	ldr r3, [r3, #0x4e4]
@@ -180,16 +180,16 @@ FUN_ov128_0212abdc: ; 0x0212ABDC
 	ldmeqfd sp!, {r3, pc}
 	blx r3
 	ldmfd sp!, {r3, pc}
-_0212AC00: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212abdc
+_0212AC00: .word mbc
+	arm_func_end MBi_CommChangeParentStateCallbackOnly
 
-	arm_func_start FUN_ov128_0212ac04
-FUN_ov128_0212ac04: ; 0x0212AC04
+	arm_func_start MBi_CommParentCallback
+MBi_CommParentCallback: ; 0x0212AC04
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	mov r6, r1
 	cmp r7, #0x19
-	ldr r8, _0212B07C ; =0x0212FA60
+	ldr r8, _0212B07C ; =mbc
 	mov r5, #0
 	bgt _0212AC68
 	cmp r7, #0x19
@@ -227,7 +227,7 @@ _0212AC8C:
 	mov r0, r5
 	mov r1, #1
 _0212AC98:
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	b _0212B034
 _0212ACA0:
 	ldrh r0, [r6, #0x10]
@@ -269,7 +269,7 @@ _0212ACC0:
 	mov r2, r9
 	bl MI_CpuFill8
 	ldrh r0, [r6, #0x10]
-	bl FUN_ov128_0212f66c
+	bl MBi_ClearParentPieceBuffer
 	ldrh r0, [r6, #0x10]
 	ldr r2, [r8]
 	sub r1, r9, #0x17
@@ -316,7 +316,7 @@ _0212ACC0:
 	and r1, r1, r3, lsr #16
 	strh r1, [r0, #0x4c]
 _0212ADF0:
-	ldr r4, _0212B07C ; =0x0212FA60
+	ldr r4, _0212B07C ; =mbc
 	ldrh r2, [r6, #0x10]
 	ldr r3, [r4]
 	mov r0, #1
@@ -347,12 +347,12 @@ _0212AE40:
 	bne _0212AE6C
 	mov r1, #9
 	mov r2, #0
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 _0212AE6C:
 	ldrh r0, [r6, #0x10]
 	mov r2, r6
 	mov r1, #3
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	ldrh r0, [r6, #0x10]
 	ldr r1, [r4]
 	sub r0, r0, #1
@@ -362,10 +362,10 @@ _0212AE6C:
 	b _0212B034
 _0212AE98:
 	mov r0, r6
-	bl FUN_ov128_0212b544
+	bl MBi_CommParentRecvData
 	b _0212B034
 _0212AEA4:
-	bl FUN_ov128_0212bad0
+	bl MBi_CommParentSendData
 	b _0212B034
 _0212AEAC:
 	ldr r4, _0212B080 ; =0x000005D4
@@ -386,7 +386,7 @@ _0212AEB4:
 	ldrh r2, [r2, #0x4e]
 	add r0, r0, r9
 	add r1, r1, #0x1340
-	bl FUN_ov128_0212ccb8
+	bl MB_UpdateGameInfoMember
 	ldr r0, [r8]
 	add r0, r0, r9
 	add r0, r0, #0x1d00
@@ -396,15 +396,15 @@ _0212AF04:
 	and r6, r0, #0xff
 	cmp r6, #0x10
 	blo _0212AEB4
-	bl FUN_ov128_0212f0a8
+	bl MBi_GetGgid
 	mov r5, r0
-	bl FUN_ov128_0212f0bc
+	bl MBi_GetTgid
 	mov r4, r0
-	bl FUN_ov128_0212f0d0
+	bl MBi_GetAttribute
 	mov r2, r0
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov128_0212cde4
+	bl MB_SendGameInfoBeacon
 	b _0212B034
 _0212AF3C:
 	ldrh r0, [r6, #2]
@@ -476,9 +476,9 @@ _0212B028:
 	mov r0, #0
 	mov r1, #8
 _0212B030:
-	bl FUN_ov128_0212bd18
+	bl MBi_CommCallParentError
 _0212B034:
-	ldr r4, _0212B07C ; =0x0212FA60
+	ldr r4, _0212B07C ; =mbc
 	mov r5, #0
 	cmp r7, #0x11
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -496,15 +496,15 @@ _0212B034:
 	mov r1, #0xc
 	blx r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212B07C: .word ov128_0212FA60
+_0212B07C: .word mbc
 _0212B080: .word 0x000005D4
-	arm_func_end FUN_ov128_0212ac04
+	arm_func_end MBi_CommParentCallback
 
-	arm_func_start FUN_ov128_0212b084
-FUN_ov128_0212b084: ; 0x0212B084
+	arm_func_start MBi_CommParentRecvDataPerChild
+MBi_CommParentRecvDataPerChild: ; 0x0212B084
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x34
-	ldr r9, _0212B538 ; =0x0212FA60
+	ldr r9, _0212B538 ; =mbc
 	movs r6, r1
 	ldr r7, _0212B53C ; =0x000005D4
 	addeq sp, sp, #0x34
@@ -515,7 +515,7 @@ FUN_ov128_0212b084: ; 0x0212B084
 	add r1, sp, #0x20
 	mov r2, r6
 	add r0, r0, #0xa
-	bl FUN_ov128_0212f724
+	bl MBi_SetRecvBufferFromChild
 	ldrb r8, [sp, #0x20]
 	ldr r1, [r9]
 	sub r3, r6, #1
@@ -581,7 +581,7 @@ _0212B114:
 	add r2, sp, #4
 	mov r0, r6
 	mov r1, #0xa
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 _0212B1BC:
 	cmp r4, #0xa
 	addne sp, sp, #0x34
@@ -640,7 +640,7 @@ _0212B250:
 	mov r0, r6
 	mov r1, #0xb
 	strh r2, [r3, #0x54]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B29C:
@@ -697,7 +697,7 @@ _0212B2CC:
 	add r3, r3, r4, lsl #1
 	add r3, r3, #0x1700
 	strh r2, [r3, #0x54]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B378:
@@ -705,7 +705,7 @@ _0212B378:
 	mov r0, r6
 	mov r1, #4
 	strh r2, [r3, #0x54]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B394:
@@ -716,7 +716,7 @@ _0212B394:
 	mov r0, r6
 	mov r1, #0xe
 	mov r2, #0
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B3BC:
@@ -749,7 +749,7 @@ _0212B3BC:
 	add r3, r4, r3, lsl #1
 	add r3, r3, #0x1700
 	strh r2, [r3, #0x54]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B43C:
@@ -768,9 +768,9 @@ _0212B43C:
 	add r0, r0, #0x1d00
 	ldrh r0, [r0, #0x4a]
 	ldrh r1, [sp, #0x22]
-	bl FUN_ov128_0212bce8
+	bl MBi_calc_nextsendblock
 	ldr r1, [r9]
-	ldr r2, _0212B540 ; =0x0212F9A0
+	ldr r2, _0212B540 ; =any_recv_bitmap
 	mla r1, r5, r6, r1
 	add r1, r1, #0x1d00
 	strh r0, [r1, #0x4a]
@@ -800,7 +800,7 @@ _0212B4A4:
 	mov r1, #7
 	mov r2, #0
 	strh r3, [r5, r4]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212B500:
@@ -815,20 +815,20 @@ _0212B500:
 	mov r0, r6
 	mov r1, #8
 	strh r2, [r3, #0x54]
-	bl FUN_ov128_0212ab90
+	bl MBi_CommChangeParentState
 _0212B530:
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212B538: .word ov128_0212FA60
+_0212B538: .word mbc
 _0212B53C: .word 0x000005D4
-_0212B540: .word ov128_0212F9A0
-	arm_func_end FUN_ov128_0212b084
+_0212B540: .word any_recv_bitmap
+	arm_func_end MBi_CommParentRecvDataPerChild
 
-	arm_func_start FUN_ov128_0212b544
-FUN_ov128_0212b544: ; 0x0212B544
+	arm_func_start MBi_CommParentRecvData
+MBi_CommParentRecvData: ; 0x0212B544
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r12, #0
-	ldr r2, _0212B5E0 ; =0x0212FA60
+	ldr r2, _0212B5E0 ; =mbc
 	ldr r1, _0212B5E4 ; =0x000005D4
 	mov r4, r0
 	mov r3, r12
@@ -845,7 +845,7 @@ _0212B55C:
 	mov r12, r0, lsr #0x10
 	cmp r12, #0x10
 	blo _0212B55C
-	ldr r0, _0212B5E8 ; =0x0212F9A0
+	ldr r0, _0212B5E8 ; =any_recv_bitmap
 	mov r1, #0
 	ldr r5, _0212B5EC ; =0x0000FFFF
 	str r1, [r0]
@@ -860,7 +860,7 @@ _0212B5A0:
 	cmpne r1, #0
 	beq _0212B5C8
 	mov r1, r6
-	bl FUN_ov128_0212b084
+	bl MBi_CommParentRecvDataPerChild
 _0212B5C8:
 	add r0, r6, #1
 	mov r0, r0, lsl #0x10
@@ -868,33 +868,33 @@ _0212B5C8:
 	cmp r6, #0xf
 	bls _0212B5A0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212B5E0: .word ov128_0212FA60
+_0212B5E0: .word mbc
 _0212B5E4: .word 0x000005D4
-_0212B5E8: .word ov128_0212F9A0
+_0212B5E8: .word any_recv_bitmap
 _0212B5EC: .word 0x0000FFFF
-	arm_func_end FUN_ov128_0212b544
+	arm_func_end MBi_CommParentRecvData
 
-	arm_func_start FUN_ov128_0212b5f0
-FUN_ov128_0212b5f0: ; 0x0212B5F0
+	arm_func_start MBi_CommParentSendMsg
+MBi_CommParentSendMsg: ; 0x0212B5F0
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
-	ldr r4, _0212B628 ; =0x0212FA60
+	ldr r4, _0212B628 ; =mbc
 	mov r5, r1
 	ldr r1, [r4]
 	strb r0, [sp]
 	add r0, sp, #0
-	bl FUN_ov128_0212f6ac
+	bl MBi_MakeParentSendBuffer
 	ldr r2, [r4]
 	mov r1, r5
 	mov r0, #6
-	bl FUN_ov128_0212ca9c
+	bl MBi_BlockHeaderEnd
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212B628: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212b5f0
+_0212B628: .word mbc
+	arm_func_end MBi_CommParentSendMsg
 
-	arm_func_start FUN_ov128_0212b62c
-FUN_ov128_0212b62c: ; 0x0212B62C
+	arm_func_start MBi_CommParentSendDLFileInfo
+MBi_CommParentSendDLFileInfo: ; 0x0212B62C
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x18
 	add r4, sp, #6
@@ -904,7 +904,7 @@ FUN_ov128_0212b62c: ; 0x0212B62C
 	mov r2, #0x10
 	mvn r5, #0
 	bl MI_CpuFill8
-	ldr r1, _0212B7B0 ; =0x0212FA60
+	ldr r1, _0212B7B0 ; =mbc
 	mov r0, #1
 	ldr r1, [r1]
 _0212B65C:
@@ -925,7 +925,7 @@ _0212B688:
 	mov r0, r0, lsr #0x10
 	cmp r0, #0xf
 	bls _0212B65C
-	ldr r2, _0212B7B4 ; =0x0212F960
+	ldr r2, _0212B7B4 ; =prev_fid
 	ldr r4, _0212B7B8 ; =0x000005D4
 	ldrb r3, [r2]
 	mov r0, #0
@@ -954,7 +954,7 @@ _0212B6F8:
 	addeq sp, sp, #0x18
 	moveq r0, #0x15
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r2, _0212B7B4 ; =0x0212F960
+	ldr r2, _0212B7B4 ; =prev_fid
 	mov r0, #1
 	strb r5, [r2]
 	mov r3, r0
@@ -979,10 +979,10 @@ _0212B718:
 	add r0, sp, #0
 	strb r2, [sp]
 	strh r5, [sp, #2]
-	bl FUN_ov128_0212f6ac
+	bl MBi_MakeParentSendBuffer
 	movs r1, r0
 	beq _0212B794
-	ldr r0, _0212B7B0 ; =0x0212FA60
+	ldr r0, _0212B7B0 ; =mbc
 	ldr r3, _0212B7B8 ; =0x000005D4
 	ldr r0, [r0]
 	mov r2, #0xe4
@@ -991,20 +991,20 @@ _0212B718:
 	mla r0, r5, r3, r0
 	bl MI_CpuCopy8
 _0212B794:
-	ldr r0, _0212B7B0 ; =0x0212FA60
+	ldr r0, _0212B7B0 ; =mbc
 	mov r1, r6
 	ldr r2, [r0]
 	mov r0, #0xea
-	bl FUN_ov128_0212ca9c
+	bl MBi_BlockHeaderEnd
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212B7B0: .word ov128_0212FA60
-_0212B7B4: .word ov128_0212F960
+_0212B7B0: .word mbc
+_0212B7B4: .word prev_fid
 _0212B7B8: .word 0x000005D4
-	arm_func_end FUN_ov128_0212b62c
+	arm_func_end MBi_CommParentSendDLFileInfo
 
-	arm_func_start FUN_ov128_0212b7bc
-FUN_ov128_0212b7bc: ; 0x0212B7BC
+	arm_func_start MBi_ReloadCache
+MBi_ReloadCache: ; 0x0212B7BC
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x4c
 	ldr r4, [r0, #0x14]
@@ -1045,13 +1045,13 @@ _0212B838:
 	strne r0, [r5, #0xc]
 	add sp, sp, #0x4c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov128_0212b7bc
+	arm_func_end MBi_ReloadCache
 
-	arm_func_start FUN_ov128_0212b858
-FUN_ov128_0212b858: ; 0x0212B858
+	arm_func_start MBi_CommParentSendBlock
+MBi_CommParentSendBlock: ; 0x0212B858
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x18
-	ldr r5, _0212BAC4 ; =0x0212FA60
+	ldr r5, _0212BAC4 ; =mbc
 	ldr r0, [r5]
 	add r0, r0, #0x1000
 	ldrb r0, [r0, #0x524]
@@ -1090,8 +1090,8 @@ _0212B8E4:
 	addeq sp, sp, #0x18
 	moveq r0, #0x15
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov128_0212bc6c
-	ldr r5, _0212BAC4 ; =0x0212FA60
+	bl MBi_calc_sendblock
+	ldr r5, _0212BAC4 ; =mbc
 	ldr r4, _0212BAC8 ; =0x000005D4
 	ldr r7, [r5]
 	add r0, sp, #8
@@ -1107,7 +1107,7 @@ _0212B8E4:
 	ldrh r2, [r2, #0x48]
 	add r1, r1, r6
 	add r3, r3, r6
-	bl FUN_ov128_0212c870
+	bl MBi_get_blockinfo
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	moveq r0, #0x15
@@ -1124,7 +1124,7 @@ _0212B8E4:
 	add r2, r2, #0x1d00
 	ldrh r2, [r2, #0x48]
 	strh r2, [sp, #4]
-	bl FUN_ov128_0212f6ac
+	bl MBi_MakeParentSendBuffer
 	ldr r6, [r5]
 	ldrb r1, [sp, #0x14]
 	add r2, r6, #0x1000
@@ -1144,14 +1144,14 @@ _0212B8E4:
 	mov r2, r0
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov128_0212f204
+	bl MBi_ReadFromCache
 	cmp r0, #0
 	bne _0212BA98
 	ldr r0, [r5]
 	add r0, r0, #0xce0
 	add r4, r0, #0x7000
 	mov r0, r4
-	bl FUN_ov128_0212f45c
+	bl MBi_IsTaskBusy
 	cmp r0, #0
 	bne _0212BA8C
 	ldr r0, [r7]
@@ -1190,12 +1190,12 @@ _0212BA58:
 	bic r0, r6, #0x1f
 	str r0, [r5]
 	str r5, [r4, #0x10]
-	ldr r1, _0212BACC ; =FUN_ov128_0212b7bc
+	ldr r1, _0212BACC ; =MBi_ReloadCache
 	mov r0, r4
 	mov r2, #0
 	mov r3, #4
 	str r7, [r4, #0x14]
-	bl FUN_ov128_0212f474
+	bl MBi_SetTask
 _0212BA8C:
 	add sp, sp, #0x18
 	mov r0, #0x15
@@ -1209,16 +1209,16 @@ _0212BA98:
 	mla r1, r3, r4, r2
 	add r1, r1, #0x1d00
 	ldrh r1, [r1, #0x4c]
-	bl FUN_ov128_0212ca9c
+	bl MBi_BlockHeaderEnd
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212BAC4: .word ov128_0212FA60
+_0212BAC4: .word mbc
 _0212BAC8: .word 0x000005D4
-_0212BACC: .word FUN_ov128_0212b7bc
-	arm_func_end FUN_ov128_0212b858
+_0212BACC: .word MBi_ReloadCache
+	arm_func_end MBi_CommParentSendBlock
 
-	arm_func_start FUN_ov128_0212bad0
-FUN_ov128_0212bad0: ; 0x0212BAD0
+	arm_func_start MBi_CommParentSendData
+MBi_CommParentSendData: ; 0x0212BAD0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xc
 	mov r4, #1
@@ -1230,7 +1230,7 @@ FUN_ov128_0212bad0: ; 0x0212BAD0
 	mov r7, r4
 	mov r8, r4
 	bl MIi_CpuClear16
-	ldr r1, _0212BC64 ; =0x0212FA60
+	ldr r1, _0212BC64 ; =mbc
 	mov r0, r4
 	ldr r1, [r1]
 _0212BB08:
@@ -1298,7 +1298,7 @@ _0212BBC4:
 	beq _0212BBF0
 	mov r0, #5
 _0212BBE8:
-	bl FUN_ov128_0212b5f0
+	bl MBi_CommParentSendMsg
 	b _0212BC44
 _0212BBF0:
 	ldrh r1, [sp]
@@ -1322,31 +1322,31 @@ _0212BC2C:
 	ldrh r0, [sp, #2]
 	cmp r0, #0
 	beq _0212BC40
-	bl FUN_ov128_0212b62c
+	bl MBi_CommParentSendDLFileInfo
 	b _0212BC44
 _0212BC40:
-	bl FUN_ov128_0212b858
+	bl MBi_CommParentSendBlock
 _0212BC44:
 	cmp r0, #0x15
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	ldr r1, _0212BC68 ; =0x0000FFFF
 	mov r0, #0
-	bl FUN_ov128_0212b5f0
+	bl MBi_CommParentSendMsg
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0212BC64: .word ov128_0212FA60
+_0212BC64: .word mbc
 _0212BC68: .word 0x0000FFFF
-	arm_func_end FUN_ov128_0212bad0
+	arm_func_end MBi_CommParentSendData
 
-	arm_func_start FUN_ov128_0212bc6c
-FUN_ov128_0212bc6c: ; 0x0212BC6C
-	ldr r1, _0212BCDC ; =0x0212F9A0
+	arm_func_start MBi_calc_sendblock
+MBi_calc_sendblock: ; 0x0212BC6C
+	ldr r1, _0212BCDC ; =any_recv_bitmap
 	mov r2, #1
 	ldr r1, [r1]
 	tst r1, r2, lsl r0
 	bxeq lr
-	ldr r2, _0212BCE0 ; =0x0212FA60
+	ldr r2, _0212BCE0 ; =mbc
 	ldr r1, _0212BCE4 ; =0x000005D4
 	ldr r2, [r2]
 	mla r12, r0, r1, r2
@@ -1370,22 +1370,22 @@ _0212BCD0:
 	add r0, r12, #0x1d00
 	strh r3, [r0, #0x48]
 	bx lr
-_0212BCDC: .word ov128_0212F9A0
-_0212BCE0: .word ov128_0212FA60
+_0212BCDC: .word any_recv_bitmap
+_0212BCE0: .word mbc
 _0212BCE4: .word 0x000005D4
-	arm_func_end FUN_ov128_0212bc6c
+	arm_func_end MBi_calc_sendblock
 
-	arm_func_start FUN_ov128_0212bce8
-FUN_ov128_0212bce8: ; 0x0212BCE8
+	arm_func_start MBi_calc_nextsendblock
+MBi_calc_nextsendblock: ; 0x0212BCE8
 	cmp r1, r0
 	movls r1, r0
 	mov r0, r1, lsl #0x10
 	mov r0, r0, lsr #0x10
 	bx lr
-	arm_func_end FUN_ov128_0212bce8
+	arm_func_end MBi_calc_nextsendblock
 
-	arm_func_start FUN_ov128_0212bcfc
-FUN_ov128_0212bcfc: ; 0x0212BCFC
+	arm_func_start mbparent_IsChildAidValid
+mbparent_IsChildAidValid: ; 0x0212BCFC
 	cmp r0, #1
 	blo _0212BD10
 	cmp r0, #0xf
@@ -1394,20 +1394,20 @@ FUN_ov128_0212bcfc: ; 0x0212BCFC
 _0212BD10:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_ov128_0212bcfc
+	arm_func_end mbparent_IsChildAidValid
 
-	arm_func_start FUN_ov128_0212bd18
-FUN_ov128_0212bd18: ; 0x0212BD18
+	arm_func_start MBi_CommCallParentError
+MBi_CommCallParentError: ; 0x0212BD18
 	stmfd sp!, {r3, lr}
 	strh r1, [sp]
 	add r2, sp, #0
 	mov r1, #0xd
-	bl FUN_ov128_0212abdc
+	bl MBi_CommChangeParentStateCallbackOnly
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov128_0212bd18
+	arm_func_end MBi_CommCallParentError
 
-	arm_func_start FUN_ov128_0212bd30
-FUN_ov128_0212bd30: ; 0x0212BD30
+	arm_func_start MB_GetSegmentLength
+MB_GetSegmentLength: ; 0x0212BD30
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x60
 	mov r5, #0
@@ -1444,10 +1444,10 @@ _0212BDA4:
 	add sp, sp, #0x60
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212BDB0: .word 0x02FFFE00
-	arm_func_end FUN_ov128_0212bd30
+	arm_func_end MB_GetSegmentLength
 
-	arm_func_start FUN_ov128_0212bdb4
-FUN_ov128_0212bdb4: ; 0x0212BDB4
+	arm_func_start MB_ReadSegment
+MB_ReadSegment: ; 0x0212BDB4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x6c
 	movs r10, r0
@@ -1459,11 +1459,11 @@ FUN_ov128_0212bdb4: ; 0x0212BDB4
 	bl CARD_GetOwnRomHeader
 	ldrb r0, [r0, #0x12]
 	tst r0, #2
-	ldreq r1, _0212C2C4 ; =0x0212F920
-	ldreq r0, _0212C2C8 ; =0x0212F964
+	ldreq r1, _0212C2C4 ; =mbi_seg_header_twl
+	ldreq r0, _0212C2C8 ; =mbi_seg_header
 	streq r1, [r0]
-	ldrne r1, _0212C2CC ; =0x0212F938
-	ldrne r0, _0212C2C8 ; =0x0212F964
+	ldrne r1, _0212C2CC ; =mbi_seg_header_default
+	ldrne r0, _0212C2C8 ; =mbi_seg_header
 	strne r1, [r0]
 _0212BDF8:
 	ldr r0, [sp, #4]
@@ -1557,7 +1557,7 @@ _0212BF3C:
 	blo _0212BFB4
 	mov r0, r5
 	mov r6, r5
-	bl FUN_ov128_0212f188
+	bl MBi_InitCache
 	mov r0, #3
 	mov r7, #0
 	str r0, [sp]
@@ -1567,7 +1567,7 @@ _0212BF3C:
 	mov r3, r9
 	add r5, r5, #0x70
 	sub r4, r4, #0x70
-	bl FUN_ov128_0212f19c
+	bl MBi_AttachCacheBuffer
 	ldr r8, [r10, #8]
 	b _0212BF84
 _0212BF80:
@@ -1646,7 +1646,7 @@ _0212C060:
 	ldr r2, [r9, #0x2c]
 	mov r0, r6
 	mov r3, r5
-	bl FUN_ov128_0212f19c
+	bl MBi_AttachCacheBuffer
 	ldr r1, [r11, #8]
 	mov r2, #0
 	ldr r7, [r9, #0x2c]
@@ -1696,7 +1696,7 @@ _0212C11C:
 	mov r1, r8
 	mov r2, r11
 	mov r3, r5
-	bl FUN_ov128_0212f19c
+	bl MBi_AttachCacheBuffer
 	add r1, r8, #0x4400
 	mov r0, r10
 	sub r1, r1, r4
@@ -1712,7 +1712,7 @@ _0212C11C:
 	mov r2, r11
 	add r3, r5, #0x4400
 	str r7, [sp]
-	bl FUN_ov128_0212f19c
+	bl MBi_AttachCacheBuffer
 	add r1, r8, #0x8800
 	mov r2, #0
 	mov r0, r10
@@ -1728,7 +1728,7 @@ _0212C11C:
 	add r3, r5, #0x8800
 	mov r0, r6
 _0212C1D0:
-	bl FUN_ov128_0212f19c
+	bl MBi_AttachCacheBuffer
 	mov r0, #1
 	str r0, [sp, #0x10]
 _0212C1DC:
@@ -1745,7 +1745,7 @@ _0212C1DC:
 	cmp r0, #0
 	beq _0212C2A0
 	ldr r2, [r9, #0x20]
-	ldr r0, _0212C2C8 ; =0x0212F964
+	ldr r0, _0212C2C8 ; =mbi_seg_header
 	str r2, [sp, #0x14]
 	ldr r1, [r9, #0x28]
 	add r4, sp, #0x14
@@ -1761,7 +1761,7 @@ _0212C1DC:
 	mov r1, #0x4000
 	mov r2, #0x8000
 	mov r3, #1
-	bl FUN_ov128_0212c2e0
+	bl MBi_ReadSegmentHeader
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	beq _0212C288
@@ -1771,7 +1771,7 @@ _0212C264:
 	mov r0, r4
 	mov r3, r7
 	add r2, r1, r2
-	bl FUN_ov128_0212c2e0
+	bl MBi_ReadSegmentHeader
 	add r5, r5, #8
 	ldr r0, [r5, #4]
 	cmp r0, #0
@@ -1780,7 +1780,7 @@ _0212C288:
 	ldr r1, [r9, #0x28]
 	ldr r2, _0212C2D8 ; =_start_AutoloadDoneCallback
 	ldr r3, [r6, #0x48]
-	ldr r0, _0212C2DC ; =0xE12FFF1E
+	ldr r0, _0212C2DC ; =0xE12FFF1E, asm { bx lr }
 	sub r1, r2, r1
 	str r0, [r3, r1]
 _0212C2A0:
@@ -1794,17 +1794,17 @@ _0212C2B8:
 	ldr r0, [sp, #0x10]
 	add sp, sp, #0x6c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212C2C4: .word ov129_0212F920
-_0212C2C8: .word ov128_0212F964
-_0212C2CC: .word 0x0212F938
+_0212C2C4: .word mbi_seg_header_twl
+_0212C2C8: .word mbi_seg_header
+_0212C2CC: .word mbi_seg_header_default
 _0212C2D0: .word 0x02FFFE00
 _0212C2D4: .word ov128_0212F968
 _0212C2D8: .word _start_AutoloadDoneCallback
-	arm_func_end FUN_ov128_0212bdb4
-_0212C2DC: .word 0xE12FFF1E
+_0212C2DC: .word 0xE12FFF1E ; asm { bx lr }
+	arm_func_end MB_ReadSegment
 
-	arm_func_start FUN_ov128_0212c2e0
-FUN_ov128_0212c2e0: ; 0x0212C2E0
+	arm_func_start MBi_ReadSegmentHeader
+MBi_ReadSegmentHeader: ; 0x0212C2E0
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	ldr r12, [r0]
@@ -1836,10 +1836,10 @@ _0212C33C:
 	sub r2, r2, lr
 	bl MI_CpuCopy8
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov128_0212c2e0
+	arm_func_end MBi_ReadSegmentHeader
 
-	arm_func_start FUN_ov128_0212c358
-FUN_ov128_0212c358: ; 0x0212C358
+	arm_func_start MB_RegisterFile
+MB_RegisterFile: ; 0x0212C358
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r7, r0
 	mov r6, r1
@@ -1854,7 +1854,7 @@ FUN_ov128_0212c358: ; 0x0212C358
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0212C38C:
-	ldr r0, _0212C5C4 ; =0x0212FA60
+	ldr r0, _0212C5C4 ; =mbc
 	ldr r0, [r0]
 	add r1, r0, #0x1000
 	ldrb r1, [r1, #0x524]
@@ -1896,7 +1896,7 @@ _0212C404:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0212C41C:
 	ldr r1, _0212C5C8 ; =0x000005D4
-	ldr r8, _0212C5C4 ; =0x0212FA60
+	ldr r8, _0212C5C4 ; =mbc
 	mul r5, r10, r1
 	add r0, r0, r5
 	add r0, r0, #0x1000
@@ -1988,7 +1988,7 @@ _0212C490:
 	add r0, r0, #0x7000
 	bl FUN_ov128_0212f3ac
 _0212C588:
-	ldr r2, _0212C5C4 ; =0x0212FA60
+	ldr r2, _0212C5C4 ; =mbc
 	mov r6, #1
 	ldr r1, [r2]
 	mov r0, r4
@@ -2003,10 +2003,10 @@ _0212C588:
 	bl OS_RestoreInterrupts
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212C5C4: .word ov128_0212FA60
+_0212C5C4: .word mbc
 _0212C5C8: .word 0x000005D4
 _0212C5CC: .word ov128_0212F9A4
-	arm_func_end FUN_ov128_0212c358
+	arm_func_end MB_RegisterFile
 
 	arm_func_start FUN_ov128_0212c5d0
 FUN_ov128_0212c5d0: ; 0x0212C5D0
@@ -2039,7 +2039,7 @@ _0212C604:
 	mov r2, #0x88
 	bl MI_CpuCopy8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212C640: .word ov129_0212F914
+_0212C640: .word ov128_0212F914
 	arm_func_end FUN_ov128_0212c5d0
 
 	arm_func_start FUN_ov128_0212c644
@@ -2162,7 +2162,7 @@ _0212C7C0:
 	add r0, r0, r3
 	blo _0212C7C0
 	mov r9, #0
-	ldr r4, _0212C86C ; =0x0212FA60
+	ldr r4, _0212C86C ; =mbc
 	strh r9, [r6]
 	add r5, r1, #0xc
 _0212C7F0:
@@ -2197,11 +2197,11 @@ _0212C7F0:
 	blo _0212C7F0
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212C86C: .word ov128_0212FA60
+_0212C86C: .word mbc
 	arm_func_end FUN_ov128_0212c7a4
 
-	arm_func_start FUN_ov128_0212c870
-FUN_ov128_0212c870: ; 0x0212C870
+	arm_func_start MBi_get_blockinfo
+MBi_get_blockinfo: ; 0x0212C870
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrh r4, [r1, #0x12]
 	cmp r2, r4
@@ -2221,7 +2221,7 @@ _0212C8A8:
 	cmp r12, #0
 	movlt r0, #0
 	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r4, _0212C920 ; =0x0212FA60
+	ldr r4, _0212C920 ; =mbc
 	add r5, r1, r12, lsl #1
 	ldr lr, [r4]
 	ldrh r5, [r5, #0xc]
@@ -2248,8 +2248,8 @@ _0212C8A8:
 	strb r12, [r0, #0xc]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212C920: .word ov128_0212FA60
-	arm_func_end FUN_ov128_0212c870
+_0212C920: .word mbc
+	arm_func_end MBi_get_blockinfo
 
 	arm_func_start FUN_ov128_0212c924
 FUN_ov128_0212c924: ; 0x0212C924
@@ -2299,7 +2299,7 @@ _0212C9B8:
 _0212C9C0:
 	mov r0, #0
 	bx lr
-_0212C9C8: .word ov129_0212F914
+_0212C9C8: .word ov128_0212F914
 _0212C9CC: .word 0x027FFE00
 	arm_func_end FUN_ov128_0212c924
 
@@ -2360,13 +2360,13 @@ _0212CA80:
 _0212CA88:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_0212CA90: .word ov129_0212F914
+_0212CA90: .word ov128_0212F914
 _0212CA94: .word 0x023FE800
 _0212CA98: .word 0x037F8000
 	arm_func_end FUN_ov128_0212c9d0
 
-	arm_func_start FUN_ov128_0212ca9c
-FUN_ov128_0212ca9c: ; 0x0212CA9C
+	arm_func_start MBi_BlockHeaderEnd
+MBi_BlockHeaderEnd: ; 0x0212CA9C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r4, r2
@@ -2381,7 +2381,7 @@ FUN_ov128_0212ca9c: ; 0x0212CA9C
 	mov r2, r5
 	bl FUN_ov128_0212efc0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov128_0212ca9c
+	arm_func_end MBi_BlockHeaderEnd
 
 	arm_func_start FUN_ov128_0212cad4
 FUN_ov128_0212cad4: ; 0x0212CAD4
@@ -2521,8 +2521,8 @@ _0212CC98:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov128_0212cc10
 
-	arm_func_start FUN_ov128_0212ccb8
-FUN_ov128_0212ccb8: ; 0x0212CCB8
+	arm_func_start MB_UpdateGameInfoMember
+MB_UpdateGameInfoMember: ; 0x0212CCB8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r2
@@ -2552,7 +2552,7 @@ _0212CCE8:
 	strb r1, [r7, #0x4b4]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212CD24: .word 0x0000014A
-	arm_func_end FUN_ov128_0212ccb8
+	arm_func_end MB_UpdateGameInfoMember
 
 	arm_func_start FUN_ov128_0212cd28
 FUN_ov128_0212cd28: ; 0x0212CD28
@@ -2622,8 +2622,8 @@ FUN_ov128_0212cdc0: ; 0x0212CDC0
 _0212CDE0: .word ov128_0212F9A8
 	arm_func_end FUN_ov128_0212cdc0
 
-	arm_func_start FUN_ov128_0212cde4
-FUN_ov128_0212cde4: ; 0x0212CDE4
+	arm_func_start MB_SendGameInfoBeacon
+MB_SendGameInfoBeacon: ; 0x0212CDE4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r4, _0212CE6C ; =0x0212F9A8
 	mov r7, r0
@@ -2666,7 +2666,7 @@ _0212CE58:
 	bl FUN_ov128_0212d0f0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212CE6C: .word ov128_0212F9A8
-	arm_func_end FUN_ov128_0212cde4
+	arm_func_end MB_SendGameInfoBeacon
 
 	arm_func_start FUN_ov128_0212ce70
 FUN_ov128_0212ce70: ; 0x0212CE70
@@ -2676,9 +2676,9 @@ FUN_ov128_0212ce70: ; 0x0212CE70
 	ldr r1, [r0, #0x18]
 	cmp r1, #0
 	bne _0212CEC4
-	bl FUN_ov128_0212f0a8
+	bl MBi_GetGgid
 	mov r5, r0
-	bl FUN_ov128_0212f0bc
+	bl MBi_GetTgid
 	mov r4, #0
 	str r0, [sp]
 	mov r12, #8
@@ -4429,8 +4429,8 @@ _0212E718: .word 0x02FFFC3C
 _0212E71C: .word 0xCCCCCCCD
 	arm_func_end FUN_ov128_0212e6b8
 
-	arm_func_start FUN_ov128_0212e720
-FUN_ov128_0212e720: ; 0x0212E720
+	arm_func_start MB_Init
+MB_Init: ; 0x0212E720
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r4, _0212E8EC ; =0x0212FA50
 	mov r7, r1
@@ -4554,7 +4554,7 @@ _0212E840:
 _0212E8EC: .word ov128_0212FA50
 _0212E8F0: .word 0x0000FFFF
 _0212E8F4: .word ov128_0212F96C
-	arm_func_end FUN_ov128_0212e720
+	arm_func_end MB_Init
 
 	arm_func_start FUN_ov128_0212e8f8
 FUN_ov128_0212e8f8: ; 0x0212E8F8
@@ -4592,8 +4592,8 @@ _0212E960: .word 0x000001FE
 _0212E964: .word 0x000015E0
 	arm_func_end FUN_ov128_0212e8f8
 
-	arm_func_start FUN_ov128_0212e968
-FUN_ov128_0212e968: ; 0x0212E968
+	arm_func_start MB_SetParentCommParam
+MB_SetParentCommParam: ; 0x0212E968
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	mov r6, r1
@@ -4633,7 +4633,7 @@ _0212E9C8:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212E9F8: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212e968
+	arm_func_end MB_SetParentCommParam
 
 	arm_func_start FUN_ov128_0212e9fc
 FUN_ov128_0212e9fc: ; 0x0212E9FC
@@ -4714,7 +4714,7 @@ FUN_ov128_0212eac8: ; 0x0212EAC8
 	add r1, r1, #0x1340
 	bl MIi_CpuClear16
 	mov r0, r5
-	bl FUN_ov128_0212a9c0
+	bl MB_CommSetParentStateCallback
 	ldr r0, [r4, #0xc]
 	ldr r1, [r4, #0x10]
 	add r0, r0, #0x500
@@ -4725,11 +4725,11 @@ FUN_ov128_0212eac8: ; 0x0212EAC8
 	ldr r0, [r4, #0xc]
 	add r0, r0, #0x500
 	ldrh r0, [r0, #2]
-	bl FUN_ov128_0212f620
+	bl MBi_SetChildMPMaxSize
 	ldr r0, [r4, #0x10]
 	add r0, r0, #0x138
 	add r0, r0, #0x1400
-	bl FUN_ov128_0212f64c
+	bl MBi_SetParentPieceBuffer
 	mov r5, r6
 	mvn r1, #0
 _0212EB60:
@@ -4765,7 +4765,7 @@ _0212EB60:
 	add r0, r0, #0x500
 	strh r5, [r0, #0x24]
 	ldr r0, [r4, #0xc]
-	ldr r2, _0212EC90 ; =FUN_ov128_0212ac04
+	ldr r2, _0212EC90 ; =MBi_CommParentCallback
 	ldr r1, _0212EC94 ; =FUN_ov128_0212d4e4
 	str r2, [r0, #0x51c]
 	ldr r0, [r4, #0xc]
@@ -4809,12 +4809,12 @@ _0212EB60:
 _0212EC84: .word ov128_0212FA50
 _0212EC88: .word 0x000069C0
 _0212EC8C: .word 0x00005D40
-_0212EC90: .word FUN_ov128_0212ac04
+_0212EC90: .word MBi_CommParentCallback
 _0212EC94: .word FUN_ov128_0212d4e4
 	arm_func_end FUN_ov128_0212eac8
 
-	arm_func_start FUN_ov128_0212ec98
-FUN_ov128_0212ec98: ; 0x0212EC98
+	arm_func_start MB_StartParentFromIdle
+MB_StartParentFromIdle: ; 0x0212EC98
 	ldr r1, _0212ECB4 ; =0x0212FA50
 	ldr r12, _0212ECB8 ; =FUN_ov128_0212eac8
 	ldr r1, [r1, #0x10]
@@ -4824,7 +4824,7 @@ FUN_ov128_0212ec98: ; 0x0212EC98
 	bx r12
 _0212ECB4: .word ov128_0212FA50
 _0212ECB8: .word FUN_ov128_0212eac8
-	arm_func_end FUN_ov128_0212ec98
+	arm_func_end MB_StartParentFromIdle
 
 	arm_func_start FUN_ov128_0212ecbc
 FUN_ov128_0212ecbc: ; 0x0212ECBC
@@ -4894,8 +4894,8 @@ _0212ED88: .word ov128_0212FA50
 _0212ED8C: .word FUN_ov128_0212ecf4
 	arm_func_end FUN_ov128_0212ed00
 
-	arm_func_start FUN_ov128_0212ed90
-FUN_ov128_0212ed90: ; 0x0212ED90
+	arm_func_start MB_EndToIdle
+MB_EndToIdle: ; 0x0212ED90
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
 	ldr r1, _0212EDC8 ; =0x0212FA50
@@ -4912,10 +4912,10 @@ _0212EDB8:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
 _0212EDC8: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212ed90
+	arm_func_end MB_EndToIdle
 
-	arm_func_start FUN_ov128_0212edcc
-FUN_ov128_0212edcc: ; 0x0212EDCC
+	arm_func_start MB_DisconnectChild
+MB_DisconnectChild: ; 0x0212EDCC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
 	ldr r0, _0212EF5C ; =FUN_ov128_0212d4e4
@@ -4948,7 +4948,7 @@ FUN_ov128_0212edcc: ; 0x0212EDCC
 	mov r2, r9
 	bl MI_CpuFill8
 	mov r0, r8
-	bl FUN_ov128_0212f66c
+	bl MBi_ClearParentPieceBuffer
 	ldr r0, [r4, #0x10]
 	sub r1, r9, #0x17
 	add r0, r0, r7, lsl #1
@@ -5020,7 +5020,7 @@ _0212EF40:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0212EF5C: .word FUN_ov128_0212d4e4
 _0212EF60: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212edcc
+	arm_func_end MB_DisconnectChild
 
 	arm_func_start FUN_ov128_0212ef64
 FUN_ov128_0212ef64: ; 0x0212EF64
@@ -5118,26 +5118,26 @@ _0212F0A0: .word ov128_0212FA50
 _0212F0A4: .word FUN_ov128_0212dd18
 	arm_func_end FUN_ov128_0212efc0
 
-	arm_func_start FUN_ov128_0212f0a8
-FUN_ov128_0212f0a8: ; 0x0212F0A8
+	arm_func_start MBi_GetGgid
+MBi_GetGgid: ; 0x0212F0A8
 	ldr r0, _0212F0B8 ; =0x0212FA50
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #8]
 	bx lr
 _0212F0B8: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212f0a8
+	arm_func_end MBi_GetGgid
 
-	arm_func_start FUN_ov128_0212f0bc
-FUN_ov128_0212f0bc: ; 0x0212F0BC
+	arm_func_start MBi_GetTgid
+MBi_GetTgid: ; 0x0212F0BC
 	ldr r0, _0212F0CC ; =0x0212FA50
 	ldr r0, [r0, #0xc]
 	ldrh r0, [r0, #0xc]
 	bx lr
 _0212F0CC: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212f0bc
+	arm_func_end MBi_GetTgid
 
-	arm_func_start FUN_ov128_0212f0d0
-FUN_ov128_0212f0d0: ; 0x0212F0D0
+	arm_func_start MBi_GetAttribute
+MBi_GetAttribute: ; 0x0212F0D0
 	ldr r0, _0212F12C ; =0x0212FA50
 	mov r2, #2
 	ldr r1, [r0, #0xc]
@@ -5162,7 +5162,7 @@ FUN_ov128_0212f0d0: ; 0x0212F0D0
 	and r0, r0, #0xff
 	bx lr
 _0212F12C: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212f0d0
+	arm_func_end MBi_GetAttribute
 
 	arm_func_start FUN_ov128_0212f130
 FUN_ov128_0212f130: ; 0x0212F130
@@ -5194,17 +5194,17 @@ FUN_ov128_0212f150: ; 0x0212F150
 _0212F184: .word ov128_0212FA50
 	arm_func_end FUN_ov128_0212f150
 
-	arm_func_start FUN_ov128_0212f188
-FUN_ov128_0212f188: ; 0x0212F188
+	arm_func_start MBi_InitCache
+MBi_InitCache: ; 0x0212F188
 	ldr r12, _0212F198 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x70
 	bx r12
 _0212F198: .word MI_CpuFill8
-	arm_func_end FUN_ov128_0212f188
+	arm_func_end MBi_InitCache
 
-	arm_func_start FUN_ov128_0212f19c
-FUN_ov128_0212f19c: ; 0x0212F19C
+	arm_func_start MBi_AttachCacheBuffer
+MBi_AttachCacheBuffer: ; 0x0212F19C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, r0
 	mov r9, r1
@@ -5235,10 +5235,10 @@ _0212F1F8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov128_0212f19c
+	arm_func_end MBi_AttachCacheBuffer
 
-	arm_func_start FUN_ov128_0212f204
-FUN_ov128_0212f204: ; 0x0212F204
+	arm_func_start MBi_ReadFromCache
+MBi_ReadFromCache: ; 0x0212F204
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r8, r1
@@ -5280,7 +5280,7 @@ _0212F28C:
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov128_0212f204
+	arm_func_end MBi_ReadFromCache
 
 	arm_func_start FUN_ov128_0212f29c
 FUN_ov128_0212f29c: ; 0x0212F29C
@@ -5419,18 +5419,18 @@ FUN_ov128_0212f448: ; 0x0212F448
 _0212F458: .word MI_CpuFill8
 	arm_func_end FUN_ov128_0212f448
 
-	arm_func_start FUN_ov128_0212f45c
-FUN_ov128_0212f45c: ; 0x0212F45C
+	arm_func_start MBi_IsTaskBusy
+MBi_IsTaskBusy: ; 0x0212F45C
 	ldr r0, [r0, #4]
 	mov r0, r0, lsl #0x1f
 	movs r0, r0, lsr #0x1f
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_ov128_0212f45c
+	arm_func_end MBi_IsTaskBusy
 
-	arm_func_start FUN_ov128_0212f474
-FUN_ov128_0212f474: ; 0x0212F474
+	arm_func_start MBi_SetTask
+MBi_SetTask: ; 0x0212F474
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r4, _0212F5D4 ; =0x0212FAC4
 	mov r8, r0
@@ -5531,7 +5531,7 @@ _0212F5C8:
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212F5D4: .word ov128_0212FAC4
-	arm_func_end FUN_ov128_0212f474
+	arm_func_end MBi_SetTask
 
 	arm_func_start FUN_ov128_0212f5d8
 FUN_ov128_0212f5d8: ; 0x0212F5D8
@@ -5548,7 +5548,7 @@ FUN_ov128_0212f5d8: ; 0x0212F5D8
 	mov r2, r5
 	mov r3, r1
 	add r0, r0, #0xc4
-	bl FUN_ov128_0212f474
+	bl MBi_SetTask
 _0212F610:
 	mov r0, r4
 	bl OS_RestoreInterrupts
@@ -5556,10 +5556,10 @@ _0212F610:
 _0212F61C: .word ov128_0212FAC4
 	arm_func_end FUN_ov128_0212f5d8
 
-	arm_func_start FUN_ov128_0212f620
-FUN_ov128_0212f620: ; 0x0212F620
+	arm_func_start MBi_SetChildMPMaxSize
+MBi_SetChildMPMaxSize: ; 0x0212F620
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _0212F648 ; =0x0212FAC8
+	ldr r4, _0212F648 ; =req_data_piece_idx
 	sub r1, r0, #2
 	mov r5, #0x1e
 	mov r0, r5
@@ -5568,25 +5568,25 @@ FUN_ov128_0212f620: ; 0x0212F620
 	str r0, [r4, #0xc]
 	str r5, [r4, #0x10]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212F648: .word ov128_0212FAC8
-	arm_func_end FUN_ov128_0212f620
+_0212F648: .word req_data_piece_idx
+	arm_func_end MBi_SetChildMPMaxSize
 
-	arm_func_start FUN_ov128_0212f64c
-FUN_ov128_0212f64c: ; 0x0212F64C
-	ldr r3, _0212F664 ; =0x0212FAC8
+	arm_func_start MBi_SetParentPieceBuffer
+MBi_SetParentPieceBuffer: ; 0x0212F64C
+	ldr r3, _0212F664 ; =req_data_piece_idx
 	ldr r12, _0212F668 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x21c
 	str r0, [r3, #4]
 	bx r12
-_0212F664: .word ov128_0212FAC8
+_0212F664: .word req_data_piece_idx
 _0212F668: .word MI_CpuFill8
-	arm_func_end FUN_ov128_0212f64c
+	arm_func_end MBi_SetParentPieceBuffer
 
-	arm_func_start FUN_ov128_0212f66c
-FUN_ov128_0212f66c: ; 0x0212F66C
+	arm_func_start MBi_ClearParentPieceBuffer
+MBi_ClearParentPieceBuffer: ; 0x0212F66C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0212F6A8 ; =0x0212FAC8
+	ldr r4, _0212F6A8 ; =req_data_piece_idx
 	ldr r2, [r4, #4]
 	cmp r2, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -5600,11 +5600,11 @@ FUN_ov128_0212f66c: ; 0x0212F66C
 	add r0, r0, r6, lsl #2
 	str r5, [r0, #0x1e0]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212F6A8: .word ov128_0212FAC8
-	arm_func_end FUN_ov128_0212f66c
+_0212F6A8: .word req_data_piece_idx
+	arm_func_end MBi_ClearParentPieceBuffer
 
-	arm_func_start FUN_ov128_0212f6ac
-FUN_ov128_0212f6ac: ; 0x0212F6AC
+	arm_func_start MBi_MakeParentSendBuffer
+MBi_MakeParentSendBuffer: ; 0x0212F6AC
 	ldrb r2, [r0]
 	mov r12, r1
 	add r12, r12, #1
@@ -5639,10 +5639,10 @@ _0212F714:
 _0212F71C:
 	mov r0, r12
 	bx lr
-	arm_func_end FUN_ov128_0212f6ac
+	arm_func_end MBi_MakeParentSendBuffer
 
-	arm_func_start FUN_ov128_0212f724
-FUN_ov128_0212f724: ; 0x0212F724
+	arm_func_start MBi_SetRecvBufferFromChild
+MBi_SetRecvBufferFromChild: ; 0x0212F724
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	ldrb r0, [r6]
@@ -5658,15 +5658,15 @@ FUN_ov128_0212f724: ; 0x0212F724
 	b _0212F82C
 _0212F758:
 	mov r0, r4
-	bl FUN_ov128_0212f8c0
+	bl IsGetAllRequestData
 	cmp r0, #0
-	ldrne r0, _0212F83C ; =0x0212FAC8
+	ldrne r0, _0212F83C ; =req_data_piece_idx
 	subne r1, r4, #1
 	ldrne r0, [r0, #4]
 	addne r0, r0, r1, lsl #5
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrb r2, [r6, #1]
-	ldr r0, _0212F83C ; =0x0212FAC8
+	ldr r0, _0212F83C ; =req_data_piece_idx
 	strb r2, [r5, #2]
 	ldr r1, [r0, #0xc]
 	cmp r2, r1
@@ -5678,7 +5678,7 @@ _0212F758:
 	bl MI_CpuCopy8
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov128_0212f840
+	bl MBi_ReceiveRequestDataPiece
 	mov r4, r0
 	b _0212F834
 _0212F7B8:
@@ -5696,7 +5696,7 @@ _0212F7B8:
 _0212F7E4:
 	ldrb r0, [r6, #1]
 	add r4, r6, #3
-	ldr r7, _0212F83C ; =0x0212FAC8
+	ldr r7, _0212F83C ; =req_data_piece_idx
 	strh r0, [r5, #2]
 	ldrb r1, [r6, #2]
 	ldrh r2, [r5, #2]
@@ -5718,13 +5718,13 @@ _0212F82C:
 _0212F834:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212F83C: .word ov128_0212FAC8
-	arm_func_end FUN_ov128_0212f724
+_0212F83C: .word req_data_piece_idx
+	arm_func_end MBi_SetRecvBufferFromChild
 
-	arm_func_start FUN_ov128_0212f840
-FUN_ov128_0212f840: ; 0x0212F840
+	arm_func_start MBi_ReceiveRequestDataPiece
+MBi_ReceiveRequestDataPiece: ; 0x0212F840
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r7, _0212F8BC ; =0x0212FAC8
+	ldr r7, _0212F8BC ; =req_data_piece_idx
 	mov r6, r1
 	ldr r3, [r7, #4]
 	cmp r3, #0
@@ -5748,18 +5748,18 @@ FUN_ov128_0212f840: ; 0x0212F840
 	mov r0, r6
 	orr r1, r2, r1, lsl r5
 	str r1, [r3, r4, lsl #2]
-	bl FUN_ov128_0212f8c0
+	bl IsGetAllRequestData
 	cmp r0, #0
 	ldrne r0, [r7, #4]
 	addne r0, r0, r4, lsl #5
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212F8BC: .word ov128_0212FAC8
-	arm_func_end FUN_ov128_0212f840
+_0212F8BC: .word req_data_piece_idx
+	arm_func_end MBi_ReceiveRequestDataPiece
 
-	arm_func_start FUN_ov128_0212f8c0
-FUN_ov128_0212f8c0: ; 0x0212F8C0
-	ldr r1, _0212F910 ; =0x0212FAC8
+	arm_func_start IsGetAllRequestData
+IsGetAllRequestData: ; 0x0212F8C0
+	ldr r1, _0212F910 ; =req_data_piece_idx
 	mov r2, #0
 	ldr r12, [r1, #0xc]
 	cmp r12, #0
@@ -5781,39 +5781,47 @@ _0212F8E8:
 _0212F908:
 	mov r0, #1
 	bx lr
-_0212F910: .word ov128_0212FAC8
-	arm_func_end FUN_ov128_0212f8c0
+_0212F910: .word req_data_piece_idx
+	arm_func_end IsGetAllRequestData
 
 	.rodata
-	.global ov129_0212F914
-ov129_0212F914:
+	.global ov128_0212F914
+ov128_0212F914:
 	.byte 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
-	.global ov129_0212F920
-ov129_0212F920:
+	.global mbi_seg_header_twl
+mbi_seg_header_twl:
 	.byte 0x00, 0x40, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x70, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global mbi_seg_header_default
+mbi_seg_header_default:
+	.byte 0x00, 0x40, 0x00, 0x00, 0x00, 0x14, 0x00, 0x00
 	.byte 0x00, 0x74, 0x00, 0x00, 0x00, 0x0C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.data
-	.global ov128_0212F960
-ov128_0212F960:
+	.global prev_fid
+prev_fid:
 	.byte 0xFF, 0x00, 0x00, 0x00
-	.global ov128_0212F964
-ov128_0212F964:
-	.byte 0x20, 0xF9, 0x12, 0x02
+	.global mbi_seg_header
+mbi_seg_header:
+	.word mbi_seg_header_twl
 	.global ov128_0212F968
 ov128_0212F968:
 	.byte 0x72, 0x6F, 0x6D, 0x00
 	.global ov128_0212F96C
 ov128_0212F96C:
 	.byte 0x28, 0x00, 0x28, 0x00
-	.byte 0xFF, 0xFF, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00, 0x84, 0xF9, 0x12, 0x02, 0xFF, 0xFF, 0xFF, 0xFF
-	.byte 0xFF, 0xFF, 0xFF, 0xFF, 0x6D, 0x00, 0x75, 0x00, 0x6C, 0x00, 0x74, 0x00, 0x69, 0x00, 0x62, 0x00
+	.byte 0xFF, 0xFF, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00
+	.word ov128_0212F984
+	.byte 0xFF, 0xFF, 0xFF, 0xFF
+	.byte 0xFF, 0xFF, 0xFF, 0xFF
+	.global ov128_0212F984
+ov128_0212F984:
+	.byte 0x6D, 0x00, 0x75, 0x00, 0x6C, 0x00, 0x74, 0x00, 0x69, 0x00, 0x62, 0x00
 	.byte 0x6F, 0x00, 0x6F, 0x00, 0x74, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.bss
-	.global ov128_0212F9A0
-ov128_0212F9A0:
+	.global any_recv_bitmap
+any_recv_bitmap:
 	.space 0x04
 	.global ov128_0212F9A4
 ov128_0212F9A4:
@@ -5839,8 +5847,8 @@ ov128_0212FA48:
 	.global ov128_0212FA50
 ov128_0212FA50:
 	.space 0x10
-	.global ov128_0212FA60
-ov128_0212FA60:
+	.global mbc
+mbc:
 	.space 0x20
 	.global ov128_0212FA80
 ov128_0212FA80:
@@ -5848,6 +5856,6 @@ ov128_0212FA80:
 	.global ov128_0212FAC4
 ov128_0212FAC4:
 	.space 0x04
-	.global ov128_0212FAC8
-ov128_0212FAC8:
+	.global req_data_piece_idx
+req_data_piece_idx:
 	.space 0x18
