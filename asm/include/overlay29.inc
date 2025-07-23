@@ -61,7 +61,7 @@
 .public FUN_02059038
 .public FUN_ov16_0210e7d0
 .public _dflt
-.public FUN_02028820
+.public pow
 .public _ddiv
 .public _dfix
 .public FUN_ov16_0210fc74

@@ -48,7 +48,7 @@
 .public MI_CpuCopy8
 .public DC_FlushRange
 .public _dflt
-.public FUN_02028820
+.public pow
 .public FUN_0206dcd4
 .public _dfltu
 .public _ddiv

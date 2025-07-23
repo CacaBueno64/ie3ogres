@@ -28881,14 +28881,14 @@ _02083448:
 	mov r1, r8
 	bl _s32_div_f
 	bl _dflt
-	bl FUN_02028814
+	bl log
 	mov r7, r0
 	ldrsh r0, [r6, #0x56]
 	mov r6, r1
 	mov r1, r8
 	bl _s32_div_f
 	bl _dflt
-	bl FUN_02028814
+	bl log
 	mov r2, r0
 	mov r3, r1
 	mov r0, r7

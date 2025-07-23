@@ -206,7 +206,7 @@
 .public FUN_0205430c
 .public labs
 .public _dflt
-.public FUN_02028820
+.public pow
 .public _dadd
 .public _dsqrt
 .public _ddiv

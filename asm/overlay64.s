@@ -1417,7 +1417,7 @@ _0211B2A4:
 	mov r3, r1
 	mov r0, r9
 	mov r1, r11
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r10, r1
 	mov r0, r7
@@ -1440,7 +1440,7 @@ _0211B2FC:
 	mov r2, r0
 	ldr r1, _0211B4E0 ; =0x40240000
 	mov r0, #0
-	bl FUN_02028820
+	bl pow
 	mov r6, r0
 	mov r10, r1
 	mov r0, r7

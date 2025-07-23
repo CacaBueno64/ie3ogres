@@ -506,7 +506,7 @@ _0211A614:
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
 	mov r0, r11
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r0, r6
 	mov r10, r1
@@ -571,7 +571,7 @@ _0211A70C:
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
 	mov r0, r11
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r10, r1
 	mov r0, r6
@@ -635,7 +635,7 @@ _0211A800:
 	mov r2, r0
 	ldr r1, _0211B2E4 ; =0x40240000
 	mov r0, r11
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r10, r1
 	mov r0, r6

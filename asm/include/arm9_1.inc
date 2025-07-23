@@ -163,7 +163,7 @@
 .public _dfix
 .public OS_GetTick
 .public DC_FlushRange
-.public FUN_02028814
+.public log
 .public _d2f
 .public _fgr
 .public _ffix

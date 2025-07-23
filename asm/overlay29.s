@@ -1112,7 +1112,7 @@ _0211AEC0:
 	mov r2, r0
 	ldr r1, _0211B7CC ; =0x40240000
 	mov r0, r10
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x14]
 	ldr r0, [sp, #0x18]
 	mov r11, r1

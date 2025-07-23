@@ -4975,21 +4975,21 @@ _020C0EC0:
 	mov r4, #0x40000000
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x28]
 	mov r0, r9
 	mov r9, r1
 	bl _dflt
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x2c]
 	mov r0, r8
 	mov r8, r1
 	bl _dflt
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x30]
 	str r1, [sp, #0x1c]
 	ldr r2, [sp, #0x2c]
@@ -5007,21 +5007,21 @@ _020C0EC0:
 	bl _dflt
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x38]
 	ldr r0, [sp, #0x78]
 	mov r9, r1
 	bl _dflt
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x3c]
 	ldr r0, [sp, #0x6c]
 	mov r8, r1
 	bl _dflt
 	mov r2, r11
 	mov r3, r4
-	bl FUN_02028820
+	bl pow
 	str r0, [sp, #0x40]
 	mov r3, r8
 	mov r8, r1

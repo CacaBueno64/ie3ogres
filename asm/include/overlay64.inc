@@ -85,7 +85,7 @@
 .public unk_02099F50
 .public sprintf
 .public _dflt
-.public FUN_02028820
+.public pow
 .public _ddiv
 .public _dfix
 .public _dfltu

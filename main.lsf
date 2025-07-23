@@ -38,6 +38,9 @@ Static main
 	Object lib/TwlSystem/asm/gfd/libnnsgfd.o
 	Object lib/TwlSystem/asm/snd/libnnssnd.o
 
+	# MSL_C library
+	Object lib/MSL_C/asm/libmsl.o
+
 	Object asm/arm9_0.o
 
 	# TwlSystem G3d

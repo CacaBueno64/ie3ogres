@@ -1,0 +1,9 @@
+.public __sinit__
+.public SDK_STATIC_ETABLE_START
+.public SDK_STATIC_ETABLE_END
+.public OSi_ThreadInfo
+.public OS_LockMutex
+.public OS_UnlockMutex
+.public OS_TryLockMutex
+.public OS_AllocFromHeap
+.public OS_FreeToHeap

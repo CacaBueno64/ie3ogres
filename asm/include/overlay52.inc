@@ -147,7 +147,7 @@
 .public FUN_02050b1c
 .public unk_020A0EF8
 .public _dflt
-.public FUN_02028820
+.public pow
 .public _ddiv
 .public _dfix
 .public FUN_ov16_0210eab4

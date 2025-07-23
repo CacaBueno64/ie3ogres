@@ -7427,7 +7427,7 @@ _021204B8:
 	mov r2, r0
 	ldr r1, _02120628 ; =0x40240000
 	mov r0, r11
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r10, r1
 	add r0, r6, #1
@@ -7478,7 +7478,7 @@ _02120578:
 	mov r2, r0
 	ldr r1, _02120628 ; =0x40240000
 	mov r0, r6
-	bl FUN_02028820
+	bl pow
 	mov r5, r0
 	mov r10, r1
 	mov r0, r7
