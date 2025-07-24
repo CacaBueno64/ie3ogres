@@ -34904,88 +34904,88 @@ DSE_TRACK_EVENT_TABLE:
 DSE_MIDI_CC_TABLE:
 	.word DseMidiCC_BankSelectMSB
 	.word DseMidiCC_ModulationDepth
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_MaybePortamentoTime
 	.word DseMidiCC_Stub6
 	.word DseMidiCC_ChannelVolume
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
 	.word DseMidiCC_Pan
 	.word DseMidiCC_Expression
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_BendRange
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_Stub25
 	.word DseMidiCC_Stub26
 	.word DseMidiCC_Stub27
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_BankSelectLSB
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_Hold1
 	.word DseMidiCC_Stub65
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_ReleaseTime
 	.word DseMidiCC_AttackTime
-	.word 0x00000000
+	.word 0
 	.word DseMidiCC_DecayTime
 	.word DseMidiCC_LfoRate
 	.word DseMidiCC_LfoDepth
 	.word DseMidiCC_MaybeLfoDelay
 	.word DseMidiCC_UnkLfoType
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_Stub84
 	.word DseMidiCC_AttackTime
 	.word DseMidiCC_DecayTime
@@ -34994,12 +34994,12 @@ DSE_MIDI_CC_TABLE:
 	.word DseMidiCC_UnkLfoParam
 	.word DseMidiCC_UnkLfoWaveType
 	.word DseMidiCC_Stub91
-	.word 0x00000000
+	.word 0
 	.word DseMidiCC_Stub93
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_MaybeNRPNLSB
 	.word DseMidiCC_MaybeNRPNMSB
 	.word DseMidiCC_MaybeRPN
@@ -35011,23 +35011,23 @@ DSE_MIDI_CC_TABLE:
 	.word DseMidiCC_SustainLevel
 	.word DseMidiCC_AutoReleaseTime
 	.word DseMidiCC_ReleaseTime
-	.word 0x00000000
+	.word 0
 	.word DseMidiCC_OptionalVolume
 	.word DseMidiCC_Stub111
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
+	.word 0
 	.word DseMidiCC_UnkAllSoundsOffGlobal
 	.word DseMidiCC_ResetAllControllers
-	.word 0x00000000
+	.word 0
 	.word DseMidiCC_AllNotesOff
-	.word 0x00000000
-	.word 0x00000000
+	.word 0
+	.word 0
 	.word DseMidiCC_MaybeMono
 	.word DseMidiCC_MaybePoly
 	.global DSE_MUSIC_DURATION_LOOKUP_TABLE_1

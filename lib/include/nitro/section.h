@@ -9,8 +9,10 @@ extern "C" {
 #pragma define_section ITCM ".itcm" ".itcm.bss" abs32 RWX
 #pragma define_section DTCM ".dtcm" ".dtcm.bss" abs32 RWX
 #endif
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
 /* NITRO_SECTION_H_ */
 #endif

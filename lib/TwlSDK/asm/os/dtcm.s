@@ -1,5 +1,5 @@
 
-	.include "libos_dtcm.inc"
+	.include "dtcm.inc"
 
 	.bss
 	.global OSi_IrqThreadQueue

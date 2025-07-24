@@ -2,6 +2,68 @@
 	.include "asm/macros/function.inc"
 	.include "libmi.inc"
 
+	.section .itcm, 4
+	arm_func_start MIi_DmaSetParameters
+MIi_DmaSetParameters: ; 0x02093D7C
+	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+	ldr r7, [sp, #0x20]
+	mov r4, r0
+	mov r9, r1
+	mov r8, r2
+	mov r6, r3
+	ands r5, r7, #1
+	bne _01FF8480
+	bl OS_DisableInterrupts
+_01FF8480:
+	mov r1, #0xc
+	mul r1, r4, r1
+	add r1, r1, #0xb0
+	tst r7, #0x10
+	add r1, r1, #0x4000000
+	beq _01FF84B0
+	mov r2, r4, lsl #2
+	add r3, r2, #0x4000000
+	add r2, r2, #0xe0
+	str r9, [r3, #0xe0]
+	add r9, r2, #0x4000000
+	b _01FF84C8
+_01FF84B0:
+	tst r7, #0x20
+	movne r2, r4, lsl #2
+	addne r3, r2, #0x4000000
+	addne r2, r2, #0xe0
+	strneh r9, [r3, #0xe0]
+	addne r9, r2, #0x4000000
+_01FF84C8:
+	str r9, [r1]
+	str r8, [r1, #4]
+	str r6, [r1, #8]
+	ands r6, r7, #2
+	beq _01FF8504
+	ldr r3, _01FF8524 ; =0x040000B0
+	tst r7, #4
+	ldr r2, [r3]
+	cmpeq r4, #0
+	ldr r2, [r3]
+	moveq r3, #0
+	streq r3, [r1]
+	ldreq r2, _01FF8528 ; =0x81400001
+	streq r3, [r1, #4]
+	streq r2, [r1, #8]
+_01FF8504:
+	cmp r5, #0
+	bne _01FF8510
+	bl OS_RestoreInterrupts
+_01FF8510:
+	cmp r6, #0
+	ldrne r1, _01FF8524 ; =0x040000B0
+	ldrne r0, [r1]
+	ldrne r0, [r1]
+	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+_01FF8524: .word 0x040000B0
+_01FF8528: .word 0x81400001
+	arm_func_end MIi_DmaSetParameters
+
 	.text
 	arm_func_start MI_SetWramBank
 MI_SetWramBank: ; 0x02006F6C

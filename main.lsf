@@ -12,7 +12,7 @@ Static main
 
 	Object asm/middleware.o (.version)
 
-	Object asm/main.o
+	Object asm/nitromain.o
 
 	# TwlSDK library
 	Object lib/TwlSDK/asm/os/libos.o
@@ -52,14 +52,16 @@ Static main
 Autoload ITCM
 {
 	Address 0x01FF8000
+	Object lib/TwlSDK/asm/os/libos.o (.itcm)
+	Object lib/TwlSDK/asm/memory/libmi.o (.itcm)
 	Object asm/itcm.o (.itcm)
 }
 
 Autoload DTCM
 {
 	Address 0x027E0000
-	Object lib/TwlSDK/asm/os/libos_dtcm.o (.dtcm)
-	Object lib/TwlSDK/asm/os/libos_dtcm.o (.bss)
+	Object lib/TwlSDK/asm/os/dtcm.o (.dtcm)
+	Object lib/TwlSDK/asm/os/dtcm.o (.bss)
 }
 
 Overlay overlay0
