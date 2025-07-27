@@ -695,7 +695,7 @@ Overlay overlay126
 Overlay overlay127
 {
 	After overlay109
-	Object asm/overlay127.o
+	Object lib/libMobiclip/asm/libMobiclip.o
 }
 Overlay overlay128
 {

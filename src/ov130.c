@@ -1,21 +1,19 @@
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <ov130.h>
 #include <nitro.h>
 #include <global.h>
 
-extern u32 OS_GetArenaLo(u32);
-extern u32 OS_GetArenaHi(u32);
-extern void MIi_CpuClearFast(u32 data, u32 destp, u32 size);
-extern u32 OS_InitAlloc(u32, u32, u32, u32);
-extern void OS_SetArenaLo(u32, u32);
-
 void FUN_ov130_0212a9c0(void)
 {
-    u32 r0, r5;
-    r5 = OS_GetArenaLo(0);
-    r0 = OS_GetArenaHi(0);
-    MIi_CpuClearFast(0, r5, r0 - r5);
-    r0 = OS_InitAlloc(0, r5, r0, 2);
-    OS_SetArenaLo(0, r0);
+    void *lo = OS_GetArenaLo(OS_ARENA_MAIN);
+    void *hi = OS_GetArenaHi(OS_ARENA_MAIN);
+    MIi_CpuClearFast(0, lo, (u32)hi - (u32)lo);
+    void *newLo = OS_InitAlloc(OS_ARENA_MAIN, lo, hi, 2);
+    OS_SetArenaLo(OS_ARENA_MAIN, newLo);
 }
 
 extern void FUN_020417dc(void *);
@@ -47,18 +45,33 @@ void FUN_ov130_0212aa14(void)
     ptr->rpgMinimapScrollVelocity = L5_IniFileGetParam(&unk_02099F78, "RPG_MINIMAP_SCROLL_VEROCITY");
 }
 
-extern u32 FX_Sqrt(u32);
+//extern u32 ov130_0212AB60[6];
+//
+//static void FUN_ov130_Init(void) {
+//    ov130_0212AB60[4] = FX_Sqrt(0x2000);
+//    ov130_0212AB60[3] = FX_Sqrt(0x00009CCD);
+//    ov130_0212AB60[2] = 0x800;
+//    ov130_0212AB60[1] = 0x0000EA3C;
+//    ov130_0212AB60[0] = 0x4e2000;
+//    ov130_0212AB60[5] = 0x840800;
+//}
+//
+//#define NitroStaticInit FUN_ov130_Init
+//#include <nitro/sinit.h>
+extern int ov130_0212AB60[6];
+#ifdef __cplusplus
+} /* extern "C" */
+#endif
 
-extern u32 ov130_0212AB60[6];
-
-static void FUN_ov130_Init(void) {
-    ov130_0212AB60[4] = FX_Sqrt(0x2000);
-    ov130_0212AB60[3] = FX_Sqrt(0x00009CCD);
-    ov130_0212AB60[2] = 0x800;
-    ov130_0212AB60[1] = 0x0000EA3C;
-    ov130_0212AB60[0] = 0x4e2000;
-    ov130_0212AB60[5] = 0x840800;
-}
-
-#define NitroStaticInit FUN_ov130_Init
-#include <nitro/sinit.h>
+class ov130_0212AB00 {
+public:
+    ov130_0212AB00() {
+        ov130_0212AB60[4] = FX_Sqrt(0x2000);
+        ov130_0212AB60[3] = FX_Sqrt(0x00009CCD);
+        ov130_0212AB60[2] = 0x800;
+        ov130_0212AB60[1] = 0x0000EA3C;
+        ov130_0212AB60[0] = 0x4e2000;
+        ov130_0212AB60[5] = 0x840800;
+    }
+};
+ov130_0212AB00 cls = ov130_0212AB00();

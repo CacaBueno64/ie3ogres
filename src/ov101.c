@@ -1,6 +1,10 @@
 #include <ov101.h>
 #include <nitro.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void FUN_ov16_020f338c(u32 *, u32);
 extern void FUN_ov101_02124d4c(u32 *);
 
@@ -18,8 +22,6 @@ void * FUN_ov101_02125018(void *ptr) {
 
 void FUN_ov101_0212502c(void) { }
 
-extern u32 FX_Sqrt(u32);
-
 extern u32 ov101_021250A0[6];
 
 void FUN_ov101_Init(void) {
@@ -33,3 +35,7 @@ void FUN_ov101_Init(void) {
 
 #define NitroStaticInit FUN_ov101_Init
 #include <nitro/sinit.h>
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif

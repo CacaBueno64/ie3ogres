@@ -12,11 +12,6 @@ ALL_BUILDDIRS  := $(BUILD_DIR)/lib
 include common.mk
 include filesystem.mk
 
-$(ASM_OBJS): MWASFLAGS += -DPM_ASM
-
-#$(BUILD_DIR)/asm/nitrocrypto.o:  MWCCVER := 1.2/sp2p3
-#$(BUILD_DIR)/lib/msl/src/*.o:    EXCCFLAGS := -Cpp_exceptions on
-
 $(ASM_OBJS): $(WORK_DIR)/include/config.h
 $(C_OBJS):   $(WORK_DIR)/include/global.h
 
@@ -38,14 +33,12 @@ all:
 
 tidy:
 	@$(MAKE) -C lib/syscall tidy
-#	@$(MAKE) -C sub tidy
 	$(RM) -r build
 	$(RM) -r $(PROJECT_CLEAN_TARGETS)
 	$(RM) $(ROM)
 
 clean: tidy clean-tools
 	@$(MAKE) -C lib/syscall clean
-#	@$(MAKE) -C sub clean
 	$(RM) $(foreach bn,$(SUPPORTED_ROMS),$(bn)/icon.nbf[pc])
 
 SBIN_LZ := $(SBIN)_LZ
@@ -53,11 +46,9 @@ SBIN_LZ := $(SBIN)_LZ
 
 sdk9 sdk7: sdk
 main files_for_compile: | sdk9
-#sub: | sdk7
 
 main: $(SBIN) $(ELF)
 main_lz: $(SBIN_LZ)
-#sub: ; @$(MAKE) -C sub
 
 ROMSPEC        := rom.rsf
 MAKEROM_FLAGS  := $(DEFINES)
@@ -75,7 +66,7 @@ $(BUILD_DIR)/component.files: main ;
 
 $(HEADER_TEMPLATE): ;
 
-$(ROM): $(ROMSPEC) filesystem main_lz $(BANNER) #sub
+$(ROM): $(ROMSPEC) filesystem main_lz $(BANNER)
 	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -M$(NITROFS_FILES_FILE) -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $< $@
 	$(FIXROM) $@ --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
 ifeq ($(COMPARE),1)
@@ -86,7 +77,7 @@ $(BANNER): $(BANNER_SPEC) $(ICON_PNG:%.png=%.nbfp) $(ICON_PNG:%.png=%.nbfc)
 	$(WINE) $(MAKEBNR) $< $@
 
 # TODO: move to NitroSDK makefile
-FX_CONST_H := $(WORK_DIR)/lib/include/nitro/fx/fx_const.h
+FX_CONST_H := $(WORK_DIR)/lib/TwlSDK/include/nitro/fx/fx_const.h
 PROJECT_CLEAN_TARGETS += $(FX_CONST_H)
 $(FX_CONST_H): $(MKFXCONST) $(TOOLSDIR)/gen_fx_consts/fx_const.csv
 	$(MKFXCONST) $@

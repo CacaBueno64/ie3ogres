@@ -1,5 +1,5 @@
 
-	.include "asm/macros/function.inc"
+	.include "/macros/function.inc"
 	.include "/include/arm9_0.inc"
 
 	.text
@@ -72631,10 +72631,16 @@ unk_0209BA20:
 	.space 0x40C
 	.global unk_0209BE2C
 unk_0209BE2C:
-	.space 0xC0
+	.space 0x20
+	.global unk_0209BE4C
+unk_0209BE4C:
+	.space 0xA0
 	.global unk_0209BEEC
 unk_0209BEEC:
-	.space 0x1A8
+	.space 0x10
+	.global unk_0209BEFC
+unk_0209BEFC:
+	.space 0x198
 	.global unk_0209C094
 unk_0209C094:
 	.space 0x8C

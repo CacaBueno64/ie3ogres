@@ -80,7 +80,7 @@ TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm init
 TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
 
-LIB_SUBDIRS               := cw TwlSDK TwlSystem TwlDWC TwlWiFi libCPS libVCT MSL_C
+LIB_SUBDIRS               := cw TwlSDK TwlSystem TwlDWC TwlWiFi libCPS libVCT MSL_C libMobiclip
 SRC_SUBDIR                := src
 ASM_SUBDIR                := asm
 LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%)
@@ -120,9 +120,9 @@ XMAP              := $(ELF).xMAP
 
 EXCCFLAGS         := -Cpp_exceptions off
 
-MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -sym on -enum int -lang c99 $(EXCCFLAGS) -gccext,on -proc $(PROC) -msgstyle gcc -gccinc -i ./src -i ./include -i ./include/library -i $(WORK_DIR)/files -I$(WORK_DIR)/lib/include -ipa file -interworking -inline on,noauto -char signed -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error
+MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -proc $(PROC) $(EXCCFLAGS) -lang c++ -enum int -char signed -str noreuse -gccext,on -fp soft -inline on,noauto -RTTI off -interworking -sym on -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error -gccinc -i ./src -i ./include -I$(WORK_DIR)/lib/include -i $(WORK_DIR)/lib/TwlDWC/include -i $(WORK_DIR)/lib/MSL_C/MSL_ARM/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include -i $(WORK_DIR)/lib/TwlSDK/include -i $(WORK_DIR)/lib/TwlSystem/include -i $(WORK_DIR)/lib/libMobiclip/include
 
-MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/TwlDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/TwlSDK/asm/include -i $(WORK_DIR)/lib/TwlSystem/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -i $(WORK_DIR)/files/msgdata -I$(WORK_DIR)/lib/include -DSDK_ASM
+MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/TwlDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/TwlSDK/asm/include -i $(WORK_DIR)/lib/TwlSystem/asm/include -i $(WORK_DIR)/lib/libMobiclip/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -i $(WORK_DIR)/files/msgdata -I$(WORK_DIR)/lib/include -DSDK_ASM
 MWLDFLAGS         := -proc $(PROC) -sym on -nopic -nopid -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 ARFLAGS           := rcS
 
@@ -224,7 +224,7 @@ $(RESPONSE): $(LSF) $(RESPONSE_TEMPLATE)
 	$(WINE) $(MAKELCF) $(MAKELCF_FLAGS) $< $(RESPONSE_TEMPLATE_NT) $@
 
 # Locate crt0.o
-CRT0_OBJ := lib/TwlSDK/src/init/crt0.o
+CRT0_OBJ := lib/TwlSDK/asm/init/crt0.o
 
 .INTERMEDIATE: $(BUILD_DIR)/obj.list
 

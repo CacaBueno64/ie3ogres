@@ -44,4 +44,12 @@ typedef struct {
     // u8 String[Size];
 } Script_StringEntry;
 
+typedef enum u32
+{
+    EVENT  = 0x01,
+    MATCH  = 0x02,
+    ACTION = 0x03,
+    HELP   = 0x04,
+} ScriptType;
+
 #endif //IE3OGRES_SCRIPT_H

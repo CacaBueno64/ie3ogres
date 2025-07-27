@@ -1,6 +1,10 @@
 #include <ov116.h>
 #include <nitro.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern void operator_delete(void *ptr);
 
 void *FUN_ov116_02124e24(void *ptr) {
@@ -11,8 +15,6 @@ void *FUN_ov116_02124e24(void *ptr) {
 void FUN_ov116_02124e38(void) { }
 
 extern u32 ov116_02124EA0[6];
-
-extern u32 FX_Sqrt(u32);
 
 static void FUN_ov116_Init(void) {
     ov116_02124EA0[5] = FX_Sqrt(0x2000);
@@ -25,3 +27,7 @@ static void FUN_ov116_Init(void) {
 
 #define NitroStaticInit FUN_ov116_Init
 #include <nitro/sinit.h>
+
+#ifdef __cplusplus
+} /* extern "C" */
+#endif

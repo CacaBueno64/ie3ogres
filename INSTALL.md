@@ -10,9 +10,9 @@ The build system requires the use of the Metrowerks C Compiler to compile matchi
 
 In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
 
-### 2. Install Nitro SDK
+### 2. Install Twl SDK
 
-For Nitro SDK, download the [TwlSDK](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_1-20090303.zip). Extract and copy the folder `tools/bin` from the Nitro SDK into the folder `tools` in your `ie3ogres` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `ie3ogres` clone. Finally, copy `include/nitro/specfiles/ARM7-TS.lcf.template` into the subdirectory `sub`, and `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
+For Twl SDK, download the [TwlSDK](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_1-20090303.zip). Extract and copy the folder `tools/bin` from the Twl SDK into the folder `tools` in your `ie3ogres` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `ie3ogres` clone. Copy the folder `include` into the folder `lib/TwlSDK` in your `ie3ogres` clone. Finally, copy `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
 
 ### 3. Dependencies
 
