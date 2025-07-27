@@ -156,6 +156,9 @@
 .public unk_0209A820
 .public unk_0208F6F0
 .public ov132_021602C0
+.public ov132_02160304
+.public ov132_02160314
+.public ov132_02160324
 .public unk_0209A0DC
 .public FUN_ov132_02152b58
 .public FUN_020726d0
