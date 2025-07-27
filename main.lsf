@@ -41,6 +41,7 @@ Static main
 	# MSL_C library
 	Object lib/MSL_C/asm/libmsl.o
 
+	Object src/init.o
 	Object asm/arm9_0.o
 
 	# TwlSystem G3d

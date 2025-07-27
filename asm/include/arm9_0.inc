@@ -1,3 +1,9 @@
+.public FUN_02028fac
+.public FUN_02029078
+.public FUN_020290c4
+.public FUN_02029140
+.public VramClear
+.public InitInterrupt
 .public FUN_ov16_020f5258
 .public OS_IRQTable
 .public FUN_ov130_0212a9c0

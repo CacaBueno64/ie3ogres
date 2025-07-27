@@ -3,243 +3,6 @@
 	.include "/include/arm9_0.inc"
 
 	.text
-	arm_func_start FUN_02028fac
-FUN_02028fac: ; 0x02028FAC
-	stmfd sp!, {r4, lr}
-	ldr r4, _02029064 ; =0x02099E8C
-	ldr r0, [r4, #0x80]
-	add r0, r0, #1
-	str r0, [r4, #0x80]
-	ldr r0, [r4, #0xa4]
-	cmp r0, #0
-	beq _02028FD0
-	bl FUN_02051c10
-_02028FD0:
-	ldr r0, [r4, #0x40]
-	cmp r0, #0
-	beq _02028FE8
-	ldr r0, [r4, #0x80]
-	cmp r0, #2
-	bge _02028FF4
-_02028FE8:
-	ldr r0, [r4, #0xb0]
-	cmp r0, #0
-	beq _02029014
-_02028FF4:
-	ldrh r2, [r4, #0x7c]
-	ldr r1, _02029068 ; =0x0400006C
-	mov r0, #0
-	strh r2, [r1]
-	ldrh r2, [r4, #0x7e]
-	add r1, r1, #0x1000
-	strh r2, [r1]
-	str r0, [r4, #0xb0]
-_02029014:
-	ldr r0, [r4, #0x40]
-	cmp r0, #0
-	beq _0202903C
-	ldr r0, [r4, #0x80]
-	cmp r0, #2
-	blt _0202903C
-	bl FUN_ov16_020f5258 ; may be ov17
-	mov r0, #0
-	str r0, [r4, #0x80]
-	str r0, [r4, #0x40]
-_0202903C:
-	ldr r0, _0202906C ; =0x0209AEC0
-	bl FUN_02047a10
-	ldr r0, _02029070 ; =0x0209C2C4
-	bl FUN_0202f794
-	ldr r0, _02029074 ; =OS_IRQTable
-	add r0, r0, #0x3000
-	ldr r1, [r0, #0xff8]
-	orr r1, r1, #1
-	str r1, [r0, #0xff8]
-	ldmfd sp!, {r4, pc}
-_02029064: .word unk_02099E8C
-_02029068: .word 0x0400006C
-_0202906C: .word unk_0209AEC0
-_02029070: .word unk_0209C2C4
-_02029074: .word OS_IRQTable
-	arm_func_end FUN_02028fac
-
-	arm_func_start FUN_02029078
-FUN_02029078: ; 0x02029078
-	stmfd sp!, {r3, r4, r5, lr}
-	bl FUN_ov130_0212a9c0
-	mov r5, #0
-	mov r0, r5
-	mov r1, #0x2d000
-	mov r2, #0x20
-	bl OS_AllocFromArenaLo
-	mov r1, r0
-	mov r0, r5
-	add r2, r1, #0x2d000
-	bl OS_CreateHeap
-	mov r4, r0
-	mov r0, r5
-	mov r1, r4
-	bl OS_SetCurrentHeap
-	ldr r0, _020290C0 ; =0x02099E8C
-	str r4, [r0, #0xc0]
-	ldmfd sp!, {r3, r4, r5, pc}
-_020290C0: .word unk_02099E8C
-	arm_func_end FUN_02029078
-
-	arm_func_start FUN_020290c4
-FUN_020290c4: ; 0x020290C4
-	stmfd sp!, {r4, lr}
-	bl OS_Init
-	bl OS_InitTick
-	bl OS_InitAlarm
-	bl OS_InitThread
-	mvn r0, #0
-	bl FS_Init
-	bl RTC_Init
-	mov r4, #0
-	ldr r1, _02029130 ; =0x00000082
-	mov r0, r4
-	bl FS_LoadOverlay
-	bl FUN_02029078
-	bl FX_Init
-	mov r1, #2
-	ldr r0, _02029134 ; =GXi_DmaId
-	str r1, [r0]
-	bl GX_Init
-	bl GX_DispOff
-	mov r0, r4
-	ldr r3, _02029138 ; =0x04001000
-	ldr r1, _0202913C ; =0x00000010
-	ldr r2, [r3]
-	bic r2, r2, #0x10000
-	str r2, [r3]
-	bl FS_LoadOverlay
-	ldmfd sp!, {r4, pc}
-_02029130: .word 0x00000082
-_02029134: .word GXi_DmaId
-_02029138: .word 0x04001000
-_0202913C: .word 0x00000010
-	arm_func_end FUN_020290c4
-
-	arm_func_start FUN_02029140
-FUN_02029140: ; 0x02029140
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r5, #0
-	mov r0, r5
-	bl OS_GetArenaLo
-	ldr r4, _0202920C ; =0x02099E8C
-	str r0, [r4, #0x94]
-	mov r0, r5
-	bl OS_GetArenaHi
-	str r0, [r4, #0x38]
-	ldr r1, [r4, #0x94]
-	add r1, r1, #0x4800
-	add r1, r1, #0x240000
-	str r1, [r4, #0xb4]
-	cmp r1, r0
-	strls r0, [r4, #0x30]
-	bls _02029184
-	bl OS_Terminate
-_02029184:
-	ldr r4, _0202920C ; =0x02099E8C
-	mov r6, #0
-	ldr r1, [r4, #0x94]
-	ldr r2, [r4, #0x30]
-	mov r0, r6
-	sub r2, r2, r1
-	str r2, [r4, #0xbc]
-	bl MIi_CpuClearFast
-	ldr r0, [r4, #0x94]
-	ldr r1, [r4, #0xbc]
-	bl DC_FlushRange
-	ldr r5, _02029210 ; =0x0209A250
-	ldr r2, [r4, #0x94]
-	ldr r3, [r4, #0x30]
-	mov r0, r5
-	mov r1, r6
-	bl FUN_0202dc54
-	ldr r1, [r4, #0x30]
-	mov r0, r6
-	add r1, r1, #0x1f
-	bic r1, r1, #0x1f
-	bl OS_SetArenaLo
-	mov r1, r6
-	mov r0, r5
-	bl FUN_0202e1ac
-	ldr r0, _02029214 ; =0x0209C2C4
-	mov r1, #0x40
-	str r0, [r5]
-	mov r2, r5
-	bl FUN_0202edec
-	mov r1, r5
-	ldr r0, _02029218 ; =0x0209A8A0
-	bl FUN_0202e4ac
-	ldmfd sp!, {r4, r5, r6, pc}
-_0202920C: .word unk_02099E8C
-_02029210: .word unk_0209A250
-_02029214: .word unk_0209C2C4
-_02029218: .word unk_0209A8A0
-	arm_func_end FUN_02029140
-
-	arm_func_start FUN_0202921c
-FUN_0202921c: ; 0x0202921C
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r0, _02029290 ; =0x000001FF
-	bl GX_SetBankForLCDC
-	mov r7, #0
-	mov r0, r7
-	mov r1, #0x6800000
-	mov r2, #0xa4000
-	bl MIi_CpuClearFast
-	bl GX_DisableBankForLCDC
-	mov r6, #0xc0
-	mov r5, #0x400
-	mov r0, r6
-	mov r2, r5
-	mov r1, #0x7000000
-	bl MIi_CpuClearFast
-	mov r0, r7
-	mov r4, #0x5000000
-	mov r1, r4
-	mov r2, r5
-	bl MIi_CpuClearFast
-	mov r0, r6
-	sub r1, r5, #0xf9000000
-	mov r2, r5
-	bl MIi_CpuClearFast
-	mov r0, r7
-	add r1, r4, #0x400
-	mov r2, r5
-	bl MIi_CpuClearFast
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02029290: .word 0x000001FF
-	arm_func_end FUN_0202921c
-
-	arm_func_start FUN_02029294
-FUN_02029294: ; 0x02029294
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _020292E0 ; =0x04000208
-	mov r4, #1
-	ldrh r0, [r5]
-	ldr r1, _020292E4 ; =FUN_02028fac
-	mov r2, #0
-	mov r0, r4
-	strh r2, [r5]
-	bl OS_SetIrqFunction
-	mov r0, r4
-	bl OS_EnableIrqMask
-	mov r0, #0x40000
-	bl OS_EnableIrqMask
-	ldrh r0, [r5]
-	mov r0, r4
-	strh r4, [r5]
-	bl GX_VBlankIntr
-	bl OS_WaitVBlankIntr
-	ldmfd sp!, {r3, r4, r5, pc}
-_020292E0: .word 0x04000208
-_020292E4: .word FUN_02028fac
-	arm_func_end FUN_02029294
-
 	arm_func_start FUN_020292e8
 FUN_020292e8: ; 0x020292E8
 	ldr r12, _020292F0 ; =FUN_0202ede8
@@ -894,8 +657,8 @@ _02029BF4: .word FUN_0204665c
 	arm_func_start FUN_02029bf8
 FUN_02029bf8: ; 0x02029BF8
 	stmfd sp!, {r3, lr}
-	bl FUN_0202921c
-	bl FUN_02029294
+	bl VramClear
+	bl InitInterrupt
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02029bf8
 
@@ -904,10 +667,10 @@ L5_Main: ; 0x02029C08
 	stmfd sp!, {r3, lr}
 	bl FUN_020290c4
 	bl FUN_02029140
-	bl FUN_0202921c
+	bl VramClear
 	bl FUN_020295ac
 	bl FUN_02029584
-	bl FUN_02029294
+	bl InitInterrupt
 	bl FUN_020292e8
 	bl FUN_020292f4
 	mov r0, #0
