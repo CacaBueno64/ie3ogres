@@ -28,6 +28,9 @@
 .public ov31_0211BEE0
 .public ov22_02122B44
 .public ov80_02122680
+.public FUN_ov16_0210f98c
+.public FUN_ov16_0210fa70
+.public FUN_ov16_0210fb60
 .public FUN_02059e58
 .public FUN_02041f74
 .public FUN_02041eac
