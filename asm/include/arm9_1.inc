@@ -1,4 +1,3 @@
-.public ov16_02118988
 .public FUN_0204212c
 .public FUN_02043310
 .public FUN_0204222c
@@ -225,6 +224,7 @@
 .public unk_0208F6D0
 .public unk_02099E8C
 .public unk_0209A3E0
+.public ov16_02118988
 .public unk_0209007C
 .public FUN_02029d18
 .public unk_02099FFC

@@ -268,7 +268,7 @@ _0211A218:
 	bl FUN_ov16_020f1514
 	ldmfd sp!, {r4, pc}
 _0211A248: .word unk_0209AEC0
-_0211A24C: .word 0x020E9482
+_0211A24C: .word ov1_020E9482
 	arm_func_end FUN_ov88_0211a1a4
 
 	arm_func_start FUN_ov88_0211a250
@@ -2329,7 +2329,7 @@ FUN_ov88_0211bea4: ; 0x0211BEA4
 	movgt r2, #0x63
 	mov r0, r2
 	bx lr
-_0211BECC: .word 0x020E9490
+_0211BECC: .word ov1_020E9490
 	arm_func_end FUN_ov88_0211bea4
 
 	arm_func_start FUN_ov88_0211bed0

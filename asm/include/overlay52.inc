@@ -109,6 +109,10 @@
 .public FUN_ov16_020f52c4
 .public unk_0209A0AC
 .public FUN_ov16_0210fba4
+.public FUN_ov16_0210f940
+.public FUN_ov16_0210fa20
+.public FUN_ov16_0210fb10
+.public FUN_ov16_0210fb1c
 .public FUN_0205ad60
 .public FUN_ov16_020fbeb8
 .public FUN_ov16_020fbed0

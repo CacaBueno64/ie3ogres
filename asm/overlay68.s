@@ -2936,7 +2936,7 @@ FUN_ov68_0211c91c: ; 0x0211C91C
 	mov r1, #0
 	strb r1, [r0, #0x38]
 	ldr r1, _0211CA20 ; = FUN_ov16_0210fa20
-	ldr r2, _0211CA24 ; =0x0210FB10
+	ldr r2, _0211CA24 ; =FUN_ov16_0210fb10
 	str r1, [r0, #0x1c]
 	str r1, [r0, #0x20]
 	ldr r1, _0211CA28 ; =FUN_ov68_0211f7e4
@@ -2979,7 +2979,7 @@ FUN_ov68_0211c91c: ; 0x0211C91C
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211CA1C: .word unk_02099EB4
 _0211CA20: .word FUN_ov16_0210fa20
-_0211CA24: .word 0x0210FB10
+_0211CA24: .word FUN_ov16_0210fb10
 _0211CA28: .word FUN_ov68_0211f7e4
 	arm_func_end FUN_ov68_0211c91c
 

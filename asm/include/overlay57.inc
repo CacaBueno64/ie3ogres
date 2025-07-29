@@ -56,6 +56,7 @@
 .public FUN_ov16_0210ef88
 .public FUN_ov1_020e5634
 .public FUN_ov1_020e5030
+.public ov1_020E9482
 .public FUN_0206d484
 .public FUN_0206d454
 .public FUN_0206d494
@@ -123,6 +124,10 @@
 .public FUN_ov16_020f5da0
 .public unk_0209F5C0
 .public FUN_ov16_020f5eec
+.public FUN_ov16_0210f940
+.public FUN_ov16_0210fa20
+.public FUN_ov16_0210fb10
+.public FUN_ov16_0210fb1c
 .public FUN_ov16_0210fd0c
 .public FUN_ov16_0210e29c
 .public FUN_ov16_021142fc

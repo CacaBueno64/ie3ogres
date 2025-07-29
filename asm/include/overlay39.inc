@@ -35,6 +35,7 @@
 .public operator_delete_array
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e694
+.public ov106_02125420
 .public FUN_02042054
 .public FUN_02041fec
 .public FUN_ov16_020f330c

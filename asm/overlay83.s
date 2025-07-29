@@ -989,7 +989,7 @@ _0211AC8C:
 _0211ACB4: .word unk_0209AC44
 _0211ACB8: .word unk_020A0640
 _0211ACBC: .word unk_02099EF0
-_0211ACC0: .word 0x020E9485
+_0211ACC0: .word ov1_020E9485
 	arm_func_end FUN_ov83_0211aa5c
 
 	arm_func_start FUN_ov83_0211acc4
@@ -1177,7 +1177,7 @@ _0211AF4C: .word unk_0209F5C0
 _0211AF50: .word unk_0209A070
 _0211AF54: .word unk_0209AEC0
 _0211AF58: .word ov83_0211D5C0
-_0211AF5C: .word 0x020E9482
+_0211AF5C: .word ov1_020E9482
 	arm_func_end FUN_ov83_0211acc4
 
 	arm_func_start FUN_ov83_0211af60
@@ -3710,7 +3710,7 @@ _0211D330: .word unk_0209F5C0
 _0211D334: .word unk_0209A070
 _0211D338: .word unk_020A0640
 _0211D33C: .word unk_0209AC44
-_0211D340: .word 0x020E9483
+_0211D340: .word ov1_020E9483
 	arm_func_end FUN_ov83_0211d1fc
 
 	arm_func_start FUN_ov83_0211d344

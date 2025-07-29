@@ -1,9 +1,9 @@
 .public FX_ModS32
 .public FX_DivS32
+.public GXS_LoadBG0Scr
 .public strncpy
 .public DC_FlushRange
 .public GX_LoadBG1Scr
-.public GXS_LoadBG0Scr
 .public MIi_CpuCopyFast
 .public WM_GetAllowedChannel
 .public WM_GetLinkLevel

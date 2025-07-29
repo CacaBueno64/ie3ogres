@@ -42,6 +42,7 @@
 .public unk_0209BA20
 .public unk_020A9C40
 .public STD_CopyString
+.public ov1_020E948C
 .public unk_020A1640
 .public FUN_02057c2c
 .public FUN_0202eff0

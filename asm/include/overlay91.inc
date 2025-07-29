@@ -62,6 +62,7 @@
 .public FUN_ov16_0211329c
 .public _s32_div_f
 .public FUN_0207273c
+.public ov1_020E9490
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0211401c
 .public FUN_ov16_0210fc74

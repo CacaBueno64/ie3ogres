@@ -77,6 +77,10 @@
 .public FUN_ov16_02113d08
 .public FUN_ov16_02113d88
 .public FUN_ov16_0210fba4
+.public FUN_ov16_0210f940
+.public FUN_ov16_0210fa20
+.public FUN_ov16_0210fb10
+.public FUN_ov16_0210fb1c
 .public FUN_ov16_02110864
 .public FUN_ov16_02110830
 .public FUN_ov16_0211085c
@@ -152,6 +156,7 @@
 .public FUN_ov1_020db97c
 .public unk_020A0670
 .public unk_0209A490
+.public ov1_020E9482
 .public FUN_ov16_020f316c
 .public FUN_ov1_020dbe00
 .public FUN_ov16_020f2f20

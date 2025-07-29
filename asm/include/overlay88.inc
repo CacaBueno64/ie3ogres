@@ -6,6 +6,7 @@
 .public FUN_ov1_020db97c
 .public FUN_02041eac
 .public FUN_ov16_020f1514
+.public ov1_020E9482
 .public MI_CpuFill8
 .public FUN_ov16_020f2cf8
 .public FUN_ov16_020f3054
@@ -79,6 +80,7 @@
 .public FUN_ov16_0211329c
 .public _s32_div_f
 .public FUN_0207273c
+.public ov1_020E9490
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0211401c
 .public FUN_ov16_0210fc74

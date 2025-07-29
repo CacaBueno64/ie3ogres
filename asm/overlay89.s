@@ -607,7 +607,7 @@ _0211A748:
 	mov r0, r6
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A754: .word 0x020E948C
+_0211A754: .word ov1_020E948C
 _0211A758: .word unk_0209A0AC
 _0211A75C: .word unk_020A1640
 	arm_func_end FUN_ov89_0211a4d8

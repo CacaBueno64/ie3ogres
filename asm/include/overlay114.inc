@@ -40,6 +40,7 @@
 .public FUN_ov132_02144f90
 .public FUN_ov16_020f197c
 .public FUN_ov132_02143c9c
+.public ov1_020E9485
 .public sprintf
 .public FUN_ov132_02143c28
 .public FUN_ov1_020dbccc

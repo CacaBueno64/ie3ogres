@@ -49,6 +49,7 @@
 .public unk_02099EB4
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210fa20
+.public FUN_ov16_0210fb10
 .public FUN_ov16_0210e674
 .public FUN_ov16_02113ec0
 .public FUN_ov16_0210fbe8

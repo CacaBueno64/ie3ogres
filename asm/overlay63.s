@@ -4186,21 +4186,21 @@ FUN_ov63_0211da3c: ; 0x0211DA3C
 	strh r4, [r0, #0x34]
 	mov r1, #0
 	strb r1, [r0, #0x38]
-	ldr r2, _0211DB38 ; =0x0210F940
-	ldr r1, _0211DB3C ; =0x0210FA20
+	ldr r2, _0211DB38 ; =FUN_ov16_0210f940
+	ldr r1, _0211DB3C ; =FUN_ov16_0210fa20
 	str r2, [r0, #0x1c]
 	str r1, [r0, #0x20]
-	ldr r2, _0211DB40 ; =0x0210FB10
-	ldr r1, _0211DB44 ; =0x0210FB1C
+	ldr r2, _0211DB40 ; =FUN_ov16_0210fb10
+	ldr r1, _0211DB44 ; =FUN_ov16_0210fb1c
 	str r2, [r0, #0x24]
 	str r1, [r0, #0x28]
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211DB34: .word unk_02099EB4
-_0211DB38: .word 0x0210F940
-_0211DB3C: .word 0x0210FA20
-_0211DB40: .word 0x0210FB10
-_0211DB44: .word 0x0210FB1C
+_0211DB38: .word FUN_ov16_0210f940
+_0211DB3C: .word FUN_ov16_0210fa20
+_0211DB40: .word FUN_ov16_0210fb10
+_0211DB44: .word FUN_ov16_0210fb1c
 	arm_func_end FUN_ov63_0211da3c
 
 	arm_func_start FUN_ov63_0211db48

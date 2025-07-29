@@ -1050,7 +1050,7 @@ FUN_ov122_02125b18: ; 0x02125B18
 	bl FUN_ov122_02124ee8
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125BAC: .word unk_0209F5C0
-_02125BB0: .word 0x020EAAAC
+_02125BB0: .word ov1_020EAAAC
 	arm_func_end FUN_ov122_02125b18
 
 	arm_func_start FUN_ov122_02125bb4

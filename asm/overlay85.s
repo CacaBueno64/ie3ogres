@@ -386,7 +386,7 @@ _0211A36C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A414: .word unk_0209AEC0
 _0211A418: .word ov85_0211CDE8
-_0211A41C: .word 0x020E9482
+_0211A41C: .word ov1_020E9482
 _0211A420: .word unk_020A0640
 _0211A424: .word unk_0209A454
 _0211A428: .word unk_0209BA20
@@ -3089,11 +3089,11 @@ _0211CA74:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211CA94: .word unk_0209F5C0
-_0211CA98: .word 0x020EAAAC
+_0211CA98: .word ov1_020EAAAC
 _0211CA9C: .word unk_020A0640
 _0211CAA0: .word unk_02099EF0
 _0211CAA4: .word unk_0209AC44
-_0211CAA8: .word 0x020E9485
+_0211CAA8: .word ov1_020E9485
 	arm_func_end FUN_ov85_0211c8a4
 
 	arm_func_start FUN_ov85_0211caac
@@ -3317,7 +3317,7 @@ _0211CDA8: .word 0x6C078965
 _0211CDAC: .word 0x5D588B65
 _0211CDB0: .word 0x00269EC3
 _0211CDB4: .word unk_0209A190
-_0211CDB8: .word 0x020EAAAC
+_0211CDB8: .word ov1_020EAAAC
 _0211CDBC: .word unk_0209F5C0
 _0211CDC0: .word unk_0209A250
 _0211CDC4: .word 0x04000018

@@ -1108,7 +1108,7 @@ _02125C70:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02125CB8: .word unk_02099EF0
-_02125CBC: .word 0x020E9485
+_02125CBC: .word ov1_020E9485
 _02125CC0: .word unk_020A8440
 	arm_func_end FUN_ov114_02125b78
 

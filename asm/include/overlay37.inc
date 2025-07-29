@@ -88,5 +88,6 @@
 .public FUN_ov16_020f5af0
 .public operator_delete_array
 .public unk_0209A454
+.public ov4_020DBEC1
 .public operator_delete
 .public FX_Sqrt

@@ -58,6 +58,7 @@
 .public FUN_0202cff8
 .public FUN_0202d774
 .public FUN_020443e8
+.public ov1_020E9483
 .public unk_020AF81C
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f5af0

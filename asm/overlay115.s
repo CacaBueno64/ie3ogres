@@ -975,7 +975,7 @@ _02125A88:
 _02125AF0: .word unk_0209BA20
 _02125AF4: .word unk_02099F50
 _02125AF8: .word unk_020A3D14
-_02125AFC: .word 0x020E9480
+_02125AFC: .word ov1_020E9480
 	arm_func_end FUN_ov115_02125834
 
 	arm_func_start FUN_ov115_02125b00
@@ -1146,7 +1146,7 @@ _02125D40:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125D70: .word unk_020A8C40
 _02125D74: .word unk_020A8440
-_02125D78: .word 0x020E9480
+_02125D78: .word ov1_020E9480
 	arm_func_end FUN_ov115_02125b00
 
 	arm_func_start FUN_ov115_02125d7c

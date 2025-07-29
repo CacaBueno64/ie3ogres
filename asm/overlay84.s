@@ -238,7 +238,7 @@ _0211A1F0:
 _0211A210:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A218: .word 0x020E9482
+_0211A218: .word ov1_020E9482
 	arm_func_end FUN_ov84_0211a180
 
 	arm_func_start FUN_ov84_0211a21c

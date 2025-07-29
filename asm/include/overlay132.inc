@@ -371,6 +371,7 @@
 .public FUN_0203cb90
 .public FUN_0203bf6c
 .public FUN_ov126_02136ee4
+.public ov1_020EAB04
 .public FUN_0203c3fc
 .public FUN_0203c6c4
 .public FUN_0203c4e4

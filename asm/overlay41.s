@@ -2600,7 +2600,7 @@ _0211C284:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211C28C: .word unk_0209AEC0
-_0211C290: .word 0x020E9482
+_0211C290: .word ov1_020E9482
 _0211C294: .word unk_020A0640
 _0211C298: .word unk_0209A4E0
 	arm_func_end FUN_ov41_0211bf60
@@ -3444,9 +3444,9 @@ _0211CE1C: .word unk_020A0640
 _0211CE20: .word unk_0209A4E0
 _0211CE24: .word ov41_02121990
 _0211CE28: .word ov41_02121988
-_0211CE2C: .word 0x020E9482
+_0211CE2C: .word ov1_020E9482
 _0211CE30: .word unk_0209AC44
-_0211CE34: .word 0x020E9483
+_0211CE34: .word ov1_020E9483
 _0211CE38: .word unk_020A9C40
 _0211CE3C: .word unk_0209BA20
 _0211CE40: .word unk_0209BE2C

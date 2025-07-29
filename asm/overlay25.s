@@ -217,7 +217,7 @@ FUN_ov25_0211a1ac: ; 0x0211A1AC
 	str r0, [r1]
 	bx lr
 _0211A1C8: .word ov25_0211B760
-_0211A1CC: .word 0x021FC436
+_0211A1CC: .word 0x021FC436 ; hardcoded?
 	arm_func_end FUN_ov25_0211a1ac
 
 	arm_func_start FUN_ov25_0211a1d0

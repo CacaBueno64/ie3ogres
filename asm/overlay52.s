@@ -5879,12 +5879,12 @@ _0211EE08:
 	mov r2, #0x4a
 	mov r3, r8
 	bl FUN_ov16_0210fba4
-	ldr r2, _0211EF74 ; =0x0210F940
-	ldr r1, _0211EF78 ; =0x0210FA20
+	ldr r2, _0211EF74 ; =FUN_ov16_0210f940
+	ldr r1, _0211EF78 ; =FUN_ov16_0210fa20
 	str r2, [r0, #0x1c]
 	str r1, [r0, #0x20]
-	ldr r2, _0211EF7C ; =0x0210FB10
-	ldr r1, _0211EF80 ; =0x0210FB1C
+	ldr r2, _0211EF7C ; =FUN_ov16_0210fb10
+	ldr r1, _0211EF80 ; =FUN_ov16_0210fb1c
 	str r2, [r0, #0x24]
 	str r1, [r0, #0x28]
 	b _0211EF58
@@ -5912,10 +5912,10 @@ _0211EF58:
 _0211EF68: .word 0x000001EA
 _0211EF6C: .word 0x0000019A
 _0211EF70: .word unk_02099EB4
-_0211EF74: .word 0x0210F940
-_0211EF78: .word 0x0210FA20
-_0211EF7C: .word 0x0210FB10
-_0211EF80: .word 0x0210FB1C
+_0211EF74: .word FUN_ov16_0210f940
+_0211EF78: .word FUN_ov16_0210fa20
+_0211EF7C: .word FUN_ov16_0210fb10
+_0211EF80: .word FUN_ov16_0210fb1c
 	arm_func_end FUN_ov52_0211e9f4
 
 	arm_func_start FUN_ov52_0211ef84

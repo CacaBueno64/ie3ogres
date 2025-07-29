@@ -927,7 +927,7 @@ FUN_ov69_0211ab5c: ; 0x0211AB5C
 	strb r9, [r0, #0x38]
 	str r1, [r0, #0x1c]
 	str r1, [r0, #0x20]
-	ldr r2, _0211AF24 ; =0x0210FB10
+	ldr r2, _0211AF24 ; =FUN_ov16_0210fb10
 	ldr r1, _0211AF28 ; =FUN_ov69_0211c520
 	str r2, [r0, #0x24]
 	str r1, [r0, #0x28]
@@ -1135,7 +1135,7 @@ _0211AE38:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211AF1C: .word unk_02099EB4
 _0211AF20: .word FUN_ov16_0210fa20
-_0211AF24: .word 0x0210FB10
+_0211AF24: .word FUN_ov16_0210fb10
 _0211AF28: .word FUN_ov69_0211c520
 _0211AF2C: .word unk_02099F38
 _0211AF30: .word 0x66666667

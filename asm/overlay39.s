@@ -957,7 +957,7 @@ _0211AC34:
 _0211AC4C: .word unk_02099EB4
 _0211AC50: .word ov39_0211BDA8
 _0211AC54: .word ov39_0211BDB4
-_0211AC58: .word 0x02125420
+_0211AC58: .word ov106_02125420
 	arm_func_end FUN_ov39_0211ab30
 
 	arm_func_start FUN_ov39_0211ac5c

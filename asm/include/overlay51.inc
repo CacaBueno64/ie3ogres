@@ -52,6 +52,7 @@
 .public FUN_ov16_02112724
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02112e5c
+.public FUN_ov16_0210fb1c
 .public FUN_ov16_02112950
 .public FUN_ov16_0211346c
 .public FUN_ov16_0210efac

@@ -1,3 +1,4 @@
+.public unk_0208A874
 .public unk_020A0700
 .public FUN_0206c6fc
 .public FUN_0206cd90
@@ -155,6 +156,7 @@
 .public OS_WaitVBlankIntr
 .public FUN_02057250
 .public FUN_020598ec
+.public unk_0208F728
 .public unk_02099E9E
 .public FUN_02043310
 .public FUN_0204331c

@@ -73,6 +73,7 @@
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02112e5c
 .public FUN_ov16_0210fba4
+.public FUN_ov16_0210fb1c
 .public FUN_ov16_0210efac
 .public FUN_ov16_0210ee78
 .public FUN_02059630

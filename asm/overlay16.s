@@ -5298,7 +5298,7 @@ _020F2108:
 	mov r0, #0
 	strb r0, [r1]
 	bx lr
-_020F2114: .word 0x0208F728
+_020F2114: .word unk_0208F728
 	arm_func_end FUN_ov16_020f1f5c
 
 	arm_func_start FUN_ov16_020f2118
@@ -40394,7 +40394,7 @@ _0210F93C: .word unk_02099ED4
 	arm_func_end FUN_ov16_0210f8fc
 
 	arm_func_start FUN_ov16_0210f940
-FUN_ov16_0210f940: ; 0x0210F940
+FUN_ov16_0210f940: ; FUN_ov16_0210f940
 	stmfd sp!, {r4, r5, lr}
 	sub sp, sp, #0x14
 	mov r4, #1
@@ -40458,7 +40458,7 @@ _0210FA1C: .word unk_02099ED4
 	arm_func_end FUN_ov16_0210f98c
 
 	arm_func_start FUN_ov16_0210fa20
-FUN_ov16_0210fa20: ; 0x0210FA20
+FUN_ov16_0210fa20: ; FUN_ov16_0210fa20
 	stmfd sp!, {r4, r5, lr}
 	sub sp, sp, #0x14
 	mov r1, #1
@@ -40526,14 +40526,14 @@ _0210FB0C: .word unk_02099ED4
 	arm_func_end FUN_ov16_0210fa70
 
 	arm_func_start FUN_ov16_0210fb10
-FUN_ov16_0210fb10: ; 0x0210FB10
+FUN_ov16_0210fb10: ; FUN_ov16_0210fb10
 	mov r1, #2
 	strb r1, [r0, #0xe]
 	bx lr
 	arm_func_end FUN_ov16_0210fb10
 
 	arm_func_start FUN_ov16_0210fb1c
-FUN_ov16_0210fb1c: ; 0x0210FB1C
+FUN_ov16_0210fb1c: ; FUN_ov16_0210fb1c
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	bl FUN_ov16_0210f940
@@ -47673,7 +47673,7 @@ _02115898:
 _021158F4: .word unk_02099F24
 _021158F8: .word 0x51EB851F
 _021158FC: .word FX_SinCosTable_
-_02115900: .word 0x0208A874
+_02115900: .word unk_0208A874
 _02115904: .word NNS_G3dGlb_cameraMtx
 _02115908: .word 0x0000FFEF
 _0211590C: .word 0x0000FFDF
@@ -51049,7 +51049,10 @@ ov16_02118814:
 ov16_02118834:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0xDC, 0xA3, 0x0F, 0x02
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global ov16_02118854
+ov16_02118854:
+	.byte 0xDC, 0xA3, 0x0F, 0x02
 	.global ov16_02118858
 ov16_02118858:
 	.byte 0x77, 0x61, 0x69, 0x73, 0x74, 0x00, 0x00, 0x00

@@ -13,6 +13,7 @@
 .public FUN_ov1_020db97c
 .public FUN_ov16_020f153c
 .public FUN_02041eac
+.public ov1_020E9482
 .public MI_CpuFill8
 .public FUN_ov126_0212afec
 .public FUN_ov126_0212afdc

@@ -912,10 +912,10 @@ _02029E7C:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02029E84: .word 0x00000714
-_02029E88: .word 0x020E6508
-_02029E8C: .word 0x020E6698
-_02029E90: .word 0x020E6B64
-_02029E94: .word 0x020E6C98
+_02029E88: .word ov15_020E6508
+_02029E8C: .word ov15_020E6698
+_02029E90: .word ov15_020E6B64
+_02029E94: .word ov15_020E6C98
 	arm_func_end FUN_02029e10
 
 	arm_func_start FUN_02029e98
@@ -951,7 +951,7 @@ FUN_02029ea4: ; 0x02029EA4
 _02029ED8:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02029EE0: .word 0x020E6578
+_02029EE0: .word ov15_020E6578
 	arm_func_end FUN_02029ea4
 
 	arm_func_start FUN_02029ee4
@@ -1257,13 +1257,13 @@ _0202A248:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A250: .word 0x00001228
-_0202A254: .word 0x020E8400
-_0202A258: .word 0x020E871C
-_0202A25C: .word 0x020E8C0C
-_0202A260: .word 0x020E8AE4
-_0202A264: .word 0x020E8B80
-_0202A268: .word 0x020E8A58
-_0202A26C: .word 0x020E8F10
+_0202A254: .word ov1_020E8400
+_0202A258: .word ov1_020E871C
+_0202A25C: .word ov1_020E8C0C
+_0202A260: .word ov1_020E8AE4
+_0202A264: .word ov1_020E8B80
+_0202A268: .word ov1_020E8A58
+_0202A26C: .word ov1_020E8F10
 	arm_func_end FUN_0202a1a0
 
 	arm_func_start FUN_0202a270
@@ -49652,7 +49652,7 @@ FUN_020525e8: ; 0x020525E8
 	bl FUN_0202fd44
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02052614: .word 0x02118880
+_02052614: .word ov16_02118880
 	arm_func_end FUN_020525e8
 
 	arm_func_start FUN_02052618
@@ -49725,12 +49725,12 @@ FUN_02052618: ; 0x02052618
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02052724: .word unk_02090608
-_02052728: .word 0x02118854
+_02052728: .word ov16_02118854
 _0205272C: .word FUN_02052760
 _02052730: .word FUN_02052740
 _02052734: .word FUN_020527ac
 _02052738: .word FUN_02052780
-_0205273C: .word 0x02118880
+_0205273C: .word ov16_02118880
 	arm_func_end FUN_02052618
 
 	arm_func_start FUN_02052740
@@ -49840,7 +49840,7 @@ FUN_02052820: ; 0x02052820
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _02052890: .word unk_02090608
-_02052894: .word 0x02118880
+_02052894: .word ov16_02118880
 _02052898: .word FUN_020527ac
 _0205289C: .word FUN_02052760
 	arm_func_end FUN_02052820
@@ -49878,7 +49878,7 @@ FUN_020528a0: ; 0x020528A0
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _02052918: .word unk_02090608
-_0205291C: .word 0x02118880
+_0205291C: .word ov16_02118880
 _02052920: .word FUN_020527ac
 _02052924: .word FUN_02052760
 	arm_func_end FUN_020528a0
@@ -59243,7 +59243,7 @@ FUN_0205a2f0: ; 0x0205A2F0
 	blx r1
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205A320: .word 0x02118880
+_0205A320: .word ov16_02118880
 	arm_func_end FUN_0205a2f0
 
 	arm_func_start FUN_0205a324
@@ -59298,7 +59298,7 @@ _0205A3DC: .word FUN_020527ac
 _0205A3E0: .word FUN_02052780
 _0205A3E4: .word FUN_02052760
 _0205A3E8: .word FUN_02052740
-_0205A3EC: .word 0x02118880
+_0205A3EC: .word ov16_02118880
 	arm_func_end FUN_0205a324
 
 	arm_func_start FUN_0205a3f0
@@ -59326,7 +59326,7 @@ FUN_0205a3f0: ; 0x0205A3F0
 	bl FUN_ov16_021110fc
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_0205A44C: .word 0x02118854
+_0205A44C: .word ov16_02118854
 _0205A450: .word FUN_02052760
 _0205A454: .word FUN_02052740
 _0205A458: .word FUN_020527ac
@@ -59372,7 +59372,7 @@ FUN_0205a460: ; 0x0205A460
 	bl __cxa_vec_cleanup
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, pc}
-_0205A4F4: .word 0x02118880
+_0205A4F4: .word ov16_02118880
 _0205A4F8: .word FUN_02052760
 _0205A4FC: .word FUN_020527ac
 _0205A500: .word FUN_020527d4
@@ -70291,7 +70291,10 @@ unk_0208F6F0:
 	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
 	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
 	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x24, 0x02, 0x00, 0x00, 0x48, 0x03, 0x00, 0x00
-	.byte 0x46, 0x00, 0x00, 0x00, 0x46, 0x00, 0x00, 0x00, 0x40, 0x81, 0x49, 0x81, 0x68, 0x81, 0x94, 0x81
+	.byte 0x46, 0x00, 0x00, 0x00, 0x46, 0x00, 0x00, 0x00
+	.global unk_0208F728
+unk_0208F728: ; shift-jis string
+	.byte 0x40, 0x81, 0x49, 0x81, 0x68, 0x81, 0x94, 0x81
 	.byte 0x90, 0x81, 0x93, 0x81, 0x95, 0x81, 0x66, 0x81, 0x69, 0x81, 0x6A, 0x81, 0x96, 0x81, 0x7B, 0x81
 	.byte 0x43, 0x81, 0x7C, 0x81, 0x44, 0x81, 0x5E, 0x81, 0x46, 0x81, 0x47, 0x81, 0x83, 0x81, 0x81, 0x81
 	.byte 0x84, 0x81, 0x48, 0x81, 0x97, 0x81, 0x6D, 0x81, 0x8F, 0x81, 0x6E, 0x81, 0x4F, 0x81, 0x51, 0x81

@@ -926,7 +926,7 @@ _0211ABCC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211ABFC: .word unk_02099EB4
 _0211AC00: .word ov19_0211C810
-_0211AC04: .word 0x021253E0
+_0211AC04: .word ov93_021253E0
 	arm_func_end FUN_ov19_0211ab94
 
 	arm_func_start FUN_ov19_0211ac08
@@ -1033,7 +1033,7 @@ _0211AD3C:
 	mov r1, #1
 	bl FUN_02041f2c
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211AD80: .word 0x021253E0
+_0211AD80: .word ov93_021253E0
 _0211AD84: .word unk_020A0640
 	arm_func_end FUN_ov19_0211ac08
 

@@ -35,6 +35,7 @@
 .public FUN_ov16_020f5964
 .public unk_02099F50
 .public unk_020A3D14
+.public ov1_020E9480
 .public GXS_LoadBG1Scr
 .public FUN_ov16_020f5a04
 .public FUN_ov16_020f63f0

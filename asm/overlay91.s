@@ -1877,7 +1877,7 @@ FUN_ov91_0211b880: ; 0x0211B880
 	movgt r2, #0x63
 	mov r0, r2
 	bx lr
-_0211B8A8: .word 0x020E9490
+_0211B8A8: .word ov1_020E9490
 	arm_func_end FUN_ov91_0211b880
 
 	arm_func_start FUN_ov91_0211b8ac

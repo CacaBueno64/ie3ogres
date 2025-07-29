@@ -18,12 +18,12 @@
 .public aoss_SecurityInfo
 .public aoss_AttrNo
 .public aoss_TANE
-
 .public _u32_div_f
 .public aoss_crc_table
 .public SOC_Startup
 .public OS_Sleep
 .public soconfig
+.public CPSMyIp
 .public SOC_Cleanup
 .public MI_CpuCopy8
 .public MI_CpuFill8
@@ -125,4 +125,3 @@
 .public ov17_02114CDC
 .public OS_IsThreadTerminated
 .public OS_JoinThread
-.public CPSMyIp

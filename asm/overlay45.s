@@ -1258,14 +1258,14 @@ FUN_ov45_0211aca8: ; 0x0211ACA8
 	strb r1, [r0, #0x38]
 	str r1, [r0, #0x1c]
 	str r1, [r0, #0x20]
-	ldr r2, _0211B048 ; =0x0210FB1C
+	ldr r2, _0211B048 ; =FUN_ov16_0210fb1c
 	str r1, [r0, #0x24]
 	str r2, [r0, #0x28]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B040: .word unk_02099F38
 _0211B044: .word unk_02099EB4
-_0211B048: .word 0x0210FB1C
+_0211B048: .word FUN_ov16_0210fb1c
 	arm_func_end FUN_ov45_0211aca8
 
 	arm_func_start FUN_ov45_0211b04c

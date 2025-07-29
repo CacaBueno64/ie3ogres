@@ -11,6 +11,7 @@
 .public unk_0209A4E0
 .public FUN_ov16_020f0944
 .public FUN_ov1_020db97c
+.public ov1_020E9482
 .public unk_0209A4E6
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f5450

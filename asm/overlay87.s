@@ -348,7 +348,7 @@ _0211A340:
 	bl FUN_02041eac
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A374: .word unk_0209AEC0
-_0211A378: .word 0x020E9482
+_0211A378: .word ov1_020E9482
 	arm_func_end FUN_ov87_0211a2c8
 
 	arm_func_start FUN_ov87_0211a37c

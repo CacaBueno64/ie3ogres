@@ -526,6 +526,7 @@
 .public FUN_ov16_0210efc8
 .public FUN_ov16_0210e694
 .public FUN_ov16_02114370
+.public FUN_ov16_0210fb10
 .public FUN_ov16_0210e29c
 .public FUN_ov16_0210fd0c
 .public VEC_Normalize

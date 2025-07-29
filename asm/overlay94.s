@@ -4432,7 +4432,7 @@ FUN_ov94_02128c1c:
 	ldrsh r0,[r4,#0x32 ]
 	strh r0,[r4,#0x2a ]
 	ldmia sp!,{r3,r4,r5,pc}
-_02128CA0: .word 0x02128CC0
+_02128CA0: .word ov94_02128CC0
 _02128CA4: .word 0x00009CCD
 _02128CA8: .word 0x0000EA3C
 	arm_func_end FUN_ov94_02128c1c

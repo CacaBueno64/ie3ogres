@@ -22057,7 +22057,7 @@ _020CFF0C:
 	strb r0, [r7, #0x38]
 	ldr r0, _020D0004 ; =0x0210FA70
 	str r1, [r7, #0x1c]
-	ldr r1, _020D0008 ; =0x0210FB10
+	ldr r1, _020D0008 ; =FUN_ov16_0210fb10
 	str r0, [r7, #0x20]
 	ldr r0, _020D000C ; =0x0210FB60
 	str r1, [r7, #0x24]
@@ -22068,7 +22068,7 @@ _020CFFF8: .word unk_02099F38
 _020CFFFC: .word unk_02099EB4
 _020D0000: .word 0x0210F98C
 _020D0004: .word 0x0210FA70
-_020D0008: .word 0x0210FB10
+_020D0008: .word FUN_ov16_0210fb10
 _020D000C: .word 0x0210FB60
 	arm_func_end FUN_ov0_020cfa04
 

@@ -2113,7 +2113,7 @@ _0211BB80:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211BB9C: .word unk_0209F5C0
 _0211BBA0: .word unk_0209A454
-_0211BBA4: .word 0x020DBEC1
+_0211BBA4: .word ov4_020DBEC1
 	arm_func_end FUN_ov37_0211bb1c
 
 	arm_func_start FUN_ov37_0211bba8

@@ -2053,14 +2053,14 @@ FUN_ov21_0211b980: ; 0x0211B980
 	strb r11, [r0, #0x38]
 	str r11, [r0, #0x1c]
 	str r11, [r0, #0x20]
-	ldr r1, _0211BBF8 ; =0x0210FB1C
+	ldr r1, _0211BBF8 ; =FUN_ov16_0210fb1c
 	str r11, [r0, #0x24]
 	str r1, [r0, #0x28]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211BBF0: .word unk_02099F38
 _0211BBF4: .word unk_02099EB4
-_0211BBF8: .word 0x0210FB1C
+_0211BBF8: .word FUN_ov16_0210fb1c
 	arm_func_end FUN_ov21_0211b980
 
 	arm_func_start FUN_ov21_0211bbfc

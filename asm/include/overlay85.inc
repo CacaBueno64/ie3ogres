@@ -16,6 +16,7 @@
 .public FUN_020731a4
 .public FUN_ov126_021355b4
 .public FUN_02041ef0
+.public ov1_020E9482
 .public unk_020A0640
 .public unk_0209A454
 .public unk_0209BA20
@@ -95,6 +96,8 @@
 .public FUN_0202c314
 .public FUN_ov132_02144f78
 .public FUN_0202c184
+.public ov1_020EAAAC
+.public ov1_020E9485
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f672c
 .public FUN_ov1_020dbb44

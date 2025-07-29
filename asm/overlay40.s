@@ -274,7 +274,7 @@ _0211A230:
 	bl FUN_ov16_020f1514
 	ldmfd sp!, {r4, pc}
 _0211A260: .word unk_0209AEC0
-_0211A264: .word 0x020E9482
+_0211A264: .word ov1_020E9482
 	arm_func_end FUN_ov40_0211a1bc
 
 	arm_func_start FUN_ov40_0211a268

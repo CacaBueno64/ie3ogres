@@ -541,7 +541,7 @@ _0211A660:
 	ldr r0, [sp, #8]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A66C: .word 0x020E948C
+_0211A66C: .word ov1_020E948C
 	arm_func_end FUN_ov90_0211a41c
 
 	arm_func_start FUN_ov90_0211a670

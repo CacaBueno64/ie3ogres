@@ -17,6 +17,7 @@
 .public FUN_0206d554
 .public FUN_ov1_020db97c
 .public unk_0209A2C0
+.public ov1_020EAB04
 .public FUN_ov1_020e6eac
 .public FUN_ov16_020f02d0
 .public FUN_ov1_020e5328
@@ -36,6 +37,7 @@
 .public unk_020A0640
 .public unk_02099EF0
 .public unk_0209F5C0
+.public ov1_020E9482
 .public FUN_02041eac
 .public FUN_01ff9c08
 .public FUN_020731a4
@@ -70,7 +72,10 @@
 .public FUN_ov1_020e4354
 .public FUN_ov1_020e4328
 .public FUN_ov16_020f5c34
+.public ov1_020EAAF0
 .public FUN_ov132_02145ff0
+.public ov1_020EAAEC
+.public ov1_020EAAE8
 .public FUN_ov1_020be8c4
 .public FUN_ov16_020f6470
 .public FUN_ov1_020db3cc

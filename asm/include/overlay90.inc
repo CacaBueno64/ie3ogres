@@ -28,6 +28,7 @@
 .public MI_CpuCopy8
 .public FUN_ov16_020edeb4
 .public unk_0209BA20
+.public ov1_020E948C
 .public unk_020A160C
 .public unk_020A1608
 .public FUN_0202eff0

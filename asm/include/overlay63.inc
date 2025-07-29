@@ -83,6 +83,10 @@
 .public FUN_ov16_020eef40
 .public FUN_ov16_020edec4
 .public FUN_ov16_0210fba4
+.public FUN_ov16_0210f940
+.public FUN_ov16_0210fa20
+.public FUN_ov16_0210fb10
+.public FUN_ov16_0210fb1c
 .public FUN_ov16_0211329c
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02111438

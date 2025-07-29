@@ -100,6 +100,7 @@
 .public FUN_ov1_020e5328
 .public FUN_ov16_020f081c
 .public FUN_ov16_020f0634
+.public ov1_020E9482
 .public unk_020A0676
 .public FUN_0207249c
 .public FUN_ov16_020ee0f8
@@ -120,6 +121,7 @@
 .public FUN_ov16_020f1514
 .public FUN_0204da5c
 .public FUN_01ffa12c
+.public ov1_020E9483
 .public unk_020A9C40
 .public unk_0209BE2C
 .public unk_0209BEEC

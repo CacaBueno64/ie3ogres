@@ -720,7 +720,7 @@ FUN_ov79_0211a820: ; 0x0211A820
 	ldr r0, _0211A908 ; =0x020AF81C
 	bl FUN_020443e8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A8F8: .word 0x020E9483
+_0211A8F8: .word ov1_020E9483
 _0211A8FC: .word unk_0209F5C0
 _0211A900: .word unk_0209A070
 _0211A904: .word unk_0209AC44

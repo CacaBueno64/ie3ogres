@@ -203,4 +203,6 @@
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_020f52c4
 .public FUN_ov16_021123c4
+.public ov1_020EAAA4
+.public ov1_020EAA9D
 .public FX_Sqrt
