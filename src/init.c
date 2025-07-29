@@ -1,4 +1,5 @@
 #include "init.h"
+#include "ov130.h"
 #include <nitro.h>
 
 #ifdef __cplusplus
@@ -21,8 +22,8 @@ void FUN_02028fac(void) {
         FUN_02051c10();
     }
     if (ctx->unk40 != 0 && ctx->unk80 >= 2 || ctx->unkB0) {
-        *(vu16 *)REG_MASTER_BRIGHT_ADDR = ctx->unk7C;
-        *(vu16 *)(REG_MASTER_BRIGHT_ADDR + 0x1000) = ctx->unk7E;
+        reg_GX_MASTER_BRIGHT = ctx->unk7C;
+        reg_GXS_DB_MASTER_BRIGHT = ctx->unk7E;
         ctx->unkB0 = 0;
     }
     if (ctx->unk40 != 0 && ctx->unk80 >= 2) {
@@ -43,8 +44,6 @@ void FUN_02028fac(void) {
     }
 }
 
-extern void FUN_ov130_0212a9c0(void);
-
 void FUN_02029078(void) {
     FUN_ov130_0212a9c0();
     
@@ -59,7 +58,7 @@ void FUN_02029078(void) {
 FS_EXTERN_OVERLAY(overlay130);
 FS_EXTERN_OVERLAY(overlay16);
 
-void FUN_020290c4(void) {
+void InitCommon(void) {
     OS_Init();
     OS_InitTick();
     OS_InitAlarm();
@@ -101,7 +100,7 @@ void FUN_02029140(void) {
     }
     
     //void *destp = struct_02099E8C->unk94;
-    u32 clearsize = struct_02099E8C->unk30 - struct_02099E8C->unk94;
+    //u32 clearsize = struct_02099E8C->unk30 - struct_02099E8C->unk94;
     struct_02099E8C->unkBC = struct_02099E8C->unk30 - struct_02099E8C->unk94;
     MIi_CpuClearFast(0, struct_02099E8C->unk94, struct_02099E8C->unk30 - struct_02099E8C->unk94);
     

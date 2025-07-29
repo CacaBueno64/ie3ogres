@@ -1,6 +1,8 @@
+.public ov16_02118490
+.public ov16_02119E9C
 .public FUN_02028fac
 .public FUN_02029078
-.public FUN_020290c4
+.public InitCommon
 .public FUN_02029140
 .public VramClear
 .public InitInterrupt

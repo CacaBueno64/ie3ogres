@@ -1,3 +1,6 @@
+#ifndef IE3OGRES_INIT_H
+#define IE3OGRES_INIT_H
+
 #include <nitro.h>
 
 #ifdef __cplusplus
@@ -29,7 +32,7 @@ typedef struct {
 
 void FUN_02028fac(void);
 void FUN_02029078(void);
-void FUN_020290c4(void);
+void InitCommon(void);
 void FUN_02029140(void);
 void VramClear(void);
 void InitInterrupt(void);
@@ -37,3 +40,5 @@ void InitInterrupt(void);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+#endif //IE3OGRES_INIT_H

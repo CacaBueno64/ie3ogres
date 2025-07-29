@@ -12,7 +12,7 @@ Static main
 
 	Object asm/middleware.o (.version)
 
-	Object asm/nitromain.o
+	Object src/nitromain.o
 
 	# TwlSDK library
 	Object lib/TwlSDK/asm/os/libos.o

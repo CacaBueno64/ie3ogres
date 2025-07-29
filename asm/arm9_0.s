@@ -187,15 +187,15 @@ _02029560: .word 0x000005E4
 _02029564: .word unk_0208F6E0
 _02029568: .word unk_0209095C
 _0202956C: .word unk_02090BF8
-_02029570: .word 0x02119E9C
+_02029570: .word ov16_02119E9C
 _02029574: .word 0x00001920
 _02029578: .word 0x00000F3C
 _0202957C: .word unk_0208F6A0
 _02029580: .word 0x00000424
 	arm_func_end FUN_02029304
 
-	arm_func_start FUN_02029584
-FUN_02029584: ; 0x02029584
+	arm_func_start InitG3d ; https://decomp.me/scratch/YlRcQ
+InitG3d: ; 0x02029584
 	stmfd sp!, {r3, lr}
 	bl NNS_G3dInit
 	bl NNS_G3dGlbInit
@@ -206,10 +206,10 @@ FUN_02029584: ; 0x02029584
 	strh r0, [r1]
 	ldmfd sp!, {r3, pc}
 _020295A8: .word 0x04000304
-	arm_func_end FUN_02029584
+	arm_func_end InitG3d
 
-	arm_func_start FUN_020295ac
-FUN_020295ac: ; 0x020295AC
+	arm_func_start InitTouchPannel ; https://decomp.me/scratch/sCGJW
+InitTouchPannel: ; 0x020295AC
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	bl TP_Init
@@ -226,7 +226,7 @@ _020295D8:
 	bl TP_SetCalibrateParam
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020295ac
+	arm_func_end InitTouchPannel
 
 	arm_func_start FUN_020295e8
 FUN_020295e8: ; 0x020295E8
@@ -662,14 +662,14 @@ FUN_02029bf8: ; 0x02029BF8
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02029bf8
 
-	arm_func_start L5_Main
+	arm_func_start L5_Main ; https://decomp.me/scratch/9QyO3
 L5_Main: ; 0x02029C08
 	stmfd sp!, {r3, lr}
-	bl FUN_020290c4
+	bl InitCommon
 	bl FUN_02029140
 	bl VramClear
-	bl FUN_020295ac
-	bl FUN_02029584
+	bl InitTouchPannel
+	bl InitG3d
 	bl InitInterrupt
 	bl FUN_020292e8
 	bl FUN_020292f4
@@ -2421,7 +2421,7 @@ _0202B194: .word 0x04001000
 _0202B198: .word unk_0209A250
 _0202B19C: .word unk_02099ECC
 _0202B1A0: .word unk_0209A124
-_0202B1A4: .word 0x02118490
+_0202B1A4: .word ov16_02118490
 _0202B1A8: .word 0x02FFFFA8
 _0202B1AC: .word unk_02099F18
 _0202B1B0: .word unk_02099F30
@@ -70364,9 +70364,11 @@ unk_0208F90C:
 	.word FUN_0202b210
 	.word FUN_0202b2a8
 	.word FUN_0202b2a4
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0
 	.word FUN_0202b208
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word 0
+	.word 0
+	.word 0
 	.word FUN_0202b204
 	.word FUN_0202b200
 	.word FUN_0202b1f8
@@ -70864,7 +70866,7 @@ unk_0208FF74:
 unk_0208FF94:
 	.word FUN_02041ae8
 	.word FUN_02041aec
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0
 	.word FUN_02042128
 	.word FUN_02029d10
 	.word FUN_02041b64
@@ -70873,16 +70875,17 @@ unk_0208FF94:
 	.word FUN_02029d0c
 	.word FUN_02041cc8
 	.word FUN_02042124
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0
 	.word FUN_020420bc
-	.byte 0x00, 0x00, 0x00, 0x00
+	.word 0
 	.word FUN_02041dd4
 	.word FUN_02041df8
 	.word FUN_02041e1c
 	.word FUN_02041e40
 	.word FUN_02041e64
 	.word FUN_02041e88
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word 0
+	.word 0
 	.global unk_0208FFEC
 unk_0208FFEC:
 	.word FUN_020421e4
