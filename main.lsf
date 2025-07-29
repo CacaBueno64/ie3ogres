@@ -711,7 +711,7 @@ Overlay overlay129
 Overlay overlay130
 {
 	After overlay109
-	Object asm/ov130_data.o
+#	Object asm/ov130_data.o
 	Object src/ov130.o
 }
 Overlay overlay131

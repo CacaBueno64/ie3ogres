@@ -15,7 +15,8 @@ extern UnkStruct_02099E8C *unk_02099E8C;
 extern u32 *unk_0209AEC0;
 extern u32 *unk_0209C2C4;
 
-void FUN_02028fac(void) {
+void FUN_02028fac(void)
+{
     UnkStruct_02099E8C *ctx = (UnkStruct_02099E8C *)&unk_02099E8C;
     ctx->unk80++;
     if (ctx->unkA4) {
@@ -44,7 +45,8 @@ void FUN_02028fac(void) {
     }
 }
 
-void FUN_02029078(void) {
+void FUN_02029078(void)
+{
     FUN_ov130_0212a9c0();
     
     void *heapstart = OS_AllocFromArenaLo(OS_ARENA_MAIN, 0x2d000, 0x20);
@@ -58,7 +60,8 @@ void FUN_02029078(void) {
 FS_EXTERN_OVERLAY(overlay130);
 FS_EXTERN_OVERLAY(overlay16);
 
-void InitCommon(void) {
+void InitCommon(void)
+{
     OS_Init();
     OS_InitTick();
     OS_InitAlarm();
@@ -85,7 +88,8 @@ extern void *unk_0209A8A0;
 
 // https://decomp.me/scratch/6nH8k
 #ifdef NONMATCHING
-void FUN_02029140(void) {
+void FUN_02029140(void)
+{
     void *arenalo = OS_GetArenaLo(OS_ARENA_MAIN);
     UnkStruct_02099E8C *struct_02099E8C = (UnkStruct_02099E8C *)&unk_02099E8C;
     struct_02099E8C->unk94 = arenalo;
@@ -174,7 +178,8 @@ _02029184:
 }
 #endif
 
-void VramClear(void) {
+void VramClear(void)
+{
     GX_SetBankForLCDC(GX_VRAM_LCDC_ALL);
     MI_CpuClearFast((void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
     (void)GX_DisableBankForLCDC();
@@ -185,7 +190,8 @@ void VramClear(void) {
     MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
-void InitInterrupt(void) {
+void InitInterrupt(void)
+{
     (void)OS_DisableIrq();
     (void)OS_SetIrqFunction(OS_IE_V_BLANK, FUN_02028fac);
     (void)OS_EnableIrqMask(OS_IE_V_BLANK);

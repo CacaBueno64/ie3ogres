@@ -1,11 +1,19 @@
+#include "init.h"
+#include "ov130.h"
+#include <nitro.h>
+
+const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
+    0x4e2000,
+    0x0000EA3C,
+    0x800,
+    0x00009CCD,
+    0x2000,
+    0x840800
+);
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <ov130.h>
-#include <nitro.h>
-#include <global.h>
 
 void FUN_ov130_0212a9c0(void)
 {
@@ -18,8 +26,8 @@ void FUN_ov130_0212a9c0(void)
 
 extern void FUN_020417dc(void *);
 extern void FUN_020418e4(void *);
-extern void FUN_020417e8(void *, char[]);
-extern u32 L5_IniFileGetParam(void *, char[]);
+extern void FUN_020417e8(void *, char *);
+extern u32 L5_IniFileGetParam(void *, char *);
 
 extern UnkStruct_0209A1A8 unk_0209A1A8;
 
@@ -45,33 +53,6 @@ void FUN_ov130_0212aa14(void)
     ptr->rpgMinimapScrollVelocity = L5_IniFileGetParam(&unk_02099F78, "RPG_MINIMAP_SCROLL_VEROCITY");
 }
 
-//extern u32 ov130_0212AB60[6];
-//
-//static void FUN_ov130_Init(void) {
-//    ov130_0212AB60[4] = FX_Sqrt(0x2000);
-//    ov130_0212AB60[3] = FX_Sqrt(0x00009CCD);
-//    ov130_0212AB60[2] = 0x800;
-//    ov130_0212AB60[1] = 0x0000EA3C;
-//    ov130_0212AB60[0] = 0x4e2000;
-//    ov130_0212AB60[5] = 0x840800;
-//}
-//
-//#define NitroStaticInit FUN_ov130_Init
-//#include <nitro/sinit.h>
-extern int ov130_0212AB60[6];
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
-
-class ov130_0212AB00 {
-public:
-    ov130_0212AB00() {
-        ov130_0212AB60[4] = FX_Sqrt(0x2000);
-        ov130_0212AB60[3] = FX_Sqrt(0x00009CCD);
-        ov130_0212AB60[2] = 0x800;
-        ov130_0212AB60[1] = 0x0000EA3C;
-        ov130_0212AB60[0] = 0x4e2000;
-        ov130_0212AB60[5] = 0x840800;
-    }
-};
-ov130_0212AB00 cls = ov130_0212AB00();

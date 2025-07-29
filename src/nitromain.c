@@ -7,7 +7,8 @@ extern "C" {
 void NitroMain(void);
 extern void L5_Main(void);
 
-void NitroMain(void) {
+void NitroMain(void)
+{
     L5_Main();
 }
 

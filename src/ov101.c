@@ -1,4 +1,4 @@
-#include <ov101.h>
+#include "ov101.h"
 #include <nitro.h>
 
 #ifdef __cplusplus
@@ -8,14 +8,16 @@ extern "C" {
 extern void FUN_ov16_020f338c(u32 *, u32);
 extern void FUN_ov101_02124d4c(u32 *);
 
-void FUN_ov101_02124ff8(u32 *ptr) {
+void FUN_ov101_02124ff8(u32 *ptr)
+{
     FUN_ov16_020f338c(&ptr[4], 1);
     FUN_ov101_02124d4c(ptr);
 }
 
 extern void operator_delete(void *ptr);
 
-void * FUN_ov101_02125018(void *ptr) {
+void * FUN_ov101_02125018(void *ptr)
+{
     operator_delete(ptr);
     return ptr;
 }
@@ -24,7 +26,8 @@ void FUN_ov101_0212502c(void) { }
 
 extern u32 ov101_021250A0[6];
 
-void FUN_ov101_Init(void) {
+void FUN_ov101_Init(void)
+{
     ov101_021250A0[5] = FX_Sqrt(0x2000);
     ov101_021250A0[4] = FX_Sqrt(0x00009CCD);
     ov101_021250A0[3] = 0x800;
