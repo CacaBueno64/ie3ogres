@@ -1,3 +1,17 @@
+.public ov107_02125140
+.public ov122_02125E48
+.public ov120_02125BDC
+.public ov118_02125EA0
+.public ov109_0212A6B8
+.public ov121_02125B10
+.public ov119_021256A8
+.public ov114_021262E4
+.public ov115_02126410
+.public ov116_02124EC0
+.public ov117_02124F20
+.public ov123_021255C0
+.public ov124_021269B0
+.public ov125_02126360
 .public ov56_02121330
 .public ov59_0211EF40
 .public ov85_0211CF74
@@ -15,6 +29,8 @@
 .public ov77_0211A540
 .public ov79_0211AA48
 .public ov30_0211A740
+.public FUN_ov61_0211d4dc
+.public FUN_ov61_0211d55c
 .public MIi_CpuClearFast
 .public FUN_02046b54
 .public FUN_02046a20
