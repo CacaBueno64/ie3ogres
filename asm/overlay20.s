@@ -1834,7 +1834,7 @@ _0211B84C:
 	blx r2
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211B894: .word 0x0211E674
+_0211B894: .word ov20_0211E674
 _0211B898: .word unk_0209BA20
 	arm_func_end FUN_ov20_0211b710
 
@@ -2440,7 +2440,7 @@ _0211C194:
 	bge _0211C118
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211C1A4: .word 0x0211E670
+_0211C1A4: .word ov20_0211E670
 _0211C1A8: .word unk_02099F38
 _0211C1AC: .word unk_02099EB4
 	arm_func_end FUN_ov20_0211bab8
@@ -2883,7 +2883,7 @@ _0211C7A8:
 	add sp, sp, #0x3c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _0211C7DC: .word unk_02099F38
-_0211C7E0: .word 0x0211E67C
+_0211C7E0: .word ov20_0211E67C
 _0211C7E4: .word ov20_0211E728
 	arm_func_end FUN_ov20_0211c6a8
 
@@ -5074,8 +5074,16 @@ FUN_ov20_0211e658: ; 0x0211E658
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov20_0211e658
-_0211E670:
-	.byte 0x0C, 0x00, 0x0D, 0x00, 0x02, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x82, 0xD0, 0x82, 0xAB
+
+	.global ov20_0211E670
+ov20_0211E670:
+	.byte 0x0C, 0x00, 0x0D, 0x00
+	.global ov20_0211E674
+ov20_0211E674:
+	.byte 0x02, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00
+	.global ov20_0211E67C
+ov20_0211E67C:
+	.byte 0x82, 0xD0, 0x82, 0xAB
 	.byte 0x82, 0xCA, 0x82, 0xAB, 0x81, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 

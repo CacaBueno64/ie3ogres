@@ -792,7 +792,7 @@ _0211A938:
 	bl FUN_ov16_02113b78
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0211A988: .word 0x0211D318
+_0211A988: .word ov21_0211D318
 _0211A98C: .word unk_02099F38
 	arm_func_end FUN_ov21_0211a8a0
 
@@ -845,7 +845,7 @@ FUN_ov21_0211a990: ; 0x0211A990
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211AA48: .word unk_02099F38
-_0211AA4C: .word 0x0211D31C
+_0211AA4C: .word ov21_0211D31C
 	arm_func_end FUN_ov21_0211a990
 
 	arm_func_start FUN_ov21_0211aa50
@@ -3732,9 +3732,13 @@ FUN_ov21_0211d300: ; 0x0211D300
 FUN_ov21_0211d314: ; 0x0211D314
 	bx lr
 	arm_func_end FUN_ov21_0211d314
-_0211D318:
-	.byte 0x01, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00
-	.byte 0x30, 0x00, 0x00, 0x00
+
+	.global ov21_0211D318
+ov21_0211D318:
+	.byte 0x01, 0x00, 0x00, 0x00
+	.global ov21_0211D31C
+ov21_0211D31C:
+	.byte 0x20, 0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00
 
 	arm_func_start FUN_ov21_0211d324
 FUN_ov21_0211d324: ; 0x0211D324

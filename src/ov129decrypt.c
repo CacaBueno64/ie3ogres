@@ -3,14 +3,20 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+/*
 
 #define ENCRYPTION_KEY      0xf0b9a2ea
 #define BIT_MASK            0xfffffbfe
 #define PATCH_VALUE         0x00000000
 
-u32 GetInsnType(u32 value) {
+u32 GetInsnType(u32 value);
+void ov129_0212B4E0(u32 *ctx);
+
+u32 GetInsnType(u32 value)
+{
     u8 highByte = (value >> 24) & 0xFF;
-    if ((highByte & 0xE) == 0xA) {
+    if ((highByte & 0xE) == 0xA)
+    {
         if ((highByte & 0xF0) == 0xF0)
             return 1;
         else if (highByte & 1)
@@ -65,7 +71,7 @@ void ov129_0212B4E0(u32 *ctx)
         u32 encKey = ENCRYPTION_KEY; // r8
 
         for (; startPtr < endPtr; startPtr++) {
-            switch (GetInsType(*(u32 *)startPtr)) {
+            switch (GetInsnType(*(u32 *)startPtr)) {
                 case 1:
                 case 3:
                     u32 r0 = *(u32 *)startPtr;
@@ -99,6 +105,8 @@ void ov129_0212B4E0(u32 *ctx)
     } while (ctx[0] != 0);
 }
 
+*/
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+

@@ -3353,7 +3353,7 @@ _0211CE34:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211CE88: .word unk_02099EB4
-_0211CE8C: .word 0x0211E110
+_0211CE8C: .word ov51_0211E110
 	arm_func_end FUN_ov51_0211ccf8
 
 	arm_func_start FUN_ov51_0211ce90
@@ -4685,7 +4685,9 @@ FUN_ov51_0211e0f8: ; 0x0211E0F8
 FUN_ov51_0211e10c: ; 0x0211E10C
 	bx lr
 	arm_func_end FUN_ov51_0211e10c
-_0211E110:
+
+	.global ov51_0211E110
+ov51_0211E110:
 	.byte 0x64, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
 
 	arm_func_start FUN_ov51_0211e11c

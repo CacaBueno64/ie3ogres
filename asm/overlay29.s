@@ -6142,7 +6142,7 @@ _0211F680: .word unk_020A108A
 _0211F684: .word unk_0209A0AC
 _0211F688: .word unk_02099F44
 _0211F68C: .word unk_0209C220
-_0211F690: .word 0x02123550
+_0211F690: .word ov29_02123550
 _0211F694: .word 0xCCCCCCCD
 	arm_func_end FUN_ov29_0211f2dc
 
@@ -10480,8 +10480,10 @@ _02123538:
 	mov r0, r2
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov29_021234cc
-_02123540:
+
 	.byte 0x1E, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x3C, 0x00, 0x00, 0x00, 0x1E, 0x00, 0x00, 0x00
+	.global ov29_02123550
+ov29_02123550:
 	.byte 0x0C, 0x00, 0x02, 0x00, 0x0B, 0x00, 0x01, 0x00, 0x10, 0x00, 0x09, 0x00
 
 	arm_func_start FUN_ov29_0212355c
