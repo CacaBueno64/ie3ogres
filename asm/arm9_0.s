@@ -979,9 +979,9 @@ _02029F30:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02029F38: .word 0x000004AC
-_02029F3C: .word 0x020BDDC0
-_02029F40: .word 0x020BDE30
-_02029F44: .word 0x020BDF64
+_02029F3C: .word ov6_020BDDC0
+_02029F40: .word ov6_020BDE30
+_02029F44: .word ov6_020BDF64
 	arm_func_end FUN_02029ee4
 
 	arm_func_start FUN_02029f48
@@ -1015,8 +1015,8 @@ FUN_02029f50: ; 0x02029F50
 _02029F90:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02029F98: .word 0x020BD340
-_02029F9C: .word 0x020BD3B0
+_02029F98: .word ov3_020BD340
+_02029F9C: .word ov3_020BD3B0
 	arm_func_end FUN_02029f50
 
 	arm_func_start FUN_02029fa0
@@ -1051,10 +1051,10 @@ FUN_02029fa4: ; 0x02029FA4
 _02029FFC:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0202A004: .word 0x020BD8E0
-_0202A008: .word 0x020BD9F4
-_0202A00C: .word 0x020BD950
-_0202A010: .word 0x020BDAD4
+_0202A004: .word ov5_020BD8E0
+_0202A008: .word ov5_020BD9F4
+_0202A00C: .word ov5_020BD950
+_0202A010: .word ov5_020BDAD4
 	arm_func_end FUN_02029fa4
 
 	arm_func_start FUN_0202a014
@@ -1151,17 +1151,17 @@ _0202A144:
 	str r4, [r5, #4]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0202A14C: .word 0x00003078
-_0202A150: .word 0x020D9574
-_0202A154: .word 0x020D9998
-_0202A158: .word 0x020D9734
-_0202A15C: .word 0x020DA084
-_0202A160: .word 0x020D94C8
-_0202A164: .word 0x020DBCBC
-_0202A168: .word 0x020DBE2C
-_0202A16C: .word 0x020D93E4
-_0202A170: .word 0x0211F2D0
-_0202A174: .word 0x020DB1B4
-_0202A178: .word 0x020D9220
+_0202A150: .word ov4_020D9574
+_0202A154: .word ov4_020D9998
+_0202A158: .word ov4_020D9734
+_0202A15C: .word ov4_020DA084
+_0202A160: .word ov4_020D94C8
+_0202A164: .word ov4_020DBCBC
+_0202A168: .word ov4_020DBE2C
+_0202A16C: .word ov4_020D93E4
+_0202A170: .word ov61_0211F2D0
+_0202A174: .word ov4_020DB1B4
+_0202A178: .word ov4_020D9220
 	arm_func_end FUN_0202a020
 
 	arm_func_start FUN_0202a17c
@@ -1344,14 +1344,14 @@ FUN_0202a288: ; 0x0202A288
 _0202A334:
 	str r4, [r5, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0202A33C: .word 0x020D5540
-_0202A340: .word 0x020D56C8
-_0202A344: .word 0x020D55B0
-_0202A348: .word 0x020D563C
+_0202A33C: .word ov0_020D5540
+_0202A340: .word ov0_020D56C8
+_0202A344: .word ov0_020D55B0
+_0202A348: .word ov0_020D563C
 _0202A34C: .word unk_0208F90C
-_0202A350: .word 0x020D5C9C
-_0202A354: .word 0x020D5D10
-_0202A358: .word 0x020D5E48
+_0202A350: .word ov0_020D5C9C
+_0202A354: .word ov0_020D5D10
+_0202A358: .word ov0_020D5E48
 	arm_func_end FUN_0202a288
 
 	arm_func_start FUN_0202a35c
