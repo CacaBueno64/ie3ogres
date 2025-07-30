@@ -25,7 +25,7 @@ def decrypt(data: BytesIO, ctx: int, bss: int, ovStart: int):
         offsetWords = ((endAddr - bss) - 0x1000)
         endPtr = startPtr + offsetWords
         
-        encKey = 0XF0B9A2EA
+        encKey = 0xF0B9A2EA
         
         while startPtr < endPtr:
             data.seek(startPtr)
@@ -34,7 +34,7 @@ def decrypt(data: BytesIO, ctx: int, bss: int, ovStart: int):
             insType = getInsType(instruction)
             if insType == 1 or insType == 3:
                 r1 = (instruction & 0x0FFFFFF)
-                r1 = r1 + 0XFFFFFBFE
+                r1 = r1 + 0xFFFFFBFE
                 r0 = instruction & 0xFF000000
                 r1 = r1 & 0x0FFFFFF
                 r0 = r0 ^ 0x1000000
