@@ -6,6 +6,7 @@
 .public FUN_ov132_02141568
 .public unk_02099EF0
 .public unk_0209BA20
+.public FUN_ov116_02124d00
 .public FUN_ov116_02124e38
 .public FUN_ov116_02124e24
 .public FUN_0202b2a8

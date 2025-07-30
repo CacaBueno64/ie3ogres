@@ -1,5 +1,5 @@
-#include "init.h"
-#include "ov130.h"
+#include "init.hpp"
+#include "ov130.hpp"
 #include <nitro.h>
 
 const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(

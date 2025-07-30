@@ -92,17 +92,17 @@ ASM_BUILDDIR              := $(addprefix $(BUILD_DIR)/,$(ASM_SUBDIR))
 LIB_SRC_BUILDDIR          := $(addprefix $(BUILD_DIR)/,$(LIB_SRC_SUBDIR))
 LIB_ASM_BUILDDIR          := $(addprefix $(BUILD_DIR)/,$(LIB_ASM_SUBDIR))
 
-C_SRCS                    := $(call rwildcard,src,*.c)
+C_SRCS                    := $(call rwildcard,src,*.cpp)
 ASM_SRCS                  := $(foreach dname,$(ASM_SUBDIR),$(wildcard $(dname)/*.s))
 GLOBAL_ASM_SRCS           != grep -rl 'GLOBAL_ASM(' $(C_SRCS)
-LIB_C_SRCS                := $(foreach dname,$(LIB_SRC_SUBDIR),$(wildcard $(dname)/*.c))
+LIB_C_SRCS                := $(foreach dname,$(LIB_SRC_SUBDIR),$(wildcard $(dname)/*.cpp))
 LIB_ASM_SRCS              := $(foreach dname,$(LIB_ASM_SUBDIR),$(wildcard $(dname)/*.s))
 ALL_SRCS                  := $(C_SRCS) $(ASM_SRCS) $(GLOBAL_ASM_SRCS) $(LIB_C_SRCS) $(LIB_ASM_SRCS)
 
-C_OBJS                    = $(C_SRCS:%.c=$(BUILD_DIR)/%.o)
+C_OBJS                    = $(C_SRCS:%.cpp=$(BUILD_DIR)/%.o)
 ASM_OBJS                  = $(ASM_SRCS:%.s=$(BUILD_DIR)/%.o)
-GLOBAL_ASM_OBJS           = $(GLOBAL_ASM_SRCS:%.c=$(BUILD_DIR)/%.o)
-LIB_C_OBJS                = $(LIB_C_SRCS:%.c=$(BUILD_DIR)/%.o)
+GLOBAL_ASM_OBJS           = $(GLOBAL_ASM_SRCS:%.cpp=$(BUILD_DIR)/%.o)
+LIB_C_OBJS                = $(LIB_C_SRCS:%.cpp=$(BUILD_DIR)/%.o)
 LIB_ASM_OBJS              = $(LIB_ASM_SRCS:%.s=$(BUILD_DIR)/%.o)
 ALL_GAME_OBJS             = $(C_OBJS) $(ASM_OBJS) $(GLOBAL_ASM_OBJS)
 ALL_LIB_OBJS              = $(LIB_C_OBJS) $(LIB_ASM_OBJS)
@@ -171,11 +171,8 @@ BUILD_C ?= $(MW_COMPILE) -c -o
 
 $(DEPFILES):
 
-#$(BUILD_DIR)/lib/NitroSDK/%.o: MWCCVER := 2.0/sp2p3
-#$(BUILD_DIR)/lib/MSL_C/%.o: MWCCVER := 2.0/sp2p3
-
-$(BUILD_DIR)/%.o: %.c
-$(BUILD_DIR)/%.o: %.c $(BUILD_DIR)/%.d
+$(BUILD_DIR)/%.o: %.cpp
+$(BUILD_DIR)/%.o: %.cpp $(BUILD_DIR)/%.d
 	@echo $(BUILD_C) $@ $<
 	@$(BUILD_C) $@ $< || { rm -f $(BUILD_DIR)/%.d; exit 1; }
 	@$(call fixdep,$(BUILD_DIR)/$*.d)
@@ -191,7 +188,7 @@ else
 $(GLOBAL_ASM_OBJS): BUILD_C := $(ASM_PROCESSOR) "$(MW_COMPILE)" "$(MW_ASSEMBLE)"
 BUILD_C ?= $(MW_COMPILE) -c -o
 
-$(BUILD_DIR)/%.o: %.c
+$(BUILD_DIR)/%.o: %.cpp
 	$(BUILD_C) $@ $<
 
 $(BUILD_DIR)/%.o: %.s

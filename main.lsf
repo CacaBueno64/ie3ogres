@@ -640,8 +640,8 @@ Overlay overlay115
 Overlay overlay116
 {
 	After overlay57
-	Object asm/overlay116.o
 	Object src/ov116.o
+	Object asm/ov116_data.o
 }
 Overlay overlay117
 {

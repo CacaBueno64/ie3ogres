@@ -12,7 +12,8 @@ public:
     fx32 unk4;
     fx32 unk5;
 
-    UnkStruct_ov130_0212AB60(fx32 param0, fx32 param1, fx32 param2, fx32 param3, fx32 param4, fx32 param5) {
+    UnkStruct_ov130_0212AB60(fx32 param0, fx32 param1, fx32 param2, fx32 param3, fx32 param4, fx32 param5)
+    {
         this->unk4 = FX_Sqrt(param4);
         this->unk3 = FX_Sqrt(param3);
         this->unk2 = param2;

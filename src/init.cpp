@@ -1,5 +1,5 @@
-#include "init.h"
-#include "ov130.h"
+#include "init.hpp"
+#include "ov130.hpp"
 #include <nitro.h>
 
 #ifdef __cplusplus
