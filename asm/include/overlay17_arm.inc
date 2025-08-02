@@ -1,3 +1,13 @@
+.public GX_LoadBG3Char
+.public GX_LoadBG3Scr
+.public GXS_LoadBGPltt
+.public GX_LoadOBJPltt
+.public GX_LoadOBJ
+.public GXS_LoadOBJ
+.public GXS_LoadOBJPltt
+.public GX_LoadBG2Char
+.public GXS_LoadBG1Char
+.public GX_LoadBG1Char
 .public FX_ModS32
 .public FX_DivS32
 .public GXS_LoadBG0Scr

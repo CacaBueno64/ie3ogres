@@ -220,7 +220,7 @@ _0212B4D8:
 	bx lr
 	arm_func_end GetInsType
 
-	arm_func_start DecryptFuncTable ; //https://decomp.me/scratch/Z6Iu8
+	arm_func_start DecryptFuncTable ; https://decomp.me/scratch/Z6Iu8
 DecryptFuncTable: ; 0x0212B4E0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0

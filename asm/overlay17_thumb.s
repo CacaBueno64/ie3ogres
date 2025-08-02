@@ -5837,9 +5837,9 @@ _020F0AC0:
 	nop
 _020F0ACC: .word apci_WCMBuffer
 _020F0AD0: .word apci_bssid_buf
-_020F0AD4: .word 0x020E3FE8
+_020F0AD4: .word ov15_020E3FE8
 _020F0AD8: .word ov17_02114C10
-_020F0ADC: .word 0x020E3FF0
+_020F0ADC: .word ov15_020E3FF0
 	thumb_func_end APC_SearchStart
 
 	thumb_func_start APC_SearchEnd
@@ -6716,9 +6716,9 @@ _020F1168:
 	nop
 _020F1174: .word btAutoResult
 _020F1178: .word ov17_021150E8
-_020F117C: .word 0x020E3FE8
+_020F117C: .word ov15_020E3FE8
 _020F1180: .word ov17_02115120
-_020F1184: .word 0x020E3FF0
+_020F1184: .word ov15_020E3FF0
 	thumb_func_end atermapc_APC_SearchStart
 
 	thumb_func_start atermapc_APC_Disconnect

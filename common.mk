@@ -77,7 +77,7 @@ NATIVE_TOOLS := \
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
 # Directories
-TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm init
+TWLSDK_SRC_SUBDIRS        := card cp ctrdg fs fx gx math memory os pm pxi rtc snd std tp wm mb init
 TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
 
 LIB_SUBDIRS               := cw TwlSDK TwlSystem TwlDWC TwlWiFi libCPS libVCT MSL_C libMobiclip

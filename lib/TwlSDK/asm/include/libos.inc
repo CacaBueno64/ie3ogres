@@ -1,3 +1,4 @@
+.public SDK_MAIN_ARENA_LO
 .public OS_IRQTable
 .public OSi_IrqThreadQueue
 .public PXI_SendWordByFifo

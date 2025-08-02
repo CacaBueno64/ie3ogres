@@ -1,6 +1,6 @@
 
-	.include "/macros/function.inc"
-	.include "/include/overlay128.inc"
+	.include "asm/macros/function.inc"
+	.include "libmb.inc"
 
 	.text
 	arm_func_start MB_CommSetParentStateCallback
@@ -1846,7 +1846,7 @@ MB_RegisterFile: ; 0x0212C358
 	mov r10, #0xff
 	bl OS_DisableInterrupts
 	mov r4, r0
-	bl FUN_ov128_0212f130
+	bl MBi_IsStarted
 	cmp r0, #0
 	bne _0212C38C
 	mov r0, r4
@@ -1907,7 +1907,7 @@ _0212C41C:
 	add r0, r0, #0x1400
 	add r9, r0, r5
 	mov r0, r9
-	bl FUN_ov128_0212c5d0
+	bl MBi_MakeDownloadFileInfo
 	add r0, r7, #0x1c
 	add r1, r9, #0xc4
 	mov r2, #0x20
@@ -1917,7 +1917,7 @@ _0212C41C:
 	add r0, r0, #0x12c
 	add r0, r0, #0x1c00
 	add r0, r0, r5
-	bl FUN_ov128_0212c7a4
+	bl MBi_MakeBlockInfoTable
 	cmp r0, #0
 	bne _0212C490
 	mov r0, r4
@@ -1931,7 +1931,7 @@ _0212C490:
 	add r0, r0, #0x1800
 	add r0, r0, r5
 	add r2, r2, #0x1300
-	bl FUN_ov128_0212cb20
+	bl MBi_MakeGameInfo
 	ldr r0, [r8]
 	add r0, r0, r5
 	add r0, r0, #0x1000
@@ -1940,8 +1940,8 @@ _0212C490:
 	add r0, r0, #0x6c
 	add r0, r0, #0x1800
 	add r0, r0, r5
-	bl FUN_ov128_0212cd50
-	ldr r2, _0212C5CC ; =0x0212F9A4
+	bl MB_AddGameInfo
+	ldr r2, _0212C5CC ; =mb_update
 	ldr r1, [r8]
 	ldrb r0, [r2]
 	add r1, r1, r5
@@ -1975,18 +1975,18 @@ _0212C490:
 	ldr r0, [r0, #0x6c]
 	cmp r0, #0
 	beq _0212C588
-	bl FUN_ov128_0212f42c
+	bl MBi_IsTaskAvailable
 	cmp r0, #0
 	bne _0212C588
 	ldr r0, [r8]
 	add r0, r0, #0xce0
 	add r0, r0, #0x7000
-	bl FUN_ov128_0212f448
+	bl MBi_InitTaskInfo
 	ldr r0, [r8]
 	mov r1, #0x800
 	add r0, r0, #0x4e0
 	add r0, r0, #0x7000
-	bl FUN_ov128_0212f3ac
+	bl MBi_InitTaskThread
 _0212C588:
 	ldr r2, _0212C5C4 ; =mbc
 	mov r6, #1
@@ -2005,11 +2005,11 @@ _0212C588:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0212C5C4: .word mbc
 _0212C5C8: .word 0x000005D4
-_0212C5CC: .word ov128_0212F9A4
+_0212C5CC: .word mb_update
 	arm_func_end MB_RegisterFile
 
-	arm_func_start FUN_ov128_0212c5d0
-FUN_ov128_0212c5d0: ; 0x0212C5D0
+	arm_func_start MBi_MakeDownloadFileInfo
+MBi_MakeDownloadFileInfo: ; 0x0212C5D0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, r1
 	mov r5, r0
@@ -2017,7 +2017,7 @@ FUN_ov128_0212c5d0: ; 0x0212C5D0
 	ldr r1, [r4, #0x24]
 	str r2, [sp]
 	ldr r0, [r4, #0x34]
-	ldr r7, _0212C640 ; =0x0212F914
+	ldr r7, _0212C640 ; =MBi_defaultLoadSegList
 	str r1, [r5]
 	str r0, [r5, #4]
 	add r8, r5, #0xc
@@ -2028,7 +2028,7 @@ _0212C604:
 	mov r1, r7
 	mov r2, r8
 	mov r3, r6
-	bl FUN_ov128_0212c644
+	bl MBi_SetSegmentInfo
 	add r9, r9, #1
 	cmp r9, #3
 	add r8, r8, #0x10
@@ -2039,11 +2039,11 @@ _0212C604:
 	mov r2, #0x88
 	bl MI_CpuCopy8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212C640: .word ov128_0212F914
-	arm_func_end FUN_ov128_0212c5d0
+_0212C640: .word MBi_defaultLoadSegList
+	arm_func_end MBi_MakeDownloadFileInfo
 
-	arm_func_start FUN_ov128_0212c644
-FUN_ov128_0212c644: ; 0x0212C644
+	arm_func_start MBi_SetSegmentInfo
+MBi_SetSegmentInfo: ; 0x0212C644
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, [r1]
 	mov r7, r0
@@ -2141,10 +2141,10 @@ _0212C778:
 _0212C798: .word 0x023FE800
 _0212C79C: .word 0x037F8000
 _0212C7A0: .word 0x027FFE00
-	arm_func_end FUN_ov128_0212c644
+	arm_func_end MBi_SetSegmentInfo
 
-	arm_func_start FUN_ov128_0212c7a4
-FUN_ov128_0212c7a4: ; 0x0212C7A4
+	arm_func_start MBi_MakeBlockInfoTable
+MBi_MakeBlockInfoTable: ; 0x0212C7A4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r10, r0
 	add r6, r10, #0xc
@@ -2183,7 +2183,7 @@ _0212C7F0:
 	mov r0, r9
 	mov r2, r8
 	mov r7, r3, lsr #0x10
-	bl FUN_ov128_0212c9d0
+	bl mbfileinfo_IsAbleToLoad
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -2198,7 +2198,7 @@ _0212C7F0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0212C86C: .word mbc
-	arm_func_end FUN_ov128_0212c7a4
+	arm_func_end MBi_MakeBlockInfoTable
 
 	arm_func_start MBi_get_blockinfo
 MBi_get_blockinfo: ; 0x0212C870
@@ -2251,9 +2251,9 @@ _0212C8A8:
 _0212C920: .word mbc
 	arm_func_end MBi_get_blockinfo
 
-	arm_func_start FUN_ov128_0212c924
-FUN_ov128_0212c924: ; 0x0212C924
-	ldr r3, _0212C9C8 ; =0x0212F914
+	arm_func_start MBi_IsAbleToRecv
+MBi_IsAbleToRecv: ; 0x0212C924
+	ldr r3, _0212C9C8 ; =MBi_defaultLoadSegList
 	ldr r0, [r3, r0, lsl #2]
 	cmp r0, #0
 	beq _0212C968
@@ -2299,14 +2299,14 @@ _0212C9B8:
 _0212C9C0:
 	mov r0, #0
 	bx lr
-_0212C9C8: .word ov128_0212F914
+_0212C9C8: .word MBi_defaultLoadSegList
 _0212C9CC: .word 0x027FFE00
-	arm_func_end FUN_ov128_0212c924
+	arm_func_end MBi_IsAbleToRecv
 
-	arm_func_start FUN_ov128_0212c9d0
-FUN_ov128_0212c9d0: ; 0x0212C9D0
+	arm_func_start mbfileinfo_IsAbleToLoad
+mbfileinfo_IsAbleToLoad: ; 0x0212C9D0
 	stmfd sp!, {r3, lr}
-	ldr r3, _0212CA90 ; =0x0212F914
+	ldr r3, _0212CA90 ; =MBi_defaultLoadSegList
 	ldr r3, [r3, r0, lsl #2]
 	cmp r3, #0
 	beq _0212C9F4
@@ -2315,7 +2315,7 @@ FUN_ov128_0212c9d0: ; 0x0212C9D0
 	cmp r3, #2
 	bne _0212CA80
 _0212C9F4:
-	bl FUN_ov128_0212c924
+	bl MBi_IsAbleToRecv
 	ldmfd sp!, {r3, pc}
 _0212C9FC:
 	cmp r1, #0x2000000
@@ -2360,10 +2360,10 @@ _0212CA80:
 _0212CA88:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_0212CA90: .word ov128_0212F914
+_0212CA90: .word MBi_defaultLoadSegList
 _0212CA94: .word 0x023FE800
 _0212CA98: .word 0x037F8000
-	arm_func_end FUN_ov128_0212c9d0
+	arm_func_end mbfileinfo_IsAbleToLoad
 
 	arm_func_start MBi_BlockHeaderEnd
 MBi_BlockHeaderEnd: ; 0x0212CA9C
@@ -2379,12 +2379,12 @@ MBi_BlockHeaderEnd: ; 0x0212CA9C
 	mov r0, r4
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov128_0212efc0
+	bl MBi_SendMP
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end MBi_BlockHeaderEnd
 
-	arm_func_start FUN_ov128_0212cad4
-FUN_ov128_0212cad4: ; 0x0212CAD4
+	arm_func_start MBi_calc_cksum
+MBi_calc_cksum: ; 0x0212CAD4
 	mov r3, r1, asr #1
 	cmp r3, #0
 	mov r2, #0
@@ -2406,10 +2406,10 @@ _0212CAF8:
 	mov r0, r0, lsr #0x10
 	bx lr
 _0212CB1C: .word 0x0000FFFF
-	arm_func_end FUN_ov128_0212cad4
+	arm_func_end MBi_calc_cksum
 
-	arm_func_start FUN_ov128_0212cb20
-FUN_ov128_0212cb20: ; 0x0212CB20
+	arm_func_start MBi_MakeGameInfo
+MBi_MakeGameInfo: ; 0x0212CB20
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r0
 	mov r7, #0
@@ -2424,14 +2424,14 @@ FUN_ov128_0212cb20: ; 0x0212CB20
 	mov r1, r6
 	mov r2, r8
 	strb r7, [r6, #0x4b2]
-	bl FUN_ov128_0212cc10
+	bl MBi_ReadIconInfo
 	cmp r0, #0
 	movne r8, r7
 	mov r7, #0
 	ldr r0, [r5, #0x10]
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov128_0212cc10
+	bl MBi_ReadIconInfo
 	cmp r0, #0
 	moveq r7, #1
 	orrs r0, r8, r7
@@ -2455,7 +2455,7 @@ _0212CBC0:
 	ldrb r1, [r5, #0x18]
 	ldr r0, [r5, #4]
 	strb r1, [r6, #0x236]
-	bl FUN_ov128_0212cd28
+	bl mbgameinfo_mystrlen
 	mov r2, r0, lsl #0x11
 	ldr r0, [r5, #4]
 	add r1, r6, #0x238
@@ -2472,10 +2472,10 @@ _0212CBC0:
 	strh r2, [r0, #0x5a]
 	strh r2, [r1, #0xb0]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov128_0212cb20
+	arm_func_end MBi_MakeGameInfo
 
-	arm_func_start FUN_ov128_0212cc10
-FUN_ov128_0212cc10: ; 0x0212CC10
+	arm_func_start MBi_ReadIconInfo
+MBi_ReadIconInfo: ; 0x0212CC10
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x48
 	mov r8, r0
@@ -2519,7 +2519,7 @@ _0212CC98:
 	mov r0, r4
 	add sp, sp, #0x48
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov128_0212cc10
+	arm_func_end MBi_ReadIconInfo
 
 	arm_func_start MB_UpdateGameInfoMember
 MB_UpdateGameInfoMember: ; 0x0212CCB8
@@ -2554,8 +2554,8 @@ _0212CCE8:
 _0212CD24: .word 0x0000014A
 	arm_func_end MB_UpdateGameInfoMember
 
-	arm_func_start FUN_ov128_0212cd28
-FUN_ov128_0212cd28: ; 0x0212CD28
+	arm_func_start mbgameinfo_mystrlen
+mbgameinfo_mystrlen: ; 0x0212CD28
 	ldrh r1, [r0], #2
 	mov r2, #0
 	cmp r1, #0
@@ -2568,11 +2568,11 @@ _0212CD38:
 _0212CD48:
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_ov128_0212cd28
+	arm_func_end mbgameinfo_mystrlen
 
-	arm_func_start FUN_ov128_0212cd50
-FUN_ov128_0212cd50: ; 0x0212CD50
-	ldr r1, _0212CD90 ; =0x0212F9A8
+	arm_func_start MB_AddGameInfo
+MB_AddGameInfo: ; 0x0212CD50
+	ldr r1, _0212CD90 ; =mbgameinfo_sUnlockFunc
 	ldr r2, [r1, #0x18]
 	cmp r2, #0
 	streq r0, [r1, #0x18]
@@ -2591,27 +2591,27 @@ _0212CD84:
 	mov r1, #0
 	str r1, [r0, #0x4bc]
 	bx lr
-_0212CD90: .word ov128_0212F9A8
-	arm_func_end FUN_ov128_0212cd50
+_0212CD90: .word mbgameinfo_sUnlockFunc
+	arm_func_end MB_AddGameInfo
 
-	arm_func_start FUN_ov128_0212cd94
-FUN_ov128_0212cd94: ; 0x0212CD94
-	ldr r0, _0212CDB8 ; =0x0212F9A8
+	arm_func_start MB_InitSendGameInfoStatus
+MB_InitSendGameInfoStatus: ; 0x0212CD94
+	ldr r0, _0212CDB8 ; =mbgameinfo_sUnlockFunc
 	mov r2, #0
 	str r2, [r0, #0x18]
 	str r2, [r0, #0x1c]
 	mov r1, #1
 	strb r1, [r0, #0x24]
-	ldr r12, _0212CDBC ; =FUN_ov128_0212cdc0
+	ldr r12, _0212CDBC ; =MBi_ClearSendStatus
 	str r2, [r0, #0x14]
 	bx r12
-_0212CDB8: .word ov128_0212F9A8
-_0212CDBC: .word FUN_ov128_0212cdc0
-	arm_func_end FUN_ov128_0212cd94
+_0212CDB8: .word mbgameinfo_sUnlockFunc
+_0212CDBC: .word MBi_ClearSendStatus
+	arm_func_end MB_InitSendGameInfoStatus
 
-	arm_func_start FUN_ov128_0212cdc0
-FUN_ov128_0212cdc0: ; 0x0212CDC0
-	ldr r0, _0212CDE0 ; =0x0212F9A8
+	arm_func_start MBi_ClearSendStatus
+MBi_ClearSendStatus: ; 0x0212CDC0
+	ldr r0, _0212CDE0 ; =mbgameinfo_sUnlockFunc
 	mov r1, #0
 	strb r1, [r0, #0x25]
 	strb r1, [r0, #0x26]
@@ -2619,13 +2619,13 @@ FUN_ov128_0212cdc0: ; 0x0212CDC0
 	strb r1, [r0, #0x28]
 	strb r1, [r0, #0x29]
 	bx lr
-_0212CDE0: .word ov128_0212F9A8
-	arm_func_end FUN_ov128_0212cdc0
+_0212CDE0: .word mbgameinfo_sUnlockFunc
+	arm_func_end MBi_ClearSendStatus
 
 	arm_func_start MB_SendGameInfoBeacon
 MB_SendGameInfoBeacon: ; 0x0212CDE4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _0212CE6C ; =0x0212F9A8
+	ldr r4, _0212CE6C ; =mbgameinfo_sUnlockFunc
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
@@ -2643,36 +2643,36 @@ _0212CE08: ; jump table
 	b _0212CE58 ; case 5
 	b _0212CDF8 ; case 6
 _0212CE24:
-	bl FUN_ov128_0212ce70
+	bl MBi_ReadyBeaconSendStatus
 	cmp r0, #0
 	bne _0212CDF8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212CE34:
-	bl FUN_ov128_0212cf10
+	bl MBi_InitSendFixedBeacon
 	b _0212CDF8
 _0212CE3C:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov128_0212cf5c
+	bl MBi_SendFixedBeacon
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212CE50:
-	bl FUN_ov128_0212d0c0
+	bl MBi_InitSendVolatBeacon
 	b _0212CDF8
 _0212CE58:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov128_0212d0f0
+	bl MBi_SendVolatBeacon
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212CE6C: .word ov128_0212F9A8
+_0212CE6C: .word mbgameinfo_sUnlockFunc
 	arm_func_end MB_SendGameInfoBeacon
 
-	arm_func_start FUN_ov128_0212ce70
-FUN_ov128_0212ce70: ; 0x0212CE70
+	arm_func_start MBi_ReadyBeaconSendStatus
+MBi_ReadyBeaconSendStatus: ; 0x0212CE70
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
-	ldr r0, _0212CF08 ; =0x0212F9A8
+	ldr r0, _0212CF08 ; =mbgameinfo_sUnlockFunc
 	ldr r1, [r0, #0x18]
 	cmp r1, #0
 	bne _0212CEC4
@@ -2682,7 +2682,7 @@ FUN_ov128_0212ce70: ; 0x0212CE70
 	mov r4, #0
 	str r0, [sp]
 	mov r12, #8
-	ldr r1, _0212CF0C ; =0x0212F9E0
+	ldr r1, _0212CF0C ; =mbgameinfo_bsendBuff
 	mov r0, r4
 	mov r3, r5
 	mov r2, #0x70
@@ -2693,14 +2693,14 @@ FUN_ov128_0212ce70: ; 0x0212CE70
 	ldmfd sp!, {r3, r4, r5, pc}
 _0212CEC4:
 	ldr r0, [r0, #0x1c]
-	ldr r4, _0212CF08 ; =0x0212F9A8
+	ldr r4, _0212CF08 ; =mbgameinfo_sUnlockFunc
 	cmp r0, #0
 	ldrne r0, [r0, #0x4bc]
 	cmpne r0, #0
-	ldreq r0, _0212CF08 ; =0x0212F9A8
+	ldreq r0, _0212CF08 ; =mbgameinfo_sUnlockFunc
 	ldreq r0, [r0, #0x18]
 	str r0, [r4, #0x1c]
-	bl FUN_ov128_0212cdc0
+	bl MBi_ClearSendStatus
 	ldr r0, [r4, #0x1c]
 	mov r1, #2
 	ldrb r2, [r0, #0x4b4]
@@ -2709,13 +2709,13 @@ _0212CEC4:
 	strb r1, [r4, #0x24]
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212CF08: .word ov128_0212F9A8
-_0212CF0C: .word ov128_0212F9E0
-	arm_func_end FUN_ov128_0212ce70
+_0212CF08: .word mbgameinfo_sUnlockFunc
+_0212CF0C: .word mbgameinfo_bsendBuff
+	arm_func_end MBi_ReadyBeaconSendStatus
 
-	arm_func_start FUN_ov128_0212cf10
-FUN_ov128_0212cf10: ; 0x0212CF10
-	ldr r0, _0212CF58 ; =0x0212F9A8
+	arm_func_start MBi_InitSendFixedBeacon
+MBi_InitSendFixedBeacon: ; 0x0212CF10
+	ldr r0, _0212CF58 ; =mbgameinfo_sUnlockFunc
 	ldrb r1, [r0, #0x24]
 	cmp r1, #2
 	bxne lr
@@ -2729,18 +2729,18 @@ FUN_ov128_0212cf10: ; 0x0212CF10
 	strneb r1, [r0, #0x28]
 	addne r1, r2, #0x220
 	strne r1, [r0, #0x20]
-	ldr r0, _0212CF58 ; =0x0212F9A8
+	ldr r0, _0212CF58 ; =mbgameinfo_sUnlockFunc
 	mov r1, #3
 	strb r1, [r0, #0x24]
 	bx lr
-_0212CF58: .word ov128_0212F9A8
-	arm_func_end FUN_ov128_0212cf10
+_0212CF58: .word mbgameinfo_sUnlockFunc
+	arm_func_end MBi_InitSendFixedBeacon
 
-	arm_func_start FUN_ov128_0212cf5c
-FUN_ov128_0212cf5c: ; 0x0212CF5C
+	arm_func_start MBi_SendFixedBeacon
+MBi_SendFixedBeacon: ; 0x0212CF5C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
-	ldr r3, _0212D0B0 ; =0x0212F9A8
+	ldr r3, _0212D0B0 ; =mbgameinfo_sUnlockFunc
 	mov r6, r0
 	ldr r4, [r3, #0x1c]
 	ldr r0, [r3, #0x20]
@@ -2748,7 +2748,7 @@ FUN_ov128_0212cf5c: ; 0x0212CF5C
 	add r3, r0, #0x62
 	cmp r3, r7
 	mov r5, r1
-	ldrls r0, _0212D0B4 ; =0x0212F9E0
+	ldrls r0, _0212D0B4 ; =mbgameinfo_bsendBuff
 	movls r1, #0x62
 	mov r4, r2
 	strlsb r1, [r0, #0xc]
@@ -2756,15 +2756,15 @@ FUN_ov128_0212cf5c: ; 0x0212CF5C
 	sub r7, r7, r0
 	and r1, r7, #0xff
 	ldr r0, _0212D0B8 ; =0x0212F9EE
-	ldr r3, _0212D0B4 ; =0x0212F9E0
+	ldr r3, _0212D0B4 ; =mbgameinfo_bsendBuff
 	rsb r2, r1, #0x62
 	add r1, r0, r1
 	mov r0, #0
 	strb r7, [r3, #0xc]
 	bl MIi_CpuClear16
 _0212CFBC:
-	ldr r8, _0212D0B4 ; =0x0212F9E0
-	ldr r7, _0212D0B0 ; =0x0212F9A8
+	ldr r8, _0212D0B4 ; =mbgameinfo_bsendBuff
+	ldr r7, _0212D0B0 ; =mbgameinfo_sUnlockFunc
 	ldrb r2, [r8, #0xc]
 	ldr r0, [r7, #0x20]
 	ldr r1, _0212D0B8 ; =0x0212F9EE
@@ -2800,7 +2800,7 @@ _0212CFBC:
 	strb r2, [r7, #0x29]
 	strb r12, [r8, #7]
 	strh r3, [r8, #8]
-	bl FUN_ov128_0212cad4
+	bl MBi_calc_cksum
 	strh r0, [r8, #8]
 	ldrb r0, [r7, #0x27]
 	mov r3, r6
@@ -2811,7 +2811,7 @@ _0212CFBC:
 	and r1, r1, #0xff
 	cmp r1, r0
 	ldrlo r0, [r7, #0x20]
-	ldr r1, _0212D0B4 ; =0x0212F9E0
+	ldr r1, _0212D0B4 ; =mbgameinfo_bsendBuff
 	addlo r0, r0, #0x62
 	strlo r0, [r7, #0x20]
 	movhs r0, #4
@@ -2824,15 +2824,15 @@ _0212CFBC:
 	bl WM_SetGameInfo
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212D0B0: .word ov128_0212F9A8
-_0212D0B4: .word ov128_0212F9E0
+_0212D0B0: .word mbgameinfo_sUnlockFunc
+_0212D0B4: .word mbgameinfo_bsendBuff
 _0212D0B8: .word ov128_0212F9EE
 _0212D0BC: .word ov128_0212F9E8
-	arm_func_end FUN_ov128_0212cf5c
+	arm_func_end MBi_SendFixedBeacon
 
-	arm_func_start FUN_ov128_0212d0c0
-FUN_ov128_0212d0c0: ; 0x0212D0C0
-	ldr r1, _0212D0EC ; =0x0212F9A8
+	arm_func_start MBi_InitSendVolatBeacon
+MBi_InitSendVolatBeacon: ; 0x0212D0C0
+	ldr r1, _0212D0EC ; =mbgameinfo_sUnlockFunc
 	mov r3, #1
 	ldr r0, [r1, #0x1c]
 	mov r2, #5
@@ -2843,14 +2843,14 @@ FUN_ov128_0212d0c0: ; 0x0212D0C0
 	strb r0, [r1, #0x26]
 	strb r2, [r1, #0x24]
 	bx lr
-_0212D0EC: .word ov128_0212F9A8
-	arm_func_end FUN_ov128_0212d0c0
+_0212D0EC: .word mbgameinfo_sUnlockFunc
+	arm_func_end MBi_InitSendVolatBeacon
 
-	arm_func_start FUN_ov128_0212d0f0
-FUN_ov128_0212d0f0: ; 0x0212D0F0
+	arm_func_start MBi_SendVolatBeacon
+MBi_SendVolatBeacon: ; 0x0212D0F0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
-	ldr r7, _0212D340 ; =0x0212F9A8
+	ldr r7, _0212D340 ; =mbgameinfo_sUnlockFunc
 	str r0, [sp, #8]
 	ldr r0, [r7, #0x1c]
 	ldrb r3, [r7, #0x26]
@@ -2859,9 +2859,9 @@ FUN_ov128_0212d0f0: ; 0x0212D0F0
 	str r2, [sp, #0x10]
 	cmp r3, r0
 	beq _0212D120
-	bl FUN_ov128_0212d0c0
+	bl MBi_InitSendVolatBeacon
 _0212D120:
-	ldr r2, _0212D344 ; =0x0212F9E0
+	ldr r2, _0212D344 ; =mbgameinfo_bsendBuff
 	ldrb r0, [r2, #4]
 	bic r0, r0, #3
 	orr r1, r0, #2
@@ -2957,7 +2957,7 @@ _0212D278:
 	blt _0212D224
 _0212D280:
 	cmp r10, #4
-	ldr r4, _0212D340 ; =0x0212F9A8
+	ldr r4, _0212D340 ; =mbgameinfo_sUnlockFunc
 	bhs _0212D2A4
 	mov r0, #0x16
 	mul r1, r10, r0
@@ -2966,12 +2966,12 @@ _0212D280:
 	bic r0, r0, #0xf0
 	strb r0, [r2, r1]
 _0212D2A4:
-	ldr r5, _0212D344 ; =0x0212F9E0
+	ldr r5, _0212D344 ; =mbgameinfo_bsendBuff
 	mov r1, #0
 	strh r1, [r5, #8]
 	ldr r0, _0212D350 ; =0x0212F9E8
 	mov r1, #0x68
-	bl FUN_ov128_0212cad4
+	bl MBi_calc_cksum
 	strh r0, [r5, #8]
 	ldr r1, [r4, #0x1c]
 	ldr r3, [sp, #8]
@@ -2979,7 +2979,7 @@ _0212D2A4:
 	add r1, r1, #0x300
 	ldrh r2, [r0, #0xb0]
 	ldrh r0, [r1, #0x5a]
-	ldr r1, _0212D344 ; =0x0212F9E0
+	ldr r1, _0212D344 ; =mbgameinfo_bsendBuff
 	cmp r2, r0
 	moveq r0, #1
 	streqb r0, [r4, #0x24]
@@ -3005,15 +3005,15 @@ _0212D2A4:
 	blx r1
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212D340: .word ov128_0212F9A8
-_0212D344: .word ov128_0212F9E0
+_0212D340: .word mbgameinfo_sUnlockFunc
+_0212D344: .word mbgameinfo_bsendBuff
 _0212D348: .word ov128_0212FA48
 _0212D34C: .word ov128_0212F9F0
 _0212D350: .word ov128_0212F9E8
-	arm_func_end FUN_ov128_0212d0f0
+	arm_func_end MBi_SendVolatBeacon
 
-	arm_func_start FUN_ov128_0212d354
-FUN_ov128_0212d354: ; 0x0212D354
+	arm_func_start MBi_CheckMBParent
+MBi_CheckMBParent: ; 0x0212D354
 	ldrh r1, [r0, #0x40]
 	cmp r1, #1
 	bne _0212D36C
@@ -3026,10 +3026,10 @@ _0212D36C:
 _0212D374:
 	mov r0, #1
 	bx lr
-	arm_func_end FUN_ov128_0212d354
+	arm_func_end MBi_CheckMBParent
 
-	arm_func_start FUN_ov128_0212d37c
-FUN_ov128_0212d37c: ; 0x0212D37C
+	arm_func_start mbwmbase_changeScanChannel
+mbwmbase_changeScanChannel: ; 0x0212D37C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl WM_GetAllowedChannel
@@ -3058,11 +3058,11 @@ _0212D3A4:
 _0212D3DC:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov128_0212d37c
+	arm_func_end mbwmbase_changeScanChannel
 
-	arm_func_start FUN_ov128_0212d3e4
-FUN_ov128_0212d3e4: ; 0x0212D3E4
-	ldr r1, _0212D440 ; =0x0212FA50
+	arm_func_start MBi_IsSendEnabled
+MBi_IsSendEnabled: ; 0x0212D3E4
+	ldr r1, _0212D440 ; =WM_DMA_NO
 	mov r0, #0
 	ldr r12, [r1, #0xc]
 	mov r3, r0
@@ -3086,20 +3086,20 @@ _0212D428:
 	cmpne r1, #0
 	movne r0, #1
 	bx lr
-_0212D440: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212d3e4
+_0212D440: .word WM_DMA_NO
+	arm_func_end MBi_IsSendEnabled
 
-	arm_func_start FUN_ov128_0212d444
-FUN_ov128_0212d444: ; 0x0212D444
+	arm_func_start MBi_OnInitializeDone
+MBi_OnInitializeDone: ; 0x0212D444
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r4, _0212D498 ; =FUN_ov128_0212d4e4
+	ldr r4, _0212D498 ; =MBi_ParentCallback
 	mov r0, r4
 	bl WM_SetIndCallback
 	mov r1, r0
 	mov r0, #0x80
-	bl FUN_ov128_0212f150
-	ldr r3, _0212D49C ; =0x0212F96C
+	bl MBi_CheckWmErrcode
+	ldr r3, _0212D49C ; =mbi_life_mp
 	mov r0, r4
 	ldrh r1, [r3]
 	str r1, [sp]
@@ -3109,17 +3109,17 @@ FUN_ov128_0212d444: ; 0x0212D444
 	bl WM_SetLifeTime
 	mov r1, r0
 	mov r0, #0x1d
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_0212D498: .word FUN_ov128_0212d4e4
-_0212D49C: .word ov128_0212F96C
-	arm_func_end FUN_ov128_0212d444
+_0212D498: .word MBi_ParentCallback
+_0212D49C: .word mbi_life_mp
+	arm_func_end MBi_OnInitializeDone
 
-	arm_func_start FUN_ov128_0212d4a0
-FUN_ov128_0212d4a0: ; 0x0212D4A0
+	arm_func_start MBi_EndCommon
+MBi_EndCommon: ; 0x0212D4A0
 	stmfd sp!, {r3, lr}
-	ldr r2, _0212D4E0 ; =0x0212FA50
+	ldr r2, _0212D4E0 ; =WM_DMA_NO
 	mov r12, #0
 	ldr r3, [r2, #0xc]
 	mov r1, r0
@@ -3134,11 +3134,11 @@ FUN_ov128_0212d4a0: ; 0x0212D4A0
 	mov r0, #0x11
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212D4E0: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212d4a0
+_0212D4E0: .word WM_DMA_NO
+	arm_func_end MBi_EndCommon
 
-	arm_func_start FUN_ov128_0212d4e4
-FUN_ov128_0212d4e4: ; 0x0212D4E4
+	arm_func_start MBi_ParentCallback
+MBi_ParentCallback: ; 0x0212D4E4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x1c
 	mov r8, r0
@@ -3146,7 +3146,7 @@ FUN_ov128_0212d4e4: ; 0x0212D4E4
 	mov r5, #1
 	mov r6, #0
 	cmp r1, #0x19
-	ldr r4, _0212DCA8 ; =0x0212FA50
+	ldr r4, _0212DCA8 ; =WM_DMA_NO
 	bgt _0212D55C
 	cmp r1, #0x19
 	bge _0212D628
@@ -3191,7 +3191,7 @@ _0212D578:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D5A0:
-	bl FUN_ov128_0212d444
+	bl MBi_OnInitializeDone
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D5AC:
@@ -3207,11 +3207,11 @@ _0212D5AC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D5D4:
 	ldr r1, [r4, #0xc]
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	bl WM_SetParentParameter
 	mov r1, r0
 	mov r0, #7
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D5F4:
@@ -3220,12 +3220,12 @@ _0212D5F4:
 	ldr r2, [r0, #0x51c]
 	mov r0, #0x15
 	blx r2
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	mov r1, r5
 	bl WM_SetBeaconIndication
 	mov r1, r0
 	mov r0, #0x19
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D628:
@@ -3244,13 +3244,13 @@ _0212D628:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D660:
-	ldr r1, _0212DCB0 ; =0x0212F96C
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r1, _0212DCB0 ; =mbi_life_mp
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	ldr r1, [r1, #8]
 	bl WMi_StartParentEx
 	mov r1, r0
 	mov r0, #8
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D684:
@@ -3266,7 +3266,7 @@ _0212D684:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D6B0:
-	bl FUN_ov128_0212d4a0
+	bl MBi_EndCommon
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D6BC:
@@ -3359,16 +3359,16 @@ _0212D754:
 	str r5, [sp, #0x18]
 	ldrh r2, [r1, #0x1a]
 	ldr r1, [r3, #0x504]
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	add r3, r3, #0x40
 	bl WM_StartMPEx
 	mov r1, r0
 	mov r0, #0xe
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212D82C:
-	bl FUN_ov128_0212d3e4
+	bl MBi_IsSendEnabled
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -3554,13 +3554,13 @@ _0212DA84:
 _0212DACC:
 	strh r6, [r0, #0x2a]
 	ldr r1, [r4, #0xc]
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	add r1, r1, #0x500
 	strh r6, [r1, #0x28]
 	bl WM_End
 	mov r1, r0
 	mov r0, #2
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DAF8:
@@ -3584,12 +3584,12 @@ _0212DAF8:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DB44:
-	ldr r0, _0212DCAC ; =FUN_ov128_0212d4e4
+	ldr r0, _0212DCAC ; =MBi_ParentCallback
 	mov r1, r6
 	bl WM_SetBeaconIndication
 	mov r1, r0
 	mov r0, #0x19
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DB64:
@@ -3607,7 +3607,7 @@ _0212DB64:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DB98:
-	bl FUN_ov128_0212d4a0
+	bl MBi_EndCommon
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212DBA4:
@@ -3685,14 +3685,14 @@ _0212DC8C:
 _0212DCA0:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0212DCA8: .word ov128_0212FA50
-_0212DCAC: .word FUN_ov128_0212d4e4
-_0212DCB0: .word ov128_0212F96C
+_0212DCA8: .word WM_DMA_NO
+_0212DCAC: .word MBi_ParentCallback
+_0212DCB0: .word mbi_life_mp
 _0212DCB4: .word 0x00001964
-	arm_func_end FUN_ov128_0212d4e4
+	arm_func_end MBi_ParentCallback
 
-	arm_func_start FUN_ov128_0212dcb8
-FUN_ov128_0212dcb8: ; 0x0212DCB8
+	arm_func_start MBi_ChildPortCallback
+MBi_ChildPortCallback: ; 0x0212DCB8
 	stmfd sp!, {r3, lr}
 	mov r1, r0
 	ldrh r0, [r1, #2]
@@ -3712,23 +3712,23 @@ _0212DCEC:
 	cmp r0, #0x19
 	ldmfd sp!, {r3, pc}
 _0212DCFC:
-	ldr r2, _0212DD14 ; =0x0212FA50
+	ldr r2, _0212DD14 ; =WM_DMA_NO
 	mov r0, #9
 	ldr r2, [r2, #0xc]
 	ldr r2, [r2, #0x51c]
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212DD14: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212dcb8
+_0212DD14: .word WM_DMA_NO
+	arm_func_end MBi_ChildPortCallback
 
-	arm_func_start FUN_ov128_0212dd18
-FUN_ov128_0212dd18: ; 0x0212DD18
+	arm_func_start MBi_ChildCallback
+MBi_ChildCallback: ; 0x0212DD18
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x28
 	ldrh r2, [r0]
-	ldr r4, _0212E6A4 ; =0x0212FA50
+	ldr r4, _0212E6A4 ; =WM_DMA_NO
 	str r0, [sp, #0x1c]
-	ldr r1, _0212E6A8 ; =0x0212FA80
+	ldr r1, _0212E6A8 ; =mbiScanParam
 	cmp r2, #0x15
 	ldr r11, [r4, #0xc]
 	mov r5, #0
@@ -3785,8 +3785,8 @@ _0212DDEC:
 	ldr r1, [sp, #0x1c]
 	mov r0, #0x15
 	blx r2
-	ldr r3, _0212E6AC ; =0x0212F96C
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
+	ldr r3, _0212E6AC ; =mbi_life_mp
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
 	ldrh r1, [r3]
 	str r1, [sp]
 	ldrh r1, [r3, #4]
@@ -3795,7 +3795,7 @@ _0212DDEC:
 	bl WM_SetLifeTime
 	mov r1, r0
 	mov r0, #0x1d
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212DE2C:
@@ -3816,7 +3816,7 @@ _0212DE50:
 	cmp r0, #0
 	moveq r0, #0xc8
 	streqh r0, [r1, #8]
-	ldr r1, _0212E6A8 ; =0x0212FA80
+	ldr r1, _0212E6A8 ; =mbiScanParam
 	mov r0, #0xff
 	strb r0, [r1, #0xa]
 	strb r0, [r1, #0xb]
@@ -3827,12 +3827,12 @@ _0212DE50:
 	strh r6, [r1, #0x10]
 	strh r5, [r1, #0x12]
 	str r6, [r11, #0x5e4]
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
 	str r6, [r11, #0x5e8]
 	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212DEB8:
@@ -3899,7 +3899,7 @@ _0212DF90:
 	cmp r2, #0
 	beq _0212DFA8
 	mov r0, r4
-	bl FUN_ov128_0212d354
+	bl MBi_CheckMBParent
 	cmp r0, #0
 	bne _0212DFBC
 _0212DFA8:
@@ -3909,11 +3909,11 @@ _0212DFA8:
 	str r0, [sp, #0x20]
 	b _0212E214
 _0212DFBC:
-	ldr r0, _0212E6A4 ; =0x0212FA50
+	ldr r0, _0212E6A4 ; =WM_DMA_NO
 	ldr r0, [r0, #8]
 	cmp r0, #1
 	bne _0212DFFC
-	ldr r0, _0212E6AC ; =0x0212F96C
+	ldr r0, _0212E6AC ; =mbi_life_mp
 	ldr r2, [r4, #0x44]
 	ldr r1, [r0, #0x14]
 	ldr r0, [r0, #0x10]
@@ -4002,7 +4002,7 @@ _0212E0E4:
 	bl DC_InvalidateRange
 	add r1, r11, #0x600
 	mla r2, r6, r7, r1
-	ldr r0, _0212E6A4 ; =0x0212FA50
+	ldr r0, _0212E6A4 ; =WM_DMA_NO
 	mov r7, #1
 	ldrh r0, [r0]
 	mov r1, r4
@@ -4024,7 +4024,7 @@ _0212E154:
 	cmp r6, r1
 	blt _0212E008
 	cmp r6, #0x10
-	ldr r8, _0212E6A4 ; =0x0212FA50
+	ldr r8, _0212E6A4 ; =WM_DMA_NO
 	mov r7, #0x180
 	mov r9, #1
 	bge _0212E214
@@ -4095,18 +4095,18 @@ _0212E254:
 	ldr r0, [r11, #0x5e8]
 	cmp r0, #0
 	beq _0212E284
-	ldr r0, _0212E6A8 ; =0x0212FA80
-	bl FUN_ov128_0212d37c
+	ldr r0, _0212E6A8 ; =mbiScanParam
+	bl mbwmbase_changeScanChannel
 	cmp r0, #0
 	bne _0212E284
-	bl FUN_ov128_0212ed00
+	bl MBi_CommEnd
 _0212E284:
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
-	ldr r1, _0212E6A8 ; =0x0212FA80
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
+	ldr r1, _0212E6A8 ; =mbiScanParam
 	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E2A4:
@@ -4121,18 +4121,18 @@ _0212E2A4:
 	ldr r0, [r11, #0x5e8]
 	cmp r0, #0
 	beq _0212E2E4
-	ldr r0, _0212E6A8 ; =0x0212FA80
-	bl FUN_ov128_0212d37c
+	ldr r0, _0212E6A8 ; =mbiScanParam
+	bl mbwmbase_changeScanChannel
 	cmp r0, #0
 	bne _0212E2E4
-	bl FUN_ov128_0212ed00
+	bl MBi_CommEnd
 _0212E2E4:
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
-	ldr r1, _0212E6A8 ; =0x0212FA80
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
+	ldr r1, _0212E6A8 ; =mbiScanParam
 	bl WM_StartScanEx
 	mov r1, r0
 	mov r0, #0x26
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E304:
@@ -4155,13 +4155,13 @@ _0212E31C:
 _0212E340:
 	ldr r1, [r11, #0x520]
 	mov r2, r5
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
 	mov r3, r6
 	str r2, [sp]
 	bl WM_StartConnectEx
 	mov r1, r0
 	mov r0, #0xc
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E36C:
@@ -4211,7 +4211,7 @@ _0212E3EC:
 	blx r2
 	mov r4, r5
 	add r3, r11, #0x500
-	ldr r1, _0212E6B4 ; =FUN_ov128_0212dcb8
+	ldr r1, _0212E6B4 ; =MBi_ChildPortCallback
 	mov r0, r6
 	mov r2, r4
 	strh r6, [r3, #0x2a]
@@ -4235,12 +4235,12 @@ _0212E3EC:
 	str r6, [sp, #0x18]
 	ldrh r2, [r1, #0x1a]
 	ldr r1, [r11, #0x504]
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
 	add r3, r11, #0x40
 	bl WM_StartMPEx
 	mov r1, r0
 	mov r0, #0xe
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E494:
@@ -4272,7 +4272,7 @@ _0212E4D0:
 _0212E4F0:
 	add r0, r11, #0x500
 	strh r6, [r0, #0x28]
-	bl FUN_ov128_0212d3e4
+	bl MBi_IsSendEnabled
 	cmp r0, #0
 	addeq sp, sp, #0x28
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4339,13 +4339,13 @@ _0212E5D8:
 	add r0, r0, #0x500
 	strh r5, [r0, #0x2a]
 	ldr r1, [r4, #0xc]
-	ldr r0, _0212E6B0 ; =FUN_ov128_0212dd18
+	ldr r0, _0212E6B0 ; =MBi_ChildCallback
 	add r1, r1, #0x500
 	strh r5, [r1, #0x28]
 	bl WM_End
 	mov r1, r0
 	mov r0, #2
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E60C:
@@ -4362,11 +4362,11 @@ _0212E60C:
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E63C:
-	bl FUN_ov128_0212d4a0
+	bl MBi_EndCommon
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212E648:
-	bl FUN_ov128_0212d3e4
+	bl MBi_IsSendEnabled
 	cmp r0, #0
 	addeq sp, sp, #0x28
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4391,15 +4391,15 @@ _0212E68C:
 	blx r2
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212E6A4: .word ov128_0212FA50
-_0212E6A8: .word ov128_0212FA80
-_0212E6AC: .word ov128_0212F96C
-_0212E6B0: .word FUN_ov128_0212dd18
-_0212E6B4: .word FUN_ov128_0212dcb8
-	arm_func_end FUN_ov128_0212dd18
+_0212E6A4: .word WM_DMA_NO
+_0212E6A8: .word mbiScanParam
+_0212E6AC: .word mbi_life_mp
+_0212E6B0: .word MBi_ChildCallback
+_0212E6B4: .word MBi_ChildPortCallback
+	arm_func_end MBi_ChildCallback
 
-	arm_func_start FUN_ov128_0212e6b8
-FUN_ov128_0212e6b8: ; 0x0212E6B8
+	arm_func_start MBi_GetBeaconPeriodDispersion
+MBi_GetBeaconPeriodDispersion: ; 0x0212E6B8
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
 	add r4, sp, #0
@@ -4427,12 +4427,12 @@ _0212E6D4:
 	ldmfd sp!, {r4, pc}
 _0212E718: .word 0x02FFFC3C
 _0212E71C: .word 0xCCCCCCCD
-	arm_func_end FUN_ov128_0212e6b8
+	arm_func_end MBi_GetBeaconPeriodDispersion
 
 	arm_func_start MB_Init
 MB_Init: ; 0x0212E720
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	ldr r4, _0212E8EC ; =0x0212FA50
+	ldr r4, _0212E8EC ; =WM_DMA_NO
 	mov r7, r1
 	ldr r1, [r4, #0x10]
 	mov r5, r2
@@ -4455,7 +4455,7 @@ MB_Init: ; 0x0212E720
 _0212E774:
 	bl OS_DisableInterrupts
 	ldr r3, _0212E8F0 ; =0x0000FFFF
-	ldr r1, _0212E8F4 ; =0x0212F96C
+	ldr r1, _0212E8F4 ; =mbi_life_mp
 	mov r2, #5
 	strh r3, [r1, #4]
 	strh r2, [r1, #6]
@@ -4464,7 +4464,7 @@ _0212E774:
 	strh r2, [r1]
 	mov r6, #1
 	ldr r2, [sp, #0x20]
-	ldr r3, _0212E8EC ; =0x0212FA50
+	ldr r3, _0212E8EC ; =WM_DMA_NO
 	str r6, [r1, #8]
 	strh r2, [r3]
 	str r8, [r3, #0xc]
@@ -4494,7 +4494,7 @@ _0212E7EC:
 _0212E808:
 	add r0, r8, #0x138
 	add r3, r0, #0x400
-	ldr r0, _0212E8F4 ; =0x0212F96C
+	ldr r0, _0212E8F4 ; =mbi_life_mp
 	mov r6, #0
 	ldr r1, [r0, #0xc]
 _0212E81C:
@@ -4536,7 +4536,7 @@ _0212E840:
 	strh r7, [r8, #0x14]
 	str r5, [r8, #8]
 	strh r4, [r8, #0xc]
-	bl FUN_ov128_0212e6b8
+	bl MBi_GetBeaconPeriodDispersion
 	add r0, r0, #0xc8
 	strh r0, [r8, #0x18]
 	mov r0, #0xf
@@ -4551,13 +4551,13 @@ _0212E840:
 	bl OS_RestoreInterrupts
 	mov r0, r7
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0212E8EC: .word ov128_0212FA50
+_0212E8EC: .word WM_DMA_NO
 _0212E8F0: .word 0x0000FFFF
-_0212E8F4: .word ov128_0212F96C
+_0212E8F4: .word mbi_life_mp
 	arm_func_end MB_Init
 
-	arm_func_start FUN_ov128_0212e8f8
-FUN_ov128_0212e8f8: ; 0x0212E8F8
+	arm_func_start MBi_IsCommSizeValid
+MBi_IsCommSizeValid: ; 0x0212E8F8
 	ldr r3, _0212E960 ; =0x000001FE
 	cmp r0, r3
 	bhi _0212E90C
@@ -4590,7 +4590,7 @@ _0212E92C:
 	bx lr
 _0212E960: .word 0x000001FE
 _0212E964: .word 0x000015E0
-	arm_func_end FUN_ov128_0212e8f8
+	arm_func_end MBi_IsCommSizeValid
 
 	arm_func_start MB_SetParentCommParam
 MB_SetParentCommParam: ; 0x0212E968
@@ -4598,7 +4598,7 @@ MB_SetParentCommParam: ; 0x0212E968
 	mov r7, r0
 	mov r6, r1
 	bl OS_DisableInterrupts
-	ldr r8, _0212E9F8 ; =0x0212FA50
+	ldr r8, _0212E9F8 ; =WM_DMA_NO
 	mov r5, r0
 	ldr r1, [r8, #0xc]
 	ldrb r1, [r1, #0x50d]
@@ -4612,7 +4612,7 @@ _0212E99C:
 	mov r0, r7
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov128_0212e8f8
+	bl MBi_IsCommSizeValid
 	cmp r0, #0
 	bne _0212E9C8
 	mov r0, r5
@@ -4632,13 +4632,13 @@ _0212E9C8:
 	bl OS_RestoreInterrupts
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212E9F8: .word ov128_0212FA50
+_0212E9F8: .word WM_DMA_NO
 	arm_func_end MB_SetParentCommParam
 
-	arm_func_start FUN_ov128_0212e9fc
-FUN_ov128_0212e9fc: ; 0x0212E9FC
+	arm_func_start MBi_StartCommon
+MBi_StartCommon: ; 0x0212E9FC
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _0212EAC4 ; =0x0212FA50
+	ldr r5, _0212EAC4 ; =WM_DMA_NO
 	mov r4, #0
 	ldr r1, [r5, #0xc]
 	mov r0, #0x1e
@@ -4653,7 +4653,7 @@ FUN_ov128_0212e9fc: ; 0x0212E9FC
 	ldr r1, [r5, #0xc]
 	add r1, r1, #0x500
 	strh r4, [r1, #0x48]
-	bl FUN_ov128_0212ef64
+	bl MBi_SetMaxScanTime
 	ldr r0, [r5, #0x10]
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0x320]
@@ -4670,7 +4670,7 @@ _0212EA54:
 	cmp r0, #2
 	movne r0, #8
 	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r4, _0212EAC4 ; =0x0212FA50
+	ldr r4, _0212EAC4 ; =WM_DMA_NO
 	ldr r0, [r4, #0xc]
 	ldr r0, [r0, #0x508]
 	bl WM_SetIndCallback
@@ -4686,18 +4686,18 @@ _0212EAA0:
 	ldr r0, [r5, #0xc]
 	mov r1, #1
 	strb r1, [r0, #0x50d]
-	bl FUN_ov128_0212d444
+	bl MBi_OnInitializeDone
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212EAC4: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212e9fc
+_0212EAC4: .word WM_DMA_NO
+	arm_func_end MBi_StartCommon
 
-	arm_func_start FUN_ov128_0212eac8
-FUN_ov128_0212eac8: ; 0x0212EAC8
+	arm_func_start MBi_StartParentCore
+MBi_StartParentCore: ; 0x0212EAC8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
-	ldr r4, _0212EC84 ; =0x0212FA50
+	ldr r4, _0212EC84 ; =WM_DMA_NO
 	mov r6, #0
 	ldr r1, [r4, #0xc]
 	mov r7, r0
@@ -4744,7 +4744,7 @@ _0212EB60:
 	strb r1, [r0, #0x526]
 	cmp r6, #0xf
 	blt _0212EB60
-	ldr r4, _0212EC84 ; =0x0212FA50
+	ldr r4, _0212EC84 ; =WM_DMA_NO
 	ldr r2, _0212EC8C ; =0x00005D40
 	ldr r1, [r4, #0x10]
 	mov r0, r5
@@ -4766,7 +4766,7 @@ _0212EB60:
 	strh r5, [r0, #0x24]
 	ldr r0, [r4, #0xc]
 	ldr r2, _0212EC90 ; =MBi_CommParentCallback
-	ldr r1, _0212EC94 ; =FUN_ov128_0212d4e4
+	ldr r1, _0212EC94 ; =MBi_ParentCallback
 	str r2, [r0, #0x51c]
 	ldr r0, [r4, #0xc]
 	str r1, [r0, #0x508]
@@ -4793,8 +4793,8 @@ _0212EB60:
 	bic r1, r1, #0x1f
 	mov r1, r1, lsl #1
 	strh r1, [r0, #0x1a]
-	bl FUN_ov128_0212cd94
-	bl FUN_ov128_0212e9fc
+	bl MB_InitSendGameInfoStatus
+	bl MBi_StartCommon
 	mov r6, r0
 	mov r0, r7
 	bl OS_RestoreInterrupts
@@ -4806,64 +4806,64 @@ _0212EB60:
 	str r0, [r1, #0x4c8]
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212EC84: .word ov128_0212FA50
+_0212EC84: .word WM_DMA_NO
 _0212EC88: .word 0x000069C0
 _0212EC8C: .word 0x00005D40
 _0212EC90: .word MBi_CommParentCallback
-_0212EC94: .word FUN_ov128_0212d4e4
-	arm_func_end FUN_ov128_0212eac8
+_0212EC94: .word MBi_ParentCallback
+	arm_func_end MBi_StartParentCore
 
 	arm_func_start MB_StartParentFromIdle
 MB_StartParentFromIdle: ; 0x0212EC98
-	ldr r1, _0212ECB4 ; =0x0212FA50
-	ldr r12, _0212ECB8 ; =FUN_ov128_0212eac8
+	ldr r1, _0212ECB4 ; =WM_DMA_NO
+	ldr r12, _0212ECB8 ; =MBi_StartParentCore
 	ldr r1, [r1, #0x10]
 	mov r2, #1
 	add r1, r1, #0x1000
 	str r2, [r1, #0x320]
 	bx r12
-_0212ECB4: .word ov128_0212FA50
-_0212ECB8: .word FUN_ov128_0212eac8
+_0212ECB4: .word WM_DMA_NO
+_0212ECB8: .word MBi_StartParentCore
 	arm_func_end MB_StartParentFromIdle
 
-	arm_func_start FUN_ov128_0212ecbc
-FUN_ov128_0212ecbc: ; 0x0212ECBC
+	arm_func_start MBi_CallReset
+MBi_CallReset: ; 0x0212ECBC
 	stmfd sp!, {r4, lr}
-	ldr r0, _0212ECF0 ; =0x0212FA50
+	ldr r0, _0212ECF0 ; =WM_DMA_NO
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #0x508]
 	bl WM_Reset
 	mov r4, r0
 	mov r1, r4
 	mov r0, #1
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	cmp r4, #2
 	moveq r4, #0
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0212ECF0: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212ecbc
+_0212ECF0: .word WM_DMA_NO
+	arm_func_end MBi_CallReset
 
-	arm_func_start FUN_ov128_0212ecf4
-FUN_ov128_0212ecf4: ; 0x0212ECF4
-	ldr r12, _0212ECFC ; =FUN_ov128_0212ecbc
+	arm_func_start MBi_OnReset
+MBi_OnReset: ; 0x0212ECF4
+	ldr r12, _0212ECFC ; =MBi_CallReset
 	bx r12
-_0212ECFC: .word FUN_ov128_0212ecbc
-	arm_func_end FUN_ov128_0212ecf4
+_0212ECFC: .word MBi_CallReset
+	arm_func_end MBi_OnReset
 
-	arm_func_start FUN_ov128_0212ed00
-FUN_ov128_0212ed00: ; 0x0212ED00
+	arm_func_start MBi_CommEnd
+MBi_CommEnd: ; 0x0212ED00
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, #1
 	bl OS_DisableInterrupts
-	ldr r1, _0212ED88 ; =0x0212FA50
+	ldr r1, _0212ED88 ; =WM_DMA_NO
 	mov r5, r0
 	ldr r2, [r1, #0xc]
 	ldrb r0, [r2, #0x50d]
 	cmp r0, #0
 	bne _0212ED30
 	mov r0, #0
-	bl FUN_ov128_0212d4a0
+	bl MBi_EndCommon
 	b _0212ED78
 _0212ED30:
 	add r0, r2, #0x500
@@ -4875,30 +4875,30 @@ _0212ED30:
 	ldr r0, [r1, #0xc]
 	add r0, r0, #0x500
 	strh r4, [r0, #0x26]
-	bl FUN_ov128_0212f42c
+	bl MBi_IsTaskAvailable
 	cmp r0, #0
 	beq _0212ED70
-	ldr r0, _0212ED8C ; =FUN_ov128_0212ecf4
-	bl FUN_ov128_0212f5d8
+	ldr r0, _0212ED8C ; =MBi_OnReset
+	bl MBi_EndTaskThread
 	mov r4, r6
 	b _0212ED78
 _0212ED70:
-	bl FUN_ov128_0212ecbc
+	bl MBi_CallReset
 	mov r4, r0
 _0212ED78:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212ED88: .word ov128_0212FA50
-_0212ED8C: .word FUN_ov128_0212ecf4
-	arm_func_end FUN_ov128_0212ed00
+_0212ED88: .word WM_DMA_NO
+_0212ED8C: .word MBi_OnReset
+	arm_func_end MBi_CommEnd
 
 	arm_func_start MB_EndToIdle
 MB_EndToIdle: ; 0x0212ED90
 	stmfd sp!, {r4, lr}
 	bl OS_DisableInterrupts
-	ldr r1, _0212EDC8 ; =0x0212FA50
+	ldr r1, _0212EDC8 ; =WM_DMA_NO
 	mov r4, r0
 	ldr r0, [r1, #0x10]
 	add r0, r0, #0x1000
@@ -4907,25 +4907,25 @@ MB_EndToIdle: ; 0x0212ED90
 	bne _0212EDB8
 	bl OS_Terminate
 _0212EDB8:
-	bl FUN_ov128_0212ed00
+	bl MBi_CommEnd
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, pc}
-_0212EDC8: .word ov128_0212FA50
+_0212EDC8: .word WM_DMA_NO
 	arm_func_end MB_EndToIdle
 
 	arm_func_start MB_DisconnectChild
 MB_DisconnectChild: ; 0x0212EDCC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
-	ldr r0, _0212EF5C ; =FUN_ov128_0212d4e4
+	ldr r0, _0212EF5C ; =MBi_ParentCallback
 	mov r1, r8
 	bl WM_Disconnect
 	cmp r8, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	cmp r8, #0x10
 	ldmhsfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r4, _0212EF60 ; =0x0212FA50
+	ldr r4, _0212EF60 ; =WM_DMA_NO
 	mov r6, #0
 	ldr r0, [r4, #0x10]
 	sub r7, r8, #1
@@ -4992,7 +4992,7 @@ MB_DisconnectChild: ; 0x0212EDCC
 	and r1, r1, r2, lsr #16
 	strh r1, [r0, #0x4c]
 _0212EEF8:
-	ldr r1, _0212EF60 ; =0x0212FA50
+	ldr r1, _0212EF60 ; =WM_DMA_NO
 	mov r4, #1
 	ldr r2, [r1, #0x10]
 	add r0, r2, #0x1500
@@ -5011,27 +5011,27 @@ _0212EEF8:
 	and r0, r2, r0, lsr #16
 	strh r0, [r1, #0x36]
 _0212EF40:
-	ldr r0, _0212EF60 ; =0x0212FA50
+	ldr r0, _0212EF60 ; =WM_DMA_NO
 	mov r1, #0
 	ldr r0, [r0, #0x10]
 	add r0, r0, r7, lsl #2
 	add r0, r0, #0x1000
 	str r1, [r0, #0x4e8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0212EF5C: .word FUN_ov128_0212d4e4
-_0212EF60: .word ov128_0212FA50
+_0212EF5C: .word MBi_ParentCallback
+_0212EF60: .word WM_DMA_NO
 	arm_func_end MB_DisconnectChild
 
-	arm_func_start FUN_ov128_0212ef64
-FUN_ov128_0212ef64: ; 0x0212EF64
-	ldr r1, _0212EF70 ; =0x0212FA80
+	arm_func_start MBi_SetMaxScanTime
+MBi_SetMaxScanTime: ; 0x0212EF64
+	ldr r1, _0212EF70 ; =mbiScanParam
 	strh r0, [r1, #8]
 	bx lr
-_0212EF70: .word ov128_0212FA80
-	arm_func_end FUN_ov128_0212ef64
+_0212EF70: .word mbiScanParam
+	arm_func_end MBi_SetMaxScanTime
 
-	arm_func_start FUN_ov128_0212ef74
-FUN_ov128_0212ef74: ; 0x0212EF74
+	arm_func_start MBi_SetMPData
+MBi_SetMPData: ; 0x0212EF74
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0xc
 	ldrh r4, [sp, #0x18]
@@ -5047,17 +5047,17 @@ FUN_ov128_0212ef74: ; 0x0212EF74
 	mov r4, r0
 	mov r1, r4
 	mov r0, #0xf
-	bl FUN_ov128_0212f150
+	bl MBi_CheckWmErrcode
 	mov r0, r4
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_ov128_0212ef74
+	arm_func_end MBi_SetMPData
 
-	arm_func_start FUN_ov128_0212efc0
-FUN_ov128_0212efc0: ; 0x0212EFC0
+	arm_func_start MBi_SendMP
+MBi_SendMP: ; 0x0212EFC0
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
-	ldr r5, _0212F0A0 ; =0x0212FA50
+	ldr r5, _0212F0A0 ; =WM_DMA_NO
 	mov r12, r1, lsl #0x10
 	ldr r3, [r5, #0xc]
 	mov lr, r2, lsl #0x10
@@ -5087,9 +5087,9 @@ _0212F01C:
 	mov r12, r0, lsl #0x10
 	ldr r0, [r3, #0x508]
 	mov r3, r12, lsr #0x10
-	bl FUN_ov128_0212ef74
+	bl MBi_SetMPData
 	cmp r0, #2
-	ldreq r1, _0212F0A0 ; =0x0212FA50
+	ldreq r1, _0212F0A0 ; =WM_DMA_NO
 	moveq r2, #1
 	ldreq r1, [r1, #0xc]
 	add sp, sp, #4
@@ -5098,10 +5098,10 @@ _0212F01C:
 	moveq r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0212F064:
-	ldr r0, _0212F0A4 ; =FUN_ov128_0212dd18
+	ldr r0, _0212F0A4 ; =MBi_ChildCallback
 	mov r3, #0
 	str r6, [sp]
-	bl FUN_ov128_0212ef74
+	bl MBi_SetMPData
 	cmp r0, #2
 	ldreq r1, [r5, #0xc]
 	moveq r2, #1
@@ -5114,31 +5114,31 @@ _0212F094:
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0212F0A0: .word ov128_0212FA50
-_0212F0A4: .word FUN_ov128_0212dd18
-	arm_func_end FUN_ov128_0212efc0
+_0212F0A0: .word WM_DMA_NO
+_0212F0A4: .word MBi_ChildCallback
+	arm_func_end MBi_SendMP
 
 	arm_func_start MBi_GetGgid
 MBi_GetGgid: ; 0x0212F0A8
-	ldr r0, _0212F0B8 ; =0x0212FA50
+	ldr r0, _0212F0B8 ; =WM_DMA_NO
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0, #8]
 	bx lr
-_0212F0B8: .word ov128_0212FA50
+_0212F0B8: .word WM_DMA_NO
 	arm_func_end MBi_GetGgid
 
 	arm_func_start MBi_GetTgid
 MBi_GetTgid: ; 0x0212F0BC
-	ldr r0, _0212F0CC ; =0x0212FA50
+	ldr r0, _0212F0CC ; =WM_DMA_NO
 	ldr r0, [r0, #0xc]
 	ldrh r0, [r0, #0xc]
 	bx lr
-_0212F0CC: .word ov128_0212FA50
+_0212F0CC: .word WM_DMA_NO
 	arm_func_end MBi_GetTgid
 
 	arm_func_start MBi_GetAttribute
 MBi_GetAttribute: ; 0x0212F0D0
-	ldr r0, _0212F12C ; =0x0212FA50
+	ldr r0, _0212F12C ; =WM_DMA_NO
 	mov r2, #2
 	ldr r1, [r0, #0xc]
 	mov r3, #1
@@ -5161,28 +5161,28 @@ MBi_GetAttribute: ; 0x0212F0D0
 	orr r0, r1, r0
 	and r0, r0, #0xff
 	bx lr
-_0212F12C: .word ov128_0212FA50
+_0212F12C: .word WM_DMA_NO
 	arm_func_end MBi_GetAttribute
 
-	arm_func_start FUN_ov128_0212f130
-FUN_ov128_0212f130: ; 0x0212F130
-	ldr r0, _0212F14C ; =0x0212FA50
+	arm_func_start MBi_IsStarted
+MBi_IsStarted: ; 0x0212F130
+	ldr r0, _0212F14C ; =WM_DMA_NO
 	ldr r0, [r0, #0xc]
 	ldrb r0, [r0, #0x50d]
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-_0212F14C: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212f130
+_0212F14C: .word WM_DMA_NO
+	arm_func_end MBi_IsStarted
 
-	arm_func_start FUN_ov128_0212f150
-FUN_ov128_0212f150: ; 0x0212F150
+	arm_func_start MBi_CheckWmErrcode
+MBi_CheckWmErrcode: ; 0x0212F150
 	stmfd sp!, {r3, lr}
 	cmp r1, #2
 	cmpne r1, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r2, _0212F184 ; =0x0212FA50
+	ldr r2, _0212F184 ; =WM_DMA_NO
 	strh r0, [sp]
 	ldr r0, [r2, #0xc]
 	strh r1, [sp, #2]
@@ -5191,8 +5191,8 @@ FUN_ov128_0212f150: ; 0x0212F150
 	mov r0, #0xff
 	blx r2
 	ldmfd sp!, {r3, pc}
-_0212F184: .word ov128_0212FA50
-	arm_func_end FUN_ov128_0212f150
+_0212F184: .word WM_DMA_NO
+	arm_func_end MBi_CheckWmErrcode
 
 	arm_func_start MBi_InitCache
 MBi_InitCache: ; 0x0212F188
@@ -5282,8 +5282,8 @@ _0212F28C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end MBi_ReadFromCache
 
-	arm_func_start FUN_ov128_0212f29c
-FUN_ov128_0212f29c: ; 0x0212F29C
+	arm_func_start MBi_TaskThread
+MBi_TaskThread: ; 0x0212F29C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 _0212F2A4:
@@ -5360,29 +5360,29 @@ _0212F38C:
 _0212F3A4:
 	bl OS_ExitThread
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov128_0212f29c
+	arm_func_end MBi_TaskThread
 
-	arm_func_start FUN_ov128_0212f3ac
-FUN_ov128_0212f3ac: ; 0x0212F3AC
+	arm_func_start MBi_InitTaskThread
+MBi_InitTaskThread: ; 0x0212F3AC
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	mov r5, r0
 	mov r6, r1
 	bl OS_DisableInterrupts
-	ldr r1, _0212F424 ; =0x0212FAC4
+	ldr r1, _0212F424 ; =mbi_task_work
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r0, #0
 	bne _0212F414
 	add r0, r5, #0xc4
 	str r5, [r1]
-	bl FUN_ov128_0212f448
+	bl MBi_InitTaskInfo
 	sub r0, r6, #0xe4
 	mov lr, #0
 	bic r12, r0, #3
 	add r3, r5, #0xe4
 	str lr, [r5, #0xc0]
-	ldr r1, _0212F428 ; =FUN_ov128_0212f29c
+	ldr r1, _0212F428 ; =MBi_TaskThread
 	mov r0, r5
 	mov r2, r5
 	add r3, r3, r12
@@ -5395,29 +5395,29 @@ _0212F414:
 	bl OS_RestoreInterrupts
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212F424: .word ov128_0212FAC4
-_0212F428: .word FUN_ov128_0212f29c
-	arm_func_end FUN_ov128_0212f3ac
+_0212F424: .word mbi_task_work
+_0212F428: .word MBi_TaskThread
+	arm_func_end MBi_InitTaskThread
 
-	arm_func_start FUN_ov128_0212f42c
-FUN_ov128_0212f42c: ; 0x0212F42C
-	ldr r0, _0212F444 ; =0x0212FAC4
+	arm_func_start MBi_IsTaskAvailable
+MBi_IsTaskAvailable: ; 0x0212F42C
+	ldr r0, _0212F444 ; =mbi_task_work
 	ldr r0, [r0]
 	cmp r0, #0
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-_0212F444: .word ov128_0212FAC4
-	arm_func_end FUN_ov128_0212f42c
+_0212F444: .word mbi_task_work
+	arm_func_end MBi_IsTaskAvailable
 
-	arm_func_start FUN_ov128_0212f448
-FUN_ov128_0212f448: ; 0x0212F448
+	arm_func_start MBi_InitTaskInfo
+MBi_InitTaskInfo: ; 0x0212F448
 	ldr r12, _0212F458 ; =MI_CpuFill8
 	mov r1, #0
 	mov r2, #0x20
 	bx r12
 _0212F458: .word MI_CpuFill8
-	arm_func_end FUN_ov128_0212f448
+	arm_func_end MBi_InitTaskInfo
 
 	arm_func_start MBi_IsTaskBusy
 MBi_IsTaskBusy: ; 0x0212F45C
@@ -5432,13 +5432,13 @@ MBi_IsTaskBusy: ; 0x0212F45C
 	arm_func_start MBi_SetTask
 MBi_SetTask: ; 0x0212F474
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r4, _0212F5D4 ; =0x0212FAC4
+	ldr r4, _0212F5D4 ; =mbi_task_work
 	mov r8, r0
 	ldr r4, [r4]
 	mov r7, r1
 	mov r5, r2
 	mov r6, r3
-	bl FUN_ov128_0212f42c
+	bl MBi_IsTaskAvailable
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	ldr r0, [r8, #4]
@@ -5482,7 +5482,7 @@ _0212F4F8:
 	cmp r1, #0
 	bne _0212F550
 	cmp r8, r0
-	ldreq r0, _0212F5D4 ; =0x0212FAC4
+	ldreq r0, _0212F5D4 ; =mbi_task_work
 	moveq r1, #0
 	streq r1, [r0]
 	mov r0, r4
@@ -5502,7 +5502,7 @@ _0212F568:
 	cmp r0, #0
 	bne _0212F568
 _0212F578:
-	ldr r0, _0212F5D4 ; =0x0212FAC4
+	ldr r0, _0212F5D4 ; =mbi_task_work
 	str r8, [r1]
 	mov r1, #0
 	str r1, [r0]
@@ -5530,19 +5530,19 @@ _0212F5C8:
 	mov r0, r5
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0212F5D4: .word ov128_0212FAC4
+_0212F5D4: .word mbi_task_work
 	arm_func_end MBi_SetTask
 
-	arm_func_start FUN_ov128_0212f5d8
-FUN_ov128_0212f5d8: ; 0x0212F5D8
+	arm_func_start MBi_EndTaskThread
+MBi_EndTaskThread: ; 0x0212F5D8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl OS_DisableInterrupts
 	mov r4, r0
-	bl FUN_ov128_0212f42c
+	bl MBi_IsTaskAvailable
 	cmp r0, #0
 	beq _0212F610
-	ldr r0, _0212F61C ; =0x0212FAC4
+	ldr r0, _0212F61C ; =mbi_task_work
 	mov r1, #0
 	ldr r0, [r0]
 	mov r2, r5
@@ -5553,8 +5553,8 @@ _0212F610:
 	mov r0, r4
 	bl OS_RestoreInterrupts
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212F61C: .word ov128_0212FAC4
-	arm_func_end FUN_ov128_0212f5d8
+_0212F61C: .word mbi_task_work
+	arm_func_end MBi_EndTaskThread
 
 	arm_func_start MBi_SetChildMPMaxSize
 MBi_SetChildMPMaxSize: ; 0x0212F620
@@ -5785,8 +5785,8 @@ _0212F910: .word req_data_piece_idx
 	arm_func_end IsGetAllRequestData
 
 	.rodata
-	.global ov128_0212F914
-ov128_0212F914:
+	.global MBi_defaultLoadSegList
+MBi_defaultLoadSegList:
 	.byte 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
 	.global mbi_seg_header_twl
 mbi_seg_header_twl:
@@ -5807,8 +5807,8 @@ mbi_seg_header:
 	.global ov128_0212F968
 ov128_0212F968:
 	.byte 0x72, 0x6F, 0x6D, 0x00
-	.global ov128_0212F96C
-ov128_0212F96C:
+	.global mbi_life_mp
+mbi_life_mp:
 	.byte 0x28, 0x00, 0x28, 0x00
 	.byte 0xFF, 0xFF, 0x05, 0x00, 0x01, 0x00, 0x00, 0x00
 	.word ov128_0212F984
@@ -5823,14 +5823,14 @@ ov128_0212F984:
 	.global any_recv_bitmap
 any_recv_bitmap:
 	.space 0x04
-	.global ov128_0212F9A4
-ov128_0212F9A4:
+	.global mb_update
+mb_update:
 	.space 0x04
-	.global ov128_0212F9A8
-ov128_0212F9A8:
+	.global mbgameinfo_sUnlockFunc
+mbgameinfo_sUnlockFunc:
 	.space 0x38
-	.global ov128_0212F9E0
-ov128_0212F9E0:
+	.global mbgameinfo_bsendBuff
+mbgameinfo_bsendBuff:
 	.space 0x08
 	.global ov128_0212F9E8
 ov128_0212F9E8:
@@ -5844,17 +5844,17 @@ ov128_0212F9F0:
 	.global ov128_0212FA48
 ov128_0212FA48:
 	.space 0x08
-	.global ov128_0212FA50
-ov128_0212FA50:
+	.global WM_DMA_NO
+WM_DMA_NO:
 	.space 0x10
 	.global mbc
 mbc:
 	.space 0x20
-	.global ov128_0212FA80
-ov128_0212FA80:
+	.global mbiScanParam
+mbiScanParam:
 	.space 0x44
-	.global ov128_0212FAC4
-ov128_0212FAC4:
+	.global mbi_task_work
+mbi_task_work:
 	.space 0x04
 	.global req_data_piece_idx
 req_data_piece_idx:

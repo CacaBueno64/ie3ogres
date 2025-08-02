@@ -1,3 +1,5 @@
+.public ov15_020E3FF0
+.public ov15_020E3FE8
 .public AOSSi_Alloc
 .public AOSSi_Free
 .public aoss_SecurityType

@@ -2801,7 +2801,7 @@ _02002A18: ; jump table
 	b _02002A78 ; case 5
 	b _02002A80 ; case 6
 _02002A34:
-	ldr r0, _02002A90 ; =0x021604C0
+	ldr r0, _02002A90 ; =SDK_MAIN_ARENA_LO
 	ldmfd sp!, {r3, pc}
 _02002A3C:
 	ldr r0, _02002A94 ; =OSi_Initialized
@@ -2830,7 +2830,7 @@ _02002A80:
 _02002A88:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_02002A90: .word 0x021604C0
+_02002A90: .word SDK_MAIN_ARENA_LO
 _02002A94: .word OSi_Initialized
 _02002A98: .word 0x023E0000
 _02002A9C: .word 0x01FFBD20

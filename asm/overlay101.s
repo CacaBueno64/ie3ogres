@@ -233,42 +233,36 @@ ov101_021250A0:
 	.word 0
 	.word 0
 	.word 0
-
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-
+	.global ov101_021250C0
+ov101_021250C0:
 	.word FUN_ov101_0212502c
 	.word FUN_ov101_02125018
 	.word FUN_0202b2a8
 	.word FUN_0202b2a4
-
 	.word FUN_ov101_02124f24
 	.word FUN_0202b208
 	.word FUN_ov101_02124f50
 	.word FUN_ov101_02124f8c
-
 	.word FUN_ov101_02124ff8
 	.word FUN_0202b204
 	.word FUN_0202b200
 	.word FUN_0202b1f8
-
 	.word FUN_0202b1f0
 	.word FUN_0202b1e8
 	.word FUN_0202b1e0
 	.word FUN_0202b294
-
 	.word FUN_0202b284
 	.word FUN_0202b278
 	.word FUN_0202b26c
 	.word FUN_0202b25c
-
 	.word FUN_0202b24c
 	.word FUN_0202b23c
 	.word FUN_0202b230
 	.word FUN_0202b224
-
 	.word FUN_0202b1d8
 	.word FUN_0202b1d0
 	.word FUN_0202b1c8

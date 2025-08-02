@@ -42732,7 +42732,7 @@ FUN_ov15_020e0914: ; 0x020E0914
 	stmneia r0, {r1, r5}
 	str r0, [r4, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020E0964: .word 0x0211F3D8
+_020E0964: .word ov61_0211F3D8
 	arm_func_end FUN_ov15_020e0914
 
 	arm_func_start FUN_ov15_020e0968

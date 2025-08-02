@@ -1041,7 +1041,7 @@ FUN_ov17_020f5298: ; 0x020F5298
 	mov r1, #4
 	bl DWCi_HEAPlAllocEx
 	ldr r2, _020F52FC ; =0x021161B4
-	ldr r1, _020F5300 ; =0x0200585C
+	ldr r1, _020F5300 ; =GX_LoadBG1Char
 	str r0, [r2]
 	ldr r0, _020F5304 ; =0x02112AC4
 	bl DWCi_CMNlLoadResource
@@ -1064,7 +1064,7 @@ _020F52E8:
 	bl DWCi_CMNlLoadResource
 	ldmfd sp!, {r3, pc}
 _020F52FC: .word ov17_021161B4
-_020F5300: .word 0x0200585C
+_020F5300: .word GX_LoadBG1Char
 _020F5304: .word ov17_02112AC4
 _020F5308: .word ov17_02112A74
 _020F530C: .word GX_LoadBG1Scr
@@ -5900,28 +5900,28 @@ _020F93D0:
 	mov r0, #0
 	bl DWCi_CEINlRead
 	ldr r0, _020F9504 ; =0x02112E00
-	ldr r1, _020F9508 ; =0x020058CC
+	ldr r1, _020F9508 ; =GXS_LoadBG1Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F950C ; =0x02112E14
-	ldr r1, _020F9510 ; =0x02005160
+	ldr r1, _020F9510 ; =GXS_LoadBGPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F9514 ; =0x02112E28
-	ldr r1, _020F9518 ; =0x02005398
+	ldr r1, _020F9518 ; =GXS_LoadOBJ
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F951C ; =0x02112E40
-	ldr r1, _020F9520 ; =0x02005218
+	ldr r1, _020F9520 ; =GXS_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F9524 ; =0x02112E58
-	ldr r1, _020F9528 ; =0x0200593C
+	ldr r1, _020F9528 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F952C ; =0x02112E70
 	ldr r1, _020F9530 ; =GX_LoadBGPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F9534 ; =0x02112E88
-	ldr r1, _020F9538 ; =0x02005334
+	ldr r1, _020F9538 ; =GX_LoadOBJ
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F953C ; =0x02112EA0
-	ldr r1, _020F9540 ; =0x020051BC
+	ldr r1, _020F9540 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	bl DWCi_Entry
 	cmp r0, #0
@@ -5968,21 +5968,21 @@ _020F94F8: .word DWCiMsgCmn
 _020F94FC: .word ov17_02112DD8
 _020F9500: .word ov17_02112DEC
 _020F9504: .word ov17_02112E00
-_020F9508: .word 0x020058CC
+_020F9508: .word GXS_LoadBG1Char
 _020F950C: .word ov17_02112E14
-_020F9510: .word 0x02005160
+_020F9510: .word GXS_LoadBGPltt
 _020F9514: .word ov17_02112E28
-_020F9518: .word 0x02005398
+_020F9518: .word GXS_LoadOBJ
 _020F951C: .word ov17_02112E40
-_020F9520: .word 0x02005218
+_020F9520: .word GXS_LoadOBJPltt
 _020F9524: .word ov17_02112E58
-_020F9528: .word 0x0200593C
+_020F9528: .word GX_LoadBG2Char
 _020F952C: .word ov17_02112E70
 _020F9530: .word GX_LoadBGPltt
 _020F9534: .word ov17_02112E88
-_020F9538: .word 0x02005334
+_020F9538: .word GX_LoadOBJ
 _020F953C: .word ov17_02112EA0
-_020F9540: .word 0x020051BC
+_020F9540: .word GX_LoadOBJPltt
 _020F9544: .word ov17_02112EB8
 _020F9548: .word ov17_02112ECC
 _020F954C: .word GXS_LoadBG1Scr
@@ -6099,7 +6099,7 @@ _020F96AC:
 	strb r1, [r3], #2
 	bne _020F96AC
 	ldr r0, _020F9758 ; =0x02112EE0
-	ldr r1, _020F975C ; =0x0200593C
+	ldr r1, _020F975C ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020F9760 ; =0x02112EF8
 	ldr r1, _020F9764 ; =GX_LoadBGPltt
@@ -6136,7 +6136,7 @@ _020F96AC:
 	ldmfd sp!, {r3, pc}
 _020F9754: .word ov17_02112114
 _020F9758: .word ov17_02112EE0
-_020F975C: .word 0x0200593C
+_020F975C: .word GX_LoadBG2Char
 _020F9760: .word ov17_02112EF8
 _020F9764: .word GX_LoadBGPltt
 _020F9768: .word ov17_02112F10
@@ -7433,7 +7433,7 @@ _020FA7CC:
 	bne _020FA7CC
 	ldrb r2, [r4]
 	ldr r0, _020FA90C ; =0x02112FA8
-	ldr r1, _020FA910 ; =0x0200593C
+	ldr r1, _020FA910 ; =GX_LoadBG2Char
 	strb r2, [r3]
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FA914 ; =0x02112FC0
@@ -7508,7 +7508,7 @@ _020FA88C:
 _020FA904: .word ov17_02112164
 _020FA908: .word ov17_0211217C
 _020FA90C: .word ov17_02112FA8
-_020FA910: .word 0x0200593C
+_020FA910: .word GX_LoadBG2Char
 _020FA914: .word ov17_02112FC0
 _020FA918: .word GX_LoadBG2Scr
 _020FA91C: .word ov17_02116208
@@ -9851,7 +9851,7 @@ _020FC5F4: .word FUN_ov17_020fc6a0
 FUN_ov17_020fc5f8: ; 0x020FC5F8
 	stmfd sp!, {r3, lr}
 	ldr r0, _020FC680 ; =0x02113050
-	ldr r1, _020FC684 ; =0x0200593C
+	ldr r1, _020FC684 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FC688 ; =0x02113068
 	ldr r1, _020FC68C ; =GX_LoadBGPltt
@@ -9884,7 +9884,7 @@ FUN_ov17_020fc5f8: ; 0x020FC5F8
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _020FC680: .word ov17_02113050
-_020FC684: .word 0x0200593C
+_020FC684: .word GX_LoadBG2Char
 _020FC688: .word ov17_02113068
 _020FC68C: .word GX_LoadBGPltt
 _020FC690: .word ov17_02113080
@@ -10512,7 +10512,7 @@ _020FCE70:
 	strb r1, [r3], #2
 	bne _020FCE70
 	ldr r0, _020FCF64 ; =0x021130A8
-	ldr r1, _020FCF68 ; =0x0200569C
+	ldr r1, _020FCF68 ; =GX_LoadBG3Scr
 	bl DWCi_CMNlLoadResource
 	add r0, sp, #0x16
 	bl DWCi_Char
@@ -10567,7 +10567,7 @@ _020FCE70:
 _020FCF5C: .word ov17_02112208
 _020FCF60: .word ov17_021121F0
 _020FCF64: .word ov17_021130A8
-_020FCF68: .word 0x0200569C
+_020FCF68: .word GX_LoadBG3Scr
 _020FCF6C: .word ov17_02116238
 _020FCF70: .word 0x04001008
 _020FCF74: .word 0x0400000A
@@ -12024,10 +12024,10 @@ _020FE338: .word FUN_ov17_020fe3f8
 FUN_ov17_020fe33c: ; 0x020FE33C
 	stmfd sp!, {r3, lr}
 	ldr r0, _020FE3D0 ; =0x021130C8
-	ldr r1, _020FE3D4 ; =0x020051BC
+	ldr r1, _020FE3D4 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FE3D8 ; =0x021130DC
-	ldr r1, _020FE3DC ; =0x0200593C
+	ldr r1, _020FE3DC ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FE3E0 ; =0x021130F4
 	ldr r1, _020FE3E4 ; =GX_LoadBGPltt
@@ -12060,9 +12060,9 @@ FUN_ov17_020fe33c: ; 0x020FE33C
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _020FE3D0: .word ov17_021130C8
-_020FE3D4: .word 0x020051BC
+_020FE3D4: .word GX_LoadOBJPltt
 _020FE3D8: .word ov17_021130DC
-_020FE3DC: .word 0x0200593C
+_020FE3DC: .word GX_LoadBG2Char
 _020FE3E0: .word ov17_021130F4
 _020FE3E4: .word GX_LoadBGPltt
 _020FE3E8: .word ov17_0211310C
@@ -12377,7 +12377,7 @@ FUN_ov17_020fe7c4: ; 0x020FE7C4
 	mov r0, r6
 	bl DWCi_FNTlDeleteBgLcd
 	ldr r0, _020FE8AC ; =0x02113120
-	ldr r1, _020FE8B0 ; =0x020051BC
+	ldr r1, _020FE8B0 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	mov r5, #1
 	mov r0, r5
@@ -12428,7 +12428,7 @@ _020FE894:
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FE8A8: .word ov17_02116240
 _020FE8AC: .word ov17_02113120
-_020FE8B0: .word 0x020051BC
+_020FE8B0: .word GX_LoadOBJPltt
 _020FE8B4: .word FUN_ov17_020fff90
 _020FE8B8: .word FUN_ov17_020fcd68
 _020FE8BC: .word FUN_ov17_021054a0
@@ -12860,10 +12860,10 @@ _020FEE80: .word FUN_ov17_020fef40
 FUN_ov17_020fee84: ; 0x020FEE84
 	stmfd sp!, {r3, lr}
 	ldr r0, _020FEF18 ; =0x02113164
-	ldr r1, _020FEF1C ; =0x020051BC
+	ldr r1, _020FEF1C ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FEF20 ; =0x02113178
-	ldr r1, _020FEF24 ; =0x0200593C
+	ldr r1, _020FEF24 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _020FEF28 ; =0x02113190
 	ldr r1, _020FEF2C ; =GX_LoadBGPltt
@@ -12896,9 +12896,9 @@ FUN_ov17_020fee84: ; 0x020FEE84
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _020FEF18: .word ov17_02113164
-_020FEF1C: .word 0x020051BC
+_020FEF1C: .word GX_LoadOBJPltt
 _020FEF20: .word ov17_02113178
-_020FEF24: .word 0x0200593C
+_020FEF24: .word GX_LoadBG2Char
 _020FEF28: .word ov17_02113190
 _020FEF2C: .word GX_LoadBGPltt
 _020FEF30: .word ov17_021131A8
@@ -13324,7 +13324,7 @@ FUN_ov17_020ff488: ; 0x020FF488
 	mov r0, r4
 	bl DWCi_FNTlDeleteBgLcd
 	ldr r0, _020FF524 ; =0x021131C0
-	ldr r1, _020FF528 ; =0x020051BC
+	ldr r1, _020FF528 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	mov r0, #1
 	mov r1, r0
@@ -13353,7 +13353,7 @@ FUN_ov17_020ff488: ; 0x020FF488
 	ldmfd sp!, {r3, r4, pc}
 _020FF520: .word ov17_02116244
 _020FF524: .word ov17_021131C0
-_020FF528: .word 0x020051BC
+_020FF528: .word GX_LoadOBJPltt
 _020FF52C: .word FUN_ov17_020fff90
 _020FF530: .word ov17_02116244
 	arm_func_end FUN_ov17_020ff488
@@ -14294,24 +14294,24 @@ _021001BC:
 	ldr r4, _0210031C ; =0x0400000C
 	ldr r0, _02100320 ; =0x021131F0
 	ldrh r2, [r4]
-	ldr r1, _02100324 ; =0x020051BC
+	ldr r1, _02100324 ; =GX_LoadOBJPltt
 	and r2, r2, #0x43
 	orr r2, r2, #0x218
 	orr r2, r2, #0xc00
 	strh r2, [r4]
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02100328 ; =0x02113204
-	ldr r1, _0210032C ; =0x02005A1C
+	ldr r1, _0210032C ; =GX_LoadBG3Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02100330 ; =0x0211321C
-	ldr r1, _02100334 ; =0x0200593C
+	ldr r1, _02100334 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	add r8, sp, #0x16
 	ldr r1, _02100338 ; =GX_LoadBGPltt
 	mov r0, r8
 	bl DWCi_CMNlLoadResource
 	ldr r0, _0210033C ; =0x02113234
-	ldr r1, _02100340 ; =0x0200569C
+	ldr r1, _02100340 ; =GX_LoadBG3Scr
 	bl DWCi_CMNlLoadResource
 	add r0, sp, #0x2b
 	bl DWCi_Char
@@ -14375,14 +14375,14 @@ _02100314: .word ov17_02112354
 _02100318: .word ov17_0211236C
 _0210031C: .word 0x0400000C
 _02100320: .word ov17_021131F0
-_02100324: .word 0x020051BC
+_02100324: .word GX_LoadOBJPltt
 _02100328: .word ov17_02113204
-_0210032C: .word 0x02005A1C
+_0210032C: .word GX_LoadBG3Char
 _02100330: .word ov17_0211321C
-_02100334: .word 0x0200593C
+_02100334: .word GX_LoadBG2Char
 _02100338: .word GX_LoadBGPltt
 _0210033C: .word ov17_02113234
-_02100340: .word 0x0200569C
+_02100340: .word GX_LoadBG3Scr
 _02100344: .word ov17_0211624C
 _02100348: .word 0x04001008
 	arm_func_end FUN_ov17_02100150
@@ -15071,7 +15071,7 @@ _02100C70:
 	cmp r5, #2
 	blt _02100C70
 	ldr r0, _02100E60 ; =0x02113248
-	ldr r1, _02100E64 ; =0x020051BC
+	ldr r1, _02100E64 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	mov r5, #1
 	mov r0, r5
@@ -15199,7 +15199,7 @@ _02100E50:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02100E5C: .word ov17_0211624C
 _02100E60: .word ov17_02113248
-_02100E64: .word 0x020051BC
+_02100E64: .word GX_LoadOBJPltt
 _02100E68: .word 0x04000010
 _02100E6C: .word FUN_ov17_020fe21c
 _02100E70: .word FUN_ov17_020fed1c
@@ -16685,7 +16685,7 @@ _02102280: .word FUN_ov17_02102318
 FUN_ov17_02102284: ; 0x02102284
 	stmfd sp!, {r3, lr}
 	ldr r0, _021022F8 ; =0x02113270
-	ldr r1, _021022FC ; =0x0200593C
+	ldr r1, _021022FC ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02102300 ; =0x02113288
 	ldr r1, _02102304 ; =GX_LoadBGPltt
@@ -16713,7 +16713,7 @@ FUN_ov17_02102284: ; 0x02102284
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _021022F8: .word ov17_02113270
-_021022FC: .word 0x0200593C
+_021022FC: .word GX_LoadBG2Char
 _02102300: .word ov17_02113288
 _02102304: .word GX_LoadBGPltt
 _02102308: .word ov17_021132A0
@@ -17758,7 +17758,7 @@ _02102FD4: .word FUN_ov17_02103080
 FUN_ov17_02102fd8: ; 0x02102FD8
 	stmfd sp!, {r3, lr}
 	ldr r0, _02103060 ; =0x021132F0
-	ldr r1, _02103064 ; =0x0200593C
+	ldr r1, _02103064 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02103068 ; =0x02113308
 	ldr r1, _0210306C ; =GX_LoadBGPltt
@@ -17791,7 +17791,7 @@ FUN_ov17_02102fd8: ; 0x02102FD8
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _02103060: .word ov17_021132F0
-_02103064: .word 0x0200593C
+_02103064: .word GX_LoadBG2Char
 _02103068: .word ov17_02113308
 _0210306C: .word GX_LoadBGPltt
 _02103070: .word ov17_02113320
@@ -18124,7 +18124,7 @@ _0210347C: .word FUN_ov17_02103528
 FUN_ov17_02103480: ; 0x02103480
 	stmfd sp!, {r3, lr}
 	ldr r0, _02103508 ; =0x02113334
-	ldr r1, _0210350C ; =0x0200593C
+	ldr r1, _0210350C ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02103510 ; =0x0211334C
 	ldr r1, _02103514 ; =GX_LoadBGPltt
@@ -18157,7 +18157,7 @@ FUN_ov17_02103480: ; 0x02103480
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _02103508: .word ov17_02113334
-_0210350C: .word 0x0200593C
+_0210350C: .word GX_LoadBG2Char
 _02103510: .word ov17_0211334C
 _02103514: .word GX_LoadBGPltt
 _02103518: .word ov17_02113364
@@ -18522,10 +18522,10 @@ _02103998:
 	strb r1, [r3], #2
 	bne _02103998
 	ldr r0, _02103A60 ; =0x02113378
-	ldr r1, _02103A64 ; =0x020051BC
+	ldr r1, _02103A64 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02103A68 ; =0x0211338C
-	ldr r1, _02103A6C ; =0x0200593C
+	ldr r1, _02103A6C ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02103A70 ; =0x021133A4
 	ldr r1, _02103A74 ; =GX_LoadBGPltt
@@ -18566,9 +18566,9 @@ _02103998:
 	ldmfd sp!, {r3, pc}
 _02103A5C: .word ov17_02112438
 _02103A60: .word ov17_02113378
-_02103A64: .word 0x020051BC
+_02103A64: .word GX_LoadOBJPltt
 _02103A68: .word ov17_0211338C
-_02103A6C: .word 0x0200593C
+_02103A6C: .word GX_LoadBG2Char
 _02103A70: .word ov17_021133A4
 _02103A74: .word GX_LoadBGPltt
 _02103A78: .word ov17_021133BC
@@ -18998,7 +18998,7 @@ _02103FEC:
 	ldr r0, [r0]
 	bl DWCi_ARClRelease
 	ldr r0, _021040E4 ; =0x021133D0
-	ldr r1, _021040E8 ; =0x020051BC
+	ldr r1, _021040E8 ; =GX_LoadOBJPltt
 	bl DWCi_CMNlLoadResource
 	mov r6, #1
 	mov r0, r6
@@ -19058,7 +19058,7 @@ _021040D4:
 	ldmfd sp!, {r4, r5, r6, pc}
 _021040E0: .word ov17_0211626C
 _021040E4: .word ov17_021133D0
-_021040E8: .word 0x020051BC
+_021040E8: .word GX_LoadOBJPltt
 _021040EC: .word FUN_ov17_020f9618
 _021040F0: .word FUN_ov17_0210462c
 _021040F4: .word FUN_ov17_020fff90
@@ -19529,7 +19529,7 @@ _02104768:
 	strb r1, [r3], #2
 	bne _02104768
 	ldr r0, _02104814 ; =0x021133E8
-	ldr r1, _02104818 ; =0x0200593C
+	ldr r1, _02104818 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _0210481C ; =0x02113400
 	ldr r1, _02104820 ; =GX_LoadBGPltt
@@ -19566,7 +19566,7 @@ _02104768:
 	ldmfd sp!, {r3, pc}
 _02104810: .word ov17_0211247C
 _02104814: .word ov17_021133E8
-_02104818: .word 0x0200593C
+_02104818: .word GX_LoadBG2Char
 _0210481C: .word ov17_02113400
 _02104820: .word GX_LoadBGPltt
 _02104824: .word ov17_02113418
@@ -20056,7 +20056,7 @@ _02104E88: .word FUN_ov17_02104fcc
 FUN_ov17_02104e8c: ; 0x02104E8C
 	stmfd sp!, {r3, lr}
 	ldr r0, _02104F14 ; =0x0211342C
-	ldr r1, _02104F18 ; =0x0200593C
+	ldr r1, _02104F18 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02104F1C ; =0x02113444
 	ldr r1, _02104F20 ; =GX_LoadBGPltt
@@ -20089,7 +20089,7 @@ FUN_ov17_02104e8c: ; 0x02104E8C
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _02104F14: .word ov17_0211342C
-_02104F18: .word 0x0200593C
+_02104F18: .word GX_LoadBG2Char
 _02104F1C: .word ov17_02113444
 _02104F20: .word GX_LoadBGPltt
 _02104F24: .word ov17_0211345C
@@ -20940,7 +20940,7 @@ _0210598C: .word FUN_ov17_02105a38
 FUN_ov17_02105990: ; 0x02105990
 	stmfd sp!, {r3, lr}
 	ldr r0, _02105A18 ; =0x021134AC
-	ldr r1, _02105A1C ; =0x0200593C
+	ldr r1, _02105A1C ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02105A20 ; =0x021134C4
 	ldr r1, _02105A24 ; =GX_LoadBGPltt
@@ -20973,7 +20973,7 @@ FUN_ov17_02105990: ; 0x02105990
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _02105A18: .word ov17_021134AC
-_02105A1C: .word 0x0200593C
+_02105A1C: .word GX_LoadBG2Char
 _02105A20: .word ov17_021134C4
 _02105A24: .word GX_LoadBGPltt
 _02105A28: .word ov17_021134DC
@@ -21259,7 +21259,7 @@ _02105D98: .word FUN_ov17_02105e44
 FUN_ov17_02105d9c: ; 0x02105D9C
 	stmfd sp!, {r3, lr}
 	ldr r0, _02105E24 ; =0x021134F0
-	ldr r1, _02105E28 ; =0x0200593C
+	ldr r1, _02105E28 ; =GX_LoadBG2Char
 	bl DWCi_CMNlLoadResource
 	ldr r0, _02105E2C ; =0x02113508
 	ldr r1, _02105E30 ; =GX_LoadBGPltt
@@ -21292,7 +21292,7 @@ FUN_ov17_02105d9c: ; 0x02105D9C
 	strh r0, [r1, #2]
 	ldmfd sp!, {r3, pc}
 _02105E24: .word ov17_021134F0
-_02105E28: .word 0x0200593C
+_02105E28: .word GX_LoadBG2Char
 _02105E2C: .word ov17_02113508
 _02105E30: .word GX_LoadBGPltt
 _02105E34: .word ov17_02113520

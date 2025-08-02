@@ -1,3 +1,4 @@
+.public ov61_0211F3D8
 .public MI_CpuFill8
 .public OS_WakeupThreadDirect
 .public OSi_ThreadInfo
