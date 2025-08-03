@@ -706,7 +706,7 @@ Overlay overlay128
 Overlay overlay129
 {
 	After overlay109
-	Object asm/overlay129.o
+	Library dsprot.a
 }
 Overlay overlay130
 {

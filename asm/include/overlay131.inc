@@ -1,3 +1,9 @@
+.public DSProt_DetectFlashcart
+.public DSProt_DetectNotFlashcart
+.public DSProt_DetectEmulator
+.public DSProt_DetectNotEmulator
+.public DSProt_DetectDummy
+.public DSProt_DetectNotDummy
 .public L5_IniFileGetParam
 .public unk_02099F78
 .public unk_020A0B00

@@ -8,8 +8,8 @@ Arm9
 
 Arm7
 {
-	Static sub/ichneumon_sub.sbin
-	OverlayDefs sub/ichneumon_sub_defs.sbin
+	Static sub/mongoose_sub.sbin
+	OverlayDefs sub/mongoose_sub_defs.sbin
 }
 
 Property

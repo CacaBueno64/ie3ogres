@@ -3,7 +3,7 @@ PROC           := arm946e
 PROC_S         := arm5te
 PROC_LD        := v5te
 LCF_TEMPLATE   := ARM9-TS.lcf.template
-LIBS           := -Llib -lsyscall -nostdlib
+LIBS           := -Llib -Llib/dsprot -lsyscall -nostdlib
 OPTFLAGS       := -O4,p
 
 include config.mk
@@ -32,6 +32,7 @@ all:
 	$(MAKE) $(ROM)
 
 tidy:
+	$(MAKE) -C lib/dsprot clean
 	@$(MAKE) -C lib/syscall tidy
 	$(RM) -r build
 	$(RM) -r $(PROJECT_CLEAN_TARGETS)
@@ -54,10 +55,14 @@ ROMSPEC        := rom.rsf
 MAKEROM_FLAGS  := $(DEFINES)
 
 $(ALL_OBJS): files_for_compile
-$(ELF): files_for_compile libsyscall
+$(ELF): files_for_compile libsyscall dsprot
 
 libsyscall: files_for_compile
 	$(MAKE) -C lib/syscall all install INSTALL_PREFIX=$(abspath $(WORK_DIR)/$(BUILD_DIR)) GAME_CODE=$(GAME_CODE)
+
+# https://github.com/taxicat1/dsprot/blob/1.28
+dsprot:
+	$(MAKE) -C lib/dsprot all
 
 $(SBIN_LZ): $(BUILD_DIR)/component.files
 	$(COMPSTATIC) -9 -c -f $<
@@ -83,4 +88,3 @@ $(FX_CONST_H): $(MKFXCONST) $(TOOLSDIR)/gen_fx_consts/fx_const.csv
 	$(MKFXCONST) $@
 sdk: $(FX_CONST_H)
 $(WORK_DIR)/include/global.h: $(FX_CONST_H) ;
-
