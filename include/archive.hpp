@@ -11,7 +11,7 @@ typedef struct {
     u16 unk0;
     u16 EntryCount;
     u32 unk1;
-    u32 EntriesSize;
+    u32 EntriesSize; // only used if ArchiveType == 2 or 3
     u8 pad[16];
 } L5_ArchiveHeader;
 
