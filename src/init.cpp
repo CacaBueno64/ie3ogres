@@ -111,7 +111,7 @@ void FUN_02029140(void)
     DC_FlushRange(struct_02099E8C->unk94, (u32)struct_02099E8C->unkBC);
     
     void *allocator = (void *)&unk_0209A250;
-    FUN_0202dc54(allocator, 0, struct_02099E8C->unk94, struct_02099E8C->unk30);
+    FUN_0202dc54(allocator, OS_ARENA_MAIN, struct_02099E8C->unk94, struct_02099E8C->unk30);
     
     OS_SetArenaLo(OS_ARENA_MAIN, (void *)(((u32)struct_02099E8C->unk30 + 31) & ~31));
 

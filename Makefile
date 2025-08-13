@@ -1,4 +1,4 @@
-MWCCVER        := dsi/1.6sp1
+MWCCVER        := dsi/1.2p1
 PROC           := arm946e
 PROC_S         := arm5te
 PROC_LD        := v5te
@@ -60,7 +60,7 @@ $(ELF): files_for_compile libsyscall dsprot
 libsyscall: files_for_compile
 	$(MAKE) -C lib/syscall all install INSTALL_PREFIX=$(abspath $(WORK_DIR)/$(BUILD_DIR)) GAME_CODE=$(GAME_CODE)
 
-# https://github.com/taxicat1/dsprot/blob/1.28
+# https://github.com/taxicat1/dsprot/tree/1.28
 dsprot:
 	$(MAKE) -C lib/dsprot all
 
