@@ -1,6 +1,8 @@
 from ndspy import lz10
 from struct import unpack, unpack_from, Struct
 import os
+import ieutil
+from dataclasses import dataclass
 
 def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> dict[str, bytes]:
     files = {}
@@ -75,4 +77,65 @@ def open_pac(data: bytes = None, filepath: str = None, compressed: bool = False)
     
     return files
 
+@dataclass
+class SFPHeader:
+    magic: str
+    unk_4: int
+    unk_8: int
+    chunk_size: int
+    size: int
+    unk_14: int
+    unk_18: int
+    unk_1c: int
+    
+@dataclass
+class SFPMember:
+    str_off: int
+    size: int
+    data_off: int
+    unk_c: int
+    
+## extensions: .SPF_
+def open_sfp(filename: str, filepath: str) -> dict[str, bytes]:
+    sfp_data = None
+    with open(filepath, "rb") as sfp:
+        sfp_data = sfp.read()
+        
+    if not sfp_data or len(sfp_data) < 1:
+        return
+       
+    if filepath.endswith("_") and sfp_data[0] == 0x10:
+        sfp_data = lz10.decompress(sfp_data)
+            
+    HEADER = Struct("<4sIIIIIII")
+    if len(sfp_data) <  HEADER.size:
+        return
+        
+    ## Member table header
+    header = SFPHeader(*unpack_from(HEADER.format, sfp_data))
+    
+    MEMBER = Struct("<IIII")
+    members = []
+    min_str_off = 0xffffffff ## in-game the first member is used to determine the start, we use the lowest address instead
+    pos = HEADER.size
+    while pos < min_str_off:
+        if pos >= len(sfp_data):
+            break
+        member = SFPMember(*unpack_from(MEMBER.format, sfp_data, pos))
+        if member.str_off < min_str_off:
+            min_str_off = member.str_off
+        members.append(member)
+        pos += MEMBER.size
+    
+    ## Member content/unk header
+    fc_header = SFPHeader(*unpack_from(HEADER.format, sfp_data, header.size))
+    
+    os.makedirs(f"./tools/ie3tools/scratch/{filename}", exist_ok=True)
+        
+    for member in members:
+        with open(f"./tools/ie3tools/scratch/{filename}/{ieutil.read_string(sfp_data, member.str_off)}", "wb") as file:
+            pos = header.size + fc_header.chunk_size * member.data_off
+            file.write(sfp_data[pos:pos + member.size])
+    
 #open_pkb("eve", ".ssd", "./files/data_iz/script/eve.pkb", True)
+#open_sfp("MASConfig", "./files/data_iz/pic2d/menu/MASConfig.SPF_")
