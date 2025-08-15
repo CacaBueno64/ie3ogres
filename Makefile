@@ -3,7 +3,7 @@ PROC           := arm946e
 PROC_S         := arm5te
 PROC_LD        := v5te
 LCF_TEMPLATE   := ARM9-TS.lcf.template
-LIBS           := -Llib -Llib/dsprot -lsyscall -nostdlib
+LIBS           := -Llib -lsyscall -nostdlib
 OPTFLAGS       := -O4,p
 
 include config.mk

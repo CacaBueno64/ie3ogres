@@ -706,7 +706,7 @@ Overlay overlay128
 Overlay overlay129
 {
 	After overlay109
-	Library dsprot.a
+	Library dsprot/dsprot.a
 }
 Overlay overlay130
 {
