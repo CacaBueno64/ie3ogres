@@ -96,7 +96,7 @@ class SFPMember:
     unk_c: int
     
 ## extensions: .SPF_
-def open_sfp(filename: str, filepath: str) -> dict[str, bytes]:
+def open_sfp(filename: str, filepath: str) -> None:
     sfp_data = None
     with open(filepath, "rb") as sfp:
         sfp_data = sfp.read()
