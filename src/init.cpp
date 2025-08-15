@@ -68,7 +68,7 @@ void InitCommon(void)
     OS_InitThread();
     FS_Init(-1);
     RTC_Init();
-    (void)FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay130));
+    FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay130));
     FUN_02029078();
     FX_Init();
     GXi_DmaId = 2;

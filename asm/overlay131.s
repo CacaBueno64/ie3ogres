@@ -10590,8 +10590,8 @@ FUN_ov131_02143f84: ; 0x02143F84
 	bx lr
 	arm_func_end FUN_ov131_02143f84
 
-	arm_func_start FUN_ov131_02143fa0
-FUN_ov131_02143fa0: ; 0x02143FA0
+	arm_func_start __DSProt_compatibilityWrapper
+__DSProt_compatibilityWrapper: ; 0x02143FA0
 	stmfd sp!, {r4, lr}
 	movs r4, r0
 	beq _02143FB0
@@ -10599,7 +10599,7 @@ FUN_ov131_02143fa0: ; 0x02143FA0
 _02143FB0:
 	mvn r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov131_02143fa0
+	arm_func_end __DSProt_compatibilityWrapper
 
 	arm_func_start FUN_ov131_02143fb8
 FUN_ov131_02143fb8: ; 0x02143FB8
@@ -16498,7 +16498,7 @@ AntiPiracyCheck: ; 0x021490F8
 	mov r1, r7
 	bl FS_LoadOverlay
 	ldr r0, _021492E8 ; =0x0214CDB0
-	ldr r5, _021492EC ; =FUN_ov131_02143fa0
+	ldr r5, _021492EC ; =__DSProt_compatibilityWrapper
 	str r6, [r0, #0xc]
 	str r6, [r0, #8]
 	str r6, [r0, #4]
@@ -16506,20 +16506,20 @@ AntiPiracyCheck: ; 0x021490F8
 	ldr r1, _021492F0 ; =FUN_ov131_02148ff8
 	mov r0, r5
 	mov r2, r6
-	.byte 0xf1, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad60
+	bl DSProt_DetectFlashcart
 	ldr r1, _021492F4 ; =FUN_ov131_02149038
 	mov r0, r5
 	mov r2, r6
-	.byte 0x0b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212add8
+	bl DSProt_DetectEmulator
 	ldr r1, _021492F8 ; =FUN_ov131_02149078
 	mov r0, r5
 	mov r2, r6
-	.byte 0x25, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae50
+	bl DSProt_DetectDummy
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r0, r5
 	mov r2, r6
 	mvn r5, r1
-	.byte 0xf3, 0x86, 0xff, 0xeb ; bl FUN_ov129_0212ad9c
+	bl DSProt_DetectNotFlashcart
 	cmp r5, r0
 	movne r9, r6
 	cmp r9, #0
@@ -16527,10 +16527,10 @@ AntiPiracyCheck: ; 0x021490F8
 	bl FUN_ov131_02148ff8
 _021491E0:
 	mov r9, #0
-	ldr r0, _021492EC ; =FUN_ov131_02143fa0
+	ldr r0, _021492EC ; =__DSProt_compatibilityWrapper
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	.byte 0x07, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae14
+	bl DSProt_DetectNotEmulator
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16538,10 +16538,10 @@ _021491E0:
 	bl FUN_ov131_02149038
 _02149208:
 	mov r9, #0
-	ldr r0, _021492EC ; =FUN_ov131_02143fa0
+	ldr r0, _021492EC ; =__DSProt_compatibilityWrapper
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	.byte 0x1b, 0x87, 0xff, 0xeb ; bl FUN_ov129_0212ae8c
+	bl DSProt_DetectNotDummy
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16601,7 +16601,7 @@ _021492C0:
 _021492E0: .word 0x0000007E
 _021492E4: .word 0x00000081
 _021492E8: .word ov131_0214CDB0
-_021492EC: .word FUN_ov131_02143fa0
+_021492EC: .word __DSProt_compatibilityWrapper
 _021492F0: .word FUN_ov131_02148ff8
 _021492F4: .word FUN_ov131_02149038
 _021492F8: .word FUN_ov131_02149078
