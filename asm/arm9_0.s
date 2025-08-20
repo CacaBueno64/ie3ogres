@@ -68021,7 +68021,7 @@ FUN_020617d8: ; 0x020617D8
 	str r5, [r10, #0x44]
 	str r5, [r10, #0x128]
 	str r5, [r10, #0x12c]
-	bl FUN_02063408
+	bl SaveData_CardBackupType
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7e

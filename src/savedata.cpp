@@ -7,7 +7,7 @@ extern "C" {
 
 #define CARD_BACKUP_TYPE_UNK (CARDBackupType)CARD_BACKUP_TYPE_DEFINE(UNK, 16, 0) // 0x1004
 
-BOOL FUN_02063408(UnkStruct_BackupCtx *ctx, CARDBackupType backupType) {
+BOOL SaveData_CardBackupType(UnkStruct_BackupCtx *ctx, CARDBackupType backupType) {
     CARD_Init();
     ctx->lock_id = OS_GetLockID();
     if (backupType == CARD_BACKUP_TYPE_NOT_USE) {
@@ -27,7 +27,7 @@ BOOL FUN_02063408(UnkStruct_BackupCtx *ctx, CARDBackupType backupType) {
 BOOL FUN_02063468(UnkStruct_BackupCtx *ctx)
 {
     u32 *tmp;
-    BOOL result = FUN_020634b0(ctx, 0, 4, (u32)&tmp);
+    BOOL result = FUN_020634b0(ctx, 0, 4, &tmp);
     if (result) {
         return TRUE;
     } else {
@@ -44,25 +44,19 @@ BOOL FUN_02063498(void)
     }
 }
 
-BOOL FUN_020634b0(UnkStruct_BackupCtx *ctx, u32 src, u32 len, u32 dst)
+BOOL FUN_020634b0(UnkStruct_BackupCtx *ctx, u32 src, u32 len, void *dst)
 {
     CARD_LockBackup(ctx->lock_id);
     
     switch ((u8)ctx->backupType) {
         case CARD_BACKUP_TYPE_DEVICE_EEPROM:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_READ_BACKUP, 1, CARD_REQUEST_MODE_RECV);
+            (void)CARD_ReadEeprom(src, dst, len);
             break;
         case CARD_BACKUP_TYPE_DEVICE_FLASH:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_READ_BACKUP, 1, CARD_REQUEST_MODE_RECV);
+            (void)CARD_ReadFlash(src, dst, len);
             break;
         case CARD_BACKUP_TYPE_DEVICE_FRAM:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_READ_BACKUP, 1, CARD_REQUEST_MODE_RECV);
+            (void)CARD_ReadFram(src, dst, len);
             break;
     }
 
@@ -76,25 +70,19 @@ BOOL FUN_020634b0(UnkStruct_BackupCtx *ctx, u32 src, u32 len, u32 dst)
     }
 }
 
-BOOL FUN_02063554(UnkStruct_BackupCtx *ctx, u32 dst, u32 len, u32 src)
+BOOL FUN_02063554(UnkStruct_BackupCtx *ctx, u32 dst, u32 len, void *src)
 {
     CARD_LockBackup(ctx->lock_id);
     
     switch ((u8)ctx->backupType) {
         case CARD_BACKUP_TYPE_DEVICE_EEPROM:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_PROGRAM_BACKUP, 10, CARD_REQUEST_MODE_SEND_VERIFY);
+            (void)CARD_WriteAndVerifyEeprom(dst, src, len);
             break;
         case CARD_BACKUP_TYPE_DEVICE_FLASH:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_WRITE_BACKUP, 10, CARD_REQUEST_MODE_SEND_VERIFY);
+            (void)CARD_WriteAndVerifyFlash(dst, src, len);
             break;
         case CARD_BACKUP_TYPE_DEVICE_FRAM:
-            (void)CARDi_RequestStreamCommand(src, dst, len,
-                                             NULL, NULL, FALSE,
-                                             CARD_REQ_PROGRAM_BACKUP, 10, CARD_REQUEST_MODE_SEND_VERIFY);
+            (void)CARD_WriteAndVerifyFram(dst, src, len);
             break;
     }
 
@@ -107,8 +95,6 @@ BOOL FUN_02063554(UnkStruct_BackupCtx *ctx, u32 dst, u32 len, u32 src)
         return FALSE;
     }
 }
-
-
 
 #ifdef __cplusplus
 } /* extern "C" */

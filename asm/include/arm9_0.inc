@@ -1,4 +1,4 @@
-.public FUN_02063408
+.public SaveData_CardBackupType
 .public FUN_02063468
 .public FUN_02063498
 .public FUN_020634b0
