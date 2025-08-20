@@ -1,3 +1,8 @@
+.public FUN_02063408
+.public FUN_02063468
+.public FUN_02063498
+.public FUN_020634b0
+.public FUN_02063554
 .public ov0_020D5540
 .public ov0_020D56C8
 .public ov0_020D55B0

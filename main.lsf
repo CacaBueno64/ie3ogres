@@ -43,6 +43,7 @@ Static main
 
 	Object src/init.o
 	Object asm/arm9_0.o
+	Object src/savedata.o
 
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
