@@ -33876,8 +33876,8 @@ unk_0208C504:
 	.global unk_0208C50C
 unk_0208C50C:
 	.asciz "/data_iz/logic/shootchain.dat"
-	.global DSE_MIDI_EVENT_LENGTHS
 	.balign 4, 0
+	.global DSE_MIDI_EVENT_LENGTHS
 DSE_MIDI_EVENT_LENGTHS:
 	.byte 0x02, 0x02, 0x02, 0x02, 0x01, 0x01, 0x02, 0x00
 	.global DSE_LFO_OUTPUT_VOICE_UPDATE_FLAGS
@@ -34604,68 +34604,68 @@ unk_020912F8:
 	.global unk_02091300
 unk_02091300:
 	.asciz "GAME_TIME_STEPS"
-	.global unk_02091310
 	.balign 4, 0
+	.global unk_02091310
 unk_02091310:
 	.asciz "CPU_USE_SPECIAL_PERCENT"
-	.global unk_02091328
 	.balign 4, 0
+	.global unk_02091328
 unk_02091328:
 	.asciz "WAIT_NOTICE_FRAME"
-	.global unk_0209133C
 	.balign 4, 0
+	.global unk_0209133C
 unk_0209133C:
 	.asciz "OFFSIDE_EFFECTIVE"
-	.global unk_02091350
 	.balign 4, 0
+	.global unk_02091350
 unk_02091350:
 	.asciz "/data_iz/logic/livetalk.dat"
-	.global unk_0209136C
 	.balign 4, 0
+	.global unk_0209136C
 unk_0209136C:
 	.asciz "/data_iz/logic/fieldinf.dat"
-	.global unk_02091388
 	.balign 4, 0
+	.global unk_02091388
 unk_02091388:
 	.asciz "/data_iz/logic/fieldinf.dat"
-	.global unk_020913A4
 	.balign 4, 0
+	.global unk_020913A4
 unk_020913A4:
 	.asciz "/data_iz/logic/gamerule.dat"
-	.global unk_020913C0
 	.balign 4, 0
+	.global unk_020913C0
 unk_020913C0:
 	.asciz "/data_iz/logic/gamerule.dat"
-	.global unk_020913DC
 	.balign 4, 0
+	.global unk_020913DC
 unk_020913DC:
 	.asciz "/data_iz/logic/fmt.pkh"
-	.global unk_020913F4
 	.balign 4, 0
+	.global unk_020913F4
 unk_020913F4:
 	.asciz "/data_iz/logic/fmt.pkb"
-	.global unk_0209140C
 	.balign 4, 0
+	.global unk_0209140C
 unk_0209140C:
 	.asciz "/data_iz/logic/team.pkh"
-	.global unk_02091424
 	.balign 4, 0
+	.global unk_02091424
 unk_02091424:
 	.asciz "/data_iz/logic/team.pkb"
-	.global unk_0209143C
 	.balign 4, 0
+	.global unk_0209143C
 unk_0209143C:
 	.asciz "/data_iz/logic/games.dat"
-	.global unk_02091458
 	.balign 4, 0
+	.global unk_02091458
 unk_02091458:
 	.asciz "/data_iz/logic/team.pkh"
-	.global unk_02091470
 	.balign 4, 0
+	.global unk_02091470
 unk_02091470:
 	.asciz "/data_iz/logic/team.pkb"
-	.global unk_02091488
 	.balign 4, 0
+	.global unk_02091488
 unk_02091488: ; shift-jis string
 	.byte 0x82, 0xB7, 0x82, 0xAF, 0x82, 0xC1, 0x82, 0xC6
 	.byte 0x00, 0x00, 0x00, 0x00
@@ -34685,104 +34685,104 @@ unk_020914B0: ; shift-jis string
 	.global unk_020914BC
 unk_020914BC:
 	.asciz "/data_iz/logic/action.dat"
-	.global unk_020914D8
 	.balign 4, 0
+	.global unk_020914D8
 unk_020914D8:
 	.asciz "logic/item.dat"
-	.global unk_020914E8
 	.balign 4, 0
+	.global unk_020914E8
 unk_020914E8:
 	.asciz "/data_iz/logic/unitno.dat"
-	.global unk_02091504
 	.balign 4, 0
+	.global unk_02091504
 unk_02091504:
 	.asciz "/data_iz/logic/unitno_npc.dat"
-	.global unk_02091524
 	.balign 4, 0
+	.global unk_02091524
 unk_02091524:
 	.asciz "/data_iz/logic/command.dat"
-	.global unk_02091540
 	.balign 4, 0
+	.global unk_02091540
 unk_02091540:
 	.asciz "/data_iz/logic/lvup_command.dat"
-	.global unk_02091560
 	.balign 4, 0
+	.global unk_02091560
 unk_02091560:
 	.asciz "/data_iz/logic/mapidx.dat"
-	.global unk_0209157C
 	.balign 4, 0
+	.global unk_0209157C
 unk_0209157C:
 	.asciz "/data_iz/logic/cmd_cond.dat"
-	.global unk_02091598
 	.balign 4, 0
+	.global unk_02091598
 unk_02091598:
 	.asciz "/data_iz/logic/cmd_cond.dat"
-	.global unk_020915B4
 	.balign 4, 0
+	.global unk_020915B4
 unk_020915B4:
 	.asciz "/data_iz/logic/tacticscmd.dat"
-	.global unk_020915D4
 	.balign 4, 0
+	.global unk_020915D4
 unk_020915D4:
 	.asciz "/data_iz/logic/unitcalc.dat"
-	.global unk_020915F0
 	.balign 4, 0
+	.global unk_020915F0
 unk_020915F0:
 	.asciz "/data_iz/logic/calcbase.dat"
-	.global unk_0209160C
 	.balign 4, 0
+	.global unk_0209160C
 unk_0209160C:
 	.asciz "/data_iz/logic/status_up.dat"
-	.global unk_0209162C
 	.balign 4, 0
+	.global unk_0209162C
 unk_0209162C:
 	.asciz "/data_iz/logic/lvup_exp.dat"
-	.global unk_02091648
 	.balign 4, 0
+	.global unk_02091648
 unk_02091648:
 	.asciz "/data_iz/logic/lvup_exp.dat"
-	.global unk_02091664
 	.balign 4, 0
+	.global unk_02091664
 unk_02091664:
 	.asciz "/data_iz/logic/teamtpmax.dat"
-	.global unk_02091684
 	.balign 4, 0
+	.global unk_02091684
 unk_02091684:
 	.asciz "/data_iz/logic/games.dat"
-	.global unk_020916A0
 	.balign 4, 0
+	.global unk_020916A0
 unk_020916A0:
 	.asciz "/data_iz/logic/unitbase.dat"
-	.global unk_020916BC
 	.balign 4, 0
+	.global unk_020916BC
 unk_020916BC:
 	.asciz "/data_iz/logic/unitstat.dat"
-	.global unk_020916D8
 	.balign 4, 0
+	.global unk_020916D8
 unk_020916D8:
 	.asciz "/data_iz/logic/rpgtitle.dat"
-	.global unk_020916F4
 	.balign 4, 0
+	.global unk_020916F4
 unk_020916F4:
 	.asciz "/data_iz/logic/rpgtitle.dat"
-	.global unk_02091710
 	.balign 4, 0
+	.global unk_02091710
 unk_02091710:
 	.asciz "/data_iz/logic/rpgtitle.STR"
-	.global unk_0209172C
 	.balign 4, 0
+	.global unk_0209172C
 unk_0209172C:
 	.asciz "/data_iz/logic/uschool.dat"
-	.global unk_02091748
 	.balign 4, 0
+	.global unk_02091748
 unk_02091748:
 	.asciz "ina3 hash key burial code!"
-	.global unk_02091764
 	.balign 4, 0
+	.global unk_02091764
 unk_02091764:
 	.asciz "ina3 hash key burial code!"
-	.global DSE_DELAY_TABLE
 	.balign 4, 0
+	.global DSE_DELAY_TABLE
 DSE_DELAY_TABLE:
 	.byte 0x60, 0x48, 0x40, 0x30, 0x24, 0x20, 0x18, 0x12, 0x10, 0x0C, 0x09, 0x08, 0x06, 0x04, 0x03, 0x02
 	.byte 0x00, 0x00, 0x00, 0x00
@@ -35540,32 +35540,32 @@ unk_020938A0:
 	.global unk_020938B8
 unk_020938B8:
 	.asciz "%s.pkh"
-	.global unk_020938C0
 	.balign 4, 0
+	.global unk_020938C0
 unk_020938C0:
 	.asciz "%s.pkb"
-	.global unk_020938C8
 	.balign 4, 0
+	.global unk_020938C8
 unk_020938C8:
 	.asciz "%s.pkh"
-	.global unk_020938D0
 	.balign 4, 0
+	.global unk_020938D0
 unk_020938D0:
 	.asciz "%s.pkb"
-	.global unk_020938D8
 	.balign 4, 0
+	.global unk_020938D8
 unk_020938D8:
 	.asciz "(%d)"
-	.global unk_020938E0
 	.balign 4, 0
+	.global unk_020938E0
 unk_020938E0:
 	.asciz "(%d)"
-	.global unk_020938E8
 	.balign 4, 0
+	.global unk_020938E8
 unk_020938E8:
 	.asciz "/data_iz/"
-	.global unk_020938F4
 	.balign 4, 0
+	.global unk_020938F4
 unk_020938F4:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

@@ -48,6 +48,12 @@ void InitCommon(void);
 void FUN_02029140(void);
 void VramClear(void);
 void InitInterrupt(void);
+void FUN_020292e8(void);
+void FUN_020292f4(void);
+void FUN_02029304(void);
+void InitG3d(void);
+void InitTouchPannel(void);
+void FUN_020295e8(void);
 
 #ifdef __cplusplus
 } /* extern "C" */

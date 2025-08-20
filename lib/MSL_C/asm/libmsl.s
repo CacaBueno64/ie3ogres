@@ -14557,16 +14557,16 @@ unk_0208EEB8:
 	.global unk_0208EEC4
 unk_0208EEC4:
 	.asciz "bad_exception"
-	.global unk_0208EED4
 	.balign 4, 0
+	.global unk_0208EED4
 unk_0208EED4:
 	.asciz "std::exception"
-	.global unk_0208EEE4
 	.balign 4, 0
+	.global unk_0208EEE4
 unk_0208EEE4:
 	.asciz "std::bad_exception"
-	.global unk_0208EEF8
 	.balign 4, 0
+	.global unk_0208EEF8
 unk_0208EEF8:
 	.byte 0x00, 0x00, 0x00, 0x00 
 	.word unk_0208EEB8
@@ -14578,12 +14578,12 @@ unk_0208EF00:
 	.global unk_0208EF0C
 unk_0208EF0C:
 	.asciz "!std::bad_exception!!"
-	.global unk_0208EF24
 	.balign 4, 0
+	.global unk_0208EF24
 unk_0208EF24:
 	.asciz "!std::exception!!std::bad_exception!!"
-	.global thandler
 	.balign 4, 0
+	.global thandler
 thandler:
 	.word dthandler
 	.global uhandler
@@ -14595,8 +14595,8 @@ __throws_bad_alloc:
 	.global unk_0208EF58
 unk_0208EF58:
 	.asciz "bad_alloc"
-	.global unk_0208EF64
 	.balign 4, 0
+	.global unk_0208EF64
 unk_0208EF64:
 	.word unk_0208EFF0
 	.word unk_0208EF70
@@ -14604,8 +14604,8 @@ unk_0208EF64:
 	.global unk_0208EF70
 unk_0208EF70:
 	.asciz "std::bad_alloc"
-	.global unk_0208EF80
 	.balign 4, 0
+	.global unk_0208EF80
 unk_0208EF80:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208EF64
@@ -14617,8 +14617,8 @@ unk_0208EF88:
 	.global unk_0208EF94
 unk_0208EF94:
 	.asciz "!std::exception!!std::bad_alloc!!"
-	.global unk_0208EFB8
 	.balign 4, 0
+	.global unk_0208EFB8
 unk_0208EFB8:
 	.word unk_0208F000
 	.word unk_0208EFD8
@@ -14635,8 +14635,8 @@ unk_0208EFCC:
 	.global unk_0208EFD8
 unk_0208EFD8:
 	.asciz "std::type_info"
-	.global unk_0208EFE8
 	.balign 4, 0
+	.global unk_0208EFE8
 unk_0208EFE8:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208EFC0
@@ -14653,12 +14653,12 @@ unk_0208F000:
 	.global unk_0208F008
 unk_0208F008:
 	.asciz "__cxxabiv1::__class_type_info"
-	.global unk_0208F028
 	.balign 4, 0
+	.global unk_0208F028
 unk_0208F028:
 	.asciz "__cxxabiv1::__si_class_type_info"
-	.global __files
 	.balign 4, 0
+	.global __files
 __files:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -14701,16 +14701,16 @@ unk_0208F130:
 	.global unk_0208F130
 unk_0208F134:
 	.asciz ""
-	.global unk_0208F130
 	.balign 4, 0
+	.global unk_0208F130
 unk_0208F138:
 	.asciz "%T"
-	.global unk_0208F130
 	.balign 4, 0
+	.global unk_0208F130
 unk_0208F13C:
 	.asciz "AM|PM"
-	.global _loc_ctyp_C
 	.balign 4, 0
+	.global _loc_ctyp_C
 _loc_ctyp_C:
 	.word __mbtowc_noconv
 	.word __wctomb_noconv
@@ -14733,8 +14733,8 @@ _loc_tim_C:
 	.global unk_0208F17C
 unk_0208F17C:
 	 .asciz "%m/%d/%y"
-	.global _current_locale
 	.balign 4, 0
+	.global _current_locale
 _current_locale:
 	.word _loc_tim_C
 	.word _loc_coll_C
@@ -14742,21 +14742,21 @@ _current_locale:
 	.global unk_0208F194
 unk_0208F194:
 	.asciz "%I:%M:%S %p"
-	.global unk_0208F1B0
 	.balign 4, 0
+	.global unk_0208F1B0
 unk_0208F1A0:
 	.asciz "%a %b %e %T %Y"
-	.global unk_0208F1B0
 	.balign 4, 0
+	.global unk_0208F1B0
 unk_0208F1B0:
 	.asciz "Sun|Sunday|Mon|Monday|Tue|Tuesday|Wed|Wednesday|Thu|Thursday|Fri|Friday|Sat|Saturday"
-	.global unk_0208F208
 	.balign 4, 0
+	.global unk_0208F208
 unk_0208F208:
 	.ascii "Jan|January|Feb|February|Mar|March|Apr|April|May|May|Jun|June|"
 	.asciz "Jul|July|Aug|August|Sep|September|Oct|October|Nov|November|Dec|December"
-	.global unk_0208F290
 	.balign 4, 0
+	.global unk_0208F290
 unk_0208F290:
 	.byte 0x01, 0x00, 0x02, 0x00, 0x03, 0x00, 0x04, 0x00, 0x05, 0x00, 0x06, 0x00, 0x07, 0x00, 0x08, 0x00
 	.byte 0x09, 0x00, 0x0A, 0x00, 0x0B, 0x00, 0x0C, 0x00, 0x0D, 0x00, 0x0E, 0x00, 0x0F, 0x00, 0x10, 0x00
@@ -14773,40 +14773,40 @@ unk_0208F290:
 	.global unk_0208F350
 unk_0208F350:
 	.asciz "-INF"
-	.global unk_0208F358
 	.balign 4, 0
+	.global unk_0208F358
 unk_0208F358:
 	.asciz "-inf"
-	.global unk_0208F360
 	.balign 4, 0
+	.global unk_0208F360
 unk_0208F360:
 	.asciz "INF"
-	.global unk_0208F364
 	.balign 4, 0
+	.global unk_0208F364
 unk_0208F364:
 	.asciz "inf"
-	.global unk_0208F368
 	.balign 4, 0
+	.global unk_0208F368
 unk_0208F368:
 	.asciz "-NAN"
-	.global unk_0208F370
 	.balign 4, 0
+	.global unk_0208F370
 unk_0208F370:
 	.asciz "-nan"
-	.global unk_0208F378
 	.balign 4, 0
+	.global unk_0208F378
 unk_0208F378:
 	.asciz "NAN"
-	.global unk_0208F37C
 	.balign 4, 0
+	.global unk_0208F37C
 unk_0208F37C:
 	.asciz "nan"
-	.global unk_0208F380
 	.balign 4, 0
+	.global unk_0208F380
 unk_0208F380:
 	.asciz ""
-	.global unk_0208F384
 	.balign 4, 0
+	.global unk_0208F384
 unk_0208F384:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global random_next
@@ -14815,87 +14815,87 @@ random_next:
 	.global unk_0208F38C
 unk_0208F38C:
 	.asciz "542101086242752217003726400434970855712890625"
-	.global unk_0208F3BC
 	.balign 4, 0
+	.global unk_0208F3BC
 unk_0208F3BC:
 	.asciz "11102230246251565404236316680908203125"
-	.global unk_0208F3E4
 	.balign 4, 0
+	.global unk_0208F3E4
 unk_0208F3E4:
 	.asciz "23283064365386962890625"
-	.global unk_0208F3FC
 	.balign 4, 0
+	.global unk_0208F3FC
 unk_0208F3FC:
 	.asciz "152587890625"
-	.global unk_0208F40C
 	.balign 4, 0
+	.global unk_0208F40C
 unk_0208F40C:
 	.asciz "390625"
-	.global unk_0208F414
 	.balign 4, 0
+	.global unk_0208F414
 unk_0208F414:
 	.asciz "78125"
-	.global unk_0208F41C
 	.balign 4, 0
+	.global unk_0208F41C
 unk_0208F41C:
 	.asciz "15625"
-	.global unk_0208F424
 	.balign 4, 0
+	.global unk_0208F424
 unk_0208F424:
 	.asciz "3125"
-	.global unk_0208F42C
 	.balign 4, 0
+	.global unk_0208F42C
 unk_0208F42C:
 	.asciz "625"
 	.global unk_0208F430
 unk_0208F430:
 	.asciz "125"
-	.global unk_0208F434
 	.balign 4, 0
+	.global unk_0208F434
 unk_0208F434:
 	.asciz "25"
-	.global unk_0208F438
 	.balign 4, 0
+	.global unk_0208F438
 unk_0208F438:
 	.asciz "5"
-	.global unk_0208F43C
 	.balign 4, 0
+	.global unk_0208F43C
 unk_0208F43C:
 	.asciz "1"
-	.global unk_0208F440
 	.balign 4, 0
+	.global unk_0208F440
 unk_0208F440:
 	.asciz "2"
-	.global unk_0208F444
 	.balign 4, 0
+	.global unk_0208F444
 unk_0208F444:
 	.asciz "4"
-	.global unk_0208F448
 	.balign 4, 0
+	.global unk_0208F448
 unk_0208F448:
 	.asciz "8"
-	.global unk_0208F44C
 	.balign 4, 0
+	.global unk_0208F44C
 unk_0208F44C:
 	.asciz "16"
-	.global unk_0208F450
 	.balign 4, 0
+	.global unk_0208F450
 unk_0208F450:
 	.asciz "32"
-	.global unk_0208F454
 	.balign 4, 0
+	.global unk_0208F454
 unk_0208F454:
 	.asciz "64"
-	.global unk_0208F458
 	.balign 4, 0
+	.global unk_0208F458
 unk_0208F458:
 	.asciz "128"
-	.global unk_0208F45C
 	.balign 4, 0
+	.global unk_0208F45C
 unk_0208F45C:
 	.asciz "256"
-	.global unk_0208F460
 	.balign 4, 0
+	.global unk_0208F460
 unk_0208F460:
 	.word unk_0208F000
 	.word unk_0208F4B8
@@ -14921,16 +14921,16 @@ unk_0208F484:
 	.global unk_0208F494
 unk_0208F494:
 	.asciz "std::detail::default_delete<char[]>"
-	.global unk_0208F4B8
 	.balign 4, 0
+	.global unk_0208F4B8
 unk_0208F4B8:
 	.asciz "std::tr1::detail::shared_ptr_deleter_common"
-	.global unk_0208F4E4
 	.balign 4, 0
+	.global unk_0208F4E4
 unk_0208F4E4:
 	.asciz "std::tr1::detail::shared_ptr_deleter<char, std::detail::default_delete<char[]>>"
-	.global unk_0208F534
 	.balign 4, 0
+	.global unk_0208F534
 unk_0208F534:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00
 	.global unk_0208F53C
@@ -14951,16 +14951,16 @@ unk_0208F554:
 	.global unk_0208F560
 unk_0208F560:
 	.asciz "std::logic_error"
-	.global unk_0208F574
 	.balign 4, 0
+	.global unk_0208F574
 unk_0208F574:
 	.asciz "std::out_of_range"
-	.global unk_0208F588
 	.balign 4, 0
+	.global unk_0208F588
 unk_0208F588:
 	.asciz "std::length_error"
-	.global unk_0208F59C
 	.balign 4, 0
+	.global unk_0208F59C
 unk_0208F59C:
  	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208F548
@@ -14986,16 +14986,16 @@ unk_0208F5CC:
 	.global unk_0208F5D8
 unk_0208F5D8:
 	.asciz "!std::exception!!std::logic_error!!std::length_error!!"
-	.global unk_0208F610
 	.balign 4, 0
+	.global unk_0208F610
 unk_0208F610:
 	.asciz "basic_string: out_of_range"
-	.global unk_0208F62C
 	.balign 4, 0
+	.global unk_0208F62C
 unk_0208F62C:
 	.asciz "!std::exception!!std::logic_error!!std::out_of_range!!"
-	.global unk_0208F664
 	.balign 4, 0
+	.global unk_0208F664
 unk_0208F664:
 	.asciz "basic_string: length_error"
 

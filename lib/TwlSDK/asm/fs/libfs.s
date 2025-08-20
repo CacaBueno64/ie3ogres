@@ -4174,20 +4174,20 @@ FSiArchiveProcInterface:
 	.global unk_0208EE78
 unk_0208EE78:
 	.asciz "/"
-	.global unk_0208EE7C
 	.balign 4, 0
+	.global unk_0208EE7C
 unk_0208EE7C:
 	.asciz "rom"
-	.global unk_0208EE80
 	.balign 4, 0
+	.global unk_0208EE80
 unk_0208EE80:
 	.asciz ":/"
-	.global unk_0208EE84
 	.balign 4, 0
+	.global unk_0208EE84
 unk_0208EE84:
 	.asciz "rom"
-	.global unk_0208EE88
 	.balign 4, 0
+	.global unk_0208EE88
 unk_0208EE88:
 	.asciz "rom:"
 

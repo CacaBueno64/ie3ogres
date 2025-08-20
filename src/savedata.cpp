@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+#define	CARD_BACKUP_TYPE_DEVICE_UNK 4
 #define CARD_BACKUP_TYPE_UNK (CARDBackupType)CARD_BACKUP_TYPE_DEFINE(UNK, 16, 0) // 0x1004
 
 BOOL SaveData_CardBackupType(UnkStruct_BackupCtx *ctx, CARDBackupType backupType) {
@@ -14,7 +15,7 @@ BOOL SaveData_CardBackupType(UnkStruct_BackupCtx *ctx, CARDBackupType backupType
         backupType = CARD_BACKUP_TYPE_EEPROM_512KBITS;
     }
     ctx->backupType = backupType;
-    if (backupType == (CARDBackupType)0x1004) { // CARD_BACKUP_TYPE_UNK
+    if (backupType == CARD_BACKUP_TYPE_UNK) {
         return TRUE;
     }
     CARD_LockBackup(ctx->lock_id);
@@ -26,8 +27,8 @@ BOOL SaveData_CardBackupType(UnkStruct_BackupCtx *ctx, CARDBackupType backupType
 
 BOOL FUN_02063468(UnkStruct_BackupCtx *ctx)
 {
-    u32 *tmp;
-    BOOL result = FUN_020634b0(ctx, 0, 4, &tmp);
+    u32 buffer;
+    BOOL result = FUN_020634b0(ctx, 0, sizeof(buffer), &buffer);
     if (result) {
         return TRUE;
     } else {

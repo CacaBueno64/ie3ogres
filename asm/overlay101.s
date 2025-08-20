@@ -267,10 +267,10 @@ ov101_021250C0:
 	.word FUN_0202b1d0
 	.word FUN_0202b1c8
 
-	.balign 4, 0
 	.global ov101_0212512C
 ov101_0212512C:
 	.asciz "/data_iz/pic2d/menu/pwup_bg00.pac_"
+	.balign 4, 0
 	
 	.word 0
 	.word 0

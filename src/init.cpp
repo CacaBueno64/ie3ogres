@@ -201,6 +201,252 @@ void InitInterrupt(void)
     OS_WaitVBlankIntr();
 }
 
+extern void FUN_0202ede8(void);
+extern void FUN_020864b4(void);
+
+void FUN_020292e8(void)
+{
+    FUN_0202ede8();
+}
+
+void FUN_020292f4(void)
+{
+    FUN_020864b4();
+    FUN_ov130_0212aa14();
+}
+
+#ifdef NONMATCHING
+#else
+extern void FUN_ov16_020fd4a8(void);
+extern void FUN_02059fcc(void);
+extern void FUN_0205d104(void);
+extern void FUN_02052144(void);
+extern void FUN_0205b518(void);
+extern void FUN_0205e5d8(void);
+extern void FUN_020585bc(void);
+extern void FUN_02052618(void);
+extern void FUN_02054f28(void);
+extern void FUN_02056760(void);
+extern void FUN_ov16_0210e014(void);
+extern void FUN_ov16_020f82b0(void);
+extern void FUN_02051144(void);
+extern void FUN_02051690(void);
+extern void FUN_ov16_020fc9f4(void);
+extern void FUN_ov16_020f7374(void);
+extern void FUN_0205a1bc(void);
+extern void FUN_0205ecd0(void);
+extern void FUN_0205d180(void);
+extern void FUN_0205bca4(void);
+extern void FUN_ov16_021122d0(void);
+extern void FUN_ov16_0211652c(void);
+extern void FUN_02054f60(void);
+extern void FUN_02056828(void);
+extern void operator_new(void);
+extern void *unk_0209057C;
+extern void *unk_0208F6E0;
+extern void *unk_0209095C;
+extern void *unk_02090BF8;
+extern void *ov16_02119E9C;
+extern void *unk_0208F6A0;
+asm void FUN_02029304(void)
+{
+	stmfd sp!, {r3, r4, r5, lr}
+	mov r0, #0x48
+	ldr r4, =unk_02099E8C
+	bl operator_new
+	cmp r0, #0
+	ldrne r1, =unk_0209057C
+	strne r1, [r0]
+	str r0, [r4, #0x8c]
+	mov r0, #0x3c
+	bl operator_new
+	str r0, [r4, #0xa4]
+	mov r0, #0x2c
+	bl operator_new
+	cmp r0, #0
+	beq _02029344
+	bl FUN_ov16_020fd4a8
+_02029344:
+	str r0, [r4, #0x58]
+	ldr r0, =0x000005E4
+	bl operator_new
+	str r0, [r4, #0x98]
+	mov r0, #0x94
+	bl operator_new
+	movs r5, r0
+	beq _02029370
+	ldr r1, =unk_0208F6E0
+	str r1, [r5]
+	bl FUN_02059fcc
+_02029370:
+	mov r0, #0x38
+	str r5, [r4, #0x60]
+	bl operator_new
+	cmp r0, #0
+	beq _02029388
+	bl FUN_0205d104
+_02029388:
+	str r0, [r4, #0x24]
+	mov r0, #0x1c
+	bl operator_new
+	movs r5, r0
+	beq _020293B0
+	bl FUN_02052144
+	ldr r1, =unk_0209095C
+	mov r0, r5
+	str r1, [r5]
+	bl FUN_0205b518
+_020293B0:
+	mov r0, #0x3c
+	str r5, [r4, #0x84]
+	bl operator_new
+	movs r5, r0
+	beq _020293D8
+	bl FUN_02052144
+	ldr r1, =unk_02090BF8
+	mov r0, r5
+	str r1, [r5]
+	bl FUN_0205e5d8
+_020293D8:
+	str r5, [r4, #0x5c]
+	mov r1, #0
+	mov r0, #0x2c
+	str r1, [r4, #0x88]
+	bl operator_new
+	movs r5, r0
+	beq _020293F8
+	bl FUN_020585bc
+_020293F8:
+	mov r0, #0x48
+	str r5, [r4, #0xac]
+	bl operator_new
+	movs r5, r0
+	beq _0202941C
+	ldr r1, =ov16_02119E9C
+	add r0, r5, #4
+	str r1, [r5]
+	bl FUN_020585bc
+_0202941C:
+	mov r0, #0x350
+	str r5, [r4, #0xcc]
+	bl operator_new
+	cmp r0, #0
+	beq _02029434
+	bl FUN_02052618
+_02029434:
+	str r0, [r4, #0x2c]
+	ldr r0, =0x00001920
+	bl operator_new
+	cmp r0, #0
+	beq _0202944C
+	bl FUN_02054f28
+_0202944C:
+	str r0, [r4, #0x4c]
+	mov r0, #0xb0
+	bl operator_new
+	cmp r0, #0
+	beq _02029464
+	bl FUN_02056760
+_02029464:
+	str r0, [r4, #0x34]
+	ldr r0, =0x00000F3C
+	bl operator_new
+	cmp r0, #0
+	ldrne r1, =unk_0208F6A0
+	strne r1, [r0]
+	str r0, [r4, #0x28]
+	ldr r0, =0x00000424
+	bl operator_new
+	cmp r0, #0
+	beq _02029494
+	bl FUN_ov16_0210e014
+_02029494:
+	str r0, [r4, #0x48]
+	mov r0, #0x138
+	bl operator_new
+	cmp r0, #0
+	beq _020294AC
+	bl FUN_ov16_020f82b0
+_020294AC:
+	str r0, [r4, #0xc8]
+	ldr r0, [r4, #0x8c]
+	bl FUN_02051144
+	mov r5, #0x100
+	mov r2, #0x80
+	ldr r0, [r4, #0xa4]
+	mov r1, r5
+	mov r3, r2
+	bl FUN_02051690
+	ldr r0, [r4, #0x58]
+	mov r1, r5
+	bl FUN_ov16_020fc9f4
+	ldr r0, [r4, #0x98]
+	bl FUN_ov16_020f7374
+	mov r5, #8
+	ldr r0, [r4, #0x60]
+	mov r1, r5
+	bl FUN_0205a1bc
+	ldr r0, [r4, #0x5c]
+	mov r1, #0x20
+	bl FUN_0205ecd0
+	ldr r0, [r4, #0x24]
+	mov r1, r5
+	bl FUN_0205d180
+	ldr r0, [r4, #0x84]
+	mov r1, #0x10
+	bl FUN_0205bca4
+	ldr r0, [r4, #0xac]
+	mov r1, #0xc0
+	mov r2, #0xa0
+	bl FUN_ov16_021122d0
+	mov r1, #0x60
+	ldr r0, [r4, #0xcc]
+	mov r2, r1
+	bl FUN_ov16_0211652c
+	ldr r0, [r4, #0x4c]
+	bl FUN_02054f60
+	ldr r0, [r4, #0x34]
+	bl FUN_02056828
+	mov r0, #0
+	str r0, [r4, #0xb8]
+	str r0, [r4, #0x64]
+	ldmfd sp!, {r3, r4, r5, pc}
+}
+#endif
+
+extern void NNS_G3dInit(void);
+extern void NNS_G3dGlbInit(void);
+
+void InitG3d(void)
+{
+    NNS_G3dInit();
+    NNS_G3dGlbInit();
+    G3X_InitMtxStack();
+    GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
+}
+
+void InitTouchPannel(void) {
+    TP_Init();
+    TPCalibrateParam calibrate;
+    BOOL userInfo = TP_GetUserInfo(&calibrate);
+    if (!userInfo) {
+        OS_Terminate();
+        return;
+    }
+    TP_SetCalibrateParam(&calibrate);
+}
+
+extern void FUN_0206f1e0(void *ptr);
+extern void FUN_0206f244(void *ptr);
+extern void *unk_0209BA20;
+
+void FUN_020295e8(void)
+{
+    void *ptr = (void *)&unk_0209BA20;
+    FUN_0206f1e0(ptr);
+    FUN_0206f244(ptr);
+}
+
 #ifdef __cplusplus
 } /* extern "C" */
 #endif

@@ -1,3 +1,9 @@
+.public FUN_020295e8
+.public InitTouchPannel
+.public InitG3d
+.public FUN_02029304
+.public FUN_020292e8
+.public FUN_020292f4
 .public SaveData_CardBackupType
 .public FUN_02063468
 .public FUN_02063498
