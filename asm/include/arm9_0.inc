@@ -5,10 +5,10 @@
 .public FUN_020292e8
 .public FUN_020292f4
 .public SaveData_CardBackupType
-.public FUN_02063468
-.public FUN_02063498
-.public FUN_020634b0
-.public FUN_02063554
+.public SaveData_ReadBuffer
+.public SaveData_TryWaitBackupAsync
+.public SaveData_ReadBackup
+.public SaveData_WriteBackup
 .public ov0_020D5540
 .public ov0_020D56C8
 .public ov0_020D55B0

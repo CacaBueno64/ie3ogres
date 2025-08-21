@@ -6226,7 +6226,7 @@ _020F2DE4:
 	bl operator_new
 	cmp r0, #0
 	beq _020F2E10
-	bl FUN_ov131_0213acc0 ; may be ov132
+	bl FUN_ov131_0213acc0
 _020F2E10:
 	ldr r1, _020F2E24 ; =0x02099F44
 	str r0, [r1]
@@ -6263,7 +6263,7 @@ _020F2E5C:
 	bl operator_new
 	cmp r0, #0
 	beq _020F2E88
-	bl FUN_ov131_0213acc0 ; may be ov132
+	bl FUN_ov132_0213acc0
 _020F2E88:
 	ldr r1, _020F2E9C ; =0x02099EF0
 	str r0, [r1]

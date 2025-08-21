@@ -67790,7 +67790,7 @@ FUN_020617d8: ; 0x020617D8
 	subeq r0, r5, #0x7e
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r10, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7d
@@ -67848,7 +67848,7 @@ _020618D8:
 	mov r1, r7, lsl #0xf
 	mov r2, #0x8000
 	strh r8, [r9, r12]
-	bl FUN_020634b0
+	bl SaveData_ReadBackup
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r8, #0x7c
@@ -68042,7 +68042,7 @@ FUN_02061b8c: ; 0x02061B8C
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl FUN_020634b0
+	bl SaveData_ReadBackup
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061b8c
 
@@ -68053,7 +68053,7 @@ FUN_02061ba8: ; 0x02061BA8
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl FUN_02063554
+	bl SaveData_WriteBackup
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061ba8
 
@@ -68067,7 +68067,7 @@ FUN_02061bc4: ; 0x02061BC4
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
 	add r0, r0, #0x4c
-	bl FUN_02063498
+	bl SaveData_TryWaitBackupAsync
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061bc4
 
@@ -68089,7 +68089,7 @@ _02061C14:
 	mov r3, r5
 	add r0, r7, #0x4c
 	add r1, r1, #4
-	bl FUN_02063554
+	bl SaveData_WriteBackup
 	add r6, r6, #1
 	cmp r6, #2
 	blt _02061C14
@@ -68104,7 +68104,7 @@ FUN_02061c48: ; 0x02061C48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	ldrneb r0, [r4, #0x24]
 	mvneq r0, #0x7c
@@ -68442,7 +68442,7 @@ FUN_020620f8: ; 0x020620F8
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r5, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	mvneq r0, #0x7c
@@ -68842,7 +68842,7 @@ FUN_020626f4: ; 0x020626F4
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -68959,7 +68959,7 @@ FUN_02062888: ; 0x02062888
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -68984,7 +68984,7 @@ FUN_020628dc: ; 0x020628DC
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl FUN_02063468
+	bl SaveData_ReadBuffer
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -69027,7 +69027,7 @@ FUN_0206296c: ; 0x0206296C
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r4, #0x4c
-	bl FUN_02063498
+	bl SaveData_TryWaitBackupAsync
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}

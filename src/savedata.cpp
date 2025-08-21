@@ -25,10 +25,10 @@ BOOL SaveData_CardBackupType(UnkStruct_BackupCtx *ctx, CARDBackupType backupType
     return identified;
 }
 
-BOOL FUN_02063468(UnkStruct_BackupCtx *ctx)
+BOOL SaveData_ReadBuffer(UnkStruct_BackupCtx *ctx)
 {
     u32 buffer;
-    BOOL result = FUN_020634b0(ctx, 0, sizeof(buffer), &buffer);
+    BOOL result = SaveData_ReadBackup(ctx, 0, sizeof(buffer), &buffer);
     if (result) {
         return TRUE;
     } else {
@@ -36,7 +36,7 @@ BOOL FUN_02063468(UnkStruct_BackupCtx *ctx)
     }
 }
 
-BOOL FUN_02063498(void)
+BOOL SaveData_TryWaitBackupAsync(void)
 {
     if (CARD_TryWaitBackupAsync()) {
         return TRUE;
@@ -45,7 +45,7 @@ BOOL FUN_02063498(void)
     }
 }
 
-BOOL FUN_020634b0(UnkStruct_BackupCtx *ctx, u32 src, u32 len, void *dst)
+BOOL SaveData_ReadBackup(UnkStruct_BackupCtx *ctx, u32 src, u32 len, void *dst)
 {
     CARD_LockBackup(ctx->lock_id);
     
@@ -71,7 +71,7 @@ BOOL FUN_020634b0(UnkStruct_BackupCtx *ctx, u32 src, u32 len, void *dst)
     }
 }
 
-BOOL FUN_02063554(UnkStruct_BackupCtx *ctx, u32 dst, u32 len, void *src)
+BOOL SaveData_WriteBackup(UnkStruct_BackupCtx *ctx, u32 dst, u32 len, void *src)
 {
     CARD_LockBackup(ctx->lock_id);
     
