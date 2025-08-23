@@ -32714,9 +32714,9 @@ FUN_02086768: ; 0x02086768
 	bl __register_global_object
 	ldr r4, _02086A34 ; =0x0209A014
 	mov r0, r4
-	bl FUN_02063400
+	bl _ZN16L5CardControllerC1Ev
 	mov r0, r4
-	ldr r1, _02086A38 ; =FUN_02063404
+	ldr r1, _02086A38 ; =_ZN16L5CardControllerD1Ev
 	ldr r2, _02086A3C ; =0x02099FCC
 	bl __register_global_object
 	ldr r4, _02086A40 ; =0x0209A250
@@ -32828,7 +32828,7 @@ _02086A28: .word unk_0209A5D0
 _02086A2C: .word FUN_0205ff98
 _02086A30: .word unk_02099FC0
 _02086A34: .word unk_0209A014
-_02086A38: .word FUN_02063404
+_02086A38: .word _ZN16L5CardControllerD1Ev
 _02086A3C: .word unk_02099FCC
 _02086A40: .word unk_0209A250
 _02086A44: .word FUN_0202dc1c

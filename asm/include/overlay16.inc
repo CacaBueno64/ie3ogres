@@ -939,3 +939,4 @@
 .public NNS_G3dWorldPosToScrPos
 .public FUN_020591e8
 .public FX_Sqrt
+.public FUN_ov132_0213acc0
