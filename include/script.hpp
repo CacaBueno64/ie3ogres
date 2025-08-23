@@ -19,13 +19,13 @@ typedef struct {
 
 typedef enum u8
 {
-    UNK1 = 0x01,
-    UNK2 = 0x02,
-    UNK3 = 0x03,
-    UNK4 = 0x04,
-    UNK5 = 0x05,
-    UNK6 = 0x06
-} ArgType;
+    SCRIPT_ARGTYPE_UNK1 = 0x01,
+    SCRIPT_ARGTYPE_UNK2 = 0x02,
+    SCRIPT_ARGTYPE_UNK3 = 0x03,
+    SCRIPT_ARGTYPE_UNK4 = 0x04,
+    SCRIPT_ARGTYPE_UNK5 = 0x05,
+    SCRIPT_ARGTYPE_UNK6 = 0x06
+} Script_ArgType;
 
 typedef struct {
     u16 Id;
@@ -46,10 +46,10 @@ typedef struct {
 
 typedef enum u32
 {
-    EVENT  = 0x01,
-    MATCH  = 0x02,
-    ACTION = 0x03,
-    HELP   = 0x04,
+    SCRIPT_TYPE_EVENT  = 0x01,
+    SCRIPT_TYPE_MATCH  = 0x02,
+    SCRIPT_TYPE_ACTION = 0x03,
+    SCRIPT_TYPE_HELP   = 0x04,
 } ScriptType;
 
 #endif //IE3OGRES_SCRIPT_H

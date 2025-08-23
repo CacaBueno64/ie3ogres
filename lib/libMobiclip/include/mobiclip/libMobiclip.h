@@ -1,7 +1,7 @@
 #ifndef NITRO_LIBMOBICLIP_H_
 #define NITRO_LIBMOBICLIP_H_
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -15,19 +15,19 @@ extern "C" {
 #define MO_QUALITY_ENHANCEMENT_MEDIUM	1
 #define MO_QUALITY_ENHANCEMENT_HIGH		2
 
-typedef void* MOHandle;
+typedef void *MOHandle;
 
-extern void* MO_Malloc (u32 size);
-extern void MO_Free (void* mem_p);
+extern void *MO_Malloc (u32 size);
+extern void MO_Free (void *mem_p);
 
-MOHandle MO_OpenMovie (void /*should be FSFile*/ *file, u32 nbBufferedFrameMax);
+MOHandle MO_OpenMovie (FSFile *file, u32 nbBufferedFrameMax);
 void MO_CloseMovie (MOHandle handle);
 
 u32 MO_GetNbFrame (MOHandle handle);
 u32 MO_GetVideoFps (MOHandle handle);
 u32 MO_ReadFrame (MOHandle handle);
 u32 MO_UnpackFrameImage (MOHandle handle);
-u32 MO_BlitFrameImage (MOHandle handle, u16* outFrameBufferPtr, u32 outFrameBufferPitch, u32 qualityEnhancement);
+u32 MO_BlitFrameImage (MOHandle handle, u16 *outFrameBufferPtr, u32 outFrameBufferPitch, u32 qualityEnhancement);
 u32 MO_SkipFrameImage (MOHandle handle);
 
 #ifdef __cplusplus

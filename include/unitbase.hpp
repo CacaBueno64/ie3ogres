@@ -5,8 +5,8 @@
 
 typedef enum u8
 {
-    MALE   = 0x01,
-    FEMALE = 0x02
+    GENDER_MALE   = 0x01,
+    GENDER_FEMALE = 0x02
 }
 Gender;
 
@@ -14,18 +14,18 @@ typedef u8 Age;
 
 typedef enum u8
 {
-    NORMAL = 0x00,
-    LARGE  = 0x01,
-    SMALL  = 0x02
+    BODYTYPE_NORMAL = 0x00,
+    BODYTYPE_LARGE  = 0x01,
+    BODYTYPE_SMALL  = 0x02
 }
 BodyType;
 
 typedef enum u8
 {
-    AIR   = 0x01,
-    WOOD  = 0x02,
-    FIRE  = 0x03,
-    EARTH = 0x04
+    ELEMENT_AIR   = 0x01,
+    ELEMENT_WOOD  = 0x02,
+    ELEMENT_FIRE  = 0x03,
+    ELEMENT_EARTH = 0x04
 }
 Element;
 

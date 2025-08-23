@@ -11,26 +11,25 @@ extern void FUN_02047a10(void *);
 extern void FUN_02051c10(void);
 extern void FUN_ov16_020f5258(void);
 
-extern UnkStruct_02099E8C *unk_02099E8C;
+extern UnkStruct_02099E8C unk_02099E8C;
 extern u32 *unk_0209AEC0;
 extern u32 *unk_0209C2C4;
 
 void FUN_02028fac(void)
 {
-    UnkStruct_02099E8C *ctx = (UnkStruct_02099E8C *)&unk_02099E8C;
-    ctx->unk80++;
-    if (ctx->unkA4) {
+    unk_02099E8C.unk80++;
+    if (unk_02099E8C.unkA4) {
         FUN_02051c10();
     }
-    if (ctx->unk40 != 0 && ctx->unk80 >= 2 || ctx->unkB0) {
-        reg_GX_MASTER_BRIGHT = ctx->unk7C;
-        reg_GXS_DB_MASTER_BRIGHT = ctx->unk7E;
-        ctx->unkB0 = 0;
+    if (unk_02099E8C.unk40 != 0 && unk_02099E8C.unk80 >= 2 || unk_02099E8C.unkB0) {
+        reg_GX_MASTER_BRIGHT = unk_02099E8C.unk7C;
+        reg_GXS_DB_MASTER_BRIGHT = unk_02099E8C.unk7E;
+        unk_02099E8C.unkB0 = 0;
     }
-    if (ctx->unk40 != 0 && ctx->unk80 >= 2) {
+    if (unk_02099E8C.unk40 != 0 && unk_02099E8C.unk80 >= 2) {
         FUN_ov16_020f5258();
-        ctx->unk80 = 0;
-        ctx->unk40 = 0;
+        unk_02099E8C.unk80 = 0;
+        unk_02099E8C.unk40 = 0;
     }
     
     FUN_02047a10(&unk_0209AEC0);
@@ -53,8 +52,7 @@ void FUN_02029078(void)
     OSHeapHandle handle = OS_CreateHeap(OS_ARENA_MAIN, heapstart, (void *)((u32)heapstart + 0x2d000));
     OS_SetCurrentHeap(OS_ARENA_MAIN, handle);
     
-    UnkStruct_02099E8C *struct_02099E8C = (UnkStruct_02099E8C *)&unk_02099E8C;
-    struct_02099E8C->unkC0 = handle;
+    unk_02099E8C.unkC0 = handle;
 }
 
 FS_EXTERN_OVERLAY(overlay130);
@@ -86,97 +84,38 @@ extern void FUN_0202e4ac(void *, void *);
 extern void *unk_0209A250;
 extern void *unk_0209A8A0;
 
-// https://decomp.me/scratch/6nH8k
-#ifdef NONMATCHING
-void FUN_02029140(void)
-{
+void FUN_02029140(void) {
     void *arenalo = OS_GetArenaLo(OS_ARENA_MAIN);
-    UnkStruct_02099E8C *struct_02099E8C = (UnkStruct_02099E8C *)&unk_02099E8C;
-    struct_02099E8C->unk94 = arenalo;
+    unk_02099E8C.unk94 = arenalo;
     void *arenahi = OS_GetArenaHi(OS_ARENA_MAIN);
-    struct_02099E8C->unk38 = arenahi;
-    struct_02099E8C->unkB4 = struct_02099E8C->unk94 + 0x00244800;
-    if (struct_02099E8C->unkB4 > arenahi) {
+    unk_02099E8C.unk38 = arenahi;
+	
+    unk_02099E8C.unkB4 = (void *)(((u32)unk_02099E8C.unk94) + 0x00244800);
+    if (unk_02099E8C.unkB4 > arenahi) {
         OS_Terminate();
     }
     else {
-        struct_02099E8C->unk30 = arenahi;
+        unk_02099E8C.unk30 = arenahi;
     }
     
-    //void *destp = struct_02099E8C->unk94;
-    //u32 clearsize = struct_02099E8C->unk30 - struct_02099E8C->unk94;
-    struct_02099E8C->unkBC = struct_02099E8C->unk30 - struct_02099E8C->unk94;
-    MIi_CpuClearFast(0, struct_02099E8C->unk94, struct_02099E8C->unk30 - struct_02099E8C->unk94);
+    void *destp = unk_02099E8C.unk94;
+    u32 size = (u32)unk_02099E8C.unk30 - (u32)unk_02099E8C.unk94;
+    unk_02099E8C.unkBC = size;
+    MIi_CpuClearFast(0, destp, size);
     
-    DC_FlushRange(struct_02099E8C->unk94, (u32)struct_02099E8C->unkBC);
+    DC_FlushRange(unk_02099E8C.unk94, (u32)unk_02099E8C.unkBC);
     
-    void *allocator = (void *)&unk_0209A250;
-    FUN_0202dc54(allocator, OS_ARENA_MAIN, struct_02099E8C->unk94, struct_02099E8C->unk30);
+    void *allocator = &unk_0209A250;
+    FUN_0202dc54(allocator, 0, unk_02099E8C.unk94, unk_02099E8C.unk30);
     
-    OS_SetArenaLo(OS_ARENA_MAIN, (void *)(((u32)struct_02099E8C->unk30 + 31) & ~31));
-
+    OS_SetArenaLo(OS_ARENA_MAIN, (void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
+    
     FUN_0202e1ac(allocator, 0);
-    *(u32 *)allocator = &unk_0209C2C4;
+    *(u32 *)allocator = (u32)&unk_0209C2C4;
     FUN_0202edec(&unk_0209C2C4, 0x40, allocator);
-
+    
     FUN_0202e4ac(&unk_0209A8A0, allocator);
 }
-#else
-asm void FUN_02029140(void) {
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r5, #0
-	mov r0, r5
-	bl OS_GetArenaLo
-	ldr r4, =unk_02099E8C
-	str r0, [r4, #0x94]
-	mov r0, r5
-	bl OS_GetArenaHi
-	str r0, [r4, #0x38]
-	ldr r1, [r4, #0x94]
-	add r1, r1, #0x4800
-	add r1, r1, #0x240000
-	str r1, [r4, #0xb4]
-	cmp r1, r0
-	strls r0, [r4, #0x30]
-	bls _02029184
-	bl OS_Terminate
-_02029184:
-	ldr r4, =unk_02099E8C
-	mov r6, #0
-	ldr r1, [r4, #0x94]
-	ldr r2, [r4, #0x30]
-	mov r0, r6
-	sub r2, r2, r1
-	str r2, [r4, #0xbc]
-	bl MIi_CpuClearFast
-	ldr r0, [r4, #0x94]
-	ldr r1, [r4, #0xbc]
-	bl DC_FlushRange
-	ldr r5, =unk_0209A250
-	ldr r2, [r4, #0x94]
-	ldr r3, [r4, #0x30]
-	mov r0, r5
-	mov r1, r6
-	bl FUN_0202dc54
-	ldr r1, [r4, #0x30]
-	mov r0, r6
-	add r1, r1, #0x1f
-	bic r1, r1, #0x1f
-	bl OS_SetArenaLo
-	mov r1, r6
-	mov r0, r5
-	bl FUN_0202e1ac
-	ldr r0, =unk_0209C2C4
-	mov r1, #0x40
-	str r0, [r5]
-	mov r2, r5
-	bl FUN_0202edec
-	mov r1, r5
-	ldr r0, =unk_0209A8A0
-	bl FUN_0202e4ac
-	ldmfd sp!, {r4, r5, r6, pc}
-}
-#endif
 
 void VramClear(void)
 {

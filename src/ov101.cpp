@@ -16,7 +16,7 @@ void FUN_ov101_02124ff8(u32 *ptr)
 
 extern void operator_delete(void *ptr);
 
-void * FUN_ov101_02125018(void *ptr)
+void *FUN_ov101_02125018(void *ptr)
 {
     operator_delete(ptr);
     return ptr;
