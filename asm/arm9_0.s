@@ -66028,7 +66028,7 @@ FUN_0205ff80: ; 0x0205FF80
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl FUN_02063400
+	bl _ZN16L5CardControllerC1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ff80
@@ -66038,7 +66038,7 @@ FUN_0205ff98: ; 0x0205FF98
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl FUN_02063404
+	bl _ZN16L5CardControllerD1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ff98
@@ -67784,13 +67784,13 @@ FUN_020617d8: ; 0x020617D8
 	str r5, [r10, #0x44]
 	str r5, [r10, #0x128]
 	str r5, [r10, #0x12c]
-	bl SaveData_CardBackupType
+	bl _ZN16L5CardController4initE14CARDBackupType
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7e
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r10, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7d
@@ -67848,7 +67848,7 @@ _020618D8:
 	mov r1, r7, lsl #0xf
 	mov r2, #0x8000
 	strh r8, [r9, r12]
-	bl SaveData_ReadBackup
+	bl _ZN16L5CardController4readEmmPv
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r8, #0x7c
@@ -68042,7 +68042,7 @@ FUN_02061b8c: ; 0x02061B8C
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl SaveData_ReadBackup
+	bl _ZN16L5CardController4readEmmPv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061b8c
 
@@ -68053,7 +68053,7 @@ FUN_02061ba8: ; 0x02061BA8
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl SaveData_WriteBackup
+	bl _ZN16L5CardController5writeEmmPv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061ba8
 
@@ -68067,7 +68067,7 @@ FUN_02061bc4: ; 0x02061BC4
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
 	add r0, r0, #0x4c
-	bl SaveData_TryWaitBackupAsync
+	bl _ZN16L5CardController5readyEv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061bc4
 
@@ -68089,7 +68089,7 @@ _02061C14:
 	mov r3, r5
 	add r0, r7, #0x4c
 	add r1, r1, #4
-	bl SaveData_WriteBackup
+	bl _ZN16L5CardController5writeEmmPv
 	add r6, r6, #1
 	cmp r6, #2
 	blt _02061C14
@@ -68104,7 +68104,7 @@ FUN_02061c48: ; 0x02061C48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	ldrneb r0, [r4, #0x24]
 	mvneq r0, #0x7c
@@ -68442,7 +68442,7 @@ FUN_020620f8: ; 0x020620F8
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r5, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	mvneq r0, #0x7c
@@ -68842,7 +68842,7 @@ FUN_020626f4: ; 0x020626F4
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -68959,7 +68959,7 @@ FUN_02062888: ; 0x02062888
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -68984,7 +68984,7 @@ FUN_020628dc: ; 0x020628DC
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl SaveData_ReadBuffer
+	bl _ZN16L5CardController4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -69027,7 +69027,7 @@ FUN_0206296c: ; 0x0206296C
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r4, #0x4c
-	bl SaveData_TryWaitBackupAsync
+	bl _ZN16L5CardController5readyEv
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -69773,16 +69773,6 @@ _02063360:
 _020633F8: .word unk_02090DB4
 _020633FC: .word 0x0000073C
 	arm_func_end FUN_02063248
-
-	arm_func_start FUN_02063400
-FUN_02063400: ; 0x02063400
-	bx lr
-	arm_func_end FUN_02063400
-
-	arm_func_start FUN_02063404
-FUN_02063404: ; 0x02063404
-	bx lr
-	arm_func_end FUN_02063404
 
 	.rodata
 	.global unk_0208C340

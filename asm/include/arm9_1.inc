@@ -187,7 +187,7 @@
 .public __register_global_object
 .public FUN_0202ed48
 .public FUN_0205ff80
-.public FUN_02063400
+.public _ZN16L5CardControllerC1Ev
 .public FUN_0202dbf8
 .public FUN_0202b3dc
 .public FUN_0202e474
@@ -208,7 +208,7 @@
 .public FUN_0205ff98
 .public unk_02099FC0
 .public unk_0209A014
-.public FUN_02063404
+.public _ZN16L5CardControllerD1Ev
 .public unk_02099FCC
 .public FUN_0202dc1c
 .public unk_02099FD8
