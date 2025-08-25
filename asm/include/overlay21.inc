@@ -28,7 +28,7 @@
 .public FUN_0202cf6c
 .public unk_0209AC44
 .public FUN_ov16_02113b78
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public MI_CpuCopy8
 .public unk_02099F78
 .public FUN_ov16_021137dc

@@ -1,6 +1,6 @@
 .public FUN_ov16_020f316c
 .public FUN_02085f50
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_0202eff0
 .public unk_02099F78
 .public unk_0209A250

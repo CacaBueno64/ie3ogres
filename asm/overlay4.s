@@ -3562,7 +3562,7 @@ FUN_ov4_020bfac0: ; 0x020BFAC0
 	blx r2
 	ldr r0, _020BFB24 ; =0x02099F78
 	ldr r1, _020BFB28 ; =0x020D97A0
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BFB04
 	cmp r0, #1

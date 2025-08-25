@@ -311,7 +311,7 @@
 .public FUN_02045d74
 .public FUN_02045db8
 .public FUN_02045e00
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020ef928
 .public unk_02099F78
 .public FUN_02045edc

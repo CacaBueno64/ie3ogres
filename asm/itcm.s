@@ -2017,7 +2017,7 @@ _01FFA1A0:
 	blt _01FFA184
 	ldr r0, _01FFAC14 ; =0x02099F78
 	ldr r1, _01FFAC18 ; =0x02160304
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
 	cmp r7, #0
 	ble _01FFA1C8
@@ -2062,7 +2062,7 @@ _01FFA244:
 	str r0, [r4, #0x5b4]
 	ldr r0, _01FFAC14 ; =0x02099F78
 	ldr r1, _01FFAC1C ; =0x02160314
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
 	cmp r7, #0
 	ble _01FFA26C
@@ -2108,7 +2108,7 @@ _01FFA2E8:
 	str r0, [r4, #0x5b8]
 	ldr r0, _01FFAC14 ; =0x02099F78
 	ldr r1, _01FFAC28 ; =0x02160324
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
 	cmp r7, #0
 	movle r7, #0x1000

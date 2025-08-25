@@ -259,7 +259,7 @@
 .public unk_020A0648
 .public memcmp
 .public FUN_0204fbe8
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public unk_02099F78
 .public _s32_div_f
 .public FUN_ov132_02143598

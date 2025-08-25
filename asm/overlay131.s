@@ -14,7 +14,7 @@ FUN_ov131_0213acc0: ; 0x0213ACC0
 	str r2, [r4, #4]
 	strh r2, [r4, #8]
 	strb r2, [r4, #0xa]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	strh r0, [r4, #0x34]
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
@@ -17504,7 +17504,7 @@ _02149F0C:
 _02149F70:
 	ldr r0, _0214A520 ; =0x02099F78
 	ldr r1, _0214A524 ; =0x0214CB38
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _02149F8C
 	cmp r0, #1

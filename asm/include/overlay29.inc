@@ -23,7 +23,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public MI_CpuFill8
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_020460fc
 .public FUN_020460f0
 .public FUN_ov16_020f3218

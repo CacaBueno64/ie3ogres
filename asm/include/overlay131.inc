@@ -4,7 +4,7 @@
 .public DSProt_DetectNotEmulator
 .public DSProt_DetectDummy
 .public DSProt_DetectNotDummy
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public unk_02099F78
 .public unk_020A0B00
 .public FUN_02074748

@@ -1,4 +1,4 @@
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_0202de44
 .public operator_new
 .public unk_02099F78

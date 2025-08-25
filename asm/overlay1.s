@@ -39824,23 +39824,23 @@ FUN_ov1_020def94: ; 0x020DEF94
 	ldr r1, _020DF008 ; =0x020E9314
 	mov r0, r4
 	str r2, [r5]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	str r0, [r5, #0x210]
 	ldr r1, _020DF00C ; =0x020E9328
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	str r0, [r5, #0x1f4]
 	ldr r1, _020DF010 ; =0x020E9340
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	str r0, [r5, #0x1f8]
 	ldr r1, _020DF014 ; =0x020E9358
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	str r0, [r5, #0x200]
 	ldr r1, _020DF018 ; =0x020E9370
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	str r0, [r5, #0x204]
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}

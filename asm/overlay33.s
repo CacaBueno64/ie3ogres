@@ -1458,7 +1458,7 @@ FUN_ov33_0211b25c: ; 0x0211B25C
 	strb r6, [r7, #0x122]
 	strb r6, [r7, #0x123]
 	str r6, [r7, #0x124]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	moveq r0, #1
 	streqb r0, [r7, #0x30]

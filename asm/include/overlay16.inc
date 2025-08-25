@@ -300,7 +300,7 @@
 .public unk_020A124A
 .public FUN_02071458
 .public MATH_CalcSHA1
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public unk_02099F78
 .public MI_CpuFill8
 .public _s32_div_f

@@ -21,7 +21,7 @@
 .public FUN_02041b00
 .public operator_delete
 .public MI_CpuFill8
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public sprintf
 .public FUN_ov16_020f3054
 .public unk_02099F78

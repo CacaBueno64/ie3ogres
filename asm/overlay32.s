@@ -166,7 +166,7 @@ _0211A0A0:
 	bl sprintf
 	ldr r0, _0211A184 ; =0x02099F78
 	ldr r1, _0211A188 ; =0x0211A790
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
 	ldr r6, _0211A18C ; =0x020AF81C
 	mov r0, r6

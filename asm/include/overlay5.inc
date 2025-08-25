@@ -30,7 +30,7 @@
 .public operator_delete
 .public FUN_0202e958
 .public unk_0209A8A0
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2a18
 .public unk_02099F78
 .public FUN_ov16_020f2aa4

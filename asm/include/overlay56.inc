@@ -101,7 +101,7 @@
 .public FUN_0205a5f4
 .public FUN_0205a828
 .public FUN_0205ab68
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public _fflt
 .public FUN_0205aea0
 .public FUN_0205af58

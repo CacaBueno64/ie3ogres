@@ -34,7 +34,7 @@ FUN_ov37_02119f48: ; 0x02119F48
 	ldr r0, _0211A010 ; =0x02099F78
 	ldr r1, _0211A014 ; =0x0211BD98
 	str r2, [sp, #0x10]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _02119F78
 	cmp r0, #1

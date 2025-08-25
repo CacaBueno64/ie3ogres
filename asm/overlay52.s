@@ -5205,13 +5205,13 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 	str r5, [r6, #0x1a8]
 	str r5, [r6, #0x1b0]
 	str r5, [r6, #0x1ac]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	rsb r0, r0, #0
 	cmp r0, #0
 	ble _0211E55C
 	ldr r1, _0211E6E8 ; =0x021246FC
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -5222,7 +5222,7 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 _0211E55C:
 	ldr r1, _0211E6EC ; =0x02124710
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -5234,12 +5234,12 @@ _0211E57C:
 	mov r5, r0
 	ldr r1, _0211E6F0 ; =0x02124724
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	ble _0211E5C0
 	ldr r1, _0211E6F4 ; =0x02124738
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -5249,7 +5249,7 @@ _0211E57C:
 _0211E5C0:
 	ldr r1, _0211E6F8 ; =0x0212474C
 	mov r0, r4
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -5263,7 +5263,7 @@ _0211E5DC:
 	ldr r1, _0211E6FC ; =0x02124760
 	str r5, [r6, #0x17c]
 	str r2, [r6, #0x180]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r2, #0
 	ldr r1, _0211E700 ; =0x02099F18
 	str r0, [r6, #0x1a0]

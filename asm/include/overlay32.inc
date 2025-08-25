@@ -14,7 +14,7 @@
 .public FUN_02070530
 .public FUN_0207249c
 .public sprintf
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_020443b0
 .public FUN_02044734
 .public FUN_0204545c

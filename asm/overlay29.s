@@ -335,18 +335,18 @@ _0211A358:
 	ldr r5, _0211A634 ; =0x02099F78
 	ldr r1, _0211A638 ; =0x021236D8
 	mov r0, r5
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	ldr r4, _0211A63C ; =0x020A0700
 	ldr r1, _0211A640 ; =0x021236E4
 	ldrb r2, [r4, r0]
 	mov r0, r5
 	strb r2, [r7, #0x1d0]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	ldrb r2, [r4, r0]
 	ldr r1, _0211A644 ; =0x021236F0
 	mov r0, r5
 	strb r2, [r7, #0x1d1]
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	ldrb r1, [r4, r0]
 	ldr r0, _0211A648 ; =0x020A9C40
 	strb r1, [r7, #0x1d2]
@@ -596,7 +596,7 @@ _0211A71C:
 	ldr r5, _0211A7F0 ; =0x02099F78
 	ldr r1, _0211A7F4 ; =0x02123768
 	mov r0, r5
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r1, r0
 	ldr r4, _0211A7F8 ; =0x020A0700
 	ldrb r2, [r10, #0x1d0]
@@ -604,14 +604,14 @@ _0211A71C:
 	bl FUN_ov16_020eef64
 	mov r0, r5
 	ldr r1, _0211A7FC ; =0x02123774
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	mov r1, r0
 	mov r0, r4
 	ldrb r2, [r10, #0x1d1]
 	bl FUN_ov16_020eef64
 	mov r0, r5
 	ldr r1, _0211A800 ; =0x02123780
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	ldrb r2, [r10, #0x1d2]
 	mov r1, r0
 	mov r0, r4

@@ -43,12 +43,14 @@ Static main
 
 	Object src/init.o
 	Object asm/arm9_0.o
+	Object src/l5config.o
+	Object asm/arm9_1.o
 	Object src/savedata.o
 
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
 
-	Object asm/arm9_1.o
+	Object asm/arm9_2.o
 }
 
 Autoload ITCM

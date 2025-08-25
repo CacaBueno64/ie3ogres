@@ -610,7 +610,7 @@
 .public FUN_020425fc
 .public FUN_0204331c
 .public FUN_02059288
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public unk_02099F78
 .public FUN_020463d0
 .public unk_020A9C40

@@ -328,7 +328,7 @@ FUN_ov5_020bcf34: ; 0x020BCF34
 	blx r2
 	ldr r0, _020BCF9C ; =0x02099F78
 	ldr r1, _020BCFA0 ; =0x020BD9BC
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BCF7C
 	cmp r0, #1

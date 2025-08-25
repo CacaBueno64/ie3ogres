@@ -47,7 +47,7 @@
 .public FUN_ov16_020f1160
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f6c20
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public unk_02099F78

@@ -335,7 +335,7 @@ FUN_ov6_020bcf40: ; 0x020BCF40
 _020BCF7C:
 	mov r0, r8
 	mov r1, r7
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BCF98
 	cmp r0, #1
@@ -480,7 +480,7 @@ FUN_ov6_020bd154: ; 0x020BD154
 	mov r5, r0
 	ldr r0, _020BD1F0 ; =0x02099F78
 	ldr r1, _020BD1F4 ; =0x020BDEEC
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BD178
 	cmp r0, #1
@@ -683,7 +683,7 @@ _020BD418:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _020BD6FC ; =0x02099F78
 	ldr r1, _020BD700 ; =0x020BDF24
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BD448
 	cmp r0, #1
@@ -922,7 +922,7 @@ FUN_ov6_020bd764: ; 0x020BD764
 	ldr r0, _020BD850 ; =0x02099F78
 	ldr r1, _020BD854 ; =0x020BDFD0
 	mov r5, #0
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BD790
 	cmp r0, #1
@@ -1266,7 +1266,7 @@ _020BDBDC:
 _020BDBEC:
 	ldr r0, _020BDC34 ; =0x02099F78
 	ldr r1, _020BDC38 ; =0x020BE038
-	bl L5_IniFileGetParam
+	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
 	beq _020BDC08
 	cmp r0, #1

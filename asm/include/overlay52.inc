@@ -86,7 +86,7 @@
 .public unk_020A1040
 .public unk_020A104A
 .public FUN_ov16_020f5278
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public _fflt
 .public _fadd
 .public _fsub

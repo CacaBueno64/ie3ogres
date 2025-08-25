@@ -106,7 +106,7 @@
 .public FUN_ov126_02139ab4
 .public FUN_02073184
 .public FUN_0207249c
-.public L5_IniFileGetParam
+.public _ZN8L5Config8getParamEPc
 .public _fflt
 .public _fmul
 .public _fgr
