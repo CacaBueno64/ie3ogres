@@ -1,5 +1,8 @@
-#include "init.hpp"
 #include "ov130.hpp"
+
+#include "init.hpp"
+#include "l5config.hpp"
+
 #include <nitro.h>
 
 const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
@@ -24,34 +27,25 @@ void FUN_ov130_0212a9c0(void)
     OS_SetArenaLo(OS_ARENA_MAIN, newLo);
 }
 
-extern void _ZN8L5Config5clearEv(void *);
-extern void _ZN8L5Config4initEv(void *);
-extern void _ZN8L5Config8initFileEPc(void *, char *);
-extern u32 _ZN8L5Config8getParamEPc(void *, char *);
-extern u32 unk_02099F78;
-
 extern UnkStruct_0209A1A8 unk_0209A1A8;
-
-void FUN_ov130_0212aa14(void)
-{
-    UnkStruct_0209A1A8* ptr = &unk_0209A1A8;
-    
-    _ZN8L5Config5clearEv(&unk_02099F78);
-    _ZN8L5Config4initEv(&unk_02099F78);
-    
-    _ZN8L5Config8initFileEPc(&unk_02099F78, "INAZUMA.INI");
-    
-    ptr->izType                   = _ZN8L5Config8getParamEPc(&unk_02099F78, "IZ_TYPE");
-    ptr->geometryUnderflowCheck   = _ZN8L5Config8getParamEPc(&unk_02099F78, "GEOMETRY_UNDERFLOW_CHECK");
-    ptr->menuMovieMax             = _ZN8L5Config8getParamEPc(&unk_02099F78, "MENU_MOVIE_MAX");
-    ptr->rpgMoveAccelUp           = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_MOVEACCEL_UP");
-    ptr->rpgMoveAccelDown         = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_MOVEACCEL_DOWN");
-    ptr->rpgMoveSpeed             = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_MOVESPEED");
-    ptr->rpgStandDist             = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_STANDDIST");
-    ptr->rpgGiveupMoveDist        = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_GIVEUPMOVE_DIST");
-    ptr->rpgMinimapScrollVelocity = _ZN8L5Config8getParamEPc(&unk_02099F78, "RPG_MINIMAP_SCROLL_VEROCITY");
-}
 
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
+
+void FUN_ov130_0212aa14(void)
+{
+    gL5Config.clear();
+    gL5Config.init();
+    gL5Config.openFile("INAZUMA.INI");
+
+    unk_0209A1A8.izType                   = gL5Config.getParam("IZ_TYPE");
+    unk_0209A1A8.geometryUnderflowCheck   = gL5Config.getParam("GEOMETRY_UNDERFLOW_CHECK");
+    unk_0209A1A8.menuMovieMax             = gL5Config.getParam("MENU_MOVIE_MAX");
+    unk_0209A1A8.rpgMoveAccelUp           = gL5Config.getParam("RPG_MOVEACCEL_UP");
+    unk_0209A1A8.rpgMoveAccelDown         = gL5Config.getParam("RPG_MOVEACCEL_DOWN");
+    unk_0209A1A8.rpgMoveSpeed             = gL5Config.getParam("RPG_MOVESPEED");
+    unk_0209A1A8.rpgStandDist             = gL5Config.getParam("RPG_STANDDIST");
+    unk_0209A1A8.rpgGiveupMoveDist        = gL5Config.getParam("RPG_GIVEUPMOVE_DIST");
+    unk_0209A1A8.rpgMinimapScrollVelocity = gL5Config.getParam("RPG_MINIMAP_SCROLL_VEROCITY");
+}

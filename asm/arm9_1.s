@@ -4481,7 +4481,7 @@ FUN_0204545c: ; 0x0204545C
 	str r7, [r6, #0x5c4]
 	bl FUN_020455a0
 	ldr r2, _02045538 ; =0x0000E4FA
-	ldr r0, _0204553C ; =0x02099F78
+	ldr r0, _0204553C ; =gL5Config
 	ldr r1, _02045540 ; =0x02090124
 	str r2, [r6, #0x54c]
 	bl _ZN8L5Config8getParamEPc
@@ -4505,7 +4505,7 @@ FUN_0204545c: ; 0x0204545C
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02045534: .word 0x000008BC
 _02045538: .word 0x0000E4FA
-_0204553C: .word unk_02099F78
+_0204553C: .word gL5Config
 _02045540: .word unk_02090124
 _02045544: .word unk_0209AC44
 _02045548: .word unk_02090138
@@ -5281,7 +5281,7 @@ FUN_02045e08: ; 0x02045E08
 	sub sp, sp, #0x14
 	mov r5, r0
 	mov r4, r1
-	ldr r0, _02045EBC ; =0x02099F78
+	ldr r0, _02045EBC ; =gL5Config
 	ldr r1, _02045EC0 ; =0x02090140
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -5324,7 +5324,7 @@ _02045E90:
 	str r1, [r0, #0xb9c]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
-_02045EBC: .word unk_02099F78
+_02045EBC: .word gL5Config
 _02045EC0: .word unk_02090140
 _02045EC4: .word unk_02090148
 _02045EC8: .word unk_02090168
@@ -5344,7 +5344,7 @@ FUN_02045edc: ; 0x02045EDC
 	sub sp, sp, #0x58
 	mov r7, r0
 	mov r4, r1
-	ldr r0, _02046090 ; =0x02099F78
+	ldr r0, _02046090 ; =gL5Config
 	ldr r1, _02046094 ; =0x02090188
 	mov r5, #0
 	bl _ZN8L5Config8getParamEPc
@@ -5463,7 +5463,7 @@ _02046084:
 	mov r0, r8
 	add sp, sp, #0x58
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02046090: .word unk_02099F78
+_02046090: .word gL5Config
 _02046094: .word unk_02090188
 _02046098: .word unk_02090190
 _0204609C: .word unk_020901B0
@@ -25812,7 +25812,7 @@ _0205683C:
 	add r7, r7, #1
 	cmp r7, #4
 	blt _0205683C
-	ldr r0, _0205689C ; =0x02099F78
+	ldr r0, _0205689C ; =gL5Config
 	mov r2, #0
 	ldr r1, _020568A0 ; =0x02090734
 	str r2, [r4, #0x94]
@@ -25831,7 +25831,7 @@ _0205683C:
 	mov r0, #0
 	str r0, [r4, #0xac]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0205689C: .word unk_02099F78
+_0205689C: .word gL5Config
 _020568A0: .word unk_02090734
 	arm_func_end FUN_02056828
 
@@ -29813,7 +29813,7 @@ _02059D98: .word unk_02099F30
 FUN_02059d9c: ; 0x02059D9C
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #8
-	ldr r4, _02059E38 ; =0x02099F78
+	ldr r4, _02059E38 ; =gL5Config
 	ldr r1, _02059E3C ; =0x0209081C
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -29852,7 +29852,7 @@ _02059DFC:
 	bl FUN_ov16_020f77b0
 	add sp, sp, #8
 	ldmfd sp!, {r4, pc}
-_02059E38: .word unk_02099F78
+_02059E38: .word gL5Config
 _02059E3C: .word unk_0209081C
 _02059E40: .word unk_0209082C
 _02059E44: .word unk_0209083C
@@ -29866,7 +29866,7 @@ _02059E54: .word 0x00001555
 FUN_02059e58: ; 0x02059E58
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
-	ldr r5, _02059F80 ; =0x02099F78
+	ldr r5, _02059F80 ; =gL5Config
 	ldr r1, _02059F84 ; =0x0209084C
 	mov r0, r5
 	mov r4, #0x1000
@@ -29893,7 +29893,7 @@ _02059EA0:
 _02059EBC:
 	bl _ffix
 	movs r5, r0
-	ldr r0, _02059F80 ; =0x02099F78
+	ldr r0, _02059F80 ; =gL5Config
 	ldr r1, _02059F90 ; =0x02090888
 	ldreq r5, _02059F94 ; =0x01001000
 	bl _ZN8L5Config8getParamEPc
@@ -29943,7 +29943,7 @@ _02059F5C:
 	bl FUN_ov16_020f77b0
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-_02059F80: .word unk_02099F78
+_02059F80: .word gL5Config
 _02059F84: .word unk_0209084C
 _02059F88: .word unk_02090860
 _02059F8C: .word unk_02090874

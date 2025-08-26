@@ -26,7 +26,7 @@
 .public unk_02099ED8
 .public unk_02099EE8
 .public unk_0209BA20
-.public unk_02099F78
+.public gL5Config
 .public unk_020AF81C
 .public MI_CpuFill8
 .public FUN_ov16_020f316c

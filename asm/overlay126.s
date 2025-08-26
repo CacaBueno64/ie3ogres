@@ -13524,7 +13524,7 @@ _02136674:
 	mov r0, #3
 	bl FUN_ov16_020ef928
 	add r2, r0, #1
-	ldr r0, _02136748 ; =0x02099F78
+	ldr r0, _02136748 ; =gL5Config
 	ldr r1, _0213674C ; =0x0213AB54
 	str r2, [r4]
 	bl _ZN8L5Config8getParamEPc
@@ -13569,7 +13569,7 @@ _02136738: .word unk_0209AEC0
 _0213673C: .word unk_0209A2C0
 _02136740: .word 0x000001F6
 _02136744: .word 0x000001F9
-_02136748: .word unk_02099F78
+_02136748: .word gL5Config
 _0213674C: .word ov126_0213AB54
 _02136750: .word unk_02099EF0
 	arm_func_end FUN_ov126_02136598
@@ -13670,7 +13670,7 @@ _021367F8:
 	bl FUN_ov126_02136ec0
 	cmp r0, #1
 	bne _021368F4
-	ldr r0, _02136A18 ; =0x02099F78
+	ldr r0, _02136A18 ; =gL5Config
 	ldr r1, _02136A1C ; =0x0213AB68
 	bl _ZN8L5Config8getParamEPc
 	add r9, r9, r0
@@ -13688,7 +13688,7 @@ _021368F4:
 	bl FUN_ov126_02136ec0
 	cmp r0, #1
 	bne _02136938
-	ldr r0, _02136A18 ; =0x02099F78
+	ldr r0, _02136A18 ; =gL5Config
 	ldr r1, _02136A20 ; =0x0213AB88
 	bl _ZN8L5Config8getParamEPc
 	sub r9, r9, r0
@@ -13706,13 +13706,13 @@ _02136938:
 	movne r0, #0
 	cmp r0, #1
 	bne _02136964
-	ldr r0, _02136A18 ; =0x02099F78
+	ldr r0, _02136A18 ; =gL5Config
 	ldr r1, _02136A24 ; =0x0213ABA8
 	bl _ZN8L5Config8getParamEPc
 	sub r9, r9, r0
 	b _02136974
 _02136964:
-	ldr r0, _02136A18 ; =0x02099F78
+	ldr r0, _02136A18 ; =gL5Config
 	ldr r1, _02136A28 ; =0x0213ABC4
 	bl _ZN8L5Config8getParamEPc
 	add r9, r9, r0
@@ -13761,7 +13761,7 @@ _02136A04:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02136A10: .word unk_0209A2C0
 _02136A14: .word unk_0209BA20
-_02136A18: .word unk_02099F78
+_02136A18: .word gL5Config
 _02136A1C: .word ov126_0213AB68
 _02136A20: .word ov126_0213AB88
 _02136A24: .word ov126_0213ABA8
@@ -13894,7 +13894,7 @@ _02136B78:
 	mov r1, r6
 	mov r2, r4
 	bl FUN_ov126_02136eb4
-	ldr r0, _02136C3C ; =0x02099F78
+	ldr r0, _02136C3C ; =gL5Config
 	ldr r1, _02136C40 ; =0x0213ABE0
 	bl _ZN8L5Config8getParamEPc
 	mov r1, r4
@@ -13910,7 +13910,7 @@ _02136B78:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02136C34: .word unk_0209BA20
 _02136C38: .word unk_02099EF0
-_02136C3C: .word unk_02099F78
+_02136C3C: .word gL5Config
 _02136C40: .word ov126_0213ABE0
 	arm_func_end FUN_ov126_02136ac4
 
@@ -15862,7 +15862,7 @@ FUN_ov126_02138700: ; 0x02138700
 	ldr r0, [sp, #0x38]
 	cmp r0, #2
 	bne _02138750
-	ldr r4, _02138A08 ; =0x02099F78
+	ldr r4, _02138A08 ; =gL5Config
 	ldr r1, _02138A0C ; =0x0213AC10
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -15873,7 +15873,7 @@ _02138750:
 	cmp r0, #3
 	addne sp, sp, #0x14
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r4, _02138A08 ; =0x02099F78
+	ldr r4, _02138A08 ; =gL5Config
 	ldr r1, _02138A14 ; =0x0213AC48
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -16048,7 +16048,7 @@ _021389CC:
 	bl FUN_ov126_021386cc
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02138A08: .word unk_02099F78
+_02138A08: .word gL5Config
 _02138A0C: .word ov126_0213AC10
 _02138A10: .word ov126_0213AC2C
 _02138A14: .word ov126_0213AC48

@@ -98,7 +98,7 @@
 .public FUN_ov16_020f7bf4
 .public FUN_0206c158
 .public FUN_ov16_020efa04
-.public unk_02099F78
+.public gL5Config
 .public unk_02099F18
 .public unk_02099EEC
 .public unk_02099F24

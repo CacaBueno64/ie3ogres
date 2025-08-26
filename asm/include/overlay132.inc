@@ -1,7 +1,7 @@
 .public _ZN8L5Config8getParamEPc
 .public FUN_0202de44
 .public operator_new
-.public unk_02099F78
+.public gL5Config
 .public unk_0209A250
 .public unk_0209A13C
 .public operator_delete

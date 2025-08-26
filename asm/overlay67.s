@@ -117,7 +117,7 @@ _0211A02C:
 	ldr r1, [r1, #0x130]
 	mov r3, #0
 	bl FUN_0205ab68
-	ldr r5, _0211A224 ; =0x02099F78
+	ldr r5, _0211A224 ; =gL5Config
 	ldr r1, _0211A228 ; =0x02122324
 	mov r0, r5
 	strb r4, [r8, #0x13c]
@@ -149,7 +149,7 @@ _0211A0E0:
 	bl _fsub
 _0211A104:
 	bl _ffix
-	ldr r4, _0211A224 ; =0x02099F78
+	ldr r4, _0211A224 ; =gL5Config
 	mov r5, r0
 	ldr r1, _0211A234 ; =0x02122360
 	mov r0, r4
@@ -181,7 +181,7 @@ _0211A170:
 	mov r2, #0x1a4000
 	str r0, [sp, #0xc]
 	rsb r2, r2, #0
-	ldr r0, _0211A224 ; =0x02099F78
+	ldr r0, _0211A224 ; =gL5Config
 	ldr r1, _0211A240 ; =0x0212239C
 	str r2, [sp, #0x14]
 	str r5, [sp, #0x10]
@@ -222,7 +222,7 @@ _0211A170:
 _0211A218: .word unk_0209BA20
 _0211A21C: .word unk_02099EEC
 _0211A220: .word 0x000F423F
-_0211A224: .word unk_02099F78
+_0211A224: .word gL5Config
 _0211A228: .word ov67_02122324
 _0211A22C: .word ov67_02122338
 _0211A230: .word ov67_0212234C
@@ -4964,7 +4964,7 @@ _0211E378:
 	bl FUN_0205ab68
 	add r2, r5, r4
 	ldrb r0, [r2, #0xe6]
-	ldr r9, _0211E548 ; =0x02099F78
+	ldr r9, _0211E548 ; =gL5Config
 	ldr r1, _0211E54C ; =0x02122620
 	add r0, r0, r4, lsl #1
 	add r0, r5, r0, lsl #2
@@ -4997,7 +4997,7 @@ _0211E428:
 	bl _fsub
 _0211E448:
 	bl _ffix
-	ldr r5, _0211E548 ; =0x02099F78
+	ldr r5, _0211E548 ; =gL5Config
 	mov r6, r0
 	ldr r1, _0211E558 ; =0x0212265C
 	mov r0, r5
@@ -5030,7 +5030,7 @@ _0211E4A8:
 	cmp r4, #1
 	rsbeq r0, r0, #0x100000
 	streq r0, [sp, #0xc]
-	ldr r0, _0211E548 ; =0x02099F78
+	ldr r0, _0211E548 ; =gL5Config
 	ldr r1, _0211E564 ; =0x02122698
 	str r6, [sp, #0x10]
 	bl _ZN8L5Config8getParamEPc
@@ -5062,7 +5062,7 @@ _0211E4A8:
 _0211E53C: .word unk_0209BA20
 _0211E540: .word unk_02099EEC
 _0211E544: .word 0x000F423F
-_0211E548: .word unk_02099F78
+_0211E548: .word gL5Config
 _0211E54C: .word ov67_02122620
 _0211E550: .word ov67_02122634
 _0211E554: .word ov67_02122648
@@ -5371,7 +5371,7 @@ _0211E8C4:
 _0211E970:
 	cmp r0, #1
 	bne _0211E9D0
-	ldr r0, _0211E9E8 ; =0x02099F78
+	ldr r0, _0211E9E8 ; =gL5Config
 	ldr r1, _0211E9EC ; =0x021226CC
 	bl _ZN8L5Config8getParamEPc
 	mov r2, r0
@@ -5401,7 +5401,7 @@ _0211E9D4:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211E9E4: .word unk_02099EEC
-_0211E9E8: .word unk_02099F78
+_0211E9E8: .word gL5Config
 _0211E9EC: .word ov67_021226CC
 	arm_func_end FUN_ov67_0211e8a0
 

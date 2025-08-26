@@ -36,7 +36,7 @@
 .public unk_0209AC44
 .public unk_02099EB4
 .public unk_02099ED4
-.public unk_02099F78
+.public gL5Config
 .public unk_020A0700
 .public unk_020A9C40
 .public unk_0209BA20

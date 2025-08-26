@@ -107,7 +107,7 @@
 .public FUN_0205af58
 .public FUN_0205acb0
 .public FUN_0205b3cc
-.public unk_02099F78
+.public gL5Config
 .public FUN_0205ac70
 .public FUN_0205b174
 .public FUN_ov16_0210eab4

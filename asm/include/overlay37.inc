@@ -2,7 +2,7 @@
 .public FUN_02085f50
 .public _ZN8L5Config8getParamEPc
 .public FUN_0202eff0
-.public unk_02099F78
+.public gL5Config
 .public unk_0209A250
 .public FUN_ov16_020f5450
 .public _s32_div_f

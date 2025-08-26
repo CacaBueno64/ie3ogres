@@ -31,7 +31,7 @@ FUN_ov37_02119f48: ; 0x02119F48
 	sub sp, sp, #0x14
 	mov r4, r0
 	ldr r2, [r4, #0xb8]
-	ldr r0, _0211A010 ; =0x02099F78
+	ldr r0, _0211A010 ; =gL5Config
 	ldr r1, _0211A014 ; =0x0211BD98
 	str r2, [sp, #0x10]
 	bl _ZN8L5Config8getParamEPc
@@ -79,7 +79,7 @@ _02119FC4:
 	bl FUN_0202eff0
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
-_0211A010: .word unk_02099F78
+_0211A010: .word gL5Config
 _0211A014: .word ov37_0211BD98
 _0211A018: .word unk_0209A250
 _0211A01C: .word ov37_0211BDA0

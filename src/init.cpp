@@ -150,8 +150,9 @@ void FUN_020292e8(void)
 
 void FUN_020292f4(void)
 {
-    FUN_020864b4();
-    FUN_ov130_0212aa14();
+	FUN_020864b4();
+	extern void _Z18FUN_ov130_0212aa14v(void);
+	_Z18FUN_ov130_0212aa14v();
 }
 
 #ifdef NONMATCHING

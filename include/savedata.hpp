@@ -1,3 +1,6 @@
+#ifndef IE3OGRES_SAVEDATA_H
+#define IE3OGRES_SAVEDATA_H
+
 #pragma once
 
 extern "C" {
@@ -24,3 +27,5 @@ typedef struct {
     u8 unk[0x4C];
     L5CardController backupCtx;
 } UnkStruct_0209A5D0;
+
+#endif //IE3OGRES_SAVEDATA_H

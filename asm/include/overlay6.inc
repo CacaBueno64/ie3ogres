@@ -24,7 +24,7 @@
 .public _ZN8L5Config8getParamEPc
 .public sprintf
 .public FUN_ov16_020f3054
-.public unk_02099F78
+.public gL5Config
 .public FUN_0202e1c0
 .public unk_0209A250
 .public FUN_ov16_020f18e8

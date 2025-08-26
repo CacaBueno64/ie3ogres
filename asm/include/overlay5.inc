@@ -32,7 +32,7 @@
 .public unk_0209A8A0
 .public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2a18
-.public unk_02099F78
+.public gL5Config
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74
 .public FUN_02029d44

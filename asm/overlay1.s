@@ -39818,7 +39818,7 @@ _020DEF90: .word unk_02099F38
 	arm_func_start FUN_ov1_020def94
 FUN_ov1_020def94: ; 0x020DEF94
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _020DF000 ; =0x02099F78
+	ldr r4, _020DF000 ; =gL5Config
 	ldr r2, _020DF004 ; =0x020E9210
 	mov r5, r0
 	ldr r1, _020DF008 ; =0x020E9314
@@ -39844,7 +39844,7 @@ FUN_ov1_020def94: ; 0x020DEF94
 	str r0, [r5, #0x204]
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_020DF000: .word unk_02099F78
+_020DF000: .word gL5Config
 _020DF004: .word ov1_020E9210
 _020DF008: .word ov1_020E9314
 _020DF00C: .word ov1_020E9328

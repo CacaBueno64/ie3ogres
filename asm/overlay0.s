@@ -7741,7 +7741,7 @@ _020C35C4:
 	bge _020C361C
 	ldr r0, _020C3680 ; =0x020A9C40
 	bl FUN_02045e00
-	ldr r5, _020C3688 ; =0x02099F78
+	ldr r5, _020C3688 ; =gL5Config
 	mov r6, r0
 	ldr r1, _020C368C ; =0x020D5AE0
 	mov r0, r5
@@ -7769,7 +7769,7 @@ _020C361C:
 	mov r0, r4
 	bl FUN_ov0_020c4c80
 _020C3644:
-	ldr r0, _020C3688 ; =0x02099F78
+	ldr r0, _020C3688 ; =gL5Config
 	ldr r1, _020C3694 ; =0x020D5B08
 	bl _ZN8L5Config8getParamEPc
 	mov r1, #0x1e
@@ -7786,7 +7786,7 @@ _020C3644:
 _020C367C: .word unk_020AF81C
 _020C3680: .word unk_020A9C40
 _020C3684: .word unk_0209A110
-_020C3688: .word unk_02099F78
+_020C3688: .word gL5Config
 _020C368C: .word ov0_020D5AE0
 _020C3690: .word ov0_020D5AF4
 _020C3694: .word ov0_020D5B08
@@ -8143,7 +8143,7 @@ _020C3B3C:
 	mov r1, r4
 	ldr r0, [r0]
 	bl FUN_0205e164
-	ldr r4, _020C3BFC ; =0x02099F78
+	ldr r4, _020C3BFC ; =gL5Config
 	ldr r1, _020C3C00 ; =0x020D5B2C
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -8174,7 +8174,7 @@ _020C3BEC: .word unk_020AF81C
 _020C3BF0: .word unk_02099F58
 _020C3BF4: .word unk_02099F38
 _020C3BF8: .word unk_02099EB0
-_020C3BFC: .word unk_02099F78
+_020C3BFC: .word gL5Config
 _020C3C00: .word ov0_020D5B2C
 _020C3C04: .word ov0_020D5B40
 	arm_func_end FUN_ov0_020c38cc
@@ -8296,7 +8296,7 @@ _020C3D84:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	bne _020C3DBC
-	ldr r0, _020C4890 ; =0x02099F78
+	ldr r0, _020C4890 ; =gL5Config
 	ldr r1, _020C4894 ; =0x020D5B54
 	bl _ZN8L5Config8getParamEPc
 	str r0, [sp, #0xc]
@@ -8304,7 +8304,7 @@ _020C3DBC:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	bne _020C3DD8
-	ldr r0, _020C4890 ; =0x02099F78
+	ldr r0, _020C4890 ; =gL5Config
 	ldr r1, _020C4898 ; =0x020D5B64
 	bl _ZN8L5Config8getParamEPc
 	str r0, [sp, #0x10]
@@ -8313,7 +8313,7 @@ _020C3DD8:
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	bl FUN_020561f4
-	ldr r4, _020C4890 ; =0x02099F78
+	ldr r4, _020C4890 ; =gL5Config
 	ldr r1, _020C489C ; =0x020D5B74
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -9050,7 +9050,7 @@ _020C4880: .word unk_020A9C40
 _020C4884: .word unk_02099ED8
 _020C4888: .word unk_02099EE8
 _020C488C: .word unk_020AF81C
-_020C4890: .word unk_02099F78
+_020C4890: .word gL5Config
 _020C4894: .word ov0_020D5B54
 _020C4898: .word ov0_020D5B64
 _020C489C: .word ov0_020D5B74

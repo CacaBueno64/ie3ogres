@@ -2015,7 +2015,7 @@ _01FFA184:
 _01FFA1A0:
 	cmp r8, #0x40
 	blt _01FFA184
-	ldr r0, _01FFAC14 ; =0x02099F78
+	ldr r0, _01FFAC14 ; =gL5Config
 	ldr r1, _01FFAC18 ; =0x02160304
 	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
@@ -2060,7 +2060,7 @@ _01FFA220:
 _01FFA244:
 	bl _ffix
 	str r0, [r4, #0x5b4]
-	ldr r0, _01FFAC14 ; =0x02099F78
+	ldr r0, _01FFAC14 ; =gL5Config
 	ldr r1, _01FFAC1C ; =0x02160314
 	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
@@ -2106,7 +2106,7 @@ _01FFA2E8:
 	ldr r6, _01FFAC10 ; =0x0209BA20
 	bl _ffix
 	str r0, [r4, #0x5b8]
-	ldr r0, _01FFAC14 ; =0x02099F78
+	ldr r0, _01FFAC14 ; =gL5Config
 	ldr r1, _01FFAC28 ; =0x02160324
 	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
@@ -2725,7 +2725,7 @@ _01FFABE4:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _01FFAC10: .word unk_0209BA20
-_01FFAC14: .word unk_02099F78
+_01FFAC14: .word gL5Config
 _01FFAC18: .word ov132_02160304
 _01FFAC1C: .word ov132_02160314
 _01FFAC20: .word 0x3C4CCCCD

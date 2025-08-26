@@ -28,7 +28,7 @@ void L5Config::clear(void)
     this->paramEntry = NULL;
 }
 
-BOOL L5Config::initFile(char *filename)
+BOOL L5Config::openFile(char *filename)
 {
     char *file = NULL;
     char *r5;

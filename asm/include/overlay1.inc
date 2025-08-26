@@ -662,7 +662,7 @@
 .public FUN_0204331c
 .public FUN_02059288
 .public _ZN8L5Config8getParamEPc
-.public unk_02099F78
+.public gL5Config
 .public FUN_020463d0
 .public unk_020A9C40
 .public FUN_02056e94

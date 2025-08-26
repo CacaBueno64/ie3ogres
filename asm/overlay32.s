@@ -164,7 +164,7 @@ _0211A0A0:
 	bl FUN_0207249c
 	ldr r1, _0211A180 ; =0x0211A788
 	bl sprintf
-	ldr r0, _0211A184 ; =0x02099F78
+	ldr r0, _0211A184 ; =gL5Config
 	ldr r1, _0211A188 ; =0x0211A790
 	bl _ZN8L5Config8getParamEPc
 	mov r7, r0
@@ -191,7 +191,7 @@ _0211A174: .word unk_02099ED8
 _0211A178: .word unk_02099EE8
 _0211A17C: .word unk_0209BA20
 _0211A180: .word ov32_0211A788
-_0211A184: .word unk_02099F78
+_0211A184: .word gL5Config
 _0211A188: .word ov32_0211A790
 _0211A18C: .word unk_020AF81C
 _0211A190: .word unk_020A9C40

@@ -54,7 +54,7 @@
 .public FUN_0203000c
 .public _ZN8L5Config8getParamEPc
 .public FUN_0202bfb8
-.public unk_02099F78
+.public gL5Config
 .public STD_CopyString
 .public FUN_ov16_020ef928
 .public FUN_0207290c

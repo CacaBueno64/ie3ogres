@@ -8,7 +8,7 @@ FUN_ov131_0213acc0: ; 0x0213ACC0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r2, #0
-	ldr r0, _0213ACF4 ; =0x02099F78
+	ldr r0, _0213ACF4 ; =gL5Config
 	ldr r1, _0213ACF8 ; =0x0214C838
 	strb r2, [r4]
 	str r2, [r4, #4]
@@ -18,7 +18,7 @@ FUN_ov131_0213acc0: ; 0x0213ACC0
 	strh r0, [r4, #0x34]
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0213ACF4: .word unk_02099F78
+_0213ACF4: .word gL5Config
 _0213ACF8: .word ov131_0214C838
 	arm_func_end FUN_ov131_0213acc0
 
@@ -17502,7 +17502,7 @@ _02149F0C:
 	orr r1, r2, r1
 	strb r1, [r4, r0, asr #3]
 _02149F70:
-	ldr r0, _0214A520 ; =0x02099F78
+	ldr r0, _0214A520 ; =gL5Config
 	ldr r1, _0214A524 ; =0x0214CB38
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -17886,7 +17886,7 @@ _0214A500:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214A518: .word unk_02099EE8
 _0214A51C: .word ov131_0214CB30
-_0214A520: .word unk_02099F78
+_0214A520: .word gL5Config
 _0214A524: .word ov131_0214CB38
 _0214A528: .word 0x00000201
 _0214A52C: .word unk_0209BA20

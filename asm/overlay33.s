@@ -1447,7 +1447,7 @@ FUN_ov33_0211b25c: ; 0x0211B25C
 	ldr r0, _0211B330 ; =0x0209A070
 	mov r1, r4
 	bl FUN_ov16_020f6c20
-	ldr r0, _0211B334 ; =0x02099F78
+	ldr r0, _0211B334 ; =gL5Config
 	ldr r1, _0211B338 ; =0x0211C048
 	str r6, [r7, #0x48]
 	str r6, [r7, #0x4c]
@@ -1474,7 +1474,7 @@ FUN_ov33_0211b25c: ; 0x0211B25C
 	bl FUN_ov33_0211a6dc
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B330: .word unk_0209A070
-_0211B334: .word unk_02099F78
+_0211B334: .word gL5Config
 _0211B338: .word ov33_0211C048
 	arm_func_end FUN_ov33_0211b25c
 

@@ -18,7 +18,7 @@
 .public FUN_0205b3cc
 .public unk_0209BA20
 .public unk_02099EEC
-.public unk_02099F78
+.public gL5Config
 .public FUN_0202eff0
 .public unk_0209A250
 .public FUN_02058e30

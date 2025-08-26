@@ -301,7 +301,7 @@
 .public FUN_02071458
 .public MATH_CalcSHA1
 .public _ZN8L5Config8getParamEPc
-.public unk_02099F78
+.public gL5Config
 .public MI_CpuFill8
 .public _s32_div_f
 .public FX_SinCosTable_

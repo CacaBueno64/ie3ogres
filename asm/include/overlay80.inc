@@ -131,7 +131,7 @@
 .public FUN_020724c8
 .public FUN_0206c7dc
 .public _ZN8L5Config8getParamEPc
-.public unk_02099F78
+.public gL5Config
 .public FUN_02045b40
 .public FUN_0204eba0
 .public FUN_0204ec3c

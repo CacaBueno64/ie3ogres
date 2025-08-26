@@ -39,7 +39,7 @@
 .public FUN_02043b44
 .public FUN_02049a30
 .public FUN_0205072c
-.public unk_02099F78
+.public gL5Config
 .public unk_020A0B00
 .public unk_0209A320
 .public unk_0209A380

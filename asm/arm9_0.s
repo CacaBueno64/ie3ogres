@@ -341,7 +341,7 @@ _02029AF4:
 	mov r3, r2
 	str r0, [r4, #0x50]
 	bl FUN_02043330
-	ldr r0, _02029B38 ; =0x02099F78
+	ldr r0, _02029B38 ; =gL5Config
 	ldr r1, _02029B3C ; =0x0208F870
 	bl _ZN8L5Config8getParamEPc
 	strh r0, [r4, #0x12]
@@ -352,7 +352,7 @@ _02029B28: .word unk_0208F81C
 _02029B2C: .word unk_0208F838
 _02029B30: .word unk_0208F854
 _02029B34: .word unk_02099E8C
-_02029B38: .word unk_02099F78
+_02029B38: .word gL5Config
 _02029B3C: .word unk_0208F870
 	arm_func_end FUN_02029a24
 
@@ -580,7 +580,7 @@ FUN_02029d54: ; 0x02029D54
 _02029D60: .word unk_020B5AE0
 	arm_func_end FUN_02029d54
 
-	arm_func_start FUN_02029d64
+	arm_func_start FUN_02029d64 ; https://decomp.me/scratch/hQu3p
 FUN_02029d64: ; 0x02029D64
 	ldr r1, _02029D94 ; =0x0208F898
 	ldr r2, [r1]
@@ -599,7 +599,7 @@ _02029D8C:
 _02029D94: .word unk_0208F898
 	arm_func_end FUN_02029d64
 
-	arm_func_start FUN_02029d98
+	arm_func_start FUN_02029d98 ; https://decomp.me/scratch/f1Qbf
 FUN_02029d98: ; 0x02029D98
 	stmfd sp!, {r3, lr}
 	ldr r1, [r0]
@@ -1465,7 +1465,7 @@ FUN_0202a7a8: ; 0x0202A7A8
 	ldr r0, _0202A844 ; =0x02099F24
 	ldr r0, [r0]
 	bl FUN_ov16_020f7374
-	ldr r5, _0202A848 ; =0x02099F78
+	ldr r5, _0202A848 ; =gL5Config
 	ldr r1, _0202A84C ; =0x0208F978
 	mov r0, r5
 	bl _ZN8L5Config8getParamEPc
@@ -1501,7 +1501,7 @@ FUN_0202a7a8: ; 0x0202A7A8
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A844: .word unk_02099F24
-_0202A848: .word unk_02099F78
+_0202A848: .word gL5Config
 _0202A84C: .word unk_0208F978
 _0202A850: .word unk_0208F6F0
 _0202A854: .word unk_0208F988
@@ -19933,7 +19933,7 @@ FUN_0203a300: ; 0x0203A300
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}
-	ldr r4, _0203A464 ; =0x02099F78
+	ldr r4, _0203A464 ; =gL5Config
 	ldr r1, _0203A468 ; =0x0208FEB4
 	mov r0, r4
 	bl _ZN8L5Config8getParamEPc
@@ -20010,7 +20010,7 @@ FUN_0203a300: ; 0x0203A300
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0203A460: .word unk_02099EF0
-_0203A464: .word unk_02099F78
+_0203A464: .word gL5Config
 _0203A468: .word unk_0208FEB4
 _0203A46C: .word unk_0208FECC
 _0203A470: .word unk_0209A200
@@ -28528,263 +28528,6 @@ _02041798: .word unk_020B5BDC
 _0204179C: .word FUN_02051dc4
 	arm_func_end FUN_02041780
 
-;	arm_func_start _ZN8L5ConfigC1Ev
-;_ZN8L5ConfigC1Ev: ; 0x020417A0
-;	stmfd sp!, {r4, lr}
-;	mov r4, r0
-;	bl _ZN8L5Config5clearEv
-;	mov r0, r4
-;	ldmfd sp!, {r4, pc}
-;	arm_func_end _ZN8L5ConfigC1Ev
-;
-;	arm_func_start _ZN8L5ConfigD1Ev
-;_ZN8L5ConfigD1Ev: ; 0x020417B4
-;	stmfd sp!, {r4, lr}
-;	mov r4, r0
-;	ldr r0, [r4]
-;	cmp r0, #0
-;	beq _020417CC
-;	bl FUN_02086738
-;_020417CC:
-;	mov r1, #0
-;	mov r0, r4
-;	str r1, [r4]
-;	ldmfd sp!, {r4, pc}
-;	arm_func_end _ZN8L5ConfigD1Ev
-;
-;	arm_func_start _ZN8L5Config5clearEv
-;_ZN8L5Config5clearEv: ; 0x020417DC
-;	mov r1, #0
-;	str r1, [r0]
-;	bx lr
-;	arm_func_end _ZN8L5Config5clearEv
-;
-;	arm_func_start _ZN8L5Config8initFileEPc ; https://decomp.me/scratch/LpJLQ
-;_ZN8L5Config8initFileEPc: ; 0x020417E8
-;	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
-;	sub sp, sp, #4
-;	mov r4, #0
-;	mov r8, r0
-;	add r0, sp, #0
-;	mov r2, r4
-;	mov r3, r4
-;	str r4, [sp]
-;	bl FUN_02085bbc
-;	mov r7, r0
-;	cmp r7, #0
-;	addle sp, sp, #4
-;	movle r0, r4
-;	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, pc}
-;	ldr r0, [sp]
-;	add r1, r0, r7
-;	mov r6, r0
-;	mov r5, r0
-;	cmp r0, r1
-;	bhs _020418A0
-;_02041838:
-;	ldrsb r0, [r6]
-;	cmp r0, #0xa
-;	beq _0204184C
-;	cmp r0, #0xd
-;	bne _0204188C
-;_0204184C:
-;	mov r0, r5
-;	strb r4, [r6]
-;	bl strlen
-;	cmp r0, #0
-;	beq _02041888
-;	ldr r3, [r8]
-;	ldr r2, [r8, #4]
-;	mov r0, r8
-;	mov r1, r5
-;	add r2, r3, r2, lsl #3
-;	bl FUN_0204197c
-;	cmp r0, #0
-;	ldrne r0, [r8, #4]
-;	addne r0, r0, #1
-;	strne r0, [r8, #4]
-;_02041888:
-;	add r5, r6, #1
-;_0204188C:
-;	ldr r0, [sp]
-;	add r6, r6, #1
-;	add r1, r0, r7
-;	cmp r6, r1
-;	blo _02041838
-;_020418A0:
-;	bl FUN_02086738
-;	mov r0, #1
-;	add sp, sp, #4
-;	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-;	arm_func_end _ZN8L5Config8initFileEPc
-;
-;	arm_func_start _ZN8L5Config8getParamEPc ; https://decomp.me/scratch/sESNQ
-;_ZN8L5Config8getParamEPc: ; 0x020418B0
-;	stmfd sp!, {r4, lr}
-;	mov r4, r0
-;	bl FUN_02041914
-;	cmp r0, #0
-;	blt _020418D0
-;	ldr r1, [r4]
-;	cmp r1, #0
-;	bne _020418D8
-;_020418D0:
-;	mov r0, #0
-;	ldmfd sp!, {r4, pc}
-;_020418D8:
-;	add r0, r1, r0, lsl #3
-;	ldr r0, [r0, #4]
-;	ldmfd sp!, {r4, pc}
-;	arm_func_end _ZN8L5Config8getParamEPc
-;
-;	arm_func_start _ZN8L5Config4initEv ; https://decomp.me/scratch/8pYf4
-;_ZN8L5Config4initEv: ; 0x020418E4
-;	stmfd sp!, {r4, lr}
-;	mov r4, r0
-;	ldr r0, [r4]
-;	cmp r0, #0
-;	bne _02041908
-;	mov r0, #0x300
-;	mvn r1, #0
-;	bl FUN_0208670c
-;	str r0, [r4]
-;_02041908:
-;	mov r0, #0
-;	str r0, [r4, #4]
-;	ldmfd sp!, {r4, pc}
-;	arm_func_end _ZN8L5Config4initEv
-;
-;	arm_func_start FUN_02041914 ; https://decomp.me/scratch/98jPR
-;FUN_02041914: ; 0x02041914
-;	stmfd sp!, {r4, r5, r6, lr}
-;	mov r6, r0
-;	ldr r4, [r6]
-;	mov r5, r1
-;	cmp r4, #0
-;	mvneq r0, #0
-;	ldmeqfd sp!, {r4, r5, r6, pc}
-;	mov r0, r5
-;	bl STD_GetStringLength
-;	mov r1, r0
-;	mov r0, r5
-;	bl FUN_020859d8
-;	ldr r3, [r6, #4]
-;	mov r2, #0
-;	cmp r3, #0
-;	ble _02041974
-;_02041954:
-;	ldr r1, [r4]
-;	cmp r1, r0
-;	moveq r0, r2
-;	ldmeqfd sp!, {r4, r5, r6, pc}
-;	add r2, r2, #1
-;	cmp r2, r3
-;	add r4, r4, #8
-;	blt _02041954
-;_02041974:
-;	mvn r0, #0
-;	ldmfd sp!, {r4, r5, r6, pc}
-;	arm_func_end FUN_02041914
-;
-;	arm_func_start FUN_0204197c
-;FUN_0204197c: ; 0x0204197C
-;	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-;	sub sp, sp, #0x20
-;	movs r5, r2
-;	mov r4, #1
-;	mov r7, #0
-;	mov r6, r1
-;	addeq sp, sp, #0x20
-;	mov r3, r4
-;	mov r0, r7
-;	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-;	ldrsb r2, [r6]
-;	cmp r2, #0
-;	beq _02041A64
-;	mov r8, r4
-;_020419B4:
-;	ldrsb r2, [r6]
-;	cmp r2, #0x20
-;	beq _020419C8
-;	cmp r2, #9
-;	bne _020419D8
-;_020419C8:
-;	add r6, r6, #1
-;	cmp r3, #0
-;	movne r1, r6
-;	b _02041A58
-;_020419D8:
-;	cmp r2, #0x3b
-;	bne _020419F0
-;	cmp r4, #0
-;	addne sp, sp, #0x20
-;	movne r0, #0
-;	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
-;_020419F0:
-;	cmp r2, #0x3d
-;	cmpeq r0, #0
-;	bne _02041A4C
-;	cmp r6, r1
-;	addeq sp, sp, #0x20
-;	moveq r0, #0
-;	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-;	mov r2, r6
-;	b _02041A18
-;_02041A14:
-;	sub r2, r2, #1
-;_02041A18:
-;	ldrsb r0, [r2, #-1]
-;	cmp r0, #0x20
-;	cmpne r0, #9
-;	beq _02041A14
-;	mov r0, r1
-;	sub r1, r2, r1
-;	bl FUN_020859d8
-;	add r6, r6, #1
-;	str r0, [r5]
-;	mov r0, r8
-;	mov r1, r6
-;	mov r3, r8
-;	b _02041A58
-;_02041A4C:
-;	mov r4, r7
-;	mov r3, r7
-;	add r6, r6, #1
-;_02041A58:
-;	ldrsb r2, [r6]
-;	cmp r2, #0
-;	bne _020419B4
-;_02041A64:
-;	cmp r0, #0
-;	beq _02041ABC
-;	b _02041A74
-;_02041A70:
-;	sub r6, r6, #1
-;_02041A74:
-;	ldrsb r0, [r6, #-1]
-;	cmp r0, #0x20
-;	cmpne r0, #9
-;	beq _02041A70
-;	sub r6, r6, r1
-;	cmp r6, #0
-;	ble _02041ABC
-;	add r4, sp, #0
-;	mov r2, r6
-;	mov r0, r4
-;	bl strncpy
-;	mov r0, r4
-;	strb r7, [r4, r6]
-;	bl atoi
-;	str r0, [r5, #4]
-;	add sp, sp, #0x20
-;	mov r0, #1
-;	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-;_02041ABC:
-;	mov r0, #0
-;	add sp, sp, #0x20
-;	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-;	arm_func_end FUN_0204197c
-
 	.rodata
 	.global unk_0208C340
 unk_0208C340:
@@ -28814,7 +28557,6 @@ unk_0208C37C:
 
 	.data
 	.global unk_0208F680
-	.balign 4, 0
 unk_0208F680:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -29596,8 +29338,8 @@ unk_02099F68:
 	.global unk_02099F6E
 unk_02099F6E:
 	.space 0x0A
-	.global unk_02099F78
-unk_02099F78:
+	.global gL5Config
+gL5Config:
 	.space 0x08
 	.global unk_02099F80
 unk_02099F80:

@@ -3560,7 +3560,7 @@ FUN_ov4_020bfac0: ; 0x020BFAC0
 	ldr r2, [r0]
 	ldr r2, [r2, #0x28]
 	blx r2
-	ldr r0, _020BFB24 ; =0x02099F78
+	ldr r0, _020BFB24 ; =gL5Config
 	ldr r1, _020BFB28 ; =0x020D97A0
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -3577,7 +3577,7 @@ _020BFB14:
 	add r0, r4, #0x10
 	bl FUN_ov16_020f2a18
 	ldmfd sp!, {r4, pc}
-_020BFB24: .word unk_02099F78
+_020BFB24: .word gL5Config
 _020BFB28: .word ov4_020D97A0
 _020BFB2C: .word ov4_020D97A8
 _020BFB30: .word ov4_020D97B0

@@ -81,7 +81,7 @@ _02119FB8:
 	ldr r1, [r1, #0x1c4]
 	mov r3, #0
 	bl FUN_0205ab68
-	ldr r6, _0211A184 ; =0x02099F78
+	ldr r6, _0211A184 ; =gL5Config
 	add r2, r5, #0x2000
 	ldr r1, _0211A188 ; =0x021248E4
 	mov r0, r6
@@ -111,7 +111,7 @@ _0211A054:
 	bl _fsub
 _0211A074:
 	bl _ffix
-	ldr r4, _0211A184 ; =0x02099F78
+	ldr r4, _0211A184 ; =gL5Config
 	mov r6, r0
 	ldr r1, _0211A194 ; =0x02124920
 	mov r0, r4
@@ -140,7 +140,7 @@ _0211A0D4:
 	mov r2, #0x1a4000
 	str r0, [sp, #0xc]
 	rsb r2, r2, #0
-	ldr r0, _0211A184 ; =0x02099F78
+	ldr r0, _0211A184 ; =gL5Config
 	ldr r1, _0211A1A0 ; =0x0212495C
 	str r2, [sp, #0x14]
 	str r6, [sp, #0x10]
@@ -180,7 +180,7 @@ _0211A0D4:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A17C: .word unk_02099EEC
 _0211A180: .word 0x000F423F
-_0211A184: .word unk_02099F78
+_0211A184: .word gL5Config
 _0211A188: .word ov63_021248E4
 _0211A18C: .word ov63_021248F8
 _0211A190: .word ov63_0212490C

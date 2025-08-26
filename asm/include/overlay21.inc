@@ -30,7 +30,7 @@
 .public FUN_ov16_02113b78
 .public _ZN8L5Config8getParamEPc
 .public MI_CpuCopy8
-.public unk_02099F78
+.public gL5Config
 .public FUN_ov16_021137dc
 .public FUN_ov16_0211401c
 .public FUN_ov16_021139bc

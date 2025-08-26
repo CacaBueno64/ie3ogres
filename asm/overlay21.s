@@ -879,7 +879,7 @@ FUN_ov21_0211aa8c: ; 0x0211AA8C
 	mov r2, #0x700
 	mov r4, r7
 	bl MI_CpuFill8
-	ldr r0, _0211ADCC ; =0x02099F78
+	ldr r0, _0211ADCC ; =gL5Config
 	ldr r1, _0211ADD0 ; =0x0211D56C
 	bl _ZN8L5Config8getParamEPc
 	ldr r9, [r10, #0xaf8]
@@ -1097,7 +1097,7 @@ _0211AD90:
 	add sp, sp, #0x1c
 	add sp, sp, #0x800
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211ADCC: .word unk_02099F78
+_0211ADCC: .word gL5Config
 _0211ADD0: .word ov21_0211D56C
 _0211ADD4: .word 0x2AAAAAAB
 	arm_func_end FUN_ov21_0211aa8c

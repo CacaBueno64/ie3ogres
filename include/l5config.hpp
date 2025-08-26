@@ -1,3 +1,6 @@
+#ifndef IE3OGRES_L5CONFIG_H
+#define IE3OGRES_L5CONFIG_H
+
 #pragma once
 
 extern "C" {
@@ -14,7 +17,7 @@ class L5Config {
         L5Config();
         ~L5Config();
         void clear();
-        BOOL initFile(char *filename);
+        BOOL openFile(char *filename);
         int getParam(char *param);
         void init(void);
         int getParamPosition(char *param);
@@ -25,3 +28,5 @@ class L5Config {
 };
 
 extern L5Config gL5Config;
+
+#endif //IE3OGRES_L5CONFIG_H

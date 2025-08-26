@@ -329,7 +329,7 @@ FUN_ov6_020bcf40: ; 0x020BCF40
 	ldr r11, _020BCFD4 ; =0x020BDEC8
 	add r5, r4, #4
 	ldr r6, _020BCFD8 ; =0x020BDEA4
-	ldr r8, _020BCFDC ; =0x02099F78
+	ldr r8, _020BCFDC ; =gL5Config
 	ldr r7, _020BCFE0 ; =0x020BDE9C
 	mov r4, #0xc
 _020BCF7C:
@@ -360,7 +360,7 @@ _020BCFAC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BCFD4: .word ov6_020BDEC8
 _020BCFD8: .word ov6_020BDEA4
-_020BCFDC: .word unk_02099F78
+_020BCFDC: .word gL5Config
 _020BCFE0: .word ov6_020BDE9C
 	arm_func_end FUN_ov6_020bcf40
 
@@ -478,7 +478,7 @@ FUN_ov6_020bd13c: ; 0x020BD13C
 FUN_ov6_020bd154: ; 0x020BD154
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r0, _020BD1F0 ; =0x02099F78
+	ldr r0, _020BD1F0 ; =gL5Config
 	ldr r1, _020BD1F4 ; =0x020BDEEC
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -519,7 +519,7 @@ _020BD1CC:
 	mov r0, #1
 	bl FUN_02029d44
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD1F0: .word unk_02099F78
+_020BD1F0: .word gL5Config
 _020BD1F4: .word ov6_020BDEEC
 _020BD1F8: .word unk_0209AC44
 _020BD1FC: .word ov6_020BDEF4
@@ -681,7 +681,7 @@ _020BD418:
 	str r1, [r5, #0x1d8]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020BD6FC ; =0x02099F78
+	ldr r0, _020BD6FC ; =gL5Config
 	ldr r1, _020BD700 ; =0x020BDF24
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -874,7 +874,7 @@ _020BD6D4:
 _020BD6F0: .word unk_020A0640
 _020BD6F4: .word 0x04000014
 _020BD6F8: .word 0x01FF0000
-_020BD6FC: .word unk_02099F78
+_020BD6FC: .word gL5Config
 _020BD700: .word ov6_020BDF24
 _020BD704: .word unk_0209AC44
 _020BD708: .word ov6_020BDF2C
@@ -919,7 +919,7 @@ FUN_ov6_020bd764: ; 0x020BD764
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r4, r0
-	ldr r0, _020BD850 ; =0x02099F78
+	ldr r0, _020BD850 ; =gL5Config
 	ldr r1, _020BD854 ; =0x020BDFD0
 	mov r5, #0
 	bl _ZN8L5Config8getParamEPc
@@ -981,7 +981,7 @@ _020BD824:
 	mov r0, #1
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD850: .word unk_02099F78
+_020BD850: .word gL5Config
 _020BD854: .word ov6_020BDFD0
 _020BD858: .word unk_0209A250
 _020BD85C: .word ov6_020BDFD8
@@ -1264,7 +1264,7 @@ _020BDBDC:
 	str r5, [r0]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BDBEC:
-	ldr r0, _020BDC34 ; =0x02099F78
+	ldr r0, _020BDC34 ; =gL5Config
 	ldr r1, _020BDC38 ; =0x020BE038
 	bl _ZN8L5Config8getParamEPc
 	cmp r0, #0
@@ -1285,7 +1285,7 @@ _020BDC14:
 	mov r0, #4
 	str r0, [r4, #0x204]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BDC34: .word unk_02099F78
+_020BDC34: .word gL5Config
 _020BDC38: .word ov6_020BE038
 _020BDC3C: .word ov6_020BE040
 _020BDC40: .word ov6_020BE064

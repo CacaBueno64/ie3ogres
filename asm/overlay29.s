@@ -332,7 +332,7 @@ _0211A358:
 	mov r1, #0
 	mov r2, #0x10
 	bl MI_CpuFill8
-	ldr r5, _0211A634 ; =0x02099F78
+	ldr r5, _0211A634 ; =gL5Config
 	ldr r1, _0211A638 ; =0x021236D8
 	mov r0, r5
 	bl _ZN8L5Config8getParamEPc
@@ -513,7 +513,7 @@ _0211A624: .word ov29_021236D0
 _0211A628: .word unk_02099EB4
 _0211A62C: .word unk_02099ED4
 _0211A630: .word unk_02099F38
-_0211A634: .word unk_02099F78
+_0211A634: .word gL5Config
 _0211A638: .word ov29_021236D8
 _0211A63C: .word unk_020A0700
 _0211A640: .word ov29_021236E4
@@ -593,7 +593,7 @@ _0211A71C:
 	bl FUN_0204ec3c
 	ldr r0, _0211A7EC ; =0x0209A0AC
 	bl FUN_ov16_020efa04
-	ldr r5, _0211A7F0 ; =0x02099F78
+	ldr r5, _0211A7F0 ; =gL5Config
 	ldr r1, _0211A7F4 ; =0x02123768
 	mov r0, r5
 	bl _ZN8L5Config8getParamEPc
@@ -635,7 +635,7 @@ _0211A71C:
 _0211A7E4: .word unk_02099F38
 _0211A7E8: .word unk_0209BA20
 _0211A7EC: .word unk_0209A0AC
-_0211A7F0: .word unk_02099F78
+_0211A7F0: .word gL5Config
 _0211A7F4: .word ov29_02123768
 _0211A7F8: .word unk_020A0700
 _0211A7FC: .word ov29_02123774

@@ -5,7 +5,7 @@
 .public DSProt_DetectDummy
 .public DSProt_DetectNotDummy
 .public _ZN8L5Config8getParamEPc
-.public unk_02099F78
+.public gL5Config
 .public unk_020A0B00
 .public FUN_02074748
 .public unk_020A0640

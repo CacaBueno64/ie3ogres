@@ -146,7 +146,7 @@
 .public FUN_ov16_020ef8d4
 .public FUN_ov132_02147df8
 .public FUN_ov132_021491b0
-.public unk_02099F78
+.public gL5Config
 .public ov132_02160304
 .public ov132_02160314
 .public ov132_02160324

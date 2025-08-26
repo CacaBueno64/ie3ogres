@@ -3788,7 +3788,7 @@ _0211D340: ; jump table
 	b _0211D3D4 ; case 8
 	b _0211D3E0 ; case 9
 _0211D368:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D40C ; =0x02122964
 _0211D370:
 	bl _ZN8L5Config8getParamEPc
@@ -3796,39 +3796,39 @@ _0211D370:
 	mov r4, r0, lsr #0x10
 	b _0211D3F0
 _0211D380:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D410 ; =0x02122974
 	b _0211D370
 _0211D38C:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D414 ; =0x02122984
 	b _0211D370
 _0211D398:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D418 ; =0x02122994
 	b _0211D370
 _0211D3A4:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D41C ; =0x021229A4
 	b _0211D370
 _0211D3B0:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D420 ; =0x021229B4
 	b _0211D370
 _0211D3BC:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D424 ; =0x021229C4
 	b _0211D370
 _0211D3C8:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D428 ; =0x021229D4
 	b _0211D370
 _0211D3D4:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D42C ; =0x021229E4
 	b _0211D370
 _0211D3E0:
-	ldr r0, _0211D408 ; =0x02099F78
+	ldr r0, _0211D408 ; =gL5Config
 	ldr r1, _0211D430 ; =0x021229F4
 	b _0211D370
 _0211D3EC:
@@ -3840,7 +3840,7 @@ _0211D3F0:
 	movls r0, #1
 	movhi r0, #0
 	ldmfd sp!, {r4, pc}
-_0211D408: .word unk_02099F78
+_0211D408: .word gL5Config
 _0211D40C: .word ov80_02122964
 _0211D410: .word ov80_02122974
 _0211D414: .word ov80_02122984

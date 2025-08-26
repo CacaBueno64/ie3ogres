@@ -50,7 +50,7 @@
 .public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
-.public unk_02099F78
+.public gL5Config
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f6a9c

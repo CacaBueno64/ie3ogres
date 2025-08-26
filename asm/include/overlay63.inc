@@ -13,7 +13,7 @@
 .public FUN_0205acb0
 .public FUN_0205b3cc
 .public unk_02099EEC
-.public unk_02099F78
+.public gL5Config
 .public FUN_0202eff0
 .public unk_0209A250
 .public FUN_02059004

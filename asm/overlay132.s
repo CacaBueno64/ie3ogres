@@ -8,7 +8,7 @@ FUN_ov132_0213acc0: ; 0x0213ACC0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldr r2, _0213ADE8 ; =0x021602E8
-	ldr r0, _0213ADEC ; =0x02099F78
+	ldr r0, _0213ADEC ; =gL5Config
 	ldr r1, _0213ADF0 ; =0x021602F0
 	str r2, [r5]
 	bl _ZN8L5Config8getParamEPc
@@ -81,7 +81,7 @@ _0213ADD8:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _0213ADE8: .word ov132_021602E8
-_0213ADEC: .word unk_02099F78
+_0213ADEC: .word gL5Config
 _0213ADF0: .word ov132_021602F0
 _0213ADF4: .word 0x92492493
 _0213ADF8: .word unk_0209A250
@@ -9487,7 +9487,7 @@ FUN_ov132_0214314c: ; 0x0214314C
 	mov r6, r1
 	str r2, [sp, #0x10]
 	ldr r2, [sp, #0x14]
-	ldr r0, _021433E0 ; =0x02099F78
+	ldr r0, _021433E0 ; =gL5Config
 	str r2, [sp, #0xc]
 	ldr r2, [sp, #0x14]
 	ldr r1, _021433E4 ; =0x02160338
@@ -9660,7 +9660,7 @@ _021433C8:
 	strlt r0, [r10, #0x1f0]
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021433E0: .word unk_02099F78
+_021433E0: .word gL5Config
 _021433E4: .word ov132_02160338
 _021433E8: .word unk_020A0640
 _021433EC: .word unk_0209AEC0
@@ -14544,7 +14544,7 @@ _02147374:
 	beq _021473C0
 	b _021473EC
 _02147388:
-	ldr r5, _021475B0 ; =0x02099F78
+	ldr r5, _021475B0 ; =gL5Config
 	ldr r1, _021475B4 ; =0x02160344
 	mov r0, r5
 	bl _ZN8L5Config8getParamEPc
@@ -14560,7 +14560,7 @@ _021473B0:
 	mov r5, r0
 	b _021473F8
 _021473C0:
-	ldr r5, _021475B0 ; =0x02099F78
+	ldr r5, _021475B0 ; =gL5Config
 	ldr r1, _021475C0 ; =0x0216038C
 	mov r0, r5
 	bl _ZN8L5Config8getParamEPc
@@ -14693,7 +14693,7 @@ _02147590:
 	bl FUN_ov1_020dd8fc
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021475B0: .word unk_02099F78
+_021475B0: .word gL5Config
 _021475B4: .word ov132_02160344
 _021475B8: .word ov132_0216035C
 _021475BC: .word ov132_02160374
@@ -22889,7 +22889,7 @@ _0214E8E4:
 	mov r0, r0, lsr #0x1c
 	cmpeq r0, #5
 	bne _0214E9C0
-	ldr r10, _0214EAF4 ; =0x02099F78
+	ldr r10, _0214EAF4 ; =gL5Config
 	ldr r1, _0214EAF8 ; =0x021603EC
 	mov r0, r10
 	bl _ZN8L5Config8getParamEPc
@@ -22910,7 +22910,7 @@ _0214E8E4:
 _0214E9C0:
 	cmp r10, #5
 	bne _0214E9EC
-	ldr r0, _0214EAF4 ; =0x02099F78
+	ldr r0, _0214EAF4 ; =gL5Config
 	ldr r1, _0214EB00 ; =0x02160414
 	bl _ZN8L5Config8getParamEPc
 	mul r1, r6, r0
@@ -22993,7 +22993,7 @@ _0214EAC4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214EAEC: .word unk_0209BA20
 _0214EAF0: .word 0x51EB851F
-_0214EAF4: .word unk_02099F78
+_0214EAF4: .word gL5Config
 _0214EAF8: .word ov132_021603EC
 _0214EAFC: .word ov132_02160400
 _0214EB00: .word ov132_02160414

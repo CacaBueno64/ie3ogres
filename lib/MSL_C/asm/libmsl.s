@@ -14998,6 +14998,7 @@ unk_0208F62C:
 	.global unk_0208F664
 unk_0208F664:
 	.asciz "basic_string: length_error"
+	.balign 4, 0
 
 	.bss
 	.global __global_destructor_chain
