@@ -18126,7 +18126,7 @@ FUN_ov16_020fca88: ; 0x020FCA88
 	str r7, [sp, #0x20]
 	str r6, [sp, #0x24]
 	str r2, [sp, #0x28]
-	bl FUN_020859d8
+	bl Common_CalcCRC32
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov16_020fca88

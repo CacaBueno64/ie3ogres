@@ -1,9 +1,10 @@
 #include <string.h>
 
+#include "l5common.h"
+
 #include "l5config.hpp"
 
 extern "C" {
-    extern u32 FUN_020859d8(const void *data, u32 dataLength); // calc crc32
     extern void *FUN_0208670c(u32 size, int unk); // alloc
     extern void FUN_02086738(void *ptr); // free
     extern s32 FUN_02085bbc(void *dst, const char *filename, u32 pos, u32 len); // read file
@@ -88,7 +89,7 @@ int L5Config::getParamPosition(char *param)
         return -1;
     }
     u32 len = STD_GetStringLength(param);
-    u32 crc32 = FUN_020859d8(param, len);
+    u32 crc32 = Common_CalcCRC32(param, len);
     int pos = 0;
     if (this->paramCount > 0) {
         do {
@@ -136,7 +137,7 @@ BOOL L5Config::readFileParam(char *file, Struct_ParamEntry *param)
             }
 
             int len = key_end - key_start;
-            param->crc32 = FUN_020859d8(key_start, len);
+            param->crc32 = Common_CalcCRC32(key_start, len);
             read_key = TRUE;
             curr++;
             key_start = curr;

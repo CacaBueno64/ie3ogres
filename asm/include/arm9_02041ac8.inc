@@ -438,7 +438,7 @@
 .public FUN_ov16_020f81a4
 .public FUN_ov16_020f7c44
 .public FUN_ov16_02117818
-.public FUN_020859d8
+.public Common_CalcCRC32
 .public unk_02099F30
 .public FUN_02086390
 .public FUN_0208622c

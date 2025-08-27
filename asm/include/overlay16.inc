@@ -577,7 +577,7 @@
 .public FUN_0208670c
 .public FUN_02086738
 .public FUN_020538b0
-.public FUN_020859d8
+.public Common_CalcCRC32
 .public OS_LockMutex
 .public FUN_02086390
 .public FUN_0208622c

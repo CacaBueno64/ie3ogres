@@ -20138,39 +20138,6 @@ _02085964:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_020858bc
 
-	arm_func_start FUN_0208596c
-FUN_0208596c: ; 0x0208596C
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	mov r4, r2
-	add r2, r4, #0xff
-	add r3, r2, #0x3f00
-	mov r2, r3, asr #0xd
-	add r2, r3, r2, lsr #18
-	mov r6, r2, asr #0xe
-	mov r7, #0
-	mov r10, r0
-	mov r9, r1
-	mov r8, r7
-	cmp r6, #0
-	ble _020859D0
-	mov r5, #0x4000
-_020859A4:
-	mov r2, r5
-	cmp r4, #0x4000
-	movlt r2, r4
-	mov r0, r10
-	add r1, r9, r8, lsl #14
-	sub r4, r4, r2
-	bl FS_ReadFile
-	add r8, r8, #1
-	cmp r8, r6
-	add r7, r7, r0
-	blt _020859A4
-_020859D0:
-	mov r0, r7
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_0208596c
-
     .rodata
 	.global DSE_MIDI_EVENT_LENGTHS
 DSE_MIDI_EVENT_LENGTHS:

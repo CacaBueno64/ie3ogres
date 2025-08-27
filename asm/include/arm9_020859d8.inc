@@ -1,3 +1,5 @@
+.public FUN_020859f8
+.public Common_CalcCRC32
 .public MATH_CalcCRC32
 .public FS_InitFile
 .public FS_OpenFileFast

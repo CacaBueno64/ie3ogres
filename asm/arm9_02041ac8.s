@@ -27428,7 +27428,7 @@ FUN_02057d9c: ; 0x02057D9C
 	mov r1, r4
 	str r7, [sp, #0x20]
 	str r6, [sp, #0x24]
-	bl FUN_020859d8
+	bl Common_CalcCRC32
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_02057d9c
