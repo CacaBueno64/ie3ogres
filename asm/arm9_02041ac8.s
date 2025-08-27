@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/include/arm9_1.inc"
+	.include "/include/arm9_02041ac8.inc"
 
 	.text
 	arm_func_start FUN_02041ac8
@@ -42053,8 +42053,8 @@ unk_02099FFC:
 	.global unk_0209A008
 unk_0209A008:
 	.space 0x0C
-	.global unk_0209A014
-unk_0209A014:
+	.global gL5CardController
+gL5CardController:
 	.space 0x0C
 	.global unk_0209A020
 unk_0209A020:

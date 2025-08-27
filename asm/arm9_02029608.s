@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/include/arm9_0.inc"
+	.include "/include/arm9_02029608.inc"
 
 	.text
 	arm_func_start FUN_02029608

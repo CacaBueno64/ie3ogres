@@ -22,7 +22,7 @@ void FUN_ov130_0212a9c0(void)
 {
     void *lo = OS_GetArenaLo(OS_ARENA_MAIN);
     void *hi = OS_GetArenaHi(OS_ARENA_MAIN);
-    MIi_CpuClearFast(0, lo, (u32)hi - (u32)lo);
+    MI_CpuClearFast(lo, (u32)hi - (u32)lo);
     void *newLo = OS_InitAlloc(OS_ARENA_MAIN, lo, hi, 2);
     OS_SetArenaLo(OS_ARENA_MAIN, newLo);
 }

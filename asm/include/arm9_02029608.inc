@@ -25,6 +25,7 @@
 .public FUN_02042188
 .public FUN_02043330
 .public FUN_0206b9c4
+.public _ZN8L5Config8getParamEPc
 .public OS_Sleep
 .public unk_0209AC44
 .public unk_0209AEC0
@@ -621,14 +622,8 @@
 .public FUN_02051bb8
 .public FUN_02051d3c
 .public FUN_02051dc4
-.public FUN_02086738
-.public strlen
-.public FUN_0208670c
-.public FUN_020859d8
-.public strncpy
 .public FUN_02028fa4
 .public FUN_02028fa0
 .public FUN_02028fa8
 .public FUN_0205244c
 .public FUN_020524a0
-.public _ZN8L5Config8getParamEPc

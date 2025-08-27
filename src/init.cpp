@@ -84,7 +84,8 @@ extern void FUN_0202e4ac(void *, void *);
 extern void *unk_0209A250;
 extern void *unk_0209A8A0;
 
-void FUN_02029140(void) {
+void FUN_02029140(void)
+{
     void *arenalo = OS_GetArenaLo(OS_ARENA_MAIN);
     unk_02099E8C.unk94 = arenalo;
     void *arenahi = OS_GetArenaHi(OS_ARENA_MAIN);
@@ -101,7 +102,7 @@ void FUN_02029140(void) {
     void *destp = unk_02099E8C.unk94;
     u32 size = (u32)unk_02099E8C.unk30 - (u32)unk_02099E8C.unk94;
     unk_02099E8C.unkBC = size;
-    MIi_CpuClearFast(0, destp, size);
+    MI_CpuClearFast(destp, size);
     
     DC_FlushRange(unk_02099E8C.unk94, (u32)unk_02099E8C.unkBC);
     

@@ -23,6 +23,8 @@ class L5CardController {
     CARDResult result;
 };
 
+extern L5CardController gL5CardController;
+
 typedef struct {
     u8 unk[0x4C];
     L5CardController backupCtx;
