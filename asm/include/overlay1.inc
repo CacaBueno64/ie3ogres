@@ -146,7 +146,7 @@
 .public FUN_02044e98
 .public unk_0209BA20
 .public unk_0209A250
-.public unk_0209AC44
+.public gL5Sound
 .public unk_0209A0AC
 .public unk_02099E98
 .public unk_02099EF0
@@ -164,7 +164,7 @@
 .public FUN_020443d4
 .public FUN_0202c470
 .public FUN_0202cff8
-.public FUN_0202d774
+.public _ZN7L5Sound12FUN_0202d774Emm
 .public operator_delete
 .public FUN_02086040
 .public FUN_020522ec
@@ -271,7 +271,7 @@
 .public FUN_ov132_02147d68
 .public FUN_01ff9524
 .public FUN_ov132_02145a44
-.public FUN_0202d578
+.public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_ov126_02137644
 .public FUN_02044798
 .public FUN_ov132_02143c40
@@ -511,8 +511,8 @@
 .public FUN_ov126_02136598
 .public FUN_ov126_02136754
 .public FUN_ov132_021447ec
-.public FUN_0202e958
-.public unk_0209A8A0
+.public _ZN7L5Movie12FUN_0202e958Ev
+.public gL5Movie
 .public FUN_ov16_020f1d64
 .public FUN_ov16_020f2ab4
 .public GX_ResetBankForBG

@@ -21,9 +21,9 @@
 .public unk_0209A454
 .public unk_0209BA20
 .public unk_02099EF0
-.public FUN_0202d594
+.public _ZN7L5Sound12FUN_0202d594Emm
 .public FUN_0202c3b4
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_020efabc
 .public FUN_0206cbf8
 .public FUN_ov16_020efa9c

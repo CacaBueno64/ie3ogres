@@ -35,7 +35,7 @@ FUN_ov5_020bcb40: ; 0x020BCB40
 	strb r6, [r4, #0x88]
 	strb r7, [r4, #0x89]
 	bl FUN_ov16_020f13d4
-	ldr r6, _020BCC40 ; =0x0209AC44
+	ldr r6, _020BCC40 ; =gL5Sound
 	mov r1, #4
 	mov r0, r6
 	mov r2, r7
@@ -54,7 +54,7 @@ _020BCBE4:
 	cmp r0, #0
 	beq _020BCBE4
 _020BCBFC:
-	ldr r6, _020BCC40 ; =0x0209AC44
+	ldr r6, _020BCC40 ; =gL5Sound
 	mov r0, r6
 	bl FUN_0202b7f0
 	cmp r0, #0
@@ -73,7 +73,7 @@ _020BCC2C:
 	ldr r1, [r1, #0x34]
 	blx r1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BCC40: .word unk_0209AC44
+_020BCC40: .word gL5Sound
 	arm_func_end FUN_ov5_020bcb40
 
 	arm_func_start FUN_ov5_020bcc44
@@ -279,10 +279,10 @@ FUN_ov5_020bceac: ; 0x020BCEAC
 	ldmnefd sp!, {r3, pc}
 	tst r1, #1
 	ldmeqfd sp!, {r3, pc}
-	ldr r0, _020BCED8 ; =0x0209A8A0
-	bl FUN_0202e958
+	ldr r0, _020BCED8 ; =gL5Movie
+	bl _ZN7L5Movie12FUN_0202e958Ev
 	ldmfd sp!, {r3, pc}
-_020BCED8: .word unk_0209A8A0
+_020BCED8: .word gL5Movie
 	arm_func_end FUN_ov5_020bceac
 
 	arm_func_start FUN_ov5_020bcedc
@@ -304,13 +304,13 @@ _020BCF10:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
 	beq _020BCF24
-	ldr r0, _020BCF30 ; =0x0209A8A0
-	bl FUN_0202e958
+	ldr r0, _020BCF30 ; =gL5Movie
+	bl _ZN7L5Movie12FUN_0202e958Ev
 _020BCF24:
 	mov r0, #0
 	strb r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_020BCF30: .word unk_0209A8A0
+_020BCF30: .word gL5Movie
 	arm_func_end FUN_ov5_020bcedc
 
 	arm_func_start FUN_ov5_020bcf34
@@ -580,7 +580,7 @@ _020BD240:
 _020BD260:
 	cmp r0, #1
 	bne _020BD280
-	ldr r0, _020BD3F8 ; =0x0209AC44
+	ldr r0, _020BD3F8 ; =gL5Sound
 	ldr r1, _020BD3FC ; =0x000083DE
 	bl FUN_0202cf6c
 	mov r0, #6
@@ -690,7 +690,7 @@ _020BD3C4:
 	mov r2, r4
 	bl FUN_02041eac
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BD3F8: .word unk_0209AC44
+_020BD3F8: .word gL5Sound
 _020BD3FC: .word 0x000083DE
 _020BD400: .word unk_0209A110
 	arm_func_end FUN_ov5_020bd1fc

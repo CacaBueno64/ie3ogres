@@ -19,7 +19,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f5450
-.public unk_0209AC44
+.public gL5Sound
 .public unk_020A0640
 .public unk_0209A5D0
 .public unk_02099EB4

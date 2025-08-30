@@ -47,7 +47,7 @@
 .public FUN_0202c3e0
 .public FUN_0202c44c
 .public unk_0209A110
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_02059004
 .public FUN_02059038
 .public FUN_0202d00c
@@ -62,9 +62,9 @@
 .public FUN_ov16_020f2ab4
 .public FUN_ov16_0210efac
 .public FUN_0202cf6c
-.public FUN_0202e958
+.public _ZN7L5Movie12FUN_0202e958Ev
 .public FUN_ov16_0210f468
-.public unk_0209A8A0
+.public gL5Movie
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public operator_delete

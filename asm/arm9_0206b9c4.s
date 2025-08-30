@@ -5139,7 +5139,7 @@ FUN_0206f950: ; 0x0206F950
 	addeq sp, sp, #0x14
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, pc}
-	ldr r0, _0206F9D0 ; =0x0209AC44
+	ldr r0, _0206F9D0 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202db98
 	ldr r3, _0206F9D4 ; =0x0209A250
@@ -5164,7 +5164,7 @@ _0206F9BC:
 	movne r0, #1
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
-_0206F9D0: .word unk_0209AC44
+_0206F9D0: .word gL5Sound
 _0206F9D4: .word unk_0209A250
 _0206F9D8: .word unk_020913A4
 	arm_func_end FUN_0206f950
@@ -7077,7 +7077,7 @@ FUN_02071458: ; 0x02071458
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_02085bbc
+	bl Common_OpenFileRead
 	cmp r0, #0
 	bne _020714BC
 	add sp, sp, #4

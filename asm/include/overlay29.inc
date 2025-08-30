@@ -33,7 +33,7 @@
 .public FUN_0204eba0
 .public FUN_0206c158
 .public FUN_ov16_020efa04
-.public unk_0209AC44
+.public gL5Sound
 .public unk_02099EB4
 .public unk_02099ED4
 .public gL5Config

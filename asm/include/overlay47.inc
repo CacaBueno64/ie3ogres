@@ -1,7 +1,7 @@
 .public FUN_ov16_020f3054
 .public FUN_0202cf00
 .public FUN_0202cdd4
-.public unk_0209AC44
+.public gL5Sound
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public FUN_ov16_020f34f0
@@ -57,8 +57,8 @@
 .public FUN_ov16_020f2304
 .public FUN_ov16_020ee4b4
 .public FUN_ov16_020ede60
-.public FUN_0202c4a0
-.public FUN_0202d594
+.public _ZN7L5Sound12FUN_0202c4a0Em
+.public _ZN7L5Sound12FUN_0202d594Emm
 .public unk_0209BA20
 .public FUN_ov16_020f153c
 .public FUN_ov16_0210ee78
@@ -86,7 +86,7 @@
 .public FUN_0202b7f0
 .public FUN_0202c530
 .public FUN_0202dbd0
-.public FUN_0202d578
+.public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_0202c560
 .public FUN_02041f2c
 .public FUN_02041eac

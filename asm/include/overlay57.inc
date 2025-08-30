@@ -64,7 +64,7 @@
 .public FUN_0206d6d8
 .public FUN_ov126_0212ac54
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_02046730
 .public FUN_0206cc00
 .public FUN_0205019c

@@ -36,7 +36,7 @@
 .public FUN_0202cf6c
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110a04
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210e7d0
 .public G2_GetBG1CharPtr
 .public MIi_CpuClearFast

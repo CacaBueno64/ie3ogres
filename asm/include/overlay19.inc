@@ -28,7 +28,7 @@
 .public FUN_0202bb58
 .public FUN_0202bb94
 .public unk_020A1140
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e694
 .public ov93_021253E0

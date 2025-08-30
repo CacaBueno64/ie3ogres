@@ -3852,7 +3852,7 @@ OSi_InsertAlarm: ; 0x02003614
 	mov r2, r4
 	mov r3, r5
 	sbc r1, r1, r7
-	bl _ull_div
+	bl _ll_udiv
 	adds r2, r0, #1
 	adc r0, r1, r9
 	umull r3, r1, r4, r2

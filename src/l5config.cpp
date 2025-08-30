@@ -7,7 +7,6 @@
 extern "C" {
     extern void *FUN_0208670c(u32 size, int unk); // alloc
     extern void FUN_02086738(void *ptr); // free
-    extern s32 FUN_02085bbc(void *dst, const char *filename, u32 pos, u32 len); // read file
     extern int atoi(const char* s);
 }
 
@@ -29,12 +28,12 @@ void L5Config::clear(void)
     this->paramEntry = NULL;
 }
 
-BOOL L5Config::openFile(char *filename)
+BOOL L5Config::openFile(char *filepath)
 {
     char *file = NULL;
     char *r5;
     char *r6;
-    s32 len = FUN_02085bbc(&file, filename, 0, 0);
+    s32 len = Common_OpenFileRead(&file, filepath, 0, 0);
     if (len <= 0) {
         return FALSE;
     }

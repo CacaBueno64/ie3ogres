@@ -20,7 +20,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public STD_TSPrintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f338c

@@ -55,7 +55,7 @@
 .public FUN_0202cf6c
 .public FUN_02041db8
 .public FUN_02041ef0
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_02041f2c
 .public sprintf
 .public FUN_ov16_020f5278

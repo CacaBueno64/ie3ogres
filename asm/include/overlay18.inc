@@ -44,7 +44,7 @@
 .public FUN_ov16_020f5868
 .public FUN_0202cf6c
 .public FUN_ov16_020f153c
-.public unk_0209AC44
+.public gL5Sound
 .public _s32_div_f
 .public FUN_ov16_020ee034
 .public STD_GetStringLength

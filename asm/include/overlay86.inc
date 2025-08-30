@@ -27,7 +27,7 @@
 .public FUN_ov16_020f34f0
 .public unk_020A0B6C
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public sprintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020eed18

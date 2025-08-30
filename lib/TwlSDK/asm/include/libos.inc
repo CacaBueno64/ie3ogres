@@ -15,7 +15,7 @@
 .public CARD_Init
 .public PM_Init
 .public _020032D8
-.public _ull_div
+.public _ll_udiv
 .public GX_SetVCountEqVal
 .public PXI_IsCallbackReady
 .public PXI_SetFifoRecvCallback

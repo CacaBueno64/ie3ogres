@@ -8,7 +8,7 @@
 .public unk_020A12C0
 .public unk_020A1640
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public sprintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020eed18

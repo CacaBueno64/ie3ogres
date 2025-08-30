@@ -35,7 +35,7 @@
 .public FUN_02058e30
 .public FUN_0207249c
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public _u32_div_f
 .public FUN_ov16_0210efac
 .public FUN_ov16_020f5450

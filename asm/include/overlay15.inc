@@ -36,7 +36,7 @@
 .public strncmp
 .public MIi_CpuCopy32
 .public MIi_CpuClear32
-.public _ull_div
+.public _ll_udiv
 .public memcmp
 .public MATH_MD5Init
 .public MATH_MD5Update
@@ -135,7 +135,7 @@
 .public FUN_0202b7b4
 .public FUN_0202b7f0
 .public unk_0209A3E0
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_LoadOverlay
 .public operator_new
 .public FUN_0204201c
@@ -153,7 +153,7 @@
 .public FUN_02029bf8
 .public OS_WaitVBlankIntr
 .public FUN_0202c470
-.public FUN_0202d774
+.public _ZN7L5Sound12FUN_0202d774Emm
 .public FUN_0202b768
 .public FUN_0204665c
 .public FUN_0202bc6c

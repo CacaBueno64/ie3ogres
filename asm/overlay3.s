@@ -543,6 +543,7 @@ FUN_ov3_020bd234: ; 0x020BD234
 	bx lr
 	arm_func_end FUN_ov3_020bd234
 
+	.section .init, 4
 	arm_func_start FUN_ov3_020bd238
 FUN_ov3_020bd238: ; 0x020BD238
 	stmfd sp!, {r3, r4, r5, lr}

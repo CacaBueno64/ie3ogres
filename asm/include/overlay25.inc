@@ -1,5 +1,5 @@
 .public _ull_mod
-.public _ull_div
+.public _ll_udiv
 .public printf
 .public strcat
 .public strlen
@@ -78,7 +78,7 @@
 .public FUN_ov16_0210f468
 .public FUN_ov16_02110b04
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_02110b0c

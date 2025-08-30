@@ -3,169 +3,6 @@
 	.include "/include/arm9_020859d8.inc"
 
 	.text
-	arm_func_start FUN_02085ab4
-FUN_02085ab4: ; 0x02085AB4
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x50
-	ldr r6, _02085BB4 ; =0x020BC504
-	add r0, sp, #8
-	ldr r10, [r6, #8]
-	mov r9, #0
-	bl FS_InitFile
-	ldr r5, _02085BB8 ; =0x92492493
-	add r11, sp, #4
-	mov r7, r9
-	mov r8, #1
-	mov r4, #0x38
-_02085AE4:
-	mov r0, r8
-	bl OS_Sleep
-	ldr r0, [r10]
-	cmp r0, #0
-	beq _02085AE4
-	ldr r1, [r10, #4]
-	cmp r1, #0
-	moveq r1, r0
-	str r1, [sp, #4]
-	ldr r1, [r10, #0x18]
-	mov r0, r11
-	str r1, [sp]
-	add r1, r10, #0xc
-	ldr r3, [r10, #0x14]
-	ldmia r1, {r1, r2}
-	bl FUN_020859f8
-	ldr r0, [r10, #4]
-	cmp r0, #0
-	beq _02085B88
-	ldr r0, [r10, #0x1c]
-	and r0, r0, #0xf0
-	cmp r0, #0x10
-	beq _02085B4C
-	cmp r0, #0x20
-	beq _02085B5C
-	b _02085B6C
-_02085B4C:
-	ldr r0, [sp, #4]
-	ldr r1, [r10]
-	bl MI_UncompressLZ8
-	b _02085B70
-_02085B5C:
-	ldr r0, [sp, #4]
-	ldr r1, [r10]
-	bl MI_UncompressHuffman
-	b _02085B70
-_02085B6C:
-	bl OS_Terminate
-_02085B70:
-	ldr r0, [r10, #4]
-	bl FUN_02086738
-	ldr r1, [r10, #0x1c]
-	ldr r0, [r10]
-	mov r1, r1, lsr #8
-	bl DC_FlushRange
-_02085B88:
-	add r0, r9, #1
-	smull r1, r9, r5, r0
-	str r7, [r10]
-	add r9, r0, r9
-	mov r1, r0, lsr #0x1f
-	add r9, r1, r9, asr #5
-	smull r1, r2, r4, r9
-	ldr r2, [r6, #8]
-	sub r9, r0, r1
-	add r10, r2, r9, lsl #5
-	b _02085AE4
-_02085BB4: .word unk_020BC504
-_02085BB8: .word 0x92492493
-	arm_func_end FUN_02085ab4
-
-	arm_func_start FUN_02085bbc
-FUN_02085bbc: ; 0x02085BBC
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0x48
-	add r4, sp, #0
-	mov r8, r0
-	mov r7, r1
-	mov r0, r4
-	mov r5, r2
-	mov r6, r3
-	bl FS_InitFile
-	mov r0, r4
-	mov r1, r7
-	bl FS_OpenFile
-	cmp r0, #0
-	bne _02085BF8
-	bl OS_Terminate
-_02085BF8:
-	cmp r6, #0
-	bgt _02085C0C
-	add r0, sp, #0
-	bl FS_GetLength
-	mov r6, r0
-_02085C0C:
-	cmp r5, #0
-	ble _02085C24
-	add r0, sp, #0
-	mov r1, r5
-	mov r2, #0
-	bl FS_SeekFile
-_02085C24:
-	ldr r0, [r8]
-	cmp r0, #0
-	bne _02085C40
-	mov r0, r6
-	mvn r1, #0
-	bl FUN_020866d8
-	str r0, [r8]
-_02085C40:
-	add r5, sp, #0
-	ldr r1, [r8]
-	mov r0, r5
-	mov r2, r6
-	bl FUN_0208596c
-	mov r4, r0
-	mov r0, r5
-	bl FS_CloseFile
-	mov r0, r4
-	add sp, sp, #0x48
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02085bbc
-
-	arm_func_start FUN_02085c6c
-FUN_02085c6c: ; 0x02085C6C
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _02085CDC ; =0x020BC504
-	mov r5, r0
-	ldr r2, [r1, #8]
-	ldr r1, [r1]
-	ldr r0, [r2, r1, lsl #5]
-	add r4, r2, r1, lsl #5
-	cmp r0, #0
-	beq _02085C94
-	bl OS_Terminate
-_02085C94:
-	cmp r5, #0
-	ldrne r0, _02085CDC ; =0x020BC504
-	ldr r3, _02085CDC ; =0x020BC504
-	ldrne r0, [r0]
-	ldr r1, _02085CE0 ; =0x92492493
-	strneb r0, [r5]
-	ldr r0, [r3]
-	mov r2, #0x38
-	add r5, r0, #1
-	smull r0, r12, r1, r5
-	add r12, r5, r12
-	mov r0, r5, lsr #0x1f
-	add r12, r0, r12, asr #5
-	smull r0, r1, r2, r12
-	sub r12, r5, r0
-	mov r0, r4
-	str r12, [r3]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02085CDC: .word unk_020BC504
-_02085CE0: .word 0x92492493
-	arm_func_end FUN_02085c6c
-
 	arm_func_start FUN_02085ce4
 FUN_02085ce4: ; 0x02085CE4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
@@ -303,7 +140,7 @@ _02085E94:
 	add r1, sp, #0x84
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02085bbc
+	bl Common_OpenFileRead
 	cmp r0, #0
 	addlt sp, sp, #0x104
 	sublt r0, r7, #1
@@ -1054,18 +891,18 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A44 ; =FUN_0202dc1c
 	ldr r2, _02086A48 ; =0x02099FD8
 	bl __register_global_object
-	ldr r4, _02086A4C ; =0x0209AC44
+	ldr r4, _02086A4C ; =gL5Sound
 	mov r0, r4
 	bl FUN_0202b3dc
 	mov r0, r4
 	ldr r1, _02086A50 ; =FUN_0202b3e0
 	ldr r2, _02086A54 ; =0x02099FE4
 	bl __register_global_object
-	ldr r4, _02086A58 ; =0x0209A8A0
+	ldr r4, _02086A58 ; =gL5Movie
 	mov r0, r4
-	bl FUN_0202e474
+	bl _ZN7L5MovieC1Ev
 	mov r0, r4
-	ldr r1, _02086A5C ; =FUN_0202e480
+	ldr r1, _02086A5C ; =_ZN7L5MovieD1Ev
 	ldr r2, _02086A60 ; =0x02099FF0
 	bl __register_global_object
 	ldr r2, _02086A64 ; =0x0208F6C0
@@ -1161,11 +998,11 @@ _02086A3C: .word unk_02099FCC
 _02086A40: .word unk_0209A250
 _02086A44: .word FUN_0202dc1c
 _02086A48: .word unk_02099FD8
-_02086A4C: .word unk_0209AC44
+_02086A4C: .word gL5Sound
 _02086A50: .word FUN_0202b3e0
 _02086A54: .word unk_02099FE4
-_02086A58: .word unk_0209A8A0
-_02086A5C: .word FUN_0202e480
+_02086A58: .word gL5Movie
+_02086A5C: .word _ZN7L5MovieD1Ev
 _02086A60: .word unk_02099FF0
 _02086A64: .word unk_0208F6C0
 _02086A68: .word unk_020A3D14

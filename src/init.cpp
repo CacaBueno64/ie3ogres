@@ -79,10 +79,10 @@ void InitCommon(void)
 extern void FUN_0202dc54(void *, u32, void *, void *);
 extern void FUN_0202e1ac(void *, u32);
 extern void FUN_0202edec(void *, u32, void *);
-extern void FUN_0202e4ac(void *, void *);
+extern void _ZN7L5Movie12FUN_0202e4acEPv(void *, void *);
 
 extern void *unk_0209A250;
-extern void *unk_0209A8A0;
+extern void *gL5Movie;
 
 void FUN_02029140(void)
 {
@@ -115,7 +115,7 @@ void FUN_02029140(void)
     *(u32 *)allocator = (u32)&unk_0209C2C4;
     FUN_0202edec(&unk_0209C2C4, 0x40, allocator);
     
-    FUN_0202e4ac(&unk_0209A8A0, allocator);
+    _ZN7L5Movie12FUN_0202e4acEPv(&gL5Movie, allocator);
 }
 
 void VramClear(void)

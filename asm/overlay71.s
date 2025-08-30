@@ -841,7 +841,7 @@ _0211AACC:
 	ldr r0, _0211AAF8 ; =0x00002FFF
 	tst r4, r0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0211AAFC ; =0x0209AC44
+	ldr r0, _0211AAFC ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
 	mov r0, r5
@@ -850,7 +850,7 @@ _0211AACC:
 _0211AAF0: .word unk_02099ED4
 _0211AAF4: .word unk_02099EB4
 _0211AAF8: .word 0x00002FFF
-_0211AAFC: .word unk_0209AC44
+_0211AAFC: .word gL5Sound
 	arm_func_end FUN_ov71_0211aa70
 
 	arm_func_start FUN_ov71_0211ab00

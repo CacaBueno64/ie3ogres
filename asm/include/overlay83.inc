@@ -44,14 +44,14 @@
 .public FUN_ov1_020db3e0
 .public FUN_ov1_020db304
 .public FUN_ov1_020db2ac
-.public FUN_0202d774
+.public _ZN7L5Sound12FUN_0202d774Emm
 .public FUN_0202c470
 .public FUN_ov132_02144f4c
 .public FUN_ov132_02145140
 .public FUN_ov132_02145190
 .public FUN_0202c314
 .public FUN_0202c184
-.public unk_0209AC44
+.public gL5Sound
 .public ov1_020E9485
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f6c4c

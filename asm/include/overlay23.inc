@@ -26,8 +26,8 @@
 .public unk_02099EB4
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public FUN_0202d594
-.public unk_0209AC44
+.public _ZN7L5Sound12FUN_0202d594Emm
+.public gL5Sound
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e6fc
 .public MIi_CpuClearFast
@@ -61,7 +61,7 @@
 .public FUN_02059038
 .public FUN_ov16_020f14b4
 .public FUN_0202dbd0
-.public FUN_0202d578
+.public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_ov16_020f1560
 .public FUN_02041eac
 .public FUN_02045b40

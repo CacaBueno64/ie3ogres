@@ -6,7 +6,7 @@
 .public FUN_ov16_020f6084
 .public unk_0209F5C0
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6e8c

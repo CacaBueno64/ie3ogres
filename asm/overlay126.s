@@ -8336,11 +8336,11 @@ _02131E48:
 	bl FUN_ov16_020f077c
 	cmp r0, #0
 	beq _02131E94
-	ldr r0, _021321BC ; =0x0209AC44
+	ldr r0, _021321BC ; =gL5Sound
 	mov r1, #0x20
 	b _02131E9C
 _02131E94:
-	ldr r0, _021321BC ; =0x0209AC44
+	ldr r0, _021321BC ; =gL5Sound
 	mov r1, #0x1f
 _02131E9C:
 	bl FUN_0202cf6c
@@ -8557,7 +8557,7 @@ _02132180:
 _021321B0: .word unk_0209BA20
 _021321B4: .word unk_020A0640
 _021321B8: .word unk_0209AEC0
-_021321BC: .word unk_0209AC44
+_021321BC: .word gL5Sound
 _021321C0: .word FX_SinCosTable_
 _021321C4: .word unk_02099F14
 	arm_func_end FUN_ov126_02131c04
@@ -15382,13 +15382,13 @@ _02138058:
 	bl FUN_ov16_020f077c
 	cmp r0, #0
 	beq _021380B4
-	ldr r0, _02138478 ; =0x0209AC44
+	ldr r0, _02138478 ; =gL5Sound
 	mov r1, #0x20
 _021380AC:
 	bl FUN_0202cf6c
 	b _021382F0
 _021380B4:
-	ldr r0, _02138478 ; =0x0209AC44
+	ldr r0, _02138478 ; =gL5Sound
 	mov r1, #0x1f
 	b _021380AC
 _021380C0:
@@ -15645,7 +15645,7 @@ _02138468: .word unk_0209BA20
 _0213846C: .word unk_020A0640
 _02138470: .word unk_02099EF0
 _02138474: .word 0x51EB851F
-_02138478: .word unk_0209AC44
+_02138478: .word gL5Sound
 	arm_func_end FUN_ov126_02137ab4
 
 	arm_func_start FUN_ov126_0213847c

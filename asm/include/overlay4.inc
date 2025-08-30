@@ -167,7 +167,7 @@
 .public FUN_0202b7f0
 .public unk_020A0640
 .public unk_020A0B00
-.public unk_0209AC44
+.public gL5Sound
 .public unk_0209A3E0
 .public FUN_ov16_LoadOverlay
 .public operator_new
@@ -209,8 +209,8 @@
 .public FUN_ov16_020eef64
 .public FUN_0206c110
 .public FUN_02041b00
-.public FUN_0202e958
-.public unk_0209A8A0
+.public _ZN7L5Movie12FUN_0202e958Ev
+.public gL5Movie
 .public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2a18
 .public gL5Config
@@ -521,7 +521,7 @@
 .public unk_0208BFB0
 .public FUN_0205019c
 .public FUN_0202d00c
-.public FUN_0202d594
+.public _ZN7L5Sound12FUN_0202d594Emm
 .public FUN_0202d798
 .public FUN_ov16_020f3054
 .public STD_ConcatenateString

@@ -56,7 +56,7 @@
 .public unk_0209A720
 .public FUN_ov16_020f3234
 .public FUN_0202db98
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_020f34f0
 .public FUN_0204e79c
 .public FUN_ov126_0212ae80
@@ -96,7 +96,7 @@
 .public unk_020A06BC
 .public unk_020A9C40
 .public FUN_02086750
-.public FUN_02085bbc
+.public Common_OpenFileRead
 .public FUN_020866d8
 .public FUN_02086738
 .public unk_0209A120

@@ -80,7 +80,7 @@
 .public sprintf
 .public FUN_ov16_0210eab4
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_02113f7c
 .public FUN_ov16_020ede60
 .public FUN_ov16_0210f468

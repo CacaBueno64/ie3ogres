@@ -16,7 +16,7 @@
 .public FUN_ov16_020f33fc
 .public unk_0209A250
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd

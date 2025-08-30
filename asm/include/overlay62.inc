@@ -89,7 +89,7 @@
 .public FUN_ov16_020efa9c
 .public FUN_0202cf6c
 .public FUN_ov16_0210f48c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210ec34
 .public FUN_ov131_0213ae70
 .public FUN_ov16_020edec4

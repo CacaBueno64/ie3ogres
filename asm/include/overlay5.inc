@@ -16,7 +16,7 @@
 .public FUN_0202b7b4
 .public OS_Sleep
 .public FUN_0202b7f0
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_0204201c
 .public FUN_02041fec
 .public FUN_02042084
@@ -28,8 +28,8 @@
 .public MIi_CpuClearFast
 .public FUN_02041b00
 .public operator_delete
-.public FUN_0202e958
-.public unk_0209A8A0
+.public _ZN7L5Movie12FUN_0202e958Ev
+.public gL5Movie
 .public _ZN8L5Config8getParamEPc
 .public FUN_ov16_020f2a18
 .public gL5Config

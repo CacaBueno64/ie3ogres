@@ -1,3 +1,7 @@
+.public FUN_02085c6c
+.public Common_OpenFileRead
+.public unk_020BC504
+.public FUN_02085ab4
 .public FUN_020859f8
 .public Common_CalcCRC32
 .public MATH_CalcCRC32
@@ -34,7 +38,7 @@
 .public _ZN16L5CardControllerC1Ev
 .public FUN_0202dbf8
 .public FUN_0202b3dc
-.public FUN_0202e474
+.public _ZN7L5MovieC1Ev
 .public FUN_02041ac8
 .public FUN_02047a7c
 .public FUN_0202ffa4
@@ -59,11 +63,11 @@
 .public unk_02099FCC
 .public FUN_0202dc1c
 .public unk_02099FD8
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_0202b3e0
 .public unk_02099FE4
-.public unk_0209A8A0
-.public FUN_0202e480
+.public gL5Movie
+.public _ZN7L5MovieD1Ev
 .public unk_02099FF0
 .public unk_0208F6C0
 .public unk_020A3D14

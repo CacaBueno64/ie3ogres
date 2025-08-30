@@ -30,13 +30,13 @@ FUN_ov74_02119f38: ; 0x02119F38
 	mov r4, r1
 	cmp r0, r4
 	beq _02119F5C
-	ldr r0, _02119F64 ; =0x0209AC44
+	ldr r0, _02119F64 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 _02119F5C:
 	str r4, [r5, #0x54]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02119F64: .word unk_0209AC44
+_02119F64: .word gL5Sound
 	arm_func_end FUN_ov74_02119f38
 
 	arm_func_start FUN_ov74_02119f68
@@ -225,7 +225,7 @@ _0211A1C0:
 	bne _0211A23C
 	tst r4, #1
 	beq _0211A214
-	ldr r0, _0211A2C8 ; =0x0209AC44
+	ldr r0, _0211A2C8 ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
 	ldr r2, [r5, #0x54]
@@ -244,7 +244,7 @@ _0211A1C0:
 _0211A214:
 	tst r4, #2
 	beq _0211A23C
-	ldr r0, _0211A2C8 ; =0x0209AC44
+	ldr r0, _0211A2C8 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	mov r2, #0x1b
@@ -259,7 +259,7 @@ _0211A23C:
 	ldmnefd sp!, {r3, r4, r5, pc}
 	tst r4, #1
 	beq _0211A294
-	ldr r0, _0211A2C8 ; =0x0209AC44
+	ldr r0, _0211A2C8 ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
 	ldr r2, [r5, #0x54]
@@ -279,7 +279,7 @@ _0211A23C:
 _0211A294:
 	tst r4, #2
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _0211A2C8 ; =0x0209AC44
+	ldr r0, _0211A2C8 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	mov r2, #0x1b
@@ -290,7 +290,7 @@ _0211A294:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A2C0: .word unk_0209F5C0
 _0211A2C4: .word unk_0209A070
-_0211A2C8: .word unk_0209AC44
+_0211A2C8: .word gL5Sound
 	arm_func_end FUN_ov74_0211a0a4
 
 	arm_func_start FUN_ov74_0211a2cc
@@ -378,7 +378,7 @@ _0211A39C: ; jump table
 	b _0211A3E4 ; case 13
 	b _0211A3E4 ; case 14
 _0211A3D8:
-	ldr r0, _0211A484 ; =0x0209AC44
+	ldr r0, _0211A484 ; =gL5Sound
 	mov r1, #1
 	b _0211A440
 _0211A3E4:
@@ -407,7 +407,7 @@ _0211A404: ; jump table
 _0211A434:
 	b _0211A3D8
 _0211A438:
-	ldr r0, _0211A484 ; =0x0209AC44
+	ldr r0, _0211A484 ; =gL5Sound
 	mov r1, #4
 _0211A440:
 	bl FUN_0202cf6c
@@ -429,7 +429,7 @@ _0211A478:
 	ldr r0, [r4, #0x1c]
 	str r0, [r4, #0x28]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A484: .word unk_0209AC44
+_0211A484: .word gL5Sound
 _0211A488: .word unk_0209A070
 _0211A48C: .word unk_0209F5C0
 	arm_func_end FUN_ov74_0211a374

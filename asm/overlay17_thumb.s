@@ -13062,7 +13062,7 @@ atermapc_GetTickCount: ; 0x020F4234
 	ldr r2, _020F424C ; =0x000082EA
 	lsl r0, r0, #6
 	mov r3, #0
-	blx _ull_div
+	blx _ll_udiv
 	pop {r3, pc}
 _020F424C: .word 0x000082EA
 	thumb_func_end atermapc_GetTickCount

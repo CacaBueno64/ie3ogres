@@ -13,7 +13,7 @@
 .public unk_0209A460
 .public unk_0209A5D0
 .public unk_020A9C40
-.public unk_0209AC44
+.public gL5Sound
 .public unk_020A1640
 .public FUN_ov16_020f153c
 .public FUN_02041eac

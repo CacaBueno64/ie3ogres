@@ -26,7 +26,7 @@
 .public FUN_ov16_020f52f4
 .public FUN_ov16_02112724
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_02113b78
 .public _ZN8L5Config8getParamEPc
 .public MI_CpuCopy8

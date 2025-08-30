@@ -59,7 +59,7 @@
 .public OS_SNPrintf
 .public FUN_ov15_020ca8e0
 .public _ull_mod
-.public _ull_div
+.public _ll_udiv
 .public MI_CpuFill8
 .public memcmp
 .public atoi

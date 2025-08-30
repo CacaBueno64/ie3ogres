@@ -93,8 +93,8 @@
 .public FUN_0206c110
 .public FUN_02041b00
 .public operator_delete
-.public FUN_0202e958
-.public unk_0209A8A0
+.public _ZN7L5Movie12FUN_0202e958Ev
+.public gL5Movie
 .public FUN_ov16_020f1d64
 .public FUN_0204451c
 .public FUN_ov16_020f2ab4
@@ -134,7 +134,7 @@
 .public FUN_0202cf00
 .public FUN_02052928
 .public FUN_ov16_020f2dac
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_0202b838
 .public FUN_0202b7b4
 .public OS_Sleep

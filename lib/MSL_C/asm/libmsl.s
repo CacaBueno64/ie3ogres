@@ -3716,12 +3716,12 @@ _0201F940:
 	bx lr
 	arm_func_end _ll_sdiv
 
-	arm_func_start _ull_div ; internal name
-_ull_div: ; 0x0201F954
+	arm_func_start _ll_udiv ; internal name
+_ll_udiv: ; 0x0201F954
 	stmfd sp!, {r4, r5, r6, r7, r11, r12, lr}
 	mov r4, #0
 	b _0201F968
-	arm_func_end _ull_div
+	arm_func_end _ll_udiv
 
 	arm_func_start _ull_mod ; internal name
 _ull_mod: ; 0x0201F960
@@ -6769,7 +6769,7 @@ _02022334:
 	mov r1, r9
 	mov r2, r6
 	mov r3, r5
-	bl _ull_div
+	bl _ll_udiv
 	mov r10, r0
 	cmp r4, #0xa
 	mov r9, r1
@@ -9491,7 +9491,7 @@ _0202480C:
 	mov r1, r5
 	mov r2, r9
 	mov r3, r8
-	bl _ull_div
+	bl _ll_udiv
 	mov r5, r1
 	mov r6, r0
 	cmp r5, #0

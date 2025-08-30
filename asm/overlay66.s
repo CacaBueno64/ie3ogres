@@ -13,7 +13,7 @@ FUN_ov66_02119f00: ; 0x02119F00
 	ldr r0, _02119F40 ; =0x00002FFF
 	tst r1, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02119F44 ; =0x0209AC44
+	ldr r0, _02119F44 ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
 	mov r0, r4
@@ -22,7 +22,7 @@ FUN_ov66_02119f00: ; 0x02119F00
 	str r0, [r4, #0x20]
 	ldmfd sp!, {r4, pc}
 _02119F40: .word 0x00002FFF
-_02119F44: .word unk_0209AC44
+_02119F44: .word gL5Sound
 	arm_func_end FUN_ov66_02119f00
 
 	arm_func_start FUN_ov66_02119f48
@@ -43,7 +43,7 @@ _02119F68:
 	ldreqh r0, [r1, #4]
 	cmpeq r0, #1
 	ldmnefd sp!, {r4, pc}
-	ldr r0, _02119FA4 ; =0x0209AC44
+	ldr r0, _02119FA4 ; =gL5Sound
 	mov r1, r2
 	bl FUN_0202cf6c
 	mov r0, r4
@@ -51,7 +51,7 @@ _02119F68:
 	mov r0, #6
 	str r0, [r4, #0x20]
 	ldmfd sp!, {r4, pc}
-_02119FA4: .word unk_0209AC44
+_02119FA4: .word gL5Sound
 	arm_func_end FUN_ov66_02119f48
 
 	arm_func_start FUN_ov66_02119fa8

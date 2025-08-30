@@ -1079,7 +1079,7 @@ _0211AD68:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	tst r4, #2
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0211ADB8 ; =0x0209AC44
+	ldr r0, _0211ADB8 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldr r0, _0211ADB4 ; =0x02099EB4
@@ -1091,7 +1091,7 @@ _0211AD68:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211ADB0: .word unk_02099ED4
 _0211ADB4: .word unk_02099EB4
-_0211ADB8: .word unk_0209AC44
+_0211ADB8: .word gL5Sound
 	arm_func_end FUN_ov48_0211ad18
 
 	arm_func_start FUN_ov48_0211adbc

@@ -16,7 +16,7 @@
 .public unk_02099E97
 .public unk_02099EB4
 .public unk_02099ED4
-.public unk_0209AC44
+.public gL5Sound
 .public unk_02099E99
 .public unk_02099E92
 .public unk_02099E8C

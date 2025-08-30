@@ -40,7 +40,7 @@ FUN_ov6_020bcb40: ; 0x020BCB40
 	strb r7, [r4, #0x89]
 	strb r7, [r4, #0x88]
 	bl FUN_ov16_020f153c
-	ldr r6, _020BCC64 ; =0x0209AC44
+	ldr r6, _020BCC64 ; =gL5Sound
 	mov r1, r5
 	mov r2, r7
 	mov r0, r6
@@ -61,7 +61,7 @@ _020BCC00:
 	cmp r0, #0
 	beq _020BCBF8
 	mov r6, #0x14
-	ldr r5, _020BCC64 ; =0x0209AC44
+	ldr r5, _020BCC64 ; =gL5Sound
 	b _020BCC24
 _020BCC1C:
 	mov r0, r6
@@ -83,7 +83,7 @@ _020BCC24:
 	bl FUN_020512a8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BCC60: .word ov6_020BE0A0
-_020BCC64: .word unk_0209AC44
+_020BCC64: .word gL5Sound
 _020BCC68: .word unk_02099F18
 _020BCC6C: .word 0x00007335
 	arm_func_end FUN_ov6_020bcb40
@@ -486,7 +486,7 @@ FUN_ov6_020bd154: ; 0x020BD154
 	cmp r0, #1
 	beq _020BD198
 _020BD178:
-	ldr r4, _020BD1F8 ; =0x0209AC44
+	ldr r4, _020BD1F8 ; =gL5Sound
 	ldr r1, _020BD1FC ; =0x020BDEF4
 	mov r0, r4
 	bl FUN_0202d724
@@ -495,7 +495,7 @@ _020BD178:
 	ldr r1, _020BD200 ; =0x020BDF00
 	b _020BD1B4
 _020BD198:
-	ldr r4, _020BD1F8 ; =0x0209AC44
+	ldr r4, _020BD1F8 ; =gL5Sound
 	ldr r1, _020BD204 ; =0x020BDF0C
 	mov r0, r4
 	bl FUN_0202d724
@@ -508,7 +508,7 @@ _020BD1B4:
 	bl FUN_0202d798
 	mov r0, r4
 	mov r1, #0
-	bl FUN_0202d578
+	bl _ZN7L5Sound12FUN_0202d578Em
 _020BD1CC:
 	mov r1, #9
 	mov r0, r5
@@ -521,7 +521,7 @@ _020BD1CC:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BD1F0: .word gL5Config
 _020BD1F4: .word ov6_020BDEEC
-_020BD1F8: .word unk_0209AC44
+_020BD1F8: .word gL5Sound
 _020BD1FC: .word ov6_020BDEF4
 _020BD200: .word ov6_020BDF00
 _020BD204: .word ov6_020BDF0C
@@ -689,15 +689,15 @@ _020BD418:
 	cmp r0, #1
 	beq _020BD454
 _020BD448:
-	ldr r0, _020BD704 ; =0x0209AC44
+	ldr r0, _020BD704 ; =gL5Sound
 	ldr r2, _020BD708 ; =0x020BDF2C
 	b _020BD45C
 _020BD454:
-	ldr r0, _020BD704 ; =0x0209AC44
+	ldr r0, _020BD704 ; =gL5Sound
 	ldr r2, _020BD70C ; =0x020BDF38
 _020BD45C:
 	mov r1, #0
-	bl FUN_0202d594
+	bl _ZN7L5Sound12FUN_0202d594Emm
 	mov r0, #3
 	str r0, [r5, #0x1d8]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -876,7 +876,7 @@ _020BD6F4: .word 0x04000014
 _020BD6F8: .word 0x01FF0000
 _020BD6FC: .word gL5Config
 _020BD700: .word ov6_020BDF24
-_020BD704: .word unk_0209AC44
+_020BD704: .word gL5Sound
 _020BD708: .word ov6_020BDF2C
 _020BD70C: .word ov6_020BDF38
 _020BD710: .word 0x04000048

@@ -878,7 +878,7 @@ _020157D0:
 	mov r0, r8
 	mov r2, #0xa
 	mov r3, #0
-	bl _ull_div
+	bl _ll_udiv
 	mov r2, #0xa
 	umull r3, r2, r0, r2
 	subs r2, r8, r3

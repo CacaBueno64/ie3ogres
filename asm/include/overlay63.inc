@@ -133,7 +133,7 @@
 .public FUN_ov16_020f5738
 .public FUN_020591e8
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210e694
 .public FUN_ov16_0210ee78

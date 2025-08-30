@@ -1316,7 +1316,7 @@ FUN_ov18_0211b118: ; 0x0211B118
 	cmp r1, #3
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
-	ldr r0, _0211B150 ; =0x0209AC44
+	ldr r0, _0211B150 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	mov r0, #6
@@ -1325,7 +1325,7 @@ FUN_ov18_0211b118: ; 0x0211B118
 	str r0, [r4, #0x30]
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-_0211B150: .word unk_0209AC44
+_0211B150: .word gL5Sound
 	arm_func_end FUN_ov18_0211b118
 
 	arm_func_start FUN_ov18_0211b154
@@ -1353,7 +1353,7 @@ FUN_ov18_0211b154: ; 0x0211B154
 	cmp r1, r4
 	beq _0211B1D0
 	mov r4, #1
-	ldr r0, _0211B1F0 ; =0x0209AC44
+	ldr r0, _0211B1F0 ; =gL5Sound
 	mov r1, r4
 	bl FUN_0202cf6c
 	mov r1, #0
@@ -1365,13 +1365,13 @@ _0211B1D0:
 	sub r0, r5, #1
 	cmp r0, #1
 	bhi _0211B1E8
-	ldr r0, _0211B1F0 ; =0x0209AC44
+	ldr r0, _0211B1F0 ; =gL5Sound
 	mov r1, #9
 	bl FUN_0202cf6c
 _0211B1E8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211B1F0: .word unk_0209AC44
+_0211B1F0: .word gL5Sound
 	arm_func_end FUN_ov18_0211b154
 
 	arm_func_start FUN_ov18_0211b1f4
@@ -1776,7 +1776,7 @@ _0211B744:
 	cmp r5, #0
 	ble _0211B78C
 	mov r7, #1
-	ldr r0, _0211B914 ; =0x0209AC44
+	ldr r0, _0211B914 ; =gL5Sound
 	mov r1, r7
 	bl FUN_0202cf6c
 	ldr r0, [r6, #0x38]
@@ -1788,7 +1788,7 @@ _0211B784:
 	str r0, [r6, #0x38]
 	b _0211B844
 _0211B78C:
-	ldr r0, _0211B914 ; =0x0209AC44
+	ldr r0, _0211B914 ; =gL5Sound
 	mov r1, #9
 	bl FUN_0202cf6c
 	b _0211B844
@@ -1817,7 +1817,7 @@ _0211B7C4:
 	cmp r5, r0, asr #2
 	bge _0211B818
 	mov r7, #1
-	ldr r0, _0211B914 ; =0x0209AC44
+	ldr r0, _0211B914 ; =gL5Sound
 	mov r1, r7
 	bl FUN_0202cf6c
 	ldr r0, [r6, #0x38]
@@ -1871,7 +1871,7 @@ _0211B89C:
 	cmp r5, r0
 	addne sp, sp, #8
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, _0211B914 ; =0x0209AC44
+	ldr r0, _0211B914 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 	ldr r0, [r6, #4]
@@ -1893,7 +1893,7 @@ _0211B89C:
 	strb r0, [r3, r1, lsl #2]
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0211B914: .word unk_0209AC44
+_0211B914: .word gL5Sound
 _0211B918: .word unk_020A9C40
 	arm_func_end FUN_ov18_0211b6bc
 

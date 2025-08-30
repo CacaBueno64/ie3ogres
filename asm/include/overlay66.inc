@@ -1,5 +1,5 @@
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_02044658
 .public sprintf
 .public FUN_02058800

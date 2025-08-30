@@ -3018,8 +3018,8 @@ _0204422C:
 _02044254:
 	bl FUN_02048a4c
 _02044258:
-	ldr r0, _020442C8 ; =0x0209A8A0
-	bl FUN_0202e958
+	ldr r0, _020442C8 ; =gL5Movie
+	bl _ZN7L5Movie12FUN_0202e958Ev
 	add r0, r8, #0x6000
 	ldr r1, [r0, #0x224]
 	add r1, r1, #1
@@ -3050,7 +3050,7 @@ _020442B8: .word 0x00001014
 _020442BC: .word unk_020A9C40
 _020442C0: .word 0x00001002
 _020442C4: .word 0x00001023
-_020442C8: .word unk_0209A8A0
+_020442C8: .word gL5Movie
 	arm_func_end FUN_02043d80
 
 	arm_func_start FUN_020442cc
@@ -4489,7 +4489,7 @@ FUN_0204545c: ; 0x0204545C
 	strb r4, [r6, #0x4cb]
 	add r0, r6, #0x5000
 	strb r5, [r0, #0xb85]
-	ldr r7, _02045544 ; =0x0209AC44
+	ldr r7, _02045544 ; =gL5Sound
 	mov r1, r5
 	mov r0, r7
 	ldr r2, _02045548 ; =0x02090138
@@ -4507,7 +4507,7 @@ _02045534: .word 0x000008BC
 _02045538: .word 0x0000E4FA
 _0204553C: .word gL5Config
 _02045540: .word unk_02090124
-_02045544: .word unk_0209AC44
+_02045544: .word gL5Sound
 _02045548: .word unk_02090138
 _0204554C: .word unk_0209013C
 	arm_func_end FUN_0204545c
@@ -8751,11 +8751,11 @@ FUN_02048a68: ; 0x02048A68
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
 	bl FUN_ov16_020fe918
-	ldr r0, _02048A90 ; =0x0209AC44
+	ldr r0, _02048A90 ; =gL5Sound
 	mov r1, #0x64
 	bl FUN_0202cff8
 	ldmfd sp!, {r3, pc}
-_02048A90: .word unk_0209AC44
+_02048A90: .word gL5Sound
 	arm_func_end FUN_02048a68
 
 	arm_func_start FUN_02048a94
@@ -12933,7 +12933,7 @@ _0204C104:
 	strb r0, [r3, #1]
 	strb r1, [r3], #2
 	bne _0204C104
-	ldr r0, _0204C1CC ; =0x0209AC44
+	ldr r0, _0204C1CC ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202db98
 	ldr r3, _0204C1D0 ; =0x0209A250
@@ -12977,7 +12977,7 @@ _0204C168:
 	add sp, sp, #0x78
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0204C1C8: .word unk_0208C444
-_0204C1CC: .word unk_0209AC44
+_0204C1CC: .word gL5Sound
 _0204C1D0: .word unk_0209A250
 	arm_func_end FUN_0204c078
 
@@ -17143,7 +17143,7 @@ _0204FA14:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl _ull_div
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FA4C:
@@ -17158,7 +17158,7 @@ _0204FA4C:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl _ull_div
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FA84:
@@ -17173,7 +17173,7 @@ _0204FA84:
 	mov r12, lr, asr #0x1f
 	mla r1, r12, r3, r1
 	mov r3, r2, asr #0x1f
-	bl _ull_div
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FABC:
@@ -17197,7 +17197,7 @@ _0204FAE4:
 	ldr r0, [lr, #0x560]
 	mov r3, r2, asr #0x1f
 	mov r1, r0, asr #0x1f
-	bl _ull_div
+	bl _ll_udiv
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _0204FB0C:
@@ -39045,16 +39045,16 @@ _02061858:
 	mov r0, #0x8000
 	bl FUN_020866d8
 	mov r1, r4
-	mov r4, r0 ; r4 = 022DDB8C, size: 0x8000
+	mov r4, r0
 	mov r0, #0x10000
 	bl FUN_020866d8
 	ldr r11, [sp]
-	mov r5, r0 ; r5 = 022E5B9C, size: 0x10000
+	mov r5, r0
 	mov r0, r10
 	mov r1, r11
 	mov r2, #0x40
 	mov r6, r11
-	bl MI_CpuFill8 ; clear 0x40 bytes at unk_0209A5D0
+	bl MI_CpuFill8
 	ldr r7, [sp]
 	b _02061A9C
 _020618D8:
@@ -39066,14 +39066,14 @@ _020618D8:
 	mov r1, r7, lsl #0xf
 	mov r2, #0x8000
 	strh r8, [r9, r12]
-	bl _ZN16L5CardController4readEmmPv ; reads 0x8000 bytes from the save to 022DDB8C
+	bl _ZN16L5CardController4readEmmPv
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r8, #0x7c
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, _02061B2C ; =0x02090FD0
 	add r0, r4, #4
-	bl STD_CompareString ; checks the string "INAZUMA_ELEVEN" at pos 0x04, continue if false
+	bl STD_CompareString
 	cmp r0, #0
 	bne _02061A98
 	mov r0, #1
@@ -39081,7 +39081,7 @@ _020618D8:
 	mov r9, r8
 	str r0, [sp]
 	b _02061944
-_02061934: ; reads 0x80 bytes at pos 0x80
+_02061934:
 	add r0, r1, #0x80
 	ldrb r0, [r4, r0]
 	add r1, r1, #1
@@ -39089,12 +39089,12 @@ _02061934: ; reads 0x80 bytes at pos 0x80
 _02061944:
 	cmp r1, #0x80
 	blt _02061934
-	cmp r8, #0 ; different save format?
+	cmp r8, #0
 	bne _02061978
 	mov r0, r9
 	mov r1, r4
 	mov r2, #0x80
-	bl FUN_0205ffb0 ; decrypt 0x80 bytes at pos r4
+	bl FUN_0205ffb0
 	mov r0, r9
 	add r1, r4, #0x100
 	mov r2, #0x7f00
@@ -39104,13 +39104,13 @@ _02061978:
 	ldr r2, _02061B30 ; =0x00007F80
 	mov r1, r4
 	mov r0, #0
-	bl FUN_0205ffb0 ; decrypt all the save
+	bl FUN_0205ffb0
 _02061988:
 	mov r9, #0
 	mov r0, r9
 	mov r1, r5
 	mov r2, #0x10000
-	bl MIi_CpuClearFast ; 0x10000: total size of the save including the 0xFF padding
+	bl MIi_CpuClearFast
 	ldr r2, _02061B34 ; =0x02090DB4
 	mov r0, r4
 	ldr r2, [r2, #0x20]
@@ -39908,7 +39908,7 @@ _02062478:
 	add r1, r1, #0x5000
 	bl FUN_020444a0
 	add r1, r7, #0x8d0
-	ldr r0, _020626DC ; =0x0209AC44
+	ldr r0, _020626DC ; =gL5Sound
 	add r1, r1, #0x5000
 	bl FUN_0202bcb0
 	ldr r0, _020626E0 ; =0x0209BA20
@@ -40042,7 +40042,7 @@ _020626CC: .word unk_020A1664
 _020626D0: .word unk_020A17A8
 _020626D4: .word unk_020A9C40
 _020626D8: .word unk_020AF81C
-_020626DC: .word unk_0209AC44
+_020626DC: .word gL5Sound
 _020626E0: .word unk_0209BA20
 _020626E4: .word unk_02099ED8
 _020626E8: .word unk_02099EE8
@@ -40567,7 +40567,7 @@ _02062DF0:
 	cmp r0, #0
 	bne _02062E60
 	add r1, r7, #0x8d0
-	ldr r0, _02062F7C ; =0x0209AC44
+	ldr r0, _02062F7C ; =gL5Sound
 	add r1, r1, #0x5000
 	bl FUN_0202bd54
 _02062E60:
@@ -40605,7 +40605,7 @@ _02062ED4:
 	bl FUN_02075698
 _02062ED8:
 	ldr r5, _02062F44 ; =0x020A1140
-	ldr r6, _02062F7C ; =0x0209AC44
+	ldr r6, _02062F7C ; =gL5Sound
 	ldrh r1, [r5, #0x94]
 	mov r0, r6
 	bl FUN_0202bb58
@@ -40646,7 +40646,7 @@ _02062F6C: .word unk_020A1740
 _02062F70: .word unk_020A17C1
 _02062F74: .word unk_020A9C40
 _02062F78: .word unk_020AF81C
-_02062F7C: .word unk_0209AC44
+_02062F7C: .word gL5Sound
 _02062F80: .word unk_0209BA20
 _02062F84: .word unk_02099ED8
 _02062F88: .word unk_02099EE8
@@ -42356,8 +42356,8 @@ unk_0209A880:
 	.global unk_0209A884
 unk_0209A884:
 	.space 0x1C
-	.global unk_0209A8A0
-unk_0209A8A0:
+	.global gL5Movie
+gL5Movie:
 	.space 0x1C0
 	.global unk_0209AA60
 unk_0209AA60:
@@ -42365,8 +42365,8 @@ unk_0209AA60:
 	.global unk_0209AA64
 unk_0209AA64:
 	.space 0x1E0
-	.global unk_0209AC44
-unk_0209AC44:
+	.global gL5Sound
+gL5Sound:
 	.space 0x27C
 	.global unk_0209AEC0
 unk_0209AEC0:

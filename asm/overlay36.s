@@ -108,7 +108,7 @@ _0211A038:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	cmp r0, #3
 	mov r1, #1
-	ldr r0, _0211A0D0 ; =0x0209AC44
+	ldr r0, _0211A0D0 ; =gL5Sound
 	moveq r1, #6
 	bl FUN_0202cf6c
 	add r0, r4, r5
@@ -136,7 +136,7 @@ _0211A098:
 _0211A0A0:
 	cmp r6, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0211A0D0 ; =0x0209AC44
+	ldr r0, _0211A0D0 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	add r0, r4, r5
@@ -146,7 +146,7 @@ _0211A0A0:
 	str r6, [r4, #0x28]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A0CC: .word unk_0209F5C0
-_0211A0D0: .word unk_0209AC44
+_0211A0D0: .word gL5Sound
 	arm_func_end FUN_ov36_02119fc8
 
 	arm_func_start FUN_ov36_0211a0d4
@@ -210,10 +210,10 @@ _0211A178:
 	mov r1, #1
 	cmp r0, #3
 	moveq r1, #6
-	ldr r0, _0211A1DC ; =0x0209AC44
+	ldr r0, _0211A1DC ; =gL5Sound
 	b _0211A198
 _0211A190:
-	ldr r0, _0211A1DC ; =0x0209AC44
+	ldr r0, _0211A1DC ; =gL5Sound
 	mov r1, #4
 _0211A198:
 	bl FUN_0202cf6c
@@ -235,7 +235,7 @@ _0211A1D0:
 	ldr r0, [r6, #0x1c]
 	str r0, [r6, #0x28]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A1DC: .word unk_0209AC44
+_0211A1DC: .word gL5Sound
 _0211A1E0: .word unk_0209A070
 _0211A1E4: .word unk_0209F5C0
 	arm_func_end FUN_ov36_0211a154

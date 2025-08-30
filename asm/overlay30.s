@@ -36,20 +36,20 @@ FUN_ov30_02119f00: ; 0x02119F00
 	ldr r0, _02119FAC ; =0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0213a418
-	ldr r4, _02119FB0 ; =0x0209AC44
+	ldr r4, _02119FB0 ; =gL5Sound
 	mov r1, r5
 	mov r0, r4
 	ldr r2, _02119FB4 ; =0x0211A7AC
 	mov r3, r5
-	bl FUN_0202d4c4
+	bl _ZN7L5Sound7playSADEPvPch
 	mov r0, r4
 	mov r1, r5
 	mov r2, r5
-	bl FUN_0202d594
+	bl _ZN7L5Sound12FUN_0202d594Emm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02119FA8: .word unk_02099F14
 _02119FAC: .word unk_02099EF0
-_02119FB0: .word unk_0209AC44
+_02119FB0: .word gL5Sound
 _02119FB4: .word ov30_0211A7AC
 	arm_func_end FUN_ov30_02119f00
 

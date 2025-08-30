@@ -95,7 +95,7 @@
 .public FUN_ov16_020f1f5c
 .public FUN_ov16_020f2304
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_02113f7c
 .public FUN_02044754
 .public FUN_02044690

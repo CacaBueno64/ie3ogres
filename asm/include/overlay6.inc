@@ -7,7 +7,7 @@
 .public FUN_0202b7b4
 .public FUN_0202b7f0
 .public FUN_020512a8
-.public unk_0209AC44
+.public gL5Sound
 .public unk_02099F18
 .public FUN_0204201c
 .public FUN_02041fec
@@ -37,8 +37,8 @@
 .public FUN_02029d44
 .public FUN_0202d724
 .public FUN_0202d798
-.public FUN_0202d578
-.public FUN_0202d594
+.public _ZN7L5Sound12FUN_0202d578Em
+.public _ZN7L5Sound12FUN_0202d594Emm
 .public FUN_ov16_020f16a4
 .public FUN_ov16_020f14b4
 .public unk_020A0640

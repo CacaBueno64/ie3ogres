@@ -47,7 +47,7 @@
 .public FUN_ov16_020f4894
 .public FUN_0202cf6c
 .public unk_0209A0F4
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_0210eeec
 .public FUN_ov16_020f153c
 .public _s32_div_f

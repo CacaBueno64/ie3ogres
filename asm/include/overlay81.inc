@@ -50,7 +50,7 @@
 .public FUN_020724c8
 .public FUN_ov132_0214609c
 .public FUN_ov132_02146014
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov16_020f0a14
 .public FUN_ov1_020e3a24
 .public FUN_ov1_020e3b14

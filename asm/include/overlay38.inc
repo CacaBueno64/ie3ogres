@@ -8,7 +8,7 @@
 .public FUN_ov16_020f153c
 .public FUN_02041eac
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public STD_CopyString
 .public FUN_020460a8
 .public unk_020A9C40

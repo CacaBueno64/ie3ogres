@@ -12033,7 +12033,7 @@ _021453A4:
 	add r2, sp, #0
 	bl FUN_ov16_020febf8
 	str r0, [r5, #4]
-	ldr r0, _02145538 ; =0x0209AC44
+	ldr r0, _02145538 ; =gL5Sound
 	ldr r2, _0214553C ; =0x0214CA3C
 	mov r1, #1
 	bl FUN_0202ceb0
@@ -12043,7 +12043,7 @@ _021453C0:
 	strb r0, [r5, #0xb]
 	b _02145514
 _021453D0:
-	ldr r7, _02145538 ; =0x0209AC44
+	ldr r7, _02145538 ; =gL5Sound
 	mov r0, r7
 	bl FUN_0202b7f0
 	cmp r0, #0
@@ -12139,7 +12139,7 @@ _02145514:
 	moveq r0, #0
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02145538: .word unk_0209AC44
+_02145538: .word gL5Sound
 _0214553C: .word ov131_0214CA3C
 _02145540: .word 0x000040A2
 _02145544: .word ov131_0214CA44

@@ -120,7 +120,7 @@
 .public ov17_0210FC74
 .public ov17_02112848
 .public OS_GetTick
-.public _ull_div
+.public _ll_udiv
 .public OS_IsThreadAvailable
 .public OS_CreateThread
 .public OS_WakeupThreadDirect

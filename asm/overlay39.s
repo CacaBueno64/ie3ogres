@@ -1172,7 +1172,7 @@ FUN_ov39_0211ae7c: ; 0x0211AE7C
 	smull r0, r1, r2, r12
 	sub r12, r3, r0
 	add r2, r12, r12, lsl #1
-	ldr r0, _0211AF90 ; =0x0209AC44
+	ldr r0, _0211AF90 ; =gL5Sound
 	mov r1, #8
 	add r4, r4, r2
 	bl FUN_0202cf6c
@@ -1188,7 +1188,7 @@ _0211AF80: .word unk_0209A0F4
 _0211AF84: .word ov39_0211BB60
 _0211AF88: .word 0x55555556
 _0211AF8C: .word 0x66666667
-_0211AF90: .word unk_0209AC44
+_0211AF90: .word gL5Sound
 	arm_func_end FUN_ov39_0211ae7c
 
 	arm_func_start FUN_ov39_0211af94
@@ -1266,7 +1266,7 @@ _0211B074:
 	cmp r0, #0
 	cmpne r0, #2
 	bne _0211B0A0
-	ldr r0, _0211B1DC ; =0x0209AC44
+	ldr r0, _0211B1DC ; =gL5Sound
 	mov r1, #9
 	bl FUN_0202cf6c
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -1298,7 +1298,7 @@ _0211B0E4:
 	mov r1, #0
 _0211B0F8:
 	bl FUN_ov39_0211ab30
-	ldr r0, _0211B1DC ; =0x0209AC44
+	ldr r0, _0211B1DC ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 	b _0211B1A8
@@ -1311,7 +1311,7 @@ _0211B10C:
 	b _0211B0F8
 _0211B124:
 	ldr r1, [r4, #0x60]
-	ldr r0, _0211B1DC ; =0x0209AC44
+	ldr r0, _0211B1DC ; =gL5Sound
 	add r1, r1, #1
 	mov r3, r1, lsr #0x1f
 	rsb r2, r3, r1, lsl #31
@@ -1335,7 +1335,7 @@ _0211B174:
 	bl FUN_ov39_0211b288
 	b _0211B1A8
 _0211B180:
-	ldr r0, _0211B1DC ; =0x0209AC44
+	ldr r0, _0211B1DC ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	mov r0, #6
@@ -1359,7 +1359,7 @@ _0211B1A8:
 	bl FUN_ov39_0211b1e4
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B1D8: .word ov39_0211BDE0
-_0211B1DC: .word unk_0209AC44
+_0211B1DC: .word gL5Sound
 _0211B1E0: .word ov106_02125420
 	arm_func_end FUN_ov39_0211b04c
 
@@ -1426,7 +1426,7 @@ FUN_ov39_0211b288: ; 0x0211B288
 	cmpne r0, #2
 	sub r1, r2, #1
 	bne _0211B2BC
-	ldr r0, _0211B340 ; =0x0209AC44
+	ldr r0, _0211B340 ; =gL5Sound
 	mov r1, #9
 	bl FUN_0202cf6c
 	ldmfd sp!, {r4, pc}
@@ -1442,7 +1442,7 @@ _0211B2BC:
 	bl _s32_div_f
 	strb r1, [r4, #0x378]
 _0211B2E4:
-	ldr r0, _0211B340 ; =0x0209AC44
+	ldr r0, _0211B340 ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
 	ldr r2, [r4, #0x374]
@@ -1467,7 +1467,7 @@ _0211B330:
 	ldrne r0, _0211B34C ; =0x02125420
 	strne r3, [r0]
 	ldmfd sp!, {r4, pc}
-_0211B340: .word unk_0209AC44
+_0211B340: .word gL5Sound
 _0211B344: .word ov39_0211BDC0
 _0211B348: .word ov39_0211BDCC
 _0211B34C: .word ov106_02125420

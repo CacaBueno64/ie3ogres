@@ -34,7 +34,7 @@
 .public FUN_ov16_020f153c
 .public FUN_02029d44
 .public FUN_ov16_020f1670
-.public FUN_0202e958
+.public _ZN7L5Movie12FUN_0202e958Ev
 .public FUN_02030010
 .public FUN_0203003c
 .public FUN_020303B0
@@ -247,7 +247,7 @@
 .public FUN_ov16_020ef8d4
 .public FUN_0206c718
 .public FUN_0207371c
-.public _ull_div
+.public _ll_udiv
 .public FUN_0206d3c8
 .public FUN_0206d3fc
 .public FUN_0206d4b4

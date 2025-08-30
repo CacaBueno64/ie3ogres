@@ -35,7 +35,7 @@
 .public unk_0209A5D0
 .public FUN_020627a4
 .public FUN_0202cf6c
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_020620f8
 .public FUN_02062924
 .public FUN_0207477c

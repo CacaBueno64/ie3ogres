@@ -201,7 +201,7 @@
 .public FUN_01ff9384
 .public FUN_01ff8c44
 .public FUN_0206d1e4
-.public unk_0209AC44
+.public gL5Sound
 .public FUN_ov132_02144b00
 .public FUN_01ff9904
 .public FUN_ov132_0213f644

@@ -282,19 +282,19 @@ _0211A244: ; jump table
 	b _0211A2B4 ; case 14
 	b _0211A2A8 ; case 15
 _0211A284:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #8
 	b _0211A2B0
 _0211A290:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #6
 	b _0211A2B0
 _0211A29C:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #4
 	b _0211A2B0
 _0211A2A8:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #1
 _0211A2B0:
 	bl FUN_0202cf6c
@@ -325,7 +325,7 @@ _0211A304:
 	ldr r0, [r7, #0x40]
 	cmp r0, #0
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldrb r1, [r7, #0x67]
@@ -335,7 +335,7 @@ _0211A304:
 	str r0, [r7, #0x2c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A334:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #4
 	bl FUN_0202cf6c
 	ldrb r1, [r7, #0x66]
@@ -354,7 +354,7 @@ _0211A358:
 	cmp r0, #1
 	ldmhifd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A378:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 	ldr r0, [r7, #0x40]
@@ -389,7 +389,7 @@ _0211A3D4:
 	cmp r0, #1
 	ldmhifd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A3F4:
-	ldr r0, _0211A454 ; =0x0209AC44
+	ldr r0, _0211A454 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 	ldr r0, [r7, #0x40]
@@ -415,7 +415,7 @@ _0211A42C:
 	bl FUN_ov16_020f6e8c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A450: .word unk_0209F5C0
-_0211A454: .word unk_0209AC44
+_0211A454: .word gL5Sound
 _0211A458: .word unk_0209A070
 	arm_func_end FUN_ov33_0211a16c
 
@@ -442,7 +442,7 @@ FUN_ov33_0211a47c: ; 0x0211A47C
 	ldr r0, [r5, #0x44]
 	cmp r4, r0
 	bge _0211A4B8
-	ldr r0, _0211A4C8 ; =0x0209AC44
+	ldr r0, _0211A4C8 ; =gL5Sound
 	mov r1, #8
 	bl FUN_0202cf6c
 	mov r0, r5
@@ -453,7 +453,7 @@ _0211A4B8:
 	ldr r0, _0211A4CC ; =0x0209A070
 	bl FUN_ov16_020f6e2c
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A4C8: .word unk_0209AC44
+_0211A4C8: .word gL5Sound
 _0211A4CC: .word unk_0209A070
 	arm_func_end FUN_ov33_0211a47c
 
@@ -506,19 +506,19 @@ _0211A530: ; jump table
 	b _0211A5A0 ; case 14
 	b _0211A594 ; case 15
 _0211A570:
-	ldr r0, _0211A5E0 ; =0x0209AC44
+	ldr r0, _0211A5E0 ; =gL5Sound
 	mov r1, #8
 	b _0211A59C
 _0211A57C:
-	ldr r0, _0211A5E0 ; =0x0209AC44
+	ldr r0, _0211A5E0 ; =gL5Sound
 	mov r1, #6
 	b _0211A59C
 _0211A588:
-	ldr r0, _0211A5E0 ; =0x0209AC44
+	ldr r0, _0211A5E0 ; =gL5Sound
 	mov r1, #4
 	b _0211A59C
 _0211A594:
-	ldr r0, _0211A5E0 ; =0x0209AC44
+	ldr r0, _0211A5E0 ; =gL5Sound
 	mov r1, #1
 _0211A59C:
 	bl FUN_0202cf6c
@@ -540,7 +540,7 @@ _0211A5D4:
 	ldr r0, [r6, #0x20]
 	str r0, [r6, #0x2c]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A5E0: .word unk_0209AC44
+_0211A5E0: .word gL5Sound
 _0211A5E4: .word unk_0209A070
 _0211A5E8: .word unk_0209F5C0
 	arm_func_end FUN_ov33_0211a518
