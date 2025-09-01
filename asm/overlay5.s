@@ -976,6 +976,7 @@ FUN_ov5_020bd730: ; 0x020BD730
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd730
 
+	.section .init, 4
 	arm_func_start FUN_ov5_020bd744
 FUN_ov5_020bd744: ; 0x020BD744
 	stmfd sp!, {r3, r4, r5, lr}

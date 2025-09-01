@@ -1,9 +1,8 @@
 
-	.include "/macros/function.inc"
-	.include "/include/overlay17_thumb.inc"
+	.include "asm/macros/function.inc"
+	.include "libdwcutil_thumb.inc"
 
 	.text
-
 	thumb_func_start AOSS_MALLOC
 AOSS_MALLOC: ; 0x020EDE60
 	push {r3, lr}
@@ -5753,7 +5752,7 @@ _020F0A24:
 	mov r1, #0xff
 	mov r2, #6
 	blx MI_CpuFill8
-	ldr r1, _020F0AD4 ; =0x020E3FE8
+	ldr r1, _020F0AD4 ; =WCM_Bssid_Any
 	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x10]
 _020F0A34:
@@ -5797,7 +5796,7 @@ _020F0A72:
 	mov r1, #0xff
 	mov r2, #0x20
 	blx MI_CpuFill8
-	ldr r1, _020F0ADC ; =0x020E3FF0
+	ldr r1, _020F0ADC ; =WCM_Essid_Any
 	ldr r0, _020F0ACC ; =apci_WCMBuffer
 	str r1, [r0, #0x14]
 _020F0A82:
@@ -5837,9 +5836,9 @@ _020F0AC0:
 	nop
 _020F0ACC: .word apci_WCMBuffer
 _020F0AD0: .word apci_bssid_buf
-_020F0AD4: .word ov15_020E3FE8
+_020F0AD4: .word WCM_Bssid_Any
 _020F0AD8: .word ov17_02114C10
-_020F0ADC: .word ov15_020E3FF0
+_020F0ADC: .word WCM_Essid_Any
 	thumb_func_end APC_SearchStart
 
 	thumb_func_start APC_SearchEnd
@@ -6634,7 +6633,7 @@ _020F10D0:
 	mov r1, #0xff
 	mov r2, #6
 	blx MI_CpuFill8
-	ldr r1, _020F117C ; =0x020E3FE8
+	ldr r1, _020F117C ; =WCM_Bssid_Any
 	ldr r0, _020F1174 ; =btAutoResult
 	str r1, [r0, #0x44]
 _020F10DE:
@@ -6676,7 +6675,7 @@ _020F111A:
 	mov r1, #0xff
 	mov r2, #0x20
 	blx MI_CpuFill8
-	ldr r1, _020F1184 ; =0x020E3FF0
+	ldr r1, _020F1184 ; =WCM_Essid_Any
 	ldr r0, _020F1174 ; =btAutoResult
 	str r1, [r0, #0x48]
 _020F112A:
@@ -6716,9 +6715,9 @@ _020F1168:
 	nop
 _020F1174: .word btAutoResult
 _020F1178: .word ov17_021150E8
-_020F117C: .word ov15_020E3FE8
+_020F117C: .word WCM_Bssid_Any
 _020F1180: .word ov17_02115120
-_020F1184: .word ov15_020E3FF0
+_020F1184: .word WCM_Essid_Any
 	thumb_func_end atermapc_APC_SearchStart
 
 	thumb_func_start atermapc_APC_Disconnect

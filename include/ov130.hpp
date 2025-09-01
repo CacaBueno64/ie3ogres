@@ -3,6 +3,9 @@
 
 #include <nitro.h>
 
+#include "init.hpp"
+#include "l5config.hpp"
+
 class UnkStruct_ov130_0212AB60 {
 public:
     fx32 unk0;

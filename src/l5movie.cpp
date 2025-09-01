@@ -1,16 +1,14 @@
-#include "l5sound.hpp"
-
 #include "l5movie.hpp"
 
 L5Movie::L5Movie()
 {
-    this->unk18C = 0;
+    this->flags = 0;
 }
 
 L5Movie::~L5Movie()
 {
-    if (this->unk18C) {
-        this->unk18C |= 0x20;
+    if (this->flags) {
+        this->flags |= 0x20;
         this->stopMovie(1);
     }
 }
@@ -43,7 +41,7 @@ u32 L5Movie::FUN_0202e4ec()
     return unk_020B5B80.unk4 ^ 1;
 }
 
-BOOL L5Movie::playMovie(char *name, u32 param2, u32 param3, u8 param4)
+BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasSound, u8 param4)
 {
     char filepath[64];
 
@@ -76,9 +74,9 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 param3, u8 param4)
     }
 
     this->handle_98 = this->handle;
-    this->unk18C = 0;
-    if (param3) {
-        this->unk18C |= 0x200;
+    this->flags = 0;
+    if (hasSound) {
+        this->flags |= MOVIE_HAS_SOUND;
     }
     this->unk194 = 0;
     this->unk198 = 0;
@@ -90,8 +88,8 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 param3, u8 param4)
     unk_020B5B80.unk6 = 1;
 
     STD_TSPrintf(filepath, "%s.sad", name);
-    if (((this->unk18C & 0x200) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
-        this->unk18C |= 0x100;
+    if (((this->flags & MOVIE_HAS_SOUND) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
+        this->flags |= 0x100;
     }
 
     OS_CreateAlarm(&this->alarm);
@@ -120,63 +118,63 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 param3, u8 param4)
         27
     );
 
-    if ((this->unk18C & 0x200) == 0) {
+    if ((this->flags & 0x200) == 0) {
         gL5Sound.FUN_0202c4a0(0);
     }
 
-    this->unk18C |= 1;
+    this->flags |= 1;
 
     return TRUE;
 }
 
 u32 L5Movie::FUN_0202e784(void)
 {
-    return this->unk18C;
+    return this->flags;
 }
 
 // https://decomp.me/scratch/OeIac
 #ifdef NONMATCHING
 BOOL L5Movie::FUN_0202e78c(void)
 {
-    if ((this->unk18C & 1) == 0) {
+    if ((this->flags & 1) == 0) {
         return FALSE;
     }
     if (this->handle_98 == MO_INVALID_HANDLE) {
         return FALSE;
     }
-    if ((this->unk18C & 4) != 0) {
+    if ((this->flags & 4) != 0) {
         return FALSE;
     }
-    if ((this->unk18C & 0x20) != 0) {
-        if ((this->unk18C & 0x8000) != 0) {
+    if ((this->flags & 0x20) != 0) {
+        if ((this->flags & 0x8000) != 0) {
             return TRUE;
         } else {
             return FALSE;
         }
     }
-    if ((this->unk18C & 0x10) != 0) {
+    if ((this->flags & 0x10) != 0) {
         return FALSE;
     }
-    if ((this->unk18C & 2) == 0) {
+    if ((this->flags & 2) == 0) {
         unk_020B5B80.unk5 = 1;
     }
-    if ((this->unk18C & 0x100) != 0) {
-        if ((this->unk18C & 8) == 0) {
+    if ((this->flags & 0x100) != 0) {
+        if ((this->flags & 8) == 0) {
             gL5Sound.FUN_0202d594(0, 0);
-            this->unk18C |= 0x408;
+            this->flags |= 0x408;
         }
         if (!gL5Sound.FUN_0202d6c4(0)) {
-            if ((this->unk18C & 0x400) != 0) {
+            if ((this->flags & 0x400) != 0) {
                 unk_020B5B80.unk5 = 0;
                 return TRUE;
             } else {
-                this->unk18C &= ~0x108;
+                this->flags &= ~0x108;
             }
         } else {
-            this->unk18C &= ~0x400;
+            this->flags &= ~0x400;
         }
     }
-    this->unk18C |= 2;
+    this->flags |= 2;
     this->unk198 += unk_020B5B80.unk5;
     unk_020B5B80.unk5 = 0;
     if (this->unk198) {
@@ -199,7 +197,7 @@ BOOL L5Movie::FUN_0202e78c(void)
     OS_WakeupThreadDirect(&this->thread);
 
     if (this->unk1A0 >= this->unk1A4) {
-        this->unk18C |= 4;
+        this->flags |= 4;
         return FALSE;
     }
     return TRUE;
@@ -338,21 +336,21 @@ _0202E924:
 
 void L5Movie::FUN_0202e958(void)
 {
-    if ((this->unk18C & 2) == 0) {
+    if ((this->flags & 2) == 0) {
         return;
     }
-    this->unk18C |= 0x20;
+    this->flags |= 0x20;
     this->FUN_0202e978();
 }
 
 void L5Movie::FUN_0202e978(void)
 {
-    if ((this->unk18C & 2) == 0) {
+    if ((this->flags & 2) == 0) {
         return;
     }
-    this->unk18C |= 0x10;
+    this->flags |= 0x10;
     this->unk198 += unk_020B5B80.unk5;
-    if ((this->unk18C & 8) == 0) {
+    if ((this->flags & 8) == 0) {
         return;
     }
     gL5Sound.FUN_0202d774(0, 0x12C);
@@ -360,11 +358,11 @@ void L5Movie::FUN_0202e978(void)
 
 void L5Movie::FUN_0202e9c8(void)
 {
-    if ((this->unk18C & 0x10) == 0) {
+    if ((this->flags & 0x10) == 0) {
         return;
     }
-    u32 flag = this->unk18C & ~0x10;
-    this->unk18C = flag;
+    u32 flag = this->flags & ~0x10;
+    this->flags = flag;
     unk_020B5B80.unk5 = 0;
     if ((flag & 8) == 0) {
         return;
@@ -372,7 +370,7 @@ void L5Movie::FUN_0202e9c8(void)
 
     gL5Sound.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->unk1A0 + this->unk198 + 1));
 
-    this->unk18C |= 0x400;
+    this->flags |= 0x400;
 }
 
 BOOL L5Movie::FUN_0202ea50(void)
@@ -380,16 +378,16 @@ BOOL L5Movie::FUN_0202ea50(void)
     if (this->unk194 >= 6) {
         return FALSE;
     }
-    if ((this->unk18C & 0x20) != 0) {
+    if ((this->flags & 0x20) != 0) {
         return FALSE;
     }
-    this->unk18C |= 0x8000;
+    this->flags |= 0x8000;
 
     (void)OS_GetTick();
 
-    if ((this->handle) && ((this->unk18C & 0x1000) == 0)) {
+    if ((this->handle) && ((this->flags & 0x1000) == 0)) {
         if (!MO_ReadFrame(this->handle)) {
-            this->unk18C |= 0x1000;
+            this->flags |= 0x1000;
         } else {
             (void)MO_UnpackFrameImage(this->handle);
         }
@@ -397,8 +395,8 @@ BOOL L5Movie::FUN_0202ea50(void)
 
     (void)OS_GetTick();
 
-    this->unk18C &= ~0x8000;
-    if (((this->unk18C & 0x1000) != 0) && ((this->unk18C & 0x2000) != 0)) {
+    this->flags &= ~0x8000;
+    if (((this->flags & 0x1000) != 0) && ((this->flags & 0x2000) != 0)) {
         return FALSE;
     }
 
@@ -410,15 +408,15 @@ BOOL L5Movie::FUN_0202ea50(void)
 
 void L5Movie::stopMovie(u32 param1)
 {
-    if (!this->unk18C) {
+    if (!this->flags) {
         return;
     }
-    if ((this->unk18C & 0x8000) != 0) {
+    if ((this->flags & 0x8000) != 0) {
         do {
             OS_Sleep(50);
-        } while ((this->unk18C & 0x8000) != 0);
+        } while ((this->flags & 0x8000) != 0);
     }
-    if ((this->unk18C & 0x20) == 0) {
+    if ((this->flags & 0x20) == 0) {
         s32 i = 0;
         if (this->unk194 > 0) {  
             do {
@@ -428,7 +426,7 @@ void L5Movie::stopMovie(u32 param1)
             } while (i < this->unk194);
         }
     }
-    if ((this->unk18C & 0x08) != 0) {
+    if ((this->flags & 0x08) != 0) {
         gL5Sound.FUN_0202d578(0);
     }
     
@@ -446,7 +444,7 @@ void L5Movie::stopMovie(u32 param1)
 
     MO_Free(this->unk188);
 
-    this->unk18C = 0;
+    this->flags = 0;
 
     if (!param1) {
         return;

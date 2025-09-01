@@ -1,6 +1,6 @@
 
-	.include "/macros/function.inc"
-	.include "/include/overlay17_arm.inc"
+	.include "asm/macros/function.inc"
+	.include "libdwcutil_arm.inc"
 
 	.text
 	arm_func_start DWCi_ANIMElInitEx
@@ -7086,7 +7086,7 @@ FUN_ov17_020fa2a4: ; 0x020FA2A4
 	str r8, [sp, #0xc]
 	bl DWCi_FNTlDrawRect
 	add r0, sp, #0x68
-	bl FUN_ov15_020ca8e0
+	bl DWCi_BM_GetWiFiInfo
 	ldr r7, [sp, #0x6c]
 	ldr r4, [sp, #0x68]
 	cmp r7, #0
@@ -7455,7 +7455,7 @@ _020FA7CC:
 	bl DWCi_ARClReadEx
 	mov r5, r0
 	add r0, sp, #0
-	bl FUN_ov15_020ca8e0
+	bl DWCi_BM_GetWiFiInfo
 	ldr r1, [sp, #4]
 	ldr r0, [sp]
 	cmp r1, #0
@@ -7680,7 +7680,7 @@ _020FAB24:
 	b _020FAB90
 _020FAB30:
 	add r0, sp, #0
-	bl FUN_ov15_020ca8e0
+	bl DWCi_BM_GetWiFiInfo
 	ldr r0, _020FABA0 ; =0x02116208
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -13634,7 +13634,7 @@ _020FF8C0:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020FF8E4:
 	mov r0, r4
-	bl FUN_ov15_020cacf0
+	bl DWC_BACKUPlCheckAddress
 	cmp r0, #0
 	movne r6, #1
 	mov r0, r6
@@ -16596,11 +16596,11 @@ FUN_ov17_02102154: ; 0x02102154
 	cmp r0, #0
 	bne _021021A0
 	add r0, r4, #0xc8
-	bl FUN_ov15_020cacf0
+	bl DWC_BACKUPlCheckAddress
 	cmp r0, #0
 	bne _021021A0
 	add r0, r4, #0xcc
-	bl FUN_ov15_020cacf0
+	bl DWC_BACKUPlCheckAddress
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -16609,18 +16609,18 @@ _021021A0:
 	cmp r0, #0
 	bne _021021EC
 	add r0, r4, #0xc0
-	bl FUN_ov15_020cacf0
+	bl DWC_BACKUPlCheckAddress
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
 	add r0, r4, #0xc4
-	bl FUN_ov15_020cacf0
+	bl DWC_BACKUPlCheckAddress
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
 	add r0, r4, #0xc0
 	add r1, r4, #0xf0
-	bl FUN_ov15_020cac88
+	bl DWC_BACKUPlCheckIp
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -20119,7 +20119,7 @@ FUN_ov17_02104f34: ; 0x02104F34
 	addne r0, r0, #1
 	strneb r0, [sp, #0xe]
 	add r0, sp, #4
-	bl FUN_ov15_020c3728
+	bl DWC_AC_Create
 	cmp r0, #0
 	bne _02104F90
 	bl OS_Terminate
@@ -20129,7 +20129,7 @@ _02104F90:
 	bne _02104FA8
 	ldrb r0, [r4, #0xf4]
 	mov r1, r4
-	bl FUN_ov15_020c3c3c
+	bl DWCi_AC_InsertApInfo
 _02104FA8:
 	mov r0, #0
 	ldr r1, _02104FC8 ; =FUN_ov17_02105188
@@ -20252,15 +20252,15 @@ FUN_ov17_021050ec: ; 0x021050EC
 	stmfd sp!, {r3, r4, r5, lr}
 	bl FUN_ov17_02107868
 	mov r5, r0
-	bl FUN_ov15_020c3ae4
+	bl DWC_AC_Destroy
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov15_020cb3ec
+	bl DWCi_BACKUPlGetWifi
 	mov r4, #0xe
 	mov r2, r4
 	add r1, r5, #0xf0
 	bl MI_CpuCopy8
-	bl FUN_ov15_020cb3ec
+	bl DWCi_BACKUPlGetWifi
 	mov r2, r4
 	add r1, r5, #0x1f0
 	bl MI_CpuCopy8
@@ -20295,7 +20295,7 @@ _02105184: .word FUN_ov17_02105214
 FUN_ov17_02105188: ; 0x02105188
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov15_020c38f0
+	bl DWC_AC_Process
 	movs r4, r0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	bl FUN_ov17_020f54a4
@@ -20308,7 +20308,7 @@ FUN_ov17_02105188: ; 0x02105188
 	strb r2, [r1]
 	b _021051CC
 _021051C0:
-	bl FUN_ov15_020c39dc
+	bl DWC_AC_GetStatus
 	bl FUN_ov17_020fff80
 	mov r0, #0x12
 _021051CC:
@@ -22715,7 +22715,7 @@ FUN_ov17_02107044: ; 0x02107044
 	add r0, r2, #0x400
 	bl MATHi_CRC16InitTableRev
 	ldr r0, [r4]
-	bl FUN_ov15_020cab04
+	bl DWCi_BACKUPlRead
 	ldmfd sp!, {r4, pc}
 _02107078: .word 0x000006F8
 _0210707C: .word ov17_021162A4
@@ -23122,7 +23122,7 @@ _0210754C:
 	ldr r1, [r5]
 	ldrb r0, [r4, #0xd0]
 	add r1, r1, #0x4f0
-	bl FUN_ov15_020cac34
+	bl DWCi_BACKUPlConvMaskAddr
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02107564: .word ov17_021162A4
 _02107568: .word ov17_0211258C
@@ -23389,9 +23389,9 @@ _021078D8:
 	blt _021078D8
 	add r4, sp, #0
 	mov r0, r4
-	bl FUN_ov15_020cba10
+	bl DWCi_AUTH_GetNewWiFiInfo
 	mov r0, r4
-	bl FUN_ov15_020cb32c
+	bl DWCi_BACKUPlConvWifiInfo
 	ldr r4, _02107958 ; =0x021162A4
 	mov r6, r0
 	mov r7, #0
@@ -23503,7 +23503,7 @@ _02107A6C:
 	str r2, [sp]
 	ldr r0, [r6]
 	add r1, sp, #4
-	bl FUN_ov15_020cab18
+	bl DWCi_BACKUPlWritePage
 	add r0, sp, #0
 	bl DWCi_HEAPlFree_
 	add sp, sp, #0x14
@@ -28110,7 +28110,7 @@ FUN_ov17_0210b7ac: ; 0x0210B7AC
 	ldr r0, [r5]
 	add r0, r0, #0x24c
 	add r0, r0, #0x400
-	bl FUN_ov15_020cab04
+	bl DWCi_BACKUPlRead
 	bl OS_GetTick
 	bl FUN_ov17_02107868
 	ldr r1, [r5]

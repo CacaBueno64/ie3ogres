@@ -30,8 +30,8 @@ FUN_02074aa4: ; 0x02074AA4
 	bx lr
 	arm_func_end FUN_02074aa4
 
-	arm_func_start FUN_02074aa8
-FUN_02074aa8: ; 0x02074AA8
+	arm_func_start DseDriver_LoadDefaultSettings
+DseDriver_LoadDefaultSettings: ; 0x02074AA8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _02074B30 ; =0x020B9FD8
 	mov r2, #1
@@ -70,10 +70,10 @@ _02074B30: .word unk_020B9FD8
 _02074B34: .word FUN_02074aa4
 _02074B38: .word FUN_02074a6c
 _02074B3C: .word FUN_02074a84
-	arm_func_end FUN_02074aa8
+	arm_func_end DseDriver_LoadDefaultSettings
 
-	arm_func_start FUN_02074b40
-FUN_02074b40: ; 0x02074B40
+	arm_func_start DseDriver_IsSettingsValid
+DseDriver_IsSettingsValid: ; 0x02074B40
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r0
 	bne _02074B64
@@ -138,10 +138,10 @@ _02074C18:
 	mov r0, r5
 	str r5, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02074b40
+	arm_func_end DseDriver_IsSettingsValid
 
-	arm_func_start FUN_02074c24
-FUN_02074c24: ; 0x02074C24
+	arm_func_start DseDriver_ConfigureHeap
+DseDriver_ConfigureHeap: ; 0x02074C24
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	strne r1, [r0, #8]
@@ -155,7 +155,7 @@ FUN_02074c24: ; 0x02074C24
 	bl Dse_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02074c24
+	arm_func_end DseDriver_ConfigureHeap
 
 	arm_func_start FUN_02074c58
 FUN_02074c58: ; 0x02074C58
@@ -213,8 +213,8 @@ _02074CE4:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02074cbc
 
-	arm_func_start FUN_02074d04
-FUN_02074d04: ; 0x02074D04
+	arm_func_start DseDriver_Init
+DseDriver_Init: ; 0x02074D04
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r4, _02074EF8 ; =0x020B9FD8
 	mov r7, r0
@@ -230,7 +230,7 @@ FUN_02074d04: ; 0x02074D04
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D3C:
-	bl FUN_02074b40
+	bl DseDriver_IsSettingsValid
 	movs r1, r0
 	beq _02074D60
 	mvn r4, #0x1d
@@ -352,7 +352,7 @@ _02074F08: .word unk_020BAFD8
 _02074F0C: .word unk_02091F94
 _02074F10: .word unk_020B9FF4
 _02074F14: .word unk_020BBDD8
-	arm_func_end FUN_02074d04
+	arm_func_end DseDriver_Init
 
 	arm_func_start FUN_02074F18
 FUN_02074F18: ; 0x02074F18

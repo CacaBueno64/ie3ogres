@@ -212,12 +212,12 @@
 .public unk_020B5B78
 .public SND_Init
 .public SND_LockChannel
-.public FUN_02074aa8
-.public FUN_02074c24
+.public DseDriver_LoadDefaultSettings
+.public DseDriver_ConfigureHeap
 .public FUN_02074c58
 .public FUN_02074c8c
 .public FUN_02074cbc
-.public FUN_02074d04
+.public DseDriver_Init
 .public DseSe_SysReset
 .public FUN_0207c2ec
 .public FUN_0207c348

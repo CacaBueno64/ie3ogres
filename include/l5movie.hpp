@@ -3,13 +3,15 @@
 
 #pragma once
 
-extern "C" {
 #include <nitro.h>
 #include <Mobiclip.h>
-}
+
+#include "l5sound.hpp"
 
 #define STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
+
+#define MOVIE_HAS_SOUND 0x200
 
 FS_EXTERN_OVERLAY(overlay126);
 FS_EXTERN_OVERLAY(overlay127);
@@ -52,7 +54,7 @@ class L5Movie {
     OSAlarm alarm;
     OSThread thread;
     void *unk188;
-    u32 unk18C;
+    u32 flags;
     u32 unk190;
     s32 unk194;
     s32 unk198;

@@ -1,5 +1,4 @@
 #include "ov116.hpp"
-#include <nitro.h>
 
 const UnkStruct_ov116_02124EA0 ov116_02124EA0 = UnkStruct_ov116_02124EA0(
     0x840800,

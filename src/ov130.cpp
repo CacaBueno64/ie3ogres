@@ -1,10 +1,5 @@
 #include "ov130.hpp"
 
-#include "init.hpp"
-#include "l5config.hpp"
-
-#include <nitro.h>
-
 const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
     0x4e2000,
     0x0000EA3C,

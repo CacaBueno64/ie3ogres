@@ -24,7 +24,7 @@ BOOL L5CardController::init(CARDBackupType type)
 BOOL L5CardController::test(void)
 {
     u32 buffer;
-    return read(0, sizeof(buffer), &buffer) != FALSE;
+    return this->read(0, sizeof(buffer), &buffer) != FALSE;
 }
 
 BOOL L5CardController::ready(void)

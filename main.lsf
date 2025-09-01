@@ -145,7 +145,14 @@ Overlay overlay14
 Overlay overlay15
 {
 	After main
+
+	# TwlDWC_dl and TwlWifi libraries
+	Object lib/TwlDWC_dl/asm/libdwc.o
+
 	Object asm/overlay15.o
+
+	# Libcrypto RC4
+	Object lib/TwlSDK/asm/crypto/rc4.o
 }
 Overlay overlay16
 {
@@ -155,8 +162,10 @@ Overlay overlay16
 Overlay overlay17
 {
 	After overlay15
-	Object asm/overlay17_thumb.o
-	Object asm/overlay17_arm.o
+
+	# DWCutil library
+	Object lib/TwlDWC_dl/asm/libdwcutil_thumb.o
+	Object lib/TwlDWC_dl/asm/libdwcutil_arm.o
 }
 Overlay overlay18
 {

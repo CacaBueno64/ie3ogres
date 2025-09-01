@@ -1,5 +1,4 @@
 #include "ov101.hpp"
-#include <nitro.h>
 
 #ifdef __cplusplus
 extern "C" {
