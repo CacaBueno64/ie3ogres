@@ -3,9 +3,7 @@
 
 #pragma once
 
-extern "C" {
 #include <nitro.h>
-}
 
 class L5Sound {
     public:

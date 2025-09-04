@@ -183,13 +183,13 @@
 .public FUN_ov24_0211acd8
 .public FUN_ov37_0211b2b0
 .public FUN_0206c0d8
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public FUN_0204201c
 .public FUN_02041fec
 .public FUN_02041d14
 .public FUN_02042084
 .public FUN_02042054
-.public unk_0209A250
+.public gL5Allocator
 .public unk_020A11DC
 .public FUN_0206cbf8
 .public FUN_0206dcd4
@@ -401,7 +401,7 @@
 .public FUN_ov16_021174ac
 .public FUN_ov16_02117514
 .public FUN_0202eff0
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_0205935c
 .public FUN_02059288
 .public FUN_ov16_0211661c

@@ -21,7 +21,7 @@
 .public unk_020A8440
 .public FUN_0202de44
 .public MIi_CpuClear32
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_0204378c
 .public unk_02099ED0
 .public unk_02099F50
@@ -50,7 +50,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f147c
 .public FUN_ov16_020f6a9c
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public operator_delete

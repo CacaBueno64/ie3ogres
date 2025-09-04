@@ -27,8 +27,8 @@
 .public FUN_0202eff0
 .public operator_new_array
 .public FUN_02044658
-.public FUN_0202e1c0
-.public unk_0209A250
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
 .public unk_020AF81C
 .public FUN_ov16_0210e674
 .public FUN_ov16_0210e9d8

@@ -4,10 +4,10 @@
 .public FUN_0202eff0
 .public unk_02099EB4
 .public unk_02099ED4
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public unk_0209A0F4

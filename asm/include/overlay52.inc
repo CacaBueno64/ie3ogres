@@ -48,9 +48,9 @@
 .public FS_ReadFile
 .public FUN_0204bc4c
 .public FS_CloseFile
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public unk_0209C220
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_020509d8
 .public FUN_020508fc
 .public unk_020A108A

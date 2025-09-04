@@ -40,8 +40,8 @@
 .public GX_ResetBankForBG
 .public FUN_0202e19c
 .public FUN_ov16_020f3054
-.public unk_0209A250
-.public FUN_0202e1c0
+.public gL5Allocator
+.public _ZN11L5Allocator10deallocateEPv
 .public GX_LoadBG0Scr
 .public GX_LoadBG0Char
 .public GX_BeginLoadBGExtPltt

@@ -82,7 +82,7 @@ FUN_ov112_02124dc4: ; 0x02124DC4
 	cmp r0, #0
 	addlt sp, sp, #0x14
 	ldmltfd sp!, {r4, r5, pc}
-	ldr r3, _02124E78 ; =0x0209A250
+	ldr r3, _02124E78 ; =gL5Allocator
 	str r5, [sp, #0x10]
 	ldr r0, [r3]
 	ldr r1, _02124E7C ; =0x02125930
@@ -107,11 +107,11 @@ _02124E40:
 	add r1, r2, r1
 	bl sprintf
 	ldr r1, [sp, #0x10]
-	ldr r0, _02124E78 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _02124E78 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
-_02124E78: .word unk_0209A250
+_02124E78: .word gL5Allocator
 _02124E7C: .word ov112_02125930
 	arm_func_end FUN_ov112_02124dc4
 

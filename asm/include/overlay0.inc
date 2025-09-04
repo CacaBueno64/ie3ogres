@@ -50,9 +50,9 @@
 .public FUN_0205f1ec
 .public FUN_0205d608
 .public FUN_020522ec
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public unk_02099E91
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_020f16c8
 .public FUN_ov16_LoadOverlay
 .public operator_new

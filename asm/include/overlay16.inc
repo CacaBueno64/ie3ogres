@@ -286,9 +286,9 @@
 .public FUN_0206def8
 .public FUN_0206c718
 .public FUN_0202eff0
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_0202de44
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public MIi_CpuCopy32
 .public FUN_0207445c
 .public FUN_02074440
@@ -466,10 +466,10 @@
 .public FUN_ov131_0213acc0
 .public unk_02099F44
 .public operator_delete
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public FUN_0202f294
 .public FUN_0202fc4c
-.public unk_0209C2C4
+.public gL5FileRequestManager
 .public FUN_0202f57c
 .public FUN_0202f678
 .public STD_CompareNString

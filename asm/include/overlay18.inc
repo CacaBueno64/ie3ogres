@@ -4,7 +4,7 @@
 .public FUN_0202eff0
 .public sprintf
 .public FUN_02059038
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_02059630
 .public FUN_ov16_02112724
 .public FUN_ov16_02114248
@@ -17,7 +17,7 @@
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f5278
 .public unk_02099F38
-.public unk_0209A250
+.public gL5Allocator
 .public unk_020A1240
 .public unk_020A9C40
 .public FUN_ov16_020f3d08

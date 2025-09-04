@@ -63,10 +63,10 @@
 .public unk_0209A070
 .public ov1_020E9482
 .public FUN_ov132_02143a40
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public FUN_ov132_02143a34
 .public FUN_ov132_02143c08
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov1_020db600
 .public DC_FlushRange
 .public FUN_0202cf6c
@@ -114,7 +114,7 @@
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f2fe4
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f6c58
 .public FUN_ov1_020be6f8

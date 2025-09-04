@@ -6,8 +6,8 @@
 .public MIi_CpuClearFast
 .public FUN_0202eff0
 .public sprintf
-.public FUN_0202e1c0
-.public unk_0209A250
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f1868
 .public FUN_ov16_020f1138

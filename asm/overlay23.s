@@ -232,7 +232,7 @@ _0211A1D0:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A1DC:
-	ldr r3, _0211A28C ; =0x0209A250
+	ldr r3, _0211A28C ; =gL5Allocator
 	ldr r1, _0211A290 ; =0x0211CD6C
 	ldr r0, [r3]
 	cmp r0, #0
@@ -275,12 +275,12 @@ _0211A26C:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A278:
-	ldr r0, _0211A28C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211A28C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, r4
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A28C: .word unk_0209A250
+_0211A28C: .word gL5Allocator
 _0211A290: .word ov23_0211CD6C
 	arm_func_end FUN_ov23_0211a1a0
 

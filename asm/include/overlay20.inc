@@ -8,9 +8,9 @@
 .public FUN_ov16_020f3d08
 .public FUN_02058800
 .public unk_02099F38
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_0202de44
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_020efa9c
 .public FUN_0207039c
 .public FUN_ov16_020f0bcc

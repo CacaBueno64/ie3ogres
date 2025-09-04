@@ -8,14 +8,14 @@
 .public FUN_0204665c
 .public unk_02099EB4
 .public unk_02099ED4
-.public unk_0209A250
+.public gL5Allocator
 .public unk_0209AEC0
 .public unk_020A0640
 .public FUN_ov16_020efa04
 .public FUN_0206c270
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public unk_0209A0AC
 .public FUN_ov16_0210e10c
 .public _ffltu

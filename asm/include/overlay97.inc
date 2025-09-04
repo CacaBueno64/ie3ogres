@@ -1,7 +1,7 @@
 .public FUN_ov16_020f6a9c
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public unk_0209F5C0
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0c30
 .public unk_02099F04

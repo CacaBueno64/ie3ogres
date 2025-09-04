@@ -5804,7 +5804,7 @@ _0211F15C:
 	cmp r4, #7
 	blt _0211F150
 	mov r4, #0x3000
-	ldr r0, _0211F264 ; =0x0209A250
+	ldr r0, _0211F264 ; =gL5Allocator
 	mov r1, r4
 	bl FUN_0202de44
 	mov r1, r0
@@ -5868,7 +5868,7 @@ _0211F254: .word unk_0209BA20
 _0211F258: .word unk_02099EB4
 _0211F25C: .word unk_02099ED4
 _0211F260: .word gL5Sound
-_0211F264: .word unk_0209A250
+_0211F264: .word gL5Allocator
 _0211F268: .word unk_020A9C40
 _0211F26C: .word unk_02099F38
 	arm_func_end FUN_ov62_0211f044
@@ -6051,8 +6051,8 @@ _0211F4A0:
 	ldr r1, [r4, #0x4fc]
 	cmp r1, #0
 	beq _0211F4F4
-	ldr r0, _0211F51C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211F51C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	str r5, [r4, #0x4fc]
 _0211F4F4:
 	ldr r0, _0211F520 ; =0x02099F38
@@ -6065,7 +6065,7 @@ _0211F4F4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211F514: .word unk_02099EB4
 _0211F518: .word unk_02099ED4
-_0211F51C: .word unk_0209A250
+_0211F51C: .word gL5Allocator
 _0211F520: .word unk_02099F38
 _0211F524: .word unk_0209BA20
 	arm_func_end FUN_ov62_0211f454
@@ -7504,7 +7504,7 @@ FUN_ov62_021209ac: ; 0x021209AC
 	mov r4, r0
 	mov r12, #0
 	add r0, r4, #0x500
-	ldr r3, _02120A14 ; =0x0209A250
+	ldr r3, _02120A14 ; =gL5Allocator
 	str r12, [r4, #0x544]
 	strh r12, [r0, #0x48]
 	ldr r0, [r3]
@@ -7526,7 +7526,7 @@ _02120A00:
 	strh r1, [r0, #0x48]
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
-_02120A14: .word unk_0209A250
+_02120A14: .word gL5Allocator
 _02120A18: .word ov62_02121110
 	arm_func_end FUN_ov62_021209ac
 
@@ -7537,12 +7537,12 @@ FUN_ov62_02120a1c: ; 0x02120A1C
 	ldr r1, [r4, #0x544]
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02120A44 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _02120A44 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x544]
 	ldmfd sp!, {r4, pc}
-_02120A44: .word unk_0209A250
+_02120A44: .word gL5Allocator
 	arm_func_end FUN_ov62_02120a1c
 
 	arm_func_start FUN_ov62_02120a48

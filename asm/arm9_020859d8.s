@@ -762,16 +762,16 @@ FUN_020866d8: ; 0x020866D8
 	mov r4, r0
 	cmp r1, #0
 	blt _020866F0
-	ldr r0, _02086708 ; =0x0209A250
+	ldr r0, _02086708 ; =gL5Allocator
 	bl FUN_0202e19c
 _020866F0:
-	ldr r0, _02086708 ; =0x0209A250
+	ldr r0, _02086708 ; =gL5Allocator
 	mov r1, r4
 	mov r2, #0
 	mov r3, #1
-	bl FUN_0202de58
+	bl _ZN11L5Allocator8allocateEiii
 	ldmfd sp!, {r4, pc}
-_02086708: .word unk_0209A250
+_02086708: .word gL5Allocator
 	arm_func_end FUN_020866d8
 
 	arm_func_start FUN_0208670c
@@ -793,20 +793,20 @@ _02086730:
 	arm_func_start FUN_02086738
 FUN_02086738: ; 0x02086738
 	mov r1, r0
-	ldr r0, _02086748 ; =0x0209A250
-	ldr r12, _0208674C ; =FUN_0202e1c0
+	ldr r0, _02086748 ; =gL5Allocator
+	ldr r12, _0208674C ; =_ZN11L5Allocator10deallocateEPv
 	bx r12
-_02086748: .word unk_0209A250
-_0208674C: .word FUN_0202e1c0
+_02086748: .word gL5Allocator
+_0208674C: .word _ZN11L5Allocator10deallocateEPv
 	arm_func_end FUN_02086738
 
 	arm_func_start FUN_02086750
 FUN_02086750: ; 0x02086750
 	mov r1, r0
-	ldr r0, _02086760 ; =0x0209A250
+	ldr r0, _02086760 ; =gL5Allocator
 	ldr r12, _02086764 ; =FUN_0202e19c
 	bx r12
-_02086760: .word unk_0209A250
+_02086760: .word gL5Allocator
 _02086764: .word FUN_0202e19c
 	arm_func_end FUN_02086750
 
@@ -863,7 +863,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A14 ; =_ZN8L5ConfigD1Ev
 	ldr r2, _02086A18 ; =0x02099FA8
 	bl __register_global_object
-	ldr r4, _02086A1C ; =0x0209C2C4
+	ldr r4, _02086A1C ; =gL5FileRequestManager
 	mov r0, r4
 	bl FUN_0202ed48
 	mov r0, r4
@@ -884,7 +884,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A38 ; =_ZN16L5CardControllerD1Ev
 	ldr r2, _02086A3C ; =0x02099FCC
 	bl __register_global_object
-	ldr r4, _02086A40 ; =0x0209A250
+	ldr r4, _02086A40 ; =gL5Allocator
 	mov r0, r4
 	bl FUN_0202dbf8
 	mov r0, r4
@@ -986,7 +986,7 @@ _02086A0C: .word 0x0000EA3C
 _02086A10: .word gL5Config
 _02086A14: .word _ZN8L5ConfigD1Ev
 _02086A18: .word unk_02099FA8
-_02086A1C: .word unk_0209C2C4
+_02086A1C: .word gL5FileRequestManager
 _02086A20: .word FUN_0202ed70
 _02086A24: .word unk_02099FB4
 _02086A28: .word unk_0209A5D0
@@ -995,7 +995,7 @@ _02086A30: .word unk_02099FC0
 _02086A34: .word gL5CardController
 _02086A38: .word _ZN16L5CardControllerD1Ev
 _02086A3C: .word unk_02099FCC
-_02086A40: .word unk_0209A250
+_02086A40: .word gL5Allocator
 _02086A44: .word FUN_0202dc1c
 _02086A48: .word unk_02099FD8
 _02086A4C: .word gL5Sound

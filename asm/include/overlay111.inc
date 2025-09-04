@@ -1,8 +1,8 @@
 .public FUN_ov16_020f6a9c
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f147c
 .public unk_0209F5C0
-.public unk_0209A250
+.public gL5Allocator
 .public MI_CpuFill8
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f338c

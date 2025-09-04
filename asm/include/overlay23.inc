@@ -13,8 +13,8 @@
 .public unk_0209A0AC
 .public unk_020A1640
 .public FUN_0202eff0
-.public FUN_0202e1c0
-.public unk_0209A250
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
 .public rand
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210eb78

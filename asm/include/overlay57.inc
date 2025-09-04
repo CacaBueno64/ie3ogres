@@ -255,8 +255,8 @@
 .public FUN_02054070
 .public FUN_ov16_02111438
 .public FUN_0202eff0
-.public FUN_0202e1c0
-.public unk_0209A250
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
 .public FUN_0204b0ac
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0

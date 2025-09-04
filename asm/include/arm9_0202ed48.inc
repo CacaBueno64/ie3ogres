@@ -6,8 +6,8 @@
 .public OS_InitMutex
 .public OS_CreateThread
 .public FS_TryLoadTable
-.public FUN_0202de58
-.public FUN_0202e1c0
+.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator10deallocateEPv
 .public FS_InitFile
 .public FS_OpenFile
 .public FS_GetLength
@@ -119,7 +119,7 @@
 .public FUN_ov16_02112e5c
 .public FUN_ov16_02113528
 .public FUN_ov16_021128c4
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_02113390
 .public FUN_ov16_021142fc
 .public FUN_0202cf6c

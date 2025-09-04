@@ -3294,8 +3294,8 @@ _0211CD20:
 	ldr r1, [r4, #0x38]
 	cmp r1, #0
 	beq _0211CD6C
-	ldr r0, _0211CDC0 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211CDC0 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	str r5, [r4, #0x38]
 _0211CD6C:
 	add r0, r4, #0x3c
@@ -3319,7 +3319,7 @@ _0211CDB0: .word 0x00269EC3
 _0211CDB4: .word unk_0209A190
 _0211CDB8: .word ov1_020EAAAC
 _0211CDBC: .word unk_0209F5C0
-_0211CDC0: .word unk_0209A250
+_0211CDC0: .word gL5Allocator
 _0211CDC4: .word 0x04000018
 	arm_func_end FUN_ov85_0211cca8
 

@@ -14,7 +14,7 @@
 .public DC_FlushRange
 .public NNS_G2dFontInitUTF16
 .public NNS_G2dFontInitShiftJIS
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_0202de44
 .public FX_Sqrt
 .public FUN_02086750
@@ -92,7 +92,7 @@
 .public operator_new
 .public FUN_ov16_020fe4f4
 .public FUN_ov16_020fe51c
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public FUN_0202e19c
 .public FUN_ov16_020fe8b0
 .public FUN_ov16_020fe56c

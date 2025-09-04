@@ -1,8 +1,8 @@
 .public FUN_0202de44
 .public DWC_InitForProduction
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public MI_CpuFill8
-.public unk_0209A250
+.public gL5Allocator
 .public DWC_InitInet
 .public DWC_ConnectInetAsync
 .public DWC_ProcessInet

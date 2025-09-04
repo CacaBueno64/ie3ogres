@@ -37,7 +37,7 @@
 .public FUN_ov16_020f32b4
 .public FUN_0202de44
 .public memcpy
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_020f33fc
 .public G2_GetBG3CharPtr
 .public FUN_ov16_020f1868
@@ -68,7 +68,7 @@
 .public FUN_ov16_020f6a9c
 .public FUN_0204ec3c
 .public G2_GetBG2ScrPtr
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f1aec
 .public FUN_ov16_020f338c

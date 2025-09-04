@@ -1291,7 +1291,7 @@ FUN_ov70_0211b154: ; 0x0211B154
 	mov r4, #0x12
 	bl MI_CpuFill8
 	strh r5, [r10, #0xee]
-	ldr r3, _0211B498 ; =0x0209A250
+	ldr r3, _0211B498 ; =gL5Allocator
 	str r5, [sp, #0x28]
 	ldr r0, [r3]
 	ldr r1, _0211B49C ; =0x0211F36C
@@ -1428,8 +1428,8 @@ _0211B378:
 	blt _0211B1E4
 _0211B388:
 	ldr r1, [sp, #0x28]
-	ldr r0, _0211B498 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211B498 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	add r1, sp, #0x2c
 	mov r0, #0x78
 	mov r11, #0
@@ -1500,7 +1500,7 @@ _0211B464:
 	add sp, sp, #0x20c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B494: .word 0x00001B48
-_0211B498: .word unk_0209A250
+_0211B498: .word gL5Allocator
 _0211B49C: .word ov70_0211F36C
 _0211B4A0: .word unk_0209BA20
 	arm_func_end FUN_ov70_0211b154

@@ -750,7 +750,7 @@ _0211A920:
 	bne _0211A920
 	ldmia r12, {r0, r1}
 	stmia r6, {r0, r1}
-	ldr r6, _0211A9BC ; =0x0209A250
+	ldr r6, _0211A9BC ; =gL5Allocator
 	ldr r1, _0211A9C0 ; =0x00000101
 	mov r0, r6
 	ldr r7, [r4, #0x16c]
@@ -762,7 +762,7 @@ _0211A920:
 	str r5, [sp, #8]
 	mov r3, #1
 	str r3, [sp, #0xc]
-	ldr r0, _0211A9C4 ; =0x0209C2C4
+	ldr r0, _0211A9C4 ; =gL5FileRequestManager
 	ldr r1, _0211A9C8 ; =0x02122C14
 	add r2, sp, #0x10
 	mov r3, r5
@@ -777,15 +777,15 @@ _0211A920:
 	bl FUN_ov16_020f5504
 	ldr r1, [sp, #0x10]
 	mov r0, r6
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #2
 	str r0, [r4, #0x15c]
 	add sp, sp, #0x11c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A9B8: .word ov22_021224A0
-_0211A9BC: .word unk_0209A250
+_0211A9BC: .word gL5Allocator
 _0211A9C0: .word 0x00000101
-_0211A9C4: .word unk_0209C2C4
+_0211A9C4: .word gL5FileRequestManager
 _0211A9C8: .word ov22_02122C14
 _0211A9CC: .word ov22_02122C38
 	arm_func_end FUN_ov22_0211a8f0

@@ -1741,7 +1741,7 @@ _0211B688:
 	cmp r9, r6
 	blo _0211B644
 _0211B690:
-	ldr r6, _0211B778 ; =0x0209A250
+	ldr r6, _0211B778 ; =gL5Allocator
 	ldr r1, [r4, #0x188]
 	mov r0, r6
 	str r7, [r4, #0x184]
@@ -1804,7 +1804,7 @@ _0211B768:
 	blo _0211B6E8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211B774: .word ov38_0211D15C
-_0211B778: .word unk_0209A250
+_0211B778: .word gL5Allocator
 	arm_func_end FUN_ov38_0211b5cc
 
 	arm_func_start FUN_ov38_0211b77c
@@ -3341,7 +3341,7 @@ _0211CD98:
 	mov r1, #0x16
 	mov r2, #4
 	bl FUN_ov16_020f2fa8
-	ldr r5, _0211CEB0 ; =0x0209A250
+	ldr r5, _0211CEB0 ; =gL5Allocator
 	mov r1, #0x2580
 	mov r0, r5
 	str r6, [r4, #0x17c]
@@ -3394,7 +3394,7 @@ _0211CD98:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CEA8: .word unk_0209A454
 _0211CEAC: .word unk_0209A070
-_0211CEB0: .word unk_0209A250
+_0211CEB0: .word gL5Allocator
 _0211CEB4: .word unk_020A0BB4
 _0211CEB8: .word unk_0209F5C0
 	arm_func_end FUN_ov38_0211cd14
@@ -3525,31 +3525,31 @@ FUN_ov38_0211d010: ; 0x0211D010
 	ldr r1, [r4, #0x70]
 	cmp r1, #0
 	beq _0211D07C
-	ldr r0, _0211D140 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D140 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	str r5, [r4, #0x70]
 _0211D07C:
 	ldr r1, [r4, #0x74]
 	cmp r1, #0
 	beq _0211D098
-	ldr r0, _0211D140 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D140 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x74]
 _0211D098:
 	ldr r1, [r4, #0x17c]
 	cmp r1, #0
 	beq _0211D0B4
-	ldr r0, _0211D140 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D140 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x17c]
 _0211D0B4:
 	ldr r1, [r4, #0x180]
 	cmp r1, #0
 	beq _0211D0D0
-	ldr r0, _0211D140 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D140 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x180]
 _0211D0D0:
@@ -3582,7 +3582,7 @@ _0211D124:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211D138: .word unk_0209F5C0
 _0211D13C: .word unk_0209A070
-_0211D140: .word unk_0209A250
+_0211D140: .word gL5Allocator
 	arm_func_end FUN_ov38_0211d010
 
 	arm_func_start FUN_ov38_0211d144

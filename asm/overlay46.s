@@ -398,7 +398,7 @@ FUN_ov46_0211a420: ; 0x0211A420
 	strh r0, [r1, #0xe0]
 	ldrh r2, [r1, #0xe0]
 	mov r1, #0x1c
-	ldr r0, _0211A7F8 ; =0x0209A250
+	ldr r0, _0211A7F8 ; =gL5Allocator
 	mul r1, r2, r1
 	bl FUN_0202de44
 	add r6, r5, #0x300
@@ -510,7 +510,7 @@ _0211A5AC:
 	add r0, r0, #1
 	mov r0, r0, lsl #0x10
 	mov r10, r0, lsr #0x10
-	ldr r0, _0211A7F8 ; =0x0209A250
+	ldr r0, _0211A7F8 ; =gL5Allocator
 	mov r1, r10
 	bl FUN_0202de44
 	ldr r2, [r5, #0x4f8]
@@ -548,7 +548,7 @@ _0211A670:
 	add r1, r5, #0x300
 	strh r0, [r1, #0xe2]
 	ldrh r1, [r1, #0xe2]
-	ldr r0, _0211A7F8 ; =0x0209A250
+	ldr r0, _0211A7F8 ; =gL5Allocator
 	mov r1, r1, lsl #3
 	bl FUN_0202de44
 	add r8, r5, #0x300
@@ -588,7 +588,7 @@ _0211A714:
 	mov r1, r8
 	bl FUN_ov46_0211a400
 	mov r2, r0
-	ldr r7, _0211A7F8 ; =0x0209A250
+	ldr r7, _0211A7F8 ; =gL5Allocator
 	and r1, r2, #0xff
 	mov r0, r7
 	strb r2, [r5, #0x3e4]
@@ -640,7 +640,7 @@ _0211A7E4:
 	mov r0, r5
 	bl FUN_ov46_02120fc8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A7F8: .word unk_0209A250
+_0211A7F8: .word gL5Allocator
 _0211A7FC: .word ov46_02121578
 	arm_func_end FUN_ov46_0211a420
 
@@ -878,10 +878,10 @@ _0211AAD8:
 FUN_ov46_0211ab08: ; 0x0211AB08
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r0
-	ldr r4, _0211ABE0 ; =0x0209A250
+	ldr r4, _0211ABE0 ; =gL5Allocator
 	ldr r1, [r6, #0x950]
 	mov r0, r4
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	add r8, r6, #0x300
 	ldrh r0, [r8, #0xe0]
 	mov r5, #0
@@ -893,16 +893,16 @@ _0211AB38:
 	mov r0, r4
 	mla r1, r5, r7, r1
 	ldr r1, [r1, #0x18]
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldrh r0, [r8, #0xe0]
 	add r5, r5, #1
 	cmp r5, r0
 	blt _0211AB38
 _0211AB5C:
-	ldr r4, _0211ABE0 ; =0x0209A250
+	ldr r4, _0211ABE0 ; =gL5Allocator
 	ldr r1, [r6, #0x4f8]
 	mov r0, r4
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldrb r0, [r6, #0x3e4]
 	mov r5, #0
 	cmp r0, #0
@@ -913,7 +913,7 @@ _0211AB80:
 	mov r0, r4
 	add r1, r1, r5, lsl #3
 	ldr r1, [r1, #4]
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldr r0, [r6, #0x4f4]
 	add r0, r0, r5, lsl #3
 	str r7, [r0, #4]
@@ -923,8 +923,8 @@ _0211AB80:
 	blt _0211AB80
 _0211ABB0:
 	ldr r1, [r6, #0x4f4]
-	ldr r0, _0211ABE0 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211ABE0 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r1, #0
 	add r0, r6, #0x300
 	strh r1, [r0, #0xe0]
@@ -934,7 +934,7 @@ _0211ABB0:
 	str r1, [r6, #0x4f8]
 	str r1, [r6, #0x4f4]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211ABE0: .word unk_0209A250
+_0211ABE0: .word gL5Allocator
 	arm_func_end FUN_ov46_0211ab08
 
 	arm_func_start FUN_ov46_0211abe4
@@ -6469,7 +6469,7 @@ FUN_ov46_0211f920: ; 0x0211F920
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
 	mov r6, r0
-	ldr r0, _0211FAA0 ; =0x0209A250
+	ldr r0, _0211FAA0 ; =gL5Allocator
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
@@ -6562,7 +6562,7 @@ FUN_ov46_0211f920: ; 0x0211F920
 	bl FUN_ov16_020efa04
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0211FAA0: .word unk_0209A250
+_0211FAA0: .word gL5Allocator
 _0211FAA4: .word unk_02099EB4
 _0211FAA8: .word unk_02099ED4
 _0211FAAC: .word unk_02099F38

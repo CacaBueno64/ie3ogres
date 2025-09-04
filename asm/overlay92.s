@@ -100,7 +100,7 @@ FUN_ov92_02124e38: ; 0x02124E38
 	strh r3, [r4, #0xa]
 	cmp r0, #0
 	bne _02124E68
-	ldr r0, _02124ED0 ; =0x0209A250
+	ldr r0, _02124ED0 ; =gL5Allocator
 	mov r1, r5, lsl #1
 	bl FUN_0202de44
 	str r0, [r4]
@@ -108,7 +108,7 @@ _02124E68:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _02124E84
-	ldr r0, _02124ED0 ; =0x0209A250
+	ldr r0, _02124ED0 ; =gL5Allocator
 	mov r1, r5, lsl #5
 	bl FUN_0202de44
 	str r0, [r4, #4]
@@ -134,7 +134,7 @@ _02124EBC:
 	mov r0, #0
 	bl MIi_CpuClear32
 	ldmfd sp!, {r3, r4, r5, pc}
-_02124ED0: .word unk_0209A250
+_02124ED0: .word gL5Allocator
 	arm_func_end FUN_ov92_02124e38
 
 	arm_func_start FUN_ov92_02124ed4
@@ -1411,11 +1411,11 @@ FUN_ov92_02126084: ; 0x02126084
 	ldrb r0, [r4, #8]
 	cmp r0, #0
 	beq _021260C4
-	ldr r0, _021260F8 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _021260F8 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	b _021260DC
 _021260C4:
-	ldr r0, _021260F8 ; =0x0209A250
+	ldr r0, _021260F8 ; =gL5Allocator
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021260DC
@@ -1429,7 +1429,7 @@ _021260DC:
 	strb r0, [r4, #9]
 	strb r0, [r4, #0xa]
 	ldmfd sp!, {r4, pc}
-_021260F8: .word unk_0209A250
+_021260F8: .word gL5Allocator
 	arm_func_end FUN_ov92_02126084
 
 	arm_func_start FUN_ov92_021260fc
@@ -1686,7 +1686,7 @@ FUN_ov92_02126434: ; 0x02126434
 	mov r0, r4
 	bl FUN_ov92_02125b94
 	mov r9, #0
-	ldr r8, _021264C8 ; =0x0209A250
+	ldr r8, _021264C8 ; =gL5Allocator
 	mov r7, r9
 	mov r6, r9
 	mov r5, #0xc
@@ -1696,14 +1696,14 @@ _0212645C:
 	cmp r1, #0
 	beq _02126478
 	mov r0, r8
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	str r7, [r10, #0x30]
 _02126478:
 	ldr r1, [r10, #0x34]
 	cmp r1, #0
 	beq _02126490
 	mov r0, r8
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	str r6, [r10, #0x34]
 _02126490:
 	add r9, r9, #1
@@ -1720,7 +1720,7 @@ _02126490:
 	ldr r2, [r2, #0xc]
 	blx r2
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_021264C8: .word unk_0209A250
+_021264C8: .word gL5Allocator
 _021264CC: .word unk_0209F5C0
 	arm_func_end FUN_ov92_02126434
 

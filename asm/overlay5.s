@@ -439,7 +439,7 @@ _020BD094:
 	arm_func_start FUN_ov5_020bd0a0
 FUN_ov5_020bd0a0: ; 0x020BD0A0
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r5, _020BD0E8 ; =0x0209A250
+	ldr r5, _020BD0E8 ; =gL5Allocator
 	mov r4, #1
 	mov r6, r0
 	mov r0, r5
@@ -456,7 +456,7 @@ FUN_ov5_020bd0a0: ; 0x020BD0A0
 	bl FUN_ov16_020f3054
 	str r4, [r6, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BD0E8: .word unk_0209A250
+_020BD0E8: .word gL5Allocator
 _020BD0EC: .word ov5_020BDA60
 _020BD0F0: .word ov5_020BDA84
 	arm_func_end FUN_ov5_020bd0a0
@@ -465,7 +465,7 @@ _020BD0F0: .word ov5_020BDA84
 FUN_ov5_020bd0f4: ; 0x020BD0F4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, #0
-	ldr r6, _020BD138 ; =0x0209A250
+	ldr r6, _020BD138 ; =gL5Allocator
 	mov r9, r0
 	mov r5, r7
 	mov r4, #0xc
@@ -475,14 +475,14 @@ _020BD10C:
 	cmp r1, #0
 	beq _020BD128
 	mov r0, r6
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	str r5, [r8, #0x24]
 _020BD128:
 	add r7, r7, #1
 	cmp r7, #2
 	blt _020BD10C
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020BD138: .word unk_0209A250
+_020BD138: .word gL5Allocator
 	arm_func_end FUN_ov5_020bd0f4
 
 	arm_func_start FUN_ov5_020bd13c
@@ -762,7 +762,7 @@ FUN_ov5_020bd494: ; 0x020BD494
 FUN_ov5_020bd4a8: ; 0x020BD4A8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	ldr r0, _020BD4E4 ; =0x0209A250
+	ldr r0, _020BD4E4 ; =gL5Allocator
 	mov r1, #1
 	bl FUN_0202e19c
 	ldr r0, _020BD4E8 ; =0x020BDB40
@@ -775,7 +775,7 @@ FUN_ov5_020bd4a8: ; 0x020BD4A8
 	add r1, r4, #0x30
 	bl FUN_ov16_020f3054
 	ldmfd sp!, {r4, pc}
-_020BD4E4: .word unk_0209A250
+_020BD4E4: .word gL5Allocator
 _020BD4E8: .word ov5_020BDB40
 _020BD4EC: .word ov5_020BDB64
 _020BD4F0: .word ov5_020BDB8C
@@ -793,13 +793,13 @@ FUN_ov5_020bd4f4: ; 0x020BD4F4
 	ldrneb r0, [r0, #0x21]
 	cmpne r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020BD534 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _020BD534 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	add r0, r5, r4
 	mov r1, #0
 	str r1, [r0, #0x18]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD534: .word unk_0209A250
+_020BD534: .word gL5Allocator
 	arm_func_end FUN_ov5_020bd4f4
 
 	arm_func_start FUN_ov5_020bd538

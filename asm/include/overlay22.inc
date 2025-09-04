@@ -60,9 +60,9 @@
 .public FUN_0202e19c
 .public FUN_0202eff0
 .public FUN_ov16_020f5504
-.public FUN_0202e1c0
-.public unk_0209A250
-.public unk_0209C2C4
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
+.public gL5FileRequestManager
 .public FUN_ov16_021137dc
 .public FUN_ov16_0211401c
 .public FUN_ov16_02113b78

@@ -7,17 +7,18 @@
 #include <Mobiclip.h>
 
 #include "l5sound.hpp"
+#include "l5allocator.hpp"
 
 #define STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
 
-#define MOVIE_HAS_SOUND 0x200
+#define MOVIE_HAS_NOT_SOUND 0x200
 
 FS_EXTERN_OVERLAY(overlay126);
 FS_EXTERN_OVERLAY(overlay127);
 
 typedef struct {
-    void *allocator; //pointer to L5Allocator
+    L5Allocator *allocator; //pointer to L5Allocator
     s8 unk4;
     s8 unk5;
     s8 unk6;
@@ -34,7 +35,7 @@ class L5Movie {
     public:
         L5Movie();
         ~L5Movie();
-        void FUN_0202e4ac(void *allocator);
+        void init(L5Allocator *allocator);
         void FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3);
         u32 FUN_0202e4ec();
         BOOL playMovie(char *name, u32 param2, u32 param3, u8 param4);
@@ -69,7 +70,7 @@ extern "C" {
     BOOL FUN_0202ec4c(MOHandle handle0, MOHandle handle1);
     void Movie_AlarmIntr(void *arg);
 
-    void *Movie_Malloc(u32 size);
+    void *Movie_Malloc(int size);
     void Movie_Free(void *ptr);
 }
 

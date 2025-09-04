@@ -3,9 +3,12 @@
 
 #include <nitro.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "ov130.hpp"
+#include "l5allocator.hpp"
+#include "l5filerequestmanager.hpp"
+#include "l5movie.hpp"
+#include "unk_0209AEC0.hpp"
+#include "unk_0209BA20.hpp"
 
 typedef struct {
     u8 unk0;
@@ -68,6 +71,7 @@ typedef struct {
     u8 unkC8[0x11C];
     void *unk1E4;
 } UnkStruct_02099E8C;
+extern UnkStruct_02099E8C unk_02099E8C;
 
 typedef struct {
     u8      izType; // 0: Ogre, 1: Bomber 
@@ -80,6 +84,7 @@ typedef struct {
     u32     rpgGiveupMoveDist;
     u16     rpgMinimapScrollVelocity;
 } UnkStruct_0209A1A8;
+extern UnkStruct_0209A1A8 unk_0209A1A8;
 
 void FUN_02028fac(void);
 void FUN_02029078(void);
@@ -89,13 +94,9 @@ void VramClear(void);
 void InitInterrupt(void);
 void FUN_020292e8(void);
 void FUN_020292f4(void);
-void FUN_02029304(void);
+extern "C" void FUN_02029304(void);
 void InitG3d(void);
 void InitTouchPannel(void);
 void FUN_020295e8(void);
-
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
 
 #endif //IE3OGRES_INIT_H

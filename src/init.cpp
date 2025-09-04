@@ -1,19 +1,9 @@
 #include "init.hpp"
-#include "ov130.hpp"
-#include <nitro.h>
 
-#ifdef __cplusplus
 extern "C" {
-#endif
-
-extern void FUN_0202f794(void *);
-extern void FUN_02047a10(void *);
-extern void FUN_02051c10(void);
-extern void FUN_ov16_020f5258(void);
-
-extern UnkStruct_02099E8C unk_02099E8C;
-extern u32 *unk_0209AEC0;
-extern u32 *unk_0209C2C4;
+	extern void FUN_ov16_020f5258(void);
+	extern void FUN_02051c10(void);
+}
 
 void FUN_02028fac(void)
 {
@@ -31,11 +21,11 @@ void FUN_02028fac(void)
         unk_02099E8C.unk80 = 0;
         unk_02099E8C.unk40 = 0;
     }
-    
-    FUN_02047a10(&unk_0209AEC0);
-    FUN_0202f794(&unk_0209C2C4);
-    
-    asm {
+
+    unk_0209AEC0.FUN_02047a10();
+	gL5FileRequestManager.FUN_0202f794();
+
+	asm {
         ldr r0, =SDK_AUTOLOAD_DTCM_START
     	add r0, r0, #0x3000
         ldr r1, [r0, #0xff8]
@@ -76,46 +66,35 @@ void InitCommon(void)
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay16));
 }
 
-extern void FUN_0202dc54(void *, u32, void *, void *);
-extern void FUN_0202e1ac(void *, u32);
-extern void FUN_0202edec(void *, u32, void *);
-extern void _ZN7L5Movie12FUN_0202e4acEPv(void *, void *);
-
-extern void *unk_0209A250;
-extern void *gL5Movie;
-
 void FUN_02029140(void)
 {
-    void *arenalo = OS_GetArenaLo(OS_ARENA_MAIN);
-    unk_02099E8C.unk94 = arenalo;
-    void *arenahi = OS_GetArenaHi(OS_ARENA_MAIN);
-    unk_02099E8C.unk38 = arenahi;
-	
-    unk_02099E8C.unkB4 = (void *)(((u32)unk_02099E8C.unk94) + 0x00244800);
-    if (unk_02099E8C.unkB4 > arenahi) {
-        OS_Terminate();
-    }
-    else {
-        unk_02099E8C.unk30 = arenahi;
-    }
+    void *arenaLo = OS_GetArenaLo(OS_ARENA_MAIN);
+    unk_02099E8C.unk94 = arenaLo;
+    void *arenaHi = OS_GetArenaHi(OS_ARENA_MAIN);
+    unk_02099E8C.unk38 = arenaHi;
     
+    unk_02099E8C.unkB4 = (void *)((u32)unk_02099E8C.unk94 + 0x00244800);
+
+    if (unk_02099E8C.unkB4 > arenaHi) {
+        OS_Terminate();
+    } else {
+        unk_02099E8C.unk30 = arenaHi;
+    }
+
     void *destp = unk_02099E8C.unk94;
     u32 size = (u32)unk_02099E8C.unk30 - (u32)unk_02099E8C.unk94;
     unk_02099E8C.unkBC = size;
     MI_CpuClearFast(destp, size);
-    
-    DC_FlushRange(unk_02099E8C.unk94, (u32)unk_02099E8C.unkBC);
-    
-    void *allocator = &unk_0209A250;
-    FUN_0202dc54(allocator, 0, unk_02099E8C.unk94, unk_02099E8C.unk30);
-    
+    DC_FlushRange(unk_02099E8C.unk94, unk_02099E8C.unkBC);
+
+    gL5Allocator.FUN_0202dc54(0, unk_02099E8C.unk94, unk_02099E8C.unk30);
+
     OS_SetArenaLo(OS_ARENA_MAIN, (void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
-    
-    FUN_0202e1ac(allocator, 0);
-    *(u32 *)allocator = (u32)&unk_0209C2C4;
-    FUN_0202edec(&unk_0209C2C4, 0x40, allocator);
-    
-    _ZN7L5Movie12FUN_0202e4acEPv(&gL5Movie, allocator);
+
+    gL5Allocator.FUN_0202e1ac(0);
+    gL5Allocator.fileRequestManager = &gL5FileRequestManager;
+    gL5FileRequestManager.init(0x40, &gL5Allocator);
+    gL5Movie.init(&gL5Allocator);
 }
 
 void VramClear(void)
@@ -141,8 +120,10 @@ void InitInterrupt(void)
     OS_WaitVBlankIntr();
 }
 
-extern void FUN_0202ede8(void);
-extern void FUN_020864b4(void);
+extern "C" {
+	extern void FUN_0202ede8(void);
+	extern void FUN_020864b4(void);
+}
 
 void FUN_020292e8(void)
 {
@@ -152,10 +133,10 @@ void FUN_020292e8(void)
 void FUN_020292f4(void)
 {
 	FUN_020864b4();
-	extern void _Z18FUN_ov130_0212aa14v(void);
-	_Z18FUN_ov130_0212aa14v();
+	FUN_ov130_0212aa14();
 }
 
+extern "C" {
 #ifdef NONMATCHING
 #else
 extern void FUN_ov16_020fd4a8(void);
@@ -354,9 +335,12 @@ _020294AC:
 	ldmfd sp!, {r3, r4, r5, pc}
 }
 #endif
+}
 
-extern void NNS_G3dInit(void);
-extern void NNS_G3dGlbInit(void);
+extern "C" {
+	extern void NNS_G3dInit(void);
+	extern void NNS_G3dGlbInit(void);
+}
 
 void InitG3d(void)
 {
@@ -377,17 +361,8 @@ void InitTouchPannel(void) {
     TP_SetCalibrateParam(&calibrate);
 }
 
-extern void FUN_0206f1e0(void *ptr);
-extern void FUN_0206f244(void *ptr);
-extern void *unk_0209BA20;
-
 void FUN_020295e8(void)
 {
-    void *ptr = (void *)&unk_0209BA20;
-    FUN_0206f1e0(ptr);
-    FUN_0206f244(ptr);
+    unk_0209BA20.FUN_0206f1e0();
+    unk_0209BA20.FUN_0206f244();
 }
-
-#ifdef __cplusplus
-} /* extern "C" */
-#endif

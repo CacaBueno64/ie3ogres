@@ -9,10 +9,6 @@ const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
     0x840800
 );
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void FUN_ov130_0212a9c0(void)
 {
     void *lo = OS_GetArenaLo(OS_ARENA_MAIN);
@@ -21,12 +17,6 @@ void FUN_ov130_0212a9c0(void)
     void *newLo = OS_InitAlloc(OS_ARENA_MAIN, lo, hi, 2);
     OS_SetArenaLo(OS_ARENA_MAIN, newLo);
 }
-
-extern UnkStruct_0209A1A8 unk_0209A1A8;
-
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
 
 void FUN_ov130_0212aa14(void)
 {

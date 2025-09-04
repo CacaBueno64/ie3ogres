@@ -56,7 +56,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
-.public FUN_0202e1c0
-.public unk_0209A250
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5Allocator
 .public operator_delete
 .public FX_Sqrt

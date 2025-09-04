@@ -103,10 +103,10 @@
 .public FUN_ov1_020dbb44
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f2fe4
 .public unk_0209A178
 .public unk_0209A190
-.public unk_0209A250
+.public gL5Allocator
 .public operator_delete
 .public FX_Sqrt

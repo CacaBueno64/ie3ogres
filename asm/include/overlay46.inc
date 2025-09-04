@@ -19,8 +19,8 @@
 .public MI_CpuFill8
 .public STD_CopyLString
 .public STD_ConcatenateString
-.public unk_0209A250
-.public FUN_0202e1c0
+.public gL5Allocator
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_021128c4

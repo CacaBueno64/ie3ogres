@@ -115,9 +115,9 @@
 .public FUN_0206ccec
 .public FUN_0206cc94
 .public FUN_0202eff0
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public unk_02099F44
-.public unk_0209A250
+.public gL5Allocator
 .public operator_new
 .public FUN_0204b540
 .public FUN_ov16_020f5278
@@ -149,7 +149,7 @@
 .public FUN_02074a2c
 .public unk_0209A3E0
 .public FUN_02071fac
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public FUN_0202de44
 .public FUN_02041d80
 .public FUN_02072020

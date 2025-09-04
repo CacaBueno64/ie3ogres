@@ -1,2 +1,1 @@
-- locate all sdk symbols
-- split arm9 libraries and move them to ./lib
+- decompile

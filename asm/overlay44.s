@@ -2629,7 +2629,7 @@ FUN_ov44_0211c35c: ; 0x0211C35C
 	ldr r0, _0211C39C ; =0x021226AC
 	add r1, r1, #0x9000
 	bl FUN_ov16_020f3054
-	ldr r0, _0211C3A0 ; =0x0209A250
+	ldr r0, _0211C3A0 ; =gL5Allocator
 	ldr r1, _0211C3A4 ; =0x00000101
 	bl FUN_0202e19c
 	add r1, r4, #0x1380
@@ -2640,7 +2640,7 @@ FUN_ov44_0211c35c: ; 0x0211C35C
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
 _0211C39C: .word ov44_021226AC
-_0211C3A0: .word unk_0209A250
+_0211C3A0: .word gL5Allocator
 _0211C3A4: .word 0x00000101
 _0211C3A8: .word ov44_021226C4
 	arm_func_end FUN_ov44_0211c35c
@@ -2930,7 +2930,7 @@ _0211C74C:
 	bne _0211C74C
 	ldmia r7, {r0, r1}
 	stmia r6, {r0, r1}
-	ldr r6, _0211C7FC ; =0x0209A250
+	ldr r6, _0211C7FC ; =gL5Allocator
 	mov r7, #0
 	ldr r1, _0211C800 ; =0x00000101
 	mov r0, r6
@@ -2941,7 +2941,7 @@ _0211C74C:
 	str r7, [sp, #4]
 	str r7, [sp, #8]
 	mov r5, #1
-	ldr r0, _0211C808 ; =0x0209C2C4
+	ldr r0, _0211C808 ; =gL5FileRequestManager
 	add r2, sp, #0x10
 	mov r1, r8
 	str r5, [sp, #0xc]
@@ -2959,7 +2959,7 @@ _0211C74C:
 	bl FUN_ov16_020f5504
 	ldr r1, [sp, #0x10]
 	mov r0, r6
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r1, r5
 	mov r0, r4
 	bl FUN_ov44_0211c2a8
@@ -2968,10 +2968,10 @@ _0211C74C:
 	add sp, sp, #0x14c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211C7F8: .word ov44_0212212C
-_0211C7FC: .word unk_0209A250
+_0211C7FC: .word gL5Allocator
 _0211C800: .word 0x00000101
 _0211C804: .word ov44_021226FC
-_0211C808: .word unk_0209C2C4
+_0211C808: .word gL5FileRequestManager
 	arm_func_end FUN_ov44_0211c710
 
 	arm_func_start FUN_ov44_0211c80c

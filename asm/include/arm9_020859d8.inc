@@ -26,10 +26,10 @@
 .public OS_CreateThread
 .public OS_WakeupThreadDirect
 .public FUN_0202e19c
-.public FUN_0202de58
-.public unk_0209A250
+.public _ZN11L5Allocator8allocateEiii
+.public gL5Allocator
 .public MIi_CpuClearFast
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FX_Sqrt
 .public _ZN8L5ConfigC1Ev
 .public __register_global_object
@@ -52,7 +52,7 @@
 .public gL5Config
 .public _ZN8L5ConfigD1Ev
 .public unk_02099FA8
-.public unk_0209C2C4
+.public gL5FileRequestManager
 .public FUN_0202ed70
 .public unk_02099FB4
 .public unk_0209A5D0

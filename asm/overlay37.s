@@ -43,7 +43,7 @@ _02119F78:
 	ldr r1, [r4, #0x44]
 	mov r0, #0x74
 	mul r2, r1, r0
-	ldr r3, _0211A018 ; =0x0209A250
+	ldr r3, _0211A018 ; =gL5Allocator
 	ldr r1, _0211A01C ; =0x0211BDA0
 	ldr r0, [r3]
 	cmp r0, #0
@@ -63,7 +63,7 @@ _02119FC4:
 	ldr r1, [r4, #0x44]
 	mov r0, #0x74
 	mul r2, r1, r0
-	ldr r3, _0211A018 ; =0x0209A250
+	ldr r3, _0211A018 ; =gL5Allocator
 	ldr r1, _0211A020 ; =0x0211BDC0
 	ldr r0, [r3]
 	cmp r0, #0
@@ -81,7 +81,7 @@ _02119FC4:
 	ldmfd sp!, {r3, r4, pc}
 _0211A010: .word gL5Config
 _0211A014: .word ov37_0211BD98
-_0211A018: .word unk_0209A250
+_0211A018: .word gL5Allocator
 _0211A01C: .word ov37_0211BDA0
 _0211A020: .word ov37_0211BDC0
 	arm_func_end FUN_ov37_02119f48

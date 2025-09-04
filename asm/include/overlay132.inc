@@ -2,10 +2,10 @@
 .public FUN_0202de44
 .public operator_new
 .public gL5Config
-.public unk_0209A250
+.public gL5Allocator
 .public unk_0209A13C
 .public operator_delete
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov126_02137544
 .public FUN_02040148
 .public FUN_ov126_02138694

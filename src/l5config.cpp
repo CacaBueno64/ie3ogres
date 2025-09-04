@@ -1,7 +1,3 @@
-#include <string.h>
-
-#include "l5common.h"
-
 #include "l5config.hpp"
 
 extern "C" {
@@ -44,15 +40,16 @@ BOOL L5Config::openFile(char *filepath)
         do {
             if ((*r6 == '\n') || (*r6 == '\r')) {
                 *r6 = 0;
-                s32 len = strlen(r5);
-                if (len != 0) {
-                    BOOL result = this->readFileParam(r5, &this->paramEntry[this->paramCount]);
-                    if (result) {
+
+                if (strlen(r5) != 0) {
+                    if (this->readFileParam(r5, &this->paramEntry[this->paramCount])) {
                         this->paramCount++;
                     }
                 }
+
                 r5 = r6 + 1;
             }
+
             r6++;
         } while (r6 < (file + len));
     }
@@ -65,44 +62,52 @@ BOOL L5Config::openFile(char *filepath)
 int L5Config::getParam(char *param)
 {
     int pos = this->getParamPosition(param);
+
     if ((pos < 0) || (this->paramEntry == NULL)) {
         return 0;
     }
-    Struct_ParamEntry *paramEntry = &this->paramEntry[pos];
+
+    Config_ParamEntry *paramEntry = &this->paramEntry[pos];
+
     return paramEntry->value;
 }
 
 void L5Config::init(void)
 {
     if (this->paramEntry == NULL) {
-        Struct_ParamEntry *allocated = (Struct_ParamEntry *)FUN_0208670c(0x300, -1);
-        this->paramEntry = allocated;
+        this->paramEntry = (Config_ParamEntry *)FUN_0208670c(0x300, -1);
     }
+
     this->paramCount = 0;
 }
 
 int L5Config::getParamPosition(char *param)
 {
-    Struct_ParamEntry *paramEntry = this->paramEntry;
+    Config_ParamEntry *paramEntry = this->paramEntry;
+
     if (paramEntry == NULL) {
         return -1;
     }
+
     u32 len = STD_GetStringLength(param);
     u32 crc32 = Common_CalcCRC32(param, len);
     int pos = 0;
+
     if (this->paramCount > 0) {
         do {
             if (paramEntry->crc32 == crc32) {
                 return pos;
             }
+
             pos++;
             paramEntry++;
         } while (pos < this->paramCount);
     }
+
     return -1;
 }
 
-BOOL L5Config::readFileParam(char *file, Struct_ParamEntry *param)
+BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
 {
     BOOL empty_file = TRUE;
     BOOL read_key = FALSE;

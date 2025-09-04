@@ -102,7 +102,7 @@
 .public STD_CopyLString
 .public FUN_02046b6c
 .public unk_0209A108
-.public unk_0209C2C4
+.public gL5FileRequestManager
 .public unk_020A0640
 .public unk_020AF81C
 .public unk_0209A454
@@ -138,14 +138,14 @@
 .public FUN_0206c2f8
 .public FUN_020521d0
 .public FUN_02085e4c
-.public FUN_0202de58
+.public _ZN11L5Allocator8allocateEiii
 .public operator_new
 .public FUN_02059d9c
 .public FUN_02041f74
 .public FUN_020443c0
 .public FUN_02044e98
 .public unk_0209BA20
-.public unk_0209A250
+.public gL5Allocator
 .public gL5Sound
 .public unk_0209A0AC
 .public unk_02099E98
@@ -159,7 +159,7 @@
 .public unk_0209A114
 .public unk_0209A3E0
 .public FUN_02041c58
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_0204665c
 .public FUN_020443d4
 .public FUN_0202c470

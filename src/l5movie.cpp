@@ -13,7 +13,7 @@ L5Movie::~L5Movie()
     }
 }
 
-void L5Movie::FUN_0202e4ac(void *allocator)
+void L5Movie::init(L5Allocator *allocator)
 {
     if (allocator == NULL) {
         return;
@@ -41,7 +41,7 @@ u32 L5Movie::FUN_0202e4ec()
     return unk_020B5B80.unk4 ^ 1;
 }
 
-BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasSound, u8 param4)
+BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
 {
     char filepath[64];
 
@@ -75,8 +75,8 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasSound, u8 param4)
 
     this->handle_98 = this->handle;
     this->flags = 0;
-    if (hasSound) {
-        this->flags |= MOVIE_HAS_SOUND;
+    if (hasNotSound) {
+        this->flags |= MOVIE_HAS_NOT_SOUND;
     }
     this->unk194 = 0;
     this->unk198 = 0;
@@ -88,7 +88,7 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasSound, u8 param4)
     unk_020B5B80.unk6 = 1;
 
     STD_TSPrintf(filepath, "%s.sad", name);
-    if (((this->flags & MOVIE_HAS_SOUND) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
+    if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
         this->flags |= 0x100;
     }
 
@@ -132,8 +132,6 @@ u32 L5Movie::FUN_0202e784(void)
     return this->flags;
 }
 
-// https://decomp.me/scratch/OeIac
-#ifdef NONMATCHING
 BOOL L5Movie::FUN_0202e78c(void)
 {
     if ((this->flags & 1) == 0) {
@@ -153,7 +151,7 @@ BOOL L5Movie::FUN_0202e78c(void)
         }
     }
     if ((this->flags & 0x10) != 0) {
-        return FALSE;
+        return TRUE;
     }
     if ((this->flags & 2) == 0) {
         unk_020B5B80.unk5 = 1;
@@ -200,139 +198,9 @@ BOOL L5Movie::FUN_0202e78c(void)
         this->flags |= 4;
         return FALSE;
     }
+
     return TRUE;
 }
-#else
-extern "C" {
-    extern void _ZN7L5Sound12FUN_0202d594Emm(void);
-    extern void _ZN7L5Sound12FUN_0202d6c4Em(void);
-}
-asm BOOL L5Movie::FUN_0202e78c(void)
-{
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r2, [r5, #0x18c]
-	mov r4, #0
-	tst r2, #1
-	mov r1, #1
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, [r5, #0x98]
-	cmp r0, #0
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	tst r2, #4
-	movne r0, r4
-	ldmnefd sp!, {r3, r4, r5, pc}
-	tst r2, #0x20
-	beq _0202E7E0
-	tst r2, #0x8000
-	movne r0, r1
-	moveq r0, r4
-	ldmfd sp!, {r3, r4, r5, pc}
-_0202E7E0:
-	tst r2, #0x10
-	movne r0, r1
-	ldmnefd sp!, {r3, r4, r5, pc}
-	tst r2, #2
-	ldreq r0, =unk_020B5B80
-	streqb r1, [r0, #5]
-	ldr r0, [r5, #0x18c]
-	tst r0, #0x100
-	beq _0202E868
-	tst r0, #8
-	bne _0202E82C
-	mov r1, #0
-	ldr r0, =gL5Sound
-	mov r2, r1
-	bl _ZN7L5Sound12FUN_0202d594Emm
-	ldr r0, [r5, #0x18c]
-	orr r0, r0, #8
-	orr r0, r0, #0x400
-	str r0, [r5, #0x18c]
-_0202E82C:
-	ldr r0, =gL5Sound
-	mov r1, r4
-	bl _ZN7L5Sound12FUN_0202d6c4Em
-	cmp r0, #0
-	ldr r0, [r5, #0x18c]
-	bne _0202E860
-	tst r0, #0x400
-	ldrne r1, =unk_020B5B80
-	movne r0, #1
-	strneb r4, [r1, #5]
-	ldmnefd sp!, {r3, r4, r5, pc}
-	bic r0, r0, #0x108
-	b _0202E864
-_0202E860:
-	bic r0, r0, #0x400
-_0202E864:
-	str r0, [r5, #0x18c]
-_0202E868:
-	ldr r1, [r5, #0x18c]
-	ldr r0, =unk_020B5B80
-	orr r1, r1, #2
-	str r1, [r5, #0x18c]
-	ldrsb r1, [r0, #5]
-	ldr r2, [r5, #0x198]
-	adds r1, r2, r1
-	str r1, [r5, #0x198]
-	strb r4, [r0, #5]
-	beq _0202E924
-	b _0202E8C8
-_0202E894:
-	ldr r0, [r5, #0x90]
-	bl MO_SkipFrameImage
-	ldr r0, [r5, #0x94]
-	bl MO_SkipFrameImage
-	ldr r2, [r5, #0x1a0]
-	ldr r1, [r5, #0x194]
-	ldr r0, [r5, #0x198]
-	add r2, r2, #1
-	sub r1, r1, #1
-	sub r0, r0, #1
-	str r2, [r5, #0x1a0]
-	str r1, [r5, #0x194]
-	str r0, [r5, #0x198]
-_0202E8C8:
-	ldr r0, [r5, #0x198]
-	cmp r0, #1
-	ble _0202E8E0
-	ldr r0, [r5, #0x194]
-	cmp r0, #1
-	bgt _0202E894
-_0202E8E0:
-	ldr r0, [r5, #0x194]
-	cmp r0, #0
-	beq _0202E924
-	ldr r0, [r5, #0x90]
-	ldr r1, [r5, #0x94]
-	bl FUN_0202ec4c
-	cmp r0, #0
-	beq _0202E924
-	ldr r2, [r5, #0x1a0]
-	ldr r1, [r5, #0x194]
-	ldr r0, [r5, #0x198]
-	add r2, r2, #1
-	sub r1, r1, #1
-	sub r0, r0, #1
-	str r2, [r5, #0x1a0]
-	str r1, [r5, #0x194]
-	str r0, [r5, #0x198]
-_0202E924:
-	add r0, r5, #0xc8
-	bl OS_WakeupThreadDirect
-	ldr r1, [r5, #0x1a0]
-	ldr r0, [r5, #0x1a4]
-	cmp r1, r0
-	ldrge r1, [r5, #0x18c]
-	movge r0, #0
-	orrge r1, r1, #4
-	strge r1, [r5, #0x18c]
-	movlt r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-}
-#endif
 
 void L5Movie::FUN_0202e958(void)
 {
@@ -504,16 +372,14 @@ void Movie_AlarmIntr(void *arg)
     unk_020B5B80.unk5++;
 }
 
-extern void *FUN_0202de58(void *allocator, u32 size, u32 type, u32 strategy);
-extern void FUN_0202e1c0(void *allocator, void *ptr);
-void *Movie_Malloc(u32 size)
+void *Movie_Malloc(int size)
 {
-    return FUN_0202de58(unk_020B5B80.allocator, size, 5, 0);
+    return unk_020B5B80.allocator->allocate(size, 5, 0);
 }
 
 void Movie_Free(void *ptr)
 {
-    FUN_0202e1c0(unk_020B5B80.allocator, ptr);
+    unk_020B5B80.allocator->deallocate(ptr);
 }
 
 void *MO_Malloc(u32 size)

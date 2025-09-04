@@ -26,7 +26,7 @@
 .public unk_020A8C40
 .public unk_020A8440
 .public FUN_0202de44
-.public unk_0209A250
+.public gL5Allocator
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c
@@ -78,7 +78,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f147c
 .public FUN_ov16_020f6a9c
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public FUN_02041fec

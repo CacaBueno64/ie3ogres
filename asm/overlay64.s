@@ -80,19 +80,19 @@ FUN_ov64_02119fdc: ; 0x02119FDC
 	ldr r0, _0211A1A8 ; =0x02099EB4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e9d8 ; may be ov17
-	ldr r5, _0211A1AC ; =0x0209A250
+	ldr r5, _0211A1AC ; =gL5Allocator
 	ldr r1, [r10, #0x60]
 	mov r0, r5
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldr r1, [r10, #0x90]
 	mov r0, r5
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldr r1, [r10, #0x8c]
 	mov r0, r5
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, r5
 	ldr r1, [r10, #0x94]
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	ldr r1, [r10, #0x9c]
 	cmp r1, #0
 	beq _0211A064
@@ -195,7 +195,7 @@ _0211A194:
 _0211A1A0: .word unk_02099ED4
 _0211A1A4: .word unk_02099F38
 _0211A1A8: .word unk_02099EB4
-_0211A1AC: .word unk_0209A250
+_0211A1AC: .word gL5Allocator
 	arm_func_end FUN_ov64_02119fdc
 
 	arm_func_start FUN_ov64_0211a1b0
@@ -307,7 +307,7 @@ FUN_ov64_0211a2e4: ; 0x0211A2E4
 	sub sp, sp, #0x10
 	mov r4, r0
 	mov r5, #0
-	ldr r3, _0211A60C ; =0x0209A250
+	ldr r3, _0211A60C ; =gL5Allocator
 	str r5, [r4, #0x60]
 	ldr r0, [r3]
 	ldr r1, _0211A610 ; =0x0211BA6C
@@ -533,7 +533,7 @@ _0211A5B0:
 	bl FUN_0206e9ec
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A60C: .word unk_0209A250
+_0211A60C: .word gL5Allocator
 _0211A610: .word ov64_0211BA6C
 _0211A614: .word unk_0209BA20
 _0211A618: .word unk_020A9C40
@@ -550,7 +550,7 @@ FUN_ov64_0211a628: ; 0x0211A628
 	ldr r0, _0211A6EC ; =0x0211BA8C
 	add r1, r4, #0x10
 	bl FUN_ov16_020f3054
-	ldr r3, _0211A6F0 ; =0x0209A250
+	ldr r3, _0211A6F0 ; =gL5Allocator
 	ldr r1, _0211A6F4 ; =0x0211BAB0
 	ldr r0, [r3]
 	cmp r0, #0
@@ -564,7 +564,7 @@ FUN_ov64_0211a628: ; 0x0211A628
 	str r12, [sp, #0xc]
 	bl FUN_0202eff0
 _0211A674:
-	ldr r3, _0211A6F0 ; =0x0209A250
+	ldr r3, _0211A6F0 ; =gL5Allocator
 	ldr r1, _0211A6F8 ; =0x0211BAC8
 	ldr r0, [r3]
 	cmp r0, #0
@@ -578,7 +578,7 @@ _0211A674:
 	str r12, [sp, #0xc]
 	bl FUN_0202eff0
 _0211A6A8:
-	ldr r3, _0211A6F0 ; =0x0209A250
+	ldr r3, _0211A6F0 ; =gL5Allocator
 	ldr r1, _0211A6FC ; =0x0211BAE0
 	ldr r0, [r3]
 	cmp r0, #0
@@ -597,7 +597,7 @@ _0211A6DC:
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 _0211A6EC: .word ov64_0211BA8C
-_0211A6F0: .word unk_0209A250
+_0211A6F0: .word gL5Allocator
 _0211A6F4: .word ov64_0211BAB0
 _0211A6F8: .word ov64_0211BAC8
 _0211A6FC: .word ov64_0211BAE0

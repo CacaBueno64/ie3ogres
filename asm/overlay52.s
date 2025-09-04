@@ -1154,7 +1154,7 @@ FUN_ov52_0211ae04: ; 0x0211AE04
 	add r0, r0, #0x284
 	add r0, r0, #0x1400
 	bl FUN_ov52_02121ba8
-	ldr r3, _0211B128 ; =0x0209A250
+	ldr r3, _0211B128 ; =gL5Allocator
 	ldr r1, _0211B12C ; =0x021246B8
 	ldr r0, [r3]
 	cmp r0, #0
@@ -1330,13 +1330,13 @@ _0211B104:
 	add r0, sp, #0x18c
 	bl FS_CloseFile
 	ldr r1, [sp, #0x20]
-	ldr r0, _0211B128 ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211B128 ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #1
 	add sp, sp, #0x1d4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B124: .word unk_0209C220
-_0211B128: .word unk_0209A250
+_0211B128: .word gL5Allocator
 _0211B12C: .word ov52_021246B8
 _0211B130: .word ov52_021246D0
 _0211B134: .word unk_0209BA20

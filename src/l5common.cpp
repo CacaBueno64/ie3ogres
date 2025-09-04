@@ -37,7 +37,7 @@ u32 Common_CalcCRC32(const void *data, u32 dataLength)
     return MATH_CalcCRC32(&unk_020BC738, data, dataLength);
 }
 
-BOOL FUN_020859f8(void **dst, FSFileID file_id, s32 offset, s32 len)
+s32 FUN_020859f8(void **dst, FSFileID file_id, s32 offset, s32 len)
 {
     FSFile file;
     FS_InitFile(&file);
@@ -55,10 +55,10 @@ BOOL FUN_020859f8(void **dst, FSFileID file_id, s32 offset, s32 len)
         *dst = FUN_020866d8(len, -1);
     }
 
-    BOOL result = FUN_0208596c(&file, *dst, len);
+    s32 totalRead = FUN_0208596c(&file, *dst, len);
     (void)FS_CloseFile(&file);
 
-    return result;
+    return totalRead;
 }
 
 void FUN_02085ab4(void)

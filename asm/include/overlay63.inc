@@ -15,7 +15,7 @@
 .public unk_02099EEC
 .public gL5Config
 .public FUN_0202eff0
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_02059004
 .public FUN_02059038
 .public unk_02099F38
@@ -178,7 +178,7 @@
 .public FUN_0205b398
 .public FUN_0205a5f4
 .public FUN_02071934
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e3f0
 .public FUN_ov16_0210e5f0

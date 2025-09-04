@@ -5,9 +5,9 @@
 .public FUN_02042274
 .public FUN_0202de44
 .public MI_CpuFill8
-.public unk_0209A250
+.public gL5Allocator
 .public unk_0209BA20
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_0204bd64
 .public FUN_ov16_020eeb24
 .public FUN_0204ea4c

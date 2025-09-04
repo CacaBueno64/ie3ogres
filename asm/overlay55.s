@@ -1937,7 +1937,7 @@ _0211B9B4:
 	cmp r9, r6
 	blo _0211B970
 _0211B9BC:
-	ldr r6, _0211BAC0 ; =0x0209A250
+	ldr r6, _0211BAC0 ; =gL5Allocator
 	ldr r1, [r4, #0x8c]
 	mov r0, r6
 	str r7, [r4, #0x88]
@@ -2007,7 +2007,7 @@ _0211BAB0: .word ov55_0211DA1C
 _0211BAB4: .word ov55_0211DA2C
 _0211BAB8: .word ov55_0211DAA0
 _0211BABC: .word ov55_0211D6E4
-_0211BAC0: .word unk_0209A250
+_0211BAC0: .word gL5Allocator
 	arm_func_end FUN_ov55_0211b854
 
 	arm_func_start FUN_ov55_0211bac4
@@ -3245,7 +3245,7 @@ FUN_ov55_0211cbf4: ; 0x0211CBF4
 	strb r7, [r4, #0x5c]
 	str r7, [r4, #0x60]
 	bl STD_CopyString
-	ldr r5, _0211CD80 ; =0x0209A250
+	ldr r5, _0211CD80 ; =gL5Allocator
 	mov r1, #0x540
 	mov r0, r5
 	bl FUN_0202de44
@@ -3305,7 +3305,7 @@ _0211CD0C:
 _0211CD74: .word unk_0209BA20
 _0211CD78: .word unk_0209A454
 _0211CD7C: .word unk_0209A460
-_0211CD80: .word unk_0209A250
+_0211CD80: .word gL5Allocator
 _0211CD84: .word 0x0001E240
 _0211CD88: .word unk_0209F5C0
 	arm_func_end FUN_ov55_0211cbf4
@@ -3448,31 +3448,31 @@ FUN_ov55_0211cf04: ; 0x0211CF04
 	ldr r1, [r4, #0x64]
 	cmp r1, #0
 	beq _0211CF70
-	ldr r0, _0211D02C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D02C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	str r5, [r4, #0x64]
 _0211CF70:
 	ldr r1, [r4, #0x68]
 	cmp r1, #0
 	beq _0211CF8C
-	ldr r0, _0211D02C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D02C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x68]
 _0211CF8C:
 	ldr r1, [r4, #0x80]
 	cmp r1, #0
 	beq _0211CFA8
-	ldr r0, _0211D02C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D02C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x80]
 _0211CFA8:
 	ldr r1, [r4, #0x84]
 	cmp r1, #0
 	beq _0211CFC4
-	ldr r0, _0211D02C ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211D02C ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x84]
 _0211CFC4:
@@ -3502,7 +3502,7 @@ _0211CFC4:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211D024: .word unk_0209BA20
 _0211D028: .word unk_0209F5C0
-_0211D02C: .word unk_0209A250
+_0211D02C: .word gL5Allocator
 	arm_func_end FUN_ov55_0211cf04
 
 	arm_func_start FUN_ov55_0211d030

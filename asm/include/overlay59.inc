@@ -37,8 +37,8 @@
 .public FUN_0202eff0
 .public FUN_ov16_020eeca0
 .public FUN_0204d7fc
-.public unk_0209A250
-.public FUN_0202e1c0
+.public gL5Allocator
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020eedb8
 .public FUN_ov16_020ee084
 .public FUN_ov16_020ee034

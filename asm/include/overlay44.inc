@@ -79,7 +79,7 @@
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f3054
 .public FUN_0202e19c
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
@@ -97,8 +97,8 @@
 .public FUN_ov16_020f5868
 .public FUN_0202eff0
 .public FUN_ov16_020f5504
-.public FUN_0202e1c0
-.public unk_0209C2C4
+.public _ZN11L5Allocator10deallocateEPv
+.public gL5FileRequestManager
 .public FUN_02054070
 .public FUN_02059630
 .public FUN_02059038

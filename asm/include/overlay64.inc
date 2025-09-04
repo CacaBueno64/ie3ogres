@@ -8,13 +8,13 @@
 .public unk_02099F38
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_0210e9d8
-.public FUN_0202e1c0
+.public _ZN11L5Allocator10deallocateEPv
 .public FUN_02058ee0
 .public FUN_ov16_021128c4
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
-.public unk_0209A250
+.public gL5Allocator
 .public FUN_0202cf6c
 .public gL5Sound
 .public FUN_ov16_0210e10c

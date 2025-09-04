@@ -412,7 +412,7 @@ FUN_ov39_0211a45c: ; 0x0211A45C
 	mov r1, #0xc8
 	mov r6, #1
 	bl FUN_ov16_0210ee78
-	ldr r3, _0211A7EC ; =0x0209A250
+	ldr r3, _0211A7EC ; =gL5Allocator
 	mov r0, #0
 	ldr r1, [r3]
 	str r0, [sp, #0x34]
@@ -635,12 +635,12 @@ _0211A7C8:
 	cmp r7, r0
 	blt _0211A530
 	ldr r1, [sp, #0x34]
-	ldr r0, _0211A7EC ; =0x0209A250
-	bl FUN_0202e1c0
+	ldr r0, _0211A7EC ; =gL5Allocator
+	bl _ZN11L5Allocator10deallocateEPv
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A7E8: .word unk_02099EB4
-_0211A7EC: .word unk_0209A250
+_0211A7EC: .word gL5Allocator
 _0211A7F0: .word ov39_0211BD84
 _0211A7F4: .word unk_020AF81C
 _0211A7F8: .word 0x55555556

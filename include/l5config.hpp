@@ -3,17 +3,18 @@
 
 #pragma once
 
-extern "C" {
 #include <nitro.h>
-}
+#include <string.h>
+
+#include "l5common.h"
+
+typedef struct {
+    u32 crc32;
+    int value;
+} Config_ParamEntry;
 
 class L5Config {
     public:
-        typedef struct {
-            u32 crc32;
-            int value;
-        } Struct_ParamEntry;
-
         L5Config();
         ~L5Config();
         void clear();
@@ -21,9 +22,9 @@ class L5Config {
         int getParam(char *param);
         void init(void);
         int getParamPosition(char *param);
-        BOOL readFileParam(char *file, Struct_ParamEntry *param);
+        BOOL readFileParam(char *file, Config_ParamEntry *param);
     private:
-    Struct_ParamEntry *paramEntry;
+    Config_ParamEntry *paramEntry;
     s32 paramCount;
 };
 

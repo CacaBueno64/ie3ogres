@@ -134,7 +134,7 @@ FUN_ov123_02124eb0: ; 0x02124EB0
 	strh r3, [r4, #0xa]
 	cmp r0, #0
 	bne _02124EE0
-	ldr r0, _02124F58 ; =0x0209A250
+	ldr r0, _02124F58 ; =gL5Allocator
 	mov r1, r5, lsl #1
 	bl FUN_0202de44
 	str r0, [r4]
@@ -142,7 +142,7 @@ _02124EE0:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _02124EFC
-	ldr r0, _02124F58 ; =0x0209A250
+	ldr r0, _02124F58 ; =gL5Allocator
 	mov r1, r5, lsl #5
 	bl FUN_0202de44
 	str r0, [r4, #4]
@@ -172,7 +172,7 @@ _02124F34:
 	mov r1, r5
 	bl DC_FlushRange
 	ldmfd sp!, {r3, r4, r5, pc}
-_02124F58: .word unk_0209A250
+_02124F58: .word gL5Allocator
 	arm_func_end FUN_ov123_02124eb0
 
 	arm_func_start FUN_ov123_02124f5c
@@ -556,7 +556,7 @@ FUN_ov123_02125464: ; 0x02125464
 	mov r10, r0
 	ldrb r0, [r1, #0x1a]
 	mov r4, #0xc
-	ldr r8, _02125514 ; =0x0209A250
+	ldr r8, _02125514 ; =gL5Allocator
 	cmp r0, #0
 	ldrne r1, _02125518 ; =0x04001000
 	mov r7, r9
@@ -573,7 +573,7 @@ _021254A8:
 	cmp r1, #0
 	beq _021254C8
 	mov r0, r8
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	mla r0, r9, r4, r10
 	str r7, [r0, #0x38]
 _021254C8:
@@ -582,7 +582,7 @@ _021254C8:
 	cmp r1, #0
 	beq _021254EC
 	mov r0, r8
-	bl FUN_0202e1c0
+	bl _ZN11L5Allocator10deallocateEPv
 	mov r0, #0xc
 	mla r0, r9, r0, r10
 	str r6, [r0, #0x3c]
@@ -598,7 +598,7 @@ _021254F0:
 	bl FUN_ov123_02125070
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125510: .word unk_020A0640
-_02125514: .word unk_0209A250
+_02125514: .word gL5Allocator
 _02125518: .word 0x04001000
 	arm_func_end FUN_ov123_02125464
 
