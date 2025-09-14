@@ -1,9 +1,9 @@
 #include "l5config.hpp"
 
 extern "C" {
-    extern void *FUN_0208670c(u32 size, int unk); // alloc
-    extern void FUN_02086738(void *ptr); // free
-    extern int atoi(const char* s);
+    extern void *FUN_0208670c(int size, int nextArena); // alloc
+    extern void Common_Deallocate(void *ptr); // free
+    extern int atoi(const char *s);
 }
 
 L5Config::L5Config()
@@ -14,7 +14,7 @@ L5Config::L5Config()
 L5Config::~L5Config()
 {
     if (this->paramEntry != NULL) {
-        FUN_02086738(this->paramEntry);
+        Common_Deallocate(this->paramEntry);
     }
     this->paramEntry = NULL;
 }
@@ -54,14 +54,14 @@ BOOL L5Config::openFile(char *filepath)
         } while (r6 < (file + len));
     }
 
-    FUN_02086738(file);
+    Common_Deallocate(file);
 
     return TRUE;
 }
 
-int L5Config::getParam(char *param)
+int L5Config::getParam(char *str)
 {
-    int pos = this->getParamPosition(param);
+    int pos = this->getParamPosition(str);
 
     if ((pos < 0) || (this->paramEntry == NULL)) {
         return 0;
@@ -81,7 +81,7 @@ void L5Config::init(void)
     this->paramCount = 0;
 }
 
-int L5Config::getParamPosition(char *param)
+int L5Config::getParamPosition(char *str)
 {
     Config_ParamEntry *paramEntry = this->paramEntry;
 
@@ -89,8 +89,8 @@ int L5Config::getParamPosition(char *param)
         return -1;
     }
 
-    u32 len = STD_GetStringLength(param);
-    u32 crc32 = Common_CalcCRC32(param, len);
+    u32 len = STD_GetStringLength(str);
+    u32 crc32 = Common_CalcCRC32(str, len);
     int pos = 0;
 
     if (this->paramCount > 0) {
@@ -117,8 +117,8 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
         return FALSE;
     }
 
-    char* key_start;
-    char* curr = file;
+    char *key_start;
+    char *curr = file;
     while (*curr != '\0') {
         if (*curr == ' ' || *curr == '\t') {
             curr++;
@@ -135,7 +135,7 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
                 return FALSE;
             }
 
-            char* key_end = curr;
+            char *key_end = curr;
             while (key_end[-1] == ' ' || key_end[-1] == '\t') {
                 key_end--;
             }
@@ -156,7 +156,7 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
     }
 
     if (read_key) {
-        char* key_end = curr;
+        char *key_end = curr;
         while (key_end[-1] == ' ' || key_end[-1] == '\t') {
             key_end--;
         }

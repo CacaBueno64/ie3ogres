@@ -18093,7 +18093,7 @@ FUN_ov16_020fca54: ; 0x020FCA54
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _020FCA70
-	bl FUN_02086738
+	bl Common_Deallocate
 _020FCA70:
 	mov r0, #0
 	str r0, [r4, #4]

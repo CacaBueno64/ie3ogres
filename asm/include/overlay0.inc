@@ -370,7 +370,7 @@
 .public FUN_020535bc
 .public FUN_02086040
 .public FUN_0206efc4
-.public FUN_02086738
+.public Common_Deallocate
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_020460c0

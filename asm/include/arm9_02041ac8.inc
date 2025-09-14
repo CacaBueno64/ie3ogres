@@ -17,7 +17,7 @@
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_0202de44
 .public FX_Sqrt
-.public FUN_02086750
+.public Common_SetNextArena
 .public FUN_02085e4c
 .public FUN_02030260
 .public FUN_0202eff0
@@ -93,7 +93,7 @@
 .public FUN_ov16_020fe4f4
 .public FUN_ov16_020fe51c
 .public _ZN11L5Allocator8allocateEiii
-.public FUN_0202e19c
+.public _ZN11L5Allocator12setNextArenaEi
 .public FUN_ov16_020fe8b0
 .public FUN_ov16_020fe56c
 .public unk_02099E91
@@ -381,7 +381,7 @@
 .public _fadd
 .public _fsub
 .public _ffix
-.public FUN_02086738
+.public Common_Deallocate
 .public FUN_ov0_020cd2a8
 .public FUN_ov0_020cd1f0
 .public unk_02099EE8

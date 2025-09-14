@@ -883,7 +883,7 @@ _02042538:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_02042420
 
-	arm_func_start FUN_02042544
+	arm_func_start FUN_02042544 ; https://decomp.me/scratch/Dygf7
 FUN_02042544: ; 0x02042544
 	cmp r0, #0
 	moveq r0, #0
@@ -1227,7 +1227,7 @@ _020429F0:
 _020429F8: .word 0x0000FFFF
 	arm_func_end FUN_0204294c
 
-	arm_func_start FUN_020429fc
+	arm_func_start FUN_020429fc ; https://decomp.me/scratch/2a1CV
 FUN_020429fc: ; 0x020429FC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r1
@@ -2616,7 +2616,7 @@ FUN_02043c80: ; 0x02043C80
 	mov r5, #1
 	mov r6, r0
 	mov r0, r5
-	bl FUN_02086750
+	bl Common_SetNextArena
 	mov r4, #0
 	ldr r1, _02043D6C ; =0x020900CC
 	mov r0, r4
@@ -7869,7 +7869,7 @@ _02047E84:
 	bl sprintf
 	mov r0, r4
 	mov r1, #4
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02047EE8
@@ -7897,7 +7897,7 @@ _02047EE8:
 	bl sprintf
 	mov r0, r4
 	mov r1, #4
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02047F58
@@ -9010,7 +9010,7 @@ FUN_02048cac: ; 0x02048CAC
 	mov r1, r6
 	ldr r6, _0204901C ; =gL5Allocator
 	mov r0, r6
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r1, [sp, #0x18]
 	mov r0, r6
 	mov r3, r8
@@ -9110,7 +9110,7 @@ _02048EF0:
 	ldr r5, _0204901C ; =gL5Allocator
 	mov r1, #4
 	mov r0, r5
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, [sp, #0x134]
 	cmp r0, #0
 	ldr r0, [r5]
@@ -22659,16 +22659,16 @@ FUN_020540f4: ; 0x020540F4
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _02054114
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r0, #0
 	str r0, [r4, #0xc]
 _02054114:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_02086738
+	bl Common_Deallocate
 	ldr r0, [r4, #8]
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r0, #0
 	str r0, [r4, #4]
 	str r0, [r4, #8]
@@ -25487,7 +25487,7 @@ _02056470:
 	cmp r6, r0
 	ble _0205643C
 	ldr r0, [r8, #4]
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r0, r8
 	bl FUN_02056684
 	mov r0, r8
@@ -27366,7 +27366,7 @@ FUN_02057d08: ; 0x02057D08
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02057D20
-	bl FUN_02086738
+	bl Common_Deallocate
 _02057D20:
 	mov r0, #0
 	str r0, [r4]
@@ -28409,7 +28409,7 @@ _02058AB8:
 	ldr r8, _02058C5C ; =gL5Allocator
 	add r1, r6, #0xcd
 	mov r0, r8
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	mov r0, r8
 	mov r1, r7
 	bl FUN_0202de44
@@ -38835,7 +38835,7 @@ _0206159C:
 	mov r5, #1
 	ldr r0, _02061624 ; =gL5Allocator
 	mov r1, r5
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -41340,7 +41340,7 @@ unk_02090390:
 	.global unk_020903A4
 unk_020903A4:
 	.asciz "/data_iz/script/"
-	.byte 0x00, 0x00, 0x00
+	.balign 4, 0
 	.global unk_020903B8
 unk_020903B8:
 	.asciz ".sst"

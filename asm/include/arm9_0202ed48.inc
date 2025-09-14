@@ -15,7 +15,7 @@
 .public STD_CopyString
 .public FS_SeekFile
 .public STD_GetStringLength
-.public FUN_0202e19c
+.public _ZN11L5Allocator12setNextArenaEi
 .public FS_ReadFileAsync
 .public DC_FlushRange
 .public OS_Sleep

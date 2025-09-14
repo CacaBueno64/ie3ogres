@@ -9,9 +9,10 @@
 
 class L5Allocator {
     public:
-        void FUN_0202dc54(u32 param1, void *param2, void *param3);
+        void FUN_0202dc54(OSArenaId id, void *arenaLo, void *arenaHi);
         void *allocate(int size, int type, int strategy);
-        void FUN_0202e1ac(u32 param1);
+        void setNextArena(int arena);
+        void setDefaultArena(int arena);
         void deallocate(void *ptr);
 
     L5FileRequestManager *fileRequestManager;

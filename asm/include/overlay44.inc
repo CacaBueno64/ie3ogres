@@ -78,7 +78,7 @@
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f3054
-.public FUN_0202e19c
+.public _ZN11L5Allocator12setNextArenaEi
 .public gL5Allocator
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0

@@ -2631,7 +2631,7 @@ FUN_ov44_0211c35c: ; 0x0211C35C
 	bl FUN_ov16_020f3054
 	ldr r0, _0211C3A0 ; =gL5Allocator
 	ldr r1, _0211C3A4 ; =0x00000101
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	add r1, r4, #0x1380
 	ldr r0, _0211C3A8 ; =0x021226C4
 	add r1, r1, #0x8000
@@ -2936,7 +2936,7 @@ _0211C74C:
 	mov r0, r6
 	str r7, [sp, #0x10]
 	ldr r8, _0211C804 ; =0x021226FC
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	str r7, [sp]
 	str r7, [sp, #4]
 	str r7, [sp, #8]

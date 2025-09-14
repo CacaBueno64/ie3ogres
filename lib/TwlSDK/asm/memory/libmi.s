@@ -1577,7 +1577,7 @@ _02008310:
 	sub r2, r2, r3
 _02008330:
 	ldrb r5, [r1, -ip]
-	.word 0xE1415095
+	swpb r5, r5, [r1]
 	add r1, r1, #1
 	subs r3, r3, #1
 	bgt _02008330

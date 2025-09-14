@@ -9,16 +9,16 @@ const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
     0x840800
 );
 
-void FUN_ov130_0212a9c0(void)
+void InitAlloc(void)
 {
-    void *lo = OS_GetArenaLo(OS_ARENA_MAIN);
-    void *hi = OS_GetArenaHi(OS_ARENA_MAIN);
+    void *lo = OS_GetMainArenaLo();
+    void *hi = OS_GetMainArenaHi();
     MI_CpuClearFast(lo, (u32)hi - (u32)lo);
     void *newLo = OS_InitAlloc(OS_ARENA_MAIN, lo, hi, 2);
-    OS_SetArenaLo(OS_ARENA_MAIN, newLo);
+    OS_SetMainArenaLo(newLo);
 }
 
-void FUN_ov130_0212aa14(void)
+void Config_Init(void)
 {
     gL5Config.clear();
     gL5Config.init();

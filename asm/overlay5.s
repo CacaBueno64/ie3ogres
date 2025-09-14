@@ -444,13 +444,13 @@ FUN_ov5_020bd0a0: ; 0x020BD0A0
 	mov r6, r0
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, _020BD0EC ; =0x020BDA60
 	add r1, r6, #0x24
 	bl FUN_ov16_020f3054
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, _020BD0F0 ; =0x020BDA84
 	add r1, r6, #0x30
 	bl FUN_ov16_020f3054
@@ -764,7 +764,7 @@ FUN_ov5_020bd4a8: ; 0x020BD4A8
 	mov r4, r0
 	ldr r0, _020BD4E4 ; =gL5Allocator
 	mov r1, #1
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	ldr r0, _020BD4E8 ; =0x020BDB40
 	add r1, r4, #0x18
 	bl FUN_ov16_020f3054

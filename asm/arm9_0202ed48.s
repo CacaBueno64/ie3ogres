@@ -222,7 +222,7 @@ FUN_0202ef9c: ; 0x0202EF9C
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202ef9c
 
-	arm_func_start FUN_0202eff0
+	arm_func_start FUN_0202eff0 ; https://decomp.me/scratch/NalIT
 FUN_0202eff0: ; 0x0202EFF0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xb4
@@ -293,7 +293,7 @@ FUN_0202eff0: ; 0x0202EFF0
 _0202F0F8:
 	ldr r0, [r10, #4]
 _0202F0FC:
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 	mov r6, r0
 	mov r0, r10
 	mov r1, r9
@@ -307,7 +307,7 @@ _0202F124:
 	ldr r0, [r10, #4]
 _0202F128:
 	mov r1, r6
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 _0202F130:
 	add r0, sp, #0x4c
 	str r8, [r0, #4]
@@ -21719,13 +21719,6 @@ _0204179C: .word FUN_02051dc4
 	arm_func_end FUN_02041780
 
 	.rodata
-	.global unk_0208C340
-unk_0208C340:
-	.byte 0x01, 0x00, 0x04, 0x02, 0x03, 0x00, 0x00, 0x00
-	.global unk_0208C348
-unk_0208C348:
-	.byte 0x50, 0x01, 0x00, 0x00, 0xD9, 0x03, 0x00, 0x00
-	.byte 0xE0, 0x02, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00
 	.global unk_0208C35C
 unk_0208C35C:
 	.byte 0x04, 0xFF, 0x01, 0x00

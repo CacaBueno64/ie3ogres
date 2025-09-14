@@ -3,7 +3,7 @@
 	.include "/include/arm9_02029608.inc"
 
 	.text
-	arm_func_start FUN_02029608
+	arm_func_start FUN_02029608 ; https://decomp.me/scratch/xjl7w
 FUN_02029608: ; 0x02029608
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #0x10
@@ -2017,11 +2017,11 @@ _0202AF38:
 	ldr r4, _0202AF98 ; =gL5Allocator
 	mov r1, #1
 	mov r0, r4
-	bl _ZN11L5Allocator12FUN_0202e1acEm
+	bl _ZN11L5Allocator15setDefaultArenaEi
 	bl FUN_0202a4d4
 	mov r0, r4
 	mov r1, #0
-	bl _ZN11L5Allocator12FUN_0202e1acEm
+	bl _ZN11L5Allocator15setDefaultArenaEi
 	ldr r0, _0202AF9C ; =0x0209BA20
 	bl FUN_0206f29c
 	bl FUN_0202a698
@@ -2073,7 +2073,7 @@ FUN_0202afd0: ; 0x0202AFD0
 	mov r1, #1
 	orr r2, r2, #0x10000
 	str r2, [r3]
-	bl _ZN11L5Allocator12FUN_0202e1acEm
+	bl _ZN11L5Allocator15setDefaultArenaEi
 	ldr r1, _0202B19C ; =0x02099ECC
 	mov r2, #0
 	ldr r0, _0202B1A0 ; =0x0209A124
@@ -2435,7 +2435,7 @@ _0202B370:
 	ldr r0, _0202B3D4 ; =gL5Allocator
 	mov r1, #2
 _0202B378:
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 _0202B37C:
 	cmp r6, #0
 	beq _0202B3AC
@@ -2673,7 +2673,7 @@ _0202B6A0:
 	str r0, [r4, #0x6c]
 	mov r0, #2
 	strb r1, [r4, #0x73]
-	bl FUN_02086750
+	bl Common_SetNextArena
 	ldr r1, _0202B70C ; =0x0208FACC
 	mov r0, r5
 	bl FUN_02085e4c
@@ -5530,8 +5530,8 @@ _0202DC40:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202dc1c
 
-	arm_func_start _ZN11L5Allocator12FUN_0202dc54EmPvS0_
-_ZN11L5Allocator12FUN_0202dc54EmPvS0_: ; 0x0202DC54
+	arm_func_start _ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_
+_ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_: ; 0x0202DC54
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r0, r1
@@ -5626,7 +5626,7 @@ _0202DD7C:
 	str r0, [r10, #0x50]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202DD9C: .word unk_0208C348
-	arm_func_end _ZN11L5Allocator12FUN_0202dc54EmPvS0_
+	arm_func_end _ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_
 
 	arm_func_start FUN_0202dda0
 FUN_0202dda0: ; 0x0202DDA0
@@ -5921,22 +5921,22 @@ _0202E178:
 _0202E198: .word unk_0208C340
 	arm_func_end _ZN11L5Allocator8allocateEiii
 
-	arm_func_start FUN_0202e19c
-FUN_0202e19c: ; 0x0202E19C
+	arm_func_start _ZN11L5Allocator12setNextArenaEi
+_ZN11L5Allocator12setNextArenaEi: ; 0x0202E19C
 	ldr r2, [r0, #0x4c]
 	str r1, [r0, #0x4c]
 	mov r0, r2
 	bx lr
-	arm_func_end FUN_0202e19c
+	arm_func_end _ZN11L5Allocator12setNextArenaEi
 
-	arm_func_start _ZN11L5Allocator12FUN_0202e1acEm
-_ZN11L5Allocator12FUN_0202e1acEm: ; 0x0202E1AC
+	arm_func_start _ZN11L5Allocator15setDefaultArenaEi
+_ZN11L5Allocator15setDefaultArenaEi: ; 0x0202E1AC
 	ldr r2, [r0, #0x50]
 	cmp r1, #0
 	strge r1, [r0, #0x50]
 	mov r0, r2
 	bx lr
-	arm_func_end _ZN11L5Allocator12FUN_0202e1acEm
+	arm_func_end _ZN11L5Allocator15setDefaultArenaEi
 
 	arm_func_start _ZN11L5Allocator10deallocateEPv
 _ZN11L5Allocator10deallocateEPv: ; 0x0202E1C0
@@ -6135,6 +6135,15 @@ _0202E464:
 	blt _0202E3E0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_0202e38c
+
+	.rodata
+	.global unk_0208C340
+unk_0208C340:
+	.byte 0x01, 0x00, 0x04, 0x02, 0x03, 0x00, 0x00, 0x00
+	.global unk_0208C348
+unk_0208C348:
+	.byte 0x50, 0x01, 0x00, 0x00, 0xD9, 0x03, 0x00, 0x00
+	.byte 0xE0, 0x02, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00
 
 	.data
 	.global unk_0208F680

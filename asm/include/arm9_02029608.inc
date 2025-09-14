@@ -227,7 +227,7 @@
 .public FUN_0207c3f0
 .public FUN_0207c430
 .public FUN_0207c5c0
-.public FUN_02086750
+.public Common_SetNextArena
 .public FUN_02085e4c
 .public FUN_0207504c
 .public FUN_0207d1c4

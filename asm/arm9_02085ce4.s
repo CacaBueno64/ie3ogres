@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/include/arm9_020859d8.inc"
+	.include "/include/arm9_02085ce4.inc"
 
 	.text
 	arm_func_start FUN_02085ce4
@@ -257,7 +257,7 @@ FUN_02086040: ; 0x02086040
 	ldr r0, [r5, r6]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r2, r4
 	add r0, r5, r6
 	mov r1, #0
@@ -299,12 +299,8 @@ _020860CC:
 	ldmnefd sp!, {r4, pc}
 	bl FUN_0206ee5c
 	b _020860CC
-	arm_func_end FUN_020860c4
-
-	arm_func_start FUN_020860e4
-FUN_020860e4: ; 0x020860E4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020860e4
+	arm_func_end FUN_020860c4
 
 	arm_func_start FUN_020860e8
 FUN_020860e8: ; 0x020860E8
@@ -388,7 +384,7 @@ _020861F4:
 	bl OS_Terminate
 _020861F8:
 	ldr r0, [sp, #4]
-	bl FUN_02086738
+	bl Common_Deallocate
 	ldr r1, [r4, #0xc]
 	ldr r0, [r5]
 	mov r4, r1, lsr #8
@@ -763,7 +759,7 @@ FUN_020866d8: ; 0x020866D8
 	cmp r1, #0
 	blt _020866F0
 	ldr r0, _02086708 ; =gL5Allocator
-	bl FUN_0202e19c
+	bl _ZN11L5Allocator12setNextArenaEi
 _020866F0:
 	ldr r0, _02086708 ; =gL5Allocator
 	mov r1, r4
@@ -790,25 +786,25 @@ _02086730:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0208670c
 
-	arm_func_start FUN_02086738
-FUN_02086738: ; 0x02086738
+	arm_func_start Common_Deallocate
+Common_Deallocate: ; 0x02086738
 	mov r1, r0
 	ldr r0, _02086748 ; =gL5Allocator
 	ldr r12, _0208674C ; =_ZN11L5Allocator10deallocateEPv
 	bx r12
 _02086748: .word gL5Allocator
 _0208674C: .word _ZN11L5Allocator10deallocateEPv
-	arm_func_end FUN_02086738
+	arm_func_end Common_Deallocate
 
-	arm_func_start FUN_02086750
-FUN_02086750: ; 0x02086750
+	arm_func_start Common_SetNextArena
+Common_SetNextArena: ; 0x02086750
 	mov r1, r0
 	ldr r0, _02086760 ; =gL5Allocator
-	ldr r12, _02086764 ; =FUN_0202e19c
+	ldr r12, _02086764 ; =_ZN11L5Allocator12setNextArenaEi
 	bx r12
 _02086760: .word gL5Allocator
-_02086764: .word FUN_0202e19c
-	arm_func_end FUN_02086750
+_02086764: .word _ZN11L5Allocator12setNextArenaEi
+	arm_func_end Common_SetNextArena
 
 	.section .init, 4
 	arm_func_start FUN_02086768

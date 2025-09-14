@@ -25,20 +25,14 @@ void FUN_02028fac(void)
     unk_0209AEC0.FUN_02047a10();
 	gL5FileRequestManager.FUN_0202f794();
 
-	asm {
-        ldr r0, =SDK_AUTOLOAD_DTCM_START
-    	add r0, r0, #0x3000
-        ldr r1, [r0, #0xff8]
-        orr r1, r1, #1
-    	str r1, [r0, #0xff8]
-    }
+	OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
-void FUN_02029078(void)
+void InitHeap(void)
 {
-    FUN_ov130_0212a9c0();
+    InitAlloc();
     
-    void *heapstart = OS_AllocFromArenaLo(OS_ARENA_MAIN, 0x2d000, 0x20);
+    void *heapstart = OS_AllocFromMainArenaLo(0x2d000, 0x20);
     OSHeapHandle handle = OS_CreateHeap(OS_ARENA_MAIN, heapstart, (void *)((u32)heapstart + 0x2d000));
     OS_SetCurrentHeap(OS_ARENA_MAIN, handle);
     
@@ -57,7 +51,7 @@ void InitCommon(void)
     FS_Init(-1);
     RTC_Init();
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay130));
-    FUN_02029078();
+    InitHeap();
     FX_Init();
     GXi_DmaId = 2;
     GX_Init();
@@ -68,9 +62,9 @@ void InitCommon(void)
 
 void FUN_02029140(void)
 {
-    void *arenaLo = OS_GetArenaLo(OS_ARENA_MAIN);
+    void *arenaLo = OS_GetMainArenaLo();
     unk_02099E8C.unk94 = arenaLo;
-    void *arenaHi = OS_GetArenaHi(OS_ARENA_MAIN);
+    void *arenaHi = OS_GetMainArenaHi();
     unk_02099E8C.unk38 = arenaHi;
     
     unk_02099E8C.unkB4 = (void *)((u32)unk_02099E8C.unk94 + 0x00244800);
@@ -87,11 +81,11 @@ void FUN_02029140(void)
     MI_CpuClearFast(destp, size);
     DC_FlushRange(unk_02099E8C.unk94, unk_02099E8C.unkBC);
 
-    gL5Allocator.FUN_0202dc54(0, unk_02099E8C.unk94, unk_02099E8C.unk30);
+    gL5Allocator.FUN_0202dc54(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
 
-    OS_SetArenaLo(OS_ARENA_MAIN, (void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
+    OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
 
-    gL5Allocator.FUN_0202e1ac(0);
+    gL5Allocator.setDefaultArena(0);
     gL5Allocator.fileRequestManager = &gL5FileRequestManager;
     gL5FileRequestManager.init(0x40, &gL5Allocator);
     gL5Movie.init(&gL5Allocator);
@@ -133,7 +127,7 @@ void FUN_020292e8(void)
 void FUN_020292f4(void)
 {
 	FUN_020864b4();
-	FUN_ov130_0212aa14();
+	Config_Init();
 }
 
 extern "C" {

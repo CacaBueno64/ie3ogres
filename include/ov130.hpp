@@ -30,12 +30,12 @@ public:
 extern "C" {
 #endif
 
-void FUN_ov130_0212a9c0(void);
+void InitAlloc(void);
 
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
 
-void FUN_ov130_0212aa14(void);
+void Config_Init(void);
 
 #endif //IE3OGRES_OV130_H

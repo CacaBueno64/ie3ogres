@@ -4,8 +4,8 @@ extern "C" {
 
 #include "l5common.h"
 
-extern void *FUN_020866d8(s32 len, s32 param1);
-extern void FUN_02086738(void *ptr);
+extern void *FUN_020866d8(int size, int nextArena);
+extern void Common_Deallocate(void *ptr);
 extern MATHCRC32Table unk_020BC738;
 extern UnkStruct_020BC504 unk_020BC504;
 
@@ -86,7 +86,7 @@ void FUN_02085ab4(void)
                 default:
                     OS_Terminate();
             }
-            FUN_02086738(unk_020BC504_08->unk4);
+            Common_Deallocate(unk_020BC504_08->unk4);
             DC_FlushRange(unk_020BC504_08->unk0, unk_020BC504_08->unk1C >> 8);
         }
         r9 = (r9 + 1) % 56;

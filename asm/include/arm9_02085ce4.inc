@@ -25,7 +25,7 @@
 .public FS_ChangeDir
 .public OS_CreateThread
 .public OS_WakeupThreadDirect
-.public FUN_0202e19c
+.public _ZN11L5Allocator12setNextArenaEi
 .public _ZN11L5Allocator8allocateEiii
 .public gL5Allocator
 .public MIi_CpuClearFast

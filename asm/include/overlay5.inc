@@ -38,7 +38,7 @@
 .public FUN_02029d44
 .public FUN_ov16_020f2ab4
 .public GX_ResetBankForBG
-.public FUN_0202e19c
+.public _ZN11L5Allocator12setNextArenaEi
 .public FUN_ov16_020f3054
 .public gL5Allocator
 .public _ZN11L5Allocator10deallocateEPv

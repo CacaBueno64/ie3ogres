@@ -7072,7 +7072,7 @@ FUN_02071458: ; 0x02071458
 	ldr r6, _020715AC ; =0x020914D8
 	bne _020714B0
 	ldr r0, _020715B0 ; =0x00000101
-	bl FUN_02086750
+	bl Common_SetNextArena
 	add r0, sp, #0
 	mov r1, r6
 	mov r2, r4
@@ -7148,7 +7148,7 @@ _02071584:
 	ldr r0, [sp]
 	cmp r0, #0
 	beq _020715A0
-	bl FUN_02086738
+	bl Common_Deallocate
 _020715A0:
 	mov r0, #1
 	add sp, sp, #4

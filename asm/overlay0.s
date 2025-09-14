@@ -9386,7 +9386,7 @@ FUN_ov0_020c4ce4: ; 0x020C4CE4
 	ldr r0, [r4, #0x164]
 	bl FUN_0206efc4
 	ldr r0, [r4, #0x168]
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r0, r4
 	bl FUN_ov0_020c2bac
 	ldr r5, _020C4FF0 ; =0x020D6100
@@ -10851,7 +10851,7 @@ _020C6260:
 	b _020C568C
 _020C6294:
 	ldr r0, [sp, #4]
-	bl FUN_02086738
+	bl Common_Deallocate
 	mov r0, r5
 	bl FUN_0202fd44
 	mov r0, #1
@@ -11519,7 +11519,7 @@ _020C6C64:
 	bl STD_CopyString
 	str r5, [r11, #0x2c]
 	ldr r0, [sp, #0x10]
-	bl FUN_02086738
+	bl Common_Deallocate
 	add r0, sp, #0x94
 	bl FUN_0202fd44
 	mov r0, #1
@@ -13449,7 +13449,7 @@ _020C8650:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _020C8678
-	bl FUN_02086738
+	bl Common_Deallocate
 	b _020C8678
 _020C8664:
 	mov r0, r4

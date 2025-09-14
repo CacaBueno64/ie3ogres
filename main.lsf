@@ -58,7 +58,7 @@ Static main
 	Object lib/DSE/asm/libDSE.o
 
 	Object src/l5common.o
-	Object asm/arm9_020859d8.o
+	Object asm/arm9_02085ce4.o
 }
 
 Autoload ITCM

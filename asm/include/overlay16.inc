@@ -575,7 +575,7 @@
 .public NNS_G3dRenderObjRemoveAnmObj
 .public OS_InitMutex
 .public FUN_0208670c
-.public FUN_02086738
+.public Common_Deallocate
 .public FUN_020538b0
 .public Common_CalcCRC32
 .public OS_LockMutex
