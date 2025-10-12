@@ -79,12 +79,13 @@ TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 # Directories
 TWLSDK_SRC_SUBDIRS        := card cp crypto ctrdg fs fx gx init math mb memory os pm pxi rtc snd std tp wm
 TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
+TWLDWC_SRC_SUBDIRS        := ac auth bm common cps nas nd nhttp soc ssl util wcm
 
 LIB_SUBDIRS               := TwlSDK TwlSystem TwlDWC_dl MSL_C libMobiclip DSE
 SRC_SUBDIR                := src
 ASM_SUBDIR                := asm
-LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%)
-LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/asm/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/asm/%)
+LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/src/%)
+LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/asm/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/asm/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/asm/%)
 ALL_SUBDIRS               := $(SRC_SUBDIR) $(ASM_SUBDIR) $(LIB_SRC_SUBDIR) $(LIB_ASM_SUBDIR)
 
 SRC_BUILDDIR              := $(addprefix $(BUILD_DIR)/,$(SRC_SUBDIR))

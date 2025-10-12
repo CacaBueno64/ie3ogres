@@ -147,7 +147,100 @@ Overlay overlay15
 	After main
 
 	# TwlDWC_dl and TwlWifi libraries
-	Object lib/TwlDWC_dl/asm/libdwc.o
+	Object lib/TwlDWC_dl/asm/cps/network.o
+
+	Object lib/TwlDWC_dl/asm/ac/wds.o
+	Object lib/TwlDWC_dl/asm/ac/beacon.o
+	Object lib/TwlDWC_dl/asm/ac/callback.o
+	Object lib/TwlDWC_dl/asm/ac/close.o
+	Object lib/TwlDWC_dl/asm/ac/connect.o
+	Object lib/TwlDWC_dl/asm/ac/dwc_ac.o
+	Object lib/TwlDWC_dl/asm/ac/dwc_connectinet.o
+	Object lib/TwlDWC_dl/asm/ac/error.o
+	Object lib/TwlDWC_dl/asm/ac/makelist.o
+	Object lib/TwlDWC_dl/asm/ac/nintendospot.o
+	Object lib/TwlDWC_dl/asm/ac/retry.o
+	Object lib/TwlDWC_dl/asm/ac/search.o
+	Object lib/TwlDWC_dl/asm/ac/shop_usb.o
+	Object lib/TwlDWC_dl/asm/ac/start.o
+	Object lib/TwlDWC_dl/asm/ac/test.o
+
+	Object lib/TwlDWC_dl/asm/auth/dwc_auth.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_auth_interface.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_cal.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_http.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_netcheck.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_svl.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_baltimore.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_globalsign.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_gteglroot.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_gteroot.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_globalsign_rootcar2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_nas_self.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_thawte_premiumserver.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_thawte_server.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_c3pcag2v2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_c3pcag3v2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_pca3ssg4.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_secureserver.o
+
+	Object lib/TwlDWC_dl/asm/bm/dwc_backup.o
+	Object lib/TwlDWC_dl/asm/bm/dwc_bm_init.o
+	Object lib/TwlDWC_dl/asm/bm/util_wifiidtool.o
+
+	Object lib/TwlDWC_dl/asm/common/dwc_base64.o
+	Object lib/TwlDWC_dl/asm/common/dwc_error.o
+	Object lib/TwlDWC_dl/asm/common/dwc_init.o
+	Object lib/TwlDWC_dl/asm/common/dwc_memfunc.o
+
+	Object lib/TwlDWC_dl/asm/nas/dwc_nasfunc.o
+	Object lib/TwlDWC_dl/asm/nas/dwc_nastime.o
+
+	Object lib/TwlDWC_dl/asm/nd/dwc_nd.o
+	Object lib/TwlDWC_dl/asm/nd/dwci_nd.o
+	
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_os_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_socket_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_stdlib_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_bgnend.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_control.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_list.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_recvbuf.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_request.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_response.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_thread.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_common.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_private.o
+
+	Object lib/TwlDWC_dl/asm/soc/socl_startup.o
+	Object lib/TwlDWC_dl/asm/soc/socl_command.o
+	Object lib/TwlDWC_dl/asm/soc/socl_create.o
+	Object lib/TwlDWC_dl/asm/soc/socl_bind.o
+	Object lib/TwlDWC_dl/asm/soc/socl_read.o
+	Object lib/TwlDWC_dl/asm/soc/socl_write.o
+	Object lib/TwlDWC_dl/asm/soc/socl_shutdown.o
+	Object lib/TwlDWC_dl/asm/soc/socl_close.o
+	Object lib/TwlDWC_dl/asm/soc/socl_cleanup.o
+	Object lib/TwlDWC_dl/asm/soc/socl_const.o
+	Object lib/TwlDWC_dl/asm/soc/socl_resolve.o
+	Object lib/TwlDWC_dl/asm/soc/socl_poll.o
+	Object lib/TwlDWC_dl/asm/soc/socl_misc.o
+	Object lib/TwlDWC_dl/asm/soc/socl_list.o
+	Object lib/TwlDWC_dl/asm/soc/soc.o
+	Object lib/TwlDWC_dl/asm/soc/socl_ssl.o
+
+	Object lib/TwlDWC_dl/asm/ssl/ssl.o
+	Object lib/TwlDWC_dl/asm/ssl/md5.o
+	Object lib/TwlDWC_dl/asm/ssl/sha1.o
+	Object lib/TwlDWC_dl/asm/ssl/arc4.o
+	Object lib/TwlDWC_dl/asm/ssl/biginteger.o
+
+	Object lib/TwlDWC_dl/asm/wcm/system.o
+	Object lib/TwlDWC_dl/asm/wcm/aplist.o
+	Object lib/TwlDWC_dl/asm/wcm/cpsif.o
+	Object lib/TwlDWC_dl/asm/wcm/util.o
+	Object lib/TwlDWC_dl/asm/wcm/wmif.o
 
 	Object asm/overlay15.o
 
@@ -164,8 +257,8 @@ Overlay overlay17
 	After overlay15
 
 	# DWCutil library
-	Object lib/TwlDWC_dl/asm/libdwcutil_thumb.o
-	Object lib/TwlDWC_dl/asm/libdwcutil_arm.o
+	Object lib/TwlDWC_dl/asm/util/libdwcutil_thumb.o
+	Object lib/TwlDWC_dl/asm/util/libdwcutil_arm.o
 }
 Overlay overlay18
 {

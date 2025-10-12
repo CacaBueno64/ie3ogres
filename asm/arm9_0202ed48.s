@@ -3,7 +3,7 @@
 	.include "/include/arm9_0202ed48.inc"
 
 	.text
-    arm_func_start FUN_0202ed48
+	arm_func_start FUN_0202ed48
 FUN_0202ed48: ; 0x0202ED48
 	ldr r2, _0202ED6C ; =0x0208FBF0
 	mov r1, #0
