@@ -147,7 +147,100 @@ Overlay overlay15
 	After main
 
 	# TwlDWC_dl and TwlWifi libraries
-	Object lib/TwlDWC_dl/asm/libdwc.o
+	Object lib/TwlDWC_dl/asm/cps/network.o
+
+	Object lib/TwlDWC_dl/asm/ac/wds.o
+	Object lib/TwlDWC_dl/asm/ac/beacon.o
+	Object lib/TwlDWC_dl/asm/ac/callback.o
+	Object lib/TwlDWC_dl/asm/ac/close.o
+	Object lib/TwlDWC_dl/asm/ac/connect.o
+	Object lib/TwlDWC_dl/asm/ac/dwc_ac.o
+	Object lib/TwlDWC_dl/asm/ac/dwc_connectinet.o
+	Object lib/TwlDWC_dl/asm/ac/error.o
+	Object lib/TwlDWC_dl/asm/ac/makelist.o
+	Object lib/TwlDWC_dl/asm/ac/nintendospot.o
+	Object lib/TwlDWC_dl/asm/ac/retry.o
+	Object lib/TwlDWC_dl/asm/ac/search.o
+	Object lib/TwlDWC_dl/asm/ac/shop_usb.o
+	Object lib/TwlDWC_dl/asm/ac/start.o
+	Object lib/TwlDWC_dl/asm/ac/test.o
+
+	Object lib/TwlDWC_dl/asm/auth/dwc_auth.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_auth_interface.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_cal.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_http.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_netcheck.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_svl.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_baltimore.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_globalsign.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_gteglroot.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_cybertrust_gteroot.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_globalsign_rootcar2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_nas_self.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_thawte_premiumserver.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_thawte_server.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_c3pcag2v2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_c3pcag3v2.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_pca3ssg4.o
+	Object lib/TwlDWC_dl/asm/auth/dwc_ca_verisign_secureserver.o
+
+	Object lib/TwlDWC_dl/asm/bm/dwc_backup.o
+	Object lib/TwlDWC_dl/asm/bm/dwc_bm_init.o
+	Object lib/TwlDWC_dl/asm/bm/util_wifiidtool.o
+
+	Object lib/TwlDWC_dl/asm/common/dwc_base64.o
+	Object lib/TwlDWC_dl/asm/common/dwc_error.o
+	Object lib/TwlDWC_dl/asm/common/dwc_init.o
+	Object lib/TwlDWC_dl/asm/common/dwc_memfunc.o
+
+	Object lib/TwlDWC_dl/asm/nas/dwc_nasfunc.o
+	Object lib/TwlDWC_dl/asm/nas/dwc_nastime.o
+
+	Object lib/TwlDWC_dl/asm/nd/dwc_nd.o
+	Object lib/TwlDWC_dl/asm/nd/dwci_nd.o
+	
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_os_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_socket_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_stdlib_ntr.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_bgnend.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_control.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_list.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_recvbuf.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_request.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_response.o
+	Object lib/TwlDWC_dl/asm/nhttp/nhttp_thread.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_common.o
+	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_private.o
+
+	Object lib/TwlDWC_dl/asm/soc/socl_startup.o
+	Object lib/TwlDWC_dl/asm/soc/socl_command.o
+	Object lib/TwlDWC_dl/asm/soc/socl_create.o
+	Object lib/TwlDWC_dl/asm/soc/socl_bind.o
+	Object lib/TwlDWC_dl/asm/soc/socl_read.o
+	Object lib/TwlDWC_dl/asm/soc/socl_write.o
+	Object lib/TwlDWC_dl/asm/soc/socl_shutdown.o
+	Object lib/TwlDWC_dl/asm/soc/socl_close.o
+	Object lib/TwlDWC_dl/asm/soc/socl_cleanup.o
+	Object lib/TwlDWC_dl/asm/soc/socl_const.o
+	Object lib/TwlDWC_dl/asm/soc/socl_resolve.o
+	Object lib/TwlDWC_dl/asm/soc/socl_poll.o
+	Object lib/TwlDWC_dl/asm/soc/socl_misc.o
+	Object lib/TwlDWC_dl/asm/soc/socl_list.o
+	Object lib/TwlDWC_dl/asm/soc/soc.o
+	Object lib/TwlDWC_dl/asm/soc/socl_ssl.o
+
+	Object lib/TwlDWC_dl/asm/ssl/ssl.o
+	Object lib/TwlDWC_dl/asm/ssl/md5.o
+	Object lib/TwlDWC_dl/asm/ssl/sha1.o
+	Object lib/TwlDWC_dl/asm/ssl/arc4.o
+	Object lib/TwlDWC_dl/asm/ssl/biginteger.o
+
+	Object lib/TwlDWC_dl/asm/wcm/system.o
+	Object lib/TwlDWC_dl/asm/wcm/aplist.o
+	Object lib/TwlDWC_dl/asm/wcm/cpsif.o
+	Object lib/TwlDWC_dl/asm/wcm/util.o
+	Object lib/TwlDWC_dl/asm/wcm/wmif.o
 
 	Object asm/overlay15.o
 
@@ -164,8 +257,89 @@ Overlay overlay17
 	After overlay15
 
 	# DWCutil library
-	Object lib/TwlDWC_dl/asm/libdwcutil_thumb.o
-	Object lib/TwlDWC_dl/asm/libdwcutil_arm.o
+	Object lib/TwlDWC_dl/asm/util/aoss.o
+	Object lib/TwlDWC_dl/asm/util/aosslink.o
+	Object lib/TwlDWC_dl/asm/util/apc.o
+	Object lib/TwlDWC_dl/asm/util/atermset.o
+
+	Object lib/TwlDWC_dl/asm/util/anime.o
+	Object lib/TwlDWC_dl/asm/util/button.o
+	Object lib/TwlDWC_dl/asm/util/comment.o
+	Object lib/TwlDWC_dl/asm/util/common.o
+	Object lib/TwlDWC_dl/asm/util/focus.o
+	Object lib/TwlDWC_dl/asm/util/headline.o
+	Object lib/TwlDWC_dl/asm/util/icon.o
+	Object lib/TwlDWC_dl/asm/util/keyboard.o
+	Object lib/TwlDWC_dl/asm/util/keyboard10.o
+	Object lib/TwlDWC_dl/asm/util/libaoss.o
+	Object lib/TwlDWC_dl/asm/util/main.o
+	Object lib/TwlDWC_dl/asm/util/message.o
+	Object lib/TwlDWC_dl/asm/util/move.o
+	Object lib/TwlDWC_dl/asm/util/rakuraku.o
+	Object lib/TwlDWC_dl/asm/util/sceneend.o
+	Object lib/TwlDWC_dl/asm/util/sceneinit.o
+	Object lib/TwlDWC_dl/asm/util/scenemenu.o
+	Object lib/TwlDWC_dl/asm/util/sceneopterase.o
+	Object lib/TwlDWC_dl/asm/util/sceneopterase1.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptinfo.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmenu.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovcomm.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovcomplete.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovconfirm.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovconfirm1.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovdisconnect.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovfailure.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovuser.o
+	Object lib/TwlDWC_dl/asm/util/sceneoptmovwait.o
+	Object lib/TwlDWC_dl/asm/util/scenesetaossbutton.o
+	Object lib/TwlDWC_dl/asm/util/scenesetaosscomplete.o
+	Object lib/TwlDWC_dl/asm/util/scenesetaplist.o
+	Object lib/TwlDWC_dl/asm/util/scenesetedit32.o
+	Object lib/TwlDWC_dl/asm/util/sceneseteditaddress.o
+	Object lib/TwlDWC_dl/asm/util/sceneseterror.o
+	Object lib/TwlDWC_dl/asm/util/scenesetlist.o
+	Object lib/TwlDWC_dl/asm/util/scenesetlistsave.o
+	Object lib/TwlDWC_dl/asm/util/scenesetrakubutton.o
+	Object lib/TwlDWC_dl/asm/util/scenesetrakubutton1.o
+	Object lib/TwlDWC_dl/asm/util/scenesetrakucomplete.o
+	Object lib/TwlDWC_dl/asm/util/scenesetrakuready.o
+	Object lib/TwlDWC_dl/asm/util/scenesetsearch.o
+	Object lib/TwlDWC_dl/asm/util/scenesetselectap.o
+	Object lib/TwlDWC_dl/asm/util/scenesetselectway.o
+	Object lib/TwlDWC_dl/asm/util/scenesettest.o
+	Object lib/TwlDWC_dl/asm/util/scenesettestcompletet.o
+	Object lib/TwlDWC_dl/asm/util/scenesettestconfirm.o
+	Object lib/TwlDWC_dl/asm/util/scenesetusbcomplete.o
+	Object lib/TwlDWC_dl/asm/util/scenesetusbready.o
+	Object lib/TwlDWC_dl/asm/util/scenesetusbready1.o
+	Object lib/TwlDWC_dl/asm/util/screen.o
+	Object lib/TwlDWC_dl/asm/util/scrollbar.o
+	Object lib/TwlDWC_dl/asm/util/search_dwc_util.o
+	Object lib/TwlDWC_dl/asm/util/setting.o
+	Object lib/TwlDWC_dl/asm/util/sound.o
+	Object lib/TwlDWC_dl/asm/util/step.o
+	Object lib/TwlDWC_dl/asm/util/usbap.o
+	Object lib/TwlDWC_dl/asm/util/window.o
+	Object lib/TwlDWC_dl/asm/util/dwc_mov_mbp.o
+	Object lib/TwlDWC_dl/asm/util/dwc_mov_wh.o
+	Object lib/TwlDWC_dl/asm/util/dwc_moveid.o
+	Object lib/TwlDWC_dl/asm/util/archive.o
+	Object lib/TwlDWC_dl/asm/util/cell.o
+	Object lib/TwlDWC_dl/asm/util/cellinfo.o
+	Object lib/TwlDWC_dl/asm/util/deque.o
+	Object lib/TwlDWC_dl/asm/util/effect.o
+	Object lib/TwlDWC_dl/asm/util/font.o
+	Object lib/TwlDWC_dl/asm/util/foundation.o
+	Object lib/TwlDWC_dl/asm/util/graphics.o
+	Object lib/TwlDWC_dl/asm/util/heap.o
+	Object lib/TwlDWC_dl/asm/util/input.o
+	Object lib/TwlDWC_dl/asm/util/interrupt.o
+	Object lib/TwlDWC_dl/asm/util/list.o
+	Object lib/TwlDWC_dl/asm/util/obj.o
+	Object lib/TwlDWC_dl/asm/util/objvram.o
+	Object lib/TwlDWC_dl/asm/util/str.o
+	Object lib/TwlDWC_dl/asm/util/sub.o
+	Object lib/TwlDWC_dl/asm/util/task.o
 }
 Overlay overlay18
 {

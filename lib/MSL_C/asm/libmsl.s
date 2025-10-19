@@ -4237,14 +4237,14 @@ _02020060:
 _0202006C:
 	ldr r2, _0202008C ; =0x7FF80000
 	orr r1, r1, r2
-	ldr r3, _02020090 ; =msl_errno
+	ldr r3, _02020090 ; =errno
 	mov r4, #0x21
 	str r4, [r3]
 	ldmfd sp!, {r4, r5, r6, lr}
 	bx lr
 _02020088: .word 0x7FF00000
 _0202008C: .word 0x7FF80000
-_02020090: .word msl_errno
+_02020090: .word errno
 	arm_func_end _dsqrt
 
 	arm_func_start _fmul
@@ -9307,7 +9307,7 @@ _020245F4:
 	bls _02024628
 _02024604:
 	ldr r0, [sp, #0x18]
-	ldr r1, _0202463C ; =msl_errno
+	ldr r1, _0202463C ; =errno
 	mov r2, #0x22
 	cmp r0, #0
 	movne r0, #0x80000000
@@ -9321,7 +9321,7 @@ _02024628:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, pc}
 _02024638: .word __StringRead
-_0202463C: .word msl_errno
+_0202463C: .word errno
 	arm_func_end strtol
 
 	arm_func_start atoi
@@ -10128,7 +10128,7 @@ _020250E8:
 	bge _0202512C
 	ldr r0, [sp, #0x50]
 	ldr r1, [sp, #0x54]
-	ldr r4, _0202575C ; =msl_errno
+	ldr r4, _0202575C ; =errno
 	mov r5, #0x21
 	mov r2, r0
 	mov r3, r1
@@ -10546,7 +10546,7 @@ _020256AC:
 	bx lr
 _02025754: .word unk_02099E84
 _02025758: .word 0xC3500000
-_0202575C: .word msl_errno
+_0202575C: .word errno
 _02025760: .word 0x43500000
 _02025764: .word 0x7FF00000
 _02025768: .word 0xFFFFFC01
@@ -10811,7 +10811,7 @@ _02025B14:
 	orrs r0, r7, r5
 	bne _02025B4C
 	ldr r0, _02025D74 ; =0x0208F130
-	ldr r1, _02025D78 ; =msl_errno
+	ldr r1, _02025D78 ; =errno
 	ldr r0, [r0]
 	mov r2, #0x21
 	str r2, [r1]
@@ -10964,7 +10964,7 @@ _02025D68: .word 0x43400000
 _02025D6C: .word 0xFFFFFC01
 _02025D70: .word 0x3FE00000
 _02025D74: .word unk_0208F130
-_02025D78: .word msl_errno
+_02025D78: .word errno
 _02025D7C: .word 0x41E00000
 _02025D80: .word 0x3FEFFFFF
 _02025D84: .word 0x3FD00000
@@ -15037,8 +15037,8 @@ unk_02099c60:
 	.global unk_02099d60
 unk_02099d60:
 	.space 0x100
-	.global msl_errno
-msl_errno:
+	.global errno
+errno:
 	.space 0x04
 	.global __msl_constraint_handler
 __msl_constraint_handler:
