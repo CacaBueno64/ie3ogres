@@ -16667,7 +16667,7 @@ FUN_ov131_02149388: ; 0x02149388
 	ldr r1, [r1, #8]
 	mov r2, r4
 	add r0, r3, #0x6000
-	bl FUN_0208622c
+	bl L5FS_ReadFileByName
 	add r0, r6, #0x6000
 	ldr r0, [r0, #0x228]
 	cmp r0, #0

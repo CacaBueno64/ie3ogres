@@ -11,7 +11,7 @@
 .public unk_02099F38
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
-.public FUN_02086040
+.public L5FS_CloseArchive
 .public FUN_ov16_021128c4
 .public FUN_020591e8
 .public FUN_02058ee0
@@ -67,7 +67,7 @@
 .public unk_0209F5C0
 .public unk_0209A5D0
 .public FUN_ov16_020f330c
-.public FUN_02086080
+.public L5FS_IsArchiveReady
 .public FUN_0202d00c
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74

@@ -61,7 +61,7 @@
 .public FUN_02057c2c
 .public FUN_ov16_020f316c
 .public L5FS_OpenArchiveDeferred
-.public FUN_02086080
+.public L5FS_IsArchiveReady
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5868
@@ -69,7 +69,7 @@
 .public STD_TSPrintf
 .public FUN_ov16_020f5450
 .public FUN_02058684
-.public FUN_02086040
+.public L5FS_CloseArchive
 .public unk_02099F38
 .public FUN_02058e30
 .public FUN_02059004

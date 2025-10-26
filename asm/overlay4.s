@@ -17204,7 +17204,7 @@ _020CB9F4:
 	str r2, [r4, #8]
 	bl FUN_ov60_0211d840 ; may be ov61
 _020CBA08:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020CBA08
 _020CBA10:
 	mov r2, #7
@@ -17543,7 +17543,7 @@ _020CBEC4:
 	bl FUN_ov60_0211d840 ; may be ov61
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CBEDC:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020CBE7C
 	arm_func_end FUN_ov4_020cbe70
 
@@ -17602,7 +17602,7 @@ FUN_ov4_020cbf38: ; 0x020CBF38
 	mov r0, #2
 	str r0, [r10, #8]
 _020CBF64:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, [r10, #8]
 	cmp r0, #3
 	bne _020CBF64
@@ -17647,7 +17647,7 @@ _020CBFC8:
 _020CC008:
 	mov r1, r6
 	bl FUN_ov60_0211d840 ; may be ov61
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r10
 	bl FUN_ov4_020cbe70
 	ldr r0, [r10, #0xc]
@@ -17662,7 +17662,7 @@ _020CC008:
 	bl FUN_ov60_0211d840 ; may be ov61
 	mov r0, r11
 _020CC048:
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _020CBFC8
 _020CC050:
 	mov r0, r10
@@ -17679,13 +17679,13 @@ _020CC050:
 	bl FUN_ov21_0211d060 ; may be ov61
 _020CC080:
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	mov r0, r10
 	ldr r1, [r0]
 	ldr r1, [r1, #0x90]
 	blx r1
 _020CC098:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020CC098
 	arm_func_end FUN_ov4_020cbf38
 

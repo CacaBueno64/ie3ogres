@@ -40,7 +40,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
-.public FUN_020866d8
+.public L5FS_Allocate
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210eb78

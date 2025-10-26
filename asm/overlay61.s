@@ -204,7 +204,7 @@ _0211A14C:
 	mov r1, #0x17
 	str r1, [r0]
 _0211A168:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211A168
 _0211A170:
 	ldr r1, _0211A224 ; =0x0209A454
@@ -2010,7 +2010,7 @@ _0211B9F8:
 	bl FUN_ov16_020f330c
 	cmp r0, #0
 	bne _0211BA14
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211B9F8
 _0211BA14:
 	mov r5, #0
@@ -2047,7 +2047,7 @@ _0211BA80:
 	bl FUN_0202f57c
 	cmp r0, #0
 	beq _0211BA9C
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211BA80
 _0211BA9C:
 	ldr r0, _0211BB58 ; =0x0211F5E0
@@ -3660,7 +3660,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r1, r6
 	add r2, r3, #0xc000
 	str r3, [r6, #0x208]
-	bl FUN_0206efa0
+	bl L5Thread_Create
 	str r0, [r6, #0x204]
 	ldr r0, _0211D464 ; =FUN_ov61_0211d9f4
 	bl FUN_ov16_020f5248
@@ -3920,7 +3920,7 @@ FUN_ov61_0211d55c: ; 0x0211D55C
 	mov r0, r4
 	bl FUN_ov16_020f5248
 	ldr r0, [r5, #0x204]
-	bl FUN_0206efc4
+	bl L5Thread_Kill
 	ldr r6, _0211D6A8 ; =0x0211F5E0
 	ldr r1, [r6, #0x14]
 	cmp r1, #0
@@ -4009,7 +4009,7 @@ FUN_ov61_0211d6c0: ; 0x0211D6C0
 	cmp r0, #6
 	bne _0211D6DC
 _0211D6D4:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211D6D4
 _0211D6DC:
 	mov r0, #4
@@ -4017,7 +4017,7 @@ _0211D6DC:
 	str r0, [r6, #8]
 	mov r5, #0
 _0211D6EC:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	cmp r5, #0
 	beq _0211D704
 	ldrb r0, [r6, #0x11]
@@ -4032,7 +4032,7 @@ _0211D714:
 	ldr r0, _0211D72C ; =gL5Sound
 	mov r1, #1
 	bl FUN_0202cf6c
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211D728: .word unk_0209A0F0
 _0211D72C: .word gL5Sound
@@ -4070,7 +4070,7 @@ _0211D788:
 	ldr r0, [r4, #8]
 	cmp r0, #5
 	bne _0211D7A4
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211D788
 _0211D7A4:
 	ldr r0, [r4, #0xc]
@@ -4087,7 +4087,7 @@ _0211D7B8:
 	str r2, [r4, #8]
 	bl FUN_ov61_0211d840
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _0211D738
 _0211D7E0:
 	mov r0, r4
@@ -4109,7 +4109,7 @@ _0211D804:
 	ldr r0, [r4, #8]
 	cmp r0, #6
 	bne _0211D820
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211D804
 _0211D820:
 	mov r0, r4
@@ -4118,7 +4118,7 @@ _0211D820:
 	cmp r0, #9
 	ldmnefd sp!, {r4, pc}
 _0211D834:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211D834
 	arm_func_end FUN_ov61_0211d7fc
 
@@ -4148,7 +4148,7 @@ FUN_ov61_0211d864: ; 0x0211D864
 	mov r0, #4
 	str r0, [r5, #8]
 _0211D878:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r1, _0211D9A0 ; =0x0209A0E8
 	ldr r0, _0211D9A4 ; =0x0000040C
 	ldrh r1, [r1]
@@ -4204,17 +4204,17 @@ _0211D918:
 _0211D93C:
 	mov r0, r6
 	str r7, [r5, #0x20c]
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	mov r0, r6
 	str r4, [r5, #0x20c]
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	add r8, r8, #1
 	cmp r8, #4
 	blt _0211D93C
 	ldr r0, [r5, #0x1dc]
 	add r0, r0, #3
 	str r0, [r5, #0x1dc]
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 _0211D970:
 	ldrb r0, [r5, #0x2c]
 	cmp r0, #0
@@ -4246,7 +4246,7 @@ _0211D9C0:
 	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211D9C0
 	arm_func_end FUN_ov61_0211d9b4
 
@@ -4334,7 +4334,7 @@ FUN_ov61_0211da90: ; 0x0211DA90
 	mov r0, #2
 	str r0, [r4, #8]
 _0211DAEC:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, [r4, #8]
 	cmp r0, #2
 	bne _0211DB00
@@ -4364,7 +4364,7 @@ _0211DB00:
 	ldr r1, [r1, #0x84]
 	blx r1
 _0211DB5C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DB5C
 _0211DB64:
 	ldr r1, [r1, #0x50]
@@ -4376,7 +4376,7 @@ _0211DB6C:
 	blx r1
 	cmp r0, #0
 	beq _0211DB8C
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DB6C
 _0211DB8C:
 	cmp r5, #0
@@ -4395,7 +4395,7 @@ _0211DB8C:
 	mov r1, r10
 	bl FUN_ov61_0211d7fc
 _0211DBC8:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DBC8
 _0211DBD0:
 	cmp r6, #0
@@ -4431,7 +4431,7 @@ _0211DBF8:
 	ldr r1, [r1, #0x84]
 	blx r1
 _0211DC4C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DC4C
 _0211DC54:
 	ldr r7, _0211DE50 ; =0x0209A5D0
@@ -4459,19 +4459,19 @@ _0211DC68:
 	mov r0, r7
 	str r8, [r4, #8]
 	bl FUN_02062800
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r4
 	bl FUN_ov61_0211b9cc
 	mov r0, r4
 	bl FUN_ov61_0211b1b0
 	mov r0, r6
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _0211DC68
 _0211DCD4:
 	cmp r1, #9
 	bne _0211DCE4
 _0211DCDC:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DCDC
 _0211DCE4:
 	mov r0, r4
@@ -4524,7 +4524,7 @@ _0211DD88:
 	bl FUN_ov16_020f2604
 _0211DD94:
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	mov r0, r4
 	mov r1, #0xe
 	bl FUN_ov61_0211d864
@@ -4553,7 +4553,7 @@ _0211DDD0:
 	ldr r1, [r1, #0x84]
 	blx r1
 _0211DE04:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DE04
 _0211DE0C:
 	cmp r0, #8
@@ -4572,7 +4572,7 @@ _0211DE30:
 _0211DE3C:
 	blx r1
 _0211DE40:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211DE40
 _0211DE48: .word unk_0209A454
 _0211DE4C: .word unk_020A0640
@@ -4726,7 +4726,7 @@ _0211DFF8:
 	str r2, [r4, #8]
 	bl FUN_ov61_0211d840
 _0211E00C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E00C
 _0211E014:
 	mov r2, #7
@@ -4837,7 +4837,7 @@ _0211E160:
 	bl FUN_ov61_0211d840
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211E178:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E118
 	arm_func_end FUN_ov61_0211e10c
 
@@ -4895,7 +4895,7 @@ FUN_ov61_0211e1d0: ; 0x0211E1D0
 	mov r0, #2
 	str r0, [r10, #8]
 _0211E1FC:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, [r10, #8]
 	cmp r0, #3
 	bne _0211E1FC
@@ -4940,7 +4940,7 @@ _0211E260:
 _0211E2A0:
 	mov r1, r6
 	bl FUN_ov61_0211d840
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r10
 	bl FUN_ov61_0211e10c
 	ldr r0, [r10, #0xc]
@@ -4955,7 +4955,7 @@ _0211E2A0:
 	bl FUN_ov61_0211d840
 	mov r0, r11
 _0211E2E0:
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _0211E260
 _0211E2E8:
 	mov r0, r10
@@ -4972,13 +4972,13 @@ _0211E2E8:
 	bl FUN_ov61_0211d060
 _0211E318:
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	mov r0, r10
 	ldr r1, [r0]
 	ldr r1, [r1, #0x94]
 	blx r1
 _0211E330:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E330
 	arm_func_end FUN_ov61_0211e1d0
 
@@ -5057,7 +5057,7 @@ _0211E3F0:
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov61_0211d864
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, _0211E490 ; =0x0209A5D0
 	bl FUN_02061bec
 	ldr r0, [r4, #4]
@@ -5065,7 +5065,7 @@ _0211E3F0:
 	mov r1, #0
 	bl FUN_02041eac
 _0211E42C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E42C
 _0211E434:
 	ldr r0, _0211E490 ; =0x0209A5D0
@@ -5385,7 +5385,7 @@ _0211E818:
 	str r2, [r4, #8]
 	bl FUN_ov61_0211d840
 _0211E82C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E82C
 _0211E834:
 	mov r2, #7
@@ -5496,7 +5496,7 @@ _0211E980:
 	bl FUN_ov61_0211d840
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211E998:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211E938
 	arm_func_end FUN_ov61_0211e92c
 
@@ -5554,7 +5554,7 @@ FUN_ov61_0211e9f0: ; 0x0211E9F0
 	mov r0, #2
 	str r0, [r10, #8]
 _0211EA1C:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, [r10, #8]
 	cmp r0, #3
 	bne _0211EA1C
@@ -5599,7 +5599,7 @@ _0211EA80:
 _0211EAC0:
 	mov r1, r6
 	bl FUN_ov61_0211d840
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r10
 	bl FUN_ov61_0211e92c
 	ldr r0, [r10, #0xc]
@@ -5614,7 +5614,7 @@ _0211EAC0:
 	bl FUN_ov61_0211d840
 	mov r0, r11
 _0211EB00:
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _0211EA80
 _0211EB08:
 	mov r0, r10
@@ -5631,13 +5631,13 @@ _0211EB08:
 	bl FUN_ov61_0211d060
 _0211EB38:
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	mov r0, r10
 	ldr r1, [r0]
 	ldr r1, [r1, #0x94]
 	blx r1
 _0211EB50:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _0211EB50
 	arm_func_end FUN_ov61_0211e9f0
 

@@ -4,7 +4,7 @@
 .public FUN_020715b4
 .public FUN_0206f77c
 .public FUN_0202eff0
-.public Common_OpenFileRead
+.public L5FS_ReadFile
 .public unk_0209BA20
 .public gL5Allocator
 .public unk_02099F34
@@ -171,7 +171,7 @@
 .public unk_02099F38
 .public FUN_ov16_020f3f00
 .public FUN_ov16_020f1138
-.public FUN_0206edc0
+.public L5Thread_Init
 .public FUN_ov16_020fe23c
 .public FUN_02043c80
 .public FUN_ov16_020f1214
@@ -183,7 +183,7 @@
 .public unk_020AF81C
 .public FUN_02074764
 .public FUN_02051434
-.public FUN_0206f014
+.public L5Thread_WakeUpAll
 .public FUN_02051448
 .public FUN_ov16_020f2604
 .public unk_02099ECC
@@ -207,8 +207,8 @@
 .public FUN_ov16_020f1468
 .public FUN_ov16_020f13b4
 .public FUN_ov16_020f1300
-.public FUN_020863fc
-.public FUN_02086284
+.public L5FS_ReadFileByIdxDeferred
+.public L5FS_ReadFileByIdx
 .public unk_020B5B78
 .public SND_Init
 .public SND_LockChannel
@@ -227,7 +227,7 @@
 .public FUN_0207c3f0
 .public FUN_0207c430
 .public FUN_0207c5c0
-.public Common_SetNextArena
+.public L5FS_SetNextArena
 .public L5FS_OpenArchiveDirect
 .public FUN_0207504c
 .public FUN_0207d1c4
@@ -236,10 +236,10 @@
 .public sprintf
 .public DseBgm_SetFades
 .public FUN_0207d3e4
-.public FUN_020860e8
+.public L5FS_GetFile
 .public STD_TSPrintf
 .public STD_CopyString
-.public FUN_02086640
+.public L5FS_FindFileIdx
 .public strrchr
 .public STD_CompareString
 .public DseBank_UnloadById
@@ -247,7 +247,7 @@
 .public DseSe_Unload
 .public DseBgm_Unload
 .public FUN_0202f678
-.public FUN_02086480
+.public L5FS_IsFileBusy
 .public DseSwd_LoadBank
 .public DseSe_Load
 .public DseBgm_Load

@@ -2616,7 +2616,7 @@ FUN_02043c80: ; 0x02043C80
 	mov r5, #1
 	mov r6, r0
 	mov r0, r5
-	bl Common_SetNextArena
+	bl L5FS_SetNextArena
 	mov r4, #0
 	ldr r1, _02043D6C ; =0x020900CC
 	mov r0, r4
@@ -16064,12 +16064,12 @@ FUN_0204eba0: ; 0x0204EBA0
 	add r0, r0, #0x400
 	mov r3, #0
 	str r4, [sp]
-	bl L5FS_ReadUncompressedFileDeferred
+	bl L5FS_ReadFileDeferred
 	mov r5, r0
 	mov r4, #1
 _0204EBE8:
 	ldrsb r0, [sp, #4]
-	bl FUN_02086480
+	bl L5FS_IsFileBusy
 	cmp r0, #0
 	beq _0204EC04
 	mov r0, r4
@@ -22659,16 +22659,16 @@ FUN_020540f4: ; 0x020540F4
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	beq _02054114
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 	mov r0, #0
 	str r0, [r4, #0xc]
 _02054114:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 	ldr r0, [r4, #8]
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 	mov r0, #0
 	str r0, [r4, #4]
 	str r0, [r4, #8]
@@ -25446,7 +25446,7 @@ FUN_020563dc: ; 0x020563DC
 	bl FUN_020563a4
 	mov r0, r5, lsl #3
 	mvn r1, #0
-	bl FUN_0208670c
+	bl L5FS_AllocateClear
 	cmp r0, #0
 	str r0, [r6, #4]
 	moveq r0, #0
@@ -25487,7 +25487,7 @@ _02056470:
 	cmp r6, r0
 	ble _0205643C
 	ldr r0, [r8, #4]
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 	mov r0, r8
 	bl FUN_02056684
 	mov r0, r8
@@ -25649,7 +25649,7 @@ FUN_0205665c: ; 0x0205665C
 	ldr r0, [r0, #0x20]
 	cmp r0, #0
 	blt _0205667C
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, pc}
@@ -25665,7 +25665,7 @@ FUN_02056684: ; 0x02056684
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	ldmltfd sp!, {r4, pc}
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	mvn r0, #0
 	str r0, [r4, #0x20]
 	ldmfd sp!, {r4, pc}
@@ -27345,7 +27345,7 @@ FUN_02057cac: ; 0x02057CAC
 	add r0, r0, #3
 	bic r0, r0, #3
 	sub r1, r1, #0x35
-	bl FUN_0208670c
+	bl L5FS_AllocateClear
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -27366,7 +27366,7 @@ FUN_02057d08: ; 0x02057D08
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02057D20
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 _02057D20:
 	mov r0, #0
 	str r0, [r4]
@@ -27428,7 +27428,7 @@ FUN_02057d9c: ; 0x02057D9C
 	mov r1, r4
 	str r7, [sp, #0x20]
 	str r6, [sp, #0x24]
-	bl Common_CalcCRC32
+	bl L5FS_CalcCRC32
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_02057d9c
@@ -28150,12 +28150,12 @@ _020586F8:
 	mov r1, r4
 	mov r2, r7
 	add r3, r3, #0x15
-	bl FUN_02086390
+	bl L5FS_ReadFileByNameDeferred
 	b _02058758
 _0205874C:
 	mov r1, r4
 	mov r2, r7
-	bl FUN_0208622c
+	bl L5FS_ReadFileByName
 _02058758:
 	mov r6, r0
 	cmp r6, #0
@@ -28667,7 +28667,7 @@ _02058E8C:
 	ldrsb r0, [r4, #0x15]
 	cmp r0, #0
 	blt _02058EA0
-	bl FUN_02086480
+	bl L5FS_IsFileBusy
 	b _02058EBC
 _02058EA0:
 	ldr r0, _02058EDC ; =gL5Allocator
@@ -34110,7 +34110,7 @@ FUN_0205d5e8: ; 0x0205D5E8
 	stmfd sp!, {r3, lr}
 	add r0, r0, r1, lsl #2
 	ldr r0, [r0, #0x20]
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -34124,7 +34124,7 @@ FUN_0205d608: ; 0x0205D608
 	mov r4, r1
 	add r0, r5, r4, lsl #2
 	ldr r0, [r0, #0x20]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	add r0, r5, r4, lsl #2
 	mvn r1, #0
 	str r1, [r0, #0x20]
@@ -36207,7 +36207,7 @@ FUN_0205f1cc: ; 0x0205F1CC
 	stmfd sp!, {r3, lr}
 	add r0, r0, r1, lsl #2
 	ldr r0, [r0, #0x20]
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -36221,7 +36221,7 @@ FUN_0205f1ec: ; 0x0205F1EC
 	mov r4, r1
 	add r0, r5, r4, lsl #2
 	ldr r0, [r0, #0x20]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	add r0, r5, r4, lsl #2
 	mvn r1, #0
 	str r1, [r0, #0x20]
@@ -39016,7 +39016,7 @@ FUN_020617d8: ; 0x020617D8
 	ldr r4, _02061B20 ; =0x00005258
 	mov r1, r5
 	mov r0, r4
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	ldr r1, _02061B24 ; =0x020A1640
 	cmp r0, #0
 	str r0, [r1, #0x230]
@@ -39043,11 +39043,11 @@ _02061858:
 	mov r1, r4
 	str r0, [r10, #0x40]
 	mov r0, #0x8000
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	mov r1, r4
 	mov r4, r0
 	mov r0, #0x10000
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	ldr r11, [sp]
 	mov r5, r0
 	mov r0, r10

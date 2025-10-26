@@ -116,7 +116,7 @@ void InitInterrupt(void)
 
 extern "C" {
 	extern void FUN_0202ede8(void);
-	extern void FUN_020864b4(void);
+	extern void L5FS_Init(void);
 }
 
 void FUN_020292e8(void)
@@ -126,7 +126,7 @@ void FUN_020292e8(void)
 
 void FUN_020292f4(void)
 {
-	FUN_020864b4();
+	L5FS_Init();
 	Config_Init();
 }
 

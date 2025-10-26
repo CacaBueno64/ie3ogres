@@ -5900,7 +5900,7 @@ _020F2984:
 	ldr r6, _020F2A0C ; =gL5Movie
 	str r4, [r0, #0x30]
 _020F2990:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r6
 	bl _ZN7L5Movie12FUN_0202e78cEv
 	cmp r0, #0
@@ -5908,7 +5908,7 @@ _020F2990:
 	mov r0, #6
 	bl FUN_ov16_020f1514
 	mov r0, #0x10
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	ldr r0, _020F2A08 ; =0x02118474
 	mov r1, #1
 	ldr r0, [r0, #8]
@@ -5923,7 +5923,7 @@ _020F2990:
 	bl _ZN11L5Allocator10deallocateEPv
 	str r4, [r5, #0xc]
 _020F29E8:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	bl FUN_ov16_020f1670
 	cmp r0, #0
 	bne _020F29E8
@@ -5955,7 +5955,7 @@ FUN_ov16_020f2a18: ; 0x020F2A18
 	ldr r0, _020F2A70 ; =FUN_ov16_020f2868
 	add r2, r1, #0x4000
 	mov r1, #0
-	bl FUN_0206efa0
+	bl L5Thread_Create
 	mov r0, #1
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
@@ -6138,7 +6138,7 @@ _020F2CE0:
 	bl FUN_ov16_020f1670
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020F2CE0
 	arm_func_end FUN_ov16_020f2cdc
 
@@ -18075,7 +18075,7 @@ FUN_ov16_020fc9f4: ; 0x020FC9F4
 	mov r1, #0x18
 	mul r0, r5, r1
 	sub r1, r1, #0x19
-	bl FUN_0208670c
+	bl L5FS_AllocateClear
 	cmp r0, #0
 	str r0, [r6, #4]
 	moveq r0, r4
@@ -18093,7 +18093,7 @@ FUN_ov16_020fca54: ; 0x020FCA54
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _020FCA70
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 _020FCA70:
 	mov r0, #0
 	str r0, [r4, #4]
@@ -18126,7 +18126,7 @@ FUN_ov16_020fca88: ; 0x020FCA88
 	str r7, [sp, #0x20]
 	str r6, [sp, #0x24]
 	str r2, [sp, #0x28]
-	bl Common_CalcCRC32
+	bl L5FS_CalcCRC32
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov16_020fca88
@@ -18237,12 +18237,12 @@ _020FCC08:
 	add r3, sp, #8
 	mov r1, r10
 	mov r2, r9
-	bl FUN_02086390
+	bl L5FS_ReadFileByNameDeferred
 	b _020FCC64
 _020FCC58:
 	mov r1, r10
 	mov r2, r9
-	bl FUN_0208622c
+	bl L5FS_ReadFileByName
 _020FCC64:
 	mov r5, r0
 	cmp r5, #0
@@ -18714,7 +18714,7 @@ _020FD2DC:
 	ldrsb r0, [r5, #0xf]
 	cmp r0, #0
 	blt _020FD2F0
-	bl FUN_02086480
+	bl L5FS_IsFileBusy
 	b _020FD308
 _020FD2F0:
 	ldr r0, _020FD34C ; =gL5Allocator
@@ -18824,7 +18824,7 @@ _020FD434:
 	ldrsb r0, [r4, #0xf]
 	cmp r0, #0
 	blt _020FD458
-	bl FUN_020864a8
+	bl L5FS_Panic
 	b _020FD484
 _020FD458:
 	ldr r0, _020FD4A4 ; =gL5Allocator

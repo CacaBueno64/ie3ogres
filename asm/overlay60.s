@@ -749,7 +749,7 @@ FUN_ov60_0211a948: ; 0x0211A948
 	bne _0211A97C
 	add r0, r10, #0x3000
 	ldr r0, [r0, #0x1d0]
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	addeq sp, sp, #0x10
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -916,7 +916,7 @@ _0211ABBC:
 	bne _0211AB70
 	add r0, r9, #0x3000
 	ldr r0, [r0, #0x1d0]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 _0211ABD4:
 	mov r0, #3
 	str r0, [r9, #0xc]

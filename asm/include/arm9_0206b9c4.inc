@@ -95,10 +95,10 @@
 .public FUN_ov16_020f066c
 .public unk_020A06BC
 .public unk_020A9C40
-.public Common_SetNextArena
-.public Common_OpenFileRead
-.public FUN_020866d8
-.public Common_Deallocate
+.public L5FS_SetNextArena
+.public L5FS_ReadFile
+.public L5FS_Allocate
+.public L5FS_Deallocate
 .public unk_0209A120
 .public unk_0209A130
 .public FUN_0205107c

@@ -1076,7 +1076,7 @@ _0211AE04:
 	str r2, [r8, #0xec]
 	str r4, [r8, #0xf0]
 	str r4, [r8, #0xd8]
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	str r0, [r8, #0xd4]
 	cmp r0, #0
 	beq _0211AE50

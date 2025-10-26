@@ -39,32 +39,32 @@ _02029660:
 	mov r2, r4
 	mov r3, r4
 	str r4, [r12, #0x74]
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	ldr r0, _02029718 ; =0x02099F2C
 	ldr r1, _0202971C ; =0x0208F798
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	ldr r0, _02029720 ; =0x02099EFC
 	ldr r1, _02029724 ; =0x0208F7AC
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	ldr r0, _02029728 ; =0x02099F28
 	ldr r1, _0202972C ; =0x0208F7C0
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	ldr r0, _02029730 ; =0x02099F00
 	ldr r1, _02029734 ; =0x0208F7D4
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	ldr r0, _02029738 ; =0x02099F04
 	ldr r1, _0202973C ; =0x0208F7E8
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 _020296FC: .word unk_0209BA20
@@ -1972,7 +1972,7 @@ FUN_0202ae38: ; 0x0202AE38
 	mov r1, r6
 	mov r2, r4
 	bl FUN_ov16_020f1138
-	bl FUN_0206edc0
+	bl L5Thread_Init
 	ldr r0, _0202AF7C ; =0x020B5B08
 	mov r1, r4
 _0202AEA8:
@@ -2117,7 +2117,7 @@ _0202B080:
 	ldr r0, _0202B1A0 ; =0x0209A124
 	mov r1, #0
 	str r1, [r0]
-	bl FUN_0206f014
+	bl L5Thread_WakeUpAll
 	bl FUN_0202ac70
 	bl FUN_0202ad64
 	ldr r0, _0202B1B0 ; =0x02099F30
@@ -2444,7 +2444,7 @@ _0202B37C:
 	ldr r1, [r0, #4]
 	mov r0, r4
 	mov r2, r5
-	bl FUN_020863fc
+	bl L5FS_ReadFileByIdxDeferred
 	cmp r0, #0
 	movge r0, #1
 	movlt r0, #0
@@ -2454,7 +2454,7 @@ _0202B3AC:
 	mov r0, r4
 	ldr r1, [r1, #4]
 	mov r2, r5
-	bl FUN_02086284
+	bl L5FS_ReadFileByIdx
 	cmp r0, #0
 	movge r0, #1
 	movlt r0, #0
@@ -2673,7 +2673,7 @@ _0202B6A0:
 	str r0, [r4, #0x6c]
 	mov r0, #2
 	strb r1, [r4, #0x73]
-	bl Common_SetNextArena
+	bl L5FS_SetNextArena
 	ldr r1, _0202B70C ; =0x0208FACC
 	mov r0, r5
 	bl L5FS_OpenArchiveDirect
@@ -3209,7 +3209,7 @@ _0202BD68:
 	ble _0202BDA4
 	ldr r0, [r7, #4]
 	sub r1, r1, #1
-	bl FUN_020860e8
+	bl L5FS_GetFile
 	cmp r0, #0
 	beq _0202BDA4
 	mov r0, r4, lsl #1
@@ -3230,7 +3230,7 @@ _0202BDA4:
 	ldr r0, _0202BE10 ; =0x020B5B78
 	ldr r0, [r0, #4]
 	sub r1, r1, #1
-	bl FUN_020860e8
+	bl L5FS_GetFile
 	cmp r0, #0
 	ldrnesh r1, [r5, #4]
 	addne r0, r6, #0x100
@@ -3285,7 +3285,7 @@ FUN_0202be40: ; 0x0202BE40
 	ldr r0, _0202BEA0 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl FUN_02086640
+	bl L5FS_FindFileIdx
 	strh r0, [r6, #0x10]
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -3547,7 +3547,7 @@ _0202C204:
 	ldr r0, _0202C310 ; =0x020B5B78
 	mov r1, r5
 	ldr r0, [r0, #4]
-	bl FUN_02086640
+	bl L5FS_FindFileIdx
 	ldr r5, [sp, #0x20]
 	mov r2, r0
 	mov r0, r7
@@ -4330,7 +4330,7 @@ FUN_0202cc34: ; 0x0202CC34
 _0202CC68:
 	add r0, r7, r6
 	ldrsb r0, [r0, #0x60]
-	bl FUN_02086480
+	bl L5FS_IsFileBusy
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
@@ -4449,7 +4449,7 @@ FUN_0202cdd4: ; 0x0202CDD4
 	ldr r0, _0202CE20 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl FUN_02086640
+	bl L5FS_FindFileIdx
 	mov r2, r0
 	mov r0, r6
 	mov r1, r5
@@ -4514,7 +4514,7 @@ FUN_0202ceb0: ; 0x0202CEB0
 	ldr r0, _0202CEFC ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl FUN_02086640
+	bl L5FS_FindFileIdx
 	mov r2, r0
 	mov r0, r6
 	mov r1, r5
