@@ -14,10 +14,10 @@ static MATHCRC32Table sCrc32Table;
 s32 L5FSi_ReadFileInChunks(FSFile *file, void *data, s32 len);
 s32 L5FSi_ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len);
 void L5FSi_ProcessFiles(void *arg);
-L5FileHandle *L5FSi_GetFileHandle(s8 *idOut);
+L5FileHandle *L5FSi_GetFileHandle(filekey_t *keyOut);
 s32 L5FSi_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
                               const char *path);
-s32 L5FSi_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, s8 *idOut, const char *name);
+s32 L5FSi_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, filekey_t *keyOut, const char *name);
 u32 L5FSi_HashFilename(const char *name);
 s32 L5FSi_FindFileIdxInternal(PKHFile *files, u16 nFiles, const char *name);
 
