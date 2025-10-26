@@ -13,7 +13,7 @@ typedef struct {
     u32 TextSize;
     u32 pad0;
     u32 pad1;
-    // Scirpt_InstructionEntry Instructions[InstructionsCount];
+    // Script_InstructionEntry Instructions[InstructionsCount];
     // Script_StringEntry Strings[StringsCount];
 } Script_FileHeader;
 

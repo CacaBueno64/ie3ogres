@@ -29,7 +29,7 @@ BOOL L5Config::openFile(char *filepath)
     char *file = NULL;
     char *r5;
     char *r6;
-    s32 len = Common_OpenFileRead(&file, filepath, 0, 0);
+    s32 len = Common_OpenFileRead((void **)&file, filepath, 0, 0);
     if (len <= 0) {
         return FALSE;
     }

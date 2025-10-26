@@ -599,20 +599,20 @@ _020BD328:
 	bl FUN_020521d0
 	ldr r1, _020BD53C ; =0x020E8474
 	mov r0, r5
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	ldr r7, _020BD540 ; =0x0209A200
 	ldr r1, _020BD544 ; =0x020E8480
 	str r0, [r7, #0x14]
 	mov r0, r5
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	str r0, [r7, #0x18]
 	ldr r1, _020BD548 ; =0x020E848C
 	mov r0, r5
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	str r0, [r7, #0x1c]
 	ldr r1, _020BD54C ; =0x020E84A0
 	mov r0, r5
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	str r0, [r7, #0x20]
 	ldr r7, _020BD50C ; =0x020E9480
 	strb r5, [r7, #5]

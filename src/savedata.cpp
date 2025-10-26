@@ -1,7 +1,7 @@
 #include "savedata.hpp"
 
-L5CardController::L5CardController() { };
-L5CardController::~L5CardController() { };
+L5CardController::L5CardController() { }
+L5CardController::~L5CardController() { }
 
 BOOL L5CardController::init(CARDBackupType type)
 {
@@ -15,10 +15,10 @@ BOOL L5CardController::init(CARDBackupType type)
         return TRUE;
     }
     CARD_LockBackup(this->lock_id);
-    BOOL identified = CARD_IdentifyBackup(this->type);
+    BOOL result = CARD_IdentifyBackup(this->type);
     CARD_UnlockBackup(this->lock_id);
 
-    return identified;
+    return result;
 }
 
 BOOL L5CardController::test(void)

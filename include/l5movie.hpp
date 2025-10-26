@@ -9,7 +9,7 @@
 #include "l5sound.hpp"
 #include "l5allocator.hpp"
 
-#define STACK_SIZE 1024
+#define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
 
 #define MOVIE_HAS_NOT_SOUND 0x200

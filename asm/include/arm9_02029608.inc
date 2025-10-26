@@ -228,7 +228,7 @@
 .public FUN_0207c430
 .public FUN_0207c5c0
 .public Common_SetNextArena
-.public FUN_02085e4c
+.public L5FS_OpenArchiveDirect
 .public FUN_0207504c
 .public FUN_0207d1c4
 .public FUN_02074F18

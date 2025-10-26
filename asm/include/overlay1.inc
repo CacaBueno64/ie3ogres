@@ -137,7 +137,7 @@
 .public FUN_0206c88c
 .public FUN_0206c2f8
 .public FUN_020521d0
-.public FUN_02085e4c
+.public L5FS_OpenArchiveDirect
 .public _ZN11L5Allocator8allocateEiii
 .public operator_new
 .public FUN_02059d9c

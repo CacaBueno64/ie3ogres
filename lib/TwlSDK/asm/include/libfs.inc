@@ -16,7 +16,8 @@
 .public MATH_CalcHMACSHA1
 .public MIi_UncompressBackward
 .public DC_FlushRange
-.public unk_0209390C
+.public SDK_OVERLAY_DIGEST_END
+.public SDK_OVERLAY_DIGEST
 .public __global_destructor_chain
 .public CARD_GetRomHeader
 .public CARD_IsPulledOut

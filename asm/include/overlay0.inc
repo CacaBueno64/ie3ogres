@@ -414,7 +414,7 @@
 .public strchr
 .public strrchr
 .public FUN_0206ee5c
-.public FUN_02085f50
+.public L5FS_OpenArchiveDeferred
 .public FUN_020860c4
 .public GX_ResetBankForSubBG
 .public GX_SetBankForSubBG
@@ -446,7 +446,7 @@
 .public FUN_02055a28
 .public FUN_02055a48
 .public FUN_02055b5c
-.public FUN_02085e4c
+.public L5FS_OpenArchiveDirect
 .public FUN_02046330
 .public FUN_020420b4
 .public FUN_ov16_020f1660

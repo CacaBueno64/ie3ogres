@@ -2143,8 +2143,8 @@ _0200E464:
 	cmp r4, r5
 	blo _0200E454
 	ldmfd sp!, {r3, r4, r5, pc}
-_0200E474: .word unk_0209390C
-_0200E478: .word unk_0209390C
+_0200E474: .word SDK_OVERLAY_DIGEST_END
+_0200E478: .word SDK_OVERLAY_DIGEST
 _0200E47C: .word 0x66666667
 	arm_func_end FS_StartOverlay
 

@@ -4339,7 +4339,7 @@ FUN_0206ee5c: ; 0x0206EE5C
 	str r1, [sp, #-4]!
 	str r0, [sp, #-4]!
 	bl FUN_0206ee20
-	b FUN_0206ee98 ; why???
+	b FUN_0206ee98
 	arm_func_end FUN_0206ee5c
 
 	arm_func_start FUN_0206ee98
