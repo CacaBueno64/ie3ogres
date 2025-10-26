@@ -2,7 +2,7 @@
 extern "C" {
 #endif
 
-#include "l5common.h"
+#include "l5fs.hpp"
 
 UnkStruct_020BC504 unk_020BC504;
 OSThread unk_020BC510;

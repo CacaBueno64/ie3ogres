@@ -6,7 +6,7 @@
 #include <nitro.h>
 #include <string.h>
 
-#include "l5common.h"
+#include "l5fs.hpp"
 
 typedef struct {
     u32 crc32;
