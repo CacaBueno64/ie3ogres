@@ -6,10 +6,8 @@ extern "C" {
 
 UnkStruct_020BC504 unk_020BC504;
 OSThread unk_020BC510;
-L5Archive unk_020BC5D0[18];
-MATHCRC32Table unk_020BC738;
-#define L5FS_sArchives unk_020BC5D0
-#define Crc32Table unk_020BC738
+L5Archive L5FS_sArchives[18];
+MATHCRC32Table Crc32Table;
 
 s32 FUN_0208596c(FSFile *file, void *data, s32 len)
 {
