@@ -9,6 +9,9 @@
 extern "C" {
 #endif
 
+typedef int arckey_t;
+typedef signed char filekey_t;
+
 typedef struct {
     u32 hash;
     s32 offset;
@@ -20,7 +23,7 @@ typedef struct {
     void *files; // interpret as PKHFile *
     BOOL inUse;
     FSFileID binFileID; // pkb
-    s8 arcFileHandle;
+    filekey_t arcFileKey;
     u16 nFiles;
 } L5Archive;
 
@@ -34,46 +37,39 @@ typedef struct {
     MICompressionHeader flags;
 } L5FileHandle;
 
-typedef struct {
-    s32 unk0;
-    void *stack;
-    L5FileHandle *fileHandles;
-} UnkStruct_020BC504;
+u32 L5FS_CalcCRC32(const void *data, u32 dataLength);
 
-s32 FUN_0208596c(FSFile *file, void *data, s32 len);
-u32 Common_CalcCRC32(const void *data, u32 dataLength);
-s32 Common_OpenFileReadByID(void **dst, FSFileID file_id, s32 offset, s32 len);
-void FUN_02085ab4(void *arg);
-s32 Common_OpenFileRead(void **dst, const char *filepath, s32 offset, s32 len);
-L5FileHandle* L5FS_GetFileHandle(s8 *idOut);
-s32 L5FS_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut, const char* path);
-s32 L5FS_ReadUncompressedFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size);
-s32 L5FS_OpenArchiveDirect(void *data, const char *archive_path);
-s32 L5FS_OpenArchiveDeferred(void *data, const char *archive_path);
-void FUN_02086040(s32 arcIdx);
-BOOL FUN_02086080(s32 arcIdx);
-void FUN_020860c4(s32 arcIdx);
-PKHFile *FUN_020860e8(s32 arcIdx, s32 fileIdx);
-s32 L5FS_ReadFileByID(void **dst, PKHFile *pkh_file, FSFileID file_id, const char *filename);
-s32 FUN_0208622c(void **param0, s32 idx, const char *filename);
-s32 FUN_02086284(void **dst, s32 arcIdx, s32 fileIdx);
-s32 L5FS_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, s8 *idOut, const char *name);
-s32 FUN_02086390(void **dst, s32 arcIdx, const char *name, s8 *idOut);
-s32 FUN_020863fc(void **dst, s32 arcIdx, s32 fileIdx, s8 *idOut);
-BOOL FUN_02086480(s32 handleIdx);
-void FUN_020864a8(void);
-void FUN_020864b4(void);
-u32 FUN_02086564(const char *name);
-s32 FUN_020865cc(PKHFile *pkh_file, u16 nFiles, const char *name);
-s32 FUN_02086640(s32 arcIdx, const char *name);
-PKHFile *FUN_02086684(s32 arcIdx, const char *name);
-void *FUN_020866d8(int size, int nextArena);
-void *FUN_0208670c(int size, int nextArena);
-void Common_Deallocate(void *ptr);
-void Common_SetNextArena(int nextArena);
+s32 L5FS_ReadFile(void **dst, const char *filepath, s32 offset, s32 len);
+s32 L5FS_ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size);
+
+arckey_t L5FS_OpenArchiveDirect(void *data, const char *path);
+arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path);
+void L5FS_CloseArchive(arckey_t key);
+BOOL L5FS_IsArchiveReady(arckey_t key);
+void L5FS_WaitArchiveReady(arckey_t key);
+PKHFile *L5FS_GetFile(arckey_t arcKey, s32 fileIdx);
+
+s32 L5FS_ReadFileByID(void **dst, PKHFile *pkh_file, FSFileID arc, const char *filename);
+s32 L5FS_ReadFileByName(void **dst, arckey_t arcKey, const char *filename);
+s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx);
+
+s32 L5FS_ReadFileByNameDeferred(void **dst, arckey_t arcKey, const char *name, filekey_t *keyOut);
+s32 L5FS_ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey_t *keyOut);
+BOOL L5FS_IsFileBusy(filekey_t key);
+
+void L5FS_Panic(void);
+void L5FS_Init(void);
+
+s32 L5FS_FindFileIdx(arckey_t arcKey, const char *name);
+PKHFile *L5FS_FindFile(arckey_t arcKey, const char *name);
+
+void *L5FS_Allocate(int size, int nextArena);
+void *L5FS_AllocateClear(int size, int nextArena);
+void L5FS_Deallocate(void *ptr);
+void L5FS_SetNextArena(int nextArena);
 
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
 
-#endif //IE3OGRES_COMMON_H
+#endif // IE3OGRES_COMMON_H

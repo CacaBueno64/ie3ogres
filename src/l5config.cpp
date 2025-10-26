@@ -1,35 +1,27 @@
 #include "l5config.hpp"
 
 extern "C" {
-    extern void *FUN_0208670c(int size, int nextArena); // alloc
-    extern void Common_Deallocate(void *ptr); // free
-    extern int atoi(const char *s);
+extern void *L5FS_AllocateClear(int size, int nextArena); // alloc
+extern void L5FS_Deallocate(void *ptr);                   // free
+extern int atoi(const char *s);
 }
 
-L5Config::L5Config()
-{
-    this->clear();
-}
+L5Config::L5Config() { this->clear(); }
 
-L5Config::~L5Config()
-{
+L5Config::~L5Config() {
     if (this->paramEntry != NULL) {
-        Common_Deallocate(this->paramEntry);
+        L5FS_Deallocate(this->paramEntry);
     }
     this->paramEntry = NULL;
 }
 
-void L5Config::clear(void)
-{
-    this->paramEntry = NULL;
-}
+void L5Config::clear(void) { this->paramEntry = NULL; }
 
-BOOL L5Config::openFile(char *filepath)
-{
+BOOL L5Config::openFile(char *filepath) {
     char *file = NULL;
     char *r5;
     char *r6;
-    s32 len = Common_OpenFileRead((void **)&file, filepath, 0, 0);
+    s32 len = L5FS_ReadFile((void **)&file, filepath, 0, 0);
     if (len <= 0) {
         return FALSE;
     }
@@ -54,13 +46,12 @@ BOOL L5Config::openFile(char *filepath)
         } while (r6 < (file + len));
     }
 
-    Common_Deallocate(file);
+    L5FS_Deallocate(file);
 
     return TRUE;
 }
 
-int L5Config::getParam(char *str)
-{
+int L5Config::getParam(char *str) {
     int pos = this->getParamPosition(str);
 
     if ((pos < 0) || (this->paramEntry == NULL)) {
@@ -72,26 +63,24 @@ int L5Config::getParam(char *str)
     return paramEntry->value;
 }
 
-void L5Config::init(void)
-{
+void L5Config::init(void) {
     if (this->paramEntry == NULL) {
-        this->paramEntry = (Config_ParamEntry *)FUN_0208670c(0x300, -1);
+        this->paramEntry = (Config_ParamEntry *)L5FS_AllocateClear(0x300, -1);
     }
 
     this->paramCount = 0;
 }
 
-int L5Config::getParamPosition(char *str)
-{
+int L5Config::getParamPosition(char *str) {
     Config_ParamEntry *paramEntry = this->paramEntry;
 
     if (paramEntry == NULL) {
         return -1;
     }
 
-    u32 len = STD_GetStringLength(str);
-    u32 crc32 = Common_CalcCRC32(str, len);
-    int pos = 0;
+    u32 len   = STD_GetStringLength(str);
+    u32 crc32 = L5FS_CalcCRC32(str, len);
+    int pos   = 0;
 
     if (this->paramCount > 0) {
         do {
@@ -107,10 +96,9 @@ int L5Config::getParamPosition(char *str)
     return -1;
 }
 
-BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
-{
-    BOOL empty_file = TRUE;
-    BOOL read_key = FALSE;
+BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param) {
+    BOOL empty_file   = TRUE;
+    BOOL read_key     = FALSE;
     BOOL awaiting_key = TRUE;
 
     if (param == NULL) {
@@ -126,11 +114,9 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
                 key_start = curr;
             }
             continue;
-        }
-        else if (*curr == ';' && empty_file) {
+        } else if (*curr == ';' && empty_file) {
             return FALSE;
-        }
-        else if (*curr == '=' && !read_key) {
+        } else if (*curr == '=' && !read_key) {
             if (curr == key_start) {
                 return FALSE;
             }
@@ -140,16 +126,15 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
                 key_end--;
             }
 
-            int len = key_end - key_start;
-            param->crc32 = Common_CalcCRC32(key_start, len);
-            read_key = TRUE;
+            int len      = key_end - key_start;
+            param->crc32 = L5FS_CalcCRC32(key_start, len);
+            read_key     = TRUE;
             curr++;
-            key_start = curr;
+            key_start    = curr;
             awaiting_key = TRUE;
             continue;
-        }
-        else {
-            empty_file = FALSE;
+        } else {
+            empty_file   = FALSE;
             awaiting_key = FALSE;
             curr++;
         }
@@ -165,7 +150,7 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param)
         if (len > 0) {
             char strbuf[32];
             strncpy(strbuf, key_start, len);
-            strbuf[len] = '\0';
+            strbuf[len]  = '\0';
             param->value = atoi(strbuf);
             return TRUE;
         }

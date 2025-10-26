@@ -293,9 +293,9 @@ FUN_ov37_0211a2cc: ; 0x0211A2CC
 	mov r5, r0
 	ldr r0, [r5, #0x74]
 	mov r7, #0
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	ldr r0, [r5, #0x70]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	mov r4, r7
 	mov r0, r5
 	mov r1, r4
@@ -1854,11 +1854,11 @@ _0211B7FC:
 	cmp r0, #0
 	beq _0211BA04
 	ldr r0, [r4, #0x74]
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	beq _0211BA04
 	ldr r0, [r4, #0x70]
-	bl FUN_02086080
+	bl L5FS_IsArchiveReady
 	cmp r0, #0
 	beq _0211BA04
 	str r5, [r4, #8]

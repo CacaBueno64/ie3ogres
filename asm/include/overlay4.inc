@@ -356,7 +356,7 @@
 .public FUN_02041f2c
 .public FUN_ov60_0211d840
 .public FUN_020628dc
-.public FUN_0206ee5c
+.public L5Thread_Yield
 .public FUN_02063248
 .public FUN_ov16_020f081c
 .public FUN_02072b54
@@ -383,7 +383,7 @@
 .public FUN_ov21_0211d060
 .public FUN_ov16_020f2cdc
 .public FUN_ov61_0211d6c0
-.public FUN_0206eed0
+.public L5Thread_Sleep
 .public FUN_ov61_0211d730
 .public FUN_ov61_0211d864
 .public FUN_ov50_0211a688

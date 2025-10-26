@@ -259,7 +259,7 @@
 .public FS_UnloadOverlay
 .public FS_LoadOverlay
 .public STD_TSPrintf
-.public FUN_0208622c
+.public L5FS_ReadFileByName
 .public FUN_02037c98
 .public FUN_02037fb0
 .public sprintf

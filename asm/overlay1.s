@@ -815,13 +815,13 @@ _020BD69C:
 	ldr r7, _020BD7C8 ; =0x0209A200
 	str r4, [r0]
 	ldr r0, [r7, #0x20]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	ldr r0, [r7, #0x1c]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	ldr r0, [r7, #0x18]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	ldr r0, [r7, #0x14]
-	bl FUN_02086040
+	bl L5FS_CloseArchive
 	sub r0, r4, #1
 	str r0, [r7, #0x20]
 	str r0, [r7, #0x1c]
@@ -32512,7 +32512,7 @@ _020D8A64:
 	str r2, [r4, #8]
 	bl FUN_ov60_0211d840 ; may be ov61
 _020D8A78:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020D8A78
 _020D8A80:
 	mov r2, #7
@@ -32798,7 +32798,7 @@ _020D8E58:
 	bl FUN_ov60_0211d840 ; may be ov61
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D8E70:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020D8E10
 	arm_func_end FUN_ov1_020d8e04
 
@@ -32889,7 +32889,7 @@ FUN_ov1_020d8f44: ; 0x020D8F44
 	mov r0, #2
 	str r0, [r10, #8]
 _020D8F70:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	ldr r0, [r10, #8]
 	cmp r0, #3
 	bne _020D8F70
@@ -32934,7 +32934,7 @@ _020D8FD4:
 _020D9014:
 	mov r1, r6
 	bl FUN_ov60_0211d840 ; may be ov61
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	mov r0, r10
 	bl FUN_ov1_020d8e04
 	ldr r0, [r10, #0xc]
@@ -32949,7 +32949,7 @@ _020D9014:
 	bl FUN_ov60_0211d840 ; may be ov61
 	mov r0, r11
 _020D9054:
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	b _020D8FD4
 _020D905C:
 	mov r0, r10
@@ -32966,7 +32966,7 @@ _020D905C:
 	bl FUN_ov21_0211d060 ; may be ov61
 _020D908C:
 	mov r0, #4
-	bl FUN_0206eed0
+	bl L5Thread_Sleep
 	bl FUN_ov16_020f068c ; may be ov17
 	cmp r0, #0
 	ldreq r0, _020D90D8 ; =0x020A0640
@@ -32985,7 +32985,7 @@ _020D90C4:
 _020D90CC:
 	blx r1
 _020D90D0:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	b _020D90D0
 _020D90D8: .word unk_020A0640
 	arm_func_end FUN_ov1_020d8f44

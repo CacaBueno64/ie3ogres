@@ -17,7 +17,7 @@
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_0202de44
 .public FX_Sqrt
-.public Common_SetNextArena
+.public L5FS_SetNextArena
 .public L5FS_OpenArchiveDirect
 .public FUN_02030260
 .public FUN_0202eff0
@@ -226,8 +226,8 @@
 .public FUN_0206cc44
 .public FUN_020747b8
 .public FUN_02072560
-.public L5FS_ReadUncompressedFileDeferred
-.public FUN_02086480
+.public L5FS_ReadFileDeferred
+.public L5FS_IsFileBusy
 .public OS_Sleep
 .public FUN_0206d5d4
 .public FUN_0206cd70
@@ -381,7 +381,7 @@
 .public _fadd
 .public _fsub
 .public _ffix
-.public Common_Deallocate
+.public L5FS_Deallocate
 .public FUN_ov0_020cd2a8
 .public FUN_ov0_020cd1f0
 .public unk_02099EE8
@@ -390,11 +390,11 @@
 .public _u32_div_f
 .public FUN_ov16_02116920
 .public unk_02099F58
-.public FUN_0208670c
+.public L5FS_AllocateClear
 .public FUN_ov16_02116910
 .public L5FS_OpenArchiveDeferred
-.public FUN_02086080
-.public FUN_02086040
+.public L5FS_IsArchiveReady
+.public L5FS_CloseArchive
 .public FUN_020414fc
 .public FUN_02041518
 .public FUN_02041618
@@ -438,10 +438,10 @@
 .public FUN_ov16_020f81a4
 .public FUN_ov16_020f7c44
 .public FUN_ov16_02117818
-.public Common_CalcCRC32
+.public L5FS_CalcCRC32
 .public unk_02099F30
-.public FUN_02086390
-.public FUN_0208622c
+.public L5FS_ReadFileByNameDeferred
+.public L5FS_ReadFileByName
 .public FS_SeekFile
 .public FS_ReadFile
 .public MI_UncompressLZ8
@@ -552,7 +552,7 @@
 .public FUN_ov16_020f2dac
 .public _ZN16L5CardController4initE14CARDBackupType
 .public _ZN16L5CardController4testEv
-.public FUN_020866d8
+.public L5FS_Allocate
 .public CARD_GetRomHeader
 .public _ZN16L5CardController4readEmmPv
 .public STD_CompareString

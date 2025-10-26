@@ -26,7 +26,7 @@
 .public unk_0209A454
 .public FUN_0204204c
 .public FUN_02041eac
-.public FUN_0206ee5c
+.public L5Thread_Yield
 .public unk_020A0640
 .public unk_02099E8F
 .public unk_0209A124
@@ -90,7 +90,7 @@
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_0210eb3c
 .public FUN_0202de44
-.public FUN_0206efa0
+.public L5Thread_Create
 .public FUN_ov16_020f5248
 .public _ZN11L5Allocator8allocateEiii
 .public FUN_ov16_0210e980
@@ -101,7 +101,7 @@
 .public gL5Allocator
 .public FUN_ov16_020f6a9c
 .public GX_LoadOAM
-.public FUN_0206efc4
+.public L5Thread_Kill
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_02061b44
 .public FUN_ov16_0210e9d8
@@ -110,7 +110,7 @@
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f338c
 .public unk_0209A0F0
-.public FUN_0206eed0
+.public L5Thread_Sleep
 .public FUN_0207405c
 .public FUN_ov16_020f65a4
 .public unk_0209A0E8

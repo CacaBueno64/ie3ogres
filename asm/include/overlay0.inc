@@ -80,7 +80,7 @@
 .public FUN_ov55_0211d128
 .public FUN_ov29_0211a158
 .public FUN_ov92_02124d00
-.public FUN_0208670c
+.public L5FS_AllocateClear
 .public FUN_0204201c
 .public FUN_02041fec
 .public FUN_02042084
@@ -318,8 +318,8 @@
 .public FUN_020727a8
 .public FUN_0204b2f4
 .public FUN_0206cd90
-.public FUN_020866d8
-.public FUN_0206efa0
+.public L5FS_Allocate
+.public L5Thread_Create
 .public FUN_ov16_020f5248
 .public FUN_02045900
 .public FUN_ov16_0210e980
@@ -368,9 +368,9 @@
 .public FUN_ov16_02116e94
 .public unk_02099F44
 .public FUN_020535bc
-.public FUN_02086040
-.public FUN_0206efc4
-.public Common_Deallocate
+.public L5FS_CloseArchive
+.public L5Thread_Kill
+.public L5FS_Deallocate
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_020460c0
@@ -384,7 +384,7 @@
 .public FUN_0202fd38
 .public FUN_02044754
 .public STD_TSPrintf
-.public FUN_0208622c
+.public L5FS_ReadFileByName
 .public FUN_0202fd44
 .public SSD_InitFile
 .public SSD_GetNextInstruction
@@ -413,9 +413,9 @@
 .public FUN_ov131_0214b75c
 .public strchr
 .public strrchr
-.public FUN_0206ee5c
+.public L5Thread_Yield
 .public L5FS_OpenArchiveDeferred
-.public FUN_020860c4
+.public L5FS_WaitArchiveReady
 .public GX_ResetBankForSubBG
 .public GX_SetBankForSubBG
 .public G2S_GetBG0CharPtr
@@ -435,9 +435,9 @@
 .public FUN_02046338
 .public FUN_02046344
 .public FUN_020463b8
-.public FUN_02086390
+.public L5FS_ReadFileByNameDeferred
 .public FUN_ov16_020f316c
-.public FUN_02086480
+.public L5FS_IsFileBusy
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc

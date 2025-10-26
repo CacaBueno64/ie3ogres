@@ -166,7 +166,7 @@
 .public FUN_0202cff8
 .public _ZN7L5Sound12FUN_0202d774Emm
 .public operator_delete
-.public FUN_02086040
+.public L5FS_CloseArchive
 .public FUN_020522ec
 .public FUN_0206c9a0
 .public FUN_0206c8dc
@@ -534,7 +534,7 @@
 .public FUN_02041ef0
 .public FUN_ov60_0211d840
 .public FUN_020628dc
-.public FUN_0206ee5c
+.public L5Thread_Yield
 .public unk_0209A5D0
 .public FUN_02063248
 .public FUN_ov16_020eef64
@@ -566,7 +566,7 @@
 .public FUN_ov31_0211a2d0
 .public FUN_ov21_0211d060
 .public FUN_ov16_020f2cdc
-.public FUN_0206eed0
+.public L5Thread_Sleep
 .public FUN_ov61_0211d730
 .public FUN_ov61_0211d864
 .public FUN_ov50_0211a688

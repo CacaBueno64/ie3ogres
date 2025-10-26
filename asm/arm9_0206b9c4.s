@@ -4271,8 +4271,8 @@ _0206EDB8: .word unk_0209BA20
 _0206EDBC: .word unk_0209A11C
 	arm_func_end FUN_0206ed40
 
-	arm_func_start FUN_0206edc0
-FUN_0206edc0: ; 0x0206EDC0
+	arm_func_start L5Thread_Init
+L5Thread_Init: ; 0x0206EDC0
 	mov r2, #0
 	ldr r0, _0206EDE0 ; =0x020B9D54
 	mov r1, r2
@@ -4283,10 +4283,10 @@ _0206EDCC:
 	blt _0206EDCC
 	bx lr
 _0206EDE0: .word unk_020B9D54
-	arm_func_end FUN_0206edc0
+	arm_func_end L5Thread_Init
 
-	arm_func_start FUN_0206ede4
-FUN_0206ede4: ; 0x0206EDE4
+	arm_func_start L5Thread_Exit
+L5Thread_Exit: ; 0x0206EDE4
 	ldr r2, _0206EE14 ; =0x020B9D50
 	ldr r0, [r2]
 	add r0, r0, r0
@@ -4302,10 +4302,10 @@ FUN_0206ede4: ; 0x0206EDE4
 _0206EE14: .word unk_020B9D50
 _0206EE18: .word unk_020B9D54
 _0206EE1C: .word unk_020B9D4C
-	arm_func_end FUN_0206ede4
+	arm_func_end L5Thread_Exit
 
-	arm_func_start FUN_0206ee20
-FUN_0206ee20: ; 0x0206EE20
+	arm_func_start L5Thread_ReturnStack
+L5Thread_ReturnStack: ; 0x0206EE20
 	str lr, [sp, #-4]!
 	ldr r2, _0206EE50 ; =0x020B9D50
 	ldr r0, [r2]
@@ -4321,10 +4321,10 @@ FUN_0206ee20: ; 0x0206EE20
 _0206EE50: .word unk_020B9D50
 _0206EE54: .word unk_020B9D54
 _0206EE58: .word unk_020B9D4C
-	arm_func_end FUN_0206ee20
+	arm_func_end L5Thread_ReturnStack
 
-	arm_func_start FUN_0206ee5c
-FUN_0206ee5c: ; 0x0206EE5C
+	arm_func_start L5Thread_Yield
+L5Thread_Yield: ; 0x0206EE5C
 	str lr, [sp, #-4]!
 	str r11, [sp, #-4]!
 	str r10, [sp, #-4]!
@@ -4338,12 +4338,12 @@ FUN_0206ee5c: ; 0x0206EE5C
 	str r2, [sp, #-4]!
 	str r1, [sp, #-4]!
 	str r0, [sp, #-4]!
-	bl FUN_0206ee20
-	b FUN_0206ee98
-	arm_func_end FUN_0206ee5c
+	bl L5Thread_ReturnStack
+	b L5Thread_LoadContext
+	arm_func_end L5Thread_Yield
 
-	arm_func_start FUN_0206ee98
-FUN_0206ee98: ; 0x0206EE98
+	arm_func_start L5Thread_LoadContext
+L5Thread_LoadContext: ; 0x0206EE98
 	ldr r0, [sp], #0x4
 	ldr r1, [sp], #0x4
 	ldr r2, [sp], #0x4
@@ -4358,39 +4358,39 @@ FUN_0206ee98: ; 0x0206EE98
 	ldr r11, [sp], #0x4
 	ldr r2, [sp], #0x4
 	mov pc, r2
-	arm_func_end FUN_0206ee98
+	arm_func_end L5Thread_LoadContext
 
-	arm_func_start FUN_0206eed0
-FUN_0206eed0: ; 0x0206EED0
+	arm_func_start L5Thread_Sleep
+L5Thread_Sleep: ; 0x0206EED0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
 	cmp r5, #0
 	ldmlefd sp!, {r3, r4, r5, pc}
 _0206EEE4:
-	bl FUN_0206ee5c
+	bl L5Thread_Yield
 	add r4, r4, #1
 	cmp r4, r5
 	blt _0206EEE4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0206eed0
+	arm_func_end L5Thread_Sleep
 
-	arm_func_start FUN_0206eef8
-FUN_0206eef8: ; 0x0206EEF8
+	arm_func_start L5Thread_Starter
+L5Thread_Starter: ; 0x0206EEF8
 	stmfd sp!, {r3, lr}
 	ldr r1, _0206EF18 ; =0x020B9D4C
 	ldr r2, _0206EF1C ; =0x020B9D94
 	ldr r1, [r1, #4]
 	ldr r1, [r2, r1, lsl #2]
 	blx r1
-	bl FUN_0206ede4
+	bl L5Thread_Exit
 	ldmfd sp!, {r3, pc}
 _0206EF18: .word unk_020B9D4C
 _0206EF1C: .word unk_020B9D94
-	arm_func_end FUN_0206eef8
+	arm_func_end L5Thread_Starter
 
-	arm_func_start FUN_0206ef20
-FUN_0206ef20: ; 0x0206EF20
+	arm_func_start L5Thread_InitStack
+L5Thread_InitStack: ; 0x0206EF20
 	str r0, [r2, #-4]!
 	str r11, [r2, #-4]!
 	str r10, [r2, #-4]!
@@ -4404,7 +4404,7 @@ FUN_0206ef20: ; 0x0206EF20
 	str r2, [r2, #-4]!
 	str r1, [r2, #-4]!
 	str r1, [r2, #-4]!
-	ldr r0, _0206EF98 ; =FUN_0206ee98
+	ldr r0, _0206EF98 ; =L5Thread_LoadContext
 	str r0, [r2, #-4]!
 	mov r3, #0
 	ldr r12, _0206EF9C ; =0x020B9D54
@@ -4424,34 +4424,34 @@ _0206EF8C:
 	mov r0, r3
 _0206EF94:
 	mov pc, lr
-_0206EF98: .word FUN_0206ee98
+_0206EF98: .word L5Thread_LoadContext
 _0206EF9C: .word unk_020B9D54
-	arm_func_end FUN_0206ef20
+	arm_func_end L5Thread_InitStack
 
-	arm_func_start FUN_0206efa0
-FUN_0206efa0: ; 0x0206EFA0
+	arm_func_start L5Thread_Create
+L5Thread_Create: ; 0x0206EFA0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	ldr r0, _0206EFBC ; =FUN_0206eef8
-	bl FUN_0206ef20
+	ldr r0, _0206EFBC ; =L5Thread_Starter
+	bl L5Thread_InitStack
 	ldr r1, _0206EFC0 ; =0x020B9D94
 	str r4, [r1, r0, lsl #2]
 	ldmfd sp!, {r4, pc}
-_0206EFBC: .word FUN_0206eef8
+_0206EFBC: .word L5Thread_Starter
 _0206EFC0: .word unk_020B9D94
-	arm_func_end FUN_0206efa0
+	arm_func_end L5Thread_Create
 
-	arm_func_start FUN_0206efc4
-FUN_0206efc4: ; 0x0206EFC4
+	arm_func_start L5Thread_Kill
+L5Thread_Kill: ; 0x0206EFC4
 	ldr r1, _0206EFD4 ; =0x020B9D54
 	mov r2, #0
 	str r2, [r1, r0, lsl #2]
 	bx lr
 _0206EFD4: .word unk_020B9D54
-	arm_func_end FUN_0206efc4
+	arm_func_end L5Thread_Kill
 
-	arm_func_start FUN_0206efd8
-FUN_0206efd8: ; 0x0206EFD8
+	arm_func_start L5Thread_WakeUp
+L5Thread_WakeUp: ; 0x0206EFD8
 	str lr, [sp, #-4]!
 	ldr r2, _0206F008 ; =0x020B9D4C
 	str sp, [r2]
@@ -4467,10 +4467,10 @@ FUN_0206efd8: ; 0x0206EFD8
 _0206F008: .word unk_020B9D4C
 _0206F00C: .word unk_020B9D50
 _0206F010: .word unk_020B9D54
-	arm_func_end FUN_0206efd8
+	arm_func_end L5Thread_WakeUp
 
-	arm_func_start FUN_0206f014
-FUN_0206f014: ; 0x0206F014
+	arm_func_start L5Thread_WakeUpAll
+L5Thread_WakeUpAll: ; 0x0206F014
 	mov r1, #0
 	ldr r2, _0206F0B0 ; =0x020B9D54
 _0206F01C:
@@ -4492,7 +4492,7 @@ _0206F01C:
 	str r2, [sp, #-4]!
 	str r1, [sp, #-4]!
 	str r0, [sp, #-4]!
-	bl FUN_0206efd8
+	bl L5Thread_WakeUp
 	ldr r0, [sp], #0x4
 	ldr r1, [sp], #0x4
 	ldr r2, [sp], #0x4
@@ -4514,7 +4514,7 @@ _0206F09C:
 	mov pc, lr
 _0206F0B0: .word unk_020B9D54
 _0206F0B4: .word unk_020B9D50
-	arm_func_end FUN_0206f014
+	arm_func_end L5Thread_WakeUpAll
 
 	arm_func_start FUN_0206f0b8
 FUN_0206f0b8: ; 0x0206F0B8
@@ -7072,12 +7072,12 @@ FUN_02071458: ; 0x02071458
 	ldr r6, _020715AC ; =0x020914D8
 	bne _020714B0
 	ldr r0, _020715B0 ; =0x00000101
-	bl Common_SetNextArena
+	bl L5FS_SetNextArena
 	add r0, sp, #0
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl Common_OpenFileRead
+	bl L5FS_ReadFile
 	cmp r0, #0
 	bne _020714BC
 	add sp, sp, #4
@@ -7090,7 +7090,7 @@ _020714B0:
 _020714BC:
 	mov r1, r4
 	mov r0, #0x800
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	str r0, [r8, #0x7fc]
 	mov r6, #1
 	mov r7, r6
@@ -7119,7 +7119,7 @@ _0207151C:
 	blt _020714D8
 	mul r0, r6, r5
 	mov r1, #0
-	bl FUN_020866d8
+	bl L5FS_Allocate
 	mov r1, r0
 	str r1, [r8, #0x7d8]
 	ldr r0, [sp]
@@ -7148,7 +7148,7 @@ _02071584:
 	ldr r0, [sp]
 	cmp r0, #0
 	beq _020715A0
-	bl Common_Deallocate
+	bl L5FS_Deallocate
 _020715A0:
 	mov r0, #1
 	add sp, sp, #4
