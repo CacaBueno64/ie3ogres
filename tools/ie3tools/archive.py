@@ -48,7 +48,20 @@ def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> 
                 
                 files[finalname] = data
     
+    else:
+        count = len(pkb_data) // 0x10
+        offset = 0
+        for i in range(count):
+            Id, ptr, size, flags = unpack_from("<IIII", pkh_data, offset)
+            offset += 16
+
+            print(Id // 0x1000, hex(Id))
+            if i > 10:
+                break
+    
     return files
+
+open_pkb("eve", ".ssd", "./files/data_iz/spr/char/pch.pkb", True)
 
 def open_pac(data: bytes = None, filepath: str = None, compressed: bool = False) -> list[bytes]:
     if filepath and not data:

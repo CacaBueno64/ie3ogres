@@ -11676,16 +11676,16 @@ _020C6E44:
 	mov r5, #0
 	ldr r1, _020C6EA8 ; =0x020D5BC0
 	mov r0, r5
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	ldr r4, _020C6EAC ; =0x0209A200
 	ldr r1, _020C6EB0 ; =0x020D5BCC
 	str r0, [r4, #4]
 	mov r0, r5
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	str r0, [r4, #8]
 	ldr r1, _020C6EB4 ; =0x020D5BDC
 	mov r0, r5
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #4]
 	bl FUN_020860c4
@@ -14217,7 +14217,7 @@ _020C90D0:
 	bne _020C90D0
 	ldr r1, _020C9108 ; =0x020D5D9C
 	mov r0, #0
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	ldr r1, _020C910C ; =0x0209A200
 	str r0, [r1, #0x10]
 	ldmfd sp!, {r4, r5, r6, pc}

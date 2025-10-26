@@ -60,7 +60,7 @@
 .public FUN_0204b540
 .public FUN_02057c2c
 .public FUN_ov16_020f316c
-.public FUN_02085f50
+.public L5FS_OpenArchiveDeferred
 .public FUN_02086080
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f55b4

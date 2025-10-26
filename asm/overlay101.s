@@ -271,8 +271,3 @@ ov101_021250C0:
 ov101_0212512C:
 	.asciz "/data_iz/pic2d/menu/pwup_bg00.pac_"
 	.balign 4, 0
-	
-	.word 0
-	.word 0
-	.word 0
-	.word 0

@@ -107,14 +107,14 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
         i++;
     } while (i < 6);
 
-    this->unk188 = MO_Malloc(STACK_SIZE);
+    this->unk188 = MO_Malloc(MOVIE_STACK_SIZE);
 
     OS_CreateThread(
         &this->thread,
         &FUN_0202ec08,
         this,
-        (void *)((int)this->unk188 + STACK_SIZE),
-        STACK_SIZE,
+        (void *)((int)this->unk188 + MOVIE_STACK_SIZE),
+        MOVIE_STACK_SIZE,
         27
     );
 

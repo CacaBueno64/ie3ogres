@@ -718,7 +718,7 @@ FUN_ov60_0211a8c4: ; 0x0211A8C4
 	bne _0211A918
 	ldr r1, _0211A940 ; =0x02120194
 	mov r0, #0
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	add r1, r4, #0x3000
 	str r0, [r1, #0x1d0]
 	b _0211A928

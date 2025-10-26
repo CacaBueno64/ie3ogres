@@ -2676,7 +2676,7 @@ _0202B6A0:
 	bl Common_SetNextArena
 	ldr r1, _0202B70C ; =0x0208FACC
 	mov r0, r5
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	ldr r1, _0202B710 ; =0x020B5B78
 	str r0, [r1, #4]
 	str r5, [r4, #0x264]

@@ -1,8 +1,8 @@
-.public FUN_02085c6c
+.public unk_020938A0
+.public L5FS_GetFileHandle
 .public Common_OpenFileRead
-.public unk_020BC504
 .public FUN_02085ab4
-.public FUN_020859f8
+.public Common_OpenFileReadByID
 .public Common_CalcCRC32
 .public MATH_CalcCRC32
 .public FS_InitFile

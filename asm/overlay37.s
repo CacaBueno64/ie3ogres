@@ -13,11 +13,11 @@ FUN_ov37_02119f00: ; 0x02119F00
 	mov r4, #0
 	ldr r1, _02119F40 ; =0x0211BD70
 	mov r0, r4
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	str r0, [r5, #0x70]
 	ldr r1, _02119F44 ; =0x0211BD84
 	mov r0, r4
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	str r0, [r5, #0x74]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02119F3C: .word ov37_0211BD4C

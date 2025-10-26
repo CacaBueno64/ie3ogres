@@ -1275,7 +1275,7 @@ _02042A98:
 _02042AA0: .word 0x0000FFFF
 	arm_func_end FUN_020429fc
 
-	arm_func_start FUN_02042aa4
+	arm_func_start FUN_02042aa4 ; https://decomp.me/scratch/GGEr4
 FUN_02042aa4: ; 0x02042AA4
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r5, r1
@@ -1910,7 +1910,7 @@ _02043374:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02043330
 
-	arm_func_start FUN_02043380
+	arm_func_start FUN_02043380 ; https://decomp.me/scratch/4dwZg
 FUN_02043380: ; 0x02043380
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
@@ -2620,12 +2620,12 @@ FUN_02043c80: ; 0x02043C80
 	mov r4, #0
 	ldr r1, _02043D6C ; =0x020900CC
 	mov r0, r4
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	ldr r7, _02043D70 ; =0x0209A200
 	ldr r1, _02043D74 ; =0x020900DC
 	str r0, [r7]
 	mov r0, r4
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 	str r0, [r7, #0x24]
 	add r0, r6, #0x324
 	add r0, r0, #0x1c00
@@ -16064,7 +16064,7 @@ FUN_0204eba0: ; 0x0204EBA0
 	add r0, r0, #0x400
 	mov r3, #0
 	str r4, [sp]
-	bl FUN_02085d7c
+	bl L5FS_ReadUncompressedFileDeferred
 	mov r5, r0
 	mov r4, #1
 _0204EBE8:
@@ -25637,7 +25637,7 @@ FUN_02056640: ; 0x02056640
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, #0
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	str r0, [r4, #0x20]
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
@@ -34091,10 +34091,10 @@ FUN_0205d56c: ; 0x0205D56C
 	mov r1, r4
 	mov r0, #0
 	beq _0205D5C8
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	b _0205D5CC
 _0205D5C8:
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 _0205D5CC:
 	add r1, r7, r6, lsl #2
 	str r0, [r1, #0x20]
@@ -36188,10 +36188,10 @@ FUN_0205f150: ; 0x0205F150
 	mov r1, r4
 	mov r0, #0
 	beq _0205F1AC
-	bl FUN_02085f50
+	bl L5FS_OpenArchiveDeferred
 	b _0205F1B0
 _0205F1AC:
-	bl FUN_02085e4c
+	bl L5FS_OpenArchiveDirect
 _0205F1B0:
 	add r1, r7, r6, lsl #2
 	str r0, [r1, #0x20]

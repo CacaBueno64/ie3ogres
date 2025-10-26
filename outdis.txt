@@ -1,0 +1,1026 @@
+
+./build/ie3ojp/src/l5common.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <FUN_0208596c>:
+   0:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	e1a04002 	mov	r4, r2
+   8:	e28420ff 	add	r2, r4, #255	@ 0xff
+   c:	e2823c3f 	add	r3, r2, #16128	@ 0x3f00
+  10:	e1a026c3 	asr	r2, r3, #13
+  14:	e0832922 	add	r2, r3, r2, lsr #18
+  18:	e1a06742 	asr	r6, r2, #14
+  1c:	e3a07000 	mov	r7, #0
+  20:	e1a0a000 	mov	sl, r0
+  24:	e1a09001 	mov	r9, r1
+  28:	e1a08007 	mov	r8, r7
+  2c:	e3560000 	cmp	r6, #0
+  30:	da00000b 	ble	64 <FUN_0208596c+0x64>
+  34:	e3a05901 	mov	r5, #16384	@ 0x4000
+  38:	e1a02005 	mov	r2, r5
+  3c:	e3540901 	cmp	r4, #16384	@ 0x4000
+  40:	b1a02004 	movlt	r2, r4
+  44:	e1a0000a 	mov	r0, sl
+  48:	e0891708 	add	r1, r9, r8, lsl #14
+  4c:	e0444002 	sub	r4, r4, r2
+  50:	eb000000 	bl	8 <FS_ReadFile+0x8>	50: R_ARM_PC24	FS_ReadFile-0x8
+  54:	e2888001 	add	r8, r8, #1
+  58:	e1580006 	cmp	r8, r6
+  5c:	e0877000 	add	r7, r7, r0
+  60:	bafffff4 	blt	38 <FUN_0208596c+0x38>
+  64:	e1a00007 	mov	r0, r7
+  68:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+
+Disassembly of section .text:
+
+00000000 <Common_CalcCRC32>:
+   0:	e1a03000 	mov	r3, r0
+   4:	e1a02001 	mov	r2, r1
+   8:	e59f0008 	ldr	r0, [pc, #8]	@ 18 <Common_CalcCRC32+0x18>
+   c:	e59fc008 	ldr	ip, [pc, #8]	@ 1c <Common_CalcCRC32+0x1c>
+  10:	e1a01003 	mov	r1, r3
+  14:	e12fff1c 	bx	ip
+  18:	00000000 	.word	0x00000000	18: R_ARM_ABS32	unk_020BC738
+  1c:	00000000 	.word	0x00000000	1c: R_ARM_ABS32	MATH_CalcCRC32
+
+Disassembly of section .text:
+
+00000000 <Common_OpenFileReadByID>:
+   0:	e92d000f 	push	{r0, r1, r2, r3}
+   4:	e92d40f8 	push	{r3, r4, r5, r6, r7, lr}
+   8:	e24dd048 	sub	sp, sp, #72	@ 0x48
+   c:	e28d4000 	add	r4, sp, #0
+  10:	e1a07000 	mov	r7, r0
+  14:	e1a00004 	mov	r0, r4
+  18:	e1a05003 	mov	r5, r3
+  1c:	e59d6070 	ldr	r6, [sp, #112]	@ 0x70
+  20:	eb000000 	bl	8 <FS_InitFile+0x8>	20: R_ARM_PC24	FS_InitFile-0x8
+  24:	e28d1064 	add	r1, sp, #100	@ 0x64
+  28:	e1a00004 	mov	r0, r4
+  2c:	e8910006 	ldm	r1, {r1, r2}
+  30:	eb000000 	bl	8 <FS_OpenFileFast+0x8>	30: R_ARM_PC24	FS_OpenFileFast-0x8
+  34:	e3500000 	cmp	r0, #0
+  38:	1a000000 	bne	40 <Common_OpenFileReadByID+0x40>
+  3c:	eb000000 	bl	8 <OS_Terminate+0x8>	3c: R_ARM_PC24	OS_Terminate-0x8
+  40:	e3560000 	cmp	r6, #0
+  44:	ca000002 	bgt	54 <Common_OpenFileReadByID+0x54>
+  48:	e28d0000 	add	r0, sp, #0
+  4c:	eb000000 	bl	8 <FS_GetLength+0x8>	4c: R_ARM_PC24	FS_GetLength-0x8
+  50:	e1a06000 	mov	r6, r0
+  54:	e3550000 	cmp	r5, #0
+  58:	da000003 	ble	6c <Common_OpenFileReadByID+0x6c>
+  5c:	e28d0000 	add	r0, sp, #0
+  60:	e1a01005 	mov	r1, r5
+  64:	e3a02000 	mov	r2, #0
+  68:	eb000000 	bl	8 <FS_SeekFile+0x8>	68: R_ARM_PC24	FS_SeekFile-0x8
+  6c:	e5970000 	ldr	r0, [r7]
+  70:	e3500000 	cmp	r0, #0
+  74:	1a000003 	bne	88 <Common_OpenFileReadByID+0x88>
+  78:	e1a00006 	mov	r0, r6
+  7c:	e3e01000 	mvn	r1, #0
+  80:	eb000000 	bl	8 <Common_OpenFileReadByID+0x8>	80: R_ARM_PC24	FUN_020866d8-0x8
+  84:	e5870000 	str	r0, [r7]
+  88:	e28d5000 	add	r5, sp, #0
+  8c:	e5971000 	ldr	r1, [r7]
+  90:	e1a00005 	mov	r0, r5
+  94:	e1a02006 	mov	r2, r6
+  98:	eb000000 	bl	8 <Common_OpenFileReadByID+0x8>	98: R_ARM_PC24	FUN_0208596c-0x8
+  9c:	e1a04000 	mov	r4, r0
+  a0:	e1a00005 	mov	r0, r5
+  a4:	eb000000 	bl	8 <FS_CloseFile+0x8>	a4: R_ARM_PC24	FS_CloseFile-0x8
+  a8:	e1a00004 	mov	r0, r4
+  ac:	e28dd048 	add	sp, sp, #72	@ 0x48
+  b0:	e8bd40f8 	pop	{r3, r4, r5, r6, r7, lr}
+  b4:	e28dd010 	add	sp, sp, #16
+  b8:	e12fff1e 	bx	lr
+
+Disassembly of section .text:
+
+00000000 <FUN_02085ab4>:
+   0:	e92d4ff8 	push	{r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	e24dd050 	sub	sp, sp, #80	@ 0x50
+   8:	e59f60f0 	ldr	r6, [pc, #240]	@ 100 <FUN_02085ab4+0x100>
+   c:	e28d0008 	add	r0, sp, #8
+  10:	e596a008 	ldr	sl, [r6, #8]
+  14:	e3a09000 	mov	r9, #0
+  18:	eb000000 	bl	8 <FS_InitFile+0x8>	18: R_ARM_PC24	FS_InitFile-0x8
+  1c:	e59f50e0 	ldr	r5, [pc, #224]	@ 104 <FUN_02085ab4+0x104>
+  20:	e28db004 	add	fp, sp, #4
+  24:	e1a07009 	mov	r7, r9
+  28:	e3a08001 	mov	r8, #1
+  2c:	e3a04038 	mov	r4, #56	@ 0x38
+  30:	e1a00008 	mov	r0, r8
+  34:	eb000000 	bl	8 <OS_Sleep+0x8>	34: R_ARM_PC24	OS_Sleep-0x8
+  38:	e59a0000 	ldr	r0, [sl]
+  3c:	e3500000 	cmp	r0, #0
+  40:	0afffffa 	beq	30 <FUN_02085ab4+0x30>
+  44:	e59a1004 	ldr	r1, [sl, #4]
+  48:	e3510000 	cmp	r1, #0
+  4c:	01a01000 	moveq	r1, r0
+  50:	e58d1004 	str	r1, [sp, #4]
+  54:	e59a1018 	ldr	r1, [sl, #24]
+  58:	e1a0000b 	mov	r0, fp
+  5c:	e58d1000 	str	r1, [sp]
+  60:	e28a100c 	add	r1, sl, #12
+  64:	e59a3014 	ldr	r3, [sl, #20]
+  68:	e8910006 	ldm	r1, {r1, r2}
+  6c:	eb000000 	bl	8 <FUN_02085ab4+0x8>	6c: R_ARM_PC24	Common_OpenFileReadByID-0x8
+  70:	e59a0004 	ldr	r0, [sl, #4]
+  74:	e3500000 	cmp	r0, #0
+  78:	0a000015 	beq	d4 <FUN_02085ab4+0xd4>
+  7c:	e59a001c 	ldr	r0, [sl, #28]
+  80:	e20000f0 	and	r0, r0, #240	@ 0xf0
+  84:	e3500010 	cmp	r0, #16
+  88:	0a000002 	beq	98 <FUN_02085ab4+0x98>
+  8c:	e3500020 	cmp	r0, #32
+  90:	0a000004 	beq	a8 <FUN_02085ab4+0xa8>
+  94:	ea000007 	b	b8 <FUN_02085ab4+0xb8>
+  98:	e59d0004 	ldr	r0, [sp, #4]
+  9c:	e59a1000 	ldr	r1, [sl]
+  a0:	eb000000 	bl	8 <MI_UncompressLZ8+0x8>	a0: R_ARM_PC24	MI_UncompressLZ8-0x8
+  a4:	ea000004 	b	bc <FUN_02085ab4+0xbc>
+  a8:	e59d0004 	ldr	r0, [sp, #4]
+  ac:	e59a1000 	ldr	r1, [sl]
+  b0:	eb000000 	bl	8 <MI_UncompressHuffman+0x8>	b0: R_ARM_PC24	MI_UncompressHuffman-0x8
+  b4:	ea000000 	b	bc <FUN_02085ab4+0xbc>
+  b8:	eb000000 	bl	8 <OS_Terminate+0x8>	b8: R_ARM_PC24	OS_Terminate-0x8
+  bc:	e59a0004 	ldr	r0, [sl, #4]
+  c0:	eb000000 	bl	8 <FUN_02085ab4+0x8>	c0: R_ARM_PC24	Common_Deallocate-0x8
+  c4:	e59a101c 	ldr	r1, [sl, #28]
+  c8:	e59a0000 	ldr	r0, [sl]
+  cc:	e1a01421 	lsr	r1, r1, #8
+  d0:	eb000000 	bl	8 <DC_FlushRange+0x8>	d0: R_ARM_PC24	DC_FlushRange-0x8
+  d4:	e2890001 	add	r0, r9, #1
+  d8:	e0c91095 	smull	r1, r9, r5, r0
+  dc:	e58a7000 	str	r7, [sl]
+  e0:	e0809009 	add	r9, r0, r9
+  e4:	e1a01fa0 	lsr	r1, r0, #31
+  e8:	e08192c9 	add	r9, r1, r9, asr #5
+  ec:	e0c21994 	smull	r1, r2, r4, r9
+  f0:	e5962008 	ldr	r2, [r6, #8]
+  f4:	e0409001 	sub	r9, r0, r1
+  f8:	e082a289 	add	sl, r2, r9, lsl #5
+  fc:	eaffffcb 	b	30 <FUN_02085ab4+0x30>
+ 100:	00000000 	.word	0x00000000	100: R_ARM_ABS32	.bss
+ 104:	92492493 	.word	0x92492493
+
+Disassembly of section .text:
+
+00000000 <Common_OpenFileRead>:
+   0:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+   4:	e24dd048 	sub	sp, sp, #72	@ 0x48
+   8:	e28d4000 	add	r4, sp, #0
+   c:	e1a08000 	mov	r8, r0
+  10:	e1a07001 	mov	r7, r1
+  14:	e1a00004 	mov	r0, r4
+  18:	e1a05002 	mov	r5, r2
+  1c:	e1a06003 	mov	r6, r3
+  20:	eb000000 	bl	8 <FS_InitFile+0x8>	20: R_ARM_PC24	FS_InitFile-0x8
+  24:	e1a00004 	mov	r0, r4
+  28:	e1a01007 	mov	r1, r7
+  2c:	eb000000 	bl	8 <FS_OpenFile+0x8>	2c: R_ARM_PC24	FS_OpenFile-0x8
+  30:	e3500000 	cmp	r0, #0
+  34:	1a000000 	bne	3c <Common_OpenFileRead+0x3c>
+  38:	eb000000 	bl	8 <OS_Terminate+0x8>	38: R_ARM_PC24	OS_Terminate-0x8
+  3c:	e3560000 	cmp	r6, #0
+  40:	ca000002 	bgt	50 <Common_OpenFileRead+0x50>
+  44:	e28d0000 	add	r0, sp, #0
+  48:	eb000000 	bl	8 <FS_GetLength+0x8>	48: R_ARM_PC24	FS_GetLength-0x8
+  4c:	e1a06000 	mov	r6, r0
+  50:	e3550000 	cmp	r5, #0
+  54:	da000003 	ble	68 <Common_OpenFileRead+0x68>
+  58:	e28d0000 	add	r0, sp, #0
+  5c:	e1a01005 	mov	r1, r5
+  60:	e3a02000 	mov	r2, #0
+  64:	eb000000 	bl	8 <FS_SeekFile+0x8>	64: R_ARM_PC24	FS_SeekFile-0x8
+  68:	e5980000 	ldr	r0, [r8]
+  6c:	e3500000 	cmp	r0, #0
+  70:	1a000003 	bne	84 <Common_OpenFileRead+0x84>
+  74:	e1a00006 	mov	r0, r6
+  78:	e3e01000 	mvn	r1, #0
+  7c:	eb000000 	bl	8 <Common_OpenFileRead+0x8>	7c: R_ARM_PC24	FUN_020866d8-0x8
+  80:	e5880000 	str	r0, [r8]
+  84:	e28d5000 	add	r5, sp, #0
+  88:	e5981000 	ldr	r1, [r8]
+  8c:	e1a00005 	mov	r0, r5
+  90:	e1a02006 	mov	r2, r6
+  94:	eb000000 	bl	8 <Common_OpenFileRead+0x8>	94: R_ARM_PC24	FUN_0208596c-0x8
+  98:	e1a04000 	mov	r4, r0
+  9c:	e1a00005 	mov	r0, r5
+  a0:	eb000000 	bl	8 <FS_CloseFile+0x8>	a0: R_ARM_PC24	FS_CloseFile-0x8
+  a4:	e1a00004 	mov	r0, r4
+  a8:	e28dd048 	add	sp, sp, #72	@ 0x48
+  ac:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text:
+
+00000000 <L5FS_GetFileHandle>:
+   0:	e92d4038 	push	{r3, r4, r5, lr}
+   4:	e59f1064 	ldr	r1, [pc, #100]	@ 70 <L5FS_GetFileHandle+0x70>
+   8:	e1a05000 	mov	r5, r0
+   c:	e5912008 	ldr	r2, [r1, #8]
+  10:	e5911000 	ldr	r1, [r1]
+  14:	e7920281 	ldr	r0, [r2, r1, lsl #5]
+  18:	e0824281 	add	r4, r2, r1, lsl #5
+  1c:	e3500000 	cmp	r0, #0
+  20:	0a000000 	beq	28 <L5FS_GetFileHandle+0x28>
+  24:	eb000000 	bl	8 <OS_Terminate+0x8>	24: R_ARM_PC24	OS_Terminate-0x8
+  28:	e3550000 	cmp	r5, #0
+  2c:	159f003c 	ldrne	r0, [pc, #60]	@ 70 <L5FS_GetFileHandle+0x70>
+  30:	e59f3038 	ldr	r3, [pc, #56]	@ 70 <L5FS_GetFileHandle+0x70>
+  34:	15900000 	ldrne	r0, [r0]
+  38:	e59f1034 	ldr	r1, [pc, #52]	@ 74 <L5FS_GetFileHandle+0x74>
+  3c:	15c50000 	strbne	r0, [r5]
+  40:	e5930000 	ldr	r0, [r3]
+  44:	e3a02038 	mov	r2, #56	@ 0x38
+  48:	e2805001 	add	r5, r0, #1
+  4c:	e0cc0591 	smull	r0, ip, r1, r5
+  50:	e085c00c 	add	ip, r5, ip
+  54:	e1a00fa5 	lsr	r0, r5, #31
+  58:	e080c2cc 	add	ip, r0, ip, asr #5
+  5c:	e0c10c92 	smull	r0, r1, r2, ip
+  60:	e045c000 	sub	ip, r5, r0
+  64:	e1a00004 	mov	r0, r4
+  68:	e583c000 	str	ip, [r3]
+  6c:	e8bd8038 	pop	{r3, r4, r5, pc}
+  70:	00000000 	.word	0x00000000	70: R_ARM_ABS32	.bss
+  74:	92492493 	.word	0x92492493
+
+Disassembly of section .text:
+
+00000000 <L5FS_AllocateFileBuffers>:
+   0:	e92d40f8 	push	{r3, r4, r5, r6, r7, lr}
+   4:	e1a06001 	mov	r6, r1
+   8:	e5961000 	ldr	r1, [r6]
+   c:	e1a07000 	mov	r7, r0
+  10:	e1a00c01 	lsl	r0, r1, #24
+  14:	e1a04003 	mov	r4, r3
+  18:	e1b00e20 	lsrs	r0, r0, #28
+  1c:	e1a05002 	mov	r5, r2
+  20:	e5940000 	ldr	r0, [r4]
+  24:	1a00000a 	bne	54 <L5FS_AllocateFileBuffers+0x54>
+  28:	e3500000 	cmp	r0, #0
+  2c:	15870000 	strne	r0, [r7]
+  30:	1a000004 	bne	48 <L5FS_AllocateFileBuffers+0x48>
+  34:	e1a00005 	mov	r0, r5
+  38:	e3e01000 	mvn	r1, #0
+  3c:	eb000000 	bl	8 <L5FS_AllocateFileBuffers+0x8>	3c: R_ARM_PC24	FUN_020866d8-0x8
+  40:	e5870000 	str	r0, [r7]
+  44:	e5840000 	str	r0, [r4]
+  48:	e3a00000 	mov	r0, #0
+  4c:	e5870004 	str	r0, [r7, #4]
+  50:	ea00000d 	b	8c <L5FS_AllocateFileBuffers+0x8c>
+  54:	e3500000 	cmp	r0, #0
+  58:	15870000 	strne	r0, [r7]
+  5c:	1a000004 	bne	74 <L5FS_AllocateFileBuffers+0x74>
+  60:	e1a00421 	lsr	r0, r1, #8
+  64:	e3e01000 	mvn	r1, #0
+  68:	eb000000 	bl	8 <L5FS_AllocateFileBuffers+0x8>	68: R_ARM_PC24	FUN_020866d8-0x8
+  6c:	e5870000 	str	r0, [r7]
+  70:	e5840000 	str	r0, [r4]
+  74:	e59f1018 	ldr	r1, [pc, #24]	@ 94 <L5FS_AllocateFileBuffers+0x94>
+  78:	e1a00005 	mov	r0, r5
+  7c:	eb000000 	bl	8 <L5FS_AllocateFileBuffers+0x8>	7c: R_ARM_PC24	FUN_020866d8-0x8
+  80:	e5870004 	str	r0, [r7, #4]
+  84:	e5960000 	ldr	r0, [r6]
+  88:	e1a05420 	lsr	r5, r0, #8
+  8c:	e1a00005 	mov	r0, r5
+  90:	e8bd80f8 	pop	{r3, r4, r5, r6, r7, pc}
+  94:	00000101 	.word	0x00000101
+
+Disassembly of section .text:
+
+00000000 <L5FS_ReadUncompressedFileDeferred>:
+   0:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	e24dd058 	sub	sp, sp, #88	@ 0x58
+   8:	e1a08000 	mov	r8, r0
+   c:	e28d0004 	add	r0, sp, #4
+  10:	e1a07001 	mov	r7, r1
+  14:	e1a06002 	mov	r6, r2
+  18:	e1a05003 	mov	r5, r3
+  1c:	e59d4078 	ldr	r4, [sp, #120]	@ 0x78
+  20:	eb000000 	bl	8 <FS_ConvertPathToFileID+0x8>	20: R_ARM_PC24	FS_ConvertPathToFileID-0x8
+  24:	e3500000 	cmp	r0, #0
+  28:	1a000000 	bne	30 <L5FS_ReadUncompressedFileDeferred+0x30>
+  2c:	eb000000 	bl	8 <OS_Terminate+0x8>	2c: R_ARM_PC24	OS_Terminate-0x8
+  30:	e28d9010 	add	r9, sp, #16
+  34:	e1a00009 	mov	r0, r9
+  38:	eb000000 	bl	8 <FS_InitFile+0x8>	38: R_ARM_PC24	FS_InitFile-0x8
+  3c:	e28d1004 	add	r1, sp, #4
+  40:	e1a00009 	mov	r0, r9
+  44:	e8910006 	ldm	r1, {r1, r2}
+  48:	eb000000 	bl	8 <FS_OpenFileFast+0x8>	48: R_ARM_PC24	FS_OpenFileFast-0x8
+  4c:	e3500000 	cmp	r0, #0
+  50:	1a000000 	bne	58 <L5FS_ReadUncompressedFileDeferred+0x58>
+  54:	eb000000 	bl	8 <OS_Terminate+0x8>	54: R_ARM_PC24	OS_Terminate-0x8
+  58:	e28da010 	add	sl, sp, #16
+  5c:	e1a0000a 	mov	r0, sl
+  60:	eb000000 	bl	8 <FS_GetLength+0x8>	60: R_ARM_PC24	FS_GetLength-0x8
+  64:	e1a09000 	mov	r9, r0
+  68:	e1a0000a 	mov	r0, sl
+  6c:	eb000000 	bl	8 <FS_CloseFile+0x8>	6c: R_ARM_PC24	FS_CloseFile-0x8
+  70:	e3a01000 	mov	r1, #0
+  74:	e3540000 	cmp	r4, #0
+  78:	d1a04009 	movle	r4, r9
+  7c:	e1a00006 	mov	r0, r6
+  80:	e58d100c 	str	r1, [sp, #12]
+  84:	eb000000 	bl	8 <L5FS_ReadUncompressedFileDeferred+0x8>	84: R_ARM_PC24	L5FS_GetFileHandle-0x8
+  88:	e28d100c 	add	r1, sp, #12
+  8c:	e1a02004 	mov	r2, r4
+  90:	e1a03008 	mov	r3, r8
+  94:	e58d7000 	str	r7, [sp]
+  98:	e1a06000 	mov	r6, r0
+  9c:	eb000000 	bl	8 <L5FS_ReadUncompressedFileDeferred+0x8>	9c: R_ARM_PC24	L5FS_AllocateFileBuffers-0x8
+  a0:	e59d1004 	ldr	r1, [sp, #4]
+  a4:	e586100c 	str	r1, [r6, #12]
+  a8:	e59d1008 	ldr	r1, [sp, #8]
+  ac:	e5861010 	str	r1, [r6, #16]
+  b0:	e5865014 	str	r5, [r6, #20]
+  b4:	e5864018 	str	r4, [r6, #24]
+  b8:	e59d100c 	ldr	r1, [sp, #12]
+  bc:	e586101c 	str	r1, [r6, #28]
+  c0:	e5961000 	ldr	r1, [r6]
+  c4:	e5861008 	str	r1, [r6, #8]
+  c8:	e28dd058 	add	sp, sp, #88	@ 0x58
+  cc:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}
+
+Disassembly of section .text:
+
+00000000 <L5FS_OpenArchiveDirect>:
+   0:	e92d4078 	push	{r3, r4, r5, r6, lr}
+   4:	e24ddf41 	sub	sp, sp, #260	@ 0x104
+   8:	e1a04001 	mov	r4, r1
+   c:	e1a05000 	mov	r5, r0
+  10:	e59f10e0 	ldr	r1, [pc, #224]	@ f8 <L5FS_OpenArchiveDirect+0xf8>
+  14:	e28d0084 	add	r0, sp, #132	@ 0x84
+  18:	e1a02004 	mov	r2, r4
+  1c:	eb000000 	bl	8 <STD_TSPrintf+0x8>	1c: R_ARM_PC24	STD_TSPrintf-0x8
+  20:	e59f10d4 	ldr	r1, [pc, #212]	@ fc <L5FS_OpenArchiveDirect+0xfc>
+  24:	e28d0004 	add	r0, sp, #4
+  28:	e1a02004 	mov	r2, r4
+  2c:	eb000000 	bl	8 <STD_TSPrintf+0x8>	2c: R_ARM_PC24	STD_TSPrintf-0x8
+  30:	e3550000 	cmp	r5, #0
+  34:	03a05000 	moveq	r5, #0
+  38:	e58d5000 	str	r5, [sp]
+  3c:	e59f40bc 	ldr	r4, [pc, #188]	@ 100 <L5FS_OpenArchiveDirect+0x100>
+  40:	e3a05000 	mov	r5, #0
+  44:	e3a00014 	mov	r0, #20
+  48:	e0020095 	mul	r2, r5, r0
+  4c:	e7941002 	ldr	r1, [r4, r2]
+  50:	e0842002 	add	r2, r4, r2
+  54:	e3510000 	cmp	r1, #0
+  58:	05921004 	ldreq	r1, [r2, #4]
+  5c:	03510000 	cmpeq	r1, #0
+  60:	1a00001d 	bne	dc <L5FS_OpenArchiveDirect+0xdc>
+  64:	e3a06000 	mov	r6, #0
+  68:	e28d0000 	add	r0, sp, #0
+  6c:	e28d1084 	add	r1, sp, #132	@ 0x84
+  70:	e1a02006 	mov	r2, r6
+  74:	e1a03006 	mov	r3, r6
+  78:	eb000000 	bl	8 <L5FS_OpenArchiveDirect+0x8>	78: R_ARM_PC24	Common_OpenFileRead-0x8
+  7c:	e3500000 	cmp	r0, #0
+  80:	b28ddf41 	addlt	sp, sp, #260	@ 0x104
+  84:	b2460001 	sublt	r0, r6, #1
+  88:	b8bd8078 	poplt	{r3, r4, r5, r6, pc}
+  8c:	e3a01014 	mov	r1, #20
+  90:	e00c0195 	mul	ip, r5, r1
+  94:	e59f2068 	ldr	r2, [pc, #104]	@ 104 <L5FS_OpenArchiveDirect+0x104>
+  98:	e3a03001 	mov	r3, #1
+  9c:	e782300c 	str	r3, [r2, ip]
+  a0:	e1a03220 	lsr	r3, r0, #4
+  a4:	e59f105c 	ldr	r1, [pc, #92]	@ 108 <L5FS_OpenArchiveDirect+0x108>
+  a8:	e084000c 	add	r0, r4, ip
+  ac:	e18130bc 	strh	r3, [r1, ip]
+  b0:	e59d2000 	ldr	r2, [sp]
+  b4:	e28d1004 	add	r1, sp, #4
+  b8:	e2800008 	add	r0, r0, #8
+  bc:	e784200c 	str	r2, [r4, ip]
+  c0:	eb000000 	bl	8 <FS_ConvertPathToFileID+0x8>	c0: R_ARM_PC24	FS_ConvertPathToFileID-0x8
+  c4:	e3500000 	cmp	r0, #0
+  c8:	1a000000 	bne	d0 <L5FS_OpenArchiveDirect+0xd0>
+  cc:	eb000000 	bl	8 <OS_Terminate+0x8>	cc: R_ARM_PC24	OS_Terminate-0x8
+  d0:	e28ddf41 	add	sp, sp, #260	@ 0x104
+  d4:	e1a00005 	mov	r0, r5
+  d8:	e8bd8078 	pop	{r3, r4, r5, r6, pc}
+  dc:	e2855001 	add	r5, r5, #1
+  e0:	e3550012 	cmp	r5, #18
+  e4:	baffffd7 	blt	48 <L5FS_OpenArchiveDirect+0x48>
+  e8:	eb000000 	bl	8 <OS_Terminate+0x8>	e8: R_ARM_PC24	OS_Terminate-0x8
+  ec:	e3e00000 	mvn	r0, #0
+  f0:	e28ddf41 	add	sp, sp, #260	@ 0x104
+  f4:	e8bd8078 	pop	{r3, r4, r5, r6, pc}
+  f8:	00000000 	.word	0x00000000	f8: R_ARM_ABS32	@10160
+  fc:	00000000 	.word	0x00000000	fc: R_ARM_ABS32	@10161
+ 100:	00000000 	.word	0x00000000	100: R_ARM_ABS32	unk_020BC5D0
+ 104:	00000000 	.word	0x00000000	104: R_ARM_ABS32	unk_020BC5D0+0x4
+ 108:	00000000 	.word	0x00000000	108: R_ARM_ABS32	unk_020BC5D0+0x12
+
+Disassembly of section .text:
+
+00000000 <L5FS_OpenArchiveDeferred>:
+   0:	e92d40f0 	push	{r4, r5, r6, r7, lr}
+   4:	e24ddf41 	sub	sp, sp, #260	@ 0x104
+   8:	e1a04001 	mov	r4, r1
+   c:	e1a05000 	mov	r5, r0
+  10:	e59f10cc 	ldr	r1, [pc, #204]	@ e4 <L5FS_OpenArchiveDeferred+0xe4>
+  14:	e28d0084 	add	r0, sp, #132	@ 0x84
+  18:	e1a02004 	mov	r2, r4
+  1c:	eb000000 	bl	8 <STD_TSPrintf+0x8>	1c: R_ARM_PC24	STD_TSPrintf-0x8
+  20:	e59f10c0 	ldr	r1, [pc, #192]	@ e8 <L5FS_OpenArchiveDeferred+0xe8>
+  24:	e28d0004 	add	r0, sp, #4
+  28:	e1a02004 	mov	r2, r4
+  2c:	eb000000 	bl	8 <STD_TSPrintf+0x8>	2c: R_ARM_PC24	STD_TSPrintf-0x8
+  30:	e59f20b4 	ldr	r2, [pc, #180]	@ ec <L5FS_OpenArchiveDeferred+0xec>
+  34:	e3a04000 	mov	r4, #0
+  38:	e3a00014 	mov	r0, #20
+  3c:	e00c0094 	mul	ip, r4, r0
+  40:	e792100c 	ldr	r1, [r2, ip]
+  44:	e082300c 	add	r3, r2, ip
+  48:	e3510000 	cmp	r1, #0
+  4c:	05931004 	ldreq	r1, [r3, #4]
+  50:	03510000 	cmpeq	r1, #0
+  54:	1a00001b 	bne	c8 <L5FS_OpenArchiveDeferred+0xc8>
+  58:	e59f0090 	ldr	r0, [pc, #144]	@ f0 <L5FS_OpenArchiveDeferred+0xf0>
+  5c:	e3a01001 	mov	r1, #1
+  60:	e780100c 	str	r1, [r0, ip]
+  64:	e3a00014 	mov	r0, #20
+  68:	e0060094 	mul	r6, r4, r0
+  6c:	e59f1078 	ldr	r1, [pc, #120]	@ ec <L5FS_OpenArchiveDeferred+0xec>
+  70:	e3550000 	cmp	r5, #0
+  74:	e0817006 	add	r7, r1, r6
+  78:	15835000 	strne	r5, [r3]
+  7c:	e2405015 	sub	r5, r0, #21
+  80:	e28d1084 	add	r1, sp, #132	@ 0x84
+  84:	e1a00007 	mov	r0, r7
+  88:	e2872010 	add	r2, r7, #16
+  8c:	e3a03000 	mov	r3, #0
+  90:	e58d5000 	str	r5, [sp]
+  94:	eb000000 	bl	8 <L5FS_OpenArchiveDeferred+0x8>	94: R_ARM_PC24	L5FS_ReadUncompressedFileDeferred-0x8
+  98:	e1a03220 	lsr	r3, r0, #4
+  9c:	e59f2050 	ldr	r2, [pc, #80]	@ f4 <L5FS_OpenArchiveDeferred+0xf4>
+  a0:	e28d1004 	add	r1, sp, #4
+  a4:	e2870008 	add	r0, r7, #8
+  a8:	e18230b6 	strh	r3, [r2, r6]
+  ac:	eb000000 	bl	8 <FS_ConvertPathToFileID+0x8>	ac: R_ARM_PC24	FS_ConvertPathToFileID-0x8
+  b0:	e3500000 	cmp	r0, #0
+  b4:	1a000000 	bne	bc <L5FS_OpenArchiveDeferred+0xbc>
+  b8:	eb000000 	bl	8 <OS_Terminate+0x8>	b8: R_ARM_PC24	OS_Terminate-0x8
+  bc:	e28ddf41 	add	sp, sp, #260	@ 0x104
+  c0:	e1a00004 	mov	r0, r4
+  c4:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}
+  c8:	e2844001 	add	r4, r4, #1
+  cc:	e3540012 	cmp	r4, #18
+  d0:	baffffd9 	blt	3c <L5FS_OpenArchiveDeferred+0x3c>
+  d4:	eb000000 	bl	8 <OS_Terminate+0x8>	d4: R_ARM_PC24	OS_Terminate-0x8
+  d8:	e3e00000 	mvn	r0, #0
+  dc:	e28ddf41 	add	sp, sp, #260	@ 0x104
+  e0:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}
+  e4:	00000000 	.word	0x00000000	e4: R_ARM_ABS32	@10188
+  e8:	00000000 	.word	0x00000000	e8: R_ARM_ABS32	@10189
+  ec:	00000000 	.word	0x00000000	ec: R_ARM_ABS32	unk_020BC5D0
+  f0:	00000000 	.word	0x00000000	f0: R_ARM_ABS32	unk_020BC5D0+0x4
+  f4:	00000000 	.word	0x00000000	f4: R_ARM_ABS32	unk_020BC5D0+0x12
+
+Disassembly of section .text:
+
+00000000 <FUN_02086040>:
+   0:	e92d4070 	push	{r4, r5, r6, lr}
+   4:	e3500000 	cmp	r0, #0
+   8:	b8bd8070 	poplt	{r4, r5, r6, pc}
+   c:	e3a04014 	mov	r4, #20
+  10:	e0060490 	mul	r6, r0, r4
+  14:	e59f5020 	ldr	r5, [pc, #32]	@ 3c <FUN_02086040+0x3c>
+  18:	e7950006 	ldr	r0, [r5, r6]
+  1c:	e3500000 	cmp	r0, #0
+  20:	08bd8070 	popeq	{r4, r5, r6, pc}
+  24:	eb000000 	bl	8 <FUN_02086040+0x8>	24: R_ARM_PC24	Common_Deallocate-0x8
+  28:	e1a02004 	mov	r2, r4
+  2c:	e0850006 	add	r0, r5, r6
+  30:	e3a01000 	mov	r1, #0
+  34:	eb000000 	bl	8 <MI_CpuFill8+0x8>	34: R_ARM_PC24	MI_CpuFill8-0x8
+  38:	e8bd8070 	pop	{r4, r5, r6, pc}
+  3c:	00000000 	.word	0x00000000	3c: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <FUN_02086080>:
+   0:	e92d4070 	push	{r4, r5, r6, lr}
+   4:	e3a04014 	mov	r4, #20
+   8:	e0050490 	mul	r5, r0, r4
+   c:	e59f602c 	ldr	r6, [pc, #44]	@ 40 <FUN_02086080+0x40>
+  10:	e19600d5 	ldrsb	r0, [r6, r5]
+  14:	e3500000 	cmp	r0, #0
+  18:	ba000006 	blt	38 <FUN_02086080+0x38>
+  1c:	eb000000 	bl	8 <FUN_02086080+0x8>	1c: R_ARM_PC24	FUN_02086480-0x8
+  20:	e3500000 	cmp	r0, #0
+  24:	13a00000 	movne	r0, #0
+  28:	02440015 	subeq	r0, r4, #21
+  2c:	07c60005 	strbeq	r0, [r6, r5]
+  30:	03a00001 	moveq	r0, #1
+  34:	e8bd8070 	pop	{r4, r5, r6, pc}
+  38:	e3a00001 	mov	r0, #1
+  3c:	e8bd8070 	pop	{r4, r5, r6, pc}
+  40:	00000000 	.word	0x00000000	40: R_ARM_ABS32	unk_020BC5D0+0x10
+
+Disassembly of section .text:
+
+00000000 <FUN_020860c4>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e1a04000 	mov	r4, r0
+   8:	e1a00004 	mov	r0, r4
+   c:	eb000000 	bl	8 <FUN_020860c4+0x8>	c: R_ARM_PC24	FUN_02086080-0x8
+  10:	e3500000 	cmp	r0, #0
+  14:	18bd8010 	popne	{r4, pc}
+  18:	eb000000 	bl	8 <FUN_0206ee5c+0x8>	18: R_ARM_PC24	FUN_0206ee5c-0x8
+  1c:	eafffff9 	b	8 <FUN_020860c4+0x8>
+  20:	e8bd8010 	pop	{r4, pc}
+
+Disassembly of section .text:
+
+00000000 <FUN_020860e8>:
+   0:	e59f301c 	ldr	r3, [pc, #28]	@ 24 <FUN_020860e8+0x24>
+   4:	e3a02014 	mov	r2, #20
+   8:	e0223290 	mla	r2, r0, r2, r3
+   c:	e1d201b2 	ldrh	r0, [r2, #18]
+  10:	e1510000 	cmp	r1, r0
+  14:	a3a00000 	movge	r0, #0
+  18:	b5920000 	ldrlt	r0, [r2]
+  1c:	b0800201 	addlt	r0, r0, r1, lsl #4
+  20:	e12fff1e 	bx	lr
+  24:	00000000 	.word	0x00000000	24: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <L5FS_ReadFileByID>:
+   0:	e92d000f 	push	{r0, r1, r2, r3}
+   4:	e92d4038 	push	{r3, r4, r5, lr}
+   8:	e24dd008 	sub	sp, sp, #8
+   c:	e1a05000 	mov	r5, r0
+  10:	e5950000 	ldr	r0, [r5]
+  14:	e1a04001 	mov	r4, r1
+  18:	e3500000 	cmp	r0, #0
+  1c:	1a000007 	bne	40 <L5FS_ReadFileByID+0x40>
+  20:	e594000c 	ldr	r0, [r4, #12]
+  24:	e1a01c00 	lsl	r1, r0, #24
+  28:	e1b01e21 	lsrs	r1, r1, #28
+  2c:	05940008 	ldreq	r0, [r4, #8]
+  30:	e3e01000 	mvn	r1, #0
+  34:	11a00420 	lsrne	r0, r0, #8
+  38:	eb000000 	bl	8 <L5FS_ReadFileByID+0x8>	38: R_ARM_PC24	FUN_020866d8-0x8
+  3c:	e5850000 	str	r0, [r5]
+  40:	e594000c 	ldr	r0, [r4, #12]
+  44:	e1a00c00 	lsl	r0, r0, #24
+  48:	e1b00e20 	lsrs	r0, r0, #28
+  4c:	e5940008 	ldr	r0, [r4, #8]
+  50:	1a000007 	bne	74 <L5FS_ReadFileByID+0x74>
+  54:	e58d0000 	str	r0, [sp]
+  58:	e5943004 	ldr	r3, [r4, #4]
+  5c:	e28d1020 	add	r1, sp, #32
+  60:	e1a00005 	mov	r0, r5
+  64:	e8910006 	ldm	r1, {r1, r2}
+  68:	eb000000 	bl	8 <L5FS_ReadFileByID+0x8>	68: R_ARM_PC24	Common_OpenFileReadByID-0x8
+  6c:	e1a04000 	mov	r4, r0
+  70:	ea000023 	b	104 <L5FS_ReadFileByID+0x104>
+  74:	e59f109c 	ldr	r1, [pc, #156]	@ 118 <L5FS_ReadFileByID+0x118>
+  78:	eb000000 	bl	8 <L5FS_ReadFileByID+0x8>	78: R_ARM_PC24	FUN_020866d8-0x8
+  7c:	e58d0004 	str	r0, [sp, #4]
+  80:	e5940008 	ldr	r0, [r4, #8]
+  84:	e28d1020 	add	r1, sp, #32
+  88:	e58d0000 	str	r0, [sp]
+  8c:	e5943004 	ldr	r3, [r4, #4]
+  90:	e28d0004 	add	r0, sp, #4
+  94:	e8910006 	ldm	r1, {r1, r2}
+  98:	eb000000 	bl	8 <L5FS_ReadFileByID+0x8>	98: R_ARM_PC24	Common_OpenFileReadByID-0x8
+  9c:	e3500000 	cmp	r0, #0
+  a0:	aa000000 	bge	a8 <L5FS_ReadFileByID+0xa8>
+  a4:	eb000000 	bl	8 <OS_Terminate+0x8>	a4: R_ARM_PC24	OS_Terminate-0x8
+  a8:	e594000c 	ldr	r0, [r4, #12]
+  ac:	e20000f0 	and	r0, r0, #240	@ 0xf0
+  b0:	e3500010 	cmp	r0, #16
+  b4:	0a000002 	beq	c4 <L5FS_ReadFileByID+0xc4>
+  b8:	e3500020 	cmp	r0, #32
+  bc:	0a000004 	beq	d4 <L5FS_ReadFileByID+0xd4>
+  c0:	ea000007 	b	e4 <L5FS_ReadFileByID+0xe4>
+  c4:	e59d0004 	ldr	r0, [sp, #4]
+  c8:	e5951000 	ldr	r1, [r5]
+  cc:	eb000000 	bl	8 <MI_UncompressLZ8+0x8>	cc: R_ARM_PC24	MI_UncompressLZ8-0x8
+  d0:	ea000004 	b	e8 <L5FS_ReadFileByID+0xe8>
+  d4:	e59d0004 	ldr	r0, [sp, #4]
+  d8:	e5951000 	ldr	r1, [r5]
+  dc:	eb000000 	bl	8 <MI_UncompressHuffman+0x8>	dc: R_ARM_PC24	MI_UncompressHuffman-0x8
+  e0:	ea000000 	b	e8 <L5FS_ReadFileByID+0xe8>
+  e4:	eb000000 	bl	8 <OS_Terminate+0x8>	e4: R_ARM_PC24	OS_Terminate-0x8
+  e8:	e59d0004 	ldr	r0, [sp, #4]
+  ec:	eb000000 	bl	8 <L5FS_ReadFileByID+0x8>	ec: R_ARM_PC24	Common_Deallocate-0x8
+  f0:	e594100c 	ldr	r1, [r4, #12]
+  f4:	e5950000 	ldr	r0, [r5]
+  f8:	e1a04421 	lsr	r4, r1, #8
+  fc:	e1a01004 	mov	r1, r4
+ 100:	eb000000 	bl	8 <DC_FlushRange+0x8>	100: R_ARM_PC24	DC_FlushRange-0x8
+ 104:	e1a00004 	mov	r0, r4
+ 108:	e28dd008 	add	sp, sp, #8
+ 10c:	e8bd4038 	pop	{r3, r4, r5, lr}
+ 110:	e28dd010 	add	sp, sp, #16
+ 114:	e12fff1e 	bx	lr
+ 118:	00000101 	.word	0x00000101
+
+Disassembly of section .text:
+
+00000000 <FUN_0208622c>:
+   0:	e92d40f8 	push	{r3, r4, r5, r6, r7, lr}
+   4:	e1a07000 	mov	r7, r0
+   8:	e3510000 	cmp	r1, #0
+   c:	e1a06002 	mov	r6, r2
+  10:	b3e00000 	mvnlt	r0, #0
+  14:	b8bd80f8 	poplt	{r3, r4, r5, r6, r7, pc}
+  18:	e59f0034 	ldr	r0, [pc, #52]	@ 54 <FUN_0208622c+0x54>
+  1c:	e3a04014 	mov	r4, #20
+  20:	e0250491 	mla	r5, r1, r4, r0
+  24:	e1a00001 	mov	r0, r1
+  28:	e1a01006 	mov	r1, r6
+  2c:	eb000000 	bl	8 <FUN_0208622c+0x8>	2c: R_ARM_PC24	FUN_02086684-0x8
+  30:	e1b01000 	movs	r1, r0
+  34:	02440015 	subeq	r0, r4, #21
+  38:	08bd80f8 	popeq	{r3, r4, r5, r6, r7, pc}
+  3c:	e1a00007 	mov	r0, r7
+  40:	e58d6000 	str	r6, [sp]
+  44:	e2852008 	add	r2, r5, #8
+  48:	e892000c 	ldm	r2, {r2, r3}
+  4c:	eb000000 	bl	8 <FUN_0208622c+0x8>	4c: R_ARM_PC24	L5FS_ReadFileByID-0x8
+  50:	e8bd80f8 	pop	{r3, r4, r5, r6, r7, pc}
+  54:	00000000 	.word	0x00000000	54: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <FUN_02086284>:
+   0:	e92d41f8 	push	{r3, r4, r5, r6, r7, r8, lr}
+   4:	e24dd084 	sub	sp, sp, #132	@ 0x84
+   8:	e1a04002 	mov	r4, r2
+   c:	e3510000 	cmp	r1, #0
+  10:	a3540000 	cmpge	r4, #0
+  14:	e1a05000 	mov	r5, r0
+  18:	b28dd084 	addlt	sp, sp, #132	@ 0x84
+  1c:	b3e00000 	mvnlt	r0, #0
+  20:	b8bd81f8 	poplt	{r3, r4, r5, r6, r7, r8, pc}
+  24:	e59f305c 	ldr	r3, [pc, #92]	@ 88 <FUN_02086284+0x88>
+  28:	e3a00014 	mov	r0, #20
+  2c:	e0273091 	mla	r7, r1, r0, r3
+  30:	e1d711b2 	ldrh	r1, [r7, #18]
+  34:	e1540001 	cmp	r4, r1
+  38:	a28dd084 	addge	sp, sp, #132	@ 0x84
+  3c:	a2400015 	subge	r0, r0, #21
+  40:	a8bd81f8 	popge	{r3, r4, r5, r6, r7, r8, pc}
+  44:	e5978000 	ldr	r8, [r7]
+  48:	e3580000 	cmp	r8, #0
+  4c:	028dd084 	addeq	sp, sp, #132	@ 0x84
+  50:	02400015 	subeq	r0, r0, #21
+  54:	08bd81f8 	popeq	{r3, r4, r5, r6, r7, r8, pc}
+  58:	e28d6004 	add	r6, sp, #4
+  5c:	e59f1028 	ldr	r1, [pc, #40]	@ 8c <FUN_02086284+0x8c>
+  60:	e1a00006 	mov	r0, r6
+  64:	eb000000 	bl	8 <STD_TSPrintf+0x8>	64: R_ARM_PC24	STD_TSPrintf-0x8
+  68:	e1a00005 	mov	r0, r5
+  6c:	e58d6000 	str	r6, [sp]
+  70:	e2872008 	add	r2, r7, #8
+  74:	e0881204 	add	r1, r8, r4, lsl #4
+  78:	e892000c 	ldm	r2, {r2, r3}
+  7c:	eb000000 	bl	8 <FUN_02086284+0x8>	7c: R_ARM_PC24	L5FS_ReadFileByID-0x8
+  80:	e28dd084 	add	sp, sp, #132	@ 0x84
+  84:	e8bd81f8 	pop	{r3, r4, r5, r6, r7, r8, pc}
+  88:	00000000 	.word	0x00000000	88: R_ARM_ABS32	unk_020BC5D0
+  8c:	00000000 	.word	0x00000000	8c: R_ARM_ABS32	@10270
+
+Disassembly of section .text:
+
+00000000 <L5FS_AllocateFileHandle>:
+   0:	e92d000f 	push	{r0, r1, r2, r3}
+   4:	e92d4078 	push	{r3, r4, r5, r6, lr}
+   8:	e24dd004 	sub	sp, sp, #4
+   c:	e1a06000 	mov	r6, r0
+  10:	e1a05001 	mov	r5, r1
+  14:	e59d0028 	ldr	r0, [sp, #40]	@ 0x28
+  18:	e5954008 	ldr	r4, [r5, #8]
+  1c:	eb000000 	bl	8 <L5FS_AllocateFileHandle+0x8>	1c: R_ARM_PC24	L5FS_GetFileHandle-0x8
+  20:	e59dc02c 	ldr	ip, [sp, #44]	@ 0x2c
+  24:	e1a02004 	mov	r2, r4
+  28:	e1a03006 	mov	r3, r6
+  2c:	e285100c 	add	r1, r5, #12
+  30:	e1a04000 	mov	r4, r0
+  34:	e58dc000 	str	ip, [sp]
+  38:	eb000000 	bl	8 <L5FS_AllocateFileHandle+0x8>	38: R_ARM_PC24	L5FS_AllocateFileBuffers-0x8
+  3c:	e59d2020 	ldr	r2, [sp, #32]
+  40:	e59d1024 	ldr	r1, [sp, #36]	@ 0x24
+  44:	e584200c 	str	r2, [r4, #12]
+  48:	e5841010 	str	r1, [r4, #16]
+  4c:	e5951004 	ldr	r1, [r5, #4]
+  50:	e5841014 	str	r1, [r4, #20]
+  54:	e5951008 	ldr	r1, [r5, #8]
+  58:	e5841018 	str	r1, [r4, #24]
+  5c:	e595100c 	ldr	r1, [r5, #12]
+  60:	e584101c 	str	r1, [r4, #28]
+  64:	e5941000 	ldr	r1, [r4]
+  68:	e5841008 	str	r1, [r4, #8]
+  6c:	e28dd004 	add	sp, sp, #4
+  70:	e8bd4078 	pop	{r3, r4, r5, r6, lr}
+  74:	e28dd010 	add	sp, sp, #16
+  78:	e12fff1e 	bx	lr
+
+Disassembly of section .text:
+
+00000000 <FUN_02086390>:
+   0:	e92d41f0 	push	{r4, r5, r6, r7, r8, lr}
+   4:	e24dd008 	sub	sp, sp, #8
+   8:	e3510000 	cmp	r1, #0
+   c:	e1a08000 	mov	r8, r0
+  10:	e1a07002 	mov	r7, r2
+  14:	e1a06003 	mov	r6, r3
+  18:	b28dd008 	addlt	sp, sp, #8
+  1c:	b3e00000 	mvnlt	r0, #0
+  20:	b8bd81f0 	poplt	{r4, r5, r6, r7, r8, pc}
+  24:	e59f003c 	ldr	r0, [pc, #60]	@ 68 <FUN_02086390+0x68>
+  28:	e3a04014 	mov	r4, #20
+  2c:	e0250491 	mla	r5, r1, r4, r0
+  30:	e1a00001 	mov	r0, r1
+  34:	e1a01007 	mov	r1, r7
+  38:	eb000000 	bl	8 <FUN_02086390+0x8>	38: R_ARM_PC24	FUN_02086684-0x8
+  3c:	e1b01000 	movs	r1, r0
+  40:	028dd008 	addeq	sp, sp, #8
+  44:	02440015 	subeq	r0, r4, #21
+  48:	08bd81f0 	popeq	{r4, r5, r6, r7, r8, pc}
+  4c:	e88d00c0 	stm	sp, {r6, r7}
+  50:	e2852008 	add	r2, r5, #8
+  54:	e1a00008 	mov	r0, r8
+  58:	e892000c 	ldm	r2, {r2, r3}
+  5c:	eb000000 	bl	8 <FUN_02086390+0x8>	5c: R_ARM_PC24	L5FS_AllocateFileHandle-0x8
+  60:	e28dd008 	add	sp, sp, #8
+  64:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}
+  68:	00000000 	.word	0x00000000	68: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <FUN_020863fc>:
+   0:	e92d43f8 	push	{r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	e24dd088 	sub	sp, sp, #136	@ 0x88
+   8:	e1a06002 	mov	r6, r2
+   c:	e3510000 	cmp	r1, #0
+  10:	a3560000 	cmpge	r6, #0
+  14:	e1a07000 	mov	r7, r0
+  18:	e1a05003 	mov	r5, r3
+  1c:	b28dd088 	addlt	sp, sp, #136	@ 0x88
+  20:	b3e00000 	mvnlt	r0, #0
+  24:	b8bd83f8 	poplt	{r3, r4, r5, r6, r7, r8, r9, pc}
+  28:	e3a00014 	mov	r0, #20
+  2c:	e0030091 	mul	r3, r1, r0
+  30:	e59f1044 	ldr	r1, [pc, #68]	@ 7c <FUN_020863fc+0x7c>
+  34:	e7914003 	ldr	r4, [r1, r3]
+  38:	e0819003 	add	r9, r1, r3
+  3c:	e3540000 	cmp	r4, #0
+  40:	028dd088 	addeq	sp, sp, #136	@ 0x88
+  44:	02400015 	subeq	r0, r0, #21
+  48:	08bd83f8 	popeq	{r3, r4, r5, r6, r7, r8, r9, pc}
+  4c:	e28d8008 	add	r8, sp, #8
+  50:	e59f1028 	ldr	r1, [pc, #40]	@ 80 <FUN_020863fc+0x80>
+  54:	e1a00008 	mov	r0, r8
+  58:	eb000000 	bl	8 <STD_TSPrintf+0x8>	58: R_ARM_PC24	STD_TSPrintf-0x8
+  5c:	e88d0120 	stm	sp, {r5, r8}
+  60:	e2892008 	add	r2, r9, #8
+  64:	e1a00007 	mov	r0, r7
+  68:	e0841206 	add	r1, r4, r6, lsl #4
+  6c:	e892000c 	ldm	r2, {r2, r3}
+  70:	eb000000 	bl	8 <FUN_020863fc+0x8>	70: R_ARM_PC24	L5FS_AllocateFileHandle-0x8
+  74:	e28dd088 	add	sp, sp, #136	@ 0x88
+  78:	e8bd83f8 	pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+  7c:	00000000 	.word	0x00000000	7c: R_ARM_ABS32	unk_020BC5D0
+  80:	00000000 	.word	0x00000000	80: R_ARM_ABS32	@10305
+
+Disassembly of section .text:
+
+00000000 <FUN_02086480>:
+   0:	e59f101c 	ldr	r1, [pc, #28]	@ 24 <FUN_02086480+0x24>
+   4:	e5912008 	ldr	r2, [r1, #8]
+   8:	e7921280 	ldr	r1, [r2, r0, lsl #5]
+   c:	e3510000 	cmp	r1, #0
+  10:	00821280 	addeq	r1, r2, r0, lsl #5
+  14:	03a00000 	moveq	r0, #0
+  18:	05810008 	streq	r0, [r1, #8]
+  1c:	13a00001 	movne	r0, #1
+  20:	e12fff1e 	bx	lr
+  24:	00000000 	.word	0x00000000	24: R_ARM_ABS32	.bss
+
+Disassembly of section .text:
+
+00000000 <FUN_020864a8>:
+   0:	e59fc000 	ldr	ip, [pc]	@ 8 <FUN_020864a8+0x8>
+   4:	e12fff1c 	bx	ip
+   8:	00000000 	.word	0x00000000	8: R_ARM_ABS32	OS_Terminate
+
+Disassembly of section .text:
+
+00000000 <FUN_020864b4>:
+   0:	e92d4070 	push	{r4, r5, r6, lr}
+   4:	e24dd008 	sub	sp, sp, #8
+   8:	e59f0084 	ldr	r0, [pc, #132]	@ 94 <FUN_020864b4+0x94>
+   c:	e59f1084 	ldr	r1, [pc, #132]	@ 98 <FUN_020864b4+0x98>
+  10:	eb000000 	bl	8 <MATHi_CRC32InitTableRev+0x8>	10: R_ARM_PC24	MATHi_CRC32InitTableRev-0x8
+  14:	e3a06000 	mov	r6, #0
+  18:	e59f007c 	ldr	r0, [pc, #124]	@ 9c <FUN_020864b4+0x9c>
+  1c:	e1a01006 	mov	r1, r6
+  20:	e3a02f5a 	mov	r2, #360	@ 0x168
+  24:	eb000000 	bl	8 <MI_CpuFill8+0x8>	24: R_ARM_PC24	MI_CpuFill8-0x8
+  28:	e2465001 	sub	r5, r6, #1
+  2c:	e1a01005 	mov	r1, r5
+  30:	e3a00c07 	mov	r0, #1792	@ 0x700
+  34:	eb000000 	bl	8 <FUN_020864b4+0x8>	34: R_ARM_PC24	FUN_0208670c-0x8
+  38:	e59f4060 	ldr	r4, [pc, #96]	@ a0 <FUN_020864b4+0xa0>
+  3c:	e5840008 	str	r0, [r4, #8]
+  40:	e59f005c 	ldr	r0, [pc, #92]	@ a4 <FUN_020864b4+0xa4>
+  44:	eb000000 	bl	8 <FS_ChangeDir+0x8>	44: R_ARM_PC24	FS_ChangeDir-0x8
+  48:	e1a01005 	mov	r1, r5
+  4c:	e3a05b02 	mov	r5, #2048	@ 0x800
+  50:	e1a00005 	mov	r0, r5
+  54:	eb000000 	bl	8 <FUN_020864b4+0x8>	54: R_ARM_PC24	FUN_020866d8-0x8
+  58:	e1a02006 	mov	r2, r6
+  5c:	e5840004 	str	r0, [r4, #4]
+  60:	e58d5000 	str	r5, [sp]
+  64:	e3a0001c 	mov	r0, #28
+  68:	e58d0004 	str	r0, [sp, #4]
+  6c:	e5940004 	ldr	r0, [r4, #4]
+  70:	e59f4030 	ldr	r4, [pc, #48]	@ a8 <FUN_020864b4+0xa8>
+  74:	e2803b02 	add	r3, r0, #2048	@ 0x800
+  78:	e1a00004 	mov	r0, r4
+  7c:	e59f1028 	ldr	r1, [pc, #40]	@ ac <FUN_020864b4+0xac>
+  80:	eb000000 	bl	8 <OS_CreateThread+0x8>	80: R_ARM_PC24	OS_CreateThread-0x8
+  84:	e1a00004 	mov	r0, r4
+  88:	eb000000 	bl	8 <OS_WakeupThreadDirect+0x8>	88: R_ARM_PC24	OS_WakeupThreadDirect-0x8
+  8c:	e28dd008 	add	sp, sp, #8
+  90:	e8bd8070 	pop	{r4, r5, r6, pc}
+  94:	00000000 	.word	0x00000000	94: R_ARM_ABS32	unk_020BC738
+  98:	edb88320 	.word	0xedb88320
+  9c:	00000000 	.word	0x00000000	9c: R_ARM_ABS32	unk_020BC5D0
+  a0:	00000000 	.word	0x00000000	a0: R_ARM_ABS32	.bss
+  a4:	00000000 	.word	0x00000000	a4: R_ARM_ABS32	@10314
+  a8:	00000000 	.word	0x00000000	a8: R_ARM_ABS32	unk_020BC510
+  ac:	00000000 	.word	0x00000000	ac: R_ARM_ABS32	FUN_02085ab4
+
+Disassembly of section .text:
+
+00000000 <FUN_02086564>:
+   0:	e92d4008 	push	{r3, lr}
+   4:	e24dd080 	sub	sp, sp, #128	@ 0x80
+   8:	e3a02000 	mov	r2, #0
+   c:	e28d1000 	add	r1, sp, #0
+  10:	e0d0c0d1 	ldrsb	ip, [r0], #1
+  14:	e35c0041 	cmp	ip, #65	@ 0x41
+  18:	ba000003 	blt	2c <FUN_02086564+0x2c>
+  1c:	e35c005a 	cmp	ip, #90	@ 0x5a
+  20:	d28c3020 	addle	r3, ip, #32
+  24:	d7c13002 	strble	r3, [r1, r2]
+  28:	da000000 	ble	30 <FUN_02086564+0x30>
+  2c:	e7c1c002 	strb	ip, [r1, r2]
+  30:	e35c0000 	cmp	ip, #0
+  34:	1a000004 	bne	4c <FUN_02086564+0x4c>
+  38:	e59f0024 	ldr	r0, [pc, #36]	@ 64 <FUN_02086564+0x64>
+  3c:	e28d1000 	add	r1, sp, #0
+  40:	eb000000 	bl	8 <MATH_CalcCRC32+0x8>	40: R_ARM_PC24	MATH_CalcCRC32-0x8
+  44:	e28dd080 	add	sp, sp, #128	@ 0x80
+  48:	e8bd8008 	pop	{r3, pc}
+  4c:	e2822001 	add	r2, r2, #1
+  50:	e3520080 	cmp	r2, #128	@ 0x80
+  54:	3affffed 	bcc	10 <FUN_02086564+0x10>
+  58:	e3a00000 	mov	r0, #0
+  5c:	e28dd080 	add	sp, sp, #128	@ 0x80
+  60:	e8bd8008 	pop	{r3, pc}
+  64:	00000000 	.word	0x00000000	64: R_ARM_ABS32	unk_020BC738
+
+Disassembly of section .text:
+
+00000000 <FUN_020865cc>:
+   0:	e92d4038 	push	{r3, r4, r5, lr}
+   4:	e1a04000 	mov	r4, r0
+   8:	e1a00002 	mov	r0, r2
+   c:	e1a05001 	mov	r5, r1
+  10:	eb000000 	bl	8 <FUN_020865cc+0x8>	10: R_ARM_PC24	FUN_02086564-0x8
+  14:	e3a02000 	mov	r2, #0
+  18:	e1a0e002 	mov	lr, r2
+  1c:	e2453001 	sub	r3, r5, #1
+  20:	e1a0c0a5 	lsr	ip, r5, #1
+  24:	e794120c 	ldr	r1, [r4, ip, lsl #4]
+  28:	e1500001 	cmp	r0, r1
+  2c:	01a0000c 	moveq	r0, ip
+  30:	08bd8038 	popeq	{r3, r4, r5, pc}
+  34:	e1520003 	cmp	r2, r3
+  38:	0a00000b 	beq	6c <FUN_020865cc+0x6c>
+  3c:	e1500001 	cmp	r0, r1
+  40:	304c1002 	subcc	r1, ip, r2
+  44:	32811001 	addcc	r1, r1, #1
+  48:	324c3001 	subcc	r3, ip, #1
+  4c:	304cc0a1 	subcc	ip, ip, r1, lsr #1
+  50:	2043100c 	subcs	r1, r3, ip
+  54:	22811001 	addcs	r1, r1, #1
+  58:	228c2001 	addcs	r2, ip, #1
+  5c:	e28ee001 	add	lr, lr, #1
+  60:	208cc0a1 	addcs	ip, ip, r1, lsr #1
+  64:	e35e0801 	cmp	lr, #65536	@ 0x10000
+  68:	baffffed 	blt	24 <FUN_020865cc+0x24>
+  6c:	e3e00000 	mvn	r0, #0
+  70:	e8bd8038 	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text:
+
+00000000 <FUN_02086640>:
+   0:	e92d4008 	push	{r3, lr}
+   4:	e3500000 	cmp	r0, #0
+   8:	e1a02001 	mov	r2, r1
+   c:	b3e00000 	mvnlt	r0, #0
+  10:	b8bd8008 	poplt	{r3, pc}
+  14:	e3a01014 	mov	r1, #20
+  18:	e0030190 	mul	r3, r0, r1
+  1c:	e59fc01c 	ldr	ip, [pc, #28]	@ 40 <FUN_02086640+0x40>
+  20:	e79c0003 	ldr	r0, [ip, r3]
+  24:	e08c3003 	add	r3, ip, r3
+  28:	e3500000 	cmp	r0, #0
+  2c:	02410015 	subeq	r0, r1, #21
+  30:	08bd8008 	popeq	{r3, pc}
+  34:	e1d311b2 	ldrh	r1, [r3, #18]
+  38:	eb000000 	bl	8 <FUN_02086640+0x8>	38: R_ARM_PC24	FUN_020865cc-0x8
+  3c:	e8bd8008 	pop	{r3, pc}
+  40:	00000000 	.word	0x00000000	40: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <FUN_02086684>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e3500000 	cmp	r0, #0
+   8:	e1a02001 	mov	r2, r1
+   c:	b3a00000 	movlt	r0, #0
+  10:	b8bd8010 	poplt	{r4, pc}
+  14:	e3a01014 	mov	r1, #20
+  18:	e0010190 	mul	r1, r0, r1
+  1c:	e59f002c 	ldr	r0, [pc, #44]	@ 50 <FUN_02086684+0x50>
+  20:	e7904001 	ldr	r4, [r0, r1]
+  24:	e0800001 	add	r0, r0, r1
+  28:	e3540000 	cmp	r4, #0
+  2c:	03a00000 	moveq	r0, #0
+  30:	08bd8010 	popeq	{r4, pc}
+  34:	e1d011b2 	ldrh	r1, [r0, #18]
+  38:	e1a00004 	mov	r0, r4
+  3c:	eb000000 	bl	8 <FUN_02086684+0x8>	3c: R_ARM_PC24	FUN_020865cc-0x8
+  40:	e3500000 	cmp	r0, #0
+  44:	a0840200 	addge	r0, r4, r0, lsl #4
+  48:	b3a00000 	movlt	r0, #0
+  4c:	e8bd8010 	pop	{r4, pc}
+  50:	00000000 	.word	0x00000000	50: R_ARM_ABS32	unk_020BC5D0
+
+Disassembly of section .text:
+
+00000000 <FUN_020866d8>:
+   0:	e92d4010 	push	{r4, lr}
+   4:	e1a04000 	mov	r4, r0
+   8:	e3510000 	cmp	r1, #0
+   c:	ba000001 	blt	18 <FUN_020866d8+0x18>
+  10:	e59f0018 	ldr	r0, [pc, #24]	@ 30 <FUN_020866d8+0x30>
+  14:	eb000000 	bl	8 <_ZN11L5Allocator12setNextArenaEi+0x8>	14: R_ARM_PC24	_ZN11L5Allocator12setNextArenaEi-0x8
+  18:	e59f0010 	ldr	r0, [pc, #16]	@ 30 <FUN_020866d8+0x30>
+  1c:	e1a01004 	mov	r1, r4
+  20:	e3a02000 	mov	r2, #0
+  24:	e3a03001 	mov	r3, #1
+  28:	eb000000 	bl	8 <_ZN11L5Allocator8allocateEiii+0x8>	28: R_ARM_PC24	_ZN11L5Allocator8allocateEiii-0x8
+  2c:	e8bd8010 	pop	{r4, pc}
+  30:	00000000 	.word	0x00000000	30: R_ARM_ABS32	gL5Allocator
+
+Disassembly of section .text:
+
+00000000 <FUN_0208670c>:
+   0:	e92d4038 	push	{r3, r4, r5, lr}
+   4:	e1a05000 	mov	r5, r0
+   8:	eb000000 	bl	8 <FUN_0208670c+0x8>	8: R_ARM_PC24	FUN_020866d8-0x8
+   c:	e1b04000 	movs	r4, r0
+  10:	0a000003 	beq	24 <FUN_0208670c+0x24>
+  14:	e1a01004 	mov	r1, r4
+  18:	e1a02005 	mov	r2, r5
+  1c:	e3a00000 	mov	r0, #0
+  20:	eb000000 	bl	8 <MIi_CpuClearFast+0x8>	20: R_ARM_PC24	MIi_CpuClearFast-0x8
+  24:	e1a00004 	mov	r0, r4
+  28:	e8bd8038 	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text:
+
+00000000 <Common_Deallocate>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0004 	ldr	r0, [pc, #4]	@ 10 <Common_Deallocate+0x10>
+   8:	e59fc004 	ldr	ip, [pc, #4]	@ 14 <Common_Deallocate+0x14>
+   c:	e12fff1c 	bx	ip
+  10:	00000000 	.word	0x00000000	10: R_ARM_ABS32	gL5Allocator
+  14:	00000000 	.word	0x00000000	14: R_ARM_ABS32	_ZN11L5Allocator10deallocateEPv
+
+Disassembly of section .text:
+
+00000000 <Common_SetNextArena>:
+   0:	e1a01000 	mov	r1, r0
+   4:	e59f0004 	ldr	r0, [pc, #4]	@ 10 <Common_SetNextArena+0x10>
+   8:	e59fc004 	ldr	ip, [pc, #4]	@ 14 <Common_SetNextArena+0x14>
+   c:	e12fff1c 	bx	ip
+  10:	00000000 	.word	0x00000000	10: R_ARM_ABS32	gL5Allocator
+  14:	00000000 	.word	0x00000000	14: R_ARM_ABS32	_ZN11L5Allocator12setNextArenaEi

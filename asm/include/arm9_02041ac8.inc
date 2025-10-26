@@ -18,7 +18,7 @@
 .public FUN_0202de44
 .public FX_Sqrt
 .public Common_SetNextArena
-.public FUN_02085e4c
+.public L5FS_OpenArchiveDirect
 .public FUN_02030260
 .public FUN_0202eff0
 .public FUN_02029d54
@@ -226,7 +226,7 @@
 .public FUN_0206cc44
 .public FUN_020747b8
 .public FUN_02072560
-.public FUN_02085d7c
+.public L5FS_ReadUncompressedFileDeferred
 .public FUN_02086480
 .public OS_Sleep
 .public FUN_0206d5d4
@@ -392,7 +392,7 @@
 .public unk_02099F58
 .public FUN_0208670c
 .public FUN_ov16_02116910
-.public FUN_02085f50
+.public L5FS_OpenArchiveDeferred
 .public FUN_02086080
 .public FUN_02086040
 .public FUN_020414fc
