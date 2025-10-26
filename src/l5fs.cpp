@@ -216,8 +216,10 @@ s32 L5FS_OpenArchiveDirect(void *data, const char *archive_path)
 
     void *file = data ? data : NULL; // useless.
     
-    for (int i = 0; i < 18; i++) {
-        if (!L5FS_sArchives[i].files && !L5FS_sArchives[i].inUse) {
+    for (s32 i = 0; i < 18; i++)
+    {
+        if (!L5FS_sArchives[i].files && !L5FS_sArchives[i].inUse)
+        {
             s32 size = Common_OpenFileRead(&file, pkh_path, 0, 0);            
             if (size < 0) {
                 return -1;
@@ -246,13 +248,18 @@ s32 L5FS_OpenArchiveDeferred(void *data, const char *archive_path)
     STD_TSPrintf(pkh_path, "%s.pkh", archive_path);
     STD_TSPrintf(pkb_path, "%s.pkb", archive_path);
 
-    for (int i = 0; i < 18; i++) {
-        if (L5FS_sArchives[i].files == NULL && !L5FS_sArchives[i].inUse) {
+    for (s32 i = 0; i < 18; i++)
+    {
+        if (L5FS_sArchives[i].files == NULL && !L5FS_sArchives[i].inUse)
+        {
             L5FS_sArchives[i].inUse = TRUE;
+
             if (data != NULL) {
                 L5FS_sArchives[i].files = data;
             }
+
             s32 size = L5FS_ReadUncompressedFileDeferred(&L5FS_sArchives[i].files, pkh_path, &L5FS_sArchives[i].arcFileHandle, 0, -1);
+
             L5FS_sArchives[i].nFiles = (u32)size / 0x10;
             
             if (!FS_ConvertPathToFileID(&L5FS_sArchives[i].binFileID, pkb_path)) {
@@ -329,7 +336,6 @@ s32 L5FS_ReadFileByID(void **dst, PKHFile *pkh_file, FSFileID file_id, const cha
     int size;
     
     if (*dst == NULL) {
-        
         if (pkh_file->compHeader.compType == 0) {
             size = pkh_file->size;
         } else {
@@ -415,7 +421,6 @@ s32 FUN_02086284(void **dst, s32 arcIdx, s32 fileIdx)
 
 s32 L5FS_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, s8 *idOut, const char *name)
 {
-
     s32 srcSize = file->size;
     L5FileHandle *handle = L5FS_GetFileHandle(idOut);
     s32 destSize = L5FS_AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
@@ -487,10 +492,15 @@ void FUN_020864b4(void)
     #define STACK_SIZE 2048
 
     MATH_CRC32InitTable(&Crc32Table);
+
     MI_CpuClear8(&L5FS_sArchives, sizeof(L5FS_sArchives));
+
     unk_020BC504.fileHandles = (L5FileHandle *)FUN_0208670c(0x700, -1);
+
     FS_ChangeDir("/data_iz/");
+
     unk_020BC504.stack = FUN_020866d8(STACK_SIZE, -1);
+
     OS_CreateThread(
         &unk_020BC510,
         &FUN_02085ab4,
@@ -499,6 +509,7 @@ void FUN_020864b4(void)
         STACK_SIZE,
         28
     );
+    
     OS_WakeupThreadDirect(&unk_020BC510);
 }
 

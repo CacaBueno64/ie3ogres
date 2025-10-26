@@ -59,7 +59,7 @@ Static main
 
 	Object asm/arm9_data_020938A0.o
 	Object src/l5common.o
-	Object asm/arm9_02085ce4.o
+	Object asm/arm9_init_02086768.o
 }
 
 Autoload ITCM
