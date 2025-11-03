@@ -17,9 +17,9 @@ void L5FSi_ProcessFiles(void *arg);
 L5FileHandle *L5FSi_GetFileHandle(filekey_t *keyOut);
 s32 L5FSi_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
                               const char *path);
-s32 L5FSi_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, filekey_t *keyOut, const char *name);
+s32 L5FSi_AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name);
 u32 L5FSi_HashFilename(const char *name);
-s32 L5FSi_FindFileIdxInternal(PKHFile *files, u16 nFiles, const char *name);
+s32 L5FSi_FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name);
 
 s32 L5FSi_ReadFileInChunks(FSFile *file, void *data, s32 len) {
 #define CHUNK_SIZE 0x4000
@@ -218,7 +218,7 @@ arckey_t L5FS_OpenArchiveDirect(void *data, const char *path) {
             }
 
             sArchives[i].inUse  = TRUE;
-            sArchives[i].nFiles = (u32)size / 0x10;
+            sArchives[i].nFiles = (u32)size / sizeof(Archive_PKH);
             sArchives[i].files  = file;
 
             if (!FS_ConvertPathToFileID(&sArchives[i].binFileID, pkb_path)) {
@@ -249,7 +249,7 @@ arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path) {
 
             s32 size = L5FS_ReadFileDeferred(&sArchives[i].files, pkh_path, &sArchives[i].arcFileKey, 0, -1);
 
-            sArchives[i].nFiles = (u32)size / 0x10;
+            sArchives[i].nFiles = (u32)size / sizeof(Archive_PKH);
 
             if (!FS_ConvertPathToFileID(&sArchives[i].binFileID, pkb_path)) {
                 OS_Terminate();
@@ -299,19 +299,19 @@ void L5FS_WaitArchiveReady(arckey_t key) {
     }
 }
 
-PKHFile *L5FS_GetFile(arckey_t arcKey, s32 fileIdx) {
+Archive_PKH *L5FS_GetFile(arckey_t arcKey, s32 fileIdx) {
     L5Archive *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
         return NULL;
     }
 
-    PKHFile *files = (PKHFile *)arc->files;
+    Archive_PKH *files = (Archive_PKH *)arc->files;
 
     return &files[fileIdx];
 }
 
-s32 L5FS_ReadFileByID(void **dst, PKHFile *files, FSFileID file_id, const char *filename) {
+s32 L5FS_ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const char *filename) {
     int size;
 
     if (*dst == NULL) {
@@ -355,7 +355,7 @@ s32 L5FS_ReadFileByName(void **dst, arckey_t arcKey, const char *filename) {
 
     L5Archive *arc = &sArchives[arcKey];
 
-    PKHFile *files = L5FS_FindFile(arcKey, filename);
+    Archive_PKH *files = L5FS_FindFile(arcKey, filename);
 
     if (files == NULL) {
         return -1;
@@ -377,7 +377,7 @@ s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
         return -1;
     }
 
-    PKHFile *files = (PKHFile *)arc->files;
+    Archive_PKH *files = (Archive_PKH *)arc->files;
     if (files == NULL) {
         return -1;
     }
@@ -387,7 +387,7 @@ s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
     return L5FS_ReadFileByID(dst, &files[fileIdx], arc->binFileID, filename);
 }
 
-s32 L5FSi_AllocateFileHandle(void **dataOut, PKHFile *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
+s32 L5FSi_AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
     s32 srcSize          = file->size;
     L5FileHandle *handle = L5FSi_GetFileHandle(keyOut);
     s32 destSize         = L5FSi_AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
@@ -408,7 +408,7 @@ s32 L5FS_ReadFileByNameDeferred(void **dst, arckey_t arcKey, const char *name, f
 
     L5Archive *arc = &sArchives[arcKey];
 
-    PKHFile *files = L5FS_FindFile(arcKey, name);
+    Archive_PKH *files = L5FS_FindFile(arcKey, name);
     if (files == NULL) {
         return -1;
     }
@@ -425,7 +425,7 @@ s32 L5FS_ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey
 
     L5Archive *arc = &sArchives[arcKey];
 
-    PKHFile *files = (PKHFile *)arc->files;
+    Archive_PKH *files = (Archive_PKH *)arc->files;
     if (files == NULL) {
         return -1;
     }
@@ -488,7 +488,7 @@ u32 L5FSi_HashFilename(const char *name) {
     return 0;
 }
 
-s32 L5FSi_FindFileIdxInternal(PKHFile *files, u16 nFiles, const char *name) {
+s32 L5FSi_FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name) {
     u32 hash = L5FSi_HashFilename(name);
 
     u32 left  = 0;
@@ -522,7 +522,7 @@ s32 L5FS_FindFileIdx(arckey_t arcKey, const char *name) {
     }
 
     L5Archive *arc = &sArchives[arcKey];
-    PKHFile *files = (PKHFile *)arc->files;
+    Archive_PKH *files = (Archive_PKH *)arc->files;
 
     if (files == NULL) {
         return -1;
@@ -531,14 +531,14 @@ s32 L5FS_FindFileIdx(arckey_t arcKey, const char *name) {
     return L5FSi_FindFileIdxInternal(files, arc->nFiles, name);
 }
 
-PKHFile *L5FS_FindFile(arckey_t arcKey, const char *name) {
+Archive_PKH *L5FS_FindFile(arckey_t arcKey, const char *name) {
     if (arcKey < 0) {
         return NULL;
     }
 
     L5Archive *arc = &sArchives[arcKey];
 
-    PKHFile *files = (PKHFile *)arc->files;
+    Archive_PKH *files = (Archive_PKH *)arc->files;
     if (files == NULL) {
         return NULL;
     }

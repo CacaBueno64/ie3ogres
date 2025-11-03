@@ -5938,7 +5938,7 @@ _ZN11L5Allocator15setDefaultArenaEi: ; 0x0202E1AC
 	bx lr
 	arm_func_end _ZN11L5Allocator15setDefaultArenaEi
 
-	arm_func_start _ZN11L5Allocator10deallocateEPv
+	arm_func_start _ZN11L5Allocator10deallocateEPv ; https://decomp.me/scratch/lyon1
 _ZN11L5Allocator10deallocateEPv: ; 0x0202E1C0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1

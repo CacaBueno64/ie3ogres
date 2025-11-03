@@ -99,7 +99,7 @@ void VramClear(void)
     
     MI_CpuFillFast((void *)HW_OAM, 192, HW_OAM_SIZE);
     MI_CpuClearFast((void *)HW_PLTT, HW_PLTT_SIZE);
-    MI_CpuFillFast((void*)HW_DB_OAM, 192, HW_DB_OAM_SIZE);
+    MI_CpuFillFast((void *)HW_DB_OAM, 192, HW_DB_OAM_SIZE);
     MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
 }
 
@@ -116,7 +116,6 @@ void InitInterrupt(void)
 
 extern "C" {
 	extern void FUN_0202ede8(void);
-	extern void L5FS_Init(void);
 }
 
 void FUN_020292e8(void)

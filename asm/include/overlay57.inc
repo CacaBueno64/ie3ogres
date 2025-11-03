@@ -264,3 +264,17 @@
 .public FUN_ov16_020f55b4
 .public operator_delete
 .public FX_Sqrt
+.public FUN_0202b208
+.public FUN_0202b200
+.public FUN_0202b320
+.public FUN_0202b310
+.public FUN_0202b304
+.public FUN_0202b2f8
+.public FUN_0202b2e8
+.public FUN_0202b2d8
+.public FUN_0202b2c8
+.public FUN_0202b2bc
+.public FUN_0202b2b0
+.public FUN_0202b1d8
+.public FUN_0202b1d0
+.public FUN_0202b1c8

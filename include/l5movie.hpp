@@ -12,13 +12,14 @@
 #define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
 
+#define MOVIE_HAS_SOUND 0x100
 #define MOVIE_HAS_NOT_SOUND 0x200
 
 FS_EXTERN_OVERLAY(overlay126);
 FS_EXTERN_OVERLAY(overlay127);
 
 typedef struct {
-    L5Allocator *allocator; //pointer to L5Allocator
+    L5Allocator *allocator;
     s8 unk4;
     s8 unk5;
     s8 unk6;

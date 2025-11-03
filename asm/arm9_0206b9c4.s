@@ -10926,7 +10926,7 @@ FUN_020744b4: ; 0x020744B4
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_020744b4
 
-	arm_func_start FUN_020744f0
+	arm_func_start FUN_020744f0 ; https://decomp.me/scratch/ng4yN
 FUN_020744f0: ; 0x020744F0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -10949,7 +10949,7 @@ _02074530: .word unk_0209BA20
 _02074534: .word 0x000F423F
 	arm_func_end FUN_020744f0
 
-	arm_func_start FUN_02074538
+	arm_func_start FUN_02074538 ; same as above but with st_save_user::money_
 FUN_02074538: ; 0x02074538
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -10972,7 +10972,7 @@ _02074578: .word unk_0209BA20
 _0207457C: .word 0x000F423F
 	arm_func_end FUN_02074538
 
-	arm_func_start FUN_02074580
+	arm_func_start FUN_02074580 ; nextRuleIdx
 FUN_02074580: ; 0x02074580
 	strb r1, [r0, #0x44]
 	bx lr
@@ -10980,12 +10980,12 @@ FUN_02074580: ; 0x02074580
 
 	arm_func_start FUN_02074588
 FUN_02074588: ; 0x02074588
-	strb r1, [r0, #0x45]
-	strb r2, [r0, #0x46]
+	strb r1, [r0, #0x45] ; nextEnemyLVType
+	strb r2, [r0, #0x46] ; nextEnemyLV
 	bx lr
 	arm_func_end FUN_02074588
 
-	arm_func_start FUN_02074594
+	arm_func_start FUN_02074594 ; https://decomp.me/scratch/jvNFq
 FUN_02074594: ; 0x02074594
 	stmfd sp!, {r3, lr}
 	mov r3, #0
@@ -11006,7 +11006,7 @@ FUN_02074594: ; 0x02074594
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02074594
 
-	arm_func_start FUN_020745d8
+	arm_func_start FUN_020745d8 ; binder_open_ScoolFlg
 FUN_020745d8: ; 0x020745D8
 	stmfd sp!, {r3, lr}
 	mov r3, #0
@@ -11027,7 +11027,7 @@ FUN_020745d8: ; 0x020745D8
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_020745d8
 
-	arm_func_start FUN_0207461c
+	arm_func_start FUN_0207461c ; https://decomp.me/scratch/cRL8z
 FUN_0207461c: ; 0x0207461C
 	cmp r1, #0
 	bxlt lr
@@ -11056,7 +11056,7 @@ _02074658:
 	bx lr
 	arm_func_end FUN_0207461c
 
-	arm_func_start FUN_0207467c
+	arm_func_start FUN_0207467c ; usableFieldFlgWC_
 FUN_0207467c: ; 0x0207467C
 	cmp r1, #0
 	bxlt lr
@@ -11085,7 +11085,7 @@ _020746B8:
 	bx lr
 	arm_func_end FUN_0207467c
 
-	arm_func_start FUN_020746dc
+	arm_func_start FUN_020746dc ; miniGameTotal
 FUN_020746dc: ; 0x020746DC
 	ldr r2, [r0, #0x90]
 	ldr r1, _020746F4 ; =0x0000270F
@@ -11096,7 +11096,7 @@ FUN_020746dc: ; 0x020746DC
 _020746F4: .word 0x0000270F
 	arm_func_end FUN_020746dc
 
-	arm_func_start FUN_020746f8
+	arm_func_start FUN_020746f8 ; miniGameWin
 FUN_020746f8: ; 0x020746F8
 	ldr r1, [r0, #0x94]
 	cmn r1, #0x80000001
@@ -11105,7 +11105,7 @@ FUN_020746f8: ; 0x020746F8
 	bx lr
 	arm_func_end FUN_020746f8
 
-	arm_func_start FUN_0207470c
+	arm_func_start FUN_0207470c ; miniGameLose
 FUN_0207470c: ; 0x0207470C
 	ldr r1, [r0, #0x98]
 	cmn r1, #0x80000001
@@ -11114,7 +11114,7 @@ FUN_0207470c: ; 0x0207470C
 	bx lr
 	arm_func_end FUN_0207470c
 
-	arm_func_start FUN_02074720
+	arm_func_start FUN_02074720 ; miniGameRunAway
 FUN_02074720: ; 0x02074720
 	ldr r1, [r0, #0x9c]
 	cmn r1, #0x80000001
@@ -11123,7 +11123,7 @@ FUN_02074720: ; 0x02074720
 	bx lr
 	arm_func_end FUN_02074720
 
-	arm_func_start FUN_02074734
+	arm_func_start FUN_02074734 ; niceIconCount
 FUN_02074734: ; 0x02074734
 	ldr r1, [r0, #0xa0]
 	cmn r1, #0x80000001
@@ -11132,26 +11132,26 @@ FUN_02074734: ; 0x02074734
 	bx lr
 	arm_func_end FUN_02074734
 
-	arm_func_start FUN_02074748
+	arm_func_start FUN_02074748 ; minnaSortType
 FUN_02074748: ; 0x02074748
 	strb r1, [r0, #0xa5]
 	bx lr
 	arm_func_end FUN_02074748
 
-	arm_func_start FUN_02074750
+	arm_func_start FUN_02074750 ; partyMemberMax
 FUN_02074750: ; 0x02074750
 	strb r1, [r0, #0xa6]
 	bx lr
 	arm_func_end FUN_02074750
 
-	arm_func_start FUN_02074758
+	arm_func_start FUN_02074758 ; routeBattleCount
 FUN_02074758: ; 0x02074758
 	add r0, r0, #0x100
 	strh r1, [r0, #0x34]
 	bx lr
 	arm_func_end FUN_02074758
 
-	arm_func_start FUN_02074764
+	arm_func_start FUN_02074764 ; playTime
 FUN_02074764: ; 0x02074764
 	ldr r2, _02074778 ; =0x0CDFE5FF
 	cmp r1, r2
@@ -11161,74 +11161,74 @@ FUN_02074764: ; 0x02074764
 _02074778: .word 0x0CDFE5FF
 	arm_func_end FUN_02074764
 
-	arm_func_start FUN_0207477c
+	arm_func_start FUN_0207477c ; saveSlotIdx
 FUN_0207477c: ; 0x0207477C
 	strb r1, [r0, #0x48]
 	bx lr
 	arm_func_end FUN_0207477c
 
-	arm_func_start FUN_02074784
+	arm_func_start FUN_02074784 ; rightHand
 FUN_02074784: ; 0x02074784
 	strb r1, [r0, #0x47]
 	bx lr
 	arm_func_end FUN_02074784
 
-	arm_func_start FUN_0207478c
+	arm_func_start FUN_0207478c ; rpgTitleIdx
 FUN_0207478c: ; 0x0207478C
 	strb r1, [r0, #0x2c]
 	bx lr
 	arm_func_end FUN_0207478c
 
-	arm_func_start FUN_02074794
+	arm_func_start FUN_02074794 ; userID
 FUN_02074794: ; 0x02074794
 	add r0, r0, r1, lsl #2
 	str r2, [r0, #0xac]
 	bx lr
 	arm_func_end FUN_02074794
 
-	arm_func_start FUN_020747a0
+	arm_func_start FUN_020747a0 ; nextEnemyTeamNo
 FUN_020747a0: ; 0x020747A0
 	strh r1, [r0, #0x30]
 	bx lr
 	arm_func_end FUN_020747a0
 
-	arm_func_start FUN_020747a8
+	arm_func_start FUN_020747a8 ; nextFieldNo
 FUN_020747a8: ; 0x020747A8
 	strh r1, [r0, #0x2e]
 	bx lr
 	arm_func_end FUN_020747a8
 
-	arm_func_start FUN_020747b0
+	arm_func_start FUN_020747b0 ; itemLevel
 FUN_020747b0: ; 0x020747B0
 	strh r1, [r0, #0x32]
 	bx lr
 	arm_func_end FUN_020747b0
 
-	arm_func_start FUN_020747b8
+	arm_func_start FUN_020747b8 ; searchLV
 FUN_020747b8: ; 0x020747B8
 	strb r1, [r0, #0x2d]
 	bx lr
 	arm_func_end FUN_020747b8
 
-	arm_func_start FUN_020747c0
+	arm_func_start FUN_020747c0 ; chapterNo
 FUN_020747c0: ; 0x020747C0
 	strb r1, [r0, #0x4a]
 	bx lr
 	arm_func_end FUN_020747c0
 
-	arm_func_start FUN_020747c8
+	arm_func_start FUN_020747c8 ; wcPlayGames
 FUN_020747c8: ; 0x020747C8
 	str r1, [r0, #0x20]
 	bx lr
 	arm_func_end FUN_020747c8
 
-	arm_func_start FUN_020747d0
+	arm_func_start FUN_020747d0 ; wcWinGames
 FUN_020747d0: ; 0x020747D0
 	str r1, [r0, #0x24]
 	bx lr
 	arm_func_end FUN_020747d0
 
-	arm_func_start FUN_020747d8
+	arm_func_start FUN_020747d8 ; wcPkWinGames
 FUN_020747d8: ; 0x020747D8
 	str r1, [r0, #0x28]
 	bx lr
@@ -11241,7 +11241,7 @@ FUN_020747e0: ; 0x020747E0
 _020747E8: .word STD_CopyString
 	arm_func_end FUN_020747e0
 
-	arm_func_start FUN_020747ec
+	arm_func_start FUN_020747ec ; aggressiveLevel
 FUN_020747ec: ; 0x020747EC
 	add r0, r0, r1
 	strb r2, [r0, #0x8c]

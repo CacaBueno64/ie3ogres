@@ -26,16 +26,7 @@ public:
     }
 };
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 void InitAlloc(void);
-
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
-
 void Config_Init(void);
 
 #endif //IE3OGRES_OV130_H

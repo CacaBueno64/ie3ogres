@@ -411,7 +411,7 @@ _0202F27C:
 _0202F290: .word 0x00000101
 	arm_func_end FUN_0202eff0
 
-	arm_func_start FUN_0202f294
+	arm_func_start FUN_0202f294 ; https://decomp.me/scratch/RRkAZ
 FUN_0202f294: ; 0x0202F294
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
@@ -578,7 +578,7 @@ _0202F4D8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_0202f294
 
-	arm_func_start FUN_0202f500
+	arm_func_start FUN_0202f500 ; https://decomp.me/scratch/2rti3
 FUN_0202f500: ; 0x0202F500
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x48
@@ -629,7 +629,7 @@ FUN_0202f57c: ; 0x0202F57C
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0202f57c
 
-	arm_func_start FUN_0202f598
+	arm_func_start FUN_0202f598 ; https://decomp.me/scratch/4qytR
 FUN_0202f598: ; 0x0202F598
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
@@ -677,7 +677,7 @@ _0202F60C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0202f598
 
-	arm_func_start FUN_0202f634
+	arm_func_start FUN_0202f634 ; https://decomp.me/scratch/PSUCC
 FUN_0202f634: ; 0x0202F634
 	ldr r12, [r0, #0x20]
 	mov r2, #1
@@ -713,7 +713,7 @@ FUN_0202f678: ; 0x0202F678
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202f678
 
-	arm_func_start FUN_0202f69c
+	arm_func_start FUN_0202f69c ; https://decomp.me/scratch/of3QE
 FUN_0202f69c: ; 0x0202F69C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r5, r1
@@ -795,7 +795,7 @@ _ZN20L5FileRequestManager12FUN_0202f794Ev: ; 0x0202F794
 _0202F7A0: .word OS_WakeupThreadDirect
 	arm_func_end _ZN20L5FileRequestManager12FUN_0202f794Ev
 
-	arm_func_start FUN_0202f7a4
+	arm_func_start FUN_0202f7a4 ; https://decomp.me/scratch/QU9bz
 FUN_0202f7a4: ; 0x0202F7A4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
@@ -1000,7 +1000,7 @@ _0202FA7C:
 	b _0202F7B0
 	arm_func_end FUN_0202f7a4
 
-	arm_func_start FUN_0202fa88
+	arm_func_start FUN_0202fa88 ; https://decomp.me/scratch/UsrgY
 FUN_0202fa88: ; 0x0202FA88
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r1
@@ -1063,7 +1063,7 @@ _0202FB44:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_0202fa88
 
-	arm_func_start FUN_0202fb58
+	arm_func_start FUN_0202fb58 ; https://decomp.me/scratch/Bgbhq
 FUN_0202fb58: ; 0x0202FB58
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -1105,7 +1105,7 @@ _0202FBDC:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202fb58
 
-	arm_func_start FUN_0202fbe8
+	arm_func_start FUN_0202fbe8 ; https://decomp.me/scratch/G1YUx
 FUN_0202fbe8: ; 0x0202FBE8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r1
@@ -1138,7 +1138,7 @@ _0202FC38:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202fbe8
 
-	arm_func_start FUN_0202fc4c
+	arm_func_start FUN_0202fc4c ; https://decomp.me/scratch/xKHCW
 FUN_0202fc4c: ; 0x0202FC4C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r1
@@ -1215,7 +1215,7 @@ FUN_0202fd44: ; 0x0202FD44
 	bx lr
 	arm_func_end FUN_0202fd44
 
-	arm_func_start SSD_InitFile
+	arm_func_start SSD_InitFile ; https://decomp.me/scratch/ShK79
 SSD_InitFile: ; 0x0202FD48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -1355,7 +1355,7 @@ _0202FF2C:
 	ldmfd sp!, {r4, pc}
 	arm_func_end SSD_InitFile
 
-	arm_func_start SSD_GetNextInstruction
+	arm_func_start SSD_GetNextInstruction ; https://decomp.me/scratch/IMXmx
 SSD_GetNextInstruction: ; 0x0202FF34
 	cmp r1, #0
 	ldreq r0, [r0, #4]
@@ -1370,7 +1370,7 @@ SSD_GetNextInstruction: ; 0x0202FF34
 	bx lr
 	arm_func_end SSD_GetNextInstruction
 
-	arm_func_start FUN_0202ff60
+	arm_func_start FUN_0202ff60 ; https://decomp.me/scratch/VEJCn
 FUN_0202ff60: ; 0x0202FF60
 	ldr r2, [r0]
 	ldr r0, [r0, #4]

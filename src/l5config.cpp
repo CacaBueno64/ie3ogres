@@ -1,11 +1,5 @@
 #include "l5config.hpp"
 
-extern "C" {
-extern void *L5FS_AllocateClear(int size, int nextArena); // alloc
-extern void L5FS_Deallocate(void *ptr);                   // free
-extern int atoi(const char *s);
-}
-
 L5Config::L5Config() { this->clear(); }
 
 L5Config::~L5Config() {
@@ -28,22 +22,17 @@ BOOL L5Config::openFile(char *filepath) {
 
     r5 = r6 = file;
 
-    if (file < (file + len)) {
-        do {
-            if ((*r6 == '\n') || (*r6 == '\r')) {
-                *r6 = 0;
-
-                if (strlen(r5) != 0) {
-                    if (this->readFileParam(r5, &this->paramEntry[this->paramCount])) {
-                        this->paramCount++;
-                    }
+    while (r6 < (file + len)) {
+        if ((*r6 == '\n') || (*r6 == '\r')) {
+            *r6 = 0;
+            if (strlen(r5) != 0) {
+                if (this->readFileParam(r5, &this->paramEntry[this->paramCount])) {
+                    this->paramCount++;
                 }
-
-                r5 = r6 + 1;
             }
-
-            r6++;
-        } while (r6 < (file + len));
+            r5 = r6 + 1;
+        }
+        r6++;
     }
 
     L5FS_Deallocate(file);
@@ -67,7 +56,6 @@ void L5Config::init(void) {
     if (this->paramEntry == NULL) {
         this->paramEntry = (Config_ParamEntry *)L5FS_AllocateClear(0x300, -1);
     }
-
     this->paramCount = 0;
 }
 
@@ -80,23 +68,19 @@ int L5Config::getParamPosition(char *str) {
 
     u32 len   = STD_GetStringLength(str);
     u32 crc32 = L5FS_CalcCRC32(str, len);
-    int pos   = 0;
 
-    if (this->paramCount > 0) {
-        do {
-            if (paramEntry->crc32 == crc32) {
-                return pos;
-            }
-
-            pos++;
-            paramEntry++;
-        } while (pos < this->paramCount);
+    for (int pos = 0; pos < this->paramCount; pos++) {
+        if (paramEntry->crc32 == crc32) {
+            return pos;
+        }
+        paramEntry++;
     }
 
     return -1;
 }
 
 BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param) {
+
     BOOL empty_file   = TRUE;
     BOOL read_key     = FALSE;
     BOOL awaiting_key = TRUE;

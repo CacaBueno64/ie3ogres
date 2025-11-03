@@ -1176,7 +1176,7 @@ _0204293C:
 _02042948: .word 0x0000FFFF
 	arm_func_end FUN_020425fc
 
-	arm_func_start FUN_0204294c
+	arm_func_start FUN_0204294c ; https://decomp.me/scratch/hLz9A
 FUN_0204294c: ; 0x0204294C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r1
@@ -1910,7 +1910,7 @@ _02043374:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02043330
 
-	arm_func_start FUN_02043380 ; https://decomp.me/scratch/4dwZg
+	arm_func_start FUN_02043380 ; https://decomp.me/scratch/YAxnt
 FUN_02043380: ; 0x02043380
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14

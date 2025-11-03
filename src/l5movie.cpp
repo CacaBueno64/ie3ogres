@@ -89,7 +89,7 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
 
     STD_TSPrintf(filepath, "%s.sad", name);
     if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
-        this->flags |= 0x100;
+        this->flags |= MOVIE_HAS_SOUND;
     }
 
     OS_CreateAlarm(&this->alarm);
@@ -101,11 +101,9 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
         NULL
     );
 
-    int i = 0;
-    do {
+    for (int i = 0; i < 6; i++) {
         (void)this->FUN_0202ea50();
-        i++;
-    } while (i < 6);
+    }
 
     this->unk188 = MO_Malloc(MOVIE_STACK_SIZE);
 
@@ -156,7 +154,7 @@ BOOL L5Movie::FUN_0202e78c(void)
     if ((this->flags & 2) == 0) {
         unk_020B5B80.unk5 = 1;
     }
-    if ((this->flags & 0x100) != 0) {
+    if ((this->flags & MOVIE_HAS_SOUND) != 0) {
         if ((this->flags & 8) == 0) {
             gL5Sound.FUN_0202d594(0, 0);
             this->flags |= 0x408;
@@ -285,13 +283,9 @@ void L5Movie::stopMovie(u32 param1)
         } while ((this->flags & 0x8000) != 0);
     }
     if ((this->flags & 0x20) == 0) {
-        s32 i = 0;
-        if (this->unk194 > 0) {  
-            do {
-                MO_SkipFrameImage(this->handle);
-                MO_SkipFrameImage(this->handle_94);
-                i++;
-            } while (i < this->unk194);
+        for (int i = 0; i < this->unk194; i++) {  
+            (void)MO_SkipFrameImage(this->handle);
+            (void)MO_SkipFrameImage(this->handle_94);
         }
     }
     if ((this->flags & 0x08) != 0) {
@@ -325,22 +319,22 @@ void L5Movie::stopMovie(u32 param1)
 extern "C" {
 void FUN_0202ec08(void *arg)
 {
-    L5Movie *l5movie = (L5Movie *)arg;
+    L5Movie *movie = (L5Movie *)arg;
     while (TRUE) {
-        if (l5movie->FUN_0202ea50()) {
+        if (movie->FUN_0202ea50()) {
             continue;
         }
         OS_SleepThread(NULL);
     }
 }
 
-u32 Movie_GetVideoFps(L5Movie *arg)
+u32 Movie_GetVideoFps(L5Movie *movie)
 {
-    if (!arg->handle_98) {
+    if (!movie->handle_98) {
         return 0;
     }
 
-    return MO_GetVideoFps(arg->handle_98);
+    return MO_GetVideoFps(movie->handle_98);
 }
 
 BOOL FUN_0202ec4c(MOHandle handle0, MOHandle handle1)

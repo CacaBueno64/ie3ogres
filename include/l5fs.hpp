@@ -1,8 +1,9 @@
-#ifndef IE3OGRES_COMMON_H
-#define IE3OGRES_COMMON_H
+#ifndef IE3OGRES_L5FS_H
+#define IE3OGRES_L5FS_H
 
 #include <nitro.h>
 
+#include "archive.hpp"
 #include "l5allocator.hpp"
 
 #ifdef __cplusplus
@@ -13,14 +14,7 @@ typedef int arckey_t;
 typedef signed char filekey_t;
 
 typedef struct {
-    u32 hash;
-    s32 offset;
-    s32 size;
-    MICompressionHeader compHeader;
-} PKHFile; // headerless type
-
-typedef struct {
-    void *files; // interpret as PKHFile *
+    void *files; // interpret as Archive_PKH *
     BOOL inUse;
     FSFileID binFileID; // pkb
     filekey_t arcFileKey;
@@ -47,9 +41,9 @@ arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path);
 void L5FS_CloseArchive(arckey_t key);
 BOOL L5FS_IsArchiveReady(arckey_t key);
 void L5FS_WaitArchiveReady(arckey_t key);
-PKHFile *L5FS_GetFile(arckey_t arcKey, s32 fileIdx);
+Archive_PKH *L5FS_GetFile(arckey_t arcKey, s32 fileIdx);
 
-s32 L5FS_ReadFileByID(void **dst, PKHFile *pkh_file, FSFileID arc, const char *filename);
+s32 L5FS_ReadFileByID(void **dst, Archive_PKH *pkh_file, FSFileID arc, const char *filename);
 s32 L5FS_ReadFileByName(void **dst, arckey_t arcKey, const char *filename);
 s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx);
 
@@ -61,7 +55,7 @@ void L5FS_Panic(void);
 void L5FS_Init(void);
 
 s32 L5FS_FindFileIdx(arckey_t arcKey, const char *name);
-PKHFile *L5FS_FindFile(arckey_t arcKey, const char *name);
+Archive_PKH *L5FS_FindFile(arckey_t arcKey, const char *name);
 
 void *L5FS_Allocate(int size, int nextArena);
 void *L5FS_AllocateClear(int size, int nextArena);
@@ -72,4 +66,4 @@ void L5FS_SetNextArena(int nextArena);
 } /* extern "C" */
 #endif
 
-#endif // IE3OGRES_COMMON_H
+#endif // IE3OGRES_L5FS_H

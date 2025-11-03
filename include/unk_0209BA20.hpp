@@ -9,6 +9,8 @@ class UnkClass_0209BA20 {
     public:
         void FUN_0206f1e0(void);
         void FUN_0206f244(void);
+        void FUN_02074418(void);
+        void FUN_020743f0(void);
 };
 
 extern UnkClass_0209BA20 unk_0209BA20;

@@ -30,4 +30,8 @@ class L5Config {
 
 extern L5Config gL5Config;
 
+extern "C" {
+    extern int atoi(const char *s);
+}
+
 #endif //IE3OGRES_L5CONFIG_H

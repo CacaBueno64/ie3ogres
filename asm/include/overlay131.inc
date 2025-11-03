@@ -1,9 +1,3 @@
-.public DSProt_DetectFlashcart
-.public DSProt_DetectNotFlashcart
-.public DSProt_DetectEmulator
-.public DSProt_DetectNotEmulator
-.public DSProt_DetectDummy
-.public DSProt_DetectNotDummy
 .public _ZN8L5Config8getParamEPc
 .public gL5Config
 .public unk_020A0B00
@@ -258,6 +252,12 @@
 .public FUN_ov16_020edfb0
 .public FS_UnloadOverlay
 .public FS_LoadOverlay
+.public DSProt_DetectFlashcart
+.public DSProt_DetectEmulator
+.public DSProt_DetectDummy
+.public DSProt_DetectNotFlashcart
+.public DSProt_DetectNotEmulator
+.public DSProt_DetectNotDummy
 .public STD_TSPrintf
 .public L5FS_ReadFileByName
 .public FUN_02037c98
