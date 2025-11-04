@@ -3117,7 +3117,7 @@ FUN_02031718: ; 0x02031718
 	ldmeqfd sp!, {r4, r5, pc}
 	mov r1, r2
 	mov r2, r3
-	bl FUN_ov131_0214aabc ; may be ov132
+	bl FUN_ov131_0214aabc ; may be ov132 ; ov131(Mica)
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r4, r5, pc}
@@ -11408,7 +11408,7 @@ FUN_02038b30: ; 0x02038B30
 	mov r12, #2
 	b _02038B6C
 _02038B5C:
-	bl FUN_ov131_0214aabc ; may be ov132
+	bl FUN_ov131_0214aabc ; may be ov132 ; ov131(Mica)
 	add r1, r4, #0x4000
 	str r0, [r1, #0x250]
 	mov r12, #1
@@ -14817,7 +14817,7 @@ _0203BB94:
 	ldr r0, [r0]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	bl FUN_ov1_020e3b14 ; may be ov15
+	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203BBE4: .word unk_02099EF0
 _0203BBE8: .word unk_0209BA20
@@ -17182,7 +17182,7 @@ FUN_0203dc00: ; 0x0203DC00
 	ldrb r1, [r1, #0x8f]
 	mov r8, r0
 	ldr r0, [r2]
-	bl FUN_ov132_02145c40 ; may be ov131
+	bl FUN_ov132_02145c40 ; may be ov131 ; ov132(Mica)
 	cmp r0, #0xc
 	bgt _0203DC68
 	cmp r0, #0
@@ -17389,7 +17389,7 @@ _0203DED0:
 	ldr r2, _0203DF70 ; =0x02099EF0
 	ldrb r1, [r0, #0x8f]
 	ldr r0, [r2]
-	bl FUN_ov132_02145c40 ; may be ov131
+	bl FUN_ov132_02145c40 ; may be ov131 ; ov132(Mica)
 	cmp r0, #0xf
 	beq _0203DF10
 	ldr r0, _0203DF74 ; =gL5Sound

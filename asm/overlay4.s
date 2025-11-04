@@ -2217,7 +2217,7 @@ _020BE8D0:
 	ldr r1, _020BECE4 ; =0x0211D784
 	add r0, r6, #0x194
 	str r1, [r6]
-	bl FUN_ov55_0211d128 ; may be ov82
+	bl FUN_ov55_0211d128 ; may be ov82 ; ov55(Mica)
 	str r5, [r6, #4]
 _020BE8F4:
 	str r6, [r4, #4]
@@ -2280,7 +2280,7 @@ _020BE9AC:
 	cmp r0, #0
 	beq _020BE9C4
 	mov r1, r5
-	bl FUN_ov54_0211bf6c ; may be ov65
+	bl FUN_ov54_0211bf6c ; may be ov65 ; ov54(Mica)
 _020BE9C4:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2290,7 +2290,7 @@ _020BE9CC:
 	cmp r0, #0
 	beq _020BE9E4
 	mov r1, r5
-	bl FUN_ov45_0211d248 ; may be ov67
+	bl FUN_ov67_0211d248 ; may be ov45 ; ov67(Mica)
 _020BE9E4:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2326,7 +2326,7 @@ _020BEA44:
 	cmp r0, #0
 	beq _020BEA5C
 	mov r1, r5
-	bl FUN_ov23_0211a060 ; may be ov24 ov26 ov27 ov28 ov37 ov61
+	bl FUN_ov28_0211a060 ; may be ov23 ov24 ov26 ov27 ov37 ov61 ; ov28(Mica)
 _020BEA5C:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2336,7 +2336,7 @@ _020BEA64:
 	cmp r0, #0
 	beq _020BEA7C
 	mov r1, r5
-	bl FUN_ov23_0211a060 ; may be ov24 ov26 ov27 ov28 ov37 ov61
+	bl FUN_ov27_0211a060 ; may be ov23 ov24 ov26  ov28 ov37 ov61 ; ov27(Mica)
 _020BEA7C:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2346,7 +2346,7 @@ _020BEA84:
 	cmp r0, #0
 	beq _020BEA9C
 	mov r1, r5
-	bl FUN_ov23_0211a060 ; may be ov24 ov26 ov27 ov28 ov37 ov61
+	bl FUN_ov26_0211a060 ; may be ov23 ov24 ov27 ov28 ov37 ov61 ; ov26(Mica)
 _020BEA9C:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2356,7 +2356,7 @@ _020BEAA4:
 	cmp r0, #0
 	beq _020BEABC
 	mov r1, r5
-	bl FUN_ov25_0211a5d0 ; may be ov40 ov83 ov85
+	bl FUN_ov25_0211a5d0 ; may be ov40 ov83 ov85 ; ov25(Mica)
 _020BEABC:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2379,7 +2379,7 @@ _020BEAF0:
 	cmp r0, #0
 	beq _020BEB08
 	mov r1, r5
-	bl FUN_ov24_0211acd8 ; may be ov53 ov61
+	bl FUN_ov24_0211acd8 ; may be ov53 ov61 ; ov24(Mica)
 _020BEB08:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2389,7 +2389,7 @@ _020BEB10:
 	cmp r0, #0
 	beq _020BEB28
 	mov r1, r5
-	bl FUN_ov37_0211b2b0 ; may be ov45
+	bl FUN_ov37_0211b2b0 ; may be ov45 ; ov37(Mica)
 _020BEB28:
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2694,8 +2694,8 @@ _020BEF44: .word ov109_0212A6B8
 _020BEF48: .word 0x000004D8
 _020BEF4C: .word ov113_02126D30
 _020BEF50: .word ov103_021256D4
-_020BEF54: .word ov101_021250C0 ; may be ov102
-_020BEF58: .word ov102_021250C0 ; may be ov101
+_020BEF54: .word ov102_021250C0 ; may be ov101 ; ov102(Mica)
+_020BEF58: .word ov101_021250C0 ; may be ov102 ; ov101(Mica)
 _020BEF5C: .word ov99_021256DC
 _020BEF60: .word ov100_02125680
 _020BEF64: .word ov98_02126430
@@ -16637,7 +16637,7 @@ _020CB224:
 	bl FUN_ov16_020f2fe4
 	ldr r0, _020CB3D8 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _020CB3DC ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -16800,7 +16800,7 @@ FUN_ov4_020cb438: ; 0x020CB438
 	bl FUN_ov16_020f2fe4
 	ldr r0, _020CB52C ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _020CB530 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -17136,17 +17136,17 @@ FUN_ov4_020cb8e8: ; 0x020CB8E8
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CB938:
 	mov r1, #2
-	bl FUN_ov61_0211a340 ; may be ov67
+	bl FUN_ov61_0211a340 ; may be ov67 ; ov61(Mica)
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CB944: .word unk_020A0B00
 	arm_func_end FUN_ov4_020cb8e8
 
 	arm_func_start FUN_ov4_020cb948
 FUN_ov4_020cb948: ; 0x020CB948
-	ldr r12, _020CB954 ; =FUN_ov61_0211a340 ; may be ov67
+	ldr r12, _020CB954 ; =FUN_ov61_0211a340 ; may be ov67 ; ov61(Mica)
 	mov r1, #9
 	bx r12
-_020CB954: .word FUN_ov61_0211a340 ; may be ov67
+_020CB954: .word FUN_ov61_0211a340 ; may be ov67 ; ov61(Mica)
 	arm_func_end FUN_ov4_020cb948
 
 	arm_func_start FUN_ov4_020cb958
@@ -17173,7 +17173,7 @@ FUN_ov4_020cb980: ; 0x020CB980
 	mov r2, #7
 	mov r1, #5
 	str r2, [r4, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	ldmfd sp!, {r4, pc}
 _020CB9A8:
 	ldr r0, _020CBA34 ; =0x0209A5D0
@@ -17202,7 +17202,7 @@ _020CB9F4:
 	mov r0, r4
 	mov r1, #6
 	str r2, [r4, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 _020CBA08:
 	bl L5Thread_Yield
 	b _020CBA08
@@ -17211,7 +17211,7 @@ _020CBA10:
 	mov r0, r4
 	mov r1, #5
 	str r2, [r4, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	ldmfd sp!, {r4, pc}
 _020CBA28:
 	mov r0, #6
@@ -17230,7 +17230,7 @@ FUN_ov4_020cba38: ; 0x020CBA38
 	mov r2, #7
 	mov r1, #5
 	str r2, [r4, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CBA60:
 	ldr r0, [r4, #4]
@@ -17479,14 +17479,14 @@ _020CBDF8:
 	mov r0, r4
 	mov r1, #6
 	str r2, [r4, #8]
-	bl FUN_ov61_0211a340 ; may be ov67
+	bl FUN_ov61_0211a340 ; may be ov67 ; ov61(Mica)
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CBE10:
 	mov r2, #7
 	mov r0, r4
 	mov r1, #5
 	str r2, [r4, #8]
-	bl FUN_ov61_0211a340 ; may be ov67
+	bl FUN_ov61_0211a340 ; may be ov67 ; ov61(Mica)
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CBE28:
 	mov r0, #5
@@ -17540,7 +17540,7 @@ _020CBEC4:
 	mov r0, r5
 	mov r1, #5
 	str r2, [r5, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CBEDC:
 	bl L5Thread_Yield
@@ -17556,7 +17556,7 @@ _020CBEE8: .word unk_0209A5D0
 	arm_func_start FUN_ov4_020cbeec
 FUN_ov4_020cbeec: ; 0x020CBEEC
 	stmfd sp!, {r3, lr}
-	bl FUN_ov24_0211d1b8 ; may be ov61 ov72
+	bl FUN_ov61_0211d1b8 ; may be ov24 ov72 ; ov61(Mica)
 	ldr r0, _020CBF04 ; =0x0209A454
 	mov r1, #4
 	str r1, [r0, #0x24]
@@ -17570,7 +17570,7 @@ FUN_ov4_020cbf08: ; 0x020CBF08
 	mov r4, r0
 	bl FUN_ov61_0211bb60
 	mov r0, r4
-	bl FUN_ov61_0211b8bc ; may be ov63
+	bl FUN_ov61_0211b8bc ; may be ov63 ; ov61(Mica)
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov4_020cbf08
 
@@ -17592,13 +17592,13 @@ _020CBF34: .word FUN_ov61_0211d55c
 FUN_ov4_020cbf38: ; 0x020CBF38
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
-	bl FUN_ov45_0211d9b4 ; may be ov61
+	bl FUN_ov61_0211d9b4 ; may be ov45 ; ov61(Mica)
 	mov r0, r10
 	bl FUN_ov61_0211b1b0
 	mov r0, r10
-	bl FUN_ov61_0211b150 ; may be ov67
+	bl FUN_ov61_0211b150 ; may be ov67 ; ov61(Mica)
 	mov r0, r10
-	bl FUN_ov39_0211b220 ; may be ov61 ov84 ov91
+	bl FUN_ov61_0211b220 ; may be ov39 ov84 ov91 ; ov61(Mica)
 	mov r0, #2
 	str r0, [r10, #8]
 _020CBF64:
@@ -17607,14 +17607,14 @@ _020CBF64:
 	cmp r0, #3
 	bne _020CBF64
 	mov r0, r10
-	bl FUN_ov39_0211b9cc ; may be ov61
+	bl FUN_ov61_0211b9cc ; may be ov39 ; ov61(Mica)
 	mov r0, r10
 	mov r1, #1
-	bl FUN_ov31_0211a2d0 ; may be ov39 ov61
+	bl FUN_ov61_0211a2d0 ; may be ov31 ov39 ; ov61(Mica)
 	mov r1, #6
 	mov r0, r10
 	str r1, [r10, #8]
-	bl FUN_ov21_0211d060 ; may be ov61
+	bl FUN_ov61_0211d060 ; may be ov21 ; ov61(Mica)
 	mov r0, r10
 	ldr r1, [r0]
 	ldr r1, [r1, #0x4c]
@@ -17641,12 +17641,12 @@ _020CBFC8:
 	mov r0, r10
 	mov r1, r8
 	str r9, [r10, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	mov r0, r7
 	b _020CC048
 _020CC008:
 	mov r1, r6
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	bl L5Thread_Yield
 	mov r0, r10
 	bl FUN_ov4_020cbe70
@@ -17659,7 +17659,7 @@ _020CC008:
 	mov r0, r10
 	mov r1, r4
 	str r5, [r10, #8]
-	bl FUN_ov60_0211d840 ; may be ov61
+	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	mov r0, r11
 _020CC048:
 	bl L5Thread_Sleep
@@ -17672,11 +17672,11 @@ _020CC050:
 	mov r1, #4
 	bl FUN_ov61_0211d864
 	mov r0, r10
-	bl FUN_ov50_0211a688 ; may be ov61
+	bl FUN_ov61_0211a688 ; may be ov50 ; ov61(Mica)
 	cmp r0, #0
 	beq _020CC080
 	mov r0, r10
-	bl FUN_ov21_0211d060 ; may be ov61
+	bl FUN_ov61_0211d060 ; may be ov21 ; ov61(Mica)
 _020CC080:
 	mov r0, #4
 	bl L5Thread_Sleep
@@ -27183,7 +27183,7 @@ _020D4900:
 	ldr r1, [r5, #4]
 	ldr r2, [r0]
 	mov r0, r7
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, #0

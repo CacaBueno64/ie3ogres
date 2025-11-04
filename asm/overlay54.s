@@ -1654,7 +1654,7 @@ FUN_ov54_0211b584: ; 0x0211B584
 	ldr r1, _0211B5BC ; =0x02099EB4
 	mov r4, r0
 	ldr r0, [r1]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211B5C0 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -2924,7 +2924,7 @@ FUN_ov54_0211c714: ; 0x0211C714
 	ldr r1, _0211C76C ; =0x02099EB4
 	mov r4, r0
 	ldr r0, [r1]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211C770 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

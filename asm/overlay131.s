@@ -13189,7 +13189,7 @@ _021463AC:
 	mov r1, r5
 _021463B4:
 	ldr r0, [r0]
-	bl FUN_ov0_020cd1a0 ; may be ov4
+	bl FUN_ov0_020cd1a0 ; may be ov4 ; ov0(Mica)
 	mov r0, #1
 	cmp r6, #0
 	strne r0, [r6]
@@ -17547,7 +17547,7 @@ _02149F98:
 	streqh r0, [sp, #0x1e]
 	ldrh r2, [sp, #0x1e]
 	ldr r0, _0214A52C ; =0x0209BA20
-	bl FUN_ov16_020ede60 ; may be ov17
+	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	bne _0214A0A8
 	mov r0, r8

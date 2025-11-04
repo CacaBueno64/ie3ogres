@@ -391,7 +391,7 @@ FUN_ov76_0211a380: ; 0x0211A380
 	sub r0, r0, #2
 	strh r0, [r5, #0x28]
 _0211A448:
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	mov r0, #1
 	bne _0211A46C

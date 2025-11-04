@@ -148,7 +148,7 @@ FUN_ov97_02124eb4: ; 0x02124EB4
 	ldmeqfd sp!, {r4, pc}
 	ldr r2, _02124EF0 ; =pLogic_PalSkinFaceFile
 	ldr r2, [r2]
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 	ldmfd sp!, {r4, pc}
 _02124EF0: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov97_02124eb4

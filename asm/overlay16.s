@@ -51667,7 +51667,7 @@ ov16_021192C4:
 	.word 0
 	.word FUN_ov132_0215b574
 	.word 0
-	.word FUN_ov132_021462a0 ; may be ov131
+	.word FUN_ov131_021462a0 ; may be ov132 ; ov131(Mica)
 	.word 0
 	.word FUN_ov16_0210ad74
 	.word 0
@@ -52025,7 +52025,7 @@ ov16_021192C4:
 	.word 0
 	.word FUN_ov16_0210ade4
 	.word 0
-	.word FUN_ov132_02145c40 ; may be ov131
+	.word FUN_ov131_02145c40 ; may be ov132 ; ov131(Mica)
 	.word 0
 	.word FUN_ov131_02148e88
 	.word 0

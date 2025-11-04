@@ -514,7 +514,7 @@ _0211A60C:
 	blt _0211A5D8
 	ldr r0, _0211A654 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A658 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -659,7 +659,7 @@ _0211A80C:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r5, _0211A910 ; =0x02099EB4
 	ldr r0, [r5]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, [r5]
 	bl FUN_ov16_0210e980
 	add r0, r4, #0x1000

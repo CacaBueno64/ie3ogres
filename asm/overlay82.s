@@ -263,7 +263,7 @@ _0211A270:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	beq _0211A2A4
-	bl FUN_ov16_020f0944 ; may be ov17
+	bl FUN_ov16_020f0944 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	bne _0211A2A4
 	ldr r0, [r5]
@@ -3054,7 +3054,7 @@ FUN_ov82_0211c90c: ; 0x0211C90C
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	bl FUN_ov16_020f0944 ; may be ov17
+	bl FUN_ov16_020f0944 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	ldr r0, [r4]
@@ -3414,7 +3414,7 @@ _0211CEA4:
 	add r3, sp, #0x10
 	mov r0, r8
 	mov r1, r7
-	bl FUN_ov16_020efd94 ; may be ov17
+	bl FUN_ov16_020efd94 ; may be ov17 ; ov16(Mica)
 	ldr r0, [sp, #0x10]
 	ldr r2, [sp, #0x14]
 	add r3, r0, #0xc000
@@ -3522,7 +3522,7 @@ _0211D048:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	beq _0211D074
-	bl FUN_ov16_020f0944 ; may be ov17
+	bl FUN_ov16_020f0944 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	bne _0211D074
 	ldr r0, _0211D0A8 ; =gL5Sound
@@ -4355,7 +4355,7 @@ _0211DB94:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	beq _0211DC30
-	bl FUN_ov16_020f0944 ; may be ov17
+	bl FUN_ov16_020f0944 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211DCA8
 _0211DC30:
@@ -4399,7 +4399,7 @@ _0211DCB8:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	beq _0211DD54
-	bl FUN_ov16_020f0944 ; may be ov17
+	bl FUN_ov16_020f0944 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	bne _0211DD54
 	ldr r1, [r10, #0x538]
@@ -5281,7 +5281,7 @@ _0211E990:
 	bl FUN_ov16_020f066c
 	cmp r0, #0
 	bne _0211E9AC
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211E9FC
 _0211E9AC:
@@ -5672,7 +5672,7 @@ _0211EEFC:
 	cmpne r1, #0
 	beq _0211EF28
 	ldr r2, [r7]
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 _0211EF28:
 	ldr r0, [r5, #0x48]
 	add r4, r4, #1
@@ -5755,7 +5755,7 @@ _0211F00C:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	bne _0211F044
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211F054
 _0211F044:
@@ -6609,7 +6609,7 @@ _0211FBFC:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	bne _0211FC20
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211FC34
 _0211FC20:

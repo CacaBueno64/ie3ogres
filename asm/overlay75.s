@@ -76,7 +76,7 @@ _02119FFC:
 	ldrb r0, [r5, #0x1a]
 	cmp r0, #0
 	bne _0211A014
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211A014:
@@ -136,7 +136,7 @@ FUN_ov75_0211a048: ; 0x0211A048
 	str r2, [r0]
 	cmp r1, #0
 	bne _0211A0F0
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211A104
 _0211A0F0:

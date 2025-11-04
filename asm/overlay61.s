@@ -3948,7 +3948,7 @@ _0211D5F4:
 	bl FUN_02061b44
 	ldr r0, _0211D6B0 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D6B4 ; =0x0209F5C0
 	mov r1, r4
 	bl FUN_ov16_020f5af0

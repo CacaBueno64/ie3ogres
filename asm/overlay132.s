@@ -10547,7 +10547,7 @@ _02143F28:
 	add r2, sp, #0xc
 	add r3, sp, #8
 	mov r1, r0
-	bl FUN_ov16_020efd94 ; may be ov17
+	bl FUN_ov16_020efd94 ; may be ov17 ; ov16(Mica)
 	ldr r0, [r10, #0x84]
 	ldr r1, [r4, #4]
 	ldmia r0, {r2, r3}
@@ -14642,7 +14642,7 @@ _021474C8:
 	mov r1, r6
 	mov r2, r8
 	mov r3, r7
-	bl FUN_ov1_020dd918 ; may be ov15
+	bl FUN_ov1_020dd918 ; may be ov15 ; ov1(Mica)
 	ldr r5, _021475E0 ; =0x0209BA20
 	mov r4, #0
 	mov r0, r5
@@ -24888,7 +24888,7 @@ _02150584:
 	beq _021505A4
 	ldr r0, _021505C8 ; =0x02099F14
 	ldr r0, [r0]
-	bl FUN_ov1_020e3b14 ; may be ov15
+	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 _021505A4:
 	mov r2, #0
 	mov r0, r6

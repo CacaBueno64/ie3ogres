@@ -144,7 +144,7 @@ _02124EA0:
 	cmpne r1, #0
 	beq _02124ED4
 	ldr r2, [r5]
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 _02124ED4:
 	add r7, r7, #1
 	cmp r7, #6

@@ -484,7 +484,7 @@ _0211A558:
 	cmp r0, #2
 	beq _0211A57C
 	ldr r0, _0211A594 ; =0x0209BA20
-	bl FUN_ov16_020ef160 ; may be ov17
+	bl FUN_ov16_020ef160 ; may be ov17 ; ov16(Mica)
 _0211A57C:
 	mov r0, r4
 	bl FUN_ov32_0211a280

@@ -1080,7 +1080,7 @@ _0211AE68:
 	blt _0211AE34
 	ldr r0, _0211AEA4 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211AEA8 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

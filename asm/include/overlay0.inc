@@ -65,6 +65,8 @@
 .public FUN_ov45_0211b604
 .public FUN_ov52_0211d888
 .public FUN_ov18_02119f00
+.public FUN_ov19_02119f00
+.public FUN_ov39_02119f00
 .public FUN_ov51_0211d370
 .public FUN_ov50_0211d514
 .public FUN_ov46_0211f12c
@@ -73,13 +75,15 @@
 .public FUN_ov47_0211e17c
 .public FUN_ov49_0211b7d8
 .public FUN_ov48_0211ace4
-.public FUN_ov45_0211d248
+.public FUN_ov67_0211d248
 .public FUN_ov71_0211aa5c
 .public FUN_ov68_0211e144
-.public FUN_ov39_0211bbdc
+.public FUN_ov69_0211bbdc
 .public FUN_ov55_0211d128
 .public FUN_ov29_0211a158
-.public FUN_ov92_02124d00
+.public FUN_ov97_02124d00
+.public FUN_ov104_02124d00
+.public FUN_ov111_02124d00
 .public L5FS_AllocateClear
 .public FUN_0204201c
 .public FUN_02041fec

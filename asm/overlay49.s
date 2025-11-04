@@ -1949,7 +1949,7 @@ _0211BA2C:
 	bne _0211BA94
 	ldr r0, _0211BCEC ; =0x02099ED8
 	ldr r0, [r0]
-	bl FUN_ov0_020cd0f8 ; may be ov15
+	bl FUN_ov0_020cd0f8 ; may be ov15 ; ov0(Mica)
 	mov r1, #0x4a
 	mla r1, r0, r1, r9
 	ldrb r1, [r1, #0x25d]
@@ -2570,7 +2570,7 @@ FUN_ov49_0211c2d4: ; 0x0211C2D4
 	ldr r0, _0211C3C8 ; =0x02099EB4
 	str r2, [r1]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211C3CC ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -2783,7 +2783,7 @@ FUN_ov49_0211c5e0: ; 0x0211C5E0
 	ldr r1, _0211C684 ; =0x02099ED8
 	mov r7, r0
 	ldr r0, [r1]
-	bl FUN_ov0_020cd0f8 ; may be ov15
+	bl FUN_ov0_020cd0f8 ; may be ov15 ; ov0(Mica)
 	mov r6, r0
 	mov r4, #0x4a
 	mul lr, r6, r4

@@ -381,7 +381,7 @@ _0211A444:
 	ldr r0, _0211A4CC ; =0x02099EB4
 	str r5, [r4, #0xe0c]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A4D0 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -8838,8 +8838,8 @@ FUN_ov41_0212197c: ; 0x0212197C
 	bx lr
 	arm_func_end FUN_ov41_0212197c
 
-	.byte 0x00, 0x40, 0x09, 0x00, 0x00, 0x64, 0x00, 0x00
 	.rodata
+	.byte 0x00, 0x40, 0x09, 0x00, 0x00, 0x64, 0x00, 0x00
 	.global ov41_02121988
 ov41_02121988:
 	.byte 0x0E, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00

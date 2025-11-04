@@ -574,7 +574,7 @@ _0211A698:
 	bl FUN_ov132_02145a44
 	cmp r0, #0
 	beq _0211A8CC
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211A7C8
 	ldr r0, _0211AA40 ; =0x020A1640
@@ -736,7 +736,7 @@ _0211A908:
 	ldrb r0, [r7, #0x1a]
 	cmp r0, #0
 	bne _0211A924
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0211A988
 _0211A924:
