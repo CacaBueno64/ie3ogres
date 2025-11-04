@@ -34146,7 +34146,7 @@ _020DA110: .word unk_0209BA20
 FUN_ov1_020da114: ; 0x020DA114
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r6, #0
-	ldr r5, _020DA1A8 ; =0x02099F04
+	ldr r5, _020DA1A8 ; =pLogic_PalSkinFaceFile
 	mov r10, r0
 	str r6, [sp]
 	mov r11, #0xc
@@ -34185,7 +34185,7 @@ _020DA190:
 	cmp r0, #2
 	blt _020DA130
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020DA1A8: .word unk_02099F04
+_020DA1A8: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov1_020da114
 
 	arm_func_start FUN_ov1_020da1ac

@@ -1303,7 +1303,7 @@ FUN_ov70_0211b154: ; 0x0211B154
 	mov r5, #1
 	add r2, sp, #0x28
 	str r5, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r5, r0
 _0211B1B8:
 	cmp r5, #0

@@ -36,7 +36,7 @@
 .public FUN_ov16_020f0c30
 .public FUN_02059a78
 .public MI_CpuCopy8
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_ov16_0210eb3c
 .public FUN_020460a8
 .public unk_02099EB4

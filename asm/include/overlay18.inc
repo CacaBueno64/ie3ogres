@@ -1,7 +1,7 @@
 .public operator_delete
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public sprintf
 .public FUN_02059038
 .public _ZN11L5Allocator10deallocateEPv

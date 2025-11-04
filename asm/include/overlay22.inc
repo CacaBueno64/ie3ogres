@@ -58,7 +58,7 @@
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f330c
 .public _ZN11L5Allocator12setNextArenaEi
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FUN_ov16_020f5504
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator

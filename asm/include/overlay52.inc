@@ -40,7 +40,7 @@
 .public FUN_ov16_0210efac
 .public FUN_ov16_020f5450
 .public MIi_CpuClearFast
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FS_InitFile
 .public FS_OpenFile
 .public FUN_ov16_020f34f0

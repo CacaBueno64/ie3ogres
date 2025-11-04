@@ -41,6 +41,7 @@ Static main
 	# MSL_C library
 	Object lib/MSL_C/asm/libmsl.o
 
+	Object asm/arm9_data_0208f680.o
 	Object src/init.o
 	Object asm/arm9_02029608.o
 	Object src/l5movie.o

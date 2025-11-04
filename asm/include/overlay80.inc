@@ -40,7 +40,7 @@
 .public FUN_ov16_020f33fc
 .public FUN_ov1_020db2ac
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_ov16_020ef8d4
 .public FUN_0204a2c4
 .public MI_CpuFill8

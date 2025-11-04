@@ -236,11 +236,11 @@ _02125030:
 	ldrne r1, [r4, #0x23c]
 	cmpne r1, #0
 	ldmeqfd sp!, {r4, pc}
-	ldr r2, _02125050 ; =0x02099F04
+	ldr r2, _02125050 ; =pLogic_PalSkinFaceFile
 	ldr r2, [r2]
 	bl FUN_ov16_020f0c30 ; may be ov17
 	ldmfd sp!, {r4, pc}
-_02125050: .word unk_02099F04
+_02125050: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov94_02125008
 
 	arm_func_start FUN_ov94_02125054

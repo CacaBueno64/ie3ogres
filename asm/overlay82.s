@@ -5658,7 +5658,7 @@ FUN_ov82_0211eed8: ; 0x0211EED8
 	mov r4, #0
 	cmp r0, #0
 	ldmlefd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r7, _0211EF3C ; =0x02099F04
+	ldr r7, _0211EF3C ; =pLogic_PalSkinFaceFile
 	mov r8, r4
 	mov r6, #0xc
 _0211EEFC:
@@ -5679,7 +5679,7 @@ _0211EF28:
 	cmp r4, r0
 	blt _0211EEFC
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211EF3C: .word unk_02099F04
+_0211EF3C: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov82_0211eed8
 
 	arm_func_start FUN_ov82_0211ef40

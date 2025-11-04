@@ -3,7 +3,7 @@
 .public FUN_0206cbf8
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_0207249c
 .public FUN_ov16_020f31fc
 .public FUN_ov1_020dbe00

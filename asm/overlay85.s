@@ -520,7 +520,7 @@ _0211A5BC:
 FUN_ov85_0211a5d0: ; 0x0211A5D0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, #0
-	ldr r7, _0211A630 ; =0x02099F04
+	ldr r7, _0211A630 ; =pLogic_PalSkinFaceFile
 	mov r5, r0
 	mov r8, r4
 	mov r6, #0xc
@@ -544,7 +544,7 @@ _0211A620:
 	cmp r4, #6
 	blt _0211A5E8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A630: .word unk_02099F04
+_0211A630: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov85_0211a5d0
 
 	arm_func_start FUN_ov85_0211a634

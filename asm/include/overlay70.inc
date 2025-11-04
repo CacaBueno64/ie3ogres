@@ -45,7 +45,7 @@
 .public FUN_0206cc00
 .public FUN_02074a2c
 .public FUN_0206cbf8
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FUN_0204a2c4
 .public FUN_ov16_020edec4
 .public FUN_0204b0c4

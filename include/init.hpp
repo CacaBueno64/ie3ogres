@@ -47,10 +47,10 @@ typedef struct {
     u32 unk54;
     u8 unk58[0x10];
     u32 unk68;
-    u32 unk6C;
-    u32 unk70;
-    u32 unk74;
-    u32 unk78;
+    void *Logic_ShoesInfoFile;
+    void *Logic_MissInfoFile;
+    void *Logic_PalSkin2dFile;
+    void *Logic_PalSkinFaceFile;
     u16 unk7C;
     u16 unk7E;
     s32 unk80;
@@ -58,10 +58,10 @@ typedef struct {
     u32 unk90;
     void *unk94;
     u32 unk98;
-    u32 unk9C;
-    u32 unkA0;
+    void *Logic_PalSkin3dFile;
+    void *Logic_GlovesInfoFile;
     u32 unkA4;
-    u32 unkA8;
+    void *Logic_WearSetFile;
     u32 unkAC;
     u32 unkB0;
     void *unkB4;
@@ -99,5 +99,6 @@ extern "C" void FUN_02029304(void);
 void InitG3d(void);
 void InitTouchPannel(void);
 void FUN_020295e8(void);
+void FUN_02029608(void);
 
 #endif //IE3OGRES_INIT_H

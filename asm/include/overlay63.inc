@@ -14,7 +14,7 @@
 .public FUN_0205b3cc
 .public unk_02099EEC
 .public gL5Config
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public gL5Allocator
 .public FUN_02059004
 .public FUN_02059038

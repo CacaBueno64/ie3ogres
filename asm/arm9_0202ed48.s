@@ -222,8 +222,8 @@ FUN_0202ef9c: ; 0x0202EF9C
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202ef9c
 
-	arm_func_start FUN_0202eff0 ; https://decomp.me/scratch/NalIT
-FUN_0202eff0: ; 0x0202EFF0
+	arm_func_start _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih ; https://decomp.me/scratch/NalIT
+_ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih: ; 0x0202EFF0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xb4
 	mov r10, r0
@@ -409,7 +409,7 @@ _0202F27C:
 	add sp, sp, #0xb4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202F290: .word 0x00000101
-	arm_func_end FUN_0202eff0
+	arm_func_end _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 
 	arm_func_start FUN_0202f294 ; https://decomp.me/scratch/RRkAZ
 FUN_0202f294: ; 0x0202F294
@@ -4774,7 +4774,7 @@ FUN_02032e30: ; 0x02032E30
 	str lr, [sp, #8]
 	add r2, r4, #0x54
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02032EB8:
 	ldr r3, _02032F2C ; =gL5Allocator
 	ldr r1, _02032F34 ; =0x0208FD4C
@@ -4788,7 +4788,7 @@ _02032EB8:
 	mov r12, #1
 	add r2, r4, #0x58
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02032EEC:
 	ldr r3, _02032F2C ; =gL5Allocator
 	ldr r1, _02032F38 ; =0x0208FD64
@@ -4803,7 +4803,7 @@ _02032EEC:
 	mov r12, #1
 	add r2, r4, #0x5c
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 _02032F2C: .word gL5Allocator
@@ -6800,7 +6800,7 @@ _02034BB8:
 	bl FUN_0205998c
 	movs r1, r0
 	beq _02034BFC
-	ldr r2, _02034F40 ; =0x02099F04
+	ldr r2, _02034F40 ; =pLogic_PalSkinFaceFile
 	ldrb r0, [r10, #0xcc]
 	ldr r1, [r1, #4]
 	ldr r2, [r2]
@@ -7040,7 +7040,7 @@ _02034F30: .word unk_0208FD98
 _02034F34: .word unk_0208FDA0
 _02034F38: .word unk_0208FDA8
 _02034F3C: .word unk_0208FDB0
-_02034F40: .word unk_02099F04
+_02034F40: .word pLogic_PalSkinFaceFile
 _02034F44: .word 0x00007FFF
 _02034F48: .word 0x0000318C
 _02034F4C: .word unk_0208FDB8
@@ -22029,17 +22029,17 @@ unk_02099EF0:
 	.global unk_02099EF4
 unk_02099EF4:
 	.space 0x04
-	.global unk_02099EF8
-unk_02099EF8:
+	.global pLogic_ShoesInfoFile
+pLogic_ShoesInfoFile:
 	.space 0x04
-	.global unk_02099EFC
-unk_02099EFC:
+	.global pLogic_MissInfoFile
+pLogic_MissInfoFile:
 	.space 0x04
-	.global unk_02099F00
-unk_02099F00:
+	.global pLogic_PalSkin2dFile
+pLogic_PalSkin2dFile:
 	.space 0x04
-	.global unk_02099F04
-unk_02099F04:
+	.global pLogic_PalSkinFaceFile
+pLogic_PalSkinFaceFile:
 	.space 0x04
 	.global unk_02099F08
 unk_02099F08:
@@ -22062,17 +22062,17 @@ unk_02099F1C:
 	.global unk_02099F24
 unk_02099F24:
 	.space 0x04
-	.global unk_02099F28
-unk_02099F28:
+	.global pLogic_PalSkin3dFile
+pLogic_PalSkin3dFile:
 	.space 0x04
-	.global unk_02099F2C
-unk_02099F2C:
+	.global pLogic_GlovesInfoFile
+pLogic_GlovesInfoFile:
 	.space 0x04
 	.global unk_02099F30
 unk_02099F30:
 	.space 0x04
-	.global unk_02099F34
-unk_02099F34:
+	.global pLogic_WearSetFile
+pLogic_WearSetFile:
 	.space 0x04
 	.global unk_02099F38
 unk_02099F38:

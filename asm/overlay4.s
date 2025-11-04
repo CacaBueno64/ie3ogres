@@ -18281,7 +18281,7 @@ _020CC878:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x20
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020CC8CC:
 	mov r9, #0
 	add r8, sp, #0x74
@@ -27179,7 +27179,7 @@ _020D4900:
 	bl FUN_0205998c
 	movs r5, r0
 	beq _020D49C0
-	ldr r0, _020D4A4C ; =0x02099F04
+	ldr r0, _020D4A4C ; =pLogic_PalSkinFaceFile
 	ldr r1, [r5, #4]
 	ldr r2, [r0]
 	mov r0, r7
@@ -27236,7 +27236,7 @@ _020D4A40:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020D4A48: .word unk_02099F38
-_020D4A4C: .word unk_02099F04
+_020D4A4C: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov4_020d4868
 
 	arm_func_start FUN_ov4_020d4a50

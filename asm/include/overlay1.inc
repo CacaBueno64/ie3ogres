@@ -589,7 +589,7 @@
 .public FUN_ov132_02141568
 .public FUN_ov132_02142000
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public sprintf
 .public FUN_ov16_020f197c
 .public FUN_0206ccec

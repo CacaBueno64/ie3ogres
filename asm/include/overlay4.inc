@@ -400,7 +400,7 @@
 .public unk_02099F58
 .public FUN_ov16_021174ac
 .public FUN_ov16_02117514
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_0205935c
 .public FUN_02059288
@@ -513,7 +513,7 @@
 .public FUN_0205998c
 .public FUN_ov16_020f0c30
 .public FUN_02059a78
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_ov16_020f366c
 .public FUN_ov16_020f0b3c
 .public FUN_ov16_020f36f4

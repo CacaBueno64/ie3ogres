@@ -3,89 +3,6 @@
 	.include "/include/arm9_02029608.inc"
 
 	.text
-	arm_func_start FUN_02029608 ; https://decomp.me/scratch/xjl7w
-FUN_02029608: ; 0x02029608
-	stmfd sp!, {r4, lr}
-	sub sp, sp, #0x10
-	ldr r4, _020296FC ; =0x0209BA20
-	mov r0, r4
-	bl FUN_020715b4
-	mov r0, r4
-	bl FUN_0206f77c
-	ldr r3, _02029700 ; =gL5Allocator
-	ldr r1, _02029704 ; =0x02099E8C
-	ldr r0, [r3]
-	mov r4, #0
-	str r4, [r1, #0xa8]
-	cmp r0, #0
-	ldr r1, _02029708 ; =0x0208F768
-	beq _02029660
-	str r4, [sp]
-	str r4, [sp, #4]
-	ldr r2, _0202970C ; =0x02099F34
-	str r4, [sp, #8]
-	mov r4, #1
-	str r4, [sp, #0xc]
-	bl FUN_0202eff0
-_02029660:
-	ldr r12, _02029704 ; =0x02099E8C
-	mov r4, #0
-	str r4, [r12, #0x6c]
-	str r4, [r12, #0xa0]
-	str r4, [r12, #0x70]
-	str r4, [r12, #0x9c]
-	ldr r0, _02029710 ; =0x02099EF8
-	ldr r1, _02029714 ; =0x0208F784
-	mov r2, r4
-	mov r3, r4
-	str r4, [r12, #0x74]
-	bl L5FS_ReadFile
-	ldr r0, _02029718 ; =0x02099F2C
-	ldr r1, _0202971C ; =0x0208F798
-	mov r2, r4
-	mov r3, r4
-	bl L5FS_ReadFile
-	ldr r0, _02029720 ; =0x02099EFC
-	ldr r1, _02029724 ; =0x0208F7AC
-	mov r2, r4
-	mov r3, r4
-	bl L5FS_ReadFile
-	ldr r0, _02029728 ; =0x02099F28
-	ldr r1, _0202972C ; =0x0208F7C0
-	mov r2, r4
-	mov r3, r4
-	bl L5FS_ReadFile
-	ldr r0, _02029730 ; =0x02099F00
-	ldr r1, _02029734 ; =0x0208F7D4
-	mov r2, r4
-	mov r3, r4
-	bl L5FS_ReadFile
-	ldr r0, _02029738 ; =0x02099F04
-	ldr r1, _0202973C ; =0x0208F7E8
-	mov r2, r4
-	mov r3, r4
-	bl L5FS_ReadFile
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, pc}
-_020296FC: .word unk_0209BA20
-_02029700: .word gL5Allocator
-_02029704: .word unk_02099E8C
-_02029708: .word unk_0208F768
-_0202970C: .word unk_02099F34
-_02029710: .word unk_02099EF8
-_02029714: .word unk_0208F784
-_02029718: .word unk_02099F2C
-_0202971C: .word unk_0208F798
-_02029720: .word unk_02099EFC
-_02029724: .word unk_0208F7AC
-_02029728: .word unk_02099F28
-_0202972C: .word unk_0208F7C0
-_02029730: .word unk_02099F00
-_02029734: .word unk_0208F7D4
-_02029738: .word unk_02099F04
-_0202973C: .word unk_0208F7E8
-	arm_func_end FUN_02029608
-
 	arm_func_start FUN_02029740
 FUN_02029740: ; 0x02029740
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
@@ -441,7 +358,7 @@ L5_Main: ; 0x02029C08
 	bl FS_LoadOverlay
 	bl FUN_02029304
 	bl _Z12FUN_020295e8v
-	bl FUN_02029608
+	bl _Z12FUN_02029608v
 	bl InitFont
 	bl FUN_02029b40
 	bl FUN_02029bd0
@@ -6146,77 +6063,6 @@ unk_0208C348:
 	.byte 0xE0, 0x02, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00
 
 	.data
-	.global unk_0208F680
-unk_0208F680:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F6A0
-unk_0208F6A0:
-	.word FUN_02029c78
-	.word FUN_02029c64
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F6B0
-unk_0208F6B0:
-	.word FUN_02028fa4
-	.word FUN_02029cec
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F6C0
-unk_0208F6C0:
-	.word FUN_02028fa0
-	.word FUN_02029cc4
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F6D0
-unk_0208F6D0:
-	.word FUN_02028fa8
-	.word FUN_02029cd8
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208F6E0
-unk_0208F6E0:
-	.word FUN_0205244c
-	.word FUN_020524a0
-	.word FUN_02029ca4
-	.word FUN_02029c7c
-	.global unk_0208F6F0
-unk_0208F6F0:
-	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00
-	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x24, 0x02, 0x00, 0x00, 0x48, 0x03, 0x00, 0x00
-	.byte 0x46, 0x00, 0x00, 0x00, 0x46, 0x00, 0x00, 0x00
-	.global unk_0208F728
-unk_0208F728: ; shift-jis string
-	.byte 0x40, 0x81, 0x49, 0x81, 0x68, 0x81, 0x94, 0x81
-	.byte 0x90, 0x81, 0x93, 0x81, 0x95, 0x81, 0x66, 0x81, 0x69, 0x81, 0x6A, 0x81, 0x96, 0x81, 0x7B, 0x81
-	.byte 0x43, 0x81, 0x7C, 0x81, 0x44, 0x81, 0x5E, 0x81, 0x46, 0x81, 0x47, 0x81, 0x83, 0x81, 0x81, 0x81
-	.byte 0x84, 0x81, 0x48, 0x81, 0x97, 0x81, 0x6D, 0x81, 0x8F, 0x81, 0x6E, 0x81, 0x4F, 0x81, 0x51, 0x81
-	.byte 0x6F, 0x81, 0x62, 0x81, 0x70, 0x81, 0x60, 0x81
-	.global unk_0208F768
-unk_0208F768:
-	.asciz "/data_iz/logic/wearset.dat"
-	.balign 4, 0
-	.global unk_0208F784
-unk_0208F784:
-	.asciz "logic/shoesinfo.dat"
-	.balign 4, 0
-	.global unk_0208F798
-unk_0208F798:
-	.asciz "logic/gloveinfo.dat"
-	.balign 4, 0
-	.global unk_0208F7AC
-unk_0208F7AC:
-	.asciz "logic/missinfo.dat"
-	.balign 4, 0
-	.global unk_0208F7C0
-unk_0208F7C0:
-	.asciz "logic/palskin3d.dat"
-	.balign 4, 0
-	.global unk_0208F7D4
-unk_0208F7D4:
-	.asciz "logic/palskin2d.dat"
-	.balign 4, 0
-	.global unk_0208F7E8
-unk_0208F7E8:
-	.asciz "logic/palskinface.dat"
-	.balign 4, 0
 	.global unk_0208F800
 unk_0208F800:
 	.asciz "/data_iz/font/FONT8.NFTR"

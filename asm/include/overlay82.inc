@@ -158,7 +158,7 @@
 .public FUN_ov16_020f1160
 .public FUN_ov16_020f10ac
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_ov126_02138d98
 .public FUN_0206d688
 .public FUN_ov1_020dbe00

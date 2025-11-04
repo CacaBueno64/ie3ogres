@@ -319,7 +319,7 @@ FUN_ov64_0211a2e4: ; 0x0211A2E4
 	mov r6, #1
 	add r2, r4, #0x60
 	str r6, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A328:
 	mov r0, #0x64
 	mov r8, #2
@@ -562,7 +562,7 @@ FUN_ov64_0211a628: ; 0x0211A628
 	mov r12, #1
 	add r2, r4, #0x8c
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A674:
 	ldr r3, _0211A6F0 ; =gL5Allocator
 	ldr r1, _0211A6F8 ; =0x0211BAC8
@@ -576,7 +576,7 @@ _0211A674:
 	mov r12, #1
 	add r2, r4, #0x90
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A6A8:
 	ldr r3, _0211A6F0 ; =gL5Allocator
 	ldr r1, _0211A6FC ; =0x0211BAE0
@@ -590,7 +590,7 @@ _0211A6A8:
 	mov r12, #1
 	add r2, r4, #0x94
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A6DC:
 	mov r0, #1
 	str r0, [r4, #0xc]
@@ -943,7 +943,7 @@ _0211AB14:
 	bl FUN_0205998c
 	movs r9, r0
 	beq _0211AC14
-	ldr r0, _0211ACB8 ; =0x02099F04
+	ldr r0, _0211ACB8 ; =pLogic_PalSkinFaceFile
 	ldr r1, [r9, #4]
 	ldr r2, [r0]
 	mov r0, r4
@@ -1003,7 +1003,7 @@ _0211ACA8: .word ov64_0211BB1C
 _0211ACAC: .word ov64_0211BB34
 _0211ACB0: .word ov64_0211BB4C
 _0211ACB4: .word 0x000001C2
-_0211ACB8: .word unk_02099F04
+_0211ACB8: .word pLogic_PalSkinFaceFile
 _0211ACBC: .word 0x000001C3
 	arm_func_end FUN_ov64_0211a93c
 

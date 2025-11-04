@@ -42,7 +42,7 @@
 .public FUN_ov16_020f16a4
 .public FUN_ov16_020f14b4
 .public unk_020A0640
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FUN_0202de44
 .public DC_FlushRange
 .public GXS_BeginLoadBGExtPltt

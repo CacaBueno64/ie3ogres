@@ -20,7 +20,7 @@
 .public L5FS_SetNextArena
 .public L5FS_OpenArchiveDirect
 .public FUN_02030260
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FUN_02029d54
 .public FUN_ov0_020bdbe8
 .public abs
@@ -422,9 +422,9 @@
 .public FUN_ov16_0211726c
 .public FUN_ov16_020f0d58
 .public FUN_ov16_020f0d7c
-.public unk_02099F00
-.public unk_02099F2C
-.public unk_02099EF8
+.public pLogic_PalSkin2dFile
+.public pLogic_GlovesInfoFile
+.public pLogic_ShoesInfoFile
 .public FUN_ov16_02117598
 .public FUN_ov16_02117744
 .public FUN_ov16_0211689c

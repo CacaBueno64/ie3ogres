@@ -56,7 +56,7 @@ _02119F78:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 _02119FC4:
@@ -76,7 +76,7 @@ _02119FC4:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 _0211A010: .word gL5Config

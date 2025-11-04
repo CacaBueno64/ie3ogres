@@ -35,7 +35,7 @@
 .public FUN_ov16_020f0c30
 .public FUN_02059a78
 .public MI_CpuCopy8
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public G2_GetBG3CharPtr
 .public GX_LoadBG3Scr
 .public G2_GetBG1CharPtr

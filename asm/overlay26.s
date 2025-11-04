@@ -465,7 +465,7 @@ _0211A4D8:
 	bl FUN_0205998c
 	movs r9, r0
 	beq _0211A5D8
-	ldr r0, _0211B2E0 ; =0x02099F04
+	ldr r0, _0211B2E0 ; =pLogic_PalSkinFaceFile
 	ldr r1, [r9, #4]
 	ldr r2, [r0]
 	mov r0, r6
@@ -1340,7 +1340,7 @@ _0211B2D0: .word unk_02099F38
 _0211B2D4: .word ov26_0211BA28
 _0211B2D8: .word ov26_0211BA40
 _0211B2DC: .word ov26_0211BA58
-_0211B2E0: .word unk_02099F04
+_0211B2E0: .word pLogic_PalSkinFaceFile
 _0211B2E4: .word 0x40240000
 _0211B2E8: .word 0x66666667
 _0211B2EC: .word unk_02099F50

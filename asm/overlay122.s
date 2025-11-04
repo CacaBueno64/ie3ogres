@@ -127,7 +127,7 @@ _02124E74:
 FUN_ov122_02124e88: ; 0x02124E88
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, #0
-	ldr r5, _02124EE4 ; =0x02099F04
+	ldr r5, _02124EE4 ; =pLogic_PalSkinFaceFile
 	mov r8, r0
 	mov r6, r7
 	mov r4, #0xc
@@ -150,7 +150,7 @@ _02124ED4:
 	cmp r7, #6
 	blt _02124EA0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02124EE4: .word unk_02099F04
+_02124EE4: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov122_02124e88
 
 	arm_func_start FUN_ov122_02124ee8

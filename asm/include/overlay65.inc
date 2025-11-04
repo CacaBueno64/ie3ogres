@@ -1,7 +1,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public unk_02099EB4
 .public unk_02099ED4
 .public gL5Allocator

@@ -1,6 +1,6 @@
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public MI_CpuFill8
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f338c

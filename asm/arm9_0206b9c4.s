@@ -4997,8 +4997,8 @@ _0206F774: .word 0x02FFFC3C
 _0206F778: .word unk_020A0B00
 	arm_func_end FUN_0206f6b4
 
-	arm_func_start FUN_0206f77c
-FUN_0206f77c: ; 0x0206F77C
+	arm_func_start _ZN17UnkClass_0209BA2012FUN_0206f77cEv
+_ZN17UnkClass_0209BA2012FUN_0206f77cEv: ; 0x0206F77C
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #0x14
 	mov r12, #0
@@ -5027,7 +5027,7 @@ FUN_0206f77c: ; 0x0206F77C
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0206F7F0:
 	cmp r0, #0x280
 	addne sp, sp, #0x14
@@ -5047,7 +5047,7 @@ _0206F820:
 	ldmfd sp!, {r3, r4, pc}
 _0206F82C: .word gL5Allocator
 _0206F830: .word unk_02091350
-	arm_func_end FUN_0206f77c
+	arm_func_end _ZN17UnkClass_0209BA2012FUN_0206f77cEv
 
 	arm_func_start FUN_0206f834
 FUN_0206f834: ; 0x0206F834
@@ -5079,7 +5079,7 @@ FUN_0206f834: ; 0x0206F834
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0206F8A8:
 	cmp r0, #0
 	moveq r0, #0
@@ -5157,7 +5157,7 @@ FUN_0206f950: ; 0x0206F950
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0206F9BC:
 	cmp r0, #0
 	moveq r0, #0
@@ -5227,7 +5227,7 @@ FUN_0206fa44: ; 0x0206FA44
 	add r2, sp, #0x10
 	mov r0, lr
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0206FAA0:
 	str r0, [sp, #0x1c]
 	cmp r0, #0
@@ -5262,7 +5262,7 @@ _0206FAE8:
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0206FB24:
 	ldr r1, _0206FB70 ; =0x00000618
 	str r0, [sp, #0x1c]
@@ -5906,7 +5906,7 @@ FUN_0207039c: ; 0x0207039C
 	str r6, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r6, r0
 _02070420:
 	cmp r6, #0
@@ -5944,7 +5944,7 @@ _02070468:
 	str r5, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020704AC:
 	str r0, [sp, #0x1c]
 	cmp r0, #0
@@ -6306,7 +6306,7 @@ _0207093C:
 	add r2, sp, #0x58
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020709BC:
 	add r8, sp, #0x204
 	mov r0, r8
@@ -7045,7 +7045,7 @@ FUN_020713e4: ; 0x020713E4
 	mov r12, #1
 	add r2, lr, #0x7d0
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071434:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7157,8 +7157,8 @@ _020715AC: .word unk_020914D8
 _020715B0: .word 0x00000101
 	arm_func_end FUN_02071458
 
-	arm_func_start FUN_020715b4
-FUN_020715b4: ; 0x020715B4
+	arm_func_start _ZN17UnkClass_0209BA2012FUN_020715b4Ev
+_ZN17UnkClass_0209BA2012FUN_020715b4Ev: ; 0x020715B4
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r5, r0
@@ -7179,7 +7179,7 @@ FUN_020715b4: ; 0x020715B4
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071608:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7205,7 +7205,7 @@ _02071624:
 	mov r4, #1
 	add r2, r2, #0x800
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071668:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7223,7 +7223,7 @@ _02071694: .word unk_020914E8
 _02071698: .word unk_0209A120
 _0207169C: .word unk_02091504
 _020716A0: .word unk_0209A130
-	arm_func_end FUN_020715b4
+	arm_func_end _ZN17UnkClass_0209BA2012FUN_020715b4Ev
 
 	arm_func_start FUN_020716a4
 FUN_020716a4: ; 0x020716A4
@@ -7247,7 +7247,7 @@ FUN_020716a4: ; 0x020716A4
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020716F8:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7283,7 +7283,7 @@ FUN_0207171c: ; 0x0207171C
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071770:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7323,7 +7323,7 @@ FUN_020717a8: ; 0x020717A8
 	mov r12, #1
 	add r2, lr, #0x840
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020717F8:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7359,7 +7359,7 @@ FUN_0207181c: ; 0x0207181C
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071870:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7456,7 +7456,7 @@ FUN_02071968: ; 0x02071968
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020719BC:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7491,7 +7491,7 @@ FUN_020719e0: ; 0x020719E0
 	mov r12, #1
 	add r2, r5, #0x7e0
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071A30:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7514,7 +7514,7 @@ _02071A40:
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071A84:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7551,7 +7551,7 @@ FUN_02071aac: ; 0x02071AAC
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071B00:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -7597,7 +7597,7 @@ _02071B3C:
 	add r1, sp, #0x10
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02071B9C:
 	cmp r0, #0
 	ldrne r1, _02071BD4 ; =0xAAAAAAAB
@@ -7941,7 +7941,7 @@ FUN_02071fac: ; 0x02071FAC
 	mov r12, #1
 	add r2, lr, #0x7f0
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02072004:
 	cmp r0, #0x1880
 	movne r0, #0
@@ -8011,7 +8011,7 @@ _02072080:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020720F0:
 	cmp r0, #0
 	moveq r0, #0
@@ -8384,7 +8384,7 @@ FUN_020724f4: ; 0x020724F4
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, pc}
 _02072558: .word gL5Allocator
@@ -8562,7 +8562,7 @@ FUN_0207273c: ; 0x0207273C
 	add r2, sp, #0x10
 	mov r1, lr
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0207278C:
 	cmp r0, #0
 	moveq r0, #0
@@ -9487,7 +9487,7 @@ FUN_020732e0: ; 0x020732E0
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0207333C:
 	cmp r0, #0x600
 	movne r0, #0
@@ -9659,7 +9659,7 @@ _0207353C:
 	add r2, sp, #0x20
 	mov r1, lr
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0207357C:
 	cmp r0, #0
 	moveq r0, #0
@@ -9718,7 +9718,7 @@ _020735D8:
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r4, r0
 _02073650:
 	mov r0, #0
@@ -9755,7 +9755,7 @@ FUN_02073674: ; 0x02073674
 	mov r12, #1
 	add r2, lr, #0x830
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020736CC:
 	cmp r0, #0
 	moveq r0, #0

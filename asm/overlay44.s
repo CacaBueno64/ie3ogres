@@ -2946,7 +2946,7 @@ _0211C74C:
 	mov r1, r8
 	str r5, [sp, #0xc]
 	mov r3, r7
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	str r7, [sp]
 	ldr r2, [sp, #0x10]
 	add r3, r4, #0x398

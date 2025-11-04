@@ -766,7 +766,7 @@ _0211A920:
 	ldr r1, _0211A9C8 ; =0x02122C14
 	add r2, sp, #0x10
 	mov r3, r5
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	str r5, [sp]
 	ldr r0, [sp, #0x10]
 	mov r1, r7

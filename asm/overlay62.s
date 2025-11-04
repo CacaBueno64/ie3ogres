@@ -7518,7 +7518,7 @@ FUN_ov62_021209ac: ; 0x021209AC
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r12, r0
 _02120A00:
 	mov r1, r12, lsr #1

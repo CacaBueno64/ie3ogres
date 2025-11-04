@@ -453,7 +453,7 @@
 .public FUN_0205106c
 .public FUN_02050244
 .public FUN_ov16_020f0c30
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2f20

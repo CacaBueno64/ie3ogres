@@ -125,11 +125,11 @@ FUN_ov108_02124e8c: ; 0x02124E8C
 	ldrne r1, [r4, #0x144]
 	cmpne r1, #0
 	ldmeqfd sp!, {r4, pc}
-	ldr r2, _02124EC8 ; =0x02099F04
+	ldr r2, _02124EC8 ; =pLogic_PalSkinFaceFile
 	ldr r2, [r2]
 	bl FUN_ov16_020f0c30 ; may be ov17
 	ldmfd sp!, {r4, pc}
-_02124EC8: .word unk_02099F04
+_02124EC8: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov108_02124e8c
 
 	arm_func_start FUN_ov108_02124ecc

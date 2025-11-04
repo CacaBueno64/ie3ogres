@@ -1125,7 +1125,7 @@ FUN_ov16_020eeca0: ; 0x020EECA0
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020EECFC:
 	cmp r0, #0x1000
 	movne r0, #0
@@ -1216,7 +1216,7 @@ _020EEDF0:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020EEE30:
 	cmp r0, #0
 	moveq r0, #0x16
@@ -1615,7 +1615,7 @@ _020EF2E8:
 	add r1, sp, #0x10
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020EF350:
 	cmp r0, #0
 	moveq r0, #0
@@ -1715,7 +1715,7 @@ FUN_ov16_020ef430: ; 0x020EF430
 	str r6, [sp, #8]
 	mov r4, #1
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r6, r0
 _020EF484:
 	ldr r0, [sp, #0x10]
@@ -3566,17 +3566,17 @@ _020F0B88: .word ov16_021178A4
 
 	arm_func_start FUN_ov16_020f0b8c
 FUN_ov16_020f0b8c: ; 0x020F0B8C
-	ldr r2, _020F0BA0 ; =0x02099F34
+	ldr r2, _020F0BA0 ; =pLogic_WearSetFile
 	mov r1, #0xc
 	ldr r2, [r2]
 	mla r0, r1, r0, r2
 	bx lr
-_020F0BA0: .word unk_02099F34
+_020F0BA0: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f0b8c
 
 	arm_func_start FUN_ov16_020f0ba4
 FUN_ov16_020f0ba4: ; 0x020F0BA4
-	ldr r2, _020F0BC8 ; =0x02099F34
+	ldr r2, _020F0BC8 ; =pLogic_WearSetFile
 	mov r1, #0xc
 	ldr r2, [r2]
 	mla r1, r0, r1, r2
@@ -3585,7 +3585,7 @@ FUN_ov16_020f0ba4: ; 0x020F0BA4
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-_020F0BC8: .word unk_02099F34
+_020F0BC8: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f0ba4
 
 	arm_func_start FUN_ov16_020f0bcc
@@ -3642,7 +3642,7 @@ _020F0C5C: .word MIi_CpuCopy16
 	arm_func_start FUN_ov16_020f0c60
 FUN_ov16_020f0c60: ; 0x020F0C60
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r4, _020F0D54 ; =0x02099F34
+	ldr r4, _020F0D54 ; =pLogic_WearSetFile
 	mov r7, r2
 	ldr r5, [r4]
 	ldr r4, [sp, #0x24]
@@ -3707,7 +3707,7 @@ _020F0D34:
 	mov r2, #0x10
 	bl MIi_CpuCopy16
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020F0D54: .word unk_02099F34
+_020F0D54: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f0c60
 
 	arm_func_start FUN_ov16_020f0d58
@@ -6449,7 +6449,7 @@ FUN_ov16_020f3068: ; 0x020F3068
 	str r2, [sp, #8]
 	mov r2, r4
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r2, r0
 _020F30C8:
 	cmp r2, #0
@@ -6487,7 +6487,7 @@ FUN_ov16_020f30e8: ; 0x020F30E8
 	str r2, [sp, #8]
 	mov r2, r5
 	str lr, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r4, r0
 _020F314C:
 	cmp r4, #0
@@ -6758,7 +6758,7 @@ FUN_ov16_020f345c: ; 0x020F345C
 	add r2, sp, #0x10
 	mov r1, r12
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020F34AC:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
@@ -6922,7 +6922,7 @@ FUN_ov16_020f366c: ; 0x020F366C
 	arm_func_start FUN_ov16_020f369c
 FUN_ov16_020f369c: ; 0x020F369C
 	stmfd sp!, {r3, lr}
-	ldr r12, _020F36E8 ; =0x02099F34
+	ldr r12, _020F36E8 ; =pLogic_WearSetFile
 	mov r3, #0xc
 	ldr lr, [r12]
 	mul r12, r2, r3
@@ -6940,7 +6940,7 @@ FUN_ov16_020f369c: ; 0x020F369C
 	ldrb r0, [r0, #0x52]
 	add r0, r0, r1
 	ldmfd sp!, {r3, pc}
-_020F36E8: .word unk_02099F34
+_020F36E8: .word pLogic_WearSetFile
 _020F36EC: .word 0x00002710
 _020F36F0: .word 0x000F4240
 	arm_func_end FUN_ov16_020f369c
@@ -6963,14 +6963,14 @@ FUN_ov16_020f36f4: ; 0x020F36F4
 
 	arm_func_start FUN_ov16_020f3724
 FUN_ov16_020f3724: ; 0x020F3724
-	ldr r3, _020F3740 ; =0x02099F34
+	ldr r3, _020F3740 ; =pLogic_WearSetFile
 	mov r2, #0xc
 	ldr r3, [r3]
 	mla r3, r0, r2, r3
 	mla r0, r1, r2, r3
 	ldrh r0, [r0, #2]
 	bx lr
-_020F3740: .word unk_02099F34
+_020F3740: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f3724
 
 	arm_func_start FUN_ov16_020f3744
@@ -7043,7 +7043,7 @@ _020F3818: .word ov16_02118580
 FUN_ov16_020f381c: ; 0x020F381C
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r12, _020F388C ; =0x02099F34
+	ldr r12, _020F388C ; =pLogic_WearSetFile
 	mov r5, r1
 	ldr r12, [r12]
 	mov r1, #0xc
@@ -7069,7 +7069,7 @@ FUN_ov16_020f381c: ; 0x020F381C
 	bl sprintf
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_020F388C: .word unk_02099F34
+_020F388C: .word pLogic_WearSetFile
 _020F3890: .word ov16_02118594
 _020F3894: .word ov16_021185B4
 	arm_func_end FUN_ov16_020f381c
@@ -7077,7 +7077,7 @@ _020F3894: .word ov16_021185B4
 	arm_func_start FUN_ov16_020f3898
 FUN_ov16_020f3898: ; 0x020F3898
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr lr, _020F38DC ; =0x02099F34
+	ldr lr, _020F38DC ; =pLogic_WearSetFile
 	mov r12, #0xc
 	ldr lr, [lr]
 	mul r4, r1, r12
@@ -7093,7 +7093,7 @@ FUN_ov16_020f3898: ; 0x020F3898
 	mov r0, r7
 	bl sprintf
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020F38DC: .word unk_02099F34
+_020F38DC: .word pLogic_WearSetFile
 _020F38E0: .word ov16_021185CC
 _020F38E4: .word ov16_021185E8
 	arm_func_end FUN_ov16_020f3898
@@ -7102,7 +7102,7 @@ _020F38E4: .word ov16_021185E8
 FUN_ov16_020f38e8: ; 0x020F38E8
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r12, _020F3950 ; =0x02099EF8
+	ldr r12, _020F3950 ; =pLogic_ShoesInfoFile
 	mov r5, r1
 	ldr r1, [r12]
 	mov r6, r0
@@ -7126,7 +7126,7 @@ FUN_ov16_020f38e8: ; 0x020F38E8
 	bl sprintf
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_020F3950: .word unk_02099EF8
+_020F3950: .word pLogic_ShoesInfoFile
 _020F3954: .word ov16_02118600
 _020F3958: .word ov16_02118620
 	arm_func_end FUN_ov16_020f38e8
@@ -7181,7 +7181,7 @@ FUN_ov16_020f39c0: ; 0x020F39C0
 	arm_func_start FUN_ov16_020f39d8
 FUN_ov16_020f39d8: ; 0x020F39D8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _020F3A6C ; =0x02099F34
+	ldr r4, _020F3A6C ; =pLogic_WearSetFile
 	mov r5, r1
 	ldr r4, [r4]
 	mov r1, #0xc
@@ -7219,14 +7219,14 @@ _020F3A3C:
 	add r1, r4, r1
 	bl FUN_ov16_020f34f0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020F3A6C: .word unk_02099F34
+_020F3A6C: .word pLogic_WearSetFile
 _020F3A70: .word 0x00002710
 	arm_func_end FUN_ov16_020f39d8
 
 	arm_func_start FUN_ov16_020f3a74
 FUN_ov16_020f3a74: ; 0x020F3A74
 	stmfd sp!, {r4, lr}
-	ldr lr, _020F3AB0 ; =0x02099F34
+	ldr lr, _020F3AB0 ; =pLogic_WearSetFile
 	mov r12, #0xc
 	ldr lr, [lr]
 	mul r4, r2, r12
@@ -7240,13 +7240,13 @@ FUN_ov16_020f3a74: ; 0x020F3A74
 	ldr r3, [sp, #8]
 	bl FUN_ov16_020f34f0
 	ldmfd sp!, {r4, pc}
-_020F3AB0: .word unk_02099F34
+_020F3AB0: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f3a74
 
 	arm_func_start FUN_ov16_020f3ab4
 FUN_ov16_020f3ab4: ; 0x020F3AB4
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r12, _020F3AF4 ; =0x02099EF8
+	ldr r12, _020F3AF4 ; =pLogic_ShoesInfoFile
 	ldrb lr, [r1, #0x5c]
 	ldr r5, [r12]
 	mov r1, #0x64
@@ -7261,7 +7261,7 @@ FUN_ov16_020f3ab4: ; 0x020F3AB4
 	add r1, r4, r1
 	bl FUN_ov16_020f34f0
 	ldmfd sp!, {r3, r4, r5, pc}
-_020F3AF4: .word unk_02099EF8
+_020F3AF4: .word pLogic_ShoesInfoFile
 _020F3AF8: .word 0x00002710
 	arm_func_end FUN_ov16_020f3ab4
 
@@ -7346,7 +7346,7 @@ FUN_ov16_020f3bb0: ; 0x020F3BB0
 	arm_func_start FUN_ov16_020f3bb4
 FUN_ov16_020f3bb4: ; 0x020F3BB4
 	stmfd sp!, {r3, lr}
-	ldr lr, _020F3BFC ; =0x02099F34
+	ldr lr, _020F3BFC ; =pLogic_WearSetFile
 	cmp r0, #2
 	ldr lr, [lr]
 	mov r12, #0xc
@@ -7363,21 +7363,21 @@ FUN_ov16_020f3bb4: ; 0x020F3BB4
 	mla r0, r12, r0, r1
 	add r0, r3, r0
 	ldmfd sp!, {r3, pc}
-_020F3BFC: .word unk_02099F34
+_020F3BFC: .word pLogic_WearSetFile
 _020F3C00: .word 0x00002710
 _020F3C04: .word 0x000F4240
 	arm_func_end FUN_ov16_020f3bb4
 
 	arm_func_start FUN_ov16_020f3c08
 FUN_ov16_020f3c08: ; 0x020F3C08
-	ldr r3, _020F3C24 ; =0x02099F34
+	ldr r3, _020F3C24 ; =pLogic_WearSetFile
 	mov r2, #0xc
 	ldr r3, [r3]
 	mla r3, r0, r2, r3
 	mla r0, r1, r2, r3
 	ldrh r0, [r0, #6]
 	bx lr
-_020F3C24: .word unk_02099F34
+_020F3C24: .word pLogic_WearSetFile
 	arm_func_end FUN_ov16_020f3c08
 
 	arm_func_start FUN_ov16_020f3c28
@@ -12605,7 +12605,7 @@ _020F82F0:
 	ldr r0, [r5]
 	add r2, sp, #0x10
 	mov r3, r5
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020F836C:
 	add r0, r4, #4
 	str r0, [sp, #0x10]
@@ -12624,7 +12624,7 @@ _020F836C:
 	str r6, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020F83B4:
 	add r0, r4, #0x104
 	str r0, [sp, #0x10]
@@ -12643,7 +12643,7 @@ _020F83B4:
 	str r6, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020F83FC:
 	ldr r1, [r4]
 	ldrb r0, [r1]
@@ -17578,14 +17578,14 @@ _020FC400:
 	bl FUN_ov16_020ee478
 	cmp r0, #0
 	ldrneh r3, [r0, #0x26]
-	ldr r0, _020FC480 ; =0x02099F28
+	ldr r0, _020FC480 ; =pLogic_PalSkin3dFile
 	mov r2, r10
 	stmia sp, {r7, r9, r11}
 	ldr r1, [r0]
-	ldr r0, _020FC484 ; =0x02099F2C
+	ldr r0, _020FC484 ; =pLogic_GlovesInfoFile
 	str r1, [sp, #0xc]
 	ldr r1, [r0]
-	ldr r0, _020FC488 ; =0x02099EFC
+	ldr r0, _020FC488 ; =pLogic_MissInfoFile
 	str r1, [sp, #0x10]
 	ldr r4, [r0]
 	ldr r0, [sp, #0x18]
@@ -17605,9 +17605,9 @@ _020FC400:
 _020FC474: .word unk_0209BA20
 _020FC478: .word ov16_02117950
 _020FC47C: .word ov16_0211793C
-_020FC480: .word unk_02099F28
-_020FC484: .word unk_02099F2C
-_020FC488: .word unk_02099EFC
+_020FC480: .word pLogic_PalSkin3dFile
+_020FC484: .word pLogic_GlovesInfoFile
+_020FC488: .word pLogic_MissInfoFile
 	arm_func_end FUN_ov16_020fc288
 
 	arm_func_start FUN_ov16_020fc48c
@@ -18378,7 +18378,7 @@ _020FCE20:
 	ldr r1, [sp, #0x10]
 	add r2, sp, #0x14
 	str r9, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020FCE54:
 	mov r9, r0
 _020FCE58:
@@ -18517,7 +18517,7 @@ _020FD020:
 	ldr r1, [sp, #0x10]
 	add r2, sp, #0x14
 	str r10, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _020FD04C:
 	mov r10, r0
 _020FD050:
@@ -37581,7 +37581,7 @@ _0210D434:
 	add r1, sp, #0x18
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0210D480:
 	ldrb r0, [sp, #0x14]
 	cmp r8, #0
@@ -37633,7 +37633,7 @@ FUN_ov16_0210d4ac: ; 0x0210D4AC
 	str r6, [sp, #8]
 	add r2, sp, #0x10
 	str r9, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0210D53C:
 	add r7, sp, #0x10
 	mov r0, r5
@@ -37706,7 +37706,7 @@ FUN_ov16_0210d5b4: ; 0x0210D5B4
 	str r4, [sp, #8]
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0210D644:
 	add r6, sp, #0x10
 	mov r0, r7

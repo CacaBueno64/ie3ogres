@@ -43,7 +43,7 @@
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f51a8
 .public FUN_ov16_020f0c48
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public operator_delete
 .public FX_Sqrt
 .public FUN_0202b2a8

@@ -4179,7 +4179,7 @@ _0211D7D8:
 	ldr r3, _0211D880 ; =gL5Allocator
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211D814:
 	cmp r0, #0
 	beq _0211D844
@@ -6123,7 +6123,7 @@ FUN_ov45_0211f2ec: ; 0x0211F2EC
 	mov r4, #1
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r4, r0
 _0211F338:
 	cmp r4, #0

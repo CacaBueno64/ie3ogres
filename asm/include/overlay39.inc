@@ -24,7 +24,7 @@
 .public G2S_GetBG0CharPtr
 .public FUN_ov16_020f10c8
 .public FUN_ov16_0210ee78
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public operator_new_array
 .public FUN_02044658
 .public _ZN11L5Allocator10deallocateEPv

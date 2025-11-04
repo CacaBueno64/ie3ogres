@@ -67,7 +67,7 @@ FUN_ov65_02119f00: ; 0x02119F00
 	str r5, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x80
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _02119FFC:
 	mov r0, #0
 	str r0, [r4, #0xc]

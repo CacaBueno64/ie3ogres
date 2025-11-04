@@ -12,6 +12,7 @@ class L5FileRequestManager {
     public:
         void init(int max_requests, L5Allocator *allocator);
         void FUN_0202f794(void);
+        int readDirect(const char *path, void **dest, L5Allocator *allocator, int offset, int size, BOOL compressed, u8 strategy);
 };
 
 extern L5FileRequestManager gL5FileRequestManager;

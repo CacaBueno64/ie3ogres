@@ -1165,7 +1165,7 @@ FUN_ov52_0211ae04: ; 0x0211AE04
 	mov r4, #1
 	add r2, sp, #0x20
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r4, r0
 _0211AEA4:
 	add r6, sp, #0x18c

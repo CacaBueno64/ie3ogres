@@ -641,7 +641,7 @@ FUN_ov89_0211a760: ; 0x0211A760
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1d0
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r10, r0
 _0211A7D4:
 	mov r2, r10, lsr #6
@@ -706,7 +706,7 @@ _0211A884:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1cc
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A8BC:
 	ldr r2, _0211A928 ; =0x88888889
 	mov r3, #0x3c

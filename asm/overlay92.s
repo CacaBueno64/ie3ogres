@@ -1808,7 +1808,7 @@ _02126550:
 	strh r0, [sp, #0x66]
 	cmp r1, #0
 	beq _0212661C
-	ldr r2, _0212676C ; =0x02099F04
+	ldr r2, _0212676C ; =pLogic_PalSkinFaceFile
 	ldrb r0, [sp, #0x53]
 	ldr r2, [r2]
 	bl FUN_ov16_020f0c48
@@ -1893,14 +1893,14 @@ _02126690:
 	cmp r1, #0
 	addeq sp, sp, #0x100
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r2, _0212676C ; =0x02099F04
+	ldr r2, _0212676C ; =pLogic_PalSkinFaceFile
 	ldrb r0, [sp, #0x53]
 	ldr r2, [r2]
 	bl FUN_ov16_020f0c48
 	add sp, sp, #0x100
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02126768: .word unk_0209BA20
-_0212676C: .word unk_02099F04
+_0212676C: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov92_021264d0
 
 	arm_func_start FUN_ov92_02126770

@@ -550,7 +550,7 @@ FUN_ov56_0211a64c: ; 0x0211A64C
 	mov r4, #1
 	add r2, r5, #0xc0
 	str r4, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 	mov r2, r0
 _0211A698:
 	ldr r4, _0211A6D4 ; =0x0209BA20

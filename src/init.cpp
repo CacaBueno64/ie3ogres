@@ -359,3 +359,29 @@ void FUN_020295e8(void)
     unk_0209BA20.FUN_0206f1e0();
     unk_0209BA20.FUN_0206f244();
 }
+
+void FUN_02029608(void)
+{
+    unk_0209BA20.FUN_020715b4();
+    unk_0209BA20.FUN_0206f77c();
+
+    unk_02099E8C.Logic_WearSetFile = NULL;
+
+    char *wearSetFileName = "/data_iz/logic/wearset.dat";
+    if (gL5Allocator.fileRequestManager != NULL) {
+        gL5Allocator.fileRequestManager->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gL5Allocator, 0, 0, FALSE, 1);
+    }
+
+    unk_02099E8C.Logic_ShoesInfoFile = NULL;
+    unk_02099E8C.Logic_GlovesInfoFile = NULL;
+    unk_02099E8C.Logic_MissInfoFile = NULL;
+    unk_02099E8C.Logic_PalSkin3dFile = NULL;
+    unk_02099E8C.Logic_PalSkin2dFile = NULL;
+
+    L5FS_ReadFile(&unk_02099E8C.Logic_ShoesInfoFile, "logic/shoesinfo.dat", 0, 0);
+    L5FS_ReadFile(&unk_02099E8C.Logic_GlovesInfoFile, "logic/gloveinfo.dat", 0, 0);
+    L5FS_ReadFile(&unk_02099E8C.Logic_MissInfoFile, "logic/missinfo.dat", 0, 0);
+    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkin3dFile, "logic/palskin3d.dat", 0, 0);
+    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkin2dFile, "logic/palskin2d.dat", 0, 0);
+    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkinFaceFile, "logic/palskinface.dat", 0, 0);
+}

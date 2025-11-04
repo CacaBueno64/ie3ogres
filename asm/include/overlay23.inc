@@ -12,7 +12,7 @@
 .public FUN_0206c7dc
 .public unk_0209A0AC
 .public unk_020A1640
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
 .public rand

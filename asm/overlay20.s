@@ -672,7 +672,7 @@ _0211A7A4:
 	bl FUN_0205998c
 	movs r8, r0
 	beq _0211A848
-	ldr r0, _0211A86C ; =0x02099F04
+	ldr r0, _0211A86C ; =pLogic_PalSkinFaceFile
 	ldr r1, [r8, #4]
 	ldr r2, [r0]
 	mov r0, r9
@@ -701,7 +701,7 @@ _0211A860:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A868: .word unk_02099F38
-_0211A86C: .word unk_02099F04
+_0211A86C: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov20_0211a718
 
 	arm_func_start FUN_ov20_0211a870

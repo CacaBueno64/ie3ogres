@@ -209,7 +209,7 @@ FUN_ov63_0211a1a4: ; 0x0211A1A4
 	mov r12, #1
 	add r2, r2, #0x2000
 	str r12, [sp, #0xc]
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A1EC:
 	cmp r0, #0
 	movne r1, r0, lsr #1

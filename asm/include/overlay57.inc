@@ -254,7 +254,7 @@
 .public FUN_ov16_020f2304
 .public FUN_02054070
 .public FUN_ov16_02111438
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
 .public FUN_0204b0ac

@@ -425,7 +425,7 @@ FUN_ov39_0211a45c: ; 0x0211A45C
 	str r6, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x34
-	bl FUN_0202eff0
+	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 _0211A4B4:
 	cmp r0, #0
 	addeq sp, sp, #0x38

@@ -285,7 +285,7 @@
 .public FUN_0206d0e8
 .public FUN_0206def8
 .public FUN_0206c718
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public gL5Allocator
 .public FUN_0202de44
 .public _ZN11L5Allocator10deallocateEPv
@@ -355,7 +355,7 @@
 .public FUN_ov132_02144770
 .public unk_0209A2C0
 .public unk_02099EF0
-.public unk_02099F34
+.public pLogic_WearSetFile
 .public FUN_0206d8b8
 .public MIi_CpuCopy16
 .public MIi_CpuClear16
@@ -473,7 +473,7 @@
 .public FUN_0202f57c
 .public FUN_0202f678
 .public STD_CompareNString
-.public unk_02099EF8
+.public pLogic_ShoesInfoFile
 .public STD_GetStringLength
 .public FUN_02053914
 .public strrchr
@@ -566,9 +566,9 @@
 .public FUN_0202fd44
 .public FUN_0206d9b0
 .public NNS_G3dGetResDataByName
-.public unk_02099F28
-.public unk_02099F2C
-.public unk_02099EFC
+.public pLogic_PalSkin3dFile
+.public pLogic_GlovesInfoFile
+.public pLogic_MissInfoFile
 .public NNS_G3dGetAnmByIdx
 .public NNS_G3dAnmObjInit
 .public NNS_G3dRenderObjAddAnmObj

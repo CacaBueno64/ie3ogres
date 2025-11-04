@@ -157,7 +157,7 @@
 .public FUN_ov16_020ee278
 .public FUN_ov16_020eebb0
 .public FUN_ov16_020eeb24
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public unk_020A1612
 .public operator_delete
 .public FUN_02028984

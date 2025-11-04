@@ -25,7 +25,7 @@
 .public FUN_ov16_02116654
 .public unk_0209A110
 .public unk_02099F58
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public FUN_ov16_020ef8d4
 .public FUN_02073a10
 .public FUN_ov16_020efa9c
@@ -78,7 +78,7 @@
 .public FUN_02059a78
 .public MI_CpuCopy8
 .public DC_FlushRange
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_0204378c
 .public FUN_0204294c
 .public unk_02099ED0

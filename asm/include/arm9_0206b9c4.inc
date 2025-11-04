@@ -52,7 +52,7 @@
 .public srand
 .public rand
 .public OS_GetMacAddress
-.public FUN_0202eff0
+.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public unk_0209A720
 .public FUN_ov16_020f3234
 .public FUN_0202db98

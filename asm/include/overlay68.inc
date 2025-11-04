@@ -20,7 +20,7 @@
 .public FUN_02059a78
 .public MI_CpuCopy8
 .public DC_FlushRange
-.public unk_02099F04
+.public pLogic_PalSkinFaceFile
 .public FUN_02058ee0
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
