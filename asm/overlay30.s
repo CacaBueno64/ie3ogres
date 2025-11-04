@@ -261,7 +261,7 @@ _0211A20C:
 	add r2, sp, #0x10
 	add r3, sp, #0xc
 	ldmia r1, {r0, r1}
-	bl FUN_ov16_020efd94 ; may be ov17
+	bl FUN_ov16_020efd94 ; may be ov17 ; ov16(Mica)
 	cmp r9, #0
 	ldreq r0, [r8, #0x84]
 	streqb r6, [r0, #0x1a]
@@ -339,7 +339,7 @@ _0211A334:
 	add r2, sp, #0x10
 	add r3, sp, #0xc
 	str r9, [r10, #0x6c]
-	bl FUN_ov16_020efd94 ; may be ov17
+	bl FUN_ov16_020efd94 ; may be ov17 ; ov16(Mica)
 	str r6, [r10, #0x70]
 	str r5, [r10, #0x74]
 	ldr r2, [sp, #0x10]
@@ -513,7 +513,7 @@ FUN_ov30_0211a570: ; 0x0211A570
 	add r3, sp, #4
 	str r1, [r6, #0x74]
 	mov r0, #0x80
-	bl FUN_ov16_020efd94 ; may be ov17
+	bl FUN_ov16_020efd94 ; may be ov17 ; ov16(Mica)
 	mov r2, r7
 	ldr r1, [sp, #8]
 	ldr r0, [r5, #0x84]

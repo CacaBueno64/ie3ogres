@@ -1086,7 +1086,7 @@ _02100D68:
 	bl DWCi_SETTIGNlGet
 	mov r6, r0
 	add r0, r6, #0xf0
-	bl DWCi_BACKUPlConvMaskCidr ; may be ov15
+	bl DWCi_BACKUPlConvMaskCidr
 	strb r0, [r6, #0xd0]
 	ldrb r0, [r6, #0xf5]
 	cmp r0, #0

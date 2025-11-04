@@ -845,7 +845,7 @@ _0211AADC:
 	blt _0211AAD8
 	ldr r0, _0211AB00 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	mov r0, r4
 	mov r1, #0
 	bl FUN_ov19_0211a52c

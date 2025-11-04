@@ -1013,7 +1013,7 @@ FUN_ov71_0211ad08: ; 0x0211AD08
 	ldr r1, _0211AD3C ; =0x02099EB4
 	mov r4, r0
 	ldr r0, [r1]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	mov r0, r4
 	bl FUN_ov71_0211a1b0
 	ldr r0, _0211AD40 ; =0x02099F38

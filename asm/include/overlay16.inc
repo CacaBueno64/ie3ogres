@@ -39,7 +39,7 @@
 .public FUN_ov131_02146570
 .public FUN_ov131_021467bc
 .public FUN_ov132_0215b574
-.public FUN_ov132_021462a0
+.public FUN_ov131_021462a0
 .public FUN_ov132_0215c110
 .public FUN_ov131_021483f4
 .public FUN_ov131_02148464
@@ -142,7 +142,7 @@
 .public FUN_ov131_02148d30
 .public FUN_ov131_02148da0
 .public FUN_ov131_02148e18
-.public FUN_ov132_02145c40
+.public FUN_ov131_02145c40
 .public FUN_ov131_02148e88
 .public FUN_ov131_02148f04
 .public FUN_ov132_0215f630

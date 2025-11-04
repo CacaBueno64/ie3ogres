@@ -381,7 +381,7 @@ _0211A444:
 	ldr r0, _0211A4CC ; =0x02099EB4
 	str r5, [r4, #0xe0c]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A4D0 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

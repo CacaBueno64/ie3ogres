@@ -74,7 +74,7 @@ _02124DDC:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	ldr r2, [r5]
 	mov r0, r6
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 	add r7, r7, #1
 	cmp r7, #2
 	blt _02124DDC

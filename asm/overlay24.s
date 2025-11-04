@@ -186,7 +186,7 @@ FUN_ov24_0211a144: ; 0x0211A144
 	bl FUN_ov24_0211a060
 	ldr r0, _0211A174 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A178 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

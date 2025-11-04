@@ -316,7 +316,7 @@ _0211A340:
 	bl FUN_ov47_0211a40c
 	ldr r0, _0211A3C0 ; =0x02099ED8
 	ldr r0, [r0]
-	bl FUN_ov0_020cd0f8 ; may be ov15
+	bl FUN_ov0_020cd0f8 ; may be ov15 ; ov0(Mica)
 	ands r1, r0, #0xff
 	beq _0211A36C
 	mov r0, r10
@@ -3617,7 +3617,7 @@ _0211D078:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r8
-	bl FUN_ov16_020ede60 ; may be ov17
+	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 _0211D1C0:
 	mov r4, #1
 	add r2, sp, #0x14
@@ -5837,7 +5837,7 @@ FUN_ov47_0211f084: ; 0x0211F084
 	ldr r0, _0211F0F4 ; =0x02099EB4
 	str r2, [r1]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211F0F8 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

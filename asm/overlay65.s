@@ -98,7 +98,7 @@ FUN_ov65_0211a034: ; 0x0211A034
 	str r2, [r1]
 	ldr r0, [r0]
 	mov r5, #0
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A0C4 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

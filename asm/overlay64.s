@@ -79,7 +79,7 @@ FUN_ov64_02119fdc: ; 0x02119FDC
 	bl FUN_ov16_0210e0d8
 	ldr r0, _0211A1A8 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r5, _0211A1AC ; =gL5Allocator
 	ldr r1, [r10, #0x60]
 	mov r0, r5
@@ -947,7 +947,7 @@ _0211AB14:
 	ldr r1, [r9, #4]
 	ldr r2, [r0]
 	mov r0, r4
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 	ldr r0, [r5]
 	ldr r1, [r10, #0xa0]
 	mov r2, r11

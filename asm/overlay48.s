@@ -1317,7 +1317,7 @@ FUN_ov48_0211b098: ; 0x0211B098
 	ldr r0, _0211B0EC ; =0x02099EB4
 	str r1, [r2]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211B0F0 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

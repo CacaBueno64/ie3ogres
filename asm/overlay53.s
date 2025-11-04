@@ -90,7 +90,7 @@ FUN_ov53_02119ff4: ; 0x02119FF4
 	ldr r0, _0211A0B0 ; =0x02099EB4
 	str r1, [r2]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A0B4 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

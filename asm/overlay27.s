@@ -477,7 +477,7 @@ _0211A564:
 	blt _0211A530
 	ldr r0, _0211A594 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A598 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

@@ -29,7 +29,7 @@ _02124D28:
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	bne _02124D68
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _02124F14
 _02124D68:
@@ -260,7 +260,7 @@ _0212504C:
 	mov r0, r1, lsr #5
 	sub r6, r0, #1
 	bne _021250A8
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _02125158
 _021250A8:
@@ -389,7 +389,7 @@ _0212522C:
 	ldr r9, [r10, #0x18]
 	cmp r0, #0
 	bne _02125294
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _0212531C
 _02125294:
@@ -632,7 +632,7 @@ _021255E0:
 	ldrb r0, [r5, #0x1a]
 	cmp r0, #0
 	bne _02125618
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _021256C0
 _02125618:
@@ -933,7 +933,7 @@ FUN_ov120_021259ec: ; 0x021259EC
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
 	bne _02125A40
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	beq _02125A80
 _02125A40:

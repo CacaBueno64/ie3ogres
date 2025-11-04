@@ -2201,7 +2201,7 @@ _0211BD1C:
 	bl FUN_020460a8
 	ldr r0, _0211BD6C ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211BD70 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -4649,7 +4649,7 @@ _0211DE88:
 	bl FUN_ov16_020f1aec
 	ldr r0, _0211DF48 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211DF44 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -4747,7 +4747,7 @@ _0211DFC4:
 	bl FUN_ov16_020f882c
 	ldr r0, _0211E030 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211E034 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -7196,7 +7196,7 @@ FUN_ov45_021201c0: ; 0x021201C0
 	ldr r0, _02120288 ; =0x02099EB4
 	str r2, [r1]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0212028C ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8

@@ -236,7 +236,7 @@ _0212502C:
 	ldmeqfd sp!, {r4, pc}
 	ldr r2, _0212504C ; =pLogic_PalSkinFaceFile
 	ldr r2, [r2]
-	bl FUN_ov16_020f0c30 ; may be ov17
+	bl FUN_ov16_020f0c30 ; may be ov17 ; ov16(Mica)
 	ldmfd sp!, {r4, pc}
 _0212504C: .word pLogic_PalSkinFaceFile
 	arm_func_end FUN_ov109_02125004
@@ -2437,7 +2437,7 @@ _02126F80:
 	ldrh r8, [sp, #0x64]
 	cmp r8, #0
 	ldreq r8, _021271A0 ; =0x00007FFF
-	bl FUN_ov16_020f068c ; may be ov17
+	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
 	cmp r0, #0
 	bne _02126FB0
 	ldr r0, [r5, #4]

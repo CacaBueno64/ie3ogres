@@ -618,7 +618,7 @@ _0211A71C:
 	bl FUN_ov16_020eef64
 	ldr r0, _0211A804 ; =0x02099EB4
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A808 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -3644,7 +3644,7 @@ _0211D3DC:
 	ldrh r1, [r0, #0xe4]
 	ldr r0, _0211D40C ; =0x0209BA20
 	mov r2, #1
-	bl FUN_ov16_020ede60 ; may be ov17
+	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D410 ; =gL5Sound
 	mov r1, #0x10
 	bl FUN_0202cf6c
@@ -3749,7 +3749,7 @@ _0211D538:
 	ldrh r1, [r0, #0xe4]
 	ldr r0, _0211D568 ; =0x0209BA20
 	mov r2, #1
-	bl FUN_ov16_020ede60 ; may be ov17
+	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D56C ; =gL5Sound
 	mov r1, #0x10
 	bl FUN_0202cf6c

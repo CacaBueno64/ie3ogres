@@ -97,7 +97,7 @@ FUN_ov90_0211a030: ; 0x0211A030
 	ldr r0, _0211A0F0 ; =0x02099EB4
 	str r2, [r1]
 	ldr r0, [r0]
-	bl FUN_ov16_0210e9d8 ; may be ov17
+	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211A0F4 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
@@ -2871,7 +2871,7 @@ _0211C638:
 	add r1, r1, r2
 	ldr r2, [r1, #0x24]
 	mov r1, r5
-	bl FUN_ov16_020ede60 ; may be ov17
+	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	mov r7, r6
 	b _0211C704
 _0211C6D4:
