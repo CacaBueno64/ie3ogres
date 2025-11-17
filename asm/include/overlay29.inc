@@ -14,7 +14,7 @@
 .public FUN_0206c0d8
 .public FUN_0206c110
 .public FUN_ov16_02110578
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_020f1d64
 .public FUN_ov16_020f3f60
 .public FUN_0202cf00
@@ -55,7 +55,7 @@
 .public FUN_ov16_0210e15c
 .public FUN_0206c5d8
 .public FUN_0206c300
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_020f1560
 .public FUN_02059004
 .public FUN_02059038
@@ -121,7 +121,7 @@
 .public unk_020A108A
 .public unk_02099F44
 .public unk_0209C220
-.public operator_new
+.public _Znwm
 .public printf
 .public abort
 .public memmove

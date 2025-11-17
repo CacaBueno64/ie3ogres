@@ -67,8 +67,8 @@
 .public unk_02099F44
 .public MI_CpuCopy8
 .public _u32_div_f
-.public operator_delete
-.public operator_new
+.public _ZdlPv
+.public _Znwm
 .public printf
 .public abort
 .public memset

@@ -1570,7 +1570,7 @@ FUN_ov58_0211b3c4: ; 0x0211B3C4
 	ldr r0, [r5, #4]
 	mov r1, #0
 	mov r2, #0x82
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B40C: .word unk_020A9C40
 _0211B410: .word unk_020AF81C
@@ -1734,7 +1734,7 @@ _0211B610: .word 0x30C30C31
 FUN_ov58_0211b614: ; 0x0211B614
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov58_0211b614

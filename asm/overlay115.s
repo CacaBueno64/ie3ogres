@@ -73,7 +73,7 @@ FUN_ov115_02124dcc: ; 0x02124DCC
 	mov r5, r0
 	ldr r0, [r5, #4]
 	mov r4, r1
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x37
 	cmpeq r4, #1
 	ldreq r0, [r5, #0x14]
@@ -701,7 +701,7 @@ FUN_ov115_021256cc: ; 0x021256CC
 	cmpne r3, #0
 	addeq sp, sp, #0x2c
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _02125824 ; =0x02099EF0
+	ldr r0, _02125824 ; 0x02099EF0
 	ldr r2, [r3, #0xc]
 	ldr r0, [r0]
 	mov r1, r4
@@ -887,7 +887,7 @@ _02125998:
 	mov r0, r0, lsl #3
 	str r0, [sp, #0x10]
 	str r7, [sp, #0x14]
-	ldr r0, _02125AF4 ; =0x02099F50
+	ldr r0, _02125AF4 ; =gFont12
 	str r7, [sp, #0x18]
 	ldr r0, [r0]
 	ldr r4, [r0]
@@ -973,7 +973,7 @@ _02125A88:
 	add sp, sp, #0x188
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125AF0: .word unk_0209BA20
-_02125AF4: .word unk_02099F50
+_02125AF4: .word gFont12
 _02125AF8: .word unk_020A3D14
 _02125AFC: .word ov1_020E9480
 	arm_func_end FUN_ov115_02125834
@@ -1528,7 +1528,7 @@ _021262C4: .word unk_0209F5C0
 FUN_ov115_021262c8: ; 0x021262C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov115_021262c8

@@ -36,7 +36,7 @@
 .public GXS_LoadBG1Char
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f2fe4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

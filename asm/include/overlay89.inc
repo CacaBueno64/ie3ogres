@@ -60,7 +60,7 @@
 .public unk_02099F38
 .public FUN_ov16_0210e15c
 .public FUN_ov16_020f153c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_02056828
 .public FUN_020568c4
 .public FUN_02057be4
@@ -93,7 +93,7 @@
 .public FUN_02059288
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_02114204
 .public FUN_ov16_02112724
 .public FUN_ov16_0210fba4
@@ -115,7 +115,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_0206c110
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

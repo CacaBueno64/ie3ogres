@@ -270,7 +270,7 @@ FUN_ov66_0211a270: ; 0x0211A270
 	bne _0211A290
 	ldr r0, [r0, #0x1c]
 	mov r1, #0
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r3, pc}
 _0211A290:
 	mov r1, #3
@@ -385,7 +385,7 @@ FUN_ov66_0211a3c4: ; 0x0211A3C4
 FUN_ov66_0211a3e4: ; 0x0211A3E4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov66_0211a3e4

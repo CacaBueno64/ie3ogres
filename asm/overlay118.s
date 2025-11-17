@@ -388,7 +388,7 @@ _021251C0:
 	bl FUN_ov16_020f2f20
 	mov r8, #3
 	ldr r9, _02125414 ; =0x0209BA20
-	ldr r5, _02125418 ; =0x02099F50
+	ldr r5, _02125418 ; =gFont12
 	b _021252A8
 _02125234:
 	ldr r0, [r10, #0x3c]
@@ -526,7 +526,7 @@ _02125400:
 _0212540C: .word unk_0209A144
 _02125410: .word unk_020A8C40
 _02125414: .word unk_0209BA20
-_02125418: .word unk_02099F50
+_02125418: .word gFont12
 _0212541C: .word unk_020A8440
 	arm_func_end FUN_ov118_02124fac
 
@@ -1075,7 +1075,7 @@ _02125BAC: .word unk_0209BA20
 FUN_ov118_02125bb0: ; 0x02125BB0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov118_02125bb0

@@ -9,7 +9,7 @@
 .public FUN_0202de44
 .public DC_FlushRange
 .public FUN_ov16_020f2184
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f5da0
 .public unk_0209F5C0
 .public FUN_ov16_020f5f64
@@ -36,7 +36,7 @@
 .public unk_020A9440
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

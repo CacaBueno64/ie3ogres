@@ -7,7 +7,7 @@
 .public FUN_0202dbf8
 .public FUN_0202b3dc
 .public _ZN7L5MovieC1Ev
-.public FUN_02041ac8
+.public _ZN14CScreenManagerC1Ev
 .public FUN_02047a7c
 .public FUN_0202ffa4
 .public FUN_020453e0

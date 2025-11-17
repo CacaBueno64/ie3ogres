@@ -431,7 +431,7 @@ _02125270:
 	mov r0, #0x10
 	str r0, [sp, #0x10]
 	str r6, [sp, #0x14]
-	ldr r0, _02125314 ; =0x02099ED0
+	ldr r0, _02125314 ; =gFont8
 	str r6, [sp, #0x18]
 	ldr r0, [r0]
 	add r3, r5, #0x1c
@@ -449,7 +449,7 @@ _021252F4:
 	mov r0, r9
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02125314: .word unk_02099ED0
+_02125314: .word gFont8
 	arm_func_end FUN_ov122_0212523c
 
 	arm_func_start FUN_ov122_02125318
@@ -1032,10 +1032,10 @@ FUN_ov122_02125b18: ; 0x02125B18
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #4]
-	bl FUN_020420b4
+	bl _ZN14CScreenManager17getLoadedSceneSubEv
 	mov r1, r0
 	ldr r0, [r5, #4]
-	bl FUN_02042110
+	bl _ZN14CScreenManager12FUN_02042110E9SceneType
 	strb r0, [r5, #0x10]
 	tst r0, #0xff
 	ldrne r0, _02125BB0 ; =0x020EAAAC
@@ -1188,7 +1188,7 @@ _02125D64: .word gL5Allocator
 FUN_ov122_02125d68: ; 0x02125D68
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov122_02125d68

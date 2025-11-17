@@ -12,7 +12,7 @@
 .public unk_020A0670
 .public FUN_ov1_020db97c
 .public FUN_ov16_020f153c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public ov1_020E9482
 .public MI_CpuFill8
 .public FUN_ov126_0212afec
@@ -112,7 +112,7 @@
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f5af0
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b200

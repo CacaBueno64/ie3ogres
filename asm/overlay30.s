@@ -33,7 +33,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	mov r2, #0x60
 	bl MI_CpuFill8
 	str r6, [r7, #8]
-	ldr r0, _02119FAC ; =0x02099EF0
+	ldr r0, _02119FAC ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0213a418
 	ldr r4, _02119FB0 ; =gL5Sound
@@ -41,7 +41,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	mov r0, r4
 	ldr r2, _02119FB4 ; =0x0211A7AC
 	mov r3, r5
-	bl _ZN7L5Sound7playSADEPvPch
+	bl _ZN7L5Sound7openSADEPvPch
 	mov r0, r4
 	mov r1, r5
 	mov r2, r5
@@ -99,7 +99,7 @@ _0211A030:
 	blx r1
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
-	ldr r4, _0211A0A0 ; =0x02099EF0
+	ldr r4, _0211A0A0 ; 0x02099EF0
 	mov r5, #0
 	ldr r0, [r4]
 	mov r1, r5
@@ -138,7 +138,7 @@ FUN_ov30_0211a0b0: ; 0x0211A0B0
 	mov r1, #1
 	ldr r0, [r0]
 	bl FUN_ov1_020df110
-	ldr r0, _0211A0D8 ; =0x02099EF0
+	ldr r0, _0211A0D8 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_01ffac60
 	ldmfd sp!, {r3, pc}
@@ -227,7 +227,7 @@ FUN_ov30_0211a174: ; 0x0211A174
 	mov r2, r0, asr #0xb
 	add r1, r5, r1, lsr #20
 	add r2, r0, r2, lsr #20
-	ldr r4, _0211A1E0 ; =0x02099EF0
+	ldr r4, _0211A1E0 ; 0x02099EF0
 	mov r1, r1, asr #0xc
 	ldr r0, [r4]
 	mov r2, r2, asr #0xc
@@ -312,7 +312,7 @@ _0211A2C4:
 	ldr r5, [r0, #0xc]
 	mov r7, r9
 	mov r4, #4
-	ldr r11, _0211A3D0 ; =0x02099EF0
+	ldr r11, _0211A3D0 ; 0x02099EF0
 	b _0211A3B0
 _0211A2F4:
 	ldr r0, [r11]
@@ -413,7 +413,7 @@ _0211A444: .word 0x0001000C
 FUN_ov30_0211a448: ; 0x0211A448
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x14
-	ldr r1, _0211A538 ; =0x02099EF0
+	ldr r1, _0211A538 ; 0x02099EF0
 	mov r6, r0
 	mov r4, #1
 	ldr r0, [r1]
@@ -496,7 +496,7 @@ FUN_ov30_0211a548: ; 0x0211A548
 FUN_ov30_0211a570: ; 0x0211A570
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r1, _0211A640 ; =0x02099EF0
+	ldr r1, _0211A640 ; 0x02099EF0
 	mov r6, r0
 	mov r7, #1
 	ldr r0, [r1]
@@ -563,7 +563,7 @@ FUN_ov30_0211a648: ; 0x0211A648
 FUN_ov30_0211a65c: ; 0x0211A65C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov30_0211a65c

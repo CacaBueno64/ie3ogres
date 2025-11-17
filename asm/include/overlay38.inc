@@ -2,11 +2,11 @@
 .public STD_CompareNString
 .public FUN_ov16_020f6510
 .public unk_0209F5C0
-.public FUN_02041d9c
-.public FUN_02041ef0
+.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_ov16_020f153c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0202cf6c
 .public gL5Sound
 .public STD_CopyString
@@ -24,7 +24,7 @@
 .public MIi_CpuClearFast
 .public FUN_ov16_020f2184
 .public DC_FlushRange
-.public FUN_02042054
+.public _ZN14CScreenManager14getCurSceneSubEv
 .public FUN_ov16_020f6d3c
 .public FUN_ov16_020f6e2c
 .public MI_CpuFill8
@@ -47,7 +47,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_02043310
 .public FUN_0204331c
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f616c
 .public unk_020A0BB4
 .public FUN_ov16_020f5c34
@@ -58,7 +58,7 @@
 .public FUN_ov16_020f63f0
 .public FUN_ov16_020f65a4
 .public FUN_ov16_020f6274
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_020f6c20
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
@@ -79,7 +79,7 @@
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public FUN_ov16_020f2fe4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

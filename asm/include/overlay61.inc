@@ -3,10 +3,10 @@
 .public unk_0209F5C0
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6470
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public unk_0209A454
-.public FUN_0204204c
-.public FUN_02041eac
+.public _ZN14CScreenManager18getLoadedSceneMainEv
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public L5Thread_Yield
 .public unk_020A0640
 .public unk_02099E8F
@@ -66,7 +66,7 @@
 .public FUN_ov16_0210fba4
 .public sprintf
 .public STD_ConcatenateString
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_0210eb3c
@@ -99,7 +99,7 @@
 .public GX_LoadOBJPltt
 .public FUN_ov16_020f1468
 .public FUN_02061c48
-.public operator_delete
+.public _ZdlPv
 .public MI_CpuCopy8
 .public FUN_020455b8
 .public unk_020A9C40
@@ -113,7 +113,7 @@
 .public FUN_ov16_020f153c
 .public FUN_020455a0
 .public FUN_02029d44
-.public FUN_02041d9c
+.public _ZN14CScreenManager12FUN_02041d9cEv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

@@ -57,7 +57,7 @@
 .public DC_FlushRange
 .public FUN_0204331c
 .public FUN_02059288
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020eef40
 .public FUN_ov16_020f52f4
 .public FUN_ov16_020f53e8
@@ -122,7 +122,7 @@
 .public MIi_CpuClearFast
 .public FUN_020460fc
 .public FUN_ov16_020f5278
-.public operator_new
+.public _Znwm
 .public FUN_ov16_02110558
 .public FUN_ov16_021123b4
 .public FUN_ov16_020eeca0
@@ -131,8 +131,8 @@
 .public FUN_ov16_0210e10c
 .public FUN_ov16_020f5868
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e9d8
@@ -159,7 +159,7 @@
 .public FUN_ov16_020eeb24
 .public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
 .public unk_020A1612
-.public operator_delete
+.public _ZdlPv
 .public FUN_02028984
 .public strlen
 .public FUN_02028a98

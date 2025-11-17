@@ -39,7 +39,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

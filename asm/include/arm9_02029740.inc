@@ -1,3 +1,4 @@
+
 .public unk_0208F6F0
 .public unk_0208F6E0
 .public _Z12FUN_02029608v
@@ -42,10 +43,10 @@
 .public unk_0209A454
 .public unk_0209A5D0
 .public FUN_ov16_020f3054
-.public operator_new
-.public FUN_02042188
-.public FUN_02043330
-.public FUN_0206b9c4
+.public _Znwm
+.public _ZN11FontManagerC1Ev
+.public _ZN11FontManager11G2dFontInitEPvmh
+.public _ZN13FontManager_2C1Ev
 .public _ZN8L5Config8getParamEPc
 .public gL5Config
 .public OS_Sleep
@@ -64,14 +65,14 @@
 .public FS_LoadOverlay
 .public FUN_02029304
 .public _Z12FUN_020295e8v
-.public operator_delete
+.public _ZdlPv
 .public FUN_0205a504
 .public FUN_0203000c
 .public FUN_02047ad4
-.public FUN_02041b00
+.public _ZN14CScreenManagerD2Ev
 .public unk_020B5AE0
 .public FUN_ov16_LoadOverlay
-.public FUN_02041ac8
+.public _ZN14CScreenManagerC1Ev
 .public ov15_020E6508
 .public ov15_020E6698
 .public ov15_020E6B64

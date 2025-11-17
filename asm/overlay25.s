@@ -1343,11 +1343,11 @@ _0211B1E4:
 	ldr r0, [r9, #4]
 	mov r1, r8
 	mov r2, #0x22
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r9, #4]
 	mov r1, r6
 	mov r2, #0xa
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	strb r8, [r9, #0x40]
 _0211B224:
 	add sp, sp, #0x3ac
@@ -1688,7 +1688,7 @@ FUN_ov25_0211b674: ; 0x0211B674
 	add r0, r4, #0x44
 	bl FUN_ov16_02110578
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov25_0211b674

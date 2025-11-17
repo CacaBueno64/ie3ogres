@@ -3,7 +3,7 @@
 .public FUN_ov1_020e4328
 .public MI_CpuFill8
 .public FUN_ov126_0213a418
-.public _ZN7L5Sound7playSADEPvPch
+.public _ZN7L5Sound7openSADEPvPch
 .public _ZN7L5Sound12FUN_0202d594Emm
 .public unk_02099F14
 .public unk_02099EF0
@@ -45,7 +45,7 @@
 .public FUN_0206d5f0
 .public FUN_0206d600
 .public unk_0209BA20
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

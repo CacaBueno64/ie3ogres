@@ -1,3 +1,8 @@
+#ifndef IE3OGRES_FONTMANAGER_H
+#define IE3OGRES_FONTMANAGER_H
+
+#pragma once
+
 #include <nitro.h>
 
 typedef enum {
@@ -19,14 +24,14 @@ typedef struct {
     u16 cell_height;
 } Text_CharacterCtx;
 
-class L5Text {
+class CFontManager {
     public:
-        L5Text();
-        virtual ~L5Text();
+        CFontManager();
+        virtual ~CFontManager();
         /* 0x02042e4c */ virtual BOOL vFUN_08(int indentation, int y_pos, char *text, int color, Text_Alignment alignment, void *param6, int maxWidth, int maxHeight, Text_CharacterCtx *charCtx, int param10);
         /* 0x020430b0 */ virtual void vFUN_0c();
         /* 0x02042b4c */ virtual void vFUN_10();
-        /* 0x02042298 */ virtual void vFUN_14(u8 *param1, void *param2, int param3, int param4, const NNSG2dCharWidths *param5, int param6, int param7, int param8);
+        /* 0x02042298 */ virtual void vFUN_14(u8 *param1, void *param2, int param3, int param4, const void /* NNSG2dCharWidths */*param5, int param6, int param7, int param8);
         /* 0x02042cf4 */ virtual void vFUN_18();
         /* 0x02042420 */ virtual void vFUN_1c();
 
@@ -45,7 +50,7 @@ class L5Text {
 
     private:
     //void *vtable;
-    NNSG2dFont font;
+    void *font; //NNSG2dFont
     void *file;
     u32 unk10;
     u32 charSpacing;
@@ -59,5 +64,12 @@ class L5Text {
     u8 encoding; //0: SJIS, 1: UTF16
 };
 
+class CFontManager_2 : public CFontManager {
+    public:
+        CFontManager_2();
+};
+
 /* 0x02042544 */ int GetCharTypeSJIS(char *text);
 /* 0x02042584 */ int GetCharTypeUTF16(char *text);
+
+#endif //IE3OGRES_FONTMANAGER_H

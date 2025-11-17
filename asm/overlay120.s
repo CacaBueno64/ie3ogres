@@ -573,7 +573,7 @@ _021254E4:
 	str r7, [sp, #4]
 	bl FUN_ov16_020f191c
 _02125524:
-	ldr r9, _021256FC ; =0x02099EF0
+	ldr r9, _021256FC ; 0x02099EF0
 	mov r1, #0
 	ldr r0, [r9]
 	bl FUN_ov132_02143c28
@@ -978,7 +978,7 @@ FUN_ov120_02125a94: ; 0x02125A94
 FUN_ov120_02125ab4: ; 0x02125AB4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov120_02125ab4

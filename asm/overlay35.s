@@ -42,11 +42,11 @@ FUN_ov35_02119f38: ; 0x02119F38
 	mov r1, #0
 	mov r0, r4
 	mov r2, #0xe
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0xf
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, r5, r6, pc}
 _02119F94: .word unk_0209A454
 _02119F98: .word ov35_0211BF2C
@@ -73,7 +73,7 @@ FUN_ov35_02119f9c: ; 0x02119F9C
 	mov r2, #0x12
 	str r3, [r0, #0x98]
 	ldr r0, [r4, #4]
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, pc}
 _02119FF0: .word unk_0209A454
 	arm_func_end FUN_ov35_02119f9c
@@ -877,7 +877,7 @@ FUN_ov35_0211aa74: ; 0x0211AA74
 	mov r8, r1
 	mov r7, r2
 	bl FUN_ov16_020f2f20
-	ldr r5, _0211AB10 ; =0x02099F50
+	ldr r5, _0211AB10 ; =gFont12
 	mov r6, #1
 	ldr r0, [r5]
 	mov r1, r6
@@ -909,7 +909,7 @@ FUN_ov35_0211aa74: ; 0x0211AA74
 	bl DC_FlushRange
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211AB10: .word unk_02099F50
+_0211AB10: .word gFont12
 	arm_func_end FUN_ov35_0211aa74
 
 	arm_func_start FUN_ov35_0211ab14
@@ -2200,7 +2200,7 @@ _0211BD18: .word unk_0209AEC0
 FUN_ov35_0211bd1c: ; 0x0211BD1C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov35_0211bd1c

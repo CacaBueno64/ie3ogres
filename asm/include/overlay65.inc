@@ -79,14 +79,14 @@
 .public FUN_02059288
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public unk_02099F50
+.public gFont12
 .public unk_020A1540
 .public FUN_ov16_02114204
 .public FUN_02058e30
 .public FUN_02059004
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public _s32_div_f
 .public FUN_020460fc
@@ -102,7 +102,7 @@
 .public FUN_ov16_020edf8c
 .public FUN_020460a8
 .public FUN_02073a04
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

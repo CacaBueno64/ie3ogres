@@ -22,7 +22,7 @@
 .public FUN_ov16_020f33fc
 .public GXS_LoadBG2Char
 .public G2S_GetBG2CharPtr
-.public unk_02099ED0
+.public gFont8
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public G2S_GetBG0CharPtr
@@ -49,8 +49,8 @@
 .public FUN_ov1_020dbd38
 .public FUN_ov16_020f672c
 .public FUN_ov1_020db260
-.public FUN_020420b4
-.public FUN_02042110
+.public _ZN14CScreenManager17getLoadedSceneSubEv
+.public _ZN14CScreenManager12FUN_02042110E9SceneType
 .public FUN_ov16_020f2edc
 .public ov1_020EAAAC
 .public FUN_ov16_020f330c
@@ -58,7 +58,7 @@
 .public FUN_ov16_020f338c
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

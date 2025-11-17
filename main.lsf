@@ -41,13 +41,15 @@ Static main
 	# MSL_C library
 	Object lib/MSL_C/asm/libmsl.o
 
-	Object asm/arm9_data_0208f680.o
+	Object asm/arm9_02028fa0.o
 	Object src/init.o
-	Object asm/arm9_02029608.o
+	Object asm/arm9_02029740.o
 	Object src/l5movie.o
 	Object asm/arm9_0202ed48.o
 	Object src/l5config.o
-	Object asm/arm9_02041ac8.o
+	Object asm/arm9_data_0208ff14.o
+	Object src/screenmanager.o
+	Object asm/arm9_0204212c.o
 	Object src/savedata.o
 
 	# TwlSystem G3d

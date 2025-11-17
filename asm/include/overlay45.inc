@@ -60,7 +60,7 @@
 .public FUN_ov16_02113ec0
 .public FUN_ov16_02111458
 .public FUN_020425fc
-.public unk_02099ED0
+.public gFont8
 .public FUN_ov16_0210e7d0
 .public FUN_0202cf6c
 .public gL5Sound
@@ -75,14 +75,14 @@
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public FUN_0204204c
-.public FUN_020420b4
+.public _ZN14CScreenManager18getLoadedSceneMainEv
+.public _ZN14CScreenManager17getLoadedSceneSubEv
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public FUN_02041d9c
+.public _ZN14CScreenManager12FUN_02041d9cEv
 .public FUN_ov16_020f153c
-.public FUN_02041ef0
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_020f1aec
@@ -92,7 +92,7 @@
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
 .public unk_02099F54
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_020f57b0
 .public _s32_div_f
 .public FUN_ov16_020efa9c
@@ -118,7 +118,7 @@
 .public _ZN11L5Allocator10deallocateEPv
 .public unk_02099F44
 .public gL5Allocator
-.public operator_new
+.public _Znwm
 .public FUN_0204b540
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f5868
@@ -151,7 +151,7 @@
 .public FUN_02071fac
 .public _ZN11L5Allocator8allocateEiii
 .public FUN_0202de44
-.public FUN_02041d80
+.public _ZN14CScreenManager12FUN_02041d80Ev
 .public FUN_02072020
 .public FX_Sqrt
 .public FUN_0202b208

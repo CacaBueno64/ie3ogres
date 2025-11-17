@@ -1123,7 +1123,7 @@ _02125BF0: .word unk_0209F5C0
 FUN_ov111_02125bf4: ; 0x02125BF4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov111_02125bf4

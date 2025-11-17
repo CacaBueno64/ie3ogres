@@ -1,6 +1,6 @@
 
 	.include "/macros/function.inc"
-	.include "/include/arm9_02029608.inc"
+	.include "/include/arm9_02029740.inc"
 
 	.text
 	arm_func_start FUN_02029740
@@ -211,53 +211,53 @@ InitFont: ; 0x02029A24
 	add r1, sp, #0x24
 	bl FUN_ov16_020f3054
 	mov r0, #0x24
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02029A70
-	bl FUN_02042188
+	bl _ZN11FontManagerC1Ev
 _02029A70:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
 	ldr r1, [sp]
 	mov r3, r2
 	str r0, [r4, #0x44]
-	bl FUN_02043330
+	bl _ZN11FontManager11G2dFontInitEPvmh
 	mov r0, #0x24
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02029A9C
-	bl FUN_02042188
+	bl _ZN11FontManagerC1Ev
 _02029A9C:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
 	ldr r1, [sp, #0xc]
 	mov r3, r2
 	str r0, [r4, #0x90]
-	bl FUN_02043330
+	bl _ZN11FontManager11G2dFontInitEPvmh
 	mov r0, #0x24
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02029AC8
-	bl FUN_02042188
+	bl _ZN11FontManagerC1Ev
 _02029AC8:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
 	ldr r1, [sp, #0x18]
 	mov r3, r2
 	str r0, [r4, #0xc4]
-	bl FUN_02043330
+	bl _ZN11FontManager11G2dFontInitEPvmh
 	mov r0, #0x24
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02029AF4
-	bl FUN_0206b9c4
+	bl _ZN13FontManager_2C1Ev
 _02029AF4:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
 	ldr r1, [sp, #0x24]
 	mov r3, r2
 	str r0, [r4, #0x50]
-	bl FUN_02043330
+	bl _ZN11FontManager11G2dFontInitEPvmh
 	ldr r0, _02029B38 ; =gL5Config
 	ldr r1, _02029B3C ; =0x0208F870
 	bl _ZN8L5Config8getParamEPc
@@ -373,7 +373,7 @@ _02029C60: .word 0x0000007E
 FUN_02029c64: ; 0x02029C64
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029c64
@@ -391,7 +391,7 @@ FUN_02029c7c: ; 0x02029C7C
 	str r1, [r4]
 	bl FUN_0205a504
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02029CA0: .word unk_0208F6E0
@@ -413,7 +413,7 @@ _02029CC0: .word unk_0208F6E0
 FUN_02029cc4: ; 0x02029CC4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029cc4
@@ -422,7 +422,7 @@ FUN_02029cc4: ; 0x02029CC4
 FUN_02029cd8: ; 0x02029CD8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029cd8
@@ -431,15 +431,15 @@ FUN_02029cd8: ; 0x02029CD8
 FUN_02029cec: ; 0x02029CEC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029cec
 
-	arm_func_start FUN_02029d00
-FUN_02029d00: ; 0x02029D00
+	arm_func_start _ZN8CManager7vFUN_34Ev
+_ZN8CManager7vFUN_34Ev: ; 0x02029D00
 	bx lr
-	arm_func_end FUN_02029d00
+	arm_func_end _ZN8CManager7vFUN_34Ev
 
 	arm_func_start FUN_02029d04
 FUN_02029d04: ; 0x02029D04
@@ -451,15 +451,15 @@ FUN_02029d08: ; 0x02029D08
 	bx lr
 	arm_func_end FUN_02029d08
 
-	arm_func_start FUN_02029d0c
-FUN_02029d0c: ; 0x02029D0C
+	arm_func_start _ZN8CManager7vFUN_20Ev
+_ZN8CManager7vFUN_20Ev: ; 0x02029D0C
 	bx lr
-	arm_func_end FUN_02029d0c
+	arm_func_end _ZN8CManager7vFUN_20Ev
 
-	arm_func_start FUN_02029d10
-FUN_02029d10: ; 0x02029D10
+	arm_func_start _ZN8CManager7vFUN_10Ev
+_ZN8CManager7vFUN_10Ev: ; 0x02029D10
 	bx lr
-	arm_func_end FUN_02029d10
+	arm_func_end _ZN8CManager7vFUN_10Ev
 
 	arm_func_start FUN_02029d14
 FUN_02029d14: ; 0x02029D14
@@ -476,7 +476,7 @@ FUN_02029d18: ; 0x02029D18
 	add r0, r4, #0x90
 	bl FUN_02047ad4
 	mov r0, r4
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029d18
@@ -568,10 +568,10 @@ FUN_02029e10: ; 0x02029E10
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _02029E84 ; =0x00000714
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _02029E7C
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _02029E88 ; =0x020E6508
 	ldr r0, _02029E8C ; =0x020E6698
 	str r1, [r4]
@@ -622,10 +622,10 @@ FUN_02029ea4: ; 0x02029EA4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #0x90
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _02029ED8
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r0, _02029EE0 ; =0x020E6578
 	str r0, [r4]
 _02029ED8:
@@ -643,10 +643,10 @@ FUN_02029ee4: ; 0x02029EE4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _02029F38 ; =0x000004AC
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _02029F30
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _02029F3C ; =0x020BDDC0
 	ldr r0, _02029F40 ; =0x020BDE30
 	str r1, [r4]
@@ -683,10 +683,10 @@ FUN_02029f50: ; 0x02029F50
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #0xa8
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _02029F90
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _02029F98 ; =0x020BD340
 	ldr r0, _02029F9C ; =0x020BD3B0
 	str r1, [r4]
@@ -713,10 +713,10 @@ FUN_02029fa4: ; 0x02029FA4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #0x154
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _02029FFC
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _0202A004 ; =0x020BD8E0
 	ldr r0, _0202A008 ; =0x020BD9F4
 	str r1, [r4]
@@ -761,10 +761,10 @@ FUN_0202a020: ; 0x0202A020
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, _0202A14C ; =0x00003078
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _0202A144
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	add r0, r4, #0x15c
 	ldr r1, _0202A150 ; =0x020D9574
 	add r0, r0, #0x1800
@@ -898,10 +898,10 @@ FUN_0202a1a0: ; 0x0202A1A0
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _0202A250 ; =0x00001228
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _0202A248
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _0202A254 ; =0x020E8400
 	ldr r0, _0202A258 ; =0x020E871C
 	str r1, [r4]
@@ -985,10 +985,10 @@ FUN_0202a288: ; 0x0202A288
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, #0xf70
-	bl operator_new
+	bl _Znwm
 	movs r4, r0
 	beq _0202A334
-	bl FUN_02041ac8
+	bl _ZN14CScreenManagerC1Ev
 	ldr r1, _0202A33C ; =0x020D5540
 	ldr r0, _0202A340 ; =0x020D56C8
 	str r1, [r4]
@@ -2174,7 +2174,7 @@ FUN_0202b208: ; 0x0202B208
 FUN_0202b210: ; 0x0202B210
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0202b210
@@ -4882,8 +4882,8 @@ _0202D4BC: .word 0x0000FFEF
 _0202D4C0: .word 0x10624DD3
 	arm_func_end FUN_0202d228
 
-	arm_func_start _ZN7L5Sound7playSADEPvPch
-_ZN7L5Sound7playSADEPvPch: ; 0x0202D4C4
+	arm_func_start _ZN7L5Sound7openSADEPvPch
+_ZN7L5Sound7openSADEPvPch: ; 0x0202D4C4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x28
 	mov r7, r1
@@ -4930,7 +4930,7 @@ _0202D540:
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0202D574: .word unk_0208FB90
-	arm_func_end _ZN7L5Sound7playSADEPvPch
+	arm_func_end _ZN7L5Sound7openSADEPvPch
 
 	arm_func_start _ZN7L5Sound12FUN_0202d578Em
 _ZN7L5Sound12FUN_0202d578Em: ; 0x0202D578
@@ -4951,7 +4951,7 @@ _ZN7L5Sound12FUN_0202d594Emm: ; 0x0202D594
 	cmp r2, #0
 	beq _0202D5B8
 	mov r3, #0
-	bl _ZN7L5Sound7playSADEPvPch
+	bl _ZN7L5Sound7openSADEPvPch
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0202D5B8:
@@ -6381,8 +6381,8 @@ unk_02099E9C:
 	.global unk_02099E9D
 unk_02099E9D:
 	.space 0x01
-	.global unk_02099E9E
-unk_02099E9E:
+	.global gFontBlankCode
+gFontBlankCode:
 	.space 0x02
 	.global unk_02099EA0
 unk_02099EA0:

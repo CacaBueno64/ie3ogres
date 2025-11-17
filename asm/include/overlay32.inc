@@ -1,9 +1,9 @@
-.public FUN_02041ef0
+.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_020455a0
 .public FUN_02029d44
 .public unk_020A9C40
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public STD_CopyLString
 .public STD_GetStringLength
 .public FUN_02074764
@@ -46,11 +46,11 @@
 .public FUN_ov16_020f1868
 .public GX_LoadBG2Char
 .public FUN_ov16_020f10ac
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_020ef160
 .public unk_0209A0DC
 .public FUN_ov16_020f330c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

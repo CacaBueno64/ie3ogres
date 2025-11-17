@@ -31,12 +31,12 @@
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2f20
-.public FUN_020420b4
+.public _ZN14CScreenManager17getLoadedSceneSubEv
 .public FUN_ov16_020f6a9c
 .public GXS_LoadBG1Char
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f2fe4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

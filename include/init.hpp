@@ -1,6 +1,8 @@
 #ifndef IE3OGRES_INIT_H
 #define IE3OGRES_INIT_H
 
+#pragma once
+
 #include <nitro.h>
 
 #include "ov130.hpp"
@@ -10,6 +12,7 @@
 #include "l5fs.hpp"
 #include "unk_0209AEC0.hpp"
 #include "unk_0209BA20.hpp"
+#include "fontmanager.hpp"
 
 typedef struct {
     u8 unk0;
@@ -30,7 +33,7 @@ typedef struct {
     u8 unkF;
     u8 unk10;
     u8 unk11;
-    u16 unk12;
+    u16 FontBlankCode;
     u16 unk14;
     u16 unk16;
     u16 unk18;
@@ -40,10 +43,10 @@ typedef struct {
     void *unk38;
     u32 unk3C;
     s32 unk40;
-    u32 unk44;
+    CFontManager *Font8;
     u32 unk48;
     u32 unk4C;
-    u32 unk50;
+    CFontManager_2 *Font12T;
     u32 unk54;
     u8 unk58[0x10];
     u32 unk68;
@@ -51,11 +54,11 @@ typedef struct {
     void *Logic_MissInfoFile;
     void *Logic_PalSkin2dFile;
     void *Logic_PalSkinFaceFile;
-    u16 unk7C;
-    u16 unk7E;
-    s32 unk80;
+    u16 MainScreenBrightness;
+    u16 SubScreenBrightness;
+    int FrameCounter;
     u8 unk84[0x0C];
-    u32 unk90;
+    CFontManager *FontRubi8;
     void *unk94;
     u32 unk98;
     void *Logic_PalSkin3dFile;
@@ -67,8 +70,8 @@ typedef struct {
     void *unkB4;
     u32 unkB8;
     u32 unkBC;
-    u32 unkC0;
-    u32 unkC4;
+    int unkC0; //OSHeapHandle
+    CFontManager *Font12;
     u8 unkC8[0x11C];
     void *unk1E4;
 } UnkStruct_02099E8C;
@@ -87,7 +90,7 @@ typedef struct {
 } UnkStruct_0209A1A8;
 extern UnkStruct_0209A1A8 unk_0209A1A8;
 
-void FUN_02028fac(void);
+void VBlankIntr(void);
 void InitHeap(void);
 void InitCommon(void);
 void FUN_02029140(void);

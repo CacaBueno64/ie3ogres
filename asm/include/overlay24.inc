@@ -54,7 +54,7 @@
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74
 .public FUN_ov16_020f1560
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_020A0640
 .public FUN_ov16_020efa04
 .public _ZN11L5Allocator10deallocateEPv
@@ -67,7 +67,7 @@
 .public gL5Movie
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

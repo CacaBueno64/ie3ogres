@@ -30,7 +30,7 @@
 .public FUN_ov16_020f10ac
 .public GX_LoadBG3Char
 .public FUN_ov16_020f6c8c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0207249c
 .public strcpy
 .public FUN_020724c8
@@ -49,7 +49,7 @@
 .public FUN_ov16_020f3f60
 .public GX_SetGraphicsMode
 .public FUN_ov16_020f330c
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov4_020bf6dc
 .public STD_CopyLString
 .public STD_GetStringLength
@@ -68,14 +68,14 @@
 .public unk_0209AEC0
 .public FUN_ov16_020f60f8
 .public FUN_ov4_020bf4ac
-.public FUN_02041ef0
+.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_020A0640
-.public FUN_02041d9c
+.public _ZN14CScreenManager12FUN_02041d9cEv
 .public FUN_ov131_021421f4
 .public unk_02099F44
 .public FUN_ov16_021128c4
 .public FUN_ov16_020f5c34
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

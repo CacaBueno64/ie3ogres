@@ -680,7 +680,7 @@ FUN_ov105_021255dc: ; 0x021255DC
 	str r0, [sp, #8]
 	ldrh r1, [r7, #8]
 	mov r4, #0
-	ldr r0, _02125724 ; =0x02099ED0
+	ldr r0, _02125724 ; =gFont8
 	mov r1, r1, lsl #3
 	str r1, [sp, #0xc]
 	ldrh r3, [r7, #0xa]
@@ -698,7 +698,7 @@ FUN_ov105_021255dc: ; 0x021255DC
 	str r6, [sp]
 	str r5, [sp, #4]
 	ldr r0, [r7, #4]
-	ldr r9, _02125728 ; =0x02099F50
+	ldr r9, _02125728 ; =gFont12
 	str r0, [sp, #8]
 	ldrh r0, [r7, #8]
 	mov r1, r4
@@ -742,8 +742,8 @@ FUN_ov105_021255dc: ; 0x021255DC
 	bl DC_FlushRange
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_02125724: .word unk_02099ED0
-_02125728: .word unk_02099F50
+_02125724: .word gFont8
+_02125728: .word gFont12
 	arm_func_end FUN_ov105_021255dc
 
 	arm_func_start FUN_ov105_0212572c
@@ -808,7 +808,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	movs r7, r0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	ldr r5, _021258A0 ; =0x02099F50
+	ldr r5, _021258A0 ; =gFont12
 	mov r6, #4
 	ldr r0, [r5]
 	mov r2, r6
@@ -845,7 +845,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0212589C: .word unk_0209BA20
-_021258A0: .word unk_02099F50
+_021258A0: .word gFont12
 	arm_func_end FUN_ov105_021257b8
 
 	arm_func_start FUN_ov105_021258a4
@@ -879,7 +879,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	movs r9, r0
 	addeq sp, sp, #0x24
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r7, _021259B0 ; =0x02099F50
+	ldr r7, _021259B0 ; =gFont12
 	mov r8, #4
 	ldr r0, [r7]
 	mov r2, r8
@@ -917,7 +917,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _021259A8: .word ov105_02127754
 _021259AC: .word unk_0209BA20
-_021259B0: .word unk_02099F50
+_021259B0: .word gFont12
 	arm_func_end FUN_ov105_021258a4
 
 	arm_func_start FUN_ov105_021259b4
@@ -2975,7 +2975,7 @@ _021276F0:
 	bl FUN_ov16_020f5af0
 	bl FUN_ov16_020f51a8
 	ldr r0, [r4, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x10
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, [r4, #4]
@@ -2992,7 +2992,7 @@ _02127730: .word unk_0209F5C0
 FUN_ov105_02127734: ; 0x02127734
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov105_02127734

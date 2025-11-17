@@ -2130,7 +2130,7 @@ FUN_ov62_0211bd1c: ; 0x0211BD1C
 	ldr r1, [r9, #0x60]
 	ldr r7, [sp, #0x20]
 	bl FUN_ov16_02111458
-	ldr r4, _0211BE84 ; =0x02099F50
+	ldr r4, _0211BE84 ; =gFont12
 	mov r8, r0
 	ldr r0, [r4]
 	mov r1, r6
@@ -2184,7 +2184,7 @@ _0211BE38:
 	ldr r1, [sp, #0x24]
 	mov r0, r7
 	bl DC_FlushRange
-	ldr r0, _0211BE84 ; =0x02099F50
+	ldr r0, _0211BE84 ; =gFont12
 	ldr r0, [r0]
 	bl FUN_0204331c
 	ldr r0, _0211BE80 ; =0x02099F38
@@ -2200,7 +2200,7 @@ _0211BE38:
 	add sp, sp, #0x44
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211BE80: .word unk_02099F38
-_0211BE84: .word unk_02099F50
+_0211BE84: .word gFont12
 _0211BE88: .word unk_0209BA20
 	arm_func_end FUN_ov62_0211bd1c
 
@@ -5829,7 +5829,7 @@ _0211F15C:
 	strb r6, [r5, #0x1c]
 	bl FUN_ov16_020f5278
 	mov r0, #0x74
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _0211F1DC
 	bl FUN_ov16_02110558
@@ -5986,21 +5986,21 @@ _0211F3D4:
 	bne _0211F420
 	ldr r4, [r4, #4]
 	mov r0, r4
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211F420:
 	ldr r5, [r4, #4]
 	ldr r6, [r4, #0xc]
 	ldr r2, [r4, #8]
 	mov r0, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r6
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211F448: .word unk_0209A110
 _0211F44C: .word unk_02099ED4
@@ -7126,7 +7126,7 @@ FUN_ov62_02120368: ; 0x02120368
 	ldr r1, [r8]
 	bl FUN_ov16_02111458
 	mov r5, r0
-	ldr r0, _02120560 ; =0x02099F50
+	ldr r0, _02120560 ; =gFont12
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
@@ -7138,14 +7138,14 @@ FUN_ov62_02120368: ; 0x02120368
 	str r6, [sp, #0x10]
 	str r6, [sp, #0x14]
 	str r6, [sp, #0x18]
-	ldr r0, _02120560 ; =0x02099F50
+	ldr r0, _02120560 ; =gFont12
 	str r6, [sp, #0x1c]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0]
 	mov r2, r7
 	mov r3, r11
 	bl FUN_020425fc
-	ldr r0, _02120560 ; =0x02099F50
+	ldr r0, _02120560 ; =gFont12
 	ldr r0, [r0]
 	bl FUN_0204331c
 	ldr r3, [sp, #0x28]
@@ -7200,7 +7200,7 @@ FUN_ov62_02120368: ; 0x02120368
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212055C: .word unk_02099F38
-_02120560: .word unk_02099F50
+_02120560: .word gFont12
 	arm_func_end FUN_ov62_02120368
 
 	arm_func_start FUN_ov62_02120564
@@ -7571,7 +7571,7 @@ _02120A8C: .word unk_020A1612
 FUN_ov62_02120a90: ; 0x02120A90
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov62_02120a90

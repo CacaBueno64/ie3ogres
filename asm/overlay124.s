@@ -502,7 +502,7 @@ FUN_ov124_02125338: ; 0x02125338
 	bne _021254A8
 	cmp r7, #0
 	bne _021253F8
-	ldr r0, _02125588 ; =0x02099ED0
+	ldr r0, _02125588 ; =gFont8
 	add r1, r4, #0x2c
 	ldr r0, [r0]
 	bl FUN_0204294c
@@ -523,7 +523,7 @@ _021253F8:
 	mov r3, r5
 	str r1, [sp, #8]
 	ldrh r12, [r9, #8]
-	ldr r0, _02125588 ; =0x02099ED0
+	ldr r0, _02125588 ; =gFont8
 	mov r1, r6
 	mov r5, r12, lsl #3
 	str r5, [sp, #0xc]
@@ -538,7 +538,7 @@ _021253F8:
 	blx r5
 	cmp r7, #0
 	bne _02125484
-	ldr r0, _0212558C ; =0x02099F50
+	ldr r0, _0212558C ; =gFont12
 	mov r1, r4
 	ldr r0, [r0]
 	bl FUN_0204294c
@@ -549,7 +549,7 @@ _02125484:
 	mov r0, #3
 	stmia sp, {r0, r8}
 	ldr r1, [r9, #4]
-	ldr r0, _0212558C ; =0x02099F50
+	ldr r0, _0212558C ; =gFont12
 	str r1, [sp, #8]
 	ldrh r2, [r9, #8]
 	mov r1, r6
@@ -569,7 +569,7 @@ _021254A8:
 	mov r3, r7
 	str r0, [sp, #8]
 	ldrh r2, [r9, #8]
-	ldr r0, _02125588 ; =0x02099ED0
+	ldr r0, _02125588 ; =gFont8
 	mov r1, r8
 	mov r2, r2, lsl #3
 	str r2, [sp, #0xc]
@@ -586,7 +586,7 @@ _021254A8:
 	str r6, [sp]
 	str r5, [sp, #4]
 	ldr r1, [r9, #4]
-	ldr r0, _0212558C ; =0x02099F50
+	ldr r0, _0212558C ; =gFont12
 	str r1, [sp, #8]
 	ldrh r2, [r9, #8]
 	mov r3, r4
@@ -613,8 +613,8 @@ _02125534:
 	add sp, sp, #0x5c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02125584: .word unk_020A0640
-_02125588: .word unk_02099ED0
-_0212558C: .word unk_02099F50
+_02125588: .word gFont8
+_0212558C: .word gFont12
 	arm_func_end FUN_ov124_02125338
 
 	arm_func_start FUN_ov124_02125590
@@ -1892,7 +1892,7 @@ _02126780: .word unk_0209F5C0
 FUN_ov124_02126784: ; 0x02126784
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov124_02126784

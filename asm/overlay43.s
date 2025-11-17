@@ -2978,19 +2978,19 @@ FUN_ov43_0211c7a8: ; 0x0211C7A8
 	bne _0211C7F8
 	ldr r4, [r5, #4]
 	mov r0, r4
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C7F8:
 	ldr r5, [r5, #4]
 	mov r0, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov43_0211c7a8
 
@@ -3332,7 +3332,7 @@ _0211CC7C:
 	mov r1, r6
 	bl FUN_ov16_02111458
 	mov r7, r0
-	ldr r0, _0211CE5C ; =0x02099F50
+	ldr r0, _0211CE5C ; =gFont12
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
@@ -3348,7 +3348,7 @@ _0211CC7C:
 	str r0, [sp, #0x14]
 	str r0, [sp, #0x18]
 	str r0, [sp, #0x1c]
-	ldr r0, _0211CE5C ; =0x02099F50
+	ldr r0, _0211CE5C ; =gFont12
 	ldr r1, [sp, #0x2c]
 	mov r2, #0x5c
 	mla r1, r8, r2, r1
@@ -3356,7 +3356,7 @@ _0211CC7C:
 	mov r2, r10
 	mov r3, r11
 	bl FUN_020425fc
-	ldr r0, _0211CE5C ; =0x02099F50
+	ldr r0, _0211CE5C ; =gFont12
 	ldr r0, [r0]
 	bl FUN_0204331c
 	mov r2, r10
@@ -3420,7 +3420,7 @@ _0211CE4C: .word 0x000001EF
 _0211CE50: .word unk_02099F38
 _0211CE54: .word 0x66666667
 _0211CE58: .word unk_02099EB4
-_0211CE5C: .word unk_02099F50
+_0211CE5C: .word gFont12
 	arm_func_end FUN_ov43_0211c84c
 
 	arm_func_start FUN_ov43_0211ce60
@@ -3779,7 +3779,7 @@ _0211D300:
 	mov r1, r5
 	bl FUN_ov16_02111458
 	mov r11, r0
-	ldr r0, _0211D53C ; =0x02099F50
+	ldr r0, _0211D53C ; =gFont12
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
@@ -3795,7 +3795,7 @@ _0211D300:
 	str r0, [sp, #0x14]
 	str r0, [sp, #0x18]
 	str r0, [sp, #0x1c]
-	ldr r0, _0211D53C ; =0x02099F50
+	ldr r0, _0211D53C ; =gFont12
 	ldr r1, [sp, #0x24]
 	mov r2, #0x5c
 	mla r1, r8, r2, r1
@@ -3803,7 +3803,7 @@ _0211D300:
 	ldr r3, [sp, #0x20]
 	mov r2, r10
 	bl FUN_020425fc
-	ldr r0, _0211D53C ; =0x02099F50
+	ldr r0, _0211D53C ; =gFont12
 	ldr r0, [r0]
 	bl FUN_0204331c
 	mov r2, r10
@@ -3892,7 +3892,7 @@ _0211D52C: .word unk_02099F38
 _0211D530: .word 0x000001EF
 _0211D534: .word 0x000001EA
 _0211D538: .word 0x66666667
-_0211D53C: .word unk_02099F50
+_0211D53C: .word gFont12
 _0211D540: .word unk_02099EB4
 	arm_func_end FUN_ov43_0211ce60
 
@@ -6474,7 +6474,7 @@ _0211F8BC: .word 0x00000449
 FUN_ov43_0211f8c0: ; 0x0211F8C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov43_0211f8c0

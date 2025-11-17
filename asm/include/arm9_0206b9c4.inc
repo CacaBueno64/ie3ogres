@@ -1,7 +1,7 @@
 .public FUN_0204212c
 .public FUN_02043310
 .public FUN_0204222c
-.public operator_delete
+.public _ZdlPv
 .public FUN_02042274
 .public FUN_0202de44
 .public MI_CpuFill8
@@ -33,7 +33,7 @@
 .public FUN_ov16_020ef2bc
 .public FUN_ov16_020ef41c
 .public FUN_ov16_020eeca0
-.public operator_new
+.public _Znwm
 .public FUN_02043ac8
 .public FUN_02043b30
 .public FUN_02043b44

@@ -21,7 +21,7 @@ FUN_ov39_02119f14: ; 0x02119F14
 FUN_ov39_02119f18: ; 0x02119F18
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov39_02119f18
@@ -978,22 +978,22 @@ _0211AC74: ; jump table
 	b _0211AD80 ; case 6
 _0211AC90:
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x74
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x74
 	moveq r0, #1
 	streq r0, [r4, #0x30]
 	ldmfd sp!, {r4, pc}
 _0211ACB8:
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x74
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x74
 	ldmnefd sp!, {r4, pc}
 	mov r0, r4
@@ -1052,10 +1052,10 @@ _0211AD80:
 	ldr r4, [r4, #4]
 	mov r1, #0
 	mov r0, r4
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _0211ADB8: .word ov106_02125420
 	arm_func_end FUN_ov39_0211ac5c

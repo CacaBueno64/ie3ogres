@@ -58,8 +58,8 @@
 .public FUN_0206d6d8
 .public FUN_ov16_0210e15c
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public MIi_CpuCopy16
 .public FUN_0206dcd4
 .public FUN_ov16_020ee430
@@ -88,7 +88,7 @@
 .public FUN_02059288
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public unk_02099F50
+.public gFont12
 .public FUN_0205ae4c
 .public FUN_ov16_02114204
 .public FUN_ov16_02112724
@@ -140,7 +140,7 @@
 .public sprintf
 .public FUN_ov16_020f2304
 .public FUN_ov16_02113390
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

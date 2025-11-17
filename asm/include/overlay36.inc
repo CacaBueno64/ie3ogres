@@ -1,5 +1,5 @@
-.public FUN_02041d9c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f6584
 .public FUN_0202cf6c
 .public FUN_ov16_020f6530
@@ -45,7 +45,7 @@
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

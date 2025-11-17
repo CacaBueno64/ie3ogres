@@ -35,7 +35,7 @@
 .public FUN_ov16_020f10ac
 .public GX_LoadBG3Char
 .public FUN_ov16_020f6c8c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public G2x_SetBlendBrightness_
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f5ff4
@@ -48,7 +48,7 @@
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public GX_SetGraphicsMode
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_0206c270
 .public FUN_ov16_020efa04
 .public unk_020A1540
@@ -66,7 +66,7 @@
 .public unk_0209AEC0
 .public FUN_ov16_020f60f8
 .public FUN_ov16_020f6f38
-.public FUN_02041ef0
+.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_0206c158
 .public FUN_02050dac
@@ -92,7 +92,7 @@
 .public FUN_ov16_020f5da0
 .public unk_02099F44
 .public FUN_ov131_021421f4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

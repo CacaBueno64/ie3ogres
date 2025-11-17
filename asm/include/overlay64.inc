@@ -56,7 +56,7 @@
 .public FUN_02059038
 .public FUN_ov16_020f153c
 .public FUN_020460a8
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_02112724
 .public FUN_ov16_020f081c
 .public FUN_0207249c
@@ -81,8 +81,8 @@
 .public pLogic_PalSkinFaceFile
 .public FUN_0204378c
 .public FUN_0204294c
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public sprintf
 .public _dflt
 .public pow
@@ -103,7 +103,7 @@
 .public FUN_020425fc
 .public FUN_0204331c
 .public FUN_02059288
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

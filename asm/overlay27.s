@@ -126,7 +126,7 @@ FUN_ov27_0211a074: ; 0x0211A074
 FUN_ov27_0211a078: ; 0x0211A078
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov27_0211a078
@@ -412,7 +412,7 @@ _0211A488:
 	mov r1, r6
 	mov r2, #0x26
 _0211A4A0:
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 _0211A4A4:
 	mov r0, #0
 	strb r0, [r7, #0x4c]

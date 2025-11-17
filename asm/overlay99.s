@@ -575,7 +575,7 @@ FUN_ov99_021254c8: ; 0x021254C8
 _021254E8:
 	bl FUN_ov99_02124fb8
 	ldr r0, [r4, #4]
-	bl FUN_020420b4
+	bl _ZN14CScreenManager17getLoadedSceneSubEv
 	cmp r0, #0
 	beq _0212550C
 	mov r0, r4
@@ -659,7 +659,7 @@ FUN_ov99_021255d0: ; 0x021255D0
 FUN_ov99_021255fc: ; 0x021255FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov99_021255fc

@@ -72,7 +72,7 @@
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74
 .public FUN_ov16_020f1528
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -89,7 +89,7 @@
 .public operator_delete_array
 .public unk_0209A454
 .public ov4_020DBEC1
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

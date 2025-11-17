@@ -27,7 +27,7 @@
 .public FUN_02043310
 .public FUN_ov16_020f2184
 .public FUN_0204331c
-.public unk_02099F50
+.public gFont12
 .public strlen
 .public sprintf
 .public FUN_ov16_020f5f64
@@ -40,7 +40,7 @@
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f2fe4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

@@ -9,7 +9,7 @@ L5Movie::~L5Movie()
 {
     if (this->flags) {
         this->flags |= 0x20;
-        this->stopMovie(1);
+        this->closeMovie(1);
     }
 }
 
@@ -41,7 +41,7 @@ u32 L5Movie::FUN_0202e4ec()
     return unk_020B5B80.unk4 ^ 1;
 }
 
-BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
+BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
 {
     char filepath[64];
 
@@ -88,7 +88,7 @@ BOOL L5Movie::playMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
     unk_020B5B80.unk6 = 1;
 
     STD_TSPrintf(filepath, "%s.sad", name);
-    if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gL5Sound.playSAD(NULL, filepath, 0))) {
+    if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gL5Sound.openSAD(NULL, filepath, 0))) {
         this->flags |= MOVIE_HAS_SOUND;
     }
 
@@ -272,7 +272,7 @@ BOOL L5Movie::FUN_0202ea50(void)
     return TRUE;
 }
 
-void L5Movie::stopMovie(u32 param1)
+void L5Movie::closeMovie(u32 param1)
 {
     if (!this->flags) {
         return;

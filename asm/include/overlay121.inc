@@ -27,7 +27,7 @@
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

@@ -1,4 +1,4 @@
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public FUN_ov16_0210e980
@@ -44,8 +44,8 @@
 .public FUN_ov16_02113d08
 .public FUN_ov16_02113b78
 .public FUN_ov16_021139bc
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -71,9 +71,9 @@
 .public FUN_0204bd64
 .public FUN_ov16_02113f7c
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
-.public operator_delete
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

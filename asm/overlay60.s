@@ -17,7 +17,7 @@ FUN_ov60_02119f00: ; 0x02119F00
 	bl FUN_ov16_020f3f60
 _02119F28:
 	ldr r0, [r6, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x4f
 	bne _02119F54
 	ldr r4, _0211A090 ; =0x0209A11C
@@ -189,7 +189,7 @@ _0211A1A0:
 	cmp r0, #0
 	beq _0211A1D4
 	ldr r0, [r4, #4]
-	bl FUN_0204201c
+	bl _ZN14CScreenManager16getNextSceneMainEv
 	cmp r0, #0
 	bne _0211A1C4
 _0211A1BC:
@@ -1112,19 +1112,19 @@ FUN_ov60_0211ae20: ; 0x0211AE20
 	bne _0211AE70
 	ldr r4, [r5, #4]
 	mov r0, r4
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211AE70:
 	ldr r5, [r5, #4]
 	mov r0, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov60_0211ae20
 
@@ -1576,7 +1576,7 @@ FUN_ov60_0211b2d0: ; 0x0211B2D0
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B4A4:
-	ldr r11, _0211B5D8 ; =0x02099F50
+	ldr r11, _0211B5D8 ; =gFont12
 	mov r1, #1
 	ldr r0, [r11]
 	mov r2, #5
@@ -1653,7 +1653,7 @@ _0211B4A4:
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B5D4: .word unk_02099F38
-_0211B5D8: .word unk_02099F50
+_0211B5D8: .word gFont12
 	arm_func_end FUN_ov60_0211b2d0
 
 	arm_func_start FUN_ov60_0211b5dc
@@ -4867,7 +4867,7 @@ _0211E3B0:
 	cmp r0, #0
 	bne _0211E3E8
 	ldr r0, [r10, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x4f
 	mov r0, r10
 	bne _0211E3DC
@@ -4935,7 +4935,7 @@ _0211E488:
 	cmp r0, #0
 	bne _0211E55C
 	ldr r0, [r10, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x4f
 	bne _0211E4C4
 	mov r0, r10
@@ -4946,7 +4946,7 @@ _0211E4BC:
 	b _0211E574
 _0211E4C4:
 	ldr r0, [r10, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x8a
 	bne _0211E54C
 	ldr r0, _0211E5BC ; =0x02099E8E
@@ -6378,7 +6378,7 @@ FUN_ov60_0211f880: ; 0x0211F880
 	add r0, r4, #0x33c0
 	bl FUN_0206c110
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov60_0211f880

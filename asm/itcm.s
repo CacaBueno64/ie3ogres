@@ -2386,7 +2386,7 @@ _01FFA698:
 	ldr r0, _01FFAC10 ; =0x0209BA20
 	mov r1, r8
 	mov r2, r8
-	bl FUN_020724b8
+	bl _ZN17UnkClass_0209BA2012FUN_020724b8Ett
 	mov r5, #2
 	add r0, r4, #0x320
 	mov r1, r8

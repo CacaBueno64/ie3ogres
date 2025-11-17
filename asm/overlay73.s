@@ -1480,7 +1480,7 @@ _0211B2E0:
 	mov r1, #1
 	mov r5, #0x1c
 	mov r2, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	str r5, [r4, #0x68]
 	mov r0, #5
 	strb r0, [r4, #0x81]
@@ -2200,7 +2200,7 @@ _0211BD68:
 	strb r4, [r6, #0x8d]
 	bl FUN_ov73_0211cad8
 	ldr r0, [r6, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x5a
 	beq _0211BE38
 	cmp r0, #0x75
@@ -2559,11 +2559,11 @@ FUN_ov73_0211c2c8: ; 0x0211C2C8
 	mov r1, #0
 	mov r0, r5
 	mov r2, #0x1b
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0xf
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov73_0211c2c8
 
@@ -2594,11 +2594,11 @@ FUN_ov73_0211c318: ; 0x0211C318
 	ldr r6, [r7, #4]
 	mov r2, r4
 	mov r0, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r7
 	ldr r1, [r0]
 	ldr r1, [r1, #0x50]
@@ -2619,11 +2619,11 @@ FUN_ov73_0211c3ac: ; 0x0211C3AC
 	mov r2, r4
 	mov r1, #0
 	str r3, [r6, #8]
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r6
 	ldr r1, [r0]
 	ldr r1, [r1, #0x50]
@@ -2952,7 +2952,7 @@ _0211C850:
 	strb r2, [r0, #0x958]
 	ldr r0, [r4, #4]
 	mov r2, #0x75
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	b _0211C8F8
 _0211C8B0:
 	cmp r1, #2
@@ -3800,7 +3800,7 @@ _0211D43C: .word FUN_ov131_021421f4
 FUN_ov73_0211d440: ; 0x0211D440
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov73_0211d440

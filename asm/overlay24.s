@@ -2246,11 +2246,11 @@ _0211BF9C:
 	ldr r0, [r5, #4]
 	mov r1, r4
 	mov r2, #0x22
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #4]
 	mov r1, r7
 	mov r2, #0xa
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	strb r4, [r5, #0x74]
 _0211BFE8:
 	add sp, sp, #8
@@ -3749,7 +3749,7 @@ _0211D4BC: .word 0x66666667
 FUN_ov24_0211d4c0: ; 0x0211D4C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov24_0211d4c0
@@ -3921,7 +3921,8 @@ ov24_0211D718:
 	.global ov24_0211D728
 ov24_0211D728:
 	.asciz "bgmdn_bg00.pac_"
-	.balign 16, 0
+	.balign 4, 0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global ov24_0211D740
 ov24_0211D740:
 	.word FUN_ov24_0211d4d4

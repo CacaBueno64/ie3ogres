@@ -607,7 +607,7 @@ FUN_ov112_021254c8: ; 0x021254C8
 	strb r7, [r5, #0x125]
 	strb r7, [r5, #0x12c]
 	strb r7, [r5, #0x12d]
-	bl FUN_020420b4
+	bl _ZN14CScreenManager17getLoadedSceneSubEv
 	cmp r0, #0x71
 	addeq r0, r5, #0x100
 	streqh r4, [r0, #0x26]
@@ -760,7 +760,7 @@ FUN_ov112_02125748: ; 0x02125748
 FUN_ov112_02125774: ; 0x02125774
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov112_02125774

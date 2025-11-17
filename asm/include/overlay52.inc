@@ -1,6 +1,6 @@
 .public FUN_0206c110
 .public FUN_0206c0d8
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
@@ -72,8 +72,8 @@
 .public FUN_ov16_02111438
 .public FUN_02043310
 .public FUN_020425fc
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public DC_FlushRange
 .public FUN_0204331c
 .public FUN_02059288
@@ -82,7 +82,7 @@
 .public FUN_ov16_0210e68c
 .public FUN_02059630
 .public FUN_ov16_020f1560
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public unk_020A1040
 .public unk_020A104A
 .public FUN_ov16_020f5278
@@ -170,7 +170,7 @@
 .public FX_Div
 .public FUN_ov16_0210e570
 .public FUN_ov16_0210e5f0
-.public operator_new
+.public _Znwm
 .public printf
 .public abort
 .public memset

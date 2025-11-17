@@ -13,14 +13,14 @@
 .public FUN_ov16_021139bc
 .public FUN_ov16_02113ec0
 .public operator_new_array
-.public FUN_02042054
-.public FUN_02041fec
+.public _ZN14CScreenManager14getCurSceneSubEv
+.public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_ov16_021123b4
 .public FUN_ov16_02112724
 .public FUN_ov16_020f1214
 .public FUN_ov16_021123c4
 .public operator_delete_array
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

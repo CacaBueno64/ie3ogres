@@ -6781,10 +6781,10 @@ _0211FDA4:
 	ldr r5, [r4, #0x74]
 	mov r1, #0
 	mov r0, r5
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r5
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 _0211FDD8:
 	ldr r1, [r4, #0x9c0]
 	ldr r0, _0211FE0C ; =0x0209A110
@@ -8165,7 +8165,7 @@ FUN_ov46_021210a0: ; 0x021210A0
 	add r0, r4, #0x78
 	bl FUN_0206c110
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov46_021210a0

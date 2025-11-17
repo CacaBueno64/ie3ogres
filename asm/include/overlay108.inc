@@ -23,8 +23,8 @@
 .public MIi_CpuClear32
 .public gL5Allocator
 .public FUN_0204378c
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public FUN_ov16_020f2184
 .public FUN_0202895c
 .public FUN_0206cd70
@@ -53,7 +53,7 @@
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public strlen
 .public FUN_02028a98
 .public FX_Sqrt

@@ -19,6 +19,15 @@ FS_EXTERN_OVERLAY(overlay126);
 FS_EXTERN_OVERLAY(overlay127);
 
 typedef struct {
+    char name[32];
+    void *stack;
+    s32 startMs;
+    s32 endMs;
+    char *text;
+    s32 curMs;
+} SMovieInfo;
+
+typedef struct {
     L5Allocator *allocator;
     s8 unk4;
     s8 unk5;
@@ -39,14 +48,14 @@ class L5Movie {
         void init(L5Allocator *allocator);
         void FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3);
         u32 FUN_0202e4ec();
-        BOOL playMovie(char *name, u32 param2, u32 param3, u8 param4);
+        BOOL openMovie(char *name, u32 param2, u32 param3, u8 param4);
         u32 FUN_0202e784(void);
         BOOL FUN_0202e78c(void);
         void FUN_0202e958(void);
         void FUN_0202e978(void);
         void FUN_0202e9c8(void);
         BOOL FUN_0202ea50(void);
-        void stopMovie(u32 param1);
+        void closeMovie(u32 param1);
 
     FSFile file;
     u8 pad[0x48];

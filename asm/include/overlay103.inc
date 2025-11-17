@@ -1,4 +1,4 @@
-.public FUN_02041fec
+.public _ZN14CScreenManager15getCurSceneMainEv
 .public STD_CopyLString
 .public MI_CpuFill8
 .public FUN_ov16_020f316c
@@ -17,7 +17,7 @@
 .public FUN_02043310
 .public STD_GetStringLength
 .public DC_FlushRange
-.public unk_02099F50
+.public gFont12
 .public GXS_LoadBG0Char
 .public GXS_LoadBG0Scr
 .public G2S_GetBG1CharPtr
@@ -35,7 +35,7 @@
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

@@ -102,7 +102,7 @@
 .public FUN_020425fc
 .public FUN_0204331c
 .public FUN_02059288
-.public unk_02099F50
+.public gFont12
 .public FUN_02049ea4
 .public FUN_ov16_020ee16c
 .public FUN_02074a2c
@@ -151,7 +151,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_0205131c
 .public FUN_ov16_020f5278
-.public operator_new
+.public _Znwm
 .public FUN_ov16_02110558
 .public FUN_ov16_021123b4
 .public FUN_0205b2b8
@@ -165,8 +165,8 @@
 .public FUN_0205b340
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0205ac70
 .public FUN_0205b174
 .public FUN_0205a60c
@@ -182,7 +182,7 @@
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e3f0
 .public FUN_ov16_0210e5f0
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

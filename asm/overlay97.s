@@ -485,7 +485,7 @@ FUN_ov97_021252ec: ; 0x021252EC
 	moveq r8, #0
 	cmp r7, #0
 	bne _02125380
-	ldr r0, _02125528 ; =0x02099ED0
+	ldr r0, _02125528 ; =gFont8
 	add r1, r9, #0x2c
 	ldr r0, [r0]
 	bl FUN_0204294c
@@ -506,7 +506,7 @@ _02125380:
 	mov r3, r5
 	str r1, [sp, #8]
 	ldrh r12, [r6, #8]
-	ldr r0, _02125528 ; =0x02099ED0
+	ldr r0, _02125528 ; =gFont8
 	mov r1, r8
 	mov r5, r12, lsl #3
 	str r5, [sp, #0xc]
@@ -521,7 +521,7 @@ _02125380:
 	blx r5
 	cmp r7, #0
 	bne _0212540C
-	ldr r0, _0212552C ; =0x02099F50
+	ldr r0, _0212552C ; =gFont12
 	mov r1, r9
 	ldr r0, [r0]
 	bl FUN_0204294c
@@ -533,7 +533,7 @@ _0212540C:
 	str r5, [sp]
 	str r4, [sp, #4]
 	ldr r0, [r6, #4]
-	ldr r7, _0212552C ; =0x02099F50
+	ldr r7, _0212552C ; =gFont12
 	str r0, [sp, #8]
 	ldrh r0, [r6, #8]
 	mov r1, r8
@@ -579,7 +579,7 @@ _021254B8:
 	stmib sp, {r0, r1}
 	ldrh r2, [r6, #8]
 	mov r1, r4
-	ldr r0, _0212552C ; =0x02099F50
+	ldr r0, _0212552C ; =gFont12
 	mov r2, r2, lsl #3
 	str r2, [sp, #0xc]
 	ldrh r4, [r6, #0xa]
@@ -602,8 +602,8 @@ _021254FC:
 	bl DC_FlushRange
 	add sp, sp, #0x3c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_02125528: .word unk_02099ED0
-_0212552C: .word unk_02099F50
+_02125528: .word gFont8
+_0212552C: .word gFont12
 _02125530: .word ov97_02126EB4
 	arm_func_end FUN_ov97_021252ec
 
@@ -2144,7 +2144,7 @@ _02126B04: .word unk_0209F5C0
 FUN_ov97_02126b08: ; 0x02126B08
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov97_02126b08

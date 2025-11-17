@@ -250,7 +250,7 @@ FUN_ov102_02125008: ; 0x02125008
 FUN_ov102_02125028: ; 0x02125028
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov102_02125028

@@ -28,7 +28,7 @@
 .public FUN_ov16_02113b78
 .public _s32_div_f
 .public FUN_ov16_02112724
-.public FUN_02041d9c
+.public _ZN14CScreenManager12FUN_02041d9cEv
 .public FUN_ov16_0210ee78
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e15c
@@ -43,13 +43,13 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

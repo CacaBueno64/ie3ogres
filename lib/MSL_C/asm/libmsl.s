@@ -1510,7 +1510,7 @@ __end__catch: ; 0x0201DCF8
 std__bad_exception__operator_delete: ; 0x0201DD20
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end std__bad_exception__operator_delete
@@ -1761,8 +1761,8 @@ std__bad_alloc__nbad_alloc: ; 0x0201E010
 	bx lr
 	arm_func_end std__bad_alloc__nbad_alloc
 
-	arm_func_start operator_new
-operator_new: ; 0x0201E014
+	arm_func_start _Znwm
+_Znwm: ; 0x0201E014
 	stmfd sp!, {r3, r4, r5, r6, r11, lr}
 	sub sp, sp, #0x18
 	mov r11, sp
@@ -1792,23 +1792,23 @@ _0201E068:
 	add sp, r11, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r11, pc}
 _0201E074: .word __new_handler
-	arm_func_end operator_new
+	arm_func_end _Znwm
 
-	arm_func_start operator_delete
-operator_delete: ; 0x0201E078
+	arm_func_start _ZdlPv
+_ZdlPv: ; 0x0201E078
 	stmfd sp!, {r3, lr}
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
 	bl free
 	ldmfd sp!, {r3, pc}
-	arm_func_end operator_delete
+	arm_func_end _ZdlPv
 
 	arm_func_start operator_new_array
 operator_new_array: ; 0x0201E08C
 	stmfd sp!, {r11, lr}
 	sub sp, sp, #0x18
 	mov r11, sp
-	bl operator_new
+	bl _Znwm
 	add sp, r11, #0x18
 	ldmfd sp!, {r11, pc}
 	add r0, r11, #0
@@ -1821,16 +1821,16 @@ _0201E0AC:
 
 	arm_func_start operator_delete_array
 operator_delete_array: ; 0x0201E0B8
-	ldr r12, _0201E0C0 ; =operator_delete
+	ldr r12, _0201E0C0 ; =_ZdlPv
 	bx r12
-_0201E0C0: .word operator_delete
+_0201E0C0: .word _ZdlPv
 	arm_func_end operator_delete_array
 
 	arm_func_start std__bad_alloc__operator_delete
 std__bad_alloc__operator_delete: ; 0x0201E0C4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end std__bad_alloc__operator_delete
@@ -2102,7 +2102,7 @@ __cxxabiv1____base_class_type_info__operator_delete: ; 0x0201E410
 	mov r4, r0
 	bl std__type_info__ntype_info
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end __cxxabiv1____base_class_type_info__operator_delete
@@ -2131,7 +2131,7 @@ __cxxabiv1____si_class_type_info__operator_delete: ; 0x0201E454
 	mov r4, r0
 	bl __cxxabiv1____class_type_info__n__class_type_info
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end __cxxabiv1____si_class_type_info__operator_delete
@@ -13873,7 +13873,7 @@ FUN_0202882c: ; 0x0202882C
 	mov r0, #0x10
 	str r4, [sp]
 	str r1, [sp, #4]
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02028878
 	mov r2, #1
@@ -13957,7 +13957,7 @@ _02028934:
 FUN_0202893c: ; 0x0202893C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0202893c
@@ -13982,7 +13982,7 @@ FUN_0202895c: ; 0x0202895C
 	movs r0, r0, lsr #0x1f
 	beq _0202897C
 	ldr r0, [r4, #8]
-	bl operator_delete
+	bl _ZdlPv
 _0202897C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
@@ -14188,7 +14188,7 @@ _02028C58:
 	blo _02028C58
 _02028C6C:
 	mov r0, r7
-	bl operator_new
+	bl _Znwm
 	str r0, [sp, #0xc]
 	cmp r4, #0
 	beq _02028C8C
@@ -14224,7 +14224,7 @@ _02028CC8:
 	streq r0, [r5]
 	beq _02028CFC
 	mov r0, r6
-	bl operator_delete
+	bl _ZdlPv
 _02028CFC:
 	ldr r0, [sp, #0xc]
 	ldr r1, [r5]
@@ -14363,7 +14363,7 @@ FUN_02028eb4: ; 0x02028EB4
 	add r0, r4, #4
 	bl FUN_020288dc
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02028eb4
@@ -14385,7 +14385,7 @@ FUN_02028eec: ; 0x02028EEC
 	add r0, r4, #4
 	bl FUN_020288dc
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02028eec
@@ -14407,7 +14407,7 @@ FUN_02028f24: ; 0x02028F24
 	add r0, r4, #4
 	bl FUN_020288dc
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02028f24
@@ -14442,21 +14442,6 @@ FUN_02028f74: ; 0x02028F74
 	blx r1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02028f74
-
-	arm_func_start FUN_02028fa0
-FUN_02028fa0: ; 0x02028FA0
-	bx lr
-	arm_func_end FUN_02028fa0
-
-	arm_func_start FUN_02028fa4
-FUN_02028fa4: ; 0x02028FA4
-	bx lr
-	arm_func_end FUN_02028fa4
-
-	arm_func_start FUN_02028fa8
-FUN_02028fa8: ; 0x02028FA8
-	bx lr
-	arm_func_end FUN_02028fa8
 
 	.rodata
 	.global unk_0208BFB0

@@ -16,8 +16,8 @@
 .public gL5Sound
 .public unk_020A1640
 .public FUN_ov16_020f153c
-.public FUN_02041eac
-.public FUN_02041f2c
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public STD_CopyString
 .public strlen
 .public FUN_ov16_020f6084
@@ -31,7 +31,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2184
 .public FUN_0204331c
-.public unk_02099F50
+.public gFont12
 .public MI_CpuFill8
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f32b4
@@ -72,7 +72,7 @@
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f1aec
 .public FUN_ov16_020f338c
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_020f18e8
 .public FUN_ov16_020f19d4
 .public FUN_ov16_020f3054

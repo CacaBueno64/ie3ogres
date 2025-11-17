@@ -101,7 +101,7 @@
 .public FUN_02059288
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_02114204
 .public FUN_02058e30
 .public FUN_02059004
@@ -109,8 +109,8 @@
 .public FUN_020576a0
 .public FUN_ov16_020f153c
 .public FUN_ov0_020be3f8
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_ov16_0210e674
 .public FUN_ov16_0210eab4
@@ -152,7 +152,7 @@
 .public FUN_02055324
 .public FUN_02056ed4
 .public FUN_02056b24
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

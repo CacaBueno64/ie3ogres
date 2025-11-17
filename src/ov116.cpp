@@ -101,11 +101,11 @@ _02124DD8:
 	ldmfd sp!, {r4, r5, r6, pc}
 }
 
-extern void operator_delete(void *ptr);
+extern void _ZdlPv(void *ptr);
 
 void *FUN_ov116_02124e24(void *ptr)
 {
-    operator_delete(ptr);
+    _ZdlPv(ptr);
     return ptr;
 }
 

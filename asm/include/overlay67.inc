@@ -44,7 +44,7 @@
 .public FUN_ov16_02113ec0
 .public FUN_02043310
 .public FUN_ov16_020ee034
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_02111438
 .public FUN_0205935c
 .public FUN_ov16_02111458
@@ -59,7 +59,7 @@
 .public MI_CpuFill8
 .public FUN_0206d64c
 .public FUN_0206d8c8
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_02112950
 .public FUN_ov16_0211346c
 .public FUN_ov16_02114248
@@ -120,7 +120,7 @@
 .public FUN_0202de44
 .public MIi_CpuClearFast
 .public FUN_0205131c
-.public operator_new
+.public _Znwm
 .public FUN_ov16_02110558
 .public FUN_ov16_021123b4
 .public FUN_0205b2b8
@@ -133,8 +133,8 @@
 .public FUN_0205b340
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0205a60c
 .public FUN_ov16_0210e10c
 .public unk_0209A110
@@ -145,7 +145,7 @@
 .public FUN_0205b398
 .public FUN_0205a5f4
 .public FUN_ov16_020eedb8
-.public operator_delete
+.public _ZdlPv
 .public FUN_02046cb4
 .public unk_0209A4E0
 .public unk_0209A4E4
@@ -171,7 +171,7 @@
 .public GX_LoadBG3Char
 .public FUN_ov16_020f10ac
 .public FUN_02043780
-.public unk_02099EDC
+.public gFont12T
 .public FUN_ov16_020f5da0
 .public unk_0209F5C0
 .public FUN_ov16_020f5eec

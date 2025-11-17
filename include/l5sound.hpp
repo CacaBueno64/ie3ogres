@@ -9,7 +9,7 @@ class L5Sound {
     public:
         L5Sound();
         ~L5Sound();
-        BOOL playSAD(void *param1, char *filename, u8 param3);
+        BOOL openSAD(void *param1, char *filename, u8 param3);
         BOOL FUN_0202c4a0(u32 param1);
         void FUN_0202cf00(s32 param1);
         void FUN_0202d08c(s32 param1);

@@ -46,11 +46,11 @@
 .public FUN_ov16_020f2184
 .public FUN_02043310
 .public FUN_0204331c
-.public unk_02099F50
-.public unk_02099ED0
+.public gFont12
+.public gFont8
 .public FUN_02043780
-.public unk_02099EDC
-.public operator_delete
+.public gFont12T
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

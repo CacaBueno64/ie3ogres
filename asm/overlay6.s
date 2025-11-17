@@ -20,20 +20,20 @@ FUN_ov6_020bcb40: ; 0x020BCB40
 	str r7, [r4, #0x84]
 	mov r6, #1
 	strb r6, [r3]
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r6
 	mov r2, r7
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	mov r5, #0x96
 	mov r0, r4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r1, r6
 	mov r2, r5
 	mov r0, r4
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r5, #6
 	mov r0, r5
 	strb r7, [r4, #0x89]
@@ -117,10 +117,10 @@ _020BCCA8:
 FUN_ov6_020bccc0: ; 0x020BCCC0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl FUN_0204201c
+	bl _ZN14CScreenManager16getNextSceneMainEv
 	mov r5, r0
 	mov r0, r4
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r5, r0
 	bne _020BCCEC
 	ldrb r0, [r4, #5]
@@ -150,7 +150,7 @@ _020BCD24:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	ldr r0, [r4, #0x80]
 	cmp r0, #0
 	beq _020BCD5C
@@ -159,10 +159,10 @@ _020BCD24:
 	blx r1
 _020BCD5C:
 	mov r0, r4
-	bl FUN_02042084
+	bl _ZN14CScreenManager15getNextSceneSubEv
 	mov r5, r0
 	mov r0, r4
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r5, r0
 	bne _020BCD84
 	ldrb r0, [r4, #5]
@@ -192,7 +192,7 @@ _020BCDBC:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #1
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	ldr r0, [r4, #0x84]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -256,9 +256,9 @@ _020BCE8C: .word 0x04000304
 FUN_ov6_020bce90: ; 0x020BCE90
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bce90
@@ -267,7 +267,7 @@ FUN_ov6_020bce90: ; 0x020BCE90
 FUN_ov6_020bceac: ; 0x020BCEAC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bceac
@@ -908,7 +908,7 @@ _020BD74C: .word unk_02099F18
 FUN_ov6_020bd750: ; 0x020BD750
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bd750
@@ -1309,7 +1309,7 @@ FUN_ov6_020bdc48: ; 0x020BDC48
 FUN_ov6_020bdc60: ; 0x020BDC60
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bdc60
@@ -1417,22 +1417,22 @@ ov6_020BDDC0:
 	.word FUN_ov6_020bce90
 	.word FUN_ov6_020bcb40
 	.word FUN_ov6_020bcdf8
-	.word FUN_02029d10
-	.word FUN_02041b64
-	.word FUN_02041bec
-	.word FUN_02041c58
-	.word FUN_02029d0c
-	.word FUN_02041cc8
+	.word _ZN8CManager7vFUN_10Ev
+	.word _ZN14CScreenManager10updateKeysEtt
+	.word _ZN14CScreenManager8updateTPEP6TPData
+	.word _ZN14CScreenManager6updateEi
+	.word _ZN8CManager7vFUN_20Ev
+	.word _ZN14CScreenManager10updateLateEi
 	.word FUN_ov6_020bce3c
 	.word FUN_ov6_020bcc70
-	.word FUN_020420bc
+	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_ov6_020bccc0
-	.word FUN_02041dd4
-	.word FUN_02041df8
-	.word FUN_02041e1c
-	.word FUN_02041e40
-	.word FUN_02041e64
-	.word FUN_02041e88
+	.word _ZN14CScreenManager7vFUN_38Ei
+	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager10signalMainEi
+	.word _ZN14CScreenManager9signalSubEi
+	.word _ZN14CScreenManager7vFUN_48Ev
+	.word _ZN14CScreenManager7vFUN_4CEv
 	.global ov6_020BDE10
 ov6_020BDE10:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

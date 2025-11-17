@@ -595,7 +595,7 @@ FUN_ov125_02125494: ; 0x02125494
 	str lr, [sp, #4]
 	str r0, [sp, #8]
 	ldrh r1, [r4, #8]
-	ldr r0, _02125564 ; =0x02099ED0
+	ldr r0, _02125564 ; =gFont8
 	add r3, sp, #0x38
 	mov r1, r1, lsl #3
 	str r1, [sp, #0xc]
@@ -618,7 +618,7 @@ FUN_ov125_02125494: ; 0x02125494
 	add sp, sp, #0x84
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02125560: .word unk_0209BA20
-_02125564: .word unk_02099ED0
+_02125564: .word gFont8
 	arm_func_end FUN_ov125_02125494
 
 	arm_func_start FUN_ov125_02125568
@@ -645,7 +645,7 @@ FUN_ov125_02125568: ; 0x02125568
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}
-	ldr r6, _02125650 ; =0x02099F50
+	ldr r6, _02125650 ; =gFont12
 	mov r1, r4
 	ldr r0, [r6]
 	bl FUN_0204294c
@@ -681,7 +681,7 @@ FUN_ov125_02125568: ; 0x02125568
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0212564C: .word unk_0209BA20
-_02125650: .word unk_02099F50
+_02125650: .word gFont12
 	arm_func_end FUN_ov125_02125568
 
 	arm_func_start FUN_ov125_02125654
@@ -1556,7 +1556,7 @@ _02126250: .word unk_0209F5C0
 FUN_ov125_02126254: ; 0x02126254
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov125_02126254

@@ -122,7 +122,7 @@
 .public FUN_0204fb58
 .public FUN_ov132_0214352c
 .public FUN_02043c5c
-.public FUN_020724b8
+.public _ZN17UnkClass_0209BA2012FUN_020724b8Ett
 .public FUN_ov1_020de558
 .public FUN_020724dc
 .public FUN_ov132_0215a094

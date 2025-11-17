@@ -25,8 +25,8 @@
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public FUN_ov16_020f5da0
 .public unk_0209F5C0
 .public FUN_0206dcd4
@@ -60,7 +60,7 @@
 .public FUN_ov16_020f6a9c
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

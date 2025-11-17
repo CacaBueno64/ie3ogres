@@ -19,7 +19,7 @@
 .public gL5Allocator
 .public FUN_ov16_020eef1c
 .public FUN_ov16_020eee80
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020efa9c
 .public MI_CpuCopy8
 .public FUN_0206dcd4
@@ -67,7 +67,7 @@
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

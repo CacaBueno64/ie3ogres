@@ -2191,7 +2191,7 @@ _0211BDB0:
 	ldr r0, [r5, #4]
 	mov r1, r4
 	mov r2, #0xc
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #4]
 	mov r2, r4
 _0211BDFC:
@@ -2209,7 +2209,7 @@ _0211BE04:
 	ldr r0, [r5, #4]
 	mov r1, r4
 	mov r2, r6
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #4]
 	mov r2, r6
 	b _0211BDFC
@@ -2217,12 +2217,12 @@ _0211BE40:
 	ldr r0, [r5, #4]
 	mov r1, r4
 	mov r2, #0x22
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #4]
 	mov r1, r7
 	mov r2, #0xa
 _0211BE5C:
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, #0
 	strb r0, [r5, #0xcc]
 _0211BE68:
@@ -3156,7 +3156,7 @@ FUN_ov23_0211cacc: ; 0x0211CACC
 	add r0, r4, #0x58
 	bl FUN_ov16_02110578
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov23_0211cacc
@@ -3278,7 +3278,8 @@ ov23_0211CCD8:
 	.global ov23_0211CCE8
 ov23_0211CCE8:
 	.asciz "eldn_bg01.pac_"
-	.balign 16, 0
+	.balign 4, 0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global ov23_0211CD00
 ov23_0211CD00:
 	.word FUN_ov23_0211caec

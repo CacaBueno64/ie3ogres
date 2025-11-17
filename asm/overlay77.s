@@ -40,7 +40,7 @@ FUN_ov77_02119f18: ; 0x02119F18
 	ldr r0, [r5, #0x28]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r6, _02119FE8 ; =0x02099EF0
+	ldr r6, _02119FE8 ; 0x02099EF0
 	ldr r0, [r6]
 	bl FUN_ov132_02143b6c
 	movs r4, r0
@@ -102,7 +102,7 @@ FUN_ov77_0211a010: ; 0x0211A010
 	bl FUN_ov1_020cbeb0
 	mov r0, r4
 	bl FUN_ov1_020ca880
-	ldr r5, _0211A0A8 ; =0x02099EF0
+	ldr r5, _0211A0A8 ; 0x02099EF0
 	ldr r0, [r5]
 	bl FUN_ov132_02143b6c
 	movs r6, r0
@@ -317,7 +317,7 @@ _0211A2F8:
 	bl FUN_02052f9c
 	ldr r0, [r4]
 	bl FUN_02052de4
-	ldr r4, _0211A3D8 ; =0x02099EF0
+	ldr r4, _0211A3D8 ; 0x02099EF0
 	ldr r0, [r4]
 	bl FUN_ov132_021434f8
 	cmp r0, #0
@@ -406,7 +406,7 @@ _0211A488: .word unk_02099EE8
 FUN_ov77_0211a48c: ; 0x0211A48C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov77_0211a48c

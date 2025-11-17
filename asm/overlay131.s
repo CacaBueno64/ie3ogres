@@ -3734,7 +3734,7 @@ _0213DF30:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl operator_delete
+	bl _ZdlPv
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -3848,7 +3848,7 @@ _0213E09C:
 	ldr r7, [r5]
 	mov r8, r1
 	ldr r0, [r7, r8, lsl #2]
-	bl operator_delete
+	bl _ZdlPv
 	sub r6, r6, #0x100
 	str r4, [r7, r8, lsl #2]
 	cmp r6, #0x200
@@ -3915,7 +3915,7 @@ _0213E194:
 	ldr r1, [r4, #8]
 	ldr r0, [r4, #0xc]
 	ldr r0, [r1, r0, lsl #2]
-	bl operator_delete
+	bl _ZdlPv
 	ldr r1, [r4, #0xc]
 	ldr r0, [r4, #0x14]
 	add r1, r1, #1
@@ -4048,7 +4048,7 @@ _0213E34C:
 	mov r5, #0x3f0
 _0213E384:
 	mov r0, r5
-	bl operator_new
+	bl _Znwm
 	movs r8, r0
 	bne _0213E3A0
 	mov r0, r4
@@ -4144,7 +4144,7 @@ _0213E420:
 	mov r5, #0x3f0
 _0213E4F4:
 	mov r0, r5
-	bl operator_new
+	bl _Znwm
 	movs r8, r0
 	bne _0213E510
 	mov r0, r11
@@ -5494,7 +5494,7 @@ _0213F874:
 	mov r5, #0x400
 _0213F8AC:
 	mov r0, r5
-	bl operator_new
+	bl _Znwm
 	movs r8, r0
 	bne _0213F8C8
 	mov r0, r4
@@ -5590,7 +5590,7 @@ _0213F948:
 	mov r5, #0x400
 _0213FA1C:
 	mov r0, r5
-	bl operator_new
+	bl _Znwm
 	movs r8, r0
 	bne _0213FA38
 	mov r0, r11
@@ -5773,7 +5773,7 @@ _0213FCC4:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0213FCD8
-	bl operator_delete
+	bl _ZdlPv
 _0213FCD8:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -5868,7 +5868,7 @@ FUN_ov131_0213fe04: ; 0x0213FE04
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl operator_delete
+	bl _ZdlPv
 _0213FE2C:
 	mov r0, r4
 	add sp, sp, #4
@@ -5896,7 +5896,7 @@ FUN_ov131_0213fe38: ; 0x0213FE38
 _0213FE78:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl operator_new
+	bl _Znwm
 	movs r6, r0
 	bne _0213FE98
 	ldr r0, _0213FEB0 ; =0x0214C8A4
@@ -6063,7 +6063,7 @@ FUN_ov131_021400bc: ; 0x021400BC
 	ldr r1, [r4, #8]
 	sub r1, r1, r1
 	str r1, [r4, #8]
-	bl operator_delete
+	bl _ZdlPv
 _021400E4:
 	mov r0, r4
 	add sp, sp, #4
@@ -6660,7 +6660,7 @@ _0214098C:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _021409A0
-	bl operator_delete
+	bl _ZdlPv
 _021409A0:
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #0x10]
@@ -6898,7 +6898,7 @@ FUN_ov131_02140cb8: ; 0x02140CB8
 _02140CF8:
 	add r0, r4, #1
 	mov r0, r0, lsl #2
-	bl operator_new
+	bl _Znwm
 	movs r6, r0
 	bne _02140D18
 	ldr r0, _02140D30 ; =0x0214C8A4
@@ -15870,7 +15870,7 @@ FUN_ov131_02148894: ; 0x02148894
 	add r0, r1, #1
 	strb r0, [r6, #0xb]
 	ldr r1, [sp]
-	ldr r0, _02148918 ; =0x02099EF0
+	ldr r0, _02148918 ; 0x02099EF0
 	ldr r2, [sp, #4]
 	mov r1, r1, lsl #0x10
 	ldr r0, [r0]

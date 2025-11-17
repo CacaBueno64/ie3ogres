@@ -116,7 +116,7 @@
 .public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_0202c560
 .public FUN_0202c530
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_0210e9d8
@@ -144,7 +144,7 @@
 .public FUN_0204eba0
 .public FUN_0204ec3c
 .public FUN_0206c110
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

@@ -44,7 +44,7 @@
 .public FUN_ov16_020f51a8
 .public FUN_ov16_020f0c48
 .public pLogic_PalSkinFaceFile
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

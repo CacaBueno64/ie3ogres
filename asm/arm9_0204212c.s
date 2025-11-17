@@ -1,574 +1,8 @@
 
 	.include "/macros/function.inc"
-	.include "/include/arm9_02041ac8.inc"
+	.include "/include/arm9_0204212c.inc"
 
 	.text
-	arm_func_start FUN_02041ac8
-FUN_02041ac8: ; 0x02041AC8
-	stmfd sp!, {r4, lr}
-	ldr r1, _02041AE4 ; =0x0208FF94
-	mov r4, r0
-	str r1, [r4]
-	bl FUN_02041b04
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-_02041AE4: .word unk_0208FF94
-	arm_func_end FUN_02041ac8
-
-	arm_func_start FUN_02041ae8
-FUN_02041ae8: ; 0x02041AE8
-	bx lr
-	arm_func_end FUN_02041ae8
-
-	arm_func_start FUN_02041aec
-FUN_02041aec: ; 0x02041AEC
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl operator_delete
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02041aec
-
-	arm_func_start FUN_02041b00
-FUN_02041b00: ; 0x02041B00
-	bx lr
-	arm_func_end FUN_02041b00
-
-	arm_func_start FUN_02041b04
-FUN_02041b04: ; 0x02041B04
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, #0
-	mov r1, r4
-	add r0, r5, #0x20
-	mov r2, #0x60
-	str r4, [r5, #0x18]
-	str r4, [r5, #0x1c]
-	bl MI_CpuFill8
-	str r4, [r5, #0x80]
-	str r4, [r5, #0x84]
-	strb r4, [r5, #0x89]
-	strb r4, [r5, #0x88]
-	strb r4, [r5, #0x8a]
-	strb r4, [r5, #0x8b]
-	strb r4, [r5, #0x8c]
-	strh r4, [r5, #0x8e]
-	strb r4, [r5, #4]
-	strb r4, [r5, #5]
-	str r4, [r5, #8]
-	str r4, [r5, #0xc]
-	str r4, [r5, #0x10]
-	str r4, [r5, #0x14]
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041b04
-
-	arm_func_start FUN_02041b64
-FUN_02041b64: ; 0x02041B64
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	ldrb r0, [r6, #0x88]
-	mov r5, r1
-	mov r4, r2
-	cmp r0, #0
-	beq _02041BA0
-	ldr r0, [r6, #0x84]
-	cmp r0, #0
-	beq _02041BD0
-	bl FUN_ov16_020f1660
-	cmp r0, #0
-	bne _02041BD0
-	ldr r0, [r6, #0x84]
-	b _02041BBC
-_02041BA0:
-	ldr r0, [r6, #0x80]
-	cmp r0, #0
-	beq _02041BD0
-	bl FUN_ov16_020f1650
-	cmp r0, #0
-	bne _02041BD0
-	ldr r0, [r6, #0x80]
-_02041BBC:
-	ldr r3, [r0]
-	mov r1, r5
-	ldr r3, [r3, #8]
-	mov r2, r4
-	blx r3
-_02041BD0:
-	ldr r0, _02041BE8 ; =0x0209BA20
-	mov r1, r5
-	mov r2, r4
-	bl FUN_020724b8
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, pc}
-_02041BE8: .word unk_0209BA20
-	arm_func_end FUN_02041b64
-
-	arm_func_start FUN_02041bec
-FUN_02041bec: ; 0x02041BEC
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldrb r0, [r5, #0x88]
-	mov r4, r1
-	cmp r0, #0
-	beq _02041C24
-	ldr r0, [r5, #0x84]
-	cmp r0, #0
-	beq _02041C50
-	bl FUN_ov16_020f1660
-	cmp r0, #0
-	bne _02041C50
-	ldr r0, [r5, #0x84]
-	b _02041C40
-_02041C24:
-	ldr r0, [r5, #0x80]
-	cmp r0, #0
-	beq _02041C50
-	bl FUN_ov16_020f1650
-	cmp r0, #0
-	bne _02041C50
-	ldr r0, [r5, #0x80]
-_02041C40:
-	ldr r2, [r0]
-	mov r1, r4
-	ldr r2, [r2, #0xc]
-	blx r2
-_02041C50:
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041bec
-
-	arm_func_start FUN_02041c58
-FUN_02041c58: ; 0x02041C58
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	bne _02041C8C
-	ldr r0, [r5, #0x80]
-	cmp r0, #0
-	beq _02041CB8
-	ldr r1, [r0]
-	ldr r1, [r1, #0x14]
-	blx r1
-	mov r1, r0
-	ldr r0, [r5, #0x80]
-	b _02041CAC
-_02041C8C:
-	ldr r0, [r5, #0x84]
-	cmp r0, #0
-	beq _02041CB8
-	ldr r1, [r0]
-	ldr r1, [r1, #0x14]
-	blx r1
-	mov r1, r0
-	ldr r0, [r5, #0x84]
-_02041CAC:
-	ldr r2, [r0]
-	ldr r2, [r2, #0x18]
-	blx r2
-_02041CB8:
-	mov r0, r4
-	bl FUN_ov16_020f16c8
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041c58
-
-	arm_func_start FUN_02041cc8
-FUN_02041cc8: ; 0x02041CC8
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r1
-	mov r5, r0
-	mov r0, r4
-	bl FUN_ov16_020f16c8
-	cmp r4, #0
-	bne _02041CF4
-	ldr r0, [r5, #0x80]
-	cmp r0, #0
-	beq _02041D0C
-	b _02041D00
-_02041CF4:
-	ldr r0, [r5, #0x84]
-	cmp r0, #0
-	beq _02041D0C
-_02041D00:
-	ldr r1, [r0]
-	ldr r1, [r1, #0x1c]
-	blx r1
-_02041D0C:
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041cc8
-
-	arm_func_start FUN_02041d14
-FUN_02041d14: ; 0x02041D14
-	stmfd sp!, {r4, lr}
-	mov r4, r2
-	ldr r0, [r4]
-	cmp r0, #0
-	ldmeqfd sp!, {r4, pc}
-_02041D28:
-	ldrb r0, [r4, #8]
-	cmp r0, #0
-	beq _02041D70
-	ldr r0, [r4, #4]
-	cmp r0, r1
-	bne _02041D70
-	ldr r1, [r4, #0xc]
-	mov r0, #0
-	bl FS_UnloadOverlay
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	beq _02041D64
-	ldr r1, [r0]
-	ldr r1, [r1, #4]
-	blx r1
-_02041D64:
-	mov r0, #0
-	str r0, [r4, #4]
-	ldmfd sp!, {r4, pc}
-_02041D70:
-	ldr r0, [r4, #0x10]!
-	cmp r0, #0
-	bne _02041D28
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02041d14
-
-	arm_func_start FUN_02041d80
-FUN_02041d80: ; 0x02041D80
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x80]
-	cmp r0, #0
-	ldmeqfd sp!, {r3, pc}
-	mov r0, #6
-	bl FUN_ov16_020f1468
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041d80
-
-	arm_func_start FUN_02041d9c
-FUN_02041d9c: ; 0x02041D9C
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x80]
-	cmp r0, #0
-	ldmeqfd sp!, {r3, pc}
-	mov r0, #6
-	bl FUN_ov16_020f1514
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041d9c
-
-	arm_func_start FUN_02041db8
-FUN_02041db8: ; 0x02041DB8
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x84]
-	cmp r0, #0
-	ldmeqfd sp!, {r3, pc}
-	mov r0, #6
-	bl FUN_ov16_020f1528
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041db8
-
-	arm_func_start FUN_02041dd4
-FUN_02041dd4: ; 0x02041DD4
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x80]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r2, [r0]
-	ldr r2, [r2, #0x60]
-	blx r2
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041dd4
-
-	arm_func_start FUN_02041df8
-FUN_02041df8: ; 0x02041DF8
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x84]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r2, [r0]
-	ldr r2, [r2, #0x60]
-	blx r2
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041df8
-
-	arm_func_start FUN_02041e1c
-FUN_02041e1c: ; 0x02041E1C
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x80]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r2, [r0]
-	ldr r2, [r2, #0x64]
-	blx r2
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041e1c
-
-	arm_func_start FUN_02041e40
-FUN_02041e40: ; 0x02041E40
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x84]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r2, [r0]
-	ldr r2, [r2, #0x64]
-	blx r2
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041e40
-
-	arm_func_start FUN_02041e64
-FUN_02041e64: ; 0x02041E64
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x80]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r1, [r0]
-	ldr r1, [r1, #0x68]
-	blx r1
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041e64
-
-	arm_func_start FUN_02041e88
-FUN_02041e88: ; 0x02041E88
-	stmfd sp!, {r3, lr}
-	ldr r0, [r0, #0x84]
-	cmp r0, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r1, [r0]
-	ldr r1, [r1, #0x68]
-	blx r1
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02041e88
-
-	arm_func_start FUN_02041eac
-FUN_02041eac: ; 0x02041EAC
-	stmfd sp!, {r4, lr}
-	add lr, r0, r1, lsl #2
-	ldr r12, [lr, #0x18]
-	add r4, r0, #0x20
-	mov r3, #0x18
-	mla r4, r12, r3, r4
-	mov r3, #0xc
-	mla r4, r1, r3, r4
-	mov r12, #0
-	str r12, [lr, #8]
-	ldr r3, [r4, #8]
-	add r0, r0, r1
-	cmp r3, r2
-	movne r12, #1
-	strb r12, [r0, #4]
-	str r2, [r4, #8]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02041eac
-
-	arm_func_start FUN_02041ef0
-FUN_02041ef0: ; 0x02041EF0
-	stmfd sp!, {r3, r4, r5, lr}
-	add lr, r0, r1, lsl #2
-	ldr r3, [lr, #0x18]
-	mov r12, #1
-	add r5, r0, #0x20
-	add r4, r3, #1
-	mov r3, #0x18
-	mla r5, r4, r3, r5
-	mov r3, #0xc
-	mla r3, r1, r3, r5
-	str r12, [lr, #8]
-	add r0, r0, r1
-	strb r12, [r0, #4]
-	str r2, [r3, #8]
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041ef0
-
-	arm_func_start FUN_02041f2c
-FUN_02041f2c: ; 0x02041F2C
-	stmfd sp!, {r4, lr}
-	add r12, r0, r1, lsl #2
-	ldr r2, [r12, #0x18]
-	add r4, r0, #0x20
-	sub lr, r2, #1
-	mov r2, #0x18
-	mla r4, lr, r2, r4
-	mov r2, #0xc
-	mla r2, r1, r2, r4
-	mov r3, #2
-	add r0, r0, r1
-	str r3, [r12, #8]
-	mov r1, #1
-	strb r1, [r0, #4]
-	ldr r1, [r2, #4]
-	mov r0, #0
-	stmib r2, {r0, r1}
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02041f2c
-
-	arm_func_start FUN_02041f74
-FUN_02041f74: ; 0x02041F74
-	stmfd sp!, {r3, r4, r5, lr}
-	add r5, r0, r1, lsl #2
-	ldr r3, [r5, #0x18]
-	mov r12, #0xc
-	mov lr, #0x18
-	mul r12, r1, r12
-	mla r4, r3, lr, r0
-	add r4, r4, r12
-	ldr r4, [r4, #0x24]
-	str r4, [r5, #0x10]
-	ldr r4, [r5, #8]
-	cmp r4, #1
-	beq _02041FB4
-	cmp r4, #2
-	subeq r3, r3, #1
-	b _02041FB8
-_02041FB4:
-	add r3, r3, #1
-_02041FB8:
-	add r4, r0, #0x20
-	mov lr, #0x18
-	mla r4, r3, lr, r4
-	add lr, r0, r1, lsl #2
-	str r3, [lr, #0x18]
-	mov r3, #0
-	add r0, r0, r1
-	str r3, [lr, #8]
-	add r1, r4, r12
-	strb r3, [r0, #4]
-	ldr r0, [r1, #4]
-	stmia r1, {r0, r2}
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02041f74
-
-	arm_func_start FUN_02041fec
-FUN_02041fec: ; 0x02041FEC
-	ldr r1, [r0, #8]
-	ldr r2, [r0, #0x18]
-	cmp r1, #1
-	beq _02042008
-	cmp r1, #2
-	subeq r2, r2, #1
-	b _0204200C
-_02042008:
-	add r2, r2, #1
-_0204200C:
-	mov r1, #0x18
-	mla r0, r2, r1, r0
-	ldr r0, [r0, #0x24]
-	bx lr
-	arm_func_end FUN_02041fec
-
-	arm_func_start FUN_0204201c
-FUN_0204201c: ; 0x0204201C
-	ldr r1, [r0, #8]
-	ldr r2, [r0, #0x18]
-	cmp r1, #1
-	beq _02042038
-	cmp r1, #2
-	subeq r2, r2, #1
-	b _0204203C
-_02042038:
-	add r2, r2, #1
-_0204203C:
-	mov r1, #0x18
-	mla r0, r2, r1, r0
-	ldr r0, [r0, #0x28]
-	bx lr
-	arm_func_end FUN_0204201c
-
-	arm_func_start FUN_0204204c
-FUN_0204204c: ; 0x0204204C
-	ldr r0, [r0, #0x10]
-	bx lr
-	arm_func_end FUN_0204204c
-
-	arm_func_start FUN_02042054
-FUN_02042054: ; 0x02042054
-	ldr r1, [r0, #0xc]
-	ldr r2, [r0, #0x1c]
-	cmp r1, #1
-	beq _02042070
-	cmp r1, #2
-	subeq r2, r2, #1
-	b _02042074
-_02042070:
-	add r2, r2, #1
-_02042074:
-	mov r1, #0x18
-	mla r0, r2, r1, r0
-	ldr r0, [r0, #0x30]
-	bx lr
-	arm_func_end FUN_02042054
-
-	arm_func_start FUN_02042084
-FUN_02042084: ; 0x02042084
-	ldr r1, [r0, #0xc]
-	ldr r2, [r0, #0x1c]
-	cmp r1, #1
-	beq _020420A0
-	cmp r1, #2
-	subeq r2, r2, #1
-	b _020420A4
-_020420A0:
-	add r2, r2, #1
-_020420A4:
-	mov r1, #0x18
-	mla r0, r2, r1, r0
-	ldr r0, [r0, #0x34]
-	bx lr
-	arm_func_end FUN_02042084
-
-	arm_func_start FUN_020420b4
-FUN_020420b4: ; 0x020420B4
-	ldr r0, [r0, #0x14]
-	bx lr
-	arm_func_end FUN_020420b4
-
-	arm_func_start FUN_020420bc
-FUN_020420bc: ; 0x020420BC
-	ldrb r1, [r0, #0x89]
-	cmp r1, #0
-	bxeq lr
-	ldrb r1, [r0, #0x88]
-	ldr r2, _0204210C ; =0x04000304
-	cmp r1, #0
-	ldrneh r1, [r2]
-	bicne r1, r1, #0x8000
-	strneh r1, [r2]
-	ldreqh r1, [r2]
-	orreq r1, r1, #0x8000
-	streqh r1, [r2]
-	ldrb r1, [r0, #0x88]
-	mov r2, #1
-	cmp r1, #0
-	movne r2, #0
-	mov r1, #0
-	strb r2, [r0, #0x88]
-	strb r1, [r0, #0x89]
-	bx lr
-_0204210C: .word 0x04000304
-	arm_func_end FUN_020420bc
-
-	arm_func_start FUN_02042110
-FUN_02042110: ; 0x02042110
-	sub r0, r1, #0x5a
-	cmp r0, #3
-	movls r0, #1
-	movhi r0, #0
-	bx lr
-	arm_func_end FUN_02042110
-
-	arm_func_start FUN_02042124
-FUN_02042124: ; 0x02042124
-	bx lr
-	arm_func_end FUN_02042124
-
-	arm_func_start FUN_02042128
-FUN_02042128: ; 0x02042128
-	bx lr
-	arm_func_end FUN_02042128
-
 	arm_func_start FUN_0204212c ; https://decomp.me/scratch/Fbl5B
 FUN_0204212c: ; 0x0204212C
 	stmfd sp!, {r3, r4, r5, lr}
@@ -593,11 +27,11 @@ FUN_0204212c: ; 0x0204212C
 	bl MI_CpuFill8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_02042184: .word unk_0208FFEC
+_02042184: .word unk_0208FFEC+0x8
 	arm_func_end FUN_0204212c
 
-	arm_func_start FUN_02042188
-FUN_02042188: ; 0x02042188
+	arm_func_start _ZN11FontManagerC1Ev
+_ZN11FontManagerC1Ev: ; 0x02042188
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -620,8 +54,8 @@ FUN_02042188: ; 0x02042188
 	bl MI_CpuFill8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_020421E0: .word unk_0208FFEC
-	arm_func_end FUN_02042188
+_020421E0: .word unk_0208FFEC+0x8
+	arm_func_end _ZN11FontManagerC1Ev
 
 	arm_func_start FUN_020421e4 ; https://decomp.me/scratch/Fbl5B
 FUN_020421e4: ; 0x020421E4
@@ -632,7 +66,7 @@ FUN_020421e4: ; 0x020421E4
 	bl FUN_0204224c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042200: .word unk_0208FFEC
+_02042200: .word unk_0208FFEC+0x8
 	arm_func_end FUN_020421e4
 
 	arm_func_start FUN_02042204
@@ -643,10 +77,10 @@ FUN_02042204: ; 0x02042204
 	str r1, [r4]
 	bl FUN_0204224c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042228: .word unk_0208FFEC
+_02042228: .word unk_0208FFEC+0x8
 	arm_func_end FUN_02042204
 
 	arm_func_start FUN_0204222c
@@ -658,7 +92,7 @@ FUN_0204222c: ; 0x0204222C
 	bl FUN_0204224c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042248: .word unk_0208FFEC
+_02042248: .word unk_0208FFEC+0x8
 	arm_func_end FUN_0204222c
 
 	arm_func_start FUN_0204224c
@@ -1884,8 +1318,8 @@ FUN_0204331c: ; 0x0204331C
 _0204332C: .word FUN_02043310
 	arm_func_end FUN_0204331c
 
-	arm_func_start FUN_02043330 ; https://decomp.me/scratch/KBAy4
-FUN_02043330: ; 0x02043330
+	arm_func_start _ZN11FontManager11G2dFontInitEPvmh ; https://decomp.me/scratch/KBAy4
+_ZN11FontManager11G2dFontInitEPvmh: ; 0x02043330
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r3
@@ -1908,7 +1342,7 @@ _02043374:
 	strb r4, [r5, #0x20]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02043330
+	arm_func_end _ZN11FontManager11G2dFontInitEPvmh
 
 	arm_func_start FUN_02043380 ; https://decomp.me/scratch/YAxnt
 FUN_02043380: ; 0x02043380
@@ -2430,7 +1864,7 @@ FUN_02043a80: ; 0x02043A80
 	str r1, [r4]
 	bl FUN_02043914
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02043AA4: .word unk_0209002C
@@ -2480,7 +1914,7 @@ FUN_02043b08: ; 0x02043B08
 	str r1, [r4]
 	bl FUN_02043914
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02043B2C: .word unk_0209002C
@@ -2830,7 +2264,7 @@ _02043F90:
 	strne r5, [r0, #0x220]
 	add r0, r8, #0x6000
 	ldr r0, [r0, #0x1ec]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	add r0, r8, #0x6000
 	mov r1, #6
 _02043FC4:
@@ -3277,10 +2711,10 @@ FUN_0204451c: ; 0x0204451C
 	cmp r5, #0
 	beq _02044554
 	mov r0, r5
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	mov r4, r0
 	mov r0, r5
-	bl FUN_0204201c
+	bl _ZN14CScreenManager16getNextSceneMainEv
 	cmp r4, r0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 _02044554:
@@ -3613,7 +3047,7 @@ _0204493C:
 	ldr r6, _02044C68 ; =0x0000100B
 	b _02044B5C
 _02044944:
-	ldr r0, _02044C6C ; =0x02099EF0
+	ldr r0, _02044C6C ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02044968
@@ -3623,7 +3057,7 @@ _02044944:
 	movne r0, r5
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02044968:
-	ldr r0, _02044C6C ; =0x02099EF0
+	ldr r0, _02044C6C ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_021375d4
 	ldrsb r0, [r0, #0xc]
@@ -3845,11 +3279,11 @@ _02044BF4:
 	add r1, r9, #0x6000
 	mov r0, r7
 	str r7, [r1, #0x1ec]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	add r1, r9, #0x6000
 	str r0, [r1, #0x1f0]
 	mov r0, r7
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	add r1, r9, #0x6000
 	mov r3, #0
 	mov r2, #1
@@ -3987,11 +3421,11 @@ FUN_02044de0: ; 0x02044DE0
 	add r1, r5, #0x6000
 	mov r0, r4
 	str r4, [r1, #0x1ec]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	add r1, r5, #0x6000
 	str r0, [r1, #0x1f0]
 	mov r0, r4
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	add r1, r5, #0x6000
 	str r0, [r1, #0x1f4]
 	mov r0, #1
@@ -4018,7 +3452,7 @@ FUN_02044e50: ; 0x02044E50
 	blt _02044E78
 	mov r0, r4
 	mov r1, #0
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 _02044E78:
 	add r0, r5, #0x6000
 	ldr r2, [r0, #0x1f4]
@@ -4026,7 +3460,7 @@ _02044E78:
 	ldmltfd sp!, {r3, r4, r5, pc}
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02044e50
 
@@ -4228,11 +3662,11 @@ FUN_02045124: ; 0x02045124
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	add r0, r10, #0x6000
 	ldr r0, [r0, #0x1ec]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x36
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r4, _020452DC ; =0x02099EF0
+	ldr r4, _020452DC ; 0x02099EF0
 	ldr r0, [r4]
 	bl FUN_ov126_0213246c
 	movs r8, r0
@@ -4349,7 +3783,7 @@ FUN_020452e0: ; 0x020452E0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	add r0, r5, #0x6000
 	ldr r0, [r0, #0x1ec]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x83
 	movne r0, r6
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -4401,9 +3835,9 @@ FUN_020453ac: ; 0x020453AC
 	add r0, r4, #0x90
 	bl FUN_02047ad4
 	mov r0, r4
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020453ac
@@ -5826,7 +5260,7 @@ FUN_02046414: ; 0x02046414
 	str r1, [r4]
 	bl FUN_0204665c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02046438: .word unk_02090204
@@ -7616,7 +7050,7 @@ _02047B30:
 	mov r5, #0x2bc
 _02047B50:
 	mov r0, r5
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _02047B64
 	bl FUN_ov16_020fe4f4
@@ -8546,7 +7980,7 @@ _02048764:
 	ldrne r1, [r1, #0xb80]
 	cmpne r1, #0
 	beq _020489BC
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x83
 	bne _020489BC
 	ldr r0, _020489FC ; =0x0208C438
@@ -9546,7 +8980,7 @@ FUN_020494b0: ; 0x020494B0
 	mov r4, r0
 	bl FUN_020495e4
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020494b0
@@ -9652,7 +9086,7 @@ FUN_020495cc: ; 0x020495CC
 FUN_020495d0: ; 0x020495D0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020495d0
@@ -9727,7 +9161,7 @@ _02049664:
 _020496C4:
 	mov r4, #0
 _020496C8:
-	ldr r5, _02049734 ; =0x02099EF0
+	ldr r5, _02049734 ; 0x02099EF0
 	ldr r0, [r5]
 	bl FUN_ov132_02145838
 	mov r7, r0
@@ -10823,7 +10257,7 @@ _0204A4C4:
 	addeq sp, sp, #0x74
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r8, _0204A740 ; =0x02099EF0
+	ldr r8, _0204A740 ; 0x02099EF0
 	ldr r0, [r8]
 	cmp r0, #0
 	addeq sp, sp, #0x74
@@ -10855,7 +10289,7 @@ _0204A55C:
 	ldr r0, _0204A744 ; =0x00060001
 	add r7, sp, #0x48
 	str r0, [sp, #4]
-	ldr r0, _0204A740 ; =0x02099EF0
+	ldr r0, _0204A740 ; 0x02099EF0
 	str r10, [sp, #8]
 	ldr r0, [r0]
 	mov r1, r4
@@ -11473,7 +10907,7 @@ _0204AD8C:
 _0204ADD0:
 	cmp r11, #0
 	beq _0204AE38
-	ldr r0, _0204AEAC ; =0x02099EF0
+	ldr r0, _0204AEAC ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0213777c
 	ldrb r1, [r0, #0x2f]
@@ -11737,7 +11171,7 @@ _0204B110: .word 0x51EB851F
 FUN_0204b114: ; 0x0204B114
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r8, r1
-	ldrne r7, _0204B1AC ; =0x02099EF0
+	ldrne r7, _0204B1AC ; 0x02099EF0
 	mov r6, r0
 	ldrne r0, [r7]
 	mov r4, #0
@@ -17214,7 +16648,7 @@ FUN_0204fb20: ; 0x0204FB20
 	cmp r2, #0
 	moveq r0, #0
 	bxeq lr
-	ldr r0, _0204FB54 ; =0x02099EF0
+	ldr r0, _0204FB54 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	moveq r0, #0
@@ -19001,7 +18435,7 @@ FUN_020510e4: ; 0x020510E4
 	mov r0, r5
 	strb r4, [r5, #0x44]
 	strb r4, [r5, #0x45]
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _02051140: .word unk_0209057C
@@ -20855,7 +20289,7 @@ FUN_020528a0: ; 0x020528A0
 	ldr r3, _02052924 ; =FUN_02052760
 	bl __cxa_vec_cleanup
 	mov r0, r5
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _02052918: .word unk_02090608
@@ -21470,7 +20904,7 @@ FUN_02053134: ; 0x02053134
 	add r0, r4, #0x14
 	bl FUN_ov16_0211111c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02053160: .word unk_02090618
@@ -21484,7 +20918,7 @@ FUN_02053164: ; 0x02053164
 	str r1, [r4]
 	bl FUN_ov16_020fc550
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02053188: .word unk_02090628
@@ -23867,7 +23301,7 @@ FUN_02054f48: ; 0x02054F48
 FUN_02054f4c: ; 0x02054F4C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02054f4c
@@ -25413,7 +24847,7 @@ FUN_0205637c: ; 0x0205637C
 	str r1, [r4]
 	bl FUN_02056418
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020563A0: .word unk_0209072C
@@ -25792,7 +25226,7 @@ FUN_020567e8: ; 0x020567E8
 	mov r2, #0x24
 	bl __cxa_vec_cleanup
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02056820: .word unk_0209071C
@@ -28067,7 +27501,7 @@ FUN_0205861c: ; 0x0205861C
 	str r1, [r4]
 	bl FUN_0205866c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02058640: .word unk_020907FC
@@ -32053,7 +31487,7 @@ _0205BA20:
 _0205BAB4:
 	b _0205BA0C
 _0205BAB8:
-	ldr r0, _0205BC98 ; =0x02099EF0
+	ldr r0, _0205BC98 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0205BAD4
@@ -32480,7 +31914,7 @@ _0205C088:
 	cmp r0, #0
 	mov r5, #0
 	ble _0205C110
-	ldr r9, _0205C148 ; =0x02099EF0
+	ldr r9, _0205C148 ; 0x02099EF0
 	ldr r8, _0205C14C ; =0x00000101
 _0205C0A4:
 	ldrh r0, [r6, #8]
@@ -32550,7 +31984,7 @@ _0205C178:
 	cmp r0, #0
 	mov r5, #0
 	ble _0205C200
-	ldr r9, _0205C238 ; =0x02099EF0
+	ldr r9, _0205C238 ; 0x02099EF0
 	ldr r8, _0205C23C ; =0x00000101
 _0205C194:
 	ldrh r0, [r6, #8]
@@ -33155,7 +32589,7 @@ FUN_0205c954: ; 0x0205C954
 	str r1, [r4]
 	bl FUN_0205be20
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0205C978: .word unk_0209095C
@@ -33776,7 +33210,7 @@ FUN_0205d158: ; 0x0205D158
 	str r1, [r4]
 	bl FUN_0205d28c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0205D17C: .word unk_02090A30
@@ -33799,7 +33233,7 @@ FUN_0205d180: ; 0x0205D180
 	bl __cxa_vec_new
 	str r0, [r7, #0x10]
 	mov r0, #0x10
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _0205D1CC
 	bl FUN_020540e0
@@ -33907,7 +33341,7 @@ _0205D310:
 	mov r0, r4
 	bl FUN_020540f0
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	ldmfd sp!, {r4, r5, r6, pc}
 _0205D340: .word gL5Allocator
 _0205D344: .word FUN_020527d4
@@ -37223,7 +36657,7 @@ FUN_0205ff38: ; 0x0205FF38
 	str r1, [r4]
 	bl FUN_0205ee28
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0205FF5C: .word unk_02090BF8
@@ -41043,55 +40477,9 @@ unk_0208C48C:
 	.byte 0x08, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
 
 	.data
-	.global unk_0208FF14
-unk_0208FF14:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FF2C
-unk_0208FF2C:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FF44
-unk_0208FF44:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FF5C
-unk_0208FF5C:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FF74
-unk_0208FF74:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FF94
-unk_0208FF94:
-	.word FUN_02041ae8
-	.word FUN_02041aec
-	.word 0
-	.word FUN_02042128
-	.word FUN_02029d10
-	.word FUN_02041b64
-	.word FUN_02041bec
-	.word FUN_02041c58
-	.word FUN_02029d0c
-	.word FUN_02041cc8
-	.word FUN_02042124
-	.word 0
-	.word FUN_020420bc
-	.word 0
-	.word FUN_02041dd4
-	.word FUN_02041df8
-	.word FUN_02041e1c
-	.word FUN_02041e40
-	.word FUN_02041e64
-	.word FUN_02041e88
-	.word 0
-	.word 0
 	.global unk_0208FFEC
 unk_0208FFEC:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.word FUN_020421e4
 	.word FUN_02042204
 	.word FUN_02042e4c
@@ -41128,23 +40516,23 @@ unk_0209007C:
 	.word FUN_02029d18
 	.word FUN_020453ac
 	.word FUN_02043c80
-	.word FUN_02042128
-	.word FUN_02029d10
+	.word _ZN14CScreenManager13startGraphicsEi
+	.word _ZN8CManager7vFUN_10Ev
 	.word FUN_020442d8
 	.word FUN_02044320
 	.word FUN_02043d80
-	.word FUN_02029d0c
+	.word _ZN8CManager7vFUN_20Ev
 	.word FUN_020442cc
-	.word FUN_02042124
+	.word _ZN14CScreenManager11endGraphicsEi
 	.word FUN_020442d4
-	.word FUN_020420bc
+	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_020443a0
-	.word FUN_02041dd4
-	.word FUN_02041df8
-	.word FUN_02041e1c
-	.word FUN_02041e40
-	.word FUN_02041e64
-	.word FUN_02041e88
+	.word _ZN14CScreenManager7vFUN_38Ei
+	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager10signalMainEi
+	.word _ZN14CScreenManager9signalSubEi
+	.word _ZN14CScreenManager7vFUN_48Ev
+	.word _ZN14CScreenManager7vFUN_4CEv
 	.global unk_020900CC
 unk_020900CC:
 	.asciz "pic3d/common"

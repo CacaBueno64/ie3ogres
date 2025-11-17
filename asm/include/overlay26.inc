@@ -11,7 +11,7 @@
 .public FUN_ov16_02110558
 .public FUN_ov16_02110578
 .public FUN_0206c110
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public GX_SetGraphicsMode
@@ -85,11 +85,11 @@
 .public FUN_ov16_02110a04
 .public FUN_02059004
 .public FUN_ov16_020f1560
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
 .public pLogic_PalSkinFaceFile
-.public unk_02099F50
-.public unk_02099ED0
+.public gFont12
+.public gFont8
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_0210e9d8

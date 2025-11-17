@@ -722,7 +722,7 @@ _0212571C: .word unk_0209F5C0
 FUN_ov121_02125720: ; 0x02125720
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #0x18
-	ldr r1, _02125828 ; =0x02099EF0
+	ldr r1, _02125828 ; 0x02099EF0
 	mov r4, r0
 	ldr r0, [r1]
 	add r1, sp, #0
@@ -907,7 +907,7 @@ _0212598C: .word unk_0209F5C0
 FUN_ov121_02125990: ; 0x02125990
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov121_02125990

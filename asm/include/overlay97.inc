@@ -23,8 +23,8 @@
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public FUN_0204f02c
@@ -58,7 +58,7 @@
 .public FUN_ov16_020f147c
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

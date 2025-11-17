@@ -1,10 +1,10 @@
 .public _ZN8L5Config8getParamEPc
 .public FUN_0202de44
-.public operator_new
+.public _Znwm
 .public gL5Config
 .public gL5Allocator
 .public unk_0209A13C
-.public operator_delete
+.public _ZdlPv
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov126_02137544
 .public FUN_02040148

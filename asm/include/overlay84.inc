@@ -52,7 +52,7 @@
 .public FUN_020425fc
 .public FUN_0204331c
 .public FUN_02059288
-.public unk_02099ED0
+.public gFont8
 .public FUN_ov16_021142fc
 .public FUN_ov16_02112b98
 .public FUN_ov16_02114248
@@ -102,7 +102,7 @@
 .public FUN_02057c2c
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -120,7 +120,7 @@
 .public FUN_ov126_02133b8c
 .public FUN_ov132_02148bac
 .public unk_0209A2C0
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b200

@@ -34,20 +34,20 @@ _02119F40:
 	movne r1, #1
 	strneb r1, [r0, #0x8b]
 	ldr r0, [r4, #4]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _02119F80:
 	ldr r0, [r4, #4]
 	mov r1, #1
 	strb r1, [r0, #0x8c]
 	ldr r0, [r4, #4]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov91_02119f00
 
@@ -3011,7 +3011,7 @@ _0211C870: .word unk_0209F5C0
 FUN_ov91_0211c874: ; 0x0211C874
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov91_0211c874

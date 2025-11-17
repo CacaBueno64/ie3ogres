@@ -341,11 +341,11 @@ _0211A340:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A374: .word unk_0209AEC0
 _0211A378: .word ov1_020E9482
@@ -3486,7 +3486,7 @@ _0211CEB0: .word unk_0209F5C0
 FUN_ov87_0211ceb4: ; 0x0211CEB4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov87_0211ceb4

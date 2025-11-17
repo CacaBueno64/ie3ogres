@@ -1,7 +1,7 @@
 .public unk_020A0640
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public operator_new
+.public _Znwm
 .public FUN_ov16_02110558
 .public MI_CpuFill8
 .public FUN_ov16_020f6c20
@@ -44,7 +44,7 @@
 .public FUN_ov16_02110b0c
 .public FUN_ov16_02110b04
 .public FUN_ov16_020f2604
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_02110a04
 .public FUN_ov16_0210e7d0
 .public MI_CpuCopy8
@@ -169,8 +169,8 @@
 .public FUN_ov16_020f1160
 .public FUN_02043780
 .public FUN_02043310
-.public unk_02099F50
-.public unk_02099EDC
+.public gFont12
+.public gFont12T
 .public FUN_0204331c
 .public FUN_ov16_020f083c
 .public FUN_ov16_020f5c34
@@ -221,7 +221,7 @@
 .public FUN_0206dcd4
 .public FUN_0206e294
 .public FUN_0206c6ac
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b200

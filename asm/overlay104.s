@@ -317,7 +317,7 @@ _0212511C:
 	mov r3, #0
 	stmib sp, {r0, r1}
 	ldrh r1, [r4, #8]
-	ldr r0, _02125178 ; =0x02099F50
+	ldr r0, _02125178 ; =gFont12
 	ldr r2, [sp, #0x40]
 	mov r1, r1, lsl #3
 	str r1, [sp, #0xc]
@@ -334,7 +334,7 @@ _0212511C:
 	blx r4
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_02125178: .word unk_02099F50
+_02125178: .word gFont12
 	arm_func_end FUN_ov104_02125084
 
 	arm_func_start FUN_ov104_0212517c
@@ -1437,7 +1437,7 @@ FUN_ov104_0212608c: ; 0x0212608C
 FUN_ov104_021260a0: ; 0x021260A0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov104_021260a0

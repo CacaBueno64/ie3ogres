@@ -2903,7 +2903,7 @@ FUN_ov51_0211c7ec: ; 0x0211C7EC
 	mov r8, r0
 	mov r5, r7
 	mov r4, #1
-	ldr r11, _0211C8D4 ; =0x02099F50
+	ldr r11, _0211C8D4 ; =gFont12
 	b _0211C88C
 _0211C840:
 	ldr r0, [r10, r7, lsl #2]
@@ -2945,7 +2945,7 @@ _0211C88C:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211C8D0: .word unk_02099F38
-_0211C8D4: .word unk_02099F50
+_0211C8D4: .word gFont12
 	arm_func_end FUN_ov51_0211c7ec
 
 	arm_func_start FUN_ov51_0211c8d8
@@ -2969,7 +2969,7 @@ FUN_ov51_0211c8d8: ; 0x0211C8D8
 	mov r8, r0
 	mov r5, r7
 	mov r4, #1
-	ldr r11, _0211C9BC ; =0x02099ED0
+	ldr r11, _0211C9BC ; =gFont8
 	b _0211C974
 _0211C92C:
 	ldr r0, [r10, r7, lsl #2]
@@ -3010,7 +3010,7 @@ _0211C974:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211C9B8: .word unk_02099F38
-_0211C9BC: .word unk_02099ED0
+_0211C9BC: .word gFont8
 	arm_func_end FUN_ov51_0211c8d8
 
 	arm_func_start FUN_ov51_0211c9c0
@@ -4407,7 +4407,7 @@ FUN_ov51_0211dcf0: ; 0x0211DCF0
 	ldr r1, [r1, #0x44]
 	blx r1
 	ldr r0, [r4, #8]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	str r0, [r4, #0xc]
 	mov r7, #0
 	str r7, [r4, #0x10]
@@ -4599,7 +4599,7 @@ _0211DF88:
 	strb r0, [r5, #0x20]
 	ldr r0, [r4, #8]
 	mov r2, #0x5f
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	b _0211E04C
 _0211E010:
 	cmp r0, #0x87
@@ -4608,16 +4608,16 @@ _0211E010:
 	ldr r0, [r4, #8]
 	mov r2, r5
 	mov r1, #1
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	ldr r0, [r4, #8]
 	mov r2, r5
 	mov r1, #0
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	b _0211E04C
 _0211E040:
 	ldr r0, [r4, #8]
 	mov r1, #0
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 _0211E04C:
 	ldr r0, _0211E074 ; =0x0209A110
 	ldr r1, _0211E06C ; =0x02099ED4
@@ -4676,7 +4676,7 @@ _0211E0F4: .word unk_02099F38
 FUN_ov51_0211e0f8: ; 0x0211E0F8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov51_0211e0f8

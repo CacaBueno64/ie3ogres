@@ -52,7 +52,7 @@
 .public FUN_ov16_021123c4
 .public FUN_0205b398
 .public FUN_020522ec
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b200

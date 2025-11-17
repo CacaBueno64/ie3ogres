@@ -1,4 +1,4 @@
-.public operator_delete
+.public _ZdlPv
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
 .public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
@@ -29,7 +29,7 @@
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_02114370
 .public FUN_0202f57c
 .public STD_CopyString
@@ -51,7 +51,7 @@
 .public FUN_0204294c
 .public STD_ConcatenateString
 .public FUN_02042b0c
-.public unk_02099F50
+.public gFont12
 .public unk_0209A110
 .public FX_Sqrt
 .public FUN_0202b208

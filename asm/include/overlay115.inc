@@ -6,7 +6,7 @@
 .public unk_020A8440
 .public FUN_ov1_020dbfdc
 .public FUN_ov16_020f33fc
-.public FUN_02041fec
+.public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_0207318c
 .public FUN_02073ea4
 .public unk_0209BA20
@@ -33,7 +33,7 @@
 .public FUN_0207039c
 .public FUN_ov16_020f081c
 .public FUN_ov16_020f5964
-.public unk_02099F50
+.public gFont12
 .public unk_020A3D14
 .public ov1_020E9480
 .public GXS_LoadBG1Scr
@@ -47,7 +47,7 @@
 .public GXS_LoadBG2Scr
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f2fe4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

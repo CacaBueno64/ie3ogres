@@ -146,7 +146,7 @@ FUN_ov26_0211a0b4: ; 0x0211A0B4
 	add r0, r4, #0xa4
 	bl FUN_0206c110
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov26_0211a0b4
@@ -795,7 +795,7 @@ _0211A994:
 	str r9, [sp, #0x10]
 	str r9, [sp, #0x14]
 	str r11, [sp, #0x18]
-	ldr r0, _0211B2EC ; =0x02099F50
+	ldr r0, _0211B2EC ; =gFont12
 	str r11, [sp, #0x1c]
 	ldr r0, [r0]
 	ldr r3, [sp, #0x20]
@@ -809,7 +809,7 @@ _0211A994:
 	str r9, [sp, #0x10]
 	str r9, [sp, #0x14]
 	str r11, [sp, #0x18]
-	ldr r0, _0211B2F0 ; =0x02099ED0
+	ldr r0, _0211B2F0 ; =gFont8
 	str r11, [sp, #0x1c]
 	ldr r3, [sp, #0x20]
 	ldr r0, [r0]
@@ -898,7 +898,7 @@ _0211AB40:
 	str r9, [sp, #0x10]
 	str r9, [sp, #0x14]
 	str r11, [sp, #0x18]
-	ldr r0, _0211B2EC ; =0x02099F50
+	ldr r0, _0211B2EC ; =gFont12
 	str r11, [sp, #0x1c]
 	ldr r0, [r0]
 	mov r3, r8
@@ -999,7 +999,7 @@ _0211ACA0:
 	str r5, [sp, #0x14]
 	str r0, [sp, #0x18]
 	str r0, [sp, #0x1c]
-	ldr r0, _0211B2EC ; =0x02099F50
+	ldr r0, _0211B2EC ; =gFont12
 	mov r3, r9
 	ldr r0, [r0]
 	add r1, sp, #0x80
@@ -1327,11 +1327,11 @@ _0211B270:
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0x22
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r4, #4]
 	mov r1, #1
 	mov r2, #0xa
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	b _0211B330
 _0211B2C4: .word unk_0209A110
 _0211B2C8: .word unk_02099ED4
@@ -1343,8 +1343,8 @@ _0211B2DC: .word ov26_0211BA58
 _0211B2E0: .word pLogic_PalSkinFaceFile
 _0211B2E4: .word 0x40240000
 _0211B2E8: .word 0x66666667
-_0211B2EC: .word unk_02099F50
-_0211B2F0: .word unk_02099ED0
+_0211B2EC: .word gFont12
+_0211B2F0: .word gFont8
 _0211B2F4: .word ov26_0211BA70
 _0211B2F8: .word ov26_0211BA88
 _0211B2FC: .word ov26_0211BAAC
@@ -1356,11 +1356,11 @@ _0211B308:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r7
 	mov r2, r6
 	mov r1, r11
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 _0211B330:
 	strb r8, [r4, #0xa0]
 _0211B334:

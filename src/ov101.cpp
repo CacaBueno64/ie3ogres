@@ -13,11 +13,11 @@ void FUN_ov101_02124ff8(u32 *ptr)
     FUN_ov101_02124d4c(ptr);
 }
 
-extern void operator_delete(void *ptr);
+extern void _ZdlPv(void *ptr);
 
 void *FUN_ov101_02125018(void *ptr)
 {
-    operator_delete(ptr);
+    _ZdlPv(ptr);
     return ptr;
 }
 

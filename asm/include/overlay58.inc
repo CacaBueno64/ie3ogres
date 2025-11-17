@@ -55,11 +55,11 @@
 .public FUN_ov16_0210eb3c
 .public FUN_02046304
 .public FUN_02044734
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_020AF81C
 .public FUN_02045938
 .public FUN_02044658
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

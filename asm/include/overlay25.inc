@@ -65,7 +65,7 @@
 .public FUN_ov16_021108d8
 .public FUN_ov16_020f1560
 .public FUN_0204fe90
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
 .public unk_0209BA20
 .public FUN_ov16_020f338c
@@ -84,7 +84,7 @@
 .public FUN_ov16_02110b0c
 .public FUN_ov16_0210efac
 .public FUN_ov16_02110578
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

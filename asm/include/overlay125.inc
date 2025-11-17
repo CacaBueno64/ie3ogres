@@ -16,10 +16,10 @@
 .public unk_020A8440
 .public FUN_0202de44
 .public gL5Allocator
-.public unk_02099ED0
+.public gFont8
 .public FUN_ov16_020ee034
 .public FUN_0204294c
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f5da0
 .public unk_0209F5C0
 .public FUN_ov16_020f5f64
@@ -51,7 +51,7 @@
 .public FUN_ov16_020f6a9c
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

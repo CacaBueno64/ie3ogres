@@ -24,8 +24,8 @@
 .public DC_FlushRange
 .public FUN_0204331c
 .public FUN_02059288
-.public unk_02099EDC
-.public unk_02099F50
+.public gFont12T
+.public gFont12
 .public FUN_ov16_020f03fc
 .public unk_020A0640
 .public FUN_ov16_02112724
@@ -53,11 +53,11 @@
 .public FUN_ov16_021123b4
 .public FUN_ov16_020eeca0
 .public FUN_ov16_020f330c
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_021123c4
 .public FUN_ov16_020eedb8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

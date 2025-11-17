@@ -3,8 +3,8 @@
 	.include "/include/arm9_0206b9c4.inc"
 
 	.text
-	arm_func_start FUN_0206b9c4
-FUN_0206b9c4: ; 0x0206B9C4
+	arm_func_start _ZN13FontManager_2C1Ev
+_ZN13FontManager_2C1Ev: ; 0x0206B9C4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl FUN_0204212c
@@ -17,7 +17,7 @@ FUN_0206b9c4: ; 0x0206B9C4
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0206B9F0: .word unk_02091290
-	arm_func_end FUN_0206b9c4
+	arm_func_end _ZN13FontManager_2C1Ev
 
 	arm_func_start FUN_0206b9f4
 FUN_0206b9f4: ; 0x0206B9F4
@@ -34,7 +34,7 @@ FUN_0206ba08: ; 0x0206BA08
 	mov r4, r0
 	bl FUN_0204222c
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0206ba08
@@ -554,7 +554,7 @@ FUN_0206c130: ; 0x0206C130
 	str r1, [r4]
 	bl FUN_0206c270
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0206C154: .word unk_020912D0
@@ -1940,7 +1940,7 @@ FUN_0206d1e4: ; 0x0206D1E4
 	mov r8, r3
 	cmp r0, #0
 	bne _0206D300
-	ldr r0, _0206D30C ; =0x02099EF0
+	ldr r0, _0206D30C ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_021434f8
 	cmp r0, #0
@@ -4578,7 +4578,7 @@ FUN_0206f170: ; 0x0206F170
 	str r1, [r4]
 	bl FUN_0206f198
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0206F194: .word unk_020912F8
@@ -4770,7 +4770,7 @@ _0206F354:
 	cmp r0, #0
 	bne _0206F438
 	mov r0, #0x1c
-	bl operator_new
+	bl _Znwm
 	cmp r0, #0
 	beq _0206F434
 	bl FUN_02043ac8
@@ -8329,13 +8329,13 @@ FUN_020724ac: ; 0x020724AC
 	bx lr
 	arm_func_end FUN_020724ac
 
-	arm_func_start FUN_020724b8
-FUN_020724b8: ; 0x020724B8
+	arm_func_start _ZN17UnkClass_0209BA2012FUN_020724b8Ett
+_ZN17UnkClass_0209BA2012FUN_020724b8Ett: ; 0x020724B8
 	add r0, r0, #0x800
 	strh r1, [r0, #0x64]
 	strh r2, [r0, #0x66]
 	bx lr
-	arm_func_end FUN_020724b8
+	arm_func_end _ZN17UnkClass_0209BA2012FUN_020724b8Ett
 
 	arm_func_start FUN_020724c8
 FUN_020724c8: ; 0x020724C8

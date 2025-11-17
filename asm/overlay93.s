@@ -222,22 +222,22 @@ _02124FA8: ; jump table
 	b _02125078 ; case 4
 _02124FBC:
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x6a
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x6a
 	moveq r0, #1
 	streq r0, [r4, #0xc8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124FE4:
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x6a
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x6a
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r5, _02125088 ; =0x02099F38
@@ -447,7 +447,7 @@ _0212529C: .word ov93_021253E0
 FUN_ov93_021252a0: ; 0x021252A0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov93_021252a0

@@ -5,7 +5,7 @@
 .public FUN_ov16_020f60f8
 .public FUN_ov16_020f6470
 .public G2x_SetBlendBrightness_
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209F5C0
 .public unk_020A0640
 .public unk_0209A0E0
@@ -53,7 +53,7 @@
 .public GX_SetGraphicsMode
 .public FUN_02046378
 .public FUN_ov16_020f6c20
-.public FUN_0204204c
+.public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_02044788
 .public unk_0209A454
 .public unk_020A9C40
@@ -76,7 +76,7 @@
 .public FUN_ov16_0211401c
 .public FUN_ov16_021139bc
 .public FUN_ov16_02113b78
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

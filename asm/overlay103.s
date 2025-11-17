@@ -21,7 +21,7 @@ FUN_ov103_02124d08: ; 0x02124D08
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x1f
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -333,7 +333,7 @@ FUN_ov103_021250c0: ; 0x021250C0
 	bl STD_ConcatenateString
 _0212516C:
 	mov r9, #0
-	ldr r5, _0212524C ; =0x02099F50
+	ldr r5, _0212524C ; =gFont12
 	add r8, sp, #0x20
 	add r7, sp, #0x70
 	mov r6, r9
@@ -390,7 +390,7 @@ _0212521C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125244: .word unk_0209F5C0
 _02125248: .word ov103_02125764
-_0212524C: .word unk_02099F50
+_0212524C: .word gFont12
 	arm_func_end FUN_ov103_021250c0
 
 	arm_func_start FUN_ov103_02125250
@@ -650,7 +650,7 @@ _021255C4: .word unk_0209F5C0
 FUN_ov103_021255c8: ; 0x021255C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov103_021255c8

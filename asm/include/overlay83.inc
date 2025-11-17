@@ -29,7 +29,7 @@
 .public FUN_ov1_020dbfdc
 .public FUN_02044658
 .public unk_020AF81C
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f081c
 .public FUN_ov132_02145a44
 .public FUN_ov16_020f068c
@@ -40,7 +40,7 @@
 .public unk_020A1640
 .public unk_02099E91
 .public unk_02099E8C
-.public FUN_02041fec
+.public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_ov1_020db3e0
 .public FUN_ov1_020db304
 .public FUN_ov1_020db2ac
@@ -90,7 +90,7 @@
 .public FUN_02043310
 .public FUN_ov16_020f2184
 .public FUN_0204331c
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6c8c
 .public FUN_ov16_020f6084
@@ -119,7 +119,7 @@
 .public FUN_ov16_020f6c58
 .public FUN_ov1_020be6f8
 .public FUN_ov1_020be73c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b200

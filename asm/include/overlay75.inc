@@ -38,12 +38,12 @@
 .public FUN_02044600
 .public STD_CopyLString
 .public FUN_ov16_020f081c
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f083c
 .public unk_0209A454
 .public unk_0209A494
 .public unk_0209A4B4
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

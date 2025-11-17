@@ -48,7 +48,7 @@ FUN_0202eda8: ; 0x0202EDA8
 	add r0, r4, #0x70
 	bl OS_DestroyThread
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0202EDE0: .word unk_0208FBF0
@@ -1794,7 +1794,7 @@ FUN_020304e4: ; 0x020304E4
 	mov r6, r2
 	str r1, [r4]
 	mov r5, #1
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	str r0, [r4, #4]
 	bl FUN_02029d54
 	cmp r0, #2
@@ -1820,7 +1820,7 @@ _0203053C:
 	mov r0, r4
 	mov r1, r6
 	bl FUN_02032e30
-	ldr r0, _02030580 ; =0x02099EF0
+	ldr r0, _02030580 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02030570
@@ -1868,7 +1868,7 @@ _020305B8:
 	bl FUN_02039f08
 	mov r0, r4
 	bl FUN_0203ad60
-	ldr r0, _02030630 ; =0x02099EF0
+	ldr r0, _02030630 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0203061C
@@ -1932,7 +1932,7 @@ _020306A8:
 	bl FUN_0203a51c
 	mov r0, r4
 	bl FUN_0203de60
-	ldr r0, _0203073C ; =0x02099EF0
+	ldr r0, _0203073C ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0203071C
@@ -1997,7 +1997,7 @@ FUN_02030790: ; 0x02030790
 	ldr r4, _02030F44 ; =0x0209A454
 	mov r6, #1
 	mov r5, #0
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	add r1, r9, #0x1000
 	str r0, [r1, #0x3e8]
 	cmp r8, #0x24
@@ -2046,7 +2046,7 @@ _02030864:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x60
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030880:
@@ -2055,14 +2055,14 @@ _02030880:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x60
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020308A0:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x85
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020308B8:
@@ -2071,18 +2071,18 @@ _020308B8:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020308E8:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x88
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030900:
@@ -2091,11 +2091,11 @@ _02030900:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030930:
@@ -2104,11 +2104,11 @@ _02030930:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030960:
@@ -2132,18 +2132,18 @@ _0203097C:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020309C4:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x8f
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020309DC:
@@ -2158,7 +2158,7 @@ _020309DC:
 	strb r1, [r4, #0x1d]
 	ldr r0, [r9]
 	mov r2, #0x5f
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030A14:
@@ -2173,21 +2173,21 @@ _02030A14:
 	strb r1, [r4, #0x1d]
 	ldr r0, [r9]
 	mov r2, #0x5f
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030A4C:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x64
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030A64:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x65
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030A7C:
@@ -2199,11 +2199,11 @@ _02030A7C:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030AB8:
@@ -2215,11 +2215,11 @@ _02030AB8:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030AF4:
@@ -2231,11 +2231,11 @@ _02030AF4:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030B30:
@@ -2246,11 +2246,11 @@ _02030B30:
 	mov r1, r5
 	mov r0, r4
 	mov r2, #0x6c
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0x5d
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030B68:
@@ -2261,11 +2261,11 @@ _02030B68:
 	mov r1, r5
 	mov r0, r4
 	mov r2, #0x6b
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r4
 	mov r2, r5
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030BA0:
@@ -2276,11 +2276,11 @@ _02030BA0:
 	mov r1, r5
 	mov r0, r4
 	mov r2, #0x6e
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0x5d
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030BD8:
@@ -2290,11 +2290,11 @@ _02030BD8:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030C0C:
@@ -2303,18 +2303,18 @@ _02030C0C:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030C3C:
 	ldr r0, [r9]
 	mov r1, r5
 	mov r2, #0x68
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030C54:
@@ -2338,7 +2338,7 @@ _02030C60:
 	str r1, [r4]
 	ldr r0, [r9]
 	mov r2, #0x5e
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, _02030F50 ; =0x020AF81C
 	mov r1, r5
 	mov r2, r5
@@ -2353,11 +2353,11 @@ _02030CC4:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030CF4:
@@ -2377,11 +2377,11 @@ _02030CF4:
 	mov r4, #0x5a
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030D50:
@@ -2390,11 +2390,11 @@ _02030D50:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030D80:
@@ -2403,11 +2403,11 @@ _02030D80:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030DB0:
@@ -2416,11 +2416,11 @@ _02030DB0:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	sub r4, r6, #2
 	ldr r0, _02030F50 ; =0x020AF81C
 	mov r1, r4
@@ -2435,28 +2435,28 @@ _02030DFC:
 	mov r1, r5
 	mov r0, r4
 	mov r2, #0x3d
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r4
 	mov r2, r5
 	mov r1, r6
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030E28:
 	ldr r0, [r9]
 	mov r1, r6
 	mov r2, #0x83
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030E40:
 	ldr r7, [r9]
 	mov r1, r5
 	mov r0, r7
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r7
 	mov r1, r6
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	sub r6, r6, #2
 	ldr r0, _02030F50 ; =0x020AF81C
 	mov r1, r6
@@ -2482,11 +2482,11 @@ _02030E98:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030ED8:
@@ -2501,7 +2501,7 @@ _02030ED8:
 	strb r1, [r4, #0x1d]
 	ldr r0, [r9]
 	mov r2, #0x5f
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02030F10:
@@ -2510,11 +2510,11 @@ _02030F10:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 _02030F38:
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -2539,7 +2539,7 @@ FUN_02030f54: ; 0x02030F54
 	movlt r0, #1
 	ldmltfd sp!, {r4, pc}
 	ldr r0, [r4]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	add r1, r4, #0x1000
 	ldr r1, [r1, #0x3e8]
 	cmp r1, r0
@@ -2592,7 +2592,7 @@ _02031010:
 	ldr r0, [r6]
 	mov r1, r4
 	mov r2, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldr r0, [r6]
 	ldr r1, [r0]
 	ldr r1, [r1, #0x34]
@@ -2610,10 +2610,10 @@ FUN_02031048: ; 0x02031048
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	mov r4, r0
 	ldr r0, [r5]
-	bl FUN_0204201c
+	bl _ZN14CScreenManager16getNextSceneMainEv
 	cmp r4, r0
 	moveq r0, #1
 	movne r0, #0
@@ -2648,7 +2648,7 @@ _020310D4:
 	beq _02031148
 	b _0203114C
 _020310E0:
-	ldr r0, _020311B4 ; =0x02099EF0
+	ldr r0, _020311B4 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _020310FC
@@ -2667,7 +2667,7 @@ _02031110:
 	bl FUN_ov16_020f1310
 	b _0203114C
 _02031118:
-	ldr r0, _020311B4 ; =0x02099EF0
+	ldr r0, _020311B4 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02031134
@@ -2693,7 +2693,7 @@ _0203114C:
 	beq _020311A8
 	ldmfd sp!, {r3, r4, r5, pc}
 _02031168:
-	ldr r0, _020311B4 ; =0x02099EF0
+	ldr r0, _020311B4 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02031184
@@ -2755,7 +2755,7 @@ _02031224:
 	beq _020312BC
 	ldmfd sp!, {r4, pc}
 _02031230:
-	ldr r0, _020312C8 ; =0x02099EF0
+	ldr r0, _020312C8 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0203124C
@@ -2779,7 +2779,7 @@ _02031270:
 	bl FUN_ov16_020f1528
 	ldmfd sp!, {r4, pc}
 _0203127C:
-	ldr r0, _020312C8 ; =0x02099EF0
+	ldr r0, _020312C8 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02031298
@@ -3704,7 +3704,7 @@ _02031EA4:
 	str r8, [sp, #0x10]
 	str r8, [sp, #0x14]
 	str r7, [sp, #0x18]
-	ldr r0, _02032038 ; =0x02099ED0
+	ldr r0, _02032038 ; =gFont8
 	str r8, [sp, #0x1c]
 	ldr r0, [r0]
 	mov r1, r4
@@ -3755,7 +3755,7 @@ _02031EA4:
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02032034: .word unk_02099F38
-_02032038: .word unk_02099ED0
+_02032038: .word gFont8
 _0203203C: .word unk_0208C364
 	arm_func_end FUN_02031e68
 
@@ -4168,7 +4168,7 @@ _020325EC:
 	mov r6, r7
 	b _0203263C
 _020325F8:
-	ldr r0, _0203266C ; =0x02099F50
+	ldr r0, _0203266C ; =gFont12
 	mov r1, r5
 	ldr r0, [r0]
 	bl FUN_02042b0c
@@ -4200,7 +4200,7 @@ _02032660:
 	strb r0, [r10]
 	add sp, sp, #0x200
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203266C: .word unk_02099F50
+_0203266C: .word gFont12
 	arm_func_end FUN_0203257c
 
 	arm_func_start FUN_02032670
@@ -5627,7 +5627,7 @@ _02033AF8:
 	add r0, r9, #2
 	strb r10, [r7, r0]
 	ldrsb r0, [r8]
-	ldr r7, _020342EC ; =0x02099F50
+	ldr r7, _020342EC ; =gFont12
 	mov r2, #3
 	cmp r0, #0
 	addne r1, r8, #1
@@ -5756,7 +5756,7 @@ _02033CA0:
 	ldr r10, [sp, #0x24]
 	add r5, r4, #0x1000
 	mov r11, #0x40
-	ldr r6, _020342F4 ; =0x02099F1C
+	ldr r6, _020342F4 ; =gFontRubi8
 	b _02033DB8
 _02033D20:
 	mov r0, #0x2a
@@ -6154,9 +6154,9 @@ _020342D8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020342E4: .word unk_02099F38
 _020342E8: .word 0x00007FFF
-_020342EC: .word unk_02099F50
+_020342EC: .word gFont12
 _020342F0: .word 0x51EB851F
-_020342F4: .word unk_02099F1C
+_020342F4: .word gFontRubi8
 _020342F8: .word gL5Sound
 _020342FC: .word 0x55555556
 _02034300: .word unk_020AF8AC
@@ -7483,7 +7483,7 @@ FUN_0203551c: ; 0x0203551C
 	movlt r5, #0
 	movlt r0, r5
 	blt _02035590
-	ldr r0, _020355F0 ; =0x02099EF0
+	ldr r0, _020355F0 ; 0x02099EF0
 	mov r1, r7
 	ldr r0, [r0]
 	mov r2, #0
@@ -8019,7 +8019,7 @@ FUN_02035c98: ; 0x02035C98
 	bl FUN_0206cbf8
 	mov r5, r0
 	ldr r0, [r9]
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r0, #0x84
 	mov r0, #1
 	str r0, [sp]
@@ -9442,7 +9442,7 @@ _0203707C: ; jump table
 	b _02037090 ; case 3
 	b _020370F4 ; case 4
 _02037090:
-	ldr r0, _02037150 ; =0x02099EF0
+	ldr r0, _02037150 ; 0x02099EF0
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _020370AC
@@ -11731,7 +11731,7 @@ _02038F94:
 	mov r10, #0
 	add r4, r7, #0x1000
 	mov r8, r10
-	ldr r7, _020390A4 ; =0x02099EF0
+	ldr r7, _020390A4 ; 0x02099EF0
 	ldr r6, _020390A0 ; =0x02099F38
 	ldr r5, _020390A8 ; =0x66666667
 	mov r11, #0xa
@@ -11825,7 +11825,7 @@ _020390E4: .word unk_02099F38
 	arm_func_start FUN_020390e8
 FUN_020390e8: ; 0x020390E8
 	stmfd sp!, {r4, lr}
-	ldr r1, _02039120 ; =0x02099EF0
+	ldr r1, _02039120 ; 0x02099EF0
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -12153,7 +12153,7 @@ _02039594: .word unk_0208FE94
 FUN_02039598: ; 0x02039598
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
-	ldr r2, _02039744 ; =0x02099EF0
+	ldr r2, _02039744 ; 0x02099EF0
 	mov r3, #0
 	str r0, [sp, #4]
 	ldr r0, [r2]
@@ -12450,7 +12450,7 @@ _02039994:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020399A4:
-	ldr r0, _02039B6C ; =0x02099EF0
+	ldr r0, _02039B6C ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0213246c
 	mov r5, r0
@@ -12582,7 +12582,7 @@ FUN_02039b70: ; 0x02039B70
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x94
 	ldr r3, _02039EF0 ; =0x0208C374
-	ldr r2, _02039EF4 ; =0x02099EF0
+	ldr r2, _02039EF4 ; 0x02099EF0
 	ldrb r8, [r3]
 	ldrb r7, [r3, #1]
 	ldrb r6, [r3, #2]
@@ -12608,14 +12608,14 @@ FUN_02039b70: ; 0x02039B70
 _02039BD8:
 	cmp r11, #0
 	bge _02039BF8
-	ldr r0, _02039EF4 ; =0x02099EF0
+	ldr r0, _02039EF4 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02148398
 	cmp r0, #0
 	addeq sp, sp, #0x94
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02039BF8:
-	ldr r4, _02039EF4 ; =0x02099EF0
+	ldr r4, _02039EF4 ; 0x02099EF0
 	ldr r0, [r4]
 	bl FUN_ov132_02148398
 	cmp r0, #0
@@ -12639,7 +12639,7 @@ _02039C38:
 	mov r2, #1
 	bl FUN_ov16_02112724
 	add r1, r10, #0x1000
-	ldr r2, _02039EF4 ; =0x02099EF0
+	ldr r2, _02039EF4 ; 0x02099EF0
 	str r0, [r1, #0x374]
 	ldr r0, [r2]
 	bl FUN_ov132_02148398
@@ -12897,22 +12897,22 @@ _02039FF0: ; jump table
 	b _0203A024 ; case 3
 	b _0203A034 ; case 4
 _0203A004:
-	ldr r0, _0203A054 ; =0x02099EF0
+	ldr r0, _0203A054 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_021455b8
 	b _0203A040
 _0203A014:
-	ldr r0, _0203A054 ; =0x02099EF0
+	ldr r0, _0203A054 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_021456d0
 	b _0203A040
 _0203A024:
-	ldr r0, _0203A054 ; =0x02099EF0
+	ldr r0, _0203A054 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_021455e8
 	b _0203A040
 _0203A034:
-	ldr r0, _0203A054 ; =0x02099EF0
+	ldr r0, _0203A054 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_021457b8
 _0203A040:
@@ -13113,7 +13113,7 @@ _0203A2FC: .word unk_02099F38
 FUN_0203a300: ; 0x0203A300
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0xc
-	ldr r1, _0203A460 ; =0x02099EF0
+	ldr r1, _0203A460 ; 0x02099EF0
 	mov r7, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -13211,7 +13211,7 @@ _0203A478: .word unk_0208FEE4
 	arm_func_start FUN_0203a47c
 FUN_0203a47c: ; 0x0203A47C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _0203A514 ; =0x02099EF0
+	ldr r1, _0203A514 ; 0x02099EF0
 	mov r4, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -13257,7 +13257,7 @@ _0203A518: .word unk_02099F38
 	arm_func_start FUN_0203a51c
 FUN_0203a51c: ; 0x0203A51C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _0203A5DC ; =0x02099EF0
+	ldr r1, _0203A5DC ; 0x02099EF0
 	mov r5, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -13357,7 +13357,7 @@ _0203A660:
 	strb r1, [r0, #0x384]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203A690:
-	ldr r6, _0203AA34 ; =0x02099EF0
+	ldr r6, _0203AA34 ; 0x02099EF0
 	ldr r0, [r6]
 	cmp r0, #0
 	addeq sp, sp, #0x58
@@ -13869,12 +13869,12 @@ FUN_0203addc: ; 0x0203ADDC
 	ldr r0, [r4]
 	mov r1, #5
 	bl FUN_ov1_020e500c
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02148398
 	cmp r0, #0
 	bne _0203AE30
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02147e24
 	cmp r0, #0
@@ -13888,14 +13888,14 @@ _0203AE30:
 	ldrb r0, [r0, #0x3c0]
 	tst r0, #1
 	beq _0203AE5C
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0212dba0
 _0203AE5C:
 	mov r0, r10
 	bl FUN_0203c5d4
 	mov r1, r0
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0212e7f0
 _0203AE74:
@@ -13961,12 +13961,12 @@ _0203AF44:
 	ldrh r0, [r0, #0xd6]
 	tst r0, #1
 	beq _0203B83C
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	mov r1, r11
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
 	mov r5, r0
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	mov r1, r11
 	ldr r0, [r0]
 	mov r2, #1
@@ -14093,7 +14093,7 @@ _0203B154:
 	bl FUN_ov16_02113a80
 _0203B158:
 	ldrh r0, [r7, #0x16]
-	ldr r8, _0203B854 ; =0x02099EF0
+	ldr r8, _0203B854 ; 0x02099EF0
 	tst r0, #0x80
 	beq _0203B204
 	ldr r0, _0203B858 ; =0x0209A2C0
@@ -14143,7 +14143,7 @@ _0203B204:
 	tst r4, #8
 	beq _0203B2AC
 	ldr r1, [r5, #0x84]
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldrb r2, [r1, #0x1d]
 	mov r1, r5
 	mov r3, r9
@@ -14177,7 +14177,7 @@ _0203B288:
 	ldr r0, _0203B858 ; =0x0209A2C0
 	ldrsh r2, [r5, #0x94]
 	ldr r1, [r0, #0x48]
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	cmp r2, r1
 	bne _0203B2AC
 	ldr r0, [r0]
@@ -14189,7 +14189,7 @@ _0203B2AC:
 	beq _0203B528
 	tst r0, #0x10
 	ldrh r8, [r7, #0x40]
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	beq _0203B318
 	ldrsb r1, [r7]
 	ldr r0, [r0]
@@ -14234,7 +14234,7 @@ _0203B328:
 	add r0, sp, #0x1c
 	str r1, [sp]
 	stmib sp, {r0, r3}
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r1, [r5, #0x84]
 	ldr r0, [r0]
 	adc r8, r8, #0
@@ -14291,7 +14291,7 @@ _0203B424:
 	beq _0203B490
 	str r4, [r1]
 	ldr r0, [r5, #0x88]
-	ldr r4, _0203B854 ; =0x02099EF0
+	ldr r4, _0203B854 ; 0x02099EF0
 	str r6, [r0, #4]
 	ldr r1, [r5, #0x84]
 	ldrh r0, [r7, #0x16]
@@ -14394,7 +14394,7 @@ _0203B5B0:
 	mov r8, #0
 	b _0203B684
 _0203B5C4:
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	mov r1, r8
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
@@ -14416,7 +14416,7 @@ _0203B5C4:
 	str r0, [sp, #0x14]
 	ldr r0, [r7, #0x18]
 	str r0, [sp]
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r2, [r5, #0x84]
 	ldr r0, [r0]
 	bl FUN_ov132_021488a0
@@ -14438,7 +14438,7 @@ _0203B5C4:
 	mov r1, r6
 	mov r3, r9
 	str r0, [sp]
-	ldr r0, _0203B854 ; =0x02099EF0
+	ldr r0, _0203B854 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02147ec8
 _0203B680:
@@ -14636,7 +14636,7 @@ _0203B8C4:
 	add r2, r6, #1
 	mov r3, #0x10
 	bl FUN_ov16_02113a80
-	ldr r0, _0203B9FC ; =0x02099EF0
+	ldr r0, _0203B9FC ; 0x02099EF0
 	mov r1, r6
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
@@ -14701,7 +14701,7 @@ FUN_0203ba04: ; 0x0203BA04
 	add r0, r10, #0x3ac0
 	mov r2, #0x790
 	bl MI_CpuFill8
-	ldr r0, _0203BBE4 ; =0x02099EF0
+	ldr r0, _0203BBE4 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02159df0
 	cmp r0, #0
@@ -14715,7 +14715,7 @@ _0203BA44:
 	mvn r4, #1
 	b _0203BB94
 _0203BA58:
-	ldr r0, _0203BBE4 ; =0x02099EF0
+	ldr r0, _0203BBE4 ; 0x02099EF0
 	mov r1, r6
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
@@ -14806,7 +14806,7 @@ _0203BB94:
 	add r0, r10, #0x1000
 	mov r5, #2
 	mov r4, #0x1f000
-	ldr r2, _0203BBE4 ; =0x02099EF0
+	ldr r2, _0203BBE4 ; 0x02099EF0
 	strh r3, [r1, #0xcc]
 	strb r5, [r0, #0x3c0]
 	str r4, [r0, #0x3c4]
@@ -14828,7 +14828,7 @@ _0203BBEC: .word unk_02099F14
 FUN_0203bbf0: ; 0x0203BBF0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
-	ldr r5, _0203BD44 ; =0x02099EF0
+	ldr r5, _0203BD44 ; 0x02099EF0
 	str r0, [sp]
 	ldr r0, [r5]
 	mov r10, r1
@@ -14967,7 +14967,7 @@ _0203BDC4:
 FUN_0203bdcc: ; 0x0203BDCC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
-	ldr r6, _0203BF30 ; =0x02099EF0
+	ldr r6, _0203BF30 ; 0x02099EF0
 	mov r11, r0
 	ldr r0, [r6]
 	str r2, [sp, #4]
@@ -15027,7 +15027,7 @@ _0203BE18:
 	mov r2, r5
 	bl MI_CpuFill8
 	ldr r1, [sp, #0x38]
-	ldr r0, _0203BF30 ; =0x02099EF0
+	ldr r0, _0203BF30 ; 0x02099EF0
 	str r1, [sp]
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
@@ -15083,7 +15083,7 @@ _0203BF4C:
 FUN_0203bf6c: ; 0x0203BF6C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
-	ldr r4, _0203C224 ; =0x02099EF0
+	ldr r4, _0203C224 ; 0x02099EF0
 	mov r10, r0
 	ldr r0, [r4]
 	ldr r11, [sp, #0x34]
@@ -15126,7 +15126,7 @@ _0203BFE8:
 	mvn r4, #0
 	b _0203C050
 _0203C018:
-	ldr r0, _0203C224 ; =0x02099EF0
+	ldr r0, _0203C224 ; 0x02099EF0
 	mov r1, r5
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
@@ -15287,7 +15287,7 @@ FUN_0203c230: ; 0x0203C230
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, [sp, #0x30]
-	ldr r5, _0203C3F0 ; =0x02099EF0
+	ldr r5, _0203C3F0 ; 0x02099EF0
 	str r0, [sp]
 	ldr r0, [r5]
 	add r1, sp, #4
@@ -15397,7 +15397,7 @@ _0203C3F8: .word 0xB60B60B7
 	arm_func_start FUN_0203c3fc
 FUN_0203c3fc: ; 0x0203C3FC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	ldr r4, _0203C4E0 ; =0x02099EF0
+	ldr r4, _0203C4E0 ; 0x02099EF0
 	str r0, [sp]
 	ldr r0, [r4]
 	mov r10, r1
@@ -15464,7 +15464,7 @@ _0203C4E0: .word unk_02099EF0
 FUN_0203c4e4: ; 0x0203C4E4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
-	ldr r5, _0203C5D0 ; =0x02099EF0
+	ldr r5, _0203C5D0 ; 0x02099EF0
 	mov r10, r1
 	ldr r1, [r5]
 	ldr r9, [sp, #0x38]
@@ -15490,7 +15490,7 @@ _0203C520:
 	adds r7, r6, r0
 	beq _0203C5B8
 	ldr r1, [sp, #0x3c]
-	ldr r0, _0203C5D0 ; =0x02099EF0
+	ldr r0, _0203C5D0 ; 0x02099EF0
 	str r1, [sp]
 	ldr r0, [r0]
 	ldr r3, [sp, #4]
@@ -15531,7 +15531,7 @@ _0203C5D0: .word unk_02099EF0
 	arm_func_start FUN_0203c5d4
 FUN_0203c5d4: ; 0x0203C5D4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r1, _0203C6B8 ; =0x02099EF0
+	ldr r1, _0203C6B8 ; 0x02099EF0
 	mov r7, r0
 	ldr r0, [r1]
 	cmp r0, #0
@@ -15557,7 +15557,7 @@ FUN_0203c5d4: ; 0x0203C5D4
 	cmp r4, #0
 	ldreqsb r5, [r0, #0x10]
 _0203C63C:
-	ldr r0, _0203C6B8 ; =0x02099EF0
+	ldr r0, _0203C6B8 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov126_0212f530
 	bl FUN_ov16_020efa80
@@ -15645,7 +15645,7 @@ _0203C758: .word unk_0209A2C0
 FUN_0203c75c: ; 0x0203C75C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
-	ldr r11, _0203C868 ; =0x02099EF0
+	ldr r11, _0203C868 ; 0x02099EF0
 	mov r4, r0
 	ldr r0, [r11]
 	mov r10, r1
@@ -15803,7 +15803,7 @@ _0203C970:
 	arm_func_start FUN_0203c988
 FUN_0203c988: ; 0x0203C988
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r7, _0203CA34 ; =0x02099EF0
+	ldr r7, _0203CA34 ; 0x02099EF0
 	mov r6, r0
 	ldr r0, [r7]
 	mov r5, r1
@@ -15854,7 +15854,7 @@ _0203CA34: .word unk_02099EF0
 
 	arm_func_start FUN_0203ca38
 FUN_0203ca38: ; 0x0203CA38
-	ldr r3, _0203CA80 ; =0x02099EF0
+	ldr r3, _0203CA80 ; 0x02099EF0
 	ldr r3, [r3]
 	cmp r3, #0
 	bxeq lr
@@ -16014,7 +16014,7 @@ _0203CC14:
 	blt _0203CBF0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0203CC24:
-	ldr r4, _0203CC70 ; =0x02099EF0
+	ldr r4, _0203CC70 ; 0x02099EF0
 	mov r8, #0
 _0203CC2C:
 	ldr r0, [r4]
@@ -16072,7 +16072,7 @@ _0203CCC4:
 	blt _0203CCC4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0203CCEC:
-	ldr r9, _0203CD44 ; =0x02099EF0
+	ldr r9, _0203CD44 ; 0x02099EF0
 	mov r4, #0
 _0203CCF4:
 	ldr r0, [r9]
@@ -16156,7 +16156,7 @@ FUN_0203cdc4: ; 0x0203CDC4
 	cmp r1, #0
 	moveq r0, r7
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r2, _0203CF28 ; =0x02099EF0
+	ldr r2, _0203CF28 ; 0x02099EF0
 	ldr r2, [r2]
 	cmp r2, #0
 	moveq r0, r7
@@ -16215,7 +16215,7 @@ _0203CEC8:
 	beq _0203CF00
 	cmp r5, #2
 	bne _0203CF08
-	ldr r0, _0203CF28 ; =0x02099EF0
+	ldr r0, _0203CF28 ; 0x02099EF0
 	mov r2, r6
 	ldr r0, [r0]
 	bl FUN_ov132_021483b0
@@ -16253,7 +16253,7 @@ FUN_0203cf34: ; 0x0203CF34
 	cmp r0, #0
 	ldrne r1, _0203CFBC ; =0x0209A7FC
 	cmpne r1, #0
-	ldrne r4, _0203CFC0 ; =0x02099EF0
+	ldrne r4, _0203CFC0 ; 0x02099EF0
 	ldrne r1, [r4]
 	cmpne r1, #0
 	addeq sp, sp, #0xc
@@ -16309,7 +16309,7 @@ _0203CFF8:
 	blt _0203CFF8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0203D028:
-	ldr r9, _0203D078 ; =0x02099EF0
+	ldr r9, _0203D078 ; 0x02099EF0
 _0203D02C:
 	ldr r0, [r9]
 	mov r1, r4
@@ -16402,7 +16402,7 @@ _0203D148:
 	ldrsb r0, [r0, #0xd4]
 	cmp r9, r0
 	bne _0203D1E0
-	ldr r0, _0203D2D4 ; =0x02099EF0
+	ldr r0, _0203D2D4 ; 0x02099EF0
 	mov r1, r4
 	ldr r0, [r0]
 	bl FUN_ov126_0213922c
@@ -16441,7 +16441,7 @@ _0203D1E0:
 	blt _0203D148
 	b _0203D2C8
 _0203D1F0:
-	ldr r11, _0203D2D4 ; =0x02099EF0
+	ldr r11, _0203D2D4 ; 0x02099EF0
 	mov r5, #0
 _0203D1F8:
 	ldr r0, [r11]
@@ -16565,7 +16565,7 @@ FUN_0203d360: ; 0x0203D360
 	cmp r0, #1
 	bhi _0203D41C
 	mov r0, r8, lsl #0x10
-	ldr r11, _0203D4B0 ; =0x02099EF0
+	ldr r11, _0203D4B0 ; 0x02099EF0
 	mov r6, #0
 	mov r5, r0, asr #0x10
 	and r4, r4, #0xff
@@ -16599,7 +16599,7 @@ _0203D40C:
 	blt _0203D3B0
 	b _0203D4A8
 _0203D41C:
-	ldr r6, _0203D4B0 ; =0x02099EF0
+	ldr r6, _0203D4B0 ; 0x02099EF0
 	mov r5, #0
 _0203D424:
 	ldr r0, [r6]
@@ -16690,7 +16690,7 @@ FUN_0203d4fc: ; 0x0203D4FC
 	mov r0, r5
 	bl FUN_ov16_020f07d0
 	cmp r0, #0
-	ldr r0, _0203D72C ; =0x02099EF0
+	ldr r0, _0203D72C ; 0x02099EF0
 	ldr r2, [r8]
 	ldr r1, [r8, #8]
 	mov r9, r6
@@ -16890,7 +16890,7 @@ _0203D7A4:
 	cmp r1, #1
 	mov r7, r0
 	bhi _0203D894
-	ldr r11, _0203D910 ; =0x02099EF0
+	ldr r11, _0203D910 ; 0x02099EF0
 	mov r4, r8
 _0203D834:
 	mov r0, #0x58
@@ -16919,7 +16919,7 @@ _0203D880:
 	mov r0, r9
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203D894:
-	ldr r4, _0203D910 ; =0x02099EF0
+	ldr r4, _0203D910 ; 0x02099EF0
 _0203D898:
 	ldr r0, [r4]
 	mov r1, r8
@@ -17001,7 +17001,7 @@ FUN_0203d998: ; 0x0203D998
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r11, #0
-	ldr r5, _0203DB2C ; =0x02099EF0
+	ldr r5, _0203DB2C ; 0x02099EF0
 	mov r4, r0
 	mov r9, r1
 	mov r10, r2
@@ -17039,7 +17039,7 @@ _0203D9E8:
 	beq _0203DAC8
 	b _0203DAF8
 _0203DA2C:
-	ldr r4, _0203DB2C ; =0x02099EF0
+	ldr r4, _0203DB2C ; 0x02099EF0
 	mov r8, #0
 	add r11, sp, #4
 _0203DA38:
@@ -17129,7 +17129,7 @@ _0203DB58:
 	cmp r1, #1
 	mov r7, r0, asr #0x18
 	bhi _0203DBB4
-	ldr r5, _0203DBFC ; =0x02099EF0
+	ldr r5, _0203DBFC ; 0x02099EF0
 	mov r6, #0
 	mov r4, #0x58
 _0203DB78:
@@ -17150,7 +17150,7 @@ _0203DBA4:
 	blt _0203DB78
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0203DBB4:
-	ldr r4, _0203DBFC ; =0x02099EF0
+	ldr r4, _0203DBFC ; 0x02099EF0
 	mov r5, #0
 _0203DBBC:
 	ldr r0, [r4]
@@ -17178,7 +17178,7 @@ FUN_0203dc00: ; 0x0203DC00
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0xc
 	ldr r1, _0203DDC0 ; =0x020A0640
-	ldr r2, _0203DDC4 ; =0x02099EF0
+	ldr r2, _0203DDC4 ; 0x02099EF0
 	ldrb r1, [r1, #0x8f]
 	mov r8, r0
 	ldr r0, [r2]
@@ -17386,7 +17386,7 @@ _0203DED0:
 	mov r3, #1
 	bl FUN_ov16_021142fc
 	ldr r0, _0203DF6C ; =0x020A0640
-	ldr r2, _0203DF70 ; =0x02099EF0
+	ldr r2, _0203DF70 ; 0x02099EF0
 	ldrb r1, [r0, #0x8f]
 	ldr r0, [r2]
 	bl FUN_ov132_02145c40 ; may be ov131 ; ov132(Mica)
@@ -20556,7 +20556,7 @@ _0204083C: .word unk_0209A7FC
 	arm_func_start FUN_02040840
 FUN_02040840: ; 0x02040840
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r3, _020408D0 ; =0x02099EF0
+	ldr r3, _020408D0 ; 0x02099EF0
 	mov r7, r0
 	ldr r0, [r3]
 	mov r6, r1
@@ -21999,8 +21999,8 @@ unk_02099EC8:
 	.global unk_02099ECC
 unk_02099ECC:
 	.space 0x04
-	.global unk_02099ED0
-unk_02099ED0:
+	.global gFont8
+gFont8:
 	.space 0x04
 	.global unk_02099ED4
 unk_02099ED4:
@@ -22008,8 +22008,8 @@ unk_02099ED4:
 	.global unk_02099ED8
 unk_02099ED8:
 	.space 0x04
-	.global unk_02099EDC
-unk_02099EDC:
+	.global gFont12T
+gFont12T:
 	.space 0x04
 	.global unk_02099EE0
 unk_02099EE0:
@@ -22041,11 +22041,11 @@ pLogic_PalSkin2dFile:
 	.global pLogic_PalSkinFaceFile
 pLogic_PalSkinFaceFile:
 	.space 0x04
-	.global unk_02099F08
-unk_02099F08:
+	.global gMainScreenBrightness
+gMainScreenBrightness:
 	.space 0x02
-	.global unk_02099F0A
-unk_02099F0A:
+	.global gSubScreenBrightness
+gSubScreenBrightness:
 	.space 0x06
 	.global unk_02099F10
 unk_02099F10:
@@ -22056,8 +22056,8 @@ unk_02099F14:
 	.global unk_02099F18
 unk_02099F18:
 	.space 0x04
-	.global unk_02099F1C
-unk_02099F1C:
+	.global gFontRubi8
+gFontRubi8:
 	.space 0x08
 	.global unk_02099F24
 unk_02099F24:
@@ -22083,8 +22083,8 @@ unk_02099F3C:
 	.global unk_02099F44
 unk_02099F44:
 	.space 0x0C
-	.global unk_02099F50
-unk_02099F50:
+	.global gFont12
+gFont12:
 	.space 0x04
 	.global unk_02099F54
 unk_02099F54:

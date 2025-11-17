@@ -6,7 +6,7 @@
 .public FUN_ov16_020f153c
 .public FUN_02044798
 .public FUN_02044e40
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_020AF81C
 .public FUN_01ffa12c
 .public FUN_020728c4
@@ -40,7 +40,7 @@
 .public FUN_0207249c
 .public FUN_ov16_020f0b8c
 .public FUN_ov16_020f068c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

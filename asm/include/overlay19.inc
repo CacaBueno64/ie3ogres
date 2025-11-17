@@ -1,4 +1,4 @@
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public unk_02099ED4
@@ -32,12 +32,12 @@
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e694
 .public ov93_021253E0
-.public FUN_02042054
-.public FUN_02041fec
+.public _ZN14CScreenManager14getCurSceneSubEv
+.public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f1490
 .public FUN_ov16_020f1670
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public unk_020A8C40
 .public unk_020A9440
 .public FUN_ov16_020f4894

@@ -3,7 +3,7 @@
 	.include "/include/overlay5.inc"
 
 	.text
-	arm_func_start FUN_ov5_020bcb40
+	arm_func_start FUN_ov5_020bcb40 ; https://decomp.me/scratch/BGrrH
 FUN_ov5_020bcb40: ; 0x020BCB40
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, [r0]
@@ -17,21 +17,21 @@ FUN_ov5_020bcb40: ; 0x020BCB40
 	mov r2, r7
 	str r7, [r4, #0x80]
 	str r7, [r4, #0x84]
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	mov r6, #1
 	mov r0, r4
 	mov r1, r6
 	mov r2, r7
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r7
 	mov r5, #0xa
 	mov r2, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r2, r5
 	mov r0, r4
 	mov r1, r6
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	strb r6, [r4, #0x88]
 	strb r7, [r4, #0x89]
 	bl FUN_ov16_020f13d4
@@ -76,7 +76,7 @@ _020BCC2C:
 _020BCC40: .word gL5Sound
 	arm_func_end FUN_ov5_020bcb40
 
-	arm_func_start FUN_ov5_020bcc44
+	arm_func_start FUN_ov5_020bcc44 ; https://decomp.me/scratch/eJEIf
 FUN_ov5_020bcc44: ; 0x020BCC44
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -102,14 +102,14 @@ _020BCC7C:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bcc44
 
-	arm_func_start FUN_ov5_020bcc94
+	arm_func_start FUN_ov5_020bcc94 ; https://decomp.me/scratch/qNYkT
 FUN_ov5_020bcc94: ; 0x020BCC94
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_0204201c
+	bl _ZN14CScreenManager16getNextSceneMainEv
 	mov r4, r0
 	mov r0, r5
-	bl FUN_02041fec
+	bl _ZN14CScreenManager15getCurSceneMainEv
 	cmp r4, r0
 	bne _020BCCC0
 	ldrb r0, [r5, #5]
@@ -147,7 +147,7 @@ _020BCD20:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	ldr r0, [r5, #0x80]
 	cmp r0, #0
 	beq _020BCD48
@@ -156,10 +156,10 @@ _020BCD20:
 	blx r1
 _020BCD48:
 	mov r0, r5
-	bl FUN_02042084
+	bl _ZN14CScreenManager15getNextSceneSubEv
 	mov r4, r0
 	mov r0, r5
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r4, r0
 	bne _020BCD70
 	ldrb r0, [r5, #5]
@@ -189,7 +189,7 @@ _020BCDA8:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041f74
+	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 	ldr r0, [r5, #0x84]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -199,7 +199,7 @@ _020BCDA8:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov5_020bcc94
 
-	arm_func_start FUN_ov5_020bcde4
+	arm_func_start FUN_ov5_020bcde4 ; https://decomp.me/scratch/ajyre
 FUN_ov5_020bcde4: ; 0x020BCDE4
 	stmfd sp!, {r4, lr}
 	ldr r2, _020BCE24 ; =0x04000304
@@ -221,7 +221,7 @@ _020BCE0C:
 _020BCE24: .word 0x04000304
 	arm_func_end FUN_ov5_020bcde4
 
-	arm_func_start FUN_ov5_020bce28
+	arm_func_start FUN_ov5_020bce28 ; https://decomp.me/scratch/iJxb7
 FUN_ov5_020bce28: ; 0x020BCE28
 	stmfd sp!, {r4, lr}
 	movs r4, r1
@@ -253,9 +253,9 @@ _020BCE78: .word 0x04000304
 FUN_ov5_020bce7c: ; 0x020BCE7C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bce7c
@@ -264,7 +264,7 @@ FUN_ov5_020bce7c: ; 0x020BCE7C
 FUN_ov5_020bce98: ; 0x020BCE98
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02041b00
+	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bce98
@@ -313,7 +313,7 @@ _020BCF24:
 _020BCF30: .word gL5Movie
 	arm_func_end FUN_ov5_020bcedc
 
-	arm_func_start FUN_ov5_020bcf34
+	arm_func_start FUN_ov5_020bcf34 ; https://decomp.me/scratch/Uk8Z4
 FUN_ov5_020bcf34: ; 0x020BCF34
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -398,7 +398,7 @@ FUN_ov5_020bd008: ; 0x020BD008
 FUN_ov5_020bd02c: ; 0x020BD02C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd02c
@@ -410,7 +410,7 @@ FUN_ov5_020bd040: ; 0x020BD040
 	bx lr
 	arm_func_end FUN_ov5_020bd040
 
-	arm_func_start FUN_ov5_020bd04c
+	arm_func_start FUN_ov5_020bd04c ; https://decomp.me/scratch/jpfxT
 FUN_ov5_020bd04c: ; 0x020BD04C
 	ldr r2, [r0, #8]
 	cmp r2, #4
@@ -547,7 +547,7 @@ FUN_ov5_020bd1d8: ; 0x020BD1D8
 _020BD1F8: .word FUN_ov5_020bd0a0
 	arm_func_end FUN_ov5_020bd1d8
 
-	arm_func_start FUN_ov5_020bd1fc
+	arm_func_start FUN_ov5_020bd1fc ; https://decomp.me/scratch/ijbRg
 FUN_ov5_020bd1fc: ; 0x020BD1FC
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
@@ -684,11 +684,11 @@ _020BD3C4:
 	mov r5, #1
 	mov r0, r6
 	mov r2, r5
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BD3F8: .word gL5Sound
 _020BD3FC: .word 0x000083DE
@@ -744,7 +744,7 @@ _020BD47C: .word unk_0209F5C0
 FUN_ov5_020bd480: ; 0x020BD480
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd480
@@ -817,7 +817,7 @@ _020BD544:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov5_020bd538
 
-	arm_func_start FUN_ov5_020bd560
+	arm_func_start FUN_ov5_020bd560 ; https://decomp.me/scratch/XgTzI
 FUN_ov5_020bd560: ; 0x020BD560
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r1, [r0, #8]
@@ -858,7 +858,7 @@ _020BD5DC:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov5_020bd560
 
-	arm_func_start FUN_ov5_020bd5e4
+	arm_func_start FUN_ov5_020bd5e4 ; https://decomp.me/scratch/0FOmM
 FUN_ov5_020bd5e4: ; 0x020BD5E4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -971,7 +971,7 @@ _020BD72C: .word FUN_ov5_020bd538
 FUN_ov5_020bd730: ; 0x020BD730
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov5_020bd730
@@ -1095,22 +1095,22 @@ ov5_020BD8E0:
 	.word FUN_ov5_020bce7c
 	.word FUN_ov5_020bcb40
 	.word FUN_ov5_020bcde4
-	.word FUN_02029d10
-	.word FUN_02041b64
-	.word FUN_02041bec
-	.word FUN_02041c58
-	.word FUN_02029d0c
-	.word FUN_02041cc8
+	.word _ZN8CManager7vFUN_10Ev
+	.word _ZN14CScreenManager10updateKeysEtt
+	.word _ZN14CScreenManager8updateTPEP6TPData
+	.word _ZN14CScreenManager6updateEi
+	.word _ZN8CManager7vFUN_20Ev
+	.word _ZN14CScreenManager10updateLateEi
 	.word FUN_ov5_020bce28
 	.word FUN_ov5_020bcc44
-	.word FUN_020420bc
+	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_ov5_020bcc94
-	.word FUN_02041dd4
-	.word FUN_02041df8
-	.word FUN_02041e1c
-	.word FUN_02041e40
-	.word FUN_02041e64
-	.word FUN_02041e88
+	.word _ZN14CScreenManager7vFUN_38Ei
+	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager10signalMainEi
+	.word _ZN14CScreenManager9signalSubEi
+	.word _ZN14CScreenManager7vFUN_48Ev
+	.word _ZN14CScreenManager7vFUN_4CEv
 	.global ov5_020BD930
 ov5_020BD930:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

@@ -7,7 +7,7 @@
 .public FUN_ov132_02141568
 .public unk_02099EF0
 .public unk_0209BA20
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

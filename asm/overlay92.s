@@ -1907,7 +1907,7 @@ _0212676C: .word pLogic_PalSkinFaceFile
 FUN_ov92_02126770: ; 0x02126770
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov92_02126770

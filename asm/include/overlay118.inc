@@ -21,7 +21,7 @@
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f191c
 .public unk_0209A144
-.public unk_02099F50
+.public gFont12
 .public FUN_ov16_020f1a60
 .public GXS_LoadBG0Scr
 .public GXS_LoadBG2Char
@@ -38,7 +38,7 @@
 .public unk_020A0640
 .public FUN_ov16_020f338c
 .public FUN_ov16_020eedb8
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

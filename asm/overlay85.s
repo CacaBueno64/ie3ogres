@@ -294,11 +294,11 @@ _0211A288:
 	mov r1, r6
 	mov r0, r4
 	mov r2, #0x37
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0x38
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A2DC:
 	ldr r5, [r4, #4]
@@ -306,11 +306,11 @@ _0211A2DC:
 	mov r0, r5
 	mov r2, r4
 	mov r1, r6
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r2, r4
 	mov r1, r7
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A308:
 	bl FUN_ov16_020f081c
@@ -360,7 +360,7 @@ _0211A36C:
 	strb r6, [r8, #0x2b]
 	bl FUN_020731a4
 	strb r0, [r8, #0x30]
-	ldr r0, _0211A42C ; =0x02099EF0
+	ldr r0, _0211A42C ; 0x02099EF0
 	strb r6, [r8, #0x31]
 	ldr r0, [r0]
 	strb r7, [r8, #0x33]
@@ -378,11 +378,11 @@ _0211A36C:
 	mov r1, r6
 	mov r0, r5
 	mov r2, r4
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A414: .word unk_0209AEC0
 _0211A418: .word ov85_0211CDE8
@@ -847,7 +847,7 @@ _0211A9E4:
 	bl FUN_ov1_020dbf50
 	b _0211AC8C
 _0211AA80:
-	ldr r0, _0211ACD0 ; =0x02099EDC
+	ldr r0, _0211ACD0 ; =gFont12T
 	mov r5, #0
 	ldr r0, [r0]
 	mov r1, r5
@@ -1006,7 +1006,7 @@ _0211ACC0: .word ov85_0211D0A4
 _0211ACC4: .word ov85_0211D0B0
 _0211ACC8: .word ov85_0211D0B8
 _0211ACCC: .word ov85_0211D0C0
-_0211ACD0: .word unk_02099EDC
+_0211ACD0: .word gFont12T
 _0211ACD4: .word ov85_0211D0C8
 _0211ACD8: .word ov85_0211D0D0
 _0211ACDC: .word ov85_0211D0D8
@@ -1678,7 +1678,7 @@ _0211B5B8:
 	mov r0, #0x10
 	str r0, [sp, #0x10]
 	str r6, [sp, #0x14]
-	ldr r0, _0211B818 ; =0x02099ED0
+	ldr r0, _0211B818 ; =gFont8
 	str r6, [sp, #0x18]
 	ldr r0, [r0]
 	mov r1, r6
@@ -1816,7 +1816,7 @@ _0211B80C:
 	mov r0, #1
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B818: .word unk_02099ED0
+_0211B818: .word gFont8
 _0211B81C: .word unk_020A0640
 	arm_func_end FUN_ov85_0211b3a0
 
@@ -2991,10 +2991,10 @@ FUN_ov85_0211c8a4: ; 0x0211C8A4
 	cmp r0, #0
 	beq _0211C9AC
 	ldr r0, [r4, #4]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	mov r1, r0
 	ldr r0, [r4, #4]
-	bl FUN_02042110
+	bl _ZN14CScreenManager12FUN_02042110E9SceneType
 	strb r0, [r4, #0x10]
 	tst r0, #0xff
 	ldrne r0, _0211CA98 ; =0x020EAAAC
@@ -3027,7 +3027,7 @@ _0211C980:
 	bl FUN_ov16_020f2fa8
 	b _0211CA74
 _0211C9AC:
-	ldr r5, _0211CAA0 ; =0x02099EF0
+	ldr r5, _0211CAA0 ; 0x02099EF0
 	mov r1, r7
 	ldr r0, [r5]
 	bl FUN_ov132_02145190
@@ -3051,7 +3051,7 @@ _0211C9AC:
 	bl FUN_0202c314
 	b _0211CA68
 _0211CA08:
-	ldr r6, _0211CAA0 ; =0x02099EF0
+	ldr r6, _0211CAA0 ; 0x02099EF0
 	mov r8, #0
 	ldr r0, [r6]
 	mov r1, r8
@@ -3327,7 +3327,7 @@ _0211CDC4: .word 0x04000018
 FUN_ov85_0211cdc8: ; 0x0211CDC8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov85_0211cdc8

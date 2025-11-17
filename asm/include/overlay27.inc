@@ -7,7 +7,7 @@
 .public FUN_ov16_021128c4
 .public FUN_020591e8
 .public FUN_02058ee0
-.public operator_delete
+.public _ZdlPv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public GX_SetGraphicsMode
@@ -28,7 +28,7 @@
 .public FUN_ov16_0210e69c
 .public FUN_02059004
 .public FUN_02059038
-.public FUN_02041eac
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
 .public unk_020A0640
 .public unk_0209A454

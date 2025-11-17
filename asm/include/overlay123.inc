@@ -31,7 +31,7 @@
 .public GXS_LoadBG2Scr
 .public FUN_ov16_020f10c8
 .public _ZN11L5Allocator10deallocateEPv
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b2a8
 .public FUN_0202b2a4

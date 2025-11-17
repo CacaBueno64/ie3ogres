@@ -30,11 +30,11 @@ FUN_ov36_02119f38: ; 0x02119F38
 	ldr r0, [r4, #4]
 	mov r1, #5
 	str r1, [r4, #8]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0xe
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov36_02119f38
 
@@ -45,11 +45,11 @@ FUN_ov36_02119f64: ; 0x02119F64
 	ldr r0, [r4, #4]
 	mov r1, #5
 	str r1, [r4, #8]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0xf
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov36_02119f64
 
@@ -945,7 +945,7 @@ _0211AB44:
 FUN_ov36_0211ab4c: ; 0x0211AB4C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov36_0211ab4c

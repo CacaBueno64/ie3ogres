@@ -49,8 +49,8 @@
 .public FUN_0207249c
 .public unk_0209BA20
 .public FUN_ov16_020f330c
-.public FUN_02041f2c
-.public FUN_02041eac
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -62,7 +62,7 @@
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public unk_0209A454
-.public operator_delete
+.public _ZdlPv
 .public FUN_02059630
 .public FUN_ov16_020f2304
 .public FUN_0204331c
@@ -73,12 +73,12 @@
 .public FUN_ov16_02111458
 .public FUN_020425fc
 .public FUN_02059288
-.public unk_02099EDC
+.public gFont12T
 .public unk_0209A460
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public unk_02099ED0
-.public unk_02099F50
+.public gFont8
+.public gFont12
 .public FUN_ov16_02110a04
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110b0c
@@ -86,7 +86,7 @@
 .public STD_CopyLString
 .public STD_GetStringLength
 .public STD_CopyString
-.public operator_new
+.public _Znwm
 .public FUN_ov16_02110558
 .public FUN_ov16_021123b4
 .public FUN_ov16_021107a0

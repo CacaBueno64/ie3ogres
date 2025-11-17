@@ -13,6 +13,7 @@ class UnkClass_0209BA20 {
         void FUN_020715b4(void);
         void FUN_02074418(void);
         void FUN_020743f0(void);
+        void FUN_020724b8(u16, u16);
 };
 
 extern UnkClass_0209BA20 unk_0209BA20;

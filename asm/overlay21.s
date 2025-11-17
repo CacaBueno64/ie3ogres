@@ -1389,7 +1389,7 @@ FUN_ov21_0211b120: ; 0x0211B120
 	ldr r1, [r8]
 	bl FUN_ov16_02111458
 	mov r5, r0
-	ldr r0, _0211B318 ; =0x02099F50
+	ldr r0, _0211B318 ; =gFont12
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
@@ -1401,14 +1401,14 @@ FUN_ov21_0211b120: ; 0x0211B120
 	str r6, [sp, #0x10]
 	str r6, [sp, #0x14]
 	str r6, [sp, #0x18]
-	ldr r0, _0211B318 ; =0x02099F50
+	ldr r0, _0211B318 ; =gFont12
 	str r6, [sp, #0x1c]
 	ldr r1, [sp, #0x20]
 	ldr r0, [r0]
 	mov r2, r7
 	mov r3, r11
 	bl FUN_020425fc
-	ldr r0, _0211B318 ; =0x02099F50
+	ldr r0, _0211B318 ; =gFont12
 	ldr r0, [r0]
 	bl FUN_0204331c
 	ldr r3, [sp, #0x28]
@@ -1463,7 +1463,7 @@ FUN_ov21_0211b120: ; 0x0211B120
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B314: .word unk_02099F38
-_0211B318: .word unk_02099F50
+_0211B318: .word gFont12
 	arm_func_end FUN_ov21_0211b120
 
 	arm_func_start FUN_ov21_0211b31c
@@ -2302,7 +2302,7 @@ FUN_ov21_0211bed4: ; 0x0211BED4
 	mov r8, r0
 	mov r5, r7
 	mov r4, #1
-	ldr r11, _0211BFBC ; =0x02099F50
+	ldr r11, _0211BFBC ; =gFont12
 	b _0211BF74
 _0211BF28:
 	ldr r0, [r10, r7, lsl #2]
@@ -2344,7 +2344,7 @@ _0211BF74:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211BFB8: .word unk_02099F38
-_0211BFBC: .word unk_02099F50
+_0211BFBC: .word gFont12
 	arm_func_end FUN_ov21_0211bed4
 
 	arm_func_start FUN_ov21_0211bfc0
@@ -3416,7 +3416,7 @@ FUN_ov21_0211ce64: ; 0x0211CE64
 	ldr r1, [r1, #0x44]
 	blx r1
 	ldr r0, [r7, #0x7c8]
-	bl FUN_0204204c
+	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	str r0, [r7, #0x7cc]
 	mov r6, #0
 	str r6, [r7, #0x7d0]
@@ -3625,7 +3625,7 @@ _0211D1A0:
 	bne _0211D1C4
 	ldr r0, [r4, #0x7c8]
 	mov r1, #0
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 _0211D1C4:
 	ldr r0, _0211D1FC ; =0x0209A110
 	ldr r1, _0211D1F8 ; =0x02099ED4
@@ -3723,7 +3723,7 @@ _0211D2FC: .word unk_02099F38
 FUN_ov21_0211d300: ; 0x0211D300
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov21_0211d300

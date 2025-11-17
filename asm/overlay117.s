@@ -24,7 +24,7 @@ _02124D30:
 	strh r1, [r2, #0x70]
 	cmp r4, #3
 	blt _02124D30
-	ldr r4, _02124E80 ; =0x02099EF0
+	ldr r4, _02124E80 ; 0x02099EF0
 	ldr r0, [r4]
 	bl FUN_ov126_0213777c
 	ldrsb r0, [r0, #0x20]
@@ -91,7 +91,7 @@ _02124E18:
 	bl FUN_0204f02c
 	mov r6, r0
 _02124E3C:
-	ldr r0, _02124E80 ; =0x02099EF0
+	ldr r0, _02124E80 ; 0x02099EF0
 	mov r1, r4
 	ldr r0, [r0]
 	mov r2, r6
@@ -99,7 +99,7 @@ _02124E3C:
 	cmp r0, #1
 	moveq r0, #1
 	streqb r0, [r5, #0x8b]
-	ldr r0, _02124E80 ; =0x02099EF0
+	ldr r0, _02124E80 ; 0x02099EF0
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, r4
@@ -116,7 +116,7 @@ _02124E84: .word unk_0209BA20
 FUN_ov117_02124e88: ; 0x02124E88
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov117_02124e88

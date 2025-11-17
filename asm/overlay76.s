@@ -16,14 +16,14 @@ FUN_ov76_02119f00: ; 0x02119F00
 	movne r6, #0
 	mov r2, #1
 	cmp r0, #2
-	ldr r0, _02119FDC ; =0x02099EF0
+	ldr r0, _02119FDC ; 0x02099EF0
 	movne r7, #0
 	cmp r6, #0
 	ldr r0, [r0]
 	moveq r2, #0
 	mov r1, r4
 	bl FUN_ov126_02139144
-	ldr r0, _02119FDC ; =0x02099EF0
+	ldr r0, _02119FDC ; 0x02099EF0
 	cmp r7, #0
 	movne r4, #1
 	mov r6, #0
@@ -38,7 +38,7 @@ FUN_ov76_02119f00: ; 0x02119F00
 	ldrb r0, [r5, #0x97]
 	moveq r6, #1
 	cmp r0, #2
-	ldr r0, _02119FDC ; =0x02099EF0
+	ldr r0, _02119FDC ; 0x02099EF0
 	movne r7, #0
 	cmp r6, #0
 	mov r6, #1
@@ -46,7 +46,7 @@ FUN_ov76_02119f00: ; 0x02119F00
 	moveq r2, #0
 	mov r1, r6
 	bl FUN_ov126_02139144
-	ldr r4, _02119FDC ; =0x02099EF0
+	ldr r4, _02119FDC ; 0x02099EF0
 	cmp r7, #0
 	moveq r6, #0
 	ldr r0, [r4]
@@ -88,7 +88,7 @@ FUN_ov76_02119fe0: ; 0x02119FE0
 	ldr r0, [r6, #4]
 	mov r1, r5
 	mov r2, #0x35
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211A048:
@@ -97,11 +97,11 @@ _0211A048:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	mov r0, r6
 	mov r2, r4
 	mov r1, #1
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211A078: .word unk_020AF81C
@@ -125,7 +125,7 @@ _0211A0A8:
 	ldmfd sp!, {r4, pc}
 _0211A0B0:
 	bl FUN_ov76_02119f00
-	ldr r0, _0211A0CC ; =0x02099EF0
+	ldr r0, _0211A0CC ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_01ffa12c
 	mov r0, r4
@@ -252,7 +252,7 @@ FUN_ov76_0211a1e0: ; 0x0211A1E0
 	strb r7, [r6, #0x58]
 	strb r7, [r6, #0x59]
 	strb r7, [r6, #0x5f]
-	ldr r5, _0211A2B0 ; =0x02099EF0
+	ldr r5, _0211A2B0 ; 0x02099EF0
 	strh r7, [r6, #0x54]
 	ldr r0, [r5]
 	bl FUN_ov132_02147e9c
@@ -264,7 +264,7 @@ _0211A278:
 _0211A284:
 	cmp r7, #0x10
 	blt _0211A278
-	ldr r0, _0211A2B0 ; =0x02099EF0
+	ldr r0, _0211A2B0 ; 0x02099EF0
 	ldr r0, [r0]
 	bl FUN_ov132_02149238
 	mov r0, r4
@@ -288,7 +288,7 @@ FUN_ov76_0211a2b4: ; 0x0211A2B4
 	bl FUN_ov16_020f330c
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r5, _0211A370 ; =0x02099EF0
+	ldr r5, _0211A370 ; 0x02099EF0
 	ldr r0, [r5]
 	bl FUN_01ff998c
 	ldr r0, [r5]
@@ -303,7 +303,7 @@ FUN_ov76_0211a2b4: ; 0x0211A2B4
 	mov r1, #0
 	bl FUN_0204d7fc
 _0211A314:
-	ldr r5, _0211A370 ; =0x02099EF0
+	ldr r5, _0211A370 ; 0x02099EF0
 	mov r6, #1
 	ldr r0, [r5]
 	mov r1, r6
@@ -413,7 +413,7 @@ _0211A480: .word unk_0209BA20
 FUN_ov76_0211a484: ; 0x0211A484
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov76_0211a484

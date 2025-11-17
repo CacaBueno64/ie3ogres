@@ -16,11 +16,11 @@
 .public FUN_ov16_02113b78
 .public FUN_ov16_021139bc
 .public FUN_ov16_02113ec0
-.public FUN_02041f2c
+.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public MI_CpuFill8
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f338c
-.public operator_delete
+.public _ZdlPv
 .public FX_Sqrt
 .public FUN_0202b208
 .public FUN_0202b204

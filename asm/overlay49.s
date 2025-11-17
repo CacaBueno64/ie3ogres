@@ -1456,11 +1456,11 @@ FUN_ov49_0211b3ac: ; 0x0211B3AC
 	mov r1, #1
 	str r4, [r5, #8]
 	str r1, [r5, #0x1fc]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x8e
 	beq _0211B3E0
 	ldr r0, [r5, #4]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B3E0:
 	mov r0, r4
@@ -1476,7 +1476,7 @@ FUN_ov49_0211b3ec: ; 0x0211B3EC
 	str r2, [r0, #8]
 	str r1, [r0, #0x1fc]
 	ldr r0, [r0, #4]
-	bl FUN_02041d9c
+	bl _ZN14CScreenManager12FUN_02041d9cEv
 	ldr r0, _0211B418 ; =0x02099E8F
 	mov r1, #1
 	strb r1, [r0]
@@ -1877,7 +1877,7 @@ _0211B960:
 	tst r8, #2
 	beq _0211B9AC
 	ldr r0, [r9, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x8e
 	bne _0211B988
 	ldr r0, _0211BCE4 ; =0x020A9C40
@@ -1944,7 +1944,7 @@ _0211BA2C:
 	mov r1, #6
 	bl FUN_0202cf6c
 	ldr r0, [r9, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x8e
 	bne _0211BA94
 	ldr r0, _0211BCEC ; =0x02099ED8
@@ -2482,22 +2482,22 @@ _0211C190:
 	b _0211C290
 _0211C1D4:
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x8e
 	beq _0211C1F8
 	ldr r0, [r4, #4]
 	mov r1, r6
 	mov r2, #0x8a
-	bl FUN_02041eac
+	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	b _0211C290
 _0211C1F8:
 	ldr r5, [r4, #4]
 	mov r1, r6
 	mov r0, r5
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r5
 	mov r1, #1
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r4
 	bl FUN_ov49_0211c688
 	b _0211C290
@@ -2507,10 +2507,10 @@ _0211C220:
 	ldr r7, [r4, #4]
 	mov r1, r6
 	mov r0, r7
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	mov r0, r7
 	mov r1, r5
-	bl FUN_02041f2c
+	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 	b _0211C290
 _0211C248:
 	bl FUN_ov16_020f081c
@@ -2530,7 +2530,7 @@ _0211C248:
 	ldr r0, [r4, #4]
 	mov r1, r6
 	mov r2, #0x60
-	bl FUN_02041ef0
+	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 _0211C290:
 	ldr r0, _0211C2C0 ; =0x02099ED4
 	ldr r1, _0211C2CC ; =0x0209A110
@@ -2538,7 +2538,7 @@ _0211C290:
 	ldr r1, [r1]
 	bl FUN_ov16_0210e10c
 	ldr r0, [r4, #4]
-	bl FUN_02042054
+	bl _ZN14CScreenManager14getCurSceneSubEv
 	cmp r0, #0x8e
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
@@ -2860,7 +2860,7 @@ FUN_ov49_0211c6d8: ; 0x0211C6D8
 FUN_ov49_0211c6dc: ; 0x0211C6DC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl operator_delete
+	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov49_0211c6dc
