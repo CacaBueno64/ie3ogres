@@ -210,7 +210,7 @@ FUN_ov64_0211a1b0: ; 0x0211A1B0
 	str r1, [r0, #0xc]
 	ldr r0, _0211A1E0 ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, pc}
 _0211A1E0: .word gL5Sound
 	arm_func_end FUN_ov64_0211a1b0
@@ -227,7 +227,7 @@ FUN_ov64_0211a1e4: ; 0x0211A1E4
 	str r1, [r0, #0xc]
 	ldr r0, _0211A214 ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, pc}
 _0211A214: .word gL5Sound
 	arm_func_end FUN_ov64_0211a1e4
@@ -698,7 +698,7 @@ FUN_ov64_0211a800: ; 0x0211A800
 	blx r1
 	ldr r0, _0211A854 ; =gL5Sound
 	mov r1, #0x16
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, #5
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
@@ -1905,28 +1905,28 @@ ov64_0211BA00:
 	.word FUN_ov64_0211a1b0
 	.word FUN_ov64_0211a1e4
 	.word FUN_ov64_02119f00
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov64_0211a218
 	.word FUN_ov64_0211a2e0
 	.word FUN_ov64_02119fdc
-	.word FUN_0202b204
-	.word FUN_0202b200
-	.word FUN_0202b1f8
-	.word FUN_0202b1f0
-	.word FUN_0202b1e8
-	.word FUN_0202b1e0
-	.word FUN_0202b320
-	.word FUN_0202b310
-	.word FUN_0202b304
-	.word FUN_0202b2f8
-	.word FUN_0202b2e8
-	.word FUN_0202b2d8
-	.word FUN_0202b2c8
-	.word FUN_0202b2bc
-	.word FUN_0202b2b0
-	.word FUN_0202b1d8
-	.word FUN_0202b1d0
-	.word FUN_0202b1c8
+	.word _ZN12CommonScreen7vFUN_24Ev
+	.word _ZN12CommonScreen7vFUN_28Ev
+	.word _ZN12CommonScreen7vFUN_2CEv
+	.word _ZN12CommonScreen7vFUN_30Ev
+	.word _ZN12CommonScreen7vFUN_34Ev
+	.word _ZN12CommonScreen7vFUN_38Ev
+	.word _ZN16CommonMainScreen9fadeResetEv
+	.word _ZN16CommonMainScreen10fadeUpdateEv
+	.word _ZN16CommonMainScreen8blackOutEv
+	.word _ZN16CommonMainScreen8whiteOutEv
+	.word _ZN16CommonMainScreen6fadeInEv
+	.word _ZN16CommonMainScreen9fadeBlackEv
+	.word _ZN16CommonMainScreen9fadeWhiteEv
+	.word _ZN16CommonMainScreen8isFadingEv
+	.word _ZN16CommonMainScreen16isBrightAdjustedEv
+	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.global ov64_0211BA6C
 ov64_0211BA6C:
 	.byte 0x2F, 0x64, 0x61, 0x74

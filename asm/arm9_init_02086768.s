@@ -111,7 +111,7 @@ FUN_02086768: ; 0x02086768
 	ldr r4, _02086A84 ; =0x020AF81C
 	str r0, [r1]
 	mov r0, r4
-	bl _ZN14CScreenManagerC1Ev
+	bl _ZN14CScreenManagerC2Ev
 	ldr r1, _02086A88 ; =0x0209007C
 	add r0, r4, #0x90
 	str r1, [r4]

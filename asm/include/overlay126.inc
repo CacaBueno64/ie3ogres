@@ -196,7 +196,7 @@
 .public FUN_0206d744
 .public FUN_0206cc44
 .public FUN_ov16_020f077c
-.public FUN_0202cf6c
+.public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_0206dbb4
 .public FUN_01ff9384
 .public FUN_01ff8c44

@@ -1,14 +1,5 @@
 #include "screenmanager.hpp"
 
-extern "C" {
-    void FUN_ov16_020f1468(int);
-    void FUN_ov16_020f1514(int);
-    void FUN_ov16_020f1528(int);
-    BOOL FUN_ov16_020f1650(void);
-    BOOL FUN_ov16_020f1660(void);
-    void FUN_ov16_020f16c8(int);
-    }
-
 CScreenManager::CScreenManager() { this->clear(); }
 
 CScreenManager::~CScreenManager() { }
@@ -346,5 +337,5 @@ BOOL CScreenManager::FUN_02042110(SceneType scene)
     return FALSE;
 }
 
-void CScreenManager::endGraphics(int arg) { }
-void CScreenManager::startGraphics(int arg) { }
+void CScreenManager::endGraphics(u32 arg) { }
+void CScreenManager::startGraphics(u32 arg) { }

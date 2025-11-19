@@ -2615,7 +2615,7 @@ FUN_ov90_0211c26c: ; 0x0211C26C
 	beq _0211C338
 	ldr r0, _0211C354 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 _0211C338:
 	mov r0, #1
 	strb r0, [r4, #0x27]
@@ -2899,7 +2899,7 @@ _0211C704:
 _0211C720:
 	ldr r0, _0211C768 ; =gL5Sound
 	mov r1, #0x10
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r10
 	mov r1, #3
 	bl FUN_ov90_0211ac00
@@ -3075,7 +3075,7 @@ _0211C948:
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, r5
 	str r5, [r4, #0x140]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov90_0211d0d8
@@ -3083,7 +3083,7 @@ _0211C948:
 _0211C978:
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #9
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C988:
 	ldr r0, [r4, #0x11c]
@@ -3093,12 +3093,12 @@ _0211C988:
 	bne _0211C9AC
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C9AC:
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C9BC:
 	ldr r0, [r4, #0xf8]
@@ -3108,12 +3108,12 @@ _0211C9BC:
 	bne _0211C9E0
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C9E0:
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211C9F0:
 	mov r1, #8
@@ -3123,7 +3123,7 @@ _0211C9F0:
 	bne _0211CA24
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, #0x3d
 	mov r2, #0
@@ -3132,7 +3132,7 @@ _0211C9F0:
 _0211CA24:
 	ldr r0, _0211CA40 ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, #0
 	bl FUN_ov90_0211ac00
@@ -3159,7 +3159,7 @@ _0211CA70:
 	bl FUN_ov90_0211d0d8
 	ldr r0, _0211CB9C ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldr r0, [r6, #0x1d8]
 	cmp r0, #0
 	beq _0211CAA4
@@ -3204,7 +3204,7 @@ _0211CACC:
 	ldr r0, _0211CB9C ; =gL5Sound
 	mov r1, r4
 	str r9, [r6, #0x150]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CB34:
 	ldr r5, [r6, #0xc4]
@@ -3231,7 +3231,7 @@ _0211CB34:
 	ldr r0, _0211CB9C ; =gL5Sound
 	mov r1, #4
 	str r9, [r6, #0x148]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CB9C: .word gL5Sound
 _0211CBA0: .word unk_02099F38
@@ -3259,7 +3259,7 @@ FUN_ov90_0211cba4: ; 0x0211CBA4
 	bl FUN_ov90_0211d0d8
 	ldr r0, _0211CBFC ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r4, pc}
 _0211CBFC: .word gL5Sound
 	arm_func_end FUN_ov90_0211cba4
@@ -3285,7 +3285,7 @@ FUN_ov90_0211cc00: ; 0x0211CC00
 	bl FUN_ov90_0211d0d8
 	ldr r0, _0211CC54 ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r4, pc}
 _0211CC54: .word gL5Sound
 	arm_func_end FUN_ov90_0211cc00
@@ -3323,7 +3323,7 @@ FUN_ov90_0211cc58: ; 0x0211CC58
 	bl FUN_ov16_02113f7c
 	ldr r0, _0211CD44 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CCDC:
 	ldr r4, [r0, #0xc4]
@@ -3349,7 +3349,7 @@ _0211CCDC:
 	bl FUN_ov16_02113f7c
 	ldr r0, _0211CD44 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CD40: .word unk_02099F38
 _0211CD44: .word gL5Sound
@@ -3389,7 +3389,7 @@ FUN_ov90_0211cd48: ; 0x0211CD48
 	bl FUN_ov16_02113f7c
 	ldr r0, _0211CE38 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CDD0:
 	ldr r4, [r0, #0xc4]
@@ -3415,7 +3415,7 @@ _0211CDD0:
 	bl FUN_ov16_02113f7c
 	ldr r0, _0211CE38 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CE34: .word unk_02099F38
 _0211CE38: .word gL5Sound
@@ -4040,28 +4040,28 @@ ov90_0211D680:
 	.word FUN_ov90_0211c7d4
 	.word FUN_ov90_0211d218
 	.word FUN_ov90_02119f00
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov90_0211a0fc
 	.word FUN_ov90_0211a248
 	.word FUN_ov90_0211a030
-	.word FUN_0202b204
-	.word FUN_0202b200
-	.word FUN_0202b1f8
-	.word FUN_0202b1f0
-	.word FUN_0202b1e8
-	.word FUN_0202b1e0
-	.word FUN_0202b320
-	.word FUN_0202b310
-	.word FUN_0202b304
-	.word FUN_0202b2f8
-	.word FUN_0202b2e8
-	.word FUN_0202b2d8
-	.word FUN_0202b2c8
-	.word FUN_0202b2bc
-	.word FUN_0202b2b0
-	.word FUN_0202b1d8
-	.word FUN_0202b1d0
-	.word FUN_0202b1c8
+	.word _ZN12CommonScreen7vFUN_24Ev
+	.word _ZN12CommonScreen7vFUN_28Ev
+	.word _ZN12CommonScreen7vFUN_2CEv
+	.word _ZN12CommonScreen7vFUN_30Ev
+	.word _ZN12CommonScreen7vFUN_34Ev
+	.word _ZN12CommonScreen7vFUN_38Ev
+	.word _ZN16CommonMainScreen9fadeResetEv
+	.word _ZN16CommonMainScreen10fadeUpdateEv
+	.word _ZN16CommonMainScreen8blackOutEv
+	.word _ZN16CommonMainScreen8whiteOutEv
+	.word _ZN16CommonMainScreen6fadeInEv
+	.word _ZN16CommonMainScreen9fadeBlackEv
+	.word _ZN16CommonMainScreen9fadeWhiteEv
+	.word _ZN16CommonMainScreen8isFadingEv
+	.word _ZN16CommonMainScreen16isBrightAdjustedEv
+	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c
 	.word FUN_ov1_020be5bc

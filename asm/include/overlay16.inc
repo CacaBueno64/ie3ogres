@@ -337,7 +337,7 @@
 .public FUN_0206d6b0
 .public unk_0209A0D4
 .public unk_0209A0E4
-.public FUN_0202cf6c
+.public _ZN7L5Sound12FUN_0202cf6cEm
 .public unk_0209AEC0
 .public gL5Sound
 .public unk_0209D7C0
@@ -656,7 +656,7 @@
 .public FUN_02032384
 .public FUN_02032488
 .public FUN_0202ceb0
-.public FUN_0202b7f0
+.public _ZN7L5Sound12FUN_0202b7f0Ev
 .public FUN_0202cfd8
 .public FUN_0202cf00
 .public FUN_0202bfb8
@@ -667,7 +667,7 @@
 .public FUN_0202c44c
 .public FUN_0202c5a4
 .public FUN_0202bec0
-.public FUN_0202b7b4
+.public _ZN7L5Sound12FUN_0202b7b4Ev
 .public FUN_0202c314
 .public _ZN7L5Sound7openSADEPvPch
 .public _ZN7L5Sound12FUN_0202d594Emm

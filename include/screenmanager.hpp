@@ -19,9 +19,9 @@ typedef struct {
 } SFileData;
 
 typedef enum {
-    LAYER_STEP_NONE=0,
-    LAYER_STEP_UP=1,
-    LAYER_STEP_DOWN=2
+    LAYER_STEP_NONE = 0,
+    LAYER_STEP_UP = 1,
+    LAYER_STEP_DOWN = 2
 } SceneLayerStep;
 
 typedef enum {
@@ -161,12 +161,12 @@ class CScreenManager : public CManager {
     public:
         /* 0x02041ac8 */ CScreenManager();
         virtual ~CScreenManager();
-        /* 0x02042128 */ virtual void startGraphics(int arg);
+        /* 0x02042128 */ virtual void startGraphics(u32 arg);
         /* 0x02041b64 */ virtual BOOL updateKeys(u16 pressed, u16 held);
         /* 0x02041bec */ virtual BOOL updateTP(TPData *tp);
         /* 0x02041c58 */ virtual BOOL update(int param1);
         /* 0x02041cc8 */ virtual BOOL updateLate(int param1);
-        /* 0x02042124 */ virtual void endGraphics(int arg);
+        /* 0x02042124 */ virtual void endGraphics(u32 arg);
         /* 0x020420bc */ virtual void updateDisplayMapping(void);
         /* 0x02041dd4 */ virtual void vFUN_34() = 0;
         /* 0x02041dd4 */ virtual int vFUN_38(int arg);
@@ -199,21 +199,30 @@ class CScreenManager : public CManager {
         }
 
     //private:
-        u8 sceneChanged[2];
-        // u8 pad_6[2];
-        SceneLayerStep layerStep[2];
-        SceneType loadedScene[2];
-        int layerIdx[2];
-        SceneLayer layer[4][2];
-        CommonMainScreen *mainScreen;
-        CommonSubScreen *subScreen;
-        u8 nextMainDisplay; // 0: top 1: bottom
-        u8 toggleDisplays;
-        u8 unk_8a;
-        u8 unk_8b;
-        u8 unk_8c;
-        u8 pad_8d;
-        u16 unk_8e;
+    u8 sceneChanged[2];
+    // u8 pad_6[2];
+    SceneLayerStep layerStep[2];
+    SceneType loadedScene[2];
+    int layerIdx[2];
+    SceneLayer layer[4][2];
+    CommonMainScreen *mainScreen;
+    CommonSubScreen *subScreen;
+    u8 nextMainDisplay; // 0: top 1: bottom
+    u8 toggleDisplays;
+    u8 unk_8a;
+    u8 unk_8b;
+    u8 unk_8c;
+    u8 pad_8d;
+    u16 unk_8e;
 };
+
+extern "C" {
+    void FUN_ov16_020f1468(int);
+    void FUN_ov16_020f1514(int);
+    void FUN_ov16_020f1528(int);
+    BOOL FUN_ov16_020f1650(void);
+    BOOL FUN_ov16_020f1660(void);
+    void FUN_ov16_020f16c8(int);
+}
 
 #endif //IE3OGRES_SCREENMANAGER_H

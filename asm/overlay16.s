@@ -3058,7 +3058,7 @@ _020F05F0:
 	bl FUN_ov16_020f0590
 	mov r1, r0
 	ldr r0, _020F0628 ; =gL5Sound
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldr r0, _020F062C ; =0x0209A0E4
 	ldr r1, _020F0630 ; =0x0209A0D4
 	ldrb r2, [r0]
@@ -19337,7 +19337,7 @@ FUN_ov16_020fda8c: ; 0x020FDA8C
 	ldr r0, _020FDBA8 ; =gL5Sound
 	mov r1, #8
 	str r2, [r4, #0x1c]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 _020FDAF0:
 	b _020FDB98
 _020FDAF4:
@@ -19350,7 +19350,7 @@ _020FDAF4:
 	mov r2, #2
 	mov r1, #8
 	str r2, [r4, #0x1c]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 _020FDB1C:
 	b _020FDB98
 _020FDB20:
@@ -19361,7 +19361,7 @@ _020FDB20:
 	bne _020FDB4C
 	ldr r0, _020FDBA8 ; =gL5Sound
 	mov r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, #1
 	b _020FDB68
@@ -19370,7 +19370,7 @@ _020FDB4C:
 	bne _020FDB6C
 	ldr r0, _020FDBA8 ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, #2
 _020FDB68:
@@ -19384,7 +19384,7 @@ _020FDB70:
 	mov r5, #2
 	mov r1, #4
 	str r5, [r4, #0x1c]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov16_020fda74
@@ -19479,7 +19479,7 @@ _020FDC80:
 	bne _020FDCDC
 	ldr r0, _020FDD14 ; =gL5Sound
 	mov r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r5
 	mov r1, #1
 	b _020FDCF8
@@ -19488,7 +19488,7 @@ _020FDCDC:
 	bne _020FDCFC
 	ldr r0, _020FDD14 ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r5
 	mov r1, #2
 _020FDCF8:
@@ -26285,7 +26285,7 @@ _02103904:
 	b _02103944
 _02103924:
 	ldr r0, _02103968 ; =gL5Sound
-	bl FUN_0202b7f0
+	bl _ZN7L5Sound12FUN_0202b7f0Ev
 	cmp r0, #0
 	ldrnesb r0, [r5, #0xb]
 	movne r1, #1
@@ -26361,7 +26361,7 @@ _02103A1C:
 	bgt _02103A68
 	ldr r1, [r5, #0xc]
 	ldr r0, _02103A90 ; =gL5Sound
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldr r0, [r5, #0x1c]
 	ldr r1, [r5, #0x18]
 	subs r0, r0, #1
@@ -26874,7 +26874,7 @@ _02104140:
 	b _02104170
 _02104150:
 	ldr r0, _02104194 ; =gL5Sound
-	bl FUN_0202b7b4
+	bl _ZN7L5Sound12FUN_0202b7b4Ev
 	cmp r0, #0
 	ldrnesb r0, [r6, #0xb]
 	movne r1, #1

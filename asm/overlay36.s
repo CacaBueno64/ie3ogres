@@ -110,7 +110,7 @@ _0211A038:
 	mov r1, #1
 	ldr r0, _0211A0D0 ; =gL5Sound
 	moveq r1, #6
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	add r0, r4, r5
 	ldrb r1, [r0, #0x4c]
 	ldr r0, _0211A0CC ; =0x0209F5C0
@@ -138,7 +138,7 @@ _0211A0A0:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, _0211A0D0 ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	add r0, r4, r5
 	ldrb r1, [r0, #0x4c]
 	ldr r0, _0211A0CC ; =0x0209F5C0
@@ -216,7 +216,7 @@ _0211A190:
 	ldr r0, _0211A1DC ; =gL5Sound
 	mov r1, #4
 _0211A198:
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 _0211A19C:
 	ldr r5, _0211A1E0 ; =0x0209A070
 	ldr r1, [r6, #0x1c]
@@ -1083,28 +1083,28 @@ ov36_0211AD08:
 	.word FUN_ov36_02119fc8
 	.word FUN_ov36_0211a1e8
 	.word FUN_ov36_0211a798
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov36_0211a828
 	.word FUN_ov36_0211a90c
 	.word FUN_ov36_0211a974
-	.word FUN_0202b204
-	.word FUN_0202b200
-	.word FUN_0202b1f8
-	.word FUN_0202b1f0
-	.word FUN_0202b1e8
-	.word FUN_0202b1e0
-	.word FUN_0202b320
-	.word FUN_0202b310
-	.word FUN_0202b304
-	.word FUN_0202b2f8
-	.word FUN_0202b2e8
-	.word FUN_0202b2d8
-	.word FUN_0202b2c8
-	.word FUN_0202b2bc
-	.word FUN_0202b2b0
-	.word FUN_0202b1d8
-	.word FUN_0202b1d0
-	.word FUN_0202b1c8
+	.word _ZN12CommonScreen7vFUN_24Ev
+	.word _ZN12CommonScreen7vFUN_28Ev
+	.word _ZN12CommonScreen7vFUN_2CEv
+	.word _ZN12CommonScreen7vFUN_30Ev
+	.word _ZN12CommonScreen7vFUN_34Ev
+	.word _ZN12CommonScreen7vFUN_38Ev
+	.word _ZN16CommonMainScreen9fadeResetEv
+	.word _ZN16CommonMainScreen10fadeUpdateEv
+	.word _ZN16CommonMainScreen8blackOutEv
+	.word _ZN16CommonMainScreen8whiteOutEv
+	.word _ZN16CommonMainScreen6fadeInEv
+	.word _ZN16CommonMainScreen9fadeBlackEv
+	.word _ZN16CommonMainScreen9fadeWhiteEv
+	.word _ZN16CommonMainScreen8isFadingEv
+	.word _ZN16CommonMainScreen16isBrightAdjustedEv
+	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.global ov36_0211AD74
 ov36_0211AD74:
 	.byte 0x2F, 0x64, 0x61, 0x74, 0x61, 0x5F, 0x69, 0x7A, 0x2F, 0x70, 0x69, 0x63

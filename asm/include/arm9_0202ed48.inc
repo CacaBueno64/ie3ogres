@@ -122,7 +122,7 @@
 .public gL5Allocator
 .public FUN_ov16_02113390
 .public FUN_ov16_021142fc
-.public FUN_0202cf6c
+.public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_02114248
 .public unk_020A0640
 .public gL5Sound

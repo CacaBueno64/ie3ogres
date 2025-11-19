@@ -5,14 +5,43 @@
 
 #include <nitro.h>
 
+typedef struct {
+    u32 nFiles;
+    u32 plttOffs;
+    u32 plttSize;
+    u32 scrnOffs;
+    u32 scrnSize;
+    u32 charOffs;
+    u32 charSize;
+    u32 pad;
+} ImagePAC;
+static inline void *ImagePAC_GetPalettePtr(void *img) {
+    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->plttOffs);
+}
+static inline void *ImagePAC_GetScreenPtr(void *img) {
+    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->scrnOffs);
+}
+static inline void *ImagePAC_GetCharacterPtr(void *img) {
+    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->charOffs);
+}
+static inline u32 ImagePAC_GetPaletteSize(void *img) {
+    return static_cast<ImagePAC*>(img)->plttSize;
+}
+static inline u32 ImagePAC_GetScreenSize(void *img) {
+    return static_cast<ImagePAC*>(img)->scrnSize;
+}
+static inline u32 ImagePAC_GetCharacterSize(void *img) {
+    return static_cast<ImagePAC*>(img)->charSize;
+}
+
 class CommonScreen {
     public:
-        virtual ~CommonScreen();
-        virtual BOOL updateKeys(u16 pressed, u16 held);
-        virtual BOOL updateTP(TPData *tp);
+        virtual ~CommonScreen() { }
+        virtual void updateKeys(u16 pressed, u16 held);
+        virtual void updateTP(TPData *tp);
         virtual void init(void);
         /* 0x0202b208 */ virtual int vFUN_14();
-        virtual void update(int param1);
+        virtual void update(int arg);
         virtual void updateLate(void);
         virtual void close(void);
         /* 0x0202b204 */ virtual void vFUN_24();
@@ -37,9 +66,9 @@ class CommonScreen {
 
 class CommonMainScreen : public CommonScreen {
     public:
-        virtual ~CommonMainScreen();
-        // virtual BOOL updateKeys(u16 pressed, u16 held); // may exist but all children overwrite this
-        // virtual BOOL updateTP(TPData *tp); // may exist but all children overwrite this
+        virtual ~CommonMainScreen() { }
+        // virtual void updateKeys(u16 pressed, u16 held); // may exist but all children overwrite this
+        // virtual void updateTP(TPData *tp); // may exist but all children overwrite this
         /* 0x0202b320 */ virtual void fadeReset(void);
         /* 0x0202b310 */ virtual void fadeUpdate(void);
         /* 0x0202b304 */ virtual void blackOut(void);
@@ -53,9 +82,9 @@ class CommonMainScreen : public CommonScreen {
 
 class CommonSubScreen : public CommonScreen {
     public:
-        virtual ~CommonSubScreen();
-        /* 0x0202b2a8 */ virtual BOOL updateKeys(u16 pressed, u16 held);
-        /* 0x0202b2a4 */ virtual BOOL updateTP(TPData *tp);
+        virtual ~CommonSubScreen() { }
+        /* 0x0202b2a8 */ virtual void updateKeys(u16 pressed, u16 held);
+        /* 0x0202b2a4 */ virtual void updateTP(TPData *tp);
         /* 0x0202b294 */ virtual void fadeReset(void);
         /* 0x0202b284 */ virtual void fadeUpdate(void);
         /* 0x0202b278 */ virtual void blackOut(void);

@@ -44,6 +44,8 @@ Static main
 	Object asm/arm9_02028fa0.o
 	Object src/init.o
 	Object asm/arm9_02029740.o
+	Object src/gamemodes.o
+	Object asm/arm9_0202a020.o
 	Object src/l5movie.o
 	Object asm/arm9_0202ed48.o
 	Object src/l5config.o
@@ -107,7 +109,15 @@ Overlay overlay4
 Overlay overlay5
 {
 	After main
-	Object asm/overlay5.o
+	Object asm/init/ov5_data_0.o
+	Object src/logoscreenmanager.o
+	Object asm/init/ov5_data_1.o
+	Object src/mainlogoscreendcbmp.o
+	Object asm/init/ov5_data_2.o
+	Object src/mainlogoscreeninit.o
+	Object asm/init/ov5_data_3.o
+	Object src/sublogoscreeninit.o
+	Object asm/init/ov5_init.o
 }
 Overlay overlay6
 {

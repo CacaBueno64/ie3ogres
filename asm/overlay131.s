@@ -12045,12 +12045,12 @@ _021453C0:
 _021453D0:
 	ldr r7, _02145538 ; =gL5Sound
 	mov r0, r7
-	bl FUN_0202b7f0
+	bl _ZN7L5Sound12FUN_0202b7f0Ev
 	cmp r0, #0
 	beq _02145514
 	ldr r1, _02145540 ; =0x000040A2
 	mov r0, r7
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r7, #0x1d
 	ldr r0, [r6]
 	ldr r2, _02145544 ; =0x0214CA44

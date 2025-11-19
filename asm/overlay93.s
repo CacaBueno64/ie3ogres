@@ -509,28 +509,28 @@ ov93_02125340:
 	.word FUN_ov93_021252b8
 	.word FUN_ov93_021252b4
 	.word FUN_ov93_02124f1c
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov93_02124f90
 	.word FUN_ov93_02125090
 	.word FUN_ov93_021250d0
-	.word FUN_0202b204
-	.word FUN_0202b200
-	.word FUN_0202b1f8
-	.word FUN_0202b1f0
-	.word FUN_0202b1e8
-	.word FUN_0202b1e0
-	.word FUN_0202b294
-	.word FUN_0202b284
-	.word FUN_0202b278
-	.word FUN_0202b26c
-	.word FUN_0202b25c
-	.word FUN_0202b24c
-	.word FUN_0202b23c
-	.word FUN_0202b230
-	.word FUN_0202b224
+	.word _ZN12CommonScreen7vFUN_24Ev
+	.word _ZN12CommonScreen7vFUN_28Ev
+	.word _ZN12CommonScreen7vFUN_2CEv
+	.word _ZN12CommonScreen7vFUN_30Ev
+	.word _ZN12CommonScreen7vFUN_34Ev
+	.word _ZN12CommonScreen7vFUN_38Ev
+	.word _ZN15CommonSubScreen9fadeResetEv
+	.word _ZN15CommonSubScreen10fadeUpdateEv
+	.word _ZN15CommonSubScreen8blackOutEv
+	.word _ZN15CommonSubScreen8whiteOutEv
+	.word _ZN15CommonSubScreen6fadeInEv
+	.word _ZN15CommonSubScreen9fadeBlackEv
+	.word _ZN15CommonSubScreen9fadeWhiteEv
+	.word _ZN15CommonSubScreen8isFadingEv
+	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov93_02124f88
 	.word FUN_ov93_02124d00
-	.word FUN_0202b1c8
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.global ov93_021253AC
 ov93_021253AC:
 	.byte 0x2F, 0x64, 0x61, 0x74

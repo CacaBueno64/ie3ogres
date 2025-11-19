@@ -705,7 +705,7 @@ FUN_ov87_0211a81c: ; 0x0211A81C
 	mov r4, #6
 	ldr r0, _0211A888 ; =gL5Sound
 	mov r1, r4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldr r0, _0211A88C ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
@@ -1330,7 +1330,7 @@ _0211B094:
 _0211B0C4:
 	ldr r0, _0211B1A0 ; =gL5Sound
 	mov r1, #9
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B0D4:
 	tst r4, #0x40
@@ -2636,7 +2636,7 @@ _0211C2D8:
 _0211C2FC:
 	ldr r0, _0211C340 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, r6
 	mov r1, r5
 	str r5, [r6, #0x1c]
@@ -2950,7 +2950,7 @@ _0211C740:
 	str r6, [r10, #0x58]
 	str r3, [r10, #0x50]
 	str r5, [r10, #0x54]
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldr r1, [r10, #0x1c]
 	mov r0, r10
 	str r4, [r10, #0x44]
@@ -3613,28 +3613,28 @@ ov87_0211D0A8:
 	.word FUN_ov87_0211affc
 	.word FUN_ov87_0211aebc
 	.word FUN_ov87_0211c904
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov87_0211cafc
 	.word FUN_ov87_0211cda0
 	.word FUN_ov87_0211ce10
 	.word FUN_ov87_02119f64
-	.word FUN_0202b200
+	.word _ZN12CommonScreen7vFUN_28Ev
 	.word FUN_ov87_0211a2b4
 	.word FUN_ov87_0211a150
 	.word FUN_ov87_0211a2a0
 	.word FUN_ov87_0211a25c
-	.word FUN_0202b320
-	.word FUN_0202b310
-	.word FUN_0202b304
-	.word FUN_0202b2f8
-	.word FUN_0202b2e8
-	.word FUN_0202b2d8
-	.word FUN_0202b2c8
-	.word FUN_0202b2bc
-	.word FUN_0202b2b0
-	.word FUN_0202b1d8
-	.word FUN_0202b1d0
-	.word FUN_0202b1c8
+	.word _ZN16CommonMainScreen9fadeResetEv
+	.word _ZN16CommonMainScreen10fadeUpdateEv
+	.word _ZN16CommonMainScreen8blackOutEv
+	.word _ZN16CommonMainScreen8whiteOutEv
+	.word _ZN16CommonMainScreen6fadeInEv
+	.word _ZN16CommonMainScreen9fadeBlackEv
+	.word _ZN16CommonMainScreen9fadeWhiteEv
+	.word _ZN16CommonMainScreen8isFadingEv
+	.word _ZN16CommonMainScreen16isBrightAdjustedEv
+	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c
 	.word FUN_ov1_020be5bc

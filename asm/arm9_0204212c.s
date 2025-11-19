@@ -40516,14 +40516,14 @@ unk_0209007C:
 	.word FUN_02029d18
 	.word FUN_020453ac
 	.word FUN_02043c80
-	.word _ZN14CScreenManager13startGraphicsEi
+	.word _ZN14CScreenManager13startGraphicsEm
 	.word _ZN8CManager7vFUN_10Ev
 	.word FUN_020442d8
 	.word FUN_02044320
 	.word FUN_02043d80
 	.word _ZN8CManager7vFUN_20Ev
 	.word FUN_020442cc
-	.word _ZN14CScreenManager11endGraphicsEi
+	.word _ZN14CScreenManager11endGraphicsEm
 	.word FUN_020442d4
 	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_020443a0

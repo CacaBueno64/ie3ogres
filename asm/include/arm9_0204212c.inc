@@ -573,10 +573,10 @@
 .public FUN_0202bb94
 .public unk_02099E8E
 .public FUN_02029d18
-.public _ZN14CScreenManager13startGraphicsEi
+.public _ZN14CScreenManager13startGraphicsEm
 .public _ZN8CManager7vFUN_10Ev
 .public _ZN8CManager7vFUN_20Ev
-.public _ZN14CScreenManager11endGraphicsEi
+.public _ZN14CScreenManager11endGraphicsEm
 .public _ZN14CScreenManager20updateDisplayMappingEv
 .public _ZN14CScreenManager7vFUN_38Ei
 .public _ZN14CScreenManager7vFUN_3CEi

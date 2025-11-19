@@ -781,7 +781,7 @@ FUN_ov34_0211a8f0: ; 0x0211A8F0
 	beq _0211A938
 	ldr r0, _0211AA14 ; =gL5Sound
 	mov r1, #8
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, #0
 	b _0211A93C
 _0211A938:
@@ -1129,7 +1129,7 @@ _0211AD74:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _0211AE8C ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	add r0, r5, r6
 	ldrb r1, [r0, #0x60]
 	ldr r0, _0211AE88 ; =0x0209F5C0
@@ -1147,7 +1147,7 @@ _0211ADA8:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _0211AE8C ; =gL5Sound
 	mov r1, #4
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldrb r1, [r5, #0x6a]
 	mov r0, r6
 	bl FUN_ov16_020f6530
@@ -1349,13 +1349,13 @@ _0211B060:
 	beq _0211B08C
 	ldr r0, _0211B0E0 ; =gL5Sound
 	mov r1, #1
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 	b _0211B08C
 _0211B080:
 	ldr r0, _0211B0E0 ; =gL5Sound
 	mov r1, #1
 _0211B088:
-	bl FUN_0202cf6c
+	bl _ZN7L5Sound12FUN_0202cf6cEm
 _0211B08C:
 	ldr r7, _0211B0E4 ; =0x0209A070
 	ldr r1, [r5, #0x20]
@@ -3654,28 +3654,28 @@ ov34_0211D4B8:
 	.word FUN_ov34_0211abe8
 	.word FUN_ov34_0211b0ec
 	.word FUN_ov34_0211c4ac
-	.word FUN_0202b208
+	.word _ZN12CommonScreen7vFUN_14Ev
 	.word FUN_ov34_0211c7d8
 	.word FUN_ov34_0211c9b4
 	.word FUN_ov34_0211c9f8
-	.word FUN_0202b204
-	.word FUN_0202b200
-	.word FUN_0202b1f8
-	.word FUN_0202b1f0
-	.word FUN_0202b1e8
-	.word FUN_0202b1e0
-	.word FUN_0202b320
-	.word FUN_0202b310
-	.word FUN_0202b304
-	.word FUN_0202b2f8
-	.word FUN_0202b2e8
-	.word FUN_0202b2d8
-	.word FUN_0202b2c8
-	.word FUN_0202b2bc
-	.word FUN_0202b2b0
-	.word FUN_0202b1d8
-	.word FUN_0202b1d0
-	.word FUN_0202b1c8
+	.word _ZN12CommonScreen7vFUN_24Ev
+	.word _ZN12CommonScreen7vFUN_28Ev
+	.word _ZN12CommonScreen7vFUN_2CEv
+	.word _ZN12CommonScreen7vFUN_30Ev
+	.word _ZN12CommonScreen7vFUN_34Ev
+	.word _ZN12CommonScreen7vFUN_38Ev
+	.word _ZN16CommonMainScreen9fadeResetEv
+	.word _ZN16CommonMainScreen10fadeUpdateEv
+	.word _ZN16CommonMainScreen8blackOutEv
+	.word _ZN16CommonMainScreen8whiteOutEv
+	.word _ZN16CommonMainScreen6fadeInEv
+	.word _ZN16CommonMainScreen9fadeBlackEv
+	.word _ZN16CommonMainScreen9fadeWhiteEv
+	.word _ZN16CommonMainScreen8isFadingEv
+	.word _ZN16CommonMainScreen16isBrightAdjustedEv
+	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen7vFUN_68Ev
 	.global ov34_0211D524
 ov34_0211D524:
 	.byte 0x01, 0x00, 0x00, 0x00
