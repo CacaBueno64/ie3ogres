@@ -47,7 +47,7 @@
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f5c34
 .public STD_CompareString
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f63f0
 .public FUN_ov16_020f5a04
 .public FUN_0204bc4c

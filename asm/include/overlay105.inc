@@ -31,7 +31,7 @@
 .public FUN_0204331c
 .public FUN_ov16_020ee008
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_0206d9b0
 .public FUN_0204f02c
 .public FUN_0204fb60

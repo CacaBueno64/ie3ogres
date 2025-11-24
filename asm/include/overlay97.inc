@@ -1,6 +1,6 @@
 .public FUN_ov16_020f6a9c
 .public _ZN11L5Allocator10deallocateEPv
-.public unk_0209F5C0
+.public gBgMenuManager
 .public gL5Allocator
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0c30

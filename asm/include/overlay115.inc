@@ -21,7 +21,7 @@
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f5c34
 .public unk_0209A144
-.public unk_0209F5C0
+.public gBgMenuManager
 .public sprintf
 .public FUN_ov16_020f191c
 .public unk_020A0640

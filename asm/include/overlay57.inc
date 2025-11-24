@@ -122,7 +122,7 @@
 .public FUN_ov16_02113f7c
 .public FUN_ov16_020f52f4
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5eec
 .public FUN_ov16_0210f940
 .public FUN_ov16_0210fa20

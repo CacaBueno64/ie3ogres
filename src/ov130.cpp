@@ -1,13 +1,6 @@
 #include "ov130.hpp"
 
-const UnkStruct_ov130_0212AB60 ov130_0212AB60 = UnkStruct_ov130_0212AB60(
-    0x4e2000,
-    0x0000EA3C,
-    0x800,
-    0x00009CCD,
-    0x2000,
-    0x840800
-);
+const ov130_Init ov130_0212AB60 = ov130_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
 
 void InitAlloc(void)
 {

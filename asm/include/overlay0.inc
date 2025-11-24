@@ -476,7 +476,7 @@
 .public G2S_GetBG2CharPtr
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_0206cc34
 .public FUN_0206ccdc
 .public FUN_0206ccec

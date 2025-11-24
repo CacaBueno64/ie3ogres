@@ -283,7 +283,7 @@ _02125098:
 	strb r4, [r7, #0xe0]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_021250BC: .word unk_0209F5C0
+_021250BC: .word gBgMenuManager
 	arm_func_end FUN_ov103_02124f54
 
 	arm_func_start FUN_ov103_021250c0
@@ -388,7 +388,7 @@ _0212521C:
 	bl DC_FlushRange
 	add sp, sp, #0x170
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02125244: .word unk_0209F5C0
+_02125244: .word gBgMenuManager
 _02125248: .word ov103_02125764
 _0212524C: .word gFont12
 	arm_func_end FUN_ov103_021250c0
@@ -517,7 +517,7 @@ FUN_ov103_0212538c: ; 0x0212538C
 	bl FUN_ov103_02124d78
 	str r4, [r6, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02125414: .word unk_0209F5C0
+_02125414: .word gBgMenuManager
 	arm_func_end FUN_ov103_0212538c
 
 	arm_func_start FUN_ov103_02125418
@@ -617,7 +617,7 @@ _02125548:
 	moveq r0, #5
 	streq r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
-_0212556C: .word unk_0209F5C0
+_0212556C: .word gBgMenuManager
 	arm_func_end FUN_ov103_02125518
 
 	arm_func_start FUN_ov103_02125570
@@ -643,7 +643,7 @@ FUN_ov103_02125570: ; 0x02125570
 	ldr r2, [r2, #0xc]
 	blx r2
 	ldmfd sp!, {r3, r4, r5, pc}
-_021255C4: .word unk_0209F5C0
+_021255C4: .word gBgMenuManager
 	arm_func_end FUN_ov103_02125570
 
 	arm_func_start FUN_ov103_021255c8

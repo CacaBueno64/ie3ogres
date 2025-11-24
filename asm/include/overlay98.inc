@@ -1,7 +1,7 @@
 .public FUN_ov16_020f4894
 .public MI_CpuFill8
 .public FUN_ov16_020f5a58
-.public unk_0209F5C0
+.public gBgMenuManager
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8

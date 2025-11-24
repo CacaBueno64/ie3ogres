@@ -4,6 +4,7 @@
 #pragma once
 
 #include <nitro.h>
+#include "init/ov5_init.hpp"
 
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
@@ -123,7 +124,7 @@ class CLogoScreenManager : public CScreenManager {
 
 extern "C" {
     extern int unk_0209A110;
-    extern void *unk_0209F5C0;
+    extern void *gBgMenuManager;
     extern void FUN_02029d44(int);
     extern void FUN_ov16_020f10c8(void);
     extern void FUN_ov16_020f13d4(void);

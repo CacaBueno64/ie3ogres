@@ -8190,7 +8190,7 @@ _020F47CC:
 	strh r0, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F47E0: .word unk_0209A228
-_020F47E4: .word unk_0209F5C0
+_020F47E4: .word gBgMenuManager
 _020F47E8: .word 0x0000FFBF
 _020F47EC: .word unk_02099F30
 _020F47F0: .word 0x0400000A
@@ -8835,7 +8835,7 @@ _020F516C:
 	strh r0, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F5180: .word unk_0209A23C
-_020F5184: .word unk_0209F5C0
+_020F5184: .word gBgMenuManager
 _020F5188: .word 0x04001000
 _020F518C: .word 0x0000FFBF
 _020F5190: .word 0x00001C10
@@ -9853,7 +9853,7 @@ _020F5EDC:
 	mov r0, r4
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020F5EE8: .word unk_0209F5C0
+_020F5EE8: .word gBgMenuManager
 	arm_func_end FUN_ov16_020f5da0
 
 	arm_func_start FUN_ov16_020f5eec

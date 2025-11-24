@@ -1,5 +1,7 @@
 #include "logoscreen.hpp"
 
+const ov5_Init ov5_020BD8C0 = ov5_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+
 void CLogoScreenManager::init(void)
 {
     this->startGraphics(2);
@@ -39,7 +41,8 @@ void CLogoScreenManager::vFUN_34(void)
 {
     SceneType nextSceneMain = this->getNextSceneMain();
     
-    if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_SUB])) && ((this->mainScreen == NULL) || (!this->mainScreen->isFading())))
+    if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_SUB])) &&
+        ((this->mainScreen == NULL) || (!this->mainScreen->isFading())))
     {
         if (this->mainScreen != NULL) {
             this->mainScreen->close();
@@ -62,26 +65,24 @@ void CLogoScreenManager::vFUN_34(void)
     
     SceneType nextSceneSub = this->getNextSceneSub();
     
-    if ((nextSceneSub == this->getCurSceneSub()) && (!this->sceneChanged[ENGINE_SUB])) {
-        return;
-    }
-    if ((this->subScreen != NULL) && (this->subScreen->isFading())) {
-        return;
-    }
-    if (this->subScreen != NULL) {
-        this->subScreen->close();
-    }
-    switch (nextSceneSub) {
-        case SCENE_TITLE_INIT:
-            this->subScreen = &this->subScreenInit;
-            break;
-        default:
-            this->subScreen = NULL;
-            break;
-    }
-    this->FUN_02041f74(ENGINE_SUB, nextSceneSub);
-    if (this->subScreen != NULL) {
-        this->subScreen->init();
+    if (((this->getCurSceneSub() != nextSceneSub) || (this->sceneChanged[ENGINE_SUB])) &&
+        ((this->subScreen == NULL) || (!this->subScreen->isFading())))
+    {
+        if (this->subScreen != NULL) {
+            this->subScreen->close();
+        }
+        switch (nextSceneSub) {
+            case SCENE_TITLE_INIT:
+                this->subScreen = &this->subScreenInit;
+                break;
+            default:
+                this->subScreen = NULL;
+                break;
+        }
+        this->FUN_02041f74(ENGINE_SUB, nextSceneSub);
+        if (this->subScreen != NULL) {
+            this->subScreen->init();
+        }
     }
 }
 
@@ -110,5 +111,3 @@ void CLogoScreenManager::endGraphics(u32 arg)
     }
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 }
-
-//CLogoScreenManager::~CLogoScreenManager() { }

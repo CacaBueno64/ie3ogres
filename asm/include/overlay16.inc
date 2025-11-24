@@ -493,7 +493,7 @@
 .public GX_SetBankForTexPltt
 .public FUN_02051778
 .public G2_GetBG1ScrPtr
-.public unk_0209F5C0
+.public gBgMenuManager
 .public GX_ResetBankForBG
 .public GX_ResetBankForBGExtPltt
 .public GX_ResetBankForTex

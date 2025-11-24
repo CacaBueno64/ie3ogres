@@ -25,7 +25,7 @@
 .public unk_020A1740
 .public unk_0209AEC0
 .public unk_020A0670
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_020f2fe4

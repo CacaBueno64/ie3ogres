@@ -10,7 +10,7 @@
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f672c
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f2f20
 .public STD_ConcatenateString
 .public FUN_ov16_020f2118

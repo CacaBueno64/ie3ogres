@@ -18,7 +18,7 @@
 .public FUN_ov16_020f6c8c
 .public FUN_02043310
 .public FUN_0204331c
-.public unk_0209F5C0
+.public gBgMenuManager
 .public unk_0209A070
 .public gFont12
 .public FUN_ov16_020f2f20

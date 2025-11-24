@@ -15,7 +15,7 @@
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f10c8
 .public unk_020A8440
-.public unk_0209F5C0
+.public gBgMenuManager
 .public GXS_LoadBG0Char
 .public GXS_LoadBG0Scr
 .public G2S_GetBG1CharPtr

@@ -145,7 +145,7 @@ _0211A0A0:
 	bl FUN_ov16_020f6530
 	str r6, [r4, #0x28]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A0CC: .word unk_0209F5C0
+_0211A0CC: .word gBgMenuManager
 _0211A0D0: .word gL5Sound
 	arm_func_end FUN_ov36_02119fc8
 
@@ -157,7 +157,7 @@ FUN_ov36_0211a0d4: ; 0x0211A0D4
 	ldr r12, _0211A0F0 ; = FUN_ov16_020f6b3c
 	mov r1, #0
 	bx r12
-_0211A0EC: .word unk_0209F5C0
+_0211A0EC: .word gBgMenuManager
 _0211A0F0: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov36_0211a0d4
 
@@ -237,7 +237,7 @@ _0211A1D0:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A1DC: .word gL5Sound
 _0211A1E0: .word unk_0209A070
-_0211A1E4: .word unk_0209F5C0
+_0211A1E4: .word gBgMenuManager
 	arm_func_end FUN_ov36_0211a154
 
 	arm_func_start FUN_ov36_0211a1e8
@@ -304,7 +304,7 @@ _0211A2C0:
 	str r0, [r4, #0x1c]
 	strb r0, [r4, #0x11]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A2D4: .word unk_0209F5C0
+_0211A2D4: .word gBgMenuManager
 	arm_func_end FUN_ov36_0211a1e8
 
 	arm_func_start FUN_ov36_0211a2d8
@@ -641,7 +641,7 @@ _0211A734:
 	strb r0, [r10, #0x4e]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A77C: .word unk_0209F5C0
+_0211A77C: .word gBgMenuManager
 _0211A780: .word unk_0209A070
 	arm_func_end FUN_ov36_0211a5b8
 
@@ -650,7 +650,7 @@ FUN_ov36_0211a784: ; 0x0211A784
 	ldr r0, _0211A790 ; =0x0209F5C0
 	ldr r12, _0211A794 ; = FUN_ov16_020f6274
 	bx r12
-_0211A790: .word unk_0209F5C0
+_0211A790: .word gBgMenuManager
 _0211A794: .word FUN_ov16_020f6274
 	arm_func_end FUN_ov36_0211a784
 
@@ -756,7 +756,7 @@ _0211A89C:
 	mov r1, r5
 	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A908: .word unk_0209F5C0
+_0211A908: .word gBgMenuManager
 	arm_func_end FUN_ov36_0211a828
 
 	arm_func_start FUN_ov36_0211a90c
@@ -790,7 +790,7 @@ _0211A960:
 	mov r1, #0
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_0211A970: .word unk_0209F5C0
+_0211A970: .word gBgMenuManager
 	arm_func_end FUN_ov36_0211a90c
 
 	arm_func_start FUN_ov36_0211a974
@@ -812,7 +812,7 @@ FUN_ov36_0211a974: ; 0x0211A974
 	mov r0, r5
 	bl FUN_ov36_0211a3a8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A9B8: .word unk_0209F5C0
+_0211A9B8: .word gBgMenuManager
 _0211A9BC: .word unk_0209A070
 	arm_func_end FUN_ov36_0211a974
 
@@ -866,7 +866,7 @@ _0211AA48:
 	mov r0, r4
 	bl FUN_ov36_02119f90
 	ldmfd sp!, {r4, pc}
-_0211AA74: .word unk_0209F5C0
+_0211AA74: .word gBgMenuManager
 _0211AA78: .word unk_0209A070
 _0211AA7C: .word unk_020A0640
 _0211AA80: .word ov36_0211AD90

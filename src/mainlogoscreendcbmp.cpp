@@ -1,5 +1,7 @@
 #include "logoscreen.hpp"
 
+const ov5_Init ov5_020BD930 = ov5_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+
 void CMainLogoScreenDCBmp::updateKeys(u16 pressed, u16 held)
 {
     if ((this->unk_10 < 30) || (this->tpTouch)) {

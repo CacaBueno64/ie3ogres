@@ -83,7 +83,7 @@
 .public FUN_02029d44
 .public unk_0209A454
 .public FUN_ov16_020f6084
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f64cc
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_020f6584

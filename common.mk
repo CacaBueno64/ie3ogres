@@ -47,13 +47,9 @@ export LM_LICENSE_FILE := $(TOOLSDIR)/mwccarm/license.dat
 JSONPROC     := $(TOOLSDIR)/jsonproc/jsonproc$(EXE)
 GFX          := $(TOOLSDIR)/nitrogfx/nitrogfx$(EXE)
 FIXROM       := $(TOOLSDIR)/fixrom/fixrom$(EXE)
-KNARC        := $(TOOLSDIR)/knarc/knarc$(EXE)
-O2NARC       := $(TOOLSDIR)/o2narc/o2narc$(EXE)
-MSGENC       := $(TOOLSDIR)/msgenc/msgenc$(EXE)
 ASPATCH      := $(TOOLSDIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 CSV2BIN      := $(TOOLSDIR)/csv2bin/csv2bin$(EXE)
 MKFXCONST    := $(TOOLSDIR)/gen_fx_consts/gen_fx_consts$(EXE)
-MOD123ENCRY  := $(TOOLSDIR)/mod123encry/mod123encry$(EXE)
 
 # Decompiled NitroSDK tools
 COMPSTATIC   := $(TOOLSDIR)/compstatic/compstatic$(EXE)
@@ -65,14 +61,10 @@ NATIVE_TOOLS := \
 	$(JSONPROC) \
 	$(GFX) \
 	$(FIXROM) \
-	$(KNARC) \
-	$(O2NARC) \
-	$(MSGENC) \
 	$(ASPATCH) \
 	$(CSV2BIN) \
 	$(MKFXCONST) \
-	$(COMPSTATIC) \
-	$(MOD123ENCRY)
+	$(COMPSTATIC)
 
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
@@ -83,7 +75,7 @@ TWLDWC_SRC_SUBDIRS        := ac auth bm common cps nas nd nhttp soc ssl util wcm
 
 LIB_SUBDIRS               := TwlSDK TwlSystem TwlDWC_dl MSL_C libMobiclip DSE
 SRC_SUBDIR                := src
-ASM_SUBDIR                := asm asm/init
+ASM_SUBDIR                := asm
 LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/src/%)
 LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/asm/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/asm/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/asm/%)
 ALL_SUBDIRS               := $(SRC_SUBDIR) $(ASM_SUBDIR) $(LIB_SRC_SUBDIR) $(LIB_ASM_SUBDIR)

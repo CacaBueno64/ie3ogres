@@ -1,6 +1,6 @@
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f1138
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6470
 .public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect

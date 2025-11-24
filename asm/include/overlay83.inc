@@ -59,7 +59,7 @@
 .public FUN_ov1_020e5030
 .public FUN_ov16_020f5eec
 .public FUN_ov16_020f153c
-.public unk_0209F5C0
+.public gBgMenuManager
 .public unk_0209A070
 .public ov1_020E9482
 .public FUN_ov132_02143a40

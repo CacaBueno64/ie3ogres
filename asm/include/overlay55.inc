@@ -3,7 +3,7 @@
 .public STD_GetStringLength
 .public STD_CompareNString
 .public FUN_ov16_020f6510
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_02062800
 .public FUN_02045b40
 .public _ZN7L5Sound12FUN_0202cf6cEm

@@ -15760,7 +15760,7 @@ _020CA610:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CA690: .word 0x66666667
-_020CA694: .word unk_0209F5C0
+_020CA694: .word gBgMenuManager
 	arm_func_end FUN_ov0_020ca5c4
 
 	arm_func_start FUN_ov0_020ca698
@@ -15816,7 +15816,7 @@ _020CA6E8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CA758: .word 0x0000270F
 _020CA75C: .word 0xCCCCCCCD
-_020CA760: .word unk_0209F5C0
+_020CA760: .word gBgMenuManager
 	arm_func_end FUN_ov0_020ca698
 
 	arm_func_start FUN_ov0_020ca764
@@ -15888,7 +15888,7 @@ _020CA844:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CA860: .word 0x000003E7
-_020CA864: .word unk_0209F5C0
+_020CA864: .word gBgMenuManager
 	arm_func_end FUN_ov0_020ca764
 
 	arm_func_start FUN_ov0_020ca868
@@ -16075,7 +16075,7 @@ _020CAAA4:
 	bl FUN_ov0_020ca698
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020CAB2C: .word unk_0209F5C0
+_020CAB2C: .word gBgMenuManager
 _020CAB30: .word unk_0209BA20
 	arm_func_end FUN_ov0_020ca868
 
@@ -16264,7 +16264,7 @@ _020CAD74:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020CADF4: .word unk_0209F5C0
+_020CADF4: .word gBgMenuManager
 	arm_func_end FUN_ov0_020cab34
 
 	arm_func_start FUN_ov0_020cadf8
@@ -16339,7 +16339,7 @@ FUN_ov0_020cae30: ; 0x020CAE30
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020CAEF8: .word unk_0209BA20
 _020CAEFC: .word unk_0209A454
-_020CAF00: .word unk_0209F5C0
+_020CAF00: .word gBgMenuManager
 	arm_func_end FUN_ov0_020cae30
 
 	arm_func_start FUN_ov0_020caf04
@@ -16418,7 +16418,7 @@ _020CAFFC:
 	mov r1, #1
 	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, pc}
-_020CB00C: .word unk_0209F5C0
+_020CB00C: .word gBgMenuManager
 	arm_func_end FUN_ov0_020caf04
 
 	arm_func_start FUN_ov0_020cb010
@@ -16442,7 +16442,7 @@ _020CB044:
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_020CB054: .word unk_0209F5C0
+_020CB054: .word gBgMenuManager
 	arm_func_end FUN_ov0_020cb010
 
 	arm_func_start FUN_ov0_020cb058
@@ -16471,7 +16471,7 @@ FUN_ov0_020cb058: ; 0x020CB058
 	ldr r2, [r2, #0xc]
 	blx r2
 	ldmfd sp!, {r3, r4, r5, pc}
-_020CB0B8: .word unk_0209F5C0
+_020CB0B8: .word gBgMenuManager
 	arm_func_end FUN_ov0_020cb058
 
 	arm_func_start FUN_ov0_020cb0bc

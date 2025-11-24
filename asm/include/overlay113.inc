@@ -22,7 +22,7 @@
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f5eec
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f2f20
 .public FUN_02043310
 .public FUN_ov16_020f2184

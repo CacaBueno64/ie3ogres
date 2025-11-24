@@ -16,7 +16,7 @@
 .public FUN_020466c0
 .public unk_0209AEC0
 .public FUN_ov16_020f6084
-.public unk_0209F5C0
+.public gBgMenuManager
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c

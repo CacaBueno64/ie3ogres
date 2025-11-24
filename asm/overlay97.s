@@ -121,7 +121,7 @@ _02124E7C:
 	bl FUN_ov97_0212513c
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02124E9C: .word unk_0209F5C0
+_02124E9C: .word gBgMenuManager
 _02124EA0: .word gL5Allocator
 	arm_func_end FUN_ov97_02124d1c
 
@@ -762,7 +762,7 @@ _0212570C:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125764: .word 0x66666667
-_02125768: .word unk_0209F5C0
+_02125768: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212561c
 
 	arm_func_start FUN_ov97_0212576c
@@ -827,7 +827,7 @@ _021257C8:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125854: .word 0x66666667
-_02125858: .word unk_0209F5C0
+_02125858: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212576c
 
 	arm_func_start FUN_ov97_0212585c
@@ -899,7 +899,7 @@ _021258F4:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
-_02125964: .word unk_0209F5C0
+_02125964: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212585c
 
 	arm_func_start FUN_ov97_02125968
@@ -1256,7 +1256,7 @@ _02125E34:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02125E9C: .word unk_0209F5C0
+_02125E9C: .word gBgMenuManager
 _02125EA0: .word unk_0209BA20
 	arm_func_end FUN_ov97_02125968
 
@@ -1427,7 +1427,7 @@ _021260C0:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
-_02126124: .word unk_0209F5C0
+_02126124: .word gBgMenuManager
 	arm_func_end FUN_ov97_02126098
 
 	arm_func_start FUN_ov97_02126128
@@ -1564,7 +1564,7 @@ _021262A4:
 	bl FUN_ov97_02126098
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02126320: .word unk_0209F5C0
+_02126320: .word gBgMenuManager
 _02126324: .word unk_0209BA20
 _02126328: .word 0x000F423F
 	arm_func_end FUN_ov97_02126178
@@ -1575,7 +1575,7 @@ FUN_ov97_0212632c: ; 0x0212632C
 	ldr r12, _02126340 ; = FUN_ov16_020f672c
 	mov r1, #1
 	bx r12
-_0212633C: .word unk_0209F5C0
+_0212633C: .word gBgMenuManager
 _02126340: .word FUN_ov16_020f672c
 	arm_func_end FUN_ov97_0212632c
 
@@ -1974,7 +1974,7 @@ FUN_ov97_0212683c: ; 0x0212683C
 	ldr r0, _021268E0 ; =0x0209F5C0
 	bl FUN_ov16_020f5a58
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_021268E0: .word unk_0209F5C0
+_021268E0: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212683c
 
 	arm_func_start FUN_ov97_021268e4
@@ -2085,7 +2085,7 @@ _02126A40:
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_02126A50: .word unk_0209F5C0
+_02126A50: .word gBgMenuManager
 	arm_func_end FUN_ov97_02126a10
 
 	arm_func_start FUN_ov97_02126a54
@@ -2137,7 +2137,7 @@ _02126AC8:
 	blx r2
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02126B00: .word gL5Allocator
-_02126B04: .word unk_0209F5C0
+_02126B04: .word gBgMenuManager
 	arm_func_end FUN_ov97_02126a54
 
 	arm_func_start FUN_ov97_02126b08

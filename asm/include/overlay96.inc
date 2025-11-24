@@ -3,7 +3,7 @@
 .public MIi_CpuClear32
 .public gL5Allocator
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public STD_CopyString
 .public STD_ConcatenateString
 .public FUN_ov16_020f2184

@@ -6,7 +6,7 @@
 .public FUN_ov16_020f6470
 .public G2x_SetBlendBrightness_
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public unk_0209F5C0
+.public gBgMenuManager
 .public unk_020A0640
 .public unk_0209A0E0
 .public unk_0209A134

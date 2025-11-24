@@ -1313,7 +1313,7 @@ _0211B114:
 	bl FUN_ov82_0211a9b8
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B144: .word unk_0209F5C0
+_0211B144: .word gBgMenuManager
 _0211B148: .word ov82_021201DC
 	arm_func_end FUN_ov82_0211aca8
 
@@ -1346,7 +1346,7 @@ _0211B168:
 	cmp r5, #2
 	blt _0211B168
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211B1B4: .word unk_0209F5C0
+_0211B1B4: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211b14c
 
 	arm_func_start FUN_ov82_0211b1b8
@@ -1641,7 +1641,7 @@ _0211B5E4:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B5EC: .word unk_020A3D14
-_0211B5F0: .word unk_0209F5C0
+_0211B5F0: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211b1b8
 
 	arm_func_start FUN_ov82_0211b5f4
@@ -2208,7 +2208,7 @@ _0211BE08:
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211BE40: .word unk_02099EF0
-_0211BE44: .word unk_0209F5C0
+_0211BE44: .word gBgMenuManager
 _0211BE48: .word unk_020A3D14
 _0211BE4C: .word ov82_02120260
 _0211BE50: .word 0x00000AAA
@@ -2801,7 +2801,7 @@ _0211C644: .word unk_02099F14
 _0211C648: .word 0x00000269
 _0211C64C: .word 0x00005A69
 _0211C650: .word ov1_020E9482
-_0211C654: .word unk_0209F5C0
+_0211C654: .word gBgMenuManager
 _0211C658: .word ov1_020EAAA8
 _0211C65C: .word unk_02099EF0
 _0211C660: .word ov82_0211FE90
@@ -3464,7 +3464,7 @@ _0211CF58:
 	strne r5, [r4, #0x34]
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211CF90: .word unk_0209F5C0
+_0211CF90: .word gBgMenuManager
 _0211CF94: .word unk_02099EF0
 	arm_func_end FUN_ov82_0211cd1c
 
@@ -3543,7 +3543,7 @@ _0211D08C:
 	mov r0, r4
 	bl FUN_ov82_0211ca1c
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211D0A4: .word unk_0209F5C0
+_0211D0A4: .word gBgMenuManager
 _0211D0A8: .word gL5Sound
 _0211D0AC: .word 0x00004078
 _0211D0B0: .word unk_020A0640
@@ -3579,7 +3579,7 @@ _0211D110:
 	mov r1, #9
 	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r4, pc}
-_0211D120: .word unk_0209F5C0
+_0211D120: .word gBgMenuManager
 _0211D124: .word gL5Sound
 	arm_func_end FUN_ov82_0211d0b4
 
@@ -3787,7 +3787,7 @@ _0211D378:
 	ldmfd sp!, {r3, r4, pc}
 _0211D400: .word unk_02099F14
 _0211D404: .word ov1_020EAAF0
-_0211D408: .word unk_0209F5C0
+_0211D408: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d348
 
 	arm_func_start FUN_ov82_0211d40c
@@ -3849,7 +3849,7 @@ _0211D450:
 _0211D4DC: .word unk_02099EF0
 _0211D4E0: .word unk_02099F14
 _0211D4E4: .word ov1_020EAAEC
-_0211D4E8: .word unk_0209F5C0
+_0211D4E8: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d40c
 
 	arm_func_start FUN_ov82_0211d4ec
@@ -3911,7 +3911,7 @@ _0211D530:
 _0211D5BC: .word unk_02099EF0
 _0211D5C0: .word unk_02099F14
 _0211D5C4: .word ov1_020EAAE8
-_0211D5C8: .word unk_0209F5C0
+_0211D5C8: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d4ec
 
 	arm_func_start FUN_ov82_0211d5cc
@@ -4079,7 +4079,7 @@ _0211D7B8:
 _0211D80C: .word ov1_020EAAEC
 _0211D810: .word ov1_020EAAE8
 _0211D814: .word ov1_020EAAF0
-_0211D818: .word unk_0209F5C0
+_0211D818: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d6bc
 
 	arm_func_start FUN_ov82_0211d81c
@@ -4173,7 +4173,7 @@ _0211D878:
 _0211D96C: .word ov1_020EAAF0
 _0211D970: .word ov1_020EAAE8
 _0211D974: .word ov1_020EAAEC
-_0211D978: .word unk_0209F5C0
+_0211D978: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d81c
 
 	arm_func_start FUN_ov82_0211d97c
@@ -4267,7 +4267,7 @@ _0211D9D8:
 _0211DACC: .word ov1_020EAAF0
 _0211DAD0: .word ov1_020EAAEC
 _0211DAD4: .word ov1_020EAAE8
-_0211DAD8: .word unk_0209F5C0
+_0211DAD8: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211d97c
 
 	arm_func_start FUN_ov82_0211dadc
@@ -4510,7 +4510,7 @@ _0211DE54:
 	bl FUN_ov82_0211d4ec
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211DE74: .word unk_0209F5C0
+_0211DE74: .word gBgMenuManager
 _0211DE78: .word unk_020A0640
 _0211DE7C: .word unk_02099EF0
 	arm_func_end FUN_ov82_0211dadc
@@ -4651,7 +4651,7 @@ _0211DFF8:
 	bl FUN_ov16_020f5eec
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211E08C: .word unk_0209F5C0
+_0211E08C: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211de80
 
 	arm_func_start FUN_ov82_0211e090
@@ -4774,7 +4774,7 @@ _0211E240:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211E250: .word unk_0209AEC0
-_0211E254: .word unk_0209F5C0
+_0211E254: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211e090
 
 	arm_func_start FUN_ov82_0211e258
@@ -4834,7 +4834,7 @@ FUN_ov82_0211e258: ; 0x0211E258
 	strb r0, [r4, #0x3a]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211E334: .word unk_0209F5C0
+_0211E334: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211e258
 
 	arm_func_start FUN_ov82_0211e338
@@ -5037,7 +5037,7 @@ _0211E560:
 _0211E614:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211E61C: .word unk_0209F5C0
+_0211E61C: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211e3e4
 
 	arm_func_start FUN_ov82_0211e620
@@ -5099,7 +5099,7 @@ _0211E6C8:
 	mov r1, r4
 	bl FUN_ov16_020f5a58
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211E6EC: .word unk_0209F5C0
+_0211E6EC: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211e620
 
 	arm_func_start FUN_ov82_0211e6f0
@@ -6261,7 +6261,7 @@ FUN_ov82_0211f714: ; 0x0211F714
 	bl FUN_ov82_0211f654
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211F75C: .word unk_02099EF0
-_0211F760: .word unk_0209F5C0
+_0211F760: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211f714
 
 	arm_func_start FUN_ov82_0211f764
@@ -6519,7 +6519,7 @@ _0211FABC:
 	mov r1, #0
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_0211FACC: .word unk_0209F5C0
+_0211FACC: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211f9f0
 
 	arm_func_start FUN_ov82_0211fad0
@@ -6707,7 +6707,7 @@ _0211FD3C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211FD74: .word ov1_020EAB04
 _0211FD78: .word unk_020A0640
-_0211FD7C: .word unk_0209F5C0
+_0211FD7C: .word gBgMenuManager
 _0211FD80: .word unk_02099EF0
 _0211FD84: .word unk_02099F14
 _0211FD88: .word unk_0209A114
@@ -6757,7 +6757,7 @@ FUN_ov82_0211fd90: ; 0x0211FD90
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211FE2C: .word unk_020A0640
 _0211FE30: .word unk_02099F14
-_0211FE34: .word unk_0209F5C0
+_0211FE34: .word gBgMenuManager
 _0211FE38: .word unk_02099EF0
 	arm_func_end FUN_ov82_0211fd90
 

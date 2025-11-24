@@ -221,7 +221,7 @@
 .public FUN_ov132_021447f4
 .public FUN_ov16_020f5f64
 .public FUN_ov132_021458e4
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov132_02145ff0
 .public FUN_ov132_02148ad8
 .public FUN_ov132_02148ba4

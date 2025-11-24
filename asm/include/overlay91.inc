@@ -52,7 +52,7 @@
 .public FUN_ov16_0210e69c
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f672c
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_021137dc
 .public FUN_ov16_02112c90
 .public FUN_ov16_02113390

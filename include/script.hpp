@@ -17,8 +17,7 @@ typedef struct {
     // Script_StringEntry Strings[StringsCount];
 } Script_FileHeader;
 
-typedef enum u8
-{
+typedef enum {
     SCRIPT_ARGTYPE_UNK1 = 0x01,
     SCRIPT_ARGTYPE_UNK2 = 0x02,
     SCRIPT_ARGTYPE_UNK3 = 0x03,
@@ -44,8 +43,7 @@ typedef struct {
     // u8 String[Size];
 } Script_StringEntry;
 
-typedef enum u32
-{
+typedef enum {
     SCRIPT_TYPE_EVENT  = 0x01,
     SCRIPT_TYPE_MATCH  = 0x02,
     SCRIPT_TYPE_ACTION = 0x03,

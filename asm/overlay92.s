@@ -87,7 +87,7 @@ _02124E20:
 	and r1, r1, #0xfe
 	strb r1, [r6, #0x35c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02124E34: .word unk_0209F5C0
+_02124E34: .word gBgMenuManager
 	arm_func_end FUN_ov92_02124d00
 
 	arm_func_start FUN_ov92_02124e38
@@ -232,7 +232,7 @@ _02124FD8:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
-_0212503C: .word unk_0209F5C0
+_0212503C: .word gBgMenuManager
 	arm_func_end FUN_ov92_02124ed4
 
 	arm_func_start FUN_ov92_02125040
@@ -293,7 +293,7 @@ _021250B0:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
-_0212511C: .word unk_0209F5C0
+_0212511C: .word gBgMenuManager
 	arm_func_end FUN_ov92_02125040
 
 	arm_func_start FUN_ov92_02125120
@@ -355,7 +355,7 @@ _02125194:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
-_02125200: .word unk_0209F5C0
+_02125200: .word gBgMenuManager
 	arm_func_end FUN_ov92_02125120
 
 	arm_func_start FUN_ov92_02125204
@@ -455,7 +455,7 @@ _02125310:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
-_02125374: .word unk_0209F5C0
+_02125374: .word gBgMenuManager
 	arm_func_end FUN_ov92_02125204
 
 	arm_func_start FUN_ov92_02125378
@@ -674,7 +674,7 @@ _02125654:
 	mov r0, r4
 	bl FUN_ov92_02125204
 	ldmfd sp!, {r4, pc}
-_02125668: .word unk_0209F5C0
+_02125668: .word gBgMenuManager
 	arm_func_end FUN_ov92_02125610
 
 	arm_func_start FUN_ov92_0212566c
@@ -1557,7 +1557,7 @@ FUN_ov92_02126218: ; 0x02126218
 	ldr r0, _021262A4 ; =0x0209F5C0
 	bl FUN_ov16_020f5a58
 	ldmfd sp!, {r4, r5, r6, pc}
-_021262A4: .word unk_0209F5C0
+_021262A4: .word gBgMenuManager
 	arm_func_end FUN_ov92_02126218
 
 	arm_func_start FUN_ov92_021262a8
@@ -1650,7 +1650,7 @@ _021263B4:
 	mov r1, #1
 	bl FUN_ov92_02126130
 	ldmfd sp!, {r4, pc}
-_021263E4: .word unk_0209F5C0
+_021263E4: .word gBgMenuManager
 	arm_func_end FUN_ov92_021262a8
 
 	arm_func_start FUN_ov92_021263e8
@@ -1675,7 +1675,7 @@ _02126420:
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_02126430: .word unk_0209F5C0
+_02126430: .word gBgMenuManager
 	arm_func_end FUN_ov92_021263e8
 
 	arm_func_start FUN_ov92_02126434
@@ -1721,7 +1721,7 @@ _02126490:
 	blx r2
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _021264C8: .word gL5Allocator
-_021264CC: .word unk_0209F5C0
+_021264CC: .word gBgMenuManager
 	arm_func_end FUN_ov92_02126434
 
 	arm_func_start FUN_ov92_021264d0

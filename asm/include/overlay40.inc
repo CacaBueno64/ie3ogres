@@ -45,7 +45,7 @@
 .public GX_LoadBG3Char
 .public FUN_ov16_020f10ac
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5eec
 .public FUN_ov16_020f1160
 .public FUN_ov16_020f5ff4

@@ -11,7 +11,7 @@
 .public MIi_CpuClearFast
 .public unk_0209A4E0
 .public FUN_ov16_020f6084
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f6584
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_020f6530

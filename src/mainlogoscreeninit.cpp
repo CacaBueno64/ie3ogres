@@ -1,5 +1,7 @@
 #include "logoscreen.hpp"
 
+const ov5_Init ov5_020BD9D4 = ov5_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+
 void CMainLogoScreenInit::updateKeys(u16 pressed, u16 held) {
     if (this->state == STATE_IMAGE_WAIT && this->scene == SCENE_COPYRIGHT) {
         return;
@@ -171,7 +173,7 @@ void CMainLogoScreenInit::updateLate(void)
             this->state = STATE_FADE_IN;
             break;
         case STATE_IMAGE_WAIT:
-            FUN_ov16_020f6a9c(&unk_0209F5C0, 0);
+            FUN_ov16_020f6a9c(&gBgMenuManager, 0);
             break;
     }
 }
@@ -186,6 +188,6 @@ int CMainLogoScreenInit::vFUN_64(int arg)
 
 void CMainLogoScreenInit::close(void)
 {
-    FUN_ov16_020f5af0(&unk_0209F5C0, 0);
+    FUN_ov16_020f5af0(&gBgMenuManager, 0);
     this->closeArchives();
 }

@@ -1809,7 +1809,7 @@ _0211B75C:
 _0211B778: .word unk_02099EB4
 _0211B77C: .word unk_02099ED4
 _0211B780: .word unk_0209A1A8
-_0211B784: .word unk_0209F5C0
+_0211B784: .word gBgMenuManager
 _0211B788: .word unk_020A1640
 _0211B78C: .word unk_0209A5D0
 	arm_func_end FUN_ov37_0211b550
@@ -2111,7 +2111,7 @@ _0211BB80:
 	mov r1, #0
 	strb r1, [r0]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211BB9C: .word unk_0209F5C0
+_0211BB9C: .word gBgMenuManager
 _0211BBA0: .word unk_0209A454
 _0211BBA4: .word ov4_020DBEC1
 	arm_func_end FUN_ov37_0211bb1c

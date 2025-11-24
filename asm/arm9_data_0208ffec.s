@@ -1,0 +1,934 @@
+
+	.include "/include/arm9_data_0208ffec.inc"
+
+	.data
+	.global unk_0208FFEC
+unk_0208FFEC:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_020421e4
+	.word FUN_02042204
+	.word FUN_02042e4c
+	.word FUN_020430b0
+	.word FUN_02042b4c
+	.word FUN_02042298
+	.word FUN_02042cf4
+	.word FUN_02042420
+	.global unk_0209000C
+unk_0209000C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209002C
+unk_0209002C:
+	.word FUN_02043aa8
+	.word FUN_02043a80
+	.global unk_02090034
+unk_02090034:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090054
+unk_02090054:
+	.word FUN_02043ae8
+	.word FUN_02043b08
+	.global unk_0209005C
+unk_0209005C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209007C
+unk_0209007C:
+	.word FUN_02029d18
+	.word FUN_020453ac
+	.word FUN_02043c80
+	.word _ZN14CScreenManager13startGraphicsEm
+	.word _ZN8CManager7vFUN_10Ev
+	.word FUN_020442d8
+	.word FUN_02044320
+	.word FUN_02043d80
+	.word _ZN8CManager7vFUN_20Ev
+	.word FUN_020442cc
+	.word _ZN14CScreenManager11endGraphicsEm
+	.word FUN_020442d4
+	.word _ZN14CScreenManager20updateDisplayMappingEv
+	.word FUN_020443a0
+	.word _ZN14CScreenManager7vFUN_38Ei
+	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager10signalMainEi
+	.word _ZN14CScreenManager9signalSubEi
+	.word _ZN14CScreenManager7vFUN_48Ev
+	.word _ZN14CScreenManager7vFUN_4CEv
+	.global unk_020900CC
+unk_020900CC:
+	.asciz "pic3d/common"
+	.balign 4, 0
+	.global unk_020900DC
+unk_020900DC:
+	.asciz "spr/efct/efct"
+	.balign 4, 0
+	.global unk_020900EC
+unk_020900EC:
+	.asciz "/data_iz/script/treasurebox.dat"
+	.balign 4, 0
+	.global unk_0209010C
+unk_0209010C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090124
+unk_02090124:
+	.asciz "RPG_CAMERA_DISTANCE"
+	.balign 4, 0
+	.global unk_02090138
+unk_02090138:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_0209013C
+unk_0209013C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090140
+unk_02090140:
+	.asciz "IZ_TYPE"
+	.balign 4, 0
+	.global unk_02090148
+unk_02090148:
+	.asciz "/data_iz/script/rpgencountf.dat"
+	.balign 4, 0
+	.global unk_02090168
+unk_02090168:
+	.asciz "/data_iz/script/rpgencountb.dat"
+	.balign 4, 0
+	.global unk_02090188
+unk_02090188:
+	.asciz "IZ_TYPE"
+	.balign 4, 0
+	.global unk_02090190
+unk_02090190:
+	.asciz "/data_iz/script/rpgencountf.dat"
+	.balign 4, 0
+	.global unk_020901B0
+unk_020901B0:
+	.asciz "/data_iz/script/rpgencountb.dat"
+	.balign 4, 0
+	.global unk_020901D0
+unk_020901D0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020901E0
+unk_020901E0:
+	.word unk_020901EC
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
+	.global unk_020901EC
+unk_020901EC:
+	.asciz "INAZUMA2_VER__1"
+	.balign 4, 0
+	.global unk_020901FC
+unk_020901FC:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090204
+unk_02090204:
+	.word FUN_020463f4
+	.word FUN_02046414
+	.global unk_0209020C
+unk_0209020C:
+	.asciz "0123456789012345678"
+	.balign 4, 0
+	.global unk_02090220
+unk_02090220:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090224
+unk_02090224:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209023C
+unk_0209023C:
+	.asciz "act.pkh"
+	.balign 4, 0
+	.global unk_02090244
+unk_02090244:
+	.asciz "eve.pkh"
+	.balign 4, 0
+	.global unk_0209024C
+unk_0209024C:
+	.asciz "mch.pkh"
+	.balign 4, 0
+	.global unk_02090254
+unk_02090254:
+	.asciz "help.pkh"
+	.balign 4, 0
+	.global unk_02090260
+unk_02090260:
+	.asciz "mcht.pkh"
+	.balign 4, 0
+	.global unk_0209026C
+unk_0209026C:
+	.asciz "evet.pkh"
+	.balign 4, 0
+	.global unk_02090278
+unk_02090278:
+	.word unk_02090220
+	.word unk_02090244
+	.word unk_0209024C
+	.word unk_0209023C
+	.word unk_02090254
+	.global unk_0209028C
+unk_0209028C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.word unk_0209026C
+	.word unk_02090260
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020902A0
+unk_020902A0:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0
+	.global unk_020902B4
+unk_020902B4:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0
+	.global unk_020902C8
+unk_020902C8:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020902CC
+unk_020902CC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020902D0
+unk_020902D0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020902E8
+unk_020902E8:
+	.asciz "act.pkb"
+	.balign 4, 0
+	.global unk_020902F0
+unk_020902F0:
+	.asciz "eve.pkb"
+	.balign 4, 0
+	.global unk_020902F8
+unk_020902F8:
+	.asciz "mch.pkb"
+	.balign 4, 0
+	.global unk_02090300
+unk_02090300:
+	.asciz "help.pkb"
+	.balign 4, 0
+	.global unk_0209030C
+unk_0209030C:
+	.asciz "evet.pkb"
+	.balign 4, 0
+	.global unk_02090318
+unk_02090318:
+	.asciz "mcht.pkb"
+	.balign 4, 0
+	.global unk_02090324
+unk_02090324:
+	.word unk_020902C8
+	.word unk_020902F0
+	.word unk_020902F8
+	.word unk_020902E8
+	.word unk_02090300
+	.global unk_02090338
+unk_02090338:
+	.word unk_020902CC
+	.word unk_0209030C
+	.word unk_02090318
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209034C
+unk_0209034C:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_02090360
+unk_02090360:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0
+	.global unk_02090374
+unk_02090374:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_02090388
+unk_02090388:
+	.asciz ".sst"
+	.balign 4, 0
+	.global unk_02090390
+unk_02090390:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_020903A4
+unk_020903A4:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_020903B8
+unk_020903B8:
+	.asciz ".sst"
+	.balign 4, 0
+	.global SSD_FileIdentifier
+SSD_FileIdentifier:
+	.asciz "SSD"
+	.balign 4, 0
+	.global SSD_FileIdentifier2
+SSD_FileIdentifier2:
+	.asciz "SSD"
+	.balign 4, 0
+	.global unk_020903C8
+unk_020903C8:
+	.asciz "eve%08d.ssd_"
+	.balign 4, 0
+	.global unk_020903D8
+unk_020903D8:
+	.asciz "mch%08d.ssd_"
+	.balign 4, 0
+	.global unk_020903E8
+unk_020903E8:
+	.asciz "act%06d.ssd_"
+	.balign 4, 0
+	.global unk_020903F8
+unk_020903F8:
+	.asciz "help%06d.ssd_"
+	.balign 4, 0
+	.global unk_02090408
+unk_02090408:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090428
+unk_02090428:
+	.word FUN_0204949c
+	.word FUN_020494b0
+	.word FUN_020495e8
+	.word FUN_020494cc
+	.word FUN_02049804
+	.word FUN_02049818
+	.word FUN_0204982c
+	.word FUN_02049594
+	.word FUN_0204989c
+	.word FUN_0204996c
+	.word FUN_020498b8
+	.word FUN_02049a04
+	.word FUN_020494d8
+	.word FUN_02049540
+	.word FUN_02049a30
+	.global unk_02090464
+unk_02090464:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090484
+unk_02090484:
+	.word FUN_020495cc
+	.word FUN_020495d0
+	.word FUN_020495e8
+	.word FUN_020497ec
+	.word FUN_02049804
+	.word FUN_02049818
+	.word FUN_0204982c
+	.word FUN_02049a38
+	.word FUN_0204989c
+	.word FUN_0204996c
+	.word FUN_020498b8
+	.word FUN_02049a04
+	.word FUN_02049840
+	.word FUN_02049a28
+	.word FUN_02049a30
+	.global unk_020904C0
+unk_020904C0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020904D8
+unk_020904D8:
+	.asciz "/data_iz/logic/cmd_cond.dat"
+	.balign 4, 0
+	.global unk_020904F4
+unk_020904F4:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209050C
+unk_0209050C:
+	.asciz "/data_iz/logic/unitbase.dat"
+	.balign 4, 0
+	.global unk_02090528
+unk_02090528:
+	.asciz "/data_iz/logic/unitbase_npc.dat"
+	.balign 4, 0
+	.global unk_02090548
+unk_02090548:
+	.asciz "logic/usearch.dat"
+	.balign 4, 0
+	.global unk_0209055C
+unk_0209055C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209057C
+unk_0209057C:
+	.word FUN_0205108c
+	.word FUN_020510e4
+	.global unk_02090584
+unk_02090584:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209059C
+unk_0209059C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020905B4
+unk_020905B4:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020905D4
+unk_020905D4:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_020523ac
+	.word FUN_020523fc
+	.global unk_020905E8
+unk_020905E8:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090608
+unk_02090608:
+	.word FUN_02052820
+	.word FUN_020528a0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090618
+unk_02090618:
+	.word FUN_020527ac
+	.word FUN_02053134
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090628
+unk_02090628:
+	.word FUN_02052760
+	.word FUN_02053164
+	.global unk_02090630
+unk_02090630:
+	.asciz "eye"
+	.balign 4, 0
+	.global unk_02090634
+unk_02090634:
+	.asciz "lookat"
+	.balign 4, 0
+	.global unk_0209063C
+unk_0209063C:
+	.asciz "roll"
+	.balign 4, 0
+	.global unk_02090644
+unk_02090644:
+	.asciz "/data_iz/model/pac/cmr.pkh"
+	.balign 4, 0
+	.global unk_02090660
+unk_02090660:
+	.asciz "/data_iz/model/pac/cmr.pkb"
+	.balign 4, 0
+	.global unk_0209067C
+unk_0209067C:
+	.asciz "/data_iz/model/pac/cmr.pkb"
+	.balign 4, 0
+	.global unk_02090698
+unk_02090698:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020906B0
+unk_020906B0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020906C8
+unk_020906C8:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020906E8
+unk_020906E8:
+	.word FUN_0205488c
+	.word FUN_020548b0
+	.word FUN_02054f48
+	.word FUN_02054f4c
+	.word FUN_ov0_020cc844
+	.global unk_020906FC
+unk_020906FC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209071C
+unk_0209071C:
+	.word FUN_020567b0
+	.word FUN_020567e8
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209072C
+unk_0209072C:
+	.word FUN_0205635c
+	.word FUN_0205637c
+	.global unk_02090734
+unk_02090734:
+	.asciz "RPG_CHAR_HEIGHT"
+	.balign 4, 0
+	.global unk_02090744
+unk_02090744:
+	.asciz "pch%08d.pac_"
+	.balign 4, 0
+	.global unk_02090754
+unk_02090754:
+	.asciz "pph%04d.PLT"
+	.balign 4, 0
+	.global unk_02090760
+unk_02090760:
+	.asciz "pcb%08d.pac_"
+	.balign 4, 0
+	.global unk_02090770
+unk_02090770:
+	.asciz "ppb%04d.PLT"
+	.balign 4, 0
+	.global unk_0209077C
+unk_0209077C:
+	.asciz "spr/char/pcb"
+	.balign 4, 0
+	.global unk_0209078C
+unk_0209078C:
+	.asciz "spr/char/pch"
+	.balign 4, 0
+	.global unk_0209079C
+unk_0209079C:
+	.asciz "spr/char/ppb"
+	.balign 4, 0
+	.global unk_020907AC
+unk_020907AC:
+	.asciz "spr/char/pph"
+	.balign 4, 0
+	.global unk_020907BC
+unk_020907BC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020907D4
+unk_020907D4:
+	.byte 0x1F, 0x7C, 0xFF, 0x7F, 0x00, 0x00, 0x1F, 0x00, 0xE0, 0x03, 0x00, 0x7C
+	.byte 0xE0, 0x7F, 0x1F, 0x7C, 0xFF, 0x03, 0xB5, 0x56, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020907FC
+unk_020907FC:
+	.word FUN_020585fc
+	.word FUN_0205861c
+	.global unk_02090804
+unk_02090804:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209081C
+unk_0209081C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209082C
+unk_0209082C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209083C
+unk_0209083C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209084C
+unk_0209084C:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090860
+unk_02090860:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090874
+unk_02090874:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090888
+unk_02090888:
+	.asciz "RPG_FOVY"
+	.balign 4, 0
+	.global unk_02090894
+unk_02090894:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020908AC
+unk_020908AC:
+	.asciz "pss.pkh"
+	.balign 4, 0
+	.global unk_020908B4
+unk_020908B4:
+	.asciz "pbh.pkh"
+	.balign 4, 0
+	.global unk_020908BC
+unk_020908BC:
+	.asciz "pbs.pkh"
+	.balign 4, 0
+	.global unk_020908C4
+unk_020908C4:
+	.asciz "psf.pkh"
+	.balign 4, 0
+	.global unk_020908CC
+unk_020908CC:
+	.asciz "pbf.pkh"
+	.balign 4, 0
+	.global unk_020908D4
+unk_020908D4:
+	.asciz "psh.pkh"
+	.balign 4, 0
+	.global unk_020908DC
+unk_020908DC:
+	.asciz "ptb.pkh"
+	.balign 4, 0
+	.global unk_020908E4
+unk_020908E4:
+	.asciz "psb.pkh"
+	.balign 4, 0
+	.global unk_020908EC
+unk_020908EC:
+	.asciz "pbb.pkh"
+	.balign 4, 0
+	.global unk_020908F4
+unk_020908F4:
+	.asciz "pcm.pkh"
+	.balign 4, 0
+	.global unk_020908FC
+unk_020908FC:
+	.word unk_020908D4
+	.word unk_020908B4
+	.word unk_020908C4
+	.word unk_020908CC
+	.word unk_020908E4
+	.word unk_020908EC
+	.word unk_020908AC
+	.word unk_020908BC
+	.word unk_020908DC
+	.word unk_020908F4
+	.global unk_02090924
+unk_02090924:
+	.asciz "/data_iz/model/char/%s"
+	.balign 4, 0
+	.global unk_0209093C
+unk_0209093C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209095C
+unk_0209095C:
+	.word FUN_0205b4f0
+	.word FUN_0205b504
+	.word FUN_0205c99c
+	.word FUN_020523ac
+	.word FUN_020523fc
+	.word FUN_0205c97c
+	.word FUN_0205c954
+	.global unk_02090978
+unk_02090978:
+	.asciz "/data_iz/effect3d/eff.pkh"
+	.balign 4, 0
+	.global unk_02090994
+unk_02090994:
+	.asciz "/data_iz/effect3d/eff.pkb"
+	.balign 4, 0
+	.global unk_020909B0
+unk_020909B0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020909C8
+unk_020909C8:
+	.asciz "pac/mr_pac"
+	.balign 4, 0
+	.global unk_020909D4
+unk_020909D4:
+	.asciz "_pac/mv_pac"
+	.balign 4, 0
+	.global unk_020909E0
+unk_020909E0:
+	.asciz "obj/mr_nsbtx"
+	.balign 4, 0
+	.global unk_020909F0
+unk_020909F0:
+	.asciz "obj/mr_nsbmd"
+	.balign 4, 0
+	.global unk_02090A00
+unk_02090A00:
+	.asciz "_obj/mv_nsbmd"
+	.balign 4, 0
+	.global unk_02090A10
+unk_02090A10:
+	.word unk_020909F0
+	.word unk_02090A00
+	.word unk_020909C8
+	.word unk_020909D4
+	.word unk_020909E0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090A30
+unk_02090A30:
+	.word FUN_0205ca78
+	.word FUN_0205cac8
+	.word FUN_0205cb18
+	.word FUN_020523ac
+	.word FUN_0205e280
+	.word FUN_0205d138
+	.word FUN_0205d158
+	.global unk_02090A4C
+unk_02090A4C:
+	.asciz "/data_iz/model/obj/mv_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090A6C
+unk_02090A6C:
+	.asciz "/data_iz/model/obj/mv_nsbtx.pkh"
+	.balign 4, 0
+	.global unk_02090A8C
+unk_02090A8C:
+	.asciz "/data_iz/model/pac/mv_pac.pkh"
+	.balign 4, 0
+	.global unk_02090AAC
+unk_02090AAC:
+	.asciz "/data_iz/model/obj/mv_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090ACC
+unk_02090ACC:
+	.asciz "/data_iz/model/obj/mv_nsbtx.pkb"
+	.balign 4, 0
+	.global unk_02090AEC
+unk_02090AEC:
+	.asciz "/data_iz/model/pac/mv_pac.pkb"
+	.balign 4, 0
+	.global unk_02090B0C
+unk_02090B0C:
+	.asciz "mv"
+	.balign 4, 0
+	.global unk_02090B10
+unk_02090B10:
+	.asciz "model/%s"
+	.balign 4, 0
+	.global unk_02090B1C
+unk_02090B1C:
+	.asciz "%s.nsbmd_"
+	.balign 4, 0
+	.global unk_02090B28
+unk_02090B28:
+	.asciz "%s.nsbtx_"
+	.balign 4, 0
+	.global unk_02090B34
+unk_02090B34:
+	.asciz "%s.pac_"
+	.balign 4, 0
+	.global unk_02090B3C
+unk_02090B3C:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090B54
+unk_02090B54:
+	.asciz "pac/mo_pac"
+	.balign 4, 0
+	.global unk_02090B60
+unk_02090B60:
+	.asciz "obj/mo_nsbmd"
+	.balign 4, 0
+	.global unk_02090B70
+unk_02090B70:
+	.asciz "_pac/bal_pac.pkh"
+	.balign 4, 0
+	.global unk_02090B84
+unk_02090B84:
+	.asciz "_pac/gol_pac.pkh"
+	.balign 4, 0
+	.global unk_02090B98
+unk_02090B98:
+	.asciz "_obj/mf_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BAC
+unk_02090BAC:
+	.asciz "_obj/gol_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BC0
+unk_02090BC0:
+	.asciz "_obj/ball_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BD4
+unk_02090BD4:
+	.word unk_02090B70
+	.word unk_02090B54
+	.word unk_02090B84
+	.word unk_02090BC0
+	.word unk_02090B60
+	.word unk_02090BAC
+	.word unk_02090B98
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090BF8
+unk_02090BF8:
+	.word FUN_0205e2d8
+	.word FUN_0205e34c
+	.word FUN_0205e3c0
+	.word FUN_020523ac
+	.word FUN_020523fc
+	.word FUN_0205ff60
+	.word FUN_0205ff38
+	.global unk_02090C14
+unk_02090C14:
+	.asciz "/data_iz/model/pac/bal_pac.pkh"
+	.balign 4, 0
+	.global unk_02090C34
+unk_02090C34:
+	.asciz "/data_iz/model/pac/gol_pac.pkh"
+	.balign 4, 0
+	.global unk_02090C54
+unk_02090C54:
+	.asciz "/data_iz/model/obj/ball_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090C78
+unk_02090C78:
+	.asciz "/data_iz/model/obj/gol_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090C9C
+unk_02090C9C:
+	.asciz "/data_iz/model/obj/mf_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090CBC
+unk_02090CBC:
+	.asciz "/data_iz/model/pac/bal_pac.pkb"
+	.balign 4, 0
+	.global unk_02090CDC
+unk_02090CDC:
+	.asciz "/data_iz/model/pac/gol_pac.pkb"
+	.balign 4, 0
+	.global unk_02090CFC
+unk_02090CFC:
+	.asciz "/data_iz/model/obj/ball_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D20
+unk_02090D20:
+	.asciz "/data_iz/model/obj/gol_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D44
+unk_02090D44:
+	.asciz "/data_iz/model/obj/mf_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D64
+unk_02090D64:
+	.asciz ".pac_"
+	.balign 4, 0
+	.global unk_02090D6C
+unk_02090D6C:
+	.asciz "ball"
+	.balign 4, 0
+	.global unk_02090D74
+unk_02090D74:
+	.asciz "bal"
+	.balign 4, 0
+	.global unk_02090D78
+unk_02090D78:
+	.asciz "mo"
+	.balign 4, 0
+	.global unk_02090D7C
+unk_02090D7C:
+	.asciz "gol"
+	.balign 4, 0
+	.global unk_02090D80
+unk_02090D80:
+	.asciz "mf"
+	.balign 4, 0
+	.global unk_02090D84
+unk_02090D84:
+	.asciz "%s%04d"
+	.balign 4, 0
+	.global unk_02090D8C
+unk_02090D8C:
+	.asciz "%s%06d%02d"
+	.balign 4, 0
+	.global unk_02090D98
+unk_02090D98:
+	.asciz "model/%s"
+	.balign 4, 0
+	.global unk_02090DA4
+unk_02090DA4:
+	.asciz "mo%04d.nsbmd_"
+	.balign 4, 0
+	.global unk_02090DB4
+unk_02090DB4:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word unk_02090DF0
+	.word unk_02090DDC
+	.word unk_02090DE4
+	.word unk_02090DFC 
+	.global unk_02090DDC
+unk_02090DDC:
+	.asciz "st_data"
+	.balign 4, 0
+	.global unk_02090DE4
+unk_02090DE4:
+	.asciz "SRecordInfo"
+	.balign 4, 0
+	.global unk_02090DF0
+unk_02090DF0:
+	.asciz "SRecordPass"
+	.balign 4, 0
+	.global unk_02090DFC
+unk_02090DFC: ; shift-jis string
+	.byte 0x81, 0xA6, 0x81, 0x40
+	.byte 0x81, 0x44, 0x81, 0x48, 0x81, 0x49, 0x81, 0x5B, 0x81, 0x63, 0x82, 0x9F, 0x82, 0xA0, 0x82, 0xA1
+	.byte 0x82, 0xA2, 0x82, 0xA3, 0x82, 0xA4, 0x82, 0xA5, 0x82, 0xA6, 0x82, 0xA7, 0x82, 0xA8, 0x82, 0xA9
+	.byte 0x82, 0xAA, 0x82, 0xAB, 0x82, 0xAC, 0x82, 0xAD, 0x82, 0xAE, 0x82, 0xAF, 0x82, 0xB0, 0x82, 0xB1
+	.byte 0x82, 0xB2, 0x82, 0xB3, 0x82, 0xB4, 0x82, 0xB5, 0x82, 0xB6, 0x82, 0xB7, 0x82, 0xB8, 0x82, 0xB9
+	.byte 0x82, 0xBA, 0x82, 0xBB, 0x82, 0xBC, 0x82, 0xBD, 0x82, 0xBE, 0x82, 0xBF, 0x82, 0xC0, 0x82, 0xC1
+	.byte 0x82, 0xC2, 0x82, 0xC3, 0x82, 0xC4, 0x82, 0xC5, 0x82, 0xC6, 0x82, 0xC7, 0x82, 0xC8, 0x82, 0xC9
+	.byte 0x82, 0xCA, 0x82, 0xCB, 0x82, 0xCC, 0x82, 0xCD, 0x82, 0xCE, 0x82, 0xCF, 0x82, 0xD0, 0x82, 0xD1
+	.byte 0x82, 0xD2, 0x82, 0xD3, 0x82, 0xD4, 0x82, 0xD5, 0x82, 0xD6, 0x82, 0xD7, 0x82, 0xD8, 0x82, 0xD9
+	.byte 0x82, 0xDA, 0x82, 0xDB, 0x82, 0xDC, 0x82, 0xDD, 0x82, 0xDE, 0x82, 0xDF, 0x82, 0xE0, 0x82, 0xE1
+	.byte 0x82, 0xE2, 0x82, 0xE3, 0x82, 0xE4, 0x82, 0xE5, 0x82, 0xE6, 0x82, 0xE7, 0x82, 0xE8, 0x82, 0xE9
+	.byte 0x82, 0xEA, 0x82, 0xEB, 0x82, 0xEC, 0x82, 0xED, 0x82, 0xF0, 0x82, 0xF1, 0x83, 0x40, 0x83, 0x41
+	.byte 0x83, 0x42, 0x83, 0x43, 0x83, 0x44, 0x83, 0x45, 0x83, 0x46, 0x83, 0x47, 0x83, 0x48, 0x83, 0x49
+	.byte 0x83, 0x4A, 0x83, 0x4B, 0x83, 0x4C, 0x83, 0x4D, 0x83, 0x4E, 0x83, 0x4F, 0x83, 0x50, 0x83, 0x51
+	.byte 0x83, 0x52, 0x83, 0x53, 0x83, 0x54, 0x83, 0x55, 0x83, 0x56, 0x83, 0x57, 0x83, 0x58, 0x83, 0x59
+	.byte 0x83, 0x5A, 0x83, 0x5B, 0x83, 0x5C, 0x83, 0x5D, 0x83, 0x5E, 0x83, 0x5F, 0x83, 0x60, 0x83, 0x61
+	.byte 0x83, 0x62, 0x83, 0x63, 0x83, 0x64, 0x83, 0x65, 0x83, 0x66, 0x83, 0x67, 0x83, 0x68, 0x83, 0x69
+	.byte 0x83, 0x6A, 0x83, 0x6B, 0x83, 0x6C, 0x83, 0x6D, 0x83, 0x6E, 0x83, 0x6F, 0x83, 0x70, 0x83, 0x71
+	.byte 0x83, 0x72, 0x83, 0x73, 0x83, 0x74, 0x83, 0x75, 0x83, 0x76, 0x83, 0x77, 0x83, 0x78, 0x83, 0x79
+	.byte 0x83, 0x7A, 0x83, 0x7B, 0x83, 0x7C, 0x83, 0x7D, 0x83, 0x7E, 0x83, 0x80, 0x83, 0x81, 0x83, 0x82
+	.byte 0x83, 0x83, 0x83, 0x84, 0x83, 0x85, 0x83, 0x86, 0x83, 0x87, 0x83, 0x88, 0x83, 0x89, 0x83, 0x8A
+	.byte 0x83, 0x8B, 0x83, 0x8C, 0x83, 0x8D, 0x83, 0x8E, 0x83, 0x8F, 0x83, 0x92, 0x83, 0x93, 0x83, 0x94
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090F54
+unk_02090F54:
+	.asciz "%s.%s"
+	.balign 4, 0
+	.global unk_02090F5C
+unk_02090F5C:
+	.asciz "%s.%s[%d]"
+	.balign 4, 0
+	.global unk_02090F68
+unk_02090F68:
+	.asciz "%s.%s"
+	.balign 4, 0
+	.global unk_02090F70
+unk_02090F70:
+	.asciz "%s.%s"
+	.balign 4, 0
+	.global unk_02090F78
+unk_02090F78:
+	.asciz "%s.%s[0]"
+	.balign 4, 0
+	.global unk_02090F84
+unk_02090F84:
+	.asciz "%s.%s"
+	.balign 4, 0
+	.global unk_02090F8C
+unk_02090F8C:
+	.asciz "%s.%s[%d]"
+	.balign 4, 0
+	.global unk_02090F98
+unk_02090F98:
+	.asciz "/data_iz/bfmt/cnvdat.bin"
+	.balign 4, 0
+	.global unk_02090FB4
+unk_02090FB4:
+	.asciz "/data_iz/bfmt/ver%04d.bin"
+	.balign 4, 0
+	.global unk_02090FD0
+unk_02090FD0:
+	.asciz "INAZUMA_ELEVEN3"
+	.balign 4, 0
+	.global unk_02090FE0
+unk_02090FE0:
+	.asciz "INAZUMA_ELEVEN3"
+	.balign 4, 0
+	.global unk_02090FF0
+unk_02090FF0:
+	.asciz "INAZUMA_ELEVEN3"
+	.balign 4, 0
+	.global unk_02091000
+unk_02091000:
+	.asciz "globalmap"
+	.balign 4, 0

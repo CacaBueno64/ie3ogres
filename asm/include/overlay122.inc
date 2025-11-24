@@ -40,7 +40,7 @@
 .public FUN_ov16_020f10c8
 .public FUN_ov16_020f1a60
 .public unk_020A9440
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5c34
 .public FUN_0204f02c
 .public FUN_ov16_020f6084

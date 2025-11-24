@@ -52,7 +52,7 @@
 .public FUN_ov1_020dbfdc
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f6b3c
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_020732d8
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_0202d724

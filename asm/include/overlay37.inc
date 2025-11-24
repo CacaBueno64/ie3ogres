@@ -64,7 +64,7 @@
 .public operator_new_array
 .public MI_CpuFill8
 .public unk_0209A1A8
-.public unk_0209F5C0
+.public gBgMenuManager
 .public unk_0209A5D0
 .public FUN_ov16_020f330c
 .public L5FS_IsArchiveReady

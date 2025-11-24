@@ -41,7 +41,7 @@
 .public unk_0208F6C0
 .public unk_020A3D14
 .public unk_0208F6B0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public unk_0208F6D0
 .public unk_02099E8C
 .public unk_0209A3E0

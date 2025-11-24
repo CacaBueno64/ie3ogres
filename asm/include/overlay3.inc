@@ -66,7 +66,7 @@
 .public FUN_ov16_020f10ac
 .public unk_0209A144
 .public FUN_ov16_020f5c34
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f672c

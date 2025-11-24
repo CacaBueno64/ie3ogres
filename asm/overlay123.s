@@ -249,7 +249,7 @@ FUN_ov123_02124fec: ; 0x02124FEC
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
-_0212506C: .word unk_0209F5C0
+_0212506C: .word gBgMenuManager
 	arm_func_end FUN_ov123_02124fec
 
 	arm_func_start FUN_ov123_02125070
@@ -447,7 +447,7 @@ _021252EC:
 	mov r1, #0
 	bl FUN_ov1_020dbccc
 	ldmfd sp!, {r4, pc}
-_02125304: .word unk_0209F5C0
+_02125304: .word gBgMenuManager
 _02125308: .word unk_020A8440
 	arm_func_end FUN_ov123_02125264
 

@@ -1,8 +1,3 @@
-.public _Z14LogoScreenLoadP15GameModeContext
-.public _ZTV18CLogoScreenManager
-.public _ZTV19CMainLogoScreenInit
-.public _ZTV20CMainLogoScreenDCBmp
-.public _ZTV18CSubLogoScreenInit
 .public MI_CpuFill8
 .public FUN_02074784
 .public FUN_0207478c
@@ -14,6 +9,7 @@
 .public unk_020A0640
 .public unk_020A0B00
 .public unk_020A1140
+.public unk_02099E8C
 .public unk_02099EE0
 .public unk_0209A050
 .public unk_0209A060
@@ -23,7 +19,10 @@
 .public unk_02099F5C
 .public unk_02099F62
 .public unk_02099F68
+.public unk_02099EA6
+.public unk_02099EA9
 .public unk_02099F6E
+.public unk_02099EAC
 .public unk_0209A090
 .public unk_0209A454
 .public unk_0209A5D0
@@ -33,7 +32,12 @@
 .public _ZN11FontManager11G2dFontInitEPvmh
 .public _ZN13FontManager_2C1Ev
 .public _ZN8L5Config8getParamEPc
+.public unk_0208F800
+.public unk_0208F81C
+.public unk_0208F838
+.public unk_0208F854
 .public gL5Config
+.public unk_0208F870
 .public FUN_0202b448
 .public _ZN7L5Sound12FUN_0202b838Eiii
 .public _ZN7L5Sound12FUN_0202b7b4Ev
@@ -64,9 +68,11 @@
 .public FUN_02047ad4
 .public _ZN14CScreenManagerD2Ev
 .public unk_020B5AE0
+.public unk_0208F898
 .public FUN_0202a288
 .public FUN_0202a1a0
 .public FUN_0202a020
+.public _Z14LogoScreenLoadP15GameModeContext
 .public FUN_ov16_LoadOverlay
 .public _ZN14CScreenManagerC2Ev
 .public ov15_020E6508

@@ -13,7 +13,7 @@
 .public gL5Allocator
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f1868
 .public GXS_LoadBG1Char

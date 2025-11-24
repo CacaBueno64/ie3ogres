@@ -36,7 +36,7 @@
 .public unk_0209A114
 .public unk_020A0640
 .public unk_02099EF0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public ov1_020E9482
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_01ff9c08

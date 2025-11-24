@@ -1,6 +1,6 @@
 .public FUN_ov16_020f1528
 .public FUN_ov16_020f5af0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_0202de44
 .public MIi_CpuClear32
 .public gL5Allocator

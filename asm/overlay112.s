@@ -274,7 +274,7 @@ _021250A8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021250B4: .word ov112_0212578C
 _021250B8: .word unk_020A8440
-_021250BC: .word unk_0209F5C0
+_021250BC: .word gBgMenuManager
 	arm_func_end FUN_ov112_02124ea8
 
 	arm_func_start FUN_ov112_021250c0
@@ -444,7 +444,7 @@ _021252C0:
 	strb r4, [r7, #0x125]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02125338: .word unk_0209F5C0
+_02125338: .word gBgMenuManager
 	arm_func_end FUN_ov112_021250c0
 
 	arm_func_start FUN_ov112_0212533c
@@ -614,7 +614,7 @@ FUN_ov112_021254c8: ; 0x021254C8
 	mov r0, r5
 	bl FUN_ov112_02124d00
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_021255A4: .word unk_0209F5C0
+_021255A4: .word gBgMenuManager
 	arm_func_end FUN_ov112_021254c8
 
 	arm_func_start FUN_ov112_021255a8
@@ -694,7 +694,7 @@ _02125690:
 	mov r0, r4
 	bl FUN_ov112_021253a0
 	ldmfd sp!, {r4, pc}
-_021256A8: .word unk_0209F5C0
+_021256A8: .word gBgMenuManager
 	arm_func_end FUN_ov112_02125634
 
 	arm_func_start FUN_ov112_021256ac

@@ -1,0 +1,12 @@
+.public FUN_0206b9f4
+.public FUN_0206ba08
+.public FUN_02042e4c
+.public FUN_020430b0
+.public FUN_0206ba24
+.public FUN_0206bdac
+.public FUN_0206bc20
+.public FUN_0206bf74
+.public FUN_0206c110
+.public FUN_0206c130
+.public FUN_0206f150
+.public FUN_0206f170

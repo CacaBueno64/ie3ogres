@@ -282,7 +282,7 @@ _0211A228:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211A2F0: .word unk_0209F5C0
+_0211A2F0: .word gBgMenuManager
 _0211A2F4: .word unk_0209A070
 _0211A2F8: .word gFont12
 _0211A2FC: .word ov79_0211AAD0
@@ -369,7 +369,7 @@ FUN_ov79_0211a39c: ; 0x0211A39C
 	ldr r0, _0211A42C ; =0x0209F5C0
 	bl FUN_ov16_020f6530
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A42C: .word unk_0209F5C0
+_0211A42C: .word gBgMenuManager
 _0211A430: .word gL5Sound
 _0211A434: .word unk_0209A070
 	arm_func_end FUN_ov79_0211a39c
@@ -382,7 +382,7 @@ FUN_ov79_0211a438: ; 0x0211A438
 	ldr r12, _0211A454 ; = FUN_ov16_020f6b3c
 	mov r1, #0
 	bx r12
-_0211A450: .word unk_0209F5C0
+_0211A450: .word gBgMenuManager
 _0211A454: .word FUN_ov16_020f6b3c
 	arm_func_end FUN_ov79_0211a438
 
@@ -443,7 +443,7 @@ FUN_ov79_0211a4a4: ; 0x0211A4A4
 	ldmfd sp!, {r4, pc}
 _0211A508: .word gL5Sound
 _0211A50C: .word unk_0209A070
-_0211A510: .word unk_0209F5C0
+_0211A510: .word gBgMenuManager
 	arm_func_end FUN_ov79_0211a4a4
 
 	arm_func_start FUN_ov79_0211a514
@@ -521,7 +521,7 @@ _0211A618:
 	str r0, [r5, #0x1c]
 	strb r0, [r5, #0x12]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A62C: .word unk_0209F5C0
+_0211A62C: .word gBgMenuManager
 	arm_func_end FUN_ov79_0211a514
 
 	arm_func_start FUN_ov79_0211a630
@@ -618,7 +618,7 @@ _0211A778: .word unk_02099EE8
 _0211A77C: .word unk_02099EEC
 _0211A780: .word unk_02099F10
 _0211A784: .word unk_02099F38
-_0211A788: .word unk_0209F5C0
+_0211A788: .word gBgMenuManager
 	arm_func_end FUN_ov79_0211a630
 
 	arm_func_start FUN_ov79_0211a78c
@@ -661,7 +661,7 @@ _0211A80C:
 	mov r1, #0
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
-_0211A81C: .word unk_0209F5C0
+_0211A81C: .word gBgMenuManager
 	arm_func_end FUN_ov79_0211a78c
 
 	arm_func_start FUN_ov79_0211a820
@@ -721,7 +721,7 @@ FUN_ov79_0211a820: ; 0x0211A820
 	bl FUN_020443e8
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A8F8: .word ov1_020E9483
-_0211A8FC: .word unk_0209F5C0
+_0211A8FC: .word gBgMenuManager
 _0211A900: .word unk_0209A070
 _0211A904: .word gL5Sound
 _0211A908: .word unk_020AF81C
@@ -749,7 +749,7 @@ FUN_ov79_0211a90c: ; 0x0211A90C
 	mov r1, #1
 	bl FUN_ov16_020f2fe4
 	ldmfd sp!, {r4, pc}
-_0211A95C: .word unk_0209F5C0
+_0211A95C: .word gBgMenuManager
 _0211A960: .word unk_0209A070
 	arm_func_end FUN_ov79_0211a90c
 

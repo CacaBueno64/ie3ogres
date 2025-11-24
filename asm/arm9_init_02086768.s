@@ -199,7 +199,7 @@ _02086A60: .word unk_02099FF0
 _02086A64: .word unk_0208F6C0
 _02086A68: .word unk_020A3D14
 _02086A6C: .word unk_0208F6B0
-_02086A70: .word unk_0209F5C0
+_02086A70: .word gBgMenuManager
 _02086A74: .word unk_0208F6D0
 _02086A78: .word unk_02099E8C
 _02086A7C: .word unk_0209A3E0

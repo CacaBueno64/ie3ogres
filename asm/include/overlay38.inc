@@ -1,7 +1,7 @@
 .public STD_GetStringLength
 .public STD_CompareNString
 .public FUN_ov16_020f6510
-.public unk_0209F5C0
+.public gBgMenuManager
 .public _ZN14CScreenManager12FUN_02041d9cEv
 .public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_0209A454

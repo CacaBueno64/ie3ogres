@@ -9718,7 +9718,6 @@ calcTexMtx_Xsi:
 	.word texmtxCalc_flagTS_Xsi
 	.word texmtxCalc_flagTR_Xsi
 	.word texmtxCalc_flagTRS_Xsi
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
 	.bss
 	.global NNS_G3dGlb

@@ -42,29 +42,44 @@ Static main
 	Object lib/MSL_C/asm/libmsl.o
 
 	Object asm/arm9_02028fa0.o
+	Object asm/arm9_data_0208f680.o
+	Object asm/arm9_bss_02099e8c.o
 	Object src/init.o
 	Object asm/arm9_02029740.o
+	Object asm/arm9_data_0208f800.o
 	Object src/gamemodes.o
 	Object asm/arm9_0202a020.o
+	Object asm/arm9_rodata_0208c340.o
+	Object asm/arm9_data_0208f904.o
 	Object src/l5movie.o
 	Object asm/arm9_0202ed48.o
+	Object asm/arm9_rodata_0208c35c.o
+	Object asm/arm9_data_0208fbe8.o
+	Object asm/arm9_bss_02099eb0.o
 	Object src/l5config.o
 	Object asm/arm9_data_0208ff14.o
 	Object src/screenmanager.o
 	Object asm/arm9_0204212c.o
+	Object asm/arm9_rodata_0208c384.o
+	Object asm/arm9_data_0208ffec.o
+	Object asm/arm9_bss_02099f90.o
 	Object src/savedata.o
 
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
 
 	Object asm/arm9_0206b9c4.o
+	Object asm/arm9_rodata_0208c504.o
+	Object asm/arm9_data_0209128c.o
+	Object asm/arm9_bss_020b9d4c.o
 
 	# DSE library
 	Object lib/DSE/asm/libDSE.o
 
-	Object asm/arm9_data_020938A0.o
+	Object asm/arm9_data_020938a0.o
 	Object src/l5fs.o
 	Object asm/arm9_init_02086768.o
+	Object asm/arm9_sinit.o
 }
 
 Autoload ITCM
@@ -109,15 +124,10 @@ Overlay overlay4
 Overlay overlay5
 {
 	After main
-	Object asm/init/ov5_data_0.o
 	Object src/logoscreenmanager.o
-	Object asm/init/ov5_data_1.o
 	Object src/mainlogoscreendcbmp.o
-	Object asm/init/ov5_data_2.o
 	Object src/mainlogoscreeninit.o
-	Object asm/init/ov5_data_3.o
 	Object src/sublogoscreeninit.o
-	Object asm/init/ov5_init.o
 }
 Overlay overlay6
 {

@@ -87,7 +87,7 @@ BOOL CScreenManager::updateLate(int param1)
 
 void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx)
 {
-    while (ctx->type != SCENE_NONE) {
+    for ( ; ctx->type != SCENE_NONE; ctx++) {
         if ((ctx->isInit) && (ctx->screen == screen)) {
             FS_UnloadOverlay(MI_PROCESSOR_ARM9, ctx->id);
             
@@ -95,9 +95,8 @@ void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx)
                 delete ctx->screen;
             }
             ctx->screen = NULL;
-            return;
+            break;
         }
-        ctx++;
     }
 }
 
@@ -330,12 +329,14 @@ BOOL CScreenManager::FUN_02042110(SceneType scene)
     if ((scene == SCENE_MENU_FORMATION) ||
         (scene == SCENE_MENU_ITEM) ||
         (scene == SCENE_MENU_SPECIAL_COMMAND) ||
-        (scene == SCENE_MENU_EQUIP)) {
-            return TRUE;
+        (scene == SCENE_MENU_EQUIP))
+    {
+        return TRUE;
     }
 
     return FALSE;
 }
 
 void CScreenManager::endGraphics(u32 arg) { }
+
 void CScreenManager::startGraphics(u32 arg) { }

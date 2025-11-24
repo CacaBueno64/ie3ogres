@@ -3,7 +3,7 @@
 .public FUN_ov16_020f6584
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_020f6530
-.public unk_0209F5C0
+.public gBgMenuManager
 .public gL5Sound
 .public FUN_ov16_020f6b3c
 .public unk_0209A070

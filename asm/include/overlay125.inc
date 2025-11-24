@@ -21,7 +21,7 @@
 .public FUN_0204294c
 .public gFont12
 .public FUN_ov16_020f5da0
-.public unk_0209F5C0
+.public gBgMenuManager
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f1868

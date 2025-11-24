@@ -443,7 +443,7 @@ _021252AC:
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125310: .word 0x66666667
-_02125314: .word unk_0209F5C0
+_02125314: .word gBgMenuManager
 	arm_func_end FUN_ov104_0212517c
 
 	arm_func_start FUN_ov104_02125318
@@ -664,7 +664,7 @@ _021255C0:
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
-_02125650: .word unk_0209F5C0
+_02125650: .word gBgMenuManager
 _02125654: .word 0x000003E7
 _02125658: .word 0x0000FFE0
 	arm_func_end FUN_ov104_02125318
@@ -1035,7 +1035,7 @@ FUN_ov104_02125ab0: ; 0x02125AB0
 	bl FUN_ov104_02124dec
 	str r5, [r6, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02125B40: .word unk_0209F5C0
+_02125B40: .word gBgMenuManager
 	arm_func_end FUN_ov104_02125ab0
 
 	arm_func_start FUN_ov104_02125b44
@@ -1356,7 +1356,7 @@ _02125FC4: .word ov104_02126300
 _02125FC8: .word ov104_02126304
 _02125FCC: .word ov104_02126310
 _02125FD0: .word ov104_021260CE
-_02125FD4: .word unk_0209F5C0
+_02125FD4: .word gBgMenuManager
 _02125FD8: .word 0x04001000
 	arm_func_end FUN_ov104_02125b44
 
@@ -1394,7 +1394,7 @@ FUN_ov104_02125fe0: ; 0x02125FE0
 	blx r2
 	ldmfd sp!, {r3, r4, r5, pc}
 _02126048: .word gL5Allocator
-_0212604C: .word unk_0209F5C0
+_0212604C: .word gBgMenuManager
 	arm_func_end FUN_ov104_02125fe0
 
 	arm_func_start FUN_ov104_02126050

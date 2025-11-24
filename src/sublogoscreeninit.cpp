@@ -1,5 +1,7 @@
 #include "logoscreen.hpp"
 
+const ov5_Init ov5_020BDAB4 = ov5_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+
 int CSubLogoScreenInit::vFUN_64(int arg)
 {
     this->image = arg;
