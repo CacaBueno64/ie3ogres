@@ -61,8 +61,6 @@ def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> 
     
     return files
 
-open_pkb("eve", ".ssd", "./files/data_iz/spr/char/pch.pkb", True)
-
 def open_pac(data: bytes = None, filepath: str = None, compressed: bool = False) -> list[bytes]:
     if filepath and not data:
         with open(filepath, "rb") as file:
@@ -149,6 +147,6 @@ def open_sfp(filename: str, filepath: str) -> None:
         with open(f"./tools/ie3tools/scratch/{filename}/{ieutil.read_string(sfp_data, member.str_off)}", "wb") as file:
             pos = header.size + fc_header.chunk_size * member.data_off
             file.write(sfp_data[pos:pos + member.size])
-    
+
 #open_pkb("eve", ".ssd", "./files/data_iz/script/eve.pkb", True)
 #open_sfp("MASConfig", "./files/data_iz/pic2d/menu/MASConfig.SPF_")

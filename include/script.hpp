@@ -27,9 +27,9 @@ typedef enum {
 } Script_ArgType;
 
 typedef struct {
-    u16 Id;
+    u16 Num;
     s16 Size;
-    u16 Type;
+    u16 Id;
     u8 ArgsCount;
     u8 Unk;
     u8 argTypes[4];
@@ -37,7 +37,7 @@ typedef struct {
 } Script_InstructionEntry;
 
 typedef struct {
-    u16 Id;
+    u16 Num;
     u8 Arg;
     u8 Size;
     // u8 String[Size];
@@ -47,7 +47,7 @@ typedef enum {
     SCRIPT_TYPE_EVENT  = 0x01,
     SCRIPT_TYPE_MATCH  = 0x02,
     SCRIPT_TYPE_ACTION = 0x03,
-    SCRIPT_TYPE_HELP   = 0x04,
-} ScriptType;
+    SCRIPT_TYPE_HELP   = 0x04
+} Script_Type;
 
 #endif //IE3OGRES_SCRIPT_H

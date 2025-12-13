@@ -3,9 +3,7 @@
 
 #pragma once
 
-extern "C" {
 #include <nitro.h>
-}
 
 #define CARD_BACKUP_TYPE_DEVICE_DUMMY 4
 #define CARD_BACKUP_TYPE_DUMMY CARD_BACKUP_TYPE_DEFINE(DUMMY, 16, 0) // 0x1004

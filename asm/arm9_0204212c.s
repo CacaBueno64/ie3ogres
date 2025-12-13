@@ -7365,7 +7365,7 @@ FUN_02047f80: ; 0x02047F80
 	bx lr
 	arm_func_end FUN_02047f80
 
-	arm_func_start FUN_02047f8c
+	arm_func_start FUN_02047f8c ; https://decomp.me/scratch/HBNFh
 FUN_02047f8c: ; 0x02047F8C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
@@ -7426,7 +7426,7 @@ _02048054:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_02047f8c
 
-	arm_func_start FUN_02048068
+	arm_func_start FUN_02048068 ; https://decomp.me/scratch/SZ9lv
 FUN_02048068: ; 0x02048068
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r4, [sp, #0x20]
@@ -7506,7 +7506,7 @@ _02048164:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_02048068
 
-	arm_func_start FUN_02048178
+	arm_func_start FUN_02048178 ; https://decomp.me/scratch/1Hepv
 FUN_02048178: ; 0x02048178
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
@@ -7590,7 +7590,7 @@ FUN_02048278: ; 0x02048278
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02048278
 
-	arm_func_start FUN_02048288
+	arm_func_start FUN_02048288 ; https://decomp.me/scratch/WYCnc
 FUN_02048288: ; 0x02048288
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
@@ -7654,7 +7654,7 @@ _02048364: .word unk_02099E91
 _02048368: .word unk_02099E90
 	arm_func_end FUN_02048288
 
-	arm_func_start FUN_0204836c
+	arm_func_start FUN_0204836c ; https://decomp.me/scratch/73s5D
 FUN_0204836c: ; 0x0204836C
 	stmfd sp!, {r3, lr}
 	add r2, r1, #1
@@ -7690,7 +7690,7 @@ _020483A8:
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_0204836c
 
-	arm_func_start FUN_020483e4
+	arm_func_start FUN_020483e4 ; https://decomp.me/scratch/IActn
 FUN_020483e4: ; 0x020483E4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r2
@@ -7751,7 +7751,7 @@ _0204848C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0204847c
 
-	arm_func_start FUN_020484a4
+	arm_func_start FUN_020484a4 ; https://decomp.me/scratch/pP8lN
 FUN_020484a4: ; 0x020484A4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r4, _02048504 ; =gL5Allocator
@@ -7842,7 +7842,7 @@ _020485A8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_02048508
 
-	arm_func_start FUN_020485d0
+	arm_func_start FUN_020485d0 ; https://decomp.me/scratch/gFpaQ
 FUN_020485d0: ; 0x020485D0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
@@ -7891,7 +7891,7 @@ _0204866C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_020485d0
 
-	arm_func_start FUN_02048674
+	arm_func_start FUN_02048674 ; https://decomp.me/scratch/wcJef
 FUN_02048674: ; 0x02048674
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r8, r1
@@ -7929,7 +7929,7 @@ _020486E8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_02048674
 
-	arm_func_start FUN_020486f0
+	arm_func_start FUN_020486f0 ; https://decomp.me/scratch/nlqV3
 FUN_020486f0: ; 0x020486F0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
@@ -7955,7 +7955,7 @@ FUN_020486f0: ; 0x020486F0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_020486f0
 
-	arm_func_start FUN_02048748
+	arm_func_start FUN_02048748 ; https://decomp.me/scratch/g27Q4
 FUN_02048748: ; 0x02048748
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x14
@@ -8256,7 +8256,7 @@ _02048B44:
 	bx lr
 	arm_func_end FUN_02048b10
 
-	arm_func_start FUN_02048b4c
+	arm_func_start FUN_02048b4c ; https://decomp.me/scratch/MtrUP
 FUN_02048b4c: ; 0x02048B4C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1

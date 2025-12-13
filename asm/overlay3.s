@@ -449,7 +449,7 @@ FUN_ov3_020bd10c: ; 0x020BD10C
 _020BD130: .word gBgMenuManager
 	arm_func_end FUN_ov3_020bd10c
 
-	arm_func_start FUN_ov3_020bd134
+	arm_func_start FUN_ov3_020bd134 ; https://decomp.me/scratch/5cEId
 FUN_ov3_020bd134: ; 0x020BD134
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -485,7 +485,7 @@ _020BD194:
 _020BD1A4: .word gBgMenuManager
 	arm_func_end FUN_ov3_020bd134
 
-	arm_func_start FUN_ov3_020bd1a8
+	arm_func_start FUN_ov3_020bd1a8 ; https://decomp.me/scratch/mdNQA
 FUN_ov3_020bd1a8: ; 0x020BD1A8
 	stmfd sp!, {r4, lr}
 	mov r4, r0

@@ -124,10 +124,10 @@ Overlay overlay4
 Overlay overlay5
 {
 	After main
-	Object src/logoscreenmanager.o
-	Object src/mainlogoscreendcbmp.o
-	Object src/mainlogoscreeninit.o
-	Object src/sublogoscreeninit.o
+	Object src/logoscreen/logoscreenmanager.o
+	Object src/logoscreen/mainlogoscreendcbmp.o
+	Object src/logoscreen/mainlogoscreeninit.o
+	Object src/logoscreen/sublogoscreeninit.o
 }
 Overlay overlay6
 {

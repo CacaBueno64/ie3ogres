@@ -5,7 +5,7 @@
 
 typedef struct {
     u8 PackNum[16];
-    // skip to Archive_HeaderEntry_2 if the "packnum" string is not here
+    // skip to Archive_PKH if the "packnum" string is not here
     u16 ArchiveSize;
     u16 ArchiveType;
     u16 unk0;
