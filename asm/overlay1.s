@@ -116,8 +116,8 @@ FUN_ov1_020bcc28: ; 0x020BCC28
 	bl FUN_020466e4
 	cmp r0, #0
 	bne _020BCD98
-	ldr r0, _020BCED0 ; =gL5FileRequestManager
-	bl FUN_0202f634
+	ldr r0, _020BCED0 ; =gCFileIO
+	bl _ZN7CFileIO6isBusyEv
 	cmp r0, #0
 	bne _020BCD98
 	ldr r0, [sp]
@@ -256,7 +256,7 @@ _020BCEA8:
 _020BCEC4: .word ov1_020E9480
 _020BCEC8: .word unk_0209AEC0
 _020BCECC: .word unk_0209A108
-_020BCED0: .word gL5FileRequestManager
+_020BCED0: .word gCFileIO
 _020BCED4: .word unk_020A0640
 _020BCED8: .word unk_020AF81C
 _020BCEDC: .word unk_0209A454

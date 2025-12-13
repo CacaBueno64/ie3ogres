@@ -2029,7 +2029,7 @@ _0211BA18:
 	add r1, sp, #0x1c
 	str r1, [sp, #0x10]
 	ldr r0, [sp, #0x18]
-	ldr r7, _0211BB50 ; =gL5FileRequestManager
+	ldr r7, _0211BB50 ; =gCFileIO
 	str r0, [sp]
 	ldr r0, [sp, #0x14]
 	mov r12, #1
@@ -2040,11 +2040,11 @@ _0211BA18:
 	mov r0, r7
 	mov r3, #0
 	str r12, [sp, #0xc]
-	bl FUN_0202f294
+	bl _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
 _0211BA80:
 	ldr r1, [sp, #0x10]
 	mov r0, r7
-	bl FUN_0202f57c
+	bl _ZN7CFileIO11tryFinalizeEPv
 	cmp r0, #0
 	beq _0211BA9C
 	bl L5Thread_Yield
@@ -2100,7 +2100,7 @@ _0211BB18:
 	add sp, sp, #0x26c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211BB4C: .word ov61_0211F380
-_0211BB50: .word gL5FileRequestManager
+_0211BB50: .word gCFileIO
 _0211BB54: .word ov61_0211F398
 _0211BB58: .word ov61_0211F5E0
 _0211BB5C: .word 0x00007FFF

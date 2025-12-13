@@ -402,7 +402,7 @@
 .public unk_02099F58
 .public FUN_ov16_021174ac
 .public FUN_ov16_02117514
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_0205935c
 .public FUN_02059288

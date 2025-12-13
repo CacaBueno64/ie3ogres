@@ -95,10 +95,10 @@
 .public FUN_02058ee0
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f5868
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020f5504
 .public _ZN11L5Allocator10deallocateEPv
-.public gL5FileRequestManager
+.public gCFileIO
 .public FUN_02054070
 .public FUN_02059630
 .public FUN_02059038

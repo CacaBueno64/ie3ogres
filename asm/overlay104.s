@@ -129,7 +129,7 @@ _02124E70:
 	mov r12, #1
 	add r2, r4, #0xcc
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _02124EB4:
 	ldr r3, _02124F2C ; =gL5Allocator
 	ldr r1, _02124F34 ; =0x021262A8
@@ -143,7 +143,7 @@ _02124EB4:
 	mov r12, #1
 	add r2, r4, #0xd0
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _02124EE8:
 	ldr r3, _02124F2C ; =gL5Allocator
 	ldr r1, _02124F38 ; =0x021262CC
@@ -158,7 +158,7 @@ _02124EE8:
 	mov r12, #1
 	add r2, r4, #0xd4
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124F28: .word ov104_02126260

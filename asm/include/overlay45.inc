@@ -114,7 +114,7 @@
 .public FUN_0206cd30
 .public FUN_0206ccec
 .public FUN_0206cc94
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public _ZN11L5Allocator10deallocateEPv
 .public unk_02099F44
 .public gL5Allocator

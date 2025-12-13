@@ -250,7 +250,7 @@ FUN_ov67_0211a244: ; 0x0211A244
 	mov r12, #1
 	add r2, r4, #0x160
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	mov r2, r0
 _0211A28C:
 	cmp r2, #0
@@ -5090,7 +5090,7 @@ FUN_ov67_0211e568: ; 0x0211E568
 	mov r12, #1
 	add r2, r4, #0x120
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	mov r2, r0
 _0211E5B0:
 	cmp r2, #0

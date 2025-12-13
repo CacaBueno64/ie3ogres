@@ -23,7 +23,7 @@ void VBlankIntr(void)
     }
 
     unk_0209AEC0.FUN_02047a10();
-    gL5FileRequestManager.FUN_0202f794();
+    gCFileIO.wakeUp();
 
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
@@ -86,8 +86,8 @@ void FUN_02029140(void)
     OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
 
     gL5Allocator.setDefaultArena(0);
-    gL5Allocator.fileRequestManager = &gL5FileRequestManager;
-    gL5FileRequestManager.init(0x40, &gL5Allocator);
+    gL5Allocator.fileIO = &gCFileIO;
+    gCFileIO.init(64, &gL5Allocator);
     gL5Movie.init(&gL5Allocator);
 }
 
@@ -114,13 +114,9 @@ void InitInterrupt(void)
     OS_WaitVBlankIntr();
 }
 
-extern "C" {
-    extern void FUN_0202ede8(void);
-}
-
 void FUN_020292e8(void)
 {
-    FUN_0202ede8();
+    gCFileIO.FUN_0202ede8();
 }
 
 void FUN_020292f4(void)
@@ -369,8 +365,8 @@ void FUN_02029608(void)
     unk_02099E8C.Logic_WearSetFile = NULL;
 
     char *wearSetFileName = "/data_iz/logic/wearset.dat";
-    if (gL5Allocator.fileRequestManager != NULL) {
-        gL5Allocator.fileRequestManager->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gL5Allocator, 0, 0, FALSE, 1);
+    if (gL5Allocator.fileIO != NULL) {
+        gL5Allocator.fileIO->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gL5Allocator, 0, 0, FALSE, 1);
     }
 
     unk_02099E8C.Logic_ShoesInfoFile = NULL;

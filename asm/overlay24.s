@@ -328,7 +328,7 @@ FUN_ov24_0211a308: ; 0x0211A308
 	mov r12, #1
 	add r2, r4, #0xd4
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0211A35C:
 	str r0, [r4, #0xd8]
 	add sp, sp, #0x10

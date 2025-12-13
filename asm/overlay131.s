@@ -165,7 +165,7 @@ FUN_ov131_0213ae70: ; 0x0213AE70
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0213AED8:
 	cmp r0, #0
 	bne _0213AEF8
@@ -16639,7 +16639,7 @@ FUN_ov131_02149308: ; 0x02149308
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
 _02149380: .word gL5Allocator
@@ -17395,7 +17395,7 @@ FUN_ov131_02149d78: ; 0x02149D78
 	mov r12, #1
 	add r2, sp, #0x20
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	b _02149E30
 _02149DF4:
 	ldr r0, _02149E4C ; =0x02099F54
@@ -19929,7 +19929,7 @@ FUN_ov131_0214c1a8: ; 0x0214C1A8
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x1c
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0214C244:
 	ldr r1, [sp, #0x1c]
 	ldr r0, _0214C48C ; =0x0214CD58

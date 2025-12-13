@@ -762,11 +762,11 @@ _0211A920:
 	str r5, [sp, #8]
 	mov r3, #1
 	str r3, [sp, #0xc]
-	ldr r0, _0211A9C4 ; =gL5FileRequestManager
+	ldr r0, _0211A9C4 ; =gCFileIO
 	ldr r1, _0211A9C8 ; =0x02122C14
 	add r2, sp, #0x10
 	mov r3, r5
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	str r5, [sp]
 	ldr r0, [sp, #0x10]
 	mov r1, r7
@@ -785,7 +785,7 @@ _0211A920:
 _0211A9B8: .word ov22_021224A0
 _0211A9BC: .word gL5Allocator
 _0211A9C0: .word 0x00000101
-_0211A9C4: .word gL5FileRequestManager
+_0211A9C4: .word gCFileIO
 _0211A9C8: .word ov22_02122C14
 _0211A9CC: .word ov22_02122C38
 	arm_func_end FUN_ov22_0211a8f0

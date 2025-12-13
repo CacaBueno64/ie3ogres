@@ -220,7 +220,7 @@
 .public DseSe_StopSeq
 .public DseSe_Unload
 .public DseBgm_Unload
-.public FUN_0202f678
+.public _ZN7CFileIO5closeEPvi
 .public L5FS_IsFileBusy
 .public DseSwd_LoadBank
 .public DseSe_Load

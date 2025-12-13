@@ -35,4 +35,23 @@ typedef struct {
     MICompressionHeader compHeader;
 } Archive_PKH;
 
+typedef struct {
+    u32 string_offset;
+    u32 size;
+    u32 data_offset;
+    u32 unkC;
+} Archive_SFPEntry;
+
+typedef struct {
+    char magic[4];
+    u32 unk4;
+    u32 unk8;
+    u32 chunk_size;
+    u32 file_size;
+    u32 unk14;
+    u32 unk18;
+    u32 unk1C;
+    // Archive_SFPEntry *entries;
+} Archive_SFPHeader;
+
 #endif //IE3OGRES_ARCHIVE_H

@@ -242,7 +242,7 @@ _0211A1DC:
 	str r2, [sp, #8]
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	mov r2, r0
 _0211A20C:
 	cmp r2, #0

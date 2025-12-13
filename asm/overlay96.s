@@ -780,7 +780,7 @@ _02125784:
 	cmp r0, #0
 	beq _0212579C
 	mov r2, #1
-	bl FUN_0202f678
+	bl _ZN7CFileIO5closeEPvi
 _0212579C:
 	mov r0, #0
 	str r0, [r4]

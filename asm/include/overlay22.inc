@@ -58,11 +58,11 @@
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f330c
 .public _ZN11L5Allocator12setNextArenaEi
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020f5504
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
-.public gL5FileRequestManager
+.public gCFileIO
 .public FUN_ov16_021137dc
 .public FUN_ov16_0211401c
 .public FUN_ov16_02113b78

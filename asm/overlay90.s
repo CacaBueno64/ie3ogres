@@ -612,7 +612,7 @@ FUN_ov90_0211a704: ; 0x0211A704
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1d0
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	b _0211A794
 _0211A75C:
 	ldr r3, _0211A7EC ; =gL5Allocator
@@ -628,7 +628,7 @@ _0211A75C:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1d0
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0211A794:
 	ldr r12, _0211A7F8 ; =0x38E38E39
 	mov r3, #0x24

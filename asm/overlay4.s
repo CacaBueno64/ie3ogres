@@ -18281,7 +18281,7 @@ _020CC878:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x20
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _020CC8CC:
 	mov r9, #0
 	add r8, sp, #0x74

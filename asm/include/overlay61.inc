@@ -57,10 +57,10 @@
 .public unk_0209A110
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f34f0
-.public FUN_0202f294
-.public FUN_0202f57c
+.public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO11tryFinalizeEPv
 .public MIi_CpuClear16
-.public gL5FileRequestManager
+.public gCFileIO
 .public FUN_ov16_020f66c0
 .public FUN_ov16_020f6c8c
 .public FUN_ov16_0210fba4

@@ -212,7 +212,7 @@ FUN_ov18_0211a14c: ; 0x0211A14C
 	str r4, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x14
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0211A1B4:
 	mov r4, #0
 	add r8, sp, #0x18
@@ -892,7 +892,7 @@ _0211AAF4:
 	ldr r1, _0211ABC0 ; =0x0211BC9C
 	add r2, sp, #0x10
 	mov r3, r4
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0211AB6C:
 	add r9, r9, #1
 _0211AB70:
@@ -941,7 +941,7 @@ _0211ABF0:
 	moveq r0, r8
 	beq _0211AC08
 	mla r1, r4, r6, r9
-	bl FUN_0202f57c
+	bl _ZN7CFileIO11tryFinalizeEPv
 _0211AC08:
 	cmp r0, #0
 	movgt r0, #1
@@ -995,7 +995,7 @@ _0211AC6C:
 	add r2, sp, #0x10
 	mov r3, r4
 	str r5, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _0211ACC4:
 	ldr r0, [r10, #0x44]
 	add r9, r9, #1
@@ -1035,7 +1035,7 @@ _0211AD14:
 	moveq r0, r4
 	beq _0211AD4C
 	add r1, r5, r2
-	bl FUN_0202f57c
+	bl _ZN7CFileIO11tryFinalizeEPv
 _0211AD4C:
 	cmp r0, #0
 	movgt r0, #1

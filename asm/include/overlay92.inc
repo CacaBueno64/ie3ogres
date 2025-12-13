@@ -33,7 +33,7 @@
 .public unk_0209BA20
 .public FUN_ov16_020f330c
 .public _ZN11L5Allocator10deallocateEPv
-.public FUN_0202f678
+.public _ZN7CFileIO5closeEPvi
 .public unk_020A8C40
 .public unk_020A8440
 .public FUN_ov16_020f4894

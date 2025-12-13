@@ -93,7 +93,7 @@
 .public FUN_ov16_020f0634
 .public FUN_02046950
 .public FUN_020466e4
-.public FUN_0202f634
+.public _ZN7CFileIO6isBusyEv
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public _ZN14CScreenManager16getNextSceneMainEv
 .public FUN_02044620
@@ -102,7 +102,7 @@
 .public STD_CopyLString
 .public FUN_02046b6c
 .public unk_0209A108
-.public gL5FileRequestManager
+.public gCFileIO
 .public unk_020A0640
 .public unk_020AF81C
 .public unk_0209A454

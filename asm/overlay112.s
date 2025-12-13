@@ -94,7 +94,7 @@ FUN_ov112_02124dc4: ; 0x02124DC4
 	str r5, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	mov r5, r0
 _02124E40:
 	cmp r5, #0

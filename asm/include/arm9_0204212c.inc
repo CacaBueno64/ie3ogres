@@ -16,7 +16,7 @@
 .public L5FS_SetNextArena
 .public L5FS_OpenArchiveDirect
 .public FUN_02030260
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public unk_020900CC
 .public unk_0209A200
 .public unk_020900DC
@@ -145,7 +145,7 @@
 .public FUN_ov16_020fe56c
 .public unk_02099E91
 .public unk_02099E90
-.public FUN_0202f57c
+.public _ZN7CFileIO11tryFinalizeEPv
 .public FUN_ov16_020fe530
 .public FUN_ov16_020fe584
 .public FUN_ov16_020fe6e8
@@ -162,13 +162,13 @@
 .public FUN_0202fd44
 .public FUN_ov16_020f34f0
 .public STD_ConcatenateString
-.public FUN_0202f294
-.public FUN_0202f568
+.public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO19convertPathToFileIDEP8FSFileIDPKc
 .public STD_GetStringLength
 .public unk_02090324
 .public unk_02090338
 .public unk_0209034C
-.public gL5FileRequestManager
+.public gCFileIO
 .public unk_02090360
 .public unk_02090374
 .public unk_02090388
@@ -559,7 +559,7 @@
 .public MI_UncompressLZ8
 .public MI_UncompressHuffman
 .public OS_Terminate
-.public FUN_0202f678
+.public _ZN7CFileIO5closeEPvi
 .public FUN_02041498
 .public unk_020907D4
 .public _fflt

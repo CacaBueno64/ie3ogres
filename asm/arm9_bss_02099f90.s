@@ -393,8 +393,8 @@ unk_0209C120:
 	.global unk_0209C220
 unk_0209C220:
 	.space 0xA4
-	.global gL5FileRequestManager
-gL5FileRequestManager:
+	.global gCFileIO
+gCFileIO:
 	.space 0x94C
 	.global unk_0209CC10
 unk_0209CC10:

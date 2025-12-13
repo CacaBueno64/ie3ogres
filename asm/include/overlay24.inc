@@ -24,7 +24,7 @@
 .public FUN_ov16_020f5450
 .public sprintf
 .public FUN_02058800
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public gL5Allocator
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e720

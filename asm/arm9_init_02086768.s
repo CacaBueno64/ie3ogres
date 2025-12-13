@@ -55,11 +55,11 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A14 ; =_ZN8L5ConfigD1Ev
 	ldr r2, _02086A18 ; =0x02099FA8
 	bl __register_global_object
-	ldr r4, _02086A1C ; =gL5FileRequestManager
+	ldr r4, _02086A1C ; =gCFileIO
 	mov r0, r4
-	bl FUN_0202ed48
+	bl _ZN7CFileIOC1Ev
 	mov r0, r4
-	ldr r1, _02086A20 ; =FUN_0202ed70
+	ldr r1, _02086A20 ; =_ZN7CFileIOD1Ev
 	ldr r2, _02086A24 ; =0x02099FB4
 	bl __register_global_object
 	ldr r4, _02086A28 ; =0x0209A5D0
@@ -178,8 +178,8 @@ _02086A0C: .word 0x0000EA3C
 _02086A10: .word gL5Config
 _02086A14: .word _ZN8L5ConfigD1Ev
 _02086A18: .word unk_02099FA8
-_02086A1C: .word gL5FileRequestManager
-_02086A20: .word FUN_0202ed70
+_02086A1C: .word gCFileIO
+_02086A20: .word _ZN7CFileIOD1Ev
 _02086A24: .word unk_02099FB4
 _02086A28: .word unk_0209A5D0
 _02086A2C: .word FUN_0205ff98

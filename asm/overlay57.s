@@ -10482,7 +10482,7 @@ FUN_ov57_02123178: ; 0x02123178
 	mov r4, #1
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 	mov r4, r0
 _021231C0:
 	cmp r4, #0

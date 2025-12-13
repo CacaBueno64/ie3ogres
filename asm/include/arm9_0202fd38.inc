@@ -1,3 +1,4 @@
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public unk_0208FBF0
 .public FS_FindArchive
 .public FS_UnloadArchiveTables

@@ -2,29 +2,6 @@
 	.include "/include/arm9_data_0208fbe8.inc"
 
 	.data
-	.global unk_0208FBE8
-unk_0208FBE8:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global unk_0208FBF0
-unk_0208FBF0:
-	.word FUN_0202ed70
-	.word FUN_0202eda8
-	.global unk_0208FBF8
-unk_0208FBF8:
-	.asciz "rom"
-	.balign 4, 0
-	.global unk_0208FBFC
-unk_0208FBFC:
-	.asciz "rom"
-	.balign 4, 0
-	.global unk_0208FC00
-unk_0208FC00:
-	.asciz "SFP"
-	.balign 4, 0
-	.global unk_0208FC04
-unk_0208FC04:
-	.asciz "SFP"
-	.balign 4, 0
 	.global unk_0208FC08
 unk_0208FC08:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

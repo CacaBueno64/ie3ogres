@@ -31,7 +31,7 @@
 .public MI_CpuCopy8
 .public FUN_0204b2f4
 .public FUN_0204b540
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020eeca0
 .public FUN_0204d7fc
 .public gL5Allocator

@@ -1,7 +1,7 @@
 .public FX_Sqrt
 .public _ZN8L5ConfigC1Ev
 .public __register_global_object
-.public FUN_0202ed48
+.public _ZN7CFileIOC1Ev
 .public FUN_0205ff80
 .public _ZN16L5CardControllerC1Ev
 .public FUN_0202dbf8
@@ -20,8 +20,8 @@
 .public gL5Config
 .public _ZN8L5ConfigD1Ev
 .public unk_02099FA8
-.public gL5FileRequestManager
-.public FUN_0202ed70
+.public gCFileIO
+.public _ZN7CFileIOD1Ev
 .public unk_02099FB4
 .public unk_0209A5D0
 .public FUN_0205ff98

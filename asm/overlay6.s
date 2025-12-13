@@ -939,7 +939,7 @@ _020BD790:
 	mov r12, #1
 	add r2, r4, #0x200
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _020BD7C4:
 	cmp r0, #0
 	bne _020BD81C
@@ -959,7 +959,7 @@ _020BD7D8:
 	mov r12, #1
 	add r2, r4, #0x200
 	str r12, [sp, #0xc]
-	bl _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 _020BD80C:
 	cmp r0, #0
 	addeq sp, sp, #0x10

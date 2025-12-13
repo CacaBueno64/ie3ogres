@@ -3396,7 +3396,7 @@ _0202CAD4:
 	cmp r0, #0
 	beq _0202CB14
 	mov r2, #0
-	bl FUN_0202f678
+	bl _ZN7CFileIO5closeEPvi
 _0202CB14:
 	add r5, r7, #0x58
 	ldr r0, [r7]
@@ -3453,7 +3453,7 @@ _0202CBB0:
 	cmp r0, #0
 	beq _0202CBDC
 	mov r2, #0
-	bl FUN_0202f678
+	bl _ZN7CFileIO5closeEPvi
 _0202CBDC:
 	add lr, r9, r6
 	add r1, r9, #0x58

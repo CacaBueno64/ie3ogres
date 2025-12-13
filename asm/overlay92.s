@@ -1420,7 +1420,7 @@ _021260C4:
 	cmp r0, #0
 	beq _021260DC
 	mov r2, #1
-	bl FUN_0202f678
+	bl _ZN7CFileIO5closeEPvi
 _021260DC:
 	mov r0, #0
 	str r0, [r4]

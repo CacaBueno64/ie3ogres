@@ -31,7 +31,7 @@
 .public ov1_020E948C
 .public unk_020A160C
 .public unk_020A1608
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f55b4

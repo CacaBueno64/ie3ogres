@@ -63,7 +63,7 @@
 .public srand
 .public rand
 .public OS_GetMacAddress
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public unk_02091350
 .public unk_0209A720
 .public unk_0209136C

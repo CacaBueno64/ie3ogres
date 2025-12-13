@@ -1,7 +1,7 @@
 .public _ZdlPv
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public sprintf
 .public FUN_02059038
 .public _ZN11L5Allocator10deallocateEPv
@@ -31,7 +31,7 @@
 .public FUN_ov16_020f52c4
 .public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public FUN_ov16_02114370
-.public FUN_0202f57c
+.public _ZN7CFileIO11tryFinalizeEPv
 .public STD_CopyString
 .public FUN_ov16_020f2304
 .public FUN_ov16_021142fc

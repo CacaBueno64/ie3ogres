@@ -25,7 +25,7 @@
 .public FUN_ov16_02116654
 .public unk_0209A110
 .public unk_02099F58
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020ef8d4
 .public FUN_02073a10
 .public FUN_ov16_020efa9c

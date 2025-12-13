@@ -1,7 +1,7 @@
 .public FUN_ov16_020f316c
 .public L5FS_OpenArchiveDeferred
 .public _ZN8L5Config8getParamEPc
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public gL5Config
 .public gL5Allocator
 .public FUN_ov16_020f5450

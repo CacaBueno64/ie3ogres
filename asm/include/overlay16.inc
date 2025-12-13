@@ -285,7 +285,7 @@
 .public FUN_0206d0e8
 .public FUN_0206def8
 .public FUN_0206c718
-.public _ZN20L5FileRequestManager10readDirectEPKcPPvP11L5Allocatoriiih
+.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public gL5Allocator
 .public FUN_0202de44
 .public _ZN11L5Allocator10deallocateEPv
@@ -467,11 +467,11 @@
 .public unk_02099F44
 .public _ZdlPv
 .public _ZN11L5Allocator8allocateEiii
-.public FUN_0202f294
-.public FUN_0202fc4c
-.public gL5FileRequestManager
-.public FUN_0202f57c
-.public FUN_0202f678
+.public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO11readFromSFPEPcPPvS1_
+.public gCFileIO
+.public _ZN7CFileIO11tryFinalizeEPv
+.public _ZN7CFileIO5closeEPvi
 .public STD_CompareNString
 .public pLogic_ShoesInfoFile
 .public STD_GetStringLength
@@ -649,7 +649,7 @@
 .public FUN_020326cc
 .public STD_ConcatenateString
 .public FUN_02042b0c
-.public FUN_0202f500
+.public _ZN7CFileIO7readRawEP8FSFileIDPPviim
 .public FUN_02032498
 .public FUN_020326a8
 .public FUN_020322bc
@@ -797,7 +797,7 @@
 .public FUN_0204a2c4
 .public FUN_0204b0c4
 .public FUN_0204b114
-.public FUN_0202ef9c
+.public _ZN7CFileIO13getFileLengthEPKc
 .public unk_0209A5D0
 .public FUN_02072338
 .public unk_020A12C0

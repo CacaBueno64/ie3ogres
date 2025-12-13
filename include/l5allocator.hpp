@@ -5,8 +5,7 @@
 
 #include <nitro.h>
 
-#include "l5filerequestmanager.hpp"
-
+class CFileIO;
 class L5Allocator {
     public:
         void FUN_0202dc54(OSArenaId id, void *arenaLo, void *arenaHi);
@@ -15,7 +14,7 @@ class L5Allocator {
         void setDefaultArena(int arena);
         void deallocate(void *ptr);
 
-    L5FileRequestManager *fileRequestManager;
+    CFileIO *fileIO;
 };
 
 extern L5Allocator gL5Allocator;
