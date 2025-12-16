@@ -35,7 +35,7 @@ BOOL CScreenManager::updateKeys(u16 pressed, u16 held)
         this->mainScreen->updateKeys(pressed, held);
     }
 
-    unk_0209BA20.FUN_020724b8(pressed, held);
+    gLogicThink.updateKeys(pressed, held);
 
     return FALSE;
 }

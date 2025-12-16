@@ -7,23 +7,23 @@ extern "C" {
 
 void VBlankIntr(void)
 {
-    unk_02099E8C.FrameCounter++;
+    unk_02099E8C.EvenFrames++;
     if (unk_02099E8C.unkA4) {
         FUN_02051c10();
     }
-    if (unk_02099E8C.unk40 != 0 && unk_02099E8C.FrameCounter >= 2 || unk_02099E8C.unkB0) {
+    if (unk_02099E8C.WaitVBlank && unk_02099E8C.EvenFrames >= 2 || unk_02099E8C.UpdateBrightness) {
         reg_GX_MASTER_BRIGHT = unk_02099E8C.MainScreenBrightness;
         reg_GXS_DB_MASTER_BRIGHT = unk_02099E8C.SubScreenBrightness;
-        unk_02099E8C.unkB0 = 0;
+        unk_02099E8C.UpdateBrightness = 0;
     }
-    if (unk_02099E8C.unk40 != 0 && unk_02099E8C.FrameCounter >= 2) {
+    if (unk_02099E8C.WaitVBlank && unk_02099E8C.EvenFrames >= 2) {
         FUN_ov16_020f5258();
-        unk_02099E8C.FrameCounter = 0;
-        unk_02099E8C.unk40 = 0;
+        unk_02099E8C.EvenFrames = 0;
+        unk_02099E8C.WaitVBlank = FALSE;
     }
 
-    unk_0209AEC0.FUN_02047a10();
-    gCFileIO.wakeUp();
+    gWirelessUtil.FUN_02047a10();
+    gFileIO.wakeUp();
 
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
@@ -86,8 +86,8 @@ void FUN_02029140(void)
     OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
 
     gL5Allocator.setDefaultArena(0);
-    gL5Allocator.fileIO = &gCFileIO;
-    gCFileIO.init(64, &gL5Allocator);
+    gL5Allocator.fileIO = &gFileIO;
+    gFileIO.init(64, &gL5Allocator);
     gL5Movie.init(&gL5Allocator);
 }
 
@@ -116,7 +116,7 @@ void InitInterrupt(void)
 
 void FUN_020292e8(void)
 {
-    gCFileIO.FUN_0202ede8();
+    gFileIO.FUN_0202ede8();
 }
 
 void FUN_020292f4(void)
@@ -353,14 +353,14 @@ void InitTouchPannel(void)
 
 void FUN_020295e8(void)
 {
-    unk_0209BA20.FUN_0206f1e0();
-    unk_0209BA20.FUN_0206f244();
+    gLogicThink.FUN_0206f1e0();
+    gLogicThink.FUN_0206f244();
 }
 
 void FUN_02029608(void)
 {
-    unk_0209BA20.FUN_020715b4();
-    unk_0209BA20.FUN_0206f77c();
+    gLogicThink.readUnitNo();
+    gLogicThink.initLiveTalk();
 
     unk_02099E8C.Logic_WearSetFile = NULL;
 

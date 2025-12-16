@@ -5,7 +5,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f5278
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EB4
 .public unk_02099ED4
 .public unk_02099F38

@@ -8,7 +8,7 @@
 .public FUN_0202de44
 .public MI_CpuFill8
 .public gL5Allocator
-.public unk_0209BA20
+.public gLogicThink
 .public _ZN11L5Allocator10deallocateEPv
 .public FUN_0204bd64
 .public FUN_ov16_020eeb24
@@ -24,7 +24,7 @@
 .public unk_02099EF0
 .public FUN_02046744
 .public FUN_ov16_020f085c
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_020A06D2
 .public FUN_ov16_020efd54
 .public FUN_ov16_020f0298

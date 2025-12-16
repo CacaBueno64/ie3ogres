@@ -30,7 +30,7 @@ FUN_ov98_02124d00: ; 0x02124D00
 	mov r2, #0x84
 	bl MI_CpuFill8
 	mov r1, r5
-	ldr r0, _02124D78 ; =0x0209F5C0
+	ldr r0, _02124D78 ; =gBgMenuManager
 	bl FUN_ov16_020f5a58
 	mov r0, #4
 	str r0, [r6, #8]
@@ -68,7 +68,7 @@ _02124DD0:
 	cmp r9, #0xb
 	blt _02124D9C
 	mov r5, #1
-	ldr r0, _02124E0C ; =0x0209F5C0
+	ldr r0, _02124E0C ; =gBgMenuManager
 	mov r1, r5
 	bl FUN_ov16_020f5af0
 	bl FUN_ov16_020f51a8
@@ -146,7 +146,7 @@ _02124ED4:
 	mov r0, #3
 	str r0, [r4, #8]
 _02124EE8:
-	ldr r0, _02124F20 ; =0x0209F5C0
+	ldr r0, _02124F20 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, pc}
@@ -184,7 +184,7 @@ FUN_ov98_02124f24: ; 0x02124F24
 _02124F60:
 	cmp r0, #3
 	ldmnefd sp!, {r4, pc}
-	ldr r0, _02124F80 ; =0x0209F5C0
+	ldr r0, _02124F80 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	mov r0, #4
@@ -546,7 +546,7 @@ _0212545C:
 	blt _021253F8
 	add sp, sp, #0x178
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02125470: .word unk_0209BA20
+_02125470: .word gLogicThink
 _02125474: .word ov98_02126504
 	arm_func_end FUN_ov98_021253a4
 
@@ -894,7 +894,7 @@ FUN_ov98_02125938: ; 0x02125938
 	mov r4, r0
 	mov r1, #1
 	mov r5, #0
-	ldr r0, _02125A4C ; =0x0209F5C0
+	ldr r0, _02125A4C ; =gBgMenuManager
 	mov r2, r1
 	mov r3, r5
 	bl FUN_ov16_020f5f64
@@ -986,7 +986,7 @@ FUN_ov98_02125a50: ; 0x02125A50
 	str r0, [sp, #0x14]
 	str r1, [sp, #0x18]
 	ldr r2, [r12, #0xc]
-	ldr r0, _02125ABC ; =0x0209F5C0
+	ldr r0, _02125ABC ; =gBgMenuManager
 	add r12, r12, r2
 	mov r2, #2
 	str r12, [sp, #0x1c]
@@ -1293,7 +1293,7 @@ FUN_ov98_02125e94: ; 0x02125E94
 	str r0, [sp, #0xc]
 	ldrh r2, [lr, #8]
 	mov r3, #0
-	ldr r0, _02125F28 ; =0x0209F5C0
+	ldr r0, _02125F28 ; =gBgMenuManager
 	and r2, r2, #0xff
 	str r2, [sp, #0x10]
 	ldrh lr, [lr, #0xa]
@@ -1368,7 +1368,7 @@ _02125FA8:
 	str r1, [sp, #0x18]
 	add r0, r8, r0, lsl #1
 	str r0, [sp, #0x1c]
-	ldr r0, _0212603C ; =0x0209F5C0
+	ldr r0, _0212603C ; =gBgMenuManager
 	mov r1, r6
 	mov r3, r2
 	bl FUN_ov16_020f5da0
@@ -1421,7 +1421,7 @@ FUN_ov98_02126040: ; 0x02126040
 	str r0, [sp, #0x14]
 	str r2, [sp, #0x18]
 	ldr r2, [r12, #0xc]
-	ldr r0, _021260F4 ; =0x0209F5C0
+	ldr r0, _021260F4 ; =gBgMenuManager
 	add r4, r12, r2
 	mov r2, r1
 	mov r3, #0

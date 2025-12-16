@@ -10936,7 +10936,7 @@ _02039544:
 	str r1, [r0, #0x32c]
 	add sp, sp, #0x90
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203956C: .word unk_0209BA20
+_0203956C: .word gLogicThink
 _02039570: .word unk_020A0640
 _02039574: .word unk_0208FE24
 _02039578: .word unk_0208FE38
@@ -11617,7 +11617,7 @@ _02039EF4: .word unk_02099EF0
 _02039EF8: .word unk_02099F38
 _02039EFC: .word unk_0208FEA4
 _02039F00: .word unk_0209A200
-_02039F04: .word unk_0209BA20
+_02039F04: .word gLogicThink
 	arm_func_end FUN_02039b70
 
 	arm_func_start FUN_02039f08
@@ -11905,7 +11905,7 @@ _0203A2D8:
 	addeq r1, r1, #1
 	streq r1, [r0, #0x364]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0203A2F8: .word unk_0209BA20
+_0203A2F8: .word gLogicThink
 _0203A2FC: .word unk_02099F38
 	arm_func_end FUN_0203a058
 
@@ -12398,7 +12398,7 @@ _0203A9F8:
 	add sp, sp, #0x58
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203AA2C: .word unk_0208C35C
-_0203AA30: .word unk_0209BA20
+_0203AA30: .word gLogicThink
 _0203AA34: .word unk_02099EF0
 _0203AA38: .word 0x51EB851F
 _0203AA3C: .word unk_020A0640
@@ -13487,7 +13487,7 @@ _0203B9F0: .word unk_02099F58
 _0203B9F4: .word unk_02099F38
 _0203B9F8: .word unk_02099EC0
 _0203B9FC: .word unk_02099EF0
-_0203BA00: .word unk_0209BA20
+_0203BA00: .word gLogicThink
 	arm_func_end FUN_0203b888
 
 	arm_func_start FUN_0203ba04
@@ -13620,7 +13620,7 @@ _0203BB94:
 	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203BBE4: .word unk_02099EF0
-_0203BBE8: .word unk_0209BA20
+_0203BBE8: .word gLogicThink
 _0203BBEC: .word unk_02099F14
 	arm_func_end FUN_0203ba04
 
@@ -14689,7 +14689,7 @@ FUN_0203ca84: ; 0x0203CA84
 	strneb r4, [r0, #0x20]
 	strneh r1, [r0, #0x22]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0203CAB0: .word unk_0209BA20
+_0203CAB0: .word gLogicThink
 	arm_func_end FUN_0203ca84
 
 	arm_func_start FUN_0203cab4
@@ -19394,7 +19394,7 @@ _020408BC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020408D0: .word unk_02099EF0
-_020408D4: .word unk_0209BA20
+_020408D4: .word gLogicThink
 	arm_func_end FUN_02040840
 
 	arm_func_start FUN_020408d8

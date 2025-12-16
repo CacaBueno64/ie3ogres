@@ -59,7 +59,7 @@
 .public FUN_ov16_020ede60
 .public _ZN7L5Sound12FUN_0202c4a0Em
 .public _ZN7L5Sound12FUN_0202d594Emm
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f153c
 .public FUN_ov16_0210ee78
 .public FUN_ov16_0210e7d0

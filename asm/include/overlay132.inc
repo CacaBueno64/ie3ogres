@@ -33,7 +33,7 @@
 .public FUN_020724dc
 .public unk_0209A114
 .public unk_0209A2C0
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099F14
 .public unk_020A0640
 .public FUN_0203fdf0
@@ -50,7 +50,7 @@
 .public FUN_0206d620
 .public FUN_0206da78
 .public FUN_ov16_020f066c
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_01ffba80
 .public FUN_ov126_0213922c
 .public FUN_ov1_020e3b54

@@ -11,5 +11,5 @@
 .public FS_SeekFile
 .public FS_ReadFile
 .public FS_ReadFileAsync
-.public unk_0208F000
-.public unk_0208EFF0
+.public _ZTVN10__cxxabiv117__class_type_infoE
+.public _ZTVN10__cxxabiv120__si_class_type_infoE

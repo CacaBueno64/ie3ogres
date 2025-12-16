@@ -4,7 +4,7 @@
 .public FUN_02046370
 .public unk_020A9C40
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f0634
 .public FUN_02046730
 .public FUN_02046880

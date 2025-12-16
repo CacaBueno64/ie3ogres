@@ -5,9 +5,9 @@
 .public FUN_ov16_020f085c
 .public FUN_ov16_020f068c
 .public FUN_0204eb4c
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A0640
-.public unk_0209AEC0
+.public gWirelessUtil
 .public ov1_020E9490
 .public FUN_0205131c
 .public FUN_ov1_020be6f8

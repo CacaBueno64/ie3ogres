@@ -61,7 +61,7 @@
 .public FUN_ov126_0213246c
 .public FUN_ov132_02143114
 .public FUN_ov132_021447ec
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020AF818
 .public FUN_0203000c
 .public _ZN14CScreenManagerD2Ev
@@ -121,7 +121,7 @@
 .public FUN_0203e2d0
 .public FUN_0203f840
 .public unk_0209AF58
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_0209AF54
 .public FUN_0203e89c
 .public FUN_0203eab8
@@ -168,7 +168,7 @@
 .public unk_02090324
 .public unk_02090338
 .public unk_0209034C
-.public gCFileIO
+.public gFileIO
 .public unk_02090360
 .public unk_02090374
 .public unk_02090388

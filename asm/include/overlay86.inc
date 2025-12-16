@@ -20,7 +20,7 @@
 .public unk_020A1640
 .public unk_02099E98
 .public unk_020A0640
-.public unk_0209BA20
+.public gLogicThink
 .public MI_CpuFill8
 .public FUN_ov126_0212afec
 .public FUN_ov126_0212afdc

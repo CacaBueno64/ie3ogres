@@ -54,7 +54,7 @@ int L5Config::getParam(char *str) {
 
 void L5Config::init(void) {
     if (this->paramEntry == NULL) {
-        this->paramEntry = (Config_ParamEntry *)L5FS_AllocateClear(0x300, -1);
+        this->paramEntry = static_cast<Config_ParamEntry *>(L5FS_AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
     }
     this->paramCount = 0;
 }

@@ -10,8 +10,8 @@
 #include "fileio.hpp"
 #include "l5movie.hpp"
 #include "l5fs.hpp"
-#include "unk_0209AEC0.hpp"
-#include "unk_0209BA20.hpp"
+#include "wirelessutil.hpp"
+#include "logicthink.hpp"
 #include "fontmanager.hpp"
 
 typedef struct {
@@ -42,7 +42,7 @@ typedef struct {
     u32 unk34;
     void *unk38;
     u32 unk3C;
-    s32 unk40;
+    BOOL WaitVBlank;
     CFontManager *Font8;
     u32 unk48;
     u32 unk4C;
@@ -56,7 +56,7 @@ typedef struct {
     void *Logic_PalSkinFaceFile;
     u16 MainScreenBrightness;
     u16 SubScreenBrightness;
-    int FrameCounter;
+    int EvenFrames;
     u8 unk84[0x0C];
     CFontManager *FontRubi8;
     void *unk94;
@@ -66,7 +66,7 @@ typedef struct {
     u32 unkA4;
     void *Logic_WearSetFile;
     u32 unkAC;
-    u32 unkB0;
+    BOOL UpdateBrightness;
     void *unkB4;
     u32 unkB8;
     u32 unkBC;

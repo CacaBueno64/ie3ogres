@@ -80,7 +80,7 @@ class CFileIO {
     FileRequest *currentUncomp;
 };
 
-extern CFileIO gCFileIO;
+extern CFileIO gFileIO;
 
 extern "C" {
     extern void FUN_02053914(char *dst, const char *src); //lowercase to uppercase

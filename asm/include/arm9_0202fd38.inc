@@ -316,7 +316,7 @@
 .public FUN_ov132_02143c40
 .public FUN_0207249c
 .public FUN_ov16_020f068c
-.public unk_0209BA20
+.public gLogicThink
 .public unk_0208FE24
 .public unk_0208FE38
 .public unk_0208FE4C

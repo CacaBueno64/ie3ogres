@@ -68,7 +68,7 @@ _02119FA8:
 	strb r4, [r2, #3]
 	bl FUN_02046cb4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02119FE4: .word unk_0209AEC0
+_02119FE4: .word gWirelessUtil
 _02119FE8: .word unk_0209A4E0
 	arm_func_end FUN_ov82_02119f00
 
@@ -124,7 +124,7 @@ FUN_ov82_0211a044: ; 0x0211A044
 	ldmfd sp!, {r4, pc}
 _0211A08C: .word ov82_0211FE64
 _0211A090: .word unk_02099EF0
-_0211A094: .word unk_0209BA20
+_0211A094: .word gLogicThink
 	arm_func_end FUN_ov82_0211a044
 
 	arm_func_start FUN_ov82_0211a098
@@ -575,10 +575,10 @@ _0211A6CC:
 	mov r0, #1
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A6D8: .word unk_0209AEC0
+_0211A6D8: .word gWirelessUtil
 _0211A6DC: .word unk_02099EF0
 _0211A6E0: .word unk_020A0640
-_0211A6E4: .word unk_0209BA20
+_0211A6E4: .word gLogicThink
 _0211A6E8: .word ov82_0211FEA0
 	arm_func_end FUN_ov82_0211a098
 
@@ -684,11 +684,11 @@ _0211A834:
 	bl FUN_ov1_020e5328
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A848: .word unk_0209AEC0
+_0211A848: .word gWirelessUtil
 _0211A84C: .word unk_0209A4E0
 _0211A850: .word unk_0209A508
 _0211A854: .word unk_02099EF0
-_0211A858: .word unk_0209BA20
+_0211A858: .word gLogicThink
 	arm_func_end FUN_ov82_0211a6ec
 
 	arm_func_start FUN_ov82_0211a85c
@@ -1008,7 +1008,7 @@ _0211ACA4: .word ov82_0211FE5D
 FUN_ov82_0211aca8: ; 0x0211ACA8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
-	ldr r11, _0211B144 ; =0x0209F5C0
+	ldr r11, _0211B144 ; =gBgMenuManager
 	mov r8, #0
 	mov r10, r0
 	mov r6, #1
@@ -1128,7 +1128,7 @@ _0211AE68:
 	blt _0211ACF0
 _0211AE7C:
 	ldr r2, [r10, #0x5bc]
-	ldr r11, _0211B144 ; =0x0209F5C0
+	ldr r11, _0211B144 ; =gBgMenuManager
 	cmp r2, #0
 	add r4, sp, #0x14
 	mov r6, #2
@@ -1190,7 +1190,7 @@ _0211AF1C:
 	stmia sp, {r0, r4}
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211B144 ; =0x0209F5C0
+	ldr r0, _0211B144 ; =gBgMenuManager
 	mov r2, #1
 	mov r3, #0x13
 	str r1, [sp, #0x10]
@@ -1214,7 +1214,7 @@ _0211AFB0:
 	cmp r0, #0
 	beq _0211B024
 	ldr r1, [r9, #0xc]
-	ldr r0, _0211B144 ; =0x0209F5C0
+	ldr r0, _0211B144 ; =gBgMenuManager
 	add r1, r9, r1
 	str r1, [sp, #0x28]
 	mov r1, #4
@@ -1271,7 +1271,7 @@ _0211B05C:
 	cmp r0, #0
 	beq _0211B100
 	ldr r1, [r9, #0xc]
-	ldr r0, _0211B144 ; =0x0209F5C0
+	ldr r0, _0211B144 ; =gBgMenuManager
 	add r1, r9, r1
 	str r1, [sp, #0x28]
 	mov r1, #1
@@ -1321,7 +1321,7 @@ _0211B148: .word ov82_021201DC
 FUN_ov82_0211b14c: ; 0x0211B14C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, #0
-	ldr r9, _0211B1B4 ; =0x0209F5C0
+	ldr r9, _0211B1B4 ; =gBgMenuManager
 	mov r6, r0
 	mov r4, #0x20
 	mov r8, r5
@@ -1407,7 +1407,7 @@ _0211B24C:
 	addne sp, sp, #0x18
 	strne r0, [r4, #0x44]
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r7, _0211B5F0 ; =0x0209F5C0
+	ldr r7, _0211B5F0 ; =gBgMenuManager
 	mov r8, #0
 	mov r5, #0x20
 	mvn r9, #0x1f
@@ -1447,7 +1447,7 @@ _0211B30C:
 	cmp r0, #0
 	addle sp, sp, #0x18
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r6, _0211B5F0 ; =0x0209F5C0
+	ldr r6, _0211B5F0 ; =gBgMenuManager
 	add r11, sp, #4
 _0211B328:
 	add r0, r11, r7, lsl #2
@@ -1535,7 +1535,7 @@ _0211B404:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B464:
-	ldr r7, _0211B5F0 ; =0x0209F5C0
+	ldr r7, _0211B5F0 ; =gBgMenuManager
 	mov r9, #0
 	mov r5, #0x20
 	mvn r8, #0x1f
@@ -1579,7 +1579,7 @@ _0211B4F4:
 	cmp r0, #0
 	addle sp, sp, #0x18
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r6, _0211B5F0 ; =0x0209F5C0
+	ldr r6, _0211B5F0 ; =gBgMenuManager
 	add r11, sp, #4
 _0211B510:
 	add r0, r11, r7, lsl #2
@@ -1683,7 +1683,7 @@ FUN_ov82_0211b5f4: ; 0x0211B5F4
 	movgt r0, #1
 	movle r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211B688: .word unk_0209BA20
+_0211B688: .word gLogicThink
 _0211B68C: .word unk_020A0C68
 _0211B690: .word unk_020A0DB0
 _0211B694: .word unk_020A0EF8
@@ -1727,10 +1727,10 @@ FUN_ov82_0211b6e8: ; 0x0211B6E8
 	ldr r4, _0211BE40 ; 0x02099EF0
 	mov r6, #6
 	bne _0211BDBC
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f5af0
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f5a58
 	ldr r0, [r4]
@@ -1763,7 +1763,7 @@ FUN_ov82_0211b6e8: ; 0x0211B6E8
 	str r0, [sp, #8]
 	str r0, [sp, #0xc]
 	mov r5, r1
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r2, r8
 	mov r3, #0x16
 	str r5, [sp, #0x10]
@@ -1785,7 +1785,7 @@ _0211B7BC:
 	add r11, sp, #0x18
 _0211B7F4:
 	ldr r1, [r10, #0xc]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	add r1, r10, r1
 	str r1, [sp, #0x2c]
 	mov r1, #0
@@ -1839,7 +1839,7 @@ _0211B85C:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0x15
 	str r1, [sp, #0x10]
@@ -1881,7 +1881,7 @@ _0211B8E0:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r2, r1
 	str r1, [sp, #0x10]
 	mov r3, #0x14
@@ -1917,7 +1917,7 @@ _0211B9A0:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0x14
 	str r1, [sp, #0x10]
@@ -1953,7 +1953,7 @@ _0211BA40:
 	beq _0211BAE8
 	strb r6, [r10, #0x10]
 	ldr r1, [r10]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	str r1, [sp, #0x2c]
 	strh r6, [sp, #0x18]
 	strh r6, [sp, #0x1a]
@@ -2186,7 +2186,7 @@ _0211BDCC:
 	moveq r7, r0, asr #0x10
 	beq _0211BE08
 	ldrsh r2, [r3, #2]
-	ldr r0, _0211BE44 ; =0x0209F5C0
+	ldr r0, _0211BE44 ; =gBgMenuManager
 	mov r1, #0
 	str r2, [sp]
 	ldrsh r3, [r3]
@@ -2416,7 +2416,7 @@ _0211C0C0:
 	ldr r1, [r0]
 	ldr r1, [r1, #0x4c]
 	blx r1
-	ldr r6, _0211C654 ; =0x0209F5C0
+	ldr r6, _0211C654 ; =gBgMenuManager
 	mov r1, r7
 	mov r0, r6
 	bl FUN_ov16_020f5af0
@@ -2457,7 +2457,7 @@ _0211C148:
 	mov r3, #3
 	str r3, [r2]
 	bl FUN_ov82_0211bf0c
-	ldr r4, _0211C654 ; =0x0209F5C0
+	ldr r4, _0211C654 ; =gBgMenuManager
 	mov r1, r7
 	mov r0, r4
 	bl FUN_ov16_020f5af0
@@ -2507,7 +2507,7 @@ _0211C1DC:
 	ldr r1, [r1, #0x4c]
 	blx r1
 _0211C23C:
-	ldr r4, _0211C654 ; =0x0209F5C0
+	ldr r4, _0211C654 ; =gBgMenuManager
 	mov r1, r7
 	mov r0, r4
 	bl FUN_ov16_020f5af0
@@ -2796,7 +2796,7 @@ _0211C614:
 	mov r1, r7
 	bl FUN_ov1_020e4304
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211C640: .word unk_0209AEC0
+_0211C640: .word gWirelessUtil
 _0211C644: .word unk_02099F14
 _0211C648: .word 0x00000269
 _0211C64C: .word 0x00005A69
@@ -2919,7 +2919,7 @@ _0211C7E0:
 _0211C7E8: .word unk_02099EF0
 _0211C7EC: .word gL5Sound
 _0211C7F0: .word unk_020A0640
-_0211C7F4: .word unk_0209BA20
+_0211C7F4: .word gLogicThink
 _0211C7F8: .word ov1_020EAAB4
 	arm_func_end FUN_ov82_0211c66c
 
@@ -3003,7 +3003,7 @@ FUN_ov82_0211c864: ; 0x0211C864
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211C900: .word ov1_020EAA94
 _0211C904: .word unk_02099EF0
-_0211C908: .word unk_0209BA20
+_0211C908: .word gLogicThink
 	arm_func_end FUN_ov82_0211c864
 
 	arm_func_start FUN_ov82_0211c90c
@@ -3072,7 +3072,7 @@ FUN_ov82_0211c90c: ; 0x0211C90C
 	strh r1, [r0]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211CA08: .word unk_0209A454
-_0211CA0C: .word unk_0209BA20
+_0211CA0C: .word gLogicThink
 _0211CA10: .word unk_02099EF0
 _0211CA14: .word unk_020A0640
 _0211CA18: .word ov1_020EAAB4
@@ -3131,7 +3131,7 @@ FUN_ov82_0211ca1c: ; 0x0211CA1C
 _0211CADC: .word gL5Sound
 _0211CAE0: .word 0x000005DC
 _0211CAE4: .word unk_020A0640
-_0211CAE8: .word unk_0209BA20
+_0211CAE8: .word gLogicThink
 _0211CAEC: .word unk_02099EF0
 	arm_func_end FUN_ov82_0211ca1c
 
@@ -3320,7 +3320,7 @@ FUN_ov82_0211cd1c: ; 0x0211CD1C
 	str r1, [r4, #0x30]
 	cmp r0, #0
 	bge _0211CDA8
-	ldr r0, _0211CF90 ; =0x0209F5C0
+	ldr r0, _0211CF90 ; =gBgMenuManager
 	mov r2, r8
 	mov r3, r7
 	bl FUN_ov16_020f6b3c
@@ -3454,7 +3454,7 @@ _0211CF58:
 	addne sp, sp, #0x18
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	mov r5, #0
-	ldr r0, _0211CF90 ; =0x0209F5C0
+	ldr r0, _0211CF90 ; =gBgMenuManager
 	mov r1, r5
 	mov r2, r8
 	mov r3, r7
@@ -3476,7 +3476,7 @@ FUN_ov82_0211cf98: ; 0x0211CF98
 	mov r3, r2
 	cmp r0, #0
 	ldmgefd sp!, {r3, r4, r5, pc}
-	ldr r0, _0211D0A4 ; =0x0209F5C0
+	ldr r0, _0211D0A4 ; =gBgMenuManager
 	mov r2, r1
 	mov r1, #0
 	bl FUN_ov16_020f6b3c
@@ -3557,7 +3557,7 @@ FUN_ov82_0211d0b4: ; 0x0211D0B4
 	mov r3, r2
 	cmp r0, #0
 	ldmgefd sp!, {r4, pc}
-	ldr r0, _0211D120 ; =0x0209F5C0
+	ldr r0, _0211D120 ; =gBgMenuManager
 	mov r2, r1
 	mov r1, #0
 	bl FUN_ov16_020f6b3c
@@ -3778,7 +3778,7 @@ _0211D378:
 	add r0, sp, #0x14
 	stmib sp, {r0, r1}
 	str r1, [sp, #0xc]
-	ldr r0, _0211D408 ; =0x0209F5C0
+	ldr r0, _0211D408 ; =gBgMenuManager
 	mov r2, #2
 	mov r3, #0xe
 	str r1, [sp, #0x10]
@@ -3839,7 +3839,7 @@ _0211D450:
 	add r0, sp, #0x14
 	stmib sp, {r0, r1}
 	str r1, [sp, #0xc]
-	ldr r0, _0211D4E8 ; =0x0209F5C0
+	ldr r0, _0211D4E8 ; =gBgMenuManager
 	mov r2, #2
 	mov r3, #0xf
 	str r1, [sp, #0x10]
@@ -3901,7 +3901,7 @@ _0211D530:
 	add r0, sp, #0x14
 	stmib sp, {r0, r1}
 	str r1, [sp, #0xc]
-	ldr r0, _0211D5C8 ; =0x0209F5C0
+	ldr r0, _0211D5C8 ; =gBgMenuManager
 	mov r2, #2
 	mov r3, #0x10
 	str r1, [sp, #0x10]
@@ -4068,7 +4068,7 @@ _0211D7B8:
 	strh r5, [r0]
 	strh r4, [r0, #2]
 	stmia sp, {r4, r6}
-	ldr r0, _0211D818 ; =0x0209F5C0
+	ldr r0, _0211D818 ; =gBgMenuManager
 	mov r3, r5
 	mov r1, #0
 	mov r2, #0xe
@@ -4162,7 +4162,7 @@ _0211D878:
 	strh r5, [r0]
 	strh r4, [r0, #2]
 	stmia sp, {r4, r6}
-	ldr r0, _0211D978 ; =0x0209F5C0
+	ldr r0, _0211D978 ; =gBgMenuManager
 	mov r3, r5
 	mov r1, #0
 	mov r2, #0xf
@@ -4256,7 +4256,7 @@ _0211D9D8:
 	strh r5, [r0]
 	strh r4, [r0, #2]
 	stmia sp, {r4, r6}
-	ldr r0, _0211DAD8 ; =0x0209F5C0
+	ldr r0, _0211DAD8 ; =gBgMenuManager
 	mov r3, r5
 	mov r1, #0
 	mov r2, #0x10
@@ -4274,7 +4274,7 @@ _0211DAD8: .word gBgMenuManager
 FUN_ov82_0211dadc: ; 0x0211DADC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
-	ldr r11, _0211DE74 ; =0x0209F5C0
+	ldr r11, _0211DE74 ; =gBgMenuManager
 	mov r7, #0
 	mov r10, r0
 	mov r0, r11
@@ -4348,7 +4348,7 @@ _0211DB94:
 	stmia sp, {r3, r4}
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211DE74 ; =0x0209F5C0
+	ldr r0, _0211DE74 ; =gBgMenuManager
 	str r1, [sp, #0x10]
 	bl FUN_ov16_020f5c34
 	ldr r0, _0211DE78 ; =0x020A0640
@@ -4385,7 +4385,7 @@ _0211DC30:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211DE74 ; =0x0209F5C0
+	ldr r0, _0211DE74 ; =gBgMenuManager
 	mov r3, r2
 	str r1, [sp, #0x10]
 	bl FUN_ov16_020f5c34
@@ -4430,7 +4430,7 @@ _0211DCB8:
 	mov r2, #2
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211DE74 ; =0x0209F5C0
+	ldr r0, _0211DE74 ; =gBgMenuManager
 	mov r3, r2
 	str r1, [sp, #0x10]
 	bl FUN_ov16_020f5c34
@@ -4459,7 +4459,7 @@ _0211DD54:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211DE74 ; =0x0209F5C0
+	ldr r0, _0211DE74 ; =gBgMenuManager
 	mov r2, #2
 	str r1, [sp, #0x10]
 	bl FUN_ov16_020f5c34
@@ -4497,7 +4497,7 @@ _0211DDE8:
 	str r4, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
-	ldr r0, _0211DE74 ; =0x0209F5C0
+	ldr r0, _0211DE74 ; =gBgMenuManager
 	mov r3, #0x24
 	str r1, [sp, #0x10]
 	bl FUN_ov16_020f5c34
@@ -4519,7 +4519,7 @@ _0211DE7C: .word unk_02099EF0
 FUN_ov82_0211de80: ; 0x0211DE80
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x2c
-	ldr r6, _0211E08C ; =0x0209F5C0
+	ldr r6, _0211E08C ; =gBgMenuManager
 	mov r5, #0
 	mov r4, #4
 	mov r8, r0
@@ -4674,7 +4674,7 @@ FUN_ov82_0211e090: ; 0x0211E090
 	addeq sp, sp, #0x2c
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r9, r4
-	ldr r8, _0211E254 ; =0x0209F5C0
+	ldr r8, _0211E254 ; =gBgMenuManager
 	b _0211E10C
 _0211E0E0:
 	mov r0, r8
@@ -4730,7 +4730,7 @@ _0211E120:
 	add r1, sp, #0x14
 	stmib sp, {r1, r4}
 	str r4, [sp, #0xc]
-	ldr r0, _0211E254 ; =0x0209F5C0
+	ldr r0, _0211E254 ; =gBgMenuManager
 	mov r1, r4
 	add r3, r8, #7
 	str r4, [sp, #0x10]
@@ -4760,7 +4760,7 @@ _0211E120:
 	add r0, sp, #0x14
 	stmib sp, {r0, r4}
 	str r4, [sp, #0xc]
-	ldr r0, _0211E254 ; =0x0209F5C0
+	ldr r0, _0211E254 ; =gBgMenuManager
 	mov r2, #2
 	add r3, r8, #0xa
 	str r4, [sp, #0x10]
@@ -4773,7 +4773,7 @@ _0211E240:
 	blt _0211E120
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211E250: .word unk_0209AEC0
+_0211E250: .word gWirelessUtil
 _0211E254: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211e090
 
@@ -4825,7 +4825,7 @@ FUN_ov82_0211e258: ; 0x0211E258
 	str r0, [sp, #8]
 	mov r1, #0
 	str r1, [sp, #0xc]
-	ldr r0, _0211E334 ; =0x0209F5C0
+	ldr r0, _0211E334 ; =gBgMenuManager
 	mov r2, #2
 	mov r3, #0xd
 	str r12, [sp, #0x10]
@@ -4885,7 +4885,7 @@ _0211E3D0:
 	blt _0211E36C
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211E3E0: .word unk_0209AEC0
+_0211E3E0: .word gWirelessUtil
 	arm_func_end FUN_ov82_0211e338
 
 	arm_func_start FUN_ov82_0211e3e4
@@ -4923,7 +4923,7 @@ _0211E454:
 	ldrb r0, [r7, #0x42c]
 	cmp r0, #0
 	bne _0211E538
-	ldr r6, _0211E61C ; =0x0209F5C0
+	ldr r6, _0211E61C ; =gBgMenuManager
 	mov r5, #0
 	mov r0, r6
 	mov r1, r5
@@ -4989,7 +4989,7 @@ _0211E538:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211E560:
-	ldr r5, _0211E61C ; =0x0209F5C0
+	ldr r5, _0211E61C ; =gBgMenuManager
 	mov r4, #0
 	mov r0, r5
 	mov r1, r4
@@ -5090,7 +5090,7 @@ _0211E6C0:
 	bl FUN_ov82_0211b6e8
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211E6C8:
-	ldr r5, _0211E6EC ; =0x0209F5C0
+	ldr r5, _0211E6EC ; =gBgMenuManager
 	mov r4, #0
 	mov r0, r5
 	mov r1, r4
@@ -5483,7 +5483,7 @@ _0211EBA8:
 _0211EC90: .word unk_020A7C40
 _0211EC94: .word unk_020A7440
 _0211EC98: .word unk_020A6C40
-_0211EC9C: .word unk_0209BA20
+_0211EC9C: .word gLogicThink
 _0211ECA0: .word unk_020A0640
 	arm_func_end FUN_ov82_0211e6f0
 
@@ -5644,7 +5644,7 @@ _0211EE68:
 _0211EEC0:
 	bl FUN_ov16_020f10ac
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211EEC8: .word unk_0209BA20
+_0211EEC8: .word gLogicThink
 _0211EECC: .word ov82_0211FE70
 _0211EED0: .word unk_020A0640
 _0211EED4: .word unk_02099EF0
@@ -5938,7 +5938,7 @@ _0211F2D4: .word ov82_021201FC
 _0211F2D8: .word ov82_02120208
 _0211F2DC: .word ov82_02120210
 _0211F2E0: .word ov82_02120218
-_0211F2E4: .word unk_0209BA20
+_0211F2E4: .word gLogicThink
 _0211F2E8: .word ov82_02120220
 _0211F2EC: .word ov82_02120228
 _0211F2F0: .word ov82_02120230
@@ -6253,7 +6253,7 @@ FUN_ov82_0211f714: ; 0x0211F714
 	bl FUN_ov132_021435c0
 	mov r0, r6
 	bl FUN_ov82_0211e620
-	ldr r0, _0211F760 ; =0x0209F5C0
+	ldr r0, _0211F760 ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f672c
 	mov r0, r6
@@ -6500,7 +6500,7 @@ _0211FA80:
 	ldr r1, [r1, #0x3c]
 	blx r1
 _0211FA8C:
-	ldr r0, _0211FACC ; =0x0209F5C0
+	ldr r0, _0211FACC ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
@@ -6515,7 +6515,7 @@ _0211FAB0:
 	bne _0211FABC
 	bl FUN_ov82_0211bedc
 _0211FABC:
-	ldr r0, _0211FACC ; =0x0209F5C0
+	ldr r0, _0211FACC ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
@@ -6619,7 +6619,7 @@ _0211FC20:
 	mov r2, #3
 	bl FUN_ov16_020f2fa8
 _0211FC34:
-	ldr r0, _0211FD7C ; =0x0209F5C0
+	ldr r0, _0211FD7C ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f5a58
 	ldr r0, _0211FD78 ; =0x020A0640
@@ -6732,7 +6732,7 @@ FUN_ov82_0211fd90: ; 0x0211FD90
 	mov r1, r5
 	bl FUN_ov1_020df110
 	mov r5, #0
-	ldr r0, _0211FE34 ; =0x0209F5C0
+	ldr r0, _0211FE34 ; =gBgMenuManager
 	mov r1, r5
 	bl FUN_ov16_020f5af0
 	ldr r0, _0211FE38 ; 0x02099EF0

@@ -1691,7 +1691,7 @@ _0211B5A8:
 	mov r0, #0xc
 	bl FUN_ov16_020f3f60
 	mov r5, #0
-	ldr r0, _0211B784 ; =0x0209F5C0
+	ldr r0, _0211B784 ; =gBgMenuManager
 	mov r1, r5
 	bl FUN_ov16_020f5a58
 	str r5, [r6, #0xbc]
@@ -1721,16 +1721,16 @@ _0211B5F0:
 _0211B62C:
 	ldr r0, [r6, #0x44]
 	mov r0, r0, lsl #2
-	bl operator_new_array
+	bl _Znam
 	ldr r1, [r6, #0x44]
 	mov r7, #0x74
 	str r0, [r6, #0xa4]
 	mul r0, r1, r7
-	bl operator_new_array
+	bl _Znam
 	ldr r1, [r6, #0x44]
 	str r0, [r6, #0xb8]
 	rsb r0, r1, r1, lsl #1
-	bl operator_new_array
+	bl _Znam
 	mov r5, #0
 	str r0, [r6, #0xc8]
 	mov r1, r5
@@ -2079,7 +2079,7 @@ FUN_ov37_0211bb1c: ; 0x0211BB1C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
-	ldr r0, _0211BB9C ; =0x0209F5C0
+	ldr r0, _0211BB9C ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f5af0
 	mov r0, r5
@@ -2087,20 +2087,20 @@ FUN_ov37_0211bb1c: ; 0x0211BB1C
 	ldr r0, [r5, #0xc8]
 	cmp r0, #0
 	beq _0211BB50
-	bl operator_delete_array
+	bl _ZdaPv
 	str r4, [r5, #0xc8]
 _0211BB50:
 	ldr r0, [r5, #0xb8]
 	cmp r0, #0
 	beq _0211BB68
-	bl operator_delete_array
+	bl _ZdaPv
 	mov r0, #0
 	str r0, [r5, #0xb8]
 _0211BB68:
 	ldr r0, [r5, #0xa4]
 	cmp r0, #0
 	beq _0211BB80
-	bl operator_delete_array
+	bl _ZdaPv
 	mov r0, #0
 	str r0, [r5, #0xa4]
 _0211BB80:

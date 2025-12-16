@@ -25,14 +25,14 @@
 .public FUN_ov16_020f10c8
 .public FUN_ov16_0210ee78
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public operator_new_array
+.public _Znam
 .public FUN_02044658
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
 .public unk_020AF81C
 .public FUN_ov16_0210e674
 .public FUN_ov16_0210e9d8
-.public operator_delete_array
+.public _ZdaPv
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e694
 .public ov106_02125420

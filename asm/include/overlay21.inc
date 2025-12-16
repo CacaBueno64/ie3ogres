@@ -76,7 +76,7 @@
 .public FUN_02044754
 .public FUN_ov131_0213c5fc
 .public unk_0209A0F4
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099F44
 .public unk_020AF81C
 .public FUN_ov16_0210f20c

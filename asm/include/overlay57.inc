@@ -1,5 +1,5 @@
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov1_020e62c0
 .public FUN_ov16_020f067c
 .public FUN_ov16_020f0a30
@@ -32,7 +32,7 @@
 .public FUN_02056b24
 .public FUN_0204e79c
 .public unk_02099EC0
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_021128c4

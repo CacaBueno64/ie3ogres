@@ -42,7 +42,7 @@
 .public FUN_0204a2c4
 .public FUN_ov16_021139bc
 .public FUN_ov16_02113ec0
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_02112af0
 .public FUN_ov16_02114248
 .public FUN_ov16_0210fbe8

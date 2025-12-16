@@ -10,7 +10,7 @@
 .public unk_02099ED4
 .public unk_0209A0AC
 .public gL5Allocator
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_020A0640
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
@@ -27,7 +27,7 @@
 .public FUN_ov16_020ee034
 .public MI_CpuCopy8
 .public FUN_ov16_020edeb4
-.public unk_0209BA20
+.public gLogicThink
 .public ov1_020E948C
 .public unk_020A160C
 .public unk_020A1608

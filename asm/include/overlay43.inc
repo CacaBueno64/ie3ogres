@@ -7,7 +7,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EB4
 .public unk_02099ED4
 .public FUN_020552dc
@@ -73,8 +73,8 @@
 .public FUN_0204b2f4
 .public FUN_ov131_0213ad10
 .public unk_02099F44
-.public operator_new_array
-.public operator_delete_array
+.public _Znam
+.public _ZdaPv
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f3054

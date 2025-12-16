@@ -56,7 +56,7 @@ _02119FA8:
 	blt _02119F3C
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02119FB8: .word unk_0209AEC0
+_02119FB8: .word gWirelessUtil
 _02119FBC: .word unk_02099EF0
 	arm_func_end FUN_ov84_02119f00
 
@@ -118,7 +118,7 @@ _0211A080:
 	blt _0211A040
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0211A090: .word unk_0209AEC0
+_0211A090: .word gWirelessUtil
 _0211A094: .word ov84_0211BBDC
 	arm_func_end FUN_ov84_02119fc0
 
@@ -184,7 +184,7 @@ _0211A140:
 	strb r1, [r0, #2]
 	strb r4, [r0, #3]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A170: .word unk_0209AEC0
+_0211A170: .word gWirelessUtil
 _0211A174: .word unk_0209A4E0
 	arm_func_end FUN_ov84_0211a098
 
@@ -384,7 +384,7 @@ _0211A3DC:
 	blt _0211A360
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A3F0: .word unk_0209BA20
+_0211A3F0: .word gLogicThink
 _0211A3F4: .word unk_02099EC0
 	arm_func_end FUN_ov84_0211a328
 

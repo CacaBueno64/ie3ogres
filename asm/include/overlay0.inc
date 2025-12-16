@@ -151,7 +151,7 @@
 .public FUN_0205d5e8
 .public FUN_0204c3e0
 .public FUN_0204de70
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0204b540
 .public FUN_0204b438
 .public MI_CpuFill8

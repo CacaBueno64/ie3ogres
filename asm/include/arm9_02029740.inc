@@ -45,7 +45,7 @@
 .public _ZN7L5Sound12FUN_0202b7f0Ev
 .public gL5Sound
 .public gL5Allocator
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_0204643c
 .public FUN_0204665c
 .public _Z9VramClearv

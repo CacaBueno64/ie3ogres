@@ -3763,7 +3763,7 @@ _02045294:
 _020452D0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020452D8: .word unk_0209BA20
+_020452D8: .word gLogicThink
 _020452DC: .word unk_02099EF0
 	arm_func_end FUN_02045124
 
@@ -4902,7 +4902,7 @@ _02046094: .word unk_02090188
 _02046098: .word unk_02090190
 _0204609C: .word unk_020901B0
 _020460A0: .word gL5Allocator
-_020460A4: .word unk_0209BA20
+_020460A4: .word gLogicThink
 	arm_func_end FUN_02045edc
 
 	arm_func_start FUN_020460a8
@@ -6372,7 +6372,7 @@ _020471E0:
 	strb r1, [r0, r6]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020471F0: .word unk_0209AF58
-_020471F4: .word unk_0209AEC0
+_020471F4: .word gWirelessUtil
 _020471F8: .word unk_0209AF54
 	arm_func_end FUN_02047150
 
@@ -6506,7 +6506,7 @@ _020473D0: .word unk_0208C408
 _020473D4: .word unk_020A18A0
 _020473D8: .word unk_020A0640
 _020473DC: .word unk_0209AA60
-_020473E0: .word unk_0209AEC0
+_020473E0: .word gWirelessUtil
 _020473E4: .word unk_0209A10C
 _020473E8: .word unk_0209E6C0
 _020473EC: .word unk_020A3CA0
@@ -6612,7 +6612,7 @@ _02047554: .word unk_0208C418
 _02047558: .word unk_020A18A0
 _0204755C: .word unk_020A0640
 _02047560: .word unk_0209AA60
-_02047564: .word unk_0209AEC0
+_02047564: .word gWirelessUtil
 _02047568: .word unk_0209A10C
 _0204756C: .word unk_0209E6C0
 _02047570: .word unk_020A3CA0
@@ -6627,7 +6627,7 @@ FUN_02047578: ; 0x02047578
 	ldr r0, _02047590 ; =0x0209AEC0
 	bl FUN_02046c5c
 	ldmfd sp!, {r3, pc}
-_02047590: .word unk_0209AEC0
+_02047590: .word gWirelessUtil
 	arm_func_end FUN_02047578
 
 	arm_func_start FUN_02047594
@@ -6945,8 +6945,8 @@ _02047A08: .word unk_020A3CA0
 _02047A0C: .word unk_0209A138
 	arm_func_end FUN_02047898
 
-	arm_func_start _ZN17UnkClass_0209AEC012FUN_02047a10Ev
-_ZN17UnkClass_0209AEC012FUN_02047a10Ev: ; 0x02047A10
+	arm_func_start _ZN13CWirelessUtil12FUN_02047a10Ev
+_ZN13CWirelessUtil12FUN_02047a10Ev: ; 0x02047A10
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl FUN_02046698
@@ -6980,7 +6980,7 @@ _02047A70:
 _02047A74:
 	str r0, [r4, #0x60]
 	ldmfd sp!, {r4, pc}
-	arm_func_end _ZN17UnkClass_0209AEC012FUN_02047a10Ev
+	arm_func_end _ZN13CWirelessUtil12FUN_02047a10Ev
 
 	arm_func_start FUN_02047a7c ; https://decomp.me/scratch/bY8Zx
 FUN_02047a7c: ; 0x02047A7C
@@ -8432,7 +8432,7 @@ FUN_02048cac: ; 0x02048CAC
 	ldr r0, [sp, #0x14]
 	mov r6, #4
 	stmia sp, {r0, r6}
-	ldr r4, _02049018 ; =gCFileIO
+	ldr r4, _02049018 ; =gFileIO
 	str r11, [sp, #8]
 	mov r5, #1
 	mov r0, r4
@@ -8496,7 +8496,7 @@ _02048E28:
 	ldr r1, _02049020 ; =0x02090360
 	mov r0, r4
 	bl sprintf
-	ldr r0, _02049018 ; =gCFileIO
+	ldr r0, _02049018 ; =gFileIO
 	mov r2, r4
 	add r1, r10, #0x16c
 	bl _ZN7CFileIO19convertPathToFileIDEP8FSFileIDPKc
@@ -8597,7 +8597,7 @@ _02048FA4:
 	ldr r1, _02049034 ; =0x020903B8
 	add r0, r2, r0
 	bl STD_CopyString
-	ldr r0, _02049018 ; =gCFileIO
+	ldr r0, _02049018 ; =gFileIO
 	add r1, r10, #0x16c
 	add r2, r10, #0x178
 	bl _ZN7CFileIO19convertPathToFileIDEP8FSFileIDPKc
@@ -8608,7 +8608,7 @@ _02049000:
 _0204900C: .word unk_02090324
 _02049010: .word unk_02090338
 _02049014: .word unk_0209034C
-_02049018: .word gCFileIO
+_02049018: .word gFileIO
 _0204901C: .word gL5Allocator
 _02049020: .word unk_02090360
 _02049024: .word unk_02090374
@@ -11211,7 +11211,7 @@ _0204B198:
 	bl FUN_0204b0c4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0204B1AC: .word unk_02099EF0
-_0204B1B0: .word unk_0209BA20
+_0204B1B0: .word gLogicThink
 _0204B1B4: .word 0x51EB851F
 	arm_func_end FUN_0204b114
 
@@ -13070,7 +13070,7 @@ _0204CA00:
 _0204CA50:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0204CA58: .word unk_0209BA20
+_0204CA58: .word gLogicThink
 	arm_func_end FUN_0204c92c
 
 	arm_func_start FUN_0204ca5c
@@ -13512,7 +13512,7 @@ _0204D08C:
 	cmp r0, r4, lsr #16
 	bgt _0204D010
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0204D0AC: .word unk_0209BA20
+_0204D0AC: .word gLogicThink
 _0204D0B0: .word unk_0209A11C
 	arm_func_end FUN_0204ce50
 
@@ -13948,7 +13948,7 @@ _0204D580:
 	mov r0, r6
 	add sp, sp, #0xa0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0204D69C: .word unk_0209BA20
+_0204D69C: .word gLogicThink
 _0204D6A0: .word unk_02099ED8
 _0204D6A4: .word unk_02099EC0
 	arm_func_end FUN_0204d524
@@ -14512,7 +14512,7 @@ _0204DE4C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0204DE5C: .word 0x0000018E
 _0204DE60: .word unk_02099E91
-_0204DE64: .word unk_0209BA20
+_0204DE64: .word gLogicThink
 _0204DE68: .word unk_020A0640
 _0204DE6C: .word unk_02099E97
 	arm_func_end FUN_0204da5c
@@ -16443,7 +16443,7 @@ _0204F854:
 	add r0, r6, r0, asr #1
 	bl _s32_div_f
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0204F880: .word unk_0209BA20
+_0204F880: .word gLogicThink
 _0204F884: .word unk_0209A0AC
 	arm_func_end FUN_0204f7c0
 
@@ -17740,7 +17740,7 @@ FUN_020507d0: ; 0x020507D0
 	orreq r1, r1, r2
 	streqb r1, [r4, r0, asr #3]
 	ldmfd sp!, {r4, pc}
-_0205081C: .word unk_0209BA20
+_0205081C: .word gLogicThink
 	arm_func_end FUN_020507d0
 
 	arm_func_start FUN_02050820
@@ -17804,7 +17804,7 @@ FUN_02050854: ; 0x02050854
 	bl FUN_02050a0c
 	add sp, sp, #0x68
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020508F4: .word unk_0209BA20
+_020508F4: .word gLogicThink
 _020508F8: .word unk_020A0EF8
 	arm_func_end FUN_02050854
 
@@ -17869,7 +17869,7 @@ FUN_02050930: ; 0x02050930
 	bl FUN_02050a0c
 	add sp, sp, #0x68
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020509D0: .word unk_0209BA20
+_020509D0: .word gLogicThink
 _020509D4: .word unk_020A0EF8
 	arm_func_end FUN_02050930
 
@@ -17963,7 +17963,7 @@ _02050AFC:
 	strb r0, [r10, r5, asr #3]
 	add sp, sp, #0x68
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02050B14: .word unk_0209BA20
+_02050B14: .word gLogicThink
 _02050B18: .word unk_020A108A
 	arm_func_end FUN_02050a0c
 
@@ -18018,7 +18018,7 @@ _02050BBC:
 	strb r0, [r8, r4, asr #3]
 	add sp, sp, #0x68
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02050BD8: .word unk_0209BA20
+_02050BD8: .word gLogicThink
 	arm_func_end FUN_02050b1c
 
 	arm_func_start FUN_02050bdc
@@ -18368,7 +18368,7 @@ _02051058:
 	cmp r8, #0x64
 	blt _02050F80
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02051068: .word unk_0209BA20
+_02051068: .word gLogicThink
 	arm_func_end FUN_02050f4c
 
 	arm_func_start FUN_0205106c
@@ -23455,7 +23455,7 @@ _020550BC:
 	add sp, sp, #0x74
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02055194: .word 0x00000FFF
-_02055198: .word unk_0209BA20
+_02055198: .word gLogicThink
 _0205519C: .word 0x00000555
 	arm_func_end FUN_02055004
 
@@ -23514,7 +23514,7 @@ _02055260:
 	add sp, sp, #0x68
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0205526C: .word 0x00000FFF
-_02055270: .word unk_0209BA20
+_02055270: .word gLogicThink
 	arm_func_end FUN_020551a0
 
 	arm_func_start FUN_02055274
@@ -25649,7 +25649,7 @@ _02056DE0:
 	mov r0, r4
 	add sp, sp, #0x70
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02056DFC: .word unk_0209BA20
+_02056DFC: .word gLogicThink
 _02056E00: .word unk_02099F58
 	arm_func_end FUN_02056b24
 
@@ -25799,7 +25799,7 @@ FUN_02056ed4: ; 0x02056ED4
 	mov r0, #1
 	add sp, sp, #0x168
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0205700C: .word unk_0209BA20
+_0205700C: .word gLogicThink
 _02057010: .word unk_02090744
 _02057014: .word unk_02090754
 _02057018: .word unk_02090760
@@ -38274,7 +38274,7 @@ _0206159C:
 	str r3, [sp]
 	str r3, [sp, #4]
 	str r3, [sp, #8]
-	ldr r0, _02061628 ; =gCFileIO
+	ldr r0, _02061628 ; =gFileIO
 	add r1, sp, #0x10
 	str r5, [sp, #0xc]
 	add r2, r4, #0xc
@@ -38302,7 +38302,7 @@ _020615E0:
 _0206161C: .word unk_02090F98
 _02061620: .word unk_02090FB4
 _02061624: .word gL5Allocator
-_02061628: .word gCFileIO
+_02061628: .word gFileIO
 	arm_func_end FUN_02061534
 
 	arm_func_start FUN_0206162c
@@ -39477,7 +39477,7 @@ _020626D0: .word unk_020A17A8
 _020626D4: .word unk_020A9C40
 _020626D8: .word unk_020AF81C
 _020626DC: .word gL5Sound
-_020626E0: .word unk_0209BA20
+_020626E0: .word gLogicThink
 _020626E4: .word unk_02099ED8
 _020626E8: .word unk_02099EE8
 _020626EC: .word unk_020A1740
@@ -40081,7 +40081,7 @@ _02062F70: .word unk_020A17C1
 _02062F74: .word unk_020A9C40
 _02062F78: .word unk_020AF81C
 _02062F7C: .word gL5Sound
-_02062F80: .word unk_0209BA20
+_02062F80: .word gLogicThink
 _02062F84: .word unk_02099ED8
 _02062F88: .word unk_02099EE8
 _02062F8C: .word unk_02099E8E

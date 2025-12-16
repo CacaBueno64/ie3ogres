@@ -1176,7 +1176,7 @@ _0211AFE0:
 	blt _0211ADE4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211AFF0: .word 0x00000B0C
-_0211AFF4: .word unk_0209BA20
+_0211AFF4: .word gLogicThink
 	arm_func_end FUN_ov70_0211adb0
 
 	arm_func_start FUN_ov70_0211aff8
@@ -1275,7 +1275,7 @@ _0211B138:
 	mov r0, r10
 	bl FUN_ov70_0211b154
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B150: .word unk_0209BA20
+_0211B150: .word gLogicThink
 	arm_func_end FUN_ov70_0211aff8
 
 	arm_func_start FUN_ov70_0211b154
@@ -1502,7 +1502,7 @@ _0211B464:
 _0211B494: .word 0x00001B48
 _0211B498: .word gL5Allocator
 _0211B49C: .word ov70_0211F36C
-_0211B4A0: .word unk_0209BA20
+_0211B4A0: .word gLogicThink
 	arm_func_end FUN_ov70_0211b154
 
 	arm_func_start FUN_ov70_0211b4a4

@@ -75,7 +75,7 @@
 .public SND_Init
 .public SND_UnlockChannel
 .public SND_FlushCommand
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f1214
 .public OS_EnableInterrupts
 .public OS_ResetSystem
@@ -145,8 +145,8 @@
 .public sprintf
 .public FUN_ov16_020f1f5c
 .public STD_GetStringLength
-.public operator_new_array
-.public operator_delete_array
+.public _Znam
+.public _ZdaPv
 .public FUN_ov16_020f5eec
 .public DWC_GetLinkLevel
 .public FUN_ov16_020f5f64

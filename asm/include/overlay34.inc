@@ -1,6 +1,6 @@
 .public FUN_0205107c
 .public FUN_0204fe48
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f64cc
 .public FUN_ov16_020f60f8
 .public FUN_ov16_020f6470

@@ -1,5 +1,5 @@
 .public unk_0209C220
-.public unk_0209BA20
+.public gLogicThink
 .public STD_GetStringLength
 .public STD_CompareNString
 .public FUN_ov16_020f6510

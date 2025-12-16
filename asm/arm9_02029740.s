@@ -321,7 +321,7 @@ FUN_02029bd0: ; 0x02029BD0
 	ldr r0, _02029BDC ; =0x0209AEC0
 	ldr r12, _02029BE0 ; =FUN_0204643c
 	bx r12
-_02029BDC: .word unk_0209AEC0
+_02029BDC: .word gWirelessUtil
 _02029BE0: .word FUN_0204643c
 	arm_func_end FUN_02029bd0
 
@@ -330,7 +330,7 @@ FUN_02029be4: ; 0x02029BE4
 	ldr r0, _02029BF0 ; =0x0209AEC0
 	ldr r12, _02029BF4 ; =FUN_0204665c
 	bx r12
-_02029BF0: .word unk_0209AEC0
+_02029BF0: .word gWirelessUtil
 _02029BF4: .word FUN_0204665c
 	arm_func_end FUN_02029be4
 

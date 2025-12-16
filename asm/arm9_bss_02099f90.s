@@ -348,8 +348,8 @@ unk_0209AA64:
 	.global gL5Sound
 gL5Sound:
 	.space 0x27C
-	.global unk_0209AEC0
-unk_0209AEC0:
+	.global gWirelessUtil
+gWirelessUtil:
 	.space 0x94
 	.global unk_0209AF54
 unk_0209AF54:
@@ -369,8 +369,8 @@ unk_0209B620:
 	.global unk_0209B820
 unk_0209B820:
 	.space 0x200
-	.global unk_0209BA20
-unk_0209BA20:
+	.global gLogicThink
+gLogicThink:
 	.space 0x40C
 	.global unk_0209BE2C
 unk_0209BE2C:
@@ -393,8 +393,8 @@ unk_0209C120:
 	.global unk_0209C220
 unk_0209C220:
 	.space 0xA4
-	.global gCFileIO
-gCFileIO:
+	.global gFileIO
+gFileIO:
 	.space 0x94C
 	.global unk_0209CC10
 unk_0209CC10:

@@ -20,7 +20,7 @@
 .public gL5Config
 .public _ZN8L5ConfigD1Ev
 .public unk_02099FA8
-.public gCFileIO
+.public gFileIO
 .public _ZN7CFileIOD1Ev
 .public unk_02099FB4
 .public unk_0209A5D0
@@ -53,7 +53,7 @@
 .public unk_020A9C40
 .public FUN_02045458
 .public unk_0209A008
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0206f150
 .public unk_0209A020
 .public unk_0209A320
@@ -69,7 +69,7 @@
 .public FUN_0203df84
 .public unk_02099F90
 .public unk_02090204
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_020463f4
 .public unk_02099F9C
 .public unk_0208F880

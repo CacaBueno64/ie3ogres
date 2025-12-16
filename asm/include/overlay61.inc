@@ -36,7 +36,7 @@
 .public unk_02099EB4
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f32b4
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_020735a0
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f18e8
@@ -60,7 +60,7 @@
 .public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
 .public _ZN7CFileIO11tryFinalizeEPv
 .public MIi_CpuClear16
-.public gCFileIO
+.public gFileIO
 .public FUN_ov16_020f66c0
 .public FUN_ov16_020f6c8c
 .public FUN_ov16_0210fba4

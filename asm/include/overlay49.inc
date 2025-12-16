@@ -33,7 +33,7 @@
 .public FUN_ov16_020f153c
 .public unk_02099E8F
 .public FUN_0207249c
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EA2
 .public unk_02099E98
 .public FUN_ov16_0210ee78

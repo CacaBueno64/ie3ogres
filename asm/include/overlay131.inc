@@ -8,7 +8,7 @@
 .public FUN_ov16_020edf7c
 .public FUN_02074538
 .public FUN_ov16_020eef64
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A0700
 .public FUN_ov16_020edec4
 .public unk_020A1640
@@ -101,7 +101,7 @@
 .public RTC_GetTime
 .public srand
 .public FUN_020465fc
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_0208BFB0
 .public FUN_0207371c
 .public FUN_020724c8

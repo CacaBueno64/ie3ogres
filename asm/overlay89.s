@@ -84,7 +84,7 @@ _02119FF8:
 _0211A028: .word unk_02099EB4
 _0211A02C: .word unk_02099ED4
 _0211A030: .word gL5Allocator
-_0211A034: .word unk_0209AEC0
+_0211A034: .word gWirelessUtil
 _0211A038: .word unk_020A0640
 	arm_func_end FUN_ov89_02119f00
 
@@ -419,7 +419,7 @@ _0211A494:
 	streqb r0, [r10, #0x1b]
 	add sp, sp, #0x30c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A4CC: .word unk_0209BA20
+_0211A4CC: .word gLogicThink
 _0211A4D0: .word 0x00000FFF
 _0211A4D4: .word unk_020A9C40
 	arm_func_end FUN_ov89_0211a2a4

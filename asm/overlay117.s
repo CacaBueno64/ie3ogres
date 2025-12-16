@@ -109,7 +109,7 @@ _02124E3C:
 	streqb r0, [r5, #0x37]
 	ldmfd sp!, {r4, r5, r6, pc}
 _02124E80: .word unk_02099EF0
-_02124E84: .word unk_0209BA20
+_02124E84: .word gLogicThink
 	arm_func_end FUN_ov117_02124d00
 
 	arm_func_start FUN_ov117_02124e88

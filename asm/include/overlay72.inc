@@ -1,7 +1,7 @@
 .public FUN_0204fca0
 .public FUN_0204bc4c
 .public unk_020A1640
-.public unk_0209BA20
+.public gLogicThink
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public unk_0209A0E0
@@ -14,7 +14,7 @@
 .public _ZN14CScreenManager14getCurSceneSubEv
 .public FUN_ov16_020f1528
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public _ZN7L5Sound12FUN_0202cf6cEm

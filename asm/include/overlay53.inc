@@ -66,7 +66,7 @@
 .public FUN_0206d4b4
 .public FUN_0206d4c4
 .public FUN_0204b2f4
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0204b540
 .public FUN_02056828
 .public FUN_020568c4

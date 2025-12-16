@@ -97,7 +97,7 @@
 .public _s32_div_f
 .public FUN_ov16_020efa9c
 .public FUN_0204c078
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A1540
 .public FUN_ov16_02114370
 .public FUN_0206cc00

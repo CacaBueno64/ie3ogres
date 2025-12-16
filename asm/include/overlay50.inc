@@ -13,7 +13,7 @@
 .public FUN_ov16_020efa9c
 .public FUN_0204ea4c
 .public gL5Allocator
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f366c
 .public FUN_0207249c
 .public FUN_ov16_020f36f4

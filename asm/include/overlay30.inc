@@ -44,7 +44,7 @@
 .public FUN_0206d620
 .public FUN_0206d5f0
 .public FUN_0206d600
-.public unk_0209BA20
+.public gLogicThink
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

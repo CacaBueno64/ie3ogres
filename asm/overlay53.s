@@ -1280,7 +1280,7 @@ _0211B028:
 	bl MI_CpuCopy8
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B050: .word unk_0209BA20
+_0211B050: .word gLogicThink
 	arm_func_end FUN_ov53_0211ad5c
 
 	arm_func_start FUN_ov53_0211b054
@@ -1364,7 +1364,7 @@ _0211B164:
 	bl MI_CpuCopy8
 	add sp, sp, #0x50
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B180: .word unk_0209BA20
+_0211B180: .word gLogicThink
 	arm_func_end FUN_ov53_0211b054
 
 	arm_func_start FUN_ov53_0211b184
@@ -3318,7 +3318,7 @@ _0211CC58: .word ov53_0211E6D8
 _0211CC5C: .word ov53_0211E73C
 _0211CC60: .word unk_02099F38
 _0211CC64: .word unk_02099ED8
-_0211CC68: .word unk_0209BA20
+_0211CC68: .word gLogicThink
 _0211CC6C: .word unk_02099EC0
 _0211CC70: .word unk_020A0640
 	arm_func_end FUN_ov53_0211ca5c
@@ -4894,7 +4894,7 @@ _0211E244:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211E254: .word unk_02099ED8
 _0211E258: .word unk_02099EC0
-_0211E25C: .word unk_0209BA20
+_0211E25C: .word gLogicThink
 	arm_func_end FUN_ov53_0211e19c
 
 	arm_func_start FUN_ov53_0211e260
@@ -4932,7 +4932,7 @@ _0211E2C4:
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211E2D8: .word ov53_0211E74C
-_0211E2DC: .word unk_0209BA20
+_0211E2DC: .word gLogicThink
 	arm_func_end FUN_ov53_0211e260
 
 	arm_func_start FUN_ov53_0211e2e0
@@ -5039,7 +5039,7 @@ _0211E42C:
 	blt _0211E400
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_0211E440: .word unk_0209BA20
+_0211E440: .word gLogicThink
 	arm_func_end FUN_ov53_0211e3dc
 
 	arm_func_start FUN_ov53_0211e444
@@ -5103,7 +5103,7 @@ _0211E508:
 	blt _0211E48C
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211E51C: .word unk_0209BA20
+_0211E51C: .word gLogicThink
 	arm_func_end FUN_ov53_0211e444
 
 	arm_func_start FUN_ov53_0211e520
@@ -5210,7 +5210,7 @@ _0211E594:
 	add sp, sp, #0xa0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211E6AC: .word unk_02099ED8
-_0211E6B0: .word unk_0209BA20
+_0211E6B0: .word gLogicThink
 _0211E6B4: .word unk_02099EC0
 	arm_func_end FUN_ov53_0211e520
 

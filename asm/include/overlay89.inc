@@ -9,7 +9,7 @@
 .public unk_02099EB4
 .public unk_02099ED4
 .public gL5Allocator
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_020A0640
 .public FUN_ov16_020efa04
 .public FUN_0206c270
@@ -39,7 +39,7 @@
 .public FUN_0206d8b8
 .public FUN_0206d8a8
 .public FUN_02045de0
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A9C40
 .public STD_CopyString
 .public ov1_020E948C

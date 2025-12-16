@@ -12,7 +12,7 @@
 .public FUN_020728c4
 .public FUN_0206f8d0
 .public FUN_02071894
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_020726f8
 .public FUN_02070530
 .public FUN_0204d7fc

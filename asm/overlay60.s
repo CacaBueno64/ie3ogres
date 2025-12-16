@@ -218,7 +218,7 @@ _0211A204: .word unk_02099EB4
 _0211A208: .word unk_02099ED4
 _0211A20C: .word unk_020A9C40
 _0211A210: .word unk_020A0640
-_0211A214: .word unk_0209BA20
+_0211A214: .word gLogicThink
 	arm_func_end FUN_ov60_0211a0a0
 
 	arm_func_start FUN_ov60_0211a218
@@ -616,7 +616,7 @@ _0211A75C:
 	bl MI_CpuCopy8
 	add sp, sp, #0xdc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A79C: .word unk_0209BA20
+_0211A79C: .word gLogicThink
 _0211A7A0: .word 0x00001860
 	arm_func_end FUN_ov60_0211a3d8
 
@@ -696,7 +696,7 @@ _0211A884:
 	bl MI_CpuCopy8
 	add sp, sp, #0xf8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211A8C0: .word unk_0209BA20
+_0211A8C0: .word gLogicThink
 	arm_func_end FUN_ov60_0211a7a4
 
 	arm_func_start FUN_ov60_0211a8c4
@@ -2939,7 +2939,7 @@ _0211C7F0:
 	bl FUN_ov16_020efa04
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0211C800: .word unk_0209BA20
+_0211C800: .word gLogicThink
 _0211C804: .word unk_020A9C40
 _0211C808: .word unk_020A0640
 _0211C80C: .word unk_020A1664
@@ -3004,7 +3004,7 @@ FUN_ov60_0211c850: ; 0x0211C850
 	bl FUN_02056b24
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0211C8E4: .word unk_0209BA20
+_0211C8E4: .word gLogicThink
 _0211C8E8: .word unk_02099EC0
 	arm_func_end FUN_ov60_0211c850
 
@@ -3572,7 +3572,7 @@ _0211D10C:
 	add sp, sp, #0x68
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211D124: .word unk_0209A454
-_0211D128: .word unk_0209BA20
+_0211D128: .word gLogicThink
 _0211D12C: .word unk_0209A0AC
 _0211D130: .word unk_02099ED8
 _0211D134: .word unk_020A108A

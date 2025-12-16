@@ -15,12 +15,10 @@ L5Movie::~L5Movie()
 
 void L5Movie::init(L5Allocator *allocator)
 {
-    if (allocator == NULL) {
-        return;
+    if (allocator) {
+        unk_020B5B80.allocator = allocator;
+        OS_InitTick();
     }
-
-    unk_020B5B80.allocator = allocator;
-    OS_InitTick();
 }
 
 void L5Movie::FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3)
@@ -97,7 +95,7 @@ BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
         &this->alarm,
         OS_GetTick() + ALARM_COUNT( 10 ),
         ALARM_COUNT( (u64)16777216000000 / (u64)MO_GetVideoFps(this->handle_98) ),
-        &Movie_AlarmIntr,
+        &this->alarmIntr,
         NULL
     );
 
@@ -109,7 +107,7 @@ BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
 
     OS_CreateThread(
         &this->thread,
-        &FUN_0202ec08,
+        &this->threadIntr,
         this,
         (void *)((int)this->unk188 + MOVIE_STACK_SIZE),
         MOVIE_STACK_SIZE,
@@ -182,7 +180,7 @@ BOOL L5Movie::FUN_0202e78c(void)
             this->unk198--;
         }
         if (this->unk194) {
-            if (FUN_0202ec4c(this->handle, this->handle_94)) {
+            if (this->blitFrameImage(this->handle, this->handle_94)) {
                 this->unk1A0++;
                 this->unk194--;
                 this->unk198--;
@@ -316,10 +314,9 @@ void L5Movie::closeMovie(u32 param1)
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay126));
 }
 
-extern "C" {
-void FUN_0202ec08(void *arg)
+void L5Movie::threadIntr(void *arg)
 {
-    L5Movie *movie = (L5Movie *)arg;
+    L5Movie *movie = static_cast<L5Movie *>(arg);
     while (TRUE) {
         if (movie->FUN_0202ea50()) {
             continue;
@@ -328,16 +325,16 @@ void FUN_0202ec08(void *arg)
     }
 }
 
-u32 Movie_GetVideoFps(L5Movie *movie)
+u32 L5Movie::getVideoFps(void)
 {
-    if (!movie->handle_98) {
+    if (!this->handle_98) {
         return 0;
     }
 
-    return MO_GetVideoFps(movie->handle_98);
+    return MO_GetVideoFps(this->handle_98);
 }
 
-BOOL FUN_0202ec4c(MOHandle handle0, MOHandle handle1)
+BOOL L5Movie::blitFrameImage(MOHandle handle0, MOHandle handle1)
 {
     if (unk_020B5B80.unk6 == 0) {
         return FALSE;
@@ -359,30 +356,29 @@ BOOL FUN_0202ec4c(MOHandle handle0, MOHandle handle1)
     return TRUE;
 }
 
-void Movie_AlarmIntr(void *arg)
+void L5Movie::alarmIntr(void *arg)
 {
     #pragma unused(arg)
 
     unk_020B5B80.unk5++;
 }
 
-void *Movie_Malloc(int size)
+void *L5Movie::malloc(int size)
 {
     return unk_020B5B80.allocator->allocate(size, 5, 0);
 }
 
-void Movie_Free(void *ptr)
+void L5Movie::free(void *ptr)
 {
     unk_020B5B80.allocator->deallocate(ptr);
 }
 
 void *MO_Malloc(u32 size)
 {
-    return Movie_Malloc(size);
+    return gL5Movie.malloc(size);
 }
 
 void MO_Free(void *mem_p)
 {
-    Movie_Free(mem_p);
-}
+    gL5Movie.free(mem_p);
 }

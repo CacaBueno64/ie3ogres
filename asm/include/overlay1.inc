@@ -87,7 +87,7 @@
 .public FUN_02046a20
 .public FUN_ov16_020f054c
 .public unk_0209A4E0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_02046744
 .public FUN_02046730
 .public FUN_ov16_020f0634
@@ -102,7 +102,7 @@
 .public STD_CopyLString
 .public FUN_02046b6c
 .public unk_0209A108
-.public gCFileIO
+.public gFileIO
 .public unk_020A0640
 .public unk_020AF81C
 .public unk_0209A454
@@ -144,7 +144,7 @@
 .public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
 .public FUN_020443c0
 .public FUN_02044e98
-.public unk_0209BA20
+.public gLogicThink
 .public gL5Allocator
 .public gL5Sound
 .public unk_0209A0AC

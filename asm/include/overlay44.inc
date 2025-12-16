@@ -3,7 +3,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_020efa04
 .public MI_CpuFill8
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EB4
 .public unk_02099ED4
 .public unk_0209A0AC
@@ -98,7 +98,7 @@
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public FUN_ov16_020f5504
 .public _ZN11L5Allocator10deallocateEPv
-.public gCFileIO
+.public gFileIO
 .public FUN_02054070
 .public FUN_02059630
 .public FUN_02059038
@@ -139,8 +139,8 @@
 .public unk_020A0640
 .public sprintf
 .public FUN_ov16_020f55b4
-.public operator_new_array
-.public operator_delete_array
+.public _Znam
+.public _ZdaPv
 .public FUN_02050f4c
 .public FUN_0204dea4
 .public FUN_0206c664

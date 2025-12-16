@@ -1,4 +1,4 @@
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_02046cb4
 .public FUN_ov16_020f0634
 .public FUN_ov1_020cbf70

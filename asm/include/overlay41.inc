@@ -20,10 +20,10 @@
 .public unk_02099EB4
 .public unk_02099ED4
 .public unk_0209A070
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020AF81C
 .public unk_020A1740
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_020A0670
 .public gBgMenuManager
 .public FUN_ov16_0210e9d8

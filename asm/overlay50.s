@@ -221,7 +221,7 @@ _0211A1FC:
 	blt _0211A1B4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A210: .word gL5Allocator
-_0211A214: .word unk_0209BA20
+_0211A214: .word gLogicThink
 	arm_func_end FUN_ov50_0211a0fc
 
 	arm_func_start FUN_ov50_0211a218
@@ -340,7 +340,7 @@ _0211A344:
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A3B0: .word unk_02099F38
 _0211A3B4: .word ov50_0211E92C
-_0211A3B8: .word unk_0209BA20
+_0211A3B8: .word gLogicThink
 _0211A3BC: .word ov50_0211E944
 _0211A3C0: .word 0x00000193
 _0211A3C4: .word ov50_0211E95C
@@ -1415,7 +1415,7 @@ _0211B218:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B278: .word unk_02099F38
 _0211B27C: .word 0x0000024E
-_0211B280: .word unk_0209BA20
+_0211B280: .word gLogicThink
 _0211B284: .word 0x66666667
 	arm_func_end FUN_ov50_0211acc4
 
@@ -1689,7 +1689,7 @@ _0211B624:
 	ldr r2, [r2, #0x3c]
 	blx r2
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211B66C: .word unk_0209BA20
+_0211B66C: .word gLogicThink
 	arm_func_end FUN_ov50_0211b554
 
 	arm_func_start FUN_ov50_0211b670
@@ -1896,7 +1896,7 @@ _0211B944:
 	bl FUN_ov50_0211ac78
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B96C: .word unk_0209BA20
+_0211B96C: .word gLogicThink
 _0211B970: .word 0x4F8B588F
 _0211B974: .word 0x000186A0
 _0211B978: .word 0xD1B71759
@@ -4265,7 +4265,7 @@ _0211DB58: .word unk_0209A0AC
 _0211DB5C: .word unk_020A9C40
 _0211DB60: .word gL5Sound
 _0211DB64: .word unk_02099F44
-_0211DB68: .word unk_0209BA20
+_0211DB68: .word gLogicThink
 _0211DB6C: .word unk_020AF81C
 _0211DB70: .word unk_02099EA4
 	arm_func_end FUN_ov50_0211d550
@@ -4521,7 +4521,7 @@ _0211DED8:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DEE8: .word unk_020A0640
-_0211DEEC: .word unk_0209BA20
+_0211DEEC: .word gLogicThink
 _0211DEF0: .word unk_02099F44
 _0211DEF4: .word 0x00000FFF
 	arm_func_end FUN_ov50_0211dd28
@@ -4553,7 +4553,7 @@ _0211DF38:
 	mov r1, #0
 	strb r1, [r0, #0x620]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211DF54: .word unk_0209BA20
+_0211DF54: .word gLogicThink
 _0211DF58: .word 0x00000FFF
 _0211DF5C: .word unk_020A0640
 	arm_func_end FUN_ov50_0211def8
@@ -4590,7 +4590,7 @@ _0211DFC4:
 	mov r0, r4
 	bl FUN_ov50_0211dc50
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211DFD0: .word unk_0209BA20
+_0211DFD0: .word gLogicThink
 	arm_func_end FUN_ov50_0211df60
 
 	arm_func_start FUN_ov50_0211dfd4

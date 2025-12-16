@@ -30,7 +30,7 @@
 .public FUN_0206ccdc
 .public FUN_0206ccec
 .public unk_0209A454
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099E98
 .public FUN_0204b2f4
 .public FUN_0204b540

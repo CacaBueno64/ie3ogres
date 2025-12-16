@@ -55,7 +55,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A14 ; =_ZN8L5ConfigD1Ev
 	ldr r2, _02086A18 ; =0x02099FA8
 	bl __register_global_object
-	ldr r4, _02086A1C ; =gCFileIO
+	ldr r4, _02086A1C ; =gFileIO
 	mov r0, r4
 	bl _ZN7CFileIOC1Ev
 	mov r0, r4
@@ -101,7 +101,7 @@ FUN_02086768: ; 0x02086768
 	ldr r0, _02086A68 ; =0x020A3D14
 	ldr r1, _02086A6C ; =0x0208F6B0
 	str r2, [r0]
-	ldr r0, _02086A70 ; =0x0209F5C0
+	ldr r0, _02086A70 ; =gBgMenuManager
 	ldr r2, _02086A74 ; =0x0208F6D0
 	str r1, [r0]
 	ldr r0, _02086A78 ; =0x02099E8C
@@ -178,7 +178,7 @@ _02086A0C: .word 0x0000EA3C
 _02086A10: .word gL5Config
 _02086A14: .word _ZN8L5ConfigD1Ev
 _02086A18: .word unk_02099FA8
-_02086A1C: .word gCFileIO
+_02086A1C: .word gFileIO
 _02086A20: .word _ZN7CFileIOD1Ev
 _02086A24: .word unk_02099FB4
 _02086A28: .word unk_0209A5D0
@@ -211,7 +211,7 @@ _02086A90: .word unk_02099FFC
 _02086A94: .word unk_020A9C40
 _02086A98: .word FUN_02045458
 _02086A9C: .word unk_0209A008
-_02086AA0: .word unk_0209BA20
+_02086AA0: .word gLogicThink
 _02086AA4: .word FUN_0206f150
 _02086AA8: .word unk_0209A020
 _02086AAC: .word unk_0209A320
@@ -227,7 +227,7 @@ _02086AD0: .word unk_020A18A0
 _02086AD4: .word FUN_0203df84
 _02086AD8: .word unk_02099F90
 _02086ADC: .word unk_02090204
-_02086AE0: .word unk_0209AEC0
+_02086AE0: .word gWirelessUtil
 _02086AE4: .word FUN_020463f4
 _02086AE8: .word unk_02099F9C
 	arm_func_end FUN_02086768

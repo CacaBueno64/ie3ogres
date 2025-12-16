@@ -28,7 +28,7 @@
 .public GXS_LoadBG2Char
 .public FUN_0204a2c4
 .public FUN_ov16_020f31fc
-.public unk_0209BA20
+.public gLogicThink
 .public GXS_LoadBG0Char
 .public GXS_LoadBG0Scr
 .public G2S_GetBG1CharPtr

@@ -184,10 +184,10 @@ FUN_ov106_02124f1c: ; 0x02124F1C
 	str r4, [r0, #4]
 	str r4, [r0, #8]
 	mov r0, #0xc000
-	bl operator_new_array
+	bl _Znam
 	str r0, [r5, #0xbc]
 	mov r0, #0x600
-	bl operator_new_array
+	bl _Znam
 	str r0, [r5, #0xb8]
 _02124F68:
 	ldr r1, [r5, #0xb8]
@@ -310,11 +310,11 @@ FUN_ov106_021250d0: ; 0x021250D0
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
 	ldr r0, [r5, #0xbc]
-	bl operator_delete_array
+	bl _ZdaPv
 	mov r4, #0
 	ldr r0, [r5, #0xb8]
 	str r4, [r5, #0xbc]
-	bl operator_delete_array
+	bl _ZdaPv
 	str r4, [r5, #0xb8]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125108: .word unk_02099F38

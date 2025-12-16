@@ -7,7 +7,7 @@
 .public unk_020A1640
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f31fc
-.public unk_0209BA20
+.public gLogicThink
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public FUN_ov16_020f316c

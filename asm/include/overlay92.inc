@@ -30,7 +30,7 @@
 .public FUN_ov16_020f3218
 .public FUN_ov16_020f36f4
 .public FUN_ov16_020f3744
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f330c
 .public _ZN11L5Allocator10deallocateEPv
 .public _ZN7CFileIO5closeEPvi

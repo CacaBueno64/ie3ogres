@@ -64,7 +64,7 @@ FUN_ov123_02124d84: ; 0x02124D84
 	bl FUN_ov16_020f31fc
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_02124DDC: .word unk_0209BA20
+_02124DDC: .word gLogicThink
 _02124DE0: .word ov123_0212562C
 	arm_func_end FUN_ov123_02124d84
 
@@ -243,7 +243,7 @@ FUN_ov123_02124fec: ; 0x02124FEC
 	str r0, [sp, #0x14]
 	mov r3, #0
 	str r3, [sp, #0x18]
-	ldr r0, _0212506C ; =0x0209F5C0
+	ldr r0, _0212506C ; =gBgMenuManager
 	mov r2, r1
 	str r12, [sp, #0x1c]
 	bl FUN_ov16_020f5da0
@@ -432,7 +432,7 @@ _0212528C:
 	ldmfd sp!, {r4, pc}
 _021252C8:
 	mov r1, #1
-	ldr r0, _02125304 ; =0x0209F5C0
+	ldr r0, _02125304 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
 	bl FUN_ov16_020f5f64

@@ -15,8 +15,8 @@ unk_02099EC0:
 	.global unk_02099EC8
 unk_02099EC8:
 	.space 0x04
-	.global unk_02099ECC
-unk_02099ECC:
+	.global gWaitVBlank
+gWaitVBlank:
 	.space 0x04
 	.global gFont8
 gFont8:
@@ -96,8 +96,8 @@ pLogic_WearSetFile:
 	.global unk_02099F38
 unk_02099F38:
 	.space 0x04
-	.global unk_02099F3C
-unk_02099F3C:
+	.global gUpdateBrightness
+gUpdateBrightness:
 	.space 0x08
 	.global unk_02099F44
 unk_02099F44:

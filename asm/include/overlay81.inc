@@ -1,7 +1,7 @@
 .public FUN_02046730
 .public MI_CpuFill8
 .public FUN_02046cb4
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_0209A4E0
 .public FUN_ov1_020e62c0
 .public FUN_ov16_020f0634
@@ -45,7 +45,7 @@
 .public FUN_ov16_020f153c
 .public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
 .public unk_0209A454
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0202c470
 .public FUN_020724c8
 .public FUN_ov132_0214609c

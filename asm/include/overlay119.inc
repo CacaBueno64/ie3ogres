@@ -23,7 +23,7 @@
 .public gFont12
 .public FUN_ov16_020f5eec
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f5a58

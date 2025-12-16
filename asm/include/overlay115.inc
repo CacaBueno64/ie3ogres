@@ -9,7 +9,7 @@
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_0207318c
 .public FUN_02073ea4
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov1_020dc13c
 .public FUN_ov16_020f1868
 .public FUN_ov16_020f10c8

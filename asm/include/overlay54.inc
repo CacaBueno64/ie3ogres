@@ -47,7 +47,7 @@
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
 .public FUN_0207249c
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f330c
 .public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

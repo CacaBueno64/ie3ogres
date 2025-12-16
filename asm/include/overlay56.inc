@@ -26,7 +26,7 @@
 .public FUN_0204fbe8
 .public FUN_0206cbf8
 .public unk_020A0640
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099E98
 .public MI_CpuCopy8
 .public FUN_0204b2f4

@@ -292,7 +292,7 @@
 .public MIi_CpuCopy32
 .public FUN_0207445c
 .public FUN_02074440
-.public unk_0209BA20
+.public gLogicThink
 .public MI_CpuCopy8
 .public unk_020A11E8
 .public unk_020A11EA
@@ -338,7 +338,7 @@
 .public unk_0209A0D4
 .public unk_0209A0E4
 .public _ZN7L5Sound12FUN_0202cf6cEm
-.public unk_0209AEC0
+.public gWirelessUtil
 .public gL5Sound
 .public unk_0209D7C0
 .public unk_020A1640
@@ -374,7 +374,7 @@
 .public unk_0209A144
 .public gSubScreenBrightness
 .public gMainScreenBrightness
-.public unk_02099F3C
+.public gUpdateBrightness
 .public unk_0209A160
 .public GX_LoadBG0Char
 .public GX_LoadBG1Char
@@ -456,7 +456,7 @@
 .public L5Thread_Create
 .public _ZN7L5Movie12FUN_0202e784Ev
 .public _ZN7L5Movie12FUN_0202e4ecEv
-.public Movie_GetVideoFps
+.public _ZN7L5Movie11getVideoFpsEv
 .public _ll_udiv
 .public FUN_020435b0
 .public strcat
@@ -469,7 +469,7 @@
 .public _ZN11L5Allocator8allocateEiii
 .public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
 .public _ZN7CFileIO11readFromSFPEPcPPvS1_
-.public gCFileIO
+.public gFileIO
 .public _ZN7CFileIO11tryFinalizeEPv
 .public _ZN7CFileIO5closeEPvi
 .public STD_CompareNString

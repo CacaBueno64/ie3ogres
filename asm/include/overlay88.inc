@@ -1,5 +1,5 @@
 .public FUN_02046cb4
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_0209A4E0
 .public unk_0209A4E4
 .public FUN_ov16_020f0634
@@ -24,7 +24,7 @@
 .public FUN_ov16_020f2184
 .public DC_FlushRange
 .public FUN_ov16_020eed18
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov1_020dbfdc
 .public FUN_ov16_020f5450
 .public FUN_02058800

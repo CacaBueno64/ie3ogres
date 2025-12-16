@@ -5,8 +5,11 @@
 
 #include <nitro.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "l5fs.hpp"
+
+#define CONFIG_MAX_ENTRIES 96
 
 typedef struct {
     u32 crc32;
@@ -29,9 +32,5 @@ class L5Config {
 };
 
 extern L5Config gL5Config;
-
-extern "C" {
-    extern int atoi(const char *s);
-}
 
 #endif //IE3OGRES_L5CONFIG_H

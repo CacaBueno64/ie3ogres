@@ -14,7 +14,7 @@
 .public unk_0209A0AC
 .public unk_0209A11C
 .public unk_02099EF0
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0206d6b0
 .public FUN_020736e8
 .public FUN_02073358

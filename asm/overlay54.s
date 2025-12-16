@@ -1502,7 +1502,7 @@ _0211B37C:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B388: .word unk_02099EB4
 _0211B38C: .word unk_02099ED4
-_0211B390: .word unk_0209BA20
+_0211B390: .word gLogicThink
 	arm_func_end FUN_ov54_0211b2c4
 
 	arm_func_start FUN_ov54_0211b394
@@ -2604,7 +2604,7 @@ _0211C2A4: .word unk_02099EB4
 _0211C2A8: .word gL5Sound
 _0211C2AC: .word unk_020A9C40
 _0211C2B0: .word 0x0000012D
-_0211C2B4: .word unk_0209BA20
+_0211C2B4: .word gLogicThink
 _0211C2B8: .word unk_0209A460
 _0211C2BC: .word unk_0209A454
 	arm_func_end FUN_ov54_0211bf80

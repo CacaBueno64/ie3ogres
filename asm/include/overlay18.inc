@@ -40,7 +40,7 @@
 .public FUN_0204bd64
 .public FUN_ov16_020f55b4
 .public FUN_ov16_02113ec0
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f5868
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_ov16_020f153c

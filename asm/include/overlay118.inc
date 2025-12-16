@@ -7,7 +7,7 @@
 .public FUN_ov16_020f31fc
 .public unk_020A8C40
 .public unk_020A8440
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f1ee4
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f2fe4

@@ -481,7 +481,7 @@ _0211A57C: .word ov91_0211CA40
 _0211A580: .word ov91_0211CA5C
 _0211A584: .word ov91_0211CA6C
 _0211A588: .word ov91_0211CA7C
-_0211A58C: .word unk_0209BA20
+_0211A58C: .word gLogicThink
 	arm_func_end FUN_ov91_0211a4f4
 
 	arm_func_start FUN_ov91_0211a590
@@ -706,7 +706,7 @@ FUN_ov91_0211a82c: ; 0x0211A82C
 	mov r2, r4
 	bl FUN_0204bb48
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A8A8: .word unk_0209BA20
+_0211A8A8: .word gLogicThink
 	arm_func_end FUN_ov91_0211a82c
 
 	arm_func_start FUN_ov91_0211a8ac
@@ -1465,7 +1465,7 @@ FUN_ov91_0211b2bc: ; 0x0211B2BC
 	ldrb r1, [r0, #0x11]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r4, _0211B2F8 ; =0x0209F5C0
+	ldr r4, _0211B2F8 ; =gBgMenuManager
 	mov r5, #0
 	strb r5, [r0, #0x11]
 	mov r0, r4
@@ -1862,7 +1862,7 @@ FUN_ov91_0211b7d0: ; 0x0211B7D0
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211B878: .word 0x66666667
-_0211B87C: .word unk_0209BA20
+_0211B87C: .word gLogicThink
 	arm_func_end FUN_ov91_0211b7d0
 
 	arm_func_start FUN_ov91_0211b880
@@ -2614,7 +2614,7 @@ _0211C2E8: .word unk_02099F38
 
 	arm_func_start FUN_ov91_0211c2ec
 FUN_ov91_0211c2ec: ; 0x0211C2EC
-	ldr r0, _0211C2FC ; =0x0209F5C0
+	ldr r0, _0211C2FC ; =gBgMenuManager
 	ldr r12, _0211C300 ; = FUN_ov16_020f672c
 	mov r1, #0
 	bx r12
@@ -2769,7 +2769,7 @@ FUN_ov91_0211c418: ; 0x0211C418
 	ldr r0, _0211C578 ; =0x0209BA20
 	bl FUN_020728c4
 	strh r0, [r5, #0xc]
-	ldr r0, _0211C57C ; =0x0209F5C0
+	ldr r0, _0211C57C ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f5a58
 	ldr r0, _0211C580 ; =0x020A1640
@@ -2789,7 +2789,7 @@ FUN_ov91_0211c418: ; 0x0211C418
 _0211C56C: .word unk_02099EB4
 _0211C570: .word unk_02099ED4
 _0211C574: .word unk_02099F38
-_0211C578: .word unk_0209BA20
+_0211C578: .word gLogicThink
 _0211C57C: .word gBgMenuManager
 _0211C580: .word unk_020A1640
 	arm_func_end FUN_ov91_0211c418
@@ -2993,7 +2993,7 @@ FUN_ov91_0211c770: ; 0x0211C770
 	ldr r0, _0211C86C ; =0x02099F38
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
-	ldr r0, _0211C870 ; =0x0209F5C0
+	ldr r0, _0211C870 ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f5af0
 	mov r0, r4
@@ -3001,7 +3001,7 @@ FUN_ov91_0211c770: ; 0x0211C770
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211C85C: .word unk_02099EB4
 _0211C860: .word unk_02099ED4
-_0211C864: .word unk_0209BA20
+_0211C864: .word gLogicThink
 _0211C868: .word unk_0209A454
 _0211C86C: .word unk_02099F38
 _0211C870: .word gBgMenuManager

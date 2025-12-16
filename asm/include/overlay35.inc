@@ -2,7 +2,7 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public _ZN7L5Sound12FUN_0202cf6cEm

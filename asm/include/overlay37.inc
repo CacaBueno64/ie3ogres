@@ -61,7 +61,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f5a58
-.public operator_new_array
+.public _Znam
 .public MI_CpuFill8
 .public unk_0209A1A8
 .public gBgMenuManager
@@ -86,7 +86,7 @@
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f5af0
-.public operator_delete_array
+.public _ZdaPv
 .public unk_0209A454
 .public ov4_020DBEC1
 .public _ZdlPv

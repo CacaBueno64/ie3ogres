@@ -3001,7 +3001,7 @@ _0211C8A8:
 	mov r1, r5
 	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211C8D4: .word unk_0209BA20
+_0211C8D4: .word gLogicThink
 _0211C8D8: .word unk_020A1640
 _0211C8DC: .word gL5Sound
 	arm_func_end FUN_ov23_0211c850

@@ -49,7 +49,7 @@
 .public OS_Sleep
 .public FUN_02074fb8
 .public DseSe_StopAll
-.public unk_0209AEC0
+.public gWirelessUtil
 .public gL5Movie
 .public gL5Sound
 .public _ZN7L5Movie12FUN_0202e9c8Ev
@@ -128,7 +128,7 @@
 .public unk_0209A3E0
 .public unk_020AF81C
 .public gL5Allocator
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A0B00
 .public FUN_02074764
 .public FUN_ov16_020f129c
@@ -136,7 +136,7 @@
 .public L5Thread_WakeUpAll
 .public FUN_02051448
 .public FUN_ov16_020f2604
-.public unk_02099ECC
+.public gWaitVBlank
 .public unk_0209A124
 .public ov16_02118490
 .public unk_02099F18
@@ -236,7 +236,7 @@
 .public STD_ConcatenateString
 .public FS_ConvertPathToFileID
 .public unk_0208FB90
-.public Movie_GetVideoFps
+.public _ZN7L5Movie11getVideoFpsEv
 .public FUN_0207d690
 .public _ll_udiv
 .public FUN_0207d4c0

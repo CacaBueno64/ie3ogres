@@ -262,7 +262,7 @@ FUN_ov31_0211a254: ; 0x0211A254
 _0211A2C0: .word unk_020A0640
 _0211A2C4: .word unk_02099EB4
 _0211A2C8: .word unk_02099ED4
-_0211A2CC: .word unk_0209BA20
+_0211A2CC: .word gLogicThink
 	arm_func_end FUN_ov31_0211a254
 
 	arm_func_start FUN_ov31_0211a2d0
@@ -1627,7 +1627,7 @@ _0211B604: .word unk_02099F38
 _0211B608: .word ov31_0211BFA0
 _0211B60C: .word ov31_0211BFAC
 _0211B610: .word ov31_0211BFBC
-_0211B614: .word unk_0209BA20
+_0211B614: .word gLogicThink
 _0211B618: .word ov31_0211BFC4
 _0211B61C: .word ov31_0211BFC8
 _0211B620: .word ov31_0211BFD4
@@ -1926,7 +1926,7 @@ _0211BA04:
 	add sp, sp, #0xec
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211BA78: .word unk_02099F38
-_0211BA7C: .word unk_0209BA20
+_0211BA7C: .word gLogicThink
 _0211BA80: .word ov31_0211C0E4
 _0211BA84: .word ov31_0211C0E8
 _0211BA88: .word ov31_0211C0F4

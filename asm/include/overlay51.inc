@@ -27,7 +27,7 @@
 .public FUN_ov16_020f081c
 .public FUN_020724c8
 .public FUN_ov16_021139bc
-.public unk_0209BA20
+.public gLogicThink
 .public G2_GetBG3CharPtr
 .public GX_LoadBG3Scr
 .public G2_GetBG1CharPtr

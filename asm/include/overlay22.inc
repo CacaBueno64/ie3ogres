@@ -62,7 +62,7 @@
 .public FUN_ov16_020f5504
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
-.public gCFileIO
+.public gFileIO
 .public FUN_ov16_021137dc
 .public FUN_ov16_0211401c
 .public FUN_ov16_02113b78
@@ -93,7 +93,7 @@
 .public FUN_02058a10
 .public FS_CloseFile
 .public FUN_ov16_02114918
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_02058e30
 .public FUN_ov16_0210e15c
 .public FUN_ov16_02113f7c

@@ -39,7 +39,7 @@
 .public gL5Config
 .public unk_020A0700
 .public unk_020A9C40
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f338c
 .public FUN_ov16_021105c0
 .public FUN_ov16_020f57b0

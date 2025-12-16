@@ -8,7 +8,7 @@
 .public FUN_0204bd64
 .public FUN_ov16_020f34f0
 .public FUN_ov16_020f31fc
-.public unk_0209BA20
+.public gLogicThink
 .public MIi_CpuCopy32
 .public MIi_CpuClearFast
 .public DC_FlushRange

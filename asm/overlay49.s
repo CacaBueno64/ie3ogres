@@ -1515,7 +1515,7 @@ FUN_ov49_0211b41c: ; 0x0211B41C
 	sub r1, r1, #1
 	bl FUN_ov49_0211c6b0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211B490: .word unk_0209BA20
+_0211B490: .word gLogicThink
 _0211B494: .word 0x00000FFF
 _0211B498: .word unk_02099EA2
 _0211B49C: .word unk_02099E98
@@ -2193,7 +2193,7 @@ FUN_ov49_0211bd80: ; 0x0211BD80
 	str r0, [r4, #0x1fc]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211BDE4: .word unk_020A9C40
-_0211BDE8: .word unk_0209BA20
+_0211BDE8: .word gLogicThink
 _0211BDEC: .word unk_020A0B40
 _0211BDF0: .word 0x0000270F
 _0211BDF4: .word unk_020A0B00
@@ -2623,7 +2623,7 @@ _0211C3C8: .word unk_02099EB4
 _0211C3CC: .word unk_02099ED4
 _0211C3D0: .word unk_02099F38
 _0211C3D4: .word unk_02099E8F
-_0211C3D8: .word unk_0209BA20
+_0211C3D8: .word gLogicThink
 _0211C3DC: .word unk_020A1640
 _0211C3E0: .word unk_02099F44
 	arm_func_end FUN_ov49_0211c2d4
@@ -2762,7 +2762,7 @@ _0211C580:
 	moveq r0, #1
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0211C5BC: .word unk_0209BA20
+_0211C5BC: .word gLogicThink
 	arm_func_end FUN_ov49_0211c3e4
 
 	arm_func_start FUN_ov49_0211c5c0
@@ -2833,7 +2833,7 @@ FUN_ov49_0211c688: ; 0x0211C688
 	strh r1, [r2, #0x7e]
 	bx r12
 _0211C6A4: .word unk_020A1740
-_0211C6A8: .word unk_0209BA20
+_0211C6A8: .word gLogicThink
 _0211C6AC: .word FUN_020737f0
 	arm_func_end FUN_ov49_0211c688
 

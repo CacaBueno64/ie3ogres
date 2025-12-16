@@ -19,7 +19,7 @@
 .public FUN_02040148
 .public FUN_ov132_02144778
 .public FUN_ov132_0214fda0
-.public unk_0209BA20
+.public gLogicThink
 .public unk_0209A2C0
 .public FUN_ov126_0212d608
 .public FUN_ov132_0214c034
@@ -122,7 +122,7 @@
 .public FUN_0204fb58
 .public FUN_ov132_0214352c
 .public FUN_02043c5c
-.public _ZN17UnkClass_0209BA2012FUN_020724b8Ett
+.public _ZN11CLogicThink10updateKeysEtt
 .public FUN_ov1_020de558
 .public FUN_020724dc
 .public FUN_ov132_0215a094

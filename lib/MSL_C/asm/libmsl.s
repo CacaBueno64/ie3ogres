@@ -86,8 +86,8 @@ __close_console: ; 0x0201C960
 	bx lr
 	arm_func_end __close_console
 
-	arm_func_start __DecodeSignedNumber
-__DecodeSignedNumber: ; 0x0201C968
+	arm_func_start _Z20__DecodeSignedNumberPcPl
+_Z20__DecodeSignedNumberPcPl: ; 0x0201C968
 	stmfd sp!, {r4, lr}
 	ldrsb r2, [r0]
 	tst r2, #1
@@ -122,10 +122,10 @@ _0201C9C8:
 	str r2, [r1]
 	add r0, r0, #4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __DecodeSignedNumber
+	arm_func_end _Z20__DecodeSignedNumberPcPl
 
-	arm_func_start __DecodeUnsignedNumber
-__DecodeUnsignedNumber: ; 0x0201C9EC
+	arm_func_start _Z22__DecodeUnsignedNumberPcPm
+_Z22__DecodeUnsignedNumberPcPm: ; 0x0201C9EC
 	stmfd sp!, {r4, lr}
 	ldrb r2, [r0]
 	tst r2, #1
@@ -160,10 +160,10 @@ _0201CA4C:
 	str r2, [r1]
 	add r0, r0, #4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __DecodeUnsignedNumber
+	arm_func_end _Z22__DecodeUnsignedNumberPcPm
 
-	arm_func_start BinarySearch
-BinarySearch: ; 0x0201CA70
+	arm_func_start _Z12BinarySearchP19ExceptionTableIndexmPc
+_Z12BinarySearchP19ExceptionTableIndexmPc: ; 0x0201CA70
 	stmfd sp!, {r4, r5, r6, lr}
 	subs r6, r1, #1
 	mov r5, #0
@@ -192,10 +192,10 @@ _0201CAC4:
 _0201CACC:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end BinarySearch
+	arm_func_end _Z12BinarySearchP19ExceptionTableIndexmPc
 
-	arm_func_start FindExceptionRecord
-FindExceptionRecord: ; 0x0201CAD4
+	arm_func_start _Z19FindExceptionRecordPcP13ExceptionInfo
+_Z19FindExceptionRecordPcP13ExceptionInfo: ; 0x0201CAD4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0xc
 	mov r4, r0
@@ -205,7 +205,7 @@ FindExceptionRecord: ; 0x0201CAD4
 	mov r1, r4
 	str r2, [r9, #4]
 	str r2, [r9, #8]
-	bl __FindExceptionTable
+	bl _Z20__FindExceptionTableP13ExceptionInfoPc
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -217,7 +217,7 @@ FindExceptionRecord: ; 0x0201CAD4
 	mov r3, r5, lsr #0x1f
 	mov r2, r4
 	add r1, r3, r1, asr #1
-	bl BinarySearch
+	bl _Z12BinarySearchP19ExceptionTableIndexmPc
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -231,22 +231,22 @@ FindExceptionRecord: ; 0x0201CAD4
 	ldr r1, [r0]
 	ldr r0, [r9, #4]
 	sub r7, r4, r1
-	bl __SkipUnwindInfo
+	bl _Z16__SkipUnwindInfoPc
 	mov r8, #0
 	add r5, sp, #4
 	add r4, sp, #0
 	add r6, sp, #8
 _0201CB74:
 	mov r1, r6
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldr r1, [sp, #8]
 	cmp r1, #0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	mov r1, r5
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	mov r1, r4
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldr r1, [sp, #8]
 	add r2, r8, r1
 	cmp r7, r2
@@ -263,10 +263,10 @@ _0201CB74:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _0201CBD8: .word 0x2AAAAAAB
-	arm_func_end FindExceptionRecord
+	arm_func_end _Z19FindExceptionRecordPcP13ExceptionInfo
 
-	arm_func_start CurrentAction
-CurrentAction: ; 0x0201CBDC
+	arm_func_start _Z13CurrentActionPK14ActionIterator
+_Z13CurrentActionPK14ActionIterator: ; 0x0201CBDC
 	ldr r0, [r0, #8]
 	cmp r0, #0
 	ldrneb r0, [r0]
@@ -274,10 +274,10 @@ CurrentAction: ; 0x0201CBDC
 	moveq r0, #0
 	and r0, r0, #0xff
 	bx lr
-	arm_func_end CurrentAction
+	arm_func_end _Z13CurrentActionPK14ActionIterator
 
-	arm_func_start NextAction
-NextAction: ; 0x0201CBF8
+	arm_func_start _Z10NextActionP14ActionIterator
+_Z10NextActionP14ActionIterator: ; 0x0201CBF8
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0xa0
 	mov r4, r0
@@ -291,9 +291,9 @@ _0201CC04:
 _0201CC1C:
 	mov r1, r4
 	add r0, r4, #0x18
-	bl __PopStackFrame
+	bl _Z15__PopStackFrameP12ThrowContextP13ExceptionInfo
 	mov r1, r4
-	bl FindExceptionRecord
+	bl _Z19FindExceptionRecordPcP13ExceptionInfo
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	addeq sp, sp, #0xa0
@@ -301,7 +301,7 @@ _0201CC1C:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r1, r4
 	add r0, r4, #0x18
-	bl __SetupFrameInfo
+	bl _Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	beq _0201CC04
@@ -337,14 +337,14 @@ _0201CCC0:
 _0201CCC4:
 	add r0, r2, #1
 _0201CCC8:
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 _0201CCCC:
 	add r0, r0, #4
 	b _0201CDB8
 _0201CCD4:
 	add r1, sp, #0x94
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x98
 	b _0201CCC8
 _0201CCE8:
@@ -353,41 +353,41 @@ _0201CCE8:
 _0201CCF0:
 	add r1, sp, #0x84
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x88
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x8c
 _0201CD08:
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	b _0201CCCC
 _0201CD10:
 	add r1, sp, #0x7c
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x80
 	b _0201CCC8
 _0201CD24:
 	add r1, sp, #0x74
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x78
 	b _0201CCC8
 _0201CD38:
 	add r1, sp, #0x68
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x6c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x70
 	b _0201CCC8
 _0201CD54:
 	add r1, sp, #0x58
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x5c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x60
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x64
 	b _0201CD08
 _0201CD78:
@@ -396,63 +396,63 @@ _0201CD78:
 _0201CD80:
 	add r1, sp, #0x4c
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x50
 	b _0201CCC8
 _0201CD94:
 	add r1, sp, #0x44
 	add r0, r2, #5
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x48
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 _0201CDA8:
 	b _0201CDB8
 _0201CDAC:
 	add r1, sp, #0x40
 _0201CDB0:
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 _0201CDB8:
 	str r0, [r4, #8]
 	b _0201CE64
 _0201CDC0:
 	add r1, sp, #0x34
 	add r0, r2, #1
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x38
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x3c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r1, [sp, #0x34]
 	add r0, r0, r1, lsl #2
 	b _0201CDA8
 _0201CDE8:
 	add r1, sp, #0x24
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x28
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x2c
 	add r0, r0, #4
 	b _0201CCC8
 _0201CE08:
 	add r1, sp, #0x14
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x1c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x18
 	add r0, r0, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x20
 	b _0201CCC8
 _0201CE30:
 	add r1, sp, #8
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0xc
 	add r0, r0, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x10
 	b _0201CD08
 _0201CE50:
@@ -473,7 +473,7 @@ _0201CE64:
 _0201CE80:
 	mov r1, r5
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r1, [r4, #8]
 	ldr r0, [sp]
 	add r2, r1, r0
@@ -484,10 +484,10 @@ _0201CE80:
 	beq _0201CE80
 	add sp, sp, #0xa0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end NextAction
+	arm_func_end _Z10NextActionP14ActionIterator
 
-	arm_func_start UnwindStack
-UnwindStack: ; 0x0201CEB4
+	arm_func_start _Z11UnwindStackP12ThrowContextP13ExceptionInfoPc
+_Z11UnwindStackP12ThrowContextP13ExceptionInfoPc: ; 0x0201CEB4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xa4
 	mov r9, r0
@@ -499,17 +499,17 @@ _0201CEC8:
 	bne _0201CF10
 	mov r0, r9
 	mov r1, r8
-	bl __PopStackFrame
+	bl _Z15__PopStackFrameP12ThrowContextP13ExceptionInfo
 	mov r1, r8
-	bl FindExceptionRecord
+	bl _Z19FindExceptionRecordPcP13ExceptionInfo
 	ldr r0, [r8, #4]
 	cmp r0, #0
 	bne _0201CEF8
-	bl terminate
+	bl _ZSt9terminatev
 _0201CEF8:
 	mov r0, r9
 	mov r1, r8
-	bl __SetupFrameInfo
+	bl _Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo
 	ldr r2, [r8, #8]
 	cmp r2, #0
 	beq _0201CEC8
@@ -543,7 +543,7 @@ _0201CF24: ; jump table
 _0201CF74:
 	add r1, sp, #0xa0
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r1, [r8, #8]
 	ldr r0, [sp, #0xa0]
 	add r0, r1, r0
@@ -553,7 +553,7 @@ _0201CF8C:
 _0201CF94:
 	add r1, sp, #0x9c
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	mov r4, r0
 	ldrb r1, [r4]
 	ldrb r0, [r4, #1]
@@ -573,9 +573,9 @@ _0201CFDC:
 	add r1, sp, #0x94
 	add r0, r2, #1
 	and r4, r7, #0x40
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x98
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	cmp r4, #0
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -606,7 +606,7 @@ _0201D058:
 	add r1, sp, #0x90
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	cmp r4, #0
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -628,11 +628,11 @@ _0201D058:
 _0201D0B0:
 	add r1, sp, #0x84
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x88
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x8c
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldr r3, [r9, #0x18]
 	ldr r2, [sp, #0x84]
 	ldr r6, [sp, #0x88]
@@ -665,9 +665,9 @@ _0201D134:
 	add r1, sp, #0x7c
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x80
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	cmp r4, #0
@@ -692,9 +692,9 @@ _0201D19C:
 	add r1, sp, #0x74
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x78
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	cmp r4, #0
@@ -719,11 +719,11 @@ _0201D204:
 	add r1, sp, #0x68
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x6c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x70
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r3, [r0, #2]
@@ -763,13 +763,13 @@ _0201D2A8:
 	add r1, sp, #0x58
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x5c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x60
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x64
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r3, [r0, #2]
@@ -808,7 +808,7 @@ _0201D350:
 	add r1, sp, #0x54
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	cmp r4, #0
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -830,9 +830,9 @@ _0201D3A4:
 	add r1, sp, #0x4c
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x50
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r3, [r0, #2]
@@ -868,14 +868,14 @@ _0201D428:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r1, sp, #0x44
 	add r0, r2, #5
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x48
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	b _0201CF8C
 _0201D450:
 	add r1, sp, #0x40
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r2, [r9, #0x18]
 	ldr r1, [sp, #0x40]
 	mov r4, r0
@@ -899,11 +899,11 @@ _0201D498:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r1, sp, #0x34
 	add r0, r2, #1
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x38
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0x3c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r1, [sp, #0x34]
 	add r0, r0, r1, lsl #2
 	b _0201CF8C
@@ -911,9 +911,9 @@ _0201D4D0:
 	add r1, sp, #0x24
 	add r0, r2, #1
 	and r5, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x28
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r3, [r0, #2]
@@ -923,7 +923,7 @@ _0201D4D0:
 	add r1, sp, #0x2c
 	add r0, r0, #4
 	orr r4, r2, r4, lsl #24
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	cmp r5, #0
@@ -949,15 +949,15 @@ _0201D564:
 	add r1, sp, #0x14
 	add r0, r2, #1
 	and r5, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x1c
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0], #1
 	add r1, sp, #0x18
 	and r4, r2, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	cmp r5, #0
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -990,13 +990,13 @@ _0201D604:
 	add r1, sp, #8
 	add r0, r2, #1
 	and r4, r7, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldrb r2, [r0], #1
 	add r1, sp, #0xc
 	and r6, r2, #0x20
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	add r1, sp, #0x10
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r3, [r0, #2]
@@ -1038,10 +1038,10 @@ _0201D6B8:
 _0201D6BC:
 	add r1, sp, #4
 	add r0, r2, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	b _0201CF8C
 _0201D6CC:
-	bl terminate
+	bl _ZSt9terminatev
 _0201D6D0:
 	tst r7, #0x80
 	movne r0, #0
@@ -1049,10 +1049,10 @@ _0201D6D0:
 	b _0201CEC8
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end UnwindStack
+	arm_func_end _Z11UnwindStackP12ThrowContextP13ExceptionInfoPc
 
-	arm_func_start FindMostRecentException
-FindMostRecentException: ; 0x0201D6E8
+	arm_func_start _Z23FindMostRecentExceptionP12ThrowContextP13ExceptionInfo
+_Z23FindMostRecentExceptionP12ThrowContextP13ExceptionInfo: ; 0x0201D6E8
 	stmfd sp!, {r4, r5, lr}
 	sub sp, sp, #0x8c
 	ldr r2, [r1]
@@ -1094,7 +1094,7 @@ _0201D768:
 	ldr r1, [lr]
 	mov r0, r5
 	str r1, [r12]
-	bl CurrentAction
+	bl _Z13CurrentActionPK14ActionIterator
 _0201D78C:
 	cmp r0, #0x12
 	addls pc, pc, r0, lsl #2
@@ -1125,13 +1125,13 @@ _0201D7E4:
 	ldmfd sp!, {r4, r5, pc}
 _0201D7F0:
 	mov r0, r5
-	bl NextAction
+	bl _Z10NextActionP14ActionIterator
 	b _0201D78C
 _0201D7FC:
 	ldr r0, [sp, #0xc]
 	add r1, sp, #0
 	add r0, r0, #1
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r12, [sp, #0x34]
 	ldr r3, [sp]
 	mov r1, #0
@@ -1144,10 +1144,10 @@ _0201D7FC:
 	str r0, [r4, #0xc]
 	add sp, sp, #0x8c
 	ldmfd sp!, {r4, r5, pc}
-	arm_func_end FindMostRecentException
+	arm_func_end _Z23FindMostRecentExceptionP12ThrowContextP13ExceptionInfo
 
-	arm_func_start IsInSpecification
-IsInSpecification: ; 0x0201D83C
+	arm_func_start _Z17IsInSpecificationPcP16ex_specification
+_Z17IsInSpecificationPcP16ex_specification: ; 0x0201D83C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	mov r6, r1
@@ -1182,7 +1182,7 @@ _0201D8B0:
 	mov r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end IsInSpecification
+	arm_func_end _Z17IsInSpecificationPcP16ex_specification
 
 	arm_func_start __unexpected
 __unexpected: ; 0x0201D8BC
@@ -1191,32 +1191,32 @@ __unexpected: ; 0x0201D8BC
 	mov r11, sp
 	str sp, [r11, #0x18]
 	ldr r5, [r0, #0x14]
-	bl unexpected
+	bl _ZSt10unexpectedv
 	b _0201D94C
 	add r4, r11, #0x1c
 	add r0, r5, #1
 	mov r1, r4
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, r11, #0x20
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, r11, #0x24
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	str r0, [r11, #0x28]
 	ldr r0, [r11, #8]
 	mov r1, r4
-	bl IsInSpecification
+	bl _Z17IsInSpecificationPcP16ex_specification
 	cmp r0, #0
 	beq _0201D914
 	bl __rethrow
 _0201D914:
 	ldr r0, _0201D958 ; =0x0208EF0C
 	add r1, r11, #0x1c
-	bl IsInSpecification
+	bl _Z17IsInSpecificationPcP16ex_specification
 	cmp r0, #0
 	beq _0201D940
 	ldr r3, _0201D95C ; =0x0208EF00
 	ldr r0, _0201D960 ; =0x0208EF24
-	ldr r2, _0201D964 ; =std__bad_exception__nbad_exception
+	ldr r2, _0201D964 ; =_ZNSt13bad_exceptionD1Ev
 	add r1, r11, #0
 	str r3, [r11]
 	bl __throw
@@ -1225,29 +1225,29 @@ _0201D940:
 	bl __end__catch
 	ldr sp, [r11, #0x18]
 _0201D94C:
-	bl terminate
+	bl _ZSt9terminatev
 	add sp, r11, #0x2c
 	ldmfd sp!, {r3, r4, r5, r11, pc}
 _0201D958: .word unk_0208EF0C
-_0201D95C: .word unk_0208EF00
+_0201D95C: .word _ZTVSt13bad_exception+0x8
 _0201D960: .word unk_0208EF24
-_0201D964: .word std__bad_exception__nbad_exception
+_0201D964: .word _ZNSt13bad_exceptionD1Ev
 	arm_func_end __unexpected
 
-	arm_func_start std__bad_exception__nbad_exception
-std__bad_exception__nbad_exception: ; 0x0201D968
+	arm_func_start _ZNSt13bad_exceptionD1Ev
+_ZNSt13bad_exceptionD1Ev: ; 0x0201D968
 	bx lr
-	arm_func_end std__bad_exception__nbad_exception
+	arm_func_end _ZNSt13bad_exceptionD1Ev
 
-	arm_func_start HandleUnexpected
-HandleUnexpected: ; 0x0201D96C
+	arm_func_start _Z16HandleUnexpectedP12ThrowContextP13ExceptionInfoP16ex_specificationPc
+_Z16HandleUnexpectedP12ThrowContextP13ExceptionInfoP16ex_specificationPc: ; 0x0201D96C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r3
 	mov r5, r2
 	mov r2, r4
 	mov r7, r0
 	mov r6, r1
-	bl UnwindStack
+	bl _Z11UnwindStackP12ThrowContextP13ExceptionInfoPc
 	ldr r2, [r7, #0x18]
 	ldr r1, [r5, #8]
 	ldr r0, [r7, #4]
@@ -1263,12 +1263,12 @@ HandleUnexpected: ; 0x0201D96C
 	ldr r3, [r6]
 	ldr r2, [r5, #4]
 	add r2, r3, r2
-	bl __TransferControl
+	bl _Z17__TransferControlP12ThrowContextP13ExceptionInfoPc
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end HandleUnexpected
+	arm_func_end _Z16HandleUnexpectedP12ThrowContextP13ExceptionInfoP16ex_specificationPc
 
-	arm_func_start FindExceptionHandler
-FindExceptionHandler: ; 0x0201D9CC
+	arm_func_start _Z20FindExceptionHandlerP12ThrowContextP13ExceptionInfoPl
+_Z20FindExceptionHandlerP12ThrowContextP13ExceptionInfoPl: ; 0x0201D9CC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xa4
 	mov r6, r1
@@ -1312,7 +1312,7 @@ _0201DA54:
 	ldr r1, [r9]
 	mov r0, r4
 	str r1, [r8]
-	bl CurrentAction
+	bl _Z13CurrentActionPK14ActionIterator
 	add r8, sp, #0
 	add r11, sp, #4
 	add r9, sp, #0x14
@@ -1354,9 +1354,9 @@ _0201DAE4:
 	orr r2, r0, r12, lsl #24
 	add r0, lr, #5
 	str r2, [sp, #0x10]
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	mov r1, r10
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	ldr r0, [r7]
 	ldr r1, [sp, #0x10]
 	mov r2, r5
@@ -1368,38 +1368,38 @@ _0201DB38:
 	ldr r0, [sp, #0x24]
 	mov r1, r8
 	add r0, r0, #1
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	mov r1, r11
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #8
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	str r0, [sp, #0xc]
 	ldr r0, [r7]
 	mov r1, r8
-	bl IsInSpecification
+	bl _Z17IsInSpecificationPcP16ex_specification
 	cmp r0, #0
 	bne _0201DB90
 	ldr r3, [sp, #0x24]
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl HandleUnexpected
+	bl _Z16HandleUnexpectedP12ThrowContextP13ExceptionInfoP16ex_specificationPc
 	b _0201DB90
 _0201DB88:
-	bl terminate
+	bl _ZSt9terminatev
 	b _0201DB9C
 _0201DB90:
 	mov r0, r4
-	bl NextAction
+	bl _Z10NextActionP14ActionIterator
 	b _0201DA88
 _0201DB9C:
 	ldr r0, [sp, #0x24]
 	add sp, sp, #0xa4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FindExceptionHandler
+	arm_func_end _Z20FindExceptionHandlerP12ThrowContextP13ExceptionInfoPl
 
-	arm_func_start SetupCatchInfo
-SetupCatchInfo: ; 0x0201DBA8
+	arm_func_start _Z14SetupCatchInfoP12ThrowContextll
+_Z14SetupCatchInfoP12ThrowContextll: ; 0x0201DBA8
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #0x18]
 	ldr r12, [r0, #4]
@@ -1423,7 +1423,7 @@ SetupCatchInfo: ; 0x0201DBA8
 	add r0, r0, r2
 	str r0, [r3, #0x10]
 	ldmfd sp!, {r3, pc}
-	arm_func_end SetupCatchInfo
+	arm_func_end _Z14SetupCatchInfoP12ThrowContextll
 
 	arm_func_start __rethrowHandler
 __rethrowHandler: ; 0x0201DC04
@@ -1432,16 +1432,16 @@ __rethrowHandler: ; 0x0201DC04
 	mov r6, r0
 	ldr r0, [r6, #0x10]
 	add r1, sp, #0x10
-	bl FindExceptionRecord
+	bl _Z19FindExceptionRecordPcP13ExceptionInfo
 	ldr r0, [sp, #0x14]
 	cmp r0, #0
 	bne _0201DC2C
-	bl terminate
+	bl _ZSt9terminatev
 _0201DC2C:
 	add r4, sp, #0x10
 	mov r0, r6
 	mov r1, r4
-	bl __SetupFrameInfo
+	bl _Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo
 	ldr r0, [r6]
 	cmp r0, #0
 	movne r0, #0
@@ -1449,17 +1449,17 @@ _0201DC2C:
 	bne _0201DC6C
 	mov r0, r6
 	mov r1, r4
-	bl FindMostRecentException
+	bl _Z23FindMostRecentExceptionP12ThrowContextP13ExceptionInfo
 	str r0, [r6, #0xc]
 	cmp r0, #0
 	bne _0201DC6C
-	bl terminate
+	bl _ZSt9terminatev
 _0201DC6C:
 	add r5, sp, #0x10
 	add r2, sp, #0
 	mov r0, r6
 	mov r1, r5
-	bl FindExceptionHandler
+	bl _Z20FindExceptionHandlerP12ThrowContextP13ExceptionInfoPl
 	mov r4, r0
 	ldrb r1, [r4, #1]
 	ldrb r0, [r4, #2]
@@ -1471,23 +1471,23 @@ _0201DC6C:
 	add r1, sp, #8
 	add r0, r4, #5
 	str r2, [sp, #4]
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	add r1, sp, #0xc
-	bl __DecodeSignedNumber
+	bl _Z20__DecodeSignedNumberPcPl
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl UnwindStack
+	bl _Z11UnwindStackP12ThrowContextP13ExceptionInfoPc
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp]
 	mov r0, r6
-	bl SetupCatchInfo
+	bl _Z14SetupCatchInfoP12ThrowContextll
 	ldr r3, [sp, #0x10]
 	ldr r2, [sp, #8]
 	mov r0, r6
 	mov r1, r5
 	add r2, r3, r2
-	bl __TransferControl
+	bl _Z17__TransferControlP12ThrowContextP13ExceptionInfoPc
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end __rethrowHandler
@@ -1506,21 +1506,21 @@ __end__catch: ; 0x0201DCF8
 	ldmfd sp!, {r3, pc}
 	arm_func_end __end__catch
 
-	arm_func_start std__bad_exception__operator_delete
-std__bad_exception__operator_delete: ; 0x0201DD20
+	arm_func_start _ZNSt13bad_exceptionD0Ev
+_ZNSt13bad_exceptionD0Ev: ; 0x0201DD20
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end std__bad_exception__operator_delete
+	arm_func_end _ZNSt13bad_exceptionD0Ev
 
-	arm_func_start std__bad_exception__what
-std__bad_exception__what: ; 0x0201DD34
+	arm_func_start _ZNKSt13bad_exception4whatEv
+_ZNKSt13bad_exception4whatEv: ; 0x0201DD34
 	ldr r0, _0201DD3C ; =0x0208EEC4
 	bx lr
-_0201DD3C: .word unk_0208EEC4
-	arm_func_end std__bad_exception__what
+_0201DD3C: .word _ZZNKSt13bad_exception4whatEvEs
+	arm_func_end _ZNKSt13bad_exception4whatEv
 
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x0201DD40
@@ -1562,39 +1562,39 @@ _0201DD88:
 _0201DDB0: .word __global_destructor_chain
 	arm_func_end __destroy_global_chain
 
-	arm_func_start dthandler
-dthandler: ; 0x0201DDB4
+	arm_func_start _ZSt9dthandlerv
+_ZSt9dthandlerv: ; 0x0201DDB4
 	ldr r12, _0201DDBC ; =abort
 	bx r12
 _0201DDBC: .word abort
-	arm_func_end dthandler
+	arm_func_end _ZSt9dthandlerv
 
-	arm_func_start duhandler
-duhandler: ; 0x0201DDC0
-	ldr r12, _0201DDC8 ; =terminate
+	arm_func_start _ZSt9duhandlerv
+_ZSt9duhandlerv: ; 0x0201DDC0
+	ldr r12, _0201DDC8 ; =_ZSt9terminatev
 	bx r12
-_0201DDC8: .word terminate
-	arm_func_end duhandler
+_0201DDC8: .word _ZSt9terminatev
+	arm_func_end _ZSt9duhandlerv
 
-	arm_func_start terminate
-terminate: ; 0x0201DDCC
+	arm_func_start _ZSt9terminatev
+_ZSt9terminatev: ; 0x0201DDCC
 	stmfd sp!, {r3, lr}
-	ldr r0, _0201DDE0 ; =thandler
+	ldr r0, _0201DDE0 ; =_ZSt8thandler
 	ldr r0, [r0]
 	blx r0
 	ldmfd sp!, {r3, pc}
-_0201DDE0: .word thandler
-	arm_func_end terminate
+_0201DDE0: .word _ZSt8thandler
+	arm_func_end _ZSt9terminatev
 
-	arm_func_start unexpected
-unexpected: ; 0x0201DDE4
+	arm_func_start _ZSt10unexpectedv
+_ZSt10unexpectedv: ; 0x0201DDE4
 	stmfd sp!, {r3, lr}
-	ldr r0, _0201DDF8 ; =thandler
+	ldr r0, _0201DDF8 ; =_ZSt8thandler
 	ldr r0, [r0, #4]
 	blx r0
 	ldmfd sp!, {r3, pc}
-_0201DDF8: .word thandler
-	arm_func_end unexpected
+_0201DDF8: .word _ZSt8thandler
+	arm_func_end _ZSt10unexpectedv
 
 	arm_func_start __register_global_object
 __register_global_object: ; 0x0201DDFC
@@ -1736,8 +1736,8 @@ _0201DFC8:
 	ldmfd sp!, {r3, pc}
 	arm_func_end __throw_catch_compare
 
-	arm_func_start __throw_std__bad_alloc
-__throw_std__bad_alloc: ; 0x0201DFD0
+	arm_func_start _ZSt17__throw_bad_allocv
+_ZSt17__throw_bad_allocv: ; 0x0201DFD0
 	stmfd sp!, {r3, lr}
 	ldr r0, _0201E000 ; =0x0208EF54
 	ldrb r0, [r0]
@@ -1745,21 +1745,21 @@ __throw_std__bad_alloc: ; 0x0201DFD0
 	ldmeqfd sp!, {r3, pc}
 	ldr r3, _0201E004 ; =0x0208EF88
 	ldr r0, _0201E008 ; =0x0208EF94
-	ldr r2, _0201E00C ; =std__bad_alloc__nbad_alloc
+	ldr r2, _0201E00C ; =_ZNSt9bad_allocD1Ev
 	add r1, sp, #0
 	str r3, [sp]
 	bl __throw
 	ldmfd sp!, {r3, pc}
-_0201E000: .word __throws_bad_alloc
-_0201E004: .word unk_0208EF88
+_0201E000: .word _ZSt18__throws_bad_alloc
+_0201E004: .word _ZTVSt9bad_alloc+0x8
 _0201E008: .word unk_0208EF94
-_0201E00C: .word std__bad_alloc__nbad_alloc
-	arm_func_end __throw_std__bad_alloc
+_0201E00C: .word _ZNSt9bad_allocD1Ev
+	arm_func_end _ZSt17__throw_bad_allocv
 
-	arm_func_start std__bad_alloc__nbad_alloc
-std__bad_alloc__nbad_alloc: ; 0x0201E010
+	arm_func_start _ZNSt9bad_allocD1Ev
+_ZNSt9bad_allocD1Ev: ; 0x0201E010
 	bx lr
-	arm_func_end std__bad_alloc__nbad_alloc
+	arm_func_end _ZNSt9bad_allocD1Ev
 
 	arm_func_start _Znwm
 _Znwm: ; 0x0201E014
@@ -1767,7 +1767,7 @@ _Znwm: ; 0x0201E014
 	sub sp, sp, #0x18
 	mov r11, sp
 	movs r6, r0
-	ldr r4, _0201E074 ; =__new_handler
+	ldr r4, _0201E074 ; =_ZSt13__new_handler
 	moveq r6, #4
 _0201E02C:
 	mov r0, r6
@@ -1780,7 +1780,7 @@ _0201E02C:
 	blx r0
 	b _0201E02C
 _0201E050:
-	bl __throw_std__bad_alloc
+	bl _ZSt17__throw_bad_allocv
 _0201E054:
 	add sp, r11, #0x18
 	mov r0, r5
@@ -1791,7 +1791,7 @@ _0201E068:
 	b _0201E068
 	add sp, r11, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r11, pc}
-_0201E074: .word __new_handler
+_0201E074: .word _ZSt13__new_handler
 	arm_func_end _Znwm
 
 	arm_func_start _ZdlPv
@@ -1803,8 +1803,8 @@ _ZdlPv: ; 0x0201E078
 	ldmfd sp!, {r3, pc}
 	arm_func_end _ZdlPv
 
-	arm_func_start operator_new_array
-operator_new_array: ; 0x0201E08C
+	arm_func_start _Znam
+_Znam: ; 0x0201E08C
 	stmfd sp!, {r11, lr}
 	sub sp, sp, #0x18
 	mov r11, sp
@@ -1817,33 +1817,33 @@ _0201E0AC:
 	b _0201E0AC
 	add sp, r11, #0x18
 	ldmfd sp!, {r11, pc}
-	arm_func_end operator_new_array
+	arm_func_end _Znam
 
-	arm_func_start operator_delete_array
-operator_delete_array: ; 0x0201E0B8
+	arm_func_start _ZdaPv
+_ZdaPv: ; 0x0201E0B8
 	ldr r12, _0201E0C0 ; =_ZdlPv
 	bx r12
 _0201E0C0: .word _ZdlPv
-	arm_func_end operator_delete_array
+	arm_func_end _ZdaPv
 
-	arm_func_start std__bad_alloc__operator_delete
-std__bad_alloc__operator_delete: ; 0x0201E0C4
+	arm_func_start _ZNSt9bad_allocD0Ev
+_ZNSt9bad_allocD0Ev: ; 0x0201E0C4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end std__bad_alloc__operator_delete
+	arm_func_end _ZNSt9bad_allocD0Ev
 
-	arm_func_start std__bad_alloc__what
-std__bad_alloc__what: ; 0x0201E0D8
+	arm_func_start _ZNKSt9bad_alloc4whatEv
+_ZNKSt9bad_alloc4whatEv: ; 0x0201E0D8
 	ldr r0, _0201E0E0 ; =0x0208EF58
 	bx lr
-_0201E0E0: .word unk_0208EF58
-	arm_func_end std__bad_alloc__what
+_0201E0E0: .word _ZZNKSt9bad_alloc4whatEvEs
+	arm_func_end _ZNKSt9bad_alloc4whatEv
 
-	arm_func_start DestroyArrayRange
-DestroyArrayRange: ; 0x0201E0E4
+	arm_func_start _Z17DestroyArrayRangePhS_mPFvPvE
+_Z17DestroyArrayRangePhS_mPFvPvE: ; 0x0201E0E4
 	stmfd sp!, {r4, r5, r6, r7, r11, lr}
 	sub sp, sp, #0x18
 	mov r11, sp
@@ -1863,12 +1863,12 @@ _0201E110:
 	bhi _0201E110
 	add sp, r11, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r11, pc}
-	bl terminate
+	bl _ZSt9terminatev
 	add r0, r11, #0
 	bl __end__catch
 	add sp, r11, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r11, pc}
-	arm_func_end DestroyArrayRange
+	arm_func_end _Z17DestroyArrayRangePhS_mPFvPvE
 
 	arm_func_start __cxa_vec_new
 __cxa_vec_new: ; 0x0201E140
@@ -1880,7 +1880,7 @@ __cxa_vec_new: ; 0x0201E140
 	mov r6, r2
 	mla r0, r8, r7, r6
 	mov r5, r3
-	bl operator_new_array
+	bl _Znam
 	movs r9, r0
 	addeq sp, r11, #0x18
 	moveq r0, #0
@@ -1911,10 +1911,10 @@ _0201E1A4:
 	mov r1, r4
 	mov r2, r7
 	add r0, r9, r6
-	bl DestroyArrayRange
+	bl _Z17DestroyArrayRangePhS_mPFvPvE
 _0201E1D8:
 	mov r0, r9
-	bl operator_delete_array
+	bl _ZdaPv
 	bl __rethrow
 	add r0, r11, #0
 	bl __end__catch
@@ -1955,7 +1955,7 @@ _0201E23C:
 	mov r0, r7
 	mov r1, r8
 	mov r2, r5
-	bl DestroyArrayRange
+	bl _Z17DestroyArrayRangePhS_mPFvPvE
 	bl __rethrow
 	add r0, r11, #0
 	bl __end__catch
@@ -2006,7 +2006,7 @@ _0201E2FC:
 	subs r7, r7, #1
 	bne _0201E2FC
 	b _0201E324
-	bl terminate
+	bl _ZSt9terminatev
 	add r0, r11, #0
 	bl __end__catch
 	ldr sp, [r11, #0x14]
@@ -2039,7 +2039,7 @@ _0201E364:
 	bne _0201E364
 	add sp, r11, #0x18
 	ldmfd sp!, {r4, r5, r6, r7, r11, pc}
-	bl terminate
+	bl _ZSt9terminatev
 	add r0, r11, #0
 	bl __end__catch
 	add sp, r11, #0x18
@@ -2060,17 +2060,17 @@ __cxa_vec_delete: ; 0x0201E394
 	bl __cxa_vec_dtor
 _0201E3BC:
 	sub r0, r5, r4
-	bl operator_delete_array
+	bl _ZdaPv
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end __cxa_vec_delete
 
-	arm_func_start std__type_info__ntype_info
-std__type_info__ntype_info: ; 0x0201E3C8
+	arm_func_start _ZNSt9type_infoD2Ev
+_ZNSt9type_infoD2Ev: ; 0x0201E3C8
 	bx lr
-	arm_func_end std__type_info__ntype_info
+	arm_func_end _ZNSt9type_infoD2Ev
 
-	arm_func_start std__type_info__operator_equals
-std__type_info__operator_equals: ; 0x0201E3CC
+	arm_func_start _ZNKSt9type_infoeqERKS_
+_ZNKSt9type_infoeqERKS_: ; 0x0201E3CC
 	stmfd sp!, {r3, lr}
 	cmp r0, r1
 	beq _0201E3EC
@@ -2085,59 +2085,59 @@ _0201E3EC:
 _0201E3F4:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end std__type_info__operator_equals
+	arm_func_end _ZNKSt9type_infoeqERKS_
 
-	arm_func_start __cxxabiv1____base_class_type_info__n__base_class_type_info
-__cxxabiv1____base_class_type_info__n__base_class_type_info: ; 0x0201E3FC
+	arm_func_start _ZN10__cxxabiv117__class_type_infoD1Ev
+_ZN10__cxxabiv117__class_type_infoD1Ev: ; 0x0201E3FC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl std__type_info__ntype_info
+	bl _ZNSt9type_infoD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __cxxabiv1____base_class_type_info__n__base_class_type_info
+	arm_func_end _ZN10__cxxabiv117__class_type_infoD1Ev
 
-	arm_func_start __cxxabiv1____base_class_type_info__operator_delete
-__cxxabiv1____base_class_type_info__operator_delete: ; 0x0201E410
+	arm_func_start _ZN10__cxxabiv117__class_type_infoD0Ev
+_ZN10__cxxabiv117__class_type_infoD0Ev: ; 0x0201E410
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl std__type_info__ntype_info
+	bl _ZNSt9type_infoD2Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __cxxabiv1____base_class_type_info__operator_delete
+	arm_func_end _ZN10__cxxabiv117__class_type_infoD0Ev
 
-	arm_func_start __cxxabiv1____class_type_info__n__class_type_info
-__cxxabiv1____class_type_info__n__class_type_info: ; 0x0201E42C
+	arm_func_start _ZN10__cxxabiv117__class_type_infoD2Ev
+_ZN10__cxxabiv117__class_type_infoD2Ev: ; 0x0201E42C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl std__type_info__ntype_info
+	bl _ZNSt9type_infoD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __cxxabiv1____class_type_info__n__class_type_info
+	arm_func_end _ZN10__cxxabiv117__class_type_infoD2Ev
 
-	arm_func_start __cxxabiv1____si_class_type_info__n__si_class_type_info
-__cxxabiv1____si_class_type_info__n__si_class_type_info: ; 0x0201E440
+	arm_func_start _ZN10__cxxabiv120__si_class_type_infoD1Ev
+_ZN10__cxxabiv120__si_class_type_infoD1Ev: ; 0x0201E440
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl __cxxabiv1____class_type_info__n__class_type_info
+	bl _ZN10__cxxabiv117__class_type_infoD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __cxxabiv1____si_class_type_info__n__si_class_type_info
+	arm_func_end _ZN10__cxxabiv120__si_class_type_infoD1Ev
 
-	arm_func_start __cxxabiv1____si_class_type_info__operator_delete
-__cxxabiv1____si_class_type_info__operator_delete: ; 0x0201E454
+	arm_func_start _ZN10__cxxabiv120__si_class_type_infoD0Ev
+_ZN10__cxxabiv120__si_class_type_infoD0Ev: ; 0x0201E454
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl __cxxabiv1____class_type_info__n__class_type_info
+	bl _ZN10__cxxabiv117__class_type_infoD2Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end __cxxabiv1____si_class_type_info__operator_delete
+	arm_func_end _ZN10__cxxabiv120__si_class_type_infoD0Ev
 
-	arm_func_start __PopStackFrame
-__PopStackFrame: ; 0x0201E470
+	arm_func_start _Z15__PopStackFrameP12ThrowContextP13ExceptionInfo
+_Z15__PopStackFrameP12ThrowContextP13ExceptionInfo: ; 0x0201E470
 	stmfd sp!, {r4, lr}
 	ldrb r1, [r0, #0x6a]
 	ldr r12, [r0, #0x60]
@@ -2162,10 +2162,10 @@ _0201E49C:
 	str r1, [r0, #0x14]
 	ldr r0, [r0, #0x54]
 	ldmfd sp!, {r4, pc}
-	arm_func_end __PopStackFrame
+	arm_func_end _Z15__PopStackFrameP12ThrowContextP13ExceptionInfo
 
-	arm_func_start __SetupFrameInfo
-__SetupFrameInfo: ; 0x0201E4CC
+	arm_func_start _Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo
+_Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo: ; 0x0201E4CC
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, [r1, #4]
 	mov r6, r0
@@ -2190,11 +2190,11 @@ __SetupFrameInfo: ; 0x0201E4CC
 	ldrh r2, [r6, #0x68]
 	orr r2, r2, #0x4000
 	strh r2, [r6, #0x68]
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	cmp r4, #0
 	beq _0201E540
 	add r1, r6, #0x64
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 _0201E540:
 	cmp r4, #0
 	beq _0201E560
@@ -2208,10 +2208,10 @@ _0201E560:
 	ldr r0, [r6, #0x14]
 	str r0, [r6, #0x18]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end __SetupFrameInfo
+	arm_func_end _Z16__SetupFrameInfoP12ThrowContextP13ExceptionInfo
 
-	arm_func_start __FindExceptionTable
-__FindExceptionTable: ; 0x0201E56C
+	arm_func_start _Z20__FindExceptionTableP13ExceptionInfoPc
+_Z20__FindExceptionTableP13ExceptionInfoPc: ; 0x0201E56C
 	ldr r2, _0201E584 ; =SDK_STATIC_ETABLE_START
 	ldr r1, _0201E588 ; =SDK_STATIC_ETABLE_END
 	str r2, [r0, #0xc]
@@ -2220,24 +2220,24 @@ __FindExceptionTable: ; 0x0201E56C
 	bx lr
 _0201E584: .word SDK_STATIC_ETABLE_START
 _0201E588: .word SDK_STATIC_ETABLE_END
-	arm_func_end __FindExceptionTable
+	arm_func_end _Z20__FindExceptionTableP13ExceptionInfoPc
 
-	arm_func_start __SkipUnwindInfo
-__SkipUnwindInfo: ; 0x0201E58C
+	arm_func_start _Z16__SkipUnwindInfoPc
+_Z16__SkipUnwindInfoPc: ; 0x0201E58C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r5, [r0], #2
 	add r4, sp, #0
 	mov r1, r4
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	tst r5, #0x40
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r1, r4
-	bl __DecodeUnsignedNumber
+	bl _Z22__DecodeUnsignedNumberPcPm
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end __SkipUnwindInfo
+	arm_func_end _Z16__SkipUnwindInfoPc
 
-	arm_func_start __TransferControl
-__TransferControl: ; 0x0201E5B4
+	arm_func_start _Z17__TransferControlP12ThrowContextP13ExceptionInfoPc
+_Z17__TransferControlP12ThrowContextP13ExceptionInfoPc: ; 0x0201E5B4
 	ldr r4, [r0, #0x2c]
 	ldr r5, [r0, #0x30]
 	ldr r6, [r0, #0x34]
@@ -2250,7 +2250,7 @@ __TransferControl: ; 0x0201E5B4
 	ldr r12, [r0, #0x64]
 	sub sp, sp, r12
 	bx r2
-	arm_func_end __TransferControl
+	arm_func_end _Z17__TransferControlP12ThrowContextP13ExceptionInfoPc
 
 	arm_func_start __throw
 __throw: ; 0x0201E5E4
@@ -13902,7 +13902,7 @@ FUN_020288a4: ; 0x020288A4
 	mov r4, r0
 	mov r0, r1
 	ldr r1, _020288C8 ; =0x0208F468
-	bl std__type_info__operator_equals
+	bl _ZNKSt9type_infoeqERKS_
 	cmp r0, #0
 	addne r0, r4, #0xc
 	moveq r0, #0
@@ -13913,9 +13913,9 @@ _020288C8: .word unk_0208F468
 	arm_func_start FUN_020288cc
 FUN_020288cc: ; 0x020288CC
 	ldr r0, [r0, #0xc]
-	ldr r12, _020288D8 ; =operator_delete_array
+	ldr r12, _020288D8 ; =_ZdaPv
 	bx r12
-_020288D8: .word operator_delete_array
+_020288D8: .word _ZdaPv
 	arm_func_end FUN_020288cc
 
 	arm_func_start FUN_020288dc
@@ -13947,7 +13947,7 @@ FUN_0202891c: ; 0x0202891C
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02028934
-	bl operator_delete_array
+	bl _ZdaPv
 _02028934:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
@@ -14016,7 +14016,7 @@ FUN_02028984: ; 0x02028984
 	bl strlen
 	add r0, r0, #1
 	rsb r0, r0, r0, lsl #1
-	bl operator_new_array
+	bl _Znam
 	mov r1, #0
 	sub r2, sp, #4
 	strb r1, [r2]
@@ -14103,7 +14103,7 @@ _02028B04:
 	bl strlen
 	add r0, r0, #1
 	rsb r0, r0, r0, lsl #1
-	bl operator_new_array
+	bl _Znam
 	mov r1, #0
 	sub r2, sp, #4
 	strb r1, [r2]
@@ -14147,7 +14147,7 @@ _02028BB4:
 	bl strlen
 	add r0, r0, #1
 	rsb r0, r0, r0, lsl #1
-	bl operator_new_array
+	bl _Znam
 	mov r2, #0
 	sub r3, sp, #4
 	mov r1, r0
@@ -14530,36 +14530,34 @@ unk_0208C300:
 	.byte 0x00, 0x00, 0x00, 0x80, 0x22, 0x82, 0xE3, 0x36, 0x00, 0x00, 0x00, 0x00, 0x1D, 0xF3, 0x69, 0x35
 
 	.data
-	.global unk_0208EEB0
-unk_0208EEB0:
-	.word unk_0208F000
-	.word unk_0208EED4
-	.global unk_0208EEB8
-unk_0208EEB8:
-	.word unk_0208EFF0
-	.word unk_0208EEE4
-	.word unk_0208EEB0
-	.global unk_0208EEC4
-unk_0208EEC4:
+	.global _ZTISt9exception
+_ZTISt9exception:
+	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
+	.word _ZTSSt9exception
+	.global _ZTISt13bad_exception
+_ZTISt13bad_exception:
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
+	.word _ZTSSt13bad_exception
+	.word _ZTISt9exception
+	.global _ZZNKSt13bad_exception4whatEvEs
+_ZZNKSt13bad_exception4whatEvEs:
 	.asciz "bad_exception"
 	.balign 4, 0
-	.global unk_0208EED4
-unk_0208EED4:
+	.global _ZTSSt9exception
+_ZTSSt9exception:
 	.asciz "std::exception"
 	.balign 4, 0
-	.global unk_0208EEE4
-unk_0208EEE4:
+	.global _ZTSSt13bad_exception
+_ZTSSt13bad_exception:
 	.asciz "std::bad_exception"
 	.balign 4, 0
-	.global unk_0208EEF8
-unk_0208EEF8:
+	.global _ZTVSt13bad_exception
+_ZTVSt13bad_exception:
 	.byte 0x00, 0x00, 0x00, 0x00 
-	.word unk_0208EEB8
-	.global unk_0208EF00
-unk_0208EF00:
-	.word std__bad_exception__nbad_exception
-	.word std__bad_exception__operator_delete
-	.word std__bad_exception__what
+	.word _ZTISt13bad_exception
+	.word _ZNSt13bad_exceptionD1Ev
+	.word _ZNSt13bad_exceptionD0Ev
+	.word _ZNKSt13bad_exception4whatEv
 	.global unk_0208EF0C
 unk_0208EF0C:
 	.asciz "!std::bad_exception!!"
@@ -14568,79 +14566,75 @@ unk_0208EF0C:
 unk_0208EF24:
 	.asciz "!std::exception!!std::bad_exception!!"
 	.balign 4, 0
-	.global thandler
-thandler:
-	.word dthandler
-	.global uhandler
-uhandler:
-	.word duhandler
-	.global __throws_bad_alloc
-__throws_bad_alloc:
+	.global _ZSt8thandler
+_ZSt8thandler:
+	.word _ZSt9dthandlerv
+	.global _ZSt8uhandler
+_ZSt8uhandler:
+	.word _ZSt9duhandlerv
+	.global _ZSt18__throws_bad_alloc
+_ZSt18__throws_bad_alloc:
 	.byte 0x01, 0x00, 0x00, 0x00
-	.global unk_0208EF58
-unk_0208EF58:
+	.global _ZZNKSt9bad_alloc4whatEvEs
+_ZZNKSt9bad_alloc4whatEvEs:
 	.asciz "bad_alloc"
 	.balign 4, 0
-	.global unk_0208EF64
-unk_0208EF64:
-	.word unk_0208EFF0
-	.word unk_0208EF70
-	.word unk_0208EEB0
-	.global unk_0208EF70
-unk_0208EF70:
+	.global _ZTISt9bad_alloc
+_ZTISt9bad_alloc:
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
+	.word _ZTSSt9bad_alloc
+	.word _ZTISt9exception
+	.global _ZTSSt9bad_alloc
+_ZTSSt9bad_alloc:
 	.asciz "std::bad_alloc"
 	.balign 4, 0
-	.global unk_0208EF80
-unk_0208EF80:
+	.global _ZTVSt9bad_alloc
+_ZTVSt9bad_alloc:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.word unk_0208EF64
-	.global unk_0208EF88
-unk_0208EF88:
-	.word std__bad_alloc__nbad_alloc
-	.word std__bad_alloc__operator_delete
-	.word std__bad_alloc__what
+	.word _ZTISt9bad_alloc
+	.word _ZNSt9bad_allocD1Ev
+	.word _ZNSt9bad_allocD0Ev
+	.word _ZNKSt9bad_alloc4whatEv
 	.global unk_0208EF94
 unk_0208EF94:
 	.asciz "!std::exception!!std::bad_alloc!!"
 	.balign 4, 0
-	.global unk_0208EFB8
-unk_0208EFB8:
-	.word unk_0208F000
-	.word unk_0208EFD8
-	.global unk_0208EFC0
-unk_0208EFC0:
-	.word unk_0208EFF0
-	.word unk_0208F028
-	.word unk_0208EFCC
-	.global unk_0208EFCC
-unk_0208EFCC:
-	.word unk_0208EFF0
-	.word unk_0208F008
-	.word unk_0208EFB8
-	.global unk_0208EFD8
-unk_0208EFD8:
+	.global _ZTISt9type_info
+_ZTISt9type_info:
+	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
+	.word _ZTSSt9type_info
+	.global _ZTIN10__cxxabiv120__si_class_type_infoE
+_ZTIN10__cxxabiv120__si_class_type_infoE:
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
+	.word _ZTSN10__cxxabiv120__si_class_type_infoE
+	.word _ZTIN10__cxxabiv117__class_type_infoE
+	.global _ZTIN10__cxxabiv117__class_type_infoE
+_ZTIN10__cxxabiv117__class_type_infoE:
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
+	.word _ZTSN10__cxxabiv117__class_type_infoE
+	.word _ZTISt9type_info
+	.global _ZTSSt9type_info
+_ZTSSt9type_info:
 	.asciz "std::type_info"
 	.balign 4, 0
-	.global unk_0208EFE8
-unk_0208EFE8:
+	.global _ZTVN10__cxxabiv120__si_class_type_infoE
+_ZTVN10__cxxabiv120__si_class_type_infoE:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.word unk_0208EFC0
-	.global unk_0208EFF0
-unk_0208EFF0:
-	.word __cxxabiv1____si_class_type_info__n__si_class_type_info
-	.word __cxxabiv1____si_class_type_info__operator_delete
+	.word _ZTIN10__cxxabiv120__si_class_type_infoE
+	.word _ZN10__cxxabiv120__si_class_type_infoD1Ev
+	.word _ZN10__cxxabiv120__si_class_type_infoD0Ev
+	.global _ZTVN10__cxxabiv117__class_type_infoE
+_ZTVN10__cxxabiv117__class_type_infoE:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.word unk_0208EFCC
-	.global unk_0208F000
-unk_0208F000:
-	.word __cxxabiv1____base_class_type_info__n__base_class_type_info
-	.word __cxxabiv1____base_class_type_info__operator_delete
-	.global unk_0208F008
-unk_0208F008:
+	.word _ZTIN10__cxxabiv117__class_type_infoE
+	.word _ZN10__cxxabiv117__class_type_infoD1Ev
+	.word _ZN10__cxxabiv117__class_type_infoD0Ev
+	.global _ZTSN10__cxxabiv117__class_type_infoE
+_ZTSN10__cxxabiv117__class_type_infoE:
 	.asciz "__cxxabiv1::__class_type_info"
 	.balign 4, 0
-	.global unk_0208F028
-unk_0208F028:
+	.global _ZTSN10__cxxabiv120__si_class_type_infoE
+_ZTSN10__cxxabiv120__si_class_type_infoE:
 	.asciz "__cxxabiv1::__si_class_type_info"
 	.balign 4, 0
 	.global __files
@@ -14882,15 +14876,15 @@ unk_0208F45C:
 	.balign 4, 0
 	.global unk_0208F460
 unk_0208F460:
-	.word unk_0208F000
+	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
 	.word unk_0208F4B8
 	.global unk_0208F468
 unk_0208F468:
-	.word unk_0208F000
+	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
 	.word unk_0208F494
 	.global unk_0208F468
 unk_0208F470:
-	.word unk_0208EFF0
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
 	.word unk_0208F4E4
 	.word unk_0208F460
 	.global unk_0208F468
@@ -14920,17 +14914,17 @@ unk_0208F534:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00
 	.global unk_0208F53C
 unk_0208F53C:
-	.word unk_0208EFF0
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
 	.word unk_0208F560
-	.word unk_0208EEB0
+	.word _ZTISt9exception
 	.global unk_0208F548
 unk_0208F548:
-	.word unk_0208EFF0
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
 	.word unk_0208F574
 	.word unk_0208F53C
 	.global unk_0208F554
 unk_0208F554:
-	.word unk_0208EFF0 
+	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8 
 	.word unk_0208F588
 	.word unk_0208F53C
 	.global unk_0208F560
@@ -14989,8 +14983,8 @@ unk_0208F664:
 	.global __global_destructor_chain
 __global_destructor_chain:
 	.space 0x04
-	.global __new_handler
-__new_handler:
+	.global _ZSt13__new_handler
+_ZSt13__new_handler:
 	.space 0x04
 	.global __console_exit
 __console_exit:

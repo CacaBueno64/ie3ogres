@@ -530,7 +530,7 @@ FUN_0202a628: ; 0x0202A628
 	mov r0, r4
 	bl DseSe_StopAll
 	ldmfd sp!, {r4, pc}
-_0202A664: .word unk_0209AEC0
+_0202A664: .word gWirelessUtil
 _0202A668: .word gL5Movie
 _0202A66C: .word gL5Sound
 	arm_func_end FUN_0202a628
@@ -623,7 +623,7 @@ _0202A780:
 _0202A794: .word unk_0209A0F8
 _0202A798: .word unk_0209A5D0
 _0202A79C: .word unk_020A0640
-_0202A7A0: .word unk_0209AEC0
+_0202A7A0: .word gWirelessUtil
 _0202A7A4: .word 0x04001000
 	arm_func_end FUN_0202a6e4
 
@@ -1207,7 +1207,7 @@ _0202AF8C: .word 0x02FFFC20
 _0202AF90: .word 0x00008003
 _0202AF94: .word 0x04001000
 _0202AF98: .word gL5Allocator
-_0202AF9C: .word unk_0209BA20
+_0202AF9C: .word gLogicThink
 	arm_func_end FUN_0202ae38
 
 	arm_func_start FUN_0202afa0
@@ -1242,7 +1242,7 @@ FUN_0202afd0: ; 0x0202AFD0
 	orr r2, r2, #0x10000
 	str r2, [r3]
 	bl _ZN11L5Allocator15setDefaultArenaEi
-	ldr r1, _0202B19C ; =0x02099ECC
+	ldr r1, _0202B19C ; =gWaitVBlank
 	mov r2, #0
 	ldr r0, _0202B1A0 ; =0x0209A124
 	str r2, [r1]
@@ -1309,7 +1309,7 @@ _0202B080:
 	bl FUN_0202e38c
 _0202B100:
 	ldr r0, _0202B1A0 ; =0x0209A124
-	ldr r2, _0202B19C ; =0x02099ECC
+	ldr r2, _0202B19C ; =gWaitVBlank
 	ldr r0, [r0]
 	mov r1, #1
 	str r1, [r2]
@@ -1317,7 +1317,7 @@ _0202B100:
 	beq _0202B120
 	bl FUN_ov16_020f2604
 _0202B120:
-	ldr r5, _0202B19C ; =0x02099ECC
+	ldr r5, _0202B19C ; =gWaitVBlank
 _0202B124:
 	bl OS_WaitVBlankIntr
 	ldr r0, [r5]
@@ -1350,7 +1350,7 @@ _0202B13C:
 _0202B190: .word 0x02FFFC3C
 _0202B194: .word 0x04001000
 _0202B198: .word gL5Allocator
-_0202B19C: .word unk_02099ECC
+_0202B19C: .word gWaitVBlank
 _0202B1A0: .word unk_0209A124
 _0202B1A4: .word ov16_02118490
 _0202B1A8: .word 0x02FFFFA8
@@ -2131,7 +2131,7 @@ _0202BAA0:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202BAAC: .word unk_0208FAD8
-_0202BAB0: .word unk_0209BA20
+_0202BAB0: .word gLogicThink
 _0202BAB4: .word unk_0208FAE0
 _0202BAB8: .word unk_0208FAE8
 _0202BABC: .word unk_0208FAF0
@@ -4223,7 +4223,7 @@ _ZN7L5Sound12FUN_0202d5d4Emm: ; 0x0202D5D4
 	mov r0, r6
 	mov r7, r2
 	mov r4, r1
-	bl Movie_GetVideoFps
+	bl _ZN7L5Movie11getVideoFpsEv
 	mov r5, r0
 	mov r0, #0x30
 	cmp r7, #0

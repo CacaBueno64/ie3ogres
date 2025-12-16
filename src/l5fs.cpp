@@ -480,7 +480,7 @@ u32 L5FSi_HashFilename(const char *name) {
             temp[i] = c;
         }
 
-        if (c == 0) {
+        if (c == '\0') {
             return MATH_CalcCRC32(&sCrc32Table, &temp, i);
         }
     }

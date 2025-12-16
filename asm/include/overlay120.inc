@@ -10,7 +10,7 @@
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public unk_020A0640
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A8C40
 .public unk_020A8440
 .public FUN_ov1_020dbfdc

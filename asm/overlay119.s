@@ -336,7 +336,7 @@ FUN_ov119_02125124: ; 0x02125124
 	mov r0, #8
 	str r0, [sp, #0x14]
 	str r4, [sp, #0x18]
-	ldr r0, _02125260 ; =0x0209F5C0
+	ldr r0, _02125260 ; =gBgMenuManager
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
@@ -396,7 +396,7 @@ FUN_ov119_02125268: ; 0x02125268
 	sub sp, sp, #0x20
 	mov r5, r0
 	mov r1, #1
-	ldr r0, _02125308 ; =0x0209F5C0
+	ldr r0, _02125308 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
 	bl FUN_ov16_020f5eec
@@ -426,14 +426,14 @@ FUN_ov119_02125268: ; 0x02125268
 	add r3, r4, lr
 	add lr, r3, r0, lsl #3
 	str r12, [sp, #0x18]
-	ldr r0, _02125308 ; =0x0209F5C0
+	ldr r0, _02125308 ; =gBgMenuManager
 	mov r3, r2
 	str lr, [sp, #0x1c]
 	bl FUN_ov16_020f5da0
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125308: .word gBgMenuManager
-_0212530C: .word unk_0209AEC0
+_0212530C: .word gWirelessUtil
 	arm_func_end FUN_ov119_02125268
 
 	arm_func_start FUN_ov119_02125310
@@ -442,7 +442,7 @@ FUN_ov119_02125310: ; 0x02125310
 	sub sp, sp, #0x20
 	mov r4, r0
 	mov r1, #1
-	ldr r0, _02125438 ; =0x0209F5C0
+	ldr r0, _02125438 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
 	bl FUN_ov16_020f5f64
@@ -470,7 +470,7 @@ _02125348:
 	str r0, [sp, #0x14]
 	str r2, [sp, #0x18]
 	ldr r2, [r3, #0xc]
-	ldr r0, _02125438 ; =0x0209F5C0
+	ldr r0, _02125438 ; =gBgMenuManager
 	add r12, r3, r2
 	mov r2, r1
 	mov r3, #0
@@ -503,7 +503,7 @@ _021253B4:
 	str r0, [sp, #0x14]
 	mov r0, #4
 	str r0, [sp, #0x18]
-	ldr r0, _02125438 ; =0x0209F5C0
+	ldr r0, _02125438 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
 	str r12, [sp, #0x1c]
@@ -511,7 +511,7 @@ _021253B4:
 _0212541C:
 	mov r0, r4
 	bl FUN_ov119_02125268
-	ldr r0, _02125438 ; =0x0209F5C0
+	ldr r0, _02125438 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f672c
 	add sp, sp, #0x20
@@ -526,7 +526,7 @@ FUN_ov119_0212543c: ; 0x0212543C
 	mov r5, r0
 	mov r3, #0
 	sub r2, r4, #2
-	ldr r0, _021254A0 ; =0x0209F5C0
+	ldr r0, _021254A0 ; =gBgMenuManager
 	mov r1, r4
 	str r3, [r5, #8]
 	str r3, [r5, #0xc]
@@ -598,7 +598,7 @@ _0212551C:
 	ldmfd sp!, {r4, pc}
 _0212553C:
 	bl FUN_ov119_021250cc
-	ldr r0, _02125550 ; =0x0209F5C0
+	ldr r0, _02125550 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
@@ -615,7 +615,7 @@ FUN_ov119_02125554: ; 0x02125554
 	mov r0, r5
 	bl FUN_ov119_02124df4
 	mov r4, #1
-	ldr r0, _02125590 ; =0x0209F5C0
+	ldr r0, _02125590 ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f5af0
 	mov r1, r4

@@ -50,7 +50,7 @@
 .public FUN_ov132_021461e8
 .public FUN_01ffb1c0
 .public unk_0209A2C0
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_02040128
 .public FUN_ov132_0213f5d4
 .public FX_Atan2Idx
@@ -175,7 +175,7 @@
 .public FUN_0206d19c
 .public FUN_02049fc8
 .public FUN_0204aba4
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov132_02143058
 .public FUN_0206dcd4
 .public FUN_ov132_02142df8

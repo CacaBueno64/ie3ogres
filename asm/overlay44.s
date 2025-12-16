@@ -129,7 +129,7 @@ _0211A0BC:
 	strb r1, [r0, #0x6cc]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0211A0E8: .word unk_0209BA20
+_0211A0E8: .word gLogicThink
 _0211A0EC: .word unk_02099EB4
 _0211A0F0: .word unk_02099ED4
 _0211A0F4: .word unk_0209A0AC
@@ -241,7 +241,7 @@ _0211A27C: .word unk_02099ED8
 _0211A280: .word unk_02099EB4
 _0211A284: .word unk_02099ED4
 _0211A288: .word unk_02099F44
-_0211A28C: .word unk_0209BA20
+_0211A28C: .word gLogicThink
 	arm_func_end FUN_ov44_0211a0fc
 
 	arm_func_start FUN_ov44_0211a290
@@ -2397,7 +2397,7 @@ _0211C010:
 	bl MI_CpuCopy8
 	add sp, sp, #0x104
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211C034: .word unk_0209BA20
+_0211C034: .word gLogicThink
 _0211C038: .word 0x000030F0
 _0211C03C: .word 0x00000FFF
 	arm_func_end FUN_ov44_0211ba44
@@ -2556,7 +2556,7 @@ _0211C1AC:
 	str r1, [r0, #0x368]
 	add sp, sp, #0x110
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211C288: .word unk_0209BA20
+_0211C288: .word gLogicThink
 	arm_func_end FUN_ov44_0211c040
 
 	arm_func_start FUN_ov44_0211c28c
@@ -2941,7 +2941,7 @@ _0211C74C:
 	str r7, [sp, #4]
 	str r7, [sp, #8]
 	mov r5, #1
-	ldr r0, _0211C808 ; =gCFileIO
+	ldr r0, _0211C808 ; =gFileIO
 	add r2, sp, #0x10
 	mov r1, r8
 	str r5, [sp, #0xc]
@@ -2971,7 +2971,7 @@ _0211C7F8: .word ov44_0212212C
 _0211C7FC: .word gL5Allocator
 _0211C800: .word 0x00000101
 _0211C804: .word ov44_021226FC
-_0211C808: .word gCFileIO
+_0211C808: .word gFileIO
 	arm_func_end FUN_ov44_0211c710
 
 	arm_func_start FUN_ov44_0211c80c
@@ -5079,7 +5079,7 @@ _0211E59C: .word ov44_02121FF4
 _0211E5A0: .word unk_02099F38
 _0211E5A4: .word ov44_02121F9C
 _0211E5A8: .word unk_02099ED8
-_0211E5AC: .word unk_0209BA20
+_0211E5AC: .word gLogicThink
 _0211E5B0: .word unk_02099EC0
 _0211E5B4: .word unk_020A0640
 	arm_func_end FUN_ov44_0211de00
@@ -7791,7 +7791,7 @@ _02120C4C:
 	cmp r0, #0
 	beq _02120CF4
 	ldr r0, _02121130 ; =0x000030F0
-	bl operator_new_array
+	bl _Znam
 	mov r1, #0
 	mov r2, #4
 	mov r4, r0
@@ -7822,7 +7822,7 @@ _02120C4C:
 	mov r1, #0
 	bl MI_CpuFill8
 	mov r0, r4
-	bl operator_delete_array
+	bl _ZdaPv
 	add r1, r9, #0x9000
 	ldr r0, [r1, #0x368]
 	str r0, [r1, #0x36c]
@@ -7955,7 +7955,7 @@ _02120E98:
 	b _021210E0
 _02120EB0:
 	mov r0, r6, lsl #2
-	bl operator_new_array
+	bl _Znam
 	mov r7, r0
 	ldr r0, [sp]
 	cmp r0, #0xa
@@ -8116,7 +8116,7 @@ _021210C4:
 	blt _0212104C
 _021210D8:
 	mov r0, r7
-	bl operator_delete_array
+	bl _ZdaPv
 _021210E0:
 	mov r0, r9
 	bl FUN_ov44_0211f4a4
@@ -8160,7 +8160,7 @@ FUN_ov44_02121138: ; 0x02121138
 	mov r0, r4
 	bl FUN_0204fca0
 	ldmfd sp!, {r3, r4, r5, pc}
-_02121178: .word unk_0209BA20
+_02121178: .word gLogicThink
 	arm_func_end FUN_ov44_02121138
 
 	arm_func_start FUN_ov44_0212117c
@@ -8181,7 +8181,7 @@ FUN_ov44_0212117c: ; 0x0212117C
 	mov r2, #2
 	bl FUN_02050f4c
 	ldmfd sp!, {r4, pc}
-_021211BC: .word unk_0209BA20
+_021211BC: .word gLogicThink
 	arm_func_end FUN_ov44_0212117c
 
 	arm_func_start FUN_ov44_021211c0
@@ -8246,7 +8246,7 @@ _02121280:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0212129C: .word unk_02099ED8
 _021212A0: .word unk_02099EC0
-_021212A4: .word unk_0209BA20
+_021212A4: .word gLogicThink
 	arm_func_end FUN_ov44_021211c0
 
 	arm_func_start FUN_ov44_021212a8
@@ -8291,7 +8291,7 @@ _02121324:
 	add sp, sp, #0x40
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212133C: .word ov44_021220EC
-_02121340: .word unk_0209BA20
+_02121340: .word gLogicThink
 	arm_func_end FUN_ov44_021212a8
 
 	arm_func_start FUN_ov44_02121344
@@ -8378,7 +8378,7 @@ _0212144C:
 	cmp r9, r0
 	blt _02121404
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02121460: .word unk_0209BA20
+_02121460: .word gLogicThink
 	arm_func_end FUN_ov44_021213d8
 
 	arm_func_start FUN_ov44_02121464
@@ -8482,7 +8482,7 @@ _021215C4:
 	blt _02121514
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021215D8: .word unk_0209BA20
+_021215D8: .word gLogicThink
 	arm_func_end FUN_ov44_02121464
 
 	arm_func_start FUN_ov44_021215dc
@@ -8589,7 +8589,7 @@ _02121650:
 	add sp, sp, #0xa0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02121768: .word unk_02099ED8
-_0212176C: .word unk_0209BA20
+_0212176C: .word gLogicThink
 _02121770: .word unk_02099EC0
 	arm_func_end FUN_ov44_021215dc
 

@@ -152,7 +152,7 @@ FUN_ov96_02124eb8: ; 0x02124EB8
 	mov r0, #2
 	str r0, [sp, #0x18]
 	ldr r2, [r12, #0xc]
-	ldr r0, _02124F24 ; =0x0209F5C0
+	ldr r0, _02124F24 ; =gBgMenuManager
 	add r12, r12, r2
 	mov r2, r1
 	str r12, [sp, #0x1c]
@@ -183,7 +183,7 @@ FUN_ov96_02124f28: ; 0x02124F28
 	str r0, [sp, #0x14]
 	str r2, [sp, #0x18]
 	ldr r2, [r12, #0xc]
-	ldr r0, _0212510C ; =0x0209F5C0
+	ldr r0, _0212510C ; =gBgMenuManager
 	add r12, r12, r2
 	mov r2, r1
 	str r12, [sp, #0x1c]
@@ -209,7 +209,7 @@ _02124F88:
 	mov r0, #3
 	str r0, [sp, #0x18]
 	ldr r2, [r3, #0xc]
-	ldr r0, _0212510C ; =0x0209F5C0
+	ldr r0, _0212510C ; =gBgMenuManager
 	add r12, r3, r2
 	mov r2, r1
 	mov r3, #0
@@ -233,7 +233,7 @@ _02124FF0:
 	mov r0, #3
 	str r0, [sp, #0x18]
 	ldr r2, [r12, #0xc]
-	ldr r0, _0212510C ; =0x0209F5C0
+	ldr r0, _0212510C ; =gBgMenuManager
 	add r12, r12, r2
 	mov r2, r1
 	str r12, [sp, #0x1c]
@@ -258,7 +258,7 @@ _02125048:
 	mov r0, #3
 	str r0, [sp, #0x18]
 	ldr r3, [r12, #0xc]
-	ldr r0, _0212510C ; =0x0209F5C0
+	ldr r0, _0212510C ; =gBgMenuManager
 	add r12, r12, r3
 	mov r3, r2
 	str r12, [sp, #0x1c]
@@ -277,7 +277,7 @@ _021250A8:
 	str r0, [sp, #0xc]
 	ldrh r3, [r4, #0x2c]
 	mov r2, #0
-	ldr r0, _0212510C ; =0x0209F5C0
+	ldr r0, _0212510C ; =gBgMenuManager
 	and r3, r3, #0xff
 	str r3, [sp, #0x10]
 	ldrh r4, [r4, #0x2e]
@@ -389,7 +389,7 @@ FUN_ov96_02125254: ; 0x02125254
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r1, #1
-	ldr r0, _021252A4 ; =0x0209F5C0
+	ldr r0, _021252A4 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
 	bl FUN_ov16_020f5f64
@@ -910,7 +910,7 @@ FUN_ov96_021258d0: ; 0x021258D0
 	ldrb r0, [r0, #0x3a]
 	cmp r0, #0
 	streqb r4, [r6, #0x11]
-	ldr r0, _02125964 ; =0x0209F5C0
+	ldr r0, _02125964 ; =gBgMenuManager
 	strneb r5, [r6, #0x11]
 	bl FUN_ov16_020f5a58
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -974,7 +974,7 @@ _02125A10:
 	mov r0, #6
 	str r0, [r4, #8]
 _02125A24:
-	ldr r0, _02125A60 ; =0x0209F5C0
+	ldr r0, _02125A60 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, pc}
@@ -1009,7 +1009,7 @@ _02125A84:
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
 _02125A94:
-	ldr r0, _02125AA4 ; =0x0209F5C0
+	ldr r0, _02125AA4 ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f6a9c
 	ldmfd sp!, {r4, pc}
@@ -1040,7 +1040,7 @@ _02125AD8:
 	str r0, [r5, #0x28]
 _02125AF4:
 	mov r4, #1
-	ldr r0, _02125B2C ; =0x0209F5C0
+	ldr r0, _02125B2C ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f5af0
 	bl FUN_ov16_020f51a8

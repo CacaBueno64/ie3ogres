@@ -23,7 +23,7 @@
 .public FUN_0204ce50
 .public unk_020AF81C
 .public unk_020A9C40
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd

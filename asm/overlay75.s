@@ -89,9 +89,9 @@ _0211A014:
 	mov r1, #0
 	bl FUN_0204eb4c
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A038: .word unk_0209BA20
+_0211A038: .word gLogicThink
 _0211A03C: .word unk_020A0640
-_0211A040: .word unk_0209AEC0
+_0211A040: .word gWirelessUtil
 _0211A044: .word ov1_020E9490
 	arm_func_end FUN_ov75_02119f00
 
@@ -218,7 +218,7 @@ _0211A214: .word unk_0209A140
 _0211A218: .word ov1_020EAAF0
 _0211A21C: .word ov1_020EAAEC
 _0211A220: .word ov1_020EAAE8
-_0211A224: .word unk_0209BA20
+_0211A224: .word gLogicThink
 _0211A228: .word unk_020A0640
 _0211A22C: .word ov1_020EAAA8
 _0211A230: .word ov1_020EAAF4
@@ -230,7 +230,7 @@ _0211A244: .word ov1_020EAAB8
 _0211A248: .word ov1_020EAACC
 _0211A24C: .word ov1_020EAADC
 _0211A250: .word ov1_020EAB04
-_0211A254: .word unk_0209AEC0
+_0211A254: .word gWirelessUtil
 _0211A258: .word ov1_020EAAE0
 _0211A25C: .word ov1_020EAABC
 _0211A260: .word ov1_020EAAC4

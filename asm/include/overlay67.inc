@@ -16,7 +16,7 @@
 .public FUN_0205af58
 .public FUN_0205acb0
 .public FUN_0205b3cc
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EEC
 .public gL5Config
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
@@ -40,7 +40,7 @@
 .public FUN_ov16_021142fc
 .public FUN_020466c0
 .public unk_020A0640
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_02113ec0
 .public FUN_02043310
 .public FUN_ov16_020ee034

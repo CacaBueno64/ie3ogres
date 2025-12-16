@@ -12,7 +12,7 @@
 .public sprintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020eed18
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f5450
 .public FUN_02058800
 .public unk_02099F38

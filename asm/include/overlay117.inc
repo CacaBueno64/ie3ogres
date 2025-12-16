@@ -6,7 +6,7 @@
 .public FUN_0204f02c
 .public FUN_ov132_02141568
 .public unk_02099EF0
-.public unk_0209BA20
+.public gLogicThink
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN15CommonSubScreen10updateKeysEtt

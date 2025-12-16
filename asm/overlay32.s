@@ -189,7 +189,7 @@ _0211A16C: .word unk_0209A5D0
 _0211A170: .word unk_020A0640
 _0211A174: .word unk_02099ED8
 _0211A178: .word unk_02099EE8
-_0211A17C: .word unk_0209BA20
+_0211A17C: .word gLogicThink
 _0211A180: .word ov32_0211A788
 _0211A184: .word gL5Config
 _0211A188: .word ov32_0211A790
@@ -492,7 +492,7 @@ _0211A57C:
 _0211A588: .word unk_0209A460
 _0211A58C: .word unk_0209A454
 _0211A590: .word unk_0209A0DC
-_0211A594: .word unk_0209BA20
+_0211A594: .word gLogicThink
 	arm_func_end FUN_ov32_0211a4bc
 
 	arm_func_start FUN_ov32_0211a598

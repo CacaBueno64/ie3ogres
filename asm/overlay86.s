@@ -238,7 +238,7 @@ _0211A23C: .word unk_020A1640
 _0211A240: .word unk_02099E98
 _0211A244: .word unk_020A0640
 _0211A248: .word 0x00000808
-_0211A24C: .word unk_0209BA20
+_0211A24C: .word gLogicThink
 _0211A250: .word 0x000001FD
 	arm_func_end FUN_ov86_0211a0d8
 
@@ -648,7 +648,7 @@ _0211A7D0: .word ov86_0211CE68
 _0211A7D4: .word ov86_0211CE88
 _0211A7D8: .word ov86_0211CE98
 _0211A7DC: .word ov86_0211CEAC
-_0211A7E0: .word unk_0209BA20
+_0211A7E0: .word gLogicThink
 	arm_func_end FUN_ov86_0211a764
 
 	arm_func_start FUN_ov86_0211a7e4
@@ -1779,7 +1779,7 @@ FUN_ov86_0211b728: ; 0x0211B728
 	ldrb r1, [r0, #0x15]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r4, _0211B764 ; =0x0209F5C0
+	ldr r4, _0211B764 ; =gBgMenuManager
 	mov r5, #0
 	strb r5, [r0, #0x15]
 	mov r0, r4
@@ -2867,7 +2867,7 @@ _0211C670: .word unk_02099F38
 
 	arm_func_start FUN_ov86_0211c674
 FUN_ov86_0211c674: ; 0x0211C674
-	ldr r0, _0211C684 ; =0x0209F5C0
+	ldr r0, _0211C684 ; =gBgMenuManager
 	ldr r12, _0211C688 ; = FUN_ov16_020f672c
 	mov r1, #0
 	bx r12
@@ -3038,7 +3038,7 @@ _0211C7C4:
 	strb r4, [r5, #0x71]
 	bl FUN_020728c4
 	strh r0, [r5, #0x10]
-	ldr r0, _0211C954 ; =0x0209F5C0
+	ldr r0, _0211C954 ; =gBgMenuManager
 	mov r1, r4
 	bl FUN_ov16_020f5a58
 	ldr r0, _0211C958 ; =0x020A1640
@@ -3064,7 +3064,7 @@ _0211C934:
 _0211C944: .word unk_02099EB4
 _0211C948: .word unk_02099ED4
 _0211C94C: .word unk_02099F38
-_0211C950: .word unk_0209BA20
+_0211C950: .word gLogicThink
 _0211C954: .word gBgMenuManager
 _0211C958: .word unk_020A1640
 	arm_func_end FUN_ov86_0211c7a0
@@ -3281,7 +3281,7 @@ _0211CBF8:
 	ldr r0, _0211CC58 ; =0x02099F38
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
-	ldr r0, _0211CC5C ; =0x0209F5C0
+	ldr r0, _0211CC5C ; =gBgMenuManager
 	mov r1, #0
 	bl FUN_ov16_020f5af0
 	mov r0, r4
@@ -3289,7 +3289,7 @@ _0211CBF8:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211CC4C: .word unk_02099EB4
 _0211CC50: .word unk_02099ED4
-_0211CC54: .word unk_0209BA20
+_0211CC54: .word gLogicThink
 _0211CC58: .word unk_02099F38
 _0211CC5C: .word gBgMenuManager
 	arm_func_end FUN_ov86_0211cbb4

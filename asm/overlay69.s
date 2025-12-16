@@ -125,7 +125,7 @@ FUN_ov69_02119f00: ; 0x02119F00
 	bl FUN_ov16_020f5278
 	str r4, [r5, #0x7cc]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A0E0: .word unk_0209BA20
+_0211A0E0: .word gLogicThink
 _0211A0E4: .word unk_02099EB4
 _0211A0E8: .word unk_02099ED4
 _0211A0EC: .word 0x00000648
@@ -205,7 +205,7 @@ _0211A1EC:
 	blt _0211A1B0
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211A200: .word unk_0209BA20
+_0211A200: .word gLogicThink
 	arm_func_end FUN_ov69_0211a0f4
 
 	arm_func_start FUN_ov69_0211a204
@@ -272,7 +272,7 @@ _0211A2B0:
 	bl MI_CpuCopy8
 	add sp, sp, #0x50
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0211A2F0: .word unk_0209BA20
+_0211A2F0: .word gLogicThink
 	arm_func_end FUN_ov69_0211a204
 
 	arm_func_start FUN_ov69_0211a2f4
@@ -2934,7 +2934,7 @@ _0211C73C:
 	bl _ZN7L5Sound12FUN_0202cf6cEm
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211C74C: .word gL5Sound
-_0211C750: .word unk_0209BA20
+_0211C750: .word gLogicThink
 	arm_func_end FUN_ov69_0211c600
 
 	arm_func_start FUN_ov69_0211c754

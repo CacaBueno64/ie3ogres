@@ -83,7 +83,7 @@
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210efac
 .public FUN_ov16_020ede60
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_02110578
 .public _ZdlPv
 .public FX_Sqrt

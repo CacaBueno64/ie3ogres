@@ -4,7 +4,7 @@
 .public FUN_ov16_020f0920
 .public FUN_ov16_020f0634
 .public FUN_ov126_02136e84
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_02099EF0
 .public FUN_ov16_020f081c
 .public MI_CpuFill8
@@ -21,7 +21,7 @@
 .public FUN_ov16_020f0bcc
 .public FUN_02056ed4
 .public FUN_02056af0
-.public unk_0209BA20
+.public gLogicThink
 .public unk_02099EC0
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc

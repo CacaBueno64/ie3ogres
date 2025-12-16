@@ -63,7 +63,7 @@
 .public FUN_020465fc
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_021123c4
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f60f8
 .public FUN_ov16_020f6f38
 .public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
@@ -73,7 +73,7 @@
 .public FUN_0207249c
 .public FUN_0204c50c
 .public strlen
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_021128c4
 .public FUN_0204fca0
 .public FUN_0204bc4c

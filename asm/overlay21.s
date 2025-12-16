@@ -3143,7 +3143,7 @@ _0211CAE8: .word unk_0209A0F4
 _0211CAEC: .word unk_02099ED4
 _0211CAF0: .word unk_02099EB4
 _0211CAF4: .word gL5Sound
-_0211CAF8: .word unk_0209BA20
+_0211CAF8: .word gLogicThink
 _0211CAFC: .word unk_020A9C40
 _0211CB00: .word unk_02099F38
 _0211CB04: .word 0x00004210

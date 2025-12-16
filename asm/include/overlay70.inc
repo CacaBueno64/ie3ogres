@@ -39,7 +39,7 @@
 .public FUN_0206d4b4
 .public FUN_0206d4c4
 .public MI_CpuCopy8
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020efa80
 .public FUN_0206d64c
 .public FUN_0206cc00

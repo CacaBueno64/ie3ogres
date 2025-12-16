@@ -13,7 +13,7 @@ extern void FUN_ov126_021375d4(void);
 extern void FUN_ov132_02141568(void);
 
 extern void *unk_02099EF0;
-extern void *unk_0209BA20;
+extern void *gLogicThink;
 
 asm void FUN_ov116_02124d00(void *ptr)
 {
@@ -59,7 +59,7 @@ _02124D88:
 	bl FUN_ov16_020efa80
 	movs r1, r0
 	beq _02124DB4
-	ldr r0, =unk_0209BA20
+	ldr r0, =gLogicThink
 	mov r2, #0xf
 	mov r3, #0
 	bl FUN_0204f02c
@@ -69,7 +69,7 @@ _02124DB4:
 	bl FUN_ov16_020efa80
 	movs r1, r0
 	beq _02124DD8
-	ldr r0, =unk_0209BA20
+	ldr r0, =gLogicThink
 	mov r2, #0xf
 	mov r3, #0
 	bl FUN_0204f02c

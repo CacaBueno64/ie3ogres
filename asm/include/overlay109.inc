@@ -15,7 +15,7 @@
 .public FUN_ov16_020f0b3c
 .public FUN_ov16_020f36f4
 .public FUN_ov16_020f3744
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_0204aae8
 .public FUN_ov16_020f34f0
 .public sprintf
@@ -86,7 +86,7 @@
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f5eec
 .public FUN_020466c0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f1868
 .public GXS_LoadBG1Char

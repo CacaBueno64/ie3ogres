@@ -133,8 +133,8 @@
 .public FUN_ov16_020f1a60
 .public FUN_ov16_020f1f5c
 .public STD_GetStringLength
-.public operator_new_array
-.public operator_delete_array
+.public _Znam
+.public _ZdaPv
 .public FUN_ov16_020f5eec
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
@@ -151,7 +151,7 @@
 .public FUN_02046a20
 .public FUN_ov16_020f054c
 .public unk_0209A4E0
-.public unk_0209AEC0
+.public gWirelessUtil
 .public FUN_ov16_020efa4c
 .public _ZN14CScreenManager5clearEv
 .public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
@@ -198,7 +198,7 @@
 .public FUN_ov16_020efa80
 .public FUN_0206d64c
 .public FUN_0205107c
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A165C
 .public unk_020A1656
 .public unk_020A0700

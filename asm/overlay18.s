@@ -1235,7 +1235,7 @@ _0211B008:
 	blt _0211AFF0
 	add sp, sp, #0x78
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B018: .word unk_0209BA20
+_0211B018: .word gLogicThink
 _0211B01C: .word unk_02099F38
 _0211B020: .word ov18_0211BCD8
 	arm_func_end FUN_ov18_0211af34
@@ -1569,7 +1569,7 @@ _0211B490:
 	strb r6, [r5, r8]
 	add sp, sp, #0xc8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0211B49C: .word unk_0209BA20
+_0211B49C: .word gLogicThink
 _0211B4A0: .word gFont12
 	arm_func_end FUN_ov18_0211b288
 

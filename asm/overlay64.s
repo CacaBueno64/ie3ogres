@@ -535,7 +535,7 @@ _0211A5B0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A60C: .word gL5Allocator
 _0211A610: .word ov64_0211BA6C
-_0211A614: .word unk_0209BA20
+_0211A614: .word gLogicThink
 _0211A618: .word unk_020A9C40
 _0211A61C: .word ov64_0211B82C
 _0211A620: .word ov64_0211B828
@@ -998,7 +998,7 @@ _0211AC14:
 	add sp, sp, #0x84
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211ACA0: .word unk_02099F38
-_0211ACA4: .word unk_0209BA20
+_0211ACA4: .word gLogicThink
 _0211ACA8: .word ov64_0211BB1C
 _0211ACAC: .word ov64_0211BB34
 _0211ACB0: .word ov64_0211BB4C

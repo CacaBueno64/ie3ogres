@@ -18,7 +18,7 @@
 .public FUN_ov16_020f0b3c
 .public FUN_ov16_020f36f4
 .public FUN_ov16_020f3744
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_02058ee0

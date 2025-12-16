@@ -45,7 +45,7 @@
 .public FUN_ov131_02141364
 .public FUN_ov131_02141528
 .public FUN_0206e9ec
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020A9C40
 .public unk_02099F44
 .public FUN_ov16_020f3054

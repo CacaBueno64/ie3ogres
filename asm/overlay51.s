@@ -530,7 +530,7 @@ _0211A60C:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A634: .word unk_02099F38
-_0211A638: .word unk_0209BA20
+_0211A638: .word gLogicThink
 _0211A63C: .word 0x66666667
 	arm_func_end FUN_ov51_0211a2d8
 
@@ -814,7 +814,7 @@ _0211A8FC:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211AA80: .word unk_02099F38
-_0211AA84: .word unk_0209BA20
+_0211AA84: .word gLogicThink
 _0211AA88: .word 0x66666667
 	arm_func_end FUN_ov51_0211a640
 
@@ -1097,7 +1097,7 @@ _0211AD44:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211AEC8: .word unk_02099F38
-_0211AECC: .word unk_0209BA20
+_0211AECC: .word gLogicThink
 _0211AED0: .word 0x66666667
 	arm_func_end FUN_ov51_0211aa8c
 

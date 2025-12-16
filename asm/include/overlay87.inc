@@ -1,10 +1,10 @@
 .public FUN_02046cb4
-.public unk_0209AEC0
+.public gWirelessUtil
 .public unk_0209A4E0
 .public FUN_ov16_020f081c
 .public FUN_0207249c
 .public unk_0209A4E4
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f0634
 .public FUN_02046744
 .public FUN_02046730

@@ -71,7 +71,7 @@
 .public unk_0209A460
 .public unk_02099ED8
 .public unk_02099EE8
-.public unk_0209BA20
+.public gLogicThink
 .public unk_020AF81C
 .public unk_020A9C40
 .public FX_Sqrt

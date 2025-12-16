@@ -474,7 +474,7 @@ _0211A508:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211A538: .word unk_02099EF0
 _0211A53C: .word unk_020A9C40
-_0211A540: .word unk_0209BA20
+_0211A540: .word gLogicThink
 _0211A544: .word unk_0209A11C
 	arm_func_end FUN_ov30_0211a448
 

@@ -24,7 +24,7 @@
 .public FUN_0207039c
 .public FUN_ov16_020f34f0
 .public FUN_ov16_020f3218
-.public unk_0209BA20
+.public gLogicThink
 .public sprintf
 .public G2S_GetBG0CharPtr
 .public G2S_GetBG1CharPtr

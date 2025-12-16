@@ -33,8 +33,8 @@ typedef struct {
     s8 unk5;
     s8 unk6;
     s8 unk7; //pad?
-    u16 *unk8[2];
-    u16 *unk10[2];
+    u16 *unk8[2]; //frame buffer
+    u16 *unk10[2]; //frame buffer
     u8 unk18[0x08];
     void *unk20;
     void *unk24;
@@ -56,6 +56,12 @@ class L5Movie {
         void FUN_0202e9c8(void);
         BOOL FUN_0202ea50(void);
         void closeMovie(u32 param1);
+        static void threadIntr(void *arg);
+        u32 getVideoFps(void);
+        static BOOL blitFrameImage(MOHandle handle0, MOHandle handle1);
+        static void alarmIntr(void *arg);
+        static void *malloc(int size);
+        static void free(void *ptr);
 
     FSFile file;
     u8 pad[0x48];
@@ -73,16 +79,6 @@ class L5Movie {
     s32 unk1A0;
     s32 unk1A4;
 };
-
-extern "C" {
-    void FUN_0202ec08(void *arg);
-    u32 Movie_GetVideoFps(L5Movie *arg);
-    BOOL FUN_0202ec4c(MOHandle handle0, MOHandle handle1);
-    void Movie_AlarmIntr(void *arg);
-
-    void *Movie_Malloc(int size);
-    void Movie_Free(void *ptr);
-}
 
 extern L5Movie gL5Movie;
 

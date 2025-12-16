@@ -9,7 +9,7 @@ FUN_ov77_02119f00: ; 0x02119F00
 	ldr r12, _02119F14 ; =FUN_02046cb4
 	mov r1, #0xc
 	bx r12
-_02119F10: .word unk_0209AEC0
+_02119F10: .word gWirelessUtil
 _02119F14: .word FUN_02046cb4
 	arm_func_end FUN_ov77_02119f00
 
@@ -81,7 +81,7 @@ FUN_ov77_02119fec: ; 0x02119FEC
 _0211A004:
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
-_0211A00C: .word unk_0209AEC0
+_0211A00C: .word gWirelessUtil
 	arm_func_end FUN_ov77_02119fec
 
 	arm_func_start FUN_ov77_0211a010
@@ -141,7 +141,7 @@ FUN_ov77_0211a0ac: ; 0x0211A0AC
 _0211A0D0:
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
-_0211A0D8: .word unk_0209AEC0
+_0211A0D8: .word gWirelessUtil
 _0211A0DC: .word unk_0209A4E0
 	arm_func_end FUN_ov77_0211a0ac
 

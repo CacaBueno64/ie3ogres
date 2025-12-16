@@ -147,7 +147,7 @@ _0211A110:
 	mov r0, r5
 	bl FUN_ov42_0211b238
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A11C: .word unk_0209BA20
+_0211A11C: .word gLogicThink
 _0211A120: .word unk_02099EB4
 _0211A124: .word unk_02099ED4
 _0211A128: .word unk_02099F44
@@ -1726,7 +1726,7 @@ _0211B688:
 	add sp, sp, #0x138
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B6BC: .word ov42_0211FC64
-_0211B6C0: .word unk_0209BA20
+_0211B6C0: .word gLogicThink
 _0211B6C4: .word unk_02099F44
 	arm_func_end FUN_ov42_0211b238
 
@@ -1877,7 +1877,7 @@ _0211B8B4:
 _0211B8CC:
 	ldr r0, [sp]
 	mov r0, r0, lsl #2
-	bl operator_new_array
+	bl _Znam
 	mov r7, r0
 	cmp r5, #0xa
 	addls pc, pc, r5, lsl #2
@@ -2054,7 +2054,7 @@ _0211BB28:
 	blt _0211BAB0
 _0211BB38:
 	mov r0, r7
-	bl operator_delete_array
+	bl _ZdaPv
 	add sp, sp, #0x60
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov42_0211b6c8
@@ -5769,7 +5769,7 @@ _0211EF18:
 	mov r1, #1
 	str r1, [r0, #0x488]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211EF34: .word unk_0209BA20
+_0211EF34: .word gLogicThink
 	arm_func_end FUN_ov42_0211ee38
 
 	arm_func_start FUN_ov42_0211ef38
@@ -6625,7 +6625,7 @@ FUN_ov42_0211fac4: ; 0x0211FAC4
 	bl FUN_02050f4c
 	ldmfd sp!, {r4, pc}
 _0211FB04: .word unk_0209A454
-_0211FB08: .word unk_0209BA20
+_0211FB08: .word gLogicThink
 	arm_func_end FUN_ov42_0211fac4
 
 	arm_func_start FUN_ov42_0211fb0c
@@ -6663,7 +6663,7 @@ _0211FB70:
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211FB84: .word ov42_0211FCA4
-_0211FB88: .word unk_0209BA20
+_0211FB88: .word gLogicThink
 	arm_func_end FUN_ov42_0211fb0c
 
 	arm_func_start FUN_ov42_0211fb8c
@@ -6691,7 +6691,7 @@ _0211FBD0:
 	cmp r4, #0x10
 	blt _0211FBA8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211FBE0: .word unk_0209BA20
+_0211FBE0: .word gLogicThink
 	arm_func_end FUN_ov42_0211fb8c
 
 	arm_func_start FUN_ov42_0211fbe4

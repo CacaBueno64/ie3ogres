@@ -35,7 +35,7 @@
 .public FUN_0206ccec
 .public FUN_0206cc84
 .public FUN_0206cc94
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f5eec
 .public FUN_ov16_020edfc0

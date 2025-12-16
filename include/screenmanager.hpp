@@ -7,7 +7,7 @@
 
 #include "manager.hpp"
 #include "commonscreen.hpp"
-#include "unk_0209BA20.hpp"
+#include "logicthink.hpp"
 
 typedef struct {
     void *data;

@@ -67,7 +67,7 @@
 .public FUN_0204fe90
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
-.public unk_0209BA20
+.public gLogicThink
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_0210e9d8

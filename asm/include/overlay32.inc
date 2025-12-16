@@ -25,7 +25,7 @@
 .public unk_020A0640
 .public unk_02099ED8
 .public unk_02099EE8
-.public unk_0209BA20
+.public gLogicThink
 .public gL5Config
 .public unk_020AF81C
 .public MI_CpuFill8

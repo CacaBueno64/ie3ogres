@@ -340,7 +340,7 @@ _0211A348:
 	str r0, [r7, #0x8c]
 	add sp, sp, #0x188
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A3B4: .word unk_0209BA20
+_0211A3B4: .word gLogicThink
 _0211A3B8: .word 0x00000FFF
 _0211A3BC: .word unk_02099F38
 _0211A3C0: .word ov20_0211EA78
@@ -1835,7 +1835,7 @@ _0211B84C:
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211B894: .word ov20_0211E674
-_0211B898: .word unk_0209BA20
+_0211B898: .word gLogicThink
 	arm_func_end FUN_ov20_0211b710
 
 	arm_func_start FUN_ov20_0211b89c
@@ -1983,7 +1983,7 @@ _0211BA98:
 	bge _0211BA68
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211BAA8: .word unk_0209BA20
+_0211BAA8: .word gLogicThink
 _0211BAAC: .word 0x000186A0
 _0211BAB0: .word 0x66666667
 _0211BAB4: .word unk_02099F38
@@ -4363,7 +4363,7 @@ _0211DC9C: .word unk_0209A0AC
 _0211DCA0: .word unk_020A9C40
 _0211DCA4: .word gL5Sound
 _0211DCA8: .word unk_02099F44
-_0211DCAC: .word unk_0209BA20
+_0211DCAC: .word gLogicThink
 _0211DCB0: .word unk_02099EA4
 	arm_func_end FUN_ov20_0211d670
 
@@ -4609,7 +4609,7 @@ _0211DFEC:
 	bl FUN_ov20_0211dd98
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211E014: .word unk_0209BA20
+_0211E014: .word gLogicThink
 _0211E018: .word unk_020A0640
 _0211E01C: .word unk_02099F44
 _0211E020: .word 0x00000FFF
@@ -4642,7 +4642,7 @@ _0211E064:
 	mov r1, #0
 	strb r1, [r0, #0x625]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211E080: .word unk_0209BA20
+_0211E080: .word gLogicThink
 _0211E084: .word 0x00000FFF
 _0211E088: .word unk_020A0640
 	arm_func_end FUN_ov20_0211e024
@@ -4679,7 +4679,7 @@ _0211E0F0:
 	mov r0, r4
 	bl FUN_ov20_0211dd98
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211E0FC: .word unk_0209BA20
+_0211E0FC: .word gLogicThink
 	arm_func_end FUN_ov20_0211e08c
 
 	arm_func_start FUN_ov20_0211e100
@@ -4789,7 +4789,7 @@ FUN_ov20_0211e118: ; 0x0211E118
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211E28C: .word unk_02099EB4
 _0211E290: .word unk_02099ED4
-_0211E294: .word unk_0209BA20
+_0211E294: .word gLogicThink
 _0211E298: .word unk_0209A11C
 _0211E29C: .word unk_02099F38
 _0211E2A0: .word unk_020A9C40
