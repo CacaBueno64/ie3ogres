@@ -16506,20 +16506,20 @@ AntiPiracyCheck: ; 0x021490F8
 	ldr r1, _021492F0 ; =FUN_ov131_02148ff8
 	mov r0, r5
 	mov r2, r6
-	bl DSProt_DetectFlashcart
+	bl __DSProt_DetectFlashcart
 	ldr r1, _021492F4 ; =FUN_ov131_02149038
 	mov r0, r5
 	mov r2, r6
-	bl DSProt_DetectEmulator
+	bl __DSProt_DetectEmulator
 	ldr r1, _021492F8 ; =FUN_ov131_02149078
 	mov r0, r5
 	mov r2, r6
-	bl DSProt_DetectDummy
+	bl __DSProt_DetectDummy
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r0, r5
 	mov r2, r6
 	mvn r5, r1
-	bl DSProt_DetectNotFlashcart
+	bl __DSProt_DetectNotFlashcart
 	cmp r5, r0
 	movne r9, r6
 	cmp r9, #0
@@ -16530,7 +16530,7 @@ _021491E0:
 	ldr r0, _021492EC ; =__DSProt_compatibilityWrapper
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	bl DSProt_DetectNotEmulator
+	bl __DSProt_DetectNotEmulator
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0
@@ -16541,7 +16541,7 @@ _02149208:
 	ldr r0, _021492EC ; =__DSProt_compatibilityWrapper
 	ldr r1, _021492FC ; =FUN_ov131_021490b8
 	mov r2, r9
-	bl DSProt_DetectNotDummy
+	bl __DSProt_DetectNotDummy
 	cmp r5, r0
 	moveq r9, #1
 	cmp r9, #0

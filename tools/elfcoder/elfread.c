@@ -54,7 +54,7 @@ static int symbolStringCompare(ElfFile* elf, int str_idx, const char* target_sym
 		if (diff != 0) {
 			return diff;
 		}
-	} while(*target_symbol++ != '\0');
+	} while (*target_symbol++ != '\0');
 	
 	return 0;
 }
@@ -121,6 +121,13 @@ static int ElfFile_Init(ElfFile* elf, char* fname) {
 }
 
 
+static void ElfFile_Destroy(ElfFile* elf) {
+	if (elf->fhandle != NULL) {
+		fclose(elf->fhandle);
+	}
+}
+
+
 #define ROTL(x,a)  (((uint32_t)x << a) | (x >> (32-a)))
 static void createRC4Key(uint32_t inkey, unsigned int func_size, uint8_t* outkey) {
 	uint32_t k[4];
@@ -135,46 +142,25 @@ static void createRC4Key(uint32_t inkey, unsigned int func_size, uint8_t* outkey
 }
 
 
-static int encodeInstructions(ElfFile* elf, int start_addr, int size, EncodingTask* task) {
+static void encodeInstructions(ElfFile* elf, int start_addr, int size, EncodingTask* task) {
 	Encoding_Ctx ctx;
 	Encode_Init(&ctx, task);
 	
 	int num_ins = size / 4;
 	fseek(elf->fhandle, start_addr, SEEK_SET);
 	Instruction* ins_buffer = malloc(size);
-	fread(ins_buffer, sizeof(Instruction), num_ins, elf->fhandle);
-	
-	// Finding last executed instruction (ignoring data at the end of the routine)
-	// Looking for bx / pop opcodes, or what they get encoded into
-	int target_opcode_1;
-	int target_opcode_2;
-	
-	target_opcode_1 = 0xE8;
-	target_opcode_2 = 0xE1;
-	
-	int last_idx = num_ins - 1;
-	while (ins_buffer[last_idx].opcode != target_opcode_1 && ins_buffer[last_idx].opcode != target_opcode_2) {
-		last_idx--;
-		
-		if (last_idx < 0) {
-			// Could not find target, probably wrong encoding direction specified
-			return 0;
-		}
-	}
-	
-	int encoded_instructions = last_idx + 1;
-	int encoded_size = encoded_instructions * 4;
+	Instructions_Read(ins_buffer, num_ins, elf->fhandle);
 	
 	// RC4 setup if neccessary, else use NULL
 	RC4_Ctx* rc4 = NULL;
 	if (task->key_mode == MODE_KEYED) {
 		rc4 = malloc(sizeof(RC4_Ctx));
 		uint8_t rc4key[RC4_KEY_SIZE];
-		createRC4Key(task->key + start_addr, encoded_size, rc4key);
+		createRC4Key(task->key + start_addr, size, rc4key);
 		RC4_Init(rc4, rc4key);
 	}
 	
-	for (int i = 0; i < encoded_instructions; i++) {
+	for (int i = 0; i < num_ins; i++) {
 		if (task->encoding_type == ENC_DECODE) {
 			Decode_Instruction(&ctx, &ins_buffer[i], rc4);
 		} else {
@@ -183,12 +169,10 @@ static int encodeInstructions(ElfFile* elf, int start_addr, int size, EncodingTa
 	}
 	
 	fseek(elf->fhandle, start_addr, SEEK_SET);
-	fwrite(ins_buffer, sizeof(Instruction), encoded_instructions, elf->fhandle);
+	Instructions_Write(ins_buffer, num_ins, elf->fhandle);
 	
 	free(ins_buffer);
 	free(rc4);
-	
-	return encoded_size;
 }
 
 
@@ -202,29 +186,23 @@ static void encodeRelocations(
 ) {
 	// Iterate all relocations looking for any with offsets in the bounds of the encoding
 	int num_relocs = relocation_header->sh_size / relocation_header->sh_entsize;
-	for (int i = 0; i < num_relocs; i++) {
+	for (int reloc_idx = 0; reloc_idx < num_relocs; reloc_idx++) {
 		Elf32_Rela reloc;
-		int reloc_addr = relocation_header->sh_offset + (i * relocation_header->sh_entsize);
+		int reloc_addr = relocation_header->sh_offset + (reloc_idx * relocation_header->sh_entsize);
 		fseek(elf->fhandle, reloc_addr, SEEK_SET);
 		fread(&reloc, sizeof(Elf32_Rela), 1, elf->fhandle);
 		
 		if (
-			(reloc.r_offset >= symbol->st_value) &&
+			(reloc.r_offset >= symbol->st_value) && 
 			(reloc.r_offset < (symbol->st_value + encoded_size))
 		) {
-			// The instruction it's relocating is needed to determine how to encode this relocation
-			int instruction_addr = section_offset + reloc.r_offset;
-			fseek(elf->fhandle, instruction_addr, SEEK_SET);
-			Instruction coded_instruction;
-			fread(&coded_instruction, sizeof(Instruction), 1, elf->fhandle);
-			
 			if (task->encoding_type == ENC_DECODE) {
-				Decode_Relocation(&coded_instruction, &reloc);
+				Decode_Relocation(&reloc);
 				if (task->verbose) {
 					printf(INDENT "Decoded relocation for %04x\n", reloc.r_offset);
 				}
 			} else {
-				Encode_Relocation(&coded_instruction, &reloc);
+				Encode_Relocation(&reloc);
 				if (task->verbose) {
 					printf(INDENT "Encoded relocation for %04x\n", reloc.r_offset);
 				}
@@ -237,6 +215,38 @@ static void encodeRelocations(
 }
 
 
+static int getInstructionSize(ElfFile* elf, const Elf32_Sym* symbol) {
+	int start = symbol->st_value;
+	int end = start + symbol->st_size;
+	
+	int symbol_tbl_len = elf->symtbl_header.sh_size / elf->symtbl_header.sh_entsize;
+	
+	// Searching for a data mapping symbol before the end of this symbol
+	for (int symbol_tbl_idx = 0; symbol_tbl_idx < symbol_tbl_len; symbol_tbl_idx++) {
+		Elf32_Sym mapping_symbol;
+		getSymbolByIdx(elf, symbol_tbl_idx, &mapping_symbol);
+		
+		// Mapping symbol must be in the same region
+		if (mapping_symbol.st_shndx != symbol->st_shndx) {
+			continue;
+		}
+		
+		// Check name is "$d"
+		if (symbolStringCompare(elf, mapping_symbol.st_name, "$d") != 0) {
+			continue;
+		}
+		
+		// Check that the location resides between start and end
+		if (mapping_symbol.st_value >= start && mapping_symbol.st_value <= end) {
+			// Move the end back to the start of this symbol
+			end = mapping_symbol.st_value;
+		}
+	}
+	
+	return end - start;
+}
+
+
 static int encodeSymbol(ElfFile* elf, const Elf32_Sym* symbol, char* symbol_name, ASMWriter_Ctx* asmw, EncodingTask* task) {
 	int ret = 0;
 	
@@ -245,9 +255,10 @@ static int encodeSymbol(ElfFile* elf, const Elf32_Sym* symbol, char* symbol_name
 	int start_addr = text_header.sh_offset + symbol->st_value;
 	
 	// Encode instructions of this function
-	int encoded_bytes = encodeInstructions(elf, start_addr, symbol->st_size, task);
-	
+	int encoded_bytes = getInstructionSize(elf, symbol);
 	if (encoded_bytes != 0) {
+		encodeInstructions(elf, start_addr, encoded_bytes, task);
+		
 		ASMWriter_SetSymbolMetadata(asmw, symbol_name, encoded_bytes, start_addr);
 		
 		if (task->verbose) {
@@ -256,13 +267,13 @@ static int encodeSymbol(ElfFile* elf, const Elf32_Sym* symbol, char* symbol_name
 			
 			if (task->encoding_type == ENC_DECODE) {
 				if (task->key_mode == MODE_KEYED) {
-					printf(INDENT "Decoded +%x (key = %04x)\n", encoded_bytes, task->key);
+					printf(INDENT "Decoded +%x (key = %04x)\n", encoded_bytes, task->key + start_addr);
 				} else {
 					printf(INDENT "Decoded +%x\n", encoded_bytes);
 				}
 			} else {
 				if (task->key_mode == MODE_KEYED) {
-					printf(INDENT "Encoded +%x (key = %04x)\n", encoded_bytes, task->key);
+					printf(INDENT "Encoded +%x (key = %04x)\n", encoded_bytes, task->key + start_addr);
 				} else {
 					printf(INDENT "Encoded +%x\n", encoded_bytes);
 				}
@@ -340,13 +351,15 @@ static int processElfs(ElfFile* elfs, ASMWriter_Ctx* asmw, EncodingTask* task) {
 
 
 int Elf_EncodeSymbols(EncodingTask* task) {
+	int ret_code = 0;
+	
 	int num_inputs = 0;
 	while (task->inputs[num_inputs] != NULL) {
 		num_inputs++;
 	}
 	
 	if (num_inputs == 0) {
-		return 0;
+		return ret_code;
 	}
 	
 	ASMWriter_Ctx asmw;
@@ -354,27 +367,25 @@ int Elf_EncodeSymbols(EncodingTask* task) {
 	
 	ElfFile* elfs = calloc(num_inputs + 1, sizeof(ElfFile));
 	for (int elf_idx = 0; elf_idx < num_inputs; elf_idx++) {
-		int error = ElfFile_Init(&elfs[elf_idx], task->inputs[elf_idx]);
+		ret_code += ElfFile_Init(&elfs[elf_idx], task->inputs[elf_idx]);
 		
 #if 0
 		// This just.. doesn't work. fstat() doesn't work.
 		// Whatever, just don't input the same file multiple times
-		if (!error) {
+		if (!ret_code) {
 			for (int other_elf_idx = 0; other_elf_idx < elf_idx; other_elf_idx++) {
 				if (isSameFile(elfs[elf_idx].fhandle, elfs[other_elf_idx].fhandle)) {
 					printf("Error: duplicate input file: %s\n", elfs[elf_idx].fname);
-					error = 1;
+					ret_code += 1;
 					break;
 				}
 			}
 		}
 #endif
 		
-		if (error) {
+		if (ret_code) {
 			ASMWriter_SetInvalid(&asmw);
-			ASMWriter_Finalize(&asmw);
-			free(elfs);
-			return 1;
+			goto EXIT;
 		}
 	}
 	
@@ -382,9 +393,14 @@ int Elf_EncodeSymbols(EncodingTask* task) {
 	elfs[num_inputs].fhandle = NULL;
 	
 	// Process all
-	int ret_code = processElfs(elfs, &asmw, task);
+	ret_code += processElfs(elfs, &asmw, task);
+	
+EXIT:
 	ret_code += ASMWriter_Finalize(&asmw);
 	
+	for (int elf_idx = 0; elf_idx < num_inputs; elf_idx++) {
+		ElfFile_Destroy(&elfs[elf_idx]);
+	}
 	free(elfs);
 	
 	return ret_code;

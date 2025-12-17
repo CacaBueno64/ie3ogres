@@ -50,6 +50,7 @@ FIXROM       := $(TOOLSDIR)/fixrom/fixrom$(EXE)
 ASPATCH      := $(TOOLSDIR)/mwasmarm_patcher/mwasmarm_patcher$(EXE)
 CSV2BIN      := $(TOOLSDIR)/csv2bin/csv2bin$(EXE)
 MKFXCONST    := $(TOOLSDIR)/gen_fx_consts/gen_fx_consts$(EXE)
+ELFCODER     := $(TOOLSDIR)/elfcoder/elfcoder$(EXE)
 
 # Decompiled NitroSDK tools
 COMPSTATIC   := $(TOOLSDIR)/compstatic/compstatic$(EXE)
@@ -64,7 +65,8 @@ NATIVE_TOOLS := \
 	$(ASPATCH) \
 	$(CSV2BIN) \
 	$(MKFXCONST) \
-	$(COMPSTATIC)
+	$(COMPSTATIC) \
+	$(ELFCODER)
 
 TOOLDIRS := $(foreach tool,$(NATIVE_TOOLS),$(dir $(tool)))
 
@@ -110,8 +112,6 @@ LCF               := $(ELF:%.elf=%.lcf)
 RESPONSE          := $(ELF:%.elf=%.response)
 SBIN              := $(ELF:%.elf=%.sbin)
 XMAP              := $(ELF).xMAP
-
-EXCCFLAGS         := -Cpp_exceptions off
 
 MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -proc $(PROC) $(EXCCFLAGS) -lang c++ -enum int -char signed -str noreuse -gccext,on -fp soft -inline on,noauto -RTTI off -interworking -sym on -ipa file -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error -gccinc -i ./src -i ./include -I$(WORK_DIR)/lib/include -i $(WORK_DIR)/lib/TwlDWC/include -i $(WORK_DIR)/lib/MSL_C/MSL_ARM/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include -i $(WORK_DIR)/lib/TwlSDK/include -i $(WORK_DIR)/lib/TwlSystem/include -i $(WORK_DIR)/lib/libMobiclip/include -i $(WORK_DIR)/lib/dsprot
 

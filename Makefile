@@ -5,6 +5,8 @@ PROC_LD        := v5te
 LCF_TEMPLATE   := ARM9-TS.lcf.template
 LIBS           := -Llib -lsyscall -nostdlib
 OPTFLAGS       := -O4,p
+RTTIFLAG       := -RTTI off
+EXCCFLAGS      := -Cpp_exceptions off
 
 include config.mk
 
@@ -21,7 +23,7 @@ BANNER_SPEC     := $(buildname)/banner.bsf
 ICON_PNG        := $(buildname)/icon.png
 HEADER_TEMPLATE := $(buildname)/rom_header_template.sbin
 
-.PHONY: main sub libsyscall sdk sdk9 sdk7
+.PHONY: main sub libsyscall dsprot sdk sdk9 sdk7
 .PRECIOUS: $(ROM)
 
 MAKEFLAGS += --no-print-directory
@@ -32,14 +34,15 @@ all:
 	$(MAKE) $(ROM)
 
 tidy:
-	$(MAKE) -C lib/dsprot clean
 	@$(MAKE) -C lib/syscall tidy
+	@$(MAKE) -C lib/dsprot tidy
 	$(RM) -r build
 	$(RM) -r $(PROJECT_CLEAN_TARGETS)
 	$(RM) $(ROM)
 
 clean: tidy clean-tools
 	@$(MAKE) -C lib/syscall clean
+	@$(MAKE) -C lib/dsprot clean
 	$(RM) $(foreach bn,$(SUPPORTED_ROMS),$(bn)/icon.nbf[pc])
 
 SBIN_LZ := $(SBIN)_LZ
@@ -60,9 +63,8 @@ $(ELF): files_for_compile libsyscall dsprot
 libsyscall: files_for_compile
 	$(MAKE) -C lib/syscall all install INSTALL_PREFIX=$(abspath $(WORK_DIR)/$(BUILD_DIR)) GAME_CODE=$(GAME_CODE)
 
-# https://github.com/taxicat1/dsprot/tree/1.28
 dsprot:
-	$(MAKE) -C lib/dsprot all
+	$(MAKE) -C lib/dsprot all install INSTALL_PREFIX=$(abspath $(WORK_DIR)/$(BUILD_DIR))
 
 $(SBIN_LZ): $(BUILD_DIR)/component.files
 	$(COMPSTATIC) -9 -c -f $<

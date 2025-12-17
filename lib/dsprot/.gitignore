@@ -1,8 +1,1 @@
 **/build/**
-license.dat
-*.exe
-*.dll
-*.o
-*.so
-*.a
-*.d

@@ -6,19 +6,27 @@ DS Protect has two methods of antipiracy detection:
 	- A MAC address of `00:00:00:00:00:00` (indicating an emulator that is not emulating a MAC address at all)
 	- A MAC address of `00:09:BF:00:00:31`, coupled with an owner birthday of 1/1 and an empty owner name (indicating the use of No$GBA)
 
-2. ROM read check. It will conduct six reads of the cartridge ROM at these locations:
+2. ROM read check. It will conduct six reads of the cartridge ROM, performing three with a manual read (writing to I/O registers), and three with the SDK's `CARD_ReadRom`.
+	
+	The manual reads will read these pages:
 	- `0x1000 - 0x11FF`
 	- `0x1200 - 0x13FF`
 	- `0x1400 - 0x15FF`
+	
+	`CARD_ReadRom` then reads these pages:
 	- `0x8000 - 0x81FF`
 	- `0x8200 - 0x83FF`
 	- `0x8400 - 0x85FF`
 	
-	Because a DS cartridge will redirect ROM reads below address `0x8000` to `0x8000 + (address & 0x1FF)`, the first four reads will all receive the same data. The last two reads, not receiving any redirection, will be different. A flashcart or low-effort reproduction cartridge meanwhile has no such behavior, and can read from any address. If the expected read pattern is not matched (`1 == 2 == 3 == 4` and `4 != 5 != 6`) it will report it is running on a flashcart.
+	Because a DS cartridge will redirect ROM reads below address `0x8000` to `0x8000 + (address & 0x1FF)`, the three manual reads will all receive the same data. The other three reads, not receiving any redirection, will be different. A flashcart or low-effort reproduction cartridge meanwhile has no such behavior, and can read from any address.
+	
+	The first SDK read at `0x8000` should also return identical data to the manual reads. However, flashcarts will patch over `CARD_ReadRom` with their own code in order to properly read from their SD cards, so if this was done, the data will not match.
+	
+	If any mismatch in the expected read data is found, or if reads below address `0x8000` are not redirected properly, the test will report it is running on a flashcart.
 
 3. Additionally, there is a third "dummy" method which does not actually do any antipiracy detection. This is apparently purely to confuse reverse engineering.
 
-Note that modern emulators, such as [MelonDS](https://github.com/melonDS-emu/melonDS) and [DeSmuME](https://github.com/TASEmulators/desmume), correctly emulate both a MAC address and the ROM reading behavior and are therefore undetected by this library. Some flashcarts do correctly emulate the ROM reading behavior, but many still sold today do not.
+Note that modern emulators, such as [MelonDS](https://github.com/melonDS-emu/melonDS) and [DeSmuME](https://github.com/TASEmulators/desmume), correctly emulate both a MAC address and the ROM reading behavior and are therefore undetected by this library. However, due to the way flashcarts work, they cannot evade being detected by the ROM read test. Instead they will, with varying degrees of aggressiveness, seek out DS Protect and patch over its tests, neutralizing them.
 
 ## Exported functions
 
@@ -31,7 +39,7 @@ Each of the three methods exists as two copies, which are identical except for r
 - Detect dummy (always fails)
 - Detect not dummy (always succeeds)
 
-Each of these functions takes as argument a callback function and a parameter for that callback of type `void*`. The callback function will be run if the target detection succeeds. Meaning, `DetectFlashcart(callback, param)` will run the callback function only if a flashcart is detected. `DetectNotFlashcart(callback, param)` will inversely run the callback function only if a flashcart is *not* detected. They will return the return value of the inner callback function if detection succeeded and the callback was run. Otherwise, some other integer value will be returned.
+Each of these functions takes as argument an optional callback function, which will be run if the target detection succeeds. Meaning, `DetectFlashcart(callback)` will run the callback function only if a flashcart is detected. `DetectNotFlashcart(callback)` will inversely run the callback function only if a flashcart is *not* detected. They will also return `1` if the target detection succeeded, and `0` if it did not, regardless of whether a callback function was supplied.
 
 ## Obfuscation
 
