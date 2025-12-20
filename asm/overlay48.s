@@ -970,10 +970,10 @@ FUN_ov48_0211ac24: ; 0x0211AC24
 	add r1, r0, #0x5000
 	mov r2, #6
 	ldr r0, [r0, #4]
-	ldr r12, _0211AC3C ; =_ZN14CScreenManager12FUN_02041d9cEv
+	ldr r12, _0211AC3C ; =_ZN14CScreenManager13fadeMainBlackEv
 	str r2, [r1, #0x5e4]
 	bx r12
-_0211AC3C: .word _ZN14CScreenManager12FUN_02041d9cEv
+_0211AC3C: .word _ZN14CScreenManager13fadeMainBlackEv
 	arm_func_end FUN_ov48_0211ac24
 
 	arm_func_start FUN_ov48_0211ac40
@@ -1287,7 +1287,7 @@ _0211B050:
 	bne _0211B074
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 _0211B074:
 	ldr r0, _0211B08C ; =0x02099ED4
 	ldr r1, _0211B090 ; =0x0209A110

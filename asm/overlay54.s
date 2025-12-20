@@ -1483,7 +1483,7 @@ FUN_ov54_0211b2c4: ; 0x0211B2C4
 	mov r1, r4
 	mov r2, #0x60
 	bl MI_CpuFill8
-	ldr r0, _0211B390 ; =0x0209BA20
+	ldr r0, _0211B390 ; =gLogicThink
 	mov r1, r4
 	strh r4, [r5, #0xc0]
 	strh r4, [r5, #0xc2]
@@ -1606,7 +1606,7 @@ _0211B4D0:
 	mov r1, #0
 	bne _0211B50C
 	ldr r0, [r4, #4]
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	b _0211B518
 _0211B50C:
 	ldr r2, [r4, #0x10]
@@ -2454,7 +2454,7 @@ _0211C070:
 	bl FUN_020460a8
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _0211C2B4 ; =0x0209BA20
+	ldr r0, _0211C2B4 ; =gLogicThink
 	bl FUN_0207249c
 	mov r4, r0
 	adds r0, sp, #0
@@ -2900,7 +2900,7 @@ _0211C6C8:
 	bne _0211C6EC
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 _0211C6EC:
 	ldr r0, _0211C708 ; =0x02099ED4
 	ldr r1, _0211C70C ; =0x0209A110

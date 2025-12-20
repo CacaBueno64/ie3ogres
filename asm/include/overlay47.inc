@@ -75,7 +75,7 @@
 .public unk_02099ED4
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_020737f0
 .public unk_020A1740
 .public unk_020A1640
@@ -88,9 +88,9 @@
 .public FUN_0202dbd0
 .public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_0202c560
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_0210e9d8

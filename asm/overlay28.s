@@ -1657,7 +1657,7 @@ _0211B5E8:
 	ldr r0, [r0]
 	bl FUN_0205ff0c
 	bl FUN_ov16_020efa4c
-	ldr r6, _0211B6B8 ; =0x0209BA20
+	ldr r6, _0211B6B8 ; =gLogicThink
 	mov r1, r5
 	mov r0, r6
 	mov r7, #1

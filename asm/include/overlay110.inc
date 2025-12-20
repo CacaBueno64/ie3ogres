@@ -14,7 +14,7 @@
 .public unk_020A9440
 .public unk_020A8440
 .public unk_020A8C40
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear32
 .public gL5Allocator
 .public FUN_ov16_020eef1c

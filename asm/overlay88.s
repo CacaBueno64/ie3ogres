@@ -727,7 +727,7 @@ _0211A7FC:
 	bl DC_FlushRange
 _0211A8A4:
 	add r1, r5, #0x1f4
-	ldr r0, _0211A8E0 ; =0x0209BA20
+	ldr r0, _0211A8E0 ; =gLogicThink
 	add r1, r1, #0x5000
 	bl FUN_ov16_020eed18 ; may be ov17 ; ov16(Mica)
 	mov r0, r5
@@ -966,7 +966,7 @@ FUN_ov88_0211abbc: ; 0x0211ABBC
 	bl FUN_ov16_020f0a30
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r5, _0211AC4C ; =0x0209BA20
+	ldr r5, _0211AC4C ; =gLogicThink
 	ldrh r2, [r4, #0x12]
 	ldrh r3, [r4, #0x14]
 	mov r0, r5
@@ -2300,7 +2300,7 @@ FUN_ov88_0211bdf4: ; 0x0211BDF4
 	add r0, r6, r0, lsl #1
 	add r0, r0, #0x200
 	ldrh r1, [r0, #0x80]
-	ldr r0, _0211BEA0 ; =0x0209BA20
+	ldr r0, _0211BEA0 ; =gLogicThink
 	add r2, sp, #0
 	bl FUN_0207273c
 	cmp r0, #0
@@ -3195,7 +3195,7 @@ FUN_ov88_0211c9b4: ; 0x0211C9B4
 	ldrne r0, _0211CB8C ; =0x0209AEC0
 	ldrneb r0, [r0, #0x64]
 	strneb r0, [r6, #0x17]
-	ldr r0, _0211CB90 ; =0x0209BA20
+	ldr r0, _0211CB90 ; =gLogicThink
 	bl FUN_020728c4
 	strh r0, [r6, #0x12]
 	ldr r0, _0211CB94 ; =gBgMenuManager
@@ -3456,7 +3456,7 @@ FUN_ov88_0211ce54: ; 0x0211CE54
 	bl FUN_ov16_0210e0d8
 	mov r0, r4
 	bl FUN_ov88_0211abbc
-	ldr r5, _0211CF60 ; =0x0209BA20
+	ldr r5, _0211CF60 ; =gLogicThink
 	mov r1, #0
 	mov r0, r5
 	bl FUN_0207249c
@@ -3494,7 +3494,7 @@ FUN_ov88_0211ce54: ; 0x0211CE54
 	bl FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov88_0211add8
-	ldr r0, _0211CF60 ; =0x0209BA20
+	ldr r0, _0211CF60 ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	ldr r0, _0211CF68 ; =0x02099F38
 	ldr r0, [r0]

@@ -66,16 +66,16 @@ class CMainLogoScreenInit : public CommonMainScreen {
     } scene;
     s32 timer;
     u8 tpTouch;
-    // u8 pad_15[3];
+    /* u8 pad_15[3]; */
     u32 tpX;
     u32 tpY;
     u8 dummy_20;
     u8 dummy_21;
     u8 skipSignal;
-    // u8 pad_23;
+    /* u8 pad_23; */
     SFileData data[2]; // 0: level5 1: ActimagineOriginal
     u8 dummy_3c;
-    //u8 pad_3d[3];
+    /* u8 pad_3d[3]; */
 };
 
 class CSubLogoScreenInit : public CommonSubScreen {
@@ -115,7 +115,7 @@ class CLogoScreenManager : public CScreenManager {
         /* ov5 0x020bcde4 */ virtual void startGraphics(u32 arg);
         /* ov5 0x020bce28 */ virtual void endGraphics(u32 arg);
         /* ov5 0x020bcc44 */ virtual void close(void);
-        /* ov5 0x020bcc94 */ virtual void vFUN_34();
+        /* ov5 0x020bcc94 */ virtual void updateScene();
     private:
     CMainLogoScreenInit mainScreenInit;
     CMainLogoScreenDCBmp mainScreenDCBmp;

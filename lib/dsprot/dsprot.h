@@ -65,8 +65,7 @@ extern u32 __DSProt_wrapper(void* callback);
 #endif /* __cplusplus */
 
 
-//=================================================================================================
-/**
+/**!
  * Detect if the current environment is a flashcart.
  * 
  * @param callback Function to be called if the environment is determined to be a flashcart.
@@ -74,14 +73,12 @@ extern u32 __DSProt_wrapper(void* callback);
  * 
  * @return 1 if the environment is determined to be a flashcart, 0 otherwise
  */
-//=================================================================================================
 static inline u32 DSProt_DetectFlashcart(void* callback) {
 	return __DSProt_DetectFlashcart(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }
 
 
-//=================================================================================================
-/**
+/**!
  * Detect if the current environment is an emulator.
  * 
  * @param callback Function to be called if the environment is determined to be an emulator.
@@ -89,28 +86,24 @@ static inline u32 DSProt_DetectFlashcart(void* callback) {
  * 
  * @return 1 if the environment is determined to be an emulator, 0 otherwise
  */
-//=================================================================================================
 static inline u32 DSProt_DetectEmulator(void* callback) {
 	return __DSProt_DetectEmulator(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }
 
 
-//=================================================================================================
-/**
+/**!
  * Dummy environment detection function that does not do anything. Will always fail.
  * 
  * @param callback Dummy callback function which will never be called. May be NULL.
  * 
  * @return 0
  */
-//=================================================================================================
 static inline u32 DSProt_DetectDummy(void* callback) {
 	return __DSProt_DetectDummy(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }
 
 
-//=================================================================================================
-/**
+/**!
  * Detect if the current environment is NOT a flashcart.
  * 
  * @param callback Function to be called if the environment is determined to NOT be a flashcart.
@@ -118,14 +111,12 @@ static inline u32 DSProt_DetectDummy(void* callback) {
  * 
  * @return 1 if the environment is determined to NOT be a flashcart, 0 otherwise
  */
-//=================================================================================================
 static inline u32 DSProt_DetectNotFlashcart(void* callback) {
 	return __DSProt_DetectNotFlashcart(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }
 
 
-//=================================================================================================
-/**
+/**!
  * Detect if the current environment is NOT an emulator.
  * 
  * @param callback Function to be called if the environment is determined to NOT be an emulator.
@@ -133,21 +124,18 @@ static inline u32 DSProt_DetectNotFlashcart(void* callback) {
  * 
  * @return 1 if the environment is determined to NOT be an emulator, 0 otherwise
  */
-//=================================================================================================
 static inline u32 DSProt_DetectNotEmulator(void* callback) {
 	return __DSProt_DetectNotEmulator(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }
 
 
-//=================================================================================================
-/**
+/**!
  * Dummy environment detection function that does not do anything. Will always succeed.
  * 
  * @param callback Dummy callback function which will always be called. May be NULL.
  * 
  * @return 1
  */
-//=================================================================================================
 static inline u32 DSProt_DetectNotDummy(void* callback) {
 	return __DSProt_DetectNotDummy(__DSProt_wrapper, callback, 0) == ~(u32)callback;
 }

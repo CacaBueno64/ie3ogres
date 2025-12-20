@@ -1,5 +1,5 @@
 .public FUN_ov16_020f1528
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear32
 .public gL5Allocator
 .public FUN_ov16_020f5da0

@@ -2,8 +2,8 @@
 .public STD_CompareNString
 .public FUN_ov16_020f6510
 .public gBgMenuManager
-.public _ZN14CScreenManager12FUN_02041d9cEv
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager13fadeMainBlackEv
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_ov16_020f153c
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -30,7 +30,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f32b4
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public memcpy
 .public gL5Allocator
 .public FUN_ov16_020f33fc

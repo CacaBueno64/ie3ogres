@@ -165,7 +165,7 @@
 .public FUN_0205b340
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0205ac70
 .public FUN_0205b174

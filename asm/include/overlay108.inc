@@ -19,14 +19,14 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear32
 .public gL5Allocator
 .public FUN_0204378c
 .public gFont8
 .public gFont12
 .public FUN_ov16_020f2184
-.public FUN_0202895c
+.public _ZNSsD1Ev
 .public FUN_0206cd70
 .public unk_0209C220
 .public FUN_ov16_020f5da0
@@ -55,7 +55,7 @@
 .public FUN_ov16_020f51a8
 .public _ZdlPv
 .public strlen
-.public FUN_02028a98
+.public _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev
 .public _ZN12CommonScreen7vFUN_24Ev

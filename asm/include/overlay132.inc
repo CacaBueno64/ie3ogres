@@ -1,5 +1,5 @@
 .public _ZN8L5Config8getParamEPc
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public _Znwm
 .public gL5Config
 .public gL5Allocator

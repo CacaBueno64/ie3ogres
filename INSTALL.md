@@ -90,9 +90,12 @@ $ brew install wine-crossover
 
 ### 4. Build ROM
 
-Run `make` to build the ROM. The ROM will be output as `build/ie3ojp/ie3ojp.nds`
+If you are using wine, open [platform.mk](./platform.mk) and set `NOWINE` to 0.
+
+Run `make` to build the ROM. The ROM will be output as `build/ie3ojp/ie3ojp.nds`.
 
 There are targets for building and testing changes to individual components without repackaging the ROM. For the ARM9 modules, run `make main`. For the ARM7 module, run `make sub`. For the filesystem, run `make filesystem`.
+(At the moment, only `make main` is supported)
 
 At the end of building each of these, there is a checksum verification step. This makes sure that the final product is byte-for-byte equivalent to the retail ROM. To disable this, append `COMPARE=0` to your command.
 

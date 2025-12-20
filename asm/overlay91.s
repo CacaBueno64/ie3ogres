@@ -34,20 +34,20 @@ _02119F40:
 	movne r1, #1
 	strneb r1, [r0, #0x8b]
 	ldr r0, [r4, #4]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _02119F80:
 	ldr r0, [r4, #4]
 	mov r1, #1
 	strb r1, [r0, #0x8c]
 	ldr r0, [r4, #4]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov91_02119f00
 
@@ -469,7 +469,7 @@ FUN_ov91_0211a4f4: ; 0x0211A4F4
 	mov r5, #1
 	mov r3, r5
 	bl FUN_ov91_0211a4a8
-	ldr r0, _0211A58C ; =0x0209BA20
+	ldr r0, _0211A58C ; =gLogicThink
 	add r1, r4, #0x1e4
 	add r1, r1, #0x5000
 	bl FUN_ov16_020eed18 ; may be ov17 ; ov16(Mica)
@@ -685,7 +685,7 @@ FUN_ov91_0211a82c: ; 0x0211A82C
 	bl FUN_ov16_020f0a30
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r5, _0211A8A8 ; =0x0209BA20
+	ldr r5, _0211A8A8 ; =gLogicThink
 	ldrh r2, [r4, #0xc]
 	ldrh r3, [r4, #0xe]
 	mov r0, r5
@@ -1848,7 +1848,7 @@ FUN_ov91_0211b7d0: ; 0x0211B7D0
 	add r0, r6, r0, lsl #1
 	add r0, r0, #0x200
 	ldrh r1, [r0, #0x78]
-	ldr r0, _0211B87C ; =0x0209BA20
+	ldr r0, _0211B87C ; =gLogicThink
 	add r2, sp, #0
 	bl FUN_0207273c
 	cmp r0, #0
@@ -2766,7 +2766,7 @@ FUN_ov91_0211c418: ; 0x0211C418
 	str r0, [r5, #0x60]
 	sub r0, r0, #2
 	str r0, [r5, #0x64]
-	ldr r0, _0211C578 ; =0x0209BA20
+	ldr r0, _0211C578 ; =gLogicThink
 	bl FUN_020728c4
 	strh r0, [r5, #0xc]
 	ldr r0, _0211C57C ; =gBgMenuManager
@@ -2950,7 +2950,7 @@ FUN_ov91_0211c770: ; 0x0211C770
 	bl FUN_ov16_0210e0d8
 	mov r0, r4
 	bl FUN_ov91_0211a82c
-	ldr r5, _0211C864 ; =0x0209BA20
+	ldr r5, _0211C864 ; =gLogicThink
 	mov r1, #0
 	mov r0, r5
 	bl FUN_0207249c
@@ -2988,7 +2988,7 @@ FUN_ov91_0211c770: ; 0x0211C770
 	bl FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov91_0211aa34
-	ldr r0, _0211C864 ; =0x0209BA20
+	ldr r0, _0211C864 ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	ldr r0, _0211C86C ; =0x02099F38
 	ldr r0, [r0]

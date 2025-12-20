@@ -68,9 +68,9 @@
 .public gWirelessUtil
 .public FUN_ov16_020f60f8
 .public FUN_ov4_020bf4ac
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_020A0640
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov131_021421f4
 .public unk_02099F44
 .public FUN_ov16_021128c4

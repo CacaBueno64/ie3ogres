@@ -13861,8 +13861,8 @@ pow: ; 0x02028820
 _02028828: .word __ieee754_pow
 	arm_func_end pow
 
-	arm_func_start FUN_0202882c
-FUN_0202882c: ; 0x0202882C
+	arm_func_start _ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_
+_ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_: ; 0x0202882C
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
@@ -13887,17 +13887,17 @@ _02028878:
 	mov r1, #0
 	add r0, sp, #0
 	str r1, [sp]
-	bl FUN_0202891c
+	bl _ZN10Metrowerks8move_ptrIcRNSt6detail14default_deleteIA0_cEEED1Ev
 	mov r0, r5
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, lr}
 	add sp, sp, #0x10
 	bx lr
-_020288A0: .word unk_0208F484
-	arm_func_end FUN_0202882c
+_020288A0: .word _ZTVNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE+0x8
+	arm_func_end _ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_
 
-	arm_func_start FUN_020288a4
-FUN_020288a4: ; 0x020288A4
+	arm_func_start _ZNKSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE11get_deleterERKSt9type_info
+_ZNKSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE11get_deleterERKSt9type_info: ; 0x020288A4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
@@ -13907,19 +13907,19 @@ FUN_020288a4: ; 0x020288A4
 	addne r0, r4, #0xc
 	moveq r0, #0
 	ldmfd sp!, {r4, pc}
-_020288C8: .word unk_0208F468
-	arm_func_end FUN_020288a4
+_020288C8: .word _ZTINSt6detail14default_deleteIA0_cEE
+	arm_func_end _ZNKSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE11get_deleterERKSt9type_info
 
-	arm_func_start FUN_020288cc
-FUN_020288cc: ; 0x020288CC
+	arm_func_start _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE7disposeEv
+_ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE7disposeEv: ; 0x020288CC
 	ldr r0, [r0, #0xc]
 	ldr r12, _020288D8 ; =_ZdaPv
 	bx r12
 _020288D8: .word _ZdaPv
-	arm_func_end FUN_020288cc
+	arm_func_end _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE7disposeEv
 
-	arm_func_start FUN_020288dc
-FUN_020288dc: ; 0x020288DC
+	arm_func_start _ZNSt3tr110shared_ptrIcED1Ev
+_ZNSt3tr110shared_ptrIcED1Ev: ; 0x020288DC
 	stmfd sp!, {r3, r4, r11, lr}
 	sub sp, sp, #0x18
 	mov r11, sp
@@ -13927,7 +13927,7 @@ FUN_020288dc: ; 0x020288DC
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _020288FC
-	bl FUN_02028f44
+	bl _ZNSt3tr16detail25shared_ptr_deleter_common7releaseEv
 _020288FC:
 	add sp, r11, #0x18
 	mov r0, r4
@@ -13938,10 +13938,10 @@ _02028910:
 	b _02028910
 	add sp, r11, #0x18
 	ldmfd sp!, {r3, r4, r11, pc}
-	arm_func_end FUN_020288dc
+	arm_func_end _ZNSt3tr110shared_ptrIcED1Ev
 
-	arm_func_start FUN_0202891c
-FUN_0202891c: ; 0x0202891C
+	arm_func_start _ZN10Metrowerks8move_ptrIcRNSt6detail14default_deleteIA0_cEEED1Ev
+_ZN10Metrowerks8move_ptrIcRNSt6detail14default_deleteIA0_cEEED1Ev: ; 0x0202891C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r4]
@@ -13951,30 +13951,30 @@ FUN_0202891c: ; 0x0202891C
 _02028934:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0202891c
+	arm_func_end _ZN10Metrowerks8move_ptrIcRNSt6detail14default_deleteIA0_cEEED1Ev
 
-	arm_func_start FUN_0202893c
-FUN_0202893c: ; 0x0202893C
+	arm_func_start _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED0Ev
+_ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED0Ev: ; 0x0202893C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0202893c
+	arm_func_end _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED0Ev
 
-	arm_func_start FUN_02028950
-FUN_02028950: ; 0x02028950
+	arm_func_start _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED1Ev
+_ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED1Ev: ; 0x02028950
 	bx lr
-	arm_func_end FUN_02028950
+	arm_func_end _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED1Ev
 
-	arm_func_start FUN_02028954
-FUN_02028954: ; 0x02028954
+	arm_func_start _ZNKSt11logic_error4whatEv
+_ZNKSt11logic_error4whatEv: ; 0x02028954
 	ldr r0, [r0, #4]
 	bx lr
-	arm_func_end FUN_02028954
+	arm_func_end _ZNKSt11logic_error4whatEv
 
-	arm_func_start FUN_0202895c
-FUN_0202895c: ; 0x0202895C
+	arm_func_start _ZNSsD1Ev
+_ZNSsD1Ev: ; 0x0202895C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r4]
@@ -13986,10 +13986,10 @@ FUN_0202895c: ; 0x0202895C
 _0202897C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0202895c
+	arm_func_end _ZNSsD1Ev
 
-	arm_func_start FUN_02028984
-FUN_02028984: ; 0x02028984
+	arm_func_start _ZNSs7replaceEmmRKSsmm
+_ZNSs7replaceEmmRKSsmm: ; 0x02028984
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	ldr r4, [r3]
@@ -14023,13 +14023,13 @@ FUN_02028984: ; 0x02028984
 	mov r1, r0
 	ldr r2, [r2]
 	mov r0, r6
-	bl FUN_0202882c
+	bl _ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_
 	ldr r0, [r6]
 	mov r1, r11
 	bl strcpy
 	ldr r3, _02028A8C ; =0x0208F5A4
 	ldr r0, _02028A90 ; =0x0208F62C
-	ldr r2, _02028A94 ; =FUN_02028f0c
+	ldr r2, _02028A94 ; =_ZNSt12out_of_rangeD1Ev
 	mov r1, r7
 	str r3, [sp, #0x10]
 	bl __throw
@@ -14052,18 +14052,18 @@ _02028A30:
 	mov r2, r8
 	mov r3, r4
 	strb r5, [sp, #4]
-	bl FUN_02028a98
+	bl _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02028A84: .word unk_0208F610
-_02028A88: .word unk_0208F5CC
-_02028A8C: .word unk_0208F5A4
+_02028A88: .word _ZTVSt11logic_error+0x8
+_02028A8C: .word _ZTVSt12out_of_range+0x8
 _02028A90: .word unk_0208F62C
-_02028A94: .word FUN_02028f0c
-	arm_func_end FUN_02028984
+_02028A94: .word _ZNSt12out_of_rangeD1Ev
+	arm_func_end _ZNSs7replaceEmmRKSsmm
 
-	arm_func_start FUN_02028a98
-FUN_02028a98: ; 0x02028A98
+	arm_func_start _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
+_ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag: ; 0x02028A98
 	stmfd sp!, {r0, r1, r2, r3}
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x48
@@ -14110,13 +14110,13 @@ _02028B04:
 	mov r1, r0
 	ldr r2, [r2]
 	mov r0, r8
-	bl FUN_0202882c
+	bl _ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_
 	ldr r0, [r8]
 	mov r1, r10
 	bl strcpy
 	ldr r3, _02028E14 ; =0x0208F5A4
 	ldr r0, _02028E18 ; =0x0208F62C
-	ldr r2, _02028E1C ; =FUN_02028f0c
+	ldr r2, _02028E1C ; =_ZNSt12out_of_rangeD1Ev
 	mov r1, r9
 	str r3, [sp, #0x3c]
 	bl __throw
@@ -14154,14 +14154,14 @@ _02028BB4:
 	strb r2, [r3]
 	ldr r0, [sp, #0x10]
 	ldr r2, [r3]
-	bl FUN_0202882c
+	bl _ZNSt3tr110shared_ptrIcEC1IcNSt6detail14default_deleteIA0_cEEEEPT_T0_
 	ldr r0, [sp, #0x10]
 	ldr r1, _02028E20 ; =0x0208F664
 	ldr r0, [r0]
 	bl strcpy
 	ldr r1, _02028E24 ; =0x0208F5B8
 	ldr r0, _02028E28 ; =0x0208F5D8
-	ldr r2, _02028E2C ; =FUN_02028ed4
+	ldr r2, _02028E2C ; =_ZNSt12length_errorD1Ev
 	str r1, [sp, #0x30]
 	mov r1, r10
 	bl __throw
@@ -14256,7 +14256,7 @@ _02028D24:
 	ldr r1, [sp]
 	mov r0, r7
 	mov r2, r11
-	bl FUN_02028e34
+	bl _ZNSs6assignIPKcEERSsT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
 	ldr r0, [sp, #0x24]
 	mov r0, r0, lsl #0x1f
 	movs r0, r0, lsr #0x1f
@@ -14293,7 +14293,7 @@ _02028DAC:
 	strb r0, [r5]
 _02028DF0:
 	add r0, sp, #0x24
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 _02028DF8:
 	mov r0, r5
 	add sp, sp, #0x48
@@ -14301,19 +14301,19 @@ _02028DF8:
 	add sp, sp, #0x10
 	bx lr
 _02028E0C: .word unk_0208F610
-_02028E10: .word unk_0208F5CC
-_02028E14: .word unk_0208F5A4
+_02028E10: .word _ZTVSt11logic_error+0x8
+_02028E14: .word _ZTVSt12out_of_range+0x8
 _02028E18: .word unk_0208F62C
-_02028E1C: .word FUN_02028f0c
+_02028E1C: .word _ZNSt12out_of_rangeD1Ev
 _02028E20: .word unk_0208F664
 _02028E24: .word unk_0208F5B8
 _02028E28: .word unk_0208F5D8
-_02028E2C: .word FUN_02028ed4
+_02028E2C: .word _ZNSt12length_errorD1Ev
 _02028E30: .word unk_0208F534
-	arm_func_end FUN_02028a98
+	arm_func_end _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 
-	arm_func_start FUN_02028e34
-FUN_02028e34: ; 0x02028E34
+	arm_func_start _ZNSs6assignIPKcEERSsT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
+_ZNSs6assignIPKcEERSsT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE: ; 0x02028E34
 	stmfd sp!, {r3, lr}
 	sub sp, sp, #8
 	ldr r12, [r0]
@@ -14328,92 +14328,92 @@ FUN_02028e34: ; 0x02028E34
 	str r2, [sp]
 	mov r2, r12
 	str r1, [sp, #4]
-	bl FUN_02028e78
+	bl _ZNSs7replaceIPKcEERSsmmT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02028e34
+	arm_func_end _ZNSs6assignIPKcEERSsT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
 
-	arm_func_start FUN_02028e78
-FUN_02028e78: ; 0x02028E78
+	arm_func_start _ZNSs7replaceIPKcEERSsmmT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
+_ZNSs7replaceIPKcEERSsmmT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE: ; 0x02028E78
 	stmdb sp!, {lr}
 	sub sp, sp, #0xc
 	ldr lr, [sp, #0x10]
 	ldrb r12, [sp, #8]
 	str lr, [sp]
 	strb r12, [sp, #4]
-	bl FUN_02028a98
+	bl _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
-	arm_func_end FUN_02028e78
+	arm_func_end _ZNSs7replaceIPKcEERSsmmT_S4_PNN10Metrowerks11restrict_toIXsrNS5_4_notINS5_11is_integralIS4_EEEE5valueEvEE4typeE
 
-	arm_func_start FUN_02028e9c
-FUN_02028e9c: ; 0x02028E9C
+	arm_func_start _ZNSt11logic_errorD1Ev
+_ZNSt11logic_errorD1Ev: ; 0x02028E9C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028e9c
+	arm_func_end _ZNSt11logic_errorD1Ev
 
-	arm_func_start FUN_02028eb4
-FUN_02028eb4: ; 0x02028EB4
+	arm_func_start _ZNSt11logic_errorD0Ev
+_ZNSt11logic_errorD0Ev: ; 0x02028EB4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028eb4
+	arm_func_end _ZNSt11logic_errorD0Ev
 
-	arm_func_start FUN_02028ed4
-FUN_02028ed4: ; 0x02028ED4
+	arm_func_start _ZNSt12length_errorD1Ev
+_ZNSt12length_errorD1Ev: ; 0x02028ED4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028ed4
+	arm_func_end _ZNSt12length_errorD1Ev
 
-	arm_func_start FUN_02028eec
-FUN_02028eec: ; 0x02028EEC
+	arm_func_start _ZNSt12length_errorD0Ev
+_ZNSt12length_errorD0Ev: ; 0x02028EEC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028eec
+	arm_func_end _ZNSt12length_errorD0Ev
 
-	arm_func_start FUN_02028f0c
-FUN_02028f0c: ; 0x02028F0C
+	arm_func_start _ZNSt12out_of_rangeD1Ev
+_ZNSt12out_of_rangeD1Ev: ; 0x02028F0C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028f0c
+	arm_func_end _ZNSt12out_of_rangeD1Ev
 
-	arm_func_start FUN_02028f24
-FUN_02028f24: ; 0x02028F24
+	arm_func_start _ZNSt12out_of_rangeD0Ev
+_ZNSt12out_of_rangeD0Ev: ; 0x02028F24
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_020288dc
+	bl _ZNSt3tr110shared_ptrIcED1Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028f24
+	arm_func_end _ZNSt12out_of_rangeD0Ev
 
-	arm_func_start FUN_02028f44
-FUN_02028f44: ; 0x02028F44
+	arm_func_start _ZNSt3tr16detail25shared_ptr_deleter_common7releaseEv
+_ZNSt3tr16detail25shared_ptr_deleter_common7releaseEv: ; 0x02028F44
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r1, [r4, #4]
@@ -14424,12 +14424,12 @@ FUN_02028f44: ; 0x02028F44
 	ldr r1, [r1, #0xc]
 	blx r1
 	mov r0, r4
-	bl FUN_02028f74
+	bl _ZNSt3tr16detail25shared_ptr_deleter_common12release_weakEv
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02028f44
+	arm_func_end _ZNSt3tr16detail25shared_ptr_deleter_common7releaseEv
 
-	arm_func_start FUN_02028f74
-FUN_02028f74: ; 0x02028F74
+	arm_func_start _ZNSt3tr16detail25shared_ptr_deleter_common12release_weakEv
+_ZNSt3tr16detail25shared_ptr_deleter_common12release_weakEv: ; 0x02028F74
 	stmfd sp!, {r3, lr}
 	ldr r1, [r0, #8]
 	subs r1, r1, #1
@@ -14441,7 +14441,7 @@ FUN_02028f74: ; 0x02028F74
 	ldr r1, [r1, #4]
 	blx r1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02028f74
+	arm_func_end _ZNSt3tr16detail25shared_ptr_deleter_common12release_weakEv
 
 	.rodata
 	.global unk_0208BFB0
@@ -14874,39 +14874,37 @@ unk_0208F458:
 unk_0208F45C:
 	.asciz "256"
 	.balign 4, 0
-	.global unk_0208F460
-unk_0208F460:
+	.global _ZTINSt3tr16detail25shared_ptr_deleter_commonE
+_ZTINSt3tr16detail25shared_ptr_deleter_commonE:
 	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
-	.word unk_0208F4B8
-	.global unk_0208F468
-unk_0208F468:
+	.word _ZTSNSt3tr16detail25shared_ptr_deleter_commonE
+	.global _ZTINSt6detail14default_deleteIA0_cEE
+_ZTINSt6detail14default_deleteIA0_cEE:
 	.word _ZTVN10__cxxabiv117__class_type_infoE+0x8
-	.word unk_0208F494
-	.global unk_0208F468
-unk_0208F470:
+	.word _ZTSNSt6detail14default_deleteIA0_cEE
+	.global _ZTINSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE
+_ZTINSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE:
 	.word _ZTVN10__cxxabiv120__si_class_type_infoE+0x8
-	.word unk_0208F4E4
-	.word unk_0208F460
-	.global unk_0208F468
-unk_0208F47C:
+	.word _ZTSNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE
+	.word _ZTINSt3tr16detail25shared_ptr_deleter_commonE
+	.global _ZTVNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE
+_ZTVNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE:
 	.byte 0x00, 0x00, 0x00, 0x00
-	.word unk_0208F470
-	.global unk_0208F484
-unk_0208F484:
-	.word FUN_02028950
-	.word FUN_0202893c
-	.word FUN_020288a4
-	.word FUN_020288cc 
-	.global unk_0208F494
-unk_0208F494:
+	.word _ZTINSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE
+	.word _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED1Ev
+	.word _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEED0Ev
+	.word _ZNKSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE11get_deleterERKSt9type_info
+	.word _ZNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEE7disposeEv 
+	.global _ZTSNSt6detail14default_deleteIA0_cEE
+_ZTSNSt6detail14default_deleteIA0_cEE:
 	.asciz "std::detail::default_delete<char[]>"
 	.balign 4, 0
-	.global unk_0208F4B8
-unk_0208F4B8:
+	.global _ZTSNSt3tr16detail25shared_ptr_deleter_commonE
+_ZTSNSt3tr16detail25shared_ptr_deleter_commonE:
 	.asciz "std::tr1::detail::shared_ptr_deleter_common"
 	.balign 4, 0
-	.global unk_0208F4E4
-unk_0208F4E4:
+	.global _ZTSNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE
+_ZTSNSt3tr16detail18shared_ptr_deleterIcNSt6detail14default_deleteIA0_cEEEE:
 	.asciz "std::tr1::detail::shared_ptr_deleter<char, std::detail::default_delete<char[]>>"
 	.balign 4, 0
 	.global unk_0208F534
@@ -14939,29 +14937,27 @@ unk_0208F574:
 unk_0208F588:
 	.asciz "std::length_error"
 	.balign 4, 0
-	.global unk_0208F59C
-unk_0208F59C:
+	.global _ZTVSt12out_of_range
+_ZTVSt12out_of_range:
  	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208F548
-	.global unk_0208F5A4
-unk_0208F5A4:
-	.word FUN_02028f0c
-	.word FUN_02028f24
-	.word FUN_02028954
+	.word _ZNSt12out_of_rangeD1Ev
+	.word _ZNSt12out_of_rangeD0Ev
+	.word _ZNKSt11logic_error4whatEv
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208F554
 	.global unk_0208F5B8
 unk_0208F5B8:
-	.word FUN_02028ed4
-	.word FUN_02028eec
-	.word FUN_02028954
+	.word _ZNSt12length_errorD1Ev
+	.word _ZNSt12length_errorD0Ev
+	.word _ZNKSt11logic_error4whatEv
+	.global _ZTVSt11logic_error
+_ZTVSt11logic_error:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word unk_0208F53C
-	.global unk_0208F5CC
-unk_0208F5CC:
-	.word FUN_02028e9c
-	.word FUN_02028eb4
-	.word FUN_02028954
+	.word _ZNSt11logic_errorD1Ev
+	.word _ZNSt11logic_errorD0Ev
+	.word _ZNKSt11logic_error4whatEv
 	.global unk_0208F5D8
 unk_0208F5D8:
 	.asciz "!std::exception!!std::logic_error!!std::length_error!!"

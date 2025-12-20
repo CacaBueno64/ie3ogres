@@ -61,7 +61,7 @@ FUN_ov87_02119f94: ; 0x02119F94
 	ldr r4, _0211A004 ; =0x0209A4E4
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _0211A008 ; =0x0209BA20
+	ldr r0, _0211A008 ; =gLogicThink
 	bl FUN_0207249c
 	ldrb r1, [r5, #0x96d]
 	cmp r1, #0
@@ -159,7 +159,7 @@ _0211A0B8:
 	ldrh r7, [r4, #0xa]
 	cmp r7, #0
 	beq _0211A134
-	ldr r0, _0211A14C ; =0x0209BA20
+	ldr r0, _0211A14C ; =gLogicThink
 	mov r1, r6
 	bl FUN_0207249c
 	strh r7, [r0, #0x28]
@@ -796,7 +796,7 @@ _0211A8F0:
 	bl DC_FlushRange
 _0211A9A0:
 	add r1, r5, #0x124
-	ldr r0, _0211A9E0 ; =0x0209BA20
+	ldr r0, _0211A9E0 ; =gLogicThink
 	add r1, r1, #0x400
 	bl FUN_ov16_020eed18 ; may be ov17 ; ov16(Mica)
 	mov r0, r5
@@ -3155,7 +3155,7 @@ FUN_ov87_0211c904: ; 0x0211C904
 	ldrne r0, _0211CAE8 ; =0x0209AEC0
 	ldrneb r0, [r0, #0x64]
 	strneb r0, [r7, #0x17]
-	ldr r0, _0211CAEC ; =0x0209BA20
+	ldr r0, _0211CAEC ; =gLogicThink
 	bl FUN_020728c4
 	strh r0, [r7, #0x12]
 	mov r4, #0
@@ -3447,7 +3447,7 @@ FUN_ov87_0211ce10: ; 0x0211CE10
 	ldr r0, _0211CEA4 ; =0x02099ED4
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
-	ldr r4, _0211CEA8 ; =0x0209BA20
+	ldr r4, _0211CEA8 ; =gLogicThink
 	ldrh r1, [r5, #0x12]
 	mov r0, r4
 	bl FUN_020728a8

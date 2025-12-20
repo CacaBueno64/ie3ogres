@@ -8,6 +8,7 @@
 #include "manager.hpp"
 #include "commonscreen.hpp"
 #include "logicthink.hpp"
+#include "archive.hpp"
 
 typedef struct {
     void *data;
@@ -168,7 +169,7 @@ class CScreenManager : public CManager {
         /* 0x02041cc8 */ virtual BOOL updateLate(int param1);
         /* 0x02042124 */ virtual void endGraphics(u32 arg);
         /* 0x020420bc */ virtual void updateDisplayMapping(void);
-        /* 0x02041dd4 */ virtual void vFUN_34() = 0;
+        /* 0x02029d00 */ virtual void updateScene() = 0;
         /* 0x02041dd4 */ virtual int vFUN_38(int arg);
         /* 0x02041df8 */ virtual int vFUN_3C(int arg);
         /* 0x02041e1c */ virtual int signalMain(int signal);
@@ -178,13 +179,13 @@ class CScreenManager : public CManager {
 
         /* 0x02041b04 */ void clear(void);
         /* 0x02041d14 */ void deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx);
-        void FUN_02041d80(void);
-        void FUN_02041d9c(void);
-        void FUN_02041db8(void);
+        /* 0x02041d80 */ void fadeInMain(void);
+        /* 0x02041d9c */ void fadeMainBlack(void);
+        /* 0x02041db8 */ void fadeSubBlack(void);
         /* 0x02041eac */ void setNextScene(EngineSelect screen, SceneType next);
-        void FUN_02041ef0(EngineSelect screen, SceneType next);
-        void FUN_02041f2c(EngineSelect screen);
-        void FUN_02041f74(EngineSelect screen, SceneType scene);
+        /* 0x02041ef0 */ void pushScene(EngineSelect screen, SceneType next);
+        /* 0x02041f2c */ void popScene(EngineSelect screen);
+        /* 0x02041f74 */ void setScene(EngineSelect screen, SceneType scene);
         /* 0x02041fec */ SceneType getCurSceneMain(void);
         /* 0x0204201c */ SceneType getNextSceneMain(void);
         /* 0x0204204c */ SceneType getLoadedSceneMain(void);
@@ -193,14 +194,18 @@ class CScreenManager : public CManager {
         /* 0x020420b4 */ SceneType getLoadedSceneSub(void);
         BOOL FUN_02042110(SceneType scene);
 
+        inline void setScenes(SceneType mainScene, SceneType subScene) {
+            this->setScene(ENGINE_MAIN, mainScene);
+            this->setScene(ENGINE_SUB, subScene);
+        }
+
         inline void setNextScenes(SceneType mainScene, SceneType subScene) {
             this->setNextScene(ENGINE_MAIN, mainScene);
             this->setNextScene(ENGINE_SUB, subScene);
         }
 
-    //private:
     u8 sceneChanged[2];
-    // u8 pad_6[2];
+    /* u8 pad_6[2]; */
     SceneLayerStep layerStep[2];
     SceneType loadedScene[2];
     int layerIdx[2];

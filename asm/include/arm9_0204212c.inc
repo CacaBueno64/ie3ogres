@@ -10,7 +10,7 @@
 .public unk_0209002C
 .public _ZN11L5Allocator10deallocateEPv
 .public gL5Allocator
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public FX_Sqrt
 .public unk_02090054
 .public L5FS_SetNextArena
@@ -28,7 +28,7 @@
 .public FUN_02030638
 .public FUN_020304e4
 .public FUN_ov16_020f17f0
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_02030584
 .public FUN_ov16_020f068c
 .public FUN_ov16_020f2604
@@ -135,7 +135,7 @@
 .public _Znwm
 .public FUN_ov16_020fe4f4
 .public FUN_ov16_020fe51c
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public _ZN11L5Allocator12setNextArenaEi
 .public unk_02090278
 .public unk_0209028C

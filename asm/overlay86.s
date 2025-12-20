@@ -173,10 +173,10 @@ _0211A118:
 	cmp r0, r12
 	strneb r4, [r3, #0x8b]
 	ldr r0, [r5, #4]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r5, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A164:
 	mov r0, #6
@@ -204,7 +204,7 @@ _0211A164:
 	add r3, r3, #8
 	mla r0, r2, r0, r3
 	add r2, r0, #0x394
-	ldr r0, _0211A24C ; =0x0209BA20
+	ldr r0, _0211A24C ; =gLogicThink
 	add r5, r2, #0x400
 	bl FUN_0207249c
 	ldrh r1, [r0, #0x40]
@@ -214,7 +214,7 @@ _0211A164:
 	ldrh r1, [r0, #0x40]
 	ldrh r0, [r5, #0x40]
 	cmp r1, r0
-	ldr r0, _0211A24C ; =0x0209BA20
+	ldr r0, _0211A24C ; =gLogicThink
 	ldr r1, _0211A250 ; =0x000001FD
 	streqb r4, [r5, #0x2c]
 	bl FUN_020727a8
@@ -229,10 +229,10 @@ _0211A214:
 	ldrne r0, [r5, #4]
 	strneb r4, [r0, #0x8c]
 	ldr r0, [r5, #4]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r5, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A23C: .word unk_020A1640
 _0211A240: .word unk_02099E98
@@ -637,7 +637,7 @@ FUN_ov86_0211a764: ; 0x0211A764
 	add r1, r1, #0x400
 	bl FUN_ov16_020f316c
 	add r1, r4, #0xe8
-	ldr r0, _0211A7E0 ; =0x0209BA20
+	ldr r0, _0211A7E0 ; =gLogicThink
 	add r1, r1, #0x400
 	bl FUN_ov16_020eed18 ; may be ov17 ; ov16(Mica)
 	mov r0, r4
@@ -3029,7 +3029,7 @@ _0211C7C4:
 	moveq r0, #1
 	streqb r0, [r5, #0x940]
 	sub r1, r2, #2
-	ldr r0, _0211C950 ; =0x0209BA20
+	ldr r0, _0211C950 ; =gLogicThink
 	str r4, [r5, #0x60]
 	str r2, [r5, #0x64]
 	str r1, [r5, #0x68]
@@ -3266,7 +3266,7 @@ _0211CBF0:
 	mov r0, #0
 	str r0, [r4, #0x944]
 _0211CBF8:
-	ldr r5, _0211CC54 ; =0x0209BA20
+	ldr r5, _0211CC54 ; =gLogicThink
 	ldrh r1, [r4, #0x10]
 	mov r0, r5
 	bl FUN_020728a8

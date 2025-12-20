@@ -71,7 +71,7 @@
 .public FUN_0204bd64
 .public FUN_ov16_02113f7c
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public _ZdlPv
 .public FX_Sqrt

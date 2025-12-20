@@ -254,7 +254,7 @@
 .public _ZN8CManager7vFUN_20Ev
 .public FUN_02029d08
 .public FUN_02029d04
-.public _ZN8CManager7vFUN_34Ev
+.public _ZN8CManager11updateSceneEv
 .public FUN_020525e8
 .public unk_0208A874
 .public unk_020A0700
@@ -287,7 +287,7 @@
 .public FUN_0206c718
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public gL5Allocator
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public _ZN11L5Allocator10deallocateEPv
 .public MIi_CpuCopy32
 .public FUN_0207445c
@@ -466,7 +466,7 @@
 .public FUN_ov131_0213acc0
 .public unk_02099F44
 .public _ZdlPv
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public _ZN7CFileIO12readDeferredEPKcPPvP11L5Allocatorimih
 .public _ZN7CFileIO11readFromSFPEPcPPvS1_
 .public gFileIO

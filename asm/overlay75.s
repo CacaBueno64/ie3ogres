@@ -6,7 +6,7 @@
 	arm_func_start FUN_ov75_02119f00
 FUN_ov75_02119f00: ; 0x02119F00
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r6, _0211A038 ; =0x0209BA20
+	ldr r6, _0211A038 ; =gLogicThink
 	mov r4, #0
 	mov r0, r6
 	bl FUN_02072898
@@ -85,7 +85,7 @@ _0211A014:
 	ldreqb r0, [r5, #0x88]
 	cmpeq r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _0211A038 ; =0x0209BA20
+	ldr r0, _0211A038 ; =gLogicThink
 	mov r1, #0
 	bl FUN_0204eb4c
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -127,7 +127,7 @@ FUN_ov75_0211a048: ; 0x0211A048
 	strh r2, [r1, #2]
 	strh r6, [r0]
 	mov r2, #0x30
-	ldr r1, _0211A224 ; =0x0209BA20
+	ldr r1, _0211A224 ; =gLogicThink
 	strh r2, [r0, #2]
 	ldr r0, _0211A228 ; =0x020A0640
 	ldrb r2, [r1, #0x890]

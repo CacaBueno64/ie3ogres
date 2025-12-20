@@ -116,6 +116,8 @@ size_t CFileIO::getFileLength(const char *path)
 
 #ifdef NONMATCHING
 
+// https://decomp.me/scratch/NalIT
+// https://decomp.me/scratch/Q7U06
 // ...
 
 #else //NONMATCHING
@@ -123,14 +125,12 @@ extern "C" {
     extern void _ZN7CFileIO11getDestSizeEP11FileRequestP6FSFilePm(void);
     extern void _ZN11L5Allocator12setNextArenaEi(void);
     extern void _ZN7CFileIO8allocateEm(void);
-    extern void _ZN11L5Allocator8allocateEiii(void);
+    extern void _ZN11L5Allocator8allocateEmii(void);
     extern void _ZN11L5Allocator10deallocateEPv(void);
     extern void _ZN7CFileIO10deallocateEPv(void);
     extern void _ZN7CFileIO10uncompressEPvP11FileRequest(void);
 }
 
-// https://decomp.me/scratch/NalIT
-// https://decomp.me/scratch/Q7U06
 asm size_t CFileIO::readDirect(const char *path, void **dest, L5Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
 {
     stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
@@ -231,7 +231,7 @@ _0202F130:
 	ldr r0, [r0, #4]
 	ldr r1, [sp, #0xdc]
 	mov r2, #1
-	bl _ZN11L5Allocator8allocateEiii
+	bl _ZN11L5Allocator8allocateEmii
 	movs r5, r0
 	bne _0202F18C
 _0202F170:

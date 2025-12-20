@@ -109,7 +109,7 @@
 .public FUN_020576a0
 .public FUN_ov16_020f153c
 .public FUN_ov0_020be3f8
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_ov16_0210e674

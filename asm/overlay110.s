@@ -195,7 +195,7 @@ FUN_ov110_02124f70: ; 0x02124F70
 	ldmnefd sp!, {r3, r4, r5, pc}
 _02124F90:
 	ldrh r1, [r5, #0x1c]
-	ldr r0, _02124FCC ; =0x0209BA20
+	ldr r0, _02124FCC ; =gLogicThink
 	bl FUN_ov16_020ee034
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -309,7 +309,7 @@ FUN_ov110_021250f4: ; 0x021250F4
 	bne _02125124
 	ldr r0, _0212518C ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125124:
 	ldr r0, [r4, #4]
@@ -317,7 +317,7 @@ _02125124:
 	bne _02125140
 	ldr r0, _0212518C ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02125140:
 	ldr r2, [r4]
@@ -355,7 +355,7 @@ FUN_ov110_02125190: ; 0x02125190
 	stmia r5!, {r0, r1, r2, r3}
 	ldmia r6, {r0, r1, r2, r3}
 	stmia r5, {r0, r1, r2, r3}
-	ldr r6, _02125320 ; =0x0209BA20
+	ldr r6, _02125320 ; =gLogicThink
 	mov r2, #0
 	ldrh r1, [r4, #0x1c]
 	mov r0, r6
@@ -457,7 +457,7 @@ FUN_ov110_02125328: ; 0x02125328
 	sub sp, sp, #0xa0
 	mov r9, r0
 	ldrh r1, [r9, #0x1c]
-	ldr r0, _02125738 ; =0x0209BA20
+	ldr r0, _02125738 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	mov r10, #0
 	cmp r0, #0
@@ -468,7 +468,7 @@ FUN_ov110_02125328: ; 0x02125328
 	mov r0, r5
 	mov r2, #0x980
 	bl MIi_CpuClearFast
-	ldr r4, _02125738 ; =0x0209BA20
+	ldr r4, _02125738 ; =gLogicThink
 	sub r11, r10, #0x16
 _0212536C:
 	add r0, r9, r5, lsl #1
@@ -1070,7 +1070,7 @@ _02125BE4:
 	stmia r6!, {r0, r1, r2, r3}
 	ldmia r7, {r0, r1, r2}
 	stmia r6, {r0, r1, r2}
-	ldr r7, _02125D30 ; =0x0209BA20
+	ldr r7, _02125D30 ; =gLogicThink
 	ldrh r1, [r5, #0x1c]
 	mov r0, r7
 	bl FUN_ov16_020ee034
@@ -1160,7 +1160,7 @@ FUN_ov110_02125d34: ; 0x02125D34
 	ldmia r6, {r0, r1, r2}
 	stmia r4, {r0, r1, r2}
 	mov r6, #0
-	ldr r11, _0212600C ; =0x0209BA20
+	ldr r11, _0212600C ; =gLogicThink
 	mov r4, r6
 _02125D68:
 	add r0, r10, r6, lsl #1
@@ -1249,7 +1249,7 @@ _02125EA0:
 	cmp r6, #8
 	blt _02125D68
 	mov r7, #0
-	ldr r4, _0212600C ; =0x0209BA20
+	ldr r4, _0212600C ; =gLogicThink
 	mov r5, r7
 _02125EB8:
 	add r0, r10, r7, lsl #1
@@ -1593,7 +1593,7 @@ FUN_ov110_02126354: ; 0x02126354
 	ldrh r1, [r7, #0x1c]
 	cmp r1, #0
 	beq _021263A8
-	ldr r0, _02126440 ; =0x0209BA20
+	ldr r0, _02126440 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	movs r5, r0
 	ldrneb r6, [r5, #0x1d]
@@ -2069,7 +2069,7 @@ FUN_ov110_021269d8: ; 0x021269D8
 	mov r4, #0x980
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r2, r4
 	mov r1, r0
 	str r1, [r8, #0x2c]
@@ -2077,7 +2077,7 @@ FUN_ov110_021269d8: ; 0x021269D8
 	bl MIi_CpuClearFast
 	mov r0, r5
 	mov r1, #0x6c0
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r8, #0x30]
 	mov r0, r6
 	add r1, r8, #0x34
@@ -2106,7 +2106,7 @@ _02126AB0: .word gBgMenuManager
 	arm_func_start FUN_ov110_02126ab4
 FUN_ov110_02126ab4: ; 0x02126AB4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r7, _02126BA8 ; =0x0209BA20
+	ldr r7, _02126BA8 ; =gLogicThink
 	mov r5, #0
 	mov r6, r0
 	mov r0, r7
@@ -2138,7 +2138,7 @@ _02126B20:
 	cmp r8, #0x64
 	blt _02126AE4
 	mov r9, #0
-	ldr r0, _02126BA8 ; =0x0209BA20
+	ldr r0, _02126BA8 ; =gLogicThink
 	mov r1, r9
 	bl FUN_0205107c
 	mov r8, r0

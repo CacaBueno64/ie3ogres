@@ -113,8 +113,8 @@
 .public FUN_ov16_020f2f7c
 .public FUN_02071fac
 .public FUN_ov16_020f2fa8
-.public _ZN11L5Allocator8allocateEiii
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEmii
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear16
 .public gL5Allocator
 .public FUN_ov16_020f330c
@@ -157,7 +157,7 @@
 .public FUN_02058e30
 .public FUN_02059004
 .public FUN_02059038
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_020f068c
 .public unk_02099EA0
 .public FUN_ov16_0210eb3c

@@ -13,7 +13,7 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020efa9c

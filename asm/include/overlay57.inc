@@ -217,7 +217,7 @@
 .public _ZN14CScreenManager14getCurSceneSubEv
 .public FUN_ov16_020f153c
 .public FUN_ov16_020f1514
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_0204b23c
 .public FUN_0205722c
 .public unk_0209A110

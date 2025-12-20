@@ -8,7 +8,7 @@ FUN_ov42_02119f00: ; 0x02119F00
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, #0
 	mov r5, r0
-	ldr r0, _0211A11C ; =0x0209BA20
+	ldr r0, _0211A11C ; =gLogicThink
 	mov r1, r8
 	mov r4, r8
 	bl FUN_0205107c
@@ -56,7 +56,7 @@ _02119FA0:
 _02119FAC:
 	cmp r8, #0x64
 	blt _02119F78
-	ldr r0, _0211A11C ; =0x0209BA20
+	ldr r0, _0211A11C ; =gLogicThink
 	mov r1, r4
 	bl FUN_0207249c
 	strh r4, [r0, #0x28]
@@ -1470,7 +1470,7 @@ FUN_ov42_0211b238: ; 0x0211B238
 	strb r7, [r0, #0xf3c]
 	str r7, [r0, #0xf48]
 	str r7, [sp]
-	ldr r0, _0211B6C0 ; =0x0209BA20
+	ldr r0, _0211B6C0 ; =gLogicThink
 	mov r2, r5
 	mov r1, r7
 	mov r3, #0x10
@@ -1504,7 +1504,7 @@ _0211B348:
 _0211B358:
 	add r0, sp, #8
 	ldr r4, [r0, r6, lsl #2]
-	ldr r11, _0211B6C0 ; =0x0209BA20
+	ldr r11, _0211B6C0 ; =gLogicThink
 	mov r2, r4
 	mov r0, r11
 	mov r1, #2
@@ -1601,7 +1601,7 @@ _0211B48C:
 	add r1, r1, r6
 	mov r2, #0x10
 	bl MI_CpuCopy8
-	ldr r11, _0211B6C0 ; =0x0209BA20
+	ldr r11, _0211B6C0 ; =gLogicThink
 	mov r1, r4
 	add r7, r10, r6
 	mov r0, r11
@@ -3191,10 +3191,10 @@ FUN_ov42_0211ca8c: ; 0x0211CA8C
 	bne _0211CADC
 	ldr r4, [r5, #4]
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211CADC:
 	ldr r5, [r5, #4]
@@ -5705,7 +5705,7 @@ FUN_ov42_0211ee38: ; 0x0211EE38
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r7, #0
-	ldr r0, _0211EF34 ; =0x0209BA20
+	ldr r0, _0211EF34 ; =gLogicThink
 	mov r1, r7
 	bl FUN_0205107c
 	add r2, r10, #0x1fc
@@ -6619,7 +6619,7 @@ FUN_ov42_0211fac4: ; 0x0211FAC4
 	bl FUN_ov42_0211fb0c
 	mov r0, r4
 	bl FUN_ov42_0211fb8c
-	ldr r0, _0211FB08 ; =0x0209BA20
+	ldr r0, _0211FB08 ; =gLogicThink
 	mov r1, #0
 	mov r2, #3
 	bl FUN_02050f4c
@@ -6643,7 +6643,7 @@ FUN_ov42_0211fb0c: ; 0x0211FB0C
 	stmia r4!, {r0, r1, r2, r3}
 	ldmia r5, {r0, r1, r2, r3}
 	stmia r4, {r0, r1, r2, r3}
-	ldr r5, _0211FB88 ; =0x0209BA20
+	ldr r5, _0211FB88 ; =gLogicThink
 	mov r7, #0
 	mov r4, #2
 _0211FB4C:
@@ -6670,7 +6670,7 @@ _0211FB88: .word gLogicThink
 FUN_ov42_0211fb8c: ; 0x0211FB8C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, #0
-	ldr r8, _0211FBE0 ; =0x0209BA20
+	ldr r8, _0211FBE0 ; =gLogicThink
 	mov r5, r0
 	mov r9, r4
 	mov r7, #2

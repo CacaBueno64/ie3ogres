@@ -147,7 +147,7 @@ _0211A0A0:
 	blx r1
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _0211A0B4: .word unk_0209A454
 	arm_func_end FUN_ov61_0211a070
@@ -1427,7 +1427,7 @@ FUN_ov61_0211b1b0: ; 0x0211B1B0
 	ldr r1, [r0, #0x50]
 	add r2, r0, #0xe6
 	ldrsb r1, [r1, #0x45]
-	ldr r0, _0211B1D0 ; =0x0209BA20
+	ldr r0, _0211B1D0 ; =gLogicThink
 	ldr r12, _0211B1D4 ; =FUN_020735a0
 	add r2, r2, #0x100
 	mov r3, #0x19
@@ -3654,7 +3654,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r6, r0
 	mov r0, r8
 	mov r1, #0xc000
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r3, r0
 	ldr r0, _0211D460 ; =FUN_ov61_0211d9e0
 	mov r1, r6
@@ -3667,7 +3667,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r4, #0x800
 	mov r0, r8
 	mov r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r2, r4
 	ldr r7, _0211D468 ; =0x0211F5E0
 	mov r1, r0
@@ -3677,7 +3677,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	bl MIi_CpuClearFast
 	mov r0, r8
 	mov r1, #0xa0
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r7, #0x14]
 	mov r5, #0xc0
 	ldr r0, _0211D46C ; =0x0211F600
@@ -3689,7 +3689,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r0, r8
 	mov r2, #0x10
 	mov r3, r5
-	bl _ZN11L5Allocator8allocateEiii
+	bl _ZN11L5Allocator8allocateEmii
 	str r0, [r6, #0x200]
 	str r4, [r6, #0x20c]
 	str r5, [r7, #8]
@@ -3803,7 +3803,7 @@ _0211D370:
 _0211D40C:
 	mov r0, r8
 	mov r1, r7
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	add r1, r6, r5, lsl #2
 	str r0, [r1, #0x50]
 	cmp r0, #0
@@ -4160,7 +4160,7 @@ _0211D878:
 	ldrh r0, [r0]
 	tst r0, #0x40
 	beq _0211D8B8
-	ldr r0, _0211D9AC ; =0x0209BA20
+	ldr r0, _0211D9AC ; =gLogicThink
 	mov r1, #0xf
 	bl FUN_0207405c
 	orr r4, r4, r0
@@ -4169,7 +4169,7 @@ _0211D8B8:
 	ldrh r0, [r0]
 	tst r0, #0x20
 	beq _0211D8D8
-	ldr r0, _0211D9AC ; =0x0209BA20
+	ldr r0, _0211D9AC ; =gLogicThink
 	mov r1, #1
 	bl FUN_0207405c
 	orr r4, r4, r0
@@ -4178,7 +4178,7 @@ _0211D8D8:
 	ldrh r0, [r0]
 	tst r0, #0x10
 	beq _0211D8F8
-	ldr r0, _0211D9AC ; =0x0209BA20
+	ldr r0, _0211D9AC ; =gLogicThink
 	mov r1, #6
 	bl FUN_0207405c
 	orr r4, r4, r0
@@ -4187,7 +4187,7 @@ _0211D8F8:
 	ldrh r0, [r0]
 	tst r0, #0x80
 	beq _0211D918
-	ldr r0, _0211D9AC ; =0x0209BA20
+	ldr r0, _0211D9AC ; =gLogicThink
 	mov r1, #8
 	bl FUN_0207405c
 	orr r4, r4, r0
@@ -5326,7 +5326,7 @@ FUN_ov61_0211e744: ; 0x0211E744
 	cmp r0, #0x1a
 	bne _0211E780
 	ldr r0, [r4, #4]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0xe

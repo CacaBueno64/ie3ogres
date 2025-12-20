@@ -1190,7 +1190,7 @@ _0202AF38:
 	mov r0, r4
 	mov r1, #0
 	bl _ZN11L5Allocator15setDefaultArenaEi
-	ldr r0, _0202AF9C ; =0x0209BA20
+	ldr r0, _0202AF9C ; =gLogicThink
 	bl FUN_0206f29c
 	bl FUN_0202a698
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -1687,7 +1687,7 @@ FUN_0202b448: ; 0x0202B448
 	add r1, r8, #0x10
 	mov r2, r7
 	mov r3, r6
-	bl _ZN11L5Allocator8allocateEiii
+	bl _ZN11L5Allocator8allocateEmii
 	add r5, sp, #0
 	mov r10, r0
 	mov r0, r5
@@ -1835,7 +1835,7 @@ _0202B6A0:
 	ldr r1, _0202B708 ; =0x00064010
 	mov r3, #1
 	strb r2, [r4, #0x5f]
-	bl _ZN11L5Allocator8allocateEiii
+	bl _ZN11L5Allocator8allocateEmii
 	mov r1, #5
 	str r0, [r4, #0x58]
 	str r0, [r4, #0x6c]
@@ -1996,7 +1996,7 @@ _0202B8A4:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202B8C8:
-	ldr r0, _0202BAB0 ; =0x0209BA20
+	ldr r0, _0202BAB0 ; =gLogicThink
 	bl FUN_020731a4
 	cmp r0, #0
 	mov r1, #0
@@ -4698,8 +4698,8 @@ _0202DC40:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202dc1c
 
-	arm_func_start _ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_
-_ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_: ; 0x0202DC54
+	arm_func_start _ZN11L5Allocator10initArenasE9OSArenaIdPvS1_
+_ZN11L5Allocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r0, r1
@@ -4794,7 +4794,7 @@ _0202DD7C:
 	str r0, [r10, #0x50]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202DD9C: .word unk_0208C348
-	arm_func_end _ZN11L5Allocator12FUN_0202dc54E9OSArenaIdPvS1_
+	arm_func_end _ZN11L5Allocator10initArenasE9OSArenaIdPvS1_
 
 	arm_func_start FUN_0202dda0
 FUN_0202dda0: ; 0x0202DDA0
@@ -4844,17 +4844,17 @@ _0202DE3C:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202dda0
 
-	arm_func_start FUN_0202de44
-FUN_0202de44: ; 0x0202DE44
-	ldr r12, _0202DE54 ; =_ZN11L5Allocator8allocateEiii
+	arm_func_start _ZN11L5Allocator8allocateEm
+_ZN11L5Allocator8allocateEm: ; 0x0202DE44
+	ldr r12, _0202DE54 ; =_ZN11L5Allocator8allocateEmii
 	mov r2, #0
 	mov r3, #1
 	bx r12
-_0202DE54: .word _ZN11L5Allocator8allocateEiii
-	arm_func_end FUN_0202de44
+_0202DE54: .word _ZN11L5Allocator8allocateEmii
+	arm_func_end _ZN11L5Allocator8allocateEm
 
-	arm_func_start _ZN11L5Allocator8allocateEiii
-_ZN11L5Allocator8allocateEiii: ; 0x0202DE58
+	arm_func_start _ZN11L5Allocator8allocateEmii
+_ZN11L5Allocator8allocateEmii: ; 0x0202DE58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r7, _0202E198 ; =0x0208C340
@@ -5087,7 +5087,7 @@ _0202E178:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202E198: .word unk_0208C340
-	arm_func_end _ZN11L5Allocator8allocateEiii
+	arm_func_end _ZN11L5Allocator8allocateEmii
 
 	arm_func_start _ZN11L5Allocator12setNextArenaEi
 _ZN11L5Allocator12setNextArenaEi: ; 0x0202E19C

@@ -180,7 +180,7 @@ FUN_ov125_02124f60: ; 0x02124F60
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x74
 	mov r10, r0
-	ldr r8, _02124FF8 ; =0x0209BA20
+	ldr r8, _02124FF8 ; =gLogicThink
 	mov r9, #0
 	add r5, r10, #0xd0
 	mov r6, #1
@@ -233,7 +233,7 @@ _02125014:
 	ldrh r1, [r0, #0x80]
 	cmp r1, #0
 	beq _021250BC
-	ldr r0, _021250D8 ; =0x0209BA20
+	ldr r0, _021250D8 ; =gLogicThink
 	add r2, sp, #0
 	bl FUN_0204bd64
 	cmp r0, #0
@@ -525,7 +525,7 @@ FUN_ov125_021253e8: ; 0x021253E8
 	bne _02125418
 	ldr r0, _02125490 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125418:
 	ldr r0, [r4, #4]
@@ -533,7 +533,7 @@ _02125418:
 	bne _02125434
 	ldr r0, _02125490 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02125434:
 	ldr r2, [r4]
@@ -571,7 +571,7 @@ FUN_ov125_02125494: ; 0x02125494
 	mov r6, r0
 	mov r5, r1
 	mov r1, r2
-	ldr r0, _02125560 ; =0x0209BA20
+	ldr r0, _02125560 ; =gLogicThink
 	add r2, sp, #0x1c
 	bl FUN_0204bd64
 	cmp r0, #0
@@ -627,7 +627,7 @@ FUN_ov125_02125568: ; 0x02125568
 	sub sp, sp, #0x1c
 	mov r7, r0
 	mov r6, r1
-	ldr r0, _0212564C ; =0x0209BA20
+	ldr r0, _0212564C ; =gLogicThink
 	mov r1, r2
 	bl FUN_ov16_020ee034
 	movs r4, r0
@@ -768,7 +768,7 @@ FUN_ov125_0212575c: ; 0x0212575C
 	mov r5, r0
 	mov r4, r1
 	mov r1, r2
-	ldr r0, _02125810 ; =0x0209BA20
+	ldr r0, _02125810 ; =gLogicThink
 	add r2, sp, #0x20
 	bl FUN_0204bd64
 	cmp r0, #0
@@ -821,7 +821,7 @@ FUN_ov125_02125818: ; 0x02125818
 	cmp r1, #0
 	addeq sp, sp, #0x20
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _02125988 ; =0x0209BA20
+	ldr r0, _02125988 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	cmp r0, #0
 	addeq sp, sp, #0x20
@@ -1317,7 +1317,7 @@ FUN_ov125_02125e9c: ; 0x02125E9C
 	mov r6, #0xa80
 	mov r0, r7
 	mov r1, r6
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r1, r0
 	mov r2, r6
 	mov r0, r4
@@ -1326,7 +1326,7 @@ FUN_ov125_02125e9c: ; 0x02125E9C
 	mov r6, #0xc0
 	mov r0, r7
 	mov r1, r6
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r5, #0x18]
 	mov r1, r6
 	add r0, r5, #0x1c

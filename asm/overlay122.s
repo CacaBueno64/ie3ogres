@@ -180,7 +180,7 @@ _02124F1C:
 	beq _021251B0
 	cmp r0, #1
 	movne r5, #1
-	ldr r0, _021251C0 ; =0x0209BA20
+	ldr r0, _021251C0 ; =gLogicThink
 	mov r1, r5
 	bl FUN_0207249c
 	ldrh r0, [r0, #0x22]
@@ -217,7 +217,7 @@ _02124FB4:
 _02124FC8:
 	cmp r0, #1
 	mov r1, #0
-	ldr r0, _021251C0 ; =0x0209BA20
+	ldr r0, _021251C0 ; =gLogicThink
 	movne r1, #1
 	bl FUN_0207249c
 	ldr r0, [r4, #0xc]
@@ -247,7 +247,7 @@ _02125024:
 _02125038:
 	cmp r0, #1
 	mov r1, #0
-	ldr r0, _021251C0 ; =0x0209BA20
+	ldr r0, _021251C0 ; =gLogicThink
 	movne r1, #1
 	bl FUN_0207249c
 	mov r10, r0
@@ -836,7 +836,7 @@ _021258A4:
 	addeq sp, sp, #0x30
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r4, #0
-	ldr r0, _02125970 ; =0x0209BA20
+	ldr r0, _02125970 ; =gLogicThink
 	ldr r1, [sp, #0x14]
 	mov r3, r4
 	mov r2, #0xf

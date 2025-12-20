@@ -23,7 +23,7 @@ typedef enum {
     STATE_ERROR
 } FileRequestState;
 
-struct FileRequest {
+typedef struct FileRequest {
     MICompressionHeader compHeader;
     L5Allocator *allocator;
     char path[64];
@@ -34,7 +34,7 @@ struct FileRequest {
     FSFileID file_id;
     FileRequest *prev;
     FileRequest *next;
-};
+} FileRequest;
 
 class CFileIO {
     public:

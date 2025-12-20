@@ -14,7 +14,7 @@ FUN_ov15_020df358: ; 0x020DF358
 	str r7, [r8, #0xb4]
 	str r7, [r8, #0xb8]
 	str r7, [r8, #0xc0]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r5, r0
 	ldr r1, _020DF3E8 ; =0x4245384A
 	ldr r2, _020DF3EC ; =FUN_ov15_020e0620
@@ -1444,7 +1444,7 @@ FUN_ov15_020e0620: ; 0x020E0620
 	mov r4, r2
 	ldr r0, _020E067C ; =gL5Allocator
 	add r1, r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	sub r2, r4, #1
 	add r1, r0, r4
 	mvn r2, r2
@@ -1563,12 +1563,12 @@ FUN_ov15_020e0764: ; 0x020E0764
 	str r4, [r5, #0x80]
 	str r4, [r5, #0x84]
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r7, #1
 	mov r1, r7
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r4
 	mov r6, #0x14
@@ -1718,7 +1718,7 @@ FUN_ov15_020e0968: ; 0x020E0968
 	mov r1, r4
 	str r12, [sp, #4]
 	str r5, [sp, #0x24]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r1, r0
 	mov r2, r4
 	mov r0, r7
@@ -1799,7 +1799,7 @@ _020E0AE0:
 	mov r0, r6
 	mov r2, r4
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r6, #0x80]
 	cmp r0, #0
 	beq _020E0B08
@@ -1857,7 +1857,7 @@ _020E0BAC:
 	mov r0, r6
 	mov r2, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r6, #0x84]
 	cmp r0, #0
 	beq _020E0BD4
@@ -2118,7 +2118,7 @@ FUN_ov15_020e0f1c: ; 0x020E0F1C
 	ldr r5, _020E0F64 ; =gL5Allocator
 	mov r1, #0x720
 	mov r0, r5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r4, r0
 	ldr r1, _020E0F68 ; =0x4245384A
 	ldr r2, _020E0F6C ; =FUN_ov15_020e1148
@@ -2166,7 +2166,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	ldr r11, _020E1050 ; =gL5Allocator
 	ldr r1, _020E1054 ; =0x00040020
 	mov r0, r11
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r4, r0
 	add r0, r4, #0x1f
 	bic r0, r0, #0x1f
@@ -2276,10 +2276,10 @@ _020E1144: .word 0x04000208
 	arm_func_start FUN_ov15_020e1148
 FUN_ov15_020e1148: ; 0x020E1148
 	ldr r0, _020E1154 ; =gL5Allocator
-	ldr r12, _020E1158 ; =FUN_0202de44
+	ldr r12, _020E1158 ; =_ZN11L5Allocator8allocateEm
 	bx r12
 _020E1154: .word gL5Allocator
-_020E1158: .word FUN_0202de44
+_020E1158: .word _ZN11L5Allocator8allocateEm
 	arm_func_end FUN_ov15_020e1148
 
 	arm_func_start FUN_ov15_020e115c

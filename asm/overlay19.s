@@ -1028,10 +1028,10 @@ _0211AD3C:
 	ldr r5, [r5, #4]
 	mov r1, r4
 	mov r0, r5
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r5
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211AD80: .word ov93_021253E0
 _0211AD84: .word unk_020A0640

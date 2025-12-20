@@ -20,12 +20,12 @@ FUN_ov3_020bcb40: ; 0x020BCB40
 	mov r0, r7
 	mov r1, r5
 	mov r2, r5
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r4, #1
 	mov r0, r7
 	mov r1, r4
 	mov r2, r5
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r2, r6
 	mov r0, r7
 	mov r1, r5
@@ -132,7 +132,7 @@ _020BCCF4:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #0x80]
 	cmp r0, #0
 	beq _020BCD1C
@@ -190,7 +190,7 @@ _020BCDC4:
 	mov r0, r5
 	mov r2, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r5, #0x84]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}

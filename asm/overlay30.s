@@ -434,7 +434,7 @@ FUN_ov30_0211a448: ; 0x0211A448
 	mov r1, #0
 	str r1, [sp]
 	ldr r2, [sp, #0xc]
-	ldr r0, _0211A540 ; =0x0209BA20
+	ldr r0, _0211A540 ; =gLogicThink
 	stmib sp, {r2, r4}
 	ldr r3, [sp, #0x10]
 	rsb r2, r4, #0x1000

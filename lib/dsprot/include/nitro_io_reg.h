@@ -5,7 +5,7 @@
 
 #include <nitro/hw/ARM9/ioreg.h>
 
-// dsi only
+// #include <twl/hw/ARM9/ioreg.h>
 #define REG_A9ROM_OFFSET 0x4000
 #define REG_SCFG_A9ROM_SEC_MASK 0x01
 

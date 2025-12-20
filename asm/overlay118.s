@@ -59,7 +59,7 @@ _02124DA8:
 	mov r6, #1
 	add r7, sp, #8
 	add r11, sp, #4
-	ldr r8, _02124E54 ; =0x0209BA20
+	ldr r8, _02124E54 ; =gLogicThink
 	mov r4, #0xc
 	b _02124E28
 _02124DC8:
@@ -387,7 +387,7 @@ _021251C0:
 	add r0, r10, #0x28
 	bl FUN_ov16_020f2f20
 	mov r8, #3
-	ldr r9, _02125414 ; =0x0209BA20
+	ldr r9, _02125414 ; =gLogicThink
 	ldr r5, _02125418 ; =gFont12
 	b _021252A8
 _02125234:
@@ -1034,7 +1034,7 @@ FUN_ov118_02125ad8: ; 0x02125AD8
 	mov r1, r6
 	add r0, r4, #0x14
 	bl FUN_ov16_020f2f7c
-	ldr r0, _02125B80 ; =0x0209BA20
+	ldr r0, _02125B80 ; =gLogicThink
 	bl FUN_ov16_020eeca0
 	bl FUN_ov1_020db2ac
 	cmp r0, #0
@@ -1065,7 +1065,7 @@ FUN_ov118_02125b84: ; 0x02125B84
 	bl FUN_ov16_020f338c
 	mov r0, r4
 	bl FUN_ov118_02124f1c
-	ldr r0, _02125BAC ; =0x0209BA20
+	ldr r0, _02125BAC ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	ldmfd sp!, {r4, pc}
 _02125BAC: .word gLogicThink

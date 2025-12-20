@@ -32,7 +32,7 @@
 .public FUN_ov16_0210fa70
 .public FUN_ov16_0210fb60
 .public FUN_02059e58
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_02044464
 .public FUN_02044e98
@@ -256,7 +256,7 @@
 .public FUN_ov16_0210ec34
 .public FUN_ov16_0210ef88
 .public FUN_ov16_020f081c
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_02099E94
 .public FUN_ov16_020fe47c
 .public FUN_02045950
@@ -555,7 +555,7 @@
 .public FUN_ov16_021137dc
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public strncpy
 .public strlen
 .public FUN_ov16_02112f04

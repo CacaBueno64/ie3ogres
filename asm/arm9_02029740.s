@@ -436,10 +436,10 @@ FUN_02029cec: ; 0x02029CEC
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029cec
 
-	arm_func_start _ZN8CManager7vFUN_34Ev
-_ZN8CManager7vFUN_34Ev: ; 0x02029D00
+	arm_func_start _ZN8CManager11updateSceneEv
+_ZN8CManager11updateSceneEv: ; 0x02029D00
 	bx lr
-	arm_func_end _ZN8CManager7vFUN_34Ev
+	arm_func_end _ZN8CManager11updateSceneEv
 
 	arm_func_start FUN_02029d04
 FUN_02029d04: ; 0x02029D04

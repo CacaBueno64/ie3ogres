@@ -578,7 +578,7 @@ FUN_0206c158: ; 0x0206C158
 	ldr r8, _0206C268 ; =gL5Allocator
 	mov r1, r6
 	mov r0, r8
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r5, #4]
 	cmp r0, #0
 	moveq r0, #0
@@ -590,7 +590,7 @@ FUN_0206c158: ; 0x0206C158
 	mov r9, r4, lsl #2
 	mov r0, r8
 	mov r1, r9
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r5, #8]
 	cmp r0, #0
 	moveq r0, r7
@@ -602,7 +602,7 @@ FUN_0206c158: ; 0x0206C158
 	mul r10, r4, r6
 	mov r0, r8
 	mov r1, r10
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r5, #0xc]
 	cmp r0, #0
 	moveq r0, r7
@@ -612,7 +612,7 @@ FUN_0206c158: ; 0x0206C158
 	bl MI_CpuFill8
 	mov r0, r8
 	add r1, r9, #0x1a
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r5, #0x14]
 	cmp r0, #0
 	moveq r0, r7
@@ -623,7 +623,7 @@ FUN_0206c158: ; 0x0206C158
 	ldr r1, [r5, #0xc]
 	sub r0, r4, #1
 	mla r2, r0, r6, r1
-	ldr r0, _0206C26C ; =0x0209BA20
+	ldr r0, _0206C26C ; =gLogicThink
 	mov r1, r7
 	strh r4, [r5, #0x18]
 	str r2, [r5, #0x10]
@@ -750,7 +750,7 @@ _0206C3E8:
 	bl FUN_0206d620
 	cmp r7, #0
 	beq _0206C558
-	ldr r10, _0206C568 ; =0x0209BA20
+	ldr r10, _0206C568 ; =gLogicThink
 	mov r1, r7
 	mov r0, r10
 	mov r2, r4
@@ -791,7 +791,7 @@ _0206C480:
 	bl FUN_0206cc1c
 	mov r0, r4
 	bl FUN_0206cbf8
-	ldr r10, _0206C568 ; =0x0209BA20
+	ldr r10, _0206C568 ; =gLogicThink
 	mov r7, r0
 	mov r0, r10
 	mov r1, r9
@@ -817,7 +817,7 @@ _0206C4DC:
 	mov r1, r7
 	bl FUN_ov16_020eeb24
 _0206C4F4:
-	ldr r10, _0206C568 ; =0x0209BA20
+	ldr r10, _0206C568 ; =gLogicThink
 	ldr r2, [sp, #0xd8]
 	mov r0, r10
 	mov r1, r4
@@ -1726,7 +1726,7 @@ _0206CEFC:
 	mov r6, #0
 	bl FUN_0206cc00
 	add r4, sp, #0
-	ldr r5, _0206CFCC ; =0x0209BA20
+	ldr r5, _0206CFCC ; =gLogicThink
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
@@ -1798,7 +1798,7 @@ _0206D010:
 	mov r7, #0
 	bl FUN_0206cc00
 	add r4, sp, #0
-	ldr r5, _0206D0E4 ; =0x0209BA20
+	ldr r5, _0206D0E4 ; =gLogicThink
 	mov r1, r0
 	mov r0, r5
 	mov r2, r4
@@ -1953,7 +1953,7 @@ FUN_0206d1e4: ; 0x0206D1E4
 	strneb r4, [r8]
 	cmp r4, #6
 	bhs _0206D300
-	ldr r0, _0206D310 ; =0x0209BA20
+	ldr r0, _0206D310 ; =gLogicThink
 	mov r1, r6
 	bl FUN_0204a2c4
 	cmp r0, #0
@@ -2018,7 +2018,7 @@ _0206D310: .word gLogicThink
 	arm_func_start FUN_0206d314
 FUN_0206d314: ; 0x0206D314
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r6, _0206D384 ; =0x0209BA20
+	ldr r6, _0206D384 ; =gLogicThink
 	mov r8, r0
 	mov r0, r6
 	mov r4, r2
@@ -2529,7 +2529,7 @@ _0206D858:
 	bl FUN_0206d8c8
 	ldmfd sp!, {r3, r4, r5, pc}
 _0206D860:
-	ldr r4, _0206D8A4 ; =0x0209BA20
+	ldr r4, _0206D8A4 ; =gLogicThink
 	mov r0, r4
 	bl FUN_020731b4
 	cmp r0, #0
@@ -2598,7 +2598,7 @@ _0206D910:
 	bl FUN_0206d998
 	ldmfd sp!, {r4, r5, r6, pc}
 _0206D918:
-	ldr r4, _0206D964 ; =0x0209BA20
+	ldr r4, _0206D964 ; =gLogicThink
 	mov r0, r4
 	bl FUN_020731b4
 	cmp r0, #0
@@ -2962,7 +2962,7 @@ FUN_0206dcdc: ; 0x0206DCDC
 	arm_func_start FUN_0206dcf0
 FUN_0206dcf0: ; 0x0206DCF0
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DD50 ; =0x0209BA20
+	ldr r4, _0206DD50 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -2994,7 +2994,7 @@ _0206DD54: .word unk_0209A11C
 	arm_func_start FUN_0206dd58
 FUN_0206dd58: ; 0x0206DD58
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DDB8 ; =0x0209BA20
+	ldr r4, _0206DDB8 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3026,7 +3026,7 @@ _0206DDBC: .word unk_0209A11C
 	arm_func_start FUN_0206ddc0
 FUN_0206ddc0: ; 0x0206DDC0
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DE20 ; =0x0209BA20
+	ldr r4, _0206DE20 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3058,7 +3058,7 @@ _0206DE24: .word unk_0209A11C
 	arm_func_start FUN_0206de28
 FUN_0206de28: ; 0x0206DE28
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DE88 ; =0x0209BA20
+	ldr r4, _0206DE88 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3090,7 +3090,7 @@ _0206DE8C: .word unk_0209A11C
 	arm_func_start FUN_0206de90
 FUN_0206de90: ; 0x0206DE90
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DEF0 ; =0x0209BA20
+	ldr r4, _0206DEF0 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3122,7 +3122,7 @@ _0206DEF4: .word unk_0209A11C
 	arm_func_start FUN_0206def8
 FUN_0206def8: ; 0x0206DEF8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _0206DF64 ; =0x0209BA20
+	ldr r4, _0206DF64 ; =gLogicThink
 	mov r7, r0
 	mov r0, r4
 	mov r6, r1
@@ -3157,7 +3157,7 @@ _0206DF68: .word unk_0209A11C
 	arm_func_start FUN_0206df6c
 FUN_0206df6c: ; 0x0206DF6C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206DFCC ; =0x0209BA20
+	ldr r4, _0206DFCC ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3189,7 +3189,7 @@ _0206DFD0: .word unk_0209A11C
 	arm_func_start FUN_0206dfd4
 FUN_0206dfd4: ; 0x0206DFD4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E034 ; =0x0209BA20
+	ldr r4, _0206E034 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3221,7 +3221,7 @@ _0206E038: .word unk_0209A11C
 	arm_func_start FUN_0206e03c
 FUN_0206e03c: ; 0x0206E03C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r6, _0206E0B4 ; =0x0209BA20
+	ldr r6, _0206E0B4 ; =gLogicThink
 	mov r5, r0
 	mov r0, r6
 	mov r8, r1
@@ -3259,7 +3259,7 @@ _0206E0B8: .word unk_0209A11C
 	arm_func_start FUN_0206e0bc
 FUN_0206e0bc: ; 0x0206E0BC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E11C ; =0x0209BA20
+	ldr r4, _0206E11C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3291,7 +3291,7 @@ _0206E120: .word unk_0209A11C
 	arm_func_start FUN_0206e124
 FUN_0206e124: ; 0x0206E124
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E184 ; =0x0209BA20
+	ldr r4, _0206E184 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3323,7 +3323,7 @@ _0206E188: .word unk_0209A11C
 	arm_func_start FUN_0206e18c
 FUN_0206e18c: ; 0x0206E18C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r5, _0206E204 ; =0x0209BA20
+	ldr r5, _0206E204 ; =gLogicThink
 	mov r4, r0
 	mov r0, r5
 	mov r6, r1
@@ -3361,7 +3361,7 @@ _0206E208: .word unk_0209A11C
 	arm_func_start FUN_0206e20c
 FUN_0206e20c: ; 0x0206E20C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r5, _0206E28C ; =0x0209BA20
+	ldr r5, _0206E28C ; =gLogicThink
 	mov r4, r0
 	mov r0, r5
 	mov r6, r1
@@ -3401,7 +3401,7 @@ _0206E290: .word unk_0209A11C
 	arm_func_start FUN_0206e294
 FUN_0206e294: ; 0x0206E294
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r6, _0206E34C ; =0x0209BA20
+	ldr r6, _0206E34C ; =gLogicThink
 	mov r5, r0
 	mov r0, r6
 	mov r4, r1
@@ -3446,7 +3446,7 @@ _0206E318:
 	strh r0, [r1, #0x1c]
 	cmp r6, #0xc
 	blt _0206E318
-	ldr r0, _0206E34C ; =0x0209BA20
+	ldr r0, _0206E34C ; =gLogicThink
 	mov r1, r5
 	bl FUN_020740a4
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -3457,7 +3457,7 @@ _0206E350: .word unk_0209A11C
 	arm_func_start FUN_0206e354
 FUN_0206e354: ; 0x0206E354
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _0206E3C0 ; =0x0209BA20
+	ldr r4, _0206E3C0 ; =gLogicThink
 	mov r7, r0
 	mov r0, r4
 	mov r6, r1
@@ -3492,7 +3492,7 @@ _0206E3C4: .word unk_0209A11C
 	arm_func_start FUN_0206e3c8
 FUN_0206e3c8: ; 0x0206E3C8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r4, _0206E434 ; =0x0209BA20
+	ldr r4, _0206E434 ; =gLogicThink
 	mov r7, r0
 	mov r0, r4
 	mov r6, r1
@@ -3527,7 +3527,7 @@ _0206E438: .word unk_0209A11C
 	arm_func_start FUN_0206e43c
 FUN_0206e43c: ; 0x0206E43C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E49C ; =0x0209BA20
+	ldr r4, _0206E49C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3559,7 +3559,7 @@ _0206E4A0: .word unk_0209A11C
 	arm_func_start FUN_0206e4a4
 FUN_0206e4a4: ; 0x0206E4A4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E504 ; =0x0209BA20
+	ldr r4, _0206E504 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3591,7 +3591,7 @@ _0206E508: .word unk_0209A11C
 	arm_func_start FUN_0206e50c
 FUN_0206e50c: ; 0x0206E50C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E56C ; =0x0209BA20
+	ldr r4, _0206E56C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3623,7 +3623,7 @@ _0206E570: .word unk_0209A11C
 	arm_func_start FUN_0206e574
 FUN_0206e574: ; 0x0206E574
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E5D4 ; =0x0209BA20
+	ldr r4, _0206E5D4 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3655,7 +3655,7 @@ _0206E5D8: .word unk_0209A11C
 	arm_func_start FUN_0206e5dc
 FUN_0206e5dc: ; 0x0206E5DC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E63C ; =0x0209BA20
+	ldr r4, _0206E63C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3687,7 +3687,7 @@ _0206E640: .word unk_0209A11C
 	arm_func_start FUN_0206e644
 FUN_0206e644: ; 0x0206E644
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E6A4 ; =0x0209BA20
+	ldr r4, _0206E6A4 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3719,7 +3719,7 @@ _0206E6A8: .word unk_0209A11C
 	arm_func_start FUN_0206e6ac
 FUN_0206e6ac: ; 0x0206E6AC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E70C ; =0x0209BA20
+	ldr r4, _0206E70C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3751,7 +3751,7 @@ _0206E710: .word unk_0209A11C
 	arm_func_start FUN_0206e714
 FUN_0206e714: ; 0x0206E714
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E774 ; =0x0209BA20
+	ldr r4, _0206E774 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3783,7 +3783,7 @@ _0206E778: .word unk_0209A11C
 	arm_func_start FUN_0206e77c
 FUN_0206e77c: ; 0x0206E77C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E7DC ; =0x0209BA20
+	ldr r4, _0206E7DC ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3815,7 +3815,7 @@ _0206E7E0: .word unk_0209A11C
 	arm_func_start FUN_0206e7e4
 FUN_0206e7e4: ; 0x0206E7E4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E844 ; =0x0209BA20
+	ldr r4, _0206E844 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3847,7 +3847,7 @@ _0206E848: .word unk_0209A11C
 	arm_func_start FUN_0206e84c
 FUN_0206e84c: ; 0x0206E84C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E8AC ; =0x0209BA20
+	ldr r4, _0206E8AC ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3879,7 +3879,7 @@ _0206E8B0: .word unk_0209A11C
 	arm_func_start FUN_0206e8b4
 FUN_0206e8b4: ; 0x0206E8B4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E914 ; =0x0209BA20
+	ldr r4, _0206E914 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3911,7 +3911,7 @@ _0206E918: .word unk_0209A11C
 	arm_func_start FUN_0206e91c
 FUN_0206e91c: ; 0x0206E91C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E97C ; =0x0209BA20
+	ldr r4, _0206E97C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3943,7 +3943,7 @@ _0206E980: .word unk_0209A11C
 	arm_func_start FUN_0206e984
 FUN_0206e984: ; 0x0206E984
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206E9E4 ; =0x0209BA20
+	ldr r4, _0206E9E4 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -3975,7 +3975,7 @@ _0206E9E8: .word unk_0209A11C
 	arm_func_start FUN_0206e9ec
 FUN_0206e9ec: ; 0x0206E9EC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EA4C ; =0x0209BA20
+	ldr r4, _0206EA4C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4007,7 +4007,7 @@ _0206EA50: .word unk_0209A11C
 	arm_func_start FUN_0206ea54
 FUN_0206ea54: ; 0x0206EA54
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EAB4 ; =0x0209BA20
+	ldr r4, _0206EAB4 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4039,7 +4039,7 @@ _0206EAB8: .word unk_0209A11C
 	arm_func_start FUN_0206eabc
 FUN_0206eabc: ; 0x0206EABC
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EB1C ; =0x0209BA20
+	ldr r4, _0206EB1C ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4071,7 +4071,7 @@ _0206EB20: .word unk_0209A11C
 	arm_func_start FUN_0206eb24
 FUN_0206eb24: ; 0x0206EB24
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EB84 ; =0x0209BA20
+	ldr r4, _0206EB84 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4103,7 +4103,7 @@ _0206EB88: .word unk_0209A11C
 	arm_func_start FUN_0206eb8c
 FUN_0206eb8c: ; 0x0206EB8C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EBEC ; =0x0209BA20
+	ldr r4, _0206EBEC ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4135,7 +4135,7 @@ _0206EBF0: .word unk_0209A11C
 	arm_func_start FUN_0206ebf4
 FUN_0206ebf4: ; 0x0206EBF4
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EC54 ; =0x0209BA20
+	ldr r4, _0206EC54 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4167,7 +4167,7 @@ _0206EC58: .word unk_0209A11C
 	arm_func_start FUN_0206ec5c
 FUN_0206ec5c: ; 0x0206EC5C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206ECBC ; =0x0209BA20
+	ldr r4, _0206ECBC ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4199,7 +4199,7 @@ _0206ECC0: .word unk_0209A11C
 	arm_func_start FUN_0206ecc4
 FUN_0206ecc4: ; 0x0206ECC4
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _0206ED38 ; =0x0209BA20
+	ldr r4, _0206ED38 ; =gLogicThink
 	mov r5, r0
 	mov r0, r4
 	bl FUN_02074088
@@ -4236,7 +4236,7 @@ _0206ED3C: .word unk_0209A11C
 	arm_func_start FUN_0206ed40
 FUN_0206ed40: ; 0x0206ED40
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r4, _0206EDB8 ; =0x0209BA20
+	ldr r4, _0206EDB8 ; =gLogicThink
 	mov r6, r0
 	mov r0, r4
 	mov r5, r1
@@ -4688,7 +4688,7 @@ FUN_0206f29c: ; 0x0206F29C
 	mov r7, #0x1b00
 	ldr r0, _0206F584 ; =gL5Allocator
 	mov r1, r7
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r2, r7
 	mov r1, #0
 	str r0, [r6, #0x81c]
@@ -4699,7 +4699,7 @@ _0206F2FC:
 	bne _0206F318
 	ldr r0, _0206F584 ; =gL5Allocator
 	mov r1, #0x200
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r6, #0x810]
 _0206F318:
 	ldr r1, [r6, #0x810]
@@ -4712,7 +4712,7 @@ _0206F318:
 	mov r7, #0x1400
 	ldr r0, _0206F584 ; =gL5Allocator
 	mov r1, r7
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r1, r5
 	mov r2, r7
 	str r0, [r6, #0x7f4]
@@ -4721,7 +4721,7 @@ _0206F354:
 	ldr r0, _0206F584 ; =gL5Allocator
 	ldr r1, _0206F588 ; =0x000004EC
 	str r5, [r6, #0x7f8]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r6, #0x800]
 	mov r0, r6
 	bl FUN_ov16_020ef2bc
@@ -4830,7 +4830,7 @@ _0206F438:
 	mov r7, #0x880
 	ldr r0, _0206F584 ; =gL5Allocator
 	mov r1, r7
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r2, r7
 	mov r1, #0
 	str r0, [r6, #0x820]
@@ -6322,7 +6322,7 @@ _020709BC:
 	mov r4, #0x160
 	ldr r0, _020713AC ; =gL5Allocator
 	mov r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [sp, #0x20]
 	cmp r0, #0
 	beq _02070AE0
@@ -6348,7 +6348,7 @@ _020709BC:
 _02070A50:
 	ldr r0, _020713AC ; =gL5Allocator
 	mov r1, #0xb00
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [sp, #0x20]
 	mov r7, #0
 	add r6, sp, #0x64
@@ -7388,7 +7388,7 @@ FUN_02071894: ; 0x02071894
 	mov r5, #0x300
 	mov r0, r6
 	mov r1, r5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	cmp r0, #0
 	str r0, [r8, #0x808]
 	addeq sp, sp, #4
@@ -7698,7 +7698,7 @@ _02071CB8:
 	mov r0, r5
 	bl FUN_0206d5f0
 	mov r1, r0
-	ldr r0, _02071D70 ; =0x0209BA20
+	ldr r0, _02071D70 ; =gLogicThink
 	bl FUN_0205107c
 	cmp r0, #0
 	beq _02071D20
@@ -8427,7 +8427,7 @@ FUN_020725ac: ; 0x020725AC
 	mov r0, r10
 	mov r8, #0
 	bl FUN_0205107c
-	ldr r5, _020726C0 ; =0x0209BA20
+	ldr r5, _020726C0 ; =gLogicThink
 	ldr r4, _020726C4 ; =0x0209A0AC
 	mov r9, r0
 	mov r7, r8
@@ -9143,7 +9143,7 @@ FUN_02072dcc: ; 0x02072DCC
 	beq _02072F64
 	ldr r0, _02073170 ; =gL5Allocator
 	add r1, r4, #0x2880
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	movs r7, r0
 	beq _02072F50
 	mov r11, #0x68
@@ -9192,7 +9192,7 @@ _02072F64:
 	beq _0207303C
 	ldr r0, _02073170 ; =gL5Allocator
 	ldr r1, _02073178 ; =0x00001C20
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	movs r8, r0
 	beq _02073028
 	mvn r11, #0
@@ -9215,7 +9215,7 @@ _02072FA8:
 	add r1, sp, #4
 	mov r2, r4
 	bl FS_ReadFile
-	ldr r0, _0207317C ; =0x0209BA20
+	ldr r0, _0207317C ; =gLogicThink
 	add r1, sp, #4
 	mov r2, r4
 	bl FUN_020748c8
@@ -9225,7 +9225,7 @@ _02072FA8:
 	mov r0, r5, lsl #0x10
 	mov r1, r0, lsr #0x10
 	mla r2, r6, r4, r8
-	ldr r0, _0207317C ; =0x0209BA20
+	ldr r0, _0207317C ; =gLogicThink
 	bl FUN_02073f10
 _0207301C:
 	add r6, r6, #1
@@ -9240,7 +9240,7 @@ _0207302C:
 	cmp r0, #0
 	beq _0207302C
 _0207303C:
-	ldr r0, _0207317C ; =0x0209BA20
+	ldr r0, _0207317C ; =gLogicThink
 	mov r4, #0
 	bl FUN_ov16_020eeca0
 	add r0, r9, #0xbc
@@ -9262,7 +9262,7 @@ _0207305C:
 _02073084:
 	cmp r6, #0x64
 	blt _0207305C
-	ldr r0, _0207317C ; =0x0209BA20
+	ldr r0, _0207317C ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	cmp r8, #0
 	beq _020730A8
@@ -9955,7 +9955,7 @@ _02073934:
 	cmp r9, #0
 	mov r6, #0
 	ble _020739D0
-	ldr r4, _020739E0 ; =0x0209BA20
+	ldr r4, _020739E0 ; =gLogicThink
 _02073954:
 	mov r7, r11
 _02073958:
@@ -10930,7 +10930,7 @@ FUN_020744b4: ; 0x020744B4
 FUN_020744f0: ; 0x020744F0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r0, _02074530 ; =0x0209BA20
+	ldr r0, _02074530 ; =gLogicThink
 	mov r4, r1
 	bl FUN_02074418
 	cmp r4, #0
@@ -10940,7 +10940,7 @@ FUN_020744f0: ; 0x020744F0
 	cmp r4, r0
 	movgt r4, r0
 _0207451C:
-	ldr r0, _02074530 ; =0x0209BA20
+	ldr r0, _02074530 ; =gLogicThink
 	str r4, [r5, #0x18]
 	bl FUN_020743f0
 	ldr r0, [r5, #0x18]
@@ -10953,7 +10953,7 @@ _02074534: .word 0x000F423F
 FUN_02074538: ; 0x02074538
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r0, _02074578 ; =0x0209BA20
+	ldr r0, _02074578 ; =gLogicThink
 	mov r4, r1
 	bl FUN_020743c8
 	ldr r0, _0207457C ; =0x000F423F
@@ -10963,7 +10963,7 @@ FUN_02074538: ; 0x02074538
 	cmp r4, #0
 	movlt r4, #0
 _02074564:
-	ldr r0, _02074578 ; =0x0209BA20
+	ldr r0, _02074578 ; =gLogicThink
 	str r4, [r5, #0x14]
 	bl FUN_020743a0
 	ldr r0, [r5, #0x14]

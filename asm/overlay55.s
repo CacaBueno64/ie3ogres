@@ -6,7 +6,7 @@
 	arm_func_start FUN_ov55_02119f00
 FUN_ov55_02119f00: ; 0x02119F00
 	ldr r1, _02119F4C ; =0x0209C220
-	ldr r2, _02119F50 ; =0x0209BA20
+	ldr r2, _02119F50 ; =gLogicThink
 	ldrh r3, [r1, #0x6a]
 	ldr r2, [r2, #0x7ec]
 	mov r12, #0
@@ -445,7 +445,7 @@ _0211A4C4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A4E0:
 	ldr r0, [r5, #4]
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A4EC: .word unk_0209A454
 _0211A4F0: .word unk_020A1640
@@ -1941,11 +1941,11 @@ _0211B9BC:
 	ldr r1, [r4, #0x8c]
 	mov r0, r6
 	str r7, [r4, #0x88]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x80]
 	mov r0, r6
 	mov r1, r7, lsl #2
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x84]
 	ldr r0, [r4, #0x80]
 	ldr r1, [r4, #0x17c]
@@ -3207,7 +3207,7 @@ _0211CBF0: .word gBgMenuManager
 FUN_ov55_0211cbf4: ; 0x0211CBF4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
-	ldr r0, _0211CD74 ; =0x0209BA20
+	ldr r0, _0211CD74 ; =gLogicThink
 	bl FUN_0204eba0
 	mov r2, #0
 	sub r1, r2, #1
@@ -3248,11 +3248,11 @@ FUN_ov55_0211cbf4: ; 0x0211CBF4
 	ldr r5, _0211CD80 ; =gL5Allocator
 	mov r1, #0x540
 	mov r0, r5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x64]
 	mov r0, r5
 	mov r1, #0x54
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x68]
 	ldr r1, _0211CD84 ; =0x0001E240
 	add r0, r4, #0x194
@@ -3267,7 +3267,7 @@ FUN_ov55_0211cbf4: ; 0x0211CBF4
 	bne _0211CD0C
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _0211CD74 ; =0x0209BA20
+	ldr r0, _0211CD74 ; =gLogicThink
 	bl FUN_0207249c
 	mov r1, r0
 	mov r0, r6
@@ -3427,7 +3427,7 @@ FUN_ov55_0211cf04: ; 0x0211CF04
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r4, r0
-	ldr r0, _0211D024 ; =0x0209BA20
+	ldr r0, _0211D024 ; =gLogicThink
 	bl FUN_0204ec3c
 	bl G2_GetBG3ScrPtr
 	mov r6, r0
@@ -3798,7 +3798,7 @@ _0211D348:
 	mov r9, lr, lsr #0x10
 	orr r8, r8, lr, lsl #16
 	mov r7, r2, lsr #0x10
-	ldr r0, _0211D4BC ; =0x0209BA20
+	ldr r0, _0211D4BC ; =gLogicThink
 	add r1, sp, #0
 	mov r2, #5
 	str r8, [sp]
@@ -3844,7 +3844,7 @@ _0211D458:
 	bne _0211D458
 	ldr r2, [sp]
 	ldr r1, _0211D4B8 ; =0x0000FFFF
-	ldr r0, _0211D4BC ; =0x0209BA20
+	ldr r0, _0211D4BC ; =gLogicThink
 	and r1, r2, r1
 	mov r2, r1, lsl #0x10
 	mov r4, r2, lsr #0x10

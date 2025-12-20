@@ -41,7 +41,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f1490
 .public FUN_ov16_020f1670
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_020A8C40
 .public unk_020A9440
 .public FUN_ov16_020f4894

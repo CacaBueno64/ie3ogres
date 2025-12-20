@@ -835,10 +835,10 @@ _0211AA78:
 	ldr r4, [r4, #4]
 	mov r1, #0
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov18_0211a908
 
@@ -1183,7 +1183,7 @@ FUN_ov18_0211af34: ; 0x0211AF34
 	bl FUN_ov16_020f57b0
 	mov r9, #0
 	add r5, r4, #0x1000
-	ldr r11, _0211B018 ; =0x0209BA20
+	ldr r11, _0211B018 ; =gLogicThink
 	mov r8, r9
 	mov r7, #1
 	mov r4, #0x360
@@ -1432,7 +1432,7 @@ FUN_ov18_0211b288: ; 0x0211B288
 	cmp r3, #0xa
 	bne _0211B318
 _0211B2B0:
-	ldr r7, _0211B49C ; =0x0209BA20
+	ldr r7, _0211B49C ; =gLogicThink
 	mov r8, #0
 _0211B2B8:
 	mov r0, r7
@@ -1466,7 +1466,7 @@ _0211B318:
 	beq _0211B358
 	add r7, sp, #0x60
 	mov r1, r10, lsl #0x10
-	ldr r0, _0211B49C ; =0x0209BA20
+	ldr r0, _0211B49C ; =gLogicThink
 	mov r2, r7
 	mov r1, r1, lsr #0x10
 	bl FUN_0204bd64

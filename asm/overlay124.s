@@ -253,7 +253,7 @@ _02125054:
 	mov r0, r9
 	bl FUN_ov16_020f0810
 	mov r1, r0
-	ldr r0, _02125198 ; =0x0209BA20
+	ldr r0, _02125198 ; =gLogicThink
 	bl FUN_0207249c
 	mov r6, r0
 	ldr r0, [r10, #0x128]
@@ -420,7 +420,7 @@ FUN_ov124_0212528c: ; 0x0212528C
 	bne _021252BC
 	ldr r0, _02125334 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _021252BC:
 	ldr r0, [r4, #4]
@@ -428,7 +428,7 @@ _021252BC:
 	bne _021252D8
 	ldr r0, _02125334 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _021252D8:
 	ldr r2, [r4]
@@ -921,7 +921,7 @@ FUN_ov124_021259b4: ; 0x021259B4
 	bl FUN_0204fb60
 	str r0, [sp, #0x1c]
 	mov r9, #0
-	ldr r0, _02125EAC ; =0x0209BA20
+	ldr r0, _02125EAC ; =gLogicThink
 	mov r1, r7
 	mov r2, #0xf
 	mov r3, r9
@@ -1697,7 +1697,7 @@ FUN_ov124_0212647c: ; 0x0212647C
 	bl MI_CpuFill8
 	ldr r0, _02126568 ; =gL5Allocator
 	mov r1, #0x98
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x1c]
 	strb r5, [r4, #0x11]
 	strh r5, [r4, #0x14]

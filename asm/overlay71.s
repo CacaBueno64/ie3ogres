@@ -35,7 +35,7 @@ FUN_ov71_02119f3c: ; 0x02119F3C
 	bl FUN_ov16_020f5450
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _02119FE0 ; =0x0209BA20
+	ldr r0, _02119FE0 ; =gLogicThink
 	bl FUN_0207249c
 	cmp r0, #0
 	beq _02119F88
@@ -379,7 +379,7 @@ FUN_ov71_0211a414: ; 0x0211A414
 	stmfd sp!, {r3, lr}
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _0211A434 ; =0x0209BA20
+	ldr r0, _0211A434 ; =gLogicThink
 	bl FUN_0207249c
 	cmp r0, #0
 	moveq r0, #0
@@ -503,7 +503,7 @@ FUN_ov71_0211a478: ; 0x0211A478
 	add r6, r6, #4
 	ldrb r2, [r0, #0x31]
 	ldrb r1, [r0, #0x28]
-	ldr r0, _0211AA20 ; =0x0209BA20
+	ldr r0, _0211AA20 ; =gLogicThink
 	cmp r2, #0
 	movne r1, #2
 	bl FUN_020724c8
@@ -912,7 +912,7 @@ FUN_ov71_0211ab68: ; 0x0211AB68
 	ldr r0, _0211ABE4 ; =0x02099F38
 	ldr r0, [r0]
 	bl FUN_ov16_021123b4
-	ldr r0, _0211ABE8 ; =0x0209BA20
+	ldr r0, _0211ABE8 ; =gLogicThink
 	bl FUN_ov16_020eeca0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211ABE0: .word unk_02099EB4
@@ -997,7 +997,7 @@ _0211ACD8:
 	ldmnefd sp!, {r4, pc}
 	ldr r0, [r4, #4]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _0211AD00: .word unk_02099ED4
 	arm_func_end FUN_ov71_0211abec
@@ -1019,7 +1019,7 @@ FUN_ov71_0211ad08: ; 0x0211AD08
 	ldr r0, _0211AD40 ; =0x02099F38
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
-	ldr r0, _0211AD44 ; =0x0209BA20
+	ldr r0, _0211AD44 ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	ldmfd sp!, {r4, pc}
 _0211AD3C: .word unk_02099EB4

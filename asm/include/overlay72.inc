@@ -5,8 +5,8 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public unk_0209A0E0
-.public _ZN14CScreenManager12FUN_02041d9cEv
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager13fadeMainBlackEv
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public FUN_0206c158
 .public FUN_ov16_020efa04
 .public FUN_02050dac
@@ -111,7 +111,7 @@
 .public FUN_02046698
 .public FUN_ov16_020f6f38
 .public FUN_ov131_021421f4
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_02099F44
 .public unk_02099E91
 .public FUN_02059630

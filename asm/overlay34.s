@@ -45,7 +45,7 @@ FUN_ov34_02119f38: ; 0x02119F38
 FUN_ov34_02119f70: ; 0x02119F70
 	stmfd sp!, {r4, lr}
 	mov r4, #0
-	ldr r0, _02119F98 ; =0x0209BA20
+	ldr r0, _02119F98 ; =gLogicThink
 	mov r1, r4
 	bl FUN_0205107c
 	bl FUN_0204fe48
@@ -119,7 +119,7 @@ _0211A06C: .word 0x04000050
 FUN_ov34_0211a070: ; 0x0211A070
 	stmfd sp!, {r4, lr}
 	mov r4, #0
-	ldr r0, _0211A098 ; =0x0209BA20
+	ldr r0, _0211A098 ; =gLogicThink
 	mov r1, r4
 	bl FUN_0205107c
 	bl FUN_0204fe48

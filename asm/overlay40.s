@@ -553,7 +553,7 @@ _0211A5CC: .word unk_02099F38
 	arm_func_start FUN_ov40_0211a5d0
 FUN_ov40_0211a5d0: ; 0x0211A5D0
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _0211A600 ; =0x0209BA20
+	ldr r4, _0211A600 ; =gLogicThink
 	mov r5, r0
 	mov r0, r4
 	bl FUN_020728e8
@@ -2815,7 +2815,7 @@ _0211C5B0:
 	cmp r0, #0
 	movgt r0, #0
 	strgtb r0, [r5, #0x8e]
-	ldr r0, _0211C6B0 ; =0x0209BA20
+	ldr r0, _0211C6B0 ; =gLogicThink
 	bl FUN_0207318c
 	ldr r2, [r4, #0x28]
 	mov r1, #0x3c

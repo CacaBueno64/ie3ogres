@@ -5,35 +5,6 @@
 
 #include <nitro.h>
 
-typedef struct {
-    u32 nFiles;
-    u32 plttOffs;
-    u32 plttSize;
-    u32 scrnOffs;
-    u32 scrnSize;
-    u32 charOffs;
-    u32 charSize;
-    u32 pad;
-} ImagePAC;
-static inline void *ImagePAC_GetPalettePtr(void *img) {
-    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->plttOffs);
-}
-static inline void *ImagePAC_GetScreenPtr(void *img) {
-    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->scrnOffs);
-}
-static inline void *ImagePAC_GetCharacterPtr(void *img) {
-    return static_cast<void*>(static_cast<char*>(img) + static_cast<ImagePAC*>(img)->charOffs);
-}
-static inline u32 ImagePAC_GetPaletteSize(void *img) {
-    return static_cast<ImagePAC*>(img)->plttSize;
-}
-static inline u32 ImagePAC_GetScreenSize(void *img) {
-    return static_cast<ImagePAC*>(img)->scrnSize;
-}
-static inline u32 ImagePAC_GetCharacterSize(void *img) {
-    return static_cast<ImagePAC*>(img)->charSize;
-}
-
 class CommonScreen {
     public:
         virtual ~CommonScreen() { }

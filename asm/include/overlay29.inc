@@ -55,7 +55,7 @@
 .public FUN_ov16_0210e15c
 .public FUN_0206c5d8
 .public FUN_0206c300
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_020f1560
 .public FUN_02059004
 .public FUN_02059038

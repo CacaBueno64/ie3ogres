@@ -53,10 +53,10 @@
 .public gL5Allocator
 .public FUN_ov16_0210efac
 .public _ZN7L5Sound12FUN_0202cf6cEm
-.public _ZN14CScreenManager12FUN_02041db8Ev
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager12fadeSubBlackEv
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public gL5Sound
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public sprintf
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0

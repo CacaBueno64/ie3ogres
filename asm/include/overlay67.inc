@@ -117,7 +117,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_0204d7fc
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClearFast
 .public FUN_0205131c
 .public _Znwm
@@ -133,7 +133,7 @@
 .public FUN_0205b340
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0205a60c
 .public FUN_ov16_0210e10c

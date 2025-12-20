@@ -10,7 +10,7 @@
 .public OS_InitMutex
 .public OS_CreateThread
 .public FS_TryLoadTable
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public _ZN11L5Allocator10deallocateEPv
 .public FS_InitFile
 .public FS_OpenFile
@@ -59,7 +59,7 @@
 .public FUN_ov132_0213aefc
 .public FUN_ov16_020f2aa4
 .public unk_0209A110
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public FUN_ov0_020cd104
 .public FUN_ov0_020cd0ec
 .public FUN_020460f0
@@ -67,7 +67,7 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_02044e40
 .public FUN_ov16_020f081c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_020A9C40
 .public unk_0209A454
 .public unk_02099ED8
@@ -448,7 +448,7 @@
 .public unk_020A06D8
 .public FUN_ov16_020f06d8
 .public FUN_02073194
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClearFast
 .public unk_020B5BB8
 .public GX_BeginLoadTex

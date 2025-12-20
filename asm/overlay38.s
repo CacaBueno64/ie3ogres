@@ -332,13 +332,13 @@ FUN_ov38_0211a2ec: ; 0x0211A2EC
 	ldr r0, [r5, #4]
 	strb r2, [r5, #0x288]
 	str r1, [r5, #8]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, _0211A358 ; =0x0209A454
 	mov r1, r4
 	str r4, [r0, #0x24]
 	ldr r0, [r5, #4]
 	mov r2, #0x19
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, pc}
 _0211A358: .word unk_0209A454
@@ -1745,11 +1745,11 @@ _0211B690:
 	ldr r1, [r4, #0x188]
 	mov r0, r6
 	str r7, [r4, #0x184]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x17c]
 	mov r0, r6
 	mov r1, r7, lsl #2
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x180]
 	ldr r0, [r4, #0x17c]
 	ldr r1, [r4, #0x270]
@@ -3349,11 +3349,11 @@ _0211CD98:
 	str r6, [r4, #0x184]
 	str r6, [r4, #0x188]
 	strb r6, [r4, #0x288]
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x70]
 	mov r0, r5
 	mov r1, #0x258
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #0x74]
 	mov r0, r4
 	mov r1, r6

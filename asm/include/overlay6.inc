@@ -1,4 +1,4 @@
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f153c
 .public _ZN7L5Sound12FUN_0202b838Eiii
@@ -43,7 +43,7 @@
 .public FUN_ov16_020f14b4
 .public unk_020A0640
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public DC_FlushRange
 .public GXS_BeginLoadBGExtPltt
 .public GXS_LoadBGExtPltt

@@ -130,7 +130,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A98 ; =FUN_02045458
 	ldr r2, _02086A9C ; =0x0209A008
 	bl __register_global_object
-	ldr r4, _02086AA0 ; =0x0209BA20
+	ldr r4, _02086AA0 ; =gLogicThink
 	mov r0, r4
 	bl FUN_0206f0b8
 	mov r0, r4

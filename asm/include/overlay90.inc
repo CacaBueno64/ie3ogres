@@ -4,7 +4,7 @@
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public MI_CpuFill8
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public FUN_0204665c
 .public unk_02099EB4
 .public unk_02099ED4

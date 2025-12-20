@@ -243,7 +243,7 @@ FUN_ov108_02125014: ; 0x02125014
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	bl FUN_ov16_020f0810
 	mov r1, r0
-	ldr r0, _02125158 ; =0x0209BA20
+	ldr r0, _02125158 ; =gLogicThink
 	bl FUN_0207249c
 	mov r8, r0
 	ldr r0, [r6, #0x15c]
@@ -447,7 +447,7 @@ FUN_ov108_021252e4: ; 0x021252E4
 	bne _02125314
 	ldr r0, _0212537C ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125314:
 	ldr r0, [r4, #4]
@@ -455,7 +455,7 @@ _02125314:
 	bne _02125330
 	ldr r0, _0212537C ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02125330:
 	ldr r2, [r4]
@@ -666,14 +666,14 @@ _021255F4:
 	cmp r1, #0
 	bne _02125634
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02125634:
 	cmp r8, #0
 	bne _0212564C
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0212564C:
@@ -738,7 +738,7 @@ _02125718:
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02125740: .word ov108_02127584
@@ -778,14 +778,14 @@ _0212578C:
 	cmp r0, #0
 	bne _021257CC
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x3c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _021257CC:
 	cmp r6, #0
 	bne _021257E4
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x3c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _021257E4:
@@ -836,7 +836,7 @@ _02125800:
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	add r0, sp, #0x1c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x3c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _021258A4: .word ov108_021272D0
@@ -848,7 +848,7 @@ FUN_ov108_021258ac: ; 0x021258AC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x118
 	ldr r3, _02125CE0 ; =0x0209C220
-	ldr r4, _02125CE4 ; =0x0209BA20
+	ldr r4, _02125CE4 ; =gLogicThink
 	ldrh r6, [r3, #0x6a]
 	ldr r4, [r4, #0x7ec]
 	ldr r10, _02125CE8 ; =0x021272E4
@@ -2358,7 +2358,7 @@ FUN_ov108_02126d5c: ; 0x02126D5C
 	mov r2, r5
 	mov r3, r4
 	strb r12, [sp, #4]
-	bl FUN_02028a98
+	bl _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov108_02126d5c

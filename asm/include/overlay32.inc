@@ -1,4 +1,4 @@
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_020455a0
 .public FUN_02029d44

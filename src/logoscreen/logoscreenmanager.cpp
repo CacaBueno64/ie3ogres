@@ -7,8 +7,7 @@ void CLogoScreenManager::init(void)
     this->startGraphics(2);
     this->mainScreen = NULL;
     this->subScreen = NULL;
-    this->FUN_02041f74(ENGINE_MAIN, SCENE_NONE);
-    this->FUN_02041f74(ENGINE_SUB, SCENE_NONE);
+    this->setScenes(SCENE_NONE, SCENE_NONE);
     this->setNextScenes(SCENE_TITLE_INIT, SCENE_TITLE_INIT);
     this->nextMainDisplay = 1;
     this->toggleDisplays = 0;
@@ -23,7 +22,7 @@ void CLogoScreenManager::init(void)
         OS_Sleep(20);
     }
     
-    this->vFUN_34();
+    this->updateScene();
 }
 
 void CLogoScreenManager::close(void)
@@ -37,7 +36,7 @@ void CLogoScreenManager::close(void)
     this->endGraphics(2);
 }
 
-void CLogoScreenManager::vFUN_34(void)
+void CLogoScreenManager::updateScene(void)
 {
     SceneType nextSceneMain = this->getNextSceneMain();
     
@@ -57,7 +56,7 @@ void CLogoScreenManager::vFUN_34(void)
             default:
                 this->mainScreen = NULL;
         }
-        this->FUN_02041f74(ENGINE_MAIN, nextSceneMain);
+        this->setScene(ENGINE_MAIN, nextSceneMain);
         if (this->mainScreen != NULL) {
             this->mainScreen->init();
         }
@@ -79,7 +78,7 @@ void CLogoScreenManager::vFUN_34(void)
                 this->subScreen = NULL;
                 break;
         }
-        this->FUN_02041f74(ENGINE_SUB, nextSceneSub);
+        this->setScene(ENGINE_SUB, nextSceneSub);
         if (this->subScreen != NULL) {
             this->subScreen->init();
         }

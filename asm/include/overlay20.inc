@@ -9,7 +9,7 @@
 .public FUN_02058800
 .public unk_02099F38
 .public _ZN11L5Allocator10deallocateEPv
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public gL5Allocator
 .public FUN_ov16_020efa9c
 .public FUN_0207039c
@@ -131,7 +131,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f5868
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public unk_0209A110

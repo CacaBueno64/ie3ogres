@@ -25,7 +25,7 @@
 .public FUN_ov16_02113d08
 .public FUN_ov16_02113ec0
 .public FUN_ov16_020f2304
-.public FUN_0202895c
+.public _ZNSsD1Ev
 .public FUN_ov16_02112950
 .public FUN_ov16_02112af0
 .public FUN_ov16_0211346c
@@ -118,7 +118,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public _ZN7L5Sound12FUN_0202b838Eiii
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClearFast
 .public FUN_020460fc
 .public FUN_ov16_020f5278
@@ -131,7 +131,7 @@
 .public FUN_ov16_0210e10c
 .public FUN_ov16_020f5868
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A110
 .public FUN_ov16_020f52c4
@@ -160,9 +160,9 @@
 .public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
 .public unk_020A1612
 .public _ZdlPv
-.public FUN_02028984
+.public _ZNSs7replaceEmmRKSsmm
 .public strlen
-.public FUN_02028a98
+.public _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 .public printf
 .public abort
 .public memcpy

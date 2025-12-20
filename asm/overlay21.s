@@ -2903,7 +2903,7 @@ _0211C724:
 	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mla r0, r4, r7, r8
 	ldr r3, [r0, #0x7c]
-	ldr r0, _0211CAF8 ; =0x0209BA20
+	ldr r0, _0211CAF8 ; =gLogicThink
 	mov r1, r6
 	and r2, r3, #0xff
 	strb r3, [r8, #0xae8]
@@ -3625,7 +3625,7 @@ _0211D1A0:
 	bne _0211D1C4
 	ldr r0, [r4, #0x7c8]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 _0211D1C4:
 	ldr r0, _0211D1FC ; =0x0209A110
 	ldr r1, _0211D1F8 ; =0x02099ED4

@@ -322,7 +322,7 @@ _0212514C:
 	add r2, r10, #0x40
 	str r2, [sp]
 	mov r4, #2
-	ldr r0, _021251E8 ; =0x0209BA20
+	ldr r0, _021251E8 ; =gLogicThink
 	add r2, r10, #0x30
 	mov r3, #4
 	str r4, [sp, #4]
@@ -422,7 +422,7 @@ _02125284:
 	ldmfd sp!, {r3, r4, pc}
 _021252B8:
 	ldrh r1, [r4, #0x1c]
-	ldr r0, _02125348 ; =0x0209BA20
+	ldr r0, _02125348 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -442,7 +442,7 @@ _021252F8:
 	cmp r1, #0
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, pc}
-	ldr r0, _02125348 ; =0x0209BA20
+	ldr r0, _02125348 ; =gLogicThink
 	bl FUN_0204a2c4
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -619,7 +619,7 @@ FUN_ov105_02125530: ; 0x02125530
 	bne _02125560
 	ldr r0, _021255D8 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125560:
 	ldr r0, [r4, #4]
@@ -627,7 +627,7 @@ _02125560:
 	bne _0212557C
 	ldr r0, _021255D8 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _0212557C:
 	ldr r2, [r4]
@@ -802,7 +802,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	ldr r0, _0212589C ; =0x0209BA20
+	ldr r0, _0212589C ; =gLogicThink
 	mov r1, r5
 	bl FUN_ov16_020ee064
 	movs r7, r0
@@ -872,7 +872,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	cmp r0, #0
 	addeq sp, sp, #0x24
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, _021259AC ; =0x0209BA20
+	ldr r0, _021259AC ; =gLogicThink
 	mov r1, r7
 	mov r2, r6
 	bl FUN_ov16_020ee008
@@ -1344,7 +1344,7 @@ _02125F70:
 _02125FBC:
 	mov r6, #0
 	mov r7, #0xf
-	ldr r0, _02126338 ; =0x0209BA20
+	ldr r0, _02126338 ; =gLogicThink
 	mov r1, r4
 	mov r2, r7
 	mov r3, r6
@@ -1590,7 +1590,7 @@ _02126338: .word gLogicThink
 FUN_ov105_0212633c: ; 0x0212633C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
-	ldr r8, _02126784 ; =0x0209BA20
+	ldr r8, _02126784 ; =gLogicThink
 	mov r7, #0
 	mov r10, r0
 	mov r0, r8
@@ -1737,7 +1737,7 @@ _0212657C:
 	cmp r0, #0
 	addne sp, sp, #8
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r7, _02126784 ; =0x0209BA20
+	ldr r7, _02126784 ; =gLogicThink
 	mov r5, #0x1e
 	mov r6, #0
 	mov r0, r7
@@ -2061,7 +2061,7 @@ _021269EC:
 	mov r3, r10
 	bl FUN_ov16_020f5da0
 	add r1, r9, r7, lsl #2
-	ldr r0, _02126BE8 ; =0x0209BA20
+	ldr r0, _02126BE8 ; =gLogicThink
 	ldr r1, [r1, #0x30]
 	bl FUN_0204a2c4
 	ldr r2, [r9, #0x1a4]
@@ -2791,12 +2791,12 @@ FUN_ov105_02127440: ; 0x02127440
 	ldr r4, _021274F4 ; =gL5Allocator
 	mov r1, #0x98
 	mov r0, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r7, #0x28]
 	mov r0, r4
 	mov r4, #0x6c
 	mov r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	sub r1, r4, #0x6d
 	strh r1, [r7, #0x1e]
 	str r0, [r7, #0x2c]

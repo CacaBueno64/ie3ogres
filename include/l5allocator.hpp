@@ -8,11 +8,12 @@
 class CFileIO;
 class L5Allocator {
     public:
-        void FUN_0202dc54(OSArenaId id, void *arenaLo, void *arenaHi);
-        void *allocate(int size, int type, int strategy);
-        void setNextArena(int arena);
-        void setDefaultArena(int arena);
-        void deallocate(void *ptr);
+        /* 0x0202dc54 */ void initArenas(OSArenaId id, void *arenaLo, void *arenaHi);
+        /* 0x0202de44 */ void *allocate(size_t size);
+        /* 0x0202de58 */ void *allocate(size_t size, int type, int strategy);
+        /* 0x0202e19c */ void setNextArena(int arena);
+        /* 0x0202e1ac */ void setDefaultArena(int arena);
+        /* 0x0202e1c0 */ void deallocate(void *ptr);
 
     CFileIO *fileIO;
 };

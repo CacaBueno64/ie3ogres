@@ -30,7 +30,7 @@ FUN_ov36_02119f38: ; 0x02119F38
 	ldr r0, [r4, #4]
 	mov r1, #5
 	str r1, [r4, #8]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0xe
@@ -45,7 +45,7 @@ FUN_ov36_02119f64: ; 0x02119F64
 	ldr r0, [r4, #4]
 	mov r1, #5
 	str r1, [r4, #8]
-	bl _ZN14CScreenManager12FUN_02041d9cEv
+	bl _ZN14CScreenManager13fadeMainBlackEv
 	ldr r0, [r4, #4]
 	mov r1, #0
 	mov r2, #0xf

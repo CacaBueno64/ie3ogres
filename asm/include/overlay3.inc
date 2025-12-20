@@ -32,7 +32,7 @@
 .public _ZN14CScreenManager7vFUN_48Ev
 .public _ZN14CScreenManager7vFUN_4CEv
 .public _ZN14CScreenManager5clearEv
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f13d4
 .public _ZN14CScreenManager16getNextSceneMainEv

@@ -97,9 +97,9 @@
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A454
 .public unk_0209A110

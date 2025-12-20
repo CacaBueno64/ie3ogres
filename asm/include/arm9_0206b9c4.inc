@@ -5,7 +5,7 @@
 .public _ZdlPv
 .public FUN_02042274
 .public unk_020912D0
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MI_CpuFill8
 .public gL5Allocator
 .public gLogicThink

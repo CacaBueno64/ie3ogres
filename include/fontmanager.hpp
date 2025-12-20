@@ -49,7 +49,6 @@ class CFontManager {
         void FUN_02043380(void *param1, int maxWidth, int maxHeight, int indentation, int y_pos, int lineWidth, int charHeight);
 
     private:
-    //void *vtable;
     void *font; //NNSG2dFont
     void *file;
     u32 unk10;

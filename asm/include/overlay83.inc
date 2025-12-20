@@ -63,7 +63,7 @@
 .public unk_0209A070
 .public ov1_020E9482
 .public FUN_ov132_02143a40
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public FUN_ov132_02143a34
 .public FUN_ov132_02143c08
 .public gL5Allocator

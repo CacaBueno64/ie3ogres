@@ -1,4 +1,4 @@
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public DWC_InitForProduction
 .public _ZN11L5Allocator10deallocateEPv
 .public MI_CpuFill8
@@ -40,7 +40,7 @@
 .public FUN_ov16_020f51a8
 .public MIi_CpuClearFast
 .public FUN_ov16_020f1320
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public _ZN7L5Sound12FUN_0202b838Eiii
 .public _ZN7L5Sound12FUN_0202b7b4Ev

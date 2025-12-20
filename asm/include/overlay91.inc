@@ -1,5 +1,5 @@
-.public _ZN14CScreenManager12FUN_02041d9cEv
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager13fadeMainBlackEv
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public MI_CpuFill8
 .public FUN_ov16_020f2cf8
 .public FUN_ov16_020f3054

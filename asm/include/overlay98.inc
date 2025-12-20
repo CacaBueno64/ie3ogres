@@ -41,7 +41,7 @@
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f5da0
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_ov16_020f2184
 .public FUN_02043310

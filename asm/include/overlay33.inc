@@ -1,4 +1,4 @@
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_02046370

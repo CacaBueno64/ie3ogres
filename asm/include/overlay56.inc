@@ -58,7 +58,7 @@
 .public FUN_0206d6d8
 .public FUN_ov16_0210e15c
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public MIi_CpuCopy16
 .public FUN_0206dcd4

@@ -53,7 +53,7 @@
 .public FUN_ov16_021123b4
 .public FUN_ov16_020eeca0
 .public FUN_ov16_020f330c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_021123c4
 .public FUN_ov16_020eedb8

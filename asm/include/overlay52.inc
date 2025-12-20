@@ -82,7 +82,7 @@
 .public FUN_ov16_0210e68c
 .public FUN_02059630
 .public FUN_ov16_020f1560
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_020A1040
 .public unk_020A104A
 .public FUN_ov16_020f5278

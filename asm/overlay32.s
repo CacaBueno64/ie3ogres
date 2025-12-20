@@ -61,7 +61,7 @@ FUN_ov32_02119f74: ; 0x02119F74
 	strb r1, [r0, #0x1d]
 	ldr r0, [r4, #4]
 	mov r2, #0x5f
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r4, pc}
 _02119FC8: .word unk_0209A454
 	arm_func_end FUN_ov32_02119f74
@@ -152,7 +152,7 @@ _0211A0A0:
 	ldr r0, [r0]
 	bl FUN_0205ff0c
 	bl FUN_ov16_020efa4c
-	ldr r6, _0211A17C ; =0x0209BA20
+	ldr r6, _0211A17C ; =gLogicThink
 	mov r1, r5
 	mov r0, r6
 	mov r8, #1
@@ -483,7 +483,7 @@ _0211A558:
 	ldr r0, [r4, #0x10]
 	cmp r0, #2
 	beq _0211A57C
-	ldr r0, _0211A594 ; =0x0209BA20
+	ldr r0, _0211A594 ; =gLogicThink
 	bl FUN_ov16_020ef160 ; may be ov17 ; ov16(Mica)
 _0211A57C:
 	mov r0, r4

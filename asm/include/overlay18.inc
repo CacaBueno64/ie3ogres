@@ -29,7 +29,7 @@
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_02114370
 .public _ZN7CFileIO11tryFinalizeEPv
 .public STD_CopyString

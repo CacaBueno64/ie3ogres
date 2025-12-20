@@ -15,7 +15,7 @@
 .public FUN_02058ee0
 .public MI_CpuCopy8
 .public unk_020A0640
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MI_CpuFill8
 .public STD_CopyLString
 .public STD_ConcatenateString
@@ -116,7 +116,7 @@
 .public _ZN7L5Sound12FUN_0202d578Em
 .public FUN_0202c560
 .public FUN_0202c530
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_0210e9d8

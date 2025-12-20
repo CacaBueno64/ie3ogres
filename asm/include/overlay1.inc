@@ -109,7 +109,7 @@
 .public unk_0209A494
 .public unk_0209A4B4
 .public OS_GetTotalFreeSize
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MI_CpuFill8
 .public FUN_ov16_020f067c
 .public FUN_020728e8
@@ -138,10 +138,10 @@
 .public FUN_0206c2f8
 .public FUN_020521d0
 .public L5FS_OpenArchiveDirect
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public _Znwm
 .public FUN_02059d9c
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public FUN_020443c0
 .public FUN_02044e98
 .public gLogicThink
@@ -211,7 +211,7 @@
 .public FUN_ov132_02159df0
 .public FUN_ov132_0215a3ec
 .public FUN_ov132_02159afc
-.public _ZN14CScreenManager12FUN_02041db8Ev
+.public _ZN14CScreenManager12fadeSubBlackEv
 .public FUN_ov132_021434f8
 .public FUN_ov132_0214a758
 .public FUN_ov126_02131c04
@@ -532,7 +532,7 @@
 .public FUN_0207477c
 .public FUN_ov61_0211a340
 .public unk_020A0B00
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public FUN_ov61_0211d840
 .public FUN_020628dc
 .public L5Thread_Yield

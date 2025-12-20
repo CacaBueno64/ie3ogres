@@ -20,11 +20,11 @@ FUN_ov6_020bcb40: ; 0x020BCB40
 	str r7, [r4, #0x84]
 	mov r6, #1
 	strb r6, [r3]
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r0, r4
 	mov r1, r6
 	mov r2, r7
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	mov r5, #0x96
 	mov r0, r4
 	mov r1, r7
@@ -150,7 +150,7 @@ _020BCD24:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r4, #0x80]
 	cmp r0, #0
 	beq _020BCD5C
@@ -192,7 +192,7 @@ _020BCDBC:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+	bl _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 	ldr r0, [r4, #0x84]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -1007,7 +1007,7 @@ FUN_ov6_020bd888: ; 0x020BD888
 	mov r5, #0x200
 	mov r0, r6
 	mov r1, r5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	movs r4, r0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r4

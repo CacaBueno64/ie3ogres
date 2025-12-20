@@ -100,7 +100,7 @@ void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx)
     }
 }
 
-void CScreenManager::FUN_02041d80(void)
+void CScreenManager::fadeInMain(void)
 {
     if (this->mainScreen == NULL) {
         return;
@@ -108,7 +108,7 @@ void CScreenManager::FUN_02041d80(void)
     FUN_ov16_020f1468(6);
 }
 
-void CScreenManager::FUN_02041d9c(void)
+void CScreenManager::fadeMainBlack(void)
 {
     if (this->mainScreen == NULL) {
         return;
@@ -116,7 +116,7 @@ void CScreenManager::FUN_02041d9c(void)
     FUN_ov16_020f1514(6);
 }
 
-void CScreenManager::FUN_02041db8(void)
+void CScreenManager::fadeSubBlack(void)
 {
     if (this->subScreen == NULL) {
         return;
@@ -185,7 +185,7 @@ void CScreenManager::setNextScene(EngineSelect screen, SceneType next)
     scnLayer->next = next;
 }
 
-void CScreenManager::FUN_02041ef0(EngineSelect screen, SceneType next)
+void CScreenManager::pushScene(EngineSelect screen, SceneType next)
 {
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx + 1][screen];
@@ -194,7 +194,7 @@ void CScreenManager::FUN_02041ef0(EngineSelect screen, SceneType next)
     scnLayer->next = next;
 }
 
-void CScreenManager::FUN_02041f2c(EngineSelect screen)
+void CScreenManager::popScene(EngineSelect screen)
 {
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx - 1][screen];
@@ -204,7 +204,7 @@ void CScreenManager::FUN_02041f2c(EngineSelect screen)
     scnLayer->cur = SCENE_NONE;
 }
 
-void CScreenManager::FUN_02041f74(EngineSelect screen, SceneType scene)
+void CScreenManager::setScene(EngineSelect screen, SceneType scene)
 {
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx][screen];

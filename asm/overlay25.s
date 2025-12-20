@@ -952,7 +952,7 @@ _0211ABF8:
 	cmp r0, #0
 	addne sp, sp, #0x3ac
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, _0211B240 ; =0x0209BA20
+	ldr r0, _0211B240 ; =gLogicThink
 	mov r1, r8
 	bl FUN_0205106c
 	mov r1, r8
@@ -1306,7 +1306,7 @@ _0211B158:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	cmp r0, #9
 	bne _0211B1C8
-	ldr r0, _0211B240 ; =0x0209BA20
+	ldr r0, _0211B240 ; =gLogicThink
 	mov r1, r8
 	bl FUN_0205106c
 	cmp r0, #0

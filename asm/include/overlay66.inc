@@ -16,7 +16,7 @@
 .public FUN_ov16_02113b78
 .public FUN_ov16_021139bc
 .public FUN_ov16_02113ec0
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public MI_CpuFill8
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f338c

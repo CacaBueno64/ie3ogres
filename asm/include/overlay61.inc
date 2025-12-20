@@ -3,7 +3,7 @@
 .public gBgMenuManager
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6470
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_0209A454
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -70,10 +70,10 @@
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_0210eb3c
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public L5Thread_Create
 .public FUN_ov16_020f5248
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public FUN_ov16_0210e980
 .public GX_SetGraphicsMode
 .public FUN_ov16_020f5a58
@@ -113,7 +113,7 @@
 .public FUN_ov16_020f153c
 .public FUN_020455a0
 .public FUN_02029d44
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev
 .public _ZN12CommonScreen7vFUN_24Ev

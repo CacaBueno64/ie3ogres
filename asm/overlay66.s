@@ -270,7 +270,7 @@ FUN_ov66_0211a270: ; 0x0211A270
 	bne _0211A290
 	ldr r0, [r0, #0x1c]
 	mov r1, #0
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r3, pc}
 _0211A290:
 	mov r1, #3

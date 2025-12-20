@@ -49,7 +49,7 @@ FUN_ov123_02124d84: ; 0x02124D84
 	cmp r1, #0
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, pc}
-	ldr r0, _02124DDC ; =0x0209BA20
+	ldr r0, _02124DDC ; =gLogicThink
 	bl FUN_0204b0ac
 	cmp r0, #0
 	addeq sp, sp, #4
@@ -136,7 +136,7 @@ FUN_ov123_02124eb0: ; 0x02124EB0
 	bne _02124EE0
 	ldr r0, _02124F58 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02124EE0:
 	ldr r0, [r4, #4]
@@ -144,7 +144,7 @@ _02124EE0:
 	bne _02124EFC
 	ldr r0, _02124F58 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02124EFC:
 	ldr r2, [r4]

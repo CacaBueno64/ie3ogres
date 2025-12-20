@@ -95,7 +95,7 @@ FUN_ov96_02124e1c: ; 0x02124E1C
 	bne _02124E4C
 	ldr r0, _02124EB4 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02124E4C:
 	ldr r0, [r4, #4]
@@ -103,7 +103,7 @@ _02124E4C:
 	bne _02124E68
 	ldr r0, _02124EB4 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02124E68:
 	ldr r2, [r4]

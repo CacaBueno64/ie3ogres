@@ -101,7 +101,7 @@
 .public FUN_020731a4
 .public FUN_ov126_021355b4
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_0202c470
 .public FUN_020724c8

@@ -6,7 +6,7 @@
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public _ZN11L5Allocator10deallocateEPv
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public DC_FlushRange
 .public FUN_ov16_020f2184
 .public gFont12

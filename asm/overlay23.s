@@ -2972,7 +2972,7 @@ FUN_ov23_0211c850: ; 0x0211C850
 	cmp r0, #8
 	bne _0211C89C
 	ldrh r1, [r4, #0xf2]
-	ldr r0, _0211C8D4 ; =0x0209BA20
+	ldr r0, _0211C8D4 ; =gLogicThink
 	mov r2, #1
 	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	cmp r0, #0

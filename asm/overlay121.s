@@ -45,7 +45,7 @@ _02124D6C:
 	add r7, sp, #8
 	add r6, sp, #4
 _02124D84:
-	ldr r0, _02124E4C ; =0x0209BA20
+	ldr r0, _02124E4C ; =gLogicThink
 	mov r1, r9
 	bl FUN_0207249c
 	mov r0, r9

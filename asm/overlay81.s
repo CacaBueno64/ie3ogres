@@ -912,7 +912,7 @@ FUN_ov81_0211ab0c: ; 0x0211AB0C
 	strb r6, [r4, #0x29]
 	strb r6, [r4, #0x2a]
 	strb r6, [r4, #0x2b]
-	ldr r0, _0211ABB8 ; =0x0209BA20
+	ldr r0, _0211ABB8 ; =gLogicThink
 	strb r5, [r4, #0x33]
 	bl FUN_020731a4
 	strb r0, [r4, #0x30]
@@ -928,11 +928,11 @@ FUN_ov81_0211ab0c: ; 0x0211AB0C
 	mov r0, r7
 	mov r4, #0x5a
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	mov r0, r7
 	mov r1, r5
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211ABB4: .word unk_0209A454
 _0211ABB8: .word gLogicThink
@@ -955,7 +955,7 @@ FUN_ov81_0211abc0: ; 0x0211ABC0
 	mov r8, #1
 	strb r8, [r5, #0x9d]
 	bl FUN_ov16_020f081c
-	ldr r7, _0211AC8C ; =0x0209BA20
+	ldr r7, _0211AC8C ; =gLogicThink
 	mov r1, r0
 	mov r0, r7
 	bl FUN_020724c8

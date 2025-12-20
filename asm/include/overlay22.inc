@@ -110,11 +110,11 @@
 .public FUN_02045064
 .public FUN_02044f78
 .public FUN_02029d44
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_02044690
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_020455a0
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_020AF81C
 .public unk_02099EF4
 .public unk_02099E8D

@@ -75,7 +75,7 @@ _02124DEC:
 	bl FUN_ov16_020efa80
 	movs r1, r0
 	beq _02124E18
-	ldr r0, _02124E84 ; =0x0209BA20
+	ldr r0, _02124E84 ; =gLogicThink
 	mov r2, #0xf
 	mov r3, #0
 	bl FUN_0204f02c
@@ -85,7 +85,7 @@ _02124E18:
 	bl FUN_ov16_020efa80
 	movs r1, r0
 	beq _02124E3C
-	ldr r0, _02124E84 ; =0x0209BA20
+	ldr r0, _02124E84 ; =gLogicThink
 	mov r2, #0xf
 	mov r3, #0
 	bl FUN_0204f02c

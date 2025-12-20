@@ -1035,7 +1035,7 @@ FUN_ov70_0211adb0: ; 0x0211ADB0
 	add r0, r8, #0x1bc
 	strb r6, [r8, #0xec]
 	bl MI_CpuFill8
-	ldr r0, _0211AFF4 ; =0x0209BA20
+	ldr r0, _0211AFF4 ; =gLogicThink
 	mov r1, r6
 	bl FUN_0205107c
 	mov r5, r0
@@ -1188,7 +1188,7 @@ FUN_ov70_0211aff8: ; 0x0211AFF8
 	add r0, r10, #0xf2
 	mov r2, #0xc8
 	bl MI_CpuFill8
-	ldr r4, _0211B150 ; =0x0209BA20
+	ldr r4, _0211B150 ; =gLogicThink
 	mov r1, r7
 	mov r0, r4
 	strb r7, [r10, #0xed]
@@ -1330,7 +1330,7 @@ _0211B1E4:
 	ldrsh r0, [r7, #0xa]
 	add r7, r7, #0xc
 	str r0, [sp, #0x18]
-	ldr r0, _0211B4A0 ; =0x0209BA20
+	ldr r0, _0211B4A0 ; =gLogicThink
 	bl FUN_0204a2c4
 	movs r6, r0
 	beq _0211B378
@@ -1343,13 +1343,13 @@ _0211B1E4:
 	cmp r0, #9
 	bne _0211B378
 _0211B244:
-	ldr r0, _0211B4A0 ; =0x0209BA20
+	ldr r0, _0211B4A0 ; =gLogicThink
 	mov r1, r8
 	bl FUN_ov16_020edec4
 	ands r0, r0, #0xff
 	str r0, [sp, #0x14]
 	beq _0211B268
-	ldr r0, _0211B4A0 ; =0x0209BA20
+	ldr r0, _0211B4A0 ; =gLogicThink
 	mov r1, r9
 	bl FUN_02074a2c
 _0211B268:
@@ -1671,11 +1671,11 @@ _0211B6DC:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211B6EC:
 	ldr r0, [r7, #4]
-	bl _ZN14CScreenManager12FUN_02041db8Ev
+	bl _ZN14CScreenManager12fadeSubBlackEv
 	ldr r0, [r7, #4]
 	mov r1, #1
 	mov r2, #0x71
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	mla r0, r4, r5, r7
 	add r0, r0, #0x2800
 	ldrsh r1, [r0, #0x10]
@@ -1747,11 +1747,11 @@ _0211B7F4:
 	cmp r0, #0xc
 	bne _0211B840
 	ldr r0, [r4, #4]
-	bl _ZN14CScreenManager12FUN_02041db8Ev
+	bl _ZN14CScreenManager12fadeSubBlackEv
 	mov r5, #1
 	ldr r0, [r4, #4]
 	mov r1, r5
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	add r0, r4, #0x3000
 	ldr r1, _0211B850 ; =0x02099EB4
 	strb r5, [r0, #0x4bb]
@@ -5640,10 +5640,10 @@ _0211EEE0:
 	ldr r4, [r9, #4]
 	mov r1, r8
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, r6
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	strb r8, [r9, #0xcc]
 _0211EF18:
 	add r0, r9, #0xbc

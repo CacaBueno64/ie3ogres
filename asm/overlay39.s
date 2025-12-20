@@ -1052,10 +1052,10 @@ _0211AD80:
 	ldr r4, [r4, #4]
 	mov r1, #0
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _0211ADB8: .word ov106_02125420
 	arm_func_end FUN_ov39_0211ac5c

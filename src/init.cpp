@@ -81,7 +81,7 @@ void FUN_02029140(void)
     MI_CpuClearFast(destp, size);
     DC_FlushRange(unk_02099E8C.unk94, unk_02099E8C.unkBC);
 
-    gL5Allocator.FUN_0202dc54(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
+    gL5Allocator.initArenas(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
 
     OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
 

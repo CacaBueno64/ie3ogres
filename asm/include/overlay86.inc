@@ -11,8 +11,8 @@
 .public FUN_ov16_02110938
 .public FUN_ov16_02110a04
 .public unk_02099EB4
-.public _ZN14CScreenManager12FUN_02041d9cEv
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager13fadeMainBlackEv
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_020f153c
 .public FUN_0207249c
 .public FUN_020727a8

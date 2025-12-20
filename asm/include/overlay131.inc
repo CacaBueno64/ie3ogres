@@ -25,7 +25,7 @@
 .public unk_020A0C3C
 .public FUN_0204eac8
 .public STD_GetStringLength
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_0206c7dc
 .public STD_CopyString

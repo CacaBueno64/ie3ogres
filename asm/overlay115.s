@@ -92,7 +92,7 @@ FUN_ov115_02124e04: ; 0x02124E04
 	ldrb r0, [r6, #0x12]
 	cmp r0, #0
 	bne _02124E60
-	ldr r0, _02124E74 ; =0x0209BA20
+	ldr r0, _02124E74 ; =gLogicThink
 	bl FUN_0207318c
 	movs r5, r0
 	beq _02124E60
@@ -808,7 +808,7 @@ _02125864:
 	moveq r0, #0
 	cmp r0, #0
 	beq _021258D0
-	ldr r0, _02125AF0 ; =0x0209BA20
+	ldr r0, _02125AF0 ; =gLogicThink
 	bl FUN_0207318c
 	mov r4, r0
 	add r0, r10, #0x18
@@ -828,7 +828,7 @@ _02125864:
 	mov r2, r2, lsl #3
 	bl FUN_ov16_020f2184
 _021258D0:
-	ldr r5, _02125AF0 ; =0x0209BA20
+	ldr r5, _02125AF0 ; =gLogicThink
 	mov r8, #0
 	add r6, r10, #0x18
 _021258DC:

@@ -28,7 +28,7 @@
 .public FUN_ov16_02113b78
 .public _s32_div_f
 .public FUN_ov16_02112724
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov16_0210ee78
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e15c
@@ -43,7 +43,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_0210e9d8

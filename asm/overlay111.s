@@ -317,7 +317,7 @@ FUN_ov111_021250f0: ; 0x021250F0
 	bne _02125120
 	ldr r0, _02125198 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125120:
 	ldr r0, [r4, #4]
@@ -325,7 +325,7 @@ _02125120:
 	bne _0212513C
 	ldr r0, _02125198 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _0212513C:
 	ldr r2, [r4]
@@ -803,7 +803,7 @@ FUN_ov111_02125790: ; 0x02125790
 	mov r4, r0
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, pc}
-	ldr r0, _021257E4 ; =0x0209BA20
+	ldr r0, _021257E4 ; =gLogicThink
 	bl FUN_0204a2c4
 	cmp r0, #0
 	addeq sp, sp, #4

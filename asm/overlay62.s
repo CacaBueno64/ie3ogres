@@ -724,9 +724,9 @@ _0211A8E0:
 	add r0, sp, #0x14
 	bl FUN_ov16_020f33fc
 	add r0, sp, #0x20
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add r0, sp, #0x2c
-	bl FUN_0202895c
+	bl _ZNSsD1Ev
 	add sp, sp, #0x138
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A92C: .word unk_02099F38
@@ -1983,7 +1983,7 @@ FUN_ov62_0211bb10: ; 0x0211BB10
 	mov r4, #1
 	str r4, [sp, #0xc]
 	bl FUN_ov62_0211b99c
-	ldr r0, _0211BBA0 ; =0x0209BA20
+	ldr r0, _0211BBA0 ; =gLogicThink
 	bl FUN_ov16_020edf7c
 	stmia sp, {r0, r6}
 	mov r0, #0x16
@@ -2074,7 +2074,7 @@ _0211BC4C:
 	cmp r7, #0
 	mov r8, #0x1f
 	beq _0211BCCC
-	ldr r0, _0211BD14 ; =0x0209BA20
+	ldr r0, _0211BD14 ; =gLogicThink
 	bl FUN_ov16_020edf7c
 	cmp r6, r0
 	movhi r8, #0x10
@@ -2151,7 +2151,7 @@ _0211BDA8:
 	mov r0, #0xc
 	mul r1, r2, r0
 	ldr r2, [r10, #0x4fc]
-	ldr r0, _0211BE88 ; =0x0209BA20
+	ldr r0, _0211BE88 ; =gLogicThink
 	ldrh r1, [r2, r1]
 	bl FUN_ov16_020ee034
 	cmp r0, #0
@@ -2299,7 +2299,7 @@ _0211BFD8:
 	mov r3, #2
 	bl FUN_ov16_02113ec0
 	ldrh r1, [r9]
-	ldr r0, _0211C080 ; =0x0209BA20
+	ldr r0, _0211C080 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -3327,7 +3327,7 @@ _0211CD64:
 	cmpne r0, #0
 	ble _0211CDD0
 	ldrh r1, [r4]
-	ldr r0, _0211D39C ; =0x0209BA20
+	ldr r0, _0211D39C ; =gLogicThink
 	bl FUN_ov16_020ee034
 	movs r2, r0
 	beq _0211CDD0
@@ -3501,7 +3501,7 @@ _0211D00C:
 	cmp r0, #0
 	beq _0211D08C
 	ldrh r1, [r0]
-	ldr r0, _0211D39C ; =0x0209BA20
+	ldr r0, _0211D39C ; =gLogicThink
 	bl FUN_ov16_020ee034
 	movs r3, r0
 	beq _0211D08C
@@ -3635,7 +3635,7 @@ _0211D20C:
 	cmp r0, #0
 	beq _0211D294
 	ldrh r1, [r0]
-	ldr r0, _0211D39C ; =0x0209BA20
+	ldr r0, _0211D39C ; =gLogicThink
 	bl FUN_ov16_020ee034
 	movs r10, r0
 	beq _0211D294
@@ -4484,7 +4484,7 @@ FUN_ov62_0211de64: ; 0x0211DE64
 	sub sp, sp, #0x1000
 	mov r10, r0
 	ldrb r0, [r10, #0x1c]
-	ldr r6, _0211E318 ; =0x0209BA20
+	ldr r6, _0211E318 ; =gLogicThink
 	cmp r0, #0
 	bne _0211E0F4
 	add r2, sp, #0x4c
@@ -4567,7 +4567,7 @@ _0211DF8C:
 	blt _0211DF10
 _0211DFA0:
 	ldr r0, [sp, #8]
-	ldr r5, _0211E318 ; =0x0209BA20
+	ldr r5, _0211E318 ; =gLogicThink
 	cmp r0, #0
 	mov r8, #0
 	ble _0211E074
@@ -4623,7 +4623,7 @@ _0211E064:
 	blt _0211DFBC
 _0211E074:
 	mov r6, #0
-	ldr r4, _0211E318 ; =0x0209BA20
+	ldr r4, _0211E318 ; =gLogicThink
 	mov r5, r6
 _0211E080:
 	mov r0, r4
@@ -4661,7 +4661,7 @@ _0211E0F4:
 	str r0, [sp, #4]
 	bl FUN_ov16_020f081c
 	mov r1, r0
-	ldr r0, _0211E318 ; =0x0209BA20
+	ldr r0, _0211E318 ; =gLogicThink
 	bl FUN_0207249c
 	mov r4, r0
 	ldr r0, [sp, #4]
@@ -4735,7 +4735,7 @@ _0211E20C:
 	mov r6, #0
 	mov r7, r6
 	cmp r8, #0
-	ldr r11, _0211E318 ; =0x0209BA20
+	ldr r11, _0211E318 ; =gLogicThink
 	ble _0211E308
 	add r5, sp, #0x8c
 _0211E224:
@@ -4895,7 +4895,7 @@ _0211E440:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211E454:
-	ldr r6, _0211E538 ; =0x0209BA20
+	ldr r6, _0211E538 ; =gLogicThink
 	mov r0, r6
 	bl FUN_ov16_020edf7c
 	mov r7, r0
@@ -5299,7 +5299,7 @@ _0211EA08:
 	ldr r0, [r7]
 	bl FUN_ov131_0213ad20
 	ldrh r1, [r4]
-	ldr r0, _0211EF20 ; =0x0209BA20
+	ldr r0, _0211EF20 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	ldrb r1, [r0, #0x1d]
 	cmp r1, #0x16
@@ -5732,7 +5732,7 @@ FUN_ov62_0211f044: ; 0x0211F044
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	mov r4, #0
-	ldr r0, _0211F254 ; =0x0209BA20
+	ldr r0, _0211F254 ; =gLogicThink
 	mov r1, r4
 	bl FUN_0204da5c
 	mov r0, #0x4000000
@@ -5806,7 +5806,7 @@ _0211F15C:
 	mov r4, #0x3000
 	ldr r0, _0211F264 ; =gL5Allocator
 	mov r1, r4
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	mov r1, r0
 	mov r6, #0
 	mov r0, r6
@@ -5838,7 +5838,7 @@ _0211F1DC:
 	str r0, [r5, #0x514]
 	ldr r0, [r1]
 	bl FUN_ov16_021123b4
-	ldr r0, _0211F254 ; =0x0209BA20
+	ldr r0, _0211F254 ; =gLogicThink
 	bl FUN_ov16_020eeca0
 	mov r4, #0
 	add r0, r5, #0x18
@@ -5986,10 +5986,10 @@ _0211F3D4:
 	bne _0211F420
 	ldr r4, [r4, #4]
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211F420:
 	ldr r5, [r4, #4]
@@ -6058,7 +6058,7 @@ _0211F4F4:
 	ldr r0, _0211F520 ; =0x02099F38
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
-	ldr r0, _0211F524 ; =0x0209BA20
+	ldr r0, _0211F524 ; =gLogicThink
 	bl FUN_ov16_020eedb8
 	mov r0, r4
 	bl FUN_ov62_02120a1c
@@ -6076,7 +6076,7 @@ FUN_ov62_0211f528: ; 0x0211F528
 	sub sp, sp, #0x20
 	mov r4, r0
 	mov r9, #0
-	ldr r0, _0211F678 ; =0x0209BA20
+	ldr r0, _0211F678 ; =gLogicThink
 	mov r1, r9
 	bl FUN_0205107c
 	add r5, sp, #0
@@ -6189,7 +6189,7 @@ FUN_ov62_0211f67c: ; 0x0211F67C
 	mov r0, r8
 	mov r1, r5
 	bl MI_CpuCopy8
-	ldr r9, _0211F798 ; =0x0209BA20
+	ldr r9, _0211F798 ; =gLogicThink
 	str r7, [sp]
 	mov r1, r7
 	mov r0, r9
@@ -6463,7 +6463,7 @@ FUN_ov62_0211fac8: ; 0x0211FAC8
 	sub sp, sp, #0x2c
 	mov r10, r0
 	mov r4, #0
-	ldr r0, _0211FD44 ; =0x0209BA20
+	ldr r0, _0211FD44 ; =gLogicThink
 	mov r1, r4
 	bl FUN_0205107c
 	str r4, [sp, #0x28]
@@ -7440,7 +7440,7 @@ _021208DC:
 	mov r6, r7
 	b _0212094C
 _021208E4:
-	ldr r9, _021209A4 ; =0x0209BA20
+	ldr r9, _021209A4 ; =gLogicThink
 	mov r8, #2
 	mov r0, r9
 	mov r2, r8
@@ -7453,7 +7453,7 @@ _021208E4:
 	cmp r0, #0x18
 	b _02120940
 _02120914:
-	ldr r9, _021209A4 ; =0x0209BA20
+	ldr r9, _021209A4 ; =gLogicThink
 	mov r8, #2
 	mov r0, r9
 	mov r2, r8
@@ -7473,13 +7473,13 @@ _0212094C:
 	cmp r7, #0
 	beq _0212096C
 	ldr r1, _021209A8 ; =0x0209A454
-	ldr r0, _021209A4 ; =0x0209BA20
+	ldr r0, _021209A4 ; =gLogicThink
 	ldrb r1, [r1, #0x28]
 	mov r2, r4
 	bl FUN_ov16_020ee278
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0212096C:
-	ldr r8, _021209A4 ; =0x0209BA20
+	ldr r8, _021209A4 ; =gLogicThink
 	mov r1, r5
 	mov r0, r8
 	mov r2, r6
@@ -7596,7 +7596,7 @@ FUN_ov62_02120aa8: ; 0x02120AA8
 	stmia sp, {r2, r3}
 	mov r3, lr
 	mov r2, #0
-	bl FUN_02028984
+	bl _ZNSs7replaceEmmRKSsmm
 	add sp, sp, #8
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov62_02120aa8
@@ -7635,7 +7635,7 @@ FUN_ov62_02120b18: ; 0x02120B18
 	mov r2, r5
 	mov r3, r4
 	strb r12, [sp, #4]
-	bl FUN_02028a98
+	bl _ZNSs10do_replaceEmmPKcS0_St26random_access_iterator_tag
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov62_02120b18

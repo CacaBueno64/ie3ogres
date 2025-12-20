@@ -154,7 +154,7 @@
 .public gWirelessUtil
 .public FUN_ov16_020efa4c
 .public _ZN14CScreenManager5clearEv
-.public _ZN14CScreenManager12FUN_02041f74E12EngineSelect9SceneType
+.public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -185,7 +185,7 @@
 .public FUN_ov24_0211acd8
 .public FUN_ov37_0211b2b0
 .public FUN_0206c0d8
-.public _ZN11L5Allocator8allocateEiii
+.public _ZN11L5Allocator8allocateEmii
 .public _ZN14CScreenManager16getNextSceneMainEv
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public _ZN14CScreenManager12deleteScreenEP12CommonScreenP17ScreenLoadContext
@@ -223,7 +223,7 @@
 .public unk_020A1640
 .public _ZN7L5Sound12FUN_0202cf6cEm
 .public FUN_0206f5a8
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov16_020f6510
 .public FUN_02061c48
 .public unk_0209A5D0
@@ -252,7 +252,7 @@
 .public FUN_0207249c
 .public FUN_020465fc
 .public FUN_ov16_020f2604
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public FUN_02046730
 .public FUN_ov16_020f03fc
 .public FUN_020724c8
@@ -355,7 +355,7 @@
 .public FUN_ov16_020f1aec
 .public FUN_ov16_021123c4
 .public FUN_ov61_0211a340
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov61_0211d840
 .public FUN_020628dc
 .public L5Thread_Yield
@@ -411,7 +411,7 @@
 .public FUN_020568c4
 .public FUN_02057be4
 .public OS_Terminate
-.public FUN_0202de44
+.public _ZN11L5Allocator8allocateEm
 .public FUN_ov131_02140e38
 .public FUN_ov131_02140fac
 .public FUN_0204da5c
@@ -429,7 +429,7 @@
 .public FUN_0204b650
 .public FUN_02055388
 .public FUN_02044658
-.public _ZN14CScreenManager12FUN_02041db8Ev
+.public _ZN14CScreenManager12fadeSubBlackEv
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd

@@ -231,7 +231,7 @@ FUN_ov104_02124fd8: ; 0x02124FD8
 	bne _02125008
 	ldr r0, _02125080 ; =gL5Allocator
 	mov r1, r5, lsl #1
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4]
 _02125008:
 	ldr r0, [r4, #4]
@@ -239,7 +239,7 @@ _02125008:
 	bne _02125024
 	ldr r0, _02125080 ; =gL5Allocator
 	mov r1, r5, lsl #5
-	bl FUN_0202de44
+	bl _ZN11L5Allocator8allocateEm
 	str r0, [r4, #4]
 _02125024:
 	ldr r2, [r4]

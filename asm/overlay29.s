@@ -417,7 +417,7 @@ _0211A410:
 	ldr r0, _0211A65C ; =0x02123750
 	add r1, r7, #0x24
 	bl FUN_ov16_020f3054
-	ldr r0, _0211A660 ; =0x0209BA20
+	ldr r0, _0211A660 ; =gLogicThink
 	bl FUN_0204eba0
 	add r0, r7, #0x1a0
 	mov r1, r4
@@ -589,7 +589,7 @@ _0211A71C:
 	bl FUN_ov16_020f57b0
 	add r0, r10, #0x198
 	bl FUN_ov16_020f52c4
-	ldr r0, _0211A7E8 ; =0x0209BA20
+	ldr r0, _0211A7E8 ; =gLogicThink
 	bl FUN_0204ec3c
 	ldr r0, _0211A7EC ; =0x0209A0AC
 	bl FUN_ov16_020efa04
@@ -857,10 +857,10 @@ _0211AB08:
 	ldr r5, [r9, #4]
 	mov r1, r8
 	mov r0, r5
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r5
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	b _0211C2A0
 _0211AB40:
 	mov r0, r9
@@ -1773,7 +1773,7 @@ _0211B874:
 	bne _0211B8BC
 	add r0, r9, #0x100
 	ldrh r1, [r0, #0xe4]
-	ldr r0, _0211C7A0 ; =0x0209BA20
+	ldr r0, _0211C7A0 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	str r10, [sp]
 	str r10, [sp, #4]
@@ -1832,7 +1832,7 @@ _0211B914:
 	add r0, r9, #0x100
 	bne _0211B9A8
 	ldrh r1, [r0, #0xe4]
-	ldr r0, _0211C7A0 ; =0x0209BA20
+	ldr r0, _0211C7A0 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	ldrh r0, [r0, #0x22]
 	add r1, r9, #0x198
@@ -2072,7 +2072,7 @@ _0211BC74:
 	bl MIi_CpuClearFast
 	add r1, r9, #0x100
 	ldrh r1, [r1, #0xd8]
-	ldr r0, _0211C7A0 ; =0x0209BA20
+	ldr r0, _0211C7A0 ; =gLogicThink
 	add r2, sp, #0x4c
 	bl FUN_0204bd64
 	ldrb r0, [r9, #0x201]
@@ -2319,7 +2319,7 @@ _0211C080:
 	bl MIi_CpuClearFast
 	add r1, r9, #0x100
 	ldrh r1, [r1, #0xe4]
-	ldr r0, _0211C7A0 ; =0x0209BA20
+	ldr r0, _0211C7A0 ; =gLogicThink
 	bl FUN_ov16_020ee034
 	mov r2, r0
 	ldr r1, _0211C800 ; =0x02123B40
@@ -3642,7 +3642,7 @@ _0211D3CC:
 _0211D3DC:
 	add r0, r4, #0x100
 	ldrh r1, [r0, #0xe4]
-	ldr r0, _0211D40C ; =0x0209BA20
+	ldr r0, _0211D40C ; =gLogicThink
 	mov r2, #1
 	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D410 ; =gL5Sound
@@ -3747,7 +3747,7 @@ _0211D52C:
 _0211D538:
 	add r0, r4, #0x100
 	ldrh r1, [r0, #0xe4]
-	ldr r0, _0211D568 ; =0x0209BA20
+	ldr r0, _0211D568 ; =gLogicThink
 	mov r2, #1
 	bl FUN_ov16_020ede60 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D56C ; =gL5Sound
@@ -5888,7 +5888,7 @@ _0211F2D8: .word gL5Sound
 FUN_ov29_0211f2dc: ; 0x0211F2DC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x38
-	ldr r3, _0211F67C ; =0x0209BA20
+	ldr r3, _0211F67C ; =gLogicThink
 	mov r10, #0
 	add r4, sp, #0x20
 	str r10, [r4]
@@ -5909,7 +5909,7 @@ _0211F328:
 	ldrh r1, [r4, #0x24]
 	cmp r1, #0
 	beq _0211F43C
-	ldr r0, _0211F67C ; =0x0209BA20
+	ldr r0, _0211F67C ; =gLogicThink
 	bl FUN_0204bc4c
 	mov r1, r0
 	mov r0, r5

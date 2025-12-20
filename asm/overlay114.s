@@ -134,7 +134,7 @@ _02124E98:
 	bl FUN_ov132_02143c94
 	b _02125030
 _02124ECC:
-	ldr r0, _02125050 ; =0x0209BA20
+	ldr r0, _02125050 ; =gLogicThink
 	mov r1, r5
 	bl FUN_0207249c
 	mov r0, r5
@@ -172,7 +172,7 @@ _02124F18:
 	add r1, r6, #0x118
 	bl FUN_ov1_020dbefc
 _02124F5C:
-	ldr r0, _02125050 ; =0x0209BA20
+	ldr r0, _02125050 ; =gLogicThink
 	mov r1, r4
 	bl FUN_0207249c
 	mov r0, r4

@@ -79,10 +79,10 @@
 .public _ZN14CScreenManager17getLoadedSceneSubEv
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public _ZN14CScreenManager12FUN_02041d9cEv
+.public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov16_020f153c
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
-.public _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
+.public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e10c
 .public unk_0209A110
 .public FUN_ov16_020f1aec
@@ -149,9 +149,9 @@
 .public FUN_02074a2c
 .public unk_0209A3E0
 .public FUN_02071fac
-.public _ZN11L5Allocator8allocateEiii
-.public FUN_0202de44
-.public _ZN14CScreenManager12FUN_02041d80Ev
+.public _ZN11L5Allocator8allocateEmii
+.public _ZN11L5Allocator8allocateEm
+.public _ZN14CScreenManager10fadeInMainEv
 .public FUN_02072020
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

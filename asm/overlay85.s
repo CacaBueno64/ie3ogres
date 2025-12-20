@@ -356,7 +356,7 @@ _0211A36C:
 	strb r0, [r8, #0x28]
 	strb r5, [r8, #0x29]
 	strb r6, [r8, #0x2a]
-	ldr r0, _0211A428 ; =0x0209BA20
+	ldr r0, _0211A428 ; =gLogicThink
 	strb r6, [r8, #0x2b]
 	bl FUN_020731a4
 	strb r0, [r8, #0x30]
@@ -378,11 +378,11 @@ _0211A36C:
 	mov r1, r6
 	mov r0, r5
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+	bl _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A414: .word gWirelessUtil
 _0211A418: .word ov85_0211CDE8
@@ -581,7 +581,7 @@ FUN_ov85_0211a694: ; 0x0211A694
 	sub sp, sp, #0xc
 	mov r4, r0
 	mov r5, #0
-	ldr r0, _0211A7F0 ; =0x0209BA20
+	ldr r0, _0211A7F0 ; =gLogicThink
 	mov r1, r5
 	bl FUN_0207249c
 	mov r0, r5
@@ -624,7 +624,7 @@ _0211A6F8:
 	bl FUN_ov1_020dbefc
 _0211A744:
 	mov r5, #1
-	ldr r0, _0211A7F0 ; =0x0209BA20
+	ldr r0, _0211A7F0 ; =gLogicThink
 	mov r1, r5
 	bl FUN_0207249c
 	mov r0, r5
@@ -684,7 +684,7 @@ FUN_ov85_0211a804: ; 0x0211A804
 	cmp r0, #1
 	mov r7, #0
 	movne r7, r5
-	ldr r0, _0211A920 ; =0x0209BA20
+	ldr r0, _0211A920 ; =gLogicThink
 	mov r1, r7
 	bl FUN_0207249c
 	mov r6, r0
@@ -809,7 +809,7 @@ _0211A9D0:
 _0211A9E4:
 	cmp r0, #1
 	movne r5, #1
-	ldr r0, _0211ACB0 ; =0x0209BA20
+	ldr r0, _0211ACB0 ; =gLogicThink
 	mov r1, r5
 	bl FUN_0207249c
 	ldrh r0, [r0, #0x22]
@@ -884,7 +884,7 @@ _0211AAF8:
 	ldr r0, [r4, #0xc]
 	mov r1, #0
 	cmp r0, #1
-	ldr r0, _0211ACB0 ; =0x0209BA20
+	ldr r0, _0211ACB0 ; =gLogicThink
 	movne r1, #1
 	bl FUN_0207249c
 	mov r8, r0
@@ -1127,7 +1127,7 @@ _0211AE40:
 	ldr r1, [r4, #0x2c]
 	cmp r1, #8
 	bne _0211AE94
-	ldr r0, _0211AEA4 ; =0x0209BA20
+	ldr r0, _0211AEA4 ; =gLogicThink
 	bl FUN_020732d8
 	cmp r0, #0
 	beq _0211AE78
@@ -1971,7 +1971,7 @@ _0211BA48:
 	addeq sp, sp, #0x30
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r4, #0
-	ldr r0, _0211BB18 ; =0x0209BA20
+	ldr r0, _0211BB18 ; =gLogicThink
 	ldr r1, [sp, #0x14]
 	mov r3, r4
 	mov r2, #0xf

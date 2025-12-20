@@ -15,7 +15,7 @@
 .public FUN_ov16_020f0944
 .public FUN_020731a4
 .public FUN_ov126_021355b4
-.public _ZN14CScreenManager12FUN_02041ef0E12EngineSelect9SceneType
+.public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public ov1_020E9482
 .public unk_020A0640
 .public unk_0209A454

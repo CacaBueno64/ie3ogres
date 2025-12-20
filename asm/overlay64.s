@@ -330,7 +330,7 @@ _0211A328:
 	cmp r0, #0x5a
 	movlo r8, #1
 _0211A348:
-	ldr r0, _0211A614 ; =0x0209BA20
+	ldr r0, _0211A614 ; =gLogicThink
 	bl FUN_02073a10
 	strh r0, [r4, #0x58]
 	ldrh r0, [r4, #0x58]
@@ -734,10 +734,10 @@ FUN_ov64_0211a88c: ; 0x0211A88C
 	ldr r4, [r4, #4]
 	mov r1, #0
 	mov r0, r4
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	mov r0, r4
 	mov r1, #1
-	bl _ZN14CScreenManager12FUN_02041f2cE12EngineSelect
+	bl _ZN14CScreenManager8popSceneE12EngineSelect
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov64_0211a88c
 
@@ -786,7 +786,7 @@ FUN_ov64_0211a93c: ; 0x0211A93C
 	bl FUN_ov16_020efa9c
 	mov r4, r0
 	bl FUN_ov16_020f081c
-	ldr r5, _0211ACA4 ; =0x0209BA20
+	ldr r5, _0211ACA4 ; =gLogicThink
 	mov r1, r0
 	mov r0, r5
 	bl FUN_0207249c
