@@ -171,8 +171,8 @@ Overlay overlay15
 {
 	After main
 
-	# TwlDWC_dl and TwlWifi libraries
-	Object lib/TwlDWC_dl/asm/cps/network.o
+	# TwlDWC_dl and TwlWiFi libraries
+	Object lib/TwlWiFi/asm/cps/network.o
 
 	Object lib/TwlDWC_dl/asm/ac/wds.o
 	Object lib/TwlDWC_dl/asm/ac/beacon.o
@@ -238,34 +238,34 @@ Overlay overlay15
 	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_common.o
 	Object lib/TwlDWC_dl/asm/nhttp/d_nhttp_private.o
 
-	Object lib/TwlDWC_dl/asm/soc/socl_startup.o
-	Object lib/TwlDWC_dl/asm/soc/socl_command.o
-	Object lib/TwlDWC_dl/asm/soc/socl_create.o
-	Object lib/TwlDWC_dl/asm/soc/socl_bind.o
-	Object lib/TwlDWC_dl/asm/soc/socl_read.o
-	Object lib/TwlDWC_dl/asm/soc/socl_write.o
-	Object lib/TwlDWC_dl/asm/soc/socl_shutdown.o
-	Object lib/TwlDWC_dl/asm/soc/socl_close.o
-	Object lib/TwlDWC_dl/asm/soc/socl_cleanup.o
-	Object lib/TwlDWC_dl/asm/soc/socl_const.o
-	Object lib/TwlDWC_dl/asm/soc/socl_resolve.o
-	Object lib/TwlDWC_dl/asm/soc/socl_poll.o
-	Object lib/TwlDWC_dl/asm/soc/socl_misc.o
-	Object lib/TwlDWC_dl/asm/soc/socl_list.o
-	Object lib/TwlDWC_dl/asm/soc/soc.o
-	Object lib/TwlDWC_dl/asm/soc/socl_ssl.o
+	Object lib/TwlWiFi/asm/soc/socl_startup.o
+	Object lib/TwlWiFi/asm/soc/socl_command.o
+	Object lib/TwlWiFi/asm/soc/socl_create.o
+	Object lib/TwlWiFi/asm/soc/socl_bind.o
+	Object lib/TwlWiFi/asm/soc/socl_read.o
+	Object lib/TwlWiFi/asm/soc/socl_write.o
+	Object lib/TwlWiFi/asm/soc/socl_shutdown.o
+	Object lib/TwlWiFi/asm/soc/socl_close.o
+	Object lib/TwlWiFi/asm/soc/socl_cleanup.o
+	Object lib/TwlWiFi/asm/soc/socl_const.o
+	Object lib/TwlWiFi/asm/soc/socl_resolve.o
+	Object lib/TwlWiFi/asm/soc/socl_poll.o
+	Object lib/TwlWiFi/asm/soc/socl_misc.o
+	Object lib/TwlWiFi/asm/soc/socl_list.o
+	Object lib/TwlWiFi/asm/soc/soc.o
+	Object lib/TwlWiFi/asm/soc/socl_ssl.o
 
-	Object lib/TwlDWC_dl/asm/ssl/ssl.o
-	Object lib/TwlDWC_dl/asm/ssl/md5.o
-	Object lib/TwlDWC_dl/asm/ssl/sha1.o
-	Object lib/TwlDWC_dl/asm/ssl/arc4.o
-	Object lib/TwlDWC_dl/asm/ssl/biginteger.o
+	Object lib/TwlWiFi/asm/ssl/ssl.o
+	Object lib/TwlWiFi/asm/ssl/md5.o
+	Object lib/TwlWiFi/asm/ssl/sha1.o
+	Object lib/TwlWiFi/asm/ssl/arc4.o
+	Object lib/TwlWiFi/asm/ssl/biginteger.o
 
-	Object lib/TwlDWC_dl/asm/wcm/system.o
-	Object lib/TwlDWC_dl/asm/wcm/aplist.o
-	Object lib/TwlDWC_dl/asm/wcm/cpsif.o
-	Object lib/TwlDWC_dl/asm/wcm/util.o
-	Object lib/TwlDWC_dl/asm/wcm/wmif.o
+	Object lib/TwlWiFi/asm/wcm/system.o
+	Object lib/TwlWiFi/asm/wcm/aplist.o
+	Object lib/TwlWiFi/asm/wcm/cpsif.o
+	Object lib/TwlWiFi/asm/wcm/util.o
+	Object lib/TwlWiFi/asm/wcm/wmif.o
 
 	Object asm/overlay15.o
 
