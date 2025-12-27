@@ -21,7 +21,7 @@
 .public unk_0209A200
 .public unk_020900DC
 .public unk_020900EC
-.public FUN_02029d54
+.public GetCurrentMode
 .public FUN_ov0_020bdbe8
 .public abs
 .public _s32_div_f
@@ -33,7 +33,7 @@
 .public FUN_ov16_020f068c
 .public FUN_ov16_020f2604
 .public FUN_ov16_020f153c
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public FUN_ov16_020f1670
 .public _ZN7L5Movie12FUN_0202e958Ev
 .public unk_0208C384
@@ -454,7 +454,7 @@
 .public FUN_ov16_020fa300
 .public FUN_ov16_020fb02c
 .public FUN_ov16_020faf5c
-.public unk_02099F18
+.public g3DDevice
 .public FUN_ov16_020fb110
 .public VEC_Normalize
 .public VEC_DotProduct

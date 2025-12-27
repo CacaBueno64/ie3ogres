@@ -2154,7 +2154,7 @@ _02043E04:
 	ldrsh r0, [r6, #6]
 	cmp r0, #0
 	bne _02043F0C
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #3
 	addne sp, sp, #0x10
 	movne r0, r5
@@ -2419,7 +2419,7 @@ _020441DC:
 	bl FUN_ov16_020f153c
 	add r0, r8, #0x6000
 	ldr r0, [r0, #0x1fc]
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	add r0, r8, #0x6000
 	str r5, [r0, #0x1fc]
 	b _02044208
@@ -3650,7 +3650,7 @@ FUN_02045124: ; 0x02045124
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r10, r0
 	mov r5, #1
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #2
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -3777,7 +3777,7 @@ FUN_020452e0: ; 0x020452E0
 	cmp r0, #0
 	moveq r0, r6
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #3
 	movne r0, r6
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -8046,7 +8046,7 @@ _02048868:
 	bl FUN_ov16_020fe6e8
 	b _020489BC
 _0204889C:
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #3
 	bne _020489BC
 	mla r0, r7, r5, r4
@@ -20804,7 +20804,7 @@ FUN_02052f9c: ; 0x02052F9C
 	add r0, r4, #0x22c
 	bl FUN_ov16_020faf5c
 	ldmfd sp!, {r4, pc}
-_02053028: .word unk_02099F18
+_02053028: .word g3DDevice
 	arm_func_end FUN_02052f9c
 
 	arm_func_start FUN_0205302c
@@ -29965,7 +29965,7 @@ _0205A728:
 	cmp r6, r0
 	blt _0205A66C
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0205A738: .word unk_02099F18
+_0205A738: .word g3DDevice
 	arm_func_end FUN_0205a60c
 
 	arm_func_start FUN_0205a73c
@@ -31892,7 +31892,7 @@ _0205C04C:
 	cmp r6, r0
 	blt _0205BF74
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0205C05C: .word unk_02099F18
+_0205C05C: .word g3DDevice
 	arm_func_end FUN_0205bf14
 
 	arm_func_start FUN_0205c060
@@ -33408,7 +33408,7 @@ _0205D40C:
 	cmp r5, r0
 	blt _0205D384
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0205D41C: .word unk_02099F18
+_0205D41C: .word g3DDevice
 	arm_func_end FUN_0205d348
 
 	arm_func_start FUN_0205d420
@@ -35502,7 +35502,7 @@ _0205F018:
 	cmp r6, r0
 	blt _0205EF74
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0205F028: .word unk_02099F18
+_0205F028: .word g3DDevice
 	arm_func_end FUN_0205ef30
 
 	arm_func_start FUN_0205f02c

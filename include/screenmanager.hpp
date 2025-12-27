@@ -169,7 +169,7 @@ class CScreenManager : public CManager {
         /* 0x02041cc8 */ virtual BOOL updateLate(int param1);
         /* 0x02042124 */ virtual void endGraphics(u32 arg);
         /* 0x020420bc */ virtual void updateDisplayMapping(void);
-        /* 0x02029d00 */ virtual void updateScene() = 0;
+        /* 0x02029d00 */ virtual void updateScene(void) = 0;
         /* 0x02041dd4 */ virtual int vFUN_38(int arg);
         /* 0x02041df8 */ virtual int vFUN_3C(int arg);
         /* 0x02041e1c */ virtual int signalMain(int signal);
@@ -222,12 +222,12 @@ class CScreenManager : public CManager {
 };
 
 extern "C" {
-    void FUN_ov16_020f1468(int);
-    void FUN_ov16_020f1514(int);
-    void FUN_ov16_020f1528(int);
-    BOOL FUN_ov16_020f1650(void);
-    BOOL FUN_ov16_020f1660(void);
-    void FUN_ov16_020f16c8(int);
+    extern void FUN_ov16_020f1468(int);
+    extern void FUN_ov16_020f1514(int);
+    extern void FUN_ov16_020f1528(int);
+    extern BOOL FUN_ov16_020f1650(void);
+    extern BOOL FUN_ov16_020f1660(void);
+    extern void FUN_ov16_020f16c8(int);
 }
 
 #endif //IE3OGRES_SCREENMANAGER_H

@@ -104,9 +104,6 @@ $(C_OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 
 # Library output
-#$(LIB_NAME): $(LIBRARY_FILES)
-#	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDFLAGS) -o $(BACK_REL)/$(LIB_NAME) $(LIBRARY_FILES:$(BUILD_DIR)/%=%)
-# Library output
 $(LIBRARY): $(LIBRARY_FILES)
 	$(WINE) $(MWLD) $(LIB_PARAM) $^ -o $@
 

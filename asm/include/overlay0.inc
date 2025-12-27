@@ -114,7 +114,7 @@
 .public FUN_ov16_020f7a8c
 .public FUN_ov16_020f7b50
 .public FUN_0205b2b8
-.public unk_02099F18
+.public g3DDevice
 .public unk_0209A720
 .public unk_02099F58
 .public unk_02099F38
@@ -347,7 +347,7 @@
 .public FUN_0202c364
 .public FUN_ov16_020f17f0
 .public FUN_ov16_020f1650
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public FUN_02045a80
 .public FUN_02045de0
 .public FUN_02045d9c

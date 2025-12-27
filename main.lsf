@@ -115,7 +115,8 @@ Overlay overlay2
 Overlay overlay3
 {
 	After main
-	Object asm/overlay3.o
+	Object src/cardscreen/cardscreenmanager.o
+	Object src/cardscreen/cardscreeninit.o
 }
 Overlay overlay4
 {

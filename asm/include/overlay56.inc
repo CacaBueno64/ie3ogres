@@ -4,7 +4,7 @@
 .public FUN_0205131c
 .public unk_02099EB4
 .public unk_02099ED4
-.public unk_02099F18
+.public g3DDevice
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_02058ee0

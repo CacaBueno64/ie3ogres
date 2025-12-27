@@ -1680,7 +1680,7 @@ _0211B5E8:
 	ldr r0, _0211B6C8 ; =0x020A9C40
 	bl FUN_0204545c
 	mov r0, #3
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B694: .word unk_020A0640
 _0211B698: .word unk_020A1640

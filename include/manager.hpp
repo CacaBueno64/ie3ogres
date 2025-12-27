@@ -19,7 +19,7 @@ class CManager {
         /* 0x02029d08 */ virtual void endGraphics(u32 arg);
         virtual void close(void) = 0;
         /* 0x02029d04 */ virtual void updateDisplayMapping(void); //probably misnomer
-        /* 0x02029d00 */ virtual void updateScene();
+        /* 0x02029d00 */ virtual void updateScene(void);
     
         /* these may or may not be part of this
         virtual void vFUN_38();

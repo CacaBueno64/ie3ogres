@@ -10935,7 +10935,7 @@ _02123B4C: .word unk_02099EB4
 _02123B50: .word unk_02099ED4
 _02123B54: .word unk_0209A228
 _02123B58: .word unk_0209A454
-_02123B5C: .word unk_02099F18
+_02123B5C: .word g3DDevice
 _02123B60: .word 0x00002710
 _02123B64: .word unk_02099F38
 _02123B68: .word unk_02099EEC
@@ -11310,7 +11310,7 @@ _021240B0: .word unk_02099EEC
 _021240B4: .word gLogicThink
 _021240B8: .word gL5Allocator
 _021240BC: .word unk_0209A454
-_021240C0: .word unk_02099F18
+_021240C0: .word g3DDevice
 	arm_func_end FUN_ov63_02123f84
 
 	arm_func_start FUN_ov63_021240c4

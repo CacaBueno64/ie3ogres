@@ -1446,7 +1446,7 @@ FUN_ov0_020bdcfc: ; 0x020BDCFC
 	bl FUN_020521d0
 	add sp, sp, #0x24
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020BDE98: .word unk_02099F18
+_020BDE98: .word g3DDevice
 _020BDE9C: .word unk_0209A720
 _020BDEA0: .word unk_02099F58
 _020BDEA4: .word unk_02099F38
@@ -1519,7 +1519,7 @@ _020BDF98: .word unk_02099EEC
 _020BDF9C: .word unk_02099EE8
 _020BDFA0: .word unk_02099EB0
 _020BDFA4: .word unk_020AF81C
-_020BDFA8: .word unk_02099F18
+_020BDFA8: .word g3DDevice
 _020BDFAC: .word unk_0209A110
 _020BDFB0: .word unk_02099F10
 _020BDFB4: .word unk_02099EB8
@@ -1584,7 +1584,7 @@ FUN_ov0_020bdfb8: ; 0x020BDFB8
 	ldmfd sp!, {r4, r5, r6, pc}
 _020BE094: .word unk_02099F58
 _020BE098: .word unk_02099F38
-_020BE09C: .word unk_02099F18
+_020BE09C: .word g3DDevice
 _020BE0A0: .word unk_02099EEC
 _020BE0A4: .word unk_02099EE8
 _020BE0A8: .word unk_02099EB0
@@ -1691,7 +1691,7 @@ _020BE190:
 	str r4, [sp]
 	bl FUN_02044798
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BE1C0: .word unk_02099F18
+_020BE1C0: .word g3DDevice
 _020BE1C4: .word gL5Sound
 _020BE1C8: .word unk_020A9C40
 _020BE1CC: .word unk_020AF81C
@@ -6393,7 +6393,7 @@ _020C22F8:
 	bl FUN_0204590c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C2304: .word unk_020A9C40
-_020C2308: .word unk_02099F18
+_020C2308: .word g3DDevice
 _020C230C: .word unk_020AA044
 	arm_func_end FUN_ov0_020c2260
 
@@ -8164,7 +8164,7 @@ _020C3BC4: .word FUN_ov0_020c6dcc
 _020C3BC8: .word FUN_ov0_020c6dd8
 _020C3BCC: .word ov0_020D57DC
 _020C3BD0: .word unk_020A9C40
-_020C3BD4: .word unk_02099F18
+_020C3BD4: .word g3DDevice
 _020C3BD8: .word unk_02099EB4
 _020C3BDC: .word unk_02099ED4
 _020C3BE0: .word ov0_020D5B1C
@@ -8499,7 +8499,7 @@ _020C4084:
 	mov r0, r9
 	bl FUN_ov0_020c369c
 	mov r0, #2
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	add sp, sp, #0x98
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C40A8:
@@ -9583,7 +9583,7 @@ _020C4FBC:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C4FEC: .word unk_0209A200
 _020C4FF0: .word ov0_020D6100
-_020C4FF4: .word unk_02099F18
+_020C4FF4: .word g3DDevice
 _020C4FF8: .word unk_02099EB4
 _020C4FFC: .word unk_02099ED4
 _020C5000: .word unk_020A9C40

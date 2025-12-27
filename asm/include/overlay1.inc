@@ -556,7 +556,7 @@
 .public FUN_020560b4
 .public FUN_020512a8
 .public unk_02099ED8
-.public unk_02099F18
+.public g3DDevice
 .public FUN_ov61_0211bb60
 .public FUN_ov61_0211b8bc
 .public FUN_ov61_0211d9b4

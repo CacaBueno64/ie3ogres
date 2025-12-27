@@ -4238,7 +4238,7 @@ _0211DA0C: .word unk_02099ED4
 _0211DA10: .word unk_0209A454
 _0211DA14: .word gLogicThink
 _0211DA18: .word gL5Allocator
-_0211DA1C: .word unk_02099F18
+_0211DA1C: .word g3DDevice
 _0211DA20: .word unk_02099F38
 _0211DA24: .word unk_02099EEC
 _0211DA28: .word unk_02099F24
@@ -4472,7 +4472,7 @@ _0211DD3C: .word gL5Allocator
 _0211DD40: .word unk_02099F38
 _0211DD44: .word unk_02099EEC
 _0211DD48: .word gLogicThink
-_0211DD4C: .word unk_02099F18
+_0211DD4C: .word g3DDevice
 	arm_func_end FUN_ov67_0211dc50
 
 	arm_func_start FUN_ov67_0211dd50
@@ -8969,7 +8969,7 @@ _02121B6C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02121BC4: .word unk_02099EB4
 _02121BC8: .word unk_02099ED4
-_02121BCC: .word unk_02099F18
+_02121BCC: .word g3DDevice
 _02121BD0: .word gBgMenuManager
 _02121BD4: .word gL5Allocator
 _02121BD8: .word gLogicThink
@@ -9239,7 +9239,7 @@ _02121F8C: .word gLogicThink
 _02121F90: .word gBgMenuManager
 _02121F94: .word unk_02099F38
 _02121F98: .word unk_02099EEC
-_02121F9C: .word unk_02099F18
+_02121F9C: .word g3DDevice
 	arm_func_end FUN_ov67_02121ec0
 
 	arm_func_start FUN_ov67_02121fa0

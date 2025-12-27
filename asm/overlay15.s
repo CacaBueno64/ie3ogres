@@ -3,7 +3,7 @@
 	.include "/include/overlay15.inc"
 
 	.text
-	arm_func_start FUN_ov15_020df358
+	arm_func_start FUN_ov15_020df358 ; https://decomp.me/scratch/PnrEx
 FUN_ov15_020df358: ; 0x020DF358
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r6, _020DF3E4 ; =gL5Allocator
@@ -47,7 +47,7 @@ _020DF3F0: .word FUN_ov15_020e0688
 _020DF3F4: .word ov15_020ED84C
 	arm_func_end FUN_ov15_020df358
 
-	arm_func_start FUN_ov15_020df3f8
+	arm_func_start FUN_ov15_020df3f8 ; https://decomp.me/scratch/u5YLi
 FUN_ov15_020df3f8: ; 0x020DF3F8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -113,7 +113,7 @@ _020DF4B4:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020df3f8
 
-	arm_func_start FUN_ov15_020df4c0
+	arm_func_start FUN_ov15_020df4c0 ; https://decomp.me/scratch/4cy36
 FUN_ov15_020df4c0: ; 0x020DF4C0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, [r0, #0xb4]
@@ -169,7 +169,7 @@ FUN_ov15_020df548: ; 0x020DF548
 	bx lr
 	arm_func_end FUN_ov15_020df548
 
-	arm_func_start FUN_ov15_020df564
+	arm_func_start FUN_ov15_020df564 ; https://decomp.me/scratch/5N2Gu
 FUN_ov15_020df564: ; 0x020DF564
 	ldr r1, [r0, #0xb4]
 	mov r3, #0
@@ -248,7 +248,7 @@ FUN_ov15_020df64c: ; 0x020DF64C
 	bx lr
 	arm_func_end FUN_ov15_020df64c
 
-	arm_func_start FUN_ov15_020df664
+	arm_func_start FUN_ov15_020df664 ; https://decomp.me/scratch/Q2Cme
 FUN_ov15_020df664: ; 0x020DF664
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -329,7 +329,7 @@ _020DF758:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020df664
 
-	arm_func_start FUN_ov15_020df774
+	arm_func_start FUN_ov15_020df774 ; https://decomp.me/scratch/d7jNl
 FUN_ov15_020df774: ; 0x020DF774
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -435,7 +435,7 @@ _020DF8B4:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov15_020df774
 
-	arm_func_start FUN_ov15_020df8d0
+	arm_func_start FUN_ov15_020df8d0 ; https://decomp.me/scratch/PdZKM
 FUN_ov15_020df8d0: ; 0x020DF8D0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
@@ -731,7 +731,7 @@ FUN_ov15_020dfd00: ; 0x020DFD00
 	bx lr
 	arm_func_end FUN_ov15_020dfd00
 
-	arm_func_start FUN_ov15_020dfd04
+	arm_func_start FUN_ov15_020dfd04 ; https://decomp.me/scratch/MlMr2
 FUN_ov15_020dfd04: ; 0x020DFD04
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
@@ -788,7 +788,7 @@ _020DFD7C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_ov15_020dfd04
 
-	arm_func_start FUN_ov15_020dfdbc
+	arm_func_start FUN_ov15_020dfdbc ; https://decomp.me/scratch/KEBJs
 FUN_ov15_020dfdbc: ; 0x020DFDBC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -815,7 +815,7 @@ _020DFDF0:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov15_020dfdbc
 
-	arm_func_start FUN_ov15_020dfe14
+	arm_func_start FUN_ov15_020dfe14 ; https://decomp.me/scratch/UVvHD
 FUN_ov15_020dfe14: ; 0x020DFE14
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -882,7 +882,7 @@ FUN_ov15_020dfec0: ; 0x020DFEC0
 _020DFEE4: .word unk_020A11DC
 	arm_func_end FUN_ov15_020dfec0
 
-	arm_func_start FUN_ov15_020dfee8
+	arm_func_start FUN_ov15_020dfee8 ; https://decomp.me/scratch/N5PGS
 FUN_ov15_020dfee8: ; 0x020DFEE8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xd4
@@ -2347,7 +2347,7 @@ FUN_ov15_020e11e0: ; 0x020E11E0
 	strb r2, [r1, #0x83]
 	bl FUN_ov16_020f153c
 	mov r0, r4
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, pc}
 _020E1218: .word unk_0209A454
 	arm_func_end FUN_ov15_020e11e0
@@ -4379,7 +4379,7 @@ FUN_ov15_020e2dbc: ; 0x020E2DBC
 	strb r2, [r1, #0x83]
 	bl FUN_ov16_020f153c
 	mov r0, r4
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, pc}
 _020E2DF4: .word unk_0209A454
 	arm_func_end FUN_ov15_020e2dbc
@@ -5856,9 +5856,9 @@ ov15_020E64D4:
 ov15_020E64E0:
 	.byte 0x14, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global ov15_020E6500
+ov15_020E6500:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov15_020E6508
-ov15_020E6508:
 	.word FUN_ov15_020e0eec
 	.word FUN_ov15_020e0f00
 	.word FUN_ov15_020e0764

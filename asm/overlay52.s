@@ -5329,7 +5329,7 @@ _0211E6F0: .word ov52_02124724
 _0211E6F4: .word ov52_02124738
 _0211E6F8: .word ov52_0212474C
 _0211E6FC: .word ov52_02124760
-_0211E700: .word unk_02099F18
+_0211E700: .word g3DDevice
 _0211E704: .word unk_02099EEC
 _0211E708: .word unk_02099F24
 	arm_func_end FUN_ov52_0211e4c8
@@ -5371,7 +5371,7 @@ _0211E75C:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211E78C: .word unk_0209A0AC
 _0211E790: .word unk_02099EEC
-_0211E794: .word unk_02099F18
+_0211E794: .word g3DDevice
 	arm_func_end FUN_ov52_0211e70c
 
 	arm_func_start FUN_ov52_0211e798

@@ -112,7 +112,7 @@
 .public unk_020A1640
 .public FUN_ov16_020f153c
 .public FUN_020455a0
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

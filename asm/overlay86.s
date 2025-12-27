@@ -221,7 +221,7 @@ _0211A164:
 	mov r0, #6
 	bl FUN_ov16_020f153c
 	mov r0, #2
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A214:
 	ldrb r0, [r5, #0x940]

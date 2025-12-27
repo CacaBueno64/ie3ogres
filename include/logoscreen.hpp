@@ -8,6 +8,7 @@
 
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
+#include "gamemodes.hpp"
 #include "l5movie.hpp"
 #include "l5sound.hpp"
 #include "l5config.hpp"
@@ -115,7 +116,7 @@ class CLogoScreenManager : public CScreenManager {
         /* ov5 0x020bcde4 */ virtual void startGraphics(u32 arg);
         /* ov5 0x020bce28 */ virtual void endGraphics(u32 arg);
         /* ov5 0x020bcc44 */ virtual void close(void);
-        /* ov5 0x020bcc94 */ virtual void updateScene();
+        /* ov5 0x020bcc94 */ virtual void updateScene(void);
     private:
     CMainLogoScreenInit mainScreenInit;
     CMainLogoScreenDCBmp mainScreenDCBmp;
@@ -125,7 +126,6 @@ class CLogoScreenManager : public CScreenManager {
 extern "C" {
     extern int unk_0209A110;
     extern void *gBgMenuManager;
-    extern void FUN_02029d44(int);
     extern void FUN_ov16_020f10c8(void);
     extern void FUN_ov16_020f13d4(void);
     extern void FUN_ov16_020f1490(int);
@@ -137,7 +137,7 @@ extern "C" {
     extern BOOL FUN_ov16_020f1670(void);
     extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
     extern void FUN_ov16_020f2a74(SMovieInfo *);
-    extern int FUN_ov16_020f2aa4(void);
+    extern BOOL FUN_ov16_020f2aa4(void);
     extern void FUN_ov16_020f2ab4(void);
     extern void FUN_ov16_020f3054(const char *, SFileData *);
     extern void FUN_ov16_020f3f60(int);

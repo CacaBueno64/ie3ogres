@@ -14,7 +14,7 @@
 .public unk_0209A0FC
 .public unk_0209A0D8
 .public FUN_ov16_020f15dc
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public FUN_ov16_020f153c
 .public _s32_div_f
 .public _ZN7L5Sound12FUN_0202cf6cEm

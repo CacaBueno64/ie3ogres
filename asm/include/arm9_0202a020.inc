@@ -139,7 +139,7 @@
 .public gWaitVBlank
 .public unk_0209A124
 .public ov16_02118490
-.public unk_02099F18
+.public g3DDevice
 .public unk_02099F30
 .public _ZdlPv
 .public FUN_ov16_020f1800

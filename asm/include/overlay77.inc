@@ -27,7 +27,7 @@
 .public FUN_0205b2b8
 .public FUN_020521d0
 .public unk_0209A720
-.public unk_02099F18
+.public g3DDevice
 .public unk_02099F58
 .public unk_02099F38
 .public unk_02099F24

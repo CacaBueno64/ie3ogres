@@ -8,7 +8,7 @@
 .public _ZN7L5Sound12FUN_0202b7f0Ev
 .public FUN_020512a8
 .public gL5Sound
-.public unk_02099F18
+.public g3DDevice
 .public _ZN14CScreenManager16getNextSceneMainEv
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public _ZN14CScreenManager15getNextSceneSubEv
@@ -34,7 +34,7 @@
 .public GX_LoadBGPltt
 .public GX_LoadBG1Scr
 .public GX_LoadBG1Char
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public FUN_0202d724
 .public FUN_0202d798
 .public _ZN7L5Sound12FUN_0202d578Em

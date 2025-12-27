@@ -1551,7 +1551,7 @@ _0211B3A4:
 	strb r1, [r2, #0x244]
 	bl _ZN7L5Sound12FUN_0202cf6cEm
 	mov r0, #6
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	mov r0, #0xd
 	str r0, [r7, #8]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}

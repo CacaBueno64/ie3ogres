@@ -1354,7 +1354,7 @@ _0202B19C: .word gWaitVBlank
 _0202B1A0: .word unk_0209A124
 _0202B1A4: .word ov16_02118490
 _0202B1A8: .word 0x02FFFFA8
-_0202B1AC: .word unk_02099F18
+_0202B1AC: .word g3DDevice
 _0202B1B0: .word unk_02099F30
 _0202B1B4: .word unk_0209A0E8
 _0202B1B8: .word unk_0209A0F0

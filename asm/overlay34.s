@@ -422,7 +422,7 @@ FUN_ov34_0211a488: ; 0x0211A488
 	str r1, [r4, #8]
 	bl FUN_ov16_020f15dc
 	mov r0, #7
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldr r0, [r4, #4]
 	mov r1, #4
 	str r1, [r0, #0x90]
@@ -455,7 +455,7 @@ FUN_ov34_0211a4f0: ; 0x0211A4F0
 	mov r0, #6
 	bl FUN_ov16_020f153c
 	mov r0, #8
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov34_0211a4f0
 

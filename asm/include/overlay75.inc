@@ -13,7 +13,7 @@
 .public FUN_ov1_020be6f8
 .public FUN_ov1_020be73c
 .public FUN_02044798
-.public unk_02099F18
+.public g3DDevice
 .public ov1_020EAA94
 .public unk_0209A12C
 .public unk_0209A140

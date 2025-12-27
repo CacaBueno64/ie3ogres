@@ -99,7 +99,7 @@
 .public FUN_0206c158
 .public FUN_ov16_020efa04
 .public gL5Config
-.public unk_02099F18
+.public g3DDevice
 .public unk_02099EEC
 .public unk_02099F24
 .public FUN_0206c270

@@ -78,7 +78,7 @@ FUN_ov32_02119fcc: ; 0x02119FCC
 	mov r1, #8
 	bl FUN_020455a0
 	mov r0, #3
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, pc}
 _02119FFC: .word unk_020A9C40
 	arm_func_end FUN_ov32_02119fcc
@@ -181,7 +181,7 @@ _0211A0A0:
 	mov r0, #6
 	bl FUN_ov16_020f153c
 	mov r0, #3
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211A164: .word unk_020A0B00
 _0211A168: .word unk_0209A460

@@ -1433,7 +1433,7 @@ FUN_ov4_020bde7c: ; 0x020BDE7C
 	strb r4, [r1, #0x81]
 	bl FUN_ov16_020f153c
 	mov r0, r4
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, pc}
 _020BDEA8: .word unk_0209A454
 	arm_func_end FUN_ov4_020bde7c
@@ -5221,7 +5221,7 @@ FUN_ov4_020c1124: ; 0x020C1124
 	mov r0, #6
 	bl FUN_ov16_020f153c
 	mov r0, #2
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	mov r0, r4
 	bl FUN_ov4_020c1a24
 	ldmfd sp!, {r4, pc}

@@ -5210,7 +5210,7 @@ _0211E610:
 	mov r1, #8
 	bl FUN_020455a0
 	mov r0, #3
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211E628: .word unk_020A0640
 _0211E62C: .word unk_0209A454

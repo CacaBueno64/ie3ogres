@@ -16,7 +16,7 @@
 .public FUN_ov16_020f153c
 .public FUN_0207249c
 .public FUN_020727a8
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public unk_020A1640
 .public unk_02099E98
 .public unk_020A0640

@@ -32847,7 +32847,7 @@ _020D8ED8:
 _020D8F00: .word gWirelessUtil
 _020D8F04: .word unk_020A0640
 _020D8F08: .word unk_02099ED8
-_020D8F0C: .word unk_02099F18
+_020D8F0C: .word g3DDevice
 _020D8F10: .word unk_0209A454
 	arm_func_end FUN_ov1_020d8e80
 
@@ -40034,7 +40034,7 @@ _020DF2AC:
 	mov r0, #1
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_020DF2B8: .word unk_02099F18
+_020DF2B8: .word g3DDevice
 _020DF2BC: .word unk_02099F58
 _020DF2C0: .word unk_02099F38
 _020DF2C4: .word unk_020A9C40

@@ -83,7 +83,7 @@ _020BCC24:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BCC60: .word ov6_020BE0A0
 _020BCC64: .word gL5Sound
-_020BCC68: .word unk_02099F18
+_020BCC68: .word g3DDevice
 _020BCC6C: .word 0x00007335
 	arm_func_end FUN_ov6_020bcb40
 
@@ -469,7 +469,7 @@ FUN_ov6_020bd13c: ; 0x020BD13C
 	mov r0, #6
 	bl FUN_ov16_020f153c
 	mov r0, #3
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov6_020bd13c
 
@@ -516,7 +516,7 @@ _020BD1CC:
 	ldr r1, [r1, #0x50]
 	blx r1
 	mov r0, #1
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BD1F0: .word gL5Config
 _020BD1F4: .word ov6_020BDEEC
@@ -901,7 +901,7 @@ FUN_ov6_020bd718: ; 0x020BD718
 	bl FUN_020512a8
 	ldmfd sp!, {r3, pc}
 _020BD748: .word 0x04000014
-_020BD74C: .word unk_02099F18
+_020BD74C: .word g3DDevice
 	arm_func_end FUN_ov6_020bd718
 
 	arm_func_start FUN_ov6_020bd750

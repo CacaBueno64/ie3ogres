@@ -65,7 +65,7 @@
 .public FUN_020443b0
 .public FUN_02044734
 .public FUN_0204545c
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public unk_020A1640
 .public unk_020A0B00
 .public unk_0209A460

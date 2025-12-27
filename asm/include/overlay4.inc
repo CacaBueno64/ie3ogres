@@ -139,7 +139,7 @@
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f153c
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public unk_0209A454
 .public GX_LoadBG0Scr
 .public GX_LoadBG0Char

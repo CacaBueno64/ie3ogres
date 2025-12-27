@@ -58,7 +58,7 @@ void CMainLogoScreenDCBmp::update(int arg)
     if (!FUN_ov16_020f2aa4()) {
         FUN_ov16_020f2a74(&this->movieInfo);
         this->unk_8 = 0;
-        FUN_02029d44(1);
+        SetNextMode(GAME_MODE_TITLE);
     }
 }
 

@@ -2288,7 +2288,7 @@ _0211BE68:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211BED8:
 	mov r0, #2
-	bl FUN_02029d44
+	bl _Z11SetNextMode8GameMode
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211BEE8:

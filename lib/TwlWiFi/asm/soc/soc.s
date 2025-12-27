@@ -541,8 +541,8 @@ _ZZ17SOC_GetHostByNamePKcE6hostip_1:
 	.global FreeFunc_SOC
 FreeFunc_SOC:
 	.space 0x04
-	.global ZZ17SOC_GetHostByAddrPKviiE6hostip_1
-ZZ17SOC_GetHostByAddrPKviiE6hostip_1:
+	.global _ZZ17SOC_GetHostByAddrPKviiE6hostip_1
+_ZZ17SOC_GetHostByAddrPKviiE6hostip_1:
 	.space 0x04
 	.global AllocFunc_SOC
 AllocFunc_SOC:

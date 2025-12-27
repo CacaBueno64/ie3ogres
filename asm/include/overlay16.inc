@@ -636,7 +636,7 @@
 .public FUN_020326e0
 .public FUN_020326b4
 .public FUN_0204bd64
-.public FUN_02029d54
+.public GetCurrentMode
 .public FUN_02045570
 .public FUN_0204557c
 .public FUN_020554b0

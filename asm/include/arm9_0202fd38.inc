@@ -51,7 +51,7 @@
 .public FUN_ov131_0214bd84
 .public unk_02099F44
 .public _ZN14CScreenManager15getCurSceneMainEv
-.public FUN_02029d54
+.public GetCurrentMode
 .public unk_02099EF0
 .public FUN_02052928
 .public unk_02099EB8

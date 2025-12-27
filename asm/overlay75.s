@@ -211,7 +211,7 @@ _0211A104:
 	bl FUN_02044798
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0211A208: .word unk_02099F18
+_0211A208: .word g3DDevice
 _0211A20C: .word ov1_020EAA94
 _0211A210: .word unk_0209A12C
 _0211A214: .word unk_0209A140

@@ -91,7 +91,7 @@ _0211A014:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A044: .word unk_02099EB4
 _0211A048: .word unk_02099ED4
-_0211A04C: .word unk_02099F18
+_0211A04C: .word g3DDevice
 	arm_func_end FUN_ov56_02119f00
 
 	arm_func_start FUN_ov56_0211a050
@@ -172,7 +172,7 @@ _0211A128:
 _0211A170: .word unk_02099EB4
 _0211A174: .word unk_02099ED4
 _0211A178: .word unk_0209A454
-_0211A17C: .word unk_02099F18
+_0211A17C: .word g3DDevice
 _0211A180: .word unk_02099F38
 	arm_func_end FUN_ov56_0211a050
 

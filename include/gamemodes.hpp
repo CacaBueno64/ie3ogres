@@ -5,6 +5,7 @@
 
 #include <nitro.h>
 
+#include "cardscreen.hpp"
 #include "logoscreen.hpp"
 
 typedef enum {
@@ -26,6 +27,9 @@ typedef struct {
     FSOverlayID overlayID;
 } GameModeContext;
 
+void SetNextMode(GameMode mode);
+
+void CardScreenLoad(GameModeContext *ctx);
 void LogoScreenLoad(GameModeContext *ctx);
 
 extern "C" {

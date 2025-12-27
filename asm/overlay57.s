@@ -6643,7 +6643,7 @@ _0211FAD4:
 	ldreqb r0, [r0]
 	cmpeq r0, #0
 	bne _0211FB34
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #1
 	beq _0211FB34
 	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
@@ -6670,7 +6670,7 @@ _0211FB34:
 	ldr r0, [r2]
 	bl FUN_ov131_021422e4
 _0211FB70:
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #1
 	bne _0211FBAC
 	ldrb r0, [r4, #0x31]
@@ -7604,7 +7604,7 @@ FUN_ov57_02120830: ; 0x02120830
 	ldreqb r0, [r0]
 	cmpeq r0, #0
 	bne _021208CC
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #1
 	beq _021208CC
 	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
@@ -8606,7 +8606,7 @@ FUN_ov57_021216e0: ; 0x021216E0
 	ldreqb r0, [r0]
 	cmpeq r0, #0
 	bne _0212174C
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #1
 	beq _0212174C
 	bl FUN_ov16_020f068c ; may be ov17 ; ov16(Mica)
@@ -8717,7 +8717,7 @@ _021218B4:
 	ldrb r0, [r4, #0x31]
 	cmp r0, #0
 	beq _021218DC
-	bl FUN_02029d54
+	bl GetCurrentMode
 	cmp r0, #1
 	bne _021218DC
 	ldr r0, [r4, #0x10]

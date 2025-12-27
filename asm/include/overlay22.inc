@@ -109,7 +109,7 @@
 .public FUN_02044ea4
 .public FUN_02045064
 .public FUN_02044f78
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_02044690
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

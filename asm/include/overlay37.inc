@@ -50,7 +50,7 @@
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public STD_GetStringLength
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public unk_0209A0F4
 .public gL5Movie
 .public unk_020A0640

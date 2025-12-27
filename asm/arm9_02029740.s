@@ -481,21 +481,21 @@ FUN_02029d18: ; 0x02029D18
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02029d18
 
-	arm_func_start FUN_02029d44
-FUN_02029d44: ; 0x02029D44
+	arm_func_start _Z11SetNextMode8GameMode
+_Z11SetNextMode8GameMode: ; 0x02029D44
 	ldr r1, _02029D50 ; =0x020B5AE0
 	str r0, [r1, #4]
 	bx lr
 _02029D50: .word unk_020B5AE0
-	arm_func_end FUN_02029d44
+	arm_func_end _Z11SetNextMode8GameMode
 
-	arm_func_start FUN_02029d54
-FUN_02029d54: ; 0x02029D54
+	arm_func_start GetCurrentMode
+GetCurrentMode: ; 0x02029D54
 	ldr r0, _02029D60 ; =0x020B5AE0
 	ldr r0, [r0, #8]
 	bx lr
 _02029D60: .word unk_020B5AE0
-	arm_func_end FUN_02029d54
+	arm_func_end GetCurrentMode
 
 	arm_func_start FUN_02029d64 ; https://decomp.me/scratch/hQu3p
 FUN_02029d64: ; 0x02029D64
@@ -546,7 +546,7 @@ _02029DE8:
 	bl _Z14LogoScreenLoadP15GameModeContext
 	ldmfd sp!, {r3, pc}
 _02029DF0:
-	bl FUN_02029f50
+	bl _Z14CardScreenLoadP15GameModeContext
 	ldmfd sp!, {r3, pc}
 _02029DF8:
 	bl FUN_02029ee4
@@ -592,7 +592,7 @@ _02029E7C:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02029E84: .word 0x00000714
-_02029E88: .word ov15_020E6508
+_02029E88: .word ov15_020E6500+0x8
 _02029E8C: .word ov15_020E6698
 _02029E90: .word ov15_020E6B64
 _02029E94: .word ov15_020E6C98
@@ -674,32 +674,32 @@ FUN_02029f4c: ; 0x02029F4C
 	bx lr
 	arm_func_end FUN_02029f4c
 
-	arm_func_start FUN_02029f50
-FUN_02029f50: ; 0x02029F50
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r0, #0xa8
-	bl _Znwm
-	movs r4, r0
-	beq _02029F90
-	bl _ZN14CScreenManagerC2Ev
-	ldr r1, _02029F98 ; =0x020BD340
-	ldr r0, _02029F9C ; =0x020BD3B0
-	str r1, [r4]
-	str r0, [r4, #0x90]
-	str r4, [r4, #0x94]
-_02029F90:
-	str r4, [r5, #4]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02029F98: .word ov3_020BD340
-_02029F9C: .word ov3_020BD3B0
-	arm_func_end FUN_02029f50
-
-	arm_func_start FUN_02029fa0
-FUN_02029fa0: ; 0x02029FA0
-	bx lr
-	arm_func_end FUN_02029fa0
+;	arm_func_start _Z14CardScreenLoadP15GameModeContext
+;_Z14CardScreenLoadP15GameModeContext: ; 0x02029F50
+;	stmfd sp!, {r3, r4, r5, lr}
+;	mov r5, r0
+;	ldr r0, [r5, #8]
+;	bl FUN_ov16_LoadOverlay
+;	cmp r0, #0
+;	ldmeqfd sp!, {r3, r4, r5, pc}
+;	mov r0, #0xa8
+;	bl _Znwm
+;	movs r4, r0
+;	beq _02029F90
+;	bl _ZN14CScreenManagerC2Ev
+;	ldr r1, _02029F98 ; =0x020BD340
+;	ldr r0, _02029F9C ; =0x020BD3B0
+;	str r1, [r4]
+;	str r0, [r4, #0x90]
+;	str r4, [r4, #0x94]
+;_02029F90:
+;	str r4, [r5, #4]
+;	ldmfd sp!, {r3, r4, r5, pc}
+;_02029F98: .word ov3_020BD340
+;_02029F9C: .word ov3_020BD3B0
+;	arm_func_end _Z14CardScreenLoadP15GameModeContext
+;
+;	arm_func_start FUN_02029fa0
+;FUN_02029fa0: ; 0x02029FA0
+;	bx lr
+;	arm_func_end FUN_02029fa0

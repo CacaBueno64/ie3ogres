@@ -1,7 +1,7 @@
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_0209A454
 .public FUN_020455a0
-.public FUN_02029d44
+.public _Z11SetNextMode8GameMode
 .public unk_020A9C40
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public STD_CopyLString

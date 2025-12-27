@@ -160,7 +160,7 @@
 .public FUN_ov16_020f7be0
 .public FUN_ov16_020f7bf4
 .public unk_0209A228
-.public unk_02099F18
+.public g3DDevice
 .public unk_02099F24
 .public FUN_0205b340
 .public FUN_ov16_020f330c

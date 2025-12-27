@@ -257,7 +257,7 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A274: .word unk_0209A720
-_0211A278: .word unk_02099F18
+_0211A278: .word g3DDevice
 _0211A27C: .word unk_02099F58
 _0211A280: .word unk_02099F38
 _0211A284: .word unk_02099F24
@@ -346,7 +346,7 @@ _0211A39C:
 _0211A3B8: .word unk_02099EEC
 _0211A3BC: .word unk_02099EE8
 _0211A3C0: .word unk_020AF81C
-_0211A3C4: .word unk_02099F18
+_0211A3C4: .word g3DDevice
 _0211A3C8: .word unk_02099EB0
 _0211A3CC: .word unk_0209A110
 _0211A3D0: .word unk_02099F10
@@ -395,7 +395,7 @@ FUN_ov77_0211a3e0: ; 0x0211A3E0
 	mov r1, #5
 	bl FUN_020522ec
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A478: .word unk_02099F18
+_0211A478: .word g3DDevice
 _0211A47C: .word unk_02099F58
 _0211A480: .word unk_02099F38
 _0211A484: .word unk_02099EEC

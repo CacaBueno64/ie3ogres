@@ -72,8 +72,8 @@ unk_02099F10:
 	.global unk_02099F14
 unk_02099F14:
 	.space 0x04
-	.global unk_02099F18
-unk_02099F18:
+	.global g3DDevice
+g3DDevice:
 	.space 0x04
 	.global gFontRubi8
 gFontRubi8:

@@ -741,7 +741,7 @@ void CFileIO::uncompress(void *src, FileRequest *request)
 
 size_t CFileIO::readFromSFP(char *filename, void **dst, void *file)
 {
-    Archive_SFPHeader *header = (Archive_SFPHeader *)file;
+    Archive_SFPHeader *header = static_cast<Archive_SFPHeader *>(file);
     
     if (strcmp(header->magic, "SFP")) {
         return 0;
