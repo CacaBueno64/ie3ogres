@@ -7,7 +7,7 @@
 .public FUN_0205aa80
 .public FUN_0205a828
 .public FUN_0205ab68
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -18,9 +18,9 @@
 .public FUN_0205b3cc
 .public gLogicThink
 .public unk_02099EEC
-.public gL5Config
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public gL5Allocator
+.public gConfig
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public gAllocator
 .public FUN_02058e30
 .public FUN_02059004
 .public FUN_02059038
@@ -104,8 +104,8 @@
 .public FUN_ov16_0210fd0c
 .public FUN_ov16_020f53e8
 .public FUN_ov16_0210e7d0
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
@@ -117,7 +117,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_0204d7fc
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClearFast
 .public FUN_0205131c
 .public _Znwm
@@ -140,7 +140,7 @@
 .public unk_0209A110
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_021123c4
 .public FUN_0205b398
 .public FUN_0205a5f4

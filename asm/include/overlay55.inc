@@ -6,14 +6,14 @@
 .public gBgMenuManager
 .public FUN_02062800
 .public FUN_02045b40
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_020460a8
 .public STD_CompareString
 .public unk_0209A454
 .public unk_0209A460
 .public unk_0209A5D0
 .public unk_020A9C40
-.public gL5Sound
+.public gAudioPlayer
 .public unk_020A1640
 .public FUN_ov16_020f153c
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -35,9 +35,9 @@
 .public MI_CpuFill8
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f32b4
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public memcpy
-.public gL5Allocator
+.public gAllocator
 .public FUN_ov16_020f33fc
 .public G2_GetBG3CharPtr
 .public FUN_ov16_020f1868
@@ -68,7 +68,7 @@
 .public FUN_ov16_020f6a9c
 .public FUN_0204ec3c
 .public G2_GetBG2ScrPtr
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f2fe4
 .public FUN_ov16_020f1aec
 .public FUN_ov16_020f338c

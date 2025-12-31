@@ -13,17 +13,17 @@ void InitAlloc(void)
 
 void Config_Init(void)
 {
-    gL5Config.clear();
-    gL5Config.init();
-    gL5Config.openFile("INAZUMA.INI");
+    gConfig.clear();
+    gConfig.init();
+    gConfig.openFile("INAZUMA.INI");
 
-    unk_0209A1A8.izType                   = gL5Config.getParam("IZ_TYPE");
-    unk_0209A1A8.geometryUnderflowCheck   = gL5Config.getParam("GEOMETRY_UNDERFLOW_CHECK");
-    unk_0209A1A8.menuMovieMax             = gL5Config.getParam("MENU_MOVIE_MAX");
-    unk_0209A1A8.rpgMoveAccelUp           = gL5Config.getParam("RPG_MOVEACCEL_UP");
-    unk_0209A1A8.rpgMoveAccelDown         = gL5Config.getParam("RPG_MOVEACCEL_DOWN");
-    unk_0209A1A8.rpgMoveSpeed             = gL5Config.getParam("RPG_MOVESPEED");
-    unk_0209A1A8.rpgStandDist             = gL5Config.getParam("RPG_STANDDIST");
-    unk_0209A1A8.rpgGiveupMoveDist        = gL5Config.getParam("RPG_GIVEUPMOVE_DIST");
-    unk_0209A1A8.rpgMinimapScrollVelocity = gL5Config.getParam("RPG_MINIMAP_SCROLL_VEROCITY");
+    unk_0209A1A8.izType                   = gConfig.getParam("IZ_TYPE");
+    unk_0209A1A8.geometryUnderflowCheck   = gConfig.getParam("GEOMETRY_UNDERFLOW_CHECK");
+    unk_0209A1A8.menuMovieMax             = gConfig.getParam("MENU_MOVIE_MAX");
+    unk_0209A1A8.rpgMoveAccelUp           = gConfig.getParam("RPG_MOVEACCEL_UP");
+    unk_0209A1A8.rpgMoveAccelDown         = gConfig.getParam("RPG_MOVEACCEL_DOWN");
+    unk_0209A1A8.rpgMoveSpeed             = gConfig.getParam("RPG_MOVESPEED");
+    unk_0209A1A8.rpgStandDist             = gConfig.getParam("RPG_STANDDIST");
+    unk_0209A1A8.rpgGiveupMoveDist        = gConfig.getParam("RPG_GIVEUPMOVE_DIST");
+    unk_0209A1A8.rpgMinimapScrollVelocity = gConfig.getParam("RPG_MINIMAP_SCROLL_VEROCITY");
 }

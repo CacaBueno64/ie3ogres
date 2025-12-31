@@ -30,9 +30,9 @@ void CMainLogoScreenInit::updateTP(TPData *tp)
 
 void CMainLogoScreenInit::openArchives(void)
 {
-    gL5Allocator.setNextArena(1);
+    gAllocator.setNextArena(1);
     FUN_ov16_020f3054("/data_iz/pic2d/title/level5.pac_", &this->data[0]);
-    gL5Allocator.setNextArena(1);
+    gAllocator.setNextArena(1);
     FUN_ov16_020f3054("/data_iz/pic2d/title/ActimagineOriginal.pac_", &this->data[1]);
     this->state = STATE_INIT;
 }
@@ -41,7 +41,7 @@ void CMainLogoScreenInit::closeArchives(void)
 {
     for (int i = 0; i < 2; i++) {
         if (this->data[i].data != NULL) {
-            gL5Allocator.deallocate(this->data[i].data);
+            gAllocator.deallocate(this->data[i].data);
             this->data[i].data = NULL;
         }
     }
@@ -102,7 +102,7 @@ void CMainLogoScreenInit::update(int arg)
                 FUN_ov16_020f1560(0, 8);
                 FUN_ov16_020f14b4(1, 8);
             } else if (this->scene == SCENE_LEVEL5) {
-                gL5Sound.FUN_0202cf6c(0x83DE);
+                gAudioPlayer.FUN_0202cf6c(0x83DE);
                 FUN_ov16_020f1490(6);
             } else {
                 FUN_ov16_020f14b4(0, 8);

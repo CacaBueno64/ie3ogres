@@ -11,7 +11,7 @@ int CSubLogoScreenInit::vFUN_64(int arg)
 
 void CSubLogoScreenInit::openArchives(void)
 {
-    gL5Allocator.setNextArena(1);
+    gAllocator.setNextArena(1);
     FUN_ov16_020f3054("/data_iz/pic2d/title/cesa_00.pac_", &this->data[0]);
     FUN_ov16_020f3054("/data_iz/pic2d/title/level5_bottom.pac_", &this->data[1]);
     FUN_ov16_020f3054("/data_iz/pic2d/title/Nintendo.pac_", &this->data[2]);
@@ -20,7 +20,7 @@ void CSubLogoScreenInit::openArchives(void)
 void CSubLogoScreenInit::closeArchive(int idx)
 {
     if ((this->data[idx].data != NULL) && (this->data[idx].unk_9)) {
-        gL5Allocator.deallocate(this->data[idx].data);
+        gAllocator.deallocate(this->data[idx].data);
         this->data[idx].data = NULL;
     }
 }

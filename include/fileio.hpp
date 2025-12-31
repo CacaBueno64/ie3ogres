@@ -6,7 +6,7 @@
 #include <nitro.h>
 #include <string.h>
 
-#include "l5allocator.hpp"
+#include "allocator.hpp"
 #include "archive.hpp"
 
 typedef enum {
@@ -25,7 +25,7 @@ typedef enum {
 
 typedef struct FileRequest {
     MICompressionHeader compHeader;
-    L5Allocator *allocator;
+    Allocator *allocator;
     char path[64];
     void *data;
     int offset;
@@ -41,15 +41,15 @@ class CFileIO {
         CFileIO();
         virtual ~CFileIO();
         static void FUN_0202ede8(void);
-        /* 0x0202edec */ void init(int max_requests, L5Allocator *allocator);
+        /* 0x0202edec */ void init(int max_requests, Allocator *allocator);
         /* 0x0202ee10 */ void start(int max_requests);
         /* 0x0202eedc */ int getFreeRequestIdx(void);
         /* 0x0202ef20 */ int getRequestIdx(void *data);
         /* 0x0202ef74 */ void *allocate(size_t size);
         /* 0x0202ef8c */ void deallocate(void *ptr);
         /* 0x0202ef9c */ size_t getFileLength(const char *path);
-        /* 0x0202eff0 */ size_t readDirect(const char *path, void **dest, L5Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
-        /* 0x0202f294 */ size_t readDeferred(const char *path, void **dest, L5Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
+        /* 0x0202eff0 */ size_t readDirect(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
+        /* 0x0202f294 */ size_t readDeferred(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
         /* 0x0202f500 */ size_t readRaw(FSFileID *fileID, void **dest, BOOL compressed, int offset, size_t size);
         /* 0x0202f568 */ BOOL convertPathToFileID(FSFileID *fileID, const char *path);
         /* 0x0202f57c */ int tryFinalize(void *data);
@@ -65,7 +65,7 @@ class CFileIO {
         /* 0x0202fc4c */ size_t readFromSFP(char *filename, void **dst, void *file);
 
     private:
-    L5Allocator *defaultAllocator;
+    Allocator *defaultAllocator;
     OSMutex mutex;
     s32 nRequests;
     FileRequest *requests;

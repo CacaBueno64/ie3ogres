@@ -1237,14 +1237,14 @@ FUN_ov54_0211afc8: ; 0x0211AFC8
 	bl FUN_ov54_0211adbc
 	cmp r0, #0
 	beq _0211B000
-	ldr r0, _0211B00C ; =gL5Sound
+	ldr r0, _0211B00C ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 _0211B000:
 	mov r0, r4
 	bl FUN_ov54_0211ae80
 	ldmfd sp!, {r4, pc}
-_0211B00C: .word gL5Sound
+_0211B00C: .word gAudioPlayer
 	arm_func_end FUN_ov54_0211afc8
 
 	arm_func_start FUN_ov54_0211b010
@@ -1272,9 +1272,9 @@ FUN_ov54_0211b010: ; 0x0211B010
 _0211B060:
 	cmp r5, #3
 	bne _0211B084
-	ldr r0, _0211B0AC ; =gL5Sound
+	ldr r0, _0211B0AC ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r6
 	mov r1, #1
 	bl FUN_ov54_0211a9f0
@@ -1282,15 +1282,15 @@ _0211B060:
 _0211B084:
 	cmp r5, #4
 	ldmnefd sp!, {r4, r5, r6, pc}
-	ldr r0, _0211B0AC ; =gL5Sound
+	ldr r0, _0211B0AC ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r6
 	mov r1, #0
 	bl FUN_ov54_0211a9f0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211B0A8: .word unk_02099EB4
-_0211B0AC: .word gL5Sound
+_0211B0AC: .word gAudioPlayer
 	arm_func_end FUN_ov54_0211b010
 
 	arm_func_start FUN_ov54_0211b0b0
@@ -1335,9 +1335,9 @@ _0211B124:
 	tst r5, #1
 	beq _0211B184
 	mov r4, #1
-	ldr r0, _0211B230 ; =gL5Sound
+	ldr r0, _0211B230 ; =gAudioPlayer
 	mov r1, r4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldr r0, _0211B234 ; =0x020A9C40
 	mov r2, r4
 	mov r1, #0x12c
@@ -1356,9 +1356,9 @@ _0211B124:
 _0211B184:
 	tst r5, #2
 	beq _0211B1C0
-	ldr r0, _0211B230 ; =gL5Sound
+	ldr r0, _0211B230 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r4, #0
 	ldr r0, _0211B234 ; =0x020A9C40
 	mov r2, r4
@@ -1396,14 +1396,14 @@ _0211B208:
 _0211B210:
 	bl FUN_ov54_0211a9f0
 _0211B214:
-	ldr r0, _0211B230 ; =gL5Sound
+	ldr r0, _0211B230 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B224: .word unk_02099ED4
 _0211B228: .word unk_0209A0F4
 _0211B22C: .word unk_02099EB4
-_0211B230: .word gL5Sound
+_0211B230: .word gAudioPlayer
 _0211B234: .word unk_020A9C40
 	arm_func_end FUN_ov54_0211b0c4
 
@@ -2427,9 +2427,9 @@ _0211BFF0:
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211C024:
-	ldr r0, _0211C2A8 ; =gL5Sound
+	ldr r0, _0211C2A8 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldr r0, [r5, #0x54]
 	bl FUN_ov16_02110b0c
 	ldr r0, [r5, #0xc]
@@ -2485,9 +2485,9 @@ _0211C0D8:
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211C0F8:
-	ldr r0, _0211C2A8 ; =gL5Sound
+	ldr r0, _0211C2A8 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldr r0, [r5, #0x54]
 	bl FUN_ov16_02110b0c
 	ldr r0, _0211C2AC ; =0x020A9C40
@@ -2535,9 +2535,9 @@ _0211C1A0:
 	mov r1, r8
 	mov r2, r7
 	bl FUN_ov16_02110a04
-	ldr r0, _0211C2A8 ; =gL5Sound
+	ldr r0, _0211C2A8 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldr r0, [r5, #0x54]
 	bl FUN_ov16_02110b0c
 	ldr r0, _0211C2AC ; =0x020A9C40
@@ -2578,9 +2578,9 @@ _0211C22C:
 	cmp r0, #0
 	addeq sp, sp, #0x20
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _0211C2A8 ; =gL5Sound
+	ldr r0, _0211C2A8 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211C264:
@@ -2594,14 +2594,14 @@ _0211C264:
 	cmp r0, #0
 	addeq sp, sp, #0x20
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _0211C2A8 ; =gL5Sound
+	ldr r0, _0211C2A8 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211C2A0: .word unk_02099ED4
 _0211C2A4: .word unk_02099EB4
-_0211C2A8: .word gL5Sound
+_0211C2A8: .word gAudioPlayer
 _0211C2AC: .word unk_020A9C40
 _0211C2B0: .word 0x0000012D
 _0211C2B4: .word gLogicThink

@@ -82,7 +82,7 @@ FUN_ov112_02124dc4: ; 0x02124DC4
 	cmp r0, #0
 	addlt sp, sp, #0x14
 	ldmltfd sp!, {r4, r5, pc}
-	ldr r3, _02124E78 ; =gL5Allocator
+	ldr r3, _02124E78 ; =gAllocator
 	str r5, [sp, #0x10]
 	ldr r0, [r3]
 	ldr r1, _02124E7C ; =0x02125930
@@ -94,7 +94,7 @@ FUN_ov112_02124dc4: ; 0x02124DC4
 	str r5, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 	mov r5, r0
 _02124E40:
 	cmp r5, #0
@@ -107,11 +107,11 @@ _02124E40:
 	add r1, r2, r1
 	bl sprintf
 	ldr r1, [sp, #0x10]
-	ldr r0, _02124E78 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _02124E78 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
-_02124E78: .word gL5Allocator
+_02124E78: .word gAllocator
 _02124E7C: .word ov112_02125930
 	arm_func_end FUN_ov112_02124dc4
 

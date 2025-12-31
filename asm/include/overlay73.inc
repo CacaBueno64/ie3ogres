@@ -2,12 +2,12 @@
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public FUN_ov16_020f6584
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public _s32_div_f
 .public FUN_ov16_020f6e8c
 .public FUN_ov16_020f6530
 .public FUN_ov16_02113b78
-.public gL5Sound
+.public gAudioPlayer
 .public unk_0209A070
 .public unk_02099F38
 .public FUN_ov16_020f6b3c

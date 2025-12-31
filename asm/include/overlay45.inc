@@ -62,8 +62,8 @@
 .public FUN_020425fc
 .public gFont8
 .public FUN_ov16_0210e7d0
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public FUN_ov16_020f53b0
@@ -114,10 +114,10 @@
 .public FUN_0206cd30
 .public FUN_0206ccec
 .public FUN_0206cc94
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN9Allocator10deallocateEPv
 .public unk_02099F44
-.public gL5Allocator
+.public gAllocator
 .public _Znwm
 .public FUN_0204b540
 .public FUN_ov16_020f5278
@@ -149,8 +149,8 @@
 .public FUN_02074a2c
 .public unk_0209A3E0
 .public FUN_02071fac
-.public _ZN11L5Allocator8allocateEmii
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEmii
+.public _ZN9Allocator8allocateEm
 .public _ZN14CScreenManager10fadeInMainEv
 .public FUN_02072020
 .public FX_Sqrt

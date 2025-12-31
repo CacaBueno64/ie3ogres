@@ -1,13 +1,13 @@
-#ifndef IE3OGRES_L5MOVIE_H
-#define IE3OGRES_L5MOVIE_H
+#ifndef IE3OGRES_MOVIE_H
+#define IE3OGRES_MOVIE_H
 
 #pragma once
 
 #include <nitro.h>
 #include <Mobiclip.h>
 
-#include "l5sound.hpp"
-#include "l5allocator.hpp"
+#include "audioplayer.hpp"
+#include "allocator.hpp"
 
 #define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
@@ -28,7 +28,7 @@ typedef struct {
 } SMovieInfo;
 
 typedef struct {
-    L5Allocator *allocator;
+    Allocator *allocator;
     s8 unk4;
     s8 unk5;
     s8 unk6;
@@ -41,11 +41,11 @@ typedef struct {
 } UnkStruct_020B5B80;
 extern UnkStruct_020B5B80 unk_020B5B80;
 
-class L5Movie {
+class Movie {
     public:
-        L5Movie();
-        ~L5Movie();
-        void init(L5Allocator *allocator);
+        Movie();
+        ~Movie();
+        void init(Allocator *allocator);
         void FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3);
         u32 FUN_0202e4ec();
         BOOL openMovie(char *name, u32 param2, u32 param3, u8 param4);
@@ -80,6 +80,6 @@ class L5Movie {
     s32 unk1A4;
 };
 
-extern L5Movie gL5Movie;
+extern Movie gMovie;
 
-#endif //IE3OGRES_L5MOVIE_H
+#endif //IE3OGRES_MOVIE_H

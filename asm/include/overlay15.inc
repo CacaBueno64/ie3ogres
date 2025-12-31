@@ -1,8 +1,8 @@
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public DWC_InitForProduction
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public MI_CpuFill8
-.public gL5Allocator
+.public gAllocator
 .public DWC_InitInet
 .public DWC_ConnectInetAsync
 .public DWC_ProcessInet
@@ -42,12 +42,12 @@
 .public FUN_ov16_020f1320
 .public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public _ZN7L5Sound12FUN_0202b838Eiii
-.public _ZN7L5Sound12FUN_0202b7b4Ev
+.public _ZN11AudioPlayer12FUN_0202b838Eiii
+.public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public OS_Sleep
-.public _ZN7L5Sound12FUN_0202b7f0Ev
+.public _ZN11AudioPlayer12FUN_0202b7f0Ev
 .public unk_0209A3E0
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_LoadOverlay
 .public _Znwm
 .public ov61_0211F3D8
@@ -66,7 +66,7 @@
 .public FUN_02029bf8
 .public OS_WaitVBlankIntr
 .public FUN_0202c470
-.public _ZN7L5Sound12FUN_0202d774Emm
+.public _ZN11AudioPlayer12FUN_0202d774Emm
 .public FUN_0202b768
 .public FUN_0204665c
 .public FUN_0202bc6c
@@ -85,7 +85,7 @@
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public FUN_ov16_020f64cc
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6e8c

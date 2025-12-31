@@ -24,8 +24,8 @@
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public unk_0209A0F4
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02113ec0
 .public unk_02099F38
@@ -78,8 +78,8 @@
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f3054
-.public _ZN11L5Allocator12setNextArenaEi
-.public gL5Allocator
+.public _ZN9Allocator12setNextArenaEi
+.public gAllocator
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
@@ -95,9 +95,9 @@
 .public FUN_02058ee0
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f5868
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public FUN_ov16_020f5504
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public gFileIO
 .public FUN_02054070
 .public FUN_02059630

@@ -120,8 +120,6 @@ _020BD034:
 }
 #endif //NONMATCHING
 
-#ifdef NONMATCHING
-// https://decomp.me/scratch/40zZL
 void CMainCardScreenInit::FUN_ov3_020bd084(void)
 {
     UnkStruct_ov3_020bd084 stack;
@@ -131,8 +129,8 @@ void CMainCardScreenInit::FUN_ov3_020bd084(void)
         void *pScreen = ImagePAC_GetScreenPtr(img);
         
         stack.unk14 = 4;
-        stack.unk18 = 0x18;
         stack.unk16 = 8;
+        stack.unk18 = 0x18;
         stack.unk1A = 8;
         stack.unk1C = 0;
         stack.unk1E = 0;
@@ -144,44 +142,6 @@ void CMainCardScreenInit::FUN_ov3_020bd084(void)
         FUN_ov16_020f5c34(&gBgMenuManager, 0, 1, 1, 1, &stack, 0, 0, 0);
     }
 }
-#else
-asm void CMainCardScreenInit::FUN_ov3_020bd084(void)
-{
-	stmdb sp!, {lr}
-	sub sp, sp, #0x2c
-	ldr r2, [r0, #0xc]
-	cmp r2, #0
-	addeq sp, sp, #0x2c
-	ldmeqia sp!, {pc}
-	ldr r0, [r2, #0xc]
-	mov r1, #0
-	add lr, r2, r0
-	mov r3, #8
-	mov r12, #4
-	mov r0, #0x18
-	strh r0, [sp, #0x18]
-	mov r2, #1
-	strh r12, [sp, #0x14]
-	strh r3, [sp, #0x16]
-	strh r3, [sp, #0x1a]
-	strh r1, [sp, #0x1c]
-	strh r1, [sp, #0x1e]
-	strh r1, [sp, #0x20]
-	strh r1, [sp, #0x22]
-	strb r1, [sp, #0x24]
-	str lr, [sp, #0x28]
-	add r0, sp, #0x14
-	str r2, [sp]
-	stmib sp, {r0, r1}
-	str r1, [sp, #0xc]
-	ldr r0, =gBgMenuManager
-	mov r3, r2
-	str r1, [sp, #0x10]
-	bl FUN_ov16_020f5c34
-	add sp, sp, #0x2c
-	ldmia sp!, {pc}
-}
-#endif //NONMATCHING
 
 void CMainCardScreenInit::init(void)
 {

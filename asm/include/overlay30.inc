@@ -3,11 +3,11 @@
 .public FUN_ov1_020e4328
 .public MI_CpuFill8
 .public FUN_ov126_0213a418
-.public _ZN7L5Sound7openSADEPvPch
-.public _ZN7L5Sound12FUN_0202d594Emm
+.public _ZN11AudioPlayer7openSADEPvPch
+.public _ZN11AudioPlayer12FUN_0202d594Emm
 .public unk_02099F14
 .public unk_02099EF0
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov1_020e3d74
 .public FUN_01ff95b0
 .public FUN_ov1_020e03b0

@@ -1,12 +1,12 @@
 .public FUN_ov16_020f32b4
 .public MI_CpuFill8
 .public FUN_ov16_020f3054
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public gL5Allocator
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public gAllocator
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
-.public _ZN11L5Allocator10deallocateEPv
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator10deallocateEPv
+.public _ZN9Allocator8allocateEm
 .public DC_FlushRange
 .public FUN_ov16_020f2184
 .public gFont12

@@ -25,10 +25,10 @@
 .public MI_CpuCopy8
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f6584
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f6e8c
 .public FUN_ov16_020f6530
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_020f6b3c
 .public FUN_ov16_020f6e2c
 .public FUN_ov16_020f6d3c
@@ -56,7 +56,7 @@
 .public FUN_ov16_020f6c20
 .public FUN_0202c470
 .public FUN_0202cff8
-.public _ZN7L5Sound12FUN_0202d774Emm
+.public _ZN11AudioPlayer12FUN_0202d774Emm
 .public FUN_020443e8
 .public ov1_020E9483
 .public unk_020AF81C

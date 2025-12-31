@@ -21,9 +21,9 @@
 .public unk_0209A454
 .public gLogicThink
 .public unk_02099EF0
-.public _ZN7L5Sound12FUN_0202d594Emm
+.public _ZN11AudioPlayer12FUN_0202d594Emm
 .public FUN_0202c3b4
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_020efabc
 .public FUN_0206cbf8
 .public FUN_ov16_020efa9c
@@ -54,7 +54,7 @@
 .public FUN_ov16_020f6b3c
 .public gBgMenuManager
 .public FUN_020732d8
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_0202d724
 .public G2_GetBG3CharPtr
 .public MIi_CpuClearFast
@@ -103,11 +103,11 @@
 .public FUN_ov1_020dbb44
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f2fe4
 .public unk_0209A178
 .public unk_0209A190
-.public gL5Allocator
+.public gAllocator
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

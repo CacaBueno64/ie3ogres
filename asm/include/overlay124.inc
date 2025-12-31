@@ -20,8 +20,8 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public _ZN11L5Allocator8allocateEm
-.public gL5Allocator
+.public _ZN9Allocator8allocateEm
+.public gAllocator
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c
@@ -58,7 +58,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f147c
 .public FUN_ov16_020f6a9c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public _ZdlPv
 .public FX_Sqrt

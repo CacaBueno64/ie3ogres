@@ -51,25 +51,27 @@ Static main
 	Object asm/arm9_0202a020.o
 	Object asm/arm9_rodata_0208c340.o
 	Object asm/arm9_data_0208f904.o
-	Object src/l5movie.o
+	Object src/movie.o
 	Object src/fileio.o
 	Object asm/arm9_0202fd38.o
 	Object asm/arm9_rodata_0208c35c.o
 	Object asm/arm9_data_0208fc08.o
 	Object asm/arm9_bss_02099eb0.o
-	Object src/l5config.o
+	Object src/config.o
 	Object asm/arm9_data_0208ff14.o
 	Object src/screenmanager.o
 	Object asm/arm9_0204212c.o
 	Object asm/arm9_rodata_0208c384.o
 	Object asm/arm9_data_0208ffec.o
 	Object asm/arm9_bss_02099f90.o
-	Object src/savedata.o
+	Object src/cardcontroller.o
 
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
 
 	Object asm/arm9_0206b9c4.o
+	Object src/thread.o
+	Object asm/arm9_0206f0b8.o
 	Object asm/arm9_rodata_0208c504.o
 	Object asm/arm9_data_0209128c.o
 	Object asm/arm9_bss_020b9d4c.o
@@ -78,7 +80,7 @@ Static main
 	Object lib/DSE/asm/libDSE.o
 
 	Object asm/arm9_data_020938a0.o
-	Object src/l5fs.o
+	Object src/filesystem.o
 	Object asm/arm9_init_02086768.o
 	Object asm/arm9_sinit.o
 }

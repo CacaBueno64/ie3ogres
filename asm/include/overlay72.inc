@@ -17,11 +17,11 @@
 .public gWirelessUtil
 .public FUN_ov16_020f6084
 .public gBgMenuManager
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_021128c4
-.public gL5Sound
+.public gAudioPlayer
 .public unk_0209A070
 .public unk_02099F38
 .public FUN_ov16_020f6584

@@ -657,17 +657,17 @@ FUN_ov95_021255b4: ; 0x021255B4
 	strh r3, [r4, #0xa]
 	cmp r0, #0
 	bne _021255E4
-	ldr r0, _0212565C ; =gL5Allocator
+	ldr r0, _0212565C ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r4]
 _021255E4:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _02125600
-	ldr r0, _0212565C ; =gL5Allocator
+	ldr r0, _0212565C ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r4, #4]
 _02125600:
 	ldr r2, [r4]
@@ -695,7 +695,7 @@ _02125638:
 	mov r1, r5
 	bl DC_FlushRange
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212565C: .word gL5Allocator
+_0212565C: .word gAllocator
 	arm_func_end FUN_ov95_021255b4
 
 	arm_func_start FUN_ov95_02125660
@@ -3141,15 +3141,15 @@ FUN_ov95_0212797c: ; 0x0212797C
 	mov r1, r5
 	mov r2, #0x1c8
 	bl MI_CpuFill8
-	ldr r4, _02127A34 ; =gL5Allocator
+	ldr r4, _02127A34 ; =gAllocator
 	mov r1, #0x98
 	mov r0, r4
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r7, #0x28]
 	mov r0, r4
 	mov r4, #0x6c
 	mov r1, r4
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	sub r1, r4, #0x6d
 	strh r1, [r7, #0x1e]
 	str r0, [r7, #0x2c]
@@ -3168,7 +3168,7 @@ FUN_ov95_0212797c: ; 0x0212797C
 	ldr r0, _02127A38 ; =gBgMenuManager
 	bl FUN_ov16_020f5a58
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02127A34: .word gL5Allocator
+_02127A34: .word gAllocator
 _02127A38: .word gBgMenuManager
 	arm_func_end FUN_ov95_0212797c
 
@@ -3287,7 +3287,7 @@ FUN_ov95_02127b98: ; 0x02127B98
 	bl FUN_ov95_0212557c
 	mov r0, r4
 	bl FUN_ov95_02124ee8
-	ldr r8, _02127C6C ; =gL5Allocator
+	ldr r8, _02127C6C ; =gAllocator
 	mov r9, r7
 	mov r5, #0xc
 _02127BC0:
@@ -3296,14 +3296,14 @@ _02127BC0:
 	cmp r1, #0
 	beq _02127BDC
 	mov r0, r8
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	str r7, [r10, #0x1b8]
 _02127BDC:
 	ldr r1, [r10, #0x1bc]
 	cmp r1, #0
 	beq _02127BF4
 	mov r0, r8
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	str r6, [r10, #0x1bc]
 _02127BF4:
 	add r9, r9, #1
@@ -3312,15 +3312,15 @@ _02127BF4:
 	ldr r1, [r4, #0x28]
 	cmp r1, #0
 	beq _02127C18
-	ldr r0, _02127C6C ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _02127C6C ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	str r6, [r4, #0x28]
 _02127C18:
 	ldr r1, [r4, #0x2c]
 	cmp r1, #0
 	beq _02127C30
-	ldr r0, _02127C6C ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _02127C6C ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	str r6, [r4, #0x2c]
 _02127C30:
 	mov r5, #1
@@ -3338,7 +3338,7 @@ _02127C30:
 	ldr r2, [r2, #0xc]
 	blx r2
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02127C6C: .word gL5Allocator
+_02127C6C: .word gAllocator
 _02127C70: .word gBgMenuManager
 	arm_func_end FUN_ov95_02127b98
 

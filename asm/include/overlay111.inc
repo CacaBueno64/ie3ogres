@@ -1,8 +1,8 @@
 .public FUN_ov16_020f6a9c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f147c
 .public gBgMenuManager
-.public gL5Allocator
+.public gAllocator
 .public MI_CpuFill8
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f338c
@@ -13,7 +13,7 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020efa9c

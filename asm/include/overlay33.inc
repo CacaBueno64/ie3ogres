@@ -13,10 +13,10 @@
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public FUN_ov16_020f6584
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6e8c
-.public gL5Sound
+.public gAudioPlayer
 .public unk_0209A070
 .public FUN_ov16_020f6b3c
 .public FUN_ov16_020f6e2c
@@ -47,10 +47,10 @@
 .public FUN_ov16_020f1160
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f6c20
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
-.public gL5Config
+.public gConfig
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f672c
 .public FUN_ov16_020f6a9c

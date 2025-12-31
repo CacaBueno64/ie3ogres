@@ -328,10 +328,10 @@ _0211A334:
 	ldr r1, [r0, #0x94]
 	mov r0, r5
 	bl FUN_ov58_0211b24c
-	ldr r0, _0211A3AC ; =gL5Sound
+	ldr r0, _0211A3AC ; =gAudioPlayer
 	mov r1, #8
 	str r4, [r5, #0x110]
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 _0211A37C:
 	mov r0, #0
 	add sp, sp, #8
@@ -347,7 +347,7 @@ _0211A39C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A3A4: .word unk_02099EB4
 _0211A3A8: .word unk_0209A454
-_0211A3AC: .word gL5Sound
+_0211A3AC: .word gAudioPlayer
 	arm_func_end FUN_ov58_0211a1ec
 
 	arm_func_start FUN_ov58_0211a3b0
@@ -372,9 +372,9 @@ _0211A3DC:
 	mov r0, r0, lsr r4
 	tst r0, #1
 	beq _0211A438
-	ldr r0, _0211A448 ; =gL5Sound
+	ldr r0, _0211A448 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldr r1, [r5, #0x110]
 	mov r0, r5
 	add r1, r5, r1, lsl #2
@@ -392,7 +392,7 @@ _0211A438:
 	cmp r2, #8
 	blt _0211A3DC
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A448: .word gL5Sound
+_0211A448: .word gAudioPlayer
 	arm_func_end FUN_ov58_0211a3b0
 
 	arm_func_start FUN_ov58_0211a44c
@@ -1152,9 +1152,9 @@ FUN_ov58_0211ae80: ; 0x0211AE80
 	movs r4, r1
 	mov r5, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0211B088 ; =gL5Sound
+	ldr r0, _0211B088 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldrb r2, [r5, #0x10e]
 	mov r1, #0x15
 	ldr r0, _0211B08C ; =0x020A9C40
@@ -1296,7 +1296,7 @@ _0211B074:
 	mov r2, r6
 	bl FUN_ov58_0211b3c4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211B088: .word gL5Sound
+_0211B088: .word gAudioPlayer
 _0211B08C: .word unk_020A9C40
 	arm_func_end FUN_ov58_0211ae80
 
@@ -1460,12 +1460,12 @@ FUN_ov58_0211b280: ; 0x0211B280
 	bl FUN_ov58_0211ae80
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B2A4:
-	ldr r0, _0211B2B8 ; =gL5Sound
+	ldr r0, _0211B2B8 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	str r4, [r5, #0x110]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211B2B8: .word gL5Sound
+_0211B2B8: .word gAudioPlayer
 	arm_func_end FUN_ov58_0211b280
 
 	arm_func_start FUN_ov58_0211b2bc

@@ -1,9 +1,9 @@
-#include "savedata.hpp"
+#include "cardcontroller.hpp"
 
-L5CardController::L5CardController() { }
-L5CardController::~L5CardController() { }
+CardController::CardController() { }
+CardController::~CardController() { }
 
-BOOL L5CardController::init(CARDBackupType type)
+BOOL CardController::init(CARDBackupType type)
 {
     CARD_Init();
     this->lock_id = OS_GetLockID();
@@ -21,18 +21,18 @@ BOOL L5CardController::init(CARDBackupType type)
     return result;
 }
 
-BOOL L5CardController::test(void)
+BOOL CardController::test(void)
 {
     u32 buffer;
     return this->read(0, sizeof(buffer), &buffer) != FALSE;
 }
 
-BOOL L5CardController::ready(void)
+BOOL CardController::ready(void)
 {
     return CARD_TryWaitBackupAsync() != FALSE;
 }
 
-BOOL L5CardController::read(u32 src, u32 len, void *dst)
+BOOL CardController::read(u32 src, u32 len, void *dst)
 {
     CARD_LockBackup(this->lock_id);
 
@@ -54,7 +54,7 @@ BOOL L5CardController::read(u32 src, u32 len, void *dst)
     return this->result == CARD_RESULT_SUCCESS;
 }
 
-BOOL L5CardController::write(u32 dst, u32 len, void *src)
+BOOL CardController::write(u32 dst, u32 len, void *src)
 {
     CARD_LockBackup(this->lock_id);
 

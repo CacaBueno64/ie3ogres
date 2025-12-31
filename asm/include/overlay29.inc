@@ -23,7 +23,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public MI_CpuFill8
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public FUN_020460fc
 .public FUN_020460f0
 .public FUN_ov16_020f3218
@@ -33,10 +33,10 @@
 .public FUN_0204eba0
 .public FUN_0206c158
 .public FUN_ov16_020efa04
-.public gL5Sound
+.public gAudioPlayer
 .public unk_02099EB4
 .public unk_02099ED4
-.public gL5Config
+.public gConfig
 .public unk_020A0700
 .public unk_020A9C40
 .public gLogicThink
@@ -80,7 +80,7 @@
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f5868
 .public FUN_0204bd64
 .public FUN_ov16_021109a0

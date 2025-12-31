@@ -1,7 +1,7 @@
 .public FUN_ov16_020f6a9c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public gBgMenuManager
-.public gL5Allocator
+.public gAllocator
 .public FUN_ov16_020efa9c
 .public FUN_ov16_020f0c30
 .public pLogic_PalSkinFaceFile
@@ -19,7 +19,7 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c

@@ -4,10 +4,10 @@
 .public FUN_ov16_020f330c
 .public OS_Sleep
 .public MIi_CpuClearFast
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public sprintf
-.public _ZN11L5Allocator10deallocateEPv
-.public gL5Allocator
+.public _ZN9Allocator10deallocateEPv
+.public gAllocator
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f1868
 .public FUN_ov16_020f1138

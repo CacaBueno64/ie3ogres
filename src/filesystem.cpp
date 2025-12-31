@@ -1,27 +1,25 @@
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include "filesystem.hpp"
 
-#include "l5fs.hpp"
+namespace FileSystem {
 
 s32 sCurFileHandleID;
 void *sProcessStack;
-L5FileHandle *sFileHandles;
+FileHandle *sFileHandles;
 static OSThread sProcessThread;
-static L5Archive sArchives[18];
+static Archive sArchives[18];
 static MATHCRC32Table sCrc32Table;
 
-s32 L5FSi_ReadFileInChunks(FSFile *file, void *data, s32 len);
-s32 L5FSi_ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len);
-void L5FSi_ProcessFiles(void *arg);
-L5FileHandle *L5FSi_GetFileHandle(filekey_t *keyOut);
-s32 L5FSi_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
+s32 ReadFileInChunks(FSFile *file, void *data, s32 len);
+s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len);
+void ProcessFiles(void *arg);
+FileHandle *GetFileHandle(filekey_t *keyOut);
+s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
                               const char *path);
-s32 L5FSi_AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name);
-u32 L5FSi_HashFilename(const char *name);
-s32 L5FSi_FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name);
+s32 AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name);
+u32 HashFilename(const char *name);
+s32 FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name);
 
-s32 L5FSi_ReadFileInChunks(FSFile *file, void *data, s32 len) {
+s32 ReadFileInChunks(FSFile *file, void *data, s32 len) {
 #define CHUNK_SIZE 0x4000
     u8 *ptr     = (u8 *)data;
     s32 temp_r3 = len + (CHUNK_SIZE - 1);
@@ -40,9 +38,9 @@ s32 L5FSi_ReadFileInChunks(FSFile *file, void *data, s32 len) {
     return size;
 }
 
-u32 L5FS_CalcCRC32(const void *data, u32 dataLength) { return MATH_CalcCRC32(&sCrc32Table, data, dataLength); }
+u32 CalcCRC32(const void *data, u32 dataLength) { return MATH_CalcCRC32(&sCrc32Table, data, dataLength); }
 
-s32 L5FSi_ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len) {
+s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len) {
     FSFile file;
 
     FS_InitFile(&file);
@@ -57,21 +55,21 @@ s32 L5FSi_ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len) {
         (void)FS_SeekFile(&file, offset, FS_SEEK_SET);
     }
     if (*dst == NULL) {
-        *dst = L5FS_Allocate(len, -1);
+        *dst = Allocate(len, -1);
     }
 
-    s32 size = L5FSi_ReadFileInChunks(&file, *dst, len);
+    s32 size = ReadFileInChunks(&file, *dst, len);
     (void)FS_CloseFile(&file);
 
     return size;
 }
 
-void L5FSi_ProcessFiles(void *arg) {
+void ProcessFiles(void *arg) {
 #pragma unused(arg)
 
     FSFile file;
     s32 idx              = 0;
-    L5FileHandle *handle = &sFileHandles[0];
+    FileHandle *handle = &sFileHandles[0];
 
     FS_InitFile(&file);
 
@@ -84,7 +82,7 @@ void L5FSi_ProcessFiles(void *arg) {
 
         void *dst = handle->compressed ? handle->compressed : handle->uncompressed;
 
-        (void)L5FSi_ReadFileDirect(&dst, handle->fileID, handle->offset, handle->size);
+        (void)ReadFileDirect(&dst, handle->fileID, handle->offset, handle->size);
 
         if (handle->compressed != NULL) {
             switch (MI_GetCompressionType(&handle->flags)) {
@@ -93,7 +91,7 @@ void L5FSi_ProcessFiles(void *arg) {
             default: OS_Terminate();
             }
 
-            L5FS_Deallocate(handle->compressed);
+            Deallocate(handle->compressed);
             DC_FlushRange(handle->uncompressed, MI_GetUncompressedSize(&handle->flags));
         }
 
@@ -103,7 +101,7 @@ void L5FSi_ProcessFiles(void *arg) {
     }
 }
 
-s32 L5FS_ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
+s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
     FSFile file;
 
     FS_InitFile(&file);
@@ -118,17 +116,17 @@ s32 L5FS_ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
         (void)FS_SeekFile(&file, offset, FS_SEEK_SET);
     }
     if (*dst == NULL) {
-        *dst = L5FS_Allocate(len, -1);
+        *dst = Allocate(len, -1);
     }
 
-    s32 size = L5FSi_ReadFileInChunks(&file, *dst, len);
+    s32 size = ReadFileInChunks(&file, *dst, len);
     (void)FS_CloseFile(&file);
 
     return size;
 }
 
-L5FileHandle *L5FSi_GetFileHandle(filekey_t *keyOut) {
-    L5FileHandle *handle = &sFileHandles[sCurFileHandleID];
+FileHandle *GetFileHandle(filekey_t *keyOut) {
+    FileHandle *handle = &sFileHandles[sCurFileHandleID];
 
     if (handle->uncompressed != NULL) {
         OS_Terminate();
@@ -143,13 +141,13 @@ L5FileHandle *L5FSi_GetFileHandle(filekey_t *keyOut) {
     return handle;
 }
 
-s32 L5FSi_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
+s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
                               const char *path) {
     if (compHeader->compType == 0) {
         if (*dataOut != NULL) {
             handle->uncompressed = *dataOut;
         } else {
-            void *ptr            = L5FS_Allocate(size, -1);
+            void *ptr            = Allocate(size, -1);
             handle->uncompressed = ptr;
             *dataOut             = ptr;
         }
@@ -158,18 +156,18 @@ s32 L5FSi_AllocateFileBuffers(L5FileHandle *handle, MICompressionHeader *compHea
         if (*dataOut != NULL) {
             handle->uncompressed = *dataOut;
         } else {
-            void *ptr            = L5FS_Allocate(compHeader->destSize, -1);
+            void *ptr            = Allocate(compHeader->destSize, -1);
             handle->uncompressed = ptr;
             *dataOut             = ptr;
         }
-        handle->compressed = L5FS_Allocate(size, 257);
+        handle->compressed = Allocate(size, 257);
         size               = compHeader->destSize;
     }
 
     return size;
 }
 
-s32 L5FS_ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size) {
+s32 ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size) {
     MICompressionHeader flags;
     FSFileID fileid;
     FSFile file;
@@ -189,8 +187,8 @@ s32 L5FS_ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offse
     }
 
     *(u32 *)&flags       = 0;
-    L5FileHandle *handle = L5FSi_GetFileHandle(idOut);
-    s32 buffer_size      = L5FSi_AllocateFileBuffers(handle, &flags, size, dataOut, path);
+    FileHandle *handle = GetFileHandle(idOut);
+    s32 buffer_size      = AllocateFileBuffers(handle, &flags, size, dataOut, path);
 
     handle->fileID = fileid;
     handle->offset = offset;
@@ -201,7 +199,7 @@ s32 L5FS_ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offse
     return buffer_size;
 }
 
-arckey_t L5FS_OpenArchiveDirect(void *data, const char *path) {
+arckey_t OpenArchiveDirect(void *data, const char *path) {
     char pkh_path[128];
     char pkb_path[128];
 
@@ -212,7 +210,7 @@ arckey_t L5FS_OpenArchiveDirect(void *data, const char *path) {
 
     for (int i = 0; i < 18; i++) {
         if (!sArchives[i].files && !sArchives[i].inUse) {
-            s32 size = L5FS_ReadFile(&file, pkh_path, 0, 0);
+            s32 size = ReadFile(&file, pkh_path, 0, 0);
             if (size < 0) {
                 return -1;
             }
@@ -232,7 +230,7 @@ arckey_t L5FS_OpenArchiveDirect(void *data, const char *path) {
     return -1;
 }
 
-arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path) {
+arckey_t OpenArchiveDeferred(void *data, const char *path) {
     char pkh_path[128];
     char pkb_path[128];
 
@@ -247,7 +245,7 @@ arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path) {
                 sArchives[i].files = data;
             }
 
-            s32 size = L5FS_ReadFileDeferred(&sArchives[i].files, pkh_path, &sArchives[i].arcFileKey, 0, -1);
+            s32 size = ReadFileDeferred(&sArchives[i].files, pkh_path, &sArchives[i].arcFileKey, 0, -1);
 
             sArchives[i].nFiles = (u32)size / sizeof(Archive_PKH);
 
@@ -263,7 +261,7 @@ arckey_t L5FS_OpenArchiveDeferred(void *data, const char *path) {
     return -1;
 }
 
-void L5FS_CloseArchive(arckey_t key) {
+void CloseArchive(arckey_t key) {
     if (key < 0) {
         return;
     }
@@ -272,13 +270,13 @@ void L5FS_CloseArchive(arckey_t key) {
         return;
     }
 
-    L5FS_Deallocate(sArchives[key].files);
+    Deallocate(sArchives[key].files);
     MI_CpuClear8(&sArchives[key].files, sizeof(sArchives[key]));
 }
 
-BOOL L5FS_IsArchiveReady(arckey_t key) {
+BOOL IsArchiveReady(arckey_t key) {
     if (sArchives[key].arcFileKey >= 0) {
-        if (L5FS_IsFileBusy(sArchives[key].arcFileKey)) {
+        if (IsFileBusy(sArchives[key].arcFileKey)) {
             return FALSE;
         }
         sArchives[key].arcFileKey = -1;
@@ -288,19 +286,17 @@ BOOL L5FS_IsArchiveReady(arckey_t key) {
     return TRUE;
 }
 
-void L5FS_WaitArchiveReady(arckey_t key) {
-    extern void L5Thread_Yield(void);
-
+void WaitArchiveReady(arckey_t key) {
     while (TRUE) {
-        if (L5FS_IsArchiveReady(key)) {
+        if (IsArchiveReady(key)) {
             return;
         }
-        L5Thread_Yield();
+        Thread::Yield();
     }
 }
 
-Archive_PKH *L5FS_GetFile(arckey_t arcKey, s32 fileIdx) {
-    L5Archive *arc = &sArchives[arcKey];
+Archive_PKH *GetFile(arckey_t arcKey, s32 fileIdx) {
+    Archive *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
         return NULL;
@@ -311,7 +307,7 @@ Archive_PKH *L5FS_GetFile(arckey_t arcKey, s32 fileIdx) {
     return &files[fileIdx];
 }
 
-s32 L5FS_ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const char *filename) {
+s32 ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const char *filename) {
     int size;
 
     if (*dst == NULL) {
@@ -321,15 +317,15 @@ s32 L5FS_ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const ch
             size = files->compHeader.destSize;
         }
 
-        *dst = L5FS_Allocate(size, -1);
+        *dst = Allocate(size, -1);
     }
 
     if (files->compHeader.compType == 0) {
-        size = L5FSi_ReadFileDirect(dst, file_id, files->offset, files->size);
+        size = ReadFileDirect(dst, file_id, files->offset, files->size);
     } else {
-        void *temp = L5FS_Allocate(files->size, 257);
+        void *temp = Allocate(files->size, 257);
 
-        if (L5FSi_ReadFileDirect(&temp, file_id, files->offset, files->size) < 0) {
+        if (ReadFileDirect(&temp, file_id, files->offset, files->size) < 0) {
             OS_Terminate();
         }
 
@@ -339,7 +335,7 @@ s32 L5FS_ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const ch
         default: OS_Terminate(); break;
         }
 
-        L5FS_Deallocate(temp);
+        Deallocate(temp);
 
         size = files->compHeader.destSize;
         DC_FlushRange(*dst, size);
@@ -348,30 +344,30 @@ s32 L5FS_ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const ch
     return size;
 }
 
-s32 L5FS_ReadFileByName(void **dst, arckey_t arcKey, const char *filename) {
+s32 ReadFileByName(void **dst, arckey_t arcKey, const char *filename) {
     if (arcKey < 0) {
         return -1;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = L5FS_FindFile(arcKey, filename);
+    Archive_PKH *files = FindFile(arcKey, filename);
 
     if (files == NULL) {
         return -1;
     }
 
-    return L5FS_ReadFileByID(dst, files, arc->binFileID, filename);
+    return ReadFileByID(dst, files, arc->binFileID, filename);
 }
 
-s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
+s32 ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
     char filename[128];
 
     if ((arcKey < 0) || (fileIdx < 0)) {
         return -1;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
         return -1;
@@ -384,13 +380,13 @@ s32 L5FS_ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
 
     STD_TSPrintf(filename, "(%d)", fileIdx);
 
-    return L5FS_ReadFileByID(dst, &files[fileIdx], arc->binFileID, filename);
+    return ReadFileByID(dst, &files[fileIdx], arc->binFileID, filename);
 }
 
-s32 L5FSi_AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
+s32 AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
     s32 srcSize          = file->size;
-    L5FileHandle *handle = L5FSi_GetFileHandle(keyOut);
-    s32 destSize         = L5FSi_AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
+    FileHandle *handle   = GetFileHandle(keyOut);
+    s32 destSize         = AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
 
     handle->fileID = fileID;
     handle->offset = file->offset;
@@ -401,29 +397,29 @@ s32 L5FSi_AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID,
     return destSize;
 }
 
-s32 L5FS_ReadFileByNameDeferred(void **dst, arckey_t arcKey, const char *name, filekey_t *keyOut) {
+s32 ReadFileByNameDeferred(void **dst, arckey_t arcKey, const char *name, filekey_t *keyOut) {
     if (arcKey < 0) {
         return -1;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = L5FS_FindFile(arcKey, name);
+    Archive_PKH *files = FindFile(arcKey, name);
     if (files == NULL) {
         return -1;
     }
 
-    return L5FSi_AllocateFileHandle(dst, files, arc->binFileID, keyOut, name);
+    return AllocateFileHandle(dst, files, arc->binFileID, keyOut, name);
 }
 
-s32 L5FS_ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey_t *keyOut) {
+s32 ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey_t *keyOut) {
     char name[128];
 
     if ((arcKey < 0) || (fileIdx < 0)) {
         return -1;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
 
     Archive_PKH *files = (Archive_PKH *)arc->files;
     if (files == NULL) {
@@ -432,11 +428,11 @@ s32 L5FS_ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey
 
     STD_TSPrintf(name, "(%d)", fileIdx);
 
-    return L5FSi_AllocateFileHandle(dst, &files[fileIdx], arc->binFileID, keyOut, name);
+    return AllocateFileHandle(dst, &files[fileIdx], arc->binFileID, keyOut, name);
 }
 
-BOOL L5FS_IsFileBusy(filekey_t key) {
-    L5FileHandle *handles = sFileHandles;
+BOOL IsFileBusy(filekey_t key) {
+    FileHandle *handles = sFileHandles;
 
     if (handles[key].uncompressed == NULL) {
         handles[key].cur = NULL;
@@ -446,28 +442,28 @@ BOOL L5FS_IsFileBusy(filekey_t key) {
     return TRUE;
 }
 
-void L5FS_Panic(void) { OS_Terminate(); }
+void Panic(void) { OS_Terminate(); }
 
-void L5FS_Init(void) {
+void Init(void) {
 #define STACK_SIZE 2048
 
     MATH_CRC32InitTable(&sCrc32Table);
 
     MI_CpuClear8(&sArchives, sizeof(sArchives));
 
-    sFileHandles = (L5FileHandle *)L5FS_AllocateClear(0x700, -1);
+    sFileHandles = (FileHandle *)AllocateClear(0x700, -1);
 
     FS_ChangeDir("/data_iz/");
 
-    sProcessStack = L5FS_Allocate(STACK_SIZE, -1);
+    sProcessStack = Allocate(STACK_SIZE, -1);
 
-    OS_CreateThread(&sProcessThread, &L5FSi_ProcessFiles, NULL, (void *)((int)sProcessStack + STACK_SIZE), STACK_SIZE,
+    OS_CreateThread(&sProcessThread, &ProcessFiles, NULL, (void *)((int)sProcessStack + STACK_SIZE), STACK_SIZE,
                     28);
 
     OS_WakeupThreadDirect(&sProcessThread);
 }
 
-u32 L5FSi_HashFilename(const char *name) {
+u32 HashFilename(const char *name) {
     char temp[128];
 
     for (int i = 0; i < sizeof(temp); i++) {
@@ -488,8 +484,8 @@ u32 L5FSi_HashFilename(const char *name) {
     return 0;
 }
 
-s32 L5FSi_FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name) {
-    u32 hash = L5FSi_HashFilename(name);
+s32 FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name) {
+    u32 hash = HashFilename(name);
 
     u32 left  = 0;
     u32 right = nFiles - 1;
@@ -516,34 +512,34 @@ s32 L5FSi_FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name) 
     return -1;
 }
 
-s32 L5FS_FindFileIdx(arckey_t arcKey, const char *name) {
+s32 FindFileIdx(arckey_t arcKey, const char *name) {
     if (arcKey < 0) {
         return -1;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
     Archive_PKH *files = (Archive_PKH *)arc->files;
 
     if (files == NULL) {
         return -1;
     }
 
-    return L5FSi_FindFileIdxInternal(files, arc->nFiles, name);
+    return FindFileIdxInternal(files, arc->nFiles, name);
 }
 
-Archive_PKH *L5FS_FindFile(arckey_t arcKey, const char *name) {
+Archive_PKH *FindFile(arckey_t arcKey, const char *name) {
     if (arcKey < 0) {
         return NULL;
     }
 
-    L5Archive *arc = &sArchives[arcKey];
+    Archive *arc = &sArchives[arcKey];
 
     Archive_PKH *files = (Archive_PKH *)arc->files;
     if (files == NULL) {
         return NULL;
     }
 
-    s32 fileIdx = L5FSi_FindFileIdxInternal(files, arc->nFiles, name);
+    s32 fileIdx = FindFileIdxInternal(files, arc->nFiles, name);
     if (fileIdx >= 0) {
         return &files[fileIdx];
     }
@@ -551,16 +547,16 @@ Archive_PKH *L5FS_FindFile(arckey_t arcKey, const char *name) {
     return NULL;
 }
 
-void *L5FS_Allocate(int size, int nextArena) {
+void *Allocate(int size, int nextArena) {
     if (nextArena >= 0) {
-        gL5Allocator.setNextArena(nextArena);
+        gAllocator.setNextArena(nextArena);
     }
 
-    return gL5Allocator.allocate(size, 0, 1);
+    return gAllocator.allocate(size, 0, 1);
 }
 
-void *L5FS_AllocateClear(int size, int nextArena) {
-    void *ptr = L5FS_Allocate(size, nextArena);
+void *AllocateClear(int size, int nextArena) {
+    void *ptr = Allocate(size, nextArena);
 
     if (ptr != NULL) {
         MI_CpuClearFast(ptr, size);
@@ -569,10 +565,8 @@ void *L5FS_AllocateClear(int size, int nextArena) {
     return ptr;
 }
 
-void L5FS_Deallocate(void *ptr) { gL5Allocator.deallocate(ptr); }
+void Deallocate(void *ptr) { gAllocator.deallocate(ptr); }
 
-void L5FS_SetNextArena(int nextArena) { gL5Allocator.setNextArena(nextArena); }
+void SetNextArena(int nextArena) { gAllocator.setNextArena(nextArena); }
 
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
+} /* namepace FileSystem */

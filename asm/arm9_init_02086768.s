@@ -48,11 +48,11 @@ FUN_02086768: ; 0x02086768
 	mov r1, r2, lsr #0xc
 	orr r1, r1, r0, lsl #20
 	str r1, [r4, #0xc]
-	ldr r4, _02086A10 ; =gL5Config
+	ldr r4, _02086A10 ; =gConfig
 	mov r0, r4
-	bl _ZN8L5ConfigC1Ev
+	bl _ZN6ConfigC1Ev
 	mov r0, r4
-	ldr r1, _02086A14 ; =_ZN8L5ConfigD1Ev
+	ldr r1, _02086A14 ; =_ZN6ConfigD1Ev
 	ldr r2, _02086A18 ; =0x02099FA8
 	bl __register_global_object
 	ldr r4, _02086A1C ; =gFileIO
@@ -69,32 +69,32 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A2C ; =FUN_0205ff98
 	ldr r2, _02086A30 ; =0x02099FC0
 	bl __register_global_object
-	ldr r4, _02086A34 ; =gL5CardController
+	ldr r4, _02086A34 ; =gCardController
 	mov r0, r4
-	bl _ZN16L5CardControllerC1Ev
+	bl _ZN14CardControllerC1Ev
 	mov r0, r4
-	ldr r1, _02086A38 ; =_ZN16L5CardControllerD1Ev
+	ldr r1, _02086A38 ; =_ZN14CardControllerD1Ev
 	ldr r2, _02086A3C ; =0x02099FCC
 	bl __register_global_object
-	ldr r4, _02086A40 ; =gL5Allocator
+	ldr r4, _02086A40 ; =gAllocator
 	mov r0, r4
 	bl FUN_0202dbf8
 	mov r0, r4
 	ldr r1, _02086A44 ; =FUN_0202dc1c
 	ldr r2, _02086A48 ; =0x02099FD8
 	bl __register_global_object
-	ldr r4, _02086A4C ; =gL5Sound
+	ldr r4, _02086A4C ; =gAudioPlayer
 	mov r0, r4
 	bl FUN_0202b3dc
 	mov r0, r4
 	ldr r1, _02086A50 ; =FUN_0202b3e0
 	ldr r2, _02086A54 ; =0x02099FE4
 	bl __register_global_object
-	ldr r4, _02086A58 ; =gL5Movie
+	ldr r4, _02086A58 ; =gMovie
 	mov r0, r4
-	bl _ZN7L5MovieC1Ev
+	bl _ZN5MovieC1Ev
 	mov r0, r4
-	ldr r1, _02086A5C ; =_ZN7L5MovieD1Ev
+	ldr r1, _02086A5C ; =_ZN5MovieD1Ev
 	ldr r2, _02086A60 ; =0x02099FF0
 	bl __register_global_object
 	ldr r2, _02086A64 ; =0x0208F6C0
@@ -175,8 +175,8 @@ FUN_02086768: ; 0x02086768
 _02086A04: .word unk_0208F680
 _02086A08: .word 0x00009CCD
 _02086A0C: .word 0x0000EA3C
-_02086A10: .word gL5Config
-_02086A14: .word _ZN8L5ConfigD1Ev
+_02086A10: .word gConfig
+_02086A14: .word _ZN6ConfigD1Ev
 _02086A18: .word unk_02099FA8
 _02086A1C: .word gFileIO
 _02086A20: .word _ZN7CFileIOD1Ev
@@ -184,17 +184,17 @@ _02086A24: .word unk_02099FB4
 _02086A28: .word unk_0209A5D0
 _02086A2C: .word FUN_0205ff98
 _02086A30: .word unk_02099FC0
-_02086A34: .word gL5CardController
-_02086A38: .word _ZN16L5CardControllerD1Ev
+_02086A34: .word gCardController
+_02086A38: .word _ZN14CardControllerD1Ev
 _02086A3C: .word unk_02099FCC
-_02086A40: .word gL5Allocator
+_02086A40: .word gAllocator
 _02086A44: .word FUN_0202dc1c
 _02086A48: .word unk_02099FD8
-_02086A4C: .word gL5Sound
+_02086A4C: .word gAudioPlayer
 _02086A50: .word FUN_0202b3e0
 _02086A54: .word unk_02099FE4
-_02086A58: .word gL5Movie
-_02086A5C: .word _ZN7L5MovieD1Ev
+_02086A58: .word gMovie
+_02086A5C: .word _ZN5MovieD1Ev
 _02086A60: .word unk_02099FF0
 _02086A64: .word unk_0208F6C0
 _02086A68: .word unk_020A3D14

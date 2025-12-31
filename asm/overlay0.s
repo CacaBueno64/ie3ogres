@@ -164,20 +164,20 @@ _020BCD10:
 	ldr r0, [r5]
 	mov r1, r7
 	bl FUN_020522ec
-	ldr r5, _020BCDD4 ; =gL5Allocator
+	ldr r5, _020BCDD4 ; =gAllocator
 	ldr r1, [r4, #0xf68]
 	mov r0, r5
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	mov r0, r5
 	ldr r1, [r4, #0xf6c]
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020BCDC0: .word unk_02099E91
 _020BCDC4: .word unk_0209A3E0
 _020BCDC8: .word unk_020AF81C
 _020BCDCC: .word unk_02099EE8
 _020BCDD0: .word unk_02099EB0
-_020BCDD4: .word gL5Allocator
+_020BCDD4: .word gAllocator
 	arm_func_end FUN_ov0_020bcca8
 
 	arm_func_start FUN_ov0_020bcdd8
@@ -1018,7 +1018,7 @@ FUN_ov0_020bd8f0: ; 0x020BD8F0
 	mov r5, r1
 	mov r0, r4, lsl #4
 	mov r1, #3
-	bl L5FS_AllocateClear
+	bl _ZN10FileSystem13AllocateClearEii
 	mov r3, #0
 	mov r2, r0
 	cmp r4, #0
@@ -1277,10 +1277,10 @@ FUN_ov0_020bdc58: ; 0x020BDC58
 	stmfd sp!, {r3, lr}
 	tst r1, #8
 	ldmeqfd sp!, {r3, pc}
-	ldr r0, _020BDC70 ; =gL5Movie
-	bl _ZN7L5Movie12FUN_0202e958Ev
+	ldr r0, _020BDC70 ; =gMovie
+	bl _ZN5Movie12FUN_0202e958Ev
 	ldmfd sp!, {r3, pc}
-_020BDC70: .word gL5Movie
+_020BDC70: .word gMovie
 	arm_func_end FUN_ov0_020bdc58
 
 	arm_func_start FUN_ov0_020bdc74
@@ -1574,7 +1574,7 @@ FUN_ov0_020bdfb8: ; 0x020BDFB8
 	ldr r0, [r0]
 	bl FUN_020522ec
 	mov r1, r5
-	ldr r0, _020BE0AC ; =gL5Sound
+	ldr r0, _020BE0AC ; =gAudioPlayer
 	bl FUN_0202cf00
 	ldr r0, _020BE0B0 ; =0x02099EB8
 	ldr r0, [r0]
@@ -1588,7 +1588,7 @@ _020BE09C: .word g3DDevice
 _020BE0A0: .word unk_02099EEC
 _020BE0A4: .word unk_02099EE8
 _020BE0A8: .word unk_02099EB0
-_020BE0AC: .word gL5Sound
+_020BE0AC: .word gAudioPlayer
 _020BE0B0: .word unk_02099EB8
 	arm_func_end FUN_ov0_020bdfb8
 
@@ -1643,17 +1643,17 @@ FUN_ov0_020be0dc: ; 0x020BE0DC
 	mov r3, r7
 	mov r2, #0x1f
 	bl FUN_020512a8
-	ldr r6, _020BE1C4 ; =gL5Sound
+	ldr r6, _020BE1C4 ; =gAudioPlayer
 	mov r1, #6
 	mov r0, r6
 	mov r2, r7
 	mov r3, r7
-	bl _ZN7L5Sound12FUN_0202b838Eiii
+	bl _ZN11AudioPlayer12FUN_0202b838Eiii
 	mov r5, #0x14
 	b _020BE154
 _020BE138:
 	mov r0, r6
-	bl _ZN7L5Sound12FUN_0202b7b4Ev
+	bl _ZN11AudioPlayer12FUN_0202b7b4Ev
 	cmp r0, #0
 	bne _020BE15C
 	mov r0, r5
@@ -1664,12 +1664,12 @@ _020BE154:
 	blt _020BE138
 _020BE15C:
 	mov r7, #0
-	ldr r6, _020BE1C4 ; =gL5Sound
+	ldr r6, _020BE1C4 ; =gAudioPlayer
 	mov r5, #0x14
 	b _020BE188
 _020BE16C:
 	mov r0, r6
-	bl _ZN7L5Sound12FUN_0202b7f0Ev
+	bl _ZN11AudioPlayer12FUN_0202b7f0Ev
 	cmp r0, #0
 	bne _020BE190
 	mov r0, r5
@@ -1692,7 +1692,7 @@ _020BE190:
 	bl FUN_02044798
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BE1C0: .word g3DDevice
-_020BE1C4: .word gL5Sound
+_020BE1C4: .word gAudioPlayer
 _020BE1C8: .word unk_020A9C40
 _020BE1CC: .word unk_020AF81C
 	arm_func_end FUN_ov0_020be0dc
@@ -2759,10 +2759,10 @@ _020BF05C:
 	cmp r0, #0
 	beq _020BF664
 _020BF0A8:
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #8
 _020BF0B0:
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	b _020BF664
 _020BF0B8:
 	tst r1, #0x80
@@ -2778,9 +2778,9 @@ _020BF0B8:
 _020BF0E0:
 	tst r11, #0x400
 	beq _020BF100
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, #1
 	bl FUN_ov0_020bef7c
 	b _020BF664
@@ -2795,9 +2795,9 @@ _020BF100:
 	cmp r4, #0
 	bge _020BF13C
 _020BF124:
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #9
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	add sp, sp, #0x20
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -2808,9 +2808,9 @@ _020BF13C:
 	cmp r0, #2
 	cmpne r0, #3
 	bne _020BF16C
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #9
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	add sp, sp, #0x20
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -3059,15 +3059,15 @@ _020BF478:
 	mov r0, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BF484:
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #1
 	b _020BF0B0
 _020BF490:
 	tst r11, #2
 	beq _020BF664
-	ldr r0, _020BF684 ; =gL5Sound
+	ldr r0, _020BF684 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	cmp r9, #7
 	bne _020BF65C
 	mov r10, #0
@@ -3203,7 +3203,7 @@ _020BF674: .word unk_0209A454
 _020BF678: .word ov0_020D610C
 _020BF67C: .word unk_0209A0F4
 _020BF680: .word ov0_020D61A0
-_020BF684: .word gL5Sound
+_020BF684: .word gAudioPlayer
 _020BF688: .word unk_020A1640
 _020BF68C: .word ov0_020D62CE
 _020BF690: .word ov0_020D62CC
@@ -3369,9 +3369,9 @@ _020BF884:
 _020BF8AC:
 	cmp r5, #1
 	bne _020BF8D8
-	ldr r0, _020BF914 ; =gL5Sound
+	ldr r0, _020BF914 ; =gAudioPlayer
 	mov r1, r7
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r4
 	sub r1, r7, #2
 	mov r2, #0
@@ -3382,9 +3382,9 @@ _020BF8D8:
 	cmp r5, #2
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _020BF914 ; =gL5Sound
+	ldr r0, _020BF914 ; =gAudioPlayer
 	mov r1, r7
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
@@ -3394,7 +3394,7 @@ _020BF8D8:
 _020BF908: .word unk_02099EB4
 _020BF90C: .word ov0_020D619C
 _020BF910: .word ov0_020D610C
-_020BF914: .word gL5Sound
+_020BF914: .word gAudioPlayer
 	arm_func_end FUN_ov0_020bf7e8
 
 	arm_func_start FUN_ov0_020bf918
@@ -3482,9 +3482,9 @@ _020BFA40:
 	bl FUN_ov0_020d0bcc
 	cmp r8, #0
 	beq _020BFA64
-	ldr r0, _020BFA88 ; =gL5Sound
+	ldr r0, _020BFA88 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 _020BFA64:
 	add sp, sp, #8
 	mov r0, #1
@@ -3496,7 +3496,7 @@ _020BFA70:
 _020BFA7C: .word unk_02099EB4
 _020BFA80: .word ov0_020D619C
 _020BFA84: .word ov0_020D610C
-_020BFA88: .word gL5Sound
+_020BFA88: .word gAudioPlayer
 	arm_func_end FUN_ov0_020bf918
 
 	arm_func_start FUN_ov0_020bfa8c
@@ -5691,9 +5691,9 @@ _020C18B0:
 	cmp r7, #1
 	cmpne r7, #0x16
 	beq _020C18E0
-	ldr r0, _020C2118 ; =gL5Sound
+	ldr r0, _020C2118 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 _020C18E0:
 	cmp r7, #0x1c
 	addls pc, pc, r7, lsl #2
@@ -6250,7 +6250,7 @@ _020C20F8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _020C2110: .word unk_02099EB4
 _020C2114: .word unk_0209A454
-_020C2118: .word gL5Sound
+_020C2118: .word gAudioPlayer
 _020C211C: .word unk_02099E94
 _020C2120: .word unk_020A1640
 _020C2124: .word unk_020AF81C
@@ -6281,9 +6281,9 @@ FUN_ov0_020c212c: ; 0x020C212C
 	bl FUN_ov16_020fe47c
 	cmp r0, #0
 	beq _020C2194
-	ldr r0, _020C2258 ; =gL5Sound
+	ldr r0, _020C2258 ; =gAudioPlayer
 	mov r1, r5
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C2194:
 	add r0, r4, #0xfa
@@ -6296,10 +6296,10 @@ _020C2194:
 	ldr r0, [r0]
 	bl FUN_ov0_020ccc20
 	mov r2, #1
-	ldr r0, _020C2258 ; =gL5Sound
+	ldr r0, _020C2258 ; =gAudioPlayer
 	mov r1, #6
 	strb r2, [r4, #0x108]
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r7, #0
 	mov r6, r7
 _020C21D4:
@@ -6338,7 +6338,7 @@ _020C223C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C2250: .word unk_02099ED8
 _020C2254: .word unk_0209A3E0
-_020C2258: .word gL5Sound
+_020C2258: .word gAudioPlayer
 	arm_func_end FUN_ov0_020c212c
 
 	arm_func_start FUN_ov0_020c225c
@@ -7741,11 +7741,11 @@ _020C35C4:
 	bge _020C361C
 	ldr r0, _020C3680 ; =0x020A9C40
 	bl FUN_02045e00
-	ldr r5, _020C3688 ; =gL5Config
+	ldr r5, _020C3688 ; =gConfig
 	mov r6, r0
 	ldr r1, _020C368C ; =0x020D5AE0
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0xe4]
 	mov r0, #0x64
 	bl FUN_ov16_020ef928
@@ -7753,7 +7753,7 @@ _020C35C4:
 	bls _020C361C
 	ldr r1, _020C3690 ; =0x020D5AF4
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	sub r0, r0, #1
 	bl FUN_ov16_020ef928
 	str r0, [r4, #0xe8]
@@ -7769,9 +7769,9 @@ _020C361C:
 	mov r0, r4
 	bl FUN_ov0_020c4c80
 _020C3644:
-	ldr r0, _020C3688 ; =gL5Config
+	ldr r0, _020C3688 ; =gConfig
 	ldr r1, _020C3694 ; =0x020D5B08
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r1, #0x1e
 	mul r2, r0, r1
 	mov r1, #0xb
@@ -7786,7 +7786,7 @@ _020C3644:
 _020C367C: .word unk_020AF81C
 _020C3680: .word unk_020A9C40
 _020C3684: .word unk_0209A110
-_020C3688: .word gL5Config
+_020C3688: .word gConfig
 _020C368C: .word ov0_020D5AE0
 _020C3690: .word ov0_020D5AF4
 _020C3694: .word ov0_020D5B08
@@ -7972,13 +7972,13 @@ FUN_ov0_020c38cc: ; 0x020C38CC
 	mov r0, #0x1000
 	str r6, [r2, #8]
 	mov r4, #0
-	bl L5FS_Allocate
+	bl _ZN10FileSystem8AllocateEii
 	mov r3, r0
 	ldr r0, _020C3BC4 ; =FUN_ov0_020c6dcc
 	mov r1, r7
 	add r2, r3, #0x1000
 	str r3, [r7, #0x168]
-	bl L5Thread_Create
+	bl _ZN6Thread6CreateEPFvPvES0_S0_
 	str r0, [r7, #0x164]
 	ldr r0, _020C3BC8 ; =FUN_ov0_020c6dd8
 	bl FUN_ov16_020f5248
@@ -8143,15 +8143,15 @@ _020C3B3C:
 	mov r1, r4
 	ldr r0, [r0]
 	bl FUN_0205e164
-	ldr r4, _020C3BFC ; =gL5Config
+	ldr r4, _020C3BFC ; =gConfig
 	ldr r1, _020C3C00 ; =0x020D5B2C
 	mov r0, r4
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r0, r0, lsl #1
 	str r0, [r7, #0xe4]
 	ldr r1, _020C3C04 ; =0x020D5B40
 	mov r0, r4
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r1, #0x1e
 	mul r1, r0, r1
 	ldr r0, [r7, #4]
@@ -8174,7 +8174,7 @@ _020C3BEC: .word unk_020AF81C
 _020C3BF0: .word unk_02099F58
 _020C3BF4: .word unk_02099F38
 _020C3BF8: .word unk_02099EB0
-_020C3BFC: .word gL5Config
+_020C3BFC: .word gConfig
 _020C3C00: .word ov0_020D5B2C
 _020C3C04: .word ov0_020D5B40
 	arm_func_end FUN_ov0_020c38cc
@@ -8296,31 +8296,31 @@ _020C3D84:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	bne _020C3DBC
-	ldr r0, _020C4890 ; =gL5Config
+	ldr r0, _020C4890 ; =gConfig
 	ldr r1, _020C4894 ; =0x020D5B54
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [sp, #0xc]
 _020C3DBC:
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	bne _020C3DD8
-	ldr r0, _020C4890 ; =gL5Config
+	ldr r0, _020C4890 ; =gConfig
 	ldr r1, _020C4898 ; =0x020D5B64
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [sp, #0x10]
 _020C3DD8:
 	ldr r0, [r4]
 	ldr r1, [sp, #0xc]
 	ldr r2, [sp, #0x10]
 	bl FUN_020561f4
-	ldr r4, _020C4890 ; =gL5Config
+	ldr r4, _020C4890 ; =gConfig
 	ldr r1, _020C489C ; =0x020D5B74
 	mov r0, r4
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [sp, #0x14]
 	ldr r1, _020C48A0 ; =0x020D5B84
 	mov r0, r4
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	ldr r1, [sp, #0x14]
 	str r0, [sp, #0x18]
 	cmp r1, #0
@@ -8444,7 +8444,7 @@ _020C3F58:
 	bl FUN_ov16_020f1468
 	mov r0, r4
 	bl FUN_ov16_020f147c
-	ldr r4, _020C48AC ; =gL5Sound
+	ldr r4, _020C48AC ; =gAudioPlayer
 	mov r1, r8
 	mov r0, r4
 	mov r2, r8
@@ -9050,14 +9050,14 @@ _020C4880: .word unk_020A9C40
 _020C4884: .word unk_02099ED8
 _020C4888: .word unk_02099EE8
 _020C488C: .word unk_020AF81C
-_020C4890: .word gL5Config
+_020C4890: .word gConfig
 _020C4894: .word ov0_020D5B54
 _020C4898: .word ov0_020D5B64
 _020C489C: .word ov0_020D5B74
 _020C48A0: .word ov0_020D5B84
 _020C48A4: .word 0x00087C00
 _020C48A8: .word unk_02099EB0
-_020C48AC: .word gL5Sound
+_020C48AC: .word gAudioPlayer
 _020C48B0: .word unk_020A0640
 _020C48B4: .word unk_02099ED4
 _020C48B8: .word 0x0000C350
@@ -9372,11 +9372,11 @@ FUN_ov0_020c4ce4: ; 0x020C4CE4
 	ldr r5, _020C4FEC ; =0x0209A200
 	mov r4, r0
 	ldr r0, [r5, #0xc]
-	bl L5FS_CloseArchive
+	bl _ZN10FileSystem12CloseArchiveEi
 	ldr r0, [r5, #8]
-	bl L5FS_CloseArchive
+	bl _ZN10FileSystem12CloseArchiveEi
 	ldr r0, [r5, #4]
-	bl L5FS_CloseArchive
+	bl _ZN10FileSystem12CloseArchiveEi
 	mvn r0, #0
 	str r0, [r5, #0xc]
 	str r0, [r5, #8]
@@ -9384,9 +9384,9 @@ FUN_ov0_020c4ce4: ; 0x020C4CE4
 	mov r0, #0
 	bl FUN_ov16_020f5248
 	ldr r0, [r4, #0x164]
-	bl L5Thread_Kill
+	bl _ZN6Thread7DestroyEi
 	ldr r0, [r4, #0x168]
-	bl L5FS_Deallocate
+	bl _ZN10FileSystem10DeallocateEPv
 	mov r0, r4
 	bl FUN_ov0_020c2bac
 	ldr r5, _020C4FF0 ; =0x020D6100
@@ -10026,7 +10026,7 @@ _020C562C:
 	add r0, sp, #4
 	mov r2, r5
 	str r4, [sp, #4]
-	bl L5FS_ReadFileByName
+	bl _ZN10FileSystem14ReadFileByNameEPPviPKc
 	ldr r1, [sp, #4]
 	add r0, sp, #0x48
 	cmp r1, #0
@@ -10851,7 +10851,7 @@ _020C6260:
 	b _020C568C
 _020C6294:
 	ldr r0, [sp, #4]
-	bl L5FS_Deallocate
+	bl _ZN10FileSystem10DeallocateEPv
 	mov r0, r5
 	bl FUN_0202fd44
 	mov r0, #1
@@ -11374,7 +11374,7 @@ FUN_ov0_020c6a1c: ; 0x020C6A1C
 	mov r2, r5
 	str r4, [sp, #0x10]
 	add r0, sp, #0x10
-	bl L5FS_ReadFileByName
+	bl _ZN10FileSystem14ReadFileByNameEPPviPKc
 	ldr r1, [sp, #0x10]
 	add r0, sp, #0x94
 	cmp r1, #0
@@ -11519,7 +11519,7 @@ _020C6C64:
 	bl STD_CopyString
 	str r5, [r11, #0x2c]
 	ldr r0, [sp, #0x10]
-	bl L5FS_Deallocate
+	bl _ZN10FileSystem10DeallocateEPv
 	add r0, sp, #0x94
 	bl FUN_0202fd44
 	mov r0, #1
@@ -11647,14 +11647,14 @@ _020C6DE4:
 	bl FUN_ov0_020be84c
 	cmp r0, #0
 	bne _020C6DF8
-	bl L5Thread_Yield
+	bl _ZN6Thread5YieldEv
 	b _020C6DE4
 _020C6DF8:
 	add r0, r5, #0xfa
 	bl FUN_ov0_020bfd84
 	cmp r0, #0
 	bne _020C6E10
-	bl L5Thread_Yield
+	bl _ZN6Thread5YieldEv
 	b _020C6DF8
 _020C6E10:
 	ldr r4, _020C6EA4 ; =0x02099EC0
@@ -11663,40 +11663,40 @@ _020C6E14:
 	bl FUN_02057bf4
 	cmp r0, #0
 	beq _020C6E2C
-	bl L5Thread_Yield
+	bl _ZN6Thread5YieldEv
 	b _020C6E14
 _020C6E2C:
 	mov r0, r5
 	bl FUN_ov0_020c2b40
 	cmp r0, #0
 	beq _020C6E44
-	bl L5Thread_Yield
+	bl _ZN6Thread5YieldEv
 	b _020C6E2C
 _020C6E44:
 	mov r5, #0
 	ldr r1, _020C6EA8 ; =0x020D5BC0
 	mov r0, r5
-	bl L5FS_OpenArchiveDeferred
+	bl _ZN10FileSystem19OpenArchiveDeferredEPvPKc
 	ldr r4, _020C6EAC ; =0x0209A200
 	ldr r1, _020C6EB0 ; =0x020D5BCC
 	str r0, [r4, #4]
 	mov r0, r5
-	bl L5FS_OpenArchiveDeferred
+	bl _ZN10FileSystem19OpenArchiveDeferredEPvPKc
 	str r0, [r4, #8]
 	ldr r1, _020C6EB4 ; =0x020D5BDC
 	mov r0, r5
-	bl L5FS_OpenArchiveDeferred
+	bl _ZN10FileSystem19OpenArchiveDeferredEPvPKc
 	str r0, [r4, #0xc]
 	ldr r0, [r4, #4]
-	bl L5FS_WaitArchiveReady
+	bl _ZN10FileSystem16WaitArchiveReadyEi
 	ldr r0, [r4, #8]
-	bl L5FS_WaitArchiveReady
+	bl _ZN10FileSystem16WaitArchiveReadyEi
 	ldr r0, [r4, #0xc]
-	bl L5FS_WaitArchiveReady
+	bl _ZN10FileSystem16WaitArchiveReadyEi
 	ldr r0, _020C6EB8 ; =0x020D6100
 	str r5, [r0, #8]
 _020C6E9C:
-	bl L5Thread_Yield
+	bl _ZN6Thread5YieldEv
 	b _020C6E9C
 _020C6EA4: .word unk_02099EC0
 _020C6EA8: .word ov0_020D5BC0
@@ -13311,12 +13311,12 @@ FUN_ov0_020c8440: ; 0x020C8440
 	ldr r1, [r4, #0x10]
 	add r0, r5, #0x18
 	add r3, r5, #0x84
-	bl L5FS_ReadFileByNameDeferred
+	bl _ZN10FileSystem22ReadFileByNameDeferredEPPviPKcPa
 	ldr r1, [r4, #0x10]
 	ldr r2, _020C84F0 ; =0x020D5D48
 	add r0, r5, #0x60
 	add r3, r5, #0x8a
-	bl L5FS_ReadFileByNameDeferred
+	bl _ZN10FileSystem22ReadFileByNameDeferredEPPviPKcPa
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C849C:
@@ -13336,7 +13336,7 @@ _020C849C:
 	ldr r1, [r0, #0x10]
 	add r0, r5, #0x18
 	add r3, r5, #0x84
-	bl L5FS_ReadFileByNameDeferred
+	bl _ZN10FileSystem22ReadFileByNameDeferredEPPviPKcPa
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C84E8: .word unk_0209A200
@@ -13416,7 +13416,7 @@ _020C85E0:
 	ldrsb r0, [r6, #0x84]
 	cmp r0, #0
 	blt _020C8604
-	bl L5FS_IsFileBusy
+	bl _ZN10FileSystem10IsFileBusyEa
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
@@ -13449,7 +13449,7 @@ _020C8650:
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _020C8678
-	bl L5FS_Deallocate
+	bl _ZN10FileSystem10DeallocateEPv
 	b _020C8678
 _020C8664:
 	mov r0, r4
@@ -14217,7 +14217,7 @@ _020C90D0:
 	bne _020C90D0
 	ldr r1, _020C9108 ; =0x020D5D9C
 	mov r0, #0
-	bl L5FS_OpenArchiveDirect
+	bl _ZN10FileSystem17OpenArchiveDirectEPvPKc
 	ldr r1, _020C910C ; =0x0209A200
 	str r0, [r1, #0x10]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -14534,7 +14534,7 @@ FUN_ov0_020c954c: ; 0x020C954C
 	ldr r4, _020C95B4 ; =0x0209A200
 	mov r5, r0
 	ldr r0, [r4, #0x10]
-	bl L5FS_CloseArchive
+	bl _ZN10FileSystem12CloseArchiveEi
 	mvn r0, #0
 	str r0, [r4, #0x10]
 	ldr r0, [r5, #0x14]
@@ -18902,13 +18902,13 @@ FUN_ov0_020cd1b8: ; 0x020CD1B8
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
 	ldr r2, _020CD1E8 ; =0x0209A200
-	ldr r1, _020CD1EC ; =gL5Allocator
+	ldr r1, _020CD1EC ; =gAllocator
 	ldr r2, [r2, #0xc]
 	bl FUN_ov0_020d2854
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 _020CD1E8: .word unk_0209A200
-_020CD1EC: .word gL5Allocator
+_020CD1EC: .word gAllocator
 	arm_func_end FUN_ov0_020cd1b8
 
 	arm_func_start FUN_ov0_020cd1f0
@@ -20474,8 +20474,8 @@ FUN_ov0_020ce884: ; 0x020CE884
 	ldr r1, [r4, #0x1c]
 	cmp r1, #0
 	beq _020CE8BC
-	ldr r0, _020CE8CC ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020CE8CC ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	beq _020CE8BC
@@ -20488,7 +20488,7 @@ _020CE8BC:
 	str r0, [r4, #0x1c]
 	str r0, [r4, #0x14]
 	ldmfd sp!, {r4, pc}
-_020CE8CC: .word gL5Allocator
+_020CE8CC: .word gAllocator
 	arm_func_end FUN_ov0_020ce884
 
 	arm_func_start FUN_ov0_020ce8d0
@@ -20498,13 +20498,13 @@ FUN_ov0_020ce8d0: ; 0x020CE8D0
 	ldr r1, [r4, #0x18]
 	cmp r1, #0
 	beq _020CE8EC
-	ldr r0, _020CE8F8 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020CE8F8 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020CE8EC:
 	mov r0, #0
 	str r0, [r4, #0x18]
 	ldmfd sp!, {r4, pc}
-_020CE8F8: .word gL5Allocator
+_020CE8F8: .word gAllocator
 	arm_func_end FUN_ov0_020ce8d0
 
 	arm_func_start FUN_ov0_020ce8fc
@@ -20521,20 +20521,20 @@ FUN_ov0_020ce8fc: ; 0x020CE8FC
 _020CE920:
 	cmp r1, #0
 	beq _020CE930
-	ldr r0, _020CE958 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020CE958 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020CE930:
 	mov r4, r5, lsl #2
-	ldr r0, _020CE958 ; =gL5Allocator
+	ldr r0, _020CE958 ; =gAllocator
 	mov r1, r4
 	str r5, [r6, #0x10]
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	mov r2, r4
 	mov r1, #0
 	str r0, [r6, #0x18]
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, pc}
-_020CE958: .word gL5Allocator
+_020CE958: .word gAllocator
 	arm_func_end FUN_ov0_020ce8fc
 
 	arm_func_start FUN_ov0_020ce95c
@@ -20546,8 +20546,8 @@ FUN_ov0_020ce95c: ; 0x020CE95C
 	mov r5, r2
 	cmp r1, #0
 	beq _020CE980
-	ldr r0, _020CE9F0 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020CE9F0 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020CE980:
 	mov r0, r6
 	mov r1, r4
@@ -20555,10 +20555,10 @@ _020CE980:
 	add r0, r5, #4
 	bic r5, r0, #3
 	ldr r1, [r6, #0x10]
-	ldr r0, _020CE9F0 ; =gL5Allocator
+	ldr r0, _020CE9F0 ; =gAllocator
 	mul r1, r5, r1
 	str r5, [r6, #0x14]
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	ldr r1, [r6, #0x10]
 	mov r4, #0
 	mul r2, r5, r1
@@ -20578,7 +20578,7 @@ _020CE9CC:
 	cmp r4, r0
 	blt _020CE9CC
 	ldmfd sp!, {r4, r5, r6, pc}
-_020CE9F0: .word gL5Allocator
+_020CE9F0: .word gAllocator
 	arm_func_end FUN_ov0_020ce95c
 
 	arm_func_start FUN_ov0_020ce9f4
@@ -22603,7 +22603,7 @@ _020D0724:
 	ldr r1, [r6, #0xb0]
 	ldr r7, [sp, #0x34]
 	mov r2, #0x20
-	ldr r0, _020D08BC ; =gL5Allocator
+	ldr r0, _020D08BC ; =gAllocator
 	mov r1, r1, lsl #3
 	strh r4, [r6, #0xc4]
 	strh r4, [r6, #0xc6]
@@ -22611,7 +22611,7 @@ _020D0724:
 	str r3, [r6, #0xd0]
 	str r3, [r6, #0xe0]
 	str r2, [r6, #0xe4]
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	ldr r2, [r6, #0xb0]
 	mov r1, r4
 	mov r2, r2, lsl #3
@@ -22689,7 +22689,7 @@ _020D0724:
 	mov r0, r5
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020D08BC: .word gL5Allocator
+_020D08BC: .word gAllocator
 _020D08C0: .word unk_02099F38
 	arm_func_end FUN_ov0_020d06d0
 
@@ -22716,8 +22716,8 @@ _020D08F8:
 	ldr r1, [r7, #0xa4]
 	cmp r1, #0
 	beq _020D0914
-	ldr r0, _020D09B0 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020D09B0 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020D0914:
 	mov r6, #0
 	mov r0, r7
@@ -22761,7 +22761,7 @@ _020D096C:
 	str r5, [r4, #0x150]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020D09AC: .word unk_02099F38
-_020D09B0: .word gL5Allocator
+_020D09B0: .word gAllocator
 _020D09B4: .word unk_02099EB4
 	arm_func_end FUN_ov0_020d08c4
 
@@ -23853,15 +23853,15 @@ _020D1848: .word ov0_020D60CC
 	arm_func_start FUN_ov0_020d184c
 FUN_ov0_020d184c: ; 0x020D184C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _020D18BC ; =gL5Allocator
+	ldr r4, _020D18BC ; =gAllocator
 	mov r5, r0
 	mov r0, r4
 	mov r1, #0x400
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #4]
 	mov r0, r4
 	mov r1, #0x200
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	ldr r1, [r5, #4]
 	str r0, [r5, #8]
 	cmp r1, #0
@@ -23881,7 +23881,7 @@ _020D1898:
 	blx r1
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-_020D18BC: .word gL5Allocator
+_020D18BC: .word gAllocator
 	arm_func_end FUN_ov0_020d184c
 
 	arm_func_start FUN_ov0_020d18c0
@@ -23891,20 +23891,20 @@ FUN_ov0_020d18c0: ; 0x020D18C0
 	ldr r1, [r4, #4]
 	cmp r1, #0
 	beq _020D18DC
-	ldr r0, _020D1900 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020D1900 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020D18DC:
 	ldr r1, [r4, #8]
 	cmp r1, #0
 	beq _020D18F0
-	ldr r0, _020D1900 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020D1900 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 _020D18F0:
 	mov r0, #0
 	str r0, [r4, #4]
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
-_020D1900: .word gL5Allocator
+_020D1900: .word gAllocator
 	arm_func_end FUN_ov0_020d18c0
 
 	arm_func_start FUN_ov0_020d1904
@@ -25039,7 +25039,7 @@ _020D287C:
 	mov r1, r7
 	mov r2, r5
 	str r4, [sp, #0x18]
-	bl L5FS_ReadFileByName
+	bl _ZN10FileSystem14ReadFileByNameEPPviPKc
 	cmp r0, #0
 	addlt sp, sp, #0xb0
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -25048,7 +25048,7 @@ _020D287C:
 	str r0, [r10, #4]
 	ldr r0, [r0, #0xc]
 	mov r0, r0, lsl #2
-	bl L5FS_Allocate
+	bl _ZN10FileSystem8AllocateEii
 	ldr r2, [r10, #4]
 	str r0, [r10, #8]
 	ldr r1, [r2, #0xc]
@@ -25097,7 +25097,7 @@ _020D2968:
 _020D297C:
 	mov r0, #0xb000
 	mvn r1, #0
-	bl L5FS_AllocateClear
+	bl _ZN10FileSystem13AllocateClearEii
 	ldr r1, [r10, #4]
 	str r0, [r10, #0xc]
 	ldr r0, [r1, #0xc]

@@ -1,9 +1,9 @@
 .public FUN_ov16_020f1528
 .public FUN_ov16_020f5af0
 .public gBgMenuManager
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClear32
-.public gL5Allocator
+.public gAllocator
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f2184
 .public DC_FlushRange
@@ -32,7 +32,7 @@
 .public FUN_ov16_020f3744
 .public gLogicThink
 .public FUN_ov16_020f330c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public _ZN7CFileIO5closeEPvi
 .public unk_020A8C40
 .public unk_020A8440

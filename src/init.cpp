@@ -81,14 +81,14 @@ void FUN_02029140(void)
     MI_CpuClearFast(destp, size);
     DC_FlushRange(unk_02099E8C.unk94, unk_02099E8C.unkBC);
 
-    gL5Allocator.initArenas(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
+    gAllocator.initArenas(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
 
     OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
 
-    gL5Allocator.setDefaultArena(0);
-    gL5Allocator.fileIO = &gFileIO;
-    gFileIO.init(64, &gL5Allocator);
-    gL5Movie.init(&gL5Allocator);
+    gAllocator.setDefaultArena(0);
+    gAllocator.fileIO = &gFileIO;
+    gFileIO.init(64, &gAllocator);
+    gMovie.init(&gAllocator);
 }
 
 void VramClear(void)
@@ -121,7 +121,7 @@ void FUN_020292e8(void)
 
 void FUN_020292f4(void)
 {
-    L5FS_Init();
+    FileSystem::Init();
     Config_Init();
 }
 
@@ -365,8 +365,8 @@ void FUN_02029608(void)
     unk_02099E8C.Logic_WearSetFile = NULL;
 
     char *wearSetFileName = "/data_iz/logic/wearset.dat";
-    if (gL5Allocator.fileIO != NULL) {
-        gL5Allocator.fileIO->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gL5Allocator, 0, 0, FALSE, 1);
+    if (gAllocator.fileIO != NULL) {
+        gAllocator.fileIO->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gAllocator, 0, 0, FALSE, 1);
     }
 
     unk_02099E8C.Logic_ShoesInfoFile = NULL;
@@ -375,10 +375,10 @@ void FUN_02029608(void)
     unk_02099E8C.Logic_PalSkin3dFile = NULL;
     unk_02099E8C.Logic_PalSkin2dFile = NULL;
 
-    L5FS_ReadFile(&unk_02099E8C.Logic_ShoesInfoFile, "logic/shoesinfo.dat", 0, 0);
-    L5FS_ReadFile(&unk_02099E8C.Logic_GlovesInfoFile, "logic/gloveinfo.dat", 0, 0);
-    L5FS_ReadFile(&unk_02099E8C.Logic_MissInfoFile, "logic/missinfo.dat", 0, 0);
-    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkin3dFile, "logic/palskin3d.dat", 0, 0);
-    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkin2dFile, "logic/palskin2d.dat", 0, 0);
-    L5FS_ReadFile(&unk_02099E8C.Logic_PalSkinFaceFile, "logic/palskinface.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_ShoesInfoFile, "logic/shoesinfo.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_GlovesInfoFile, "logic/gloveinfo.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_MissInfoFile, "logic/missinfo.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_PalSkin3dFile, "logic/palskin3d.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_PalSkin2dFile, "logic/palskin2d.dat", 0, 0);
+    FileSystem::ReadFile(&unk_02099E8C.Logic_PalSkinFaceFile, "logic/palskinface.dat", 0, 0);
 }

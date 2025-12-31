@@ -17,7 +17,7 @@ CFileIO::~CFileIO()
 
 void CFileIO::FUN_0202ede8(void) { }
 
-void CFileIO::init(int max_requests, L5Allocator *allocator)
+void CFileIO::init(int max_requests, Allocator *allocator)
 {
     if (this->nRequests != 0) {
         return;
@@ -123,15 +123,15 @@ size_t CFileIO::getFileLength(const char *path)
 #else //NONMATCHING
 extern "C" {
     extern void _ZN7CFileIO11getDestSizeEP11FileRequestP6FSFilePm(void);
-    extern void _ZN11L5Allocator12setNextArenaEi(void);
+    extern void _ZN9Allocator12setNextArenaEi(void);
     extern void _ZN7CFileIO8allocateEm(void);
-    extern void _ZN11L5Allocator8allocateEmii(void);
-    extern void _ZN11L5Allocator10deallocateEPv(void);
+    extern void _ZN9Allocator8allocateEmii(void);
+    extern void _ZN9Allocator10deallocateEPv(void);
     extern void _ZN7CFileIO10deallocateEPv(void);
     extern void _ZN7CFileIO10uncompressEPvP11FileRequest(void);
 }
 
-asm size_t CFileIO::readDirect(const char *path, void **dest, L5Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
+asm size_t CFileIO::readDirect(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
 {
     stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xb4
@@ -202,7 +202,7 @@ asm size_t CFileIO::readDirect(const char *path, void **dest, L5Allocator *alloc
 _0202F0F8:
 	ldr r0, [r10, #4]
 _0202F0FC:
-	bl _ZN11L5Allocator12setNextArenaEi
+	bl _ZN9Allocator12setNextArenaEi
 	mov r6, r0
 	mov r0, r10
 	mov r1, r9
@@ -216,7 +216,7 @@ _0202F124:
 	ldr r0, [r10, #4]
 _0202F128:
 	mov r1, r6
-	bl _ZN11L5Allocator12setNextArenaEi
+	bl _ZN9Allocator12setNextArenaEi
 _0202F130:
 	add r0, sp, #0x4c
 	str r8, [r0, #4]
@@ -231,7 +231,7 @@ _0202F130:
 	ldr r0, [r0, #4]
 	ldr r1, [sp, #0xdc]
 	mov r2, #1
-	bl _ZN11L5Allocator8allocateEmii
+	bl _ZN9Allocator8allocateEmii
 	movs r5, r0
 	bne _0202F18C
 _0202F170:
@@ -273,7 +273,7 @@ _0202F1D8:
 	cmp r0, #0
 	beq _0202F200
 	mov r1, r5
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 _0202F200:
 	cmp r11, r5
 	beq _0202F214
@@ -320,7 +320,7 @@ _0202F27C:
 }
 #endif //NONMATCHING
 
-size_t CFileIO::readDeferred(const char *path, void **dest, L5Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
+size_t CFileIO::readDeferred(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
 {
     FSFile file;
     

@@ -63,8 +63,8 @@
 .public unk_020A0640
 .public FUN_0206d6d8
 .public FUN_ov126_0212ac54
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_02046730
 .public FUN_0206cc00
 .public FUN_0205019c
@@ -254,9 +254,9 @@
 .public FUN_ov16_020f2304
 .public FUN_02054070
 .public FUN_ov16_02111438
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public _ZN11L5Allocator10deallocateEPv
-.public gL5Allocator
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN9Allocator10deallocateEPv
+.public gAllocator
 .public FUN_0204b0ac
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0

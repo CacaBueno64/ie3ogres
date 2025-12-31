@@ -1,4 +1,4 @@
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public unk_0208FBF0
 .public FS_FindArchive
 .public FS_UnloadArchiveTables
@@ -10,8 +10,8 @@
 .public OS_InitMutex
 .public OS_CreateThread
 .public FS_TryLoadTable
-.public _ZN11L5Allocator8allocateEmii
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator8allocateEmii
+.public _ZN9Allocator10deallocateEPv
 .public FS_InitFile
 .public FS_OpenFile
 .public FS_GetLength
@@ -19,7 +19,7 @@
 .public STD_CopyString
 .public FS_SeekFile
 .public STD_GetStringLength
-.public _ZN11L5Allocator12setNextArenaEi
+.public _ZN9Allocator12setNextArenaEi
 .public FS_ReadFileAsync
 .public DC_FlushRange
 .public OS_Sleep
@@ -139,17 +139,17 @@
 .public FUN_ov16_02112e5c
 .public FUN_ov16_02113528
 .public FUN_ov16_021128c4
-.public gL5Allocator
+.public gAllocator
 .public unk_0208FD34
 .public unk_0208FD4C
 .public unk_0208FD64
 .public FUN_ov16_02113390
 .public FUN_ov16_021142fc
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_02114248
 .public unk_0208C36C
 .public unk_020A0640
-.public gL5Sound
+.public gAudioPlayer
 .public STD_CopyLString
 .public FUN_02043310
 .public FUN_ov16_02113618
@@ -341,8 +341,8 @@
 .public FUN_ov132_021456d0
 .public FUN_ov132_021455e8
 .public FUN_ov132_021457b8
-.public _ZN8L5Config8getParamEPc
-.public gL5Config
+.public _ZN6Config8getParamEPc
+.public gConfig
 .public unk_0208FEB4
 .public unk_0208FECC
 .public unk_0208FEE4
@@ -448,7 +448,7 @@
 .public unk_020A06D8
 .public FUN_ov16_020f06d8
 .public FUN_02073194
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClearFast
 .public unk_020B5BB8
 .public GX_BeginLoadTex

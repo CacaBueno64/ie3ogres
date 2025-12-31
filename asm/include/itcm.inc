@@ -106,7 +106,7 @@
 .public FUN_ov126_02139ab4
 .public FUN_02073184
 .public FUN_0207249c
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public _fflt
 .public _fmul
 .public _fgr
@@ -146,7 +146,7 @@
 .public FUN_ov16_020ef8d4
 .public FUN_ov132_02147df8
 .public FUN_ov132_021491b0
-.public gL5Config
+.public gConfig
 .public ov132_02160304
 .public ov132_02160314
 .public ov132_02160324

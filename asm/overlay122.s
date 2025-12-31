@@ -1175,13 +1175,13 @@ FUN_ov122_02125d18: ; 0x02125D18
 	ldr r1, [r4, #0x24]
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02125D64 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _02125D64 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x24]
 	ldmfd sp!, {r4, pc}
 _02125D60: .word gBgMenuManager
-_02125D64: .word gL5Allocator
+_02125D64: .word gAllocator
 	arm_func_end FUN_ov122_02125d18
 
 	arm_func_start FUN_ov122_02125d68

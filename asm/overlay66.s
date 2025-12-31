@@ -13,16 +13,16 @@ FUN_ov66_02119f00: ; 0x02119F00
 	ldr r0, _02119F40 ; =0x00002FFF
 	tst r1, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02119F44 ; =gL5Sound
+	ldr r0, _02119F44 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r4
 	bl FUN_ov66_0211a200
 	mov r0, #6
 	str r0, [r4, #0x20]
 	ldmfd sp!, {r4, pc}
 _02119F40: .word 0x00002FFF
-_02119F44: .word gL5Sound
+_02119F44: .word gAudioPlayer
 	arm_func_end FUN_ov66_02119f00
 
 	arm_func_start FUN_ov66_02119f48
@@ -43,15 +43,15 @@ _02119F68:
 	ldreqh r0, [r1, #4]
 	cmpeq r0, #1
 	ldmnefd sp!, {r4, pc}
-	ldr r0, _02119FA4 ; =gL5Sound
+	ldr r0, _02119FA4 ; =gAudioPlayer
 	mov r1, r2
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r4
 	bl FUN_ov66_0211a200
 	mov r0, #6
 	str r0, [r4, #0x20]
 	ldmfd sp!, {r4, pc}
-_02119FA4: .word gL5Sound
+_02119FA4: .word gAudioPlayer
 	arm_func_end FUN_ov66_02119f48
 
 	arm_func_start FUN_ov66_02119fa8

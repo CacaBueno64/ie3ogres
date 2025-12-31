@@ -15,8 +15,8 @@
 .public unk_020A0640
 .public unk_020A12C0
 .public unk_020A1640
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_020f316c
 .public FUN_ov1_020dbe00
 .public FUN_ov1_020dbec4

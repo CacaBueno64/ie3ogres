@@ -6,10 +6,10 @@
 #include <nitro.h>
 
 #include "ov130.hpp"
-#include "l5allocator.hpp"
+#include "allocator.hpp"
 #include "fileio.hpp"
-#include "l5movie.hpp"
-#include "l5fs.hpp"
+#include "movie.hpp"
+#include "filesystem.hpp"
 #include "wirelessutil.hpp"
 #include "logicthink.hpp"
 #include "fontmanager.hpp"

@@ -76,8 +76,8 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210e7d0
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210ecb8
 .public FUN_ov16_0210f468

@@ -60,8 +60,8 @@
 .public FUN_0204b540
 .public FUN_02057c2c
 .public FUN_ov16_020f316c
-.public L5FS_OpenArchiveDeferred
-.public L5FS_IsArchiveReady
+.public _ZN10FileSystem19OpenArchiveDeferredEPvPKc
+.public _ZN10FileSystem14IsArchiveReadyEi
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5868
@@ -69,7 +69,7 @@
 .public STD_TSPrintf
 .public FUN_ov16_020f5450
 .public FUN_02058684
-.public L5FS_CloseArchive
+.public _ZN10FileSystem12CloseArchiveEi
 .public unk_02099F38
 .public FUN_02058e30
 .public FUN_02059004
@@ -176,8 +176,8 @@
 .public sprintf
 .public STD_CopyString
 .public FUN_ov16_0210eab4
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_02113f7c
 .public FUN_ov0_020cd0f8
 .public unk_02099E8E

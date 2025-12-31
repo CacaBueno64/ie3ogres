@@ -9,7 +9,7 @@ void CMainLogoScreenDCBmp::updateKeys(u16 pressed, u16 held)
     }
     
     if (pressed & PAD_BUTTON_A) {
-        gL5Movie.FUN_0202e958();
+        gMovie.FUN_0202e958();
     }
 }
 
@@ -25,7 +25,7 @@ void CMainLogoScreenDCBmp::updateTP(TPData *tp)
         return;
     }
     if (this->tpTouch) {
-        gL5Movie.FUN_0202e958();
+        gMovie.FUN_0202e958();
     }
     this->tpTouch = FALSE;
 }
@@ -38,7 +38,7 @@ void CMainLogoScreenDCBmp::init(void)
     
     this->manager->endGraphics(0);
     
-    switch (gL5Config.getParam("IZ_TYPE")) {
+    switch (gConfig.getParam("IZ_TYPE")) {
         default:
         case 0:
             FUN_ov16_020f2a18(&this->movieInfo, "op00f");

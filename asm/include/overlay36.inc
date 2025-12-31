@@ -1,10 +1,10 @@
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f6584
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f6530
 .public gBgMenuManager
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_020f6b3c
 .public unk_0209A070
 .public FUN_ov16_020f6e2c

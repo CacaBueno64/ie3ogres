@@ -7,8 +7,8 @@
 .public FUN_ov16_020f33fc
 .public unk_020A12C0
 .public unk_020A1640
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public sprintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020eed18

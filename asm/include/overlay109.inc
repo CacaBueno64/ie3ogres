@@ -26,10 +26,10 @@
 .public DC_FlushRange
 .public unk_020A8C40
 .public unk_020A8440
-.public _ZN11L5Allocator8allocateEm
-.public gL5Allocator
+.public _ZN9Allocator8allocateEm
+.public gAllocator
 .public STD_GetStringLength
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_0204294c
 .public FUN_0204378c
 .public gFont8

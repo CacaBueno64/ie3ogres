@@ -27,9 +27,9 @@
 .public unk_0209A0F4
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02113ec0
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public unk_02099F38
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_0210f484
 .public FUN_ov16_02112724
 .public FUN_ov16_021137dc

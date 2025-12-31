@@ -14,11 +14,11 @@ void CLogoScreenManager::init(void)
     
     FUN_ov16_020f13d4();
     
-    gL5Sound.FUN_0202b838(4, 0, 0);
-    while (!gL5Sound.FUN_0202b7b4()) {
+    gAudioPlayer.FUN_0202b838(4, 0, 0);
+    while (!gAudioPlayer.FUN_0202b7b4()) {
         OS_Sleep(20);
     }
-    while (!gL5Sound.FUN_0202b7f0()) {
+    while (!gAudioPlayer.FUN_0202b7f0()) {
         OS_Sleep(20);
     }
     
@@ -41,8 +41,8 @@ void CLogoScreenManager::updateScene(void)
     SceneType nextSceneMain = this->getNextSceneMain();
     
     if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_SUB])) &&
-        ((this->mainScreen == NULL) || (!this->mainScreen->isFading())))
-    {
+        ((this->mainScreen == NULL) || (!this->mainScreen->isFading()))
+    ) {
         if (this->mainScreen != NULL) {
             this->mainScreen->close();
         }
@@ -65,8 +65,8 @@ void CLogoScreenManager::updateScene(void)
     SceneType nextSceneSub = this->getNextSceneSub();
     
     if (((this->getCurSceneSub() != nextSceneSub) || (this->sceneChanged[ENGINE_SUB])) &&
-        ((this->subScreen == NULL) || (!this->subScreen->isFading())))
-    {
+        ((this->subScreen == NULL) || (!this->subScreen->isFading()))
+    ) {
         if (this->subScreen != NULL) {
             this->subScreen->close();
         }

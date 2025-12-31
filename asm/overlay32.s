@@ -164,9 +164,9 @@ _0211A0A0:
 	bl FUN_0207249c
 	ldr r1, _0211A180 ; =0x0211A788
 	bl sprintf
-	ldr r0, _0211A184 ; =gL5Config
+	ldr r0, _0211A184 ; =gConfig
 	ldr r1, _0211A188 ; =0x0211A790
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r7, r0
 	ldr r6, _0211A18C ; =0x020AF81C
 	mov r0, r6
@@ -191,7 +191,7 @@ _0211A174: .word unk_02099ED8
 _0211A178: .word unk_02099EE8
 _0211A17C: .word gLogicThink
 _0211A180: .word ov32_0211A788
-_0211A184: .word gL5Config
+_0211A184: .word gConfig
 _0211A188: .word ov32_0211A790
 _0211A18C: .word unk_020AF81C
 _0211A190: .word unk_020A9C40

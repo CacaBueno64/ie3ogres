@@ -34,13 +34,13 @@
 .public FUN_02059038
 .public FUN_02058e30
 .public FUN_0207249c
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public _u32_div_f
 .public FUN_ov16_0210efac
 .public FUN_ov16_020f5450
 .public MIi_CpuClearFast
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public FS_InitFile
 .public FS_OpenFile
 .public FUN_ov16_020f34f0
@@ -48,9 +48,9 @@
 .public FS_ReadFile
 .public FUN_0204bc4c
 .public FS_CloseFile
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public unk_0209C220
-.public gL5Allocator
+.public gAllocator
 .public FUN_020509d8
 .public FUN_020508fc
 .public unk_020A108A
@@ -86,7 +86,7 @@
 .public unk_020A1040
 .public unk_020A104A
 .public FUN_ov16_020f5278
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -98,7 +98,7 @@
 .public FUN_ov16_020f7bf4
 .public FUN_0206c158
 .public FUN_ov16_020efa04
-.public gL5Config
+.public gConfig
 .public g3DDevice
 .public unk_02099EEC
 .public unk_02099F24

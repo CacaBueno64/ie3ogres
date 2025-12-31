@@ -8,15 +8,15 @@ FUN_ov132_0213acc0: ; 0x0213ACC0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldr r2, _0213ADE8 ; =0x021602E8
-	ldr r0, _0213ADEC ; =gL5Config
+	ldr r0, _0213ADEC ; =gConfig
 	ldr r1, _0213ADF0 ; =0x021602F0
 	str r2, [r5]
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r1, #0x1e
 	mov r3, #0
 	mul r12, r0, r1
 	ldr r1, _0213ADF4 ; =0x92492493
-	ldr r4, _0213ADF8 ; =gL5Allocator
+	ldr r4, _0213ADF8 ; =gAllocator
 	smull r0, r6, r1, r12
 	add r2, r5, #0x300
 	add r6, r12, r6
@@ -32,41 +32,41 @@ FUN_ov132_0213acc0: ; 0x0213ACC0
 	strb r3, [r5, #0x374]
 	strb r3, [r5, #0x375]
 	strh r3, [r2, #0x98]
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x1c8]
 	mov r0, r4
 	mov r1, #0x384
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	ldr r6, _0213ADFC ; =0x00000F78
 	str r0, [r5, #0x1f4]
 	mov r0, r4
 	mov r1, r6
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	mov r1, r6, lsl #4
 	str r0, [r5, #0x1f8]
 	mov r0, r4
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x1fc]
 	mov r0, r4
 	mov r6, #0x180
 	mov r1, r6
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	mov r1, r6
 	str r0, [r5, #0x200]
 	mov r0, r4
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x204]
 	mov r0, r4
 	mov r1, #0x300
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x208]
 	mov r0, r4
 	mov r1, #4
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x210]
 	mov r0, r4
 	mov r1, #0x20
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	str r0, [r5, #0x20c]
 	mov r0, r5
 	bl FUN_ov132_0214352c
@@ -81,10 +81,10 @@ _0213ADD8:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _0213ADE8: .word ov132_021602E8
-_0213ADEC: .word gL5Config
+_0213ADEC: .word gConfig
 _0213ADF0: .word ov132_021602F0
 _0213ADF4: .word 0x92492493
-_0213ADF8: .word gL5Allocator
+_0213ADF8: .word gAllocator
 _0213ADFC: .word 0x00000F78
 _0213AE00: .word unk_0209A13C
 	arm_func_end FUN_ov132_0213acc0
@@ -119,34 +119,34 @@ _0213AE48: .word ov132_021602E8
 FUN_ov132_0213ae4c: ; 0x0213AE4C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r4, _0213AEF4 ; =gL5Allocator
+	ldr r4, _0213AEF4 ; =gAllocator
 	ldr r1, [r5, #0x1c8]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x1f4]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x1f8]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x1fc]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x200]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x204]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x208]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x210]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r1, [r5, #0x20c]
 	mov r0, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldr r0, _0213AEF8 ; =0x0209A13C
 	ldr r0, [r0]
 	cmp r0, #0
@@ -160,7 +160,7 @@ _0213AEE4:
 	mov r1, #0
 	str r1, [r0]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0213AEF4: .word gL5Allocator
+_0213AEF4: .word gAllocator
 _0213AEF8: .word unk_0209A13C
 	arm_func_end FUN_ov132_0213ae4c
 
@@ -9487,7 +9487,7 @@ FUN_ov132_0214314c: ; 0x0214314C
 	mov r6, r1
 	str r2, [sp, #0x10]
 	ldr r2, [sp, #0x14]
-	ldr r0, _021433E0 ; =gL5Config
+	ldr r0, _021433E0 ; =gConfig
 	str r2, [sp, #0xc]
 	ldr r2, [sp, #0x14]
 	ldr r1, _021433E4 ; =0x02160338
@@ -9495,7 +9495,7 @@ FUN_ov132_0214314c: ; 0x0214314C
 	ldr r2, [sp, #0x14]
 	mov r4, r3
 	str r2, [sp, #4]
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -9660,7 +9660,7 @@ _021433C8:
 	strlt r0, [r10, #0x1f0]
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021433E0: .word gL5Config
+_021433E0: .word gConfig
 _021433E4: .word ov132_02160338
 _021433E8: .word unk_020A0640
 _021433EC: .word gWirelessUtil
@@ -14544,30 +14544,30 @@ _02147374:
 	beq _021473C0
 	b _021473EC
 _02147388:
-	ldr r5, _021475B0 ; =gL5Config
+	ldr r5, _021475B0 ; =gConfig
 	ldr r1, _021475B4 ; =0x02160344
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r11, r0
 	ldr r1, _021475B8 ; =0x0216035C
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r4, r0
 	ldr r1, _021475BC ; =0x02160374
 _021473B0:
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r5, r0
 	b _021473F8
 _021473C0:
-	ldr r5, _021475B0 ; =gL5Config
+	ldr r5, _021475B0 ; =gConfig
 	ldr r1, _021475C0 ; =0x0216038C
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r11, r0
 	ldr r1, _021475C4 ; =0x021603A4
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mov r4, r0
 	ldr r1, _021475C8 ; =0x021603BC
 	b _021473B0
@@ -14693,7 +14693,7 @@ _02147590:
 	bl FUN_ov1_020dd8fc
 	add sp, sp, #0x40
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_021475B0: .word gL5Config
+_021475B0: .word gConfig
 _021475B4: .word ov132_02160344
 _021475B8: .word ov132_0216035C
 _021475BC: .word ov132_02160374
@@ -22889,10 +22889,10 @@ _0214E8E4:
 	mov r0, r0, lsr #0x1c
 	cmpeq r0, #5
 	bne _0214E9C0
-	ldr r10, _0214EAF4 ; =gL5Config
+	ldr r10, _0214EAF4 ; =gConfig
 	ldr r1, _0214EAF8 ; =0x021603EC
 	mov r0, r10
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mul r1, r6, r0
 	mov r0, r1, lsr #0x1f
 	smull r1, r2, r11, r1
@@ -22900,7 +22900,7 @@ _0214E8E4:
 	ldr r1, _0214EAFC ; =0x02160400
 	mov r0, r10
 	add r6, r6, r2
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mul r1, r6, r0
 	smull r0, r2, r11, r1
 	mov r0, r1, lsr #0x1f
@@ -22910,9 +22910,9 @@ _0214E8E4:
 _0214E9C0:
 	cmp r10, #5
 	bne _0214E9EC
-	ldr r0, _0214EAF4 ; =gL5Config
+	ldr r0, _0214EAF4 ; =gConfig
 	ldr r1, _0214EB00 ; =0x02160414
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	mul r1, r6, r0
 	ldr r2, _0214EAF0 ; =0x51EB851F
 	mov r0, r1, lsr #0x1f
@@ -22993,7 +22993,7 @@ _0214EAC4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214EAEC: .word gLogicThink
 _0214EAF0: .word 0x51EB851F
-_0214EAF4: .word gL5Config
+_0214EAF4: .word gConfig
 _0214EAF8: .word ov132_021603EC
 _0214EAFC: .word ov132_02160400
 _0214EB00: .word ov132_02160414

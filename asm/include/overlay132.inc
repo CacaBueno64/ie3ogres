@@ -1,11 +1,11 @@
-.public _ZN8L5Config8getParamEPc
-.public _ZN11L5Allocator8allocateEm
+.public _ZN6Config8getParamEPc
+.public _ZN9Allocator8allocateEm
 .public _Znwm
-.public gL5Config
-.public gL5Allocator
+.public gConfig
+.public gAllocator
 .public unk_0209A13C
 .public _ZdlPv
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov126_02137544
 .public FUN_02040148
 .public FUN_ov126_02138694

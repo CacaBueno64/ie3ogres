@@ -9,10 +9,10 @@
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
 #include "gamemodes.hpp"
-#include "l5movie.hpp"
-#include "l5sound.hpp"
-#include "l5config.hpp"
-#include "l5allocator.hpp"
+#include "movie.hpp"
+#include "audioplayer.hpp"
+#include "config.hpp"
+#include "allocator.hpp"
 
 class CMainLogoScreenDCBmp : public CommonMainScreen {
     public:

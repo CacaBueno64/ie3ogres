@@ -14,9 +14,9 @@
 .public unk_020A9440
 .public unk_020A8440
 .public unk_020A8C40
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClear32
-.public gL5Allocator
+.public gAllocator
 .public FUN_ov16_020eef1c
 .public FUN_ov16_020eee80
 .public gFont12
@@ -64,7 +64,7 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f147c
 .public FUN_ov16_020f6a9c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public _ZdlPv

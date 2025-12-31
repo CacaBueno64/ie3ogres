@@ -557,13 +557,13 @@ FUN_ov27_0211a650: ; 0x0211A650
 	mov r1, r4
 	bl FUN_ov16_0210efac
 	mov r2, #6
-	ldr r0, _0211A688 ; =gL5Sound
+	ldr r0, _0211A688 ; =gAudioPlayer
 	mov r1, r4
 	strb r2, [r5, #0x4c]
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A684: .word unk_02099EB4
-_0211A688: .word gL5Sound
+_0211A688: .word gAudioPlayer
 	arm_func_end FUN_ov27_0211a650
 
 	arm_func_start FUN_ov27_0211a68c

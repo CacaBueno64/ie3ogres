@@ -1,7 +1,7 @@
 .public FUN_ov16_020f6084
 .public gBgMenuManager
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_020f6584
 .public _s32_div_f
 .public FUN_ov16_020f6e8c

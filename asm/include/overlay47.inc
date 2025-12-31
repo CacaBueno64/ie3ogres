@@ -1,7 +1,7 @@
 .public FUN_ov16_020f3054
 .public FUN_0202cf00
 .public FUN_0202cdd4
-.public gL5Sound
+.public gAudioPlayer
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public FUN_ov16_020f34f0
@@ -36,7 +36,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_02114204
 .public abs
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_02114248
 .public FUN_ov16_02113ec0
 .public FX_Atan2Idx
@@ -57,8 +57,8 @@
 .public FUN_ov16_020f2304
 .public FUN_ov16_020ee4b4
 .public FUN_ov16_020ede60
-.public _ZN7L5Sound12FUN_0202c4a0Em
-.public _ZN7L5Sound12FUN_0202d594Emm
+.public _ZN11AudioPlayer12FUN_0202c4a0Em
+.public _ZN11AudioPlayer12FUN_0202d594Emm
 .public gLogicThink
 .public FUN_ov16_020f153c
 .public FUN_ov16_0210ee78
@@ -83,10 +83,10 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f330c
-.public _ZN7L5Sound12FUN_0202b7f0Ev
+.public _ZN11AudioPlayer12FUN_0202b7f0Ev
 .public FUN_0202c530
 .public FUN_0202dbd0
-.public _ZN7L5Sound12FUN_0202d578Em
+.public _ZN11AudioPlayer12FUN_0202d578Ei
 .public FUN_0202c560
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

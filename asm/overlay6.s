@@ -3,7 +3,7 @@
 	.include "/include/overlay6.inc"
 
 	.text
-	arm_func_start FUN_ov6_020bcb40
+	arm_func_start FUN_ov6_020bcb40 ; https://decomp.me/scratch/RwTXI
 FUN_ov6_020bcb40: ; 0x020BCB40
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, [r0]
@@ -39,12 +39,12 @@ FUN_ov6_020bcb40: ; 0x020BCB40
 	strb r7, [r4, #0x89]
 	strb r7, [r4, #0x88]
 	bl FUN_ov16_020f153c
-	ldr r6, _020BCC64 ; =gL5Sound
+	ldr r6, _020BCC64 ; =gAudioPlayer
 	mov r1, r5
 	mov r2, r7
 	mov r0, r6
 	mov r3, r7
-	bl _ZN7L5Sound12FUN_0202b838Eiii
+	bl _ZN11AudioPlayer12FUN_0202b838Eiii
 	mov r0, r6
 	mov r1, r7
 	mov r2, r7
@@ -56,18 +56,18 @@ _020BCBF8:
 	bl OS_Sleep
 _020BCC00:
 	mov r0, r6
-	bl _ZN7L5Sound12FUN_0202b7b4Ev
+	bl _ZN11AudioPlayer12FUN_0202b7b4Ev
 	cmp r0, #0
 	beq _020BCBF8
 	mov r6, #0x14
-	ldr r5, _020BCC64 ; =gL5Sound
+	ldr r5, _020BCC64 ; =gAudioPlayer
 	b _020BCC24
 _020BCC1C:
 	mov r0, r6
 	bl OS_Sleep
 _020BCC24:
 	mov r0, r5
-	bl _ZN7L5Sound12FUN_0202b7f0Ev
+	bl _ZN11AudioPlayer12FUN_0202b7f0Ev
 	cmp r0, #0
 	beq _020BCC1C
 	mov r0, r4
@@ -82,12 +82,12 @@ _020BCC24:
 	bl FUN_020512a8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BCC60: .word ov6_020BE0A0
-_020BCC64: .word gL5Sound
+_020BCC64: .word gAudioPlayer
 _020BCC68: .word g3DDevice
 _020BCC6C: .word 0x00007335
 	arm_func_end FUN_ov6_020bcb40
 
-	arm_func_start FUN_ov6_020bcc70
+	arm_func_start FUN_ov6_020bcc70 ; https://decomp.me/scratch/DLeCC
 FUN_ov6_020bcc70: ; 0x020BCC70
 	stmfd sp!, {r4, lr}
 	mov r4, r0
@@ -113,7 +113,7 @@ _020BCCA8:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bcc70
 
-	arm_func_start FUN_ov6_020bccc0
+	arm_func_start FUN_ov6_020bccc0 ; https://decomp.me/scratch/fAgAR
 FUN_ov6_020bccc0: ; 0x020BCCC0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
@@ -202,7 +202,7 @@ _020BCDBC:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov6_020bccc0
 
-	arm_func_start FUN_ov6_020bcdf8
+	arm_func_start FUN_ov6_020bcdf8 ; https://decomp.me/scratch/UcHM4
 FUN_ov6_020bcdf8: ; 0x020BCDF8
 	stmfd sp!, {r4, lr}
 	ldr r2, _020BCE38 ; =0x04000304
@@ -224,7 +224,7 @@ _020BCE20:
 _020BCE38: .word 0x04000304
 	arm_func_end FUN_ov6_020bcdf8
 
-	arm_func_start FUN_ov6_020bce3c
+	arm_func_start FUN_ov6_020bce3c ; https://decomp.me/scratch/3dczs
 FUN_ov6_020bce3c: ; 0x020BCE3C
 	stmfd sp!, {r4, lr}
 	movs r4, r1
@@ -272,7 +272,7 @@ FUN_ov6_020bceac: ; 0x020BCEAC
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov6_020bceac
 
-	arm_func_start FUN_ov6_020bcec0
+	arm_func_start FUN_ov6_020bcec0 ; https://decomp.me/scratch/mBIbK
 FUN_ov6_020bcec0: ; 0x020BCEC0
 	stmfd sp!, {r3, lr}
 	ldrb r2, [r0, #0x1f4]
@@ -292,7 +292,7 @@ _020BCEE0:
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov6_020bcec0
 
-	arm_func_start FUN_ov6_020bcefc
+	arm_func_start FUN_ov6_020bcefc ; https://decomp.me/scratch/o5qNh
 FUN_ov6_020bcefc: ; 0x020BCEFC
 	stmfd sp!, {r3, lr}
 	ldrb r2, [r0, #0x1f4]
@@ -314,7 +314,7 @@ _020BCF28:
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov6_020bcefc
 
-	arm_func_start FUN_ov6_020bcf40
+	arm_func_start FUN_ov6_020bcf40 ; https://decomp.me/scratch/6xjL7
 FUN_ov6_020bcf40: ; 0x020BCF40
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x100
@@ -328,13 +328,13 @@ FUN_ov6_020bcf40: ; 0x020BCF40
 	ldr r11, _020BCFD4 ; =0x020BDEC8
 	add r5, r4, #4
 	ldr r6, _020BCFD8 ; =0x020BDEA4
-	ldr r8, _020BCFDC ; =gL5Config
+	ldr r8, _020BCFDC ; =gConfig
 	ldr r7, _020BCFE0 ; =0x020BDE9C
 	mov r4, #0xc
 _020BCF7C:
 	mov r0, r8
 	mov r1, r7
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	beq _020BCF98
 	cmp r0, #1
@@ -359,11 +359,11 @@ _020BCFAC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020BCFD4: .word ov6_020BDEC8
 _020BCFD8: .word ov6_020BDEA4
-_020BCFDC: .word gL5Config
+_020BCFDC: .word gConfig
 _020BCFE0: .word ov6_020BDE9C
 	arm_func_end FUN_ov6_020bcf40
 
-	arm_func_start FUN_ov6_020bcfe4
+	arm_func_start FUN_ov6_020bcfe4 ; https://decomp.me/scratch/Vu7L4
 FUN_ov6_020bcfe4: ; 0x020BCFE4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0xc
@@ -375,13 +375,13 @@ FUN_ov6_020bcfe4: ; 0x020BCFE4
 	ldrneb r0, [r0, #0xd]
 	cmpne r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020BD024 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020BD024 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	add r0, r5, r4
 	mov r1, #0
 	str r1, [r0, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD024: .word gL5Allocator
+_020BD024: .word gAllocator
 	arm_func_end FUN_ov6_020bcfe4
 
 	arm_func_start FUN_ov6_020bd028
@@ -399,7 +399,7 @@ _020BD034:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov6_020bd028
 
-	arm_func_start FUN_ov6_020bd050
+	arm_func_start FUN_ov6_020bd050 ; https://decomp.me/scratch/g9nT6
 FUN_ov6_020bd050: ; 0x020BD050
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r3, #0xc
@@ -473,19 +473,19 @@ FUN_ov6_020bd13c: ; 0x020BD13C
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov6_020bd13c
 
-	arm_func_start FUN_ov6_020bd154
+	arm_func_start FUN_ov6_020bd154 ; https://decomp.me/scratch/V3UIh
 FUN_ov6_020bd154: ; 0x020BD154
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r0, _020BD1F0 ; =gL5Config
+	ldr r0, _020BD1F0 ; =gConfig
 	ldr r1, _020BD1F4 ; =0x020BDEEC
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	beq _020BD178
 	cmp r0, #1
 	beq _020BD198
 _020BD178:
-	ldr r4, _020BD1F8 ; =gL5Sound
+	ldr r4, _020BD1F8 ; =gAudioPlayer
 	ldr r1, _020BD1FC ; =0x020BDEF4
 	mov r0, r4
 	bl FUN_0202d724
@@ -494,7 +494,7 @@ _020BD178:
 	ldr r1, _020BD200 ; =0x020BDF00
 	b _020BD1B4
 _020BD198:
-	ldr r4, _020BD1F8 ; =gL5Sound
+	ldr r4, _020BD1F8 ; =gAudioPlayer
 	ldr r1, _020BD204 ; =0x020BDF0C
 	mov r0, r4
 	bl FUN_0202d724
@@ -507,7 +507,7 @@ _020BD1B4:
 	bl FUN_0202d798
 	mov r0, r4
 	mov r1, #0
-	bl _ZN7L5Sound12FUN_0202d578Em
+	bl _ZN11AudioPlayer12FUN_0202d578Ei
 _020BD1CC:
 	mov r1, #9
 	mov r0, r5
@@ -518,9 +518,9 @@ _020BD1CC:
 	mov r0, #1
 	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD1F0: .word gL5Config
+_020BD1F0: .word gConfig
 _020BD1F4: .word ov6_020BDEEC
-_020BD1F8: .word gL5Sound
+_020BD1F8: .word gAudioPlayer
 _020BD1FC: .word ov6_020BDEF4
 _020BD200: .word ov6_020BDF00
 _020BD204: .word ov6_020BDF0C
@@ -554,7 +554,7 @@ _020BD254:
 	bx lr
 	arm_func_end FUN_ov6_020bd20c
 
-	arm_func_start FUN_ov6_020bd25c
+	arm_func_start FUN_ov6_020bd25c ; https://decomp.me/scratch/j3h0X
 FUN_ov6_020bd25c: ; 0x020BD25C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #0
@@ -582,7 +582,7 @@ FUN_ov6_020bd25c: ; 0x020BD25C
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov6_020bd25c
 
-	arm_func_start FUN_ov6_020bd2bc
+	arm_func_start FUN_ov6_020bd2bc ; https://decomp.me/scratch/ZIQ16
 FUN_ov6_020bd2bc: ; 0x020BD2BC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
@@ -680,23 +680,23 @@ _020BD418:
 	str r1, [r5, #0x1d8]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020BD6FC ; =gL5Config
+	ldr r0, _020BD6FC ; =gConfig
 	ldr r1, _020BD700 ; =0x020BDF24
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	beq _020BD448
 	cmp r0, #1
 	beq _020BD454
 _020BD448:
-	ldr r0, _020BD704 ; =gL5Sound
+	ldr r0, _020BD704 ; =gAudioPlayer
 	ldr r2, _020BD708 ; =0x020BDF2C
 	b _020BD45C
 _020BD454:
-	ldr r0, _020BD704 ; =gL5Sound
+	ldr r0, _020BD704 ; =gAudioPlayer
 	ldr r2, _020BD70C ; =0x020BDF38
 _020BD45C:
 	mov r1, #0
-	bl _ZN7L5Sound12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594Emm
 	mov r0, #3
 	str r0, [r5, #0x1d8]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -873,9 +873,9 @@ _020BD6D4:
 _020BD6F0: .word unk_020A0640
 _020BD6F4: .word 0x04000014
 _020BD6F8: .word 0x01FF0000
-_020BD6FC: .word gL5Config
+_020BD6FC: .word gConfig
 _020BD700: .word ov6_020BDF24
-_020BD704: .word gL5Sound
+_020BD704: .word gAudioPlayer
 _020BD708: .word ov6_020BDF2C
 _020BD70C: .word ov6_020BDF38
 _020BD710: .word 0x04000048
@@ -886,7 +886,7 @@ FUN_ov6_020bd714: ; 0x020BD714
 	bx lr
 	arm_func_end FUN_ov6_020bd714
 
-	arm_func_start FUN_ov6_020bd718
+	arm_func_start FUN_ov6_020bd718 ; https://decomp.me/scratch/dO0GW
 FUN_ov6_020bd718: ; 0x020BD718
 	stmfd sp!, {r3, lr}
 	bl FUN_ov6_020bd028
@@ -918,16 +918,16 @@ FUN_ov6_020bd764: ; 0x020BD764
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x10
 	mov r4, r0
-	ldr r0, _020BD850 ; =gL5Config
+	ldr r0, _020BD850 ; =gConfig
 	ldr r1, _020BD854 ; =0x020BDFD0
 	mov r5, #0
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	beq _020BD790
 	cmp r0, #1
 	beq _020BD7D8
 _020BD790:
-	ldr r3, _020BD858 ; =gL5Allocator
+	ldr r3, _020BD858 ; =gAllocator
 	ldr r1, _020BD85C ; =0x020BDFD8
 	ldr r0, [r3]
 	cmp r0, #0
@@ -939,7 +939,7 @@ _020BD790:
 	mov r12, #1
 	add r2, r4, #0x200
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 _020BD7C4:
 	cmp r0, #0
 	bne _020BD81C
@@ -947,7 +947,7 @@ _020BD7C4:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BD7D8:
-	ldr r3, _020BD858 ; =gL5Allocator
+	ldr r3, _020BD858 ; =gAllocator
 	ldr r1, _020BD860 ; =0x020BDFF8
 	ldr r0, [r3]
 	cmp r0, #0
@@ -959,7 +959,7 @@ _020BD7D8:
 	mov r12, #1
 	add r2, r4, #0x200
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 _020BD80C:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -980,9 +980,9 @@ _020BD824:
 	mov r0, #1
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD850: .word gL5Config
+_020BD850: .word gConfig
 _020BD854: .word ov6_020BDFD0
-_020BD858: .word gL5Allocator
+_020BD858: .word gAllocator
 _020BD85C: .word ov6_020BDFD8
 _020BD860: .word ov6_020BDFF8
 	arm_func_end FUN_ov6_020bd764
@@ -992,22 +992,22 @@ FUN_ov6_020bd864: ; 0x020BD864
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r1, [r4, #0x200]
-	ldr r0, _020BD884 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020BD884 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x200]
 	ldmfd sp!, {r4, pc}
-_020BD884: .word gL5Allocator
+_020BD884: .word gAllocator
 	arm_func_end FUN_ov6_020bd864
 
-	arm_func_start FUN_ov6_020bd888
+	arm_func_start FUN_ov6_020bd888 ; https://decomp.me/scratch/6O2Ke
 FUN_ov6_020bd888: ; 0x020BD888
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r6, _020BD8F0 ; =gL5Allocator
+	ldr r6, _020BD8F0 ; =gAllocator
 	mov r5, #0x200
 	mov r0, r6
 	mov r1, r5
-	bl _ZN11L5Allocator8allocateEm
+	bl _ZN9Allocator8allocateEm
 	movs r4, r0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, r4
@@ -1026,9 +1026,9 @@ FUN_ov6_020bd888: ; 0x020BD888
 	bl FUN_ov16_020f10c8
 	mov r0, r6
 	mov r1, r4
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	ldmfd sp!, {r4, r5, r6, pc}
-_020BD8F0: .word gL5Allocator
+_020BD8F0: .word gAllocator
 	arm_func_end FUN_ov6_020bd888
 
 	arm_func_start FUN_ov6_020bd8f4
@@ -1074,7 +1074,7 @@ FUN_ov6_020bd914: ; 0x020BD914
 _020BD96C: .word ov6_020BE018
 	arm_func_end FUN_ov6_020bd914
 
-	arm_func_start FUN_ov6_020bd970
+	arm_func_start FUN_ov6_020bd970 ; https://decomp.me/scratch/XM2TX
 FUN_ov6_020bd970: ; 0x020BD970
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0xc
@@ -1086,13 +1086,13 @@ FUN_ov6_020bd970: ; 0x020BD970
 	ldrneb r0, [r0, #0x11]
 	cmpne r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020BD9B0 ; =gL5Allocator
-	bl _ZN11L5Allocator10deallocateEPv
+	ldr r0, _020BD9B0 ; =gAllocator
+	bl _ZN9Allocator10deallocateEPv
 	add r0, r5, r4
 	mov r1, #0
 	str r1, [r0, #8]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BD9B0: .word gL5Allocator
+_020BD9B0: .word gAllocator
 	arm_func_end FUN_ov6_020bd970
 
 	arm_func_start FUN_ov6_020bd9b4
@@ -1110,7 +1110,7 @@ _020BD9C0:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov6_020bd9b4
 
-	arm_func_start FUN_ov6_020bd9dc
+	arm_func_start FUN_ov6_020bd9dc ; https://decomp.me/scratch/Cne2E
 FUN_ov6_020bd9dc: ; 0x020BD9DC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0xc
@@ -1181,7 +1181,7 @@ FUN_ov6_020bdaa8: ; 0x020BDAA8
 	bx lr
 	arm_func_end FUN_ov6_020bdaa8
 
-	arm_func_start FUN_ov6_020bdac4
+	arm_func_start FUN_ov6_020bdac4 ; https://decomp.me/scratch/xrzum
 FUN_ov6_020bdac4: ; 0x020BDAC4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
@@ -1263,9 +1263,9 @@ _020BDBDC:
 	str r5, [r0]
 	ldmfd sp!, {r3, r4, r5, pc}
 _020BDBEC:
-	ldr r0, _020BDC34 ; =gL5Config
+	ldr r0, _020BDC34 ; =gConfig
 	ldr r1, _020BDC38 ; =0x020BE038
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	cmp r0, #0
 	beq _020BDC08
 	cmp r0, #1
@@ -1284,7 +1284,7 @@ _020BDC14:
 	mov r0, #4
 	str r0, [r4, #0x204]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020BDC34: .word gL5Config
+_020BDC34: .word gConfig
 _020BDC38: .word ov6_020BE038
 _020BDC3C: .word ov6_020BE040
 _020BDC40: .word ov6_020BE064

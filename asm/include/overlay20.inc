@@ -8,9 +8,9 @@
 .public FUN_ov16_020f3d08
 .public FUN_02058800
 .public unk_02099F38
-.public _ZN11L5Allocator10deallocateEPv
-.public _ZN11L5Allocator8allocateEm
-.public gL5Allocator
+.public _ZN9Allocator10deallocateEPv
+.public _ZN9Allocator8allocateEm
+.public gAllocator
 .public FUN_ov16_020efa9c
 .public FUN_0207039c
 .public FUN_ov16_020f0bcc
@@ -93,8 +93,8 @@
 .public FUN_ov16_0210fd0c
 .public _s32_div_f
 .public FUN_ov16_0210e7d0
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_0206c0d8
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468

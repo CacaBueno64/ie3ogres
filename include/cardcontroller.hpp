@@ -1,5 +1,5 @@
-#ifndef IE3OGRES_SAVEDATA_H
-#define IE3OGRES_SAVEDATA_H
+#ifndef IE3OGRES_CARDCONTROLLER_H
+#define IE3OGRES_CARDCONTROLLER_H
 
 #pragma once
 
@@ -8,10 +8,10 @@
 #define CARD_BACKUP_TYPE_DEVICE_DUMMY 4
 #define CARD_BACKUP_TYPE_DUMMY CARD_BACKUP_TYPE_DEFINE(DUMMY, 16, 0) // 0x1004
 
-class L5CardController {
+class CardController {
     public:
-        L5CardController();
-        ~L5CardController();
+        CardController();
+        ~CardController();
         BOOL init(CARDBackupType type);
         BOOL test(void);
         BOOL ready(void);
@@ -24,6 +24,6 @@ class L5CardController {
     CARDResult result;
 };
 
-extern L5CardController gL5CardController;
+extern CardController gCardController;
 
-#endif //IE3OGRES_SAVEDATA_H
+#endif //IE3OGRES_CARDCONTROLLER_H

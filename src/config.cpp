@@ -1,21 +1,21 @@
-#include "l5config.hpp"
+#include "config.hpp"
 
-L5Config::L5Config() { this->clear(); }
+Config::Config() { this->clear(); }
 
-L5Config::~L5Config() {
+Config::~Config() {
     if (this->paramEntry != NULL) {
-        L5FS_Deallocate(this->paramEntry);
+        FileSystem::Deallocate(this->paramEntry);
     }
     this->paramEntry = NULL;
 }
 
-void L5Config::clear(void) { this->paramEntry = NULL; }
+void Config::clear(void) { this->paramEntry = NULL; }
 
-BOOL L5Config::openFile(char *filepath) {
+BOOL Config::openFile(char *filepath) {
     char *file = NULL;
     char *r5;
     char *r6;
-    s32 len = L5FS_ReadFile((void **)&file, filepath, 0, 0);
+    s32 len = FileSystem::ReadFile((void **)&file, filepath, 0, 0);
     if (len <= 0) {
         return FALSE;
     }
@@ -35,39 +35,39 @@ BOOL L5Config::openFile(char *filepath) {
         r6++;
     }
 
-    L5FS_Deallocate(file);
+    FileSystem::Deallocate(file);
 
     return TRUE;
 }
 
-int L5Config::getParam(char *str) {
-    int pos = this->getParamPosition(str);
+int Config::getParam(char *str) {
+    int idx = this->getParamIdx(str);
 
-    if ((pos < 0) || (this->paramEntry == NULL)) {
+    if ((idx < 0) || (this->paramEntry == NULL)) {
         return 0;
     }
 
-    Config_ParamEntry *paramEntry = &this->paramEntry[pos];
+    ParamEntry *paramEntry = &this->paramEntry[idx];
 
     return paramEntry->value;
 }
 
-void L5Config::init(void) {
+void Config::init(void) {
     if (this->paramEntry == NULL) {
-        this->paramEntry = static_cast<Config_ParamEntry *>(L5FS_AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
+        this->paramEntry = static_cast<ParamEntry *>(FileSystem::AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
     }
     this->paramCount = 0;
 }
 
-int L5Config::getParamPosition(char *str) {
-    Config_ParamEntry *paramEntry = this->paramEntry;
+int Config::getParamIdx(char *str) {
+    ParamEntry *paramEntry = this->paramEntry;
 
     if (paramEntry == NULL) {
         return -1;
     }
 
     u32 len   = STD_GetStringLength(str);
-    u32 crc32 = L5FS_CalcCRC32(str, len);
+    u32 crc32 = FileSystem::CalcCRC32(str, len);
 
     for (int pos = 0; pos < this->paramCount; pos++) {
         if (paramEntry->crc32 == crc32) {
@@ -79,7 +79,7 @@ int L5Config::getParamPosition(char *str) {
     return -1;
 }
 
-BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param) {
+BOOL Config::readFileParam(char *file, ParamEntry *param) {
 
     BOOL empty_file   = TRUE;
     BOOL read_key     = FALSE;
@@ -111,7 +111,7 @@ BOOL L5Config::readFileParam(char *file, Config_ParamEntry *param) {
             }
 
             int len      = key_end - key_start;
-            param->crc32 = L5FS_CalcCRC32(key_start, len);
+            param->crc32 = FileSystem::CalcCRC32(key_start, len);
             read_key     = TRUE;
             curr++;
             key_start    = curr;

@@ -1,12 +1,12 @@
-#ifndef IE3OGRES_L5ALLOCATOR_H
-#define IE3OGRES_L5ALLOCATOR_H
+#ifndef IE3OGRES_ALLOCATOR_H
+#define IE3OGRES_ALLOCATOR_H
 
 #pragma once
 
 #include <nitro.h>
 
 class CFileIO;
-class L5Allocator {
+class Allocator {
     public:
         /* 0x0202dc54 */ void initArenas(OSArenaId id, void *arenaLo, void *arenaHi);
         /* 0x0202de44 */ void *allocate(size_t size);
@@ -18,6 +18,6 @@ class L5Allocator {
     CFileIO *fileIO;
 };
 
-extern L5Allocator gL5Allocator;
+extern Allocator gAllocator;
 
-#endif //IE3OGRES_L5ALLOCATOR_H
+#endif //IE3OGRES_ALLOCATOR_H

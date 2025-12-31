@@ -779,9 +779,9 @@ FUN_ov34_0211a8f0: ; 0x0211A8F0
 	ldr r0, [r5, #0x34]
 	cmp r0, r4
 	beq _0211A938
-	ldr r0, _0211AA14 ; =gL5Sound
+	ldr r0, _0211AA14 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, #0
 	b _0211A93C
 _0211A938:
@@ -846,7 +846,7 @@ _0211A9EC:
 	mov r0, #0
 	str r0, [r5, #0x44]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211AA14: .word gL5Sound
+_0211AA14: .word gAudioPlayer
 _0211AA18: .word ov34_0211D524
 _0211AA1C: .word ov34_0211D528
 	arm_func_end FUN_ov34_0211a8f0
@@ -1127,9 +1127,9 @@ _0211AD74:
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r4, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0211AE8C ; =gL5Sound
+	ldr r0, _0211AE8C ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	add r0, r5, r6
 	ldrb r1, [r0, #0x60]
 	ldr r0, _0211AE88 ; =gBgMenuManager
@@ -1145,9 +1145,9 @@ _0211ADA8:
 	cmpne r0, #4
 	cmpne r0, #5
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0211AE8C ; =gL5Sound
+	ldr r0, _0211AE8C ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldrb r1, [r5, #0x6a]
 	mov r0, r6
 	bl FUN_ov16_020f6530
@@ -1196,7 +1196,7 @@ _0211AE3C:
 	bl FUN_ov16_020f6e8c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211AE88: .word gBgMenuManager
-_0211AE8C: .word gL5Sound
+_0211AE8C: .word gAudioPlayer
 _0211AE90: .word unk_0209A070
 	arm_func_end FUN_ov34_0211abe8
 
@@ -1339,7 +1339,7 @@ _0211B048:
 	beq _0211B080
 	b _0211B08C
 _0211B054:
-	ldr r0, _0211B0E0 ; =gL5Sound
+	ldr r0, _0211B0E0 ; =gAudioPlayer
 	mov r1, #4
 	b _0211B088
 _0211B060:
@@ -1347,15 +1347,15 @@ _0211B060:
 	cmp r0, #0
 	moveq r4, #0
 	beq _0211B08C
-	ldr r0, _0211B0E0 ; =gL5Sound
+	ldr r0, _0211B0E0 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	b _0211B08C
 _0211B080:
-	ldr r0, _0211B0E0 ; =gL5Sound
+	ldr r0, _0211B0E0 ; =gAudioPlayer
 	mov r1, #1
 _0211B088:
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 _0211B08C:
 	ldr r7, _0211B0E4 ; =0x0209A070
 	ldr r1, [r5, #0x20]
@@ -1379,7 +1379,7 @@ _0211B0C8:
 	moveq r0, #0
 	streq r0, [r5, #0x2c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211B0E0: .word gL5Sound
+_0211B0E0: .word gAudioPlayer
 _0211B0E4: .word unk_0209A070
 _0211B0E8: .word gBgMenuManager
 	arm_func_end FUN_ov34_0211af40

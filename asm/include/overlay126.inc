@@ -196,12 +196,12 @@
 .public FUN_0206d744
 .public FUN_0206cc44
 .public FUN_ov16_020f077c
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_0206dbb4
 .public FUN_01ff9384
 .public FUN_01ff8c44
 .public FUN_0206d1e4
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov132_02144b00
 .public FUN_01ff9904
 .public FUN_ov132_0213f644
@@ -259,8 +259,8 @@
 .public unk_020A0648
 .public memcmp
 .public FUN_0204fbe8
-.public _ZN8L5Config8getParamEPc
-.public gL5Config
+.public _ZN6Config8getParamEPc
+.public gConfig
 .public _s32_div_f
 .public FUN_ov132_02143598
 .public FUN_0204ee94

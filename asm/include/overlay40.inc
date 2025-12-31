@@ -33,10 +33,10 @@
 .public FUN_ov16_0210f468
 .public FUN_ov16_02110b0c
 .public FUN_ov16_0210efac
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110a04
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_0210e7d0
 .public G2_GetBG1CharPtr
 .public MIi_CpuClearFast

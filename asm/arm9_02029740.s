@@ -258,9 +258,9 @@ _02029AF4:
 	mov r3, r2
 	str r0, [r4, #0x50]
 	bl _ZN11FontManager11G2dFontInitEPvmh
-	ldr r0, _02029B38 ; =gL5Config
+	ldr r0, _02029B38 ; =gConfig
 	ldr r1, _02029B3C ; =0x0208F870
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	strh r0, [r4, #0x12]
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, pc}
@@ -269,24 +269,24 @@ _02029B28: .word unk_0208F81C
 _02029B2C: .word unk_0208F838
 _02029B30: .word unk_0208F854
 _02029B34: .word unk_02099E8C
-_02029B38: .word gL5Config
+_02029B38: .word gConfig
 _02029B3C: .word unk_0208F870
 	arm_func_end InitFont
 
 	arm_func_start FUN_02029b40
 FUN_02029b40: ; 0x02029B40
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, _02029BC8 ; =gL5Sound
-	ldr r1, _02029BCC ; =gL5Allocator
+	ldr r5, _02029BC8 ; =gAudioPlayer
+	ldr r1, _02029BCC ; =gAllocator
 	mov r0, r5
 	bl FUN_0202b448
 	mov r2, #0
 	mov r0, r5
 	mov r3, r2
 	mov r1, #2
-	bl _ZN7L5Sound12FUN_0202b838Eiii
+	bl _ZN11AudioPlayer12FUN_0202b838Eiii
 	mov r0, r5
-	bl _ZN7L5Sound12FUN_0202b7b4Ev
+	bl _ZN11AudioPlayer12FUN_0202b7b4Ev
 	cmp r0, #0
 	bne _02029B94
 	mov r4, #0x14
@@ -294,13 +294,13 @@ _02029B7C:
 	mov r0, r4
 	bl OS_Sleep
 	mov r0, r5
-	bl _ZN7L5Sound12FUN_0202b7b4Ev
+	bl _ZN11AudioPlayer12FUN_0202b7b4Ev
 	cmp r0, #0
 	beq _02029B7C
 _02029B94:
-	ldr r5, _02029BC8 ; =gL5Sound
+	ldr r5, _02029BC8 ; =gAudioPlayer
 	mov r0, r5
-	bl _ZN7L5Sound12FUN_0202b7f0Ev
+	bl _ZN11AudioPlayer12FUN_0202b7f0Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r4, #0x14
@@ -308,12 +308,12 @@ _02029BAC:
 	mov r0, r4
 	bl OS_Sleep
 	mov r0, r5
-	bl _ZN7L5Sound12FUN_0202b7f0Ev
+	bl _ZN11AudioPlayer12FUN_0202b7f0Ev
 	cmp r0, #0
 	beq _02029BAC
 	ldmfd sp!, {r3, r4, r5, pc}
-_02029BC8: .word gL5Sound
-_02029BCC: .word gL5Allocator
+_02029BC8: .word gAudioPlayer
+_02029BCC: .word gAllocator
 	arm_func_end FUN_02029b40
 
 	arm_func_start FUN_02029bd0
@@ -673,33 +673,3 @@ FUN_02029f48: ; 0x02029F48
 FUN_02029f4c: ; 0x02029F4C
 	bx lr
 	arm_func_end FUN_02029f4c
-
-;	arm_func_start _Z14CardScreenLoadP15GameModeContext
-;_Z14CardScreenLoadP15GameModeContext: ; 0x02029F50
-;	stmfd sp!, {r3, r4, r5, lr}
-;	mov r5, r0
-;	ldr r0, [r5, #8]
-;	bl FUN_ov16_LoadOverlay
-;	cmp r0, #0
-;	ldmeqfd sp!, {r3, r4, r5, pc}
-;	mov r0, #0xa8
-;	bl _Znwm
-;	movs r4, r0
-;	beq _02029F90
-;	bl _ZN14CScreenManagerC2Ev
-;	ldr r1, _02029F98 ; =0x020BD340
-;	ldr r0, _02029F9C ; =0x020BD3B0
-;	str r1, [r4]
-;	str r0, [r4, #0x90]
-;	str r4, [r4, #0x94]
-;_02029F90:
-;	str r4, [r5, #4]
-;	ldmfd sp!, {r3, r4, r5, pc}
-;_02029F98: .word ov3_020BD340
-;_02029F9C: .word ov3_020BD3B0
-;	arm_func_end _Z14CardScreenLoadP15GameModeContext
-;
-;	arm_func_start FUN_02029fa0
-;FUN_02029fa0: ; 0x02029FA0
-;	bx lr
-;	arm_func_end FUN_02029fa0

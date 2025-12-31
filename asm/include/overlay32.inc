@@ -14,7 +14,7 @@
 .public FUN_02070530
 .public FUN_0207249c
 .public sprintf
-.public _ZN8L5Config8getParamEPc
+.public _ZN6Config8getParamEPc
 .public FUN_020443b0
 .public FUN_02044734
 .public FUN_0204545c
@@ -26,7 +26,7 @@
 .public unk_02099ED8
 .public unk_02099EE8
 .public gLogicThink
-.public gL5Config
+.public gConfig
 .public unk_020AF81C
 .public MI_CpuFill8
 .public FUN_ov16_020f316c

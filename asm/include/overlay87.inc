@@ -20,8 +20,8 @@
 .public FUN_ov16_020f34f0
 .public unk_020A0B6C
 .public unk_020A1640
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public unk_020A0640
 .public FUN_ov16_020f316c
 .public FUN_ov1_020dbe00

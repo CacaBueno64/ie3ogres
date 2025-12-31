@@ -1,5 +1,5 @@
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_02044658
 .public sprintf
 .public FUN_02058800

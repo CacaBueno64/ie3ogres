@@ -518,9 +518,9 @@ FUN_0202a628: ; 0x0202A628
 	stmfd sp!, {r4, lr}
 	ldr r0, _0202A664 ; =0x0209AEC0
 	bl FUN_0204665c
-	ldr r0, _0202A668 ; =gL5Movie
-	bl _ZN7L5Movie12FUN_0202e978Ev
-	ldr r0, _0202A66C ; =gL5Sound
+	ldr r0, _0202A668 ; =gMovie
+	bl _ZN5Movie12FUN_0202e978Ev
+	ldr r0, _0202A66C ; =gAudioPlayer
 	bl FUN_0202b768
 	mov r0, #0x14
 	bl OS_Sleep
@@ -531,8 +531,8 @@ FUN_0202a628: ; 0x0202A628
 	bl DseSe_StopAll
 	ldmfd sp!, {r4, pc}
 _0202A664: .word gWirelessUtil
-_0202A668: .word gL5Movie
-_0202A66C: .word gL5Sound
+_0202A668: .word gMovie
+_0202A66C: .word gAudioPlayer
 	arm_func_end FUN_0202a628
 
 	arm_func_start FUN_0202a670
@@ -540,13 +540,13 @@ FUN_0202a670: ; 0x0202A670
 	stmfd sp!, {r3, lr}
 	mov r0, #0x14
 	bl OS_Sleep
-	ldr r0, _0202A690 ; =gL5Sound
+	ldr r0, _0202A690 ; =gAudioPlayer
 	bl FUN_0202b714
-	ldr r0, _0202A694 ; =gL5Movie
-	bl _ZN7L5Movie12FUN_0202e9c8Ev
+	ldr r0, _0202A694 ; =gMovie
+	bl _ZN5Movie12FUN_0202e9c8Ev
 	ldmfd sp!, {r3, pc}
-_0202A690: .word gL5Sound
-_0202A694: .word gL5Movie
+_0202A690: .word gAudioPlayer
+_0202A694: .word gMovie
 	arm_func_end FUN_0202a670
 
 	arm_func_start FUN_0202a698
@@ -633,43 +633,43 @@ FUN_0202a7a8: ; 0x0202A7A8
 	ldr r0, _0202A844 ; =0x02099F24
 	ldr r0, [r0]
 	bl FUN_ov16_020f7374
-	ldr r5, _0202A848 ; =gL5Config
+	ldr r5, _0202A848 ; =gConfig
 	ldr r1, _0202A84C ; =0x0208F978
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	ldr r4, _0202A850 ; =0x0208F6F0
 	ldr r1, _0202A854 ; =0x0208F988
 	str r0, [r4]
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #4]
 	ldr r1, _0202A858 ; =0x0208F99C
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0xc]
 	ldr r1, _0202A85C ; =0x0208F9B0
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x10]
 	ldr r1, _0202A860 ; =0x0208F9C4
 	mov r0, r5
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x28]
 	mov r0, r5
 	ldr r1, _0202A864 ; =0x0208F9D4
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x2c]
 	mov r0, r5
 	ldr r1, _0202A868 ; =0x0208F9E8
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x30]
 	mov r0, r5
 	ldr r1, _0202A86C ; =0x0208F9FC
-	bl _ZN8L5Config8getParamEPc
+	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A844: .word unk_02099F24
-_0202A848: .word gL5Config
+_0202A848: .word gConfig
 _0202A84C: .word unk_0208F978
 _0202A850: .word unk_0208F6F0
 _0202A854: .word unk_0208F988
@@ -1140,7 +1140,7 @@ FUN_0202ae38: ; 0x0202AE38
 	mov r1, r6
 	mov r2, r4
 	bl FUN_ov16_020f1138
-	bl L5Thread_Init
+	bl _ZN6Thread4InitEv
 	ldr r0, _0202AF7C ; =0x020B5B08
 	mov r1, r4
 _0202AEA8:
@@ -1182,14 +1182,14 @@ _0202AF10:
 	bl FUN_ov16_020f1214
 	bl OS_WaitVBlankIntr
 _0202AF38:
-	ldr r4, _0202AF98 ; =gL5Allocator
+	ldr r4, _0202AF98 ; =gAllocator
 	mov r1, #1
 	mov r0, r4
-	bl _ZN11L5Allocator15setDefaultArenaEi
+	bl _ZN9Allocator15setDefaultArenaEi
 	bl FUN_0202a4d4
 	mov r0, r4
 	mov r1, #0
-	bl _ZN11L5Allocator15setDefaultArenaEi
+	bl _ZN9Allocator15setDefaultArenaEi
 	ldr r0, _0202AF9C ; =gLogicThink
 	bl FUN_0206f29c
 	bl FUN_0202a698
@@ -1206,7 +1206,7 @@ _0202AF88: .word unk_020AF81C
 _0202AF8C: .word 0x02FFFC20
 _0202AF90: .word 0x00008003
 _0202AF94: .word 0x04001000
-_0202AF98: .word gL5Allocator
+_0202AF98: .word gAllocator
 _0202AF9C: .word gLogicThink
 	arm_func_end FUN_0202ae38
 
@@ -1236,12 +1236,12 @@ FUN_0202afd0: ; 0x0202AFD0
 	bl OS_WaitVBlankIntr
 	bl GX_DispOn
 	ldr r3, _0202B194 ; =0x04001000
-	ldr r0, _0202B198 ; =gL5Allocator
+	ldr r0, _0202B198 ; =gAllocator
 	ldr r2, [r3]
 	mov r1, #1
 	orr r2, r2, #0x10000
 	str r2, [r3]
-	bl _ZN11L5Allocator15setDefaultArenaEi
+	bl _ZN9Allocator15setDefaultArenaEi
 	ldr r1, _0202B19C ; =gWaitVBlank
 	mov r2, #0
 	ldr r0, _0202B1A0 ; =0x0209A124
@@ -1285,7 +1285,7 @@ _0202B080:
 	ldr r0, _0202B1A0 ; =0x0209A124
 	mov r1, #0
 	str r1, [r0]
-	bl L5Thread_WakeUpAll
+	bl _ZN6Thread9WakeUpAllEv
 	bl FUN_0202ac70
 	bl FUN_0202ad64
 	ldr r0, _0202B1B0 ; =0x02099F30
@@ -1302,7 +1302,7 @@ _0202B080:
 	ldrh r0, [r0]
 	tst r0, #0x200
 	beq _0202B100
-	ldr r0, _0202B198 ; =gL5Allocator
+	ldr r0, _0202B198 ; =gAllocator
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
@@ -1342,14 +1342,14 @@ _0202B13C:
 	ldr r1, [r0]
 	ldr r1, [r1, #0x34]
 	blx r1
-	ldr r0, _0202B1C4 ; =gL5Sound
+	ldr r0, _0202B1C4 ; =gAudioPlayer
 	bl FUN_0202b768
 	bl FUN_0202afa0
 	bl FUN_0202a39c
 	b _0202B01C
 _0202B190: .word 0x02FFFC3C
 _0202B194: .word 0x04001000
-_0202B198: .word gL5Allocator
+_0202B198: .word gAllocator
 _0202B19C: .word gWaitVBlank
 _0202B1A0: .word unk_0209A124
 _0202B1A4: .word ov16_02118490
@@ -1360,7 +1360,7 @@ _0202B1B4: .word unk_0209A0E8
 _0202B1B8: .word unk_0209A0F0
 _0202B1BC: .word unk_0209A110
 _0202B1C0: .word unk_020B5AE0
-_0202B1C4: .word gL5Sound
+_0202B1C4: .word gAudioPlayer
 	arm_func_end FUN_0202afd0
 
 	arm_func_start _ZN12CommonScreen7vFUN_68Ev
@@ -1596,14 +1596,14 @@ FUN_0202b330: ; 0x0202B330
 	ldr r0, [r0]
 	cmp r0, #1
 	blt _0202B370
-	ldr r0, _0202B3D4 ; =gL5Allocator
+	ldr r0, _0202B3D4 ; =gAllocator
 	ldr r1, _0202B3D8 ; =0x00000102
 	b _0202B378
 _0202B370:
-	ldr r0, _0202B3D4 ; =gL5Allocator
+	ldr r0, _0202B3D4 ; =gAllocator
 	mov r1, #2
 _0202B378:
-	bl _ZN11L5Allocator12setNextArenaEi
+	bl _ZN9Allocator12setNextArenaEi
 _0202B37C:
 	cmp r6, #0
 	beq _0202B3AC
@@ -1612,7 +1612,7 @@ _0202B37C:
 	ldr r1, [r0, #4]
 	mov r0, r4
 	mov r2, r5
-	bl L5FS_ReadFileByIdxDeferred
+	bl _ZN10FileSystem21ReadFileByIdxDeferredEPPvilPa
 	cmp r0, #0
 	movge r0, #1
 	movlt r0, #0
@@ -1622,13 +1622,13 @@ _0202B3AC:
 	mov r0, r4
 	ldr r1, [r1, #4]
 	mov r2, r5
-	bl L5FS_ReadFileByIdx
+	bl _ZN10FileSystem13ReadFileByIdxEPPvil
 	cmp r0, #0
 	movge r0, #1
 	movlt r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202B3D0: .word unk_020B5B78
-_0202B3D4: .word gL5Allocator
+_0202B3D4: .word gAllocator
 _0202B3D8: .word 0x00000102
 	arm_func_end FUN_0202b330
 
@@ -1661,10 +1661,10 @@ _0202B408:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl _ZN7L5Sound12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Emm
 	mov r0, r5
 	mov r1, r4
-	bl _ZN7L5Sound12FUN_0202d578Em
+	bl _ZN11AudioPlayer12FUN_0202d578Ei
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202b3e0
@@ -1687,7 +1687,7 @@ FUN_0202b448: ; 0x0202B448
 	add r1, r8, #0x10
 	mov r2, r7
 	mov r3, r6
-	bl _ZN11L5Allocator8allocateEmii
+	bl _ZN9Allocator8allocateEmii
 	add r5, sp, #0
 	mov r10, r0
 	mov r0, r5
@@ -1835,16 +1835,16 @@ _0202B6A0:
 	ldr r1, _0202B708 ; =0x00064010
 	mov r3, #1
 	strb r2, [r4, #0x5f]
-	bl _ZN11L5Allocator8allocateEmii
+	bl _ZN9Allocator8allocateEmii
 	mov r1, #5
 	str r0, [r4, #0x58]
 	str r0, [r4, #0x6c]
 	mov r0, #2
 	strb r1, [r4, #0x73]
-	bl L5FS_SetNextArena
+	bl _ZN10FileSystem12SetNextArenaEi
 	ldr r1, _0202B70C ; =0x0208FACC
 	mov r0, r5
-	bl L5FS_OpenArchiveDirect
+	bl _ZN10FileSystem17OpenArchiveDirectEPvPKc
 	ldr r1, _0202B710 ; =0x020B5B78
 	str r0, [r1, #4]
 	str r5, [r4, #0x264]
@@ -1910,8 +1910,8 @@ _0202B7A4:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202b768
 
-	arm_func_start _ZN7L5Sound12FUN_0202b7b4Ev
-_ZN7L5Sound12FUN_0202b7b4Ev: ; 0x0202B7B4
+	arm_func_start _ZN11AudioPlayer12FUN_0202b7b4Ev
+_ZN11AudioPlayer12FUN_0202b7b4Ev: ; 0x0202B7B4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl FUN_0202d228
@@ -1928,10 +1928,10 @@ _0202B7C8:
 	blt _0202B7C8
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end _ZN7L5Sound12FUN_0202b7b4Ev
+	arm_func_end _ZN11AudioPlayer12FUN_0202b7b4Ev
 
-	arm_func_start _ZN7L5Sound12FUN_0202b7f0Ev
-_ZN7L5Sound12FUN_0202b7f0Ev: ; 0x0202B7F0
+	arm_func_start _ZN11AudioPlayer12FUN_0202b7f0Ev
+_ZN11AudioPlayer12FUN_0202b7f0Ev: ; 0x0202B7F0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -1952,10 +1952,10 @@ _0202B824:
 	blt _0202B7FC
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN7L5Sound12FUN_0202b7f0Ev
+	arm_func_end _ZN11AudioPlayer12FUN_0202b7f0Ev
 
-	arm_func_start _ZN7L5Sound12FUN_0202b838Eiii
-_ZN7L5Sound12FUN_0202b838Eiii: ; 0x0202B838
+	arm_func_start _ZN11AudioPlayer12FUN_0202b838Eiii
+_ZN11AudioPlayer12FUN_0202b838Eiii: ; 0x0202B838
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x20
 	mov r4, r0
@@ -2141,7 +2141,7 @@ _0202BAC8: .word unk_0208FB08
 _0202BACC: .word unk_0208FB10
 _0202BAD0: .word unk_0208FB18
 _0202BAD4: .word unk_0208FB20
-	arm_func_end _ZN7L5Sound12FUN_0202b838Eiii
+	arm_func_end _ZN11AudioPlayer12FUN_0202b838Eiii
 
 	arm_func_start FUN_0202bad8
 FUN_0202bad8: ; 0x0202BAD8
@@ -2377,7 +2377,7 @@ _0202BD68:
 	ble _0202BDA4
 	ldr r0, [r7, #4]
 	sub r1, r1, #1
-	bl L5FS_GetFile
+	bl _ZN10FileSystem7GetFileEil
 	cmp r0, #0
 	beq _0202BDA4
 	mov r0, r4, lsl #1
@@ -2398,7 +2398,7 @@ _0202BDA4:
 	ldr r0, _0202BE10 ; =0x020B5B78
 	ldr r0, [r0, #4]
 	sub r1, r1, #1
-	bl L5FS_GetFile
+	bl _ZN10FileSystem7GetFileEil
 	cmp r0, #0
 	ldrnesh r1, [r5, #4]
 	addne r0, r6, #0x100
@@ -2453,7 +2453,7 @@ FUN_0202be40: ; 0x0202BE40
 	ldr r0, _0202BEA0 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl L5FS_FindFileIdx
+	bl _ZN10FileSystem11FindFileIdxEiPKc
 	strh r0, [r6, #0x10]
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -2715,7 +2715,7 @@ _0202C204:
 	ldr r0, _0202C310 ; =0x020B5B78
 	mov r1, r5
 	ldr r0, [r0, #4]
-	bl L5FS_FindFileIdx
+	bl _ZN10FileSystem11FindFileIdxEiPKc
 	ldr r5, [sp, #0x20]
 	mov r2, r0
 	mov r0, r7
@@ -2916,12 +2916,12 @@ _0202C480:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_0202c470
 
-	arm_func_start _ZN7L5Sound12FUN_0202c4a0Em
-_ZN7L5Sound12FUN_0202c4a0Em: ; 0x0202C4A0
+	arm_func_start _ZN11AudioPlayer12FUN_0202c4a0Em
+_ZN11AudioPlayer12FUN_0202c4a0Em: ; 0x0202C4A0
 	ldr r12, _0202C4A8 ; =FUN_0202c470
 	bx r12
 _0202C4A8: .word FUN_0202c470
-	arm_func_end _ZN7L5Sound12FUN_0202c4a0Em
+	arm_func_end _ZN11AudioPlayer12FUN_0202c4a0Em
 
 	arm_func_start FUN_0202c4ac
 FUN_0202c4ac: ; 0x0202C4AC
@@ -2995,7 +2995,7 @@ _0202C588:
 	ldmfd sp!, {r3, pc}
 _0202C590:
 	mov r1, #0
-	bl _ZN7L5Sound12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Em
 	ldmfd sp!, {r3, pc}
 _0202C59C:
 	mov r0, #0
@@ -3107,7 +3107,7 @@ _0202C6F0:
 	blt _0202C8D4
 	mov r0, r4
 	mov r1, #0
-	bl _ZN7L5Sound12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Emm
 	b _0202C8D4
 _0202C720:
 	tst r2, #4
@@ -3149,14 +3149,14 @@ _0202C794:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl _ZN7L5Sound12FUN_0202d5d4Emm
+	bl _ZN11AudioPlayer12FUN_0202d5d4Emm
 	b _0202C7F0
 _0202C7B4:
 	add r2, r4, #0x178
 	mov r0, r4
 	add r2, r2, r1
 	mov r1, #0
-	bl _ZN7L5Sound12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594Emm
 	b _0202C7F0
 _0202C7CC:
 	mov r1, #0x1c
@@ -3401,7 +3401,7 @@ _0202CB14:
 	add r5, r7, #0x58
 	ldr r0, [r7]
 	ldr r1, [r5, r6]
-	bl _ZN11L5Allocator10deallocateEPv
+	bl _ZN9Allocator10deallocateEPv
 	mov r4, #0x14
 	mov r2, r4
 	add r0, r5, r6
@@ -3498,7 +3498,7 @@ FUN_0202cc34: ; 0x0202CC34
 _0202CC68:
 	add r0, r7, r6
 	ldrsb r0, [r0, #0x60]
-	bl L5FS_IsFileBusy
+	bl _ZN10FileSystem10IsFileBusyEa
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
@@ -3617,7 +3617,7 @@ FUN_0202cdd4: ; 0x0202CDD4
 	ldr r0, _0202CE20 ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl L5FS_FindFileIdx
+	bl _ZN10FileSystem11FindFileIdxEiPKc
 	mov r2, r0
 	mov r0, r6
 	mov r1, r5
@@ -3682,7 +3682,7 @@ FUN_0202ceb0: ; 0x0202CEB0
 	ldr r0, _0202CEFC ; =0x020B5B78
 	mov r1, r4
 	ldr r0, [r0, #4]
-	bl L5FS_FindFileIdx
+	bl _ZN10FileSystem11FindFileIdxEiPKc
 	mov r2, r0
 	mov r0, r6
 	mov r1, r5
@@ -3728,8 +3728,8 @@ FUN_0202cf40: ; 0x0202CF40
 	bx lr
 	arm_func_end FUN_0202cf40
 
-	arm_func_start _ZN7L5Sound12FUN_0202cf6cEm
-_ZN7L5Sound12FUN_0202cf6cEm: ; 0x0202CF6C
+	arm_func_start _ZN11AudioPlayer12FUN_0202cf6cEm
+_ZN11AudioPlayer12FUN_0202cf6cEm: ; 0x0202CF6C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	add r2, r4, #0x200
@@ -3757,7 +3757,7 @@ _ZN7L5Sound12FUN_0202cf6cEm: ; 0x0202CF6C
 	bl DseSe_Play
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202CFD4: .word 0x10624DD3
-	arm_func_end _ZN7L5Sound12FUN_0202cf6cEm
+	arm_func_end _ZN11AudioPlayer12FUN_0202cf6cEm
 
 	arm_func_start FUN_0202cfd8
 FUN_0202cfd8: ; 0x0202CFD8
@@ -4133,8 +4133,8 @@ _0202D4BC: .word 0x0000FFEF
 _0202D4C0: .word 0x10624DD3
 	arm_func_end FUN_0202d228
 
-	arm_func_start _ZN7L5Sound7openSADEPvPch
-_ZN7L5Sound7openSADEPvPch: ; 0x0202D4C4
+	arm_func_start _ZN11AudioPlayer7openSADEPvPch
+_ZN11AudioPlayer7openSADEPvPch: ; 0x0202D4C4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x28
 	mov r7, r1
@@ -4165,7 +4165,7 @@ _ZN7L5Sound7openSADEPvPch: ; 0x0202D4C4
 	beq _0202D540
 	mov r0, r8
 	mov r1, r7
-	bl _ZN7L5Sound12FUN_0202d578Em
+	bl _ZN11AudioPlayer12FUN_0202d578Ei
 _0202D540:
 	add r0, r8, #0xd8
 	mov r1, r6
@@ -4181,10 +4181,10 @@ _0202D540:
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0202D574: .word unk_0208FB90
-	arm_func_end _ZN7L5Sound7openSADEPvPch
+	arm_func_end _ZN11AudioPlayer7openSADEPvPch
 
-	arm_func_start _ZN7L5Sound12FUN_0202d578Em
-_ZN7L5Sound12FUN_0202d578Em: ; 0x0202D578
+	arm_func_start _ZN11AudioPlayer12FUN_0202d578Ei
+_ZN11AudioPlayer12FUN_0202d578Ei: ; 0x0202D578
 	mov r2, #0x30
 	mul r2, r1, r2
 	add r1, r0, #0xfc
@@ -4192,17 +4192,17 @@ _ZN7L5Sound12FUN_0202d578Em: ; 0x0202D578
 	orr r0, r0, #0xc
 	strh r0, [r1, r2]
 	bx lr
-	arm_func_end _ZN7L5Sound12FUN_0202d578Em
+	arm_func_end _ZN11AudioPlayer12FUN_0202d578Ei
 
-	arm_func_start _ZN7L5Sound12FUN_0202d594Emm
-_ZN7L5Sound12FUN_0202d594Emm: ; 0x0202D594
+	arm_func_start _ZN11AudioPlayer12FUN_0202d594Emm
+_ZN11AudioPlayer12FUN_0202d594Emm: ; 0x0202D594
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
 	cmp r2, #0
 	beq _0202D5B8
 	mov r3, #0
-	bl _ZN7L5Sound7openSADEPvPch
+	bl _ZN11AudioPlayer7openSADEPvPch
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0202D5B8:
@@ -4213,17 +4213,17 @@ _0202D5B8:
 	orr r0, r0, #2
 	strh r0, [r2, r1]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN7L5Sound12FUN_0202d594Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d594Emm
 
-	arm_func_start _ZN7L5Sound12FUN_0202d5d4Emm
-_ZN7L5Sound12FUN_0202d5d4Emm: ; 0x0202D5D4
+	arm_func_start _ZN11AudioPlayer12FUN_0202d5d4Emm
+_ZN11AudioPlayer12FUN_0202d5d4Emm: ; 0x0202D5D4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r6, _0202D6B8 ; =gL5Movie
+	ldr r6, _0202D6B8 ; =gMovie
 	mov r8, r0
 	mov r0, r6
 	mov r7, r2
 	mov r4, r1
-	bl _ZN7L5Movie11getVideoFpsEv
+	bl _ZN5Movie11getVideoFpsEv
 	mov r5, r0
 	mov r0, #0x30
 	cmp r7, #0
@@ -4277,13 +4277,13 @@ _0202D69C:
 	orr r1, r1, #0x82
 	strh r1, [r2, r7]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0202D6B8: .word gL5Movie
+_0202D6B8: .word gMovie
 _0202D6BC: .word 0x00022140
 _0202D6C0: .word 0x88888889
-	arm_func_end _ZN7L5Sound12FUN_0202d5d4Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d5d4Emm
 
-	arm_func_start _ZN7L5Sound12FUN_0202d6c4Em
-_ZN7L5Sound12FUN_0202d6c4Em: ; 0x0202D6C4
+	arm_func_start _ZN11AudioPlayer12FUN_0202d6c4Em
+_ZN11AudioPlayer12FUN_0202d6c4Em: ; 0x0202D6C4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0x30
 	mul r4, r1, r2
@@ -4309,7 +4309,7 @@ _0202D708:
 	strh r1, [r5, r4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202D720: .word 0x0000FFFD
-	arm_func_end _ZN7L5Sound12FUN_0202d6c4Em
+	arm_func_end _ZN11AudioPlayer12FUN_0202d6c4Em
 
 	arm_func_start FUN_0202d724
 FUN_0202d724: ; 0x0202D724
@@ -4327,7 +4327,7 @@ _0202D73C:
 	bne _0202D760
 	mov r0, r8
 	mov r1, r6
-	bl _ZN7L5Sound12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Em
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0202D760:
 	add r6, r6, #1
@@ -4337,8 +4337,8 @@ _0202D760:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_0202d724
 
-	arm_func_start _ZN7L5Sound12FUN_0202d774Emm
-_ZN7L5Sound12FUN_0202d774Emm: ; 0x0202D774
+	arm_func_start _ZN11AudioPlayer12FUN_0202d774Emm
+_ZN11AudioPlayer12FUN_0202d774Emm: ; 0x0202D774
 	mov r3, #0x30
 	mul r3, r1, r3
 	add r1, r0, r3
@@ -4348,7 +4348,7 @@ _ZN7L5Sound12FUN_0202d774Emm: ; 0x0202D774
 	orr r0, r0, #4
 	strh r0, [r1, r3]
 	bx lr
-	arm_func_end _ZN7L5Sound12FUN_0202d774Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d774Emm
 
 	arm_func_start FUN_0202d798
 FUN_0202d798: ; 0x0202D798
@@ -4368,7 +4368,7 @@ _0202D7B4:
 	mov r0, r9
 	mov r1, r6
 	mov r2, r7
-	bl _ZN7L5Sound12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Emm
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202D7DC:
 	add r6, r6, #1
@@ -4568,7 +4568,7 @@ _0202DA58:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6
 	mov r1, r9
-	bl _ZN7L5Sound12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Em
 	cmp r0, #0
 	bne _0202DB30
 	ldr r2, [sp, #0x14]
@@ -4619,7 +4619,7 @@ _0202DB4C:
 	bne _0202DB74
 	mov r0, r6
 	mov r1, r9
-	bl _ZN7L5Sound12FUN_0202d578Em
+	bl _ZN11AudioPlayer12FUN_0202d578Ei
 _0202DB74:
 	add r9, r9, #1
 	cmp r9, #1
@@ -4698,8 +4698,8 @@ _0202DC40:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202dc1c
 
-	arm_func_start _ZN11L5Allocator10initArenasE9OSArenaIdPvS1_
-_ZN11L5Allocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
+	arm_func_start _ZN9Allocator10initArenasE9OSArenaIdPvS1_
+_ZN9Allocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r0, r1
@@ -4794,7 +4794,7 @@ _0202DD7C:
 	str r0, [r10, #0x50]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202DD9C: .word unk_0208C348
-	arm_func_end _ZN11L5Allocator10initArenasE9OSArenaIdPvS1_
+	arm_func_end _ZN9Allocator10initArenasE9OSArenaIdPvS1_
 
 	arm_func_start FUN_0202dda0
 FUN_0202dda0: ; 0x0202DDA0
@@ -4844,17 +4844,17 @@ _0202DE3C:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0202dda0
 
-	arm_func_start _ZN11L5Allocator8allocateEm
-_ZN11L5Allocator8allocateEm: ; 0x0202DE44
-	ldr r12, _0202DE54 ; =_ZN11L5Allocator8allocateEmii
+	arm_func_start _ZN9Allocator8allocateEm
+_ZN9Allocator8allocateEm: ; 0x0202DE44
+	ldr r12, _0202DE54 ; =_ZN9Allocator8allocateEmii
 	mov r2, #0
 	mov r3, #1
 	bx r12
-_0202DE54: .word _ZN11L5Allocator8allocateEmii
-	arm_func_end _ZN11L5Allocator8allocateEm
+_0202DE54: .word _ZN9Allocator8allocateEmii
+	arm_func_end _ZN9Allocator8allocateEm
 
-	arm_func_start _ZN11L5Allocator8allocateEmii
-_ZN11L5Allocator8allocateEmii: ; 0x0202DE58
+	arm_func_start _ZN9Allocator8allocateEmii
+_ZN9Allocator8allocateEmii: ; 0x0202DE58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r7, _0202E198 ; =0x0208C340
@@ -5087,27 +5087,27 @@ _0202E178:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202E198: .word unk_0208C340
-	arm_func_end _ZN11L5Allocator8allocateEmii
+	arm_func_end _ZN9Allocator8allocateEmii
 
-	arm_func_start _ZN11L5Allocator12setNextArenaEi
-_ZN11L5Allocator12setNextArenaEi: ; 0x0202E19C
+	arm_func_start _ZN9Allocator12setNextArenaEi
+_ZN9Allocator12setNextArenaEi: ; 0x0202E19C
 	ldr r2, [r0, #0x4c]
 	str r1, [r0, #0x4c]
 	mov r0, r2
 	bx lr
-	arm_func_end _ZN11L5Allocator12setNextArenaEi
+	arm_func_end _ZN9Allocator12setNextArenaEi
 
-	arm_func_start _ZN11L5Allocator15setDefaultArenaEi
-_ZN11L5Allocator15setDefaultArenaEi: ; 0x0202E1AC
+	arm_func_start _ZN9Allocator15setDefaultArenaEi
+_ZN9Allocator15setDefaultArenaEi: ; 0x0202E1AC
 	ldr r2, [r0, #0x50]
 	cmp r1, #0
 	strge r1, [r0, #0x50]
 	mov r0, r2
 	bx lr
-	arm_func_end _ZN11L5Allocator15setDefaultArenaEi
+	arm_func_end _ZN9Allocator15setDefaultArenaEi
 
-	arm_func_start _ZN11L5Allocator10deallocateEPv ; https://decomp.me/scratch/lyon1
-_ZN11L5Allocator10deallocateEPv: ; 0x0202E1C0
+	arm_func_start _ZN9Allocator10deallocateEPv ; https://decomp.me/scratch/lyon1
+_ZN9Allocator10deallocateEPv: ; 0x0202E1C0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1
 	mov r7, r0
@@ -5235,7 +5235,7 @@ _0202E374:
 	add r0, r7, #0xc
 	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end _ZN11L5Allocator10deallocateEPv
+	arm_func_end _ZN9Allocator10deallocateEPv
 
 	arm_func_start FUN_0202e38c
 FUN_0202e38c: ; 0x0202E38C

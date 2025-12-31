@@ -841,16 +841,16 @@ _0211AACC:
 	ldr r0, _0211AAF8 ; =0x00002FFF
 	tst r4, r0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0211AAFC ; =gL5Sound
+	ldr r0, _0211AAFC ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN7L5Sound12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, r5
 	bl FUN_ov71_0211aa34
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211AAF0: .word unk_02099ED4
 _0211AAF4: .word unk_02099EB4
 _0211AAF8: .word 0x00002FFF
-_0211AAFC: .word gL5Sound
+_0211AAFC: .word gAudioPlayer
 	arm_func_end FUN_ov71_0211aa70
 
 	arm_func_start FUN_ov71_0211ab00

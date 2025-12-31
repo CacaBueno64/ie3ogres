@@ -1,11 +1,11 @@
-#include "l5movie.hpp"
+#include "movie.hpp"
 
-L5Movie::L5Movie()
+Movie::Movie()
 {
     this->flags = 0;
 }
 
-L5Movie::~L5Movie()
+Movie::~Movie()
 {
     if (this->flags) {
         this->flags |= 0x20;
@@ -13,7 +13,7 @@ L5Movie::~L5Movie()
     }
 }
 
-void L5Movie::init(L5Allocator *allocator)
+void Movie::init(Allocator *allocator)
 {
     if (allocator) {
         unk_020B5B80.allocator = allocator;
@@ -21,7 +21,7 @@ void L5Movie::init(L5Allocator *allocator)
     }
 }
 
-void L5Movie::FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3)
+void Movie::FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr3)
 {
     unk_020B5B80.unk8[0] = ofbPtr0;
     unk_020B5B80.unk8[1] = ofbPtr1;
@@ -29,7 +29,7 @@ void L5Movie::FUN_0202e4cc(u16 *ofbPtr0, u16 *ofbPtr1, u16 *ofbPtr2, u16 *ofbPtr
     unk_020B5B80.unk10[1] = ofbPtr3;
 }
 
-u32 L5Movie::FUN_0202e4ec()
+u32 Movie::FUN_0202e4ec()
 {
     if (!unk_020B5B80.unk6) {
         unk_020B5B80.unk6 = 1;
@@ -39,7 +39,7 @@ u32 L5Movie::FUN_0202e4ec()
     return unk_020B5B80.unk4 ^ 1;
 }
 
-BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
+BOOL Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
 {
     char filepath[64];
 
@@ -86,7 +86,7 @@ BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
     unk_020B5B80.unk6 = 1;
 
     STD_TSPrintf(filepath, "%s.sad", name);
-    if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gL5Sound.openSAD(NULL, filepath, 0))) {
+    if (((this->flags & MOVIE_HAS_NOT_SOUND) == 0) && (gAudioPlayer.openSAD(NULL, filepath, 0))) {
         this->flags |= MOVIE_HAS_SOUND;
     }
 
@@ -115,7 +115,7 @@ BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
     );
 
     if ((this->flags & 0x200) == 0) {
-        gL5Sound.FUN_0202c4a0(0);
+        gAudioPlayer.FUN_0202c4a0(0);
     }
 
     this->flags |= 1;
@@ -123,12 +123,12 @@ BOOL L5Movie::openMovie(char *name, u32 param2, u32 hasNotSound, u8 param4)
     return TRUE;
 }
 
-u32 L5Movie::FUN_0202e784(void)
+u32 Movie::FUN_0202e784(void)
 {
     return this->flags;
 }
 
-BOOL L5Movie::FUN_0202e78c(void)
+BOOL Movie::FUN_0202e78c(void)
 {
     if ((this->flags & 1) == 0) {
         return FALSE;
@@ -154,10 +154,10 @@ BOOL L5Movie::FUN_0202e78c(void)
     }
     if ((this->flags & MOVIE_HAS_SOUND) != 0) {
         if ((this->flags & 8) == 0) {
-            gL5Sound.FUN_0202d594(0, 0);
+            gAudioPlayer.FUN_0202d594(0, 0);
             this->flags |= 0x408;
         }
-        if (!gL5Sound.FUN_0202d6c4(0)) {
+        if (!gAudioPlayer.FUN_0202d6c4(0)) {
             if ((this->flags & 0x400) != 0) {
                 unk_020B5B80.unk5 = 0;
                 return TRUE;
@@ -198,7 +198,7 @@ BOOL L5Movie::FUN_0202e78c(void)
     return TRUE;
 }
 
-void L5Movie::FUN_0202e958(void)
+void Movie::FUN_0202e958(void)
 {
     if ((this->flags & 2) == 0) {
         return;
@@ -207,7 +207,7 @@ void L5Movie::FUN_0202e958(void)
     this->FUN_0202e978();
 }
 
-void L5Movie::FUN_0202e978(void)
+void Movie::FUN_0202e978(void)
 {
     if ((this->flags & 2) == 0) {
         return;
@@ -217,10 +217,10 @@ void L5Movie::FUN_0202e978(void)
     if ((this->flags & 8) == 0) {
         return;
     }
-    gL5Sound.FUN_0202d774(0, 0x12C);
+    gAudioPlayer.FUN_0202d774(0, 0x12C);
 }
 
-void L5Movie::FUN_0202e9c8(void)
+void Movie::FUN_0202e9c8(void)
 {
     if ((this->flags & 0x10) == 0) {
         return;
@@ -232,12 +232,12 @@ void L5Movie::FUN_0202e9c8(void)
         return;
     }
 
-    gL5Sound.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->unk1A0 + this->unk198 + 1));
+    gAudioPlayer.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->unk1A0 + this->unk198 + 1));
 
     this->flags |= 0x400;
 }
 
-BOOL L5Movie::FUN_0202ea50(void)
+BOOL Movie::FUN_0202ea50(void)
 {
     if (this->unk194 >= 6) {
         return FALSE;
@@ -270,7 +270,7 @@ BOOL L5Movie::FUN_0202ea50(void)
     return TRUE;
 }
 
-void L5Movie::closeMovie(u32 param1)
+void Movie::closeMovie(u32 param1)
 {
     if (!this->flags) {
         return;
@@ -287,7 +287,7 @@ void L5Movie::closeMovie(u32 param1)
         }
     }
     if ((this->flags & 0x08) != 0) {
-        gL5Sound.FUN_0202d578(0);
+        gAudioPlayer.FUN_0202d578(0);
     }
     
     OS_CancelAlarm(&this->alarm);
@@ -314,9 +314,9 @@ void L5Movie::closeMovie(u32 param1)
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay126));
 }
 
-void L5Movie::threadIntr(void *arg)
+void Movie::threadIntr(void *arg)
 {
-    L5Movie *movie = static_cast<L5Movie *>(arg);
+    Movie *movie = static_cast<Movie *>(arg);
     while (TRUE) {
         if (movie->FUN_0202ea50()) {
             continue;
@@ -325,7 +325,7 @@ void L5Movie::threadIntr(void *arg)
     }
 }
 
-u32 L5Movie::getVideoFps(void)
+u32 Movie::getVideoFps(void)
 {
     if (!this->handle_98) {
         return 0;
@@ -334,7 +334,7 @@ u32 L5Movie::getVideoFps(void)
     return MO_GetVideoFps(this->handle_98);
 }
 
-BOOL L5Movie::blitFrameImage(MOHandle handle0, MOHandle handle1)
+BOOL Movie::blitFrameImage(MOHandle handle0, MOHandle handle1)
 {
     if (unk_020B5B80.unk6 == 0) {
         return FALSE;
@@ -356,29 +356,29 @@ BOOL L5Movie::blitFrameImage(MOHandle handle0, MOHandle handle1)
     return TRUE;
 }
 
-void L5Movie::alarmIntr(void *arg)
+void Movie::alarmIntr(void *arg)
 {
     #pragma unused(arg)
 
     unk_020B5B80.unk5++;
 }
 
-void *L5Movie::malloc(int size)
+void *Movie::malloc(int size)
 {
     return unk_020B5B80.allocator->allocate(size, 5, 0);
 }
 
-void L5Movie::free(void *ptr)
+void Movie::free(void *ptr)
 {
     unk_020B5B80.allocator->deallocate(ptr);
 }
 
 void *MO_Malloc(u32 size)
 {
-    return gL5Movie.malloc(size);
+    return gMovie.malloc(size);
 }
 
 void MO_Free(void *mem_p)
 {
-    gL5Movie.free(mem_p);
+    gMovie.free(mem_p);
 }

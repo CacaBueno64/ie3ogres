@@ -56,8 +56,8 @@
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f6a9c
 .public FUN_ov16_020f338c
-.public _ZN11L5Allocator10deallocateEPv
-.public gL5Allocator
+.public _ZN9Allocator10deallocateEPv
+.public gAllocator
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN15CommonSubScreen10updateKeysEtt

@@ -24,11 +24,11 @@
 .public G2S_GetBG0CharPtr
 .public FUN_ov16_020f10c8
 .public FUN_ov16_0210ee78
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public _Znam
 .public FUN_02044658
-.public _ZN11L5Allocator10deallocateEPv
-.public gL5Allocator
+.public _ZN9Allocator10deallocateEPv
+.public gAllocator
 .public unk_020AF81C
 .public FUN_ov16_0210e674
 .public FUN_ov16_0210e9d8
@@ -45,9 +45,9 @@
 .public unk_020A8C40
 .public unk_020A9440
 .public FUN_ov16_020f4894
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public unk_0209A0F4
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_0210eeec
 .public FUN_ov16_020f153c
 .public _s32_div_f

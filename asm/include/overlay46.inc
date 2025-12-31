@@ -1,7 +1,7 @@
 .public FUN_ov16_020f3054
 .public FUN_0202cf00
 .public FUN_0202cdd4
-.public gL5Sound
+.public gAudioPlayer
 .public MIi_CpuClearFast
 .public DC_FlushRange
 .public unk_020A6C40
@@ -15,12 +15,12 @@
 .public FUN_02058ee0
 .public MI_CpuCopy8
 .public unk_020A0640
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MI_CpuFill8
 .public STD_CopyLString
 .public STD_ConcatenateString
-.public gL5Allocator
-.public _ZN11L5Allocator10deallocateEPv
+.public gAllocator
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_021128c4
@@ -51,7 +51,7 @@
 .public unk_020AF81C
 .public _s32_div_f
 .public abs
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public STD_CopyString
 .public FUN_0204eb2c
 .public unk_020A1280
@@ -110,10 +110,10 @@
 .public FUN_0206c158
 .public FUN_ov16_020efa04
 .public FUN_ov16_020f330c
-.public _ZN7L5Sound12FUN_0202b7f0Ev
+.public _ZN11AudioPlayer12FUN_0202b7f0Ev
 .public FUN_ov16_020f5868
 .public FUN_0202dbd0
-.public _ZN7L5Sound12FUN_0202d578Em
+.public _ZN11AudioPlayer12FUN_0202d578Ei
 .public FUN_0202c560
 .public FUN_0202c530
 .public _ZN14CScreenManager8popSceneE12EngineSelect
@@ -130,8 +130,8 @@
 .public FUN_ov16_02113d08
 .public FUN_ov16_02113d88
 .public FUN_ov16_020f2304
-.public _ZN7L5Sound12FUN_0202c4a0Em
-.public _ZN7L5Sound12FUN_0202d594Emm
+.public _ZN11AudioPlayer12FUN_0202c4a0Em
+.public _ZN11AudioPlayer12FUN_0202d594Emm
 .public FUN_0205107c
 .public FUN_0204fbe8
 .public FUN_0206cc34

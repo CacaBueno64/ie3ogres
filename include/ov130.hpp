@@ -4,7 +4,7 @@
 #include <nitro.h>
 
 #include "init.hpp"
-#include "l5config.hpp"
+#include "config.hpp"
 
 class ov130_Init {
     public:

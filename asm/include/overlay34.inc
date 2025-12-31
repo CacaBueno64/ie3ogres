@@ -17,8 +17,8 @@
 .public _Z11SetNextMode8GameMode
 .public FUN_ov16_020f153c
 .public _s32_div_f
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6e8c

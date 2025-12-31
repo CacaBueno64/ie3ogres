@@ -50,11 +50,11 @@
 .public FUN_020724c8
 .public FUN_ov132_0214609c
 .public FUN_ov132_02146014
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_020f0a14
 .public FUN_ov1_020e3a24
 .public FUN_ov1_020e3b14
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020fe47c
 .public FUN_ov132_02148d74
 .public unk_0209A3E0

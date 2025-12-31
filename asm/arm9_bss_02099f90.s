@@ -33,8 +33,8 @@ unk_02099FFC:
 	.global unk_0209A008
 unk_0209A008:
 	.space 0x0C
-	.global gL5CardController
-gL5CardController:
+	.global gCardController
+gCardController:
 	.space 0x0C
 	.global unk_0209A020
 unk_0209A020:
@@ -186,8 +186,8 @@ unk_0209A23C:
 	.global unk_0209A240
 unk_0209A240:
 	.space 0x10
-	.global gL5Allocator
-gL5Allocator:
+	.global gAllocator
+gAllocator:
 	.space 0x70
 	.global unk_0209A2C0
 unk_0209A2C0:
@@ -336,8 +336,8 @@ unk_0209A880:
 	.global unk_0209A884
 unk_0209A884:
 	.space 0x1C
-	.global gL5Movie
-gL5Movie:
+	.global gMovie
+gMovie:
 	.space 0x1C0
 	.global unk_0209AA60
 unk_0209AA60:
@@ -345,8 +345,8 @@ unk_0209AA60:
 	.global unk_0209AA64
 unk_0209AA64:
 	.space 0x1E0
-	.global gL5Sound
-gL5Sound:
+	.global gAudioPlayer
+gAudioPlayer:
 	.space 0x27C
 	.global gWirelessUtil
 gWirelessUtil:

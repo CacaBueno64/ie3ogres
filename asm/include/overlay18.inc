@@ -1,10 +1,10 @@
 .public _ZdlPv
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public sprintf
 .public FUN_02059038
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_02059630
 .public FUN_ov16_02112724
 .public FUN_ov16_02114248
@@ -17,7 +17,7 @@
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f5278
 .public unk_02099F38
-.public gL5Allocator
+.public gAllocator
 .public unk_020A1240
 .public unk_020A9C40
 .public FUN_ov16_020f3d08
@@ -42,9 +42,9 @@
 .public FUN_ov16_02113ec0
 .public gLogicThink
 .public FUN_ov16_020f5868
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f153c
-.public gL5Sound
+.public gAudioPlayer
 .public _s32_div_f
 .public FUN_ov16_020ee034
 .public STD_GetStringLength

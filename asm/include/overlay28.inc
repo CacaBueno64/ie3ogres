@@ -8,7 +8,7 @@
 .public FUN_020591e8
 .public FUN_02058ee0
 .public _ZdlPv
-.public _ZN7L5Sound12FUN_0202b838Eiii
+.public _ZN11AudioPlayer12FUN_0202b838Eiii
 .public FUN_02062800
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
@@ -19,7 +19,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f5450
-.public gL5Sound
+.public gAudioPlayer
 .public unk_020A0640
 .public unk_0209A5D0
 .public unk_02099EB4
@@ -45,7 +45,7 @@
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
 .public FUN_ov16_0210f468
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210efac

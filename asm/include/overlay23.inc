@@ -12,9 +12,9 @@
 .public FUN_0206c7dc
 .public unk_0209A0AC
 .public unk_020A1640
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public _ZN11L5Allocator10deallocateEPv
-.public gL5Allocator
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN9Allocator10deallocateEPv
+.public gAllocator
 .public rand
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210eb78
@@ -26,8 +26,8 @@
 .public unk_02099EB4
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public _ZN7L5Sound12FUN_0202d594Emm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202d594Emm
+.public gAudioPlayer
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e6fc
 .public MIi_CpuClearFast
@@ -61,7 +61,7 @@
 .public FUN_02059038
 .public FUN_ov16_020f14b4
 .public FUN_0202dbd0
-.public _ZN7L5Sound12FUN_0202d578Em
+.public _ZN11AudioPlayer12FUN_0202d578Ei
 .public FUN_ov16_020f1560
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_02045b40
@@ -76,7 +76,7 @@
 .public FUN_ov16_020f4894
 .public FUN_ov16_020efa04
 .public FUN_ov16_0210f468
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110b0c
 .public FUN_ov16_0210f20c

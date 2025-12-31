@@ -34,11 +34,11 @@
 .public unk_02099E98
 .public FUN_0204b2f4
 .public FUN_0204b540
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public FUN_ov16_020eeca0
 .public FUN_0204d7fc
-.public gL5Allocator
-.public _ZN11L5Allocator10deallocateEPv
+.public gAllocator
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020eedb8
 .public FUN_ov16_020ee084
 .public FUN_ov16_020ee034
@@ -94,8 +94,8 @@
 .public sprintf
 .public FUN_ov16_020f1f5c
 .public FUN_ov16_020f2304
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public FUN_ov16_02113f7c
 .public FUN_02044754
 .public FUN_02044690

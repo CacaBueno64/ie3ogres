@@ -1,7 +1,7 @@
 .public FUN_ov16_020f1528
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClear32
-.public gL5Allocator
+.public gAllocator
 .public FUN_ov16_020f5da0
 .public gBgMenuManager
 .public STD_CopyString
@@ -25,7 +25,7 @@
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f32b4
 .public FUN_ov16_020f330c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public _ZN7CFileIO5closeEPvi
 .public FUN_ov16_020f316c
 .public unk_020A8C40

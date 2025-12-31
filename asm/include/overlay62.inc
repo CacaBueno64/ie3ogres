@@ -87,9 +87,9 @@
 .public FUN_ov16_021108d8
 .public FUN_ov16_02110930
 .public FUN_ov16_020efa9c
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_0210f48c
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_ov16_0210ec34
 .public FUN_ov131_0213ae70
 .public FUN_ov16_020edec4
@@ -117,8 +117,8 @@
 .public FUN_0204da5c
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public _ZN7L5Sound12FUN_0202b838Eiii
-.public _ZN11L5Allocator8allocateEm
+.public _ZN11AudioPlayer12FUN_0202b838Eiii
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClearFast
 .public FUN_020460fc
 .public FUN_ov16_020f5278
@@ -126,7 +126,7 @@
 .public FUN_ov16_02110558
 .public FUN_ov16_021123b4
 .public FUN_ov16_020eeca0
-.public gL5Allocator
+.public gAllocator
 .public unk_020A9C40
 .public FUN_ov16_0210e10c
 .public FUN_ov16_020f5868
@@ -137,7 +137,7 @@
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_021123c4
 .public FUN_ov16_020eedb8
 .public FUN_0205107c
@@ -157,7 +157,7 @@
 .public FUN_ov16_020ee278
 .public FUN_ov16_020eebb0
 .public FUN_ov16_020eeb24
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public unk_020A1612
 .public _ZdlPv
 .public _ZNSs7replaceEmmRKSsmm

@@ -123,8 +123,8 @@ unk_02099F68:
 	.global unk_02099F6E
 unk_02099F6E:
 	.space 0x0A
-	.global gL5Config
-gL5Config:
+	.global gConfig
+gConfig:
 	.space 0x08
 	.global unk_02099F80
 unk_02099F80:

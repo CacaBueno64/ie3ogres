@@ -19,8 +19,8 @@
 .public FUN_ov16_0210ecb8
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
-.public _ZN7L5Sound12FUN_0202cf6cEm
-.public gL5Sound
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public gAudioPlayer
 .public STD_TSPrintf
 .public FUN_ov16_020f316c
 .public FUN_ov16_020f338c

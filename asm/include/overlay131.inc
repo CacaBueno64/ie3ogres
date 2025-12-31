@@ -1,5 +1,5 @@
-.public _ZN8L5Config8getParamEPc
-.public gL5Config
+.public _ZN6Config8getParamEPc
+.public gConfig
 .public unk_020A0B00
 .public FUN_02074748
 .public unk_020A0640
@@ -12,8 +12,8 @@
 .public unk_020A0700
 .public FUN_ov16_020edec4
 .public unk_020A1640
-.public _ZN7CFileIO10readDirectEPKcPPvP11L5Allocatorimih
-.public gL5Allocator
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public gAllocator
 .public FUN_ov16_020ee16c
 .public unk_020A1140
 .public MI_CpuFill8
@@ -25,7 +25,7 @@
 .public unk_020A0C3C
 .public FUN_0204eac8
 .public STD_GetStringLength
-.public _ZN11L5Allocator8allocateEm
+.public _ZN9Allocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_0206c7dc
 .public STD_CopyString
@@ -38,7 +38,7 @@
 .public FUN_02040dc8
 .public FUN_02050740
 .public FUN_0204ec3c
-.public _ZN11L5Allocator10deallocateEPv
+.public _ZN9Allocator10deallocateEPv
 .public unk_0209A11C
 .public unk_020A11DC
 .public unk_0209C094
@@ -140,12 +140,12 @@
 .public FUN_02055d2c
 .public FUN_02055bb0
 .public FUN_0202ceb0
-.public _ZN7L5Sound12FUN_0202b7f0Ev
-.public _ZN7L5Sound12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202b7f0Ev
+.public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_02038554
 .public FUN_020388c0
 .public FUN_020385c0
-.public gL5Sound
+.public gAudioPlayer
 .public FUN_0204ce50
 .public FUN_0204ead8
 .public FUN_0207461c
@@ -259,7 +259,7 @@
 .public __DSProt_DetectNotEmulator
 .public __DSProt_DetectNotDummy
 .public STD_TSPrintf
-.public L5FS_ReadFileByName
+.public _ZN10FileSystem14ReadFileByNameEPPviPKc
 .public FUN_02037c98
 .public FUN_02037fb0
 .public sprintf
