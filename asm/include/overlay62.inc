@@ -4,7 +4,7 @@
 .public unk_020A1640
 .public FUN_02059004
 .public FUN_02059038
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f57b0
@@ -33,7 +33,7 @@
 .public FUN_ov16_0210fbe8
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
-.public unk_02099EB4
+.public gSprButtonCtrl
 .public FUN_ov16_0210eab4
 .public FUN_ov16_02114370
 .public FUN_ov16_02112c90
@@ -66,7 +66,7 @@
 .public FUN_ov16_0210ebd4
 .public FUN_ov16_0210ee80
 .public FUN_ov16_0210e29c
-.public unk_02099ED4
+.public gSprAnimeCtrl
 .public FUN_ov16_0210fd0c
 .public unk_0209A454
 .public FUN_ov16_021109a0
@@ -133,7 +133,7 @@
 .public FUN_ov16_020f153c
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public unk_0209A110
+.public gDeltaTime
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
@@ -183,6 +183,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

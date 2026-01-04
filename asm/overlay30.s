@@ -9,7 +9,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	mov r7, r0
 	mov r5, #0
 	mov r6, #1
-	ldr r4, _02119FA8 ; =0x02099F14
+	ldr r4, _02119FA8 ; =g3DFieldSprite
 	str r5, [r7, #0x6c]
 	str r5, [r7, #0x68]
 	str r5, [r7, #0x70]
@@ -45,9 +45,9 @@ FUN_ov30_02119f00: ; 0x02119F00
 	mov r0, r4
 	mov r1, r5
 	mov r2, r5
-	bl _ZN11AudioPlayer12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594EiPKc
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02119FA8: .word unk_02099F14
+_02119FA8: .word g3DFieldSprite
 _02119FAC: .word unk_02099EF0
 _02119FB0: .word gAudioPlayer
 _02119FB4: .word ov30_0211A7AC
@@ -86,7 +86,7 @@ _0211A00C:
 	ldr r0, [r4, #0x68]
 	cmp r0, #0
 	bne _0211A030
-	ldr r0, _0211A09C ; =0x02099F14
+	ldr r0, _0211A09C ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3d74
 	cmp r0, #0
@@ -105,13 +105,13 @@ _0211A030:
 	mov r1, r5
 	mov r6, #1
 	bl FUN_01ff95b0
-	ldr r0, _0211A09C ; =0x02099F14
+	ldr r0, _0211A09C ; =g3DFieldSprite
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, r5
 	bl FUN_ov1_020e03b0
-	ldr r0, _0211A0A4 ; =0x02099EE8
-	ldr r1, _0211A0A8 ; =0x0209A110
+	ldr r0, _0211A0A4 ; =g3DGameMapObject
+	ldr r1, _0211A0A8 ; =gDeltaTime
 	ldr r0, [r0]
 	ldr r1, [r1]
 	bl FUN_0205ef30
@@ -120,10 +120,10 @@ _0211A030:
 	mov r2, r5
 	bl FUN_ov132_021435c0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A09C: .word unk_02099F14
+_0211A09C: .word g3DFieldSprite
 _0211A0A0: .word unk_02099EF0
-_0211A0A4: .word unk_02099EE8
-_0211A0A8: .word unk_0209A110
+_0211A0A4: .word g3DGameMapObject
+_0211A0A8: .word gDeltaTime
 	arm_func_end FUN_ov30_02119fb8
 
 	arm_func_start FUN_ov30_0211a0ac
@@ -134,7 +134,7 @@ FUN_ov30_0211a0ac: ; 0x0211A0AC
 	arm_func_start FUN_ov30_0211a0b0
 FUN_ov30_0211a0b0: ; 0x0211A0B0
 	stmfd sp!, {r3, lr}
-	ldr r0, _0211A0D4 ; =0x02099F14
+	ldr r0, _0211A0D4 ; =g3DFieldSprite
 	mov r1, #1
 	ldr r0, [r0]
 	bl FUN_ov1_020df110
@@ -142,7 +142,7 @@ FUN_ov30_0211a0b0: ; 0x0211A0B0
 	ldr r0, [r0]
 	bl FUN_01ffac60
 	ldmfd sp!, {r3, pc}
-_0211A0D4: .word unk_02099F14
+_0211A0D4: .word g3DFieldSprite
 _0211A0D8: .word unk_02099EF0
 	arm_func_end FUN_ov30_0211a0b0
 
@@ -153,7 +153,7 @@ FUN_ov30_0211a0dc: ; 0x0211A0DC
 	mov r5, r1
 	cmp r0, #3
 	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r4, _0211A114 ; =0x02099EB4
+	ldr r4, _0211A114 ; =gSprButtonCtrl
 	ldr r0, [r4]
 	bl FUN_ov16_0210f468
 	cmp r0, #0
@@ -162,7 +162,7 @@ FUN_ov30_0211a0dc: ; 0x0211A0DC
 	mov r1, r5
 	bl FUN_ov16_0210f400
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A114: .word unk_02099EB4
+_0211A114: .word gSprButtonCtrl
 	arm_func_end FUN_ov30_0211a0dc
 
 	arm_func_start FUN_ov30_0211a118
@@ -293,7 +293,7 @@ _0211A270:
 	strh r4, [r0, #0x14]
 	ldr r0, [r8, #0x84]
 	ldrb r3, [r0, #0x1a]
-	ldr r0, _0211A3C4 ; =0x02099F14
+	ldr r0, _0211A3C4 ; =g3DFieldSprite
 	str r4, [sp]
 	ldr r0, [r0]
 	bl FUN_ov1_020e3c14
@@ -358,7 +358,7 @@ _0211A334:
 	strh r7, [r0, #0x14]
 	ldr r0, [r8, #0x84]
 	ldrb r3, [r0, #0x1a]
-	ldr r0, _0211A3C4 ; =0x02099F14
+	ldr r0, _0211A3C4 ; =g3DFieldSprite
 	str r7, [sp]
 	ldr r0, [r0]
 	bl FUN_ov1_020e3c14
@@ -370,7 +370,7 @@ _0211A3B0:
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A3C0: .word ov30_0211A6A4
-_0211A3C4: .word unk_02099F14
+_0211A3C4: .word g3DFieldSprite
 _0211A3C8: .word unk_020A9C40
 _0211A3CC: .word ov30_0211A674
 _0211A3D0: .word unk_02099EF0
@@ -517,7 +517,7 @@ FUN_ov30_0211a570: ; 0x0211A570
 	mov r2, r7
 	ldr r1, [sp, #8]
 	ldr r0, [r5, #0x84]
-	ldr r7, _0211A644 ; =0x02099F14
+	ldr r7, _0211A644 ; =g3DFieldSprite
 	str r1, [r0]
 	ldr r3, [sp, #4]
 	ldr r0, [r5, #0x84]
@@ -547,7 +547,7 @@ FUN_ov30_0211a570: ; 0x0211A570
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A640: .word unk_02099EF0
-_0211A644: .word unk_02099F14
+_0211A644: .word g3DFieldSprite
 	arm_func_end FUN_ov30_0211a570
 
 	arm_func_start FUN_ov30_0211a648
@@ -647,9 +647,9 @@ ov30_0211A740:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov30_0211A7AC
 ov30_0211A7AC:
 	.byte 0x4A, 0x32, 0x31, 0x2E

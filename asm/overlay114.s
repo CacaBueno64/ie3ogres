@@ -1587,9 +1587,9 @@ ov114_021262E4:
 	.word _ZN15CommonSubScreen9fadeWhiteEv
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov114_02126350
 ov114_02126350:
 	.byte 0x53, 0x50, 0x53, 0x41, 0x63, 0x74, 0x2E, 0x53, 0x50, 0x46, 0x5F, 0x00

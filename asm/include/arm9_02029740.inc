@@ -57,13 +57,13 @@
 .public _Z12FUN_020292e8v
 .public _Z12FUN_020292f4v
 .public FS_LoadOverlay
-.public FUN_02029304
+.public _Z11InitGlobalsv
 .public _Z12FUN_020295e8v
 .public _Z12FUN_02029608v
 .public FUN_0202afd0
 .public _ZdlPv
 .public FUN_0205a504
-.public unk_0208F6E0
+.public _ZTV11C3DGameChar
 .public FUN_0203000c
 .public FUN_02047ad4
 .public _ZN14CScreenManagerD2Ev

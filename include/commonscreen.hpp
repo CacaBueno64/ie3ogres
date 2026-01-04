@@ -30,9 +30,9 @@ class CommonScreen {
         virtual void fadeWhite(void);
         virtual BOOL isFading(void);
         virtual void isBrightAdjusted(void);
-        /* 0x0202b1d8 */ virtual int vFUN_60(int arg);
-        /* 0x0202b1d0 */ virtual int vFUN_64(int arg);
-        /* 0x0202b1c8 */ virtual int vFUN_68();
+        /* 0x0202b1d8 */ virtual int transfer(void *arg);
+        /* 0x0202b1d0 */ virtual int signal(int arg);
+        /* 0x0202b1c8 */ virtual int state(void);
 };
 
 class CommonMainScreen : public CommonScreen {

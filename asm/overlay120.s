@@ -1090,9 +1090,9 @@ ov120_02125BDC:
 	.word _ZN15CommonSubScreen9fadeWhiteEv
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov120_02125C48
 ov120_02125C48:
 	.byte 0x53, 0x50, 0x53, 0x50, 0x72, 0x64, 0x2E, 0x53

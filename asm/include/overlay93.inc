@@ -1,7 +1,7 @@
 .public MI_CpuFill8
 .public sprintf
 .public FUN_02058800
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_02058ee0
 .public FUN_ov16_021128c4
 .public FUN_02059038
@@ -37,4 +37,4 @@
 .public _ZN15CommonSubScreen9fadeWhiteEv
 .public _ZN15CommonSubScreen8isFadingEv
 .public _ZN15CommonSubScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen5stateEv

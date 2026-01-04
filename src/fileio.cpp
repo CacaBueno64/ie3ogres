@@ -739,9 +739,9 @@ void CFileIO::uncompress(void *src, FileRequest *request)
     DC_FlushRange(dst, MI_GetUncompressedSize(src));
 }
 
-size_t CFileIO::readFromSFP(char *filename, void **dst, void *file)
+size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
 {
-    Archive_SFPHeader *header = static_cast<Archive_SFPHeader *>(file);
+    Archive_SFPHeader *header = reinterpret_cast<Archive_SFPHeader *>(file);
     
     if (strcmp(header->magic, "SFP")) {
         return 0;
@@ -761,33 +761,31 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, void *file)
         }
     }
 
-    Archive_SFPEntry *entries = reinterpret_cast<Archive_SFPEntry *>(static_cast<char *>(file) + sizeof(*header));
-    int r9 = (entries->string_offset - 0x20) >> 4;
-    int r5 = 0;
-    while (r9 > r5) {
-        if (!strcmp(static_cast<char *>(file) + entries[r5].string_offset, filename)) {
+    Archive_SFPEntry *entries = reinterpret_cast<Archive_SFPEntry *>(file + sizeof(*header));
+    int entry_count = (entries->string_offset - sizeof(Archive_SFPHeader)) / sizeof(Archive_SFPEntry);
+    int idx;
+
+    for (idx = 0; idx < entry_count; idx++) {
+        if (!strcmp(file + entries[idx].string_offset, filename)) {
             break;
         }
-        r5++;
     }
 
-    if (r5 >= r9) {
+    if (idx >= entry_count) {
         return 0;
     }
 
     // seek at the end of the file
-    file = static_cast<void *>(static_cast<char *>(file) + header->file_size);
-    header = static_cast<Archive_SFPHeader *>(file);
+    file = file + header->file_size;
+    header = reinterpret_cast<Archive_SFPHeader *>(file);
     
-    if (strcmp(static_cast<char *>(file), "SFP")) {
+    if (strcmp(file, "SFP")) {
         return 0;
     }
 
-    int data_size = entries[r5].size;
+    int data_size = entries[idx].size;
 
-    *dst = static_cast<void *>(static_cast<char *>(file) + (header->chunk_size * entries[r5].data_offset));
+    *dst = file + (header->chunk_size * entries[idx].data_offset);
 
     return data_size;
 }
-
-

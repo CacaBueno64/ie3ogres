@@ -11268,7 +11268,7 @@ _0214487C:
 	addeq r0, r0, #1
 	streqb r0, [r6, #0xb]
 	beq _02144A4C
-	ldr r2, _02144A70 ; =0x02099ED8
+	ldr r2, _02144A70 ; =g2DAdventureLogic
 	ldr r1, [r0, #4]
 	ldr r0, [r2]
 	bl FUN_020552cc
@@ -11316,7 +11316,7 @@ _02144988:
 	bl FUN_ov131_0214aabc
 	cmp r0, #0
 	beq _02144A4C
-	ldr r2, _02144A70 ; =0x02099ED8
+	ldr r2, _02144A70 ; =g2DAdventureLogic
 	ldr r1, [r0, #4]
 	ldr r0, [r2]
 	bl FUN_020552cc
@@ -11365,7 +11365,7 @@ _02144A4C:
 	moveq r0, #0
 	add sp, sp, #0xa0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02144A70: .word unk_02099ED8
+_02144A70: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02144838
 
 	arm_func_start FUN_ov131_02144a74
@@ -11985,7 +11985,7 @@ _021452AC:
 	ldr r1, [r6, #0xc]
 	ldr r2, [r6, #0x10]
 	bl FUN_ov131_0214b15c
-	ldr r4, _02145368 ; =0x02099ED8
+	ldr r4, _02145368 ; =g2DAdventureLogic
 	ldr r1, [r6, #0x18]
 	ldr r0, [r4]
 	mov r2, #3
@@ -12010,7 +12010,7 @@ _02145344:
 	moveq r0, #0
 	add sp, sp, #0x98
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02145368: .word unk_02099ED8
+_02145368: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_021451fc
 
 	arm_func_start FUN_ov131_0214536c
@@ -13181,11 +13181,11 @@ FUN_ov131_02146314: ; 0x02146314
 	ldr r0, [sp, #0x24]
 	cmp r0, #0
 	beq _021463AC
-	ldr r0, _021463D8 ; =0x02099ED8
+	ldr r0, _021463D8 ; =g2DAdventureLogic
 	mov r1, r4
 	b _021463B4
 _021463AC:
-	ldr r0, _021463D8 ; =0x02099ED8
+	ldr r0, _021463D8 ; =g2DAdventureLogic
 	mov r1, r5
 _021463B4:
 	ldr r0, [r0]
@@ -13197,7 +13197,7 @@ _021463B4:
 	add sp, sp, #0x8c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _021463D4: .word unk_020A9C40
-_021463D8: .word unk_02099ED8
+_021463D8: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02146314
 
 	arm_func_start FUN_ov131_021463dc
@@ -13296,7 +13296,7 @@ FUN_ov131_021464c4: ; 0x021464C4
 	ldr r0, _02146568 ; =0x020A9C40
 	ldr r1, [r5, #4]
 	bl FUN_02045550
-	ldr r4, _0214656C ; =0x02099ED8
+	ldr r4, _0214656C ; =g2DAdventureLogic
 	ldr r1, [r5, #4]
 	ldr r0, [r4]
 	sub r2, r6, #2
@@ -13310,7 +13310,7 @@ FUN_ov131_021464c4: ; 0x021464C4
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02146568: .word unk_020A9C40
-_0214656C: .word unk_02099ED8
+_0214656C: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_021464c4
 
 	arm_func_start FUN_ov131_02146570
@@ -13382,7 +13382,7 @@ _02146650:
 	mov r2, #0
 	bl FUN_ov131_0214aabc
 	mov r7, r0
-	ldr r0, _021467B8 ; =0x02099ED8
+	ldr r0, _021467B8 ; =g2DAdventureLogic
 	ldr r1, [r7, #4]
 	ldr r0, [r0]
 	mov r2, #1
@@ -13406,21 +13406,21 @@ _02146688:
 	bl FUN_0204d524
 	b _021466F4
 _021466CC:
-	ldr r0, _021467B8 ; =0x02099ED8
+	ldr r0, _021467B8 ; =g2DAdventureLogic
 	ldr r1, [r7, #4]
 	ldr r0, [r0]
 	sub r2, r5, #1
 	bl FUN_02055890
 	b _021466F4
 _021466E4:
-	ldr r0, _021467B8 ; =0x02099ED8
+	ldr r0, _021467B8 ; =g2DAdventureLogic
 	ldr r1, [r7, #4]
 	ldr r0, [r0]
 	bl FUN_02055a68
 _021466F4:
 	cmp r7, #0
 	beq _0214679C
-	ldr r5, _021467B8 ; =0x02099ED8
+	ldr r5, _021467B8 ; =g2DAdventureLogic
 	ldr r1, [r7, #4]
 	ldr r0, [r5]
 	bl FUN_020552cc
@@ -13468,7 +13468,7 @@ _0214679C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _021467B0: .word gLogicThink
 _021467B4: .word unk_0209A11C
-_021467B8: .word unk_02099ED8
+_021467B8: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02146570
 
 	arm_func_start FUN_ov131_021467bc
@@ -13518,7 +13518,7 @@ FUN_ov131_021467bc: ; 0x021467BC
 _02146864:
 	cmp r4, #0
 	beq _02146880
-	ldr r0, _0214689C ; =0x02099ED8
+	ldr r0, _0214689C ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	mov r2, #1
@@ -13532,7 +13532,7 @@ _02146884:
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02146898: .word gLogicThink
-_0214689C: .word unk_02099ED8
+_0214689C: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_021467bc
 
 	arm_func_start FUN_ov131_021468a0
@@ -14387,10 +14387,10 @@ FUN_ov131_02147400: ; 0x02147400
 	ldr r0, [sp, #4]
 	cmp r0, #0
 	beq _02147468
-	ldr r0, _02147490 ; =0x02099ED8
+	ldr r0, _02147490 ; =g2DAdventureLogic
 	b _02147470
 _02147468:
-	ldr r0, _02147490 ; =0x02099ED8
+	ldr r0, _02147490 ; =g2DAdventureLogic
 	mov r1, r5
 _02147470:
 	ldr r0, [r0]
@@ -14401,7 +14401,7 @@ _02147470:
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02147490: .word unk_02099ED8
+_02147490: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02147400
 
 	arm_func_start FUN_ov131_02147494
@@ -14420,7 +14420,7 @@ FUN_ov131_02147494: ; 0x02147494
 	mov r1, r6
 	mov r2, r4
 	bl FUN_ov16_020febf8
-	ldr r4, _02147524 ; =0x02099ED8
+	ldr r4, _02147524 ; =g2DAdventureLogic
 	str r0, [r6, #4]
 	ldr r0, [r4]
 	bl FUN_ov0_020cccfc
@@ -14444,7 +14444,7 @@ _0214750C:
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02147524: .word unk_02099ED8
+_02147524: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02147494
 
 	arm_func_start FUN_ov131_02147528
@@ -14465,7 +14465,7 @@ FUN_ov131_02147528: ; 0x02147528
 	bl FUN_ov16_020febf8
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
-	ldr r1, _0214759C ; =0x02099ED8
+	ldr r1, _0214759C ; =g2DAdventureLogic
 	add r2, r2, #1
 	strb r4, [r6, #0xa]
 	strb r2, [r6, #0xb]
@@ -14478,7 +14478,7 @@ FUN_ov131_02147528: ; 0x02147528
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0214759C: .word unk_02099ED8
+_0214759C: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02147528
 
 	arm_func_start FUN_ov131_021475a0
@@ -14507,7 +14507,7 @@ FUN_ov131_021475a0: ; 0x021475A0
 	ldr r0, [sp, #8]
 	ldr r1, [sp]
 	cmp r0, #0
-	ldr r0, _0214762C ; =0x02099ED8
+	ldr r0, _0214762C ; =g2DAdventureLogic
 	ldr r2, [sp, #4]
 	ldr r0, [r0]
 	moveq r3, r5
@@ -14518,7 +14518,7 @@ FUN_ov131_021475a0: ; 0x021475A0
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0214762C: .word unk_02099ED8
+_0214762C: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_021475a0
 
 	arm_func_start FUN_ov131_02147630
@@ -14769,7 +14769,7 @@ _02147988:
 	ldr r0, _02147A64 ; =0x020A9C40
 	str r6, [r5, #0x10]
 	bl FUN_02045900
-	ldr r6, _02147A68 ; =0x02099ED8
+	ldr r6, _02147A68 ; =g2DAdventureLogic
 	mov r7, r0
 	ldr r0, [r6]
 	bl FUN_ov0_020ccda4
@@ -14783,7 +14783,7 @@ _02147988:
 	ldr r0, [r6]
 	b _02147A2C
 _021479F0:
-	ldr r0, _02147A68 ; =0x02099ED8
+	ldr r0, _02147A68 ; =g2DAdventureLogic
 	ldr r0, [r0]
 	bl FUN_ov0_020cd11c
 	ldr r0, [r8]
@@ -14797,7 +14797,7 @@ _021479F0:
 	strb r1, [r5, #0xa]
 	b _02147A34
 _02147A24:
-	ldr r0, _02147A68 ; =0x02099ED8
+	ldr r0, _02147A68 ; =g2DAdventureLogic
 	ldr r0, [r0]
 _02147A2C:
 	bl FUN_ov0_020cd11c
@@ -14817,7 +14817,7 @@ _02147A3C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02147A60: .word gLogicThink
 _02147A64: .word unk_020A9C40
-_02147A68: .word unk_02099ED8
+_02147A68: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02147944
 
 	arm_func_start FUN_ov131_02147a6c
@@ -14845,7 +14845,7 @@ FUN_ov131_02147a6c: ; 0x02147A6C
 	strb r0, [r7, #0xb]
 	ldr r0, [sp]
 	cmp r0, #0
-	ldr r0, _02147AF0 ; =0x02099ED8
+	ldr r0, _02147AF0 ; =g2DAdventureLogic
 	movne r4, r6
 	ldr r0, [r0]
 	mov r1, r4
@@ -14855,7 +14855,7 @@ FUN_ov131_02147a6c: ; 0x02147A6C
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02147AF0: .word unk_02099ED8
+_02147AF0: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02147a6c
 
 	arm_func_start FUN_ov131_02147af4
@@ -15720,12 +15720,12 @@ FUN_ov131_02148684: ; 0x02148684
 	ldr r1, [sp]
 	cmp r1, #4
 	beq _021486F0
-	ldr r0, _02148724 ; =0x02099ED8
+	ldr r0, _02148724 ; =g2DAdventureLogic
 	ldr r0, [r0]
 	bl FUN_020552dc
 	b _021486FC
 _021486F0:
-	ldr r0, _02148724 ; =0x02099ED8
+	ldr r0, _02148724 ; =g2DAdventureLogic
 	ldr r0, [r0]
 	bl FUN_02055310
 _021486FC:
@@ -15740,7 +15740,7 @@ _02148710:
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02148724: .word unk_02099ED8
+_02148724: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_02148684
 
 	arm_func_start FUN_ov131_02148728
@@ -17398,7 +17398,7 @@ FUN_ov131_02149d78: ; 0x02149D78
 	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 	b _02149E30
 _02149DF4:
-	ldr r0, _02149E4C ; =0x02099F54
+	ldr r0, _02149E4C ; =gDungeonManager
 	ldr r0, [r0]
 	bl FUN_ov16_020f8860
 	ldr lr, [sp, #0x20]
@@ -17422,7 +17422,7 @@ _02149E30:
 	bx lr
 _02149E44: .word gAllocator
 _02149E48: .word ov131_0214CB10
-_02149E4C: .word unk_02099F54
+_02149E4C: .word gDungeonManager
 	arm_func_end FUN_ov131_02149d78
 
 	arm_func_start FUN_ov131_02149e50
@@ -17446,7 +17446,7 @@ FUN_ov131_02149e50: ; 0x02149E50
 	mov r1, r11
 	add r0, r0, #0x1c00
 	bl FUN_020385dc
-	ldr r1, _0214A518 ; =0x02099EE8
+	ldr r1, _0214A518 ; =g3DGameMapObject
 	mov r2, r0
 	ldr r1, [r1]
 	add r0, sp, #0x24
@@ -17884,7 +17884,7 @@ _0214A500:
 	mov r0, #1
 	add sp, sp, #0x9c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0214A518: .word unk_02099EE8
+_0214A518: .word g3DGameMapObject
 _0214A51C: .word ov131_0214CB30
 _0214A520: .word gConfig
 _0214A524: .word ov131_0214CB38
@@ -18289,7 +18289,7 @@ _0214AB0C:
 	cmp r5, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0214ABB0 ; =0x02099ED8
+	ldr r0, _0214ABB0 ; =g2DAdventureLogic
 	mov r1, r5
 	ldr r0, [r0]
 	mov r2, r4
@@ -18328,7 +18328,7 @@ _0214AB6C:
 	strh r1, [r2, #0x6a]
 	add r0, r0, r12
 	ldmfd sp!, {r4, r5, r6, pc}
-_0214ABB0: .word unk_02099ED8
+_0214ABB0: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214aabc
 
 	arm_func_start FUN_ov131_0214abb4
@@ -18391,7 +18391,7 @@ _0214AC50:
 _0214AC84:
 	str r8, [r4]
 	strh r7, [r4, #8]
-	ldr r9, _0214ACF8 ; =0x02099ED8
+	ldr r9, _0214ACF8 ; =g2DAdventureLogic
 	str r5, [sp]
 	ldr r0, [r9]
 	mov r1, r8
@@ -18404,7 +18404,7 @@ _0214AC84:
 	ldr r2, _0214ACFC ; =0x0000C350
 	mov r3, #3
 	bl FUN_02055528
-	ldr r0, _0214AD00 ; =0x02099EC0
+	ldr r0, _0214AD00 ; =g2DGChar
 	str r5, [sp]
 	ldr r0, [r0]
 	mov r1, r8
@@ -18418,9 +18418,9 @@ _0214AC84:
 	add sp, sp, #0x6c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _0214ACF4: .word gLogicThink
-_0214ACF8: .word unk_02099ED8
+_0214ACF8: .word g2DAdventureLogic
 _0214ACFC: .word 0x0000C350
-_0214AD00: .word unk_02099EC0
+_0214AD00: .word g2DGChar
 	arm_func_end FUN_ov131_0214abb4
 
 	arm_func_start FUN_ov131_0214ad04
@@ -18434,7 +18434,7 @@ FUN_ov131_0214ad04: ; 0x0214AD04
 	ldrh r0, [r5, #0xa]
 	tst r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r4, _0214AD80 ; =0x02099ED8
+	ldr r4, _0214AD80 ; =g2DAdventureLogic
 	ldr r1, [r5, #4]
 	ldr r0, [r4]
 	bl FUN_020559a0
@@ -18443,7 +18443,7 @@ FUN_ov131_0214ad04: ; 0x0214AD04
 	ldr r0, [r4]
 	ldr r1, [r5, #4]
 	bl FUN_02055324
-	ldr r2, _0214AD84 ; =0x02099EC0
+	ldr r2, _0214AD84 ; =g2DGChar
 	mov r1, r0
 	ldr r0, [r2]
 	mov r2, #1
@@ -18456,8 +18456,8 @@ FUN_ov131_0214ad04: ; 0x0214AD04
 	mov r2, #0x48
 	bl MI_CpuFill8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0214AD80: .word unk_02099ED8
-_0214AD84: .word unk_02099EC0
+_0214AD80: .word g2DAdventureLogic
+_0214AD84: .word g2DGChar
 	arm_func_end FUN_ov131_0214ad04
 
 	arm_func_start FUN_ov131_0214ad88
@@ -18501,14 +18501,14 @@ _0214AE0C:
 	cmp r8, #0x20
 	blt _0214ADDC
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r10, _0214AFD0 ; =0x02099ED8
+	ldr r10, _0214AFD0 ; =g2DAdventureLogic
 	mov r1, #1
 	ldr r0, [r10]
 	bl FUN_02055388
 	movs r4, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r8, #0
-	ldr r7, _0214AFD4 ; =0x02099EC0
+	ldr r7, _0214AFD4 ; =g2DGChar
 	b _0214AE90
 _0214AE3C:
 	ldrh r0, [r4, #0x20]
@@ -18540,8 +18540,8 @@ _0214AE90:
 _0214AE9C:
 	add r0, r4, #0x660
 	add r10, r0, #0x1000
-	ldr r5, _0214AFD0 ; =0x02099ED8
-	ldr r11, _0214AFD4 ; =0x02099EC0
+	ldr r5, _0214AFD0 ; =g2DAdventureLogic
+	ldr r11, _0214AFD4 ; =g2DGChar
 	mvn r4, #0
 	b _0214AF34
 _0214AEB4:
@@ -18582,14 +18582,14 @@ _0214AF30:
 _0214AF34:
 	cmp r8, #0x20
 	blt _0214AEB4
-	ldr r7, _0214AFD0 ; =0x02099ED8
+	ldr r7, _0214AFD0 ; =g2DAdventureLogic
 	mov r1, #1
 	ldr r0, [r7]
 	bl FUN_02055388
 	mov r10, r0
 	mov r8, #0
 	ldr r11, _0214AFCC ; =gLogicThink
-	ldr r5, _0214AFD4 ; =0x02099EC0
+	ldr r5, _0214AFD4 ; =g2DGChar
 	mvn r4, #0
 	b _0214AFC0
 _0214AF64:
@@ -18623,8 +18623,8 @@ _0214AFC0:
 	blt _0214AF64
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214AFCC: .word gLogicThink
-_0214AFD0: .word unk_02099ED8
-_0214AFD4: .word unk_02099EC0
+_0214AFD0: .word g2DAdventureLogic
+_0214AFD4: .word g2DGChar
 	arm_func_end FUN_ov131_0214ad88
 
 	arm_func_start FUN_ov131_0214afd8
@@ -18643,7 +18643,7 @@ FUN_ov131_0214afd8: ; 0x0214AFD8
 	tst r0, #1
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	ldr r7, _0214B080 ; =0x02099ED8
+	ldr r7, _0214B080 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r7]
 	bl FUN_020552cc
@@ -18657,7 +18657,7 @@ FUN_ov131_0214afd8: ; 0x0214AFD8
 	str r3, [sp]
 	str r1, [sp, #4]
 	ldrb r3, [r8, #0x67]
-	ldr r6, _0214B084 ; =0x02099EC0
+	ldr r6, _0214B084 ; =g2DGChar
 	mov r1, r0
 	str r3, [sp, #8]
 	ldr r0, [r6]
@@ -18671,8 +18671,8 @@ FUN_ov131_0214afd8: ; 0x0214AFD8
 	strh r0, [r4, #0xa]
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0214B080: .word unk_02099ED8
-_0214B084: .word unk_02099EC0
+_0214B080: .word g2DAdventureLogic
+_0214B084: .word g2DGChar
 	arm_func_end FUN_ov131_0214afd8
 
 	arm_func_start FUN_ov131_0214b088
@@ -18688,7 +18688,7 @@ FUN_ov131_0214b088: ; 0x0214B088
 	ldrh r0, [r4, #0xa]
 	tst r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0214B158 ; =0x02099ED8
+	ldr r0, _0214B158 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -18733,7 +18733,7 @@ _0214B148:
 	orr r0, r0, #0x800
 	strh r0, [r4, #0xa]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0214B158: .word unk_02099ED8
+_0214B158: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214b088
 
 	arm_func_start FUN_ov131_0214b15c
@@ -18753,7 +18753,7 @@ FUN_ov131_0214b15c: ; 0x0214B15C
 	tst r0, #1
 	addeq sp, sp, #0x38
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0214B310 ; =0x02099ED8
+	ldr r0, _0214B310 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -18795,7 +18795,7 @@ _0214B200:
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
 	str r0, [sp, #0x10]
-	ldr r0, _0214B310 ; =0x02099ED8
+	ldr r0, _0214B310 ; =g2DAdventureLogic
 	ldr r2, [r4, #4]
 	ldr r1, [r0]
 	ldr r3, [sp, #0x20]
@@ -18804,7 +18804,7 @@ _0214B200:
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0214B258:
-	ldr r3, _0214B310 ; =0x02099ED8
+	ldr r3, _0214B310 ; =g2DAdventureLogic
 	add r0, sp, #0x20
 	str r1, [sp, #4]
 	sub r5, sp, #8
@@ -18843,7 +18843,7 @@ _0214B28C:
 	strh r6, [r4, #0xc]
 _0214B2E8:
 	ldrh r1, [r4, #0xa]
-	ldr r0, _0214B310 ; =0x02099ED8
+	ldr r0, _0214B310 ; =g2DAdventureLogic
 	mov r2, #0x18
 	orr r1, r1, #0x100
 	strh r1, [r4, #0xa]
@@ -18852,7 +18852,7 @@ _0214B2E8:
 	bl FUN_02055bb0
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0214B310: .word unk_02099ED8
+_0214B310: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214b15c
 
 	arm_func_start FUN_ov131_0214b314
@@ -18872,7 +18872,7 @@ FUN_ov131_0214b314: ; 0x0214B314
 	tst r0, #1
 	addeq sp, sp, #0x38
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0214B4B4 ; =0x02099ED8
+	ldr r0, _0214B4B4 ; =g2DAdventureLogic
 	ldr r1, [r5, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -18909,7 +18909,7 @@ _0214B3BC:
 	mov r1, #1
 	str r0, [sp]
 	ldr r2, [sp, #0x28]
-	ldr r0, _0214B4B4 ; =0x02099ED8
+	ldr r0, _0214B4B4 ; =g2DAdventureLogic
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	str r1, [sp, #0xc]
@@ -18922,7 +18922,7 @@ _0214B3BC:
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0214B410:
-	ldr r3, _0214B4B4 ; =0x02099ED8
+	ldr r3, _0214B4B4 ; =g2DAdventureLogic
 	add r0, sp, #0x20
 	str r1, [sp, #4]
 	sub r4, sp, #8
@@ -18965,7 +18965,7 @@ _0214B4A0:
 	strh r0, [r5, #0xa]
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0214B4B4: .word unk_02099ED8
+_0214B4B4: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214b314
 
 	arm_func_start FUN_ov131_0214b4b8
@@ -18986,7 +18986,7 @@ FUN_ov131_0214b4b8: ; 0x0214B4B8
 	ldmeqfd sp!, {r3, r4, r5, r6, pc}
 	cmp r5, #0
 	beq _0214B550
-	ldr r0, _0214B590 ; =0x02099ED8
+	ldr r0, _0214B590 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -19009,7 +19009,7 @@ FUN_ov131_0214b4b8: ; 0x0214B4B8
 	str r2, [sp, #0x30]
 	str r0, [sp, #0x34]
 _0214B550:
-	ldr r5, _0214B590 ; =0x02099ED8
+	ldr r5, _0214B590 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r5]
 	mov r2, #1
@@ -19025,7 +19025,7 @@ _0214B550:
 	bl FUN_0205581c
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0214B590: .word unk_02099ED8
+_0214B590: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214b4b8
 
 	arm_func_start FUN_ov131_0214b594
@@ -19043,7 +19043,7 @@ FUN_ov131_0214b594: ; 0x0214B594
 	tst r0, #1
 	addeq sp, sp, #0x2c
 	ldmeqfd sp!, {r3, r4, r5, r6, pc}
-	ldr r5, _0214B658 ; =0x02099ED8
+	ldr r5, _0214B658 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r5]
 	bl FUN_020552cc
@@ -19080,7 +19080,7 @@ _0214B63C:
 	strh r0, [r4, #0xa]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0214B658: .word unk_02099ED8
+_0214B658: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214b594
 
 	arm_func_start FUN_ov131_0214b65c
@@ -19097,7 +19097,7 @@ FUN_ov131_0214b65c: ; 0x0214B65C
 	ldrh r0, [r4, #0xa]
 	tst r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0214B750 ; =0x02099ED8
+	ldr r0, _0214B750 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -19148,7 +19148,7 @@ _0214B6F0:
 	orr r0, r0, #0x400
 	strh r0, [r4, #0xa]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0214B750: .word unk_02099ED8
+_0214B750: .word g2DAdventureLogic
 _0214B754: .word 0x00005E14
 _0214B758: .word 0x88888889
 	arm_func_end FUN_ov131_0214b65c
@@ -19166,7 +19166,7 @@ FUN_ov131_0214b75c: ; 0x0214B75C
 	ldrh r0, [r4, #0xa]
 	tst r0, #1
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0214B858 ; =0x02099ED8
+	ldr r0, _0214B858 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
@@ -19193,7 +19193,7 @@ FUN_ov131_0214b75c: ; 0x0214B75C
 	adds r0, r6, #0
 	adc r0, r3, #0x800
 	mov r2, r0, lsl #4
-	ldr r1, _0214B858 ; =0x02099ED8
+	ldr r1, _0214B858 ; =g2DAdventureLogic
 	mov r2, r2, lsr #0x10
 	ldr r0, [r1]
 	ldr r1, [r4, #4]
@@ -19219,7 +19219,7 @@ _0214B80C:
 	orr r0, r0, #0x200
 	strh r0, [r4, #0xa]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0214B858: .word unk_02099ED8
+_0214B858: .word g2DAdventureLogic
 _0214B85C: .word 0x0B60B60B
 	arm_func_end FUN_ov131_0214b75c
 
@@ -19239,7 +19239,7 @@ FUN_ov131_0214b860: ; 0x0214B860
 	tst r0, #1
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}
-	ldr r7, _0214B9C8 ; =0x02099ED8
+	ldr r7, _0214B9C8 ; =g2DAdventureLogic
 	ldr r1, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_020552cc
@@ -19316,7 +19316,7 @@ _0214B904:
 	strh r0, [r5, #0xa]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0214B9C8: .word unk_02099ED8
+_0214B9C8: .word g2DAdventureLogic
 _0214B9CC: .word 0x0B60B60B
 	arm_func_end FUN_ov131_0214b860
 
@@ -19340,7 +19340,7 @@ FUN_ov131_0214b9d0: ; 0x0214B9D0
 	tst r1, #1
 	addeq sp, sp, #0x1c
 	ldmeqfd sp!, {r4, r5, r6, r7, pc}
-	ldr r7, _0214BB94 ; =0x02099ED8
+	ldr r7, _0214BB94 ; =g2DAdventureLogic
 	ldr r1, [r0, #4]
 	ldr r0, [r7]
 	bl FUN_020552cc
@@ -19436,7 +19436,7 @@ _0214BAD0:
 	strh r0, [r5, #0xa]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0214BB94: .word unk_02099ED8
+_0214BB94: .word g2DAdventureLogic
 _0214BB98: .word 0x0B60B60B
 	arm_func_end FUN_ov131_0214b9d0
 
@@ -19456,12 +19456,12 @@ FUN_ov131_0214bb9c: ; 0x0214BB9C
 	tst r0, #1
 	addeq sp, sp, #4
 	ldmeqfd sp!, {r3, r4, r5, r6, pc}
-	ldr r0, _0214BC14 ; =0x02099ED8
+	ldr r0, _0214BC14 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_020552cc
 	str r5, [sp]
-	ldr r1, _0214BC18 ; =0x02099EC0
+	ldr r1, _0214BC18 ; =g2DGChar
 	ldrh r2, [r0, #0xa8]
 	ldr r0, [r1]
 	mov r1, r6
@@ -19472,8 +19472,8 @@ FUN_ov131_0214bb9c: ; 0x0214BB9C
 	strh r0, [r4, #0xa]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0214BC14: .word unk_02099ED8
-_0214BC18: .word unk_02099EC0
+_0214BC14: .word g2DAdventureLogic
+_0214BC18: .word g2DGChar
 	arm_func_end FUN_ov131_0214bb9c
 
 	arm_func_start FUN_ov131_0214bc1c
@@ -19491,7 +19491,7 @@ FUN_ov131_0214bc1c: ; 0x0214BC1C
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	beq _0214BC78
-	ldr r0, _0214BCA0 ; =0x02099ED8
+	ldr r0, _0214BCA0 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	mov r2, r5
@@ -19502,7 +19502,7 @@ FUN_ov131_0214bc1c: ; 0x0214BC1C
 	strh r0, [r4, #0xa]
 	b _0214BC90
 _0214BC78:
-	ldr r0, _0214BCA0 ; =0x02099ED8
+	ldr r0, _0214BCA0 ; =g2DAdventureLogic
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	mov r2, r5
@@ -19513,7 +19513,7 @@ _0214BC90:
 	orr r0, r0, #8
 	strh r0, [r4, #0xa]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0214BCA0: .word unk_02099ED8
+_0214BCA0: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214bc1c
 
 	arm_func_start FUN_ov131_0214bca4
@@ -19563,7 +19563,7 @@ _0214BD24:
 _0214BD2C:
 	cmp r2, #0x20
 	bne _0214BD78
-	ldr r0, _0214BD80 ; =0x02099ED8
+	ldr r0, _0214BD80 ; =g2DAdventureLogic
 	mov r1, #1
 	ldr r0, [r0]
 	bl FUN_02055388
@@ -19586,7 +19586,7 @@ _0214BD6C:
 _0214BD78:
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_0214BD80: .word unk_02099ED8
+_0214BD80: .word g2DAdventureLogic
 	arm_func_end FUN_ov131_0214bcd4
 
 	arm_func_start FUN_ov131_0214bd84
@@ -19621,7 +19621,7 @@ FUN_ov131_0214bdd0: ; 0x0214BDD0
 	mov r11, r0
 	add r0, r11, #0x1000
 	ldr r6, [r0, #0x3e0]
-	ldr r9, _0214C188 ; =0x02099ED8
+	ldr r9, _0214C188 ; =g2DAdventureLogic
 	mov r7, #0
 	b _0214C178
 _0214BDF0:
@@ -19640,7 +19640,7 @@ _0214BDF0:
 	mov r5, r0
 	tst r1, #0x10
 	beq _0214BE4C
-	ldr r0, _0214C18C ; =0x02099EC0
+	ldr r0, _0214C18C ; =g2DGChar
 	ldr r0, [r0]
 	bl FUN_020571ac
 	cmp r0, #0
@@ -19657,7 +19657,7 @@ _0214BE4C:
 	ldr r0, [r9]
 	ldr r1, [r4, #4]
 	bl FUN_02055324
-	ldr r2, _0214C18C ; =0x02099EC0
+	ldr r2, _0214C18C ; =g2DGChar
 	mov r1, r0
 	ldr r0, [r2]
 	bl FUN_020577a4
@@ -19714,7 +19714,7 @@ _0214BF30:
 	blo _0214BF04
 _0214BF38:
 	ldrh r0, [r4, #0xc]
-	ldr r8, _0214C188 ; =0x02099ED8
+	ldr r8, _0214C188 ; =g2DAdventureLogic
 	mov r10, #0
 	cmp r0, #0
 	bne _0214BF9C
@@ -19879,8 +19879,8 @@ _0214C178:
 	blt _0214BDF0
 	add sp, sp, #0x44
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0214C188: .word unk_02099ED8
-_0214C18C: .word unk_02099EC0
+_0214C188: .word g2DAdventureLogic
+_0214C18C: .word g2DGChar
 _0214C190: .word 0x0000FFEF
 _0214C194: .word 0x0000FFF7
 _0214C198: .word 0x0000FEFF
@@ -19899,7 +19899,7 @@ FUN_ov131_0214c1a8: ; 0x0214C1A8
 	cmp r0, #0
 	bne _0214C3C4
 	ldr r0, _0214C478 ; =0x0209A200
-	ldr r4, _0214C47C ; =0x02099F38
+	ldr r4, _0214C47C ; =g3DPlaneCtrl
 	ldr r2, [r0]
 	ldr r0, [r4]
 	mov r5, #0
@@ -19936,7 +19936,7 @@ _0214C244:
 	add r2, sp, #0x18
 	add r3, sp, #0x14
 	bl FUN_ov16_020f3d08
-	ldr r4, _0214C47C ; =0x02099F38
+	ldr r4, _0214C47C ; =g3DPlaneCtrl
 	mov r9, #0
 	ldr r6, [sp, #0x14]
 	ldr r1, [sp, #0x18]
@@ -20036,7 +20036,7 @@ _0214C3C4:
 	mov r8, r0
 	add r4, r10, #0x1000
 	mov r7, r9
-	ldr r6, _0214C47C ; =0x02099F38
+	ldr r6, _0214C47C ; =g3DPlaneCtrl
 	ldr r5, _0214C498 ; =0x66666667
 	mov r11, #0xa
 	b _0214C444
@@ -20068,7 +20068,7 @@ _0214C444:
 	cmp r9, #6
 	blt _0214C3EC
 	mov r1, #1
-	ldr r0, _0214C47C ; =0x02099F38
+	ldr r0, _0214C47C ; =g3DPlaneCtrl
 	str r1, [sp]
 	add r1, r10, #0x1000
 	mov r2, #2
@@ -20079,7 +20079,7 @@ _0214C444:
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214C478: .word unk_0209A200
-_0214C47C: .word unk_02099F38
+_0214C47C: .word g3DPlaneCtrl
 _0214C480: .word ov131_0214CD2C
 _0214C484: .word gAllocator
 _0214C488: .word ov131_0214CD3C
@@ -20097,7 +20097,7 @@ FUN_ov131_0214c49c: ; 0x0214C49C
 	ldr r1, [r0, #0x348]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r4, _0214C510 ; =0x02099F38
+	ldr r4, _0214C510 ; =g3DPlaneCtrl
 	ldr r1, [r0, #0x35c]
 	ldr r0, [r4]
 	mov r2, #2
@@ -20120,7 +20120,7 @@ FUN_ov131_0214c49c: ; 0x0214C49C
 	mov r2, #0x1c
 	bl MI_CpuFill8
 	ldmfd sp!, {r3, r4, r5, pc}
-_0214C510: .word unk_02099F38
+_0214C510: .word g3DPlaneCtrl
 	arm_func_end FUN_ov131_0214c49c
 
 	.rodata

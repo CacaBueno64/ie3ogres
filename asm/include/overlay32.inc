@@ -8,7 +8,7 @@
 .public STD_GetStringLength
 .public FUN_02074764
 .public FUN_020630e0
-.public FUN_02054f60
+.public _ZN17C2DAdventureLogic5resetEv
 .public FUN_0205ff0c
 .public FUN_ov16_020efa4c
 .public FUN_02070530
@@ -23,8 +23,8 @@
 .public unk_0209A460
 .public unk_0209A5D0
 .public unk_020A0640
-.public unk_02099ED8
-.public unk_02099EE8
+.public g2DAdventureLogic
+.public g3DGameMapObject
 .public gLogicThink
 .public gConfig
 .public unk_020AF81C
@@ -68,6 +68,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

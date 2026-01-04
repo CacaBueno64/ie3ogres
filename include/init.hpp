@@ -13,6 +13,22 @@
 #include "wirelessutil.hpp"
 #include "logicthink.hpp"
 #include "fontmanager.hpp"
+#include "3ddevice.hpp"
+#include "resourcemanager.hpp"
+#include "nsbresourcemanager.hpp"
+#include "cameracontroller.hpp"
+#include "3dgamechar.hpp"
+#include "3dgamemap.hpp"
+#include "3dgameeffect.hpp"
+#include "3dgamemapobject.hpp"
+#include "3dplanecontroller.hpp"
+#include "3dspritecontroller.hpp"
+#include "3dmagiccamera.hpp"
+#include "2dadventurelogic.hpp"
+#include "2dgamechar.hpp"
+#include "spritebuttoncontroller.hpp"
+#include "spriteanimcontroller.hpp"
+#include "dungeonmanager.hpp"
 
 typedef struct {
     u8 unk0;
@@ -37,18 +53,24 @@ typedef struct {
     u16 unk14;
     u16 unk16;
     u16 unk18;
-    u8 unk1A[0x16];
+    u8 unk1A[0xA];
+    C3DGameMap *unk24;
+    CSprButtonCtrl *unk28;
+    C3DMagicCamera *unk2C;
     void *unk30;
-    u32 unk34;
+    C2DGChar *unk34;
     void *unk38;
     u32 unk3C;
     BOOL WaitVBlank;
     CFontManager *Font8;
-    u32 unk48;
-    u32 unk4C;
+    CSprAnimCtrl *unk48;
+    C2DAdventureLogic *unk4C;
     CFontManager_2 *Font12T;
     u32 unk54;
-    u8 unk58[0x10];
+    CNsbResourceMan *unk58;
+    C3DGameMapObject *unk5C;
+    C3DGameChar *unk60;
+    void *unk64;
     u32 unk68;
     void *Logic_ShoesInfoFile;
     void *Logic_MissInfoFile;
@@ -57,22 +79,26 @@ typedef struct {
     u16 MainScreenBrightness;
     u16 SubScreenBrightness;
     int EvenFrames;
-    u8 unk84[0x0C];
+    C3DGameEffect *unk84;
+    void *unk88; //C3DFieldSprite
+    C3DDevice *unk8C;
     CFontManager *FontRubi8;
     void *unk94;
-    u32 unk98;
+    CameraController *unk98;
     void *Logic_PalSkin3dFile;
     void *Logic_GlovesInfoFile;
-    u32 unkA4;
+    ResourceManager *unkA4;
     void *Logic_WearSetFile;
-    u32 unkAC;
+    C3DPlaneCtrl *unkAC;
     BOOL UpdateBrightness;
     void *unkB4;
-    u32 unkB8;
+    void *unkB8;
     u32 unkBC;
     int unkC0; //OSHeapHandle
     CFontManager *Font12;
-    u8 unkC8[0x11C];
+    CDungeonManager *unkC8;
+    C3DSpriteCtrl *unkCC;
+    u8 unkD0[0x114];
     void *unk1E4;
 } UnkStruct_02099E8C;
 extern UnkStruct_02099E8C unk_02099E8C;
@@ -98,7 +124,7 @@ void VramClear(void);
 void InitInterrupt(void);
 void FUN_020292e8(void);
 void FUN_020292f4(void);
-extern "C" void FUN_02029304(void);
+void InitGlobals(void);
 void InitG3d(void);
 void InitTouchPannel(void);
 void FUN_020295e8(void);

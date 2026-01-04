@@ -750,8 +750,8 @@ ov103_021256D4:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov103_02124d08
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov103_02125740
 ov103_02125740:
 	.byte 0x2F, 0x64, 0x61, 0x74, 0x61, 0x5F, 0x69, 0x7A, 0x2F, 0x70, 0x69, 0x63, 0x32, 0x64, 0x2F, 0x6D

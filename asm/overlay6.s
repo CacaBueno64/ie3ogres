@@ -74,12 +74,12 @@ _020BCC24:
 	ldr r1, [r0]
 	ldr r1, [r1, #0x34]
 	blx r1
-	ldr r0, _020BCC68 ; =0x02099F18
+	ldr r0, _020BCC68 ; =g3DDevice
 	ldr r1, _020BCC6C ; =0x00007335
 	ldr r0, [r0]
 	mov r2, #0x1f
 	mov r3, #0
-	bl FUN_020512a8
+	bl _ZN9C3DDevice13setClearColorEthh
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BCC60: .word ov6_020BE0A0
 _020BCC64: .word gAudioPlayer
@@ -696,7 +696,7 @@ _020BD454:
 	ldr r2, _020BD70C ; =0x020BDF38
 _020BD45C:
 	mov r1, #0
-	bl _ZN11AudioPlayer12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594EiPKc
 	mov r0, #3
 	str r0, [r5, #0x1d8]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -892,13 +892,13 @@ FUN_ov6_020bd718: ; 0x020BD718
 	bl FUN_ov6_020bd028
 	mov r1, #0
 	ldr r2, _020BD748 ; =0x04000014
-	ldr r0, _020BD74C ; =0x02099F18
+	ldr r0, _020BD74C ; =g3DDevice
 	str r1, [r2]
 	str r1, [r2, #4]
 	ldr r0, [r0]
 	mov r2, r1
 	mov r3, r1
-	bl FUN_020512a8
+	bl _ZN9C3DDevice13setClearColorEthh
 	ldmfd sp!, {r3, pc}
 _020BD748: .word 0x04000014
 _020BD74C: .word g3DDevice
@@ -1427,12 +1427,12 @@ ov6_020BDDC0:
 	.word FUN_ov6_020bcc70
 	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_ov6_020bccc0
-	.word _ZN14CScreenManager7vFUN_38Ei
-	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager12transferMainEPv
+	.word _ZN14CScreenManager11transferSubEPv
 	.word _ZN14CScreenManager10signalMainEi
 	.word _ZN14CScreenManager9signalSubEi
-	.word _ZN14CScreenManager7vFUN_48Ev
-	.word _ZN14CScreenManager7vFUN_4CEv
+	.word _ZN14CScreenManager9stateMainEv
+	.word _ZN14CScreenManager8stateSubEv
 	.global ov6_020BDE10
 ov6_020BDE10:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -1463,9 +1463,9 @@ ov6_020BDE30:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov6_020BDE9C
 ov6_020BDE9C:
 	.asciz "IZ_TYPE"
@@ -1543,7 +1543,7 @@ ov6_020BDF64:
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov6_020bdaa8
 	.word FUN_ov6_020bd8f4
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen5stateEv
 	.global ov6_020BDFD0
 ov6_020BDFD0:
 	.asciz "IZ_TYPE"
@@ -1576,4 +1576,4 @@ ov6_020BE064:
 	.bss
 	.global ov6_020BE0A0
 ov6_020BE0A0:
-	.space 0x20
+	.space 0x1

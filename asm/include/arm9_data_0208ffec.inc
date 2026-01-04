@@ -24,12 +24,12 @@
 .public FUN_020442d4
 .public _ZN14CScreenManager20updateDisplayMappingEv
 .public FUN_020443a0
-.public _ZN14CScreenManager7vFUN_38Ei
-.public _ZN14CScreenManager7vFUN_3CEi
+.public _ZN14CScreenManager12transferMainEPv
+.public _ZN14CScreenManager11transferSubEPv
 .public _ZN14CScreenManager10signalMainEi
 .public _ZN14CScreenManager9signalSubEi
-.public _ZN14CScreenManager7vFUN_48Ev
-.public _ZN14CScreenManager7vFUN_4CEv
+.public _ZN14CScreenManager9stateMainEv
+.public _ZN14CScreenManager8stateSubEv
 .public FUN_020463f4
 .public FUN_02046414
 .public FUN_0204949c

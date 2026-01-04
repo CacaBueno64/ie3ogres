@@ -1280,9 +1280,9 @@ ov122_02125E48:
 	.word _ZN15CommonSubScreen9fadeWhiteEv
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen8transferEPv
 	.word FUN_ov122_02124d00
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen5stateEv
 	.global ov122_02125EB4
 ov122_02125EB4:
 	.byte 0x2F, 0x64, 0x61, 0x74, 0x61, 0x5F, 0x69, 0x7A, 0x2F, 0x6C, 0x6F, 0x67

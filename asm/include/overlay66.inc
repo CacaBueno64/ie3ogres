@@ -4,7 +4,7 @@
 .public sprintf
 .public FUN_02058800
 .public unk_020AF81C
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_021128c4
 .public FUN_02058ee0
 .public FUN_02058e30
@@ -38,6 +38,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

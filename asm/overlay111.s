@@ -1213,7 +1213,7 @@ ov111_02125CC0:
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov111_02124d1c
 	.word FUN_ov111_02124e9c
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen5stateEv
 	.global ov111_02125D2C
 ov111_02125D2C:
 	.byte 0x2F, 0x64, 0x61, 0x74

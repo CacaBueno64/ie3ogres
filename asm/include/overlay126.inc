@@ -86,7 +86,7 @@
 .public FUN_ov132_0214a444
 .public FUN_ov132_0214f3cc
 .public FUN_ov132_0213af10
-.public unk_02099F14
+.public g3DFieldSprite
 .public FUN_ov132_02140f18
 .public FUN_ov16_020ef8d4
 .public FUN_ov132_02159124

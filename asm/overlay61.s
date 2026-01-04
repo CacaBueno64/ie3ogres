@@ -1302,7 +1302,7 @@ FUN_ov61_0211afc8: ; 0x0211AFC8
 	cmp r0, #1
 	ldmeqfd sp!, {r4, r5, r6, pc}
 _0211B00C:
-	ldr r6, _0211B114 ; =0x02099EB4
+	ldr r6, _0211B114 ; =gSprButtonCtrl
 	mov r1, r4
 	ldr r0, [r6]
 	mov r2, #0
@@ -1372,7 +1372,7 @@ _0211B0FC:
 	strb r0, [r5, #0x11]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211B110: .word gBgMenuManager
-_0211B114: .word unk_02099EB4
+_0211B114: .word gSprButtonCtrl
 _0211B118: .word gAudioPlayer
 	arm_func_end FUN_ov61_0211afc8
 
@@ -1947,7 +1947,7 @@ _0211B8E4:
 	bl FUN_ov16_020f60f8
 	b _0211B9A8
 _0211B92C:
-	ldr r0, _0211B9C8 ; =0x0209A110
+	ldr r0, _0211B9C8 ; =gDeltaTime
 	ldr r1, [r5, #0x1e0]
 	ldr r0, [r0]
 	add r1, r1, r0
@@ -1988,7 +1988,7 @@ _0211B9A8:
 	bl FUN_ov16_020f672c
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211B9C4: .word gBgMenuManager
-_0211B9C8: .word unk_0209A110
+_0211B9C8: .word gDeltaTime
 	arm_func_end FUN_ov61_0211b8bc
 
 	arm_func_start FUN_ov61_0211b9cc
@@ -2333,14 +2333,14 @@ FUN_ov61_0211be90: ; 0x0211BE90
 	mov r0, #0xc0
 	str r0, [sp, #8]
 	mov r1, #1
-	ldr r0, _0211BED0 ; =0x02099EB4
+	ldr r0, _0211BED0 ; =gSprButtonCtrl
 	str r3, [sp, #0xc]
 	ldr r0, [r0]
 	mov r2, r1
 	bl FUN_ov16_0210fba4
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, pc}
-_0211BED0: .word unk_02099EB4
+_0211BED0: .word gSprButtonCtrl
 	arm_func_end FUN_ov61_0211be90
 
 	arm_func_start FUN_ov61_0211bed4
@@ -3555,7 +3555,7 @@ FUN_ov61_0211d060: ; 0x0211D060
 	bl FUN_ov16_020f5ff4
 	ldr r0, _0211D1B0 ; =0x0209A070
 	bl FUN_ov16_020f6c4c
-	ldr r0, _0211D1B4 ; =0x02099EB4
+	ldr r0, _0211D1B4 ; =gSprButtonCtrl
 	mov r1, #1
 	ldr r0, [r0]
 	bl FUN_ov16_0210eb3c
@@ -3644,7 +3644,7 @@ _0211D1A0:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211D1AC: .word gBgMenuManager
 _0211D1B0: .word unk_0209A070
-_0211D1B4: .word unk_02099EB4
+_0211D1B4: .word gSprButtonCtrl
 	arm_func_end FUN_ov61_0211d060
 
 	arm_func_start FUN_ov61_0211d1b8
@@ -3698,7 +3698,7 @@ FUN_ov61_0211d1b8: ; 0x0211D1B8
 	mov r1, r4
 	mov r2, r7
 	bl MI_CpuFill8
-	ldr r0, _0211D470 ; =0x02099EB4
+	ldr r0, _0211D470 ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e980
 	mov r0, r5
@@ -3828,7 +3828,7 @@ _0211D460: .word FUN_ov61_0211d9e0
 _0211D464: .word FUN_ov61_0211d9f4
 _0211D468: .word ov61_0211F5E0
 _0211D46C: .word ov61_0211F600
-_0211D470: .word unk_02099EB4
+_0211D470: .word gSprButtonCtrl
 _0211D474: .word 0x04000008
 _0211D478: .word unk_0209A454
 _0211D47C: .word gBgMenuManager
@@ -3946,7 +3946,7 @@ _0211D5DC:
 _0211D5F4:
 	ldr r0, _0211D6AC ; =0x0209A5D0
 	bl FUN_02061b44
-	ldr r0, _0211D6B0 ; =0x02099EB4
+	ldr r0, _0211D6B0 ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
 	ldr r0, _0211D6B4 ; =gBgMenuManager
@@ -3995,7 +3995,7 @@ _0211D6A0: .word ov61_0211F600
 _0211D6A4: .word gAllocator
 _0211D6A8: .word ov61_0211F5E0
 _0211D6AC: .word unk_0209A5D0
-_0211D6B0: .word unk_02099EB4
+_0211D6B0: .word gSprButtonCtrl
 _0211D6B4: .word gBgMenuManager
 _0211D6B8: .word unk_0209A070
 _0211D6BC: .word 0x04000008
@@ -6201,9 +6201,9 @@ ov61_0211F2D0:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov61_0211a440
 	.word FUN_ov61_0211a5e0
 	.word FUN_ov61_0211a01c
@@ -6262,9 +6262,9 @@ ov61_0211F3D8:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov61_0211e03c
 	.word FUN_ov61_0211df84
 	.word FUN_ov61_0211ded8
@@ -6308,9 +6308,9 @@ ov61_0211F494:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov61_0211a440
 	.word FUN_ov61_0211a5e0
 	.word FUN_ov61_0211e358
@@ -6351,9 +6351,9 @@ ov61_0211F544:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov61_0211e85c
 	.word FUN_ov61_0211e7a4
 	.word FUN_ov61_0211e6c8

@@ -549,7 +549,7 @@ FUN_ov74_0211a608: ; 0x0211A608
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, #0
-	ldr r4, _0211A654 ; =0x02099F38
+	ldr r4, _0211A654 ; =g3DPlaneCtrl
 	b _0211A644
 _0211A61C:
 	add r0, r6, r5, lsl #2
@@ -568,7 +568,7 @@ _0211A644:
 	blt _0211A61C
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A654: .word unk_02099F38
+_0211A654: .word g3DPlaneCtrl
 	arm_func_end FUN_ov74_0211a608
 
 	arm_func_start FUN_ov74_0211a658
@@ -588,7 +588,7 @@ _0211A67C:
 	blt _0211A670
 	mov r7, #0
 	mov r6, r7
-	ldr r5, _0211A6CC ; =0x02099F38
+	ldr r5, _0211A6CC ; =g3DPlaneCtrl
 	b _0211A6B8
 _0211A694:
 	add r0, r4, r7, lsl #2
@@ -607,7 +607,7 @@ _0211A6B8:
 	mov r0, r4
 	bl FUN_ov74_0211b97c
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A6CC: .word unk_02099F38
+_0211A6CC: .word g3DPlaneCtrl
 	arm_func_end FUN_ov74_0211a658
 
 	arm_func_start FUN_ov74_0211a6d0
@@ -1210,7 +1210,7 @@ _0211AF88:
 	add r0, r6, #0x100
 	mov r2, #0x2c
 	bl MI_CpuFill8
-	ldr r0, _0211B0F8 ; =0x02099F38
+	ldr r0, _0211B0F8 ; =g3DPlaneCtrl
 	str r5, [r6, #0xfc]
 	ldr r0, [r0]
 	bl FUN_ov16_021123b4
@@ -1297,7 +1297,7 @@ _0211B00C:
 	strh r0, [r1]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211B0F4: .word unk_0209A070
-_0211B0F8: .word unk_02099F38
+_0211B0F8: .word g3DPlaneCtrl
 _0211B0FC: .word 0x0400000E
 	arm_func_end FUN_ov74_0211aed0
 
@@ -1508,7 +1508,7 @@ FUN_ov74_0211b398: ; 0x0211B398
 	add r0, r4, #0xa8
 	mov r1, #1
 	bl FUN_ov16_020f2fe4
-	ldr r0, _0211B410 ; =0x02099F38
+	ldr r0, _0211B410 ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
 	ldrb r0, [r4, #0x94c]
@@ -1521,7 +1521,7 @@ FUN_ov74_0211b398: ; 0x0211B398
 _0211B404: .word gBgMenuManager
 _0211B408: .word unk_0209A070
 _0211B40C: .word gWirelessUtil
-_0211B410: .word unk_02099F38
+_0211B410: .word g3DPlaneCtrl
 	arm_func_end FUN_ov74_0211b398
 
 	arm_func_start FUN_ov74_0211b414
@@ -1931,7 +1931,7 @@ FUN_ov74_0211b97c: ; 0x0211B97C
 	mov r7, #0
 	mov r4, r0
 	mov r6, r7
-	ldr r5, _0211B9E4 ; =0x02099F38
+	ldr r5, _0211B9E4 ; =g3DPlaneCtrl
 	b _0211B9B8
 _0211B994:
 	add r0, r4, r7, lsl #2
@@ -1950,13 +1950,13 @@ _0211B9B8:
 	ldr r1, [r4, #0xfc]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _0211B9E4 ; =0x02099F38
+	ldr r0, _0211B9E4 ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_02058ee0
 	mov r0, #0
 	str r0, [r4, #0xfc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211B9E4: .word unk_02099F38
+_0211B9E4: .word g3DPlaneCtrl
 	arm_func_end FUN_ov74_0211b97c
 
 	arm_func_start FUN_ov74_0211b9e8
@@ -2458,9 +2458,9 @@ ov74_0211C0B8:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov74_0211C124
 ov74_0211C124:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

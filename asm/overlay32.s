@@ -144,11 +144,11 @@ _0211A0A0:
 	mov r0, r4
 	bl FUN_020630e0
 	ldr r2, _0211A170 ; =0x020A0640
-	ldr r1, _0211A174 ; =0x02099ED8
+	ldr r1, _0211A174 ; =g2DAdventureLogic
 	str r0, [r2, #0xba4]
 	ldr r0, [r1]
-	bl FUN_02054f60
-	ldr r0, _0211A178 ; =0x02099EE8
+	bl _ZN17C2DAdventureLogic5resetEv
+	ldr r0, _0211A178 ; =g3DGameMapObject
 	ldr r0, [r0]
 	bl FUN_0205ff0c
 	bl FUN_ov16_020efa4c
@@ -187,8 +187,8 @@ _0211A164: .word unk_020A0B00
 _0211A168: .word unk_0209A460
 _0211A16C: .word unk_0209A5D0
 _0211A170: .word unk_020A0640
-_0211A174: .word unk_02099ED8
-_0211A178: .word unk_02099EE8
+_0211A174: .word g2DAdventureLogic
+_0211A178: .word g3DGameMapObject
 _0211A17C: .word gLogicThink
 _0211A180: .word ov32_0211A788
 _0211A184: .word gConfig
@@ -646,9 +646,9 @@ ov32_0211A71C:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov32_0211A788
 ov32_0211A788:
 	.byte 0x81, 0x48, 0x81, 0x48, 0x81, 0x48, 0x00, 0x00

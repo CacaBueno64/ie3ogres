@@ -5873,12 +5873,12 @@ ov15_020E6500:
 	.word FUN_ov15_020e08ac
 	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_ov15_020e0968
-	.word _ZN14CScreenManager7vFUN_38Ei
-	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager12transferMainEPv
+	.word _ZN14CScreenManager11transferSubEPv
 	.word _ZN14CScreenManager10signalMainEi
 	.word _ZN14CScreenManager9signalSubEi
-	.word _ZN14CScreenManager7vFUN_48Ev
-	.word _ZN14CScreenManager7vFUN_4CEv
+	.word _ZN14CScreenManager9stateMainEv
+	.word _ZN14CScreenManager8stateSubEv
 	.global ov15_020E6558
 ov15_020E6558:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -5900,12 +5900,12 @@ ov15_020E6578:
 	.word FUN_ov15_020e0f74
 	.word _ZN14CScreenManager20updateDisplayMappingEv
 	.word FUN_ov15_020e0f78
-	.word _ZN14CScreenManager7vFUN_38Ei
-	.word _ZN14CScreenManager7vFUN_3CEi
+	.word _ZN14CScreenManager12transferMainEPv
+	.word _ZN14CScreenManager11transferSubEPv
 	.word _ZN14CScreenManager10signalMainEi
 	.word _ZN14CScreenManager9signalSubEi
-	.word _ZN14CScreenManager7vFUN_48Ev
-	.word _ZN14CScreenManager7vFUN_4CEv
+	.word _ZN14CScreenManager9stateMainEv
+	.word _ZN14CScreenManager8stateSubEv
 	.global ov15_020E65C8
 ov15_020E65C8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -5981,9 +5981,9 @@ ov15_020E6698:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov15_020E6704
 ov15_020E6704: ; shift-jis string
 	.byte 0x5B, 0x92, 0xCA, 0x90, 0x4D, 0x2F, 0x82, 0xC2, 0x82, 0xA4, 0x82, 0xB5
@@ -6146,9 +6146,9 @@ ov15_020E6B64:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov15_020e0c84
 	.global ov15_020E6BD4
 ov15_020E6BD4:
@@ -6222,8 +6222,8 @@ ov15_020E6C98:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov15_020e3210
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov15_020E6D04
 ov15_020E6D04:
 	.asciz "/data_iz/pic2d/STSWic.SPF_"

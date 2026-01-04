@@ -1,16 +1,16 @@
 
 	.bss
-	.global unk_02099EB0
-unk_02099EB0:
+	.global g3DGameMap
+g3DGameMap:
 	.space 0x04
-	.global unk_02099EB4
-unk_02099EB4:
+	.global gSprButtonCtrl
+gSprButtonCtrl:
 	.space 0x04
-	.global unk_02099EB8
-unk_02099EB8:
+	.global g3DMagicCamera
+g3DMagicCamera:
 	.space 0x08
-	.global unk_02099EC0
-unk_02099EC0:
+	.global g2DGChar
+g2DGChar:
 	.space 0x08
 	.global unk_02099EC8
 unk_02099EC8:
@@ -21,11 +21,11 @@ gWaitVBlank:
 	.global gFont8
 gFont8:
 	.space 0x04
-	.global unk_02099ED4
-unk_02099ED4:
+	.global gSprAnimeCtrl
+gSprAnimeCtrl:
 	.space 0x04
-	.global unk_02099ED8
-unk_02099ED8:
+	.global g2DAdventureLogic
+g2DAdventureLogic:
 	.space 0x04
 	.global gFont12T
 gFont12T:
@@ -33,14 +33,14 @@ gFont12T:
 	.global unk_02099EE0
 unk_02099EE0:
 	.space 0x04
-	.global unk_02099EE4
-unk_02099EE4:
+	.global gNsbResourceMan
+gNsbResourceMan:
 	.space 0x04
-	.global unk_02099EE8
-unk_02099EE8:
+	.global g3DGameMapObject
+g3DGameMapObject:
 	.space 0x04
-	.global unk_02099EEC
-unk_02099EEC:
+	.global g3DGameChar
+g3DGameChar:
 	.space 0x04
 	.global unk_02099EF0
 unk_02099EF0:
@@ -66,11 +66,11 @@ gMainScreenBrightness:
 	.global gSubScreenBrightness
 gSubScreenBrightness:
 	.space 0x06
-	.global unk_02099F10
-unk_02099F10:
+	.global g3DGameEffect
+g3DGameEffect:
 	.space 0x04
-	.global unk_02099F14
-unk_02099F14:
+	.global g3DFieldSprite
+g3DFieldSprite:
 	.space 0x04
 	.global g3DDevice
 g3DDevice:
@@ -78,8 +78,8 @@ g3DDevice:
 	.global gFontRubi8
 gFontRubi8:
 	.space 0x08
-	.global unk_02099F24
-unk_02099F24:
+	.global gCameraController
+gCameraController:
 	.space 0x04
 	.global pLogic_PalSkin3dFile
 pLogic_PalSkin3dFile:
@@ -87,14 +87,14 @@ pLogic_PalSkin3dFile:
 	.global pLogic_GlovesInfoFile
 pLogic_GlovesInfoFile:
 	.space 0x04
-	.global unk_02099F30
-unk_02099F30:
+	.global gResourceManager
+gResourceManager:
 	.space 0x04
 	.global pLogic_WearSetFile
 pLogic_WearSetFile:
 	.space 0x04
-	.global unk_02099F38
-unk_02099F38:
+	.global g3DPlaneCtrl
+g3DPlaneCtrl:
 	.space 0x04
 	.global gUpdateBrightness
 gUpdateBrightness:
@@ -105,11 +105,11 @@ unk_02099F44:
 	.global gFont12
 gFont12:
 	.space 0x04
-	.global unk_02099F54
-unk_02099F54:
+	.global gDungeonManager
+gDungeonManager:
 	.space 0x04
-	.global unk_02099F58
-unk_02099F58:
+	.global g3DSpriteCtrl
+g3DSpriteCtrl:
 	.space 0x04
 	.global unk_02099F5C
 unk_02099F5C:

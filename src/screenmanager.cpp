@@ -124,20 +124,20 @@ void CScreenManager::fadeSubBlack(void)
     FUN_ov16_020f1528(6);
 }
 
-int CScreenManager::vFUN_38(int arg)
+int CScreenManager::transferMain(void *arg)
 {
     if (this->mainScreen == NULL) {
         return -1;
     }
-    return this->mainScreen->vFUN_60(arg);
+    return this->mainScreen->transfer(arg);
 }
 
-int CScreenManager::vFUN_3C(int arg)
+int CScreenManager::transferSub(void *arg)
 {
     if (this->subScreen == NULL) {
         return -1;
     }
-    return this->subScreen->vFUN_60(arg);
+    return this->subScreen->transfer(arg);
 }
 
 int CScreenManager::signalMain(int signal)
@@ -145,7 +145,7 @@ int CScreenManager::signalMain(int signal)
     if (this->mainScreen == NULL) {
         return -1;
     }
-    return this->mainScreen->vFUN_64(signal);
+    return this->mainScreen->signal(signal);
 }
 
 int CScreenManager::signalSub(int signal)
@@ -153,23 +153,23 @@ int CScreenManager::signalSub(int signal)
     if (this->subScreen == NULL) {
         return -1;
     }
-    return this->subScreen->vFUN_64(signal);
+    return this->subScreen->signal(signal);
 }
 
-int CScreenManager::vFUN_48(void)
+int CScreenManager::stateMain(void)
 {
     if (this->mainScreen == NULL) {
         return -1;
     }
-    return this->mainScreen->vFUN_68();
+    return this->mainScreen->state();
 }
 
-int CScreenManager::vFUN_4C(void)
+int CScreenManager::stateSub(void)
 {
     if (this->subScreen == NULL) {
         return -1;
     }
-    return this->subScreen->vFUN_68();
+    return this->subScreen->state();
 }
 
 void CScreenManager::setNextScene(EngineSelect screen, SceneType next)

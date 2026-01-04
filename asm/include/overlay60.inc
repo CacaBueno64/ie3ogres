@@ -10,8 +10,8 @@
 .public unk_020A0640
 .public unk_0209A11C
 .public unk_0209A0AC
-.public unk_02099EB4
-.public unk_02099ED4
+.public gSprButtonCtrl
+.public gSprAnimeCtrl
 .public FUN_0206c270
 .public FUN_02044658
 .public FUN_ov16_0210e9d8
@@ -31,9 +31,9 @@
 .public _ffix
 .public FUN_ov16_02116654
 .public FUN_0205722c
-.public unk_0209A110
-.public unk_02099F58
-.public unk_02099EC0
+.public gDeltaTime
+.public g3DSpriteCtrl
+.public g2DGChar
 .public FUN_0205107c
 .public FUN_0205106c
 .public FUN_ov16_020efa80
@@ -70,7 +70,7 @@
 .public FUN_ov16_020f5450
 .public FUN_02058684
 .public _ZN10FileSystem12CloseArchiveEi
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_02058e30
 .public FUN_02059004
 .public FUN_02059038
@@ -81,7 +81,7 @@
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_0209A454
-.public FUN_02056828
+.public _ZN8C2DGChar5resetEv
 .public FUN_020568c4
 .public FUN_02057be4
 .public FUN_020568a4
@@ -169,7 +169,7 @@
 .public FUN_0206def8
 .public FUN_02050930
 .public FUN_02050854
-.public unk_02099ED8
+.public g2DAdventureLogic
 .public unk_020A108A
 .public unk_020A0DB0
 .public unk_02099EA4
@@ -211,6 +211,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

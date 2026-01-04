@@ -31,7 +31,7 @@
 .public FUN_ov16_020f5a58
 .public FUN_ov1_020e5634
 .public FUN_ov1_020e5030
-.public unk_02099F14
+.public g3DFieldSprite
 .public unk_0209A128
 .public unk_0209A114
 .public unk_020A0640
@@ -123,9 +123,9 @@
 .public FUN_ov1_020dc344
 .public FUN_ov1_020dd83c
 .public FUN_ov16_020f792c
-.public unk_02099EE8
-.public unk_0209A110
-.public unk_02099F24
+.public g3DGameMapObject
+.public gDeltaTime
+.public gCameraController
 .public FUN_ov16_020f672c
 .public FUN_ov1_020e3d74
 .public FUN_ov16_020f330c
@@ -157,8 +157,8 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
 .public FUN_ov1_020be600
 .public FUN_ov1_020be55c
 .public FUN_ov1_020be5bc

@@ -12,13 +12,13 @@
 .public FUN_0205af58
 .public FUN_0205acb0
 .public FUN_0205b3cc
-.public unk_02099EEC
+.public g3DGameChar
 .public gConfig
 .public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
 .public gAllocator
 .public FUN_02059004
 .public FUN_02059038
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public FUN_ov16_020f57b0
@@ -48,7 +48,7 @@
 .public FUN_ov16_0210fbe8
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
-.public unk_02099EB4
+.public gSprButtonCtrl
 .public FUN_ov16_02114204
 .public FUN_0205ae4c
 .public MI_CpuFill8
@@ -125,7 +125,7 @@
 .public FUN_ov16_0210ef88
 .public FUN_ov16_0210efac
 .public FUN_ov16_0210e29c
-.public unk_02099ED4
+.public gSprAnimeCtrl
 .public FUN_ov16_02114370
 .public FUN_ov16_0210fd0c
 .public FUN_ov16_020f53e8
@@ -161,7 +161,7 @@
 .public FUN_ov16_020f7bf4
 .public unk_0209A228
 .public g3DDevice
-.public unk_02099F24
+.public gCameraController
 .public FUN_0205b340
 .public FUN_ov16_020f330c
 .public FUN_ov16_020f153c
@@ -171,7 +171,7 @@
 .public FUN_0205b174
 .public FUN_0205a60c
 .public FUN_ov16_0210e10c
-.public unk_0209A110
+.public gDeltaTime
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
@@ -200,6 +200,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

@@ -103,7 +103,7 @@ void Starter(void *args)
     Exit();
 }
 
-asm int InitStack(register void (*starter)(void *args), register void *args, register void *stackBottom)
+asm threadkey_t InitStack(register void (*starter)(void *args), register void *args, register void *stackBottom)
 {
     str starter, [stackBottom, #-4]!
     str r11, [stackBottom, #-4]!
@@ -148,25 +148,19 @@ asm int InitStack(register void (*starter)(void *args), register void *args, reg
 
 int Create(void (*function)(void *), void *args, void *stackBottom)
 {
-    int idx = InitStack(&Starter, args, stackBottom);
+    threadkey_t idx = InitStack(&Starter, args, stackBottom);
     sThreadFunctionTable[idx] = function;
 
     return idx;
 }
 
-void Destroy(int idx)
+void Destroy(threadkey_t idx)
 {
     sThreadStackTable[idx] = NULL;
 }
 
 asm void WakeUp(void)
 {
-#define mainThreadStack r2
-#define threadIdxPtr r2
-#define threadIdx r1
-#define stackTable r2
-#define stack sp
-    
     str lr, [sp, #-4]! // push {lr}
 
     ldr r2, =sMainThreadStack
@@ -179,7 +173,7 @@ asm void WakeUp(void)
 
     ldr r2, =sThreadStackTable;
     add r2, r2, r1
-    ldr sp, [stackTable] // sThreadStackTable[index] = sp
+    ldr sp, [r2] // sThreadStackTable[index] = sp
 
     ldr r1, [sp], #4 // pop {r1}
     mov pc, r1

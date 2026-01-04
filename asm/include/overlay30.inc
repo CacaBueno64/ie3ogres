@@ -4,8 +4,8 @@
 .public MI_CpuFill8
 .public FUN_ov126_0213a418
 .public _ZN11AudioPlayer7openSADEPvPch
-.public _ZN11AudioPlayer12FUN_0202d594Emm
-.public unk_02099F14
+.public _ZN11AudioPlayer12FUN_0202d594EiPKc
+.public g3DFieldSprite
 .public unk_02099EF0
 .public gAudioPlayer
 .public FUN_ov1_020e3d74
@@ -13,13 +13,13 @@
 .public FUN_ov1_020e03b0
 .public FUN_0205ef30
 .public FUN_ov132_021435c0
-.public unk_02099EE8
-.public unk_0209A110
+.public g3DGameMapObject
+.public gDeltaTime
 .public FUN_ov1_020df110
 .public FUN_01ffac60
 .public FUN_ov16_0210f468
 .public FUN_ov16_0210f400
-.public unk_02099EB4
+.public gSprButtonCtrl
 .public FUN_02044600
 .public unk_020AF81C
 .public FX_Div
@@ -63,6 +63,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

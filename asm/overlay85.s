@@ -402,7 +402,7 @@ FUN_ov85_0211a430: ; 0x0211A430
 	ldr r0, _0211A490 ; =gAudioPlayer
 	ldr r2, _0211A494 ; =0x0211CFF0
 	mov r1, #0
-	bl _ZN11AudioPlayer12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594EiPKc
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A454:
 	cmp r1, #1
@@ -3475,7 +3475,7 @@ ov85_0211CF74:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
+	.word _ZN12CommonScreen8transferEPv
 	.word FUN_ov85_0211a498
 	.word FUN_ov85_0211cddc
 	.word FUN_ov1_020be600

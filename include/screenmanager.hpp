@@ -9,15 +9,8 @@
 #include "commonscreen.hpp"
 #include "logicthink.hpp"
 #include "archive.hpp"
-
-typedef struct {
-    void *data;
-    size_t size;
-    u8 available;
-    u8 unk_9;
-    u8 unk_a;
-    u8 pad_b;
-} SFileData;
+#include "graphics.hpp"
+#include "filesystem.hpp"
 
 typedef enum {
     LAYER_STEP_NONE = 0,
@@ -153,11 +146,6 @@ typedef struct {
     FSOverlayID id;
 } ScreenLoadContext;
 
-typedef enum {
-    ENGINE_MAIN = 0,
-    ENGINE_SUB = 1
-} EngineSelect;
-
 class CScreenManager : public CManager {
     public:
         /* 0x02041ac8 */ CScreenManager();
@@ -170,12 +158,12 @@ class CScreenManager : public CManager {
         /* 0x02042124 */ virtual void endGraphics(u32 arg);
         /* 0x020420bc */ virtual void updateDisplayMapping(void);
         /* 0x02029d00 */ virtual void updateScene(void) = 0;
-        /* 0x02041dd4 */ virtual int vFUN_38(int arg);
-        /* 0x02041df8 */ virtual int vFUN_3C(int arg);
-        /* 0x02041e1c */ virtual int signalMain(int signal);
-        /* 0x02041e40 */ virtual int signalSub(int signal);
-        /* 0x02041e64 */ virtual int vFUN_48();
-        /* 0x02041e88 */ virtual int vFUN_4C();
+        /* 0x02041dd4 */ virtual int transferMain(void *arg);
+        /* 0x02041df8 */ virtual int transferSub(void *arg);
+        /* 0x02041e1c */ virtual int signalMain(int arg);
+        /* 0x02041e40 */ virtual int signalSub(int arg);
+        /* 0x02041e64 */ virtual int stateMain(void);
+        /* 0x02041e88 */ virtual int stateSub(void);
 
         /* 0x02041b04 */ void clear(void);
         /* 0x02041d14 */ void deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx);

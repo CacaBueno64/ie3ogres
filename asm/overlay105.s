@@ -3178,8 +3178,8 @@ ov105_02127960:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov105_02124d00
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov105_021279CC
 ov105_021279CC:
 	.byte 0x2F, 0x64, 0x61, 0x74

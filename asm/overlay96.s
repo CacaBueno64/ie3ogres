@@ -1306,8 +1306,8 @@ ov96_02125E40:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov96_02124d00
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov96_02125EAC
 ov96_02125EAC:
 	.byte 0x82, 0xD3, 0x82, 0xA6

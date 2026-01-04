@@ -1,5 +1,5 @@
 .public FUN_ov16_02112724
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_021137dc
 .public FUN_ov16_0211401c
 .public FUN_ov16_021139bc
@@ -22,8 +22,8 @@
 .public gAudioPlayer
 .public unk_020A0640
 .public unk_0209A5D0
-.public unk_02099EB4
-.public unk_02099ED4
+.public gSprButtonCtrl
+.public gSprAnimeCtrl
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210fc74
@@ -37,7 +37,7 @@
 .public FUN_0202d00c
 .public FUN_0202cfd8
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public unk_0209A110
+.public gDeltaTime
 .public unk_0209A454
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
@@ -56,7 +56,7 @@
 .public STD_GetStringLength
 .public FUN_02074764
 .public FUN_020630e0
-.public FUN_02054f60
+.public _ZN17C2DAdventureLogic5resetEv
 .public FUN_0205ff0c
 .public FUN_ov16_020efa4c
 .public FUN_02070530
@@ -69,8 +69,8 @@
 .public unk_020A1640
 .public unk_020A0B00
 .public unk_0209A460
-.public unk_02099ED8
-.public unk_02099EE8
+.public g2DAdventureLogic
+.public g3DGameMapObject
 .public gLogicThink
 .public unk_020AF81C
 .public unk_020A9C40
@@ -91,6 +91,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

@@ -1298,8 +1298,8 @@ ov118_02125EA0:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov118_02124f80
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov118_02125F0C
 ov118_02125F0C:
 	.byte 0x53, 0x50, 0x53, 0x43

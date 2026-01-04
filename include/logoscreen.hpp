@@ -43,7 +43,7 @@ class CMainLogoScreenInit : public CommonMainScreen {
         /* ov5 0x020bd1fc */ virtual void update(int arg);
         /* ov5 0x020bd404 */ virtual void updateLate(void);
         /* ov5 0x020bd45c */ virtual void close(void);
-        /* ov5 0x020bd448 */ virtual int vFUN_64(int arg);
+        /* ov5 0x020bd448 */ virtual int signal(int signal);
 
         /* ov5 0x020bd0a0 */ void openArchives(void);
         /* ov5 0x020bd0f4 */ void closeArchives(void);
@@ -89,7 +89,7 @@ class CSubLogoScreenInit : public CommonSubScreen {
         /* ov5 0x020bd6fc */ virtual void update(int arg);
         /* ov5 0x020bd720 */ virtual void updateLate(void);
         /* ov5 0x020bd724 */ virtual void close(void);
-        /* ov5 0x020bd494 */ virtual int vFUN_64(int arg);
+        /* ov5 0x020bd494 */ virtual int signal(int signal);
 
         /* ov5 0x020bd4a8 */ void openArchives(void);
         /* ov5 0x020bd4f4 */ void closeArchive(int idx);
@@ -124,7 +124,7 @@ class CLogoScreenManager : public CScreenManager {
 };
 
 extern "C" {
-    extern int unk_0209A110;
+    extern int gDeltaTime;
     extern void *gBgMenuManager;
     extern void FUN_ov16_020f10c8(void);
     extern void FUN_ov16_020f13d4(void);

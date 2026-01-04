@@ -8,7 +8,7 @@
 .public _s32_div_f
 .public STD_TSPrintf
 .public FUN_02058684
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_020f338c
 .public FUN_ov16_020f33fc
 .public _ZN10FileSystem12CloseArchiveEi
@@ -29,7 +29,7 @@
 .public FUN_ov16_02112b98
 .public FUN_ov16_02114248
 .public FUN_ov16_0210fbe8
-.public unk_02099EB4
+.public gSprButtonCtrl
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210fba4
@@ -37,7 +37,7 @@
 .public FUN_ov16_02113b78
 .public FUN_ov16_02113ec0
 .public FUN_ov16_0210e300
-.public unk_02099ED4
+.public gSprAnimeCtrl
 .public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_0210e7d0
 .public gAudioPlayer
@@ -79,8 +79,8 @@
 .public _fsub
 .public _ffix
 .public FUN_ov16_02116654
-.public unk_0209A110
-.public unk_02099F58
+.public gDeltaTime
+.public g3DSpriteCtrl
 .public FUN_ov16_020f2ab4
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
@@ -107,6 +107,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

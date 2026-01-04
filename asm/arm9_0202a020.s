@@ -519,7 +519,7 @@ FUN_0202a628: ; 0x0202A628
 	ldr r0, _0202A664 ; =0x0209AEC0
 	bl FUN_0204665c
 	ldr r0, _0202A668 ; =gMovie
-	bl _ZN5Movie12FUN_0202e978Ev
+	bl _ZN5Movie5sleepEv
 	ldr r0, _0202A66C ; =gAudioPlayer
 	bl FUN_0202b768
 	mov r0, #0x14
@@ -543,7 +543,7 @@ FUN_0202a670: ; 0x0202A670
 	ldr r0, _0202A690 ; =gAudioPlayer
 	bl FUN_0202b714
 	ldr r0, _0202A694 ; =gMovie
-	bl _ZN5Movie12FUN_0202e9c8Ev
+	bl _ZN5Movie6wakeUpEv
 	ldmfd sp!, {r3, pc}
 _0202A690: .word gAudioPlayer
 _0202A694: .word gMovie
@@ -630,9 +630,9 @@ _0202A7A4: .word 0x04001000
 	arm_func_start FUN_0202a7a8
 FUN_0202a7a8: ; 0x0202A7A8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _0202A844 ; =0x02099F24
+	ldr r0, _0202A844 ; =gCameraController
 	ldr r0, [r0]
-	bl FUN_ov16_020f7374
+	bl _ZN16CameraController4initEv
 	ldr r5, _0202A848 ; =gConfig
 	ldr r1, _0202A84C ; =0x0208F978
 	mov r0, r5
@@ -668,7 +668,7 @@ FUN_0202a7a8: ; 0x0202A7A8
 	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0202A844: .word unk_02099F24
+_0202A844: .word gCameraController
 _0202A848: .word gConfig
 _0202A84C: .word unk_0208F978
 _0202A850: .word unk_0208F6F0
@@ -1059,31 +1059,31 @@ _0202AD60: .word unk_020B5B08
 	arm_func_start FUN_0202ad64
 FUN_0202ad64: ; 0x0202AD64
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r4, _0202AE18 ; =0x02099F24
-	ldr r1, _0202AE1C ; =0x0209A110
+	ldr r4, _0202AE18 ; =gCameraController
+	ldr r1, _0202AE1C ; =gDeltaTime
 	ldr r0, [r4]
 	ldr r1, [r1]
 	bl FUN_02059fac
 	bl NNS_G3dGeFlushBuffer
-	ldr r9, _0202AE20 ; =0x02099F58
+	ldr r9, _0202AE20 ; =g3DSpriteCtrl
 	ldr r0, [r9]
 	bl FUN_ov16_0211680c
-	ldr r0, _0202AE24 ; =0x02099EB0
+	ldr r0, _0202AE24 ; =g3DGameMap
 	ldr r0, [r0]
 	bl FUN_0205d420
 	ldr r0, [r9]
 	bl FUN_ov16_02116820
-	ldr r8, _0202AE28 ; =0x02099EE8
+	ldr r8, _0202AE28 ; =g3DGameMapObject
 	ldr r0, [r8]
 	bl FUN_0205f130
-	ldr r7, _0202AE2C ; =0x02099EEC
+	ldr r7, _0202AE2C ; =g3DGameChar
 	mov r1, #0
 	ldr r0, [r7]
 	bl FUN_0205a73c
 	ldr r6, _0202AE30 ; =0x02099F10
 	ldr r0, [r6]
 	bl FUN_0205c060
-	ldr r5, _0202AE34 ; =0x02099F38
+	ldr r5, _0202AE34 ; =g3DPlaneCtrl
 	ldr r0, [r5]
 	bl FUN_ov16_02112714
 	bl NNS_G3dGeFlushBuffer
@@ -1103,20 +1103,20 @@ FUN_0202ad64: ; 0x0202AD64
 	ldr r0, [r4]
 	bl FUN_ov16_020f792c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0202AE18: .word unk_02099F24
-_0202AE1C: .word unk_0209A110
-_0202AE20: .word unk_02099F58
-_0202AE24: .word unk_02099EB0
-_0202AE28: .word unk_02099EE8
-_0202AE2C: .word unk_02099EEC
-_0202AE30: .word unk_02099F10
-_0202AE34: .word unk_02099F38
+_0202AE18: .word gCameraController
+_0202AE1C: .word gDeltaTime
+_0202AE20: .word g3DSpriteCtrl
+_0202AE24: .word g3DGameMap
+_0202AE28: .word g3DGameMapObject
+_0202AE2C: .word g3DGameChar
+_0202AE30: .word g3DGameEffect
+_0202AE34: .word g3DPlaneCtrl
 	arm_func_end FUN_0202ad64
 
 	arm_func_start FUN_0202ae38
 FUN_0202ae38: ; 0x0202AE38
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _0202AF68 ; =0x0209A110
+	ldr r1, _0202AF68 ; =gDeltaTime
 	mov r4, #0
 	ldr r0, _0202AF6C ; =0x0209A0F8
 	mov r6, #1
@@ -1194,7 +1194,7 @@ _0202AF38:
 	bl FUN_0206f29c
 	bl FUN_0202a698
 	ldmfd sp!, {r4, r5, r6, pc}
-_0202AF68: .word unk_0209A110
+_0202AF68: .word gDeltaTime
 _0202AF6C: .word unk_0209A0F8
 _0202AF70: .word unk_0209A144
 _0202AF74: .word unk_0209A0DC
@@ -1212,7 +1212,7 @@ _0202AF9C: .word gLogicThink
 
 	arm_func_start FUN_0202afa0
 FUN_0202afa0: ; 0x0202AFA0
-	ldr r1, _0202AFC0 ; =0x0209A110
+	ldr r1, _0202AFC0 ; =gDeltaTime
 	ldr r0, _0202AFC4 ; =0x020A0640
 	ldr r2, [r1]
 	ldr r1, [r0, #0x4dc]
@@ -1220,7 +1220,7 @@ FUN_0202afa0: ; 0x0202AFA0
 	ldr r12, _0202AFCC ; =FUN_02074764
 	add r1, r2, r1
 	bx r12
-_0202AFC0: .word unk_0209A110
+_0202AFC0: .word gDeltaTime
 _0202AFC4: .word unk_020A0640
 _0202AFC8: .word unk_020A0B00
 _0202AFCC: .word FUN_02074764
@@ -1275,7 +1275,7 @@ _0202B04C:
 	bl FUN_ov16_020f129c
 	bl OS_WaitVBlankIntr
 _0202B080:
-	ldr r5, _0202B1AC ; =0x02099F18
+	ldr r5, _0202B1AC ; =g3DDevice
 	ldr r0, [r5]
 	bl FUN_02051434
 	bl FUN_0202ac20
@@ -1288,7 +1288,7 @@ _0202B080:
 	bl _ZN6Thread9WakeUpAllEv
 	bl FUN_0202ac70
 	bl FUN_0202ad64
-	ldr r0, _0202B1B0 ; =0x02099F30
+	ldr r0, _0202B1B0 ; =gResourceManager
 	mov r1, #1
 	ldr r0, [r0]
 	str r1, [r0, #0x38]
@@ -1327,7 +1327,7 @@ _0202B124:
 	b _0202B124
 _0202B13C:
 	ldr r1, _0202B190 ; =0x02FFFC3C
-	ldr r0, _0202B1BC ; =0x0209A110
+	ldr r0, _0202B1BC ; =gDeltaTime
 	ldr r2, [r1]
 	sub r1, r2, r4
 	mov r4, r2
@@ -1355,31 +1355,31 @@ _0202B1A0: .word unk_0209A124
 _0202B1A4: .word ov16_02118490
 _0202B1A8: .word 0x02FFFFA8
 _0202B1AC: .word g3DDevice
-_0202B1B0: .word unk_02099F30
+_0202B1B0: .word gResourceManager
 _0202B1B4: .word unk_0209A0E8
 _0202B1B8: .word unk_0209A0F0
-_0202B1BC: .word unk_0209A110
+_0202B1BC: .word gDeltaTime
 _0202B1C0: .word unk_020B5AE0
 _0202B1C4: .word gAudioPlayer
 	arm_func_end FUN_0202afd0
 
-	arm_func_start _ZN12CommonScreen7vFUN_68Ev
-_ZN12CommonScreen7vFUN_68Ev: ; 0x0202B1C8
+	arm_func_start _ZN12CommonScreen5stateEv
+_ZN12CommonScreen5stateEv: ; 0x0202B1C8
 	mvn r0, #0
 	bx lr
-	arm_func_end _ZN12CommonScreen7vFUN_68Ev
+	arm_func_end _ZN12CommonScreen5stateEv
 
-	arm_func_start _ZN12CommonScreen7vFUN_64Ei
-_ZN12CommonScreen7vFUN_64Ei: ; 0x0202B1D0
+	arm_func_start _ZN12CommonScreen6signalEi
+_ZN12CommonScreen6signalEi: ; 0x0202B1D0
 	mvn r0, #0
 	bx lr
-	arm_func_end _ZN12CommonScreen7vFUN_64Ei
+	arm_func_end _ZN12CommonScreen6signalEi
 
-	arm_func_start _ZN12CommonScreen7vFUN_60Ei
-_ZN12CommonScreen7vFUN_60Ei: ; 0x0202B1D8
+	arm_func_start _ZN12CommonScreen8transferEPv
+_ZN12CommonScreen8transferEPv: ; 0x0202B1D8
 	mvn r0, #0
 	bx lr
-	arm_func_end _ZN12CommonScreen7vFUN_60Ei
+	arm_func_end _ZN12CommonScreen8transferEPv
 
 	arm_func_start _ZN12CommonScreen7vFUN_38Ev
 _ZN12CommonScreen7vFUN_38Ev: ; 0x0202B1E0
@@ -3156,7 +3156,7 @@ _0202C7B4:
 	mov r0, r4
 	add r2, r2, r1
 	mov r1, #0
-	bl _ZN11AudioPlayer12FUN_0202d594Emm
+	bl _ZN11AudioPlayer12FUN_0202d594EiPKc
 	b _0202C7F0
 _0202C7CC:
 	mov r1, #0x1c
@@ -4194,8 +4194,8 @@ _ZN11AudioPlayer12FUN_0202d578Ei: ; 0x0202D578
 	bx lr
 	arm_func_end _ZN11AudioPlayer12FUN_0202d578Ei
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d594Emm
-_ZN11AudioPlayer12FUN_0202d594Emm: ; 0x0202D594
+	arm_func_start _ZN11AudioPlayer12FUN_0202d594EiPKc
+_ZN11AudioPlayer12FUN_0202d594EiPKc: ; 0x0202D594
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -4213,7 +4213,7 @@ _0202D5B8:
 	orr r0, r0, #2
 	strh r0, [r2, r1]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN11AudioPlayer12FUN_0202d594Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d594EiPKc
 
 	arm_func_start _ZN11AudioPlayer12FUN_0202d5d4Emm
 _ZN11AudioPlayer12FUN_0202d5d4Emm: ; 0x0202D5D4
@@ -4413,7 +4413,7 @@ _0202D854:
 	ldr r8, [r10, #0x100]
 	cmp r1, #0
 	beq _0202D894
-	ldr r0, _0202DB8C ; =0x0209A110
+	ldr r0, _0202DB8C ; =gDeltaTime
 	ldr r0, [r0]
 	mov r0, r0, lsl #0x18
 	sub r0, r1, r0, asr #24
@@ -4627,7 +4627,7 @@ _0202DB74:
 	add sp, sp, #0x5c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202DB88: .word 0x0000FFFB
-_0202DB8C: .word unk_0209A110
+_0202DB8C: .word gDeltaTime
 _0202DB90: .word unk_0208FBA0
 _0202DB94: .word 0x10624DD3
 	arm_func_end FUN_0202d7ec

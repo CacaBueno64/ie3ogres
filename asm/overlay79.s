@@ -553,22 +553,22 @@ _0211A660:
 	bl FUN_ov79_02119f00
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A68C:
-	ldr r0, _0211A770 ; =0x02099F58
+	ldr r0, _0211A770 ; =g3DSpriteCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_021165b4
-	ldr r0, _0211A774 ; =0x02099EB0
+	ldr r0, _0211A774 ; =g3DGameMap
 	ldr r0, [r0]
 	bl FUN_0205d28c
-	ldr r0, _0211A778 ; =0x02099EE8
+	ldr r0, _0211A778 ; =g3DGameMapObject
 	ldr r0, [r0]
 	bl FUN_0205ee28
-	ldr r0, _0211A77C ; =0x02099EEC
+	ldr r0, _0211A77C ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205a504
 	ldr r0, _0211A780 ; =0x02099F10
 	ldr r0, [r0]
 	bl FUN_0205be20
-	ldr r0, _0211A784 ; =0x02099F38
+	ldr r0, _0211A784 ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0211234c
 	mov r0, r4
@@ -612,12 +612,12 @@ _0211A714:
 	mov r1, #1
 	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A770: .word unk_02099F58
-_0211A774: .word unk_02099EB0
-_0211A778: .word unk_02099EE8
-_0211A77C: .word unk_02099EEC
-_0211A780: .word unk_02099F10
-_0211A784: .word unk_02099F38
+_0211A770: .word g3DSpriteCtrl
+_0211A774: .word g3DGameMap
+_0211A778: .word g3DGameMapObject
+_0211A77C: .word g3DGameChar
+_0211A780: .word g3DGameEffect
+_0211A784: .word g3DPlaneCtrl
 _0211A788: .word gBgMenuManager
 	arm_func_end FUN_ov79_0211a630
 
@@ -856,8 +856,8 @@ ov79_0211AA48:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
 	.word FUN_ov79_0211a978
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c

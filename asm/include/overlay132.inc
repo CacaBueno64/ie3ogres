@@ -34,7 +34,7 @@
 .public unk_0209A114
 .public unk_0209A2C0
 .public gLogicThink
-.public unk_02099F14
+.public g3DFieldSprite
 .public unk_020A0640
 .public FUN_0203fdf0
 .public FX_SinCosTable_

@@ -6,7 +6,7 @@
 .public OS_Sleep
 .public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
-.public FUN_020512a8
+.public _ZN9C3DDevice13setClearColorEthh
 .public gAudioPlayer
 .public g3DDevice
 .public _ZN14CScreenManager16getNextSceneMainEv
@@ -38,7 +38,7 @@
 .public FUN_0202d724
 .public FUN_0202d798
 .public _ZN11AudioPlayer12FUN_0202d578Ei
-.public _ZN11AudioPlayer12FUN_0202d594Emm
+.public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public FUN_ov16_020f16a4
 .public FUN_ov16_020f14b4
 .public unk_020A0640
@@ -61,12 +61,12 @@
 .public _ZN8CManager7vFUN_20Ev
 .public _ZN14CScreenManager10updateLateEi
 .public _ZN14CScreenManager20updateDisplayMappingEv
-.public _ZN14CScreenManager7vFUN_38Ei
-.public _ZN14CScreenManager7vFUN_3CEi
+.public _ZN14CScreenManager12transferMainEPv
+.public _ZN14CScreenManager11transferSubEPv
 .public _ZN14CScreenManager10signalMainEi
 .public _ZN14CScreenManager9signalSubEi
-.public _ZN14CScreenManager7vFUN_48Ev
-.public _ZN14CScreenManager7vFUN_4CEv
+.public _ZN14CScreenManager9stateMainEv
+.public _ZN14CScreenManager8stateSubEv
 .public FUN_02029f48
 .public _ZN12CommonScreen7vFUN_14Ev
 .public _ZN12CommonScreen7vFUN_24Ev
@@ -84,9 +84,9 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv
 .public FUN_02029f4c
 .public _ZN15CommonSubScreen9fadeResetEv
 .public _ZN15CommonSubScreen10fadeUpdateEv

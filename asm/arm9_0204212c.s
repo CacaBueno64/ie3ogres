@@ -7532,7 +7532,7 @@ _020481B8:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_02048178
 
-	arm_func_start FUN_020481c8
+	arm_func_start FUN_020481c8 ; https://decomp.me/scratch/eEim0
 FUN_020481c8: ; 0x020481C8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
@@ -13877,7 +13877,7 @@ _0204D55C:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldrh r9, [sp, #0x90]
 _0204D580:
-	ldr r5, _0204D6A0 ; =0x02099ED8
+	ldr r5, _0204D6A0 ; =g2DAdventureLogic
 	str r10, [sp]
 	mov r8, #0
 	ldr r0, [r5]
@@ -13927,7 +13927,7 @@ _0204D580:
 	ldr r0, [r5]
 	mov r1, r7
 	bl FUN_02055324
-	ldr r5, _0204D6A4 ; =0x02099EC0
+	ldr r5, _0204D6A4 ; =g2DGChar
 	str r10, [sp]
 	mov r7, r0
 	ldr r0, [r5]
@@ -13949,15 +13949,15 @@ _0204D580:
 	add sp, sp, #0xa0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0204D69C: .word gLogicThink
-_0204D6A0: .word unk_02099ED8
-_0204D6A4: .word unk_02099EC0
+_0204D6A0: .word g2DAdventureLogic
+_0204D6A4: .word g2DGChar
 	arm_func_end FUN_0204d524
 
 	arm_func_start FUN_0204d6a8
 FUN_0204d6a8: ; 0x0204D6A8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x4c
-	ldr r5, _0204D7F4 ; =0x02099ED8
+	ldr r5, _0204D7F4 ; =g2DAdventureLogic
 	mov r10, #0
 	ldr r0, [r5]
 	mov r2, r10
@@ -14000,7 +14000,7 @@ _0204D744:
 	ldr r0, [r9, #0x10]
 	cmp r10, r0
 	blt _0204D6FC
-	ldr r0, _0204D7F4 ; =0x02099ED8
+	ldr r0, _0204D7F4 ; =g2DAdventureLogic
 	ldr r0, [r0]
 	bl FUN_02055310
 	movs r4, r0
@@ -14015,7 +14015,7 @@ _0204D744:
 	str r0, [sp, #0x48]
 	strh r1, [sp, #0xc]
 _0204D788:
-	ldr r4, _0204D7F4 ; =0x02099ED8
+	ldr r4, _0204D7F4 ; =g2DAdventureLogic
 	mov r5, #1
 	ldr r0, [r4]
 	ldr r1, [sp]
@@ -14024,7 +14024,7 @@ _0204D788:
 	ldr r0, [r4]
 	ldr r1, [sp]
 	bl FUN_02055274
-	ldr r4, _0204D7F8 ; =0x02099EC0
+	ldr r4, _0204D7F8 ; =g2DGChar
 	mov r1, r11
 	ldr r0, [r4]
 	mov r2, #0
@@ -14043,8 +14043,8 @@ _0204D7E8:
 	mov r0, r10
 	add sp, sp, #0x4c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0204D7F4: .word unk_02099ED8
-_0204D7F8: .word unk_02099EC0
+_0204D7F4: .word g2DAdventureLogic
+_0204D7F8: .word g2DGChar
 	arm_func_end FUN_0204d6a8
 
 	arm_func_start FUN_0204d7fc
@@ -18391,7 +18391,7 @@ FUN_0205107c: ; 0x0205107C
 FUN_0205108c: ; 0x0205108C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r3, _020510E0 ; =0x0209057C
+	ldr r3, _020510E0 ; =_ZTV9C3DDevice+0x8
 	mov r4, #0
 	mov r0, r4
 	add r1, r5, #8
@@ -18410,14 +18410,14 @@ FUN_0205108c: ; 0x0205108C
 	strb r4, [r5, #0x44]
 	strb r4, [r5, #0x45]
 	ldmfd sp!, {r3, r4, r5, pc}
-_020510E0: .word unk_0209057C
+_020510E0: .word _ZTV9C3DDevice+0x8
 	arm_func_end FUN_0205108c
 
 	arm_func_start FUN_020510e4
 FUN_020510e4: ; 0x020510E4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	ldr r3, _02051140 ; =0x0209057C
+	ldr r3, _02051140 ; =_ZTV9C3DDevice+0x8
 	mov r4, #0
 	mov r0, r4
 	add r1, r5, #8
@@ -18438,11 +18438,11 @@ FUN_020510e4: ; 0x020510E4
 	bl _ZdlPv
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_02051140: .word unk_0209057C
+_02051140: .word _ZTV9C3DDevice+0x8
 	arm_func_end FUN_020510e4
 
-	arm_func_start FUN_02051144
-FUN_02051144: ; 0x02051144
+	arm_func_start _ZN9C3DDevice4initEv
+_ZN9C3DDevice4initEv: ; 0x02051144
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0x64
 	mov r4, #0
@@ -18460,7 +18460,7 @@ FUN_02051144: ; 0x02051144
 	bic r6, r6, #0x3000
 	orr r6, r6, #8
 	strh r6, [r12]
-	bl FUN_020512a8
+	bl _ZN9C3DDevice13setClearColorEthh
 	mov r6, #1
 	mov r0, r5
 	mov r1, r6
@@ -18534,10 +18534,10 @@ _02051298: .word 0x04000060
 _0205129C: .word 0x0000CFFB
 _020512A0: .word 0xFFFFCFFD
 _020512A4: .word 0xBFFF0000
-	arm_func_end FUN_02051144
+	arm_func_end _ZN9C3DDevice4initEv
 
-	arm_func_start FUN_020512a8
-FUN_020512a8: ; 0x020512A8
+	arm_func_start _ZN9C3DDevice13setClearColorEthh
+_ZN9C3DDevice13setClearColorEthh: ; 0x020512A8
 	stmfd sp!, {r3, lr}
 	mov r12, r0
 	strb r2, [r12, #0xa]
@@ -18551,7 +18551,7 @@ FUN_020512a8: ; 0x020512A8
 	bl G3X_SetClearColor
 	ldmfd sp!, {r3, pc}
 _020512D8: .word 0x00007FFF
-	arm_func_end FUN_020512a8
+	arm_func_end _ZN9C3DDevice13setClearColorEthh
 
 	arm_func_start FUN_020512dc
 FUN_020512dc: ; 0x020512DC
@@ -18863,8 +18863,8 @@ _02051688:
 	bx lr
 	arm_func_end FUN_0205162c
 
-	arm_func_start FUN_02051690
-FUN_02051690: ; 0x02051690
+	arm_func_start _ZN15ResourceManager4initEmmi
+_ZN15ResourceManager4initEmmi: ; 0x02051690
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r5, #0
@@ -18923,7 +18923,7 @@ FUN_02051690: ; 0x02051690
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02051774: .word gAllocator
-	arm_func_end FUN_02051690
+	arm_func_end _ZN15ResourceManager4initEmmi
 
 	arm_func_start FUN_02051778
 FUN_02051778: ; 0x02051778
@@ -19688,8 +19688,8 @@ FUN_020520f8: ; 0x020520F8
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020520f8
 
-	arm_func_start FUN_02052144
-FUN_02052144: ; 0x02052144
+	arm_func_start _ZN11C3DGameBaseC2Ev
+_ZN11C3DGameBaseC2Ev: ; 0x02052144
 	ldr r2, _02052164 ; =0x020905D4
 	mov r1, #0
 	str r2, [r0]
@@ -19698,8 +19698,8 @@ FUN_02052144: ; 0x02052144
 	str r1, [r0, #0xc]
 	str r1, [r0, #0x10]
 	bx lr
-_02052164: .word unk_020905D4
-	arm_func_end FUN_02052144
+_02052164: .word _ZTV11C3DGameBase+0x8
+	arm_func_end _ZN11C3DGameBaseC2Ev
 
 	arm_func_start FUN_02052168
 FUN_02052168: ; 0x02052168
@@ -20070,8 +20070,8 @@ FUN_020525e8: ; 0x020525E8
 _02052614: .word ov16_02118880
 	arm_func_end FUN_020525e8
 
-	arm_func_start FUN_02052618
-FUN_02052618: ; 0x02052618
+	arm_func_start _ZN14C3DMagicCameraC1Ev
+_ZN14C3DMagicCameraC1Ev: ; 0x02052618
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	ldr r2, _02052724 ; =0x02090608
@@ -20140,13 +20140,13 @@ FUN_02052618: ; 0x02052618
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02052724: .word unk_02090608
-_02052728: .word ov16_02118854
+_02052728: .word _ZTV6CModel+0x8
 _0205272C: .word FUN_02052760
 _02052730: .word FUN_02052740
 _02052734: .word FUN_020527ac
 _02052738: .word FUN_02052780
 _0205273C: .word ov16_02118880
-	arm_func_end FUN_02052618
+	arm_func_end _ZN14C3DMagicCameraC1Ev
 
 	arm_func_start FUN_02052740
 FUN_02052740: ; 0x02052740
@@ -20157,7 +20157,7 @@ FUN_02052740: ; 0x02052740
 	bl FUN_ov16_020fc538
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205275C: .word unk_02090628
+_0205275C: .word _ZTV7CMotion+0x8
 	arm_func_end FUN_02052740
 
 	arm_func_start FUN_02052760
@@ -20169,7 +20169,7 @@ FUN_02052760: ; 0x02052760
 	bl FUN_ov16_020fc550
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205277C: .word unk_02090628
+_0205277C: .word _ZTV7CMotion+0x8
 	arm_func_end FUN_02052760
 
 	arm_func_start FUN_02052780
@@ -20184,7 +20184,7 @@ FUN_02052780: ; 0x02052780
 	bl FUN_ov16_02110b80
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020527A8: .word unk_02090618
+_020527A8: .word _ZTV8CTexture+0x8
 	arm_func_end FUN_02052780
 
 	arm_func_start FUN_020527ac
@@ -20198,7 +20198,7 @@ FUN_020527ac: ; 0x020527AC
 	bl FUN_ov16_0211111c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020527D0: .word unk_02090618
+_020527D0: .word _ZTV8CTexture+0x8
 	arm_func_end FUN_020527ac
 
 	arm_func_start FUN_020527d4
@@ -20672,7 +20672,7 @@ FUN_02052de4: ; 0x02052DE4
 	smlabb r6, r2, r0, r4
 	smlabb r7, r1, r0, r4
 	ldrsh r5, [r10, #0x1a]
-	ldr r1, _02052F98 ; =0x02099F24
+	ldr r1, _02052F98 ; =gCameraController
 	ldr r3, [r6, #0x24]
 	ldr r2, [r7, #0x24]
 	smlabb r8, r5, r0, r4
@@ -20764,13 +20764,13 @@ _02052F58:
 	bl FUN_ov16_020f7bb0
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02052F98: .word unk_02099F24
+_02052F98: .word gCameraController
 	arm_func_end FUN_02052de4
 
 	arm_func_start FUN_02052f9c
 FUN_02052f9c: ; 0x02052F9C
 	stmfd sp!, {r4, lr}
-	ldr r2, _02053028 ; =0x02099F18
+	ldr r2, _02053028 ; =g3DDevice
 	mov r4, r0
 	ldr r0, [r2]
 	ldrb r0, [r0, #4]
@@ -20907,7 +20907,7 @@ FUN_02053134: ; 0x02053134
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02053160: .word unk_02090618
+_02053160: .word _ZTV8CTexture+0x8
 	arm_func_end FUN_02053134
 
 	arm_func_start FUN_02053164
@@ -20921,7 +20921,7 @@ FUN_02053164: ; 0x02053164
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02053188: .word unk_02090628
+_02053188: .word _ZTV7CMotion+0x8
 	arm_func_end FUN_02053164
 
 	arm_func_start FUN_0205318c
@@ -23004,7 +23004,7 @@ _02054B6C:
 	mov r1, #0x20
 	beq _02054BC0
 	bl FUN_020541a4
-	ldr r0, _02054D48 ; =0x02099EE8
+	ldr r0, _02054D48 ; =g3DGameMapObject
 	add r1, sp, #0
 	ldr r0, [r0]
 	mov r2, r4
@@ -23020,7 +23020,7 @@ _02054B6C:
 _02054BC0:
 	bl FUN_02054194
 _02054BC4:
-	ldr r0, _02054D4C ; =0x02099EB0
+	ldr r0, _02054D4C ; =g3DGameMap
 	add r1, sp, #0
 	ldr r0, [r0]
 	add r2, r5, #0xac
@@ -23045,7 +23045,7 @@ _02054C04:
 	bne _02054C40
 	cmp r9, #0
 	beq _02054C40
-	ldr r0, _02054D48 ; =0x02099EE8
+	ldr r0, _02054D48 ; =g3DGameMapObject
 	add r1, sp, #0
 	ldr r0, [r0]
 	mov r2, r4
@@ -23124,8 +23124,8 @@ _02054D24:
 	str r1, [r10, #8]
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_02054D48: .word unk_02099EE8
-_02054D4C: .word unk_02099EB0
+_02054D48: .word g3DGameMapObject
+_02054D4C: .word g3DGameMap
 _02054D50: .word 0x000005DC
 	arm_func_end FUN_02054b04
 
@@ -23280,17 +23280,17 @@ FUN_02054ef4: ; 0x02054EF4
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02054ef4
 
-	arm_func_start FUN_02054f28
-FUN_02054f28: ; 0x02054F28
+	arm_func_start _ZN17C2DAdventureLogicC1Ev
+_ZN17C2DAdventureLogicC1Ev: ; 0x02054F28
 	stmfd sp!, {r4, lr}
 	ldr r1, _02054F44 ; =0x020906E8
 	mov r4, r0
 	str r1, [r4]
-	bl FUN_02054f60
+	bl _ZN17C2DAdventureLogic5resetEv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02054F44: .word unk_020906E8
-	arm_func_end FUN_02054f28
+	arm_func_end _ZN17C2DAdventureLogicC1Ev
 
 	arm_func_start FUN_02054f48
 FUN_02054f48: ; 0x02054F48
@@ -23306,8 +23306,8 @@ FUN_02054f4c: ; 0x02054F4C
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02054f4c
 
-	arm_func_start FUN_02054f60
-FUN_02054f60: ; 0x02054F60
+	arm_func_start _ZN17C2DAdventureLogic5resetEv
+_ZN17C2DAdventureLogic5resetEv: ; 0x02054F60
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	add r0, r5, #0x28
@@ -23349,7 +23349,7 @@ FUN_02054f60: ; 0x02054F60
 	strb r4, [r0, #0x91d]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02055000: .word 0x000013E0
-	arm_func_end FUN_02054f60
+	arm_func_end _ZN17C2DAdventureLogic5resetEv
 
 	arm_func_start FUN_02055004
 FUN_02055004: ; 0x02055004
@@ -24409,7 +24409,7 @@ FUN_02055d68: ; 0x02055D68
 	str r0, [sp, #4]
 	mov r7, r1
 	mov r5, #0
-	bl FUN_02054f60
+	bl _ZN17C2DAdventureLogic5resetEv
 	mov r6, r5
 	mov r4, #1
 _02055D88:
@@ -24784,7 +24784,7 @@ FUN_02056258: ; 0x02056258
 	addeq sp, sp, #0xc
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _02056338 ; =0x02099F58
+	ldr r0, _02056338 ; =g3DSpriteCtrl
 	ldr r2, [r10, #0x20]
 	ldr r0, [r0]
 	mov r1, r9
@@ -24799,7 +24799,7 @@ FUN_02056258: ; 0x02056258
 	addle sp, sp, #0xc
 	movle r0, r6
 	ldmlefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _02056338 ; =0x02099F58
+	ldr r0, _02056338 ; =g3DSpriteCtrl
 	mov r1, r8
 	ldr r0, [r0]
 	bl FUN_ov16_02116920
@@ -24812,7 +24812,7 @@ FUN_02056258: ; 0x02056258
 	str r11, [r10, #0x10]
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02056338: .word unk_02099F58
+_02056338: .word g3DSpriteCtrl
 	arm_func_end FUN_02056258
 
 	arm_func_start FUN_0205633c
@@ -24899,7 +24899,7 @@ FUN_02056418: ; 0x02056418
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	mov r6, #1
 	mov r5, #0
-	ldr r4, _02056498 ; =0x02099F58
+	ldr r4, _02056498 ; =g3DSpriteCtrl
 	b _02056470
 _0205643C:
 	ldrh r1, [r7]
@@ -24927,7 +24927,7 @@ _02056470:
 	mov r0, r8
 	bl FUN_020563a4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02056498: .word unk_02099F58
+_02056498: .word g3DSpriteCtrl
 	arm_func_end FUN_02056418
 
 	arm_func_start FUN_0205649c
@@ -24964,13 +24964,13 @@ FUN_020564f0: ; 0x020564F0
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r2, _0205651C ; =0x02099F58
+	ldr r2, _0205651C ; =g3DSpriteCtrl
 	ldrh r1, [r0]
 	ldr r0, [r2]
 	add r0, r0, #4
 	bl FUN_02058e30
 	ldmfd sp!, {r3, pc}
-_0205651C: .word unk_02099F58
+_0205651C: .word g3DSpriteCtrl
 	arm_func_end FUN_020564f0
 
 	arm_func_start FUN_02056520
@@ -24981,7 +24981,7 @@ FUN_02056520: ; 0x02056520
 	movs r6, r0
 	beq _02056570
 	ldrh r0, [r6]
-	ldr r4, _02056578 ; =0x02099F58
+	ldr r4, _02056578 ; =g3DSpriteCtrl
 	ldrh r1, [r6]
 	cmp r0, #0
 	ldr r0, [r4]
@@ -24998,7 +24998,7 @@ FUN_02056520: ; 0x02056520
 _02056570:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-_02056578: .word unk_02099F58
+_02056578: .word g3DSpriteCtrl
 	arm_func_end FUN_02056520
 
 	arm_func_start FUN_0205657c
@@ -25171,8 +25171,8 @@ FUN_02056754: ; 0x02056754
 _0205675C: .word FUN_02041618
 	arm_func_end FUN_02056754
 
-	arm_func_start FUN_02056760
-FUN_02056760: ; 0x02056760
+	arm_func_start _ZN8C2DGCharC1Ev
+_ZN8C2DGCharC1Ev: ; 0x02056760
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r1, _020567A4 ; =0x0209071C
@@ -25186,14 +25186,14 @@ FUN_02056760: ; 0x02056760
 	str r12, [sp]
 	bl __cxa_vec_ctor
 	mov r0, r4
-	bl FUN_02056828
+	bl _ZN8C2DGChar5resetEv
 	mov r0, r4
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
 _020567A4: .word unk_0209071C
 _020567A8: .word FUN_0205635c
 _020567AC: .word FUN_0205633c
-	arm_func_end FUN_02056760
+	arm_func_end _ZN8C2DGCharC1Ev
 
 	arm_func_start FUN_020567b0
 FUN_020567b0: ; 0x020567B0
@@ -25233,8 +25233,8 @@ _02056820: .word unk_0209071C
 _02056824: .word FUN_0205635c
 	arm_func_end FUN_020567e8
 
-	arm_func_start FUN_02056828
-FUN_02056828: ; 0x02056828
+	arm_func_start _ZN8C2DGChar5resetEv
+_ZN8C2DGChar5resetEv: ; 0x02056828
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r4, r0
 	mov r7, #0
@@ -25267,7 +25267,7 @@ _0205683C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0205689C: .word gConfig
 _020568A0: .word unk_02090734
-	arm_func_end FUN_02056828
+	arm_func_end _ZN8C2DGChar5resetEv
 
 	arm_func_start FUN_020568a4
 FUN_020568a4: ; 0x020568A4
@@ -25277,7 +25277,7 @@ FUN_020568a4: ; 0x020568A4
 	mov r0, r4
 	bl FUN_02057c38
 	mov r0, r4
-	bl FUN_02056828
+	bl _ZN8C2DGChar5resetEv
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020568a4
 
@@ -25313,7 +25313,7 @@ FUN_020568c4: ; 0x020568C4
 	mul r1, r5, r4
 	ldr r0, _020569B8 ; =gAllocator
 	bl _ZN9Allocator8allocateEm
-	ldr r7, _020569BC ; =0x02099F58
+	ldr r7, _020569BC ; =g3DSpriteCtrl
 	str r0, [r6, #0x94]
 	ldr r0, [r7]
 	mov r1, #3
@@ -25346,7 +25346,7 @@ _02056984:
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020569B8: .word gAllocator
-_020569BC: .word unk_02099F58
+_020569BC: .word g3DSpriteCtrl
 	arm_func_end FUN_020568c4
 
 	arm_func_start FUN_020569c0
@@ -25360,7 +25360,7 @@ FUN_020569c0: ; 0x020569C0
 	mov r1, r7
 	bl FUN_020566a8
 	mov r6, r0
-	ldr r5, _02056A80 ; =0x02099F58
+	ldr r5, _02056A80 ; =g3DSpriteCtrl
 	b _02056A00
 _020569EC:
 	ldrh r1, [r6, #4]
@@ -25392,7 +25392,7 @@ _02056A3C:
 	ldr r1, [r4, #0x9c]
 	cmp r1, #0
 	ble _02056A74
-	ldr r5, _02056A80 ; =0x02099F58
+	ldr r5, _02056A80 ; =g3DSpriteCtrl
 	ldr r0, [r5]
 	bl FUN_ov16_02116910
 	ldr r0, [r5]
@@ -25405,7 +25405,7 @@ _02056A74:
 	mov r0, r4
 	bl FUN_02056754
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02056A80: .word unk_02099F58
+_02056A80: .word g3DSpriteCtrl
 _02056A84: .word gAllocator
 	arm_func_end FUN_020569c0
 
@@ -25574,7 +25574,7 @@ _02056C14:
 	ldrh r0, [r9, #4]
 	cmp r0, #0
 	bne _02056DA4
-	ldr r10, _02056E00 ; =0x02099F58
+	ldr r10, _02056E00 ; =g3DSpriteCtrl
 	mov r6, #2
 	ldr r0, [r10]
 	mov r1, r6
@@ -25642,7 +25642,7 @@ _02056DD8:
 	str r3, [sp]
 	str r3, [sp, #4]
 _02056DE0:
-	ldr r0, _02056E00 ; =0x02099F58
+	ldr r0, _02056E00 ; =g3DSpriteCtrl
 	ldrh r1, [r9, #4]
 	ldr r0, [r0]
 	bl FUN_ov16_0211771c
@@ -25650,7 +25650,7 @@ _02056DE0:
 	add sp, sp, #0x70
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02056DFC: .word gLogicThink
-_02056E00: .word unk_02099F58
+_02056E00: .word g3DSpriteCtrl
 	arm_func_end FUN_02056b24
 
 	arm_func_start FUN_02056e04
@@ -25664,7 +25664,7 @@ FUN_02056e04: ; 0x02056E04
 	ldrh r1, [r7, #4]
 	cmp r1, #0
 	beq _02056E34
-	ldr r0, _02056E90 ; =0x02099F58
+	ldr r0, _02056E90 ; =g3DSpriteCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_02116aa8
 _02056E34:
@@ -25695,7 +25695,7 @@ _02056E7C:
 	mov r2, #0x18
 	bl MIi_CpuClearFast
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02056E90: .word unk_02099F58
+_02056E90: .word g3DSpriteCtrl
 	arm_func_end FUN_02056e04
 
 	arm_func_start FUN_02056e94
@@ -26002,7 +26002,7 @@ FUN_02057250: ; 0x02057250
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r10, r4
 	mov r8, #2
-	ldr r7, _02057330 ; =0x02099F58
+	ldr r7, _02057330 ; =g3DSpriteCtrl
 	b _02057310
 _02057290:
 	sub r0, r4, #1
@@ -26046,7 +26046,7 @@ _02057310:
 	mov r0, #1
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_02057330: .word unk_02099F58
+_02057330: .word g3DSpriteCtrl
 	arm_func_end FUN_02057250
 
 	arm_func_start FUN_02057334
@@ -26100,7 +26100,7 @@ _020573BC:
 	ldr r1, [r10, #0x9c]
 	mov r0, r0, lsl #0x10
 	str r1, [sp]
-	ldr r4, _02057690 ; =0x02099F58
+	ldr r4, _02057690 ; =g3DSpriteCtrl
 	mov r3, r0, lsr #0x10
 	ldrh r1, [r6, #4]
 	ldr r0, [r4]
@@ -26127,7 +26127,7 @@ _02057428:
 	mov r0, r0, lsl #0x10
 	str r1, [sp]
 	mov r5, #2
-	ldr r4, _02057690 ; =0x02099F58
+	ldr r4, _02057690 ; =g3DSpriteCtrl
 	mov r3, r0, lsr #0x10
 	ldrh r1, [r6, #4]
 	ldr r0, [r4]
@@ -26150,7 +26150,7 @@ _02057490:
 	add r0, r10, #0x70
 	strb r1, [r6, #3]
 	bl FUN_0205657c
-	ldr r1, _02057690 ; =0x02099F58
+	ldr r1, _02057690 ; =g3DSpriteCtrl
 	mov r2, #0
 	ldr r5, [r1]
 	mov r1, r0
@@ -26202,7 +26202,7 @@ _02057558:
 	add r0, r10, #0x4c
 	strb r1, [r6, #2]
 	bl FUN_0205657c
-	ldr r1, _02057690 ; =0x02099F58
+	ldr r1, _02057690 ; =g3DSpriteCtrl
 	mov r2, #0
 	ldr r4, [r1]
 	mov r1, r0
@@ -26278,7 +26278,7 @@ _02057684:
 	mov r0, #1
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02057690: .word unk_02099F58
+_02057690: .word g3DSpriteCtrl
 _02057694: .word pLogic_PalSkin2dFile
 _02057698: .word pLogic_GlovesInfoFile
 _0205769C: .word pLogic_ShoesInfoFile
@@ -26317,7 +26317,7 @@ FUN_020576e8: ; 0x020576E8
 	mov r8, r1
 	mov r6, r4
 	mov r5, r7
-	ldr r10, _02057754 ; =0x02099F58
+	ldr r10, _02057754 ; =g3DSpriteCtrl
 	b _02057744
 _0205770C:
 	mov r0, r9
@@ -26341,7 +26341,7 @@ _02057744:
 	cmp r7, r0
 	ble _0205770C
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02057754: .word unk_02099F58
+_02057754: .word g3DSpriteCtrl
 	arm_func_end FUN_020576e8
 
 	arm_func_start FUN_02057758
@@ -26351,7 +26351,7 @@ FUN_02057758: ; 0x02057758
 	bl FUN_020566a8
 	cmp r4, #0
 	beq _02057788
-	ldr r2, _020577A0 ; =0x02099F58
+	ldr r2, _020577A0 ; =g3DSpriteCtrl
 	ldrh r1, [r0, #4]
 	ldr r0, [r2]
 	mov r2, #2
@@ -26359,13 +26359,13 @@ FUN_02057758: ; 0x02057758
 	bl FUN_ov16_02117598
 	ldmfd sp!, {r4, pc}
 _02057788:
-	ldr r2, _020577A0 ; =0x02099F58
+	ldr r2, _020577A0 ; =g3DSpriteCtrl
 	ldrh r1, [r0, #4]
 	ldr r0, [r2]
 	mov r2, #2
 	bl FUN_ov16_021175dc
 	ldmfd sp!, {r4, pc}
-_020577A0: .word unk_02099F58
+_020577A0: .word g3DSpriteCtrl
 	arm_func_end FUN_02057758
 
 	arm_func_start FUN_020577a4
@@ -26375,7 +26375,7 @@ FUN_020577a4: ; 0x020577A4
 	movs r6, r0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r4, _020577FC ; =0x02099F58
+	ldr r4, _020577FC ; =g3DSpriteCtrl
 	ldrh r1, [r6, #4]
 	mov r5, #1
 	ldr r0, [r4]
@@ -26393,7 +26393,7 @@ FUN_020577a4: ; 0x020577A4
 _020577F4:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020577FC: .word unk_02099F58
+_020577FC: .word g3DSpriteCtrl
 	arm_func_end FUN_020577a4
 
 	arm_func_start FUN_02057800
@@ -26436,7 +26436,7 @@ _02057844:
 	ldrneh r1, [r7, #6]
 	cmpne r1, #0
 	beq _02057B68
-	ldr r4, _02057B80 ; =0x02099ED8
+	ldr r4, _02057B80 ; =g2DAdventureLogic
 	ldrb r2, [r7, #8]
 	ldr r0, [r4]
 	bl FUN_020554b0
@@ -26444,20 +26444,20 @@ _02057844:
 	ldr r0, [r4]
 	bl FUN_020552cc
 	mov r8, r0
-	ldr r0, _02057B84 ; =0x02099F58
+	ldr r0, _02057B84 ; =g3DSpriteCtrl
 	ldrh r1, [r7, #4]
 	ldr r0, [r0]
 	mov r2, #1
 	bl FUN_ov16_0211689c
 	mov r11, r0
-	ldr r0, _02057B84 ; =0x02099F58
+	ldr r0, _02057B84 ; =g3DSpriteCtrl
 	mov r6, #2
 	ldrh r1, [r7, #4]
 	ldr r0, [r0]
 	mov r2, r6
 	bl FUN_ov16_0211689c
 	mov r9, r0
-	ldr r0, _02057B84 ; =0x02099F58
+	ldr r0, _02057B84 ; =g3DSpriteCtrl
 	ldrh r1, [r7, #4]
 	ldr r0, [r0]
 	bl FUN_ov16_0211685c
@@ -26475,20 +26475,20 @@ _02057844:
 	cmp r0, #0
 	ldrh r1, [r7, #4]
 	bne _02057910
-	ldr r0, _02057B84 ; =0x02099F58
+	ldr r0, _02057B84 ; =g3DSpriteCtrl
 	mov r2, r6
 	ldr r0, [r0]
 	bl FUN_ov16_021175dc
 	b _02057924
 _02057910:
-	ldr r0, _02057B84 ; =0x02099F58
+	ldr r0, _02057B84 ; =g3DSpriteCtrl
 	mov r2, r6
 	ldr r0, [r0]
 	mov r3, #1
 	bl FUN_ov16_02117598
 _02057924:
 	mov r0, r8
-	ldr r4, _02057B84 ; =0x02099F58
+	ldr r4, _02057B84 ; =g3DSpriteCtrl
 	bl FUN_020543f4
 	cmp r0, #0
 	beq _02057B68
@@ -26617,7 +26617,7 @@ _02057A90:
 	bl FUN_02046358
 	cmp r0, #0
 	bne _02057B58
-	ldr r0, _02057B8C ; =0x02099F24
+	ldr r0, _02057B8C ; =gCameraController
 	add r1, r8, #0x84
 	ldr r9, [r0]
 	mov r0, r9
@@ -26651,10 +26651,10 @@ _02057B6C:
 	ble _02057844
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02057B80: .word unk_02099ED8
-_02057B84: .word unk_02099F58
+_02057B80: .word g2DAdventureLogic
+_02057B84: .word g3DSpriteCtrl
 _02057B88: .word unk_020A9C40
-_02057B8C: .word unk_02099F24
+_02057B8C: .word gCameraController
 	arm_func_end FUN_02057830
 
 	arm_func_start FUN_02057b90
@@ -27085,7 +27085,7 @@ _02058098:
 	cmp r6, #0
 	movle r0, #0
 	ldmlefd sp!, {r4, r5, r6, pc}
-	ldr r5, _020580E4 ; =0x02099F30
+	ldr r5, _020580E4 ; =gResourceManager
 	mov r2, r6
 	ldr r0, [r5]
 	add r1, r4, #0x18
@@ -27101,7 +27101,7 @@ _02058098:
 	bl FUN_02051858
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_020580E4: .word unk_02099F30
+_020580E4: .word gResourceManager
 	arm_func_end FUN_02057fb4
 
 	arm_func_start FUN_020580e8
@@ -27176,7 +27176,7 @@ _020581D0:
 	cmp r6, #0
 	movle r0, #0
 	ldmlefd sp!, {r4, r5, r6, pc}
-	ldr r5, _0205821C ; =0x02099F30
+	ldr r5, _0205821C ; =gResourceManager
 	mov r2, r6
 	ldr r0, [r5]
 	add r1, r4, #0x24
@@ -27192,7 +27192,7 @@ _020581D0:
 	bl FUN_02051858
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0205821C: .word unk_02099F30
+_0205821C: .word gResourceManager
 	arm_func_end FUN_020580e8
 
 	arm_func_start FUN_02058220
@@ -27306,7 +27306,7 @@ _02058388:
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	add r1, r5, #0x30
-	ldr r0, _020583C8 ; =0x02099F30
+	ldr r0, _020583C8 ; =gResourceManager
 	str r1, [sp, #0xc]
 	ldr r0, [r0]
 	ldr r2, [sp, #0x28]
@@ -27316,7 +27316,7 @@ _02058388:
 	and r0, r0, #0xff
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
-_020583C8: .word unk_02099F30
+_020583C8: .word gResourceManager
 	arm_func_end FUN_02058350
 
 	arm_func_start FUN_020583cc
@@ -27448,7 +27448,7 @@ _02058578:
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	add r1, r5, #0x31
-	ldr r0, _020585B8 ; =0x02099F30
+	ldr r0, _020585B8 ; =gResourceManager
 	str r1, [sp, #0xc]
 	ldr r0, [r0]
 	ldr r2, [sp, #0x28]
@@ -27458,11 +27458,11 @@ _02058578:
 	and r0, r0, #0xff
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
-_020585B8: .word unk_02099F30
+_020585B8: .word gResourceManager
 	arm_func_end FUN_02058540
 
-	arm_func_start FUN_020585bc
-FUN_020585bc: ; 0x020585BC
+	arm_func_start _ZN10C3DSprFileC1Ev
+_ZN10C3DSprFileC1Ev: ; 0x020585BC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r3, _020585F8 ; =0x020907FC
@@ -27478,8 +27478,8 @@ FUN_020585bc: ; 0x020585BC
 	bl MIi_CpuClearFast
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_020585F8: .word unk_020907FC
-	arm_func_end FUN_020585bc
+_020585F8: .word _ZTV16C3DSprFile+0x8
+	arm_func_end _ZN10C3DSprFileC1Ev
 
 	arm_func_start FUN_020585fc
 FUN_020585fc: ; 0x020585FC
@@ -27490,7 +27490,7 @@ FUN_020585fc: ; 0x020585FC
 	bl FUN_0205866c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02058618: .word unk_020907FC
+_02058618: .word _ZTV16C3DSprFile+0x8
 	arm_func_end FUN_020585fc
 
 	arm_func_start FUN_0205861c
@@ -27504,7 +27504,7 @@ FUN_0205861c: ; 0x0205861C
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02058640: .word unk_020907FC
+_02058640: .word _ZTV16C3DSprFile+0x8
 	arm_func_end FUN_0205861c
 
 	arm_func_start FUN_02058644
@@ -28166,7 +28166,7 @@ _02058F64:
 	ldr r0, _02058FAC ; =gAllocator
 	bl _ZN9Allocator10deallocateEPv
 _02058F6C:
-	ldr r5, _02058FB0 ; =0x02099F30
+	ldr r5, _02058FB0 ; =gResourceManager
 	add r1, r6, #0x18
 	ldr r0, [r5]
 	bl FUN_02051858
@@ -28184,7 +28184,7 @@ _02058FA4:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _02058FAC: .word gAllocator
-_02058FB0: .word unk_02099F30
+_02058FB0: .word gResourceManager
 	arm_func_end FUN_02058ee0
 
 	arm_func_start FUN_02058fb4
@@ -28373,7 +28373,7 @@ FUN_02059208: ; 0x02059208
 	bl FUN_02057e9c
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02059240 ; =0x02099F30
+	ldr r0, _02059240 ; =gResourceManager
 	add r1, r4, #0x18
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -28382,7 +28382,7 @@ FUN_02059208: ; 0x02059208
 	and r0, r1, r0
 	strh r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_02059240: .word unk_02099F30
+_02059240: .word gResourceManager
 _02059244: .word 0x0000FFEF
 	arm_func_end FUN_02059208
 
@@ -28393,7 +28393,7 @@ FUN_02059248: ; 0x02059248
 	bl FUN_02057e9c
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02059280 ; =0x02099F30
+	ldr r0, _02059280 ; =gResourceManager
 	add r1, r4, #0x24
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -28402,7 +28402,7 @@ FUN_02059248: ; 0x02059248
 	and r0, r1, r0
 	strh r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_02059280: .word unk_02099F30
+_02059280: .word gResourceManager
 _02059284: .word 0x0000FFDF
 	arm_func_end FUN_02059248
 
@@ -28798,7 +28798,7 @@ FUN_020597a0: ; 0x020597A0
 	movgt r0, #1
 	ldmgtfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r7, #0
-	ldr r5, _02059830 ; =0x02099F30
+	ldr r5, _02059830 ; =gResourceManager
 	mov r6, #0x20
 	str r7, [r4, #0xc]
 	str r7, [r4, #0x10]
@@ -28825,7 +28825,7 @@ FUN_020597a0: ; 0x020597A0
 	movne r0, #1
 	strne r1, [r4, #0x18]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059830: .word unk_02099F30
+_02059830: .word gResourceManager
 _02059834: .word unk_020907D4
 	arm_func_end FUN_020597a0
 
@@ -28841,7 +28841,7 @@ FUN_02059838: ; 0x02059838
 	cmp r1, #0
 	beq _02059874
 _0205985C:
-	ldr r0, _0205987C ; =0x02099F30
+	ldr r0, _0205987C ; =gResourceManager
 	add r1, r4, #0xc
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -28850,7 +28850,7 @@ _0205985C:
 _02059874:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-_0205987C: .word unk_02099F30
+_0205987C: .word gResourceManager
 	arm_func_end FUN_02059838
 
 	arm_func_start FUN_02059880
@@ -28858,7 +28858,7 @@ FUN_02059880: ; 0x02059880
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, #0
-	ldr r4, _020598E8 ; =0x02099F30
+	ldr r4, _020598E8 ; =gResourceManager
 	b _020598C4
 _02059894:
 	add r0, r7, #4
@@ -28878,13 +28878,13 @@ _020598C4:
 	ldrsh r0, [r7, #8]
 	cmp r6, r0
 	blt _02059894
-	ldr r0, _020598E8 ; =0x02099F30
+	ldr r0, _020598E8 ; =gResourceManager
 	add r1, r7, #0xc
 	ldr r0, [r0]
 	bl FUN_02051d3c
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020598E8: .word unk_02099F30
+_020598E8: .word gResourceManager
 	arm_func_end FUN_02059880
 
 	arm_func_start FUN_020598ec
@@ -28892,7 +28892,7 @@ FUN_020598ec: ; 0x020598EC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, #0
-	ldr r4, _02059984 ; =0x02099F30
+	ldr r4, _02059984 ; =gResourceManager
 	b _0205993C
 _02059900:
 	add r0, r7, #4
@@ -28915,7 +28915,7 @@ _0205993C:
 	ldrsh r0, [r7, #8]
 	cmp r6, r0
 	blt _02059900
-	ldr r4, _02059984 ; =0x02099F30
+	ldr r4, _02059984 ; =gResourceManager
 	add r1, r7, #0xc
 	ldr r0, [r4]
 	bl FUN_02051dc4
@@ -28931,7 +28931,7 @@ _0205993C:
 _0205997C:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059984: .word unk_02099F30
+_02059984: .word gResourceManager
 _02059988: .word unk_020907D4
 	arm_func_end FUN_020598ec
 
@@ -29205,7 +29205,7 @@ FUN_02059cc0: ; 0x02059CC0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r7, #0
 	beq _02059D38
-	ldr r0, _02059D98 ; =0x02099F30
+	ldr r0, _02059D98 ; =gResourceManager
 	mov r2, r7
 	ldr r0, [r0]
 	add r1, r5, #0x18
@@ -29219,7 +29219,7 @@ _02059D38:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #7
 	bne _02059D70
-	ldr r0, _02059D98 ; =0x02099F30
+	ldr r0, _02059D98 ; =gResourceManager
 	mov r2, r4
 	ldr r0, [r0]
 	add r1, r6, #0xc
@@ -29229,7 +29229,7 @@ _02059D38:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02059D70:
-	ldr r0, _02059D98 ; =0x02099F30
+	ldr r0, _02059D98 ; =gResourceManager
 	mov r2, r4
 	ldr r0, [r0]
 	add r1, r5, #0x24
@@ -29240,7 +29240,7 @@ _02059D70:
 _02059D90:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059D98: .word unk_02099F30
+_02059D98: .word gResourceManager
 	arm_func_end FUN_02059cc0
 
 	arm_func_start FUN_02059d9c
@@ -29278,7 +29278,7 @@ _02059DFC:
 	str r2, [sp]
 	add r1, r0, #0x1000
 	str r1, [sp, #4]
-	ldr r0, _02059E4C ; =0x02099F24
+	ldr r0, _02059E4C ; =gCameraController
 	ldr r1, _02059E50 ; =0x00000536
 	ldr r0, [r0]
 	ldr r3, _02059E54 ; =0x00001555
@@ -29291,7 +29291,7 @@ _02059E3C: .word unk_0209081C
 _02059E40: .word unk_0209082C
 _02059E44: .word unk_0209083C
 _02059E48: .word 0x01001000
-_02059E4C: .word unk_02099F24
+_02059E4C: .word gCameraController
 _02059E50: .word 0x00000536
 _02059E54: .word 0x00001555
 	arm_func_end FUN_02059d9c
@@ -29370,7 +29370,7 @@ _02059F10:
 _02059F5C:
 	str r4, [sp]
 	add r3, r5, r4
-	ldr r0, _02059FA4 ; =0x02099F24
+	ldr r0, _02059FA4 ; =gCameraController
 	str r3, [sp, #4]
 	ldr r0, [r0]
 	ldr r3, _02059FA8 ; =0x00001555
@@ -29386,7 +29386,7 @@ _02059F94: .word 0x01001000
 _02059F98: .word 0x00000DDB
 _02059F9C: .word 0x0B60B60B
 _02059FA0: .word FX_SinCosTable_
-_02059FA4: .word unk_02099F24
+_02059FA4: .word gCameraController
 _02059FA8: .word 0x00001555
 	arm_func_end FUN_02059e58
 
@@ -29402,8 +29402,8 @@ FUN_02059fac: ; 0x02059FAC
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02059fac
 
-	arm_func_start FUN_02059fcc
-FUN_02059fcc: ; 0x02059FCC
+	arm_func_start _ZN11C3DGameChar5resetEv
+_ZN11C3DGameChar5resetEv: ; 0x02059FCC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -29417,7 +29417,7 @@ FUN_02059fcc: ; 0x02059FCC
 	bl MIi_CpuClearFast
 	str r4, [r5, #0x90]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02059fcc
+	arm_func_end _ZN11C3DGameChar5resetEv
 
 	arm_func_start FUN_0205a000
 FUN_0205a000: ; 0x0205A000
@@ -29501,7 +29501,7 @@ _0205A0F4:
 	ldr r1, [r6, #0x18]
 	cmp r1, #0
 	beq _0205A10C
-	ldr r0, _0205A130 ; =0x02099EE4
+	ldr r0, _0205A130 ; =gNsbResourceMan
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
 _0205A10C:
@@ -29514,7 +29514,7 @@ _0205A10C:
 	str r4, [r6, #0x10]
 	str r5, [r6, #0x14]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0205A130: .word unk_02099EE4
+_0205A130: .word gNsbResourceMan
 	arm_func_end FUN_0205a0c0
 
 	arm_func_start FUN_0205a134
@@ -29560,12 +29560,12 @@ FUN_0205a1ac: ; 0x0205A1AC
 _0205A1B8: .word FUN_ov16_020fbcdc
 	arm_func_end FUN_0205a1ac
 
-	arm_func_start FUN_0205a1bc
-FUN_0205a1bc: ; 0x0205A1BC
+	arm_func_start _ZN11C3DGameChar4initEi
+_ZN11C3DGameChar4initEi: ; 0x0205A1BC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r9, r1
-	bl FUN_02059fcc
+	bl _ZN11C3DGameChar5resetEv
 	mov r4, #8
 	ldr r5, _0205A2D8 ; =FUN_0205a460
 	str r9, [r10, #4]
@@ -29642,7 +29642,7 @@ _0205A2E0: .word 0x000009A4
 _0205A2E4: .word FUN_020525e8
 _0205A2E8: .word FUN_0205a2f0
 _0205A2EC: .word gAllocator
-	arm_func_end FUN_0205a1bc
+	arm_func_end _ZN11C3DGameChar4initEi
 
 	arm_func_start FUN_0205a2f0
 FUN_0205a2f0: ; 0x0205A2F0
@@ -29741,7 +29741,7 @@ FUN_0205a3f0: ; 0x0205A3F0
 	bl FUN_ov16_021110fc
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_0205A44C: .word ov16_02118854
+_0205A44C: .word _ZTV6CModel+0x8
 _0205A450: .word FUN_02052760
 _0205A454: .word FUN_02052740
 _0205A458: .word FUN_020527ac
@@ -29853,7 +29853,7 @@ _0205A5B8:
 	bl __cxa_vec_delete
 _0205A5CC:
 	mov r0, r4
-	bl FUN_02059fcc
+	bl _ZN11C3DGameChar5resetEv
 	ldmfd sp!, {r4, r5, r6, pc}
 _0205A5D8: .word gAllocator
 _0205A5DC: .word FUN_020525e8
@@ -29898,7 +29898,7 @@ _0205A638:
 _0205A640:
 	cmp r7, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r0, _0205A738 ; =0x02099F18
+	ldr r0, _0205A738 ; =g3DDevice
 	mov r6, #0
 	ldr r0, [r0]
 	mov r5, r6
@@ -30233,7 +30233,7 @@ FUN_0205aac0: ; 0x0205AAC0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r6, #0
-	ldr r5, _0205AB60 ; =0x02099EE4
+	ldr r5, _0205AB60 ; =gNsbResourceMan
 	ldr r4, _0205AB64 ; =0x000009A4
 	mov r11, #0x114
 	b _0205AB50
@@ -30272,7 +30272,7 @@ _0205AB50:
 	cmp r6, r0
 	blt _0205AADC
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0205AB60: .word unk_02099EE4
+_0205AB60: .word gNsbResourceMan
 _0205AB64: .word 0x000009A4
 	arm_func_end FUN_0205aac0
 
@@ -31064,15 +31064,15 @@ FUN_0205b504: ; 0x0205B504
 _0205B514: .word unk_02090994
 	arm_func_end FUN_0205b504
 
-	arm_func_start FUN_0205b518
-FUN_0205b518: ; 0x0205B518
+	arm_func_start _ZN13C3DGameEffect5resetEv
+_ZN13C3DGameEffect5resetEv: ; 0x0205B518
 	mov r1, #0
 	str r1, [r0, #0x14]
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x18]
 	str r1, [r0, #0xc]
 	bx lr
-	arm_func_end FUN_0205b518
+	arm_func_end _ZN13C3DGameEffect5resetEv
 
 	arm_func_start FUN_0205b530
 FUN_0205b530: ; 0x0205B530
@@ -31181,7 +31181,7 @@ _0205B658:
 	ldr r1, [r4, #0x38]
 	cmp r1, #0
 	beq _0205B670
-	ldr r0, _0205B6C8 ; =0x02099EE4
+	ldr r0, _0205B6C8 ; =gNsbResourceMan
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
 _0205B670:
@@ -31207,7 +31207,7 @@ _0205B670:
 	str r2, [r4, #0x34]
 	str r3, [r4, #0x38]
 	ldmfd sp!, {r4, pc}
-_0205B6C8: .word unk_02099EE4
+_0205B6C8: .word gNsbResourceMan
 	arm_func_end FUN_0205b624
 
 	arm_func_start FUN_0205b6cc
@@ -31231,7 +31231,7 @@ FUN_0205b6cc: ; 0x0205B6CC
 	cmp r0, #3
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, _0205B764 ; =0x02099EE4
+	ldr r0, _0205B764 ; =gNsbResourceMan
 	ldr r1, [r4, #0x38]
 	ldr r0, [r0]
 	bl FUN_ov16_020fd278
@@ -31251,7 +31251,7 @@ _0205B754:
 	strb r0, [r4, #0xb]
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0205B764: .word unk_02099EE4
+_0205B764: .word gNsbResourceMan
 	arm_func_end FUN_0205b6cc
 
 	arm_func_start FUN_0205b768
@@ -31288,7 +31288,7 @@ FUN_0205b768: ; 0x0205B768
 	bl FUN_ov16_020fa930
 	cmp r0, #0
 	bne _0205B894
-	ldr r7, _0205B9B0 ; =0x02099EE4
+	ldr r7, _0205B9B0 ; =gNsbResourceMan
 	ldr r1, [r6, #0x38]
 	ldr r0, [r7]
 	mov r2, #1
@@ -31334,7 +31334,7 @@ _0205B868:
 	streq r0, [r6, #0x28]
 	streq r0, [r6, #0x2c]
 _0205B894:
-	ldr r7, _0205B9B0 ; =0x02099EE4
+	ldr r7, _0205B9B0 ; =gNsbResourceMan
 	mov r2, #2
 	ldr r0, [r7]
 	ldr r1, [r6, #0x38]
@@ -31410,7 +31410,7 @@ _0205B998:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0205B9AC: .word unk_0208C460
-_0205B9B0: .word unk_02099EE4
+_0205B9B0: .word gNsbResourceMan
 _0205B9B4: .word unk_0208F6F0
 	arm_func_end FUN_0205b768
 
@@ -31447,7 +31447,7 @@ _0205BA0C:
 	bl FUN_ov16_020fa4a0
 	b _0205BC88
 _0205BA20:
-	ldr r4, _0205BC94 ; =0x02099EB0
+	ldr r4, _0205BC94 ; =g3DGameMap
 	mov r7, #1
 	ldr r1, [r4]
 	add r0, sp, #0x2c
@@ -31495,7 +31495,7 @@ _0205BAB8:
 	cmp r0, #0
 	bne _0205BB38
 _0205BAD4:
-	ldr r4, _0205BC9C ; =0x02099EEC
+	ldr r4, _0205BC9C ; =g3DGameChar
 	ldr r2, [r5, #4]
 	ldr r1, [r4]
 	add r0, sp, #0x14
@@ -31619,18 +31619,18 @@ _0205BC88:
 	mov r0, #1
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0205BC94: .word unk_02099EB0
+_0205BC94: .word g3DGameMap
 _0205BC98: .word unk_02099EF0
-_0205BC9C: .word unk_02099EEC
+_0205BC9C: .word g3DGameChar
 _0205BCA0: .word FX_SinCosTable_
 	arm_func_end FUN_0205b9b8
 
-	arm_func_start FUN_0205bca4
-FUN_0205bca4: ; 0x0205BCA4
+	arm_func_start _ZN13C3DGameEffect4initEi
+_ZN13C3DGameEffect4initEi: ; 0x0205BCA4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r9, r1
-	bl FUN_0205b518
+	bl _ZN13C3DGameEffect5resetEv
 	mov r0, r10
 	mov r1, #1
 	str r9, [r10, #0xc]
@@ -31725,7 +31725,7 @@ _0205BE10: .word FUN_0205a3f0
 _0205BE14: .word FUN_020525e8
 _0205BE18: .word FUN_0205a2f0
 _0205BE1C: .word gAllocator
-	arm_func_end FUN_0205bca4
+	arm_func_end _ZN13C3DGameEffect4initEi
 
 	arm_func_start FUN_0205be20
 FUN_0205be20: ; 0x0205BE20
@@ -31792,7 +31792,7 @@ _0205BEE8:
 	bl __cxa_vec_delete
 _0205BEFC:
 	mov r0, r4
-	bl FUN_0205b518
+	bl _ZN13C3DGameEffect5resetEv
 	ldmfd sp!, {r4, r5, r6, pc}
 _0205BF08: .word gAllocator
 _0205BF0C: .word FUN_020525e8
@@ -31818,7 +31818,7 @@ _0205BF40:
 _0205BF44:
 	cmp r7, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, _0205C05C ; =0x02099F18
+	ldr r0, _0205C05C ; =g3DDevice
 	mvn r4, #0
 	ldr r0, [r0]
 	mov r6, #0
@@ -32088,7 +32088,7 @@ FUN_0205C240: ; 0x0205C240
 	mov r5, #1
 	str r1, [sp]
 	ldr r1, [sp, #0x10]
-	ldr r2, _0205C390 ; =0x02099EE4
+	ldr r2, _0205C390 ; =gNsbResourceMan
 	stmib sp, {r1, r5}
 	str r5, [sp, #0xc]
 	mov r1, r0
@@ -32123,7 +32123,7 @@ _0205C378:
 	bl FUN_0205b530
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0205C390: .word unk_02099EE4
+_0205C390: .word gNsbResourceMan
 	arm_func_end FUN_0205C240
 
 	arm_func_start FUN_0205c394
@@ -32592,7 +32592,7 @@ FUN_0205c954: ; 0x0205C954
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205C978: .word unk_0209095C
+_0205C978: .word _ZTV13C3DGameEffect+0x8
 	arm_func_end FUN_0205c954
 
 	arm_func_start FUN_0205c97c
@@ -32604,7 +32604,7 @@ FUN_0205c97c: ; 0x0205C97C
 	bl FUN_0205be20
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205C998: .word unk_0209095C
+_0205C998: .word _ZTV13C3DGameEffect+0x8
 	arm_func_end FUN_0205c97c
 
 	arm_func_start FUN_0205c99c
@@ -33053,7 +33053,7 @@ _0205CF6C:
 	ldr r1, [r5, #0x60]
 	cmp r1, #0
 	beq _0205D030
-	ldr r7, _0205D048 ; =0x02099EE4
+	ldr r7, _0205D048 ; =gNsbResourceMan
 	ldr r0, [r7]
 	bl FUN_ov16_020fd278
 	movs r8, r0
@@ -33098,7 +33098,7 @@ _0205D00C:
 _0205D010:
 	cmp r8, #5
 	blt _0205CFC8
-	ldr r0, _0205D048 ; =0x02099EE4
+	ldr r0, _0205D048 ; =gNsbResourceMan
 	ldr r1, [r5, #0x60]
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
@@ -33111,7 +33111,7 @@ _0205D030:
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0205D044: .word unk_0208C47C
-_0205D048: .word unk_02099EE4
+_0205D048: .word gNsbResourceMan
 	arm_func_end FUN_0205cedc
 
 	arm_func_start FUN_0205d04c
@@ -33129,7 +33129,7 @@ _0205D070:
 	ldr r1, [r5, #0x60]
 	cmp r1, #0
 	beq _0205D088
-	ldr r0, _0205D09C ; =0x02099EE4
+	ldr r0, _0205D09C ; =gNsbResourceMan
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
 _0205D088:
@@ -33138,7 +33138,7 @@ _0205D088:
 	bl FUN_0205c9a4
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0205D09C: .word unk_02099EE4
+_0205D09C: .word gNsbResourceMan
 	arm_func_end FUN_0205d04c
 
 	arm_func_start FUN_0205d0a0
@@ -33173,11 +33173,11 @@ _0205D0FC:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_0205d0a0
 
-	arm_func_start FUN_0205d104
-FUN_0205d104: ; 0x0205D104
+	arm_func_start _ZN10C3DGameMapC1Ev
+_ZN10C3DGameMapC1Ev: ; 0x0205D104
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02052144
+	bl _ZN11C3DGameBaseC2Ev
 	mov r1, #0
 	ldr r2, _0205D134 ; =0x02090A30
 	mov r0, r4
@@ -33188,7 +33188,7 @@ FUN_0205d104: ; 0x0205D104
 	str r1, [r4, #0x14]
 	ldmfd sp!, {r4, pc}
 _0205D134: .word unk_02090A30
-	arm_func_end FUN_0205d104
+	arm_func_end _ZN10C3DGameMapC1Ev
 
 	arm_func_start FUN_0205d138
 FUN_0205d138: ; 0x0205D138
@@ -33216,8 +33216,8 @@ FUN_0205d158: ; 0x0205D158
 _0205D17C: .word unk_02090A30
 	arm_func_end FUN_0205d158
 
-	arm_func_start FUN_0205d180
-FUN_0205d180: ; 0x0205D180
+	arm_func_start _ZN10C3DGameMap4initEi
+_ZN10C3DGameMap4initEi: ; 0x0205D180
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r6, r1
 	mov r7, r0
@@ -33290,7 +33290,7 @@ _0205D264:
 _0205D280: .word FUN_020527d4
 _0205D284: .word FUN_0205a3f0
 _0205D288: .word gAllocator
-	arm_func_end FUN_0205d180
+	arm_func_end _ZN10C3DGameMap4initEi
 
 	arm_func_start FUN_0205d28c
 FUN_0205d28c: ; 0x0205D28C
@@ -33356,7 +33356,7 @@ FUN_0205d348: ; 0x0205D348
 	bl FUN_0205cc5c
 	movs r4, r0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r0, _0205D41C ; =0x02099F18
+	ldr r0, _0205D41C ; =g3DDevice
 	mov r5, #0
 	ldr r0, [r0]
 	mov r8, #3
@@ -33920,7 +33920,7 @@ FUN_0205daf0: ; 0x0205DAF0
 	mov r0, r8
 	mov r2, r6
 	bl STD_TSPrintf
-	ldr r0, _0205DBD8 ; =0x02099EE4
+	ldr r0, _0205DBD8 ; =gNsbResourceMan
 	ldr r1, [r4, #0x60]
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
@@ -33934,7 +33934,7 @@ FUN_0205daf0: ; 0x0205DAF0
 	bge _0205DB74
 	bl OS_Terminate
 _0205DB74:
-	ldr r0, _0205DBD8 ; =0x02099EE4
+	ldr r0, _0205DBD8 ; =gNsbResourceMan
 	str r5, [sp]
 	add r1, r7, r6, lsl #2
 	ldr r0, [r0]
@@ -33960,7 +33960,7 @@ _0205DBC8:
 	add sp, sp, #0x84
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0205DBD4: .word unk_02090B34
-_0205DBD8: .word unk_02099EE4
+_0205DBD8: .word gNsbResourceMan
 	arm_func_end FUN_0205daf0
 
 	arm_func_start FUN_0205dbdc
@@ -33981,7 +33981,7 @@ FUN_0205dbdc: ; 0x0205DBDC
 	mov r0, r4
 	mov r1, r5
 	bl FUN_ov16_020f3b34
-	ldr r9, _0205DD34 ; =0x02099EE4
+	ldr r9, _0205DD34 ; =gNsbResourceMan
 	ldr r1, [r6, #0x60]
 	ldr r0, [r9]
 	bl FUN_ov16_020fd350
@@ -34055,7 +34055,7 @@ _0205DD28:
 	mov r0, #1
 	add sp, sp, #0xa0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0205DD34: .word unk_02099EE4
+_0205DD34: .word gNsbResourceMan
 	arm_func_end FUN_0205dbdc
 
 	arm_func_start FUN_0205dd38
@@ -34728,8 +34728,8 @@ _0205E5D0: .word unk_02090D7C
 _0205E5D4: .word unk_02090D80
 	arm_func_end FUN_0205e3c0
 
-	arm_func_start FUN_0205e5d8
-FUN_0205e5d8: ; 0x0205E5D8
+	arm_func_start _ZN16C3DGameMapObject5resetEv
+_ZN16C3DGameMapObject5resetEv: ; 0x0205E5D8
 	mov r1, #0
 	str r1, [r0, #0x14]
 	str r1, [r0, #0x10]
@@ -34737,7 +34737,7 @@ FUN_0205e5d8: ; 0x0205E5D8
 	str r1, [r0, #0xc]
 	str r1, [r0, #0x1c]
 	bx lr
-	arm_func_end FUN_0205e5d8
+	arm_func_end _ZN16C3DGameMapObject5resetEv
 
 	arm_func_start FUN_0205e5f4
 FUN_0205e5f4: ; 0x0205E5F4
@@ -34936,7 +34936,7 @@ _0205E838:
 	ldr r1, [r4, #0x1c]
 	cmp r1, #0
 	beq _0205E850
-	ldr r0, _0205E88C ; =0x02099EE4
+	ldr r0, _0205E88C ; =gNsbResourceMan
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
 _0205E850:
@@ -34955,7 +34955,7 @@ _0205E850:
 	strh r0, [r4, #6]
 	strb r6, [r4, #0x10]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0205E88C: .word unk_02099EE4
+_0205E88C: .word gNsbResourceMan
 	arm_func_end FUN_0205e804
 
 	arm_func_start FUN_0205e890
@@ -35023,7 +35023,7 @@ _0205E978:
 	ldr r1, [r5, #0x1c]
 	cmp r1, #0
 	beq _0205EA7C
-	ldr r7, _0205EA94 ; =0x02099EE4
+	ldr r7, _0205EA94 ; =gNsbResourceMan
 	ldr r0, [r7]
 	bl FUN_ov16_020fd278
 	movs r9, r0
@@ -35085,7 +35085,7 @@ _0205EA5C:
 _0205EA60:
 	cmp r9, #5
 	blt _0205EA18
-	ldr r0, _0205EA94 ; =0x02099EE4
+	ldr r0, _0205EA94 ; =gNsbResourceMan
 	ldr r1, [r5, #0x1c]
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
@@ -35097,7 +35097,7 @@ _0205EA7C:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0205EA90: .word unk_0208C48C
-_0205EA94: .word unk_02099EE4
+_0205EA94: .word gNsbResourceMan
 	arm_func_end FUN_0205e890
 
 	arm_func_start FUN_0205ea98
@@ -35261,12 +35261,12 @@ _0205ECC8:
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ec38
 
-	arm_func_start FUN_0205ecd0
-FUN_0205ecd0: ; 0x0205ECD0
+	arm_func_start _ZN16C3DGameMapObject4initEi
+_ZN16C3DGameMapObject4initEi: ; 0x0205ECD0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r9, r1
-	bl FUN_0205e5d8
+	bl _ZN16C3DGameMapObject5resetEv
 	mov r0, r10
 	mov r1, #7
 	str r9, [r10, #0xc]
@@ -35352,7 +35352,7 @@ _0205EE18: .word FUN_0205a3f0
 _0205EE1C: .word FUN_020525e8
 _0205EE20: .word FUN_0205a2f0
 _0205EE24: .word gAllocator
-	arm_func_end FUN_0205ecd0
+	arm_func_end _ZN16C3DGameMapObject4initEi
 
 	arm_func_start FUN_0205ee28
 FUN_0205ee28: ; 0x0205EE28
@@ -35425,7 +35425,7 @@ _0205EF04:
 	bl _ZN9Allocator10deallocateEPv
 _0205EF18:
 	mov r0, r4
-	bl FUN_0205e5d8
+	bl _ZN16C3DGameMapObject5resetEv
 	ldmfd sp!, {r4, r5, r6, pc}
 _0205EF24: .word gAllocator
 _0205EF28: .word FUN_020525e8
@@ -35442,7 +35442,7 @@ FUN_0205ef30: ; 0x0205EF30
 	bl FUN_0205e604
 	movs r5, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r0, _0205F028 ; =0x02099F18
+	ldr r0, _0205F028 ; =g3DDevice
 	mov r6, #0
 	ldr r0, [r0]
 	mvn r9, #0
@@ -36000,7 +36000,7 @@ _0205F6A8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0205F6B4:
-	ldr r0, _0205F78C ; =0x02099EE4
+	ldr r0, _0205F78C ; =gNsbResourceMan
 	ldr r1, [r2, #0x1c]
 	ldr r0, [r0]
 	bl FUN_ov16_020fd350
@@ -36014,7 +36014,7 @@ _0205F6B4:
 	bge _0205F6E8
 	bl OS_Terminate
 _0205F6E8:
-	ldr r0, _0205F78C ; =0x02099EE4
+	ldr r0, _0205F78C ; =gNsbResourceMan
 	str r5, [sp]
 	add r1, r7, r8, lsl #2
 	ldr r0, [r0]
@@ -36057,7 +36057,7 @@ _0205F778:
 	movne r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0205F78C: .word unk_02099EE4
+_0205F78C: .word gNsbResourceMan
 	arm_func_end FUN_0205f664
 
 	arm_func_start FUN_0205f790
@@ -36084,7 +36084,7 @@ _0205F7D4:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _0205F7E0:
-	ldr r8, _0205F92C ; =0x02099EE4
+	ldr r8, _0205F92C ; =gNsbResourceMan
 	ldr r1, [r2, #0x1c]
 	ldr r0, [r8]
 	bl FUN_ov16_020fd350
@@ -36172,7 +36172,7 @@ _0205F918:
 	movne r0, #0
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0205F92C: .word unk_02099EE4
+_0205F92C: .word gNsbResourceMan
 	arm_func_end FUN_0205f790
 
 	arm_func_start FUN_0205f930
@@ -36660,7 +36660,7 @@ FUN_0205ff38: ; 0x0205FF38
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205FF5C: .word unk_02090BF8
+_0205FF5C: .word _ZTV16C3DGameMapObject+0x8
 	arm_func_end FUN_0205ff38
 
 	arm_func_start FUN_0205ff60
@@ -36672,7 +36672,7 @@ FUN_0205ff60: ; 0x0205FF60
 	bl FUN_0205ee28
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0205FF7C: .word unk_02090BF8
+_0205FF7C: .word _ZTV16C3DGameMapObject+0x8
 	arm_func_end FUN_0205ff60
 
 	arm_func_start FUN_0205ff80
@@ -39348,12 +39348,12 @@ _02062478:
 	ldr r0, _020626E0 ; =gLogicThink
 	mov r1, r7
 	bl FUN_02072b54
-	ldr r0, _020626E4 ; =0x02099ED8
+	ldr r0, _020626E4 ; =g2DAdventureLogic
 	add r1, r7, #0x3e8
 	ldr r0, [r0]
 	add r1, r1, #0x3800
 	bl FUN_020560b4
-	ldr r0, _020626E8 ; =0x02099EE8
+	ldr r0, _020626E8 ; =g3DGameMapObject
 	add r1, r7, #0x208
 	ldr r0, [r0]
 	add r1, r1, #0x4000
@@ -39435,7 +39435,7 @@ _02062554:
 	stmia r7!, {r0, r1, r2, r3}
 	ldmia r12, {r0, r1}
 	stmia r7, {r0, r1}
-	ldr r7, _020626E4 ; =0x02099ED8
+	ldr r7, _020626E4 ; =g2DAdventureLogic
 	b _02062664
 _02062648:
 	ldr r1, [r6, r8, lsl #2]
@@ -39478,8 +39478,8 @@ _020626D4: .word unk_020A9C40
 _020626D8: .word unk_020AF81C
 _020626DC: .word gAudioPlayer
 _020626E0: .word gLogicThink
-_020626E4: .word unk_02099ED8
-_020626E8: .word unk_02099EE8
+_020626E4: .word g2DAdventureLogic
+_020626E8: .word g3DGameMapObject
 _020626EC: .word unk_020A1740
 _020626F0: .word unk_020A17C1
 	arm_func_end FUN_020620f8
@@ -40008,12 +40008,12 @@ _02062E60:
 	ldr r0, _02062F80 ; =gLogicThink
 	mov r1, r7
 	bl FUN_02072dcc
-	ldr r0, _02062F84 ; =0x02099ED8
+	ldr r0, _02062F84 ; =g2DAdventureLogic
 	add r1, r7, #0x3e8
 	ldr r0, [r0]
 	add r1, r1, #0x3800
 	bl FUN_02055d68
-	ldr r0, _02062F88 ; =0x02099EE8
+	ldr r0, _02062F88 ; =g3DGameMapObject
 	add r1, r7, #0x208
 	ldr r0, [r0]
 	add r1, r1, #0x4000
@@ -40082,8 +40082,8 @@ _02062F74: .word unk_020A9C40
 _02062F78: .word unk_020AF81C
 _02062F7C: .word gAudioPlayer
 _02062F80: .word gLogicThink
-_02062F84: .word unk_02099ED8
-_02062F88: .word unk_02099EE8
+_02062F84: .word g2DAdventureLogic
+_02062F88: .word g3DGameMapObject
 _02062F8C: .word unk_02099E8E
 _02062F90: .word unk_020A17F0
 	arm_func_end FUN_0206296c

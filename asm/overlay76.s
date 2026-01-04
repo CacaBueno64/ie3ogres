@@ -500,8 +500,8 @@ ov76_0211A540:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
 	.word FUN_ov76_0211a498
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c

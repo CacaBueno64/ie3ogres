@@ -61,5 +61,5 @@
 .public _ZN15CommonSubScreen9fadeWhiteEv
 .public _ZN15CommonSubScreen8isFadingEv
 .public _ZN15CommonSubScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

@@ -3,7 +3,7 @@
 namespace FileSystem {
 
 s32 sCurFileHandleID;
-void *sProcessStack;
+char *sProcessStack;
 FileHandle *sFileHandles;
 static OSThread sProcessThread;
 static Archive sArchives[18];
@@ -21,18 +21,17 @@ s32 FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name);
 
 s32 ReadFileInChunks(FSFile *file, void *data, s32 len) {
 #define CHUNK_SIZE 0x4000
-    u8 *ptr     = (u8 *)data;
-    s32 temp_r3 = len + (CHUNK_SIZE - 1);
-    s32 temp_r6 = (s32)(temp_r3 + ((u32)(temp_r3 >> 0xD) >> 0x12)) >> 0xE;
+    
+    s32 chunk_count = (len + (CHUNK_SIZE - 1)) / CHUNK_SIZE;
     s32 size    = 0;
 
-    for (int i = 0; i < temp_r6; i++) {
-        s32 r2 = CHUNK_SIZE;
+    for (int i = 0; i < chunk_count; i++) {
+        s32 chunk_size = CHUNK_SIZE;
         if (len < CHUNK_SIZE) {
-            r2 = len;
+            chunk_size = len;
         }
-        len -= r2;
-        size += FS_ReadFile(file, ptr + i * CHUNK_SIZE, r2);
+        len -= chunk_size;
+        size += FS_ReadFile(file, static_cast<char *>(data) + i * CHUNK_SIZE, chunk_size);
     }
 
     return size;
@@ -142,7 +141,7 @@ FileHandle *GetFileHandle(filekey_t *keyOut) {
 }
 
 s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
-                              const char *path) {
+                        const char *path) {
     if (compHeader->compType == 0) {
         if (*dataOut != NULL) {
             handle->uncompressed = *dataOut;
@@ -186,9 +185,9 @@ s32 ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s3
         size = len;
     }
 
-    *(u32 *)&flags       = 0;
-    FileHandle *handle = GetFileHandle(idOut);
-    s32 buffer_size      = AllocateFileBuffers(handle, &flags, size, dataOut, path);
+    *reinterpret_cast<u32 *>(&flags) = 0;
+    FileHandle *handle               = GetFileHandle(idOut);
+    s32 buffer_size                  = AllocateFileBuffers(handle, &flags, size, dataOut, path);
 
     handle->fileID = fileid;
     handle->offset = offset;
@@ -445,8 +444,6 @@ BOOL IsFileBusy(filekey_t key) {
 void Panic(void) { OS_Terminate(); }
 
 void Init(void) {
-#define STACK_SIZE 2048
-
     MATH_CRC32InitTable(&sCrc32Table);
 
     MI_CpuClear8(&sArchives, sizeof(sArchives));
@@ -455,9 +452,9 @@ void Init(void) {
 
     FS_ChangeDir("/data_iz/");
 
-    sProcessStack = Allocate(STACK_SIZE, -1);
+    sProcessStack = static_cast<char *>(Allocate(FILE_SYSTEM_STACK_SIZE, -1));
 
-    OS_CreateThread(&sProcessThread, &ProcessFiles, NULL, (void *)((int)sProcessStack + STACK_SIZE), STACK_SIZE,
+    OS_CreateThread(&sProcessThread, &ProcessFiles, NULL, sProcessStack + FILE_SYSTEM_STACK_SIZE, FILE_SYSTEM_STACK_SIZE,
                     28);
 
     OS_WakeupThreadDirect(&sProcessThread);

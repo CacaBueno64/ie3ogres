@@ -154,13 +154,13 @@ FUN_ov77_0211a0e0: ; 0x0211A0E0
 	arm_func_start FUN_ov77_0211a0e8
 FUN_ov77_0211a0e8: ; 0x0211A0E8
 	stmfd sp!, {r3, lr}
-	ldr r0, _0211A124 ; =0x02099EEC
+	ldr r0, _0211A124 ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205b340
 	cmp r0, #1
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r0, _0211A128 ; =0x02099EE8
+	ldr r0, _0211A128 ; =g3DGameMapObject
 	mvn r1, #0
 	ldr r0, [r0]
 	bl FUN_0205228c
@@ -168,8 +168,8 @@ FUN_ov77_0211a0e8: ; 0x0211A0E8
 	moveq r0, #0
 	movne r0, #1
 	ldmfd sp!, {r3, pc}
-_0211A124: .word unk_02099EEC
-_0211A128: .word unk_02099EE8
+_0211A124: .word g3DGameChar
+_0211A128: .word g3DGameMapObject
 	arm_func_end FUN_ov77_0211a0e8
 
 	arm_func_start FUN_ov77_0211a12c
@@ -188,21 +188,21 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	orr r1, r1, #0x100
 	str r1, [r2]
 	ldrh r1, [r0, #0xc6]
-	ldr r0, _0211A278 ; =0x02099F18
+	ldr r0, _0211A278 ; =g3DDevice
 	mov r3, r6
 	bic r1, r1, #0x8000
 	mov r1, r1, lsl #0x10
 	ldr r0, [r0]
 	mov r1, r1, lsr #0x10
 	mov r2, #0x1f
-	bl FUN_020512a8
-	ldr r0, _0211A27C ; =0x02099F58
+	bl _ZN9C3DDevice13setClearColorEthh
+	ldr r0, _0211A27C ; =g3DSpriteCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0211661c
-	ldr r0, _0211A280 ; =0x02099F38
+	ldr r0, _0211A280 ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_021123b4
-	ldr r0, _0211A284 ; =0x02099F24
+	ldr r0, _0211A284 ; =gCameraController
 	mov r1, #4
 	ldr r7, [r0]
 	str r6, [sp, #0x18]
@@ -233,10 +233,10 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	mov r3, r6
 	str r5, [sp]
 	bl FUN_ov16_020f7b50
-	ldr r0, _0211A288 ; =0x02099EEC
+	ldr r0, _0211A288 ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205b2b8
-	ldr r5, _0211A28C ; =0x02099EE8
+	ldr r5, _0211A28C ; =g3DGameMapObject
 	mov r1, r6
 	mov r6, #1
 	ldr r0, [r5]
@@ -258,22 +258,22 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A274: .word unk_0209A720
 _0211A278: .word g3DDevice
-_0211A27C: .word unk_02099F58
-_0211A280: .word unk_02099F38
-_0211A284: .word unk_02099F24
-_0211A288: .word unk_02099EEC
-_0211A28C: .word unk_02099EE8
+_0211A27C: .word g3DSpriteCtrl
+_0211A280: .word g3DPlaneCtrl
+_0211A284: .word gCameraController
+_0211A288: .word g3DGameChar
+_0211A28C: .word g3DGameMapObject
 	arm_func_end FUN_ov77_0211a12c
 
 	arm_func_start FUN_ov77_0211a290
 FUN_ov77_0211a290: ; 0x0211A290
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _0211A3B8 ; =0x02099EEC
+	ldr r0, _0211A3B8 ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205b340
 	cmp r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _0211A3BC ; =0x02099EE8
+	ldr r0, _0211A3BC ; =g3DGameMapObject
 	mvn r1, #0
 	ldr r0, [r0]
 	bl FUN_0205228c
@@ -287,15 +287,15 @@ FUN_ov77_0211a290: ; 0x0211A290
 	bl FUN_02044560
 	cmp r0, #0
 	bne _0211A2F8
-	ldr r0, _0211A3C4 ; =0x02099F18
+	ldr r0, _0211A3C4 ; =g3DDevice
 	mov r1, #0
 	ldr r0, [r0]
 	mov r3, r1
 	mov r2, #0x1f
-	bl FUN_020512a8
+	bl _ZN9C3DDevice13setClearColorEthh
 _0211A2F8:
-	ldr r0, _0211A3C8 ; =0x02099EB0
-	ldr r5, _0211A3CC ; =0x0209A110
+	ldr r0, _0211A3C8 ; =g3DGameMap
+	ldr r5, _0211A3CC ; =gDeltaTime
 	ldr r0, [r0]
 	ldr r1, [r5]
 	bl FUN_0205d348
@@ -303,15 +303,15 @@ _0211A2F8:
 	ldr r1, [r5]
 	ldr r0, [r0]
 	bl FUN_0205bf14
-	ldr r0, _0211A3B8 ; =0x02099EEC
+	ldr r0, _0211A3B8 ; =g3DGameChar
 	ldr r1, [r5]
 	ldr r0, [r0]
 	bl FUN_0205a60c
-	ldr r0, _0211A3BC ; =0x02099EE8
+	ldr r0, _0211A3BC ; =g3DGameMapObject
 	ldr r1, [r5]
 	ldr r0, [r0]
 	bl FUN_0205ef30
-	ldr r4, _0211A3D4 ; =0x02099EB8
+	ldr r4, _0211A3D4 ; =g3DMagicCamera
 	ldr r1, [r5]
 	ldr r0, [r4]
 	bl FUN_02052f9c
@@ -343,14 +343,14 @@ _0211A39C:
 	mov r1, #1
 	bl FUN_01ff96c0
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211A3B8: .word unk_02099EEC
-_0211A3BC: .word unk_02099EE8
+_0211A3B8: .word g3DGameChar
+_0211A3BC: .word g3DGameMapObject
 _0211A3C0: .word unk_020AF81C
 _0211A3C4: .word g3DDevice
-_0211A3C8: .word unk_02099EB0
-_0211A3CC: .word unk_0209A110
-_0211A3D0: .word unk_02099F10
-_0211A3D4: .word unk_02099EB8
+_0211A3C8: .word g3DGameMap
+_0211A3CC: .word gDeltaTime
+_0211A3D0: .word g3DGameEffect
+_0211A3D4: .word g3DMagicCamera
 _0211A3D8: .word unk_02099EF0
 _0211A3DC: .word 0x00001011
 	arm_func_end FUN_ov77_0211a290
@@ -358,30 +358,30 @@ _0211A3DC: .word 0x00001011
 	arm_func_start FUN_ov77_0211a3e0
 FUN_ov77_0211a3e0: ; 0x0211A3E0
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _0211A478 ; =0x02099F18
+	ldr r1, _0211A478 ; =g3DDevice
 	mov r4, #0
 	mov r5, r0
 	ldr r0, [r1]
 	mov r1, r4
 	mov r2, r4
 	mov r3, r4
-	bl FUN_020512a8
+	bl _ZN9C3DDevice13setClearColorEthh
 	mov r1, #0x4000000
 	ldr r0, [r1]
 	ldr r2, [r5, #0xc]
 	bic r0, r0, #0x1f00
 	orr r2, r0, r2, lsl #8
-	ldr r0, _0211A47C ; =0x02099F58
+	ldr r0, _0211A47C ; =g3DSpriteCtrl
 	str r2, [r1]
 	ldr r0, [r0]
 	bl FUN_ov16_02116650
-	ldr r0, _0211A480 ; =0x02099F38
+	ldr r0, _0211A480 ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_021123c4
-	ldr r0, _0211A484 ; =0x02099EEC
+	ldr r0, _0211A484 ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205b398
-	ldr r5, _0211A488 ; =0x02099EE8
+	ldr r5, _0211A488 ; =g3DGameMapObject
 	mov r1, r4
 	ldr r0, [r5]
 	bl FUN_020522ec
@@ -396,10 +396,10 @@ FUN_ov77_0211a3e0: ; 0x0211A3E0
 	bl FUN_020522ec
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A478: .word g3DDevice
-_0211A47C: .word unk_02099F58
-_0211A480: .word unk_02099F38
-_0211A484: .word unk_02099EEC
-_0211A488: .word unk_02099EE8
+_0211A47C: .word g3DSpriteCtrl
+_0211A480: .word g3DPlaneCtrl
+_0211A484: .word g3DGameChar
+_0211A488: .word g3DGameMapObject
 	arm_func_end FUN_ov77_0211a3e0
 
 	arm_func_start FUN_ov77_0211a48c
@@ -492,9 +492,9 @@ ov77_0211A540:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c
 	.word FUN_ov1_020be5bc

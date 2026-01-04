@@ -7,7 +7,7 @@
 .public sprintf
 .public FUN_ov16_020f3d08
 .public FUN_02058800
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public _ZN9Allocator10deallocateEPv
 .public _ZN9Allocator8allocateEm
 .public gAllocator
@@ -39,7 +39,7 @@
 .public pLogic_PalSkinFaceFile
 .public FUN_ov16_0210eb3c
 .public FUN_020460a8
-.public unk_02099EB4
+.public gSprButtonCtrl
 .public unk_020A9C40
 .public MI_CpuFill8
 .public FUN_ov16_02114204
@@ -88,7 +88,7 @@
 .public gFont8
 .public gFont12
 .public FUN_ov16_0210e29c
-.public unk_02099ED4
+.public gSprAnimeCtrl
 .public FUN_ov16_02114370
 .public FUN_ov16_0210fd0c
 .public _s32_div_f
@@ -134,7 +134,7 @@
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
-.public unk_0209A110
+.public gDeltaTime
 .public FUN_0206c270
 .public FUN_ov16_020f1aec
 .public FUN_ov16_0210e9d8
@@ -159,6 +159,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

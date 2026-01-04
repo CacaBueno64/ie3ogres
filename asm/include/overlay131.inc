@@ -136,7 +136,7 @@
 .public FUN_02048c34
 .public FUN_020535bc
 .public FUN_02048c50
-.public unk_02099ED8
+.public g2DAdventureLogic
 .public FUN_02055d2c
 .public FUN_02055bb0
 .public FUN_0202ceb0
@@ -280,7 +280,7 @@
 .public FUN_02045064
 .public FUN_02044f78
 .public FUN_ov16_020f8860
-.public unk_02099F54
+.public gDungeonManager
 .public FUN_020388f8
 .public FUN_020385dc
 .public FUN_0205fb80
@@ -289,13 +289,13 @@
 .public FUN_ov16_020f1f5c
 .public FUN_ov16_020edf8c
 .public FUN_ov16_020edfe4
-.public unk_02099EE8
+.public g3DGameMapObject
 .public strlen
 .public FUN_020554b0
 .public FUN_02055004
 .public FUN_02055528
 .public FUN_02056ed4
-.public unk_02099EC0
+.public g2DGChar
 .public FUN_020559a0
 .public FUN_02055324
 .public FUN_02056e04
@@ -333,7 +333,7 @@
 .public FUN_ov16_0211401c
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02113ec0
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_02114370
 .public FUN_ov16_021128c4
 .public FUN_02058ee0

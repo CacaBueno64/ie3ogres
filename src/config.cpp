@@ -13,30 +13,30 @@ void Config::clear(void) { this->paramEntry = NULL; }
 
 BOOL Config::openFile(char *filepath) {
     char *file = NULL;
-    char *r5;
-    char *r6;
-    s32 len = FileSystem::ReadFile((void **)&file, filepath, 0, 0);
-    if (len <= 0) {
+    char *line_start;
+    char *curr;
+
+    s32 file_size = FileSystem::ReadFile(reinterpret_cast<void **>(&file), filepath, 0, 0);
+    if (file_size <= 0) {
         return FALSE;
     }
 
-    r5 = r6 = file;
+    line_start = curr = file;
 
-    while (r6 < (file + len)) {
-        if ((*r6 == '\n') || (*r6 == '\r')) {
-            *r6 = 0;
-            if (strlen(r5) != 0) {
-                if (this->readFileParam(r5, &this->paramEntry[this->paramCount])) {
+    while (curr < (file + file_size)) {
+        if ((*curr == '\n') || (*curr == '\r')) {
+            *curr = 0;
+            if (strlen(line_start) != 0) {
+                if (this->readFileParam(line_start, &this->paramEntry[this->paramCount])) {
                     this->paramCount++;
                 }
             }
-            r5 = r6 + 1;
+            line_start = curr + 1;
         }
-        r6++;
+        curr++;
     }
 
     FileSystem::Deallocate(file);
-
     return TRUE;
 }
 

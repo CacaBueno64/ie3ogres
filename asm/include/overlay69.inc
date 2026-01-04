@@ -6,9 +6,9 @@
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f5278
 .public gLogicThink
-.public unk_02099EB4
-.public unk_02099ED4
-.public unk_02099F38
+.public gSprButtonCtrl
+.public gSprAnimeCtrl
+.public g3DPlaneCtrl
 .public FUN_0205107c
 .public FUN_ov16_020efa80
 .public FUN_0206d64c
@@ -31,8 +31,8 @@
 .public _fsub
 .public _ffix
 .public FUN_ov16_02116654
-.public unk_0209A110
-.public unk_02099F58
+.public gDeltaTime
+.public g3DSpriteCtrl
 .public FUN_ov16_02112724
 .public FUN_ov16_02113f7c
 .public _s32_div_f
@@ -124,6 +124,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

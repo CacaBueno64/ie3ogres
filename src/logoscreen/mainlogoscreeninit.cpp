@@ -125,7 +125,7 @@ void CMainLogoScreenInit::update(int arg)
                 }
             }
             if (!FUN_ov16_020f1670()) {
-                this->timer -= unk_0209A110;
+                this->timer -= gDeltaTime;
             }
             if (this->timer >= 0) {
                 break;
@@ -178,7 +178,7 @@ void CMainLogoScreenInit::updateLate(void)
     }
 }
 
-int CMainLogoScreenInit::vFUN_64(int arg)
+int CMainLogoScreenInit::signal(int arg)
 {
     if (arg == 1) {
         this->skipSignal = 1;

@@ -84,8 +84,8 @@ unk_0209A0E4:
 	.global unk_0209A0E8
 unk_0209A0E8:
 	.space 0x04
-	.global unk_0209A0EC
-unk_0209A0EC:
+	.global gBGPulsePhase
+gBGPulsePhase:
 	.space 0x04
 	.global unk_0209A0F0
 unk_0209A0F0:
@@ -99,12 +99,9 @@ unk_0209A0F8:
 	.global unk_0209A0FC
 unk_0209A0FC:
 	.space 0x04
-	.global unk_0209A100
-unk_0209A100:
-	.space 0x01
-	.global unk_0209A101
-unk_0209A101:
-	.space 0x03
+	.global gBGPulseFlags
+gBGPulseFlags:
+	.space 0x04
 	.global unk_0209A104
 unk_0209A104:
 	.space 0x04
@@ -114,8 +111,8 @@ unk_0209A108:
 	.global unk_0209A10C
 unk_0209A10C:
 	.space 0x04
-	.global unk_0209A110
-unk_0209A110:
+	.global gDeltaTime
+gDeltaTime:
 	.space 0x04
 	.global unk_0209A114
 unk_0209A114:
@@ -168,8 +165,8 @@ unk_0209A190:
 	.global unk_0209A1A8
 unk_0209A1A8:
 	.space 0x38
-	.global unk_0209A1E0
-unk_0209A1E0:
+	.global gBGPulsePaletteEnable
+gBGPulsePaletteEnable:
 	.space 0x20
 	.global unk_0209A200
 unk_0209A200:
@@ -360,15 +357,12 @@ unk_0209AF58:
 	.global unk_0209B13C
 unk_0209B13C:
 	.space 0xE4
-	.global unk_0209B220
-unk_0209B220:
+	.global gBGPalettesTemp
+gBGPalettesTemp:
 	.space 0x400
-	.global unk_0209B620
-unk_0209B620:
-	.space 0x200
-	.global unk_0209B820
-unk_0209B820:
-	.space 0x200
+	.global gBGPalettesFinal
+gBGPalettesFinal:
+	.space 0x400
 	.global gLogicThink
 gLogicThink:
 	.space 0x40C

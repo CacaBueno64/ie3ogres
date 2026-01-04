@@ -2027,8 +2027,8 @@ ov92_021268D0:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov92_02124d00
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov92_0212693C
 ov92_0212693C:
 	.byte 0x2F, 0x64, 0x61, 0x74

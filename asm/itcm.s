@@ -898,7 +898,7 @@ _01FF91F4:
 	ldr r0, [r6, #0x84]
 	mov r1, r6
 	ldrb r3, [r0, #0x1a]
-	ldr r0, _01FF937C ; =0x02099F14
+	ldr r0, _01FF937C ; =g3DFieldSprite
 	str r2, [sp]
 	ldr r0, [r0]
 	mov r2, #8
@@ -987,7 +987,7 @@ _01FF9324:
 	cmpeq r2, r0
 	addeq sp, sp, #0x28
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _01FF937C ; =0x02099F14
+	ldr r0, _01FF937C ; =g3DFieldSprite
 	str r4, [sp]
 	ldr r0, [r0]
 	mov r1, r6
@@ -996,7 +996,7 @@ _01FF9324:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _01FF9374: .word unk_0209A2C0
 _01FF9378: .word unk_020A0640
-_01FF937C: .word unk_02099F14
+_01FF937C: .word g3DFieldSprite
 _01FF9380: .word unk_0209A720
 	arm_func_end FUN_01ff8c44
 
@@ -1098,7 +1098,7 @@ _01FF94E0:
 	mov r2, #0
 	str r2, [r0, #0x10]
 	ldr r1, [r6, #0x88]
-	ldr r0, _01FF9520 ; =0x02099F14
+	ldr r0, _01FF9520 ; =g3DFieldSprite
 	str r2, [r1, #0x14]
 	ldr r3, [r6, #0x88]
 	mov r1, r6
@@ -1110,7 +1110,7 @@ _01FF94E0:
 	bl FUN_ov1_020e3c14
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _01FF951C: .word unk_0209A2C0
-_01FF9520: .word unk_02099F14
+_01FF9520: .word g3DFieldSprite
 	arm_func_end FUN_01ff9384
 
 	arm_func_start FUN_01ff9524

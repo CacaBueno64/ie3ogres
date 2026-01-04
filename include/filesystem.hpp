@@ -12,6 +12,17 @@
 typedef int arckey_t;
 typedef signed char filekey_t;
 
+#define FILE_SYSTEM_STACK_SIZE 2048
+
+typedef struct {
+    void *data;
+    size_t size;
+    u8 available;
+    u8 unk_9;
+    u8 unk_a;
+    u8 pad_b;
+} SFileData;
+
 namespace FileSystem {
 
 typedef struct {

@@ -84,7 +84,7 @@
 .public FUN_ov1_020e45b8
 .public FUN_ov1_020e5634
 .public FUN_ov1_020e5030
-.public unk_02099F14
+.public g3DFieldSprite
 .public ov1_020E9482
 .public ov1_020EAAA8
 .public _ZN11AudioPlayer12FUN_0202b838Eiii
@@ -189,8 +189,8 @@
 .public FUN_ov1_020e443c
 .public FUN_ov1_020e03b0
 .public FUN_0205ef30
-.public unk_02099EE8
-.public unk_0209A110
+.public g3DGameMapObject
+.public gDeltaTime
 .public FUN_ov132_021435c0
 .public FUN_ov16_020f672c
 .public FUN_ov1_020e3d74
@@ -221,7 +221,7 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
+.public _ZN12CommonScreen8transferEPv
 .public FUN_ov1_020be600
 .public FUN_ov1_020be55c
 .public FUN_ov1_020be5bc

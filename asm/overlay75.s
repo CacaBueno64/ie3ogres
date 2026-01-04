@@ -99,7 +99,7 @@ _0211A044: .word ov1_020E9490
 FUN_ov75_0211a048: ; 0x0211A048
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
-	ldr r1, _0211A208 ; =0x02099F18
+	ldr r1, _0211A208 ; =g3DDevice
 	mov r5, r0
 	mov r4, #1
 	ldr r0, [r1]
@@ -413,9 +413,9 @@ ov75_0211A440:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c
 	.word FUN_ov1_020be5bc

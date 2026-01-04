@@ -21,7 +21,7 @@
 .public unk_0209A454
 .public gLogicThink
 .public unk_02099EF0
-.public _ZN11AudioPlayer12FUN_0202d594Emm
+.public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public FUN_0202c3b4
 .public gAudioPlayer
 .public FUN_ov16_020efabc
@@ -121,7 +121,7 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
+.public _ZN12CommonScreen8transferEPv
 .public FUN_ov1_020be600
 .public FUN_ov1_020be55c
 .public FUN_ov1_020be5bc

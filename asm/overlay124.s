@@ -2051,7 +2051,7 @@ ov124_021269B0:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov124_02124d00
-	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen6signalEi
 	.word FUN_ov124_02126798
 	.global ov124_02126A1C
 ov124_02126A1C:

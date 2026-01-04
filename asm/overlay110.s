@@ -2517,8 +2517,8 @@ ov110_02126FCC:
 	.word _ZN15CommonSubScreen8isFadingEv
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov110_02124d00
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov110_02127038
 ov110_02127038:
 	.byte 0x73, 0x68, 0x75, 0x70, 0x5F, 0x77, 0x30, 0x30

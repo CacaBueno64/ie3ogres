@@ -197,7 +197,7 @@ FUN_ov18_0211a14c: ; 0x0211A14C
 	mov r2, #0xc0
 	mov r4, #1
 	bl MI_CpuFill8
-	ldr r6, _0211A738 ; =0x02099F38
+	ldr r6, _0211A738 ; =g3DPlaneCtrl
 	str r11, [sp, #0x14]
 	ldr r0, [r6]
 	bl FUN_ov16_021123b4
@@ -261,7 +261,7 @@ _0211A248:
 	ldr r1, [sp, #0x14]
 	ldr r0, _0211A73C ; =gAllocator
 	mov r10, #1
-	ldr r7, _0211A738 ; =0x02099F38
+	ldr r7, _0211A738 ; =g3DPlaneCtrl
 	mov r6, #0x1c
 	bl _ZN9Allocator10deallocateEPv
 	mov r4, #0
@@ -423,7 +423,7 @@ _0211A3E4:
 	mov r0, r5
 	mov r3, #0x68
 	bl FUN_ov18_0211b4dc
-	ldr r7, _0211A738 ; =0x02099F38
+	ldr r7, _0211A738 ; =g3DPlaneCtrl
 	mov r6, #0x1c
 	b _0211A614
 _0211A4D8:
@@ -586,7 +586,7 @@ _0211A66C:
 	str r0, [r5, #0xef8]
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A738: .word unk_02099F38
+_0211A738: .word g3DPlaneCtrl
 _0211A73C: .word gAllocator
 _0211A740: .word ov18_0211BC3C
 _0211A744: .word ov18_0211BC5C
@@ -613,7 +613,7 @@ FUN_ov18_0211a764: ; 0x0211A764
 	addeq sp, sp, #0x1c
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, pc}
-	ldr r0, _0211A7D0 ; =0x02099F38
+	ldr r0, _0211A7D0 ; =g3DPlaneCtrl
 	ldr r12, [sp, #0x14]
 	ldr r2, [sp, #0x18]
 	ldr r0, [r0]
@@ -628,7 +628,7 @@ FUN_ov18_0211a764: ; 0x0211A764
 	bl FUN_02058800
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, pc}
-_0211A7D0: .word unk_02099F38
+_0211A7D0: .word g3DPlaneCtrl
 	arm_func_end FUN_ov18_0211a764
 
 	arm_func_start FUN_ov18_0211a7d4
@@ -637,7 +637,7 @@ FUN_ov18_0211a7d4: ; 0x0211A7D4
 	mov r4, #0
 	mov r6, r0
 	mov r5, r4
-	ldr r7, _0211A900 ; =0x02099F38
+	ldr r7, _0211A900 ; =g3DPlaneCtrl
 	b _0211A800
 _0211A7EC:
 	add r1, r6, r5, lsl #2
@@ -649,7 +649,7 @@ _0211A800:
 	cmp r5, #6
 	blt _0211A7EC
 	mov r5, #0
-	ldr r7, _0211A900 ; =0x02099F38
+	ldr r7, _0211A900 ; =g3DPlaneCtrl
 	b _0211A830
 _0211A814:
 	add r0, r6, r5, lsl #2
@@ -664,7 +664,7 @@ _0211A830:
 	cmp r5, #0xb
 	blt _0211A814
 	mov r5, #0
-	ldr r7, _0211A900 ; =0x02099F38
+	ldr r7, _0211A900 ; =g3DPlaneCtrl
 	b _0211A860
 _0211A844:
 	add r0, r6, r5, lsl #2
@@ -678,7 +678,7 @@ _0211A85C:
 _0211A860:
 	cmp r5, #4
 	blt _0211A844
-	ldr r7, _0211A900 ; =0x02099F38
+	ldr r7, _0211A900 ; =g3DPlaneCtrl
 	ldr r0, [r7]
 	bl FUN_ov16_021123c4
 	ldr r1, [r6, #0x38]
@@ -719,7 +719,7 @@ _0211A8B0:
 	add r0, r6, #0xef0
 	bl FUN_ov16_020f52c4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A900: .word unk_02099F38
+_0211A900: .word g3DPlaneCtrl
 _0211A904: .word unk_020A1240
 	arm_func_end FUN_ov18_0211a7d4
 
@@ -901,7 +901,7 @@ _0211AB70:
 _0211AB78:
 	str r9, [r10, #0x44]
 	mov r5, #2
-	ldr r4, _0211ABC4 ; =0x02099F38
+	ldr r4, _0211ABC4 ; =g3DPlaneCtrl
 	b _0211ABA4
 _0211AB88:
 	add r0, r9, #2
@@ -920,7 +920,7 @@ _0211ABB4: .word unk_020A9C40
 _0211ABB8: .word 0x0000024E
 _0211ABBC: .word gAllocator
 _0211ABC0: .word ov18_0211BC9C
-_0211ABC4: .word unk_02099F38
+_0211ABC4: .word g3DPlaneCtrl
 	arm_func_end FUN_ov18_0211aaac
 
 	arm_func_start FUN_ov18_0211abc8
@@ -1063,7 +1063,7 @@ FUN_ov18_0211ad74: ; 0x0211AD74
 	str r0, [sp, #0x14]
 	mov r6, #2
 	mov r11, #1
-	ldr r5, _0211AF30 ; =0x02099F38
+	ldr r5, _0211AF30 ; =g3DPlaneCtrl
 	b _0211AF1C
 _0211ADA4:
 	mla r1, r8, r4, r7
@@ -1169,7 +1169,7 @@ _0211AF1C:
 	blt _0211ADA4
 	add sp, sp, #0x21c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211AF30: .word unk_02099F38
+_0211AF30: .word g3DPlaneCtrl
 	arm_func_end FUN_ov18_0211ad74
 
 	arm_func_start FUN_ov18_0211af34
@@ -1187,7 +1187,7 @@ FUN_ov18_0211af34: ; 0x0211AF34
 	mov r8, r9
 	mov r7, #1
 	mov r4, #0x360
-	ldr r6, _0211B01C ; =0x02099F38
+	ldr r6, _0211B01C ; =g3DPlaneCtrl
 	b _0211AFD8
 _0211AF70:
 	mla r0, r9, r4, r10
@@ -1221,7 +1221,7 @@ _0211AFD8:
 	cmp r9, r0
 	blt _0211AF70
 	mov r5, #2
-	ldr r4, _0211B01C ; =0x02099F38
+	ldr r4, _0211B01C ; =g3DPlaneCtrl
 	b _0211B008
 _0211AFF0:
 	ldr r0, [r4]
@@ -1236,7 +1236,7 @@ _0211B008:
 	add sp, sp, #0x78
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B018: .word gLogicThink
-_0211B01C: .word unk_02099F38
+_0211B01C: .word g3DPlaneCtrl
 _0211B020: .word ov18_0211BCD8
 	arm_func_end FUN_ov18_0211af34
 
@@ -1265,7 +1265,7 @@ FUN_ov18_0211b04c: ; 0x0211B04C
 	add r0, r0, #1
 	mov r2, r0, lsr #0x1f
 	smull r0, r3, r4, r0
-	ldr r5, _0211B110 ; =0x02099F38
+	ldr r5, _0211B110 ; =g3DPlaneCtrl
 	add r3, r2, r3, asr #2
 	ldr r0, [r5]
 	ldr r1, [r7, #0x88]
@@ -1305,7 +1305,7 @@ FUN_ov18_0211b04c: ; 0x0211B04C
 	strb r0, [r1, #1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B10C: .word 0x66666667
-_0211B110: .word unk_02099F38
+_0211B110: .word g3DPlaneCtrl
 _0211B114: .word unk_020A9C40
 	arm_func_end FUN_ov18_0211b04c
 
@@ -1383,7 +1383,7 @@ FUN_ov18_0211b1f4: ; 0x0211B1F4
 	mov r7, r11
 	mov r6, #2
 	mov r5, #3
-	ldr r4, _0211B284 ; =0x02099F38
+	ldr r4, _0211B284 ; =g3DPlaneCtrl
 	b _0211B278
 _0211B218:
 	ldr r0, [r10, #0x34]
@@ -1416,7 +1416,7 @@ _0211B278:
 	cmp r8, #4
 	blt _0211B218
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B284: .word unk_02099F38
+_0211B284: .word g3DPlaneCtrl
 	arm_func_end FUN_ov18_0211b1f4
 
 	arm_func_start FUN_ov18_0211b288
@@ -1622,8 +1622,8 @@ FUN_ov18_0211b508: ; 0x0211B508
 	mov r9, #1
 	add r8, r0, #0xc00
 	add r7, r1, #0xc00
-	ldr r6, _0211B6B4 ; =0x0209A110
-	ldr r5, _0211B6B8 ; =0x02099F38
+	ldr r6, _0211B6B4 ; =gDeltaTime
+	ldr r5, _0211B6B8 ; =g3DPlaneCtrl
 	b _0211B6A0
 _0211B53C:
 	mul r0, r9, r4
@@ -1726,8 +1726,8 @@ _0211B6A0:
 	mov r0, r11
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B6B4: .word unk_0209A110
-_0211B6B8: .word unk_02099F38
+_0211B6B4: .word gDeltaTime
+_0211B6B8: .word g3DPlaneCtrl
 	arm_func_end FUN_ov18_0211b508
 
 	arm_func_start FUN_ov18_0211b6bc
@@ -2044,9 +2044,9 @@ ov18_0211BBD0:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
+	.word _ZN12CommonScreen5stateEv
 	.global ov18_0211BC3C
 ov18_0211BC3C:
 	.asciz "/data_iz/pic3d/blog_main.SPL"

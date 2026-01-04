@@ -16,7 +16,7 @@
 .public FUN_02045cb0
 .public FUN_ov16_020f3054
 .public FUN_ov16_020f5278
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public gAllocator
 .public unk_020A1240
 .public unk_020A9C40
@@ -52,7 +52,7 @@
 .public STD_ConcatenateString
 .public FUN_02042b0c
 .public gFont12
-.public unk_0209A110
+.public gDeltaTime
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev
 .public _ZN12CommonScreen7vFUN_24Ev
@@ -70,6 +70,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

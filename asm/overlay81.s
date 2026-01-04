@@ -686,7 +686,7 @@ _0211A810:
 	add r0, r4, #0x88
 	mov r2, #0x60
 	bl MI_CpuFill8
-	ldr r0, _0211AA94 ; =0x02099F14
+	ldr r0, _0211AA94 ; =g3DFieldSprite
 	strb r6, [r4, #0x3e8]
 	ldr r0, [r0]
 	mov r1, r6
@@ -716,7 +716,7 @@ _0211A864:
 	ldr r0, [r0]
 	bl FUN_ov132_021435c0
 _0211A898:
-	ldr r7, _0211AA94 ; =0x02099F14
+	ldr r7, _0211AA94 ; =g3DFieldSprite
 	ldr r1, _0211AAA8 ; =0x0000067F
 	ldr r0, [r7]
 	bl FUN_ov1_020e4304
@@ -827,7 +827,7 @@ _0211AA08:
 	ldr r0, _0211AAB4 ; =0x020E9482
 	mov r1, r6
 	strb r6, [r0]
-	ldr r0, _0211AA94 ; =0x02099F14
+	ldr r0, _0211AA94 ; =g3DFieldSprite
 	strb r5, [r4, #0x33]
 	ldr r0, [r0]
 	bl FUN_ov1_020e4304
@@ -843,7 +843,7 @@ _0211AA50:
 	mov r1, r0
 	add r0, r4, #0x3c
 	bl FUN_ov1_020e5030
-	ldr r0, _0211AA94 ; =0x02099F14
+	ldr r0, _0211AA94 ; =g3DFieldSprite
 	strb r5, [r4, #0x33]
 	ldr r0, [r0]
 	mov r1, r6
@@ -854,7 +854,7 @@ _0211AA50:
 	bl FUN_ov1_020dc74c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211AA90: .word gWirelessUtil
-_0211AA94: .word unk_02099F14
+_0211AA94: .word g3DFieldSprite
 _0211AA98: .word unk_0209A128
 _0211AA9C: .word unk_0209A114
 _0211AAA0: .word unk_020A0640
@@ -1009,7 +1009,7 @@ FUN_ov81_0211ac94: ; 0x0211AC94
 	bl FUN_ov16_020f0a14
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _0211ACE0 ; =0x02099F14
+	ldr r0, _0211ACE0 ; =g3DFieldSprite
 	ldr r3, [sp, #0x10]
 	ldr r0, [r0]
 	mov r1, r5
@@ -1017,7 +1017,7 @@ FUN_ov81_0211ac94: ; 0x0211AC94
 	bl FUN_ov1_020e3a24
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211ACDC: .word ov1_020EAB04
-_0211ACE0: .word unk_02099F14
+_0211ACE0: .word g3DFieldSprite
 	arm_func_end FUN_ov81_0211ac94
 
 	arm_func_start FUN_ov81_0211ace4
@@ -1032,12 +1032,12 @@ FUN_ov81_0211ace4: ; 0x0211ACE4
 	bl FUN_ov16_020f0a14
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	ldr r0, _0211AD20 ; =0x02099F14
+	ldr r0, _0211AD20 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 	ldmfd sp!, {r3, pc}
 _0211AD1C: .word ov1_020EAB04
-_0211AD20: .word unk_02099F14
+_0211AD20: .word g3DFieldSprite
 	arm_func_end FUN_ov81_0211ace4
 
 	arm_func_start FUN_ov81_0211ad24
@@ -1628,13 +1628,13 @@ FUN_ov81_0211b538: ; 0x0211B538
 	cmp r0, #0
 	mov r1, #0x800
 	beq _0211B568
-	ldr r0, _0211B5F0 ; =0x02099F14
+	ldr r0, _0211B5F0 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e4354
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
 _0211B568:
-	ldr r0, _0211B5F0 ; =0x02099F14
+	ldr r0, _0211B5F0 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e4328
 	mov r1, #1
@@ -1668,7 +1668,7 @@ _0211B568:
 	bl FUN_ov16_020f5c34
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
-_0211B5F0: .word unk_02099F14
+_0211B5F0: .word g3DFieldSprite
 _0211B5F4: .word ov1_020EAAF0
 _0211B5F8: .word gBgMenuManager
 	arm_func_end FUN_ov81_0211b538
@@ -1687,14 +1687,14 @@ FUN_ov81_0211b5fc: ; 0x0211B5FC
 	cmp r0, #0
 	beq _0211B640
 _0211B628:
-	ldr r0, _0211B6D0 ; =0x02099F14
+	ldr r0, _0211B6D0 ; =g3DFieldSprite
 	mov r1, #0x1000
 	ldr r0, [r0]
 	bl FUN_ov1_020e4354
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
 _0211B640:
-	ldr r0, _0211B6D0 ; =0x02099F14
+	ldr r0, _0211B6D0 ; =g3DFieldSprite
 	mov r1, #0x1000
 	ldr r0, [r0]
 	bl FUN_ov1_020e4328
@@ -1730,7 +1730,7 @@ _0211B640:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
 _0211B6CC: .word unk_02099EF0
-_0211B6D0: .word unk_02099F14
+_0211B6D0: .word g3DFieldSprite
 _0211B6D4: .word ov1_020EAAEC
 _0211B6D8: .word gBgMenuManager
 	arm_func_end FUN_ov81_0211b5fc
@@ -1749,14 +1749,14 @@ FUN_ov81_0211b6dc: ; 0x0211B6DC
 	cmp r0, #0
 	beq _0211B720
 _0211B708:
-	ldr r0, _0211B7B0 ; =0x02099F14
+	ldr r0, _0211B7B0 ; =g3DFieldSprite
 	mov r1, #0x1000
 	ldr r0, [r0]
 	bl FUN_ov1_020e4354
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
 _0211B720:
-	ldr r0, _0211B7B0 ; =0x02099F14
+	ldr r0, _0211B7B0 ; =g3DFieldSprite
 	mov r1, #0x4000
 	ldr r0, [r0]
 	bl FUN_ov1_020e4328
@@ -1792,7 +1792,7 @@ _0211B720:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
 _0211B7AC: .word unk_02099EF0
-_0211B7B0: .word unk_02099F14
+_0211B7B0: .word g3DFieldSprite
 _0211B7B4: .word ov1_020EAAE8
 _0211B7B8: .word gBgMenuManager
 	arm_func_end FUN_ov81_0211b6dc
@@ -3129,17 +3129,17 @@ FUN_ov81_0211ca9c: ; 0x0211CA9C
 	ldr r1, [r0, #0x10]
 	cmp r1, #0
 	blt _0211CAC8
-	ldr r0, _0211CB28 ; =0x02099F14
+	ldr r0, _0211CB28 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3b40
 	b _0211CAD4
 _0211CAC8:
-	ldr r0, _0211CB28 ; =0x02099F14
+	ldr r0, _0211CB28 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3b48
 _0211CAD4:
 	ldr r0, _0211CB2C ; =0x020EAAF0
-	ldr r4, _0211CB28 ; =0x02099F14
+	ldr r4, _0211CB28 ; =g3DFieldSprite
 	ldrsh r1, [r0]
 	mov r5, #0
 	ldrsh r2, [r0, #2]
@@ -3159,7 +3159,7 @@ _0211CAD4:
 	mov r3, r5
 	bl FUN_ov1_020e443c
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211CB28: .word unk_02099F14
+_0211CB28: .word g3DFieldSprite
 _0211CB2C: .word ov1_020EAAF0
 _0211CB30: .word ov1_020EAAEC
 _0211CB34: .word ov1_020EAAE8
@@ -3178,7 +3178,7 @@ FUN_ov81_0211cb38: ; 0x0211CB38
 	cmp r0, #0
 	beq _0211CB7C
 _0211CB60:
-	ldr r5, _0211CC10 ; =0x02099F14
+	ldr r5, _0211CC10 ; =g3DFieldSprite
 	ldr r0, [r5]
 	bl FUN_ov1_020e3df4
 	mov r6, r0
@@ -3186,7 +3186,7 @@ _0211CB60:
 	bl FUN_ov1_020e3e9c
 	b _0211CB94
 _0211CB7C:
-	ldr r5, _0211CC10 ; =0x02099F14
+	ldr r5, _0211CC10 ; =g3DFieldSprite
 	ldr r0, [r5]
 	bl FUN_ov1_020e3dec
 	mov r6, r0
@@ -3194,7 +3194,7 @@ _0211CB7C:
 	bl FUN_ov1_020e3e94
 _0211CB94:
 	mov r7, r0
-	ldr r5, _0211CC10 ; =0x02099F14
+	ldr r5, _0211CC10 ; =g3DFieldSprite
 	mov r1, r6
 	ldr r0, [r5]
 	bl FUN_ov1_020e3de4
@@ -3205,12 +3205,12 @@ _0211CB94:
 	mov r1, r4
 	mov r2, #0
 	bl FUN_ov1_020e03b0
-	ldr r0, _0211CC14 ; =0x02099EE8
-	ldr r1, _0211CC18 ; =0x0209A110
+	ldr r0, _0211CC14 ; =g3DGameMapObject
+	ldr r1, _0211CC18 ; =gDeltaTime
 	ldr r0, [r0]
 	ldr r1, [r1]
 	bl FUN_0205ef30
-	ldr r4, _0211CC1C ; =0x02099F24
+	ldr r4, _0211CC1C ; =gCameraController
 	ldr r0, [r4]
 	bl FUN_ov16_020f7908
 	ldr r0, _0211CC20 ; =0x0209A128
@@ -3224,10 +3224,10 @@ _0211CB94:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CC08: .word unk_020A0640
 _0211CC0C: .word gWirelessUtil
-_0211CC10: .word unk_02099F14
-_0211CC14: .word unk_02099EE8
-_0211CC18: .word unk_0209A110
-_0211CC1C: .word unk_02099F24
+_0211CC10: .word g3DFieldSprite
+_0211CC14: .word g3DGameMapObject
+_0211CC18: .word gDeltaTime
+_0211CC1C: .word gCameraController
 _0211CC20: .word unk_0209A128
 _0211CC24: .word unk_0209A114
 	arm_func_end FUN_ov81_0211cb38
@@ -3244,7 +3244,7 @@ FUN_ov81_0211cc28: ; 0x0211CC28
 	ldrne r1, [r2, r4, lsl #3]
 	cmpne r1, #0x80000000
 	ble _0211CC68
-	ldr r0, _0211CCA4 ; =0x02099F14
+	ldr r0, _0211CCA4 ; =g3DFieldSprite
 	add r2, r2, r4, lsl #3
 	ldr r0, [r0]
 	ldr r2, [r2, #4]
@@ -3266,7 +3266,7 @@ _0211CC68:
 	bl FUN_ov81_0211cb38
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211CCA0: .word ov1_020EAB04
-_0211CCA4: .word unk_02099F14
+_0211CCA4: .word g3DFieldSprite
 _0211CCA8: .word gBgMenuManager
 	arm_func_end FUN_ov81_0211cc28
 
@@ -3292,7 +3292,7 @@ _0211CCC4: ; jump table
 _0211CCEC:
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211CCF0:
-	ldr r0, _0211CE4C ; =0x02099F14
+	ldr r0, _0211CE4C ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3d74
 	cmp r0, #0
@@ -3388,7 +3388,7 @@ _0211CE3C:
 	mov r1, #0
 	bl FUN_ov81_0211cc28
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211CE4C: .word unk_02099F14
+_0211CE4C: .word g3DFieldSprite
 _0211CE50: .word gBgMenuManager
 _0211CE54: .word unk_020A0640
 	arm_func_end FUN_ov81_0211ccac
@@ -3484,7 +3484,7 @@ FUN_ov81_0211ced0: ; 0x0211CED0
 	mov r6, #1
 	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x38
-	ldr r4, _0211CFE8 ; =0x02099F14
+	ldr r4, _0211CFE8 ; =g3DFieldSprite
 	moveq r6, r5
 	ldr r1, _0211CFEC ; =0x00005E7F
 	ldr r0, [r4]
@@ -3503,7 +3503,7 @@ _0211CFD8: .word gBgMenuManager
 _0211CFDC: .word unk_02099EF0
 _0211CFE0: .word unk_0209A128
 _0211CFE4: .word unk_0209A114
-_0211CFE8: .word unk_02099F14
+_0211CFE8: .word g3DFieldSprite
 _0211CFEC: .word 0x00005E7F
 	arm_func_end FUN_ov81_0211ced0
 
@@ -3522,7 +3522,7 @@ FUN_ov81_0211cff0: ; 0x0211CFF0
 	moveq r5, #0
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
-	ldr r0, _0211D088 ; =0x02099F14
+	ldr r0, _0211D088 ; =g3DFieldSprite
 	movne r5, #1
 	ldr r0, [r0]
 	mov r1, r5
@@ -3547,7 +3547,7 @@ FUN_ov81_0211cff0: ; 0x0211CFF0
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211D080: .word unk_0209A128
 _0211D084: .word unk_020A0640
-_0211D088: .word unk_02099F14
+_0211D088: .word g3DFieldSprite
 _0211D08C: .word gBgMenuManager
 _0211D090: .word unk_02099EF0
 	arm_func_end FUN_ov81_0211cff0
@@ -3691,8 +3691,8 @@ ov81_0211D210:
 	.word _ZN16CommonMainScreen9fadeWhiteEv
 	.word _ZN16CommonMainScreen8isFadingEv
 	.word _ZN16CommonMainScreen16isBrightAdjustedEv
-	.word _ZN12CommonScreen7vFUN_60Ei
-	.word _ZN12CommonScreen7vFUN_64Ei
+	.word _ZN12CommonScreen8transferEPv
+	.word _ZN12CommonScreen6signalEi
 	.word FUN_ov81_0211d0a8
 	.word FUN_ov1_020be600
 	.word FUN_ov1_020be55c

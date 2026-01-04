@@ -2328,7 +2328,7 @@ ov97_02126D6C:
 	.word _ZN15CommonSubScreen16isBrightAdjustedEv
 	.word FUN_ov97_02124d1c
 	.word FUN_ov97_02124ea4
-	.word _ZN12CommonScreen7vFUN_68Ev
+	.word _ZN12CommonScreen5stateEv
 	.global ov97_02126DD8
 ov97_02126DD8:
 	.byte 0x2F, 0x64, 0x61, 0x74, 0x61, 0x5F, 0x69, 0x7A

@@ -62,7 +62,7 @@ class CFileIO {
         /* 0x0202fa88 */ BOOL getDestSize(FileRequest *request, FSFile *file, size_t *out_size);
         /* 0x0202fb58 */ void processUncompRequest(FileRequest *request);
         /* 0x0202fbe8 */ void uncompress(void *src, FileRequest *request);
-        /* 0x0202fc4c */ size_t readFromSFP(char *filename, void **dst, void *file);
+        /* 0x0202fc4c */ size_t readFromSFP(char *filename, void **dst, char *file);
 
     private:
     Allocator *defaultAllocator;

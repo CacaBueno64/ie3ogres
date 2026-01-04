@@ -728,7 +728,7 @@ _0213B724:
 	mov r6, #0
 	ldrb r3, [r0, #0x1a]
 	ldrb r2, [r0, #0x1d]
-	ldr r0, _0213B894 ; =0x02099F14
+	ldr r0, _0213B894 ; =g3DFieldSprite
 	mov r1, r4
 	str r6, [sp]
 	ldr r0, [r0]
@@ -824,7 +824,7 @@ _0213B884: .word 0x0000191F
 _0213B888: .word 0x00005044
 _0213B88C: .word unk_0209A2C0
 _0213B890: .word gLogicThink
-_0213B894: .word unk_02099F14
+_0213B894: .word g3DFieldSprite
 _0213B898: .word unk_020A0640
 	arm_func_end FUN_ov132_0213af10
 
@@ -1483,7 +1483,7 @@ FUN_ov132_0213c17c: ; 0x0213C17C
 	mov r7, #0
 	mov r6, r7
 	mov r5, r7
-	ldr r4, _0213C1C8 ; =0x02099F14
+	ldr r4, _0213C1C8 ; =g3DFieldSprite
 	b _0213C1BC
 _0213C194:
 	mov r0, r6
@@ -1501,7 +1501,7 @@ _0213C1BC:
 	cmp r6, #0x16
 	blt _0213C194
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0213C1C8: .word unk_02099F14
+_0213C1C8: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0213c17c
 
 	arm_func_start FUN_ov132_0213c1cc
@@ -2021,7 +2021,7 @@ _0213C8E4:
 	mov r4, #0
 	ldrb r3, [r0, #0x1a]
 	ldrb r2, [r0, #0x1d]
-	ldr r0, _0213CA58 ; =0x02099F14
+	ldr r0, _0213CA58 ; =g3DFieldSprite
 	mov r1, r8
 	str r4, [sp]
 	ldr r0, [r0]
@@ -2038,7 +2038,7 @@ _0213C910:
 	mov r1, #2
 	bl FUN_0206dac4
 	ldr r1, [r8, #0x84]
-	ldr r0, _0213CA58 ; =0x02099F14
+	ldr r0, _0213CA58 ; =g3DFieldSprite
 	ldrb r3, [r1, #0x1a]
 	ldrb r2, [r1, #0x1d]
 	mov r1, r8
@@ -2115,7 +2115,7 @@ _0213CA18:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0213CA54: .word gLogicThink
-_0213CA58: .word unk_02099F14
+_0213CA58: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0213c844
 
 	arm_func_start FUN_ov132_0213ca5c
@@ -2694,7 +2694,7 @@ _0213D23C:
 	cmp r9, r1
 	mov r2, #0
 	bge _0213D2AC
-	ldr r0, _0213D2C0 ; =0x02099F14
+	ldr r0, _0213D2C0 ; =g3DFieldSprite
 	str r2, [sp]
 	ldr r0, [r0]
 	ldr r3, [r4]
@@ -2706,7 +2706,7 @@ _0213D2AC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0213D2B8: .word FX_SinCosTable_
 _0213D2BC: .word 0x000004CD
-_0213D2C0: .word unk_02099F14
+_0213D2C0: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0213d0f8
 
 	arm_func_start FUN_ov132_0213d2c4
@@ -2896,7 +2896,7 @@ _0213D528:
 	mov r3, r0
 	ldr r0, [sp, #0x38]
 	str r4, [sp]
-	ldr r1, _0213DCE8 ; =0x02099F14
+	ldr r1, _0213DCE8 ; =g3DFieldSprite
 	ldrb r2, [r0, #0xa]
 	ldr r0, [r1]
 	mov r1, r9
@@ -3395,7 +3395,7 @@ _0213DCC4:
 	mov r0, #0
 	add sp, sp, #0x44
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0213DCE8: .word unk_02099F14
+_0213DCE8: .word g3DFieldSprite
 _0213DCEC: .word 0x0000038E
 _0213DCF0: .word FX_SinCosTable_
 _0213DCF4: .word 0x00000AAA
@@ -3410,7 +3410,7 @@ FUN_ov132_0213dd00: ; 0x0213DD00
 	mov r7, r1
 	mov r8, r0
 	mov r0, r7
-	ldr r9, _0213DF10 ; =0x02099F14
+	ldr r9, _0213DF10 ; =g3DFieldSprite
 	mov r4, #0
 	bl FUN_0206db3c
 	cmp r0, #0
@@ -3545,7 +3545,7 @@ _0213DEF4:
 	bl FUN_ov1_020e3c14
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0213DF10: .word unk_02099F14
+_0213DF10: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0213dd00
 
 	arm_func_start FUN_ov132_0213df14
@@ -11034,14 +11034,14 @@ _0214464C:
 	ldr r0, [r7, #0x84]
 	ldrb r3, [r0, #0x1a]
 	bge _0214468C
-	ldr r0, _021446EC ; =0x02099F14
+	ldr r0, _021446EC ; =g3DFieldSprite
 	str r5, [sp]
 	mov r1, r7
 	ldr r0, [r0]
 	mov r2, #3
 	b _021446A0
 _0214468C:
-	ldr r0, _021446EC ; =0x02099F14
+	ldr r0, _021446EC ; =g3DFieldSprite
 	str r5, [sp]
 	ldr r0, [r0]
 	mov r1, r7
@@ -11069,7 +11069,7 @@ _021446B8:
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021446E8: .word 0x51EB851F
-_021446EC: .word unk_02099F14
+_021446EC: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02144488
 
 	arm_func_start FUN_ov132_021446f0
@@ -11981,7 +11981,7 @@ FUN_ov132_021451d0: ; 0x021451D0
 	mov r8, #0
 	mov r6, r8
 	mvn r5, #0
-	ldr r4, _0214527C ; =0x02099F14
+	ldr r4, _0214527C ; =g3DFieldSprite
 	b _0214525C
 _02145200:
 	mov r0, r8
@@ -12017,7 +12017,7 @@ _0214525C:
 	bl FUN_ov132_021435c0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0214527C: .word unk_02099F14
+_0214527C: .word g3DFieldSprite
 	arm_func_end FUN_ov132_021451d0
 
 	arm_func_start FUN_ov132_02145280
@@ -15187,12 +15187,12 @@ _02147CA0:
 	orr r0, r1, r0
 	strb r0, [r4, #0x29]
 _02147CE4:
-	ldr r0, _02147CF8 ; =0x02099F14
+	ldr r0, _02147CF8 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e4968
 	ldmfd sp!, {r4, r5, r6, pc}
 _02147CF4: .word unk_0209A114
-_02147CF8: .word unk_02099F14
+_02147CF8: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02147c64
 
 	arm_func_start FUN_ov132_02147cfc
@@ -15314,7 +15314,7 @@ FUN_ov132_02147e2c: ; 0x02147E2C
 	addge r4, r2, r0, ror #29
 	mov r2, #1
 	str r2, [sp]
-	ldr r0, _02147E80 ; =0x02099F14
+	ldr r0, _02147E80 ; =g3DFieldSprite
 	cmp r4, #0
 	movlt r4, #0
 	ldr r0, [r0]
@@ -15323,7 +15323,7 @@ FUN_ov132_02147e2c: ; 0x02147E2C
 	bl FUN_ov1_020e3c14
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_02147E80: .word unk_02099F14
+_02147E80: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02147e2c
 
 	arm_func_start FUN_ov132_02147e84
@@ -15660,7 +15660,7 @@ _02148340:
 	ldr r1, [sp, #0x18]
 	mov r3, r4
 	stmia r2, {r0, r1}
-	ldr r0, _02148394 ; =0x02099F14
+	ldr r0, _02148394 ; =g3DFieldSprite
 	str r6, [sp]
 	ldr r0, [r0]
 	ldr r2, [sp, #8]
@@ -15676,7 +15676,7 @@ _02148384: .word FX_SinCosTable_
 _02148388: .word 0x00000AAA
 _0214838C: .word 0x0000071C
 _02148390: .word 0x0000F8E4
-_02148394: .word unk_02099F14
+_02148394: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02147ec8
 
 	arm_func_start FUN_ov132_02148398
@@ -24013,7 +24013,7 @@ _0214F8C0:
 	cmp r0, #0
 	beq _0214F954
 	ldrb r3, [r0, #0x1a]
-	ldr r2, _0214FB48 ; =0x02099F14
+	ldr r2, _0214FB48 ; =g3DFieldSprite
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r2]
@@ -24154,7 +24154,7 @@ _0214FB10:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214FB44: .word gLogicThink
-_0214FB48: .word unk_02099F14
+_0214FB48: .word g3DFieldSprite
 _0214FB4C: .word unk_0209A2C0
 	arm_func_end FUN_ov132_0214f7f0
 
@@ -24886,7 +24886,7 @@ _02150584:
 	bl FUN_ov126_0212d500
 	cmp r0, #0
 	beq _021505A4
-	ldr r0, _021505C8 ; =0x02099F14
+	ldr r0, _021505C8 ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 _021505A4:
@@ -24899,7 +24899,7 @@ _021505A4:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _021505C0: .word unk_0209A2C0
 _021505C4: .word unk_020A0640
-_021505C8: .word unk_02099F14
+_021505C8: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02150334
 
 	arm_func_start FUN_ov132_021505cc
@@ -26254,7 +26254,7 @@ _021518E4:
 	mov r4, #0
 	ldrb r3, [r0, #0x1a]
 	ldrb r2, [r0, #0x1d]
-	ldr r0, _02151954 ; =0x02099F14
+	ldr r0, _02151954 ; =g3DFieldSprite
 	mov r1, r6
 	str r4, [sp]
 	ldr r0, [r0]
@@ -26281,7 +26281,7 @@ _0215192C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0215194C: .word unk_0209A2C0
 _02151950: .word gLogicThink
-_02151954: .word unk_02099F14
+_02151954: .word g3DFieldSprite
 	arm_func_end FUN_ov132_02151778
 
 	arm_func_start FUN_ov132_02151958
@@ -34765,7 +34765,7 @@ _021592D4:
 	ldrneb r0, [r7, #0x5a]
 	cmpne r0, #2
 	beq _02159310
-	ldr r0, _021594AC ; =0x02099F14
+	ldr r0, _021594AC ; =g3DFieldSprite
 	ldr r0, [r0]
 	bl FUN_ov1_020e3cd0
 	ldr r0, _021594B0 ; =0x020A0640
@@ -34884,7 +34884,7 @@ _02159480:
 	cmp r0, #1
 	strneb r4, [r7, #0x5c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_021594AC: .word unk_02099F14
+_021594AC: .word g3DFieldSprite
 _021594B0: .word unk_020A0640
 _021594B4: .word 0x00000CCD
 _021594B8: .word 0x00000B33
@@ -35159,7 +35159,7 @@ FUN_ov132_02159840: ; 0x02159840
 	mov r6, #0
 	mov r1, r6
 	bl FUN_ov132_021447d0
-	ldr r4, _021598D0 ; =0x02099F14
+	ldr r4, _021598D0 ; =g3DFieldSprite
 	ldr r0, [r4]
 	bl FUN_ov1_020e39b8
 	ldr r0, [r4]
@@ -35192,7 +35192,7 @@ _02159898:
 	mov r1, r6
 	bl FUN_ov132_02159a5c
 	ldmfd sp!, {r4, r5, r6, pc}
-_021598D0: .word unk_02099F14
+_021598D0: .word g3DFieldSprite
 _021598D4: .word unk_02099EF0
 	arm_func_end FUN_ov132_02159840
 
@@ -41185,7 +41185,7 @@ _0215EB18:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0215EB40:
-	ldr r11, _0215EBE0 ; =0x02099F14
+	ldr r11, _0215EBE0 ; =g3DFieldSprite
 	b _0215EBAC
 _0215EB48:
 	ldr r0, [r4]
@@ -41228,7 +41228,7 @@ _0215EBAC:
 	add sp, sp, #0x84
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0215EBDC: .word unk_02099EF0
-_0215EBE0: .word unk_02099F14
+_0215EBE0: .word g3DFieldSprite
 _0215EBE4: .word gLogicThink
 	arm_func_end FUN_ov132_0215eab8
 
@@ -41846,7 +41846,7 @@ FUN_ov132_0215f428: ; 0x0215F428
 	bl FUN_ov16_020febf8
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
-	ldr r1, _0215F498 ; =0x02099F14
+	ldr r1, _0215F498 ; =g3DFieldSprite
 	add r3, r3, #1
 	strb r3, [r6, #0xb]
 	strb r2, [r6, #0xa]
@@ -41858,7 +41858,7 @@ FUN_ov132_0215f428: ; 0x0215F428
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0215F498: .word unk_02099F14
+_0215F498: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0215f428
 
 	arm_func_start FUN_ov132_0215f49c
@@ -41888,7 +41888,7 @@ FUN_ov132_0215f49c: ; 0x0215F49C
 	mov r1, r8
 	strb r7, [r5, #0xa]
 	bl FUN_020463c4
-	ldr r0, _0215F534 ; =0x02099F14
+	ldr r0, _0215F534 ; =g3DFieldSprite
 	ldr r1, [sp]
 	ldr r0, [r0]
 	bl FUN_ov1_020e4304
@@ -41901,7 +41901,7 @@ FUN_ov132_0215f49c: ; 0x0215F49C
 	add sp, sp, #0x80
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0215F530: .word unk_020A9C40
-_0215F534: .word unk_02099F14
+_0215F534: .word g3DFieldSprite
 	arm_func_end FUN_ov132_0215f49c
 
 	arm_func_start FUN_ov132_0215f538

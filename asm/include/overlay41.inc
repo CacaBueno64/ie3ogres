@@ -17,8 +17,8 @@
 .public FUN_ov16_020f085c
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f2fa8
-.public unk_02099EB4
-.public unk_02099ED4
+.public gSprButtonCtrl
+.public gSprAnimeCtrl
 .public unk_0209A070
 .public gLogicThink
 .public unk_020AF81C
@@ -32,7 +32,7 @@
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f6c58
 .public FUN_ov16_021123c4
-.public unk_02099F38
+.public g3DPlaneCtrl
 .public FUN_ov16_020f6584
 .public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public FUN_ov16_020f6e8c
@@ -81,9 +81,9 @@
 .public _ffix
 .public FUN_ov16_02116654
 .public FUN_0205722c
-.public unk_0209A110
-.public unk_02099F58
-.public unk_02099EC0
+.public gDeltaTime
+.public g3DSpriteCtrl
+.public g2DGChar
 .public G2_GetBG1CharPtr
 .public MIi_CpuClearFast
 .public DC_FlushRange
@@ -135,7 +135,7 @@
 .public FUN_0204b754
 .public FUN_0204fb60
 .public FUN_0206cd88
-.public FUN_02056828
+.public _ZN8C2DGChar5resetEv
 .public FUN_020568c4
 .public FUN_02057be4
 .public FUN_020568a4
@@ -234,6 +234,6 @@
 .public _ZN16CommonMainScreen9fadeWhiteEv
 .public _ZN16CommonMainScreen8isFadingEv
 .public _ZN16CommonMainScreen16isBrightAdjustedEv
-.public _ZN12CommonScreen7vFUN_60Ei
-.public _ZN12CommonScreen7vFUN_64Ei
-.public _ZN12CommonScreen7vFUN_68Ev
+.public _ZN12CommonScreen8transferEPv
+.public _ZN12CommonScreen6signalEi
+.public _ZN12CommonScreen5stateEv

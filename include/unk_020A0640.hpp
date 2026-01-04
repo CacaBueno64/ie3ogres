@@ -11,7 +11,7 @@ class UnkClass_020A0640 {
     public:
         /* 0x020630e8 */ void loadPassData(SRecordPass *recordPass);
         /* 0x02063248 */ void getPassData(st_save_pass_short *savePassShort);
-    private:
+    
     u32 unk0;
     u32 unk4;
     u32 unk8;

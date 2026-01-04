@@ -356,7 +356,7 @@ L5_Main: ; 0x02029C08
 	mov r0, #0
 	ldr r1, _02029C60 ; =0x0000007E
 	bl FS_LoadOverlay
-	bl FUN_02029304
+	bl _Z11InitGlobalsv
 	bl _Z12FUN_020295e8v
 	bl _Z12FUN_02029608v
 	bl InitFont
@@ -394,7 +394,7 @@ FUN_02029c7c: ; 0x02029C7C
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02029CA0: .word unk_0208F6E0
+_02029CA0: .word _ZTV11C3DGameChar+0x8
 	arm_func_end FUN_02029c7c
 
 	arm_func_start FUN_02029ca4
@@ -406,7 +406,7 @@ FUN_02029ca4: ; 0x02029CA4
 	bl FUN_0205a504
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02029CC0: .word unk_0208F6E0
+_02029CC0: .word _ZTV11C3DGameChar+0x8
 	arm_func_end FUN_02029ca4
 
 	arm_func_start FUN_02029cc4

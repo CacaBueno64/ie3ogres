@@ -20,7 +20,7 @@ class Config {
 
         Config();
         ~Config();
-        void clear();
+        void clear(void);
         BOOL openFile(char *filename);
         int getParam(char *param);
         void init(void);
