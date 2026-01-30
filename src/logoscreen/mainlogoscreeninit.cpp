@@ -31,9 +31,9 @@ void CMainLogoScreenInit::updateTP(TPData *tp)
 void CMainLogoScreenInit::openArchives(void)
 {
     gAllocator.setNextArena(1);
-    FUN_ov16_020f3054("/data_iz/pic2d/title/level5.pac_", &this->data[0]);
+    Archive::ReadNewUncompress("/data_iz/pic2d/title/level5.pac_", &this->data[0]);
     gAllocator.setNextArena(1);
-    FUN_ov16_020f3054("/data_iz/pic2d/title/ActimagineOriginal.pac_", &this->data[1]);
+    Archive::ReadNewUncompress("/data_iz/pic2d/title/ActimagineOriginal.pac_", &this->data[1]);
     this->state = STATE_INIT;
 }
 
@@ -54,10 +54,10 @@ void CMainLogoScreenInit::loadImage(int idx)
         return;
     }
 
-    GX_LoadBG0Scr(ImagePAC_GetScreenPtr(img), 0, ImagePAC_GetScreenSize(img));
-    GX_LoadBG0Char(ImagePAC_GetCharacterPtr(img), 0, ImagePAC_GetCharacterSize(img));
+    GX_LoadBG0Scr(Archive::ImagePAC::GetScreenPtr(img), 0, Archive::ImagePAC::GetScreenSize(img));
+    GX_LoadBG0Char(Archive::ImagePAC::GetCharacterPtr(img), 0, Archive::ImagePAC::GetCharacterSize(img));
     GX_BeginLoadBGExtPltt();
-    GX_LoadBGExtPltt(ImagePAC_GetPalettePtr(img), 0, ImagePAC_GetPaletteSize(img));
+    GX_LoadBGExtPltt(Archive::ImagePAC::GetPalettePtr(img), 0, Archive::ImagePAC::GetPaletteSize(img));
     GX_EndLoadBGExtPltt();
 }
 
@@ -85,7 +85,7 @@ void CMainLogoScreenInit::init(void)
     this->openArchives();
 }
 
-void CMainLogoScreenInit::update(int arg)
+void CMainLogoScreenInit::update(BOOL param1)
 {
     switch (this->state) {
         default:
@@ -99,14 +99,14 @@ void CMainLogoScreenInit::update(int arg)
             break;
         case STATE_FADE_IN:
             if (this->scene == SCENE_COPYRIGHT) {
-                FUN_ov16_020f1560(0, 8);
-                FUN_ov16_020f14b4(1, 8);
+                Graphics::FadeScreenBlack(ENGINE_MAIN, 8);
+                Graphics::FadeInScreen(ENGINE_SUB, 8);
             } else if (this->scene == SCENE_LEVEL5) {
                 gAudioPlayer.FUN_0202cf6c(0x83DE);
-                FUN_ov16_020f1490(6);
+                Graphics::FadeInScreens(6);
             } else {
-                FUN_ov16_020f14b4(0, 8);
-                FUN_ov16_020f14b4(1, 8);
+                Graphics::FadeInScreen(ENGINE_MAIN, 8);
+                Graphics::FadeInScreen(ENGINE_SUB, 8);
             }
             this->state = STATE_IMAGE_WAIT;
             this->dummy_20 = 0;
@@ -124,21 +124,21 @@ void CMainLogoScreenInit::update(int arg)
                     this->timer = 30;
                 }
             }
-            if (!FUN_ov16_020f1670()) {
+            if (!Graphics::IsAnyScreenFading()) {
                 this->timer -= gDeltaTime;
             }
             if (this->timer >= 0) {
                 break;
             }
             if (this->scene == SCENE_LEVEL5) {
-                FUN_ov16_020f15dc(8);
+                Graphics::FadeScreensWhite(8);
             } else {
-                FUN_ov16_020f153c(6);
+                Graphics::FadeScreensBlack(6);
             }
             this->state = STATE_FADE_OUT;
             break;
         case STATE_FADE_OUT:
-            if (FUN_ov16_020f1670()) {
+            if (Graphics::IsAnyScreenFading()) {
                 break;
             }
             if (this->scene == SCENE_COPYRIGHT) {

@@ -18,7 +18,7 @@ FUN_ov102_02124d00: ; 0x02124D00
 	bl sprintf
 	mov r0, r4
 	add r1, r5, #0x10
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x80
@@ -33,10 +33,10 @@ FUN_ov102_02124d4c: ; 0x02124D4C
 
 	arm_func_start FUN_ov102_02124d50
 FUN_ov102_02124d50: ; 0x02124D50
-	ldr r12, _02124D5C ; = FUN_ov16_020f33fc
+	ldr r12, _02124D5C ; = _ZN7Archive10DeallocateEP9SFileData
 	add r0, r0, #0x10
 	bx r12
-_02124D5C: .word FUN_ov16_020f33fc
+_02124D5C: .word _ZN7Archive10DeallocateEP9SFileData
 	arm_func_end FUN_ov102_02124d50
 
 	arm_func_start FUN_ov102_02124d60
@@ -51,11 +51,11 @@ FUN_ov102_02124d60: ; 0x02124D60
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _02124D9C:
 	ldr r4, _02124E08 ; =0x020A9440
 	mov r6, #0
@@ -84,9 +84,9 @@ _02124D9C:
 	mov r1, r5
 	bl DC_FlushRange
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124E08: .word unk_020A9440
-_02124E0C: .word unk_020A8C40
-_02124E10: .word unk_020A8440
+_02124E08: .word gSubScreen2
+_02124E0C: .word gSubScreen1
+_02124E10: .word gSubScreen0
 	arm_func_end FUN_ov102_02124d60
 
 	arm_func_start FUN_ov102_02124e14
@@ -156,12 +156,12 @@ _02124E84:
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
 	bl GXS_LoadBG2Char
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124F18: .word unk_020A9440
-_02124F1C: .word unk_020A8C40
-_02124F20: .word unk_020A8440
-_02124F24: .word unk_0209A144
+_02124F18: .word gSubScreen2
+_02124F1C: .word gSubScreen1
+_02124F20: .word gSubScreen0
+_02124F24: .word gDebugFont
 	arm_func_end FUN_ov102_02124e14
 
 	arm_func_start FUN_ov102_02124f28
@@ -189,7 +189,7 @@ FUN_ov102_02124f58: ; 0x02124F58
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #0x10
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -231,7 +231,7 @@ _02124FDC:
 	mov r1, #0
 	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
-_02125004: .word unk_020A8440
+_02125004: .word gSubScreen0
 	arm_func_end FUN_ov102_02124f9c
 
 	arm_func_start FUN_ov102_02125008
@@ -240,7 +240,7 @@ FUN_ov102_02125008: ; 0x02125008
 	mov r4, r0
 	add r0, r4, #0x10
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov102_02124d50
 	ldmfd sp!, {r4, pc}

@@ -36,7 +36,7 @@ _02124D5C:
 	mov r0, r4
 	add r1, r5, #0x1c
 _02124D74:
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x80
@@ -59,7 +59,7 @@ FUN_ov107_02124d9c: ; 0x02124D9C
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _02124DC8 ; =0x0209A4B4
 	add r1, r1, #0x1c
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldmfd sp!, {r3, pc}
 _02124DC8: .word unk_0209A4B4
 	arm_func_end FUN_ov107_02124d9c
@@ -72,7 +72,7 @@ FUN_ov107_02124dcc: ; 0x02124DCC
 	mov r4, #0xc
 _02124DDC:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #2
 	blt _02124DDC
@@ -91,11 +91,11 @@ FUN_ov107_02124df4: ; 0x02124DF4
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _02124E30:
 	ldr r4, _02124E9C ; =0x020A9440
 	mov r6, #0
@@ -124,9 +124,9 @@ _02124E30:
 	mov r1, r5
 	bl DC_FlushRange
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124E9C: .word unk_020A9440
-_02124EA0: .word unk_020A8C40
-_02124EA4: .word unk_020A8440
+_02124E9C: .word gSubScreen2
+_02124EA0: .word gSubScreen1
+_02124EA4: .word gSubScreen0
 	arm_func_end FUN_ov107_02124df4
 
 	arm_func_start FUN_ov107_02124ea8
@@ -196,12 +196,12 @@ _02124F18:
 	ldr r2, [r3, #0x18]
 	add r0, r3, r0
 	bl GXS_LoadBG2Char
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r4, r5, r6, pc}
-_02124FAC: .word unk_020A9440
-_02124FB0: .word unk_020A8C40
-_02124FB4: .word unk_020A8440
-_02124FB8: .word unk_0209A144
+_02124FAC: .word gSubScreen2
+_02124FB0: .word gSubScreen1
+_02124FB4: .word gSubScreen0
+_02124FB8: .word gDebugFont
 	arm_func_end FUN_ov107_02124ea8
 
 	arm_func_start FUN_ov107_02124fbc
@@ -223,7 +223,7 @@ FUN_ov107_02124fd0: ; 0x02124FD0
 	mov r4, #2
 	mov r1, r4
 	add r0, r5, #0x10
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
@@ -264,7 +264,7 @@ _02125054:
 	mov r1, #0
 	bl GXS_LoadBG2Scr
 	ldmfd sp!, {r3, r4, r5, pc}
-_0212507C: .word unk_020A8440
+_0212507C: .word gSubScreen0
 	arm_func_end FUN_ov107_02125014
 
 	arm_func_start FUN_ov107_02125080
@@ -273,7 +273,7 @@ FUN_ov107_02125080: ; 0x02125080
 	mov r4, r0
 	add r0, r4, #0x10
 	mov r1, #2
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov107_02124dcc
 	ldmfd sp!, {r4, pc}

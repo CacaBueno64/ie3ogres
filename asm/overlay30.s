@@ -48,7 +48,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	bl _ZN11AudioPlayer12FUN_0202d594EiPKc
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02119FA8: .word g3DFieldSprite
-_02119FAC: .word unk_02099EF0
+_02119FAC: .word gUtilGame
 _02119FB0: .word gAudioPlayer
 _02119FB4: .word ov30_0211A7AC
 	arm_func_end FUN_ov30_02119f00
@@ -121,7 +121,7 @@ _0211A030:
 	bl FUN_ov132_021435c0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A09C: .word g3DFieldSprite
-_0211A0A0: .word unk_02099EF0
+_0211A0A0: .word gUtilGame
 _0211A0A4: .word g3DGameMapObject
 _0211A0A8: .word gDeltaTime
 	arm_func_end FUN_ov30_02119fb8
@@ -143,7 +143,7 @@ FUN_ov30_0211a0b0: ; 0x0211A0B0
 	bl FUN_01ffac60
 	ldmfd sp!, {r3, pc}
 _0211A0D4: .word g3DFieldSprite
-_0211A0D8: .word unk_02099EF0
+_0211A0D8: .word gUtilGame
 	arm_func_end FUN_ov30_0211a0b0
 
 	arm_func_start FUN_ov30_0211a0dc
@@ -237,7 +237,7 @@ FUN_ov30_0211a174: ; 0x0211A174
 	bl FUN_ov132_02148ba4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A1DC: .word unk_0209A7FC
-_0211A1E0: .word unk_02099EF0
+_0211A1E0: .word gUtilGame
 	arm_func_end FUN_ov30_0211a174
 
 	arm_func_start FUN_ov30_0211a1e4
@@ -373,7 +373,7 @@ _0211A3C0: .word ov30_0211A6A4
 _0211A3C4: .word g3DFieldSprite
 _0211A3C8: .word unk_020A9C40
 _0211A3CC: .word ov30_0211A674
-_0211A3D0: .word unk_02099EF0
+_0211A3D0: .word gUtilGame
 _0211A3D4: .word unk_0209A11C
 	arm_func_end FUN_ov30_0211a1e4
 
@@ -472,7 +472,7 @@ _0211A508:
 	blx r2
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-_0211A538: .word unk_02099EF0
+_0211A538: .word gUtilGame
 _0211A53C: .word unk_020A9C40
 _0211A540: .word gLogicThink
 _0211A544: .word unk_0209A11C
@@ -546,7 +546,7 @@ FUN_ov30_0211a570: ; 0x0211A570
 	bl FUN_ov1_020e3c14
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0211A640: .word unk_02099EF0
+_0211A640: .word gUtilGame
 _0211A644: .word g3DFieldSprite
 	arm_func_end FUN_ov30_0211a570
 

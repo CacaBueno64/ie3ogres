@@ -5,7 +5,7 @@
 .public FUN_ov16_020f0634
 .public FUN_ov126_02136e84
 .public gWirelessUtil
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_ov16_020f081c
 .public MI_CpuFill8
 .public unk_0209A4E0
@@ -13,7 +13,7 @@
 .public FUN_ov1_020db97c
 .public ov1_020E9482
 .public unk_0209A4E6
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f5450
 .public unk_020A0640
 .public FUN_0207249c
@@ -23,8 +23,8 @@
 .public FUN_02056af0
 .public gLogicThink
 .public g2DGChar
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02056e94
 .public FUN_ov16_021128c4
 .public FUN_02058ee0
@@ -66,7 +66,7 @@
 .public FUN_ov16_02113390
 .public FUN_ov16_0210e5f0
 .public FUN_ov16_0210e4f0
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210ec34
 .public FUN_ov16_0210ef88
 .public FUN_02056a88
@@ -100,8 +100,8 @@
 .public FUN_020568c4
 .public FUN_02057be4
 .public FUN_02057c2c
-.public FUN_ov16_020f330c
-.public FUN_ov16_020f153c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
+.public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c
 .public _ffltu

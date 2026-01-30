@@ -6,8 +6,9 @@
 #include <nitro.h>
 #include <Mobiclip.h>
 
-#include "audioplayer.hpp"
 #include "allocator.hpp"
+#include "audioplayer.hpp"
+#include "graphics.hpp"
 
 #define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
@@ -81,5 +82,11 @@ class Movie {
 };
 
 extern Movie gMovie;
+
+namespace MoviePlayer {
+
+void Init(void);
+
+} /* namespace MoviePlayer */
 
 #endif //IE3OGRES_MOVIE_H

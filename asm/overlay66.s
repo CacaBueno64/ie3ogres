@@ -326,7 +326,7 @@ _0211A318: ; jump table
 _0211A334:
 	add r0, r4, #4
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	movne r0, #2
 	strne r0, [r4, #0x20]
@@ -375,7 +375,7 @@ FUN_ov66_0211a3c4: ; 0x0211A3C4
 	mov r4, r0
 	add r0, r4, #4
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov66_0211a030
 	ldmfd sp!, {r4, pc}

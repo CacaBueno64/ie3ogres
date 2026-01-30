@@ -108,3 +108,12 @@ __pycache__
 
 # lib
 /lib/TwlSDK/include
+
+# permuter
+permuter/**
+
+# objdiff
+objdiff/**
+
+# nonmatchings
+*.cxx

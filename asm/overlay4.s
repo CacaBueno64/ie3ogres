@@ -9,10 +9,10 @@ FUN_ov4_020bcb40: ; 0x020BCB40
 	mov r4, r0
 	ldr r0, _020BCB64 ; =0x020D928C
 	add r1, r4, #0x10
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020BCB68 ; =0x020D92B0
 	add r1, r4, #0x1c
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldmfd sp!, {r4, pc}
 _020BCB64: .word ov4_020D928C
 _020BCB68: .word ov4_020D92B0
@@ -22,11 +22,11 @@ _020BCB68: .word ov4_020D92B0
 FUN_ov4_020bcb6c: ; 0x020BCB6C
 	mov r1, r0
 	ldr r0, _020BCB80 ; =0x020D92D4
-	ldr r12, _020BCB84 ; =FUN_ov16_020f316c
+	ldr r12, _020BCB84 ; =_ZN7Archive14RequestNewReadEPKcP9SFileData
 	add r1, r1, #0x48
 	bx r12
 _020BCB80: .word ov4_020D92D4
-_020BCB84: .word FUN_ov16_020f316c
+_020BCB84: .word _ZN7Archive14RequestNewReadEPKcP9SFileData
 	arm_func_end FUN_ov4_020bcb6c
 
 	arm_func_start FUN_ov4_020bcb88
@@ -42,7 +42,7 @@ FUN_ov4_020bcb88: ; 0x020BCB88
 	ldr r1, [r1]
 	add r2, sp, #8
 	add r3, sp, #4
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	moveq r0, r4
@@ -52,9 +52,9 @@ FUN_ov4_020bcb88: ; 0x020BCB88
 	beq _020BCBE8
 	add r0, r5, #0x28
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r5, #0x28
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 _020BCBE8:
 	mov r0, #1
 	str r0, [sp]
@@ -62,7 +62,7 @@ _020BCBE8:
 	ldr r3, [sp, #4]
 	ldr r0, _020BCC0C ; =0x020D9300
 	add r1, r5, #0x28
-	bl FUN_ov16_020f31fc
+	bl _ZN7Archive16RequestNewReadExEPKcP9SFileDatalmi
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, pc}
 _020BCC0C: .word ov4_020D9300
@@ -79,9 +79,9 @@ _020BCC24:
 	mul r6, r8, r4
 	mov r1, r5
 	add r0, r7, r6
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r7, r6
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	subs r8, r8, #1
 	bpl _020BCC24
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -95,9 +95,9 @@ FUN_ov4_020bcc48: ; 0x020BCC48
 	blo _020BCC88
 	add r0, r6, #0x48
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r6, #0x48
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, #0
 	str r0, [r6, #0x48]
 	str r0, [r6, #0x4c]
@@ -111,9 +111,9 @@ _020BCC88:
 	add r4, r6, #0x48
 	add r0, r4, r5
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r1, #0
 	str r1, [r4, r5]
 	add r0, r6, r5
@@ -137,13 +137,13 @@ FUN_ov4_020bccc8: ; 0x020BCCC8
 	mov r1, #1
 	mov r0, r6
 	mov r2, r1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r6, #0xc]
 	ldr r1, [r6, #0x10]
 	mov r3, #1
 	add r0, r6, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r0, [r6, #0x14]
 	ldr r2, [r6, #0x18]
 	add r0, r6, r0
@@ -165,13 +165,13 @@ _020BCD38:
 	mov r0, r6
 	mov r2, r4
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r6, #0xc]
 	ldr r1, [r6, #0x10]
 	add r0, r6, r0
 	mov r3, r4
 	add r2, r9, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r1, [r6, #0xc]
 	mov r7, r0
 	ldr r4, _020BCF18 ; =0x020A8C40
@@ -241,7 +241,7 @@ _020BCE3C:
 	mul r1, r2, r1
 	mov r1, r1, lsl #1
 	add r2, r7, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	str r8, [r4, #8]
 	ldrh r2, [r4, #0xc]
 	ldrh r1, [r4, #0xe]
@@ -281,10 +281,10 @@ _020BCE9C:
 	str r4, [sp, #0x1c]
 	bl FUN_ov16_020f5da0
 _020BCF0C:
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020BCF18: .word unk_020A8C40
+_020BCF18: .word gSubScreen1
 _020BCF1C: .word gBgMenuManager
 	arm_func_end FUN_ov4_020bccc8
 
@@ -299,8 +299,8 @@ FUN_ov4_020bcf20: ; 0x020BCF20
 	ldr r1, [r3, #0x10]
 	add r0, r3, r0
 	sub r3, r2, #2
-	bl FUN_ov16_020f1868
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov4_020bcf20
 
@@ -387,7 +387,7 @@ _020BD038:
 	add r0, r4, r0
 	bl GXS_LoadBG2Char
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020BD07C: .word unk_020A8440
+_020BD07C: .word gSubScreen0
 	arm_func_end FUN_ov4_020bcf50
 
 	arm_func_start FUN_ov4_020bd080
@@ -411,9 +411,9 @@ FUN_ov4_020bd080: ; 0x020BD080
 	mov r5, #1
 	mov r1, r5
 	add r0, r4, #0x28
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r4, #0x28
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	str r5, [r4, #0x58]
 	b _020BD0E8
 _020BD0E0:
@@ -444,7 +444,7 @@ _020BD118:
 _020BD130:
 	add r0, r4, #0x28
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #3
@@ -631,12 +631,12 @@ _020BD3B4:
 	mov r5, #1
 	mov r1, r5
 	add r0, r4, #0x10
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r1, r5
 	add r0, r4, #0x1c
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r4
@@ -646,7 +646,7 @@ _020BD3B4:
 _020BD3F0:
 	add r0, r4, #0x48
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r1, #4
@@ -778,7 +778,7 @@ FUN_ov4_020bd56c: ; 0x020BD56C
 	bl MI_CpuFill8
 	ldr r0, _020BD59C ; =0x020D9450
 	add r1, r4, #0x34
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -802,7 +802,7 @@ _020BD5C8:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020BD5C8
@@ -819,7 +819,7 @@ FUN_ov4_020bd5f4: ; 0x020BD5F4
 	mov r4, #0xc
 _020BD604:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #6
 	blt _020BD604
@@ -839,11 +839,11 @@ FUN_ov4_020bd61c: ; 0x020BD61C
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020BD65C:
 	ldr r8, [r6, #0x58]
 	mov r5, #0
@@ -855,12 +855,12 @@ _020BD65C:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020BD69C:
 	ldr r8, [r6, #0x64]
 	cmp r8, #0
@@ -871,12 +871,12 @@ _020BD69C:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020BD6D8:
 	ldr r8, [r6, #0x70]
 	cmp r8, #0
@@ -887,11 +887,11 @@ _020BD6D8:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020BD710:
 	ldr r8, [r6, #0x4c]
 	mov r5, #0
@@ -903,12 +903,12 @@ _020BD710:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020BD750:
 	ldr r0, [r6, #0x20]
 	mov r2, #0
@@ -924,7 +924,7 @@ _020BD750:
 	mov r3, #0
 	mul r1, r4, r1
 	mov r1, r1, lsl #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov4_020bd61c
 
@@ -961,15 +961,15 @@ _020BD7D0:
 	ldr r1, [r4, #0x58]
 	mov r0, r7
 	mov r2, r5
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x64]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x70]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	bl G2S_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r6
@@ -981,7 +981,7 @@ _020BD7D0:
 	ldr r1, [r4, #0x4c]
 	mov r2, r5
 	mov r0, #2
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	ldr r1, [r4, #0x20]
 	cmp r1, #0
 	ldrne r1, [r4, #0x24]
@@ -989,7 +989,7 @@ _020BD7D0:
 	moveq r7, #0
 	cmp r7, #0
 	strne r0, [r4, #0x28]
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov4_020bd790
 
@@ -1345,7 +1345,7 @@ FUN_ov4_020bdd64: ; 0x020BDD64
 _020BDD84:
 	add r0, r4, #0x34
 	mov r1, #6
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -1394,7 +1394,7 @@ FUN_ov4_020bde14: ; 0x020BDE14
 	mov r5, r0
 	add r0, r5, #0x34
 	mov r1, #6
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r5
 	bl FUN_ov4_020bd5f4
 	mov r4, #1
@@ -1431,7 +1431,7 @@ FUN_ov4_020bde7c: ; 0x020BDE7C
 	mov r4, #1
 	mov r0, r2
 	strb r4, [r1, #0x81]
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r0, r4
 	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, pc}
@@ -1490,7 +1490,7 @@ FUN_ov4_020bdf30: ; 0x020BDF30
 	bl MI_CpuFill8
 	ldr r0, _020BDF60 ; =0x020D9538
 	add r1, r4, #0x18
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
@@ -1514,7 +1514,7 @@ _020BDF8C:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020BDF8C
@@ -1531,7 +1531,7 @@ FUN_ov4_020bdfb8: ; 0x020BDFB8
 	mov r4, #0xc
 _020BDFC8:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #3
 	blt _020BDFC8
@@ -1707,7 +1707,7 @@ _020BE1EC: ; jump table
 _020BE208:
 	add r0, r4, #0x18
 	mov r1, #3
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -1766,7 +1766,7 @@ FUN_ov4_020be2bc: ; 0x020BE2BC
 	mov r4, r0
 	add r0, r4, #0x18
 	mov r1, #3
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov4_020bdfb8
 	ldmfd sp!, {r4, pc}
@@ -2018,10 +2018,10 @@ _020BE618:
 	ldrb r0, [r4, #0x80]
 	cmp r0, #0
 	beq _020BE63C
-	bl FUN_ov16_020f13d4
+	bl _ZN8Graphics15WhiteOutScreensEv
 	b _020BE640
 _020BE63C:
-	bl FUN_ov16_020f1320
+	bl _ZN8Graphics15BlackOutScreensEv
 _020BE640:
 	ldr r6, _020BE6E0 ; =gAudioPlayer
 	mov r2, #0
@@ -3841,7 +3841,7 @@ _020BFE78: .word gBgMenuManager
 FUN_ov4_020bfe7c: ; 0x020BFE7C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	ldr r0, _020BFEB0 ; =0x0209A5D0
+	ldr r0, _020BFEB0 ; =gRecordManager
 	bl FUN_02061c48
 	cmp r0, #0
 	movlt r0, #2
@@ -3852,7 +3852,7 @@ FUN_ov4_020bfe7c: ; 0x020BFE7C
 	movne r0, #1
 	strne r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_020BFEB0: .word unk_0209A5D0
+_020BFEB0: .word gRecordManager
 	arm_func_end FUN_ov4_020bfe7c
 
 	arm_func_start FUN_ov4_020bfeb4
@@ -4088,10 +4088,10 @@ FUN_ov4_020c01ac: ; 0x020C01AC
 	bl MI_CpuFill8
 	ldr r0, _020C01E8 ; =0x020D9A04
 	add r1, r4, #0x38
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020C01EC ; =0x020D9A28
 	add r1, r4, #0xa4
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #2
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -4144,7 +4144,7 @@ _020C0278:
 	mov r0, r1
 	mla r1, r2, r5, r6
 	mov r2, r4
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020C0278
@@ -4166,7 +4166,7 @@ FUN_ov4_020c02b8: ; 0x020C02B8
 	mov r4, #0xc
 _020C02C8:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0xa
 	blt _020C02C8
@@ -4223,12 +4223,12 @@ FUN_ov4_020c0338: ; 0x020C0338
 	mov r2, r9
 	mov r3, r9
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r1, r5
 	mov r2, r9
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4249,11 +4249,11 @@ _020C03C4:
 	mov r3, r9
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r8
 	mov r2, r9
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4279,12 +4279,12 @@ _020C041C:
 	mov r2, r9
 	mov r3, r9
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r1, r5
 	mov r2, r9
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4302,12 +4302,12 @@ _020C049C:
 	mov r3, r5
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4328,12 +4328,12 @@ _020C04F4:
 	mov r3, r5
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4351,12 +4351,12 @@ _020C0558:
 	mov r3, r5
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4374,12 +4374,12 @@ _020C05B0:
 	mov r3, r5
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r6, r0
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4397,11 +4397,11 @@ _020C0608:
 	mov r3, r5
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r8
 	mov r2, r5
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r8, #0x14]
 	ldr r2, [r8, #0x18]
 	mov r1, r7
@@ -4419,7 +4419,7 @@ _020C0654:
 	bl DC_FlushRange
 	mov r0, r4
 	bl FUN_ov4_020c02e0
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov4_020c0338
 
@@ -4977,7 +4977,7 @@ _020C0E0C:
 _020C0E24:
 	add r0, r4, #0x38
 	mov r1, #0xa
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -5219,7 +5219,7 @@ FUN_ov4_020c1124: ; 0x020C1124
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r0, #2
 	bl _Z11SetNextMode8GameMode
 	mov r0, r4
@@ -10324,17 +10324,17 @@ FUN_ov4_020c5708: ; 0x020C5708
 	bl sprintf
 	mov r0, r4
 	add r1, r5, #0x540
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020C5794 ; =0x020DA1AC
 	add r1, r5, #0x6f0
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	add r1, r5, #0x314
 	ldr r0, _020C5798 ; =0x020DA1CC
 	add r1, r1, #0x400
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020C579C ; =0x020DA1EC
 	add r1, r5, #0x720
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r5, #8]
 	add sp, sp, #0x100
@@ -10366,7 +10366,7 @@ _020C57D4:
 	ldmia r7, {r0, r2}
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r0, [r7, #8]!
 	cmp r0, #0
 	bne _020C57D4
@@ -10400,7 +10400,7 @@ _020C5834:
 	mov r0, r8
 	add r2, sp, #0x18
 	add r3, sp, #0x14
-	bl FUN_ov16_020f3d08
+	bl _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 	cmp r0, #0
 	beq _020C5894
 	ldr r3, [sp, #0x14]
@@ -10669,7 +10669,7 @@ _020C5BBC:
 	b _020C5BD8
 _020C5BCC:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 _020C5BD8:
 	cmp r6, #0x29
@@ -10705,7 +10705,7 @@ _020C5C2C:
 	ldr r0, [r10, #0x6f0]
 	add r2, sp, #8
 	add r3, sp, #4
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _020C5C78
 	add r0, r9, #0x25
@@ -10714,7 +10714,7 @@ _020C5C2C:
 	ldr r2, [sp, #8]
 	ldr r3, [sp, #4]
 	ldr r0, _020C5C9C ; =0x020DA22C
-	bl FUN_ov16_020f31fc
+	bl _ZN7Archive16RequestNewReadExEPKcP9SFileDatalmi
 	cmp r0, #0
 	strne r7, [r10, #0x3c]
 _020C5C78:
@@ -10742,9 +10742,9 @@ _020C5CB4:
 	mul r6, r0, r4
 	mov r1, r5
 	add r0, r7, r6
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r7, r6
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r8, r8, #1
 	cmp r8, #2
 	blt _020C5CB4
@@ -10766,14 +10766,14 @@ FUN_ov4_020c5ce0: ; 0x020C5CE0
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl FUN_ov16_020f18e8
+	bl _ZN8Graphics12SetupTilemapEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _020C5D38
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 	str r0, [r5]
 _020C5D38:
 	cmp r6, #0
@@ -10781,7 +10781,7 @@ _020C5D38:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020C5D50:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -10875,7 +10875,7 @@ _020C5E58:
 	mul r1, r2, r1
 	mov r1, r1, lsl #1
 	add r2, r8, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
 	ldr r3, [sp, #8]
@@ -10969,7 +10969,7 @@ _020C5F74:
 	add r0, r3, r0
 	bl GX_LoadBG2Scr
 _020C6000:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldr r1, [r7, #8]
 	ldr r0, [sp, #8]
 	sub r0, r1, r0
@@ -11021,16 +11021,16 @@ FUN_ov4_020c6088: ; 0x020C6088
 	cmp r1, #0
 	beq _020C60B8
 	mov r0, #3
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 	mov r2, r0
 _020C60B8:
 	ldr r1, [r4, #0x708]
 	cmp r1, #0
 	beq _020C60CC
 	mov r0, #3
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 _020C60CC:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	mov r1, #4
 	mov r0, #1
 	str r1, [r4, #0x3c]
@@ -11059,8 +11059,8 @@ FUN_ov4_020c60e4: ; 0x020C60E4
 	add r0, r1, r0, lsl #5
 	mov r1, #0
 	mov r2, #4
-	bl FUN_ov16_020f1160
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov4_020c60e4
 
@@ -16398,7 +16398,7 @@ _020CAE00:
 	strh r2, [r0, #6]
 	ldr r0, [r1]
 	bl FUN_ov16_0210e980
-	ldr r0, _020CB144 ; =gSprAnimeCtrl
+	ldr r0, _020CB144 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0a0
 	ldr r0, _020CB148 ; =g3DPlaneCtrl
@@ -16563,7 +16563,7 @@ _020CB134: .word unk_020A0640
 _020CB138: .word gResourceManager
 _020CB13C: .word 0x04000008
 _020CB140: .word gSprButtonCtrl
-_020CB144: .word gSprAnimeCtrl
+_020CB144: .word gSprAnimCtrl
 _020CB148: .word g3DPlaneCtrl
 _020CB14C: .word unk_0209A070
 _020CB150: .word gLogicThink
@@ -16591,7 +16591,7 @@ _020CB170: ; jump table
 _020CB194:
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _020CB3CC
 	mov r0, r4
@@ -16605,7 +16605,7 @@ _020CB1BC:
 _020CB1C4:
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _020CB3CC
 	mov r0, r4
@@ -16617,7 +16617,7 @@ _020CB1C4:
 _020CB1F0:
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _020CB3CC
 	mov r0, r4
@@ -16638,12 +16638,12 @@ _020CB224:
 	ldr r0, _020CB3D8 ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
-	ldr r0, _020CB3DC ; =gSprAnimeCtrl
+	ldr r0, _020CB3DC ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov4_020c5b2c
 	mov r0, r4
@@ -16722,7 +16722,7 @@ _020CB35C:
 	bne _020CB394
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _020CB394
 	mov r1, #2
@@ -16749,7 +16749,7 @@ _020CB3CC:
 	bl FUN_ov4_020c5a9c
 	ldmfd sp!, {r3, r4, r5, pc}
 _020CB3D8: .word gSprButtonCtrl
-_020CB3DC: .word gSprAnimeCtrl
+_020CB3DC: .word gSprAnimCtrl
 _020CB3E0: .word gBgMenuManager
 _020CB3E4: .word gWirelessUtil
 	arm_func_end FUN_ov4_020cb158
@@ -16792,7 +16792,7 @@ FUN_ov4_020cb438: ; 0x020CB438
 	bl FUN_ov16_020f6c58
 	mov r0, #2
 	mov r1, #0x10
-	bl FUN_ov16_020f1aec
+	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	add r0, r4, #0xb4
 	mov r5, #7
 	add r0, r0, #0x400
@@ -16801,12 +16801,12 @@ FUN_ov4_020cb438: ; 0x020CB438
 	ldr r0, _020CB52C ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
-	ldr r0, _020CB530 ; =gSprAnimeCtrl
+	ldr r0, _020CB530 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
 	add r0, r4, #0x540
 	mov r1, #0x29
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov4_020c5b2c
 	ldr r0, _020CB534 ; =g3DPlaneCtrl
@@ -16844,7 +16844,7 @@ FUN_ov4_020cb438: ; 0x020CB438
 _020CB524: .word gBgMenuManager
 _020CB528: .word unk_0209A070
 _020CB52C: .word gSprButtonCtrl
-_020CB530: .word gSprAnimeCtrl
+_020CB530: .word gSprAnimCtrl
 _020CB534: .word g3DPlaneCtrl
 _020CB538: .word 0x0400000C
 	arm_func_end FUN_ov4_020cb438
@@ -17059,7 +17059,7 @@ _020CB844:
 	ldmia r7, {r0, r2}
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r0, [r7, #8]!
 	cmp r0, #0
 	bne _020CB844
@@ -17087,7 +17087,7 @@ _020CB8A0:
 	ldmia r7, {r0, r2}
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r0, [r7, #8]!
 	cmp r0, #0
 	bne _020CB8A0
@@ -17176,7 +17176,7 @@ FUN_ov4_020cb980: ; 0x020CB980
 	bl FUN_ov61_0211d840 ; may be ov60 ; ov61(Mica)
 	ldmfd sp!, {r4, pc}
 _020CB9A8:
-	ldr r0, _020CBA34 ; =0x0209A5D0
+	ldr r0, _020CBA34 ; =gRecordManager
 	mov r1, #0
 	bl FUN_020628dc
 	cmp r0, #0
@@ -17217,7 +17217,7 @@ _020CBA28:
 	mov r0, #6
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
-_020CBA34: .word unk_0209A5D0
+_020CBA34: .word gRecordManager
 	arm_func_end FUN_ov4_020cb980
 
 	arm_func_start FUN_ov4_020cba38
@@ -17452,7 +17452,7 @@ _020CBD4C:
 _020CBD9C:
 	mov r5, #0
 	ldr r2, [r4, #0x200]
-	ldr r0, _020CBE6C ; =0x0209A5D0
+	ldr r0, _020CBE6C ; =gRecordManager
 	mov r1, r5
 	bl FUN_020626f4
 	cmp r0, #0
@@ -17506,13 +17506,13 @@ _020CBE5C: .word unk_020A1640
 _020CBE60: .word unk_020A0700
 _020CBE64: .word unk_020A1656
 _020CBE68: .word unk_020A165C
-_020CBE6C: .word unk_0209A5D0
+_020CBE6C: .word gRecordManager
 	arm_func_end FUN_ov4_020cba38
 
 	arm_func_start FUN_ov4_020cbe70
 FUN_ov4_020cbe70: ; 0x020CBE70
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _020CBEE8 ; =0x0209A5D0
+	ldr r4, _020CBEE8 ; =gRecordManager
 	mov r5, r0
 _020CBE7C:
 	mov r0, r4
@@ -17550,7 +17550,7 @@ _020CBEDC:
 	arm_func_start FUN_ov4_020cbee4
 FUN_ov4_020cbee4: ; 0x020CBEE4
 	ldmfd sp!, {r3, r4, r5, pc}
-_020CBEE8: .word unk_0209A5D0
+_020CBEE8: .word gRecordManager
 	arm_func_end FUN_ov4_020cbee4
 
 	arm_func_start FUN_ov4_020cbeec
@@ -17889,7 +17889,7 @@ FUN_ov4_020cc300: ; 0x020CC300
 	mov r1, r3
 	add r2, sp, #0x18
 	add r3, sp, #0x14
-	bl FUN_ov16_020f3d08
+	bl _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	moveq r0, #0
@@ -18243,20 +18243,20 @@ FUN_ov4_020cc5dc: ; 0x020CC5DC
 	bl MI_CpuFill8
 	ldr r0, _020CD150 ; =0x020DB5F4
 	add r1, r10, #0x4c
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020CD154 ; =0x020DB60C
 	add r1, r10, #0x58
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r0, _020CD158 ; =0x020DB624
 	add r1, r10, #0x64
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r1, r6
 	mov r2, r4
 	add r0, r10, #0x70
 	bl MI_CpuFill8
 	ldr r0, _020CD15C ; =0x020DB63C
 	add r1, r10, #0x70
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r7, _020CD160 ; =0x020DB4B4
 	add r5, sp, #0x134
 	mov r4, #0xa
@@ -18281,7 +18281,7 @@ _020CC878:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x20
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020CC8CC:
 	mov r9, #0
 	add r8, sp, #0x74
@@ -18875,10 +18875,10 @@ FUN_ov4_020cd1a0: ; 0x020CD1A0
 	add r0, r6, #0x4c
 	mov r1, #3
 	mov r4, #0
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r6, #0x70
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r5, r4
 	ldr r7, _020CD324 ; =g3DPlaneCtrl
 	b _020CD1E4
@@ -18950,13 +18950,13 @@ _020CD24C:
 	b _020CD2CC
 _020CD2C0:
 	mla r0, r5, r7, r8
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r5, r5, #1
 _020CD2CC:
 	cmp r5, #3
 	blt _020CD2C0
 	add r0, r6, #0x70
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	ldr r0, _020CD330 ; =0x0209AEC0
 	bl FUN_020465fc
 	ldr r5, _020CD334 ; =gAllocator
@@ -19145,7 +19145,7 @@ _020CD55C:
 	add sp, sp, #0x530
 	ldmia sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CD588:
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0x0
 	addne sp, sp, #0x530
 	ldmneia sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -19403,7 +19403,7 @@ _020CD934:
 	str r9, [r4, #0x44]
 	b _020CE6A4
 _020CD93C:
-	bl FUN_ov16_020f1660
+	bl _ZN8Graphics11IsSubFadingEv
 	cmp r0, #0x0
 	bne _020CD968
 	ldr r0, [r4, #0x34]
@@ -20105,7 +20105,7 @@ _020CE32C:
 	b _020CE39C
 _020CE344: .word gWirelessUtil
 _020CE348: .word g2DGChar
-_020CE34C: .word unk_0209A5D0
+_020CE34C: .word gRecordManager
 _020CE350: .word g3DPlaneCtrl
 _020CE354: .word ov4_020DB71C
 _020CE358: .word ov4_020DB79C
@@ -20114,7 +20114,7 @@ _020CE360: .word 0x000001C7
 _020CE364: .word g2DAdventureLogic
 _020CE368: .word unk_020AF81C
 _020CE36C: .word 0x00000301
-_020CE370: .word gSprAnimeCtrl
+_020CE370: .word gSprAnimCtrl
 _020CE374: .word gDeltaTime
 _020CE378: .word g3DSpriteCtrl
 _020CE37C: .word gAudioPlayer
@@ -20313,7 +20313,7 @@ _020CE624:
 	cmp r0, #0x10
 	bne _020CE684
 	mov r0, #0x6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r4, [r4, #0x4]
 	mov r1, #0x0
 	mov r0, r4
@@ -20925,7 +20925,7 @@ _020CEEE4:
 	bne _020CEEE4
 	ldmia r7, {r0, r1, r2}
 	stmia r6, {r0, r1, r2}
-	ldr r5, _020CF0C0 ; =0x0209A5D0
+	ldr r5, _020CF0C0 ; =gRecordManager
 	ldr r1, [r4, #0x99c]
 	mov r0, r5
 	bl FUN_02062800
@@ -20969,7 +20969,7 @@ _020CEF8C:
 	bne _020CEF8C
 	ldmia r7, {r0, r1, r2}
 	stmia r6, {r0, r1, r2}
-	ldr r5, _020CF0C0 ; =0x0209A5D0
+	ldr r5, _020CF0C0 ; =gRecordManager
 	ldr r1, [r4, #0x99c]
 	mov r0, r5
 	bl FUN_02062800
@@ -21043,7 +21043,7 @@ _020CF0B0: .word ov4_020DB820
 _020CF0B4: .word gLogicThink
 _020CF0B8: .word 0x000005BE
 _020CF0BC: .word gAudioPlayer
-_020CF0C0: .word unk_0209A5D0
+_020CF0C0: .word gRecordManager
 	arm_func_end FUN_ov4_020ce744
 
 	arm_func_start FUN_ov4_020cf0c4
@@ -21868,7 +21868,7 @@ _020CFC80:
 	add r1, r1, #0x3800
 	bl FUN_020560b4
 	ldr r2, [r10, #0x99c]
-	ldr r0, _020CFD5C ; =0x0209A5D0
+	ldr r0, _020CFD5C ; =gRecordManager
 	mov r1, #0
 	bl FUN_020626f4
 	mov r1, r0
@@ -21900,7 +21900,7 @@ _020CFD4C: .word unk_020A17A8
 _020CFD50: .word gLogicThink
 _020CFD54: .word g2DAdventureLogic
 _020CFD58: .word unk_0209A11C
-_020CFD5C: .word unk_0209A5D0
+_020CFD5C: .word gRecordManager
 	arm_func_end FUN_ov4_020cf0c4
 
 	arm_func_start FUN_ov4_020cfd60
@@ -22991,7 +22991,7 @@ _020D0D28:
 	add r1, r1, #0x3800
 	bl FUN_020560b4
 	ldr r2, [r10, #0x99c]
-	ldr r0, _020D0DB0 ; =0x0209A5D0
+	ldr r0, _020D0DB0 ; =gRecordManager
 	mov r1, #0
 	bl FUN_020626f4
 	mov r1, r0
@@ -23003,7 +23003,7 @@ _020D0D28:
 	str r0, [r10, #0x44]
 	add sp, sp, #0x88
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020D0DB0: .word unk_0209A5D0
+_020D0DB0: .word gRecordManager
 	arm_func_end FUN_ov4_020cfd60
 
 	arm_func_start FUN_ov4_020d0db4
@@ -24000,7 +24000,7 @@ _020D1C14:
 	add r1, r1, #0x3800
 	bl FUN_020560b4
 	ldr r2, [r10, #0x99c]
-	ldr r0, _020D1CF0 ; =0x0209A5D0
+	ldr r0, _020D1CF0 ; =gRecordManager
 	mov r1, #0
 	bl FUN_020626f4
 	mov r1, r0
@@ -24033,7 +24033,7 @@ _020D1CE0: .word unk_020A17A8
 _020D1CE4: .word gLogicThink
 _020D1CE8: .word g2DAdventureLogic
 _020D1CEC: .word 0x00000449
-_020D1CF0: .word unk_0209A5D0
+_020D1CF0: .word gRecordManager
 	arm_func_end FUN_ov4_020d0db4
 
 	arm_func_start FUN_ov4_020d1cf4
@@ -25813,7 +25813,7 @@ _020D356C:
 	moveq r5, #1
 	cmp r5, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r5, _020D35F4 ; =0x0209A5D0
+	ldr r5, _020D35F4 ; =gRecordManager
 	ldr r1, [r4, #0x99c]
 	mov r0, r5
 	bl FUN_02062800
@@ -25832,7 +25832,7 @@ _020D356C:
 _020D35E8: .word 0x45610000
 _020D35EC: .word gAudioPlayer
 _020D35F0: .word gWirelessUtil
-_020D35F4: .word unk_0209A5D0
+_020D35F4: .word gRecordManager
 	arm_func_end FUN_ov4_020d350c
 
 	arm_func_start FUN_ov4_020d35f8
@@ -27179,7 +27179,7 @@ _020D4900:
 	bl FUN_0205998c
 	movs r5, r0
 	beq _020D49C0
-	ldr r0, _020D4A4C ; =pLogic_PalSkinFaceFile
+	ldr r0, _020D4A4C ; =gPalSkinFaceFile
 	ldr r1, [r5, #4]
 	ldr r2, [r0]
 	mov r0, r7
@@ -27236,7 +27236,7 @@ _020D4A40:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020D4A48: .word g3DPlaneCtrl
-_020D4A4C: .word pLogic_PalSkinFaceFile
+_020D4A4C: .word gPalSkinFaceFile
 	arm_func_end FUN_ov4_020d4868
 
 	arm_func_start FUN_ov4_020d4a50
@@ -27276,7 +27276,7 @@ _020D4AAC:
 	add r3, sp, #0x18
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020f366c
+	bl _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 	cmp r0, #0
 	beq _020D4B18
 	ldr r0, _020D4C08 ; =g3DPlaneCtrl
@@ -27309,7 +27309,7 @@ _020D4B18:
 	mov r1, r5
 	mov r2, r4
 	mov r3, r7
-	bl FUN_ov16_020f36f4
+	bl _ZN7Archive20GetBodyOffsetAndSizeEPvP4UnitiiPlPm
 	cmp r0, #0
 	beq _020D4B98
 	ldr r0, _020D4C08 ; =g3DPlaneCtrl
@@ -27334,7 +27334,7 @@ _020D4B98:
 	add r3, sp, #0x18
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f3744
+	bl _ZN7Archive24GetBodyPlttOffsetAndSizeEPviiPlPm
 	cmp r0, #0
 	addeq sp, sp, #0x28
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -29032,7 +29032,7 @@ _020D6274:
 	cmp r0, #7
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, pc}
-	ldr r5, _020D6360 ; =0x0209A5D0
+	ldr r5, _020D6360 ; =gRecordManager
 	ldr r1, [r4, #0x99c]
 	mov r0, r5
 	bl FUN_02062800
@@ -29047,7 +29047,7 @@ _020D6274:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020D6334:
 	ldr r2, [r4, #0x99c]
-	ldr r0, _020D6360 ; =0x0209A5D0
+	ldr r0, _020D6360 ; =gRecordManager
 	mov r1, r6
 	bl FUN_020626f4
 	mov r1, r0
@@ -29057,7 +29057,7 @@ _020D6334:
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _020D6358: .word g3DPlaneCtrl
 _020D635C: .word 0x00000226
-_020D6360: .word unk_0209A5D0
+_020D6360: .word gRecordManager
 	arm_func_end FUN_ov4_020d623c
 
 	arm_func_start FUN_ov4_020d6364
@@ -29149,7 +29149,7 @@ _020D647C:
 	mov r0, r4
 	mov r2, #0x1f4
 	strb r3, [r5, #0x1d]
-	bl FUN_0202d798
+	bl _ZN11AudioPlayer12FUN_0202d798EPci
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D64A0: .word gAudioPlayer
 _020D64A4: .word 0x00008385
@@ -29171,7 +29171,7 @@ FUN_ov4_020d64b8: ; 0x020D64B8
 	bl MI_CpuFill8
 	ldr r0, _020D6594 ; =0x020DBD4C
 	add r1, r4, #0x20
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	add r0, sp, #0
 	add r1, sp, #8
 	strb r5, [r0]
@@ -29214,7 +29214,7 @@ _020D654C:
 	bl STD_ConcatenateString
 	mov r0, r5
 	add r1, r4, #0x2c
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	mov r0, r4
 	bl FUN_ov4_020d65ac
 	add sp, sp, #0x48
@@ -29249,7 +29249,7 @@ _020D65EC:
 	ldr r3, [r9, #4]
 	mov r2, r8
 	mla r1, r3, r4, r7
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r0, [r9, #8]!
 	cmp r0, #0
 	bne _020D65EC
@@ -29265,7 +29265,7 @@ _020D6624:
 	ldmia r5, {r0, r2}
 	mla r1, r2, r6, r7
 	mov r2, r4
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r0, [r5, #8]!
 	cmp r0, #0
 	bne _020D6624
@@ -29284,7 +29284,7 @@ FUN_ov4_020d6654: ; 0x020D6654
 	mov r4, #0xc
 _020D6664:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0xe
 	blt _020D6664
@@ -29378,7 +29378,7 @@ _020D6790:
 	bl GXS_LoadBG0Char
 	mov r0, r6
 	mov r1, #0x10
-	bl FUN_ov16_020f1c28
+	bl _ZN8Graphics11ClearBGXSubEi10CharFormat
 	mov r9, r6
 	mov r7, #0x20
 	mov r11, #1
@@ -29396,14 +29396,14 @@ _020D67D4:
 	mov r0, r8
 	mov r1, r11
 	mov r2, #3
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D6800:
 	ldr r0, [r8, #0xc]
 	ldr r1, [r8, #0x10]
 	mov r3, #3
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r1, [r8, #0x14]
 	mov r6, r0
 	add r0, r8, r1
@@ -29417,7 +29417,7 @@ _020D6838:
 _020D683C:
 	cmp r9, #4
 	blo _020D67D4
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add r4, sp, #8
 	mov r0, r4
 	bl MTX_Identity22_
@@ -29431,8 +29431,8 @@ _020D683C:
 	bl G2x_SetBGyAffine_
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020D687C: .word unk_020A8C40
-_020D6880: .word unk_0209A144
+_020D687C: .word gSubScreen1
+_020D6880: .word gDebugFont
 _020D6884: .word ov4_020D8D2C
 _020D6888: .word 0x04001030
 	arm_func_end FUN_ov4_020d667c
@@ -29663,7 +29663,7 @@ _020D6B68:
 	bl FUN_ov4_020d6c08
 	b _020D6C00
 _020D6BA4:
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	bne _020D6C00
 	mov r0, r4
@@ -29969,7 +29969,7 @@ FUN_ov4_020d6f7c: ; 0x020D6F7C
 	ldr r0, _020D6FA4 ; =gAudioPlayer
 	ldr r1, _020D6FA8 ; =0x020DBD9C
 	mov r2, #0
-	bl FUN_0202d798
+	bl _ZN11AudioPlayer12FUN_0202d798EPci
 	ldr r0, _020D6FAC ; =gBgMenuManager
 	mov r1, #1
 	bl FUN_ov16_020f5af0
@@ -30000,14 +30000,14 @@ _020D6FD0:
 	mov r0, r8
 	mov r1, r11
 	mov r2, #4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D6FFC:
 	ldr r0, [r8, #0xc]
 	ldr r1, [r8, #0x10]
 	mov r3, #4
 	add r0, r8, r0
 	add r2, r6, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r1, [r8, #0x14]
 	mov r6, r0
 	add r0, r8, r1
@@ -30020,7 +30020,7 @@ _020D7034:
 	add r9, r9, #1
 	cmp r9, #4
 	blo _020D6FD0
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020D7048: .word ov4_020D8D0C
 	arm_func_end FUN_ov4_020d6fb0
@@ -30157,7 +30157,7 @@ FUN_ov4_020d71dc: ; 0x020D71DC
 	bl MI_CpuFill8
 	ldr r0, _020D720C ; =0x020DBE98
 	add r1, r4, #0x34
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -30180,7 +30180,7 @@ _020D7234:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _020D7234
@@ -30196,7 +30196,7 @@ FUN_ov4_020d725c: ; 0x020D725C
 	mov r4, #0xc
 _020D726C:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #8
 	blt _020D726C
@@ -30216,11 +30216,11 @@ FUN_ov4_020d7284: ; 0x020D7284
 	mov r3, r4
 	add r0, r5, r0
 	mov r2, #0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D72C4:
 	ldr r8, [r6, #0x58]
 	mov r5, #0
@@ -30232,12 +30232,12 @@ _020D72C4:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D7304:
 	ldr r8, [r6, #0x64]
 	cmp r8, #0
@@ -30248,12 +30248,12 @@ _020D7304:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D7340:
 	ldr r8, [r6, #0x70]
 	cmp r8, #0
@@ -30264,12 +30264,12 @@ _020D7340:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D737C:
 	ldr r8, [r6, #0x7c]
 	cmp r8, #0
@@ -30280,12 +30280,12 @@ _020D737C:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D73B8:
 	ldr r8, [r6, #0x88]
 	cmp r8, #0
@@ -30296,11 +30296,11 @@ _020D73B8:
 	mov r3, r7
 	add r0, r8, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r8
 	mov r2, r7
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D73F0:
 	ldr r8, [r6, #0x4c]
 	mov r5, #0
@@ -30312,12 +30312,12 @@ _020D73F0:
 	mov r2, r4
 	mov r3, r7
 	add r0, r8, r0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r5, r0
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _020D7430:
 	ldr r0, [r6, #0x20]
 	mov r2, #0
@@ -30333,7 +30333,7 @@ _020D7430:
 	mov r3, #0
 	mul r1, r4, r1
 	mov r1, r1, lsl #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_ov4_020d7284
 
@@ -30370,23 +30370,23 @@ _020D74B0:
 	ldr r1, [r4, #0x58]
 	mov r0, r7
 	mov r2, r5
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x64]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x70]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x7c]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	mov r2, r0
 	ldr r1, [r4, #0x88]
 	mov r0, r7
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	bl G2S_GetBG2CharPtr
 	mov r1, r0
 	mov r0, r6
@@ -30398,7 +30398,7 @@ _020D74B0:
 	ldr r1, [r4, #0x4c]
 	mov r2, r5
 	mov r0, #2
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	ldr r1, [r4, #0x20]
 	cmp r1, #0
 	ldrne r1, [r4, #0x24]
@@ -30406,7 +30406,7 @@ _020D74B0:
 	moveq r7, #0
 	cmp r7, #0
 	strne r0, [r4, #0x28]
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_ov4_020d7470
 
@@ -30822,7 +30822,7 @@ FUN_ov4_020d7b3c: ; 0x020D7B3C
 _020D7B5C:
 	add r0, r4, #0x34
 	mov r1, #8
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -30871,7 +30871,7 @@ FUN_ov4_020d7bec: ; 0x020D7BEC
 	mov r5, r0
 	add r0, r5, #0x34
 	mov r1, #8
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r5
 	bl FUN_ov4_020d725c
 	mov r4, #1
@@ -32058,9 +32058,9 @@ ov4_020D9574:
 	.word FUN_ov4_020be3e0
 	.word _ZN14CScreenManager10updateKeysEtt
 	.word _ZN14CScreenManager8updateTPEP6TPData
-	.word _ZN14CScreenManager6updateEi
+	.word _ZN14CScreenManager6updateE12EngineSelect
 	.word FUN_ov4_020be400
-	.word _ZN14CScreenManager10updateLateEi
+	.word _ZN14CScreenManager10updateLateE12EngineSelect
 	.word FUN_ov4_020bf38c
 	.word FUN_ov4_020be6ec
 	.word _ZN14CScreenManager20updateDisplayMappingEv

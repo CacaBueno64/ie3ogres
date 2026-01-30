@@ -48,9 +48,9 @@ class CFileIO {
         /* 0x0202ef74 */ void *allocate(size_t size);
         /* 0x0202ef8c */ void deallocate(void *ptr);
         /* 0x0202ef9c */ size_t getFileLength(const char *path);
-        /* 0x0202eff0 */ size_t readDirect(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
-        /* 0x0202f294 */ size_t readDeferred(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy);
-        /* 0x0202f500 */ size_t readRaw(FSFileID *fileID, void **dest, BOOL compressed, int offset, size_t size);
+        /* 0x0202eff0 */ size_t readDirect(const char *path, void **dest, Allocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
+        /* 0x0202f294 */ size_t readDeferred(const char *path, void **dest, Allocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
+        /* 0x0202f500 */ size_t readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size);
         /* 0x0202f568 */ BOOL convertPathToFileID(FSFileID *fileID, const char *path);
         /* 0x0202f57c */ int tryFinalize(void *data);
         /* 0x0202f598 */ int tryFinalize(int idx);
@@ -71,7 +71,7 @@ class CFileIO {
     FileRequest *requests;
     FSFile currentFile;
     OSThread thread;
-    u8 stack[2048];
+    char stack[2048];
     void *buffers[2];
     u32 bufIdx;
     void *table;

@@ -44,7 +44,7 @@ void CFileIO::start(int max_requests)
 
     OS_CreateThread(&this->thread, &this->processRequests, this, this->stack + sizeof(this->stack), sizeof(this->stack), 30);
 
-    size_t size = FS_TryLoadTable(NULL,0);
+    size_t size = FS_TryLoadTable(NULL, 0);
     this->table = NULL;
     if (size == 0) {
         return;
@@ -131,7 +131,7 @@ extern "C" {
     extern void _ZN7CFileIO10uncompressEPvP11FileRequest(void);
 }
 
-asm size_t CFileIO::readDirect(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
+asm size_t CFileIO::readDirect(const char *path, void **dest, Allocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
 {
     stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xb4
@@ -320,7 +320,7 @@ _0202F27C:
 }
 #endif //NONMATCHING
 
-size_t CFileIO::readDeferred(const char *path, void **dest, Allocator *allocator, int offset, size_t size, BOOL compressed, u8 strategy)
+size_t CFileIO::readDeferred(const char *path, void **dest, Allocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
 {
     FSFile file;
     
@@ -425,7 +425,7 @@ size_t CFileIO::readDeferred(const char *path, void **dest, Allocator *allocator
     return size;
 }
 
-size_t CFileIO::readRaw(FSFileID *fileID, void **dest, BOOL compressed, int offset, size_t size)
+size_t CFileIO::readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size)
 {
     FSFile file;
     size_t result;
@@ -741,7 +741,7 @@ void CFileIO::uncompress(void *src, FileRequest *request)
 
 size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
 {
-    Archive_SFPHeader *header = reinterpret_cast<Archive_SFPHeader *>(file);
+    Archive::SFPHeader *header = reinterpret_cast<Archive::SFPHeader *>(file);
     
     if (strcmp(header->magic, "SFP")) {
         return 0;
@@ -761,12 +761,12 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
         }
     }
 
-    Archive_SFPEntry *entries = reinterpret_cast<Archive_SFPEntry *>(file + sizeof(*header));
-    int entry_count = (entries->string_offset - sizeof(Archive_SFPHeader)) / sizeof(Archive_SFPEntry);
+    Archive::SFPEntry *entries = reinterpret_cast<Archive::SFPEntry *>(file + sizeof(*header));
+    int entry_count = (entries->stringOffset - sizeof(*header)) / sizeof(entries[0]);
     int idx;
 
     for (idx = 0; idx < entry_count; idx++) {
-        if (!strcmp(file + entries[idx].string_offset, filename)) {
+        if (!strcmp(file + entries[idx].stringOffset, filename)) {
             break;
         }
     }
@@ -776,8 +776,8 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
     }
 
     // seek at the end of the file
-    file = file + header->file_size;
-    header = reinterpret_cast<Archive_SFPHeader *>(file);
+    file = file + header->fileSize;
+    header = reinterpret_cast<Archive::SFPHeader *>(file);
     
     if (strcmp(file, "SFP")) {
         return 0;
@@ -785,7 +785,7 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
 
     int data_size = entries[idx].size;
 
-    *dst = file + (header->chunk_size * entries[idx].data_offset);
+    *dst = file + (header->chunkSize * entries[idx].dataOffset);
 
     return data_size;
 }

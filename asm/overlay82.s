@@ -123,7 +123,7 @@ FUN_ov82_0211a044: ; 0x0211A044
 	bl FUN_ov82_0211bfc0
 	ldmfd sp!, {r4, pc}
 _0211A08C: .word ov82_0211FE64
-_0211A090: .word unk_02099EF0
+_0211A090: .word gUtilGame
 _0211A094: .word gLogicThink
 	arm_func_end FUN_ov82_0211a044
 
@@ -576,7 +576,7 @@ _0211A6CC:
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A6D8: .word gWirelessUtil
-_0211A6DC: .word unk_02099EF0
+_0211A6DC: .word gUtilGame
 _0211A6E0: .word unk_020A0640
 _0211A6E4: .word gLogicThink
 _0211A6E8: .word ov82_0211FEA0
@@ -687,7 +687,7 @@ _0211A834:
 _0211A848: .word gWirelessUtil
 _0211A84C: .word unk_0209A4E0
 _0211A850: .word unk_0209A508
-_0211A854: .word unk_02099EF0
+_0211A854: .word gUtilGame
 _0211A858: .word gLogicThink
 	arm_func_end FUN_ov82_0211a6ec
 
@@ -2207,7 +2207,7 @@ _0211BE08:
 	strgth r1, [r0, #0x3c]
 	add sp, sp, #0x30
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211BE40: .word unk_02099EF0
+_0211BE40: .word gUtilGame
 _0211BE44: .word gBgMenuManager
 _0211BE48: .word unk_020A3D14
 _0211BE4C: .word ov82_02120260
@@ -2253,10 +2253,10 @@ _0211BEAC: .word 0x04000050
 FUN_ov82_0211beb0: ; 0x0211BEB0
 	mov r1, #8
 	str r1, [r0, #0x4c]
-	ldr r12, _0211BEC4 ; = FUN_ov16_020f1514
+	ldr r12, _0211BEC4 ; = _ZN8Graphics13FadeMainBlackEl
 	mov r0, #6
 	bx r12
-_0211BEC4: .word FUN_ov16_020f1514
+_0211BEC4: .word _ZN8Graphics13FadeMainBlackEl
 	arm_func_end FUN_ov82_0211beb0
 
 	arm_func_start FUN_ov82_0211bec8
@@ -2334,7 +2334,7 @@ _0211BF48:
 	ldr r0, [r5]
 	bl FUN_ov132_02148d74
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211BFB8: .word unk_02099EF0
+_0211BFB8: .word gUtilGame
 _0211BFBC: .word unk_0209A720
 	arm_func_end FUN_ov82_0211bf0c
 
@@ -2803,7 +2803,7 @@ _0211C64C: .word 0x00005A69
 _0211C650: .word ov1_020E9482
 _0211C654: .word gBgMenuManager
 _0211C658: .word ov1_020EAAA8
-_0211C65C: .word unk_02099EF0
+_0211C65C: .word gUtilGame
 _0211C660: .word ov82_0211FE90
 _0211C664: .word ov82_0211FE80
 _0211C668: .word ov82_0211FE64
@@ -2916,7 +2916,7 @@ _0211C7C0:
 _0211C7E0:
 	bl FUN_ov82_0211caf0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211C7E8: .word unk_02099EF0
+_0211C7E8: .word gUtilGame
 _0211C7EC: .word gAudioPlayer
 _0211C7F0: .word unk_020A0640
 _0211C7F4: .word gLogicThink
@@ -2957,7 +2957,7 @@ _0211C850:
 _0211C858:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-_0211C860: .word unk_02099EF0
+_0211C860: .word gUtilGame
 	arm_func_end FUN_ov82_0211c7fc
 
 	arm_func_start FUN_ov82_0211c864
@@ -3002,7 +3002,7 @@ FUN_ov82_0211c864: ; 0x0211C864
 	bl FUN_01ff9c08
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211C900: .word ov1_020EAA94
-_0211C904: .word unk_02099EF0
+_0211C904: .word gUtilGame
 _0211C908: .word gLogicThink
 	arm_func_end FUN_ov82_0211c864
 
@@ -3039,7 +3039,7 @@ FUN_ov82_0211c90c: ; 0x0211C90C
 	ldr r0, [r4]
 	bl FUN_ov126_021355b4
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r8, [r8, #4]
 	mov r1, r5
 	mov r5, #0x5a
@@ -3073,7 +3073,7 @@ FUN_ov82_0211c90c: ; 0x0211C90C
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211CA08: .word unk_0209A454
 _0211CA0C: .word gLogicThink
-_0211CA10: .word unk_02099EF0
+_0211CA10: .word gUtilGame
 _0211CA14: .word unk_020A0640
 _0211CA18: .word ov1_020EAAB4
 	arm_func_end FUN_ov82_0211c90c
@@ -3115,7 +3115,7 @@ FUN_ov82_0211ca1c: ; 0x0211CA1C
 	bl FUN_ov132_02146014
 	strh r0, [r5, #0xa0]
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r5, [r9, #4]
 	mov r1, r6
 	mov r0, r5
@@ -3132,7 +3132,7 @@ _0211CADC: .word gAudioPlayer
 _0211CAE0: .word 0x000005DC
 _0211CAE4: .word unk_020A0640
 _0211CAE8: .word gLogicThink
-_0211CAEC: .word unk_02099EF0
+_0211CAEC: .word gUtilGame
 	arm_func_end FUN_ov82_0211ca1c
 
 	arm_func_start FUN_ov82_0211caf0
@@ -3156,7 +3156,7 @@ _0211CB28:
 	mov r1, #0xe
 	bl FUN_ov82_0211bfc0
 	ldmfd sp!, {r4, pc}
-_0211CB38: .word unk_02099EF0
+_0211CB38: .word gUtilGame
 	arm_func_end FUN_ov82_0211caf0
 
 	arm_func_start FUN_ov82_0211cb3c
@@ -3294,7 +3294,7 @@ _0211CD08: .word gAudioPlayer
 _0211CD0C: .word 0x00000CF3
 _0211CD10: .word unk_0209A12C
 _0211CD14: .word unk_0209A140
-_0211CD18: .word unk_02099EF0
+_0211CD18: .word gUtilGame
 	arm_func_end FUN_ov82_0211cb84
 
 	arm_func_start FUN_ov82_0211cd1c
@@ -3465,7 +3465,7 @@ _0211CF58:
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CF90: .word gBgMenuManager
-_0211CF94: .word unk_02099EF0
+_0211CF94: .word gUtilGame
 	arm_func_end FUN_ov82_0211cd1c
 
 	arm_func_start FUN_ov82_0211cf98
@@ -3733,7 +3733,7 @@ _0211D330:
 	str r0, [r6, #0x18]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211D340: .word unk_0209A3E0
-_0211D344: .word unk_02099EF0
+_0211D344: .word gUtilGame
 	arm_func_end FUN_ov82_0211d128
 
 	arm_func_start FUN_ov82_0211d348
@@ -3846,7 +3846,7 @@ _0211D450:
 	bl FUN_ov16_020f5c34
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
-_0211D4DC: .word unk_02099EF0
+_0211D4DC: .word gUtilGame
 _0211D4E0: .word g3DFieldSprite
 _0211D4E4: .word ov1_020EAAEC
 _0211D4E8: .word gBgMenuManager
@@ -3908,7 +3908,7 @@ _0211D530:
 	bl FUN_ov16_020f5c34
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, pc}
-_0211D5BC: .word unk_02099EF0
+_0211D5BC: .word gUtilGame
 _0211D5C0: .word g3DFieldSprite
 _0211D5C4: .word ov1_020EAAE8
 _0211D5C8: .word gBgMenuManager
@@ -4393,7 +4393,7 @@ _0211DCA8:
 	mov r0, #0
 	mov r1, #2
 	mov r2, #1
-	bl FUN_ov16_020f0e9c
+	bl _ZN8Graphics17SetBGPalettePulseE12EngineSelectii
 _0211DCB8:
 	ldr r0, _0211DE78 ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
@@ -4512,7 +4512,7 @@ _0211DE54:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DE74: .word gBgMenuManager
 _0211DE78: .word unk_020A0640
-_0211DE7C: .word unk_02099EF0
+_0211DE7C: .word gUtilGame
 	arm_func_end FUN_ov82_0211dadc
 
 	arm_func_start FUN_ov82_0211de80
@@ -4970,12 +4970,12 @@ _0211E454:
 	mov r0, r5
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020f0e9c
+	bl _ZN8Graphics17SetBGPalettePulseE12EngineSelectii
 	mov r4, #1
 	mov r0, r5
 	mov r1, r8
 	mov r2, r4
-	bl FUN_ov16_020f0e9c
+	bl _ZN8Graphics17SetBGPalettePulseE12EngineSelectii
 	strb r4, [r7, #0x42c]
 _0211E538:
 	ldr r0, [r7, #8]
@@ -5033,7 +5033,7 @@ _0211E560:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020f0e9c
+	bl _ZN8Graphics17SetBGPalettePulseE12EngineSelectii
 _0211E614:
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -5217,7 +5217,7 @@ _0211E844:
 	mov r1, #0x20
 	mov r3, r5
 	add r2, r8, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r8, r0
 	ldr r0, [r9, #4]
 	ldr r1, [sp, #4]
@@ -5300,7 +5300,7 @@ _0211E9AC:
 	add r2, r8, #1
 	mov r1, #0x54
 	mov r3, #0
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r1, [sp, #4]
 	mov r8, r0
 	add r0, r1, #0x540
@@ -5331,7 +5331,7 @@ _0211EA18:
 	mov r1, r4
 	mov r3, r5
 	add r2, r8, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r1, [sp, #4]
 	mov r8, r0
 	add r1, r1, r11, lsl #5
@@ -5480,9 +5480,9 @@ _0211EBA8:
 	bl FUN_ov1_020dc088
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211EC90: .word unk_020A7C40
-_0211EC94: .word unk_020A7440
-_0211EC98: .word unk_020A6C40
+_0211EC90: .word gMainScreen2
+_0211EC94: .word gMainScreen1
+_0211EC98: .word gMainScreen0
 _0211EC9C: .word gLogicThink
 _0211ECA0: .word unk_020A0640
 	arm_func_end FUN_ov82_0211e6f0
@@ -5492,10 +5492,10 @@ FUN_ov82_0211eca4: ; 0x0211ECA4
 	mov r3, #0xc
 	mla r0, r1, r3, r0
 	ldr r0, [r0, #0x520]
-	ldr r12, _0211ECBC ; = FUN_ov16_020f1138
+	ldr r12, _0211ECBC ; = _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	mov r1, #0
 	bx r12
-_0211ECBC: .word FUN_ov16_020f1138
+_0211ECBC: .word _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	arm_func_end FUN_ov82_0211eca4
 
 	arm_func_start FUN_ov82_0211ecc0
@@ -5566,7 +5566,7 @@ _0211ED70:
 	ldr r0, [r0, #0x520]
 	mov r1, r7
 	add r2, r4, #5
-	bl FUN_ov16_020f1160
+	bl _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 _0211EDB0:
 	add r4, r4, #1
 _0211EDB4:
@@ -5642,12 +5642,12 @@ _0211EE68:
 	mov r1, #0x18
 	bl FUN_ov82_0211eca4
 _0211EEC0:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211EEC8: .word gLogicThink
 _0211EECC: .word ov82_0211FE70
 _0211EED0: .word unk_020A0640
-_0211EED4: .word unk_02099EF0
+_0211EED4: .word gUtilGame
 	arm_func_end FUN_ov82_0211ecc0
 
 	arm_func_start FUN_ov82_0211eed8
@@ -5658,7 +5658,7 @@ FUN_ov82_0211eed8: ; 0x0211EED8
 	mov r4, #0
 	cmp r0, #0
 	ldmlefd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r7, _0211EF3C ; =pLogic_PalSkinFaceFile
+	ldr r7, _0211EF3C ; =gPalSkinFaceFile
 	mov r8, r4
 	mov r6, #0xc
 _0211EEFC:
@@ -5679,7 +5679,7 @@ _0211EF28:
 	cmp r4, r0
 	blt _0211EEFC
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211EF3C: .word pLogic_PalSkinFaceFile
+_0211EF3C: .word gPalSkinFaceFile
 	arm_func_end FUN_ov82_0211eed8
 
 	arm_func_start FUN_ov82_0211ef40
@@ -5727,7 +5727,7 @@ _0211EFD0:
 	str r8, [r9, #0x48]
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211EFDC: .word unk_02099EF0
+_0211EFDC: .word gUtilGame
 	arm_func_end FUN_ov82_0211ef40
 
 	arm_func_start FUN_ov82_0211efe0
@@ -5814,7 +5814,7 @@ _0211F0D8:
 	mov r1, r6
 	mov r2, #0
 	add r3, sp, #0x14
-	bl FUN_ov16_020f366c
+	bl _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 	cmp r0, #0
 	beq _0211F140
 	add r2, r8, #0x21
@@ -5846,7 +5846,7 @@ _0211F140:
 	mov r1, r6
 	mov r2, r9
 	mov r3, r5
-	bl FUN_ov16_020f36f4
+	bl _ZN7Archive20GetBodyOffsetAndSizeEPvP4UnitiiPlPm
 	cmp r0, #0
 	beq _0211F1BC
 	add r2, r8, #0x1d
@@ -5867,7 +5867,7 @@ _0211F1BC:
 	mov r1, r9
 	mov r2, r5
 	add r3, sp, #0x14
-	bl FUN_ov16_020f3744
+	bl _ZN7Archive24GetBodyPlttOffsetAndSizeEPviiPlPm
 	cmp r0, #0
 	beq _0211F20C
 	add r2, r8, #0x25
@@ -5915,7 +5915,7 @@ _0211F240:
 	cmp r1, #0
 	ldreqh r1, [r0, #0x20]
 	mov r0, r4
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0211F2B8
 	mov r0, #1
@@ -5942,7 +5942,7 @@ _0211F2E4: .word gLogicThink
 _0211F2E8: .word ov82_02120220
 _0211F2EC: .word ov82_02120228
 _0211F2F0: .word ov82_02120230
-_0211F2F4: .word unk_02099EF0
+_0211F2F4: .word gUtilGame
 _0211F2F8: .word ov82_02120238
 	arm_func_end FUN_ov82_0211efe0
 
@@ -6074,7 +6074,7 @@ _0211F494:
 	strb r1, [r0, #0x51c]
 	add sp, sp, #0x64
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211F4E0: .word unk_02099EF0
+_0211F4E0: .word gUtilGame
 _0211F4E4: .word ov82_02120244
 _0211F4E8: .word ov82_02120248
 	arm_func_end FUN_ov82_0211f2fc
@@ -6161,7 +6161,7 @@ FUN_ov82_0211f5f4: ; 0x0211F5F4
 	mov r4, #0xc
 _0211F604:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0x29
 	blt _0211F604
@@ -6174,15 +6174,15 @@ FUN_ov82_0211f61c: ; 0x0211F61C
 	mov r4, r0
 	add r0, r4, #0x520
 	add r0, r0, #0x138
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r0, r4, #0x520
 	add r0, r0, #0x144
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r0, r4, #0x670
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r0, r4, #0x520
 	add r0, r0, #0xfc
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_ov82_0211f61c
 
@@ -6260,7 +6260,7 @@ FUN_ov82_0211f714: ; 0x0211F714
 	mov r1, r5
 	bl FUN_ov82_0211f654
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211F75C: .word unk_02099EF0
+_0211F75C: .word gUtilGame
 _0211F760: .word gBgMenuManager
 	arm_func_end FUN_ov82_0211f714
 
@@ -6304,7 +6304,7 @@ _0211F7D8:
 	beq _0211F9BC
 	add r0, r5, #0x520
 	mov r1, #0x29
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _0211F9BC
 	ldr r0, [r5, #0x10]
@@ -6449,7 +6449,7 @@ _0211F9BC:
 	bl FUN_ov1_020dbb44
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211F9E0: .word g3DFieldSprite
-_0211F9E4: .word unk_02099EF0
+_0211F9E4: .word gUtilGame
 _0211F9E8: .word ov1_020EAAA8
 _0211F9EC: .word unk_020A0640
 	arm_func_end FUN_ov82_0211f764
@@ -6708,7 +6708,7 @@ _0211FD3C:
 _0211FD74: .word ov1_020EAB04
 _0211FD78: .word unk_020A0640
 _0211FD7C: .word gBgMenuManager
-_0211FD80: .word unk_02099EF0
+_0211FD80: .word gUtilGame
 _0211FD84: .word g3DFieldSprite
 _0211FD88: .word unk_0209A114
 _0211FD8C: .word 0x00005A69
@@ -6747,7 +6747,7 @@ FUN_ov82_0211fd90: ; 0x0211FD90
 	bl FUN_ov82_0211f61c
 	add r0, r4, #0x520
 	mov r1, #0x29
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov82_0211f5f4
 	add r0, r4, #0x58
@@ -6758,7 +6758,7 @@ FUN_ov82_0211fd90: ; 0x0211FD90
 _0211FE2C: .word unk_020A0640
 _0211FE30: .word g3DFieldSprite
 _0211FE34: .word gBgMenuManager
-_0211FE38: .word unk_02099EF0
+_0211FE38: .word gUtilGame
 	arm_func_end FUN_ov82_0211fd90
 
 	arm_func_start FUN_ov82_0211fe3c

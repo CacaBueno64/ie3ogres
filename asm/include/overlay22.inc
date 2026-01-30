@@ -15,7 +15,7 @@
 .public unk_02099EA0
 .public unk_02099E97
 .public gSprButtonCtrl
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public gAudioPlayer
 .public unk_02099E99
 .public unk_02099E92
@@ -48,17 +48,17 @@
 .public FUN_ov16_02116654
 .public gDeltaTime
 .public g3DSpriteCtrl
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
-.public FUN_ov16_020f3054
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_021123b4
 .public g3DPlaneCtrl
 .public FUN_ov16_021128c4
 .public FUN_02058ee0
 .public FUN_ov16_021123c4
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN9Allocator12setNextArenaEi
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 .public FUN_ov16_020f5504
 .public _ZN9Allocator10deallocateEPv
 .public gAllocator
@@ -89,7 +89,7 @@
 .public FS_InitFile
 .public FS_OpenFile
 .public FUN_0207039c
-.public FUN_ov16_020f34f0
+.public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public FUN_02058a10
 .public FS_CloseFile
 .public FUN_ov16_02114918
@@ -97,7 +97,7 @@
 .public FUN_02058e30
 .public FUN_ov16_0210e15c
 .public FUN_ov16_02113f7c
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public FUN_02044680
 .public FUN_02044754
 .public FUN_0204457c
@@ -116,7 +116,7 @@
 .public FUN_020455a0
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_020AF81C
-.public unk_02099EF4
+.public gScriptFileCode
 .public unk_02099E8D
 .public unk_020A9C40
 .public FUN_ov16_02112724
@@ -150,7 +150,7 @@
 .public FUN_ov16_020f2304
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210efac
-.public FUN_0202c44c
+.public _ZN11AudioPlayer12FUN_0202c44cEii
 .public unk_02099E93
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e6fc

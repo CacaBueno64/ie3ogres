@@ -6,7 +6,7 @@
 .public _ZN11AudioPlayer7openSADEPvPch
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public g3DFieldSprite
-.public unk_02099EF0
+.public gUtilGame
 .public gAudioPlayer
 .public FUN_ov1_020e3d74
 .public FUN_01ff95b0

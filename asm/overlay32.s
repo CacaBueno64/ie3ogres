@@ -140,7 +140,7 @@ _0211A0A0:
 	ldr r0, _0211A164 ; =0x020A0B00
 	mov r1, r5
 	bl FUN_02074764
-	ldr r4, _0211A16C ; =0x0209A5D0
+	ldr r4, _0211A16C ; =gRecordManager
 	mov r0, r4
 	bl FUN_020630e0
 	ldr r2, _0211A170 ; =0x020A0640
@@ -179,13 +179,13 @@ _0211A0A0:
 	ldr r0, _0211A190 ; =0x020A9C40
 	bl FUN_0204545c
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r0, #3
 	bl _Z11SetNextMode8GameMode
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211A164: .word unk_020A0B00
 _0211A168: .word unk_0209A460
-_0211A16C: .word unk_0209A5D0
+_0211A16C: .word gRecordManager
 _0211A170: .word unk_020A0640
 _0211A174: .word g2DAdventureLogic
 _0211A178: .word g3DGameMapObject
@@ -309,7 +309,7 @@ _0211A2E4:
 	bl sprintf
 	mov r0, r6
 	add r1, r5, #0x1c
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldr r8, _0211A388 ; =0x020A6C40
 	mov r4, #0
 	mov r7, #0x800
@@ -342,17 +342,17 @@ _0211A2E4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211A380: .word ov32_0211A6D8
 _0211A384: .word ov32_0211A7A0
-_0211A388: .word unk_020A6C40
-_0211A38C: .word unk_020A7440
-_0211A390: .word unk_020A7C40
+_0211A388: .word gMainScreen0
+_0211A38C: .word gMainScreen1
+_0211A390: .word gMainScreen2
 	arm_func_end FUN_ov32_0211a280
 
 	arm_func_start FUN_ov32_0211a394
 FUN_ov32_0211a394: ; 0x0211A394
-	ldr r12, _0211A3A0 ; = FUN_ov16_020f33fc
+	ldr r12, _0211A3A0 ; = _ZN7Archive10DeallocateEP9SFileData
 	add r0, r0, #0x1c
 	bx r12
-_0211A3A0: .word FUN_ov16_020f33fc
+_0211A3A0: .word _ZN7Archive10DeallocateEP9SFileData
 	arm_func_end FUN_ov32_0211a394
 
 	arm_func_start FUN_ov32_0211a3a4
@@ -405,13 +405,13 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r5, #0xc]
 	ldr r1, [r5, #0x10]
 	mov r3, r6
 	add r0, r5, r0
 	add r2, r4, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r8
@@ -423,11 +423,11 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r2, r7
 	bl GX_LoadBG2Scr
 _0211A4A8:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0211A4B0: .word unk_020A6C40
-_0211A4B4: .word unk_020A7440
-_0211A4B8: .word unk_020A7C40
+_0211A4B0: .word gMainScreen0
+_0211A4B4: .word gMainScreen1
+_0211A4B8: .word gMainScreen2
 	arm_func_end FUN_ov32_0211a3a4
 
 	arm_func_start FUN_ov32_0211a4bc
@@ -510,7 +510,7 @@ FUN_ov32_0211a598: ; 0x0211A598
 _0211A5C0:
 	add r0, r4, #0x1c
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	movne r0, #2
 	strne r0, [r4, #8]
@@ -525,7 +525,7 @@ _0211A5E4:
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	add r0, r4, #0x1c
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, r4
 	bl FUN_ov32_0211a280
 	ldmfd sp!, {r4, pc}

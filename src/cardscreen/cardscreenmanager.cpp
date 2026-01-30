@@ -12,7 +12,7 @@ void CCardScreenManager::init(void)
     this->setNextScenes(SCENE_CARD_INIT, SCENE_NONE);
     this->toggleDisplays = FALSE;
     this->nextMainDisplay = 0;
-    FUN_ov16_020f13d4();
+    Graphics::WhiteOutScreens();
     this->updateScene();
 }
 
@@ -38,8 +38,9 @@ void CCardScreenManager::updateScene(void)
     };
     
     SceneType nextSceneMain = this->getNextSceneMain();
-    if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_MAIN])) && ((this->mainScreen == NULL) || (!this->mainScreen->isFading())))
-    {
+    if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_MAIN])) &&
+        ((this->mainScreen == NULL) || (!this->mainScreen->isFading()))
+    ) {
         if (this->mainScreen != NULL) {
             this->mainScreen->close();
             this->mainScreen->blackOut();
@@ -58,8 +59,9 @@ void CCardScreenManager::updateScene(void)
     }
 
     SceneType nextSceneSub = this->getNextSceneSub();
-    if (((this->getCurSceneSub() != nextSceneSub) || (this->sceneChanged[ENGINE_SUB])) && ((this->subScreen == NULL) || (!this->subScreen->isFading())))
-    {
+    if (((this->getCurSceneSub() != nextSceneSub) || (this->sceneChanged[ENGINE_SUB])) &&
+        ((this->subScreen == NULL) || (!this->subScreen->isFading()))
+    ) {
         if (this->subScreen != NULL) {
             this->subScreen->close();
             this->subScreen->blackOut();

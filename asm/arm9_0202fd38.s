@@ -3,20 +3,20 @@
 	.include "/include/arm9_0202fd38.inc"
 
 	.text
-	arm_func_start FUN_0202fd38
-FUN_0202fd38: ; 0x0202FD38
+	arm_func_start _ZN16CSceneScriptDataC1Ev
+_ZN16CSceneScriptDataC1Ev: ; 0x0202FD38
 	mov r1, #0
 	str r1, [r0]
 	bx lr
-	arm_func_end FUN_0202fd38
+	arm_func_end _ZN16CSceneScriptDataC1Ev
 
-	arm_func_start FUN_0202fd44
-FUN_0202fd44: ; 0x0202FD44
+	arm_func_start _ZN16CSceneScriptDataD1Ev
+_ZN16CSceneScriptDataD1Ev: ; 0x0202FD44
 	bx lr
-	arm_func_end FUN_0202fd44
+	arm_func_end _ZN16CSceneScriptDataD1Ev
 
-	arm_func_start SSD_InitFile ; https://decomp.me/scratch/ShK79
-SSD_InitFile: ; 0x0202FD48
+	arm_func_start _ZN16CSceneScriptData8initFileEPvPKc ; https://decomp.me/scratch/ShK79
+_ZN16CSceneScriptData8initFileEPvPKc: ; 0x0202FD48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	cmp r1, #0
@@ -153,10 +153,10 @@ _0202FF10:
 _0202FF2C:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end SSD_InitFile
+	arm_func_end _ZN16CSceneScriptData8initFileEPvPKc
 
-	arm_func_start SSD_GetNextInstruction ; https://decomp.me/scratch/IMXmx
-SSD_GetNextInstruction: ; 0x0202FF34
+	arm_func_start _ZN16CSceneScriptData4nextEP17ScriptInstruction ; https://decomp.me/scratch/IMXmx
+_ZN16CSceneScriptData4nextEP17ScriptInstruction: ; 0x0202FF34
 	cmp r1, #0
 	ldreq r0, [r0, #4]
 	bxeq lr
@@ -168,7 +168,7 @@ SSD_GetNextInstruction: ; 0x0202FF34
 	cmp r2, r1
 	movhs r0, #0
 	bx lr
-	arm_func_end SSD_GetNextInstruction
+	arm_func_end _ZN16CSceneScriptData4nextEP17ScriptInstruction
 
 	arm_func_start FUN_0202ff60 ; https://decomp.me/scratch/VEJCn
 FUN_0202ff60: ; 0x0202FF60
@@ -633,7 +633,7 @@ _02030570:
 	mov r1, #0
 	strb r1, [r0, #0x254]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02030580: .word unk_02099EF0
+_02030580: .word gUtilGame
 	arm_func_end FUN_020304e4
 
 	arm_func_start FUN_02030584
@@ -683,7 +683,7 @@ _0203061C:
 	bl FUN_02052928
 	ldmfd sp!, {r4, pc}
 _0203062C: .word unk_02099F44
-_02030630: .word unk_02099EF0
+_02030630: .word gUtilGame
 _02030634: .word g3DMagicCamera
 	arm_func_end FUN_02030584
 
@@ -756,7 +756,7 @@ _0203071C:
 _02030730: .word gDeltaTime
 _02030734: .word 0x000003F3
 _02030738: .word unk_02099F44
-_0203073C: .word unk_02099EF0
+_0203073C: .word gUtilGame
 	arm_func_end FUN_02030638
 
 	arm_func_start FUN_02030740
@@ -1329,7 +1329,7 @@ _02030F50: .word unk_020AF81C
 FUN_02030f54: ; 0x02030F54
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
@@ -1405,7 +1405,7 @@ _02031044: .word unk_020AF81C
 FUN_02031048: ; 0x02031048
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
@@ -1456,15 +1456,15 @@ _020310E0:
 	cmp r0, #0
 	bne _02031104
 _020310FC:
-	bl FUN_ov16_020f1320
+	bl _ZN8Graphics15BlackOutScreensEv
 	b _0203114C
 _02031104:
-	bl FUN_ov16_020f1300
+	bl _ZN8Graphics12BlackOutMainEv
 	b _0203114C
 _0203110C:
 	b _02031104
 _02031110:
-	bl FUN_ov16_020f1310
+	bl _ZN8Graphics11BlackOutSubEv
 	b _0203114C
 _02031118:
 	ldr r0, _020311B4 ; 0x02099EF0
@@ -1475,15 +1475,15 @@ _02031118:
 	cmp r0, #0
 	bne _0203113C
 _02031134:
-	bl FUN_ov16_020f13d4
+	bl _ZN8Graphics15WhiteOutScreensEv
 	b _0203114C
 _0203113C:
-	bl FUN_ov16_020f13b4
+	bl _ZN8Graphics12WhiteOutMainEv
 	b _0203114C
 _02031144:
 	b _0203113C
 _02031148:
-	bl FUN_ov16_020f13c4
+	bl _ZN8Graphics11WhiteOutSubEv
 _0203114C:
 	ands r0, r5, #0xf
 	beq _02031168
@@ -1502,21 +1502,21 @@ _02031168:
 	bne _02031190
 _02031184:
 	mov r0, r4
-	bl FUN_ov16_020f1490
+	bl _ZN8Graphics13FadeInScreensEl
 	ldmfd sp!, {r3, r4, r5, pc}
 _02031190:
 	mov r0, r4
-	bl FUN_ov16_020f1468
+	bl _ZN8Graphics10FadeInMainEl
 	ldmfd sp!, {r3, r4, r5, pc}
 _0203119C:
 	mov r0, r4
-	bl FUN_ov16_020f1468
+	bl _ZN8Graphics10FadeInMainEl
 	ldmfd sp!, {r3, r4, r5, pc}
 _020311A8:
 	mov r0, r4
-	bl FUN_ov16_020f147c
+	bl _ZN8Graphics9FadeInSubEl
 	ldmfd sp!, {r3, r4, r5, pc}
-_020311B4: .word unk_02099EF0
+_020311B4: .word gUtilGame
 	arm_func_end FUN_02031084
 
 	arm_func_start FUN_020311b8
@@ -1564,19 +1564,19 @@ _02031230:
 	bne _02031258
 _0203124C:
 	mov r0, r4
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldmfd sp!, {r4, pc}
 _02031258:
 	mov r0, r4
-	bl FUN_ov16_020f1514
+	bl _ZN8Graphics13FadeMainBlackEl
 	ldmfd sp!, {r4, pc}
 _02031264:
 	mov r0, r4
-	bl FUN_ov16_020f1514
+	bl _ZN8Graphics13FadeMainBlackEl
 	ldmfd sp!, {r4, pc}
 _02031270:
 	mov r0, r4
-	bl FUN_ov16_020f1528
+	bl _ZN8Graphics12FadeSubBlackEl
 	ldmfd sp!, {r4, pc}
 _0203127C:
 	ldr r0, _020312C8 ; 0x02099EF0
@@ -1588,28 +1588,28 @@ _0203127C:
 	bne _020312A4
 _02031298:
 	mov r0, r4
-	bl FUN_ov16_020f15dc
+	bl _ZN8Graphics16FadeScreensWhiteEl
 	ldmfd sp!, {r4, pc}
 _020312A4:
 	mov r0, r4
-	bl FUN_ov16_020f15b4
+	bl _ZN8Graphics13FadeMainWhiteEl
 	ldmfd sp!, {r4, pc}
 _020312B0:
 	mov r0, r4
-	bl FUN_ov16_020f15b4
+	bl _ZN8Graphics13FadeMainWhiteEl
 	ldmfd sp!, {r4, pc}
 _020312BC:
 	mov r0, r4
-	bl FUN_ov16_020f15c8
+	bl _ZN8Graphics12FadeSubWhiteEl
 	ldmfd sp!, {r4, pc}
-_020312C8: .word unk_02099EF0
+_020312C8: .word gUtilGame
 	arm_func_end FUN_020311b8
 
 	arm_func_start FUN_020312cc
 FUN_020312cc: ; 0x020312CC
-	ldr r12, _020312D4 ; =FUN_ov16_020f1670
+	ldr r12, _020312D4 ; =_ZN8Graphics17IsAnyScreenFadingEv
 	bx r12
-_020312D4: .word FUN_ov16_020f1670
+_020312D4: .word _ZN8Graphics17IsAnyScreenFadingEv
 	arm_func_end FUN_020312cc
 
 	arm_func_start FUN_020312d8
@@ -3574,7 +3574,7 @@ FUN_02032e30: ; 0x02032E30
 	str lr, [sp, #8]
 	add r2, r4, #0x54
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02032EB8:
 	ldr r3, _02032F2C ; =gAllocator
 	ldr r1, _02032F34 ; =0x0208FD4C
@@ -3588,7 +3588,7 @@ _02032EB8:
 	mov r12, #1
 	add r2, r4, #0x58
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02032EEC:
 	ldr r3, _02032F2C ; =gAllocator
 	ldr r1, _02032F38 ; =0x0208FD64
@@ -3603,7 +3603,7 @@ _02032EEC:
 	mov r12, #1
 	add r2, r4, #0x5c
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 _02032F2C: .word gAllocator
@@ -5430,7 +5430,7 @@ _02034938:
 	mov r1, r8
 	add r2, sp, #0x28
 	add r3, sp, #0x24
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	bne _020349E0
 _02034990:
@@ -5600,7 +5600,7 @@ _02034BB8:
 	bl FUN_0205998c
 	movs r1, r0
 	beq _02034BFC
-	ldr r2, _02034F40 ; =pLogic_PalSkinFaceFile
+	ldr r2, _02034F40 ; =gPalSkinFaceFile
 	ldrb r0, [r10, #0xcc]
 	ldr r1, [r1, #4]
 	ldr r2, [r2]
@@ -5743,7 +5743,7 @@ _02034DB4:
 	mov r1, r8
 	add r2, sp, #0x28
 	add r3, sp, #0x24
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	bne _02034E50
 _02034E00:
@@ -5840,7 +5840,7 @@ _02034F30: .word unk_0208FD98
 _02034F34: .word unk_0208FDA0
 _02034F38: .word unk_0208FDA8
 _02034F3C: .word unk_0208FDB0
-_02034F40: .word pLogic_PalSkinFaceFile
+_02034F40: .word gPalSkinFaceFile
 _02034F44: .word 0x00007FFF
 _02034F48: .word 0x0000318C
 _02034F4C: .word unk_0208FDB8
@@ -6316,7 +6316,7 @@ _02035590:
 	bl FUN_0205dec8
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_020355F0: .word unk_02099EF0
+_020355F0: .word gUtilGame
 _020355F4: .word g3DGameMap
 	arm_func_end FUN_0203551c
 
@@ -8294,7 +8294,7 @@ _020370F4:
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0203714C: .word g3DGameEffect
-_02037150: .word unk_02099EF0
+_02037150: .word gUtilGame
 	arm_func_end FUN_02037008
 
 	arm_func_start FUN_02037154
@@ -10599,7 +10599,7 @@ _02039094:
 	blt _02038FBC
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020390A0: .word g3DPlaneCtrl
-_020390A4: .word unk_02099EF0
+_020390A4: .word gUtilGame
 _020390A8: .word 0x66666667
 	arm_func_end FUN_02038f40
 
@@ -10639,7 +10639,7 @@ _02039104:
 	mov r0, r4
 	bl FUN_02038f40
 	ldmfd sp!, {r4, pc}
-_02039120: .word unk_02099EF0
+_02039120: .word gUtilGame
 	arm_func_end FUN_020390e8
 
 	arm_func_start FUN_02039124
@@ -11067,7 +11067,7 @@ _02039728:
 	str r1, [r0, #0x32c]
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02039744: .word unk_02099EF0
+_02039744: .word gUtilGame
 _02039748: .word g3DPlaneCtrl
 _0203974C: .word 0x66666667
 	arm_func_end FUN_02039598
@@ -11374,7 +11374,7 @@ _02039B58:
 _02039B60: .word 0x000003E7
 _02039B64: .word g3DPlaneCtrl
 _02039B68: .word 0x66666667
-_02039B6C: .word unk_02099EF0
+_02039B6C: .word gUtilGame
 	arm_func_end FUN_02039868
 
 	arm_func_start FUN_02039b70
@@ -11613,7 +11613,7 @@ _02039E8C:
 	add sp, sp, #0x94
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02039EF0: .word unk_0208C374
-_02039EF4: .word unk_02099EF0
+_02039EF4: .word gUtilGame
 _02039EF8: .word g3DPlaneCtrl
 _02039EFC: .word unk_0208FEA4
 _02039F00: .word unk_0209A200
@@ -11721,7 +11721,7 @@ _0203A040:
 	add r1, r1, #1
 	str r1, [r0, #0x364]
 	ldmfd sp!, {r4, pc}
-_0203A054: .word unk_02099EF0
+_0203A054: .word gUtilGame
 	arm_func_end FUN_02039fcc
 
 	arm_func_start FUN_0203a058
@@ -11999,7 +11999,7 @@ FUN_0203a300: ; 0x0203A300
 	bl FUN_ov16_02112b98
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
-_0203A460: .word unk_02099EF0
+_0203A460: .word gUtilGame
 _0203A464: .word gConfig
 _0203A468: .word unk_0208FEB4
 _0203A46C: .word unk_0208FECC
@@ -12050,7 +12050,7 @@ _0203A4F4:
 	mov r2, #0x18
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, pc}
-_0203A514: .word unk_02099EF0
+_0203A514: .word gUtilGame
 _0203A518: .word g3DPlaneCtrl
 	arm_func_end FUN_0203a47c
 
@@ -12106,7 +12106,7 @@ _0203A5A8:
 	strgt r1, [r0, #0x3b4]
 	strgt r1, [r0, #0x3a8]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0203A5DC: .word unk_02099EF0
+_0203A5DC: .word gUtilGame
 _0203A5E0: .word g3DPlaneCtrl
 	arm_func_end FUN_0203a51c
 
@@ -12399,7 +12399,7 @@ _0203A9F8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203AA2C: .word unk_0208C35C
 _0203AA30: .word gLogicThink
-_0203AA34: .word unk_02099EF0
+_0203AA34: .word gUtilGame
 _0203AA38: .word 0x51EB851F
 _0203AA3C: .word unk_020A0640
 _0203AA40: .word g3DPlaneCtrl
@@ -13372,7 +13372,7 @@ _0203B840:
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203B850: .word g3DFieldSprite
-_0203B854: .word unk_02099EF0
+_0203B854: .word gUtilGame
 _0203B858: .word unk_0209A2C0
 _0203B85C: .word g2DGChar
 _0203B860: .word 0x51EB851F
@@ -13486,7 +13486,7 @@ _0203B9EC: .word g3DFieldSprite
 _0203B9F0: .word g3DSpriteCtrl
 _0203B9F4: .word g3DPlaneCtrl
 _0203B9F8: .word g2DGChar
-_0203B9FC: .word unk_02099EF0
+_0203B9FC: .word gUtilGame
 _0203BA00: .word gLogicThink
 	arm_func_end FUN_0203b888
 
@@ -13619,7 +13619,7 @@ _0203BB94:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	bl FUN_ov1_020e3b14 ; may be ov15 ; ov1(Mica)
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203BBE4: .word unk_02099EF0
+_0203BBE4: .word gUtilGame
 _0203BBE8: .word gLogicThink
 _0203BBEC: .word g3DFieldSprite
 	arm_func_end FUN_0203ba04
@@ -13719,7 +13719,7 @@ _0203BD2C:
 	mov r0, #0x16
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203BD44: .word unk_02099EF0
+_0203BD44: .word gUtilGame
 	arm_func_end FUN_0203bbf0
 
 	arm_func_start FUN_0203bd48
@@ -13856,7 +13856,7 @@ _0203BF18:
 	mvn r0, #0
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203BF30: .word unk_02099EF0
+_0203BF30: .word gUtilGame
 	arm_func_end FUN_0203bdcc
 
 	arm_func_start FUN_0203bf34
@@ -14064,7 +14064,7 @@ _0203C1F0:
 	mov r0, r9
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203C224: .word unk_02099EF0
+_0203C224: .word gUtilGame
 _0203C228: .word 0xB60B60B7
 _0203C22C: .word g3DFieldSprite
 	arm_func_end FUN_0203bf6c
@@ -14189,7 +14189,7 @@ _0203C3D4:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0203C3EC: .word unk_0209A7FC
-_0203C3F0: .word unk_02099EF0
+_0203C3F0: .word gUtilGame
 _0203C3F4: .word 0x0000FFEF
 _0203C3F8: .word 0xB60B60B7
 	arm_func_end FUN_0203c230
@@ -14257,7 +14257,7 @@ _0203C4CC:
 	mov r0, r7
 	strb r1, [r2, #0x4c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203C4E0: .word unk_02099EF0
+_0203C4E0: .word gUtilGame
 	arm_func_end FUN_0203c3fc
 
 	arm_func_start FUN_0203c4e4
@@ -14325,7 +14325,7 @@ _0203C5B8:
 	mvn r0, #0
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203C5D0: .word unk_02099EF0
+_0203C5D0: .word gUtilGame
 	arm_func_end FUN_0203c4e4
 
 	arm_func_start FUN_0203c5d4
@@ -14390,7 +14390,7 @@ _0203C69C:
 _0203C6B0:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0203C6B8: .word unk_02099EF0
+_0203C6B8: .word gUtilGame
 _0203C6BC: .word unk_0209A2C0
 _0203C6C0: .word g3DFieldSprite
 	arm_func_end FUN_0203c5d4
@@ -14514,7 +14514,7 @@ _0203C854:
 	blt _0203C7B4
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203C868: .word unk_02099EF0
+_0203C868: .word gUtilGame
 	arm_func_end FUN_0203c75c
 
 	arm_func_start FUN_0203c86c
@@ -14649,7 +14649,7 @@ _0203CA24:
 	cmp r8, #0x16
 	blt _0203C9F4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0203CA34: .word unk_02099EF0
+_0203CA34: .word gUtilGame
 	arm_func_end FUN_0203c988
 
 	arm_func_start FUN_0203ca38
@@ -14673,7 +14673,7 @@ _0203CA68:
 	strb r1, [r2, #0x3c1]
 	strh r3, [r0, #0xcc]
 	bx lr
-_0203CA80: .word unk_02099EF0
+_0203CA80: .word gUtilGame
 	arm_func_end FUN_0203ca38
 
 	arm_func_start FUN_0203ca84
@@ -14835,7 +14835,7 @@ _0203CC60:
 	cmp r8, #0x16
 	blt _0203CC2C
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0203CC70: .word unk_02099EF0
+_0203CC70: .word gUtilGame
 	arm_func_end FUN_0203cba8
 
 	arm_func_start FUN_0203cc74
@@ -14896,7 +14896,7 @@ _0203CD2C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0203CD3C: .word 0xFFFFD8F0
 _0203CD40: .word 0x00002710
-_0203CD44: .word unk_02099EF0
+_0203CD44: .word gUtilGame
 	arm_func_end FUN_0203cc74
 
 	arm_func_start FUN_0203cd48
@@ -15035,7 +15035,7 @@ _0203CF1C:
 	mov r0, r1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0203CF24: .word unk_0209A7FC
-_0203CF28: .word unk_02099EF0
+_0203CF28: .word gUtilGame
 _0203CF2C: .word 0xB60B60B7
 _0203CF30: .word FX_SinCosTable_
 	arm_func_end FUN_0203cdc4
@@ -15077,7 +15077,7 @@ FUN_0203cf34: ; 0x0203CF34
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0203CFBC: .word unk_0209A7FC
-_0203CFC0: .word unk_02099EF0
+_0203CFC0: .word gUtilGame
 	arm_func_end FUN_0203cf34
 
 	arm_func_start FUN_0203cfc4
@@ -15131,7 +15131,7 @@ _0203D068:
 	cmp r4, #0x16
 	blt _0203D02C
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0203D078: .word unk_02099EF0
+_0203D078: .word gUtilGame
 	arm_func_end FUN_0203cfc4
 
 	arm_func_start FUN_0203d07c
@@ -15302,7 +15302,7 @@ _0203D2C8:
 	mov r0, r9
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203D2D0: .word 0xB60B60B7
-_0203D2D4: .word unk_02099EF0
+_0203D2D4: .word gUtilGame
 _0203D2D8: .word 0x0000F7FF
 	arm_func_end FUN_0203d100
 
@@ -15439,7 +15439,7 @@ _0203D494:
 _0203D4A8:
 	mov r0, r9
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203D4B0: .word unk_02099EF0
+_0203D4B0: .word gUtilGame
 _0203D4B4: .word 0x0000DFFF
 	arm_func_end FUN_0203d360
 
@@ -15618,7 +15618,7 @@ _0203D71C:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0203D728: .word unk_0209A7FC
-_0203D72C: .word unk_02099EF0
+_0203D72C: .word gUtilGame
 _0203D730: .word unk_0209A2C0
 	arm_func_end FUN_0203d4fc
 
@@ -15752,7 +15752,7 @@ _0203D8F4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0203D908: .word 0x00000FAE
 _0203D90C: .word 0x88888889
-_0203D910: .word unk_02099EF0
+_0203D910: .word gUtilGame
 	arm_func_end FUN_0203d734
 
 	arm_func_start FUN_0203d914
@@ -15908,7 +15908,7 @@ _0203DAF8:
 	str r11, [r0, #0xad8]
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0203DB2C: .word unk_02099EF0
+_0203DB2C: .word gUtilGame
 _0203DB30: .word 0x0000BFFF
 	arm_func_end FUN_0203d998
 
@@ -15970,7 +15970,7 @@ _0203DBEC:
 	cmp r5, #0x16
 	blt _0203DBBC
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0203DBFC: .word unk_02099EF0
+_0203DBFC: .word gUtilGame
 	arm_func_end FUN_0203db34
 
 	arm_func_start FUN_0203dc00
@@ -16097,7 +16097,7 @@ _0203DC9C:
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0203DDC0: .word unk_020A0640
-_0203DDC4: .word unk_02099EF0
+_0203DDC4: .word gUtilGame
 _0203DDC8: .word unk_0209A200
 _0203DDCC: .word g3DPlaneCtrl
 _0203DDD0: .word unk_0208FF04
@@ -16222,7 +16222,7 @@ _0203DF2C:
 	ldmfd sp!, {r4, pc}
 _0203DF68: .word g3DPlaneCtrl
 _0203DF6C: .word unk_020A0640
-_0203DF70: .word unk_02099EF0
+_0203DF70: .word gUtilGame
 _0203DF74: .word gAudioPlayer
 _0203DF78: .word 0x0000407D
 _0203DF7C: .word 0x0000407C
@@ -19393,7 +19393,7 @@ _020408BC:
 	blt _0204086C
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020408D0: .word unk_02099EF0
+_020408D0: .word gUtilGame
 _020408D4: .word gLogicThink
 	arm_func_end FUN_02040840
 

@@ -1,7 +1,7 @@
 .public MI_CpuFill8
-.public FUN_ov16_020f3054
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_02058e30
 .public g3DPlaneCtrl
 .public FUN_ov16_02112724
@@ -12,8 +12,8 @@
 .public FUN_ov16_021128c4
 .public FUN_020591e8
 .public FUN_02058ee0
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e6fc
@@ -45,7 +45,7 @@
 .public FUN_0206cc00
 .public FUN_02074a2c
 .public FUN_0206cbf8
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 .public FUN_0204a2c4
 .public FUN_ov16_020edec4
 .public FUN_0204b0c4
@@ -79,7 +79,7 @@
 .public FUN_ov16_020f5868
 .public FUN_ov16_0210f468
 .public FUN_ov16_0210e15c
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210e980
@@ -88,11 +88,11 @@
 .public FUN_ov16_0210e10c
 .public FUN_02059004
 .public FUN_ov16_0210eb78
-.public FUN_ov16_020f1660
+.public _ZN8Graphics11IsSubFadingEv
 .public _ZN14CScreenManager14getCurSceneSubEv
-.public FUN_ov16_020f1800
+.public _ZN8Graphics19IsSubBrightAdjustedEv
 .public _ZN14CScreenManager15getNextSceneSubEv
-.public FUN_ov16_020f1560
+.public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 .public gDeltaTime
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
@@ -101,7 +101,7 @@
 .public FUN_0205a5f4
 .public FUN_ov16_020efa04
 .public g3DGameChar
-.public unk_0209A0AC
+.public gUnitMan
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

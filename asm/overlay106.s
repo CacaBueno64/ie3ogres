@@ -260,7 +260,7 @@ _02125030:
 	add r1, r2, r1, lsr #29
 	mov r1, r1, asr #3
 	sub r1, r1, #0x10
-	bl FUN_ov16_020f1214
+	bl _ZN8Graphics19SetScreenBrightnessEti
 	ldr r0, _021250C8 ; =0x02125420
 	ldr r0, [r0, #4]
 	cmp r0, #0
@@ -286,7 +286,7 @@ _02125094:
 	add r1, r2, r1, lsr #29
 	mov r1, r1, asr #3
 	sub r1, r1, #0x10
-	bl FUN_ov16_020f1214
+	bl _ZN8Graphics19SetScreenBrightnessEti
 	ldmfd sp!, {r3, r4, r5, pc}
 _021250B8:
 	ldr r0, _021250C8 ; =0x02125420

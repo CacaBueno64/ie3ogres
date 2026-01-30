@@ -28,10 +28,10 @@ void CScreenManager::clear(void)
 BOOL CScreenManager::updateKeys(u16 pressed, u16 held)
 {
     if (this->nextMainDisplay != 0) {
-        if ((this->subScreen != NULL) && (!FUN_ov16_020f1660())) {
+        if ((this->subScreen != NULL) && (!Graphics::IsSubFading())) {
             this->subScreen->updateKeys(pressed, held);
         }
-    } else if ((this->mainScreen != NULL) && (!FUN_ov16_020f1650())) {
+    } else if ((this->mainScreen != NULL) && (!Graphics::IsMainFading())) {
         this->mainScreen->updateKeys(pressed, held);
     }
 
@@ -43,38 +43,38 @@ BOOL CScreenManager::updateKeys(u16 pressed, u16 held)
 BOOL CScreenManager::updateTP(TPData *tp)
 {
     if (this->nextMainDisplay != 0) {
-        if ((this->subScreen != NULL) && (!FUN_ov16_020f1660())) {
+        if ((this->subScreen != NULL) && (!Graphics::IsSubFading())) {
             this->subScreen->updateTP(tp);
         }
-    } else if ((this->mainScreen != NULL) && (!FUN_ov16_020f1650())) {
+    } else if ((this->mainScreen != NULL) && (!Graphics::IsMainFading())) {
         this->mainScreen->updateTP(tp);
     }
 
     return FALSE;
 }
 
-BOOL CScreenManager::update(int param1)
+BOOL CScreenManager::update(EngineSelect engine)
 {
-    if (param1 == 0) {
+    if (engine == ENGINE_MAIN) {
         if (this->mainScreen != NULL) {
-            int r1 = this->mainScreen->vFUN_14();
+            BOOL r1 = this->mainScreen->vFUN_14();
             this->mainScreen->update(r1);
         }
     } else if (this->subScreen != NULL) {
-        int r1 = this->subScreen->vFUN_14();
+        BOOL r1 = this->subScreen->vFUN_14();
         this->subScreen->update(r1);
     }
 
-    FUN_ov16_020f16c8(param1);
+    Graphics::UpdateScreenFade(engine);
 
     return FALSE;
 }
 
-BOOL CScreenManager::updateLate(int param1)
+BOOL CScreenManager::updateLate(EngineSelect engine)
 {
-    FUN_ov16_020f16c8(param1);
+    Graphics::UpdateScreenFade(engine);
     
-    if (param1 == 0) {
+    if (engine == ENGINE_MAIN) {
         if (this->mainScreen != NULL) {
             this->mainScreen->updateLate();
         }
@@ -105,7 +105,7 @@ void CScreenManager::fadeInMain(void)
     if (this->mainScreen == NULL) {
         return;
     }
-    FUN_ov16_020f1468(6);
+    Graphics::FadeInMain(6);
 }
 
 void CScreenManager::fadeMainBlack(void)
@@ -113,7 +113,7 @@ void CScreenManager::fadeMainBlack(void)
     if (this->mainScreen == NULL) {
         return;
     }
-    FUN_ov16_020f1514(6);
+    Graphics::FadeMainBlack(6);
 }
 
 void CScreenManager::fadeSubBlack(void)
@@ -121,7 +121,7 @@ void CScreenManager::fadeSubBlack(void)
     if (this->subScreen == NULL) {
         return;
     }
-    FUN_ov16_020f1528(6);
+    Graphics::FadeSubBlack(6);
 }
 
 int CScreenManager::transferMain(void *arg)

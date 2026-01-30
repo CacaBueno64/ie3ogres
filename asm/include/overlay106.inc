@@ -17,7 +17,7 @@
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public FUN_ov16_021123b4
 .public FUN_ov16_02112724
-.public FUN_ov16_020f1214
+.public _ZN8Graphics19SetScreenBrightnessEti
 .public FUN_ov16_021123c4
 .public _ZdaPv
 .public _ZdlPv

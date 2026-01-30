@@ -44,6 +44,7 @@ Static main
 	Object asm/arm9_02028fa0.o
 	Object asm/arm9_data_0208f680.o
 	Object asm/arm9_bss_02099e8c.o
+	Object asm/arm9_bss_020b5ae0.o
 	Object src/init.o
 	Object asm/arm9_02029740.o
 	Object asm/arm9_data_0208f800.o
@@ -56,14 +57,12 @@ Static main
 	Object asm/arm9_0202fd38.o
 	Object asm/arm9_rodata_0208c35c.o
 	Object asm/arm9_data_0208fc08.o
-	Object asm/arm9_bss_02099eb0.o
 	Object src/config.o
 	Object asm/arm9_data_0208ff14.o
 	Object src/screenmanager.o
 	Object asm/arm9_0204212c.o
 	Object asm/arm9_rodata_0208c384.o
 	Object asm/arm9_data_0208ffec.o
-	Object asm/arm9_bss_02099f90.o
 	Object src/cardcontroller.o
 
 	# TwlSystem G3d
@@ -136,7 +135,9 @@ Overlay overlay5
 Overlay overlay6
 {
 	After main
-	Object asm/overlay6.o
+	Object src/endrollscreen/endrollscreenmanager.o
+	Object src/endrollscreen/mainendrollscreeninit.o
+	Object src/endrollscreen/subendrollscreeninit.o
 }
 Overlay overlay7
 {

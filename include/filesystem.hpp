@@ -14,24 +14,15 @@ typedef signed char filekey_t;
 
 #define FILE_SYSTEM_STACK_SIZE 2048
 
-typedef struct {
-    void *data;
-    size_t size;
-    u8 available;
-    u8 unk_9;
-    u8 unk_a;
-    u8 pad_b;
-} SFileData;
-
 namespace FileSystem {
 
 typedef struct {
-    void *files; // interpret as Archive_PKH *
+    void *files; // interpret as Archive::PackEntry_HOSC *
     BOOL inUse;
     FSFileID binFileID; // pkb
-    filekey_t arcFileKey;
+    filekey_t key;
     u16 nFiles;
-} Archive;
+} ArchiveHandle;
 
 typedef struct {
     void *uncompressed;
@@ -46,16 +37,16 @@ typedef struct {
 u32 CalcCRC32(const void *data, u32 dataLength);
 
 s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len);
-s32 ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size);
+s32 ReadFileDeferred(void **dataOut, const char *path, filekey_t *keyOut, s32 offset, s32 size);
 
 arckey_t OpenArchiveDirect(void *data, const char *path);
 arckey_t OpenArchiveDeferred(void *data, const char *path);
 void CloseArchive(arckey_t key);
 BOOL IsArchiveReady(arckey_t key);
 void WaitArchiveReady(arckey_t key);
-Archive_PKH *GetFile(arckey_t arcKey, s32 fileIdx);
+Archive::PackEntry_HOSC *GetFile(arckey_t arcKey, s32 fileIdx);
 
-s32 ReadFileByID(void **dst, Archive_PKH *pkh_file, FSFileID arc, const char *filename);
+s32 ReadFileByID(void **dst, Archive::PackEntry_HOSC *pkh_file, FSFileID arc, const char *filename);
 s32 ReadFileByName(void **dst, arckey_t arcKey, const char *filename);
 s32 ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx);
 
@@ -67,7 +58,7 @@ void Panic(void);
 void Init(void);
 
 s32 FindFileIdx(arckey_t arcKey, const char *name);
-Archive_PKH *FindFile(arckey_t arcKey, const char *name);
+Archive::PackEntry_HOSC *FindFile(arckey_t arcKey, const char *name);
 
 void *Allocate(int size, int nextArena);
 void *AllocateClear(int size, int nextArena);

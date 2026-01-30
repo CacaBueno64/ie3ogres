@@ -13,7 +13,7 @@
 .public FUN_ov132_02144780
 .public FUN_0206d620
 .public FUN_02040644
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_ov16_020efb44
 .public FUN_020404cc
 .public FUN_0206d688

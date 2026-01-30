@@ -3048,7 +3048,7 @@ _01FFB090:
 	mov r0, r8
 	bl FUN_0206cbf8
 	mov r1, r0
-	ldr r0, _01FFB114 ; =0x0209A0AC
+	ldr r0, _01FFB114 ; =gUnitMan
 	bl FUN_0206c718
 	movs r10, r0
 	beq _01FFB0F4
@@ -3076,7 +3076,7 @@ _01FFB104: .word unk_020A0640
 _01FFB108: .word gLogicThink
 _01FFB10C: .word unk_0209A11C
 _01FFB110: .word unk_020A108A
-_01FFB114: .word unk_0209A0AC
+_01FFB114: .word gUnitMan
 	arm_func_end FUN_01ffae20
 
 	arm_func_start FUN_01ffb118

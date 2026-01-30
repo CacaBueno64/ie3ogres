@@ -26,7 +26,7 @@
 .public FUN_0207217c
 .public FUN_0204b1dc
 .public FUN_ov132_021434f8
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_020721bc
 .public FUN_02046744
 .public FUN_ov16_020f085c

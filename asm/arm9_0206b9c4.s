@@ -2011,7 +2011,7 @@ _0206D300:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0206D308: .word unk_020A0640
-_0206D30C: .word unk_02099EF0
+_0206D30C: .word gUtilGame
 _0206D310: .word gLogicThink
 	arm_func_end FUN_0206d1e4
 

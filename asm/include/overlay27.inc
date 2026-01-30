@@ -15,10 +15,10 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public MI_CpuFill8
-.public FUN_ov16_020f3054
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
 .public gSprButtonCtrl
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210fc74
@@ -32,8 +32,8 @@
 .public gDeltaTime
 .public unk_020A0640
 .public unk_0209A454
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
@@ -42,7 +42,7 @@
 .public FUN_ov16_0210efac
 .public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public gAudioPlayer
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_02058e30
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

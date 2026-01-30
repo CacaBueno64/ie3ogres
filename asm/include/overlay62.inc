@@ -1,16 +1,16 @@
-.public FUN_ov16_020f3054
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public sprintf
 .public FUN_ov16_020f5450
 .public unk_020A1640
 .public FUN_02059004
 .public FUN_02059038
 .public g3DPlaneCtrl
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_020f57b0
 .public FUN_02058ee0
 .public FUN_ov16_021128c4
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_02058e30
 .public FUN_ov16_020f55b4
 .public FUN_ov16_021137dc
@@ -66,7 +66,7 @@
 .public FUN_ov16_0210ebd4
 .public FUN_ov16_0210ee80
 .public FUN_ov16_0210e29c
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210fd0c
 .public unk_0209A454
 .public FUN_ov16_021109a0
@@ -130,7 +130,7 @@
 .public unk_020A9C40
 .public FUN_ov16_0210e10c
 .public FUN_ov16_020f5868
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public gDeltaTime
@@ -157,7 +157,7 @@
 .public FUN_ov16_020ee278
 .public FUN_ov16_020eebb0
 .public FUN_ov16_020eeb24
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 .public unk_020A1612
 .public _ZdlPv
 .public _ZNSs7replaceEmmRKSsmm

@@ -21,7 +21,7 @@ class CMainLogoScreenDCBmp : public CommonMainScreen {
         /* ov5 0x020bceac */ virtual void updateKeys(u16 pressed, u16 held);
         /* ov5 0x020bcedc */ virtual void updateTP(TPData *tp);
         /* ov5 0x020bcf34 */ virtual void init(void);
-        /* ov5 0x020bcfac */ virtual void update(int arg);
+        /* ov5 0x020bcfac */ virtual void update(BOOL param1);
         /* ov5 0x020bcffc */ virtual void updateLate(void);
         /* ov5 0x020bd008 */ virtual void close(void);
     private:
@@ -40,7 +40,7 @@ class CMainLogoScreenInit : public CommonMainScreen {
         /* ov5 0x020bd040 */ virtual void updateKeys(u16 pressed, u16 held);
         /* ov5 0x020bd04c */ virtual void updateTP(TPData *tp);
         /* ov5 0x020bd1d8 */ virtual void init(void);
-        /* ov5 0x020bd1fc */ virtual void update(int arg);
+        /* ov5 0x020bd1fc */ virtual void update(BOOL param1);
         /* ov5 0x020bd404 */ virtual void updateLate(void);
         /* ov5 0x020bd45c */ virtual void close(void);
         /* ov5 0x020bd448 */ virtual int signal(int signal);
@@ -86,7 +86,7 @@ class CSubLogoScreenInit : public CommonSubScreen {
         /* ov5 0x020bd5e4 */ virtual void updateKeys(u16 pressed, u16 held);
         /* ov5 0x020bd63c */ virtual void updateTP(TPData *tp);
         /* ov5 0x020bd6dc */ virtual void init(void);
-        /* ov5 0x020bd6fc */ virtual void update(int arg);
+        /* ov5 0x020bd6fc */ virtual void update(BOOL param1);
         /* ov5 0x020bd720 */ virtual void updateLate(void);
         /* ov5 0x020bd724 */ virtual void close(void);
         /* ov5 0x020bd494 */ virtual int signal(int signal);
@@ -126,20 +126,10 @@ class CLogoScreenManager : public CScreenManager {
 extern "C" {
     extern int gDeltaTime;
     extern void *gBgMenuManager;
-    extern void FUN_ov16_020f10c8(void);
-    extern void FUN_ov16_020f13d4(void);
-    extern void FUN_ov16_020f1490(int);
-    extern void FUN_ov16_020f14b4(int, int);
-    extern void FUN_ov16_020f153c(int);
-    extern void FUN_ov16_020f1560(int, int);
-    extern void FUN_ov16_020f15dc(int);
-    extern BOOL FUN_ov16_020f1660(void);
-    extern BOOL FUN_ov16_020f1670(void);
     extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
     extern void FUN_ov16_020f2a74(SMovieInfo *);
     extern BOOL FUN_ov16_020f2aa4(void);
     extern void FUN_ov16_020f2ab4(void);
-    extern void FUN_ov16_020f3054(const char *, SFileData *);
     extern void FUN_ov16_020f3f60(int);
     extern void FUN_ov16_020f47fc(void);
     extern void FUN_ov16_020f4894(int);

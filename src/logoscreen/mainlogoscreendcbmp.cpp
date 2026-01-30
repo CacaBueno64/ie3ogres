@@ -49,7 +49,7 @@ void CMainLogoScreenDCBmp::init(void)
     }
 }
 
-void CMainLogoScreenDCBmp::update(int arg)
+void CMainLogoScreenDCBmp::update(BOOL param1)
 {
     this->unk_10++;
     if ((this->unk_8 != 1) && (this->unk_8 != 2)) {

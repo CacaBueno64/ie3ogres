@@ -515,7 +515,7 @@ _ZN11CLogicThink12initLiveTalkEv: ; 0x0206F77C
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0206F7F0:
 	cmp r0, #0x280
 	addne sp, sp, #0x14
@@ -567,7 +567,7 @@ FUN_0206f834: ; 0x0206F834
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0206F8A8:
 	cmp r0, #0
 	moveq r0, #0
@@ -605,7 +605,7 @@ FUN_0206f8d0: ; 0x0206F8D0
 	mov r4, #0
 	ldr r0, _0206F94C ; =0x02091388
 	str r4, [sp]
-	bl FUN_ov16_020f3234
+	bl _ZN7Archive13RequestReadExEPKcP9SFileDatalmi
 	cmp r0, #0
 	moveq r0, r4
 	addne r0, r6, #0x800
@@ -645,7 +645,7 @@ FUN_0206f950: ; 0x0206F950
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0206F9BC:
 	cmp r0, #0
 	moveq r0, #0
@@ -682,7 +682,7 @@ FUN_0206f9ec: ; 0x0206F9EC
 	mov r4, #0
 	ldr r0, _0206FA40 ; =0x020913C0
 	str r4, [sp]
-	bl FUN_ov16_020f3234
+	bl _ZN7Archive13RequestReadExEPKcP9SFileDatalmi
 	cmp r0, #0
 	movne r4, #1
 	mov r0, r4
@@ -715,7 +715,7 @@ FUN_0206fa44: ; 0x0206FA44
 	add r2, sp, #0x10
 	mov r0, lr
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0206FAA0:
 	str r0, [sp, #0x1c]
 	cmp r0, #0
@@ -726,7 +726,7 @@ _0206FAA0:
 	add r2, sp, #0x18
 	add r3, sp, #0x1c
 	mov r1, r5
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	bne _0206FAE8
 	ldr r1, [sp, #0x10]
@@ -750,7 +750,7 @@ _0206FAE8:
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0206FB24:
 	ldr r1, _0206FB70 ; =0x00000618
 	str r0, [sp, #0x1c]
@@ -1267,7 +1267,7 @@ _02070214:
 	bne _02070260
 	mov r0, r9, lsl #3
 	ldrh r1, [r8, r0]
-	ldr r0, _02070394 ; =0x0209A0AC
+	ldr r0, _02070394 ; =gUnitMan
 	mov r2, #0
 	bl FUN_0206c7dc
 	cmp r0, #0
@@ -1357,7 +1357,7 @@ _02070374:
 	bl FUN_02072020
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02070394: .word unk_0209A0AC
+_02070394: .word gUnitMan
 _02070398: .word unk_020A0640
 	arm_func_end FUN_020701c8
 
@@ -1394,7 +1394,7 @@ FUN_0207039c: ; 0x0207039C
 	str r6, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	mov r6, r0
 _02070420:
 	cmp r6, #0
@@ -1406,7 +1406,7 @@ _02070420:
 	add r2, sp, #0x18
 	add r3, sp, #0x1c
 	mov r1, r7
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	bne _02070468
 	ldr r1, [sp, #0x10]
@@ -1432,7 +1432,7 @@ _02070468:
 	str r5, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020704AC:
 	str r0, [sp, #0x1c]
 	cmp r0, #0
@@ -1794,7 +1794,7 @@ _0207093C:
 	add r2, sp, #0x58
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020709BC:
 	add r8, sp, #0x204
 	mov r0, r8
@@ -1818,7 +1818,7 @@ _020709BC:
 	ldr r1, [sp, #0x14]
 	add r2, sp, #0x54
 	add r3, sp, #0x50
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _02070AE0
 	ldr r1, [sp, #0x54]
@@ -1853,7 +1853,7 @@ _02070A78:
 	ldr r0, [sp, #0x58]
 	add r2, sp, #0x54
 	add r3, sp, #0x50
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _02070AD4
 	ldr r1, [sp, #0x54]
@@ -1919,7 +1919,7 @@ _02070B58:
 	strh r10, [r6, r0]
 	ldrb r1, [r1, #0x42]
 	add r2, r6, r0
-	ldr r0, _020713BC ; =0x0209A0AC
+	ldr r0, _020713BC ; =gUnitMan
 	strh r1, [r2, #4]
 	mov r1, #0
 	strh r1, [r2, #2]
@@ -2500,7 +2500,7 @@ _020713AC: .word gAllocator
 _020713B0: .word unk_02091458
 _020713B4: .word unk_02091470
 _020713B8: .word 0x0000EFFF
-_020713BC: .word unk_0209A0AC
+_020713BC: .word gUnitMan
 _020713C0: .word 0x00007FFF
 _020713C4: .word unk_020A06D2
 _020713C8: .word unk_02091488
@@ -2533,7 +2533,7 @@ FUN_020713e4: ; 0x020713E4
 	mov r12, #1
 	add r2, lr, #0x7d0
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071434:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2667,7 +2667,7 @@ _ZN11CLogicThink10readUnitNoEv: ; 0x020715B4
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071608:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2693,7 +2693,7 @@ _02071624:
 	mov r4, #1
 	add r2, r2, #0x800
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071668:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2735,7 +2735,7 @@ FUN_020716a4: ; 0x020716A4
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020716F8:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2771,7 +2771,7 @@ FUN_0207171c: ; 0x0207171C
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071770:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2811,7 +2811,7 @@ FUN_020717a8: ; 0x020717A8
 	mov r12, #1
 	add r2, lr, #0x840
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020717F8:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2847,7 +2847,7 @@ FUN_0207181c: ; 0x0207181C
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071870:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2889,7 +2889,7 @@ FUN_02071894: ; 0x02071894
 	mov r2, r4
 	mov r3, r5
 	str r4, [sp]
-	bl FUN_ov16_020f3234
+	bl _ZN7Archive13RequestReadExEPKcP9SFileDatalmi
 	cmp r0, #0
 	addne sp, sp, #4
 	movne r0, #1
@@ -2944,7 +2944,7 @@ FUN_02071968: ; 0x02071968
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020719BC:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -2979,7 +2979,7 @@ FUN_020719e0: ; 0x020719E0
 	mov r12, #1
 	add r2, r5, #0x7e0
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071A30:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -3002,7 +3002,7 @@ _02071A40:
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071A84:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -3039,7 +3039,7 @@ FUN_02071aac: ; 0x02071AAC
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071B00:
 	cmp r0, #0
 	addeq sp, sp, #0x10
@@ -3085,7 +3085,7 @@ _02071B3C:
 	add r1, sp, #0x10
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02071B9C:
 	cmp r0, #0
 	ldrne r1, _02071BD4 ; =0xAAAAAAAB
@@ -3429,7 +3429,7 @@ FUN_02071fac: ; 0x02071FAC
 	mov r12, #1
 	add r2, lr, #0x7f0
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02072004:
 	cmp r0, #0x1880
 	movne r0, #0
@@ -3499,7 +3499,7 @@ _02072080:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020720F0:
 	cmp r0, #0
 	moveq r0, #0
@@ -3872,7 +3872,7 @@ FUN_020724f4: ; 0x020724F4
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, pc}
 _02072558: .word gAllocator
@@ -3916,7 +3916,7 @@ FUN_020725ac: ; 0x020725AC
 	mov r8, #0
 	bl FUN_0205107c
 	ldr r5, _020726C0 ; =gLogicThink
-	ldr r4, _020726C4 ; =0x0209A0AC
+	ldr r4, _020726C4 ; =gUnitMan
 	mov r9, r0
 	mov r7, r8
 	mov r6, r8
@@ -3980,7 +3980,7 @@ _02072680:
 	strhib r2, [r0, #0x43]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020726C0: .word gLogicThink
-_020726C4: .word unk_0209A0AC
+_020726C4: .word gUnitMan
 	arm_func_end FUN_020725ac
 
 	arm_func_start FUN_020726c8
@@ -4050,7 +4050,7 @@ FUN_0207273c: ; 0x0207273C
 	add r2, sp, #0x10
 	mov r1, lr
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0207278C:
 	cmp r0, #0
 	moveq r0, #0
@@ -4444,7 +4444,7 @@ FUN_02072b54: ; 0x02072B54
 	mov r1, r8
 	bl MI_CpuFill8
 	ldr r1, _02072D1C ; =0x0209A11C
-	ldr r0, _02072D20 ; =0x0209A0AC
+	ldr r0, _02072D20 ; =gUnitMan
 	ldr r11, [r1]
 	bl FUN_ov16_020efa04
 	mov r0, r10
@@ -4507,7 +4507,7 @@ _02072CC4:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02072D1C: .word unk_0209A11C
-_02072D20: .word unk_0209A0AC
+_02072D20: .word gUnitMan
 _02072D24: .word unk_020A1640
 	arm_func_end FUN_02072b54
 
@@ -4975,7 +4975,7 @@ FUN_020732e0: ; 0x020732E0
 	mov r12, #1
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0207333C:
 	cmp r0, #0x600
 	movne r0, #0
@@ -5147,7 +5147,7 @@ _0207353C:
 	add r2, sp, #0x20
 	mov r1, lr
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0207357C:
 	cmp r0, #0
 	moveq r0, #0
@@ -5206,7 +5206,7 @@ _020735D8:
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	mov r4, r0
 _02073650:
 	mov r0, #0
@@ -5243,7 +5243,7 @@ FUN_02073674: ; 0x02073674
 	mov r12, #1
 	add r2, lr, #0x830
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _020736CC:
 	cmp r0, #0
 	moveq r0, #0

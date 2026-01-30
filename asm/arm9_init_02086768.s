@@ -62,7 +62,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A20 ; =_ZN7CFileIOD1Ev
 	ldr r2, _02086A24 ; =0x02099FB4
 	bl __register_global_object
-	ldr r4, _02086A28 ; =0x0209A5D0
+	ldr r4, _02086A28 ; =gRecordManager
 	mov r0, r4
 	bl FUN_0205ff80
 	mov r0, r4
@@ -78,9 +78,9 @@ FUN_02086768: ; 0x02086768
 	bl __register_global_object
 	ldr r4, _02086A40 ; =gAllocator
 	mov r0, r4
-	bl FUN_0202dbf8
+	bl _ZN9AllocatorC1Ev
 	mov r0, r4
-	ldr r1, _02086A44 ; =FUN_0202dc1c
+	ldr r1, _02086A44 ; =_ZN9AllocatorD1Ev
 	ldr r2, _02086A48 ; =0x02099FD8
 	bl __register_global_object
 	ldr r4, _02086A4C ; =gAudioPlayer
@@ -151,7 +151,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086ABC ; =FUN_0204949c
 	ldr r2, _02086AC0 ; =0x0209A038
 	bl __register_global_object
-	ldr r4, _02086AC4 ; =0x0209A0AC
+	ldr r4, _02086AC4 ; =gUnitMan
 	mov r0, r4
 	bl FUN_0206c0d8
 	mov r0, r4
@@ -181,14 +181,14 @@ _02086A18: .word unk_02099FA8
 _02086A1C: .word gFileIO
 _02086A20: .word _ZN7CFileIOD1Ev
 _02086A24: .word unk_02099FB4
-_02086A28: .word unk_0209A5D0
+_02086A28: .word gRecordManager
 _02086A2C: .word FUN_0205ff98
 _02086A30: .word unk_02099FC0
 _02086A34: .word gCardController
 _02086A38: .word _ZN14CardControllerD1Ev
 _02086A3C: .word unk_02099FCC
 _02086A40: .word gAllocator
-_02086A44: .word FUN_0202dc1c
+_02086A44: .word _ZN9AllocatorD1Ev
 _02086A48: .word unk_02099FD8
 _02086A4C: .word gAudioPlayer
 _02086A50: .word FUN_0202b3e0
@@ -220,7 +220,7 @@ _02086AB4: .word unk_0209A02C
 _02086AB8: .word unk_0209A380
 _02086ABC: .word FUN_0204949c
 _02086AC0: .word unk_0209A038
-_02086AC4: .word unk_0209A0AC
+_02086AC4: .word gUnitMan
 _02086AC8: .word FUN_0206c110
 _02086ACC: .word unk_0209A044
 _02086AD0: .word unk_020A18A0

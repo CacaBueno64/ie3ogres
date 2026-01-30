@@ -165,7 +165,7 @@ FUN_ov131_0213ae70: ; 0x0213AE70
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x10
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0213AED8:
 	cmp r0, #0
 	bne _0213AEF8
@@ -1356,7 +1356,7 @@ FUN_ov131_0213bef0: ; 0x0213BEF0
 	add r1, sp, #0
 	mov r7, r2
 	mov r4, #0
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r5, [sp]
 	ldrh r1, [r5]
 	cmp r1, #0
@@ -1378,7 +1378,7 @@ _0213BF48:
 	bne _0213BF28
 _0213BF54:
 	add r0, sp, #0
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, r4
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
@@ -12754,7 +12754,7 @@ FUN_ov131_02145d18: ; 0x02145D18
 	mov r0, r0, lsl #0x18
 	movs r0, r0, asr #0x18
 	beq _02145DB0
-	bl FUN_ov16_020f17f0
+	bl _ZN8Graphics20IsMainBrightAdjustedEv
 	cmp r0, #0
 	ldrne r0, _02145E48 ; =0x020A0640
 	strneb r4, [r6]
@@ -14609,7 +14609,7 @@ _02147764:
 	cmp r7, #0x64
 	blt _021476F0
 	ldr r0, _021478C0 ; =0x0209A11C
-	ldr r5, _021478C4 ; =0x0209A0AC
+	ldr r5, _021478C4 ; =gUnitMan
 	ldr r0, [r0]
 	cmp r5, r0
 	beq _0214781C
@@ -14698,7 +14698,7 @@ _021478A4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _021478BC: .word gLogicThink
 _021478C0: .word unk_0209A11C
-_021478C4: .word unk_0209A0AC
+_021478C4: .word gUnitMan
 	arm_func_end FUN_ov131_02147630
 
 	arm_func_start FUN_ov131_021478c8
@@ -15012,14 +15012,14 @@ FUN_ov131_02147cd8: ; 0x02147CD8
 	strb r1, [r6, #0xb]
 	strb r4, [r6, #0xa]
 	bl FUN_0206c270
-	ldr r0, _02147D30 ; =0x0209A0AC
+	ldr r0, _02147D30 ; =gUnitMan
 	bl FUN_ov16_020efa04
 	cmp r5, #0
 	strne r4, [r5]
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02147D30: .word unk_0209A0AC
+_02147D30: .word gUnitMan
 	arm_func_end FUN_ov131_02147cd8
 
 	arm_func_start FUN_ov131_02147d34
@@ -15882,7 +15882,7 @@ FUN_ov131_02148894: ; 0x02148894
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02148918: .word unk_02099EF0
+_02148918: .word gUtilGame
 	arm_func_end FUN_ov131_02148894
 
 	arm_func_start FUN_ov131_0214891c
@@ -16639,7 +16639,7 @@ FUN_ov131_02149308: ; 0x02149308
 	str r4, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
 _02149380: .word gAllocator
@@ -17395,7 +17395,7 @@ FUN_ov131_02149d78: ; 0x02149D78
 	mov r12, #1
 	add r2, sp, #0x20
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	b _02149E30
 _02149DF4:
 	ldr r0, _02149E4C ; =gDungeonManager
@@ -19929,13 +19929,13 @@ FUN_ov131_0214c1a8: ; 0x0214C1A8
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x1c
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0214C244:
 	ldr r1, [sp, #0x1c]
 	ldr r0, _0214C48C ; =0x0214CD58
 	add r2, sp, #0x18
 	add r3, sp, #0x14
-	bl FUN_ov16_020f3d08
+	bl _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 	ldr r4, _0214C47C ; =g3DPlaneCtrl
 	mov r9, #0
 	ldr r6, [sp, #0x14]

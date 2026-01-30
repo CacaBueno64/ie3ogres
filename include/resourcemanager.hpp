@@ -8,6 +8,7 @@
 class ResourceManager {
     public:
         /* 0x02051690 */ void init(u32 nns_tex_size, u32 nns_pltt_size, int vramEntryCount);
+        void FUN_02051c10(void);
     
     void *texWork;
     void *plttWork;

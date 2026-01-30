@@ -4,7 +4,7 @@
 .public _ZN7CFileIOC1Ev
 .public FUN_0205ff80
 .public _ZN14CardControllerC1Ev
-.public FUN_0202dbf8
+.public _ZN9AllocatorC1Ev
 .public FUN_0202b3dc
 .public _ZN5MovieC1Ev
 .public _ZN14CScreenManagerC2Ev
@@ -23,14 +23,14 @@
 .public gFileIO
 .public _ZN7CFileIOD1Ev
 .public unk_02099FB4
-.public unk_0209A5D0
+.public gRecordManager
 .public FUN_0205ff98
 .public unk_02099FC0
 .public gCardController
 .public _ZN14CardControllerD1Ev
 .public unk_02099FCC
 .public gAllocator
-.public FUN_0202dc1c
+.public _ZN9AllocatorD1Ev
 .public unk_02099FD8
 .public gAudioPlayer
 .public FUN_0202b3e0
@@ -62,7 +62,7 @@
 .public unk_0209A380
 .public FUN_0204949c
 .public unk_0209A038
-.public unk_0209A0AC
+.public gUnitMan
 .public FUN_0206c110
 .public unk_0209A044
 .public unk_020A18A0

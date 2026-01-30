@@ -16,7 +16,7 @@ class CMainCardScreenInit : public CommonMainScreen {
         /* ov3 0x020bd234 */ virtual void updateKeys(u16 pressed, u16 held) { }
         /* ov3 0x020bd230 */ virtual void updateTP(TPData *tp) { }
         /* ov3 0x020bd10c */ virtual void init(void);
-        /* ov3 0x020bd134 */ virtual void update(int param1);
+        /* ov3 0x020bd134 */ virtual void update(BOOL param1);
         /* ov3 0x020bd1a8 */ virtual void updateLate(void);
         /* ov3 0x020bd1ec */ virtual void close(void);
         
@@ -58,14 +58,9 @@ typedef struct {
 } UnkStruct_ov3_020bd084;
 
 extern "C" {
-    extern void FUN_ov16_020f10ac(void);
-    extern int FUN_ov16_020f1138(ImagePAC *, EngineSelect, int);
-    extern void FUN_ov16_020f13d4(void);
-    extern int FUN_ov16_020f1868(void *, u32, int, int);
-    extern void FUN_ov16_020f316c(const char *, void *);
-    extern BOOL FUN_ov16_020f330c(SFileData *, int);
-    extern void FUN_ov16_020f338c(SFileData *, int);
-    extern void FUN_ov16_020f33fc(SFileData *);
+    extern void _ZN8Graphics17LoadBGPaletteMainEv(void);
+    extern int _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti(Archive::ImagePAC *, EngineSelect, int);
+    extern int _ZN8Graphics20AdjustTilemapIndicesEPtmii(void *, u32, int, int);
     extern void FUN_ov16_020f3f60(int);
     extern void FUN_ov16_020f4894(int);
     extern void FUN_ov16_020f47fc(void);
@@ -75,10 +70,6 @@ extern "C" {
     extern void FUN_ov16_020f5c34(/* CBgMenuManager */ void *, int, int, int, int, UnkStruct_ov3_020bd084 *, int, int, int);
     extern void FUN_ov16_020f672c(/* CBgMenuManager */ void *, int);
     extern void FUN_ov16_020f6a9c(/* CBgMenuManager */ void *, int);
-    extern SFileData unk_0209A144;
-    extern u8 unk_020A6C40[0x800]; //bg screen (arm9 .bss)
-    extern u8 unk_020A7C40[0x800]; //bg screen (arm9 .bss)
-    extern u8 unk_020A7440[0x800]; //bg screen (arm9 .bss)
     extern void *gBgMenuManager;
 }
 

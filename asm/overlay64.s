@@ -11,7 +11,7 @@ FUN_ov64_02119f00: ; 0x02119F00
 	mov r4, r0
 	and r0, r1, #0x1f00
 	mov r1, r0, lsr #8
-	ldr r0, _02119FD0 ; =gSprAnimeCtrl
+	ldr r0, _02119FD0 ; =gSprAnimCtrl
 	str r1, [r4, #8]
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0a0
@@ -57,7 +57,7 @@ FUN_ov64_02119f00: ; 0x02119F00
 	str r6, [r4, #0xa0]
 	str r6, [r4, #0xc]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02119FD0: .word gSprAnimeCtrl
+_02119FD0: .word gSprAnimCtrl
 _02119FD4: .word gSprButtonCtrl
 _02119FD8: .word g3DPlaneCtrl
 	arm_func_end FUN_ov64_02119f00
@@ -71,7 +71,7 @@ FUN_ov64_02119fdc: ; 0x02119FDC
 	ldr r2, [r10, #8]
 	bic r0, r0, #0x1f00
 	orr r2, r0, r2, lsl #8
-	ldr r0, _0211A1A0 ; =gSprAnimeCtrl
+	ldr r0, _0211A1A0 ; =gSprAnimCtrl
 	str r2, [r1]
 	ldr r0, [r0]
 	ldr r4, _0211A1A4 ; =g3DPlaneCtrl
@@ -178,9 +178,9 @@ _0211A138:
 _0211A164:
 	mla r0, r9, r4, r7
 	mov r1, r11
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mla r0, r9, r5, r7
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mla r0, r9, r6, r10
 	str r8, [r0, #0x10]
 	str r8, [r0, #0x14]
@@ -192,7 +192,7 @@ _0211A194:
 	cmp r9, #1
 	blt _0211A164
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211A1A0: .word gSprAnimeCtrl
+_0211A1A0: .word gSprAnimCtrl
 _0211A1A4: .word g3DPlaneCtrl
 _0211A1A8: .word gSprButtonCtrl
 _0211A1AC: .word gAllocator
@@ -266,7 +266,7 @@ _0211A26C:
 _0211A274:
 	bl FUN_ov64_0211a88c
 _0211A278:
-	ldr r0, _0211A2D4 ; =gSprAnimeCtrl
+	ldr r0, _0211A2D4 ; =gSprAnimCtrl
 	ldr r4, _0211A2D8 ; =gDeltaTime
 	ldr r0, [r0]
 	ldr r1, [r4]
@@ -291,7 +291,7 @@ _0211A2BC:
 	ldr r0, [r2]
 	bl FUN_ov16_02116654
 	ldmfd sp!, {r4, pc}
-_0211A2D4: .word gSprAnimeCtrl
+_0211A2D4: .word gSprAnimCtrl
 _0211A2D8: .word gDeltaTime
 _0211A2DC: .word g3DSpriteCtrl
 	arm_func_end FUN_ov64_0211a218
@@ -319,7 +319,7 @@ FUN_ov64_0211a2e4: ; 0x0211A2E4
 	mov r6, #1
 	add r2, r4, #0x60
 	str r6, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A328:
 	mov r0, #0x64
 	mov r8, #2
@@ -549,7 +549,7 @@ FUN_ov64_0211a628: ; 0x0211A628
 	mov r4, r0
 	ldr r0, _0211A6EC ; =0x0211BA8C
 	add r1, r4, #0x10
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r3, _0211A6F0 ; =gAllocator
 	ldr r1, _0211A6F4 ; =0x0211BAB0
 	ldr r0, [r3]
@@ -562,7 +562,7 @@ FUN_ov64_0211a628: ; 0x0211A628
 	mov r12, #1
 	add r2, r4, #0x8c
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A674:
 	ldr r3, _0211A6F0 ; =gAllocator
 	ldr r1, _0211A6F8 ; =0x0211BAC8
@@ -576,7 +576,7 @@ _0211A674:
 	mov r12, #1
 	add r2, r4, #0x90
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A6A8:
 	ldr r3, _0211A6F0 ; =gAllocator
 	ldr r1, _0211A6FC ; =0x0211BAE0
@@ -590,7 +590,7 @@ _0211A6A8:
 	mov r12, #1
 	add r2, r4, #0x94
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A6DC:
 	mov r0, #1
 	str r0, [r4, #0xc]
@@ -610,7 +610,7 @@ FUN_ov64_0211a700: ; 0x0211A700
 	mov r5, r0
 	add r0, r5, #0x10
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	addeq sp, sp, #0x5c
 	ldmeqfd sp!, {r4, r5, pc}
@@ -710,7 +710,7 @@ FUN_ov64_0211a858: ; 0x0211A858
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r0, _0211A884 ; =0x020A9C40
 	ldr r1, _0211A888 ; =0x00000193
 	mov r2, #0
@@ -820,7 +820,7 @@ FUN_ov64_0211a93c: ; 0x0211A93C
 	mov r1, r4
 	mov r2, r7
 	mov r8, #0x30
-	bl FUN_ov16_020f366c
+	bl _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 	cmp r0, #0
 	beq _0211AA2C
 	ldr r12, [sp, #0x14]
@@ -844,7 +844,7 @@ _0211AA2C:
 	mov r0, r4
 	mov r2, r5
 	mov r1, r9
-	bl FUN_ov16_020f369c
+	bl _ZN7Archive11GetBodyCodeEP4Unitii
 	add r1, sp, #0x18
 	str r1, [sp]
 	add r0, sp, #0x14
@@ -854,7 +854,7 @@ _0211AA2C:
 	mov r1, r4
 	mov r2, r9
 	mov r3, r5
-	bl FUN_ov16_020f36f4
+	bl _ZN7Archive20GetBodyOffsetAndSizeEPvP4UnitiiPlPm
 	cmp r0, #0
 	beq _0211AAB4
 	ldr r0, _0211ACA0 ; =g3DPlaneCtrl
@@ -879,7 +879,7 @@ _0211AAB4:
 	add r3, sp, #0x18
 	mov r1, r9
 	mov r2, r5
-	bl FUN_ov16_020f3744
+	bl _ZN7Archive24GetBodyPlttOffsetAndSizeEPviiPlPm
 	cmp r0, #0
 	beq _0211AB14
 	ldr r0, _0211ACA0 ; =g3DPlaneCtrl
@@ -943,7 +943,7 @@ _0211AB14:
 	bl FUN_0205998c
 	movs r9, r0
 	beq _0211AC14
-	ldr r0, _0211ACB8 ; =pLogic_PalSkinFaceFile
+	ldr r0, _0211ACB8 ; =gPalSkinFaceFile
 	ldr r1, [r9, #4]
 	ldr r2, [r0]
 	mov r0, r4
@@ -1003,7 +1003,7 @@ _0211ACA8: .word ov64_0211BB1C
 _0211ACAC: .word ov64_0211BB34
 _0211ACB0: .word ov64_0211BB4C
 _0211ACB4: .word 0x000001C2
-_0211ACB8: .word pLogic_PalSkinFaceFile
+_0211ACB8: .word gPalSkinFaceFile
 _0211ACBC: .word 0x000001C3
 	arm_func_end FUN_ov64_0211a93c
 

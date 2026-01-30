@@ -120,7 +120,7 @@ _0211A054:
 	add r2, r5, #1
 	mov r3, #0
 	str r4, [r6, #0x34]
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldrh r1, [r6, #0x38]
 	ldrh r0, [r6, #0x3a]
 	ldr r2, [sp, #4]
@@ -128,7 +128,7 @@ _0211A054:
 	add r0, r2, r0, lsl #5
 	str r0, [sp, #4]
 _0211A0B4:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov79_02119f80
@@ -141,7 +141,7 @@ FUN_ov79_0211a0c0: ; 0x0211A0C0
 	mov r4, #0xc
 _0211A0D0:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #4
 	blt _0211A0D0
@@ -543,7 +543,7 @@ _0211A65C:
 _0211A660:
 	add r0, r4, #0x40
 	mov r1, #4
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r4
@@ -601,7 +601,7 @@ _0211A714:
 	cmp r0, #0
 	ldmgtfd sp!, {r3, r4, r5, pc}
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r4, [r4, #4]
 	mov r1, r5
 	mov r0, r4
@@ -733,7 +733,7 @@ FUN_ov79_0211a90c: ; 0x0211A90C
 	mov r4, r0
 	add r0, r4, #0x40
 	mov r1, #4
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov79_0211a0c0
 	mov r0, r4

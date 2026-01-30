@@ -20,7 +20,7 @@ class CSubTitleScreenWfDL : public CommonSubScreen {
         CSubTitleScreenWfDL(CScreenManager *manager) : manager(manager) { }
         virtual ~CSubTitleScreenWfDL() { }
         /* 0x020e3a10 */ virtual void init(void);
-        /* 0x020e3a9c */ virtual void update(int arg);
+        /* 0x020e3a9c */ virtual void update(BOOL param1);
         /* 0x020e3b14 */ virtual void updateLate(void);
         /* 0x020e3b6c */ virtual void close(void);
         /* 0x020e3210 */ virtual int vFUN_60(int arg);
@@ -36,7 +36,7 @@ class CMainTitleScreenGetInfo : public CommonMainScreen {
         /* 0x020e2df8 */ virtual void updateKeys(u16 pressed, u16 held);
         /* 0x020e2e40 */ virtual void updateTP(TPData *tp);
         /* 0x020e30d0 */ virtual void init(void);
-        /* 0x020e30f4 */ virtual void update(int arg);
+        /* 0x020e30f4 */ virtual void update(BOOL param1);
         /* 0x020e3198 */ virtual void updateLate(void);
         /* 0x020e31dc */ virtual void close(void);
         /* 0x020e0c84 */ virtual void vFUN_6c(void);
@@ -53,7 +53,7 @@ class CMainTitleScreenWfDL : public CommonMainScreen {
         /* 0x020e1510 */ virtual void updateKeys(u16 pressed, u16 held);
         /* 0x020e1988 */ virtual void updateTP(TPData *tp);
         /* 0x020e2574 */ virtual void init(void);
-        /* 0x020e262c */ virtual void update(int arg);
+        /* 0x020e262c */ virtual void update(BOOL param1);
         /* 0x020e2744 */ virtual void updateLate(void);
         /* 0x020e2774 */ virtual void close(void);
     private:

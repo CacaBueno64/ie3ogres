@@ -3,6 +3,8 @@
 
 #include <nitro.h>
 
+#include "archive.hpp"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

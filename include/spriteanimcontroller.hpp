@@ -13,6 +13,6 @@ class CSprAnimCtrl {
     u8 unk4[0x420];
 };
 
-extern CSprAnimCtrl *gSprAnimeCtrl;
+extern CSprAnimCtrl *gSprAnimCtrl;
 
 #endif //IE3OGRES_SPRITEANIMCONTROLLER_H

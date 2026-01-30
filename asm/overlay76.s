@@ -60,7 +60,7 @@ FUN_ov76_02119f00: ; 0x02119F00
 	bl FUN_ov126_021391b8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02119FD8: .word unk_020A0640
-_02119FDC: .word unk_02099EF0
+_02119FDC: .word gUtilGame
 	arm_func_end FUN_ov76_02119f00
 
 	arm_func_start FUN_ov76_02119fe0
@@ -69,7 +69,7 @@ FUN_ov76_02119fe0: ; 0x02119FE0
 	sub sp, sp, #4
 	mov r6, r0
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r5, #0
 	ldr r4, _0211A078 ; =0x020AF81C
 	ldr r12, [r6, #4]
@@ -131,7 +131,7 @@ _0211A0B0:
 	mov r0, r4
 	bl FUN_ov76_02119fe0
 	ldmfd sp!, {r4, pc}
-_0211A0CC: .word unk_02099EF0
+_0211A0CC: .word gUtilGame
 	arm_func_end FUN_ov76_0211a07c
 
 	arm_func_start FUN_ov76_0211a0d0
@@ -209,7 +209,7 @@ FUN_ov76_0211a1a8: ; 0x0211A1A8
 	mov r4, #0xc
 _0211A1C4:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #3
 	blt _0211A1C4
@@ -273,7 +273,7 @@ _0211A284:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A2A8: .word gLogicThink
 _0211A2AC: .word unk_0209A2C0
-_0211A2B0: .word unk_02099EF0
+_0211A2B0: .word gUtilGame
 	arm_func_end FUN_ov76_0211a1e0
 
 	arm_func_start FUN_ov76_0211a2b4
@@ -285,7 +285,7 @@ FUN_ov76_0211a2b4: ; 0x0211A2B4
 	ldmnefd sp!, {r4, r5, r6, pc}
 	add r0, r4, #0xc
 	mov r1, #3
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r5, _0211A370 ; 0x02099EF0
@@ -328,7 +328,7 @@ _0211A360:
 	mov r1, #2
 	bl FUN_ov76_0211a07c
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211A370: .word unk_02099EF0
+_0211A370: .word gUtilGame
 _0211A374: .word unk_020A0640
 _0211A378: .word gLogicThink
 	arm_func_end FUN_ov76_0211a2b4
@@ -347,7 +347,7 @@ FUN_ov76_0211a380: ; 0x0211A380
 	blx r1
 	add r0, r4, #0xc
 	mov r1, #3
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov76_0211a1a8
 	ldr r5, _0211A480 ; =gLogicThink

@@ -37,7 +37,7 @@ FUN_ov35_02119f38: ; 0x02119F38
 	strb r5, [r3, #0x81]
 	bl FUN_ov35_02119ff4
 	mov r0, r4
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r4, [r6, #4]
 	mov r1, #0
 	mov r0, r4
@@ -571,7 +571,7 @@ FUN_ov35_0211a630: ; 0x0211A630
 	bl MI_CpuFill8
 	ldr r0, _0211A660 ; =0x0211BF30
 	add r1, r4, #0x6c
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -594,7 +594,7 @@ _0211A688:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _0211A688
@@ -610,7 +610,7 @@ FUN_ov35_0211a6b0: ; 0x0211A6B0
 	mov r4, #0xc
 _0211A6C0:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0xb
 	blt _0211A6C0
@@ -632,14 +632,14 @@ FUN_ov35_0211a6d8: ; 0x0211A6D8
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl FUN_ov16_020f18e8
+	bl _ZN8Graphics12SetupTilemapEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A730
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 	str r0, [r5]
 _0211A730:
 	cmp r6, #0
@@ -647,7 +647,7 @@ _0211A730:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211A748:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -711,7 +711,7 @@ FUN_ov35_0211a750: ; 0x0211A750
 	add r2, r3, #1
 	mov r3, #0
 	str r4, [r5, #0x60]
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldrh r1, [r5, #0x64]
 	ldrh r0, [r5, #0x66]
 	ldr r2, [sp, #8]
@@ -800,7 +800,7 @@ _0211A84C:
 	add r0, r3, r0
 	bl GX_LoadBG2Scr
 _0211A98C:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov35_0211a750
@@ -959,7 +959,7 @@ FUN_ov35_0211ab14: ; 0x0211AB14
 	mov r0, r5
 	mov r1, r4
 	mov r2, #6
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211ABCC:
 	ldr r5, [r10, #0x84]
 	cmp r5, #0
@@ -1387,7 +1387,7 @@ _0211B1D4: ; jump table
 _0211B1EC:
 	add r0, r4, #0x6c
 	mov r1, #0xb
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r4
@@ -1468,7 +1468,7 @@ FUN_ov35_0211b2e8: ; 0x0211B2E8
 	bl FUN_ov16_020f6c58
 	add r0, r4, #0x6c
 	mov r1, #0xb
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov35_0211a6b0
 	ldr r0, _0211B338 ; =0x0209AEC0

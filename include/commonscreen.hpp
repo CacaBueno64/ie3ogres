@@ -11,8 +11,8 @@ class CommonScreen {
         virtual void updateKeys(u16 pressed, u16 held);
         virtual void updateTP(TPData *tp);
         virtual void init(void);
-        /* 0x0202b208 */ virtual int vFUN_14();
-        virtual void update(int arg);
+        /* 0x0202b208 */ virtual BOOL vFUN_14();
+        virtual void update(BOOL param1);
         virtual void updateLate(void);
         virtual void close(void);
         /* 0x0202b204 */ virtual void vFUN_24();

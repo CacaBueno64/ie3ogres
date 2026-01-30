@@ -12,7 +12,7 @@ void CLogoScreenManager::init(void)
     this->nextMainDisplay = 1;
     this->toggleDisplays = 0;
     
-    FUN_ov16_020f13d4();
+    Graphics::WhiteOutScreens();
     
     gAudioPlayer.FUN_0202b838(4, 0, 0);
     while (!gAudioPlayer.FUN_0202b7b4()) {
@@ -106,7 +106,7 @@ void CLogoScreenManager::endGraphics(u32 arg)
         FUN_ov16_020f51a8();
     }
     if (arg == 2) {
-        MI_CpuClearFast((void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
+        MI_CpuClearFast(reinterpret_cast<void *>(HW_LCDC_VRAM), HW_LCDC_VRAM_SIZE);
     }
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 }

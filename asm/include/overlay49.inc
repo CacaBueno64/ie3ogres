@@ -1,10 +1,10 @@
-.public FUN_ov16_020f3054
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public sprintf
-.public FUN_ov16_020f3d08
+.public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 .public FUN_02058800
 .public g3DPlaneCtrl
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02058ee0
 .public FUN_02058e30
 .public FUN_02059004
@@ -30,7 +30,7 @@
 .public FUN_ov16_02112724
 .public _ZN14CScreenManager14getCurSceneSubEv
 .public _ZN14CScreenManager13fadeMainBlackEv
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public unk_02099E8F
 .public FUN_0207249c
 .public gLogicThink
@@ -47,7 +47,7 @@
 .public FUN_ov16_0210efac
 .public FUN_020460a8
 .public FUN_ov0_020cd0f8
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public unk_020A9C40
 .public g2DAdventureLogic
 .public unk_020A1740
@@ -62,7 +62,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_020f081c

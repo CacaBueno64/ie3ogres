@@ -212,7 +212,7 @@ FUN_ov18_0211a14c: ; 0x0211A14C
 	str r4, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x14
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A1B4:
 	mov r4, #0
 	add r8, sp, #0x18
@@ -575,7 +575,7 @@ _0211A66C:
 	add r1, r5, #0x2e4
 	ldr r0, _0211A760 ; =0x0211BC84
 	add r1, r1, #0xc00
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	add r0, r5, #0xef0
 	mov r1, r6
 	bl FUN_ov16_020f5278
@@ -608,7 +608,7 @@ FUN_ov18_0211a764: ; 0x0211A764
 	mov r1, r3
 	add r2, sp, #0x18
 	add r3, sp, #0x14
-	bl FUN_ov16_020f3d08
+	bl _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	moveq r0, #0
@@ -704,10 +704,10 @@ _0211A8B0:
 	add r0, r6, #0x2e4
 	add r0, r0, #0xc00
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r6, #0x2e4
 	add r0, r0, #0xc00
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r0, r6, #0xef0
 	sub r1, r4, #1
 	str r4, [r6, #0xee4]
@@ -892,7 +892,7 @@ _0211AAF4:
 	ldr r1, _0211ABC0 ; =0x0211BC9C
 	add r2, sp, #0x10
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211AB6C:
 	add r9, r9, #1
 _0211AB70:
@@ -995,7 +995,7 @@ _0211AC6C:
 	add r2, sp, #0x10
 	mov r3, r4
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211ACC4:
 	ldr r0, [r10, #0x44]
 	add r9, r9, #1
@@ -1320,7 +1320,7 @@ FUN_ov18_0211b118: ; 0x0211B118
 	mov r1, #4
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r0, #0xa
 	str r0, [r4, #0x30]
 	mov r0, #1

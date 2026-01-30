@@ -139,7 +139,7 @@ _0212AB84:
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0212AB98: .word unk_02099EF0
+_0212AB98: .word gUtilGame
 	arm_func_end FUN_ov126_0212aa60
 
 	arm_func_start FUN_ov126_0212ab9c
@@ -314,7 +314,7 @@ _0212ADEC:
 	mov r0, #1
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-_0212ADF8: .word unk_02099EF0
+_0212ADF8: .word gUtilGame
 	arm_func_end FUN_ov126_0212ac54
 
 	arm_func_start FUN_ov126_0212adfc
@@ -417,7 +417,7 @@ _0212AF40:
 	strh r4, [r7]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_0212AF4C: .word unk_02099EF0
+_0212AF4C: .word gUtilGame
 	arm_func_end FUN_ov126_0212aebc
 
 	arm_func_start FUN_ov126_0212af50
@@ -4939,7 +4939,7 @@ _0212EF3C:
 	bl FUN_ov132_02147c64
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212EF60: .word unk_02099EF0
+_0212EF60: .word gUtilGame
 _0212EF64: .word 0x0000038E
 _0212EF68: .word 0x00000CCD
 	arm_func_end FUN_ov126_0212ed74
@@ -5063,7 +5063,7 @@ _0212F0B8:
 	bl FUN_ov132_02147c64
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212F134: .word unk_02099EF0
+_0212F134: .word gUtilGame
 _0212F138: .word 0x0000038E
 _0212F13C: .word 0x00000CCD
 	arm_func_end FUN_ov126_0212ef6c
@@ -5211,7 +5211,7 @@ _0212F2F0:
 	bl FUN_ov132_02147c64
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0212F360: .word unk_02099EF0
+_0212F360: .word gUtilGame
 _0212F364: .word 0x0000038E
 _0212F368: .word 0x00000CCD
 	arm_func_end FUN_ov126_0212f140
@@ -9317,7 +9317,7 @@ _02132B7C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02132C1C: .word unk_0209A2C0
 _02132C20: .word unk_0209A7FC
-_02132C24: .word unk_02099EF0
+_02132C24: .word gUtilGame
 _02132C28: .word unk_0209A87C
 _02132C2C: .word unk_0209A880
 _02132C30: .word unk_0209A720
@@ -13571,7 +13571,7 @@ _02136740: .word 0x000001F6
 _02136744: .word 0x000001F9
 _02136748: .word gConfig
 _0213674C: .word ov126_0213AB54
-_02136750: .word unk_02099EF0
+_02136750: .word gUtilGame
 	arm_func_end FUN_ov126_02136598
 
 	arm_func_start FUN_ov126_02136754
@@ -13909,7 +13909,7 @@ _02136B78:
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02136C34: .word gLogicThink
-_02136C38: .word unk_02099EF0
+_02136C38: .word gUtilGame
 _02136C3C: .word gConfig
 _02136C40: .word ov126_0213ABE0
 	arm_func_end FUN_ov126_02136ac4
@@ -13983,7 +13983,7 @@ _02136CB0:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _02136D48: .word unk_0209A2C0
-_02136D4C: .word unk_02099EF0
+_02136D4C: .word gUtilGame
 	arm_func_end FUN_ov126_02136c44
 
 	arm_func_start FUN_ov126_02136d50
@@ -14822,7 +14822,7 @@ _021378A8:
 	mov r1, #1
 	bl FUN_ov126_021377f8
 	ldmfd sp!, {r4, pc}
-_021378B4: .word unk_02099EF0
+_021378B4: .word gUtilGame
 	arm_func_end FUN_ov126_02137884
 
 	arm_func_start FUN_ov126_021378b8
@@ -14974,7 +14974,7 @@ _02137A7C:
 	strb r0, [r5, #0x29]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_02137AB0: .word unk_02099EF0
+_02137AB0: .word gUtilGame
 	arm_func_end FUN_ov126_021379b4
 
 	arm_func_start FUN_ov126_02137ab4
@@ -15643,7 +15643,7 @@ _0213845C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02138468: .word gLogicThink
 _0213846C: .word unk_020A0640
-_02138470: .word unk_02099EF0
+_02138470: .word gUtilGame
 _02138474: .word 0x51EB851F
 _02138478: .word gAudioPlayer
 	arm_func_end FUN_ov126_02137ab4

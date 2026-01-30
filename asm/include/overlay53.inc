@@ -2,7 +2,7 @@
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
 .public gSprButtonCtrl
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_020552dc
 .public FUN_0205430c
 .public FUN_ov16_0210e9d8
@@ -73,14 +73,14 @@
 .public FUN_02057be4
 .public FUN_020568a4
 .public FUN_02057c60
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02057c2c
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
 .public FUN_ov16_021123b4
@@ -107,7 +107,7 @@
 .public FUN_02059004
 .public FUN_020571ac
 .public FUN_020576a0
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public FUN_ov0_020be3f8
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

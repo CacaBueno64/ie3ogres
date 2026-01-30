@@ -12,7 +12,7 @@ extern void FUN_ov16_020f07f4(void);
 extern void FUN_ov126_021375d4(void);
 extern void FUN_ov132_02141568(void);
 
-extern void *unk_02099EF0;
+extern void *gUtilGame;
 extern void *gLogicThink;
 
 asm void FUN_ov116_02124d00(void *ptr)
@@ -36,7 +36,7 @@ _02124D30:
 	strh r1, [r2, #0x70]
 	cmp r5, #3
 	blt _02124D30
-	ldr r0, =unk_02099EF0
+	ldr r0, =gUtilGame
 	ldr r0, [r0]
 	bl FUN_ov126_021375d4
 	movs r5, r0
@@ -75,7 +75,7 @@ _02124DB4:
 	bl FUN_0204f02c
 	mov r6, r0
 _02124DD8:
-	ldr r0, =unk_02099EF0
+	ldr r0, =gUtilGame
 	mov r1, r5
 	ldr r0, [r0]
 	mov r2, r6
@@ -83,7 +83,7 @@ _02124DD8:
 	cmp r0, #0
 	movne r0, #1
 	strneb r0, [r4, #0x8b]
-	ldr r0, =unk_02099EF0
+	ldr r0, =gUtilGame
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, r5

@@ -2,11 +2,11 @@
 
 namespace FileSystem {
 
-s32 sCurFileHandleID;
+s32 sCurFileKey;
 char *sProcessStack;
 FileHandle *sFileHandles;
 static OSThread sProcessThread;
-static Archive sArchives[18];
+static ArchiveHandle sArchives[18];
 static MATHCRC32Table sCrc32Table;
 
 s32 ReadFileInChunks(FSFile *file, void *data, s32 len);
@@ -15,9 +15,9 @@ void ProcessFiles(void *arg);
 FileHandle *GetFileHandle(filekey_t *keyOut);
 s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut,
                               const char *path);
-s32 AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name);
+s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID, filekey_t *keyOut, const char *name);
 u32 HashFilename(const char *name);
-s32 FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name);
+s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *name);
 
 s32 ReadFileInChunks(FSFile *file, void *data, s32 len) {
 #define CHUNK_SIZE 0x4000
@@ -67,7 +67,7 @@ void ProcessFiles(void *arg) {
 #pragma unused(arg)
 
     FSFile file;
-    s32 idx              = 0;
+    s32 idx            = 0;
     FileHandle *handle = &sFileHandles[0];
 
     FS_InitFile(&file);
@@ -125,17 +125,17 @@ s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
 }
 
 FileHandle *GetFileHandle(filekey_t *keyOut) {
-    FileHandle *handle = &sFileHandles[sCurFileHandleID];
+    FileHandle *handle = &sFileHandles[sCurFileKey];
 
     if (handle->uncompressed != NULL) {
         OS_Terminate();
     }
 
     if (keyOut != NULL) {
-        *keyOut = sCurFileHandleID;
+        *keyOut = sCurFileKey;
     }
 
-    sCurFileHandleID = (sCurFileHandleID + 1) % 56;
+    sCurFileKey = (sCurFileKey + 1) % 56;
 
     return handle;
 }
@@ -166,7 +166,7 @@ s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32
     return size;
 }
 
-s32 ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s32 size) {
+s32 ReadFileDeferred(void **dataOut, const char *path, filekey_t *keyOut, s32 offset, s32 size) {
     MICompressionHeader flags;
     FSFileID fileid;
     FSFile file;
@@ -186,7 +186,7 @@ s32 ReadFileDeferred(void **dataOut, const char *path, s8 *idOut, s32 offset, s3
     }
 
     *reinterpret_cast<u32 *>(&flags) = 0;
-    FileHandle *handle               = GetFileHandle(idOut);
+    FileHandle *handle               = GetFileHandle(keyOut);
     s32 buffer_size                  = AllocateFileBuffers(handle, &flags, size, dataOut, path);
 
     handle->fileID = fileid;
@@ -215,7 +215,7 @@ arckey_t OpenArchiveDirect(void *data, const char *path) {
             }
 
             sArchives[i].inUse  = TRUE;
-            sArchives[i].nFiles = (u32)size / sizeof(Archive_PKH);
+            sArchives[i].nFiles = (u32)size / sizeof(Archive::PackEntry_HOSC);
             sArchives[i].files  = file;
 
             if (!FS_ConvertPathToFileID(&sArchives[i].binFileID, pkb_path)) {
@@ -244,9 +244,9 @@ arckey_t OpenArchiveDeferred(void *data, const char *path) {
                 sArchives[i].files = data;
             }
 
-            s32 size = ReadFileDeferred(&sArchives[i].files, pkh_path, &sArchives[i].arcFileKey, 0, -1);
+            s32 size = ReadFileDeferred(&sArchives[i].files, pkh_path, &sArchives[i].key, 0, -1);
 
-            sArchives[i].nFiles = (u32)size / sizeof(Archive_PKH);
+            sArchives[i].nFiles = (u32)size / sizeof(Archive::PackEntry_HOSC);
 
             if (!FS_ConvertPathToFileID(&sArchives[i].binFileID, pkb_path)) {
                 OS_Terminate();
@@ -274,11 +274,11 @@ void CloseArchive(arckey_t key) {
 }
 
 BOOL IsArchiveReady(arckey_t key) {
-    if (sArchives[key].arcFileKey >= 0) {
-        if (IsFileBusy(sArchives[key].arcFileKey)) {
+    if (sArchives[key].key >= 0) {
+        if (IsFileBusy(sArchives[key].key)) {
             return FALSE;
         }
-        sArchives[key].arcFileKey = -1;
+        sArchives[key].key = -1;
         return TRUE;
     }
 
@@ -288,26 +288,26 @@ BOOL IsArchiveReady(arckey_t key) {
 void WaitArchiveReady(arckey_t key) {
     while (TRUE) {
         if (IsArchiveReady(key)) {
-            return;
+            break;
         }
         Thread::Yield();
     }
 }
 
-Archive_PKH *GetFile(arckey_t arcKey, s32 fileIdx) {
-    Archive *arc = &sArchives[arcKey];
+Archive::PackEntry_HOSC *GetFile(arckey_t arcKey, s32 fileIdx) {
+    ArchiveHandle *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
         return NULL;
     }
 
-    Archive_PKH *files = (Archive_PKH *)arc->files;
+    Archive::PackEntry_HOSC *files = (Archive::PackEntry_HOSC *)arc->files;
 
     return &files[fileIdx];
 }
 
-s32 ReadFileByID(void **dst, Archive_PKH *files, FSFileID file_id, const char *filename) {
-    int size;
+s32 ReadFileByID(void **dst, Archive::PackEntry_HOSC *files, FSFileID file_id, const char *filename) {
+    s32 size;
 
     if (*dst == NULL) {
         if (files->compHeader.compType == 0) {
@@ -348,9 +348,9 @@ s32 ReadFileByName(void **dst, arckey_t arcKey, const char *filename) {
         return -1;
     }
 
-    Archive *arc = &sArchives[arcKey];
+    ArchiveHandle *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = FindFile(arcKey, filename);
+    Archive::PackEntry_HOSC *files = FindFile(arcKey, filename);
 
     if (files == NULL) {
         return -1;
@@ -366,13 +366,13 @@ s32 ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
         return -1;
     }
 
-    Archive *arc = &sArchives[arcKey];
+    ArchiveHandle *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
         return -1;
     }
 
-    Archive_PKH *files = (Archive_PKH *)arc->files;
+    Archive::PackEntry_HOSC *files = static_cast<Archive::PackEntry_HOSC *>(arc->files);
     if (files == NULL) {
         return -1;
     }
@@ -382,7 +382,7 @@ s32 ReadFileByIdx(void **dst, arckey_t arcKey, s32 fileIdx) {
     return ReadFileByID(dst, &files[fileIdx], arc->binFileID, filename);
 }
 
-s32 AllocateFileHandle(void **dataOut, Archive_PKH *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
+s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
     s32 srcSize          = file->size;
     FileHandle *handle   = GetFileHandle(keyOut);
     s32 destSize         = AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
@@ -401,9 +401,9 @@ s32 ReadFileByNameDeferred(void **dst, arckey_t arcKey, const char *name, fileke
         return -1;
     }
 
-    Archive *arc = &sArchives[arcKey];
+    ArchiveHandle *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = FindFile(arcKey, name);
+    Archive::PackEntry_HOSC *files = FindFile(arcKey, name);
     if (files == NULL) {
         return -1;
     }
@@ -418,9 +418,9 @@ s32 ReadFileByIdxDeferred(void **dst, arckey_t arcKey, s32 fileIdx, filekey_t *k
         return -1;
     }
 
-    Archive *arc = &sArchives[arcKey];
+    ArchiveHandle *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = (Archive_PKH *)arc->files;
+    Archive::PackEntry_HOSC *files = static_cast<Archive::PackEntry_HOSC *>(arc->files);
     if (files == NULL) {
         return -1;
     }
@@ -481,7 +481,7 @@ u32 HashFilename(const char *name) {
     return 0;
 }
 
-s32 FindFileIdxInternal(Archive_PKH *files, u16 nFiles, const char *name) {
+s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *name) {
     u32 hash = HashFilename(name);
 
     u32 left  = 0;
@@ -514,8 +514,8 @@ s32 FindFileIdx(arckey_t arcKey, const char *name) {
         return -1;
     }
 
-    Archive *arc = &sArchives[arcKey];
-    Archive_PKH *files = (Archive_PKH *)arc->files;
+    ArchiveHandle *arc = &sArchives[arcKey];
+    Archive::PackEntry_HOSC *files = static_cast<Archive::PackEntry_HOSC *>(arc->files);
 
     if (files == NULL) {
         return -1;
@@ -524,14 +524,14 @@ s32 FindFileIdx(arckey_t arcKey, const char *name) {
     return FindFileIdxInternal(files, arc->nFiles, name);
 }
 
-Archive_PKH *FindFile(arckey_t arcKey, const char *name) {
+Archive::PackEntry_HOSC *FindFile(arckey_t arcKey, const char *name) {
     if (arcKey < 0) {
         return NULL;
     }
 
-    Archive *arc = &sArchives[arcKey];
+    ArchiveHandle *arc = &sArchives[arcKey];
 
-    Archive_PKH *files = (Archive_PKH *)arc->files;
+    Archive::PackEntry_HOSC *files = static_cast<Archive::PackEntry_HOSC *>(arc->files);
     if (files == NULL) {
         return NULL;
     }

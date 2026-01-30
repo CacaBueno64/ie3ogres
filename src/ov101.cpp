@@ -4,12 +4,11 @@
 extern "C" {
 #endif
 
-extern void FUN_ov16_020f338c(u32 *, u32);
 extern void FUN_ov101_02124d4c(u32 *);
 
 void FUN_ov101_02124ff8(u32 *ptr)
 {
-    FUN_ov16_020f338c(&ptr[4], 1);
+    Archive::Close((SFileData *)&ptr[4], 1);
     FUN_ov101_02124d4c(ptr);
 }
 

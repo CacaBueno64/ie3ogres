@@ -7,9 +7,9 @@
 .public FUN_ov1_020dc020
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
-.public FUN_ov16_020f1868
-.public FUN_ov16_020f10ac
-.public FUN_ov16_020f33fc
+.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics17LoadBGPaletteMainEv
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_020f5da0
@@ -32,7 +32,7 @@
 .public FUN_ov16_020f6b3c
 .public FUN_ov16_020f6e2c
 .public FUN_ov16_020f6d3c
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_021165b4
 .public FUN_0205d28c
 .public FUN_0205ee28
@@ -40,7 +40,7 @@
 .public FUN_0205be20
 .public FUN_ov16_0211234c
 .public FUN_ov16_020f672c
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public g3DSpriteCtrl
 .public g3DGameMap
@@ -60,7 +60,7 @@
 .public FUN_020443e8
 .public ov1_020E9483
 .public unk_020AF81C
-.public FUN_ov16_020f338c
+.public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f6c58
 .public FUN_ov16_020f2fe4

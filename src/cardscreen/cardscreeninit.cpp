@@ -5,19 +5,19 @@ const ov3_Init_020BD390 ov3_020BD390 = ov3_Init_020BD390(0x4e2000, 0x0000EA3C, 0
 void CMainCardScreenInit::initGraphics(void)
 {
     MI_CpuClear8(&this->file, sizeof(this->file));
-    FUN_ov16_020f316c("/data_iz/pic2d/menu/sfdn_i09.pac_", &this->file.data);
-    MI_CpuClearFast(&unk_020A6C40, sizeof(unk_020A6C40));
-    MI_CpuClearFast(&unk_020A7C40, sizeof(unk_020A7C40));
-    MI_CpuClearFast(&unk_020A7440, sizeof(unk_020A7440));
-    DC_FlushRange(&unk_020A6C40, sizeof(unk_020A6C40));
-    DC_FlushRange(&unk_020A7C40, sizeof(unk_020A7C40));
-    DC_FlushRange(&unk_020A7440, sizeof(unk_020A7440));
+    Archive::RequestNewRead("/data_iz/pic2d/menu/sfdn_i09.pac_", &this->file);
+    MI_CpuClearFast(&gMainScreen0, sizeof(gMainScreen0));
+    MI_CpuClearFast(&gMainScreen2, sizeof(gMainScreen2));
+    MI_CpuClearFast(&gMainScreen1, sizeof(gMainScreen1));
+    DC_FlushRange(&gMainScreen0, sizeof(gMainScreen0));
+    DC_FlushRange(&gMainScreen2, sizeof(gMainScreen2));
+    DC_FlushRange(&gMainScreen1, sizeof(gMainScreen1));
     this->state = 1;
 }
 
 void CMainCardScreenInit::deallocateFile(void)
 {
-    FUN_ov16_020f33fc(&this->file);
+    Archive::Deallocate(&this->file);
 }
 
 #ifdef NONMATCHING
@@ -26,21 +26,25 @@ void CMainCardScreenInit::displayGraphics(void)
 {
     MI_CpuClearFast(G2_GetBG3CharPtr(), 0x20);
     DC_FlushRange(G2_GetBG3CharPtr(), 0x20);
-    GX_LoadBG3Bmp(&unk_020A6C40, 0, sizeof(unk_020A6C40));
-    GX_LoadBG3Char(ImagePAC_GetCharacterPtr(unk_0209A144.data), 0, ImagePAC_GetCharacterSize(unk_0209A144.data));
+    GX_LoadBG3Scr(&gMainScreen0, 0, sizeof(gMainScreen0));
+    GX_LoadBG3Char(Archive::ImagePAC::GetCharacterPtr(gDebugFont.data), 0, Archive::ImagePAC::GetCharacterSize(gDebugFont.data));
+
     MI_CpuClearFast(G2_GetBG1CharPtr(), 0x20);
     DC_FlushRange(G2_GetBG1CharPtr(), 0x20);
-    GX_LoadBG1Scr(&unk_020A7440, 0, sizeof(unk_020A7440));
-    ImagePAC *img = static_cast<ImagePAC *>(this->file.data);
+    GX_LoadBG1Scr(&gMainScreen1, 0, sizeof(gMainScreen1));
+
+    Archive::ImagePAC *img = static_cast<Archive::ImagePAC *>(this->file.data);
     if (img != NULL) {
-        FUN_ov16_020f1868(ImagePAC_GetScreenPtr(img), ImagePAC_GetScreenSize(img), 1, 1);
-        FUN_ov16_020f1138(img, ENGINE_MAIN, 1);
-        GX_LoadBG1Char(ImagePAC_GetCharacterPtr(img), 0x20, ImagePAC_GetCharacterSize(img));
+        Graphics::AdjustTilemapIndices(static_cast<u16 *>(Archive::ImagePAC::GetScreenPtr(img)), Archive::ImagePAC::GetScreenSize(img), 1, 1);
+        Graphics::LoadTempPaletteFromPac(img, ENGINE_MAIN, 1);
+        GX_LoadBG1Char(Archive::ImagePAC::GetCharacterPtr(img), 0x20, Archive::ImagePAC::GetCharacterSize(img));
     }
+
     MI_CpuClearFast(G2_GetBG2CharPtr(), 0x20);
     DC_FlushRange(G2_GetBG2CharPtr(), 0x20);
-    GX_LoadBG2Scr(&unk_020A7C40, 0, sizeof(unk_020A7C40));
-    FUN_ov16_020f10ac();
+    GX_LoadBG2Scr(&gMainScreen2, 0, sizeof(gMainScreen2));
+    
+    Graphics::LoadBGPaletteMain();
 }
 #else //NONMATCHING
 asm void CMainCardScreenInit::displayGraphics(void)
@@ -57,12 +61,12 @@ asm void CMainCardScreenInit::displayGraphics(void)
 	bl G2_GetBG3CharPtr
 	mov r1, r4
 	bl DC_FlushRange
-	ldr r0, =unk_020A6C40
+	ldr r0, =gMainScreen0
 	mov r1, r5
 	mov r6, #0x800
 	mov r2, r6
 	bl GX_LoadBG3Scr
-	ldr r0, =unk_0209A144
+	ldr r0, =gDebugFont
 	mov r1, r5
 	ldr r3, [r0]
 	ldr r2, [r3, #0x18]
@@ -78,7 +82,7 @@ asm void CMainCardScreenInit::displayGraphics(void)
 	mov r1, r4
 	bl DC_FlushRange
 	mov r2, r6
-	ldr r0, =unk_020A7440
+	ldr r0, =gMainScreen1
 	mov r1, r5
 	bl GX_LoadBG1Scr
 	ldr r7, [r7, #0xc]
@@ -90,11 +94,11 @@ asm void CMainCardScreenInit::displayGraphics(void)
 	mov r3, r6
 	add r0, r7, r0
 	add r2, r5, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	ldr r0, [r7, #0x14]
 	ldr r2, [r7, #0x18]
 	mov r1, r4
@@ -111,11 +115,11 @@ _020BD034:
 	bl G2_GetBG2CharPtr
 	mov r1, r4
 	bl DC_FlushRange
-	ldr r0, =unk_020A7C40
+	ldr r0, =gMainScreen2
 	mov r1, r5
 	mov r2, #0x800
 	bl GX_LoadBG2Scr
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 }
 #endif //NONMATCHING
@@ -123,10 +127,10 @@ _020BD034:
 void CMainCardScreenInit::FUN_ov3_020bd084(void)
 {
     UnkStruct_ov3_020bd084 stack;
-    ImagePAC *img = static_cast<ImagePAC *>(this->file.data);
+    Archive::ImagePAC *img = static_cast<Archive::ImagePAC *>(this->file.data);
     
     if (img != NULL) {
-        void *pScreen = ImagePAC_GetScreenPtr(img);
+        void *pScreen = Archive::ImagePAC::GetScreenPtr(img);
         
         stack.unk14 = 4;
         stack.unk16 = 8;
@@ -154,7 +158,7 @@ void CMainCardScreenInit::update(int arg)
 {
     switch (this->state) {
         case 1:
-            if (FUN_ov16_020f330c(&this->file, 1)) {
+            if (Archive::TryFinalize(&this->file, 1)) {
                 this->state = 2;
             }
             break;
@@ -184,6 +188,6 @@ void CMainCardScreenInit::updateLate(void)
 void CMainCardScreenInit::close(void)
 {
     FUN_ov16_020f5af0(&gBgMenuManager, 0);
-    FUN_ov16_020f338c(&this->file, 1);
+    Archive::Close(&this->file, 1);
     this->deallocateFile();
 }

@@ -8,7 +8,7 @@
 .public FUN_ov132_02143a28
 .public FUN_ov132_02143c94
 .public unk_020A0640
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_ov1_020cbe38
 .public FUN_ov1_020cbeb0
 .public FUN_ov1_020ca880

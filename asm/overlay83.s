@@ -271,7 +271,7 @@ _0211A230:
 	bl FUN_ov16_020f2cf8
 	add r1, sp, #0x2c
 	mov r0, r7
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r4, [sp, #0x2c]
 	b _0211A2B0
 _0211A290:
@@ -279,7 +279,7 @@ _0211A290:
 	cmp r0, r6
 	bne _0211A2AC
 	add r0, sp, #0x2c
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add sp, sp, #0xb8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211A2AC:
@@ -319,7 +319,7 @@ _0211A30C:
 	cmp r0, #0xb
 	beq _0211A340
 	add r0, sp, #0x2c
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add sp, sp, #0xb8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211A340:
@@ -330,7 +330,7 @@ _0211A340:
 	add r0, sp, #0x38
 	add r1, sp, #8
 	mla r5, r3, r2, r5
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldrsh r12, [r4, #2]
 	ldr r1, [sp, #8]
 	mov r0, #0x4a
@@ -465,16 +465,16 @@ _0211A54C:
 	mov r1, #0
 	bl FUN_020737f0
 	add r0, sp, #0x2c
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r0, sp, #8
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add sp, sp, #0xb8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0211A570: .word unk_020A0640
 _0211A574: .word unk_020A0B40
 _0211A578: .word 0x0000270F
 _0211A57C: .word unk_020A0B00
-_0211A580: .word unk_02099EF0
+_0211A580: .word gUtilGame
 _0211A584: .word gWirelessUtil
 _0211A588: .word gLogicThink
 _0211A58C: .word ov83_0211D804
@@ -521,7 +521,7 @@ FUN_ov83_0211a5f0: ; 0x0211A5F0
 	mov r4, #0xc
 _0211A604:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0xe
 	blt _0211A604
@@ -813,7 +813,7 @@ _0211A9F8:
 	bl _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211AA3C: .word unk_02099EF0
+_0211AA3C: .word gUtilGame
 _0211AA40: .word unk_020A1640
 _0211AA44: .word unk_020A0640
 _0211AA48: .word 0x00000808
@@ -988,7 +988,7 @@ _0211AC8C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211ACB4: .word gAudioPlayer
 _0211ACB8: .word unk_020A0640
-_0211ACBC: .word unk_02099EF0
+_0211ACBC: .word gUtilGame
 _0211ACC0: .word ov1_020E9485
 	arm_func_end FUN_ov83_0211aa5c
 
@@ -1169,7 +1169,7 @@ _0211AEF8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211AF38:
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	mov r0, r9
 	bl FUN_ov83_0211aa5c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -1256,7 +1256,7 @@ _0211B040:
 	mov r2, #1
 	bl FUN_ov83_0211b080
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211B078: .word unk_02099EF0
+_0211B078: .word gUtilGame
 _0211B07C: .word gAllocator
 	arm_func_end FUN_ov83_0211af60
 
@@ -2089,7 +2089,7 @@ _0211BB44:
 	mul r1, r2, r1
 	mov r1, r1, lsl #1
 	add r2, r7, #1
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldrh r2, [r8, #0xc]
 	ldrh r1, [r8, #0xe]
 	ldr r3, [sp, #4]
@@ -2217,7 +2217,7 @@ _0211BCFC:
 	add r0, r5, r0
 	bl GX_LoadBG2Scr
 _0211BD5C:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	mov r0, #1
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -2916,7 +2916,7 @@ FUN_ov83_0211c6f4: ; 0x0211C6F4
 	mov r0, r5
 	mov r1, r4
 	mov r2, #7
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211C7B0:
 	ldr r9, [r10, #0x4d4]
 	cmp r9, #0
@@ -3155,7 +3155,7 @@ _0211CA88:
 	mov r0, r7
 	mov r1, r4
 	mov r2, #1
-	bl FUN_ov16_020f0e9c
+	bl _ZN8Graphics17SetBGPalettePulseE12EngineSelectii
 	add sp, sp, #0x2c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211CB50:
@@ -3737,7 +3737,7 @@ _0211D388:
 	add r0, r4, #0x44
 	add r0, r0, #0x400
 	mov r1, #0xe
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -3820,7 +3820,7 @@ FUN_ov83_0211d488: ; 0x0211D488
 	add r0, r5, #0x44
 	add r0, r0, #0x400
 	mov r1, #0xe
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r5
 	bl FUN_ov83_0211a5f0
 	add r0, r5, #8

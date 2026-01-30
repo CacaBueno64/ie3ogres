@@ -5,7 +5,7 @@
 .public FUN_ov16_020efa80
 .public FUN_0204f02c
 .public FUN_ov132_02141568
-.public unk_02099EF0
+.public gUtilGame
 .public gLogicThink
 .public _ZdlPv
 .public FX_Sqrt

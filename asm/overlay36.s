@@ -317,7 +317,7 @@ FUN_ov36_0211a2d8: ; 0x0211A2D8
 	bl MI_CpuFill8
 	ldr r0, _0211A308 ; =0x0211AD74
 	add r1, r4, #0x50
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -342,7 +342,7 @@ _0211A33C:
 	ldmia r7, {r0, r2}
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	add r7, r7, #8
 _0211A350:
 	ldr r0, [r7]
@@ -360,7 +360,7 @@ _0211A378:
 	ldmia r7, {r0, r2}
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	add r7, r7, #8
 _0211A38C:
 	ldr r0, [r7]
@@ -380,7 +380,7 @@ FUN_ov36_0211a3a8: ; 0x0211A3A8
 	mov r4, #0xc
 _0211A3B8:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #8
 	blt _0211A3B8
@@ -402,14 +402,14 @@ FUN_ov36_0211a3d0: ; 0x0211A3D0
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl FUN_ov16_020f18e8
+	bl _ZN8Graphics12SetupTilemapEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A428
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 	str r0, [r5]
 _0211A428:
 	cmp r6, #0
@@ -417,7 +417,7 @@ _0211A428:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211A440:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -488,7 +488,7 @@ FUN_ov36_0211a448: ; 0x0211A448
 	bl DC_FlushRange
 	mov r0, r9
 	bl FUN_ov36_0211a550
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov36_0211a448
@@ -712,7 +712,7 @@ _0211A840: ; jump table
 _0211A858:
 	add r0, r4, #0x50
 	mov r1, #8
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, r4
@@ -803,12 +803,12 @@ FUN_ov36_0211a974: ; 0x0211A974
 	bl FUN_ov16_020f5af0
 	mov r0, r4
 	mov r1, #0x100
-	bl FUN_ov16_020f1aec
+	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	ldr r0, _0211A9BC ; =0x0209A070
 	bl FUN_ov16_020f6c58
 	add r0, r5, #0x50
 	mov r1, #8
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r5
 	bl FUN_ov36_0211a3a8
 	ldmfd sp!, {r3, r4, r5, pc}

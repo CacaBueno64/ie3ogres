@@ -162,9 +162,9 @@ _020297C8:
 	str r4, [r0, #0x84]
 	strb r4, [r0, #0x88]
 	bl FUN_ov16_020ef850
-	bl FUN_ov16_020f129c
-	ldr r0, _02029A20 ; =0x0209A5D0
-	bl FUN_020617d8
+	bl _ZN8Graphics16ResetScreenFadesEv
+	ldr r0, _02029A20 ; =gRecordManager
+	bl _ZN14CRecordManager10verifySaveEv
 	str r0, [r5, #0x3c]
 	mov r0, r4
 	bl FUN_ov16_020f069c
@@ -191,25 +191,25 @@ _02029A10: .word unk_02099F6E
 _02029A14: .word unk_02099EAC
 _02029A18: .word unk_0209A090
 _02029A1C: .word unk_0209A454
-_02029A20: .word unk_0209A5D0
+_02029A20: .word gRecordManager
 	arm_func_end FUN_02029740
 
-	arm_func_start InitFont ; https://decomp.me/scratch/J1Gk0
-InitFont: ; 0x02029A24
+	arm_func_start _Z8InitFontv ; https://decomp.me/scratch/J1Gk0
+_Z8InitFontv: ; 0x02029A24
 	stmfd sp!, {r4, lr}
 	sub sp, sp, #0x30
 	ldr r0, _02029B24 ; =0x0208F800
 	add r1, sp, #0
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r0, _02029B28 ; =0x0208F81C
 	add r1, sp, #0xc
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r0, _02029B2C ; =0x0208F838
 	add r1, sp, #0x18
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r0, _02029B30 ; =0x0208F854
 	add r1, sp, #0x24
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	mov r0, #0x24
 	bl _Znwm
 	cmp r0, #0
@@ -271,7 +271,7 @@ _02029B30: .word unk_0208F854
 _02029B34: .word unk_02099E8C
 _02029B38: .word gConfig
 _02029B3C: .word unk_0208F870
-	arm_func_end InitFont
+	arm_func_end _Z8InitFontv
 
 	arm_func_start FUN_02029b40
 FUN_02029b40: ; 0x02029B40
@@ -359,7 +359,7 @@ L5_Main: ; 0x02029C08
 	bl _Z11InitGlobalsv
 	bl _Z12FUN_020295e8v
 	bl _Z12FUN_02029608v
-	bl InitFont
+	bl _Z8InitFontv
 	bl FUN_02029b40
 	bl FUN_02029bd0
 	bl FUN_02029740
@@ -549,7 +549,7 @@ _02029DF0:
 	bl _Z14CardScreenLoadP15GameModeContext
 	ldmfd sp!, {r3, pc}
 _02029DF8:
-	bl FUN_02029ee4
+	bl _Z17EndrollScreenLoadP15GameModeContext
 	ldmfd sp!, {r3, pc}
 _02029E00:
 	bl FUN_02029ea4
@@ -633,43 +633,3 @@ _02029ED8:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02029EE0: .word ov15_020E6578
 	arm_func_end FUN_02029ea4
-
-	arm_func_start FUN_02029ee4
-FUN_02029ee4: ; 0x02029EE4
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _02029F38 ; =0x000004AC
-	bl _Znwm
-	movs r4, r0
-	beq _02029F30
-	bl _ZN14CScreenManagerC2Ev
-	ldr r1, _02029F3C ; =0x020BDDC0
-	ldr r0, _02029F40 ; =0x020BDE30
-	str r1, [r4]
-	str r0, [r4, #0x90]
-	ldr r0, _02029F44 ; =0x020BDF64
-	str r4, [r4, #0x288]
-	str r0, [r4, #0x298]
-	str r4, [r4, #0x29c]
-_02029F30:
-	str r4, [r5, #4]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02029F38: .word 0x000004AC
-_02029F3C: .word ov6_020BDDC0
-_02029F40: .word ov6_020BDE30
-_02029F44: .word ov6_020BDF64
-	arm_func_end FUN_02029ee4
-
-	arm_func_start FUN_02029f48
-FUN_02029f48: ; 0x02029F48
-	bx lr
-	arm_func_end FUN_02029f48
-
-	arm_func_start FUN_02029f4c
-FUN_02029f4c: ; 0x02029F4C
-	bx lr
-	arm_func_end FUN_02029f4c

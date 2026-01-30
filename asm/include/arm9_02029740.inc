@@ -1,9 +1,10 @@
+.public _Z17EndrollScreenLoadP15GameModeContext
 .public MI_CpuFill8
 .public FUN_02074784
 .public FUN_0207478c
 .public FUN_ov16_020ef850
-.public FUN_ov16_020f129c
-.public FUN_020617d8
+.public _ZN8Graphics16ResetScreenFadesEv
+.public _ZN14CRecordManager10verifySaveEv
 .public FUN_ov16_020f069c
 .public FUN_ov16_020efa04
 .public unk_020A0640
@@ -25,8 +26,8 @@
 .public unk_02099EAC
 .public unk_0209A090
 .public unk_0209A454
-.public unk_0209A5D0
-.public FUN_ov16_020f3054
+.public gRecordManager
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public _Znwm
 .public _ZN11FontManagerC1Ev
 .public _ZN11FontManager11G2dFontInitEPvmh

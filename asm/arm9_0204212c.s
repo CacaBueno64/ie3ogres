@@ -2101,7 +2101,7 @@ FUN_02043c80: ; 0x02043C80
 	stmib sp, {r2, r4}
 	add r2, sp, #0x10
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _02043D6C: .word unk_020900CC
@@ -2258,7 +2258,7 @@ _02043F90:
 	ldr r1, [r0, #0x214]
 	cmp r1, #0
 	beq _02043FCC
-	bl FUN_ov16_020f17f0
+	bl _ZN8Graphics20IsMainBrightAdjustedEv
 	cmp r0, #0
 	addne r0, r8, #0x6000
 	strne r5, [r0, #0x220]
@@ -2416,7 +2416,7 @@ _020441A0:
 	bl FUN_ov16_020f2604
 _020441DC:
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	add r0, r8, #0x6000
 	ldr r0, [r0, #0x1fc]
 	bl _Z11SetNextMode8GameMode
@@ -2439,7 +2439,7 @@ _02044224:
 	str r4, [r0, #0x224]
 	b _020442A4
 _0204422C:
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	bne _020442A4
 	add r0, r8, #0x6000
@@ -2479,7 +2479,7 @@ _020442A4:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020442B0: .word unk_0208C384
-_020442B4: .word unk_0209A160
+_020442B4: .word gScreenFades
 _020442B8: .word 0x00001014
 _020442BC: .word unk_020A9C40
 _020442C0: .word 0x00001002
@@ -3304,7 +3304,7 @@ _02044C5C: .word 0x00001003
 _02044C60: .word 0x00001004
 _02044C64: .word 0x00001026
 _02044C68: .word 0x0000100B
-_02044C6C: .word unk_02099EF0
+_02044C6C: .word gUtilGame
 _02044C70: .word 0x0000100C
 _02044C74: .word 0x0000100D
 _02044C78: .word unk_020A0640
@@ -3735,10 +3735,10 @@ _02045254:
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	bne _0204528C
-	bl FUN_ov16_020f17f0
+	bl _ZN8Graphics20IsMainBrightAdjustedEv
 	cmp r0, #0
 	beq _02045294
 _0204528C:
@@ -3764,7 +3764,7 @@ _020452D0:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020452D8: .word gLogicThink
-_020452DC: .word unk_02099EF0
+_020452DC: .word gUtilGame
 	arm_func_end FUN_02045124
 
 	arm_func_start FUN_020452e0
@@ -3792,10 +3792,10 @@ FUN_020452e0: ; 0x020452E0
 	cmp r0, #0
 	moveq r0, r6
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	bne _02045354
-	bl FUN_ov16_020f17f0
+	bl _ZN8Graphics20IsMainBrightAdjustedEv
 	cmp r0, #0
 	beq _0204535C
 _02045354:
@@ -4742,7 +4742,7 @@ FUN_02045e08: ; 0x02045E08
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02045E88:
 	cmp r0, #0
 	moveq r4, #0
@@ -4807,7 +4807,7 @@ FUN_02045edc: ; 0x02045EDC
 	str r5, [sp, #8]
 	mov r4, #1
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02045F64:
 	cmp r0, #0
 	addne r6, sp, #0x34
@@ -6986,8 +6986,8 @@ _02047A74:
 FUN_02047a7c: ; 0x02047A7C
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
-	ldr r12, _02047ACC ; =FUN_02048c80
-	ldr r3, _02047AD0 ; =FUN_02048c5c
+	ldr r12, _02047ACC ; =_ZN23CSceneScriptFileContextD1Ev
+	ldr r3, _02047AD0 ; =_ZN23CSceneScriptFileContextC1Ev
 	mov r1, #0x10
 	mov r2, #0x1b8
 	mov r4, r0
@@ -7005,21 +7005,21 @@ _02047AA8:
 	mov r0, r4
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-_02047ACC: .word FUN_02048c80
-_02047AD0: .word FUN_02048c5c
+_02047ACC: .word _ZN23CSceneScriptFileContextD1Ev
+_02047AD0: .word _ZN23CSceneScriptFileContextC1Ev
 	arm_func_end FUN_02047a7c
 
 	arm_func_start FUN_02047ad4
 FUN_02047ad4: ; 0x02047AD4
 	stmfd sp!, {r4, lr}
-	ldr r3, _02047AF4 ; =FUN_02048c80
+	ldr r3, _02047AF4 ; =_ZN23CSceneScriptFileContextD1Ev
 	mov r1, #0x10
 	mov r2, #0x1b8
 	mov r4, r0
 	bl __cxa_vec_cleanup
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02047AF4: .word FUN_02048c80
+_02047AF4: .word _ZN23CSceneScriptFileContextD1Ev
 	arm_func_end FUN_02047ad4
 
 	arm_func_start FUN_02047af8 ; https://decomp.me/scratch/Pj36Y
@@ -7042,7 +7042,7 @@ _02047B10:
 _02047B30:
 	mla r0, r6, r5, r4
 	mov r1, r4
-	bl FUN_02048c98
+	bl _ZN23CSceneScriptFileContext11linkManagerEP19CSceneScriptManager
 	add r6, r6, #1
 	cmp r6, #0x10
 	blt _02047B30
@@ -7106,7 +7106,7 @@ FUN_02047bc4: ; 0x02047BC4
 	mov r5, #0x1b8
 _02047C18:
 	mla r0, r6, r5, r4
-	bl FUN_0204912c
+	bl _ZN23CSceneScriptFileContext5resetEv
 	add r6, r6, #1
 	cmp r6, #0xb
 	blt _02047C18
@@ -7162,7 +7162,7 @@ FUN_02047c7c: ; 0x02047C7C
 _02047CBC:
 	mla r0, r8, r5, r4
 	mla r1, r8, r6, r7
-	bl FUN_0204930c
+	bl _ZN23CSceneScriptFileContext19saveScriptFileStateEP21SScriptFileRecordData
 	add r8, r8, #1
 	cmp r8, #0x10
 	blt _02047CBC
@@ -7199,7 +7199,7 @@ _02047D20:
 	add r0, r7, r9
 	ldr r5, [r0, #0x100]
 	add r0, r8, r4
-	bl FUN_0204912c
+	bl _ZN23CSceneScriptFileContext5resetEv
 	add r0, r8, r5, lsl #2
 	add r3, r0, #0x1000
 	add r0, r8, r4
@@ -7208,7 +7208,7 @@ _02047D20:
 	str r4, [sp]
 	ldr r3, [r3, #0xccc]
 	mov r1, r6
-	bl FUN_02049354
+	bl _ZN23CSceneScriptFileContext19loadScriptFileStateEiP21SScriptFileRecordDataPvS2_
 	b _02047E08
 _02047D70:
 	mla r0, r6, r0, r7
@@ -7245,7 +7245,7 @@ _02047D90:
 	mov r3, r5
 	mov r1, r6
 	stmib sp, {r4, r10}
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	movne r0, #0x2000
 	strne r0, [r9, #0x1c]
@@ -7315,7 +7315,7 @@ _02047E84:
 	add r2, r10, #0x1c00
 	mov r1, r5
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02047EE8:
 	add r0, r9, r8, lsl #2
 	add r10, r0, #0xe4
@@ -7344,7 +7344,7 @@ _02047EE8:
 	add r2, r10, #0x1c00
 	mov r1, r5
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02047F58:
 	add r8, r8, #1
 	cmp r8, #4
@@ -7384,7 +7384,7 @@ FUN_02047f8c: ; 0x02047F8C
 	ldr r7, [sp, #0x30]
 	mov r11, r3
 	str r4, [sp, #8]
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r9
@@ -7412,7 +7412,7 @@ _02048010:
 	mov r2, r8
 	mov r3, r11
 	str r12, [sp, #8]
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r4
@@ -7461,7 +7461,7 @@ _020480D0:
 	mla r0, r5, r10, r9
 	mov r1, r7
 	mov r2, r6
-	bl FUN_02049178
+	bl _ZN23CSceneScriptFileContext18compareTypeAndCodeEll
 	cmp r0, #0
 	beq _02048120
 	mov r6, #0
@@ -7516,7 +7516,7 @@ FUN_02048178: ; 0x02048178
 	mov r4, #0x1b8
 _02048190:
 	mla r0, r5, r4, r6
-	bl FUN_020491b0
+	bl _ZN23CSceneScriptFileContext12FUN_020491b0Ev
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -7528,7 +7528,7 @@ _02048190:
 _020481B8:
 	mov r0, #0x1b8
 	mla r0, r1, r0, r6
-	bl FUN_020491b0
+	bl _ZN23CSceneScriptFileContext12FUN_020491b0Ev
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_02048178
 
@@ -7547,7 +7547,7 @@ FUN_020481c8: ; 0x020481C8
 	str r3, [sp]
 	mov r2, r4
 	stmib sp, {r3, r8}
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r9
@@ -7568,7 +7568,7 @@ _02048234:
 	mov r2, r11
 	mov r3, r5
 	stmib sp, {r5, r8}
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r6
@@ -7597,7 +7597,7 @@ FUN_02048288: ; 0x02048288
 	mov r7, r1
 	mov r0, #0x1b8
 	mla r0, r7, r0, r8
-	bl FUN_0204912c
+	bl _ZN23CSceneScriptFileContext5resetEv
 	ldr r0, _02048364 ; =0x02099E91
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -7721,7 +7721,7 @@ _02048440:
 	mla r0, r8, r7, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_02049178
+	bl _ZN23CSceneScriptFileContext18compareTypeAndCodeEll
 	cmp r0, #0
 	beq _02048468
 	mov r0, r6
@@ -7744,7 +7744,7 @@ FUN_0204847c: ; 0x0204847C
 	mov r4, #0x1b8
 _0204848C:
 	mla r0, r5, r4, r6
-	bl FUN_0204912c
+	bl _ZN23CSceneScriptFileContext5resetEv
 	add r5, r5, #1
 	cmp r5, #0xb
 	blt _0204848C
@@ -7798,7 +7798,7 @@ _02048518:
 	beq _02048538
 	sub r1, r0, #1
 	mla r0, r1, r4, r7
-	bl FUN_0204912c
+	bl _ZN23CSceneScriptFileContext5resetEv
 _02048538:
 	add r5, r5, #1
 	cmp r5, #0x10
@@ -7910,7 +7910,7 @@ _020486A8:
 	mov r1, r8
 	mov r2, r6
 	add r0, r9, r10
-	bl FUN_02049400
+	bl _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
 	movs r8, r0
 	beq _020486D8
 	mov r0, r4
@@ -8140,7 +8140,7 @@ _020489CC:
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _020489FC: .word unk_0208C438
-_02048A00: .word unk_0209A160
+_02048A00: .word gScreenFades
 	arm_func_end FUN_02048748
 
 	arm_func_start FUN_02048a04
@@ -8347,40 +8347,40 @@ FUN_02048c50: ; 0x02048C50
 	bx lr
 	arm_func_end FUN_02048c50
 
-	arm_func_start FUN_02048c5c
-FUN_02048c5c: ; 0x02048C5C
+	arm_func_start _ZN23CSceneScriptFileContextC1Ev
+_ZN23CSceneScriptFileContextC1Ev: ; 0x02048C5C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_0202fd38
+	bl _ZN16CSceneScriptDataC1Ev
 	mov r1, #0
 	mov r0, r4
 	str r1, [r4, #0x24]
 	str r1, [r4, #0x28]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02048c5c
+	arm_func_end _ZN23CSceneScriptFileContextC1Ev
 
-	arm_func_start FUN_02048c80
-FUN_02048c80: ; 0x02048C80
+	arm_func_start _ZN23CSceneScriptFileContextD1Ev
+_ZN23CSceneScriptFileContextD1Ev: ; 0x02048C80
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #4
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02048c80
+	arm_func_end _ZN23CSceneScriptFileContextD1Ev
 
-	arm_func_start FUN_02048c98
-FUN_02048c98: ; 0x02048C98
+	arm_func_start _ZN23CSceneScriptFileContext11linkManagerEP19CSceneScriptManager
+_ZN23CSceneScriptFileContext11linkManagerEP19CSceneScriptManager: ; 0x02048C98
 	mov r2, #0
 	str r1, [r0]
 	str r2, [r0, #0x24]
 	str r2, [r0, #0x28]
 	bx lr
-	arm_func_end FUN_02048c98
+	arm_func_end _ZN23CSceneScriptFileContext11linkManagerEP19CSceneScriptManager
 
-	arm_func_start FUN_02048cac
-FUN_02048cac: ; 0x02048CAC
+	arm_func_start _ZN23CSceneScriptFileContext10openScriptEimPvS0_i ; https://decomp.me/scratch/AN5nQ
+_ZN23CSceneScriptFileContext10openScriptEimPvS0_i: ; 0x02048CAC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x108
 	sub r1, r1, #9
@@ -8410,7 +8410,7 @@ FUN_02048cac: ; 0x02048CAC
 	mov r1, r9
 	add r3, sp, #0x10
 	str r6, [r7]
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	moveq r0, #0
 	addeq sp, sp, #0x108
@@ -8440,7 +8440,7 @@ FUN_02048cac: ; 0x02048CAC
 	add r2, sp, #0x1c
 	mov r3, r11
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	mov r1, r6
 	ldr r6, _0204901C ; =gAllocator
 	mov r0, r6
@@ -8464,7 +8464,7 @@ FUN_02048cac: ; 0x02048CAC
 	mov r3, r11
 	add r2, r10, #0x1c
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	b _02048E28
 _02048E00:
 	ldr r1, [sp, #0x14]
@@ -8476,7 +8476,7 @@ _02048E00:
 	mov r3, r11
 	add r2, r10, #0x1c
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
 _02048E28:
 	movs r5, r0
 	mov r0, #0
@@ -8504,7 +8504,7 @@ _02048E28:
 	add r2, sp, #0x14
 	add r3, sp, #0x10
 	mov r1, r9
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	ldrne r0, [sp, #0x14]
 	strne r0, [r10, #0x174]
@@ -8514,7 +8514,7 @@ _02048EA8:
 	add r4, sp, #0xc8
 	mov r0, r10
 	mov r1, r4
-	bl FUN_0204927c
+	bl _ZN23CSceneScriptFileContext17getScriptFileNameEPc
 	ldr r1, _02049024 ; =0x02090374
 	add r0, r10, #0x178
 	bl STD_CopyString
@@ -8533,7 +8533,7 @@ _02048EF0:
 	add r5, sp, #0xc8
 	mov r0, r10
 	mov r1, r5
-	bl FUN_0204927c
+	bl _ZN23CSceneScriptFileContext17getScriptFileNameEPc
 	add r6, sp, #0x88
 	ldr r1, _0204902C ; =0x02090390
 	mov r0, r6
@@ -8560,7 +8560,7 @@ _02048EF0:
 	mov r3, r5
 	add r2, r10, #0x1c
 	str r8, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
 	b _02048FA0
 _02048F70:
 	cmp r0, #0
@@ -8574,7 +8574,7 @@ _02048F70:
 	mov r3, r5
 	add r2, r10, #0x1c
 	str r8, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02048FA0:
 	mov r5, r0
 _02048FA4:
@@ -8616,10 +8616,10 @@ _02049028: .word unk_02090388
 _0204902C: .word unk_02090390
 _02049030: .word unk_020903A4
 _02049034: .word unk_020903B8
-	arm_func_end FUN_02048cac
+	arm_func_end _ZN23CSceneScriptFileContext10openScriptEimPvS0_i
 
-	arm_func_start FUN_02049038
-FUN_02049038: ; 0x02049038
+	arm_func_start _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i ; https://decomp.me/scratch/IOG88
+_ZN23CSceneScriptFileContext10loadScriptEillPvS0_i: ; 0x02049038
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	mov r4, r0
@@ -8640,7 +8640,7 @@ FUN_02049038: ; 0x02049038
 	mov r5, #0
 	ldr r3, [sp, #0x58]
 	str r5, [sp, #4]
-	bl FUN_02048cac
+	bl _ZN23CSceneScriptFileContext10openScriptEimPvS0_i
 	cmp r0, #0
 	addlt sp, sp, #0x48
 	sublt r0, r5, #1
@@ -8649,19 +8649,19 @@ _0204909C:
 	ldr r1, [r4, #0x1c]
 	ldr r2, _02049124 ; =SSD_FileIdentifier
 	add r0, r4, #4
-	bl SSD_InitFile
+	bl _ZN16CSceneScriptData8initFileEPvPKc
 	cmp r0, #0
 	bne _020490C0
 	add r1, sp, #8
 	mov r0, r4
-	bl FUN_0204927c
+	bl _ZN23CSceneScriptFileContext17getScriptFileNameEPc
 _020490C0:
 	mov r1, #0
 	ldr r5, _02049128 ; =0x00003001
 	str r1, [r4, #0x20]
 _020490CC:
 	mov r0, r4
-	bl SSD_GetNextInstructionWraper
+	bl _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
 	movs r1, r0
 	beq _020490F4
 	ldrh r0, [r1, #4]
@@ -8685,10 +8685,10 @@ _020490F4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02049124: .word SSD_FileIdentifier
 _02049128: .word 0x00003001
-	arm_func_end FUN_02049038
+	arm_func_end _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 
-	arm_func_start FUN_0204912c
-FUN_0204912c: ; 0x0204912C
+	arm_func_start _ZN23CSceneScriptFileContext5resetEv
+_ZN23CSceneScriptFileContext5resetEv: ; 0x0204912C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5, #0x1c]
@@ -8698,7 +8698,7 @@ FUN_0204912c: ; 0x0204912C
 	mov r1, r4
 	mov r2, r4
 	add r0, r5, #4
-	bl SSD_InitFile
+	bl _ZN16CSceneScriptData8initFileEPvPKc
 	ldr r1, [r5, #0x1c]
 	ldr r0, _02049174 ; =gAllocator
 	bl _ZN9Allocator10deallocateEPv
@@ -8708,10 +8708,10 @@ FUN_0204912c: ; 0x0204912C
 	str r4, [r5, #0x1c]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02049174: .word gAllocator
-	arm_func_end FUN_0204912c
+	arm_func_end _ZN23CSceneScriptFileContext5resetEv
 
-	arm_func_start FUN_02049178
-FUN_02049178: ; 0x02049178
+	arm_func_start _ZN23CSceneScriptFileContext18compareTypeAndCodeEll
+_ZN23CSceneScriptFileContext18compareTypeAndCodeEll: ; 0x02049178
 	ldr r3, [r0, #0x24]
 	cmp r3, r1
 	ldreq r0, [r0, #0x28]
@@ -8719,10 +8719,10 @@ FUN_02049178: ; 0x02049178
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_02049178
+	arm_func_end _ZN23CSceneScriptFileContext18compareTypeAndCodeEll
 
-	arm_func_start FUN_02049194
-FUN_02049194: ; 0x02049194
+	arm_func_start _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
+_ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_: ; 0x02049194
 	cmp r1, #0
 	ldrne r3, [r0, #0x24]
 	strne r3, [r1]
@@ -8730,10 +8730,10 @@ FUN_02049194: ; 0x02049194
 	ldrne r0, [r0, #0x28]
 	strne r0, [r2]
 	bx lr
-	arm_func_end FUN_02049194
+	arm_func_end _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
 
-	arm_func_start FUN_020491b0
-FUN_020491b0: ; 0x020491B0
+	arm_func_start _ZN23CSceneScriptFileContext12FUN_020491b0Ev ; https://decomp.me/scratch/BE2Ar
+_ZN23CSceneScriptFileContext12FUN_020491b0Ev: ; 0x020491B0
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x40
 	mov r5, r0
@@ -8761,19 +8761,19 @@ _020491FC:
 	ldr r1, [r5, #0x1c]
 	ldr r2, _02049274 ; =SSD_FileIdentifier2
 	add r0, r5, #4
-	bl SSD_InitFile
+	bl _ZN16CSceneScriptData8initFileEPvPKc
 	cmp r0, #0
 	bne _02049230
 	add r1, sp, #0
 	mov r0, r5
-	bl FUN_0204927c
+	bl _ZN23CSceneScriptFileContext17getScriptFileNameEPc
 _02049230:
 	mov r1, #0
 	ldr r4, _02049278 ; =0x00003001
 	str r1, [r5, #0x20]
 _0204923C:
 	mov r0, r5
-	bl SSD_GetNextInstructionWraper
+	bl _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
 	movs r1, r0
 	beq _02049264
 	ldrh r0, [r1, #4]
@@ -8789,10 +8789,10 @@ _02049264:
 _02049270: .word gAllocator
 _02049274: .word SSD_FileIdentifier2
 _02049278: .word 0x00003001
-	arm_func_end FUN_020491b0
+	arm_func_end _ZN23CSceneScriptFileContext12FUN_020491b0Ev
 
-	arm_func_start FUN_0204927c
-FUN_0204927c: ; 0x0204927C
+	arm_func_start _ZN23CSceneScriptFileContext17getScriptFileNameEPc ; https://decomp.me/scratch/XqqsL
+_ZN23CSceneScriptFileContext17getScriptFileNameEPc: ; 0x0204927C
 	stmfd sp!, {r3, lr}
 	mov r2, r0
 	ldr r0, [r2, #0x24]
@@ -8837,10 +8837,10 @@ _020492FC: .word unk_020903C8
 _02049300: .word unk_020903D8
 _02049304: .word unk_020903E8
 _02049308: .word unk_020903F8
-	arm_func_end FUN_0204927c
+	arm_func_end _ZN23CSceneScriptFileContext17getScriptFileNameEPc
 
-	arm_func_start FUN_0204930c
-FUN_0204930c: ; 0x0204930C
+	arm_func_start _ZN23CSceneScriptFileContext19saveScriptFileStateEP21SScriptFileRecordData
+_ZN23CSceneScriptFileContext19saveScriptFileStateEP21SScriptFileRecordData: ; 0x0204930C
 	stmfd sp!, {r3, lr}
 	mov r3, #0
 	str r3, [r1, #4]
@@ -8859,10 +8859,10 @@ FUN_0204930c: ; 0x0204930C
 	bl MI_CpuCopy8
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0204930c
+	arm_func_end _ZN23CSceneScriptFileContext19saveScriptFileStateEP21SScriptFileRecordData
 
-	arm_func_start FUN_02049354
-FUN_02049354: ; 0x02049354
+	arm_func_start _ZN23CSceneScriptFileContext19loadScriptFileStateEiP21SScriptFileRecordDataPvS2_ ; https://decomp.me/scratch/9H8lL
+_ZN23CSceneScriptFileContext19loadScriptFileStateEiP21SScriptFileRecordDataPvS2_: ; 0x02049354
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #0xc
 	mov r5, r2
@@ -8881,7 +8881,7 @@ FUN_02049354: ; 0x02049354
 	str r4, [sp, #8]
 	ldr r3, [r5, #4]
 	mov r0, r6
-	bl FUN_02049038
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	moveq r0, r4
@@ -8897,7 +8897,7 @@ FUN_02049354: ; 0x02049354
 	mov r0, #1
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_02049354
+	arm_func_end _ZN23CSceneScriptFileContext19loadScriptFileStateEiP21SScriptFileRecordDataPvS2_
 
 	arm_func_start FUN_020493dc
 FUN_020493dc: ; 0x020493DC
@@ -8908,16 +8908,16 @@ FUN_020493dc: ; 0x020493DC
 	bx lr
 	arm_func_end FUN_020493dc
 
-	arm_func_start SSD_GetNextInstructionWraper
-SSD_GetNextInstructionWraper: ; 0x020493F0
-	ldr r12, _020493FC ; =SSD_GetNextInstruction
+	arm_func_start _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
+_ZN23CSceneScriptFileContext4nextEP17ScriptInstruction: ; 0x020493F0
+	ldr r12, _020493FC ; =_ZN16CSceneScriptData4nextEP17ScriptInstruction
 	add r0, r0, #4
 	bx r12
-_020493FC: .word SSD_GetNextInstruction
-	arm_func_end SSD_GetNextInstructionWraper
+_020493FC: .word _ZN16CSceneScriptData4nextEP17ScriptInstruction
+	arm_func_end _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
 
-	arm_func_start FUN_02049400
-FUN_02049400: ; 0x02049400
+	arm_func_start _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
+_ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions: ; 0x02049400
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldr r0, [r5, #0x1c]
@@ -8928,7 +8928,7 @@ FUN_02049400: ; 0x02049400
 	ldr r6, _02049478 ; =0x00003001
 _02049420:
 	mov r0, r5
-	bl SSD_GetNextInstructionWraper
+	bl _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
 	movs r1, r0
 	beq _02049470
 	ldrh r0, [r1, #4]
@@ -8951,7 +8951,7 @@ _02049470:
 	mov r0, r1
 	ldmfd sp!, {r4, r5, r6, pc}
 _02049478: .word 0x00003001
-	arm_func_end FUN_02049400
+	arm_func_end _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
 
 	arm_func_start FUN_0204947c
 FUN_0204947c: ; 0x0204947C
@@ -9190,7 +9190,7 @@ _02049710:
 _02049728: .word unk_020A0640
 _0204972C: .word unk_020A0648
 _02049730: .word unk_0209A2C0
-_02049734: .word unk_02099EF0
+_02049734: .word gUtilGame
 	arm_func_end FUN_020495e8
 
 	arm_func_start FUN_02049738
@@ -10061,7 +10061,7 @@ _0204A23C:
 	mov r12, #1
 	add r2, sp, #0x1c
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0204A27C:
 	cmp r0, #0
 	moveq r0, #0
@@ -10408,7 +10408,7 @@ _0204A734:
 	mov r0, #0
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0204A740: .word unk_02099EF0
+_0204A740: .word gUtilGame
 _0204A744: .word 0x00060001
 _0204A748: .word 0x00000FFF
 	arm_func_end FUN_0204a394
@@ -10967,7 +10967,7 @@ _0204AE94:
 	mov r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0204AEAC: .word unk_02099EF0
+_0204AEAC: .word gUtilGame
 	arm_func_end FUN_0204ad5c
 
 	arm_func_start FUN_0204aeb0
@@ -11210,7 +11210,7 @@ _0204B198:
 	mov r2, r5
 	bl FUN_0204b0c4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0204B1AC: .word unk_02099EF0
+_0204B1AC: .word gUtilGame
 _0204B1B0: .word gLogicThink
 _0204B1B4: .word 0x51EB851F
 	arm_func_end FUN_0204b114
@@ -12214,7 +12214,7 @@ _0204BE84:
 	add r2, sp, #0x14
 	mov r0, r6
 	str r8, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0204BEE8:
 	cmp r0, #0
 	addeq sp, sp, #0x68
@@ -12253,7 +12253,7 @@ _0204BF20:
 	add r2, sp, #0x10
 	mov r0, r12
 	str r8, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0204BF7C:
 	cmp r0, #0
 	mov r6, #1
@@ -12384,7 +12384,7 @@ _0204C104:
 	str r8, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0204C168:
 	cmp r0, #0
 	addeq sp, sp, #0x78
@@ -16415,7 +16415,7 @@ _0204F7E8:
 	beq _0204F828
 	bl FUN_0204fbe8
 	mov r1, r0
-	ldr r0, _0204F884 ; =0x0209A0AC
+	ldr r0, _0204F884 ; =gUnitMan
 	bl FUN_0206c718
 	b _0204F834
 _0204F828:
@@ -16444,7 +16444,7 @@ _0204F854:
 	bl _s32_div_f
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0204F880: .word gLogicThink
-_0204F884: .word unk_0209A0AC
+_0204F884: .word gUnitMan
 	arm_func_end FUN_0204f7c0
 
 	arm_func_start FUN_0204f888
@@ -16657,7 +16657,7 @@ FUN_0204fb20: ; 0x0204FB20
 	mov r0, #0x44
 	smlabb r0, r1, r0, r2
 	bx lr
-_0204FB54: .word unk_02099EF0
+_0204FB54: .word gUtilGame
 	arm_func_end FUN_0204fb20
 
 	arm_func_start FUN_0204fb58
@@ -19284,8 +19284,8 @@ _02051C08:
 	bx lr
 	arm_func_end FUN_02051bb8
 
-	arm_func_start FUN_02051c10
-FUN_02051c10: ; 0x02051C10
+	arm_func_start _ZN15ResourceManager12FUN_02051c10Ev
+_ZN15ResourceManager12FUN_02051c10Ev: ; 0x02051C10
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl GX_GetBankForTex
@@ -19314,7 +19314,7 @@ _02051C3C:
 	ldmfd sp!, {r4, pc}
 _02051C74: .word 0x04000006
 _02051C78: .word 0x04000600
-	arm_func_end FUN_02051c10
+	arm_func_end _ZN15ResourceManager12FUN_02051c10Ev
 
 	arm_func_start FUN_02051c7c
 FUN_02051c7c: ; 0x02051C7C
@@ -19763,11 +19763,11 @@ _0205220C:
 	ldr r1, [r6, #8]
 	beq _02052238
 	mla r1, r5, r8, r1
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	b _02052240
 _02052238:
 	mla r1, r5, r7, r1
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 _02052240:
 	ldr r0, [r6, #4]
 	add r5, r5, #1
@@ -19785,10 +19785,10 @@ _02052258:
 	mla r1, r5, r1, r2
 	cmp r4, #0
 	beq _02052280
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	b _02052284
 _02052280:
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 _02052284:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -19805,7 +19805,7 @@ FUN_0205228c: ; 0x0205228C
 	bge _020522C4
 	ldr r0, [r0, #8]
 	mov r1, r2
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	beq _020522E4
 	mov r0, #0
@@ -19815,7 +19815,7 @@ _020522C4:
 	mov r0, #0xc
 	mla r0, r1, r0, r2
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, pc}
@@ -19846,9 +19846,9 @@ _02052324:
 	mov r1, r11
 	add r8, r7, r6
 	mov r0, r8
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r8
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	str r5, [r7, r6]
 	str r5, [r8, #4]
 	strb r5, [r8, #8]
@@ -19866,9 +19866,9 @@ _0205236C:
 	mov r1, #1
 	add r6, r5, r4
 	mov r0, r6
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r6
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, #0
 	str r0, [r5, r4]
 	str r0, [r6, #4]
@@ -20064,7 +20064,7 @@ FUN_020525e8: ; 0x020525E8
 	ldr r1, [r1, #0x20]
 	blx r1
 	add r0, r4, #0xc
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02052614: .word ov16_02118880
@@ -20099,7 +20099,7 @@ _ZN14C3DMagicCameraC1Ev: ; 0x02052618
 	ldr r1, _0205273C ; =0x02118880
 	add r0, r4, #0x238
 	str r1, [r4, #0x22c]
-	bl FUN_0202fd38
+	bl _ZN16CSceneScriptDataC1Ev
 	add r0, r4, #0x22c
 	ldr r1, [r0]
 	ldr r1, [r1, #8]
@@ -20238,7 +20238,7 @@ FUN_02052820: ; 0x02052820
 	ldr r1, [r1, #0x20]
 	blx r1
 	add r0, r5, #0x238
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	add r0, r5, #0x210
 	bl FUN_ov16_0211111c
 	add r0, r5, #0x120
@@ -20274,7 +20274,7 @@ FUN_020528a0: ; 0x020528A0
 	ldr r1, [r1, #0x20]
 	blx r1
 	add r0, r5, #0x238
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	add r0, r5, #0x210
 	bl FUN_ov16_0211111c
 	add r0, r5, #0x120
@@ -20318,7 +20318,7 @@ FUN_02052940: ; 0x02052940
 	ldmnefd sp!, {r3, pc}
 	ldr r0, _02052968 ; =0x02090644
 	add r1, r1, #4
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	ldmfd sp!, {r3, pc}
 _02052968: .word unk_02090644
 	arm_func_end FUN_02052940
@@ -20329,9 +20329,9 @@ FUN_0205296c: ; 0x0205296C
 	mov r4, r0
 	add r0, r4, #4
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r4, #4
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, #0
 	str r0, [r4, #4]
 	str r0, [r4, #8]
@@ -20354,7 +20354,7 @@ FUN_020529a4: ; 0x020529A4
 	ldmnefd sp!, {r3, pc}
 	add r0, r0, #4
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_020529a4
 
@@ -20391,7 +20391,7 @@ _02052A34:
 	mov r1, r8
 	str r5, [r7, #0x10]
 	strb r5, [r7, #0x14]
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	moveq r0, r5
@@ -20412,7 +20412,7 @@ _02052A34:
 	str r4, [sp, #8]
 	add r2, r7, #0x340
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
 	mov r5, r0
 _02052AA8:
 	b _02052AE0
@@ -20428,7 +20428,7 @@ _02052AAC:
 	str r4, [sp, #8]
 	add r2, r7, #0x340
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	mov r5, r0
 _02052AE0:
 	str r5, [r7, #0x344]
@@ -25530,14 +25530,14 @@ _02056C14:
 	strb r7, [r9, #0x17]
 	ldrh r0, [sp, #0x5c]
 	ldr r1, [sp, #0x98]
-	bl FUN_ov16_020f3ba4
+	bl _ZN7Archive20GetOverworldHeadCodeEii
 	mov r1, r0
 	mov r2, r8
 	add r0, r5, #0x28
 	bl FUN_0205649c
 	strb r0, [r9, #1]
 	ldrh r0, [sp, #0x5e]
-	bl FUN_ov16_020f3bb0
+	bl _ZN7Archive24GetOverworldHeadPlttCodeEi
 	mov r1, r0
 	add r0, r5, #0x70
 	mov r2, r8
@@ -25547,7 +25547,7 @@ _02056C14:
 	ldr r1, [sp, #0x90]
 	ldr r2, [sp, #0x94]
 	ldr r3, [sp, #0x98]
-	bl FUN_ov16_020f3bb4
+	bl _ZN7Archive20GetOverworldBodyCodeEiiii
 	mov r1, r0
 	add r0, r5, #4
 	mov r2, r8
@@ -25555,7 +25555,7 @@ _02056C14:
 	strb r0, [r9]
 	ldr r0, [sp, #0x90]
 	ldr r1, [sp, #0x94]
-	bl FUN_ov16_020f3c08
+	bl _ZN7Archive20GetOverworldBodyCodeEii
 	mov r1, r0
 	add r0, r5, #0x4c
 	mov r2, r8
@@ -25738,7 +25738,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldrh r0, [sp, #0x54]
 	ldr r1, [sp, #0x188]
-	bl FUN_ov16_020f3ba4
+	bl _ZN7Archive20GetOverworldHeadCodeEii
 	mov r4, r0
 	add r6, sp, #0x68
 	ldr r1, _02057010 ; =0x02090744
@@ -25752,7 +25752,7 @@ FUN_02056ed4: ; 0x02056ED4
 	mov r2, r6
 	bl FUN_02056258
 	ldrh r0, [sp, #0x56]
-	bl FUN_ov16_020f3bb0
+	bl _ZN7Archive24GetOverworldHeadPlttCodeEi
 	mov r4, r0
 	ldr r1, _02057014 ; =0x02090754
 	mov r0, r6
@@ -25772,7 +25772,7 @@ FUN_02056ed4: ; 0x02056ED4
 	ldr r3, [sp, #0x188]
 	mov r1, r9
 	mov r2, r8
-	bl FUN_ov16_020f3bb4
+	bl _ZN7Archive20GetOverworldBodyCodeEiiii
 	mov r7, r0
 	ldr r1, _02057018 ; =0x02090760
 	mov r0, r6
@@ -25785,7 +25785,7 @@ FUN_02056ed4: ; 0x02056ED4
 	bl FUN_02056258
 	mov r0, r9
 	mov r1, r8
-	bl FUN_ov16_020f3c08
+	bl _ZN7Archive20GetOverworldBodyCodeEii
 	mov r5, r0
 	ldr r1, _0205701C ; =0x02090770
 	mov r0, r6
@@ -26174,7 +26174,7 @@ _02057490:
 	mov r0, r4
 	mov r2, r7
 	bl MIi_CpuCopyFast
-	ldr r1, _02057694 ; =pLogic_PalSkin2dFile
+	ldr r1, _02057694 ; =gPalSkin2dFile
 	ldr r0, [sp, #0x10]
 	ldr r2, [r1]
 	ldrb r1, [r6, #0x12]
@@ -26245,13 +26245,13 @@ _02057604:
 	mov r0, r5
 	mov r2, #0x20
 	bl MIi_CpuCopyFast
-	ldr r0, _02057694 ; =pLogic_PalSkin2dFile
+	ldr r0, _02057694 ; =gPalSkin2dFile
 	str r8, [sp]
 	ldr r1, [r0]
-	ldr r0, _02057698 ; =pLogic_GlovesInfoFile
+	ldr r0, _02057698 ; =gGlovesInfoFile
 	str r1, [sp, #4]
 	ldr r1, [r0]
-	ldr r0, _0205769C ; =pLogic_ShoesInfoFile
+	ldr r0, _0205769C ; =gShoesInfoFile
 	str r1, [sp, #8]
 	ldr r0, [r0]
 	mov r3, r11
@@ -26279,9 +26279,9 @@ _02057684:
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02057690: .word g3DSpriteCtrl
-_02057694: .word pLogic_PalSkin2dFile
-_02057698: .word pLogic_GlovesInfoFile
-_0205769C: .word pLogic_ShoesInfoFile
+_02057694: .word gPalSkin2dFile
+_02057698: .word gGlovesInfoFile
+_0205769C: .word gShoesInfoFile
 	arm_func_end FUN_02057334
 
 	arm_func_start FUN_020576a0
@@ -27710,7 +27710,7 @@ _020588AC:
 	add r2, sp, #0x48
 	mov r1, r8
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
 	b _02058954
 _02058920:
 	ldr r3, _02058A0C ; =gAllocator
@@ -27725,7 +27725,7 @@ _02058920:
 	add r2, sp, #0x48
 	mov r1, r8
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _02058954:
 	mov r4, r0
 _02058958:
@@ -29651,7 +29651,7 @@ FUN_0205a2f0: ; 0x0205A2F0
 	ldr r1, _0205A320 ; =0x02118880
 	add r0, r4, #0xc
 	str r1, [r4]
-	bl FUN_0202fd38
+	bl _ZN16CSceneScriptDataC1Ev
 	mov r0, r4
 	ldr r1, [r0]
 	ldr r1, [r1, #8]
@@ -29691,7 +29691,7 @@ FUN_0205a324: ; 0x0205A324
 	ldr r5, _0205A3EC ; =0x02118880
 	add r0, r6, #0xc
 	str r5, [r4, #0x748]
-	bl FUN_0202fd38
+	bl _ZN16CSceneScriptDataC1Ev
 	mov r0, r6
 	ldr r1, [r0]
 	ldr r1, [r1, #8]
@@ -29699,7 +29699,7 @@ FUN_0205a324: ; 0x0205A324
 	str r5, [r4, #0x860]
 	add r5, r4, #0x860
 	add r0, r5, #0xc
-	bl FUN_0202fd38
+	bl _ZN16CSceneScriptDataC1Ev
 	mov r0, r5
 	ldr r1, [r0]
 	ldr r1, [r1, #8]
@@ -29760,7 +29760,7 @@ FUN_0205a460: ; 0x0205A460
 	ldr r1, [r1, #0x20]
 	blx r1
 	add r0, r5, #0xc
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	add r0, r6, #0x348
 	add r5, r0, #0x400
 	mov r0, r5
@@ -29769,7 +29769,7 @@ FUN_0205a460: ; 0x0205A460
 	ldr r1, [r1, #0x20]
 	blx r1
 	add r0, r5, #0xc
-	bl FUN_0202fd44
+	bl _ZN16CSceneScriptDataD1Ev
 	add r0, r6, #0x720
 	mov r1, #2
 	mov r2, #0x14
@@ -30324,14 +30324,14 @@ _0205ABE4:
 	mov r2, r5
 	mov r3, r4
 	mov r6, r0
-	bl FUN_ov16_020f395c
+	bl _ZN7Archive22GetCharacterMotionPathEP4UnitiPcS2_
 	add r0, sp, #4
 	str r0, [sp]
 	ldrb r1, [r6, #0x5c]
 	ldr r0, [r10, #0x84]
 	mov r2, r9
 	add r3, sp, #8
-	bl FUN_ov16_020f3afc
+	bl _ZN7Archive31GetCharacterMotionSizeAndOffsetEPviiPlPm
 	cmp r0, #0
 	addeq sp, sp, #0x10c
 	moveq r0, r7
@@ -30897,7 +30897,7 @@ _0205B2FC:
 	bl sprintf
 	mov r0, r6
 	mov r1, r9
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	sub r9, r9, #0xc
 	subs r10, r10, #1
 	bpl _0205B2FC
@@ -30925,7 +30925,7 @@ FUN_0205b340: ; 0x0205B340
 _0205B36C:
 	add r0, r4, #0x18
 	mov r1, #0xa
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #2
@@ -30943,12 +30943,12 @@ FUN_0205b398: ; 0x0205B398
 	mov r4, r0
 	add r0, r4, #0x18
 	mov r1, #0xa
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r4, r4, #0x84
 	mov r5, #9
 _0205B3B4:
 	mov r0, r4
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	sub r4, r4, #0xc
 	subs r5, r5, #1
 	bpl _0205B3B4
@@ -31620,7 +31620,7 @@ _0205BC88:
 	add sp, sp, #0x74
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0205BC94: .word g3DGameMap
-_0205BC98: .word unk_02099EF0
+_0205BC98: .word gUtilGame
 _0205BC9C: .word g3DGameChar
 _0205BCA0: .word FX_SinCosTable_
 	arm_func_end FUN_0205b9b8
@@ -31961,7 +31961,7 @@ _0205C110:
 	bl NNS_G3dGeBufferOP_N
 	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0205C148: .word unk_02099EF0
+_0205C148: .word gUtilGame
 _0205C14C: .word 0x00000101
 	arm_func_end FUN_0205c060
 
@@ -32032,7 +32032,7 @@ _0205C200:
 	bl NNS_G3dGeBufferOP_N
 	bl NNS_G3dGlbFlushP
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0205C238: .word unk_02099EF0
+_0205C238: .word gUtilGame
 _0205C23C: .word 0x00000101
 	arm_func_end FUN_0205c150
 
@@ -32074,7 +32074,7 @@ FUN_0205C240: ; 0x0205C240
 	ldr r0, [r0]
 	add r3, sp, #0x10
 	mov r1, r8
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	addeq sp, sp, #0x1c
 	subeq r0, r4, #1
@@ -32822,7 +32822,7 @@ _0205CC10:
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	add r1, sp, #0
-	bl FUN_ov16_020f3c28
+	bl _ZN7Archive14GetMapNameHashEPvPKc
 	str r0, [r4]
 	mov r0, #1
 	add sp, sp, #0x10
@@ -33660,7 +33660,7 @@ FUN_0205d734: ; 0x0205D734
 	add r4, sp, #0x1c
 	mov r0, r8
 	mov r1, r4
-	bl FUN_ov16_020f3b18
+	bl _ZN7Archive15GetMapModelPathEPKcPc
 	mov r1, #7
 	str r1, [sp, #0x14]
 	mov r0, r9
@@ -33680,7 +33680,7 @@ FUN_0205d734: ; 0x0205D734
 	ldr r0, [r2, r0]
 	add r2, sp, #0xc
 	add r3, sp, #8
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0205D848
 	mov r0, r9
@@ -33824,7 +33824,7 @@ FUN_0205d9a4: ; 0x0205D9A4
 	add r4, sp, #0x20
 	mov r0, r6
 	mov r1, r4
-	bl FUN_ov16_020f3b50
+	bl _ZN7Archive17GetMapTexturePathEPKcPc
 	mov r1, #9
 	str r1, [sp, #0x1c]
 	mov r0, r8
@@ -33845,7 +33845,7 @@ FUN_0205d9a4: ; 0x0205D9A4
 	ldr r0, [r2, r0]
 	add r2, sp, #0x14
 	add r3, sp, #0x10
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0205DAB0
 	mov r0, r8
@@ -33915,7 +33915,7 @@ FUN_0205daf0: ; 0x0205DAF0
 	add r8, sp, #4
 	mov r0, r6
 	mov r1, r8
-	bl FUN_ov16_020f3b34
+	bl _ZN7Archive16GetMapMotionPathEPKcPc
 	ldr r1, _0205DBD4 ; =0x02090B34
 	mov r0, r8
 	mov r2, r6
@@ -33980,7 +33980,7 @@ FUN_0205dbdc: ; 0x0205DBDC
 	add r5, sp, #0x20
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov16_020f3b34
+	bl _ZN7Archive16GetMapMotionPathEPKcPc
 	ldr r9, _0205DD34 ; =gNsbResourceMan
 	ldr r1, [r6, #0x60]
 	ldr r0, [r9]
@@ -34006,7 +34006,7 @@ FUN_0205dbdc: ; 0x0205DBDC
 	ldr r0, [r2, r0]
 	add r2, sp, #0x14
 	add r3, sp, #0x10
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0205DCF4
 	mov r0, r8
@@ -34710,7 +34710,7 @@ _0205E564:
 	cmp r3, #6
 	bne _0205E5A8
 	add r1, sp, #0
-	bl FUN_ov16_020f3c28
+	bl _ZN7Archive14GetMapNameHashEPvPKc
 	b _0205E5B0
 _0205E5A8:
 	add r0, sp, #0
@@ -34843,7 +34843,7 @@ FUN_0205e71c: ; 0x0205E71C
 	mov r4, r2
 	mov r0, r1
 	mov r1, r4
-	bl FUN_ov16_020f3b6c
+	bl _ZN7Archive21GetMapObjectModelPathEPKcPc
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205e71c
@@ -34854,7 +34854,7 @@ FUN_0205e738: ; 0x0205E738
 	mov r4, r2
 	mov r0, r1
 	mov r1, r4
-	bl FUN_ov16_020f3b88
+	bl _ZN7Archive16GetBallModelPathEPKcPc
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205e738
@@ -35819,7 +35819,7 @@ FUN_0205f3d0: ; 0x0205F3D0
 	ldr r0, [r2, r0]
 	add r2, sp, #0xc
 	add r3, sp, #8
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0205F4AC
 	mov r0, r9
@@ -36108,7 +36108,7 @@ _0205F7E0:
 	add r2, sp, #0x18
 	add r3, sp, #0x14
 	mov r9, #1
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _0205F8B0
 	mov r0, r7
@@ -36695,7 +36695,7 @@ FUN_0205ff98: ; 0x0205FF98
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ff98
 
-	arm_func_start FUN_0205ffb0
+	arm_func_start FUN_0205ffb0 ; https://decomp.me/scratch/FlRgZ
 FUN_0205ffb0: ; 0x0205FFB0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x20c
@@ -36991,7 +36991,7 @@ _020603BC: .word 0x00269EC3
 _020603C0: .word 0xB5BDCF5A
 	arm_func_end FUN_0205ffb0
 
-	arm_func_start FUN_020603c4
+	arm_func_start FUN_020603c4 ; https://decomp.me/scratch/OH2uE
 FUN_020603c4: ; 0x020603C4
 	mov r12, #0
 	mov r2, #1
@@ -38278,7 +38278,7 @@ _0206159C:
 	add r1, sp, #0x10
 	str r5, [sp, #0xc]
 	add r2, r4, #0xc
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	bne _020615E0
@@ -38424,8 +38424,8 @@ FUN_02061750: ; 0x02061750
 _020617D4: .word unk_020B5C60
 	arm_func_end FUN_02061750
 
-	arm_func_start FUN_020617d8
-FUN_020617d8: ; 0x020617D8
+	arm_func_start _ZN14CRecordManager10verifySaveEv
+_ZN14CRecordManager10verifySaveEv: ; 0x020617D8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -38661,7 +38661,7 @@ _02061B34: .word unk_02090DB4
 _02061B38: .word unk_020A17F0
 _02061B3C: .word unk_020A11DC
 _02061B40: .word unk_020A0640
-	arm_func_end FUN_020617d8
+	arm_func_end _ZN14CRecordManager10verifySaveEv
 
 	arm_func_start FUN_02061b44
 FUN_02061b44: ; 0x02061B44

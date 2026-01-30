@@ -217,9 +217,9 @@ typedef struct {
 } st_save_connection;
 
 typedef struct {
-    u16 scoutNum;
-    u16 scoutPracticeFlag;
-    u16 dummy;
+    u16 scoutNum:3;
+    u16 scoutPracticeFlag:10;
+    u16 dummy:3;
     u16 scoutUnitNo[5];
 } st_save_scout_data;
 

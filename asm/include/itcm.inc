@@ -201,7 +201,7 @@
 .public FUN_0206ed40
 .public unk_0209A11C
 .public unk_020A108A
-.public unk_0209A0AC
+.public gUnitMan
 .public FUN_ov132_021589d4
 .public FUN_ov126_0213922c
 .public FUN_ov126_021393a8

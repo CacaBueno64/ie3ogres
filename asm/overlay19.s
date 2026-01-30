@@ -30,7 +30,7 @@ FUN_ov19_02119f18: ; 0x02119F18
 	arm_func_start FUN_ov19_02119f2c
 FUN_ov19_02119f2c: ; 0x02119F2C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r3, _0211A0F4 ; =gSprAnimeCtrl
+	ldr r3, _0211A0F4 ; =gSprAnimCtrl
 	mov r6, r0
 	ldr r0, [r3]
 	mov r7, r1
@@ -151,7 +151,7 @@ _0211A0D8:
 	str r1, [r0, #4]
 	str r1, [r6, #0x1c0]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0211A0F4: .word gSprAnimeCtrl
+_0211A0F4: .word gSprAnimCtrl
 _0211A0F8: .word unk_0209A0F4
 _0211A0FC: .word gSprButtonCtrl
 _0211A100: .word ov19_0211C820
@@ -169,7 +169,7 @@ FUN_ov19_0211a104: ; 0x0211A104
 	mov r6, r1
 	ldr r8, _0211A41C ; =0x0211C820
 	bl FUN_ov16_0210f20c
-	ldr r1, _0211A420 ; =gSprAnimeCtrl
+	ldr r1, _0211A420 ; =gSprAnimCtrl
 	mov r5, r0
 	ldr r0, [r1]
 	bl FUN_ov16_0210e15c
@@ -371,7 +371,7 @@ _0211A400:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211A418: .word gSprButtonCtrl
 _0211A41C: .word ov19_0211C820
-_0211A420: .word gSprAnimeCtrl
+_0211A420: .word gSprAnimCtrl
 	arm_func_end FUN_ov19_0211a104
 
 	arm_func_start FUN_ov19_0211a424
@@ -422,11 +422,11 @@ _0211A4C0: .word unk_020A0640
 FUN_ov19_0211a4c4: ; 0x0211A4C4
 	mov r1, r0
 	ldr r0, _0211A4D8 ; =0x0211C7EC
-	ldr r12, _0211A4DC ; = FUN_ov16_020f316c
+	ldr r12, _0211A4DC ; = _ZN7Archive14RequestNewReadEPKcP9SFileData
 	add r1, r1, #0x130
 	bx r12
 _0211A4D8: .word ov19_0211C7EC
-_0211A4DC: .word FUN_ov16_020f316c
+_0211A4DC: .word _ZN7Archive14RequestNewReadEPKcP9SFileData
 	arm_func_end FUN_ov19_0211a4c4
 
 	arm_func_start FUN_ov19_0211a4e0
@@ -445,7 +445,7 @@ _0211A504:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _0211A504
@@ -462,9 +462,9 @@ FUN_ov19_0211a52c: ; 0x0211A52C
 	add r4, r6, #0x130
 	add r0, r4, r5
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r1, #0
 	str r1, [r4, r5]
 	add r0, r6, r5
@@ -490,14 +490,14 @@ FUN_ov19_0211a574: ; 0x0211A574
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl FUN_ov16_020f18e8
+	bl _ZN8Graphics12SetupTilemapEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A5CC
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl FUN_ov16_020f1a60
+	bl _ZN8Graphics14LoadBGXCharSubEiPvm
 	str r0, [r5]
 _0211A5CC:
 	cmp r6, #0
@@ -505,7 +505,7 @@ _0211A5CC:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #1
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211A5E4:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -600,7 +600,7 @@ FUN_ov19_0211a5ec: ; 0x0211A5EC
 	mov r2, r9
 	str r6, [sp, #4]
 	bl FUN_ov19_0211a574
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	arm_func_end FUN_ov19_0211a5ec
@@ -977,7 +977,7 @@ _0211AC68:
 _0211ACA8:
 	add r0, r5, #0x130
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, r5
@@ -994,7 +994,7 @@ _0211ACD0:
 	mov r0, r5
 	bl FUN_ov19_0211ab94
 	mov r0, #6
-	bl FUN_ov16_020f1490
+	bl _ZN8Graphics13FadeInScreensEl
 	mov r0, #4
 	str r0, [r5, #0x30]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -1007,7 +1007,7 @@ _0211AD00:
 	bl FUN_ov19_0211b034
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211AD1C:
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, r5
@@ -1062,8 +1062,8 @@ FUN_ov19_0211ad88: ; 0x0211AD88
 	mov r0, r6
 	bl FUN_ov19_0211b770
 	ldmfd sp!, {r4, r5, r6, pc}
-_0211ADE4: .word unk_020A8C40
-_0211ADE8: .word unk_020A9440
+_0211ADE4: .word gSubScreen1
+_0211ADE8: .word gSubScreen2
 	arm_func_end FUN_ov19_0211ad88
 
 	arm_func_start FUN_ov19_0211adec
@@ -1267,7 +1267,7 @@ FUN_ov19_0211b070: ; 0x0211B070
 	mov r4, #5
 	mov r0, #6
 	str r4, [r8, #4]
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r0, _0211B228 ; =0x021253E0
 	mov r1, #0
 	str r5, [r0, #4]
@@ -1283,7 +1283,7 @@ _0211B0C0:
 	ldr r1, _0211B220 ; =0x0211C820
 	mov r0, #6
 	str r0, [r1, #4]
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r0, _0211B228 ; =0x021253E0
 	mov r1, #1
 	str r1, [r0, #4]
@@ -1322,7 +1322,7 @@ _0211B15C:
 	mov r1, r4
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r0, _0211B228 ; =0x021253E0
 	mov r1, #0
 	str r4, [r0, #4]
@@ -1335,7 +1335,7 @@ _0211B190:
 	mov r1, #4
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	mov r0, #6
-	bl FUN_ov16_020f153c
+	bl _ZN8Graphics16FadeScreensBlackEl
 	ldr r0, _0211B228 ; =0x021253E0
 	mov r1, #1
 	str r1, [r0, #4]
@@ -1752,7 +1752,7 @@ _0211B70C:
 	cmp r12, #0
 	bgt _0211B6A8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0211B718: .word unk_020A8440
+_0211B718: .word gSubScreen0
 _0211B71C: .word 0x00000FFF
 	arm_func_end FUN_ov19_0211b668
 
@@ -1798,9 +1798,9 @@ FUN_ov19_0211b770: ; 0x0211B770
 	mov r2, r4
 	bl GXS_LoadBG0Scr
 	ldmfd sp!, {r3, r4, r5, pc}
-_0211B7B0: .word unk_020A9440
-_0211B7B4: .word unk_020A8C40
-_0211B7B8: .word unk_020A8440
+_0211B7B0: .word gSubScreen2
+_0211B7B4: .word gSubScreen1
+_0211B7B8: .word gSubScreen0
 	arm_func_end FUN_ov19_0211b770
 
 	arm_func_start FUN_ov19_0211b7bc

@@ -2,14 +2,13 @@
 
 extern "C" {
     extern void FUN_ov16_020f5258(void);
-    extern void FUN_02051c10(void);
 }
 
 void VBlankIntr(void)
 {
     unk_02099E8C.EvenFrames++;
     if (unk_02099E8C.unkA4) {
-        FUN_02051c10();
+        unk_02099E8C.unkA4->FUN_02051c10();
     }
     if (unk_02099E8C.WaitVBlank && unk_02099E8C.EvenFrames >= 2 || unk_02099E8C.UpdateBrightness) {
         reg_GX_MASTER_BRIGHT = unk_02099E8C.MainScreenBrightness;
@@ -39,9 +38,6 @@ void InitHeap(void)
     unk_02099E8C.unkC0 = handle;
 }
 
-FS_EXTERN_OVERLAY(overlay130);
-FS_EXTERN_OVERLAY(overlay16);
-
 void InitCommon(void)
 {
     OS_Init();
@@ -67,7 +63,7 @@ void FUN_02029140(void)
     void *arenaHi = OS_GetMainArenaHi();
     unk_02099E8C.unk38 = arenaHi;
     
-    unk_02099E8C.unkB4 = (void *)((u32)unk_02099E8C.unk94 + 0x00244800);
+    unk_02099E8C.unkB4 = reinterpret_cast<void *>(reinterpret_cast<u32>(unk_02099E8C.unk94) + 0x00244800);
 
     if (unk_02099E8C.unkB4 > arenaHi) {
         OS_Terminate();
@@ -76,14 +72,14 @@ void FUN_02029140(void)
     }
 
     void *destp = unk_02099E8C.unk94;
-    u32 size = (u32)unk_02099E8C.unk30 - (u32)unk_02099E8C.unk94;
+    u32 size = reinterpret_cast<u32>(unk_02099E8C.unk30) - reinterpret_cast<u32>(unk_02099E8C.unk94);
     unk_02099E8C.unkBC = size;
     MI_CpuClearFast(destp, size);
     DC_FlushRange(unk_02099E8C.unk94, unk_02099E8C.unkBC);
 
     gAllocator.initArenas(OS_ARENA_MAIN, unk_02099E8C.unk94, unk_02099E8C.unk30);
 
-    OS_SetMainArenaLo((void *)(((u32)unk_02099E8C.unk30 + 31) & ~31));
+    OS_SetMainArenaLo(reinterpret_cast<void *>((reinterpret_cast<u32>(unk_02099E8C.unk30) + 31) & ~31));
 
     gAllocator.setDefaultArena(0);
     gAllocator.fileIO = &gFileIO;
@@ -94,13 +90,13 @@ void FUN_02029140(void)
 void VramClear(void)
 {
     GX_SetBankForLCDC(GX_VRAM_LCDC_ALL);
-    MI_CpuClearFast((void *)HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE);
+    MI_CpuClearFast(reinterpret_cast<void *>(HW_LCDC_VRAM), HW_LCDC_VRAM_SIZE);
     (void)GX_DisableBankForLCDC();
     
-    MI_CpuFillFast((void *)HW_OAM, 192, HW_OAM_SIZE);
-    MI_CpuClearFast((void *)HW_PLTT, HW_PLTT_SIZE);
-    MI_CpuFillFast((void *)HW_DB_OAM, 192, HW_DB_OAM_SIZE);
-    MI_CpuClearFast((void *)HW_DB_PLTT, HW_DB_PLTT_SIZE);
+    MI_CpuFillFast(reinterpret_cast<void *>(HW_OAM), 192, HW_OAM_SIZE);
+    MI_CpuClearFast(reinterpret_cast<void *>(HW_PLTT), HW_PLTT_SIZE);
+    MI_CpuFillFast(reinterpret_cast<void *>(HW_DB_OAM), 192, HW_DB_OAM_SIZE);
+    MI_CpuClearFast(reinterpret_cast<void *>(HW_DB_PLTT), HW_DB_PLTT_SIZE);
 }
 
 void InitInterrupt(void)

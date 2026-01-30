@@ -511,7 +511,7 @@ FUN_ov74_0211a580: ; 0x0211A580
 	bl MI_CpuFill8
 	ldr r0, _0211A5B0 ; =0x0211C1A4
 	add r1, r4, #0xbc
-	bl FUN_ov16_020f316c
+	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
 	mov r0, #1
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -535,7 +535,7 @@ _0211A5DC:
 	mov r0, r1
 	mla r1, r2, r4, r5
 	mov r2, r6
-	bl FUN_ov16_020f32b4
+	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 	ldr r1, [r7, #8]!
 	cmp r1, #0
 	bne _0211A5DC
@@ -581,7 +581,7 @@ FUN_ov74_0211a658: ; 0x0211A658
 	b _0211A67C
 _0211A670:
 	mla r0, r7, r5, r6
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r7, r7, #1
 _0211A67C:
 	cmp r7, #5
@@ -625,14 +625,14 @@ FUN_ov74_0211a6d0: ; 0x0211A6D0
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl FUN_ov16_020f18e8
+	bl _ZN8Graphics12SetupTilemapEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A728
 	ldr r0, [sp, #0x18]
 	ldr r2, [r5]
 	mov r1, r4
-	bl FUN_ov16_020f19d4
+	bl _ZN8Graphics15LoadBGXCharMainEiPvm
 	str r0, [r5]
 _0211A728:
 	cmp r6, #0
@@ -640,7 +640,7 @@ _0211A728:
 	mov r0, r4
 	mov r2, r6
 	mov r1, #0
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 _0211A740:
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -678,7 +678,7 @@ FUN_ov74_0211a748: ; 0x0211A748
 	mov r2, #1
 	mov r3, #0
 	str r4, [r5, #0xb0]
-	bl FUN_ov16_020f1868
+	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
 	ldrh r1, [r5, #0xb4]
 	ldrh r0, [r5, #0xb6]
 	ldr r2, [sp, #8]
@@ -745,7 +745,7 @@ _0211A7DC:
 	add r0, r3, r0
 	bl GX_LoadBG2Scr
 _0211A8C4:
-	bl FUN_ov16_020f10ac
+	bl _ZN8Graphics17LoadBGPaletteMainEv
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_ov74_0211a748
@@ -1321,7 +1321,7 @@ _0211B120: ; jump table
 _0211B138:
 	add r0, r5, #0xbc
 	mov r1, #5
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	movne r0, #1
 	moveq r0, r4
@@ -1500,7 +1500,7 @@ FUN_ov74_0211b398: ; 0x0211B398
 	bl FUN_ov16_020f6c58
 	add r0, r4, #0xbc
 	mov r1, #5
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov74_0211a658
 	ldr r0, _0211B40C ; =0x0209AEC0

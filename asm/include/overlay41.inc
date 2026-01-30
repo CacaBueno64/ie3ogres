@@ -18,7 +18,7 @@
 .public FUN_ov16_020f5a58
 .public FUN_ov16_020f2fa8
 .public gSprButtonCtrl
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public unk_0209A070
 .public gLogicThink
 .public unk_020AF81C
@@ -89,8 +89,8 @@
 .public DC_FlushRange
 .public FUN_ov1_020dc020
 .public G2_GetBG3CharPtr
-.public FUN_ov16_020f1868
-.public FUN_ov16_020f10ac
+.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics17LoadBGPaletteMainEv
 .public GX_LoadBG3Char
 .public FUN_ov16_020f6a9c
 .public unk_0209A4E0
@@ -110,7 +110,7 @@
 .public FUN_ov1_020e5634
 .public FUN_ov1_020e5030
 .public FUN_0204665c
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public FUN_02045dec
 .public FUN_0204b9c4
 .public FUN_ov16_020efa80
@@ -118,7 +118,7 @@
 .public FUN_0204ca5c
 .public FUN_0206d8c8
 .public FUN_0204c92c
-.public FUN_ov16_020f1514
+.public _ZN8Graphics13FadeMainBlackEl
 .public FUN_0204da5c
 .public FUN_01ffa12c
 .public ov1_020E9483
@@ -126,7 +126,7 @@
 .public unk_0209BE2C
 .public unk_0209BEEC
 .public unk_0209A454
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_0204dea4
 .public FUN_ov16_020efa9c
 .public FUN_0206d64c
@@ -140,16 +140,16 @@
 .public FUN_02057be4
 .public FUN_020568a4
 .public FUN_02057c60
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02057c2c
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
 .public FUN_ov16_021123b4
@@ -157,7 +157,7 @@
 .public FUN_ov16_021128c4
 .public FUN_ov16_020f5868
 .public FUN_ov16_020f5450
-.public FUN_ov16_020f32b4
+.public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public FUN_ov16_02114204
 .public FUN_02058e30
 .public FUN_02059004
@@ -166,7 +166,7 @@
 .public FUN_020576a0
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f5eec
-.public FUN_ov16_020f1160
+.public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public FUN_02043780
 .public FUN_02043310
 .public gFont12

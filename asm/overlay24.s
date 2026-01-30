@@ -131,9 +131,9 @@ _0211A088:
 	blo _0211A088
 	add r0, r5, #0xc
 	mov r1, #1
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	add r0, r5, #0xc
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	mov r0, #0
 	str r0, [r5, #0xc]
 	str r0, [r5, #0x10]
@@ -187,7 +187,7 @@ FUN_ov24_0211a144: ; 0x0211A144
 	ldr r0, _0211A174 ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e9d8 ; may be ov17 ; ov16(Mica)
-	ldr r0, _0211A178 ; =gSprAnimeCtrl
+	ldr r0, _0211A178 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0d8
 	ldr r0, _0211A17C ; =g3DPlaneCtrl
@@ -195,7 +195,7 @@ FUN_ov24_0211a144: ; 0x0211A144
 	bl FUN_ov16_021123c4
 	ldmfd sp!, {r3, pc}
 _0211A174: .word gSprButtonCtrl
-_0211A178: .word gSprAnimeCtrl
+_0211A178: .word gSprAnimCtrl
 _0211A17C: .word g3DPlaneCtrl
 	arm_func_end FUN_ov24_0211a144
 
@@ -220,7 +220,7 @@ FUN_ov24_0211a180: ; 0x0211A180
 	bl MI_CpuFill8
 	ldr r0, _0211A20C ; =0x0211D7BC
 	add r1, r6, #0xc
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr lr, _0211A210 ; =0x0211D508
 	add r12, sp, #4
 _0211A1D8:
@@ -268,7 +268,7 @@ FUN_ov24_0211a218: ; 0x0211A218
 	bl sprintf
 	ldr r0, _0211A2F8 ; =0x0211D820
 	add r1, r7, #0xc
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r4, _0211A2FC ; =0x0211D4D8
 	add lr, sp, #0x14
 	ldmia r4!, {r0, r1, r2, r3}
@@ -328,7 +328,7 @@ FUN_ov24_0211a308: ; 0x0211A308
 	mov r12, #1
 	add r2, r4, #0xd4
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 _0211A35C:
 	str r0, [r4, #0xd8]
 	add sp, sp, #0x10
@@ -887,7 +887,7 @@ FUN_ov24_0211ab8c: ; 0x0211AB8C
 	mov r6, r0
 	add r0, r6, #0xc
 	mov r1, #1
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -1018,7 +1018,7 @@ FUN_ov24_0211acec: ; 0x0211ACEC
 	ldr r0, _0211AE60 ; =gSprButtonCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e980
-	ldr r0, _0211AE64 ; =gSprAnimeCtrl
+	ldr r0, _0211AE64 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0a0
 	ldr r0, _0211AE68 ; =g3DPlaneCtrl
@@ -1089,7 +1089,7 @@ _0211AE50:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211AE5C: .word 0x04000008
 _0211AE60: .word gSprButtonCtrl
-_0211AE64: .word gSprAnimeCtrl
+_0211AE64: .word gSprAnimCtrl
 _0211AE68: .word g3DPlaneCtrl
 	arm_func_end FUN_ov24_0211acec
 
@@ -1098,7 +1098,7 @@ FUN_ov24_0211ae6c: ; 0x0211AE6C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r1, _0211BD3C ; =gDeltaTime
-	ldr r10, _0211BD40 ; =gSprAnimeCtrl
+	ldr r10, _0211BD40 ; =gSprAnimCtrl
 	mov r5, r0
 	ldr r0, [r10]
 	ldr r1, [r1]
@@ -2017,7 +2017,7 @@ _0211BC58:
 	mov r1, r11
 	mov r2, r11
 	str r3, [r5, #0xdc]
-	bl FUN_0202c44c
+	bl _ZN11AudioPlayer12FUN_0202c44cEii
 	mov r0, #0x16
 	add sp, sp, #8
 	str r11, [r5, #0xe0]
@@ -2056,7 +2056,7 @@ _0211BCE8:
 	mov r1, r4
 	mov r2, r4
 	str r3, [r5, #0xdc]
-	bl FUN_0202c44c
+	bl _ZN11AudioPlayer12FUN_0202c44cEii
 	mov r0, #0xf
 	add sp, sp, #8
 	strb r0, [r5, #0x74]
@@ -2067,7 +2067,7 @@ _0211BD2C:
 	mov r9, r4
 	b _0211BD94
 _0211BD3C: .word gDeltaTime
-_0211BD40: .word gSprAnimeCtrl
+_0211BD40: .word gSprAnimCtrl
 _0211BD44: .word g3DPlaneCtrl
 _0211BD48: .word gSprButtonCtrl
 _0211BD4C: .word gAudioPlayer
@@ -2224,10 +2224,10 @@ _0211BF14:
 _0211BF74:
 	mov r0, r4
 	mov r1, r8
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	mov r1, r8
 	mov r0, r7
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	mov r0, #0x20
 	add sp, sp, #8
 	strb r0, [r5, #0x74]
@@ -2266,7 +2266,7 @@ FUN_ov24_0211bff8: ; 0x0211BFF8
 	bl FUN_ov24_0211a144
 	mov r0, #1
 	bl FUN_ov16_020f3f60
-	ldr r0, _0211C034 ; =0x0209A0AC
+	ldr r0, _0211C034 ; =gUnitMan
 	bl FUN_ov16_020efa04
 	ldr r1, [r4, #0xd4]
 	cmp r1, #0
@@ -2276,7 +2276,7 @@ FUN_ov24_0211bff8: ; 0x0211BFF8
 	mov r0, #0
 	str r0, [r4, #0xd4]
 	ldmfd sp!, {r4, pc}
-_0211C034: .word unk_0209A0AC
+_0211C034: .word gUnitMan
 _0211C038: .word gAllocator
 	arm_func_end FUN_ov24_0211bff8
 
@@ -2334,7 +2334,7 @@ _0211C0C4:
 	mov r0, #0
 	mov r1, #8
 	strb r2, [r4, #0x74]
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	ldr r0, _0211C104 ; =gAudioPlayer
 	mov r1, #4
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
@@ -2383,7 +2383,7 @@ _0211C17C:
 	ldr r1, [r1, #0x4c]
 	blx r1
 _0211C194:
-	ldr r0, _0211C598 ; =gSprAnimeCtrl
+	ldr r0, _0211C598 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e15c
 	cmp r0, #0
@@ -2657,7 +2657,7 @@ _0211C500:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211C590: .word gMovie
 _0211C594: .word gSprButtonCtrl
-_0211C598: .word gSprAnimeCtrl
+_0211C598: .word gSprAnimCtrl
 _0211C59C: .word g3DPlaneCtrl
 _0211C5A0: .word gAudioPlayer
 _0211C5A4: .word 0x66666667
@@ -2711,7 +2711,7 @@ _0211C62C:
 	mov r0, #0
 	mov r1, #8
 	strb r2, [r6, #0x74]
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	ldr r0, _0211C660 ; =gAudioPlayer
 	mov r1, #4
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
@@ -2731,7 +2731,7 @@ FUN_ov24_0211c664: ; 0x0211C664
 	bl FUN_ov24_0211abf4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, _0211CC94 ; =gSprAnimeCtrl
+	ldr r0, _0211CC94 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e15c
 	cmp r0, #0
@@ -3168,7 +3168,7 @@ _0211CC04:
 	mov r1, #8
 	bl _ZN11AudioPlayer12FUN_0202cf6cEm
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0211CC94: .word gSprAnimeCtrl
+_0211CC94: .word gSprAnimCtrl
 _0211CC98: .word gSprButtonCtrl
 _0211CC9C: .word g3DPlaneCtrl
 _0211CCA0: .word gAudioPlayer
@@ -3221,7 +3221,7 @@ _0211CD3C:
 	mov r0, #0
 	mov r1, #8
 	strb r5, [r4, #0x74]
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	mov r1, #9
 	rsb r2, r5, #0x148
 	add r0, r1, #0x12c
@@ -3253,7 +3253,7 @@ _0211CD9C:
 	mov r0, #0
 	mov r1, #8
 	strb r2, [r4, #0x74]
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	mov r2, #1
 	mov r1, #0x28
 	ldr r0, [r4, #0x80]
@@ -3415,7 +3415,7 @@ _0211CFB8:
 	strb r1, [r0, #0x74]
 	mov r0, #0
 	mov r1, #8
-	bl FUN_ov16_020f1560
+	bl _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 	ldr r0, _0211D024 ; =gSprButtonCtrl
 	mov r1, r4, lsl #0x10
 	ldr r0, [r0]

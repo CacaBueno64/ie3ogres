@@ -16,7 +16,7 @@
 //        /* ov4 0x020bfeb4 */ virtual void updateKeys(u16 pressed, u16 held);
 //        /* ov4 0x020c0088 */ virtual void updateTP(TPData *tp);
 //        /* ov4 0x020c0cd0 */ virtual void init(void);
-//        /* ov4 0x020c0dd4 */ virtual void update(int arg);
+//        /* ov4 0x020c0dd4 */ virtual void update(BOOL param1);
 //        /* ov4 0x020c0f08 */ virtual void updateLate(void);
 //        /* ov4 0x020c0f50 */ virtual void close(void);
 //    private:
@@ -58,7 +58,7 @@
 //        /* ov4 0x020bfa4c */ virtual void updateKeys(u16 pressed, u16 held);
 //        /* ov4 0x020bfa74 */ virtual void updateTP(TPData *tp);
 //        /* ov4 0x020bfac0 */ virtual void init(void);
-//        /* ov4 0x020bfb34 */ virtual void update(int arg);
+//        /* ov4 0x020bfb34 */ virtual void update(BOOL param1);
 //        /* ov4 0x020bfb7c */ virtual void updateLate(void);
 //        /* ov4 0x020bfb88 */ virtual void close(void);
 //    private:

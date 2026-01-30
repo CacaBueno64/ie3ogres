@@ -462,14 +462,14 @@ _0212B06C:
 _0212B074: .word ov127_021371B0+0x8
 	arm_func_end MO_OpenMovie
 
-	arm_func_start MOStreamFile__nMOStreamFile
-MOStreamFile__nMOStreamFile: ; 0x0212B078
+	arm_func_start MOStreamFile__MOStreamFileD0
+MOStreamFile__MOStreamFileD0: ; 0x0212B078
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl MOStreamFile__operator_delete
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-arm_func_end MOStreamFile__nMOStreamFile
+arm_func_end MOStreamFile__MOStreamFileD0
 
 	arm_func_start MO_CloseMovie
 MO_CloseMovie: ; 0x0212B08C
@@ -1647,10 +1647,10 @@ MOStreamFile__Close: ; 0x0212C000
 	ldmfd sp!, {r3, pc}
 	arm_func_end MOStreamFile__Close
 
-	arm_func_start MOStreamFile__nMOStreamFile2
-MOStreamFile__nMOStreamFile2: ; 0x0212C014
+	arm_func_start MOStreamFile__MOStreamFileD1
+MOStreamFile__MOStreamFileD1: ; 0x0212C014
 	bx lr
-	arm_func_end MOStreamFile__nMOStreamFile2
+	arm_func_end MOStreamFile__MOStreamFileD1
 
 ; libmobiclip_stre END
 
@@ -10351,8 +10351,8 @@ ov127_021371A0:
 ov127_021371B0:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word ov127_02137194
-	.word MOStreamFile__nMOStreamFile2
-	.word MOStreamFile__nMOStreamFile
+	.word MOStreamFile__MOStreamFileD1
+	.word MOStreamFile__MOStreamFileD0
 	.word MOStreamFile__SetPosition
 	.word MOStreamFile__Read
 	.word MOStreamFile__ReadAsync

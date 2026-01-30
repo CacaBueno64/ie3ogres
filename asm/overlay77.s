@@ -67,7 +67,7 @@ FUN_ov77_02119f18: ; 0x02119F18
 	bl FUN_ov132_02143c94
 	ldmfd sp!, {r4, r5, r6, pc}
 _02119FE4: .word unk_020A0640
-_02119FE8: .word unk_02099EF0
+_02119FE8: .word gUtilGame
 	arm_func_end FUN_ov77_02119f18
 
 	arm_func_start FUN_ov77_02119fec
@@ -124,7 +124,7 @@ FUN_ov77_0211a010: ; 0x0211A010
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211A0A0: .word unk_0209A4E4
 _0211A0A4: .word unk_020A0640
-_0211A0A8: .word unk_02099EF0
+_0211A0A8: .word gUtilGame
 	arm_func_end FUN_ov77_0211a010
 
 	arm_func_start FUN_ov77_0211a0ac
@@ -351,7 +351,7 @@ _0211A3C8: .word g3DGameMap
 _0211A3CC: .word gDeltaTime
 _0211A3D0: .word g3DGameEffect
 _0211A3D4: .word g3DMagicCamera
-_0211A3D8: .word unk_02099EF0
+_0211A3D8: .word gUtilGame
 _0211A3DC: .word 0x00001011
 	arm_func_end FUN_ov77_0211a290
 

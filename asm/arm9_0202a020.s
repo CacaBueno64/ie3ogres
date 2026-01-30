@@ -332,7 +332,7 @@ FUN_0202a39c: ; 0x0202A39C
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl FUN_ov16_020f1670
+	bl _ZN8Graphics17IsAnyScreenFadingEv
 	cmp r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r4, #0x30]
@@ -431,7 +431,7 @@ _0202A4EC:
 	ldr r2, _0202A614 ; =0x020B5AE0
 	mov r12, #0
 	str r12, [r2, #0xc]
-	ldr r0, _0202A618 ; =0x02099EC8
+	ldr r0, _0202A618 ; =gIsValidSave
 	str r12, [r2, #8]
 	ldr r0, [r0]
 	cmp r0, #0
@@ -507,7 +507,7 @@ _0202A608:
 	ldmfd sp!, {r3, pc}
 _0202A610: .word unk_0208F898
 _0202A614: .word unk_020B5AE0
-_0202A618: .word unk_02099EC8
+_0202A618: .word gIsValidSave
 _0202A61C: .word 0x02FFFC20
 _0202A620: .word unk_020A0640
 _0202A624: .word unk_0209A454
@@ -579,7 +579,7 @@ FUN_0202a6e4: ; 0x0202A6E4
 	ldr r0, [r0]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _0202A798 ; =0x0209A5D0
+	ldr r0, _0202A798 ; =gRecordManager
 	bl FUN_02061bc4
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -621,7 +621,7 @@ _0202A780:
 	bl PM_GoSleepMode
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A794: .word unk_0209A0F8
-_0202A798: .word unk_0209A5D0
+_0202A798: .word gRecordManager
 _0202A79C: .word unk_020A0640
 _0202A7A0: .word gWirelessUtil
 _0202A7A4: .word 0x04001000
@@ -1130,16 +1130,16 @@ FUN_0202ae38: ; 0x0202AE38
 	ldr r0, _0202AF78 ; =0x0208FA10
 	strb r4, [r1]
 	mov r1, r5
-	bl FUN_ov16_020f3054
+	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r5, [r5]
 	mov r1, r4
 	mov r0, r5
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f1138
+	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 	bl _ZN6Thread4InitEv
 	ldr r0, _0202AF7C ; =0x020B5B08
 	mov r1, r4
@@ -1163,7 +1163,7 @@ _0202AEA8:
 	mov r5, #0x10
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov16_020f1214
+	bl _ZN8Graphics19SetScreenBrightnessEti
 	bl OS_WaitVBlankIntr
 	bl GX_DispOn
 	ldr r1, _0202AF94 ; =0x04001000
@@ -1173,13 +1173,13 @@ _0202AEA8:
 _0202AF10:
 	mov r0, r4
 	mov r1, r5
-	bl FUN_ov16_020f1214
+	bl _ZN8Graphics19SetScreenBrightnessEti
 	bl OS_WaitVBlankIntr
 	subs r5, r5, #1
 	bpl _0202AF10
 	mov r0, r4
 	mvn r1, #0xf
-	bl FUN_ov16_020f1214
+	bl _ZN8Graphics19SetScreenBrightnessEti
 	bl OS_WaitVBlankIntr
 _0202AF38:
 	ldr r4, _0202AF98 ; =gAllocator
@@ -1196,7 +1196,7 @@ _0202AF38:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202AF68: .word gDeltaTime
 _0202AF6C: .word unk_0209A0F8
-_0202AF70: .word unk_0209A144
+_0202AF70: .word gDebugFont
 _0202AF74: .word unk_0209A0DC
 _0202AF78: .word unk_0208FA10
 _0202AF7C: .word unk_020B5B08
@@ -1272,7 +1272,7 @@ _0202B04C:
 	ldr r0, [r1]
 	orr r0, r0, #0x10000
 	str r0, [r1]
-	bl FUN_ov16_020f129c
+	bl _ZN8Graphics16ResetScreenFadesEv
 	bl OS_WaitVBlankIntr
 _0202B080:
 	ldr r5, _0202B1AC ; =g3DDevice
@@ -1306,7 +1306,7 @@ _0202B080:
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
-	bl FUN_0202e38c
+	bl _ZN9Allocator11getHeapInfoEPiS0_S0_
 _0202B100:
 	ldr r0, _0202B1A0 ; =0x0209A124
 	ldr r2, _0202B19C ; =gWaitVBlank
@@ -1432,70 +1432,70 @@ FUN_0202b210: ; 0x0202B210
 
 	arm_func_start _ZN15CommonSubScreen16isBrightAdjustedEv
 _ZN15CommonSubScreen16isBrightAdjustedEv: ; 0x0202B224
-	ldr r12, _0202B22C ; =FUN_ov16_020f1800
+	ldr r12, _0202B22C ; =_ZN8Graphics19IsSubBrightAdjustedEv
 	bx r12
-_0202B22C: .word FUN_ov16_020f1800
+_0202B22C: .word _ZN8Graphics19IsSubBrightAdjustedEv
 	arm_func_end _ZN15CommonSubScreen16isBrightAdjustedEv
 
 	arm_func_start _ZN15CommonSubScreen8isFadingEv
 _ZN15CommonSubScreen8isFadingEv: ; 0x0202B230
-	ldr r12, _0202B238 ; =FUN_ov16_020f1660
+	ldr r12, _0202B238 ; =_ZN8Graphics11IsSubFadingEv
 	bx r12
-_0202B238: .word FUN_ov16_020f1660
+_0202B238: .word _ZN8Graphics11IsSubFadingEv
 	arm_func_end _ZN15CommonSubScreen8isFadingEv
 
 	arm_func_start _ZN15CommonSubScreen9fadeWhiteEv
 _ZN15CommonSubScreen9fadeWhiteEv: ; 0x0202B23C
-	ldr r12, _0202B248 ; =FUN_ov16_020f15c8
+	ldr r12, _0202B248 ; =_ZN8Graphics12FadeSubWhiteEl
 	mov r0, #8
 	bx r12
-_0202B248: .word FUN_ov16_020f15c8
+_0202B248: .word _ZN8Graphics12FadeSubWhiteEl
 	arm_func_end _ZN15CommonSubScreen9fadeWhiteEv
 
 	arm_func_start _ZN15CommonSubScreen9fadeBlackEv
 _ZN15CommonSubScreen9fadeBlackEv: ; 0x0202B24C
-	ldr r12, _0202B258 ; =FUN_ov16_020f1528
+	ldr r12, _0202B258 ; =_ZN8Graphics12FadeSubBlackEl
 	mov r0, #6
 	bx r12
-_0202B258: .word FUN_ov16_020f1528
+_0202B258: .word _ZN8Graphics12FadeSubBlackEl
 	arm_func_end _ZN15CommonSubScreen9fadeBlackEv
 
 	arm_func_start _ZN15CommonSubScreen6fadeInEv
 _ZN15CommonSubScreen6fadeInEv: ; 0x0202B25C
-	ldr r12, _0202B268 ; =FUN_ov16_020f147c
+	ldr r12, _0202B268 ; =_ZN8Graphics9FadeInSubEl
 	mov r0, #6
 	bx r12
-_0202B268: .word FUN_ov16_020f147c
+_0202B268: .word _ZN8Graphics9FadeInSubEl
 	arm_func_end _ZN15CommonSubScreen6fadeInEv
 
 	arm_func_start _ZN15CommonSubScreen8whiteOutEv
 _ZN15CommonSubScreen8whiteOutEv: ; 0x0202B26C
-	ldr r12, _0202B274 ; =FUN_ov16_020f13c4
+	ldr r12, _0202B274 ; =_ZN8Graphics11WhiteOutSubEv
 	bx r12
-_0202B274: .word FUN_ov16_020f13c4
+_0202B274: .word _ZN8Graphics11WhiteOutSubEv
 	arm_func_end _ZN15CommonSubScreen8whiteOutEv
 
 	arm_func_start _ZN15CommonSubScreen8blackOutEv
 _ZN15CommonSubScreen8blackOutEv: ; 0x0202B278
-	ldr r12, _0202B280 ; =FUN_ov16_020f1310
+	ldr r12, _0202B280 ; =_ZN8Graphics11BlackOutSubEv
 	bx r12
-_0202B280: .word FUN_ov16_020f1310
+_0202B280: .word _ZN8Graphics11BlackOutSubEv
 	arm_func_end _ZN15CommonSubScreen8blackOutEv
 
 	arm_func_start _ZN15CommonSubScreen10fadeUpdateEv
 _ZN15CommonSubScreen10fadeUpdateEv: ; 0x0202B284
-	ldr r12, _0202B290 ; =FUN_ov16_020f16c8
+	ldr r12, _0202B290 ; =_ZN8Graphics16UpdateScreenFadeE12EngineSelect
 	mov r0, #1
 	bx r12
-_0202B290: .word FUN_ov16_020f16c8
+_0202B290: .word _ZN8Graphics16UpdateScreenFadeE12EngineSelect
 	arm_func_end _ZN15CommonSubScreen10fadeUpdateEv
 
 	arm_func_start _ZN15CommonSubScreen9fadeResetEv
 _ZN15CommonSubScreen9fadeResetEv: ; 0x0202B294
-	ldr r12, _0202B2A0 ; =FUN_ov16_020f12b4
+	ldr r12, _0202B2A0 ; =_ZN8Graphics15ResetScreenFadeE12EngineSelect
 	mov r0, #1
 	bx r12
-_0202B2A0: .word FUN_ov16_020f12b4
+_0202B2A0: .word _ZN8Graphics15ResetScreenFadeE12EngineSelect
 	arm_func_end _ZN15CommonSubScreen9fadeResetEv
 
 	arm_func_start _ZN15CommonSubScreen8updateTPEP6TPData
@@ -1515,70 +1515,70 @@ FUN_0202b2ac: ; 0x0202B2AC
 
 	arm_func_start _ZN16CommonMainScreen16isBrightAdjustedEv
 _ZN16CommonMainScreen16isBrightAdjustedEv: ; 0x0202B2B0
-	ldr r12, _0202B2B8 ; =FUN_ov16_020f17f0
+	ldr r12, _0202B2B8 ; =_ZN8Graphics20IsMainBrightAdjustedEv
 	bx r12
-_0202B2B8: .word FUN_ov16_020f17f0
+_0202B2B8: .word _ZN8Graphics20IsMainBrightAdjustedEv
 	arm_func_end _ZN16CommonMainScreen16isBrightAdjustedEv
 
 	arm_func_start _ZN16CommonMainScreen8isFadingEv
 _ZN16CommonMainScreen8isFadingEv: ; 0x0202B2BC
-	ldr r12, _0202B2C4 ; =FUN_ov16_020f1650
+	ldr r12, _0202B2C4 ; =_ZN8Graphics12IsMainFadingEv
 	bx r12
-_0202B2C4: .word FUN_ov16_020f1650
+_0202B2C4: .word _ZN8Graphics12IsMainFadingEv
 	arm_func_end _ZN16CommonMainScreen8isFadingEv
 
 	arm_func_start _ZN16CommonMainScreen9fadeWhiteEv
 _ZN16CommonMainScreen9fadeWhiteEv: ; 0x0202B2C8
-	ldr r12, _0202B2D4 ; =FUN_ov16_020f15b4
+	ldr r12, _0202B2D4 ; =_ZN8Graphics13FadeMainWhiteEl
 	mov r0, #8
 	bx r12
-_0202B2D4: .word FUN_ov16_020f15b4
+_0202B2D4: .word _ZN8Graphics13FadeMainWhiteEl
 	arm_func_end _ZN16CommonMainScreen9fadeWhiteEv
 
 	arm_func_start _ZN16CommonMainScreen9fadeBlackEv
 _ZN16CommonMainScreen9fadeBlackEv: ; 0x0202B2D8
-	ldr r12, _0202B2E4 ; =FUN_ov16_020f1514
+	ldr r12, _0202B2E4 ; =_ZN8Graphics13FadeMainBlackEl
 	mov r0, #6
 	bx r12
-_0202B2E4: .word FUN_ov16_020f1514
+_0202B2E4: .word _ZN8Graphics13FadeMainBlackEl
 	arm_func_end _ZN16CommonMainScreen9fadeBlackEv
 
 	arm_func_start _ZN16CommonMainScreen6fadeInEv
 _ZN16CommonMainScreen6fadeInEv: ; 0x0202B2E8
-	ldr r12, _0202B2F4 ; =FUN_ov16_020f1468
+	ldr r12, _0202B2F4 ; =_ZN8Graphics10FadeInMainEl
 	mov r0, #6
 	bx r12
-_0202B2F4: .word FUN_ov16_020f1468
+_0202B2F4: .word _ZN8Graphics10FadeInMainEl
 	arm_func_end _ZN16CommonMainScreen6fadeInEv
 
 	arm_func_start _ZN16CommonMainScreen8whiteOutEv
 _ZN16CommonMainScreen8whiteOutEv: ; 0x0202B2F8
-	ldr r12, _0202B300 ; =FUN_ov16_020f13b4
+	ldr r12, _0202B300 ; =_ZN8Graphics12WhiteOutMainEv
 	bx r12
-_0202B300: .word FUN_ov16_020f13b4
+_0202B300: .word _ZN8Graphics12WhiteOutMainEv
 	arm_func_end _ZN16CommonMainScreen8whiteOutEv
 
 	arm_func_start _ZN16CommonMainScreen8blackOutEv
 _ZN16CommonMainScreen8blackOutEv: ; 0x0202B304
-	ldr r12, _0202B30C ; =FUN_ov16_020f1300
+	ldr r12, _0202B30C ; =_ZN8Graphics12BlackOutMainEv
 	bx r12
-_0202B30C: .word FUN_ov16_020f1300
+_0202B30C: .word _ZN8Graphics12BlackOutMainEv
 	arm_func_end _ZN16CommonMainScreen8blackOutEv
 
 	arm_func_start _ZN16CommonMainScreen10fadeUpdateEv
 _ZN16CommonMainScreen10fadeUpdateEv: ; 0x0202B310
-	ldr r12, _0202B31C ; =FUN_ov16_020f16c8
+	ldr r12, _0202B31C ; =_ZN8Graphics16UpdateScreenFadeE12EngineSelect
 	mov r0, #0
 	bx r12
-_0202B31C: .word FUN_ov16_020f16c8
+_0202B31C: .word _ZN8Graphics16UpdateScreenFadeE12EngineSelect
 	arm_func_end _ZN16CommonMainScreen10fadeUpdateEv
 
 	arm_func_start _ZN16CommonMainScreen9fadeResetEv
 _ZN16CommonMainScreen9fadeResetEv: ; 0x0202B320
-	ldr r12, _0202B32C ; =FUN_ov16_020f12b4
+	ldr r12, _0202B32C ; =_ZN8Graphics15ResetScreenFadeE12EngineSelect
 	mov r0, #0
 	bx r12
-_0202B32C: .word FUN_ov16_020f12b4
+_0202B32C: .word _ZN8Graphics15ResetScreenFadeE12EngineSelect
 	arm_func_end _ZN16CommonMainScreen9fadeResetEv
 
 	arm_func_start FUN_0202b330
@@ -2531,7 +2531,7 @@ _0202BF6C:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl FUN_0202c44c
+	bl _ZN11AudioPlayer12FUN_0202c44cEii
 	ldrsh r2, [r4, r5]
 	mov r0, r9
 	mov r1, r8
@@ -2600,7 +2600,7 @@ _0202C064:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl FUN_0202c44c
+	bl _ZN11AudioPlayer12FUN_0202c44cEii
 	ldrsh r2, [r4, r5]
 	mov r0, r9
 	mov r1, r8
@@ -2886,8 +2886,8 @@ _0202C428:
 _0202C448: .word unk_0208FB78
 	arm_func_end FUN_0202c3e0
 
-	arm_func_start FUN_0202c44c
-FUN_0202c44c: ; 0x0202C44C
+	arm_func_start _ZN11AudioPlayer12FUN_0202c44cEii
+_ZN11AudioPlayer12FUN_0202c44cEii: ; 0x0202C44C
 	mov r3, #0x1c
 	mla r12, r1, r3, r0
 	str r2, [r12, #0x158]
@@ -2897,7 +2897,7 @@ FUN_0202c44c: ; 0x0202C44C
 	mov r0, #0
 	str r0, [r12, #0x190]
 	bx lr
-	arm_func_end FUN_0202c44c
+	arm_func_end _ZN11AudioPlayer12FUN_0202c44cEii
 
 	arm_func_start FUN_0202c470
 FUN_0202c470: ; 0x0202C470
@@ -2909,7 +2909,7 @@ _0202C480:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0202c44c
+	bl _ZN11AudioPlayer12FUN_0202c44cEii
 	add r4, r4, #1
 	cmp r4, #2
 	blt _0202C480
@@ -4311,8 +4311,8 @@ _0202D708:
 _0202D720: .word 0x0000FFFD
 	arm_func_end _ZN11AudioPlayer12FUN_0202d6c4Em
 
-	arm_func_start FUN_0202d724
-FUN_0202d724: ; 0x0202D724
+	arm_func_start _ZN11AudioPlayer12FUN_0202d724EPc
+_ZN11AudioPlayer12FUN_0202d724EPc: ; 0x0202D724
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -4335,7 +4335,7 @@ _0202D760:
 	blt _0202D73C
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0202d724
+	arm_func_end _ZN11AudioPlayer12FUN_0202d724EPc
 
 	arm_func_start _ZN11AudioPlayer12FUN_0202d774Emm
 _ZN11AudioPlayer12FUN_0202d774Emm: ; 0x0202D774
@@ -4350,8 +4350,8 @@ _ZN11AudioPlayer12FUN_0202d774Emm: ; 0x0202D774
 	bx lr
 	arm_func_end _ZN11AudioPlayer12FUN_0202d774Emm
 
-	arm_func_start FUN_0202d798
-FUN_0202d798: ; 0x0202D798
+	arm_func_start _ZN11AudioPlayer12FUN_0202d798EPci
+_ZN11AudioPlayer12FUN_0202d798EPci: ; 0x0202D798
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r8, r1
@@ -4375,7 +4375,7 @@ _0202D7DC:
 	cmp r6, #1
 	blt _0202D7B4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0202d798
+	arm_func_end _ZN11AudioPlayer12FUN_0202d798EPci
 
 	arm_func_start FUN_0202d7ec
 FUN_0202d7ec: ; 0x0202D7EC
@@ -4664,8 +4664,8 @@ FUN_0202dbd0: ; 0x0202DBD0
 	bx lr
 	arm_func_end FUN_0202dbd0
 
-	arm_func_start FUN_0202dbf8
-FUN_0202dbf8: ; 0x0202DBF8
+	arm_func_start _ZN9AllocatorC1Ev
+_ZN9AllocatorC1Ev: ; 0x0202DBF8
 	mov r3, #0
 	mov r2, r3
 _0202DC00:
@@ -4676,10 +4676,10 @@ _0202DC00:
 	cmp r3, #5
 	blt _0202DC00
 	bx lr
-	arm_func_end FUN_0202dbf8
+	arm_func_end _ZN9AllocatorC1Ev
 
-	arm_func_start FUN_0202dc1c
-FUN_0202dc1c: ; 0x0202DC1C
+	arm_func_start _ZN9AllocatorD1Ev
+_ZN9AllocatorD1Ev: ; 0x0202DC1C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -4696,7 +4696,7 @@ _0202DC40:
 	blt _0202DC28
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202dc1c
+	arm_func_end _ZN9AllocatorD1Ev
 
 	arm_func_start _ZN9Allocator10initArenasE9OSArenaIdPvS1_
 _ZN9Allocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
@@ -4796,8 +4796,8 @@ _0202DD7C:
 _0202DD9C: .word unk_0208C348
 	arm_func_end _ZN9Allocator10initArenasE9OSArenaIdPvS1_
 
-	arm_func_start FUN_0202dda0
-FUN_0202dda0: ; 0x0202DDA0
+	arm_func_start _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
+_ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE: ; 0x0202DDA0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldr r0, [r4, #0xc]
@@ -4842,7 +4842,7 @@ _0202DE18:
 _0202DE3C:
 	bl DC_WaitWriteBufferEmpty
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202dda0
+	arm_func_end _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
 
 	arm_func_start _ZN9Allocator8allocateEm
 _ZN9Allocator8allocateEm: ; 0x0202DE44
@@ -4853,7 +4853,7 @@ _ZN9Allocator8allocateEm: ; 0x0202DE44
 _0202DE54: .word _ZN9Allocator8allocateEmii
 	arm_func_end _ZN9Allocator8allocateEm
 
-	arm_func_start _ZN9Allocator8allocateEmii
+	arm_func_start _ZN9Allocator8allocateEmii ; https://decomp.me/scratch/RvyQ1
 _ZN9Allocator8allocateEmii: ; 0x0202DE58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
@@ -4953,7 +4953,7 @@ _0202DF98:
 	cmpne r1, r0
 	beq _0202DFC4
 	mov r0, r5
-	bl FUN_0202dda0
+	bl _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
 _0202DFC4:
 	ldr r5, [r5, #0xc]
 	cmp r5, #0
@@ -5237,8 +5237,8 @@ _0202E374:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end _ZN9Allocator10deallocateEPv
 
-	arm_func_start FUN_0202e38c
-FUN_0202e38c: ; 0x0202E38C
+	arm_func_start _ZN9Allocator11getHeapInfoEPiS0_S0_
+_ZN9Allocator11getHeapInfoEPiS0_S0_: ; 0x0202E38C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r7, r1
 	mov r8, r0
@@ -5302,4 +5302,4 @@ _0202E464:
 	cmp r4, #5
 	blt _0202E3E0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_0202e38c
+	arm_func_end _ZN9Allocator11getHeapInfoEPiS0_S0_

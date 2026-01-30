@@ -13,7 +13,7 @@
 .public gSprButtonCtrl
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public _ZN14CScreenManager8popSceneE12EngineSelect
-.public FUN_ov16_020f153c
+.public _ZN8Graphics16FadeScreensBlackEl
 .public FUN_0207249c
 .public FUN_020727a8
 .public _Z11SetNextMode8GameMode
@@ -24,15 +24,15 @@
 .public MI_CpuFill8
 .public FUN_ov126_0212afec
 .public FUN_ov126_0212afdc
-.public FUN_ov16_020f34f0
+.public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public unk_020A0B6C
 .public _ZN11AudioPlayer12FUN_0202cf6cEm
 .public gAudioPlayer
 .public sprintf
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020eed18
 .public FUN_ov16_020f5450
-.public FUN_ov16_020f33fc
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02058800
 .public g3DPlaneCtrl
 .public FUN_02058ee0
@@ -45,7 +45,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210f48c
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210f468
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110b0c
@@ -54,7 +54,7 @@
 .public G2_GetBG1CharPtr
 .public MIi_CpuClearFast
 .public DC_FlushRange
-.public FUN_ov16_020f10ac
+.public _ZN8Graphics17LoadBGPaletteMainEv
 .public FUN_ov16_02112724
 .public FUN_ov16_02112950
 .public FUN_ov16_0211346c
@@ -86,7 +86,7 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public GX_LoadBG3Scr
-.public unk_020A6C40
+.public gMainScreen0
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
@@ -97,7 +97,7 @@
 .public FUN_ov16_020f5a58
 .public _Znwm
 .public FUN_ov16_02110558
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -109,7 +109,7 @@
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_020728a8
-.public FUN_ov16_020f338c
+.public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_ov16_020eedb8
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f5af0

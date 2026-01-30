@@ -12,9 +12,9 @@ int CSubLogoScreenInit::signal(int arg)
 void CSubLogoScreenInit::openArchives(void)
 {
     gAllocator.setNextArena(1);
-    FUN_ov16_020f3054("/data_iz/pic2d/title/cesa_00.pac_", &this->data[0]);
-    FUN_ov16_020f3054("/data_iz/pic2d/title/level5_bottom.pac_", &this->data[1]);
-    FUN_ov16_020f3054("/data_iz/pic2d/title/Nintendo.pac_", &this->data[2]);
+    Archive::ReadNewUncompress("/data_iz/pic2d/title/cesa_00.pac_", &this->data[0]);
+    Archive::ReadNewUncompress("/data_iz/pic2d/title/level5_bottom.pac_", &this->data[1]);
+    Archive::ReadNewUncompress("/data_iz/pic2d/title/Nintendo.pac_", &this->data[2]);
 }
 
 void CSubLogoScreenInit::closeArchive(int idx)
@@ -47,18 +47,18 @@ void CSubLogoScreenInit::loadSceneImage(void)
             break;
     }
     if (img != NULL) {
-        GXS_LoadBG2Bmp(ImagePAC_GetScreenPtr(img), 0, ImagePAC_GetScreenSize(img));
-        GXS_LoadBG2Char(ImagePAC_GetCharacterPtr(img), 0, ImagePAC_GetCharacterSize(img));
+        GXS_LoadBG2Bmp(Archive::ImagePAC::GetScreenPtr(img), 0, Archive::ImagePAC::GetScreenSize(img));
+        GXS_LoadBG2Char(Archive::ImagePAC::GetCharacterPtr(img), 0, Archive::ImagePAC::GetCharacterSize(img));
         GXS_BeginLoadBGExtPltt();
-        GXS_LoadBGExtPltt(ImagePAC_GetPalettePtr(img), 0x4000, ImagePAC_GetPaletteSize(img));
+        GXS_LoadBGExtPltt(Archive::ImagePAC::GetPalettePtr(img), 0x4000, Archive::ImagePAC::GetPaletteSize(img));
         GXS_EndLoadBGExtPltt();
     }
-    FUN_ov16_020f10c8();
+    Graphics::LoadBGPaletteSub();
 }
 
 void CSubLogoScreenInit::updateKeys(u16 pressed, u16 held)
 {
-    if ((this->uploadComplete == TRUE) && (!FUN_ov16_020f1660()) && (this->dummy_14 == 0) && ((pressed & (PAD_BUTTON_A | PAD_BUTTON_START))) && (this->image == 0)) {
+    if ((this->uploadComplete == TRUE) && (!Graphics::IsSubFading()) && (this->dummy_14 == 0) && ((pressed & (PAD_BUTTON_A | PAD_BUTTON_START))) && (this->image == 0)) {
         this->manager->signalMain(1);
     }
 }
@@ -68,7 +68,7 @@ void CSubLogoScreenInit::updateTP(TPData *tp)
     if (this->uploadComplete != TRUE) {
         return;
     }
-    if (FUN_ov16_020f1660()) {
+    if (Graphics::IsSubFading()) {
         return;
     }
     if (tp->touch == TRUE) {
@@ -98,7 +98,7 @@ void CSubLogoScreenInit::init(void)
     this->openArchives();
 }
 
-void CSubLogoScreenInit::update(int arg)
+void CSubLogoScreenInit::update(BOOL param1)
 {
     if (!this->uploadComplete) {
         this->loadSceneImage();

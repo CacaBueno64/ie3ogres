@@ -2,8 +2,8 @@
 .public FUN_ov126_021390d0
 .public FUN_ov126_021391b8
 .public unk_020A0640
-.public unk_02099EF0
-.public FUN_ov16_020f153c
+.public gUtilGame
+.public _ZN8Graphics16FadeScreensBlackEl
 .public FUN_02044798
 .public FUN_02044e40
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -22,7 +22,7 @@
 .public FUN_0204bb48
 .public FUN_0204eb4c
 .public FUN_ov16_020eedb8
-.public FUN_ov16_020f33fc
+.public _ZN7Archive10DeallocateEP9SFileData
 .public MI_CpuFill8
 .public FUN_ov16_020eeca0
 .public FUN_ov126_0212fbf4
@@ -30,13 +30,13 @@
 .public FUN_ov126_02137644
 .public FUN_ov132_02149238
 .public unk_0209A2C0
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_01ff998c
 .public FUN_01ff9904
 .public FUN_ov132_02148ad8
 .public FUN_ov132_02148ba4
 .public FUN_ov132_02148bac
-.public FUN_ov16_020f338c
+.public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_0207249c
 .public FUN_ov16_020f0b8c
 .public FUN_ov16_020f068c

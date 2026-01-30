@@ -7,8 +7,7 @@
 
 #### Non matchings
 - `CFileIO`: [readDirect](https://decomp.me/scratch/NalIT) 
-- `Allocator`: allocate (`0x0202DE58`), [deallocate](https://decomp.me/scratch/lyon1)
+- `Allocator`: [allocate](https://decomp.me/scratch/FxRdM)
 - `CMainCardScreenInit` (overlay3): [displayGraphics](https://decomp.me/scratch/qUjbS)
-- `CSceneScriptLoader` : [FUN_0202fd48](https://decomp.me/scratch/ShK79)
+- `CSceneScriptData` : [FUN_0202fd48](https://decomp.me/scratch/ShK79)
 - `CSceneScriptManager`: [FUN_02048748](https://decomp.me/scratch/g27Q4)
-- `CMainEndrollScreenInit` (overlay6): [update](https://decomp.me/scratch/ZIQ16)

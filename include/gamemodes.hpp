@@ -5,6 +5,7 @@
 
 #include <nitro.h>
 
+#include "endrollscreen.hpp"
 #include "cardscreen.hpp"
 #include "logoscreen.hpp"
 
@@ -29,6 +30,7 @@ typedef struct {
 
 void SetNextMode(GameMode mode);
 
+void EndrollScreenLoad(GameModeContext *ctx);
 void CardScreenLoad(GameModeContext *ctx);
 void LogoScreenLoad(GameModeContext *ctx);
 

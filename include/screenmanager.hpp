@@ -6,10 +6,10 @@
 #include <nitro.h>
 
 #include "manager.hpp"
+#include "graphics.hpp"
 #include "commonscreen.hpp"
 #include "logicthink.hpp"
 #include "archive.hpp"
-#include "graphics.hpp"
 #include "filesystem.hpp"
 
 typedef enum {
@@ -153,8 +153,8 @@ class CScreenManager : public CManager {
         /* 0x02042128 */ virtual void startGraphics(u32 arg);
         /* 0x02041b64 */ virtual BOOL updateKeys(u16 pressed, u16 held);
         /* 0x02041bec */ virtual BOOL updateTP(TPData *tp);
-        /* 0x02041c58 */ virtual BOOL update(int param1);
-        /* 0x02041cc8 */ virtual BOOL updateLate(int param1);
+        /* 0x02041c58 */ virtual BOOL update(EngineSelect engine);
+        /* 0x02041cc8 */ virtual BOOL updateLate(EngineSelect engine);
         /* 0x02042124 */ virtual void endGraphics(u32 arg);
         /* 0x020420bc */ virtual void updateDisplayMapping(void);
         /* 0x02029d00 */ virtual void updateScene(void) = 0;
@@ -208,14 +208,5 @@ class CScreenManager : public CManager {
     u8 pad_8d;
     u16 unk_8e;
 };
-
-extern "C" {
-    extern void FUN_ov16_020f1468(int);
-    extern void FUN_ov16_020f1514(int);
-    extern void FUN_ov16_020f1528(int);
-    extern BOOL FUN_ov16_020f1650(void);
-    extern BOOL FUN_ov16_020f1660(void);
-    extern void FUN_ov16_020f16c8(int);
-}
 
 #endif //IE3OGRES_SCREENMANAGER_H

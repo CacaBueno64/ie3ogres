@@ -29,6 +29,11 @@
 #include "spritebuttoncontroller.hpp"
 #include "spriteanimcontroller.hpp"
 #include "dungeonmanager.hpp"
+#include "screenmanager.hpp"
+#include "recordmanager.hpp"
+
+FS_EXTERN_OVERLAY(overlay130);
+FS_EXTERN_OVERLAY(overlay16);
 
 typedef struct {
     u8 unk0;
@@ -60,13 +65,13 @@ typedef struct {
     void *unk30;
     C2DGChar *unk34;
     void *unk38;
-    u32 unk3C;
+    s32 IsValidSave;
     BOOL WaitVBlank;
     CFontManager *Font8;
     CSprAnimCtrl *unk48;
     C2DAdventureLogic *unk4C;
     CFontManager_2 *Font12T;
-    u32 unk54;
+    u16 unk54[2];
     CNsbResourceMan *unk58;
     C3DGameMapObject *unk5C;
     C3DGameChar *unk60;
@@ -116,6 +121,70 @@ typedef struct {
 } UnkStruct_0209A1A8;
 extern UnkStruct_0209A1A8 unk_0209A1A8;
 
+typedef struct {
+    u32 unk0;
+    u32 unk4;
+    u32 unk8;
+    u8 unkC;
+    u8 unkD;
+    u8 unkE;
+    u8 unkF;
+    u8 unk10;
+    u8 unk11;
+    u8 unk12;
+    u8 unk13;
+    u8 unk14;
+    u8 unk15;
+    u8 unk16;
+    u8 unk17;
+    u8 unk18;
+    u8 unk19;
+    u8 unk1A;
+    u8 unk1B;
+    u8 unk1C;
+    u8 unk1D;
+    u8 unk1E;
+    u8 unk1F;
+    u8 unk20;
+    u8 unk21;
+    u8 unk22;
+    u8 unk23;
+    u32 unk24;
+    u8 unk28;
+    u8 unk29;
+    u8 unk2A;
+    u8 unk2B;
+    u16 unk2C;
+    u8 unk2E;
+    u8 unk2F;
+    u8 mini;
+    u8 wireless;
+    u8 unk32;
+    u8 unk33;
+    u8 unk34;
+    u8 unk35;
+    u8 unk36;
+    u8 unk37;
+    u8 unk38;
+    u8 unk39;
+    u8 unk3A;
+    u8 unk3B;
+    u16 unk3C;
+    u16 unk3E;
+    char unk40[32];
+    char unk60[32];
+    u8 unk80;
+    u8 unk81;
+    u8 unk82;
+    u8 unk83;
+    SceneType unk84;
+    u8 unk88;
+    u8 unk89;
+    u8 unk8A;
+    u8 unk8B;
+} UnkStruct_0209A454;
+extern UnkStruct_0209A454 unk_0209A454;
+
 void VBlankIntr(void);
 void InitHeap(void);
 void InitCommon(void);
@@ -129,5 +198,6 @@ void InitG3d(void);
 void InitTouchPannel(void);
 void FUN_020295e8(void);
 void FUN_02029608(void);
+void InitFont(void);
 
 #endif //IE3OGRES_INIT_H

@@ -12,7 +12,7 @@
 .public unk_020A0700
 .public FUN_ov16_020edec4
 .public unk_020A1640
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 .public gAllocator
 .public FUN_ov16_020ee16c
 .public unk_020A1140
@@ -44,8 +44,8 @@
 .public unk_0209C094
 .public unk_020A0C68
 .public unk_020A1240
-.public FUN_ov16_020f3054
-.public FUN_ov16_020f33fc
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02044658
 .public FUN_0207039c
 .public FUN_0204bd64
@@ -159,7 +159,7 @@
 .public FUN_02045950
 .public FUN_02045938
 .public FUN_020722f4
-.public FUN_ov16_020f17f0
+.public _ZN8Graphics20IsMainBrightAdjustedEv
 .public STD_CopyLString
 .public unk_020AA044
 .public FUN_ov16_02103044
@@ -214,7 +214,7 @@
 .public FUN_0206d5f0
 .public FUN_0206def8
 .public FUN_0206c6fc
-.public unk_0209A0AC
+.public gUnitMan
 .public FUN_0207478c
 .public FUN_0204de70
 .public FUN_02045900
@@ -241,7 +241,7 @@
 .public FUN_020727a8
 .public FUN_020483e4
 .public FUN_ov126_0213a1c4
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_0204fff8
 .public FUN_02050144
 .public FUN_020744f0
@@ -319,7 +319,7 @@
 .public FUN_02055b8c
 .public FUN_02058684
 .public FUN_02059038
-.public FUN_ov16_020f3d08
+.public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 .public FUN_02058800
 .public FUN_ov16_02112724
 .public FUN_ov16_02112950

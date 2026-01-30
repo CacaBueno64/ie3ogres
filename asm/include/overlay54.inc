@@ -1,10 +1,10 @@
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f5450
-.public FUN_ov16_020f34f0
+.public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public FUN_02058800
 .public g3DPlaneCtrl
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_021128c4
 .public FUN_02058ee0
 .public FUN_02058e30
@@ -30,7 +30,7 @@
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02113ec0
 .public FUN_ov16_0210e300
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_0210ec34
 .public FUN_ov16_0210ef88
 .public _ZN11AudioPlayer12FUN_0202cf6cEm
@@ -48,7 +48,7 @@
 .public MI_CpuFill8
 .public FUN_0207249c
 .public gLogicThink
-.public FUN_ov16_020f330c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_0210e10c

@@ -184,7 +184,7 @@
 .public FUN_0206d744
 .public FUN_0204b114
 .public FUN_0204b0ac
-.public unk_02099EF0
+.public gUtilGame
 .public FUN_ov126_02136e08
 .public FUN_0207318c
 .public FUN_02073eac

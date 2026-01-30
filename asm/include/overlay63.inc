@@ -1,4 +1,4 @@
-.public FUN_ov16_020f316c
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f5450
 .public FUN_0205aa80
 .public FUN_0205a828
@@ -14,13 +14,13 @@
 .public FUN_0205b3cc
 .public g3DGameChar
 .public gConfig
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorimih
+.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
 .public gAllocator
 .public FUN_02059004
 .public FUN_02059038
 .public g3DPlaneCtrl
-.public FUN_ov16_020f338c
-.public FUN_ov16_020f33fc
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_020f57b0
 .public FUN_ov16_021128c4
 .public FUN_02058ee0
@@ -94,7 +94,7 @@
 .public FUN_ov132_02145190
 .public FUN_0204b0c4
 .public FUN_0207224c
-.public unk_02099EF0
+.public gUtilGame
 .public _s32_div_f
 .public FUN_0205935c
 .public FUN_ov16_02111458
@@ -125,7 +125,7 @@
 .public FUN_ov16_0210ef88
 .public FUN_ov16_0210efac
 .public FUN_ov16_0210e29c
-.public gSprAnimeCtrl
+.public gSprAnimCtrl
 .public FUN_ov16_02114370
 .public FUN_ov16_0210fd0c
 .public FUN_ov16_020f53e8
@@ -163,8 +163,8 @@
 .public g3DDevice
 .public gCameraController
 .public FUN_0205b340
-.public FUN_ov16_020f330c
-.public FUN_ov16_020f153c
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
+.public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_0205ac70

@@ -55,7 +55,7 @@ _02124D84:
 	mov r1, r8
 	mov r2, r7
 	mov r3, r6
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _02124DD8
 	add r2, r9, #6
@@ -75,7 +75,7 @@ _02124DD8:
 	mov r1, r8
 	mov r2, r7
 	mov r3, r6
-	bl FUN_ov16_020f34f0
+	bl _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 	cmp r0, #0
 	beq _02124E24
 	add r2, r9, #3
@@ -132,7 +132,7 @@ FUN_ov121_02124e94: ; 0x02124E94
 	mov r4, #0xc
 _02124EA4:
 	mla r0, r6, r4, r5
-	bl FUN_ov16_020f33fc
+	bl _ZN7Archive10DeallocateEP9SFileData
 	add r6, r6, #1
 	cmp r6, #0x10
 	blt _02124EA4
@@ -260,7 +260,7 @@ _02124F2C:
 	mov r3, r6
 	mov r2, #7
 	bl FUN_ov1_020dc0d4
-	bl FUN_ov16_020f10c8
+	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _021250A0: .word gBgMenuManager
@@ -790,7 +790,7 @@ _021257F0:
 	strb r1, [r0, #0x21]
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, pc}
-_02125828: .word unk_02099EF0
+_02125828: .word gUtilGame
 	arm_func_end FUN_ov121_02125720
 
 	arm_func_start FUN_ov121_0212582c
@@ -838,7 +838,7 @@ FUN_ov121_02125894: ; 0x02125894
 _021258BC:
 	add r0, r4, #0x28
 	mov r1, #0x10
-	bl FUN_ov16_020f330c
+	bl _ZN7Archive11TryFinalizeEP9SFileDatai
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
@@ -893,7 +893,7 @@ FUN_ov121_02125960: ; 0x02125960
 	mov r4, r0
 	add r0, r4, #0x28
 	mov r1, #0x10
-	bl FUN_ov16_020f338c
+	bl _ZN7Archive5CloseEP9SFileDatai
 	mov r0, r4
 	bl FUN_ov121_02124e94
 	ldr r0, _0212598C ; =gBgMenuManager
