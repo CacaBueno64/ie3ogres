@@ -65,8 +65,7 @@ typedef struct {
     u8 playerType;
     u16 unk5E;
     u16 unk60;
-    u8 Element;
-    u8 unk62;
+    u8 element;
     u8 unk63;
     u8 unk64;
     u8 unk65;

@@ -29,6 +29,7 @@ typedef struct {
 } GameModeContext;
 
 void SetNextMode(GameMode mode);
+GameMode GetCurrentMode(void);
 
 void EndrollScreenLoad(GameModeContext *ctx);
 void CardScreenLoad(GameModeContext *ctx);

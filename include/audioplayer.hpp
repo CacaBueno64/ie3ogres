@@ -17,6 +17,7 @@ class AudioPlayer {
         BOOL FUN_0202c4a0(u32 param1);
         void FUN_0202cf00(s32 param1);
         void FUN_0202cf6c(u32 param1);
+        void FUN_0202cff8(u16 param1);
         void FUN_0202d08c(s32 param1);
         void FUN_0202d578(int idx);
         void FUN_0202d594(int idx, const char *filename);

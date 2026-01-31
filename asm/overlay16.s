@@ -24861,7 +24861,7 @@ _0210254C:
 	cmp r6, #0
 	mov r5, #0
 	bne _0210261C
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #3
 	bne _021025B4
 	ldr r6, _0210269C ; =0x020A9C40

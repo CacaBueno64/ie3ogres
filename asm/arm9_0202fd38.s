@@ -596,7 +596,7 @@ FUN_020304e4: ; 0x020304E4
 	mov r5, #1
 	bl _ZN14CScreenManager15getCurSceneMainEv
 	str r0, [r4, #4]
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #2
 	beq _0203052C
 	cmp r0, #3
@@ -672,7 +672,7 @@ _020305B8:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0203061C
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #2
 	bne _0203061C
 	mov r0, r4
@@ -739,7 +739,7 @@ _020306A8:
 	bl FUN_ov132_0213aefc
 	cmp r0, #0
 	beq _0203071C
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #2
 	bne _0203071C
 	bl FUN_ov16_020f2aa4
@@ -1351,7 +1351,7 @@ FUN_02030f54: ; 0x02030F54
 	arm_func_start FUN_02030fa0
 FUN_02030fa0: ; 0x02030FA0
 	stmfd sp!, {r4, lr}
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #2
 	ldmnefd sp!, {r4, pc}
 	ldr r4, _02030FD8 ; =0x020AF81C

@@ -489,13 +489,13 @@ _Z11SetNextMode8GameMode: ; 0x02029D44
 _02029D50: .word unk_020B5AE0
 	arm_func_end _Z11SetNextMode8GameMode
 
-	arm_func_start GetCurrentMode
-GetCurrentMode: ; 0x02029D54
+	arm_func_start _Z14GetCurrentModev
+_Z14GetCurrentModev: ; 0x02029D54
 	ldr r0, _02029D60 ; =0x020B5AE0
 	ldr r0, [r0, #8]
 	bx lr
 _02029D60: .word unk_020B5AE0
-	arm_func_end GetCurrentMode
+	arm_func_end _Z14GetCurrentModev
 
 	arm_func_start FUN_02029d64 ; https://decomp.me/scratch/hQu3p
 FUN_02029d64: ; 0x02029D64

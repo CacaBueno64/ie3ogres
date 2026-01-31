@@ -171,7 +171,7 @@
 .public FUN_02073260
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
-.public GetCurrentMode
+.public _Z14GetCurrentModev
 .public FUN_ov131_021422e4
 .public FUN_ov4_020bf6dc
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

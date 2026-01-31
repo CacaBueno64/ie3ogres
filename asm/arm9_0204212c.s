@@ -2154,7 +2154,7 @@ _02043E04:
 	ldrsh r0, [r6, #6]
 	cmp r0, #0
 	bne _02043F0C
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #3
 	addne sp, sp, #0x10
 	movne r0, r5
@@ -3650,7 +3650,7 @@ FUN_02045124: ; 0x02045124
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r10, r0
 	mov r5, #1
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #2
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -3777,7 +3777,7 @@ FUN_020452e0: ; 0x020452E0
 	cmp r0, #0
 	moveq r0, r6
 	ldmeqfd sp!, {r4, r5, r6, pc}
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #3
 	movne r0, r6
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -7245,7 +7245,7 @@ _02047D90:
 	mov r3, r5
 	mov r1, r6
 	stmib sp, {r4, r10}
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	movne r0, #0x2000
 	strne r0, [r9, #0x1c]
@@ -7384,7 +7384,7 @@ FUN_02047f8c: ; 0x02047F8C
 	ldr r7, [sp, #0x30]
 	mov r11, r3
 	str r4, [sp, #8]
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r9
@@ -7412,7 +7412,7 @@ _02048010:
 	mov r2, r8
 	mov r3, r11
 	str r12, [sp, #8]
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r4
@@ -7547,7 +7547,7 @@ FUN_020481c8: ; 0x020481C8
 	str r3, [sp]
 	mov r2, r4
 	stmib sp, {r3, r8}
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r9
@@ -7568,7 +7568,7 @@ _02048234:
 	mov r2, r11
 	mov r3, r5
 	stmib sp, {r5, r8}
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	addne sp, sp, #0xc
 	movne r0, r6
@@ -8046,7 +8046,7 @@ _02048868:
 	bl FUN_ov16_020fe6e8
 	b _020489BC
 _0204889C:
-	bl GetCurrentMode
+	bl _Z14GetCurrentModev
 	cmp r0, #3
 	bne _020489BC
 	mla r0, r7, r5, r4
@@ -8618,8 +8618,8 @@ _02049030: .word unk_020903A4
 _02049034: .word unk_020903B8
 	arm_func_end _ZN23CSceneScriptFileContext10openScriptEimPvS0_i
 
-	arm_func_start _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i ; https://decomp.me/scratch/IOG88
-_ZN23CSceneScriptFileContext10loadScriptEillPvS0_i: ; 0x02049038
+	arm_func_start _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_ ; https://decomp.me/scratch/IOG88
+_ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_: ; 0x02049038
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #0x48
 	mov r4, r0
@@ -8685,7 +8685,7 @@ _020490F4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02049124: .word SSD_FileIdentifier
 _02049128: .word 0x00003001
-	arm_func_end _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	arm_func_end _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 
 	arm_func_start _ZN23CSceneScriptFileContext5resetEv
 _ZN23CSceneScriptFileContext5resetEv: ; 0x0204912C
@@ -8881,7 +8881,7 @@ _ZN23CSceneScriptFileContext19loadScriptFileStateEiP21SScriptFileRecordDataPvS2_
 	str r4, [sp, #8]
 	ldr r3, [r5, #4]
 	mov r0, r6
-	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_i
+	bl _ZN23CSceneScriptFileContext10loadScriptEillPvS0_S0_
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	moveq r0, r4

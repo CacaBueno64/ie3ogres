@@ -21,7 +21,7 @@
 .public unk_0209A200
 .public unk_020900DC
 .public unk_020900EC
-.public GetCurrentMode
+.public _Z14GetCurrentModev
 .public FUN_ov0_020bdbe8
 .public abs
 .public _s32_div_f
