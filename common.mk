@@ -78,7 +78,7 @@ TWLWIFI_SRC_SUBDIRS       := cps soc ssl wcm
 
 LIB_SUBDIRS               := TwlSDK TwlSystem TwlDWC_dl TwlWiFi MSL_C libMobiclip DSE
 SRC_SUBDIR                := src
-ASM_SUBDIR                := asm
+ASM_SUBDIR                := asm asm/init
 LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/src/%) $(TWLWIFI_SRC_SUBDIRS:%=lib/TwlWiFi/src/%)
 LIB_ASM_SUBDIR            := lib/asm $(LIB_SUBDIRS:%=lib/%/asm) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/asm/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/asm/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/asm/%) $(TWLWIFI_SRC_SUBDIRS:%=lib/TwlWiFi/asm/%)
 ALL_SUBDIRS               := $(SRC_SUBDIR) $(ASM_SUBDIR) $(LIB_SRC_SUBDIR) $(LIB_ASM_SUBDIR)

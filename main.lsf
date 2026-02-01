@@ -41,6 +41,47 @@ Static main
 	# MSL_C library
 	Object lib/MSL_C/asm/libmsl.o
 
+	Object asm/init/arm9_init_02086768.o
+	Object asm/init/arm9_init_02086aec.o
+	Object asm/init/arm9_init_02086b40.o
+	Object asm/init/arm9_init_02086b94.o
+	Object asm/init/arm9_init_02086be8.o
+	Object asm/init/arm9_init_02086c3c.o
+	Object asm/init/arm9_init_02086c8c.o
+	Object asm/init/arm9_init_02086ce0.o
+	Object asm/init/arm9_init_02086d34.o
+	Object asm/init/arm9_init_02086d88.o
+	Object asm/init/arm9_init_02086ddc.o
+	Object asm/init/arm9_init_02086e30.o
+	Object asm/init/arm9_init_02086e84.o
+	Object asm/init/arm9_init_02086ed8.o
+	Object asm/init/arm9_init_02086f2c.o
+	Object asm/init/arm9_init_02086f80.o
+	Object asm/init/arm9_init_02086fd4.o
+	Object asm/init/arm9_init_02087028.o
+	Object asm/init/arm9_init_0208707c.o
+	Object asm/init/arm9_init_020870d0.o
+	Object asm/init/arm9_init_02087120.o
+	Object asm/init/arm9_init_02087174.o
+	Object asm/init/arm9_init_020871c8.o
+	Object asm/init/arm9_init_02087218.o
+	Object asm/init/arm9_init_02087268.o
+	Object asm/init/arm9_init_020872bc.o
+	Object asm/init/arm9_init_02087310.o
+	Object asm/init/arm9_init_02087360.o
+	Object asm/init/arm9_init_020873b4.o
+	Object asm/init/arm9_init_02087408.o
+	Object asm/init/arm9_init_0208745c.o
+	Object asm/init/arm9_init_020874b0.o
+	Object asm/init/arm9_init_02087500.o
+	Object asm/init/arm9_init_02087554.o
+	Object asm/init/arm9_init_020875a8.o
+	Object asm/init/arm9_init_020875fc.o
+	Object asm/init/arm9_init_02087650.o
+	Object asm/init/arm9_init_020876a4.o
+	Object asm/init/arm9_init_020876f8.o
+	Object asm/init/arm9_init_0208774c.o
+
 	Object asm/arm9_02028fa0.o
 	Object asm/arm9_data_0208f680.o
 	Object asm/arm9_bss_02099e8c.o
@@ -80,8 +121,8 @@ Static main
 
 	Object asm/arm9_data_020938a0.o
 	Object src/filesystem.o
-	Object asm/arm9_init_02086768.o
-	Object asm/arm9_sinit.o
+
+	Object asm/init/arm9_init_020877a0.o
 }
 
 Autoload ITCM

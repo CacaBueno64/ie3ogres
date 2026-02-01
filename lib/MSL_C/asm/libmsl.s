@@ -1525,7 +1525,7 @@ _0201DD3C: .word _ZZNKSt13bad_exception4whatEvEs
 	arm_func_start __call_static_initializers
 __call_static_initializers: ; 0x0201DD40
 	stmfd sp!, {r4, lr}
-	ldr r4, _0201DD6C ; =__sinit__
+	ldr r4, _0201DD6C ; =SDK_STATIC_SINIT_START
 	b _0201DD54
 _0201DD4C:
 	blx r0
@@ -1537,7 +1537,7 @@ _0201DD54:
 	cmp r0, #0
 	bne _0201DD4C
 	ldmfd sp!, {r4, pc}
-_0201DD6C: .word __sinit__
+_0201DD6C: .word SDK_STATIC_SINIT_START
 	arm_func_end __call_static_initializers
 
 	arm_func_start __destroy_global_chain

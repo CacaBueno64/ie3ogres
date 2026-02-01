@@ -109,7 +109,7 @@ class CSceneScriptManager {
         /* 0x020485d0 */ CSceneScriptThread *getThread(int threadIdx, int fileIdx);
         /* 0x02048674 */ ScriptInstruction *initFunction(ScriptInstruction *start, int idx, s16 functionNo, s32 *argv);
         BOOL FUN_020486f0(CSceneDirection *direction, int idx, ScriptInstruction *start, s32 *argv);
-        BOOL FUN_02048748(void);
+        /* 0x02048748 */ BOOL update(void);
         void FUN_02048a04(void);
         void FUN_02048a4c(void);
         void FUN_02048a68(void);
@@ -125,7 +125,7 @@ class CSceneScriptManager {
     
     CSceneScriptFileContext fileContexts[16];
     CSceneDirection *direction;
-    CScreenManager *manager;
+    CScreenManager *adventureScreenManager; /* CAdventureScreenManager */
     CSceneScriptThread *threads[11];
     u32 unk1BB4;
     CSceneScriptThread *thread1BB8;

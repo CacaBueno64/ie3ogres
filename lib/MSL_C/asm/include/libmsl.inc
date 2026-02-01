@@ -1,4 +1,4 @@
-.public __sinit__
+.public SDK_STATIC_SINIT_START
 .public SDK_STATIC_ETABLE_START
 .public SDK_STATIC_ETABLE_END
 .public OSi_ThreadInfo
