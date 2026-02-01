@@ -1,10 +1,11 @@
 #include "filesystem.hpp"
+#include "init/arm9_init.hpp"
 
 namespace FileSystem {
 
-s32 sCurFileKey;
-char *sProcessStack;
-FileHandle *sFileHandles;
+static FileHandle *sFileHandles;
+static char *sProcessStack;
+static s32 sCurFileKey;
 static OSThread sProcessThread;
 static ArchiveHandle sArchives[18];
 static MATHCRC32Table sCrc32Table;

@@ -80,7 +80,6 @@ Static main
 	Object asm/init/arm9_init_02087650.o
 	Object asm/init/arm9_init_020876a4.o
 	Object asm/init/arm9_init_020876f8.o
-	Object asm/init/arm9_init_0208774c.o
 
 	Object asm/arm9_02028fa0.o
 	Object asm/arm9_data_0208f680.o
@@ -119,7 +118,6 @@ Static main
 	# DSE library
 	Object lib/DSE/asm/libDSE.o
 
-	Object asm/arm9_data_020938a0.o
 	Object src/filesystem.o
 
 	Object asm/init/arm9_init_020877a0.o

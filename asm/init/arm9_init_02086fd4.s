@@ -28,6 +28,7 @@ _02087020: .word 0x00009CCD
 _02087024: .word 0x0000EA3C
 	arm_func_end FUN_02086fd4
 
-	.section .sinit, 4
+	.section .ctor, 4
+#pragma force_active on
 unk_0208EBA0:
 	.word FUN_02086fd4
