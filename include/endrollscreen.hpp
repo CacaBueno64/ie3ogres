@@ -5,7 +5,6 @@
 
 #include <nitro.h>
 
-#include "init/ov6_init.hpp"
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
 #include "gamemodes.hpp"

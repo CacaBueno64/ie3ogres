@@ -118,7 +118,7 @@ void FUN_020292e8(void)
 void FUN_020292f4(void)
 {
     FileSystem::Init();
-    Config_Init();
+    InitConfig();
 }
 
 void InitGlobals(void) // https://decomp.me/scratch/kU9Um

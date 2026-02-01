@@ -5,7 +5,6 @@
 
 #include <nitro.h>
 
-#include "init/ov3_init.hpp"
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
 

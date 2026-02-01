@@ -1,6 +1,5 @@
 #include "endrollscreen.hpp"
-
-const ov6_Init_020BDF44 ov6_020BDF44 = ov6_Init_020BDF44(0x800, 0xea3c, 0x4e2000, 0x9ccd, 0x2000, 0x840800);
+#include "init/arm9_init.hpp"
 
 BOOL CSubEndrollScreenInit::readOptions(void)
 {

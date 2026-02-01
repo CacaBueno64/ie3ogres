@@ -1,6 +1,5 @@
 #include "ov130.hpp"
-
-const ov130_Init ov130_0212AB60 = ov130_Init(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+#include "init/arm9_init.hpp"
 
 void InitAlloc(void)
 {
@@ -11,7 +10,7 @@ void InitAlloc(void)
     OS_SetMainArenaLo(newLo);
 }
 
-void Config_Init(void)
+void InitConfig(void)
 {
     gConfig.clear();
     gConfig.init();

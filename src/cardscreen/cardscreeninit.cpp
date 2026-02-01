@@ -1,6 +1,5 @@
 #include "cardscreen.hpp"
-
-const ov3_Init_020BD390 ov3_020BD390 = ov3_Init_020BD390(0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000, 0x840800);
+#include "init/arm9_init.hpp"
 
 void CMainCardScreenInit::initGraphics(void)
 {

@@ -4,7 +4,6 @@
 #pragma once
 
 #include <nitro.h>
-#include "init/ov5_init.hpp"
 
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"

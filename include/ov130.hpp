@@ -22,6 +22,6 @@ class ov130_Init {
 };
 
 void InitAlloc(void);
-void Config_Init(void);
+void InitConfig(void);
 
 #endif //IE3OGRES_OV130_H
