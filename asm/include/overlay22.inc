@@ -3,8 +3,8 @@
 .public FUN_ov16_020f3f60
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public FUN_0202cf00
-.public FUN_0202cdd4
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 .public MI_CpuFill8
 .public MI_CpuCopy8
 .public unk_0209A0E0
@@ -134,7 +134,7 @@
 .public FUN_0207273c
 .public unk_0209A134
 .public _s32_div_f
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_02113c60
 .public FUN_ov16_0211409c
 .public FUN_ov16_02113e30
@@ -150,7 +150,7 @@
 .public FUN_ov16_020f2304
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210efac
-.public _ZN11AudioPlayer12FUN_0202c44cEii
+.public _ZN11AudioPlayer12FUN_0202c44cEil
 .public unk_02099E93
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e6fc

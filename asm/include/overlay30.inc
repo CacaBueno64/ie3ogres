@@ -3,7 +3,7 @@
 .public FUN_ov1_020e4328
 .public MI_CpuFill8
 .public FUN_ov126_0213a418
-.public _ZN11AudioPlayer7openSADEPvPch
+.public _ZN11AudioPlayer12FUN_0202d4c4EiPKca
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public g3DFieldSprite
 .public gUtilGame

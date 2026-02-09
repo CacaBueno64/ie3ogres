@@ -561,8 +561,8 @@ unk_0209A880:
 	.global unk_0209A884
 unk_0209A884:
 	.space 0x1C
-	.global gMovie
-gMovie:
+	.global gMoviePlayer
+gMoviePlayer:
 	.space 0x1C0
 	.global unk_0209AA60
 unk_0209AA60:

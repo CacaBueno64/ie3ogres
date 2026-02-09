@@ -41,7 +41,7 @@ FUN_ov30_02119f00: ; 0x02119F00
 	mov r0, r4
 	ldr r2, _02119FB4 ; =0x0211A7AC
 	mov r3, r5
-	bl _ZN11AudioPlayer7openSADEPvPch
+	bl _ZN11AudioPlayer12FUN_0202d4c4EiPKca
 	mov r0, r4
 	mov r1, r5
 	mov r2, r5

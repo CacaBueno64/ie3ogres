@@ -145,7 +145,7 @@
 .public unk_0208FD64
 .public FUN_ov16_02113390
 .public FUN_ov16_021142fc
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_02114248
 .public unk_0208C36C
 .public unk_020A0640

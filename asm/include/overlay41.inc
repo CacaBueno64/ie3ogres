@@ -34,7 +34,7 @@
 .public FUN_ov16_021123c4
 .public g3DPlaneCtrl
 .public FUN_ov16_020f6584
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f6e8c
 .public FUN_ov16_020f6530
 .public gAudioPlayer

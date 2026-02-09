@@ -40,7 +40,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210efac
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_02058e30

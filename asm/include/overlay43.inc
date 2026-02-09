@@ -19,7 +19,7 @@
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public unk_0209A0F4
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210f484
 .public FUN_ov16_02112724

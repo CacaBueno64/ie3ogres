@@ -1,5 +1,5 @@
-#ifndef IE3OGRES_MOVIE_H
-#define IE3OGRES_MOVIE_H
+#ifndef IE3OGRES_MOVIEPLAYER_H
+#define IE3OGRES_MOVIEPLAYER_H
 
 #pragma once
 
@@ -9,6 +9,7 @@
 #include "allocator.hpp"
 #include "audioplayer.hpp"
 #include "graphics.hpp"
+#include "thread.hpp"
 
 #define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
@@ -19,9 +20,20 @@
 FS_EXTERN_OVERLAY(overlay126);
 FS_EXTERN_OVERLAY(overlay127);
 
+typedef enum {
+    MOVIE_STATUS_NONE,
+    MOVIE_STATUS_PLAYING,
+} EMovieStatus;
+
+typedef struct {
+    s32 startMs;
+    s32 endMs;
+    unsigned char text[];
+} SMovieTxtEntry;
+
 typedef struct {
     char name[32];
-    void *stack;
+    char *stack;
     s32 startMs;
     s32 endMs;
     char *text;
@@ -30,24 +42,24 @@ typedef struct {
 
 typedef struct {
     Allocator *allocator;
-    s8 curBGLayer;
+    s8 currentBG;
     s8 unk5;
     s8 frameDisplayed;
-    s8 pad7; //pad
-    u16 *BGScrPtrMain[2];
-    u16 *BGScrPtrSub[2];
-    u8 pad18[0x08]; //pad
-    void *unk20; //never used
-    void *unk24; //never used
+    s8 pad7;
+    u16 *BGScrMain[2];
+    u16 *BGScrSub[2];
+    u8 pad18[0x08]; // pad?
+    void *unk20; // never used
+    void *unk24; // never used
 } UnkStruct_020B5B80;
 extern UnkStruct_020B5B80 unk_020B5B80;
 
-class Movie {
+class MoviePlayer {
     public:
-        Movie();
-        ~Movie();
+        MoviePlayer();
+        ~MoviePlayer();
         void init(Allocator *allocator);
-        void setBGScreenPointers(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub);
+        void setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub);
         int flipBuffer(void);
         BOOL playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNotSound, u8 loadOverlay);
         u32 FUN_0202e784(void);
@@ -81,12 +93,19 @@ class Movie {
     s32 frameCount;
 };
 
-extern Movie gMovie;
+extern MoviePlayer gMoviePlayer;
 
-namespace MoviePlayer {
+namespace Movie {
+
+#define MOVIE_THREAD_STACK_SIZE 0x4000
 
 void Init(void);
+void Play(void *arg);
+void Start(SMovieInfo *info, const char *name);
+void FUN_ov16_020f2a74(SMovieInfo *info);
+EMovieStatus GetStatus(void);
+void Update(void);
 
-} /* namespace MoviePlayer */
+} /* namespace Movie */
 
-#endif //IE3OGRES_MOVIE_H
+#endif //IE3OGRES_MOVIEPLAYER_H

@@ -1,6 +1,6 @@
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
-.public FUN_0202cf00
-.public FUN_0202cdd4
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 .public gAudioPlayer
 .public MIi_CpuClearFast
 .public DC_FlushRange
@@ -36,7 +36,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_02114204
 .public abs
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_02114248
 .public FUN_ov16_02113ec0
 .public FX_Atan2Idx
@@ -57,7 +57,7 @@
 .public FUN_ov16_020f2304
 .public FUN_ov16_020ee4b4
 .public FUN_ov16_020ede60
-.public _ZN11AudioPlayer12FUN_0202c4a0Em
+.public _ZN11AudioPlayer12FUN_0202c4a0El
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public gLogicThink
 .public _ZN8Graphics16FadeScreensBlackEl
@@ -84,10 +84,10 @@
 .public FUN_ov16_021123b4
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
-.public FUN_0202c530
-.public FUN_0202dbd0
+.public _ZN11AudioPlayer12FUN_0202c530El
+.public _ZN11AudioPlayer12FUN_0202dbd0Ei
 .public _ZN11AudioPlayer12FUN_0202d578Ei
-.public FUN_0202c560
+.public _ZN11AudioPlayer12FUN_0202c560Ei
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType

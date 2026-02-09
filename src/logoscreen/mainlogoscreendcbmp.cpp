@@ -8,7 +8,7 @@ void CMainLogoScreenDCBmp::updateKeys(u16 pressed, u16 held)
     }
     
     if (pressed & PAD_BUTTON_A) {
-        gMovie.FUN_0202e958();
+        gMoviePlayer.FUN_0202e958();
     }
 }
 
@@ -24,7 +24,7 @@ void CMainLogoScreenDCBmp::updateTP(TPData *tp)
         return;
     }
     if (this->tpTouch) {
-        gMovie.FUN_0202e958();
+        gMoviePlayer.FUN_0202e958();
     }
     this->tpTouch = FALSE;
 }

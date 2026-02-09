@@ -210,7 +210,7 @@ FUN_ov64_0211a1b0: ; 0x0211A1B0
 	str r1, [r0, #0xc]
 	ldr r0, _0211A1E0 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, pc}
 _0211A1E0: .word gAudioPlayer
 	arm_func_end FUN_ov64_0211a1b0
@@ -227,7 +227,7 @@ FUN_ov64_0211a1e4: ; 0x0211A1E4
 	str r1, [r0, #0xc]
 	ldr r0, _0211A214 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, pc}
 _0211A214: .word gAudioPlayer
 	arm_func_end FUN_ov64_0211a1e4
@@ -698,7 +698,7 @@ FUN_ov64_0211a800: ; 0x0211A800
 	blx r1
 	ldr r0, _0211A854 ; =gAudioPlayer
 	mov r1, #0x16
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, #5
 	str r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}

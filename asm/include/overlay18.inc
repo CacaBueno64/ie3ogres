@@ -42,7 +42,7 @@
 .public FUN_ov16_02113ec0
 .public gLogicThink
 .public FUN_ov16_020f5868
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public _ZN8Graphics16FadeScreensBlackEl
 .public gAudioPlayer
 .public _s32_div_f

@@ -77,7 +77,7 @@
 .public gUnitMan
 .public FUN_ov16_0210f468
 .public FUN_ov16_02110b04
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484

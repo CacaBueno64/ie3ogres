@@ -1081,7 +1081,7 @@ _0211AD68:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, _0211ADB8 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, _0211ADB4 ; =gSprButtonCtrl
 	mov r1, #1
 	ldr r0, [r0]

@@ -62,7 +62,7 @@
 .public FUN_020425fc
 .public gFont8
 .public FUN_ov16_0210e7d0
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
@@ -138,7 +138,7 @@
 .public FUN_ov16_020f081c
 .public MI_CpuCopy8
 .public FUN_0206ed40
-.public FUN_0202cfd8
+.public _ZN11AudioPlayer10stopEffectEim
 .public FUN_0206dcdc
 .public FUN_0204df64
 .public FUN_0204dfb8

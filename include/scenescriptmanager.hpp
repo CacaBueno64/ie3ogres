@@ -11,7 +11,7 @@
 #include "unitmanager.hpp"
 #include "allocator.hpp"
 #include "fileio.hpp"
-#include "movie.hpp"
+#include "movieplayer.hpp"
 #include "screenmanager.hpp"
 #include "gamemodes.hpp"
 #include "audioplayer.hpp"

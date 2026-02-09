@@ -17,7 +17,7 @@
 .public gWirelessUtil
 .public FUN_ov16_020f6084
 .public gBgMenuManager
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_021128c4

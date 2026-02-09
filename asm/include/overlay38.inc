@@ -7,7 +7,7 @@
 .public unk_0209A454
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public STD_CopyString
 .public FUN_020460a8

@@ -87,7 +87,7 @@
 .public FUN_ov16_021108d8
 .public FUN_ov16_02110930
 .public FUN_ov16_020efa9c
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_0210f48c
 .public gAudioPlayer
 .public FUN_ov16_0210ec34

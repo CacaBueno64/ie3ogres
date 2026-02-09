@@ -25,7 +25,7 @@
 .public FUN_ov16_02114248
 .public FUN_ov16_020f52f4
 .public FUN_ov16_02112724
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_02113b78
 .public _ZN6Config8getParamEPc

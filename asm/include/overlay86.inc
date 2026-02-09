@@ -26,7 +26,7 @@
 .public FUN_ov126_0212afdc
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public unk_020A0B6C
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public sprintf
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData

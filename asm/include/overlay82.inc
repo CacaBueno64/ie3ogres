@@ -59,9 +59,9 @@
 .public unk_020A0DB0
 .public unk_020A0EF8
 .public unk_020A108A
-.public FUN_0202cf00
-.public FUN_0202cdd4
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202cdd4EiPKc
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f5a58
@@ -103,7 +103,7 @@
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public unk_0209A454
-.public FUN_0202c470
+.public _ZN11AudioPlayer12FUN_0202c470El
 .public FUN_020724c8
 .public FUN_ov132_0214609c
 .public FUN_ov132_02146014

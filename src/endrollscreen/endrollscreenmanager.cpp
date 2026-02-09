@@ -1,7 +1,7 @@
 #include "endrollscreen.hpp"
 #include "init/arm9_init.hpp"
 
-static u8 sDummy;
+static u8 sDummy; // unused
 
 #pragma opt_rotateloops off
 void CEndrollScreenManager::init(void)

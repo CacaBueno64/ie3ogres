@@ -52,7 +52,7 @@
 .public _ZN9Allocator10deallocateEPv
 .public gAllocator
 .public FUN_ov16_0210efac
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public _ZN14CScreenManager12fadeSubBlackEv
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public gAudioPlayer

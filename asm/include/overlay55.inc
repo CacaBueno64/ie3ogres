@@ -6,7 +6,7 @@
 .public gBgMenuManager
 .public FUN_02062800
 .public FUN_02045b40
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_020460a8
 .public STD_CompareString
 .public unk_0209A454

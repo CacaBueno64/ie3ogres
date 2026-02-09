@@ -116,7 +116,7 @@ class CSubEndrollScreenInit : public CommonSubScreen {
         STATE_END,
     } state;
     u16 dummy208;
-    u16 count;
+    u16 duration;
     u8 imageIdx;
     SEndrollScreenShared *shared;
 };

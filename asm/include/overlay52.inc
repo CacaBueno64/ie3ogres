@@ -34,7 +34,7 @@
 .public FUN_02059038
 .public FUN_02058e30
 .public FUN_0207249c
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public _u32_div_f
 .public FUN_ov16_0210efac

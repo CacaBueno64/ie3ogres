@@ -15,7 +15,7 @@
 .public FUN_02062800
 .public gRecordManager
 .public FUN_020627a4
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_020620f8
 .public FUN_02062924
@@ -106,8 +106,8 @@
 .public FUN_020628dc
 .public FUN_020626f4
 .public FUN_ov16_020f2cdc
-.public FUN_0202d00c
-.public FUN_0202cfd8
+.public _ZN11AudioPlayer15isPlayingEffectEi
+.public _ZN11AudioPlayer10stopEffectEim
 .public FUN_02061bec
 .public unk_020A1640
 .public _ZN8Graphics16FadeScreensBlackEl

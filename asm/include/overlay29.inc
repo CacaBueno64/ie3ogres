@@ -17,8 +17,8 @@
 .public _ZdlPv
 .public FUN_ov16_020f1d64
 .public FUN_ov16_020f3f60
-.public FUN_0202cf00
-.public FUN_0202cdd4
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
@@ -80,7 +80,7 @@
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f5868
 .public FUN_0204bd64
 .public FUN_ov16_021109a0

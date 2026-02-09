@@ -2452,8 +2452,8 @@ _0204422C:
 _02044254:
 	bl FUN_02048a4c
 _02044258:
-	ldr r0, _020442C8 ; =gMovie
-	bl _ZN5Movie12FUN_0202e958Ev
+	ldr r0, _020442C8 ; =gMoviePlayer
+	bl _ZN11MoviePlayer12FUN_0202e958Ev
 	add r0, r8, #0x6000
 	ldr r1, [r0, #0x224]
 	add r1, r1, #1
@@ -2484,7 +2484,7 @@ _020442B8: .word 0x00001014
 _020442BC: .word unk_020A9C40
 _020442C0: .word 0x00001002
 _020442C4: .word 0x00001023
-_020442C8: .word gMovie
+_020442C8: .word gMoviePlayer
 	arm_func_end FUN_02043d80
 
 	arm_func_start FUN_020442cc
@@ -3928,12 +3928,12 @@ FUN_0204545c: ; 0x0204545C
 	mov r0, r7
 	ldr r2, _02045548 ; =0x02090138
 	mov r3, r5
-	bl FUN_0202bfb8
+	bl _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 	mov r0, r7
 	mov r1, r4
 	ldr r2, _0204554C ; =0x0209013C
 	mov r3, r5
-	bl FUN_0202bfb8
+	bl _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 	add r0, r6, #0x5000
 	strb r5, [r0, #0xbd8]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -8187,7 +8187,7 @@ FUN_02048a68: ; 0x02048A68
 	bl FUN_ov16_020fe918
 	ldr r0, _02048A90 ; =gAudioPlayer
 	mov r1, #0x64
-	bl FUN_0202cff8
+	bl _ZN11AudioPlayer14stopAllEffectsEm
 	ldmfd sp!, {r3, pc}
 _02048A90: .word gAudioPlayer
 	arm_func_end FUN_02048a68
@@ -12369,7 +12369,7 @@ _0204C104:
 	bne _0204C104
 	ldr r0, _0204C1CC ; =gAudioPlayer
 	mov r1, #8
-	bl FUN_0202db98
+	bl _ZN11AudioPlayer5sleepEm
 	ldr r3, _0204C1D0 ; =gAllocator
 	ldr r0, [r3]
 	cmp r0, #0
@@ -18460,7 +18460,7 @@ _ZN9C3DDevice4initEv: ; 0x02051144
 	bic r6, r6, #0x3000
 	orr r6, r6, #8
 	strh r6, [r12]
-	bl _ZN9C3DDevice13setClearColorEthh
+	bl _ZN9C3DDevice13setClearColorEthi
 	mov r6, #1
 	mov r0, r5
 	mov r1, r6
@@ -18536,8 +18536,8 @@ _020512A0: .word 0xFFFFCFFD
 _020512A4: .word 0xBFFF0000
 	arm_func_end _ZN9C3DDevice4initEv
 
-	arm_func_start _ZN9C3DDevice13setClearColorEthh
-_ZN9C3DDevice13setClearColorEthh: ; 0x020512A8
+	arm_func_start _ZN9C3DDevice13setClearColorEthi
+_ZN9C3DDevice13setClearColorEthi: ; 0x020512A8
 	stmfd sp!, {r3, lr}
 	mov r12, r0
 	strb r2, [r12, #0xa]
@@ -18551,7 +18551,7 @@ _ZN9C3DDevice13setClearColorEthh: ; 0x020512A8
 	bl G3X_SetClearColor
 	ldmfd sp!, {r3, pc}
 _020512D8: .word 0x00007FFF
-	arm_func_end _ZN9C3DDevice13setClearColorEthh
+	arm_func_end _ZN9C3DDevice13setClearColorEthi
 
 	arm_func_start FUN_020512dc
 FUN_020512dc: ; 0x020512DC
@@ -39344,7 +39344,7 @@ _02062478:
 	add r1, r7, #0x8d0
 	ldr r0, _020626DC ; =gAudioPlayer
 	add r1, r1, #0x5000
-	bl FUN_0202bcb0
+	bl _ZN11AudioPlayer18getSoundRecordDataEP16SSoundRecordData
 	ldr r0, _020626E0 ; =gLogicThink
 	mov r1, r7
 	bl FUN_02072b54
@@ -40003,7 +40003,7 @@ _02062DF0:
 	add r1, r7, #0x8d0
 	ldr r0, _02062F7C ; =gAudioPlayer
 	add r1, r1, #0x5000
-	bl FUN_0202bd54
+	bl _ZN11AudioPlayer19loadSoundRecordDataEP16SSoundRecordData
 _02062E60:
 	ldr r0, _02062F80 ; =gLogicThink
 	mov r1, r7
@@ -40036,16 +40036,16 @@ _02062EC8:
 	bne _02062ED8
 	mov r0, #7
 _02062ED4:
-	bl FUN_02075698
+	bl DSE_SsdSetOutputMode
 _02062ED8:
 	ldr r5, _02062F44 ; =0x020A1140
 	ldr r6, _02062F7C ; =gAudioPlayer
 	ldrh r1, [r5, #0x94]
 	mov r0, r6
-	bl FUN_0202bb58
+	bl _ZN11AudioPlayer12setBgmVolumeEt
 	ldrh r1, [r5, #0x96]
 	mov r0, r6
-	bl FUN_0202bb94
+	bl _ZN11AudioPlayer15setEffectVolumeEt
 _02062EF8:
 	ldr r1, _02062F90 ; =0x020A17F0
 	mov r5, #0

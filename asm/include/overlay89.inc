@@ -99,7 +99,7 @@
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210eb3c
 .public FUN_ov16_0210eab4
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_02113f7c
 .public FUN_02045b40

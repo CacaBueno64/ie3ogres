@@ -22,7 +22,7 @@
 .public gLogicThink
 .public gUtilGame
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
-.public FUN_0202c3b4
+.public _ZN11AudioPlayer12FUN_0202c3b4Eil
 .public gAudioPlayer
 .public FUN_ov16_020efabc
 .public FUN_0206cbf8
@@ -54,8 +54,8 @@
 .public FUN_ov16_020f6b3c
 .public gBgMenuManager
 .public FUN_020732d8
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
-.public _ZN11AudioPlayer12FUN_0202d724EPc
+.public _ZN11AudioPlayer10playEffectEi
+.public _ZN11AudioPlayer12FUN_0202d724EPKc
 .public G2_GetBG3CharPtr
 .public MIi_CpuClearFast
 .public DC_FlushRange
@@ -93,9 +93,9 @@
 .public FUN_ov16_020f2edc
 .public FUN_ov16_020f2fa8
 .public FUN_ov132_02145190
-.public FUN_0202c314
+.public _ZN11AudioPlayer12FUN_0202c314Eill
 .public FUN_ov132_02144f78
-.public FUN_0202c184
+.public _ZN11AudioPlayer12FUN_0202c184Eiill
 .public ov1_020EAAAC
 .public ov1_020E9485
 .public _ZN7Archive11TryFinalizeEP9SFileDatai

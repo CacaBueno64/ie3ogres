@@ -353,7 +353,7 @@ FUN_ov31_0211a3c4: ; 0x0211A3C4
 	bl FUN_ov16_0210efac
 	ldr r0, _0211A404 ; =gAudioPlayer
 	mov r1, r4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r4, pc}
 _0211A400: .word gSprButtonCtrl
 _0211A404: .word gAudioPlayer
@@ -385,7 +385,7 @@ _0211A444:
 	bl FUN_ov16_0210efac
 	ldr r0, _0211A468 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, pc}
 _0211A464: .word gSprButtonCtrl
 _0211A468: .word gAudioPlayer

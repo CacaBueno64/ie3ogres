@@ -7,7 +7,7 @@
 //
 //#include "screenmanager.hpp"
 //#include "commonscreen.hpp"
-//#include "movie.hpp"
+//#include "movieplayer.hpp"
 //
 //class CMainTitleScreenInit : public CommonMainScreen {
 //    public:

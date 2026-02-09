@@ -3,18 +3,18 @@
 	.include "libDSE.inc"
 
     .text
-	arm_func_start FUN_02074a6c
-FUN_02074a6c: ; 0x02074A6C
+	arm_func_start DSEi_UnusedAlloc
+DSEi_UnusedAlloc: ; 0x02074A6C
 	mov r0, #0
 	mov r2, r1
 	ldr r12, _02074A80 ; =OS_AllocFromHeap
 	sub r1, r0, #1
 	bx r12
 _02074A80: .word OS_AllocFromHeap
-	arm_func_end FUN_02074a6c
+	arm_func_end DSEi_UnusedAlloc
 
-	arm_func_start FUN_02074a84
-FUN_02074a84: ; 0x02074A84
+	arm_func_start DSEi_UnusedFree
+DSEi_UnusedFree: ; 0x02074A84
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	mov r0, #0
@@ -23,15 +23,15 @@ FUN_02074a84: ; 0x02074A84
 	bl OS_FreeToHeap
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02074a84
+	arm_func_end DSEi_UnusedFree
 
-	arm_func_start FUN_02074aa4
-FUN_02074aa4: ; 0x02074AA4
+	arm_func_start DSEi_DefaultConsoleCallback
+DSEi_DefaultConsoleCallback: ; 0x02074AA4
 	bx lr
-	arm_func_end FUN_02074aa4
+	arm_func_end DSEi_DefaultConsoleCallback
 
-	arm_func_start DseDriver_LoadDefaultSettings
-DseDriver_LoadDefaultSettings: ; 0x02074AA8
+	arm_func_start DSE_SsdInitSsdInitData
+DSE_SsdInitSsdInitData: ; 0x02074AA8
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _02074B30 ; =0x020B9FD8
 	mov r2, #1
@@ -40,12 +40,12 @@ DseDriver_LoadDefaultSettings: ; 0x02074AA8
 	subeq r0, r2, #0x100
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, #0x40
-	bl DseMem_Clear
+	bl DSEi_MemClear
 	mov r0, #0
-	ldr r1, _02074B34 ; =FUN_02074aa4
+	ldr r1, _02074B34 ; =DSEi_DefaultConsoleCallback
 	mov r12, #4
-	ldr r3, _02074B38 ; =FUN_02074a6c
-	ldr r2, _02074B3C ; =FUN_02074a84
+	ldr r3, _02074B38 ; =DSEi_UnusedAlloc
+	ldr r2, _02074B3C ; =DSEi_UnusedFree
 	mov r6, #8
 	mov r5, #0xf
 	mov lr, #0x14
@@ -67,20 +67,20 @@ DseDriver_LoadDefaultSettings: ; 0x02074AA8
 	str r0, [r4, #0x30]
 	ldmfd sp!, {r4, r5, r6, pc}
 _02074B30: .word unk_020B9FD8
-_02074B34: .word FUN_02074aa4
-_02074B38: .word FUN_02074a6c
-_02074B3C: .word FUN_02074a84
-	arm_func_end DseDriver_LoadDefaultSettings
+_02074B34: .word DSEi_DefaultConsoleCallback
+_02074B38: .word DSEi_UnusedAlloc
+_02074B3C: .word DSEi_UnusedFree
+	arm_func_end DSE_SsdInitSsdInitData
 
-	arm_func_start DseDriver_IsSettingsValid
-DseDriver_IsSettingsValid: ; 0x02074B40
+	arm_func_start DSEi_CheckInitData
+DSEi_CheckInitData: ; 0x02074B40
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r0
 	bne _02074B64
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0x17
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074B64:
@@ -89,7 +89,7 @@ _02074B64:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0x17
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074B84:
@@ -133,15 +133,15 @@ _02074BB8:
 	mov r1, r5
 	mvn r0, #0x17
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 _02074C18:
 	mov r0, r5
 	str r5, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseDriver_IsSettingsValid
+	arm_func_end DSEi_CheckInitData
 
-	arm_func_start DseDriver_ConfigureHeap
-DseDriver_ConfigureHeap: ; 0x02074C24
+	arm_func_start DSE_SsdSetInitDataSoundHeap
+DSE_SsdSetInitDataSoundHeap: ; 0x02074C24
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	strne r1, [r0, #8]
@@ -152,13 +152,13 @@ DseDriver_ConfigureHeap: ; 0x02074C24
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseDriver_ConfigureHeap
+	arm_func_end DSE_SsdSetInitDataSoundHeap
 
-	arm_func_start FUN_02074c58
-FUN_02074c58: ; 0x02074C58
+	arm_func_start DSE_SsdSetInitDataMainThread
+DSE_SsdSetInitDataMainThread: ; 0x02074C58
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	strneb r1, [r0, #0x11]
@@ -169,13 +169,13 @@ FUN_02074c58: ; 0x02074C58
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02074c58
+	arm_func_end DSE_SsdSetInitDataMainThread
 
-	arm_func_start FUN_02074c8c
-FUN_02074c8c: ; 0x02074C8C
+	arm_func_start DSE_SsdSetInitDataRomThread
+DSE_SsdSetInitDataRomThread: ; 0x02074C8C
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	strneb r1, [r0, #0x12]
@@ -185,13 +185,13 @@ FUN_02074c8c: ; 0x02074C8C
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02074c8c
+	arm_func_end DSE_SsdSetInitDataRomThread
 
-	arm_func_start FUN_02074cbc
-FUN_02074cbc: ; 0x02074CBC
+	arm_func_start DSE_SsdSetInitDataVoiceRange
+DSE_SsdSetInitDataVoiceRange: ; 0x02074CBC
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	bne _02074CE4
@@ -199,7 +199,7 @@ FUN_02074cbc: ; 0x02074CBC
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02074CE4:
@@ -211,10 +211,10 @@ _02074CE4:
 	strh r2, [r0, #0x16]
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02074cbc
+	arm_func_end DSE_SsdSetInitDataVoiceRange
 
-	arm_func_start DseDriver_Init
-DseDriver_Init: ; 0x02074D04
+	arm_func_start DSE_SsdInit
+DSE_SsdInit: ; 0x02074D04
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r4, _02074EF8 ; =0x020B9FD8
 	mov r7, r0
@@ -226,17 +226,17 @@ DseDriver_Init: ; 0x02074D04
 	mov r1, r5
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D3C:
-	bl DseDriver_IsSettingsValid
+	bl DSEi_CheckInitData
 	movs r1, r0
 	beq _02074D60
 	mvn r4, #0x1d
 	mov r0, r4
 	mov r2, r5
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D60:
@@ -270,7 +270,7 @@ _02074D60:
 	ldrb r0, [r7, #0x11]
 	ldr r8, _02074F08 ; =0x020BAFD8
 	strb r0, [r8, #0xde4]
-	bl FUN_02075104
+	bl DSEi_FUN_02075104
 	strb r4, [r9, #0x40]
 	mov r1, #2
 	ldr r0, _02074F0C ; =0x02091F94
@@ -314,16 +314,16 @@ _02074E08:
 	ldr r0, [r7, #8]
 	ldr r1, [r7, #0xc]
 	add r2, r7, #0x1c
-	bl DseMem_Init
+	bl DSEi_MemInit
 	ldrsh r0, [r7, #0x16]
 	add r0, r0, #1
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
-	bl FUN_0207b070
-	bl Dse_ResetAllVoices
-	bl FUN_02084b48
-	bl FUN_0207c4a8
-	bl DseMidi_Init
+	bl DSEi_SoundReset
+	bl DSEi_ResetVoices
+	bl DSEi_CaptureInit
+	bl DSEi_StreamInit
+	bl DSEi_MidiInit
 	mov r1, #0x7f
 _02074EB0:
 	add r0, r4, r6
@@ -333,15 +333,15 @@ _02074EB0:
 	blt _02074EB0
 	ldr r4, _02074EF8 ; =0x020B9FD8
 	strb r5, [r4, #0x48]
-	bl DseDriver_StartMainThread
+	bl DSEi_StartMainThread
 	ldrb r0, [r7, #0x12]
-	bl DseSwd_SysInit
+	bl DSEi_StartRomThread
 	mov r0, #1
 	strb r0, [r4]
 	strb r5, [r4, #1]
 	ldrh r0, [r7, #0x18]
 	ldrh r1, [r7, #0x1a]
-	bl DseSe_SysReset
+	bl DSE_SsdSetEffectPolyMax
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074EF8: .word unk_020B9FD8
@@ -352,27 +352,27 @@ _02074F08: .word unk_020BAFD8
 _02074F0C: .word unk_02091F94
 _02074F10: .word unk_020B9FF4
 _02074F14: .word unk_020BBDD8
-	arm_func_end DseDriver_Init
+	arm_func_end DSE_SsdInit
 
-	arm_func_start FUN_02074F18
-FUN_02074F18: ; 0x02074F18
+	arm_func_start DSE_SsdQuit
+DSE_SsdQuit: ; 0x02074F18
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _02074F7C ; =0x020B9FD8
 	ldrsb r0, [r4]
 	cmp r0, #0
 	mvneq r0, #0xc0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl DseSwd_SysQuit
+	bl DSEi_QuitRomThread
 	mov r5, #0
 	mov r0, r5
-	bl FUN_020750e4
-	bl FUN_0207c82c
-	bl FUN_02084b80
-	bl FUN_02084b70
-	bl DseDriver_CleanupMainThread
-	bl Dse_ResetAllVoices
-	bl DseMem_Quit
-	bl FUN_02075104
+	bl DSEi_StopAllSounds
+	bl DSEi_SsdQuitStream
+	bl DSEi_StopCapture
+	bl DSEi_QuitCapture
+	bl DSEi_QuitMainThread
+	bl DSEi_ResetVoices
+	bl DSEi_QuitHeap
+	bl DSEi_FUN_02075104
 	strb r5, [r4]
 	strb r5, [r4, #1]
 	str r5, [r4, #0x2c]
@@ -382,10 +382,10 @@ FUN_02074F18: ; 0x02074F18
 	strh r5, [r4, #2]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074F7C: .word unk_020B9FD8
-	arm_func_end FUN_02074F18
+	arm_func_end DSE_SsdQuit
 
-	arm_func_start FUN_02074f80
-FUN_02074f80: ; 0x02074F80
+	arm_func_start DSEi_IsPaused
+DSEi_IsPaused: ; 0x02074F80
 	stmfd sp!, {r4, lr}
 	ldr r0, _02074FB4 ; =0x020B9FD8
 	ldrsb r1, [r0]
@@ -396,14 +396,14 @@ FUN_02074f80: ; 0x02074F80
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02074FB4: .word unk_020B9FD8
-	arm_func_end FUN_02074f80
+	arm_func_end DSEi_IsPaused
 
-	arm_func_start FUN_02074fb8
-FUN_02074fb8: ; 0x02074FB8
+	arm_func_start DSE_SsdSuspend
+DSE_SsdSuspend: ; 0x02074FB8
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, _02075048 ; =0x020B9FD8
 	ldrsb r0, [r4]
@@ -413,7 +413,7 @@ FUN_02074fb8: ; 0x02074FB8
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074FE8:
@@ -423,29 +423,29 @@ _02074FE8:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #1
 	strb r0, [r4, #1]
-	bl DseDriver_ResetSoundState
+	bl DSEi_ResetSoundState
 	mov r5, #0
 	ldr r0, [r4, #0x670]
 	mov r1, r5
-	bl DseSequence_PauseList
+	bl DSEi_SuspendList
 	ldr r0, [r4, #0x674]
 	mov r1, r5
-	bl DseSequence_PauseList
+	bl DSEi_SuspendList
 	mov r0, r5
-	bl FUN_0207c8b4
+	bl DSEi_StreamSuspend
 	mov r0, r5
-	bl FUN_02084bb0
+	bl DSEi_CaptureSuspend
 	mov r0, r5
-	bl FUN_0207b070
+	bl DSEi_SoundReset
 	mov r1, #2
 	mov r0, r5
 	strb r1, [r4, #0x40]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02075048: .word unk_020B9FD8
-	arm_func_end FUN_02074fb8
+	arm_func_end DSE_SsdSuspend
 
-	arm_func_start FUN_0207504c
-FUN_0207504c: ; 0x0207504C
+	arm_func_start DSE_SsdResume
+DSE_SsdResume: ; 0x0207504C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _020750E0 ; =0x020B9FD8
 	mov r4, r0
@@ -463,7 +463,7 @@ FUN_0207504c: ; 0x0207504C
 	mov r2, r2, lsl #0x18
 	ldr r0, [r5, #0x670]
 	mov r2, r2, asr #0x18
-	bl FUN_02076424
+	bl DSEi_ResumeList
 	ldrh r0, [r5, #0x46]
 	ldr r5, _020750E0 ; =0x020B9FD8
 	mov r1, r4
@@ -473,33 +473,33 @@ FUN_0207504c: ; 0x0207504C
 	mov r2, r0, lsl #0x18
 	ldr r0, [r5, #0x674]
 	mov r2, r2, asr #0x18
-	bl FUN_02076424
+	bl DSEi_ResumeList
 	mov r0, r4
-	bl FUN_0207c928
+	bl DSEi_StreamResume
 	mov r0, r4
-	bl FUN_02084bd0
+	bl DSEi_CaptureResume
 	mov r4, #0
 	strb r4, [r5, #1]
-	bl DseDriver_StartTickTimer
+	bl DSEi_StartTickTimer
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _020750E0: .word unk_020B9FD8
-	arm_func_end FUN_0207504c
+	arm_func_end DSE_SsdResume
 
-	arm_func_start FUN_020750e4
-FUN_020750e4: ; 0x020750E4
+	arm_func_start DSEi_StopAllSounds
+DSEi_StopAllSounds: ; 0x020750E4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl DseBgm_StopAll
+	bl DSE_SsdStopSequenceAll
 	mov r0, r4
-	bl DseSe_StopAll
+	bl DSE_SsdStopEffectAll
 	mov r0, r4
-	bl FUN_0207d17c
+	bl DSEi_StopStreamALl
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020750e4
+	arm_func_end DSEi_StopAllSounds
 
-	arm_func_start FUN_02075104
-FUN_02075104: ; 0x02075104
+	arm_func_start DSEi_FUN_02075104
+DSEi_FUN_02075104: ; 0x02075104
 	ldr r1, _02075138 ; =0x020B9FD8
 	mov r2, #0
 	str r2, [r1, #0x65c]
@@ -510,16 +510,16 @@ FUN_02075104: ; 0x02075104
 	str r2, [r1, #0x66c]
 	str r2, [r1, #0x670]
 	str r2, [r1, #0x674]
-	ldr r12, _02075140 ; =Dse_SysSetupNoteList
+	ldr r12, _02075140 ; =DSEi_ResetNoteList
 	str r2, [r1, #0x678]
 	bx r12
 _02075138: .word unk_020B9FD8
 _0207513C: .word unk_020BAFD8
-_02075140: .word Dse_SysSetupNoteList
-	arm_func_end FUN_02075104
+_02075140: .word DSEi_ResetNoteList
+	arm_func_end DSEi_FUN_02075104
 
-	arm_func_start Dse_SetError
-Dse_SetError: ; 0x02075144
+	arm_func_start DSEi_SetError
+DSEi_SetError: ; 0x02075144
 	stmfd sp!, {r3, lr}
 	ldr r3, _02075174 ; =0x020B9FD8
 	stmib r3, {r0, r1}
@@ -534,10 +534,10 @@ Dse_SetError: ; 0x02075144
 	ldmfd sp!, {r3, pc}
 _02075174: .word unk_020B9FD8
 _02075178: .word unk_020B9FDC
-	arm_func_end Dse_SetError
+	arm_func_end DSEi_SetError
 
-	arm_func_start Dse_SetError2
-Dse_SetError2: ; 0x0207517C
+	arm_func_start DSEi_SetError2
+DSEi_SetError2: ; 0x0207517C
 	stmfd sp!, {r3, lr}
 	ldr r3, _020751B0 ; =0x020B9FD8
 	str r0, [r3, #0x10]
@@ -553,10 +553,10 @@ Dse_SetError2: ; 0x0207517C
 	ldmfd sp!, {r3, pc}
 _020751B0: .word unk_020B9FD8
 _020751B4: .word unk_020B9FE8
-	arm_func_end Dse_SetError2
+	arm_func_end DSEi_SetError2
 
-	arm_func_start DseUtil_ByteSwap32
-DseUtil_ByteSwap32: ; 0x020751B8
+	arm_func_start DSEi_ByteSwap32
+DSEi_ByteSwap32: ; 0x020751B8
 	mov r3, r0, lsr #0x18
 	mov r2, r0, lsr #8
 	mov r1, r0, lsl #8
@@ -569,10 +569,10 @@ DseUtil_ByteSwap32: ; 0x020751B8
 	and r0, r0, #0xff000000
 	orr r0, r1, r0
 	bx lr
-	arm_func_end DseUtil_ByteSwap32
+	arm_func_end DSEi_ByteSwap32
 
-	arm_func_start DseUtil_GetRandomNumber
-DseUtil_GetRandomNumber: ; 0x020751E8
+	arm_func_start DSEi_GetRandomNumber
+DSEi_GetRandomNumber: ; 0x020751E8
 	ldr r1, _02075208 ; =0x020B9FD8
 	ldr r0, _0207520C ; =0x00007FFF
 	ldr r2, [r1, #0x3c]
@@ -583,10 +583,10 @@ DseUtil_GetRandomNumber: ; 0x020751E8
 	bx lr
 _02075208: .word unk_020B9FD8
 _0207520C: .word 0x00007FFF
-	arm_func_end DseUtil_GetRandomNumber
+	arm_func_end DSEi_GetRandomNumber
 
-	arm_func_start DseMem_Init
-DseMem_Init: ; 0x02075210
+	arm_func_start DSEi_MemInit
+DSEi_MemInit: ; 0x02075210
 	mov r12, r1
 	tst r0, #0xf
 	bicne r0, r0, #0xf
@@ -615,10 +615,10 @@ DseMem_Init: ; 0x02075210
 _02075274: .word unk_020B9FD8
 _02075278: .word 0x74647373
 _0207527C: .word unk_020BA6E4
-	arm_func_end DseMem_Init
+	arm_func_end DSEi_MemInit
 
-	arm_func_start DseMem_Quit
-DseMem_Quit: ; 0x02075280
+	arm_func_start DSEi_QuitHeap
+DSEi_QuitHeap: ; 0x02075280
 	ldr r0, _02075298 ; =0x020B9FD8
 	mov r1, #0
 	str r1, [r0, #0x700]
@@ -626,19 +626,19 @@ DseMem_Quit: ; 0x02075280
 	str r1, [r0, #0x708]
 	bx lr
 _02075298: .word unk_020B9FD8
-	arm_func_end DseMem_Quit
+	arm_func_end DSEi_QuitHeap
 
-	arm_func_start DseMem_AllocateUser
-DseMem_AllocateUser: ; 0x0207529C
+	arm_func_start DSEi_AllocateUser
+DSEi_AllocateUser: ; 0x0207529C
 	ldr r2, _020752A8 ; =0x72657375
-	ldr r12, _020752AC ; =DseMem_AllocateFirstFit
+	ldr r12, _020752AC ; =DSEi_AllocateFirstFit
 	bx r12
 _020752A8: .word 0x72657375
-_020752AC: .word DseMem_AllocateFirstFit
-	arm_func_end DseMem_AllocateUser
+_020752AC: .word DSEi_AllocateFirstFit
+	arm_func_end DSEi_AllocateUser
 
-	arm_func_start DseMem_AllocateFirstFit
-DseMem_AllocateFirstFit: ; 0x020752B0
+	arm_func_start DSEi_AllocateFirstFit
+DSEi_AllocateFirstFit: ; 0x020752B0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _020753B0 ; =0x020B9FD8
 	mov lr, r0
@@ -707,10 +707,10 @@ _02075330:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020753B0: .word unk_020B9FD8
 _020753B4: .word 0x04000208
-	arm_func_end DseMem_AllocateFirstFit
+	arm_func_end DSEi_AllocateFirstFit
 
-	arm_func_start DseMem_AllocateLastFit
-DseMem_AllocateLastFit: ; 0x020753B8
+	arm_func_start DSEi_AllocateLastFit
+DSEi_AllocateLastFit: ; 0x020753B8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r3, _020754F4 ; =0x020B9FD8
 	mov r6, r0
@@ -721,7 +721,7 @@ DseMem_AllocateLastFit: ; 0x020753B8
 	mov r1, r6
 	mov r2, r5
 	mvn r0, #0xc1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020753EC:
@@ -796,10 +796,10 @@ _0207546C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020754F4: .word unk_020B9FD8
 _020754F8: .word 0x04000208
-	arm_func_end DseMem_AllocateLastFit
+	arm_func_end DSEi_AllocateLastFit
 
-	arm_func_start DseMem_Free
-DseMem_Free: ; 0x020754FC
+	arm_func_start DSEi_Free
+DSEi_Free: ; 0x020754FC
 	stmfd sp!, {r4, lr}
 	ldr r2, _020755A4 ; =0x020B9FD8
 	mov r1, r0
@@ -809,7 +809,7 @@ DseMem_Free: ; 0x020754FC
 	mvn r4, #0xc1
 	mov r0, r4
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207552C:
@@ -843,16 +843,16 @@ _02075580:
 	mov r0, r4
 	mov r2, #0
 	strh r3, [r12]
-	bl Dse_SetError
+	bl DSEi_SetError
 _0207559C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020755A4: .word unk_020B9FD8
 _020755A8: .word 0x04000208
-	arm_func_end DseMem_Free
+	arm_func_end DSEi_Free
 
-	arm_func_start FUN_020755ac
-FUN_020755ac: ; 0x020755AC
+	arm_func_start DSEi_MemCheckHeap
+DSEi_MemCheckHeap: ; 0x020755AC
 	stmfd sp!, {r3, lr}
 	ldr r2, _02075630 ; =0x04000208
 	mov r3, #0
@@ -890,10 +890,10 @@ _02075618:
 	ldmfd sp!, {r3, pc}
 _02075630: .word 0x04000208
 _02075634: .word unk_020B9FD8
-	arm_func_end FUN_020755ac
+	arm_func_end DSEi_MemCheckHeap
 
-	arm_func_start DseMem_Clear
-DseMem_Clear: ; 0x02075638
+	arm_func_start DSEi_MemClear
+DSEi_MemClear: ; 0x02075638
 	cmp r1, #0x10
 	blt _02075660
 	mov r2, #0
@@ -923,10 +923,10 @@ _02075688:
 	subs r1, r1, #1
 	bne _02075688
 	bx lr
-	arm_func_end DseMem_Clear
+	arm_func_end DSEi_MemClear
 
-	arm_func_start FUN_02075698
-FUN_02075698: ; 0x02075698
+	arm_func_start DSE_SsdSetOutputMode
+DSE_SsdSetOutputMode: ; 0x02075698
 	stmfd sp!, {r4, lr}
 	movs r2, r0
 	beq _020756AC
@@ -936,7 +936,7 @@ _020756AC:
 	mvn r4, #0x17
 	mov r0, r4
 	mov r1, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020756C4:
@@ -959,7 +959,7 @@ _020756F4:
 	ldr r0, _0207571C ; =0x020BAFD8
 	str r1, [r0, #0xee0]
 	mov r0, r2
-	bl FUN_0207db04
+	bl DSEi_Stream_UpdateVolumeAndPan
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _0207570C: .word unk_020B9FD8
@@ -967,10 +967,10 @@ _02075710: .word unk_02091E94
 _02075714: .word unk_02091F14
 _02075718: .word unk_02091F94
 _0207571C: .word unk_020BAFD8
-	arm_func_end FUN_02075698
+	arm_func_end DSE_SsdSetOutputMode
 
-	arm_func_start DseFile_CheckHeader
-DseFile_CheckHeader: ; 0x02075720
+	arm_func_start DSEi_CheckFileHeader
+DSEi_CheckFileHeader: ; 0x02075720
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r3, _0207579C ; =0x020B9FD8
 	mov r6, r0
@@ -985,7 +985,7 @@ DseFile_CheckHeader: ; 0x02075720
 	beq _02075784
 	beq _02075784
 	ldr r0, [r6]
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	cmp r5, r0
 	mvnne r4, #0x10
 	bne _02075784
@@ -1000,14 +1000,14 @@ _02075784:
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207579C: .word unk_020B9FD8
-	arm_func_end DseFile_CheckHeader
+	arm_func_end DSEi_CheckFileHeader
 
-	arm_func_start DseSwd_SysInit
-DseSwd_SysInit: ; 0x020757A0
+	arm_func_start DSEi_StartRomThread
+DSEi_StartRomThread: ; 0x020757A0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	ldr r4, _0207581C ; =0x020BAFD8
@@ -1025,12 +1025,12 @@ DseSwd_SysInit: ; 0x020757A0
 	mov r0, r5
 	strb r6, [r4, #0xdfb]
 	mov r1, #0x10
-	bl DseMem_AllocateLastFit
+	bl DSEi_AllocateLastFit
 	str r0, [r4, #0xebc]
 	stmia sp, {r5, r7}
 	ldr r3, [r4, #0xebc]
 	ldr r4, _02075824 ; =0x020BBDD4
-	ldr r1, _02075828 ; =DseSwd_SampleLoaderMain
+	ldr r1, _02075828 ; =DSEi_RomThreadFunc
 	mov r0, r4
 	mov r2, r6
 	add r3, r3, #0x800
@@ -1042,11 +1042,11 @@ DseSwd_SysInit: ; 0x020757A0
 _0207581C: .word unk_020BAFD8
 _02075820: .word 0x72727473
 _02075824: .word unk_020BBDD4
-_02075828: .word DseSwd_SampleLoaderMain
-	arm_func_end DseSwd_SysInit
+_02075828: .word DSEi_RomThreadFunc
+	arm_func_end DSEi_StartRomThread
 
-	arm_func_start DseSwd_SysQuit
-DseSwd_SysQuit: ; 0x0207582C
+	arm_func_start DSEi_QuitRomThread
+DSEi_QuitRomThread: ; 0x0207582C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _02075864 ; =0x020BBDD4
 	ldr r4, _02075868 ; =0x020BAFD8
@@ -1059,14 +1059,14 @@ DseSwd_SysQuit: ; 0x0207582C
 	mov r0, r5
 	bl OS_JoinThread
 	ldr r0, [r4, #0xebc]
-	bl DseMem_Free
+	bl DSEi_Free
 	ldmfd sp!, {r3, r4, r5, pc}
 _02075864: .word unk_020BBDD4
 _02075868: .word unk_020BAFD8
-	arm_func_end DseSwd_SysQuit
+	arm_func_end DSEi_QuitRomThread
 
-	arm_func_start DseSwd_SampleLoaderMain
-DseSwd_SampleLoaderMain: ; 0x0207586C
+	arm_func_start DSEi_RomThreadFunc
+DSEi_RomThreadFunc: ; 0x0207586C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, _020758C0 ; =0x020BAFD8
 	mov r7, #1
@@ -1084,20 +1084,16 @@ _02075880:
 	cmp r0, #0
 	beq _02075880
 	ldr r1, [r5, #0xec4]
-	bl DseBank_LoadWavesInternal
+	bl DSEi_WaveLoadInternal
 	str r6, [r5, #0xec0]
 	str r6, [r5, #0xec4]
 	b _02075880
-	arm_func_end DseSwd_SampleLoaderMain
-
-	arm_func_start FUN_020758bc
-FUN_020758bc: ; 0x020758BC
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020758C0: .word unk_020BAFD8
-	arm_func_end FUN_020758bc
+	arm_func_end DSEi_RomThreadFunc
 
-	arm_func_start DseSwd_LoadBank
-DseSwd_LoadBank: ; 0x020758C4
+	arm_func_start DSE_SsdAddWaveData
+DSE_SsdAddWaveData: ; 0x020758C4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	str r2, [sp]
 	mov r5, #4
@@ -1106,19 +1102,19 @@ DseSwd_LoadBank: ; 0x020758C4
 	mov r3, r5
 	mov r10, r0
 	mov r4, #0
-	bl DseFile_CheckHeader
+	bl DSEi_CheckFileHeader
 	movs r6, r0
 	ldmmifd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseSwd_GetBankById
+	bl DSEi_GetWaveById
 	cmp r0, #0
 	beq _02075920
 	sub r4, r5, #0x4c
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075920:
@@ -1126,14 +1122,14 @@ _02075920:
 	ldr r2, _02075B24 ; =0x69766177
 	mov r1, r5
 	mov r0, #0x28
-	bl DseMem_AllocateFirstFit
+	bl DSEi_AllocateFirstFit
 	movs r9, r0
 	bne _02075958
 	sub r4, r5, #0x90
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075958:
@@ -1156,7 +1152,7 @@ _02075958:
 	str r4, [r9, #0x20]
 	str r4, [r9, #0x24]
 	ldr r0, [r10, #0x50]
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	ldr r7, _02075B28 ; =0x656F6420
 	cmp r0, r7
 	beq _02075A40
@@ -1166,7 +1162,7 @@ _02075958:
 	ldr r5, _02075B38 ; =0x6B677270
 _020759C4:
 	ldr r0, [r8]
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	cmp r0, r6
 	bhi _020759E8
 	bhs _02075A0C
@@ -1197,7 +1193,7 @@ _02075A14:
 	add r0, r0, r2
 	and r0, r1, r0
 	ldr r0, [r8, r0]!
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	cmp r0, r7
 	bne _020759C4
 _02075A40:
@@ -1225,9 +1221,9 @@ _02075A84:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r9
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075AAC:
@@ -1258,7 +1254,7 @@ _02075AD8:
 	beq _02075B14
 	ldrh r0, [r9, #4]
 	ldr r1, [sp]
-	bl DseBank_LoadWaves
+	bl DSEi_WaveLoad
 _02075B14:
 	ldrh r0, [r9, #4]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1272,21 +1268,21 @@ _02075B34: .word 0x70636D64
 _02075B38: .word 0x6B677270
 _02075B3C: .word 0x04000208
 _02075B40: .word unk_020BA644
-	arm_func_end DseSwd_LoadBank
+	arm_func_end DSE_SsdAddWaveData
 
-	arm_func_start DseBank_LoadWaves
-DseBank_LoadWaves: ; 0x02075B44
+	arm_func_start DSEi_WaveLoad
+DSEi_WaveLoad: ; 0x02075B44
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	mov r6, r1
-	bl DseSwd_GetBankById
+	bl DSEi_GetWaveById
 	movs r4, r0
 	bne _02075B78
 	mvn r4, #0x40
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075B78:
@@ -1295,14 +1291,14 @@ _02075B78:
 	mvnne r0, #0x4c
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldrh r0, [r4, #6]
-	bl DseSwd_GetMainBankById
+	bl DSEi_GetMainBankById
 	cmp r0, #0
 	bne _02075BB4
 	mvn r4, #0x4b
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075BB4:
@@ -1311,7 +1307,7 @@ _02075BB4:
 	bne _02075BD0
 	mov r0, r4
 	mov r1, #0
-	bl DseBank_LoadWavesInternal
+	bl DSEi_WaveLoadInternal
 	mov r5, r0
 _02075BD0:
 	cmp r6, #0
@@ -1326,23 +1322,23 @@ _02075BEC:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075BF4: .word unk_020BAFD8
 _02075BF8: .word unk_020BBDD4
-	arm_func_end DseBank_LoadWaves
+	arm_func_end DSEi_WaveLoad
 
-	arm_func_start DseBank_LoadWavesInternal
-DseBank_LoadWavesInternal: ; 0x02075BFC
+	arm_func_start DSEi_WaveLoadInternal
+DSEi_WaveLoadInternal: ; 0x02075BFC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r10, r0
 	ldrh r0, [r10, #6]
 	mov r9, r1
-	bl DseSwd_GetMainBankById
+	bl DSEi_GetMainBankById
 	movs r4, r0
 	bne _02075C3C
 	mvn r4, #0x4b
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	add sp, sp, #0x1c
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1362,7 +1358,7 @@ _02075C68:
 	mov r1, r7, lsl #0x10
 	mov r0, r10
 	mov r1, r1, asr #0x10
-	bl DseBank_GetWaviEntry
+	bl DSEi_Bank_GetWaviEntry
 	cmp r0, #0
 	strne r5, [r0, #0x24]
 	ldrne r2, [r4, #8]
@@ -1387,7 +1383,7 @@ _02075C68:
 	mov r2, r8
 	add r0, r4, #0x14
 	add r3, r12, r3
-	bl DseSwd_ReadMainBank
+	bl DSEi_ReadMainBank
 _02075CDC:
 	add r6, r6, r8
 	add r5, r5, r8
@@ -1401,10 +1397,10 @@ _02075CF4:
 	str r6, [r10, #0x20]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end DseBank_LoadWavesInternal
+	arm_func_end DSEi_WaveLoadInternal
 
-	arm_func_start DseBank_UnloadById
-DseBank_UnloadById: ; 0x02075D04
+	arm_func_start DSE_SsdRemoveWaveData
+DSE_SsdRemoveWaveData: ; 0x02075D04
 	stmfd sp!, {r4, lr}
 	ldr r2, _02075D74 ; =0x04000208
 	mov r1, #0
@@ -1433,15 +1429,15 @@ _02075D40:
 	str r1, [r3]
 	ldrh r1, [r2]
 	strh r12, [r2]
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02075D74: .word 0x04000208
 _02075D78: .word unk_020BA644
-	arm_func_end DseBank_UnloadById
+	arm_func_end DSE_SsdRemoveWaveData
 
-	arm_func_start DseBank_GetWaviEntry
-DseBank_GetWaviEntry: ; 0x02075D7C
+	arm_func_start DSEi_Bank_GetWaviEntry
+DSEi_Bank_GetWaviEntry: ; 0x02075D7C
 	ldr r2, [r0, #0x10]
 	cmp r2, #0
 	moveq r0, #0
@@ -1456,10 +1452,10 @@ DseBank_GetWaviEntry: ; 0x02075D7C
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end DseBank_GetWaviEntry
+	arm_func_end DSEi_Bank_GetWaviEntry
 
-	arm_func_start DseBank_GetProgram
-DseBank_GetProgram: ; 0x02075DB4
+	arm_func_start DSEi_Bank_GetProgram
+DSEi_Bank_GetProgram: ; 0x02075DB4
 	ldr r2, [r0, #0x14]
 	cmp r2, #0
 	moveq r0, #0
@@ -1474,10 +1470,10 @@ DseBank_GetProgram: ; 0x02075DB4
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end DseBank_GetProgram
+	arm_func_end DSEi_Bank_GetProgram
 
-	arm_func_start DseProgram_GetNextSplitInRange
-DseProgram_GetNextSplitInRange: ; 0x02075DEC
+	arm_func_start DSEi_Program_GetNextSplitInRange
+DSEi_Program_GetNextSplitInRange: ; 0x02075DEC
 	stmfd sp!, {r3, lr}
 	ldrb lr, [r0, #2]
 	cmp lr, #0
@@ -1515,10 +1511,10 @@ _02075E5C:
 	blt _02075E28
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end DseProgram_GetNextSplitInRange
+	arm_func_end DSEi_Program_GetNextSplitInRange
 
-	arm_func_start DseSwd_GetMainBankById
-DseSwd_GetMainBankById: ; 0x02075E74
+	arm_func_start DSEi_GetMainBankById
+DSEi_GetMainBankById: ; 0x02075E74
 	ldr r3, _02075EC0 ; =0x04000208
 	mov r2, #0
 	ldrh r12, [r3]
@@ -1542,10 +1538,10 @@ _02075EAC:
 	bx lr
 _02075EC0: .word 0x04000208
 _02075EC4: .word unk_020BAFD8
-	arm_func_end DseSwd_GetMainBankById
+	arm_func_end DSEi_GetMainBankById
 
-	arm_func_start DseSwd_GetBankById
-DseSwd_GetBankById: ; 0x02075EC8
+	arm_func_start DSEi_GetWaveById
+DSEi_GetWaveById: ; 0x02075EC8
 	ldr r3, _02075F14 ; =0x04000208
 	mov r2, #0
 	ldrh r12, [r3]
@@ -1569,10 +1565,10 @@ _02075F00:
 	bx lr
 _02075F14: .word 0x04000208
 _02075F18: .word unk_020B9FD8
-	arm_func_end DseSwd_GetBankById
+	arm_func_end DSEi_GetWaveById
 
-	arm_func_start DseSwd_ReadMainBank
-DseSwd_ReadMainBank: ; 0x02075F1C
+	arm_func_start DSEi_ReadMainBank
+DSEi_ReadMainBank: ; 0x02075F1C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r7, [sp, #0x28]
 	mov r9, r1
@@ -1626,63 +1622,63 @@ _02075FD0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075FD8: .word 0x04000006
 _02075FDC: .word unk_020BAFD8
-	arm_func_end DseSwd_ReadMainBank
+	arm_func_end DSEi_ReadMainBank
 
-	arm_func_start Dse_DefaultSequenceSignalCallback
-Dse_DefaultSequenceSignalCallback: ; 0x02075FE0
+	arm_func_start DSEi_DefaultSequenceCallback
+DSEi_DefaultSequenceCallback: ; 0x02075FE0
 	mov r0, #0
 	bx lr
-	arm_func_end Dse_DefaultSequenceSignalCallback
+	arm_func_end DSEi_DefaultSequenceCallback
 
-	arm_func_start DseBgm_Load
-DseBgm_Load: ; 0x02075FE8
+	arm_func_start DSE_SsdAddSequenceData
+DSE_SsdAddSequenceData: ; 0x02075FE8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, #4
 	ldr r1, _020760E8 ; =0x736D646C
 	ldr r2, _020760EC ; =0x00000415
 	mov r3, r4
 	mov r8, r0
-	bl DseFile_CheckHeader
+	bl DSEi_CheckFileHeader
 	cmp r0, #0
 	ldmltfd sp!, {r4, r5, r6, r7, r8, pc}
 	add r7, r0, #0x10000
 	mov r0, r7
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	cmp r0, #0
 	beq _0207603C
 	sub r4, r4, #0x4d
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207603C:
 	mov r6, #1
 	mov r0, r8
 	mov r1, r6
-	bl Dse_FindSmdlSongChunk
+	bl DSEi_FindSmdlSongChunk
 	movs r5, r0
 	bne _02076070
 	sub r4, r6, #0x44
 	mov r0, r4
 	mov r1, r8
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02076070:
 	ldrb r0, [r5, #6]
 	ldrb r1, [r5, #7]
 	ldr r2, _020760F0 ; =0x7165736D
-	bl DseSequence_AllocateNew
+	bl DSEi_AddSequence
 	movs r4, r0
 	subeq r0, r6, #0x81
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
 	str r7, [r4, #0x28]
 	mov r1, r5
 	str r8, [r4, #0x1c]
-	bl DseSequence_LoadSong
+	bl DSEi_LoadSequenceSong
 	mov r1, #0
 	ldr r0, _020760F4 ; =0x04000208
 	strb r1, [r4, #0xa]
@@ -1709,53 +1705,53 @@ _020760EC: .word 0x00000415
 _020760F0: .word 0x7165736D
 _020760F4: .word 0x04000208
 _020760F8: .word unk_020BA648
-	arm_func_end DseBgm_Load
+	arm_func_end DSE_SsdAddSequenceData
 
-	arm_func_start DseBgm_Unload
-DseBgm_Unload: ; 0x020760FC
+	arm_func_start DSE_SsdRemoveSequenceData
+DSE_SsdRemoveSequenceData: ; 0x020760FC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	cmp r0, #0
 	bne _0207612C
 	mvn r4, #0x41
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207612C:
-	bl DseSequence_Unload
+	bl DSEi_RemoveSequence
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseBgm_Unload
+	arm_func_end DSE_SsdRemoveSequenceData
 
-	arm_func_start DseBgm_IsPlaying
-DseBgm_IsPlaying: ; 0x02076138
+	arm_func_start DSE_SsdIsPlaySequence
+DSE_SsdIsPlaySequence: ; 0x02076138
 	stmfd sp!, {r3, lr}
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	cmp r0, #0
 	mvneq r0, #0x41
 	ldrnesb r0, [r0, #4]
 	ldmfd sp!, {r3, pc}
-	arm_func_end DseBgm_IsPlaying
+	arm_func_end DSE_SsdIsPlaySequence
 
-	arm_func_start DseBgm_Resume
-DseBgm_Resume: ; 0x02076150
+	arm_func_start DSE_SsdPlaySequence
+DSE_SsdPlaySequence: ; 0x02076150
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	mov r6, r1
 	mov r5, r2
 	mov r8, #0
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	movs r4, r0
 	bne _0207618C
 	mvn r4, #0x41
 	mov r0, r4
 	mov r1, r7
 	mov r2, r8
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207618C:
@@ -1766,7 +1762,7 @@ _0207618C:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r8
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020761B4:
@@ -1780,17 +1776,17 @@ _020761B4:
 	bne _020761E0
 	mov r0, r7
 	mov r1, #0
-	bl DseBgm_Stop
+	bl DSE_SsdStopSequence
 _020761E0:
 	mov r0, r4
-	bl DseSequence_Reset
+	bl DSEi_ResetSequence
 	cmp r0, #0
 	ldmltfd sp!, {r4, r5, r6, r7, r8, pc}
 _020761F0:
 	str r8, [r4, #0x68]
 	strh r8, [r4, #0x74]
 	strb r5, [r4, #2]
-	bl FUN_02074f80
+	bl DSEi_IsPaused
 	cmp r0, #0
 	ldrnesb r0, [r4, #9]
 	mov r1, r8
@@ -1801,38 +1797,38 @@ _020761F0:
 	mov r0, r4
 	mov r3, r6
 	strb r5, [r4, #8]
-	bl DseSequence_Start
+	bl DSEi_StartSequence
 	cmp r0, #0
 	movge r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end DseBgm_Resume
+	arm_func_end DSE_SsdPlaySequence
 
-	arm_func_start DseBgm_Stop
-DseBgm_Stop: ; 0x02076238
+	arm_func_start DSE_SsdStopSequence
+DSE_SsdStopSequence: ; 0x02076238
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	cmp r0, #0
 	bne _0207626C
 	mvn r4, #0x41
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207626C:
 	mov r4, #0
 	mov r1, r5
 	mov r2, r4
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseBgm_Stop
+	arm_func_end DSE_SsdStopSequence
 
-	arm_func_start DseBgm_StopAll
-DseBgm_StopAll: ; 0x02076284
+	arm_func_start DSE_SsdStopSequenceAll
+DSE_SsdStopSequenceAll: ; 0x02076284
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _020762DC ; =0x04000208
 	mov r2, #0
@@ -1848,7 +1844,7 @@ _020762B0:
 	mov r0, r6
 	mov r1, r7
 	mov r2, r5
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 	ldr r6, [r6, #0xa4]
 	cmp r6, #0
 	bne _020762B0
@@ -1859,32 +1855,32 @@ _020762CC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020762DC: .word 0x04000208
 _020762E0: .word unk_020B9FD8
-	arm_func_end DseBgm_StopAll
+	arm_func_end DSE_SsdStopSequenceAll
 
-	arm_func_start DseBgm_SetFades
-DseBgm_SetFades: ; 0x020762E4
+	arm_func_start DSE_SsdSetSequenceParam
+DSE_SsdSetSequenceParam: ; 0x020762E4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl DseBgm_GetSequenceById
+	bl DSEi_GetSequenceById
 	cmp r0, #0
 	bne _02076318
 	mvn r4, #0x41
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02076318:
 	mov r1, r4
-	bl DseSequence_SetFades
+	bl DSEi_SetSequenceFades
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseBgm_SetFades
+	arm_func_end DSE_SsdSetSequenceParam
 
-	arm_func_start DseSequence_Start
-DseSequence_Start: ; 0x02076328
+	arm_func_start DSEi_StartSequence
+DSEi_StartSequence: ; 0x02076328
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	mov r5, r3
@@ -1906,7 +1902,7 @@ _02076360:
 	mov r1, r5
 	strb r2, [r4, #2]
 	strb r2, [r4, #7]
-	bl DseSequence_SetFades
+	bl DSEi_SetSequenceFades
 	ldrsb r0, [r4, #8]
 	cmp r0, #0
 	bne _020763A4
@@ -1914,7 +1910,7 @@ _02076360:
 	cmp r0, #0
 	bne _0207639C
 	ldr r0, [r4, #0x24]
-	bl DseSynth_RestoreHeldNotes
+	bl DSEi_PlaySynthNotes
 _0207639C:
 	mov r0, #1
 	strb r0, [r4, #5]
@@ -1924,10 +1920,10 @@ _020763A4:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _020763B4: .word unk_020B9FD8
-	arm_func_end DseSequence_Start
+	arm_func_end DSEi_StartSequence
 
-	arm_func_start DseSequence_PauseList
-DseSequence_PauseList: ; 0x020763B8
+	arm_func_start DSEi_SuspendList
+DSEi_SuspendList: ; 0x020763B8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r4, r0
 	beq _02076418
@@ -1946,7 +1942,7 @@ _020763D0:
 	ldrh r6, [r7]
 	strh r8, [r7]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_StopChannels
+	bl DSEi_StopSynthChannels
 	ldrh r0, [r7]
 	strh r6, [r7]
 	strb r5, [r4, #8]
@@ -1958,10 +1954,10 @@ _02076418:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02076420: .word 0x04000208
-	arm_func_end DseSequence_PauseList
+	arm_func_end DSEi_SuspendList
 
-	arm_func_start FUN_02076424
-FUN_02076424: ; 0x02076424
+	arm_func_start DSEi_ResumeList
+DSEi_ResumeList: ; 0x02076424
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	movs r10, r0
 	mov r9, r1
@@ -1981,7 +1977,7 @@ _02076444:
 	strb r4, [r10, #6]
 	ldr r0, [r10, #0x24]
 	mov r1, r4
-	bl DseSynth_UpdateVoicesTimerAndVolume
+	bl DSEi_UpdateSynthVoices
 _02076470:
 	cmp r9, #0
 	ldrsb r5, [r10, #0x98]
@@ -2017,7 +2013,7 @@ _020764D0:
 	bne _020764F4
 	ldr r0, [r10, #0x24]
 	mov r1, r5
-	bl DseSynth_SetVolume
+	bl DSEi_SetSynthVolume
 _020764F4:
 	mov r0, #1
 	strb r0, [r10, #5]
@@ -2030,10 +2026,10 @@ _0207650C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02076514: .word unk_020B9FD8
-	arm_func_end FUN_02076424
+	arm_func_end DSEi_ResumeList
 
-	arm_func_start DseSequence_SetFades
-DseSequence_SetFades: ; 0x02076518
+	arm_func_start DSEi_SetSequenceFades
+DSEi_SetSequenceFades: ; 0x02076518
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r4, r1
 	ldrb r1, [r4]
@@ -2131,7 +2127,7 @@ _02076658:
 	mov r1, r1, asr #0x10
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl DseSynth_SetBend
+	bl DSEi_SetSynthBend
 _02076688:
 	ldrb r0, [r4]
 	tst r0, #4
@@ -2181,7 +2177,7 @@ _0207671C:
 	mov r1, r7, lsl #0x18
 	ldr r0, [r5, #0x24]
 	mov r1, r1, asr #0x18
-	bl DseSynth_SetVolume
+	bl DSEi_SetSynthVolume
 _02076744:
 	ldrb r0, [r4]
 	tst r0, #8
@@ -2228,7 +2224,7 @@ _020767C0:
 	mov r1, r1, lsl #0x18
 	mov r1, r1, asr #0x18
 	and r1, r1, #0xff
-	bl DseSynth_SetPan
+	bl DSEi_SetSynthPan
 _020767F4:
 	ldrsh r0, [r5, #0x1a]
 	cmp r0, #0
@@ -2236,21 +2232,21 @@ _020767F4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076804: .word unk_020B9FD8
 _02076808: .word 0x03938700
-	arm_func_end DseSequence_SetFades
+	arm_func_end DSEi_SetSequenceFades
 
-	arm_func_start DseSequence_Reset
-DseSequence_Reset: ; 0x0207680C
+	arm_func_start DSEi_ResetSequence
+DSEi_ResetSequence: ; 0x0207680C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	mov r4, #0
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x28]
 	mov r1, r4
-	bl DseSynth_ResetAndSetBankAndSequence
+	bl DSEi_ResetSynthAndSetBankAndSequence
 	ldrb r1, [r5, #0x13]
 	ldr r0, [r5, #0x24]
 	mov r2, r4
-	bl DseSynth_SetGlobalVolumeIndex
+	bl DSEi_SetSynthGlobalVolume
 	mov r3, #1
 	ldrb r2, [r5, #0x15]
 	ldr r0, _0207695C ; =0x020B9FD8
@@ -2329,10 +2325,10 @@ _0207694C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207695C: .word unk_020B9FD8
 _02076960: .word 0x0007A120
-	arm_func_end DseSequence_Reset
+	arm_func_end DSEi_ResetSequence
 
-	arm_func_start DseSequence_Stop
-DseSequence_Stop: ; 0x02076964
+	arm_func_start DSEi_StopSequence
+DSEi_StopSequence: ; 0x02076964
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r0
 	ldrsb r0, [r6, #1]
@@ -2386,7 +2382,7 @@ _02076A10:
 	bne _02076A70
 	ldr r0, [r6, #0x24]
 	mov r1, #0
-	bl DseSynth_SetVolume
+	bl DSEi_SetSynthVolume
 	b _02076A70
 _02076A38:
 	ldr r0, _02076A7C ; =0x04000208
@@ -2395,11 +2391,11 @@ _02076A38:
 	ldrh r7, [r0]
 	strh r4, [r0]
 	ldr r0, [r6, #0x24]
-	bl DseSynth_StopChannels
+	bl DSEi_StopSynthChannels
 	cmp r5, #1
 	bne _02076A64
 	ldr r0, [r6, #0x24]
-	bl DseSynth_ClearHeldNotes
+	bl DSEi_ClearSynthHeldNotes
 _02076A64:
 	ldr r1, _02076A7C ; =0x04000208
 	ldrh r0, [r1]
@@ -2409,10 +2405,10 @@ _02076A70:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02076A78: .word unk_020B9FD8
 _02076A7C: .word 0x04000208
-	arm_func_end DseSequence_Stop
+	arm_func_end DSEi_StopSequence
 
-	arm_func_start Dse_FindSmdlSongChunk
-Dse_FindSmdlSongChunk: ; 0x02076A80
+	arm_func_start DSEi_FindSmdlSongChunk
+DSEi_FindSmdlSongChunk: ; 0x02076A80
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r6, _02076AE4 ; =0x736F6E67
 	ldr r7, _02076AE8 ; =0x656F6420
@@ -2420,7 +2416,7 @@ Dse_FindSmdlSongChunk: ; 0x02076A80
 	add r4, r0, #0x40
 _02076A94:
 	ldr r0, [r4]
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	cmp r0, r7
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -2441,10 +2437,10 @@ _02076A94:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02076AE4: .word 0x736F6E67
 _02076AE8: .word 0x656F6420
-	arm_func_end Dse_FindSmdlSongChunk
+	arm_func_end DSEi_FindSmdlSongChunk
 
-	arm_func_start DseSequence_LoadSong
-DseSequence_LoadSong: ; 0x02076AEC
+	arm_func_start DSEi_LoadSequenceSong
+DSEi_LoadSequenceSong: ; 0x02076AEC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r7, r0
 	mov r6, r1
@@ -2476,7 +2472,7 @@ DseSequence_LoadSong: ; 0x02076AEC
 	moveq r0, #0
 	strb r0, [r7, #0xb]
 	ldr r0, [r6, #0x30]
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	ldr r9, _02076BE0 ; =0x74726B20
 	ldr r10, _02076BE4 ; =0x626E6B6C
 	ldr r8, _02076BE8 ; =0x656F6320
@@ -2502,7 +2498,7 @@ _02076BA8:
 	add r0, r0, r2
 	and r0, r1, r0
 	ldr r0, [r4, r0]!
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 _02076BCC:
 	cmp r0, r8
 	bne _02076B7C
@@ -2512,10 +2508,10 @@ _02076BCC:
 _02076BE0: .word 0x74726B20
 _02076BE4: .word 0x626E6B6C
 _02076BE8: .word 0x656F6320
-	arm_func_end DseSequence_LoadSong
+	arm_func_end DSEi_LoadSequenceSong
 
-	arm_func_start DseBgm_GetSequenceById
-DseBgm_GetSequenceById: ; 0x02076BEC
+	arm_func_start DSEi_GetSequenceById
+DSEi_GetSequenceById: ; 0x02076BEC
 	ldr r3, _02076C34 ; =0x04000208
 	ldr r1, _02076C38 ; =0x020B9FD8
 	ldrh r12, [r3]
@@ -2539,10 +2535,10 @@ _02076C20:
 	bx lr
 _02076C34: .word 0x04000208
 _02076C38: .word unk_020B9FD8
-	arm_func_end DseBgm_GetSequenceById
+	arm_func_end DSEi_GetSequenceById
 
-	arm_func_start DseSequence_AllocateNew
-DseSequence_AllocateNew: ; 0x02076C3C
+	arm_func_start DSEi_AddSequence
+DSEi_AddSequence: ; 0x02076C3C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r0, #0x5c
@@ -2552,14 +2548,14 @@ DseSequence_AllocateNew: ; 0x02076C3C
 	mov r1, r5
 	add r0, r0, #0xa8
 	mov r7, r2
-	bl DseMem_AllocateFirstFit
+	bl DSEi_AllocateFirstFit
 	movs r6, r0
 	bne _02076C88
 	mov r4, #0
 	mov r1, r4
 	mov r2, r4
 	sub r0, r5, #0x94
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076C88:
@@ -2587,16 +2583,16 @@ _02076C88:
 	mov r0, r8
 	str r5, [r6, #0x20]
 	orr r1, r2, r1
-	bl DseSynth_AllocateNew
+	bl DSEi_AllocateSynth
 	str r0, [r6, #0x24]
 	cmp r0, #0
 	bne _02076D18
 	mov r0, r6
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r1, r5
 	mov r2, r5
 	sub r0, r4, #0x8c
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076D18:
@@ -2610,23 +2606,23 @@ _02076D18:
 	mov r2, r2, lsl #3
 	mul r0, r2, r0
 	str r0, [r6, #0x40]
-	ldr r0, _02076D70 ; =Dse_DefaultSequenceSignalCallback
+	ldr r0, _02076D70 ; =DSEi_DefaultSequenceCallback
 	str r1, [r6, #0x44]
 	str r0, [r6, #0x9c]
 	str r5, [r6, #0xa0]
 	mov r0, r6
 	str r5, [r6, #0xa4]
-	bl DseSequence_InitTracks
+	bl DSEi_InitSequenceTracks
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076D64: .word 0x76656400
 _02076D68: .word unk_020B9FD8
 _02076D6C: .word 0x0007A120
-_02076D70: .word Dse_DefaultSequenceSignalCallback
-	arm_func_end DseSequence_AllocateNew
+_02076D70: .word DSEi_DefaultSequenceCallback
+	arm_func_end DSEi_AddSequence
 
-	arm_func_start DseSequence_Unload
-DseSequence_Unload: ; 0x02076D74
+	arm_func_start DSEi_RemoveSequence
+DSEi_RemoveSequence: ; 0x02076D74
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrsb r1, [r4, #4]
@@ -2634,7 +2630,7 @@ DseSequence_Unload: ; 0x02076D74
 	bne _02076D94
 	mov r1, #0
 	mov r2, r1
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02076D94:
 	ldr r1, _02076DF4 ; =0x04000208
 	mov r0, #0
@@ -2658,17 +2654,17 @@ _02076DC4:
 	ldrh r0, [r1]
 	strh r3, [r1]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_Unload
+	bl DSEi_RemoveSynthData
 	mov r0, r4
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _02076DF4: .word 0x04000208
 _02076DF8: .word unk_020BA648
-	arm_func_end DseSequence_Unload
+	arm_func_end DSEi_RemoveSequence
 
-	arm_func_start DseSequence_InitTracks
-DseSequence_InitTracks: ; 0x02076DFC
+	arm_func_start DSEi_InitSequenceTracks
+DSEi_InitSequenceTracks: ; 0x02076DFC
 	ldrb r1, [r0, #0xf]
 	add r3, r0, #0xa8
 	mov r12, #0
@@ -2690,10 +2686,10 @@ _02076E14:
 	cmp r12, r1
 	blt _02076E14
 	bx lr
-	arm_func_end DseSequence_InitTracks
+	arm_func_end DSEi_InitSequenceTracks
 
-	arm_func_start Dse_SysSetupNoteList
-Dse_SysSetupNoteList: ; 0x02076E4C
+	arm_func_start DSEi_ResetNoteList
+DSEi_ResetNoteList: ; 0x02076E4C
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r2, _02076EC0 ; =0x020B9FD8
 	mov r4, #0
@@ -2728,10 +2724,10 @@ _02076E88:
 _02076EC0: .word unk_020B9FD8
 _02076EC4: .word unk_020BA030
 _02076EC8: .word unk_020BA038
-	arm_func_end Dse_SysSetupNoteList
+	arm_func_end DSEi_ResetNoteList
 
-	arm_func_start DseSe_SysReset
-DseSe_SysReset: ; 0x02076ECC
+	arm_func_start DSE_SsdSetEffectPolyMax
+DSE_SsdSetEffectPolyMax: ; 0x02076ECC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r2, _02076FB8 ; =0x020B9FD8
 	mov r9, r0
@@ -2743,7 +2739,7 @@ DseSe_SysReset: ; 0x02076ECC
 	mvn r4, #0xc0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02076F04:
@@ -2757,7 +2753,7 @@ _02076F04:
 _02076F20:
 	mov r0, r4
 	ldr r4, [r4, #0xa4]
-	bl DseSequence_Unload
+	bl DSEi_RemoveSequence
 	cmp r4, #0
 	bne _02076F20
 _02076F34:
@@ -2781,7 +2777,7 @@ _02076F74:
 	mov r0, r10
 	mov r1, r10
 	mov r2, r8
-	bl DseSequence_AllocateNew
+	bl DSEi_AddSequence
 	cmp r0, #0
 	mvneq r6, #0x83
 	beq _02076FA4
@@ -2800,10 +2796,10 @@ _02076FB8: .word unk_020B9FD8
 _02076FBC: .word 0x04000208
 _02076FC0: .word unk_020BA64C
 _02076FC4: .word 0x71657365
-	arm_func_end DseSe_SysReset
+	arm_func_end DSE_SsdSetEffectPolyMax
 
-	arm_func_start DseSe_Load
-DseSe_Load: ; 0x02076FC8
+	arm_func_start DSE_SsdAddEffectData
+DSE_SsdAddEffectData: ; 0x02076FC8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r6, #4
 	ldr r1, _02077164 ; =0x7365646C
@@ -2811,19 +2807,19 @@ DseSe_Load: ; 0x02076FC8
 	mov r3, r6
 	mov r5, r0
 	mov r7, #0
-	bl DseFile_CheckHeader
+	bl DSEi_CheckFileHeader
 	movs r4, r0
 	ldmmifd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r4, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseSe_GetById
+	bl DSEi_GetEffectById
 	cmp r0, #0
 	beq _02077020
 	sub r5, r6, #0x4e
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077020:
@@ -2831,14 +2827,14 @@ _02077020:
 	ldr r2, _0207716C ; =0x66646573
 	mov r1, r6
 	mov r0, #0x1c
-	bl DseMem_AllocateFirstFit
+	bl DSEi_AllocateFirstFit
 	movs r10, r0
 	bne _02077058
 	sub r5, r6, #0x90
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077058:
@@ -2863,7 +2859,7 @@ _02077058:
 _020770A0:
 	ldr r0, [r8]
 	mov r9, r7
-	bl DseUtil_ByteSwap32
+	bl DSEi_ByteSwap32
 	cmp r0, r6
 	bhi _020770C8
 	bhs _020770EC
@@ -2926,13 +2922,13 @@ _02077178: .word 0x626E6B6C
 _0207717C: .word 0x6D63726C
 _02077180: .word 0x04000208
 _02077184: .word unk_020BA650
-	arm_func_end DseSe_Load
+	arm_func_end DSE_SsdAddEffectData
 
-	arm_func_start DseSe_Unload
-DseSe_Unload: ; 0x02077188
+	arm_func_start DSE_SsdRemoveEffectData
+DSE_SsdRemoveEffectData: ; 0x02077188
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl DseSe_StopSeq
+	bl DSE_SsdStopEffectSeq
 	ldr r1, _02077218 ; =0x04000208
 	mov r0, #0
 	ldrh r3, [r1]
@@ -2958,7 +2954,7 @@ _020771C8:
 	mov r2, #0
 	mov r0, r5
 	strh r3, [r12]
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _020771F8:
@@ -2967,15 +2963,15 @@ _020771F8:
 	str r1, [r5]
 	ldrh r1, [r2]
 	strh r3, [r2]
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _02077218: .word 0x04000208
 _0207721C: .word unk_020BA650
-	arm_func_end DseSe_Unload
+	arm_func_end DSE_SsdRemoveEffectData
 
-	arm_func_start DseSe_HasPlayingInstances
-DseSe_HasPlayingInstances: ; 0x02077220
+	arm_func_start DSE_SsdIsPlayEffect
+DSE_SsdIsPlayEffect: ; 0x02077220
 	cmn r0, #1
 	beq _02077298
 	ldr r2, _020772E4 ; =0x020B9FD8
@@ -3033,10 +3029,10 @@ _020772DC:
 	mov r0, #0
 	bx lr
 _020772E4: .word unk_020B9FD8
-	arm_func_end DseSe_HasPlayingInstances
+	arm_func_end DSE_SsdIsPlayEffect
 
-	arm_func_start DseSe_Play
-DseSe_Play: ; 0x020772E8
+	arm_func_start DSE_SsdPlayEffectParam
+DSE_SsdPlayEffectParam: ; 0x020772E8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r0, r10, lsl #0x10
@@ -3044,14 +3040,14 @@ DseSe_Play: ; 0x020772E8
 	mov r0, r5
 	mov r11, r1
 	mov r9, r2
-	bl DseSe_GetById
+	bl DSEi_GetEffectById
 	movs r4, r0
 	bne _0207732C
 	mvn r4, #0x43
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207732C:
@@ -3061,14 +3057,14 @@ _0207732C:
 	ldr r2, [r4, #0xc]
 	mov r0, r5
 	mov r1, r1, asr #0x10
-	bl DseSe_GetEffectSong
+	bl DSEi_GetEffectSong
 	movs r6, r0
 	bne _0207736C
 	mvn r4, #0x44
 	mov r0, r4
 	mov r1, r10
 	mov r2, #0
-	bl Dse_SetError2
+	bl DSEi_SetError2
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207736C:
@@ -3086,16 +3082,16 @@ _0207736C:
 	ldrb r1, [r6, #0x1c]
 	bne _020773AC
 	mov r0, r10
-	bl DseSe_CheckTooManyInstances
+	bl DSE_SsdControlEffectSequenceID
 	b _020773C4
 _020773AC:
 	mov r0, r8
-	bl DseSe_CheckTooManyInstancesInGroup
+	bl DSE_SsdControlEffectSequenceIDInGroup
 	b _020773C4
 _020773B8:
 	mov r0, r11
 	mov r1, r2
-	bl FUN_020776f4
+	bl DSEi_FUN_020776f4
 _020773C4:
 	and r0, r0, #0xff
 	cmp r0, #0
@@ -3104,7 +3100,7 @@ _020773C4:
 	ldrb r0, [r6, #0x1b]
 	ldrb r1, [r6, #0x19]
 	ldrb r2, [r6, #0x1c]
-	bl DseSe_GetBestSeqAllocation
+	bl DSEi_GetBestEffectAllocation
 	movs r7, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -3113,34 +3109,34 @@ _020773C4:
 	bne _02077408
 	mov r1, #0
 	mov r2, #1
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077408:
 	str r10, [r7, #0x28]
 	str r5, [r7, #0x1c]
 	mov r0, r7
 	mov r5, #0
-	bl DseSequence_InitTracks
+	bl DSEi_InitSequenceTracks
 	mov r0, r7
 	mov r1, r6
-	bl DseSequence_LoadSong
+	bl DSEi_LoadSequenceSong
 	movs r1, r0
 	bpl _02077448
 	mvn r4, #0x4e
 	mov r0, r4
 	mov r2, r10
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077448:
 	mov r0, r7
-	bl DseSequence_Reset
+	bl DSEi_ResetSequence
 	str r5, [r7, #0x68]
 	strh r5, [r7, #0x74]
 	mov r6, #1
 	strb r6, [r7, #2]
 	ldrsb r0, [r4, #0x18]
 	strb r0, [r7, #9]
-	bl FUN_02074f80
+	bl DSEi_IsPaused
 	ldrsb r3, [r4, #0x18]
 	mov r1, r11
 	mov r2, r8
@@ -3149,14 +3145,14 @@ _02077448:
 	mov r0, r7
 	mov r3, r9
 	strb r6, [r7, #0xa]
-	bl DseSequence_Start
+	bl DSEi_StartSequence
 	cmp r0, #0
 	movge r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end DseSe_Play
+	arm_func_end DSE_SsdPlayEffectParam
 
-	arm_func_start DseSe_GetEffectSong
-DseSe_GetEffectSong: ; 0x0207749C
+	arm_func_start DSEi_GetEffectSong
+DSEi_GetEffectSong: ; 0x0207749C
 	cmp r1, #0
 	movlt r0, #0
 	bxlt lr
@@ -3175,10 +3171,10 @@ DseSe_GetEffectSong: ; 0x0207749C
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end DseSe_GetEffectSong
+	arm_func_end DSEi_GetEffectSong
 
-	arm_func_start DseSe_CheckTooManyInstances
-DseSe_CheckTooManyInstances: ; 0x020774E4
+	arm_func_start DSE_SsdControlEffectSequenceID
+DSE_SsdControlEffectSequenceID: ; 0x020774E4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	movs r9, r1
@@ -3223,7 +3219,7 @@ _02077568:
 	mov r0, r8
 	mov r1, r11
 	mov r2, #1
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077588:
 	cmp r7, r9
 	bgt _02077520
@@ -3254,10 +3250,10 @@ _020775D0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020775E4: .word 0x04000208
 _020775E8: .word unk_020B9FD8
-	arm_func_end DseSe_CheckTooManyInstances
+	arm_func_end DSE_SsdControlEffectSequenceID
 
-	arm_func_start DseSe_CheckTooManyInstancesInGroup
-DseSe_CheckTooManyInstancesInGroup: ; 0x020775EC
+	arm_func_start DSE_SsdControlEffectSequenceIDInGroup
+DSE_SsdControlEffectSequenceIDInGroup: ; 0x020775EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	movs r9, r1
@@ -3302,7 +3298,7 @@ _02077670:
 	mov r0, r8
 	mov r1, r11
 	mov r2, #1
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077690:
 	cmp r7, r9
 	bgt _02077628
@@ -3333,10 +3329,10 @@ _020776D8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020776EC: .word 0x04000208
 _020776F0: .word unk_020B9FD8
-	arm_func_end DseSe_CheckTooManyInstancesInGroup
+	arm_func_end DSE_SsdControlEffectSequenceIDInGroup
 
-	arm_func_start FUN_020776f4
-FUN_020776f4: ; 0x020776F4
+	arm_func_start DSEi_FUN_020776f4
+DSEi_FUN_020776f4: ; 0x020776F4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r2, _020777A8 ; =0x04000208
 	mov r4, #0
@@ -3360,7 +3356,7 @@ _0207772C:
 	mov r0, r5
 	mov r1, r9
 	mov r2, r8
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077750:
 	ldr r5, [r5, #0xa4]
 	cmp r5, #0
@@ -3389,10 +3385,10 @@ _02077794:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020777A8: .word 0x04000208
 _020777AC: .word unk_020B9FD8
-	arm_func_end FUN_020776f4
+	arm_func_end DSEi_FUN_020776f4
 
-	arm_func_start DseSe_GetBestSeqAllocation
-DseSe_GetBestSeqAllocation: ; 0x020777B0
+	arm_func_start DSEi_GetBestEffectAllocation
+DSEi_GetBestEffectAllocation: ; 0x020777B0
 	stmfd sp!, {r3, lr}
 	ldr r2, _02077824 ; =0x04000208
 	mov r3, #0
@@ -3427,10 +3423,10 @@ _02077810:
 	ldmfd sp!, {r3, pc}
 _02077824: .word 0x04000208
 _02077828: .word unk_020B9FD8
-	arm_func_end DseSe_GetBestSeqAllocation
+	arm_func_end DSEi_GetBestEffectAllocation
 
-	arm_func_start DseSe_GetById
-DseSe_GetById: ; 0x0207782C
+	arm_func_start DSEi_GetEffectById
+DSEi_GetEffectById: ; 0x0207782C
 	ldr r3, _02077874 ; =0x04000208
 	ldr r1, _02077878 ; =0x020B9FD8
 	ldrh r12, [r3]
@@ -3454,10 +3450,10 @@ _02077860:
 	bx lr
 _02077874: .word 0x04000208
 _02077878: .word unk_020B9FD8
-	arm_func_end DseSe_GetById
+	arm_func_end DSEi_GetEffectById
 
-	arm_func_start DseSe_Stop
-DseSe_Stop: ; 0x0207787C
+	arm_func_start DSE_SsdStopEffect
+DSE_SsdStopEffect: ; 0x0207787C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r6, r0
 	mov r5, r1
@@ -3484,7 +3480,7 @@ _020778C0:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r9
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _020778E4:
 	ldr r5, [r5, #0xa4]
 	cmp r5, #0
@@ -3512,7 +3508,7 @@ _02077918:
 	mov r0, r9
 	mov r1, r4
 	mov r2, r10
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077944:
 	ldr r9, [r9, #0xa4]
 	cmp r9, #0
@@ -3536,7 +3532,7 @@ _02077970:
 	mov r0, r8
 	mov r1, r4
 	mov r2, r9
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077994:
 	ldr r8, [r8, #0xa4]
 	cmp r8, #0
@@ -3549,10 +3545,10 @@ _020779A8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020779B0: .word 0x04000208
 _020779B4: .word unk_020B9FD8
-	arm_func_end DseSe_Stop
+	arm_func_end DSE_SsdStopEffect
 
-	arm_func_start DseSe_StopAll
-DseSe_StopAll: ; 0x020779B8
+	arm_func_start DSE_SsdStopEffectAll
+DSE_SsdStopEffectAll: ; 0x020779B8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _02077A1C ; =0x04000208
 	mov r2, #0
@@ -3571,7 +3567,7 @@ _020779E4:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077A00:
 	ldr r7, [r7, #0xa4]
 	cmp r7, #0
@@ -3583,10 +3579,10 @@ _02077A0C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02077A1C: .word 0x04000208
 _02077A20: .word unk_020B9FD8
-	arm_func_end DseSe_StopAll
+	arm_func_end DSE_SsdStopEffectAll
 
-	arm_func_start DseSe_StopSeq
-DseSe_StopSeq: ; 0x02077A24
+	arm_func_start DSE_SsdStopEffectSeq
+DSE_SsdStopEffectSeq: ; 0x02077A24
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, _02077A98 ; =0x04000208
 	mov r2, #0
@@ -3609,7 +3605,7 @@ _02077A54:
 	mov r0, r4
 	mov r1, r8
 	mov r2, r7
-	bl DseSequence_Stop
+	bl DSEi_StopSequence
 _02077A7C:
 	ldr r4, [r4, #0xa4]
 	cmp r4, #0
@@ -3621,10 +3617,10 @@ _02077A88:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02077A98: .word 0x04000208
 _02077A9C: .word unk_020B9FD8
-	arm_func_end DseSe_StopSeq
+	arm_func_end DSE_SsdStopEffectSeq
 
-	arm_func_start DseDriver_StartMainThread
-DseDriver_StartMainThread: ; 0x02077AA0
+	arm_func_start DSEi_StartMainThread
+DSEi_StartMainThread: ; 0x02077AA0
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
 	ldr r0, _02077B30 ; =0x020B9FD8
@@ -3643,12 +3639,12 @@ DseDriver_StartMainThread: ; 0x02077AA0
 	mov r0, r6
 	strb r4, [r5, #0xd1f]
 	mov r1, #0x10
-	bl DseMem_AllocateLastFit
+	bl DSEi_AllocateLastFit
 	str r0, [r5, #0xde0]
 	str r6, [sp]
 	ldrb r0, [r5, #0xd1c]
 	ldr r6, _02077B3C ; =0x020BBCF8
-	ldr r1, _02077B40 ; =DseDriver_Main
+	ldr r1, _02077B40 ; =DSEi_MainThreadFunc
 	str r0, [sp, #4]
 	ldr r3, [r5, #0xde0]
 	mov r0, r6
@@ -3657,7 +3653,7 @@ DseDriver_StartMainThread: ; 0x02077AA0
 	bl OS_CreateThread
 	mov r0, r6
 	bl OS_WakeupThreadDirect
-	bl DseDriver_StartTickTimer
+	bl DSEi_StartTickTimer
 _02077B24:
 	mov r0, #0
 	add sp, sp, #8
@@ -3666,13 +3662,13 @@ _02077B30: .word unk_020B9FD8
 _02077B34: .word unk_020BAFD8
 _02077B38: .word 0x72637473
 _02077B3C: .word unk_020BBCF8
-_02077B40: .word DseDriver_Main
-	arm_func_end DseDriver_StartMainThread
+_02077B40: .word DSEi_MainThreadFunc
+	arm_func_end DSEi_StartMainThread
 
-	arm_func_start DseDriver_CleanupMainThread
-DseDriver_CleanupMainThread: ; 0x02077B44
+	arm_func_start DSEi_QuitMainThread
+DSEi_QuitMainThread: ; 0x02077B44
 	stmfd sp!, {r3, r4, r5, lr}
-	bl DseDriver_ResetSoundState
+	bl DSEi_ResetSoundState
 	ldr r5, _02077B78 ; =0x020BBCF8
 	ldr r4, _02077B7C ; =0x020BAFD8
 	mov r1, #0
@@ -3682,14 +3678,14 @@ DseDriver_CleanupMainThread: ; 0x02077B44
 	mov r0, r5
 	bl OS_JoinThread
 	ldr r0, [r4, #0xde0]
-	bl DseMem_Free
+	bl DSEi_Free
 	ldmfd sp!, {r3, r4, r5, pc}
 _02077B78: .word unk_020BBCF8
 _02077B7C: .word unk_020BAFD8
-	arm_func_end DseDriver_CleanupMainThread
+	arm_func_end DSEi_QuitMainThread
 
-	arm_func_start DseDriver_StartTickTimer
-DseDriver_StartTickTimer: ; 0x02077B80
+	arm_func_start DSEi_StartTickTimer
+DSEi_StartTickTimer: ; 0x02077B80
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _02077BE4 ; =0x020BAFD8
 	ldrb r0, [r0, #0xde4]
@@ -3698,7 +3694,7 @@ DseDriver_StartTickTimer: ; 0x02077B80
 	ldr r1, _02077BE8 ; =0x00001474
 	ldr r4, _02077BEC ; =0x020B9FD8
 	mov r5, #0
-	ldr r3, _02077BF0 ; =DseDriver_NotifyTick
+	ldr r3, _02077BF0 ; =DSEi_SoundAlarmCallback
 	mov r0, r5
 	mov r2, r1
 	str r4, [sp]
@@ -3719,11 +3715,11 @@ _02077BDC:
 _02077BE4: .word unk_020BAFD8
 _02077BE8: .word 0x00001474
 _02077BEC: .word unk_020B9FD8
-_02077BF0: .word DseDriver_NotifyTick
-	arm_func_end DseDriver_StartTickTimer
+_02077BF0: .word DSEi_SoundAlarmCallback
+	arm_func_end DSEi_StartTickTimer
 
-	arm_func_start DseDriver_ResetSoundState
-DseDriver_ResetSoundState: ; 0x02077BF4
+	arm_func_start DSEi_ResetSoundState
+DSEi_ResetSoundState: ; 0x02077BF4
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	mov r4, #0
@@ -3762,10 +3758,10 @@ _02077C78: .word 0x0000FFFF
 _02077C7C: .word unk_020BAFD8
 _02077C80: .word unk_020BA6D8
 _02077C84: .word unk_020B9FD8
-	arm_func_end DseDriver_ResetSoundState
+	arm_func_end DSEi_ResetSoundState
 
-	arm_func_start DseDriver_NotifyTick
-DseDriver_NotifyTick: ; 0x02077C88
+	arm_func_start DSEi_SoundAlarmCallback
+DSEi_SoundAlarmCallback: ; 0x02077C88
 	stmfd sp!, {r3, lr}
 	ldr r2, _02077CD0 ; =0x020B9FD8
 	ldr r1, _02077CD4 ; =0x020BAFD8
@@ -3787,10 +3783,10 @@ DseDriver_NotifyTick: ; 0x02077C88
 _02077CD0: .word unk_020B9FD8
 _02077CD4: .word unk_020BAFD8
 _02077CD8: .word unk_020BBCF8
-	arm_func_end DseDriver_NotifyTick
+	arm_func_end DSEi_SoundAlarmCallback
 
-	arm_func_start DseDriver_Main
-DseDriver_Main: ; 0x02077CDC
+	arm_func_start DSEi_MainThreadFunc
+DSEi_MainThreadFunc: ; 0x02077CDC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r8, _02077E1C ; =0x020BAFD8
 	ldr r7, _02077E20 ; =0x020BBDD8
@@ -3851,20 +3847,20 @@ _02077DA0:
 	add r0, r0, #1
 	str r0, [r6, #0x2c]
 	ldr r0, [r6, #0x670]
-	bl DseSequence_UpdateTracks
+	bl DSEi_UpdateSequenceTracks
 	ldr r0, [r6, #0x674]
-	bl DseSequence_UpdateTracks
-	bl FUN_0207d780
+	bl DSEi_UpdateSequenceTracks
+	bl DSEi_Stream_FUN_0207d780
 	ldr r0, _02077E2C ; =0x020BBEBC
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _02077DE8
-	bl DseMidi_ProcessEvent
+	bl DSEi_ProcessMidiEvents
 _02077DE8:
-	bl Dse_UpdateChannels
-	bl Dse_UpdateVoiceParameters
-	bl DseVoice_UpdateHardware
-	bl Dse_CleanupVoices
+	bl DSEi_UpdateChannels
+	bl DSEi_UpdateVoiceParameters
+	bl DSEi_UpdateHardware
+	bl DSEi_CleanupVoices
 	mov r0, #0
 	bl SND_FlushCommand
 	ldrsb r0, [r5, #0xdc]
@@ -3879,10 +3875,10 @@ _02077E20: .word unk_020BBDD8
 _02077E24: .word unk_020B9FD8
 _02077E28: .word 0x42C80000
 _02077E2C: .word unk_020BBEBC
-	arm_func_end DseDriver_Main
+	arm_func_end DSEi_MainThreadFunc
 
-	arm_func_start DseSequence_TickNotes
-DseSequence_TickNotes: ; 0x02077E30
+	arm_func_start DSEi_TickSequenceNotes
+DSEi_TickSequenceNotes: ; 0x02077E30
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r1, [r0, #0x24]
 	ldrb r0, [r1, #1]
@@ -3910,7 +3906,7 @@ _02077E6C:
 	bne _02077EB0
 	mov r0, r7
 	mov r1, r8
-	bl DseChannel_ReleaseVoiceByNote
+	bl DSEi_ReleaseVoiceByNote
 	ldr r0, [r4, #0x658]
 	mov r1, r6
 	str r0, [r8, #8]
@@ -3936,10 +3932,10 @@ _02077ED0:
 	bne _02077E58
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077EF0: .word unk_020B9FD8
-	arm_func_end DseSequence_TickNotes
+	arm_func_end DSEi_TickSequenceNotes
 
-	arm_func_start DseSequence_ParseEvent
-DseSequence_ParseEvent: ; 0x02077EF4
+	arm_func_start DSEi_ParseSequenceEvent
+DSEi_ParseSequenceEvent: ; 0x02077EF4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #8
 	mov r7, r1
@@ -4026,21 +4022,21 @@ _02077FE8:
 	ldrb r2, [r7, #7]
 	add r1, sp, #0
 	mov r0, r5
-	bl DseChannel_ChangeNote
+	bl DSEi_ChangeNote
 	b _0207806C
 _0207803C:
 	add r9, sp, #0
 	mov r0, r5
 	mov r1, r9
-	bl DseChannel_ReleaseNote
+	bl DSEi_ReleaseNote
 	mov r0, r5
 	mov r1, r9
 	str r4, [r5, #0x1c]
-	bl DseChannel_AllocateNote
+	bl DSEi_AcquireNoteForChannel
 	movs r1, r0
 	beq _0207806C
 	mov r0, r5
-	bl DseChannel_PlayNote
+	bl DSEi_PlayNote
 _0207806C:
 	ldrb r0, [sp, #2]
 	strb r0, [r7, #7]
@@ -4064,10 +4060,10 @@ _02078098:
 _020780B0: .word DSE_TRACK_EVENT_TABLE
 _020780B4: .word DSE_DELAY_TABLE
 _020780B8: .word 0x02040811
-	arm_func_end DseSequence_ParseEvent
+	arm_func_end DSEi_ParseSequenceEvent
 
-	arm_func_start DseSequence_UpdateTracks
-DseSequence_UpdateTracks: ; 0x020780BC
+	arm_func_start DSEi_UpdateSequenceTracks
+DSEi_UpdateSequenceTracks: ; 0x020780BC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	movs r4, r0
 	mov r6, #0
@@ -4091,7 +4087,7 @@ _020780F4:
 	cmp r0, #0
 	beq _02078114
 	mov r0, r4
-	bl DseSequence_TickFades
+	bl DSEi_UpdateFades
 _02078114:
 	ldr r1, [r4, #0x3c]
 	ldr r0, [r4, #0x40]
@@ -4104,7 +4100,7 @@ _02078114:
 	ldr r5, _02078434 ; =0x82061029
 _02078138:
 	mov r0, r4
-	bl DseSequence_TickNotes
+	bl DSEi_TickSequenceNotes
 	ldr r2, [r4, #0x24]
 	ldrb r0, [r2, #1]
 	add r1, r2, #0x10
@@ -4235,7 +4231,7 @@ _02078304:
 	bne _02078330
 	mov r0, r4
 	mov r1, r8
-	bl DseSequence_ParseEvent
+	bl DSEi_ParseSequenceEvent
 	ldrsb r0, [r8, #2]
 	cmp r0, #1
 	ldreqb r0, [r4, #0xd]
@@ -4265,7 +4261,7 @@ _0207836C:
 	bne _020783A4
 	str r5, [r4, #4]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_ClearHeldNotes
+	bl DSEi_ClearSynthHeldNotes
 	ldr r0, [r4, #0x28]
 	ldr r3, [r4, #0xa0]
 	ldr r7, [r4, #0x9c]
@@ -4284,7 +4280,7 @@ _020783A4:
 	bne _020783F8
 	str r5, [r4, #4]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_StopChannels
+	bl DSEi_StopSynthChannels
 	ldr r0, [r4, #0x28]
 	ldr r3, [r4, #0xa0]
 	ldr r7, [r4, #0x9c]
@@ -4299,7 +4295,7 @@ _020783F8:
 	mov r1, #1
 	strb r1, [r4, #6]
 	ldr r0, [r4, #0x24]
-	bl DseSynth_UpdateVoicesTimerAndVolume
+	bl DSEi_UpdateSynthVoices
 	ldr r0, [r4, #0x28]
 	ldr r3, [r4, #0xa0]
 	ldr r5, [r4, #0x9c]
@@ -4313,10 +4309,10 @@ _02078420:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02078430: .word 0x04000208
 _02078434: .word 0x82061029
-	arm_func_end DseSequence_UpdateTracks
+	arm_func_end DSEi_UpdateSequenceTracks
 
-	arm_func_start DseSequence_TickFades
-DseSequence_TickFades: ; 0x02078438
+	arm_func_start DSEi_UpdateFades
+DSEi_UpdateFades: ; 0x02078438
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r0, [r4, #0x54]
@@ -4363,7 +4359,7 @@ _020784A8:
 	mov r1, r1, lsl #0x10
 	ldr r0, [r4, #0x24]
 	mov r1, r1, asr #0x10
-	bl DseSynth_SetBend
+	bl DSEi_SetSynthBend
 	ldrh r0, [r4, #0x64]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -4387,7 +4383,7 @@ _02078504:
 	mov r1, r1, lsl #0x18
 	ldr r0, [r4, #0x24]
 	mov r1, r1, asr #0x18
-	bl DseSynth_SetVolume
+	bl DSEi_SetSynthVolume
 	ldrh r0, [r4, #0x74]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -4410,7 +4406,7 @@ _02078560:
 	mov r1, r1, asr #0x10
 	ldr r0, [r4, #0x24]
 	and r1, r1, #0xff
-	bl DseSynth_SetPan
+	bl DSEi_SetSynthPan
 	ldrh r0, [r4, #0x84]
 	cmp r0, #0
 	ldreqb r0, [r4, #0xc]
@@ -4418,42 +4414,42 @@ _02078560:
 	streqb r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
 _020785BC: .word 0x03938700
-	arm_func_end DseSequence_TickFades
+	arm_func_end DSEi_UpdateFades
 
-	arm_func_start DseTrackEvent_Invalid
-DseTrackEvent_Invalid: ; 0x020785C0
+	arm_func_start DSE_SsdSeqDummy
+DSE_SsdSeqDummy: ; 0x020785C0
 	mov r1, #0
 	strb r1, [r2, #2]
 	bx lr
-	arm_func_end DseTrackEvent_Invalid
+	arm_func_end DSE_SsdSeqDummy
 
-	arm_func_start DseTrackEvent_WaitSame
-DseTrackEvent_WaitSame: ; 0x020785CC
+	arm_func_start DSE_SeqWaitSame
+DSE_SeqWaitSame: ; 0x020785CC
 	ldr r1, [r2, #0x10]
 	str r1, [r2, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_WaitSame
+	arm_func_end DSE_SeqWaitSame
 
-	arm_func_start DseTrackEvent_WaitDelta
-DseTrackEvent_WaitDelta: ; 0x020785D8
+	arm_func_start DSE_SeqWaitDelta
+DSE_SeqWaitDelta: ; 0x020785D8
 	ldrsb r1, [r0], #1
 	ldr r3, [r2, #0x10]
 	add r1, r3, r1
 	str r1, [r2, #0x10]
 	str r1, [r2, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_WaitDelta
+	arm_func_end DSE_SeqWaitDelta
 
-	arm_func_start DseTrackEvent_Wait8
-DseTrackEvent_Wait8: ; 0x020785F0
+	arm_func_start DSE_SeqWait8
+DSE_SeqWait8: ; 0x020785F0
 	ldrb r1, [r0], #1
 	str r1, [r2, #0x10]
 	str r1, [r2, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_Wait8
+	arm_func_end DSE_SeqWait8
 
-	arm_func_start DseTrackEvent_Wait16
-DseTrackEvent_Wait16: ; 0x02078600
+	arm_func_start DSE_SeqWait16
+DSE_SeqWait16: ; 0x02078600
 	ldrb r3, [r0]
 	ldrb r1, [r0, #1]
 	add r0, r0, #2
@@ -4461,10 +4457,10 @@ DseTrackEvent_Wait16: ; 0x02078600
 	str r1, [r2, #0x10]
 	str r1, [r2, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_Wait16
+	arm_func_end DSE_SeqWait16
 
-	arm_func_start DseTrackEvent_Wait24
-DseTrackEvent_Wait24: ; 0x0207861C
+	arm_func_start DSE_SeqWait24
+DSE_SeqWait24: ; 0x0207861C
 	ldrb r3, [r0]
 	ldrb r1, [r0, #1]
 	ldrb r12, [r0, #2]
@@ -4474,25 +4470,25 @@ DseTrackEvent_Wait24: ; 0x0207861C
 	str r1, [r2, #0x10]
 	str r1, [r2, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_Wait24
+	arm_func_end DSE_SeqWait24
 
-	arm_func_start DseTrackEvent_WaitUntilFadeout
-DseTrackEvent_WaitUntilFadeout: ; 0x02078640
+	arm_func_start DSE_SeqWaitUntilFadeout
+DSE_SeqWaitUntilFadeout: ; 0x02078640
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r0, r3
 	mov r4, r2
-	bl DseVoice_CountNumActiveInChannel
+	bl DSEi_CountActiveVoicesInChannel
 	cmp r0, #0
 	ldrgtb r0, [r5], #-1
 	addle r5, r5, #1
 	strgt r0, [r4, #0xc]
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseTrackEvent_WaitUntilFadeout
+	arm_func_end DSE_SeqWaitUntilFadeout
 
-	arm_func_start DseTrackEvent_EndTrack
-DseTrackEvent_EndTrack: ; 0x0207866C
+	arm_func_start DSE_SeqEndTrack
+DSE_SeqEndTrack: ; 0x0207866C
 	stmfd sp!, {r4, lr}
 	ldr r12, [r2, #0x20]
 	mov r4, r0
@@ -4502,7 +4498,7 @@ DseTrackEvent_EndTrack: ; 0x0207866C
 	mov r0, r3
 	strb r1, [r2, #2]
 	sub r4, r4, #1
-	bl DseChannel_DeallocateVoices
+	bl DSEi_ReleaseChannelVoices
 	b _020786E8
 _02078698:
 	ldrh r0, [r2, #0xa]
@@ -4528,10 +4524,10 @@ _02078698:
 _020786E8:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_EndTrack
+	arm_func_end DSE_SeqEndTrack
 
-	arm_func_start DseTrackEvent_MainLoopBegin
-DseTrackEvent_MainLoopBegin: ; 0x020786F0
+	arm_func_start DSE_SeqMainLoopBegin
+DSE_SeqMainLoopBegin: ; 0x020786F0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	str r4, [r2, #0x20]
@@ -4549,10 +4545,10 @@ DseTrackEvent_MainLoopBegin: ; 0x020786F0
 _02078728:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_MainLoopBegin
+	arm_func_end DSE_SeqMainLoopBegin
 
-	arm_func_start DseTrackEvent_SubLoopBegin
-DseTrackEvent_SubLoopBegin: ; 0x02078730
+	arm_func_start DSE_SeqSubLoopBegin
+DSE_SeqSubLoopBegin: ; 0x02078730
 	stmfd sp!, {r4, lr}
 	ldrb r4, [r2, #6]
 	mov r1, #0xc
@@ -4569,10 +4565,10 @@ DseTrackEvent_SubLoopBegin: ; 0x02078730
 	strb r3, [r12, #9]
 	strb r1, [r2, #6]
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SubLoopBegin
+	arm_func_end DSE_SeqSubLoopBegin
 
-	arm_func_start DseTrackEvent_SubLoopEnd
-DseTrackEvent_SubLoopEnd: ; 0x02078770
+	arm_func_start DSE_SeqSubLoopEnd
+DSE_SeqSubLoopEnd: ; 0x02078770
 	ldrb r12, [r2, #6]
 	add r3, r2, #0x24
 	mov r1, #0xc
@@ -4587,10 +4583,10 @@ DseTrackEvent_SubLoopEnd: ; 0x02078770
 	strneb r0, [r2, #4]
 	ldrne r0, [r3]
 	bx lr
-	arm_func_end DseTrackEvent_SubLoopEnd
+	arm_func_end DSE_SeqSubLoopEnd
 
-	arm_func_start DseTrackEvent_SubLoopBreakOnLastIteration
-DseTrackEvent_SubLoopBreakOnLastIteration: ; 0x020787A8
+	arm_func_start DSE_SeqSubLoopBreakOnLastIteration
+DSE_SeqSubLoopBreakOnLastIteration: ; 0x020787A8
 	ldrb r12, [r2, #6]
 	add r3, r2, #0x24
 	mov r1, #0xc
@@ -4601,27 +4597,27 @@ DseTrackEvent_SubLoopBreakOnLastIteration: ; 0x020787A8
 	ldreq r0, [r3, #4]
 	streqb r12, [r2, #6]
 	bx lr
-	arm_func_end DseTrackEvent_SubLoopBreakOnLastIteration
+	arm_func_end DSE_SeqSubLoopBreakOnLastIteration
 
-	arm_func_start DseTrackEvent_SetOctave
-DseTrackEvent_SetOctave: ; 0x020787D0
+	arm_func_start DSE_SeqSetOctave
+DSE_SeqSetOctave: ; 0x020787D0
 	ldrb r1, [r0], #1
 	strb r1, [r2, #4]
 	bx lr
-	arm_func_end DseTrackEvent_SetOctave
+	arm_func_end DSE_SeqSetOctave
 
-	arm_func_start DseTrackEvent_OctaveDelta
-DseTrackEvent_OctaveDelta: ; 0x020787DC
+	arm_func_start DSE_SeqOctaveDelta
+DSE_SeqOctaveDelta: ; 0x020787DC
 	ldrsb r1, [r0], #1
 	ldrb r3, [r2, #4]
 	and r1, r1, #0xff
 	add r1, r3, r1
 	strb r1, [r2, #4]
 	bx lr
-	arm_func_end DseTrackEvent_OctaveDelta
+	arm_func_end DSE_SeqOctaveDelta
 
-	arm_func_start DseTrackEvent_SetBpm
-DseTrackEvent_SetBpm: ; 0x020787F4
+	arm_func_start DSE_SeqSetBpm
+DSE_SeqSetBpm: ; 0x020787F4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -4638,10 +4634,10 @@ DseTrackEvent_SetBpm: ; 0x020787F4
 	add r0, r6, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _02078830: .word 0x03938700
-	arm_func_end DseTrackEvent_SetBpm
+	arm_func_end DSE_SeqSetBpm
 
-	arm_func_start DseTrackEvent_SetBpm2
-DseTrackEvent_SetBpm2: ; 0x02078834
+	arm_func_start DSE_SeqSetBpm2
+DSE_SeqSetBpm2: ; 0x02078834
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -4658,10 +4654,10 @@ DseTrackEvent_SetBpm2: ; 0x02078834
 	add r0, r6, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _02078870: .word 0x03938700
-	arm_func_end DseTrackEvent_SetBpm2
+	arm_func_end DSE_SeqSetBpm2
 
-	arm_func_start DseTrackEvent_SetBank
-DseTrackEvent_SetBank: ; 0x02078874
+	arm_func_start DSE_SeqSetBank
+DSE_SeqSetBank: ; 0x02078874
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r2, [r4]
@@ -4670,13 +4666,13 @@ DseTrackEvent_SetBank: ; 0x02078874
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl DseChannel_SetBank
+	bl DSEi_SetWave
 	add r0, r4, #2
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetBank
+	arm_func_end DSE_SeqSetBank
 
-	arm_func_start DseTrackEvent_SetBankMsb
-DseTrackEvent_SetBankMsb: ; 0x020788A0
+	arm_func_start DSE_SeqSetBankMsb
+DSE_SeqSetBankMsb: ; 0x020788A0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r1, [r3, #0xe]
@@ -4686,13 +4682,13 @@ DseTrackEvent_SetBankMsb: ; 0x020788A0
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl DseChannel_SetBank
+	bl DSEi_SetWave
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetBankMsb
+	arm_func_end DSE_SeqSetBankMsb
 
-	arm_func_start DseTrackEvent_SetBankLsb
-DseTrackEvent_SetBankLsb: ; 0x020788D0
+	arm_func_start DSE_SeqSetBankLsb
+DSE_SeqSetBankLsb: ; 0x020788D0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r2, [r3, #0xe]
@@ -4702,26 +4698,26 @@ DseTrackEvent_SetBankLsb: ; 0x020788D0
 	add r1, r2, r1
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl DseChannel_SetBank
+	bl DSEi_SetWave
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetBankLsb
+	arm_func_end DSE_SeqSetBankLsb
 
-	arm_func_start DseTrackEvent_Dummy1Byte
-DseTrackEvent_Dummy1Byte: ; 0x02078900
+	arm_func_start DSE_SeqDummy1Byte
+DSE_SeqDummy1Byte: ; 0x02078900
 	add r0, r0, #1
 	bx lr
-	arm_func_end DseTrackEvent_Dummy1Byte
+	arm_func_end DSE_SeqDummy1Byte
 
-	arm_func_start DseTrackEvent_SetProgram
-DseTrackEvent_SetProgram: ; 0x02078908
+	arm_func_start DSE_SsdSeqProgramChange
+DSE_SsdSeqProgramChange: ; 0x02078908
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r3
 	ldrb r1, [r6]
 	mov r0, r4
-	bl DseChannel_SetProgram
+	bl DSE_SsdSetChannelProgram
 	movs r2, r0
 	bpl _02078948
 	ldrh r1, [r4, #0xe]
@@ -4734,10 +4730,10 @@ DseTrackEvent_SetProgram: ; 0x02078908
 _02078948:
 	add r0, r6, #1
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseTrackEvent_SetProgram
+	arm_func_end DSE_SsdSeqProgramChange
 
-	arm_func_start DseTrackEvent_SongVolumeFade
-DseTrackEvent_SongVolumeFade: ; 0x02078950
+	arm_func_start DSE_SeqSongVolumeFade
+DSE_SeqSongVolumeFade: ; 0x02078950
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldrb r2, [r5]
@@ -4775,56 +4771,56 @@ _020789CC:
 	add r0, r5, #3
 	ldmfd sp!, {r4, r5, r6, pc}
 _020789D8: .word unk_020B9FD8
-	arm_func_end DseTrackEvent_SongVolumeFade
+	arm_func_end DSE_SeqSongVolumeFade
 
-	arm_func_start DseTrackEvent_RestoreEnvelopeDefaults
-DseTrackEvent_RestoreEnvelopeDefaults: ; 0x020789DC
+	arm_func_start DSE_SeqResetEnvelope
+DSE_SeqResetEnvelope: ; 0x020789DC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r3, #0x60
-	bl DseEnvelopeParameters_Reset
+	bl DSEi_ResetEnvelopeParameters
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_RestoreEnvelopeDefaults
+	arm_func_end DSE_SeqResetEnvelope
 
-	arm_func_start DseTrackEvent_SetEnvelopeAttackBegin
-DseTrackEvent_SetEnvelopeAttackBegin: ; 0x020789F4
+	arm_func_start DSE_SeqAttackBegin
+DSE_SeqAttackBegin: ; 0x020789F4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
 	add r0, r3, #0x60
 	strb r1, [r3, #0x68]
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeAttackBegin
+	arm_func_end DSE_SeqAttackBegin
 
-	arm_func_start DseTrackEvent_SetEnvelopeAttackTime
-DseTrackEvent_SetEnvelopeAttackTime: ; 0x02078A14
+	arm_func_start DSE_SeqAttackTime
+DSE_SeqAttackTime: ; 0x02078A14
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
 	add r0, r3, #0x60
 	strb r1, [r3, #0x69]
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeAttackTime
+	arm_func_end DSE_SeqAttackTime
 
-	arm_func_start DseTrackEvent_SetEnvelopeHoldTime
-DseTrackEvent_SetEnvelopeHoldTime: ; 0x02078A34
+	arm_func_start DSE_SeqHoldTime
+DSE_SeqHoldTime: ; 0x02078A34
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
 	add r0, r3, #0x60
 	strb r1, [r3, #0x6c]
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeHoldTime
+	arm_func_end DSE_SeqHoldTime
 
-	arm_func_start DseTrackEvent_SetEnvelopeDecayTimeAndSustainLevel
-DseTrackEvent_SetEnvelopeDecayTimeAndSustainLevel: ; 0x02078A54
+	arm_func_start DSE_SeqDecayTimeAndSustainLevel
+DSE_SeqDecayTimeAndSustainLevel: ; 0x02078A54
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r0, [r4]
@@ -4834,55 +4830,55 @@ DseTrackEvent_SetEnvelopeDecayTimeAndSustainLevel: ; 0x02078A54
 	cmp r0, #0xff
 	strneb r0, [r3, #0x6b]
 	add r0, r3, #0x60
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #2
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeDecayTimeAndSustainLevel
+	arm_func_end DSE_SeqDecayTimeAndSustainLevel
 
-	arm_func_start DseTrackEvent_SetEnvelopeSustainTime
-DseTrackEvent_SetEnvelopeSustainTime: ; 0x02078A84
+	arm_func_start DSE_SeqSustainTime
+DSE_SeqSustainTime: ; 0x02078A84
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
 	add r0, r3, #0x60
 	strb r1, [r3, #0x6d]
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeSustainTime
+	arm_func_end DSE_SeqSustainTime
 
-	arm_func_start DseTrackEvent_SetEnvelopeReleaseTime
-DseTrackEvent_SetEnvelopeReleaseTime: ; 0x02078AA4
+	arm_func_start DSE_SeqReleaseTime
+DSE_SeqReleaseTime: ; 0x02078AA4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
 	add r0, r3, #0x60
 	strb r1, [r3, #0x6e]
-	bl DseEnvelopeParameters_CheckValidity
+	bl DSEi_CheckEnvelopeParameters
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetEnvelopeReleaseTime
+	arm_func_end DSE_SeqReleaseTime
 
-	arm_func_start DseTrackEvent_SetNoteDurationMultiplier
-DseTrackEvent_SetNoteDurationMultiplier: ; 0x02078AC4
+	arm_func_start DSE_SeqNoteDurationMultiplier
+DSE_SeqNoteDurationMultiplier: ; 0x02078AC4
 	ldrb r1, [r0], #1
 	strb r1, [r2, #5]
 	bx lr
-	arm_func_end DseTrackEvent_SetNoteDurationMultiplier
+	arm_func_end DSE_SeqNoteDurationMultiplier
 
-	arm_func_start DseTrackEvent_SetModulationDepth
-DseTrackEvent_SetModulationDepth: ; 0x02078AD0
+	arm_func_start DSE_SeqModulationDepth
+DSE_SeqModulationDepth: ; 0x02078AD0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrsb r1, [r4]
 	mov r0, r3
-	bl DseChannel_SetModulationDepth
+	bl DSEi_SetModulationDepth
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetModulationDepth
+	arm_func_end DSE_SeqModulationDepth
 
-	arm_func_start DseTrackEvent_SetHoldNotes
-DseTrackEvent_SetHoldNotes: ; 0x02078AEC
+	arm_func_start DSE_SeqHoldNotes
+DSE_SeqHoldNotes: ; 0x02078AEC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
@@ -4894,35 +4890,35 @@ DseTrackEvent_SetHoldNotes: ; 0x02078AEC
 	bhs _02078B1C
 	and r1, r1, #0xfe
 	strb r1, [r0, #4]
-	bl DseChannel_ReleaseHeld
+	bl DSEi_ReleaseHeldInChannel
 _02078B1C:
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetHoldNotes
+	arm_func_end DSE_SeqHoldNotes
 
-	arm_func_start DseTrackEvent_SetFlagBit1Unknown
-DseTrackEvent_SetFlagBit1Unknown: ; 0x02078B24
+	arm_func_start DSE_SeqFlagBit1Unknown
+DSE_SeqFlagBit1Unknown: ; 0x02078B24
 	ldrb r1, [r3, #4]
 	orr r1, r1, #2
 	strb r1, [r3, #4]
 	bx lr
-	arm_func_end DseTrackEvent_SetFlagBit1Unknown
+	arm_func_end DSE_SeqFlagBit1Unknown
 
-	arm_func_start DseTrackEvent_SetOptionalVolume
-DseTrackEvent_SetOptionalVolume: ; 0x02078B34
+	arm_func_start DSE_SeqSetOptionalVolume
+DSE_SeqSetOptionalVolume: ; 0x02078B34
 	ldrb r1, [r0], #1
 	strb r1, [r3, #0x54]
 	bx lr
-	arm_func_end DseTrackEvent_SetOptionalVolume
+	arm_func_end DSE_SeqSetOptionalVolume
 
-	arm_func_start DseTrackEvent_Dummy2Bytes
-DseTrackEvent_Dummy2Bytes: ; 0x02078B40
+	arm_func_start DSE_SeqDummy2Bytes
+DSE_SeqDummy2Bytes: ; 0x02078B40
 	add r0, r0, #2
 	bx lr
-	arm_func_end DseTrackEvent_Dummy2Bytes
+	arm_func_end DSE_SeqDummy2Bytes
 
-	arm_func_start DseTrackEvent_SetTuning
-DseTrackEvent_SetTuning: ; 0x02078B48
+	arm_func_start DSE_SeqTuning
+DSE_SeqTuning: ; 0x02078B48
 	stmfd sp!, {r3, lr}
 	ldrsb r1, [r0]
 	ldr r2, [r3, #0x1c]
@@ -4957,10 +4953,10 @@ _02078BB0:
 	strh r12, [r2]
 	ldmfd sp!, {r3, pc}
 _02078BC4: .word 0x04000208
-	arm_func_end DseTrackEvent_SetTuning
+	arm_func_end DSE_SeqTuning
 
-	arm_func_start DseTrackEvent_TuningDeltaCoarse
-DseTrackEvent_TuningDeltaCoarse: ; 0x02078BC8
+	arm_func_start DSE_SeqTuningDeltaCoarse
+DSE_SeqTuningDeltaCoarse: ; 0x02078BC8
 	stmfd sp!, {r3, lr}
 	ldrsb lr, [r0]
 	ldrsh r1, [r3, #0x50]
@@ -4997,10 +4993,10 @@ _02078C38:
 	strh r12, [r2]
 	ldmfd sp!, {r3, pc}
 _02078C4C: .word 0x04000208
-	arm_func_end DseTrackEvent_TuningDeltaCoarse
+	arm_func_end DSE_SeqTuningDeltaCoarse
 
-	arm_func_start DseTrackEvent_TuningDeltaFine
-DseTrackEvent_TuningDeltaFine: ; 0x02078C50
+	arm_func_start DSE_SeqTuningDeltaFine
+DSE_SeqTuningDeltaFine: ; 0x02078C50
 	stmfd sp!, {r3, lr}
 	ldrsb lr, [r0]
 	ldrsh r1, [r3, #0x50]
@@ -5037,10 +5033,10 @@ _02078CC0:
 	strh r12, [r2]
 	ldmfd sp!, {r3, pc}
 _02078CD4: .word 0x04000208
-	arm_func_end DseTrackEvent_TuningDeltaFine
+	arm_func_end DSE_SeqTuningDeltaFine
 
-	arm_func_start DseTrackEvent_TuningDeltaFull
-DseTrackEvent_TuningDeltaFull: ; 0x02078CD8
+	arm_func_start DSE_SeqTuningDeltaFull
+DSE_SeqTuningDeltaFull: ; 0x02078CD8
 	stmfd sp!, {r3, lr}
 	ldrb r12, [r0]
 	ldrb r1, [r0, #1]
@@ -5079,10 +5075,10 @@ _02078D50:
 	strh r12, [r2]
 	ldmfd sp!, {r3, pc}
 _02078D64: .word 0x04000208
-	arm_func_end DseTrackEvent_TuningDeltaFull
+	arm_func_end DSE_SeqTuningDeltaFull
 
-	arm_func_start DseTrackEvent_TuningFade
-DseTrackEvent_TuningFade: ; 0x02078D68
+	arm_func_start DSE_SeqTuningFade
+DSE_SeqTuningFade: ; 0x02078D68
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r6, r3
 	mov r7, r0
@@ -5145,10 +5141,10 @@ _02078E3C:
 	strh r3, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02078E50: .word 0x04000208
-	arm_func_end DseTrackEvent_TuningFade
+	arm_func_end DSE_SeqTuningFade
 
-	arm_func_start DseTrackEvent_SetNoteRandomRegion
-DseTrackEvent_SetNoteRandomRegion: ; 0x02078E54
+	arm_func_start DSE_SeqSetNoteRandomRegion
+DSE_SeqSetNoteRandomRegion: ; 0x02078E54
 	ldrb r1, [r0]
 	ldrb r12, [r0, #1]
 	add r0, r0, #2
@@ -5159,20 +5155,20 @@ DseTrackEvent_SetNoteRandomRegion: ; 0x02078E54
 	strb r2, [r3, #0xc]
 	strb r12, [r3, #0xd]
 	bx lr
-	arm_func_end DseTrackEvent_SetNoteRandomRegion
+	arm_func_end DSE_SeqSetNoteRandomRegion
 
-	arm_func_start DseTrackEvent_SetTuningJitterAmplitude
-DseTrackEvent_SetTuningJitterAmplitude: ; 0x02078E7C
+	arm_func_start DSE_SeqTuningJitterAmplitude
+DSE_SeqTuningJitterAmplitude: ; 0x02078E7C
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	add r0, r0, #2
 	add r1, r2, r1, lsl #8
 	strh r1, [r3, #0xa]
 	bx lr
-	arm_func_end DseTrackEvent_SetTuningJitterAmplitude
+	arm_func_end DSE_SeqTuningJitterAmplitude
 
-	arm_func_start DseTrackEvent_SetKeyBend
-DseTrackEvent_SetKeyBend: ; 0x02078E94
+	arm_func_start DSE_SeqKeyBend
+DSE_SeqKeyBend: ; 0x02078E94
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r2, [r4]
@@ -5181,30 +5177,30 @@ DseTrackEvent_SetKeyBend: ; 0x02078E94
 	add r1, r1, r2, lsl #8
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl DseChannel_SetKeyBend
+	bl DSEi_SetKeyBend
 	add r0, r4, #2
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetKeyBend
+	arm_func_end DSE_SeqKeyBend
 
-	arm_func_start DseTrackEvent_SetUnknown2
-DseTrackEvent_SetUnknown2: ; 0x02078EC0
+	arm_func_start DSE_SeqUnknown2
+DSE_SeqUnknown2: ; 0x02078EC0
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	add r0, r0, #2
 	add r1, r1, r2, lsl #8
 	strh r1, [r3, #0x52]
 	bx lr
-	arm_func_end DseTrackEvent_SetUnknown2
+	arm_func_end DSE_SeqUnknown2
 
-	arm_func_start DseTrackEvent_SetKeyBendRange
-DseTrackEvent_SetKeyBendRange: ; 0x02078ED8
+	arm_func_start DSE_SeqKeyBendRange
+DSE_SeqKeyBendRange: ; 0x02078ED8
 	ldrb r1, [r0], #1
 	strb r1, [r3, #0x55]
 	bx lr
-	arm_func_end DseTrackEvent_SetKeyBendRange
+	arm_func_end DSE_SeqKeyBendRange
 
-	arm_func_start DseTrackEvent_SetupKeyBendLfo
-DseTrackEvent_SetupKeyBendLfo: ; 0x02078EE4
+	arm_func_start DSE_SeqKeyBendLfo
+DSE_SeqKeyBendLfo: ; 0x02078EE4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldrb r6, [r0]
 	ldrb r1, [r0, #1]
@@ -5227,10 +5223,10 @@ DseTrackEvent_SetupKeyBendLfo: ; 0x02078EE4
 	strb r2, [r3, #0x7e]
 	add r0, r0, #5
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseTrackEvent_SetupKeyBendLfo
+	arm_func_end DSE_SeqKeyBendLfo
 
-	arm_func_start DseTrackEvent_SetupKeyBendLfoEnvelope
-DseTrackEvent_SetupKeyBendLfoEnvelope: ; 0x02078F3C
+	arm_func_start DSE_SeqKeyBendLfoEnvelope
+DSE_SeqKeyBendLfoEnvelope: ; 0x02078F3C
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	add r1, r2, r1, lsl #8
@@ -5241,10 +5237,10 @@ DseTrackEvent_SetupKeyBendLfoEnvelope: ; 0x02078F3C
 	add r1, r2, r1, lsl #8
 	strh r1, [r3, #0x7c]
 	bx lr
-	arm_func_end DseTrackEvent_SetupKeyBendLfoEnvelope
+	arm_func_end DSE_SeqKeyBendLfoEnvelope
 
-	arm_func_start DseTrackEvent_UseKeyBendLfo
-DseTrackEvent_UseKeyBendLfo: ; 0x02078F64
+	arm_func_start DSE_SeqStartKeyBendLfo
+DSE_SeqStartKeyBendLfo: ; 0x02078F64
 	ldrb r1, [r0]
 	add r0, r0, #1
 	cmp r1, #2
@@ -5255,10 +5251,10 @@ DseTrackEvent_UseKeyBendLfo: ; 0x02078F64
 	movne r1, #1
 	strb r1, [r3, #0x72]
 	bx lr
-	arm_func_end DseTrackEvent_UseKeyBendLfo
+	arm_func_end DSE_SeqStartKeyBendLfo
 
-	arm_func_start DseTrackEvent_SetVolume
-DseTrackEvent_SetVolume: ; 0x02078F8C
+	arm_func_start DSE_SeqVolume
+DSE_SeqVolume: ; 0x02078F8C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrsb r12, [r0]
 	ldrb r1, [r3, #0x4c]
@@ -5298,10 +5294,10 @@ _02079004:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02079018: .word 0x82061029
 _0207901C: .word 0x04000208
-	arm_func_end DseTrackEvent_SetVolume
+	arm_func_end DSE_SeqVolume
 
-	arm_func_start DseTrackEvent_VolumeDelta
-DseTrackEvent_VolumeDelta: ; 0x02079020
+	arm_func_start DSE_SeqVolumeDelta
+DSE_SeqVolumeDelta: ; 0x02079020
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrsb r2, [r0]
 	ldr r1, [r3, #0x2c]
@@ -5349,10 +5345,10 @@ _020790B4:
 	ldmfd sp!, {r3, r4, r5, pc}
 _020790C8: .word 0x82061029
 _020790CC: .word 0x04000208
-	arm_func_end DseTrackEvent_VolumeDelta
+	arm_func_end DSE_SeqVolumeDelta
 
-	arm_func_start DseTrackEvent_VolumeFade
-DseTrackEvent_VolumeFade: ; 0x020790D0
+	arm_func_start DSE_SeqVolumeFade
+DSE_SeqVolumeFade: ; 0x020790D0
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldrb r2, [r5]
@@ -5377,10 +5373,10 @@ _02079120:
 	strh r6, [r4, #0x38]
 	add r0, r5, #3
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseTrackEvent_VolumeFade
+	arm_func_end DSE_SeqVolumeFade
 
-	arm_func_start DseTrackEvent_SetExpression
-DseTrackEvent_SetExpression: ; 0x0207912C
+	arm_func_start DSE_SeqExpression
+DSE_SeqExpression: ; 0x0207912C
 	stmfd sp!, {r4, lr}
 	ldrb r4, [r0]
 	ldr r1, [r3, #0x2c]
@@ -5418,10 +5414,10 @@ _0207919C:
 	ldmfd sp!, {r4, pc}
 _020791B0: .word 0x82061029
 _020791B4: .word 0x04000208
-	arm_func_end DseTrackEvent_SetExpression
+	arm_func_end DSE_SeqExpression
 
-	arm_func_start DseTrackEvent_SetupVolumeLfo
-DseTrackEvent_SetupVolumeLfo: ; 0x020791B8
+	arm_func_start DSE_SeqVolumeLfo
+DSE_SeqVolumeLfo: ; 0x020791B8
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r5, [r0]
 	ldrb r1, [r0, #1]
@@ -5445,10 +5441,10 @@ DseTrackEvent_SetupVolumeLfo: ; 0x020791B8
 	strb r2, [r3, #0x8e]
 	add r0, r0, #5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseTrackEvent_SetupVolumeLfo
+	arm_func_end DSE_SeqVolumeLfo
 
-	arm_func_start DseTrackEvent_SetupVolumeLfoEnvelope
-DseTrackEvent_SetupVolumeLfoEnvelope: ; 0x02079214
+	arm_func_start DSE_SeqVolumeLfoEnvelope
+DSE_SeqVolumeLfoEnvelope: ; 0x02079214
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	add r1, r2, r1, lsl #8
@@ -5459,10 +5455,10 @@ DseTrackEvent_SetupVolumeLfoEnvelope: ; 0x02079214
 	add r1, r2, r1, lsl #8
 	strh r1, [r3, #0x8c]
 	bx lr
-	arm_func_end DseTrackEvent_SetupVolumeLfoEnvelope
+	arm_func_end DSE_SeqVolumeLfoEnvelope
 
-	arm_func_start DseTrackEvent_UseVolumeLfo
-DseTrackEvent_UseVolumeLfo: ; 0x0207923C
+	arm_func_start DSE_SeqStartVolumeLfo
+DSE_SeqStartVolumeLfo: ; 0x0207923C
 	ldrb r1, [r0]
 	add r0, r0, #1
 	cmp r1, #2
@@ -5473,10 +5469,10 @@ DseTrackEvent_UseVolumeLfo: ; 0x0207923C
 	movne r1, #2
 	strb r1, [r3, #0x82]
 	bx lr
-	arm_func_end DseTrackEvent_UseVolumeLfo
+	arm_func_end DSE_SeqStartVolumeLfo
 
-	arm_func_start DseTrackEvent_SetPan
-DseTrackEvent_SetPan: ; 0x02079264
+	arm_func_start DSE_SeqPan
+DSE_SeqPan: ; 0x02079264
 	stmfd sp!, {r3, lr}
 	ldrb lr, [r0]
 	mov r12, #0
@@ -5511,10 +5507,10 @@ _020792CC:
 	strh lr, [r2]
 	ldmfd sp!, {r3, pc}
 _020792E0: .word 0x04000208
-	arm_func_end DseTrackEvent_SetPan
+	arm_func_end DSE_SeqPan
 
-	arm_func_start DseTrackEvent_PanDelta
-DseTrackEvent_PanDelta: ; 0x020792E4
+	arm_func_start DSE_SeqPanDelta
+DSE_SeqPanDelta: ; 0x020792E4
 	stmfd sp!, {r3, lr}
 	ldrsb r2, [r0]
 	ldr r1, [r3, #0x3c]
@@ -5555,10 +5551,10 @@ _02079360:
 	strh lr, [r2]
 	ldmfd sp!, {r3, pc}
 _02079374: .word 0x04000208
-	arm_func_end DseTrackEvent_PanDelta
+	arm_func_end DSE_SeqPanDelta
 
-	arm_func_start DseTrackEvent_PanFade
-DseTrackEvent_PanFade: ; 0x02079378
+	arm_func_start DSE_SeqPanFade
+DSE_SeqPanFade: ; 0x02079378
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldrb r2, [r5]
@@ -5583,10 +5579,10 @@ _020793C8:
 	strh r6, [r4, #0x48]
 	add r0, r5, #3
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseTrackEvent_PanFade
+	arm_func_end DSE_SeqPanFade
 
-	arm_func_start DseTrackEvent_SetupPanLfo
-DseTrackEvent_SetupPanLfo: ; 0x020793D4
+	arm_func_start DSE_SeqPanLfo
+DSE_SeqPanLfo: ; 0x020793D4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r5, [r0]
 	ldrb r1, [r0, #1]
@@ -5610,10 +5606,10 @@ DseTrackEvent_SetupPanLfo: ; 0x020793D4
 	strb r2, [r3, #0x9e]
 	add r0, r0, #5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseTrackEvent_SetupPanLfo
+	arm_func_end DSE_SeqPanLfo
 
-	arm_func_start DseTrackEvent_SetupPanLfoEnvelope
-DseTrackEvent_SetupPanLfoEnvelope: ; 0x02079430
+	arm_func_start DSE_SeqPanLfoEnvelope
+DSE_SeqPanLfoEnvelope: ; 0x02079430
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
 	add r1, r2, r1, lsl #8
@@ -5624,10 +5620,10 @@ DseTrackEvent_SetupPanLfoEnvelope: ; 0x02079430
 	add r1, r2, r1, lsl #8
 	strh r1, [r3, #0x9c]
 	bx lr
-	arm_func_end DseTrackEvent_SetupPanLfoEnvelope
+	arm_func_end DSE_SeqPanLfoEnvelope
 
-	arm_func_start DseTrackEvent_UsePanLfo
-DseTrackEvent_UsePanLfo: ; 0x02079458
+	arm_func_start DSE_SeqStartPanLfo
+DSE_SeqStartPanLfo: ; 0x02079458
 	ldrb r1, [r0]
 	add r0, r0, #1
 	cmp r1, #2
@@ -5638,10 +5634,10 @@ DseTrackEvent_UsePanLfo: ; 0x02079458
 	movne r1, #3
 	strb r1, [r3, #0x92]
 	bx lr
-	arm_func_end DseTrackEvent_UsePanLfo
+	arm_func_end DSE_SeqStartPanLfo
 
-	arm_func_start DseTrackEvent_SetupLfo
-DseTrackEvent_SetupLfo: ; 0x02079480
+	arm_func_start DSE_SeqLfo
+DSE_SeqLfo: ; 0x02079480
 	stmfd sp!, {r4, lr}
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -5664,10 +5660,10 @@ DseTrackEvent_SetupLfo: ; 0x02079480
 	strb r1, [r3, #0xe]
 	add r0, r0, #5
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_SetupLfo
+	arm_func_end DSE_SeqLfo
 
-	arm_func_start DseTrackEvent_SetupLfoEnvelope
-DseTrackEvent_SetupLfoEnvelope: ; 0x020794D8
+	arm_func_start DSE_SeqLfoEnvelope
+DSE_SeqLfoEnvelope: ; 0x020794D8
 	ldrb r12, [r3, #0x5d]
 	ldrb r2, [r0]
 	ldrb r1, [r0, #1]
@@ -5681,10 +5677,10 @@ DseTrackEvent_SetupLfoEnvelope: ; 0x020794D8
 	add r1, r2, r1, lsl #8
 	strh r1, [r3, #0xc]
 	bx lr
-	arm_func_end DseTrackEvent_SetupLfoEnvelope
+	arm_func_end DSE_SeqLfoEnvelope
 
-	arm_func_start DseTrackEvent_SetLfoParameter
-DseTrackEvent_SetLfoParameter: ; 0x0207950C
+	arm_func_start DSE_SeqLfoParameter
+DSE_SeqLfoParameter: ; 0x0207950C
 	ldrb r1, [r3, #0x5d]
 	ldrb r12, [r0]
 	add r2, r3, #0x70
@@ -5773,10 +5769,10 @@ _02079608:
 _02079614:
 	add r0, r0, #2
 	bx lr
-	arm_func_end DseTrackEvent_SetLfoParameter
+	arm_func_end DSE_SeqLfoParameter
 
-	arm_func_start DseTrackEvent_UseLfo
-DseTrackEvent_UseLfo: ; 0x0207961C
+	arm_func_start DSE_SeqStartLfo
+DSE_SeqStartLfo: ; 0x0207961C
 	stmfd sp!, {r3, lr}
 	ldrb r12, [r0, #1]
 	ldrb r2, [r0]
@@ -5790,10 +5786,10 @@ DseTrackEvent_UseLfo: ; 0x0207961C
 	strb lr, [r1, #2]
 	add r0, r0, #3
 	ldmfd sp!, {r3, pc}
-	arm_func_end DseTrackEvent_UseLfo
+	arm_func_end DSE_SeqStartLfo
 
-	arm_func_start DseTrackEvent_Signal
-DseTrackEvent_Signal: ; 0x02079650
+	arm_func_start DSE_SeqSignal
+DSE_SeqSignal: ; 0x02079650
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov lr, r1
@@ -5806,25 +5802,25 @@ DseTrackEvent_Signal: ; 0x02079650
 	blx r12
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseTrackEvent_Signal
+	arm_func_end DSE_SeqSignal
 
-	arm_func_start DseTrackEvent_Dummy2Bytes2
-DseTrackEvent_Dummy2Bytes2: ; 0x02079680
+	arm_func_start DSE_SeqDummy2Bytes2
+DSE_SeqDummy2Bytes2: ; 0x02079680
 	add r0, r0, #2
 	bx lr
-	arm_func_end DseTrackEvent_Dummy2Bytes2
+	arm_func_end DSE_SeqDummy2Bytes2
 
-	arm_func_start DseMidi_Init
-DseMidi_Init: ; 0x02079688
+	arm_func_start DSEi_MidiInit
+DSEi_MidiInit: ; 0x02079688
 	ldr r0, _02079698 ; =0x020BBEBC
 	mov r1, #0
 	str r1, [r0]
 	bx lr
 _02079698: .word unk_020BBEBC
-	arm_func_end DseMidi_Init
+	arm_func_end DSEi_MidiInit
 
-	arm_func_start DseMidi_GetEvent
-DseMidi_GetEvent: ; 0x0207969C
+	arm_func_start DSEi_GetMidiEvent
+DSEi_GetMidiEvent: ; 0x0207969C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	ldr r5, _02079818 ; =DSE_MIDI_EVENT_LENGTHS
@@ -5927,10 +5923,10 @@ _020797F8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02079818: .word DSE_MIDI_EVENT_LENGTHS
 _0207981C: .word unk_020BBEBC
-	arm_func_end DseMidi_GetEvent
+	arm_func_end DSEi_GetMidiEvent
 
-	arm_func_start DseMidi_ProcessEvent
-DseMidi_ProcessEvent: ; 0x02079820
+	arm_func_start DSEi_ProcessMidiEvents
+DSEi_ProcessMidiEvents: ; 0x02079820
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	ldr r0, _020799EC ; =0x020BBEBC
@@ -5940,7 +5936,7 @@ DseMidi_ProcessEvent: ; 0x02079820
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, sp, #8
-	bl DseMidi_GetEvent
+	bl DSEi_GetMidiEvent
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -6000,7 +5996,7 @@ _020798F0:
 _02079914:
 	mov r0, r10
 	mov r1, r7
-	bl DseChannel_ReleaseNoteInternal
+	bl DSEi_ReleaseNoteInternal
 	b _020799D4
 _02079924:
 	ldrb r0, [sp, #0xb]
@@ -6013,14 +6009,14 @@ _02079924:
 	mov r0, r10
 	mov r1, r7
 	strb r5, [sp]
-	bl DseChannel_ReleaseNote
+	bl DSEi_ReleaseNote
 	mov r0, r10
 	mov r1, r7
-	bl DseChannel_AllocateNote
+	bl DSEi_AcquireNoteForChannel
 	movs r1, r0
 	beq _020799D4
 	mov r0, r10
-	bl DseChannel_PlayNote
+	bl DSEi_PlayNote
 	b _020799D4
 _02079970:
 	strb r4, [sp]
@@ -6040,7 +6036,7 @@ _02079984:
 _020799A4:
 	ldrb r1, [sp, #0xa]
 	mov r0, r10
-	bl DseChannel_SetProgram
+	bl DSE_SsdSetChannelProgram
 	b _020799D4
 _020799B4:
 	ldrb r2, [sp, #0xa]
@@ -6050,62 +6046,62 @@ _020799B4:
 	sub r1, r1, #0x2000
 	mov r1, r1, lsl #0x10
 	mov r1, r1, asr #0x10
-	bl DseChannel_SetKeyBend
+	bl DSEi_SetKeyBend
 _020799D4:
 	add r0, sp, #8
-	bl DseMidi_GetEvent
+	bl DSEi_GetMidiEvent
 	cmp r0, #0
 	bne _02079870
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020799EC: .word unk_020BBEBC
 _020799F0: .word DSE_MIDI_CC_TABLE
-	arm_func_end DseMidi_ProcessEvent
+	arm_func_end DSEi_ProcessMidiEvents
 
-	arm_func_start DseMidiCC_BankSelectMSB
-DseMidiCC_BankSelectMSB: ; 0x020799F4
+	arm_func_start DSE_SsdMidiControlBankMSB
+DSE_SsdMidiControlBankMSB: ; 0x020799F4
 	ldrh r2, [r0, #0xe]
-	ldr r12, _02079A10 ; =DseChannel_SetBank
+	ldr r12, _02079A10 ; =DSEi_SetWave
 	and r2, r2, #0xff
 	add r1, r2, r1, lsl #8
 	strh r1, [r0, #0xe]
 	ldrh r1, [r0, #0xe]
 	bx r12
-_02079A10: .word DseChannel_SetBank
-	arm_func_end DseMidiCC_BankSelectMSB
+_02079A10: .word DSEi_SetWave
+	arm_func_end DSE_SsdMidiControlBankMSB
 
-	arm_func_start DseMidiCC_BankSelectLSB
-DseMidiCC_BankSelectLSB: ; 0x02079A14
+	arm_func_start DSE_SsdMidiControlBankLSB
+DSE_SsdMidiControlBankLSB: ; 0x02079A14
 	ldrh r2, [r0, #0xe]
-	ldr r12, _02079A30 ; =DseChannel_SetBank
+	ldr r12, _02079A30 ; =DSEi_SetWave
 	bic r2, r2, #0xff
 	add r1, r2, r1
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
 	bx r12
-_02079A30: .word DseChannel_SetBank
-	arm_func_end DseMidiCC_BankSelectLSB
+_02079A30: .word DSEi_SetWave
+	arm_func_end DSE_SsdMidiControlBankLSB
 
-	arm_func_start DseMidiCC_ModulationDepth
-DseMidiCC_ModulationDepth: ; 0x02079A34
+	arm_func_start DSE_SsdMidiControlModulationMSB
+DSE_SsdMidiControlModulationMSB: ; 0x02079A34
 	mov r1, r1, lsl #0x18
 	mov r1, r1, asr #0x18
-	ldr r12, _02079A48 ; =DseChannel_SetModulationDepth
+	ldr r12, _02079A48 ; =DSEi_SetModulationDepth
 	strb r1, [r0, #0x4d]
 	bx r12
-_02079A48: .word DseChannel_SetModulationDepth
-	arm_func_end DseMidiCC_ModulationDepth
+_02079A48: .word DSEi_SetModulationDepth
+	arm_func_end DSE_SsdMidiControlModulationMSB
 
-	arm_func_start DseMidiCC_MaybePortamentoTime
-DseMidiCC_MaybePortamentoTime: ; 0x02079A4C
+	arm_func_start DSE_SsdMidiControlPortamentoMSB
+DSE_SsdMidiControlPortamentoMSB: ; 0x02079A4C
 	mov r2, #0xa
 	mul r2, r1, r2
 	strh r2, [r0, #0x52]
 	bx lr
-	arm_func_end DseMidiCC_MaybePortamentoTime
+	arm_func_end DSE_SsdMidiControlPortamentoMSB
 
-	arm_func_start DseMidiCC_ChannelVolume
-DseMidiCC_ChannelVolume: ; 0x02079a5c
+	arm_func_start DSE_SsdMidiControlVolumeMSB
+DSE_SsdMidiControlVolumeMSB: ; 0x02079a5c
 	stmfd sp!, {r4, lr}
 	ldrb r2, [r0, #0x4c]
 	mov r3, r1, lsl #0x10
@@ -6143,10 +6139,10 @@ _02079AD0:
 	ldmfd sp!, {r4, pc}
 _02079AE0: .word 0x82061029
 _02079AE4: .word 0x04000208
-	arm_func_end DseMidiCC_ChannelVolume
+	arm_func_end DSE_SsdMidiControlVolumeMSB
 
-	arm_func_start DseMidiCC_Pan
-DseMidiCC_Pan: ; 0x02079AE8
+	arm_func_start DSE_SsdMidiControlPanpotMSB
+DSE_SsdMidiControlPanpotMSB: ; 0x02079AE8
 	mov r2, r1, lsl #0x10
 	mov r12, #0
 	ldr r3, [r0, #0xc0]
@@ -6176,10 +6172,10 @@ _02079B40:
 	strh r3, [r1]
 	bx lr
 _02079B50: .word 0x04000208
-	arm_func_end DseMidiCC_Pan
+	arm_func_end DSE_SsdMidiControlPanpotMSB
 
-	arm_func_start DseMidiCC_Expression
-DseMidiCC_Expression: ; 0x02079B54
+	arm_func_start DSE_SsdMidiControlExpressionMSB
+DSE_SsdMidiControlExpressionMSB: ; 0x02079B54
 	stmfd sp!, {r3, lr}
 	ldr r2, [r0, #0x2c]
 	ldr r3, [r0, #0xc0]
@@ -6215,16 +6211,16 @@ _02079BC0:
 	ldmfd sp!, {r3, pc}
 _02079BD0: .word 0x82061029
 _02079BD4: .word 0x04000208
-	arm_func_end DseMidiCC_Expression
+	arm_func_end DSE_SsdMidiControlExpressionMSB
 
-	arm_func_start DseMidiCC_OptionalVolume
-DseMidiCC_OptionalVolume: ; 0x02079BD8
+	arm_func_start DSE_MidiControlOptionalVolume
+DSE_MidiControlOptionalVolume: ; 0x02079BD8
 	strb r1, [r0, #0x54]
 	bx lr
-	arm_func_end DseMidiCC_OptionalVolume
+	arm_func_end DSE_MidiControlOptionalVolume
 
-	arm_func_start DseMidiCC_Hold1
-DseMidiCC_Hold1: ; 0x02079BE0
+	arm_func_start DSE_SsdMidiControlSustaion
+DSE_SsdMidiControlSustaion: ; 0x02079BE0
 	stmfd sp!, {r3, lr}
 	cmp r1, #0x40
 	ldrb r1, [r0, #4]
@@ -6233,96 +6229,96 @@ DseMidiCC_Hold1: ; 0x02079BE0
 	ldmhsfd sp!, {r3, pc}
 	and r1, r1, #0xfe
 	strb r1, [r0, #4]
-	bl DseChannel_ReleaseHeld
+	bl DSEi_ReleaseHeldInChannel
 	ldmfd sp!, {r3, pc}
-	arm_func_end DseMidiCC_Hold1
+	arm_func_end DSE_SsdMidiControlSustaion
 
-	arm_func_start DseMidiCC_Stub65
-DseMidiCC_Stub65: ; 0x02079C08
+	arm_func_start DSE_MidiControlStub65
+DSE_MidiControlStub65: ; 0x02079C08
 	bx lr
-	arm_func_end DseMidiCC_Stub65
+	arm_func_end DSE_MidiControlStub65
 
-	arm_func_start DseMidiCC_Stub84
-DseMidiCC_Stub84: ; 0x02079C0C
+	arm_func_start DSE_MidiControlStub84
+DSE_MidiControlStub84: ; 0x02079C0C
 	bx lr
-	arm_func_end DseMidiCC_Stub84
+	arm_func_end DSE_MidiControlStub84
 
-	arm_func_start DseMidiCC_Stub91
-DseMidiCC_Stub91: ; 0x02079C10
+	arm_func_start DSE_SsdMidiControlReverb
+DSE_SsdMidiControlReverb: ; 0x02079C10
 	bx lr
-	arm_func_end DseMidiCC_Stub91
+	arm_func_end DSE_SsdMidiControlReverb
 
-	arm_func_start DseMidiCC_Stub93
-DseMidiCC_Stub93: ; 0x02079C14
+	arm_func_start DSE_MidiControlStub93
+DSE_MidiControlStub93: ; 0x02079C14
 	bx lr
-	arm_func_end DseMidiCC_Stub93
+	arm_func_end DSE_MidiControlStub93
 
-	arm_func_start DseMidiCC_MaybeRPN
-DseMidiCC_MaybeRPN: ; 0x02079C18
+	arm_func_start DSE_SsdMidiControlRegParLSB
+DSE_SsdMidiControlRegParLSB: ; 0x02079C18
 	mov r2, #1
 	strb r1, [r0, #0x58]
 	strb r2, [r0, #0x5c]
 	bx lr
-	arm_func_end DseMidiCC_MaybeRPN
+	arm_func_end DSE_SsdMidiControlRegParLSB
 
-	arm_func_start DseMidiCC_MaybeNRPNLSB
-DseMidiCC_MaybeNRPNLSB: ; 0x02079C28
+	arm_func_start DSE_SsdMidiControlNonRegParLSB
+DSE_SsdMidiControlNonRegParLSB: ; 0x02079C28
 	mov r2, #0
 	strb r1, [r0, #0x56]
 	strb r2, [r0, #0x5c]
 	bx lr
-	arm_func_end DseMidiCC_MaybeNRPNLSB
+	arm_func_end DSE_SsdMidiControlNonRegParLSB
 
-	arm_func_start DseMidiCC_MaybeNRPNMSB
-DseMidiCC_MaybeNRPNMSB: ; 0x02079C38
+	arm_func_start DSE_SsdMidiControlNonRegParMSB
+DSE_SsdMidiControlNonRegParMSB: ; 0x02079C38
 	mov r2, #0
 	strb r1, [r0, #0x57]
 	strb r2, [r0, #0x5c]
 	bx lr
-	arm_func_end DseMidiCC_MaybeNRPNMSB
+	arm_func_end DSE_SsdMidiControlNonRegParMSB
 
-	arm_func_start DseMidiCC_Stub6
-DseMidiCC_Stub6: ; 0x02079C48
+	arm_func_start DSE_SsdMidiControlSetRegParDataMSB
+DSE_SsdMidiControlSetRegParDataMSB: ; 0x02079C48
 	bx lr
-	arm_func_end DseMidiCC_Stub6
+	arm_func_end DSE_SsdMidiControlSetRegParDataMSB
 
-	arm_func_start DseMidiCC_Stub111
-DseMidiCC_Stub111: ; 0x02079C4C
+	arm_func_start DSE_MidiControlStub111
+DSE_MidiControlStub111: ; 0x02079C4C
 	bx lr
-	arm_func_end DseMidiCC_Stub111
+	arm_func_end DSE_MidiControlStub111
 
-	arm_func_start DseMidiCC_UnkAllSoundsOffGlobal
-DseMidiCC_UnkAllSoundsOffGlobal: ; 0x02079C50
+	arm_func_start DSE_MidiControlUnkAllSoundsOffGlobal
+DSE_MidiControlUnkAllSoundsOffGlobal: ; 0x02079C50
 	stmfd sp!, {r4, lr}
 	ldr r4, _02079C74 ; =0x020BBEBC
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl DseSynth_StopChannels
+	bl DSEi_StopSynthChannels
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl DseSynth_ClearHeldNotes
+	bl DSEi_ClearSynthHeldNotes
 	ldmfd sp!, {r4, pc}
 _02079C74: .word unk_020BBEBC
-	arm_func_end DseMidiCC_UnkAllSoundsOffGlobal
+	arm_func_end DSE_MidiControlUnkAllSoundsOffGlobal
 
-	arm_func_start DseMidiCC_ResetAllControllers
-DseMidiCC_ResetAllControllers: ; 0x02079C78
+	arm_func_start DSE_MidiControlResetAllControllers
+DSE_MidiControlResetAllControllers: ; 0x02079C78
 	ldr r0, _02079C94 ; =0x020BBEBC
 	mov r1, #0
 	ldr r0, [r0]
-	ldr r12, _02079C98 ; =DseSynth_SetBankAndSequence
+	ldr r12, _02079C98 ; =DSEi_SetSynthBankAndSequence
 	ldr r0, [r0]
 	mov r2, r1
 	bx r12
 _02079C94: .word unk_020BBEBC
-_02079C98: .word DseSynth_SetBankAndSequence
-	arm_func_end DseMidiCC_ResetAllControllers
+_02079C98: .word DSEi_SetSynthBankAndSequence
+	arm_func_end DSE_MidiControlResetAllControllers
 
-	arm_func_start DseMidiCC_AllNotesOff
-DseMidiCC_AllNotesOff: ; 0x02079C9C
+	arm_func_start DSE_MidiControlAllNotesOff
+DSE_MidiControlAllNotesOff: ; 0x02079C9C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl DseChannel_DeallocateVoices
+	bl DSEi_ReleaseChannelVoices
 	ldr r1, _02079D14 ; =0x04000208
 	mov r0, #0
 	ldrh r5, [r1]
@@ -6353,95 +6349,95 @@ _02079CD8:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02079D14: .word 0x04000208
 _02079D18: .word unk_020B9FD8
-	arm_func_end DseMidiCC_AllNotesOff
+	arm_func_end DSE_MidiControlAllNotesOff
 
-	arm_func_start DseMidiCC_MaybeMono
-DseMidiCC_MaybeMono: ; 0x02079D1C
+	arm_func_start DSE_MidiControlMaybeMono
+DSE_MidiControlMaybeMono: ; 0x02079D1C
 	mov r1, #0
 	strb r1, [r0, #7]
 	bx lr
-	arm_func_end DseMidiCC_MaybeMono
+	arm_func_end DSE_MidiControlMaybeMono
 
-	arm_func_start DseMidiCC_MaybePoly
-DseMidiCC_MaybePoly: ; 0x02079D28
+	arm_func_start DSE_MidiControlMaybePoly
+DSE_MidiControlMaybePoly: ; 0x02079D28
 	mov r1, #1
 	strb r1, [r0, #7]
 	bx lr
-	arm_func_end DseMidiCC_MaybePoly
+	arm_func_end DSE_MidiControlMaybePoly
 
-	arm_func_start DseMidiCC_ReleaseTime
-DseMidiCC_ReleaseTime: ; 0x02079D34
-	ldr r12, _02079D44 ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlReleaseTime
+DSE_MidiControlReleaseTime: ; 0x02079D34
+	ldr r12, _02079D44 ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x6e]
 	add r0, r0, #0x60
 	bx r12
-_02079D44: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_ReleaseTime
+_02079D44: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlReleaseTime
 
-	arm_func_start DseMidiCC_AttackTime
-DseMidiCC_AttackTime: ; 0x02079D48
-	ldr r12, _02079D58 ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlAttackTime
+DSE_MidiControlAttackTime: ; 0x02079D48
+	ldr r12, _02079D58 ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x69]
 	add r0, r0, #0x60
 	bx r12
-_02079D58: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_AttackTime
+_02079D58: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlAttackTime
 
-	arm_func_start DseMidiCC_DecayTime
-DseMidiCC_DecayTime: ; 0x02079D5C
-	ldr r12, _02079D6C ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlDecayTime
+DSE_MidiControlDecayTime: ; 0x02079D5C
+	ldr r12, _02079D6C ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x6a]
 	add r0, r0, #0x60
 	bx r12
-_02079D6C: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_DecayTime
+_02079D6C: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlDecayTime
 
-	arm_func_start DseMidiCC_SustainLevel
-DseMidiCC_SustainLevel: ; 0x02079D70
-	ldr r12, _02079D80 ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlSustainLevel
+DSE_MidiControlSustainLevel: ; 0x02079D70
+	ldr r12, _02079D80 ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x6b]
 	add r0, r0, #0x60
 	bx r12
-_02079D80: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_SustainLevel
+_02079D80: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlSustainLevel
 
-	arm_func_start DseMidiCC_AutoReleaseTime
-DseMidiCC_AutoReleaseTime: ; 0x02079D84
-	ldr r12, _02079D94 ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlAutoReleaseTime
+DSE_MidiControlAutoReleaseTime: ; 0x02079D84
+	ldr r12, _02079D94 ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x6d]
 	add r0, r0, #0x60
 	bx r12
-_02079D94: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_AutoReleaseTime
+_02079D94: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlAutoReleaseTime
 
-	arm_func_start DseMidiCC_HoldTime
-DseMidiCC_HoldTime: ; 0x02079D98
-	ldr r12, _02079DA8 ; =DseEnvelopeParameters_CheckValidity
+	arm_func_start DSE_MidiControlHoldTime
+DSE_MidiControlHoldTime: ; 0x02079D98
+	ldr r12, _02079DA8 ; =DSEi_CheckEnvelopeParameters
 	strb r1, [r0, #0x6c]
 	add r0, r0, #0x60
 	bx r12
-_02079DA8: .word DseEnvelopeParameters_CheckValidity
-	arm_func_end DseMidiCC_HoldTime
+_02079DA8: .word DSEi_CheckEnvelopeParameters
+	arm_func_end DSE_MidiControlHoldTime
 
-	arm_func_start DseMidiCC_EnvelopeReset
-DseMidiCC_EnvelopeReset: ; 0x02079DAC
-	ldr r12, _02079DB8 ; =DseEnvelopeParameters_Reset
+	arm_func_start DSE_MidiControlEnvelopeReset
+DSE_MidiControlEnvelopeReset: ; 0x02079DAC
+	ldr r12, _02079DB8 ; =DSEi_ResetEnvelopeParameters
 	add r0, r0, #0x60
 	bx r12
-_02079DB8: .word DseEnvelopeParameters_Reset
-	arm_func_end DseMidiCC_EnvelopeReset
+_02079DB8: .word DSEi_ResetEnvelopeParameters
+	arm_func_end DSE_MidiControlEnvelopeReset
 
-	arm_func_start DseMidiCC_LfoRate
-DseMidiCC_LfoRate: ; 0x02079DBC
+	arm_func_start DSE_MidiControlLfoRate
+DSE_MidiControlLfoRate: ; 0x02079DBC
 	ldrb r2, [r0, #0x5d]
 	add r1, r1, r1, lsl #2
 	add r0, r0, r2, lsl #4
 	strh r1, [r0, #0x78]
 	bx lr
-	arm_func_end DseMidiCC_LfoRate
+	arm_func_end DSE_MidiControlLfoRate
 
-	arm_func_start DseMidiCC_UnkLfoType
-DseMidiCC_UnkLfoType: ; 0x02079DD0
+	arm_func_start DSE_MidiControlUnkLfoType
+DSE_MidiControlUnkLfoType: ; 0x02079DD0
 	and r3, r1, #2
 	add r2, r0, #0x70
 	strb r3, [r0, #0x5d]
@@ -6451,18 +6447,18 @@ DseMidiCC_UnkLfoType: ; 0x02079DD0
 	add r0, r3, #1
 	strb r0, [r2, #2]
 	bx lr
-	arm_func_end DseMidiCC_UnkLfoType
+	arm_func_end DSE_MidiControlUnkLfoType
 
-	arm_func_start DseMidiCC_UnkLfoWaveType
-DseMidiCC_UnkLfoWaveType: ; 0x02079DF4
+	arm_func_start DSE_MidiControlUnkLfoWaveType
+DSE_MidiControlUnkLfoWaveType: ; 0x02079DF4
 	ldrb r2, [r0, #0x5d]
 	add r0, r0, r2, lsl #4
 	strb r1, [r0, #0x73]
 	bx lr
-	arm_func_end DseMidiCC_UnkLfoWaveType
+	arm_func_end DSE_MidiControlUnkLfoWaveType
 
-	arm_func_start DseMidiCC_LfoDepth
-DseMidiCC_LfoDepth: ; 0x02079E04
+	arm_func_start DSE_MidiControlLfoDepth
+DSE_MidiControlLfoDepth: ; 0x02079E04
 	ldrb r2, [r0, #0x5d]
 	add r0, r0, #0x70
 	add r0, r0, r2, lsl #4
@@ -6494,51 +6490,51 @@ _02079E50:
 	mov r1, r1, asr #0x10
 	str r1, [r0, #4]
 	bx lr
-	arm_func_end DseMidiCC_LfoDepth
+	arm_func_end DSE_MidiControlLfoDepth
 
-	arm_func_start DseMidiCC_MaybeLfoDelay
-DseMidiCC_MaybeLfoDelay: ; 0x02079E64
+	arm_func_start DSE_MidiControlMaybeLfoDelay
+DSE_MidiControlMaybeLfoDelay: ; 0x02079E64
 	mov r2, #0x14
 	mul r2, r1, r2
 	ldrb r1, [r0, #0x5d]
 	add r0, r0, r1, lsl #4
 	strh r2, [r0, #0x7a]
 	bx lr
-	arm_func_end DseMidiCC_MaybeLfoDelay
+	arm_func_end DSE_MidiControlMaybeLfoDelay
 
-	arm_func_start DseMidiCC_UnkLfoParam
-DseMidiCC_UnkLfoParam: ; 0x02079E7C
+	arm_func_start DSE_MidiControlUnkLfoParam
+DSE_MidiControlUnkLfoParam: ; 0x02079E7C
 	mov r2, #0x14
 	mul r2, r1, r2
 	ldrb r1, [r0, #0x5d]
 	add r0, r0, r1, lsl #4
 	strh r2, [r0, #0x7c]
 	bx lr
-	arm_func_end DseMidiCC_UnkLfoParam
+	arm_func_end DSE_MidiControlUnkLfoParam
 
-	arm_func_start DseMidiCC_BendRange
-DseMidiCC_BendRange: ; 0x02079E94
+	arm_func_start DSE_MidiControlBendRange
+DSE_MidiControlBendRange: ; 0x02079E94
 	strb r1, [r0, #0x55]
 	bx lr
-	arm_func_end DseMidiCC_BendRange
+	arm_func_end DSE_MidiControlBendRange
 
-	arm_func_start DseMidiCC_Stub25
-DseMidiCC_Stub25: ; 0x02079E9C
+	arm_func_start DSE_MidiControlStub25
+DSE_MidiControlStub25: ; 0x02079E9C
 	bx lr
-	arm_func_end DseMidiCC_Stub25
+	arm_func_end DSE_MidiControlStub25
 
-	arm_func_start DseMidiCC_Stub26
-DseMidiCC_Stub26: ; 0x02079EA0
+	arm_func_start DSE_MidiControlStub26
+DSE_MidiControlStub26: ; 0x02079EA0
 	bx lr
-	arm_func_end DseMidiCC_Stub26
+	arm_func_end DSE_MidiControlStub26
 
-	arm_func_start DseMidiCC_Stub27
-DseMidiCC_Stub27: ; 0x02079EA4
+	arm_func_start DSE_MidiControlStub27
+DSE_MidiControlStub27: ; 0x02079EA4
 	bx lr
-	arm_func_end DseMidiCC_Stub27
+	arm_func_end DSE_MidiControlStub27
 
-	arm_func_start DseSynth_Reset
-DseSynth_Reset: ; 0x02079EA8
+	arm_func_start DSEi_ResetSynth
+DSEi_ResetSynth: ; 0x02079EA8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, _02079F14 ; =0x020B9FD8
 	mov r4, #0x7f
@@ -6569,10 +6565,10 @@ DseSynth_Reset: ; 0x02079EA8
 _02079F14: .word unk_020B9FD8
 _02079F18: .word 0x81020409
 _02079F1C: .word unk_020BA6D8
-	arm_func_end DseSynth_Reset
+	arm_func_end DSEi_ResetSynth
 
-	arm_func_start DseSynth_AllocateNew
-DseSynth_AllocateNew: ; 0x02079F20
+	arm_func_start DSEi_AllocateSynth
+DSEi_AllocateSynth: ; 0x02079F20
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r0, #0xc4
@@ -6580,7 +6576,7 @@ DseSynth_AllocateNew: ; 0x02079F20
 	mov r2, r1
 	add r0, r0, #0x10
 	mov r1, #0x10
-	bl DseMem_AllocateFirstFit
+	bl DSEi_AllocateFirstFit
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -6588,7 +6584,7 @@ DseSynth_AllocateNew: ; 0x02079F20
 	strb r5, [r4]
 	strb r6, [r4, #1]
 	str r5, [r4, #0xc]
-	bl DseSynth_Reset
+	bl DSEi_ResetSynth
 	cmp r6, #0
 	add r1, r4, #0x10
 	ble _02079F9C
@@ -6628,19 +6624,19 @@ _02079FCC:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02079FE4: .word 0x04000208
 _02079FE8: .word unk_020BA638
-	arm_func_end DseSynth_AllocateNew
+	arm_func_end DSEi_AllocateSynth
 
-	arm_func_start DseSynth_Unload
-DseSynth_Unload: ; 0x02079FEC
+	arm_func_start DSEi_RemoveSynthData
+DSEi_RemoveSynthData: ; 0x02079FEC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
-	bl DseSynth_StopChannels
+	bl DSEi_StopSynthChannels
 	ldr r2, _0207A054 ; =0x04000208
 	mov r0, r5
 	ldrh r4, [r2]
 	mov r1, #0
 	strh r1, [r2]
-	bl DseSynth_ClearHeldNotes
+	bl DSEi_ClearSynthHeldNotes
 	ldr r1, _0207A058 ; =0x020BA638
 	b _0207A01C
 _0207A018:
@@ -6659,14 +6655,14 @@ _0207A030:
 	ldrh r1, [r2]
 	mov r0, r5
 	strh r4, [r2]
-	bl DseMem_Free
+	bl DSEi_Free
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A054: .word 0x04000208
 _0207A058: .word unk_020BA638
-	arm_func_end DseSynth_Unload
+	arm_func_end DSEi_RemoveSynthData
 
-	arm_func_start DseSynth_ClearHeldNotes
-DseSynth_ClearHeldNotes: ; 0x0207A05C
+	arm_func_start DSEi_ClearSynthHeldNotes
+DSEi_ClearSynthHeldNotes: ; 0x0207A05C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrb r3, [r0, #1]
 	add r1, r0, #0x10
@@ -6709,24 +6705,24 @@ _0207A0D8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207A0F0: .word 0x04000208
 _0207A0F4: .word unk_020B9FD8
-	arm_func_end DseSynth_ClearHeldNotes
+	arm_func_end DSEi_ClearSynthHeldNotes
 
-	arm_func_start DseSynth_ResetAndSetBankAndSequence
-DseSynth_ResetAndSetBankAndSequence: ; 0x0207A0F8
+	arm_func_start DSEi_ResetSynthAndSetBankAndSequence
+DSEi_ResetSynthAndSetBankAndSequence: ; 0x0207A0F8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
 	mov r4, r2
-	bl DseSynth_Reset
+	bl DSEi_ResetSynth
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl DseSynth_SetBankAndSequence
+	bl DSEi_SetSynthBankAndSequence
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseSynth_ResetAndSetBankAndSequence
+	arm_func_end DSEi_ResetSynthAndSetBankAndSequence
 
-	arm_func_start DseSynth_StopChannels
-DseSynth_StopChannels: ; 0x0207A120
+	arm_func_start DSEi_StopSynthChannels
+DSEi_StopSynthChannels: ; 0x0207A120
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r5, [r0, #1]
 	add r4, r0, #0x10
@@ -6734,15 +6730,15 @@ DseSynth_StopChannels: ; 0x0207A120
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0207A134:
 	mov r0, r4
-	bl DseChannel_DeallocateVoices
+	bl DSEi_ReleaseChannelVoices
 	subs r5, r5, #1
 	add r4, r4, #0xc4
 	bne _0207A134
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseSynth_StopChannels
+	arm_func_end DSEi_StopSynthChannels
 
-	arm_func_start DseSynth_UpdateVoicesTimerAndVolume
-DseSynth_UpdateVoicesTimerAndVolume: ; 0x0207A14C
+	arm_func_start DSEi_UpdateSynthVoices
+DSEi_UpdateSynthVoices: ; 0x0207A14C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _0207A1A0 ; =0x04000208
 	mov r2, #0
@@ -6757,7 +6753,7 @@ DseSynth_UpdateVoicesTimerAndVolume: ; 0x0207A14C
 _0207A178:
 	mov r0, r4
 	mov r1, r7
-	bl DseChannel_UpdateVoicesTimerAndVolume
+	bl DSEi_UpdateChannelVoices
 	subs r5, r5, #1
 	add r4, r4, #0xc4
 	bne _0207A178
@@ -6767,10 +6763,10 @@ _0207A190:
 	strh r6, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207A1A0: .word 0x04000208
-	arm_func_end DseSynth_UpdateVoicesTimerAndVolume
+	arm_func_end DSEi_UpdateSynthVoices
 
-	arm_func_start DseSynth_RestoreHeldNotes
-DseSynth_RestoreHeldNotes: ; 0x0207A1A4
+	arm_func_start DSEi_PlaySynthNotes
+DSEi_PlaySynthNotes: ; 0x0207A1A4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, _0207A208 ; =0x04000208
 	ldrb r6, [r0, #1]
@@ -6787,7 +6783,7 @@ _0207A1C8:
 _0207A1D4:
 	mov r0, r5
 	mov r1, r7
-	bl DseChannel_PlayNote
+	bl DSEi_PlayNote
 	ldr r7, [r7, #8]
 	cmp r7, #0
 	bne _0207A1D4
@@ -6801,10 +6797,10 @@ _0207A1F8:
 	strh r4, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207A208: .word 0x04000208
-	arm_func_end DseSynth_RestoreHeldNotes
+	arm_func_end DSEi_PlaySynthNotes
 
-	arm_func_start DseSynth_SetGlobalVolumeIndex
-DseSynth_SetGlobalVolumeIndex: ; 0x0207A20C
+	arm_func_start DSEi_SetSynthGlobalVolume
+DSEi_SetSynthGlobalVolume: ; 0x0207A20C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, _0207A2E4 ; =0x020BA020
 	ldrb r5, [r0, #1]
@@ -6867,10 +6863,10 @@ _0207A2E4: .word unk_020BA020
 _0207A2E8: .word 0x81020409
 _0207A2EC: .word 0x04000208
 _0207A2F0: .word 0x82061029
-	arm_func_end DseSynth_SetGlobalVolumeIndex
+	arm_func_end DSEi_SetSynthGlobalVolume
 
-	arm_func_start DseSynth_SetBend
-DseSynth_SetBend: ; 0x0207A2F4
+	arm_func_start DSEi_SetSynthBend
+DSEi_SetSynthBend: ; 0x0207A2F4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r2, [r0, #1]
 	strh r1, [r0, #4]
@@ -6911,10 +6907,10 @@ _0207A364:
 	blt _0207A318
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A384: .word 0x04000208
-	arm_func_end DseSynth_SetBend
+	arm_func_end DSEi_SetSynthBend
 
-	arm_func_start DseSynth_SetVolume
-DseSynth_SetVolume: ; 0x0207A388
+	arm_func_start DSEi_SetSynthVolume
+DSEi_SetSynthVolume: ; 0x0207A388
 	stmfd sp!, {r4, r5, r6, lr}
 	strb r1, [r0, #6]
 	ldrb r4, [r0, #2]
@@ -6970,10 +6966,10 @@ _0207A42C:
 _0207A44C: .word 0x81020409
 _0207A450: .word 0x04000208
 _0207A454: .word 0x82061029
-	arm_func_end DseSynth_SetVolume
+	arm_func_end DSEi_SetSynthVolume
 
-	arm_func_start DseSynth_SetPan
-DseSynth_SetPan: ; 0x0207A458
+	arm_func_start DSEi_SetSynthPan
+DSEi_SetSynthPan: ; 0x0207A458
 	stmfd sp!, {r3, r4, r5, lr}
 	ldrb r2, [r0, #1]
 	strb r1, [r0, #7]
@@ -7014,10 +7010,10 @@ _0207A4C8:
 	blt _0207A47C
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A4E8: .word 0x04000208
-	arm_func_end DseSynth_SetPan
+	arm_func_end DSEi_SetSynthPan
 
-	arm_func_start DseSynth_SetBankAndSequence
-DseSynth_SetBankAndSequence: ; 0x0207A4EC
+	arm_func_start DSEi_SetSynthBankAndSequence
+DSEi_SetSynthBankAndSequence: ; 0x0207A4EC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r3, _0207A578 ; =0x020B9FD8
 	mov r10, r0
@@ -7034,18 +7030,18 @@ DseSynth_SetBankAndSequence: ; 0x0207A4EC
 	mov r4, r0, lsr #0x10
 _0207A524:
 	mov r0, r5
-	bl DseChannel_DeallocateVoices
+	bl DSEi_ReleaseChannelVoices
 	mov r0, r5
 	mov r1, r8
-	bl DseChannel_Init
+	bl DSEi_InitChannel
 	cmp r9, #0
 	blt _0207A558
 	mov r0, r5
 	mov r1, r4
-	bl DseChannel_SetBank
+	bl DSEi_SetWave
 	mov r0, r5
 	mov r1, r4
-	bl DseChannel_SetProgram
+	bl DSE_SsdSetChannelProgram
 _0207A558:
 	ldrb r0, [r10, #1]
 	add r7, r7, #1
@@ -7057,10 +7053,10 @@ _0207A56C:
 	strb r6, [r0, #0x45]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0207A578: .word unk_020B9FD8
-	arm_func_end DseSynth_SetBankAndSequence
+	arm_func_end DSEi_SetSynthBankAndSequence
 
-	arm_func_start DseChannel_Init
-DseChannel_Init: ; 0x0207A57C
+	arm_func_start DSEi_InitChannel
+DSEi_InitChannel: ; 0x0207A57C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	mov r0, #0
@@ -7120,7 +7116,7 @@ _0207A648:
 	cmp r0, #4
 	blt _0207A648
 	add r0, r4, #0x60
-	bl DseEnvelopeParameters_Reset
+	bl DSEi_ResetEnvelopeParameters
 	ldr r1, _0207A724 ; =0x04000208
 	str r5, [r4, #0xb0]
 	ldrh lr, [r1]
@@ -7172,10 +7168,10 @@ _0207A71C: .word unk_020BA6D8
 _0207A720: .word unk_020B9FD8
 _0207A724: .word 0x04000208
 _0207A728: .word 0x82061029
-	arm_func_end DseChannel_Init
+	arm_func_end DSEi_InitChannel
 
-	arm_func_start DseChannel_DeallocateVoices
-DseChannel_DeallocateVoices: ; 0x0207A72C
+	arm_func_start DSEi_ReleaseChannelVoices
+DSEi_ReleaseChannelVoices: ; 0x0207A72C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, [r0, #0xb0]
 	mov r1, #0
@@ -7190,7 +7186,7 @@ _0207A74C:
 	strh r4, [r5, #4]
 	str r4, [r5, #0x158]
 	str r4, [r5, #0x154]
-	bl DseEnvelope_Stop
+	bl DSEi_StopEnvelope
 	ldr r0, [r5, #0x14c]
 	cmp r6, #0
 	and r0, r0, #0xff
@@ -7210,10 +7206,10 @@ _0207A74C:
 	bne _0207A74C
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207A7AC: .word unk_020BA6D8
-	arm_func_end DseChannel_DeallocateVoices
+	arm_func_end DSEi_ReleaseChannelVoices
 
-	arm_func_start DseChannel_UpdateVoicesTimerAndVolume
-DseChannel_UpdateVoicesTimerAndVolume: ; 0x0207A7B0
+	arm_func_start DSEi_UpdateChannelVoices
+DSEi_UpdateChannelVoices: ; 0x0207A7B0
 	cmp r1, #1
 	bne _0207A7F8
 	ldrb r1, [r0, #4]
@@ -7249,15 +7245,15 @@ _0207A81C:
 	and r1, r1, #0xbf
 	strb r1, [r0, #4]
 	bx lr
-	arm_func_end DseChannel_UpdateVoicesTimerAndVolume
+	arm_func_end DSEi_UpdateChannelVoices
 
-	arm_func_start DseChannel_SetBank
-DseChannel_SetBank: ; 0x0207A82C
+	arm_func_start DSEi_SetWave
+DSEi_SetWave: ; 0x0207A82C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	mov r0, r1
 	strh r1, [r4, #0xe]
-	bl DseSwd_GetBankById
+	bl DSEi_GetWaveById
 	str r0, [r4, #0xb8]
 	cmp r0, #0
 	moveq r0, #0
@@ -7265,12 +7261,12 @@ DseChannel_SetBank: ; 0x0207A82C
 	ldmeqfd sp!, {r4, pc}
 	ldrh r1, [r4, #0x10]
 	mov r0, r4
-	bl DseChannel_SetProgram
+	bl DSE_SsdSetChannelProgram
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseChannel_SetBank
+	arm_func_end DSEi_SetWave
 
-	arm_func_start DseChannel_SetProgram
-DseChannel_SetProgram: ; 0x0207A864
+	arm_func_start DSE_SsdSetChannelProgram
+DSE_SsdSetChannelProgram: ; 0x0207A864
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r5, r0
 	ldr r0, [r5, #0xb8]
@@ -7283,7 +7279,7 @@ DseChannel_SetProgram: ; 0x0207A864
 	mov r1, r4, lsl #0x10
 	mov r1, r1, asr #0x10
 	strh r1, [r5, #0x10]
-	bl DseBank_GetProgram
+	bl DSEi_Bank_GetProgram
 	movs lr, r0
 	beq _0207A8DC
 	mov r6, #0
@@ -7306,13 +7302,13 @@ _0207A8DC:
 	str lr, [r5, #0xbc]
 _0207A8E0:
 	add r0, r5, #0x60
-	bl DseEnvelopeParameters_Reset
+	bl DSEi_ResetEnvelopeParameters
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end DseChannel_SetProgram
+	arm_func_end DSE_SsdSetChannelProgram
 
-	arm_func_start DseChannel_SetModulationDepth
-DseChannel_SetModulationDepth: ; 0x0207A8F0
+	arm_func_start DSEi_SetModulationDepth
+DSEi_SetModulationDepth: ; 0x0207A8F0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r4, [r0, #0xb0]
 	mov r5, r1
@@ -7322,15 +7318,15 @@ DseChannel_SetModulationDepth: ; 0x0207A8F0
 _0207A908:
 	mov r1, r5
 	add r0, r4, #0x5c
-	bl DseLfoBank_SetModulationDepth
+	bl DSEi_LfoBank_SetModulationDepth
 	ldr r4, [r4, #0x154]
 	cmp r4, #0
 	bne _0207A908
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseChannel_SetModulationDepth
+	arm_func_end DSEi_SetModulationDepth
 
-	arm_func_start DseChannel_SetKeyBend
-DseChannel_SetKeyBend: ; 0x0207A924
+	arm_func_start DSEi_SetKeyBend
+DSEi_SetKeyBend: ; 0x0207A924
 	ldr r2, [r0, #0xb0]
 	strh r1, [r0, #0x4e]
 	cmp r2, #0
@@ -7350,10 +7346,10 @@ _0207A938:
 	cmp r2, #0
 	bne _0207A938
 	bx lr
-	arm_func_end DseChannel_SetKeyBend
+	arm_func_end DSEi_SetKeyBend
 
-	arm_func_start DseChannel_AllocateNote
-DseChannel_AllocateNote: ; 0x0207A96C
+	arm_func_start DSEi_AcquireNoteForChannel
+DSEi_AcquireNoteForChannel: ; 0x0207A96C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldrb r2, [r5, #0xd]
@@ -7363,7 +7359,7 @@ DseChannel_AllocateNote: ; 0x0207A96C
 	ldrb r0, [r5, #0xc]
 	sub r0, r2, r0
 	add r6, r0, #1
-	bl DseUtil_GetRandomNumber
+	bl DSEi_GetRandomNumber
 	mul r1, r6, r0
 	mov r0, r1, asr #0xe
 	ldrb r2, [r5, #0xc]
@@ -7391,10 +7387,10 @@ _0207A9AC:
 	str r0, [r5, #0xb4]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207A9F8: .word unk_020B9FD8
-	arm_func_end DseChannel_AllocateNote
+	arm_func_end DSEi_AcquireNoteForChannel
 
-	arm_func_start DseChannel_ReleaseNoteInternal
-DseChannel_ReleaseNoteInternal: ; 0x0207A9FC
+	arm_func_start DSEi_ReleaseNoteInternal
+DSEi_ReleaseNoteInternal: ; 0x0207A9FC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r7, r0
 	ldr r4, [r7, #0xb4]
@@ -7417,7 +7413,7 @@ _0207AA34:
 	bne _0207AA50
 	mov r0, r7
 	mov r1, r8
-	bl DseChannel_ReleaseVoice
+	bl DSEi_ReleaseVoiceInChannel
 _0207AA50:
 	ldr r8, [r8, #0x154]
 	cmp r8, #0
@@ -7446,10 +7442,10 @@ _0207AAA0:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207AAA8: .word unk_020B9FD8
-	arm_func_end DseChannel_ReleaseNoteInternal
+	arm_func_end DSEi_ReleaseNoteInternal
 
-	arm_func_start DseChannel_ChangeNote
-DseChannel_ChangeNote: ; 0x0207AAAC
+	arm_func_start DSEi_ChangeNote
+DSEi_ChangeNote: ; 0x0207AAAC
 	stmfd sp!, {r4, lr}
 	ldr r4, [r0, #0xb4]
 	cmp r4, #0
@@ -7491,10 +7487,10 @@ _0207AB2C:
 	cmp r12, #0
 	bne _0207AAFC
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseChannel_ChangeNote
+	arm_func_end DSEi_ChangeNote
 
-	arm_func_start DseChannel_ReleaseNote
-DseChannel_ReleaseNote: ; 0x0207AB3C
+	arm_func_start DSEi_ReleaseNote
+DSEi_ReleaseNote: ; 0x0207AB3C
 	stmfd sp!, {r3, lr}
 	ldr r2, [r0, #0xb4]
 	cmp r2, #0
@@ -7505,17 +7501,17 @@ _0207AB50:
 	cmp r1, r3
 	bne _0207AB68
 	mov r1, r2
-	bl DseChannel_ReleaseNoteInternal
+	bl DSEi_ReleaseNoteInternal
 	ldmfd sp!, {r3, pc}
 _0207AB68:
 	ldr r2, [r2, #8]
 	cmp r2, #0
 	bne _0207AB50
 	ldmfd sp!, {r3, pc}
-	arm_func_end DseChannel_ReleaseNote
+	arm_func_end DSEi_ReleaseNote
 
-	arm_func_start DseChannel_PlayNote
-DseChannel_PlayNote: ; 0x0207AB78
+	arm_func_start DSEi_PlayNote
+DSEi_PlayNote: ; 0x0207AB78
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -7525,7 +7521,7 @@ DseChannel_PlayNote: ; 0x0207AB78
 	moveq r0, #0
 	streq r0, [sp]
 	beq _0207ABC4
-	bl DseUtil_GetRandomNumber
+	bl DSEi_GetRandomNumber
 	mov r1, r4, lsl #1
 	mul r2, r1, r0
 	mov r0, r2, asr #0xe
@@ -7547,7 +7543,7 @@ _0207ABDC:
 	ldrsb r3, [r9, #3]
 	mov r0, r6
 	mov r1, r5
-	bl DseProgram_GetNextSplitInRange
+	bl DSEi_Program_GetNextSplitInRange
 	movs r5, r0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -7563,7 +7559,7 @@ _0207ABDC:
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	ldrsh r1, [r5, #0x12]
-	bl DseBank_GetWaviEntry
+	bl DSEi_Bank_GetWaviEntry
 	movs r11, r0
 	beq _0207ABDC
 	ldrb r3, [r10, #5]
@@ -7572,7 +7568,7 @@ _0207ABDC:
 	add r1, sp, #4
 	add r8, r2, r3, lsl #8
 	mov r2, r8
-	bl DseChannel_AllocateVoice
+	bl DSEi_AcquireVoiceForChannel
 	movs r4, r0
 	beq _0207ABDC
 	mov r0, #0
@@ -7653,7 +7649,7 @@ _0207AD48:
 	orr r2, r2, #0xff0
 	strh r2, [r4, #6]
 	ldrsb r2, [r10, #0x4d]
-	bl DseLfoBank_Set
+	bl DSEi_LfoBank_Set
 	add r0, r5, #0x20
 	add r8, r4, #0x3c
 	ldmia r0, {r0, r1, r2, r3}
@@ -7665,12 +7661,12 @@ _0207AD48:
 	beq _0207ADC0
 	mov r0, r8
 	add r1, r10, #0x60
-	bl DseEnvelope_SetParameters
+	bl DSEi_SetEnvelopeParameters
 _0207ADC0:
 	mov r1, r4
 	mov r0, r10
 	ldrb r2, [sp, #7]
-	bl DseChannel_StartVoice
+	bl DSEi_StartVoiceInChannel
 	b _0207ABDC
 _0207ADD4:
 	add sp, sp, #0xc
@@ -7678,10 +7674,10 @@ _0207ADD4:
 _0207ADDC: .word unk_020B9FD8
 _0207ADE0: .word 0x4186143D
 _0207ADE4: .word 0x82061029
-	arm_func_end DseChannel_PlayNote
+	arm_func_end DSEi_PlayNote
 
-	arm_func_start DseChannel_ReleaseVoiceByNote
-DseChannel_ReleaseVoiceByNote: ; 0x0207ADE8
+	arm_func_start DSEi_ReleaseVoiceByNote
+DSEi_ReleaseVoiceByNote: ; 0x0207ADE8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldr r4, [r6, #0xb0]
@@ -7695,16 +7691,16 @@ _0207AE00:
 	bne _0207AE1C
 	mov r0, r6
 	mov r1, r4
-	bl DseChannel_ReleaseVoice
+	bl DSEi_ReleaseVoiceInChannel
 _0207AE1C:
 	ldr r4, [r4, #0x154]
 	cmp r4, #0
 	bne _0207AE00
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseChannel_ReleaseVoiceByNote
+	arm_func_end DSEi_ReleaseVoiceByNote
 
-	arm_func_start Dse_UpdateVoiceParameters
-Dse_UpdateVoiceParameters: ; 0x0207AE2C
+	arm_func_start DSEi_UpdateVoiceParameters
+DSEi_UpdateVoiceParameters: ; 0x0207AE2C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r11, _0207AFAC ; =0x020BA6D8
 	ldr r7, _0207AFB0 ; =0x020BA720
@@ -7815,10 +7811,10 @@ _0207AFB8: .word unk_02092098
 _0207AFBC: .word 0x00FFB0FF
 _0207AFC0: .word 0x828CBFBF
 _0207AFC4: .word unk_020BAFD8
-	arm_func_end Dse_UpdateVoiceParameters
+	arm_func_end DSEi_UpdateVoiceParameters
 
-	arm_func_start Dse_ResetAllVoices
-Dse_ResetAllVoices: ; 0x0207AFC8
+	arm_func_start DSEi_ResetVoices
+DSEi_ResetVoices: ; 0x0207AFC8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r4, _0207B064 ; =0x020BA6D8
 	mov r9, #0
@@ -7846,9 +7842,9 @@ _0207AFF4:
 	strb r7, [r10, #0x18]
 	add r0, r10, #0x3c
 	strb r5, [r10, #0x19]
-	bl DseEnvelope_Reset
+	bl DSEi_ResetEnvelope
 	add r0, r10, #0x5c
-	bl DseLfoBank_Reset
+	bl DSEi_LfoBank_Reset
 	str r7, [r10, #0x154]
 	str r7, [r10, #0x158]
 	ldrh r0, [r4, #0x3a]
@@ -7863,10 +7859,10 @@ _0207B054:
 _0207B064: .word unk_020BA6D8
 _0207B068: .word unk_020BA720
 _0207B06C: .word unk_020B9FD8
-	arm_func_end Dse_ResetAllVoices
+	arm_func_end DSEi_ResetVoices
 
-	arm_func_start FUN_0207b070
-FUN_0207b070: ; 0x0207B070
+	arm_func_start DSEi_SoundReset
+DSEi_SoundReset: ; 0x0207B070
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	ble _0207B0A8
@@ -7913,10 +7909,10 @@ _0207B114: .word unk_020BA6D8
 _0207B118: .word unk_020BAFD8
 _0207B11C: .word unk_020B9FD8
 _0207B120: .word 0x0000FFFF
-	arm_func_end FUN_0207b070
+	arm_func_end DSEi_SoundReset
 
-	arm_func_start Dse_UpdateChannels
-Dse_UpdateChannels: ; 0x0207B124
+	arm_func_start DSEi_UpdateChannels
+DSEi_UpdateChannels: ; 0x0207B124
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r9, _0207B204 ; =0x020BA6D8
 	mov r7, #0
@@ -7928,13 +7924,13 @@ Dse_UpdateChannels: ; 0x0207B124
 	mov r4, #2
 _0207B148:
 	add r0, r5, #0x3c
-	bl DseEnvelope_Tick
+	bl DSEi_UpdateEnvelope
 	ldrsb r1, [r5, #0x5a]
 	mov r8, r0
 	cmp r1, #1
 	bne _0207B1A8
 	add r0, r5, #0x5c
-	bl DseLfoBank_Tick
+	bl DSEi_LfoBank_Tick
 	ldrh r1, [r5, #6]
 	orr r0, r1, r0
 	strh r0, [r5, #6]
@@ -7979,10 +7975,10 @@ _0207B1C0:
 _0207B204: .word unk_020BA6D8
 _0207B208: .word unk_020BA720
 _0207B20C: .word unk_020BAFD8
-	arm_func_end Dse_UpdateChannels
+	arm_func_end DSEi_UpdateChannels
 
-	arm_func_start Dse_CleanupVoices
-Dse_CleanupVoices: ; 0x0207B210
+	arm_func_start DSEi_CleanupVoices
+DSEi_CleanupVoices: ; 0x0207B210
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r6, _0207B2A4 ; =0x020BA720
 	bl SND_GetChannelStatus
@@ -8004,7 +8000,7 @@ _0207B248:
 	tst r8, #1
 	bne _0207B284
 	add r0, r6, #0x3c
-	bl DseEnvelope_Stop2
+	bl DSEi_StopEnvelope2
 	add r0, r6, #0x100
 	strh r5, [r0, #0x4c]
 	b _0207B284
@@ -8013,7 +8009,7 @@ _0207B270:
 	cmp r0, #1
 	bne _0207B284
 	mov r0, r6
-	bl DseVoice_FlagForDeactivation
+	bl DSEi_DeactivateVoice
 _0207B284:
 	ldrh r1, [r4, #0x3a]
 	mov r0, r8, lsl #0xf
@@ -8025,10 +8021,10 @@ _0207B284:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207B2A4: .word unk_020BA720
 _0207B2A8: .word unk_020BA6D8
-	arm_func_end Dse_CleanupVoices
+	arm_func_end DSEi_CleanupVoices
 
-	arm_func_start DseChannel_AllocateVoice
-DseChannel_AllocateVoice: ; 0x0207B2AC
+	arm_func_start DSEi_AcquireVoiceForChannel
+DSEi_AcquireVoiceForChannel: ; 0x0207B2AC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldrb r6, [r1, #3]
 	ldr r3, _0207B400 ; =0x020BA6D8
@@ -8121,17 +8117,17 @@ _0207B3D8:
 	mla r6, r3, r0, r1
 _0207B3F0:
 	mov r0, r6
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 _0207B3F8:
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207B400: .word unk_020BA6D8
 _0207B404: .word unk_020BA720
 _0207B408: .word unk_020B9FD8
-	arm_func_end DseChannel_AllocateVoice
+	arm_func_end DSEi_AcquireVoiceForChannel
 
-	arm_func_start FUN_0207b40c
-FUN_0207b40c: ; 0x0207B40C
+	arm_func_start DSEi_FUN_0207b40c
+DSEi_FUN_0207b40c: ; 0x0207B40C
 	stmfd sp!, {r4, lr}
 	ldr r1, _0207B4A4 ; =0x020BA6D8
 	ldrb r2, [r0, #5]
@@ -8170,17 +8166,17 @@ _0207B47C:
 	mov r0, #0x15c
 	mla r4, r1, r0, r2
 	mov r0, r4
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 _0207B49C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207B4A4: .word unk_020BA6D8
 _0207B4A8: .word unk_020B9FD8
 _0207B4AC: .word unk_020BA720
-	arm_func_end FUN_0207b40c
+	arm_func_end DSEi_FUN_0207b40c
 
-	arm_func_start DseChannel_StartVoice
-DseChannel_StartVoice: ; 0x0207B4B0
+	arm_func_start DSEi_StartVoiceInChannel
+DSEi_StartVoiceInChannel: ; 0x0207B4B0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r1, r2, lsl #0x10
@@ -8197,7 +8193,7 @@ DseChannel_StartVoice: ; 0x0207B4B0
 	add r0, r4, #0x3c
 	strh r1, [r4, #6]
 	str r2, [r4, #0x14c]
-	bl DseEnvelope_Start
+	bl DSEi_StartEnvelope
 	ldr r0, [r4, #0x158]
 	cmp r0, r5
 	ldrne r0, [r5, #0xb0]
@@ -8206,10 +8202,10 @@ DseChannel_StartVoice: ; 0x0207B4B0
 	strne r5, [r4, #0x158]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207B510: .word 0x0000FFFD
-	arm_func_end DseChannel_StartVoice
+	arm_func_end DSEi_StartVoiceInChannel
 
-	arm_func_start DseChannel_ReleaseHeld
-DseChannel_ReleaseHeld: ; 0x0207B514
+	arm_func_start DSEi_ReleaseHeldInChannel
+DSEi_ReleaseHeldInChannel: ; 0x0207B514
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldrb r0, [r6, #4]
@@ -8226,7 +8222,7 @@ _0207B538:
 	addgt r5, r1, #8
 	bgt _0207B554
 	mov r0, r6
-	bl DseChannel_ReleaseNoteInternal
+	bl DSEi_ReleaseNoteInternal
 _0207B554:
 	mov r1, r4
 	cmp r4, #0
@@ -8235,10 +8231,10 @@ _0207B560:
 	mov r0, #0
 	str r0, [r5]
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseChannel_ReleaseHeld
+	arm_func_end DSEi_ReleaseHeldInChannel
 
-	arm_func_start DseChannel_ReleaseVoice
-DseChannel_ReleaseVoice: ; 0x0207B56C
+	arm_func_start DSEi_ReleaseVoiceInChannel
+DSEi_ReleaseVoiceInChannel: ; 0x0207B56C
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	ldrh r1, [r4, #4]
@@ -8251,17 +8247,17 @@ DseChannel_ReleaseVoice: ; 0x0207B56C
 	add r0, r4, #0x3c
 	and r1, r1, #0xff
 	str r1, [r4, #0x14c]
-	bl DseEnvelope_Release
+	bl DSEi_ReleaseEnvelope
 	ldrh r1, [r4, #6]
 	ldr r0, _0207B5B4 ; =0x0000FFFE
 	and r0, r1, r0
 	strh r0, [r4, #6]
 	ldmfd sp!, {r4, pc}
 _0207B5B4: .word 0x0000FFFE
-	arm_func_end DseChannel_ReleaseVoice
+	arm_func_end DSEi_ReleaseVoiceInChannel
 
-	arm_func_start DseVoice_Deallocate
-DseVoice_Deallocate: ; 0x0207B5B8
+	arm_func_start DSEi_StopVoice
+DSEi_StopVoice: ; 0x0207B5B8
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldr r1, [r4, #0x158]
@@ -8289,7 +8285,7 @@ _0207B608:
 	strh r5, [r4, #4]
 	str r5, [r4, #0x158]
 	str r5, [r4, #0x154]
-	bl DseEnvelope_Stop
+	bl DSEi_StopEnvelope
 	ldr r1, [r4, #0x14c]
 	ldrh r0, [r4, #0xa]
 	and r3, r1, #0xff
@@ -8312,7 +8308,7 @@ _0207B660:
 	strh r5, [r4, #4]
 	str r5, [r4, #0x158]
 	str r5, [r4, #0x154]
-	bl DseEnvelope_Stop
+	bl DSEi_StopEnvelope
 	ldr r1, [r4, #0x14c]
 	ldrh r0, [r4, #0xa]
 	and r3, r1, #0xff
@@ -8330,10 +8326,10 @@ _0207B660:
 	strh r1, [r2, #0x42]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207B6B8: .word unk_020BA6D8
-	arm_func_end DseVoice_Deallocate
+	arm_func_end DSEi_StopVoice
 
-	arm_func_start DseVoice_FlagForActivation
-DseVoice_FlagForActivation: ; 0x0207B6BC
+	arm_func_start DSEi_ActivateVoice
+DSEi_ActivateVoice: ; 0x0207B6BC
 	stmfd sp!, {r3, lr}
 	ldr r1, [r0, #0x14c]
 	ldrh r12, [r0, #0xa]
@@ -8356,10 +8352,10 @@ DseVoice_FlagForActivation: ; 0x0207B6BC
 	strh r0, [r1, #0x3e]
 	ldmfd sp!, {r3, pc}
 _0207B710: .word unk_020BA6D8
-	arm_func_end DseVoice_FlagForActivation
+	arm_func_end DSEi_ActivateVoice
 
-	arm_func_start DseVoice_FlagForDeactivation
-DseVoice_FlagForDeactivation: ; 0x0207B714
+	arm_func_start DSEi_DeactivateVoice
+DSEi_DeactivateVoice: ; 0x0207B714
 	ldr r1, [r0, #0x14c]
 	ldrh r3, [r0, #0xa]
 	bic r2, r1, #0xff00
@@ -8375,10 +8371,10 @@ DseVoice_FlagForDeactivation: ; 0x0207B714
 	strh r0, [r1, #0x40]
 	bx lr
 _0207B74C: .word unk_020BA6D8
-	arm_func_end DseVoice_FlagForDeactivation
+	arm_func_end DSEi_DeactivateVoice
 
-	arm_func_start DseVoice_CountNumActiveInChannel
-DseVoice_CountNumActiveInChannel: ; 0x0207B750
+	arm_func_start DSEi_CountActiveVoicesInChannel
+DSEi_CountActiveVoicesInChannel: ; 0x0207B750
 	ldr r2, [r0, #0xb0]
 	mov r0, #0
 	cmp r2, #0
@@ -8391,10 +8387,10 @@ _0207B760:
 	cmp r2, #0
 	bne _0207B760
 	bx lr
-	arm_func_end DseVoice_CountNumActiveInChannel
+	arm_func_end DSEi_CountActiveVoicesInChannel
 
-	arm_func_start DseVoice_UpdateHardware
-DseVoice_UpdateHardware: ; 0x0207B77C
+	arm_func_start DSEi_UpdateHardware
+DSEi_UpdateHardware: ; 0x0207B77C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
 	ldr r4, _0207B9A4 ; =0x020BA6D8
@@ -8464,13 +8460,13 @@ _0207B858:
 	bl SND_SetupChannelNoise
 _0207B874:
 	mov r0, r7
-	bl DseVoice_FlagForActivation
+	bl DSEi_ActivateVoice
 	b _0207B8D4
 _0207B880:
 	tst r9, #2
 	beq _0207B894
 	mov r0, r7
-	bl DseVoice_FlagForDeactivation
+	bl DSEi_DeactivateVoice
 	mov r9, #0
 _0207B894:
 	tst r9, #0x10
@@ -8550,19 +8546,19 @@ _0207B93C:
 _0207B9A4: .word unk_020BA6D8
 _0207B9A8: .word unk_020BA720
 _0207B9AC: .word unk_020B9FD8
-	arm_func_end DseVoice_UpdateHardware
+	arm_func_end DSEi_UpdateHardware
 
-	arm_func_start DseEnvelope_Reset
-DseEnvelope_Reset: ; 0x0207B9B0
+	arm_func_start DSEi_ResetEnvelope
+DSEi_ResetEnvelope: ; 0x0207B9B0
 	mov r1, #0
 	strb r1, [r0]
 	strb r1, [r0, #0x1c]
 	str r1, [r0, #0x10]
 	bx lr
-	arm_func_end DseEnvelope_Reset
+	arm_func_end DSEi_ResetEnvelope
 
-	arm_func_start DseEnvelopeParameters_Reset
-DseEnvelopeParameters_Reset: ; 0x0207B9C4
+	arm_func_start DSEi_ResetEnvelopeParameters
+DSEi_ResetEnvelopeParameters: ; 0x0207B9C4
 	mvn r2, #0xff
 	add r1, r2, #0xff
 	str r2, [r0]
@@ -8570,10 +8566,10 @@ DseEnvelopeParameters_Reset: ; 0x0207B9C4
 	str r1, [r0, #8]
 	str r1, [r0, #0xc]
 	bx lr
-	arm_func_end DseEnvelopeParameters_Reset
+	arm_func_end DSEi_ResetEnvelopeParameters
 
-	arm_func_start DseEnvelopeParameters_CheckValidity
-DseEnvelopeParameters_CheckValidity: ; 0x0207B9E0
+	arm_func_start DSEi_CheckEnvelopeParameters
+DSEi_CheckEnvelopeParameters: ; 0x0207B9E0
 	ldrb r1, [r0, #1]
 	mov r2, #1
 	strb r2, [r0]
@@ -8595,10 +8591,10 @@ DseEnvelopeParameters_CheckValidity: ; 0x0207B9E0
 	movhi r1, #0
 	strhib r1, [r0]
 	bx lr
-	arm_func_end DseEnvelopeParameters_CheckValidity
+	arm_func_end DSEi_CheckEnvelopeParameters
 
-	arm_func_start DseEnvelope_SetParameters
-DseEnvelope_SetParameters: ; 0x0207BA34
+	arm_func_start DSEi_SetEnvelopeParameters
+DSEi_SetEnvelopeParameters: ; 0x0207BA34
 	ldrb r2, [r1, #1]
 	cmp r2, #0x7f
 	strlsb r2, [r0, #1]
@@ -8624,10 +8620,10 @@ DseEnvelope_SetParameters: ; 0x0207BA34
 	cmp r1, #0x7f
 	strlsb r1, [r0, #0xe]
 	bx lr
-	arm_func_end DseEnvelope_SetParameters
+	arm_func_end DSEi_SetEnvelopeParameters
 
-	arm_func_start DseEnvelope_SetSlide
-DseEnvelope_SetSlide: ; 0x0207BA98
+	arm_func_start DSEi_SetEnvelopeSlide
+DSEi_SetEnvelopeSlide: ; 0x0207BA98
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	cmp r2, #0x7f
@@ -8673,10 +8669,10 @@ _0207BB10:
 _0207BB38: .word DSE_MUSIC_DURATION_LOOKUP_TABLE_2
 _0207BB3C: .word unk_020B9FD8
 _0207BB40: .word DSE_MUSIC_DURATION_LOOKUP_TABLE_1
-	arm_func_end DseEnvelope_SetSlide
+	arm_func_end DSEi_SetEnvelopeSlide
 
-	arm_func_start DseEnvelope_Start
-DseEnvelope_Start: ; 0x0207BB44
+	arm_func_start DSEi_StartEnvelope
+DSEi_StartEnvelope: ; 0x0207BB44
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4]
@@ -8691,7 +8687,7 @@ DseEnvelope_Start: ; 0x0207BB44
 	mov r12, r12, lsl #0x17
 	str r12, [r4, #0x10]
 	strb r3, [r4, #0x1c]
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	b _0207BBD8
 _0207BB84:
 	ldrb r2, [r4, #0xc]
@@ -8700,7 +8696,7 @@ _0207BB84:
 	cmp r2, #0
 	beq _0207BBA8
 	mov r1, #0x7f
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #4
 	b _0207BBD4
 _0207BBA8:
@@ -8708,13 +8704,13 @@ _0207BBA8:
 	cmp r2, #0
 	beq _0207BBC4
 	ldrsb r1, [r4, #0xb]
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #5
 	b _0207BBD4
 _0207BBC4:
 	ldrb r2, [r4, #0xd]
 	mov r1, #0
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #6
 _0207BBD4:
 	strb r0, [r4, #0x1c]
@@ -8730,10 +8726,10 @@ _0207BBE4:
 	strneb r1, [r4, #0x1c]
 	strne r0, [r4, #0x10]
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseEnvelope_Start
+	arm_func_end DSEi_StartEnvelope
 
-	arm_func_start DseEnvelope_Release
-DseEnvelope_Release: ; 0x0207BC00
+	arm_func_start DSEi_ReleaseEnvelope
+DSEi_ReleaseEnvelope: ; 0x0207BC00
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r1, [r4, #0x1c]
@@ -8741,24 +8737,24 @@ DseEnvelope_Release: ; 0x0207BC00
 	ldmeqfd sp!, {r4, pc}
 	ldrb r2, [r4, #0xe]
 	mov r1, #0
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #7
 	strb r0, [r4, #0x1c]
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseEnvelope_Release
+	arm_func_end DSEi_ReleaseEnvelope
 
-	arm_func_start DseEnvelope_Stop
-DseEnvelope_Stop: ; 0x0207BC2C
+	arm_func_start DSEi_StopEnvelope
+DSEi_StopEnvelope: ; 0x0207BC2C
 	mov r1, #0
 	strb r1, [r0, #0x1c]
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x18]
 	strb r1, [r0, #0x1e]
 	bx lr
-	arm_func_end DseEnvelope_Stop
+	arm_func_end DSEi_StopEnvelope
 
-	arm_func_start DseEnvelope_ForceVolume
-DseEnvelope_ForceVolume: ; 0x0207BC44
+	arm_func_start DSEi_ForceEnvelopeVolume
+DSEi_ForceEnvelopeVolume: ; 0x0207BC44
 	mov r3, #0
 	mov r2, #1
 	strb r3, [r0]
@@ -8767,20 +8763,20 @@ DseEnvelope_ForceVolume: ; 0x0207BC44
 	str r3, [r0, #0x18]
 	strb r2, [r0, #0x1e]
 	bx lr
-	arm_func_end DseEnvelope_ForceVolume
+	arm_func_end DSEi_ForceEnvelopeVolume
 
-	arm_func_start DseEnvelope_Stop2
-DseEnvelope_Stop2: ; 0x0207BC64
+	arm_func_start DSEi_StopEnvelope2
+DSEi_StopEnvelope2: ; 0x0207BC64
 	mov r1, #0
 	strb r1, [r0, #0x1c]
 	str r1, [r0, #0x10]
 	str r1, [r0, #0x18]
 	strb r1, [r0, #0x1e]
 	bx lr
-	arm_func_end DseEnvelope_Stop2
+	arm_func_end DSEi_StopEnvelope2
 
-	arm_func_start DseEnvelope_Tick
-DseEnvelope_Tick: ; 0x0207BC7C
+	arm_func_start DSEi_UpdateEnvelope
+DSEi_UpdateEnvelope: ; 0x0207BC7C
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrb r2, [r4, #0x1c]
@@ -8809,7 +8805,7 @@ _0207BCD4:
 	cmp r2, #0
 	beq _0207BCF4
 	mov r1, #0x7f
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #4
 _0207BCEC:
 	strb r0, [r4, #0x1c]
@@ -8820,7 +8816,7 @@ _0207BCF4:
 	beq _0207BD14
 	ldrsb r1, [r4, #0xb]
 	mov r0, r4
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #5
 	b _0207BCEC
 _0207BD14:
@@ -8833,14 +8829,14 @@ _0207BD20:
 	beq _0207BD40
 	mov r0, r4
 	mov r1, #0
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #6
 	b _0207BCEC
 _0207BD40:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DseEnvelope_SetSlide
+	bl DSEi_SetEnvelopeSlide
 	mov r0, #2
 	b _0207BCEC
 _0207BD58:
@@ -8869,20 +8865,20 @@ _0207BD9C:
 	mov r0, r0, lsl #0x18
 	mov r0, r0, asr #0x18
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseEnvelope_Tick
+	arm_func_end DSEi_UpdateEnvelope
 
-	arm_func_start DseLfoBank_Reset
-DseLfoBank_Reset: ; 0x0207BDB0
+	arm_func_start DSEi_LfoBank_Reset
+DSEi_LfoBank_Reset: ; 0x0207BDB0
 	mov r1, #0
 	str r1, [r0]
 	str r1, [r0, #4]
 	str r1, [r0, #8]
 	str r1, [r0, #0xc]
 	bx lr
-	arm_func_end DseLfoBank_Reset
+	arm_func_end DSEi_LfoBank_Reset
 
-	arm_func_start DseLfoBank_Set
-DseLfoBank_Set: ; 0x0207BDC8
+	arm_func_start DSEi_LfoBank_Set
+DSEi_LfoBank_Set: ; 0x0207BDC8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x20
 	mov r10, r0
@@ -9006,10 +9002,10 @@ _0207BF88: .word DSE_LFO_OUTPUT_VOICE_UPDATE_FLAGS
 _0207BF8C: .word 0x81020409
 _0207BF90: .word unk_020B9FD8
 _0207BF94: .word DSE_LFO_WAVEFORM_CALLBACKS
-	arm_func_end DseLfoBank_Set
+	arm_func_end DSEi_LfoBank_Set
 
-	arm_func_start DseLfoBank_SetModulationDepth
-DseLfoBank_SetModulationDepth: ; 0x0207BF98
+	arm_func_start DSEi_LfoBank_SetModulationDepth
+DSEi_LfoBank_SetModulationDepth: ; 0x0207BF98
 	stmfd sp!, {r3, lr}
 	ldr lr, [r0, #0xc]
 	cmp lr, #0
@@ -9030,10 +9026,10 @@ _0207BFC4:
 	bne _0207BFC4
 	ldmfd sp!, {r3, pc}
 _0207BFE0: .word 0x81020409
-	arm_func_end DseLfoBank_SetModulationDepth
+	arm_func_end DSEi_LfoBank_SetModulationDepth
 
-	arm_func_start DseLfoBank_Tick
-DseLfoBank_Tick: ; 0x0207BFE4
+	arm_func_start DSEi_LfoBank_Tick
+DSEi_LfoBank_Tick: ; 0x0207BFE4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r5, [r0, #0xc]
 	mov r6, #0
@@ -9084,19 +9080,19 @@ _0207C088:
 _0207C094:
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DseLfoBank_Tick
+	arm_func_end DSEi_LfoBank_Tick
 
-	arm_func_start DseLfoWave_Invalid
-DseLfoWave_Invalid: ; 0x0207C09C
+	arm_func_start DSE_SsdLfoOffProc
+DSE_SsdLfoOffProc: ; 0x0207C09C
 	mov r1, #0
 	strb r1, [r0]
 	strb r1, [r0, #1]
 	mov r0, r1
 	bx lr
-	arm_func_end DseLfoWave_Invalid
+	arm_func_end DSE_SsdLfoOffProc
 
-	arm_func_start DseLfoWave_HalfSquareFunc
-DseLfoWave_HalfSquareFunc: ; 0x0207C0B0
+	arm_func_start DSE_SsdLfoRectangularSingleProc
+DSE_SsdLfoRectangularSingleProc: ; 0x0207C0B0
 	ldrh r1, [r0, #6]
 	cmp r1, #0
 	bne _0207C0D8
@@ -9113,10 +9109,10 @@ _0207C0D8:
 	strh r1, [r0, #6]
 	ldr r0, [r0, #8]
 	bx lr
-	arm_func_end DseLfoWave_HalfSquareFunc
+	arm_func_end DSE_SsdLfoRectangularSingleProc
 
-	arm_func_start DseLfoWave_FullSquareFunc
-DseLfoWave_FullSquareFunc: ; 0x0207C0EC
+	arm_func_start DSE_SsdLfoRectangularDoubleProc
+DSE_SsdLfoRectangularDoubleProc: ; 0x0207C0EC
 	ldrh r1, [r0, #6]
 	cmp r1, #0
 	bne _0207C124
@@ -9137,10 +9133,10 @@ _0207C124:
 	strh r1, [r0, #6]
 	ldr r0, [r0, #8]
 	bx lr
-	arm_func_end DseLfoWave_FullSquareFunc
+	arm_func_end DSE_SsdLfoRectangularDoubleProc
 
-	arm_func_start DseLfoWave_HalfTriangleFunc
-DseLfoWave_HalfTriangleFunc: ; 0x0207C138
+	arm_func_start DSE_SsdLfoTriangularSingleProc
+DSE_SsdLfoTriangularSingleProc: ; 0x0207C138
 	ldrh r1, [r0, #6]
 	cmp r1, #0
 	bne _0207C168
@@ -9163,10 +9159,10 @@ _0207C168:
 	str r1, [r0, #8]
 	mov r0, r1
 	bx lr
-	arm_func_end DseLfoWave_HalfTriangleFunc
+	arm_func_end DSE_SsdLfoTriangularSingleProc
 
-	arm_func_start DseLfoWave_FullTriangleFunc
-DseLfoWave_FullTriangleFunc: ; 0x0207C18C
+	arm_func_start DSE_SsdLfoTriangularDoubleProc
+DSE_SsdLfoTriangularDoubleProc: ; 0x0207C18C
 	ldrh r3, [r0, #6]
 	cmp r3, #0
 	bne _0207C1CC
@@ -9193,10 +9189,10 @@ _0207C1CC:
 	str r1, [r0, #8]
 	mov r0, r1
 	bx lr
-	arm_func_end DseLfoWave_FullTriangleFunc
+	arm_func_end DSE_SsdLfoTriangularDoubleProc
 
-	arm_func_start DseLfoWave_SawFunc
-DseLfoWave_SawFunc: ; 0x0207C1EC
+	arm_func_start DSE_SsdLfoSawtoothSingleProc
+DSE_SsdLfoSawtoothSingleProc: ; 0x0207C1EC
 	ldrh r1, [r0, #6]
 	cmp r1, #0
 	ldreqh r2, [r0, #4]
@@ -9212,10 +9208,10 @@ DseLfoWave_SawFunc: ; 0x0207C1EC
 	strh r1, [r0, #6]
 	ldr r0, [r0, #8]
 	bx lr
-	arm_func_end DseLfoWave_SawFunc
+	arm_func_end DSE_SsdLfoSawtoothSingleProc
 
-	arm_func_start DseLfoWave_ReverseSawFunc
-DseLfoWave_ReverseSawFunc: ; 0x0207C228
+	arm_func_start DSE_LfoSawtoothSingleProcReverse
+DSE_LfoSawtoothSingleProcReverse: ; 0x0207C228
 	ldrh r1, [r0, #6]
 	cmp r1, #0
 	ldreqh r2, [r0, #4]
@@ -9230,10 +9226,10 @@ DseLfoWave_ReverseSawFunc: ; 0x0207C228
 	strh r1, [r0, #6]
 	ldr r0, [r0, #8]
 	bx lr
-	arm_func_end DseLfoWave_ReverseSawFunc
+	arm_func_end DSE_LfoSawtoothSingleProcReverse
 
-	arm_func_start DseLfoWave_HalfNoiseFunc
-DseLfoWave_HalfNoiseFunc: ; 0x0207C260
+	arm_func_start DSE_SsdLfoNoiseSingleProc
+DSE_SsdLfoNoiseSingleProc: ; 0x0207C260
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r0, [r4, #6]
@@ -9241,7 +9237,7 @@ DseLfoWave_HalfNoiseFunc: ; 0x0207C260
 	bne _0207C290
 	ldrh r0, [r4, #4]
 	strh r0, [r4, #6]
-	bl DseUtil_GetRandomNumber
+	bl DSEi_GetRandomNumber
 	ldr r1, [r4, #0xc]
 	mov r1, r1, asr #0x10
 	mul r0, r1, r0
@@ -9252,10 +9248,10 @@ _0207C290:
 	sub r1, r1, #1
 	strh r1, [r4, #6]
 	ldmfd sp!, {r4, pc}
-	arm_func_end DseLfoWave_HalfNoiseFunc
+	arm_func_end DSE_SsdLfoNoiseSingleProc
 
-	arm_func_start DseLfoWave_FullNoiseFunc
-DseLfoWave_FullNoiseFunc: ; 0x0207C2A4
+	arm_func_start DSE_SsdLfoNoiseDoubleProc
+DSE_SsdLfoNoiseDoubleProc: ; 0x0207C2A4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldrh r0, [r4, #6]
@@ -9264,7 +9260,7 @@ DseLfoWave_FullNoiseFunc: ; 0x0207C2A4
 	ldrh r0, [r4, #4]
 	ldr r5, [r4, #0xc]
 	strh r0, [r4, #6]
-	bl DseUtil_GetRandomNumber
+	bl DSEi_GetRandomNumber
 	mov r1, r5, asr #0xf
 	mul r0, r1, r0
 	sub r0, r0, r5, asr #1
@@ -9275,10 +9271,10 @@ _0207C2D8:
 	sub r1, r1, #1
 	strh r1, [r4, #6]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DseLfoWave_FullNoiseFunc
+	arm_func_end DSE_SsdLfoNoiseDoubleProc
 
-	arm_func_start FUN_0207c2ec
-FUN_0207c2ec: ; 0x0207C2EC
+	arm_func_start DSE_SsdInitStreamInitRec
+DSE_SsdInitStreamInitRec: ; 0x0207C2EC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #0
 	mov r1, r4
@@ -9302,10 +9298,10 @@ FUN_0207c2ec: ; 0x0207C2EC
 	str r0, [r5, #0x20]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207C344: .word unk_020BAFD8
-	arm_func_end FUN_0207c2ec
+	arm_func_end DSE_SsdInitStreamInitRec
 
-	arm_func_start FUN_0207c348
-FUN_0207c348: ; 0x0207C348
+	arm_func_start DSE_SsdSetStreamInitDataThreadPriority
+DSE_SsdSetStreamInitDataThreadPriority: ; 0x0207C348
 	ldr r2, _0207C364 ; =0x020BAFD8
 	ldrb r2, [r2, #0xd1c]
 	cmp r1, r2
@@ -9314,10 +9310,10 @@ FUN_0207c348: ; 0x0207C348
 	movhi r0, #0
 	bx lr
 _0207C364: .word unk_020BAFD8
-	arm_func_end FUN_0207c348
+	arm_func_end DSE_SsdSetStreamInitDataThreadPriority
 
-	arm_func_start FUN_0207c368
-FUN_0207c368: ; 0x0207C368
+	arm_func_start DSE_SsdSetStreamInitReadThreadPriority
+DSE_SsdSetStreamInitReadThreadPriority: ; 0x0207C368
 	ldr r2, _0207C384 ; =0x020BAFD8
 	ldrb r2, [r2, #0xd1c]
 	cmp r1, r2
@@ -9326,10 +9322,10 @@ FUN_0207c368: ; 0x0207C368
 	movhi r0, #0
 	bx lr
 _0207C384: .word unk_020BAFD8
-	arm_func_end FUN_0207c368
+	arm_func_end DSE_SsdSetStreamInitReadThreadPriority
 
-	arm_func_start FUN_0207c388
-FUN_0207c388: ; 0x0207C388
+	arm_func_start DSE_SsdSetStreamInitMaxOpen
+DSE_SsdSetStreamInitMaxOpen: ; 0x0207C388
 	stmfd sp!, {r4, lr}
 	cmp r1, #1
 	streqb r1, [r0, #2]
@@ -9339,13 +9335,13 @@ FUN_0207c388: ; 0x0207C388
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207c388
+	arm_func_end DSE_SsdSetStreamInitMaxOpen
 
-	arm_func_start FUN_0207c3b8
-FUN_0207c3b8: ; 0x0207C3B8
+	arm_func_start DSE_SsdSetStreamInitVoiceRange
+DSE_SsdSetStreamInitVoiceRange: ; 0x0207C3B8
 	cmp r1, #0x10
 	cmplo r2, #0x10
 	mvnhs r0, #0x17
@@ -9360,10 +9356,10 @@ FUN_0207c3b8: ; 0x0207C3B8
 	strb r1, [r0, #3]
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0207c3b8
+	arm_func_end DSE_SsdSetStreamInitVoiceRange
 
-	arm_func_start FUN_0207c3f0
-FUN_0207c3f0: ; 0x0207C3F0
+	arm_func_start DSE_SsdSetStreamInitIOBufferSize
+DSE_SsdSetStreamInitIOBufferSize: ; 0x0207C3F0
 	stmfd sp!, {r4, lr}
 	cmp r1, #0
 	moveq r1, #0x1000
@@ -9374,17 +9370,17 @@ FUN_0207c3f0: ; 0x0207C3F0
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207C424:
 	str r1, [r0, #0x10]
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207c3f0
+	arm_func_end DSE_SsdSetStreamInitIOBufferSize
 
-	arm_func_start FUN_0207c430
-FUN_0207c430: ; 0x0207C430
+	arm_func_start DSE_SsdSetStreamInitRomAccessSize
+DSE_SsdSetStreamInitRomAccessSize: ; 0x0207C430
 	stmfd sp!, {r4, lr}
 	cmp r1, #0
 	moveq r1, #0x800
@@ -9395,39 +9391,39 @@ FUN_0207c430: ; 0x0207C430
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207C464:
 	str r1, [r0, #0x20]
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207c430
+	arm_func_end DSE_SsdSetStreamInitRomAccessSize
 
-	arm_func_start FUN_0207c470
-FUN_0207c470: ; 0x0207C470
+	arm_func_start DSEi_StreamDefaultAllocate
+DSEi_StreamDefaultAllocate: ; 0x0207C470
 	ldr r2, _0207C484 ; =0x66627473
 	mov r0, r1
-	ldr r12, _0207C488 ; =DseMem_AllocateFirstFit
+	ldr r12, _0207C488 ; =DSEi_AllocateFirstFit
 	mov r1, #0x20
 	bx r12
 _0207C484: .word 0x66627473
-_0207C488: .word DseMem_AllocateFirstFit
-	arm_func_end FUN_0207c470
+_0207C488: .word DSEi_AllocateFirstFit
+	arm_func_end DSEi_StreamDefaultAllocate
 
-	arm_func_start FUN_0207c48c
-FUN_0207c48c: ; 0x0207C48C
+	arm_func_start DSEi_StreamDefaultFree
+DSEi_StreamDefaultFree: ; 0x0207C48C
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_020755ac
+	bl DSEi_MemCheckHeap
 	mov r0, r4
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207c48c
+	arm_func_end DSEi_StreamDefaultFree
 
-	arm_func_start FUN_0207c4a8
-FUN_0207c4a8: ; 0x0207C4A8
+	arm_func_start DSEi_StreamInit
+DSEi_StreamInit: ; 0x0207C4A8
 	ldr r0, _0207C4C4 ; =0x020BBEC0
 	mov r2, #0
 	strb r2, [r0, #4]
@@ -9436,10 +9432,10 @@ FUN_0207c4a8: ; 0x0207C4A8
 	strb r2, [r0, #9]
 	bx lr
 _0207C4C4: .word unk_020BBEC0
-	arm_func_end FUN_0207c4a8
+	arm_func_end DSEi_StreamInit
 
-	arm_func_start FUN_0207c4c8
-FUN_0207c4c8: ; 0x0207C4C8
+	arm_func_start DSEi_AllocateStreams
+DSEi_AllocateStreams: ; 0x0207C4C8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r10, r0
 	cmp r10, #0
@@ -9454,7 +9450,7 @@ _0207C4F0:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl DseMem_AllocateFirstFit
+	bl DSEi_AllocateFirstFit
 	cmp r0, #0
 	mvneq r0, #0x7f
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -9470,10 +9466,10 @@ _0207C528:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _0207C530: .word unk_020BC088
 _0207C534: .word 0x696D7473
-	arm_func_end FUN_0207c4c8
+	arm_func_end DSEi_AllocateStreams
 
-	arm_func_start FUN_0207c538
-FUN_0207c538: ; 0x0207C538
+	arm_func_start DSEi_FreeStreamContext
+DSEi_FreeStreamContext: ; 0x0207C538
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r4, _0207C5BC ; =0x020BBEC0
 	mov r5, #0
@@ -9482,7 +9478,7 @@ FUN_0207c538: ; 0x0207C538
 	beq _0207C564
 _0207C550:
 	ldr r6, [r0, #0x358]
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, r6
 	cmp r6, #0
 	bne _0207C550
@@ -9491,33 +9487,33 @@ _0207C564:
 	ldr r0, [r4, #0xe8]
 	cmp r0, #0
 	beq _0207C578
-	bl DseMem_Free
+	bl DSEi_Free
 _0207C578:
 	str r5, [r4, #0xe8]
 	ldr r0, [r4, #0x1b4]
 	cmp r0, #0
 	beq _0207C58C
-	bl DseMem_Free
+	bl DSEi_Free
 _0207C58C:
 	str r5, [r4, #0x1b4]
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	beq _0207C5A0
-	bl FUN_0207dc70
+	bl DSEi_StreamFree
 _0207C5A0:
 	str r5, [r4, #0x18]
 	ldr r0, [r4, #0x1c]
 	cmp r0, #0
 	beq _0207C5B4
-	bl FUN_0207dc70
+	bl DSEi_StreamFree
 _0207C5B4:
 	str r5, [r4, #0x1c]
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C5BC: .word unk_020BBEC0
-	arm_func_end FUN_0207c538
+	arm_func_end DSEi_FreeStreamContext
 
-	arm_func_start FUN_0207c5c0
-FUN_0207c5c0: ; 0x0207C5C0
+	arm_func_start DSE_SsdInitStream
+DSE_SsdInitStream: ; 0x0207C5C0
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _0207C80C ; =0x020B9FD8
 	mov r5, r0
@@ -9530,7 +9526,7 @@ FUN_0207c5c0: ; 0x0207C5C0
 	mov r1, r3
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C5FC:
@@ -9544,7 +9540,7 @@ _0207C5FC:
 	mov r1, r3
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C630:
@@ -9584,8 +9580,8 @@ _0207C684:
 	ldrne r6, _0207C818 ; =0x020BC07C
 	ldmneia r0, {r0, r1, r2}
 	stmneia r6, {r0, r1, r2}
-	ldreq r1, _0207C81C ; =FUN_0207c470
-	ldreq r0, _0207C820 ; =FUN_0207c48c
+	ldreq r1, _0207C81C ; =DSEi_StreamDefaultAllocate
+	ldreq r0, _0207C820 ; =DSEi_StreamDefaultFree
 	streq r1, [r4, #0x1bc]
 	streq r0, [r4, #0x1c0]
 	streq r4, [r4, #0x1c4]
@@ -9611,99 +9607,99 @@ _0207C710:
 	ldr r1, _0207C824 ; =0x61746164
 	add r0, r0, r0, lsr #31
 	mov r0, r0, asr #1
-	bl FUN_0207dbf4
+	bl DSEi_StreamAlloc
 	str r0, [r4, #0x18]
 	cmp r0, #0
 	bne _0207C750
-	bl FUN_0207c538
+	bl DSEi_FreeStreamContext
 	mvn r4, #0x7f
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C750:
 	ldr r0, [r4, #0x14]
 	ldr r1, _0207C828 ; =0x656C6966
-	bl FUN_0207dbf4
+	bl DSEi_StreamAlloc
 	str r0, [r4, #0x1c]
 	cmp r0, #0
 	bne _0207C788
-	bl FUN_0207c538
+	bl DSEi_FreeStreamContext
 	mvn r4, #0x7f
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C788:
 	ldrb r0, [r5, #2]
-	bl FUN_0207c4c8
+	bl DSEi_AllocateStreams
 	movs r6, r0
 	bpl _0207C7B4
-	bl FUN_0207c538
+	bl DSEi_FreeStreamContext
 	mov r1, #0
 	mov r0, r6
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C7B4:
-	bl FUN_0207f8c8
+	bl DSEi_FUN_0207f8c8
 	ldrsb r0, [r5, #6]
 	cmp r0, #1
 	bne _0207C7C8
-	bl FUN_0207f5b4
+	bl DSEi_FUN_0207f5b4
 _0207C7C8:
 	ldrb r0, [r5]
 	strb r0, [r4, #0x24]
 	ldrb r0, [r5, #1]
 	strb r0, [r4, #0xf0]
-	bl FUN_0207df40
+	bl DSEi_StartStreamThreads
 	movs r5, r0
 	movpl r0, #1
 	strplb r0, [r4, #4]
 	movpl r0, #0
 	ldmplfd sp!, {r4, r5, r6, pc}
-	bl FUN_0207c538
+	bl DSEi_FreeStreamContext
 	mov r1, #0
 	mov r0, r5
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C80C: .word unk_020B9FD8
 _0207C810: .word unk_020BBEC0
 _0207C814: .word unk_020BA6D8
 _0207C818: .word unk_020BC07C
-_0207C81C: .word FUN_0207c470
-_0207C820: .word FUN_0207c48c
+_0207C81C: .word DSEi_StreamDefaultAllocate
+_0207C820: .word DSEi_StreamDefaultFree
 _0207C824: .word 0x61746164
 _0207C828: .word 0x656C6966
-	arm_func_end FUN_0207c5c0
+	arm_func_end DSE_SsdInitStream
 
-	arm_func_start FUN_0207c82c
-FUN_0207c82c: ; 0x0207C82C
+	arm_func_start DSEi_SsdQuitStream
+DSEi_SsdQuitStream: ; 0x0207C82C
 	stmfd sp!, {r4, lr}
 	ldr r4, _0207C860 ; =0x020BBEC0
 	ldrsb r0, [r4, #4]
 	cmp r0, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0207cde4
-	bl FUN_0207e040
-	bl FUN_0207f600
-	bl FUN_0207c538
+	bl DSEi_CloseAllStreams
+	bl DSEi_QuitStreamThreads
+	bl DSEi_FUN_0207f600
+	bl DSEi_FreeStreamContext
 	mov r0, #0
 	strb r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
 _0207C860: .word unk_020BBEC0
-	arm_func_end FUN_0207c82c
+	arm_func_end DSEi_SsdQuitStream
 
-	arm_func_start FUN_0207c864
-FUN_0207c864: ; 0x0207C864
+	arm_func_start DSEi_FindFreeStream
+DSEi_FindFreeStream: ; 0x0207C864
 	ldr r2, _0207C8AC ; =0x04000208
 	mov r1, #0
 	ldrh r3, [r2]
@@ -9726,10 +9722,10 @@ _0207C89C:
 	bx lr
 _0207C8AC: .word 0x04000208
 _0207C8B0: .word unk_020BBEC0
-	arm_func_end FUN_0207c864
+	arm_func_end DSEi_FindFreeStream
 
-	arm_func_start FUN_0207c8b4
-FUN_0207c8b4: ; 0x0207C8B4
+	arm_func_start DSEi_StreamSuspend
+DSEi_StreamSuspend: ; 0x0207C8B4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, _0207C920 ; =0x04000208
 	ldr r1, _0207C924 ; =0x020BBEC0
@@ -9748,7 +9744,7 @@ _0207C8E0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_0207d2c4
+	bl DSEi_FUN_0207d2c4
 	strb r5, [r6, #0x12]
 _0207C900:
 	ldr r6, [r6, #0x358]
@@ -9762,10 +9758,10 @@ _0207C90C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207C920: .word 0x04000208
 _0207C924: .word unk_020BBEC0
-	arm_func_end FUN_0207c8b4
+	arm_func_end DSEi_StreamSuspend
 
-	arm_func_start FUN_0207c928
-FUN_0207c928: ; 0x0207C928
+	arm_func_start DSEi_StreamResume
+DSEi_StreamResume: ; 0x0207C928
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _0207C978 ; =0x020BBEC0
 	mov r6, r0
@@ -9781,7 +9777,7 @@ _0207C944:
 	mov r1, r4
 	mov r2, r6
 	strb r4, [r5, #0x12]
-	bl FUN_0207d2c4
+	bl DSEi_FUN_0207d2c4
 _0207C964:
 	ldr r5, [r5, #0x358]
 	cmp r5, #0
@@ -9790,26 +9786,26 @@ _0207C970:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C978: .word unk_020BBEC0
-	arm_func_end FUN_0207c928
+	arm_func_end DSEi_StreamResume
 
-	arm_func_start FUN_0207c97c
-FUN_0207c97c: ; 0x0207C97C
+	arm_func_start DSE_SsdSetMonoToStereo
+DSE_SsdSetMonoToStereo: ; 0x0207C97C
 	ldr r1, _0207C98C ; =0x020BBEC0
 	strb r0, [r1, #9]
 	mov r0, #0
 	bx lr
 _0207C98C: .word unk_020BBEC0
-	arm_func_end FUN_0207c97c
+	arm_func_end DSE_SsdSetMonoToStereo
 
-	arm_func_start FUN_0207c990
-FUN_0207c990: ; 0x0207C990
+	arm_func_start DSE_SsdIsOpenStream
+DSE_SsdIsOpenStream: ; 0x0207C990
 	stmfd sp!, {r3, lr}
 	ldr r1, _0207C9E0 ; =0x020BBEC0
 	ldrsb r1, [r1, #4]
 	cmp r1, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	cmp r0, #0
 	mvneq r0, #0xb0
 	ldmeqfd sp!, {r3, pc}
@@ -9825,10 +9821,10 @@ _0207C9D8:
 	mvn r0, #0xb0
 	ldmfd sp!, {r3, pc}
 _0207C9E0: .word unk_020BBEC0
-	arm_func_end FUN_0207c990
+	arm_func_end DSE_SsdIsOpenStream
 
-	arm_func_start FUN_0207c9e4
-FUN_0207c9e4: ; 0x0207C9E4
+	arm_func_start DSEi_InitFreeStream
+DSEi_InitFreeStream: ; 0x0207C9E4
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _0207CA20 ; =0x020BBEC0
 	mov r5, r0
@@ -9836,19 +9832,19 @@ FUN_0207c9e4: ; 0x0207C9E4
 	cmp r0, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_0207c864
+	bl DSEi_FindFreeStream
 	movs r4, r0
 	mvneq r0, #0xb4
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_0207cb7c
+	bl DSEi_InitStream
 	str r4, [r5]
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207CA20: .word unk_020BBEC0
-	arm_func_end FUN_0207c9e4
+	arm_func_end DSEi_InitFreeStream
 
-	arm_func_start FUN_0207ca24
-FUN_0207ca24: ; 0x0207CA24
+	arm_func_start DSE_SsdOpenStreamByFile
+DSE_SsdOpenStreamByFile: ; 0x0207CA24
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r0
 	mov r5, r1
@@ -9858,17 +9854,17 @@ FUN_0207ca24: ; 0x0207CA24
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CA54:
 	add r0, sp, #0
-	bl FUN_0207c9e4
+	bl DSEi_InitFreeStream
 	movs r7, r0
 	beq _0207CA78
 	mov r1, #0
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CA78:
@@ -9885,40 +9881,40 @@ _0207CA80:
 	moveq r5, #0x1000
 	ldr r0, [sp]
 	mov r1, r5
-	bl FUN_0207cf50
+	bl DSEi_InitStreamFifo
 	movs r5, r0
 	bpl _0207CAD8
 	ldr r0, [sp]
-	bl FUN_0207cd18
+	bl DSEi_ResetStream
 	mvn r4, #0xae
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CAD8:
 	ldr r0, [sp]
-	ldr r1, _0207CB60 ; =FUN_0207d734
+	ldr r1, _0207CB60 ; =DSEi_Stream_FUN_0207d734
 	mov r2, #0
 	str r1, [r0, #0x210]
 	ldr r0, [sp]
-	ldr r1, _0207CB64 ; =FUN_0207dafc
+	ldr r1, _0207CB64 ; =DSEi_Stream_FUN_0207dafc
 	str r2, [r0, #0x214]
 	ldr r0, [sp]
-	ldr r2, _0207CB68 ; =FUN_0207d75c
+	ldr r2, _0207CB68 ; =DSEi_Stream_FUN_0207d75c
 	str r1, [r0, #0x218]
 	ldr r0, [sp]
-	ldr r1, _0207CB6C ; =FUN_0207f864
+	ldr r1, _0207CB6C ; =DSEi_Stream_FUN_0207f864
 	str r2, [r0, #0x21c]
 	ldr r0, [sp]
-	ldr r2, _0207CB70 ; =FUN_0207ed28
+	ldr r2, _0207CB70 ; =DSEi_Stream_FUN_0207ed28
 	str r1, [r0, #0x220]
 	ldr r0, [sp]
-	ldr r1, _0207CB74 ; =FUN_0207ed94
+	ldr r1, _0207CB74 ; =DSEi_Stream_FUN_0207ed94
 	str r2, [r0, #0x228]
 	ldr r0, [sp]
-	ldr r2, _0207CB78 ; =FUN_0207ee04
+	ldr r2, _0207CB78 ; =DSEi_Stream_FUN_0207ee04
 	str r1, [r0, #0x22c]
 	ldr r0, [sp]
 	mov r1, #1
@@ -9932,17 +9928,17 @@ _0207CAD8:
 	ldr r0, [sp]
 	ldr r0, [r0]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0207CB60: .word FUN_0207d734
-_0207CB64: .word FUN_0207dafc
-_0207CB68: .word FUN_0207d75c
-_0207CB6C: .word FUN_0207f864
-_0207CB70: .word FUN_0207ed28
-_0207CB74: .word FUN_0207ed94
-_0207CB78: .word FUN_0207ee04
-	arm_func_end FUN_0207ca24
+_0207CB60: .word DSEi_Stream_FUN_0207d734
+_0207CB64: .word DSEi_Stream_FUN_0207dafc
+_0207CB68: .word DSEi_Stream_FUN_0207d75c
+_0207CB6C: .word DSEi_Stream_FUN_0207f864
+_0207CB70: .word DSEi_Stream_FUN_0207ed28
+_0207CB74: .word DSEi_Stream_FUN_0207ed94
+_0207CB78: .word DSEi_Stream_FUN_0207ee04
+	arm_func_end DSE_SsdOpenStreamByFile
 
-	arm_func_start FUN_0207cb7c
-FUN_0207cb7c: ; 0x0207CB7C
+	arm_func_start DSEi_InitStream
+DSEi_InitStream: ; 0x0207CB7C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, r0
 	mov r0, #0
@@ -9967,7 +9963,7 @@ FUN_0207cb7c: ; 0x0207CB7C
 	str r2, [r5, #0x40]
 	ldrsb r2, [r1, #0x49]
 	ldr r1, _0207CD00 ; =0x020BBEC0
-	ldr r4, _0207CD04 ; =FUN_0207d734
+	ldr r4, _0207CD04 ; =DSEi_Stream_FUN_0207d734
 	strb r2, [r5, #0x26]
 	strb r0, [r5, #0x2e]
 	strb r0, [r5, #0x2f]
@@ -9986,9 +9982,9 @@ FUN_0207cb7c: ; 0x0207CB7C
 	str r0, [r5, #0x1c8]
 	str r0, [r5, #0x1d4]
 	ldr r6, [r1, #0x18]
-	ldr r3, _0207CD08 ; =FUN_0207d73c
-	ldr r2, _0207CD0C ; =FUN_0207d744
-	ldr r1, _0207CD10 ; =FUN_0207f864
+	ldr r3, _0207CD08 ; =DSEi_Stream_FUN_0207d73c
+	ldr r2, _0207CD0C ; =DSEi_Stream_FUN_0207d744
+	ldr r1, _0207CD10 ; =DSEi_Stream_FUN_0207f864
 	str r2, [r5, #0x21c]
 	str r6, [r5, #0x1f8]
 	str r0, [r5, #0x30]
@@ -10044,15 +10040,15 @@ _0207CCA0:
 _0207CCF8: .word 0x0000BB80
 _0207CCFC: .word unk_020B9FD8
 _0207CD00: .word unk_020BBEC0
-_0207CD04: .word FUN_0207d734
-_0207CD08: .word FUN_0207d73c
-_0207CD0C: .word FUN_0207d744
-_0207CD10: .word FUN_0207f864
+_0207CD04: .word DSEi_Stream_FUN_0207d734
+_0207CD08: .word DSEi_Stream_FUN_0207d73c
+_0207CD0C: .word DSEi_Stream_FUN_0207d744
+_0207CD10: .word DSEi_Stream_FUN_0207f864
 _0207CD14: .word 0x0000FFFF
-	arm_func_end FUN_0207cb7c
+	arm_func_end DSEi_InitStream
 
-	arm_func_start FUN_0207cd18
-FUN_0207cd18: ; 0x0207CD18
+	arm_func_start DSEi_ResetStream
+DSEi_ResetStream: ; 0x0207CD18
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r1, _0207CDDC ; =0x04000208
 	mov r8, r0
@@ -10071,7 +10067,7 @@ _0207CD4C:
 	ldr r0, [r0, #0x1f0]
 	cmp r0, #0
 	beq _0207CD60
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 _0207CD60:
 	add r5, r5, #1
 	cmp r5, #2
@@ -10080,11 +10076,11 @@ _0207CD60:
 	mov r0, r8
 	ldrh r1, [r2]
 	strh r4, [r2]
-	bl FUN_0207cf80
+	bl DSEi_ResetStreamFifo
 	ldr r0, [r8, #0x1d4]
 	cmp r0, #0
 	beq _0207CD98
-	bl FUN_0207dc70
+	bl DSEi_StreamFree
 	mov r0, #0
 	str r0, [r8, #0x1d4]
 _0207CD98:
@@ -10098,7 +10094,7 @@ _0207CD98:
 	ldr r7, [r8, #0x210]
 	mov r1, #2
 	blx r7
-	ldr r0, _0207CDE0 ; =FUN_0207d734
+	ldr r0, _0207CDE0 ; =DSEi_Stream_FUN_0207d734
 	str r4, [r8]
 	str r0, [r8, #0x210]
 	ldrh r0, [r6]
@@ -10106,11 +10102,11 @@ _0207CD98:
 	strh r5, [r6]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207CDDC: .word 0x04000208
-_0207CDE0: .word FUN_0207d734
-	arm_func_end FUN_0207cd18
+_0207CDE0: .word DSEi_Stream_FUN_0207d734
+	arm_func_end DSEi_ResetStream
 
-	arm_func_start FUN_0207cde4
-FUN_0207cde4: ; 0x0207CDE4
+	arm_func_start DSEi_CloseAllStreams
+DSEi_CloseAllStreams: ; 0x0207CDE4
 	stmfd sp!, {r4, lr}
 	ldr r0, _0207CE18 ; =0x020BBEC0
 	ldr r4, [r0, #0x1c8]
@@ -10120,17 +10116,17 @@ _0207CDF8:
 	ldr r0, [r4]
 	cmp r0, #0
 	ble _0207CE08
-	bl FUN_0207ce1c
+	bl DSE_SsdCloseStream
 _0207CE08:
 	ldr r4, [r4, #0x358]
 	cmp r4, #0
 	bne _0207CDF8
 	ldmfd sp!, {r4, pc}
 _0207CE18: .word unk_020BBEC0
-	arm_func_end FUN_0207cde4
+	arm_func_end DSEi_CloseAllStreams
 
-	arm_func_start FUN_0207ce1c
-FUN_0207ce1c: ; 0x0207CE1C
+	arm_func_start DSE_SsdCloseStream
+DSE_SsdCloseStream: ; 0x0207CE1C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, _0207CF48 ; =0x020BBEC0
 	mov r6, r0
@@ -10139,14 +10135,14 @@ FUN_0207ce1c: ; 0x0207CE1C
 	cmp r1, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	movs r5, r0
 	bne _0207CE64
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CE64:
@@ -10170,9 +10166,9 @@ _0207CE64:
 	cmp r0, #1
 	bne _0207CEE4
 	mov r0, r6
-	bl FUN_0207d1c4
+	bl DSE_SsdStopStream
 	mov r0, r6
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	ble _0207CEE4
 	mov r7, #4
@@ -10180,7 +10176,7 @@ _0207CECC:
 	mov r0, r7
 	bl OS_Sleep
 	mov r0, r6
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	bgt _0207CECC
 _0207CEE4:
@@ -10188,7 +10184,7 @@ _0207CEE4:
 	cmp r0, #1
 	bne _0207CEF8
 	mov r0, r5
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 _0207CEF8:
 	mov r1, #1
 	strb r1, [r5, #5]
@@ -10198,7 +10194,7 @@ _0207CEF8:
 	cmp r0, #2
 	mov r0, r6
 	streqb r1, [r5, #7]
-	bl FUN_0207c990
+	bl DSE_SsdIsOpenStream
 	cmp r0, #0
 	blt _0207CF40
 	mov r4, #4
@@ -10206,7 +10202,7 @@ _0207CF28:
 	mov r0, r4
 	bl OS_Sleep
 	mov r0, r6
-	bl FUN_0207c990
+	bl DSE_SsdIsOpenStream
 	cmp r0, #0
 	bge _0207CF28
 _0207CF40:
@@ -10214,42 +10210,42 @@ _0207CF40:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CF48: .word unk_020BBEC0
 _0207CF4C: .word 0x04000208
-	arm_func_end FUN_0207ce1c
+	arm_func_end DSE_SsdCloseStream
 
-	arm_func_start FUN_0207cf50
-FUN_0207cf50: ; 0x0207CF50
+	arm_func_start DSEi_InitStreamFifo
+DSEi_InitStreamFifo: ; 0x0207CF50
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	add r0, r5, #0xe4
 	mov r4, r1
-	bl FUN_0208578c
+	bl DSEi_InitFifo
 	cmp r0, #0
-	ldrgt r1, _0207CF7C ; =FUN_0207d75c
+	ldrgt r1, _0207CF7C ; =DSEi_Stream_FUN_0207d75c
 	mvnle r0, #0
 	movgt r0, r4
 	strgt r1, [r5, #0x21c]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0207CF7C: .word FUN_0207d75c
-	arm_func_end FUN_0207cf50
+_0207CF7C: .word DSEi_Stream_FUN_0207d75c
+	arm_func_end DSEi_InitStreamFifo
 
-	arm_func_start FUN_0207cf80
-FUN_0207cf80: ; 0x0207CF80
+	arm_func_start DSEi_ResetStreamFifo
+DSEi_ResetStreamFifo: ; 0x0207CF80
 	stmfd sp!, {r3, lr}
 	add r0, r0, #0xe4
-	bl FUN_020857cc
+	bl DSEi_ResetFifo
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0207cf80
+	arm_func_end DSEi_ResetStreamFifo
 
-	arm_func_start FUN_0207cf94
-FUN_0207cf94: ; 0x0207CF94
+	arm_func_start DSE_SsdIsPlayStream
+DSE_SsdIsPlayStream: ; 0x0207CF94
 	stmfd sp!, {r3, lr}
 	ldr r1, _0207CFE0 ; =0x020BBEC0
 	ldrsb r1, [r1, #4]
 	cmp r1, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	cmp r0, #0
 	mvneq r0, #0x3f
 	ldmeqfd sp!, {r3, pc}
@@ -10263,10 +10259,10 @@ FUN_0207cf94: ; 0x0207CF94
 	mov r0, r2
 	ldmfd sp!, {r3, pc}
 _0207CFE0: .word unk_020BBEC0
-	arm_func_end FUN_0207cf94
+	arm_func_end DSE_SsdIsPlayStream
 
-	arm_func_start FUN_0207cfe4
-FUN_0207cfe4: ; 0x0207CFE4
+	arm_func_start DSE_SsdPlayStream
+DSE_SsdPlayStream: ; 0x0207CFE4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, _0207D170 ; =0x020BBEC0
 	mov r8, r0
@@ -10277,14 +10273,14 @@ FUN_0207cfe4: ; 0x0207CFE4
 	mov r4, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	movs r5, r0
 	bne _0207D034
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r8
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207D034:
@@ -10302,7 +10298,7 @@ _0207D034:
 	ldrh r1, [r7, #0xc]
 	ldrh r2, [r7, #0xe]
 	mov r0, r5
-	bl FUN_0207d42c
+	bl DSEi_SetStreamVolume
 	ldr r1, _0207D174 ; =0x04000208
 	ldrh r0, [r1]
 	strh r6, [r1]
@@ -10314,7 +10310,7 @@ _0207D080:
 	strb r4, [r5, #0x13]
 	ldrh r0, [r7, #0xc]
 	strb r0, [r5, #0x2e]
-	bl FUN_02074f80
+	bl DSEi_IsPaused
 	strb r0, [r5, #0x12]
 	str r4, [r5, #0x30]
 	strh r4, [r5, #0x3c]
@@ -10324,7 +10320,7 @@ _0207D080:
 	bne _0207D0C4
 	mov r0, r8
 	mov r1, r4
-	bl FUN_0207d4ec
+	bl DSE_SsdSetStreamPlayPositionBySize
 _0207D0C4:
 	ldrsb r0, [r5, #0x12]
 	cmp r0, #0
@@ -10355,7 +10351,7 @@ _0207D0C4:
 _0207D12C:
 	mov r0, r5
 	strh r6, [r5, #0x3c]
-	bl FUN_0207e590
+	bl DSEi_Stream_FUN_0207e590
 	mov r0, #1
 	strb r0, [r5, #0xb]
 	mov r0, #6
@@ -10376,10 +10372,10 @@ _0207D168:
 _0207D170: .word unk_020BBEC0
 _0207D174: .word 0x04000208
 _0207D178: .word unk_020B9FD8
-	arm_func_end FUN_0207cfe4
+	arm_func_end DSE_SsdPlayStream
 
-	arm_func_start FUN_0207d17c
-FUN_0207d17c: ; 0x0207D17C
+	arm_func_start DSEi_StopStreamALl
+DSEi_StopStreamALl: ; 0x0207D17C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _0207D1C0 ; =0x020BBEC0
 	mov r5, r0
@@ -10392,7 +10388,7 @@ _0207D194:
 	bne _0207D1AC
 	ldr r0, [r4]
 	mov r1, r5
-	bl FUN_0207d1c4
+	bl DSE_SsdStopStream
 _0207D1AC:
 	ldr r4, [r4, #0x358]
 	cmp r4, #0
@@ -10401,10 +10397,10 @@ _0207D1B8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207D1C0: .word unk_020BBEC0
-	arm_func_end FUN_0207d17c
+	arm_func_end DSEi_StopStreamALl
 
-	arm_func_start FUN_0207d1c4
-FUN_0207d1c4: ; 0x0207D1C4
+	arm_func_start DSE_SsdStopStream
+DSE_SsdStopStream: ; 0x0207D1C4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, _0207D2BC ; =0x020BBEC0
 	mov r6, r0
@@ -10414,14 +10410,14 @@ FUN_0207d1c4: ; 0x0207D1C4
 	cmp r2, #0
 	mvneq r0, #0x59
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	movs r5, r0
 	bne _0207D210
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D210:
@@ -10444,7 +10440,7 @@ _0207D240:
 	strb r4, [r5, #0xa]
 	mov r0, r5
 	strb r4, [r5, #0xd]
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 	str r4, [r5, #0x30]
 	strh r4, [r5, #0x3c]
 	ldr r0, [r5]
@@ -10474,10 +10470,10 @@ _0207D2B4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D2BC: .word unk_020BBEC0
 _0207D2C0: .word unk_020B9FD8
-	arm_func_end FUN_0207d1c4
+	arm_func_end DSE_SsdStopStream
 
-	arm_func_start FUN_0207d2c4
-FUN_0207d2c4: ; 0x0207D2C4
+	arm_func_start DSEi_FUN_0207d2c4
+DSEi_FUN_0207d2c4: ; 0x0207D2C4
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r3, #0x3e8
 	mov r5, r0
@@ -10499,7 +10495,7 @@ FUN_0207d2c4: ; 0x0207D2C4
 	cmp r0, #1
 	bne _0207D3D8
 	mov r0, r5
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 	ldr r0, [r5]
 	ldr r3, [r5, #0x214]
 	ldr r4, [r5, #0x210]
@@ -10550,38 +10546,38 @@ _0207D3B0:
 	bne _0207D3D8
 	mov r0, r5
 	strb r1, [r5, #0x14]
-	bl FUN_0207e590
+	bl DSEi_Stream_FUN_0207e590
 _0207D3D8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207D3E0: .word unk_020B9FD8
-	arm_func_end FUN_0207d2c4
+	arm_func_end DSEi_FUN_0207d2c4
 
-	arm_func_start FUN_0207d3e4
-FUN_0207d3e4: ; 0x0207D3E4
+	arm_func_start DSE_SsdSetStreamParam
+DSE_SsdSetStreamParam: ; 0x0207D3E4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	cmp r0, #0
 	bne _0207D418
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207D418:
 	ldrh r1, [r4, #0xc]
 	ldrh r2, [r4, #0xe]
-	bl FUN_0207d42c
+	bl DSEi_SetStreamVolume
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0207d3e4
+	arm_func_end DSE_SsdSetStreamParam
 
-	arm_func_start FUN_0207d42c
-FUN_0207d42c: ; 0x0207D42C
+	arm_func_start DSEi_SetStreamVolume
+DSEi_SetStreamVolume: ; 0x0207D42C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	ldrsb r0, [r4, #0x12]
@@ -10618,41 +10614,41 @@ _0207D4A4:
 	cmp r5, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	mov r0, r4
-	bl FUN_0207d9f4
+	bl DSEi_FUN_0207d9f4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207D4BC: .word unk_020B9FD8
-	arm_func_end FUN_0207d42c
+	arm_func_end DSEi_SetStreamVolume
 
-	arm_func_start FUN_0207d4c0
-FUN_0207d4c0: ; 0x0207D4C0
+	arm_func_start DSE_SsdSetStreamPlayPositionByTime
+DSE_SsdSetStreamPlayPositionByTime: ; 0x0207D4C0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0207d690
+	bl DSE_SsdGetStreamSizeByTime
 	movs r1, r0
 	bmi _0207D4E4
 	mov r0, r4
 	bic r1, r1, #0xff
-	bl FUN_0207d4ec
+	bl DSE_SsdSetStreamPlayPositionBySize
 	mov r1, r0
 _0207D4E4:
 	mov r0, r1
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207d4c0
+	arm_func_end DSE_SsdSetStreamPlayPositionByTime
 
-	arm_func_start FUN_0207d4ec
-FUN_0207d4ec: ; 0x0207D4EC
+	arm_func_start DSE_SsdSetStreamPlayPositionBySize
+DSE_SsdSetStreamPlayPositionBySize: ; 0x0207D4EC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
 	mov r4, #0
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	movs r5, r0
 	bne _0207D524
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D524:
@@ -10661,7 +10657,7 @@ _0207D524:
 	mov r1, r6
 	mvn r0, #0x17
 	mov r2, r4
-	bl Dse_SetError2
+	bl DSEi_SetError2
 	bic r6, r6, #0xff
 _0207D540:
 	cmp r6, #0
@@ -10673,14 +10669,14 @@ _0207D540:
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D570:
 	mov r1, #1
 	add r0, r5, #0xe4
 	strb r1, [r5, #0x14]
-	bl FUN_020857f4
+	bl DSEi_ResetFifoBuffer
 	cmp r6, #0
 	movlt r6, #0
 	blt _0207D5A0
@@ -10757,21 +10753,21 @@ _0207D678:
 	strh r1, [r3]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D68C: .word 0x04000208
-	arm_func_end FUN_0207d4ec
+	arm_func_end DSE_SsdSetStreamPlayPositionBySize
 
-	arm_func_start FUN_0207d690
-FUN_0207d690: ; 0x0207D690
+	arm_func_start DSE_SsdGetStreamSizeByTime
+DSE_SsdGetStreamSizeByTime: ; 0x0207D690
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
-	bl FUN_0207da9c
+	bl DSEi_GetStreamById
 	movs r4, r0
 	bne _0207D6C4
 	mvn r4, #0x3f
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207D6C4:
@@ -10807,32 +10803,32 @@ _0207D6F4:
 _0207D728: .word 0x00003FEC
 _0207D72C: .word 0x00007FD8
 _0207D730: .word 0x0000BB80
-	arm_func_end FUN_0207d690
+	arm_func_end DSE_SsdGetStreamSizeByTime
 
-	arm_func_start FUN_0207d734
-FUN_0207d734: ; 0x0207D734
+	arm_func_start DSEi_Stream_FUN_0207d734
+DSEi_Stream_FUN_0207d734: ; 0x0207D734
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0207d734
+	arm_func_end DSEi_Stream_FUN_0207d734
 
-	arm_func_start FUN_0207d73c
-FUN_0207d73c: ; 0x0207D73C
+	arm_func_start DSEi_Stream_FUN_0207d73c
+DSEi_Stream_FUN_0207d73c: ; 0x0207D73C
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0207d73c
+	arm_func_end DSEi_Stream_FUN_0207d73c
 
-	arm_func_start FUN_0207d744
-FUN_0207d744: ; 0x0207D744
+	arm_func_start DSEi_Stream_FUN_0207d744
+DSEi_Stream_FUN_0207d744: ; 0x0207D744
 	stmfd sp!, {r4, lr}
 	mov r4, #0
 	mov r0, r4
 	bl MIi_CpuClearFast
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0207d744
+	arm_func_end DSEi_Stream_FUN_0207d744
 
-	arm_func_start FUN_0207d75c
-FUN_0207d75c: ; 0x0207D75C
+	arm_func_start DSEi_Stream_FUN_0207d75c
+DSEi_Stream_FUN_0207d75c: ; 0x0207D75C
 	stmfd sp!, {r3, lr}
 	ldrsb r3, [r0, #8]
 	cmp r3, #0
@@ -10840,12 +10836,12 @@ FUN_0207d75c: ; 0x0207D75C
 	ldmeqfd sp!, {r3, pc}
 	add r0, r0, #0xe4
 	mov r3, #0
-	bl FUN_020858bc
+	bl DSEi_FifoRead
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0207d75c
+	arm_func_end DSEi_Stream_FUN_0207d75c
 
-	arm_func_start FUN_0207d780
-FUN_0207d780: ; 0x0207D780
+	arm_func_start DSEi_Stream_FUN_0207d780
+DSEi_Stream_FUN_0207d780: ; 0x0207D780
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, _0207D830 ; =0x020BBEC0
 	ldr r4, [r0, #0x1c8]
@@ -10872,7 +10868,7 @@ _0207D79C:
 	str r0, [r4, #0x30]
 	ldrh r7, [r4, #0x3c]
 	mov r0, r4
-	bl FUN_0207d9f4
+	bl DSEi_FUN_0207d9f4
 	cmp r7, #0
 	ldreqsb r0, [r4, #0x13]
 	cmpeq r0, #1
@@ -10880,7 +10876,7 @@ _0207D79C:
 	strb r6, [r4, #0xa]
 	mov r0, r4
 	strb r6, [r4, #0x13]
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 	ldr r0, [r4]
 	ldr r3, [r4, #0x214]
 	ldr r12, [r4, #0x210]
@@ -10893,10 +10889,10 @@ _0207D820:
 	bne _0207D79C
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D830: .word unk_020BBEC0
-	arm_func_end FUN_0207d780
+	arm_func_end DSEi_Stream_FUN_0207d780
 
-	arm_func_start FUN_0207d834
-FUN_0207d834: ; 0x0207D834
+	arm_func_start DSEi_Stream_FUN_0207d834
+DSEi_Stream_FUN_0207d834: ; 0x0207D834
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r10, r0
@@ -10930,10 +10926,10 @@ FUN_0207d834: ; 0x0207D834
 	add r7, sp, #0
 _0207D8B0:
 	mov r0, r7
-	bl FUN_0207b40c
+	bl DSEi_FUN_0207b40c
 	movs r6, r0
 	beq _0207D8E4
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 	strh r5, [r6, #6]
 	add r0, r10, r8, lsl #2
 	strb r4, [r6, #0x14e]
@@ -10955,10 +10951,10 @@ _0207D8F4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207D908: .word unk_020BBEC0
 _0207D90C: .word 0x04000208
-	arm_func_end FUN_0207d834
+	arm_func_end DSEi_Stream_FUN_0207d834
 
-	arm_func_start FUN_0207d910
-FUN_0207d910: ; 0x0207D910
+	arm_func_start DSEi_Stream_FUN_0207d910
+DSEi_Stream_FUN_0207d910: ; 0x0207D910
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldrb r8, [r0, #0x22]
 	ldr r5, [r0, #0x1c0]
@@ -10982,7 +10978,7 @@ FUN_0207d910: ; 0x0207D910
 	mov r9, #0
 	add r0, r5, r11
 	str r9, [r4, #0x10]
-	bl FUN_0207dbf4
+	bl DSEi_StreamAlloc
 	movs r1, r0
 	str r1, [r4, #0x14]
 	bne _0207D998
@@ -10990,7 +10986,7 @@ FUN_0207d910: ; 0x0207D910
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207D998:
@@ -11019,10 +11015,10 @@ _0207D9DC:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207D9F0: .word 0x6F697473
-	arm_func_end FUN_0207d910
+	arm_func_end DSEi_Stream_FUN_0207d910
 
-	arm_func_start FUN_0207d9f4
-FUN_0207d9f4: ; 0x0207D9F4
+	arm_func_start DSEi_FUN_0207d9f4
+DSEi_FUN_0207d9f4: ; 0x0207D9F4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, [r0, #0x30]
 	ldrb r2, [r0, #0xc4]
@@ -11067,10 +11063,10 @@ _0207DA80:
 _0207DA90: .word 0x04000208
 _0207DA94: .word 0x82061029
 _0207DA98: .word 0x81020409
-	arm_func_end FUN_0207d9f4
+	arm_func_end DSEi_FUN_0207d9f4
 
-	arm_func_start FUN_0207da9c
-FUN_0207da9c: ; 0x0207DA9C
+	arm_func_start DSEi_GetStreamById
+DSEi_GetStreamById: ; 0x0207DA9C
 	cmp r0, #0
 	moveq r0, #0
 	bxeq lr
@@ -11097,16 +11093,16 @@ _0207DAE0:
 	bx lr
 _0207DAF4: .word 0x04000208
 _0207DAF8: .word unk_020BBEC0
-	arm_func_end FUN_0207da9c
+	arm_func_end DSEi_GetStreamById
 
-	arm_func_start FUN_0207dafc
-FUN_0207dafc: ; 0x0207DAFC
+	arm_func_start DSEi_Stream_FUN_0207dafc
+DSEi_Stream_FUN_0207dafc: ; 0x0207DAFC
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0207dafc
+	arm_func_end DSEi_Stream_FUN_0207dafc
 
-	arm_func_start FUN_0207db04
-FUN_0207db04: ; 0x0207DB04
+	arm_func_start DSEi_Stream_UpdateVolumeAndPan
+DSEi_Stream_UpdateVolumeAndPan: ; 0x0207DB04
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, _0207DBE4 ; =0x020BBEC0
 	ldr r0, [r0, #0x1c8]
@@ -11171,10 +11167,10 @@ _0207DBE4: .word unk_020BBEC0
 _0207DBE8: .word 0x82061029
 _0207DBEC: .word 0x81020409
 _0207DBF0: .word unk_020B9FD8
-	arm_func_end FUN_0207db04
+	arm_func_end DSEi_Stream_UpdateVolumeAndPan
 
-	arm_func_start FUN_0207dbf4
-FUN_0207dbf4: ; 0x0207DBF4
+	arm_func_start DSEi_StreamAlloc
+DSEi_StreamAlloc: ; 0x0207DBF4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	add r0, r5, #0x1f
@@ -11206,10 +11202,10 @@ _0207DC60: .word unk_020BBEC0
 _0207DC64: .word 0x6D727473
 _0207DC68: .word 0x00007074
 _0207DC6C: .word 0x00007462
-	arm_func_end FUN_0207dbf4
+	arm_func_end DSEi_StreamAlloc
 
-	arm_func_start FUN_0207dc70
-FUN_0207dc70: ; 0x0207DC70
+	arm_func_start DSEi_StreamFree
+DSEi_StreamFree: ; 0x0207DC70
 	stmfd sp!, {r4, lr}
 	ldr r1, _0207DC94 ; =0x020BBEC0
 	mov r4, r0
@@ -11220,10 +11216,10 @@ FUN_0207dc70: ; 0x0207DC70
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207DC94: .word unk_020BBEC0
-	arm_func_end FUN_0207dc70
+	arm_func_end DSEi_StreamFree
 
-	arm_func_start FUN_0207dc98
-FUN_0207dc98: ; 0x0207DC98
+	arm_func_start DSEi_FUN_0207dc98
+DSEi_FUN_0207dc98: ; 0x0207DC98
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x100
 	str r2, [sp]
@@ -11375,10 +11371,10 @@ _0207DE84:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207DED0: .word 0x400921FB
 _0207DED4: .word 0x40E00000
-	arm_func_end FUN_0207dc98
+	arm_func_end DSEi_FUN_0207dc98
 
-	arm_func_start FUN_0207ded8
-FUN_0207ded8: ; 0x0207DED8
+	arm_func_start DSEi_FUN_0207ded8
+DSEi_FUN_0207ded8: ; 0x0207DED8
 	stmfd sp!, {r3, lr}
 	ldr r3, _0207DF0C ; =0x020BBEC0
 	cmp r1, #0
@@ -11394,10 +11390,10 @@ _0207DEF0:
 	blt _0207DEF0
 	ldmfd sp!, {r3, pc}
 _0207DF0C: .word unk_020BBEC0
-	arm_func_end FUN_0207ded8
+	arm_func_end DSEi_FUN_0207ded8
 
-	arm_func_start FUN_0207df10
-FUN_0207df10: ; 0x0207DF10
+	arm_func_start DSEi_StreamAlarmCallback
+DSEi_StreamAlarmCallback: ; 0x0207DF10
 	stmfd sp!, {r3, lr}
 	ldr r0, _0207DF38 ; =0x020BBEC0
 	ldrsb r1, [r0, #0x26]
@@ -11410,10 +11406,10 @@ FUN_0207df10: ; 0x0207DF10
 	ldmfd sp!, {r3, pc}
 _0207DF38: .word unk_020BBEC0
 _0207DF3C: .word unk_020BBEE8
-	arm_func_end FUN_0207df10
+	arm_func_end DSEi_StreamAlarmCallback
 
-	arm_func_start FUN_0207df40
-FUN_0207df40: ; 0x0207DF40
+	arm_func_start DSEi_StartStreamThreads
+DSEi_StartStreamThreads: ; 0x0207DF40
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #8
 	ldr r7, _0207E028 ; =0x64737473
@@ -11422,7 +11418,7 @@ FUN_0207df40: ; 0x0207DF40
 	mov r0, r5
 	mov r1, r8
 	mov r2, r7
-	bl DseMem_AllocateLastFit
+	bl DSEi_AllocateLastFit
 	ldr r6, _0207E02C ; =0x020BBEC0
 	cmp r0, #0
 	str r0, [r6, #0xe8]
@@ -11436,7 +11432,7 @@ FUN_0207df40: ; 0x0207DF40
 	mov r1, r8
 	sub r2, r7, #0xf2000000
 	strb r4, [r6, #0x27]
-	bl DseMem_AllocateLastFit
+	bl DSEi_AllocateLastFit
 	cmp r0, #0
 	str r0, [r6, #0x1b4]
 	addeq sp, sp, #8
@@ -11448,7 +11444,7 @@ FUN_0207df40: ; 0x0207DF40
 	str r5, [sp]
 	ldrb r0, [r6, #0x24]
 	ldr r7, _0207E030 ; =0x020BBEE8
-	ldr r1, _0207E034 ; =FUN_0207e0b8
+	ldr r1, _0207E034 ; =DSEi_StreamDataThreadFunc
 	str r0, [sp, #4]
 	ldr r3, [r6, #0xe8]
 	mov r0, r7
@@ -11460,7 +11456,7 @@ FUN_0207df40: ; 0x0207DF40
 	str r5, [sp]
 	ldrb r0, [r6, #0xf0]
 	ldr r5, _0207E038 ; =0x020BBFB4
-	ldr r1, _0207E03C ; =FUN_0207e23c
+	ldr r1, _0207E03C ; =DSEi_StreamReadThreadFunc
 	str r0, [sp, #4]
 	ldr r3, [r6, #0x1b4]
 	mov r0, r5
@@ -11475,13 +11471,13 @@ FUN_0207df40: ; 0x0207DF40
 _0207E028: .word 0x64737473
 _0207E02C: .word unk_020BBEC0
 _0207E030: .word unk_020BBEE8
-_0207E034: .word FUN_0207e0b8
+_0207E034: .word DSEi_StreamDataThreadFunc
 _0207E038: .word unk_020BBFB4
-_0207E03C: .word FUN_0207e23c
-	arm_func_end FUN_0207df40
+_0207E03C: .word DSEi_StreamReadThreadFunc
+	arm_func_end DSEi_StartStreamThreads
 
-	arm_func_start FUN_0207e040
-FUN_0207e040: ; 0x0207E040
+	arm_func_start DSEi_QuitStreamThreads
+DSEi_QuitStreamThreads: ; 0x0207E040
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, _0207E0A8 ; =0x020B9FD8
 	ldr r5, _0207E0AC ; =0x020BBEE8
@@ -11512,10 +11508,10 @@ _0207E0A8: .word unk_020B9FD8
 _0207E0AC: .word unk_020BBEE8
 _0207E0B0: .word unk_020BBEC0
 _0207E0B4: .word unk_020BBFB4
-	arm_func_end FUN_0207e040
+	arm_func_end DSEi_QuitStreamThreads
 
-	arm_func_start FUN_0207e0b8
-FUN_0207e0b8: ; 0x0207E0B8
+	arm_func_start DSEi_StreamDataThreadFunc
+DSEi_StreamDataThreadFunc: ; 0x0207E0B8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r4, _0207E238 ; =0x020BBEC0
 	add r0, r4, #0x100
@@ -11583,7 +11579,7 @@ _0207E1A4:
 	ldr r1, [r10, r9, lsl #2]
 	ldr r2, [r8, #0x1c8]
 	add r0, r6, r9, lsl #2
-	bl FUN_0207f55c
+	bl DSEi_FUN_0207f55c_GetMinMaxSamples
 	ldrb r0, [r8, #0x22]
 	add r9, r9, #1
 	cmp r9, r0
@@ -11620,16 +11616,12 @@ _0207E1FC:
 	add r0, r0, r1
 	str r0, [r5, #0x1e8]
 	b _0207E0E8
-	arm_func_end FUN_0207e0b8
-
-	arm_func_start FUN_0207e234
-FUN_0207e234: ; 0x0207E234
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207E238: .word unk_020BBEC0
-	arm_func_end FUN_0207e234
+	arm_func_end DSEi_StreamDataThreadFunc
 
-	arm_func_start FUN_0207e23c
-FUN_0207e23c: ; 0x0207E23C
+	arm_func_start DSEi_StreamReadThreadFunc
+DSEi_StreamReadThreadFunc: ; 0x0207E23C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r8, _0207E2DC ; =0x020BBEC0
 	mov r0, #1
@@ -11660,29 +11652,25 @@ _0207E290:
 	cmp r0, #1
 	bne _0207E2B0
 	mov r0, r7
-	bl FUN_0207e2e0
+	bl DSEi_Stream_FUN_0207e2e0
 _0207E2B0:
 	ldrsb r0, [r7, #7]
 	cmp r0, #1
 	bne _0207E2C8
 	mov r0, r7
 	strb r9, [r7, #7]
-	bl FUN_0207cd18
+	bl DSEi_ResetStream
 _0207E2C8:
 	ldr r7, [r7, #0x358]
 	cmp r7, #0
 	bne _0207E290
 	b _0207E25C
-	arm_func_end FUN_0207e23c
-
-	arm_func_start FUN_0207e2d8
-FUN_0207e2d8: ; 0x0207E2D8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207E2DC: .word unk_020BBEC0
-	arm_func_end FUN_0207e2d8
+	arm_func_end DSEi_StreamReadThreadFunc
 
-	arm_func_start FUN_0207e2e0
-FUN_0207e2e0: ; 0x0207E2E0
+	arm_func_start DSEi_Stream_FUN_0207e2e0
+DSEi_Stream_FUN_0207e2e0: ; 0x0207E2E0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r6, r0
 	ldrsb r1, [r6, #0x10]
@@ -11731,14 +11719,14 @@ _0207E34C:
 	blt _0207E470
 	ldr r1, [r7, #0x18]
 	mov r0, r6
-	bl FUN_0207e89c
+	bl DSEi_Stream_FUN_0207e89c
 	cmp r0, #0
 	strneb r5, [r6, #0x2f]
 	bne _0207E470
 	ldr r1, [r7, #0x18]
 	mov r0, r6
 	add r1, r1, #0x80
-	bl FUN_0207ebe4
+	bl DSEi_Stream_FUN_0207ebe4
 	mov r8, #5
 	ldr r0, [r6]
 	ldr r3, [r6, #0x214]
@@ -11785,7 +11773,7 @@ _0207E424:
 _0207E458:
 	mov r0, r6
 	strh r7, [r6, #0x3c]
-	bl FUN_0207e590
+	bl DSEi_Stream_FUN_0207e590
 	mov r0, #6
 	strb r4, [r6, #0xb]
 	strb r0, [r6, #0x2f]
@@ -11832,7 +11820,7 @@ _0207E470:
 	add r0, r6, #0xe4
 	strh r5, [r9]
 	ldr r1, [r7, #0x1c]
-	bl FUN_02085810
+	bl DSEi_FifoWrite
 	ldrh r0, [r9]
 	strh r8, [r9]
 	ldr r0, [r6, #0x50]
@@ -11864,10 +11852,10 @@ _0207E564:
 _0207E584: .word unk_020BBEC0
 _0207E588: .word unk_020B9FD8
 _0207E58C: .word 0x04000208
-	arm_func_end FUN_0207e2e0
+	arm_func_end DSEi_Stream_FUN_0207e2e0
 
-	arm_func_start FUN_0207e590
-FUN_0207e590: ; 0x0207E590
+	arm_func_start DSEi_Stream_FUN_0207e590
+DSEi_Stream_FUN_0207e590: ; 0x0207E590
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	mov r10, r0
@@ -11903,13 +11891,13 @@ _0207E5F8:
 	cmp r6, r1
 	blt _0207E5F8
 _0207E614:
-	bl FUN_0207f640
+	bl DSEi_FUN_0207f640
 	strb r4, [r10, #0x14]
 _0207E61C:
 	mov r8, #0
 	mov r0, r10
 	strb r8, [r5, #0x3c]
-	bl FUN_0207d834
+	bl DSEi_Stream_FUN_0207d834
 	ldr r1, [r10, #0x40]
 	ldr r0, _0207E7F0 ; =0x00FFB0FF
 	bl _u32_div_f
@@ -11919,7 +11907,7 @@ _0207E61C:
 	mul r1, r4, r1
 	mov r1, r1, lsr #6
 	str r0, [sp]
-	ldr r3, _0207E7F8 ; =FUN_0207df10
+	ldr r3, _0207E7F8 ; =DSEi_StreamAlarmCallback
 	mov r0, #2
 	mov r2, r1
 	bl SND_SetupAlarm
@@ -11987,9 +11975,9 @@ _0207E6CC:
 _0207E750:
 	add r0, r6, #0x3c
 	mov r1, r11
-	bl DseEnvelope_ForceVolume
+	bl DSEi_ForceEnvelopeVolume
 	add r0, r6, #0x5c
-	bl DseLfoBank_Reset
+	bl DSEi_LfoBank_Reset
 	mov r0, #1
 	strh r0, [r6, #6]
 	ldrb r0, [r10, #0x23]
@@ -12030,15 +12018,15 @@ _0207E7E4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207E7F0: .word 0x00FFB0FF
 _0207E7F4: .word unk_020BBEC0
-_0207E7F8: .word FUN_0207df10
+_0207E7F8: .word DSEi_StreamAlarmCallback
 _0207E7FC: .word 0x82061029
 _0207E800: .word 0x81020409
 _0207E804: .word 0x04000208
 _0207E808: .word unk_020B9FD8
-	arm_func_end FUN_0207e590
+	arm_func_end DSEi_Stream_FUN_0207e590
 
-	arm_func_start FUN_0207e80c
-FUN_0207e80c: ; 0x0207E80C
+	arm_func_start DSEi_Stream_FUN_0207e80c
+DSEi_Stream_FUN_0207e80c: ; 0x0207E80C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r1, _0207E894 ; =0x04000208
 	mov r4, #0
@@ -12060,7 +12048,7 @@ _0207E850:
 	add r0, r6, r4, lsl #2
 	ldr r0, [r0, #0x1f0]
 	strh r7, [r0, #6]
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 	ldrb r0, [r6, #0x23]
 	add r4, r4, #1
 	cmp r4, r0
@@ -12077,10 +12065,10 @@ _0207E870:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207E894: .word 0x04000208
 _0207E898: .word unk_020B9FD8
-	arm_func_end FUN_0207e80c
+	arm_func_end DSEi_Stream_FUN_0207e80c
 
-	arm_func_start FUN_0207e89c
-FUN_0207e89c: ; 0x0207E89C
+	arm_func_start DSEi_Stream_FUN_0207e89c
+DSEi_Stream_FUN_0207e89c: ; 0x0207E89C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x10
 	mov r4, #0x80
@@ -12141,13 +12129,13 @@ _0207E970:
 	ldrsb r0, [r6, #0x27]
 	cmp r0, #0
 	bne _0207E98C
-	ldr r3, _0207EBB0 ; =FUN_0207f934
+	ldr r3, _0207EBB0 ; =DSEi_Stream_FUN_0207f934
 	mov r2, #0x20
 	mov r0, #0x40
 _0207E988:
 	b _0207EA1C
 _0207E98C:
-	ldr r3, _0207EBB4 ; =FUN_0207fa78
+	ldr r3, _0207EBB4 ; =DSEi_Stream_FUN_0207fa78
 	mov r2, #0x1e
 	mov r0, #0x3c
 	b _0207E988
@@ -12155,19 +12143,19 @@ _0207E99C:
 	ldrsb r0, [r6, #0x27]
 	cmp r0, #0
 	bne _0207E9C0
-	ldr r2, _0207EBB8 ; =FUN_0207fbd8
+	ldr r2, _0207EBB8 ; =DSEi_Stream_FUN_0207fbd8
 	mov r0, #0x40
 	str r2, [r6, #0x220]
 	str r0, [r6, #0x200]
 	str r4, [r6, #0x204]
 	b _0207EA40
 _0207E9C0:
-	ldr r3, _0207EBBC ; =FUN_0207fd6c
+	ldr r3, _0207EBBC ; =DSEi_Stream_FUN_0207fd6c
 	mov r2, #0x3c
 	mov r0, #0x78
 	b _0207E988
 _0207E9D0:
-	ldr r2, _0207EBC0 ; =FUN_0207ff60
+	ldr r2, _0207EBC0 ; =DSEi_Stream_FUN_0207ff60
 	mov r1, #0x1e
 	mov r0, #0x3c
 	str r1, [r6, #0x200]
@@ -12176,7 +12164,7 @@ _0207E9D0:
 	mov r1, r7
 	b _0207EA40
 _0207E9F0:
-	ldr r2, _0207EBC4 ; =FUN_0208012c
+	ldr r2, _0207EBC4 ; =DSEi_Stream_FUN_0208012c
 	mov r1, #0x3c
 	mov r0, #0x78
 	str r2, [r6, #0x220]
@@ -12185,7 +12173,7 @@ _0207E9F0:
 	ldr r1, _0207EBC8 ; =0x00001770
 	b _0207EA40
 _0207EA10:
-	ldr r3, _0207EBCC ; =FUN_0207f710
+	ldr r3, _0207EBCC ; =DSEi_Stream_FUN_0207f710
 _0207EA14:
 	mov r2, #0x280
 	mov r0, #0x500
@@ -12195,7 +12183,7 @@ _0207EA1C:
 	str r0, [r6, #0x204]
 	b _0207EA40
 _0207EA2C:
-	ldr r3, _0207EBD0 ; =FUN_0207f85c
+	ldr r3, _0207EBD0 ; =DSEi_Stream_FUN_0207f85c
 	b _0207EA14
 _0207EA34:
 	add sp, sp, #0x10
@@ -12236,7 +12224,7 @@ _0207EA84:
 	ldr r1, [r6, #0x1c0]
 	mov r0, r4
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	add sp, sp, #0x10
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -12248,12 +12236,12 @@ _0207EACC:
 	ldr r1, [r6, #0x1c0]
 	mov r0, r4
 	mov r2, #0
-	bl Dse_SetError
+	bl DSEi_SetError
 	add sp, sp, #0x10
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207EAF8:
-	ldr r0, _0207EBD8 ; =FUN_0207f3e0
+	ldr r0, _0207EBD8 ; =DSEi_Stream_FUN_0207f3e0
 	str r3, [r6, #0x1c0]
 	b _0207EB20
 _0207EB04:
@@ -12261,9 +12249,9 @@ _0207EB04:
 	ldrsb r2, [r6, #0xc]
 	ldr r0, [r0, #0x20]
 	str r0, [r6, #0x1c0]
-	ldr r0, _0207EBDC ; =FUN_0207eed4
+	ldr r0, _0207EBDC ; =DSEi_Stream_FUN_0207eed4
 	cmp r2, #1
-	ldrne r0, _0207EBE0 ; =FUN_0207f160
+	ldrne r0, _0207EBE0 ; =DSEi_Stream_FUN_0207f160
 _0207EB20:
 	str r0, [r6, #0x218]
 	ldrb r0, [r6, #0x95]
@@ -12290,35 +12278,35 @@ _0207EB20:
 	mov r2, r4
 	mov r3, #0
 	str r5, [sp]
-	bl FUN_0207dc98
+	bl DSEi_FUN_0207dc98
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0207ded8
+	bl DSEi_FUN_0207ded8
 _0207EB94:
 	mov r0, r6
-	bl FUN_0207d910
+	bl DSEi_Stream_FUN_0207d910
 	mov r0, #0
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207EBA8: .word unk_020BA020
 _0207EBAC: .word 0x00007FD8
-_0207EBB0: .word FUN_0207f934
-_0207EBB4: .word FUN_0207fa78
-_0207EBB8: .word FUN_0207fbd8
-_0207EBBC: .word FUN_0207fd6c
-_0207EBC0: .word FUN_0207ff60
-_0207EBC4: .word FUN_0208012c
+_0207EBB0: .word DSEi_Stream_FUN_0207f934
+_0207EBB4: .word DSEi_Stream_FUN_0207fa78
+_0207EBB8: .word DSEi_Stream_FUN_0207fbd8
+_0207EBBC: .word DSEi_Stream_FUN_0207fd6c
+_0207EBC0: .word DSEi_Stream_FUN_0207ff60
+_0207EBC4: .word DSEi_Stream_FUN_0208012c
 _0207EBC8: .word 0x00001770
-_0207EBCC: .word FUN_0207f710
-_0207EBD0: .word FUN_0207f85c
+_0207EBCC: .word DSEi_Stream_FUN_0207f710
+_0207EBD0: .word DSEi_Stream_FUN_0207f85c
 _0207EBD4: .word unk_020BBEC0
-_0207EBD8: .word FUN_0207f3e0
-_0207EBDC: .word FUN_0207eed4
-_0207EBE0: .word FUN_0207f160
-	arm_func_end FUN_0207e89c
+_0207EBD8: .word DSEi_Stream_FUN_0207f3e0
+_0207EBDC: .word DSEi_Stream_FUN_0207eed4
+_0207EBE0: .word DSEi_Stream_FUN_0207f160
+	arm_func_end DSEi_Stream_FUN_0207e89c
 
-	arm_func_start FUN_0207ebe4
-FUN_0207ebe4: ; 0x0207EBE4
+	arm_func_start DSEi_Stream_FUN_0207ebe4
+DSEi_Stream_FUN_0207ebe4: ; 0x0207EBE4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov lr, r0
 	ldrb r0, [lr, #0x21]
@@ -12410,10 +12398,10 @@ _0207ED18:
 	strb r0, [lr, #8]
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0207ebe4
+	arm_func_end DSEi_Stream_FUN_0207ebe4
 
-	arm_func_start FUN_0207ed28
-FUN_0207ed28: ; 0x0207ED28
+	arm_func_start DSEi_Stream_FUN_0207ed28
+DSEi_Stream_FUN_0207ed28: ; 0x0207ED28
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	add r0, r7, #0xf8
@@ -12432,7 +12420,7 @@ FUN_0207ed28: ; 0x0207ED28
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl Dse_SetError
+	bl DSEi_SetError
 	ldr r0, [r7]
 	ldr r3, [r7, #0x214]
 	ldr r12, [r7, #0x210]
@@ -12441,10 +12429,10 @@ FUN_0207ed28: ; 0x0207ED28
 	blx r12
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0207ed28
+	arm_func_end DSEi_Stream_FUN_0207ed28
 
-	arm_func_start FUN_0207ed94
-FUN_0207ed94: ; 0x0207ED94
+	arm_func_start DSEi_Stream_FUN_0207ed94
+DSEi_Stream_FUN_0207ed94: ; 0x0207ED94
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	ldrsb r0, [r6, #4]
@@ -12474,10 +12462,10 @@ _0207EDDC:
 	blx r12
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0207ed94
+	arm_func_end DSEi_Stream_FUN_0207ed94
 
-	arm_func_start FUN_0207ee04
-FUN_0207ee04: ; 0x0207EE04
+	arm_func_start DSEi_Stream_FUN_0207ee04
+DSEi_Stream_FUN_0207ee04: ; 0x0207EE04
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, r1
@@ -12533,10 +12521,10 @@ _0207EEA4:
 	blx r12
 	sub r0, r4, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0207ee04
+	arm_func_end DSEi_Stream_FUN_0207ee04
 
-	arm_func_start FUN_0207eed4
-FUN_0207eed4: ; 0x0207EED4
+	arm_func_start DSEi_Stream_FUN_0207eed4
+DSEi_Stream_FUN_0207eed4: ; 0x0207EED4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -12576,7 +12564,7 @@ FUN_0207eed4: ; 0x0207EED4
 	mov r1, r5
 	mov r2, r5
 	sub r0, r5, #0xb8
-	bl Dse_SetError2
+	bl DSEi_SetError2
 	ldrb r0, [r10, #0x22]
 	cmp r0, #0
 	ble _0207F154
@@ -12712,10 +12700,10 @@ _0207F154:
 	mov r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0207eed4
+	arm_func_end DSEi_Stream_FUN_0207eed4
 
-	arm_func_start FUN_0207f160
-FUN_0207f160: ; 0x0207F160
+	arm_func_start DSEi_Stream_FUN_0207f160
+DSEi_Stream_FUN_0207f160: ; 0x0207F160
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	add r4, r10, #0x1c0
@@ -12777,7 +12765,7 @@ _0207F240:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl Dse_SetError2
+	bl DSEi_SetError2
 	b _0207F3D8
 _0207F254:
 	ldrb r7, [r10, #0x22]
@@ -12879,7 +12867,7 @@ _0207F39C:
 	mov r0, r10
 	strb r6, [r10, #0xa]
 	strb r6, [r10, #0x13]
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 	ldr r0, [r10]
 	ldr r3, [r10, #0x214]
 	ldr r4, [r10, #0x210]
@@ -12889,10 +12877,10 @@ _0207F39C:
 _0207F3D8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0207f160
+	arm_func_end DSEi_Stream_FUN_0207f160
 
-	arm_func_start FUN_0207f3e0
-FUN_0207f3e0: ; 0x0207F3E0
+	arm_func_start DSEi_Stream_FUN_0207f3e0
+DSEi_Stream_FUN_0207f3e0: ; 0x0207F3E0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r0
 	ldrb r1, [r7, #0x1fd]
@@ -12936,7 +12924,7 @@ _0207F478:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl Dse_SetError2
+	bl DSEi_SetError2
 	b _0207F554
 _0207F48C:
 	ldrb r4, [r7, #0x22]
@@ -12987,7 +12975,7 @@ _0207F518:
 	mov r0, r7
 	strb r4, [r7, #0xa]
 	strb r4, [r7, #0x13]
-	bl FUN_0207e80c
+	bl DSEi_Stream_FUN_0207e80c
 	ldr r0, [r7]
 	ldr r3, [r7, #0x214]
 	ldr r5, [r7, #0x210]
@@ -12997,10 +12985,10 @@ _0207F518:
 _0207F554:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_0207f3e0
+	arm_func_end DSEi_Stream_FUN_0207f3e0
 
-	arm_func_start FUN_0207f55c
-FUN_0207f55c: ; 0x0207F55C
+	arm_func_start DSEi_FUN_0207f55c_GetMinMaxSamples
+DSEi_FUN_0207f55c_GetMinMaxSamples: ; 0x0207F55C
 	stmfd sp!, {r4, lr}
 	add r2, r2, r2, lsr #31
 	mov r4, r2, asr #1
@@ -13025,15 +13013,15 @@ _0207F5A0:
 	sub r0, r3, r2
 	ldmfd sp!, {r4, pc}
 _0207F5B0: .word 0x00007FFF
-	arm_func_end FUN_0207f55c
+	arm_func_end DSEi_FUN_0207f55c_GetMinMaxSamples
 
-	arm_func_start FUN_0207f5b4
-FUN_0207f5b4: ; 0x0207F5B4
+	arm_func_start DSEi_FUN_0207f5b4
+DSEi_FUN_0207f5b4: ; 0x0207F5B4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0x5500
 	ldr r1, _0207F5F8 ; =0x38646F63
 	mov r0, r5
-	bl FUN_0207dbf4
+	bl DSEi_StreamAlloc
 	mov r1, r0
 	ldr r4, _0207F5FC ; =0x020BC138
 	sub r2, r5, #0x280
@@ -13044,34 +13032,34 @@ FUN_0207f5b4: ; 0x0207F5B4
 	add r0, r1, #0x1280
 	add r0, r0, #0x4000
 	str r0, [r1, #0x27c]
-	bl FUN_0207f640
+	bl DSEi_FUN_0207f640
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207F5F8: .word 0x38646F63
 _0207F5FC: .word unk_020BC138
-	arm_func_end FUN_0207f5b4
+	arm_func_end DSEi_FUN_0207f5b4
 
-	arm_func_start FUN_0207f600
-FUN_0207f600: ; 0x0207F600
+	arm_func_start DSEi_FUN_0207f600
+DSEi_FUN_0207f600: ; 0x0207F600
 	stmfd sp!, {r4, lr}
 	ldr r4, _0207F63C ; =0x020BC138
 	ldr r0, [r4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	add r0, r0, #0x260
-	bl FUN_0208490c
+	bl DSEi_FUN_0208490c
 	ldr r0, [r4]
 	ldr r0, [r0]
-	bl FUN_02083da8
+	bl DSEi_FUN_02083da8
 	ldr r0, [r4]
-	bl FUN_0207dc70
+	bl DSEi_StreamFree
 	mov r0, #0
 	str r0, [r4]
 	ldmfd sp!, {r4, pc}
 _0207F63C: .word unk_020BC138
-	arm_func_end FUN_0207f600
+	arm_func_end DSEi_FUN_0207f600
 
-	arm_func_start FUN_0207f640
-FUN_0207f640: ; 0x0207F640
+	arm_func_start DSEi_FUN_0207f640
+DSEi_FUN_0207f640: ; 0x0207F640
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	ldr r5, _0207F708 ; =0x020BC138
@@ -13098,7 +13086,7 @@ FUN_0207f640: ; 0x0207F640
 	str r1, [r2, #0x25c]
 	ldr r1, [r5]
 	add r1, r1, #4
-	bl FUN_02083c60
+	bl DSEi_FUN_02083c60
 	ldr r1, [r5]
 	add r6, sp, #0
 	str r0, [r1]
@@ -13108,26 +13096,26 @@ FUN_0207f640: ; 0x0207F640
 	mov r1, r4
 	ldr r0, [r0]
 	mov r2, r6
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r5]
 	str r4, [sp]
 	ldr r0, [r0]
 	mov r2, r6
 	mov r1, #0x2c
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r5]
 	mov r1, r4
 	add r0, r0, #0x260
 	mov r2, #0x80
-	bl FUN_020848e4
+	bl DSEi_FUN_020848e4
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0207F708: .word unk_020BC138
 _0207F70C: .word unk_0208E96C
-	arm_func_end FUN_0207f640
+	arm_func_end DSEi_FUN_0207f640
 
-	arm_func_start FUN_0207f710
-FUN_0207f710: ; 0x0207F710
+	arm_func_start DSEi_Stream_FUN_0207f710
+DSEi_Stream_FUN_0207f710: ; 0x0207F710
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, r0
 	ldrh r7, [r11, #0x9e]
@@ -13173,7 +13161,7 @@ _0207F7A4:
 	ldr r2, [r10]
 	ldr r0, [r2]
 	ldr r2, [r2, #0x27c]
-	bl FUN_02083db8
+	bl DSEi_FUN_02083db8
 	ldr r0, [r10]
 	ldrsh r10, [r5, r4]
 	ldr r12, [r0, #0x27c]
@@ -13218,16 +13206,16 @@ _0207F84C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207F854: .word unk_020BC138
 _0207F858: .word 0x88888888
-	arm_func_end FUN_0207f710
+	arm_func_end DSEi_Stream_FUN_0207f710
 
-	arm_func_start FUN_0207f85c
-FUN_0207f85c: ; 0x0207F85C
+	arm_func_start DSEi_Stream_FUN_0207f85c
+DSEi_Stream_FUN_0207f85c: ; 0x0207F85C
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_0207f85c
+	arm_func_end DSEi_Stream_FUN_0207f85c
 
-	arm_func_start FUN_0207f864
-FUN_0207f864: ; 0x0207F864
+	arm_func_start DSEi_Stream_FUN_0207f864
+DSEi_Stream_FUN_0207f864: ; 0x0207F864
 	stmfd sp!, {r3, lr}
 	ldrh lr, [r0, #0x9e]
 	ldrb r12, [r0, #0x22]
@@ -13255,10 +13243,10 @@ _0207F88C:
 _0207F8C0:
 	mov r0, r3
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0207f864
+	arm_func_end DSEi_Stream_FUN_0207f864
 
-	arm_func_start FUN_0207f8c8
-FUN_0207f8c8: ; 0x0207F8C8
+	arm_func_start DSEi_FUN_0207f8c8
+DSEi_FUN_0207f8c8: ; 0x0207F8C8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, #0
 	ldr r1, _0207F930 ; =0x020BC13C
@@ -13289,10 +13277,10 @@ _0207F910:
 	ble _0207F8E4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207F930: .word unk_020BC13C
-	arm_func_end FUN_0207f8c8
+	arm_func_end DSEi_FUN_0207f8c8
 
-	arm_func_start FUN_0207f934
-FUN_0207f934: ; 0x0207F934
+	arm_func_start DSEi_Stream_FUN_0207f934
+DSEi_Stream_FUN_0207f934: ; 0x0207F934
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
 	ldrh r4, [r0, #0x9e]
@@ -13380,10 +13368,10 @@ _0207FA4C:
 _0207FA6C: .word 0x00007FDF
 _0207FA70: .word unk_0208C544
 _0207FA74: .word unk_020BC13C
-	arm_func_end FUN_0207f934
+	arm_func_end DSEi_Stream_FUN_0207f934
 
-	arm_func_start FUN_0207fa78
-FUN_0207fa78: ; 0x0207FA78
+	arm_func_start DSEi_Stream_FUN_0207fa78
+DSEi_Stream_FUN_0207fa78: ; 0x0207FA78
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	ldrb r4, [r0, #0x28]
@@ -13479,10 +13467,10 @@ _0207FBB4:
 _0207FBCC: .word 0x00007FDF
 _0207FBD0: .word unk_0208C544
 _0207FBD4: .word unk_020BC13C
-	arm_func_end FUN_0207fa78
+	arm_func_end DSEi_Stream_FUN_0207fa78
 
-	arm_func_start FUN_0207fbd8
-FUN_0207fbd8: ; 0x0207FBD8
+	arm_func_start DSEi_Stream_FUN_0207fbd8
+DSEi_Stream_FUN_0207fbd8: ; 0x0207FBD8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	ldrh r5, [r0, #0x9e]
@@ -13590,10 +13578,10 @@ _0207FD44:
 _0207FD60: .word unk_0208C544
 _0207FD64: .word unk_020BC13C
 _0207FD68: .word 0x00007FFF
-	arm_func_end FUN_0207fbd8
+	arm_func_end DSEi_Stream_FUN_0207fbd8
 
-	arm_func_start FUN_0207fd6c
-FUN_0207fd6c: ; 0x0207FD6C
+	arm_func_start DSEi_Stream_FUN_0207fd6c
+DSEi_Stream_FUN_0207fd6c: ; 0x0207FD6C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	ldrh r4, [r0, #0x9e]
@@ -13729,10 +13717,10 @@ _0207FF38:
 _0207FF54: .word 0x00007FFF
 _0207FF58: .word unk_0208C544
 _0207FF5C: .word unk_020BC13C
-	arm_func_end FUN_0207fd6c
+	arm_func_end DSEi_Stream_FUN_0207fd6c
 
-	arm_func_start FUN_0207ff60
-FUN_0207ff60: ; 0x0207FF60
+	arm_func_start DSEi_Stream_FUN_0207ff60
+DSEi_Stream_FUN_0207ff60: ; 0x0207FF60
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x20
 	ldrh r4, [r0, #0x9e]
@@ -13854,10 +13842,10 @@ _02080118:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02080124: .word unk_0208C5F8
 _02080128: .word 0x80808080
-	arm_func_end FUN_0207ff60
+	arm_func_end DSEi_Stream_FUN_0207ff60
 
-	arm_func_start FUN_0208012c
-FUN_0208012c: ; 0x0208012C
+	arm_func_start DSEi_Stream_FUN_0208012c
+DSEi_Stream_FUN_0208012c: ; 0x0208012C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x24
 	ldrh r4, [r0, #0x9e]
@@ -14004,10 +13992,10 @@ _02080344:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02080350: .word unk_0208C5F8
 _02080354: .word 0x80808080
-	arm_func_end FUN_0208012c
+	arm_func_end DSEi_Stream_FUN_0208012c
 
-	arm_func_start FUN_02080358
-FUN_02080358: ; 0x02080358
+	arm_func_start DSEi_FUN_02080358
+DSEi_FUN_02080358: ; 0x02080358
 	stmfd sp!, {r4, lr}
 	ldr r1, [r0, #0xc]
 	ldr r4, [r0, #4]
@@ -14045,10 +14033,10 @@ _020803B4:
 	str r1, [r0, #0xc]
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02080358
+	arm_func_end DSEi_FUN_02080358
 
-	arm_func_start FUN_020803e8
-FUN_020803e8: ; 0x020803E8
+	arm_func_start DSEi_FUN_020803e8
+DSEi_FUN_020803e8: ; 0x020803E8
 	mov r1, r0
 	cmp r0, #0x10000
 	mov r2, #0
@@ -14099,10 +14087,10 @@ FUN_020803e8: ; 0x020803E8
 	bx lr
 _020804A8: .word 0x0000106C
 _020804AC: .word 0xFFFFCEAD
-	arm_func_end FUN_020803e8
+	arm_func_end DSEi_FUN_020803e8
 
-	arm_func_start FUN_020804b0
-FUN_020804b0: ; 0x020804B0
+	arm_func_start DSEi_FUN_020804b0
+DSEi_FUN_020804b0: ; 0x020804B0
 	stmfd sp!, {r4, lr}
 	cmp r3, #0
 	mov lr, #0
@@ -14126,10 +14114,10 @@ _020804F0:
 	cmp lr, r3
 	blt _020804C4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020804b0
+	arm_func_end DSEi_FUN_020804b0
 
-	arm_func_start FUN_02080500
-FUN_02080500: ; 0x02080500
+	arm_func_start DSEi_FUN_02080500
+DSEi_FUN_02080500: ; 0x02080500
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r3, #0
 	mov r12, #0
@@ -14154,10 +14142,10 @@ _02080528:
 	blt _02080528
 	ldmfd sp!, {r3, r4, r5, pc}
 _02080558: .word 0x00003FFF
-	arm_func_end FUN_02080500
+	arm_func_end DSEi_FUN_02080500
 
-	arm_func_start FUN_0208055c
-FUN_0208055c: ; 0x0208055C
+	arm_func_start DSEi_FUN_0208055c
+DSEi_FUN_0208055c: ; 0x0208055C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	cmp r1, #0
 	mov r5, #0xa
@@ -14204,7 +14192,7 @@ _020805B4:
 _020805FC:
 	mov r0, r2
 	bl _s32_div_f
-	bl FUN_020803e8
+	bl DSEi_FUN_020803e8
 	mov r0, r0, lsl #0x14
 	mov r0, r0, asr #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -14247,17 +14235,17 @@ _0208063C:
 _0208069C:
 	mov r0, r2
 	bl _s32_div_f
-	bl FUN_020803e8
+	bl DSEi_FUN_020803e8
 	rsb r1, r4, #3
 	mov r0, r0, lsl r1
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020806BC: .word 0x00003FFF
-	arm_func_end FUN_0208055c
+	arm_func_end DSEi_FUN_0208055c
 
-	arm_func_start FUN_020806c0
-FUN_020806c0: ; 0x020806C0
+	arm_func_start DSEi_FUN_020806c0
+DSEi_FUN_020806c0: ; 0x020806C0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r4, [sp, #0x28]
 	ldr r8, [sp, #0x30]
@@ -14323,10 +14311,10 @@ _02080778:
 	blt _020806F0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020807B0: .word 0x00007FFF
-	arm_func_end FUN_020806c0
+	arm_func_end DSEi_FUN_020806c0
 
-	arm_func_start FUN_020807b4
-FUN_020807b4: ; 0x020807B4
+	arm_func_start DSEi_FUN_020807b4
+DSEi_FUN_020807b4: ; 0x020807B4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r10, [sp, #0x28]
 	ldr r9, [sp, #0x2c]
@@ -14379,10 +14367,10 @@ _02080848:
 	blt _020807D0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02080870: .word 0x00007FFF
-	arm_func_end FUN_020807b4
+	arm_func_end DSEi_FUN_020807b4
 
-	arm_func_start FUN_02080874
-FUN_02080874: ; 0x02080874
+	arm_func_start DSEi_FUN_02080874
+DSEi_FUN_02080874: ; 0x02080874
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x10
 	ldr r5, [sp, #0x34]
@@ -14408,7 +14396,7 @@ _020808C0:
 	str r6, [sp]
 	ldr r3, [sp, #0x2c]
 	stmib sp, {r4, r5}
-	bl FUN_020807b4
+	bl DSEi_FUN_020807b4
 	cmp r6, #0
 	mov r1, #0
 	ble _020808F4
@@ -14427,13 +14415,13 @@ _020808F4:
 	mov r2, r7
 	mov r3, r0
 	str r5, [sp, #0xc]
-	bl FUN_020806c0
+	bl DSEi_FUN_020806c0
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02080874
+	arm_func_end DSEi_FUN_02080874
 
-	arm_func_start FUN_02080920
-FUN_02080920: ; 0x02080920
+	arm_func_start DSEi_FUN_02080920
+DSEi_FUN_02080920: ; 0x02080920
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x24
 	ldr r7, [sp, #0x58]
@@ -14698,10 +14686,10 @@ _02080CC4:
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02080CF0: .word 0x00007FFF
-	arm_func_end FUN_02080920
+	arm_func_end DSEi_FUN_02080920
 
-	arm_func_start FUN_02080cf4
-FUN_02080cf4: ; 0x02080CF4
+	arm_func_start DSEi_FUN_02080cf4
+DSEi_FUN_02080cf4: ; 0x02080CF4
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x80
 	str r1, [sp, #4]
@@ -14718,7 +14706,7 @@ _02080D24:
 	ldr r0, [sp]
 	ldr r2, [sp, #0xc]
 	add r1, r5, r6, lsl #1
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	str r0, [r4, r6, lsl #2]
 	add r6, r6, #1
 	cmp r6, #7
@@ -14843,10 +14831,10 @@ _02080EDC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02080EF0: .word unk_0208D2C4
 _02080EF4: .word 0x00007FFF
-	arm_func_end FUN_02080cf4
+	arm_func_end DSEi_FUN_02080cf4
 
-	arm_func_start FUN_02080ef8
-FUN_02080ef8: ; 0x02080EF8
+	arm_func_start DSEi_FUN_02080ef8
+DSEi_FUN_02080ef8: ; 0x02080EF8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	ldr r3, [sp, #0x50]
@@ -14866,7 +14854,7 @@ FUN_02080ef8: ; 0x02080EF8
 	mov r3, r5
 	mov r10, r0
 	str r11, [sp, #0xc]
-	bl FUN_02080cf4
+	bl DSEi_FUN_02080cf4
 	ldr r0, [sp, #0x48]
 	mov r3, r5
 	cmp r7, r0
@@ -14878,7 +14866,7 @@ FUN_02080ef8: ; 0x02080EF8
 _02080F68:
 	rsb r2, r7, #0
 _02080F6C:
-	bl FUN_02080cf4
+	bl DSEi_FUN_02080cf4
 	cmp r8, #0
 	mov r2, #0
 	ble _02080FAC
@@ -14929,29 +14917,29 @@ _02081014:
 	mov r0, r4
 	mov r1, r4
 	mov r2, r8
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	add r0, r0, #0x3e8
-	bl FUN_020803e8
+	bl DSEi_FUN_020803e8
 	add r1, r4, r8, lsl #1
 	mov r11, r0
 	mov r0, r1
 	mov r2, r8
 	str r1, [sp, #8]
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	add r0, r0, #0x3e8
-	bl FUN_020803e8
+	bl DSEi_FUN_020803e8
 	mov r5, r0
 	mov r0, r10
 	mov r1, r10
 	mov r2, r8
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	add r0, r0, #1
-	bl FUN_020803e8
+	bl DSEi_FUN_020803e8
 	mov r6, r0
 	mov r0, r4
 	mov r1, r10
 	mov r2, r8
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	str r0, [sp, #0x18]
 	cmp r0, #0
 	movlt r0, #0
@@ -14959,7 +14947,7 @@ _02081014:
 	ldr r0, [sp, #8]
 	mov r1, r10
 	mov r2, r8
-	bl FUN_020819f0
+	bl DSEi_FUN_020819f0
 	str r0, [sp, #0x14]
 	cmp r0, #0
 	movlt r0, #0
@@ -15136,11 +15124,11 @@ _020812FC:
 _02081330:
 	mov r0, r9
 	mov r1, r8
-	bl FUN_0208055c
+	bl DSEi_FUN_0208055c
 	mov r4, r0
 	mov r0, r10
 	mov r1, r8
-	bl FUN_0208055c
+	bl DSEi_FUN_0208055c
 	cmp r0, #1
 	movlt r0, #1
 	cmp r4, #1
@@ -15204,10 +15192,10 @@ _02081428: .word 0x00007FFF
 _0208142C: .word 0x0000599A
 _02081430: .word 0x00004CCD
 _02081434: .word 0xFFFFC001
-	arm_func_end FUN_02080ef8
+	arm_func_end DSEi_FUN_02080ef8
 
-	arm_func_start FUN_02081438
-FUN_02081438: ; 0x02081438
+	arm_func_start DSEi_FUN_02081438
+DSEi_FUN_02081438: ; 0x02081438
 	ldr r1, _020814F4 ; =0x00003244
 	cmp r0, r1
 	bge _02081498
@@ -15257,10 +15245,10 @@ _02081498:
 	mov r0, r0, asr #0x10
 	bx lr
 _020814F4: .word 0x00003244
-	arm_func_end FUN_02081438
+	arm_func_end DSEi_FUN_02081438
 
-	arm_func_start FUN_020814f8
-FUN_020814f8: ; 0x020814F8
+	arm_func_start DSEi_FUN_020814f8
+DSEi_FUN_020814f8: ; 0x020814F8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	str r2, [sp, #4]
@@ -15318,7 +15306,7 @@ _020815A4:
 _020815C8:
 	mov r0, r8, lsl #1
 	ldrsh r0, [r7, r0]
-	bl FUN_02081438
+	bl DSEi_FUN_02081438
 	mov r1, r8, lsl #1
 	mov r0, r0, lsl #2
 	strh r0, [r6, r1]
@@ -15518,10 +15506,10 @@ _02081854:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020818C8: .word 0x00003FFF
 _020818CC: .word 0xFFFF8001
-	arm_func_end FUN_020814f8
+	arm_func_end DSEi_FUN_020814f8
 
-	arm_func_start FUN_020818d0
-FUN_020818d0: ; 0x020818D0
+	arm_func_start DSEi_FUN_020818d0
+DSEi_FUN_020818d0: ; 0x020818D0
 	stmfd sp!, {r4, lr}
 	ldr r3, _02081964 ; =0x00006488
 	ldrsh r4, [r0]
@@ -15561,10 +15549,10 @@ _02081914:
 	blt _02081914
 	ldmfd sp!, {r4, pc}
 _02081964: .word 0x00006488
-	arm_func_end FUN_020818d0
+	arm_func_end DSEi_FUN_020818d0
 
-	arm_func_start FUN_02081968
-FUN_02081968: ; 0x02081968
+	arm_func_start DSEi_FUN_02081968
+DSEi_FUN_02081968: ; 0x02081968
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, [sp, #0x18]
 	ldr r4, [sp, #0x1c]
@@ -15600,10 +15588,10 @@ _020819B8:
 	cmp r0, r4
 	blt _020819B8
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02081968
+	arm_func_end DSEi_FUN_02081968
 
-	arm_func_start FUN_020819f0
-FUN_020819f0: ; 0x020819F0
+	arm_func_start DSEi_FUN_020819f0
+DSEi_FUN_020819f0: ; 0x020819F0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r2, r2, asr #2
 	sub r2, r2, #1
@@ -15631,10 +15619,10 @@ _02081A04:
 _02081A4C:
 	mov r0, r3
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020819f0
+	arm_func_end DSEi_FUN_020819f0
 
-	arm_func_start FUN_02081a54
-FUN_02081a54: ; 0x02081A54
+	arm_func_start DSEi_FUN_02081a54
+DSEi_FUN_02081a54: ; 0x02081A54
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	ldr r3, [sp, #0x34]
@@ -15833,10 +15821,10 @@ _02081D34:
 	blt _02081C90
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02081a54
+	arm_func_end DSEi_FUN_02081a54
 
-	arm_func_start FUN_02081d48
-FUN_02081d48: ; 0x02081D48
+	arm_func_start DSEi_FUN_02081d48
+DSEi_FUN_02081d48: ; 0x02081D48
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x10
 	ldrsh r1, [sp, #0x44]
@@ -15915,7 +15903,7 @@ _02081E40:
 	ldr r3, [sp, #0x30]
 	mov r0, r7
 	str lr, [sp, #0xc]
-	bl FUN_02080874
+	bl DSEi_FUN_02080874
 	cmp r4, #0
 	mov r9, #0
 	ble _02081EB8
@@ -15944,10 +15932,10 @@ _02081EB8:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02081EC4: .word 0x00007FFF
 _02081EC8: .word 0xFFFF8044
-	arm_func_end FUN_02081d48
+	arm_func_end DSEi_FUN_02081d48
 
-	arm_func_start FUN_02081ecc
-FUN_02081ecc: ; 0x02081ECC
+	arm_func_start DSEi_FUN_02081ecc
+DSEi_FUN_02081ecc: ; 0x02081ECC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r5, [sp, #0x18]
 	ldr r4, [sp, #0x20]
@@ -15980,10 +15968,10 @@ _02081F28:
 	strh r0, [lr]
 	strh r5, [lr, #2]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02081ecc
+	arm_func_end DSEi_FUN_02081ecc
 
-	arm_func_start FUN_02081f44
-FUN_02081f44: ; 0x02081F44
+	arm_func_start DSEi_FUN_02081f44
+DSEi_FUN_02081f44: ; 0x02081F44
 	cmp r1, #0
 	beq _02081F58
 	cmp r1, #1
@@ -16014,10 +16002,10 @@ _02081F9C:
 _02081FA4:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02081f44
+	arm_func_end DSEi_FUN_02081f44
 
-	arm_func_start FUN_02081fac
-FUN_02081fac: ; 0x02081FAC
+	arm_func_start DSEi_FUN_02081fac
+DSEi_FUN_02081fac: ; 0x02081FAC
 	mov r1, r0
 	cmp r0, #0x10000
 	mov r2, #0
@@ -16068,10 +16056,10 @@ FUN_02081fac: ; 0x02081FAC
 	bx lr
 _0208206C: .word 0x0000106C
 _02082070: .word 0xFFFFCEAD
-	arm_func_end FUN_02081fac
+	arm_func_end DSEi_FUN_02081fac
 
-	arm_func_start FUN_02082074
-FUN_02082074: ; 0x02082074
+	arm_func_start DSEi_FUN_02082074
+DSEi_FUN_02082074: ; 0x02082074
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r1
 	mov r4, #1
@@ -16133,7 +16121,7 @@ FUN_02082074: ; 0x02082074
 	str r12, [r6, #0x2c]
 	str r3, [r6, #0x34]
 	bl MIi_CpuClear32
-	ldr r0, _020821F0 ; =FUN_02080358
+	ldr r0, _020821F0 ; =DSEi_FUN_02080358
 	mov r3, #0x28
 	mov r2, #0x3e8
 	mov r1, #0x1f40
@@ -16168,16 +16156,16 @@ _020821AC:
 	str r5, [r6, #0x1e8]
 	str r2, [r6, #0x1ec]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020821F0: .word FUN_02080358
-	arm_func_end FUN_02082074
+_020821F0: .word DSEi_FUN_02080358
+	arm_func_end DSEi_FUN_02082074
 
-	arm_func_start FUN_020821F4
-FUN_020821F4: ; 0x020821F4
+	arm_func_start DSEi_FUN_020821f4
+DSEi_FUN_020821f4: ; 0x020821F4
 	bx lr
-	arm_func_end FUN_020821F4
+	arm_func_end DSEi_FUN_020821f4
 
-	arm_func_start FUN_020821f8
-FUN_020821f8: ; 0x020821F8
+	arm_func_start DSEi_FUN_020821f8
+DSEi_FUN_020821f8: ; 0x020821F8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x8c
 	mov r3, #0
@@ -16573,7 +16561,7 @@ _02082760:
 	ldr r0, [sp, #0x58]
 	ldr r3, [r10, #0x10]
 	mov r2, #0xfa00000
-	bl FUN_020804b0
+	bl DSEi_FUN_020804b0
 	ldrsh r1, [sp, #0x80]
 	ldrsh r2, [sp, #0x82]
 	ldrsh r3, [sp, #0x84]
@@ -16750,7 +16738,7 @@ _02082A30:
 	ldr r3, [r10, #0x10]
 	mov r0, r4
 	mov r1, r4
-	bl FUN_02080500
+	bl DSEi_FUN_02080500
 	ldr r1, [r10, #0x74]
 	ldr r0, [r10, #0x78]
 	ldr r0, [r1, r0, lsl #2]
@@ -16796,7 +16784,7 @@ _02082A30:
 	ldr r3, [r10, #0x10]
 	mov r1, r7
 	add r2, r12, r2, asr #15
-	bl FUN_02080500
+	bl DSEi_FUN_02080500
 	ldr r0, [r10, #0x10]
 	cmp r0, #0
 	ble _02082B5C
@@ -16881,7 +16869,7 @@ _02082C50:
 	cmp r1, #0
 	blt _02082C70
 	ldr r0, [sp, #0x3c]
-	bl FUN_02081fac
+	bl DSEi_FUN_02081fac
 	mul r1, r8, r0
 	ldr r0, [r10, #0x1e0]
 	mov r0, r0, lsl #1
@@ -17013,7 +17001,7 @@ _02082DD4:
 	ldr r2, [r10, #0x3c]
 	sub r0, r0, r1, lsl #1
 	ldr r1, [sp, #0x2c]
-	bl FUN_02080ef8
+	bl DSEi_FUN_02080ef8
 	ldr r0, [r10, #0x10]
 	ldr r1, [sp, #0x2c]
 	mov r2, r0, lsl #1
@@ -17032,7 +17020,7 @@ _02082DD4:
 	ldr r2, [r10, #0x3c]
 	add r0, r3, r0, lsl #1
 	ldr r3, [r10, #0x18]
-	bl FUN_02080ef8
+	bl DSEi_FUN_02080ef8
 	b _02082ECC
 _02082EAC:
 	ldr r0, [r10, #0x10]
@@ -17049,7 +17037,7 @@ _02082ECC:
 	beq _02082F64
 	ldr r0, [r10, #0x34]
 	ldr r1, [r10, #0xc]
-	bl FUN_0208055c
+	bl DSEi_FUN_0208055c
 	add r0, r0, #1
 	mov r0, r0, lsl #0x10
 	mov r1, r0, asr #0x10
@@ -17099,16 +17087,16 @@ _02082F74:
 	add r4, r2, r4, lsl #1
 	ldr r3, [r10, #0x18]
 	mov r2, r6
-	bl FUN_02081968
+	bl DSEi_FUN_02081968
 	ldr r1, [r10, #0x18]
 	mov r0, r6
 	mov r2, #0x10
-	bl FUN_020818d0
+	bl DSEi_FUN_020818d0
 	ldr r2, [r10, #0x18]
 	ldr r3, [sp, #0x60]
 	mov r0, r6
 	mov r1, r5
-	bl FUN_020814f8
+	bl DSEi_FUN_020814f8
 	ldr r3, [r10, #0x18]
 	mov r2, #0x2000
 	mov r8, #0
@@ -17137,7 +17125,7 @@ _02082FFC:
 	str r1, [sp, #8]
 	ldr r1, [r10, #0x3c]
 	ldr r3, [r10, #0x10]
-	bl FUN_020807b4
+	bl DSEi_FUN_020807b4
 	ldr r0, [r10, #0x18]
 	mov r3, #0
 	cmp r0, #0
@@ -17239,10 +17227,10 @@ _020831A0: .word 0xFFFF8001
 _020831A4: .word 0x0000599A
 _020831A8: .word 0x00007EB8
 _020831AC: .word 0x000040A4
-	arm_func_end FUN_020821f8
+	arm_func_end DSEi_FUN_020821f8
 
-	arm_func_start FUN_020831b0
-FUN_020831b0: ; 0x020831B0
+	arm_func_start DSEi_FUN_020831b0
+DSEi_FUN_020831b0: ; 0x020831B0
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r0
 	mov r5, r2
@@ -17497,7 +17485,7 @@ _0208350C:
 	ldr r2, [r6, #0x34]
 	mul r0, r4, r1
 	add r0, r2, r0, lsl #1
-	bl FUN_0208055c
+	bl DSEi_FUN_0208055c
 	mov r1, r4, lsl #1
 	strh r0, [r5, r1]
 	ldr r0, [r6, #0x14]
@@ -17525,10 +17513,10 @@ _02083568:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02083570: .word 0x42C80000
-	arm_func_end FUN_020831b0
+	arm_func_end DSEi_FUN_020831b0
 
-	arm_func_start FUN_02083574
-FUN_02083574: ; 0x02083574
+	arm_func_start DSEi_FUN_02083574
+DSEi_FUN_02083574: ; 0x02083574
 	stmfd sp!, {r4, r5, r6, lr}
 	cmp r1, #0
 	mov r3, #1
@@ -17725,10 +17713,10 @@ _02083844: .word unk_0208E130
 _02083848: .word unk_0208DFF0
 _0208384C: .word unk_0208E270
 _02083850: .word unk_0208DEB0
-	arm_func_end FUN_02083574
+	arm_func_end DSEi_FUN_02083574
 
-	arm_func_start FUN_02083854
-FUN_02083854: ; 0x02083854
+	arm_func_start DSEi_FUN_02083854
+DSEi_FUN_02083854: ; 0x02083854
 	stmfd sp!, {r3, r4, r5, lr}
 	cmp r1, #0
 	mov r12, #0
@@ -17857,10 +17845,10 @@ _02083A00:
 _02083A28: .word unk_0208E3B0
 _02083A2C: .word unk_0208E130
 _02083A30: .word unk_0208E270
-	arm_func_end FUN_02083854
+	arm_func_end DSEi_FUN_02083854
 
-	arm_func_start FUN_02083a34
-FUN_02083a34: ; 0x02083A34
+	arm_func_start DSEi_FUN_02083a34
+DSEi_FUN_02083a34: ; 0x02083A34
 	stmfd sp!, {r4, r5, r6, lr}
 	cmp r1, #0
 	mov r6, #0
@@ -17957,10 +17945,10 @@ _02083B68:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02083B90: .word unk_0208DAB0
 _02083B94: .word unk_0208DCB0
-	arm_func_end FUN_02083a34
+	arm_func_end DSEi_FUN_02083a34
 
-	arm_func_start FUN_02083b98
-FUN_02083b98: ; 0x02083B98
+	arm_func_start DSEi_FUN_02083b98
+DSEi_FUN_02083b98: ; 0x02083B98
 	mov r1, r0
 	cmp r0, #0x10000
 	mov r2, #0
@@ -18011,10 +17999,10 @@ FUN_02083b98: ; 0x02083B98
 	bx lr
 _02083C58: .word 0x0000106C
 _02083C5C: .word 0xFFFFCEAD
-	arm_func_end FUN_02083b98
+	arm_func_end DSEi_FUN_02083b98
 
-	arm_func_start FUN_02083c60
-FUN_02083c60: ; 0x02083C60
+	arm_func_start DSEi_FUN_02083c60
+DSEi_FUN_02083c60: ; 0x02083C60
 	stmfd sp!, {r3, r4, r5, r6, lr}
 	sub sp, sp, #4
 	mov r6, r1
@@ -18024,11 +18012,11 @@ FUN_02083c60: ; 0x02083C60
 	str r0, [r6]
 	ldr r0, [r5]
 	add r1, r6, #0x68
-	bl FUN_02082074
+	bl DSEi_FUN_02082074
 	str r0, [r6, #4]
 	add r2, r6, #0x28
 	mov r1, #0x6a
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r5, #4]
 	mov r0, r0, lsl #1
 	str r0, [r6, #8]
@@ -18044,7 +18032,7 @@ FUN_02083c60: ; 0x02083C60
 	str r1, [r6, #0x18]
 	mov r1, #0x19
 	add r2, r6, #0x20
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r6, #0x20]
 	mov r1, #0x69
 	mov r0, r0, lsl #1
@@ -18052,7 +18040,7 @@ FUN_02083c60: ; 0x02083C60
 	str r4, [sp]
 	ldr r0, [r6, #4]
 	add r2, sp, #0
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	add r0, r5, #0x18
 	str r0, [r6, #0x5c]
 	ldr r0, [r5, #0x38]
@@ -18097,18 +18085,18 @@ FUN_02083c60: ; 0x02083C60
 	mov r0, r6
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
-	arm_func_end FUN_02083c60
+	arm_func_end DSEi_FUN_02083c60
 
-	arm_func_start FUN_02083da8
-FUN_02083da8: ; 0x02083DA8
+	arm_func_start DSEi_FUN_02083da8
+DSEi_FUN_02083da8: ; 0x02083DA8
 	ldr r0, [r0, #4]
-	ldr r12, _02083DB4 ; =FUN_020821F4
+	ldr r12, _02083DB4 ; =DSEi_FUN_020821f4
 	bx r12
-_02083DB4: .word FUN_020821F4
-	arm_func_end FUN_02083da8
+_02083DB4: .word DSEi_FUN_020821f4
+	arm_func_end DSEi_FUN_02083da8
 
-	arm_func_start FUN_02083db8
-FUN_02083db8: ; 0x02083DB8
+	arm_func_start DSEi_FUN_02083db8
+DSEi_FUN_02083db8: ; 0x02083DB8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x44
 	mov r10, r0
@@ -18123,15 +18111,15 @@ FUN_02083db8: ; 0x02083DB8
 	mov r1, #0x68
 	ldr r4, [r10, #0x28]
 	str r3, [sp, #0x30]
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r10, #4]
 	ldr r1, [sp, #0x14]
 	ldr r2, [sp, #0x18]
-	bl FUN_020821f8
+	bl DSEi_FUN_020821f8
 	ldr r0, [r10, #4]
 	mov r1, #0x67
 	add r2, sp, #0x40
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r10, #0x58]
 	cmp r0, #0
 	beq _02083F30
@@ -18225,11 +18213,11 @@ _02083F30:
 	ldr r2, [sp, #0x24]
 	mov r1, #0x64
 	str r3, [sp, #0x20]
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r10, #4]
 	ldr r2, [sp, #0x20]
 	mov r1, #0x65
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	rsb r0, r4, #2
 	and r0, r0, #1
 	ldr r1, [r10, #0x18]
@@ -18309,16 +18297,16 @@ _02084094:
 	ldr r0, [r10, #0x38]
 	ldr r2, [sp, #0x34]
 	ldr r3, [r10, #0x18]
-	bl FUN_02081968
+	bl DSEi_FUN_02081968
 	ldr r0, [sp, #0x34]
 	ldr r1, [r10, #0x18]
 	ldr r2, _02084518 ; =0x0000019A
-	bl FUN_020818d0
+	bl DSEi_FUN_020818d0
 	ldr r0, [sp, #0x34]
 	ldr r2, [r10, #0x18]
 	mov r1, r5
 	mov r3, r4
-	bl FUN_020814f8
+	bl DSEi_FUN_020814f8
 	ldr r2, [r10, #0x44]
 	mov r0, #0x2000
 	str r0, [r2, r8, lsl #2]
@@ -18432,7 +18420,7 @@ _020841EC:
 	ldr r3, [r10, #0x10]
 	mov r0, r6
 	mov r1, r6
-	bl FUN_02080500
+	bl DSEi_FUN_02080500
 	ldr r1, [r10, #0x5c]
 	ldr r0, [r10, #0x60]
 	ldr r0, [r1, r0, lsl #2]
@@ -18476,7 +18464,7 @@ _020841EC:
 	ldr r3, [r10, #0x10]
 	mov r0, r7
 	mov r1, r7
-	bl FUN_02080500
+	bl DSEi_FUN_02080500
 	ldr r0, [r10, #0x10]
 	cmp r0, #0
 	ble _0208436C
@@ -18519,7 +18507,7 @@ _020843AC:
 	ldr r0, [r10, #0x34]
 	ldr r1, [r10, #0x3c]
 	ldr r3, [r10, #0x10]
-	bl FUN_020807b4
+	bl DSEi_FUN_020807b4
 	ldr r0, [r10, #0x10]
 	mov r3, #0
 	cmp r0, #0
@@ -18552,7 +18540,7 @@ _02084420:
 _02084440:
 	ldr r0, [r10, #0x34]
 	ldr r1, [r10, #0x10]
-	bl FUN_0208055c
+	bl DSEi_FUN_0208055c
 	ldr r2, [r10, #0x48]
 	mov r1, r8, lsl #1
 	strh r0, [r2, r1]
@@ -18570,7 +18558,7 @@ _02084440:
 	blt _02084038
 _02084488:
 	ldr r0, [sp, #0x30]
-	bl FUN_02083b98
+	bl DSEi_FUN_02083b98
 	strh r0, [r10, #0x50]
 	ldr r1, [r10, #8]
 	mov r0, #0x40
@@ -18587,7 +18575,7 @@ _02084488:
 	mov r1, r0
 	mov r3, r0
 	add r1, r1, r4, lsl #1
-	bl FUN_02080920
+	bl DSEi_FUN_02080920
 	ldr r0, [r10, #0x18]
 	mov r3, #0
 	cmp r0, #0
@@ -18614,10 +18602,10 @@ _02084524: .word 0x00006FD2
 _02084528: .word 0x00005A82
 _0208452C: .word 0x00003333
 _02084530: .word unk_0208EAE0
-	arm_func_end FUN_02083db8
+	arm_func_end DSEi_FUN_02083db8
 
-	arm_func_start FUN_02084534
-FUN_02084534: ; 0x02084534
+	arm_func_start DSEi_FUN_02084534
+DSEi_FUN_02084534: ; 0x02084534
 	stmfd sp!, {r3, r4, r5, lr}
 	sub sp, sp, #8
 	mov r5, r0
@@ -18716,7 +18704,7 @@ _02084688:
 	b _020848D8
 _02084690:
 	ldr r0, [r5, #4]
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r4]
 	str r0, [r5, #0x24]
 	b _020848D8
@@ -18743,11 +18731,11 @@ _020846AC:
 _020846EC:
 	ldr r0, [r5, #4]
 _020846F0:
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	b _020848D8
 _020846F8:
 	ldr r0, [r5, #4]
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r1, [r5, #0x5c]
 	ldr r0, [r5, #0x60]
 	ldr r0, [r1, r0, lsl #2]
@@ -18828,7 +18816,7 @@ _020847FC:
 _02084804:
 	ldr r0, [r5, #4]
 	mov r1, #0x27
-	bl FUN_02084ad0
+	bl DSEi_FUN_02084ad0
 	ldr r0, [r4]
 	mov r0, r0, lsl #1
 	b _02084688
@@ -18895,10 +18883,10 @@ _020848D8:
 	mov r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02084534
+	arm_func_end DSEi_FUN_02084534
 
-	arm_func_start FUN_020848e4
-FUN_020848e4: ; 0x020848E4
+	arm_func_start DSEi_FUN_020848e4
+DSEi_FUN_020848e4: ; 0x020848E4
 	mov r3, #0
 	mov r1, #1
 	str r3, [r0]
@@ -18909,15 +18897,15 @@ FUN_020848e4: ; 0x020848E4
 	str r3, [r0, #0xc]
 	str r3, [r0, #0x14]
 	bx lr
-	arm_func_end FUN_020848e4
+	arm_func_end DSEi_FUN_020848e4
 
-	arm_func_start FUN_0208490c
-FUN_0208490c: ; 0x0208490C
+	arm_func_start DSEi_FUN_0208490c
+DSEi_FUN_0208490c: ; 0x0208490C
 	bx lr
-	arm_func_end FUN_0208490c
+	arm_func_end DSEi_FUN_0208490c
 
-	arm_func_start FUN_02084910
-FUN_02084910: ; 0x02084910
+	arm_func_start DSEi_FUN_02084910
+DSEi_FUN_02084910: ; 0x02084910
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r4, [sp, #0x28]
 	ldr r9, [r1, #4]
@@ -19040,19 +19028,19 @@ _02084AC0:
 	cmp r2, r9
 	blt _02084A34
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_02084910
+	arm_func_end DSEi_FUN_02084910
 
-	arm_func_start FUN_02084ad0
-FUN_02084ad0: ; 0x02084AD0
+	arm_func_start DSEi_FUN_02084ad0
+DSEi_FUN_02084ad0: ; 0x02084AD0
 	stmfd sp!, {r3, lr}
 	ldr r3, [r0]
 	ldr r3, [r3, #0x24]
 	blx r3
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02084ad0
+	arm_func_end DSEi_FUN_02084ad0
 
-	arm_func_start FUN_02084ae4
-FUN_02084ae4: ; 0x02084AE4
+	arm_func_start DSEi_FUN_02084ae4
+DSEi_FUN_02084ae4: ; 0x02084AE4
 	cmp r1, #0
 	beq _02084AF8
 	cmp r1, #1
@@ -19082,32 +19070,32 @@ _02084B38:
 _02084B40:
 	mov r0, #0
 	bx lr
-	arm_func_end FUN_02084ae4
+	arm_func_end DSEi_FUN_02084ae4
 
-	arm_func_start FUN_02084b48
-FUN_02084b48: ; 0x02084B48
+	arm_func_start DSEi_CaptureInit
+DSEi_CaptureInit: ; 0x02084B48
 	stmfd sp!, {r4, lr}
 	ldr r0, _02084B6C ; =0x020B9FD8
 	mov r4, #0
 	add r0, r0, #0x700
 	strh r4, [r0, #0x1a]
 	strh r4, [r0, #0x1c]
-	bl FUN_02084c18
+	bl DSEi_StartCaptureThread
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02084B6C: .word unk_020B9FD8
-	arm_func_end FUN_02084b48
+	arm_func_end DSEi_CaptureInit
 
-	arm_func_start FUN_02084b70
-FUN_02084b70: ; 0x02084B70
+	arm_func_start DSEi_QuitCapture
+DSEi_QuitCapture: ; 0x02084B70
 	stmfd sp!, {r3, lr}
-	bl FUN_02084cac
+	bl DSEi_QuitCaptureThread
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_02084b70
+	arm_func_end DSEi_QuitCapture
 
-	arm_func_start FUN_02084b80
-FUN_02084b80: ; 0x02084B80
+	arm_func_start DSEi_StopCapture
+DSEi_StopCapture: ; 0x02084B80
 	stmfd sp!, {r3, lr}
 	ldr r0, _02084BAC ; =0x020BA6D8
 	ldrh r0, [r0, #0x1a]
@@ -19116,27 +19104,27 @@ FUN_02084b80: ; 0x02084B80
 	mov r0, #0
 	mov r1, r0
 	mov r2, r0
-	bl FUN_02084d14
+	bl DSEi_SetupCapture
 _02084BA4:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02084BAC: .word unk_020BA6D8
-	arm_func_end FUN_02084b80
+	arm_func_end DSEi_StopCapture
 
-	arm_func_start FUN_02084bb0
-FUN_02084bb0: ; 0x02084BB0
+	arm_func_start DSEi_CaptureSuspend
+DSEi_CaptureSuspend: ; 0x02084BB0
 	stmfd sp!, {r3, lr}
 	ldr r0, _02084BCC ; =0x020BC404
 	ldrsb r1, [r0, #0x24]
 	cmp r1, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_02085278
+	bl DSEi_SuspendCapture
 	ldmfd sp!, {r3, pc}
 _02084BCC: .word unk_020BC404
-	arm_func_end FUN_02084bb0
+	arm_func_end DSEi_CaptureSuspend
 
-	arm_func_start FUN_02084bd0
-FUN_02084bd0: ; 0x02084BD0
+	arm_func_start DSEi_CaptureResume
+DSEi_CaptureResume: ; 0x02084BD0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _02084C14 ; =0x020BC404
 	ldrsb r0, [r5, #0x24]
@@ -19146,19 +19134,19 @@ FUN_02084bd0: ; 0x02084BD0
 	mov r0, r5
 	mov r2, r4
 	mov r1, #0
-	bl FUN_02085018
+	bl DSEi_BindVoiceToCapture
 	mov r0, r5
 	mov r1, r4
 	mov r2, #3
-	bl FUN_02085018
+	bl DSEi_BindVoiceToCapture
 	mov r0, r5
-	bl FUN_02085084
+	bl DSEi_StartCapture
 	ldmfd sp!, {r3, r4, r5, pc}
 _02084C14: .word unk_020BC404
-	arm_func_end FUN_02084bd0
+	arm_func_end DSEi_CaptureResume
 
-	arm_func_start FUN_02084c18
-FUN_02084c18: ; 0x02084C18
+	arm_func_start DSEi_StartCaptureThread
+DSEi_StartCaptureThread: ; 0x02084C18
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	ldr r5, _02084C98 ; =0x020BC404
@@ -19172,13 +19160,13 @@ FUN_02084c18: ; 0x02084C18
 	mov r0, r7
 	strb r4, [r5, #0x26]
 	mov r1, #0x10
-	bl DseMem_AllocateLastFit
+	bl DSEi_AllocateLastFit
 	str r0, [r5, #0x34]
 	ldr r6, _02084CA0 ; =0x020BC43C
 	ldr r0, _02084CA4 ; =0x020BAFD8
 	str r7, [sp]
 	ldrb r2, [r0, #0xd1c]
-	ldr r1, _02084CA8 ; =FUN_02085324
+	ldr r1, _02084CA8 ; =DSEi_CaptureThreadFunc
 	mov r0, r6
 	add r2, r2, #1
 	str r2, [sp, #4]
@@ -19195,17 +19183,17 @@ _02084C98: .word unk_020BC404
 _02084C9C: .word 0x78667473
 _02084CA0: .word unk_020BC43C
 _02084CA4: .word unk_020BAFD8
-_02084CA8: .word FUN_02085324
-	arm_func_end FUN_02084c18
+_02084CA8: .word DSEi_CaptureThreadFunc
+	arm_func_end DSEi_StartCaptureThread
 
-	arm_func_start FUN_02084cac
-FUN_02084cac: ; 0x02084CAC
+	arm_func_start DSEi_QuitCaptureThread
+DSEi_QuitCaptureThread: ; 0x02084CAC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, #0
 	mov r0, r8
 	mov r1, r8
 	mov r2, r8
-	bl FUN_02084d14
+	bl DSEi_SetupCapture
 	ldr r5, _02084D08 ; =0x020BC43C
 	ldr r4, _02084D0C ; =0x020BC404
 	mov r0, #1
@@ -19220,16 +19208,16 @@ FUN_02084cac: ; 0x02084CAC
 	strh r6, [r7]
 	bl OS_JoinThread
 	ldr r0, [r4, #0x34]
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02084D08: .word unk_020BC43C
 _02084D0C: .word unk_020BC404
 _02084D10: .word 0x04000208
-	arm_func_end FUN_02084cac
+	arm_func_end DSEi_QuitCaptureThread
 
-	arm_func_start FUN_02084d14
-FUN_02084d14: ; 0x02084D14
+	arm_func_start DSEi_SetupCapture
+DSEi_SetupCapture: ; 0x02084D14
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r3, _02084FF0 ; =0x0000FFFF
 	mov r7, r1
@@ -19251,7 +19239,7 @@ FUN_02084d14: ; 0x02084D14
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084D74:
@@ -19261,7 +19249,7 @@ _02084D74:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084D98:
@@ -19281,19 +19269,19 @@ _02084D98:
 	strh r5, [r1, #8]
 	mov r0, r8
 	strh r6, [r1, #0xa]
-	bl FUN_02085278
+	bl DSEi_SuspendCapture
 	strb r10, [r8, #0x24]
 	ldr r0, [r8]
 	cmp r0, #0
 	beq _02084DF4
-	bl DseMem_Free
+	bl DSEi_Free
 	str r10, [r8]
 _02084DF4:
 	ldr r8, _02084FF4 ; =0x020BC404
 	ldr r0, [r8, #8]
 	cmp r0, #0
 	beq _02084E0C
-	bl DseMem_Free
+	bl DSEi_Free
 	str r10, [r8, #8]
 _02084E0C:
 	cmp r7, #0
@@ -19316,7 +19304,7 @@ _02084E38: ; jump table
 	b _02084EA0 ; case 4
 	b _02084EB4 ; case 5
 _02084E50:
-	ldr r0, _02084FFC ; =FUN_020853c4
+	ldr r0, _02084FFC ; =DSEi_CaptureFilterVolumeStereo
 	cmp r5, #0
 	moveq r7, #0
 	strb r4, [r8, #0x1e]
@@ -19328,26 +19316,26 @@ _02084E6C:
 	cmp r5, #0
 	moveq r7, #0
 	strb r1, [r8, #0x1e]
-	ldr r0, _02085000 ; =FUN_0208541c
+	ldr r0, _02085000 ; =DSEi_CaptureFilterEchoStereo
 	b _02084EC4
 _02084E80:
 	cmp r5, #0
 	moveq r7, #0
 	strb r1, [r8, #0x1e]
-	ldr r0, _02085004 ; =FUN_020854f4
+	ldr r0, _02085004 ; =DSEi_CaptureFilterEchoMono
 	b _02084EC4
 _02084E94:
-	ldr r0, _02085008 ; =FUN_020855b0
+	ldr r0, _02085008 ; =DSEi_CaptureFilterInvert
 	strb r1, [r8, #0x1e]
 	b _02084E60
 _02084EA0:
 	cmp r5, #0
 	moveq r7, #0
 	strb r1, [r8, #0x1e]
-	ldr r0, _0208500C ; =FUN_020855d8
+	ldr r0, _0208500C ; =DSEi_CaptureFilterEchoStereoInvert
 	b _02084EC4
 _02084EB4:
-	ldr r0, _02085010 ; =FUN_020856c4
+	ldr r0, _02085010 ; =DSEi_CaptureFilterEchoMonoInvert
 	cmp r5, #0
 	moveq r7, #0
 	strb r1, [r8, #0x1e]
@@ -19386,7 +19374,7 @@ _02084EDC:
 	bne _02084F58
 	mov r4, #0x20
 	mov r1, r4
-	bl DseMem_AllocateUser
+	bl DSEi_AllocateUser
 	movs r1, r0
 	str r1, [r8]
 	subeq r0, r4, #0xa0
@@ -19399,18 +19387,18 @@ _02084F58:
 	bne _02084FB8
 	ldr r0, [r8, #0x10]
 	mov r1, #0x20
-	bl DseMem_AllocateUser
+	bl DSEi_AllocateUser
 	str r0, [r8, #8]
 	cmp r0, #0
 	bne _02084FAC
 	ldr r0, [r8]
-	bl DseMem_Free
+	bl DSEi_Free
 	mov r1, #0
 	sub r4, r1, #0x80
 	mov r0, r4
 	mov r2, r1
 	str r1, [r8]
-	bl Dse_SetError
+	bl DSEi_SetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084FAC:
@@ -19422,13 +19410,13 @@ _02084FB8:
 	mov r0, r8
 	mov r2, r10
 	strb r1, [r8, #0x20]
-	bl FUN_02085018
+	bl DSEi_BindVoiceToCapture
 	mov r0, r8
 	mov r1, r10
 	mov r2, #3
-	bl FUN_02085018
+	bl DSEi_BindVoiceToCapture
 	mov r0, r8
-	bl FUN_02085084
+	bl DSEi_StartCapture
 	strb r10, [r8, #0x24]
 _02084FE8:
 	mov r0, #0
@@ -19436,17 +19424,17 @@ _02084FE8:
 _02084FF0: .word 0x0000FFFF
 _02084FF4: .word unk_020BC404
 _02084FF8: .word unk_020BA6F2
-_02084FFC: .word FUN_020853c4
-_02085000: .word FUN_0208541c
-_02085004: .word FUN_020854f4
-_02085008: .word FUN_020855b0
-_0208500C: .word FUN_020855d8
-_02085010: .word FUN_020856c4
+_02084FFC: .word DSEi_CaptureFilterVolumeStereo
+_02085000: .word DSEi_CaptureFilterEchoStereo
+_02085004: .word DSEi_CaptureFilterEchoMono
+_02085008: .word DSEi_CaptureFilterInvert
+_0208500C: .word DSEi_CaptureFilterEchoStereoInvert
+_02085010: .word DSEi_CaptureFilterEchoMonoInvert
 _02085014: .word 0x81020409
-	arm_func_end FUN_02084d14
+	arm_func_end DSEi_SetupCapture
 
-	arm_func_start FUN_02085018
-FUN_02085018: ; 0x02085018
+	arm_func_start DSEi_BindVoiceToCapture
+DSEi_BindVoiceToCapture: ; 0x02085018
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	ldr r12, _0208507C ; =0x020BA720
 	mov r3, #0x15c
@@ -19458,12 +19446,12 @@ FUN_02085018: ; 0x02085018
 	mov r0, r7
 	mov r8, r1
 	strh r4, [r6]
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 	add r0, r7, #0x3c
 	sub r1, r4, #0xc0000001
-	bl DseEnvelope_ForceVolume
+	bl DSEi_ForceEnvelopeVolume
 	add r0, r7, #0x5c
-	bl DseLfoBank_Reset
+	bl DSEi_LfoBank_Reset
 	strh r4, [r7, #6]
 	mov r0, #0x10
 	strb r0, [r7, #0x14e]
@@ -19474,10 +19462,10 @@ FUN_02085018: ; 0x02085018
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0208507C: .word unk_020BA720
 _02085080: .word 0x04000208
-	arm_func_end FUN_02085018
+	arm_func_end DSEi_BindVoiceToCapture
 
-	arm_func_start FUN_02085084
-FUN_02085084: ; 0x02085084
+	arm_func_start DSEi_StartCapture
+DSEi_StartCapture: ; 0x02085084
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	mov r4, r0
@@ -19537,7 +19525,7 @@ _02085110:
 	mov r0, r8
 	mov r1, r9
 	bl SND_SetupCapture
-	ldr r3, _02085268 ; =FUN_02085310
+	ldr r3, _02085268 ; =DSEi_WakeupCaptureThread
 	mov r1, r6
 	mov r2, r5
 	mov r0, #4
@@ -19577,9 +19565,9 @@ _02085194:
 	movne r0, #0x7f
 	str r0, [r10, #0x144]
 	add r0, r10, #0x3c
-	bl DseEnvelope_ForceVolume
+	bl DSEi_ForceEnvelopeVolume
 	add r0, r10, #0x5c
-	bl DseLfoBank_Reset
+	bl DSEi_LfoBank_Reset
 	add r9, r9, #1
 	strh r5, [r10, #6]
 	cmp r9, #2
@@ -19605,14 +19593,14 @@ _02085194:
 	strh r0, [r2]
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02085268: .word FUN_02085310
+_02085268: .word DSEi_WakeupCaptureThread
 _0208526C: .word 0x04000208
 _02085270: .word unk_020B9FD8
 _02085274: .word unk_020BC404
-	arm_func_end FUN_02085084
+	arm_func_end DSEi_StartCapture
 
-	arm_func_start FUN_02085278
-FUN_02085278: ; 0x02085278
+	arm_func_start DSEi_SuspendCapture
+DSEi_SuspendCapture: ; 0x02085278
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _02085304 ; =0x020BC404
 	mov r6, r0
@@ -19629,7 +19617,7 @@ _020852A4:
 	ldr r0, [r0, #0x28]
 	cmp r0, #0
 	beq _020852B8
-	bl DseVoice_Deallocate
+	bl DSEi_StopVoice
 _020852B8:
 	add r5, r5, #1
 	cmp r5, #2
@@ -19653,19 +19641,19 @@ _020852B8:
 _02085304: .word unk_020BC404
 _02085308: .word 0x04000208
 _0208530C: .word unk_020B9FD8
-	arm_func_end FUN_02085278
+	arm_func_end DSEi_SuspendCapture
 
-	arm_func_start FUN_02085310
-FUN_02085310: ; 0x02085310
+	arm_func_start DSEi_WakeupCaptureThread
+DSEi_WakeupCaptureThread: ; 0x02085310
 	ldr r0, _0208531C ; =0x020BC43C
 	ldr r12, _02085320 ; =OS_WakeupThreadDirect
 	bx r12
 _0208531C: .word unk_020BC43C
 _02085320: .word OS_WakeupThreadDirect
-	arm_func_end FUN_02085310
+	arm_func_end DSEi_WakeupCaptureThread
 
-	arm_func_start FUN_02085324
-FUN_02085324: ; 0x02085324
+	arm_func_start DSEi_CaptureThreadFunc
+DSEi_CaptureThreadFunc: ; 0x02085324
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r11, #0
 	ldr r5, _020853C0 ; =0x020BC404
@@ -19705,16 +19693,12 @@ _02085338:
 	movne r0, r11
 	strb r0, [r5, #0x20]
 	b _02085338
-	arm_func_end FUN_02085324
-
-	arm_func_start FUN_020853bc
-FUN_020853bc: ; 0x020853BC
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020853C0: .word unk_020BC404
-	arm_func_end FUN_020853bc
+	arm_func_end DSEi_CaptureThreadFunc
 
-	arm_func_start FUN_020853c4
-FUN_020853c4: ; 0x020853C4
+	arm_func_start DSEi_CaptureFilterVolumeStereo
+DSEi_CaptureFilterVolumeStereo: ; 0x020853C4
 	stmfd sp!, {r3, lr}
 	ldrb r0, [r0, #0x1f]
 	mov r12, r3, asr #1
@@ -19738,10 +19722,10 @@ _020853DC:
 	strh r0, [r2], #2
 	bgt _020853DC
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_020853c4
+	arm_func_end DSEi_CaptureFilterVolumeStereo
 
-	arm_func_start FUN_0208541c
-FUN_0208541c: ; 0x0208541C
+	arm_func_start DSEi_CaptureFilterEchoStereo
+DSEi_CaptureFilterEchoStereo: ; 0x0208541C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldrb r5, [r0, #0x20]
 	ldr lr, [r0, #8]
@@ -19799,10 +19783,10 @@ _020854E0:
 	add r4, r4, #2
 	bgt _0208545C
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_0208541c
+	arm_func_end DSEi_CaptureFilterEchoStereo
 
-	arm_func_start FUN_020854f4
-FUN_020854f4: ; 0x020854F4
+	arm_func_start DSEi_CaptureFilterEchoMono
+DSEi_CaptureFilterEchoMono: ; 0x020854F4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldrb r4, [r0, #0x20]
 	ldr lr, [r0, #8]
@@ -19853,10 +19837,10 @@ _02085598:
 	add lr, lr, #2
 	bgt _0208552C
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_020854f4
+	arm_func_end DSEi_CaptureFilterEchoMono
 
-	arm_func_start FUN_020855b0
-FUN_020855b0: ; 0x020855B0
+	arm_func_start DSEi_CaptureFilterInvert
+DSEi_CaptureFilterInvert: ; 0x020855B0
 	mov r2, r3, asr #1
 	cmp r2, #0
 	bxle lr
@@ -19868,10 +19852,10 @@ _020855BC:
 	strh r0, [r1], #2
 	bgt _020855BC
 	bx lr
-	arm_func_end FUN_020855b0
+	arm_func_end DSEi_CaptureFilterInvert
 
-	arm_func_start FUN_020855d8
-FUN_020855d8: ; 0x020855D8
+	arm_func_start DSEi_CaptureFilterEchoStereoInvert
+DSEi_CaptureFilterEchoStereoInvert: ; 0x020855D8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldrb r5, [r0, #0x20]
 	ldr lr, [r0, #8]
@@ -19934,10 +19918,10 @@ _0208569C:
 	add r4, r4, #2
 	bgt _02085618
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_020855d8
+	arm_func_end DSEi_CaptureFilterEchoStereoInvert
 
-	arm_func_start FUN_020856c4
-FUN_020856c4: ; 0x020856C4
+	arm_func_start DSEi_CaptureFilterEchoMonoInvert
+DSEi_CaptureFilterEchoMonoInvert: ; 0x020856C4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldrb r4, [r0, #0x20]
 	ldr lr, [r0, #8]
@@ -19991,44 +19975,44 @@ _02085760:
 	add r1, r1, #2
 	bgt _020856FC
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_020856c4
+	arm_func_end DSEi_CaptureFilterEchoMonoInvert
 
-	arm_func_start FUN_0208578c
-FUN_0208578c: ; 0x0208578C
+	arm_func_start DSEi_InitFifo
+DSEi_InitFifo: ; 0x0208578C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r5, r0
 	ldr r1, _020857C8 ; =0x6F666966
 	mov r0, r4
-	bl FUN_0207dbf4
+	bl DSEi_StreamAlloc
 	cmp r0, #0
 	mvneq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	str r0, [r5]
 	mov r0, r5
 	str r4, [r5, #4]
-	bl FUN_020857f4
+	bl DSEi_ResetFifoBuffer
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _020857C8: .word 0x6F666966
-	arm_func_end FUN_0208578c
+	arm_func_end DSEi_InitFifo
 
-	arm_func_start FUN_020857cc
-FUN_020857cc: ; 0x020857CC
+	arm_func_start DSEi_ResetFifo
+DSEi_ResetFifo: ; 0x020857CC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, [r4]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
-	bl FUN_0207dc70
+	bl DSEi_StreamFree
 	mov r0, #0
 	str r0, [r4]
 	str r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020857cc
+	arm_func_end DSEi_ResetFifo
 
-	arm_func_start FUN_020857f4
-FUN_020857f4: ; 0x020857F4
+	arm_func_start DSEi_ResetFifoBuffer
+DSEi_ResetFifoBuffer: ; 0x020857F4
 	ldr r1, [r0]
 	cmp r1, #0
 	movne r1, #0
@@ -20036,10 +20020,10 @@ FUN_020857f4: ; 0x020857F4
 	strne r1, [r0, #0x10]
 	strne r1, [r0, #8]
 	bx lr
-	arm_func_end FUN_020857f4
+	arm_func_end DSEi_ResetFifoBuffer
 
-	arm_func_start FUN_02085810
-FUN_02085810: ; 0x02085810
+	arm_func_start DSEi_FifoWrite
+DSEi_FifoWrite: ; 0x02085810
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r6, r2
 	mov r8, r0
@@ -20085,10 +20069,10 @@ _02085890:
 _020858B4:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02085810
+	arm_func_end DSEi_FifoWrite
 
-	arm_func_start FUN_020858bc
-FUN_020858bc: ; 0x020858BC
+	arm_func_start DSEi_FifoRead
+DSEi_FifoRead: ; 0x020858BC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	ldr r0, [r8, #8]
@@ -20136,7 +20120,7 @@ _0208593C:
 _02085964:
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_020858bc
+	arm_func_end DSEi_FifoRead
 
     .rodata
 	.global DSE_MIDI_EVENT_LENGTHS
@@ -20799,132 +20783,132 @@ DSE_DELAY_TABLE:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global DSE_TRACK_EVENT_TABLE
 DSE_TRACK_EVENT_TABLE:
-	.word DseTrackEvent_WaitSame
-	.word DseTrackEvent_WaitDelta
-	.word DseTrackEvent_Wait8
-	.word DseTrackEvent_Wait16
-	.word DseTrackEvent_Wait24
-	.word DseTrackEvent_WaitUntilFadeout
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_EndTrack
-	.word DseTrackEvent_MainLoopBegin
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SubLoopBegin
-	.word DseTrackEvent_SubLoopEnd
-	.word DseTrackEvent_SubLoopBreakOnLastIteration
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetOctave
-	.word DseTrackEvent_OctaveDelta
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetBpm
-	.word DseTrackEvent_SetBpm2
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetBank
-	.word DseTrackEvent_SetBankMsb
-	.word DseTrackEvent_SetBankLsb
-	.word DseTrackEvent_Dummy1Byte
-	.word DseTrackEvent_SetProgram
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SongVolumeFade
-	.word DseTrackEvent_RestoreEnvelopeDefaults
-	.word DseTrackEvent_SetEnvelopeAttackBegin
-	.word DseTrackEvent_SetEnvelopeAttackTime
-	.word DseTrackEvent_SetEnvelopeHoldTime
-	.word DseTrackEvent_SetEnvelopeDecayTimeAndSustainLevel
-	.word DseTrackEvent_SetEnvelopeSustainTime
-	.word DseTrackEvent_SetEnvelopeReleaseTime
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetNoteDurationMultiplier
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetModulationDepth
-	.word DseTrackEvent_SetHoldNotes
-	.word DseTrackEvent_SetFlagBit1Unknown
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetOptionalVolume
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Dummy2Bytes
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetTuning
-	.word DseTrackEvent_TuningDeltaCoarse
-	.word DseTrackEvent_TuningDeltaFine
-	.word DseTrackEvent_TuningDeltaFull
-	.word DseTrackEvent_TuningFade
-	.word DseTrackEvent_SetNoteRandomRegion
-	.word DseTrackEvent_SetTuningJitterAmplitude
-	.word DseTrackEvent_SetKeyBend
-	.word DseTrackEvent_SetUnknown2
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetKeyBendRange
-	.word DseTrackEvent_SetupKeyBendLfo
-	.word DseTrackEvent_SetupKeyBendLfoEnvelope
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_UseKeyBendLfo
-	.word DseTrackEvent_SetVolume
-	.word DseTrackEvent_VolumeDelta
-	.word DseTrackEvent_VolumeFade
-	.word DseTrackEvent_SetExpression
-	.word DseTrackEvent_SetupVolumeLfo
-	.word DseTrackEvent_SetupVolumeLfoEnvelope
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_UseVolumeLfo
-	.word DseTrackEvent_SetPan
-	.word DseTrackEvent_PanDelta
-	.word DseTrackEvent_PanFade
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_SetupPanLfo
-	.word DseTrackEvent_SetupPanLfoEnvelope
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_UsePanLfo
-	.word DseTrackEvent_SetupLfo
-	.word DseTrackEvent_SetupLfoEnvelope
-	.word DseTrackEvent_SetLfoParameter
-	.word DseTrackEvent_UseLfo
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Signal
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Dummy2Bytes2
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
-	.word DseTrackEvent_Invalid
+	.word DSE_SeqWaitSame
+	.word DSE_SeqWaitDelta
+	.word DSE_SeqWait8
+	.word DSE_SeqWait16
+	.word DSE_SeqWait24
+	.word DSE_SeqWaitUntilFadeout
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqEndTrack
+	.word DSE_SeqMainLoopBegin
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSubLoopBegin
+	.word DSE_SeqSubLoopEnd
+	.word DSE_SeqSubLoopBreakOnLastIteration
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSetOctave
+	.word DSE_SeqOctaveDelta
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSetBpm
+	.word DSE_SeqSetBpm2
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSetBank
+	.word DSE_SeqSetBankMsb
+	.word DSE_SeqSetBankLsb
+	.word DSE_SeqDummy1Byte
+	.word DSE_SsdSeqProgramChange
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSongVolumeFade
+	.word DSE_SeqResetEnvelope
+	.word DSE_SeqAttackBegin
+	.word DSE_SeqAttackTime
+	.word DSE_SeqHoldTime
+	.word DSE_SeqDecayTimeAndSustainLevel
+	.word DSE_SeqSustainTime
+	.word DSE_SeqReleaseTime
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqNoteDurationMultiplier
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqModulationDepth
+	.word DSE_SeqHoldNotes
+	.word DSE_SeqFlagBit1Unknown
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSetOptionalVolume
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqDummy2Bytes
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqTuning
+	.word DSE_SeqTuningDeltaCoarse
+	.word DSE_SeqTuningDeltaFine
+	.word DSE_SeqTuningDeltaFull
+	.word DSE_SeqTuningFade
+	.word DSE_SeqSetNoteRandomRegion
+	.word DSE_SeqTuningJitterAmplitude
+	.word DSE_SeqKeyBend
+	.word DSE_SeqUnknown2
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqKeyBendRange
+	.word DSE_SeqKeyBendLfo
+	.word DSE_SeqKeyBendLfoEnvelope
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqStartKeyBendLfo
+	.word DSE_SeqVolume
+	.word DSE_SeqVolumeDelta
+	.word DSE_SeqVolumeFade
+	.word DSE_SeqExpression
+	.word DSE_SeqVolumeLfo
+	.word DSE_SeqVolumeLfoEnvelope
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqStartVolumeLfo
+	.word DSE_SeqPan
+	.word DSE_SeqPanDelta
+	.word DSE_SeqPanFade
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqPanLfo
+	.word DSE_SeqPanLfoEnvelope
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqStartPanLfo
+	.word DSE_SeqLfo
+	.word DSE_SeqLfoEnvelope
+	.word DSE_SeqLfoParameter
+	.word DSE_SeqStartLfo
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqSignal
+	.word DSE_SsdSeqDummy
+	.word DSE_SeqDummy2Bytes2
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
+	.word DSE_SsdSeqDummy
 	.global DSE_MIDI_CC_TABLE
 DSE_MIDI_CC_TABLE:
-	.word DseMidiCC_BankSelectMSB
-	.word DseMidiCC_ModulationDepth
+	.word DSE_SsdMidiControlBankMSB
+	.word DSE_SsdMidiControlModulationMSB
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_MaybePortamentoTime
-	.word DseMidiCC_Stub6
-	.word DseMidiCC_ChannelVolume
+	.word DSE_SsdMidiControlPortamentoMSB
+	.word DSE_SsdMidiControlSetRegParDataMSB
+	.word DSE_SsdMidiControlVolumeMSB
 	.word 0
 	.word 0
-	.word DseMidiCC_Pan
-	.word DseMidiCC_Expression
+	.word DSE_SsdMidiControlPanpotMSB
+	.word DSE_SsdMidiControlExpressionMSB
 	.word 0
 	.word 0
 	.word 0
@@ -20933,19 +20917,19 @@ DSE_MIDI_CC_TABLE:
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_BendRange
+	.word DSE_MidiControlBendRange
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_Stub25
-	.word DseMidiCC_Stub26
-	.word DseMidiCC_Stub27
+	.word DSE_MidiControlStub25
+	.word DSE_MidiControlStub26
+	.word DSE_MidiControlStub27
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_BankSelectLSB
+	.word DSE_SsdMidiControlBankLSB
 	.word 0
 	.word 0
 	.word 0
@@ -20977,54 +20961,54 @@ DSE_MIDI_CC_TABLE:
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_Hold1
-	.word DseMidiCC_Stub65
+	.word DSE_SsdMidiControlSustaion
+	.word DSE_MidiControlStub65
 	.word 0
 	.word 0
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_ReleaseTime
-	.word DseMidiCC_AttackTime
+	.word DSE_MidiControlReleaseTime
+	.word DSE_MidiControlAttackTime
 	.word 0
-	.word DseMidiCC_DecayTime
-	.word DseMidiCC_LfoRate
-	.word DseMidiCC_LfoDepth
-	.word DseMidiCC_MaybeLfoDelay
-	.word DseMidiCC_UnkLfoType
+	.word DSE_MidiControlDecayTime
+	.word DSE_MidiControlLfoRate
+	.word DSE_MidiControlLfoDepth
+	.word DSE_MidiControlMaybeLfoDelay
+	.word DSE_MidiControlUnkLfoType
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_Stub84
-	.word DseMidiCC_AttackTime
-	.word DseMidiCC_DecayTime
-	.word DseMidiCC_SustainLevel
-	.word DseMidiCC_ReleaseTime
-	.word DseMidiCC_UnkLfoParam
-	.word DseMidiCC_UnkLfoWaveType
-	.word DseMidiCC_Stub91
+	.word DSE_MidiControlStub84
+	.word DSE_MidiControlAttackTime
+	.word DSE_MidiControlDecayTime
+	.word DSE_MidiControlSustainLevel
+	.word DSE_MidiControlReleaseTime
+	.word DSE_MidiControlUnkLfoParam
+	.word DSE_MidiControlUnkLfoWaveType
+	.word DSE_SsdMidiControlReverb
 	.word 0
-	.word DseMidiCC_Stub93
+	.word DSE_MidiControlStub93
 	.word 0
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_MaybeNRPNLSB
-	.word DseMidiCC_MaybeNRPNMSB
-	.word DseMidiCC_MaybeRPN
-	.word DseMidiCC_MaybeRPN
-	.word DseMidiCC_EnvelopeReset
-	.word DseMidiCC_AttackTime
-	.word DseMidiCC_HoldTime
-	.word DseMidiCC_DecayTime
-	.word DseMidiCC_SustainLevel
-	.word DseMidiCC_AutoReleaseTime
-	.word DseMidiCC_ReleaseTime
+	.word DSE_SsdMidiControlNonRegParLSB
+	.word DSE_SsdMidiControlNonRegParMSB
+	.word DSE_SsdMidiControlRegParLSB
+	.word DSE_SsdMidiControlRegParLSB
+	.word DSE_MidiControlEnvelopeReset
+	.word DSE_MidiControlAttackTime
+	.word DSE_MidiControlHoldTime
+	.word DSE_MidiControlDecayTime
+	.word DSE_MidiControlSustainLevel
+	.word DSE_MidiControlAutoReleaseTime
+	.word DSE_MidiControlReleaseTime
 	.word 0
-	.word DseMidiCC_OptionalVolume
-	.word DseMidiCC_Stub111
+	.word DSE_MidiControlOptionalVolume
+	.word DSE_MidiControlStub111
 	.word 0
 	.word 0
 	.word 0
@@ -21033,14 +21017,14 @@ DSE_MIDI_CC_TABLE:
 	.word 0
 	.word 0
 	.word 0
-	.word DseMidiCC_UnkAllSoundsOffGlobal
-	.word DseMidiCC_ResetAllControllers
+	.word DSE_MidiControlUnkAllSoundsOffGlobal
+	.word DSE_MidiControlResetAllControllers
 	.word 0
-	.word DseMidiCC_AllNotesOff
+	.word DSE_MidiControlAllNotesOff
 	.word 0
 	.word 0
-	.word DseMidiCC_MaybeMono
-	.word DseMidiCC_MaybePoly
+	.word DSE_MidiControlMaybeMono
+	.word DSE_MidiControlMaybePoly
 	.global DSE_MUSIC_DURATION_LOOKUP_TABLE_1
 DSE_MUSIC_DURATION_LOOKUP_TABLE_1:
 	.byte 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x03, 0x00, 0x04, 0x00, 0x05, 0x00
@@ -21097,22 +21081,22 @@ DSE_MUSIC_DURATION_LOOKUP_TABLE_2:
 	.byte 0xFF, 0xFF, 0xFF, 0x7F
 	.global DSE_LFO_WAVEFORM_CALLBACKS
 DSE_LFO_WAVEFORM_CALLBACKS:
-	.word DseLfoWave_HalfSquareFunc
-	.word DseLfoWave_FullSquareFunc
-	.word DseLfoWave_HalfTriangleFunc
-	.word DseLfoWave_FullTriangleFunc
-	.word DseLfoWave_SawFunc
-	.word DseLfoWave_ReverseSawFunc
-	.word DseLfoWave_HalfNoiseFunc
-	.word DseLfoWave_FullNoiseFunc
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
-	.word DseLfoWave_Invalid
+	.word DSE_SsdLfoRectangularSingleProc
+	.word DSE_SsdLfoRectangularDoubleProc
+	.word DSE_SsdLfoTriangularSingleProc
+	.word DSE_SsdLfoTriangularDoubleProc
+	.word DSE_SsdLfoSawtoothSingleProc
+	.word DSE_LfoSawtoothSingleProcReverse
+	.word DSE_SsdLfoNoiseSingleProc
+	.word DSE_SsdLfoNoiseDoubleProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
+	.word DSE_SsdLfoOffProc
 	.global unk_02091E94
 unk_02091E94:
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40

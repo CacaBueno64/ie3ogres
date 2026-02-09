@@ -2,11 +2,11 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN11AudioPlayer12FUN_0202b838Eiii
-.public _ZN11AudioPlayer12FUN_0202c44cEii
+.public _ZN11AudioPlayer12FUN_0202c44cEil
 .public OS_Sleep
 .public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
-.public _ZN9C3DDevice13setClearColorEthh
+.public _ZN9C3DDevice13setClearColorEthi
 .public gAudioPlayer
 .public g3DDevice
 .public _ZN14CScreenManager16getNextSceneMainEv
@@ -35,8 +35,8 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG1Char
 .public _Z11SetNextMode8GameMode
-.public _ZN11AudioPlayer12FUN_0202d724EPc
-.public _ZN11AudioPlayer12FUN_0202d798EPci
+.public _ZN11AudioPlayer12FUN_0202d724EPKc
+.public _ZN11AudioPlayer12FUN_0202d798EPKcl
 .public _ZN11AudioPlayer12FUN_0202d578Ei
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public _ZN8Graphics14IsScreenFadingE12EngineSelect

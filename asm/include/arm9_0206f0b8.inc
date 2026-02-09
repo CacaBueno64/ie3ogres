@@ -38,7 +38,7 @@
 .public unk_0209136C
 .public _ZN7Archive13RequestReadExEPKcP9SFileDatalmi
 .public unk_02091388
-.public FUN_0202db98
+.public _ZN11AudioPlayer5sleepEm
 .public gAudioPlayer
 .public unk_020913A4
 .public unk_020913C0

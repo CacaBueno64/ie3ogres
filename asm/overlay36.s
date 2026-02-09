@@ -110,7 +110,7 @@ _0211A038:
 	mov r1, #1
 	ldr r0, _0211A0D0 ; =gAudioPlayer
 	moveq r1, #6
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	add r0, r4, r5
 	ldrb r1, [r0, #0x4c]
 	ldr r0, _0211A0CC ; =gBgMenuManager
@@ -138,7 +138,7 @@ _0211A0A0:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, _0211A0D0 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	add r0, r4, r5
 	ldrb r1, [r0, #0x4c]
 	ldr r0, _0211A0CC ; =gBgMenuManager
@@ -216,7 +216,7 @@ _0211A190:
 	ldr r0, _0211A1DC ; =gAudioPlayer
 	mov r1, #4
 _0211A198:
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _0211A19C:
 	ldr r5, _0211A1E0 ; =0x0209A070
 	ldr r1, [r6, #0x1c]

@@ -132,7 +132,7 @@
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738
 .public FUN_020591e8
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210e694

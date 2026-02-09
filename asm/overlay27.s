@@ -560,7 +560,7 @@ FUN_ov27_0211a650: ; 0x0211A650
 	ldr r0, _0211A688 ; =gAudioPlayer
 	mov r1, r4
 	strb r2, [r5, #0x4c]
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A684: .word gSprButtonCtrl
 _0211A688: .word gAudioPlayer

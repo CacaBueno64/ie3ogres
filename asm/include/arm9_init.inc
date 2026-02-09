@@ -5,8 +5,8 @@
 .public FUN_0205ff80
 .public _ZN14CardControllerC1Ev
 .public _ZN9AllocatorC1Ev
-.public FUN_0202b3dc
-.public _ZN5MovieC1Ev
+.public _ZN11AudioPlayerC1Ev
+.public _ZN11MoviePlayerC1Ev
 .public _ZN14CScreenManagerC2Ev
 .public FUN_02047a7c
 .public FUN_0202ffa4
@@ -33,10 +33,10 @@
 .public _ZN9AllocatorD1Ev
 .public unk_02099FD8
 .public gAudioPlayer
-.public FUN_0202b3e0
+.public _ZN11AudioPlayerD1Ev
 .public unk_02099FE4
-.public gMovie
-.public _ZN5MovieD1Ev
+.public gMoviePlayer
+.public _ZN11MoviePlayerD1Ev
 .public unk_02099FF0
 .public unk_0208F6C0
 .public unk_020A3D14

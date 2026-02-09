@@ -84,7 +84,7 @@ void FUN_02029140(void)
     gAllocator.setDefaultArena(0);
     gAllocator.fileIO = &gFileIO;
     gFileIO.init(64, &gAllocator);
-    gMovie.init(&gAllocator);
+    gMoviePlayer.init(&gAllocator);
 }
 
 void VramClear(void)

@@ -1,11 +1,11 @@
-#include "movie.hpp"
+#include "movieplayer.hpp"
 
-Movie::Movie()
+MoviePlayer::MoviePlayer()
 {
     this->flags = 0;
 }
 
-Movie::~Movie()
+MoviePlayer::~MoviePlayer()
 {
     if (this->flags) {
         this->flags |= 0x20;
@@ -13,7 +13,7 @@ Movie::~Movie()
     }
 }
 
-void Movie::init(Allocator *allocator)
+void MoviePlayer::init(Allocator *allocator)
 {
     if (allocator) {
         unk_020B5B80.allocator = allocator;
@@ -21,25 +21,25 @@ void Movie::init(Allocator *allocator)
     }
 }
 
-void Movie::setBGScreenPointers(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub)
+void MoviePlayer::setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub)
 {
-    unk_020B5B80.BGScrPtrMain[0] = CurFrameMain;
-    unk_020B5B80.BGScrPtrMain[1] = NextFrameMain;
-    unk_020B5B80.BGScrPtrSub[0] = CurFrameSub;
-    unk_020B5B80.BGScrPtrSub[1] = NextFrameSub;
+    unk_020B5B80.BGScrMain[0] = CurFrameMain;
+    unk_020B5B80.BGScrMain[1] = NextFrameMain;
+    unk_020B5B80.BGScrSub[0] = CurFrameSub;
+    unk_020B5B80.BGScrSub[1] = NextFrameSub;
 }
 
-int Movie::flipBuffer(void)
+int MoviePlayer::flipBuffer(void)
 {
     if (!unk_020B5B80.frameDisplayed) {
         unk_020B5B80.frameDisplayed = TRUE;
-        unk_020B5B80.curBGLayer ^= 1;
+        unk_020B5B80.currentBG ^= 1;
     }
 
-    return unk_020B5B80.curBGLayer ^ 1;
+    return unk_020B5B80.currentBG ^ 1;
 }
 
-BOOL Movie::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, u8 loadOverlay)
+BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, u8 loadOverlay)
 {
     char filepath[64];
 
@@ -85,11 +85,11 @@ BOOL Movie::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, 
     this->currentFrame = 0;
     this->frameCount = MO_GetNbFrame(this->handle_98);
 
-    unk_020B5B80.curBGLayer = 1;
+    unk_020B5B80.currentBG = 1;
     unk_020B5B80.frameDisplayed = TRUE;
 
     STD_TSPrintf(filepath, "%s.sad", name);
-    if (((this->flags & MOVIE_HAS_NO_SOUND) == 0) && (gAudioPlayer.openSAD(NULL, filepath, 0))) {
+    if (((this->flags & MOVIE_HAS_NO_SOUND) == 0) && (gAudioPlayer.FUN_0202d4c4(0, filepath, 0))) {
         this->flags |= MOVIE_HAS_SOUND;
     }
 
@@ -126,12 +126,12 @@ BOOL Movie::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, 
     return TRUE;
 }
 
-u32 Movie::FUN_0202e784(void)
+u32 MoviePlayer::FUN_0202e784(void)
 {
     return this->flags;
 }
 
-BOOL Movie::FUN_0202e78c(void)
+BOOL MoviePlayer::FUN_0202e78c(void)
 {
     if ((this->flags & 1) == 0) {
         return FALSE;
@@ -201,7 +201,7 @@ BOOL Movie::FUN_0202e78c(void)
     return TRUE;
 }
 
-void Movie::FUN_0202e958(void)
+void MoviePlayer::FUN_0202e958(void)
 {
     if ((this->flags & 2) != 0) {
         this->flags |= 0x20;
@@ -209,7 +209,7 @@ void Movie::FUN_0202e958(void)
     }
 }
 
-void Movie::sleep(void)
+void MoviePlayer::sleep(void)
 {
     if ((this->flags & 2) != 0) {
         this->flags |= 0x10;
@@ -220,20 +220,20 @@ void Movie::sleep(void)
     }
 }
 
-void Movie::wakeUp(void)
+void MoviePlayer::wakeUp(void)
 {
     if ((this->flags & 0x10) != 0) {
         u32 flag = this->flags & ~0x10;
         this->flags = flag;
         unk_020B5B80.unk5 = 0;
         if ((flag & 8) != 0) {
-            gAudioPlayer.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->currentFrame + this->unk198 + 1));
+            (void)gAudioPlayer.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->currentFrame + this->unk198 + 1));
             this->flags |= 0x400;
         }
     }
 }
 
-BOOL Movie::FUN_0202ea50(void)
+BOOL MoviePlayer::FUN_0202ea50(void)
 {
     if (this->unk194 >= 6) {
         return FALSE;
@@ -267,7 +267,7 @@ BOOL Movie::FUN_0202ea50(void)
     return TRUE;
 }
 
-void Movie::closeMovie(u8 unloadOverlay)
+void MoviePlayer::closeMovie(u8 unloadOverlay)
 {
     if (!this->flags) {
         return;
@@ -311,18 +311,18 @@ void Movie::closeMovie(u8 unloadOverlay)
 
 }
 
-void Movie::threadIntr(void *arg)
+void MoviePlayer::threadIntr(void *arg)
 {
-    Movie *movie = static_cast<Movie *>(arg);
+    MoviePlayer *player = static_cast<MoviePlayer *>(arg);
 
     while (TRUE) {
-        if (!movie->FUN_0202ea50()) {
+        if (!player->FUN_0202ea50()) {
             OS_SleepThread(NULL);
         }
     }
 }
 
-u32 Movie::getVideoFps(void)
+u32 MoviePlayer::getVideoFps(void)
 {
     if (!this->handle_98) {
         return 0;
@@ -331,51 +331,53 @@ u32 Movie::getVideoFps(void)
     return MO_GetVideoFps(this->handle_98);
 }
 
-BOOL Movie::blitFrameImage(MOHandle handleMain, MOHandle handleSub)
+BOOL MoviePlayer::blitFrameImage(MOHandle handleMain, MOHandle handleSub)
 {
     if (!unk_020B5B80.frameDisplayed) {
         return FALSE;
     }
+
     if (handleMain) {
-        u16 *frameBuffer = unk_020B5B80.BGScrPtrMain[unk_020B5B80.curBGLayer];
+        u16 *frameBuffer = unk_020B5B80.BGScrMain[unk_020B5B80.currentBG];
         if (frameBuffer != NULL) {
             (void)MO_BlitFrameImage(handleMain, frameBuffer, 256, MO_QUALITY_ENHANCEMENT_NONE);
         }
     }
     if (handleSub) {
-        u16 *frameBuffer = unk_020B5B80.BGScrPtrSub[unk_020B5B80.curBGLayer];
+        u16 *frameBuffer = unk_020B5B80.BGScrSub[unk_020B5B80.currentBG];
         if (frameBuffer != NULL) {
             (void)MO_BlitFrameImage(handleSub, frameBuffer, 256, MO_QUALITY_ENHANCEMENT_NONE);
         }
     }
+
     unk_020B5B80.frameDisplayed = FALSE;
 
     return TRUE;
 }
 
-void Movie::alarmIntr(void *arg)
+void MoviePlayer::alarmIntr(void *arg)
 {
     #pragma unused(arg)
 
     unk_020B5B80.unk5++;
 }
 
-void *Movie::malloc(size_t size)
+void *MoviePlayer::malloc(size_t size)
 {
     return unk_020B5B80.allocator->allocate(size, 5, 0);
 }
 
-void Movie::free(void *ptr)
+void MoviePlayer::free(void *ptr)
 {
     unk_020B5B80.allocator->deallocate(ptr);
 }
 
 void *MO_Malloc(u32 size)
 {
-    return gMovie.malloc(size);
+    return gMoviePlayer.malloc(size);
 }
 
 void MO_Free(void *mem_p)
 {
-    gMovie.free(mem_p);
+    gMoviePlayer.free(mem_p);
 }

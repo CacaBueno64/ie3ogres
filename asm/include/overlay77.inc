@@ -18,7 +18,7 @@
 .public FUN_0205228c
 .public g3DGameChar
 .public g3DGameMapObject
-.public _ZN9C3DDevice13setClearColorEthh
+.public _ZN9C3DDevice13setClearColorEthi
 .public FUN_ov16_0211661c
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f79ec

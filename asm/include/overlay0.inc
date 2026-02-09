@@ -97,8 +97,8 @@
 .public FUN_0206c110
 .public _ZN14CScreenManagerD2Ev
 .public _ZdlPv
-.public _ZN5Movie12FUN_0202e958Ev
-.public gMovie
+.public _ZN11MoviePlayer12FUN_0202e958Ev
+.public gMoviePlayer
 .public FUN_ov16_020f1d64
 .public FUN_0204451c
 .public FUN_ov16_020f2ab4
@@ -107,7 +107,7 @@
 .public FUN_ov16_020f2e2c
 .public FUN_02059d9c
 .public FUN_0205131c
-.public _ZN9C3DDevice13setClearColorEthh
+.public _ZN9C3DDevice13setClearColorEthi
 .public FUN_ov16_0211661c
 .public FUN_ov16_021123b4
 .public FUN_ov16_020f79ec
@@ -135,7 +135,7 @@
 .public FUN_ov16_02116650
 .public FUN_ov16_021123c4
 .public FUN_0205b398
-.public FUN_0202cf00
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
 .public FUN_02052928
 .public FUN_ov16_020f2dac
 .public gAudioPlayer
@@ -174,7 +174,7 @@
 .public FUN_02045ce0
 .public unk_0209A454
 .public gSprButtonCtrl
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020efa9c
 .public strcat
 .public unk_0209A0F4
@@ -344,7 +344,7 @@
 .public FUN_ov131_02149ac0
 .public _ZN8Graphics10FadeInMainEl
 .public _ZN8Graphics9FadeInSubEl
-.public FUN_0202c364
+.public _ZN11AudioPlayer12FUN_0202c364Eill
 .public _ZN8Graphics20IsMainBrightAdjustedEv
 .public _ZN8Graphics12IsMainFadingEv
 .public _Z11SetNextMode8GameMode

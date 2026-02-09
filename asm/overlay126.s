@@ -8343,7 +8343,7 @@ _02131E94:
 	ldr r0, _021321BC ; =gAudioPlayer
 	mov r1, #0x1f
 _02131E9C:
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	mov r1, #3
 	mov r2, #0x3c
@@ -15385,7 +15385,7 @@ _02138058:
 	ldr r0, _02138478 ; =gAudioPlayer
 	mov r1, #0x20
 _021380AC:
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	b _021382F0
 _021380B4:
 	ldr r0, _02138478 ; =gAudioPlayer

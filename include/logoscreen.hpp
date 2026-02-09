@@ -8,7 +8,7 @@
 #include "screenmanager.hpp"
 #include "commonscreen.hpp"
 #include "gamemodes.hpp"
-#include "movie.hpp"
+#include "movieplayer.hpp"
 #include "audioplayer.hpp"
 #include "config.hpp"
 #include "allocator.hpp"

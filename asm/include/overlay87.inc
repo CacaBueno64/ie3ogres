@@ -20,7 +20,7 @@
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public unk_020A0B6C
 .public unk_020A1640
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public unk_020A0640
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData

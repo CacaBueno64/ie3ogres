@@ -44,13 +44,13 @@
 .public FUN_ov1_020db3e0
 .public FUN_ov1_020db304
 .public FUN_ov1_020db2ac
-.public _ZN11AudioPlayer12FUN_0202d774Emm
-.public FUN_0202c470
+.public _ZN11AudioPlayer12FUN_0202d774Eil
+.public _ZN11AudioPlayer12FUN_0202c470El
 .public FUN_ov132_02144f4c
 .public FUN_ov132_02145140
 .public FUN_ov132_02145190
-.public FUN_0202c314
-.public FUN_0202c184
+.public _ZN11AudioPlayer12FUN_0202c314Eill
+.public _ZN11AudioPlayer12FUN_0202c184Eiill
 .public gAudioPlayer
 .public ov1_020E9485
 .public FUN_ov16_020f5f64
@@ -69,7 +69,7 @@
 .public gAllocator
 .public FUN_ov1_020db600
 .public DC_FlushRange
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f6e8c
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530

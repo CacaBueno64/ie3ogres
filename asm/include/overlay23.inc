@@ -60,7 +60,7 @@
 .public FUN_02059004
 .public FUN_02059038
 .public _ZN8Graphics12FadeInScreenE12EngineSelectl
-.public FUN_0202dbd0
+.public _ZN11AudioPlayer12FUN_0202dbd0Ei
 .public _ZN11AudioPlayer12FUN_0202d578Ei
 .public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
@@ -76,7 +76,7 @@
 .public FUN_ov16_020f4894
 .public FUN_ov16_020efa04
 .public FUN_ov16_0210f468
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_02110b04
 .public FUN_ov16_02110b0c
 .public FUN_ov16_0210f20c

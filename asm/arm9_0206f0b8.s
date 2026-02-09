@@ -629,7 +629,7 @@ FUN_0206f950: ; 0x0206F950
 	ldmeqfd sp!, {r3, r4, pc}
 	ldr r0, _0206F9D0 ; =gAudioPlayer
 	mov r1, #8
-	bl FUN_0202db98
+	bl _ZN11AudioPlayer5sleepEm
 	ldr r3, _0206F9D4 ; =gAllocator
 	ldr r1, _0206F9D8 ; =0x020913A4
 	ldr r0, [r3]

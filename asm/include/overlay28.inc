@@ -34,8 +34,8 @@
 .public FUN_02059004
 .public FUN_02059038
 .public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
-.public FUN_0202d00c
-.public FUN_0202cfd8
+.public _ZN11AudioPlayer15isPlayingEffectEi
+.public _ZN11AudioPlayer10stopEffectEim
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public gDeltaTime
 .public unk_0209A454
@@ -45,7 +45,7 @@
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_021123c4
 .public FUN_ov16_0210f468
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210efac

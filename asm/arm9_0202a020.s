@@ -518,20 +518,20 @@ FUN_0202a628: ; 0x0202A628
 	stmfd sp!, {r4, lr}
 	ldr r0, _0202A664 ; =0x0209AEC0
 	bl FUN_0204665c
-	ldr r0, _0202A668 ; =gMovie
-	bl _ZN5Movie5sleepEv
+	ldr r0, _0202A668 ; =gMoviePlayer
+	bl _ZN11MoviePlayer5sleepEv
 	ldr r0, _0202A66C ; =gAudioPlayer
-	bl FUN_0202b768
+	bl _ZN11AudioPlayer12FUN_0202b768Ev
 	mov r0, #0x14
 	bl OS_Sleep
 	mov r4, #0
 	mov r0, r4
-	bl FUN_02074fb8
+	bl DSE_SsdSuspend
 	mov r0, r4
-	bl DseSe_StopAll
+	bl DSE_SsdStopEffectAll
 	ldmfd sp!, {r4, pc}
 _0202A664: .word gWirelessUtil
-_0202A668: .word gMovie
+_0202A668: .word gMoviePlayer
 _0202A66C: .word gAudioPlayer
 	arm_func_end FUN_0202a628
 
@@ -542,11 +542,11 @@ FUN_0202a670: ; 0x0202A670
 	bl OS_Sleep
 	ldr r0, _0202A690 ; =gAudioPlayer
 	bl FUN_0202b714
-	ldr r0, _0202A694 ; =gMovie
-	bl _ZN5Movie6wakeUpEv
+	ldr r0, _0202A694 ; =gMoviePlayer
+	bl _ZN11MoviePlayer6wakeUpEv
 	ldmfd sp!, {r3, pc}
 _0202A690: .word gAudioPlayer
-_0202A694: .word gMovie
+_0202A694: .word gMoviePlayer
 	arm_func_end FUN_0202a670
 
 	arm_func_start FUN_0202a698
@@ -1343,7 +1343,7 @@ _0202B13C:
 	ldr r1, [r1, #0x34]
 	blx r1
 	ldr r0, _0202B1C4 ; =gAudioPlayer
-	bl FUN_0202b768
+	bl _ZN11AudioPlayer12FUN_0202b768Ev
 	bl FUN_0202afa0
 	bl FUN_0202a39c
 	b _0202B01C
@@ -1632,13 +1632,13 @@ _0202B3D4: .word gAllocator
 _0202B3D8: .word 0x00000102
 	arm_func_end FUN_0202b330
 
-	arm_func_start FUN_0202b3dc
-FUN_0202b3dc: ; 0x0202B3DC
+	arm_func_start _ZN11AudioPlayerC1Ev
+_ZN11AudioPlayerC1Ev: ; 0x0202B3DC
 	bx lr
-	arm_func_end FUN_0202b3dc
+	arm_func_end _ZN11AudioPlayerC1Ev
 
-	arm_func_start FUN_0202b3e0 ; https://decomp.me/scratch/Ibjml
-FUN_0202b3e0: ; 0x0202B3E0
+	arm_func_start _ZN11AudioPlayerD1Ev ; https://decomp.me/scratch/Ibjml
+_ZN11AudioPlayerD1Ev: ; 0x0202B3E0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -1653,7 +1653,7 @@ _0202B3EC:
 _0202B408:
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202cf00
+	bl _ZN11AudioPlayer12FUN_0202cf00Ei
 	add r4, r4, #1
 	cmp r4, #2
 	blt _0202B408
@@ -1661,16 +1661,16 @@ _0202B408:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl _ZN11AudioPlayer12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Eil
 	mov r0, r5
 	mov r1, r4
 	bl _ZN11AudioPlayer12FUN_0202d578Ei
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202b3e0
+	arm_func_end _ZN11AudioPlayerD1Ev
 
-	arm_func_start FUN_0202b448
-FUN_0202b448: ; 0x0202B448
+	arm_func_start _ZN11AudioPlayer7initDSEEP9Allocator
+_ZN11AudioPlayer7initDSEEP9Allocator: ; 0x0202B448
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x40
 	mov r4, r0
@@ -1691,53 +1691,53 @@ FUN_0202b448: ; 0x0202B448
 	add r5, sp, #0
 	mov r10, r0
 	mov r0, r5
-	bl DseDriver_LoadDefaultSettings
+	bl DSE_SsdInitSsdInitData
 	add r0, r10, #0xf
 	bic r1, r0, #0xf
 	mov r0, r5
 	mov r2, #0x10000
-	bl DseDriver_ConfigureHeap
+	bl DSE_SsdSetInitDataSoundHeap
 	mov r0, r5
 	mov r1, r9
 	mov r2, r7
-	bl FUN_02074c58
+	bl DSE_SsdSetInitDataMainThread
 	mov r0, r5
 	mov r1, #5
-	bl FUN_02074c8c
+	bl DSE_SsdSetInitDataRomThread
 	mov r10, #0xf
 	mov r0, r5
 	mov r1, r9
 	mov r2, r10
-	bl FUN_02074cbc
+	bl DSE_SsdSetInitDataVoiceRange
 	mov r0, r5
-	bl DseDriver_Init
+	bl DSE_SsdInit
 	mov r0, r7
 	mov r1, r7
-	bl DseSe_SysReset
+	bl DSE_SsdSetEffectPolyMax
 	add r0, r4, #4
-	bl FUN_0207c2ec
+	bl DSE_SsdInitStreamInitRec
 	add r0, r4, #4
 	mov r1, #6
-	bl FUN_0207c348
+	bl DSE_SsdSetStreamInitDataThreadPriority
 	add r0, r4, #4
 	mov r1, #0x14
-	bl FUN_0207c368
+	bl DSE_SsdSetStreamInitReadThreadPriority
 	mov r1, r6
 	add r0, r4, #4
-	bl FUN_0207c388
+	bl DSE_SsdSetStreamInitMaxOpen
 	mov r2, r10
 	add r0, r4, #4
 	mov r1, #8
-	bl FUN_0207c3b8
+	bl DSE_SsdSetStreamInitVoiceRange
 	mov r5, #0x1000
 	add r0, r4, #4
 	mov r1, r5
-	bl FUN_0207c3f0
+	bl DSE_SsdSetStreamInitIOBufferSize
 	mov r1, r5
 	add r0, r4, #4
-	bl FUN_0207c430
+	bl DSE_SsdSetStreamInitRomAccessSize
 	add r0, r4, #4
-	bl FUN_0207c5c0
+	bl DSE_SsdInitStream
 	mov r1, #0x7f
 	add r0, r4, #0x200
 	strh r1, [r0, #0x58]
@@ -1854,7 +1854,7 @@ _0202B704: .word 0x0000FFFF
 _0202B708: .word 0x00064010
 _0202B70C: .word unk_0208FACC
 _0202B710: .word unk_020B5B78
-	arm_func_end FUN_0202b448
+	arm_func_end _ZN11AudioPlayer7initDSEEP9Allocator
 
 	arm_func_start FUN_0202b714
 FUN_0202b714: ; 0x0202B714
@@ -1862,13 +1862,13 @@ FUN_0202b714: ; 0x0202B714
 	mov r4, #0
 	mov r5, r0
 	mov r0, r4
-	bl FUN_0207504c
+	bl DSE_SsdResume
 	ldrh r0, [r5, #0xfe]
 	tst r0, #4
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #0x100]
 	mov r1, r4
-	bl FUN_0207d1c4
+	bl DSE_SsdStopStream
 	ldrh r1, [r5, #0xfe]
 	ldr r0, _0202B754 ; =0x0000FFFB
 	and r0, r1, r0
@@ -1877,16 +1877,16 @@ FUN_0202b714: ; 0x0202B714
 _0202B754: .word 0x0000FFFB
 	arm_func_end FUN_0202b714
 
-	arm_func_start FUN_0202b758
-FUN_0202b758: ; 0x0202B758
-	ldr r12, _0202B764 ; =FUN_02074F18
+	arm_func_start _ZN11AudioPlayer4quitEv
+_ZN11AudioPlayer4quitEv: ; 0x0202B758
+	ldr r12, _0202B764 ; =DSE_SsdQuit
 	mov r0, #1
 	bx r12
-_0202B764: .word FUN_02074F18
-	arm_func_end FUN_0202b758
+_0202B764: .word DSE_SsdQuit
+	arm_func_end _ZN11AudioPlayer4quitEv
 
-	arm_func_start FUN_0202b768
-FUN_0202b768: ; 0x0202B768
+	arm_func_start _ZN11AudioPlayer12FUN_0202b768Ev
+_ZN11AudioPlayer12FUN_0202b768Ev: ; 0x0202B768
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	bl FUN_0202c5e8
@@ -1908,7 +1908,7 @@ _0202B7A4:
 	cmp r4, #2
 	blt _0202B788
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202b768
+	arm_func_end _ZN11AudioPlayer12FUN_0202b768Ev
 
 	arm_func_start _ZN11AudioPlayer12FUN_0202b7b4Ev
 _ZN11AudioPlayer12FUN_0202b7b4Ev: ; 0x0202B7B4
@@ -1989,7 +1989,7 @@ _0202B8A4:
 	ldr r2, _0202BAAC ; =0x0208FAD8
 	mov r0, r4
 	mov r1, r7
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r0, #0
 	bne _0202BAA0
 	add sp, sp, #0x20
@@ -2007,7 +2007,7 @@ _0202B8E4:
 	ldr r2, _0202BAB8 ; =0x0208FAE8
 _0202B8E8:
 	mov r0, r4
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r0, #0
 	bne _0202BAA0
 	add sp, sp, #0x20
@@ -2017,7 +2017,7 @@ _0202B904:
 	ldr r2, _0202BABC ; =0x0208FAF0
 	mov r0, r4
 	mov r1, #2
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r0, #0
 	bne _0202BAA0
 	add sp, sp, #0x20
@@ -2031,7 +2031,7 @@ _0202B928:
 	ldr r2, _0202BAC0 ; =0x0208FAF8
 	mov r0, r4
 	mov r1, #2
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r0, #0
 	bne _0202BAA0
 	add sp, sp, #0x20
@@ -2041,7 +2041,7 @@ _0202B95C:
 	ldr r2, _0202BAC4 ; =0x0208FB00
 	mov r0, r4
 	mov r1, #1
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r0, #0
 	bne _0202BAA0
 	add sp, sp, #0x20
@@ -2051,7 +2051,7 @@ _0202B980:
 	ldr r2, _0202BAC8 ; =0x0208FB08
 	mov r0, r4
 	mov r1, #1
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	cmp r5, #5
 	bne _0202BAA0
 	mov r8, #0
@@ -2062,7 +2062,7 @@ _0202B9A4:
 	mov r1, r8
 	mov r2, r7
 	mov r3, r7
-	bl FUN_0202c364
+	bl _ZN11AudioPlayer12FUN_0202c364Eill
 	mla r1, r8, r5, r6
 	mov r0, r4
 	bl FUN_0202be18
@@ -2082,7 +2082,7 @@ _0202B9D4:
 	mov r2, r5
 	mov r1, #0
 	mov r3, #1
-	bl FUN_0202bec0
+	bl _ZN11AudioPlayer12FUN_0202bec0EiPcl
 	b _0202BA18
 _0202BA08:
 	mov r1, #0
@@ -2101,7 +2101,7 @@ _0202BA18:
 	mov r0, r4
 	mov r2, r5
 	mov r3, r1
-	bl FUN_0202bec0
+	bl _ZN11AudioPlayer12FUN_0202bec0EiPcl
 	b _0202BAA0
 _0202BA4C:
 	mov r0, r4
@@ -2113,15 +2113,15 @@ _0202BA60:
 	mov r6, #4
 	mov r0, r4
 	mov r1, r6
-	bl FUN_0202db98
+	bl _ZN11AudioPlayer5sleepEm
 	ldr r2, _0202BAD4 ; =0x0208FB20
 	mov r0, r4
 	mov r1, #1
-	bl FUN_0202cdd4
+	bl _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 	mov r5, r0
 	mov r0, r4
 	mov r1, r6
-	bl FUN_0202db98
+	bl _ZN11AudioPlayer5sleepEm
 	cmp r5, #0
 	addeq sp, sp, #0x20
 	moveq r0, #0
@@ -2177,61 +2177,61 @@ _0202BB34:
 	b _0202BB28
 _0202BB38:
 	mov r1, #1
-	bl FUN_0202cf00
+	bl _ZN11AudioPlayer12FUN_0202cf00Ei
 	mov r0, r4
 _0202BB44:
 	mov r1, #2
 _0202BB48:
-	bl FUN_0202cf00
+	bl _ZN11AudioPlayer12FUN_0202cf00Ei
 _0202BB4C:
 	mov r0, #0
 	str r0, [r4, #0x264]
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0202bad8
 
-	arm_func_start FUN_0202bb58
-FUN_0202bb58: ; 0x0202BB58
+	arm_func_start _ZN11AudioPlayer12setBgmVolumeEt
+_ZN11AudioPlayer12setBgmVolumeEt: ; 0x0202BB58
 	add r2, r0, #0x200
 	strh r1, [r2, #0x5a]
 	ldrh r1, [r2, #0x5e]
-	ldr r12, _0202BB6C ; =FUN_0202bbac
+	ldr r12, _0202BB6C ; =_ZN11AudioPlayer15updateBgmVolumeEt
 	bx r12
-_0202BB6C: .word FUN_0202bbac
-	arm_func_end FUN_0202bb58
+_0202BB6C: .word _ZN11AudioPlayer15updateBgmVolumeEt
+	arm_func_end _ZN11AudioPlayer12setBgmVolumeEt
 
-	arm_func_start FUN_0202bb70
-FUN_0202bb70: ; 0x0202BB70
+	arm_func_start _ZN11AudioPlayer10setBgmGainEt
+_ZN11AudioPlayer10setBgmGainEt: ; 0x0202BB70
 	add r2, r0, #0x200
 	strh r1, [r2, #0x5e]
 	ldrh r1, [r2, #0x5e]
-	ldr r12, _0202BB84 ; =FUN_0202bbac
+	ldr r12, _0202BB84 ; =_ZN11AudioPlayer15updateBgmVolumeEt
 	bx r12
-_0202BB84: .word FUN_0202bbac
-	arm_func_end FUN_0202bb70
+_0202BB84: .word _ZN11AudioPlayer15updateBgmVolumeEt
+	arm_func_end _ZN11AudioPlayer10setBgmGainEt
 
-	arm_func_start FUN_0202bb88
-FUN_0202bb88: ; 0x0202BB88
+	arm_func_start _ZN11AudioPlayer12getBgmVolumeEv
+_ZN11AudioPlayer12getBgmVolumeEv: ; 0x0202BB88
 	add r0, r0, #0x200
 	ldrh r0, [r0, #0x5a]
 	bx lr
-	arm_func_end FUN_0202bb88
+	arm_func_end _ZN11AudioPlayer12getBgmVolumeEv
 
-	arm_func_start FUN_0202bb94
-FUN_0202bb94: ; 0x0202BB94
+	arm_func_start _ZN11AudioPlayer15setEffectVolumeEt
+_ZN11AudioPlayer15setEffectVolumeEt: ; 0x0202BB94
 	add r0, r0, #0x200
 	strh r1, [r0, #0x5c]
 	bx lr
-	arm_func_end FUN_0202bb94
+	arm_func_end _ZN11AudioPlayer15setEffectVolumeEt
 
-	arm_func_start FUN_0202bba0
-FUN_0202bba0: ; 0x0202BBA0
+	arm_func_start _ZN11AudioPlayer15getEffectVolumeEv
+_ZN11AudioPlayer15getEffectVolumeEv: ; 0x0202BBA0
 	add r0, r0, #0x200
 	ldrh r0, [r0, #0x5c]
 	bx lr
-	arm_func_end FUN_0202bba0
+	arm_func_end _ZN11AudioPlayer15getEffectVolumeEv
 
-	arm_func_start FUN_0202bbac
-FUN_0202bbac: ; 0x0202BBAC
+	arm_func_start _ZN11AudioPlayer15updateBgmVolumeEt
+_ZN11AudioPlayer15updateBgmVolumeEt: ; 0x0202BBAC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r5, r0
 	add r2, r5, #0x200
@@ -2260,7 +2260,7 @@ _0202BBF8:
 	add r1, r5, #0x44
 	mla r0, r2, r6, r5
 	ldr r0, [r0, #0x64]
-	bl DseBgm_SetFades
+	bl DSE_SsdSetSequenceParam
 _0202BC1C:
 	add r4, r4, #1
 	cmp r4, #2
@@ -2270,10 +2270,10 @@ _0202BC1C:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, [r5, #0x100]
 	add r1, r5, #0x44
-	bl FUN_0207d3e4
+	bl DSE_SsdSetStreamParam
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0202BC44: .word 0x10624DD3
-	arm_func_end FUN_0202bbac
+	arm_func_end _ZN11AudioPlayer15updateBgmVolumeEt
 
 	arm_func_start FUN_0202bc48
 FUN_0202bc48: ; 0x0202BC48
@@ -2288,18 +2288,18 @@ FUN_0202bc48: ; 0x0202BC48
 	bx lr
 	arm_func_end FUN_0202bc48
 
-	arm_func_start FUN_0202bc6c
-FUN_0202bc6c: ; 0x0202BC6C
+	arm_func_start _ZN11AudioPlayer12FUN_0202bc6cEv
+_ZN11AudioPlayer12FUN_0202bc6cEv: ; 0x0202BC6C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, #0
 	mov r5, r0
 	mov r1, r4
-	bl FUN_0202c470
+	bl _ZN11AudioPlayer12FUN_0202c470El
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202cff8
+	bl _ZN11AudioPlayer14stopAllEffectsEm
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202bc6c
+	arm_func_end _ZN11AudioPlayer12FUN_0202bc6cEv
 
 	arm_func_start FUN_0202bc90
 FUN_0202bc90: ; 0x0202BC90
@@ -2313,8 +2313,8 @@ FUN_0202bc90: ; 0x0202BC90
 	bx lr
 	arm_func_end FUN_0202bc90
 
-	arm_func_start FUN_0202bcb0
-FUN_0202bcb0: ; 0x0202BCB0
+	arm_func_start _ZN11AudioPlayer18getSoundRecordDataEP16SSoundRecordData
+_ZN11AudioPlayer18getSoundRecordDataEP16SSoundRecordData: ; 0x0202BCB0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, #0
 	mov r3, r5
@@ -2361,10 +2361,10 @@ _0202BD48:
 	add r2, r0, #0x1e8
 	bl FUN_0202bc90
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202bcb0
+	arm_func_end _ZN11AudioPlayer18getSoundRecordDataEP16SSoundRecordData
 
-	arm_func_start FUN_0202bd54
-FUN_0202bd54: ; 0x0202BD54
+	arm_func_start _ZN11AudioPlayer19loadSoundRecordDataEP16SSoundRecordData
+_ZN11AudioPlayer19loadSoundRecordDataEP16SSoundRecordData: ; 0x0202BD54
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r7, _0202BE10 ; =0x020B5B78
 	mov r6, r0
@@ -2416,7 +2416,7 @@ _0202BDA4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0202BE10: .word unk_020B5B78
 _0202BE14: .word unk_0208FB28
-	arm_func_end FUN_0202bd54
+	arm_func_end _ZN11AudioPlayer19loadSoundRecordDataEP16SSoundRecordData
 
 	arm_func_start FUN_0202be18
 FUN_0202be18: ; 0x0202BE18
@@ -2467,13 +2467,13 @@ FUN_0202bea4: ; 0x0202BEA4
 	ldr r12, _0202BEBC ; =0x0208FA48
 	mov r3, #0
 	ldr r2, [r12, r2, lsl #2]
-	bl FUN_0202bec0
+	bl _ZN11AudioPlayer12FUN_0202bec0EiPcl
 	ldmfd sp!, {r3, pc}
 _0202BEBC: .word unk_0208FA48
 	arm_func_end FUN_0202bea4
 
-	arm_func_start FUN_0202bec0
-FUN_0202bec0: ; 0x0202BEC0
+	arm_func_start _ZN11AudioPlayer12FUN_0202bec0EiPcl
+_ZN11AudioPlayer12FUN_0202bec0EiPcl: ; 0x0202BEC0
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r2
 	mov r9, r0
@@ -2531,7 +2531,7 @@ _0202BF6C:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl _ZN11AudioPlayer12FUN_0202c44cEii
+	bl _ZN11AudioPlayer12FUN_0202c44cEil
 	ldrsh r2, [r4, r5]
 	mov r0, r9
 	mov r1, r8
@@ -2539,10 +2539,10 @@ _0202BF6C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202BFB0: .word unk_0208FB38
 _0202BFB4: .word unk_0208FB40
-	arm_func_end FUN_0202bec0
+	arm_func_end _ZN11AudioPlayer12FUN_0202bec0EiPcl
 
-	arm_func_start FUN_0202bfb8
-FUN_0202bfb8: ; 0x0202BFB8
+	arm_func_start _ZN11AudioPlayer12FUN_0202bfb8EiPcl
+_ZN11AudioPlayer12FUN_0202bfb8EiPcl: ; 0x0202BFB8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r7, r2
 	mov r9, r0
@@ -2600,7 +2600,7 @@ _0202C064:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl _ZN11AudioPlayer12FUN_0202c44cEii
+	bl _ZN11AudioPlayer12FUN_0202c44cEil
 	ldrsh r2, [r4, r5]
 	mov r0, r9
 	mov r1, r8
@@ -2608,7 +2608,7 @@ _0202C064:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202C0A8: .word unk_0208FB48
 _0202C0AC: .word unk_0208FB50
-	arm_func_end FUN_0202bfb8
+	arm_func_end _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 
 	arm_func_start FUN_0202c0b0
 FUN_0202c0b0: ; 0x0202C0B0
@@ -2643,7 +2643,7 @@ _0202C104:
 	bne _0202C130
 	add r1, r0, #0x200
 	ldrh r1, [r1, #0x5e]
-	bl FUN_0202bbac
+	bl _ZN11AudioPlayer15updateBgmVolumeEt
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202C130:
 	cmp r3, #0
@@ -2670,8 +2670,8 @@ _0202C17C: .word unk_0208FB58
 _0202C180: .word unk_0208FB60
 	arm_func_end FUN_0202c0b0
 
-	arm_func_start FUN_0202c184
-FUN_0202c184: ; 0x0202C184
+	arm_func_start _ZN11AudioPlayer12FUN_0202c184Eiill
+_ZN11AudioPlayer12FUN_0202c184Eiill: ; 0x0202C184
 	stmfd sp!, {r3, lr}
 	ldr lr, [sp, #8]
 	ldr r12, _0202C1A0 ; =0x0208FA48
@@ -2680,7 +2680,7 @@ FUN_0202c184: ; 0x0202C184
 	bl FUN_0202c1a4
 	ldmfd sp!, {r3, pc}
 _0202C1A0: .word unk_0208FA48
-	arm_func_end FUN_0202c184
+	arm_func_end _ZN11AudioPlayer12FUN_0202c184Eiill
 
 	arm_func_start FUN_0202c1a4
 FUN_0202c1a4: ; 0x0202C1A4
@@ -2756,7 +2756,7 @@ _0202C288:
 	add r0, r7, #0x200
 	ldrh r1, [r0, #0x5e]
 	mov r0, r7
-	bl FUN_0202bbac
+	bl _ZN11AudioPlayer15updateBgmVolumeEt
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202C2BC:
 	cmp r4, #0
@@ -2784,8 +2784,8 @@ _0202C30C: .word unk_0208FB70
 _0202C310: .word unk_020B5B78
 	arm_func_end FUN_0202c1a4
 
-	arm_func_start FUN_0202c314
-FUN_0202c314: ; 0x0202C314
+	arm_func_start _ZN11AudioPlayer12FUN_0202c314Eill
+_ZN11AudioPlayer12FUN_0202c314Eill: ; 0x0202C314
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r12, #0x1c
 	mul r4, r1, r12
@@ -2807,10 +2807,10 @@ _0202C34C:
 	add r2, r2, r4
 	bl FUN_0202c1a4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202c314
+	arm_func_end _ZN11AudioPlayer12FUN_0202c314Eill
 
-	arm_func_start FUN_0202c364
-FUN_0202c364: ; 0x0202C364
+	arm_func_start _ZN11AudioPlayer12FUN_0202c364Eill
+_ZN11AudioPlayer12FUN_0202c364Eill: ; 0x0202C364
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r12, #0x1c
 	mul r4, r1, r12
@@ -2832,29 +2832,29 @@ _0202C39C:
 	add r2, r2, r4
 	bl FUN_0202c1a4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202c364
+	arm_func_end _ZN11AudioPlayer12FUN_0202c364Eill
 
-	arm_func_start FUN_0202c3b4
-FUN_0202c3b4: ; 0x0202C3B4
-	ldr r12, _0202C3C4 ; =FUN_0202c314
+	arm_func_start _ZN11AudioPlayer12FUN_0202c3b4Eil
+_ZN11AudioPlayer12FUN_0202c3b4Eil: ; 0x0202C3B4
+	ldr r12, _0202C3C4 ; =_ZN11AudioPlayer12FUN_0202c314Eill
 	mov r3, r2
 	mov r2, #0
 	bx r12
-_0202C3C4: .word FUN_0202c314
-	arm_func_end FUN_0202c3b4
+_0202C3C4: .word _ZN11AudioPlayer12FUN_0202c314Eill
+	arm_func_end _ZN11AudioPlayer12FUN_0202c3b4Eil
 
-	arm_func_start FUN_0202c3c8
-FUN_0202c3c8: ; 0x0202C3C8
+	arm_func_start _ZN11AudioPlayer12FUN_0202c3c8Eiil
+_ZN11AudioPlayer12FUN_0202c3c8Eiil: ; 0x0202C3C8
 	stmfd sp!, {r3, lr}
 	ldr r12, _0202C3DC ; =0x0208FA48
 	ldr r2, [r12, r2, lsl #2]
-	bl FUN_0202c3e0
+	bl _ZN11AudioPlayer12FUN_0202c3e0EiPcl
 	ldmfd sp!, {r3, pc}
 _0202C3DC: .word unk_0208FA48
-	arm_func_end FUN_0202c3c8
+	arm_func_end _ZN11AudioPlayer12FUN_0202c3c8Eiil
 
-	arm_func_start FUN_0202c3e0
-FUN_0202c3e0: ; 0x0202C3E0
+	arm_func_start _ZN11AudioPlayer12FUN_0202c3e0EiPcl
+_ZN11AudioPlayer12FUN_0202c3e0EiPcl: ; 0x0202C3E0
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x44
 	mov r5, r2
@@ -2884,10 +2884,10 @@ _0202C428:
 	add sp, sp, #0x44
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0202C448: .word unk_0208FB78
-	arm_func_end FUN_0202c3e0
+	arm_func_end _ZN11AudioPlayer12FUN_0202c3e0EiPcl
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202c44cEii
-_ZN11AudioPlayer12FUN_0202c44cEii: ; 0x0202C44C
+	arm_func_start _ZN11AudioPlayer12FUN_0202c44cEil
+_ZN11AudioPlayer12FUN_0202c44cEil: ; 0x0202C44C
 	mov r3, #0x1c
 	mla r12, r1, r3, r0
 	str r2, [r12, #0x158]
@@ -2897,10 +2897,10 @@ _ZN11AudioPlayer12FUN_0202c44cEii: ; 0x0202C44C
 	mov r0, #0
 	str r0, [r12, #0x190]
 	bx lr
-	arm_func_end _ZN11AudioPlayer12FUN_0202c44cEii
+	arm_func_end _ZN11AudioPlayer12FUN_0202c44cEil
 
-	arm_func_start FUN_0202c470
-FUN_0202c470: ; 0x0202C470
+	arm_func_start _ZN11AudioPlayer12FUN_0202c470El
+_ZN11AudioPlayer12FUN_0202c470El: ; 0x0202C470
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -2909,22 +2909,22 @@ _0202C480:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl _ZN11AudioPlayer12FUN_0202c44cEii
+	bl _ZN11AudioPlayer12FUN_0202c44cEil
 	add r4, r4, #1
 	cmp r4, #2
 	blt _0202C480
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0202c470
+	arm_func_end _ZN11AudioPlayer12FUN_0202c470El
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202c4a0Em
-_ZN11AudioPlayer12FUN_0202c4a0Em: ; 0x0202C4A0
-	ldr r12, _0202C4A8 ; =FUN_0202c470
+	arm_func_start _ZN11AudioPlayer12FUN_0202c4a0El
+_ZN11AudioPlayer12FUN_0202c4a0El: ; 0x0202C4A0
+	ldr r12, _0202C4A8 ; =_ZN11AudioPlayer12FUN_0202c470El
 	bx r12
-_0202C4A8: .word FUN_0202c470
-	arm_func_end _ZN11AudioPlayer12FUN_0202c4a0Em
+_0202C4A8: .word _ZN11AudioPlayer12FUN_0202c470El
+	arm_func_end _ZN11AudioPlayer12FUN_0202c4a0El
 
-	arm_func_start FUN_0202c4ac
-FUN_0202c4ac: ; 0x0202C4AC
+	arm_func_start _ZN11AudioPlayer12FUN_0202c4acEil
+_ZN11AudioPlayer12FUN_0202c4acEil: ; 0x0202C4AC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r3, #0x1c
 	mul r3, r1, r3
@@ -2959,10 +2959,10 @@ _0202C4CC:
 	str r2, [r4, r3]
 	bl FUN_0202be18
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_0202c4ac
+	arm_func_end _ZN11AudioPlayer12FUN_0202c4acEil
 
-	arm_func_start FUN_0202c530
-FUN_0202c530: ; 0x0202C530
+	arm_func_start _ZN11AudioPlayer12FUN_0202c530El
+_ZN11AudioPlayer12FUN_0202c530El: ; 0x0202C530
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -2971,15 +2971,15 @@ _0202C540:
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_0202c4ac
+	bl _ZN11AudioPlayer12FUN_0202c4acEil
 	add r4, r4, #1
 	cmp r4, #2
 	blt _0202C540
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_0202c530
+	arm_func_end _ZN11AudioPlayer12FUN_0202c530El
 
-	arm_func_start FUN_0202c560
-FUN_0202c560: ; 0x0202C560
+	arm_func_start _ZN11AudioPlayer12FUN_0202c560Ei
+_ZN11AudioPlayer12FUN_0202c560Ei: ; 0x0202C560
 	stmfd sp!, {r3, lr}
 	mov r2, #0x1c
 	mla r2, r1, r2, r0
@@ -2995,15 +2995,15 @@ _0202C588:
 	ldmfd sp!, {r3, pc}
 _0202C590:
 	mov r1, #0
-	bl _ZN11AudioPlayer12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Ei
 	ldmfd sp!, {r3, pc}
 _0202C59C:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0202c560
+	arm_func_end _ZN11AudioPlayer12FUN_0202c560Ei
 
-	arm_func_start FUN_0202c5a4
-FUN_0202c5a4: ; 0x0202C5A4
+	arm_func_start _ZN11AudioPlayer12FUN_0202c5a4Ei
+_ZN11AudioPlayer12FUN_0202c5a4Ei: ; 0x0202C5A4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	mov r1, #0x1c
@@ -3019,9 +3019,9 @@ FUN_0202c5a4: ; 0x0202C5A4
 	ldmnefd sp!, {r3, r4, r5, pc}
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202c560
+	bl _ZN11AudioPlayer12FUN_0202c560Ei
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202c5a4
+	arm_func_end _ZN11AudioPlayer12FUN_0202c5a4Ei
 
 	arm_func_start FUN_0202c5e8
 FUN_0202c5e8: ; 0x0202C5E8
@@ -3107,7 +3107,7 @@ _0202C6F0:
 	blt _0202C8D4
 	mov r0, r4
 	mov r1, #0
-	bl _ZN11AudioPlayer12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Eil
 	b _0202C8D4
 _0202C720:
 	tst r2, #4
@@ -3149,7 +3149,7 @@ _0202C794:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl _ZN11AudioPlayer12FUN_0202d5d4Emm
+	bl _ZN11AudioPlayer12FUN_0202d5d4Eii
 	b _0202C7F0
 _0202C7B4:
 	add r2, r4, #0x178
@@ -3354,32 +3354,32 @@ _0202CA68:
 	ldr r0, [r1, #0x64]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseBank_UnloadById
+	bl DSE_SsdRemoveWaveData
 	b _0202CAD4
 _0202CA7C:
 	add r4, r7, #0x64
 	ldr r0, [r4, r6]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseSe_StopSeq
+	bl DSE_SsdStopEffectSeq
 	add r0, r7, r6
 	ldr r0, [r0, #0x68]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseBank_UnloadById
+	bl DSE_SsdRemoveWaveData
 	ldr r0, [r4, r6]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseSe_Unload
+	bl DSE_SsdRemoveEffectData
 	b _0202CAD4
 _0202CAB8:
 	ldr r0, [r1, #0x68]
 	mov r0, r0, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DseBank_UnloadById
+	bl DSE_SsdRemoveWaveData
 	add r0, r7, r6
 	ldr r0, [r0, #0x64]
-	bl DseBgm_Unload
+	bl DSE_SsdRemoveSequenceData
 _0202CAD4:
 	add r1, r7, #0x5f
 	ldrb r0, [r1, r6]
@@ -3528,7 +3528,7 @@ _0202CCC8:
 	mov r1, #0
 	ldr r0, [r2, #0x58]
 	mov r2, r1
-	bl DseSwd_LoadBank
+	bl DSE_SsdAddWaveData
 	add r1, r7, r6
 	str r0, [r1, #0x64]
 	b _0202CD38
@@ -3537,14 +3537,14 @@ _0202CCE4:
 	ldr r5, [r8, r6]
 	ldr r0, [r5]
 	add r0, r5, r0
-	bl DseSe_Load
+	bl DSE_SsdAddEffectData
 	b _0202CD10
 _0202CCFC:
 	add r8, r7, #0x58
 	ldr r5, [r8, r6]
 	ldr r0, [r5]
 	add r0, r5, r0
-	bl DseBgm_Load
+	bl DSE_SsdAddSequenceData
 _0202CD10:
 	add r1, r7, r6
 	str r0, [r1, #0x64]
@@ -3553,7 +3553,7 @@ _0202CD10:
 	mov r1, #0
 	mov r2, r1
 	add r0, r3, r0
-	bl DseSwd_LoadBank
+	bl DSE_SsdAddWaveData
 	add r1, r7, r6
 	str r0, [r1, #0x68]
 _0202CD38:
@@ -3604,8 +3604,8 @@ _0202CDC0:
 _0202CDD0: .word unk_020B5B78
 	arm_func_end FUN_0202cd48
 
-	arm_func_start FUN_0202cdd4
-FUN_0202cdd4: ; 0x0202CDD4
+	arm_func_start _ZN11AudioPlayer12FUN_0202cdd4EiPKc
+_ZN11AudioPlayer12FUN_0202cdd4EiPKc: ; 0x0202CDD4
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x80
 	mov r5, r1
@@ -3626,7 +3626,7 @@ FUN_0202cdd4: ; 0x0202CDD4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202CE1C: .word unk_0208FB80
 _0202CE20: .word unk_020B5B78
-	arm_func_end FUN_0202cdd4
+	arm_func_end _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 
 	arm_func_start FUN_0202ce24
 FUN_0202ce24: ; 0x0202CE24
@@ -3669,8 +3669,8 @@ _0202CE9C:
 _0202CEAC: .word unk_020B5B78
 	arm_func_end FUN_0202ce24
 
-	arm_func_start FUN_0202ceb0
-FUN_0202ceb0: ; 0x0202CEB0
+	arm_func_start _ZN11AudioPlayer12FUN_0202ceb0EiPKc
+_ZN11AudioPlayer12FUN_0202ceb0EiPKc: ; 0x0202CEB0
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #0x80
 	mov r5, r1
@@ -3691,10 +3691,10 @@ FUN_0202ceb0: ; 0x0202CEB0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202CEF8: .word unk_0208FB88
 _0202CEFC: .word unk_020B5B78
-	arm_func_end FUN_0202ceb0
+	arm_func_end _ZN11AudioPlayer12FUN_0202ceb0EiPKc
 
-	arm_func_start FUN_0202cf00
-FUN_0202cf00: ; 0x0202CF00
+	arm_func_start _ZN11AudioPlayer12FUN_0202cf00Ei
+_ZN11AudioPlayer12FUN_0202cf00Ei: ; 0x0202CF00
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r1
 	cmp r4, #2
@@ -3711,7 +3711,7 @@ FUN_0202cf00: ; 0x0202CF00
 	mov r1, #0
 	strb r1, [r0, #0xbd]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_0202cf00
+	arm_func_end _ZN11AudioPlayer12FUN_0202cf00Ei
 
 	arm_func_start FUN_0202cf40
 FUN_0202cf40: ; 0x0202CF40
@@ -3728,8 +3728,8 @@ FUN_0202cf40: ; 0x0202CF40
 	bx lr
 	arm_func_end FUN_0202cf40
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202cf6cEm
-_ZN11AudioPlayer12FUN_0202cf6cEm: ; 0x0202CF6C
+	arm_func_start _ZN11AudioPlayer10playEffectEi
+_ZN11AudioPlayer10playEffectEi: ; 0x0202CF6C
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	add r2, r4, #0x200
@@ -3754,40 +3754,40 @@ _ZN11AudioPlayer12FUN_0202cf6cEm: ; 0x0202CF6C
 	bl FUN_0202cf40
 	mov r1, r5
 	add r2, r4, #0x44
-	bl DseSe_Play
+	bl DSE_SsdPlayEffectParam
 	ldmfd sp!, {r4, r5, r6, pc}
 _0202CFD4: .word 0x10624DD3
-	arm_func_end _ZN11AudioPlayer12FUN_0202cf6cEm
+	arm_func_end _ZN11AudioPlayer10playEffectEi
 
-	arm_func_start FUN_0202cfd8
-FUN_0202cfd8: ; 0x0202CFD8
+	arm_func_start _ZN11AudioPlayer10stopEffectEim
+_ZN11AudioPlayer10stopEffectEim: ; 0x0202CFD8
 	stmfd sp!, {r4, lr}
 	mov r4, r2
 	bl FUN_0202cf40
 	mov r1, r4, lsl #0x10
 	mov r2, r1, lsr #0x10
 	mov r1, #0
-	bl DseSe_Stop
+	bl DSE_SsdStopEffect
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0202cfd8
+	arm_func_end _ZN11AudioPlayer10stopEffectEim
 
-	arm_func_start FUN_0202cff8
-FUN_0202cff8: ; 0x0202CFF8
+	arm_func_start _ZN11AudioPlayer14stopAllEffectsEm
+_ZN11AudioPlayer14stopAllEffectsEm: ; 0x0202CFF8
 	mov r0, r1, lsl #0x10
-	ldr r12, _0202D008 ; =DseSe_StopAll
+	ldr r12, _0202D008 ; =DSE_SsdStopEffectAll
 	mov r0, r0, lsr #0x10
 	bx r12
-_0202D008: .word DseSe_StopAll
-	arm_func_end FUN_0202cff8
+_0202D008: .word DSE_SsdStopEffectAll
+	arm_func_end _ZN11AudioPlayer14stopAllEffectsEm
 
-	arm_func_start FUN_0202d00c
-FUN_0202d00c: ; 0x0202D00C
+	arm_func_start _ZN11AudioPlayer15isPlayingEffectEi
+_ZN11AudioPlayer15isPlayingEffectEi: ; 0x0202D00C
 	stmfd sp!, {r3, lr}
 	bl FUN_0202cf40
 	mov r1, #0
-	bl DseSe_HasPlayingInstances
+	bl DSE_SsdIsPlayEffect
 	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_0202d00c
+	arm_func_end _ZN11AudioPlayer15isPlayingEffectEi
 
 	arm_func_start FUN_0202d020
 FUN_0202d020: ; 0x0202D020
@@ -3809,8 +3809,8 @@ FUN_0202d020: ; 0x0202D020
 	bx lr
 	arm_func_end FUN_0202d020
 
-	arm_func_start FUN_0202d060
-FUN_0202d060: ; 0x0202D060
+	arm_func_start _ZN11AudioPlayer12FUN_0202d060Ei
+_ZN11AudioPlayer12FUN_0202d060Ei: ; 0x0202D060
 	mov r2, #0xc
 	mla r2, r1, r2, r0
 	ldrh r0, [r2, #0xc4]
@@ -3822,7 +3822,7 @@ FUN_0202d060: ; 0x0202D060
 	movne r0, #1
 	moveq r0, #0
 	bx lr
-	arm_func_end FUN_0202d060
+	arm_func_end _ZN11AudioPlayer12FUN_0202d060Ei
 
 	arm_func_start FUN_0202d08c
 FUN_0202d08c: ; 0x0202D08C
@@ -3840,12 +3840,12 @@ FUN_0202d08c: ; 0x0202D08C
 	mla r0, r1, r0, r6
 	ldr r7, [r0, #0x64]
 	mov r0, r7
-	bl DseBgm_IsPlaying
+	bl DSE_SsdIsPlaySequence
 	cmp r0, #0
 	ble _0202D0DC
 	mov r0, r7
 	mov r1, #0
-	bl DseBgm_Stop
+	bl DSE_SsdStopSequence
 _0202D0DC:
 	add r7, r6, #0xc3
 	ldrsb r1, [r7, r5]
@@ -3916,7 +3916,7 @@ FUN_0202d184: ; 0x0202D184
 	mov r1, #0x14
 	mla r0, r2, r1, r0
 	ldr r0, [r0, #0x64]
-	bl DseBgm_IsPlaying
+	bl DSE_SsdIsPlaySequence
 	cmp r0, #0
 	movgt r0, #1
 	ldmgtfd sp!, {r3, r4, r5, pc}
@@ -3983,14 +3983,14 @@ _0202D27C:
 	ldr r6, [r0, #0x64]
 	beq _0202D2E8
 	mov r0, r6
-	bl DseBgm_IsPlaying
+	bl DSE_SsdIsPlaySequence
 	cmp r0, #0
 	ble _0202D2D4
 	ldr r1, [r9, #0xc8]
 	mov r0, r6
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl DseBgm_Stop
+	bl DSE_SsdStopSequence
 	ldrh r0, [r9, #0xc6]
 	orr r0, r0, #4
 	and r0, r0, r5
@@ -4006,7 +4006,7 @@ _0202D2E8:
 	tst r0, #4
 	beq _0202D314
 	mov r0, r6
-	bl DseBgm_IsPlaying
+	bl DSE_SsdIsPlaySequence
 	cmp r0, #0
 	addgt sp, sp, #0x14
 	ldmgtfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4111,7 +4111,7 @@ _0202D404:
 	mov r0, r6
 	mov r2, r8
 	add r1, r10, #0x44
-	bl DseBgm_Resume
+	bl DSE_SsdPlaySequence
 _0202D484:
 	mov r0, #0
 	str r0, [r9, #0xc8]
@@ -4133,8 +4133,8 @@ _0202D4BC: .word 0x0000FFEF
 _0202D4C0: .word 0x10624DD3
 	arm_func_end FUN_0202d228
 
-	arm_func_start _ZN11AudioPlayer7openSADEPvPch
-_ZN11AudioPlayer7openSADEPvPch: ; 0x0202D4C4
+	arm_func_start _ZN11AudioPlayer12FUN_0202d4c4EiPKca
+_ZN11AudioPlayer12FUN_0202d4c4EiPKca: ; 0x0202D4C4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x28
 	mov r7, r1
@@ -4181,7 +4181,7 @@ _0202D540:
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0202D574: .word unk_0208FB90
-	arm_func_end _ZN11AudioPlayer7openSADEPvPch
+	arm_func_end _ZN11AudioPlayer12FUN_0202d4c4EiPKca
 
 	arm_func_start _ZN11AudioPlayer12FUN_0202d578Ei
 _ZN11AudioPlayer12FUN_0202d578Ei: ; 0x0202D578
@@ -4202,7 +4202,7 @@ _ZN11AudioPlayer12FUN_0202d594EiPKc: ; 0x0202D594
 	cmp r2, #0
 	beq _0202D5B8
 	mov r3, #0
-	bl _ZN11AudioPlayer7openSADEPvPch
+	bl _ZN11AudioPlayer12FUN_0202d4c4EiPKca
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 _0202D5B8:
@@ -4215,15 +4215,15 @@ _0202D5B8:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end _ZN11AudioPlayer12FUN_0202d594EiPKc
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d5d4Emm
-_ZN11AudioPlayer12FUN_0202d5d4Emm: ; 0x0202D5D4
+	arm_func_start _ZN11AudioPlayer12FUN_0202d5d4Eii
+_ZN11AudioPlayer12FUN_0202d5d4Eii: ; 0x0202D5D4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r6, _0202D6B8 ; =gMovie
+	ldr r6, _0202D6B8 ; =gMoviePlayer
 	mov r8, r0
 	mov r0, r6
 	mov r7, r2
 	mov r4, r1
-	bl _ZN5Movie11getVideoFpsEv
+	bl _ZN11MoviePlayer11getVideoFpsEv
 	mov r5, r0
 	mov r0, #0x30
 	cmp r7, #0
@@ -4232,7 +4232,7 @@ _ZN11AudioPlayer12FUN_0202d5d4Emm: ; 0x0202D5D4
 	add r4, r8, #0x100
 	ldr r0, [r4, r7]
 	mov r1, #0x3e8
-	bl FUN_0207d690
+	bl DSE_SsdGetStreamSizeByTime
 	ldr r1, _0202D6BC ; =0x00022140
 	mov r2, #0xe8000000
 	cmp r0, r1
@@ -4270,20 +4270,20 @@ _0202D690:
 	ldr r0, [r0, #0x100]
 	mov r1, #0
 _0202D69C:
-	bl FUN_0207d4c0
+	bl DSE_SsdSetStreamPlayPositionByTime
 	add r2, r8, #0xfc
 	ldrh r1, [r2, r7]
 	mov r0, #1
 	orr r1, r1, #0x82
 	strh r1, [r2, r7]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0202D6B8: .word gMovie
+_0202D6B8: .word gMoviePlayer
 _0202D6BC: .word 0x00022140
 _0202D6C0: .word 0x88888889
-	arm_func_end _ZN11AudioPlayer12FUN_0202d5d4Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d5d4Eii
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d6c4Em
-_ZN11AudioPlayer12FUN_0202d6c4Em: ; 0x0202D6C4
+	arm_func_start _ZN11AudioPlayer12FUN_0202d6c4Ei
+_ZN11AudioPlayer12FUN_0202d6c4Ei: ; 0x0202D6C4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0x30
 	mul r4, r1, r2
@@ -4297,7 +4297,7 @@ _ZN11AudioPlayer12FUN_0202d6c4Em: ; 0x0202D6C4
 	tst r0, #2
 	beq _0202D708
 	ldr r0, [r2, #0x100]
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	movgt r0, #1
 	ldmgtfd sp!, {r3, r4, r5, pc}
@@ -4309,10 +4309,10 @@ _0202D708:
 	strh r1, [r5, r4]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202D720: .word 0x0000FFFD
-	arm_func_end _ZN11AudioPlayer12FUN_0202d6c4Em
+	arm_func_end _ZN11AudioPlayer12FUN_0202d6c4Ei
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d724EPc
-_ZN11AudioPlayer12FUN_0202d724EPc: ; 0x0202D724
+	arm_func_start _ZN11AudioPlayer12FUN_0202d724EPKc
+_ZN11AudioPlayer12FUN_0202d724EPKc: ; 0x0202D724
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r7, r1
@@ -4327,7 +4327,7 @@ _0202D73C:
 	bne _0202D760
 	mov r0, r8
 	mov r1, r6
-	bl _ZN11AudioPlayer12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Ei
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0202D760:
 	add r6, r6, #1
@@ -4335,10 +4335,10 @@ _0202D760:
 	blt _0202D73C
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end _ZN11AudioPlayer12FUN_0202d724EPc
+	arm_func_end _ZN11AudioPlayer12FUN_0202d724EPKc
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d774Emm
-_ZN11AudioPlayer12FUN_0202d774Emm: ; 0x0202D774
+	arm_func_start _ZN11AudioPlayer12FUN_0202d774Eil
+_ZN11AudioPlayer12FUN_0202d774Eil: ; 0x0202D774
 	mov r3, #0x30
 	mul r3, r1, r3
 	add r1, r0, r3
@@ -4348,10 +4348,10 @@ _ZN11AudioPlayer12FUN_0202d774Emm: ; 0x0202D774
 	orr r0, r0, #4
 	strh r0, [r1, r3]
 	bx lr
-	arm_func_end _ZN11AudioPlayer12FUN_0202d774Emm
+	arm_func_end _ZN11AudioPlayer12FUN_0202d774Eil
 
-	arm_func_start _ZN11AudioPlayer12FUN_0202d798EPci
-_ZN11AudioPlayer12FUN_0202d798EPci: ; 0x0202D798
+	arm_func_start _ZN11AudioPlayer12FUN_0202d798EPKcl
+_ZN11AudioPlayer12FUN_0202d798EPKcl: ; 0x0202D798
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r9, r0
 	mov r8, r1
@@ -4368,14 +4368,14 @@ _0202D7B4:
 	mov r0, r9
 	mov r1, r6
 	mov r2, r7
-	bl _ZN11AudioPlayer12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Eil
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0202D7DC:
 	add r6, r6, #1
 	cmp r6, #1
 	blt _0202D7B4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end _ZN11AudioPlayer12FUN_0202d798EPci
+	arm_func_end _ZN11AudioPlayer12FUN_0202d798EPKcl
 
 	arm_func_start FUN_0202d7ec
 FUN_0202d7ec: ; 0x0202D7EC
@@ -4430,14 +4430,14 @@ _0202D894:
 	and r0, r1, r0
 	strh r0, [r10, #0xfc]
 	mov r0, r8
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	ble _0202D8D0
 	mov r0, r8
 	ldr r1, [r10, #0x104]
 	mov r1, r1, lsl #0x10
 	mov r1, r1, lsr #0x10
-	bl FUN_0207d1c4
+	bl DSE_SsdStopStream
 _0202D8D0:
 	add r2, r6, r4
 	ldrh r0, [r2, #0xfe]
@@ -4452,7 +4452,7 @@ _0202D8F0:
 	tst r0, #4
 	beq _0202D92C
 	mov r0, r8
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	addgt sp, sp, #0x5c
 	ldmgtfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4473,7 +4473,7 @@ _0202D92C:
 	tst r0, #1
 	beq _0202D960
 	mov r0, r8
-	bl FUN_0207ce1c
+	bl DSE_SsdCloseStream
 	ldrh r0, [r10, #0xfe]
 	orr r0, r0, #8
 	strh r0, [r10, #0xfe]
@@ -4492,7 +4492,7 @@ _0202D984:
 	tst r0, #8
 	beq _0202D9C0
 	mov r0, r8
-	bl FUN_0207c990
+	bl DSE_SsdIsOpenStream
 	cmp r0, #0
 	addgt sp, sp, #0x5c
 	ldmgtfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4528,13 +4528,13 @@ _0202D9C0:
 	moveq r0, #0
 	mov r0, r0, lsl #0x18
 	mov r0, r0, asr #0x18
-	bl FUN_0207c97c
+	bl DSE_SsdSetMonoToStereo
 	mov r0, #0
 	strb r0, [r8, #0xf9]
 	mov r0, r7
 	mov r1, #0x2000
 	mov r2, #1
-	bl FUN_0207ca24
+	bl DSE_SsdOpenStreamByFile
 	cmp r0, #0
 	blt _0202DB74
 	str r0, [r5, #0x100]
@@ -4554,7 +4554,7 @@ _0202DA58:
 	tst r0, #1
 	beq _0202DB3C
 	mov r0, r8
-	bl FUN_0207c990
+	bl DSE_SsdIsOpenStream
 	cmp r0, #0
 	addle sp, sp, #0x5c
 	ldmlefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -4568,7 +4568,7 @@ _0202DA58:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6
 	mov r1, r9
-	bl _ZN11AudioPlayer12FUN_0202d6c4Em
+	bl _ZN11AudioPlayer12FUN_0202d6c4Ei
 	cmp r0, #0
 	bne _0202DB30
 	ldr r2, [sp, #0x14]
@@ -4599,7 +4599,7 @@ _0202DA58:
 _0202DB28:
 	mov r2, #0
 _0202DB2C:
-	bl FUN_0207cfe4
+	bl DSE_SsdPlayStream
 _0202DB30:
 	ldrh r0, [r10, #0xfe]
 	orr r0, r0, #2
@@ -4614,7 +4614,7 @@ _0202DB4C:
 	tst r0, #2
 	beq _0202DB74
 	mov r0, r8
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	bne _0202DB74
 	mov r0, r6
@@ -4632,8 +4632,8 @@ _0202DB90: .word unk_0208FBA0
 _0202DB94: .word 0x10624DD3
 	arm_func_end FUN_0202d7ec
 
-	arm_func_start FUN_0202db98
-FUN_0202db98: ; 0x0202DB98
+	arm_func_start _ZN11AudioPlayer5sleepEm
+_ZN11AudioPlayer5sleepEm: ; 0x0202DB98
 	stmfd sp!, {r4, lr}
 	ldrh r3, [r0, #0xfc]
 	ldrh r2, [r0, #0xfe]
@@ -4642,16 +4642,16 @@ FUN_0202db98: ; 0x0202DB98
 	tst r1, #3
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, [r0, #0x100]
-	bl FUN_0207cf94
+	bl DSE_SsdIsPlayStream
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4
 	bl OS_Sleep
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_0202db98
+	arm_func_end _ZN11AudioPlayer5sleepEm
 
-	arm_func_start FUN_0202dbd0
-FUN_0202dbd0: ; 0x0202DBD0
+	arm_func_start _ZN11AudioPlayer12FUN_0202dbd0Ei
+_ZN11AudioPlayer12FUN_0202dbd0Ei: ; 0x0202DBD0
 	mov r2, #0x30
 	mla r2, r1, r2, r0
 	ldrh r0, [r2, #0xfc]
@@ -4662,7 +4662,7 @@ FUN_0202dbd0: ; 0x0202DBD0
 	tst r1, #0xc
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_0202dbd0
+	arm_func_end _ZN11AudioPlayer12FUN_0202dbd0Ei
 
 	arm_func_start _ZN9AllocatorC1Ev
 _ZN9AllocatorC1Ev: ; 0x0202DBF8

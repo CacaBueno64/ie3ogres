@@ -104,7 +104,7 @@
 .public FUN_ov16_0210fd0c
 .public FUN_ov16_020f53e8
 .public FUN_ov16_0210e7d0
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210e15c

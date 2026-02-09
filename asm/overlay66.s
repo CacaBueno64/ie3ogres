@@ -15,7 +15,7 @@ FUN_ov66_02119f00: ; 0x02119F00
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _02119F44 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov66_0211a200
 	mov r0, #6
@@ -45,7 +45,7 @@ _02119F68:
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _02119FA4 ; =gAudioPlayer
 	mov r1, r2
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov66_0211a200
 	mov r0, #6

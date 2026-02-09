@@ -279,7 +279,7 @@ FUN_02029b40: ; 0x02029B40
 	ldr r5, _02029BC8 ; =gAudioPlayer
 	ldr r1, _02029BCC ; =gAllocator
 	mov r0, r5
-	bl FUN_0202b448
+	bl _ZN11AudioPlayer7initDSEEP9Allocator
 	mov r2, #0
 	mov r0, r5
 	mov r3, r2

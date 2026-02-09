@@ -17,7 +17,7 @@
 .public _Z11SetNextMode8GameMode
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _s32_div_f
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530

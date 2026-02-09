@@ -13,7 +13,7 @@
 .public FUN_ov16_020f6084
 .public gBgMenuManager
 .public FUN_ov16_020f6584
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f6530
 .public FUN_ov16_020f6e8c
 .public gAudioPlayer

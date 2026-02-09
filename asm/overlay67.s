@@ -3257,7 +3257,7 @@ FUN_ov67_0211cb40: ; 0x0211CB40
 _0211CC04:
 	ldr r0, _0211CE68 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CC14:
 	cmp r5, #0xf
@@ -3287,7 +3287,7 @@ _0211CC14:
 	bl FUN_ov67_0211c9cc
 	ldr r0, _0211CE68 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _0211CC84:
 	mov r0, #0xf
 	str r0, [r4, #0x15c]
@@ -3320,7 +3320,7 @@ _0211CC90:
 	bl FUN_ov67_0211c9cc
 	ldr r0, _0211CE68 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _0211CD00:
 	mov r0, #0xf
 	str r0, [r4, #0x15c]
@@ -3355,7 +3355,7 @@ _0211CD0C:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, _0211CE68 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CD88:
 	cmp r5, #0x11
@@ -3388,7 +3388,7 @@ _0211CD88:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, _0211CE68 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211CE08:
 	cmp r5, #0x13
@@ -3539,7 +3539,7 @@ _0211CFB0:
 	bl FUN_ov67_0211c9cc
 	ldr r0, _0211D0BC ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _0211D028:
 	mov r0, #4
 	str r0, [r4, #0x15c]
@@ -3574,7 +3574,7 @@ _0211D034:
 	bl FUN_ov67_0211c9cc
 	ldr r0, _0211D0BC ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _0211D0AC:
 	mov r0, #4
 	str r0, [r4, #0x15c]
@@ -3756,7 +3756,7 @@ _0211D30C:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, [r10, #4]
 	bl _ZN14CScreenManager18getLoadedSceneMainEv
 	cmp r0, #0x1e
@@ -3791,7 +3791,7 @@ _0211D38C:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r10
 	bl FUN_ov67_0211b05c
 	mov r0, r10
@@ -3803,7 +3803,7 @@ _0211D3CC:
 	beq _0211D3EC
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r10
 	bl FUN_ov67_0211aebc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -3812,7 +3812,7 @@ _0211D3EC:
 	beq _0211D410
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, r5
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r10
 	sub r1, r5, #9
 	bl FUN_ov67_0211ae20
@@ -3822,7 +3822,7 @@ _0211D410:
 	beq _0211D434
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r10
 	mov r1, #1
 	bl FUN_ov67_0211ae20
@@ -3839,7 +3839,7 @@ _0211D434:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r1, [r10, #0x10]
 	mov r0, r10
 	bl FUN_ov67_0211b104
@@ -3864,7 +3864,7 @@ _0211D494:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r1, [r10, #0x10]
 	mov r0, r10
 	bl FUN_ov67_0211b104
@@ -3890,7 +3890,7 @@ _0211D4F4:
 _0211D518:
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, [r10, #0x1d8]
 	bl FUN_ov16_02110b0c
 	ldr r0, [r10, #0x10]
@@ -3909,7 +3909,7 @@ _0211D548:
 _0211D558:
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, [r10, #0x1d8]
 	bl FUN_ov16_02110b0c
 	ldr r0, [r10, #0x10]
@@ -3932,7 +3932,7 @@ _0211D594:
 	bl FUN_ov16_02110a04
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, [r10, #0x1d8]
 	bl FUN_ov16_02110b0c
 	ldr r0, [r10, #0x10]
@@ -3957,7 +3957,7 @@ _0211D5E8:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211D618:
 	tst r9, #0x10
@@ -3970,7 +3970,7 @@ _0211D618:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _0211D654 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211D648: .word gSprAnimCtrl
 _0211D64C: .word unk_0209A0F4
@@ -5252,7 +5252,7 @@ _0211E7B8:
 	bl FUN_ov67_0211f654
 	ldr r0, _0211E7DC ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211E7DC: .word gAudioPlayer
 	arm_func_end FUN_ov67_0211e71c
@@ -8192,7 +8192,7 @@ FUN_ov67_02120fd0: ; 0x02120FD0
 _02121098:
 	ldr r0, _021211F4 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _021210A8:
 	cmp r5, #0xf
@@ -8202,7 +8202,7 @@ _021210A8:
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _021211F4 ; =gAudioPlayer
 	mov r1, r4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	bl FUN_ov67_0211fc20
 	mov r1, r0
@@ -8221,7 +8221,7 @@ _021210F0:
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _021211F4 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	bl FUN_ov67_0211fc20
 	mov r1, r0
@@ -8240,7 +8240,7 @@ _02121138:
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _021211F4 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	bl FUN_ov67_0211fc20
 	mov r2, #0
@@ -8259,7 +8259,7 @@ _02121180:
 	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _021211F4 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	bl FUN_ov67_0211fc20
 	mov r5, r0
@@ -8378,7 +8378,7 @@ _0212132C:
 	mov r5, #8
 	ldr r0, _021213C4 ; =gAudioPlayer
 	mov r1, r5
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov67_0211fc20
 	mov r1, r0
@@ -8397,7 +8397,7 @@ _02121378:
 	ldmltfd sp!, {r3, r4, r5, pc}
 	ldr r0, _021213C4 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov67_0211fc20
 	mov r1, r0
@@ -8571,7 +8571,7 @@ _021215E8:
 	mov r4, #6
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, r4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r0, _02121800 ; =0x020A0640
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0
@@ -8605,7 +8605,7 @@ _0212166C:
 	beq _0212168C
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	mov r1, #2
 	bl FUN_ov67_02120e00
@@ -8626,7 +8626,7 @@ _021216A0:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, #6
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r6
 	mov r1, r4
 	bl FUN_ov67_02120e00
@@ -8641,7 +8641,7 @@ _021216DC:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	bl FUN_ov16_020f081c
 	mov r3, r0, lsl #1
 	ldrh r4, [r6, #0xd0]
@@ -8663,7 +8663,7 @@ _02121728:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r1, [r6, #0x10]
 	mov r0, r6
 	bl FUN_ov67_02120c84
@@ -8688,7 +8688,7 @@ _02121788:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _02121808 ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldr r1, [r6, #0x10]
 	mov r0, r6
 	bl FUN_ov67_02120c84

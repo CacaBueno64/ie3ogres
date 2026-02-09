@@ -92,7 +92,7 @@ Static main
 	Object asm/arm9_0202a020.o
 	Object asm/arm9_rodata_0208c340.o
 	Object asm/arm9_data_0208f904.o
-	Object src/movie.o
+	Object src/movieplayer.o
 	Object src/fileio.o
 	Object asm/arm9_0202fd38.o
 	Object asm/arm9_rodata_0208c35c.o

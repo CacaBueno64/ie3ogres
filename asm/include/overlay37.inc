@@ -38,7 +38,7 @@
 .public FUN_ov16_02113ec0
 .public FUN_ov16_0210e300
 .public gSprAnimCtrl
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_0210e7d0
 .public gAudioPlayer
 .public FUN_ov16_020f2a18
@@ -46,13 +46,13 @@
 .public GX_ResetBankForTex
 .public GX_ResetBankForTexPltt
 .public FUN_ov16_020f3f60
-.public _ZN5Movie12FUN_0202e958Ev
+.public _ZN11MoviePlayer12FUN_0202e958Ev
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public STD_GetStringLength
 .public _Z11SetNextMode8GameMode
 .public unk_0209A0F4
-.public gMovie
+.public gMoviePlayer
 .public unk_020A0640
 .public unk_020A1640
 .public FUN_ov16_0210f20c
@@ -68,7 +68,7 @@
 .public gRecordManager
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN10FileSystem14IsArchiveReadyEi
-.public FUN_0202d00c
+.public _ZN11AudioPlayer15isPlayingEffectEi
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74
 .public _ZN8Graphics12FadeSubBlackEl

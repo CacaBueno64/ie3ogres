@@ -25,8 +25,8 @@
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_0210ee78
 .public FUN_ov16_0210e9d8
-.public FUN_0202bb58
-.public FUN_0202bb94
+.public _ZN11AudioPlayer12setBgmVolumeEt
+.public _ZN11AudioPlayer15setEffectVolumeEt
 .public unk_020A1140
 .public gAudioPlayer
 .public FUN_ov16_0210e7d0
@@ -41,10 +41,10 @@
 .public gSubScreen1
 .public gSubScreen2
 .public FUN_ov16_020f4894
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_0210eeec
 .public _ZN8Graphics16FadeScreensBlackEl
-.public FUN_02075698
+.public DSE_SsdSetOutputMode
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210e68c
 .public FUN_ov16_0210e720
@@ -53,8 +53,8 @@
 .public GXS_LoadBG2Scr
 .public GXS_LoadBG1Scr
 .public GXS_LoadBG0Scr
-.public FUN_0202bb88
-.public FUN_0202bba0
+.public _ZN11AudioPlayer12getBgmVolumeEv
+.public _ZN11AudioPlayer15getEffectVolumeEv
 .public FUN_ov16_0210fd0c
 .public FX_Sqrt
 .public ov19_0211C6E0

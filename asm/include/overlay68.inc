@@ -59,7 +59,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
 .public gSprAnimCtrl
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210f48c
 .public FUN_ov16_0210ecb8

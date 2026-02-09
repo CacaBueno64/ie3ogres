@@ -115,7 +115,7 @@ void CSubEndrollScreenInit::init(void)
 {
     this->options = NULL;
     this->dummy208 = 0;
-    this->count = 0;
+    this->duration = 0;
     this->imageIdx = 0;
     this->readOptions();
     MI_CpuClear8(&this->creditImages, sizeof(this->creditImages));
@@ -139,6 +139,7 @@ int CSubEndrollScreenInit::transfer(void *arg)
 void CSubEndrollScreenInit::update(BOOL param1)
 {
     u16 dur;
+    
     switch (this->state) {
         case STATE_INIT:
             this->shared->subInitialized = TRUE;
@@ -146,16 +147,16 @@ void CSubEndrollScreenInit::update(BOOL param1)
             this->state = STATE_UPDATE;
             break;
         case STATE_UPDATE:
-            this->count++;
+            this->duration++;
 
             dur = this->options[this->imageIdx].duration;
-            if (this->count == dur) {
+            if (this->duration == dur) {
                 Graphics::FadeSubBlack(6);
                 if (this->imageIdx + 1 < this->CREDIT_IMAGE_COUNT) {
                     this->readImage(this->imageIdx + 1);
                 }
                 break;
-            } else if (this->count <= dur) {
+            } else if (this->duration <= dur) {
                 break;
             }
 
@@ -172,7 +173,7 @@ void CSubEndrollScreenInit::update(BOOL param1)
                 this->displayImage(this->imageIdx);
                 this->freeImage(this->imageIdx - 1);
                 Graphics::FadeInScreen(ENGINE_SUB, 8);
-                this->count = 0;
+                this->duration = 0;
                 break;
             }
 

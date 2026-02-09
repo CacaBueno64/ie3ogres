@@ -39,7 +39,7 @@
 .public unk_0208F854
 .public gConfig
 .public unk_0208F870
-.public FUN_0202b448
+.public _ZN11AudioPlayer7initDSEEP9Allocator
 .public _ZN11AudioPlayer12FUN_0202b838Eiii
 .public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public OS_Sleep

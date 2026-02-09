@@ -1,7 +1,7 @@
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f6584
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_020f6530
 .public gBgMenuManager
 .public gAudioPlayer

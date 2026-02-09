@@ -8,7 +8,7 @@
 #include "ov130.hpp"
 #include "allocator.hpp"
 #include "fileio.hpp"
-#include "movie.hpp"
+#include "movieplayer.hpp"
 #include "filesystem.hpp"
 #include "wirelessutil.hpp"
 #include "logicthink.hpp"

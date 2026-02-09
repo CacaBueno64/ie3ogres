@@ -85,16 +85,16 @@ FUN_02086768: ; 0x02086768
 	bl __register_global_object
 	ldr r4, _02086A4C ; =gAudioPlayer
 	mov r0, r4
-	bl FUN_0202b3dc
+	bl _ZN11AudioPlayerC1Ev
 	mov r0, r4
-	ldr r1, _02086A50 ; =FUN_0202b3e0
+	ldr r1, _02086A50 ; =_ZN11AudioPlayerD1Ev
 	ldr r2, _02086A54 ; =0x02099FE4
 	bl __register_global_object
-	ldr r4, _02086A58 ; =gMovie
+	ldr r4, _02086A58 ; =gMoviePlayer
 	mov r0, r4
-	bl _ZN5MovieC1Ev
+	bl _ZN11MoviePlayerC1Ev
 	mov r0, r4
-	ldr r1, _02086A5C ; =_ZN5MovieD1Ev
+	ldr r1, _02086A5C ; =_ZN11MoviePlayerD1Ev
 	ldr r2, _02086A60 ; =0x02099FF0
 	bl __register_global_object
 	ldr r2, _02086A64 ; =0x0208F6C0
@@ -191,10 +191,10 @@ _02086A40: .word gAllocator
 _02086A44: .word _ZN9AllocatorD1Ev
 _02086A48: .word unk_02099FD8
 _02086A4C: .word gAudioPlayer
-_02086A50: .word FUN_0202b3e0
+_02086A50: .word _ZN11AudioPlayerD1Ev
 _02086A54: .word unk_02099FE4
-_02086A58: .word gMovie
-_02086A5C: .word _ZN5MovieD1Ev
+_02086A58: .word gMoviePlayer
+_02086A5C: .word _ZN11MoviePlayerD1Ev
 _02086A60: .word unk_02099FF0
 _02086A64: .word unk_0208F6C0
 _02086A68: .word unk_020A3D14

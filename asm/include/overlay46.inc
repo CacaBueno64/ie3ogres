@@ -1,6 +1,6 @@
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
-.public FUN_0202cf00
-.public FUN_0202cdd4
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202cdd4EiPKc
 .public gAudioPlayer
 .public MIi_CpuClearFast
 .public DC_FlushRange
@@ -51,7 +51,7 @@
 .public unk_020AF81C
 .public _s32_div_f
 .public abs
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public STD_CopyString
 .public FUN_0204eb2c
 .public unk_020A1280
@@ -112,10 +112,10 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
 .public FUN_ov16_020f5868
-.public FUN_0202dbd0
+.public _ZN11AudioPlayer12FUN_0202dbd0Ei
 .public _ZN11AudioPlayer12FUN_0202d578Ei
-.public FUN_0202c560
-.public FUN_0202c530
+.public _ZN11AudioPlayer12FUN_0202c560Ei
+.public _ZN11AudioPlayer12FUN_0202c530El
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public FUN_ov16_0210e10c
 .public gDeltaTime
@@ -130,7 +130,7 @@
 .public FUN_ov16_02113d08
 .public FUN_ov16_02113d88
 .public FUN_ov16_020f2304
-.public _ZN11AudioPlayer12FUN_0202c4a0Em
+.public _ZN11AudioPlayer12FUN_0202c4a0El
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public FUN_0205107c
 .public FUN_0204fbe8

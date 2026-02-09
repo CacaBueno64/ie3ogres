@@ -843,7 +843,7 @@ _0211AACC:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r0, _0211AAFC ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r5
 	bl FUN_ov71_0211aa34
 	ldmfd sp!, {r4, r5, r6, pc}

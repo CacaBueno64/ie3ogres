@@ -101,7 +101,7 @@ void CMainLogoScreenInit::update(BOOL param1)
                 Graphics::FadeScreenBlack(ENGINE_MAIN, 8);
                 Graphics::FadeInScreen(ENGINE_SUB, 8);
             } else if (this->scene == SCENE_LEVEL5) {
-                gAudioPlayer.FUN_0202cf6c(0x83DE);
+                gAudioPlayer.playEffect(0x83DE);
                 Graphics::FadeInScreens(6);
             } else {
                 Graphics::FadeInScreen(ENGINE_MAIN, 8);

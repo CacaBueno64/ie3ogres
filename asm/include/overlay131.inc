@@ -139,9 +139,9 @@
 .public g2DAdventureLogic
 .public FUN_02055d2c
 .public FUN_02055bb0
-.public FUN_0202ceb0
+.public _ZN11AudioPlayer12FUN_0202ceb0EiPKc
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_02038554
 .public FUN_020388c0
 .public FUN_020385c0

@@ -27,7 +27,7 @@
 .public unk_0209A0F4
 .public FUN_ov16_02113f7c
 .public FUN_ov16_02113ec0
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public g3DPlaneCtrl
 .public gAudioPlayer
 .public FUN_ov16_0210f484

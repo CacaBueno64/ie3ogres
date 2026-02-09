@@ -195,7 +195,7 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	ldr r0, [r0]
 	mov r1, r1, lsr #0x10
 	mov r2, #0x1f
-	bl _ZN9C3DDevice13setClearColorEthh
+	bl _ZN9C3DDevice13setClearColorEthi
 	ldr r0, _0211A27C ; =g3DSpriteCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0211661c
@@ -292,7 +292,7 @@ FUN_ov77_0211a290: ; 0x0211A290
 	ldr r0, [r0]
 	mov r3, r1
 	mov r2, #0x1f
-	bl _ZN9C3DDevice13setClearColorEthh
+	bl _ZN9C3DDevice13setClearColorEthi
 _0211A2F8:
 	ldr r0, _0211A3C8 ; =g3DGameMap
 	ldr r5, _0211A3CC ; =gDeltaTime
@@ -365,7 +365,7 @@ FUN_ov77_0211a3e0: ; 0x0211A3E0
 	mov r1, r4
 	mov r2, r4
 	mov r3, r4
-	bl _ZN9C3DDevice13setClearColorEthh
+	bl _ZN9C3DDevice13setClearColorEthi
 	mov r1, #0x4000000
 	ldr r0, [r1]
 	ldr r2, [r5, #0xc]

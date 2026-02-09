@@ -5,7 +5,7 @@
 .public gWirelessUtil
 .public FUN_ov16_020f6084
 .public gBgMenuManager
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6530

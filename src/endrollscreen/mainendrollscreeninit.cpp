@@ -79,7 +79,7 @@ void CMainEndrollScreenInit::displayCredits(int idx, CreditBG bg)
             Graphics::LoadTempPaletteFromPac(data, ENGINE_MAIN, 1);
             GX_LoadBGPltt(Archive::ImagePAC::GetPalettePtr(data), sizeof(GXBGPltt16) * 1, Archive::ImagePAC::GetPaletteSize(data));
         }
-        else
+        else // CREDIT_BG_B
         {
             Graphics::SetupTilemap(data, 0, 2);
             GX_LoadBG1Scr(Archive::ImagePAC::GetScreenPtr(data), 0, Archive::ImagePAC::GetScreenSize(data));

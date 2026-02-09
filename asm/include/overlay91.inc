@@ -7,7 +7,7 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public unk_020A12C0
 .public unk_020A1640
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public sprintf
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData

@@ -211,8 +211,8 @@
 .public FUN_ov16_020eef64
 .public FUN_0206c110
 .public _ZN14CScreenManagerD2Ev
-.public _ZN5Movie12FUN_0202e958Ev
-.public gMovie
+.public _ZN11MoviePlayer12FUN_0202e958Ev
+.public gMoviePlayer
 .public _ZN6Config8getParamEPc
 .public FUN_ov16_020f2a18
 .public gConfig
@@ -221,7 +221,7 @@
 .public FUN_ov16_020f2ab4
 .public GX_ResetBankForBG
 .public unk_020A1640
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public FUN_0206f5a8
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov16_020f6510
@@ -245,8 +245,8 @@
 .public FUN_ov16_020f65a4
 .public FUN_ov16_020f5c34
 .public FUN_0206f6b4
-.public FUN_0202bb58
-.public FUN_0202bb94
+.public _ZN11AudioPlayer12setBgmVolumeEt
+.public _ZN11AudioPlayer15setEffectVolumeEt
 .public FUN_020466c0
 .public FUN_0204fe00
 .public FUN_0207249c
@@ -503,7 +503,7 @@
 .public FUN_0204fd68
 .public FUN_0204d864
 .public FUN_0204c078
-.public FUN_0202cfd8
+.public _ZN11AudioPlayer10stopEffectEim
 .public _s32_div_f
 .public _fflt
 .public _fdiv
@@ -522,9 +522,9 @@
 .public _ZN7Archive24GetBodyPlttOffsetAndSizeEPviiPlPm
 .public unk_0208BFB0
 .public FUN_0205019c
-.public FUN_0202d00c
+.public _ZN11AudioPlayer15isPlayingEffectEi
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
-.public _ZN11AudioPlayer12FUN_0202d798EPci
+.public _ZN11AudioPlayer12FUN_0202d798EPKcl
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public STD_ConcatenateString
 .public GXS_LoadBG3Scr

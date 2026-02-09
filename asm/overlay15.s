@@ -2209,16 +2209,16 @@ FUN_ov15_020e1058: ; 0x020E1058
 	mov r4, #0x3e8
 	mov r0, r5
 	mov r1, r4
-	bl FUN_0202c470
+	bl _ZN11AudioPlayer12FUN_0202c470El
 	mov r6, #0
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl _ZN11AudioPlayer12FUN_0202d774Emm
+	bl _ZN11AudioPlayer12FUN_0202d774Eil
 	b _020E1098
 _020E1088:
 	mov r0, r5
-	bl FUN_0202b768
+	bl _ZN11AudioPlayer12FUN_0202b768Ev
 	bl OS_WaitVBlankIntr
 	add r6, r6, #1
 _020E1098:
@@ -2228,12 +2228,12 @@ _020E1098:
 	bl FUN_0204665c
 	ldr r4, _020E10E8 ; =gAudioPlayer
 	mov r0, r4
-	bl FUN_0202bc6c
+	bl _ZN11AudioPlayer12FUN_0202bc6cEv
 	mov r0, r4
-	bl FUN_0202b758
+	bl _ZN11AudioPlayer4quitEv
 	mov r4, #0
 	mov r0, r4
-	bl FUN_02074fb8
+	bl DSE_SsdSuspend
 	bl SND_Init
 	ldr r0, _020E10F0 ; =0x0000FFFF
 	mov r1, r4
@@ -2548,7 +2548,7 @@ FUN_ov15_020e1490: ; 0x020E1490
 	beq _020E14B4
 	ldr r0, _020E14BC ; =gAudioPlayer
 	mov r1, #8
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _020E14B4:
 	str r4, [r5, #0x2c]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -2678,7 +2678,7 @@ _020E164C:
 	ldr r0, _020E17EC ; =gAudioPlayer
 	mov r1, #1
 _020E1654:
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _020E1658:
 	add r0, r5, r6
 	ldrb r1, [r0, #0x50]
@@ -2707,12 +2707,12 @@ _020E16A4:
 	bge _020E16C0
 	ldr r0, _020E17EC ; =gAudioPlayer
 	mov r1, #9
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020E16C0:
 	ldr r0, _020E17EC ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldrb r1, [r5, #0x53]
 	mov r0, r6
 	bl FUN_ov16_020f6530
@@ -2722,7 +2722,7 @@ _020E16C0:
 _020E16E4:
 	ldr r0, _020E17EC ; =gAudioPlayer
 	mov r1, #4
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	ldrb r1, [r5, #0x52]
 	mov r0, r6
 	bl FUN_ov16_020f6530
@@ -2902,7 +2902,7 @@ _020E1930:
 	ldr r0, _020E197C ; =gAudioPlayer
 	mov r1, #1
 _020E1938:
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 _020E193C:
 	ldr r5, _020E1980 ; =0x0209A070
 	ldr r1, [r6, #0x1c]
@@ -4396,7 +4396,7 @@ FUN_ov15_020e2df8: ; 0x020E2DF8
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _020E2E3C ; =gAudioPlayer
 	mov r1, #1
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov15_020e2fc4
 	mov r0, #6
@@ -4426,7 +4426,7 @@ _020E2E60:
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _020E2E9C ; =gAudioPlayer
 	mov r1, r2
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r0, r4
 	bl FUN_ov15_020e2fc4
 	mov r0, #6

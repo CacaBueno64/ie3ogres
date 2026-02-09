@@ -12036,7 +12036,7 @@ _021453A4:
 	ldr r0, _02145538 ; =gAudioPlayer
 	ldr r2, _0214553C ; =0x0214CA3C
 	mov r1, #1
-	bl FUN_0202ceb0
+	bl _ZN11AudioPlayer12FUN_0202ceb0EiPKc
 _021453C0:
 	ldrsb r0, [r5, #0xb]
 	add r0, r0, #1
@@ -12050,7 +12050,7 @@ _021453D0:
 	beq _02145514
 	ldr r1, _02145540 ; =0x000040A2
 	mov r0, r7
-	bl _ZN11AudioPlayer12FUN_0202cf6cEm
+	bl _ZN11AudioPlayer10playEffectEi
 	mov r7, #0x1d
 	ldr r0, [r6]
 	ldr r2, _02145544 ; =0x0214CA44

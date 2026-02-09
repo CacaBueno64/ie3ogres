@@ -38,7 +38,7 @@
 .public unk_02099E98
 .public FUN_ov16_0210ee78
 .public FUN_ov16_0210e7d0
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_020f2cf8
 .public unk_02099E8E

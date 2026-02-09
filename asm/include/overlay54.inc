@@ -33,7 +33,7 @@
 .public gSprAnimCtrl
 .public FUN_ov16_0210ec34
 .public FUN_ov16_0210ef88
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e15c

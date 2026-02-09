@@ -63,7 +63,7 @@
 .public unk_020A0640
 .public FUN_0206d6d8
 .public FUN_ov126_0212ac54
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_02046730
 .public FUN_0206cc00

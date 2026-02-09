@@ -35,11 +35,11 @@
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _Z11SetNextMode8GameMode
 .public _ZN8Graphics17IsAnyScreenFadingEv
-.public _ZN5Movie12FUN_0202e958Ev
+.public _ZN11MoviePlayer12FUN_0202e958Ev
 .public unk_0208C384
 .public gScreenFades
 .public unk_020A9C40
-.public gMovie
+.public gMoviePlayer
 .public FUN_02030010
 .public FUN_0203003c
 .public FUN_020303B0
@@ -66,7 +66,7 @@
 .public FUN_0203000c
 .public _ZN14CScreenManagerD2Ev
 .public _ZN6Config8getParamEPc
-.public FUN_0202bfb8
+.public _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 .public gConfig
 .public unk_02090124
 .public gAudioPlayer
@@ -157,7 +157,7 @@
 .public unk_0208C438
 .public FUN_ov16_020fe904
 .public FUN_ov16_020fe918
-.public FUN_0202cff8
+.public _ZN11AudioPlayer14stopAllEffectsEm
 .public _ZN16CSceneScriptDataC1Ev
 .public _ZN16CSceneScriptDataD1Ev
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
@@ -237,7 +237,7 @@
 .public unk_0209050C
 .public unk_02090528
 .public FUN_020748c8
-.public FUN_0202db98
+.public _ZN11AudioPlayer5sleepEm
 .public FUN_02073f10
 .public unk_0208C444
 .public FUN_020731b4
@@ -746,7 +746,7 @@
 .public unk_02090FF0
 .public OS_CreateThread
 .public OS_WakeupThreadDirect
-.public FUN_0202bcb0
+.public _ZN11AudioPlayer18getSoundRecordDataEP16SSoundRecordData
 .public FUN_02072b54
 .public FUN_020724c8
 .public FUN_ov16_020edf7c
@@ -765,10 +765,10 @@
 .public unk_020A1740
 .public unk_020A17C1
 .public OS_IsThreadTerminated
-.public FUN_0202bd54
+.public _ZN11AudioPlayer19loadSoundRecordDataEP16SSoundRecordData
 .public FUN_02072dcc
-.public FUN_02075698
-.public FUN_0202bb58
-.public FUN_0202bb94
+.public DSE_SsdSetOutputMode
+.public _ZN11AudioPlayer12setBgmVolumeEt
+.public _ZN11AudioPlayer15setEffectVolumeEt
 .public unk_02091000
 .public unk_02099E8E

@@ -176,7 +176,7 @@
 .public sprintf
 .public STD_CopyString
 .public FUN_ov16_0210eab4
-.public _ZN11AudioPlayer12FUN_0202cf6cEm
+.public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_02113f7c
 .public FUN_ov0_020cd0f8
