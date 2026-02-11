@@ -3745,7 +3745,7 @@ _0212DE04:
 	cmp r0, #0
 	bne _0212E1DC
 	ldr r0, _0212E7E4 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _0212E038
 	ldrb r0, [r5, #0x8f]
@@ -5455,7 +5455,7 @@ _0212F648:
 	cmp r0, #0
 	bne _0212F768
 	ldr r0, _0212F78C ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _0212F6AC
 	ldr r1, [sp, #0xc]
@@ -12278,7 +12278,7 @@ FUN_ov126_021355b4: ; 0x021355B4
 	mov r2, #0x40
 	bl MI_CpuFill8
 	ldr r0, _02135654 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	mov r5, #2
 	cmp r0, #0
 	moveq r5, #1
@@ -12754,7 +12754,7 @@ FUN_ov126_02135bfc: ; 0x02135BFC
 	mov r1, r0, lsl #0x18
 	mov r0, r11
 	mov r8, r1, asr #0x18
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _02135C3C
 	cmp r8, #0

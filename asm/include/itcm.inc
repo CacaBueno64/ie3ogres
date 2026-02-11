@@ -31,7 +31,7 @@
 .public FUN_ov132_0213f644
 .public FUN_ov132_02144f4c
 .public FUN_ov126_02136d84
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_ov126_0212d4b4
 .public FUN_ov16_020f07d0
 .public unk_0209A720

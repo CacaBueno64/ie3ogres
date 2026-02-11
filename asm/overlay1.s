@@ -406,7 +406,7 @@ _020BD0C0:
 	mov r1, #0x20
 	bl FUN_0206c158
 	mov r0, r7
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _020BD148
 	mov r6, #0
@@ -2461,7 +2461,7 @@ _020BECC8:
 	orrs r0, r7, r0
 	beq _020BED00
 	ldr r0, _020BED38 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	orreq r5, r5, #0x400
 _020BED00:
@@ -4091,7 +4091,7 @@ _020C0380:
 	cmp r0, #0
 	beq _020C0564
 	ldr r0, _020C0594 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _020C03C8
 	ldr r0, _020C0584 ; =gAudioPlayer
@@ -4099,7 +4099,7 @@ _020C0380:
 	bl _ZN11AudioPlayer10playEffectEi
 _020C03C8:
 	ldr r0, _020C0594 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	movne r0, #0x1e
 	strne r0, [r8, #0x14]
@@ -4722,7 +4722,7 @@ _020C0BEC:
 	bl _ZN11AudioPlayer12FUN_0202c470El
 _020C0C40:
 	ldr r0, _020C0CB8 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _020C0C7C
 	bl FUN_ov16_020f081c
@@ -7808,7 +7808,7 @@ _020C368C:
 	beq _020C36D8
 _020C36C4:
 	ldr r0, _020C3774 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	mov r9, #0x10
 	cmp r0, #0
 	moveq r9, #0x410
@@ -19884,7 +19884,7 @@ _020CD960:
 	cmp r0, #0x2b
 	bne _020CD9B0
 	ldr r0, _020CDA30 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	addne sp, sp, #0x2c
 	ldmnefd sp!, {r4, r5, r6, r7, pc}
@@ -32271,7 +32271,7 @@ FUN_ov1_020d87b4: ; 0x020D87B4
 FUN_ov1_020d87b8: ; 0x020D87B8
 	stmfd sp!, {r3, lr}
 	ldr r0, _020D87E4 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, pc}
 	ldr r0, _020D87E8 ; =g3DFieldSprite
@@ -35434,10 +35434,10 @@ _020DB2EC: .word FUN_ov132_021462a0 ; may be ov131 ; ov132(Mica)
 	arm_func_start FUN_ov1_020db2f0
 FUN_ov1_020db2f0: ; 0x020DB2F0
 	ldr r0, _020DB2FC ; =gLogicThink
-	ldr r12, _020DB300 ; =FUN_020731a4
+	ldr r12, _020DB300 ; =_ZN11CLogicThink12FUN_020731a4Ev
 	bx r12
 _020DB2FC: .word gLogicThink
-_020DB300: .word FUN_020731a4
+_020DB300: .word _ZN11CLogicThink12FUN_020731a4Ev
 	arm_func_end FUN_ov1_020db2f0
 
 	arm_func_start FUN_ov1_020db304
@@ -35453,7 +35453,7 @@ _020DB314: .word FUN_02072b0c
 FUN_ov1_020db318: ; 0x020DB318
 	stmfd sp!, {r3, lr}
 	ldr r0, _020DB334 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0
@@ -40046,7 +40046,7 @@ FUN_ov1_020df2cc: ; 0x020DF2CC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldr r0, _020DF2F4 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _020DF2F8 ; =0x020E9388
@@ -40500,7 +40500,7 @@ _020DF8E0:
 	ldr r4, _020DFA34 ; =gLogicThink
 	str r0, [r10, #0xa4]
 	mov r0, r4
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _020DFA08
 	mov r0, r4
@@ -42212,7 +42212,7 @@ FUN_ov1_020e1114: ; 0x020E1114
 	ldr r6, [sp, #0x30]
 	mov r11, #1
 	mov r4, #0
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldrb r0, [r8, #0x1c]
 	bne _020E11A4
@@ -46020,7 +46020,7 @@ FUN_ov1_020e45cc: ; 0x020E45CC
 	mov r3, r4
 	bl FUN_ov16_02113b78
 	ldr r0, _020E4780 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _020E4694
 	mov r4, #2

@@ -57,7 +57,7 @@
 .public gUtilGame
 .public unk_020A0640
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_ov126_0213246c
 .public FUN_ov132_02143114
 .public FUN_ov132_021447ec

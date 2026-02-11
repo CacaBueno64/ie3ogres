@@ -3585,7 +3585,7 @@ _0211D28C:
 	cmp r0, #0
 	beq _0211D2B0
 	mov r0, r6
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	moveq r4, #0
 _0211D2B0:
@@ -6558,7 +6558,7 @@ _0211FDD0:
 	cmp r0, #0
 	beq _0211FDF4
 	mov r0, r4
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	moveq r8, #2
 _0211FDF4:

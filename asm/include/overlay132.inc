@@ -116,7 +116,7 @@
 .public unk_0209A7FC
 .public FUN_02040118
 .public FUN_01ffb9b0
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_ov16_020ef928
 .public FUN_01ffb9e4
 .public FUN_ov126_0213a2cc

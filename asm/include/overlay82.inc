@@ -98,7 +98,7 @@
 .public FUN_ov126_0213502c
 .public FUN_01ff9c08
 .public ov1_020EAA94
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_ov126_021355b4
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType

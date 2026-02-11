@@ -70,7 +70,7 @@
 .public FUN_0206d824
 .public FUN_0206cbf8
 .public FUN_0206d688
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_0206d150
 .public FUN_0204c3e0
 .public FUN_ov16_020f06bc

@@ -1,3 +1,6 @@
+.public DSE_SsdStopEffectByDataID
+.public _ZN11AudioPlayer6wakeUpEv
+.public _ZN11AudioPlayer12FUN_0202b768Ev
 .public unk_0208F904
 .public FUN_ov16_LoadOverlay
 .public _Znwm
@@ -121,6 +124,7 @@
 .public FUN_02043c80
 .public _ZN8Graphics19SetScreenBrightnessEti
 .public GX_DispOn
+.public _ZN9Allocator15setDefaultArenaEi
 .public FUN_0206f29c
 .public gDebugFont
 .public unk_0209A0DC
@@ -135,6 +139,7 @@
 .public FUN_02051434
 .public _ZN6Thread9WakeUpAllEv
 .public FUN_02051448
+.public _ZN9Allocator11getHeapInfoEPiS0_S0_
 .public FUN_ov16_020f2604
 .public gWaitVBlank
 .public unk_0209A124
@@ -158,11 +163,13 @@
 .public _ZN8Graphics10FadeInMainEl
 .public _ZN8Graphics12WhiteOutMainEv
 .public _ZN8Graphics12BlackOutMainEv
+.public _ZN9Allocator12setNextArenaEi
 .public _ZN10FileSystem21ReadFileByIdxDeferredEPPvilPa
 .public _ZN10FileSystem13ReadFileByIdxEPPvil
 .public unk_020B5B78
 .public SND_Init
 .public SND_LockChannel
+.public _ZN9Allocator8allocateEmii
 .public DSE_SsdInitSsdInitData
 .public DSE_SsdSetInitDataSoundHeap
 .public DSE_SsdSetInitDataMainThread
@@ -184,7 +191,7 @@
 .public DSE_SsdResume
 .public DSE_SsdStopStream
 .public DSE_SsdQuit
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public sprintf
 .public unk_0208FAD8
 .public unk_0208FAE0
@@ -221,6 +228,7 @@
 .public DSE_SsdRemoveEffectData
 .public DSE_SsdRemoveSequenceData
 .public _ZN7CFileIO5closeEPvi
+.public _ZN9Allocator10deallocateEPv
 .public _ZN10FileSystem10IsFileBusyEa
 .public DSE_SsdAddWaveData
 .public DSE_SsdAddEffectData
@@ -247,20 +255,3 @@
 .public DSE_SsdOpenStreamByFile
 .public DSE_SsdPlayStream
 .public unk_0208FBA0
-.public OS_FreeToHeap
-.public OS_CreateHeap
-.public OS_InitMutex
-.public OS_GetTotalFreeSize
-.public OS_Terminate
-.public OS_AllocFromHeap
-.public MIi_CpuClearFast
-.public unk_0208C348
-.public DC_FlushRange
-.public DC_WaitWriteBufferEmpty
-.public OS_LockMutex
-.public OS_DisableInterrupts
-.public OS_RestoreInterrupts
-.public OS_UnlockMutex
-.public unk_0208C340
-.public OS_GetArenaLo
-.public OS_GetArenaHi

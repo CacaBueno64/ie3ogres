@@ -1,0 +1,17 @@
+.public OS_FreeToHeap
+.public OS_CreateHeap
+.public OS_InitMutex
+.public OS_GetTotalFreeSize
+.public OS_Terminate
+.public OS_AllocFromHeap
+.public MIi_CpuClearFast
+.public unk_0208C348
+.public DC_FlushRange
+.public DC_WaitWriteBufferEmpty
+.public OS_LockMutex
+.public OS_DisableInterrupts
+.public OS_RestoreInterrupts
+.public OS_UnlockMutex
+.public unk_0208C340
+.public OS_GetArenaLo
+.public OS_GetArenaHi

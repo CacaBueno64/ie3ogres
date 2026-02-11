@@ -111,7 +111,7 @@
 .public unk_0209A114
 .public FUN_ov132_021447ec
 .public FUN_ov132_02144770
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_0207318c
 .public FUN_ov132_021447d0
 .public FUN_ov132_021447f4

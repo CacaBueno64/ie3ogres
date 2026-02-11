@@ -914,7 +914,7 @@ FUN_ov81_0211ab0c: ; 0x0211AB0C
 	strb r6, [r4, #0x2b]
 	ldr r0, _0211ABB8 ; =gLogicThink
 	strb r5, [r4, #0x33]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	strb r0, [r4, #0x30]
 	ldr r0, _0211ABBC ; 0x02099EF0
 	strb r6, [r4, #0x31]

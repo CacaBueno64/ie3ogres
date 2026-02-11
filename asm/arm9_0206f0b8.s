@@ -1262,7 +1262,7 @@ _02070214:
 	cmp r5, #1
 	bne _02070260
 	mov r0, r6
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _02070260
 	mov r0, r9, lsl #3
@@ -1636,7 +1636,7 @@ _02070778:
 	b _02070FA0
 _02070784:
 	mov r0, r11
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _02070F54
 	ldr r0, [sp, #0x10]
@@ -2252,7 +2252,7 @@ _02070FA0:
 	mov r0, r11
 	mov r5, #1
 	mov r7, #0
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _020710CC
 	ldrb r0, [r11, #0x886]
@@ -2301,7 +2301,7 @@ _020710CC:
 	cmp r0, #1
 	bne _02071170
 	mov r0, r11
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _02071170
 	ldr r0, [sp, #0x34]
@@ -2478,7 +2478,7 @@ _02071358:
 	blt _02071294
 _02071360:
 	mov r0, r11
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	addne sp, sp, #0x1b8
 	addne sp, sp, #0x400
@@ -3888,7 +3888,7 @@ FUN_02072560: ; 0x02072560
 	bl FUN_0207249c
 	mov r4, r0
 	mov r0, r7
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r5, #0
@@ -3908,7 +3908,7 @@ FUN_020725ac: ; 0x020725AC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	str r1, [sp]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, [sp]
@@ -3928,7 +3928,7 @@ _020725EC:
 	cmp r0, #0
 	beq _02072658
 	mov r0, r5
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	mov r0, r9
 	mov r1, r6
@@ -4839,13 +4839,13 @@ FUN_02073194: ; 0x02073194
 _020731A0: .word FUN_02073e14
 	arm_func_end FUN_02073194
 
-	arm_func_start FUN_020731a4
-FUN_020731a4: ; 0x020731A4
+	arm_func_start _ZN11CLogicThink12FUN_020731a4Ev
+_ZN11CLogicThink12FUN_020731a4Ev: ; 0x020731A4
 	ldr r12, _020731B0 ; =FUN_02073e7c
 	add r0, r0, #0x2ec
 	bx r12
 _020731B0: .word FUN_02073e7c
-	arm_func_end FUN_020731a4
+	arm_func_end _ZN11CLogicThink12FUN_020731a4Ev
 
 	arm_func_start FUN_020731b4
 FUN_020731b4: ; 0x020731B4
@@ -4918,7 +4918,7 @@ FUN_02073260: ; 0x02073260
 	blt _0207329C
 	cmp r2, #0x10
 	bgt _0207329C
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	moveq r0, #1
 	movne r0, #0

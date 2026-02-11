@@ -13,7 +13,7 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public FUN_ov16_020f081c
 .public FUN_ov16_020f0944
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_ov126_021355b4
 .public _ZN14CScreenManager9pushSceneE12EngineSelect9SceneType
 .public ov1_020E9482

@@ -274,7 +274,7 @@ FUN_ov59_0211a238: ; 0x0211A238
 _0211A29C:
 	ldr r4, _0211A48C ; =gLogicThink
 	mov r0, r4
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _0211A328
 	mov r0, r4
@@ -1903,7 +1903,7 @@ FUN_ov59_0211b8ac: ; 0x0211B8AC
 	cmp r0, #0
 	beq _0211B8E8
 	mov r0, r4
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _0211B8E8
 	ldrb r0, [r4, #0x849]
@@ -3850,7 +3850,7 @@ _0211D468:
 	cmp r0, #0
 	beq _0211D510
 	mov r0, r6
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	bne _0211D510
 	ldrb r0, [r6, #0x849]

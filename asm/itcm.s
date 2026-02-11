@@ -402,7 +402,7 @@ _01FF8ABC:
 	movge r7, #1
 	bge _01FF8B2C
 	ldr r0, _01FF8BF0 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r4
@@ -426,7 +426,7 @@ _01FF8B2C:
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _01FF8BF0 ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r6, #0
@@ -2182,7 +2182,7 @@ _01FFA3F0:
 	mov r0, r6
 	mov r5, #1
 	mov r7, #0
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _01FFA458
 	ldr r0, _01FFAC30 ; =0x0209A13C
@@ -2768,7 +2768,7 @@ FUN_01ffac60: ; 0x01ffac60
 	str r0, [sp, #4]
 	mov r0, r7
 	strb r6, [r5, #0x344]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _01FFACC4
 	mov r0, r5
@@ -2886,7 +2886,7 @@ FUN_01ffae20: ; 0x01ffae20
 	cmp r0, #0
 	bne _01FFAFA0
 	mov r0, r5
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	mov r7, r6
 	beq _01FFAECC

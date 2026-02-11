@@ -33,7 +33,7 @@
 .public FUN_ov16_020f081c
 .public FUN_ov132_02145a44
 .public FUN_ov16_020f068c
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_020724c8
 .public FUN_ov132_0214609c
 .public FUN_ov132_02146014

@@ -490,7 +490,7 @@ _020750E0: .word unk_020B9FD8
 DSEi_StopAllSounds: ; 0x020750E4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl DSE_SsdStopSequenceAll
+	bl DSEi_StopSequenceAll
 	mov r0, r4
 	bl DSE_SsdStopEffectAll
 	mov r0, r4
@@ -536,8 +536,8 @@ _02075174: .word unk_020B9FD8
 _02075178: .word unk_020B9FDC
 	arm_func_end DSEi_SetError
 
-	arm_func_start DSEi_SetError2
-DSEi_SetError2: ; 0x0207517C
+	arm_func_start DSEi_SetWarning
+DSEi_SetWarning: ; 0x0207517C
 	stmfd sp!, {r3, lr}
 	ldr r3, _020751B0 ; =0x020B9FD8
 	str r0, [r3, #0x10]
@@ -553,7 +553,7 @@ DSEi_SetError2: ; 0x0207517C
 	ldmfd sp!, {r3, pc}
 _020751B0: .word unk_020B9FD8
 _020751B4: .word unk_020B9FE8
-	arm_func_end DSEi_SetError2
+	arm_func_end DSEi_SetWarning
 
 	arm_func_start DSEi_ByteSwap32
 DSEi_ByteSwap32: ; 0x020751B8
@@ -1827,8 +1827,8 @@ _0207626C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end DSE_SsdStopSequence
 
-	arm_func_start DSE_SsdStopSequenceAll
-DSE_SsdStopSequenceAll: ; 0x02076284
+	arm_func_start DSEi_StopSequenceAll
+DSEi_StopSequenceAll: ; 0x02076284
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _020762DC ; =0x04000208
 	mov r2, #0
@@ -1855,7 +1855,7 @@ _020762CC:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020762DC: .word 0x04000208
 _020762E0: .word unk_020B9FD8
-	arm_func_end DSE_SsdStopSequenceAll
+	arm_func_end DSEi_StopSequenceAll
 
 	arm_func_start DSE_SsdSetSequenceParam
 DSE_SsdSetSequenceParam: ; 0x020762E4
@@ -2242,7 +2242,7 @@ DSEi_ResetSequence: ; 0x0207680C
 	ldr r0, [r5, #0x24]
 	ldr r2, [r5, #0x28]
 	mov r1, r4
-	bl DSEi_ResetSynthAndSetBankAndSequence
+	bl DSEi_InitSynth
 	ldrb r1, [r5, #0x13]
 	ldr r0, [r5, #0x24]
 	mov r2, r4
@@ -2928,7 +2928,7 @@ _02077184: .word unk_020BA650
 DSE_SsdRemoveEffectData: ; 0x02077188
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
-	bl DSE_SsdStopEffectSeq
+	bl DSE_SsdStopEffectByDataID
 	ldr r1, _02077218 ; =0x04000208
 	mov r0, #0
 	ldrh r3, [r1]
@@ -3064,7 +3064,7 @@ _0207732C:
 	mov r0, r4
 	mov r1, r10
 	mov r2, #0
-	bl DSEi_SetError2
+	bl DSEi_SetWarning
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207736C:
@@ -3086,7 +3086,7 @@ _0207736C:
 	b _020773C4
 _020773AC:
 	mov r0, r8
-	bl DSE_SsdControlEffectSequenceIDInGroup
+	bl DSE_SsdControlEffectAttribute
 	b _020773C4
 _020773B8:
 	mov r0, r11
@@ -3252,8 +3252,8 @@ _020775E4: .word 0x04000208
 _020775E8: .word unk_020B9FD8
 	arm_func_end DSE_SsdControlEffectSequenceID
 
-	arm_func_start DSE_SsdControlEffectSequenceIDInGroup
-DSE_SsdControlEffectSequenceIDInGroup: ; 0x020775EC
+	arm_func_start DSE_SsdControlEffectAttribute
+DSE_SsdControlEffectAttribute: ; 0x020775EC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	movs r9, r1
@@ -3329,7 +3329,7 @@ _020776D8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020776EC: .word 0x04000208
 _020776F0: .word unk_020B9FD8
-	arm_func_end DSE_SsdControlEffectSequenceIDInGroup
+	arm_func_end DSE_SsdControlEffectAttribute
 
 	arm_func_start DSEi_FUN_020776f4
 DSEi_FUN_020776f4: ; 0x020776F4
@@ -3581,8 +3581,8 @@ _02077A1C: .word 0x04000208
 _02077A20: .word unk_020B9FD8
 	arm_func_end DSE_SsdStopEffectAll
 
-	arm_func_start DSE_SsdStopEffectSeq
-DSE_SsdStopEffectSeq: ; 0x02077A24
+	arm_func_start DSE_SsdStopEffectByDataID
+DSE_SsdStopEffectByDataID: ; 0x02077A24
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	ldr r3, _02077A98 ; =0x04000208
 	mov r2, #0
@@ -3617,7 +3617,7 @@ _02077A88:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02077A98: .word 0x04000208
 _02077A9C: .word unk_020B9FD8
-	arm_func_end DSE_SsdStopEffectSeq
+	arm_func_end DSE_SsdStopEffectByDataID
 
 	arm_func_start DSEi_StartMainThread
 DSEi_StartMainThread: ; 0x02077AA0
@@ -4671,8 +4671,8 @@ DSE_SeqSetBank: ; 0x02078874
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSE_SeqSetBank
 
-	arm_func_start DSE_SeqSetBankMsb
-DSE_SeqSetBankMsb: ; 0x020788A0
+	arm_func_start DSE_SsdSeqBankMSB
+DSE_SsdSeqBankMSB: ; 0x020788A0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r1, [r3, #0xe]
@@ -4685,10 +4685,10 @@ DSE_SeqSetBankMsb: ; 0x020788A0
 	bl DSEi_SetWave
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DSE_SeqSetBankMsb
+	arm_func_end DSE_SsdSeqBankMSB
 
-	arm_func_start DSE_SeqSetBankLsb
-DSE_SeqSetBankLsb: ; 0x020788D0
+	arm_func_start DSE_SsdSeqBankLSB
+DSE_SsdSeqBankLSB: ; 0x020788D0
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	ldrh r2, [r3, #0xe]
@@ -4701,7 +4701,7 @@ DSE_SeqSetBankLsb: ; 0x020788D0
 	bl DSEi_SetWave
 	add r0, r4, #1
 	ldmfd sp!, {r4, pc}
-	arm_func_end DSE_SeqSetBankLsb
+	arm_func_end DSE_SsdSeqBankLSB
 
 	arm_func_start DSE_SeqDummy1Byte
 DSE_SeqDummy1Byte: ; 0x02078900
@@ -6707,8 +6707,8 @@ _0207A0F0: .word 0x04000208
 _0207A0F4: .word unk_020B9FD8
 	arm_func_end DSEi_ClearSynthHeldNotes
 
-	arm_func_start DSEi_ResetSynthAndSetBankAndSequence
-DSEi_ResetSynthAndSetBankAndSequence: ; 0x0207A0F8
+	arm_func_start DSEi_InitSynth
+DSEi_InitSynth: ; 0x0207A0F8
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	mov r5, r1
@@ -6719,7 +6719,7 @@ DSEi_ResetSynthAndSetBankAndSequence: ; 0x0207A0F8
 	mov r2, r4
 	bl DSEi_SetSynthBankAndSequence
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end DSEi_ResetSynthAndSetBankAndSequence
+	arm_func_end DSEi_InitSynth
 
 	arm_func_start DSEi_StopSynthChannels
 DSEi_StopSynthChannels: ; 0x0207A120
@@ -10657,7 +10657,7 @@ _0207D524:
 	mov r1, r6
 	mvn r0, #0x17
 	mov r2, r4
-	bl DSEi_SetError2
+	bl DSEi_SetWarning
 	bic r6, r6, #0xff
 _0207D540:
 	cmp r6, #0
@@ -12564,7 +12564,7 @@ DSEi_Stream_FUN_0207eed4: ; 0x0207EED4
 	mov r1, r5
 	mov r2, r5
 	sub r0, r5, #0xb8
-	bl DSEi_SetError2
+	bl DSEi_SetWarning
 	ldrb r0, [r10, #0x22]
 	cmp r0, #0
 	ble _0207F154
@@ -12765,7 +12765,7 @@ _0207F240:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl DSEi_SetError2
+	bl DSEi_SetWarning
 	b _0207F3D8
 _0207F254:
 	ldrb r7, [r10, #0x22]
@@ -12924,7 +12924,7 @@ _0207F478:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl DSEi_SetError2
+	bl DSEi_SetWarning
 	b _0207F554
 _0207F48C:
 	ldrb r4, [r7, #0x22]
@@ -20808,8 +20808,8 @@ DSE_TRACK_EVENT_TABLE:
 	.word DSE_SsdSeqDummy
 	.word DSE_SsdSeqDummy
 	.word DSE_SeqSetBank
-	.word DSE_SeqSetBankMsb
-	.word DSE_SeqSetBankLsb
+	.word DSE_SsdSeqBankMSB
+	.word DSE_SsdSeqBankLSB
 	.word DSE_SeqDummy1Byte
 	.word DSE_SsdSeqProgramChange
 	.word DSE_SsdSeqDummy

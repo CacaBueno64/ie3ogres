@@ -118,7 +118,7 @@
 .public FUN_0206c6fc
 .public FUN_0206d634
 .public FUN_0206c158
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_0205106c
 .public FUN_02050244
 .public FUN_0206c718

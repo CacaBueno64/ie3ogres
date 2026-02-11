@@ -358,7 +358,7 @@ _0211A36C:
 	strb r6, [r8, #0x2a]
 	ldr r0, _0211A428 ; =gLogicThink
 	strb r6, [r8, #0x2b]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	strb r0, [r8, #0x30]
 	ldr r0, _0211A42C ; 0x02099EF0
 	strb r6, [r8, #0x31]

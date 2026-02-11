@@ -14,7 +14,7 @@
 .public FUN_ov16_02116654
 .public gDeltaTime
 .public g3DSpriteCtrl
-.public FUN_020731a4
+.public _ZN11CLogicThink12FUN_020731a4Ev
 .public FUN_02073f08
 .public FUN_0205106c
 .public FUN_02050244

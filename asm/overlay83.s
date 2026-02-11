@@ -776,7 +776,7 @@ _0211A988:
 	bne _0211A9F8
 	ldr r9, _0211AA58 ; =gLogicThink
 	mov r0, r9
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _0211A9F8
 	bl FUN_ov16_020f081c

@@ -3031,7 +3031,7 @@ FUN_ov82_0211c90c: ; 0x0211C90C
 	strb r5, [r4, #0x2a]
 	mov r0, r6
 	strb r5, [r4, #0x2b]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	strb r0, [r4, #0x30]
 	strb r5, [r4, #0x31]
 	strb r7, [r4, #0x33]
@@ -5175,7 +5175,7 @@ FUN_ov82_0211e6f0: ; 0x0211E6F0
 	bl DC_FlushRange
 	ldr r0, _0211EC9C ; =gLogicThink
 	str r8, [sp, #4]
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	str r6, [sp]
 	beq _0211E910
@@ -5379,7 +5379,7 @@ _0211EA7C:
 	mov r8, r0
 _0211EB08:
 	ldr r0, _0211EC9C ; =gLogicThink
-	bl FUN_020731a4
+	bl _ZN11CLogicThink12FUN_020731a4Ev
 	cmp r0, #0
 	beq _0211EBA8
 	str r6, [sp]
