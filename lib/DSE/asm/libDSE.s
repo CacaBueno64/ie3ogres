@@ -3,18 +3,18 @@
 	.include "libDSE.inc"
 
     .text
-	arm_func_start DSEi_UnusedAlloc
-DSEi_UnusedAlloc: ; 0x02074A6C
+	arm_func_start DSEi_SsdUnusedAlloc
+DSEi_SsdUnusedAlloc: ; 0x02074A6C
 	mov r0, #0
 	mov r2, r1
 	ldr r12, _02074A80 ; =OS_AllocFromHeap
 	sub r1, r0, #1
 	bx r12
 _02074A80: .word OS_AllocFromHeap
-	arm_func_end DSEi_UnusedAlloc
+	arm_func_end DSEi_SsdUnusedAlloc
 
-	arm_func_start DSEi_UnusedFree
-DSEi_UnusedFree: ; 0x02074A84
+	arm_func_start DSEi_SsdUnusedFree
+DSEi_SsdUnusedFree: ; 0x02074A84
 	stmfd sp!, {r4, lr}
 	mov r4, r1
 	mov r0, #0
@@ -23,29 +23,29 @@ DSEi_UnusedFree: ; 0x02074A84
 	bl OS_FreeToHeap
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end DSEi_UnusedFree
+	arm_func_end DSEi_SsdUnusedFree
 
-	arm_func_start DSEi_DefaultConsoleCallback
-DSEi_DefaultConsoleCallback: ; 0x02074AA4
+	arm_func_start DSEi_SsdDefaultConsoleCallback
+DSEi_SsdDefaultConsoleCallback: ; 0x02074AA4
 	bx lr
-	arm_func_end DSEi_DefaultConsoleCallback
+	arm_func_end DSEi_SsdDefaultConsoleCallback
 
 	arm_func_start DSE_SsdInitSsdInitData
 DSE_SsdInitSsdInitData: ; 0x02074AA8
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _02074B30 ; =0x020B9FD8
+	ldr r1, _02074B30 ; =DSEi_SsdWork
 	mov r2, #1
 	movs r4, r0
 	strb r2, [r1, #0x45]
 	subeq r0, r2, #0x100
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r1, #0x40
-	bl DSEi_MemClear
+	bl DSE_SsdMemoryClear
 	mov r0, #0
-	ldr r1, _02074B34 ; =DSEi_DefaultConsoleCallback
+	ldr r1, _02074B34 ; =DSEi_SsdDefaultConsoleCallback
 	mov r12, #4
-	ldr r3, _02074B38 ; =DSEi_UnusedAlloc
-	ldr r2, _02074B3C ; =DSEi_UnusedFree
+	ldr r3, _02074B38 ; =DSEi_SsdUnusedAlloc
+	ldr r2, _02074B3C ; =DSEi_SsdUnusedFree
 	mov r6, #8
 	mov r5, #0xf
 	mov lr, #0x14
@@ -66,21 +66,21 @@ DSE_SsdInitSsdInitData: ; 0x02074AA8
 	str r1, [r4, #0x2c]
 	str r0, [r4, #0x30]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02074B30: .word unk_020B9FD8
-_02074B34: .word DSEi_DefaultConsoleCallback
-_02074B38: .word DSEi_UnusedAlloc
-_02074B3C: .word DSEi_UnusedFree
+_02074B30: .word DSEi_SsdWork
+_02074B34: .word DSEi_SsdDefaultConsoleCallback
+_02074B38: .word DSEi_SsdUnusedAlloc
+_02074B3C: .word DSEi_SsdUnusedFree
 	arm_func_end DSE_SsdInitSsdInitData
 
-	arm_func_start DSEi_CheckInitData
-DSEi_CheckInitData: ; 0x02074B40
+	arm_func_start DSEi_SsdCheckInitData
+DSEi_SsdCheckInitData: ; 0x02074B40
 	stmfd sp!, {r3, r4, r5, lr}
 	movs r4, r0
 	bne _02074B64
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0x17
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074B64:
@@ -89,7 +89,7 @@ _02074B64:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0x17
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, #2
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074B84:
@@ -133,12 +133,12 @@ _02074BB8:
 	mov r1, r5
 	mvn r0, #0x17
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 _02074C18:
 	mov r0, r5
 	str r5, [r4]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end DSEi_CheckInitData
+	arm_func_end DSEi_SsdCheckInitData
 
 	arm_func_start DSE_SsdSetInitDataSoundHeap
 DSE_SsdSetInitDataSoundHeap: ; 0x02074C24
@@ -152,7 +152,7 @@ DSE_SsdSetInitDataSoundHeap: ; 0x02074C24
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSE_SsdSetInitDataSoundHeap
@@ -169,7 +169,7 @@ DSE_SsdSetInitDataMainThread: ; 0x02074C58
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSE_SsdSetInitDataMainThread
@@ -185,7 +185,7 @@ DSE_SsdSetInitDataRomThread: ; 0x02074C8C
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSE_SsdSetInitDataRomThread
@@ -199,7 +199,7 @@ DSE_SsdSetInitDataVoiceRange: ; 0x02074CBC
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02074CE4:
@@ -216,7 +216,7 @@ _02074CE4:
 	arm_func_start DSE_SsdInit
 DSE_SsdInit: ; 0x02074D04
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r4, _02074EF8 ; =0x020B9FD8
+	ldr r4, _02074EF8 ; =DSEi_SsdWork
 	mov r7, r0
 	ldrsb r1, [r4]
 	mov r5, #0
@@ -226,17 +226,17 @@ DSE_SsdInit: ; 0x02074D04
 	mov r1, r5
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D3C:
-	bl DSEi_CheckInitData
+	bl DSEi_SsdCheckInitData
 	movs r1, r0
 	beq _02074D60
 	mvn r4, #0x1d
 	mov r0, r4
 	mov r2, r5
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02074D60:
@@ -246,7 +246,7 @@ _02074D60:
 	bl OS_SetTick
 	bl OS_InitAlarm
 	ldrb r0, [r7, #0x11]
-	ldr r9, _02074EF8 ; =0x020B9FD8
+	ldr r9, _02074EF8 ; =DSEi_SsdWork
 	mov r6, #0
 	cmp r0, #0
 	ldreq r1, _02074EFC ; =0x00002710
@@ -270,10 +270,10 @@ _02074D60:
 	ldrb r0, [r7, #0x11]
 	ldr r8, _02074F08 ; =0x020BAFD8
 	strb r0, [r8, #0xde4]
-	bl DSEi_FUN_02075104
+	bl DSE_FUN_02075104
 	strb r4, [r9, #0x40]
 	mov r1, #2
-	ldr r0, _02074F0C ; =0x02091F94
+	ldr r0, _02074F0C ; =DSE_gSsdPanTableDirect
 	strb r1, [r9, #0x41]
 	str r0, [r8, #0xee0]
 	str r6, [r9, #0x728]
@@ -288,7 +288,7 @@ _02074E08:
 	strb r5, [r0, #0x680]
 	cmp r6, #0x80
 	blt _02074E08
-	ldr r4, _02074EF8 ; =0x020B9FD8
+	ldr r4, _02074EF8 ; =DSEi_SsdWork
 	mov r0, #0x64
 	strb r0, [r4, #0x687]
 	mov r0, #0x7f
@@ -314,16 +314,16 @@ _02074E08:
 	ldr r0, [r7, #8]
 	ldr r1, [r7, #0xc]
 	add r2, r7, #0x1c
-	bl DSEi_MemInit
+	bl DSE_SsdInitAlloc
 	ldrsh r0, [r7, #0x16]
 	add r0, r0, #1
 	mov r0, r0, lsl #0x10
 	mov r0, r0, asr #0x10
-	bl DSEi_SoundReset
-	bl DSEi_ResetVoices
-	bl DSEi_CaptureInit
-	bl DSEi_StreamInit
-	bl DSEi_MidiInit
+	bl DSE_SsdSoundReset
+	bl DSE_SsdResetVoices
+	bl DSE_SsdCaptureInit
+	bl DSE_SsdStreamInit
+	bl DSE_SsdMidiInit
 	mov r1, #0x7f
 _02074EB0:
 	add r0, r4, r6
@@ -331,11 +331,11 @@ _02074EB0:
 	strb r1, [r0, #0x48]
 	cmp r6, #0x10
 	blt _02074EB0
-	ldr r4, _02074EF8 ; =0x020B9FD8
+	ldr r4, _02074EF8 ; =DSEi_SsdWork
 	strb r5, [r4, #0x48]
-	bl DSEi_StartMainThread
+	bl DSE_SsdStartMainThread
 	ldrb r0, [r7, #0x12]
-	bl DSEi_StartRomThread
+	bl DSE_SsdStartRomThread
 	mov r0, #1
 	strb r0, [r4]
 	strb r5, [r4, #1]
@@ -344,12 +344,12 @@ _02074EB0:
 	bl DSE_SsdSetEffectPolyMax
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02074EF8: .word unk_020B9FD8
+_02074EF8: .word DSEi_SsdWork
 _02074EFC: .word 0x00002710
 _02074F00: .word 0x0000414B
 _02074F04: .word 0x00BC614E
 _02074F08: .word unk_020BAFD8
-_02074F0C: .word unk_02091F94
+_02074F0C: .word DSE_gSsdPanTableDirect
 _02074F10: .word unk_020B9FF4
 _02074F14: .word unk_020BBDD8
 	arm_func_end DSE_SsdInit
@@ -357,22 +357,22 @@ _02074F14: .word unk_020BBDD8
 	arm_func_start DSE_SsdQuit
 DSE_SsdQuit: ; 0x02074F18
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _02074F7C ; =0x020B9FD8
+	ldr r4, _02074F7C ; =DSEi_SsdWork
 	ldrsb r0, [r4]
 	cmp r0, #0
 	mvneq r0, #0xc0
 	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl DSEi_QuitRomThread
+	bl DSE_SsdQuitRomThread
 	mov r5, #0
 	mov r0, r5
-	bl DSEi_StopAllSounds
-	bl DSEi_SsdQuitStream
-	bl DSEi_StopCapture
-	bl DSEi_QuitCapture
-	bl DSEi_QuitMainThread
-	bl DSEi_ResetVoices
-	bl DSEi_QuitHeap
-	bl DSEi_FUN_02075104
+	bl DSEi_SsdStopAllSounds
+	bl DSE_SsdQuitStream
+	bl DSE_SsdStopCapture
+	bl DSE_SsdQuitCapture
+	bl DSE_SsdQuitMainThread
+	bl DSE_SsdResetVoices
+	bl DSE_SsdClearAlloc
+	bl DSE_FUN_02075104
 	strb r5, [r4]
 	strb r5, [r4, #1]
 	str r5, [r4, #0x2c]
@@ -381,13 +381,13 @@ DSE_SsdQuit: ; 0x02074F18
 	mov r0, r5
 	strh r5, [r4, #2]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02074F7C: .word unk_020B9FD8
+_02074F7C: .word DSEi_SsdWork
 	arm_func_end DSE_SsdQuit
 
-	arm_func_start DSEi_IsPaused
-DSEi_IsPaused: ; 0x02074F80
+	arm_func_start DSE_SsdIsPaused
+DSE_SsdIsPaused: ; 0x02074F80
 	stmfd sp!, {r4, lr}
-	ldr r0, _02074FB4 ; =0x020B9FD8
+	ldr r0, _02074FB4 ; =DSEi_SsdWork
 	ldrsb r1, [r0]
 	cmp r1, #0
 	ldrnesb r0, [r0, #1]
@@ -396,16 +396,16 @@ DSEi_IsPaused: ; 0x02074F80
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02074FB4: .word unk_020B9FD8
-	arm_func_end DSEi_IsPaused
+_02074FB4: .word DSEi_SsdWork
+	arm_func_end DSE_SsdIsPaused
 
 	arm_func_start DSE_SsdSuspend
 DSE_SsdSuspend: ; 0x02074FB8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r4, _02075048 ; =0x020B9FD8
+	ldr r4, _02075048 ; =DSEi_SsdWork
 	ldrsb r0, [r4]
 	cmp r0, #0
 	bne _02074FE8
@@ -413,7 +413,7 @@ DSE_SsdSuspend: ; 0x02074FB8
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02074FE8:
@@ -423,31 +423,31 @@ _02074FE8:
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #1
 	strb r0, [r4, #1]
-	bl DSEi_ResetSoundState
+	bl DSE_SsdResetSoundState
 	mov r5, #0
 	ldr r0, [r4, #0x670]
 	mov r1, r5
-	bl DSEi_SuspendList
+	bl DSE_SsdSuspendList
 	ldr r0, [r4, #0x674]
 	mov r1, r5
-	bl DSEi_SuspendList
+	bl DSE_SsdSuspendList
 	mov r0, r5
-	bl DSEi_StreamSuspend
+	bl DSE_SsdStreamSuspend
 	mov r0, r5
-	bl DSEi_CaptureSuspend
+	bl DSE_SsdCaptureSuspend
 	mov r0, r5
-	bl DSEi_SoundReset
+	bl DSE_SsdSoundReset
 	mov r1, #2
 	mov r0, r5
 	strb r1, [r4, #0x40]
 	ldmfd sp!, {r3, r4, r5, pc}
-_02075048: .word unk_020B9FD8
+_02075048: .word DSEi_SsdWork
 	arm_func_end DSE_SsdSuspend
 
 	arm_func_start DSE_SsdResume
 DSE_SsdResume: ; 0x0207504C
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r1, _020750E0 ; =0x020B9FD8
+	ldr r1, _020750E0 ; =DSEi_SsdWork
 	mov r4, r0
 	ldrsb r0, [r1, #1]
 	cmp r0, #0
@@ -456,16 +456,16 @@ DSE_SsdResume: ; 0x0207504C
 	mov r2, #1
 	strb r2, [r1, #0x40]
 	ldrh r0, [r1, #0x46]
-	ldr r5, _020750E0 ; =0x020B9FD8
+	ldr r5, _020750E0 ; =DSEi_SsdWork
 	mov r1, r4
 	tst r0, #0xf
 	moveq r2, #0
 	mov r2, r2, lsl #0x18
 	ldr r0, [r5, #0x670]
 	mov r2, r2, asr #0x18
-	bl DSEi_ResumeList
+	bl DSE_SsdResumeList
 	ldrh r0, [r5, #0x46]
-	ldr r5, _020750E0 ; =0x020B9FD8
+	ldr r5, _020750E0 ; =DSEi_SsdWork
 	mov r1, r4
 	tst r0, #0xf0
 	movne r0, #1
@@ -473,34 +473,34 @@ DSE_SsdResume: ; 0x0207504C
 	mov r2, r0, lsl #0x18
 	ldr r0, [r5, #0x674]
 	mov r2, r2, asr #0x18
-	bl DSEi_ResumeList
+	bl DSE_SsdResumeList
 	mov r0, r4
-	bl DSEi_StreamResume
+	bl DSE_SsdStreamResume
 	mov r0, r4
-	bl DSEi_CaptureResume
+	bl DSE_SsdCaptureResume
 	mov r4, #0
 	strb r4, [r5, #1]
-	bl DSEi_StartTickTimer
+	bl DSE_SsdStartTickTimer
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-_020750E0: .word unk_020B9FD8
+_020750E0: .word DSEi_SsdWork
 	arm_func_end DSE_SsdResume
 
-	arm_func_start DSEi_StopAllSounds
-DSEi_StopAllSounds: ; 0x020750E4
+	arm_func_start DSEi_SsdStopAllSounds
+DSEi_SsdStopAllSounds: ; 0x020750E4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl DSEi_StopSequenceAll
+	bl DSE_SsdStopSequenceAll
 	mov r0, r4
 	bl DSE_SsdStopEffectAll
 	mov r0, r4
-	bl DSEi_StopStreamALl
+	bl DSE_SsdStopStreamAll
 	ldmfd sp!, {r4, pc}
-	arm_func_end DSEi_StopAllSounds
+	arm_func_end DSEi_SsdStopAllSounds
 
-	arm_func_start DSEi_FUN_02075104
-DSEi_FUN_02075104: ; 0x02075104
-	ldr r1, _02075138 ; =0x020B9FD8
+	arm_func_start DSE_FUN_02075104
+DSE_FUN_02075104: ; 0x02075104
+	ldr r1, _02075138 ; =DSEi_SsdWork
 	mov r2, #0
 	str r2, [r1, #0x65c]
 	str r2, [r1, #0x660]
@@ -510,18 +510,18 @@ DSEi_FUN_02075104: ; 0x02075104
 	str r2, [r1, #0x66c]
 	str r2, [r1, #0x670]
 	str r2, [r1, #0x674]
-	ldr r12, _02075140 ; =DSEi_ResetNoteList
+	ldr r12, _02075140 ; =DSE_SsdResetNoteList
 	str r2, [r1, #0x678]
 	bx r12
-_02075138: .word unk_020B9FD8
+_02075138: .word DSEi_SsdWork
 _0207513C: .word unk_020BAFD8
-_02075140: .word DSEi_ResetNoteList
-	arm_func_end DSEi_FUN_02075104
+_02075140: .word DSE_SsdResetNoteList
+	arm_func_end DSE_FUN_02075104
 
-	arm_func_start DSEi_SetError
-DSEi_SetError: ; 0x02075144
+	arm_func_start DSE_SsdSetError
+DSE_SsdSetError: ; 0x02075144
 	stmfd sp!, {r3, lr}
-	ldr r3, _02075174 ; =0x020B9FD8
+	ldr r3, _02075174 ; =DSEi_SsdWork
 	stmib r3, {r0, r1}
 	str r2, [r3, #0xc]
 	ldr r12, [r3, #0x1c]
@@ -532,14 +532,14 @@ DSEi_SetError: ; 0x02075144
 	mov r3, r1
 	blx r12
 	ldmfd sp!, {r3, pc}
-_02075174: .word unk_020B9FD8
+_02075174: .word DSEi_SsdWork
 _02075178: .word unk_020B9FDC
-	arm_func_end DSEi_SetError
+	arm_func_end DSE_SsdSetError
 
-	arm_func_start DSEi_SetWarning
-DSEi_SetWarning: ; 0x0207517C
+	arm_func_start DSE_SsdSetWarning
+DSE_SsdSetWarning: ; 0x0207517C
 	stmfd sp!, {r3, lr}
-	ldr r3, _020751B0 ; =0x020B9FD8
+	ldr r3, _020751B0 ; =DSEi_SsdWork
 	str r0, [r3, #0x10]
 	str r1, [r3, #0x14]
 	str r2, [r3, #0x18]
@@ -551,12 +551,12 @@ DSEi_SetWarning: ; 0x0207517C
 	mov r3, r1
 	blx r12
 	ldmfd sp!, {r3, pc}
-_020751B0: .word unk_020B9FD8
+_020751B0: .word DSEi_SsdWork
 _020751B4: .word unk_020B9FE8
-	arm_func_end DSEi_SetWarning
+	arm_func_end DSE_SsdSetWarning
 
-	arm_func_start DSEi_ByteSwap32
-DSEi_ByteSwap32: ; 0x020751B8
+	arm_func_start DSE_SsdByteSwap32
+DSE_SsdByteSwap32: ; 0x020751B8
 	mov r3, r0, lsr #0x18
 	mov r2, r0, lsr #8
 	mov r1, r0, lsl #8
@@ -569,11 +569,11 @@ DSEi_ByteSwap32: ; 0x020751B8
 	and r0, r0, #0xff000000
 	orr r0, r1, r0
 	bx lr
-	arm_func_end DSEi_ByteSwap32
+	arm_func_end DSE_SsdByteSwap32
 
-	arm_func_start DSEi_GetRandomNumber
-DSEi_GetRandomNumber: ; 0x020751E8
-	ldr r1, _02075208 ; =0x020B9FD8
+	arm_func_start DSE_SsdGetRandomNumber
+DSE_SsdGetRandomNumber: ; 0x020751E8
+	ldr r1, _02075208 ; =DSEi_SsdWork
 	ldr r0, _0207520C ; =0x00007FFF
 	ldr r2, [r1, #0x3c]
 	eor r2, r2, r2, lsl #17
@@ -581,16 +581,16 @@ DSEi_GetRandomNumber: ; 0x020751E8
 	str r2, [r1, #0x3c]
 	and r0, r2, r0
 	bx lr
-_02075208: .word unk_020B9FD8
+_02075208: .word DSEi_SsdWork
 _0207520C: .word 0x00007FFF
-	arm_func_end DSEi_GetRandomNumber
+	arm_func_end DSE_SsdGetRandomNumber
 
-	arm_func_start DSEi_MemInit
-DSEi_MemInit: ; 0x02075210
+	arm_func_start DSE_SsdInitAlloc
+DSE_SsdInitAlloc: ; 0x02075210
 	mov r12, r1
 	tst r0, #0xf
 	bicne r0, r0, #0xf
-	ldr r1, _02075274 ; =0x020B9FD8
+	ldr r1, _02075274 ; =DSEi_SsdWork
 	addne r0, r0, #0x10
 	subne r12, r12, #0x10
 	add r3, r0, r12
@@ -612,35 +612,35 @@ DSEi_MemInit: ; 0x02075210
 	stmia r3, {r0, r1, r2}
 	mov r0, r12
 	bx lr
-_02075274: .word unk_020B9FD8
+_02075274: .word DSEi_SsdWork
 _02075278: .word 0x74647373
 _0207527C: .word unk_020BA6E4
-	arm_func_end DSEi_MemInit
+	arm_func_end DSE_SsdInitAlloc
 
-	arm_func_start DSEi_QuitHeap
-DSEi_QuitHeap: ; 0x02075280
-	ldr r0, _02075298 ; =0x020B9FD8
+	arm_func_start DSE_SsdClearAlloc
+DSE_SsdClearAlloc: ; 0x02075280
+	ldr r0, _02075298 ; =DSEi_SsdWork
 	mov r1, #0
 	str r1, [r0, #0x700]
 	str r1, [r0, #0x704]
 	str r1, [r0, #0x708]
 	bx lr
-_02075298: .word unk_020B9FD8
-	arm_func_end DSEi_QuitHeap
+_02075298: .word DSEi_SsdWork
+	arm_func_end DSE_SsdClearAlloc
 
-	arm_func_start DSEi_AllocateUser
-DSEi_AllocateUser: ; 0x0207529C
+	arm_func_start DSE_SsdAllocateUser
+DSE_SsdAllocateUser: ; 0x0207529C
 	ldr r2, _020752A8 ; =0x72657375
-	ldr r12, _020752AC ; =DSEi_AllocateFirstFit
+	ldr r12, _020752AC ; =DSE_SsdAllocFirstFit
 	bx r12
 _020752A8: .word 0x72657375
-_020752AC: .word DSEi_AllocateFirstFit
-	arm_func_end DSEi_AllocateUser
+_020752AC: .word DSE_SsdAllocFirstFit
+	arm_func_end DSE_SsdAllocateUser
 
-	arm_func_start DSEi_AllocateFirstFit
-DSEi_AllocateFirstFit: ; 0x020752B0
+	arm_func_start DSE_SsdAllocFirstFit
+DSE_SsdAllocFirstFit: ; 0x020752B0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r3, _020753B0 ; =0x020B9FD8
+	ldr r3, _020753B0 ; =DSEi_SsdWork
 	mov lr, r0
 	ldr r0, [r3, #0x700]
 	cmp r0, #0
@@ -653,7 +653,7 @@ DSEi_AllocateFirstFit: ; 0x020752B0
 	mov r0, #0
 	sub r5, r1, #1
 	strh r0, [r4]
-	ldr r3, _020753B0 ; =0x020B9FD8
+	ldr r3, _020753B0 ; =DSEi_SsdWork
 	mvn r0, r5
 	add r4, lr, r5
 	and r4, r0, r4
@@ -662,7 +662,7 @@ DSEi_AllocateFirstFit: ; 0x020752B0
 _02075300:
 	ldr r4, [r3, #0xc]
 	cmp r4, #0
-	ldreq r4, _020753B0 ; =0x020B9FD8
+	ldreq r4, _020753B0 ; =DSEi_SsdWork
 	ldreq r7, [r3, #8]
 	ldreq r4, [r4, #0x704]
 	subeq r5, r4, r7
@@ -705,14 +705,14 @@ _02075330:
 	bl MIi_CpuClearFast
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020753B0: .word unk_020B9FD8
+_020753B0: .word DSEi_SsdWork
 _020753B4: .word 0x04000208
-	arm_func_end DSEi_AllocateFirstFit
+	arm_func_end DSE_SsdAllocFirstFit
 
-	arm_func_start DSEi_AllocateLastFit
-DSEi_AllocateLastFit: ; 0x020753B8
+	arm_func_start DSE_SsdAllocLastFit
+DSE_SsdAllocLastFit: ; 0x020753B8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r3, _020754F4 ; =0x020B9FD8
+	ldr r3, _020754F4 ; =DSEi_SsdWork
 	mov r6, r0
 	ldr r0, [r3, #0x700]
 	mov r5, r1
@@ -721,7 +721,7 @@ DSEi_AllocateLastFit: ; 0x020753B8
 	mov r1, r6
 	mov r2, r5
 	mvn r0, #0xc1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020753EC:
@@ -732,7 +732,7 @@ _020753EC:
 	sub r4, r5, #1
 	mov r1, #0
 	strh r1, [r3]
-	ldr r0, _020754F4 ; =0x020B9FD8
+	ldr r0, _020754F4 ; =DSEi_SsdWork
 	mvn lr, r4
 	add r3, r6, r4
 	and r3, lr, r3
@@ -743,7 +743,7 @@ _02075424:
 	ldr r8, [r0, #0xc]
 	cmp r8, #0
 	bne _02075450
-	ldr r7, _020754F4 ; =0x020B9FD8
+	ldr r7, _020754F4 ; =DSEi_SsdWork
 	ldr r8, [r0, #8]
 	ldr r9, [r7, #0x704]
 	sub r7, r9, r8
@@ -794,14 +794,14 @@ _0207546C:
 	bl MIi_CpuClearFast
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020754F4: .word unk_020B9FD8
+_020754F4: .word DSEi_SsdWork
 _020754F8: .word 0x04000208
-	arm_func_end DSEi_AllocateLastFit
+	arm_func_end DSE_SsdAllocLastFit
 
-	arm_func_start DSEi_Free
-DSEi_Free: ; 0x020754FC
+	arm_func_start DSE_SsdFree
+DSE_SsdFree: ; 0x020754FC
 	stmfd sp!, {r4, lr}
-	ldr r2, _020755A4 ; =0x020B9FD8
+	ldr r2, _020755A4 ; =DSEi_SsdWork
 	mov r1, r0
 	ldr r0, [r2, #0x700]
 	cmp r0, #0
@@ -809,7 +809,7 @@ DSEi_Free: ; 0x020754FC
 	mvn r4, #0xc1
 	mov r0, r4
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207552C:
@@ -843,21 +843,21 @@ _02075580:
 	mov r0, r4
 	mov r2, #0
 	strh r3, [r12]
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 _0207559C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_020755A4: .word unk_020B9FD8
+_020755A4: .word DSEi_SsdWork
 _020755A8: .word 0x04000208
-	arm_func_end DSEi_Free
+	arm_func_end DSE_SsdFree
 
-	arm_func_start DSEi_MemCheckHeap
-DSEi_MemCheckHeap: ; 0x020755AC
+	arm_func_start DSE_SsdCheckHeap
+DSE_SsdCheckHeap: ; 0x020755AC
 	stmfd sp!, {r3, lr}
 	ldr r2, _02075630 ; =0x04000208
 	mov r3, #0
 	ldrh r12, [r2]
-	ldr r1, _02075634 ; =0x020B9FD8
+	ldr r1, _02075634 ; =DSEi_SsdWork
 	mov r0, #1
 	strh r3, [r2]
 	ldr r2, [r1, #0x700]
@@ -889,11 +889,11 @@ _02075618:
 	strh r12, [r2]
 	ldmfd sp!, {r3, pc}
 _02075630: .word 0x04000208
-_02075634: .word unk_020B9FD8
-	arm_func_end DSEi_MemCheckHeap
+_02075634: .word DSEi_SsdWork
+	arm_func_end DSE_SsdCheckHeap
 
-	arm_func_start DSEi_MemClear
-DSEi_MemClear: ; 0x02075638
+	arm_func_start DSE_SsdMemoryClear
+DSE_SsdMemoryClear: ; 0x02075638
 	cmp r1, #0x10
 	blt _02075660
 	mov r2, #0
@@ -923,7 +923,7 @@ _02075688:
 	subs r1, r1, #1
 	bne _02075688
 	bx lr
-	arm_func_end DSEi_MemClear
+	arm_func_end DSE_SsdMemoryClear
 
 	arm_func_start DSE_SsdSetOutputMode
 DSE_SsdSetOutputMode: ; 0x02075698
@@ -936,11 +936,11 @@ _020756AC:
 	mvn r4, #0x17
 	mov r0, r4
 	mov r1, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _020756C4:
-	ldr r0, _0207570C ; =0x020B9FD8
+	ldr r0, _0207570C ; =DSEi_SsdWork
 	cmp r2, #1
 	strb r2, [r0, #0x41]
 	beq _020756E0
@@ -954,25 +954,25 @@ _020756E8:
 	ldr r1, _02075714 ; =0x02091F14
 	b _020756F4
 _020756F0:
-	ldr r1, _02075718 ; =0x02091F94
+	ldr r1, _02075718 ; =DSE_gSsdPanTableDirect
 _020756F4:
 	ldr r0, _0207571C ; =0x020BAFD8
 	str r1, [r0, #0xee0]
 	mov r0, r2
-	bl DSEi_Stream_UpdateVolumeAndPan
+	bl DSE_SsdStreamUpdateVolumeAndPan
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
-_0207570C: .word unk_020B9FD8
-_02075710: .word unk_02091E94
-_02075714: .word unk_02091F14
-_02075718: .word unk_02091F94
+_0207570C: .word DSEi_SsdWork
+_02075710: .word DSE_gSsdPanTableFlat
+_02075714: .word DSE_gSsdPanTableCompressed
+_02075718: .word DSE_gSsdPanTableDirect
 _0207571C: .word unk_020BAFD8
 	arm_func_end DSE_SsdSetOutputMode
 
-	arm_func_start DSEi_CheckFileHeader
-DSEi_CheckFileHeader: ; 0x02075720
+	arm_func_start DSE_SsdCheckFileHeader
+DSE_SsdCheckFileHeader: ; 0x02075720
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r3, _0207579C ; =0x020B9FD8
+	ldr r3, _0207579C ; =DSEi_SsdWork
 	mov r6, r0
 	ldrsb r0, [r3]
 	mov r4, r2
@@ -985,7 +985,7 @@ DSEi_CheckFileHeader: ; 0x02075720
 	beq _02075784
 	beq _02075784
 	ldr r0, [r6]
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	cmp r5, r0
 	mvnne r4, #0x10
 	bne _02075784
@@ -1000,14 +1000,14 @@ _02075784:
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0207579C: .word unk_020B9FD8
-	arm_func_end DSEi_CheckFileHeader
+_0207579C: .word DSEi_SsdWork
+	arm_func_end DSE_SsdCheckFileHeader
 
-	arm_func_start DSEi_StartRomThread
-DSEi_StartRomThread: ; 0x020757A0
+	arm_func_start DSE_SsdStartRomThread
+DSE_SsdStartRomThread: ; 0x020757A0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #8
 	ldr r4, _0207581C ; =0x020BAFD8
@@ -1025,12 +1025,12 @@ DSEi_StartRomThread: ; 0x020757A0
 	mov r0, r5
 	strb r6, [r4, #0xdfb]
 	mov r1, #0x10
-	bl DSEi_AllocateLastFit
+	bl DSE_SsdAllocLastFit
 	str r0, [r4, #0xebc]
 	stmia sp, {r5, r7}
 	ldr r3, [r4, #0xebc]
 	ldr r4, _02075824 ; =0x020BBDD4
-	ldr r1, _02075828 ; =DSEi_RomThreadFunc
+	ldr r1, _02075828 ; =DSEi_SsdRomThreadFunc
 	mov r0, r4
 	mov r2, r6
 	add r3, r3, #0x800
@@ -1042,11 +1042,11 @@ DSEi_StartRomThread: ; 0x020757A0
 _0207581C: .word unk_020BAFD8
 _02075820: .word 0x72727473
 _02075824: .word unk_020BBDD4
-_02075828: .word DSEi_RomThreadFunc
-	arm_func_end DSEi_StartRomThread
+_02075828: .word DSEi_SsdRomThreadFunc
+	arm_func_end DSE_SsdStartRomThread
 
-	arm_func_start DSEi_QuitRomThread
-DSEi_QuitRomThread: ; 0x0207582C
+	arm_func_start DSE_SsdQuitRomThread
+DSE_SsdQuitRomThread: ; 0x0207582C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _02075864 ; =0x020BBDD4
 	ldr r4, _02075868 ; =0x020BAFD8
@@ -1059,14 +1059,14 @@ DSEi_QuitRomThread: ; 0x0207582C
 	mov r0, r5
 	bl OS_JoinThread
 	ldr r0, [r4, #0xebc]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	ldmfd sp!, {r3, r4, r5, pc}
 _02075864: .word unk_020BBDD4
 _02075868: .word unk_020BAFD8
-	arm_func_end DSEi_QuitRomThread
+	arm_func_end DSE_SsdQuitRomThread
 
-	arm_func_start DSEi_RomThreadFunc
-DSEi_RomThreadFunc: ; 0x0207586C
+	arm_func_start DSEi_SsdRomThreadFunc
+DSEi_SsdRomThreadFunc: ; 0x0207586C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r5, _020758C0 ; =0x020BAFD8
 	mov r7, #1
@@ -1084,13 +1084,13 @@ _02075880:
 	cmp r0, #0
 	beq _02075880
 	ldr r1, [r5, #0xec4]
-	bl DSEi_WaveLoadInternal
+	bl DSE_SsdWaveLoadInternal
 	str r6, [r5, #0xec0]
 	str r6, [r5, #0xec4]
 	b _02075880
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020758C0: .word unk_020BAFD8
-	arm_func_end DSEi_RomThreadFunc
+	arm_func_end DSEi_SsdRomThreadFunc
 
 	arm_func_start DSE_SsdAddWaveData
 DSE_SsdAddWaveData: ; 0x020758C4
@@ -1102,19 +1102,19 @@ DSE_SsdAddWaveData: ; 0x020758C4
 	mov r3, r5
 	mov r10, r0
 	mov r4, #0
-	bl DSEi_CheckFileHeader
+	bl DSE_SsdCheckFileHeader
 	movs r6, r0
 	ldmmifd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r6, lsl #0x10
 	mov r0, r0, lsr #0x10
-	bl DSEi_GetWaveById
+	bl DSEi_SsdGetWaveByID
 	cmp r0, #0
 	beq _02075920
 	sub r4, r5, #0x4c
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075920:
@@ -1122,14 +1122,14 @@ _02075920:
 	ldr r2, _02075B24 ; =0x69766177
 	mov r1, r5
 	mov r0, #0x28
-	bl DSEi_AllocateFirstFit
+	bl DSE_SsdAllocFirstFit
 	movs r9, r0
 	bne _02075958
 	sub r4, r5, #0x90
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075958:
@@ -1152,7 +1152,7 @@ _02075958:
 	str r4, [r9, #0x20]
 	str r4, [r9, #0x24]
 	ldr r0, [r10, #0x50]
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	ldr r7, _02075B28 ; =0x656F6420
 	cmp r0, r7
 	beq _02075A40
@@ -1162,7 +1162,7 @@ _02075958:
 	ldr r5, _02075B38 ; =0x6B677270
 _020759C4:
 	ldr r0, [r8]
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	cmp r0, r6
 	bhi _020759E8
 	bhs _02075A0C
@@ -1193,7 +1193,7 @@ _02075A14:
 	add r0, r0, r2
 	and r0, r1, r0
 	ldr r0, [r8, r0]!
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	cmp r0, r7
 	bne _020759C4
 _02075A40:
@@ -1221,9 +1221,9 @@ _02075A84:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r9
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075AAC:
@@ -1254,7 +1254,7 @@ _02075AD8:
 	beq _02075B14
 	ldrh r0, [r9, #4]
 	ldr r1, [sp]
-	bl DSEi_WaveLoad
+	bl DSEi_SsdWaveLoad
 _02075B14:
 	ldrh r0, [r9, #4]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1270,19 +1270,19 @@ _02075B3C: .word 0x04000208
 _02075B40: .word unk_020BA644
 	arm_func_end DSE_SsdAddWaveData
 
-	arm_func_start DSEi_WaveLoad
-DSEi_WaveLoad: ; 0x02075B44
+	arm_func_start DSEi_SsdWaveLoad
+DSEi_SsdWaveLoad: ; 0x02075B44
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	mov r6, r1
-	bl DSEi_GetWaveById
+	bl DSEi_SsdGetWaveByID
 	movs r4, r0
 	bne _02075B78
 	mvn r4, #0x40
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075B78:
@@ -1298,7 +1298,7 @@ _02075B78:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075BB4:
@@ -1307,7 +1307,7 @@ _02075BB4:
 	bne _02075BD0
 	mov r0, r4
 	mov r1, #0
-	bl DSEi_WaveLoadInternal
+	bl DSE_SsdWaveLoadInternal
 	mov r5, r0
 _02075BD0:
 	cmp r6, #0
@@ -1322,10 +1322,10 @@ _02075BEC:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02075BF4: .word unk_020BAFD8
 _02075BF8: .word unk_020BBDD4
-	arm_func_end DSEi_WaveLoad
+	arm_func_end DSEi_SsdWaveLoad
 
-	arm_func_start DSEi_WaveLoadInternal
-DSEi_WaveLoadInternal: ; 0x02075BFC
+	arm_func_start DSE_SsdWaveLoadInternal
+DSE_SsdWaveLoadInternal: ; 0x02075BFC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x1c
 	mov r10, r0
@@ -1338,7 +1338,7 @@ DSEi_WaveLoadInternal: ; 0x02075BFC
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	add sp, sp, #0x1c
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1358,7 +1358,7 @@ _02075C68:
 	mov r1, r7, lsl #0x10
 	mov r0, r10
 	mov r1, r1, asr #0x10
-	bl DSEi_Bank_GetWaviEntry
+	bl DSE_SsdGetWaviEntry
 	cmp r0, #0
 	strne r5, [r0, #0x24]
 	ldrne r2, [r4, #8]
@@ -1383,7 +1383,7 @@ _02075C68:
 	mov r2, r8
 	add r0, r4, #0x14
 	add r3, r12, r3
-	bl DSEi_ReadMainBank
+	bl DSEi_SsdReadMainBank
 _02075CDC:
 	add r6, r6, r8
 	add r5, r5, r8
@@ -1397,7 +1397,7 @@ _02075CF4:
 	str r6, [r10, #0x20]
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end DSEi_WaveLoadInternal
+	arm_func_end DSE_SsdWaveLoadInternal
 
 	arm_func_start DSE_SsdRemoveWaveData
 DSE_SsdRemoveWaveData: ; 0x02075D04
@@ -1429,15 +1429,15 @@ _02075D40:
 	str r1, [r3]
 	ldrh r1, [r2]
 	strh r12, [r2]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02075D74: .word 0x04000208
 _02075D78: .word unk_020BA644
 	arm_func_end DSE_SsdRemoveWaveData
 
-	arm_func_start DSEi_Bank_GetWaviEntry
-DSEi_Bank_GetWaviEntry: ; 0x02075D7C
+	arm_func_start DSE_SsdGetWaviEntry
+DSE_SsdGetWaviEntry: ; 0x02075D7C
 	ldr r2, [r0, #0x10]
 	cmp r2, #0
 	moveq r0, #0
@@ -1452,10 +1452,10 @@ DSEi_Bank_GetWaviEntry: ; 0x02075D7C
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end DSEi_Bank_GetWaviEntry
+	arm_func_end DSE_SsdGetWaviEntry
 
-	arm_func_start DSEi_Bank_GetProgram
-DSEi_Bank_GetProgram: ; 0x02075DB4
+	arm_func_start DSE_SsdGetProgramEntry
+DSE_SsdGetProgramEntry: ; 0x02075DB4
 	ldr r2, [r0, #0x14]
 	cmp r2, #0
 	moveq r0, #0
@@ -1470,10 +1470,10 @@ DSEi_Bank_GetProgram: ; 0x02075DB4
 	moveq r0, #0
 	addne r0, r2, r0
 	bx lr
-	arm_func_end DSEi_Bank_GetProgram
+	arm_func_end DSE_SsdGetProgramEntry
 
-	arm_func_start DSEi_Program_GetNextSplitInRange
-DSEi_Program_GetNextSplitInRange: ; 0x02075DEC
+	arm_func_start DSE_SsdGetNextSplit
+DSE_SsdGetNextSplit: ; 0x02075DEC
 	stmfd sp!, {r3, lr}
 	ldrb lr, [r0, #2]
 	cmp lr, #0
@@ -1511,7 +1511,7 @@ _02075E5C:
 	blt _02075E28
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end DSEi_Program_GetNextSplitInRange
+	arm_func_end DSE_SsdGetNextSplit
 
 	arm_func_start DSEi_GetMainBankById
 DSEi_GetMainBankById: ; 0x02075E74
@@ -1540,12 +1540,12 @@ _02075EC0: .word 0x04000208
 _02075EC4: .word unk_020BAFD8
 	arm_func_end DSEi_GetMainBankById
 
-	arm_func_start DSEi_GetWaveById
-DSEi_GetWaveById: ; 0x02075EC8
+	arm_func_start DSEi_SsdGetWaveByID
+DSEi_SsdGetWaveByID: ; 0x02075EC8
 	ldr r3, _02075F14 ; =0x04000208
 	mov r2, #0
 	ldrh r12, [r3]
-	ldr r1, _02075F18 ; =0x020B9FD8
+	ldr r1, _02075F18 ; =DSEi_SsdWork
 	strh r2, [r3]
 	ldr r3, [r1, #0x66c]
 	cmp r3, #0
@@ -1564,11 +1564,11 @@ _02075F00:
 	strh r12, [r2]
 	bx lr
 _02075F14: .word 0x04000208
-_02075F18: .word unk_020B9FD8
-	arm_func_end DSEi_GetWaveById
+_02075F18: .word DSEi_SsdWork
+	arm_func_end DSEi_SsdGetWaveByID
 
-	arm_func_start DSEi_ReadMainBank
-DSEi_ReadMainBank: ; 0x02075F1C
+	arm_func_start DSEi_SsdReadMainBank
+DSEi_SsdReadMainBank: ; 0x02075F1C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r7, [sp, #0x28]
 	mov r9, r1
@@ -1622,7 +1622,7 @@ _02075FD0:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02075FD8: .word 0x04000006
 _02075FDC: .word unk_020BAFD8
-	arm_func_end DSEi_ReadMainBank
+	arm_func_end DSEi_SsdReadMainBank
 
 	arm_func_start DSEi_DefaultSequenceCallback
 DSEi_DefaultSequenceCallback: ; 0x02075FE0
@@ -1638,7 +1638,7 @@ DSE_SsdAddSequenceData: ; 0x02075FE8
 	ldr r2, _020760EC ; =0x00000415
 	mov r3, r4
 	mov r8, r0
-	bl DSEi_CheckFileHeader
+	bl DSE_SsdCheckFileHeader
 	cmp r0, #0
 	ldmltfd sp!, {r4, r5, r6, r7, r8, pc}
 	add r7, r0, #0x10000
@@ -1650,7 +1650,7 @@ DSE_SsdAddSequenceData: ; 0x02075FE8
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207603C:
@@ -1664,7 +1664,7 @@ _0207603C:
 	mov r0, r4
 	mov r1, r8
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02076070:
@@ -1718,7 +1718,7 @@ DSE_SsdRemoveSequenceData: ; 0x020760FC
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207612C:
@@ -1751,7 +1751,7 @@ DSE_SsdPlaySequence: ; 0x02076150
 	mov r0, r4
 	mov r1, r7
 	mov r2, r8
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207618C:
@@ -1762,7 +1762,7 @@ _0207618C:
 	mov r0, r4
 	mov r1, r7
 	mov r2, r8
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020761B4:
@@ -1786,7 +1786,7 @@ _020761F0:
 	str r8, [r4, #0x68]
 	strh r8, [r4, #0x74]
 	strb r5, [r4, #2]
-	bl DSEi_IsPaused
+	bl DSE_SsdIsPaused
 	cmp r0, #0
 	ldrnesb r0, [r4, #9]
 	mov r1, r8
@@ -1815,7 +1815,7 @@ DSE_SsdStopSequence: ; 0x02076238
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207626C:
@@ -1827,13 +1827,13 @@ _0207626C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end DSE_SsdStopSequence
 
-	arm_func_start DSEi_StopSequenceAll
-DSEi_StopSequenceAll: ; 0x02076284
+	arm_func_start DSE_SsdStopSequenceAll
+DSE_SsdStopSequenceAll: ; 0x02076284
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r3, _020762DC ; =0x04000208
 	mov r2, #0
 	ldrh r4, [r3]
-	ldr r1, _020762E0 ; =0x020B9FD8
+	ldr r1, _020762E0 ; =DSEi_SsdWork
 	mov r7, r0
 	strh r2, [r3]
 	ldr r6, [r1, #0x670]
@@ -1854,8 +1854,8 @@ _020762CC:
 	strh r4, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020762DC: .word 0x04000208
-_020762E0: .word unk_020B9FD8
-	arm_func_end DSEi_StopSequenceAll
+_020762E0: .word DSEi_SsdWork
+	arm_func_end DSE_SsdStopSequenceAll
 
 	arm_func_start DSE_SsdSetSequenceParam
 DSE_SsdSetSequenceParam: ; 0x020762E4
@@ -1869,7 +1869,7 @@ DSE_SsdSetSequenceParam: ; 0x020762E4
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02076318:
@@ -1890,7 +1890,7 @@ DSEi_StartSequence: ; 0x02076328
 	cmp r2, #0
 	mvnlt r0, #0
 	blt _02076360
-	ldr r1, _020763B4 ; =0x020B9FD8
+	ldr r1, _020763B4 ; =DSEi_SsdWork
 	mov r0, #0x3e8
 	ldrsh r1, [r1, #0x28]
 	smulbb r0, r2, r0
@@ -1919,11 +1919,11 @@ _020763A4:
 	strb r0, [r4, #4]
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
-_020763B4: .word unk_020B9FD8
+_020763B4: .word DSEi_SsdWork
 	arm_func_end DSEi_StartSequence
 
-	arm_func_start DSEi_SuspendList
-DSEi_SuspendList: ; 0x020763B8
+	arm_func_start DSE_SsdSuspendList
+DSE_SsdSuspendList: ; 0x020763B8
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r4, r0
 	beq _02076418
@@ -1954,10 +1954,10 @@ _02076418:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02076420: .word 0x04000208
-	arm_func_end DSEi_SuspendList
+	arm_func_end DSE_SsdSuspendList
 
-	arm_func_start DSEi_ResumeList
-DSEi_ResumeList: ; 0x02076424
+	arm_func_start DSE_SsdResumeList
+DSE_SsdResumeList: ; 0x02076424
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	movs r10, r0
 	mov r9, r1
@@ -1983,7 +1983,7 @@ _02076470:
 	ldrsb r5, [r10, #0x98]
 	moveq r7, r4
 	beq _0207649C
-	ldr r0, _02076514 ; =0x020B9FD8
+	ldr r0, _02076514 ; =DSEi_SsdWork
 	ldrsh r1, [r0, #0x28]
 	mov r0, r11
 	bl _u32_div_f
@@ -2025,8 +2025,8 @@ _02076500:
 _0207650C:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02076514: .word unk_020B9FD8
-	arm_func_end DSEi_ResumeList
+_02076514: .word DSEi_SsdWork
+	arm_func_end DSE_SsdResumeList
 
 	arm_func_start DSEi_SetSequenceFades
 DSEi_SetSequenceFades: ; 0x02076518
@@ -2046,7 +2046,7 @@ DSEi_SetSequenceFades: ; 0x02076518
 	beq _02076570
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _02076804 ; =0x020B9FD8
+	ldr r1, _02076804 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -2095,7 +2095,7 @@ _020765E4:
 	beq _02076624
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _02076804 ; =0x020B9FD8
+	ldr r1, _02076804 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -2145,7 +2145,7 @@ _02076688:
 	beq _020766E0
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _02076804 ; =0x020B9FD8
+	ldr r1, _02076804 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -2191,7 +2191,7 @@ _02076744:
 	beq _0207678C
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _02076804 ; =0x020B9FD8
+	ldr r1, _02076804 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -2230,7 +2230,7 @@ _020767F4:
 	cmp r0, #0
 	strlth r6, [r5, #0x1a]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02076804: .word unk_020B9FD8
+_02076804: .word DSEi_SsdWork
 _02076808: .word 0x03938700
 	arm_func_end DSEi_SetSequenceFades
 
@@ -2249,7 +2249,7 @@ DSEi_ResetSequence: ; 0x0207680C
 	bl DSEi_SetSynthGlobalVolume
 	mov r3, #1
 	ldrb r2, [r5, #0x15]
-	ldr r0, _0207695C ; =0x020B9FD8
+	ldr r0, _0207695C ; =DSEi_SsdWork
 	ldrb r1, [r5, #0xf]
 	str r4, [r5, #4]
 	strb r4, [r5, #3]
@@ -2323,7 +2323,7 @@ _0207694C:
 	strb r0, [r5]
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0207695C: .word unk_020B9FD8
+_0207695C: .word DSEi_SsdWork
 _02076960: .word 0x0007A120
 	arm_func_end DSEi_ResetSequence
 
@@ -2354,7 +2354,7 @@ DSEi_StopSequence: ; 0x02076964
 	beq _020769E0
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _02076A78 ; =0x020B9FD8
+	ldr r1, _02076A78 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -2403,7 +2403,7 @@ _02076A64:
 _02076A70:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02076A78: .word unk_020B9FD8
+_02076A78: .word DSEi_SsdWork
 _02076A7C: .word 0x04000208
 	arm_func_end DSEi_StopSequence
 
@@ -2416,7 +2416,7 @@ DSEi_FindSmdlSongChunk: ; 0x02076A80
 	add r4, r0, #0x40
 _02076A94:
 	ldr r0, [r4]
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	cmp r0, r7
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -2472,7 +2472,7 @@ DSEi_LoadSequenceSong: ; 0x02076AEC
 	moveq r0, #0
 	strb r0, [r7, #0xb]
 	ldr r0, [r6, #0x30]
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	ldr r9, _02076BE0 ; =0x74726B20
 	ldr r10, _02076BE4 ; =0x626E6B6C
 	ldr r8, _02076BE8 ; =0x656F6320
@@ -2498,7 +2498,7 @@ _02076BA8:
 	add r0, r0, r2
 	and r0, r1, r0
 	ldr r0, [r4, r0]!
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 _02076BCC:
 	cmp r0, r8
 	bne _02076B7C
@@ -2513,7 +2513,7 @@ _02076BE8: .word 0x656F6320
 	arm_func_start DSEi_GetSequenceById
 DSEi_GetSequenceById: ; 0x02076BEC
 	ldr r3, _02076C34 ; =0x04000208
-	ldr r1, _02076C38 ; =0x020B9FD8
+	ldr r1, _02076C38 ; =DSEi_SsdWork
 	ldrh r12, [r3]
 	mov r2, #0
 	strh r2, [r3]
@@ -2534,7 +2534,7 @@ _02076C20:
 	strh r12, [r2]
 	bx lr
 _02076C34: .word 0x04000208
-_02076C38: .word unk_020B9FD8
+_02076C38: .word DSEi_SsdWork
 	arm_func_end DSEi_GetSequenceById
 
 	arm_func_start DSEi_AddSequence
@@ -2548,14 +2548,14 @@ DSEi_AddSequence: ; 0x02076C3C
 	mov r1, r5
 	add r0, r0, #0xa8
 	mov r7, r2
-	bl DSEi_AllocateFirstFit
+	bl DSE_SsdAllocFirstFit
 	movs r6, r0
 	bne _02076C88
 	mov r4, #0
 	mov r1, r4
 	mov r2, r4
 	sub r0, r5, #0x94
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076C88:
@@ -2588,18 +2588,18 @@ _02076C88:
 	cmp r0, #0
 	bne _02076D18
 	mov r0, r6
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r1, r5
 	mov r2, r5
 	sub r0, r4, #0x8c
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076D18:
 	mov r0, #0x78
 	strb r0, [r6, #0x17]
 	str r5, [r6, #0x3c]
-	ldr r0, _02076D68 ; =0x020B9FD8
+	ldr r0, _02076D68 ; =DSEi_SsdWork
 	ldrb r2, [r6, #0x15]
 	ldrsh r0, [r0, #0x28]
 	ldr r1, _02076D6C ; =0x0007A120
@@ -2616,7 +2616,7 @@ _02076D18:
 	mov r0, r6
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02076D64: .word 0x76656400
-_02076D68: .word unk_020B9FD8
+_02076D68: .word DSEi_SsdWork
 _02076D6C: .word 0x0007A120
 _02076D70: .word DSEi_DefaultSequenceCallback
 	arm_func_end DSEi_AddSequence
@@ -2656,7 +2656,7 @@ _02076DC4:
 	ldr r0, [r4, #0x24]
 	bl DSEi_RemoveSynthData
 	mov r0, r4
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, #0
 	ldmfd sp!, {r4, pc}
 _02076DF4: .word 0x04000208
@@ -2688,10 +2688,10 @@ _02076E14:
 	bx lr
 	arm_func_end DSEi_InitSequenceTracks
 
-	arm_func_start DSEi_ResetNoteList
-DSEi_ResetNoteList: ; 0x02076E4C
+	arm_func_start DSE_SsdResetNoteList
+DSE_SsdResetNoteList: ; 0x02076E4C
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r2, _02076EC0 ; =0x020B9FD8
+	ldr r2, _02076EC0 ; =DSEi_SsdWork
 	mov r4, #0
 	mvn r3, #0
 	mov r0, #0xc
@@ -2703,7 +2703,7 @@ _02076E60:
 	blt _02076E60
 	mov r0, #0xc
 	ldr r4, _02076EC4 ; =0x020BA030
-	ldr r3, _02076EC0 ; =0x020B9FD8
+	ldr r3, _02076EC0 ; =DSEi_SsdWork
 	mov r6, #0
 	mov r1, r0
 _02076E88:
@@ -2717,19 +2717,19 @@ _02076E88:
 	blt _02076E88
 	ldr r1, _02076EC8 ; =0x020BA038
 	mov r2, #0
-	ldr r0, _02076EC0 ; =0x020B9FD8
+	ldr r0, _02076EC0 ; =DSEi_SsdWork
 	str r2, [r1, lr]
 	str r4, [r0, #0x658]
 	ldmfd sp!, {r4, r5, r6, pc}
-_02076EC0: .word unk_020B9FD8
+_02076EC0: .word DSEi_SsdWork
 _02076EC4: .word unk_020BA030
 _02076EC8: .word unk_020BA038
-	arm_func_end DSEi_ResetNoteList
+	arm_func_end DSE_SsdResetNoteList
 
 	arm_func_start DSE_SsdSetEffectPolyMax
 DSE_SsdSetEffectPolyMax: ; 0x02076ECC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	ldr r2, _02076FB8 ; =0x020B9FD8
+	ldr r2, _02076FB8 ; =DSEi_SsdWork
 	mov r9, r0
 	ldrsb r0, [r2]
 	mov r8, r1
@@ -2739,7 +2739,7 @@ DSE_SsdSetEffectPolyMax: ; 0x02076ECC
 	mvn r4, #0xc0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02076F04:
@@ -2760,7 +2760,7 @@ _02076F34:
 	ldr r1, _02076FBC ; =0x04000208
 	mov r6, #0
 	ldrh r0, [r1]
-	ldr r0, _02076FB8 ; =0x020B9FD8
+	ldr r0, _02076FB8 ; =DSEi_SsdWork
 	mov r4, r6
 	strh r5, [r1]
 	strb r9, [r0, #0x42]
@@ -2792,7 +2792,7 @@ _02076FA4:
 	ldrh r1, [r2]
 	strh r7, [r2]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_02076FB8: .word unk_020B9FD8
+_02076FB8: .word DSEi_SsdWork
 _02076FBC: .word 0x04000208
 _02076FC0: .word unk_020BA64C
 _02076FC4: .word 0x71657365
@@ -2807,7 +2807,7 @@ DSE_SsdAddEffectData: ; 0x02076FC8
 	mov r3, r6
 	mov r5, r0
 	mov r7, #0
-	bl DSEi_CheckFileHeader
+	bl DSE_SsdCheckFileHeader
 	movs r4, r0
 	ldmmifd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r0, r4, lsl #0x10
@@ -2819,7 +2819,7 @@ DSE_SsdAddEffectData: ; 0x02076FC8
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077020:
@@ -2827,14 +2827,14 @@ _02077020:
 	ldr r2, _0207716C ; =0x66646573
 	mov r1, r6
 	mov r0, #0x1c
-	bl DSEi_AllocateFirstFit
+	bl DSE_SsdAllocFirstFit
 	movs r10, r0
 	bne _02077058
 	sub r5, r6, #0x90
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077058:
@@ -2859,7 +2859,7 @@ _02077058:
 _020770A0:
 	ldr r0, [r8]
 	mov r9, r7
-	bl DSEi_ByteSwap32
+	bl DSE_SsdByteSwap32
 	cmp r0, r6
 	bhi _020770C8
 	bhs _020770EC
@@ -2954,7 +2954,7 @@ _020771C8:
 	mov r2, #0
 	mov r0, r5
 	strh r3, [r12]
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
 _020771F8:
@@ -2963,7 +2963,7 @@ _020771F8:
 	str r1, [r5]
 	ldrh r1, [r2]
 	strh r3, [r2]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _02077218: .word 0x04000208
@@ -2974,7 +2974,7 @@ _0207721C: .word unk_020BA650
 DSE_SsdIsPlayEffect: ; 0x02077220
 	cmn r0, #1
 	beq _02077298
-	ldr r2, _020772E4 ; =0x020B9FD8
+	ldr r2, _020772E4 ; =DSEi_SsdWork
 	ldr r3, [r2, #0x674]
 	cmp r3, #0
 	beq _020772DC
@@ -3006,7 +3006,7 @@ _02077288:
 	bne _02077238
 	b _020772DC
 _02077298:
-	ldr r0, _020772E4 ; =0x020B9FD8
+	ldr r0, _020772E4 ; =DSEi_SsdWork
 	ldr r2, [r0, #0x674]
 	cmp r2, #0
 	beq _020772DC
@@ -3028,7 +3028,7 @@ _020772D0:
 _020772DC:
 	mov r0, #0
 	bx lr
-_020772E4: .word unk_020B9FD8
+_020772E4: .word DSEi_SsdWork
 	arm_func_end DSE_SsdIsPlayEffect
 
 	arm_func_start DSE_SsdPlayEffectParam
@@ -3047,7 +3047,7 @@ DSE_SsdPlayEffectParam: ; 0x020772E8
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207732C:
@@ -3064,7 +3064,7 @@ _0207732C:
 	mov r0, r4
 	mov r1, r10
 	mov r2, #0
-	bl DSEi_SetWarning
+	bl DSE_SsdSetWarning
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207736C:
@@ -3124,7 +3124,7 @@ _02077408:
 	mvn r4, #0x4e
 	mov r0, r4
 	mov r2, r10
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077448:
@@ -3136,7 +3136,7 @@ _02077448:
 	strb r6, [r7, #2]
 	ldrsb r0, [r4, #0x18]
 	strb r0, [r7, #9]
-	bl DSEi_IsPaused
+	bl DSE_SsdIsPaused
 	ldrsb r3, [r4, #0x18]
 	mov r1, r11
 	mov r2, r8
@@ -3186,7 +3186,7 @@ DSE_SsdControlEffectSequenceID: ; 0x020774E4
 	str r1, [sp]
 	strh r0, [r3]
 	bne _02077598
-	ldr r4, _020775E8 ; =0x020B9FD8
+	ldr r4, _020775E8 ; =DSEi_SsdWork
 	mov r11, r0
 	mov r6, r0
 	mvn r5, #0x80000000
@@ -3226,7 +3226,7 @@ _02077588:
 	mov r0, #0
 	b _020775D0
 _02077598:
-	ldr r1, _020775E8 ; =0x020B9FD8
+	ldr r1, _020775E8 ; =DSEi_SsdWork
 	ldr r2, [r1, #0x674]
 	cmp r2, #0
 	beq _020775C8
@@ -3249,7 +3249,7 @@ _020775D0:
 	strh r1, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020775E4: .word 0x04000208
-_020775E8: .word unk_020B9FD8
+_020775E8: .word DSEi_SsdWork
 	arm_func_end DSE_SsdControlEffectSequenceID
 
 	arm_func_start DSE_SsdControlEffectAttribute
@@ -3265,7 +3265,7 @@ DSE_SsdControlEffectAttribute: ; 0x020775EC
 	str r1, [sp]
 	strh r0, [r3]
 	bne _020776A0
-	ldr r4, _020776F0 ; =0x020B9FD8
+	ldr r4, _020776F0 ; =DSEi_SsdWork
 	mov r11, r0
 	mov r6, r0
 	mvn r5, #0x80000000
@@ -3305,7 +3305,7 @@ _02077690:
 	mov r0, #0
 	b _020776D8
 _020776A0:
-	ldr r1, _020776F0 ; =0x020B9FD8
+	ldr r1, _020776F0 ; =DSEi_SsdWork
 	ldr r2, [r1, #0x674]
 	cmp r2, #0
 	beq _020776D0
@@ -3328,7 +3328,7 @@ _020776D8:
 	strh r1, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020776EC: .word 0x04000208
-_020776F0: .word unk_020B9FD8
+_020776F0: .word DSEi_SsdWork
 	arm_func_end DSE_SsdControlEffectAttribute
 
 	arm_func_start DSEi_FUN_020776f4
@@ -3341,7 +3341,7 @@ DSEi_FUN_020776f4: ; 0x020776F4
 	cmp r1, #1
 	strh r4, [r2]
 	bne _02077760
-	ldr r0, _020777AC ; =0x020B9FD8
+	ldr r0, _020777AC ; =DSEi_SsdWork
 	ldr r5, [r0, #0x674]
 	cmp r5, #0
 	beq _02077794
@@ -3363,7 +3363,7 @@ _02077750:
 	bne _0207772C
 	b _02077794
 _02077760:
-	ldr r0, _020777AC ; =0x020B9FD8
+	ldr r0, _020777AC ; =DSEi_SsdWork
 	ldr r1, [r0, #0x674]
 	cmp r1, #0
 	beq _02077794
@@ -3384,7 +3384,7 @@ _02077794:
 	strh r6, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020777A8: .word 0x04000208
-_020777AC: .word unk_020B9FD8
+_020777AC: .word DSEi_SsdWork
 	arm_func_end DSEi_FUN_020776f4
 
 	arm_func_start DSEi_GetBestEffectAllocation
@@ -3393,7 +3393,7 @@ DSEi_GetBestEffectAllocation: ; 0x020777B0
 	ldr r2, _02077824 ; =0x04000208
 	mov r3, #0
 	ldrh lr, [r2]
-	ldr r1, _02077828 ; =0x020B9FD8
+	ldr r1, _02077828 ; =DSEi_SsdWork
 	sub r12, r3, #1
 	strh r3, [r2]
 	ldr r2, [r1, #0x674]
@@ -3422,13 +3422,13 @@ _02077810:
 	strh lr, [r2]
 	ldmfd sp!, {r3, pc}
 _02077824: .word 0x04000208
-_02077828: .word unk_020B9FD8
+_02077828: .word DSEi_SsdWork
 	arm_func_end DSEi_GetBestEffectAllocation
 
 	arm_func_start DSEi_GetEffectById
 DSEi_GetEffectById: ; 0x0207782C
 	ldr r3, _02077874 ; =0x04000208
-	ldr r1, _02077878 ; =0x020B9FD8
+	ldr r1, _02077878 ; =DSEi_SsdWork
 	ldrh r12, [r3]
 	mov r2, #0
 	strh r2, [r3]
@@ -3449,7 +3449,7 @@ _02077860:
 	strh r12, [r2]
 	bx lr
 _02077874: .word 0x04000208
-_02077878: .word unk_020B9FD8
+_02077878: .word DSEi_SsdWork
 	arm_func_end DSEi_GetEffectById
 
 	arm_func_start DSE_SsdStopEffect
@@ -3465,7 +3465,7 @@ DSE_SsdStopEffect: ; 0x0207787C
 	cmp r5, #0
 	bne _020778FC
 	ldrh r8, [r7]
-	ldr r0, _020779B4 ; =0x020B9FD8
+	ldr r0, _020779B4 ; =DSEi_SsdWork
 	strh r1, [r7]
 	ldr r5, [r0, #0x674]
 	cmp r5, #0
@@ -3491,7 +3491,7 @@ _020778F0:
 	b _020779A8
 _020778FC:
 	ldrh r8, [r7]
-	ldr r0, _020779B4 ; =0x020B9FD8
+	ldr r0, _020779B4 ; =DSEi_SsdWork
 	strh r1, [r7]
 	ldr r9, [r0, #0x674]
 	cmp r9, #0
@@ -3517,7 +3517,7 @@ _02077950:
 	b _020778F0
 _02077954:
 	ldrh r6, [r7]
-	ldr r0, _020779B4 ; =0x020B9FD8
+	ldr r0, _020779B4 ; =DSEi_SsdWork
 	strh r1, [r7]
 	ldr r8, [r0, #0x674]
 	cmp r8, #0
@@ -3544,7 +3544,7 @@ _020779A8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020779B0: .word 0x04000208
-_020779B4: .word unk_020B9FD8
+_020779B4: .word DSEi_SsdWork
 	arm_func_end DSE_SsdStopEffect
 
 	arm_func_start DSE_SsdStopEffectAll
@@ -3553,7 +3553,7 @@ DSE_SsdStopEffectAll: ; 0x020779B8
 	ldr r3, _02077A1C ; =0x04000208
 	mov r2, #0
 	ldrh r4, [r3]
-	ldr r1, _02077A20 ; =0x020B9FD8
+	ldr r1, _02077A20 ; =DSEi_SsdWork
 	mov r5, r0
 	strh r2, [r3]
 	ldr r7, [r1, #0x674]
@@ -3578,7 +3578,7 @@ _02077A0C:
 	strh r4, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02077A1C: .word 0x04000208
-_02077A20: .word unk_020B9FD8
+_02077A20: .word DSEi_SsdWork
 	arm_func_end DSE_SsdStopEffectAll
 
 	arm_func_start DSE_SsdStopEffectByDataID
@@ -3587,7 +3587,7 @@ DSE_SsdStopEffectByDataID: ; 0x02077A24
 	ldr r3, _02077A98 ; =0x04000208
 	mov r2, #0
 	ldrh r5, [r3]
-	ldr r1, _02077A9C ; =0x020B9FD8
+	ldr r1, _02077A9C ; =DSEi_SsdWork
 	mov r6, r0
 	strh r2, [r3]
 	ldr r4, [r1, #0x674]
@@ -3616,14 +3616,14 @@ _02077A88:
 	strh r5, [r1]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02077A98: .word 0x04000208
-_02077A9C: .word unk_020B9FD8
+_02077A9C: .word DSEi_SsdWork
 	arm_func_end DSE_SsdStopEffectByDataID
 
-	arm_func_start DSEi_StartMainThread
-DSEi_StartMainThread: ; 0x02077AA0
+	arm_func_start DSE_SsdStartMainThread
+DSE_SsdStartMainThread: ; 0x02077AA0
 	stmfd sp!, {r4, r5, r6, lr}
 	sub sp, sp, #8
-	ldr r0, _02077B30 ; =0x020B9FD8
+	ldr r0, _02077B30 ; =DSEi_SsdWork
 	mov r4, #0
 	str r4, [r0, #0x34]
 	ldr r5, _02077B34 ; =0x020BAFD8
@@ -3639,7 +3639,7 @@ DSEi_StartMainThread: ; 0x02077AA0
 	mov r0, r6
 	strb r4, [r5, #0xd1f]
 	mov r1, #0x10
-	bl DSEi_AllocateLastFit
+	bl DSE_SsdAllocLastFit
 	str r0, [r5, #0xde0]
 	str r6, [sp]
 	ldrb r0, [r5, #0xd1c]
@@ -3653,22 +3653,22 @@ DSEi_StartMainThread: ; 0x02077AA0
 	bl OS_CreateThread
 	mov r0, r6
 	bl OS_WakeupThreadDirect
-	bl DSEi_StartTickTimer
+	bl DSE_SsdStartTickTimer
 _02077B24:
 	mov r0, #0
 	add sp, sp, #8
 	ldmfd sp!, {r4, r5, r6, pc}
-_02077B30: .word unk_020B9FD8
+_02077B30: .word DSEi_SsdWork
 _02077B34: .word unk_020BAFD8
 _02077B38: .word 0x72637473
 _02077B3C: .word unk_020BBCF8
 _02077B40: .word DSEi_MainThreadFunc
-	arm_func_end DSEi_StartMainThread
+	arm_func_end DSE_SsdStartMainThread
 
-	arm_func_start DSEi_QuitMainThread
-DSEi_QuitMainThread: ; 0x02077B44
+	arm_func_start DSE_SsdQuitMainThread
+DSE_SsdQuitMainThread: ; 0x02077B44
 	stmfd sp!, {r3, r4, r5, lr}
-	bl DSEi_ResetSoundState
+	bl DSE_SsdResetSoundState
 	ldr r5, _02077B78 ; =0x020BBCF8
 	ldr r4, _02077B7C ; =0x020BAFD8
 	mov r1, #0
@@ -3678,21 +3678,21 @@ DSEi_QuitMainThread: ; 0x02077B44
 	mov r0, r5
 	bl OS_JoinThread
 	ldr r0, [r4, #0xde0]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	ldmfd sp!, {r3, r4, r5, pc}
 _02077B78: .word unk_020BBCF8
 _02077B7C: .word unk_020BAFD8
-	arm_func_end DSEi_QuitMainThread
+	arm_func_end DSE_SsdQuitMainThread
 
-	arm_func_start DSEi_StartTickTimer
-DSEi_StartTickTimer: ; 0x02077B80
+	arm_func_start DSE_SsdStartTickTimer
+DSE_SsdStartTickTimer: ; 0x02077B80
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r0, _02077BE4 ; =0x020BAFD8
 	ldrb r0, [r0, #0xde4]
 	cmp r0, #0
 	bne _02077BDC
 	ldr r1, _02077BE8 ; =0x00001474
-	ldr r4, _02077BEC ; =0x020B9FD8
+	ldr r4, _02077BEC ; =DSEi_SsdWork
 	mov r5, #0
 	ldr r3, _02077BF0 ; =DSEi_SoundAlarmCallback
 	mov r0, r5
@@ -3714,12 +3714,12 @@ _02077BDC:
 	ldmfd sp!, {r3, r4, r5, pc}
 _02077BE4: .word unk_020BAFD8
 _02077BE8: .word 0x00001474
-_02077BEC: .word unk_020B9FD8
+_02077BEC: .word DSEi_SsdWork
 _02077BF0: .word DSEi_SoundAlarmCallback
-	arm_func_end DSEi_StartTickTimer
+	arm_func_end DSE_SsdStartTickTimer
 
-	arm_func_start DSEi_ResetSoundState
-DSEi_ResetSoundState: ; 0x02077BF4
+	arm_func_start DSE_SsdResetSoundState
+DSE_SsdResetSoundState: ; 0x02077BF4
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	mov r4, #0
@@ -3748,7 +3748,7 @@ _02077C3C:
 	mov r0, #0
 	strh r0, [r2, #0x3c]
 	strh r0, [r2, #0x40]
-	ldr r1, _02077C84 ; =0x020B9FD8
+	ldr r1, _02077C84 ; =DSEi_SsdWork
 	strh r0, [r2, #0x3e]
 	strb r0, [r1, #0x745]
 	strb r0, [r1, #0x744]
@@ -3757,13 +3757,13 @@ _02077C3C:
 _02077C78: .word 0x0000FFFF
 _02077C7C: .word unk_020BAFD8
 _02077C80: .word unk_020BA6D8
-_02077C84: .word unk_020B9FD8
-	arm_func_end DSEi_ResetSoundState
+_02077C84: .word DSEi_SsdWork
+	arm_func_end DSE_SsdResetSoundState
 
 	arm_func_start DSEi_SoundAlarmCallback
 DSEi_SoundAlarmCallback: ; 0x02077C88
 	stmfd sp!, {r3, lr}
-	ldr r2, _02077CD0 ; =0x020B9FD8
+	ldr r2, _02077CD0 ; =DSEi_SsdWork
 	ldr r1, _02077CD4 ; =0x020BAFD8
 	ldr r3, [r2, #0x34]
 	add r0, r1, #0xd00
@@ -3780,7 +3780,7 @@ DSEi_SoundAlarmCallback: ; 0x02077C88
 	str r1, [r2, #0x38]
 	bl OS_WakeupThreadDirect
 	ldmfd sp!, {r3, pc}
-_02077CD0: .word unk_020B9FD8
+_02077CD0: .word DSEi_SsdWork
 _02077CD4: .word unk_020BAFD8
 _02077CD8: .word unk_020BBCF8
 	arm_func_end DSEi_SoundAlarmCallback
@@ -3790,7 +3790,7 @@ DSEi_MainThreadFunc: ; 0x02077CDC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r8, _02077E1C ; =0x020BAFD8
 	ldr r7, _02077E20 ; =0x020BBDD8
-	ldr r6, _02077E24 ; =0x020B9FD8
+	ldr r6, _02077E24 ; =DSEi_SsdWork
 	add r4, r8, #0xd00
 	add r5, r8, #0xe00
 	mov r11, #0
@@ -3872,7 +3872,7 @@ _02077DE8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02077E1C: .word unk_020BAFD8
 _02077E20: .word unk_020BBDD8
-_02077E24: .word unk_020B9FD8
+_02077E24: .word DSEi_SsdWork
 _02077E28: .word 0x42C80000
 _02077E2C: .word unk_020BBEBC
 	arm_func_end DSEi_MainThreadFunc
@@ -3894,7 +3894,7 @@ _02077E58:
 	add r10, r7, #0xb4
 	cmp r8, #0
 	beq _02077ED0
-	ldr r4, _02077EF0 ; =0x020B9FD8
+	ldr r4, _02077EF0 ; =DSEi_SsdWork
 _02077E6C:
 	ldmib r8, {r0, r9}
 	sub r1, r0, #1
@@ -3931,7 +3931,7 @@ _02077ED0:
 	str r0, [sp]
 	bne _02077E58
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02077EF0: .word unk_020B9FD8
+_02077EF0: .word DSEi_SsdWork
 	arm_func_end DSEi_TickSequenceNotes
 
 	arm_func_start DSEi_ParseSequenceEvent
@@ -4746,7 +4746,7 @@ DSE_SeqSongVolumeFade: ; 0x02078950
 	beq _02078998
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _020789D8 ; =0x020B9FD8
+	ldr r1, _020789D8 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -4770,7 +4770,7 @@ _020789CC:
 	strh r6, [r4, #0x74]
 	add r0, r5, #3
 	ldmfd sp!, {r4, r5, r6, pc}
-_020789D8: .word unk_020B9FD8
+_020789D8: .word DSEi_SsdWork
 	arm_func_end DSE_SeqSongVolumeFade
 
 	arm_func_start DSE_SeqResetEnvelope
@@ -5810,14 +5810,14 @@ DSE_SeqDummy2Bytes2: ; 0x02079680
 	bx lr
 	arm_func_end DSE_SeqDummy2Bytes2
 
-	arm_func_start DSEi_MidiInit
-DSEi_MidiInit: ; 0x02079688
+	arm_func_start DSE_SsdMidiInit
+DSE_SsdMidiInit: ; 0x02079688
 	ldr r0, _02079698 ; =0x020BBEBC
 	mov r1, #0
 	str r1, [r0]
 	bx lr
 _02079698: .word unk_020BBEBC
-	arm_func_end DSEi_MidiInit
+	arm_func_end DSE_SsdMidiInit
 
 	arm_func_start DSEi_GetMidiEvent
 DSEi_GetMidiEvent: ; 0x0207969C
@@ -6338,7 +6338,7 @@ _02079CD8:
 	cmp r0, #0
 	movne r12, r0
 	bne _02079CD8
-	ldr r0, _02079D18 ; =0x020B9FD8
+	ldr r0, _02079D18 ; =DSEi_SsdWork
 	ldr r1, _02079D14 ; =0x04000208
 	ldr r2, [r0, #0x658]
 	str r2, [r12, #8]
@@ -6348,7 +6348,7 @@ _02079CD8:
 	strh r5, [r1]
 	ldmfd sp!, {r3, r4, r5, pc}
 _02079D14: .word 0x04000208
-_02079D18: .word unk_020B9FD8
+_02079D18: .word DSEi_SsdWork
 	arm_func_end DSE_MidiControlAllNotesOff
 
 	arm_func_start DSE_MidiControlMaybeMono
@@ -6536,7 +6536,7 @@ DSE_MidiControlStub27: ; 0x02079EA4
 	arm_func_start DSEi_ResetSynth
 DSEi_ResetSynth: ; 0x02079EA8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r1, _02079F14 ; =0x020B9FD8
+	ldr r1, _02079F14 ; =DSEi_SsdWork
 	mov r4, #0x7f
 	ldrsb r7, [r1, #0x49]
 	mov r5, #0
@@ -6562,7 +6562,7 @@ DSEi_ResetSynth: ; 0x02079EA8
 	strb r1, [r0, #0xb]
 	str r5, [r0, #0xc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02079F14: .word unk_020B9FD8
+_02079F14: .word DSEi_SsdWork
 _02079F18: .word 0x81020409
 _02079F1C: .word unk_020BA6D8
 	arm_func_end DSEi_ResetSynth
@@ -6576,7 +6576,7 @@ DSEi_AllocateSynth: ; 0x02079F20
 	mov r2, r1
 	add r0, r0, #0x10
 	mov r1, #0x10
-	bl DSEi_AllocateFirstFit
+	bl DSE_SsdAllocFirstFit
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -6655,7 +6655,7 @@ _0207A030:
 	ldrh r1, [r2]
 	mov r0, r5
 	strh r4, [r2]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A054: .word 0x04000208
 _0207A058: .word unk_020BA638
@@ -6670,7 +6670,7 @@ DSEi_ClearSynthHeldNotes: ; 0x0207A05C
 	cmp r3, #0
 	ldmlefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r7, _0207A0F0 ; =0x04000208
-	ldr r12, _0207A0F4 ; =0x020B9FD8
+	ldr r12, _0207A0F4 ; =DSEi_SsdWork
 	mvn r5, #0
 	mov r4, r2
 	mov r6, r2
@@ -6704,7 +6704,7 @@ _0207A0D8:
 	blt _0207A088
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207A0F0: .word 0x04000208
-_0207A0F4: .word unk_020B9FD8
+_0207A0F4: .word DSEi_SsdWork
 	arm_func_end DSEi_ClearSynthHeldNotes
 
 	arm_func_start DSEi_InitSynth
@@ -7015,7 +7015,7 @@ _0207A4E8: .word 0x04000208
 	arm_func_start DSEi_SetSynthBankAndSequence
 DSEi_SetSynthBankAndSequence: ; 0x0207A4EC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	ldr r3, _0207A578 ; =0x020B9FD8
+	ldr r3, _0207A578 ; =DSEi_SsdWork
 	mov r10, r0
 	ldrsb r6, [r3, #0x45]
 	mov r7, #0
@@ -7049,10 +7049,10 @@ _0207A558:
 	cmp r7, r0
 	blt _0207A524
 _0207A56C:
-	ldr r0, _0207A578 ; =0x020B9FD8
+	ldr r0, _0207A578 ; =DSEi_SsdWork
 	strb r6, [r0, #0x45]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_0207A578: .word unk_020B9FD8
+_0207A578: .word DSEi_SsdWork
 	arm_func_end DSEi_SetSynthBankAndSequence
 
 	arm_func_start DSEi_InitChannel
@@ -7063,7 +7063,7 @@ DSEi_InitChannel: ; 0x0207A57C
 	mov r5, #1
 	ldr r3, _0207A71C ; =0x020BA6D8
 	str r1, [r4]
-	ldr r2, _0207A720 ; =0x020B9FD8
+	ldr r2, _0207A720 ; =DSEi_SsdWork
 	strb r0, [r4, #4]
 	add r1, r2, #0x600
 	strb r0, [r4, #6]
@@ -7136,7 +7136,7 @@ _0207A698:
 	cmp r0, #0
 	movne r5, r0
 	bne _0207A698
-	ldr r0, _0207A720 ; =0x020B9FD8
+	ldr r0, _0207A720 ; =DSEi_SsdWork
 	ldr r1, _0207A724 ; =0x04000208
 	ldr r2, [r0, #0x658]
 	str r2, [r5, #8]
@@ -7145,7 +7145,7 @@ _0207A698:
 	ldrh r0, [r1]
 	strh lr, [r1]
 _0207A6D0:
-	ldr r0, _0207A720 ; =0x020B9FD8
+	ldr r0, _0207A720 ; =DSEi_SsdWork
 	mov r1, #0
 	str r1, [r4, #0xb8]
 	str r1, [r4, #0xbc]
@@ -7165,7 +7165,7 @@ _0207A6D0:
 	strh r2, [r4, #0x1a]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207A71C: .word unk_020BA6D8
-_0207A720: .word unk_020B9FD8
+_0207A720: .word DSEi_SsdWork
 _0207A724: .word 0x04000208
 _0207A728: .word 0x82061029
 	arm_func_end DSEi_InitChannel
@@ -7253,7 +7253,7 @@ DSEi_SetWave: ; 0x0207A82C
 	mov r4, r0
 	mov r0, r1
 	strh r1, [r4, #0xe]
-	bl DSEi_GetWaveById
+	bl DSEi_SsdGetWaveByID
 	str r0, [r4, #0xb8]
 	cmp r0, #0
 	moveq r0, #0
@@ -7279,7 +7279,7 @@ DSE_SsdSetChannelProgram: ; 0x0207A864
 	mov r1, r4, lsl #0x10
 	mov r1, r1, asr #0x10
 	strh r1, [r5, #0x10]
-	bl DSEi_Bank_GetProgram
+	bl DSE_SsdGetProgramEntry
 	movs lr, r0
 	beq _0207A8DC
 	mov r6, #0
@@ -7359,7 +7359,7 @@ DSEi_AcquireNoteForChannel: ; 0x0207A96C
 	ldrb r0, [r5, #0xc]
 	sub r0, r2, r0
 	add r6, r0, #1
-	bl DSEi_GetRandomNumber
+	bl DSE_SsdGetRandomNumber
 	mul r1, r6, r0
 	mov r0, r1, asr #0xe
 	ldrb r2, [r5, #0xc]
@@ -7367,7 +7367,7 @@ DSEi_AcquireNoteForChannel: ; 0x0207A96C
 	add r0, r2, r0, asr #15
 	strb r0, [r4, #2]
 _0207A9AC:
-	ldr r1, _0207A9F8 ; =0x020B9FD8
+	ldr r1, _0207A9F8 ; =DSEi_SsdWork
 	ldr r0, [r1, #0x658]
 	cmp r0, #0
 	moveq r0, #0
@@ -7386,7 +7386,7 @@ _0207A9AC:
 	str r1, [r0, #8]
 	str r0, [r5, #0xb4]
 	ldmfd sp!, {r4, r5, r6, pc}
-_0207A9F8: .word unk_020B9FD8
+_0207A9F8: .word DSEi_SsdWork
 	arm_func_end DSEi_AcquireNoteForChannel
 
 	arm_func_start DSEi_ReleaseNoteInternal
@@ -7430,7 +7430,7 @@ _0207AA68:
 _0207AA78:
 	cmp r4, #0
 	beq _0207AAA0
-	ldr r0, _0207AAA8 ; =0x020B9FD8
+	ldr r0, _0207AAA8 ; =DSEi_SsdWork
 	mvn r2, #0
 	ldr r3, [r0, #0x658]
 	mov r1, #0
@@ -7441,7 +7441,7 @@ _0207AA78:
 _0207AAA0:
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_0207AAA8: .word unk_020B9FD8
+_0207AAA8: .word DSEi_SsdWork
 	arm_func_end DSEi_ReleaseNoteInternal
 
 	arm_func_start DSEi_ChangeNote
@@ -7521,7 +7521,7 @@ DSEi_PlayNote: ; 0x0207AB78
 	moveq r0, #0
 	streq r0, [sp]
 	beq _0207ABC4
-	bl DSEi_GetRandomNumber
+	bl DSE_SsdGetRandomNumber
 	mov r1, r4, lsl #1
 	mul r2, r1, r0
 	mov r0, r2, asr #0xe
@@ -7543,7 +7543,7 @@ _0207ABDC:
 	ldrsb r3, [r9, #3]
 	mov r0, r6
 	mov r1, r5
-	bl DSEi_Program_GetNextSplitInRange
+	bl DSE_SsdGetNextSplit
 	movs r5, r0
 	addeq sp, sp, #0xc
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -7559,7 +7559,7 @@ _0207ABDC:
 	str r2, [sp, #4]
 	str r1, [sp, #8]
 	ldrsh r1, [r5, #0x12]
-	bl DSEi_Bank_GetWaviEntry
+	bl DSE_SsdGetWaviEntry
 	movs r11, r0
 	beq _0207ABDC
 	ldrb r3, [r10, #5]
@@ -7602,7 +7602,7 @@ _0207ABDC:
 	strh r0, [r4, #0x14]
 	ldrb r0, [r5, #0x19]
 	strb r0, [r4, #0x19]
-	ldr r0, _0207ADDC ; =0x020B9FD8
+	ldr r0, _0207ADDC ; =DSEi_SsdWork
 	ldrb r0, [r0, #0x41]
 	cmp r0, #7
 	bne _0207AD1C
@@ -7671,7 +7671,7 @@ _0207ADC0:
 _0207ADD4:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0207ADDC: .word unk_020B9FD8
+_0207ADDC: .word DSEi_SsdWork
 _0207ADE0: .word 0x4186143D
 _0207ADE4: .word 0x82061029
 	arm_func_end DSEi_PlayNote
@@ -7813,8 +7813,8 @@ _0207AFC0: .word 0x828CBFBF
 _0207AFC4: .word unk_020BAFD8
 	arm_func_end DSEi_UpdateVoiceParameters
 
-	arm_func_start DSEi_ResetVoices
-DSEi_ResetVoices: ; 0x0207AFC8
+	arm_func_start DSE_SsdResetVoices
+DSE_SsdResetVoices: ; 0x0207AFC8
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	ldr r4, _0207B064 ; =0x020BA6D8
 	mov r9, #0
@@ -7852,17 +7852,17 @@ _0207AFF4:
 	cmp r9, r0
 	blt _0207AFF4
 _0207B054:
-	ldr r0, _0207B06C ; =0x020B9FD8
+	ldr r0, _0207B06C ; =DSEi_SsdWork
 	mov r1, #0
 	str r1, [r0, #0x65c]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207B064: .word unk_020BA6D8
 _0207B068: .word unk_020BA720
-_0207B06C: .word unk_020B9FD8
-	arm_func_end DSEi_ResetVoices
+_0207B06C: .word DSEi_SsdWork
+	arm_func_end DSE_SsdResetVoices
 
-	arm_func_start DSEi_SoundReset
-DSEi_SoundReset: ; 0x0207B070
+	arm_func_start DSE_SsdSoundReset
+DSE_SsdSoundReset: ; 0x0207B070
 	stmfd sp!, {r4, lr}
 	cmp r0, #0
 	ble _0207B0A8
@@ -7882,7 +7882,7 @@ _0207B0A8:
 	mov r4, #0
 	strh r4, [r1, #0x3e]
 	strh r4, [r1, #0x40]
-	ldr r0, _0207B11C ; =0x020B9FD8
+	ldr r0, _0207B11C ; =DSEi_SsdWork
 	strh r4, [r1, #0x42]
 	strb r4, [r0, #0x744]
 	strb r4, [r0, #0x745]
@@ -7907,9 +7907,9 @@ _0207B0A8:
 	ldmfd sp!, {r4, pc}
 _0207B114: .word unk_020BA6D8
 _0207B118: .word unk_020BAFD8
-_0207B11C: .word unk_020B9FD8
+_0207B11C: .word DSEi_SsdWork
 _0207B120: .word 0x0000FFFF
-	arm_func_end DSEi_SoundReset
+	arm_func_end DSE_SsdSoundReset
 
 	arm_func_start DSEi_UpdateChannels
 DSEi_UpdateChannels: ; 0x0207B124
@@ -8093,7 +8093,7 @@ _0207B398:
 	cmp r7, r4
 	add r3, r4, #1
 	bgt _0207B3D8
-	ldr r2, _0207B408 ; =0x020B9FD8
+	ldr r2, _0207B408 ; =DSEi_SsdWork
 	mov r0, #0x15c
 _0207B3AC:
 	mla r1, r7, r0, r2
@@ -8123,7 +8123,7 @@ _0207B3F8:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207B400: .word unk_020BA6D8
 _0207B404: .word unk_020BA720
-_0207B408: .word unk_020B9FD8
+_0207B408: .word DSEi_SsdWork
 	arm_func_end DSEi_AcquireVoiceForChannel
 
 	arm_func_start DSEi_FUN_0207b40c
@@ -8143,7 +8143,7 @@ DSEi_FUN_0207b40c: ; 0x0207B40C
 	cmp r4, r2
 	add lr, r0, #0x100
 	bgt _0207B47C
-	ldr r12, _0207B4A8 ; =0x020B9FD8
+	ldr r12, _0207B4A8 ; =DSEi_SsdWork
 	mov r0, #0x15c
 _0207B450:
 	mla r3, r4, r0, r12
@@ -8171,7 +8171,7 @@ _0207B49C:
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207B4A4: .word unk_020BA6D8
-_0207B4A8: .word unk_020B9FD8
+_0207B4A8: .word DSEi_SsdWork
 _0207B4AC: .word unk_020BA720
 	arm_func_end DSEi_FUN_0207b40c
 
@@ -8497,7 +8497,7 @@ _0207B8D8:
 	blt _0207B7AC
 _0207B8EC:
 	ldr r6, _0207B9A4 ; =0x020BA6D8
-	ldr r0, _0207B9AC ; =0x020B9FD8
+	ldr r0, _0207B9AC ; =DSEi_SsdWork
 	ldrh r1, [r6, #0x3e]
 	mov r4, #0
 	strh r1, [r6, #0x3c]
@@ -8507,7 +8507,7 @@ _0207B8EC:
 	ldreqb r0, [r0, #0x746]
 	cmpeq r0, #0
 	beq _0207B93C
-	ldr r5, _0207B9AC ; =0x020B9FD8
+	ldr r5, _0207B9AC ; =DSEi_SsdWork
 	ldrh r0, [r6, #0x3e]
 	ldrb r1, [r5, #0x746]
 	mov r3, r4
@@ -8517,7 +8517,7 @@ _0207B8EC:
 	strb r0, [r5, #0x746]
 	strh r0, [r6, #0x3e]
 _0207B93C:
-	ldr r0, _0207B9AC ; =0x020B9FD8
+	ldr r0, _0207B9AC ; =DSEi_SsdWork
 	ldrb r2, [r0, #0x745]
 	cmp r2, #0
 	ldreqb r0, [r0, #0x747]
@@ -8528,7 +8528,7 @@ _0207B93C:
 	cmpeq r0, #0
 	addeq sp, sp, #0x18
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r5, _0207B9AC ; =0x020B9FD8
+	ldr r5, _0207B9AC ; =DSEi_SsdWork
 	ldrh r7, [r6, #0x40]
 	ldrh r0, [r6, #0x42]
 	ldrb r1, [r5, #0x747]
@@ -8545,7 +8545,7 @@ _0207B93C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207B9A4: .word unk_020BA6D8
 _0207B9A8: .word unk_020BA720
-_0207B9AC: .word unk_020B9FD8
+_0207B9AC: .word DSEi_SsdWork
 	arm_func_end DSEi_UpdateHardware
 
 	arm_func_start DSEi_ResetEnvelope
@@ -8638,7 +8638,7 @@ DSEi_SetEnvelopeSlide: ; 0x0207BA98
 	cmp r3, #0
 	bne _0207BAEC
 	ldr r0, _0207BB38 ; =0x02091C54
-	ldr r1, _0207BB3C ; =0x020B9FD8
+	ldr r1, _0207BB3C ; =DSEi_SsdWork
 	ldr r2, [r0, r2, lsl #2]
 	mov r0, #0x3e8
 	mul r0, r2, r0
@@ -8649,7 +8649,7 @@ _0207BAEC:
 	ldr r0, _0207BB40 ; =0x02091B54
 	mov r1, r2, lsl #1
 	ldrh r2, [r0, r1]
-	ldr r1, _0207BB3C ; =0x020B9FD8
+	ldr r1, _0207BB3C ; =DSEi_SsdWork
 	mov r0, #0x3e8
 	mul r2, r3, r2
 	mul r0, r2, r0
@@ -8667,7 +8667,7 @@ _0207BB10:
 	str r0, [r5, #0x14]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207BB38: .word DSE_MUSIC_DURATION_LOOKUP_TABLE_2
-_0207BB3C: .word unk_020B9FD8
+_0207BB3C: .word DSEi_SsdWork
 _0207BB40: .word DSE_MUSIC_DURATION_LOOKUP_TABLE_1
 	arm_func_end DSEi_SetEnvelopeSlide
 
@@ -8926,7 +8926,7 @@ _0207BE3C:
 	bne _0207BEC8
 	ldrh r1, [r9, #0xa]
 	mov r0, #0x3e8
-	ldr r11, _0207BF90 ; =0x020B9FD8
+	ldr r11, _0207BF90 ; =DSEi_SsdWork
 	mul r0, r1, r0
 	ldrsh r1, [r11, #0x28]
 	bl _s32_div_f
@@ -8961,7 +8961,7 @@ _0207BED4:
 	beq _0207BF2C
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _0207BF90 ; =0x020B9FD8
+	ldr r1, _0207BF90 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _s32_div_f
 	movs r1, r0
@@ -9000,7 +9000,7 @@ _0207BF64:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207BF88: .word DSE_LFO_OUTPUT_VOICE_UPDATE_FLAGS
 _0207BF8C: .word 0x81020409
-_0207BF90: .word unk_020B9FD8
+_0207BF90: .word DSEi_SsdWork
 _0207BF94: .word DSE_LFO_WAVEFORM_CALLBACKS
 	arm_func_end DSEi_LfoBank_Set
 
@@ -9237,7 +9237,7 @@ DSE_SsdLfoNoiseSingleProc: ; 0x0207C260
 	bne _0207C290
 	ldrh r0, [r4, #4]
 	strh r0, [r4, #6]
-	bl DSEi_GetRandomNumber
+	bl DSE_SsdGetRandomNumber
 	ldr r1, [r4, #0xc]
 	mov r1, r1, asr #0x10
 	mul r0, r1, r0
@@ -9260,7 +9260,7 @@ DSE_SsdLfoNoiseDoubleProc: ; 0x0207C2A4
 	ldrh r0, [r4, #4]
 	ldr r5, [r4, #0xc]
 	strh r0, [r4, #6]
-	bl DSEi_GetRandomNumber
+	bl DSE_SsdGetRandomNumber
 	mov r1, r5, asr #0xf
 	mul r0, r1, r0
 	sub r0, r0, r5, asr #1
@@ -9335,7 +9335,7 @@ DSE_SsdSetStreamInitMaxOpen: ; 0x0207C388
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSE_SsdSetStreamInitMaxOpen
@@ -9370,7 +9370,7 @@ DSE_SsdSetStreamInitIOBufferSize: ; 0x0207C3F0
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207C424:
@@ -9391,7 +9391,7 @@ DSE_SsdSetStreamInitRomAccessSize: ; 0x0207C430
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0207C464:
@@ -9404,26 +9404,26 @@ _0207C464:
 DSEi_StreamDefaultAllocate: ; 0x0207C470
 	ldr r2, _0207C484 ; =0x66627473
 	mov r0, r1
-	ldr r12, _0207C488 ; =DSEi_AllocateFirstFit
+	ldr r12, _0207C488 ; =DSE_SsdAllocFirstFit
 	mov r1, #0x20
 	bx r12
 _0207C484: .word 0x66627473
-_0207C488: .word DSEi_AllocateFirstFit
+_0207C488: .word DSE_SsdAllocFirstFit
 	arm_func_end DSEi_StreamDefaultAllocate
 
 	arm_func_start DSEi_StreamDefaultFree
 DSEi_StreamDefaultFree: ; 0x0207C48C
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl DSEi_MemCheckHeap
+	bl DSE_SsdCheckHeap
 	mov r0, r4
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end DSEi_StreamDefaultFree
 
-	arm_func_start DSEi_StreamInit
-DSEi_StreamInit: ; 0x0207C4A8
+	arm_func_start DSE_SsdStreamInit
+DSE_SsdStreamInit: ; 0x0207C4A8
 	ldr r0, _0207C4C4 ; =0x020BBEC0
 	mov r2, #0
 	strb r2, [r0, #4]
@@ -9432,7 +9432,7 @@ DSEi_StreamInit: ; 0x0207C4A8
 	strb r2, [r0, #9]
 	bx lr
 _0207C4C4: .word unk_020BBEC0
-	arm_func_end DSEi_StreamInit
+	arm_func_end DSE_SsdStreamInit
 
 	arm_func_start DSEi_AllocateStreams
 DSEi_AllocateStreams: ; 0x0207C4C8
@@ -9450,7 +9450,7 @@ _0207C4F0:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl DSEi_AllocateFirstFit
+	bl DSE_SsdAllocFirstFit
 	cmp r0, #0
 	mvneq r0, #0x7f
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -9478,7 +9478,7 @@ DSEi_FreeStreamContext: ; 0x0207C538
 	beq _0207C564
 _0207C550:
 	ldr r6, [r0, #0x358]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, r6
 	cmp r6, #0
 	bne _0207C550
@@ -9487,13 +9487,13 @@ _0207C564:
 	ldr r0, [r4, #0xe8]
 	cmp r0, #0
 	beq _0207C578
-	bl DSEi_Free
+	bl DSE_SsdFree
 _0207C578:
 	str r5, [r4, #0xe8]
 	ldr r0, [r4, #0x1b4]
 	cmp r0, #0
 	beq _0207C58C
-	bl DSEi_Free
+	bl DSE_SsdFree
 _0207C58C:
 	str r5, [r4, #0x1b4]
 	ldr r0, [r4, #0x18]
@@ -9515,7 +9515,7 @@ _0207C5BC: .word unk_020BBEC0
 	arm_func_start DSE_SsdInitStream
 DSE_SsdInitStream: ; 0x0207C5C0
 	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _0207C80C ; =0x020B9FD8
+	ldr r1, _0207C80C ; =DSEi_SsdWork
 	mov r5, r0
 	ldrsb r0, [r1]
 	ldr r4, _0207C810 ; =0x020BBEC0
@@ -9526,7 +9526,7 @@ DSE_SsdInitStream: ; 0x0207C5C0
 	mov r1, r3
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C5FC:
@@ -9540,7 +9540,7 @@ _0207C5FC:
 	mov r1, r3
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C630:
@@ -9616,7 +9616,7 @@ _0207C710:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C750:
@@ -9631,7 +9631,7 @@ _0207C750:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C788:
@@ -9643,7 +9643,7 @@ _0207C788:
 	mov r1, #0
 	mov r0, r6
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r6
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C7B4:
@@ -9667,10 +9667,10 @@ _0207C7C8:
 	mov r1, #0
 	mov r0, r5
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r5
 	ldmfd sp!, {r4, r5, r6, pc}
-_0207C80C: .word unk_020B9FD8
+_0207C80C: .word DSEi_SsdWork
 _0207C810: .word unk_020BBEC0
 _0207C814: .word unk_020BA6D8
 _0207C818: .word unk_020BC07C
@@ -9680,8 +9680,8 @@ _0207C824: .word 0x61746164
 _0207C828: .word 0x656C6966
 	arm_func_end DSE_SsdInitStream
 
-	arm_func_start DSEi_SsdQuitStream
-DSEi_SsdQuitStream: ; 0x0207C82C
+	arm_func_start DSE_SsdQuitStream
+DSE_SsdQuitStream: ; 0x0207C82C
 	stmfd sp!, {r4, lr}
 	ldr r4, _0207C860 ; =0x020BBEC0
 	ldrsb r0, [r4, #4]
@@ -9696,7 +9696,7 @@ DSEi_SsdQuitStream: ; 0x0207C82C
 	strb r0, [r4, #4]
 	ldmfd sp!, {r4, pc}
 _0207C860: .word unk_020BBEC0
-	arm_func_end DSEi_SsdQuitStream
+	arm_func_end DSE_SsdQuitStream
 
 	arm_func_start DSEi_FindFreeStream
 DSEi_FindFreeStream: ; 0x0207C864
@@ -9724,8 +9724,8 @@ _0207C8AC: .word 0x04000208
 _0207C8B0: .word unk_020BBEC0
 	arm_func_end DSEi_FindFreeStream
 
-	arm_func_start DSEi_StreamSuspend
-DSEi_StreamSuspend: ; 0x0207C8B4
+	arm_func_start DSE_SsdStreamSuspend
+DSE_SsdStreamSuspend: ; 0x0207C8B4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r2, _0207C920 ; =0x04000208
 	ldr r1, _0207C924 ; =0x020BBEC0
@@ -9758,10 +9758,10 @@ _0207C90C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207C920: .word 0x04000208
 _0207C924: .word unk_020BBEC0
-	arm_func_end DSEi_StreamSuspend
+	arm_func_end DSE_SsdStreamSuspend
 
-	arm_func_start DSEi_StreamResume
-DSEi_StreamResume: ; 0x0207C928
+	arm_func_start DSE_SsdStreamResume
+DSE_SsdStreamResume: ; 0x0207C928
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _0207C978 ; =0x020BBEC0
 	mov r6, r0
@@ -9786,7 +9786,7 @@ _0207C970:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207C978: .word unk_020BBEC0
-	arm_func_end DSEi_StreamResume
+	arm_func_end DSE_SsdStreamResume
 
 	arm_func_start DSE_SsdSetMonoToStereo
 DSE_SsdSetMonoToStereo: ; 0x0207C97C
@@ -9854,7 +9854,7 @@ DSE_SsdOpenStreamByFile: ; 0x0207CA24
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CA54:
@@ -9864,7 +9864,7 @@ _0207CA54:
 	beq _0207CA78
 	mov r1, #0
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r7
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CA78:
@@ -9890,7 +9890,7 @@ _0207CA80:
 	mov r0, r4
 	mov r2, r5
 	mov r1, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CAD8:
@@ -9948,7 +9948,7 @@ DSEi_InitStream: ; 0x0207CB7C
 	str r0, [r5, #0x14]
 	mov r3, #2
 	strb r3, [r5, #0x1d]
-	ldr r1, _0207CCFC ; =0x020B9FD8
+	ldr r1, _0207CCFC ; =DSEi_SsdWork
 	str r0, [r5, #4]
 	str r0, [r5, #8]
 	str r0, [r5, #0xc]
@@ -10038,7 +10038,7 @@ _0207CCA0:
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207CCF8: .word 0x0000BB80
-_0207CCFC: .word unk_020B9FD8
+_0207CCFC: .word DSEi_SsdWork
 _0207CD00: .word unk_020BBEC0
 _0207CD04: .word DSEi_Stream_FUN_0207d734
 _0207CD08: .word DSEi_Stream_FUN_0207d73c
@@ -10142,7 +10142,7 @@ DSE_SsdCloseStream: ; 0x0207CE1C
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207CE64:
@@ -10280,7 +10280,7 @@ DSE_SsdPlayStream: ; 0x0207CFE4
 	mov r0, r4
 	mov r1, r8
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207D034:
@@ -10310,7 +10310,7 @@ _0207D080:
 	strb r4, [r5, #0x13]
 	ldrh r0, [r7, #0xc]
 	strb r0, [r5, #0x2e]
-	bl DSEi_IsPaused
+	bl DSE_SsdIsPaused
 	strb r0, [r5, #0x12]
 	str r4, [r5, #0x30]
 	strh r4, [r5, #0x3c]
@@ -10330,7 +10330,7 @@ _0207D0C4:
 	bne _0207D14C
 	ldrh r2, [r7, #0xe]
 	mov r0, #0x3e8
-	ldr r1, _0207D178 ; =0x020B9FD8
+	ldr r1, _0207D178 ; =DSEi_SsdWork
 	mul r0, r2, r0
 	ldrsh r1, [r1, #0x28]
 	bl _s32_div_f
@@ -10371,11 +10371,11 @@ _0207D168:
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0207D170: .word unk_020BBEC0
 _0207D174: .word 0x04000208
-_0207D178: .word unk_020B9FD8
+_0207D178: .word DSEi_SsdWork
 	arm_func_end DSE_SsdPlayStream
 
-	arm_func_start DSEi_StopStreamALl
-DSEi_StopStreamALl: ; 0x0207D17C
+	arm_func_start DSE_SsdStopStreamAll
+DSE_SsdStopStreamAll: ; 0x0207D17C
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r1, _0207D1C0 ; =0x020BBEC0
 	mov r5, r0
@@ -10397,7 +10397,7 @@ _0207D1B8:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207D1C0: .word unk_020BBEC0
-	arm_func_end DSEi_StopStreamALl
+	arm_func_end DSE_SsdStopStreamAll
 
 	arm_func_start DSE_SsdStopStream
 DSE_SsdStopStream: ; 0x0207D1C4
@@ -10417,7 +10417,7 @@ DSE_SsdStopStream: ; 0x0207D1C4
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D210:
@@ -10427,7 +10427,7 @@ _0207D210:
 	beq _0207D240
 	mov r0, #0x3e8
 	mul r0, r7, r0
-	ldr r1, _0207D2C0 ; =0x020B9FD8
+	ldr r1, _0207D2C0 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -10469,7 +10469,7 @@ _0207D2B4:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D2BC: .word unk_020BBEC0
-_0207D2C0: .word unk_020B9FD8
+_0207D2C0: .word DSEi_SsdWork
 	arm_func_end DSE_SsdStopStream
 
 	arm_func_start DSEi_FUN_0207d2c4
@@ -10478,7 +10478,7 @@ DSEi_FUN_0207d2c4: ; 0x0207D2C4
 	mov r3, #0x3e8
 	mov r5, r0
 	mul r0, r2, r3
-	ldr r2, _0207D3E0 ; =0x020B9FD8
+	ldr r2, _0207D3E0 ; =DSEi_SsdWork
 	mov r6, r1
 	ldrsh r1, [r2, #0x28]
 	mov r4, #0
@@ -10550,7 +10550,7 @@ _0207D3B0:
 _0207D3D8:
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0207D3E0: .word unk_020B9FD8
+_0207D3E0: .word DSEi_SsdWork
 	arm_func_end DSEi_FUN_0207d2c4
 
 	arm_func_start DSE_SsdSetStreamParam
@@ -10565,7 +10565,7 @@ DSE_SsdSetStreamParam: ; 0x0207D3E4
 	mov r0, r4
 	mov r1, r5
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _0207D418:
@@ -10590,7 +10590,7 @@ DSEi_SetStreamVolume: ; 0x0207D42C
 	beq _0207D474
 	mov r0, #0x3e8
 	mul r0, r2, r0
-	ldr r1, _0207D4BC ; =0x020B9FD8
+	ldr r1, _0207D4BC ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -10616,7 +10616,7 @@ _0207D4A4:
 	mov r0, r4
 	bl DSEi_FUN_0207d9f4
 	ldmfd sp!, {r4, r5, r6, pc}
-_0207D4BC: .word unk_020B9FD8
+_0207D4BC: .word DSEi_SsdWork
 	arm_func_end DSEi_SetStreamVolume
 
 	arm_func_start DSE_SsdSetStreamPlayPositionByTime
@@ -10648,7 +10648,7 @@ DSE_SsdSetStreamPlayPositionBySize: ; 0x0207D4EC
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D524:
@@ -10657,7 +10657,7 @@ _0207D524:
 	mov r1, r6
 	mvn r0, #0x17
 	mov r2, r4
-	bl DSEi_SetWarning
+	bl DSE_SsdSetWarning
 	bic r6, r6, #0xff
 _0207D540:
 	cmp r6, #0
@@ -10669,7 +10669,7 @@ _0207D540:
 	mov r0, r4
 	mov r1, r7
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207D570:
@@ -10767,7 +10767,7 @@ DSE_SsdGetStreamSizeByTime: ; 0x0207D690
 	mov r0, r4
 	mov r1, r6
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _0207D6C4:
@@ -10986,7 +10986,7 @@ DSEi_Stream_FUN_0207d910: ; 0x0207D910
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0207D998:
@@ -11101,8 +11101,8 @@ DSEi_Stream_FUN_0207dafc: ; 0x0207DAFC
 	bx lr
 	arm_func_end DSEi_Stream_FUN_0207dafc
 
-	arm_func_start DSEi_Stream_UpdateVolumeAndPan
-DSEi_Stream_UpdateVolumeAndPan: ; 0x0207DB04
+	arm_func_start DSE_SsdStreamUpdateVolumeAndPan
+DSE_SsdStreamUpdateVolumeAndPan: ; 0x0207DB04
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r0, _0207DBE4 ; =0x020BBEC0
 	ldr r0, [r0, #0x1c8]
@@ -11133,7 +11133,7 @@ _0207DB18:
 	add r1, r2, r1, asr #6
 	mov r6, #0
 	ble _0207DBD4
-	ldr r2, _0207DBF0 ; =0x020B9FD8
+	ldr r2, _0207DBF0 ; =DSEi_SsdWork
 	mov lr, #0x7f
 	mov r4, r6
 	mov r5, #0x40
@@ -11166,8 +11166,8 @@ _0207DBD4:
 _0207DBE4: .word unk_020BBEC0
 _0207DBE8: .word 0x82061029
 _0207DBEC: .word 0x81020409
-_0207DBF0: .word unk_020B9FD8
-	arm_func_end DSEi_Stream_UpdateVolumeAndPan
+_0207DBF0: .word DSEi_SsdWork
+	arm_func_end DSE_SsdStreamUpdateVolumeAndPan
 
 	arm_func_start DSEi_StreamAlloc
 DSEi_StreamAlloc: ; 0x0207DBF4
@@ -11418,7 +11418,7 @@ DSEi_StartStreamThreads: ; 0x0207DF40
 	mov r0, r5
 	mov r1, r8
 	mov r2, r7
-	bl DSEi_AllocateLastFit
+	bl DSE_SsdAllocLastFit
 	ldr r6, _0207E02C ; =0x020BBEC0
 	cmp r0, #0
 	str r0, [r6, #0xe8]
@@ -11432,7 +11432,7 @@ DSEi_StartStreamThreads: ; 0x0207DF40
 	mov r1, r8
 	sub r2, r7, #0xf2000000
 	strb r4, [r6, #0x27]
-	bl DSEi_AllocateLastFit
+	bl DSE_SsdAllocLastFit
 	cmp r0, #0
 	str r0, [r6, #0x1b4]
 	addeq sp, sp, #8
@@ -11479,7 +11479,7 @@ _0207E03C: .word DSEi_StreamReadThreadFunc
 	arm_func_start DSEi_QuitStreamThreads
 DSEi_QuitStreamThreads: ; 0x0207E040
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r1, _0207E0A8 ; =0x020B9FD8
+	ldr r1, _0207E0A8 ; =DSEi_SsdWork
 	ldr r5, _0207E0AC ; =0x020BBEE8
 	ldrb r0, [r1, #0x744]
 	ldr r4, _0207E0B0 ; =0x020BBEC0
@@ -11504,7 +11504,7 @@ DSEi_QuitStreamThreads: ; 0x0207E040
 	mov r0, r5
 	bl OS_JoinThread
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_0207E0A8: .word unk_020B9FD8
+_0207E0A8: .word DSEi_SsdWork
 _0207E0AC: .word unk_020BBEE8
 _0207E0B0: .word unk_020BBEC0
 _0207E0B4: .word unk_020BBFB4
@@ -11750,7 +11750,7 @@ _0207E3D8:
 	beq _0207E424
 	mov r0, #0x3e8
 	mul r0, r1, r0
-	ldr r1, _0207E588 ; =0x020B9FD8
+	ldr r1, _0207E588 ; =DSEi_SsdWork
 	ldrsh r1, [r1, #0x28]
 	bl _u32_div_f
 	mov r0, r0, lsl #0x10
@@ -11850,7 +11850,7 @@ _0207E564:
 	blx r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0207E584: .word unk_020BBEC0
-_0207E588: .word unk_020B9FD8
+_0207E588: .word DSEi_SsdWork
 _0207E58C: .word 0x04000208
 	arm_func_end DSEi_Stream_FUN_0207e2e0
 
@@ -11962,7 +11962,7 @@ _0207E6CC:
 	str r9, [r6, #0x140]
 	ldrb r0, [r10, #0x22]
 	cmp r0, #1
-	ldrne r0, _0207E808 ; =0x020B9FD8
+	ldrne r0, _0207E808 ; =DSEi_SsdWork
 	ldrneb r0, [r0, #0x41]
 	cmpne r0, #1
 	moveq r0, #0x40
@@ -11985,7 +11985,7 @@ _0207E750:
 	cmp r8, r0
 	blt _0207E6CC
 _0207E77C:
-	ldr r1, _0207E808 ; =0x020B9FD8
+	ldr r1, _0207E808 ; =DSEi_SsdWork
 	ldr r4, _0207E804 ; =0x04000208
 	ldrb r0, [r1, #0x745]
 	mov r3, #1
@@ -12022,7 +12022,7 @@ _0207E7F8: .word DSEi_StreamAlarmCallback
 _0207E7FC: .word 0x82061029
 _0207E800: .word 0x81020409
 _0207E804: .word 0x04000208
-_0207E808: .word unk_020B9FD8
+_0207E808: .word DSEi_SsdWork
 	arm_func_end DSEi_Stream_FUN_0207e590
 
 	arm_func_start DSEi_Stream_FUN_0207e80c
@@ -12054,7 +12054,7 @@ _0207E850:
 	cmp r4, r0
 	blt _0207E850
 _0207E870:
-	ldr r1, _0207E898 ; =0x020B9FD8
+	ldr r1, _0207E898 ; =DSEi_SsdWork
 	ldr r2, _0207E894 ; =0x04000208
 	ldrb r3, [r1, #0x745]
 	mov r0, #0
@@ -12064,7 +12064,7 @@ _0207E870:
 	strh r5, [r2]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0207E894: .word 0x04000208
-_0207E898: .word unk_020B9FD8
+_0207E898: .word DSEi_SsdWork
 	arm_func_end DSEi_Stream_FUN_0207e80c
 
 	arm_func_start DSEi_Stream_FUN_0207e89c
@@ -12224,7 +12224,7 @@ _0207EA84:
 	ldr r1, [r6, #0x1c0]
 	mov r0, r4
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	add sp, sp, #0x10
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -12236,7 +12236,7 @@ _0207EACC:
 	ldr r1, [r6, #0x1c0]
 	mov r0, r4
 	mov r2, #0
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	add sp, sp, #0x10
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -12420,7 +12420,7 @@ DSEi_Stream_FUN_0207ed28: ; 0x0207ED28
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	ldr r0, [r7]
 	ldr r3, [r7, #0x214]
 	ldr r12, [r7, #0x210]
@@ -12564,7 +12564,7 @@ DSEi_Stream_FUN_0207eed4: ; 0x0207EED4
 	mov r1, r5
 	mov r2, r5
 	sub r0, r5, #0xb8
-	bl DSEi_SetWarning
+	bl DSE_SsdSetWarning
 	ldrb r0, [r10, #0x22]
 	cmp r0, #0
 	ble _0207F154
@@ -12765,7 +12765,7 @@ _0207F240:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl DSEi_SetWarning
+	bl DSE_SsdSetWarning
 	b _0207F3D8
 _0207F254:
 	ldrb r7, [r10, #0x22]
@@ -12924,7 +12924,7 @@ _0207F478:
 	mov r1, #0
 	mov r2, r1
 	mvn r0, #0xb7
-	bl DSEi_SetWarning
+	bl DSE_SsdSetWarning
 	b _0207F554
 _0207F48C:
 	ldrb r4, [r7, #0x22]
@@ -19072,10 +19072,10 @@ _02084B40:
 	bx lr
 	arm_func_end DSEi_FUN_02084ae4
 
-	arm_func_start DSEi_CaptureInit
-DSEi_CaptureInit: ; 0x02084B48
+	arm_func_start DSE_SsdCaptureInit
+DSE_SsdCaptureInit: ; 0x02084B48
 	stmfd sp!, {r4, lr}
-	ldr r0, _02084B6C ; =0x020B9FD8
+	ldr r0, _02084B6C ; =DSEi_SsdWork
 	mov r4, #0
 	add r0, r0, #0x700
 	strh r4, [r0, #0x1a]
@@ -19083,19 +19083,19 @@ DSEi_CaptureInit: ; 0x02084B48
 	bl DSEi_StartCaptureThread
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02084B6C: .word unk_020B9FD8
-	arm_func_end DSEi_CaptureInit
+_02084B6C: .word DSEi_SsdWork
+	arm_func_end DSE_SsdCaptureInit
 
-	arm_func_start DSEi_QuitCapture
-DSEi_QuitCapture: ; 0x02084B70
+	arm_func_start DSE_SsdQuitCapture
+DSE_SsdQuitCapture: ; 0x02084B70
 	stmfd sp!, {r3, lr}
-	bl DSEi_QuitCaptureThread
+	bl DSE_SsdQuitCaptureThread
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end DSEi_QuitCapture
+	arm_func_end DSE_SsdQuitCapture
 
-	arm_func_start DSEi_StopCapture
-DSEi_StopCapture: ; 0x02084B80
+	arm_func_start DSE_SsdStopCapture
+DSE_SsdStopCapture: ; 0x02084B80
 	stmfd sp!, {r3, lr}
 	ldr r0, _02084BAC ; =0x020BA6D8
 	ldrh r0, [r0, #0x1a]
@@ -19109,10 +19109,10 @@ _02084BA4:
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
 _02084BAC: .word unk_020BA6D8
-	arm_func_end DSEi_StopCapture
+	arm_func_end DSE_SsdStopCapture
 
-	arm_func_start DSEi_CaptureSuspend
-DSEi_CaptureSuspend: ; 0x02084BB0
+	arm_func_start DSE_SsdCaptureSuspend
+DSE_SsdCaptureSuspend: ; 0x02084BB0
 	stmfd sp!, {r3, lr}
 	ldr r0, _02084BCC ; =0x020BC404
 	ldrsb r1, [r0, #0x24]
@@ -19121,10 +19121,10 @@ DSEi_CaptureSuspend: ; 0x02084BB0
 	bl DSEi_SuspendCapture
 	ldmfd sp!, {r3, pc}
 _02084BCC: .word unk_020BC404
-	arm_func_end DSEi_CaptureSuspend
+	arm_func_end DSE_SsdCaptureSuspend
 
-	arm_func_start DSEi_CaptureResume
-DSEi_CaptureResume: ; 0x02084BD0
+	arm_func_start DSE_SsdCaptureResume
+DSE_SsdCaptureResume: ; 0x02084BD0
 	stmfd sp!, {r3, r4, r5, lr}
 	ldr r5, _02084C14 ; =0x020BC404
 	ldrsb r0, [r5, #0x24]
@@ -19143,7 +19143,7 @@ DSEi_CaptureResume: ; 0x02084BD0
 	bl DSEi_StartCapture
 	ldmfd sp!, {r3, r4, r5, pc}
 _02084C14: .word unk_020BC404
-	arm_func_end DSEi_CaptureResume
+	arm_func_end DSE_SsdCaptureResume
 
 	arm_func_start DSEi_StartCaptureThread
 DSEi_StartCaptureThread: ; 0x02084C18
@@ -19160,7 +19160,7 @@ DSEi_StartCaptureThread: ; 0x02084C18
 	mov r0, r7
 	strb r4, [r5, #0x26]
 	mov r1, #0x10
-	bl DSEi_AllocateLastFit
+	bl DSE_SsdAllocLastFit
 	str r0, [r5, #0x34]
 	ldr r6, _02084CA0 ; =0x020BC43C
 	ldr r0, _02084CA4 ; =0x020BAFD8
@@ -19186,8 +19186,8 @@ _02084CA4: .word unk_020BAFD8
 _02084CA8: .word DSEi_CaptureThreadFunc
 	arm_func_end DSEi_StartCaptureThread
 
-	arm_func_start DSEi_QuitCaptureThread
-DSEi_QuitCaptureThread: ; 0x02084CAC
+	arm_func_start DSE_SsdQuitCaptureThread
+DSE_SsdQuitCaptureThread: ; 0x02084CAC
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, #0
 	mov r0, r8
@@ -19208,13 +19208,13 @@ DSEi_QuitCaptureThread: ; 0x02084CAC
 	strh r6, [r7]
 	bl OS_JoinThread
 	ldr r0, [r4, #0x34]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02084D08: .word unk_020BC43C
 _02084D0C: .word unk_020BC404
 _02084D10: .word 0x04000208
-	arm_func_end DSEi_QuitCaptureThread
+	arm_func_end DSE_SsdQuitCaptureThread
 
 	arm_func_start DSEi_SetupCapture
 DSEi_SetupCapture: ; 0x02084D14
@@ -19239,7 +19239,7 @@ DSEi_SetupCapture: ; 0x02084D14
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084D74:
@@ -19249,7 +19249,7 @@ _02084D74:
 	mov r1, #0
 	mov r0, r4
 	mov r2, r1
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084D98:
@@ -19274,14 +19274,14 @@ _02084D98:
 	ldr r0, [r8]
 	cmp r0, #0
 	beq _02084DF4
-	bl DSEi_Free
+	bl DSE_SsdFree
 	str r10, [r8]
 _02084DF4:
 	ldr r8, _02084FF4 ; =0x020BC404
 	ldr r0, [r8, #8]
 	cmp r0, #0
 	beq _02084E0C
-	bl DSEi_Free
+	bl DSE_SsdFree
 	str r10, [r8, #8]
 _02084E0C:
 	cmp r7, #0
@@ -19374,7 +19374,7 @@ _02084EDC:
 	bne _02084F58
 	mov r4, #0x20
 	mov r1, r4
-	bl DSEi_AllocateUser
+	bl DSE_SsdAllocateUser
 	movs r1, r0
 	str r1, [r8]
 	subeq r0, r4, #0xa0
@@ -19387,18 +19387,18 @@ _02084F58:
 	bne _02084FB8
 	ldr r0, [r8, #0x10]
 	mov r1, #0x20
-	bl DSEi_AllocateUser
+	bl DSE_SsdAllocateUser
 	str r0, [r8, #8]
 	cmp r0, #0
 	bne _02084FAC
 	ldr r0, [r8]
-	bl DSEi_Free
+	bl DSE_SsdFree
 	mov r1, #0
 	sub r4, r1, #0x80
 	mov r0, r4
 	mov r2, r1
 	str r1, [r8]
-	bl DSEi_SetError
+	bl DSE_SsdSetError
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _02084FAC:
@@ -19572,7 +19572,7 @@ _02085194:
 	strh r5, [r10, #6]
 	cmp r9, #2
 	blt _02085194
-	ldr r1, _02085270 ; =0x020B9FD8
+	ldr r1, _02085270 ; =DSEi_SsdWork
 	ldr r0, _02085274 ; =0x020BC404
 	ldrb r3, [r1, #0x745]
 	strb r5, [r0, #0x25]
@@ -19595,7 +19595,7 @@ _02085194:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02085268: .word DSEi_WakeupCaptureThread
 _0208526C: .word 0x04000208
-_02085270: .word unk_020B9FD8
+_02085270: .word DSEi_SsdWork
 _02085274: .word unk_020BC404
 	arm_func_end DSEi_StartCapture
 
@@ -19622,7 +19622,7 @@ _020852B8:
 	add r5, r5, #1
 	cmp r5, #2
 	blt _020852A4
-	ldr r12, _0208530C ; =0x020B9FD8
+	ldr r12, _0208530C ; =DSEi_SsdWork
 	mov r0, #0
 	ldrb r2, [r12, #0x745]
 	ldr lr, _02085308 ; =0x04000208
@@ -19640,7 +19640,7 @@ _020852B8:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02085304: .word unk_020BC404
 _02085308: .word 0x04000208
-_0208530C: .word unk_020B9FD8
+_0208530C: .word DSEi_SsdWork
 	arm_func_end DSEi_SuspendCapture
 
 	arm_func_start DSEi_WakeupCaptureThread
@@ -21097,8 +21097,8 @@ DSE_LFO_WAVEFORM_CALLBACKS:
 	.word DSE_SsdLfoOffProc
 	.word DSE_SsdLfoOffProc
 	.word DSE_SsdLfoOffProc
-	.global unk_02091E94
-unk_02091E94:
+	.global DSE_gSsdPanTableFlat
+DSE_gSsdPanTableFlat:
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40
@@ -21108,8 +21108,8 @@ unk_02091E94:
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40
 	.byte 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40, 0x40
 	.byte 0x40, 0x40, 0x40, 0x40
-	.global unk_02091F14
-unk_02091F14:
+	.global DSE_gSsdPanTableCompressed
+DSE_gSsdPanTableCompressed:
 	.byte 0x10, 0x11, 0x12, 0x12, 0x13, 0x14, 0x15, 0x15, 0x16, 0x17, 0x18, 0x18
 	.byte 0x19, 0x1A, 0x1B, 0x1B, 0x1C, 0x1D, 0x1E, 0x1E, 0x1F, 0x20, 0x21, 0x21, 0x22, 0x23, 0x24, 0x24
 	.byte 0x25, 0x26, 0x27, 0x27, 0x28, 0x29, 0x2A, 0x2A, 0x2B, 0x2C, 0x2D, 0x2D, 0x2E, 0x2F, 0x30, 0x30
@@ -21119,8 +21119,8 @@ unk_02091F14:
 	.byte 0x55, 0x56, 0x57, 0x57, 0x58, 0x59, 0x5A, 0x5A, 0x5B, 0x5C, 0x5D, 0x5D, 0x5E, 0x5F, 0x60, 0x60
 	.byte 0x61, 0x62, 0x63, 0x63, 0x64, 0x65, 0x66, 0x66, 0x67, 0x68, 0x69, 0x69, 0x6A, 0x6B, 0x6C, 0x6C
 	.byte 0x6D, 0x6E, 0x6F, 0x6F
-	.global unk_02091F94
-unk_02091F94:
+	.global DSE_gSsdPanTableDirect
+DSE_gSsdPanTableDirect:
 	.byte 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B
 	.byte 0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B
 	.byte 0x1C, 0x1D, 0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x2B
@@ -21530,8 +21530,8 @@ unk_02092098:
 	.byte 0xBA, 0x7F, 0xC2, 0x7F, 0xC9, 0x7F, 0xD1, 0x7F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 
     .bss
-	.global unk_020B9FD8
-unk_020B9FD8:
+	.global DSEi_SsdWork
+DSEi_SsdWork:
 	.space 0x04
 	.global unk_020B9FDC
 unk_020B9FDC:

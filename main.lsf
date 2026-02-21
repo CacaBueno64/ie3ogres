@@ -55,9 +55,14 @@ Static main
 	Object src/gamemodes.o
 	Object asm/arm9_0202a020.o
 	Object asm/arm9_data_0208f904.o
-	#Object src/audioplayer.o
+	# Object src/audioplayer.o
 
-	Object asm/init/arm9_init_02086b94.o
+	Object asm/arm9_0202dbf8.o
+	Object asm/arm9_rodata_0208c340.o
+	Object src/movieplayer.o
+	Object asm/arm9_data_0208fbb0.o
+	Object asm/arm9_bss_020b5bb0.o
+
 	Object asm/init/arm9_init_02086be8.o
 	Object asm/init/arm9_init_02086c3c.o
 	Object asm/init/arm9_init_02086c8c.o
@@ -94,11 +99,6 @@ Static main
 	Object asm/init/arm9_init_020876a4.o
 	Object asm/init/arm9_init_020876f8.o
 
-	Object asm/arm9_0202dbf8.o
-	Object asm/arm9_rodata_0208c340.o
-	Object asm/arm9_data_0208fbb0.o
-	Object src/movieplayer.o
-	Object asm/arm9_bss_020b5b80.o
 	Object src/fileio.o
 	Object asm/arm9_0202fd38.o
 	Object asm/arm9_rodata_0208c35c.o

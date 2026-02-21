@@ -48,11 +48,11 @@ typedef struct {
     s8 pad7;
     u16 *BGScrMain[2];
     u16 *BGScrSub[2];
-    u8 pad18[0x08]; // pad?
+    u8 pad18[0x8]; // pad?
     void *unk20; // never used
     void *unk24; // never used
+    u8 pad28[0x8]; // pad?
 } UnkStruct_020B5B80;
-extern UnkStruct_020B5B80 unk_020B5B80;
 
 class MoviePlayer {
     public:

@@ -1,4 +1,7 @@
 #include "movieplayer.hpp"
+#include "init/arm9_init.hpp"
+
+UnkStruct_020B5B80 unk_020B5B80;
 
 MoviePlayer::MoviePlayer()
 {

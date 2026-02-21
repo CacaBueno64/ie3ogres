@@ -26,7 +26,7 @@ typedef struct {
     s16 voiceHigh; /* from 3ds debug prints */
     u16 nSequences;
     u16 nChannels;
-    DSEAllocDataRec allocArgs;
+    DSEAllocDataRec allocData;
     void *errorConsoleCallback;
     void *warningConsoleCallback;
     u32 unk30;
@@ -89,6 +89,7 @@ int DSE_SsdIsOpenStream(s32 id);
 int DSE_SsdSetMonoToStereo(s8 param0);
 int DSE_SsdOpenStreamByFile(const char *path, s32 fifoSize, s8 param2);
 int DSE_SsdPlayStream(s32 id, DSESsdPlayNormalParamRecord *params, BOOL param2);
+int DSE_SsdSetStreamParam(s32 id, DSESsdPlayNormalParamRecord *params);
 
 void DSE_SsdInitSsdInitData(DSESsdInitDataRec *init);
 int DSE_SsdSetInitDataSoundHeap(DSESsdInitDataRec *init, void *start, u32 size);

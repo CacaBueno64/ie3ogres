@@ -1,14 +1,5 @@
 
 	.bss
-	.global unk_020B5B80
-unk_020B5B80:
-	.space 0x08
-	.global unk_020B5B88
-unk_020B5B88:
-	.space 0x08
-	.global unk_020B5B90
-unk_020B5B90:
-	.space 0x20
 	.global unk_020B5BB0
 unk_020B5BB0:
 	.space 0x08
