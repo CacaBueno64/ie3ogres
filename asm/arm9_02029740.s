@@ -345,8 +345,8 @@ FUN_02029bf8: ; 0x02029BF8
 	arm_func_start L5_Main ; https://decomp.me/scratch/9QyO3
 L5_Main: ; 0x02029C08
 	stmfd sp!, {r3, lr}
-	bl _Z10InitCommonv
-	bl _Z12FUN_02029140v
+	bl _Z7InitSDKv
+	bl _Z9InitAllocv
 	bl _Z9VramClearv
 	bl _Z15InitTouchPannelv
 	bl _Z7InitG3dv
@@ -358,7 +358,7 @@ L5_Main: ; 0x02029C08
 	bl FS_LoadOverlay
 	bl _Z11InitGlobalsv
 	bl _Z12FUN_020295e8v
-	bl _Z12FUN_02029608v
+	bl _Z15InitCommonFilesv
 	bl _Z8InitFontv
 	bl FUN_02029b40
 	bl FUN_02029bd0

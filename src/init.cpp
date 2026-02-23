@@ -29,7 +29,7 @@ void VBlankIntr(void)
 
 void InitHeap(void)
 {
-    InitAlloc();
+    InitArena();
     
     void *heapstart = OS_AllocFromMainArenaLo(0x2d000, 0x20);
     OSHeapHandle handle = OS_CreateHeap(OS_ARENA_MAIN, heapstart, (void *)((u32)heapstart + 0x2d000));
@@ -38,7 +38,7 @@ void InitHeap(void)
     unk_02099E8C.unkC0 = handle;
 }
 
-void InitCommon(void)
+void InitSDK(void)
 {
     OS_Init();
     OS_InitTick();
@@ -56,7 +56,7 @@ void InitCommon(void)
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay16));
 }
 
-void FUN_02029140(void)
+void InitAlloc(void)
 {
     void *arenaLo = OS_GetMainArenaLo();
     unk_02099E8C.unk94 = arenaLo;
@@ -172,10 +172,10 @@ void InitG3d(void)
 
 void InitTouchPannel(void)
 {
-    TP_Init();
     TPCalibrateParam calibrate;
-    BOOL userInfo = TP_GetUserInfo(&calibrate);
-    if (!userInfo) {
+    
+    TP_Init();
+    if (!TP_GetUserInfo(&calibrate)) {
         OS_Terminate();
         return;
     }
@@ -188,7 +188,7 @@ void FUN_020295e8(void)
     gLogicThink.FUN_0206f244();
 }
 
-void FUN_02029608(void)
+void InitCommonFiles(void)
 {
     gLogicThink.readUnitNo();
     gLogicThink.initLiveTalk();

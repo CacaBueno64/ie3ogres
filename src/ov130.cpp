@@ -1,11 +1,11 @@
 #include "ov130.hpp"
 #include "init/arm9_init.hpp"
 
-void InitAlloc(void)
+void InitArena(void)
 {
     void *lo = OS_GetMainArenaLo();
     void *hi = OS_GetMainArenaHi();
-    MI_CpuClearFast(lo, (u32)hi - (u32)lo);
+    MI_CpuClearFast(lo, reinterpret_cast<u32>(hi) - reinterpret_cast<u32>(lo));
     void *newLo = OS_InitAlloc(OS_ARENA_MAIN, lo, hi, 2);
     OS_SetMainArenaLo(newLo);
 }

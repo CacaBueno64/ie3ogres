@@ -151,7 +151,7 @@ class CSceneScriptThread {
         /* ov16 0x020fe51c */ void init(CSceneScriptManager *manager);
         BOOL FUN_ov16_020fe530(int idx);
         /* ov16 0x020fe56c */ void reset(void);
-        /* ov16 0x020fe584 */ BOOL checkFunctionCondition(void *start, s32 *argv);
+        /* ov16 0x020fe584 */ BOOL checkFunctionCondition(ScriptInstruction *start, s32 *argv);
         /* ov16 0x020fe6e8 */ void executeScope(CSceneDirection *direction, ScriptInstruction *start, s32 *argv);
         /* ov16 0x020fe8b0 */ u32 resetEvents(void);
         void FUN_ov16_020fe904(void);
@@ -181,7 +181,7 @@ class CSceneScriptThread {
     s32 variable[64];
     SScriptEvent *firstEvent;
     SScriptEvent *unkEvent[8];
-    SScriptEvent *event;
+    SScriptEvent *events;
     int evCount;
     u32 unk13C;
     int fileIdx;
@@ -193,7 +193,7 @@ class CSceneScriptThread {
     u32 unk158;
     u32 unk15C;
     int argc;
-    int returnVal;
+    u32 returnVal;
     u32 unk168;
     u32 unk16C;
     u8 unk170[0x8];

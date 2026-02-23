@@ -109,19 +109,6 @@ typedef struct {
 extern UnkStruct_02099E8C unk_02099E8C;
 
 typedef struct {
-    u8 izType; // 0: Ogre, 1: Bomber (or Spark idk)
-    u8 geometryUnderflowCheck;
-    u8 menuMovieMax;
-    u32 rpgMoveAccelUp;
-    u32 rpgMoveAccelDown;
-    u32 rpgMoveSpeed;
-    u32 rpgStandDist;
-    u32 rpgGiveupMoveDist;
-    u16 rpgMinimapScrollVelocity;
-} UnkStruct_0209A1A8;
-extern UnkStruct_0209A1A8 unk_0209A1A8;
-
-typedef struct {
     u32 unk0;
     u32 unk4;
     u32 unk8;
@@ -187,8 +174,8 @@ extern UnkStruct_0209A454 unk_0209A454;
 
 void VBlankIntr(void);
 void InitHeap(void);
-void InitCommon(void);
-void FUN_02029140(void);
+void InitSDK(void);
+void InitAlloc(void);
 void VramClear(void);
 void InitInterrupt(void);
 void FUN_020292e8(void);
@@ -197,7 +184,7 @@ void InitGlobals(void);
 void InitG3d(void);
 void InitTouchPannel(void);
 void FUN_020295e8(void);
-void FUN_02029608(void);
+void InitCommonFiles(void);
 void InitFont(void);
 
 #endif //IE3OGRES_INIT_H

@@ -21,6 +21,3 @@ unk_020B5B40:
 	.global unk_020B5B58
 unk_020B5B58:
 	.space 0x20
-	.global unk_020B5B78
-unk_020B5B78:
-	.space 0x08

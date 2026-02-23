@@ -51,8 +51,8 @@
 .public FUN_0204665c
 .public _Z9VramClearv
 .public _Z13InitInterruptv
-.public _Z10InitCommonv
-.public _Z12FUN_02029140v
+.public _Z7InitSDKv
+.public _Z9InitAllocv
 .public _Z15InitTouchPannelv
 .public _Z7InitG3dv
 .public _Z12FUN_020292e8v
@@ -60,7 +60,7 @@
 .public FS_LoadOverlay
 .public _Z11InitGlobalsv
 .public _Z12FUN_020295e8v
-.public _Z12FUN_02029608v
+.public _Z15InitCommonFilesv
 .public FUN_0202afd0
 .public _ZdlPv
 .public FUN_0205a504

@@ -109,7 +109,7 @@ class CUnitMan {
     st_unit_save *savesEnd;
     u32 *crcs;
     u16 unitCount;
-    u8 unk1A[0x2]; //pad?
+    u8 unk1A[0x2]; // pad?
     void *fieldPresence;
     void *unk20;
     u16 unk24;
