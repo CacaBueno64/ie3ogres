@@ -3,7 +3,6 @@
 	.include "/include/arm9_0206f0b8.inc"
 
 	.text
-
 	arm_func_start FUN_0206f0b8
 FUN_0206f0b8: ; 0x0206F0B8
 	ldr r3, _0206F14C ; =0x020912F8

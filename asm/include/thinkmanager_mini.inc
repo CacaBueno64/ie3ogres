@@ -1,0 +1,9 @@
+.public FUN_0204959c
+.public unk_02090428
+.public FUN_020495e4
+.public _ZdlPv
+.public FUN_020497ec
+.public FUN_ov16_020f2700
+.public FUN_ov16_020f0810
+.public FUN_ov16_020f0a14
+.public FUN_02049840

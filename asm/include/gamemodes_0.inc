@@ -1,0 +1,16 @@
+.public unk_020B5AE0
+.public unk_0208F898
+.public FUN_0202a288
+.public FUN_0202a1a0
+.public FUN_0202a020
+.public _Z14LogoScreenLoadP15GameModeContext
+.public _Z14CardScreenLoadP15GameModeContext
+.public _Z17EndrollScreenLoadP15GameModeContext
+.public FUN_ov16_LoadOverlay
+.public _Znwm
+.public _ZN14CScreenManagerC2Ev
+.public ov15_020E6500
+.public ov15_020E6698
+.public ov15_020E6B64
+.public ov15_020E6C98
+.public ov15_020E6578

@@ -1,0 +1,9 @@
+.public _ZN8Graphics20IsMainBrightAdjustedEv
+.public _ZN8Graphics12IsMainFadingEv
+.public _ZN8Graphics13FadeMainWhiteEl
+.public _ZN8Graphics13FadeMainBlackEl
+.public _ZN8Graphics10FadeInMainEl
+.public _ZN8Graphics12WhiteOutMainEv
+.public _ZN8Graphics12BlackOutMainEv
+.public _ZN8Graphics16UpdateScreenFadeE12EngineSelect
+.public _ZN8Graphics15ResetScreenFadeE12EngineSelect

@@ -40,7 +40,7 @@ typedef struct {
     u16 unkA;
 } ScreenFade;
 
-/* 0x0209a110 */ extern int gDeltaTime;
+/* 0x0209a110 */ extern u32 gDeltaTime;
 
 /* 0x0209a144 */ extern SFileData gDebugFont;
 

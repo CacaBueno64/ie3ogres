@@ -1,0 +1,10 @@
+.public _ZdlPv
+.public _ZN8Graphics19IsSubBrightAdjustedEv
+.public _ZN8Graphics11IsSubFadingEv
+.public _ZN8Graphics12FadeSubWhiteEl
+.public _ZN8Graphics12FadeSubBlackEl
+.public _ZN8Graphics9FadeInSubEl
+.public _ZN8Graphics11WhiteOutSubEv
+.public _ZN8Graphics11BlackOutSubEv
+.public _ZN8Graphics16UpdateScreenFadeE12EngineSelect
+.public _ZN8Graphics15ResetScreenFadeE12EngineSelect

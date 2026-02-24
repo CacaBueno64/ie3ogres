@@ -1,0 +1,12 @@
+.public _ZTV11C3DGameBase
+.public _ZN9Allocator8allocateEm
+.public MI_CpuFill8
+.public gAllocator
+.public _ZN9Allocator10deallocateEPv
+.public _ZN7Archive14RequestNewReadEPKcP9SFileData
+.public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
+.public _ZN7Archive11TryFinalizeEP9SFileDatai
+.public _ZN7Archive5CloseEP9SFileDatai
+.public _ZN7Archive10DeallocateEP9SFileData
+.public FUN_ov16_020faac4
+.public FUN_ov16_020fab94

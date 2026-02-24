@@ -302,7 +302,7 @@ Archive::PackEntry_HOSC *GetFile(arckey_t arcKey, s32 fileIdx) {
         return NULL;
     }
 
-    Archive::PackEntry_HOSC *files = (Archive::PackEntry_HOSC *)arc->files;
+    Archive::PackEntry_HOSC *files = static_cast<Archive::PackEntry_HOSC *>(arc->files);
 
     return &files[fileIdx];
 }

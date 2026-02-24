@@ -123,7 +123,6 @@ class CLogoScreenManager : public CScreenManager {
 };
 
 extern "C" {
-    extern int gDeltaTime;
     extern void *gBgMenuManager;
     extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
     extern void FUN_ov16_020f2a74(SMovieInfo *);

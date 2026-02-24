@@ -38,7 +38,7 @@ Static main
 	Object lib/TwlSystem/asm/gfd/libnnsgfd.o
 	Object lib/TwlSystem/asm/snd/libnnssnd.o
 
-	# MSL_C library
+	# MSL library
 	Object lib/MSL_C/asm/libmsl.o
 
 	Object asm/init/arm9_init_02086768.o
@@ -48,18 +48,19 @@ Static main
 	Object asm/arm9_02028fa0.o
 	Object asm/arm9_data_0208f680.o
 	Object asm/arm9_bss_02099e8c.o
-	Object asm/arm9_bss_020b5ae0.o
-	Object src/init.o
-	Object asm/arm9_02029740.o
-	Object asm/arm9_data_0208f800.o
+	Object src/izmain.o
+	Object asm/izmain_0.o
+	Object asm/gamemodes_0.o
 	Object src/gamemodes.o
-	Object asm/arm9_0202a020.o
+	Object asm/gamemodes_1.o
+	Object asm/gamemain.o
+	Object asm/commonscreen.o
+	Object asm/commonsubscreen.o
+	Object asm/commonmainscreen.o
 	Object asm/arm9_data_0208f904.o
 	Object src/audioplayer.o
-	Object asm/arm9_0202dbf8.o
-	Object asm/arm9_rodata_0208c340.o
+	Object asm/allocator.o
 	Object src/movieplayer.o
-	Object asm/arm9_data_0208fbb0.o
 	Object asm/arm9_bss_020b5bb0.o
 
 	Object asm/init/arm9_init_02086be8.o
@@ -99,13 +100,44 @@ Static main
 	Object asm/init/arm9_init_020876f8.o
 
 	Object src/fileio.o
-	Object asm/arm9_0202fd38.o
+	Object asm/scenescriptdata.o
+	Object asm/scenedirection.o
+	Object asm/arm9_0203df80.o
+	Object asm/arm9_0203fb5c.o
+	Object asm/memcopy.o
+	Object asm/vram.o
 	Object asm/arm9_rodata_0208c35c.o
 	Object asm/arm9_data_0208fc08.o
 	Object src/config.o
 	Object asm/arm9_data_0208ff14.o
 	Object src/screenmanager.o
-	Object asm/arm9_0204212c.o
+	Object asm/fontmanager.o
+	Object asm/calcmap.o
+	Object asm/distancemap.o
+	Object asm/eventscreenmanager.o
+	Object asm/arm9_020453e0.o
+	Object asm/wirelessutil.o
+	Object asm/scenescriptmanager.o
+	Object asm/scenescriptfilecontext.o
+	Object asm/thinkmanager_mini.o
+	Object asm/thinkmanager.o
+	Object asm/logicthink.o
+	Object asm/3ddevice.o
+	Object asm/resourcemanager.o
+	Object asm/3dgamebase.o
+	Object asm/arm9_0205244c.o
+	Object asm/arm9_0205318c.o
+	Object asm/arm9_020540e0.o
+	Object asm/actor2d.o
+	Object asm/2dadventurelogic.o
+	Object asm/2dgamechar.o
+	Object asm/3dspritefile.o
+	Object asm/cameracontroller.o
+	Object asm/3dgamechar.o
+	Object asm/3dgameeffect.o
+	Object asm/3dgamemap.o
+	Object asm/3dgamemapobject.o
+	Object asm/recordmanager.o
 	Object asm/arm9_rodata_0208c384.o
 	Object asm/arm9_data_0208ffec.o
 	Object src/cardcontroller.o
@@ -113,7 +145,8 @@ Static main
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
 
-	Object asm/arm9_0206b9c4.o
+	Object asm/fontmanager_2.o
+	Object asm/unitmanager.o
 	Object src/thread.o
 	Object asm/arm9_0206f0b8.o
 	Object asm/arm9_rodata_0208c504.o
