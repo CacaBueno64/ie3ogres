@@ -1,3 +1,4 @@
+.public FUN_020523ac
 .public MIi_CpuClearFast
 .public MTX_Identity43_
 .public _fflt

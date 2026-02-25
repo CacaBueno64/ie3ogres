@@ -57,17 +57,27 @@ Static main
 	Object asm/commonscreen.o
 	Object asm/commonsubscreen.o
 	Object asm/commonmainscreen.o
-	Object asm/arm9_data_0208f904.o
+	Object asm/audioplayer_data.o
 	Object src/audioplayer.o
 	Object asm/allocator.o
 	Object src/movieplayer.o
-	Object asm/arm9_bss_020b5bb0.o
 
 	Object asm/init/arm9_init_02086be8.o
 	Object asm/init/arm9_init_02086c3c.o
 	Object asm/init/arm9_init_02086c8c.o
 	Object asm/init/arm9_init_02086ce0.o
+
+	Object src/fileio.o
+	Object asm/scenescriptdata.o
+	Object asm/scenedirection.o
+	Object asm/arm9_0203df80.o
+	Object asm/arm9_0203fb5c.o
+	Object asm/memcopy.o
+	Object asm/vram.o
+	Object src/config.o
+	Object asm/arm9_data_0208ff5c.o
 	Object asm/init/arm9_init_02086d34.o
+	Object src/screenmanager.o
 	Object asm/init/arm9_init_02086d88.o
 	Object asm/init/arm9_init_02086ddc.o
 	Object asm/init/arm9_init_02086e30.o
@@ -99,18 +109,6 @@ Static main
 	Object asm/init/arm9_init_020876a4.o
 	Object asm/init/arm9_init_020876f8.o
 
-	Object src/fileio.o
-	Object asm/scenescriptdata.o
-	Object asm/scenedirection.o
-	Object asm/arm9_0203df80.o
-	Object asm/arm9_0203fb5c.o
-	Object asm/memcopy.o
-	Object asm/vram.o
-	Object asm/arm9_rodata_0208c35c.o
-	Object asm/arm9_data_0208fc08.o
-	Object src/config.o
-	Object asm/arm9_data_0208ff14.o
-	Object src/screenmanager.o
 	Object asm/fontmanager.o
 	Object asm/calcmap.o
 	Object asm/distancemap.o
@@ -127,7 +125,6 @@ Static main
 	Object asm/3dgamebase.o
 	Object asm/arm9_0205244c.o
 	Object asm/arm9_0205318c.o
-	Object asm/arm9_020540e0.o
 	Object asm/actor2d.o
 	Object asm/2dadventurelogic.o
 	Object asm/2dgamechar.o
@@ -138,8 +135,6 @@ Static main
 	Object asm/3dgamemap.o
 	Object asm/3dgamemapobject.o
 	Object asm/recordmanager.o
-	Object asm/arm9_rodata_0208c384.o
-	Object asm/arm9_data_0208ffec.o
 	Object src/cardcontroller.o
 
 	# TwlSystem G3d
@@ -149,9 +144,6 @@ Static main
 	Object asm/unitmanager.o
 	Object src/thread.o
 	Object asm/arm9_0206f0b8.o
-	Object asm/arm9_rodata_0208c504.o
-	Object asm/arm9_data_0209128c.o
-	Object asm/arm9_bss_020b9d4c.o
 
 	# DSE library
 	Object lib/DSE/asm/libDSE.o

@@ -608,3 +608,105 @@ _02049470:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02049478: .word 0x00003001
 	arm_func_end _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
+
+	.data
+	.global unk_020902C8
+unk_020902C8:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020902CC
+unk_020902CC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_020902D0
+unk_020902D0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020902E8
+unk_020902E8:
+	.asciz "act.pkb"
+	.balign 4, 0
+	.global unk_020902F0
+unk_020902F0:
+	.asciz "eve.pkb"
+	.balign 4, 0
+	.global unk_020902F8
+unk_020902F8:
+	.asciz "mch.pkb"
+	.balign 4, 0
+	.global unk_02090300
+unk_02090300:
+	.asciz "help.pkb"
+	.balign 4, 0
+	.global unk_0209030C
+unk_0209030C:
+	.asciz "evet.pkb"
+	.balign 4, 0
+	.global unk_02090318
+unk_02090318:
+	.asciz "mcht.pkb"
+	.balign 4, 0
+	.global unk_02090324
+unk_02090324:
+	.word unk_020902C8
+	.word unk_020902F0
+	.word unk_020902F8
+	.word unk_020902E8
+	.word unk_02090300
+	.global unk_02090338
+unk_02090338:
+	.word unk_020902CC
+	.word unk_0209030C
+	.word unk_02090318
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_0209034C
+unk_0209034C:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_02090360
+unk_02090360:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0
+	.global unk_02090374
+unk_02090374:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_02090388
+unk_02090388:
+	.asciz ".sst"
+	.balign 4, 0
+	.global unk_02090390
+unk_02090390:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_020903A4
+unk_020903A4:
+	.asciz "/data_iz/script/"
+	.balign 4, 0
+	.global unk_020903B8
+unk_020903B8:
+	.asciz ".sst"
+	.balign 4, 0
+	.global SSD_FileIdentifier
+SSD_FileIdentifier:
+	.asciz "SSD"
+	.balign 4, 0
+	.global SSD_FileIdentifier2
+SSD_FileIdentifier2:
+	.asciz "SSD"
+	.balign 4, 0
+	.global unk_020903C8
+unk_020903C8:
+	.asciz "eve%08d.ssd_"
+	.balign 4, 0
+	.global unk_020903D8
+unk_020903D8:
+	.asciz "mch%08d.ssd_"
+	.balign 4, 0
+	.global unk_020903E8
+unk_020903E8:
+	.asciz "act%06d.ssd_"
+	.balign 4, 0
+	.global unk_020903F8
+unk_020903F8:
+	.asciz "help%06d.ssd_"
+	.balign 4, 0

@@ -997,4 +997,47 @@ FUN_02053164: ; 0x02053164
 _02053188: .word _ZTV7CMotion+0x8
 	arm_func_end FUN_02053164
 
-
+	.data
+	.global unk_020905E8
+unk_020905E8:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090608
+unk_02090608:
+	.word FUN_02052820
+	.word FUN_020528a0
+	.global _ZTV8CTexture
+_ZTV8CTexture:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_020527ac
+	.word FUN_02053134
+	.global _ZTV7CMotion
+_ZTV7CMotion:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_02052760
+	.word FUN_02053164
+	.global unk_02090630
+unk_02090630:
+	.asciz "eye"
+	.balign 4, 0
+	.global unk_02090634
+unk_02090634:
+	.asciz "lookat"
+	.balign 4, 0
+	.global unk_0209063C
+unk_0209063C:
+	.asciz "roll"
+	.balign 4, 0
+	.global unk_02090644
+unk_02090644:
+	.asciz "/data_iz/model/pac/cmr.pkh"
+	.balign 4, 0
+	.global unk_02090660
+unk_02090660:
+	.asciz "/data_iz/model/pac/cmr.pkb"
+	.balign 4, 0
+	.global unk_0209067C
+unk_0209067C:
+	.asciz "/data_iz/model/pac/cmr.pkb"
+	.balign 4, 0

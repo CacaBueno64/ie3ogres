@@ -1884,3 +1884,96 @@ _0205E2D0:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_0205e280
+
+	.rodata
+	.global unk_0208C47C
+unk_0208C47C:
+	.byte 0x07, 0x00, 0x00, 0x00
+	.byte 0x08, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
+
+	.data
+	.global unk_020909B0
+unk_020909B0:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020909C8
+unk_020909C8:
+	.asciz "pac/mr_pac"
+	.balign 4, 0
+	.global unk_020909D4
+unk_020909D4:
+	.asciz "_pac/mv_pac"
+	.balign 4, 0
+	.global unk_020909E0
+unk_020909E0:
+	.asciz "obj/mr_nsbtx"
+	.balign 4, 0
+	.global unk_020909F0
+unk_020909F0:
+	.asciz "obj/mr_nsbmd"
+	.balign 4, 0
+	.global unk_02090A00
+unk_02090A00:
+	.asciz "_obj/mv_nsbmd"
+	.balign 4, 0
+	.global unk_02090A10
+unk_02090A10:
+	.word unk_020909F0
+	.word unk_02090A00
+	.word unk_020909C8
+	.word unk_020909D4
+	.word unk_020909E0
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090A30
+unk_02090A30:
+	.word FUN_0205ca78
+	.word FUN_0205cac8
+	.word FUN_0205cb18
+	.word FUN_020523ac
+	.word FUN_0205e280
+	.word FUN_0205d138
+	.word FUN_0205d158
+	.global unk_02090A4C
+unk_02090A4C:
+	.asciz "/data_iz/model/obj/mv_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090A6C
+unk_02090A6C:
+	.asciz "/data_iz/model/obj/mv_nsbtx.pkh"
+	.balign 4, 0
+	.global unk_02090A8C
+unk_02090A8C:
+	.asciz "/data_iz/model/pac/mv_pac.pkh"
+	.balign 4, 0
+	.global unk_02090AAC
+unk_02090AAC:
+	.asciz "/data_iz/model/obj/mv_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090ACC
+unk_02090ACC:
+	.asciz "/data_iz/model/obj/mv_nsbtx.pkb"
+	.balign 4, 0
+	.global unk_02090AEC
+unk_02090AEC:
+	.asciz "/data_iz/model/pac/mv_pac.pkb"
+	.balign 4, 0
+	.global unk_02090B0C
+unk_02090B0C:
+	.asciz "mv"
+	.balign 4, 0
+	.global unk_02090B10
+unk_02090B10:
+	.asciz "model/%s"
+	.balign 4, 0
+	.global unk_02090B1C
+unk_02090B1C:
+	.asciz "%s.nsbmd_"
+	.balign 4, 0
+	.global unk_02090B28
+unk_02090B28:
+	.asciz "%s.nsbtx_"
+	.balign 4, 0
+	.global unk_02090B34
+unk_02090B34:
+	.asciz "%s.pac_"
+	.balign 4, 0

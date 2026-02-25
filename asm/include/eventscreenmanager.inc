@@ -72,3 +72,16 @@
 .public FUN_02047ad4
 .public _ZN14CScreenManagerD2Ev
 .public _ZdlPv
+.public FUN_02029d18
+.public FUN_02043c80
+.public _ZN14CScreenManager13startGraphicsEm
+.public _ZN8CManager7vFUN_10Ev
+.public _ZN8CManager7vFUN_20Ev
+.public _ZN14CScreenManager11endGraphicsEm
+.public _ZN14CScreenManager20updateDisplayMappingEv
+.public _ZN14CScreenManager12transferMainEPv
+.public _ZN14CScreenManager11transferSubEPv
+.public _ZN14CScreenManager10signalMainEi
+.public _ZN14CScreenManager9signalSubEi
+.public _ZN14CScreenManager9stateMainEv
+.public _ZN14CScreenManager8stateSubEv

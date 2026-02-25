@@ -2205,3 +2205,55 @@ _02057EB8:
 	mla r0, r1, r0, r2
 	bx lr
 	arm_func_end FUN_02057e9c
+
+	.data
+	.global unk_020906FC
+unk_020906FC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209071C
+unk_0209071C:
+	.word FUN_020567b0
+	.word FUN_020567e8
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209072C
+unk_0209072C:
+	.word FUN_0205635c
+	.word FUN_0205637c
+	.global unk_02090734
+unk_02090734:
+	.asciz "RPG_CHAR_HEIGHT"
+	.balign 4, 0
+	.global unk_02090744
+unk_02090744:
+	.asciz "pch%08d.pac_"
+	.balign 4, 0
+	.global unk_02090754
+unk_02090754:
+	.asciz "pph%04d.PLT"
+	.balign 4, 0
+	.global unk_02090760
+unk_02090760:
+	.asciz "pcb%08d.pac_"
+	.balign 4, 0
+	.global unk_02090770
+unk_02090770:
+	.asciz "ppb%04d.PLT"
+	.balign 4, 0
+	.global unk_0209077C
+unk_0209077C:
+	.asciz "spr/char/pcb"
+	.balign 4, 0
+	.global unk_0209078C
+unk_0209078C:
+	.asciz "spr/char/pch"
+	.balign 4, 0
+	.global unk_0209079C
+unk_0209079C:
+	.asciz "spr/char/ppb"
+	.balign 4, 0
+	.global unk_020907AC
+unk_020907AC:
+	.asciz "spr/char/pph"
+	.balign 4, 0

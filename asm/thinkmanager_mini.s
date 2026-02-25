@@ -106,3 +106,27 @@ FUN_02049594: ; 0x02049594
 	mov r0, #0
 	bx lr
 	arm_func_end FUN_02049594
+
+	.data
+	.global unk_02090408
+unk_02090408:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090428
+unk_02090428:
+	.word FUN_0204949c
+	.word FUN_020494b0
+	.word FUN_020495e8
+	.word FUN_020494cc
+	.word FUN_02049804
+	.word FUN_02049818
+	.word FUN_0204982c
+	.word FUN_02049594
+	.word FUN_0204989c
+	.word FUN_0204996c
+	.word FUN_020498b8
+	.word FUN_02049a04
+	.word FUN_020494d8
+	.word FUN_02049540
+	.word FUN_02049a30

@@ -1,3 +1,5 @@
+.public FUN_020523fc
+.public FUN_020523ac
 .public unk_02090978
 .public unk_02090994
 .public FUN_ov16_020fa154

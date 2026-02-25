@@ -27,3 +27,4 @@
 .public _fadd
 .public _fsub
 .public _ffix
+.public _ZN10FileSystem10DeallocateEPv

@@ -16,7 +16,7 @@ _ZN13FontManager_2C1Ev: ; 0x0206B9C4
 	bl FUN_02043310
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_0206B9F0: .word unk_0209128C+0x8
+_0206B9F0: .word _ZTV14CFontManager_2+0x8
 	arm_func_end _ZN13FontManager_2C1Ev
 
 	arm_func_start FUN_0206b9f4
@@ -515,3 +515,16 @@ _0206C0CC:
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_0206bf74
+
+	.data
+	.global _ZTV14CFontManager_2
+_ZTV14CFontManager_2:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_0206b9f4
+	.word FUN_0206ba08
+	.word FUN_02042e4c
+	.word FUN_020430b0
+	.word FUN_0206ba24
+	.word FUN_0206bdac
+	.word FUN_0206bc20
+	.word FUN_0206bf74

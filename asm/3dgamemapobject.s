@@ -2182,3 +2182,142 @@ FUN_0205ff60: ; 0x0205FF60
 	ldmfd sp!, {r4, pc}
 _0205FF7C: .word _ZTV16C3DGameMapObject+0x8
 	arm_func_end FUN_0205ff60
+
+	.rodata
+	.global unk_0208C48C
+unk_0208C48C:
+	.byte 0x07, 0x00, 0x00, 0x00
+	.byte 0x08, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
+
+	.data
+	.global unk_02090B3C
+unk_02090B3C:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_02090B54
+unk_02090B54:
+	.asciz "pac/mo_pac"
+	.balign 4, 0
+	.global unk_02090B60
+unk_02090B60:
+	.asciz "obj/mo_nsbmd"
+	.balign 4, 0
+	.global unk_02090B70
+unk_02090B70:
+	.asciz "_pac/bal_pac.pkh"
+	.balign 4, 0
+	.global unk_02090B84
+unk_02090B84:
+	.asciz "_pac/gol_pac.pkh"
+	.balign 4, 0
+	.global unk_02090B98
+unk_02090B98:
+	.asciz "_obj/mf_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BAC
+unk_02090BAC:
+	.asciz "_obj/gol_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BC0
+unk_02090BC0:
+	.asciz "_obj/ball_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090BD4
+unk_02090BD4:
+	.word unk_02090B70
+	.word unk_02090B54
+	.word unk_02090B84
+	.word unk_02090BC0
+	.word unk_02090B60
+	.word unk_02090BAC
+	.word unk_02090B98
+	.global _ZTV16C3DGameMapObject
+_ZTV16C3DGameMapObject:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.word FUN_0205e2d8
+	.word FUN_0205e34c
+	.word FUN_0205e3c0
+	.word FUN_020523ac
+	.word FUN_020523fc
+	.word FUN_0205ff60
+	.word FUN_0205ff38
+	.global unk_02090C14
+unk_02090C14:
+	.asciz "/data_iz/model/pac/bal_pac.pkh"
+	.balign 4, 0
+	.global unk_02090C34
+unk_02090C34:
+	.asciz "/data_iz/model/pac/gol_pac.pkh"
+	.balign 4, 0
+	.global unk_02090C54
+unk_02090C54:
+	.asciz "/data_iz/model/obj/ball_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090C78
+unk_02090C78:
+	.asciz "/data_iz/model/obj/gol_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090C9C
+unk_02090C9C:
+	.asciz "/data_iz/model/obj/mf_nsbmd.pkh"
+	.balign 4, 0
+	.global unk_02090CBC
+unk_02090CBC:
+	.asciz "/data_iz/model/pac/bal_pac.pkb"
+	.balign 4, 0
+	.global unk_02090CDC
+unk_02090CDC:
+	.asciz "/data_iz/model/pac/gol_pac.pkb"
+	.balign 4, 0
+	.global unk_02090CFC
+unk_02090CFC:
+	.asciz "/data_iz/model/obj/ball_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D20
+unk_02090D20:
+	.asciz "/data_iz/model/obj/gol_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D44
+unk_02090D44:
+	.asciz "/data_iz/model/obj/mf_nsbmd.pkb"
+	.balign 4, 0
+	.global unk_02090D64
+unk_02090D64:
+	.asciz ".pac_"
+	.balign 4, 0
+	.global unk_02090D6C
+unk_02090D6C:
+	.asciz "ball"
+	.balign 4, 0
+	.global unk_02090D74
+unk_02090D74:
+	.asciz "bal"
+	.balign 4, 0
+	.global unk_02090D78
+unk_02090D78:
+	.asciz "mo"
+	.balign 4, 0
+	.global unk_02090D7C
+unk_02090D7C:
+	.asciz "gol"
+	.balign 4, 0
+	.global unk_02090D80
+unk_02090D80:
+	.asciz "mf"
+	.balign 4, 0
+	.global unk_02090D84
+unk_02090D84:
+	.asciz "%s%04d"
+	.balign 4, 0
+	.global unk_02090D8C
+unk_02090D8C:
+	.asciz "%s%06d%02d"
+	.balign 4, 0
+	.global unk_02090D98
+unk_02090D98:
+	.asciz "model/%s"
+	.balign 4, 0
+	.global unk_02090DA4
+unk_02090DA4:
+	.asciz "mo%04d.nsbmd_"
+	.balign 4, 0

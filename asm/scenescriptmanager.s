@@ -1367,3 +1367,63 @@ FUN_02048c50: ; 0x02048C50
 	ldrb r0, [r0, #0xe8c]
 	bx lr
 	arm_func_end FUN_02048c50
+
+	.rodata
+	.global unk_0208C438
+unk_0208C438:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00
+	.byte 0x03, 0x00, 0x00, 0x00
+
+	.data
+	.global unk_02090220
+unk_02090220:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.global unk_02090224
+unk_02090224:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209023C
+unk_0209023C:
+	.asciz "act.pkh"
+	.balign 4, 0
+	.global unk_02090244
+unk_02090244:
+	.asciz "eve.pkh"
+	.balign 4, 0
+	.global unk_0209024C
+unk_0209024C:
+	.asciz "mch.pkh"
+	.balign 4, 0
+	.global unk_02090254
+unk_02090254:
+	.asciz "help.pkh"
+	.balign 4, 0
+	.global unk_02090260
+unk_02090260:
+	.asciz "mcht.pkh"
+	.balign 4, 0
+	.global unk_0209026C
+unk_0209026C:
+	.asciz "evet.pkh"
+	.balign 4, 0
+	.global unk_02090278
+unk_02090278:
+	.word unk_02090220
+	.word unk_02090244
+	.word unk_0209024C
+	.word unk_0209023C
+	.word unk_02090254
+	.global unk_0209028C
+unk_0209028C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.word unk_0209026C
+	.word unk_02090260
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020902A0
+unk_020902A0:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0
+	.global unk_020902B4
+unk_020902B4:
+	.asciz "/data_iz/script/%s"
+	.balign 4, 0

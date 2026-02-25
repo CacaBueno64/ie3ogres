@@ -1730,3 +1730,17 @@ _020438D4:
 _020438E0: .word 0x0000889F
 _020438E4: .word 0x00008140
 	arm_func_end FUN_0204378c
+
+	.data
+	.global unk_0208FFEC
+unk_0208FFEC:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00
+	.word FUN_020421e4
+	.word FUN_02042204
+	.word FUN_02042e4c
+	.word FUN_020430b0
+	.word FUN_02042b4c
+	.word FUN_02042298
+	.word FUN_02042cf4
+	.word FUN_02042420

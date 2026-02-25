@@ -1733,3 +1733,49 @@ FUN_020453ac: ; 0x020453AC
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020453ac
+
+	.rodata
+	.global unk_0208C384
+unk_0208C384:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00
+
+	.data
+	.global unk_0209005C
+unk_0209005C:
+	.byte 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209007C
+unk_0209007C:
+	.word FUN_02029d18
+	.word FUN_020453ac
+	.word FUN_02043c80
+	.word _ZN14CScreenManager13startGraphicsEm
+	.word _ZN8CManager7vFUN_10Ev
+	.word FUN_020442d8
+	.word FUN_02044320
+	.word FUN_02043d80
+	.word _ZN8CManager7vFUN_20Ev
+	.word FUN_020442cc
+	.word _ZN14CScreenManager11endGraphicsEm
+	.word FUN_020442d4
+	.word _ZN14CScreenManager20updateDisplayMappingEv
+	.word FUN_020443a0
+	.word _ZN14CScreenManager12transferMainEPv
+	.word _ZN14CScreenManager11transferSubEPv
+	.word _ZN14CScreenManager10signalMainEi
+	.word _ZN14CScreenManager9signalSubEi
+	.word _ZN14CScreenManager9stateMainEv
+	.word _ZN14CScreenManager8stateSubEv
+	.global unk_020900CC
+unk_020900CC:
+	.asciz "pic3d/common"
+	.balign 4, 0
+	.global unk_020900DC
+unk_020900DC:
+	.asciz "spr/efct/efct"
+	.balign 4, 0
+	.global unk_020900EC
+unk_020900EC:
+	.asciz "/data_iz/script/treasurebox.dat"
+	.balign 4, 0

@@ -1,5 +1,4 @@
 .public FUN_0204959c
-.public unk_02090428
 .public FUN_020495e4
 .public _ZdlPv
 .public FUN_020497ec
@@ -7,3 +6,12 @@
 .public FUN_ov16_020f0810
 .public FUN_ov16_020f0a14
 .public FUN_02049840
+.public FUN_020495e8
+.public FUN_02049804
+.public FUN_02049818
+.public FUN_0204982c
+.public FUN_0204989c
+.public FUN_0204996c
+.public FUN_020498b8
+.public FUN_02049a04
+.public FUN_02049a30

@@ -1,3 +1,5 @@
+.public FUN_020523ac
+.public FUN_020523fc
 .public OS_Terminate
 .public unk_02090C14
 .public unk_02090C34

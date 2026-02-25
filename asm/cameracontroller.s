@@ -161,3 +161,37 @@ FUN_02059fac: ; 0x02059FAC
 	bl FUN_ov16_020f74dc
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02059fac
+
+	.data
+	.global unk_02090804
+unk_02090804:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_0209081C
+unk_0209081C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209082C
+unk_0209082C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209083C
+unk_0209083C:
+	.asciz "FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_0209084C
+unk_0209084C:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090860
+unk_02090860:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090874
+unk_02090874:
+	.asciz "RPG_FARCLIP_LENGTH"
+	.balign 4, 0
+	.global unk_02090888
+unk_02090888:
+	.asciz "RPG_FOVY"
+	.balign 4, 0

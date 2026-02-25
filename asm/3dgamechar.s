@@ -1646,3 +1646,65 @@ _0205B4DC:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	arm_func_end FUN_0205b438
+
+	.data
+	.global unk_02090894
+unk_02090894:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global unk_020908AC
+unk_020908AC:
+	.asciz "pss.pkh"
+	.balign 4, 0
+	.global unk_020908B4
+unk_020908B4:
+	.asciz "pbh.pkh"
+	.balign 4, 0
+	.global unk_020908BC
+unk_020908BC:
+	.asciz "pbs.pkh"
+	.balign 4, 0
+	.global unk_020908C4
+unk_020908C4:
+	.asciz "psf.pkh"
+	.balign 4, 0
+	.global unk_020908CC
+unk_020908CC:
+	.asciz "pbf.pkh"
+	.balign 4, 0
+	.global unk_020908D4
+unk_020908D4:
+	.asciz "psh.pkh"
+	.balign 4, 0
+	.global unk_020908DC
+unk_020908DC:
+	.asciz "ptb.pkh"
+	.balign 4, 0
+	.global unk_020908E4
+unk_020908E4:
+	.asciz "psb.pkh"
+	.balign 4, 0
+	.global unk_020908EC
+unk_020908EC:
+	.asciz "pbb.pkh"
+	.balign 4, 0
+	.global unk_020908F4
+unk_020908F4:
+	.asciz "pcm.pkh"
+	.balign 4, 0
+	.global unk_020908FC
+unk_020908FC:
+	.word unk_020908D4
+	.word unk_020908B4
+	.word unk_020908C4
+	.word unk_020908CC
+	.word unk_020908E4
+	.word unk_020908EC
+	.word unk_020908AC
+	.word unk_020908BC
+	.word unk_020908DC
+	.word unk_020908F4
+	.global unk_02090924
+unk_02090924:
+	.asciz "/data_iz/model/char/%s"
+	.balign 4, 0
