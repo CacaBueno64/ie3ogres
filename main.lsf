@@ -171,12 +171,12 @@ Autoload DTCM
 Overlay overlay0
 {
 	After main
-	Object asm/overlay0.o
+	Object asm/overlay0/overlay0.o
 }
 Overlay overlay1
 {
 	After main
-	Object asm/overlay1.o
+	Object asm/overlay1/overlay1.o
 }
 Overlay overlay2
 {
@@ -191,7 +191,7 @@ Overlay overlay3
 Overlay overlay4
 {
 	After main
-	Object asm/overlay4.o
+	Object asm/overlay4/overlay4.o
 }
 Overlay overlay5
 {
@@ -340,7 +340,7 @@ Overlay overlay15
 	Object lib/TwlWiFi/asm/wcm/util.o
 	Object lib/TwlWiFi/asm/wcm/wmif.o
 
-	Object asm/overlay15.o
+	Object asm/overlay15/overlay15.o
 
 	# Libcrypto RC4
 	Object lib/TwlSDK/asm/crypto/rc4.o
@@ -348,7 +348,17 @@ Overlay overlay15
 Overlay overlay16
 {
 	After overlay15
-	Object asm/overlay16.o
+	Object asm/overlay16/ov16_020ede60.o
+	Object asm/overlay16/ov16_020ef624.o
+	Object asm/overlay16/random.o
+	Object asm/overlay16/ov16_020efa04.o
+	Object asm/overlay16/ov16_graphics.o
+	Object asm/overlay16/ov16_020f2cf8.o
+	Object asm/overlay16/ov16_rodata_021178a4.o
+	Object asm/overlay16/ov16_archive_sti.o
+	Object src/ov16_archive.o
+	Object src/overlay.o
+	Object asm/overlay16/overlay16.o
 }
 Overlay overlay17
 {
@@ -442,302 +452,302 @@ Overlay overlay17
 Overlay overlay18
 {
 	After overlay16
-	Object asm/overlay18.o
+	Object asm/overlay18/overlay18.o
 }
 Overlay overlay19
 {
 	After overlay16
-	Object asm/overlay19.o
+	Object asm/overlay19/overlay19.o
 }
 Overlay overlay20
 {
 	After overlay16
-	Object asm/overlay20.o
+	Object asm/overlay20/overlay20.o
 }
 Overlay overlay21
 {
 	After overlay16
-	Object asm/overlay21.o
+	Object asm/overlay21/overlay21.o
 }
 Overlay overlay22
 {
 	After overlay16
-	Object asm/overlay22.o
+	Object asm/overlay22/overlay22.o
 }
 Overlay overlay23
 {
 	After overlay16
-	Object asm/overlay23.o
+	Object asm/overlay23/overlay23.o
 }
 Overlay overlay24
 {
 	After overlay16
-	Object asm/overlay24.o
+	Object asm/overlay24/overlay24.o
 }
 Overlay overlay25
 {
 	After overlay16
-	Object asm/overlay25.o
+	Object asm/overlay25/overlay25.o
 }
 Overlay overlay26
 {
 	After overlay16
-	Object asm/overlay26.o
+	Object asm/overlay26/overlay26.o
 }
 Overlay overlay27
 {
 	After overlay16
-	Object asm/overlay27.o
+	Object asm/overlay27/overlay27.o
 }
 Overlay overlay28
 {
 	After overlay16
-	Object asm/overlay28.o
+	Object asm/overlay28/overlay28.o
 }
 Overlay overlay29
 {
 	After overlay16
-	Object asm/overlay29.o
+	Object asm/overlay29/overlay29.o
 }
 Overlay overlay30
 {
 	After overlay16
-	Object asm/overlay30.o
+	Object asm/overlay30/overlay30.o
 }
 Overlay overlay31
 {
 	After overlay16
-	Object asm/overlay31.o
+	Object asm/overlay31/overlay31.o
 }
 Overlay overlay32
 {
 	After overlay16
-	Object asm/overlay32.o
+	Object asm/overlay32/overlay32.o
 }
 Overlay overlay33
 {
 	After overlay16
-	Object asm/overlay33.o
+	Object asm/overlay33/overlay33.o
 }
 Overlay overlay34
 {
 	After overlay16
-	Object asm/overlay34.o
+	Object asm/overlay34/overlay34.o
 }
 Overlay overlay35
 {
 	After overlay16
-	Object asm/overlay35.o
+	Object asm/overlay35/overlay35.o
 }
 Overlay overlay36
 {
 	After overlay16
-	Object asm/overlay36.o
+	Object asm/overlay36/overlay36.o
 }
 Overlay overlay37
 {
 	After overlay16
-	Object asm/overlay37.o
+	Object asm/overlay37/overlay37.o
 }
 Overlay overlay38
 {
 	After overlay16
-	Object asm/overlay38.o
+	Object asm/overlay38/overlay38.o
 }
 Overlay overlay39
 {
 	After overlay16
-	Object asm/overlay39.o
+	Object asm/overlay39/overlay39.o
 }
 Overlay overlay40
 {
 	After overlay16
-	Object asm/overlay40.o
+	Object asm/overlay40/overlay40.o
 }
 Overlay overlay41
 {
 	After overlay16
-	Object asm/overlay41.o
+	Object asm/overlay41/overlay41.o
 }
 Overlay overlay42
 {
 	After overlay16
-	Object asm/overlay42.o
+	Object asm/overlay42/overlay42.o
 }
 Overlay overlay43
 {
 	After overlay16
-	Object asm/overlay43.o
+	Object asm/overlay43/overlay43.o
 }
 Overlay overlay44
 {
 	After overlay16
-	Object asm/overlay44.o
+	Object asm/overlay44/overlay44.o
 }
 Overlay overlay45
 {
 	After overlay16
-	Object asm/overlay45.o
+	Object asm/overlay45/overlay45.o
 }
 Overlay overlay46
 {
 	After overlay16
-	Object asm/overlay46.o
+	Object asm/overlay46/overlay46.o
 }
 Overlay overlay47
 {
 	After overlay16
-	Object asm/overlay47.o
+	Object asm/overlay47/overlay47.o
 }
 Overlay overlay48
 {
 	After overlay16
-	Object asm/overlay48.o
+	Object asm/overlay48/overlay48.o
 }
 Overlay overlay49
 {
 	After overlay16
-	Object asm/overlay49.o
+	Object asm/overlay49/overlay49.o
 }
 Overlay overlay50
 {
 	After overlay16
-	Object asm/overlay50.o
+	Object asm/overlay50/overlay50.o
 }
 Overlay overlay51
 {
 	After overlay16
-	Object asm/overlay51.o
+	Object asm/overlay51/overlay51.o
 }
 Overlay overlay52
 {
 	After overlay16
-	Object asm/overlay52.o
+	Object asm/overlay52/overlay52.o
 }
 Overlay overlay53
 {
 	After overlay16
-	Object asm/overlay53.o
+	Object asm/overlay53/overlay53.o
 }
 Overlay overlay54
 {
 	After overlay16
-	Object asm/overlay54.o
+	Object asm/overlay54/overlay54.o
 }
 Overlay overlay55
 {
 	After overlay16
-	Object asm/overlay55.o
+	Object asm/overlay55/overlay55.o
 }
 Overlay overlay56
 {
 	After overlay16
-	Object asm/overlay56.o
+	Object asm/overlay56/overlay56.o
 }
 Overlay overlay57
 {
 	After overlay16
-	Object asm/overlay57.o
+	Object asm/overlay57/overlay57.o
 }
 Overlay overlay58
 {
 	After overlay16
-	Object asm/overlay58.o
+	Object asm/overlay58/overlay58.o
 }
 Overlay overlay59
 {
 	After overlay16
-	Object asm/overlay59.o
+	Object asm/overlay59/overlay59.o
 }
 Overlay overlay60
 {
 	After overlay16
-	Object asm/overlay60.o
+	Object asm/overlay60/overlay60.o
 }
 Overlay overlay61
 {
 	After overlay16
-	Object asm/overlay61.o
+	Object asm/overlay61/overlay61.o
 }
 Overlay overlay62
 {
 	After overlay16
-	Object asm/overlay62.o
+	Object asm/overlay62/overlay62.o
 }
 Overlay overlay63
 {
 	After overlay16
-	Object asm/overlay63.o
+	Object asm/overlay63/overlay63.o
 }
 Overlay overlay64
 {
 	After overlay16
-	Object asm/overlay64.o
+	Object asm/overlay64/overlay64.o
 }
 Overlay overlay65
 {
 	After overlay16
-	Object asm/overlay65.o
+	Object asm/overlay65/overlay65.o
 }
 Overlay overlay66
 {
 	After overlay16
-	Object asm/overlay66.o
+	Object asm/overlay66/overlay66.o
 }
 Overlay overlay67
 {
 	After overlay16
-	Object asm/overlay67.o
+	Object asm/overlay67/overlay67.o
 }
 Overlay overlay68
 {
 	After overlay16
-	Object asm/overlay68.o
+	Object asm/overlay68/overlay68.o
 }
 Overlay overlay69
 {
 	After overlay16
-	Object asm/overlay69.o
+	Object asm/overlay69/overlay69.o
 }
 Overlay overlay70
 {
 	After overlay16
-	Object asm/overlay70.o
+	Object asm/overlay70/overlay70.o
 }
 Overlay overlay71
 {
 	After overlay16
-	Object asm/overlay71.o
+	Object asm/overlay71/overlay71.o
 }
 Overlay overlay72
 {
 	After overlay16
-	Object asm/overlay72.o
+	Object asm/overlay72/overlay72.o
 }
 Overlay overlay73
 {
 	After overlay16
-	Object asm/overlay73.o
+	Object asm/overlay73/overlay73.o
 }
 Overlay overlay74
 {
 	After overlay16
-	Object asm/overlay74.o
+	Object asm/overlay74/overlay74.o
 }
 Overlay overlay75
 {
 	After overlay16
-	Object asm/overlay75.o
+	Object asm/overlay75/overlay75.o
 }
 Overlay overlay76
 {
 	After overlay16
-	Object asm/overlay76.o
+	Object asm/overlay76/overlay76.o
 }
 Overlay overlay77
 {
 	After overlay16
-	Object asm/overlay77.o
+	Object asm/overlay77/overlay77.o
 }
 Overlay overlay78
 {
@@ -746,188 +756,188 @@ Overlay overlay78
 Overlay overlay79
 {
 	After overlay16
-	Object asm/overlay79.o
+	Object asm/overlay79/overlay79.o
 }
 Overlay overlay80
 {
 	After overlay16
-	Object asm/overlay80.o
+	Object asm/overlay80/overlay80.o
 }
 Overlay overlay81
 {
 	After overlay16
-	Object asm/overlay81.o
+	Object asm/overlay81/overlay81.o
 }
 Overlay overlay82
 {
 	After overlay16
-	Object asm/overlay82.o
+	Object asm/overlay82/overlay82.o
 }
 Overlay overlay83
 {
 	After overlay16
-	Object asm/overlay83.o
+	Object asm/overlay83/overlay83.o
 }
 Overlay overlay84
 {
 	After overlay16
-	Object asm/overlay84.o
+	Object asm/overlay84/overlay84.o
 }
 Overlay overlay85
 {
 	After overlay16
-	Object asm/overlay85.o
+	Object asm/overlay85/overlay85.o
 }
 Overlay overlay86
 {
 	After overlay16
-	Object asm/overlay86.o
+	Object asm/overlay86/overlay86.o
 }
 Overlay overlay87
 {
 	After overlay16
-	Object asm/overlay87.o
+	Object asm/overlay87/overlay87.o
 }
 Overlay overlay88
 {
 	After overlay16
-	Object asm/overlay88.o
+	Object asm/overlay88/overlay88.o
 }
 Overlay overlay89
 {
 	After overlay16
-	Object asm/overlay89.o
+	Object asm/overlay89/overlay89.o
 }
 Overlay overlay90
 {
 	After overlay16
-	Object asm/overlay90.o
+	Object asm/overlay90/overlay90.o
 }
 Overlay overlay91
 {
 	After overlay16
-	Object asm/overlay91.o
+	Object asm/overlay91/overlay91.o
 }
 Overlay overlay92
 {
 	After overlay57
-	Object asm/overlay92.o
+	Object asm/overlay92/overlay92.o
 }
 Overlay overlay93
 {
 	After overlay57
-	Object asm/overlay93.o
+	Object asm/overlay93/overlay93.o
 }
 Overlay overlay94
 {
 	After overlay57
-	Object asm/overlay94.o
+	Object asm/overlay94/overlay94.o
 }
 Overlay overlay95
 {
 	After overlay57
-	Object asm/overlay95.o
+	Object asm/overlay95/overlay95.o
 }
 Overlay overlay96
 {
 	After overlay57
-	Object asm/overlay96.o
+	Object asm/overlay96/overlay96.o
 }
 Overlay overlay97
 {
 	After overlay57
-	Object asm/overlay97.o
+	Object asm/overlay97/overlay97.o
 }
 Overlay overlay98
 {
 	After overlay57
-	Object asm/overlay98.o
+	Object asm/overlay98/overlay98.o
 }
 Overlay overlay99
 {
 	After overlay57
-	Object asm/overlay99.o
+	Object asm/overlay99/overlay99.o
 }
 Overlay overlay100
 {
 	After overlay57
-	Object asm/overlay100.o
+	Object asm/overlay100/overlay100.o
 }
 Overlay overlay101
 {
 	After overlay57
-	Object asm/overlay101.o
+	Object asm/overlay101/overlay101.o
 	Object src/ov101.o
 }
 Overlay overlay102
 {
 	After overlay57
-	Object asm/overlay102.o
+	Object asm/overlay102/overlay102.o
 }
 Overlay overlay103
 {
 	After overlay57
-	Object asm/overlay103.o
+	Object asm/overlay103/overlay103.o
 }
 Overlay overlay104
 {
 	After overlay57
-	Object asm/overlay104.o
+	Object asm/overlay104/overlay104.o
 }
 Overlay overlay105
 {
 	After overlay57
-	Object asm/overlay105.o
+	Object asm/overlay105/overlay105.o
 }
 Overlay overlay106
 {
 	After overlay57
-	Object asm/overlay106.o
+	Object asm/overlay106/overlay106.o
 }
 Overlay overlay107
 {
 	After overlay57
-	Object asm/overlay107.o
+	Object asm/overlay107/overlay107.o
 }
 Overlay overlay108
 {
 	After overlay57
-	Object asm/overlay108.o
+	Object asm/overlay108/overlay108.o
 }
 Overlay overlay109
 {
 	After overlay57
-	Object asm/overlay109.o
+	Object asm/overlay109/overlay109.o
 }
 Overlay overlay110
 {
 	After overlay57
-	Object asm/overlay110.o
+	Object asm/overlay110/overlay110.o
 }
 Overlay overlay111
 {
 	After overlay57
-	Object asm/overlay111.o
+	Object asm/overlay111/overlay111.o
 }
 Overlay overlay112
 {
 	After overlay57
-	Object asm/overlay112.o
+	Object asm/overlay112/overlay112.o
 }
 Overlay overlay113
 {
 	After overlay57
-	Object asm/overlay113.o
+	Object asm/overlay113/overlay113.o
 }
 Overlay overlay114
 {
 	After overlay57
-	Object asm/overlay114.o
+	Object asm/overlay114/overlay114.o
 }
 Overlay overlay115
 {
 	After overlay57
-	Object asm/overlay115.o
+	Object asm/overlay115/overlay115.o
 }
 Overlay overlay116
 {
@@ -938,52 +948,52 @@ Overlay overlay116
 Overlay overlay117
 {
 	After overlay57
-	Object asm/overlay117.o
+	Object asm/overlay117/overlay117.o
 }
 Overlay overlay118
 {
 	After overlay57
-	Object asm/overlay118.o
+	Object asm/overlay118/overlay118.o
 }
 Overlay overlay119
 {
 	After overlay57
-	Object asm/overlay119.o
+	Object asm/overlay119/overlay119.o
 }
 Overlay overlay120
 {
 	After overlay57
-	Object asm/overlay120.o
+	Object asm/overlay120/overlay120.o
 }
 Overlay overlay121
 {
 	After overlay57
-	Object asm/overlay121.o
+	Object asm/overlay121/overlay121.o
 }
 Overlay overlay122
 {
 	After overlay57
-	Object asm/overlay122.o
+	Object asm/overlay122/overlay122.o
 }
 Overlay overlay123
 {
 	After overlay57
-	Object asm/overlay123.o
+	Object asm/overlay123/overlay123.o
 }
 Overlay overlay124
 {
 	After overlay57
-	Object asm/overlay124.o
+	Object asm/overlay124/overlay124.o
 }
 Overlay overlay125
 {
 	After overlay57
-	Object asm/overlay125.o
+	Object asm/overlay125/overlay125.o
 }
 Overlay overlay126
 {
 	After overlay109
-	Object asm/overlay126.o
+	Object asm/overlay126/overlay126.o
 }
 Overlay overlay127
 {
@@ -1008,10 +1018,10 @@ Overlay overlay130
 Overlay overlay131
 {
 	After overlay126
-	Object asm/overlay131.o
+	Object asm/overlay131/overlay131.o
 }
 Overlay overlay132
 {
 	After overlay126
-	Object asm/overlay132.o
+	Object asm/overlay132/overlay132.o
 }

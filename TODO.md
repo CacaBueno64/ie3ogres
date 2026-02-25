@@ -1,6 +1,6 @@
 ### TODO
 
-- create subfolders for splitted overlay asm
+- split asm source files for overlays
 
 #### Non matchings
 - `CFileIO`: [readDirect](https://decomp.me/scratch/NalIT)

@@ -54,7 +54,7 @@
 .public unk_02099E91
 .public gAllocator
 .public _ZN8Graphics16UpdateScreenFadeE12EngineSelect
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public _Znwm
 .public FUN_ov57_0211f8f8
 .public FUN_ov63_021223fc

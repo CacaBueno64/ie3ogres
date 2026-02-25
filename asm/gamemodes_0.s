@@ -86,7 +86,7 @@ FUN_02029e10: ; 0x02029E10
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _02029E84 ; =0x00000714
@@ -140,7 +140,7 @@ FUN_02029ea4: ; 0x02029EA4
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	mov r0, #0x90

@@ -175,7 +175,7 @@
 .public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public OS_Sleep
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public FUN_ov57_0211f8f8
 .public FUN_ov63_021223fc
 .public FUN_ov67_0211d248

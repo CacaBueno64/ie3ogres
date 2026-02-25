@@ -1,4 +1,4 @@
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public _Znwm
 .public _ZN14CScreenManagerC2Ev
 .public FUN_0206c0d8

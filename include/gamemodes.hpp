@@ -5,6 +5,7 @@
 
 #include <nitro.h>
 
+#include "overlay.hpp"
 #include "endrollscreen.hpp"
 #include "cardscreen.hpp"
 #include "logoscreen.hpp"
@@ -34,9 +35,5 @@ GameMode GetCurrentMode(void);
 void EndrollScreenLoad(GameModeContext *ctx);
 void CardScreenLoad(GameModeContext *ctx);
 void LogoScreenLoad(GameModeContext *ctx);
-
-extern "C" {
-    extern BOOL FUN_ov16_LoadOverlay(u32 ovy_id);
-}
 
 #endif //IE3OGRES_GAMEMODES_H

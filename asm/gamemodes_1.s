@@ -8,7 +8,7 @@ FUN_0202a020: ; 0x0202A020
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r5, r0
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, _0202A14C ; =0x00003078
@@ -145,7 +145,7 @@ FUN_0202a1a0: ; 0x0202A1A0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _0202A250 ; =0x00001228
@@ -232,7 +232,7 @@ FUN_0202a288: ; 0x0202A288
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r5, r0
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	mov r0, #0xf70
@@ -395,7 +395,7 @@ _0202A46C:
 	b _0202A498
 _0202A490:
 	ldr r0, [r5, #8]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 _0202A498:
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x30]

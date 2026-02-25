@@ -1674,7 +1674,7 @@ FUN_ov15_020e0914: ; 0x020E0914
 	cmp r1, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4, #0xc]
-	bl FUN_ov16_LoadOverlay
+	bl _ZN7Overlay4LoadEm
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4]

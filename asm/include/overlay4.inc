@@ -169,7 +169,7 @@
 .public unk_020A0B00
 .public gAudioPlayer
 .public unk_0209A3E0
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public _Znwm
 .public FUN_ov55_0211d128
 .public FUN_ov57_0211f8f8

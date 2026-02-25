@@ -48,7 +48,7 @@
 .public _ZN11AudioPlayer12FUN_0202b7f0Ev
 .public unk_0209A3E0
 .public gAudioPlayer
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public _Znwm
 .public ov61_0211F3D8
 .public _ZN14CScreenManager16getNextSceneMainEv

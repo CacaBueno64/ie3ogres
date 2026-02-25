@@ -4,7 +4,7 @@
 .public _Z14LogoScreenLoadP15GameModeContext
 .public _Z14CardScreenLoadP15GameModeContext
 .public _Z17EndrollScreenLoadP15GameModeContext
-.public FUN_ov16_LoadOverlay
+.public _ZN7Overlay4LoadEm
 .public _Znwm
 .public _ZN14CScreenManagerC2Ev
 .public ov15_020E6500
