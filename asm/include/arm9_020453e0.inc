@@ -12,7 +12,7 @@
 .public unk_02090148
 .public unk_02090168
 .public gAllocator
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FUN_0207290c
 .public unk_02090188
 .public unk_02090190

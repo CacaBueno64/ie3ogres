@@ -350,13 +350,13 @@ Overlay overlay16
 	After overlay15
 	Object asm/overlay16/ov16_020ede60.o
 	Object asm/overlay16/ov16_020ef624.o
-	Object asm/overlay16/random.o
+	Object src/random.o
 	Object asm/overlay16/ov16_020efa04.o
 	Object asm/overlay16/ov16_graphics.o
 	Object asm/overlay16/ov16_020f2cf8.o
 	Object asm/overlay16/ov16_rodata_021178a4.o
-	Object asm/overlay16/ov16_archive_sti.o
-	Object src/ov16_archive.o
+	Object asm/overlay16/archive_sti.o
+	Object src/archive.o
 	Object src/overlay.o
 	Object asm/overlay16/overlay16.o
 }
@@ -431,7 +431,7 @@ Overlay overlay17
 	Object lib/TwlDWC_dl/asm/util/dwc_mov_mbp.o
 	Object lib/TwlDWC_dl/asm/util/dwc_mov_wh.o
 	Object lib/TwlDWC_dl/asm/util/dwc_moveid.o
-	Object lib/TwlDWC_dl/asm/util/archive.o
+	Object lib/TwlDWC_dl/asm/util/archive_.o
 	Object lib/TwlDWC_dl/asm/util/cell.o
 	Object lib/TwlDWC_dl/asm/util/cellinfo.o
 	Object lib/TwlDWC_dl/asm/util/deque.o

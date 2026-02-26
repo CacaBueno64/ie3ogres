@@ -161,7 +161,7 @@ _020297C8:
 	strb r1, [r0, #0x83]
 	str r4, [r0, #0x84]
 	strb r4, [r0, #0x88]
-	bl FUN_ov16_020ef850
+	bl _ZN6Random4InitEv
 	bl _ZN8Graphics16ResetScreenFadesEv
 	ldr r0, _02029A20 ; =gRecordManager
 	bl _ZN14CRecordManager10verifySaveEv

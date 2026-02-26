@@ -1,7 +1,7 @@
 .public MI_CpuFill8
 .public FUN_02074784
 .public FUN_0207478c
-.public FUN_ov16_020ef850
+.public _ZN6Random4InitEv
 .public _ZN8Graphics16ResetScreenFadesEv
 .public _ZN14CRecordManager10verifySaveEv
 .public FUN_ov16_020f069c

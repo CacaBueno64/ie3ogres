@@ -6920,7 +6920,7 @@ _0204F758:
 _0204F778:
 	mvn r5, #0xc0000000
 	mov r0, r5
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r4, r0
 	mov r0, r6
 	bl FUN_0206cc00

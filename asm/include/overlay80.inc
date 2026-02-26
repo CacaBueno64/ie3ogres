@@ -41,10 +41,10 @@
 .public FUN_ov1_020db2ac
 .public FUN_ov16_020f0c30
 .public gPalSkinFaceFile
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_0204a2c4
 .public MI_CpuFill8
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FUN_020463e8
 .public FUN_02073184
 .public FUN_ov132_021462fc

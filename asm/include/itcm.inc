@@ -143,7 +143,7 @@
 .public FUN_0204d7fc
 .public FUN_0204c5d0
 .public FUN_02073dec
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_ov132_02147df8
 .public FUN_ov132_021491b0
 .public gConfig

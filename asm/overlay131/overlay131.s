@@ -1225,7 +1225,7 @@ _0213BD38:
 	cmp r6, #0
 	beq _0213BDC0
 	mov r0, r6
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r1, r0, lsl #3
 	ldrh r3, [r5, r1]
 	mov r2, r7, lsl #3
@@ -1493,7 +1493,7 @@ _0213C0F4:
 	cmp r6, #0
 	beq _0213C178
 	mov r0, r6
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r1, r0, lsl #3
 	ldrh r3, [r5, r1]
 	mov r2, r7, lsl #3
@@ -8596,7 +8596,7 @@ FUN_ov131_021423a8: ; 0x021423A8
 	ldr r6, _02142488 ; =0x020A11DC
 	bl MI_CpuFill8
 	mov r0, #6
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r7, #0
 	str r0, [r6, #8]
 	mov r4, r7
@@ -8605,7 +8605,7 @@ FUN_ov131_021423a8: ; 0x021423A8
 	b _0214242C
 _021423E8:
 	rsb r0, r7, #8
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r2, r4
 	and r1, r0, #0xff
 	b _02142414
@@ -8643,7 +8643,7 @@ _02142458:
 	mov r0, #0x20
 	mov r1, r1, lsl #5
 	str r1, [r6, #8]
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldr r1, [r6, #8]
 	orr r0, r1, r0
 	str r0, [r6, #8]

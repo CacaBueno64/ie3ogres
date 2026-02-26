@@ -163,7 +163,7 @@
 .public FUN_02040128
 .public FUN_020723c4
 .public FUN_0206d8b8
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public unk_0209A2C0
 .public FUN_0206c718
 .public _s32_div_f

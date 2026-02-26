@@ -384,11 +384,11 @@ gDebugFont:
 	.global gScreenFades
 gScreenFades:
 	.space 0x18
-	.global unk_0209A178
-unk_0209A178:
+	.global gRNGStateA
+gRNGStateA:
 	.space 0x18
-	.global unk_0209A190
-unk_0209A190:
+	.global gRNGStateB
+gRNGStateB:
 	.space 0x18
 	.global unk_0209A1A8
 unk_0209A1A8:

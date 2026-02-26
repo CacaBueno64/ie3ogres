@@ -105,8 +105,8 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN9Allocator10deallocateEPv
 .public FUN_ov16_020f2fe4
-.public unk_0209A178
-.public unk_0209A190
+.public gRNGStateA
+.public gRNGStateB
 .public gAllocator
 .public _ZdlPv
 .public FX_Sqrt

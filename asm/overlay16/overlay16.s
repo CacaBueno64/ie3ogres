@@ -5094,7 +5094,7 @@ _020F846C:
 _020F847C:
 	ldr r0, [r4]
 	ldrb r0, [r0, #0x43d]
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r1, [r4]
 	and r0, r0, #0xff
 	str r0, [r1, #0x424]
@@ -5133,7 +5133,7 @@ _020F847C:
 	streq r5, [r0, #0x42c]
 	beq _020F8534
 	sub r0, r8, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r5, r0
 	ldr r0, [r4]
 	and r1, r1, #0xff
@@ -5252,7 +5252,7 @@ _020F86DC:
 	b _020F872C
 _020F86E4:
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	tst r0, #1
 	beq _020F8710
 	ldr r1, [sp, #0x24]
@@ -5443,7 +5443,7 @@ _020F8948:
 _020F8964:
 	cmp r0, #0
 	beq _020F89BC
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r2, r6
 	cmp r6, #0x1f
 	bge _020F89A0
@@ -5544,7 +5544,7 @@ _020F8AC0:
 	cmp r6, #0x20
 	blt _020F8A94
 	mov r0, r8
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r5, _020F8B50 ; =0x0209A11C
 	ldr r4, _020F8B54 ; =0x00000FFF
 	mov r9, r0
@@ -5625,7 +5625,7 @@ _020F8BB0:
 _020F8BD0:
 	cmp r0, #0
 	beq _020F8C30
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r12, r6
 	cmp r6, #7
 	bge _020F8C14
@@ -5842,7 +5842,7 @@ _020F8EC0:
 _020F8ED8:
 	rsb r0, r4, #4
 	ldr r10, [r11, r4, lsl #2]
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r4, r0
 	ldr r0, [r11, r1, lsl #2]
 	str r0, [r11, r4, lsl #2]
@@ -5989,7 +5989,7 @@ _020F90B4:
 	ldmgefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F90E0:
 	mov r0, r4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, sp, #0x24
 	ldr r3, [r1, r0, lsl #2]
 	mov r5, #0
@@ -6012,7 +6012,7 @@ _020F9118:
 _020F9130:
 	rsb r0, r7, #4
 	ldr r6, [r5, r7, lsl #2]
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r7, r0
 	ldr r0, [r5, r1, lsl #2]
 	str r0, [r5, r7, lsl #2]
@@ -6200,7 +6200,7 @@ _020F93CC:
 	mov r1, r6, lsl #1
 	sub r0, r0, r6
 	ldrh r5, [r4, r1]
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r6, r0
 	ldr r0, [r7]
 	mov r12, r1, lsl #1
@@ -28909,7 +28909,7 @@ FUN_ov16_0210c574: ; 0x0210C574
 	ldr r0, [sp]
 	sub r0, r1, r0
 	add r0, r0, #1
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldr r1, [sp]
 	cmp r4, #0
 	add r0, r0, r1

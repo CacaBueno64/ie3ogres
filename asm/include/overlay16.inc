@@ -90,7 +90,7 @@
 .public FUN_02053214
 .public FUN_0205318c
 .public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public unk_020A0640
 .public FUN_0207290c
 .public gLogicThink
@@ -537,7 +537,7 @@
 .public FUN_0204da5c
 .public FUN_ov126_0213921c
 .public FUN_0204d864
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_ov132_021430b4
 .public FUN_ov131_02141b2c
 .public FUN_02044754

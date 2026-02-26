@@ -117,7 +117,7 @@
 .public FUN_02040118
 .public FUN_01ffb9b0
 .public _ZN11CLogicThink12FUN_020731a4Ev
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FUN_01ffb9e4
 .public FUN_ov126_0213a2cc
 .public FUN_ov126_02130914
@@ -146,7 +146,7 @@
 .public FUN_0204fb60
 .public FUN_0206cdf8
 .public FUN_020722b4
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_0206cd88
 .public FUN_0207249c
 .public FUN_ov126_021398cc

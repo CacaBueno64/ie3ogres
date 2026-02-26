@@ -343,7 +343,7 @@
 .public FUN_0206ccdc
 .public FUN_0206cc84
 .public FUN_ov126_0213246c
-.public FUN_ov16_020ef97c
+.public _ZN6Random9GetStateAEP17MATHRandContext32
 .public FUN_ov132_02144fdc
 .public FUN_ov126_021392d4
 .public FUN_ov132_021471fc
@@ -372,7 +372,7 @@
 .public FUN_0206cc44
 .public FUN_ov132_0214388c
 .public FUN_ov126_021323b4
-.public FUN_ov16_020ef9b4
+.public _ZN6Random9SetStateAEP17MATHRandContext32
 .public FUN_ov132_02145030
 .public unk_0209A2CC
 .public unk_0209A2E0

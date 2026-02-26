@@ -3260,7 +3260,7 @@ FUN_ov85_0211cca8: ; 0x0211CCA8
 	ldr r2, [r0, #0x4dc]
 	add r0, r1, r3
 	add r6, r2, r0
-	ldr r1, _0211CDA4 ; =0x0209A178
+	ldr r1, _0211CDA4 ; =gRNGStateA
 	mov r5, #0
 	ldr r12, _0211CDA8 ; =0x6C078965
 	str r6, [r1]
@@ -3270,7 +3270,7 @@ FUN_ov85_0211cca8: ; 0x0211CCA8
 	str lr, [r1, #0xc]
 	str r2, [r1, #0x10]
 	mov r3, r5
-	ldr r0, _0211CDB4 ; =0x0209A190
+	ldr r0, _0211CDB4 ; =gRNGStateB
 	str r3, [r1, #0x14]
 	str r6, [r0]
 	stmib r0, {r5, r12}
@@ -3312,11 +3312,11 @@ _0211CD6C:
 _0211CD98: .word 0x04000006
 _0211CD9C: .word 0x02FFFC3C
 _0211CDA0: .word unk_020A0640
-_0211CDA4: .word unk_0209A178
+_0211CDA4: .word gRNGStateA
 _0211CDA8: .word 0x6C078965
 _0211CDAC: .word 0x5D588B65
 _0211CDB0: .word 0x00269EC3
-_0211CDB4: .word unk_0209A190
+_0211CDB4: .word gRNGStateB
 _0211CDB8: .word ov1_020EAAAC
 _0211CDBC: .word gBgMenuManager
 _0211CDC0: .word gAllocator

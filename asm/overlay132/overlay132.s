@@ -5536,7 +5536,7 @@ FUN_ov132_0213fa80: ; 0x0213FA80
 	movne r7, #0x2000
 	mov r0, #0x4000
 	movne r8, #0x4000
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r7, r0
 	mov r0, r0, lsl #0x10
 	mov r7, r0, lsr #0x10
@@ -5971,7 +5971,7 @@ _021400D8:
 	subne r10, r10, r8
 _02140108:
 	mov r0, #3
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r10, r0
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -6074,7 +6074,7 @@ _02140240:
 	cmp r0, #0
 	beq _02140294
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _021402B0
 _02140294:
 	add r0, sp, #0x38
@@ -7109,7 +7109,7 @@ FUN_ov132_021410b0: ; 0x021410B0
 	addeq sp, sp, #0x10
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r2, [r6, #0x88]
 	mov r1, r4
 	ldrsh r2, [r2, #0x24]
@@ -7887,13 +7887,13 @@ _02141AE8:
 	beq _02141B94
 	b _02141BA8
 _02141B84:
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _02141B98
 _02141B8C:
 	mov r0, r0, asr #1
 	b _02141B98
 _02141B94:
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 _02141B98:
 	mul r1, r4, r0
 	ldr r0, _02141DE0 ; =0x51EB851F
@@ -8283,7 +8283,7 @@ _0214209C:
 	movge r0, #0
 	ldmgefd sp!, {r4, r5, r6, pc}
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r5, r0
 	mov r0, r4
 	bl FUN_0206cc34
@@ -8451,10 +8451,10 @@ _02142358:
 	cmp r9, #0
 	mov r0, #0x64
 	bne _02142380
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _02142384
 _02142380:
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 _02142384:
 	cmp r0, #0xa
 	bge _021423B0
@@ -8479,10 +8479,10 @@ _021423B0:
 	rsbmi r0, r0, #0
 	cmp r9, #0
 	bne _021423E4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _021423E8
 _021423E4:
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 _021423E8:
 	add r0, r0, #0x64
 	mul r1, r8, r0
@@ -8497,10 +8497,10 @@ _02142400:
 	cmp r9, #0
 	mov r0, #0x64
 	bne _02142420
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _02142424
 _02142420:
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 _02142424:
 	cmp r0, #0xa
 	bge _02142454
@@ -8523,10 +8523,10 @@ _02142454:
 	rsbmi r0, r0, #0
 	cmp r9, #0
 	bne _0214247C
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	b _02142480
 _0214247C:
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 _02142480:
 	rsb r0, r0, #0x64
 	mul r1, r8, r0
@@ -10994,7 +10994,7 @@ FUN_ov132_02144488: ; 0x02144488
 	cmp r6, #0
 	ble _021445F8
 	add r0, r6, r0
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r6
 	movlo r0, #1
 	subhs r0, r4, #8
@@ -11689,7 +11689,7 @@ _02144E34:
 	cmp r4, #0xc
 	mov r0, #0x64
 	movgt r4, #0xc
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r4
 	movlt r0, #1
 	movge r0, #0
@@ -13078,7 +13078,7 @@ FUN_ov132_02146014: ; 0x02146014
 	bl _fflt
 	mov r4, r0
 	mov r0, #0x29
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #0x50
 	bl _ffltu
 	mov r1, r0
@@ -13124,7 +13124,7 @@ FUN_ov132_0214609c: ; 0x0214609C
 	bl _fgr
 	mov r0, #0x29
 	addhi r5, r4, #0x2f00000
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #0x50
 	bl _ffltu
 	mov r1, r0
@@ -13825,7 +13825,7 @@ _021469F0:
 	cmp r4, #0x64
 	mov r0, #0x64
 	movgt r4, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r0, r0, lsl #0x18
 	mov r1, r0, asr #0x18
 	mov r0, r4, lsl #0x18
@@ -13900,7 +13900,7 @@ _02146B00:
 	cmp r4, #0x64
 	mov r0, #0x64
 	movgt r4, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r0, r0, lsl #0x18
 	mov r1, r0, asr #0x18
 	mov r0, r4, lsl #0x18
@@ -13964,7 +13964,7 @@ _02146BE8:
 	cmp r4, #0x64
 	mov r0, #0x64
 	movgt r4, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r0, r0, lsl #0x18
 	mov r1, r0, asr #0x18
 	mov r0, r4, lsl #0x18
@@ -14028,7 +14028,7 @@ _02146CD0:
 	cmp r4, #0x64
 	mov r0, #0x64
 	movgt r4, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r0, r0, lsl #0x18
 	mov r1, r0, asr #0x18
 	mov r0, r4, lsl #0x18
@@ -17818,7 +17818,7 @@ _0214A030:
 	cmp r0, #0
 	beq _0214A128
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x32
 	bhs _0214A128
 	mov r0, r6
@@ -18199,7 +18199,7 @@ _0214A580:
 	cmp r0, #0
 	beq _0214A610
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x32
 	ldrlob r1, [r5, #0xf]
 	movlo r0, #0x17
@@ -22139,7 +22139,7 @@ _0214DE44:
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214DEA0:
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldrb r1, [r4, #0x5b]
 	mov r5, r0
 	mov r6, #0x28
@@ -22202,7 +22202,7 @@ _0214DF7C:
 	cmp r0, #0
 	beq _0214DFB8
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x28
 	bhs _0214DFB8
 	mov r0, r10
@@ -22598,7 +22598,7 @@ _0214E51C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0214E528:
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r4, r0
 	mov r0, r10
 	mov r2, r9
@@ -22752,7 +22752,7 @@ _0214E760:
 	cmn r10, #1
 	beq _0214E77C
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r11, #1
 	cmp r0, r10
 	movhs r11, #0
@@ -22811,7 +22811,7 @@ _0214E840:
 	cmn r10, #1
 	beq _0214E85C
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r11, #1
 	cmp r0, r10
 	movhs r11, #0
@@ -23501,7 +23501,7 @@ _0214F19C:
 	movlt r0, #1
 	ldmltfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x32
 	movlo r4, #0
 	movhs r7, r6
@@ -24423,7 +24423,7 @@ _0214FEE0:
 	mov r1, r11
 	bl FUN_0206dac4
 	mov r0, #0x64
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	cmp r0, #0x32
 	blo _0214FF2C
 	ldr r0, [r5, #0x84]
@@ -25059,7 +25059,7 @@ _021507E8:
 	cmp r0, r6
 	movge r5, #9
 	mov r0, #0x64
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r1, r5
 	mov r5, r0
 	mov r0, r4
@@ -25352,7 +25352,7 @@ _02150C20:
 	b _02150CA0
 _02150C4C:
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r10
 	bhs _02150C80
 	mov r8, #0xf
@@ -25937,7 +25937,7 @@ _0215147C:
 	mov r11, #0
 	ble _021514A0
 	mov r0, r5
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	mov r11, r0
 _021514A0:
 	mov r7, #0
@@ -26793,31 +26793,31 @@ _021520AC:
 	cmp r0, #0
 	beq _02152144
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r7
 	ldrlo r0, [r4, r6, lsl #2]
 	orrlo r0, r0, #1
 	strlo r0, [r4, r6, lsl #2]
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x14
 	ldrlo r0, [r4, r6, lsl #2]
 	orrlo r0, r0, #2
 	strlo r0, [r4, r6, lsl #2]
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r8
 	ldrlo r0, [r4, r6, lsl #2]
 	orrlo r0, r0, #4
 	strlo r0, [r4, r6, lsl #2]
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0xa
 	ldrlo r0, [r4, r6, lsl #2]
 	orrlo r0, r0, #8
 	strlo r0, [r4, r6, lsl #2]
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0x14
 	bhs _02152144
 	tst r0, #1
@@ -27645,7 +27645,7 @@ FUN_ov132_02152ca8: ; 0x02152CA8
 	ldmlofd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r5, #2
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0
 	movne r2, #5
 	bne _02152D24
@@ -27795,7 +27795,7 @@ FUN_ov132_02152ec4: ; 0x02152EC4
 	mov r0, #4
 	add r4, r3, r2, lsl #3
 	mov r5, r1
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldrb r2, [r4, r0]
 	mov r0, r6
 	mov r1, r5
@@ -27898,7 +27898,7 @@ FUN_ov132_02153010: ; 0x02153010
 	mov r6, r0
 	mov r5, r1
 	mov r0, #0x1e
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r4, r0
 	mov r0, r5
 	bl FUN_0206d5f0
@@ -27979,7 +27979,7 @@ _021530A8:
 	moveq r0, r5
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r4, r0
 	mov r0, r6
 	mov r1, #0x14
@@ -28100,7 +28100,7 @@ FUN_ov132_02153264: ; 0x02153264
 	ldrb r9, [r0, #0x61]
 	mov r11, #0x64
 	mov r0, r11
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r9, r0, r9
 	mov r0, r5
 	mov r1, r4
@@ -28427,7 +28427,7 @@ FUN_ov132_02153744: ; 0x02153744
 	bl FUN_0206dcd4
 	ldrb r10, [r0, #0x61]
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r10, r0, r10
 	mov r0, r5
 	mov r1, r4
@@ -28749,7 +28749,7 @@ FUN_ov132_02153c10: ; 0x02153C10
 	bl FUN_0206dcd4
 	ldrb r10, [r0, #0x61]
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, r10
 	str r0, [sp]
 	mov r0, r8
@@ -29016,7 +29016,7 @@ FUN_ov132_0215400c: ; 0x0215400C
 	ldrb r10, [r0, #0x61]
 	mov r11, #0x64
 	mov r0, r11
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r10, r0, r10
 	mov r0, r4
 	bl FUN_0206d6c4
@@ -29323,7 +29323,7 @@ FUN_ov132_02154494: ; 0x02154494
 	ldrb r10, [r0, #0x61]
 	mov r11, #0x64
 	mov r0, r11
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r10, r0, r10
 	mov r0, r4
 	bl FUN_0206d6c4
@@ -29638,7 +29638,7 @@ FUN_ov132_02154930: ; 0x02154930
 	ldrb r10, [r0, #0x61]
 	mov r11, #0x64
 	mov r0, r11
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r10, r0, r10
 	mov r0, r5
 	mov r1, r4
@@ -29952,7 +29952,7 @@ FUN_ov132_02154dd4: ; 0x02154DD4
 	ldrb r8, [r0, #0x61]
 	mov r11, #0x64
 	mov r0, r11
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, r8
 	str r0, [sp]
 	mov r0, r10
@@ -31929,7 +31929,7 @@ FUN_ov132_02156aec: ; 0x02156AEC
 	cmp r0, #0
 	bne _02156B28
 	mov r0, #5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0
 	bne _02156B34
 _02156B28:
@@ -31963,7 +31963,7 @@ FUN_ov132_02156b58: ; 0x02156B58
 	str r12, [sp, #8]
 	bl FUN_ov132_0213dfd4
 	mov r0, #5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r1, r0
 	mov r0, r4
 	add r1, r1, #2
@@ -32376,7 +32376,7 @@ _02157134:
 	bl FUN_0206dcd4
 	ldrb r4, [r0, #0x61]
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r2, r0
 	mov r0, r10
 	mov r1, r9
@@ -33165,11 +33165,11 @@ _02157CAC:
 	mov r4, #0x18
 	mov r11, r0
 	mov r0, r4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	adds r0, r0, #0x18
 	mov r0, r4
 	beq _02157CF4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #0x18
 	mov r0, r0, lsl #0xc
 	bl _ffltu
@@ -33178,7 +33178,7 @@ _02157CAC:
 	bl _fadd
 	b _02157D0C
 _02157CF4:
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #0x18
 	mov r0, r0, lsl #0xc
 	bl _ffltu
@@ -33270,7 +33270,7 @@ _02157DE0:
 	cmp r8, #0
 	beq _02157F38
 	mov r0, #3
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0
 	bne _02157F38
 _02157E64:
@@ -33312,7 +33312,7 @@ _02157E74:
 	cmp r8, #0
 	beq _02157F20
 	mov r0, #0x32
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, #0
 	bne _02157F20
 _02157F04:
@@ -34918,7 +34918,7 @@ FUN_ov132_021594f0: ; 0x021594F0
 	bl FUN_ov132_02159df0
 	mov r4, r0
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r6, r0
 	mov r0, r5
 	bl FUN_ov132_02159afc
@@ -34960,7 +34960,7 @@ _0215958C:
 	add r0, r0, r1
 	blt _0215958C
 _021595B0:
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r5, #0
 	mov r6, #0
 	ble _021595F0
@@ -35458,7 +35458,7 @@ FUN_ov132_02159c0c: ; 0x02159C0C
 	cmp r4, #0x14
 	mov r0, #0x64
 	movgt r4, #0x14
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r0, r4
 	movlt r0, #1
 	movge r0, #0

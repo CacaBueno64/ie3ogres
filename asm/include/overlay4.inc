@@ -229,7 +229,7 @@
 .public gRecordManager
 .public FUN_ov16_020f6584
 .public FUN_ov16_020f6b3c
-.public FUN_ov16_020ef9e8
+.public _ZN6Random4TickEv
 .public unk_0209A1A8
 .public G2_GetBG3CharPtr
 .public GX_LoadBG3Char

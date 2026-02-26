@@ -4035,7 +4035,7 @@ _020C00FC:
 	str r2, [r5, #0x18]
 	bl FUN_ov4_020bffcc
 	str r0, [r5, #0x20]
-	bl FUN_ov16_020ef9e8
+	bl _ZN6Random4TickEv
 	ldr r1, [r5, #0x1c]
 	cmp r1, #4
 	cmpne r1, #5
@@ -4954,7 +4954,7 @@ _020C0DD0: .word gBgMenuManager
 FUN_ov4_020c0dd4: ; 0x020C0DD4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_ov16_020ef9e8
+	bl _ZN6Random4TickEv
 	ldr r0, [r4, #8]
 	cmp r0, #6
 	addls pc, pc, r0, lsl #2

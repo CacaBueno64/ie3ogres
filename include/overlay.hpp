@@ -1,5 +1,5 @@
-#ifndef IE3OGRES_OV130_H
-#define IE3OGRES_OV130_H
+#ifndef IE3OGRES_OVERLAY_H
+#define IE3OGRES_OVERLAY_H
 
 #include <nitro.h>
 
@@ -9,4 +9,4 @@ BOOL Load(FSOverlayID ovID);
 
 } /* namespace Overlay */
 
-#endif //IE3OGRES_OV130_H
+#endif //IE3OGRES_OVERLAY_H

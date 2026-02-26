@@ -8576,7 +8576,7 @@ _02121444:
 	mov r2, r4
 	bl FUN_0205acb0
 	mov r0, #4
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r0, r0, #3
 	add sp, sp, #0x18
 	strb r0, [r5, #0x176]
@@ -8608,11 +8608,11 @@ _021214E0:
 	ldmfd sp!, {r4, r5, r6, pc}
 _02121540:
 	mov r0, #4
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r1, r0, #3
 	mov r0, #2
 	strb r1, [r5, #0x176]
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	adds r3, r0, #1
 	bmi _02121568
 	cmp r3, #3

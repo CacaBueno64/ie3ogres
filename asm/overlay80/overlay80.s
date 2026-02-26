@@ -684,7 +684,7 @@ FUN_ov80_0211a7c4: ; 0x0211A7C4
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4, lsl #1
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r2, r4, r4, lsl #3
 	ldr r1, _0211A7F4 ; =0xCCCCCCCD
 	add r2, r2, r0
@@ -755,7 +755,7 @@ FUN_ov80_0211a87c: ; 0x0211A87C
 	ldr r8, [r4, #0x344]
 	beq _0211A9A4
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r6, r0
 	ldrb r10, [r9, #0x16]
 	ldr r0, _0211ADD4 ; =0x020A9C40
@@ -947,7 +947,7 @@ _0211AB8C:
 	beq _0211AC1C
 	mov r0, #0x64
 	add r10, r7, r9
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldrb r1, [r10, #0x10]
 	cmp r1, r0
 	bls _0211AC1C
@@ -3746,9 +3746,9 @@ _0211D2E4: .word gUnitMan
 	arm_func_start FUN_ov80_0211d2e8
 FUN_ov80_0211d2e8: ; 0x0211D2E8
 	ldr r0, [r0, #0x398]
-	ldr r12, _0211D2F4 ; = FUN_ov16_020ef8d4
+	ldr r12, _0211D2F4 ; = _ZN6Random5RandAEm
 	bx r12
-_0211D2F4: .word FUN_ov16_020ef8d4
+_0211D2F4: .word _ZN6Random5RandAEm
 	arm_func_end FUN_ov80_0211d2e8
 
 	arm_func_start FUN_ov80_0211d2f8
@@ -3835,7 +3835,7 @@ _0211D3EC:
 	mov r4, #0
 _0211D3F0:
 	mov r0, #0x64
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	cmp r0, r4
 	movls r0, #1
 	movhi r0, #0
@@ -4012,7 +4012,7 @@ _0211D630:
 	ldr r0, [sp, #0xc]
 	cmp r0, #0
 	beq _0211D6AC
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r4, sp, #0x10
 	ldr r1, [sp, #8]
 	ldr r2, [r4, #4]
@@ -7912,7 +7912,7 @@ FUN_ov80_02120d6c: ; 0x02120D6C
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
 	mov r0, r4, lsl #1
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r2, r4, r4, lsl #3
 	ldr r1, _02120D9C ; =0xCCCCCCCD
 	add r2, r2, r0
@@ -8128,7 +8128,7 @@ _02121090:
 	cmp r0, #0
 	beq _021210F8
 	mov r0, #0x3e8
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r1, r4, r9, lsl #3
 	ldr r1, [r1, #4]
 	mov r2, r9, lsl #3
@@ -8166,7 +8166,7 @@ _02121118:
 	cmp r0, #0
 	beq _021211A8
 	mov r0, #0x64
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	add r1, r6, r9
 	ldrb r1, [r1, #0x10]
 	cmp r1, r0

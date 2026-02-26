@@ -1683,7 +1683,7 @@ _02070820:
 	blt _0207080C
 	cmp r0, #0
 	beq _0207087C
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r8, r7
 	b _02070858
 _0207083C:
@@ -2038,7 +2038,7 @@ _02070D1C:
 	cmp r0, #0
 	beq _02070D50
 	mov r0, #0xf0
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #0xf
 	mov r1, r0, lsl #0x10
 	mov r0, #6

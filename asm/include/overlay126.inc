@@ -55,7 +55,7 @@
 .public FUN_ov132_0213f5d4
 .public FX_Atan2Idx
 .public FUN_ov132_02140d98
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FUN_01ff852c
 .public FUN_01ffba50
 .public unk_0209A80C
@@ -88,7 +88,7 @@
 .public FUN_ov132_0213af10
 .public g3DFieldSprite
 .public FUN_ov132_02140f18
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_ov132_02159124
 .public FUN_02040764
 .public FUN_020403a8

@@ -7748,14 +7748,14 @@ _020C35C4:
 	bl _ZN6Config8getParamEPc
 	str r0, [r4, #0xe4]
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r6, r0
 	bls _020C361C
 	ldr r1, _020C3690 ; =0x020D5AF4
 	mov r0, r5
 	bl _ZN6Config8getParamEPc
 	sub r0, r0, #1
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	str r0, [r4, #0xe8]
 _020C361C:
 	ldr r0, [r4, #0xe8]
@@ -16966,7 +16966,7 @@ FUN_ov0_020cb720: ; 0x020CB720
 	add r1, r6, #0x40
 	bl FUN_020535bc
 	mov r0, #0xa
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r1, [r6, #0x50]
 	add r2, r0, r0, lsl #3
 	str r1, [sp]
@@ -17000,11 +17000,11 @@ FUN_ov0_020cb720: ; 0x020CB720
 _020CB7BC:
 	mov r4, #2
 	mov r0, r4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	adds r0, r0, #1
 	mov r0, r4
 	beq _020CB7F4
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #1
 	mov r0, r0, lsl #0xc
 	bl _ffltu
@@ -17013,7 +17013,7 @@ _020CB7BC:
 	bl _fadd
 	b _020CB80C
 _020CB7F4:
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r0, r0, #1
 	mov r0, r0, lsl #0xc
 	bl _ffltu
@@ -17023,7 +17023,7 @@ _020CB80C:
 	bl _ffix
 	mov r4, r0
 	mov r0, #8
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r1, _020CB908 ; =0x00000AAA
 	mov r2, r4, asr #0x1f
 	umull r12, r3, r4, r1

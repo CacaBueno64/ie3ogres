@@ -2675,24 +2675,24 @@ _01FFAA94:
 	beq _01FFABAC
 	mov r5, #0xe10
 	mov r0, r5
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldrh r1, [r11, #8]
 	mov r6, #0x1e
 	mla r2, r1, r6, r0
 	mov r0, r5
 	str r2, [r8, #8]
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldrh r1, [r11, #8]
 	mov r5, r5, lsr #1
 	mla r2, r1, r6, r0
 	mov r0, r5
 	str r2, [r8, #0xc]
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldrh r1, [r11, #0xa]
 	mla r2, r1, r6, r0
 	mov r0, r5
 	str r2, [r8, #0x10]
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	ldrh r1, [r11, #0xa]
 	mla r0, r1, r6, r0
 	str r0, [r8, #0x14]

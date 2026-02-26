@@ -323,7 +323,7 @@ FUN_ov64_0211a2e4: ; 0x0211A2E4
 _0211A328:
 	mov r0, #0x64
 	mov r8, #2
-	bl FUN_ov16_020ef8d4
+	bl _ZN6Random5RandAEm
 	cmp r0, #0x46
 	movlo r8, #0
 	blo _0211A348

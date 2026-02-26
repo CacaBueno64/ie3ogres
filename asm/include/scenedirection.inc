@@ -291,7 +291,7 @@
 .public FUN_ov16_020f07f4
 .public FUN_ov126_02132718
 .public FUN_ov126_02132730
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FUN_ov126_021327b8
 .public FUN_ov132_02159df0
 .public FUN_020724e8

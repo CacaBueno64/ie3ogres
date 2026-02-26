@@ -998,7 +998,7 @@ _02045F9C:
 _02045FB8:
 	cmp r0, #0
 	beq _02046010
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r2, r7
 	cmp r7, #7
 	bge _02045FF4

@@ -34,7 +34,7 @@
 .public FUN_0204bc4c
 .public FUN_0205079c
 .public FUN_02050820
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_02040dc8
 .public FUN_02050740
 .public FUN_0204ec3c

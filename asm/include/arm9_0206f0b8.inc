@@ -77,7 +77,7 @@
 .public FUN_0204fbe8
 .public FUN_ov16_020ef5b8
 .public FUN_02045ed0
-.public FUN_ov16_020ef928
+.public _ZN6Random5RandBEm
 .public FS_InitFile
 .public FS_OpenFile
 .public FS_SeekFile

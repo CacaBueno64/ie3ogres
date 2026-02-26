@@ -2837,7 +2837,7 @@ _0211C6AC:
 	cmp r0, #0x10
 	bne _0211C6F8
 	mov r0, #3
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r0, #0xe
 	b _0211C6F0
 _0211C6DC:
@@ -2846,7 +2846,7 @@ _0211C6DC:
 _0211C6E4:
 	mov r0, #2
 _0211C6E8:
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r0, #0xd
 _0211C6F0:
 	ldr r0, [sp]
@@ -2904,7 +2904,7 @@ FUN_ov22_0211c73c: ; 0x0211C73C
 	mov r1, #4
 	bl FUN_ov22_0211a6f4
 	mov r0, #0x12c
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r1, #0x14
 _0211C7C0:
 	mla r2, r5, r1, r4
@@ -3007,7 +3007,7 @@ _0211C914:
 	addeq r0, r0, r1
 	cmp r2, #0x10
 	blt _0211C914
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r1, r8
 _0211C93C:
 	ldr r2, [r10, r1, lsl #2]
@@ -3036,7 +3036,7 @@ _0211C974:
 	bl MI_CpuFill8
 _0211C994:
 	mov r0, #0x10
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r8, sp, #0x78
 	mov r6, r0
 	ldr r0, [r8, r6, lsl #2]
@@ -3045,7 +3045,7 @@ _0211C994:
 	mov r7, #0x10
 _0211C9B4:
 	mov r0, r7
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r6, r0
 	ldrne r1, [r8, r0, lsl #2]
 	cmpne r1, #0
@@ -3760,7 +3760,7 @@ _0211D418:
 	cmp r2, #0x10
 	blt _0211D418
 	mov r4, #0xc
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r1, r11
 	mov r2, r4
 _0211D448:
@@ -3835,7 +3835,7 @@ _0211D530:
 	cmp r2, #3
 	blt _0211D530
 	mov r0, #0x64
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	cmp r5, r0
 	strhib r4, [r10, #0x52b]
 	add sp, sp, #0x140
@@ -4290,7 +4290,7 @@ _0211DBC0:
 	ldrb r1, [r1, #0x31c]
 	ldrb r0, [r0, #0x31c]
 	add r0, r1, r0
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	add r1, r10, r8, lsl #1
 	ldrb r1, [r1, #0x31c]
 	add r8, r8, #1
@@ -4517,7 +4517,7 @@ _0211DEE8:
 	ldrb r1, [r4, #0x31c]
 	ldrb r0, [r0, #0x31c]
 	add r0, r1, r0
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldrb r1, [r4, #0x31c]
 	cmp r1, r0
 	strhi r6, [r5, #0x45c]
@@ -5468,7 +5468,7 @@ FUN_ov22_0211ec48: ; 0x0211EC48
 	b _0211EC90
 _0211EC6C:
 	mov r0, r5
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mla r1, r7, r4, r9
 	ldrb r1, [r1, #0x4f4]
 	cmp r0, r1
@@ -5493,7 +5493,7 @@ _0211ECBC:
 	cmp r7, #3
 	blt _0211ECAC
 	mov r0, r6
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	mov r7, #0
 	mov r1, #0xc
 	b _0211ECFC

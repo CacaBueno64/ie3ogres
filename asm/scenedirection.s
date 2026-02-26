@@ -11003,7 +11003,7 @@ _020398C8:
 	b _02039994
 _020398D0:
 	ldr r0, _02039B60 ; =0x000003E7
-	bl FUN_ov16_020ef928
+	bl _ZN6Random5RandBEm
 	ldr r1, [sp, #4]
 	ldr r6, _02039B64 ; =g3DPlaneCtrl
 	add r1, r1, r9, lsl #2

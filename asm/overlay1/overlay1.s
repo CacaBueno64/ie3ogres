@@ -9427,7 +9427,7 @@ _020C4D1C:
 	add r0, r5, #0x20
 	bl FUN_ov1_020cba04
 	add r0, r5, #8
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, [r7]
 	mov r1, #0
 	bl FUN_ov132_02144fdc
@@ -9528,7 +9528,7 @@ _020C4E80:
 	add r0, r4, #0x20
 	bl FUN_ov1_020cb8ec
 	add r0, r4, #8
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, [r6]
 	mov r1, #0
 	bl FUN_ov132_02144fdc
@@ -9617,7 +9617,7 @@ FUN_ov1_020c4fa4: ; 0x020C4FA4
 	add r0, r4, #0x20
 	bl FUN_ov1_020cbbec
 	add r0, r4, #8
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, [r6]
 	mov r1, #0
 	bl FUN_ov132_02144fdc
@@ -9791,7 +9791,7 @@ FUN_ov1_020c5218: ; 0x020C5218
 	strh r2, [r1, #0x22]
 	bl FUN_ov1_020cbbec
 	add r0, r4, #8
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, [r6]
 	mov r1, #0
 	bl FUN_ov132_02144fdc
@@ -9900,7 +9900,7 @@ _020C53DC:
 	mov r2, #8
 	bl MI_CpuCopy8
 	add r0, r4, #8
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, [r6]
 	mov r1, #0
 	bl FUN_ov132_02144fdc
@@ -11677,7 +11677,7 @@ _020C6D24:
 	add r0, r6, #0x20
 	bl FUN_ov1_020cbaa0
 	add r0, r6, #8
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	ldr r0, [r4]
 	bl FUN_ov126_02137644
 	mov r1, #0
@@ -11861,7 +11861,7 @@ _020C6FC4:
 	add r0, r7, #0x20
 	bl FUN_ov1_020cb97c
 	add r0, r7, #8
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	cmp r6, #0xc
 	bne _020C7014
 	ldr r0, [r4]
@@ -11996,7 +11996,7 @@ _020C71B8:
 	ldrsh r2, [r5, #0x22]
 	add r0, r7, #8
 	strh r2, [r1, #4]
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	ldr r0, [r4]
 	ldr r2, [r7]
 	mov r1, #0
@@ -12191,7 +12191,7 @@ _020C7468:
 	ldrsh r2, [r4, #0x22]
 	add r0, r6, #8
 	strh r2, [r1, #4]
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	ldr r0, [r8]
 	mov r1, #0
 	ldr r2, [r6]
@@ -12326,7 +12326,7 @@ _020C767C:
 	mov r2, #8
 	bl MI_CpuCopy8
 	add r0, r6, #8
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	ldr r0, [r4]
 	mov r1, #0
 	ldr r2, [r6]
@@ -48441,7 +48441,7 @@ _020E67CC:
 	strb r0, [r4, #0x5d]
 _020E6860:
 	add r0, r6, #0x18
-	bl FUN_ov16_020ef9b4
+	bl _ZN6Random9SetStateAEP17MATHRandContext32
 	ldr r0, [r6, #0x30]
 	ldr r4, _020E6DB8 ; 0x02099EF0
 	str r0, [r5]
@@ -48931,7 +48931,7 @@ _020E6F48:
 	mov r0, r11
 	bl FUN_ov1_020cb4a0
 	add r0, r11, #0x18
-	bl FUN_ov16_020ef97c
+	bl _ZN6Random9GetStateAEP17MATHRandContext32
 	ldr r0, _020E759C ; =0x020A0640
 	ldr r4, _020E75A0 ; 0x02099EF0
 	ldrb r2, [r0, #0x98]

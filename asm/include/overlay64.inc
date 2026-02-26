@@ -26,7 +26,7 @@
 .public gDeltaTime
 .public g3DSpriteCtrl
 .public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public FUN_ov16_020ef8d4
+.public _ZN6Random5RandAEm
 .public FUN_02073a10
 .public FUN_ov16_020efa9c
 .public FUN_020460fc
