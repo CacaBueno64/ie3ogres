@@ -85,7 +85,16 @@ Static main
 	Object asm/init/arm9_init_02086ed8.o
 	Object asm/init/arm9_init_02086f2c.o
 	Object asm/init/arm9_init_02086f80.o
-	Object asm/init/arm9_init_02086fd4.o
+
+	Object asm/fontmanager.o
+	Object asm/calcmap.o
+	Object asm/distancemap.o
+	Object asm/eventscreenmanager.o
+	Object asm/arm9_020453e0.o
+	Object asm/wirelessutil.o
+	Object asm/scenescriptmanager.o
+	Object src/script/scenescriptfilecontext.o
+
 	Object asm/init/arm9_init_02087028.o
 	Object asm/init/arm9_init_0208707c.o
 	Object asm/init/arm9_init_020870d0.o
@@ -109,14 +118,6 @@ Static main
 	Object asm/init/arm9_init_020876a4.o
 	Object asm/init/arm9_init_020876f8.o
 
-	Object asm/fontmanager.o
-	Object asm/calcmap.o
-	Object asm/distancemap.o
-	Object asm/eventscreenmanager.o
-	Object asm/arm9_020453e0.o
-	Object asm/wirelessutil.o
-	Object asm/scenescriptmanager.o
-	Object asm/scenescriptfilecontext.o
 	Object asm/thinkmanager_mini.o
 	Object asm/thinkmanager.o
 	Object asm/logicthink.o

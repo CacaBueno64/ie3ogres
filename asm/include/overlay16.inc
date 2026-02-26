@@ -207,7 +207,7 @@
 .public FUN_02047c68
 .public _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
 .public FUN_02047e20
-.public FUN_020493dc
+.public _ZN23CSceneScriptFileContext11getVariableEi
 .public unk_0208BFB0
 .public gUtilGame
 .public unk_02099F44

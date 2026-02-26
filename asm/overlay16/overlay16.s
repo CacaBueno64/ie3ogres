@@ -13178,7 +13178,7 @@ _020FECF4:
 	streq r0, [r8, r7, lsl #2]
 	beq _020FED54
 	ldr r0, [r9, #8]
-	bl FUN_020493dc
+	bl _ZN23CSceneScriptFileContext11getVariableEi
 	b _020FECEC
 _020FED14:
 	add r0, r5, r7, lsl #2
@@ -13196,7 +13196,7 @@ _020FED38:
 	streq r0, [r8, r7, lsl #2]
 	beq _020FED54
 	ldr r0, [r9, #8]
-	bl FUN_020493dc
+	bl _ZN23CSceneScriptFileContext11getVariableEi
 _020FED50:
 	str r0, [r8, r7, lsl #2]
 _020FED54:
