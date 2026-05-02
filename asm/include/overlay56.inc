@@ -31,11 +31,11 @@
 .public MI_CpuCopy8
 .public FUN_0204b2f4
 .public FUN_0204b540
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public FUN_ov16_020eeca0
 .public FUN_0204d7fc
 .public gAllocator
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020eedb8
 .public FUN_0207249c
 .public FUN_ov16_020eee4c
@@ -101,7 +101,7 @@
 .public FUN_0205a5f4
 .public FUN_0205a828
 .public FUN_0205ab68
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public FUN_0205aea0
 .public FUN_0205af58

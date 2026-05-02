@@ -57,7 +57,7 @@
 .public gDeltaTime
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
 .public _ZN7CFileIO11tryFinalizeEPv
 .public MIi_CpuClear16
 .public gFileIO
@@ -70,10 +70,10 @@
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_0210eb3c
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public _ZN6Thread6CreateEPFvPvES0_S0_
 .public FUN_ov16_020f5248
-.public _ZN9Allocator8allocateEmii
+.public _ZN10CAllocator8allocateEmii
 .public FUN_ov16_0210e980
 .public GX_SetGraphicsMode
 .public FUN_ov16_020f5a58
@@ -83,7 +83,7 @@
 .public FUN_ov16_020f6a9c
 .public GX_LoadOAM
 .public _ZN6Thread7DestroyEi
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_02061b44
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_020f5af0

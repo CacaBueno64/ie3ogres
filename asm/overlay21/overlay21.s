@@ -881,7 +881,7 @@ FUN_ov21_0211aa8c: ; 0x0211AA8C
 	bl MI_CpuFill8
 	ldr r0, _0211ADCC ; =gConfig
 	ldr r1, _0211ADD0 ; =0x0211D56C
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r9, [r10, #0xaf8]
 	str r7, [r10, #0x79c]
 	cmp r9, #0

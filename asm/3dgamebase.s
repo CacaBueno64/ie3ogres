@@ -25,7 +25,7 @@ FUN_02052168: ; 0x02052168
 	str r1, [r5, #4]
 	ldr r0, _0205219C ; =gAllocator
 	mov r1, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r2, r4
 	mov r1, #0
 	str r0, [r5, #8]
@@ -42,7 +42,7 @@ FUN_020521a0: ; 0x020521A0
 	cmp r1, #0
 	beq _020521BC
 	ldr r0, _020521CC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _020521BC:
 	mov r0, #0
 	str r0, [r4, #8]

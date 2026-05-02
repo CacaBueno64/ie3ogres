@@ -754,7 +754,7 @@ _0211A920:
 	ldr r1, _0211A9C0 ; =0x00000101
 	mov r0, r6
 	ldr r7, [r4, #0x16c]
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	mov r5, #0
 	str r5, [sp, #0x10]
 	str r5, [sp]
@@ -766,7 +766,7 @@ _0211A920:
 	ldr r1, _0211A9C8 ; =0x02122C14
 	add r2, sp, #0x10
 	mov r3, r5
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	str r5, [sp]
 	ldr r0, [sp, #0x10]
 	mov r1, r7
@@ -777,7 +777,7 @@ _0211A920:
 	bl FUN_ov16_020f5504
 	ldr r1, [sp, #0x10]
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #2
 	str r0, [r4, #0x15c]
 	add sp, sp, #0x11c

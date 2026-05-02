@@ -1,4 +1,4 @@
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public _s32_div_f
 .public gAllocator
 .public FX_SinCosTable_

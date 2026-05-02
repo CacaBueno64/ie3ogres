@@ -14,11 +14,11 @@ FUN_ov16_020ef624: ; 0x020EF624
 	str r8, [r4, #4]
 	mov r0, r5
 	str r8, [r4, #0xc]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #8]
 	ldr r1, [r4, #0xc]
 	mov r0, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 	cmp r8, #0
 	ldr r7, [r4, #8]

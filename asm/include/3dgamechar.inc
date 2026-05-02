@@ -6,7 +6,7 @@
 .public FUN_ov16_020fba10
 .public FUN_ov16_020fbcdc
 .public __cxa_vec_new
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_ov16_020fb448
 .public FUN_020525e8
 .public gAllocator
@@ -22,7 +22,7 @@
 .public _ZTV6CModel
 .public _ZN16CSceneScriptDataD1Ev
 .public __cxa_vec_cleanup
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public __cxa_vec_delete
 .public FUN_ov16_020fb4f8
 .public FUN_ov16_020efa9c

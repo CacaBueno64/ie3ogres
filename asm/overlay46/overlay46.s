@@ -400,7 +400,7 @@ FUN_ov46_0211a420: ; 0x0211A420
 	mov r1, #0x1c
 	ldr r0, _0211A7F8 ; =gAllocator
 	mul r1, r2, r1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	add r6, r5, #0x300
 	ldrh r1, [r6, #0xe0]
 	str r0, [r5, #0x4f8]
@@ -512,7 +512,7 @@ _0211A5AC:
 	mov r10, r0, lsr #0x10
 	ldr r0, _0211A7F8 ; =gAllocator
 	mov r1, r10
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r2, [r5, #0x4f8]
 	mov r1, r7
 	add r2, r2, r4
@@ -550,7 +550,7 @@ _0211A670:
 	ldrh r1, [r1, #0xe2]
 	ldr r0, _0211A7F8 ; =gAllocator
 	mov r1, r1, lsl #3
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	add r8, r5, #0x300
 	ldrh r1, [r8, #0xe2]
 	str r0, [r5, #0x950]
@@ -593,7 +593,7 @@ _0211A714:
 	mov r0, r7
 	strb r2, [r5, #0x3e4]
 	mov r1, r1, lsl #3
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldrb r1, [r5, #0x3e4]
 	str r0, [r5, #0x4f4]
 	mov r9, #0
@@ -612,7 +612,7 @@ _0211A760:
 	mov r6, r0
 	mov r0, r7
 	add r1, r6, #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r5, #0x4f4]
 	add r2, r6, #1
 	add r1, r1, r9, lsl #3
@@ -881,7 +881,7 @@ FUN_ov46_0211ab08: ; 0x0211AB08
 	ldr r4, _0211ABE0 ; =gAllocator
 	ldr r1, [r6, #0x950]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r8, r6, #0x300
 	ldrh r0, [r8, #0xe0]
 	mov r5, #0
@@ -893,7 +893,7 @@ _0211AB38:
 	mov r0, r4
 	mla r1, r5, r7, r1
 	ldr r1, [r1, #0x18]
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldrh r0, [r8, #0xe0]
 	add r5, r5, #1
 	cmp r5, r0
@@ -902,7 +902,7 @@ _0211AB5C:
 	ldr r4, _0211ABE0 ; =gAllocator
 	ldr r1, [r6, #0x4f8]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldrb r0, [r6, #0x3e4]
 	mov r5, #0
 	cmp r0, #0
@@ -913,7 +913,7 @@ _0211AB80:
 	mov r0, r4
 	add r1, r1, r5, lsl #3
 	ldr r1, [r1, #4]
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r0, [r6, #0x4f4]
 	add r0, r0, r5, lsl #3
 	str r7, [r0, #4]
@@ -924,7 +924,7 @@ _0211AB80:
 _0211ABB0:
 	ldr r1, [r6, #0x4f4]
 	ldr r0, _0211ABE0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r1, #0
 	add r0, r6, #0x300
 	strh r1, [r0, #0xe0]
@@ -6473,7 +6473,7 @@ FUN_ov46_0211f920: ; 0x0211F920
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
-	bl _ZN9Allocator11getHeapInfoEPiS0_S0_
+	bl _ZN10CAllocator11getHeapInfoEPiS0_S0_
 	ldr r1, [sp, #4]
 	mov r0, #0x4000000
 	str r1, [r6, #4]

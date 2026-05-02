@@ -1,9 +1,7 @@
-#ifndef IE3OGRES_GRAPHICS_H
-#define IE3OGRES_GRAPHICS_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
+#include <nitro/gx/struct_2d.h>
 
 #include "allocator.hpp"
 #include "filesystem.hpp"
@@ -151,5 +149,3 @@ void ClearBGXMain(int bg, CharFormat charFmt);
 void ClearBGXSub(int bg, CharFormat charFmt);
 
 } /* namespace Graphics */
-
-#endif //IE3OGRES_GRAPHICS_H

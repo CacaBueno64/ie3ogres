@@ -158,13 +158,13 @@ FUN_ov50_0211a0fc: ; 0x0211A0FC
 	str r0, [r6, #0x3a0]
 	ldr r1, [r6, #0x3a4]
 	mov r0, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r1, [r6, #0x3a0]
 	mov r5, #0
 	mov r0, r7
 	mov r1, r1, lsl #2
 	str r5, [r6, #0x3a4]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r6, #0x3a0]
 	str r0, [r6, #0x3a4]
 	cmp r1, #0
@@ -456,7 +456,7 @@ _0211A520:
 	blt _0211A510
 	ldr r1, [r6, #0x3a4]
 	ldr r0, _0211A5F8 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r5, #0
 	str r5, [r6, #0x3a4]
 	ldr r7, _0211A5FC ; =g3DPlaneCtrl

@@ -1,7 +1,7 @@
-#ifndef IE3OGRES_CNVDAT_H
-#define IE3OGRES_CNVDAT_H
+#pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
+#include <nitro/fx/fx.h>
 
 // These are the structs dumped from "data_iz/bfmt/cnvdat.bin"
 
@@ -643,5 +643,3 @@ typedef struct {
     SRecordHeader head;
     SRecordData data;
 } st_data;
-
-#endif //IE3OGRES_CNVDAT_H

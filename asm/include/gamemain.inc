@@ -27,7 +27,7 @@
 .public gRecordManager
 .public unk_020A0640
 .public _ZN16CameraController4initEv
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gCameraController
 .public gConfig
 .public unk_0208F978
@@ -79,7 +79,7 @@
 .public FUN_02043c80
 .public _ZN8Graphics19SetScreenBrightnessEti
 .public GX_DispOn
-.public _ZN9Allocator15setDefaultArenaEi
+.public _ZN10CAllocator15setDefaultArenaEi
 .public FUN_0202a4d4
 .public FUN_0206f29c
 .public gDebugFont
@@ -95,7 +95,7 @@
 .public FUN_02051434
 .public _ZN6Thread9WakeUpAllEv
 .public FUN_02051448
-.public _ZN9Allocator11getHeapInfoEPiS0_S0_
+.public _ZN10CAllocator11getHeapInfoEPiS0_S0_
 .public FUN_ov16_020f2604
 .public FUN_0202a39c
 .public gWaitVBlank

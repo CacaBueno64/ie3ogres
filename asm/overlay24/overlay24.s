@@ -328,7 +328,7 @@ FUN_ov24_0211a308: ; 0x0211A308
 	mov r12, #1
 	add r2, r4, #0xd4
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211A35C:
 	str r0, [r4, #0xd8]
 	add sp, sp, #0x10
@@ -2272,7 +2272,7 @@ FUN_ov24_0211bff8: ; 0x0211BFF8
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _0211C038 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0xd4]
 	ldmfd sp!, {r4, pc}

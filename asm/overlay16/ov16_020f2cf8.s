@@ -15,7 +15,7 @@ FUN_ov16_020f2cf8: ; 0x020F2CF8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, _020F2D94 ; =gConfig
 	ldr r1, _020F2D98 ; =0x021184B4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	add r5, sp, #0
 	mov r6, r0
 	ldr r1, _020F2D9C ; =0x021184BC
@@ -160,7 +160,7 @@ FUN_ov16_020f2edc: ; 0x020F2EDC
 	mov r1, r1, lsl #1
 	mov r2, #0x11
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	movs r4, r0
 	beq _020F2F14
 	mov r1, r6
@@ -194,13 +194,13 @@ FUN_ov16_020f2f20: ; 0x020F2F20
 FUN_ov16_020f2f58: ; 0x020F2F58
 	mul r1, r0, r1
 	ldr r0, _020F2F74 ; =gAllocator
-	ldr r12, _020F2F78 ; =_ZN9Allocator8allocateEmii
+	ldr r12, _020F2F78 ; =_ZN10CAllocator8allocateEmii
 	mov r1, r1, lsl #5
 	mov r2, #0x11
 	mov r3, #1
 	bx r12
 _020F2F74: .word gAllocator
-_020F2F78: .word _ZN9Allocator8allocateEmii
+_020F2F78: .word _ZN10CAllocator8allocateEmii
 	arm_func_end FUN_ov16_020f2f58
 
 	arm_func_start FUN_ov16_020f2f7c
@@ -254,14 +254,14 @@ _020F300C:
 	cmp r1, #0
 	beq _020F3024
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r5, [r9]
 _020F3024:
 	ldr r1, [r9, #4]
 	cmp r1, #0
 	beq _020F303C
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r9, #4]
 _020F303C:
 	add r7, r7, #1

@@ -3422,7 +3422,7 @@ _0211CE78:
 	mov r2, r9
 	mov r1, #0x60
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	str r0, [r5, #0x14c]
 	mov r7, #0x98
 	mov r6, r9
@@ -3433,7 +3433,7 @@ _0211CEA8:
 	mov r1, r7
 	mov r2, r6
 	mov r3, r4
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	add r1, r5, r9, lsl #2
 	str r0, [r1, #0x150]
 	add r9, r9, #1
@@ -3442,7 +3442,7 @@ _0211CEC8:
 	blt _0211CEA8
 	ldr r0, _0211CF1C ; =gAllocator
 	mov r1, #0x1b0
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r5, #0x160]
 	mov r0, r5
 	mov r1, #1
@@ -3590,7 +3590,7 @@ _0211D0C4:
 	cmp r1, #0
 	beq _0211D0E4
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r0, r4, r7, lsl #2
 	str r5, [r0, #0x150]
 _0211D0E4:
@@ -3601,7 +3601,7 @@ _0211D0E4:
 	cmp r1, #0
 	beq _0211D10C
 	ldr r0, _0211D158 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x160]
 _0211D10C:
@@ -3609,7 +3609,7 @@ _0211D10C:
 	cmp r1, #0
 	beq _0211D128
 	ldr r0, _0211D158 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x14c]
 _0211D128:
@@ -3791,7 +3791,7 @@ _0211D368:
 	ldr r0, _0211D408 ; =gConfig
 	ldr r1, _0211D40C ; =0x02122964
 _0211D370:
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0x10
 	mov r4, r0, lsr #0x10
 	b _0211D3F0
@@ -9177,7 +9177,7 @@ _02121F3C:
 	mov r1, r8
 	mov r2, r4
 	mov r3, r7
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	add r1, r6, r5, lsl #2
 	str r0, [r1, #0x378]
 	add r5, r5, #1
@@ -9186,7 +9186,7 @@ _02121F5C:
 	blt _02121F3C
 	ldr r0, _0212205C ; =gAllocator
 	mov r1, #0x6c0
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r6, #0x3b8]
 	mov r0, r6
 	bl FUN_ov80_0211f564
@@ -9444,7 +9444,7 @@ _02122300:
 	cmp r1, #0
 	beq _02122320
 	mov r0, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r0, r5, r4, lsl #2
 	str r6, [r0, #0x378]
 _02122320:
@@ -9456,7 +9456,7 @@ _02122324:
 	cmp r1, #0
 	beq _02122348
 	ldr r0, _02122478 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r5, #0x3b8]
 _02122348:

@@ -1,9 +1,6 @@
-#ifndef IE3OGRES_RESOURCEMANAGER_H
-#define IE3OGRES_RESOURCEMANAGER_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
 
 class ResourceManager {
     public:
@@ -23,5 +20,3 @@ class ResourceManager {
 };
 
 extern ResourceManager *gResourceManager;
-
-#endif //IE3OGRES_RESOURCEMANAGER_H

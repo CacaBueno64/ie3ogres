@@ -129,7 +129,7 @@ _02124E70:
 	mov r12, #1
 	add r2, r4, #0xcc
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02124EB4:
 	ldr r3, _02124F2C ; =gAllocator
 	ldr r1, _02124F34 ; =0x021262A8
@@ -143,7 +143,7 @@ _02124EB4:
 	mov r12, #1
 	add r2, r4, #0xd0
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02124EE8:
 	ldr r3, _02124F2C ; =gAllocator
 	ldr r1, _02124F38 ; =0x021262CC
@@ -158,7 +158,7 @@ _02124EE8:
 	mov r12, #1
 	add r2, r4, #0xd4
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124F28: .word ov104_02126260
@@ -202,14 +202,14 @@ _02124F90:
 	cmp r1, #0
 	beq _02124FAC
 	mov r0, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r9, #0x40]
 _02124FAC:
 	ldr r1, [r9, #0x44]
 	cmp r1, #0
 	beq _02124FC4
 	mov r0, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r5, [r9, #0x44]
 _02124FC4:
 	add r8, r8, #1
@@ -231,7 +231,7 @@ FUN_ov104_02124fd8: ; 0x02124FD8
 	bne _02125008
 	ldr r0, _02125080 ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _02125008:
 	ldr r0, [r4, #4]
@@ -239,7 +239,7 @@ _02125008:
 	bne _02125024
 	ldr r0, _02125080 ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _02125024:
 	ldr r2, [r4]
@@ -1375,13 +1375,13 @@ FUN_ov104_02125fe0: ; 0x02125FE0
 	ldr r4, _02126048 ; =gAllocator
 	ldr r1, [r5, #0xcc]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r1, [r5, #0xd0]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r1, [r5, #0xd4]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r4, #1
 	ldr r0, _0212604C ; =gBgMenuManager
 	mov r1, r4

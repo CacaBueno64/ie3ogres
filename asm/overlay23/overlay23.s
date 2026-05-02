@@ -242,7 +242,7 @@ _0211A1DC:
 	str r2, [sp, #8]
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r2, r0
 _0211A20C:
 	cmp r2, #0
@@ -276,7 +276,7 @@ _0211A26C:
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A278:
 	ldr r0, _0211A28C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, r4
 	add sp, sp, #0x18
 	ldmfd sp!, {r4, r5, r6, pc}

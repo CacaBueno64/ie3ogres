@@ -6,7 +6,7 @@
 .public FUN_02041074
 .public OS_InitMutex
 .public NNS_GfdGetLnkTexVramManagerWorkSize
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public NNS_GfdGetLnkPlttVramManagerWorkSize
 .public MIi_CpuClearFast
 .public FUN_02040ea0

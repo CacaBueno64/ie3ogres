@@ -425,7 +425,7 @@ FUN_ov39_0211a45c: ; 0x0211A45C
 	str r6, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x34
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211A4B4:
 	cmp r0, #0
 	addeq sp, sp, #0x38
@@ -636,7 +636,7 @@ _0211A7C8:
 	blt _0211A530
 	ldr r1, [sp, #0x34]
 	ldr r0, _0211A7EC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A7E8: .word gSprButtonCtrl

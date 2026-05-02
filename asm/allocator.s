@@ -3,8 +3,8 @@
 	.include "/include/allocator.inc"
 
     .text
-    arm_func_start _ZN9AllocatorC1Ev
-_ZN9AllocatorC1Ev: ; 0x0202DBF8
+    arm_func_start _ZN10CAllocatorC1Ev
+_ZN10CAllocatorC1Ev: ; 0x0202DBF8
 	mov r3, #0
 	mov r2, r3
 _0202DC00:
@@ -15,10 +15,10 @@ _0202DC00:
 	cmp r3, #5
 	blt _0202DC00
 	bx lr
-	arm_func_end _ZN9AllocatorC1Ev
+	arm_func_end _ZN10CAllocatorC1Ev
 
-	arm_func_start _ZN9AllocatorD1Ev
-_ZN9AllocatorD1Ev: ; 0x0202DC1C
+	arm_func_start _ZN10CAllocatorD1Ev
+_ZN10CAllocatorD1Ev: ; 0x0202DC1C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -35,10 +35,10 @@ _0202DC40:
 	blt _0202DC28
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN9AllocatorD1Ev
+	arm_func_end _ZN10CAllocatorD1Ev
 
-	arm_func_start _ZN9Allocator10initArenasE9OSArenaIdPvS1_
-_ZN9Allocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
+	arm_func_start _ZN10CAllocator10initArenasE9OSArenaIdPvS1_
+_ZN10CAllocator10initArenasE9OSArenaIdPvS1_: ; 0x0202DC54
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	mov r10, r0
 	mov r0, r1
@@ -133,10 +133,10 @@ _0202DD7C:
 	str r0, [r10, #0x50]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202DD9C: .word unk_0208C348
-	arm_func_end _ZN9Allocator10initArenasE9OSArenaIdPvS1_
+	arm_func_end _ZN10CAllocator10initArenasE9OSArenaIdPvS1_
 
-	arm_func_start _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
-_ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE: ; 0x0202DDA0
+	arm_func_start _ZN10CAllocator8tryMergeEPNS_17AllocatorMetadataE
+_ZN10CAllocator8tryMergeEPNS_17AllocatorMetadataE: ; 0x0202DDA0
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r4, r0
 	ldr r0, [r4, #0xc]
@@ -181,19 +181,19 @@ _0202DE18:
 _0202DE3C:
 	bl DC_WaitWriteBufferEmpty
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
+	arm_func_end _ZN10CAllocator8tryMergeEPNS_17AllocatorMetadataE
 
-	arm_func_start _ZN9Allocator8allocateEm
-_ZN9Allocator8allocateEm: ; 0x0202DE44
-	ldr r12, _0202DE54 ; =_ZN9Allocator8allocateEmii
+	arm_func_start _ZN10CAllocator8allocateEm
+_ZN10CAllocator8allocateEm: ; 0x0202DE44
+	ldr r12, _0202DE54 ; =_ZN10CAllocator8allocateEmii
 	mov r2, #0
 	mov r3, #1
 	bx r12
-_0202DE54: .word _ZN9Allocator8allocateEmii
-	arm_func_end _ZN9Allocator8allocateEm
+_0202DE54: .word _ZN10CAllocator8allocateEmii
+	arm_func_end _ZN10CAllocator8allocateEm
 
-	arm_func_start _ZN9Allocator8allocateEmii ; https://decomp.me/scratch/RvyQ1
-_ZN9Allocator8allocateEmii: ; 0x0202DE58
+	arm_func_start _ZN10CAllocator8allocateEmii ; https://decomp.me/scratch/RvyQ1
+_ZN10CAllocator8allocateEmii: ; 0x0202DE58
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #8
 	ldr r7, _0202E198 ; =0x0208C340
@@ -292,7 +292,7 @@ _0202DF98:
 	cmpne r1, r0
 	beq _0202DFC4
 	mov r0, r5
-	bl _ZN9Allocator8tryMergeEPNS_17AllocatorMetadataE
+	bl _ZN10CAllocator8tryMergeEPNS_17AllocatorMetadataE
 _0202DFC4:
 	ldr r5, [r5, #0xc]
 	cmp r5, #0
@@ -426,27 +426,27 @@ _0202E178:
 	add sp, sp, #8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0202E198: .word unk_0208C340
-	arm_func_end _ZN9Allocator8allocateEmii
+	arm_func_end _ZN10CAllocator8allocateEmii
 
-	arm_func_start _ZN9Allocator12setNextArenaEi
-_ZN9Allocator12setNextArenaEi: ; 0x0202E19C
+	arm_func_start _ZN10CAllocator12setNextArenaEi
+_ZN10CAllocator12setNextArenaEi: ; 0x0202E19C
 	ldr r2, [r0, #0x4c]
 	str r1, [r0, #0x4c]
 	mov r0, r2
 	bx lr
-	arm_func_end _ZN9Allocator12setNextArenaEi
+	arm_func_end _ZN10CAllocator12setNextArenaEi
 
-	arm_func_start _ZN9Allocator15setDefaultArenaEi
-_ZN9Allocator15setDefaultArenaEi: ; 0x0202E1AC
+	arm_func_start _ZN10CAllocator15setDefaultArenaEi
+_ZN10CAllocator15setDefaultArenaEi: ; 0x0202E1AC
 	ldr r2, [r0, #0x50]
 	cmp r1, #0
 	strge r1, [r0, #0x50]
 	mov r0, r2
 	bx lr
-	arm_func_end _ZN9Allocator15setDefaultArenaEi
+	arm_func_end _ZN10CAllocator15setDefaultArenaEi
 
-	arm_func_start _ZN9Allocator10deallocateEPv ; https://decomp.me/scratch/lyon1
-_ZN9Allocator10deallocateEPv: ; 0x0202E1C0
+	arm_func_start _ZN10CAllocator10deallocateEPv ; https://decomp.me/scratch/lyon1
+_ZN10CAllocator10deallocateEPv: ; 0x0202E1C0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1
 	mov r7, r0
@@ -574,10 +574,10 @@ _0202E374:
 	add r0, r7, #0xc
 	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end _ZN9Allocator10deallocateEPv
+	arm_func_end _ZN10CAllocator10deallocateEPv
 
-	arm_func_start _ZN9Allocator11getHeapInfoEPiS0_S0_
-_ZN9Allocator11getHeapInfoEPiS0_S0_: ; 0x0202E38C
+	arm_func_start _ZN10CAllocator11getHeapInfoEPiS0_S0_
+_ZN10CAllocator11getHeapInfoEPiS0_S0_: ; 0x0202E38C
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	movs r7, r1
 	mov r8, r0
@@ -641,7 +641,7 @@ _0202E464:
 	cmp r4, #5
 	blt _0202E3E0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end _ZN9Allocator11getHeapInfoEPiS0_S0_
+	arm_func_end _ZN10CAllocator11getHeapInfoEPiS0_S0_
 
 	.rodata
 	.global unk_0208C340

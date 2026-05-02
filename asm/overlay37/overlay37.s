@@ -34,7 +34,7 @@ FUN_ov37_02119f48: ; 0x02119F48
 	ldr r0, _0211A010 ; =gConfig
 	ldr r1, _0211A014 ; =0x0211BD98
 	str r2, [sp, #0x10]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	beq _02119F78
 	cmp r0, #1
@@ -56,7 +56,7 @@ _02119F78:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 _02119FC4:
@@ -76,7 +76,7 @@ _02119FC4:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 _0211A010: .word gConfig

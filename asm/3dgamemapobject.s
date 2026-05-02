@@ -799,11 +799,11 @@ _ZN16C3DGameMapObject4initEi: ; 0x0205ECD0
 	str r0, [r10, #0x18]
 	mov r1, r9, lsl #5
 	mov r0, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r10, #0x14]
 	mov r0, r4
 	mov r1, #0x600
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r10, #0x1c]
 	ldr r0, [r10, #0x10]
 	cmp r0, #0
@@ -876,7 +876,7 @@ FUN_0205ee28: ; 0x0205EE28
 	cmp r1, #0
 	beq _0205EE5C
 	ldr r0, _0205EF24 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205EE5C:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
@@ -930,7 +930,7 @@ _0205EF04:
 	cmp r1, #0
 	beq _0205EF18
 	ldr r0, _0205EF24 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205EF18:
 	mov r0, r4
 	bl _ZN16C3DGameMapObject5resetEv

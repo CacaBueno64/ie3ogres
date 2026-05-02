@@ -9,7 +9,7 @@
 .public gSubScreen2
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
@@ -30,7 +30,7 @@
 .public GXS_LoadBG1Scr
 .public GXS_LoadBG2Scr
 .public _ZN8Graphics16LoadBGPaletteSubEv
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN15CommonSubScreen10updateKeysEtt

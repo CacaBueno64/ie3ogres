@@ -9,7 +9,7 @@ FUN_02040e6c: ; 0x02040E6C
 	mov r4, r0
 	ldr r0, _02040E90 ; =gAllocator
 	mov r1, #0x8000
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, #0
 	str r0, [r4, #0x1c]
 	str r1, [r4, #0x20]
@@ -42,7 +42,7 @@ FUN_02040ea0: ; 0x02040EA0
 	mul r5, r7, r0
 	ldr r0, _02040F10 ; =gAllocator
 	mov r1, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r1, r0
 	str r1, [r6]
 	beq _02040EFC
@@ -508,7 +508,7 @@ FUN_02041518: ; 0x02041518
 	mov r1, r5
 	mov r0, r8
 	mov r9, #0
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r4, r0
 	addeq sp, sp, #0xc
 	moveq r0, r9
@@ -526,7 +526,7 @@ FUN_02041518: ; 0x02041518
 	bne _02041598
 	mov r0, r8
 	mov r1, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add sp, sp, #0xc
 	mov r0, r9
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -577,7 +577,7 @@ FUN_02041618: ; 0x02041618
 	cmp r1, #0
 	beq _02041644
 	ldr r0, _02041664 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02041644:
 	ldr r1, _0204165C ; =0x020B5BDC
 	mov r0, #0

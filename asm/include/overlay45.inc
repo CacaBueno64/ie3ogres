@@ -114,8 +114,8 @@
 .public FUN_0206cd30
 .public FUN_0206ccec
 .public FUN_0206cc94
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public _ZN9Allocator10deallocateEPv
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN10CAllocator10deallocateEPv
 .public unk_02099F44
 .public gAllocator
 .public _Znwm
@@ -149,8 +149,8 @@
 .public FUN_02074a2c
 .public unk_0209A3E0
 .public FUN_02071fac
-.public _ZN9Allocator8allocateEmii
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEmii
+.public _ZN10CAllocator8allocateEm
 .public _ZN14CScreenManager10fadeInMainEv
 .public FUN_02072020
 .public FX_Sqrt

@@ -1,5 +1,5 @@
 .public FUN_ov16_020f6a9c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _ZN8Graphics9FadeInSubEl
 .public gBgMenuManager
 .public gAllocator
@@ -13,7 +13,7 @@
 .public DC_FlushRange
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020efa9c

@@ -56,7 +56,7 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f6a9c
 .public _ZN7Archive5CloseEP9SFileDatai
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public _ZdlPv
 .public FX_Sqrt

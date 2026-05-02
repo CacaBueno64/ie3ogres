@@ -521,7 +521,7 @@ _0205683C:
 	str r2, [r4, #0x9c]
 	str r2, [r4, #0xa0]
 	str r2, [r4, #0xa4]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0xa8]
 	cmp r0, #0
 	moveq r0, #0xaa
@@ -579,7 +579,7 @@ FUN_020568c4: ; 0x020568C4
 	mov r4, #0x18
 	mul r1, r5, r4
 	ldr r0, _020569B8 ; =gAllocator
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r7, _020569BC ; =g3DSpriteCtrl
 	str r0, [r6, #0x94]
 	ldr r0, [r7]
@@ -641,7 +641,7 @@ _02056A00:
 	ble _020569EC
 	ldr r1, [r4, #0x94]
 	ldr r0, _02056A84 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x94]
 _02056A20:

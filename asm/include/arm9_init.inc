@@ -4,7 +4,7 @@
 .public _ZN7CFileIOC1Ev
 .public FUN_0205ff80
 .public _ZN14CardControllerC1Ev
-.public _ZN9AllocatorC1Ev
+.public _ZN10CAllocatorC1Ev
 .public _ZN11AudioPlayerC1Ev
 .public _ZN11MoviePlayerC1Ev
 .public _ZN14CScreenManagerC2Ev
@@ -30,7 +30,7 @@
 .public _ZN14CardControllerD1Ev
 .public unk_02099FCC
 .public gAllocator
-.public _ZN9AllocatorD1Ev
+.public _ZN10CAllocatorD1Ev
 .public unk_02099FD8
 .public gAudioPlayer
 .public _ZN11AudioPlayerD1Ev

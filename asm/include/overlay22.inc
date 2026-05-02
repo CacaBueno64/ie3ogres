@@ -57,10 +57,10 @@
 .public FUN_02058ee0
 .public FUN_ov16_021123c4
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public _ZN9Allocator12setNextArenaEi
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN10CAllocator12setNextArenaEi
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public FUN_ov16_020f5504
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public gFileIO
 .public FUN_ov16_021137dc

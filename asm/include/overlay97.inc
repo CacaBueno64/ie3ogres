@@ -1,5 +1,5 @@
 .public FUN_ov16_020f6a9c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gBgMenuManager
 .public gAllocator
 .public FUN_ov16_020efa9c
@@ -19,7 +19,7 @@
 .public DC_FlushRange
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public STD_GetStringLength
 .public FUN_0204294c
 .public FUN_0204378c

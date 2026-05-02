@@ -254,8 +254,8 @@
 .public FUN_ov16_020f2304
 .public FUN_02054070
 .public FUN_ov16_02111438
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public _ZN9Allocator10deallocateEPv
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public FUN_0204b0ac
 .public FUN_ov16_020f5278

@@ -1,4 +1,5 @@
 #include "thread.hpp"
+#include <cstddef> // for NULL
 
 namespace Thread {
 
@@ -7,13 +8,14 @@ static int sCurrentThreadIdx;
 static void *sThreadStackTable[THREAD_STACK_TABLE_COUNT];
 static void (*sThreadFunctionTable[THREAD_FUNCTION_TABLE_COUNT])(void *args);
 
-void Init(void)
-{
+void Init(void) {
     for (int i = 0; i < THREAD_STACK_TABLE_COUNT; i++) {
         sThreadStackTable[i] = NULL;
     }
 }
 
+#ifdef __MWERKS__
+// clang-format off
 asm void Exit(void)
 {
     ldr r2, =sCurrentThreadIdx
@@ -32,7 +34,13 @@ asm void Exit(void)
     ldr lr, [sp], #4
     mov pc, lr
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
+#ifdef __MWERKS__
+// clang-format off
 asm void ReturnStack(void)
 {
     str lr, [sp, #-4]! // push {lr}
@@ -52,7 +60,13 @@ asm void ReturnStack(void)
     ldr lr, [sp], #4 // pop {lr}
     mov pc, lr
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
+#ifdef __MWERKS__
+// clang-format off
 asm void Yield(void)
 {
     str lr, [sp, #-4]!
@@ -71,7 +85,13 @@ asm void Yield(void)
     bl ReturnStack
     b LoadContext
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
+#ifdef __MWERKS__
+// clang-format off
 asm void LoadContext(void)
 {
     ldr r0, [sp], #0x4
@@ -89,21 +109,25 @@ asm void LoadContext(void)
     ldr r2, [sp], #0x4
     mov pc, r2
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
-void Sleep(int frames)
-{
+void Sleep(int frames) {
     for (int i = 0; i < frames; i++) {
         Yield();
     }
 }
 
-void Starter(void *args)
-{
+void Starter(void *args) {
     sThreadFunctionTable[sCurrentThreadIdx](args);
     Exit();
 }
 
-asm threadkey_t InitStack(register void (*starter)(void *args), register void *args, register void *stackBottom)
+#ifdef __MWERKS__
+// clang-format off
+asm threadhandle_t InitStack(register void (*starter)(void *args), register void *args, register void *stackBottom)
 {
     str starter, [stackBottom, #-4]!
     str r11, [stackBottom, #-4]!
@@ -145,20 +169,23 @@ asm threadkey_t InitStack(register void (*starter)(void *args), register void *a
 @return:
     mov pc, lr
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
-int Create(void (*function)(void *), void *args, void *stackBottom)
-{
-    threadkey_t idx = InitStack(&Starter, args, stackBottom);
+int Create(void (*function)(void *), void *args, void *stackBottom) {
+    threadhandle_t idx = InitStack(&Starter, args, stackBottom);
     sThreadFunctionTable[idx] = function;
-
     return idx;
 }
 
-void Destroy(threadkey_t idx)
-{
+void Destroy(threadhandle_t idx) {
     sThreadStackTable[idx] = NULL;
 }
 
+#ifdef __MWERKS__
+// clang-format off
 asm void WakeUp(void)
 {
     str lr, [sp, #-4]! // push {lr}
@@ -178,7 +205,13 @@ asm void WakeUp(void)
     ldr r1, [sp], #4 // pop {r1}
     mov pc, r1
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
+#ifdef __MWERKS__
+// clang-format off
 asm void WakeUpAll(void)
 {
     mov r1, #0 // r1 = index
@@ -227,5 +260,9 @@ asm void WakeUpAll(void)
 @return:
     mov pc, lr
 }
+// clang-format on
+#else
+// TODO: Portable ASM
+#endif
 
 } /* namespace Thread */

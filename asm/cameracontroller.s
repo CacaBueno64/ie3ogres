@@ -10,12 +10,12 @@ FUN_02059d9c: ; 0x02059D9C
 	ldr r4, _02059E38 ; =gConfig
 	ldr r1, _02059E3C ; =0x0209081C
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ble _02059DE0
 	ldr r1, _02059E40 ; =0x0209082C
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -25,7 +25,7 @@ FUN_02059d9c: ; 0x02059D9C
 _02059DE0:
 	ldr r1, _02059E44 ; =0x0209083C
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -64,12 +64,12 @@ FUN_02059e58: ; 0x02059E58
 	ldr r1, _02059F84 ; =0x0209084C
 	mov r0, r5
 	mov r4, #0x1000
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ble _02059EA0
 	ldr r1, _02059F88 ; =0x02090860
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -79,7 +79,7 @@ FUN_02059e58: ; 0x02059E58
 _02059EA0:
 	ldr r1, _02059F8C ; =0x02090874
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -90,7 +90,7 @@ _02059EBC:
 	ldr r0, _02059F80 ; =gConfig
 	ldr r1, _02059F90 ; =0x02090888
 	ldreq r5, _02059F94 ; =0x01001000
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	moveq r1, #0x800
 	ldreq r2, _02059F98 ; =0x00000DDB

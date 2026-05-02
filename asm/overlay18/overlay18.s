@@ -212,7 +212,7 @@ FUN_ov18_0211a14c: ; 0x0211A14C
 	str r4, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x14
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211A1B4:
 	mov r4, #0
 	add r8, sp, #0x18
@@ -263,7 +263,7 @@ _0211A248:
 	mov r10, #1
 	ldr r7, _0211A738 ; =g3DPlaneCtrl
 	mov r6, #0x1c
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r4, #0
 	mov r9, #5
 	mov r8, #2
@@ -892,7 +892,7 @@ _0211AAF4:
 	ldr r1, _0211ABC0 ; =0x0211BC9C
 	add r2, sp, #0x10
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211AB6C:
 	add r9, r9, #1
 _0211AB70:
@@ -995,7 +995,7 @@ _0211AC6C:
 	add r2, sp, #0x10
 	mov r3, r4
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211ACC4:
 	ldr r0, [r10, #0x44]
 	add r9, r9, #1

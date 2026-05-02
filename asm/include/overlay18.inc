@@ -1,10 +1,10 @@
 .public _ZdlPv
 .public MI_CpuFill8
 .public FUN_ov16_021123b4
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public sprintf
 .public FUN_02059038
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_02059630
 .public FUN_ov16_02112724
 .public FUN_ov16_02114248

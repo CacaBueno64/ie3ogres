@@ -24,10 +24,10 @@
 .public G2S_GetBG0CharPtr
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_0210ee78
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public _Znam
 .public FUN_02044658
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public unk_020AF81C
 .public FUN_ov16_0210e674

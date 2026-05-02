@@ -12,8 +12,8 @@
 .public FUN_0206c7dc
 .public gUnitMan
 .public unk_020A1640
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public _ZN9Allocator10deallocateEPv
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public rand
 .public FUN_ov16_0210e7d0

@@ -113,8 +113,8 @@
 .public FUN_ov16_020f2f7c
 .public FUN_02071fac
 .public FUN_ov16_020f2fa8
-.public _ZN9Allocator8allocateEmii
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEmii
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear16
 .public gAllocator
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
@@ -122,7 +122,7 @@
 .public GX_LoadBG1Scr
 .public GX_LoadBG3Scr
 .public _ZN7Archive5CloseEP9SFileDatai
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f2fe4
 .public FUN_02072020
 .public FUN_ov1_020be6f8
@@ -130,7 +130,7 @@
 .public unk_020AF81C
 .public FUN_020724c8
 .public FUN_0206c7dc
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gConfig
 .public FUN_02045b40
 .public FUN_0204eba0

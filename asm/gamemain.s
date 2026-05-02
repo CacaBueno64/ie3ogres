@@ -126,36 +126,36 @@ FUN_0202a7a8: ; 0x0202A7A8
 	ldr r5, _0202A848 ; =gConfig
 	ldr r1, _0202A84C ; =0x0208F978
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r4, _0202A850 ; =0x0208F6F0
 	ldr r1, _0202A854 ; =0x0208F988
 	str r0, [r4]
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #4]
 	ldr r1, _0202A858 ; =0x0208F99C
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0xc]
 	ldr r1, _0202A85C ; =0x0208F9B0
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0x10]
 	ldr r1, _0202A860 ; =0x0208F9C4
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0x28]
 	mov r0, r5
 	ldr r1, _0202A864 ; =0x0208F9D4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0x2c]
 	mov r0, r5
 	ldr r1, _0202A868 ; =0x0208F9E8
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0x30]
 	mov r0, r5
 	ldr r1, _0202A86C ; =0x0208F9FC
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
 _0202A844: .word gCameraController
@@ -675,11 +675,11 @@ _0202AF38:
 	ldr r4, _0202AF98 ; =gAllocator
 	mov r1, #1
 	mov r0, r4
-	bl _ZN9Allocator15setDefaultArenaEi
+	bl _ZN10CAllocator15setDefaultArenaEi
 	bl FUN_0202a4d4
 	mov r0, r4
 	mov r1, #0
-	bl _ZN9Allocator15setDefaultArenaEi
+	bl _ZN10CAllocator15setDefaultArenaEi
 	ldr r0, _0202AF9C ; =gLogicThink
 	bl FUN_0206f29c
 	bl FUN_0202a698
@@ -731,7 +731,7 @@ FUN_0202afd0: ; 0x0202AFD0
 	mov r1, #1
 	orr r2, r2, #0x10000
 	str r2, [r3]
-	bl _ZN9Allocator15setDefaultArenaEi
+	bl _ZN10CAllocator15setDefaultArenaEi
 	ldr r1, _0202B19C ; =gWaitVBlank
 	mov r2, #0
 	ldr r0, _0202B1A0 ; =0x0209A124
@@ -796,7 +796,7 @@ _0202B080:
 	add r1, sp, #8
 	add r2, sp, #4
 	add r3, sp, #0
-	bl _ZN9Allocator11getHeapInfoEPiS0_S0_
+	bl _ZN10CAllocator11getHeapInfoEPiS0_S0_
 _0202B100:
 	ldr r0, _0202B1A0 ; =0x0209A124
 	ldr r2, _0202B19C ; =gWaitVBlank

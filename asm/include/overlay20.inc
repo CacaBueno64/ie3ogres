@@ -8,8 +8,8 @@
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 .public FUN_02058800
 .public g3DPlaneCtrl
-.public _ZN9Allocator10deallocateEPv
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator10deallocateEPv
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public FUN_ov16_020efa9c
 .public FUN_0207039c

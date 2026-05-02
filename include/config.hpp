@@ -1,13 +1,6 @@
-#ifndef IE3OGRES_CONFIG_H
-#define IE3OGRES_CONFIG_H
-
 #pragma once
 
-#include <nitro.h>
-#include <string.h>
-#include <stdlib.h>
-
-#include "filesystem.hpp"
+#include <nitro/types.h>  // for BOOL, s32, u32
 
 #define CONFIG_MAX_ENTRIES 96
 
@@ -21,16 +14,14 @@ class Config {
         Config();
         ~Config();
         void clear(void);
-        BOOL openFile(char *filename);
-        int getParam(char *param);
+        BOOL openFile(const char *filename);
+        int getParam(const char *param);
         void init(void);
-        int getParamIdx(char *param);
-        BOOL readFileParam(char *file, ParamEntry *param);
+        int getParamIdx(const char *param);
+        BOOL readFileParam(const char *file, ParamEntry *param);
     private:
     ParamEntry *paramEntry;
     s32 paramCount;
 };
 
 extern Config gConfig;
-
-#endif //IE3OGRES_CONFIG_H

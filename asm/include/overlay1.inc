@@ -109,7 +109,7 @@
 .public unk_0209A494
 .public unk_0209A4B4
 .public OS_GetTotalFreeSize
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MI_CpuFill8
 .public FUN_ov16_020f067c
 .public FUN_020728e8
@@ -138,7 +138,7 @@
 .public FUN_0206c2f8
 .public FUN_020521d0
 .public _ZN10FileSystem17OpenArchiveDirectEPvPKc
-.public _ZN9Allocator8allocateEmii
+.public _ZN10CAllocator8allocateEmii
 .public _Znwm
 .public FUN_02059d9c
 .public _ZN14CScreenManager8setSceneE12EngineSelect9SceneType
@@ -159,7 +159,7 @@
 .public unk_0209A114
 .public unk_0209A3E0
 .public _ZN14CScreenManager6updateE12EngineSelect
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_0204665c
 .public FUN_020443d4
 .public _ZN11AudioPlayer12FUN_0202c470El
@@ -662,7 +662,7 @@
 .public FUN_020425fc
 .public FUN_0204331c
 .public FUN_02059288
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gConfig
 .public FUN_020463d0
 .public unk_020A9C40

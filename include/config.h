@@ -1,5 +1,4 @@
-#ifndef IE3OGRES_CONFIG_H
-#define IE3OGRES_CONFIG_H
+#pragma once
 
 #if !defined(JAPANESE)
 #define JAPANESE
@@ -14,5 +13,3 @@
 #ifndef __MWERKS__
 #define NONMATCHING
 #endif //__MWERKS__
-
-#endif // IE3OGRES_CONFIG_H

@@ -67,7 +67,7 @@ FUN_ov65_02119f00: ; 0x02119F00
 	str r5, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x80
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02119FFC:
 	mov r0, #0
 	str r0, [r4, #0xc]
@@ -106,7 +106,7 @@ FUN_ov65_0211a034: ; 0x0211A034
 	cmp r1, #0
 	beq _0211A088
 	ldr r0, _0211A0C8 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r5, [r4, #0x80]
 _0211A088:
 	mov r0, r4

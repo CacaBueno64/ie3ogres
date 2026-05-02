@@ -1176,7 +1176,7 @@ FUN_ov122_02125d18: ; 0x02125D18
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _02125D64 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x24]
 	ldmfd sp!, {r4, pc}

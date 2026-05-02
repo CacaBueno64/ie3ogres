@@ -1115,7 +1115,7 @@ _020F1B58:
 	mov r5, #0x800
 	ldr r0, _020F1C24 ; =gAllocator
 	mov r1, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r7, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r6
@@ -1159,7 +1159,7 @@ _020F1C04:
 _020F1C14:
 	ldr r0, _020F1C24 ; =gAllocator
 	mov r1, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020F1C24: .word gAllocator
 	arm_func_end _ZN8Graphics12ClearBGXMainEi10CharFormat
@@ -1212,7 +1212,7 @@ _020F1C94:
 	mov r5, #0x800
 	ldr r0, _020F1D60 ; =gAllocator
 	mov r1, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r7, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r6
@@ -1256,7 +1256,7 @@ _020F1D40:
 _020F1D50:
 	ldr r0, _020F1D60 ; =gAllocator
 	mov r1, r7
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020F1D60: .word gAllocator
 	arm_func_end _ZN8Graphics11ClearBGXSubEi10CharFormat
@@ -2101,7 +2101,7 @@ FUN_ov16_020f2868: ; 0x020F2868
 	mov r6, r0
 	ldr r0, _020F2A14 ; =gAllocator
 	mov r1, r6
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, r0
 	mov r0, r7
 	mov r2, r6
@@ -2158,7 +2158,7 @@ _020F2990:
 	cmp r1, #0
 	beq _020F29E8
 	ldr r0, _020F2A14 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r5, #0xc]
 _020F29E8:
 	bl _ZN6Thread5YieldEv
@@ -2183,7 +2183,7 @@ FUN_ov16_020f2a18: ; 0x020F2A18
 	bl STD_CopyString
 	ldr r0, _020F2A6C ; =gAllocator
 	mov r1, #0x4000
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r4]
 	str r0, [r1, #0x20]
 	ldr r0, [r4]
@@ -2212,7 +2212,7 @@ FUN_ov16_020f2a74: ; 0x020F2A74
 	cmp r1, #0
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _020F2AA0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, pc}
 _020F2A9C: .word sMovieInfo
 _020F2AA0: .word gAllocator

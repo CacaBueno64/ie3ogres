@@ -14,7 +14,7 @@ FUN_ov15_020df358: ; 0x020DF358
 	str r7, [r8, #0xb4]
 	str r7, [r8, #0xb8]
 	str r7, [r8, #0xc0]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r5, r0
 	ldr r1, _020DF3E8 ; =0x4245384A
 	ldr r2, _020DF3EC ; =FUN_ov15_020e0620
@@ -24,7 +24,7 @@ FUN_ov15_020df358: ; 0x020DF358
 	mov r4, r0
 	mov r0, r6
 	mov r1, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r8, #0xb8]
 	str r7, [r8, #0xc0]
 	str r7, [r8, #0xa8]
@@ -132,7 +132,7 @@ _020DF4E0:
 	cmp r1, #0
 	beq _020DF504
 	mov r0, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _020DF504:
 	str r4, [r6, r7, lsl #3]
 	add r0, r6, r7, lsl #3
@@ -1444,7 +1444,7 @@ FUN_ov15_020e0620: ; 0x020E0620
 	mov r4, r2
 	ldr r0, _020E067C ; =gAllocator
 	add r1, r1, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	sub r2, r4, #1
 	add r1, r0, r4
 	mvn r2, r2
@@ -1497,7 +1497,7 @@ _020E06D0:
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _020E06F0 ; =gAllocator
 	mov r1, r3
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, pc}
 _020E06E8: .word ov15_020ED84C
 _020E06EC: .word ov15_020ED850
@@ -1718,7 +1718,7 @@ FUN_ov15_020e0968: ; 0x020E0968
 	mov r1, r4
 	str r12, [sp, #4]
 	str r5, [sp, #0x24]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, r0
 	mov r2, r4
 	mov r0, r7
@@ -2118,7 +2118,7 @@ FUN_ov15_020e0f1c: ; 0x020E0F1C
 	ldr r5, _020E0F64 ; =gAllocator
 	mov r1, #0x720
 	mov r0, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r4, r0
 	ldr r1, _020E0F68 ; =0x4245384A
 	ldr r2, _020E0F6C ; =FUN_ov15_020e1148
@@ -2127,7 +2127,7 @@ FUN_ov15_020e0f1c: ; 0x020E0F1C
 	bl DWC_InitForProduction
 	mov r0, r5
 	mov r1, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #6
 	bl _ZN8Graphics13FadeInScreensEl
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -2166,7 +2166,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	ldr r11, _020E1050 ; =gAllocator
 	ldr r1, _020E1054 ; =0x00040020
 	mov r0, r11
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r4, r0
 	add r0, r4, #0x1f
 	bic r0, r0, #0x1f
@@ -2175,7 +2175,7 @@ FUN_ov15_020e0f78: ; 0x020E0F78
 	bl DWC_StartUtility
 	mov r0, r11
 	mov r1, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r1, r7
 	mov r0, r8
 	bl FS_UnloadOverlay
@@ -2276,10 +2276,10 @@ _020E1144: .word 0x04000208
 	arm_func_start FUN_ov15_020e1148
 FUN_ov15_020e1148: ; 0x020E1148
 	ldr r0, _020E1154 ; =gAllocator
-	ldr r12, _020E1158 ; =_ZN9Allocator8allocateEm
+	ldr r12, _020E1158 ; =_ZN10CAllocator8allocateEm
 	bx r12
 _020E1154: .word gAllocator
-_020E1158: .word _ZN9Allocator8allocateEm
+_020E1158: .word _ZN10CAllocator8allocateEm
 	arm_func_end FUN_ov15_020e1148
 
 	arm_func_start FUN_ov15_020e115c
@@ -2288,7 +2288,7 @@ FUN_ov15_020e115c: ; 0x020E115C
 	cmp r1, #0
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _020E1174 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, pc}
 _020E1174: .word gAllocator
 	arm_func_end FUN_ov15_020e115c

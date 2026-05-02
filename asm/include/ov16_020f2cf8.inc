@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public sprintf
 .public strcat
 .public strcpy
@@ -12,7 +12,7 @@
 .public _ZdlPv
 .public FUN_ov132_0213acc0
 .public DC_FlushRange
-.public _ZN9Allocator8allocateEmii
+.public _ZN10CAllocator8allocateEmii
 .public gAllocator
 .public MI_CpuFill8
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv

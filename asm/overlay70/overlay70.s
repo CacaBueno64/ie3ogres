@@ -1303,7 +1303,7 @@ FUN_ov70_0211b154: ; 0x0211B154
 	mov r5, #1
 	add r2, sp, #0x28
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r5, r0
 _0211B1B8:
 	cmp r5, #0
@@ -1429,7 +1429,7 @@ _0211B378:
 _0211B388:
 	ldr r1, [sp, #0x28]
 	ldr r0, _0211B498 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r1, sp, #0x2c
 	mov r0, #0x78
 	mov r11, #0

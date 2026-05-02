@@ -79,7 +79,7 @@ FUN_0204545c: ; 0x0204545C
 	ldr r0, _0204553C ; =gConfig
 	ldr r1, _02045540 ; =0x02090124
 	str r2, [r6, #0x54c]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r6, #0x550]
 	strb r4, [r6, #0x4cb]
 	add r0, r6, #0x5000
@@ -878,7 +878,7 @@ FUN_02045e08: ; 0x02045E08
 	mov r4, r1
 	ldr r0, _02045EBC ; =gConfig
 	ldr r1, _02045EC0 ; =0x02090140
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ldr r1, _02045EC4 ; =0x02090148
 	ldrb r0, [r5, #0x5a2]
@@ -903,7 +903,7 @@ FUN_02045e08: ; 0x02045E08
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02045E88:
 	cmp r0, #0
 	moveq r4, #0
@@ -942,7 +942,7 @@ FUN_02045edc: ; 0x02045EDC
 	ldr r0, _02046090 ; =gConfig
 	ldr r1, _02046094 ; =0x02090188
 	mov r5, #0
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ldr r1, _02046098 ; =0x02090190
 	add r0, r7, #0xbb0
@@ -968,7 +968,7 @@ FUN_02045edc: ; 0x02045EDC
 	str r5, [sp, #8]
 	mov r4, #1
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02045F64:
 	cmp r0, #0
 	addne r6, sp, #0x34

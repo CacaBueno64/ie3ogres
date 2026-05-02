@@ -166,7 +166,7 @@ _0211A0A0:
 	bl sprintf
 	ldr r0, _0211A184 ; =gConfig
 	ldr r1, _0211A188 ; =0x0211A790
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r7, r0
 	ldr r6, _0211A18C ; =0x020AF81C
 	mov r0, r6

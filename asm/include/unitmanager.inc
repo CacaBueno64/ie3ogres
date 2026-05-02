@@ -1,11 +1,11 @@
 .public unk_020912D0
 .public _ZdlPv
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MI_CpuFill8
 .public FUN_020740a4
 .public gAllocator
 .public gLogicThink
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_0204bd64
 .public FUN_0207249c
 .public FUN_ov16_020eeb24

@@ -8,7 +8,7 @@
 .public FUN_0206ceac
 .public FUN_0206cc84
 .public MI_CpuCopy8
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public unk_020904D8
 .public FUN_0206d688
@@ -144,10 +144,10 @@
 .public _ZN10FileSystem10IsFileBusyEa
 .public OS_Sleep
 .public unk_02090548
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public STD_GetStringLength
 .public STD_CopyString
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_0206d5d4
 .public FUN_0206cd70
 .public FUN_0206cd7c

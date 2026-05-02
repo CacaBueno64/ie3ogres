@@ -26,7 +26,7 @@ FUN_02043914: ; 0x02043914
 	cmp r1, #0
 	beq _02043938
 	ldr r0, _02043954 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #4]
 _02043938:
@@ -55,11 +55,11 @@ FUN_02043958: ; 0x02043958
 	cmp r1, #0
 	beq _02043990
 	ldr r0, _020439C0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02043990:
 	ldr r0, _020439C0 ; =gAllocator
 	mov r1, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r7, #4]
 	cmp r0, #0
 	moveq r0, #0

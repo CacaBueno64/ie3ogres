@@ -65,7 +65,7 @@ FUN_0206c158: ; 0x0206C158
 	ldr r8, _0206C268 ; =gAllocator
 	mov r1, r6
 	mov r0, r8
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r5, #4]
 	cmp r0, #0
 	moveq r0, #0
@@ -77,7 +77,7 @@ FUN_0206c158: ; 0x0206C158
 	mov r9, r4, lsl #2
 	mov r0, r8
 	mov r1, r9
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r5, #8]
 	cmp r0, #0
 	moveq r0, r7
@@ -89,7 +89,7 @@ FUN_0206c158: ; 0x0206C158
 	mul r10, r4, r6
 	mov r0, r8
 	mov r1, r10
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r5, #0xc]
 	cmp r0, #0
 	moveq r0, r7
@@ -99,7 +99,7 @@ FUN_0206c158: ; 0x0206C158
 	bl MI_CpuFill8
 	mov r0, r8
 	add r1, r9, #0x1a
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r5, #0x14]
 	cmp r0, #0
 	moveq r0, r7
@@ -130,28 +130,28 @@ FUN_0206c270: ; 0x0206C270
 	cmp r1, #0
 	beq _0206C294
 	ldr r0, _0206C2F4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r5, #4]
 _0206C294:
 	ldr r1, [r5, #8]
 	cmp r1, #0
 	beq _0206C2AC
 	ldr r0, _0206C2F4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r5, #8]
 _0206C2AC:
 	ldr r1, [r5, #0xc]
 	cmp r1, #0
 	beq _0206C2C4
 	ldr r0, _0206C2F4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r5, #0xc]
 _0206C2C4:
 	ldr r1, [r5, #0x14]
 	cmp r1, #0
 	beq _0206C2DC
 	ldr r0, _0206C2F4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r5, #0x14]
 _0206C2DC:
 	str r4, [r5, #0x1c]

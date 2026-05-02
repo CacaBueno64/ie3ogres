@@ -6,7 +6,7 @@
 .public unk_02090634
 .public unk_0209063C
 .public FUN_ov16_020fa154
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public MIi_CpuClearFast
 .public FUN_ov16_020f9cdc
 .public gAllocator
@@ -33,8 +33,8 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public unk_02090660
 .public unk_0209067C
 .public FUN_ov16_020fa924

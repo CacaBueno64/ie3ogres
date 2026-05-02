@@ -30,7 +30,7 @@
 .public MI_CpuFill8
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public memcpy
 .public gAllocator
 .public _ZN7Archive10DeallocateEP9SFileData
@@ -73,7 +73,7 @@
 .public FUN_ov16_020f6a9c
 .public G2_GetBG2ScrPtr
 .public FUN_ov16_020f6c58
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN8Graphics12ClearBGXMainEi10CharFormat
 .public FUN_ov16_020f47fc

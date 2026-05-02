@@ -78,9 +78,9 @@ FUN_02086768: ; 0x02086768
 	bl __register_global_object
 	ldr r4, _02086A40 ; =gAllocator
 	mov r0, r4
-	bl _ZN9AllocatorC1Ev
+	bl _ZN10CAllocatorC1Ev
 	mov r0, r4
-	ldr r1, _02086A44 ; =_ZN9AllocatorD1Ev
+	ldr r1, _02086A44 ; =_ZN10CAllocatorD1Ev
 	ldr r2, _02086A48 ; =0x02099FD8
 	bl __register_global_object
 	ldr r4, _02086A4C ; =gAudioPlayer
@@ -188,7 +188,7 @@ _02086A34: .word gCardController
 _02086A38: .word _ZN14CardControllerD1Ev
 _02086A3C: .word unk_02099FCC
 _02086A40: .word gAllocator
-_02086A44: .word _ZN9AllocatorD1Ev
+_02086A44: .word _ZN10CAllocatorD1Ev
 _02086A48: .word unk_02099FD8
 _02086A4C: .word gAudioPlayer
 _02086A50: .word _ZN11AudioPlayerD1Ev

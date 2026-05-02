@@ -1,36 +1,26 @@
-#ifndef IE3OGRES_MAIN_H
-#define IE3OGRES_MAIN_H
-
 #pragma once
 
-#include <nitro.h>
-
-#include "ov130.hpp"
-#include "allocator.hpp"
-#include "fileio.hpp"
-#include "movieplayer.hpp"
-#include "filesystem.hpp"
-#include "wirelessutil.hpp"
-#include "logicthink.hpp"
-#include "fontmanager.hpp"
-#include "3ddevice.hpp"
-#include "resourcemanager.hpp"
-#include "nsbresourcemanager.hpp"
-#include "cameracontroller.hpp"
-#include "3dgamechar.hpp"
-#include "3dgamemap.hpp"
-#include "3dgameeffect.hpp"
-#include "3dgamemapobject.hpp"
-#include "3dplanecontroller.hpp"
-#include "3dspritecontroller.hpp"
-#include "3dmagiccamera.hpp"
-#include "2dadventurelogic.hpp"
-#include "2dgamechar.hpp"
-#include "spritebuttoncontroller.hpp"
-#include "spriteanimcontroller.hpp"
-#include "dungeonmanager.hpp"
-#include "screenmanager.hpp"
-#include "recordmanager.hpp"
+#include <nitro/fs/overlay.h>  // for FS_EXTERN_OVERLAY
+#include <nitro/types.h>       // for u8, u16, u32, BOOL, s32
+#include "CScreenManager.hpp"  // for SceneType
+class C2DAdventureLogic;
+class C2DGChar;
+class C3DDevice;
+class C3DGameChar;
+class C3DGameEffect;
+class C3DGameMap;
+class C3DGameMapObject;
+class C3DMagicCamera;
+class C3DPlaneCtrl;
+class C3DSpriteCtrl;
+class CDungeonManager;
+class CFontManager;
+class CFontManager_2;
+class CNsbResourceMan;
+class CSprAnimCtrl;
+class CSprButtonCtrl;
+class CameraController;
+class ResourceManager;
 
 FS_EXTERN_OVERLAY(overlay130);
 FS_EXTERN_OVERLAY(overlay16);
@@ -186,5 +176,3 @@ void InitTouchPannel(void);
 void FUN_020295e8(void);
 void InitCommonFiles(void);
 void InitFont(void);
-
-#endif //IE3OGRES_MAIN_H

@@ -1377,7 +1377,7 @@ FUN_02044ea4: ; 0x02044EA4
 	ldr r0, _02044F70 ; =gAllocator
 	add r1, r5, r4
 	mov r8, r3
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	add r2, r5, r4
 	mov r1, #0
 	mov r4, r0

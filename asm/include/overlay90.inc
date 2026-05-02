@@ -4,7 +4,7 @@
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public MI_CpuFill8
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_0204665c
 .public gSprButtonCtrl
 .public gSprAnimCtrl
@@ -14,7 +14,7 @@
 .public unk_020A0640
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_0210e10c
 .public _ffltu
 .public _fadd
@@ -31,7 +31,7 @@
 .public ov1_020E948C
 .public unk_020A160C
 .public unk_020A1608
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f55b4

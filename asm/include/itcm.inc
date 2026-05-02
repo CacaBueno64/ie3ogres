@@ -106,7 +106,7 @@
 .public FUN_ov126_02139ab4
 .public FUN_02073184
 .public FUN_0207249c
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fmul
 .public _fgr

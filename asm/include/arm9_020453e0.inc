@@ -1,5 +1,5 @@
 .public MI_CpuFill8
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 .public gConfig
 .public unk_02090124
@@ -7,7 +7,7 @@
 .public unk_02090138
 .public unk_0209013C
 .public STD_CopyString
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public unk_02090140
 .public unk_02090148
 .public unk_02090168

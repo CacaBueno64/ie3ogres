@@ -5806,7 +5806,7 @@ _0211F15C:
 	mov r4, #0x3000
 	ldr r0, _0211F264 ; =gAllocator
 	mov r1, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, r0
 	mov r6, #0
 	mov r0, r6
@@ -6052,7 +6052,7 @@ _0211F4A0:
 	cmp r1, #0
 	beq _0211F4F4
 	ldr r0, _0211F51C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r5, [r4, #0x4fc]
 _0211F4F4:
 	ldr r0, _0211F520 ; =g3DPlaneCtrl
@@ -7518,7 +7518,7 @@ FUN_ov62_021209ac: ; 0x021209AC
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r12, r0
 _02120A00:
 	mov r1, r12, lsr #1
@@ -7538,7 +7538,7 @@ FUN_ov62_02120a1c: ; 0x02120A1C
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _02120A44 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x544]
 	ldmfd sp!, {r4, pc}

@@ -447,7 +447,7 @@ FUN_ov108_021252e4: ; 0x021252E4
 	bne _02125314
 	ldr r0, _0212537C ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _02125314:
 	ldr r0, [r4, #4]
@@ -455,7 +455,7 @@ _02125314:
 	bne _02125330
 	ldr r0, _0212537C ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _02125330:
 	ldr r2, [r4]
@@ -2272,14 +2272,14 @@ _02126C98:
 	cmp r1, #0
 	beq _02126CB4
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x30]
 _02126CB4:
 	ldr r1, [r10, #0x34]
 	cmp r1, #0
 	beq _02126CCC
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r10, #0x34]
 _02126CCC:
 	add r9, r9, #1

@@ -21,7 +21,7 @@
 .public DC_FlushRange
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public gFont8
 .public gFont12
@@ -70,7 +70,7 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN8Graphics9FadeInSubEl
 .public FUN_ov16_020f6a9c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public _ZN14CScreenManager15getCurSceneMainEv

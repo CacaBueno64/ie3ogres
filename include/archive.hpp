@@ -1,15 +1,9 @@
-#ifndef IE3OGRES_ARCHIVE_H
-#define IE3OGRES_ARCHIVE_H
-
 #pragma once
 
-#include <nitro.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "unitmanager.hpp"
-#include "allocator.hpp"
-#include "fileio.hpp"
+#include <nitro/mi/uncompress.h>  // for MICompressionHeader
+#include <nitro/types.h>          // for u32, s32, BOOL, u8, u16
+#include <cstddef>                // for size_t
+#include "CUnitMan.hpp"           // for Unit, gWearSetFile, st_wear_set
 
 typedef struct {
     void *data;
@@ -202,5 +196,3 @@ extern "C" {
     extern int FUN_ov16_020f0b58(int wearNo);
     extern void FUN_02053914(char *dst, const char *src); //lowercase to uppercase
 }
-
-#endif //IE3OGRES_ARCHIVE_H

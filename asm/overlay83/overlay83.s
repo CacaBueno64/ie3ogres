@@ -1205,7 +1205,7 @@ _0211AF70:
 	mov r3, r4
 	mov r1, r6, lsl #2
 	mov r2, #0xd
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r8, r0
 _0211AFC0:
 	add r0, r10, r9, lsl #2
@@ -3831,7 +3831,7 @@ FUN_ov83_0211d488: ; 0x0211D488
 	cmp r1, #0
 	beq _0211D4D8
 	ldr r0, _0211D590 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r5, #0x44]
 _0211D4D8:
@@ -3839,7 +3839,7 @@ _0211D4D8:
 	cmp r1, #0
 	beq _0211D4F4
 	ldr r0, _0211D590 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r5, #0x48]
 _0211D4F4:

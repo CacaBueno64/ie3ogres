@@ -1,4 +1,4 @@
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public MIi_CpuClearFast
 .public unk_020B5BB8
@@ -11,7 +11,7 @@
 .public DC_FlushRange
 .public unk_020B5BDC
 .public FUN_020517ac
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gResourceManager
 .public FUN_02051858
 .public FUN_020519e4

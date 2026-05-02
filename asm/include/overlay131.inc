@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gConfig
 .public unk_020A0B00
 .public FUN_02074748
@@ -12,7 +12,7 @@
 .public unk_020A0700
 .public FUN_ov16_020edec4
 .public unk_020A1640
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public FUN_ov16_020ee16c
 .public unk_020A1140
@@ -25,7 +25,7 @@
 .public unk_020A0C3C
 .public FUN_0204eac8
 .public STD_GetStringLength
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_0206c7dc
 .public STD_CopyString
@@ -38,7 +38,7 @@
 .public FUN_02040dc8
 .public FUN_02050740
 .public FUN_0204ec3c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public unk_0209A11C
 .public unk_020A11DC
 .public unk_0209C094

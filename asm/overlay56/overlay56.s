@@ -550,7 +550,7 @@ FUN_ov56_0211a64c: ; 0x0211A64C
 	mov r4, #1
 	add r2, r5, #0xc0
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r2, r0
 _0211A698:
 	ldr r4, _0211A6D4 ; =gLogicThink
@@ -580,7 +580,7 @@ FUN_ov56_0211a6dc: ; 0x0211A6DC
 	cmp r1, #0
 	beq _0211A700
 	ldr r0, _0211A70C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0xc0]
 _0211A700:
@@ -2524,13 +2524,13 @@ _0211C190:
 	ldr r1, _0211C38C ; =0x0212142C
 	mov r0, r5
 	str r4, [r2, #0x3f8]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	cmp r0, #0
 	ble _0211C23C
 	ldr r1, _0211C390 ; =0x02121440
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -2541,7 +2541,7 @@ _0211C190:
 _0211C23C:
 	ldr r1, _0211C394 ; =0x02121454
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -2553,12 +2553,12 @@ _0211C25C:
 	mov r5, r0
 	ldr r1, _0211C398 ; =0x02121468
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ble _0211C2A0
 	ldr r1, _0211C39C ; =0x0212147C
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -2568,7 +2568,7 @@ _0211C25C:
 _0211C2A0:
 	ldr r1, _0211C3A0 ; =0x02121490
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -2581,7 +2581,7 @@ _0211C2BC:
 	ldr r1, _0211C3A8 ; =0x021214A4
 	str r2, [sp, #0x14]
 	str r5, [sp, #0x10]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r2, [sp, #0x14]
 	add r1, r6, #0x1000
 	str r2, [sp]

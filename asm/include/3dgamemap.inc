@@ -46,7 +46,7 @@
 .public __cxa_vec_new
 .public _Znwm
 .public FUN_020540e0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_020540f4
 .public FUN_ov16_020f9cdc
 .public FUN_020527d4
@@ -54,7 +54,7 @@
 .public gAllocator
 .public FUN_020522ec
 .public FUN_020521a0
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f9d80
 .public __cxa_vec_delete
 .public FUN_020540f0

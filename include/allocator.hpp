@@ -1,13 +1,12 @@
-#ifndef IE3OGRES_ALLOCATOR_H
-#define IE3OGRES_ALLOCATOR_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
+#include <nitro/os/common/alloc.h>
+#include <nitro/os/common/arena.h>
+#include <nitro/os/common/mutex.h>
 
 class CFileIO;
-
-class Allocator {
+class CAllocator {
     public:
         typedef enum {
             STRATEGY_0,
@@ -30,8 +29,8 @@ class Allocator {
             AllocatorMetadata *next;
         } AllocatorMetadata;
 
-        /* 0x0202dbf8 */ Allocator();
-        /* 0x0202dc1c */ ~Allocator();
+        /* 0x0202dbf8 */ CAllocator();
+        /* 0x0202dc1c */ ~CAllocator();
         /* 0x0202dc54 */ void initArenas(OSArenaId id, void *arenaLo, void *arenaHi);
         /* 0x0202dda0 */ static void tryMerge(AllocatorMetadata *chunk);
         /* 0x0202de44 */ void *allocate(size_t size);
@@ -51,6 +50,4 @@ class Allocator {
     int defaultArena;
 };
 
-extern Allocator gAllocator;
-
-#endif //IE3OGRES_ALLOCATOR_H
+extern CAllocator gAllocator;

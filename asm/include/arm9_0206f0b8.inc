@@ -1,7 +1,7 @@
 .public unk_020912F8
 .public _ZdlPv
-.public _ZN6Config8getParamEPc
-.public _ZN9Allocator8allocateEm
+.public _ZN6Config8getParamEPKc
+.public _ZN10CAllocator8allocateEm
 .public MI_CpuFill8
 .public MIi_CpuClear32
 .public FUN_ov16_020ef2bc
@@ -32,7 +32,7 @@
 .public srand
 .public rand
 .public OS_GetMacAddress
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public unk_02091350
 .public unk_0209A720
 .public unk_0209136C
@@ -43,7 +43,7 @@
 .public unk_020913A4
 .public unk_020913C0
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public unk_020913DC
 .public unk_020913F4
 .public FUN_0206d6d8

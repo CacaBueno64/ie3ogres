@@ -1,7 +1,7 @@
-#ifndef IE3OGRES_OV116_H
-#define IE3OGRES_OV116_H
+#pragma once
 
-#include <nitro.h>
+#include <nitro/fx/fx.h>     // for fx32
+#include <nitro/fx/fx_cp.h>  // for FX_Sqrt
 
 class UnkStruct_ov116_02124EA0 {
 public:
@@ -36,5 +36,3 @@ void FUN_ov116_02124e38(void);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
-
-#endif //IE3OGRES_OV116_H

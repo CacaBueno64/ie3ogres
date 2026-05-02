@@ -1,6 +1,6 @@
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public DWC_InitForProduction
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public MI_CpuFill8
 .public gAllocator
 .public DWC_InitInet
