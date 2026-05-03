@@ -28,7 +28,7 @@ FUN_0203df90: ; 0x0203DF90
 	mov r0, r2
 	mov r2, #6
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	ldmfd sp!, {r3, pc}
 _0203DFB4:
 	ldr r2, [r0, #0x240]
@@ -47,7 +47,7 @@ FUN_0203dfd0: ; 0x0203DFD0
 	cmp r2, #0
 	beq _0203DFEC
 	mov r0, r2
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, pc}
 _0203DFEC:
 	ldr r2, [r0, #0x244]

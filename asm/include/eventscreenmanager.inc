@@ -58,7 +58,7 @@
 .public unk_020A0640
 .public FUN_02048674
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public FUN_020481c8
 .public _ZN11CLogicThink12FUN_020731a4Ev

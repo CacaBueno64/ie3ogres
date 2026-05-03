@@ -309,7 +309,7 @@ FUN_ov110_021250f4: ; 0x021250F4
 	bne _02125124
 	ldr r0, _0212518C ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _02125124:
 	ldr r0, [r4, #4]
@@ -317,7 +317,7 @@ _02125124:
 	bne _02125140
 	ldr r0, _0212518C ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _02125140:
 	ldr r2, [r4]
@@ -2069,7 +2069,7 @@ FUN_ov110_021269d8: ; 0x021269D8
 	mov r4, #0x980
 	mov r0, r5
 	mov r1, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r2, r4
 	mov r1, r0
 	str r1, [r8, #0x2c]
@@ -2077,7 +2077,7 @@ FUN_ov110_021269d8: ; 0x021269D8
 	bl MIi_CpuClearFast
 	mov r0, r5
 	mov r1, #0x6c0
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r8, #0x30]
 	mov r0, r6
 	add r1, r8, #0x34
@@ -2288,14 +2288,14 @@ _02126D10:
 	cmp r1, #0
 	beq _02126D2C
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x58]
 _02126D2C:
 	ldr r1, [r10, #0x5c]
 	cmp r1, #0
 	beq _02126D44
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r10, #0x5c]
 _02126D44:
 	add r9, r9, #1
@@ -2305,14 +2305,14 @@ _02126D44:
 	cmp r1, #0
 	beq _02126D68
 	ldr r0, _02126DAC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r4, #0x2c]
 _02126D68:
 	ldr r1, [r4, #0x30]
 	cmp r1, #0
 	beq _02126D80
 	ldr r0, _02126DAC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r4, #0x30]
 _02126D80:
 	mov r5, #1

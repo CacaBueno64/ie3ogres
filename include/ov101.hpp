@@ -1,9 +1,6 @@
-#ifndef IE3OGRES_OV101_H
-#define IE3OGRES_OV101_H
+#pragma once
 
-#include <nitro.h>
-
-#include "archive.hpp"
+#include <nitro/types.h>  // for u32
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,5 +14,3 @@ static void FUN_ov101_Init(void);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
-
-#endif //IE3OGRES_OV101_H

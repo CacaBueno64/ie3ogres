@@ -1,15 +1,14 @@
-#ifndef IE3OGRES_MOVIEPLAYER_H
-#define IE3OGRES_MOVIEPLAYER_H
-
 #pragma once
 
-#include <nitro.h>
-#include <Mobiclip.h>
-
-#include "allocator.hpp"
-#include "audioplayer.hpp"
-#include "graphics.hpp"
-#include "thread.hpp"
+#include <mobiclip/libMobiclip.h>    // for MOHandle
+#include <nitro/fs/file.h>           // for FSFile
+#include <nitro/fs/overlay.h>        // for FS_EXTERN_OVERLAY
+#include <nitro/os/common/alarm.h>   // for OSiAlarm
+#include <nitro/os/common/thread.h>  // for OSAlarm, OSThread
+#include <nitro/os/common/tick.h>    // for OS_MicroSecondsToTicks
+#include <nitro/types.h>             // for s32, u16, u32, BOOL, s8, u8
+#include <cstddef>                   // for size_t
+class CAllocator;
 
 #define MOVIE_STACK_SIZE 1024
 #define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
@@ -41,7 +40,7 @@ typedef struct {
 } SMovieInfo;
 
 typedef struct {
-    Allocator *allocator;
+    CAllocator *allocator;
     s8 currentBG;
     s8 unk5;
     s8 frameDisplayed;
@@ -58,7 +57,7 @@ class MoviePlayer {
     public:
         MoviePlayer();
         ~MoviePlayer();
-        void init(Allocator *allocator);
+        void init(CAllocator *allocator);
         void setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub);
         int flipBuffer(void);
         BOOL playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNotSound, u8 loadOverlay);
@@ -107,5 +106,3 @@ EMovieStatus GetStatus(void);
 void Update(void);
 
 } /* namespace Movie */
-
-#endif //IE3OGRES_MOVIEPLAYER_H

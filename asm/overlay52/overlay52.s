@@ -1165,7 +1165,7 @@ FUN_ov52_0211ae04: ; 0x0211AE04
 	mov r4, #1
 	add r2, sp, #0x20
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r4, r0
 _0211AEA4:
 	add r6, sp, #0x18c
@@ -1331,7 +1331,7 @@ _0211B104:
 	bl FS_CloseFile
 	ldr r1, [sp, #0x20]
 	ldr r0, _0211B128 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #1
 	add sp, sp, #0x1d4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -5205,13 +5205,13 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 	str r5, [r6, #0x1a8]
 	str r5, [r6, #0x1b0]
 	str r5, [r6, #0x1ac]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	cmp r0, #0
 	ble _0211E55C
 	ldr r1, _0211E6E8 ; =0x021246FC
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -5222,7 +5222,7 @@ FUN_ov52_0211e4c8: ; 0x0211E4C8
 _0211E55C:
 	ldr r1, _0211E6EC ; =0x02124710
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -5234,12 +5234,12 @@ _0211E57C:
 	mov r5, r0
 	ldr r1, _0211E6F0 ; =0x02124724
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ble _0211E5C0
 	ldr r1, _0211E6F4 ; =0x02124738
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -5249,7 +5249,7 @@ _0211E57C:
 _0211E5C0:
 	ldr r1, _0211E6F8 ; =0x0212474C
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -5263,7 +5263,7 @@ _0211E5DC:
 	ldr r1, _0211E6FC ; =0x02124760
 	str r5, [r6, #0x17c]
 	str r2, [r6, #0x180]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r2, #0
 	ldr r1, _0211E700 ; =g3DDevice
 	str r0, [r6, #0x1a0]

@@ -25,6 +25,7 @@ build-cmake-*
 
 # Tool executables
 *.exe
+tools/elfcoder/elfcoder
 
 # Generated files
 *.4bpp

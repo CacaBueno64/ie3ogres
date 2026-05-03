@@ -3295,7 +3295,7 @@ _0211CD20:
 	cmp r1, #0
 	beq _0211CD6C
 	ldr r0, _0211CDC0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r5, [r4, #0x38]
 _0211CD6C:
 	add r0, r4, #0x3c

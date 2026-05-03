@@ -3,7 +3,7 @@
 .public FUN_0205aa80
 .public FUN_0205a828
 .public FUN_0205ab68
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -14,7 +14,7 @@
 .public FUN_0205b3cc
 .public g3DGameChar
 .public gConfig
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public FUN_02059004
 .public FUN_02059038
@@ -178,7 +178,7 @@
 .public FUN_0205b398
 .public FUN_0205a5f4
 .public FUN_02071934
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f52c4
 .public FUN_ov16_0210e3f0
 .public FUN_ov16_0210e5f0

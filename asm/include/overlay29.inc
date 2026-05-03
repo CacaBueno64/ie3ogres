@@ -23,7 +23,7 @@
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4
 .public MI_CpuFill8
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public FUN_020460fc
 .public FUN_020460f0
 .public _ZN7Archive19ReadNewUncompressExEPKcP9SFileDatalmi

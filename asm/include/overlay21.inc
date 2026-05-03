@@ -28,7 +28,7 @@
 .public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public FUN_ov16_02113b78
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public MI_CpuCopy8
 .public gConfig
 .public FUN_ov16_021137dc

@@ -78,7 +78,7 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
-.public _ZN9Allocator12setNextArenaEi
+.public _ZN10CAllocator12setNextArenaEi
 .public gAllocator
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
@@ -95,9 +95,9 @@
 .public FUN_02058ee0
 .public FUN_ov16_021123c4
 .public FUN_ov16_020f5868
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public FUN_ov16_020f5504
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gFileIO
 .public FUN_02054070
 .public FUN_02059630

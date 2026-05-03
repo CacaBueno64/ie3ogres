@@ -1,7 +1,6 @@
-#ifndef IE3OGRES_OV130_H
-#define IE3OGRES_OV130_H
+#pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>  // for u32, u8, u16
 
 typedef struct {
     u8 izType; // 0: Ogre, 1: Bomber (or Spark idk)
@@ -16,9 +15,5 @@ typedef struct {
 } UnkStruct_0209A1A8;
 extern UnkStruct_0209A1A8 unk_0209A1A8;
 
-#include "config.hpp"
-
 void InitArena(void);
 void InitConfig(void);
-
-#endif //IE3OGRES_OV130_H

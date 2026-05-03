@@ -30,12 +30,12 @@
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public G2_GetBG3CharPtr
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public GX_LoadBG0Scr
 .public GX_LoadBG1Scr
 .public GX_LoadBG2Scr
 .public GX_LoadBG3Scr
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public G2S_GetBG0CharPtr
 .public G2S_GetBG1CharPtr

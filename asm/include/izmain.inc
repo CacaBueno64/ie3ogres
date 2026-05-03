@@ -31,14 +31,14 @@
 .public _ZN11FontManagerC1Ev
 .public _ZN11FontManager11G2dFontInitEPvmh
 .public _ZN13FontManager_2C1Ev
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public unk_0208F800
 .public unk_0208F81C
 .public unk_0208F838
 .public unk_0208F854
 .public gConfig
 .public unk_0208F870
-.public _ZN11AudioPlayer7initDSEEP9Allocator
+.public _ZN11AudioPlayer7initDSEEP10CAllocator
 .public _ZN11AudioPlayer12FUN_0202b838Eiii
 .public _ZN11AudioPlayer12FUN_0202b7b4Ev
 .public OS_Sleep

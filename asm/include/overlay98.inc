@@ -2,7 +2,7 @@
 .public MI_CpuFill8
 .public FUN_ov16_020f5a58
 .public gBgMenuManager
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public gAllocator
@@ -41,7 +41,7 @@
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f5da0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_ov16_020f2184
 .public FUN_02043310

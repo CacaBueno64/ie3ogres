@@ -100,13 +100,13 @@
 .public FUN_ov16_02112e5c
 .public FUN_ov16_02113528
 .public FUN_ov16_021128c4
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public unk_0208FD34
 .public unk_0208FD4C
 .public unk_0208FD64
 .public FUN_ov16_02113390
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_021142fc
 .public _ZN11AudioPlayer10playEffectEi
 .public FUN_ov16_02114248
@@ -304,7 +304,7 @@
 .public FUN_ov132_021456d0
 .public FUN_ov132_021455e8
 .public FUN_ov132_021457b8
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gConfig
 .public unk_0208FEB4
 .public unk_0208FECC

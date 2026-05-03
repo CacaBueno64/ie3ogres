@@ -121,14 +121,14 @@ _0211A02C:
 	ldr r1, _0211A228 ; =0x02122324
 	mov r0, r5
 	strb r4, [r8, #0x13c]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	add r0, r0, #5
 	cmp r0, #0
 	ble _0211A0E0
 	ldr r1, _0211A22C ; =0x02122338
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
@@ -140,7 +140,7 @@ _0211A02C:
 _0211A0E0:
 	ldr r1, _0211A230 ; =0x0212234C
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
@@ -153,13 +153,13 @@ _0211A104:
 	mov r5, r0
 	ldr r1, _0211A234 ; =0x02122360
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	add r0, r0, #5
 	cmp r0, #0
 	ble _0211A150
 	ldr r1, _0211A238 ; =0x02122374
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -170,7 +170,7 @@ _0211A104:
 _0211A150:
 	ldr r1, _0211A23C ; =0x02122388
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	add r0, r0, #5
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -185,7 +185,7 @@ _0211A170:
 	ldr r1, _0211A240 ; =0x0212239C
 	str r2, [sp, #0x14]
 	str r5, [sp, #0x10]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r1, [sp, #0x14]
 	ldr r4, _0211A21C ; =g3DGameChar
 	str r1, [sp]
@@ -250,7 +250,7 @@ FUN_ov67_0211a244: ; 0x0211A244
 	mov r12, #1
 	add r2, r4, #0x160
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r2, r0
 _0211A28C:
 	cmp r2, #0
@@ -4089,7 +4089,7 @@ _0211D7C4:
 	mov r6, #0x1000
 	ldr r0, _0211DA18 ; =gAllocator
 	mov r1, r6
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, r0
 	mov r0, r5
 	mov r2, r6
@@ -4416,7 +4416,7 @@ FUN_ov67_0211dc50: ; 0x0211DC50
 	cmp r1, #0
 	beq _0211DC84
 	ldr r0, _0211DD3C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0211DC84:
 	mov r1, #0
 	mov r0, r4
@@ -4429,7 +4429,7 @@ _0211DC84:
 	cmp r1, #0
 	beq _0211DCB4
 	ldr r0, _0211DD3C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0211DCB4:
 	mov r6, #0
 	ldr r5, _0211DD44 ; =g3DGameChar
@@ -4972,13 +4972,13 @@ _0211E378:
 	strb r7, [r2, #0xe4]
 	mov r0, r9
 	strb r6, [r2, #0xe8]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	cmp r0, #0
 	ble _0211E428
 	ldr r1, _0211E550 ; =0x02122634
 	mov r0, r9
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -4989,7 +4989,7 @@ _0211E378:
 _0211E428:
 	ldr r1, _0211E554 ; =0x02122648
 	mov r0, r9
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	rsb r0, r0, #0
 	mov r0, r0, lsl #0xc
 	bl _fflt
@@ -5001,12 +5001,12 @@ _0211E448:
 	mov r6, r0
 	ldr r1, _0211E558 ; =0x0212265C
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	ble _0211E48C
 	ldr r1, _0211E55C ; =0x02122670
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -5016,7 +5016,7 @@ _0211E448:
 _0211E48C:
 	ldr r1, _0211E560 ; =0x02122684
 	mov r0, r5
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -5033,7 +5033,7 @@ _0211E4A8:
 	ldr r0, _0211E548 ; =gConfig
 	ldr r1, _0211E564 ; =0x02122698
 	str r6, [sp, #0x10]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r1, [sp, #0x14]
 	ldr r4, _0211E540 ; =g3DGameChar
 	str r1, [sp]
@@ -5090,7 +5090,7 @@ FUN_ov67_0211e568: ; 0x0211E568
 	mov r12, #1
 	add r2, r4, #0x120
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r2, r0
 _0211E5B0:
 	cmp r2, #0
@@ -5373,7 +5373,7 @@ _0211E970:
 	bne _0211E9D0
 	ldr r0, _0211E9E8 ; =gConfig
 	ldr r1, _0211E9EC ; =0x021226CC
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r2, r0
 	str r2, [sp]
 	ldr r0, [r4]
@@ -8890,7 +8890,7 @@ _021219CC:
 	mov r1, r7
 	str r8, [r6, #0x1e4]
 	strb r8, [r6, #0x1e8]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r1, r0
 	mov r2, r7
 	mov r0, r8
@@ -9194,7 +9194,7 @@ FUN_ov67_02121ec0: ; 0x02121EC0
 	cmp r1, #0
 	beq _02121EF4
 	ldr r0, _02121F88 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02121EF4:
 	ldr r1, [r6, #0x120]
 	mov r0, #0
@@ -9202,7 +9202,7 @@ _02121EF4:
 	cmp r1, #0
 	beq _02121F10
 	ldr r0, _02121F88 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02121F10:
 	ldr r0, _02121F8C ; =gLogicThink
 	mov r5, #0

@@ -39,7 +39,7 @@ FUN_ov90_02119f00: ; 0x02119F00
 	ldr r0, _0211A024 ; =gAllocator
 	mov r1, r5
 	str r6, [r4, #0x28]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r2, r5
 	mov r1, r6
 	str r0, [r4, #0x34]
@@ -115,7 +115,7 @@ FUN_ov90_0211a030: ; 0x0211A030
 	cmp r1, #0
 	beq _0211A0AC
 	ldr r0, _0211A0F8 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x1d0]
 _0211A0AC:
@@ -123,7 +123,7 @@ _0211A0AC:
 	cmp r1, #0
 	beq _0211A0C8
 	ldr r0, _0211A0F8 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x34]
 _0211A0C8:
@@ -612,7 +612,7 @@ FUN_ov90_0211a704: ; 0x0211A704
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1d0
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	b _0211A794
 _0211A75C:
 	ldr r3, _0211A7EC ; =gAllocator
@@ -628,7 +628,7 @@ _0211A75C:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, r4, #0x1d0
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _0211A794:
 	ldr r12, _0211A7F8 ; =0x38E38E39
 	mov r3, #0x24

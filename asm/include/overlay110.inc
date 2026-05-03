@@ -14,7 +14,7 @@
 .public gSubScreen2
 .public gSubScreen0
 .public gSubScreen1
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public gAllocator
 .public FUN_ov16_020eef1c
@@ -64,7 +64,7 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN8Graphics9FadeInSubEl
 .public FUN_ov16_020f6a9c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f51a8
 .public _ZdlPv

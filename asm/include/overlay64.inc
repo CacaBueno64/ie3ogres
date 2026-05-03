@@ -8,7 +8,7 @@
 .public g3DPlaneCtrl
 .public FUN_ov16_0210e0d8
 .public FUN_ov16_0210e9d8
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_02058ee0
 .public FUN_ov16_021128c4
 .public FUN_ov16_021123c4
@@ -25,7 +25,7 @@
 .public FUN_ov16_02116654
 .public gDeltaTime
 .public g3DSpriteCtrl
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public _ZN6Random5RandAEm
 .public FUN_02073a10
 .public FUN_ov16_020efa9c

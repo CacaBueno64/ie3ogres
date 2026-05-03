@@ -612,7 +612,7 @@ _ZN13C3DGameEffect4initEi: ; 0x0205BCA4
 	str r0, [r10, #0x18]
 	mul r1, r9, r1
 	ldr r0, _0205BE1C ; =gAllocator
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r10, #0x10]
 	str r0, [r10, #0x14]
 	cmp r1, #0
@@ -698,7 +698,7 @@ FUN_0205be20: ; 0x0205BE20
 	cmp r1, #0
 	beq _0205BE54
 	ldr r0, _0205BF08 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205BE54:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0

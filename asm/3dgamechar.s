@@ -188,7 +188,7 @@ _ZN11C3DGameChar4initEi: ; 0x0205A1BC
 	str r0, [r10, #0x10]
 	mul r1, r9, r1
 	ldr r0, _0205A2EC ; =gAllocator
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r10, #8]
 	str r0, [r10, #0xc]
 	cmp r1, #0
@@ -403,7 +403,7 @@ FUN_0205a504: ; 0x0205A504
 	cmp r1, #0
 	beq _0205A524
 	ldr r0, _0205A5D8 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205A524:
 	ldr r0, [r4, #0x10]
 	cmp r0, #0

@@ -96,7 +96,7 @@ FUN_02052548: ; 0x02052548
 	cmp r1, #0
 	beq _0205257C
 	ldr r0, _020525E4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205257C:
 	mov r4, #0
 	sub r3, r4, #1
@@ -485,7 +485,7 @@ _02052A34:
 	str r4, [sp, #8]
 	add r2, r7, #0x340
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
 	mov r5, r0
 _02052AA8:
 	b _02052AE0
@@ -501,7 +501,7 @@ _02052AAC:
 	str r4, [sp, #8]
 	add r2, r7, #0x340
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r5, r0
 _02052AE0:
 	str r5, [r7, #0x344]

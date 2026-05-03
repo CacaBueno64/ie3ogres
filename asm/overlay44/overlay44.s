@@ -2631,7 +2631,7 @@ FUN_ov44_0211c35c: ; 0x0211C35C
 	bl _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 	ldr r0, _0211C3A0 ; =gAllocator
 	ldr r1, _0211C3A4 ; =0x00000101
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	add r1, r4, #0x1380
 	ldr r0, _0211C3A8 ; =0x021226C4
 	add r1, r1, #0x8000
@@ -2936,7 +2936,7 @@ _0211C74C:
 	mov r0, r6
 	str r7, [sp, #0x10]
 	ldr r8, _0211C804 ; =0x021226FC
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	str r7, [sp]
 	str r7, [sp, #4]
 	str r7, [sp, #8]
@@ -2946,7 +2946,7 @@ _0211C74C:
 	mov r1, r8
 	str r5, [sp, #0xc]
 	mov r3, r7
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	str r7, [sp]
 	ldr r2, [sp, #0x10]
 	add r3, r4, #0x398
@@ -2959,7 +2959,7 @@ _0211C74C:
 	bl FUN_ov16_020f5504
 	ldr r1, [sp, #0x10]
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r1, r5
 	mov r0, r4
 	bl FUN_ov44_0211c2a8

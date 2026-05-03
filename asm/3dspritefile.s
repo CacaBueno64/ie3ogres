@@ -774,7 +774,7 @@ _020588AC:
 	add r2, sp, #0x48
 	mov r1, r8
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
 	b _02058954
 _02058920:
 	ldr r3, _02058A0C ; =gAllocator
@@ -789,7 +789,7 @@ _02058920:
 	add r2, sp, #0x48
 	mov r1, r8
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02058954:
 	mov r4, r0
 _02058958:
@@ -907,10 +907,10 @@ _02058AB8:
 	ldr r8, _02058C5C ; =gAllocator
 	add r1, r6, #0xcd
 	mov r0, r8
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	mov r0, r8
 	mov r1, r7
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r6, r0
 	addeq sp, sp, #8
 	moveq r0, #0
@@ -923,7 +923,7 @@ _02058AB8:
 	bge _02058B50
 	mov r0, r8
 	mov r1, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add sp, sp, #8
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -934,7 +934,7 @@ _02058B50:
 	mov r0, r8
 	mov r1, r4
 	mov r3, r2
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	movs r8, r0
 	addeq sp, sp, #8
 	moveq r0, #0
@@ -962,7 +962,7 @@ _02058BBC:
 	ldr r0, _02058C5C ; =gAllocator
 	mov r1, r6
 	mov r6, #0
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	cmp r4, #0
 	addle sp, sp, #8
 	movle r0, r6
@@ -1065,7 +1065,7 @@ _02058D04:
 	mov r5, r1, lsr #8
 	mov r1, r5
 	mov r3, r2
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	movs r7, r0
 	bne _02058D58
 	bl OS_Terminate
@@ -1228,7 +1228,7 @@ _02058F0C:
 	b _02058F6C
 _02058F64:
 	ldr r0, _02058FAC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02058F6C:
 	ldr r5, _02058FB0 ; =gResourceManager
 	add r1, r6, #0x18

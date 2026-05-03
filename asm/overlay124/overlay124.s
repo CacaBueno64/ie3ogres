@@ -420,7 +420,7 @@ FUN_ov124_0212528c: ; 0x0212528C
 	bne _021252BC
 	ldr r0, _02125334 ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _021252BC:
 	ldr r0, [r4, #4]
@@ -428,7 +428,7 @@ _021252BC:
 	bne _021252D8
 	ldr r0, _02125334 ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _021252D8:
 	ldr r2, [r4]
@@ -1697,7 +1697,7 @@ FUN_ov124_0212647c: ; 0x0212647C
 	bl MI_CpuFill8
 	ldr r0, _02126568 ; =gAllocator
 	mov r1, #0x98
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #0x1c]
 	strb r5, [r4, #0x11]
 	strh r5, [r4, #0x14]
@@ -1852,14 +1852,14 @@ _021266F4:
 	cmp r1, #0
 	beq _02126710
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x20]
 _02126710:
 	ldr r1, [r10, #0x24]
 	cmp r1, #0
 	beq _02126728
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r6, [r10, #0x24]
 _02126728:
 	add r9, r9, #1
@@ -1869,7 +1869,7 @@ _02126728:
 	cmp r1, #0
 	beq _02126750
 	ldr r0, _0212677C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x1c]
 _02126750:

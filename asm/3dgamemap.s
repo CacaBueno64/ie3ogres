@@ -632,7 +632,7 @@ _0205D1CC:
 	mul r1, r6, r1
 	str r0, [r7, #0x14]
 	ldr r0, _0205D288 ; =gAllocator
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r7, #0x10]
 	str r0, [r7, #0x18]
 	cmp r1, #0
@@ -696,7 +696,7 @@ FUN_0205d28c: ; 0x0205D28C
 	cmp r1, #0
 	beq _0205D2C0
 	ldr r0, _0205D340 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _0205D2C0:
 	ldr r0, [r6, #0x10]
 	cmp r0, #0

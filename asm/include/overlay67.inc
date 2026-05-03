@@ -7,7 +7,7 @@
 .public FUN_0205aa80
 .public FUN_0205a828
 .public FUN_0205ab68
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -19,7 +19,7 @@
 .public gLogicThink
 .public g3DGameChar
 .public gConfig
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public FUN_02058e30
 .public FUN_02059004
@@ -117,7 +117,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_0204d7fc
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClearFast
 .public FUN_0205131c
 .public _Znwm
@@ -140,7 +140,7 @@
 .public gDeltaTime
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_021123c4
 .public FUN_0205b398
 .public FUN_0205a5f4

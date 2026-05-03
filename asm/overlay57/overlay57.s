@@ -10482,7 +10482,7 @@ FUN_ov57_02123178: ; 0x02123178
 	mov r4, #1
 	add r2, sp, #0x10
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r4, r0
 _021231C0:
 	cmp r4, #0
@@ -10556,7 +10556,7 @@ _021232B4:
 	addeq sp, sp, #0x94
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	ldr r0, _021232D4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add sp, sp, #0x94
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _021232D4: .word gAllocator

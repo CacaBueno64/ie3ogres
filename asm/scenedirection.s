@@ -3384,7 +3384,7 @@ FUN_02032e30: ; 0x02032E30
 	str lr, [sp, #8]
 	add r2, r4, #0x54
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02032EB8:
 	ldr r3, _02032F2C ; =gAllocator
 	ldr r1, _02032F34 ; =0x0208FD4C
@@ -3398,7 +3398,7 @@ _02032EB8:
 	mov r12, #1
 	add r2, r4, #0x58
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02032EEC:
 	ldr r3, _02032F2C ; =gAllocator
 	ldr r1, _02032F38 ; =0x0208FD64
@@ -3413,7 +3413,7 @@ _02032EEC:
 	mov r12, #1
 	add r2, r4, #0x5c
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, pc}
 _02032F2C: .word gAllocator
@@ -3493,7 +3493,7 @@ _02033030:
 	cmp r1, #0
 	beq _02033048
 	mov r0, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _02033048:
 	add r0, r4, r8, lsl #2
 	str r7, [r0, #0x54]
@@ -11736,13 +11736,13 @@ FUN_0203a300: ; 0x0203A300
 	ldr r4, _0203A464 ; =gConfig
 	ldr r1, _0203A468 ; =0x0208FEB4
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r3, r0, lsl #1
 	add r2, r7, #0x1000
 	ldr r1, _0203A46C ; =0x0208FECC
 	mov r0, r4
 	str r3, [r2, #0x3b8]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	mov r2, r0, lsl #1
 	add r0, r7, #0x1000
 	ldr r1, _0203A470 ; =0x0209A200

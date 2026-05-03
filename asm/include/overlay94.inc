@@ -27,10 +27,10 @@
 .public DC_FlushRange
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public STD_GetStringLength
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_0204294c
 .public FUN_0204378c
 .public gFont8

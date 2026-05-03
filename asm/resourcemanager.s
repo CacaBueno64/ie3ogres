@@ -171,14 +171,14 @@ _ZN15ResourceManager4initEmmi: ; 0x02051690
 	ldr r4, _02051774 ; =gAllocator
 	str r1, [r8, #0x24]
 	mov r0, r4
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r8]
 	mov r0, r7
 	bl NNS_GfdGetLnkPlttVramManagerWorkSize
 	mov r1, r0
 	mov r0, r4
 	str r1, [r8, #0x28]
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r1, [r8]
 	str r0, [r8, #4]
 	cmp r1, #0

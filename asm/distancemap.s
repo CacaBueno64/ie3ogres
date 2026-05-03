@@ -222,7 +222,7 @@ FUN_02043c80: ; 0x02043C80
 	stmib sp, {r2, r4}
 	add r2, sp, #0x10
 	str r5, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _02043D6C: .word unk_020900CC

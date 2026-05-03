@@ -15,12 +15,12 @@
 .public FUN_02058ee0
 .public MI_CpuCopy8
 .public unk_020A0640
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MI_CpuFill8
 .public STD_CopyLString
 .public STD_ConcatenateString
 .public gAllocator
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_021128c4
@@ -102,7 +102,7 @@
 .public gSprAnimCtrl
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
-.public _ZN9Allocator11getHeapInfoEPiS0_S0_
+.public _ZN10CAllocator11getHeapInfoEPiS0_S0_
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_021123b4

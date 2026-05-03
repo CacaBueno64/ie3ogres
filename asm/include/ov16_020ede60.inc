@@ -31,11 +31,11 @@
 .public FUN_0206def8
 .public FUN_ov16_020efa9c
 .public FUN_0206c718
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public _ZN7Archive13RequestReadExEPKcP9SFileDatalmi
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public MIi_CpuCopy32
 .public FUN_0207445c
 .public FUN_02074440
@@ -48,7 +48,7 @@
 .public ov16_0211786C
 .public FUN_02071458
 .public MATH_CalcSHA1
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public gConfig
 .public ov16_02117874
 .public MI_CpuFill8

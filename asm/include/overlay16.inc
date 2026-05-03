@@ -40,9 +40,9 @@
 .public GX_ResetBankForSubBG
 .public GX_ResetBankForSubBGExtPltt
 .public GX_ResetBankForSubOBJ
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _s32_div_f
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 .public FUN_02058800
@@ -67,7 +67,7 @@
 .public MTX_RotY44_
 .public MTX_Identity44_
 .public MTX_Concat44
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -89,7 +89,7 @@
 .public VEC_Normalize
 .public FUN_02053214
 .public FUN_0205318c
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public _ZN6Random5RandBEm
 .public unk_020A0640
 .public FUN_0207290c
@@ -164,7 +164,7 @@
 .public _ZN10FileSystem22ReadFileByNameDeferredEPPviPKcPa
 .public _ZN10FileSystem14ReadFileByNameEPPviPKc
 .public OS_UnlockMutex
-.public _ZN7CFileIO12readDeferredEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
 .public strlen
 .public _ZN10FileSystem10IsFileBusyEa
 .public _ZN7CFileIO11tryFinalizeEPv

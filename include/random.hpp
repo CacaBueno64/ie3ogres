@@ -1,7 +1,7 @@
-#ifndef IE3OGRES_RANDOM_H
-#define IE3OGRES_RANDOM_H
+#pragma once
 
-#include <nitro.h>
+#include <nitro/math/rand.h>  // for MATHRandContext32
+#include <nitro/types.h>      // for u32
 
 extern MATHRandContext32 gRNGStateA;
 extern MATHRandContext32 gRNGStateB;
@@ -16,5 +16,3 @@ void SetStateA(MATHRandContext32 *src);
 void Tick(void);
 
 } /* namespace Random */
-
-#endif //IE3OGRES_RANDOM_H

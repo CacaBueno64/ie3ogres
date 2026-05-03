@@ -4,9 +4,9 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public OS_Sleep
 .public MIi_CpuClearFast
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public sprintf
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN8Graphics20AdjustTilemapIndicesEPtmii

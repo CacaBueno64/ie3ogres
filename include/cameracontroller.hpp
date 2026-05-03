@@ -1,9 +1,6 @@
-#ifndef IE3OGRES_CAMERACONTROLLER_H
-#define IE3OGRES_CAMERACONTROLLER_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
 
 typedef struct {
     VecFx32 pos;
@@ -63,5 +60,3 @@ class CameraController {
 };
 
 extern CameraController *gCameraController;
-
-#endif //IE3OGRES_CAMERACONTROLLER_H

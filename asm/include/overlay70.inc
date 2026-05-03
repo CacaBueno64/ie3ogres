@@ -45,11 +45,11 @@
 .public FUN_0206cc00
 .public FUN_02074a2c
 .public FUN_0206cbf8
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public FUN_0204a2c4
 .public FUN_ov16_020edec4
 .public FUN_0204b0c4
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public FUN_ov16_0210efac
 .public _ZN11AudioPlayer10playEffectEi

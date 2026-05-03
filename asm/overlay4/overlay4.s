@@ -2738,7 +2738,7 @@ _020BEF90:
 	str r8, [sp, #0x74]
 	str r7, [sp, #0x84]
 	str r5, [sp, #0xb4]
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r1, r0
 	add r3, r6, #0x3000
 	add r0, sp, #0
@@ -2775,7 +2775,7 @@ _020BF068:
 	mov r1, r4
 	mov r2, #0x13
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r1, r0
 	add r3, r6, #0x3000
 	ldr r0, _020BF354 ; =0x020D95C4
@@ -3562,7 +3562,7 @@ FUN_ov4_020bfac0: ; 0x020BFAC0
 	blx r2
 	ldr r0, _020BFB24 ; =gConfig
 	ldr r1, _020BFB28 ; =0x020D97A0
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	cmp r0, #0
 	beq _020BFB04
 	cmp r0, #1
@@ -18281,7 +18281,7 @@ _020CC878:
 	str r0, [sp, #0xc]
 	ldr r0, [r3]
 	add r2, sp, #0x20
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _020CC8CC:
 	mov r9, #0
 	add r8, sp, #0x74
@@ -18314,7 +18314,7 @@ _020CC92C:
 	blt _020CC8E4
 	ldr r1, [sp, #0x20]
 	ldr r0, _020CD168 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r4, _020CD164 ; =g3DPlaneCtrl
 	mov r1, #1
 	ldr r0, [r4]
@@ -18743,7 +18743,7 @@ _020CCF50:
 	ldr r1, _020CD190 ; =0x0000FFC0
 	mov r2, r5
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	str r0, [r10, #0x99c]
 	cmp r0, #0
 	bne _020CCFD4
@@ -18751,7 +18751,7 @@ _020CCF50:
 _020CCFD4:
 	ldr r0, _020CD168 ; =gAllocator
 	mov r1, #0x10
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r10, #0x988]
 	cmp r0, #0
 	bne _020CCFF0
@@ -18764,7 +18764,7 @@ _020CCFF0:
 	bl FUN_ov131_02140e38
 	ldr r0, _020CD168 ; =gAllocator
 	mov r1, #0x40
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r10, #0x98c]
 	cmp r0, #0
 	bne _020CD020
@@ -18962,13 +18962,13 @@ _020CD2CC:
 	ldr r5, _020CD334 ; =gAllocator
 	ldr r1, [r6, #0x988]
 	mov r0, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r1, [r6, #0x98c]
 	mov r0, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r1, [r6, #0x99c]
 	mov r0, r5
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldr r0, _020CD338 ; =0x020A0640
 	strb r4, [r0, #0xad]
 	bl FUN_ov16_020f47fc

@@ -14,7 +14,7 @@
 .public DC_FlushRange
 .public gSubScreen1
 .public gSubScreen0
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public gFont8
 .public FUN_ov16_020ee034
@@ -49,7 +49,7 @@
 .public _ZN8Graphics9FadeInSubEl
 .public GXS_LoadOAM
 .public FUN_ov16_020f6a9c
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public _ZdlPv
 .public FX_Sqrt

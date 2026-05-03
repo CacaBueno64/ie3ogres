@@ -47,7 +47,7 @@
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f6c20
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public gConfig

@@ -1,4 +1,5 @@
 #include "ov116.hpp"
+#include <nitro/mi/memory.h> // for MI_CpuFill8
 
 const UnkStruct_ov116_02124EA0 ov116_02124EA0 = UnkStruct_ov116_02124EA0(0x840800, 0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000);
 
@@ -15,6 +16,10 @@ extern void FUN_ov132_02141568(void);
 extern void *gUtilGame;
 extern void *gLogicThink;
 
+#ifdef NONMATCHING
+
+#else  // NONMATCHING
+// clang-format off
 asm void FUN_ov116_02124d00(void *ptr)
 {
 	stmfd sp!, {r4, r5, r6, lr}
@@ -93,16 +98,17 @@ _02124DD8:
 	strneb r0, [r4, #0x37]
 	ldmfd sp!, {r4, r5, r6, pc}
 }
+// clang-format on
+#endif // NONMATCHING
 
 extern void _ZdlPv(void *ptr);
 
-void *FUN_ov116_02124e24(void *ptr)
-{
+void *FUN_ov116_02124e24(void *ptr) {
     _ZdlPv(ptr);
     return ptr;
 }
 
-void FUN_ov116_02124e38(void) { }
+void FUN_ov116_02124e38(void) {}
 
 #ifdef __cplusplus
 } /* extern "C" */

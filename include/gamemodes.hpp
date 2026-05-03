@@ -1,14 +1,7 @@
-#ifndef IE3OGRES_GAMEMODES_H
-#define IE3OGRES_GAMEMODES_H
-
 #pragma once
 
-#include <nitro.h>
-
-#include "overlay.hpp"
-#include "endrollscreen.hpp"
-#include "cardscreen.hpp"
-#include "logoscreen.hpp"
+#include <nitro/fs/overlay.h>
+#include "CScreenManager.hpp"
 
 typedef enum {
     GAME_MODE_NONE = 0,
@@ -35,5 +28,3 @@ GameMode GetCurrentMode(void);
 void EndrollScreenLoad(GameModeContext *ctx);
 void CardScreenLoad(GameModeContext *ctx);
 void LogoScreenLoad(GameModeContext *ctx);
-
-#endif //IE3OGRES_GAMEMODES_H

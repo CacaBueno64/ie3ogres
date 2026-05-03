@@ -1,12 +1,9 @@
-//#ifndef IE3OGRES_TITLESCREEN_H
-//#define IE3OGRES_TITLESCREEN_H
-//
 //#pragma once
 //
-//#include <nitro.h>
+//#include <nitro/types.h>
 //
-//#include "screenmanager.hpp"
-//#include "commonscreen.hpp"
+//#include "CScreenManager.hpp"
+//#include "CommonScreen.hpp"
 //#include "movieplayer.hpp"
 //
 //class CMainTitleScreenInit : public CommonMainScreen {
@@ -100,4 +97,3 @@
 //    ScreenLoadContext *subScreens;
 //};
 //
-//#endif //IE3OGRES_SCRIPT_H

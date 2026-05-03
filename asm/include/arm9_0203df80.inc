@@ -1,5 +1,5 @@
-.public _ZN9Allocator8allocateEmii
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator8allocateEmii
+.public _ZN10CAllocator10deallocateEPv
 .public MI_CpuFill8
 .public WM_Initialize
 .public unk_020B5BB0

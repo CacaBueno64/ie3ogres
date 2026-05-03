@@ -851,7 +851,7 @@ FUN_ov109_0212586c: ; 0x0212586C
 	bne _0212589C
 	ldr r0, _02125914 ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _0212589C:
 	ldr r0, [r4, #4]
@@ -859,7 +859,7 @@ _0212589C:
 	bne _021258B8
 	ldr r0, _02125914 ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _021258B8:
 	ldr r2, [r4]
@@ -921,7 +921,7 @@ FUN_ov109_02125918: ; 0x02125918
 	cmp r1, #0
 	beq _02125998
 	ldr r0, _02125BA0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r0, r10, r6
 	str r11, [r0, #0x98]
 _02125998:
@@ -930,7 +930,7 @@ _02125998:
 	cmp r1, #0
 	beq _021259B8
 	ldr r0, _02125BA0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r0, r10, r6
 	str r11, [r0, #0x9c]
 _021259B8:
@@ -5488,21 +5488,21 @@ FUN_ov109_02129b9c: ; 0x02129B9C
 	ldr r9, _02129CC8 ; =gAllocator
 	mov r1, #0x98
 	mov r0, r9
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r6, #0x78]
 	mov r0, r9
 	mov r8, #0x6c
 	mov r1, r8
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r6, #0x7c]
 	mov r0, r9
 	mov r7, #0x980
 	mov r1, r7
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r6, #0x3c8]
 	mov r0, r9
 	mov r1, #0x6c0
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	mov r2, r7
 	str r0, [r6, #0x3cc]
 	mov r0, r4
@@ -5708,7 +5708,7 @@ _02129EEC:
 	cmp r1, #0
 	beq _02129F0C
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mla r0, r9, r5, r10
 	str r7, [r0, #0x98]
 _02129F0C:
@@ -5717,7 +5717,7 @@ _02129F0C:
 	cmp r1, #0
 	beq _02129F2C
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mla r0, r9, r11, r10
 	str r7, [r0, #0x9c]
 _02129F2C:
@@ -5729,28 +5729,28 @@ _02129F30:
 	cmp r1, #0
 	beq _02129F50
 	ldr r0, _02129FD4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x78]
 _02129F50:
 	ldr r1, [r10, #0x7c]
 	cmp r1, #0
 	beq _02129F68
 	ldr r0, _02129FD4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x7c]
 _02129F68:
 	ldr r1, [r10, #0x3c8]
 	cmp r1, #0
 	beq _02129F80
 	ldr r0, _02129FD4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x3c8]
 _02129F80:
 	ldr r1, [r10, #0x3cc]
 	cmp r1, #0
 	beq _02129F98
 	ldr r0, _02129FD4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r7, [r10, #0x3cc]
 _02129F98:
 	mov r4, #1

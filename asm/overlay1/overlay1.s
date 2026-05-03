@@ -353,7 +353,7 @@ FUN_ov1_020bcfd4: ; 0x020BCFD4
 	mov r5, #0x1c0
 	ldr r0, _020BD510 ; =gAllocator
 	mov r1, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	ldr r3, _020BD50C ; =0x020E9480
 	mov r2, r5
 	mov r1, #0
@@ -626,7 +626,7 @@ _020BD328:
 	ldr r1, _020BD550 ; =0x000051C0
 	mov r3, r4
 	mov r2, #0x12
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	str r0, [r7, #8]
 _020BD400:
 	mov r0, #0x21c
@@ -764,7 +764,7 @@ _020BD5D8:
 	cmp r1, #0
 	beq _020BD5F8
 	ldr r0, _020BD7A4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #8]
 _020BD5F8:
@@ -860,7 +860,7 @@ _020BD69C:
 	cmp r1, #0
 	beq _020BD76C
 	ldr r0, _020BD7A4 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r6, #0xc]
 _020BD76C:
 	mov r0, #0
@@ -870,11 +870,11 @@ _020BD76C:
 	ldr r4, _020BD7A4 ; =gAllocator
 	ldr r1, [r0, #0x1f8]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add r0, r5, #0x1000
 	ldr r1, [r0, #0x1fc]
 	mov r0, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020BD7A0: .word ov1_020E9480
 _020BD7A4: .word gAllocator
@@ -1621,7 +1621,7 @@ _020BE174:
 	str r8, [sp, #0x1e4]
 	str r7, [sp, #0x264]
 	str r6, [sp, #0x354]
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r1, r0
 	add r3, r5, #0x1000
 	add r0, sp, #0x180
@@ -1649,7 +1649,7 @@ _020BE204:
 	mov r2, #0xd
 	mov r3, #1
 	str r6, [sp, #0x34]
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r1, r0
 	add r3, r5, #0x1000
 	add r0, sp, #0
@@ -35356,7 +35356,7 @@ FUN_ov1_020db1e8: ; 0x020DB1E8
 	cmp r1, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _020DB248 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0x344]
 	ldmfd sp!, {r4, pc}
@@ -39824,23 +39824,23 @@ FUN_ov1_020def94: ; 0x020DEF94
 	ldr r1, _020DF008 ; =0x020E9314
 	mov r0, r4
 	str r2, [r5]
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r5, #0x210]
 	ldr r1, _020DF00C ; =0x020E9328
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r5, #0x1f4]
 	ldr r1, _020DF010 ; =0x020E9340
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r5, #0x1f8]
 	ldr r1, _020DF014 ; =0x020E9358
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r5, #0x200]
 	ldr r1, _020DF018 ; =0x020E9370
 	mov r0, r4
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	str r0, [r5, #0x204]
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}

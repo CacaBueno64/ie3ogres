@@ -1,13 +1,13 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gSprButtonCtrl
 .public gSprAnimCtrl
 .public gAllocator
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_0210e15c
 .public FUN_ov16_0210f468
 .public unk_0209A0F4

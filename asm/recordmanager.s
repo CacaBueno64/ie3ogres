@@ -1597,7 +1597,7 @@ _0206159C:
 	mov r5, #1
 	ldr r0, _02061624 ; =gAllocator
 	mov r1, r5
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	mov r3, #0
 	str r3, [sp]
 	str r3, [sp, #4]
@@ -1606,7 +1606,7 @@ _0206159C:
 	add r1, sp, #0x10
 	str r5, [sp, #0xc]
 	add r2, r4, #0xc
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
 	bne _020615E0
@@ -3423,7 +3423,7 @@ FUN_02062f94: ; 0x02062F94
 	mov r4, r1
 	mov r2, #0x10
 	mov r3, #1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	mov r2, r4
 	mov r1, #0
 	mov r4, r0
@@ -3436,10 +3436,10 @@ _02062FC4: .word gAllocator
 	arm_func_start FUN_02062fc8
 FUN_02062fc8: ; 0x02062FC8
 	ldr r0, _02062FD4 ; =gAllocator
-	ldr r12, _02062FD8 ; =_ZN9Allocator10deallocateEPv
+	ldr r12, _02062FD8 ; =_ZN10CAllocator10deallocateEPv
 	bx r12
 _02062FD4: .word gAllocator
-_02062FD8: .word _ZN9Allocator10deallocateEPv
+_02062FD8: .word _ZN10CAllocator10deallocateEPv
 	arm_func_end FUN_02062fc8
 
 	arm_func_start FUN_02062fdc

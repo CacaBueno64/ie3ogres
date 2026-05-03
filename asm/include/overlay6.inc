@@ -21,11 +21,11 @@
 .public _ZN14CScreenManagerD2Ev
 .public _ZdlPv
 .public MI_CpuFill8
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public sprintf
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public gConfig
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public _ZN8Graphics12SetupTilemapEPvii
 .public GX_LoadBG2Scr
@@ -42,8 +42,8 @@
 .public _ZN8Graphics14IsScreenFadingE12EngineSelect
 .public _ZN8Graphics12FadeInScreenE12EngineSelectl
 .public unk_020A0640
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public _ZN9Allocator8allocateEm
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN10CAllocator8allocateEm
 .public DC_FlushRange
 .public GXS_BeginLoadBGExtPltt
 .public GXS_LoadBGExtPltt

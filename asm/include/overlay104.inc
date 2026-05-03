@@ -1,12 +1,12 @@
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public MI_CpuFill8
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN9Allocator10deallocateEPv
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator10deallocateEPv
+.public _ZN10CAllocator8allocateEm
 .public DC_FlushRange
 .public FUN_ov16_020f2184
 .public gFont12

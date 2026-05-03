@@ -260,7 +260,7 @@ _02029AF4:
 	bl _ZN11FontManager11G2dFontInitEPvmh
 	ldr r0, _02029B38 ; =gConfig
 	ldr r1, _02029B3C ; =0x0208F870
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	strh r0, [r4, #0x12]
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, pc}
@@ -279,7 +279,7 @@ FUN_02029b40: ; 0x02029B40
 	ldr r5, _02029BC8 ; =gAudioPlayer
 	ldr r1, _02029BCC ; =gAllocator
 	mov r0, r5
-	bl _ZN11AudioPlayer7initDSEEP9Allocator
+	bl _ZN11AudioPlayer7initDSEEP10CAllocator
 	mov r2, #0
 	mov r0, r5
 	mov r3, r2

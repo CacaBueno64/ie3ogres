@@ -29,7 +29,7 @@ _02040E18:
 	ldr r5, _02040E68 ; =gAllocator
 	mov r1, r6
 	mov r0, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -43,7 +43,7 @@ _02040E18:
 	bl MI_CpuCopy8
 	mov r0, r5
 	mov r1, r4
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02040E68: .word gAllocator

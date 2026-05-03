@@ -185,7 +185,7 @@
 .public FUN_ov24_0211acd8
 .public FUN_ov37_0211b2b0
 .public FUN_0206c0d8
-.public _ZN9Allocator8allocateEmii
+.public _ZN10CAllocator8allocateEmii
 .public _ZN14CScreenManager16getNextSceneMainEv
 .public _ZN14CScreenManager15getCurSceneMainEv
 .public _ZN14CScreenManager12deleteScreenEP12CommonScreenP17ScreenLoadContext
@@ -213,7 +213,7 @@
 .public _ZN14CScreenManagerD2Ev
 .public _ZN11MoviePlayer12FUN_0202e958Ev
 .public gMoviePlayer
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public FUN_ov16_020f2a18
 .public gConfig
 .public FUN_ov16_020f2aa4
@@ -402,8 +402,8 @@
 .public g3DSpriteCtrl
 .public FUN_ov16_021174ac
 .public FUN_ov16_02117514
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
-.public _ZN9Allocator10deallocateEPv
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_0205935c
 .public FUN_02059288
 .public FUN_ov16_0211661c
@@ -411,7 +411,7 @@
 .public FUN_020568c4
 .public FUN_02057be4
 .public OS_Terminate
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public FUN_ov131_02140e38
 .public FUN_ov131_02140fac
 .public FUN_0204da5c

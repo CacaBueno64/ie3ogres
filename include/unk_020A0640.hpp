@@ -1,9 +1,6 @@
-#ifndef IE3OGRES_UNK_020A0640_H
-#define IE3OGRES_UNK_020A0640_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
 
 #include "cnvdat.h"
 
@@ -96,5 +93,3 @@ class UnkClass_020A0640 {
 };
 
 extern UnkClass_020A0640 unk_020A0640;
-
-#endif //IE3OGRES_UNK_020A0640_H

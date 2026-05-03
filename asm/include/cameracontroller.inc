@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub

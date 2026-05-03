@@ -40,7 +40,7 @@
 .public FUN_ov16_0210efac
 .public FUN_ov16_020f5450
 .public MIi_CpuClearFast
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public FS_InitFile
 .public FS_OpenFile
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
@@ -48,7 +48,7 @@
 .public FS_ReadFile
 .public FUN_0204bc4c
 .public FS_CloseFile
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public unk_0209C220
 .public gAllocator
 .public FUN_020509d8
@@ -86,7 +86,7 @@
 .public unk_020A1040
 .public unk_020A104A
 .public FUN_ov16_020f5278
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub

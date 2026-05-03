@@ -19,8 +19,8 @@
 .public unk_02090F78
 .public unk_02090F84
 .public unk_02090F8C
-.public _ZN9Allocator12setNextArenaEi
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN10CAllocator12setNextArenaEi
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public OS_Terminate
 .public unk_02090F98
 .public unk_02090FB4
@@ -99,6 +99,6 @@
 .public _ZN11AudioPlayer15setEffectVolumeEt
 .public unk_02091000
 .public unk_02099E8E
-.public _ZN9Allocator8allocateEmii
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator8allocateEmii
+.public _ZN10CAllocator10deallocateEPv
 .public STD_GetStringLength

@@ -50,7 +50,7 @@
 .public FUN_0205f1ec
 .public FUN_0205d608
 .public FUN_020522ec
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public unk_02099E91
 .public gAllocator
 .public _ZN8Graphics16UpdateScreenFadeE12EngineSelect
@@ -315,7 +315,7 @@
 .public FUN_02045d74
 .public FUN_02045db8
 .public FUN_02045e00
-.public _ZN6Config8getParamEPc
+.public _ZN6Config8getParamEPKc
 .public _ZN6Random5RandBEm
 .public gConfig
 .public FUN_02045edc
@@ -555,7 +555,7 @@
 .public FUN_ov16_021137dc
 .public FUN_ov16_02113d88
 .public FUN_ov16_02113d08
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public strncpy
 .public strlen
 .public FUN_ov16_02112f04

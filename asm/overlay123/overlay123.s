@@ -136,7 +136,7 @@ FUN_ov123_02124eb0: ; 0x02124EB0
 	bne _02124EE0
 	ldr r0, _02124F58 ; =gAllocator
 	mov r1, r5, lsl #1
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4]
 _02124EE0:
 	ldr r0, [r4, #4]
@@ -144,7 +144,7 @@ _02124EE0:
 	bne _02124EFC
 	ldr r0, _02124F58 ; =gAllocator
 	mov r1, r5, lsl #5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	str r0, [r4, #4]
 _02124EFC:
 	ldr r2, [r4]
@@ -573,7 +573,7 @@ _021254A8:
 	cmp r1, #0
 	beq _021254C8
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mla r0, r9, r4, r10
 	str r7, [r0, #0x38]
 _021254C8:
@@ -582,7 +582,7 @@ _021254C8:
 	cmp r1, #0
 	beq _021254EC
 	mov r0, r8
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0xc
 	mla r0, r9, r0, r10
 	str r6, [r0, #0x3c]

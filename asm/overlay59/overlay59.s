@@ -511,7 +511,7 @@ FUN_ov59_0211a5b4: ; 0x0211A5B4
 	mov r4, #1
 	add r2, r5, #0xb80
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r2, r0
 _0211A604:
 	ldr r4, _0211A644 ; =gLogicThink
@@ -542,7 +542,7 @@ FUN_ov59_0211a64c: ; 0x0211A64C
 	cmp r1, #0
 	beq _0211A670
 	ldr r0, _0211A67C ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, #0
 	str r0, [r4, #0xb80]
 _0211A670:

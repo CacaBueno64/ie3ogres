@@ -94,7 +94,7 @@ FUN_ov112_02124dc4: ; 0x02124DC4
 	str r5, [sp, #8]
 	mov r12, #1
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r5, r0
 _02124E40:
 	cmp r5, #0
@@ -108,7 +108,7 @@ _02124E40:
 	bl sprintf
 	ldr r1, [sp, #0x10]
 	ldr r0, _02124E78 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
 _02124E78: .word gAllocator

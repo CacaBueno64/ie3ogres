@@ -1,7 +1,7 @@
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN10FileSystem19OpenArchiveDeferredEPvPKc
-.public _ZN6Config8getParamEPc
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN6Config8getParamEPKc
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gConfig
 .public gAllocator
 .public FUN_ov16_020f5450

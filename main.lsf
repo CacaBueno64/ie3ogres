@@ -67,7 +67,7 @@ Static main
 	Object asm/init/arm9_init_02086c8c.o
 	Object asm/init/arm9_init_02086ce0.o
 
-	Object src/fileio.o
+	Object src/CFileIO.o
 	Object asm/scenescriptdata.o
 	Object asm/scenedirection.o
 	Object asm/arm9_0203df80.o
@@ -93,7 +93,7 @@ Static main
 	Object asm/arm9_020453e0.o
 	Object asm/wirelessutil.o
 	Object asm/scenescriptmanager.o
-	Object src/script/scenescriptfilecontext.o
+	Object src/script/CSceneScriptFileContext.o
 
 	Object asm/init/arm9_init_02087028.o
 	Object asm/init/arm9_init_0208707c.o
@@ -186,8 +186,8 @@ Overlay overlay2
 Overlay overlay3
 {
 	After main
-	Object src/cardscreen/cardscreenmanager.o
-	Object src/cardscreen/cardscreeninit.o
+	Object src/cardscreen/CCardScreenManager.o
+	Object src/cardscreen/CMainCardScreenInit.o
 }
 Overlay overlay4
 {
@@ -197,17 +197,17 @@ Overlay overlay4
 Overlay overlay5
 {
 	After main
-	Object src/logoscreen/logoscreenmanager.o
-	Object src/logoscreen/mainlogoscreendcbmp.o
-	Object src/logoscreen/mainlogoscreeninit.o
-	Object src/logoscreen/sublogoscreeninit.o
+	Object src/logoscreen/CLogoScreenManager.o
+	Object src/logoscreen/CMainLogoScreenDCBmp.o
+	Object src/logoscreen/CMainLogoScreenInit.o
+	Object src/logoscreen/CSubLogoScreenInit.o
 }
 Overlay overlay6
 {
 	After main
-	Object src/endrollscreen/endrollscreenmanager.o
-	Object src/endrollscreen/mainendrollscreeninit.o
-	Object src/endrollscreen/subendrollscreeninit.o
+	Object src/endrollscreen/CEndrollScreenManager.o
+	Object src/endrollscreen/CMainEndrollScreenInit.o
+	Object src/endrollscreen/CSubEndrollScreenInit.o
 }
 Overlay overlay7
 {

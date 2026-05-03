@@ -1,4 +1,9 @@
+
 #include "config.hpp"
+#include <nitro/std/string.h> // for STD_GetStringLength
+#include <cstdlib>            // for atoi
+#include <cstring>            // for strlen, strncpy
+#include "filesystem.hpp"     // fo CalcCRC32, Deallocate, AllocateClear, ReadFile
 
 Config::Config() { this->clear(); }
 
@@ -11,7 +16,7 @@ Config::~Config() {
 
 void Config::clear(void) { this->paramEntry = NULL; }
 
-BOOL Config::openFile(char *filepath) {
+BOOL Config::openFile(const char *filepath) {
     char *file = NULL;
     char *line_start;
     char *curr;
@@ -26,7 +31,7 @@ BOOL Config::openFile(char *filepath) {
     while (curr < (file + file_size)) {
         if ((*curr == '\n') || (*curr == '\r')) {
             *curr = 0;
-            if (strlen(line_start) != 0) {
+            if (std::strlen(line_start) != 0) {
                 if (this->readFileParam(line_start, &this->paramEntry[this->paramCount])) {
                     this->paramCount++;
                 }
@@ -40,7 +45,7 @@ BOOL Config::openFile(char *filepath) {
     return TRUE;
 }
 
-int Config::getParam(char *str) {
+int Config::getParam(const char *str) {
     int idx = this->getParamIdx(str);
 
     if ((idx < 0) || (this->paramEntry == NULL)) {
@@ -54,19 +59,20 @@ int Config::getParam(char *str) {
 
 void Config::init(void) {
     if (this->paramEntry == NULL) {
-        this->paramEntry = static_cast<ParamEntry *>(FileSystem::AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
+        this->paramEntry = static_cast<ParamEntry *>(
+            FileSystem::AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
     }
     this->paramCount = 0;
 }
 
-int Config::getParamIdx(char *str) {
+int Config::getParamIdx(const char *str) {
     ParamEntry *paramEntry = this->paramEntry;
 
     if (paramEntry == NULL) {
         return -1;
     }
 
-    u32 len   = STD_GetStringLength(str);
+    u32 len = STD_GetStringLength(str);
     u32 crc32 = FileSystem::CalcCRC32(str, len);
 
     for (int pos = 0; pos < this->paramCount; pos++) {
@@ -79,18 +85,18 @@ int Config::getParamIdx(char *str) {
     return -1;
 }
 
-BOOL Config::readFileParam(char *file, ParamEntry *param) {
+BOOL Config::readFileParam(const char *file, ParamEntry *param) {
 
-    BOOL empty_file   = TRUE;
-    BOOL read_key     = FALSE;
+    BOOL empty_file = TRUE;
+    BOOL read_key = FALSE;
     BOOL awaiting_key = TRUE;
 
     if (param == NULL) {
         return FALSE;
     }
 
-    char *key_start;
-    char *curr = file;
+    const char *key_start;
+    const char *curr = file;
     while (*curr != '\0') {
         if (*curr == ' ' || *curr == '\t') {
             curr++;
@@ -105,27 +111,27 @@ BOOL Config::readFileParam(char *file, ParamEntry *param) {
                 return FALSE;
             }
 
-            char *key_end = curr;
+            const char *key_end = curr;
             while (key_end[-1] == ' ' || key_end[-1] == '\t') {
                 key_end--;
             }
 
-            int len      = key_end - key_start;
+            int len = key_end - key_start;
             param->crc32 = FileSystem::CalcCRC32(key_start, len);
-            read_key     = TRUE;
+            read_key = TRUE;
             curr++;
-            key_start    = curr;
+            key_start = curr;
             awaiting_key = TRUE;
             continue;
         } else {
-            empty_file   = FALSE;
+            empty_file = FALSE;
             awaiting_key = FALSE;
             curr++;
         }
     }
 
     if (read_key) {
-        char *key_end = curr;
+        const char *key_end = curr;
         while (key_end[-1] == ' ' || key_end[-1] == '\t') {
             key_end--;
         }
@@ -133,9 +139,9 @@ BOOL Config::readFileParam(char *file, ParamEntry *param) {
         int len = key_end - key_start;
         if (len > 0) {
             char strbuf[32];
-            strncpy(strbuf, key_start, len);
-            strbuf[len]  = '\0';
-            param->value = atoi(strbuf);
+            std::strncpy(strbuf, key_start, len);
+            strbuf[len] = '\0';
+            param->value = std::atoi(strbuf);
             return TRUE;
         }
     }

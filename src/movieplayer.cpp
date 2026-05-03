@@ -1,39 +1,37 @@
 #include "movieplayer.hpp"
-#include "init/arm9_init.hpp"
+#include <nitro/mi/exMemory.h>      // for MI_PROCESSOR_ARM9
+#include <nitro/os/common/system.h> // for OS_Terminate
+#include <nitro/std/string.h>       // for STD_TSPrintf
+#include "allocator.hpp"            // for CAllocator
+#include "audioplayer.hpp"          // for AudioPlayer, gAudioPlayer
+#include "init/arm9_init.hpp"       // IWYU pragma: keep
 
 UnkStruct_020B5B80 unk_020B5B80;
 
-MoviePlayer::MoviePlayer()
-{
-    this->flags = 0;
-}
+MoviePlayer::MoviePlayer() { this->flags = 0; }
 
-MoviePlayer::~MoviePlayer()
-{
+MoviePlayer::~MoviePlayer() {
     if (this->flags) {
         this->flags |= 0x20;
         this->closeMovie(TRUE);
     }
 }
 
-void MoviePlayer::init(Allocator *allocator)
-{
+void MoviePlayer::init(CAllocator *allocator) {
     if (allocator) {
         unk_020B5B80.allocator = allocator;
         OS_InitTick();
     }
 }
 
-void MoviePlayer::setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub)
-{
+void MoviePlayer::setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub) {
     unk_020B5B80.BGScrMain[0] = CurFrameMain;
     unk_020B5B80.BGScrMain[1] = NextFrameMain;
     unk_020B5B80.BGScrSub[0] = CurFrameSub;
     unk_020B5B80.BGScrSub[1] = NextFrameSub;
 }
 
-int MoviePlayer::flipBuffer(void)
-{
+int MoviePlayer::flipBuffer(void) {
     if (!unk_020B5B80.frameDisplayed) {
         unk_020B5B80.frameDisplayed = TRUE;
         unk_020B5B80.currentBG ^= 1;
@@ -42,8 +40,7 @@ int MoviePlayer::flipBuffer(void)
     return unk_020B5B80.currentBG ^ 1;
 }
 
-BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, u8 loadOverlay)
-{
+BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoSound, u8 loadOverlay) {
     char filepath[64];
 
     if (loadOverlay) {
@@ -77,11 +74,11 @@ BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoS
     this->handle_98 = this->handleMain;
 
     this->flags = 0;
-    
+
     if (hasNoSound) {
         this->flags |= MOVIE_HAS_NO_SOUND;
     }
-    
+
     this->unk194 = 0;
     this->unk198 = 0;
     this->unk19C = 0;
@@ -97,13 +94,9 @@ BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoS
     }
 
     OS_CreateAlarm(&this->alarm);
-    OS_SetPeriodicAlarm(
-        &this->alarm,
-        OS_GetTick() + ALARM_COUNT( 10 ),
-        ALARM_COUNT( (u64)16777216000000 / (u64)MO_GetVideoFps(this->handle_98) ),
-        &this->alarmIntr,
-        NULL
-    );
+    OS_SetPeriodicAlarm(&this->alarm, OS_GetTick() + ALARM_COUNT(10),
+                        ALARM_COUNT((u64)16777216000000 / (u64)MO_GetVideoFps(this->handle_98)),
+                        &this->alarmIntr, NULL);
 
     for (int i = 0; i < 6; i++) {
         (void)this->FUN_0202ea50();
@@ -111,14 +104,8 @@ BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoS
 
     this->stack = static_cast<char *>(MO_Malloc(MOVIE_STACK_SIZE));
 
-    OS_CreateThread(
-        &this->thread,
-        &this->threadIntr,
-        this,
-        this->stack + MOVIE_STACK_SIZE,
-        MOVIE_STACK_SIZE,
-        27
-    );
+    OS_CreateThread(&this->thread, &this->threadIntr, this, this->stack + MOVIE_STACK_SIZE,
+                    MOVIE_STACK_SIZE, 27);
 
     if ((this->flags & 0x200) == 0) {
         gAudioPlayer.FUN_0202c4a0(0);
@@ -129,13 +116,9 @@ BOOL MoviePlayer::playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNoS
     return TRUE;
 }
 
-u32 MoviePlayer::FUN_0202e784(void)
-{
-    return this->flags;
-}
+u32 MoviePlayer::FUN_0202e784(void) { return this->flags; }
 
-BOOL MoviePlayer::FUN_0202e78c(void)
-{
+BOOL MoviePlayer::FUN_0202e78c(void) {
     if ((this->flags & 1) == 0) {
         return FALSE;
     }
@@ -204,16 +187,14 @@ BOOL MoviePlayer::FUN_0202e78c(void)
     return TRUE;
 }
 
-void MoviePlayer::FUN_0202e958(void)
-{
+void MoviePlayer::FUN_0202e958(void) {
     if ((this->flags & 2) != 0) {
         this->flags |= 0x20;
         this->sleep();
     }
 }
 
-void MoviePlayer::sleep(void)
-{
+void MoviePlayer::sleep(void) {
     if ((this->flags & 2) != 0) {
         this->flags |= 0x10;
         this->unk198 += unk_020B5B80.unk5;
@@ -223,28 +204,28 @@ void MoviePlayer::sleep(void)
     }
 }
 
-void MoviePlayer::wakeUp(void)
-{
+void MoviePlayer::wakeUp(void) {
     if ((this->flags & 0x10) != 0) {
         u32 flag = this->flags & ~0x10;
         this->flags = flag;
         unk_020B5B80.unk5 = 0;
         if ((flag & 8) != 0) {
-            (void)gAudioPlayer.FUN_0202d5d4(0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) * (this->currentFrame + this->unk198 + 1));
+            (void)gAudioPlayer.FUN_0202d5d4(
+                0, ((u64)16777216000 / (u64)MO_GetVideoFps(this->handle_98)) *
+                       (this->currentFrame + this->unk198 + 1));
             this->flags |= 0x400;
         }
     }
 }
 
-BOOL MoviePlayer::FUN_0202ea50(void)
-{
+BOOL MoviePlayer::FUN_0202ea50(void) {
     if (this->unk194 >= 6) {
         return FALSE;
     }
     if ((this->flags & 0x20) != 0) {
         return FALSE;
     }
-    
+
     this->flags |= 0x8000;
 
     (void)OS_GetTick();
@@ -270,8 +251,7 @@ BOOL MoviePlayer::FUN_0202ea50(void)
     return TRUE;
 }
 
-void MoviePlayer::closeMovie(u8 unloadOverlay)
-{
+void MoviePlayer::closeMovie(u8 unloadOverlay) {
     if (!this->flags) {
         return;
     }
@@ -281,7 +261,7 @@ void MoviePlayer::closeMovie(u8 unloadOverlay)
     }
 
     if ((this->flags & 0x20) == 0) {
-        for (int i = 0; i < this->unk194; i++) {  
+        for (int i = 0; i < this->unk194; i++) {
             (void)MO_SkipFrameImage(this->handleMain);
             (void)MO_SkipFrameImage(this->handleSub);
         }
@@ -290,9 +270,9 @@ void MoviePlayer::closeMovie(u8 unloadOverlay)
     if ((this->flags & 0x08) != 0) {
         gAudioPlayer.FUN_0202d578(0);
     }
-    
+
     OS_CancelAlarm(&this->alarm);
-    
+
     MO_Free(unk_020B5B80.unk20);
     MO_Free(unk_020B5B80.unk24);
 
@@ -311,11 +291,9 @@ void MoviePlayer::closeMovie(u8 unloadOverlay)
         FS_UnloadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay127));
         FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay126));
     }
-
 }
 
-void MoviePlayer::threadIntr(void *arg)
-{
+void MoviePlayer::threadIntr(void *arg) {
     MoviePlayer *player = static_cast<MoviePlayer *>(arg);
 
     while (TRUE) {
@@ -325,8 +303,7 @@ void MoviePlayer::threadIntr(void *arg)
     }
 }
 
-u32 MoviePlayer::getVideoFps(void)
-{
+u32 MoviePlayer::getVideoFps(void) {
     if (!this->handle_98) {
         return 0;
     }
@@ -334,8 +311,7 @@ u32 MoviePlayer::getVideoFps(void)
     return MO_GetVideoFps(this->handle_98);
 }
 
-BOOL MoviePlayer::blitFrameImage(MOHandle handleMain, MOHandle handleSub)
-{
+BOOL MoviePlayer::blitFrameImage(MOHandle handleMain, MOHandle handleSub) {
     if (!unk_020B5B80.frameDisplayed) {
         return FALSE;
     }
@@ -358,29 +334,16 @@ BOOL MoviePlayer::blitFrameImage(MOHandle handleMain, MOHandle handleSub)
     return TRUE;
 }
 
-void MoviePlayer::alarmIntr(void *arg)
-{
-    #pragma unused(arg)
+void MoviePlayer::alarmIntr(void *arg) {
+#pragma unused(arg)
 
     unk_020B5B80.unk5++;
 }
 
-void *MoviePlayer::malloc(size_t size)
-{
-    return unk_020B5B80.allocator->allocate(size, 5, 0);
-}
+void *MoviePlayer::malloc(size_t size) { return unk_020B5B80.allocator->allocate(size, 5, 0); }
 
-void MoviePlayer::free(void *ptr)
-{
-    unk_020B5B80.allocator->deallocate(ptr);
-}
+void MoviePlayer::free(void *ptr) { unk_020B5B80.allocator->deallocate(ptr); }
 
-void *MO_Malloc(u32 size)
-{
-    return gMoviePlayer.malloc(size);
-}
+void *MO_Malloc(u32 size) { return gMoviePlayer.malloc(size); }
 
-void MO_Free(void *mem_p)
-{
-    gMoviePlayer.free(mem_p);
-}
+void MO_Free(void *mem_p) { gMoviePlayer.free(mem_p); }

@@ -63,7 +63,7 @@
 .public unk_0209A070
 .public ov1_020E9482
 .public FUN_ov132_02143a40
-.public _ZN9Allocator8allocateEmii
+.public _ZN10CAllocator8allocateEmii
 .public FUN_ov132_02143a34
 .public FUN_ov132_02143c08
 .public gAllocator
@@ -114,7 +114,7 @@
 .public FUN_ov16_020f6a9c
 .public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_ov16_020f2fe4
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f5af0
 .public FUN_ov16_020f6c58
 .public FUN_ov1_020be6f8

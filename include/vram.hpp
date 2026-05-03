@@ -1,20 +1,17 @@
-#ifndef IE3OGRES_VRAM_H
-#define IE3OGRES_VRAM_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
 
 typedef struct {
     s32 size;
     u32 key;
     u8 type; // 1: texture, 2: palette
-    /* pad? */
+    u8 unk_9;
+    u8 unk_a;
+    u8 unk_b;
 } VramResource;
 
 typedef struct {
     VramResource res;
     s32 refCount;
 } SharedVramResource;
-
-#endif //IE3OGRES_VRAM_H

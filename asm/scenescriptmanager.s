@@ -141,7 +141,7 @@ FUN_02047c30: ; 0x02047C30
 	mov r2, #2
 	mov r3, #1
 	mov r5, r1
-	bl _ZN9Allocator8allocateEmii
+	bl _ZN10CAllocator8allocateEmii
 	movs r4, r0
 	beq _02047C5C
 	mov r2, r5
@@ -156,10 +156,10 @@ _02047C64: .word gAllocator
 	arm_func_start FUN_02047c68
 FUN_02047c68: ; 0x02047C68
 	ldr r0, _02047C74 ; =gAllocator
-	ldr r12, _02047C78 ; =_ZN9Allocator10deallocateEPv
+	ldr r12, _02047C78 ; =_ZN10CAllocator10deallocateEPv
 	bx r12
 _02047C74: .word gAllocator
-_02047C78: .word _ZN9Allocator10deallocateEPv
+_02047C78: .word _ZN10CAllocator10deallocateEPv
 	arm_func_end FUN_02047c68
 
 	arm_func_start FUN_02047c7c ; https://decomp.me/scratch/ODQcL
@@ -324,7 +324,7 @@ _02047E84:
 	bl sprintf
 	mov r0, r4
 	mov r1, #4
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02047EE8
@@ -336,7 +336,7 @@ _02047E84:
 	add r2, r10, #0x1c00
 	mov r1, r5
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02047EE8:
 	add r0, r9, r8, lsl #2
 	add r10, r0, #0xe4
@@ -352,7 +352,7 @@ _02047EE8:
 	bl sprintf
 	mov r0, r4
 	mov r1, #4
-	bl _ZN9Allocator12setNextArenaEi
+	bl _ZN10CAllocator12setNextArenaEi
 	ldr r0, [r4]
 	cmp r0, #0
 	beq _02047F58
@@ -365,7 +365,7 @@ _02047EE8:
 	add r2, r10, #0x1c00
 	mov r1, r5
 	mov r3, r4
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _02047F58:
 	add r8, r8, #1
 	cmp r8, #4

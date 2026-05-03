@@ -1,7 +1,6 @@
-#ifndef DSE_H
-#define DSE_H
+#pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -114,5 +113,3 @@ s32 DSE_SsdAddWaveData(void *swdl, int param1, void *param2);
 #ifdef __cplusplus
 } /* extern "C" */
 #endif
-
-#endif //DSE_H

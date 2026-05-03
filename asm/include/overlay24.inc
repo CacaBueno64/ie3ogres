@@ -24,7 +24,7 @@
 .public FUN_ov16_020f5450
 .public sprintf
 .public FUN_02058800
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e720
@@ -57,7 +57,7 @@
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public unk_020A0640
 .public FUN_ov16_020efa04
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public gUnitMan
 .public FUN_ov16_020f2ab4
 .public FUN_ov16_0210efac

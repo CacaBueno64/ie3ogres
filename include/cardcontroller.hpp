@@ -1,9 +1,8 @@
-#ifndef IE3OGRES_CARDCONTROLLER_H
-#define IE3OGRES_CARDCONTROLLER_H
-
 #pragma once
 
-#include <nitro.h>
+#include <nitro/types.h>
+#include <nitro/card/types.h>
+#include <nitro/card/backup.h>
 
 #define CARD_BACKUP_TYPE_DEVICE_DUMMY 4
 #define CARD_BACKUP_TYPE_DUMMY CARD_BACKUP_TYPE_DEFINE(DUMMY, 16, 0) // 0x1004
@@ -25,5 +24,3 @@ class CardController {
 };
 
 extern CardController gCardController;
-
-#endif //IE3OGRES_CARDCONTROLLER_H

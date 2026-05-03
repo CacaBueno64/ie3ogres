@@ -1125,7 +1125,7 @@ FUN_ov16_020eeca0: ; 0x020EECA0
 	mov r12, #1
 	add r2, r2, #0x400
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _020EECFC:
 	cmp r0, #0x1000
 	movne r0, #0
@@ -1151,7 +1151,7 @@ FUN_ov16_020eed18: ; 0x020EED18
 	mov r5, #0x1000
 	mov r0, r6
 	mov r1, r5
-	bl _ZN9Allocator8allocateEm
+	bl _ZN10CAllocator8allocateEm
 	cmp r0, #0
 	str r0, [r8, #0x7dc]
 	addeq sp, sp, #4
@@ -1171,7 +1171,7 @@ FUN_ov16_020eed18: ; 0x020EED18
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	ldr r1, [r8, #0x7dc]
 	mov r0, r6
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, r4
 	str r4, [r8, #0x7dc]
 	add sp, sp, #4
@@ -1216,7 +1216,7 @@ _020EEDF0:
 	mov r12, #1
 	add r2, sp, #0x10
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _020EEE30:
 	cmp r0, #0
 	moveq r0, #0x16
@@ -1483,14 +1483,14 @@ FUN_ov16_020ef160: ; 0x020EF160
 	cmp r1, #0
 	beq _020EF188
 	ldr r0, _020EF2B0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r8, #0x7d8]
 _020EF188:
 	ldr r1, [r8, #0x7fc]
 	cmp r1, #0
 	beq _020EF1A0
 	ldr r0, _020EF2B0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	str r4, [r8, #0x7fc]
 _020EF1A0:
 	mov r0, r8
@@ -1547,7 +1547,7 @@ _020EF258:
 	bne _020EF294
 	ldr r0, _020EF2B4 ; =gConfig
 	ldr r1, _020EF2B8 ; =0x0211842C
-	bl _ZN6Config8getParamEPc
+	bl _ZN6Config8getParamEPKc
 	ldr r2, [r8, #0x7fc]
 	mov r1, r0, lsl #1
 	mov r0, r7, lsl #1
@@ -1615,7 +1615,7 @@ _020EF2E8:
 	add r1, sp, #0x10
 	add r2, r2, #0x800
 	str r12, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 _020EF350:
 	cmp r0, #0
 	moveq r0, #0
@@ -1650,7 +1650,7 @@ FUN_ov16_020ef3a0: ; 0x020EF3A0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _020EF3D0 ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 	mov r0, r4
 	bl FUN_ov16_020ef2bc
 	mov r0, #1
@@ -1715,7 +1715,7 @@ FUN_ov16_020ef430: ; 0x020EF430
 	str r6, [sp, #8]
 	mov r4, #1
 	str r4, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 	mov r6, r0
 _020EF484:
 	ldr r0, [sp, #0x10]
@@ -1797,7 +1797,7 @@ _020EF588:
 	cmpne r1, #0
 	beq _020EF5A0
 	ldr r0, _020EF5AC ; =gAllocator
-	bl _ZN9Allocator10deallocateEPv
+	bl _ZN10CAllocator10deallocateEPv
 _020EF5A0:
 	mov r0, r6
 	add sp, sp, #0x94

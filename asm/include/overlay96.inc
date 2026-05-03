@@ -1,5 +1,5 @@
 .public _ZN8Graphics12FadeSubBlackEl
-.public _ZN9Allocator8allocateEm
+.public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public gAllocator
 .public FUN_ov16_020f5da0
@@ -25,7 +25,7 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public _ZN9Allocator10deallocateEPv
+.public _ZN10CAllocator10deallocateEPv
 .public _ZN7CFileIO5closeEPvi
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public gSubScreen1

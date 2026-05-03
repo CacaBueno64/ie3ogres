@@ -11,7 +11,7 @@
 .public MI_CpuFill8
 .public FUN_02047af8
 .public FUN_02047f8c
-.public _ZN7CFileIO10readDirectEPKcPPvP9Allocatorlmih
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public unk_020900CC
 .public unk_0209A200
 .public unk_020900DC
