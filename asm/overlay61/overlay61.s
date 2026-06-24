@@ -5896,7 +5896,7 @@ ov61_0211EEA8:
 	.data
 	.global ov61_0211EEC0
 ov61_0211EEC0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "7"
 	.balign 4, 0
 #else
@@ -5904,7 +5904,7 @@ ov61_0211EEC0:
 #endif
 	.global ov61_0211EEC4
 ov61_0211EEC4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "5"
 	.balign 4, 0
 #else
@@ -5912,7 +5912,7 @@ ov61_0211EEC4:
 #endif
 	.global ov61_0211EEC8
 ov61_0211EEC8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "8"
 	.balign 4, 0
 #else
@@ -5920,7 +5920,7 @@ ov61_0211EEC8:
 #endif
 	.global ov61_0211EECC
 ov61_0211EECC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "6"
 	.balign 4, 0
 #else
@@ -5928,7 +5928,7 @@ ov61_0211EECC:
 #endif
 	.global ov61_0211EED0
 ov61_0211EED0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "3"
 	.balign 4, 0
 #else
@@ -5936,7 +5936,7 @@ ov61_0211EED0:
 #endif
 	.global ov61_0211EED4
 ov61_0211EED4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "9"
 	.balign 4, 0
 #else
@@ -5944,7 +5944,7 @@ ov61_0211EED4:
 #endif
 	.global ov61_0211EED8
 ov61_0211EED8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "2"
 	.balign 4, 0
 #else
@@ -5952,7 +5952,7 @@ ov61_0211EED8:
 #endif
 	.global ov61_0211EEDC
 ov61_0211EEDC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "10"
 	.balign 4, 0
 #else
@@ -5960,7 +5960,7 @@ ov61_0211EEDC:
 #endif
 	.global ov61_0211EEE0
 ov61_0211EEE0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "1"
 	.balign 4, 0
 #else
@@ -5968,7 +5968,7 @@ ov61_0211EEE0:
 #endif
 	.global ov61_0211EEE4
 ov61_0211EEE4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "4"
 	.balign 4, 0
 #else
@@ -6277,7 +6277,7 @@ ov61_0211F398:
 	.byte 0x2F, 0x70, 0x69, 0x63, 0x33, 0x64, 0x2F, 0x69, 0x68, 0x2E, 0x70, 0x6B, 0x62, 0x00, 0x00, 0x00
 	.global ov61_0211F3B0
 ov61_0211F3B0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Chap. "
 	.balign 4, 0
 #else
@@ -6285,7 +6285,7 @@ ov61_0211F3B0:
 #endif
 	.global ov61_0211F3B4
 ov61_0211F3B4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz ""
 	.balign 4, 0
 #else

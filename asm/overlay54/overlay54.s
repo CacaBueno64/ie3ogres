@@ -3141,7 +3141,7 @@ ov54_0211CA58:
 	.byte 0x35, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00
 	.global ov54_0211CA68
 ov54_0211CA68:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quitter sans sauvegarder ?"
 	.balign 4, 0
 #else
@@ -3150,7 +3150,7 @@ ov54_0211CA68:
 	.global ov54_0211CA80
 #endif
 ov54_0211CA80:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Sauvegarder et quitter ?"
 	.balign 4, 0
 #else
@@ -3160,7 +3160,7 @@ ov54_0211CA80:
 #endif
 	.global ov54_0211CAA8
 ov54_0211CAA8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Utiliser ce nom et cet "
 		.byte 0xBA
 		.asciz "cusson ?"

@@ -10723,7 +10723,7 @@ ov29_021238DC:
 	.byte 0x6C, 0x65, 0x43, 0x6F, 0x6D, 0x6D, 0x65, 0x6E, 0x74, 0x2E, 0x64, 0x61, 0x74, 0x00, 0x00, 0x00
 	.global ov29_02123900
 ov29_02123900:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Oh, Elle a l"
 		.byte 0x81, 0x66
 		.asciz "air bien rare !"
@@ -10751,7 +10751,7 @@ ov29_02123970:
 	.byte 0x67, 0x73, 0x64, 0x6E, 0x5F, 0x77, 0x30, 0x30, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00
 	.global ov29_02123980
 ov29_02123980:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "La capsule est vide."
 	.balign 4, 0
 #else
@@ -10781,7 +10781,7 @@ ov29_021239E4:
 	.byte 0x5F, 0x00, 0x00, 0x00
 	.global ov29_021239F4
 ov29_021239F4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Vous avez re"
 		.byte 0xB8
 		.ascii "u les coordonn"
@@ -10800,7 +10800,7 @@ ov29_021239F4:
 #endif
 	.global ov29_02123A4C
 ov29_02123A4C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Vous avez re"
 		.byte 0xB8
 		.ascii "u les rarissimes\ncoordonn"
@@ -10836,7 +10836,7 @@ ov29_02123ADC:
 	.byte 0x5F, 0x62, 0x31, 0x30, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00
 	.global ov29_02123AEC
 ov29_02123AEC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Renoncer "
 		.byte 0xB1
 		.asciz " ce joueur ?"
@@ -10855,7 +10855,7 @@ ov29_02123B30:
 	.byte 0x73, 0x68, 0x64, 0x6E, 0x5F, 0x62, 0x31, 0x31, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00
 	.global ov29_02123B40
 ov29_02123B40:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Pas de chance ! Ce n"
 		.byte 0x81, 0x66
 		.ascii "est qu"

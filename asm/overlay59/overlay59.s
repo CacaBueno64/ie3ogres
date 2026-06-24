@@ -5849,7 +5849,7 @@ ov59_0211F05C:
 	.byte 0x25, 0x64, 0x00, 0x00
 	.global ov59_0211F060
 ov59_0211F060:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "%s r"
 		.byte 0xBA
 		.ascii "cup"
@@ -5866,7 +5866,7 @@ ov59_0211F084:
 	.byte 0x25, 0x64, 0x00, 0x00
 	.global ov59_0211F088
 ov59_0211F088:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "%s r"
 		.byte 0xBA
 		.ascii "cup"
@@ -5880,7 +5880,7 @@ ov59_0211F088:
 #endif
 	.global ov59_0211F0AC
 ov59_0211F0AC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "%s r"
 		.byte 0xBA
 		.ascii "cup"
@@ -5895,7 +5895,7 @@ ov59_0211F0AC:
 #endif
 	.global ov59_0211F0D4
 ov59_0211F0D4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "%s r"
 		.byte 0xBA
 		.ascii "cup"
@@ -5909,7 +5909,7 @@ ov59_0211F0D4:
 #endif
 	.global ov59_0211F0FC
 ov59_0211F0FC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Jeter"
 	.balign 4, 0
 #else
@@ -5918,7 +5918,7 @@ ov59_0211F0FC:
 #endif
 	.global ov59_0211F104
 ov59_0211F104:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Formation"
 	.balign 4, 0
 #else
@@ -5926,7 +5926,7 @@ ov59_0211F104:
 #endif
 	.global ov59_0211F110
 ov59_0211F110:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 	.asciz "quipement"
 	.balign 4, 0
@@ -5935,7 +5935,7 @@ ov59_0211F110:
 #endif
 	.global ov59_0211F118
 ov59_0211F118:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Techniques"
 	.balign 4, 0
 #else
@@ -5944,7 +5944,7 @@ ov59_0211F118:
 #endif
 	.global ov59_0211F128
 ov59_0211F128:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Voulez-vous vraiment jeter cet objet ?"
 	.balign 4, 0
 #else
@@ -5956,7 +5956,7 @@ ov59_0211F140:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov59_0211F144
 ov59_0211F144:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Nombre limite atteint pour cet objet."
 	.balign 4, 0
 #else

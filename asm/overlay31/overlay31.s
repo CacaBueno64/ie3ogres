@@ -2302,7 +2302,7 @@ ov31_0211BF80:
 	.byte 0x65, 0x6E, 0x75, 0x5F, 0x72, 0x61, 0x6E, 0x6B, 0x69, 0x6E, 0x67, 0x2E, 0x53, 0x50, 0x44, 0x00
 	.global ov31_0211BFA0
 ov31_0211BFA0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Temps de jeu"
 	.balign 4, 0
 #else
@@ -2310,7 +2310,7 @@ ov31_0211BFA0:
 #endif
 	.global ov31_0211BFAC
 ov31_0211BFAC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%3d h %2d min"
 	.balign 4, 0
 #else
@@ -2319,7 +2319,7 @@ ov31_0211BFAC:
 #endif
 	.global ov31_0211BFBC
 ov31_0211BFBC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Meilleur buteur"
 	.balign 4, 0
 #else
@@ -2331,7 +2331,7 @@ ov31_0211BFC4:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov31_0211BFC8
 ov31_0211BFC8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else
@@ -2340,7 +2340,7 @@ ov31_0211BFC8:
 #endif
 	.global ov31_0211BFD4
 ov31_0211BFD4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d but(s)"
 	.balign 4, 0
 #else
@@ -2348,7 +2348,7 @@ ov31_0211BFD4:
 #endif
 	.global ov31_0211BFDC
 ov31_0211BFDC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Record de participations"
 	.balign 4, 0
 #else
@@ -2360,7 +2360,7 @@ ov31_0211BFEC:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov31_0211BFF0
 ov31_0211BFF0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else
@@ -2368,7 +2368,7 @@ ov31_0211BFF0:
 #endif
 	.global ov31_0211BFFC
 ov31_0211BFFC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2377,7 +2377,7 @@ ov31_0211BFFC:
 #endif
 	.global ov31_0211C004
 ov31_0211C004:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "D"
 		.byte 0xBA
 		.ascii "fis relev"
@@ -2390,7 +2390,7 @@ ov31_0211C004:
 #endif
 	.global ov31_0211C01C
 ov31_0211C01C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2399,7 +2399,7 @@ ov31_0211C01C:
 #endif
 	.global ov31_0211C024
 ov31_0211C024:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Matchs amicaux\njou"
 		.byte 0xBA
 		.asciz "s"
@@ -2410,7 +2410,7 @@ ov31_0211C024:
 #endif
 	.global ov31_0211C03C
 ov31_0211C03C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2419,7 +2419,7 @@ ov31_0211C03C:
 #endif
 	.global ov31_0211C044
 ov31_0211C044:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Affrontements\ngagn"
 		.byte 0xBA
 		.asciz "s"
@@ -2430,7 +2430,7 @@ ov31_0211C044:
 #endif
 	.global ov31_0211C05C
 ov31_0211C05C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%3d %"
 	.balign 4, 0
 #else
@@ -2439,7 +2439,7 @@ ov31_0211C05C:
 #endif
 	.global ov31_0211C064
 ov31_0211C064:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Joueurs int"
 		.byte 0xBA
 		.ascii "gr"
@@ -2452,7 +2452,7 @@ ov31_0211C064:
 #endif
 	.global ov31_0211C07C
 ov31_0211C07C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2461,7 +2461,7 @@ ov31_0211C07C:
 #endif
 	.global ov31_0211C084
 ov31_0211C084:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Effectif actuel"
 	.balign 4, 0
 #else
@@ -2470,7 +2470,7 @@ ov31_0211C084:
 #endif
 	.global ov31_0211C098
 ov31_0211C098:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2478,7 +2478,7 @@ ov31_0211C098:
 #endif
 	.global ov31_0211C0A0
 ov31_0211C0A0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Joueurs rencontr"
 		.byte 0xBA
 		.asciz "s"
@@ -2489,7 +2489,7 @@ ov31_0211C0A0:
 #endif
 	.global ov31_0211C0BC
 ov31_0211C0BC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%3d %"
 	.balign 4, 0
 #else
@@ -2498,7 +2498,7 @@ ov31_0211C0BC:
 #endif
 	.global ov31_0211C0C4
 ov31_0211C0C4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Maillots obtenus"
 	.balign 4, 0
 #else
@@ -2507,7 +2507,7 @@ ov31_0211C0C4:
 #endif
 	.global ov31_0211C0DC
 ov31_0211C0DC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%3d %"
 	.balign 4, 0
 #else
@@ -2519,7 +2519,7 @@ ov31_0211C0E4:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov31_0211C0E8
 ov31_0211C0E8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else
@@ -2528,7 +2528,7 @@ ov31_0211C0E8:
 #endif
 	.global ov31_0211C0F4
 ov31_0211C0F4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%2d. %s"
 	.balign 4, 0
 #else
@@ -2536,7 +2536,7 @@ ov31_0211C0F4:
 #endif
 	.global ov31_0211C100
 ov31_0211C100:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d but(s)"
 	.balign 4, 0
 #else
@@ -2547,7 +2547,7 @@ ov31_0211C108:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov31_0211C10C
 ov31_0211C10C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else
@@ -2559,7 +2559,7 @@ ov31_0211C118:
 	.byte 0x25, 0x73, 0x00, 0x00
 	.global ov31_0211C11C
 ov31_0211C11C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%2d. %s"
 	.balign 4, 0
 #else
@@ -2568,7 +2568,7 @@ ov31_0211C11C:
 #endif
 	.global ov31_0211C128
 ov31_0211C128:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%4d"
 	.balign 4, 0
 #else
@@ -2576,7 +2576,7 @@ ov31_0211C128:
 #endif
 	.global ov31_0211C130
 ov31_0211C130:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "etc."
 	.balign 4, 0
 #else
@@ -2584,7 +2584,7 @@ ov31_0211C130:
 #endif
 	.global ov31_0211C138
 ov31_0211C138:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "etc."
 	.balign 4, 0
 #else

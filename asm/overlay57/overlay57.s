@@ -11766,7 +11766,7 @@ ov57_021243A8:
 	.word ov57_021243D4
 	.global ov57_021243CC
 ov57_021243CC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 		.asciz "quipement"
 	.balign 4, 0
@@ -11783,7 +11783,7 @@ ov57_021243DC:
 	.byte 0x82, 0xEB, 0x00, 0x00
 	.global ov57_021243E4
 ov57_021243E4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 		.asciz "quipement"
 	.balign 4, 0
@@ -11792,7 +11792,7 @@ ov57_021243E4:
 #endif
 	.global ov57_021243EC
 ov57_021243EC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Joueur cl"
 		.byte 0xBA, 0x00
 	.balign 4, 0
@@ -11806,7 +11806,7 @@ ov57_021243F8:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global ov57_02124404
 ov57_02124404:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Inventaire"
 	.balign 4, 0
 #else
@@ -11814,7 +11814,7 @@ ov57_02124404:
 #endif
 	.global ov57_02124410
 ov57_02124410:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Joueur cl"
 		.byte 0xBA, 0x00
 	.balign 4, 0
@@ -11823,7 +11823,7 @@ ov57_02124410:
 #endif
 	.global ov57_0212441C
 ov57_0212441C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Inventaire"
 	.balign 4, 0
 #else
@@ -11848,7 +11848,7 @@ ov57_02124460:
 	.byte 0x77, 0x66, 0x64, 0x5F, 0x62, 0x30, 0x30, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00, 0x00
 	.global ov57_02124470
 ov57_02124470:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Techniques"
 	.balign 4, 0
 #else
@@ -11865,7 +11865,7 @@ ov57_021244A0:
 	.byte 0x6D, 0x73, 0x64, 0x6E, 0x5F, 0x66, 0x30, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00, 0x00
 	.global ov57_021244B0
 ov57_021244B0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Techniques"
 	.balign 4, 0
 #else
@@ -12002,7 +12002,7 @@ ov57_02124760:
 	.byte 0x6D, 0x73, 0x64, 0x6E, 0x5F, 0x63, 0x30, 0x35, 0x2E, 0x70, 0x61, 0x63, 0x5F, 0x00, 0x00, 0x00
 	.global ov57_02124770
 ov57_02124770:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Tactiques sp"
 		.byte 0xBA
 		.asciz "c."
@@ -12013,7 +12013,7 @@ ov57_02124770:
 #endif
 	.global ov57_02124784
 ov57_02124784:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Formation"
 	.balign 4, 0
 #else
@@ -12022,7 +12022,7 @@ ov57_02124784:
 #endif
 	.global ov57_02124798
 ov57_02124798:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Tactiques sp"
 		.byte 0xBA
 		.asciz "c."
@@ -12033,7 +12033,7 @@ ov57_02124798:
 #endif
 	.global ov57_021247AC
 ov57_021247AC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Formation"
 	.balign 4, 0
 #else
@@ -12104,7 +12104,7 @@ ov57_021248C0:
 	.byte 0x4D, 0x53, 0x57, 0x69, 0x63, 0x2E, 0x53, 0x50, 0x46, 0x5F, 0x00, 0x00
 	.global ov57_021248DC
 ov57_021248DC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Changement de formation.\nVeuillez patienter."
 	.balign 4, 0
 #else
@@ -12138,7 +12138,7 @@ ov57_021249A0:
 	.byte 0x6F, 0x72, 0x6D, 0x61, 0x74, 0x69, 0x6F, 0x6E, 0x32, 0x2E, 0x53, 0x50, 0x44, 0x00, 0x00, 0x00
 	.global ov57_021249C0
 ov57_021249C0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Ce joueur ne peut pas \n"
 		.byte 0xBB
 		.asciz "tre gardien actuellement."
@@ -12151,7 +12151,7 @@ ov57_021249C0:
 #endif
 	.global ov57_02124A00
 ov57_02124A00:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Vous ne pouvez pas d"
 		.byte 0xBA
 		.ascii "placer\nce joueur pour l"
@@ -12166,7 +12166,7 @@ ov57_02124A00:
 #endif
 	.global ov57_02124A38
 ov57_02124A38:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Impossible de retirer\nce joueur."
 	.balign 4, 0
 #else
@@ -12178,7 +12178,7 @@ ov57_02124A38:
 #endif
 	.global ov57_02124A7C
 ov57_02124A7C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Ce joueur doit rester\nsur le banc."
 	.balign 4, 0
 #else
@@ -12190,7 +12190,7 @@ ov57_02124A7C:
 #endif
 	.global ov57_02124AB8
 ov57_02124AB8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Il y a trop de joueur sur le terrain."
 	.balign 4, 0
 #else
@@ -12201,7 +12201,7 @@ ov57_02124AB8:
 #endif
 	.global ov57_02124AE8
 ov57_02124AE8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Il manque des joueurs sur le terrain."
 	.balign 4, 0
 #else
@@ -12211,7 +12211,7 @@ ov57_02124AE8:
 #endif
 	.global ov57_02124B0C
 ov57_02124B0C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Vous ne pouvez plus faire de remplacement."
 	.balign 4, 0
 #else
@@ -12222,7 +12222,7 @@ ov57_02124B0C:
 #endif
 	.global ov57_02124B40
 ov57_02124B40:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Vous devez choisir un gardien."
 	.balign 4, 0
 #else
@@ -12232,7 +12232,7 @@ ov57_02124B40:
 #endif
 	.global ov57_02124B68
 ov57_02124B68:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Vous ne pouvez pas d"
 		.byte 0xBA
 		.ascii "placer\nce joueur pour l"
@@ -12247,7 +12247,7 @@ ov57_02124B68:
 #endif
 	.global ov57_02124BA0
 ov57_02124BA0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Erreur."
 	.balign 4, 0
 #else
@@ -12255,7 +12255,7 @@ ov57_02124BA0:
 #endif
 	.global ov57_02124BAC
 ov57_02124BAC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Sauvegarder et quitter ?"
 	.balign 4, 0
 #else
@@ -12266,7 +12266,7 @@ ov57_02124BAC:
 #endif
 	.global ov57_02124BD4
 ov57_02124BD4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Annuler les changements ?"
 	.balign 4, 0
 #else
@@ -12275,7 +12275,7 @@ ov57_02124BD4:
 #endif
 	.global ov57_02124BEC
 ov57_02124BEC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Un participant est en train\nde changer de formation."
 	.balign 4, 0
 #else
@@ -12287,7 +12287,7 @@ ov57_02124BEC:
 #endif
 	.global ov57_02124C30
 ov57_02124C30:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Un participant est en train\nde changer de formation."
 	.balign 4, 0
 #else
@@ -12299,7 +12299,7 @@ ov57_02124C30:
 #endif
 	.global ov57_02124C74
 ov57_02124C74:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Veuillez patienter."
 	.balign 4, 0
 #else
@@ -12308,7 +12308,7 @@ ov57_02124C74:
 #endif
 	.global ov57_02124C90
 ov57_02124C90:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Choisissez une formation."
 	.balign 4, 0
 #else

@@ -8289,7 +8289,7 @@ ov56_021214A4:
 	.byte 0x53, 0x43, 0x41, 0x4C, 0x45, 0x00, 0x00, 0x00
 	.global ov56_021214B8
 ov56_021214B8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "L"
 		.byte 0x81, 0x66, 0xD9
 		.ascii "quimement de ce joueur ne peut pas "

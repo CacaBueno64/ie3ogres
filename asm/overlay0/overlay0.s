@@ -28397,7 +28397,7 @@ ov0_020D58DC:
 	.balign 4, 0
 	.global ov0_020D58E0
 ov0_020D58E0: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "%s pts"
 		.byte 0x0A
 		.ascii "%s pts"
@@ -28409,7 +28409,7 @@ ov0_020D58E0: ; shift-jis string
 #endif
 	.global ov0_020D58EC
 ov0_020D58EC: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Menu"
 	.balign 4, 0
 #else
@@ -28418,7 +28418,7 @@ ov0_020D58EC: ; shift-jis string
 #endif
 	.global ov0_020D58F8
 ov0_020D58F8: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Joueurs"
 	.asciz "Inventaire"
 	.asciz "Formation"
@@ -28436,7 +28436,7 @@ ov0_020D58F8: ; shift-jis string
 #endif
 	.global ov0_020D5930
 ov0_020D5930: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Joueurs"
 	.balign 4, 0
 #else
@@ -28449,7 +28449,7 @@ ov0_020D5938: ; shift-jis string
 	.byte 0x00, 0x82, 0xD0, 0x82, 0xC1, 0x82, 0xB3, 0x82, 0xC2, 0x82, 0xED, 0x82, 0xB4, 0x00, 0x00, 0x00
 	.global ov0_020D5960
 ov0_020D5960: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Inventaire"
 	.balign 4, 0
 #else
@@ -28457,7 +28457,7 @@ ov0_020D5960: ; shift-jis string
 #endif
 	.global ov0_020D596C
 ov0_020D596C: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Objets"
 	.byte 0xD9
 		.asciz "quipement"
@@ -28470,7 +28470,7 @@ ov0_020D596C: ; shift-jis string
 #endif
 	.global ov0_020D598C
 ov0_020D598C: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Formation"
 	.balign 4, 0
 #else
@@ -28479,7 +28479,7 @@ ov0_020D598C: ; shift-jis string
 #endif
 	.global ov0_020D5998
 ov0_020D5998: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Histoire"
 	.ascii "D"
 		.byte 0xBA
@@ -28496,7 +28496,7 @@ ov0_020D5998: ; shift-jis string
 #endif
 	.global ov0_020D59CC
 ov0_020D59CC: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Infos"
 	.balign 4, 0
 #else
@@ -28505,7 +28505,7 @@ ov0_020D59CC: ; shift-jis string
 #endif
 	.global ov0_020D59D8
 ov0_020D59D8: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Blog"
 	.asciz "Composition"
 	.asciz "Index"
@@ -28525,7 +28525,7 @@ ov0_020D59D8: ; shift-jis string
 #endif
 	.global ov0_020D5A30
 ov0_020D5A30: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Syst"
 		.byte 0xB9
 		.asciz "me"
@@ -28535,7 +28535,7 @@ ov0_020D5A30: ; shift-jis string
 #endif
 	.global ov0_020D5A3C
 ov0_020D5A3C: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Records"
 	.asciz "Aide"
 	.ascii "Param"
@@ -28549,7 +28549,7 @@ ov0_020D5A3C: ; shift-jis string
 #endif
 	.global ov0_020D5A54
 ov0_020D5A54: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Composition"
 	.balign 4, 0
 #else
@@ -28557,7 +28557,7 @@ ov0_020D5A54: ; shift-jis string
 #endif
 	.global ov0_020D5A60
 ov0_020D5A60: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Histoire"
 	.asciz "Multi 1"
 	.asciz "Multi 2"
@@ -28845,7 +28845,7 @@ ov0_020D5E48:
 	.word _ZN12CommonScreen5stateEv
 	.global ov0_020D5EB4
 ov0_020D5EB4: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Expert"
 	.balign 4, 0
 #else
@@ -28853,7 +28853,7 @@ ov0_020D5EB4: ; shift-jis string
 #endif
 	.global ov0_020D5EC0
 ov0_020D5EC0: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Niv. "
 		.byte 0xBA
 		.asciz "quipe"
@@ -28867,7 +28867,7 @@ ov0_020D5ED0:
 	.balign 4, 0
 	.global ov0_020D5ED4
 ov0_020D5ED4: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Joueurs"
 	.balign 4, 0
 #else
@@ -28879,14 +28879,14 @@ ov0_020D5EDC:
 	.balign 4, 0
 	.global ov0_020D5EE0
 ov0_020D5EE0: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0x00, 0x00, 0x00, 0x00
 #else
 	.byte 0x90, 0x6C, 0x00, 0x00
 #endif
 	.global ov0_020D5EE4
 ov0_020D5EE4: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Titre"
 	.balign 4, 0
 #else
@@ -28966,7 +28966,7 @@ ov0_020D6050:
 	.balign 4, 0
 	.global ov0_020D6058
 ov0_020D6058: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Motivation"
 	.balign 4, 0
 #else
@@ -28975,7 +28975,7 @@ ov0_020D6058: ; shift-jis string
 #endif
 	.global ov0_020D6064
 ov0_020D6064: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii " Amiti"
 		.byte 0xBA
 		.byte 0x00
@@ -28985,7 +28985,7 @@ ov0_020D6064: ; shift-jis string
 #endif
 	.global ov0_020D6070
 ov0_020D6070: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Sauvegarder"
 	.balign 4, 0
 #else
@@ -28993,7 +28993,7 @@ ov0_020D6070: ; shift-jis string
 #endif
 	.global ov0_020D6078
 ov0_020D6078: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else

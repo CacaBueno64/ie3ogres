@@ -4119,7 +4119,7 @@ ov55_0211D86C:
 	.byte 0x82, 0xAB, 0x82, 0xAA, 0x82, 0xA0, 0x82, 0xEA, 0x82, 0xCE, 0x00, 0x00
 	.global ov55_0211D87C
 ov55_0211D87C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Ce texte ne peut pas "
 		.byte 0xBB
 		.ascii "tre utilis"
@@ -4136,7 +4136,7 @@ ov55_0211D87C:
 #endif
 	.global ov55_0211D8C8
 ov55_0211D8C8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Mot de passe incorrect."
 	.balign 4, 0
 #else
@@ -4146,7 +4146,7 @@ ov55_0211D8C8:
 #endif
 	.global ov55_0211D8E4
 ov55_0211D8E4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Correct ! Essayez la\nnouvelle section !"
 	.balign 4, 0
 #else

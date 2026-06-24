@@ -3426,7 +3426,7 @@ ov86_0211CDC0:
 	.word _ZN12CommonScreen5stateEv
 	.global ov86_0211CE2C
 ov86_0211CE2C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Sauvegarder et quitter ?"
 	.balign 4, 0
 #else

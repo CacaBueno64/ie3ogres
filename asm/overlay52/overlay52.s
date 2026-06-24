@@ -12037,7 +12037,7 @@ ov52_02124760:
 	.byte 0x4C, 0x45, 0x00, 0x00
 	.global ov52_02124774
 ov52_02124774:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "?????"
 	.balign 4, 0
 #else

@@ -7881,7 +7881,7 @@ ov62_02120E94:
 	.byte 0x5F, 0x00, 0x00, 0x00
 	.global ov62_02120EA4
 ov62_02120EA4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 		.asciz "quiper ?"
 	.balign 4, 0
@@ -7891,7 +7891,7 @@ ov62_02120EA4:
 #endif
 	.global ov62_02120EBC
 ov62_02120EBC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 		.ascii "quiper d"
 		.byte 0x81, 0x66
@@ -7972,7 +7972,7 @@ ov62_02121004:
 	.byte 0x69, 0x63, 0x2F, 0x53, 0x68, 0x6F, 0x70, 0x4E, 0x61, 0x6D, 0x65, 0x2E, 0x64, 0x61, 0x74, 0x00
 	.global ov62_02121020
 ov62_02121020:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Achat \n"
 	.balign 4, 0
 #else
@@ -7980,7 +7980,7 @@ ov62_02121020:
 #endif
 	.global ov62_02121028
 ov62_02121028:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Vente \n"
 	.balign 4, 0
 #else
@@ -7988,7 +7988,7 @@ ov62_02121028:
 #endif
 	.global ov62_02121030
 ov62_02121030:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%s x %d\nPoints de motivation : %d\nAffaire conclue ?\n\n"
 	.balign 4, 0
 #else
@@ -7999,7 +7999,7 @@ ov62_02121030:
 #endif
 	.global ov62_02121064
 ov62_02121064:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Points insuffisants."
 	.balign 4, 0
 #else
@@ -8008,7 +8008,7 @@ ov62_02121064:
 #endif
 	.global ov62_02121080
 ov62_02121080:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%s\n%s (%2d en stock)"
 	.balign 4, 0
 #else
@@ -8017,7 +8017,7 @@ ov62_02121080:
 #endif
 	.global ov62_02121094
 ov62_02121094:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "%s porte :\n%s !"
 	.balign 4, 0
 #else
@@ -8031,7 +8031,7 @@ ov62_021210AC:
 	.byte 0x62, 0x00, 0x00, 0x00
 	.global ov62_021210C4
 ov62_021210C4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Nombre limite atteint pour cet objet."
 	.balign 4, 0
 #else
@@ -8042,7 +8042,7 @@ ov62_021210C4:
 #endif
 	.global ov62_021210F4
 ov62_021210F4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Points insuffisants."
 	.balign 4, 0
 #else

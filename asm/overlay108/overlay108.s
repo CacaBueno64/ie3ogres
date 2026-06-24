@@ -2458,7 +2458,7 @@ ov108_02126ED0:
 	.byte 0x81, 0x7C, 0x00, 0x00
 	.global ov108_02126ED4
 ov108_02126ED4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Kyoto"
 	.balign 4, 0
 #else
@@ -2466,7 +2466,7 @@ ov108_02126ED4:
 #endif
 	.global ov108_02126EDC
 ov108_02126EDC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Bleu"
 	.balign 4, 0
 #else
@@ -2475,7 +2475,7 @@ ov108_02126EDC:
 #endif
 	.global ov108_02126EE4
 ov108_02126EE4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Nara"
 	.balign 4, 0
 #else
@@ -2483,7 +2483,7 @@ ov108_02126EE4:
 #endif
 	.global ov108_02126EEC
 ov108_02126EEC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Ehime"
 	.balign 4, 0
 #else
@@ -2492,7 +2492,7 @@ ov108_02126EEC:
 #endif
 	.global ov108_02126EF4
 ov108_02126EF4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Osaka"
 	.balign 4, 0
 #else
@@ -2500,7 +2500,7 @@ ov108_02126EF4:
 #endif
 	.global ov108_02126EFC
 ov108_02126EFC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Fukuoka"
 	.balign 4, 0
 #else
@@ -2509,7 +2509,7 @@ ov108_02126EFC:
 #endif
 	.global ov108_02126F04
 ov108_02126F04:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Fuji"
 	.balign 4, 0
 #else
@@ -2517,7 +2517,7 @@ ov108_02126F04:
 #endif
 	.global ov108_02126F0C
 ov108_02126F0C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "GAR"
 	.balign 4, 0
 #else
@@ -2526,7 +2526,7 @@ ov108_02126F0C:
 #endif
 	.global ov108_02126F14
 ov108_02126F14:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "MIL"
 	.balign 4, 0
 #else
@@ -2534,7 +2534,7 @@ ov108_02126F14:
 #endif
 	.global ov108_02126F1C
 ov108_02126F1C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Rouge"
 	.balign 4, 0
 #else
@@ -2543,7 +2543,7 @@ ov108_02126F1C:
 #endif
 	.global ov108_02126F24
 ov108_02126F24:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "D"
 		.byte 0xD8
 		.asciz "F"
@@ -2553,7 +2553,7 @@ ov108_02126F24:
 #endif
 	.global ov108_02126F2C
 ov108_02126F2C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "ATT"
 	.balign 4, 0
 #else
@@ -2562,7 +2562,7 @@ ov108_02126F2C:
 #endif
 	.global ov108_02126F34
 ov108_02126F34:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Fuji"
 	.balign 4, 0
 #else
@@ -2570,7 +2570,7 @@ ov108_02126F34:
 #endif
 	.global ov108_02126F3C
 ov108_02126F3C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Okinawa"
 	.balign 4, 0
 #else
@@ -2579,7 +2579,7 @@ ov108_02126F3C:
 #endif
 	.global ov108_02126F44
 ov108_02126F44:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Jaune"
 	.balign 4, 0
 #else
@@ -2587,7 +2587,7 @@ ov108_02126F44:
 #endif
 	.global ov108_02126F4C
 ov108_02126F4C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Sud de Tokyo"
 	.balign 4, 0
 #else
@@ -2596,7 +2596,7 @@ ov108_02126F4C:
 #endif
 	.global ov108_02126F54
 ov108_02126F54:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Hokka"
 		.byte 0xC0
 		.asciz "do"
@@ -2606,7 +2606,7 @@ ov108_02126F54:
 #endif
 	.global ov108_02126F5C
 ov108_02126F5C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Hokka"
 		.byte 0xC0
 		.asciz "do"
@@ -2617,7 +2617,7 @@ ov108_02126F5C:
 #endif
 	.global ov108_02126F64
 ov108_02126F64:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Nord de Tokyo"
 	.balign 4, 0
 #else
@@ -2625,7 +2625,7 @@ ov108_02126F64:
 #endif
 	.global ov108_02126F6C
 ov108_02126F6C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Transfert"
 	.balign 4, 0
 #else
@@ -2634,7 +2634,7 @@ ov108_02126F6C:
 #endif
 	.global ov108_02126F78
 ov108_02126F78:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Sp"
 		.byte 0xBA
 		.asciz "cial"
@@ -2648,7 +2648,7 @@ ov108_02126F84:
 	.byte 0x92, 0x87, 0x8A, 0xD4, 0x95, 0x73, 0x89, 0xC2, 0x00, 0x00, 0x00, 0x00
 	.global ov108_02126F90
 ov108_02126F90:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xDD
 		.asciz "le du Condor"
 	.balign 4, 0
@@ -2657,7 +2657,7 @@ ov108_02126F90:
 #endif
 	.global ov108_02126F9C
 ov108_02126F9C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xDD
 		.asciz "le de la Tortue marine"
 	.balign 4, 0
@@ -2667,7 +2667,7 @@ ov108_02126F9C:
 #endif
 	.global ov108_02126FA8
 ov108_02126FA8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Rue commer"
 		.byte 0xB8
 		.asciz "ante"
@@ -2678,7 +2678,7 @@ ov108_02126FA8:
 #endif
 	.global ov108_02126FB4
 ov108_02126FB4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xDD
 		.asciz "le du Chat sauvage"
 	.balign 4, 0
@@ -2687,7 +2687,7 @@ ov108_02126FB4:
 #endif
 	.global ov108_02126FC0
 ov108_02126FC0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Fukuoka/Okinawa"
 	.balign 4, 0
 #else
@@ -2695,7 +2695,7 @@ ov108_02126FC0:
 #endif
 	.global ov108_02126FCC
 ov108_02126FCC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xDD
 		.ascii "le du l"
 		.byte 0x81, 0x66
@@ -2707,7 +2707,7 @@ ov108_02126FCC:
 #endif
 	.global ov108_02126FD8
 ov108_02126FD8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Histoire"
 	.balign 4, 0
 #else
@@ -2716,7 +2716,7 @@ ov108_02126FD8:
 #endif
 	.global ov108_02126FE4
 ov108_02126FE4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xDD
 		.asciz "le du Paon"
 	.balign 4, 0
@@ -2734,7 +2734,7 @@ ov108_02126FFC:
 	.byte 0x5F, 0x62, 0x67, 0x2E, 0x70, 0x61, 0x63, 0x00
 	.global ov108_02127008
 ov108_02127008:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Relations"
 	.balign 4, 0
 #else
@@ -2743,7 +2743,7 @@ ov108_02127008:
 #endif
 	.global ov108_02127018
 ov108_02127018:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Mont Magnitude"
 	.balign 4, 0
 #else
@@ -2752,7 +2752,7 @@ ov108_02127018:
 #endif
 	.global ov108_02127028
 ov108_02127028:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Mont Magnitude"
 	.balign 4, 0
 #else
@@ -2809,7 +2809,7 @@ ov108_021270E8:
 	.byte 0x2E, 0x70, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00
 	.global ov108_021270F8
 ov108_021270F8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Mobile Link"
 	.balign 4, 0
 #else
@@ -2826,7 +2826,7 @@ ov108_02127118:
 	.byte 0x2E, 0x70, 0x61, 0x63, 0x00, 0x00, 0x00, 0x00
 	.global ov108_02127128
 ov108_02127128:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Capsule"
 	.balign 4, 0
 #else
@@ -2835,7 +2835,7 @@ ov108_02127128:
 #endif
 	.global ov108_02127138
 ov108_02127138:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Quartier Br"
 		.byte 0xBA
 		.asciz "silien"
@@ -2846,7 +2846,7 @@ ov108_02127138:
 #endif
 	.global ov108_02127148
 ov108_02127148:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "A"
 		.byte 0xBA
 		.asciz "roport de Tokyo"
@@ -2857,7 +2857,7 @@ ov108_02127148:
 #endif
 	.global ov108_02127158
 ov108_02127158:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Japonais"
 	.balign 4, 0
 #else
@@ -2866,7 +2866,7 @@ ov108_02127158:
 #endif
 	.global ov108_02127168
 ov108_02127168:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Anglais"
 	.balign 4, 0
 #else
@@ -2875,7 +2875,7 @@ ov108_02127168:
 #endif
 	.global ov108_02127178
 ov108_02127178:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Japonais"
 	.balign 4, 0
 #else
@@ -2884,7 +2884,7 @@ ov108_02127178:
 #endif
 	.global ov108_02127188
 ov108_02127188:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Quartier Am"
 		.byte 0xBA
 		.asciz "ricain"
@@ -2895,7 +2895,7 @@ ov108_02127188:
 #endif
 	.global ov108_02127198
 ov108_02127198:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Italien"
 	.balign 4, 0
 #else
@@ -2904,7 +2904,7 @@ ov108_02127198:
 #endif
 	.global ov108_021271A8
 ov108_021271A8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Quartier Br"
 		.byte 0xBA
 		.asciz "silien"
@@ -2915,7 +2915,7 @@ ov108_021271A8:
 #endif
 	.global ov108_021271B8
 ov108_021271B8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Anglais"
 	.balign 4, 0
 #else
@@ -2924,7 +2924,7 @@ ov108_021271B8:
 #endif
 	.global ov108_021271C8
 ov108_021271C8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "T"
 		.byte 0xBA
 		.ascii "l"
@@ -2937,7 +2937,7 @@ ov108_021271C8:
 #endif
 	.global ov108_021271D8
 ov108_021271D8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Quartier Am"
 		.byte 0xBA
 		.asciz "ricain"
@@ -2948,7 +2948,7 @@ ov108_021271D8:
 #endif
 	.global ov108_021271E8
 ov108_021271E8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "T"
 		.byte 0xBA
 		.ascii "l"
@@ -2961,7 +2961,7 @@ ov108_021271E8:
 #endif
 	.global ov108_021271F8
 ov108_021271F8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Italien"
 	.balign 4, 0
 #else
@@ -2970,7 +2970,7 @@ ov108_021271F8:
 #endif
 	.global ov108_02127208
 ov108_02127208:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "D"
 		.byte 0xBA
 		.asciz "fi"
@@ -2981,7 +2981,7 @@ ov108_02127208:
 #endif
 	.global ov108_0212721C
 ov108_0212721C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier de Costail"
 	.balign 4, 0
 #else
@@ -2990,7 +2990,7 @@ ov108_0212721C:
 #endif
 	.global ov108_02127230
 ov108_02127230:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier de Costail"
 	.balign 4, 0
 #else
@@ -2999,7 +2999,7 @@ ov108_02127230:
 #endif
 	.global ov108_02127244
 ov108_02127244:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Foudre C"
 		.byte 0xBA
 		.asciz "leste/Feu Expl."
@@ -3010,7 +3010,7 @@ ov108_02127244:
 #endif
 	.global ov108_02127258
 ov108_02127258:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Centre de Liocott"
 	.balign 4, 0
 #else
@@ -3019,7 +3019,7 @@ ov108_02127258:
 #endif
 	.global ov108_0212726C
 ov108_0212726C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Osaka/Ehime"
 	.balign 4, 0
 #else
@@ -3028,7 +3028,7 @@ ov108_0212726C:
 #endif
 	.global ov108_02127280
 ov108_02127280:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Centre de Liocott"
 	.balign 4, 0
 #else
@@ -3037,7 +3037,7 @@ ov108_02127280:
 #endif
 	.global ov108_02127294
 ov108_02127294:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Argentin"
 	.balign 4, 0
 #else
@@ -3046,7 +3046,7 @@ ov108_02127294:
 #endif
 	.global ov108_021272A8
 ov108_021272A8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Quartier Argentin"
 	.balign 4, 0
 #else
@@ -3055,7 +3055,7 @@ ov108_021272A8:
 #endif
 	.global ov108_021272BC
 ov108_021272BC:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Super Link"
 	.balign 4, 0
 #else
@@ -3209,7 +3209,7 @@ ov108_02127524:
 	.byte 0x32, 0x2E, 0x53, 0x50, 0x46, 0x5F, 0x00, 0x00
 	.global ov108_02127548
 ov108_02127548:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Obtenez plus d"
 		.byte 0x81, 0x66
 		.asciz "informations sur ce joueur\nen le recrutant !"

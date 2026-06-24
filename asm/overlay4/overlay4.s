@@ -31911,7 +31911,7 @@ ov4_020D9300:
 	.balign 4, 0
 	.global ov4_020D932C
 ov4_020D932C: ; shift-jis string
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "???"
 	.balign 4, 0
 #else

@@ -9394,7 +9394,7 @@ ov44_021222C0:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global ov44_021222D8
 ov44_021222D8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Nom"
 	.balign 4, 0
 #else
@@ -9402,7 +9402,7 @@ ov44_021222D8:
 #endif
 	.global ov44_021222E0
 ov44_021222E0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Niveau"
 	.balign 4, 0
 #else
@@ -9410,7 +9410,7 @@ ov44_021222E0:
 #endif
 	.global ov44_021222E8
 ov44_021222E8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Frappe"
 	.balign 4, 0
 #else
@@ -9418,7 +9418,7 @@ ov44_021222E8:
 #endif
 	.global ov44_021222F0
 ov44_021222F0:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Puissance"
 	.balign 4, 0
 #else
@@ -9426,7 +9426,7 @@ ov44_021222F0:
 #endif
 	.global ov44_021222F8
 ov44_021222F8:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Hargne"
 	.balign 4, 0
 #else
@@ -9434,7 +9434,7 @@ ov44_021222F8:
 #endif
 	.global ov44_02122300
 ov44_02122300:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.byte 0xD9
 	.asciz "quipement"
 	.balign 4, 0
@@ -9443,7 +9443,7 @@ ov44_02122300:
 #endif
 	.global ov44_02122308
 ov44_02122308:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "D"
 		.byte 0xBA
 		.asciz "fense"
@@ -9453,7 +9453,7 @@ ov44_02122308:
 #endif
 	.global ov44_02122310
 ov44_02122310:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Trier"
 	.balign 4, 0
 #else
@@ -9461,7 +9461,7 @@ ov44_02122310:
 #endif
 	.global ov44_0212231C
 ov44_0212231C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Vitesse"
 	.balign 4, 0
 #else
@@ -9470,7 +9470,7 @@ ov44_0212231C:
 #endif
 	.global ov44_02122328
 ov44_02122328:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Endurance"
 	.balign 4, 0
 #else
@@ -9479,7 +9479,7 @@ ov44_02122328:
 #endif
 	.global ov44_02122334
 ov44_02122334:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Num"
 		.byte 0xBA
 		.asciz "ro"
@@ -9489,7 +9489,7 @@ ov44_02122334:
 #endif
 	.global ov44_02122340
 ov44_02122340:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Exclure"
 	.balign 4, 0
 #else
@@ -9497,7 +9497,7 @@ ov44_02122340:
 #endif
 	.global ov44_0212234C
 ov44_0212234C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Inventaire"
 	.balign 4, 0
 #else
@@ -9506,7 +9506,7 @@ ov44_0212234C:
 #endif
 	.global ov44_02122358
 ov44_02122358:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Aptitude"
 	.balign 4, 0
 #else
@@ -9539,7 +9539,7 @@ ov44_021223B4:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global ov44_021223C4
 ov44_021223C4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.ascii "Pr"
 		.byte 0xBA
 		.asciz "cision"
@@ -9602,7 +9602,7 @@ ov44_02122494:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global ov44_021224A4
 ov44_021224A4:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Surnom"
 	.balign 4, 0
 #else
@@ -9639,7 +9639,7 @@ ov44_02122514:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.global ov44_02122524
 ov44_02122524:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Techniques"
 	.balign 4, 0
 #else
@@ -9768,7 +9768,7 @@ ov44_021226FC:
 	.byte 0x6D, 0x69, 0x6E, 0x6E, 0x61, 0x2E, 0x53, 0x50, 0x44, 0x00, 0x00, 0x00
 	.global ov44_0212271C
 ov44_0212271C:
-#ifdef TRANSLATION_BUGFIX
+#ifdef LANGUAGE_FRENCH
 	.asciz "Voulez-vous vraiment exclure %s ?"
 	.balign 4, 0
 #else
