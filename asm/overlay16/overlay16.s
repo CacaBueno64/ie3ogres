@@ -18263,6 +18263,38 @@ _02103328:
 	ldr r0, [r0]
 	bl FUN_02042b0c
 	add r8, r8, #1
+
+#ifdef TRANSLATION_BUGFIX
+
+_0210334C:
+	ldrb r1, [r6]
+	cmp r1, #0x81
+	bcc _LAB01
+	cmp r1, #0x9f
+	bls _LAB02
+_LAB01:
+	cmp r1, #0xe0
+	bcc _LAB03
+	cmp r1, #0xfc
+	bhi _LAB03
+_LAB02:
+	mov r0, #1
+	b _LAB04
+_LAB03:
+	mov r0, #0
+_LAB04:
+	cmp r0, #0
+	ldrne r0, [sp]
+	addne r6, r6, #1
+	strneb r1, [r0, r9]
+	addne r9, r9, #1
+	ldrsb r1, [r6]
+	ldr r0, [sp]
+	strb r1, [r0, r9]
+	add r9, r9, #1
+
+#else ; TRANSLATION_BUGFIX
+
 _0210334C:
 	ldrsb r1, [r6]
 	tst r1, #0x80
@@ -18274,6 +18306,9 @@ _0210334C:
 	addne r9, r9, #1
 	strb r1, [r0, r9]
 	add r9, r9, #1
+
+#endif ; TRANSLATION_BUGFIX
+
 _02103374:
 	ldrsb r0, [r6, #1]!
 	cmp r0, #0

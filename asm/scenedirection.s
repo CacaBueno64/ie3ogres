@@ -2796,11 +2796,40 @@ _02032630:
 	cmp r0, #0
 	addne r0, r0, #1
 	addne r7, r7, r0
+
+#ifdef TRANSLATION_BUGFIX
+
+_0203263C:
+	ldrb r0, [r5]
+	cmp r0, #0x81
+	bcc _LAB001
+	cmp r0, #0x9f
+	bls _LAB002
+_LAB001:
+	cmp r0, #0xe0
+	bcc _LAB003
+	cmp r0, #0xfc
+	bhi _LAB003
+_LAB002:
+	mov r1, #1
+	b _LAB004
+_LAB003:
+	mov r1, #0
+_LAB004:
+	cmp r1, #0
+	addne r5, r5, #1
+	strneb r0, [r10], #1
+
+#else ; TRANSLATION_BUGFIX
+
 _0203263C:
 	ldrsb r0, [r5]
 	tst r0, #0x80
 	addne r5, r5, #1
 	strneb r0, [r10], #1
+
+#endif ; TRANSLATION_BUGFIX
+
 	ldrsb r0, [r5]
 	strb r0, [r10], #1
 	ldrsb r0, [r5, #1]!
@@ -3223,7 +3252,11 @@ _02032C00:
 	mov r3, #0x33
 	bl FUN_ov16_021139bc
 	ldr r0, [r4]
+	#ifdef TRANSLATION_BUGFIX
+	mov r1, #253
+	#else
 	mov r1, #0x80
+	#endif
 	mov r2, #1
 	bl FUN_ov16_02112724
 	add r1, r10, #0x1000
@@ -4204,6 +4237,51 @@ _02033A90:
 	ldr r8, [r1, #0xf0]
 	mov r6, #1
 	add r1, r0, #0x1000
+
+#ifdef TRANSLATION_BUGFIX
+
+	b _02033AEC
+_02033AAC:
+	ldrsb r0, [r8]
+	cmp r0, #0xa
+	cmpne r0, #0xc
+	beq _02033AD8
+	ldrb r0, [r1]
+	add r0, r0, #1
+	strb r0, [r1]
+	ldrb r0, [r8]
+	cmp r0, #0x81
+	bcc _LAB01
+	cmp r0, #0x9f
+	bls _LAB02
+_LAB01:
+	cmp r0, #0xe0
+	bcc _LAB03
+	cmp r0, #0xfc
+	bhi _LAB03
+_LAB02:
+	mov r0, #1
+	b _LAB04
+_LAB03:
+	mov r0, #0
+_LAB04:
+	cmp r0, #0
+	addne r8, r8, #1
+	addne r9, r9, #1
+_02033AD8:
+	ldrsb r0, [r8]
+	cmp r0, #0xc
+	beq _02033AF8
+	add r9, r9, #1
+	add r8, r8, #1
+_02033AEC:
+	ldrsb r0, [r8]
+	cmp r0, #0
+	bne _02033AAC
+_02033AF8:
+
+#else ; TRANSLATION_BUGFIX
+
 	b _02033AEC
 _02033AAC:
 	ldrsb r0, [r8]
@@ -4228,6 +4306,9 @@ _02033AEC:
 	cmp r0, #0
 	bne _02033AAC
 _02033AF8:
+
+#endif ; TRANSLATION_BUGFIX
+
 	add r0, r4, #0x1000
 	add r7, sp, #0x30
 	ldr r1, [r0, #0xf0]
@@ -4336,7 +4417,11 @@ _02033C60:
 	bl FUN_ov16_02113b78
 	add r9, r9, #1
 _02033CA0:
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r0, [r8, #0xf8]
+	#else
 	ldrsb r0, [r8, #0xf8]
+	#endif
 	cmp r9, r0
 	blt _02033C60
 	add r0, r4, #0xe00
@@ -4377,7 +4462,11 @@ _02033D20:
 	ldrsh r1, [r5, #0xfa]
 	cmp r2, r1
 	blt _02033DB4
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r0, [r5, #0xf8]
+	#else
 	ldrsb r0, [r5, #0xf8]
+	#endif
 	add r0, r1, r0
 	cmp r2, r0
 	bgt _02033DB4
@@ -4460,7 +4549,11 @@ _02033E5C:
 	add r1, r4, #0x1000
 	ldrsh r0, [r1, #0xfe]
 	cmp r0, #0
+	#ifdef TRANSLATION_BUGFIX
+	ldrltb r2, [r1, #0xf8]
+	#else
 	ldrltsb r2, [r1, #0xf8]
+	#endif
 	movlt r0, #0x64
 	smulbblt r0, r2, r0
 	strlth r0, [r1, #0xfe]
@@ -4512,7 +4605,11 @@ _02033F20:
 	bne _0203401C
 	add r5, r4, #0x1000
 	add r0, r4, r2
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r11, [r5, #0xf9]
+	#else
 	ldrsb r11, [r5, #0xf9]
+	#endif
 	ldrb r3, [r0, #2]
 	mov r1, #0x8a
 	add r2, r4, r11, lsl #3
@@ -4529,7 +4626,11 @@ _02033F20:
 	add r2, r2, r2, lsr #31
 	mov r2, r2, asr #1
 	strh r2, [r0, #6]
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r3, [r5, #0xf9]
+	#else
 	ldrsb r3, [r5, #0xf9]
+	#endif
 	add r2, r4, #0xe00
 	ldr r5, _020342E4 ; =g3DPlaneCtrl
 	add r3, r4, r3, lsl #3
@@ -4577,7 +4678,11 @@ _02034028:
 	mov r0, #1
 	str r0, [sp]
 	add r0, r4, #0x1000
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r2, [r0, #0xf9]
+	#else
 	ldrsb r2, [r0, #0xf9]
+	#endif
 	ldr r5, _020342E4 ; =g3DPlaneCtrl
 	ldr r1, [r4, #0xee4]
 	ldr r0, [r5]
@@ -4585,7 +4690,11 @@ _02034028:
 	mov r3, #2
 	bl FUN_ov16_02113ec0
 	add r0, r4, #0x1000
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r2, [r0, #0xf9]
+	#else
 	ldrsb r2, [r0, #0xf9]
+	#endif
 	add r1, r4, #0x1100
 	ldrh r3, [r1, #6]
 	ldr r0, [r5]
@@ -4599,14 +4708,22 @@ _02034028:
 	cmp r7, #0
 	beq _020340A0
 	add r0, r4, #0x1000
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r0, [r0, #0xf9]
+	#else
 	ldrsb r0, [r0, #0xf9]
+	#endif
 	cmp r0, #0
 	bne _020340D4
 	cmp r7, #0
 	beq _020340D4
 _020340A0:
 	add r0, r4, #0x1000
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r3, [r0, #0xf9]
+	#else
 	ldrsb r3, [r0, #0xf9]
+	#endif
 	ldr r1, _020342FC ; =0x55555556
 	mov r2, #3
 	smull r0, r5, r1, r3
@@ -4620,19 +4737,32 @@ _020340A0:
 	mov r6, #0
 _020340D4:
 	add r0, r4, #0x1000
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r1, [r0, #0xf9]
+	#else
 	ldrsb r1, [r0, #0xf9]
+	#endif
 	ldrsh r5, [r0, #0xfa]
 	ldrsh r3, [r0, #0xfe]
 	add r1, r1, #1
 	strb r1, [r0, #0xf9]
+	#ifdef TRANSLATION_BUGFIX
+	ldrb r2, [r0, #0xf9]
+	ldrb r1, [r0, #0xf8]
+	#else
 	ldrsb r2, [r0, #0xf9]
 	ldrsb r1, [r0, #0xf8]
+	#endif
 	add r5, r5, #1
 	sub r3, r3, #0x64
 	strh r5, [r0, #0xfa]
 	strh r3, [r0, #0xfe]
 	cmp r2, r1
+	#ifdef TRANSLATION_BUGFIX
+	bcs _0203411C
+	#else
 	bge _0203411C
+	#endif
 _0203410C:
 	add r0, r4, #0x1000
 	ldrsh r0, [r0, #0xfe]
@@ -4640,10 +4770,19 @@ _0203410C:
 	bgt _02033ED4
 _0203411C:
 	add r0, r4, #0x1000
+#ifdef TRANSLATION_BUGFIX
+	ldrb r2, [r0, #0xf9]
+	ldrb r1, [r0, #0xf8]
+	#else
 	ldrsb r2, [r0, #0xf9]
 	ldrsb r1, [r0, #0xf8]
+	#endif
 	cmp r2, r1
+	#ifdef TRANSLATION_BUGFIX
+	bcc _020342D8
+	#else
 	blt _020342D8
+	#endif
 	ldr r0, [r0, #0xf0]
 	cmp r0, #0
 	ldreq r0, [r8, #0x10]

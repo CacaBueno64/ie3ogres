@@ -539,6 +539,10 @@ _020BD204:
 	str r5, [sp]
 	mov r0, #8
 	stmib sp, {r0, r4}
+	#ifdef TRANSLATION_BUGFIX
+	mov r0, #1
+	str r0, [sp, #8]
+	#endif
 	str r4, [sp, #0xc]
 	str r4, [sp, #0x10]
 	mov r0, #0xc
@@ -31907,8 +31911,13 @@ ov4_020D9300:
 	.balign 4, 0
 	.global ov4_020D932C
 ov4_020D932C: ; shift-jis string
+#ifdef TRANSLATION_BUGFIX
+	.asciz "???"
+	.balign 4, 0
+#else
 	.byte 0x81, 0x48, 0x81, 0x48
 	.byte 0x81, 0x48, 0x81, 0x48, 0x81, 0x48, 0x81, 0x48, 0x00, 0x00, 0x00, 0x00
+#endif
 	.global ov4_020D933C
 ov4_020D933C:
 	.byte 0x00, 0x00, 0x00, 0x00

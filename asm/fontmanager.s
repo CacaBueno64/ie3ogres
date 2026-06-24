@@ -591,7 +591,11 @@ _020428D4:
 	ldr r12, [r0]
 	ldr r12, [r12, #0x14]
 	blx r12
+	#ifdef TRANSLATION_BUGFIX
+	mov r1, #1
+	#else
 	ldr r1, [r10, #0x14]
+	#endif
 	mov r0, r10
 	add r1, r11, r1
 	add r4, r4, r1

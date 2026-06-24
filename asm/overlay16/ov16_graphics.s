@@ -1410,6 +1410,20 @@ _020F1F48:
 
 	arm_func_start FUN_ov16_020f1f5c
 FUN_ov16_020f1f5c: ; 0x020F1F5C
+
+#ifdef TRANSLATION_BUGFIX
+
+.public strcpy
+
+	mov r2, r0
+	mov r0, r1
+	ldr r12, _020F1F5C_0 ; =strcpy
+	mov r1, r2
+	bx r12
+_020F1F5C_0: .word strcpy
+
+#else ; TRANSLATION_BUGFIX
+
 	ldrsb r3, [r0]
 	cmp r3, #0
 	beq _020F2108
@@ -1537,6 +1551,9 @@ _020F2108:
 	strb r0, [r1]
 	bx lr
 _020F2114: .word unk_0208F728
+
+#endif ; TRANSLATION_BUGFIX
+
 	arm_func_end FUN_ov16_020f1f5c
 
 	arm_func_start FUN_ov16_020f2118
@@ -1805,6 +1822,21 @@ _020F24E4: .word gFontRubi8
 
 	arm_func_start FUN_ov16_020f24e8
 FUN_ov16_020f24e8: ; 0x020F24E8
+
+#ifdef TRANSLATION_BUGFIX
+
+.public strcpy
+
+	stmfd sp!, {r3, lr}
+	mov r2, r0
+	mov r0, r1
+	mov r1, r2
+	bl strcpy
+	mov r0, #0
+	ldmfd sp!, {r3, pc}
+
+#else ; TRANSLATION_BUGFIX
+
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldrsb r10, [r0]
 	mov r4, #0
@@ -1889,6 +1921,9 @@ _020F25F8:
 	mov r0, r4
 	strb r10, [r1, r6]
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
+
+#endif ; TRANSLATION_BUGFIX
+
 	arm_func_end FUN_ov16_020f24e8
 
 	arm_func_start FUN_ov16_020f2604

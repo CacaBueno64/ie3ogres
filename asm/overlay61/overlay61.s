@@ -5896,34 +5896,84 @@ ov61_0211EEA8:
 	.data
 	.global ov61_0211EEC0
 ov61_0211EEC0:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "7"
+	.balign 4, 0
+#else
 	.byte 0x8E, 0xB5, 0x00, 0x00
+#endif
 	.global ov61_0211EEC4
 ov61_0211EEC4:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "5"
+	.balign 4, 0
+#else
 	.byte 0x8C, 0xDC, 0x00, 0x00
+#endif
 	.global ov61_0211EEC8
 ov61_0211EEC8:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "8"
+	.balign 4, 0
+#else
 	.byte 0x94, 0xAA, 0x00, 0x00
+#endif
 	.global ov61_0211EECC
 ov61_0211EECC:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "6"
+	.balign 4, 0
+#else
 	.byte 0x98, 0x5A, 0x00, 0x00
+#endif
 	.global ov61_0211EED0
 ov61_0211EED0:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "3"
+	.balign 4, 0
+#else
 	.byte 0x8E, 0x4F, 0x00, 0x00
+#endif
 	.global ov61_0211EED4
 ov61_0211EED4:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "9"
+	.balign 4, 0
+#else
 	.byte 0x8B, 0xE3, 0x00, 0x00
+#endif
 	.global ov61_0211EED8
 ov61_0211EED8:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "2"
+	.balign 4, 0
+#else
 	.byte 0x93, 0xF1, 0x00, 0x00
+#endif
 	.global ov61_0211EEDC
 ov61_0211EEDC:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "10"
+	.balign 4, 0
+#else
 	.byte 0x8F, 0x5C, 0x00, 0x00
+#endif
 	.global ov61_0211EEE0
 ov61_0211EEE0:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "1"
+	.balign 4, 0
+#else
 	.byte 0x88, 0xEA, 0x00, 0x00
+#endif
 	.global ov61_0211EEE4
 ov61_0211EEE4:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "4"
+	.balign 4, 0
+#else
 	.byte 0x8E, 0x6C, 0x00, 0x00
+#endif
 	.global ov61_0211EEE8
 ov61_0211EEE8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -6227,10 +6277,20 @@ ov61_0211F398:
 	.byte 0x2F, 0x70, 0x69, 0x63, 0x33, 0x64, 0x2F, 0x69, 0x68, 0x2E, 0x70, 0x6B, 0x62, 0x00, 0x00, 0x00
 	.global ov61_0211F3B0
 ov61_0211F3B0:
+#ifdef TRANSLATION_BUGFIX
+	.asciz "Chap. "
+	.balign 4, 0
+#else
 	.byte 0x91, 0xE6, 0x00, 0x00
+#endif
 	.global ov61_0211F3B4
 ov61_0211F3B4:
+#ifdef TRANSLATION_BUGFIX
+	.asciz ""
+	.balign 4, 0
+#else
 	.byte 0x8F, 0xCD, 0x00, 0x00
+#endif
 	.global ov61_0211F3B8
 ov61_0211F3B8:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

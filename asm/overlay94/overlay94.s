@@ -1064,6 +1064,9 @@ FUN_ov94_02125b58: ; 0x02125B58
 	str r3, [sp, #0xc]
 	mov r2, #4
 	str r2, [sp, #0x10]
+	#ifdef TRANSLATION_BUGFIX
+	mov r3, #0
+	#endif
 	str r3, [sp, #0x14]
 	mov r2, #0
 	str r2, [sp, #0x18]
