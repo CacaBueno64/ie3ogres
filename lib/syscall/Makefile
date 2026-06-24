@@ -22,7 +22,7 @@ all:
 ASM_SRCS    := asm/_secure.s
 
 $(LIB): $(ALL_OBJS)
-	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDFLAGS) -o $(BACK_REL)/$(LIB) $(ALL_OBJS:$(BUILD_DIR)/%=%)
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDWRAP) $(MWLDFLAGS) -o $(BACK_REL)/$(LIB) $(ALL_OBJS:$(BUILD_DIR)/%=%)
 
 install: all
 	$(shell mkdir -p $(INSTALL_LIBDIR))

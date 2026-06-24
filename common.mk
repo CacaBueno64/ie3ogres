@@ -32,10 +32,16 @@ TOOLSREL     := $(BACK_REL)/tools
 include $(WORK_DIR)/platform.mk
 include $(WORK_DIR)/binutils.mk
 
+# Metroskrew
+METROSKREW    = $(TOOLSDIR)/metroskrew
+MWCC          = $(METROSKREW)/bin/mwccarm.exe
+MWAS          = $(METROSKREW)/bin/mwasmarm.exe
+MWLD          = $(METROSKREW)/bin/mwldarm.exe
+MWCCWRAP      = -wrap:sdk $(MWCCVER)
+MWASWRAP      = -wrap:sdk 2.0/sp2p3
+MWLDWRAP      = -wrap:sdk $(MWCCVER)
+
 # NitroSDK tools
-MWCC          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwccarm.exe
-MWAS          = $(TOOLSDIR)/mwccarm/2.0/sp2p3/mwasmarm.exe #patch_mwasmarm doesn't work with dsi versions
-MWLD          = $(TOOLSDIR)/mwccarm/$(MWCCVER)/mwldarm.exe
 MAKEROM      := $(TOOLSDIR)/bin/makerom.exe
 MAKELCF      := $(TOOLSDIR)/bin/makelcf.exe
 MAKEBNR      := $(TOOLSDIR)/bin/makebanner.exe
@@ -76,7 +82,7 @@ TWLSYSTEM_SRC_SUBDIRS     := fnd g2d g3d gfd snd
 TWLDWC_SRC_SUBDIRS        := ac auth bm common nas nd nhttp util
 TWLWIFI_SRC_SUBDIRS       := cps soc ssl wcm
 
-LIB_SUBDIRS               := TwlSDK TwlSystem TwlDWC_dl TwlWiFi MSL_C libMobiclip DSE
+LIB_SUBDIRS               := TwlSDK TwlSystem TwlDWC_dl TwlWiFi metroskrew libMobiclip DSE
 SRC_SUBDIR                := src
 ASM_SUBDIR                := asm asm/init $(wildcard asm/overlay*)
 LIB_SRC_SUBDIR            := lib/src $(LIB_SUBDIRS:%=lib/%/src) $(TWLSDK_SRC_SUBDIRS:%=lib/TwlSDK/src/%) $(TWLSYSTEM_SRC_SUBDIRS:%=lib/TwlSystem/src/%) $(TWLDWC_SRC_SUBDIRS:%=lib/TwlDWC_dl/src/%) $(TWLWIFI_SRC_SUBDIRS:%=lib/TwlWiFi/src/%)
@@ -114,14 +120,21 @@ RESPONSE          := $(ELF:%.elf=%.response)
 SBIN              := $(ELF:%.elf=%.sbin)
 XMAP              := $(ELF).xMAP
 
-MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -proc $(PROC) $(EXCCFLAGS) -lang c++ -enum int -char signed -str noreuse -gccext,on -fp soft -inline on,noauto -RTTI off -interworking -sym on -ipa file -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error -gccinc -i ./src -i ./include -I$(WORK_DIR)/lib/include -i $(WORK_DIR)/lib/TwlDWC/include -i $(WORK_DIR)/lib/MSL_C/MSL_ARM/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include -i $(WORK_DIR)/lib/TwlSDK/include -i $(WORK_DIR)/lib/TwlSystem/include -i $(WORK_DIR)/lib/libMobiclip/include -i $(WORK_DIR)/lib/dsprot -i $(WORK_DIR)/lib/DSE/include
+MW_LIB            = ./lib/metroskrew
+MW_INCLUDES       = -i $(MW_LIB)/msl/MSL_C/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_C/MSL_Common/Include -i $(MW_LIB)/msl/MSL_C/MSL_Common_Embedded/Math/Include \
+					-i $(MW_LIB)/msl/MSL_C++/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_C++/MSL_Common/Include \
+					-i $(MW_LIB)/msl/MSL_Extras/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_Extras/MSL_Common/Include \
+					-i $(MW_LIB)/Profiler/include \
+					-i $(MW_LIB)/Runtime/Runtime_ARM/Runtime_NITRO/Common_Includes
 
-MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/TwlDWC/asm/include -i $(WORK_DIR)/lib/MSL_C/asm/include -i $(WORK_DIR)/lib/TwlSDK/asm/include -i $(WORK_DIR)/lib/TwlSystem/asm/include -i $(WORK_DIR)/lib/libMobiclip/asm/include -i $(WORK_DIR)/lib/DSE/asm/include -i $(WORK_DIR)/lib/TwlDWC_dl/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -I$(WORK_DIR)/lib/include -DSDK_ASM
+MWCFLAGS           = $(DEFINES) $(OPTFLAGS) -proc $(PROC) $(EXCCFLAGS) -lang c++ -enum int -char signed -str noreuse -gccext,on -fp soft -inline on,noauto -RTTI off -interworking -sym on -ipa file -W all -W pedantic -W noimpl_signedunsigned -W noimplicitconv -W nounusedarg -W nomissingreturn -W error -gccinc -i ./src -i ./include -I$(WORK_DIR)/lib/include -i $(WORK_DIR)/lib/TwlDWC/include -i $(WORK_DIR)/lib/TwlSDK/include -i $(WORK_DIR)/lib/TwlSystem/include -i $(WORK_DIR)/lib/libMobiclip/include -i $(WORK_DIR)/lib/dsprot -i $(WORK_DIR)/lib/DSE/include $(MW_INCLUDES)
+
+MWASFLAGS          = $(DEFINES) -proc $(PROC_S) -g -gccinc -i . -i ./include -i $(WORK_DIR)/asm/include -i $(WORK_DIR)/files -i $(WORK_DIR)/lib/asm/include -i $(WORK_DIR)/lib/TwlDWC/asm/include -i $(WORK_DIR)/lib/metroskrew/asm/include -i $(WORK_DIR)/lib/TwlSDK/asm/include -i $(WORK_DIR)/lib/TwlSystem/asm/include -i $(WORK_DIR)/lib/libMobiclip/asm/include -i $(WORK_DIR)/lib/DSE/asm/include -i $(WORK_DIR)/lib/TwlDWC_dl/asm/include -i $(WORK_DIR)/lib/syscall/asm/include -i $(WORK_DIR)/asm -I$(WORK_DIR)/lib/include -DSDK_ASM
 MWLDFLAGS         := -proc $(PROC) -sym on -nopic -nopid -interworking -map closure,unused -symtab sort -m _start -msgstyle gcc
 ARFLAGS           := rcS
 
-MW_COMPILE = $(WINE) $(MWCC) $(MWCFLAGS)
-MW_ASSEMBLE = $(WINE) $(MWAS) $(MWASFLAGS)
+MW_COMPILE = $(WINE) $(MWCC) $(MWCCWRAP) $(MWCFLAGS)
+MW_ASSEMBLE = $(WINE) $(MWAS) $(MWASWRAP) $(MWASFLAGS)
 
 export MWCIncludes := lib/include
 
@@ -141,8 +154,8 @@ DUMMY := $(shell mkdir -p $(ALL_BUILDDIRS))
 .PHONY: all tidy clean tools clean-tools patch_mwasmarm $(TOOLDIRS) iwyu
 .PRECIOUS: $(SBIN)
 
-patch_mwasmarm:
-	$(ASPATCH) -q $(MWAS)
+#patch_mwasmarm:
+#	$(ASPATCH) -q $(MWAS)
 
 ifeq ($(NODEP),)
 ifneq ($(WINPATH),)
@@ -173,8 +186,8 @@ $(BUILD_DIR)/%.o: %.cpp $(BUILD_DIR)/%.d
 
 $(BUILD_DIR)/%.o: %.s
 $(BUILD_DIR)/%.o: %.s $(BUILD_DIR)/%.d
-	@echo $(WINE) $(MWAS) $(MWASFLAGS) $(DEPFLAGS) -o $@ $<
-	@$(WINE) $(MWAS) $(MWASFLAGS) $(DEPFLAGS) -o $@ $< || { rm -f $(BUILD_DIR)/%.d; exit 1; }
+	@echo $(WINE) $(MWAS) $(MWASWRAP) $(MWASFLAGS) $(DEPFLAGS) -o $@ $<
+	@$(WINE) $(MWAS) $(MWASWRAP) $(MWASFLAGS) $(DEPFLAGS) -o $@ $< || { rm -f $(BUILD_DIR)/%.d; exit 1; }
 	@$(call fixdep,$(BUILD_DIR)/$*.d)
 
 include $(wildcard $(DEPFILES))
@@ -186,7 +199,7 @@ $(BUILD_DIR)/%.o: %.cpp
 	$(BUILD_C) $@ $<
 
 $(BUILD_DIR)/%.o: %.s
-	$(WINE) $(MWAS) $(MWASFLAGS) -o $@ $<
+	$(WINE) $(MWAS) $(MWASWRAP) $(MWASFLAGS) -o $@ $<
 endif
 
 $(NATIVE_TOOLS): tools
@@ -227,7 +240,7 @@ endif
 $(ELF): $(ALL_OBJS)
 	$(MAKE) $(LCF)
 	$(MAKE) $(RESPONSE)
-	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDFLAGS) $(LIBS) -o $(BACK_REL)/$(ELF) $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ)
+	cd $(BUILD_DIR) && LM_LICENSE_FILE=$(BACK_REL)/$(LM_LICENSE_FILE) $(WINE) $(MWLD) $(MWLDWRAP) $(MWLDFLAGS) $(LIBS) -o $(BACK_REL)/$(ELF) $(LCF:$(BUILD_DIR)/%=%) @$(RESPONSE:$(BUILD_DIR)/%=%) $(CRT0_OBJ)
 #	$(NTRMERGE) $*
 
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true

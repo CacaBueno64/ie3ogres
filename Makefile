@@ -30,7 +30,7 @@ MAKEFLAGS += --no-print-directory
 
 all:
 	$(MAKE) tools
-	$(MAKE) patch_mwasmarm
+#	$(MAKE) patch_mwasmarm
 	$(MAKE) $(ROM)
 
 tidy:

@@ -39,7 +39,7 @@ Static main
 	Object lib/TwlSystem/asm/snd/libnnssnd.o
 
 	# MSL library
-	Object lib/MSL_C/asm/libmsl.o
+	Object lib/metroskrew/asm/libmsl.o
 
 	Object asm/init/arm9_init_02086768.o
 	Object asm/init/arm9_init_02086aec.o

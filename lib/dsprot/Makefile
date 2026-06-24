@@ -19,7 +19,13 @@ SYSINC_DIR  :=  ../include
 
 include ../../common.mk
 
-LIB_INC := -i $(WORK_DIR)/lib/TwlSDK/include -i $(WORK_DIR)/lib/MSL_C/MSL_ARM/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common/include -i $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include
+MW_LIB            = $(WORK_DIR)/lib/metroskrew
+MW_INCLUDES       = -i $(MW_LIB)/msl/MSL_C/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_C/MSL_Common/Include -i $(MW_LIB)/msl/MSL_C/MSL_Common_Embedded/Math/Include \
+					-i $(MW_LIB)/msl/MSL_C++/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_C++/MSL_Common/Include \
+					-i $(MW_LIB)/msl/MSL_Extras/MSL_ARM/Include -i $(MW_LIB)/msl/MSL_Extras/MSL_Common/Include \
+					-i $(MW_LIB)/Profiler/include \
+					-i $(MW_LIB)/Runtime/Runtime_ARM/Runtime_NITRO/Common_Includes
+LIB_INC := -i $(WORK_DIR)/lib/TwlSDK/include $(MW_INCLUDES)
 
 ifeq ($(NODEP),)
   DEP_PARAM := -gccdep -MD
@@ -94,18 +100,18 @@ install: all
 
 # Assembly assembling
 $(BUILD_DIR)/%.o: $(BUILD_DIR)/%.s
-	$(WINE) $(MWAS) $(ASM_PARAM) $< -o $@
+	$(WINE) $(MWAS) $(MWASWRAP) $(ASM_PARAM) $< -o $@
 
 
 # C compilation
 $(C_OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(WINE) $(MWCC) $(CC_PARAM) $(DEP_PARAM) $< -o $@
+	$(WINE) $(MWCC) $(MWCCWRAP) $(CC_PARAM) $(DEP_PARAM) $< -o $@
 	@$(call fixdep,$(@:.o=.d))
 
 
 # Library output
 $(LIBRARY): $(LIBRARY_FILES)
-	$(WINE) $(MWLD) $(LIB_PARAM) $^ -o $@
+	$(WINE) $(MWLD) $(MWLDWRAP) $(LIB_PARAM) $^ -o $@
 
 # Main module function encoding
 $(BUILD_DIR)/dsprot_main_decrypter_encoded.o \

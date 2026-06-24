@@ -4,18 +4,12 @@ This doc details the steps necessary to build a copy of Inazuma Eleven 3 - Sekai
 
 Using a terminal or git client, clone this repository to your local device. All the steps that followed should be performed in the directory to which you cloned this repository.
 
-### 1. Install MWCC compiler
-
-The build system requires the use of the Metrowerks C Compiler to compile matching files. Download mwccarm.zip zip from https://github.com/decompme/compilers/releases and extract into the folder `tools` of the project. At the end of this operation, you should have i.e. the file `tools/mwccarm/dsi/1.2p1/mwccarm.exe`. Run each of the executables so they ask for a license.dat and provide the one in the rar (it may also ask for it when compiling). This only needs to be done once.
-
-In the future, a GCC option will be available so MWCC is not required to build, however it is required for a matching ROM.
-
-### 2. Install Twl SDK
+### 1. Install Twl SDK
 
 The game uses the version 5.4 of the [TwlSDK](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_4-20091225a.zip), plus the [patch1](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_4-20100204_patch1.zip).
 Extract and copy the folder `tools/bin` from the TwlSDK into the folder `tools` in your `ie3ogres` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `ie3ogres` clone. Copy the folder `include` into the folder `lib/TwlSDK` in your `ie3ogres` clone. Finally, copy `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
 
-### 3. Dependencies
+### 2. Dependencies
 
 #### Linux
 
@@ -86,7 +80,7 @@ $ brew install coreutils make gnu-sed llvm arm-gcc-bin libpng git pkg-config
 $ brew install wine-crossover
 ```
 
-### 4. Build ROM
+### 3. Build ROM
 
 If you are using wine, open [platform.mk](./platform.mk) and set `NOWINE` to 0.
 
