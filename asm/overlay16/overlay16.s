@@ -7,7 +7,7 @@
 FUN_ov16_020f3f00: ; 0x020F3F00
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, #0
-	ldr r4, _020F3F3C ; =0x0209A228
+	ldr r4, _020F3F3C ; =gGraphicsModes
 	mov r5, #0x10
 	ldr r0, _020F3F40 ; =0x0209A22C
 	mov r1, r6
@@ -20,7 +20,7 @@ FUN_ov16_020f3f00: ; 0x020F3F00
 	str r6, [r4, #0x14]
 	bl MI_CpuFill8
 	ldmfd sp!, {r4, r5, r6, pc}
-_020F3F3C: .word unk_0209A228
+_020F3F3C: .word gGraphicsModes
 _020F3F40: .word unk_0209A22C
 _020F3F44: .word unk_0209A240
 	arm_func_end FUN_ov16_020f3f00
@@ -42,7 +42,7 @@ _020F3F5C: .word unk_0209A240
 	arm_func_start FUN_ov16_020f3f60
 FUN_ov16_020f3f60: ; 0x020F3F60
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	ldr r8, _020F47E0 ; =0x0209A228
+	ldr r8, _020F47E0 ; =gGraphicsModes
 	mov r9, r0
 	ldr r11, _020F47E4 ; =gBgMenuManager
 	ldr r4, _020F47E8 ; =0x0000FFBF
@@ -601,7 +601,7 @@ _020F47CC:
 	orr r0, r0, #2
 	strh r0, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F47E0: .word unk_0209A228
+_020F47E0: .word gGraphicsModes
 _020F47E4: .word gBgMenuManager
 _020F47E8: .word 0x0000FFBF
 _020F47EC: .word gResourceManager
@@ -613,7 +613,7 @@ _020F47F8: .word 0x04000304
 	arm_func_start FUN_ov16_020f47fc
 FUN_ov16_020f47fc: ; 0x020F47FC
 	stmfd sp!, {r3, lr}
-	ldr r0, _020F488C ; =0x0209A228
+	ldr r0, _020F488C ; =gGraphicsModes
 	ldr r0, [r0]
 	cmp r0, #0xc
 	addls pc, pc, r0, lsl #2
@@ -648,21 +648,21 @@ _020F4868:
 _020F486C:
 	bl GX_ResetBankForTexPltt
 _020F4870:
-	ldr r3, _020F488C ; =0x0209A228
+	ldr r3, _020F488C ; =gGraphicsModes
 	mov r1, #0
 	ldr r0, _020F4890 ; =0x0209A22C
 	mov r2, #0x10
 	str r1, [r3]
 	bl MI_CpuFill8
 	ldmfd sp!, {r3, pc}
-_020F488C: .word unk_0209A228
+_020F488C: .word gGraphicsModes
 _020F4890: .word unk_0209A22C
 	arm_func_end FUN_ov16_020f47fc
 
 	arm_func_start FUN_ov16_020f4894
 FUN_ov16_020f4894: ; 0x020F4894
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	ldr r9, _020F5180 ; =0x0209A23C
+	ldr r9, _020F5180 ; =gSubGraphicsMode
 	ldr r6, _020F5184 ; =gBgMenuManager
 	ldr r8, _020F5188 ; =0x04001000
 	ldr r4, _020F518C ; =0x0000FFBF
@@ -1246,7 +1246,7 @@ _020F516C:
 	orr r0, r0, #0x200
 	strh r0, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F5180: .word unk_0209A23C
+_020F5180: .word gSubGraphicsMode
 _020F5184: .word gBgMenuManager
 _020F5188: .word 0x04001000
 _020F518C: .word 0x0000FFBF
@@ -1261,7 +1261,7 @@ _020F51A4: .word 0x04000304
 	arm_func_start FUN_ov16_020f51a8
 FUN_ov16_020f51a8: ; 0x020F51A8
 	stmfd sp!, {r3, lr}
-	ldr r0, _020F5240 ; =0x0209A228
+	ldr r0, _020F5240 ; =gGraphicsModes
 	ldr r0, [r0, #0x14]
 	cmp r0, #0x10
 	addls pc, pc, r0, lsl #2
@@ -1298,14 +1298,14 @@ _020F521C:
 _020F5220:
 	bl GX_ResetBankForSubBG
 _020F5224:
-	ldr r3, _020F5240 ; =0x0209A228
+	ldr r3, _020F5240 ; =gGraphicsModes
 	mov r1, #0
 	ldr r0, _020F5244 ; =0x0209A240
 	mov r2, #0x10
 	str r1, [r3, #0x14]
 	bl MI_CpuFill8
 	ldmfd sp!, {r3, pc}
-_020F5240: .word unk_0209A228
+_020F5240: .word gGraphicsModes
 _020F5244: .word unk_0209A240
 	arm_func_end FUN_ov16_020f51a8
 
@@ -12578,7 +12578,7 @@ FUN_ov16_020fe530: ; 0x020FE530
 	movne r0, #0
 	ldmnefd sp!, {r4, pc}
 	str r1, [r4, #0x140]
-	bl FUN_02047f80
+	bl _ZN19CSceneScriptManager14getFileContextEi
 	str r0, [r4, #8]
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
@@ -12921,17 +12921,17 @@ FUN_ov16_020fe9bc: ; 0x020FE9BC
 	arm_func_start FUN_ov16_020fe9c4
 FUN_ov16_020fe9c4: ; 0x020FE9C4
 	ldr r0, [r0, #4]
-	ldr r12, _020FE9D0 ; =FUN_02047c30
+	ldr r12, _020FE9D0 ; =_ZN19CSceneScriptManager9callocateEm
 	bx r12
-_020FE9D0: .word FUN_02047c30
+_020FE9D0: .word _ZN19CSceneScriptManager9callocateEm
 	arm_func_end FUN_ov16_020fe9c4
 
 	arm_func_start FUN_ov16_020fe9d4
 FUN_ov16_020fe9d4: ; 0x020FE9D4
 	ldr r0, [r0, #4]
-	ldr r12, _020FE9E0 ; =FUN_02047c68
+	ldr r12, _020FE9E0 ; =_ZN19CSceneScriptManager4freeEPv
 	bx r12
-_020FE9E0: .word FUN_02047c68
+_020FE9E0: .word _ZN19CSceneScriptManager4freeEPv
 	arm_func_end FUN_ov16_020fe9d4
 
 	arm_func_start FUN_ov16_020fe9e4
@@ -13167,7 +13167,7 @@ _020FECCC:
 	mov r1, r0, lsr #0x10
 	beq _020FECF4
 	ldr r0, [r9, #4]
-	bl FUN_02047e20
+	bl _ZN19CSceneScriptManager11getVariableEi
 _020FECEC:
 	ldr r0, [r0]
 	b _020FED50
@@ -13188,7 +13188,7 @@ _020FED14:
 	mov r1, r0, lsr #0x10
 	beq _020FED38
 	ldr r0, [r9, #4]
-	bl FUN_02047e20
+	bl _ZN19CSceneScriptManager11getVariableEi
 	b _020FED50
 _020FED38:
 	tst r2, #0x20000
@@ -14207,7 +14207,7 @@ _020FFAE8:
 	ldr r0, [r7, #4]
 	ldr r2, [r7, #0x140]
 	mov r1, r9
-	bl FUN_02048674
+	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
 	movs r8, r0
 	moveq r0, #1
 	streqb r0, [r6, #0xa]
@@ -14215,7 +14215,7 @@ _020FFAE8:
 	ldr r0, [r7, #4]
 	ldr r2, [r7, #0x140]
 	sub r1, r9, #1
-	bl FUN_020485d0
+	bl _ZN19CSceneScriptManager9getThreadEii
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #0x10]
 	str r8, [r6, #0xc]
@@ -14298,7 +14298,7 @@ _020FFC24:
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	mov r1, #0xb
-	bl FUN_02047f8c
+	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
 	cmp r0, #0
 	strltb r5, [r8, #0xa]
 	blt _020FFD80
@@ -14312,7 +14312,7 @@ _020FFC24:
 _020FFC7C:
 	ldr r0, [r9, #4]
 	ldr r1, [r8, #0x18]
-	bl FUN_02048178
+	bl _ZN19CSceneScriptManager12FUN_02048178Ei
 	cmp r0, #0
 	beq _020FFD80
 	add r2, sp, #4
@@ -14325,19 +14325,19 @@ _020FFC7C:
 	ldr r0, [r9, #4]
 	ldr r2, [r8, #0x18]
 	ldr r3, [sp, #0xc]
-	bl FUN_02048674
+	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
 	movs r4, r0
 	ldr r0, [r9, #4]
 	bne _020FFCDC
 	ldr r1, [r8, #0x18]
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 	mov r0, #1
 	strb r0, [r8, #0xa]
 	b _020FFD80
 _020FFCDC:
 	ldr r2, [r8, #0x18]
 	mvn r1, #0
-	bl FUN_020485d0
+	bl _ZN19CSceneScriptManager9getThreadEii
 	ldrsb r1, [r8, #0xb]
 	str r0, [r8, #0x10]
 	str r4, [r8, #0xc]
@@ -14374,7 +14374,7 @@ _020FFD4C:
 	bl FUN_ov16_020fe56c
 	ldr r0, [r9, #4]
 	ldr r1, [r8, #0x18]
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 	ldrsb r1, [r8, #0xb]
 	mov r0, #1
 	strb r0, [r8, #0xa]
@@ -14421,7 +14421,7 @@ _020FFE00:
 	ldr r0, [r9, #4]
 	ldr r3, [sp, #0x14]
 	mov r2, r8
-	bl FUN_02048b4c
+	bl _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl
 	movs r5, r0
 	ldreqsb r0, [r8, #0xb]
 	streqb r4, [r8, #0xa]
@@ -14433,7 +14433,7 @@ _020FFE00:
 	ldr r1, [sp, #0xc]
 	ldr r3, [sp, #0x10]
 	mov r2, r4
-	bl FUN_02047f8c
+	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
 	str r0, [r5, #0x18]
 	cmp r0, #0
 	ldrltsb r0, [r8, #0xb]
@@ -14451,7 +14451,7 @@ _020FFE70:
 	str r6, [sp, #8]
 	ldr r0, [r9, #4]
 	add r2, sp, #8
-	bl FUN_02048b10
+	bl _ZN19CSceneScriptManager12FUN_02048b10EiPl
 	movs r4, r0
 	ldreqsb r0, [r8, #0xb]
 	streqb r10, [r8, #0xa]
@@ -14460,7 +14460,7 @@ _020FFE70:
 	beq _020FFF1C
 	ldr r0, [r9, #4]
 	ldr r1, [r4, #0x18]
-	bl FUN_02048178
+	bl _ZN19CSceneScriptManager12FUN_02048178Ei
 	cmp r0, #0
 	beq _020FFF1C
 	add r10, sp, #4
@@ -14470,18 +14470,18 @@ _020FFE70:
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #0x18]
 	ldr r3, [r4, #0x1c]
-	bl FUN_02048674
+	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	ldr r0, [r9, #4]
 	bne _020FFEE8
 	ldr r1, [r4, #0x18]
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 	b _020FFF08
 _020FFEE8:
 	ldr r2, [r4, #0x18]
 	sub r1, r5, #0x81
-	bl FUN_020485d0
+	bl _ZN19CSceneScriptManager9getThreadEii
 	str r0, [r4, #0x10]
 	ldr r1, [r9]
 	ldr r2, [r4, #0xc]
@@ -24765,13 +24765,13 @@ FUN_ov16_02108c54: ; 0x02108C54
 	mov r6, #2
 	ldr r0, [r7, #4]
 	mov r1, r6
-	bl FUN_0204836c
+	bl _ZN19CSceneScriptManager12FUN_0204836cEi
 	str r4, [sp]
 	ldr r0, [r7, #4]
 	ldr r3, [sp, #8]
 	mov r1, r6
 	mov r2, r8
-	bl FUN_02048068
+	bl _ZN19CSceneScriptManager12FUN_02048068Eilli
 _02108CE8:
 	cmp r5, #0
 	movne r0, #1
@@ -24823,7 +24823,7 @@ _02108D68: ; jump table
 	b _02108DB4 ; case 10
 _02108D94:
 	ldr r0, [r7, #4]
-	bl FUN_0204836c
+	bl _ZN19CSceneScriptManager12FUN_0204836cEi
 	str r4, [sp]
 	ldr r0, [r7, #4]
 	ldr r1, [sp, #4]
@@ -24833,7 +24833,7 @@ _02108D94:
 _02108DB4:
 	ldr r0, [r7, #4]
 	mov r1, r2
-	bl FUN_0204836c
+	bl _ZN19CSceneScriptManager12FUN_0204836cEi
 	mov r1, r4
 _02108DC4:
 	str r1, [sp]
@@ -24842,7 +24842,7 @@ _02108DC4:
 	ldr r3, [sp, #8]
 	mov r2, #1
 _02108DD8:
-	bl FUN_02048068
+	bl _ZN19CSceneScriptManager12FUN_02048068Eilli
 _02108DDC:
 	cmp r5, #0
 	movne r0, #1

@@ -116,10 +116,6 @@ typedef struct ImagePAC {
     }
 } ImagePAC;
 
-static inline st_wear_set *WearSetGetEntry(int wearNo, int wearType) {
-    return &gWearSetFile[wearNo] + wearType;
-}
-
 // `'s'`: high poly
 // `'b'`: low poly
 static inline char GetModelQuality(int quality) {

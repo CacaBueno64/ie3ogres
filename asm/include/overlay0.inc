@@ -505,7 +505,7 @@
 .public FUN_02054a70
 .public FUN_020549a0
 .public FUN_02054edc
-.public FUN_02048c50
+.public _ZN19CSceneScriptManager12FUN_02048c50Ev
 .public FUN_02054e54
 .public FUN_02054ef4
 .public unk_020AF8AC

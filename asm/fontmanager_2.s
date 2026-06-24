@@ -7,7 +7,7 @@
 _ZN13FontManager_2C1Ev: ; 0x0206B9C4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0204212c
+	bl _ZN12CFontManagerC2Ev
 	ldr r3, _0206B9F0 ; =0x02091290
 	ldr r2, [r4, #0x18]
 	mov r0, r4

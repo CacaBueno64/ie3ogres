@@ -399,14 +399,14 @@ gBGPulsePaletteEnable:
 	.global unk_0209A200
 unk_0209A200:
 	.space 0x28
-	.global unk_0209A228
-unk_0209A228:
+	.global gGraphicsModes
+gGraphicsModes:
 	.space 0x04
 	.global unk_0209A22C
 unk_0209A22C:
 	.space 0x10
-	.global unk_0209A23C
-unk_0209A23C:
+	.global gSubGraphicsMode
+gSubGraphicsMode:
 	.space 0x04
 	.global unk_0209A240
 unk_0209A240:

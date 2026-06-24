@@ -214,7 +214,7 @@ _Z8InitFontv: ; 0x02029A24
 	bl _Znwm
 	cmp r0, #0
 	beq _02029A70
-	bl _ZN11FontManagerC1Ev
+	bl _ZN12CFontManagerC1Ev
 _02029A70:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
@@ -226,7 +226,7 @@ _02029A70:
 	bl _Znwm
 	cmp r0, #0
 	beq _02029A9C
-	bl _ZN11FontManagerC1Ev
+	bl _ZN12CFontManagerC1Ev
 _02029A9C:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
@@ -238,7 +238,7 @@ _02029A9C:
 	bl _Znwm
 	cmp r0, #0
 	beq _02029AC8
-	bl _ZN11FontManagerC1Ev
+	bl _ZN12CFontManagerC1Ev
 _02029AC8:
 	ldr r4, _02029B34 ; =0x02099E8C
 	mov r2, #0
@@ -474,7 +474,7 @@ FUN_02029d18: ; 0x02029D18
 	add r0, r0, #0x1c00
 	bl FUN_0203000c
 	add r0, r4, #0x90
-	bl FUN_02047ad4
+	bl _ZN19CSceneScriptManagerD1Ev
 	mov r0, r4
 	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4

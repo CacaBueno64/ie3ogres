@@ -3,8 +3,8 @@
 	.include "/include/fontmanager.inc"
 
 	.text
-	arm_func_start FUN_0204212c ; https://decomp.me/scratch/Fbl5B
-FUN_0204212c: ; 0x0204212C
+	arm_func_start _ZN12CFontManagerC2Ev ; https://decomp.me/scratch/Fbl5B
+_ZN12CFontManagerC2Ev: ; 0x0204212C
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -27,11 +27,11 @@ FUN_0204212c: ; 0x0204212C
 	bl MI_CpuFill8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_02042184: .word unk_0208FFEC+0x8
-	arm_func_end FUN_0204212c
+_02042184: .word _ZTV12CFontManager+0x8
+	arm_func_end _ZN12CFontManagerC2Ev
 
-	arm_func_start _ZN11FontManagerC1Ev
-_ZN11FontManagerC1Ev: ; 0x02042188
+	arm_func_start _ZN12CFontManagerC1Ev
+_ZN12CFontManagerC1Ev: ; 0x02042188
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, #0
@@ -54,8 +54,8 @@ _ZN11FontManagerC1Ev: ; 0x02042188
 	bl MI_CpuFill8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_020421E0: .word unk_0208FFEC+0x8
-	arm_func_end _ZN11FontManagerC1Ev
+_020421E0: .word _ZTV12CFontManager+0x8
+	arm_func_end _ZN12CFontManagerC1Ev
 
 	arm_func_start FUN_020421e4 ; https://decomp.me/scratch/Fbl5B
 FUN_020421e4: ; 0x020421E4
@@ -66,7 +66,7 @@ FUN_020421e4: ; 0x020421E4
 	bl FUN_0204224c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042200: .word unk_0208FFEC+0x8
+_02042200: .word _ZTV12CFontManager+0x8
 	arm_func_end FUN_020421e4
 
 	arm_func_start FUN_02042204
@@ -80,7 +80,7 @@ FUN_02042204: ; 0x02042204
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042228: .word unk_0208FFEC+0x8
+_02042228: .word _ZTV12CFontManager+0x8
 	arm_func_end FUN_02042204
 
 	arm_func_start FUN_0204222c
@@ -92,7 +92,7 @@ FUN_0204222c: ; 0x0204222C
 	bl FUN_0204224c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02042248: .word unk_0208FFEC+0x8
+_02042248: .word _ZTV12CFontManager+0x8
 	arm_func_end FUN_0204222c
 
 	arm_func_start FUN_0204224c
@@ -122,7 +122,7 @@ FUN_02042274: ; 0x02042274
 	bx lr
 	arm_func_end FUN_02042274
 
-	arm_func_start FUN_02042298
+	arm_func_start FUN_02042298 ; https://decomp.me/scratch/OAod0
 FUN_02042298: ; 0x02042298
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
@@ -233,7 +233,7 @@ _02042414:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_02042298
 
-	arm_func_start FUN_02042420
+	arm_func_start FUN_02042420 ; https://decomp.me/scratch/9WlTF
 FUN_02042420: ; 0x02042420
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
@@ -383,7 +383,7 @@ FUN_020425c4: ; 0x020425C4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_020425c4
 
-	arm_func_start FUN_020425fc
+	arm_func_start FUN_020425fc ; https://decomp.me/scratch/RneA3
 FUN_020425fc: ; 0x020425FC
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x30
@@ -977,7 +977,7 @@ _02042E3C:
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_02042cf4
 
-	arm_func_start FUN_02042e4c
+	arm_func_start FUN_02042e4c ; https://decomp.me/scratch/s8mne
 FUN_02042e4c: ; 0x02042E4C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
@@ -1140,7 +1140,7 @@ _0204308C:
 _020430AC: .word 0x0000FFFF
 	arm_func_end FUN_02042e4c
 
-	arm_func_start FUN_020430b0
+	arm_func_start FUN_020430b0 ; https://decomp.me/scratch/1FlYN
 FUN_020430b0: ; 0x020430B0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2c
@@ -1344,7 +1344,7 @@ _02043374:
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end _ZN11FontManager11G2dFontInitEPvmh
 
-	arm_func_start FUN_02043380 ; https://decomp.me/scratch/YAxnt
+	arm_func_start FUN_02043380 ; https://decomp.me/scratch/twc6d
 FUN_02043380: ; 0x02043380
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
@@ -1732,8 +1732,8 @@ _020438E4: .word 0x00008140
 	arm_func_end FUN_0204378c
 
 	.data
-	.global unk_0208FFEC
-unk_0208FFEC:
+	.global _ZTV12CFontManager
+_ZTV12CFontManager:
 	.byte 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00
 	.word FUN_020421e4

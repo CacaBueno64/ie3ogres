@@ -118,7 +118,7 @@
 .public FUN_ov16_02113618
 .public FUN_0204294c
 .public FUN_ov16_02112dac
-.public FUN_02048c40
+.public _ZN19CSceneScriptManager12FUN_02048c40Ev
 .public gFontRubi8
 .public unk_020AF8AC
 .public FUN_ov16_0211346c

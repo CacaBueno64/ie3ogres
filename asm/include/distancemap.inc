@@ -9,8 +9,8 @@
 .public _ZN10FileSystem17OpenArchiveDirectEPvPKc
 .public FUN_02030260
 .public MI_CpuFill8
-.public FUN_02047af8
-.public FUN_02047f8c
+.public _ZN19CSceneScriptManager4initEv
+.public _ZN19CSceneScriptManager12FUN_02047f8cEilli
 .public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public unk_020900CC
 .public unk_0209A200

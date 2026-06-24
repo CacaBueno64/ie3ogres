@@ -28,7 +28,7 @@
 .public gRecordManager
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public _Znwm
-.public _ZN11FontManagerC1Ev
+.public _ZN12CFontManagerC1Ev
 .public _ZN11FontManager11G2dFontInitEPvmh
 .public _ZN13FontManager_2C1Ev
 .public _ZN6Config8getParamEPKc
@@ -65,5 +65,5 @@
 .public FUN_0205a504
 .public _ZTV11C3DGameChar
 .public FUN_0203000c
-.public FUN_02047ad4
+.public _ZN19CSceneScriptManagerD1Ev
 .public _ZN14CScreenManagerD2Ev

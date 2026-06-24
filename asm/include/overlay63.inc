@@ -159,7 +159,7 @@
 .public FUN_0207181c
 .public FUN_ov16_020f7be0
 .public FUN_ov16_020f7bf4
-.public unk_0209A228
+.public gGraphicsModes
 .public g3DDevice
 .public gCameraController
 .public FUN_0205b340

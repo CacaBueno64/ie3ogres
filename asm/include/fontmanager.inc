@@ -1,6 +1,6 @@
 .public MIi_CpuClearFast
 .public MI_CpuFill8
-.public unk_0208FFEC
+.public _ZTV12CFontManager
 .public _ZdlPv
 .public NNS_G2dFontFindGlyphIndex
 .public NNS_G2dFontGetCharWidthsFromIndex

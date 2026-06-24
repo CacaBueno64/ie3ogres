@@ -84,7 +84,6 @@ Static main
 	Object asm/init/arm9_init_02086e84.o
 	Object asm/init/arm9_init_02086ed8.o
 	Object asm/init/arm9_init_02086f2c.o
-	Object asm/init/arm9_init_02086f80.o
 
 	Object asm/fontmanager.o
 	Object asm/calcmap.o
@@ -93,6 +92,7 @@ Static main
 	Object asm/arm9_020453e0.o
 	Object asm/wirelessutil.o
 	Object asm/scenescriptmanager.o
+	Object asm/init/arm9_init_02086f80.o
 	Object src/script/CSceneScriptFileContext.o
 
 	Object asm/init/arm9_init_02087028.o

@@ -10754,7 +10754,7 @@ FUN_ov63_02123874: ; 0x02123874
 	ldr r0, _02123B50 ; =gSprAnimCtrl
 	ldr r0, [r0]
 	bl FUN_ov16_0210e0a0
-	ldr r1, _02123B54 ; =0x0209A228
+	ldr r1, _02123B54 ; =gGraphicsModes
 	mov r0, r6
 	ldr r1, [r1]
 	str r1, [r6, #0x14]
@@ -10933,7 +10933,7 @@ _02123A6C:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02123B4C: .word gSprButtonCtrl
 _02123B50: .word gSprAnimCtrl
-_02123B54: .word unk_0209A228
+_02123B54: .word gGraphicsModes
 _02123B58: .word unk_0209A454
 _02123B5C: .word g3DDevice
 _02123B60: .word 0x00002710

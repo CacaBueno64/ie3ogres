@@ -16913,7 +16913,7 @@ _020CB678: ; jump table
 	b _020CB694 ; case 6
 _020CB694:
 	ldr r0, _020CB718 ; =0x020AF8AC
-	bl FUN_02048c50
+	bl _ZN19CSceneScriptManager12FUN_02048c50Ev
 	sub r1, r7, #4
 	mov r2, #1
 	tst r0, r2, lsl r1

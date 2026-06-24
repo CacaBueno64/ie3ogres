@@ -8,7 +8,7 @@
 .public _ZN11AudioPlayerC1Ev
 .public _ZN11MoviePlayerC1Ev
 .public _ZN14CScreenManagerC2Ev
-.public FUN_02047a7c
+.public _ZN19CSceneScriptManagerC1Ev
 .public FUN_0202ffa4
 .public FUN_020453e0
 .public FUN_0206f0b8

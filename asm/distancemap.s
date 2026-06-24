@@ -201,13 +201,13 @@ FUN_02043c80: ; 0x02043C80
 	ldrsb r2, [r0, #0xe9]
 	add r0, r6, #0x90
 	strb r2, [r1, #0x1e8]
-	bl FUN_02047af8
+	bl _ZN19CSceneScriptManager4initEv
 	add r0, r6, #0x90
 	mov r1, r4
 	mov r2, #2
 	mov r3, r4
 	str r4, [sp]
-	bl FUN_02047f8c
+	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
 	add r0, r6, #0x22c
 	add r0, r0, #0x6000
 	ldr r3, _02043D78 ; =gAllocator

@@ -115,7 +115,7 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A88 ; =0x0209007C
 	add r0, r4, #0x90
 	str r1, [r4]
-	bl FUN_02047a7c
+	bl _ZN19CSceneScriptManagerC1Ev
 	add r0, r4, #0x324
 	add r0, r0, #0x1c00
 	bl FUN_0202ffa4

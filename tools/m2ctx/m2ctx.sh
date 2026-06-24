@@ -3,9 +3,9 @@
 OUT_FILE=ctx.c
 
 GCC=gcc
-FLAGS="-E -P -dD -undef"
-INCLUDES="-Iinclude -Iinclude/library -Ifiles -Ilib/include"
-DEFINES="-DHEARTGOLD -DGAME_REMASTER=0 -DENGLISH -DPM_KEEP_ASSERTS -DSDK_ARM9 -DSDK_CODE_ARM -DSDK_FINALROM"
+FLAGS="-E -P -dD -undef -D__option(x)=0"
+INCLUDES="-Iinclude -Iinclude/library -Ifiles -Ilib/include -Ilib/MSL_C/MSL_ARM/include -Ilib/MSL_C/MSL_Common/include -Ilib/MSL_C/MSL_Common_Embedded/include"
+DEFINES="-DHEARTGOLD -DGAME_REMASTER=0 -DENGLISH -DPM_KEEP_ASSERTS -DSDK_ARM9 -DSDK_CODE_ARM -DSDK_FINALROM -DSDK_ARM9 -DSDK_CODE_ARM -DSDK_FINALROM -DSDK_NITRO -DSDK_CW_FORCE_EXPORT_SUPPORT -DSDK_TS -DSDK_NO_MESSAGE -D__MWERKS__ -D__arm"
 SRCS=()
 
 if [ "$(uname -s)" == "Darwin" ]; then

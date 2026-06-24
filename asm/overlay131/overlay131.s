@@ -11280,7 +11280,7 @@ _0214487C:
 	mov r0, #4
 	strb r0, [r4, #0x2d]
 	ldr r0, [r7, #4]
-	bl FUN_02048c34
+	bl _ZN19CSceneScriptManager12FUN_02048c34Ev
 	ldrb r1, [r4, #0x2d]
 	and r0, r0, #0xff
 	add r0, r1, r0
@@ -11340,17 +11340,17 @@ _02144988:
 	b _02144A4C
 _02144A0C:
 	ldr r0, [r7, #4]
-	bl FUN_02048c34
+	bl _ZN19CSceneScriptManager12FUN_02048c34Ev
 	mov r8, r0
 	ldr r0, [r7, #4]
-	bl FUN_02048c50
+	bl _ZN19CSceneScriptManager12FUN_02048c50Ev
 	mov r1, #1
 	tst r0, r1, lsl r8
 	bne _02144A4C
 	mov r0, #4
 	strb r0, [r4, #0x2d]
 	ldr r0, [r7, #4]
-	bl FUN_02048c34
+	bl _ZN19CSceneScriptManager12FUN_02048c34Ev
 	ldrb r1, [r4, #0x2d]
 	and r0, r0, #0xff
 	add r0, r1, r0
@@ -15801,7 +15801,7 @@ FUN_ov131_0214879c: ; 0x0214879C
 	ldr r0, [r7, #4]
 	ldr r2, [sp]
 	mov r1, r4
-	bl FUN_020483e4
+	bl _ZN19CSceneScriptManager12FUN_020483e4Ell
 	cmp r5, #0
 	strne r4, [r5]
 	mov r0, #1
@@ -16203,7 +16203,7 @@ FUN_ov131_02148d30: ; 0x02148D30
 	strb r0, [r6, #0xb]
 	ldr r0, [r7, #4]
 	ldr r1, [sp]
-	bl FUN_02048278
+	bl _ZN19CSceneScriptManager11getFileCodeEi
 	cmp r5, #0
 	strne r0, [r5]
 	mov r0, #1

@@ -96,7 +96,7 @@ _02043ECC:
 _02043ED4:
 	mov r1, r4
 	add r0, r8, #0x90
-	bl FUN_02048aac
+	bl _ZN19CSceneScriptManager12FUN_02048aacEi
 	add r4, r4, #1
 _02043EE4:
 	cmp r4, #3
@@ -106,7 +106,7 @@ _02043EEC:
 	add r0, r0, #0x1c00
 	bl FUN_02030638
 	add r0, r8, #0x90
-	bl FUN_02048748
+	bl _ZN19CSceneScriptManager6updateEv
 	add sp, sp, #0x10
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
@@ -128,7 +128,7 @@ _02043F30:
 	ldr r3, [r6]
 	add r0, r8, #0x90
 	add r1, r1, #0x1c00
-	bl FUN_020486f0
+	bl _ZN19CSceneScriptManager12FUN_020486f0EP15CSceneDirectioniP17ScriptInstructionPl
 	ldrsb r0, [r6, #5]
 	add r1, r8, #0x6000
 	mov r2, #1
@@ -170,7 +170,7 @@ _02043FCC:
 	add r0, r0, #0x1c00
 	bl FUN_02030638
 	add r0, r8, #0x90
-	bl FUN_02048748
+	bl _ZN19CSceneScriptManager6updateEv
 	cmp r0, #0
 	addeq r0, r8, #0x6000
 	ldreq r1, [r0, #0x224]
@@ -178,7 +178,7 @@ _02043FCC:
 	b _02044290
 _02044000:
 	add r0, r8, #0x90
-	bl FUN_02048a04
+	bl _ZN19CSceneScriptManager12FUN_02048a04Ev
 	add r0, r8, #0x324
 	add r0, r0, #0x1c00
 	bl FUN_02030584
@@ -198,7 +198,7 @@ _02044040:
 	cmp r1, #0xb
 	blt _02044054
 	add r0, r8, #0x90
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 _02044054:
 	add r0, r8, #0x6100
 	ldrsb r1, [r0, #0xe8]
@@ -244,7 +244,7 @@ _020440F0:
 	mov r6, r5
 	mov r1, r6
 	add r0, r8, #0x90
-	bl FUN_020484a4
+	bl _ZN19CSceneScriptManager12FUN_020484a4Ev
 	cmp r0, #0
 	beq _020442A4
 	add r0, r8, #0x6000
@@ -252,7 +252,7 @@ _020440F0:
 	cmp r0, #0
 	add r0, r8, #0x90
 	bne _02044138
-	bl FUN_02048508
+	bl _ZN19CSceneScriptManager12FUN_02048508Ev
 	add r1, r8, #0x6000
 	str r0, [r1, #0x200]
 	cmp r0, #0
@@ -261,7 +261,7 @@ _020440F0:
 	b _02044190
 _02044138:
 	sub r1, r6, #1
-	bl FUN_02048178
+	bl _ZN19CSceneScriptManager12FUN_02048178Ei
 	cmp r0, #0
 	beq _020442A4
 	add r7, r8, #0x6000
@@ -339,10 +339,10 @@ _0204422C:
 	cmp r0, #0
 	add r0, r8, #0x90
 	beq _02044254
-	bl FUN_02048a68
+	bl _ZN19CSceneScriptManager12FUN_02048a68Ev
 	b _02044258
 _02044254:
-	bl FUN_02048a4c
+	bl _ZN19CSceneScriptManager12FUN_02048a4cEv
 _02044258:
 	ldr r0, _020442C8 ; =gMoviePlayer
 	bl _ZN11MoviePlayer12FUN_0202e958Ev
@@ -355,7 +355,7 @@ _02044270:
 	add r0, r0, #0x1c00
 	bl FUN_02030638
 	add r0, r8, #0x90
-	bl FUN_02048748
+	bl _ZN19CSceneScriptManager6updateEv
 	cmp r0, #0
 	addeq r0, r8, #0x6000
 	moveq r1, #3
@@ -467,10 +467,10 @@ FUN_020443a4: ; 0x020443A4
 
 	arm_func_start FUN_020443b0
 FUN_020443b0: ; 0x020443B0
-	ldr r12, _020443BC ; =FUN_02047bc4
+	ldr r12, _020443BC ; =_ZN19CSceneScriptManager9resetHardEv
 	add r0, r0, #0x90
 	bx r12
-_020443BC: .word FUN_02047bc4
+_020443BC: .word _ZN19CSceneScriptManager9resetHardEv
 	arm_func_end FUN_020443b0
 
 	arm_func_start FUN_020443c0
@@ -502,7 +502,7 @@ FUN_020443e8: ; 0x020443E8
 	cmpne r0, #0
 	beq _0204441C
 	add r0, r4, #0x90
-	bl FUN_02048a04
+	bl _ZN19CSceneScriptManager12FUN_02048a04Ev
 	add r0, r4, #0x324
 	add r0, r0, #0x1c00
 	bl FUN_02030584
@@ -540,10 +540,10 @@ FUN_02044470: ; 0x02044470
 	mov r5, r0
 	mov r4, r2
 	add r0, r5, #0x90
-	bl FUN_02048aa0
+	bl _ZN19CSceneScriptManager12FUN_02048aa0EP15CSceneDirection
 	mov r1, r4
 	add r0, r5, #0x90
-	bl FUN_02048a94
+	bl _ZN19CSceneScriptManager12FUN_02048a94EP14CScreenManager
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_02044470
 
@@ -569,7 +569,7 @@ FUN_020444a0: ; 0x020444A0
 	bl FUN_02030438
 	add r0, r5, #0x90
 	add r1, r4, #0x280
-	bl FUN_02047c7c
+	bl _ZN19CSceneScriptManager14saveScriptDataEP17SScriptRecordData
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_020444a0
 
@@ -589,7 +589,7 @@ FUN_020444dc: ; 0x020444DC
 	bl FUN_02030480
 	add r0, r5, #0x90
 	add r1, r4, #0x280
-	bl FUN_02047cdc
+	bl _ZN19CSceneScriptManager14loadScriptDataEP17SScriptRecordData
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_020444dc
 
@@ -697,17 +697,17 @@ FUN_0204462c: ; 0x0204462C
 FUN_02044644: ; 0x02044644
 	stmfd sp!, {r3, lr}
 	add r0, r0, #0x90
-	bl FUN_02047e20
+	bl _ZN19CSceneScriptManager11getVariableEi
 	ldr r0, [r0]
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02044644
 
 	arm_func_start FUN_02044658
 FUN_02044658: ; 0x02044658
-	ldr r12, _02044664 ; =FUN_02047e20
+	ldr r12, _02044664 ; =_ZN19CSceneScriptManager11getVariableEi
 	add r0, r0, #0x90
 	bx r12
-_02044664: .word FUN_02047e20
+_02044664: .word _ZN19CSceneScriptManager11getVariableEi
 	arm_func_end FUN_02044658
 
 	arm_func_start FUN_02044668
@@ -715,17 +715,17 @@ FUN_02044668: ; 0x02044668
 	stmfd sp!, {r4, lr}
 	add r0, r0, #0x90
 	mov r4, r2
-	bl FUN_02047e20
+	bl _ZN19CSceneScriptManager11getVariableEi
 	str r4, [r0]
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02044668
 
 	arm_func_start FUN_02044680
 FUN_02044680: ; 0x02044680
-	ldr r12, _0204468C ; =FUN_02048278
+	ldr r12, _0204468C ; =_ZN19CSceneScriptManager11getFileCodeEi
 	add r0, r0, #0x90
 	bx r12
-_0204468C: .word FUN_02048278
+_0204468C: .word _ZN19CSceneScriptManager11getFileCodeEi
 	arm_func_end FUN_02044680
 
 	arm_func_start FUN_02044690
@@ -744,7 +744,7 @@ FUN_02044690: ; 0x02044690
 	cmp r4, #0
 	bne _020446CC
 	add r0, r8, #0x90
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 _020446CC:
 	cmp r5, #0
 	addeq sp, sp, #4
@@ -754,14 +754,14 @@ _020446CC:
 	mov r3, r5
 	add r0, r8, #0x90
 	str r4, [sp]
-	bl FUN_02047f8c
+	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _020446F8:
 	cmp r4, #0
 	bne _02044708
 	add r0, r8, #0x90
-	bl FUN_0204836c
+	bl _ZN19CSceneScriptManager12FUN_0204836cEi
 _02044708:
 	cmp r5, #0
 	addeq sp, sp, #4
@@ -771,7 +771,7 @@ _02044708:
 	mov r3, r5
 	add r0, r8, #0x90
 	str r4, [sp]
-	bl FUN_02048068
+	bl _ZN19CSceneScriptManager12FUN_02048068Eilli
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 	arm_func_end FUN_02044690
@@ -799,20 +799,20 @@ FUN_02044754: ; 0x02044754
 	beq _0204477C
 _02044770:
 	add r0, r0, #0x90
-	bl FUN_02048288
+	bl _ZN19CSceneScriptManager12FUN_02048288Ei
 	ldmfd sp!, {r3, pc}
 _0204477C:
 	add r0, r0, #0x90
-	bl FUN_0204836c
+	bl _ZN19CSceneScriptManager12FUN_0204836cEi
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02044754
 
 	arm_func_start FUN_02044788
 FUN_02044788: ; 0x02044788
-	ldr r12, _02044794 ; =FUN_0204847c
+	ldr r12, _02044794 ; =_ZN19CSceneScriptManager9resetSoftEv
 	add r0, r0, #0x90
 	bx r12
-_02044794: .word FUN_0204847c
+_02044794: .word _ZN19CSceneScriptManager9resetSoftEv
 	arm_func_end FUN_02044788
 
 	arm_func_start FUN_02044798
@@ -1267,7 +1267,7 @@ _02044D40:
 	mov r3, r8
 	add r0, r10, #0x90
 	str r12, [sp]
-	bl FUN_02048674
+	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
 	movs r1, r0
 	beq _02044DD4
 	ldrsb r0, [r4, #0xe9]
@@ -1456,7 +1456,7 @@ FUN_02044f78: ; 0x02044F78
 	mov r3, r4
 	add r0, r8, #0x90
 	mov r1, #0xb
-	bl FUN_020481c8
+	bl _ZN19CSceneScriptManager12FUN_020481c8EiPvi
 	add r2, r8, #0x6100
 	ldrsb r1, [r2, #0xe9]
 	rsb r4, r4, #0x2000
@@ -1725,7 +1725,7 @@ FUN_020453ac: ; 0x020453AC
 	add r0, r0, #0x1c00
 	bl FUN_0203000c
 	add r0, r4, #0x90
-	bl FUN_02047ad4
+	bl _ZN19CSceneScriptManagerD1Ev
 	mov r0, r4
 	bl _ZN14CScreenManagerD2Ev
 	mov r0, r4

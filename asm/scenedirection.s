@@ -4703,7 +4703,7 @@ _020341E8:
 	bl _ZN11AudioPlayer10playEffectEi
 _02034204:
 	ldr r0, _02034300 ; =0x020AF8AC
-	bl FUN_02048c40
+	bl _ZN19CSceneScriptManager12FUN_02048c40Ev
 	add r1, r4, #0x1000
 	ldrsb r2, [r1, #0xf5]
 	add r0, r4, #0x1100
