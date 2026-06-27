@@ -1479,7 +1479,11 @@ _0211B36C:
 	add r2, r0, #0x1c
 	add r0, sp, #0x54
 	ldr r1, _0211B4E8 ; =0x0211BBBC
+	#ifdef LANGUAGE_FRENCH
+	str r3, [sp, #4]
+	#else
 	stmib sp, {r2, r3}
+	#endif
 	b _0211B3C8
 _0211B3B4:
 	ldr r2, [sp, #0x18]
