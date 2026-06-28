@@ -44,8 +44,3 @@ SCoord *CBgAnimeManager::update(bakey_t anim)
     }
     return a->coord + i;
 }
-
-int main()
-{
-    volatile CBgAnimeManager a;
-}
