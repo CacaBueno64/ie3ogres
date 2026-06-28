@@ -14,7 +14,7 @@
 .public FUN_02070530
 .public FUN_0207249c
 .public sprintf
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public FUN_020443b0
 .public FUN_02044734
 .public FUN_0204545c
@@ -43,7 +43,7 @@
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG2Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
 .public _ZN14CScreenManager18getLoadedSceneMainEv

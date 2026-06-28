@@ -393,7 +393,7 @@ FUN_ov25_0211a3ec: ; 0x0211A3EC
 	mov r1, r2
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	add r1, r5, r4, lsl #2
 	str r0, [r1, #0x38]
 _0211A424:
@@ -412,21 +412,21 @@ FUN_ov25_0211a434: ; 0x0211A434
 	ldr r0, [r4]
 	mov r6, r1
 	mov r5, r2
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r4]
 	ldr r3, [sp, #0x24]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r1, [sp, #0x20]
 	ldr r0, [r4]
 	mov r1, r1, lsl #0x10
 	mov r3, r1, lsr #0x10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	mov r1, r6
 	mov r2, r5
 	ldr r0, [sp, #0x1c]
@@ -437,7 +437,7 @@ FUN_ov25_0211a434: ; 0x0211A434
 	ldr r0, [r4]
 	mov r3, r3, lsl #0x10
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211A4C0: .word g3DPlaneCtrl
@@ -454,7 +454,7 @@ FUN_ov25_0211a4c4: ; 0x0211A4C4
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _0211A4FC ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r5, r4, lsl #2
 	mov r1, #0
 	str r1, [r0, #0x38]
@@ -577,7 +577,7 @@ FUN_ov25_0211a5fc: ; 0x0211A5FC
 	bl FUN_ov16_0210e0a0
 	ldr r0, _0211A72C ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
+	bl _ZN12C3DPlaneCtrl7acquireEv
 	mov r0, #0x4000000
 	ldr r1, [r0]
 	add r0, r5, #0xc
@@ -707,7 +707,7 @@ _0211A7E8:
 	mov r1, r4
 	mov r2, r10
 	mov r3, r10
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	mov r0, #0x57
 	str r0, [sp]
 	mov r0, #0xa8
@@ -813,19 +813,19 @@ _0211A9A8:
 	mov r1, r5
 	mov r2, r6
 	mov r3, r10
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	str r6, [sp]
 	ldr r0, [r4]
 	mov r1, r5
 	mov r2, r10
 	mov r3, r10
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	str r8, [sp]
 	ldr r0, [r4]
 	mov r1, r5
 	mov r3, r10
 	mov r2, r7
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add r7, sp, #0x32c
 	mov r0, r8
 	mov r2, #0x80
@@ -1425,7 +1425,7 @@ _0211B2F0:
 	bl FUN_ov16_0210e0d8
 	ldr r0, _0211B348 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	mov r0, #1
 	bl FUN_ov16_020f3f60
 	ldr r0, _0211B34C ; =gUnitMan

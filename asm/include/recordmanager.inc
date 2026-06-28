@@ -1,5 +1,5 @@
-.public _ZN14CardControllerC1Ev
-.public _ZN14CardControllerD1Ev
+.public _ZN9CCardCtrlC1Ev
+.public _ZN9CCardCtrlD1Ev
 .public _u32_div_f
 .public OS_GetTickLo
 .public strcmp
@@ -28,12 +28,12 @@
 .public gFileIO
 .public unk_020B5C60
 .public FUN_ov16_020f2dac
-.public _ZN14CardController4initE14CARDBackupType
-.public _ZN14CardController4testEv
+.public _ZN9CCardCtrl4initE14CARDBackupType
+.public _ZN9CCardCtrl4testEv
 .public _ZN10FileSystem8AllocateEii
 .public MI_CpuFill8
 .public CARD_GetRomHeader
-.public _ZN14CardController4readEmmPv
+.public _ZN9CCardCtrl4readEmmPv
 .public STD_CompareString
 .public MIi_CpuClearFast
 .public MI_CpuCopy8
@@ -44,8 +44,8 @@
 .public unk_020A17F0
 .public unk_020A11DC
 .public unk_020A0640
-.public _ZN14CardController5writeEmmPv
-.public _ZN14CardController5readyEv
+.public _ZN9CCardCtrl5writeEmmPv
+.public _ZN9CCardCtrl5readyEv
 .public STD_CopyString
 .public unk_02090FE0
 .public unk_02090FF0

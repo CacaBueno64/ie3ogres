@@ -259,7 +259,7 @@
 .public unk_020A0648
 .public memcmp
 .public FUN_0204fbe8
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public gConfig
 .public _s32_div_f
 .public FUN_ov132_02143598

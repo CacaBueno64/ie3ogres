@@ -1,4 +1,8 @@
+// clang-format off
 #include "izmain.hpp"
+
+#include <cstddef>                      // for NULL
+
 #include <nitro/fs/api.h>               // for FS_Init, FS_DMA_NOT_USE
 #include <nitro/fx/fx.h>                // for FX_Init
 #include <nitro/gx/g3x.h>               // for G3X_InitMtxStack
@@ -21,7 +25,7 @@
 #include <nitro/os/common/tick.h>       // for OS_InitTick
 #include <nitro/rtc/ARM9/api.h>         // for RTC_Init
 #include <nitro/spi/ARM9/tp.h>          // for TP_GetUserInfo, TP_Init, TP_SetCalibrateParam, TPCalibrateParam
-#include <stddef.h>                     // for NULL
+
 #include "C2DAdventureLogic.hpp"        // for C2DAdventureLogic
 #include "C2DGChar.hpp"                 // for C2DGChar
 #include "C3DDevice.hpp"                // for C3DDevice
@@ -32,6 +36,7 @@
 #include "C3DMagicCamera.hpp"           // for C3DMagicCamera
 #include "C3DPlaneCtrl.hpp"             // for C3DPlaneCtrl
 #include "C3DSpriteCtrl.hpp"            // for C3DSpriteCtrl
+#include "C3DVramMan.hpp"               // for C3DVramMan
 #include "CDungeonManager.hpp"          // for CDungeonManager
 #include "CFileIO.hpp"                  // for CFileIO, gFileIO
 #include "CLogicThink.hpp"              // for CLogicThink, gLogicThink
@@ -40,17 +45,18 @@
 #include "CSprButtonCtrl.hpp"           // for CSprButtonCtrl
 #include "CWirelessUtil.hpp"            // for CWirelessUtil, gWirelessUtil
 #include "allocator.hpp"                // for gAllocator, CAllocator
-#include "cameracontroller.hpp"         // for CameraController
+#include "CCameraCtrl.hpp"         // for CCameraCtrl
 #include "filesystem.hpp"               // for ReadFile, Init
 #include "movieplayer.hpp"              // for MoviePlayer, gMoviePlayer
 #include "ov130.hpp"                    // for InitArena, InitConfig
-#include "resourcemanager.hpp"          // for ResourceManager
+// clang-format on
 
 extern "C" {
 extern void FUN_ov16_020f5258(void);
 }
 
-void VBlankIntr(void) {
+void VBlankIntr(void)
+{
     unk_02099E8C.EvenFrames++;
     if (unk_02099E8C.unkA4) {
         unk_02099E8C.unkA4->FUN_02051c10();
@@ -72,7 +78,8 @@ void VBlankIntr(void) {
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
-void InitHeap(void) {
+void InitHeap(void)
+{
     InitArena();
 
     void *heapstart = OS_AllocFromMainArenaLo(0x2d000, 0x20);
@@ -83,7 +90,8 @@ void InitHeap(void) {
     unk_02099E8C.unkC0 = handle;
 }
 
-void InitSDK(void) {
+void InitSDK(void)
+{
     OS_Init();
     OS_InitTick();
     OS_InitAlarm();
@@ -100,7 +108,8 @@ void InitSDK(void) {
     FS_LoadOverlay(MI_PROCESSOR_ARM9, FS_OVERLAY_ID(overlay16));
 }
 
-void InitAlloc(void) {
+void InitAlloc(void)
+{
     void *arenaLo = OS_GetMainArenaLo();
     unk_02099E8C.unk94 = arenaLo;
     void *arenaHi = OS_GetMainArenaHi();
@@ -133,7 +142,8 @@ void InitAlloc(void) {
     gMoviePlayer.init(&gAllocator);
 }
 
-void VramClear(void) {
+void VramClear(void)
+{
     GX_SetBankForLCDC(GX_VRAM_LCDC_ALL);
     MI_CpuClearFast(reinterpret_cast<void *>(HW_LCDC_VRAM), HW_LCDC_VRAM_SIZE);
     (void)GX_DisableBankForLCDC();
@@ -144,7 +154,8 @@ void VramClear(void) {
     MI_CpuClearFast(reinterpret_cast<void *>(HW_DB_PLTT), HW_DB_PLTT_SIZE);
 }
 
-void InitInterrupt(void) {
+void InitInterrupt(void)
+{
     (void)OS_DisableIrq();
     (void)OS_SetIrqFunction(OS_IE_V_BLANK, VBlankIntr);
     (void)OS_EnableIrqMask(OS_IE_V_BLANK);
@@ -154,9 +165,13 @@ void InitInterrupt(void) {
     OS_WaitVBlankIntr();
 }
 
-void FUN_020292e8(void) { gFileIO.FUN_0202ede8(); }
+void FUN_020292e8(void)
+{
+    gFileIO.FUN_0202ede8();
+}
 
-void FUN_020292f4(void) {
+void FUN_020292f4(void)
+{
     FileSystem::Init();
     InitConfig();
 }
@@ -164,9 +179,9 @@ void FUN_020292f4(void) {
 void InitGlobals(void) // https://decomp.me/scratch/kU9Um
 {
     unk_02099E8C.unk8C = new C3DDevice();
-    unk_02099E8C.unkA4 = new ResourceManager();
+    unk_02099E8C.unkA4 = new C3DVramMan();
     unk_02099E8C.unk58 = new CNsbResourceMan();
-    unk_02099E8C.unk98 = new CameraController();
+    unk_02099E8C.unk98 = new CCameraCtrl();
     unk_02099E8C.unk60 = new C3DGameChar();
     unk_02099E8C.unk24 = new C3DGameMap();
     unk_02099E8C.unk84 = new C3DGameEffect();
@@ -189,7 +204,7 @@ void InitGlobals(void) // https://decomp.me/scratch/kU9Um
     unk_02099E8C.unk5C->init(32);
     unk_02099E8C.unk24->init(8);
     unk_02099E8C.unk84->init(16);
-    unk_02099E8C.unkAC->init(192, 160);
+    unk_02099E8C.unkAC->initialize(192, 160);
     unk_02099E8C.unkCC->init(96, 96);
     unk_02099E8C.unk4C->reset();
     unk_02099E8C.unk34->reset();
@@ -202,14 +217,16 @@ extern void NNS_G3dInit(void);
 extern void NNS_G3dGlbInit(void);
 }
 
-void InitG3d(void) {
+void InitG3d(void)
+{
     NNS_G3dInit();
     NNS_G3dGlbInit();
     G3X_InitMtxStack();
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 }
 
-void InitTouchPannel(void) {
+void InitTouchPannel(void)
+{
     TPCalibrateParam calibrate;
 
     TP_Init();
@@ -220,12 +237,14 @@ void InitTouchPannel(void) {
     TP_SetCalibrateParam(&calibrate);
 }
 
-void FUN_020295e8(void) {
+void FUN_020295e8(void)
+{
     gLogicThink.FUN_0206f1e0();
     gLogicThink.FUN_0206f244();
 }
 
-void InitCommonFiles(void) {
+void InitCommonFiles(void)
+{
     gLogicThink.readUnitNo();
     gLogicThink.initLiveTalk();
 
@@ -233,8 +252,7 @@ void InitCommonFiles(void) {
 
     const char *wearSetFileName = "/data_iz/logic/wearset.dat";
     if (gAllocator.fileIO != NULL) {
-        gAllocator.fileIO->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gAllocator,
-                                      0, 0, FALSE, 1);
+        gAllocator.fileIO->readDirect(wearSetFileName, &unk_02099E8C.Logic_WearSetFile, &gAllocator, 0, 0, FALSE, 1);
     }
 
     unk_02099E8C.Logic_ShoesInfoFile = NULL;

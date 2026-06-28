@@ -283,7 +283,7 @@ FUN_ov123_02125098: ; 0x02125098
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _021250D8:
 	mov r0, r2
@@ -342,7 +342,7 @@ _02125160:
 	beq _02125248
 	mov r2, r7
 	add r1, r4, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	b _02125248
 _02125198:
 	ldr r1, [r5, #0x14]

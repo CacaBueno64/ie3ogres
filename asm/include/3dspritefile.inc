@@ -1,5 +1,5 @@
-.public FUN_02053994
-.public FUN_020539c8
+.public PAC_GetSize
+.public PAC_GetPtr
 .public FUN_020515c8
 .public FUN_020517ac
 .public FUN_02051858
@@ -8,7 +8,7 @@
 .public FUN_02051800
 .public FUN_020518a8
 .public MIi_CpuClearFast
-.public _ZTV16C3DSprFile
+.public _ZTV10C3DSprFile
 .public _ZdlPv
 .public FUN_02057cac
 .public FUN_02057d08
@@ -32,7 +32,7 @@
 .public MI_UncompressHuffman
 .public OS_Terminate
 .public FUN_02057e9c
-.public FUN_02057c6c
+.public _ZN11C3DSprSheet6isIdleEv
 .public _ZN10FileSystem10IsFileBusyEa
 .public _ZN7CFileIO11tryFinalizeEPv
 .public _ZN7CFileIO5closeEPvi

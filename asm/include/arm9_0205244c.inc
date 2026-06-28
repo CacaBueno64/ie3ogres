@@ -42,8 +42,8 @@
 .public FUN_ov16_020fb2ac
 .public _ZN7CFileIO11tryFinalizeEPv
 .public FUN_ov16_020fa930
-.public FUN_020539c8
-.public FUN_02053994
+.public PAC_GetPtr
+.public PAC_GetSize
 .public FUN_ov16_020f9f40
 .public FUN_ov16_020fa814
 .public FUN_ov16_020f9f7c
@@ -56,7 +56,7 @@
 .public FUN_ov16_020f79ec
 .public FUN_ov16_020f7bb0
 .public VEC_Subtract
-.public gCameraController
+.public gCameraCtrl
 .public FUN_ov16_020fa340
 .public FUN_ov16_020fa300
 .public FUN_ov16_020fb02c

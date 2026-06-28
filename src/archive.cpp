@@ -1,21 +1,29 @@
-#include "archive.hpp"        // for GetModelQuality, SFileData, PackHeader
-#include "CFileIO.hpp"        // for CFileIO, FUN_02053914, gFileIO
-#include "CUnitMan.hpp"       // for Unit, gWearSetFile, st_wear_set, BODYT...
-#include "allocator.hpp"      // for gAllocator, CAllocator
-#include <cstdio>             // for sprintf, size_t, NULL
-#include <cstring>            // for strrchr, strcmp
-#include <nitro/std/string.h> // for STD_CompareNString, STD_GetStringLength
-#include <nitro/types.h>      // for FALSE, BOOL, TRUE, s32, u32, u8
+// clang-format off
+#include "archive.hpp"
 
-namespace Archive {
+#include <cstdio>              // for sprintf, size_t, NULL
 
-BOOL ReadNewUncompress(const char *path, SFileData *file) {
+#include <cstring>             // for strrchr, strcmp
+#include <nitro/std/string.h>  // for STD_CompareNString, STD_GetStringLength
+#include <nitro/types.h>       // for FALSE, BOOL, TRUE, s32, u32, u8
+
+#include "CFileIO.hpp"         // for CFileIO, FUN_02053914, gFileIO
+#include "CUnitMan.hpp"        // for Unit, gWearSetFile, st_wear_set, BODYT...
+#include "allocator.hpp"       // for gAllocator, CAllocator
+// clang-format on
+
+namespace Archive
+{
+
+BOOL ReadNewUncompress(const char *path, SFileData *file)
+{
     file->data = NULL;
 
     return ReadUncompress(path, file);
 }
 
-BOOL ReadUncompress(const char *path, SFileData *file) {
+BOOL ReadUncompress(const char *path, SFileData *file)
+{
     file->unk_a = (file->data == NULL);
 
     file->available = FALSE;
@@ -35,7 +43,8 @@ BOOL ReadUncompress(const char *path, SFileData *file) {
     return TRUE;
 }
 
-BOOL ReadUncompressEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed) {
+BOOL ReadUncompressEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed)
+{
     file->unk_a = (file->data == NULL);
 
     file->available = FALSE;
@@ -43,8 +52,7 @@ BOOL ReadUncompressEx(const char *path, SFileData *file, s32 offset, size_t size
 
     size_t result = 0;
     if (gAllocator.fileIO) {
-        result = gAllocator.fileIO->readDirect(path, &file->data, &gAllocator, offset, size,
-                                               compressed, 1);
+        result = gAllocator.fileIO->readDirect(path, &file->data, &gAllocator, offset, size, compressed, 1);
     }
     file->size = result;
 
@@ -56,13 +64,15 @@ BOOL ReadUncompressEx(const char *path, SFileData *file, s32 offset, size_t size
     return TRUE;
 }
 
-BOOL RequestNewRead(const char *path, SFileData *file) {
+BOOL RequestNewRead(const char *path, SFileData *file)
+{
     file->data = NULL;
 
     return RequestRead(path, file);
 }
 
-BOOL RequestRead(const char *path, SFileData *file) {
+BOOL RequestRead(const char *path, SFileData *file)
+{
     file->unk_a = (file->data == NULL);
 
     file->available = FALSE;
@@ -81,19 +91,22 @@ BOOL RequestRead(const char *path, SFileData *file) {
     return TRUE;
 }
 
-BOOL RequestNewReadEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed) {
+BOOL RequestNewReadEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed)
+{
     file->data = NULL;
 
     return RequestReadEx(path, file, offset, size, compressed);
 }
 
-BOOL ReadNewUncompressEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed) {
+BOOL ReadNewUncompressEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed)
+{
     file->data = NULL;
 
     return ReadUncompressEx(path, file, offset, size, compressed);
 }
 
-BOOL RequestReadEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed) {
+BOOL RequestReadEx(const char *path, SFileData *file, s32 offset, size_t size, BOOL compressed)
+{
     file->unk_a = (file->data == NULL);
 
     file->available = FALSE;
@@ -101,8 +114,7 @@ BOOL RequestReadEx(const char *path, SFileData *file, s32 offset, size_t size, B
 
     size_t result = 0;
     if (gAllocator.fileIO) {
-        result = gAllocator.fileIO->readDeferred(path, &file->data, &gAllocator, offset, size,
-                                                 compressed, 1);
+        result = gAllocator.fileIO->readDeferred(path, &file->data, &gAllocator, offset, size, compressed, 1);
     }
     file->size = result;
 
@@ -113,7 +125,8 @@ BOOL RequestReadEx(const char *path, SFileData *file, s32 offset, size_t size, B
     return TRUE;
 }
 
-BOOL ReadFromSFP(char *path, SFileData *file, char *data) {
+BOOL ReadFromSFP(char *path, SFileData *file, char *data)
+{
     file->unk_a = FALSE;
     file->available = FALSE;
     file->unk_9 = FALSE;
@@ -127,7 +140,8 @@ BOOL ReadFromSFP(char *path, SFileData *file, char *data) {
     return file->size != FALSE;
 }
 
-BOOL TryFinalize(SFileData *file, int count) {
+BOOL TryFinalize(SFileData *file, int count)
+{
     for (int i = count; i > 0; i--) {
         SFileData *cur = file;
 
@@ -152,7 +166,8 @@ BOOL TryFinalize(SFileData *file, int count) {
     return TRUE;
 }
 
-void Close(SFileData *file, int count) {
+void Close(SFileData *file, int count)
+{
     for (int i = count; i > 0; i--) {
         SFileData *cur = file;
 
@@ -168,20 +183,23 @@ void Close(SFileData *file, int count) {
     }
 }
 
-void Deallocate(SFileData *file) {
+void Deallocate(SFileData *file)
+{
     if ((file->data) && (file->unk_9) && (file->unk_a)) {
         gAllocator.deallocate(file->data);
         file->data = NULL;
     }
 }
 
-BOOL PackHeaderCheck(void *pkh) {
+BOOL PackHeaderCheck(void *pkh)
+{
     PackHeader *header = static_cast<PackHeader *>(pkh);
     int cmp = STD_CompareNString(header->packNum, "PackNum 20080626", sizeof(header->packNum));
     return cmp == 0;
 }
 
-BOOL PackHeaderRead(const char *path, u32 code, s32 *outOffset, size_t *outSize) {
+BOOL PackHeaderRead(const char *path, u32 code, s32 *outOffset, size_t *outSize)
+{
     void *pkh = NULL;
 
     if (gAllocator.fileIO) {
@@ -200,7 +218,8 @@ BOOL PackHeaderRead(const char *path, u32 code, s32 *outOffset, size_t *outSize)
 // UNSAFE: no bounds checking on data (header size or header->entryCount)
 // UNSAFE: min + max can overflow
 // PORT: min, max, size and offset should be size_t
-BOOL PackHeaderGetOffsetAndSize(void *pkh, u32 code, s32 *outOffset, size_t *outSize) {
+BOOL PackHeaderGetOffsetAndSize(void *pkh, u32 code, s32 *outOffset, size_t *outSize)
+{
     PackHeader *header = static_cast<PackHeader *>(pkh);
     if (!header) {
         return FALSE;
@@ -291,13 +310,18 @@ BOOL PackHeaderGetOffsetAndSize(void *pkh, u32 code, s32 *outOffset, size_t *out
     return FALSE;
 }
 
-u32 GetFaceCode(Unit *unit, u8 expression) { return (unit->base.faceNo * 100) + (expression); }
+u32 GetFaceCode(Unit *unit, u8 expression)
+{
+    return (unit->base.faceNo * 100) + (expression);
+}
 
-void GetFaceOffsetAndSize(void *pkh, Unit *unit, u8 expression, s32 *outOffset, size_t *outSize) {
+void GetFaceOffsetAndSize(void *pkh, Unit *unit, u8 expression, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, GetFaceCode(unit, expression), outOffset, outSize);
 }
 
-u32 GetBodyCode(Unit *unit, int wearNo, int wearType) {
+u32 GetBodyCode(Unit *unit, int wearNo, int wearType)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     u32 teamNo = wearSet->teamNo * 1000000;
@@ -305,74 +329,85 @@ u32 GetBodyCode(Unit *unit, int wearNo, int wearType) {
     return (teamNo) + (type) + (unit->base.bodyType * 100) + (unit->base.bodyNo);
 }
 
-void GetBodyOffsetAndSize(void *pkh, Unit *unit, int wearNo, int wearType, s32 *outOffset, size_t *outSize) {
+void GetBodyOffsetAndSize(void *pkh, Unit *unit, int wearNo, int wearType, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, GetBodyCode(unit, wearNo, wearType), outOffset, outSize);
 }
 
-u32 GetBodyPlttCode(int wearNo, int wearType) {
+u32 GetBodyPlttCode(int wearNo, int wearType)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     return wearSet->palette;
 }
 
-void GetBodyPlttOffsetAndSize(void *pkh, int wearNo, int wearType, s32 *outOffset, size_t *outSize) {
+void GetBodyPlttOffsetAndSize(void *pkh, int wearNo, int wearType, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, GetBodyPlttCode(wearNo, wearType), outOffset, outSize);
 }
 
-void GetHairModelPath(Unit *unit, int quality, char *pkbOutPath, char *nsbmdOutName) {
+void GetHairModelPath(Unit *unit, int quality, char *pkbOutPath, char *nsbmdOutName)
+{
     sprintf(pkbOutPath, "/data_iz/model/char/p%ch.pkb", GetModelQuality(quality));
     sprintf(nsbmdOutName, "p%ch00%04d00.nsbmd_", GetModelQuality(quality), unit->base.faceNo);
 }
 
-void GetFaceModelPath(Unit *unit, int quality, char *pkbOutPath, char *nsbmdOutName) {
+void GetFaceModelPath(Unit *unit, int quality, char *pkbOutPath, char *nsbmdOutName)
+{
     sprintf(pkbOutPath, "/data_iz/model/char/p%cf.pkb", GetModelQuality(quality));
     sprintf(nsbmdOutName, "p%cf00%04d00.nsbmd_", GetModelQuality(quality), unit->base.faceNo);
 }
 
-void GetBodyModelPath(Unit *unit, int quality, int wearNo, int wearType, char *pkbOutPath, char *nsbmdOutName) {
+void GetBodyModelPath(Unit *unit, int quality, int wearNo, int wearType, char *pkbOutPath, char *nsbmdOutName)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     sprintf(pkbOutPath, "/data_iz/model/char/p%cb.pkb", GetModelQuality(quality));
     u8 bodyNo = unit->base.bodyNo;
     u8 bodyType = unit->base.bodyType;
-    sprintf(nsbmdOutName, "p%cb%02d%02d%02d.nsbmd_", GetModelQuality(quality), wearSet->unk8,
-            bodyType, bodyNo);
+    sprintf(nsbmdOutName, "p%cb%02d%02d%02d.nsbmd_", GetModelQuality(quality), wearSet->unk8, bodyType, bodyNo);
 }
 
-void GetKitNumberTexPath(int wearNo, int wearType, char *pkbOutPath, char *nsbtxOutName) {
+void GetKitNumberTexPath(int wearNo, int wearType, char *pkbOutPath, char *nsbtxOutName)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     sprintf(pkbOutPath, "/data_iz/model/char/ptb.pkb");
     sprintf(nsbtxOutName, "ptb00%02d%02d.nsbtx_", wearSet->teamNo, wearSet->unk9);
 }
 
-void GetShoesModelPath(Unit *unit, int quality, int shoesNo, char *pkbOutPath, char *nsbmdOutName) {
+void GetShoesModelPath(Unit *unit, int quality, int shoesNo, char *pkbOutPath, char *nsbmdOutName)
+{
     st_shoes_info *shoesInfo = &gShoesInfoFile[shoesNo];
 
     sprintf(pkbOutPath, "/data_iz/model/char/p%cs.pkb", GetModelQuality(quality));
     u8 bodyType = unit->base.bodyType;
-    sprintf(nsbmdOutName, "p%cs%02d%02d%02d.nsbmd_", GetModelQuality(quality), shoesInfo->unk0,
-            bodyType, shoesInfo->unk1);
+    sprintf(nsbmdOutName, "p%cs%02d%02d%02d.nsbmd_", GetModelQuality(quality), shoesInfo->unk0, bodyType, shoesInfo->unk1);
 }
 
-void GetCharacterMotionPath(Unit *unit, int motNo, char *pkbOutPath, char *pacOutName) {
+void GetCharacterMotionPath(Unit *unit, int motNo, char *pkbOutPath, char *pacOutName)
+{
     GetCharacterMotionPath(unit->base.bodyType, motNo, pkbOutPath, pacOutName);
 }
 
-void GetCharacterMotionPath(int bodyType, int motNo, char *pkbOutPath, char *pacOutName) {
+void GetCharacterMotionPath(int bodyType, int motNo, char *pkbOutPath, char *pacOutName)
+{
     sprintf(pkbOutPath, "/data_iz/model/char/pcm.pkb");
     sprintf(pacOutName, "pcm%06d%02d.pac_", motNo, bodyType);
 }
 
-void GetHairModelOffsetAndSize(void *pkh, Unit *unit, s32 *outOffset, size_t *outSize) {
+void GetHairModelOffsetAndSize(void *pkh, Unit *unit, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, (unit->base.faceNo * 100), outOffset, outSize);
 }
 
-void GetFaceModelOffsetAndSize(void *pkh, Unit *unit, s32 *outOffset, size_t *outSize) {
+void GetFaceModelOffsetAndSize(void *pkh, Unit *unit, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, (unit->base.faceNo * 100), outOffset, outSize);
 }
 
-void GetBodyModelOffsetAndSize(void *pkh, Unit *unit, int wearNo, int wearType, s32 *outOffset, size_t *outSize) {
+void GetBodyModelOffsetAndSize(void *pkh, Unit *unit, int wearNo, int wearType, s32 *outOffset, size_t *outSize)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     u8 bodyNo = unit->base.bodyNo;
@@ -391,50 +426,64 @@ void GetBodyModelOffsetAndSize(void *pkh, Unit *unit, int wearNo, int wearType, 
         pkh, (wearSet->unk8 * 10000) + (unit->base.bodyType * 100) + (bodyNo), outOffset, outSize);
 }
 
-void GetKitNumberTexOffsetAndSize(void *pkh, int wearNo, int wearType, s32 *outOffset, size_t *outSize) {
+void GetKitNumberTexOffsetAndSize(void *pkh, int wearNo, int wearType, s32 *outOffset, size_t *outSize)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     PackHeaderGetOffsetAndSize(pkh, (wearSet->teamNo * 100) + (wearSet->unk9), outOffset, outSize);
 }
 
-void GetShoesModelOffsetAndSize(void *pkh, Unit *unit, int shoesNo, s32 *outOffset, size_t *outSize) {
+void GetShoesModelOffsetAndSize(void *pkh, Unit *unit, int shoesNo, s32 *outOffset, size_t *outSize)
+{
     st_shoes_info *shoesInfo = &gShoesInfoFile[shoesNo];
     ;
 
     PackHeaderGetOffsetAndSize(
-        pkh, (shoesInfo->unk0 * 10000) + (unit->base.bodyType * 100) + (shoesInfo->unk1), outOffset,
-        outSize);
+        pkh, (shoesInfo->unk0 * 10000) + (unit->base.bodyType * 100) + (shoesInfo->unk1), outOffset, outSize);
 }
 
-void GetCharacterMotionSizeAndOffset(void *pkh, int bodyType, int motNo, s32 *outOffset, size_t *outSize) {
+void GetCharacterMotionSizeAndOffset(void *pkh, int bodyType, int motNo, s32 *outOffset, size_t *outSize)
+{
     PackHeaderGetOffsetAndSize(pkh, (motNo * 100) + (bodyType), outOffset, outSize);
 }
 
-void GetMapModelPath(const char *modelName, char *outPath) {
+void GetMapModelPath(const char *modelName, char *outPath)
+{
     sprintf(outPath, "/data_iz/model/obj/%s.nsbmd_", modelName);
 }
 
-void GetMapMotionPath(const char *motionName, char *outPath) {
+void GetMapMotionPath(const char *motionName, char *outPath)
+{
     sprintf(outPath, "/data_iz/model/pac/%s.pac_", motionName);
 }
 
-void GetMapTexturePath(const char *textureName, char *outPath) {
+void GetMapTexturePath(const char *textureName, char *outPath)
+{
     sprintf(outPath, "/data_iz/model/obj/%s.nsbtx_", textureName);
 }
 
-void GetMapObjectModelPath(const char *modelName, char *outPath) {
+void GetMapObjectModelPath(const char *modelName, char *outPath)
+{
     sprintf(outPath, "/data_iz/model/obj/%s.nsbmd_", modelName);
 }
 
-void GetBallModelPath(const char *ballName, char *outPath) {
+void GetBallModelPath(const char *ballName, char *outPath)
+{
     sprintf(outPath, "/data_iz/model/pac/%s.pac_", ballName);
 }
 
-u32 GetOverworldHeadCode(int faceNo2D, int param1) { return (faceNo2D * 100) + param1; }
+u32 GetOverworldHeadCode(int faceNo2D, int param1)
+{
+    return (faceNo2D * 100) + param1;
+}
 
-u32 GetOverworldHeadPlttCode(int facePal2D) { return facePal2D; }
+u32 GetOverworldHeadPlttCode(int facePal2D)
+{
+    return facePal2D;
+}
 
-u32 GetOverworldBodyCode(int bodyType, int wearNo, int wearType, int param3) {
+u32 GetOverworldBodyCode(int bodyType, int wearNo, int wearType, int param3)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     if (bodyType == BODYTYPE_SMALL) {
@@ -444,13 +493,15 @@ u32 GetOverworldBodyCode(int bodyType, int wearNo, int wearType, int param3) {
     return ((wearSet->unk5) * 1000000) + (bodyType * 10000) + (wearSet->unk4 * 100) + (param3);
 }
 
-u32 GetOverworldBodyCode(int wearNo, int wearType) {
+u32 GetOverworldBodyCode(int wearNo, int wearType)
+{
     st_wear_set *wearSet = &gWearSetFile[wearNo] + wearType;
 
     return wearSet->unk6;
 }
 
-int GetMapNameHash(void *pkh, const char *str) {
+int GetMapNameHash(void *pkh, const char *str)
+{
     u32 mask;
     int result;
     int i;
@@ -507,7 +558,8 @@ int GetMapNameHash(void *pkh, const char *str) {
     return result;
 }
 
-BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *outSize) {
+BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *outSize)
+{
     SFPHeader *header = reinterpret_cast<SFPHeader *>(file);
 
     char temp[256];

@@ -3210,7 +3210,7 @@ _0211CB94:
 	ldr r0, [r0]
 	ldr r1, [r1]
 	bl FUN_0205ef30
-	ldr r4, _0211CC1C ; =gCameraController
+	ldr r4, _0211CC1C ; =gCameraCtrl
 	ldr r0, [r4]
 	bl FUN_ov16_020f7908
 	ldr r0, _0211CC20 ; =0x0209A128
@@ -3227,7 +3227,7 @@ _0211CC0C: .word gWirelessUtil
 _0211CC10: .word g3DFieldSprite
 _0211CC14: .word g3DGameMapObject
 _0211CC18: .word gDeltaTime
-_0211CC1C: .word gCameraController
+_0211CC1C: .word gCameraCtrl
 _0211CC20: .word unk_0209A128
 _0211CC24: .word unk_0209A114
 	arm_func_end FUN_ov81_0211cb38

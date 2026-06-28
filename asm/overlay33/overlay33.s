@@ -683,7 +683,7 @@ FUN_ov33_0211a784: ; 0x0211A784
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A7DC
@@ -762,7 +762,7 @@ FUN_ov33_0211a7fc: ; 0x0211A7FC
 	add r2, r3, #1
 	mov r3, #0
 	str r4, [r8, #0x74]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r1, [r8, #0x78]
 	ldrh r0, [r8, #0x7a]
 	ldr r2, [sp, #8]
@@ -1458,7 +1458,7 @@ FUN_ov33_0211b25c: ; 0x0211B25C
 	strb r6, [r7, #0x122]
 	strb r6, [r7, #0x123]
 	str r6, [r7, #0x124]
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	moveq r0, #1
 	streqb r0, [r7, #0x30]

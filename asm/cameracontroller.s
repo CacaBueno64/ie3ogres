@@ -10,12 +10,12 @@ FUN_02059d9c: ; 0x02059D9C
 	ldr r4, _02059E38 ; =gConfig
 	ldr r1, _02059E3C ; =0x0209081C
 	mov r0, r4
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	ble _02059DE0
 	ldr r1, _02059E40 ; =0x0209082C
 	mov r0, r4
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -25,7 +25,7 @@ FUN_02059d9c: ; 0x02059D9C
 _02059DE0:
 	ldr r1, _02059E44 ; =0x0209083C
 	mov r0, r4
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -38,7 +38,7 @@ _02059DFC:
 	str r2, [sp]
 	add r1, r0, #0x1000
 	str r1, [sp, #4]
-	ldr r0, _02059E4C ; =gCameraController
+	ldr r0, _02059E4C ; =gCameraCtrl
 	ldr r1, _02059E50 ; =0x00000536
 	ldr r0, [r0]
 	ldr r3, _02059E54 ; =0x00001555
@@ -51,7 +51,7 @@ _02059E3C: .word unk_0209081C
 _02059E40: .word unk_0209082C
 _02059E44: .word unk_0209083C
 _02059E48: .word 0x01001000
-_02059E4C: .word gCameraController
+_02059E4C: .word gCameraCtrl
 _02059E50: .word 0x00000536
 _02059E54: .word 0x00001555
 	arm_func_end FUN_02059d9c
@@ -64,12 +64,12 @@ FUN_02059e58: ; 0x02059E58
 	ldr r1, _02059F84 ; =0x0209084C
 	mov r0, r5
 	mov r4, #0x1000
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	ble _02059EA0
 	ldr r1, _02059F88 ; =0x02090860
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, r0
@@ -79,7 +79,7 @@ FUN_02059e58: ; 0x02059E58
 _02059EA0:
 	ldr r1, _02059F8C ; =0x02090874
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	mov r0, r0, lsl #0xc
 	bl _fflt
 	mov r1, #0x3f000000
@@ -90,7 +90,7 @@ _02059EBC:
 	ldr r0, _02059F80 ; =gConfig
 	ldr r1, _02059F90 ; =0x02090888
 	ldreq r5, _02059F94 ; =0x01001000
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	moveq r1, #0x800
 	ldreq r2, _02059F98 ; =0x00000DDB
@@ -130,7 +130,7 @@ _02059F10:
 _02059F5C:
 	str r4, [sp]
 	add r3, r5, r4
-	ldr r0, _02059FA4 ; =gCameraController
+	ldr r0, _02059FA4 ; =gCameraCtrl
 	str r3, [sp, #4]
 	ldr r0, [r0]
 	ldr r3, _02059FA8 ; =0x00001555
@@ -146,7 +146,7 @@ _02059F94: .word 0x01001000
 _02059F98: .word 0x00000DDB
 _02059F9C: .word 0x0B60B60B
 _02059FA0: .word FX_SinCosTable_
-_02059FA4: .word gCameraController
+_02059FA4: .word gCameraCtrl
 _02059FA8: .word 0x00001555
 	arm_func_end FUN_02059e58
 

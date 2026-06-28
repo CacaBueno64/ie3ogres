@@ -1,9 +1,12 @@
 #pragma once
 
-#include <nitro/types.h>
 #include <nitro/fx/fx.h>
+#include <nitro/types.h>
 
-// These are the structs dumped from "data_iz/bfmt/cnvdat.bin"
+/*
+ * These are the structs dumped from "data_iz/bfmt/cnvdat.bin"
+ * Some s8 arrays where changed to char arrays
+ */
 
 typedef struct {
     s32 x;
@@ -54,7 +57,7 @@ typedef struct {
 } st_unit_save;
 
 typedef struct {
-    s8 nameWC[31];
+    char nameWC[31];
     u8 _dummy1_;
     u16 teamNo;
     u16 fmtNormal;
@@ -102,7 +105,7 @@ typedef struct {
 } st_save_item;
 
 typedef struct {
-    s8 userName[20];
+    char userName[20];
     u32 money_;
     u32 friendlyPoint_;
     u32 playTime;
@@ -138,7 +141,7 @@ typedef struct {
     u8 partyMemberMax;
     u16 unitMemberCount;
     u64 userID;
-    s8 message[128];
+    char message[128];
     u16 routeBattleCount;
     u16 capsule_coin[3];
 } st_save_user;
@@ -217,9 +220,9 @@ typedef struct {
 } st_save_connection;
 
 typedef struct {
-    u16 scoutNum:3;
-    u16 scoutPracticeFlag:10;
-    u16 dummy:3;
+    u16 scoutNum : 3;
+    u16 scoutPracticeFlag : 10;
+    u16 dummy : 3;
     u16 scoutUnitNo[5];
 } st_save_scout_data;
 
@@ -244,7 +247,7 @@ typedef struct {
     u8 rankAndNameAndRefresh;
     u8 index[7];
     u8 itemNo[3];
-    s8 userName[17];
+    char userName[17];
 } st_save_tournament;
 
 typedef struct {
@@ -379,9 +382,9 @@ typedef struct {
         s8 dispFlag;
         s8 scrollFlag;
         s8 iconDispFlag;
-        s8 mapfile[32];
-        s8 tilefile[32];
-        s8 mapname[32];
+        char mapfile[32];
+        char tilefile[32];
+        char mapname[32];
         st_pos center;
         s32 scaleX;
         s32 scaleY;
@@ -389,8 +392,8 @@ typedef struct {
     struct {
         s8 renewFlag;
         s8 dispFlag;
-        s8 caption[16];
-        s8 string[64];
+        char caption[16];
+        char string[64];
     } topix;
     struct {
         s8 renewFlag;
@@ -405,7 +408,7 @@ typedef struct {
 typedef struct {
     SGlobalMapInfo GlobalMapInfo;
     SMiniMapInfo MiniMapInfo;
-    s8 mapinfoFile[32];
+    char mapinfoFile[32];
     s32 mapinfoBackNo;
     s32 defaultCamRotX;
     s32 defaultCamDist;
@@ -486,9 +489,9 @@ typedef struct {
     u16 passNum;
     u16 binderNum;
     u64 userID;
-    s8 userName[24];
-    s8 senderName[24];
-    s8 message[128];
+    char userName[24];
+    char senderName[24];
+    char message[128];
     u16 itemIdNormal;
     u16 itemIdRare;
     u8 itemGetFlag;
@@ -512,9 +515,9 @@ typedef struct {
     u16 passNum;
     u16 binderNum;
     u64 userID;
-    s8 userName[24];
-    s8 senderName[24];
-    s8 message[64];
+    char userName[24];
+    char senderName[24];
+    char message[64];
     u16 itemIdNormal;
     u16 itemIdRare;
     u8 itemGetFlag;
@@ -585,9 +588,9 @@ typedef struct {
     u8 teamMems;
     u8 stockMems;
     u32 money;
-    s8 username[24];
-    s8 teamname[17];
-    s8 titleIdx;
+    char username[24];
+    char teamname[17];
+    char titleIdx;
     u8 _dummy1[2];
     u32 winNum;
     u32 passCRC;
@@ -615,7 +618,7 @@ typedef struct {
 
 typedef struct {
     u32 crc;
-    s8 magicnumber[16];
+    char magicnumber[16];
     u32 cnt;
     u32 version;
     u32 size;

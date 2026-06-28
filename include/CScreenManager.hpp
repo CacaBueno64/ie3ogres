@@ -1,10 +1,10 @@
 #pragma once
 
-#include <nitro/types.h>
 #include <nitro/fs/overlay.h>
+#include <nitro/types.h>
 
-#include "CommonScreen.hpp"
 #include "CManager.hpp"
+#include "CommonScreen.hpp"
 
 typedef enum {
     LAYER_STEP_NONE = 0,
@@ -140,51 +140,54 @@ typedef struct {
     FSOverlayID id;
 } ScreenLoadContext;
 
-class CScreenManager : public CManager {
-    public:
-        /* 0x02041ac8 */ CScreenManager();
-        virtual ~CScreenManager();
-        /* 0x02042128 */ virtual void startGraphics(u32 arg);
-        /* 0x02041b64 */ virtual BOOL updateKeys(u16 pressed, u16 held);
-        /* 0x02041bec */ virtual BOOL updateTP(TPData *tp);
-        /* 0x02041c58 */ virtual BOOL update(EngineSelect engine);
-        /* 0x02041cc8 */ virtual BOOL updateLate(EngineSelect engine);
-        /* 0x02042124 */ virtual void endGraphics(u32 arg);
-        /* 0x020420bc */ virtual void updateDisplayMapping(void);
-        /* 0x02029d00 */ virtual void updateScene(void) = 0;
-        /* 0x02041dd4 */ virtual int transferMain(void *arg);
-        /* 0x02041df8 */ virtual int transferSub(void *arg);
-        /* 0x02041e1c */ virtual int signalMain(int arg);
-        /* 0x02041e40 */ virtual int signalSub(int arg);
-        /* 0x02041e64 */ virtual int stateMain(void);
-        /* 0x02041e88 */ virtual int stateSub(void);
+class CScreenManager : public CManager
+{
+public:
+    /* 0x02041ac8 */ CScreenManager();
+    virtual ~CScreenManager();
+    /* 0x02042128 */ virtual void startGraphics(u32 arg);
+    /* 0x02041b64 */ virtual BOOL updateKeys(u16 pressed, u16 held);
+    /* 0x02041bec */ virtual BOOL updateTP(TPData *tp);
+    /* 0x02041c58 */ virtual BOOL update(EngineSelect engine);
+    /* 0x02041cc8 */ virtual BOOL updateLate(EngineSelect engine);
+    /* 0x02042124 */ virtual void endGraphics(u32 arg);
+    /* 0x020420bc */ virtual void updateDisplayMapping(void);
+    /* 0x02029d00 */ virtual void updateScene(void) = 0;
+    /* 0x02041dd4 */ virtual int transferMain(void *arg);
+    /* 0x02041df8 */ virtual int transferSub(void *arg);
+    /* 0x02041e1c */ virtual int signalMain(int arg);
+    /* 0x02041e40 */ virtual int signalSub(int arg);
+    /* 0x02041e64 */ virtual int stateMain(void);
+    /* 0x02041e88 */ virtual int stateSub(void);
 
-        /* 0x02041b04 */ void clear(void);
-        /* 0x02041d14 */ void deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx);
-        /* 0x02041d80 */ void fadeInMain(void);
-        /* 0x02041d9c */ void fadeMainBlack(void);
-        /* 0x02041db8 */ void fadeSubBlack(void);
-        /* 0x02041eac */ void setNextScene(EngineSelect screen, SceneType next);
-        /* 0x02041ef0 */ void pushScene(EngineSelect screen, SceneType next);
-        /* 0x02041f2c */ void popScene(EngineSelect screen);
-        /* 0x02041f74 */ void setScene(EngineSelect screen, SceneType scene);
-        /* 0x02041fec */ SceneType getCurSceneMain(void);
-        /* 0x0204201c */ SceneType getNextSceneMain(void);
-        /* 0x0204204c */ SceneType getLoadedSceneMain(void);
-        /* 0x02042054 */ SceneType getCurSceneSub(void);
-        /* 0x02042084 */ SceneType getNextSceneSub(void);
-        /* 0x020420b4 */ SceneType getLoadedSceneSub(void);
-        BOOL FUN_02042110(SceneType scene);
+    /* 0x02041b04 */ void clear(void);
+    /* 0x02041d14 */ void deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx);
+    /* 0x02041d80 */ void fadeInMain(void);
+    /* 0x02041d9c */ void fadeMainBlack(void);
+    /* 0x02041db8 */ void fadeSubBlack(void);
+    /* 0x02041eac */ void setNextScene(EngineSelect screen, SceneType next);
+    /* 0x02041ef0 */ void pushScene(EngineSelect screen, SceneType next);
+    /* 0x02041f2c */ void popScene(EngineSelect screen);
+    /* 0x02041f74 */ void setScene(EngineSelect screen, SceneType scene);
+    /* 0x02041fec */ SceneType getCurSceneMain(void);
+    /* 0x0204201c */ SceneType getNextSceneMain(void);
+    /* 0x0204204c */ SceneType getLoadedSceneMain(void);
+    /* 0x02042054 */ SceneType getCurSceneSub(void);
+    /* 0x02042084 */ SceneType getNextSceneSub(void);
+    /* 0x020420b4 */ SceneType getLoadedSceneSub(void);
+    BOOL FUN_02042110(SceneType scene);
 
-        inline void setScenes(SceneType mainScene, SceneType subScene) {
-            this->setScene(ENGINE_MAIN, mainScene);
-            this->setScene(ENGINE_SUB, subScene);
-        }
+    inline void setScenes(SceneType mainScene, SceneType subScene)
+    {
+        this->setScene(ENGINE_MAIN, mainScene);
+        this->setScene(ENGINE_SUB, subScene);
+    }
 
-        inline void setNextScenes(SceneType mainScene, SceneType subScene) {
-            this->setNextScene(ENGINE_MAIN, mainScene);
-            this->setNextScene(ENGINE_SUB, subScene);
-        }
+    inline void setNextScenes(SceneType mainScene, SceneType subScene)
+    {
+        this->setNextScene(ENGINE_MAIN, mainScene);
+        this->setNextScene(ENGINE_SUB, subScene);
+    }
 
     u8 sceneChanged[2];
     /* u8 pad_6[2]; */

@@ -1,16 +1,20 @@
 #pragma once
 
+// clang-format off
 #include <nitro/fs/types.h>       // for FSFileID
 #include <nitro/mi/uncompress.h>  // for MICompressionHeader
 #include <nitro/types.h>          // for s32, BOOL, u32, u16
+
 #include "archive.hpp"            // for PackEntry_HOSC
+// clang-format on
 
 typedef int archandle_t;
 typedef signed char filekey_t;
 
 #define FILE_SYSTEM_STACK_SIZE 2048
 
-namespace FileSystem {
+namespace FileSystem
+{
 
 typedef struct {
     void *files; // interpret as Archive::PackEntry_HOSC *

@@ -1,6 +1,6 @@
 .public unk_020912F8
 .public _ZdlPv
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public _ZN10CAllocator8allocateEm
 .public MI_CpuFill8
 .public MIi_CpuClear32

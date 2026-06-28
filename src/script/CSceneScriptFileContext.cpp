@@ -1,29 +1,37 @@
-#include <nitro/mi/memory.h>       // for MI_CpuClear8, MI_CpuCopy8
-#include <nitro/std/string.h>      // for STD_CopyString, STD_ConcatenateString, STD_GetStringLength
-#include <nitro/types.h>           // for TRUE, s32, FALSE, BOOL, u32, s16, u8
-#include <cstdio>                  // for sprintf, NULL, size_t
-#include "CFileIO.hpp"             // for CFileIO, gFileIO
-#include "CSceneScriptData.hpp"    // for ScriptInstruction, CSceneScriptData, SCRIPT_TYPE_ACTION, SCRIPT_TYPE_EVENT, SCRIPT_TYPE_HELP, SCRIPT_TYPE_MATCH, SCRIPT_TYPE_NONE
-#include "CSceneScriptManager.hpp" // for CSceneScriptFileContext, CSceneScriptManager (ptr only)
-#include "allocator.hpp"           // for gAllocator, CAllocator
-#include "archive.hpp"             // for PackHeaderGetOffsetAndSize
-#include "cnvdat.h"                // for SScriptFileRecordData
-#include "init/arm9_init.hpp"      // IWYU pragma: keep
+// clang-format off
+#include "CSceneScriptManager.hpp"  // for CSceneScriptFileContext, CSceneScriptManager (ptr only)
 
-CSceneScriptFileContext::CSceneScriptFileContext() {
+#include <cstdio>                   // for sprintf, NULL, size_t
+
+#include <nitro/mi/memory.h>        // for MI_CpuClear8, MI_CpuCopy8
+#include <nitro/std/string.h>       // for STD_CopyString, STD_ConcatenateString, STD_GetStringLength
+#include <nitro/types.h>            // for TRUE, s32, FALSE, BOOL, u32, s16, u8
+
+#include "CFileIO.hpp"              // for CFileIO, gFileIO
+#include "CSceneScriptData.hpp"     // for ScriptInstruction, CSceneScriptData, SCRIPT_TYPE_ACTION, SCRIPT_TYPE_EVENT, SCRIPT_TYPE_HELP, SCRIPT_TYPE_MATCH, SCRIPT_TYPE_NONE
+#include "allocator.hpp"            // for gAllocator, CAllocator
+#include "archive.hpp"              // for PackHeaderGetOffsetAndSize
+#include "cnvdat.h"                 // for SScriptFileRecordData
+#include "init/arm9_init.hpp"       // IWYU pragma: keep
+// clang-format on
+
+CSceneScriptFileContext::CSceneScriptFileContext()
+{
     this->type = 0;
     this->code = 0;
 }
 
 CSceneScriptFileContext::~CSceneScriptFileContext() {}
 
-void CSceneScriptFileContext::linkManager(CSceneScriptManager *manager) {
+void CSceneScriptFileContext::linkManager(CSceneScriptManager *manager)
+{
     this->manager = manager;
     this->type = 0;
     this->code = 0;
 }
 
-size_t CSceneScriptFileContext::openScript(int idx, u32 id, void *mainPKH, void *textPKH, int param5) {
+size_t CSceneScriptFileContext::openScript(int idx, u32 id, void *mainPKH, void *textPKH, int param5)
+{
     size_t result;
 
     char filename[64];
@@ -112,16 +120,14 @@ size_t CSceneScriptFileContext::openScript(int idx, u32 id, void *mainPKH, void 
         switch (param5) {
         default:
             if (gAllocator.fileIO) {
-                result = gAllocator.fileIO->readDeferred(scriptpath, &this->data, &gAllocator, 0, 0,
-                                                         TRUE, strategy);
+                result = gAllocator.fileIO->readDeferred(scriptpath, &this->data, &gAllocator, 0, 0, TRUE, strategy);
             } else {
                 result = 0;
             }
             break;
         case 0:
             if (gAllocator.fileIO) {
-                result = gAllocator.fileIO->readDirect(scriptpath, &this->data, &gAllocator, 0, 0,
-                                                       TRUE, strategy);
+                result = gAllocator.fileIO->readDirect(scriptpath, &this->data, &gAllocator, 0, 0, TRUE, strategy);
             } else {
                 result = 0;
             }
@@ -143,7 +149,8 @@ size_t CSceneScriptFileContext::openScript(int idx, u32 id, void *mainPKH, void 
     return result;
 }
 
-int CSceneScriptFileContext::loadScript(int idx, s32 type, s32 code, void *mainPKH, void *textPKH, void *data) {
+int CSceneScriptFileContext::loadScript(int idx, s32 type, s32 code, void *mainPKH, void *textPKH, void *data)
+{
     if (this->data) {
         return FALSE;
     }
@@ -185,7 +192,8 @@ int CSceneScriptFileContext::loadScript(int idx, s32 type, s32 code, void *mainP
     return TRUE;
 }
 
-void CSceneScriptFileContext::reset(void) {
+void CSceneScriptFileContext::reset(void)
+{
     if (this->data) {
         this->loader.initFile(NULL, NULL);
         gAllocator.deallocate(this->data);
@@ -196,14 +204,16 @@ void CSceneScriptFileContext::reset(void) {
     }
 }
 
-BOOL CSceneScriptFileContext::compareTypeAndCode(s32 type, s32 code) {
+BOOL CSceneScriptFileContext::compareTypeAndCode(s32 type, s32 code)
+{
     if ((this->type == type) && (this->code == code)) {
         return TRUE;
     }
     return FALSE;
 }
 
-void CSceneScriptFileContext::getTypeAndCode(s32 *type, s32 *code) {
+void CSceneScriptFileContext::getTypeAndCode(s32 *type, s32 *code)
+{
     if (type) {
         *type = this->type;
     }
@@ -212,7 +222,8 @@ void CSceneScriptFileContext::getTypeAndCode(s32 *type, s32 *code) {
     }
 }
 
-BOOL CSceneScriptFileContext::FUN_020491b0(void) {
+BOOL CSceneScriptFileContext::FUN_020491b0(void)
+{
     if (!this->data) {
         return TRUE;
     }
@@ -251,7 +262,8 @@ BOOL CSceneScriptFileContext::FUN_020491b0(void) {
     return TRUE;
 }
 
-BOOL CSceneScriptFileContext::getScriptFileName(char *dst) {
+BOOL CSceneScriptFileContext::getScriptFileName(char *dst)
+{
     switch (this->type) {
     case SCRIPT_TYPE_EVENT:
         sprintf(dst, "eve%08d.ssd_", (int)this->code);
@@ -273,7 +285,8 @@ BOOL CSceneScriptFileContext::getScriptFileName(char *dst) {
     return TRUE;
 }
 
-BOOL CSceneScriptFileContext::saveScriptFileState(SScriptFileRecordData *fileRecordData) {
+BOOL CSceneScriptFileContext::saveScriptFileState(SScriptFileRecordData *fileRecordData)
+{
     fileRecordData->code = 0;
     fileRecordData->type = 0;
 
@@ -288,7 +301,8 @@ BOOL CSceneScriptFileContext::saveScriptFileState(SScriptFileRecordData *fileRec
     return TRUE;
 }
 
-BOOL CSceneScriptFileContext::loadScriptFileState(int idx, SScriptFileRecordData *fileRecordData, void *mainPKH, void *textPKH) {
+BOOL CSceneScriptFileContext::loadScriptFileState(int idx, SScriptFileRecordData *fileRecordData, void *mainPKH, void *textPKH)
+{
     if ((fileRecordData->type == 0) && (fileRecordData->code == 0)) {
         return TRUE;
     }
@@ -303,7 +317,8 @@ BOOL CSceneScriptFileContext::loadScriptFileState(int idx, SScriptFileRecordData
     return TRUE;
 }
 
-s32 *CSceneScriptFileContext::getVariable(int idx) {
+s32 *CSceneScriptFileContext::getVariable(int idx)
+{
     if (idx >= 16) {
         idx = 0;
     }
@@ -311,11 +326,13 @@ s32 *CSceneScriptFileContext::getVariable(int idx) {
     return &this->variable[idx];
 }
 
-ScriptInstruction *CSceneScriptFileContext::next(ScriptInstruction *cur) {
+ScriptInstruction *CSceneScriptFileContext::next(ScriptInstruction *cur)
+{
     return this->loader.next(cur);
 }
 
-ScriptInstruction *CSceneScriptFileContext::findFunctionStart(ScriptInstruction *cur, s16 num) {
+ScriptInstruction *CSceneScriptFileContext::findFunctionStart(ScriptInstruction *cur, s16 num)
+{
     if (!this->data) {
         return NULL;
     }

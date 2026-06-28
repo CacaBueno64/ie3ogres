@@ -709,7 +709,7 @@ FUN_ov104_0212569c: ; 0x0212569C
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _021256DC:
 	mov r0, r2
@@ -731,7 +731,7 @@ FUN_ov104_021256e4: ; 0x021256E4
 	add r1, r2, #1
 	ldr r0, [r0, #0x7c]
 	mov r2, r3
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov104_021256e4
 

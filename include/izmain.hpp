@@ -1,8 +1,12 @@
 #pragma once
 
+// clang-format off
 #include <nitro/fs/overlay.h>  // for FS_EXTERN_OVERLAY
 #include <nitro/types.h>       // for u8, u16, u32, BOOL, s32
+
 #include "CScreenManager.hpp"  // for SceneType
+// clang-format on
+
 class C2DAdventureLogic;
 class C2DGChar;
 class C3DDevice;
@@ -19,8 +23,8 @@ class CFontManager_2;
 class CNsbResourceMan;
 class CSprAnimCtrl;
 class CSprButtonCtrl;
-class CameraController;
-class ResourceManager;
+class CCameraCtrl;
+class C3DVramMan;
 
 FS_EXTERN_OVERLAY(overlay130);
 FS_EXTERN_OVERLAY(overlay16);
@@ -75,21 +79,21 @@ typedef struct {
     u16 SubScreenBrightness;
     int EvenFrames;
     C3DGameEffect *unk84;
-    void *unk88; //C3DFieldSprite
+    void *unk88; // C3DFieldSprite
     C3DDevice *unk8C;
     CFontManager *FontRubi8;
     void *unk94;
-    CameraController *unk98;
+    CCameraCtrl *unk98;
     void *Logic_PalSkin3dFile;
     void *Logic_GlovesInfoFile;
-    ResourceManager *unkA4;
+    C3DVramMan *unkA4;
     void *Logic_WearSetFile;
     C3DPlaneCtrl *unkAC;
     BOOL UpdateBrightness;
     void *unkB4;
     void *unkB8;
     u32 unkBC;
-    int unkC0; //OSHeapHandle
+    int unkC0; // OSHeapHandle
     CFontManager *Font12;
     CDungeonManager *unkC8;
     C3DSpriteCtrl *unkCC;

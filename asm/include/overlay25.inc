@@ -5,13 +5,13 @@
 .public strlen
 .public _u32_div_f
 .public memset
-.public FUN_ov16_02112724
+.public _ZN12C3DPlaneCtrl6createEib
 .public g3DPlaneCtrl
-.public FUN_ov16_021137dc
-.public FUN_ov16_0211401c
-.public FUN_ov16_021139bc
-.public FUN_ov16_02113b78
-.public FUN_ov16_021128c4
+.public _ZN12C3DPlaneCtrl6setTexEiih
+.public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
+.public _ZN12C3DPlaneCtrl8setDepthEiij
+.public _ZN12C3DPlaneCtrl6setPosEiiss
+.public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_020591e8
 .public FUN_02058ee0
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
@@ -22,7 +22,7 @@
 .public GX_SetGraphicsMode
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public FUN_ov16_021123b4
+.public _ZN12C3DPlaneCtrl7acquireEv
 .public MI_CpuFill8
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
@@ -30,7 +30,7 @@
 .public gSprAnimCtrl
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c
-.public FUN_ov16_02113ec0
+.public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e6fc
@@ -72,7 +72,7 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public FUN_ov16_021123c4
+.public _ZN12C3DPlaneCtrl7releaseEv
 .public FUN_ov16_020efa04
 .public gUnitMan
 .public FUN_ov16_0210f468

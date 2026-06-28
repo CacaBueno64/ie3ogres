@@ -18,7 +18,7 @@
 .public __cxa_vec_ctor
 .public unk_0209071C
 .public __cxa_vec_cleanup
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public gConfig
 .public unk_02090734
 .public _ZN10CAllocator8allocateEm
@@ -84,7 +84,7 @@
 .public FUN_ov16_02117818
 .public g2DAdventureLogic
 .public unk_020A9C40
-.public gCameraController
+.public gCameraCtrl
 .public unk_0209077C
 .public unk_0209078C
 .public unk_0209079C

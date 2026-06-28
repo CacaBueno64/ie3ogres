@@ -15,8 +15,8 @@
 .public FUN_ov16_020f5f64
 .public unk_02099E8E
 .public unk_020A12C0
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPtmii
+.public _ZN8Graphics11SetupScreenEPvii
 .public GXS_LoadBG1Char
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti

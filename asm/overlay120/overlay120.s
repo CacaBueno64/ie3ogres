@@ -284,7 +284,7 @@ _021250A8:
 	add r2, r6, #1
 	mov r1, #0x30
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 _02125100:
 	mov r0, r8
@@ -307,7 +307,7 @@ _02125100:
 	add r2, r6, #1
 	mov r1, #0x30
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 _02125158:
 	ldrb r0, [r5, #0x1a]

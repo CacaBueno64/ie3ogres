@@ -352,7 +352,7 @@ _0212519C:
 	add r2, r6, #1
 	mov r1, #0x3c
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 _021251E4:
 	ldr r0, [r4, #0x68]
@@ -371,7 +371,7 @@ _021251E4:
 	add r2, r6, #1
 	mov r1, #0x3c
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 _0212522C:
 	ldrb r0, [r5, #0x1a]
@@ -381,7 +381,7 @@ _0212522C:
 	beq _02125250
 	add r1, r6, #1
 	mov r2, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r6, r0
 _02125250:
 	ldr r0, [r4, #0xa0]
@@ -422,7 +422,7 @@ _02125250:
 	add r2, r6, #1
 	mov r1, #0x58
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 _021252F0:
 	ldr r0, [r4, #0x40]
@@ -437,7 +437,7 @@ _021252F0:
 	add r2, r6, #1
 	mov r1, #0x58
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 _02125324:
 	bl _ZN8Graphics16LoadBGPaletteSubEv
 	b _02125898

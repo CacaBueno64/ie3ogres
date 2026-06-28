@@ -34,7 +34,7 @@
 .public FUN_ov16_020f5a58
 .public FUN_ov1_020dc13c
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public FUN_ov16_020f2ea8
 .public _ZN8Graphics16LoadBGPaletteSubEv

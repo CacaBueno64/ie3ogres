@@ -4,11 +4,12 @@
 
 #include "cnvdat.h"
 
-class UnkClass_020A0640 {
-    public:
-        /* 0x020630e8 */ void loadPassData(SRecordPass *recordPass);
-        /* 0x02063248 */ void getPassData(st_save_pass_short *savePassShort);
-    
+class UnkClass_020A0640
+{
+public:
+    /* 0x020630e8 */ void loadPassData(SRecordPass *recordPass);
+    /* 0x02063248 */ void getPassData(st_save_pass_short *savePassShort);
+
     u32 unk0;
     u32 unk4;
     u32 unk8;
@@ -36,7 +37,7 @@ class UnkClass_020A0640 {
     u8 unk86;
     u8 unk87;
     u8 unk88;
-    u8 superLinkNumber; //0: ie2, 1: ie3
+    u8 superLinkNumber; // 0: ie2, 1: ie3
     u8 unk8A;
     u8 unk8B;
     u8 unk8C;

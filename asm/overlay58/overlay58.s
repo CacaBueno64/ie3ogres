@@ -593,7 +593,7 @@ FUN_ov58_0211a6c0: ; 0x0211A6C0
 	ldr r0, [r1]
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r3, #0
 	mov r1, r0
 	str r3, [sp, #0x14]
@@ -659,7 +659,7 @@ FUN_ov58_0211a7a4: ; 0x0211A7A4
 	mov r1, #1
 	ldr r0, [r2]
 	mov r2, r1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r1, #0
 	str r1, [sp, #0x14]
 	ldr r12, [r4, #0x18]
@@ -755,7 +755,7 @@ FUN_ov58_0211a8e0: ; 0x0211A8E0
 	mov r7, r3
 	mov r11, #0
 	mov r6, #0x64
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	add r2, r10, r9, lsl #2
 	add r1, r10, r8, lsl #2
 	str r0, [r2, #0x94]
@@ -765,13 +765,13 @@ FUN_ov58_0211a8e0: ; 0x0211A8E0
 	ldr r0, [r4]
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	str r11, [sp]
 	ldr r0, [r4]
 	mov r1, r8
 	mov r2, r5
 	mov r3, r7
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [sp, #0x34]
 	ldr r3, [sp, #0x30]
 	mov r0, r0, lsl #0x10
@@ -782,20 +782,20 @@ FUN_ov58_0211a8e0: ; 0x0211A8E0
 	mov r1, r8
 	mov r2, r5
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [sp, #0x3c]
 	ldr r0, [r4]
 	mov r3, r3, lsl #0x10
 	mov r1, r8
 	mov r2, r5
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	str r5, [sp]
 	ldr r0, [r4]
 	mov r1, r8
 	mov r2, r5
 	mov r3, #2
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldr r2, [sp, #0x38]
 	stmia sp, {r5, r6}
 	ldr r0, _0211AA64 ; =gSprButtonCtrl
@@ -856,14 +856,14 @@ FUN_ov58_0211aa68: ; 0x0211AA68
 	and r3, r3, #0xff
 	ldr r0, [r6]
 	mov r5, r1
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r6]
 	ldr r2, [r4]
 	ldr r3, [sp, #0x18]
 	mov r1, r5
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [sp, #0x20]
 	ldr r3, [sp, #0x1c]
 	mov r0, r0, lsl #0x10
@@ -874,21 +874,21 @@ FUN_ov58_0211aa68: ; 0x0211AA68
 	ldr r2, [r4]
 	mov r1, r5
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [sp, #0x24]
 	ldr r0, [r6]
 	mov r3, r3, lsl #0x10
 	ldr r2, [r4]
 	mov r1, r5
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	ldrb r0, [sp, #0x28]
 	mov r1, r5
 	mov r3, #2
 	str r0, [sp]
 	ldr r0, [r6]
 	ldr r2, [r4]
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211AB24: .word g3DPlaneCtrl
@@ -910,7 +910,7 @@ FUN_ov58_0211ab28: ; 0x0211AB28
 	bl MI_CpuFill8
 	ldr r0, _0211AB68 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
+	bl _ZN12C3DPlaneCtrl7acquireEv
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211AB68: .word g3DPlaneCtrl
 	arm_func_end FUN_ov58_0211ab28
@@ -929,7 +929,7 @@ _0211AB84:
 	cmp r1, #0
 	beq _0211ABA4
 	ldr r0, [r6]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x94]
 _0211ABA4:
@@ -957,7 +957,7 @@ _0211ABE4:
 	blt _0211ABC0
 	ldr r0, _0211ABFC ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211ABFC: .word g3DPlaneCtrl
 	arm_func_end FUN_ov58_0211ab6c
@@ -1420,11 +1420,11 @@ _0211B220:
 	orr r2, r2, r3, lsl #10
 	mov r2, r2, lsl #0x10
 	ldr r0, [r0]
-	ldr r12, _0211B248 ; = FUN_ov16_02114204
+	ldr r12, _0211B248 ; = _ZN12C3DPlaneCtrl12setColorMaskEit
 	mov r2, r2, lsr #0x10
 	bx r12
 _0211B244: .word g3DPlaneCtrl
-_0211B248: .word FUN_ov16_02114204
+_0211B248: .word _ZN12C3DPlaneCtrl12setColorMaskEit
 	arm_func_end FUN_ov58_0211b1d8
 
 	arm_func_start FUN_ov58_0211b24c
@@ -1432,11 +1432,11 @@ FUN_ov58_0211b24c: ; 0x0211B24C
 	ldr r0, _0211B260 ; =g3DPlaneCtrl
 	ldr r2, _0211B264 ; =0x00007FFF
 	ldr r0, [r0]
-	ldr r12, _0211B268 ; = FUN_ov16_02114204
+	ldr r12, _0211B268 ; = _ZN12C3DPlaneCtrl12setColorMaskEit
 	bx r12
 _0211B260: .word g3DPlaneCtrl
 _0211B264: .word 0x00007FFF
-_0211B268: .word FUN_ov16_02114204
+_0211B268: .word _ZN12C3DPlaneCtrl12setColorMaskEit
 	arm_func_end FUN_ov58_0211b24c
 
 	arm_func_start FUN_ov58_0211b26c

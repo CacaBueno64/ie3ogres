@@ -9,7 +9,7 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public OS_Sleep
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GXS_LoadBG0Char
 .public GXS_LoadBG0Scr

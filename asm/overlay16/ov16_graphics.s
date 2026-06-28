@@ -862,8 +862,8 @@ _ZN8Graphics22IsScreenBrightAdjustedE12EngineSelect: ; 0x020F1844
 _020F1864: .word gScreenFades
 	arm_func_end _ZN8Graphics22IsScreenBrightAdjustedE12EngineSelect
 
-	arm_func_start _ZN8Graphics20AdjustTilemapIndicesEPtmii
-_ZN8Graphics20AdjustTilemapIndicesEPtmii: ; 0x020F1868
+	arm_func_start _ZN8Graphics11SetupScreenEPtmii
+_ZN8Graphics11SetupScreenEPtmii: ; 0x020F1868
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, #0
 	cmp r0, #0
@@ -898,10 +898,10 @@ _020F18D4:
 	bl DC_FlushRange
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	arm_func_end _ZN8Graphics11SetupScreenEPtmii
 
-	arm_func_start _ZN8Graphics12SetupTilemapEPvii
-_ZN8Graphics12SetupTilemapEPvii: ; 0x020F18E8
+	arm_func_start _ZN8Graphics11SetupScreenEPvii
+_ZN8Graphics11SetupScreenEPvii: ; 0x020F18E8
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	cmp r0, #0
@@ -913,9 +913,9 @@ _ZN8Graphics12SetupTilemapEPvii: ; 0x020F18E8
 	ldr r12, [r0, #0xc]
 	mov r2, lr
 	add r0, r0, r12
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldmfd sp!, {r3, pc}
-	arm_func_end _ZN8Graphics12SetupTilemapEPvii
+	arm_func_end _ZN8Graphics11SetupScreenEPvii
 
 	arm_func_start _ZN8Graphics10ScreenCopyEiiiiPtS0_
 _ZN8Graphics10ScreenCopyEiiiiPtS0_: ; 0x020F191C
@@ -1693,11 +1693,11 @@ FUN_ov16_020f2304: ; 0x020F2304
 	mov r6, r0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
-	bl FUN_ov16_02111438
+	bl _ZN12C3DPlaneCtrl11getTexWidthEi
 	mov r7, r0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
-	bl FUN_ov16_02111458
+	bl _ZN12C3DPlaneCtrl12getTexHeightEi
 	mov r8, r0
 	mov r9, #0
 	ldr r0, [r5]

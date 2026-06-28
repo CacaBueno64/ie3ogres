@@ -679,7 +679,7 @@ FUN_ov111_021255dc: ; 0x021255DC
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _0212561C:
 	mov r0, r2
@@ -726,7 +726,7 @@ FUN_ov111_02125674: ; 0x02125674
 	ldr r1, [r5]
 	mov r0, r8
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r5]
 	mov r5, #1
 	ldr r1, [r6, r7]
@@ -781,7 +781,7 @@ FUN_ov111_0212572c: ; 0x0212572C
 	ldr r1, [r8]
 	mov r0, r6
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r8]
 	ldr r1, [r4, r5]
 	ldr r2, [r7]
@@ -848,7 +848,7 @@ FUN_ov111_02125808: ; 0x02125808
 	mov r2, r6
 	mov r3, r5
 	add r0, r7, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r7
 	mov r1, r5
 	mov r2, r5

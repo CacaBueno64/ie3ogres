@@ -15,10 +15,10 @@
 .public FUN_ov16_020f5da0
 .public gBgMenuManager
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public FUN_ov1_020dc13c
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public MIi_CpuCopyFast
 .public G2S_GetBG1CharPtr

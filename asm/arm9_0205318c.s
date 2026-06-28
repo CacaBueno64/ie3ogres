@@ -583,8 +583,8 @@ _02053950:
 _0205395C: .word unk_0208BFB8
 	arm_func_end FUN_02053914
 
-	arm_func_start FUN_02053960
-FUN_02053960: ; 0x02053960
+	arm_func_start PAC_GetOffset
+PAC_GetOffset: ; 0x02053960
 	cmp r0, #0
 	moveq r0, #0
 	bxeq lr
@@ -600,10 +600,10 @@ _02053988:
 	add r0, r0, r1, lsl #3
 	ldr r0, [r0, #4]
 	bx lr
-	arm_func_end FUN_02053960
+	arm_func_end PAC_GetOffset
 
-	arm_func_start FUN_02053994
-FUN_02053994: ; 0x02053994
+	arm_func_start PAC_GetSize
+PAC_GetSize: ; 0x02053994
 	cmp r0, #0
 	moveq r0, #0
 	bxeq lr
@@ -619,18 +619,18 @@ _020539BC:
 	add r0, r0, r1, lsl #3
 	ldr r0, [r0, #8]
 	bx lr
-	arm_func_end FUN_02053994
+	arm_func_end PAC_GetSize
 
-	arm_func_start FUN_020539c8
-FUN_020539c8: ; 0x020539C8
+	arm_func_start PAC_GetPtr
+PAC_GetPtr: ; 0x020539C8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_02053960
+	bl PAC_GetOffset
 	cmp r0, #0
 	moveq r0, #0
 	addne r0, r4, r0
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_020539c8
+	arm_func_end PAC_GetPtr
 
 	arm_func_start FUN_020539e4
 FUN_020539e4: ; 0x020539E4
@@ -641,21 +641,21 @@ FUN_020539e4: ; 0x020539E4
 	mov r4, r3
 	beq _02053A08
 	mov r1, #0
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r0, [r6]
 _02053A08:
 	cmp r5, #0
 	beq _02053A20
 	mov r0, r7
 	mov r1, #0
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	str r0, [r5]
 _02053A20:
 	cmp r4, #0
 	beq _02053A38
 	mov r0, r7
 	mov r1, #1
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r0, [r4]
 _02053A38:
 	ldr r0, [sp, #0x18]
@@ -663,7 +663,7 @@ _02053A38:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, r7
 	mov r1, #1
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldr r1, [sp, #0x18]
 	str r0, [r1]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}

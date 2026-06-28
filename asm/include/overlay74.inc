@@ -17,13 +17,13 @@
 .public g3DPlaneCtrl
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_02058ee0
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2_GetBG3CharPtr
 .public MIi_CpuClearFast
 .public DC_FlushRange
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
@@ -44,7 +44,7 @@
 .public FUN_ov16_020f6c4c
 .public FUN_ov16_020f6c20
 .public FUN_ov16_020f2f7c
-.public FUN_ov16_021123b4
+.public _ZN12C3DPlaneCtrl7acquireEv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
 .public GX_SetGraphicsMode
@@ -64,7 +64,7 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_020465fc
 .public FUN_ov16_020f2fe4
-.public FUN_ov16_021123c4
+.public _ZN12C3DPlaneCtrl7releaseEv
 .public gWirelessUtil
 .public FUN_ov16_020f60f8
 .public FUN_ov4_020bf4ac
@@ -73,7 +73,7 @@
 .public _ZN14CScreenManager13fadeMainBlackEv
 .public FUN_ov131_021421f4
 .public unk_02099F44
-.public FUN_ov16_021128c4
+.public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_ov16_020f5c34
 .public _ZdlPv
 .public FX_Sqrt

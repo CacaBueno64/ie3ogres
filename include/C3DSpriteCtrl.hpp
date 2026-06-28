@@ -1,7 +1,7 @@
 #pragma once
 
-#include <nitro/types.h>
 #include <nitro/fx/fx.h>
+#include <nitro/types.h>
 
 #include "C3DSprFile.hpp"
 
@@ -55,13 +55,14 @@ typedef struct Sprite {
     Sprite *next;
 } Sprite;
 
-class C3DSpriteCtrl {
-    public:
-        virtual BOOL FUN_ov16_02116834(void);
-        virtual BOOL FUN_ov16_02116848(void);
+class C3DSpriteCtrl
+{
+public:
+    virtual BOOL FUN_ov16_02116834(void);
+    virtual BOOL FUN_ov16_02116848(void);
 
-        /* ov16 0x0211652c */ BOOL init(int texCount, int billboardCount);
-    
+    /* ov16 0x0211652c */ BOOL init(int texCount, int billboardCount);
+
     C3DSprFile sprFile;
     Sprite *list;
     s32 nSprites;

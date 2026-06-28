@@ -1,10 +1,13 @@
 #pragma once
 
+// clang-format off
 #include <nitro/spi/ARM9/tp.h>  // for TPData
 #include <nitro/types.h>        // for BOOL, u16, u32, u8
+
 #include "CScreenManager.hpp"   // for CScreenManager
 #include "CommonScreen.hpp"     // for CommonMainScreen, CommonSubScreen
 #include "archive.hpp"          // for SFileData
+// clang-format on
 
 typedef struct {
     char name[32];
@@ -17,75 +20,79 @@ typedef struct {
     BOOL mainFinished;
 } SEndrollScreenShared;
 
-class CMainEndrollScreenInit : public CommonMainScreen {
-    public:
-        CMainEndrollScreenInit(CScreenManager *manager) : manager(manager) { }
-        virtual ~CMainEndrollScreenInit() { }
-        /* ov6 0x020bcec0 */ virtual void updateKeys(u16 pressed, u16 held);
-        /* ov6 0x020bcefc */ virtual void updateTP(TPData *tp);
-        /* ov6 0x020bd25c */ virtual void init(void);
-        /* ov6 0x020bd2bc */ virtual void update(BOOL param1);
-        /* ov6 0x020bd714 */ virtual void updateLate(void);
-        /* ov6 0x020bd718 */ virtual void close(void);
+class CMainEndrollScreenInit : public CommonMainScreen
+{
+public:
+    CMainEndrollScreenInit(CScreenManager *manager) : manager(manager) {}
+    virtual ~CMainEndrollScreenInit() {}
+    /* ov6 0x020bcec0 */ virtual void updateKeys(u16 pressed, u16 held);
+    /* ov6 0x020bcefc */ virtual void updateTP(TPData *tp);
+    /* ov6 0x020bd25c */ virtual void init(void);
+    /* ov6 0x020bd2bc */ virtual void update(BOOL param1);
+    /* ov6 0x020bd714 */ virtual void updateLate(void);
+    /* ov6 0x020bd718 */ virtual void close(void);
 
-    private:
-        static const int CREDIT_IMAGE_COUNT = 38;
+private:
+    static const int CREDIT_IMAGE_COUNT = 38;
 
-        typedef enum CreditBG {
-            CREDIT_BG_A,
-            CREDIT_BG_B
-        } CreditBG;
-        
-        /* ov6 0x020bcf40 */ void loadFiles(void);
-        /* ov6 0x020bcfe4 */ void freeFile(int idx);
-        /* ov6 0x020bd028 */ void freeFiles(void);
-        /* ov6 0x020bd050 */ void displayCredits(int idx, CreditBG bg);
-        /* ov6 0x020bd13c */ void returnToOverworld(void);
-        /* ov6 0x020bd154 */ void returnToTitle(void);
-        BOOL FUN_ov6_020bd20c(void);
+    typedef enum CreditBG {
+        CREDIT_BG_A,
+        CREDIT_BG_B
+    } CreditBG;
 
-        inline void displayNextCredits(int *idx) {
-            CreditBG bg = (*idx - 1) % 2 ? CREDIT_BG_B : CREDIT_BG_A;
-            this->displayCredits(*idx++, bg);
-        }
+    /* ov6 0x020bcf40 */ void loadFiles(void);
+    /* ov6 0x020bcfe4 */ void freeFile(int idx);
+    /* ov6 0x020bd028 */ void freeFiles(void);
+    /* ov6 0x020bd050 */ void displayCredits(int idx, CreditBG bg);
+    /* ov6 0x020bd13c */ void returnToOverworld(void);
+    /* ov6 0x020bd154 */ void returnToTitle(void);
+    BOOL FUN_ov6_020bd20c(void);
 
-        SFileData creditsImages[1 + CREDIT_IMAGE_COUNT];
-        enum State {
-            STATE_INIT,
-            STATE_DUMMY_1,
-            STATE_CREDITS_START,
-            STATE_CREDITS_SCROLL,
-            STATE_PLAY_MUSIC,
-            STATE_5,
-            STATE_6,
-            STATE_FIN,
-            STATE_8,
-            STATE_9,
-        } state;
-        int vOffsetA;
-        int vOffsetB;
-        int creditsIdx;
-        u32 unk1E8;
-        u8 unk1EC;
-        BOOL unk1F0;
-        u8 unk1F4;
-        CScreenManager *manager;
-        SEndrollScreenShared shared;
+    inline void displayNextCredits(int *idx)
+    {
+        CreditBG bg = (*idx - 1) % 2 ? CREDIT_BG_B : CREDIT_BG_A;
+        this->displayCredits(*idx++, bg);
+    }
+
+    SFileData creditsImages[1 + CREDIT_IMAGE_COUNT];
+    enum State {
+        STATE_INIT,
+        STATE_DUMMY_1,
+        STATE_CREDITS_START,
+        STATE_CREDITS_SCROLL,
+        STATE_PLAY_MUSIC,
+        STATE_5,
+        STATE_6,
+        STATE_FIN,
+        STATE_8,
+        STATE_9,
+    } state;
+    int vOffsetA;
+    int vOffsetB;
+    int creditsIdx;
+    u32 unk1E8;
+    u8 unk1EC;
+    BOOL unk1F0;
+    u8 unk1F4;
+    CScreenManager *manager;
+    SEndrollScreenShared shared;
 };
 
-class CSubEndrollScreenInit : public CommonSubScreen {
-    public:
-        CSubEndrollScreenInit(CScreenManager *manager) : manager(manager) { }
-        virtual ~CSubEndrollScreenInit() { }
-        /* ov6 0x020bdc78 */ virtual void updateKeys(u16 pressed, u16 held) { }
-        /* ov6 0x020bdc74 */ virtual void updateTP(TPData *tp) { }
-        /* ov6 0x020bda40 */ virtual void init(void);
-        /* ov6 0x020bdac4 */ virtual void update(BOOL param1);
-        /* ov6 0x020bdc44 */ virtual void updateLate(void);
-        /* ov6 0x020bdc48 */ virtual void close(void);
-        /* ov6 0x020bdaa8 */ virtual int transfer(void *arg);
-        /* ov6 0x020bd8f4 */ virtual int signal(int arg);
-    private:
+class CSubEndrollScreenInit : public CommonSubScreen
+{
+public:
+    CSubEndrollScreenInit(CScreenManager *manager) : manager(manager) {}
+    virtual ~CSubEndrollScreenInit() {}
+    /* ov6 0x020bdc78 */ virtual void updateKeys(u16 pressed, u16 held) {}
+    /* ov6 0x020bdc74 */ virtual void updateTP(TPData *tp) {}
+    /* ov6 0x020bda40 */ virtual void init(void);
+    /* ov6 0x020bdac4 */ virtual void update(BOOL param1);
+    /* ov6 0x020bdc44 */ virtual void updateLate(void);
+    /* ov6 0x020bdc48 */ virtual void close(void);
+    /* ov6 0x020bdaa8 */ virtual int transfer(void *arg);
+    /* ov6 0x020bd8f4 */ virtual int signal(int arg);
+
+private:
     static const int CREDIT_IMAGE_COUNT = 40;
     static const int CREDIT_IMAGE_FIN = 41;
 
@@ -114,23 +121,25 @@ class CSubEndrollScreenInit : public CommonSubScreen {
     SEndrollScreenShared *shared;
 };
 
-class CEndrollScreenManager : public CScreenManager {
-    public:
-        CEndrollScreenManager() : mainScreenInit(this), subScreenInit(this) { }
-        virtual ~CEndrollScreenManager() { }
-        /* ov6 0x020bcb40 */ virtual void init(void);
-        /* ov6 0x020bcdf8 */ virtual void startGraphics(u32 arg);
-        /* ov6 0x020bce3c */ virtual void endGraphics(u32 arg);
-        /* ov6 0x020bcc70 */ virtual void close(void);
-        /* ov6 0x020bccc0 */ virtual void updateScene(void);
-    private:
+class CEndrollScreenManager : public CScreenManager
+{
+public:
+    CEndrollScreenManager() : mainScreenInit(this), subScreenInit(this) {}
+    virtual ~CEndrollScreenManager() {}
+    /* ov6 0x020bcb40 */ virtual void init(void);
+    /* ov6 0x020bcdf8 */ virtual void startGraphics(u32 arg);
+    /* ov6 0x020bce3c */ virtual void endGraphics(u32 arg);
+    /* ov6 0x020bcc70 */ virtual void close(void);
+    /* ov6 0x020bccc0 */ virtual void updateScene(void);
+
+private:
     CMainEndrollScreenInit mainScreenInit;
     CSubEndrollScreenInit subScreenInit;
 };
 
 extern "C" {
-    extern void FUN_ov16_020f3f60(int);
-    extern void FUN_ov16_020f4894(int);
-    extern void FUN_ov16_020f47fc(void);
-    extern void FUN_ov16_020f51a8(void);
+extern void FUN_ov16_020f3f60(int);
+extern void FUN_ov16_020f4894(int);
+extern void FUN_ov16_020f47fc(void);
+extern void FUN_ov16_020f51a8(void);
 }

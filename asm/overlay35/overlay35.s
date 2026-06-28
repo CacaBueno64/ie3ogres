@@ -632,7 +632,7 @@ FUN_ov35_0211a6d8: ; 0x0211A6D8
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A730
@@ -711,7 +711,7 @@ FUN_ov35_0211a750: ; 0x0211A750
 	add r2, r3, #1
 	mov r3, #0
 	str r4, [r5, #0x60]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r1, [r5, #0x64]
 	ldrh r0, [r5, #0x66]
 	ldr r2, [sp, #8]

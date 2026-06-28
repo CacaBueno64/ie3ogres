@@ -7,7 +7,7 @@
 .public FUN_ov1_020dc020
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics17LoadBGPaletteMainEv
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_020f5ff4
@@ -38,7 +38,7 @@
 .public FUN_0205ee28
 .public FUN_0205a504
 .public FUN_0205be20
-.public FUN_ov16_0211234c
+.public _ZN12C3DPlaneCtrl8finalizeEv
 .public FUN_ov16_020f672c
 .public _ZN8Graphics16FadeScreensBlackEl
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType

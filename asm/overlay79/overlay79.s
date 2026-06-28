@@ -120,7 +120,7 @@ _0211A054:
 	add r2, r5, #1
 	mov r3, #0
 	str r4, [r6, #0x34]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r1, [r6, #0x38]
 	ldrh r0, [r6, #0x3a]
 	ldr r2, [sp, #4]
@@ -570,7 +570,7 @@ _0211A68C:
 	bl FUN_0205be20
 	ldr r0, _0211A784 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_0211234c
+	bl _ZN12C3DPlaneCtrl8finalizeEv
 	mov r0, r4
 	bl FUN_ov79_0211a0e8
 	mov r0, r4

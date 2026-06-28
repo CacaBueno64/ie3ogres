@@ -40,7 +40,7 @@
 .public gAllocator
 .public _ZN7Archive10DeallocateEP9SFileData
 .public G2_GetBG3CharPtr
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GX_LoadBG3Char
 .public G2_GetBG1CharPtr
@@ -73,7 +73,7 @@
 .public _ZN8Graphics12ClearBGXMainEi10CharFormat
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZdlPv
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_02074854

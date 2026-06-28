@@ -625,7 +625,7 @@ FUN_ov74_0211a6d0: ; 0x0211A6D0
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A728
@@ -678,7 +678,7 @@ FUN_ov74_0211a748: ; 0x0211A748
 	mov r2, #1
 	mov r3, #0
 	str r4, [r5, #0xb0]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r1, [r5, #0xb4]
 	ldrh r0, [r5, #0xb6]
 	ldr r2, [sp, #8]
@@ -1213,7 +1213,7 @@ _0211AF88:
 	ldr r0, _0211B0F8 ; =g3DPlaneCtrl
 	str r5, [r6, #0xfc]
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
+	bl _ZN12C3DPlaneCtrl7acquireEv
 	mvn r2, #0
 	mov r0, #0xbc
 	b _0211B00C
@@ -1510,7 +1510,7 @@ FUN_ov74_0211b398: ; 0x0211B398
 	bl FUN_ov16_020f2fe4
 	ldr r0, _0211B410 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	ldrb r0, [r4, #0x94c]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -1939,7 +1939,7 @@ _0211B994:
 	cmp r1, #0
 	beq _0211B9B4
 	ldr r0, [r5]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r4, r7, lsl #2
 	str r6, [r0, #0x100]
 _0211B9B4:

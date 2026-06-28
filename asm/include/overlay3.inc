@@ -58,7 +58,7 @@
 .public GX_LoadBG3Char
 .public G2_GetBG1CharPtr
 .public GX_LoadBG1Scr
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GX_LoadBG1Char
 .public G2_GetBG2CharPtr

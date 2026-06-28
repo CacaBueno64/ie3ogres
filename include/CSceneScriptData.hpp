@@ -59,21 +59,22 @@ typedef enum {
     SCRIPT_TYPE_HELP,
 } ScriptType;
 
-class CSceneScriptData {
-    public:
-        /* 0x0202fd38 */ CSceneScriptData();
-        /* 0x0202fd44 */ ~CSceneScriptData();
-        /* 0x0202fd48 */ BOOL initFile(void *data, const char *identifier);
-        /* 0x0202ff34 */ ScriptInstruction *next(ScriptInstruction *cur);
-        /* 0x0202ff60 */ void *findInstructionID(u16 id);
+class CSceneScriptData
+{
+public:
+    /* 0x0202fd38 */ CSceneScriptData();
+    /* 0x0202fd44 */ ~CSceneScriptData();
+    /* 0x0202fd48 */ BOOL initFile(void *data, const char *identifier);
+    /* 0x0202ff34 */ ScriptInstruction *next(ScriptInstruction *cur);
+    /* 0x0202ff60 */ void *findInstructionID(u16 id);
 
-        static inline u32 *getArgumentsPtr(ScriptInstruction *inst) {
-            return reinterpret_cast<u32 *>(
-                reinterpret_cast<u32>(inst) + (sizeof(u32) * MATH_DIVUP(inst->argsCount, (int)sizeof(*inst)))
-            );
-        }
+    static inline u32 *getArgumentsPtr(ScriptInstruction *inst)
+    {
+        return reinterpret_cast<u32 *>(
+            reinterpret_cast<u32>(inst) + (sizeof(u32) * MATH_DIVUP(inst->argsCount, (int)sizeof(*inst))));
+    }
 
-    private:
+private:
     ScriptHeader3 *header;
     ScriptInstruction *instStart;
     int instSize;

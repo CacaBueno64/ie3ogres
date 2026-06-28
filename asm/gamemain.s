@@ -120,45 +120,45 @@ _0202A7A4: .word 0x04001000
 	arm_func_start FUN_0202a7a8
 FUN_0202a7a8: ; 0x0202A7A8
 	stmfd sp!, {r3, r4, r5, lr}
-	ldr r0, _0202A844 ; =gCameraController
+	ldr r0, _0202A844 ; =gCameraCtrl
 	ldr r0, [r0]
-	bl _ZN16CameraController4initEv
+	bl _ZN11CCameraCtrl4initEv
 	ldr r5, _0202A848 ; =gConfig
 	ldr r1, _0202A84C ; =0x0208F978
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	ldr r4, _0202A850 ; =0x0208F6F0
 	ldr r1, _0202A854 ; =0x0208F988
 	str r0, [r4]
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #4]
 	ldr r1, _0202A858 ; =0x0208F99C
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0xc]
 	ldr r1, _0202A85C ; =0x0208F9B0
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0x10]
 	ldr r1, _0202A860 ; =0x0208F9C4
 	mov r0, r5
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0x28]
 	mov r0, r5
 	ldr r1, _0202A864 ; =0x0208F9D4
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0x2c]
 	mov r0, r5
 	ldr r1, _0202A868 ; =0x0208F9E8
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0x30]
 	mov r0, r5
 	ldr r1, _0202A86C ; =0x0208F9FC
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0x34]
 	ldmfd sp!, {r3, r4, r5, pc}
-_0202A844: .word gCameraController
+_0202A844: .word gCameraCtrl
 _0202A848: .word gConfig
 _0202A84C: .word unk_0208F978
 _0202A850: .word unk_0208F6F0
@@ -549,7 +549,7 @@ _0202AD60: .word unk_020B5B08
 	arm_func_start FUN_0202ad64
 FUN_0202ad64: ; 0x0202AD64
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	ldr r4, _0202AE18 ; =gCameraController
+	ldr r4, _0202AE18 ; =gCameraCtrl
 	ldr r1, _0202AE1C ; =gDeltaTime
 	ldr r0, [r4]
 	ldr r1, [r1]
@@ -575,7 +575,7 @@ FUN_0202ad64: ; 0x0202AD64
 	bl FUN_0205c060
 	ldr r5, _0202AE34 ; =g3DPlaneCtrl
 	ldr r0, [r5]
-	bl FUN_ov16_02112714
+	bl _ZN12C3DPlaneCtrl13drawMidgroundEv
 	bl NNS_G3dGeFlushBuffer
 	ldr r0, [r4]
 	bl FUN_ov16_020f7908
@@ -585,7 +585,7 @@ FUN_0202ad64: ; 0x0202AD64
 	mov r1, #1
 	bl FUN_0205a73c
 	ldr r0, [r5]
-	bl FUN_ov16_02112704
+	bl _ZN12C3DPlaneCtrl14drawForegroundEv
 	ldr r0, [r6]
 	bl FUN_0205c150
 	ldr r0, [r9]
@@ -593,7 +593,7 @@ FUN_0202ad64: ; 0x0202AD64
 	ldr r0, [r4]
 	bl FUN_ov16_020f792c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_0202AE18: .word gCameraController
+_0202AE18: .word gCameraCtrl
 _0202AE1C: .word gDeltaTime
 _0202AE20: .word g3DSpriteCtrl
 _0202AE24: .word g3DGameMap

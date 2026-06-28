@@ -1,22 +1,34 @@
+// clang-format off
+#include "CConfig.hpp"
 
-#include "config.hpp"
-#include <nitro/std/string.h> // for STD_GetStringLength
-#include <cstdlib>            // for atoi
-#include <cstring>            // for strlen, strncpy
-#include "filesystem.hpp"     // fo CalcCRC32, Deallocate, AllocateClear, ReadFile
+#include <cstdlib>             // for atoi
+#include <cstring>             // for strlen, strncpy
 
-Config::Config() { this->clear(); }
+#include <nitro/std/string.h>  // for STD_GetStringLength
 
-Config::~Config() {
+#include "filesystem.hpp"      // fo CalcCRC32, Deallocate, AllocateClear, ReadFile
+// clang-format on
+
+CConfig::CConfig()
+{
+    this->clear();
+}
+
+CConfig::~CConfig()
+{
     if (this->paramEntry != NULL) {
         FileSystem::Deallocate(this->paramEntry);
     }
     this->paramEntry = NULL;
 }
 
-void Config::clear(void) { this->paramEntry = NULL; }
+void CConfig::clear(void)
+{
+    this->paramEntry = NULL;
+}
 
-BOOL Config::openFile(const char *filepath) {
+BOOL CConfig::openFile(const char *filepath)
+{
     char *file = NULL;
     char *line_start;
     char *curr;
@@ -45,7 +57,8 @@ BOOL Config::openFile(const char *filepath) {
     return TRUE;
 }
 
-int Config::getParam(const char *str) {
+int CConfig::getParam(const char *str)
+{
     int idx = this->getParamIdx(str);
 
     if ((idx < 0) || (this->paramEntry == NULL)) {
@@ -57,7 +70,8 @@ int Config::getParam(const char *str) {
     return paramEntry->value;
 }
 
-void Config::init(void) {
+void CConfig::init(void)
+{
     if (this->paramEntry == NULL) {
         this->paramEntry = static_cast<ParamEntry *>(
             FileSystem::AllocateClear(sizeof(*this->paramEntry) * CONFIG_MAX_ENTRIES, -1));
@@ -65,7 +79,8 @@ void Config::init(void) {
     this->paramCount = 0;
 }
 
-int Config::getParamIdx(const char *str) {
+int CConfig::getParamIdx(const char *str)
+{
     ParamEntry *paramEntry = this->paramEntry;
 
     if (paramEntry == NULL) {
@@ -85,7 +100,8 @@ int Config::getParamIdx(const char *str) {
     return -1;
 }
 
-BOOL Config::readFileParam(const char *file, ParamEntry *param) {
+BOOL CConfig::readFileParam(const char *file, ParamEntry *param)
+{
 
     BOOL empty_file = TRUE;
     BOOL read_key = FALSE;

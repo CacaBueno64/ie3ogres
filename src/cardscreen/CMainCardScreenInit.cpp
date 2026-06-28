@@ -1,15 +1,21 @@
-#include "CCardScreenManager.hpp" // for CMainCardScreenInit, gBgMenuManager, FUN_ov16_020f5a58, FUN_ov16_020f5af0, FUN_ov16_020f5c34, FUN_ov16_020f672c, FUN_ov16_020f6a9c, UnkStruct_ov3_020bd084
-#include <nitro/gx/gx_bgcnt.h>    // for G2_GetBG1CharPtr, G2_GetBG2CharPtr, G2_GetBG3CharPtr
-#include <nitro/gx/gx_load.h>     // for GX_LoadBG1Char, GX_LoadBG1Scr, GX_LoadBG2Scr, GX_LoadBG3Char, GX_LoadBG3Scr
-#include <nitro/mi/memory.h>      // for MI_CpuClearFast, MI_CpuClear8
-#include <nitro/os/ARM9/cache.h>  // for DC_FlushRange
-#include <nitro/types.h>          // for u16
-#include <stddef.h>               // for NULL
-#include "archive.hpp"            // for ImagePAC, Close, Deallocate, RequestNewRead, TryFinalize
-#include "graphics.hpp"           // for gMainScreen0, gMainScreen1, gMainScreen2, AdjustTilemapIndices, LoadBGPaletteMain, LoadTempPaletteFromPac, gDebugFont, ENGINE_MAIN
-#include "init/arm9_init.hpp"     // IWYU pragma: keep
+// clang-format off
+#include "CCardScreenManager.hpp"  // for CMainCardScreenInit, gBgMenuManager, FUN_ov16_020f5a58, FUN_ov16_020f5af0, FUN_ov16_020f5c34, FUN_ov16_020f672c, FUN_ov16_020f6a9c, UnkStruct_ov3_020bd084
 
-void CMainCardScreenInit::initGraphics(void) {
+#include <cstddef>                 // for NULL
+
+#include <nitro/gx/gx_bgcnt.h>     // for G2_GetBG1CharPtr, G2_GetBG2CharPtr, G2_GetBG3CharPtr
+#include <nitro/gx/gx_load.h>      // for GX_LoadBG1Char, GX_LoadBG1Scr, GX_LoadBG2Scr, GX_LoadBG3Char, GX_LoadBG3Scr
+#include <nitro/mi/memory.h>       // for MI_CpuClearFast, MI_CpuClear8
+#include <nitro/os/ARM9/cache.h>   // for DC_FlushRange
+
+#include "archive.hpp"             // for Close, Deallocate, RequestNewRead, TryFinalize
+#include "graphics.hpp"            // for gMainScreen0, gMainScreen1, gMainScreen2, LoadBGPaletteMain, LoadTempPaletteFromPac, SetupScreen, ENGINE_MAIN, gDebugFont
+#include "pac.hpp"                 // for PAC_PSC_GetCharacterPtr, PAC_PSC_GetCharacterSize, PAC_PSC_GetScreenPtr, PAC_PSC_GetScreenSize
+#include "init/arm9_init.hpp"      // IWYU pragma: keep
+// clang-format on
+
+void CMainCardScreenInit::initGraphics(void)
+{
     MI_CpuClear8(&this->file, sizeof(this->file));
     Archive::RequestNewRead("/data_iz/pic2d/menu/sfdn_i09.pac_", &this->file);
     MI_CpuClearFast(&gMainScreen0, sizeof(gMainScreen0));
@@ -21,27 +27,31 @@ void CMainCardScreenInit::initGraphics(void) {
     this->state = 1;
 }
 
-void CMainCardScreenInit::deallocateFile(void) {
+void CMainCardScreenInit::deallocateFile(void)
+{
     Archive::Deallocate(&this->file);
 }
 
 #ifdef NONMATCHING
 // https://decomp.me/scratch/qUjbS
-void CMainCardScreenInit::displayGraphics(void) {
+void CMainCardScreenInit::displayGraphics(void)
+{
     MI_CpuClearFast(G2_GetBG3CharPtr(), 0x20);
     DC_FlushRange(G2_GetBG3CharPtr(), 0x20);
     GX_LoadBG3Scr(&gMainScreen0, 0, sizeof(gMainScreen0));
-    GX_LoadBG3Char(Archive::ImagePAC::GetCharacterPtr(gDebugFont.data), 0, Archive::ImagePAC::GetCharacterSize(gDebugFont.data));
+
+    void *font = gDebugFont.data;
+    GX_LoadBG3Char(PAC_PSC_GetCharacterPtr(font), 0, PAC_PSC_GetCharacterSize(font));
 
     MI_CpuClearFast(G2_GetBG1CharPtr(), 0x20);
     DC_FlushRange(G2_GetBG1CharPtr(), 0x20);
     GX_LoadBG1Scr(&gMainScreen1, 0, sizeof(gMainScreen1));
 
-    Archive::ImagePAC *img = static_cast<Archive::ImagePAC *>(this->file.data);
+    void *img = this->file.data;
     if (img != NULL) {
-        Graphics::AdjustTilemapIndices(static_cast<u16 *>(Archive::ImagePAC::GetScreenPtr(img)), Archive::ImagePAC::GetScreenSize(img), 1, 1);
+        Graphics::SetupScreen(PAC_PSC_GetScreenPtr(img), PAC_PSC_GetScreenSize(img), 1, 1);
         Graphics::LoadTempPaletteFromPac(img, ENGINE_MAIN, 1);
-        GX_LoadBG1Char(Archive::ImagePAC::GetCharacterPtr(img), 0x20, Archive::ImagePAC::GetCharacterSize(img));
+        GX_LoadBG1Char(PAC_PSC_GetCharacterPtr(img), 0x20, PAC_PSC_GetCharacterSize(img));
     }
 
     MI_CpuClearFast(G2_GetBG2CharPtr(), 0x20);
@@ -51,7 +61,6 @@ void CMainCardScreenInit::displayGraphics(void) {
     Graphics::LoadBGPaletteMain();
 }
 #else  // NONMATCHING
-
 
 // clang-format off
 asm void CMainCardScreenInit::displayGraphics(void) {
@@ -100,7 +109,7 @@ asm void CMainCardScreenInit::displayGraphics(void) {
 	mov r3, r6
 	add r0, r7, r0
 	add r2, r5, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
@@ -131,35 +140,37 @@ _020BD034:
 // clang-format on
 #endif // NONMATCHING
 
-void CMainCardScreenInit::FUN_ov3_020bd084(void) {
+void CMainCardScreenInit::FUN_ov3_020bd084(void)
+{
     UnkStruct_ov3_020bd084 stack;
-    Archive::ImagePAC *img = static_cast<Archive::ImagePAC *>(this->file.data);
+    void *img = this->file.data;
 
-    if (img != NULL) {
-        void *pScreen = Archive::ImagePAC::GetScreenPtr(img);
+    if (!img) return;
+    void *pScreen = PAC_PSC_GetScreenPtr(img);
 
-        stack.unk14 = 4;
-        stack.unk16 = 8;
-        stack.unk18 = 0x18;
-        stack.unk1A = 8;
-        stack.unk1C = 0;
-        stack.unk1E = 0;
-        stack.unk20 = 0;
-        stack.unk22 = 0;
-        stack.unk24 = 0;
-        stack.unk28 = pScreen;
+    stack.unk14 = 4;
+    stack.unk16 = 8;
+    stack.unk18 = 0x18;
+    stack.unk1A = 8;
+    stack.unk1C = 0;
+    stack.unk1E = 0;
+    stack.unk20 = 0;
+    stack.unk22 = 0;
+    stack.unk24 = 0;
+    stack.unk28 = pScreen;
 
-        FUN_ov16_020f5c34(&gBgMenuManager, 0, 1, 1, 1, &stack, 0, 0, 0);
-    }
+    FUN_ov16_020f5c34(&gBgMenuManager, 0, 1, 1, 1, &stack, 0, 0, 0);
 }
 
-void CMainCardScreenInit::init(void) {
+void CMainCardScreenInit::init(void)
+{
     this->state = 0;
     FUN_ov16_020f5a58(&gBgMenuManager);
     this->initGraphics();
 }
 
-void CMainCardScreenInit::update(int arg) {
+void CMainCardScreenInit::update(int arg)
+{
     switch (this->state) {
     case 1:
         if (Archive::TryFinalize(&this->file, 1)) {
@@ -176,7 +187,8 @@ void CMainCardScreenInit::update(int arg) {
     }
 }
 
-void CMainCardScreenInit::updateLate(void) {
+void CMainCardScreenInit::updateLate(void)
+{
     switch (this->state) {
     case 2:
         this->displayGraphics();
@@ -188,7 +200,8 @@ void CMainCardScreenInit::updateLate(void) {
     }
 }
 
-void CMainCardScreenInit::close(void) {
+void CMainCardScreenInit::close(void)
+{
     FUN_ov16_020f5af0(&gBgMenuManager, 0);
     Archive::Close(&this->file, 1);
     this->deallocateFile();

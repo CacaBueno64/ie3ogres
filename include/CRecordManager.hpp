@@ -2,8 +2,8 @@
 
 #include <nitro/types.h>
 
+#include "CCardCtrl.hpp"
 #include "cnvdat.h"
-#include "cardcontroller.hpp"
 
 typedef struct {
     u16 type_idx; /* 15: unk, 14: bitfield, 13: dummy, 12-0: type index  */
@@ -37,16 +37,17 @@ typedef struct {
     CNVDAT_Context ctxBC;
 } UnkStruct_020B5C60;
 
-class CRecordManager {
-    public:
-        /* 0x020617d8 */ s32 verifySave(void);
+class CRecordManager
+{
+public:
+    /* 0x020617d8 */ s32 verifySave(void);
 
-    private:
+private:
     SRecordInfo recordInfo;
     u32 version;
     SRecordWork *save;
     u32 unk48;
-    CardController cardController;
+    CCardCtrl CCardCtrl;
     u8 unk58[0x10];
     OSThread thread;
     char *stack;

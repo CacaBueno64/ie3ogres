@@ -1,8 +1,11 @@
 #pragma once
 
-#include <nitro/types.h>
+// clang-format off
+#include <nitro/os/common/thread.h>  // for OSMutex
+#include <nitro/types.h>             // for u32, s32
+// clang-format on
 
-class ResourceManager {
+class C3DVramMan {
     public:
         /* 0x02051690 */ void init(u32 nns_tex_size, u32 nns_pltt_size, int vramEntryCount);
         /* 0x02051778 */ void reset(void);
@@ -20,4 +23,4 @@ class ResourceManager {
     u32 unk38;
 };
 
-extern ResourceManager *gResourceManager;
+extern C3DVramMan *gResourceManager;

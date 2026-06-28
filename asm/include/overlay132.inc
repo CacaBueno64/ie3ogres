@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public _ZN10CAllocator8allocateEm
 .public _Znwm
 .public gConfig

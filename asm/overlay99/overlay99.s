@@ -93,7 +93,7 @@ FUN_ov99_02124dec: ; 0x02124DEC
 	ldr r1, [r7, #0x10]
 	mov r3, r11
 	add r0, r7, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r7
 	mov r1, r11
 	mov r2, r11
@@ -118,7 +118,7 @@ _02124E50:
 	mov r3, r9
 	add r0, r7, r0
 	add r2, r6, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r6, r0
 	mov r0, r7
 	mov r1, r11
@@ -159,7 +159,7 @@ _02124ED8:
 	mul r1, r2, r1
 	mov r1, r1, lsl #1
 	add r2, r6, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	str r4, [r7, #8]
 	ldrh r2, [r7, #0xc]
 	ldrh r1, [r7, #0xe]

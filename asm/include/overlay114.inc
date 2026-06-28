@@ -23,8 +23,8 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov1_020dc13c
 .public FUN_ov16_020f2ea8
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPtmii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public G2S_GetBG1CharPtr

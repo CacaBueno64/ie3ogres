@@ -24,16 +24,17 @@ typedef struct {
     u8 unk0[0x10];
 } C3DGameMap_10;
 
-class C3DGameMap : public C3DGameBase {
-    public:
-        /* 0x0205d104 */ C3DGameMap();
-        /* 0x0205ca78 */ virtual char *vFUN_00(int param1);
-        /* 0x0205cac8 */ virtual char *vFUN_04(int param1);
-        /* 0x0205cb18 */ virtual BOOL vFUN_08(char *param1, int *param2, int *param3);
-        /* 0x0205e280 */ virtual BOOL vFUN_10(void);
-        /* 0x0205d138 */ virtual ~C3DGameMap();
+class C3DGameMap : public C3DGameBase
+{
+public:
+    /* 0x0205d104 */ C3DGameMap();
+    /* 0x0205ca78 */ virtual char *vFUN_00(int param1);
+    /* 0x0205cac8 */ virtual char *vFUN_04(int param1);
+    /* 0x0205cb18 */ virtual BOOL vFUN_08(char *param1, int *param2, int *param3);
+    /* 0x0205e280 */ virtual BOOL vFUN_10(void);
+    /* 0x0205d138 */ virtual ~C3DGameMap();
 
-        /* 0x0205d180 */ BOOL init(int);
+    /* 0x0205d180 */ BOOL init(int);
 
     C3DGameMap_10 *unk10;
     ModelMap *modelMap;

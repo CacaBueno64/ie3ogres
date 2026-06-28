@@ -2062,7 +2062,7 @@ FUN_ov55_0211bb0c: ; 0x0211BB0C
 	mov r3, r10
 	add r0, r9, r0
 	mov r2, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r1, r6
@@ -2082,7 +2082,7 @@ _0211BB9C:
 	add r2, r7, #1
 	mov r1, #0x54
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 _0211BBBC:
 	ldr r0, [r4, #0x64]
@@ -2110,7 +2110,7 @@ _0211BBDC:
 	mov r1, r1, lsl #1
 	mov r3, #0
 	str r8, [r4, #0x98]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 _0211BC20:
 	bl G2_GetBG1CharPtr
 	mov r8, #0x20
@@ -2130,7 +2130,7 @@ _0211BC20:
 	mov r3, r5
 	add r0, r9, r0
 	mov r2, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r1, r6
@@ -2152,7 +2152,7 @@ _0211BC9C:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r5
@@ -2183,7 +2183,7 @@ _0211BCF0:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r5
@@ -2205,7 +2205,7 @@ _0211BD68:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r5
@@ -2227,7 +2227,7 @@ _0211BDBC:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r5
@@ -2250,7 +2250,7 @@ _0211BE10:
 	mov r3, r10
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r10
@@ -2273,7 +2273,7 @@ _0211BE68:
 	mov r3, r10
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r10
@@ -2295,7 +2295,7 @@ _0211BEC0:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r2, r5
@@ -2318,7 +2318,7 @@ _0211BF14:
 	mov r3, r9
 	add r0, r5, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r5
 	mov r2, r9
 	mov r1, #0
@@ -2342,7 +2342,7 @@ _0211BF60:
 	mov r2, r6
 	mov r3, r4
 	add r0, r5, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r6
@@ -3544,7 +3544,7 @@ FUN_ov55_0211d07c: ; 0x0211D07C
 	ldr r0, [r0, #0xa4]
 	add r1, r2, #1
 	mov r2, r3
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov55_0211d07c
 

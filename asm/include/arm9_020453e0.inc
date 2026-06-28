@@ -1,5 +1,5 @@
 .public MI_CpuFill8
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public _ZN11AudioPlayer12FUN_0202bfb8EiPcl
 .public gConfig
 .public unk_02090124

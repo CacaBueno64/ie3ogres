@@ -62,7 +62,7 @@
 .public FUN_ov1_020dc020
 .public FUN_ov16_020f068c
 .public FUN_ov16_020f2ea8
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG3Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
 .public GX_LoadBG2Scr

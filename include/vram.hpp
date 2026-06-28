@@ -4,14 +4,14 @@
 
 typedef struct {
     s32 size;
-    u32 key;
-    u8 type; // 1: texture, 2: palette
+    s32 key;
+    u8 type;
     u8 unk_9;
     u8 unk_a;
     u8 unk_b;
-} VramResource;
+} SVRAMResource;
 
 typedef struct {
-    VramResource res;
+    SVRAMResource res;
     s32 refCount;
-} SharedVramResource;
+} SSharedVRAMResource;

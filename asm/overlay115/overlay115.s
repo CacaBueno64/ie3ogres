@@ -189,7 +189,7 @@ _02124F48:
 	add r2, r11, #1
 	mul r1, r7, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r11, r0
 _02124F88:
 	add r6, r6, #1
@@ -919,7 +919,7 @@ _02125A0C:
 	mov r2, r7
 	mov r3, r5
 	str r11, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r0, r5, #2
 	mov r0, r0, lsl #0x10
 	mov r5, r0, asr #0x10
@@ -933,7 +933,7 @@ _02125A0C:
 	str r11, [sp]
 	mov r5, #1
 	mov r4, #0
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	ldrb r9, [r10, #0x11]
 	add r0, r8, #1
 	mov r8, #0x19
@@ -943,7 +943,7 @@ _02125A0C:
 	mov r2, r7
 	mov r3, r8
 	str r11, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	ldr r6, _02125AF8 ; =0x020A3D14
 _02125A88:
 	mov r0, r6
@@ -951,7 +951,7 @@ _02125A88:
 	mov r2, r4
 	mov r3, r8
 	str r5, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	sub r0, r8, #2
 	mov r0, r0, lsl #0x10
 	mov r8, r0, asr #0x10
@@ -962,7 +962,7 @@ _02125A88:
 	mov r2, r4
 	mov r3, #0xc
 	str r5, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	mov r1, #3
 	ldr r0, _02125AFC ; =0x020E9480
 	str r1, [r10, #0x14]
@@ -1170,7 +1170,7 @@ _02125DB8:
 	ldrb r1, [r10, #0x10]
 	ldr r0, _021260C4 ; =0x020A3D14
 	mov r7, r4
-	bl FUN_ov16_020f5a04
+	bl _ZN15CBgAnimeManager6updateEh
 	movs r6, r0
 	beq _02125E14
 	ldrsh r1, [r6, #2]
@@ -1193,7 +1193,7 @@ _02125DB8:
 _02125E14:
 	ldrb r1, [r10, #0x11]
 	ldr r0, _021260C4 ; =0x020A3D14
-	bl FUN_ov16_020f5a04
+	bl _ZN15CBgAnimeManager6updateEh
 	cmp r0, #0
 	beq _02126034
 	ldrsh r7, [r0]
@@ -1386,10 +1386,10 @@ FUN_ov115_021260c8: ; 0x021260C8
 	mov r0, r4
 	str r5, [r6, #0x14]
 	strb r5, [r6, #0x12]
-	bl FUN_ov16_020f591c
+	bl _ZN15CBgAnimeManager6createEv
 	strb r0, [r6, #0x10]
 	mov r0, r4
-	bl FUN_ov16_020f591c
+	bl _ZN15CBgAnimeManager6createEv
 	strb r0, [r6, #0x11]
 	mov r1, r5
 	add r0, r6, #0x18
