@@ -6,7 +6,7 @@ Using a terminal or git client, clone this repository to your local device. All 
 
 ### 1. Install Twl SDK
 
-The game uses the version 5.4 of the [TwlSDK](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_4-20091225a.zip), plus the [patch1](https://archive.org/download/nintendosdk_202505/Nintendo%20DS%20and%20DSI%20%28NITRO%2CTWL%29.rar/Nintendo%20DS%20and%20DSI%2FSDK%2FTwlSDK%2FTwlSDK-5_4-20100204_patch1.zip).
+The game uses the version 5.4 of the [TwlSDK](https://twlsdk.randommeaninglesscharacters.com/download/TwlSDK/TwlSDK-5_4-20091225a.zip), plus the [patch1](https://twlsdk.randommeaninglesscharacters.com/download/TwlSDK/TwlSDK-5_4-patch1-20100204.zip).
 Extract and copy the folder `tools/bin` from the TwlSDK into the folder `tools` in your `ie3ogres` clone. At the end of this operation, you should have the file `tools/bin/makelcf.exe` inside your `ie3ogres` clone. Copy the folder `include` into the folder `lib/TwlSDK` in your `ie3ogres` clone. Finally, copy `include/nitro/specfiles/ARM9-TS.lcf.template` and `include/nitro/specfiles/mwldarm.response.template` into the project root.
 
 ### 2. Dependencies
