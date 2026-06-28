@@ -37,10 +37,14 @@ bool CBgAnimeManager::addFrame(bakey_t anim, s16 x, s16 y, u8 frameTime)
 SCoord *CBgAnimeManager::update(bakey_t anim)
 {
     SBgAnimation *a = this->anim + anim;
-    u16 i = a->frameCur;
-    if ((int)i >= (int)a->frameCount) return NULL;
-    if (--a->frameTime[i] == 0) {
-        a->frameCur = a->frameCur + 1;
+    int i = a->frameCur;
+    
+    if (i >= a->frameCount) {
+        return NULL;
     }
+    if (--a->frameTime[i] == 0) {
+        a->frameCur++;
+    }
+    
     return a->coord + i;
 }
