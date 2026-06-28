@@ -14,7 +14,7 @@
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2S_GetBG2CharPtr

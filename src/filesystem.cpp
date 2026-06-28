@@ -1,18 +1,24 @@
+// clang-format off
 #include "filesystem.hpp"
-#include <nitro/fs/api.h>           // for FS_ChangeDir
-#include <nitro/fs/file.h>          // for FS_InitFile, FSFile, FS_CloseFile, FS_ConvertPathToFileID, FS_GetLength, FS_OpenFileFast, FS_SeekFile, FS_OpenFile, FS_ReadFile
-#include <nitro/math/crc.h>         // for MATH_CalcCRC32, MATH_CRC32InitTable, MATHCRC32Table
-#include <nitro/mi/memory.h>        // for MI_CpuClear8, MI_CpuClearFast
-#include <nitro/os/ARM9/cache.h>    // for DC_FlushRange
-#include <nitro/os/common/system.h> // for OS_Terminate
-#include <nitro/os/common/thread.h> // for OS_CreateThread, OS_Sleep, OS_WakeupThreadDirect, OSThread
-#include <nitro/std/string.h>       // for STD_TSPrintf
-#include <stddef.h>                 // for NULL
-#include "allocator.hpp"            // for CAllocator, gAllocator
-#include "thread.hpp"               // for Yield
-#include "init/arm9_init.hpp"       // IWYU pragma: keep
 
-namespace FileSystem {
+#include <cstddef>                   // for NULL
+
+#include <nitro/fs/api.h>            // for FS_ChangeDir
+#include <nitro/fs/file.h>           // for FS_InitFile, FSFile, FS_CloseFile, FS_ConvertPathToFileID, FS_GetLength, FS_OpenFileFast, FS_SeekFile, FS_OpenFile, FS_ReadFile
+#include <nitro/math/crc.h>          // for MATH_CalcCRC32, MATH_CRC32InitTable, MATHCRC32Table
+#include <nitro/mi/memory.h>         // for MI_CpuClear8, MI_CpuClearFast
+#include <nitro/os/ARM9/cache.h>     // for DC_FlushRange
+#include <nitro/os/common/system.h>  // for OS_Terminate
+#include <nitro/os/common/thread.h>  // for OS_CreateThread, OS_Sleep, OS_WakeupThreadDirect, OSThread
+#include <nitro/std/string.h>        // for STD_TSPrintf
+
+#include "allocator.hpp"             // for CAllocator, gAllocator
+#include "thread.hpp"                // for Yield
+#include "init/arm9_init.hpp"        // IWYU pragma: keep
+// clang-format on
+
+namespace FileSystem
+{
 
 static FileHandle *sFileHandles;
 static char *sProcessStack;
@@ -25,14 +31,13 @@ s32 ReadFileInChunks(FSFile *file, void *data, s32 len);
 s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len);
 void ProcessFiles(void *arg);
 FileHandle *GetFileHandle(filekey_t *keyOut);
-s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size,
-                        void **dataOut, const char *path);
-s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID,
-                       filekey_t *keyOut, const char *name);
+s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut, const char *path);
+s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID, filekey_t *keyOut, const char *name);
 u32 HashFilename(const char *name);
 s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *name);
 
-s32 ReadFileInChunks(FSFile *file, void *data, s32 len) {
+s32 ReadFileInChunks(FSFile *file, void *data, s32 len)
+{
 #define CHUNK_SIZE 0x4000
 
     s32 chunk_count = (len + (CHUNK_SIZE - 1)) / CHUNK_SIZE;
@@ -50,11 +55,13 @@ s32 ReadFileInChunks(FSFile *file, void *data, s32 len) {
     return size;
 }
 
-u32 CalcCRC32(const void *data, u32 dataLength) {
+u32 CalcCRC32(const void *data, u32 dataLength)
+{
     return MATH_CalcCRC32(&sCrc32Table, data, dataLength);
 }
 
-s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len) {
+s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len)
+{
     FSFile file;
 
     FS_InitFile(&file);
@@ -78,7 +85,8 @@ s32 ReadFileDirect(void **dst, FSFileID file_id, s32 offset, s32 len) {
     return size;
 }
 
-void ProcessFiles(void *arg) {
+void ProcessFiles(void *arg)
+{
 #pragma unused(arg)
 
     FSFile file;
@@ -120,7 +128,8 @@ void ProcessFiles(void *arg) {
     }
 }
 
-s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
+s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len)
+{
     FSFile file;
 
     FS_InitFile(&file);
@@ -144,7 +153,8 @@ s32 ReadFile(void **dst, const char *filepath, s32 offset, s32 len) {
     return size;
 }
 
-FileHandle *GetFileHandle(filekey_t *keyOut) {
+FileHandle *GetFileHandle(filekey_t *keyOut)
+{
     FileHandle *handle = &sFileHandles[sCurFileKey];
 
     if (handle->uncompressed != NULL) {
@@ -160,7 +170,8 @@ FileHandle *GetFileHandle(filekey_t *keyOut) {
     return handle;
 }
 
-s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut, const char *path) {
+s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32 size, void **dataOut, const char *path)
+{
     if (compHeader->compType == 0) {
         if (*dataOut != NULL) {
             handle->uncompressed = *dataOut;
@@ -185,7 +196,8 @@ s32 AllocateFileBuffers(FileHandle *handle, MICompressionHeader *compHeader, s32
     return size;
 }
 
-s32 ReadFileDeferred(void **dataOut, const char *path, filekey_t *keyOut, s32 offset, s32 size) {
+s32 ReadFileDeferred(void **dataOut, const char *path, filekey_t *keyOut, s32 offset, s32 size)
+{
     MICompressionHeader flags;
     FSFileID fileid;
     FSFile file;
@@ -217,7 +229,8 @@ s32 ReadFileDeferred(void **dataOut, const char *path, filekey_t *keyOut, s32 of
     return buffer_size;
 }
 
-archandle_t OpenArchiveDirect(void *data, const char *path) {
+archandle_t OpenArchiveDirect(void *data, const char *path)
+{
     char pkh_path[128];
     char pkb_path[128];
 
@@ -248,7 +261,8 @@ archandle_t OpenArchiveDirect(void *data, const char *path) {
     return -1;
 }
 
-archandle_t OpenArchiveDeferred(void *data, const char *path) {
+archandle_t OpenArchiveDeferred(void *data, const char *path)
+{
     char pkh_path[128];
     char pkb_path[128];
 
@@ -279,7 +293,8 @@ archandle_t OpenArchiveDeferred(void *data, const char *path) {
     return -1;
 }
 
-void CloseArchive(archandle_t key) {
+void CloseArchive(archandle_t key)
+{
     if (key < 0) {
         return;
     }
@@ -292,7 +307,8 @@ void CloseArchive(archandle_t key) {
     MI_CpuClear8(&sArchives[key].files, sizeof(sArchives[key]));
 }
 
-BOOL IsArchiveReady(archandle_t key) {
+BOOL IsArchiveReady(archandle_t key)
+{
     if (sArchives[key].key >= 0) {
         if (IsFileBusy(sArchives[key].key)) {
             return FALSE;
@@ -304,7 +320,8 @@ BOOL IsArchiveReady(archandle_t key) {
     return TRUE;
 }
 
-void WaitArchiveReady(archandle_t key) {
+void WaitArchiveReady(archandle_t key)
+{
     while (TRUE) {
         if (IsArchiveReady(key)) {
             break;
@@ -313,7 +330,8 @@ void WaitArchiveReady(archandle_t key) {
     }
 }
 
-Archive::PackEntry_HOSC *GetFile(archandle_t arcKey, s32 fileIdx) {
+Archive::PackEntry_HOSC *GetFile(archandle_t arcKey, s32 fileIdx)
+{
     ArchiveHandle *arc = &sArchives[arcKey];
 
     if (fileIdx >= arc->nFiles) {
@@ -325,7 +343,8 @@ Archive::PackEntry_HOSC *GetFile(archandle_t arcKey, s32 fileIdx) {
     return &files[fileIdx];
 }
 
-s32 ReadFileByID(void **dst, Archive::PackEntry_HOSC *files, FSFileID file_id, const char *filename) {
+s32 ReadFileByID(void **dst, Archive::PackEntry_HOSC *files, FSFileID file_id, const char *filename)
+{
     s32 size;
 
     if (*dst == NULL) {
@@ -368,7 +387,8 @@ s32 ReadFileByID(void **dst, Archive::PackEntry_HOSC *files, FSFileID file_id, c
     return size;
 }
 
-s32 ReadFileByName(void **dst, archandle_t arcKey, const char *filename) {
+s32 ReadFileByName(void **dst, archandle_t arcKey, const char *filename)
+{
     if (arcKey < 0) {
         return -1;
     }
@@ -384,7 +404,8 @@ s32 ReadFileByName(void **dst, archandle_t arcKey, const char *filename) {
     return ReadFileByID(dst, files, arc->binFileID, filename);
 }
 
-s32 ReadFileByIdx(void **dst, archandle_t arcKey, s32 fileIdx) {
+s32 ReadFileByIdx(void **dst, archandle_t arcKey, s32 fileIdx)
+{
     char filename[128];
 
     if ((arcKey < 0) || (fileIdx < 0)) {
@@ -407,7 +428,8 @@ s32 ReadFileByIdx(void **dst, archandle_t arcKey, s32 fileIdx) {
     return ReadFileByID(dst, &files[fileIdx], arc->binFileID, filename);
 }
 
-s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID, filekey_t *keyOut, const char *name) {
+s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID fileID, filekey_t *keyOut, const char *name)
+{
     s32 srcSize = file->size;
     FileHandle *handle = GetFileHandle(keyOut);
     s32 destSize = AllocateFileBuffers(handle, &file->compHeader, srcSize, dataOut, name);
@@ -421,7 +443,8 @@ s32 AllocateFileHandle(void **dataOut, Archive::PackEntry_HOSC *file, FSFileID f
     return destSize;
 }
 
-s32 ReadFileByNameDeferred(void **dst, archandle_t arcKey, const char *name, filekey_t *keyOut) {
+s32 ReadFileByNameDeferred(void **dst, archandle_t arcKey, const char *name, filekey_t *keyOut)
+{
     if (arcKey < 0) {
         return -1;
     }
@@ -436,7 +459,8 @@ s32 ReadFileByNameDeferred(void **dst, archandle_t arcKey, const char *name, fil
     return AllocateFileHandle(dst, files, arc->binFileID, keyOut, name);
 }
 
-s32 ReadFileByIdxDeferred(void **dst, archandle_t arcKey, s32 fileIdx, filekey_t *keyOut) {
+s32 ReadFileByIdxDeferred(void **dst, archandle_t arcKey, s32 fileIdx, filekey_t *keyOut)
+{
     char name[128];
 
     if ((arcKey < 0) || (fileIdx < 0)) {
@@ -455,7 +479,8 @@ s32 ReadFileByIdxDeferred(void **dst, archandle_t arcKey, s32 fileIdx, filekey_t
     return AllocateFileHandle(dst, &files[fileIdx], arc->binFileID, keyOut, name);
 }
 
-BOOL IsFileBusy(filekey_t key) {
+BOOL IsFileBusy(filekey_t key)
+{
     FileHandle *handles = sFileHandles;
 
     if (handles[key].uncompressed == NULL) {
@@ -466,9 +491,13 @@ BOOL IsFileBusy(filekey_t key) {
     return TRUE;
 }
 
-void Panic(void) { OS_Terminate(); }
+void Panic(void)
+{
+    OS_Terminate();
+}
 
-void Init(void) {
+void Init(void)
+{
     MATH_CRC32InitTable(&sCrc32Table);
 
     MI_CpuClear8(&sArchives, sizeof(sArchives));
@@ -479,13 +508,13 @@ void Init(void) {
 
     sProcessStack = static_cast<char *>(Allocate(FILE_SYSTEM_STACK_SIZE, -1));
 
-    OS_CreateThread(&sProcessThread, &ProcessFiles, NULL, sProcessStack + FILE_SYSTEM_STACK_SIZE,
-                    FILE_SYSTEM_STACK_SIZE, 28);
+    OS_CreateThread(&sProcessThread, &ProcessFiles, NULL, sProcessStack + FILE_SYSTEM_STACK_SIZE, FILE_SYSTEM_STACK_SIZE, 28);
 
     OS_WakeupThreadDirect(&sProcessThread);
 }
 
-u32 HashFilename(const char *name) {
+u32 HashFilename(const char *name)
+{
     char temp[128];
 
     for (int i = 0; i < sizeof(temp); i++) {
@@ -506,7 +535,8 @@ u32 HashFilename(const char *name) {
     return 0;
 }
 
-s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *name) {
+s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *name)
+{
     u32 hash = HashFilename(name);
 
     u32 left = 0;
@@ -534,7 +564,8 @@ s32 FindFileIdxInternal(Archive::PackEntry_HOSC *files, u16 nFiles, const char *
     return -1;
 }
 
-s32 FindFileIdx(archandle_t arcKey, const char *name) {
+s32 FindFileIdx(archandle_t arcKey, const char *name)
+{
     if (arcKey < 0) {
         return -1;
     }
@@ -549,7 +580,8 @@ s32 FindFileIdx(archandle_t arcKey, const char *name) {
     return FindFileIdxInternal(files, arc->nFiles, name);
 }
 
-Archive::PackEntry_HOSC *FindFile(archandle_t arcKey, const char *name) {
+Archive::PackEntry_HOSC *FindFile(archandle_t arcKey, const char *name)
+{
     if (arcKey < 0) {
         return NULL;
     }
@@ -569,7 +601,8 @@ Archive::PackEntry_HOSC *FindFile(archandle_t arcKey, const char *name) {
     return NULL;
 }
 
-void *Allocate(int size, int nextArena) {
+void *Allocate(int size, int nextArena)
+{
     if (nextArena >= 0) {
         gAllocator.setNextArena(nextArena);
     }
@@ -577,7 +610,8 @@ void *Allocate(int size, int nextArena) {
     return gAllocator.allocate(size, 0, 1);
 }
 
-void *AllocateClear(int size, int nextArena) {
+void *AllocateClear(int size, int nextArena)
+{
     void *ptr = Allocate(size, nextArena);
 
     if (ptr != NULL) {
@@ -587,8 +621,14 @@ void *AllocateClear(int size, int nextArena) {
     return ptr;
 }
 
-void Deallocate(void *ptr) { gAllocator.deallocate(ptr); }
+void Deallocate(void *ptr)
+{
+    gAllocator.deallocate(ptr);
+}
 
-void SetNextArena(int nextArena) { gAllocator.setNextArena(nextArena); }
+void SetNextArena(int nextArena)
+{
+    gAllocator.setNextArena(nextArena);
+}
 
 } // namespace FileSystem

@@ -27,8 +27,8 @@
 .public FUN_ov16_020ee1e4
 .public FUN_ov16_020eea8c
 .public strcat
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public gBgMenuManager
@@ -38,10 +38,10 @@
 .public FUN_ov16_020eef40
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2S_GetBG0CharPtr

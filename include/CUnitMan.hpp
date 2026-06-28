@@ -36,7 +36,7 @@ typedef struct {
 typedef struct {
     u8 unk0;
     u8 unk1;
-    u8 unk2[0x2]; //pad?
+    u8 unk2[0x2]; // pad?
     u16 unk4[2];
 } st_shoes_info;
 /* 0x02099ef8 */ extern st_shoes_info *gShoesInfoFile;
@@ -92,14 +92,15 @@ typedef struct Unit {
     u32 skillsFlags;
     s16 companionIdx;
     u8 uniformNo;
-    u8 unk97; //pad?
+    u8 unk97; // pad?
 } Unit;
 
-class CUnitMan {
-    public:
-        virtual ~CUnitMan();
+class CUnitMan
+{
+public:
+    virtual ~CUnitMan();
 
-    private:
+private:
     Unit *units;
     Unit **companions;
     st_unit_save *savesStart;

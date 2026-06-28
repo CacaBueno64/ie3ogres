@@ -16,7 +16,7 @@
 .public G2S_GetBG1CharPtr
 .public DC_FlushRange
 .public FUN_ov16_020f2ea8
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public FUN_ov16_020f2f20
 .public _ZN8Graphics10ScreenCopyEiiiiPtS0_

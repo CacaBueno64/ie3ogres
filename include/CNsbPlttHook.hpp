@@ -4,12 +4,13 @@
 
 #include "vram.hpp"
 
-class CNsbPlttHook {
-    public:
-        virtual ~CNsbPlttHook();
-    
+class CNsbPlttHook
+{
+public:
+    virtual ~CNsbPlttHook();
+
     u32 unk4;
-    VramResource res;
+    SVRAMResource res;
     void *data;
     u32 size;
 };

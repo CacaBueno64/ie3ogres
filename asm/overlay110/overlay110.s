@@ -640,16 +640,10 @@ _021255A4:
 	cmp r6, #8
 	blt _021255A4
 	ldr r6, _02125740 ; =gFont12
-	#ifdef TRANSLATION_BUGFIX
-	mov r1, #1
-	ldr r0, [r6]
-	mov r2, #4
-	#else
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
-	#endif
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r2, #3
 	stmia sp, {r2, r5}
 	ldr r0, [r9, #0x5c]
@@ -669,7 +663,7 @@ _021255A4:
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r6]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #0x60]
 	ldrh r1, [r9, #0x62]
 	ldr r0, [r9, #0x5c]
@@ -705,16 +699,10 @@ _02125684:
 	cmp r6, #8
 	blt _02125684
 	ldr r6, _02125740 ; =gFont12
-	#ifdef TRANSLATION_BUGFIX
-	mov r1, #1
-	ldr r0, [r6]
-	mov r2, #4
-	#else
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
-	#endif
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r2, #3
 	stmia sp, {r2, r5}
 	ldr r0, [r9, #0x68]
@@ -734,7 +722,7 @@ _02125684:
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r6]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #0x6c]
 	ldrh r1, [r9, #0x6e]
 	ldr r0, [r9, #0x68]
@@ -1719,7 +1707,7 @@ FUN_ov110_021264e0: ; 0x021264E0
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _02126520:
 	mov r0, r2
@@ -1791,7 +1779,7 @@ FUN_ov110_021265c8: ; 0x021265C8
 	ldr r1, [r8]
 	mov r0, r6
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r8]
 	ldr r1, [r4, r5]
 	ldr r2, [r7]
@@ -1820,7 +1808,7 @@ FUN_ov110_0212662c: ; 0x0212662C
 	ldr r1, [r5]
 	mov r0, r8
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r5]
 	mov r5, #1
 	ldr r1, [r6, r7]
@@ -1850,7 +1838,7 @@ FUN_ov110_02126694: ; 0x02126694
 	ldr r1, [r8]
 	mov r0, r6
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r8]
 	ldr r1, [r4, r5]
 	ldr r2, [r7]

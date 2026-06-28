@@ -1,8 +1,8 @@
-.public FUN_020430b0
-.public FUN_02042e4c
+.public _ZN12CFontManager16drawTextTile8bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
+.public _ZN12CFontManager16drawTextTile4bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
 .public _ZN12CFontManagerC2Ev
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public _ZTV14CFontManager_2
-.public FUN_0204222c
+.public _ZN12CFontManagerD2Ev
 .public _ZdlPv
-.public FUN_02042274
+.public _ZN12CFontManager13writeCharByteEPvh

@@ -4,7 +4,7 @@
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f5f64
@@ -14,7 +14,7 @@
 .public FUN_ov16_020f2f20
 .public STD_ConcatenateString
 .public FUN_ov16_020f2118
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public STD_GetStringLength
 .public DC_FlushRange
 .public gFont12

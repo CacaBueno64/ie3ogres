@@ -2089,7 +2089,7 @@ _0211BB44:
 	mul r1, r2, r1
 	mov r1, r1, lsl #1
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r2, [r8, #0xc]
 	ldrh r1, [r8, #0xe]
 	ldr r3, [sp, #4]
@@ -2309,7 +2309,7 @@ FUN_ov83_0211be60: ; 0x0211BE60
 	ldr r0, [r5]
 	mov r1, r6
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r1, #3
 	str r1, [sp]
 	stmib sp, {r1, r6}
@@ -2326,7 +2326,7 @@ FUN_ov83_0211be60: ; 0x0211BE60
 	mov r3, r3, lsl #3
 	bl FUN_ov16_020f2184
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0xc]
 	ldrh r1, [r4, #0xe]
 	ldr r0, [r4, #4]

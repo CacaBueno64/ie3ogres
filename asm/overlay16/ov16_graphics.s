@@ -862,8 +862,8 @@ _ZN8Graphics22IsScreenBrightAdjustedE12EngineSelect: ; 0x020F1844
 _020F1864: .word gScreenFades
 	arm_func_end _ZN8Graphics22IsScreenBrightAdjustedE12EngineSelect
 
-	arm_func_start _ZN8Graphics20AdjustTilemapIndicesEPtmii
-_ZN8Graphics20AdjustTilemapIndicesEPtmii: ; 0x020F1868
+	arm_func_start _ZN8Graphics11SetupScreenEPtmii
+_ZN8Graphics11SetupScreenEPtmii: ; 0x020F1868
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r5, #0
 	cmp r0, #0
@@ -898,10 +898,10 @@ _020F18D4:
 	bl DC_FlushRange
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	arm_func_end _ZN8Graphics11SetupScreenEPtmii
 
-	arm_func_start _ZN8Graphics12SetupTilemapEPvii
-_ZN8Graphics12SetupTilemapEPvii: ; 0x020F18E8
+	arm_func_start _ZN8Graphics11SetupScreenEPvii
+_ZN8Graphics11SetupScreenEPvii: ; 0x020F18E8
 	stmfd sp!, {r3, lr}
 	mov lr, r1
 	cmp r0, #0
@@ -913,9 +913,9 @@ _ZN8Graphics12SetupTilemapEPvii: ; 0x020F18E8
 	ldr r12, [r0, #0xc]
 	mov r2, lr
 	add r0, r0, r12
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldmfd sp!, {r3, pc}
-	arm_func_end _ZN8Graphics12SetupTilemapEPvii
+	arm_func_end _ZN8Graphics11SetupScreenEPvii
 
 	arm_func_start _ZN8Graphics10ScreenCopyEiiiiPtS0_
 _ZN8Graphics10ScreenCopyEiiiiPtS0_: ; 0x020F191C
@@ -1613,7 +1613,7 @@ FUN_ov16_020f2184: ; 0x020F2184
 	add r2, r1, #8
 	ldr r0, [r5]
 	ldr r1, [sp, #0xb50]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r1, [sp, #0xb48]
 	mov r3, r4
 	str r1, [sp]
@@ -1633,7 +1633,7 @@ FUN_ov16_020f2184: ; 0x020F2184
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [sp, #0x1c]
 	mov r5, #0
 	cmp r0, #0
@@ -1647,7 +1647,7 @@ _020F2238:
 	add r1, r8, #2
 	ldr r0, [r0]
 	add r7, r6, r2
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	mov r1, r6, lsl #3
 	add r2, r4, r7, lsl #3
 	ldrsh r1, [r4, r1]
@@ -1710,11 +1710,11 @@ FUN_ov16_020f2304: ; 0x020F2304
 	mov r6, r0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
-	bl FUN_ov16_02111438
+	bl _ZN12C3DPlaneCtrl11getTexWidthEi
 	mov r7, r0
 	ldr r0, [r5]
 	ldr r1, [sp, #0x20]
-	bl FUN_ov16_02111458
+	bl _ZN12C3DPlaneCtrl12getTexHeightEi
 	mov r8, r0
 	mov r9, #0
 	ldr r0, [r5]
@@ -1729,7 +1729,7 @@ FUN_ov16_020f2304: ; 0x020F2304
 	ldr r0, [r0]
 	ldr r5, [sp, #0x24]
 	add r2, r2, #8
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [sp, #0x6dc]
 	ldr r2, [sp, #0x6d8]
 	str r8, [sp]
@@ -1750,17 +1750,17 @@ FUN_ov16_020f2304: ; 0x020F2304
 	mov r2, r5
 	ldr r0, [r0]
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _020F24E0 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	b _020F2494
 _020F23F4:
 	ldr r0, _020F24E4 ; =gFontRubi8
 	add r1, r11, r9, lsl #5
 	ldr r0, [r0]
 	add r1, r1, #2
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	add r1, r11, r9, lsl #5
 	ldrb r2, [r11, r9, lsl #5]
 	ldrb r12, [r1, #1]
@@ -1794,7 +1794,7 @@ _020F23F4:
 	ldr r0, [r0]
 	mov r2, r5
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	add r9, r9, #1
 _020F2494:
 	cmp r9, r6
@@ -2365,7 +2365,7 @@ _020F2C04:
 	mov r1, r0
 	ldr r0, [r3]
 	mov r3, #0xc0
-	bl FUN_020435b0
+	bl _ZN12CFontManager9clearVramEPviiiiii
 	ldr r1, [r4, #8]
 	add r0, r1, #4
 	str r0, [r4, #8]

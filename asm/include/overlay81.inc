@@ -125,7 +125,7 @@
 .public FUN_ov16_020f792c
 .public g3DGameMapObject
 .public gDeltaTime
-.public gCameraController
+.public gCameraCtrl
 .public FUN_ov16_020f672c
 .public FUN_ov1_020e3d74
 .public _ZN7Archive11TryFinalizeEP9SFileDatai

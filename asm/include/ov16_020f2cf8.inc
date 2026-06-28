@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public sprintf
 .public strcat
 .public strcpy

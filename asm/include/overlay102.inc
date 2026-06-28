@@ -2,7 +2,7 @@
 .public sprintf
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public MIi_CpuClearFast
 .public DC_FlushRange

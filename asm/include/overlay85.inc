@@ -40,7 +40,7 @@
 .public FUN_ov16_020f0a30
 .public _ZN7Archive16RequestNewReadExEPKcP9SFileDatalmi
 .public FUN_ov1_020dbf50
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov1_020db4f0
 .public _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 .public FUN_ov16_020f0bcc
@@ -62,7 +62,7 @@
 .public FUN_ov1_020dc020
 .public FUN_ov16_020f068c
 .public FUN_ov16_020f2ea8
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG3Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
 .public GX_LoadBG2Scr

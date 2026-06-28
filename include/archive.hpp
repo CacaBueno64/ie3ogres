@@ -1,9 +1,12 @@
 #pragma once
 
+// clang-format off
+#include <cstddef>                // for size_t
 #include <nitro/mi/uncompress.h>  // for MICompressionHeader
 #include <nitro/types.h>          // for u32, s32, BOOL, u8, u16
-#include <cstddef>                // for size_t
+
 #include "CUnitMan.hpp"           // for Unit, gWearSetFile, st_wear_set
+// clang-format on
 
 typedef struct {
     void *data;
@@ -14,7 +17,8 @@ typedef struct {
     u8 pad_b;
 } SFileData;
 
-namespace Archive {
+namespace Archive
+{
 
 typedef enum {
     PACK_TYPE_COS,
@@ -83,50 +87,18 @@ typedef struct {
     u32 unkC;
 } SFPEntry;
 
-typedef struct ImagePAC {
-    u32 nFiles;
-    u32 plttOffs;
-    u32 plttSize;
-    u32 scrnOffs;
-    u32 scrnSize;
-    u32 charOffs;
-    u32 charSize;
-    u32 pad;
-
-    static inline u32 GetFileCount(void *data) {
-        return static_cast<ImagePAC *>(data)->nFiles;
-    }
-    static inline void *GetPalettePtr(void *data) {
-        return static_cast<void *>(static_cast<char *>(data) + static_cast<ImagePAC *>(data)->plttOffs);
-    }
-    static inline void *GetScreenPtr(void *data) {
-        return static_cast<void *>(static_cast<char *>(data) + static_cast<ImagePAC *>(data)->scrnOffs);
-    }
-    static inline void *GetCharacterPtr(void *data) {
-        return static_cast<void *>(static_cast<char *>(data) + static_cast<ImagePAC *>(data)->charOffs);
-    }
-    static inline u32 GetPaletteSize(void *data) {
-        return static_cast<ImagePAC *>(data)->plttSize;
-    }
-    static inline u32 GetScreenSize(void *data) {
-        return static_cast<ImagePAC *>(data)->scrnSize;
-    }
-    static inline u32 GetCharacterSize(void *data) {
-        return static_cast<ImagePAC *>(data)->charSize;
-    }
-} ImagePAC;
-
 // `'s'`: high poly
 // `'b'`: low poly
-static inline char GetModelQuality(int quality) {
+static inline char GetModelQuality(int quality)
+{
     char result;
     switch (quality) {
-        case 1:
-            result = 's';
-            break;
-        default:
-            result = 'b';
-            break;
+    case 1:
+        result = 's';
+        break;
+    default:
+        result = 'b';
+        break;
     }
     return result;
 }
@@ -189,6 +161,6 @@ BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *out
 } /* namespace Archive */
 
 extern "C" {
-    extern int FUN_ov16_020f0b58(int wearNo);
-    extern void FUN_02053914(char *dst, const char *src); //lowercase to uppercase
+extern int FUN_ov16_020f0b58(int wearNo);
+extern void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
 }

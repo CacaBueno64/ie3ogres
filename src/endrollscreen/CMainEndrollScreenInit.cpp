@@ -1,27 +1,35 @@
-#include <nitro/gx/g2.h>             // for G2_SetBG1Offset, G2_SetBG2Offset, G2_SetWnd0InsidePlane, G2_SetWnd1InsidePlane, G2_SetWndOutsidePlane, GX_WND_PLANEMASK_BG2, G2_SetWnd0Position, G2_SetWnd1Position, GX_WND_PLANEMASK_BG1
-#include <nitro/gx/gx.h>             // for GX_LCD_SIZE_Y, GX_LCD_SIZE_X, GX_SetVisibleWnd, GX_WNDMASK_NONE, GX_WNDMASK_W0, GX_WNDMASK_W1
-#include <nitro/gx/gx_bgcnt.h>       // for G2_SetBG1Priority, G2_SetBG2Priority
-#include <nitro/gx/gx_load.h>        // for GX_LoadBGPltt, GX_LoadBG1Char, GX_LoadBG1Scr, GX_LoadBG2Char, GX_LoadBG2Scr
-#include <nitro/gx/gxcommon.h>       // for GX_RGB
-#include <nitro/gx/struct_2d.h>      // for GXBGPltt16
-#include <nitro/mi/memory.h>         // for MI_CpuClear8
-#include <nitro/pad/common/pad.h>    // for PAD_BUTTON_A
-#include <nitro/spi/ARM9/tp.h>       // for TP_TOUCH_ON, TPData
-#include <nitro/types.h>             // for FALSE, TRUE, BOOL, u16
-#include <cstdio>                    // for sprintf, NULL
-#include "C3DDevice.hpp"             // for C3DDevice, g3DDevice
-#include "CEndrollScreenManager.hpp" // for CMainEndrollScreenInit
-#include "CScreenManager.hpp"        // for CScreenManager
-#include "allocator.hpp"             // for CAllocator, gAllocator
-#include "archive.hpp"               // for ImagePAC, ReadNewUncompress
-#include "audioplayer.hpp"           // for AudioPlayer, gAudioPlayer
-#include "config.hpp"                // for Config, gConfig
-#include "gamemodes.hpp"             // for SetNextMode, GAME_MODE_TITLE
-#include "graphics.hpp"              // for LoadTempPaletteFromPac, SetupTilemap, ENGINE_MAIN, FadeInScreen, FadeScreensBlack, IsScreenFading, ENGINE_SUB
-#include "unk_020A0640.hpp"          // for UnkClass_020A0640, unk_020A0640
-#include "init/arm9_init.hpp"        // IWYU pragma: keep
+// clang-format off
+#include "CEndrollScreenManager.hpp"  // for CMainEndrollScreenInit
 
-void CMainEndrollScreenInit::updateKeys(u16 pressed, u16 held) {
+#include <cstddef>                    // for NULL
+#include <cstdio>                     // for sprintf
+
+#include <nitro/gx/g2.h>              // for G2_SetBG1Offset, G2_SetBG2Offset, G2_SetWnd0InsidePlane, G2_SetWnd1InsidePlane, G2_SetWndOutsidePlane, GX_WND_PLANEMASK_BG2, G2_SetWnd0Position, G2_SetWnd1Position, GX_WND_PLANEMASK_BG1
+#include <nitro/gx/gx.h>              // for GX_LCD_SIZE_Y, GX_LCD_SIZE_X, GX_SetVisibleWnd, GX_WNDMASK_NONE, GX_WNDMASK_W0, GX_WNDMASK_W1
+#include <nitro/gx/gx_bgcnt.h>        // for G2_SetBG1Priority, G2_SetBG2Priority
+#include <nitro/gx/gx_load.h>         // for GX_LoadBGPltt, GX_LoadBG1Char, GX_LoadBG1Scr, GX_LoadBG2Char, GX_LoadBG2Scr
+#include <nitro/gx/gxcommon.h>        // for GX_RGB
+#include <nitro/gx/struct_2d.h>       // for GXBGPltt16
+#include <nitro/mi/memory.h>          // for MI_CpuClear8
+#include <nitro/pad/common/pad.h>     // for PAD_BUTTON_A
+#include <nitro/spi/ARM9/tp.h>        // for TP_TOUCH_ON, TPData
+#include <nitro/types.h>              // for FALSE, TRUE, BOOL, u16
+
+#include "C3DDevice.hpp"              // for C3DDevice, g3DDevice
+#include "CScreenManager.hpp"         // for CScreenManager
+#include "allocator.hpp"              // for CAllocator, gAllocator
+#include "archive.hpp"                // for ReadNewUncompress
+#include "audioplayer.hpp"            // for AudioPlayer, gAudioPlayer
+#include "CConfig.hpp"                // for CConfig, gConfig
+#include "gamemodes.hpp"              // for SetNextMode, GAME_MODE_TITLE
+#include "graphics.hpp"               // for LoadTempPaletteFromPac, SetupScreen, ENGINE_MAIN, FadeInScreen, FadeScreensBlack, IsScreenFading, ENGINE_SUB
+#include "pac.hpp"                    // for PAC_PSC
+#include "unk_020A0640.hpp"           // for UnkClass_020A0640, unk_020A0640
+#include "init/arm9_init.hpp"         // IWYU pragma: keep
+// clang-format on
+
+void CMainEndrollScreenInit::updateKeys(u16 pressed, u16 held)
+{
     if (this->unk1F4) {
         if (pressed & PAD_BUTTON_A) {
             this->returnToTitle();
@@ -33,7 +41,8 @@ void CMainEndrollScreenInit::updateKeys(u16 pressed, u16 held) {
     }
 }
 
-void CMainEndrollScreenInit::updateTP(TPData *tp) {
+void CMainEndrollScreenInit::updateTP(TPData *tp)
+{
     if (this->unk1F4) {
         if ((this->state == STATE_FIN) && (tp->touch == TP_TOUCH_ON)) {
             this->returnToTitle();
@@ -43,7 +52,8 @@ void CMainEndrollScreenInit::updateTP(TPData *tp) {
     }
 }
 
-void CMainEndrollScreenInit::loadFiles(void) {
+void CMainEndrollScreenInit::loadFiles(void)
+{
     char path[256];
 
     MI_CpuClear8(path, sizeof(path));
@@ -62,52 +72,50 @@ void CMainEndrollScreenInit::loadFiles(void) {
     }
 }
 
-void CMainEndrollScreenInit::freeFile(int idx) {
+void CMainEndrollScreenInit::freeFile(int idx)
+{
     if ((this->creditsImages[idx].data) && (this->creditsImages[idx].unk_9)) {
         gAllocator.deallocate(this->creditsImages[idx].data);
         this->creditsImages[idx].data = NULL;
     }
 }
 
-void CMainEndrollScreenInit::freeFiles(void) {
+void CMainEndrollScreenInit::freeFiles(void)
+{
     for (int i = 0; i < this->CREDIT_IMAGE_COUNT + 1; i++) {
         this->freeFile(i);
     }
 }
 
-void CMainEndrollScreenInit::displayCredits(int idx, CreditBG bg) {
-    void *data = this->creditsImages[idx].data;
+void CMainEndrollScreenInit::displayCredits(int idx, CreditBG bg)
+{
+    void *img = this->creditsImages[idx].data;
 
-    if (data) {
-        if (bg == CREDIT_BG_A) {
-            Graphics::SetupTilemap(data, 0, 1);
-            GX_LoadBG2Scr(Archive::ImagePAC::GetScreenPtr(data), 0,
-                          Archive::ImagePAC::GetScreenSize(data));
-            GX_LoadBG2Char(Archive::ImagePAC::GetCharacterPtr(data), 0,
-                           Archive::ImagePAC::GetCharacterSize(data));
-            Graphics::LoadTempPaletteFromPac(data, ENGINE_MAIN, 1);
-            GX_LoadBGPltt(Archive::ImagePAC::GetPalettePtr(data), sizeof(GXBGPltt16) * 1,
-                          Archive::ImagePAC::GetPaletteSize(data));
-        } else // CREDIT_BG_B
-        {
-            Graphics::SetupTilemap(data, 0, 2);
-            GX_LoadBG1Scr(Archive::ImagePAC::GetScreenPtr(data), 0,
-                          Archive::ImagePAC::GetScreenSize(data));
-            GX_LoadBG1Char(Archive::ImagePAC::GetCharacterPtr(data), 0,
-                           Archive::ImagePAC::GetCharacterSize(data));
-            Graphics::LoadTempPaletteFromPac(data, ENGINE_MAIN, 2);
-            GX_LoadBGPltt(Archive::ImagePAC::GetPalettePtr(data), sizeof(GXBGPltt16) * 2,
-                          Archive::ImagePAC::GetPaletteSize(data));
-        }
+    if (!img) return;
+    if (bg == CREDIT_BG_A) {
+        Graphics::SetupScreen(img, 0, 1);
+        GX_LoadBG2Scr(PAC_PSC_GetScreenPtr(img), 0, PAC_PSC_GetScreenSize(img));
+        GX_LoadBG2Char(PAC_PSC_GetCharacterPtr(img), 0, PAC_PSC_GetCharacterSize(img));
+        Graphics::LoadTempPaletteFromPac(img, ENGINE_MAIN, 1);
+        GX_LoadBGPltt(PAC_PSC_GetPalettePtr(img), sizeof(GXBGPltt16) * 1, PAC_PSC_GetPaletteSize(img));
+    } else // CREDIT_BG_B
+    {
+        Graphics::SetupScreen(img, 0, 2);
+        GX_LoadBG1Scr(PAC_PSC_GetScreenPtr(img), 0, PAC_PSC_GetScreenSize(img));
+        GX_LoadBG1Char(PAC_PSC_GetCharacterPtr(img), 0, PAC_PSC_GetCharacterSize(img));
+        Graphics::LoadTempPaletteFromPac(img, ENGINE_MAIN, 2);
+        GX_LoadBGPltt(PAC_PSC_GetPalettePtr(img), sizeof(GXBGPltt16) * 2, PAC_PSC_GetPaletteSize(img));
     }
 }
 
-void CMainEndrollScreenInit::returnToOverworld(void) {
+void CMainEndrollScreenInit::returnToOverworld(void)
+{
     Graphics::FadeScreensBlack(6);
     SetNextMode(GAME_MODE_ADVENTURE);
 }
 
-void CMainEndrollScreenInit::returnToTitle(void) {
+void CMainEndrollScreenInit::returnToTitle(void)
+{
     switch (gConfig.getParam("IZ_TYPE")) {
     default:
     case 0:
@@ -129,7 +137,8 @@ void CMainEndrollScreenInit::returnToTitle(void) {
     SetNextMode(GAME_MODE_TITLE);
 }
 
-BOOL CMainEndrollScreenInit::FUN_ov6_020bd20c(void) {
+BOOL CMainEndrollScreenInit::FUN_ov6_020bd20c(void)
+{
     if (this->creditsIdx >= this->CREDIT_IMAGE_COUNT - 1) {
         if (((this->creditsIdx) % 2) != 0) {
             if (this->vOffsetA >= GX_LCD_SIZE_Y) {
@@ -147,7 +156,8 @@ BOOL CMainEndrollScreenInit::FUN_ov6_020bd20c(void) {
     return this->unk1F0;
 }
 
-void CMainEndrollScreenInit::init(void) {
+void CMainEndrollScreenInit::init(void)
+{
     this->state = STATE_INIT;
     this->vOffsetB = 0;
     this->vOffsetA = -GX_LCD_SIZE_Y;
@@ -165,7 +175,8 @@ void CMainEndrollScreenInit::init(void) {
     MI_CpuClear8(&this->creditsImages, sizeof(this->creditsImages));
 }
 
-void CMainEndrollScreenInit::update(BOOL param1) {
+void CMainEndrollScreenInit::update(BOOL param1)
+{
     int *perm_var_1;
     CreditBG perm_var_2;
 
@@ -298,9 +309,12 @@ void CMainEndrollScreenInit::update(BOOL param1) {
     }
 }
 
-void CMainEndrollScreenInit::updateLate(void) {}
+void CMainEndrollScreenInit::updateLate(void)
+{
+}
 
-void CMainEndrollScreenInit::close(void) {
+void CMainEndrollScreenInit::close(void)
+{
     this->freeFiles();
 
     G2_SetBG1Offset(0, 0);

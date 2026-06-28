@@ -166,7 +166,7 @@ _0211A0A0:
 	bl sprintf
 	ldr r0, _0211A184 ; =gConfig
 	ldr r1, _0211A188 ; =0x0211A790
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	mov r7, r0
 	ldr r6, _0211A18C ; =0x020AF81C
 	mov r0, r6
@@ -411,7 +411,7 @@ FUN_ov32_0211a3a4: ; 0x0211A3A4
 	mov r3, r6
 	add r0, r5, r0
 	add r2, r4, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldr r0, [r5, #0x14]
 	ldr r2, [r5, #0x18]
 	mov r1, r8

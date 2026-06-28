@@ -1,14 +1,19 @@
+// clang-format off
 #include "thread.hpp"
-#include <cstddef> // for NULL
 
-namespace Thread {
+#include <cstddef>  // for NULL
+// clang-format on
+
+namespace Thread
+{
 
 static void *sMainThreadStack;
 static int sCurrentThreadIdx;
 static void *sThreadStackTable[THREAD_STACK_TABLE_COUNT];
 static void (*sThreadFunctionTable[THREAD_FUNCTION_TABLE_COUNT])(void *args);
 
-void Init(void) {
+void Init(void)
+{
     for (int i = 0; i < THREAD_STACK_TABLE_COUNT; i++) {
         sThreadStackTable[i] = NULL;
     }
@@ -114,13 +119,15 @@ asm void LoadContext(void)
 // TODO: Portable ASM
 #endif
 
-void Sleep(int frames) {
+void Sleep(int frames)
+{
     for (int i = 0; i < frames; i++) {
         Yield();
     }
 }
 
-void Starter(void *args) {
+void Starter(void *args)
+{
     sThreadFunctionTable[sCurrentThreadIdx](args);
     Exit();
 }
@@ -174,13 +181,15 @@ asm threadhandle_t InitStack(register void (*starter)(void *args), register void
 // TODO: Portable ASM
 #endif
 
-int Create(void (*function)(void *), void *args, void *stackBottom) {
+int Create(void (*function)(void *), void *args, void *stackBottom)
+{
     threadhandle_t idx = InitStack(&Starter, args, stackBottom);
     sThreadFunctionTable[idx] = function;
     return idx;
 }
 
-void Destroy(threadhandle_t idx) {
+void Destroy(threadhandle_t idx)
+{
     sThreadStackTable[idx] = NULL;
 }
 

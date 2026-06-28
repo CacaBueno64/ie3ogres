@@ -521,7 +521,7 @@ _0205683C:
 	str r2, [r4, #0x9c]
 	str r2, [r4, #0xa0]
 	str r2, [r4, #0xa4]
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	str r0, [r4, #0xa8]
 	cmp r0, #0
 	moveq r0, #0xaa
@@ -1884,7 +1884,7 @@ _02057A90:
 	bl FUN_02046358
 	cmp r0, #0
 	bne _02057B58
-	ldr r0, _02057B8C ; =gCameraController
+	ldr r0, _02057B8C ; =gCameraCtrl
 	add r1, r8, #0x84
 	ldr r9, [r0]
 	mov r0, r9
@@ -1921,7 +1921,7 @@ _02057B6C:
 _02057B80: .word g2DAdventureLogic
 _02057B84: .word g3DSpriteCtrl
 _02057B88: .word unk_020A9C40
-_02057B8C: .word gCameraController
+_02057B8C: .word gCameraCtrl
 	arm_func_end FUN_02057830
 
 	arm_func_start FUN_02057b90
@@ -2009,8 +2009,8 @@ FUN_02057c60: ; 0x02057C60
 _02057C68: .word FUN_02057c38
 	arm_func_end FUN_02057c60
 
-	arm_func_start FUN_02057c6c
-FUN_02057c6c: ; 0x02057C6C
+	arm_func_start _ZN11C3DSprSheet6isIdleEv
+_ZN11C3DSprSheet6isIdleEv: ; 0x02057C6C
 	ldrh r1, [r0, #0xc]
 	cmp r1, #0
 	ldreqb r0, [r0, #0xf]
@@ -2018,7 +2018,7 @@ FUN_02057c6c: ; 0x02057C6C
 	moveq r0, #1
 	movne r0, #0
 	bx lr
-	arm_func_end FUN_02057c6c
+	arm_func_end _ZN11C3DSprSheet6isIdleEv
 
 	arm_func_start FUN_02057c88
 FUN_02057c88: ; 0x02057C88
@@ -2091,7 +2091,7 @@ FUN_02057d2c: ; 0x02057D2C
 	ble _02057D94
 _02057D60:
 	mov r0, r4
-	bl FUN_02057c6c
+	bl _ZN11C3DSprSheet6isIdleEv
 	cmp r0, #0
 	beq _02057D80
 	cmp r6, #0
@@ -2168,7 +2168,7 @@ FUN_02057e10: ; 0x02057E10
 	ble _02057E94
 _02057E58:
 	mov r0, r7
-	bl FUN_02057c6c
+	bl _ZN11C3DSprSheet6isIdleEv
 	cmp r0, #0
 	ldreq r0, [r7]
 	cmpeq r4, r0

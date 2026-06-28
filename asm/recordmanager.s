@@ -8,7 +8,7 @@ FUN_0205ff80: ; 0x0205FF80
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl _ZN14CardControllerC1Ev
+	bl _ZN9CCardCtrlC1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ff80
@@ -18,7 +18,7 @@ FUN_0205ff98: ; 0x0205FF98
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl _ZN14CardControllerD1Ev
+	bl _ZN9CCardCtrlD1Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0205ff98
@@ -1764,13 +1764,13 @@ _ZN14CRecordManager10verifySaveEv: ; 0x020617D8
 	str r5, [r10, #0x44]
 	str r5, [r10, #0x128]
 	str r5, [r10, #0x12c]
-	bl _ZN14CardController4initE14CARDBackupType
+	bl _ZN9CCardCtrl4initE14CARDBackupType
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7e
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r10, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r5, #0x7d
@@ -1828,7 +1828,7 @@ _020618D8:
 	mov r1, r7, lsl #0xf
 	mov r2, #0x8000
 	strh r8, [r9, r12]
-	bl _ZN14CardController4readEmmPv
+	bl _ZN9CCardCtrl4readEmmPv
 	cmp r0, #0
 	addeq sp, sp, #0xc
 	subeq r0, r8, #0x7c
@@ -2022,7 +2022,7 @@ FUN_02061b8c: ; 0x02061B8C
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl _ZN14CardController4readEmmPv
+	bl _ZN9CCardCtrl4readEmmPv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061b8c
 
@@ -2033,7 +2033,7 @@ FUN_02061ba8: ; 0x02061BA8
 	add r0, r0, #0x4c
 	tst r12, #1
 	addne r1, r1, #0x8000
-	bl _ZN14CardController5writeEmmPv
+	bl _ZN9CCardCtrl5writeEmmPv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061ba8
 
@@ -2047,7 +2047,7 @@ FUN_02061bc4: ; 0x02061BC4
 	moveq r0, #0
 	ldmeqfd sp!, {r3, pc}
 	add r0, r0, #0x4c
-	bl _ZN14CardController5readyEv
+	bl _ZN9CCardCtrl5readyEv
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_02061bc4
 
@@ -2069,7 +2069,7 @@ _02061C14:
 	mov r3, r5
 	add r0, r7, #0x4c
 	add r1, r1, #4
-	bl _ZN14CardController5writeEmmPv
+	bl _ZN9CCardCtrl5writeEmmPv
 	add r6, r6, #1
 	cmp r6, #2
 	blt _02061C14
@@ -2084,7 +2084,7 @@ FUN_02061c48: ; 0x02061C48
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	add r0, r4, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	ldrneb r0, [r4, #0x24]
 	mvneq r0, #0x7c
@@ -2422,7 +2422,7 @@ FUN_020620f8: ; 0x020620F8
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r5, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	addeq sp, sp, #0x18
 	mvneq r0, #0x7c
@@ -2822,7 +2822,7 @@ FUN_020626f4: ; 0x020626F4
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -2939,7 +2939,7 @@ FUN_02062888: ; 0x02062888
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -2964,7 +2964,7 @@ FUN_020628dc: ; 0x020628DC
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	add r0, r5, #0x4c
-	bl _ZN14CardController4testEv
+	bl _ZN9CCardCtrl4testEv
 	cmp r0, #0
 	mvneq r0, #0x7c
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -3007,7 +3007,7 @@ FUN_0206296c: ; 0x0206296C
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r4, #0x4c
-	bl _ZN14CardController5readyEv
+	bl _ZN9CCardCtrl5readyEv
 	cmp r0, #0
 	moveq r0, #1
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}

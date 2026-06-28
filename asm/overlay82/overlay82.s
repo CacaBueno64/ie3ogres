@@ -808,7 +808,7 @@ FUN_ov82_0211a9b8: ; 0x0211A9B8
 	mov r4, #0
 _0211A9D4:
 	mov r0, r6
-	bl FUN_ov16_020f591c
+	bl _ZN15CBgAnimeManager6createEv
 	add r1, r10, r4
 	add r4, r4, #1
 	strb r0, [r1, #0x60]
@@ -827,7 +827,7 @@ _0211A9D4:
 	mov r2, #0x20
 	str r5, [sp, #4]
 	mov r9, #0x23
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	mov r8, #1
 	mov r5, #0x10
 _0211AA30:
@@ -839,7 +839,7 @@ _0211AA30:
 	mov r2, r9
 	mov r3, r5
 	str r8, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r7, r7, #1
 	cmp r7, #5
 	blt _0211AA30
@@ -870,7 +870,7 @@ _0211AA80:
 	mov r1, r8
 	mov r2, r9
 	mov r3, #7
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 _0211AACC:
 	cmp r9, r6
 	beq _0211AB30
@@ -880,7 +880,7 @@ _0211AAD4:
 	str r5, [sp]
 	mov r2, r9
 	mov r3, r11
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	cmp r7, #2
 	bge _0211AB0C
 	cmp r9, r6
@@ -907,7 +907,7 @@ _0211AB30:
 	mov r2, r9
 	str r3, [sp]
 	mov r3, #7
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	ldr r0, [r10, #0x48]
 	add r7, r7, #1
 	cmp r7, r0
@@ -924,7 +924,7 @@ _0211AB64:
 	mov r1, r8
 	mov r2, r9
 	str r4, [sp, #4]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	mov r4, #0x10
 _0211AB90:
 	sub r0, r9, #5
@@ -935,7 +935,7 @@ _0211AB90:
 	mov r2, r9
 	mov r3, r4
 	str r5, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	adds r0, r9, #0xc
 	bpl _0211AB90
 	ldr r0, [r10, #0x48]
@@ -964,7 +964,7 @@ _0211AC08:
 	mov r1, r8
 	mov r2, r9
 	mov r3, r5
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r0, r9, #6
 	mov r0, r0, lsl #0x10
 	mov r9, r0, asr #0x10
@@ -981,7 +981,7 @@ _0211AC44:
 	mov r1, r8
 	mov r2, r9
 	mov r3, r5
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	sub r0, r9, #6
 	mov r0, r0, lsl #0x10
 	cmp r4, r0, asr #16
@@ -993,7 +993,7 @@ _0211AC70:
 	mov r2, r9
 	str r7, [sp]
 	mov r3, r5
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	ldr r0, [r10, #0x48]
 	add r11, r11, #1
 	cmp r11, r0
@@ -1395,7 +1395,7 @@ _0211B24C:
 	add r0, r4, r9
 	ldrb r1, [r0, #0x60]
 	mov r0, r8
-	bl FUN_ov16_020f5a04
+	bl _ZN15CBgAnimeManager6updateEh
 	str r0, [r7, r9, lsl #2]
 	cmp r0, #0
 	add r9, r9, #1
@@ -1513,7 +1513,7 @@ _0211B404:
 	add r0, r4, r8
 	ldrb r1, [r0, #0x60]
 	mov r0, r7
-	bl FUN_ov16_020f5a04
+	bl _ZN15CBgAnimeManager6updateEh
 	str r0, [r5, r8, lsl #2]
 	cmp r0, #0
 	add r8, r8, #1
@@ -1992,7 +1992,7 @@ _0211BB00:
 	mov r7, #0
 _0211BB10:
 	mov r0, r6
-	bl FUN_ov16_020f591c
+	bl _ZN15CBgAnimeManager6createEv
 	strb r0, [r4, r7]
 	add r7, r7, #1
 	cmp r7, #0xd
@@ -2026,7 +2026,7 @@ _0211BB64:
 	mov r2, #5
 	mov r3, r3, asr #0x10
 	str r5, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r7, r7, #1
 	sub r8, r8, r4
 	cmp r7, #0xf
@@ -2072,7 +2072,7 @@ _0211BC10:
 	mov r2, #5
 	mov r3, r3, asr #0x10
 	str r5, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r10, r10, #1
 	sub r8, r8, r4
 	cmp r10, #0xf
@@ -2106,7 +2106,7 @@ _0211BC98:
 	mov r1, r9
 	mov r2, r4
 	str r6, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r0, r8, #0xee
 	add r10, r10, #1
 	cmp r10, #0xf
@@ -2133,7 +2133,7 @@ _0211BD00:
 	mov r1, r10
 	mov r2, r5
 	str r7, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r0, r9, #0xee
 	add r4, r4, #1
 	cmp r4, #0xf
@@ -2161,7 +2161,7 @@ _0211BD6C:
 	mov r1, r9
 	mov r2, r4
 	str r6, [sp]
-	bl FUN_ov16_020f5964
+	bl _ZN15CBgAnimeManager8addFrameEhssh
 	add r0, r8, #0xee
 	add r10, r10, #1
 	cmp r10, #0xf
@@ -2179,7 +2179,7 @@ _0211BDBC:
 _0211BDCC:
 	ldrb r1, [r6, r4]
 	ldr r0, _0211BE48 ; =0x020A3D14
-	bl FUN_ov16_020f5a04
+	bl _ZN15CBgAnimeManager6updateEh
 	movs r3, r0
 	addeq r0, r7, #1
 	moveq r0, r0, lsl #0x10
@@ -5217,7 +5217,7 @@ _0211E844:
 	mov r1, #0x20
 	mov r3, r5
 	add r2, r8, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r8, r0
 	ldr r0, [r9, #4]
 	ldr r1, [sp, #4]
@@ -5300,7 +5300,7 @@ _0211E9AC:
 	add r2, r8, #1
 	mov r1, #0x54
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldr r1, [sp, #4]
 	mov r8, r0
 	add r0, r1, #0x540
@@ -5331,7 +5331,7 @@ _0211EA18:
 	mov r1, r4
 	mov r3, r5
 	add r2, r8, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldr r1, [sp, #4]
 	mov r8, r0
 	add r1, r1, r11, lsl #5

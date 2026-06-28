@@ -887,7 +887,7 @@ _021258E8:
 	ldr r0, _02125AC0 ; =gFont8
 	add r1, r7, #0x2c
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -896,7 +896,7 @@ _02125930:
 	mov r2, r7
 	mov r0, r9
 	add r1, r7, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0
@@ -923,7 +923,7 @@ _02125930:
 	ldr r0, _02125AC4 ; =gFont12
 	mov r1, r7
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -953,7 +953,7 @@ _021259BC:
 	blx r6
 	ldr r0, [r9]
 	add r1, r7, #0x1c
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	ldr r1, [r8, #0x18]
 	mov r8, #0
 	cmp r1, #0xb
@@ -1107,7 +1107,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	mov r1, #1
 	ldr r0, [r5]
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -1129,7 +1129,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -1172,7 +1172,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r5, #3
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
@@ -1193,7 +1193,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]
@@ -1210,7 +1210,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
 	mov r1, r5
@@ -1230,7 +1230,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r5, [r5, #8]
 	blx r5
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]
@@ -3135,7 +3135,7 @@ FUN_ov94_02127958: ; 0x02127958
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _02127998:
 	mov r0, r2
@@ -3207,7 +3207,7 @@ FUN_ov94_02127a40: ; 0x02127A40
 	ldr r1, [r8]
 	mov r0, r6
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r8]
 	ldr r1, [r4, r5]
 	ldr r2, [r7]
@@ -3236,7 +3236,7 @@ FUN_ov94_02127aa4: ; 0x02127AA4
 	ldr r1, [r5]
 	mov r0, r8
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r5]
 	mov r5, #1
 	ldr r1, [r6, r7]
@@ -3390,7 +3390,7 @@ _02127CF8:
 	mov r2, r4
 	mov r3, r6
 	add r0, r5, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r6
@@ -3437,7 +3437,7 @@ _02127D50:
 	mov r3, r8
 	add r0, r5, r0
 	add r2, r4, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	str r0, [sp, #0xc]
 	mov r0, r5
 	mov r2, r8
@@ -3526,7 +3526,7 @@ _02127EAC:
 	ldr r1, [sp, #0x10]
 	mov r2, #8
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [sp, #0x10]
 	ldr r2, [sp, #8]
 	ldr r1, [r7, #0x230]
@@ -3619,7 +3619,7 @@ _02127FE8:
 	ldr r1, [sp, #0x10]
 	mov r2, #8
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [sp, #0x10]
 	ldr r2, [sp, #8]
 	ldr r1, [r7, #0x230]

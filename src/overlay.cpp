@@ -1,13 +1,18 @@
+// clang-format off
 #include "overlay.hpp"
-#include <nitro/fs/file.h>          // for FSFile, FS_CloseFile, FS_InitFile, FS_OpenFileFast, FS_ReadFile
-#include <nitro/mi/exMemory.h>      // for MI_PROCESSOR_ARM9
-#include <nitro/os/common/thread.h> // for OS_Sleep
 
-namespace Overlay {
+#include <nitro/fs/file.h>           // for FSFile, FS_CloseFile, FS_InitFile, FS_OpenFileFast, FS_ReadFile
+#include <nitro/mi/exMemory.h>       // for MI_PROCESSOR_ARM9
+#include <nitro/os/common/thread.h>  // for OS_Sleep
+// clang-format on
+
+namespace Overlay
+{
 
 s32 Read(FSFile *file, u8 *ramAddr, s32 size);
 
-s32 Read(FSFile *file, u8 *ramAddr, s32 size) {
+s32 Read(FSFile *file, u8 *ramAddr, s32 size)
+{
 #define CHUNK_SIZE 0x4000
 
     u32 result = 0;
@@ -36,7 +41,8 @@ s32 Read(FSFile *file, u8 *ramAddr, s32 size) {
     return result;
 }
 
-BOOL Load(FSOverlayID ovID) {
+BOOL Load(FSOverlayID ovID)
+{
     FSFile file;
     FSOverlayInfo ovInfo;
 

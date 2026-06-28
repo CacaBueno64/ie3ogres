@@ -13,7 +13,7 @@ _ZN13FontManager_2C1Ev: ; 0x0206B9C4
 	mov r0, r4
 	mov r1, #0
 	str r3, [r4]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _0206B9F0: .word _ZTV14CFontManager_2+0x8
@@ -23,7 +23,7 @@ _0206B9F0: .word _ZTV14CFontManager_2+0x8
 FUN_0206b9f4: ; 0x0206B9F4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0204222c
+	bl _ZN12CFontManagerD2Ev
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0206b9f4
@@ -32,7 +32,7 @@ FUN_0206b9f4: ; 0x0206B9F4
 FUN_0206ba08: ; 0x0206BA08
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_0204222c
+	bl _ZN12CFontManagerD2Ev
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
@@ -135,7 +135,7 @@ _0206BB7C:
 	orr r2, r2, r3
 _0206BB88:
 	and r2, r2, #0xff
-	bl FUN_02042274
+	bl _ZN12CFontManager13writeCharByteEPvh
 _0206BB90:
 	movs r5, r5, asr #2
 	sub r6, r6, #2
@@ -251,7 +251,7 @@ _0206BCF4:
 	ldrb r2, [r3, r2]
 	add r1, r0, lr
 	mov r0, r11
-	bl FUN_02042274
+	bl _ZN12CFontManager13writeCharByteEPvh
 	b _0206BD58
 _0206BD38:
 	movs r5, r5, asr #2
@@ -371,7 +371,7 @@ _0206BECC:
 	orr r2, r3, r2
 _0206BED8:
 	and r2, r2, #0xff
-	bl FUN_02042274
+	bl _ZN12CFontManager13writeCharByteEPvh
 _0206BEE0:
 	movs r5, r5, asr #2
 	sub r6, r6, #2
@@ -477,7 +477,7 @@ _0206C038:
 	ldrb r2, [r11, r0]
 	mov r0, r10
 	mov r1, r8
-	bl FUN_02042274
+	bl _ZN12CFontManager13writeCharByteEPvh
 _0206C05C:
 	movs r5, r5, asr #2
 	sub r6, r6, #2
@@ -522,8 +522,8 @@ _ZTV14CFontManager_2:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.word FUN_0206b9f4
 	.word FUN_0206ba08
-	.word FUN_02042e4c
-	.word FUN_020430b0
+	.word _ZN12CFontManager16drawTextTile4bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
+	.word _ZN12CFontManager16drawTextTile8bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
 	.word FUN_0206ba24
 	.word FUN_0206bdac
 	.word FUN_0206bc20

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <nitro/types.h>
 #include <nitro/os/common/mutex.h>
+#include <nitro/types.h>
 
 typedef struct NsbResource {
     u32 hash;
@@ -16,11 +16,12 @@ typedef struct NsbResource {
     NsbResource *next;
 } NsbResource;
 
-class CNsbResourceMan {
-    public:
-        /* ov16 0x020fd4a8 */ CNsbResourceMan();
-        virtual ~CNsbResourceMan() { }
-        /* ov16 0x020fc9f4 */ void init(int resCount);
+class CNsbResourceMan
+{
+public:
+    /* ov16 0x020fd4a8 */ CNsbResourceMan();
+    virtual ~CNsbResourceMan() {}
+    /* ov16 0x020fc9f4 */ void init(int resCount);
 
     NsbResource *resources;
     int cap;

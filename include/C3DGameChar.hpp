@@ -19,25 +19,28 @@ typedef struct {
     NsbResource *nsbRes;
 } CharacterModel;
 
-class C3DGameChar_Base {
-    public:
-        /* 0x0205244c */ virtual BOOL close(void);
-        /* 0x020524a0 */ virtual BOOL setup(void);
+class C3DGameChar_Base
+{
+public:
+    /* 0x0205244c */ virtual BOOL close(void);
+    /* 0x020524a0 */ virtual BOOL setup(void);
 
     s32 charCount;
     CompositeModel *models;
 };
 
-class C3DGameChar : public C3DGameChar_Base {
-    public:
-        C3DGameChar() {
-            this->reset();
-        }
-        virtual ~C3DGameChar(); //should be inlined
+class C3DGameChar : public C3DGameChar_Base
+{
+public:
+    C3DGameChar()
+    {
+        this->reset();
+    }
+    virtual ~C3DGameChar(); // should be inlined
 
-        /* 0x02059fcc */ void reset(void);
-        /* 0x0205a1bc */ void init(int char_count);
-    
+    /* 0x02059fcc */ void reset(void);
+    /* 0x0205a1bc */ void init(int char_count);
+
     CharacterModel *chars;
     CModelCfg *modelCfg;
     u8 unk14;

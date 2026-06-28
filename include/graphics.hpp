@@ -1,11 +1,11 @@
 #pragma once
 
-#include <nitro/types.h>
 #include <nitro/gx/struct_2d.h>
+#include <nitro/types.h>
 
 #include "allocator.hpp"
-#include "filesystem.hpp"
 #include "archive.hpp"
+#include "filesystem.hpp"
 
 typedef enum {
     ENGINE_MAIN,
@@ -60,23 +60,27 @@ typedef struct {
 /* 0x020a8c40 */ extern u16 gSubScreen1[1024];
 /* 0x020a9440 */ extern u16 gSubScreen2[1024];
 
-namespace Graphics {
+namespace Graphics
+{
 
 #define PALETTE_PULSE_CYCLE 32
 #define PALETTE_PULSE_SHIFT 5
 #define PALETTE_PULSE_MAX (1 << PALETTE_PULSE_SHIFT)
 #define PALETTE_PULSE_AMPLITUDE 9
 
-static inline void SetPulseFlags(EngineSelect engine, int enable, int dirty) {
+static inline void SetPulseFlags(EngineSelect engine, int enable, int dirty)
+{
     PulseFlags *pulseFlag = &gBGPulseFlags[engine];
     pulseFlag->enable = enable;
     pulseFlag->dirty = dirty;
 }
-static inline void SetPulseFlagEnable(EngineSelect engine, int enable) {
+static inline void SetPulseFlagEnable(EngineSelect engine, int enable)
+{
     PulseFlags *pulseFlag = &gBGPulseFlags[engine];
     pulseFlag->enable = enable;
 }
-static inline void SetPulseFlagDirty(EngineSelect engine, int dirty) {
+static inline void SetPulseFlagDirty(EngineSelect engine, int dirty)
+{
     PulseFlags *pulseFlag = &gBGPulseFlags[engine];
     pulseFlag->dirty = dirty;
 }
@@ -136,8 +140,8 @@ BOOL IsSubBrightAdjusted(void);
 BOOL IsAnyScreenBrightAdjusted(void);
 BOOL IsScreenBrightAdjusted(EngineSelect engine);
 
-int AdjustTilemapIndices(u16 *screen, u32 size, int tileIdx, int plttIdx);
-int SetupTilemap(void *data, int tileIdx, int plttIdx);
+int SetupScreen(void *screen, u32 size, int tileIdx, int plttIdx);
+int SetupScreen(void *data, int tileIdx, int plttIdx);
 
 void ScreenCopy(int x, int y, int width, int height, u16 *src, u16 *dst);
 void ScreenFill(int x, int y, int width, int height, u16 data, u16 *dst);

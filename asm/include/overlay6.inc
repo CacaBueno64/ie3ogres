@@ -21,13 +21,13 @@
 .public _ZN14CScreenManagerD2Ev
 .public _ZdlPv
 .public MI_CpuFill8
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public sprintf
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public gConfig
 .public _ZN10CAllocator10deallocateEPv
 .public gAllocator
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public GX_LoadBG2Scr
 .public GX_LoadBG2Char
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti

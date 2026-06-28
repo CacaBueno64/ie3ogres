@@ -1,23 +1,28 @@
 #pragma once
 
+// clang-format off
 #include <nitro/spi/ARM9/tp.h>  // for TPData
 #include <nitro/types.h>        // for u8, u32, u16, BOOL, s32
+
 #include "CScreenManager.hpp"   // for CScreenManager
 #include "CommonScreen.hpp"     // for CommonMainScreen, CommonSubScreen
 #include "archive.hpp"          // for SFileData
 #include "movieplayer.hpp"      // for SMovieInfo
+// clang-format on
 
-class CMainLogoScreenDCBmp : public CommonMainScreen {
-    public:
-        CMainLogoScreenDCBmp(CScreenManager *manager) : manager(manager) { }
-        virtual ~CMainLogoScreenDCBmp() { }
-        /* ov5 0x020bceac */ virtual void updateKeys(u16 pressed, u16 held);
-        /* ov5 0x020bcedc */ virtual void updateTP(TPData *tp);
-        /* ov5 0x020bcf34 */ virtual void init(void);
-        /* ov5 0x020bcfac */ virtual void update(BOOL param1);
-        /* ov5 0x020bcffc */ virtual void updateLate(void);
-        /* ov5 0x020bd008 */ virtual void close(void);
-    private:
+class CMainLogoScreenDCBmp : public CommonMainScreen
+{
+public:
+    CMainLogoScreenDCBmp(CScreenManager *manager) : manager(manager) {}
+    virtual ~CMainLogoScreenDCBmp() {}
+    /* ov5 0x020bceac */ virtual void updateKeys(u16 pressed, u16 held);
+    /* ov5 0x020bcedc */ virtual void updateTP(TPData *tp);
+    /* ov5 0x020bcf34 */ virtual void init(void);
+    /* ov5 0x020bcfac */ virtual void update(BOOL param1);
+    /* ov5 0x020bcffc */ virtual void updateLate(void);
+    /* ov5 0x020bd008 */ virtual void close(void);
+
+private:
     CScreenManager *manager;
     u32 unk_8;
     u8 tpTouch;
@@ -26,23 +31,25 @@ class CMainLogoScreenDCBmp : public CommonMainScreen {
     SMovieInfo movieInfo;
 };
 
-class CMainLogoScreenInit : public CommonMainScreen {
-    public:
-        CMainLogoScreenInit(CScreenManager *manager) : manager(manager) { }
-        virtual ~CMainLogoScreenInit() { }
-        /* ov5 0x020bd040 */ virtual void updateKeys(u16 pressed, u16 held);
-        /* ov5 0x020bd04c */ virtual void updateTP(TPData *tp);
-        /* ov5 0x020bd1d8 */ virtual void init(void);
-        /* ov5 0x020bd1fc */ virtual void update(BOOL param1);
-        /* ov5 0x020bd404 */ virtual void updateLate(void);
-        /* ov5 0x020bd45c */ virtual void close(void);
-        /* ov5 0x020bd448 */ virtual int signal(int signal);
+class CMainLogoScreenInit : public CommonMainScreen
+{
+public:
+    CMainLogoScreenInit(CScreenManager *manager) : manager(manager) {}
+    virtual ~CMainLogoScreenInit() {}
+    /* ov5 0x020bd040 */ virtual void updateKeys(u16 pressed, u16 held);
+    /* ov5 0x020bd04c */ virtual void updateTP(TPData *tp);
+    /* ov5 0x020bd1d8 */ virtual void init(void);
+    /* ov5 0x020bd1fc */ virtual void update(BOOL param1);
+    /* ov5 0x020bd404 */ virtual void updateLate(void);
+    /* ov5 0x020bd45c */ virtual void close(void);
+    /* ov5 0x020bd448 */ virtual int signal(int signal);
 
-        /* ov5 0x020bd0a0 */ void openArchives(void);
-        /* ov5 0x020bd0f4 */ void closeArchives(void);
-        /* ov5 0x020bd13c */ void loadImage(int idx);
-        /* ov5 0x020bd19c */ void loadSceneImage(void);
-    private:
+    /* ov5 0x020bd0a0 */ void openArchives(void);
+    /* ov5 0x020bd0f4 */ void closeArchives(void);
+    /* ov5 0x020bd13c */ void loadImage(int idx);
+    /* ov5 0x020bd19c */ void loadSceneImage(void);
+
+private:
     CScreenManager *manager;
     enum {
         STATE_IDLE = 0,
@@ -72,60 +79,64 @@ class CMainLogoScreenInit : public CommonMainScreen {
     /* u8 pad_3d[3]; */
 };
 
-class CSubLogoScreenInit : public CommonSubScreen {
-    public:
-        CSubLogoScreenInit(CScreenManager *manager) : manager(manager) { }
-        virtual ~CSubLogoScreenInit() { }
-        /* ov5 0x020bd5e4 */ virtual void updateKeys(u16 pressed, u16 held);
-        /* ov5 0x020bd63c */ virtual void updateTP(TPData *tp);
-        /* ov5 0x020bd6dc */ virtual void init(void);
-        /* ov5 0x020bd6fc */ virtual void update(BOOL param1);
-        /* ov5 0x020bd720 */ virtual void updateLate(void);
-        /* ov5 0x020bd724 */ virtual void close(void);
-        /* ov5 0x020bd494 */ virtual int signal(int signal);
+class CSubLogoScreenInit : public CommonSubScreen
+{
+public:
+    CSubLogoScreenInit(CScreenManager *manager) : manager(manager) {}
+    virtual ~CSubLogoScreenInit() {}
+    /* ov5 0x020bd5e4 */ virtual void updateKeys(u16 pressed, u16 held);
+    /* ov5 0x020bd63c */ virtual void updateTP(TPData *tp);
+    /* ov5 0x020bd6dc */ virtual void init(void);
+    /* ov5 0x020bd6fc */ virtual void update(BOOL param1);
+    /* ov5 0x020bd720 */ virtual void updateLate(void);
+    /* ov5 0x020bd724 */ virtual void close(void);
+    /* ov5 0x020bd494 */ virtual int signal(int signal);
 
-        /* ov5 0x020bd4a8 */ void openArchives(void);
-        /* ov5 0x020bd4f4 */ void closeArchive(int idx);
-        /* ov5 0x020bd538 */ void closeArchives(void);
-        /* ov5 0x020bd560 */ void loadSceneImage(void);
-    private:
+    /* ov5 0x020bd4a8 */ void openArchives(void);
+    /* ov5 0x020bd4f4 */ void closeArchive(int idx);
+    /* ov5 0x020bd538 */ void closeArchives(void);
+    /* ov5 0x020bd560 */ void loadSceneImage(void);
+
+private:
     CScreenManager *manager;
     u8 image;
     u8 uploadComplete;
     u8 tpTouch;
-    //u8 pad_b;
+    // u8 pad_b;
     u32 tpX;
     u32 tpY;
     u8 dummy_14;
-    //u8 pad_15[3];
+    // u8 pad_15[3];
     SFileData data[3];
 };
 
-class CLogoScreenManager : public CScreenManager {
-    public:
-        CLogoScreenManager() : mainScreenInit(this), mainScreenDCBmp(this), subScreenInit(this) { }
-        virtual ~CLogoScreenManager() { }
-        /* ov5 0x020bcb40 */ virtual void init(void);
-        /* ov5 0x020bcde4 */ virtual void startGraphics(u32 arg);
-        /* ov5 0x020bce28 */ virtual void endGraphics(u32 arg);
-        /* ov5 0x020bcc44 */ virtual void close(void);
-        /* ov5 0x020bcc94 */ virtual void updateScene(void);
-    private:
+class CLogoScreenManager : public CScreenManager
+{
+public:
+    CLogoScreenManager() : mainScreenInit(this), mainScreenDCBmp(this), subScreenInit(this) {}
+    virtual ~CLogoScreenManager() {}
+    /* ov5 0x020bcb40 */ virtual void init(void);
+    /* ov5 0x020bcde4 */ virtual void startGraphics(u32 arg);
+    /* ov5 0x020bce28 */ virtual void endGraphics(u32 arg);
+    /* ov5 0x020bcc44 */ virtual void close(void);
+    /* ov5 0x020bcc94 */ virtual void updateScene(void);
+
+private:
     CMainLogoScreenInit mainScreenInit;
     CMainLogoScreenDCBmp mainScreenDCBmp;
     CSubLogoScreenInit subScreenInit;
 };
 
 extern "C" {
-    extern void *gBgMenuManager;
-    extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
-    extern void FUN_ov16_020f2a74(SMovieInfo *);
-    extern BOOL FUN_ov16_020f2aa4(void);
-    extern void FUN_ov16_020f2ab4(void);
-    extern void FUN_ov16_020f3f60(int);
-    extern void FUN_ov16_020f47fc(void);
-    extern void FUN_ov16_020f4894(int);
-    extern void FUN_ov16_020f51a8(void);
-    extern void FUN_ov16_020f5af0(void *, int);
-    extern void FUN_ov16_020f6a9c(void *, int);
+extern void *gBgMenuManager;
+extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
+extern void FUN_ov16_020f2a74(SMovieInfo *);
+extern BOOL FUN_ov16_020f2aa4(void);
+extern void FUN_ov16_020f2ab4(void);
+extern void FUN_ov16_020f3f60(int);
+extern void FUN_ov16_020f47fc(void);
+extern void FUN_ov16_020f4894(int);
+extern void FUN_ov16_020f51a8(void);
+extern void FUN_ov16_020f5af0(void *, int);
+extern void FUN_ov16_020f6a9c(void *, int);
 }

@@ -22,7 +22,7 @@
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public gAllocator
-.public FUN_0204378c
+.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 .public gFont8
 .public gFont12
 .public FUN_ov16_020f2184
@@ -33,10 +33,10 @@
 .public gBgMenuManager
 .public FUN_ov16_020f5f64
 .public FUN_ov16_020f672c
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GXS_LoadBG0Char

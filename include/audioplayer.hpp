@@ -1,13 +1,18 @@
 #pragma once
 
-#include <DSE.h>           // for DSESsdPlayNormalParamRecord, DSESsdStreamInitDataRec
+// clang-format off
 #include <nitro/types.h>   // for s32, BOOL, u16, u8, u32, s8, s16
+#include <DSE.h>           // for DSESsdPlayNormalParamRecord, DSESsdStreamInitDataRec
+
 #include "cnvdat.h"        // for SSoundRecordData
 #include "filesystem.hpp"  // for filekey_t
+// clang-format on
+
 class CAllocator;
 
-class AudioPlayer {
-  public:
+class AudioPlayer
+{
+public:
     typedef struct {
         void *data;
         u32 unk4;

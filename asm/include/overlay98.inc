@@ -33,10 +33,10 @@
 .public GXS_LoadBG1Scr
 .public GXS_LoadBG2Scr
 .public _ZN8Graphics16LoadBGPaletteSubEv
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f5f64
@@ -44,11 +44,11 @@
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_ov16_020f2184
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public gFont8
-.public FUN_02043780
+.public _ZN12CFontManager12FUN_02043780Eii
 .public gFont12T
 .public _ZdlPv
 .public FX_Sqrt

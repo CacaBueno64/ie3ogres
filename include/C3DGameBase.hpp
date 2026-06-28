@@ -5,15 +5,16 @@
 #include "CModel.hpp"
 #include "archive.hpp"
 
-class C3DGameBase {
-    public:
-        /* 0x02052144 */ C3DGameBase();
-        virtual char *vFUN_00(int param1) = 0;
-        virtual char *vFUN_04(int param1) = 0;
-        virtual BOOL vFUN_08(char *param1, int *param2, int *param3) = 0;
-        /* 0x020523ac */ virtual BOOL vFUN_0C(void);
-        /* 0x020523fc */ virtual BOOL vFUN_10(void);
-    
+class C3DGameBase
+{
+public:
+    /* 0x02052144 */ C3DGameBase();
+    virtual char *vFUN_00(int param1) = 0;
+    virtual char *vFUN_04(int param1) = 0;
+    virtual BOOL vFUN_08(char *param1, int *param2, int *param3) = 0;
+    /* 0x020523ac */ virtual BOOL vFUN_0C(void);
+    /* 0x020523fc */ virtual BOOL vFUN_10(void);
+
     s32 fileCount;
     SFileData *files;
     s32 n_10;

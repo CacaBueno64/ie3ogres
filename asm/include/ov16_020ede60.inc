@@ -48,7 +48,7 @@
 .public ov16_0211786C
 .public FUN_02071458
 .public MATH_CalcSHA1
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public gConfig
 .public ov16_02117874
 .public MI_CpuFill8

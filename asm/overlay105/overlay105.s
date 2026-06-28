@@ -813,7 +813,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	ldr r0, [r5]
 	mov r2, r6
 	mov r1, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r8, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -835,7 +835,7 @@ FUN_ov105_021257b8: ; 0x021257B8
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -884,7 +884,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	ldr r0, [r7]
 	mov r2, r8
 	mov r1, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r10, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -906,7 +906,7 @@ FUN_ov105_021258a4: ; 0x021258A4
 	ldr r4, [r4, #8]
 	blx r4
 	ldr r0, [r7]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r5, #8]
 	ldrh r1, [r5, #0xa]
 	ldr r0, [r5, #4]
@@ -2319,7 +2319,7 @@ FUN_ov105_02126d94: ; 0x02126D94
 	mov r3, #0
 	mul r1, r12, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _02126DD4:
 	mov r0, r2
@@ -2366,7 +2366,7 @@ FUN_ov105_02126e2c: ; 0x02126E2C
 	ldr r1, [r8]
 	mov r0, r6
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r8]
 	ldr r1, [r4, r5]
 	ldr r2, [r7]
@@ -2485,7 +2485,7 @@ FUN_ov105_02126fe8: ; 0x02126FE8
 	mov r2, r6
 	mov r3, r5
 	add r0, r8, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r8
 	mov r1, r5
 	mov r2, r5
@@ -2529,7 +2529,7 @@ _02127058:
 	mov r3, r9
 	add r0, r8, r0
 	add r2, r6, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	str r0, [sp, #8]
 	mov r0, r8
 	mov r2, r9
@@ -2608,7 +2608,7 @@ _0212718C:
 	beq _02127204
 	add r1, r7, #1
 	mov r2, #5
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	ldr r1, [r4, #0x174]
 	mov r0, r5
 	mov r2, r6
@@ -2702,7 +2702,7 @@ _0212729C:
 	beq _02127370
 	add r1, r6, #1
 	mov r2, #5
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	ldr r1, [r4, #0x174]
 	mov r2, r5
 	mov r0, #1

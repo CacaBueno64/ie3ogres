@@ -1,19 +1,25 @@
+// clang-format off
 #include "CEndrollScreenManager.hpp"
-#include <nitro/gx/gx.h>               // for GX_SetDispSelect, GX_DISP_SELECT_SUB_MAIN
-#include <nitro/gx/gxcommon.h>         // for GX_RGB
-#include <nitro/hw/ARM9/mmap_global.h> // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
-#include <nitro/mi/memory.h>           // for MI_CpuClearFast
-#include <nitro/os/common/thread.h>    // for OS_Sleep
-#include <cstddef>                     // for NULL
-#include "C3DDevice.hpp"               // for C3DDevice, g3DDevice
-#include "audioplayer.hpp"             // for AudioPlayer, gAudioPlayer
-#include "graphics.hpp"                // for ENGINE_SUB, FadeScreensBlack, ENGINE_MAIN
-#include "init/arm9_init.hpp"          // IWYU pragma: keep
+
+#include <cstddef>                      // for NULL
+
+#include <nitro/gx/gx.h>                // for GX_SetDispSelect, GX_DISP_SELECT_SUB_MAIN
+#include <nitro/gx/gxcommon.h>          // for GX_RGB
+#include <nitro/hw/ARM9/mmap_global.h>  // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
+#include <nitro/mi/memory.h>            // for MI_CpuClearFast
+#include <nitro/os/common/thread.h>     // for OS_Sleep
+
+#include "C3DDevice.hpp"                // for C3DDevice, g3DDevice
+#include "audioplayer.hpp"              // for AudioPlayer, gAudioPlayer
+#include "graphics.hpp"                 // for ENGINE_SUB, FadeScreensBlack, ENGINE_MAIN
+#include "init/arm9_init.hpp"           // IWYU pragma: keep
+// clang-format on
 
 static u8 sDummy; // unused>
 
 #pragma opt_rotateloops off
-void CEndrollScreenManager::init(void) {
+void CEndrollScreenManager::init(void)
+{
     this->startGraphics(2);
     this->mainScreen = NULL;
     this->subScreen = NULL;
@@ -41,7 +47,8 @@ void CEndrollScreenManager::init(void) {
 }
 #pragma opt_rotateloops reset
 
-void CEndrollScreenManager::close(void) {
+void CEndrollScreenManager::close(void)
+{
     if (this->mainScreen != NULL) {
         this->mainScreen->close();
     }
@@ -51,7 +58,8 @@ void CEndrollScreenManager::close(void) {
     this->endGraphics(2);
 }
 
-void CEndrollScreenManager::updateScene(void) {
+void CEndrollScreenManager::updateScene(void)
+{
     SceneType nextSceneMain = this->getNextSceneMain();
 
     if (((nextSceneMain != this->getCurSceneMain()) || (this->sceneChanged[ENGINE_SUB])) &&
@@ -95,7 +103,8 @@ void CEndrollScreenManager::updateScene(void) {
     }
 }
 
-void CEndrollScreenManager::startGraphics(u32 arg) {
+void CEndrollScreenManager::startGraphics(u32 arg)
+{
     GX_SetDispSelect(GX_DISP_SELECT_SUB_MAIN);
 
     if ((arg == 0) || (arg == 2)) {
@@ -106,7 +115,8 @@ void CEndrollScreenManager::startGraphics(u32 arg) {
     }
 }
 
-void CEndrollScreenManager::endGraphics(u32 arg) {
+void CEndrollScreenManager::endGraphics(u32 arg)
+{
     if ((arg == 0) || (arg == 2)) {
         FUN_ov16_020f47fc();
     }

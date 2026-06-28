@@ -20,7 +20,7 @@
 .public g3DGameMapObject
 .public _ZN9C3DDevice13setClearColorEthi
 .public FUN_ov16_0211661c
-.public FUN_ov16_021123b4
+.public _ZN12C3DPlaneCtrl7acquireEv
 .public FUN_ov16_020f79ec
 .public FUN_ov16_020f7a8c
 .public FUN_ov16_020f7b50
@@ -30,7 +30,7 @@
 .public g3DDevice
 .public g3DSpriteCtrl
 .public g3DPlaneCtrl
-.public gCameraController
+.public gCameraCtrl
 .public FUN_0204451c
 .public FUN_02044560
 .public FUN_0205d348
@@ -49,7 +49,7 @@
 .public g3DGameEffect
 .public g3DMagicCamera
 .public FUN_ov16_02116650
-.public FUN_ov16_021123c4
+.public _ZN12C3DPlaneCtrl7releaseEv
 .public FUN_0205b398
 .public FUN_020522ec
 .public _ZdlPv

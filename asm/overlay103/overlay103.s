@@ -114,7 +114,7 @@ FUN_ov103_02124e1c: ; 0x02124E1C
 	mov r3, r7
 	add r0, r4, r0
 	mov r2, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r4
 	mov r1, r7
 	mov r2, r7
@@ -130,7 +130,7 @@ _02124E5C:
 	mov r2, r7
 	mov r3, r6
 	add r0, r8, r0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r4, r0
 	mov r0, r8
 	mov r1, r7
@@ -146,7 +146,7 @@ _02124E9C:
 	mov r3, r6
 	add r0, r7, r0
 	add r2, r4, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r4, r0
 	mov r0, r7
 	mov r2, r6
@@ -162,7 +162,7 @@ _02124ED8:
 	mov r3, r6
 	add r0, r7, r0
 	add r2, r4, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r0, r7
 	mov r2, r6
 	mov r1, #1
@@ -182,7 +182,7 @@ _02124F10:
 	mov r3, #0
 	mul r1, r4, r1
 	mov r1, r1, lsl #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 _02124F4C:
 	bl _ZN8Graphics16LoadBGPaletteSubEv
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -349,7 +349,7 @@ _02125188:
 	ldr r0, [r5]
 	mov r1, #1
 	mov r2, #2
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	stmia sp, {r0, r6}
 	ldr r0, [r10, #0x14]

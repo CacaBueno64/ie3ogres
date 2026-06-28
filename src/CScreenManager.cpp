@@ -1,20 +1,29 @@
-#include <nitro/fs/overlay.h>  // for FS_UnloadOverlay
-#include <nitro/gx/gx.h>       // for GX_SetDispSelect, GX_DISP_SELECT_MAIN_SUB, GX_DISP_SELECT_SUB_MAIN
-#include <nitro/mi/exMemory.h> // for MI_PROCESSOR_ARM9
-#include <nitro/mi/memory.h>   // for MI_CpuClear8
-#include <nitro/spi/ARM9/tp.h> // for TPData
-#include <nitro/types.h>       // for FALSE, BOOL, TRUE, u16, u32
-#include <stddef.h>            // for NULL
-#include "CLogicThink.hpp"     // for CLogicThink, gLogicThink
-#include "CScreenManager.hpp"  // for CScreenManager, SceneType, LAYER_STEP_DOWN, LAYER_STEP_UP, LAYER_STEP_NONE, SCENE_NONE, SceneLayer, SCENE_MENU_EQUIP, SCENE_MENU_FORMATION, SCENE_MENU_ITEM, SCENE_MENU_SPECIAL_COMMAND, ScreenLoadContext
-#include "CommonScreen.hpp"    // for CommonMainScreen, CommonSubScreen, CommonScreen
-#include "graphics.hpp"        // for ENGINE_MAIN, ENGINE_SUB, EngineSelect, IsMainFading, IsSubFading, UpdateScreenFade, FadeInMain, FadeMainBlack, FadeSubBlack
+// clang-format off
+#include "CScreenManager.hpp"
 
-CScreenManager::CScreenManager() { this->clear(); }
+#include <cstddef>              // for NULL
+
+#include <nitro/fs/overlay.h>   // for FS_UnloadOverlay
+#include <nitro/gx/gx.h>        // for GX_SetDispSelect, GX_DISP_SELECT_MAIN_SUB, GX_DISP_SELECT_SUB_MAIN
+#include <nitro/mi/exMemory.h>  // for MI_PROCESSOR_ARM9
+#include <nitro/mi/memory.h>    // for MI_CpuClear8
+#include <nitro/spi/ARM9/tp.h>  // for TPData
+#include <nitro/types.h>        // for FALSE, BOOL, TRUE, u16, u32
+
+#include "CLogicThink.hpp"      // for CLogicThink, gLogicThink
+#include "CommonScreen.hpp"     // for CommonMainScreen, CommonSubScreen, CommonScreen
+#include "graphics.hpp"         // for ENGINE_MAIN, ENGINE_SUB, EngineSelect, IsMainFading, IsSubFading, UpdateScreenFade, FadeInMain, FadeMainBlack, FadeSubBlack
+// clang-format on
+
+CScreenManager::CScreenManager()
+{
+    this->clear();
+}
 
 CScreenManager::~CScreenManager() {}
 
-void CScreenManager::clear(void) {
+void CScreenManager::clear(void)
+{
     this->layerIdx[ENGINE_MAIN] = 0;
     this->layerIdx[ENGINE_SUB] = 0;
     MI_CpuClear8(&this->layer, sizeof(this->layer));
@@ -34,7 +43,8 @@ void CScreenManager::clear(void) {
     this->loadedScene[ENGINE_SUB] = SCENE_NONE;
 }
 
-BOOL CScreenManager::updateKeys(u16 pressed, u16 held) {
+BOOL CScreenManager::updateKeys(u16 pressed, u16 held)
+{
     if (this->nextMainDisplay != 0) {
         if ((this->subScreen != NULL) && (!Graphics::IsSubFading())) {
             this->subScreen->updateKeys(pressed, held);
@@ -48,7 +58,8 @@ BOOL CScreenManager::updateKeys(u16 pressed, u16 held) {
     return FALSE;
 }
 
-BOOL CScreenManager::updateTP(TPData *tp) {
+BOOL CScreenManager::updateTP(TPData *tp)
+{
     if (this->nextMainDisplay != 0) {
         if ((this->subScreen != NULL) && (!Graphics::IsSubFading())) {
             this->subScreen->updateTP(tp);
@@ -60,7 +71,8 @@ BOOL CScreenManager::updateTP(TPData *tp) {
     return FALSE;
 }
 
-BOOL CScreenManager::update(EngineSelect engine) {
+BOOL CScreenManager::update(EngineSelect engine)
+{
     if (engine == ENGINE_MAIN) {
         if (this->mainScreen != NULL) {
             BOOL r1 = this->mainScreen->vFUN_14();
@@ -76,7 +88,8 @@ BOOL CScreenManager::update(EngineSelect engine) {
     return FALSE;
 }
 
-BOOL CScreenManager::updateLate(EngineSelect engine) {
+BOOL CScreenManager::updateLate(EngineSelect engine)
+{
     Graphics::UpdateScreenFade(engine);
 
     if (engine == ENGINE_MAIN) {
@@ -90,7 +103,8 @@ BOOL CScreenManager::updateLate(EngineSelect engine) {
     return FALSE;
 }
 
-void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx) {
+void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx)
+{
     for (; ctx->type != SCENE_NONE; ctx++) {
         if ((ctx->isInit) && (ctx->screen == screen)) {
             FS_UnloadOverlay(MI_PROCESSOR_ARM9, ctx->id);
@@ -104,70 +118,80 @@ void CScreenManager::deleteScreen(CommonScreen *screen, ScreenLoadContext *ctx) 
     }
 }
 
-void CScreenManager::fadeInMain(void) {
+void CScreenManager::fadeInMain(void)
+{
     if (this->mainScreen == NULL) {
         return;
     }
     Graphics::FadeInMain(6);
 }
 
-void CScreenManager::fadeMainBlack(void) {
+void CScreenManager::fadeMainBlack(void)
+{
     if (this->mainScreen == NULL) {
         return;
     }
     Graphics::FadeMainBlack(6);
 }
 
-void CScreenManager::fadeSubBlack(void) {
+void CScreenManager::fadeSubBlack(void)
+{
     if (this->subScreen == NULL) {
         return;
     }
     Graphics::FadeSubBlack(6);
 }
 
-int CScreenManager::transferMain(void *arg) {
+int CScreenManager::transferMain(void *arg)
+{
     if (this->mainScreen == NULL) {
         return -1;
     }
     return this->mainScreen->transfer(arg);
 }
 
-int CScreenManager::transferSub(void *arg) {
+int CScreenManager::transferSub(void *arg)
+{
     if (this->subScreen == NULL) {
         return -1;
     }
     return this->subScreen->transfer(arg);
 }
 
-int CScreenManager::signalMain(int signal) {
+int CScreenManager::signalMain(int signal)
+{
     if (this->mainScreen == NULL) {
         return -1;
     }
     return this->mainScreen->signal(signal);
 }
 
-int CScreenManager::signalSub(int signal) {
+int CScreenManager::signalSub(int signal)
+{
     if (this->subScreen == NULL) {
         return -1;
     }
     return this->subScreen->signal(signal);
 }
 
-int CScreenManager::stateMain(void) {
+int CScreenManager::stateMain(void)
+{
     if (this->mainScreen == NULL) {
         return -1;
     }
     return this->mainScreen->state();
 }
 
-int CScreenManager::stateSub(void) {
+int CScreenManager::stateSub(void)
+{
     if (this->subScreen == NULL) {
         return -1;
     }
     return this->subScreen->state();
 }
 
-void CScreenManager::setNextScene(EngineSelect screen, SceneType next) {
+void CScreenManager::setNextScene(EngineSelect screen, SceneType next)
+{
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx][screen];
     this->layerStep[screen] = LAYER_STEP_NONE;
@@ -179,7 +203,8 @@ void CScreenManager::setNextScene(EngineSelect screen, SceneType next) {
     scnLayer->next = next;
 }
 
-void CScreenManager::pushScene(EngineSelect screen, SceneType next) {
+void CScreenManager::pushScene(EngineSelect screen, SceneType next)
+{
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx + 1][screen];
     this->layerStep[screen] = LAYER_STEP_UP;
@@ -187,7 +212,8 @@ void CScreenManager::pushScene(EngineSelect screen, SceneType next) {
     scnLayer->next = next;
 }
 
-void CScreenManager::popScene(EngineSelect screen) {
+void CScreenManager::popScene(EngineSelect screen)
+{
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx - 1][screen];
     this->layerStep[screen] = LAYER_STEP_DOWN;
@@ -196,7 +222,8 @@ void CScreenManager::popScene(EngineSelect screen) {
     scnLayer->cur = SCENE_NONE;
 }
 
-void CScreenManager::setScene(EngineSelect screen, SceneType scene) {
+void CScreenManager::setScene(EngineSelect screen, SceneType scene)
+{
     int idx = this->layerIdx[screen];
     SceneLayer *scnLayer = &this->layer[idx][screen];
     this->loadedScene[screen] = scnLayer->cur;
@@ -219,7 +246,8 @@ void CScreenManager::setScene(EngineSelect screen, SceneType scene) {
     scnLayer->cur = scene;
 }
 
-SceneType CScreenManager::getCurSceneMain(void) {
+SceneType CScreenManager::getCurSceneMain(void)
+{
     int idx = this->layerIdx[ENGINE_MAIN];
 
     switch (this->layerStep[ENGINE_MAIN]) {
@@ -236,7 +264,8 @@ SceneType CScreenManager::getCurSceneMain(void) {
     return this->layer[idx][ENGINE_MAIN].cur;
 }
 
-SceneType CScreenManager::getNextSceneMain(void) {
+SceneType CScreenManager::getNextSceneMain(void)
+{
     int idx = this->layerIdx[ENGINE_MAIN];
 
     switch (this->layerStep[ENGINE_MAIN]) {
@@ -253,9 +282,13 @@ SceneType CScreenManager::getNextSceneMain(void) {
     return this->layer[idx][ENGINE_MAIN].next;
 }
 
-SceneType CScreenManager::getLoadedSceneMain(void) { return this->loadedScene[ENGINE_MAIN]; }
+SceneType CScreenManager::getLoadedSceneMain(void)
+{
+    return this->loadedScene[ENGINE_MAIN];
+}
 
-SceneType CScreenManager::getCurSceneSub(void) {
+SceneType CScreenManager::getCurSceneSub(void)
+{
     int idx = this->layerIdx[ENGINE_SUB];
 
     switch (this->layerStep[ENGINE_SUB]) {
@@ -272,7 +305,8 @@ SceneType CScreenManager::getCurSceneSub(void) {
     return this->layer[idx][ENGINE_SUB].cur;
 }
 
-SceneType CScreenManager::getNextSceneSub(void) {
+SceneType CScreenManager::getNextSceneSub(void)
+{
     int idx = this->layerIdx[ENGINE_SUB];
 
     switch (this->layerStep[ENGINE_SUB]) {
@@ -289,9 +323,13 @@ SceneType CScreenManager::getNextSceneSub(void) {
     return this->layer[idx][ENGINE_SUB].next;
 }
 
-SceneType CScreenManager::getLoadedSceneSub(void) { return this->loadedScene[ENGINE_SUB]; }
+SceneType CScreenManager::getLoadedSceneSub(void)
+{
+    return this->loadedScene[ENGINE_SUB];
+}
 
-void CScreenManager::updateDisplayMapping(void) {
+void CScreenManager::updateDisplayMapping(void)
+{
     if (this->toggleDisplays == 0) {
         return;
     }
@@ -310,7 +348,8 @@ void CScreenManager::updateDisplayMapping(void) {
     this->toggleDisplays = 0;
 }
 
-BOOL CScreenManager::FUN_02042110(SceneType scene) {
+BOOL CScreenManager::FUN_02042110(SceneType scene)
+{
     if ((scene == SCENE_MENU_FORMATION) ||
         (scene == SCENE_MENU_ITEM) ||
         (scene == SCENE_MENU_SPECIAL_COMMAND) ||

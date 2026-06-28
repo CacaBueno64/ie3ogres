@@ -8,11 +8,11 @@
 .public FUN_ov16_020f2184
 .public DC_FlushRange
 .public FUN_ov16_020f5f64
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GXS_LoadBG1Char
 .public GXS_LoadBG2Char
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public GXS_LoadBG0Scr
 .public G2S_GetBG1CharPtr

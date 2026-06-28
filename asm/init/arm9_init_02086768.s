@@ -50,9 +50,9 @@ FUN_02086768: ; 0x02086768
 	str r1, [r4, #0xc]
 	ldr r4, _02086A10 ; =gConfig
 	mov r0, r4
-	bl _ZN6ConfigC1Ev
+	bl _ZN7CConfigC1Ev
 	mov r0, r4
-	ldr r1, _02086A14 ; =_ZN6ConfigD1Ev
+	ldr r1, _02086A14 ; =_ZN7CConfigD1Ev
 	ldr r2, _02086A18 ; =0x02099FA8
 	bl __register_global_object
 	ldr r4, _02086A1C ; =gFileIO
@@ -69,11 +69,11 @@ FUN_02086768: ; 0x02086768
 	ldr r1, _02086A2C ; =FUN_0205ff98
 	ldr r2, _02086A30 ; =0x02099FC0
 	bl __register_global_object
-	ldr r4, _02086A34 ; =gCardController
+	ldr r4, _02086A34 ; =gCardCtrl
 	mov r0, r4
-	bl _ZN14CardControllerC1Ev
+	bl _ZN9CCardCtrlC1Ev
 	mov r0, r4
-	ldr r1, _02086A38 ; =_ZN14CardControllerD1Ev
+	ldr r1, _02086A38 ; =_ZN9CCardCtrlD1Ev
 	ldr r2, _02086A3C ; =0x02099FCC
 	bl __register_global_object
 	ldr r4, _02086A40 ; =gAllocator
@@ -176,7 +176,7 @@ _02086A04: .word unk_0208F680
 _02086A08: .word 0x00009CCD
 _02086A0C: .word 0x0000EA3C
 _02086A10: .word gConfig
-_02086A14: .word _ZN6ConfigD1Ev
+_02086A14: .word _ZN7CConfigD1Ev
 _02086A18: .word unk_02099FA8
 _02086A1C: .word gFileIO
 _02086A20: .word _ZN7CFileIOD1Ev
@@ -184,8 +184,8 @@ _02086A24: .word unk_02099FB4
 _02086A28: .word gRecordManager
 _02086A2C: .word FUN_0205ff98
 _02086A30: .word unk_02099FC0
-_02086A34: .word gCardController
-_02086A38: .word _ZN14CardControllerD1Ev
+_02086A34: .word gCardCtrl
+_02086A38: .word _ZN9CCardCtrlD1Ev
 _02086A3C: .word unk_02099FCC
 _02086A40: .word gAllocator
 _02086A44: .word _ZN10CAllocatorD1Ev
@@ -196,11 +196,11 @@ _02086A54: .word unk_02099FE4
 _02086A58: .word gMoviePlayer
 _02086A5C: .word _ZN11MoviePlayerD1Ev
 _02086A60: .word unk_02099FF0
-_02086A64: .word unk_0208F6C0
+_02086A64: .word _ZTV15CBgAnimeManager+0x8
 _02086A68: .word unk_020A3D14
-_02086A6C: .word unk_0208F6B0
+_02086A6C: .word _ZTV14CBgMenuManager+0x8
 _02086A70: .word gBgMenuManager
-_02086A74: .word unk_0208F6D0
+_02086A74: .word _ZTV18CBgMenuRadioButton+0x8
 _02086A78: .word unk_02099E8C
 _02086A7C: .word unk_0209A3E0
 _02086A80: .word ov16_02118988

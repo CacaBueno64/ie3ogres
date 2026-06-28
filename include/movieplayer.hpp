@@ -1,17 +1,22 @@
 #pragma once
 
-#include <mobiclip/libMobiclip.h>    // for MOHandle
+// clang-format off
+#include <cstddef>                   // for size_t
+
 #include <nitro/fs/file.h>           // for FSFile
 #include <nitro/fs/overlay.h>        // for FS_EXTERN_OVERLAY
 #include <nitro/os/common/alarm.h>   // for OSiAlarm
 #include <nitro/os/common/thread.h>  // for OSAlarm, OSThread
 #include <nitro/os/common/tick.h>    // for OS_MicroSecondsToTicks
 #include <nitro/types.h>             // for s32, u16, u32, BOOL, s8, u8
-#include <cstddef>                   // for size_t
+
+#include <mobiclip/libMobiclip.h>    // for MOHandle
+// clang-format on
+
 class CAllocator;
 
 #define MOVIE_STACK_SIZE 1024
-#define ALARM_COUNT( x ) (u32)(OS_MicroSecondsToTicks( x ))
+#define ALARM_COUNT(x) (u32)(OS_MicroSecondsToTicks(x))
 
 #define MOVIE_HAS_SOUND 0x100
 #define MOVIE_HAS_NO_SOUND 0x200
@@ -48,32 +53,33 @@ typedef struct {
     u16 *BGScrMain[2];
     u16 *BGScrSub[2];
     u8 pad18[0x8]; // pad?
-    void *unk20; // never used
-    void *unk24; // never used
+    void *unk20;   // never used
+    void *unk24;   // never used
     u8 pad28[0x8]; // pad?
 } UnkStruct_020B5B80;
 
-class MoviePlayer {
-    public:
-        MoviePlayer();
-        ~MoviePlayer();
-        void init(CAllocator *allocator);
-        void setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub);
-        int flipBuffer(void);
-        BOOL playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNotSound, u8 loadOverlay);
-        u32 FUN_0202e784(void);
-        BOOL FUN_0202e78c(void);
-        void FUN_0202e958(void);
-        void sleep(void);
-        void wakeUp(void);
-        BOOL FUN_0202ea50(void);
-        void closeMovie(u8 unloadOverlay);
-        static void threadIntr(void *arg);
-        u32 getVideoFps(void);
-        static BOOL blitFrameImage(MOHandle handleMain, MOHandle handleSub);
-        static void alarmIntr(void *arg);
-        static void *malloc(size_t size);
-        static void free(void *ptr);
+class MoviePlayer
+{
+public:
+    MoviePlayer();
+    ~MoviePlayer();
+    void init(CAllocator *allocator);
+    void setBGScreens(u16 *CurFrameMain, u16 *NextFrameMain, u16 *CurFrameSub, u16 *NextFrameSub);
+    int flipBuffer(void);
+    BOOL playMovie(const char *name, SMovieInfo *movieInfo, BOOL hasNotSound, u8 loadOverlay);
+    u32 FUN_0202e784(void);
+    BOOL FUN_0202e78c(void);
+    void FUN_0202e958(void);
+    void sleep(void);
+    void wakeUp(void);
+    BOOL FUN_0202ea50(void);
+    void closeMovie(u8 unloadOverlay);
+    static void threadIntr(void *arg);
+    u32 getVideoFps(void);
+    static BOOL blitFrameImage(MOHandle handleMain, MOHandle handleSub);
+    static void alarmIntr(void *arg);
+    static void *malloc(size_t size);
+    static void free(void *ptr);
 
     FSFile fileMain;
     FSFile fileSub;
@@ -94,7 +100,8 @@ class MoviePlayer {
 
 extern MoviePlayer gMoviePlayer;
 
-namespace Movie {
+namespace Movie
+{
 
 #define MOVIE_THREAD_STACK_SIZE 0x4000
 

@@ -96,12 +96,12 @@
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2_GetBG3CharPtr
 .public DC_FlushRange
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
@@ -109,9 +109,9 @@
 .public GX_LoadBG3Char
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f2f20
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov16_020f2184
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6c8c

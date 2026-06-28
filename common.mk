@@ -246,7 +246,17 @@ $(ELF): $(ALL_OBJS)
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
 
 IWYU      = iwyu
-IWYUFLAGS = -Xiwyu --verbose=3 -target arm-none-eabi -DNONMATCHING -DVSCODE_INTELLISENSE -DSDK_CW -D__arm $(DEFINES) -I./src -I./include -I$(WORK_DIR)/lib/include -isystem $(WORK_DIR)/lib/TwlDWC/include -isystem $(WORK_DIR)/lib/MSL_C/MSL_ARM/include -isystem $(WORK_DIR)/lib/MSL_C/MSL_Common/include -isystem $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include -isystem $(WORK_DIR)/lib/TwlSDK/include -isystem $(WORK_DIR)/lib/TwlSystem/include -isystem $(WORK_DIR)/lib/libMobiclip/include -isystem $(WORK_DIR)/lib/dsprot -isystem $(WORK_DIR)/lib/DSE/include
+IWYUFLAGS = -Xiwyu --verbose=3 -target arm-none-eabi -DNONMATCHING -DVSCODE_INTELLISENSE -DSDK_CW -D__arm $(DEFINES) \
+					-I./src -I./include -I$(WORK_DIR)/lib/include -isystem $(WORK_DIR)/lib/TwlDWC/include -isystem $(WORK_DIR)/lib/MSL_C/MSL_ARM/include \
+					-isystem $(WORK_DIR)/lib/MSL_C/MSL_Common/include -isystem $(WORK_DIR)/lib/MSL_C/MSL_Common_Embedded/include \
+					-isystem $(WORK_DIR)/lib/TwlSDK/include -isystem $(WORK_DIR)/lib/TwlSystem/include -isystem $(WORK_DIR)/lib/libMobiclip/include \
+					-isystem $(WORK_DIR)/lib/dsprot -isystem $(WORK_DIR)/lib/DSE/include \
+					-isystem $(MW_LIB)/msl/MSL_C/MSL_ARM/Include -isystem $(MW_LIB)/msl/MSL_C/MSL_Common/Include \
+					-isystem $(MW_LIB)/msl/MSL_C/MSL_Common_Embedded/Math/Include \
+					-isystem $(MW_LIB)/msl/MSL_C++/MSL_ARM/Include -isystem $(MW_LIB)/msl/MSL_C++/MSL_Common/Include \
+					-isystem $(MW_LIB)/msl/MSL_Extras/MSL_ARM/Include -isystem $(MW_LIB)/msl/MSL_Extras/MSL_Common/Include \
+					-isystem $(MW_LIB)/Profiler/include \
+					-isystem $(MW_LIB)/Runtime/Runtime_ARM/Runtime_NITRO/Common_Includes
 
 iwyu:
 	@for f in $(C_SRCS); do \

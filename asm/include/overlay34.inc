@@ -30,7 +30,7 @@
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2_GetBG3CharPtr
@@ -46,7 +46,7 @@
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f6c4c
-.public FUN_ov16_021128c4
+.public _ZN12C3DPlaneCtrl7destroyEi
 .public g3DPlaneCtrl
 .public FUN_ov16_020f63f0
 .public FUN_ov16_020f6274
@@ -71,11 +71,11 @@
 .public FUN_02058ee0
 .public FUN_02059004
 .public FUN_02059038
-.public FUN_ov16_02112724
-.public FUN_ov16_021137dc
-.public FUN_ov16_0211401c
-.public FUN_ov16_021139bc
-.public FUN_ov16_02113b78
+.public _ZN12C3DPlaneCtrl6createEib
+.public _ZN12C3DPlaneCtrl6setTexEiih
+.public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
+.public _ZN12C3DPlaneCtrl8setDepthEiij
+.public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

@@ -201,8 +201,8 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	bl FUN_ov16_0211661c
 	ldr r0, _0211A280 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
-	ldr r0, _0211A284 ; =gCameraController
+	bl _ZN12C3DPlaneCtrl7acquireEv
+	ldr r0, _0211A284 ; =gCameraCtrl
 	mov r1, #4
 	ldr r7, [r0]
 	str r6, [sp, #0x18]
@@ -260,7 +260,7 @@ _0211A274: .word unk_0209A720
 _0211A278: .word g3DDevice
 _0211A27C: .word g3DSpriteCtrl
 _0211A280: .word g3DPlaneCtrl
-_0211A284: .word gCameraController
+_0211A284: .word gCameraCtrl
 _0211A288: .word g3DGameChar
 _0211A28C: .word g3DGameMapObject
 	arm_func_end FUN_ov77_0211a12c
@@ -377,7 +377,7 @@ FUN_ov77_0211a3e0: ; 0x0211A3E0
 	bl FUN_ov16_02116650
 	ldr r0, _0211A480 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	ldr r0, _0211A484 ; =g3DGameChar
 	ldr r0, [r0]
 	bl FUN_0205b398

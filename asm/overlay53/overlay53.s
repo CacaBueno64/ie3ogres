@@ -431,7 +431,7 @@ _0211A48C:
 	ldr r0, [r8]
 	mov r1, r6
 	mov r3, r4
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldr r1, [r7, #0x9a0]
 	mov r0, #1
 	eor r1, r1, #1
@@ -441,7 +441,7 @@ _0211A48C:
 	ldr r0, [r8]
 	mov r1, r6
 	mov r3, r4
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add sp, sp, #0xc
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _0211A4F8: .word ov53_0211E700
@@ -463,7 +463,7 @@ FUN_ov53_0211a500: ; 0x0211A500
 	mov r2, r5
 	mov r7, r3
 	mov r11, #0
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	add r2, r10, r9, lsl #2
 	add r1, r10, r8, lsl #2
 	str r0, [r2, #0x87c]
@@ -473,13 +473,13 @@ FUN_ov53_0211a500: ; 0x0211A500
 	ldr r0, [r4]
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	str r11, [sp]
 	ldr r0, [r4]
 	mov r1, r8
 	mov r2, r5
 	mov r3, r7
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [sp, #0x34]
 	ldr r3, [sp, #0x30]
 	mov r0, r0, lsl #0x10
@@ -490,20 +490,20 @@ FUN_ov53_0211a500: ; 0x0211A500
 	mov r1, r8
 	mov r2, r5
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [sp, #0x3c]
 	ldr r0, [r4]
 	mov r3, r3, lsl #0x10
 	mov r1, r8
 	mov r2, r5
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	str r5, [sp]
 	ldr r0, [r4]
 	mov r3, r6
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldr r2, [sp, #0x38]
 	str r5, [sp]
 	mov r0, #0x64
@@ -586,7 +586,7 @@ FUN_ov53_0211a6a4: ; 0x0211A6A4
 	ldr r1, [r1, #0x87c]
 	mov r2, r8
 	mov r3, r7
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	mov r1, r5
 	mov r2, r8
 	mov r3, r5
@@ -1575,7 +1575,7 @@ FUN_ov53_0211b400: ; 0x0211B400
 	bl MI_CpuFill8
 	ldr r0, _0211B444 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
+	bl _ZN12C3DPlaneCtrl7acquireEv
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211B444: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211b400
@@ -1594,7 +1594,7 @@ _0211B460:
 	cmp r1, #0
 	beq _0211B480
 	ldr r0, [r6]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x87c]
 _0211B480:
@@ -1622,7 +1622,7 @@ _0211B4C0:
 	blt _0211B49C
 	ldr r0, _0211B4D8 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211B4D8: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211b448
@@ -1678,14 +1678,14 @@ FUN_ov53_0211b55c: ; 0x0211B55C
 	and r3, r3, #0xff
 	ldr r0, [r6]
 	mov r5, r1
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r6]
 	ldr r2, [r4]
 	ldr r3, [sp, #0x18]
 	mov r1, r5
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [sp, #0x20]
 	ldr r3, [sp, #0x1c]
 	mov r0, r0, lsl #0x10
@@ -1696,21 +1696,21 @@ FUN_ov53_0211b55c: ; 0x0211B55C
 	ldr r2, [r4]
 	mov r1, r5
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [sp, #0x24]
 	ldr r0, [r6]
 	mov r3, r3, lsl #0x10
 	ldr r2, [r4]
 	mov r1, r5
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	ldrb r0, [sp, #0x28]
 	mov r1, r5
 	mov r3, #2
 	str r0, [sp]
 	ldr r0, [r6]
 	ldr r2, [r4]
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0211B618: .word g3DPlaneCtrl
@@ -1769,17 +1769,17 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r0, [r4]
 	ldr r1, [r8]
 	ldr r6, [sp, #0x24]
-	bl FUN_ov16_02111438
+	bl _ZN12C3DPlaneCtrl11getTexWidthEi
 	mov r11, r0
 	ldr r0, [r4]
 	ldr r1, [r8]
-	bl FUN_ov16_02111458
+	bl _ZN12C3DPlaneCtrl12getTexHeightEi
 	mov r5, r0
 	ldr r0, _0211B83C ; =gFont12
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -1796,10 +1796,10 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r0, [r0]
 	mov r2, r6
 	mov r3, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211B83C ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r6
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]
@@ -1816,14 +1816,14 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r3, [r8]
 	ldr r0, [r4]
 	and r3, r3, #0xff
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, r6
 	str r0, [sp]
 	ldr r0, [r4]
 	ldr r2, [r9]
 	mov r3, r6
 	mov r1, r10
-	bl FUN_ov16_02113d88
+	bl _ZN12C3DPlaneCtrl8setTexSTEiiss
 	mov r0, r5, lsl #0x10
 	mov r0, r0, asr #0x10
 	str r0, [sp]
@@ -1832,7 +1832,7 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r0, [r4]
 	ldr r2, [r9]
 	mov r1, r10
-	bl FUN_ov16_02113d08
+	bl _ZN12C3DPlaneCtrl8setTexWHEiiss
 	ldr r0, [sp, #0x60]
 	ldr r3, [sp, #0x5c]
 	mov r0, r0, lsl #0x10
@@ -1843,14 +1843,14 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r2, [r9]
 	mov r1, r10
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [sp, #0x64]
 	ldr r0, [r4]
 	mov r3, r3, lsl #0x10
 	ldr r2, [r9]
 	mov r1, r10
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B838: .word g3DPlaneCtrl
@@ -1941,11 +1941,11 @@ FUN_ov53_0211b948: ; 0x0211B948
 	ldr r0, _0211B95C ; =g3DPlaneCtrl
 	ldr r2, _0211B960 ; =0x00007FFF
 	ldr r0, [r0]
-	ldr r12, _0211B964 ; = FUN_ov16_02114204
+	ldr r12, _0211B964 ; = _ZN12C3DPlaneCtrl12setColorMaskEit
 	bx r12
 _0211B95C: .word g3DPlaneCtrl
 _0211B960: .word 0x00007FFF
-_0211B964: .word FUN_ov16_02114204
+_0211B964: .word _ZN12C3DPlaneCtrl12setColorMaskEit
 	arm_func_end FUN_ov53_0211b948
 
 	arm_func_start FUN_ov53_0211b968
@@ -1953,11 +1953,11 @@ FUN_ov53_0211b968: ; 0x0211B968
 	ldr r0, _0211B97C ; =g3DPlaneCtrl
 	ldr r2, _0211B980 ; =0x00004210
 	ldr r0, [r0]
-	ldr r12, _0211B984 ; = FUN_ov16_02114204
+	ldr r12, _0211B984 ; = _ZN12C3DPlaneCtrl12setColorMaskEit
 	bx r12
 _0211B97C: .word g3DPlaneCtrl
 _0211B980: .word 0x00004210
-_0211B984: .word FUN_ov16_02114204
+_0211B984: .word _ZN12C3DPlaneCtrl12setColorMaskEit
 	arm_func_end FUN_ov53_0211b968
 
 	arm_func_start FUN_ov53_0211b988
@@ -2041,7 +2041,7 @@ FUN_ov53_0211ba78: ; 0x0211BA78
 	ldr r0, [r1]
 	mov r2, r4
 	mov r1, #2
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r8, #0
 	mov r9, r0
 	str r8, [sp, #0x14]
@@ -2361,7 +2361,7 @@ FUN_ov53_0211beb8: ; 0x0211BEB8
 	ldr r0, _0211BF4C ; =g3DPlaneCtrl
 	mov r2, #1
 	ldr r0, [r0]
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldmfd sp!, {r3, pc}
 _0211BF00:
 	cmp r2, #0xa
@@ -2381,7 +2381,7 @@ _0211BF00:
 	ldr r0, [r0]
 	add r3, r2, #1
 	mov r2, #1
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldmfd sp!, {r3, pc}
 _0211BF4C: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211beb8
@@ -2400,7 +2400,7 @@ FUN_ov53_0211bf50: ; 0x0211BF50
 	ldr r0, [r0]
 	add r3, r2, #1
 	mov r2, #1
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldmfd sp!, {r3, pc}
 _0211BF88: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211bf50
@@ -2418,7 +2418,7 @@ FUN_ov53_0211bf8c: ; 0x0211BF8C
 	ldr r0, [r0]
 	mov r3, r3, lsl #1
 	mov r2, #1
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldmfd sp!, {r3, pc}
 _0211BFC0: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211bf8c
@@ -2468,7 +2468,7 @@ FUN_ov53_0211c034: ; 0x0211C034
 	ldmeqfd sp!, {r4, pc}
 	ldr r0, _0211C070 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	mov r1, #0
 	ldr r0, _0211C074 ; =gSprButtonCtrl
 	str r1, [r4, #0x890]
@@ -2515,7 +2515,7 @@ FUN_ov53_0211c0cc: ; 0x0211C0CC
 	ldr r4, _0211C140 ; =g3DPlaneCtrl
 	mov r6, #0
 	ldr r0, [r4]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	str r6, [r7, #0x894]
 	mov r5, r6
 	b _0211C118
@@ -2557,7 +2557,7 @@ FUN_ov53_0211c148: ; 0x0211C148
 	mov r2, r6
 	ldr r0, [r0]
 	mov r1, #0xc
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	ldr r1, _0211C538 ; =0x0211EA38
 	mov r7, #0
 	mov r4, r0
@@ -2859,14 +2859,14 @@ FUN_ov53_0211c5a0: ; 0x0211C5A0
 	mov r3, #0x88
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	cmp r7, #3
 	bge _0211C614
 	ldr r0, [r9]
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211C614:
@@ -2878,7 +2878,7 @@ _0211C614:
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211C640:
@@ -2888,7 +2888,7 @@ _0211C640:
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211C664:
@@ -2945,12 +2945,12 @@ FUN_ov53_0211c6dc: ; 0x0211C6DC
 	mov r3, #0x88
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r0, [r5]
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	cmp r7, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, #1
@@ -2959,7 +2959,7 @@ FUN_ov53_0211c6dc: ; 0x0211C6DC
 	mov r1, r6
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211C758: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211c6dc
@@ -2974,7 +2974,7 @@ FUN_ov53_0211c75c: ; 0x0211C75C
 	ldr r0, _0211C7C4 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211C784:
 	ldrh r2, [r2, #8]
@@ -2986,13 +2986,13 @@ _0211C784:
 	ldr r0, _0211C7C4 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, pc}
 _0211C7B0:
 	ldr r0, _0211C7C4 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211C7C4: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211c75c
@@ -3017,7 +3017,7 @@ FUN_ov53_0211c7e4: ; 0x0211C7E4
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r4, _0211C830 ; =g3DPlaneCtrl
 	ldr r0, [r4]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	mov r5, #0
 	str r5, [r6, #0x898]
 	ldr r1, [r6, #0x8c0]
@@ -3046,7 +3046,7 @@ FUN_ov53_0211c838: ; 0x0211C838
 	mov r1, #4
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r7, #0
 	mov r4, r0
 	add r1, sp, #0x18
@@ -3209,7 +3209,7 @@ FUN_ov53_0211ca5c: ; 0x0211CA5C
 	ldr r0, [r0]
 	ldr r3, [r5, r3, lsl #3]
 	mov r1, r6
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211CAD4:
@@ -3222,7 +3222,7 @@ _0211CAD4:
 	ldr r3, [r1, #4]
 	ldr r0, [r0]
 	mov r1, r6
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211CB04:
@@ -3234,7 +3234,7 @@ _0211CB04:
 	ldr r0, [r0]
 	ldr r3, [r5, r3, lsl #3]
 	mov r1, r6
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211CB30:
@@ -3343,7 +3343,7 @@ FUN_ov53_0211cc74: ; 0x0211CC74
 	ldr r2, [r4, r2, lsl #2]
 	mov r1, r5
 	mov r3, r9
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	str r6, [r7, #0x9a0]
 	mov r0, #1
 	str r0, [sp]
@@ -3351,7 +3351,7 @@ FUN_ov53_0211cc74: ; 0x0211CC74
 	ldr r2, [r4, r6, lsl #2]
 	mov r1, r5
 	mov r3, r9
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _0211CCE8: .word ov53_0211E6E0
@@ -3377,7 +3377,7 @@ FUN_ov53_0211cd08: ; 0x0211CD08
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r4, _0211CD54 ; =g3DPlaneCtrl
 	ldr r0, [r4]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	mov r5, #0
 	str r5, [r6, #0x8a4]
 	ldr r1, [r6, #0x9f0]
@@ -3406,7 +3406,7 @@ FUN_ov53_0211cd5c: ; 0x0211CD5C
 	mov r1, #3
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r4, #0
 	mov r6, r0
 	add r1, sp, #0x18
@@ -3519,7 +3519,7 @@ FUN_ov53_0211cef8: ; 0x0211CEF8
 	ldr r0, _0211CF88 ; =g3DPlaneCtrl
 	mov r3, r2
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211CF30:
 	cmp r3, #6
@@ -3529,7 +3529,7 @@ _0211CF30:
 	ldr r0, _0211CF88 ; =g3DPlaneCtrl
 	mov r3, r2
 	ldr r0, [r0]
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, pc}
 _0211CF54:
 	cmp r3, #9
@@ -3537,7 +3537,7 @@ _0211CF54:
 	ldr r0, _0211CF88 ; =g3DPlaneCtrl
 	mov r3, r2
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211CF70:
 	ldmnefd sp!, {r3, pc}
@@ -3560,7 +3560,7 @@ FUN_ov53_0211cf8c: ; 0x0211CF8C
 	mov r1, r6
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	cmp r7, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r0, #1
@@ -3569,7 +3569,7 @@ FUN_ov53_0211cf8c: ; 0x0211CF8C
 	mov r1, r6
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211CFDC: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211cf8c
@@ -3584,7 +3584,7 @@ FUN_ov53_0211cfe0: ; 0x0211CFE0
 	ldr r0, _0211D048 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211D008:
 	ldrh r2, [r2, #8]
@@ -3596,13 +3596,13 @@ _0211D008:
 	ldr r0, _0211D048 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, pc}
 _0211D034:
 	ldr r0, _0211D048 ; =g3DPlaneCtrl
 	mov r2, r3
 	ldr r0, [r0]
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, pc}
 _0211D048: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211cfe0
@@ -3633,7 +3633,7 @@ _0211D084:
 	cmp r1, #0
 	beq _0211D0A4
 	ldr r0, [r7]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r6, r5, lsl #2
 	str r4, [r0, #0x8cc]
 _0211D0A4:
@@ -3724,7 +3724,7 @@ _0211D19C:
 	mov r1, #6
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	add r1, r9, r4, lsl #2
 	str r0, [r1, #0x8cc]
 	mov r5, r0
@@ -3788,7 +3788,7 @@ _0211D238:
 	ldr r2, [sp, #0x48]
 	ldr r0, [r0]
 	mov r1, r5
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, _0211D528 ; =g3DPlaneCtrl
@@ -3796,7 +3796,7 @@ _0211D238:
 	ldr r0, [r0]
 	mov r1, r5
 	mov r3, #0
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	mov r0, r7, lsl #0x10
 	mov r0, r0, asr #0x10
 	str r0, [sp]
@@ -3806,14 +3806,14 @@ _0211D238:
 	ldr r2, [sp, #0x48]
 	mov r1, r5
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r0, _0211D528 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x3c]
 	ldr r0, [r0]
 	ldr r2, [sp, #0x48]
 	mov r1, r5
 	mov r3, r3, lsr #0x10
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	add r0, sp, #0x44
 	str r0, [sp]
 	ldr r0, [sp, #0x24]
@@ -3976,7 +3976,7 @@ FUN_ov53_0211d554: ; 0x0211D554
 	ldr r0, [r1]
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r2, #0
 	mov r1, r0
 	str r2, [sp, #0x14]
@@ -4163,7 +4163,7 @@ _0211D7E0:
 	ldr r0, [r0]
 	ldr r2, [r5, r2, lsl #2]
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 _0211D83C: .word ov53_0211E6D0
@@ -4242,7 +4242,7 @@ FUN_ov53_0211d8a8: ; 0x0211D8A8
 	mov r2, r11
 	ldr r0, [r0]
 	mov r1, #4
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	mov r6, r0
 	str r6, [r10, #0x8a0]
 	str r7, [sp, #0x14]
@@ -4306,7 +4306,7 @@ FUN_ov53_0211d9dc: ; 0x0211D9DC
 	ldr r0, [r0]
 	mov r2, #1
 	mov r3, #2
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r4, pc}
 _0211DA14: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211d9dc
@@ -4405,13 +4405,13 @@ FUN_ov53_0211db08: ; 0x0211DB08
 	mov r1, r5
 	mov r2, r6
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	str r6, [sp]
 	ldr r0, [r8]
 	mov r1, r5
 	mov r2, r6
 	mov r3, #2
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldr r1, [r7, #0x9d4]
 	add r0, r4, r4, lsr #31
 	cmp r1, r0, asr #1
@@ -4423,7 +4423,7 @@ FUN_ov53_0211db08: ; 0x0211DB08
 	ldr r0, [r0]
 	mov r2, r6
 	and r3, r3, #0xff
-	bl FUN_ov16_02113a80
+	bl _ZN12C3DPlaneCtrl8setAlphaEiih
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _0211DBAC: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211db08
@@ -4443,17 +4443,17 @@ FUN_ov53_0211dbb0: ; 0x0211DBB0
 	ldr r1, [r6, #0x8a0]
 	mov r3, r5
 	mov r2, #1
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldr r0, [r4]
 	ldr r1, [r6, #0x8a0]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldr r0, [r4]
 	ldr r1, [r6, #0x8a0]
 	mov r3, r5
 	mov r2, #3
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211DC14: .word g3DPlaneCtrl
 	arm_func_end FUN_ov53_0211dbb0
@@ -4571,7 +4571,7 @@ FUN_ov53_0211dd48: ; 0x0211DD48
 	ldr r0, [r6]
 	mov r1, r9
 	add r2, r8, #2
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	cmp r10, #2
 	bgt _0211DDD4
 	mov r0, #1
@@ -4580,7 +4580,7 @@ FUN_ov53_0211dd48: ; 0x0211DD48
 	mov r1, r9
 	mov r3, #2
 	add r2, r8, #2
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DDD4:
 	cmp r10, #5
@@ -4589,7 +4589,7 @@ _0211DDD4:
 	mov r1, r9
 	mov r3, #2
 	add r2, r8, #2
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DDF4:
 	cmp r10, #8
@@ -4600,7 +4600,7 @@ _0211DDF4:
 	mov r1, r9
 	mov r3, #2
 	add r2, r8, #2
-	bl FUN_ov16_02113ec0
+	bl _ZN12C3DPlaneCtrl7setFlagEiitb
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DE1C:
 	cmp r10, r7
@@ -4609,7 +4609,7 @@ _0211DE1C:
 	mov r1, r9
 	mov r3, #2
 	add r2, r8, #2
-	bl FUN_ov16_02113f7c
+	bl _ZN12C3DPlaneCtrl9clearFlagEiit
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211DE3C:
 	cmp r10, r4
