@@ -645,29 +645,29 @@ _02052CAC:
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r1, #0
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r9, r0
 	mov r11, #1
 	ldr r0, [r10, #0x340]
 	mov r1, r11
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r8, r0
 	mov r4, #2
 	ldr r0, [r10, #0x340]
 	mov r1, r4
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r7, r0
 	ldr r0, [r10, #0x340]
 	mov r1, #0
-	bl FUN_02053994
+	bl PAC_GetSize
 	mov r6, r0
 	ldr r0, [r10, #0x340]
 	mov r1, r11
-	bl FUN_02053994
+	bl PAC_GetSize
 	mov r5, r0
 	ldr r0, [r10, #0x340]
 	mov r1, r4
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r9, #0
 	cmpne r8, #0
 	mov r4, r0
@@ -745,7 +745,7 @@ FUN_02052de4: ; 0x02052DE4
 	smlabb r6, r2, r0, r4
 	smlabb r7, r1, r0, r4
 	ldrsh r5, [r10, #0x1a]
-	ldr r1, _02052F98 ; =gCameraController
+	ldr r1, _02052F98 ; =gCameraCtrl
 	ldr r3, [r6, #0x24]
 	ldr r2, [r7, #0x24]
 	smlabb r8, r5, r0, r4
@@ -837,7 +837,7 @@ _02052F58:
 	bl FUN_ov16_020f7bb0
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_02052F98: .word gCameraController
+_02052F98: .word gCameraCtrl
 	arm_func_end FUN_02052de4
 
 	arm_func_start FUN_02052f9c

@@ -15,7 +15,7 @@
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public unk_020A0640
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public FUN_ov16_020f3f48

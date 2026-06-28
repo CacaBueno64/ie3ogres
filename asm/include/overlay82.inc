@@ -41,15 +41,15 @@
 .public FUN_ov16_020f2f20
 .public DC_FlushRange
 .public gFont8
-.public FUN_ov16_020f591c
-.public FUN_ov16_020f5964
+.public _ZN15CBgAnimeManager6createEv
+.public _ZN15CBgAnimeManager8addFrameEhssh
 .public unk_020A3D14
 .public FUN_ov16_020f5ff4
 .public FUN_ov16_020f5c34
 .public STD_CompareString
 .public gBgMenuManager
 .public FUN_ov16_020f63f0
-.public FUN_ov16_020f5a04
+.public _ZN15CBgAnimeManager6updateEh
 .public FUN_0204bc4c
 .public FUN_02050820
 .public FUN_020508fc
@@ -146,7 +146,7 @@
 .public G2_GetBG2CharPtr
 .public G2_GetBG3CharPtr
 .public FUN_ov1_020dc088
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG1Char
 .public FUN_ov16_020f066c
 .public FUN_ov16_020f068c

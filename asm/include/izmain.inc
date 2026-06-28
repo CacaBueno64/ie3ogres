@@ -31,7 +31,7 @@
 .public _ZN12CFontManagerC1Ev
 .public _ZN11FontManager11G2dFontInitEPvmh
 .public _ZN13FontManager_2C1Ev
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public unk_0208F800
 .public unk_0208F81C
 .public unk_0208F838

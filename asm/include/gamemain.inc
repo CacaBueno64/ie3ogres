@@ -26,9 +26,9 @@
 .public unk_0209A0F8
 .public gRecordManager
 .public unk_020A0640
-.public _ZN16CameraController4initEv
-.public _ZN6Config8getParamEPKc
-.public gCameraController
+.public _ZN11CCameraCtrl4initEv
+.public _ZN7CConfig8getParamEPKc
+.public gCameraCtrl
 .public gConfig
 .public unk_0208F978
 .public unk_0208F6F0
@@ -57,10 +57,10 @@
 .public FUN_0205f130
 .public FUN_0205a73c
 .public FUN_0205c060
-.public FUN_ov16_02112714
+.public _ZN12C3DPlaneCtrl13drawMidgroundEv
 .public FUN_ov16_020f7908
 .public FUN_0205f140
-.public FUN_ov16_02112704
+.public _ZN12C3DPlaneCtrl14drawForegroundEv
 .public FUN_0205c150
 .public FUN_ov16_021167f8
 .public FUN_ov16_020f792c

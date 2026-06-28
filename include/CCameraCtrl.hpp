@@ -50,13 +50,14 @@ typedef struct {
     Camera_10C unk10C;
 } Camera;
 
-class CameraController {
-    public:
-        /* ov16 0x020f7374 */ void init(void);
+class CCameraCtrl
+{
+public:
+    /* ov16 0x020f7374 */ void init(void);
 
     Camera cameras[5];
     int cameraIdx;
     int backupIdx;
 };
 
-extern CameraController *gCameraController;
+extern CCameraCtrl *gCameraCtrl;

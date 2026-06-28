@@ -490,7 +490,7 @@ FUN_ov19_0211a574: ; 0x0211A574
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211A5CC

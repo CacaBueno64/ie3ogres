@@ -165,8 +165,8 @@ gFontRubi8:
 	.global sArenaLow
 sArenaLow:
 	.space 0x04
-	.global gCameraController
-gCameraController:
+	.global gCameraCtrl
+gCameraCtrl:
 	.space 0x04
 	.global gPalSkin3dFile
 gPalSkin3dFile:
@@ -261,8 +261,8 @@ unk_02099FFC:
 	.global unk_0209A008
 unk_0209A008:
 	.space 0x0C
-	.global gCardController
-gCardController:
+	.global gCardCtrl
+gCardCtrl:
 	.space 0x0C
 	.global unk_0209A020
 unk_0209A020:

@@ -326,7 +326,7 @@ _02125128:
 	mov r1, r4
 	add r2, r5, #1
 	mov r3, r6
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r5, r0
 	add r8, r8, #8
 	add r9, r9, #1
@@ -383,7 +383,7 @@ _021251C0:
 	mov r3, r4
 	mov r1, r1, lsl #1
 	add r2, r5, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	add r0, r10, #0x28
 	bl FUN_ov16_020f2f20
 	mov r8, #3

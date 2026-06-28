@@ -447,7 +447,7 @@ _0211A48C:
 	ldr r1, [r5, #0x1b0]
 	mov r3, r2, asr #0x10
 	mov r2, #1
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, pc}
 _0211A4F8: .word gBgMenuManager
@@ -522,7 +522,7 @@ _0211A560:
 	ldr r1, [r4, #0x1b0]
 	mov r3, r2, asr #0x10
 	mov r2, #1
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 _0211A5F8:
 	ldr r0, [r4, #0xc]
 	cmp r0, #0
@@ -955,7 +955,7 @@ _0211AB88:
 	ldr r1, [r1, #0x2c]
 	mov r2, r9
 	mov r3, r8
-	bl FUN_ov16_02114918
+	bl _ZN12C3DPlaneCtrl17convertTilesToTexEii8GXTexFmt
 _0211ABD0:
 	add r0, r5, r4, lsl #2
 	ldr r1, [r0, #0x2c]
@@ -1026,7 +1026,7 @@ FUN_ov73_0211ac74: ; 0x0211AC74
 	mov r0, r4
 	mov r2, r6
 	add r1, r7, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	mov r7, r0
 	cmp r5, #0
 	beq _0211ACCC
@@ -1125,7 +1125,7 @@ FUN_ov73_0211acec: ; 0x0211ACEC
 	add r2, r3, #1
 	mov r3, #0
 	str r4, [r5, #0xbc]
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	ldrh r1, [r5, #0xc0]
 	ldrh r0, [r5, #0xc2]
 	ldr r2, [sp, #8]
@@ -2112,7 +2112,7 @@ _0211BC80:
 	ldr r0, _0211BEA8 ; =g3DPlaneCtrl
 	str r5, [r6, #0x180]
 	ldr r0, [r0]
-	bl FUN_ov16_021123b4
+	bl _ZN12C3DPlaneCtrl7acquireEv
 	strb r5, [r6, #0x920]
 	bl FUN_ov16_020f47fc
 	mov r0, #1
@@ -2368,7 +2368,7 @@ FUN_ov73_0211c004: ; 0x0211C004
 	bl FUN_ov16_020f2fe4
 	ldr r0, _0211C07C ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_ov16_021123c4
+	bl _ZN12C3DPlaneCtrl7releaseEv
 	ldrb r0, [r4, #0x920]
 	cmp r0, #0
 	ldmeqfd sp!, {r4, pc}
@@ -2999,7 +2999,7 @@ _0211C92C:
 	cmp r1, #0
 	beq _0211C94C
 	ldr r0, [r5]
-	bl FUN_ov16_021128c4
+	bl _ZN12C3DPlaneCtrl7destroyEi
 	add r0, r4, r7, lsl #2
 	str r6, [r0, #0x184]
 _0211C94C:
@@ -3404,7 +3404,7 @@ _0211CE80:
 	ldr r0, [r5]
 	mov r1, #2
 	mov r2, #1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	str r0, [r8]
 _0211CEC0:
 	add r0, sp, #4
@@ -3424,7 +3424,7 @@ _0211CEC0:
 	mov r3, r3, lsl #0x10
 	ldr r1, [r8]
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldrsh r2, [r10, #0x50]
 	ldr r0, [r5]
 	ldr r1, [r8]
@@ -3432,19 +3432,19 @@ _0211CEC0:
 	ldr r3, [r2, #0x2c]
 	mov r2, r7
 	and r3, r3, #0xff
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r5]
 	ldr r1, [r8]
 	mov r2, r7
 	mov r3, #0
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [r5]
 	ldr r1, [r8]
 	mov r2, r7
 	mov r3, #3
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	ldr r0, _0211D014 ; =0x020A1640
 	mov r2, r6
 	ldr r0, [r0, #0x230]
@@ -3466,25 +3466,25 @@ _0211CEC0:
 	ldr r1, [r8]
 	mov r3, r3, asr #0x10
 	movhi r10, #0
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r3, [r4, #0x54]
 	ldr r0, [r5]
 	ldr r1, [r8]
 	mov r2, r6
 	and r3, r3, #0xff
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r0, #0
 	str r0, [sp]
 	ldr r0, [r5]
 	ldr r1, [r8]
 	mov r3, r10
 	mov r2, r6
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [r5]
 	ldr r1, [r8]
 	mov r2, r6
 	mov r3, #1
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 _0211CFF8:
 	add r9, r9, #1
 	add r8, r8, #4
@@ -3571,7 +3571,7 @@ _0211D0F0:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl FUN_ov16_02112724
+	bl _ZN12C3DPlaneCtrl6createEib
 	str r0, [r10, #0x1b0]
 _0211D138:
 	add r0, sp, #0x18
@@ -3595,24 +3595,24 @@ _0211D138:
 	ldr r1, [r10, #0x1b0]
 	mov r2, r4
 	mov r3, r3, asr #0x10
-	bl FUN_ov16_02113b78
+	bl _ZN12C3DPlaneCtrl6setPosEiiss
 	ldr r2, [r10, #0x58]
 	ldr r0, [r5]
 	and r3, r2, #0xff
 	ldr r1, [r10, #0x1b0]
 	mov r2, r4
-	bl FUN_ov16_021137dc
+	bl _ZN12C3DPlaneCtrl6setTexEiih
 	mov r3, #0
 	str r3, [sp]
 	ldr r0, [r5]
 	ldr r1, [r10, #0x1b0]
 	mov r2, r4
-	bl FUN_ov16_0211401c
+	bl _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 	ldr r0, [r5]
 	ldr r1, [r10, #0x1b0]
 	mov r2, r4
 	mov r3, #2
-	bl FUN_ov16_021139bc
+	bl _ZN12C3DPlaneCtrl8setDepthEiij
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211D1DC: .word ov73_0211D45E

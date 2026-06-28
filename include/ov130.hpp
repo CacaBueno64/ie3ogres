@@ -1,6 +1,8 @@
 #pragma once
 
+// clang-format off
 #include <nitro/types.h>  // for u32, u8, u16
+// clang-format on
 
 typedef struct {
     u8 izType; // 0: Ogre, 1: Bomber (or Spark idk)

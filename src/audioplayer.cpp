@@ -1,22 +1,28 @@
-#include "audioplayer.hpp"            // for AudioPlayer
-#include "CFileIO.hpp"                // for CFileIO
-#include "CLogicThink.hpp"            // for CLogicThink, gLogicThink
-#include "allocator.hpp"              // for CAllocator, gAllocator
-#include "cnvdat.h"                   // for SSoundRecordData
-#include "filesystem.hpp"             // for FindFileIdx, GetFile, IsFileBusy, OpenArchiveDirect, ReadFileByIdx, ReadFileByIdxDeferred, SetNextArena, archandle_t, filekey_t
-#include "graphics.hpp"               // for gDeltaTime
-#include "movieplayer.hpp"            // for MoviePlayer, gMoviePlayer
-#include <DSE.h>                      // for DSE_SsdIsPlayStream, DSE_SsdIsPlaySequence, DSE_SsdAddWaveData, DSE_SsdRemoveWaveData, DSE_SsdSetStreamPlayPositionByTime, DSE_SsdIsOpenStream, DSE_SsdPlayStream, DSE_SsdStopSequence, DSE_SsdStopStream, DSE_SsdAddEffectData, DSE_SsdAddSequenceData, DSE_SsdCloseStream, DSE_SsdGetStreamSizeByTime, DSE_SsdInit, DSE_SsdInitSsdInitData, DSE_SsdInitStream, DSE_SsdInitStreamInitRec, DSE_SsdIsPlayEffect, DSE_SsdOpenStreamByFile, DSE_SsdPlayEffectParam, DSE_SsdPlaySequence, DSE_SsdQuit, DSE_SsdRemoveEffectData, DSE_SsdRemoveSequenceData, DSE_SsdResume, DSE_SsdSetEffectPolyMax, DSE_SsdSetInitDataMainThread, DSE_SsdSetInitDataRomThread, DSE_SsdSetInitDataSoundHeap, DSE_SsdSetInitDataVoiceRange, DSE_SsdSetMonoToStereo, DSE_SsdSetSequenceParam, DSE_SsdSetStreamInitDataThreadPriority, DSE_SsdSetStreamInitIOBufferSize, DSE_SsdSetStreamInitMaxOpen, DSE_SsdSetStreamInitReadThreadPriority, DSE_SsdSetStreamInitRomAccessSize, DSE_SsdSetStreamInitVoiceRange, DSE_SsdSetStreamParam, DSE_SsdStopEffect, DSE_SsdStopEffectAll, DSE_SsdStopEffectByDataID, DSESsdInitDataRec
-#include <cstdio>                     // for NULL, sprintf
-#include <cstring>                    // for strrchr
-#include <nitro/fs/file.h>            // for FS_ConvertPathToFileID
-#include <nitro/fs/types.h>           // for FSFileID
-#include <nitro/mi/memory.h>          // for MI_CpuClear8
-#include <nitro/os/common/thread.h>   // for OS_Sleep
-#include <nitro/snd/ARM9/interface.h> // for SND_LockChannel
-#include <nitro/snd/common/main.h>    // for SND_Init
-#include <nitro/std/string.h>         // for STD_CompareString, STD_TSPrintf, STD_CopyString, STD_ConcatenateString
-#include <nitro/types.h>              // for s32, FALSE, BOOL, u32, TRUE, u16, u8, s8, u64
+// clang-format off
+#include "audioplayer.hpp"
+
+#include <cstdio>                      // for NULL, sprintf
+#include <cstring>                     // for strrchr
+
+#include <nitro/fs/file.h>             // for FS_ConvertPathToFileID
+#include <nitro/fs/types.h>            // for FSFileID
+#include <nitro/mi/memory.h>           // for MI_CpuClear8
+#include <nitro/os/common/thread.h>    // for OS_Sleep
+#include <nitro/snd/ARM9/interface.h>  // for SND_LockChannel
+#include <nitro/snd/common/main.h>     // for SND_Init
+#include <nitro/std/string.h>          // for STD_CompareString, STD_TSPrintf, STD_CopyString, STD_ConcatenateString
+#include <nitro/types.h>               // for s32, FALSE, BOOL, u32, TRUE, u16, u8, s8, u64
+
+#include <DSE.h>                       // for DSE_SsdIsPlayStream, DSE_SsdIsPlaySequence, DSE_SsdAddWaveData, DSE_SsdRemoveWaveData, DSE_SsdSetStreamPlayPositionByTime, DSE_SsdIsOpenStream, DSE_SsdPlayStream, DSE_SsdStopSequence, DSE_SsdStopStream, DSE_SsdAddEffectData, DSE_SsdAddSequenceData, DSE_SsdCloseStream, DSE_SsdGetStreamSizeByTime, DSE_SsdInit, DSE_SsdInitSsdInitData, DSE_SsdInitStream, DSE_SsdInitStreamInitRec, DSE_SsdIsPlayEffect, DSE_SsdOpenStreamByFile, DSE_SsdPlayEffectParam, DSE_SsdPlaySequence, DSE_SsdQuit, DSE_SsdRemoveEffectData, DSE_SsdRemoveSequenceData, DSE_SsdResume, DSE_SsdSetEffectPolyMax, DSE_SsdSetInitDataMainThread, DSE_SsdSetInitDataRomThread, DSE_SsdSetInitDataSoundHeap, DSE_SsdSetInitDataVoiceRange, DSE_SsdSetMonoToStereo, DSE_SsdSetSequenceParam, DSE_SsdSetStreamInitDataThreadPriority, DSE_SsdSetStreamInitIOBufferSize, DSE_SsdSetStreamInitMaxOpen, DSE_SsdSetStreamInitReadThreadPriority, DSE_SsdSetStreamInitRomAccessSize, DSE_SsdSetStreamInitVoiceRange, DSE_SsdSetStreamParam, DSE_SsdStopEffect, DSE_SsdStopEffectAll, DSE_SsdStopEffectByDataID, DSESsdInitDataRec
+
+#include "CFileIO.hpp"                 // for CFileIO
+#include "CLogicThink.hpp"             // for CLogicThink, gLogicThink
+#include "allocator.hpp"               // for CAllocator, gAllocator
+#include "cnvdat.h"                    // for SSoundRecordData
+#include "filesystem.hpp"              // for FindFileIdx, GetFile, IsFileBusy, OpenArchiveDirect, ReadFileByIdx, ReadFileByIdxDeferred, SetNextArena, archandle_t, filekey_t
+#include "graphics.hpp"                // for gDeltaTime
+#include "movieplayer.hpp"             // for MoviePlayer, gMoviePlayer
+// clang-format on
 
 /*
 #include "init/arm9_init.hpp"
@@ -39,7 +45,8 @@ extern char *unk_0208FA48[];
 static int sUnkIdx;
 static archandle_t sArcKey;
 
-BOOL AudioPlayer::FUN_0202b330(s32 fileIdx, void **data, BOOL withHandle, int param3, filekey_t *keyOut) {
+BOOL AudioPlayer::FUN_0202b330(s32 fileIdx, void **data, BOOL withHandle, int param3, filekey_t *keyOut)
+{
     if (!*data) {
         if ((param3 == 2) && (sUnkIdx >= 1)) {
             gAllocator.setNextArena(258);
@@ -65,9 +72,12 @@ BOOL AudioPlayer::FUN_0202b330(s32 fileIdx, void **data, BOOL withHandle, int pa
     }
 }
 
-AudioPlayer::AudioPlayer() {}
+AudioPlayer::AudioPlayer()
+{
+}
 
-AudioPlayer::~AudioPlayer() {
+AudioPlayer::~AudioPlayer()
+{
     for (int i = 0; i < 2; i++) {
         this->FUN_0202d08c(i);
     }
@@ -78,7 +88,8 @@ AudioPlayer::~AudioPlayer() {
     this->FUN_0202d578(0);
 }
 
-void AudioPlayer::initDSE(CAllocator *allocator) {
+void AudioPlayer::initDSE(CAllocator *allocator)
+{
     DSESsdInitDataRec init;
 
     this->allocator = allocator;
@@ -88,8 +99,7 @@ void AudioPlayer::initDSE(CAllocator *allocator) {
 
     void *heap = this->allocator->allocate(0x1000F, 4, 1);
     DSE_SsdInitSsdInitData(&init);
-    DSE_SsdSetInitDataSoundHeap(
-        &init, reinterpret_cast<void *>((reinterpret_cast<u32>(heap) + 15) & ~15), 0x10000);
+    DSE_SsdSetInitDataSoundHeap(&init, reinterpret_cast<void *>((reinterpret_cast<u32>(heap) + 15) & ~15), 0x10000);
     DSE_SsdSetInitDataMainThread(&init, 0, 4);
     DSE_SsdSetInitDataRomThread(&init, 5);
     DSE_SsdSetInitDataVoiceRange(&init, 0, 15);
@@ -156,7 +166,8 @@ void AudioPlayer::initDSE(CAllocator *allocator) {
     this->unk264 = 0;
 }
 
-void AudioPlayer::wakeUp(void) {
+void AudioPlayer::wakeUp(void)
+{
     DSE_SsdResume(0);
 
     if (this->streamParam[0].unk26 & 0x4) {
@@ -165,9 +176,13 @@ void AudioPlayer::wakeUp(void) {
     }
 }
 
-void AudioPlayer::quit(void) { DSE_SsdQuit(1); }
+void AudioPlayer::quit(void)
+{
+    DSE_SsdQuit(1);
+}
 
-void AudioPlayer::FUN_0202b768(void) {
+void AudioPlayer::FUN_0202b768(void)
+{
     this->FUN_0202c5e8();
     this->FUN_0202d228();
     this->FUN_0202d7ec();
@@ -179,7 +194,8 @@ void AudioPlayer::FUN_0202b768(void) {
     }
 }
 
-BOOL AudioPlayer::FUN_0202b7b4(void) {
+BOOL AudioPlayer::FUN_0202b7b4(void)
+{
     this->FUN_0202d228();
 
     for (int i = 0; i < 2; i++) {
@@ -191,7 +207,8 @@ BOOL AudioPlayer::FUN_0202b7b4(void) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202b7f0(void) {
+BOOL AudioPlayer::FUN_0202b7f0(void)
+{
     for (int i = 0; i < 2; i++) {
         if (this->unkBC[i].unk1) {
             if (!this->FUN_0202cc34(this->unkBC[i].unk0)) {
@@ -203,7 +220,8 @@ BOOL AudioPlayer::FUN_0202b7f0(void) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202b838(int param1, int param2, int param3) {
+BOOL AudioPlayer::FUN_0202b838(int param1, int param2, int param3)
+{
     int prev = this->unk264;
 
     if (this->unk264 != param1) {
@@ -292,7 +310,8 @@ BOOL AudioPlayer::FUN_0202b838(int param1, int param2, int param3) {
     return TRUE;
 }
 
-void AudioPlayer::FUN_0202bad8(void) {
+void AudioPlayer::FUN_0202bad8(void)
+{
     switch (this->unk264) {
     case 0:
         break;
@@ -333,23 +352,35 @@ void AudioPlayer::FUN_0202bad8(void) {
     this->unk264 = 0;
 }
 
-void AudioPlayer::setBgmVolume(u16 volume) {
+void AudioPlayer::setBgmVolume(u16 volume)
+{
     this->bgmVolume = volume;
     this->updateBgmVolume(this->bgmGain);
 }
 
-void AudioPlayer::setBgmGain(u16 gain) {
+void AudioPlayer::setBgmGain(u16 gain)
+{
     this->bgmGain = gain;
     this->updateBgmVolume(this->bgmGain);
 }
 
-u16 AudioPlayer::getBgmVolume(void) { return this->bgmVolume; }
+u16 AudioPlayer::getBgmVolume(void)
+{
+    return this->bgmVolume;
+}
 
-void AudioPlayer::setEffectVolume(u16 volume) { this->effectVolume = volume; }
+void AudioPlayer::setEffectVolume(u16 volume)
+{
+    this->effectVolume = volume;
+}
 
-u16 AudioPlayer::getEffectVolume(void) { return this->effectVolume; }
+u16 AudioPlayer::getEffectVolume(void)
+{
+    return this->effectVolume;
+}
 
-void AudioPlayer::updateBgmVolume(u16 gain) {
+void AudioPlayer::updateBgmVolume(u16 gain)
+{
     this->setPlayParamVolume(((this->bgmVolume * gain * this->unk258) >> 7) / 1000, 1000);
 
     for (int i = 0; i < 2; i++) {
@@ -362,7 +393,8 @@ void AudioPlayer::updateBgmVolume(u16 gain) {
     }
 }
 
-void AudioPlayer::setPlayParamVolume(s8 target, u32 ms) {
+void AudioPlayer::setPlayParamVolume(s8 target, u32 ms)
+{
     if (!target) {
         ms = 0;
     }
@@ -372,18 +404,21 @@ void AudioPlayer::setPlayParamVolume(s8 target, u32 ms) {
     *reinterpret_cast<u32 *>(&this->playParam.flags) = 4;
 }
 
-void AudioPlayer::FUN_0202bc6c(void) {
+void AudioPlayer::FUN_0202bc6c(void)
+{
     this->FUN_0202c470(0);
     this->stopAllEffects(0);
 }
 
-void AudioPlayer::FUN_0202bc90(SSoundRecordData *record, AudioPlayer_108 *param2) {
+void AudioPlayer::FUN_0202bc90(SSoundRecordData *record, AudioPlayer_108 *param2)
+{
     record->bgmidx = param2->idx + 1;
     record->resume = param2->resume;
     record->fade = param2->fade;
 }
 
-void AudioPlayer::getSoundRecordData(SSoundRecordData *record) {
+void AudioPlayer::getSoundRecordData(SSoundRecordData *record)
+{
     for (int i = 0; i < 2; i++) {
         if (this->unkBC[i].unk1) {
             record->effidx[i] = this->unk58[this->unkBC[i].unk0].unk4 + 1;
@@ -403,7 +438,8 @@ void AudioPlayer::getSoundRecordData(SSoundRecordData *record) {
     }
 }
 
-void AudioPlayer::loadSoundRecordData(SSoundRecordData *record) {
+void AudioPlayer::loadSoundRecordData(SSoundRecordData *record)
+{
     for (int i = 0; i < 2; i++) {
         if ((record->effidx[i] > 0) && (FileSystem::GetFile(sArcKey, record->effidx[i] - 1))) {
             this->FUN_0202cd48(i, record->effidx[i] - 1);
@@ -422,12 +458,14 @@ void AudioPlayer::loadSoundRecordData(SSoundRecordData *record) {
     this->unk1E8[0].fade = record->fade;
 }
 
-void AudioPlayer::FUN_0202be18(AudioPlayer_108 *param1) {
+void AudioPlayer::FUN_0202be18(AudioPlayer_108 *param1)
+{
     MI_CpuClear8(param1, sizeof(*param1));
     param1->idx = -1;
 }
 
-void AudioPlayer::FUN_0202be40(AudioPlayer_108 *param1, const char *name) {
+void AudioPlayer::FUN_0202be40(AudioPlayer_108 *param1, const char *name)
+{
     char filename[128];
 
     STD_CopyString(param1->name, name);
@@ -438,15 +476,16 @@ void AudioPlayer::FUN_0202be40(AudioPlayer_108 *param1, const char *name) {
     }
 }
 
-void AudioPlayer::FUN_0202bea4(int param1, int param2) {
+void AudioPlayer::FUN_0202bea4(int param1, int param2)
+{
     this->FUN_0202bec0(param1, unk_0208FA48[param2], 0);
 }
 
-void AudioPlayer::FUN_0202bec0(int param1, char *param2, s32 param3) {
+void AudioPlayer::FUN_0202bec0(int param1, char *param2, s32 param3)
+{
     int v0 = 1;
     char *extension = std::strrchr(param2, '.');
-    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) ||
-                        (STD_CompareString(extension, ".sad") == 0))) {
+    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
 
@@ -463,11 +502,11 @@ void AudioPlayer::FUN_0202bec0(int param1, char *param2, s32 param3) {
     }
 }
 
-void AudioPlayer::FUN_0202bfb8(int param1, char *param2, s32 param3) {
+void AudioPlayer::FUN_0202bfb8(int param1, char *param2, s32 param3)
+{
     int v0 = 1;
     char *extension = std::strrchr(param2, '.');
-    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) ||
-                        (STD_CompareString(extension, ".sad") == 0))) {
+    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
 
@@ -484,7 +523,8 @@ void AudioPlayer::FUN_0202bfb8(int param1, char *param2, s32 param3) {
     }
 }
 
-void AudioPlayer::FUN_0202c0b0(int param1, int param2, s32 param3, s32 param4) {
+void AudioPlayer::FUN_0202c0b0(int param1, int param2, s32 param3, s32 param4)
+{
     if (param3 < 0) {
         if (this->unk178[param1].unk12 != 0) {
             this->unk220[param1].unk12 = 1;
@@ -515,19 +555,20 @@ void AudioPlayer::FUN_0202c0b0(int param1, int param2, s32 param3, s32 param4) {
     STD_TSPrintf(this->unk178[param1].name, "n<%d>", param2);
 }
 
-void AudioPlayer::FUN_0202c184(int param1, int param2, s32 param3, s32 param4) {
+void AudioPlayer::FUN_0202c184(int param1, int param2, s32 param3, s32 param4)
+{
     this->FUN_0202c1a4(param1, unk_0208FA48[param2], param3, param4);
 }
 
-void AudioPlayer::FUN_0202c1a4(int param1, char *param2, s32 param3, s32 param4) {
+void AudioPlayer::FUN_0202c1a4(int param1, char *param2, s32 param3, s32 param4)
+{
     if (*param2 == '\0') {
         return;
     }
 
     int v0 = 1;
     char *extension = std::strrchr(param2, '.');
-    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) ||
-                        (STD_CompareString(extension, ".sad") == 0))) {
+    if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
 
@@ -564,7 +605,8 @@ void AudioPlayer::FUN_0202c1a4(int param1, char *param2, s32 param3, s32 param4)
     this->FUN_0202be40(&this->unk178[param1], param2);
 }
 
-void AudioPlayer::FUN_0202c314(int param1, s32 param2, s32 param3) {
+void AudioPlayer::FUN_0202c314(int param1, s32 param2, s32 param3)
+{
     if (this->unk108[param1].unk12 == 1) {
         this->FUN_0202c0b0(param1, this->unk108[param1].idx, param2, param3);
     } else {
@@ -572,7 +614,8 @@ void AudioPlayer::FUN_0202c314(int param1, s32 param2, s32 param3) {
     }
 }
 
-void AudioPlayer::FUN_0202c364(int param1, s32 param2, s32 param3) {
+void AudioPlayer::FUN_0202c364(int param1, s32 param2, s32 param3)
+{
     if (this->unk1E8[param1].unk12 == 1) {
         this->FUN_0202c0b0(param1, this->unk1E8[param1].idx, param2, param3);
     } else {
@@ -580,13 +623,18 @@ void AudioPlayer::FUN_0202c364(int param1, s32 param2, s32 param3) {
     }
 }
 
-void AudioPlayer::FUN_0202c3b4(int param1, s32 param2) { this->FUN_0202c314(param1, 0, param2); }
+void AudioPlayer::FUN_0202c3b4(int param1, s32 param2)
+{
+    this->FUN_0202c314(param1, 0, param2);
+}
 
-void AudioPlayer::FUN_0202c3c8(int param1, int param2, s32 param3) {
+void AudioPlayer::FUN_0202c3c8(int param1, int param2, s32 param3)
+{
     this->FUN_0202c3e0(param1, unk_0208FA48[param2], param3);
 }
 
-void AudioPlayer::FUN_0202c3e0(int param1, char *param2, s32 param3) {
+void AudioPlayer::FUN_0202c3e0(int param1, char *param2, s32 param3)
+{
     char filename[64];
 
     if (!std::strrchr(param2, '.')) {
@@ -598,21 +646,27 @@ void AudioPlayer::FUN_0202c3e0(int param1, char *param2, s32 param3) {
     this->FUN_0202c1a4(param1, filename, 0, param3);
 }
 
-void AudioPlayer::FUN_0202c44c(int param1, s32 param2) {
+void AudioPlayer::FUN_0202c44c(int param1, s32 param2)
+{
     this->unk140[param1].fade = param2;
     this->unk178[param1].unk12 = -1;
     this->unk178[param1].fade = 0;
 }
 
-void AudioPlayer::FUN_0202c470(s32 param1) {
+void AudioPlayer::FUN_0202c470(s32 param1)
+{
     for (int i = 0; i < 2; i++) {
         this->FUN_0202c44c(i, param1);
     }
 }
 
-void AudioPlayer::FUN_0202c4a0(s32 param1) { this->FUN_0202c470(param1); }
+void AudioPlayer::FUN_0202c4a0(s32 param1)
+{
+    this->FUN_0202c470(param1);
+}
 
-void AudioPlayer::FUN_0202c4ac(int param1, s32 param2) {
+void AudioPlayer::FUN_0202c4ac(int param1, s32 param2)
+{
 #ifndef VSCODE_INTELLISENSE
     this->unk178[param1].name = this->unk1B0[param1].name;
 #endif
@@ -626,13 +680,15 @@ void AudioPlayer::FUN_0202c4ac(int param1, s32 param2) {
     this->FUN_0202be18(&this->unk1B0[param1]);
 }
 
-void AudioPlayer::FUN_0202c530(s32 param1) {
+void AudioPlayer::FUN_0202c530(s32 param1)
+{
     for (int i = 0; i < 2; i++) {
         this->FUN_0202c4ac(i, param1);
     }
 }
 
-BOOL AudioPlayer::FUN_0202c560(int param1) {
+BOOL AudioPlayer::FUN_0202c560(int param1)
+{
     switch (this->unk140[param1].unk12) {
     case 1:
         return this->FUN_0202d184(param1);
@@ -643,7 +699,8 @@ BOOL AudioPlayer::FUN_0202c560(int param1) {
     }
 }
 
-BOOL AudioPlayer::FUN_0202c5a4(int param1) {
+BOOL AudioPlayer::FUN_0202c5a4(int param1)
+{
     if (STD_CompareString(this->unk140[param1].name, this->unk108[param1].name) == 0) {
         return this->FUN_0202c560(param1);
     }
@@ -651,7 +708,8 @@ BOOL AudioPlayer::FUN_0202c5a4(int param1) {
     return FALSE;
 }
 
-void AudioPlayer::FUN_0202c5e8(void) {
+void AudioPlayer::FUN_0202c5e8(void)
+{
     for (int i = 0; i < 2; i++) {
         if (this->unk178[i].unk12 == 0) {
             continue;
@@ -748,12 +806,12 @@ void AudioPlayer::FUN_0202c5e8(void) {
     }
 }
 
-s8 AudioPlayer::FUN_0202c8e4(int param1) {
+s8 AudioPlayer::FUN_0202c8e4(int param1)
+{
     for (int i = 0; i < 5; i++) {
         if ((param1 != 4) && (param1 != 5)) {
             if ((this->unk58[i].unk7 != 4) && (this->unk58[i].unk7 != 5)) {
-                if (this->unk58[i].unk6 == 0)
-                    return i;
+                if (this->unk58[i].unk6 == 0) return i;
             }
         } else {
             if (param1 == this->unk58[i].unk7) {
@@ -765,7 +823,8 @@ s8 AudioPlayer::FUN_0202c8e4(int param1) {
     return -1;
 }
 
-int AudioPlayer::FUN_0202c958(int param1, int param2) {
+int AudioPlayer::FUN_0202c958(int param1, int param2)
+{
     int v0 = this->FUN_0202c8e4(param1);
     if (v0 < 0) {
         return v0;
@@ -793,7 +852,8 @@ int AudioPlayer::FUN_0202c958(int param1, int param2) {
     return v0;
 }
 
-void AudioPlayer::FUN_0202ca14(int param1) {
+void AudioPlayer::FUN_0202ca14(int param1)
+{
     if (!this->unk58[param1].unk6) {
         return;
     }
@@ -836,7 +896,8 @@ void AudioPlayer::FUN_0202ca14(int param1) {
     }
 }
 
-int AudioPlayer::FUN_0202cb64(int param1, int param2) {
+int AudioPlayer::FUN_0202cb64(int param1, int param2)
+{
     int v0 = this->FUN_0202c8e4(param1);
     if (v0 < 0) {
         return v0;
@@ -855,8 +916,7 @@ int AudioPlayer::FUN_0202cb64(int param1, int param2) {
             /* fallthrough */
         case 0:
             this->unk58[v0].unk4 = param2;
-            int ret = this->FUN_0202b330(param2, &this->unk58[v0].data, TRUE, param1,
-                                         &this->unk58[v0].fileKey);
+            int ret = this->FUN_0202b330(param2, &this->unk58[v0].data, TRUE, param1, &this->unk58[v0].fileKey);
             if (ret <= 0) {
                 return -1;
             }
@@ -870,7 +930,8 @@ int AudioPlayer::FUN_0202cb64(int param1, int param2) {
     return v0;
 }
 
-BOOL AudioPlayer::FUN_0202cc34(int param1) {
+BOOL AudioPlayer::FUN_0202cc34(int param1)
+{
     switch (this->unk58[param1].unk6) {
     case 1:
         if (FileSystem::IsFileBusy(this->unk58[param1].fileKey)) {
@@ -915,7 +976,8 @@ BOOL AudioPlayer::FUN_0202cc34(int param1) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202cd48(int param1, int param2) {
+BOOL AudioPlayer::FUN_0202cd48(int param1, int param2)
+{
     if (param1 >= 2) {
         param1 = 1;
     }
@@ -938,7 +1000,8 @@ BOOL AudioPlayer::FUN_0202cd48(int param1, int param2) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202cdd4(int param1, const char *param2) {
+BOOL AudioPlayer::FUN_0202cdd4(int param1, const char *param2)
+{
     char filename[128];
 
     STD_TSPrintf(filename, "%s.SEW", param2);
@@ -946,7 +1009,8 @@ BOOL AudioPlayer::FUN_0202cdd4(int param1, const char *param2) {
     return this->FUN_0202cd48(param1, FileSystem::FindFileIdx(sArcKey, filename));
 }
 
-BOOL AudioPlayer::FUN_0202ce24(int param1, int param2) {
+BOOL AudioPlayer::FUN_0202ce24(int param1, int param2)
+{
     if (param1 >= 2) {
         param1 = 1;
     }
@@ -969,7 +1033,8 @@ BOOL AudioPlayer::FUN_0202ce24(int param1, int param2) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202ceb0(int param1, const char *param2) {
+BOOL AudioPlayer::FUN_0202ceb0(int param1, const char *param2)
+{
     char filename[128];
 
     STD_TSPrintf(filename, "%s.SEW", param2);
@@ -977,7 +1042,8 @@ BOOL AudioPlayer::FUN_0202ceb0(int param1, const char *param2) {
     return this->FUN_0202ce24(param1, FileSystem::FindFileIdx(sArcKey, filename));
 }
 
-void AudioPlayer::FUN_0202cf00(int param1) {
+void AudioPlayer::FUN_0202cf00(int param1)
+{
     if (param1 >= 2) {
         param1 = 1;
     }
@@ -988,7 +1054,8 @@ void AudioPlayer::FUN_0202cf00(int param1) {
     }
 }
 
-s32 AudioPlayer::FUN_0202cf40(int param1) {
+s32 AudioPlayer::FUN_0202cf40(int param1)
+{
     int v0 = param1 >> 14;
 
     if (v0 >= 2) {
@@ -998,22 +1065,29 @@ s32 AudioPlayer::FUN_0202cf40(int param1) {
     return this->unk58[this->unkBC[v0].unk0].sequence + ((u32)(param1 << 18) >> 2);
 }
 
-void AudioPlayer::playEffect(int param1) {
+void AudioPlayer::playEffect(int param1)
+{
     this->setPlayParamVolume((this->effectVolume * this->effetGain * this->unk258 >> 7) / 1000, 0);
     DSE_SsdPlayEffectParam(this->FUN_0202cf40(param1), 0, &this->playParam);
 }
 
-void AudioPlayer::stopEffect(int param1, u32 fadeTime) {
+void AudioPlayer::stopEffect(int param1, u32 fadeTime)
+{
     DSE_SsdStopEffect(this->FUN_0202cf40(param1), 0, fadeTime);
 }
 
-void AudioPlayer::stopAllEffects(u32 fadeTime) { DSE_SsdStopEffectAll(fadeTime); }
+void AudioPlayer::stopAllEffects(u32 fadeTime)
+{
+    DSE_SsdStopEffectAll(fadeTime);
+}
 
-int AudioPlayer::isPlayingEffect(int param1) {
+int AudioPlayer::isPlayingEffect(int param1)
+{
     return DSE_SsdIsPlayEffect(this->FUN_0202cf40(param1), 0);
 }
 
-void AudioPlayer::FUN_0202d020(int param1, int param2) {
+void AudioPlayer::FUN_0202d020(int param1, int param2)
+{
     if (param2 != this->unkC0[param1].unk0) {
         this->unkC0[param1].unk0 = param2;
         this->unkC0[param1].unk4 |= 0xC;
@@ -1023,7 +1097,8 @@ void AudioPlayer::FUN_0202d020(int param1, int param2) {
     }
 }
 
-BOOL AudioPlayer::FUN_0202d060(int param1) {
+BOOL AudioPlayer::FUN_0202d060(int param1)
+{
     if (this->unkC0[param1].unk4 & 0x10) {
         return FALSE;
     }
@@ -1035,7 +1110,8 @@ BOOL AudioPlayer::FUN_0202d060(int param1) {
     return FALSE;
 }
 
-void AudioPlayer::FUN_0202d08c(int param1) {
+void AudioPlayer::FUN_0202d08c(int param1)
+{
     if (!this->unkC0[param1].unk6) {
         return;
     }
@@ -1050,19 +1126,22 @@ void AudioPlayer::FUN_0202d08c(int param1) {
     this->unkC0[param1].unk6 &= 0xFFFC;
 }
 
-void AudioPlayer::FUN_0202d10c(int param1, s32 param2) {
+void AudioPlayer::FUN_0202d10c(int param1, s32 param2)
+{
     this->unkC0[param1].unk4 &= 0xFFFB;
     this->unkC0[param1].unk4 |= 0x2;
     this->unkC0[param1].fadeTime = param2;
 }
 
-void AudioPlayer::FUN_0202d148(int param1, s32 param2) {
+void AudioPlayer::FUN_0202d148(int param1, s32 param2)
+{
     this->unkC0[param1].unk4 &= 0xFFFB;
     this->unkC0[param1].unk4 |= 0x82;
     this->unkC0[param1].fadeTime = param2;
 }
 
-BOOL AudioPlayer::FUN_0202d184(int param1) {
+BOOL AudioPlayer::FUN_0202d184(int param1)
+{
     if (this->unkC0[param1].unk6 & 0x4) {
         return FALSE;
     }
@@ -1077,13 +1156,15 @@ BOOL AudioPlayer::FUN_0202d184(int param1) {
     return FALSE;
 }
 
-void AudioPlayer::FUN_0202d1ec(int param1, s32 param2) {
+void AudioPlayer::FUN_0202d1ec(int param1, s32 param2)
+{
     this->unkC0[param1].unk4 &= 0xFF7D;
     this->unkC0[param1].unk4 |= 0x4;
     this->unkC0[param1].fadeTime = param2;
 }
 
-void AudioPlayer::FUN_0202d228(void) {
+void AudioPlayer::FUN_0202d228(void)
+{
     s32 id;
 
     for (int i = 0; i < 2; i++) {
@@ -1144,9 +1225,8 @@ void AudioPlayer::FUN_0202d228(void) {
                     if (this->unkC0[i].unk4 & 0x80) {
                         v1 = 0;
                     }
-                    this->setPlayParamVolume(
-                        ((this->bgmVolume * this->bgmGain * this->unk258) >> 7) / 1000,
-                        this->unkC0[i].fadeTime);
+                    this->setPlayParamVolume(((this->bgmVolume * this->bgmGain * this->unk258) >> 7) / 1000,
+                                             this->unkC0[i].fadeTime);
                     DSE_SsdPlaySequence(id, &this->playParam, v1);
                 }
                 this->unkC0[i].fadeTime = 0;
@@ -1157,7 +1237,8 @@ void AudioPlayer::FUN_0202d228(void) {
     }
 }
 
-BOOL AudioPlayer::FUN_0202d4c4(int param1, const char *filename, s8 param3) {
+BOOL AudioPlayer::FUN_0202d4c4(int param1, const char *filename, s8 param3)
+{
     FSFileID fileID;
     char path[32];
 
@@ -1180,15 +1261,20 @@ BOOL AudioPlayer::FUN_0202d4c4(int param1, const char *filename, s8 param3) {
     return TRUE;
 }
 
-void AudioPlayer::FUN_0202d578(int param1) { this->streamParam[param1].unk24 |= 0xC; }
+void AudioPlayer::FUN_0202d578(int param1)
+{
+    this->streamParam[param1].unk24 |= 0xC;
+}
 
-void AudioPlayer::FUN_0202d594(int param1, const char *filename) {
+void AudioPlayer::FUN_0202d594(int param1, const char *filename)
+{
     if ((!filename) || (this->FUN_0202d4c4(param1, filename, 0))) {
         this->streamParam[param1].unk24 |= 0x2;
     }
 }
 
-BOOL AudioPlayer::FUN_0202d5d4(int param1, int param2) {
+BOOL AudioPlayer::FUN_0202d5d4(int param1, int param2)
+{
     u32 fps = gMoviePlayer.getVideoFps();
 
     if (param2 > 0) {
@@ -1209,7 +1295,8 @@ BOOL AudioPlayer::FUN_0202d5d4(int param1, int param2) {
     return TRUE;
 }
 
-BOOL AudioPlayer::FUN_0202d6c4(int param1) {
+BOOL AudioPlayer::FUN_0202d6c4(int param1)
+{
     if (this->streamParam[param1].unk24 & 0x4) {
         return FALSE;
     }
@@ -1225,7 +1312,8 @@ BOOL AudioPlayer::FUN_0202d6c4(int param1) {
     return FALSE;
 }
 
-BOOL AudioPlayer::FUN_0202d724(const char *name) {
+BOOL AudioPlayer::FUN_0202d724(const char *name)
+{
     for (int i = 0; i < 1; i++) {
         if (STD_CompareString(this->streamParam[i].name, name) == 0) {
             return this->FUN_0202d6c4(i);
@@ -1235,12 +1323,14 @@ BOOL AudioPlayer::FUN_0202d724(const char *name) {
     return FALSE;
 }
 
-void AudioPlayer::FUN_0202d774(int param1, s32 param2) {
+void AudioPlayer::FUN_0202d774(int param1, s32 param2)
+{
     this->streamParam[param1].unk2C = param2;
     this->streamParam[param1].unk24 |= 0x4;
 }
 
-void AudioPlayer::FUN_0202d798(const char *name, s32 param2) {
+void AudioPlayer::FUN_0202d798(const char *name, s32 param2)
+{
     for (int i = 0; i < 1; i++) {
         if (STD_CompareString(this->streamParam[i].name, name) == 0) {
             this->FUN_0202d774(i, param2);
@@ -1249,7 +1339,8 @@ void AudioPlayer::FUN_0202d798(const char *name, s32 param2) {
     }
 }
 
-void AudioPlayer::FUN_0202d7ec(void) {
+void AudioPlayer::FUN_0202d7ec(void)
+{
     s32 id;
 
     for (int i = 0; i < 1; i++) {
@@ -1360,7 +1451,8 @@ void AudioPlayer::FUN_0202d7ec(void) {
     }
 }
 
-void AudioPlayer::sleep(u32 msec) {
+void AudioPlayer::sleep(u32 msec)
+{
     if ((this->streamParam[0].unk24 | this->streamParam[0].unk26) & 0x3) {
         if (DSE_SsdIsPlayStream(this->streamParam[0].streamID) != 0) {
             OS_Sleep(msec);
@@ -1368,7 +1460,8 @@ void AudioPlayer::sleep(u32 msec) {
     }
 }
 
-u32 AudioPlayer::FUN_0202dbd0(int param1) {
+u32 AudioPlayer::FUN_0202dbd0(int param1)
+{
     u32 v0 = (this->streamParam[param1].unk26 | (this->streamParam[param1].unk24 << 0x10));
 
     if (this->streamParam[param1].unk24 & 0xC) {

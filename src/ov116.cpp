@@ -1,5 +1,8 @@
+// clang-format off
 #include "ov116.hpp"
-#include <nitro/mi/memory.h> // for MI_CpuFill8
+
+#include <nitro/mi/memory.h>  // for MI_CpuFill8
+// clang-format on
 
 const UnkStruct_ov116_02124EA0 ov116_02124EA0 = UnkStruct_ov116_02124EA0(0x840800, 0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000);
 
@@ -103,7 +106,8 @@ _02124DD8:
 
 extern void _ZdlPv(void *ptr);
 
-void *FUN_ov116_02124e24(void *ptr) {
+void *FUN_ov116_02124e24(void *ptr)
+{
     _ZdlPv(ptr);
     return ptr;
 }

@@ -2,10 +2,11 @@
 
 #include <nitro/types.h>
 
-class CSprButtonCtrl {
-    public:
-        virtual ~CSprButtonCtrl(); //should be inlined
-    
+class CSprButtonCtrl
+{
+public:
+    virtual ~CSprButtonCtrl(); // should be inlined
+
     u8 unk4[0xF38];
 };
 

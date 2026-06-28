@@ -260,7 +260,7 @@ _02029AF4:
 	bl _ZN11FontManager11G2dFontInitEPvmh
 	ldr r0, _02029B38 ; =gConfig
 	ldr r1, _02029B3C ; =0x0208F870
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	strh r0, [r4, #0x12]
 	add sp, sp, #0x30
 	ldmfd sp!, {r4, pc}
@@ -369,22 +369,22 @@ L5_Main: ; 0x02029C08
 _02029C60: .word 0x0000007E
 	arm_func_end L5_Main
 
-	arm_func_start FUN_02029c64
-FUN_02029c64: ; 0x02029C64
+	arm_func_start _ZN14CSprButtonCtrlD1Ev
+_ZN14CSprButtonCtrlD1Ev: ; 0x02029C64
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02029c64
+	arm_func_end _ZN14CSprButtonCtrlD1Ev
 
-	arm_func_start FUN_02029c78
-FUN_02029c78: ; 0x02029C78
+	arm_func_start _ZN14CSprButtonCtrlD0Ev
+_ZN14CSprButtonCtrlD0Ev: ; 0x02029C78
 	bx lr
-	arm_func_end FUN_02029c78
+	arm_func_end _ZN14CSprButtonCtrlD0Ev
 
-	arm_func_start FUN_02029c7c
-FUN_02029c7c: ; 0x02029C7C
+	arm_func_start _ZN11C3DGameCharD1Ev
+_ZN11C3DGameCharD1Ev: ; 0x02029C7C
 	stmfd sp!, {r4, lr}
 	ldr r1, _02029CA0 ; =0x0208F6E0
 	mov r4, r0
@@ -395,10 +395,10 @@ FUN_02029c7c: ; 0x02029C7C
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02029CA0: .word _ZTV11C3DGameChar+0x8
-	arm_func_end FUN_02029c7c
+	arm_func_end _ZN11C3DGameCharD1Ev
 
-	arm_func_start FUN_02029ca4
-FUN_02029ca4: ; 0x02029CA4
+	arm_func_start _ZN11C3DGameCharD0Ev
+_ZN11C3DGameCharD0Ev: ; 0x02029CA4
 	stmfd sp!, {r4, lr}
 	ldr r1, _02029CC0 ; =0x0208F6E0
 	mov r4, r0
@@ -407,34 +407,34 @@ FUN_02029ca4: ; 0x02029CA4
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
 _02029CC0: .word _ZTV11C3DGameChar+0x8
-	arm_func_end FUN_02029ca4
+	arm_func_end _ZN11C3DGameCharD0Ev
 
-	arm_func_start FUN_02029cc4
-FUN_02029cc4: ; 0x02029CC4
+	arm_func_start _ZN15CBgAnimeManagerD1Ev
+_ZN15CBgAnimeManagerD1Ev: ; 0x02029CC4
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02029cc4
+	arm_func_end _ZN15CBgAnimeManagerD1Ev
 
-	arm_func_start FUN_02029cd8
-FUN_02029cd8: ; 0x02029CD8
+	arm_func_start _ZN18CBgMenuRadioButtonD1Ev
+_ZN18CBgMenuRadioButtonD1Ev: ; 0x02029CD8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02029cd8
+	arm_func_end _ZN18CBgMenuRadioButtonD1Ev
 
-	arm_func_start FUN_02029cec
-FUN_02029cec: ; 0x02029CEC
+	arm_func_start _ZN14CBgMenuManagerD1Ev
+_ZN14CBgMenuManagerD1Ev: ; 0x02029CEC
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02029cec
+	arm_func_end _ZN14CBgMenuManagerD1Ev
 
 	arm_func_start _ZN8CManager11updateSceneEv
 _ZN8CManager11updateSceneEv: ; 0x02029D00

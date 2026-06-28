@@ -39,8 +39,8 @@
 .public gLogicThink
 .public FUN_020735a0
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPvii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public G2_GetBG3CharPtr
 .public MIi_CpuClearFast
 .public DC_FlushRange

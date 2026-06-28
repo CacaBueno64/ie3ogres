@@ -1,10 +1,10 @@
-.public FUN_ov16_02112724
+.public _ZN12C3DPlaneCtrl6createEib
 .public g3DPlaneCtrl
-.public FUN_ov16_021137dc
-.public FUN_ov16_0211401c
-.public FUN_ov16_021139bc
-.public FUN_ov16_02113b78
-.public FUN_ov16_021128c4
+.public _ZN12C3DPlaneCtrl6setTexEiih
+.public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
+.public _ZN12C3DPlaneCtrl8setDepthEiij
+.public _ZN12C3DPlaneCtrl6setPosEiiss
+.public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_020591e8
 .public FUN_02058ee0
 .public _ZN7Archive5CloseEP9SFileDatai
@@ -16,7 +16,7 @@
 .public FUN_ov16_020f3f60
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
-.public FUN_ov16_021123c4
+.public _ZN12C3DPlaneCtrl7releaseEv
 .public gSprButtonCtrl
 .public gSprAnimCtrl
 .public MI_CpuFill8
@@ -29,8 +29,8 @@
 .public FUN_ov16_0210e7d0
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public FUN_ov16_02113ec0
-.public FUN_ov16_0211329c
+.public _ZN12C3DPlaneCtrl7setFlagEiitb
+.public _ZN12C3DPlaneCtrl10setFlagAllEitb
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_02058e30
 .public FUN_ov16_0210fc74
@@ -39,7 +39,7 @@
 .public GX_SetGraphicsMode
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public FUN_ov16_021123b4
+.public _ZN12C3DPlaneCtrl7acquireEv
 .public _ZN10FileSystem8AllocateEii
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c

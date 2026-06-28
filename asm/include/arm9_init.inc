@@ -1,9 +1,9 @@
 .public FX_Sqrt
-.public _ZN6ConfigC1Ev
+.public _ZN7CConfigC1Ev
 .public __register_global_object
 .public _ZN7CFileIOC1Ev
 .public FUN_0205ff80
-.public _ZN14CardControllerC1Ev
+.public _ZN9CCardCtrlC1Ev
 .public _ZN10CAllocatorC1Ev
 .public _ZN11AudioPlayerC1Ev
 .public _ZN11MoviePlayerC1Ev
@@ -18,7 +18,7 @@
 .public FUN_0203df80
 .public unk_0208F680
 .public gConfig
-.public _ZN6ConfigD1Ev
+.public _ZN7CConfigD1Ev
 .public unk_02099FA8
 .public gFileIO
 .public _ZN7CFileIOD1Ev
@@ -26,8 +26,8 @@
 .public gRecordManager
 .public FUN_0205ff98
 .public unk_02099FC0
-.public gCardController
-.public _ZN14CardControllerD1Ev
+.public gCardCtrl
+.public _ZN9CCardCtrlD1Ev
 .public unk_02099FCC
 .public gAllocator
 .public _ZN10CAllocatorD1Ev
@@ -38,11 +38,11 @@
 .public gMoviePlayer
 .public _ZN11MoviePlayerD1Ev
 .public unk_02099FF0
-.public unk_0208F6C0
+.public _ZTV15CBgAnimeManager
 .public unk_020A3D14
-.public unk_0208F6B0
+.public _ZTV14CBgMenuManager
 .public gBgMenuManager
-.public unk_0208F6D0
+.public _ZTV18CBgMenuRadioButton
 .public unk_02099E8C
 .public unk_0209A3E0
 .public ov16_02118988

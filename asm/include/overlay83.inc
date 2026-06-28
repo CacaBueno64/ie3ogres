@@ -80,7 +80,7 @@
 .public G2_GetBG3CharPtr
 .public MIi_CpuClearFast
 .public FUN_ov1_020dc020
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public G2_GetBG1CharPtr
 .public GX_LoadBG2Scr
 .public _ZN8Graphics17LoadBGPaletteMainEv

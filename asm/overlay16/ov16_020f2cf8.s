@@ -15,7 +15,7 @@ FUN_ov16_020f2cf8: ; 0x020F2CF8
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, _020F2D94 ; =gConfig
 	ldr r1, _020F2D98 ; =0x021184B4
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	add r5, sp, #0
 	mov r6, r0
 	ldr r1, _020F2D9C ; =0x021184BC

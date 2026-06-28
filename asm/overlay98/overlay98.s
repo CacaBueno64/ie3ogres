@@ -815,7 +815,7 @@ FUN_ov98_0212581c: ; 0x0212581C
 	mov r0, r4
 	mov r2, r7
 	add r1, r1, #1
-	bl _ZN8Graphics12SetupTilemapEPvii
+	bl _ZN8Graphics11SetupScreenEPvii
 	str r0, [r6]
 	ldr r2, [r5]
 	mov r0, r8
@@ -845,7 +845,7 @@ FUN_ov98_02125884: ; 0x02125884
 	beq _021258C4
 	add r2, r2, #1
 	mov r3, #0
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r2, r0
 _021258C4:
 	mov r0, r2

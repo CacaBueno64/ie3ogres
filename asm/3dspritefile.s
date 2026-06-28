@@ -115,11 +115,11 @@ _02058014:
 	ldr r0, [r4, #4]
 	bne _0205806C
 	mov r1, r5
-	bl FUN_02053994
+	bl PAC_GetSize
 	mov r6, r0
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	cmp r0, #0
 	moveq r0, r5
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -132,7 +132,7 @@ _02058014:
 	b _02058098
 _0205806C:
 	mov r1, #1
-	bl FUN_02053994
+	bl PAC_GetSize
 _02058074:
 	mov r6, r0
 	b _02058098
@@ -205,11 +205,11 @@ _0205814C:
 	ldr r0, [r4, #4]
 	bne _020581A4
 	mov r1, #1
-	bl FUN_02053994
+	bl PAC_GetSize
 	mov r6, r0
 	ldr r0, [r4, #4]
 	mov r1, #2
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -222,7 +222,7 @@ _0205814C:
 	b _020581D0
 _020581A4:
 	mov r1, #2
-	bl FUN_02053994
+	bl PAC_GetSize
 _020581AC:
 	mov r6, r0
 	b _020581D0
@@ -301,11 +301,11 @@ _02058294:
 	mov r10, #1
 	ldr r0, [r6, #4]
 	mov r1, r10
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r8, r0
 	ldr r0, [r6, #4]
 	mov r1, r10
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r5, [sp]
 	mov r3, r0
 	mov r0, r7
@@ -322,11 +322,11 @@ _020582E8:
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
 	ldr r0, [r6, #4]
 	mov r1, r9
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r8, r0
 	ldr r0, [r6, #4]
 	mov r1, r9
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r5, [sp]
 	mov r3, r0
 	mov r0, r7
@@ -425,11 +425,11 @@ _02058440:
 	mov r10, #2
 	ldr r0, [r7, #4]
 	mov r1, r10
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r9, r0
 	ldr r0, [r7, #4]
 	mov r1, r10
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r6, [sp]
 	mov r3, r0
 	str r5, [sp, #4]
@@ -448,11 +448,11 @@ _02058498:
 	mov r10, #1
 	ldr r0, [r7, #4]
 	mov r1, r10
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	mov r9, r0
 	ldr r0, [r7, #4]
 	mov r1, r10
-	bl FUN_02053994
+	bl PAC_GetSize
 	str r6, [sp]
 	mov r3, r0
 	str r5, [sp, #4]
@@ -542,7 +542,7 @@ _ZN10C3DSprFileC1Ev: ; 0x020585BC
 	bl MIi_CpuClearFast
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, pc}
-_020585F8: .word _ZTV16C3DSprFile+0x8
+_020585F8: .word _ZTV10C3DSprFile+0x8
 	arm_func_end _ZN10C3DSprFileC1Ev
 
 	arm_func_start FUN_020585fc
@@ -554,7 +554,7 @@ FUN_020585fc: ; 0x020585FC
 	bl FUN_0205866c
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02058618: .word _ZTV16C3DSprFile+0x8
+_02058618: .word _ZTV10C3DSprFile+0x8
 	arm_func_end FUN_020585fc
 
 	arm_func_start FUN_0205861c
@@ -568,7 +568,7 @@ FUN_0205861c: ; 0x0205861C
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02058640: .word _ZTV16C3DSprFile+0x8
+_02058640: .word _ZTV10C3DSprFile+0x8
 	arm_func_end FUN_0205861c
 
 	arm_func_start FUN_02058644
@@ -1148,7 +1148,7 @@ FUN_02058e50: ; 0x02058E50
 	movs r4, r1
 	beq _02058E6C
 	mov r0, r4
-	bl FUN_02057c6c
+	bl _ZN11C3DSprSheet6isIdleEv
 	cmp r0, #0
 	beq _02058E74
 _02058E6C:
@@ -1197,7 +1197,7 @@ FUN_02058ee0: ; 0x02058EE0
 	bl FUN_02057e9c
 	movs r6, r0
 	beq _02058F04
-	bl FUN_02057c6c
+	bl _ZN11C3DSprSheet6isIdleEv
 	cmp r0, #0
 	beq _02058F0C
 _02058F04:
@@ -1573,7 +1573,7 @@ _020593D8:
 	ldr r0, [r4, #4]
 	mov r1, #1
 _020593E0:
-	bl FUN_02053994
+	bl PAC_GetSize
 _020593E4:
 	mov r1, r0
 	b _02059414
@@ -1643,7 +1643,7 @@ _020594B8:
 	ldr r0, [r4, #4]
 	mov r1, #2
 _020594C0:
-	bl FUN_02053994
+	bl PAC_GetSize
 _020594C4:
 	mov r1, r0
 	b _020594E0
@@ -1999,13 +1999,13 @@ _02059984: .word gResourceManager
 _02059988: .word unk_020907D4
 	arm_func_end FUN_020598ec
 
-	arm_func_start FUN_0205998c
-FUN_0205998c: ; 0x0205998C
+	arm_func_start _ZN10C3DSprFile14getSpriteSheetEi
+_ZN10C3DSprFile14getSpriteSheetEi: ; 0x0205998C
 	ldr r12, _02059998 ; =FUN_02057e9c
 	add r0, r0, #4
 	bx r12
 _02059998: .word FUN_02057e9c
-	arm_func_end FUN_0205998c
+	arm_func_end _ZN10C3DSprFile14getSpriteSheetEi
 
 	arm_func_start FUN_0205999c
 FUN_0205999c: ; 0x0205999C
@@ -2038,7 +2038,7 @@ _020599F0:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r6, #4]
 	mov r1, #1
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, r4
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -2046,7 +2046,7 @@ _020599F0:
 	strne r0, [r5]
 	ldr r0, [r6, #4]
 	mov r1, #1
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r4, r5, r6, pc}
 _02059A30:
 	ldrh r0, [r6, #0xc]
@@ -2055,7 +2055,7 @@ _02059A30:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r6, #4]
 	mov r1, r4
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, r4
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -2063,7 +2063,7 @@ _02059A30:
 	strne r0, [r5]
 	ldr r0, [r6, #4]
 	mov r1, #0
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r4, r5, r6, pc}
 _02059A70:
 	mov r0, #0
@@ -2120,7 +2120,7 @@ _02059B04:
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #4]
 	mov r1, #2
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, #0
 	ldmlefd sp!, {r3, r4, r5, pc}
@@ -2128,7 +2128,7 @@ _02059B04:
 	strne r0, [r4]
 	ldr r0, [r5, #4]
 	mov r1, #2
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r3, r4, r5, pc}
 _02059B44:
 	ldrh r0, [r5, #0xc]
@@ -2137,7 +2137,7 @@ _02059B44:
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r5, #4]
 	mov r1, #1
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, #0
 	ldmlefd sp!, {r3, r4, r5, pc}
@@ -2145,7 +2145,7 @@ _02059B44:
 	strne r0, [r4]
 	ldr r0, [r5, #4]
 	mov r1, #1
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r3, r4, r5, pc}
 _02059B84:
 	mov r0, #0
@@ -2197,7 +2197,7 @@ _02059C08:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r6, #4]
 	mov r1, r4
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, r4
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -2205,7 +2205,7 @@ _02059C08:
 	strne r0, [r5]
 	ldr r0, [r6, #4]
 	mov r1, #0
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r4, r5, r6, pc}
 _02059C48:
 	ldrh r0, [r6, #0xc]
@@ -2214,7 +2214,7 @@ _02059C48:
 	ldmnefd sp!, {r4, r5, r6, pc}
 	ldr r0, [r6, #4]
 	mov r1, #2
-	bl FUN_02053994
+	bl PAC_GetSize
 	cmp r0, #0
 	movle r0, r4
 	ldmlefd sp!, {r4, r5, r6, pc}
@@ -2222,7 +2222,7 @@ _02059C48:
 	strne r0, [r5]
 	ldr r0, [r6, #4]
 	mov r1, #2
-	bl FUN_020539c8
+	bl PAC_GetPtr
 	ldmfd sp!, {r4, r5, r6, pc}
 _02059C88:
 	mov r0, #0
@@ -2241,12 +2241,12 @@ FUN_02059c90: ; 0x02059C90
 	mov r0, r6
 	mov r2, r5
 	mov r3, r4
-	bl FUN_02059cc0
+	bl _ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end FUN_02059c90
 
-	arm_func_start FUN_02059cc0
-FUN_02059cc0: ; 0x02059CC0
+	arm_func_start _ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_
+_ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_: ; 0x02059CC0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r7, r2
 	mov r4, r3
@@ -2305,7 +2305,7 @@ _02059D90:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02059D98: .word gResourceManager
-	arm_func_end FUN_02059cc0
+	arm_func_end _ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_
 
 	.data
 	.global unk_020907BC
@@ -2318,8 +2318,8 @@ unk_020907D4:
 	.byte 0x1F, 0x7C, 0xFF, 0x7F, 0x00, 0x00, 0x1F, 0x00, 0xE0, 0x03, 0x00, 0x7C
 	.byte 0xE0, 0x7F, 0x1F, 0x7C, 0xFF, 0x03, 0xB5, 0x56, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.byte 0x00, 0x00, 0x00, 0x00
-	.global _ZTV16C3DSprFile
-_ZTV16C3DSprFile:
+	.global _ZTV10C3DSprFile
+_ZTV10C3DSprFile:
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.word FUN_020585fc
 	.word FUN_0205861c

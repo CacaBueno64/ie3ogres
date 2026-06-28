@@ -558,7 +558,7 @@ _02125454:
 	add r0, r9, r0
 	add r2, r7, #1
 	add r3, r10, #4
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 _021254B4:
 	add r10, r10, #1
@@ -582,7 +582,7 @@ _021254D8:
 	mov r3, r5
 	add r0, r9, r0
 	add r2, r7, #1
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 	mov r7, r0
 	mov r0, r9
 	mov r1, r6
@@ -620,7 +620,7 @@ _02125524:
 	mov r3, r5
 	add r2, r7, #1
 	mov r1, #0x90
-	bl _ZN8Graphics20AdjustTilemapIndicesEPtmii
+	bl _ZN8Graphics11SetupScreenEPtmii
 _02125594:
 	bl _ZN8Graphics16LoadBGPaletteSubEv
 	b _021256AC

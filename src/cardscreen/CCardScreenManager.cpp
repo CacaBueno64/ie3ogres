@@ -1,14 +1,20 @@
-#include "CCardScreenManager.hpp"      // for CCardScreenManager, CMainCardScreenInit, FUN_ov16_020f3f60, FUN_ov16_020f47fc, FUN_ov16_020f4894, FUN_ov16_020f51a8
-#include "CScreenManager.hpp"          // for SCENE_NONE, SCENE_CARD_INIT, ScreenLoadContext, SceneType
-#include "CommonScreen.hpp"            // for CommonMainScreen, CommonSubScreen
-#include "graphics.hpp"                // for ENGINE_MAIN, ENGINE_SUB, WhiteOutScreens
-#include <cstddef>                     // for NULL
-#include <nitro/hw/ARM9/mmap_global.h> // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
-#include <nitro/mi/memory.h>           // for MI_CpuClearFast
-#include <nitro/types.h>               // for FALSE, u32
-#include "init/arm9_init.hpp"          // IWYU pragma: keep
+// clang-format off
+#include "CCardScreenManager.hpp"       // for CCardScreenManager, CMainCardScreenInit, FUN_ov16_020f3f60, FUN_ov16_020f47fc, FUN_ov16_020f4894, FUN_ov16_020f51a8
 
-void CCardScreenManager::init(void) {
+#include <cstddef>                      // for NULL
+
+#include <nitro/hw/ARM9/mmap_global.h>  // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
+#include <nitro/mi/memory.h>            // for MI_CpuClearFast
+#include <nitro/types.h>                // for FALSE, u32
+
+#include "CScreenManager.hpp"           // for SCENE_NONE, SCENE_CARD_INIT, ScreenLoadContext, SceneType
+#include "CommonScreen.hpp"             // for CommonMainScreen, CommonSubScreen
+#include "graphics.hpp"                 // for ENGINE_MAIN, ENGINE_SUB, WhiteOutScreens
+#include "init/arm9_init.hpp"           // IWYU pragma: keep
+// clang-format on
+
+void CCardScreenManager::init(void)
+{
     this->startGraphics(2);
     this->mainScreen = NULL;
     this->subScreen = NULL;
@@ -21,7 +27,8 @@ void CCardScreenManager::init(void) {
     this->updateScene();
 }
 
-void CCardScreenManager::close(void) {
+void CCardScreenManager::close(void)
+{
     if (this->mainScreen != NULL) {
         this->mainScreen->close();
     }
@@ -31,7 +38,8 @@ void CCardScreenManager::close(void) {
     this->endGraphics(2);
 }
 
-void CCardScreenManager::updateScene(void) {
+void CCardScreenManager::updateScene(void)
+{
     static ScreenLoadContext mainScreenContext[] = {
         {SCENE_CARD_INIT, &this->mainScreenInit, FALSE, 0},
         {SCENE_NONE, NULL, FALSE, 0},
@@ -80,7 +88,8 @@ void CCardScreenManager::updateScene(void) {
     }
 }
 
-void CCardScreenManager::startGraphics(u32 arg) {
+void CCardScreenManager::startGraphics(u32 arg)
+{
     if ((arg == 0) || (arg == 2)) {
         FUN_ov16_020f3f60(1);
     }
@@ -89,7 +98,8 @@ void CCardScreenManager::startGraphics(u32 arg) {
     }
 }
 
-void CCardScreenManager::endGraphics(u32 arg) {
+void CCardScreenManager::endGraphics(u32 arg)
+{
     if ((arg == 0) || (arg == 2)) {
         FUN_ov16_020f47fc();
     }

@@ -8,10 +8,10 @@
 .public STD_ConcatenateString
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5f64
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public GXS_LoadBG2Char
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public FUN_ov16_020f3f54
 .public GXS_LoadBG0Scr

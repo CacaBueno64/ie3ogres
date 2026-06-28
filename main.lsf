@@ -74,10 +74,10 @@ Static main
 	Object asm/arm9_0203fb5c.o
 	Object asm/memcopy.o
 	Object asm/vram.o
-	Object src/config.o
+	Object src/CConfig.o
 	Object asm/arm9_data_0208ff5c.o
 	Object asm/init/arm9_init_02086d34.o
-	Object src/screenmanager.o
+	Object src/CScreenManager.o
 	Object asm/init/arm9_init_02086d88.o
 	Object asm/init/arm9_init_02086ddc.o
 	Object asm/init/arm9_init_02086e30.o
@@ -136,7 +136,7 @@ Static main
 	Object asm/3dgamemap.o
 	Object asm/3dgamemapobject.o
 	Object asm/recordmanager.o
-	Object src/cardcontroller.o
+	Object src/CCardCtrl.o
 
 	# TwlSystem G3d
 	Object lib/TwlSystem/asm/g3d/libnnsg3d.o
@@ -359,7 +359,9 @@ Overlay overlay16
 	Object asm/overlay16/archive_sti.o
 	Object src/archive.o
 	Object src/overlay.o
-	Object asm/overlay16/overlay16.o
+	Object asm/overlay16/ov16_020f3f00.o
+	Object src/CBgAnimeManager.o
+	Object asm/overlay16/ov16_020f5a58.o
 }
 Overlay overlay17
 {

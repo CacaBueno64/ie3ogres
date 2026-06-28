@@ -1547,7 +1547,7 @@ _020EF258:
 	bne _020EF294
 	ldr r0, _020EF2B4 ; =gConfig
 	ldr r1, _020EF2B8 ; =0x0211842C
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	ldr r2, [r8, #0x7fc]
 	mov r1, r0, lsl #1
 	mov r0, r7, lsl #1

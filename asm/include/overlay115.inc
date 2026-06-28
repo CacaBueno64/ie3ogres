@@ -11,7 +11,7 @@
 .public FUN_02073ea4
 .public gLogicThink
 .public FUN_ov1_020dc13c
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public _ZN8Graphics14LoadBGXCharSubEiPvm
 .public G2S_GetBG1CharPtr
@@ -32,14 +32,14 @@
 .public FUN_0207249c
 .public FUN_0207039c
 .public FUN_ov16_020f081c
-.public FUN_ov16_020f5964
+.public _ZN15CBgAnimeManager8addFrameEhssh
 .public gFont12
 .public unk_020A3D14
 .public ov1_020E9480
 .public GXS_LoadBG1Scr
-.public FUN_ov16_020f5a04
+.public _ZN15CBgAnimeManager6updateEh
 .public FUN_ov16_020f63f0
-.public FUN_ov16_020f591c
+.public _ZN15CBgAnimeManager6createEv
 .public FUN_ov16_020f2fa8
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f672c

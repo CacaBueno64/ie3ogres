@@ -142,8 +142,8 @@ _02051688:
 	bx lr
 	arm_func_end FUN_0205162c
 
-	arm_func_start _ZN15ResourceManager4initEmmi
-_ZN15ResourceManager4initEmmi: ; 0x02051690
+	arm_func_start _ZN10C3DVramMan4initEmmi
+_ZN10C3DVramMan4initEmmi: ; 0x02051690
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r5, #0
@@ -202,7 +202,7 @@ _ZN15ResourceManager4initEmmi: ; 0x02051690
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02051774: .word gAllocator
-	arm_func_end _ZN15ResourceManager4initEmmi
+	arm_func_end _ZN10C3DVramMan4initEmmi
 
 	arm_func_start FUN_02051778
 FUN_02051778: ; 0x02051778
@@ -563,8 +563,8 @@ _02051C08:
 	bx lr
 	arm_func_end FUN_02051bb8
 
-	arm_func_start _ZN15ResourceManager12FUN_02051c10Ev
-_ZN15ResourceManager12FUN_02051c10Ev: ; 0x02051C10
+	arm_func_start _ZN10C3DVramMan12FUN_02051c10Ev
+_ZN10C3DVramMan12FUN_02051c10Ev: ; 0x02051C10
 	stmfd sp!, {r4, lr}
 	mov r4, r0
 	bl GX_GetBankForTex
@@ -593,7 +593,7 @@ _02051C3C:
 	ldmfd sp!, {r4, pc}
 _02051C74: .word 0x04000006
 _02051C78: .word 0x04000600
-	arm_func_end _ZN15ResourceManager12FUN_02051c10Ev
+	arm_func_end _ZN10C3DVramMan12FUN_02051c10Ev
 
 	arm_func_start FUN_02051c7c
 FUN_02051c7c: ; 0x02051C7C

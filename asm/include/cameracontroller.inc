@@ -1,4 +1,4 @@
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public _fflt
 .public _fadd
 .public _fsub
@@ -8,7 +8,7 @@
 .public unk_0209081C
 .public unk_0209082C
 .public unk_0209083C
-.public gCameraController
+.public gCameraCtrl
 .public unk_0209084C
 .public unk_02090860
 .public unk_02090874

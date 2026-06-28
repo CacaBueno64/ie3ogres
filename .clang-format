@@ -1,0 +1,30 @@
+BasedOnStyle: LLVM
+LineEnding: LF
+ColumnLimit: 0
+
+IndentWidth: 4
+UseTab: Never
+InsertNewlineAtEOF: true
+
+AccessModifierOffset: -4
+
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: false
+AllowShortRecordOnASingleLine: Never
+
+BreakBeforeBraces: Linux
+
+BinPackParameters: false
+BinPackArguments: false
+
+IndentAccessModifiers : false
+IndentCaseBlocks: false
+IndentCaseLabels: false
+
+PointerAlignment: Right
+
+SpaceBeforeParens: ControlStatements

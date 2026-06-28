@@ -6,10 +6,11 @@
 #include "CModelCfg.hpp"
 #include "archive.hpp"
 
-class C3DMagicCamera {
-    public:
-        /* 0x02052618 */ C3DMagicCamera();
-        /* 0x02052820 */ virtual ~C3DMagicCamera();
+class C3DMagicCamera
+{
+public:
+    /* 0x02052618 */ C3DMagicCamera();
+    /* 0x02052820 */ virtual ~C3DMagicCamera();
 
     SFileData cmrHeader;
     u32 unk10;
@@ -27,7 +28,7 @@ class C3DMagicCamera {
     void *unk340;
     s32 unk344;
     u32 unk348;
-    //u32 unk34C;
+    // u32 unk34C;
 };
 
 extern C3DMagicCamera *g3DMagicCamera;

@@ -1,6 +1,8 @@
 #pragma once
 
+// clang-format off
 #include <nitro/types.h>  // for u32
+// clang-format on
 
 #ifdef __cplusplus
 extern "C" {

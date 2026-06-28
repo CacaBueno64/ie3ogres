@@ -25,12 +25,12 @@
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive10DeallocateEP9SFileData
-.public _ZN8Graphics12SetupTilemapEPvii
+.public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public G2_GetBG3CharPtr
 .public DC_FlushRange
-.public _ZN8Graphics20AdjustTilemapIndicesEPtmii
+.public _ZN8Graphics11SetupScreenEPtmii
 .public G2_GetBG1CharPtr
 .public G2_GetBG2CharPtr
 .public GX_LoadBG2Scr
@@ -47,7 +47,7 @@
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public FUN_ov16_020f6274
 .public FUN_ov16_020f6c20
-.public _ZN6Config8getParamEPKc
+.public _ZN7CConfig8getParamEPKc
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public gConfig

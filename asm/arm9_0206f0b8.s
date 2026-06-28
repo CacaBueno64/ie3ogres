@@ -162,7 +162,7 @@ FUN_0206f29c: ; 0x0206F29C
 	ldr r1, _0206F580 ; =0x02091300
 	mov r4, #1
 	mov r5, #0
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	add r1, r6, #0x700
 	strh r0, [r1, #0xc0]
 	ldrh r0, [r1, #0xc0]
@@ -288,7 +288,7 @@ _0206F438:
 	ldr r1, _0206F594 ; =0x02091310
 	strb r5, [r6, #0x881]
 	strb r5, [r6, #0x883]
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	movlt r0, r5
 	cmp r0, #0x64
@@ -296,7 +296,7 @@ _0206F438:
 	strb r0, [r6, #0x880]
 	ldr r0, _0206F57C ; =gConfig
 	ldr r1, _0206F598 ; =0x02091328
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	add r1, r6, #0x800
 	strh r0, [r1, #0x68]
 	ldrsh r0, [r1, #0x68]
@@ -306,7 +306,7 @@ _0206F438:
 	strlth r5, [r1, #0x68]
 	ldr r0, _0206F57C ; =gConfig
 	ldr r1, _0206F59C ; =0x0209133C
-	bl _ZN6Config8getParamEPKc
+	bl _ZN7CConfig8getParamEPKc
 	cmp r0, #0
 	movne r7, #1
 	ldr r0, [r6, #0x820]

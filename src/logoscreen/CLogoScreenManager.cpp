@@ -1,14 +1,20 @@
+// clang-format off
 #include "CLogoScreenManager.hpp"
-#include <nitro/gx/gx.h>               // for GX_SetDispSelect, GX_DISP_SELECT_MAIN_SUB, GX_DISP_SELECT_SUB_MAIN
-#include <nitro/hw/ARM9/mmap_global.h> // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
-#include <nitro/mi/memory.h>           // for MI_CpuClearFast
-#include <nitro/os/common/thread.h>    // for OS_Sleep
-#include <stddef.h>                    // for NULL
-#include "audioplayer.hpp"             // for AudioPlayer, gAudioPlayer
-#include "graphics.hpp"                // for ENGINE_SUB, WhiteOutScreens, ENGINE_MAIN
-#include "init/arm9_init.hpp"          // IWYU pragma: keep
 
-void CLogoScreenManager::init(void) {
+#include <cstddef>                      // for NULL
+
+#include <nitro/gx/gx.h>                // for GX_SetDispSelect, GX_DISP_SELECT_MAIN_SUB, GX_DISP_SELECT_SUB_MAIN
+#include <nitro/hw/ARM9/mmap_global.h>  // for HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE
+#include <nitro/mi/memory.h>            // for MI_CpuClearFast
+#include <nitro/os/common/thread.h>     // for OS_Sleep
+
+#include "audioplayer.hpp"              // for AudioPlayer, gAudioPlayer
+#include "graphics.hpp"                 // for ENGINE_SUB, WhiteOutScreens, ENGINE_MAIN
+#include "init/arm9_init.hpp"           // IWYU pragma: keep
+// clang-format on
+
+void CLogoScreenManager::init(void)
+{
     this->startGraphics(2);
     this->mainScreen = NULL;
     this->subScreen = NULL;
@@ -30,7 +36,8 @@ void CLogoScreenManager::init(void) {
     this->updateScene();
 }
 
-void CLogoScreenManager::close(void) {
+void CLogoScreenManager::close(void)
+{
     if (this->mainScreen != NULL) {
         this->mainScreen->close();
     }
@@ -40,7 +47,8 @@ void CLogoScreenManager::close(void) {
     this->endGraphics(2);
 }
 
-void CLogoScreenManager::updateScene(void) {
+void CLogoScreenManager::updateScene(void)
+{
     SceneType nextSceneMain = this->getNextSceneMain();
 
     if (((this->getCurSceneMain() != nextSceneMain) || (this->sceneChanged[ENGINE_SUB])) &&
@@ -86,7 +94,8 @@ void CLogoScreenManager::updateScene(void) {
     }
 }
 
-void CLogoScreenManager::startGraphics(u32 arg) {
+void CLogoScreenManager::startGraphics(u32 arg)
+{
     GX_SetDispSelect(GX_DISP_SELECT_MAIN_SUB);
 
     if ((arg == 0) || (arg == 2)) {
@@ -97,7 +106,8 @@ void CLogoScreenManager::startGraphics(u32 arg) {
     }
 }
 
-void CLogoScreenManager::endGraphics(u32 arg) {
+void CLogoScreenManager::endGraphics(u32 arg)
+{
     if ((arg == 0) || (arg == 2)) {
         FUN_ov16_020f47fc();
     }

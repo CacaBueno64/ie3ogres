@@ -1,15 +1,21 @@
+// clang-format off
 #include "CFileIO.hpp"
+
+#include <cstring>                // for strcmp, strrchr, strchr
+
 #include <nitro/fs/api.h>         // for FS_TryLoadTable
 #include <nitro/fs/archive.h>     // for FS_FindArchive
 #include <nitro/fs/romfat.h>      // for FS_UnloadArchiveTables
 #include <nitro/mi/memory.h>      // for MI_CpuClear8, MI_CpuFill8
 #include <nitro/os/ARM9/cache.h>  // for DC_FlushRange
 #include <nitro/std/string.h>     // for STD_CopyString, STD_GetStringLength
-#include <cstring>                // for strcmp, strrchr, strchr
+
 #include "allocator.hpp"          // for CAllocator
 #include "archive.hpp"            // for SFPHeader, FUN_02053914, SFPEntry
+// clang-format on
 
-CFileIO::CFileIO() {
+CFileIO::CFileIO()
+{
     this->nRequests = 0;
     this->pendingTail = NULL;
     this->pendingHead = NULL;
@@ -17,14 +23,16 @@ CFileIO::CFileIO() {
     this->table = NULL;
 }
 
-CFileIO::~CFileIO() {
+CFileIO::~CFileIO()
+{
     FS_UnloadArchiveTables(FS_FindArchive("rom", 3));
     OS_DestroyThread(&this->thread);
 }
 
 void CFileIO::FUN_0202ede8(void) {}
 
-void CFileIO::init(int max_requests, CAllocator *allocator) {
+void CFileIO::init(int max_requests, CAllocator *allocator)
+{
     if (this->nRequests != 0) {
         return;
     }
@@ -37,7 +45,8 @@ void CFileIO::init(int max_requests, CAllocator *allocator) {
     this->start(max_requests);
 }
 
-void CFileIO::start(int max_requests) {
+void CFileIO::start(int max_requests)
+{
     if (this->nRequests != 0) {
         return;
     }
@@ -63,7 +72,8 @@ void CFileIO::start(int max_requests) {
     }
 }
 
-int CFileIO::getFreeRequestIdx(void) {
+int CFileIO::getFreeRequestIdx(void)
+{
     int i = 1;
 
     for (; i < this->nRequests; i++) {
@@ -78,7 +88,8 @@ int CFileIO::getFreeRequestIdx(void) {
     return i;
 }
 
-int CFileIO::getRequestIdx(void *data) {
+int CFileIO::getRequestIdx(void *data)
+{
     int i = 1;
 
     for (; i < this->nRequests; i++) {
@@ -93,15 +104,18 @@ int CFileIO::getRequestIdx(void *data) {
     return i;
 }
 
-void *CFileIO::allocate(size_t size) {
+void *CFileIO::allocate(size_t size)
+{
     return this->defaultAllocator->allocate(size, 15, 1);
 }
 
-void CFileIO::deallocate(void *ptr) {
+void CFileIO::deallocate(void *ptr)
+{
     this->defaultAllocator->deallocate(ptr);
 }
 
-size_t CFileIO::getFileLength(const char *path) {
+size_t CFileIO::getFileLength(const char *path)
+{
     FSFile file;
 
     FS_InitFile(&file);
@@ -322,7 +336,8 @@ _0202F27C:
 // clang-format on
 #endif // NONMATCHING
 
-size_t CFileIO::readDeferred(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy) {
+size_t CFileIO::readDeferred(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
+{
     FSFile file;
 
     OS_LockMutex(&this->mutex);
@@ -428,7 +443,8 @@ size_t CFileIO::readDeferred(const char *path, void **dest, CAllocator *allocato
     return size;
 }
 
-size_t CFileIO::readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size) {
+size_t CFileIO::readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size)
+{
     FSFile file;
     size_t result;
 
@@ -442,15 +458,18 @@ size_t CFileIO::readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offs
     return result;
 }
 
-BOOL CFileIO::convertPathToFileID(FSFileID *fileID, const char *path) {
+BOOL CFileIO::convertPathToFileID(FSFileID *fileID, const char *path)
+{
     return FS_ConvertPathToFileID(fileID, path);
 }
 
-int CFileIO::tryFinalize(void *data) {
+int CFileIO::tryFinalize(void *data)
+{
     return this->tryFinalize(this->getRequestIdx(data));
 }
 
-int CFileIO::tryFinalize(int idx) {
+int CFileIO::tryFinalize(int idx)
+{
     if (idx == 0) {
         return -1;
     }
@@ -478,7 +497,8 @@ int CFileIO::tryFinalize(int idx) {
     return result;
 }
 
-BOOL CFileIO::isBusy(void) {
+BOOL CFileIO::isBusy(void)
+{
     for (int i = 1; i < this->nRequests; i++) {
         FileRequest *request = &this->requests[i];
 
@@ -490,11 +510,13 @@ BOOL CFileIO::isBusy(void) {
     return FALSE;
 }
 
-BOOL CFileIO::close(void *data, BOOL deallocate) {
+BOOL CFileIO::close(void *data, BOOL deallocate)
+{
     return this->close(this->getRequestIdx(data), deallocate);
 }
 
-BOOL CFileIO::close(int idx, BOOL deallocate) {
+BOOL CFileIO::close(int idx, BOOL deallocate)
+{
     if (idx == 0) {
         return TRUE;
     }
@@ -547,11 +569,13 @@ BOOL CFileIO::close(int idx, BOOL deallocate) {
     return result;
 }
 
-void CFileIO::wakeUp(void) {
+void CFileIO::wakeUp(void)
+{
     OS_WakeupThreadDirect(&this->thread);
 }
 
-void CFileIO::processRequests(void *arg) {
+void CFileIO::processRequests(void *arg)
+{
 #define CHUNK_SIZE 0x2000
 
     CFileIO *pthis = static_cast<CFileIO *>(arg);
@@ -668,7 +692,8 @@ void CFileIO::processRequests(void *arg) {
     }
 }
 
-BOOL CFileIO::getDestSize(FileRequest *request, FSFile *file, size_t *out_size) {
+BOOL CFileIO::getDestSize(FileRequest *request, FSFile *file, size_t *out_size)
+{
     if (!std::strchr(request->path, '%')) {
         if (FS_ReadFile(file, &request->compHeader, sizeof(request->compHeader)) < 0) {
             while (!FS_CloseFile(file)) {
@@ -693,7 +718,8 @@ BOOL CFileIO::getDestSize(FileRequest *request, FSFile *file, size_t *out_size) 
     }
 }
 
-void CFileIO::processUncompRequest(FileRequest *request) {
+void CFileIO::processUncompRequest(FileRequest *request)
+{
     this->uncompress(this->buffers[this->bufIdx ^ 1], request);
     this->deallocate(this->buffers[this->bufIdx ^ 1]);
     this->buffers[this->bufIdx ^ 1] = NULL;
@@ -710,7 +736,8 @@ void CFileIO::processUncompRequest(FileRequest *request) {
     request->state = STATE_COMPLETE;
 }
 
-void CFileIO::uncompress(void *src, FileRequest *request) {
+void CFileIO::uncompress(void *src, FileRequest *request)
+{
     void *dst = request->data;
 
     switch (MI_GetCompressionType(src)) {
@@ -730,7 +757,8 @@ void CFileIO::uncompress(void *src, FileRequest *request) {
     DC_FlushRange(dst, MI_GetUncompressedSize(src));
 }
 
-size_t CFileIO::readFromSFP(char *filename, void **dst, char *file) {
+size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
+{
     Archive::SFPHeader *header = reinterpret_cast<Archive::SFPHeader *>(file);
 
     if (std::strcmp(header->magic, "SFP")) {

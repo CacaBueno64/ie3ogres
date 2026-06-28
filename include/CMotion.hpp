@@ -1,13 +1,14 @@
 #pragma once
 
-#include <nitro/types.h>
 #include "CNsbResourceMan.hpp"
+#include <nitro/types.h>
 
 class CModel; // avoid cyclic dependency
-class CMotion {
-    public:
-        virtual ~CMotion() { }
-    
+class CMotion
+{
+public:
+    virtual ~CMotion() {}
+
     NsbResource *anmRes;
     u8 isLinked;
     u8 unk9; // pad?

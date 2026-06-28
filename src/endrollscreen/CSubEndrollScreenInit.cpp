@@ -1,17 +1,25 @@
-#include <nitro/gx/gx_load.h>        // for GXS_BeginLoadBGExtPltt, GXS_EndLoadBGExtPltt, GXS_LoadBGExtPltt, GXS_LoadBG2Char, GXS_LoadBG2Scr
-#include <nitro/mi/memory.h>         // for MI_CpuClear8, MI_CpuClearFast
-#include <nitro/os/ARM9/cache.h>     // for DC_FlushRange
-#include <nitro/types.h>             // for FALSE, TRUE, BOOL, u16
-#include <cstdio>                    // for NULL, sprintf, size_t
-#include "CEndrollScreenManager.hpp" // for CSubEndrollScreenInit, SEndrollScreenShared
-#include "CFileIO.hpp"               // for CFileIO
-#include "allocator.hpp"             // for gAllocator, CAllocator
-#include "archive.hpp"               // for ImagePAC, ReadNewUncompress
-#include "config.hpp"                // for Config, gConfig
-#include "graphics.hpp"              // for ENGINE_SUB, FadeInScreen, LoadBGPaletteSub, FadeSubBlack, IsScreenBrightAdjusted, IsScreenFading
-#include "init/arm9_init.hpp"        // IWYU pragma: keep
+// clang-format off
+#include "CEndrollScreenManager.hpp"  // for CSubEndrollScreenInit, SEndrollScreenShared
 
-BOOL CSubEndrollScreenInit::readOptions(void) {
+#include <cstddef>                    // for NULL, size_t
+#include <cstdio>                     // for sprintf
+
+#include <nitro/gx/gx_load.h>         // for GXS_BeginLoadBGExtPltt, GXS_EndLoadBGExtPltt, GXS_LoadBGExtPltt, GXS_LoadBG2Char, GXS_LoadBG2Scr
+#include <nitro/mi/memory.h>          // for MI_CpuClear8, MI_CpuClearFast
+#include <nitro/os/ARM9/cache.h>      // for DC_FlushRange
+#include <nitro/types.h>              // for FALSE, TRUE, BOOL, u16
+
+#include "CFileIO.hpp"                // for CFileIO
+#include "allocator.hpp"              // for gAllocator, CAllocator
+#include "archive.hpp"                // for ReadNewUncompress
+#include "CConfig.hpp"                // for CConfig, gConfig
+#include "graphics.hpp"               // for ENGINE_SUB, FadeInScreen, LoadBGPaletteSub, FadeSubBlack, IsScreenBrightAdjusted, IsScreenFading
+#include "pac.hpp"                    // for PAC_PSC
+#include "init/arm9_init.hpp"         // IWYU pragma: keep
+// clang-format on
+
+BOOL CSubEndrollScreenInit::readOptions(void)
+{
     size_t size;
     const char *filename;
 
@@ -25,9 +33,7 @@ BOOL CSubEndrollScreenInit::readOptions(void) {
         } else {
             size = 0;
         }
-        if (!size) {
-            return FALSE;
-        }
+        if (!size) return FALSE;
         break;
     case 1:
         filename = "/data_iz/logic/ed_option_b.dat";
@@ -37,25 +43,24 @@ BOOL CSubEndrollScreenInit::readOptions(void) {
         } else {
             size = 0;
         }
-        if (!size) {
-            return FALSE;
-        }
+        if (!size) return FALSE;
         break;
     }
 
     for (int i = 0; i < this->CREDIT_IMAGE_COUNT; i++) {
-        this->options[i].duration++;
+        ++this->options[i].duration;
     }
-
     return TRUE;
 }
 
-void CSubEndrollScreenInit::freeOptions(void) {
+void CSubEndrollScreenInit::freeOptions(void)
+{
     gAllocator.deallocate(this->options);
     this->options = NULL;
 }
 
-void CSubEndrollScreenInit::resetGraphics(void) {
+void CSubEndrollScreenInit::resetGraphics(void)
+{
     void *ptr = gAllocator.allocate(0x200);
 
     if (ptr) {
@@ -71,13 +76,18 @@ void CSubEndrollScreenInit::resetGraphics(void) {
     }
 }
 
-int CSubEndrollScreenInit::signal(int arg) { return 1; }
+int CSubEndrollScreenInit::signal(int arg)
+{
+    return 1;
+}
 
-void CSubEndrollScreenInit::readFin(const char *path) {
+void CSubEndrollScreenInit::readFin(const char *path)
+{
     Archive::ReadNewUncompress(path, &this->creditImages[this->CREDIT_IMAGE_FIN]);
 }
 
-void CSubEndrollScreenInit::readImage(int idx) {
+void CSubEndrollScreenInit::readImage(int idx)
+{
     char path[256];
 
     MI_CpuClear8(path, sizeof(path));
@@ -85,37 +95,38 @@ void CSubEndrollScreenInit::readImage(int idx) {
     Archive::ReadNewUncompress(path, &this->creditImages[idx]);
 }
 
-void CSubEndrollScreenInit::freeImage(int idx) {
+void CSubEndrollScreenInit::freeImage(int idx)
+{
     if ((this->creditImages[idx].data != 0) && (this->creditImages[idx].unk_9 != 0)) {
         gAllocator.deallocate(this->creditImages[idx].data);
         this->creditImages[idx].data = NULL;
     }
 }
 
-void CSubEndrollScreenInit::freeImages(void) {
+void CSubEndrollScreenInit::freeImages(void)
+{
     for (int i = 0; i < this->CREDIT_IMAGE_COUNT + 2; i++) {
         this->freeImage(i);
     }
 }
 
-void CSubEndrollScreenInit::displayImage(int idx) {
-    void *data = this->creditImages[idx].data;
+void CSubEndrollScreenInit::displayImage(int idx)
+{
+    void *img = this->creditImages[idx].data;
 
-    if (data) {
-        GXS_LoadBG2Scr(Archive::ImagePAC::GetScreenPtr(data), 0,
-                       Archive::ImagePAC::GetScreenSize(data));
-        GXS_LoadBG2Char(Archive::ImagePAC::GetCharacterPtr(data), 0,
-                        Archive::ImagePAC::GetCharacterSize(data));
+    if (img) {
+        GXS_LoadBG2Scr(PAC_PSC_GetScreenPtr(img), 0, PAC_PSC_GetScreenSize(img));
+        GXS_LoadBG2Char(PAC_PSC_GetCharacterPtr(img), 0, PAC_PSC_GetCharacterSize(img));
         GXS_BeginLoadBGExtPltt();
-        GXS_LoadBGExtPltt(Archive::ImagePAC::GetPalettePtr(data), 0x4000,
-                          Archive::ImagePAC::GetPaletteSize(data));
+        GXS_LoadBGExtPltt(PAC_PSC_GetPalettePtr(img), 0x4000, PAC_PSC_GetPaletteSize(img));
         GXS_EndLoadBGExtPltt();
     }
 
     Graphics::LoadBGPaletteSub();
 }
 
-void CSubEndrollScreenInit::init(void) {
+void CSubEndrollScreenInit::init(void)
+{
     this->options = NULL;
     this->dummy208 = 0;
     this->duration = 0;
@@ -129,7 +140,8 @@ void CSubEndrollScreenInit::init(void) {
     this->shared = NULL;
 }
 
-int CSubEndrollScreenInit::transfer(void *arg) {
+int CSubEndrollScreenInit::transfer(void *arg)
+{
     this->shared = static_cast<SEndrollScreenShared *>(arg);
     if (static_cast<SEndrollScreenShared *>(arg)->mainFinished) {
         this->state = STATE_FIN;
@@ -138,7 +150,8 @@ int CSubEndrollScreenInit::transfer(void *arg) {
     return TRUE;
 }
 
-void CSubEndrollScreenInit::update(BOOL param1) {
+void CSubEndrollScreenInit::update(BOOL param1)
+{
     u16 dur;
 
     switch (this->state) {
@@ -204,9 +217,12 @@ void CSubEndrollScreenInit::update(BOOL param1) {
     }
 }
 
-void CSubEndrollScreenInit::updateLate(void) {}
+void CSubEndrollScreenInit::updateLate(void)
+{
+}
 
-void CSubEndrollScreenInit::close(void) {
+void CSubEndrollScreenInit::close(void)
+{
     this->freeOptions();
     this->freeImages();
 }

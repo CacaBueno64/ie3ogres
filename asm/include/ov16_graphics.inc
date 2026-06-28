@@ -66,8 +66,8 @@
 .public FUN_0204294c
 .public gFont12
 .public gFontRubi8
-.public FUN_ov16_02111438
-.public FUN_ov16_02111458
+.public _ZN12C3DPlaneCtrl11getTexWidthEi
+.public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public FUN_0205935c
 .public FUN_020425fc
 .public FUN_02059288
