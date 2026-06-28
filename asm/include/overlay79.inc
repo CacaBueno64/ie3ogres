@@ -16,8 +16,8 @@
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6084
 .public FUN_ov16_020f6c8c
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public gBgMenuManager
 .public unk_0209A070
 .public gFont12

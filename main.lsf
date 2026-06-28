@@ -85,6 +85,7 @@ Static main
 	Object asm/init/arm9_init_02086ed8.o
 	Object asm/init/arm9_init_02086f2c.o
 
+	Object src/CFontManager.o
 	Object asm/fontmanager.o
 	Object asm/calcmap.o
 	Object asm/distancemap.o

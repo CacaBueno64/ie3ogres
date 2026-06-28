@@ -85,7 +85,7 @@
 .public STD_CopyLString
 .public STD_ConcatenateString
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public gFont8
 .public gFont12
 .public FUN_ov16_0210e29c

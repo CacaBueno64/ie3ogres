@@ -1417,7 +1417,7 @@ FUN_ov69_0211b2b8: ; 0x0211B2B8
 	mov r1, r6
 	str r6, [sp, #0x24]
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [r10, #0xc]
 	mov r8, r6
 	mov r0, r0, lsl #0x10
@@ -1471,7 +1471,7 @@ _0211B368:
 	add r1, r5, #0x1c
 	mov r2, r6
 	mov r3, #0x100
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211B3B4:
 	add r8, r8, #1
 	add r7, r7, #1
@@ -1494,7 +1494,7 @@ _0211B3BC:
 _0211B3F8:
 	ldr r0, _0211B40C ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B40C: .word gFont12

@@ -40,7 +40,7 @@
 .public FUN_ov16_020f0a30
 .public _ZN7Archive16RequestNewReadExEPKcP9SFileDatalmi
 .public FUN_ov1_020dbf50
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov1_020db4f0
 .public _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 .public FUN_ov16_020f0bcc

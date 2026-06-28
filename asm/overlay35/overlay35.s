@@ -882,7 +882,7 @@ FUN_ov35_0211aa74: ; 0x0211AA74
 	ldr r0, [r5]
 	mov r1, r6
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r6}
@@ -899,7 +899,7 @@ FUN_ov35_0211aa74: ; 0x0211AA74
 	mov r3, r3, lsl #3
 	bl FUN_ov16_020f2184
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0x64]
 	ldrh r1, [r4, #0x66]
 	ldr r0, [r4, #0x5c]

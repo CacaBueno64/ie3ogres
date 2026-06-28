@@ -1465,7 +1465,7 @@ FUN_ov65_0211b1c8: ; 0x0211B1C8
 	ldr r0, [r0]
 	mov r1, r5
 	mov r2, r6
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r1, [sp, #0xb8]
 	sub r0, r6, #6
 	cmp r1, r0
@@ -1527,9 +1527,9 @@ _0211B37C:
 	ldr r1, [sp, #0x20]
 	ldr r2, [sp, #0x28]
 	ldr r3, [sp, #0x24]
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r4, _0211B494 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x30]
 	ldr r1, [r7]

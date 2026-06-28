@@ -3112,7 +3112,7 @@ _0211CA94:
 	mov r2, r9
 	mov r0, r8
 	add r1, r9, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	cmp r4, #0
 	ldrneb r0, [r9, #0x4d]
 	str r8, [sp, #0x30]
@@ -3314,7 +3314,7 @@ _0211CDB4:
 	mov r2, r8
 	mov r3, #0x100
 	str r6, [sp, #0x1c]
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CDEC:
 	add r9, r9, #1
 _0211CDF0:
@@ -3393,7 +3393,7 @@ _0211CEC4:
 	ldr r1, [r10, r7, lsl #2]
 	mov r2, r6
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CF0C:
 	add r7, r7, #1
 _0211CF10:
@@ -3458,7 +3458,7 @@ _0211CFB0:
 	ldr r1, [r10, r7, lsl #2]
 	mov r2, r6
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CFF4:
 	add r7, r7, #1
 _0211CFF8:

@@ -48,9 +48,9 @@
 .public _s32_div_f
 .public FUN_ov16_020ee034
 .public STD_GetStringLength
-.public FUN_0204294c
+.public _ZN12CFontManager12getTextWidthEPc
 .public STD_ConcatenateString
-.public FUN_02042b0c
+.public _ZN12CFontManager12getCharWidthEPc
 .public gFont12
 .public gDeltaTime
 .public FX_Sqrt

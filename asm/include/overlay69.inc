@@ -60,12 +60,12 @@
 .public FUN_ov16_0210fb10
 .public FUN_ov16_020f2304
 .public FUN_ov16_0210efac
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public FUN_02059288
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_02058ee0

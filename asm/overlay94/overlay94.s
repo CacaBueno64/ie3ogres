@@ -887,7 +887,7 @@ _021258E8:
 	ldr r0, _02125AC0 ; =gFont8
 	add r1, r7, #0x2c
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -896,7 +896,7 @@ _02125930:
 	mov r2, r7
 	mov r0, r9
 	add r1, r7, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0
@@ -923,7 +923,7 @@ _02125930:
 	ldr r0, _02125AC4 ; =gFont12
 	mov r1, r7
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -953,7 +953,7 @@ _021259BC:
 	blx r6
 	ldr r0, [r9]
 	add r1, r7, #0x1c
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	ldr r1, [r8, #0x18]
 	mov r8, #0
 	cmp r1, #0xb
@@ -1104,7 +1104,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	mov r1, #1
 	ldr r0, [r5]
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -1126,7 +1126,7 @@ FUN_ov94_02125be8: ; 0x02125BE8
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -1169,7 +1169,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r5, #3
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
@@ -1190,7 +1190,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]
@@ -1207,7 +1207,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
 	mov r1, r5
@@ -1227,7 +1227,7 @@ FUN_ov94_02125cd0: ; 0x02125CD0
 	ldr r5, [r5, #8]
 	blx r5
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]

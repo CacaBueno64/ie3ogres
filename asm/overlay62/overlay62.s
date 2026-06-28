@@ -2135,7 +2135,7 @@ FUN_ov62_0211bd1c: ; 0x0211BD1C
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [r9, #0x1c]
 	cmp r0, #1
 	bne _0211BE38
@@ -2173,7 +2173,7 @@ _0211BDA8:
 	ldr r0, [r4]
 	mov r2, r7
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211BE28:
 	add r6, r6, #1
 _0211BE2C:
@@ -2186,7 +2186,7 @@ _0211BE38:
 	bl DC_FlushRange
 	ldr r0, _0211BE84 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, _0211BE80 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x24]
 	ldr r1, [r9, #0x60]
@@ -7130,7 +7130,7 @@ FUN_ov62_02120368: ; 0x02120368
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r5, r6}
 	str r6, [sp, #8]
 	mov r0, #1
@@ -7144,10 +7144,10 @@ FUN_ov62_02120368: ; 0x02120368
 	ldr r0, [r0]
 	mov r2, r7
 	mov r3, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _02120560 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]
 	ldr r0, [r4]

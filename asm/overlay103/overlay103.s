@@ -349,7 +349,7 @@ _02125188:
 	ldr r0, [r5]
 	mov r1, #1
 	mov r2, #2
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	stmia sp, {r0, r6}
 	ldr r0, [r10, #0x14]

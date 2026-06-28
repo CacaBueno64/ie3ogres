@@ -247,7 +247,7 @@ _0211A228:
 	ldr r0, [r8]
 	mov r2, r5
 	mov r1, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r6, [sp]
 	ldrh r0, [r6, #0xe]
 	mov r4, #0
@@ -261,7 +261,7 @@ _0211A228:
 	add r2, r2, #6
 	bl FUN_ov79_0211a300
 	ldr r0, [r8]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r0, #2
 	stmia sp, {r0, r4, r5}
 	mov r0, #5

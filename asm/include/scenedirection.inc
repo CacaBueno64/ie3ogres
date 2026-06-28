@@ -80,7 +80,7 @@
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public DC_FlushRange
 .public FUN_02059288
 .public gFont8
@@ -90,7 +90,7 @@
 .public _ZN12C3DPlaneCtrl13getDimensionsEiiPiS0_
 .public MI_CpuCopy8
 .public _ZN12C3DPlaneCtrl9clearFlagEit
-.public FUN_02042b0c
+.public _ZN12CFontManager12getCharWidthEPc
 .public gFont12
 .public FUN_02059630
 .public _ZN12C3DPlaneCtrl9setTexAllEih
@@ -114,9 +114,9 @@
 .public unk_020A0640
 .public gAudioPlayer
 .public STD_CopyLString
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public _ZN12C3DPlaneCtrl9setBoundsEiP12SGlyphBoundsi
-.public FUN_0204294c
+.public _ZN12CFontManager12getTextWidthEPc
 .public _ZN12C3DPlaneCtrl11setAlphaAllEih
 .public _ZN19CSceneScriptManager12FUN_02048c40Ev
 .public gFontRubi8

@@ -353,7 +353,7 @@ FUN_ov119_02125124: ; 0x02125124
 	ldr r0, [r8]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r6}
@@ -376,7 +376,7 @@ FUN_ov119_02125124: ; 0x02125124
 	mov r3, r3, lsl #3
 	bl FUN_ov16_020f2184
 	ldr r0, [r8]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r7, #0x2c]
 	ldrh r1, [r7, #0x2e]
 	ldr r0, [r7, #0x24]

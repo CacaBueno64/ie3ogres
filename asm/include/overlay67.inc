@@ -42,14 +42,14 @@
 .public unk_020A0640
 .public gWirelessUtil
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov16_020ee034
 .public gFont12
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
-.public FUN_0204331c
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public FUN_ov16_020ee0f8
 .public MIi_CpuClear16
@@ -170,7 +170,7 @@
 .public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG3Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
-.public FUN_02043780
+.public _ZN12CFontManager12FUN_02043780Eii
 .public gFont12T
 .public FUN_ov16_020f5da0
 .public gBgMenuManager

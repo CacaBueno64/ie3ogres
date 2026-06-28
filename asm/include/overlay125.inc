@@ -18,7 +18,7 @@
 .public gAllocator
 .public gFont8
 .public FUN_ov16_020ee034
-.public FUN_0204294c
+.public _ZN12CFontManager12getTextWidthEPc
 .public gFont12
 .public FUN_ov16_020f5da0
 .public gBgMenuManager

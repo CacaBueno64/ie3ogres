@@ -61,15 +61,15 @@
 .public FUN_020598ec
 .public unk_0208F728
 .public gFontBlankCode
-.public FUN_02043310
-.public FUN_0204331c
-.public FUN_0204294c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
+.public _ZN12CFontManager12getTextWidthEPc
 .public gFont12
 .public gFontRubi8
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public FUN_0205935c
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public FUN_02059288
 .public _ZN11AudioPlayer12FUN_0202c470El
 .public _ZN11AudioPlayer12FUN_0202d774Eil
@@ -108,4 +108,4 @@
 .public _ZN11MoviePlayer10flipBufferEv
 .public _ZN11MoviePlayer11getVideoFpsEv
 .public _ll_udiv
-.public FUN_020435b0
+.public _ZN12CFontManager9clearVramEPviiiiii

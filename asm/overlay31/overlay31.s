@@ -564,7 +564,7 @@ FUN_ov31_0211a5f8: ; 0x0211A5F8
 	ldr r0, _0211A86C ; =gFont8
 	mov r2, #2
 	ldr r0, [r0]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r6, r11}
 	str r11, [sp, #8]
 	mov r0, #1
@@ -578,14 +578,14 @@ FUN_ov31_0211a5f8: ; 0x0211A5F8
 	ldr r0, [r0]
 	mov r2, r4
 	mov r3, r5
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211A86C ; =gFont8
 	b _0211A784
 _0211A738:
 	ldr r0, _0211A870 ; =gFont12
 	mov r2, r11
 	ldr r0, [r0]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r6, r11}
 	str r11, [sp, #8]
 	mov r0, #1
@@ -599,11 +599,11 @@ _0211A738:
 	ldr r0, [r0]
 	mov r2, r4
 	mov r3, r5
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211A870 ; =gFont12
 _0211A784:
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r11, _0211A868 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]

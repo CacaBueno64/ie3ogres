@@ -167,11 +167,11 @@
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f5eec
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
-.public FUN_02043780
-.public FUN_02043310
+.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager10setSpacingEii
 .public gFont12
 .public gFont12T
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_ov16_020f083c
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6084
@@ -194,7 +194,7 @@
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public FUN_02059288
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss

@@ -4718,11 +4718,11 @@ FUN_ov41_0211df80: ; 0x0211DF80
 	mov r2, r9
 	mov r0, r4
 	mov r1, #1
-	bl FUN_02043780
+	bl _ZN12CFontManager12FUN_02043780Eii
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 _0211DFD8:
 	mov r0, r5
 	bl FUN_ov16_020f2f20
@@ -4903,7 +4903,7 @@ _0211E204:
 	mov r1, r6
 	mov r2, r11
 	movne r8, #0
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r5, #0
 	str r6, [sp, #4]
@@ -4914,7 +4914,7 @@ _0211E204:
 	str r5, [sp, #8]
 	bl FUN_ov41_0211df80
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	str r6, [sp]
 	stmib sp, {r5, r11}
 	mov r0, #7
@@ -4966,7 +4966,7 @@ FUN_ov41_0211e300: ; 0x0211E300
 	ldr r0, [r1]
 	mov r1, r6
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, r4
 	mov r3, r7
 	str r5, [sp]
@@ -5781,7 +5781,7 @@ _0211EE88:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -5800,10 +5800,10 @@ _0211EE88:
 	ldr r0, [r0]
 	mov r2, r10
 	mov r3, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211F0BC ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r10
 	ldr r3, [sp, #0x2c]
 	ldr r0, [r6]
@@ -6199,7 +6199,7 @@ _0211F4A4:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r11, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -6218,10 +6218,10 @@ _0211F4A4:
 	ldr r0, [r0]
 	ldr r3, [sp, #0x28]
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211F6E8 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r10
 	ldr r3, [sp, #0x38]
 	ldr r0, [r5]
@@ -7783,7 +7783,7 @@ _02120AEC:
 	mov r1, r4
 	ldr r0, [r0]
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	add r0, r6, #0x1000
 	ldr r1, [r0, #0x150]
 	mov r8, #0
@@ -7812,7 +7812,7 @@ _02120AEC:
 _02120BB8:
 	ldr r0, _02120BE4 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0xc0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02120BCC: .word g3DPlaneCtrl

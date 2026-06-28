@@ -1596,7 +1596,7 @@ FUN_ov16_020f2184: ; 0x020F2184
 	add r2, r1, #8
 	ldr r0, [r5]
 	ldr r1, [sp, #0xb50]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r1, [sp, #0xb48]
 	mov r3, r4
 	str r1, [sp]
@@ -1616,7 +1616,7 @@ FUN_ov16_020f2184: ; 0x020F2184
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [sp, #0x1c]
 	mov r5, #0
 	cmp r0, #0
@@ -1630,7 +1630,7 @@ _020F2238:
 	add r1, r8, #2
 	ldr r0, [r0]
 	add r7, r6, r2
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	mov r1, r6, lsl #3
 	add r2, r4, r7, lsl #3
 	ldrsh r1, [r4, r1]
@@ -1712,7 +1712,7 @@ FUN_ov16_020f2304: ; 0x020F2304
 	ldr r0, [r0]
 	ldr r5, [sp, #0x24]
 	add r2, r2, #8
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [sp, #0x6dc]
 	ldr r2, [sp, #0x6d8]
 	str r8, [sp]
@@ -1733,17 +1733,17 @@ FUN_ov16_020f2304: ; 0x020F2304
 	mov r2, r5
 	ldr r0, [r0]
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _020F24E0 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	b _020F2494
 _020F23F4:
 	ldr r0, _020F24E4 ; =gFontRubi8
 	add r1, r11, r9, lsl #5
 	ldr r0, [r0]
 	add r1, r1, #2
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	add r1, r11, r9, lsl #5
 	ldrb r2, [r11, r9, lsl #5]
 	ldrb r12, [r1, #1]
@@ -1777,7 +1777,7 @@ _020F23F4:
 	ldr r0, [r0]
 	mov r2, r5
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	add r9, r9, #1
 _020F2494:
 	cmp r9, r6
@@ -2330,7 +2330,7 @@ _020F2C04:
 	mov r1, r0
 	ldr r0, [r3]
 	mov r3, #0xc0
-	bl FUN_020435b0
+	bl _ZN12CFontManager9clearVramEPviiiiii
 	ldr r1, [r4, #8]
 	add r0, r1, #4
 	str r0, [r4, #8]

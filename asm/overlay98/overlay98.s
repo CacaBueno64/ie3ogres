@@ -1121,7 +1121,7 @@ FUN_ov98_02125c48: ; 0x02125C48
 	mov r1, r6
 	ldr r0, [r5]
 	mov r2, r6
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	stmia sp, {r0, r6}
 	ldr r0, [r4, #4]
@@ -1148,7 +1148,7 @@ FUN_ov98_02125c48: ; 0x02125C48
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _02125CF4: .word gFont12
@@ -1164,7 +1164,7 @@ FUN_ov98_02125cf8: ; 0x02125CF8
 	ldr r0, [r4]
 	mov r2, r1
 	add r8, r10, #0x254
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r9, #0
 	add r5, r10, #0x3c
 	mov r11, #0x60
@@ -1207,7 +1207,7 @@ _02125D30:
 	blt _02125D30
 	ldr r0, _02125DCC ; =gFont8
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125DCC: .word gFont8
@@ -1228,12 +1228,12 @@ FUN_ov98_02125dd0: ; 0x02125DD0
 	mov r1, r4
 	ldr r0, [r6]
 	mov r2, r4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r7, #1
 	ldr r0, [r6]
 	mov r1, r7
 	mov r2, r4
-	bl FUN_02043780
+	bl _ZN12CFontManager12FUN_02043780Eii
 	mov r0, #3
 	stmia sp, {r0, r7}
 	ldr r0, [r5, #4]
@@ -1260,7 +1260,7 @@ FUN_ov98_02125dd0: ; 0x02125DD0
 	mov r1, r1, lsl #5
 	bl DC_FlushRange
 	ldr r0, [r6]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
 _02125E90: .word gFont12T

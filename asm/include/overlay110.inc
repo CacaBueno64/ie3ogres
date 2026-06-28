@@ -27,8 +27,8 @@
 .public FUN_ov16_020ee1e4
 .public FUN_ov16_020eea8c
 .public strcat
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_ov16_020f2184
 .public FUN_ov16_020f5da0
 .public gBgMenuManager

@@ -785,7 +785,7 @@ _0211A994:
 	add r1, r6, #0x2c
 	add r0, sp, #0xc0
 	mov r2, r6
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	str r8, [sp]
 	mov r0, #0x42
 	str r0, [sp, #4]
@@ -801,7 +801,7 @@ _0211A994:
 	ldr r3, [sp, #0x20]
 	mov r1, r6
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	str r8, [sp]
 	mov r0, #0x42
 	stmib sp, {r0, r9}
@@ -815,7 +815,7 @@ _0211A994:
 	ldr r0, [r0]
 	add r1, sp, #0xc0
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r1, [sp, #0x3c]
 	mov r0, r10
 	bl DC_FlushRange
@@ -904,7 +904,7 @@ _0211AB40:
 	mov r3, r8
 	add r1, r4, #0xcc
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r1, [sp, #0x3c]
 	mov r0, r10
 	bl DC_FlushRange
@@ -1004,7 +1004,7 @@ _0211ACA0:
 	ldr r0, [r0]
 	add r1, sp, #0x80
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r1, [sp, #0x3c]
 	mov r0, r10
 	bl DC_FlushRange

@@ -87,9 +87,9 @@
 .public GX_LoadBG3Char
 .public FUN_ov16_020f5da0
 .public FUN_ov16_020f2f20
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov16_020f2184
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public FUN_ov16_020f5c34
 .public FUN_ov16_020f6c8c

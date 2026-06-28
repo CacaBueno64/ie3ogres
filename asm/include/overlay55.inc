@@ -26,11 +26,11 @@
 .public unk_0209A0F4
 .public FUN_ov16_020f6b3c
 .public MIi_CpuClearFast
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public DC_FlushRange
 .public FUN_ov16_020f2f20
 .public FUN_ov16_020f2184
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public MI_CpuFill8
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData

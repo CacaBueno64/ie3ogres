@@ -44,11 +44,11 @@
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public FUN_ov16_020f2184
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public gFont8
-.public FUN_02043780
+.public _ZN12CFontManager12FUN_02043780Eii
 .public gFont12T
 .public _ZdlPv
 .public FX_Sqrt

@@ -35630,7 +35630,7 @@ _020DB520:
 	ldr r0, [r7]
 	mov r1, r8
 	mov r2, r5
-	bl FUN_02043780
+	bl _ZN12CFontManager12FUN_02043780Eii
 	mov r0, #3
 	stmia sp, {r0, r8}
 	ldr r0, [r6, #4]
@@ -39777,7 +39777,7 @@ FUN_ov1_020deeac: ; 0x020DEEAC
 	mov r0, r7
 	mov r1, r10
 	mov r2, r9
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [r8]
 	mov r1, r6
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi
@@ -39798,9 +39798,9 @@ FUN_ov1_020deeac: ; 0x020DEEAC
 	ldr r1, [sp, #0x48]
 	mov r0, r7
 	mov r2, r5
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	mov r0, r7
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [r8]
 	ldr r3, [sp, #0x24]
 	mov r1, r6
@@ -44964,7 +44964,7 @@ _020E3804:
 	ldr r0, [r0]
 	mov r3, r11
 	mov r2, r5
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _020E3878:
 	mov r0, #0x80
 	add r7, r7, #1

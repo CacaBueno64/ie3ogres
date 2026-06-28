@@ -7477,7 +7477,7 @@ _021206E8:
 	ldr r0, [r0]
 	mov r2, r8
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	add r0, sp, #0x28
 	ldr r0, [r0, r7, lsl #2]
 	cmp r0, #0
@@ -7498,7 +7498,7 @@ _021206E8:
 	ldr r1, [r1, r7, lsl #2]
 	mov r2, r8
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _02120788:
 	add r7, r7, #1
 _0212078C:

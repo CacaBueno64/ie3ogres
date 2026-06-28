@@ -79,8 +79,8 @@
 .public MI_CpuCopy8
 .public DC_FlushRange
 .public gPalSkinFaceFile
-.public FUN_0204378c
-.public FUN_0204294c
+.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+.public _ZN12CFontManager12getTextWidthEPc
 .public gFont8
 .public gFont12
 .public sprintf
@@ -99,9 +99,9 @@
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_02043310
-.public FUN_020425fc
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public _ZdlPv
 .public FX_Sqrt

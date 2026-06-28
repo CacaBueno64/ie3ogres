@@ -179,7 +179,7 @@
 .public FUN_02059288
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public _ZN12C3DPlaneCtrl9clearFlagEit
 .public FUN_0204e000
 .public _ZN12C3DPlaneCtrl11setTexScaleEiiss

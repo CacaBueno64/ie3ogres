@@ -505,7 +505,7 @@ FUN_ov124_02125338: ; 0x02125338
 	ldr r0, _02125588 ; =gFont8
 	add r1, r4, #0x2c
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -514,7 +514,7 @@ _021253F8:
 	mov r2, r4
 	mov r0, r5
 	add r1, r4, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0
@@ -541,7 +541,7 @@ _021253F8:
 	ldr r0, _0212558C ; =gFont12
 	mov r1, r4
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r6, r0, asr #1
@@ -560,7 +560,7 @@ _021254A8:
 	mov r2, r4
 	mov r0, r7
 	add r1, r4, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r6, #3
 	str r6, [sp]
 	mov r5, #1

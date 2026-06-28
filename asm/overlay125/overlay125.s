@@ -648,7 +648,7 @@ FUN_ov125_02125568: ; 0x02125568
 	ldr r6, _02125650 ; =gFont12
 	mov r1, r4
 	ldr r0, [r6]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	mov r1, #3
 	str r1, [sp]
 	mov r2, #0

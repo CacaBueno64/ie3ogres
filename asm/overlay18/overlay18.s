@@ -1509,7 +1509,7 @@ _0211B3B0:
 	add r7, sp, #0
 	ldr r0, [r0]
 	mov r1, r7
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	mov r10, #0
 	mov r0, r5
 	mov r1, r7
@@ -1551,7 +1551,7 @@ _0211B444:
 	ldr r0, _0211B4A0 ; =gFont12
 	mov r1, r4
 	ldr r0, [r0]
-	bl FUN_02042b0c
+	bl _ZN12CFontManager12getCharWidthEPc
 _0211B464:
 	ldrsb r0, [r4]
 	tst r0, #0x80

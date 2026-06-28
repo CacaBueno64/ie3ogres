@@ -16,13 +16,13 @@
 .public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_02058ee0
 .public FUN_0205935c
-.public FUN_02043310
-.public FUN_02043780
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12FUN_02043780Eii
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public DC_FlushRange
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public gFont12T
 .public gFont12

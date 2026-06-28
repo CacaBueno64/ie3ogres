@@ -1979,7 +1979,7 @@ FUN_ov56_0211b970: ; 0x0211B970
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r5, r6}
 	ldr r0, [sp, #0x74]
 	str r6, [sp, #8]
@@ -1993,10 +1993,10 @@ FUN_ov56_0211b970: ; 0x0211B970
 	ldr r0, [r0]
 	ldr r3, [sp, #0x24]
 	mov r2, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211BB70 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r3, [sp, #0x2c]
 	ldr r1, [r8]
 	ldr r0, [r4]
@@ -7857,7 +7857,7 @@ _02120D74:
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	add r0, r4, #0x1000
 	ldr r1, [r0, #0x614]
 	ldr r0, [r5]
@@ -7885,7 +7885,7 @@ _02120D74:
 _02120E20:
 	ldr r0, _02120E48 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x9c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02120E34: .word gSprButtonCtrl

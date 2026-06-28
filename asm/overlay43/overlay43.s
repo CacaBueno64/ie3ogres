@@ -3336,7 +3336,7 @@ _0211CC7C:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -3355,10 +3355,10 @@ _0211CC7C:
 	ldr r0, [r0]
 	mov r2, r10
 	mov r3, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211CE5C ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r10
 	ldr r3, [sp, #0x3c]
 	ldr r0, [r4]
@@ -3783,7 +3783,7 @@ _0211D300:
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, r1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r11, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -3802,10 +3802,10 @@ _0211D300:
 	ldr r0, [r0]
 	ldr r3, [sp, #0x20]
 	mov r2, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211D53C ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r10
 	ldr r3, [sp, #0x30]
 	ldr r0, [r7]

@@ -16288,7 +16288,7 @@ _02103290:
 	add r5, sp, #0x23
 	ldr r0, [r0]
 	mov r1, r5
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	ldr r0, [sp]
 	mov r10, #0
 	mov r1, r5
@@ -16331,7 +16331,7 @@ _02103328:
 	ldr r0, _021033E4 ; =gFont12
 	mov r1, r6
 	ldr r0, [r0]
-	bl FUN_02042b0c
+	bl _ZN12CFontManager12getCharWidthEPc
 	add r8, r8, #1
 _0210334C:
 	ldrsb r1, [r6]
@@ -31349,7 +31349,7 @@ _0210FF60:
 	mov r1, #1
 	ldr r0, [r4]
 	mov r2, r1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldrb r1, [r10, #0x31]
 	mov r0, r10
 	bl FUN_ov16_0210fe40
@@ -31369,12 +31369,12 @@ _0210FF60:
 	mov r1, r9
 	mov r3, r5
 	mov r2, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r1, [sp, #0x24]
 	mov r0, r7
 	bl DC_FlushRange
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r1, [r10, #0x1c]
 	ldr r0, [r11]
 	ldr r3, [sp, #0x24]

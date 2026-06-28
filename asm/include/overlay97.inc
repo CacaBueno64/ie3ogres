@@ -21,8 +21,8 @@
 .public gSubScreen0
 .public _ZN10CAllocator8allocateEm
 .public STD_GetStringLength
-.public FUN_0204294c
-.public FUN_0204378c
+.public _ZN12CFontManager12getTextWidthEPc
+.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 .public gFont8
 .public gFont12
 .public FUN_ov16_020f2184

@@ -51,11 +51,11 @@
 .public _ZN12C3DPlaneCtrl12setColorMaskEiit
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public FUN_ov16_020ee034
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public DC_FlushRange
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public gFont12
 .public FUN_ov16_020eef40

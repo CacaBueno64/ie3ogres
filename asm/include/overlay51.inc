@@ -67,7 +67,7 @@
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public unk_0209A460
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public gFont12
 .public gFont8
 .public FUN_ov16_0210e29c

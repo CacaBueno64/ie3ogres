@@ -14,7 +14,7 @@
 .public FUN_ov16_020f2f20
 .public STD_ConcatenateString
 .public FUN_ov16_020f2118
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public STD_GetStringLength
 .public DC_FlushRange
 .public gFont12

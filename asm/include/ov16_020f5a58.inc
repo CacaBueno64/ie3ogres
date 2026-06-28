@@ -128,11 +128,11 @@
 .public FUN_0203a5e4
 .public FUN_0203aa4c
 .public FUN_0203aaf4
-.public FUN_020425fc
-.public FUN_0204294c
-.public FUN_02042b0c
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
+.public _ZN12CFontManager12getTextWidthEPc
+.public _ZN12CFontManager12getCharWidthEPc
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_020443a4
 .public FUN_02044754
 .public FUN_02045570

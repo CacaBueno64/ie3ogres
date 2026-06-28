@@ -80,11 +80,11 @@
 .public FUN_0205935c
 .public FUN_02059288
 .public STD_ConcatenateString
-.public FUN_0204378c
+.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 .public STD_CopyLString
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public gFont8
 .public gFont12
 .public FUN_ov16_0210e29c

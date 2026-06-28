@@ -503,7 +503,7 @@ FUN_ov108_02125380: ; 0x02125380
 	mov r2, r9
 	mov r0, r7
 	add r1, r9, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r6, #3
 	str r6, [sp]
 	mov r5, #1

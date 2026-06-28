@@ -1,9 +1,0 @@
-.public MIi_CpuClearFast
-.public MI_CpuFill8
-.public _ZTV12CFontManager
-.public _ZdlPv
-.public NNS_G2dFontFindGlyphIndex
-.public NNS_G2dFontGetCharWidthsFromIndex
-.public DC_FlushRange
-.public NNS_G2dFontInitUTF16
-.public NNS_G2dFontInitShiftJIS

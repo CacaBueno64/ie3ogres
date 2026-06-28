@@ -611,7 +611,7 @@
 .public FUN_ov132_021462a0
 .public FUN_02072b0c
 .public FUN_02072af4
-.public FUN_02043780
+.public _ZN12CFontManager12FUN_02043780Eii
 .public gFont12T
 .public FUN_ov16_020f2f20
 .public FUN_ov132_02143c08
@@ -656,11 +656,11 @@
 .public NNS_FndGetPrevListObject
 .public NNS_FndGetNextListObject
 .public FUN_0205935c
-.public FUN_02043310
+.public _ZN12CFontManager10setSpacingEii
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
-.public FUN_0204331c
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public _ZN7CConfig8getParamEPKc
 .public gConfig

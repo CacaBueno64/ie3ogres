@@ -70,12 +70,12 @@
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
-.public FUN_02043310
-.public FUN_020425fc
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public gFont8
 .public gFont12
 .public DC_FlushRange
-.public FUN_0204331c
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_02059288
 .public MI_CpuCopy8
 .public FUN_ov16_0210fc74

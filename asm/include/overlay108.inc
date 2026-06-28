@@ -22,7 +22,7 @@
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
 .public gAllocator
-.public FUN_0204378c
+.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 .public gFont8
 .public gFont12
 .public FUN_ov16_020f2184

@@ -1034,11 +1034,11 @@ FUN_ov64_0211acc0: ; 0x0211ACC0
 	add r1, r6, #0x2c
 	mov r2, r6
 	str r7, [sp, #0x14]
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	ldr r0, _0211AE24 ; =gFont8
 	add r1, r6, #0x2c
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x96
 	add r0, r0, r0, lsr #31
 	mov r0, r0, asr #1
@@ -1059,7 +1059,7 @@ FUN_ov64_0211acc0: ; 0x0211ACC0
 	ldr r9, _0211AE28 ; =gFont12
 	mov r1, r6
 	ldr r0, [r9]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x96
 	add r0, r0, r0, lsr #31
 	mov r0, r0, asr #1
@@ -1078,7 +1078,7 @@ FUN_ov64_0211acc0: ; 0x0211ACC0
 	bl FUN_ov64_0211b5b0
 	ldr r0, [r9]
 	add r1, r6, #0x1c
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x96
 	add r0, r0, r0, lsr #31
 	mov r2, r5
@@ -1676,7 +1676,7 @@ FUN_ov64_0211b5b0: ; 0x0211B5B0
 	ldr r0, _0211B808 ; =gFont8
 	mov r2, #2
 	ldr r0, [r0]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r7, r8}
 	str r8, [sp, #8]
 	mov r0, #1
@@ -1690,14 +1690,14 @@ FUN_ov64_0211b5b0: ; 0x0211B5B0
 	mov r1, r11
 	mov r2, r9
 	mov r3, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211B808 ; =gFont8
 	b _0211B728
 _0211B6DC:
 	ldr r0, _0211B80C ; =gFont12
 	mov r2, r8
 	ldr r0, [r0]
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r7, r8}
 	str r8, [sp, #8]
 	mov r0, #1
@@ -1711,11 +1711,11 @@ _0211B6DC:
 	mov r1, r11
 	mov r2, r9
 	mov r3, r10
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211B80C ; =gFont12
 _0211B728:
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r8, _0211B804 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x24]
 	ldr r1, [r4]

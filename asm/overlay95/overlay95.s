@@ -733,7 +733,7 @@ FUN_ov95_02125660: ; 0x02125660
 	ldr r0, _02125858 ; =gFont8
 	add r1, r8, #0x2c
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r7, r0, asr #1
@@ -742,7 +742,7 @@ _021256F4:
 	mov r2, r8
 	mov r0, r4
 	add r1, r8, #0x2c
-	bl FUN_0204378c
+	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0
@@ -769,7 +769,7 @@ _021256F4:
 	ldr r0, _0212585C ; =gFont12
 	mov r1, r8
 	ldr r0, [r0]
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	rsb r0, r0, #0x60
 	add r0, r0, r0, lsr #31
 	mov r7, r0, asr #1
@@ -798,7 +798,7 @@ _02125780:
 	blx r7
 	ldr r0, [r9]
 	add r1, r8, #0x1c
-	bl FUN_0204294c
+	bl _ZN12CFontManager12getTextWidthEPc
 	str r5, [sp]
 	str r4, [sp, #4]
 	ldr r1, [r6, #4]
@@ -898,7 +898,7 @@ FUN_ov95_021258ec: ; 0x021258EC
 	mov r1, #1
 	ldr r0, [r5]
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r7, [sp]
 	mov r12, #0
 	str r12, [sp, #4]
@@ -920,7 +920,7 @@ FUN_ov95_021258ec: ; 0x021258EC
 	ldr r12, [r12, #8]
 	blx r12
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]
@@ -963,7 +963,7 @@ FUN_ov95_021259d4: ; 0x021259D4
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r5, #3
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
@@ -984,7 +984,7 @@ FUN_ov95_021259d4: ; 0x021259D4
 	ldr r6, [r6, #8]
 	blx r6
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]
@@ -1001,7 +1001,7 @@ FUN_ov95_021259d4: ; 0x021259D4
 	ldr r0, [r4]
 	mov r1, r11
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r5, r7}
 	ldr r0, [r9, #4]
 	mov r1, r5
@@ -1021,7 +1021,7 @@ FUN_ov95_021259d4: ; 0x021259D4
 	ldr r5, [r5, #8]
 	blx r5
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r9, #8]
 	ldrh r1, [r9, #0xa]
 	ldr r0, [r9, #4]

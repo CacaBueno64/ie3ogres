@@ -649,7 +649,7 @@ FUN_ov67_0211a794: ; 0x0211A794
 	stmia r3, {r0, r1}
 	ldr r0, [r2]
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [r9, #8]
 	ldr r7, [r9, #0xc]
 	cmp r0, #0
@@ -714,7 +714,7 @@ FUN_ov67_0211a868: ; 0x0211A868
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r4, r6
 	mov r11, #1
 	b _0211A948
@@ -743,7 +743,7 @@ _0211A8DC:
 	ldr r0, [r0]
 	mov r2, r5
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211A940:
 	add r6, r6, #1
 	add r9, r9, #1
@@ -753,7 +753,7 @@ _0211A948:
 _0211A950:
 	ldr r0, _0211A990 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, _0211A98C ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x28]
 	ldr r0, [r0]
@@ -5875,11 +5875,11 @@ FUN_ov67_0211f040: ; 0x0211F040
 	mov r1, r9
 	ldr r0, [r6]
 	mov r2, r9
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r1, #2
 	ldr r0, [r6]
 	mov r2, r1
-	bl FUN_02043780
+	bl _ZN12CFontManager12FUN_02043780Eii
 	ldr r0, [r7]
 	mov r1, r5
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi
@@ -5899,9 +5899,9 @@ FUN_ov67_0211f040: ; 0x0211F040
 	mov r1, r10
 	mov r3, r8
 	mov r2, r4
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, [r6]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [r7]
 	ldr r3, [sp, #0x24]
 	mov r1, r5
@@ -6385,7 +6385,7 @@ FUN_ov67_0211f778: ; 0x0211F778
 	stmia r3, {r0, r1}
 	ldr r0, [r2]
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r0, [r9, #8]
 	ldr r7, [r9, #0xc]
 	cmp r0, #0
@@ -6450,7 +6450,7 @@ FUN_ov67_0211f84c: ; 0x0211F84C
 	mov r1, r6
 	ldr r0, [r0]
 	mov r2, #1
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r4, r6
 	mov r11, #1
 	b _0211F92C
@@ -6479,7 +6479,7 @@ _0211F8C0:
 	ldr r0, [r0]
 	mov r2, r5
 	mov r3, r7
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211F924:
 	add r6, r6, #1
 	add r9, r9, #1
@@ -6489,7 +6489,7 @@ _0211F92C:
 _0211F934:
 	ldr r0, _0211F974 ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, _0211F970 ; =g3DPlaneCtrl
 	ldr r3, [sp, #0x28]
 	ldr r0, [r0]

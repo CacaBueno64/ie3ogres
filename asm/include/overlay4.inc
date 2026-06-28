@@ -114,8 +114,8 @@
 .public MI_CpuFill8
 .public STD_CopyString
 .public sprintf
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_ov16_020f2184
 .public gFont12
 .public FUN_ov16_020f51a8
@@ -318,7 +318,7 @@
 .public GX_LoadBG2Scr
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public FUN_ov16_020f6c8c
-.public FUN_02043780
+.public _ZN12CFontManager12FUN_02043780Eii
 .public gFont12T
 .public FUN_02059630
 .public FUN_ov16_020f2304
@@ -510,7 +510,7 @@
 .public _fmul
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public _ZN12C3DPlaneCtrl17convertTilesToTexEi
 .public _ZN10C3DSprFile14getSpriteSheetEi
 .public FUN_ov16_020f0c30

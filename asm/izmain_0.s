@@ -221,7 +221,7 @@ _02029A70:
 	ldr r1, [sp]
 	mov r3, r2
 	str r0, [r4, #0x44]
-	bl _ZN11FontManager11G2dFontInitEPvmh
+	bl _ZN12CFontManager4initEPvmh
 	mov r0, #0x24
 	bl _Znwm
 	cmp r0, #0
@@ -233,7 +233,7 @@ _02029A9C:
 	ldr r1, [sp, #0xc]
 	mov r3, r2
 	str r0, [r4, #0x90]
-	bl _ZN11FontManager11G2dFontInitEPvmh
+	bl _ZN12CFontManager4initEPvmh
 	mov r0, #0x24
 	bl _Znwm
 	cmp r0, #0
@@ -245,7 +245,7 @@ _02029AC8:
 	ldr r1, [sp, #0x18]
 	mov r3, r2
 	str r0, [r4, #0xc4]
-	bl _ZN11FontManager11G2dFontInitEPvmh
+	bl _ZN12CFontManager4initEPvmh
 	mov r0, #0x24
 	bl _Znwm
 	cmp r0, #0
@@ -257,7 +257,7 @@ _02029AF4:
 	ldr r1, [sp, #0x24]
 	mov r3, r2
 	str r0, [r4, #0x50]
-	bl _ZN11FontManager11G2dFontInitEPvmh
+	bl _ZN12CFontManager4initEPvmh
 	ldr r0, _02029B38 ; =gConfig
 	ldr r1, _02029B3C ; =0x0208F870
 	bl _ZN7CConfig8getParamEPKc

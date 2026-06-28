@@ -3321,7 +3321,7 @@ FUN_ov15_020e1ed8: ; 0x020E1ED8
 	ldr r0, [r5]
 	mov r1, r6
 	mov r2, #4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r0, #3
 	str r0, [sp]
 	stmib sp, {r0, r6}
@@ -3338,7 +3338,7 @@ FUN_ov15_020e1ed8: ; 0x020E1ED8
 	mov r3, r3, lsl #3
 	bl FUN_ov16_020f2184
 	ldr r0, [r5]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0x64]
 	ldrh r1, [r4, #0x66]
 	ldr r0, [r4, #0x5c]
@@ -5038,7 +5038,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	mov r1, r7
 	ldr r0, [r0]
 	mov r2, r4
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	ldr r2, [r8, #0x7c]
 	cmp r2, #0
 	ble _020E3754
@@ -5119,7 +5119,7 @@ _020E3754:
 _020E37B4:
 	ldr r0, _020E37EC ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r8, #0x2c]
 	ldrh r1, [r8, #0x2e]
 	mov r3, #1

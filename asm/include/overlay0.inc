@@ -426,8 +426,8 @@
 .public _ZN8Graphics18SetBGPaletteDirectE12EngineSelectiit
 .public FUN_020539e4
 .public FUN_ov16_020f2118
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public gFont12
 .public gFont8
 .public _ZN8Graphics16LoadBGPaletteSubEv
@@ -546,7 +546,7 @@
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_020425fc
+.public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public FUN_02059288
 .public FUN_02054070
 .public FUN_02059630

@@ -31,28 +31,32 @@ public:
 
     CFontManager();
     virtual ~CFontManager();
-    /* 0x02042e4c */ virtual BOOL vFUN_08(int indentation, int yPos, char *text, int color, Alignment align, void *dest, int maxWidth, int maxHeight, GlyphBounds *bounds, int maxGlyphs);
-    /* 0x020430b0 */ virtual BOOL vFUN_0C(int indentation, int yPos, char *text, int color, Alignment align, void *dest, int maxWidth, int maxHeight, GlyphBounds *bounds, int maxGlyphs);
-    /* 0x02042b4c */ virtual int vFUN_10(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
-    /* 0x02042298 */ virtual int vFUN_14(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
-    /* 0x02042cf4 */ virtual int vFUN_18(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
-    /* 0x02042420 */ virtual int vFUN_1C(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    /* 0x02042e4c */ virtual BOOL drawTextTile4bpp(int indentation, int yPos, char *text, int color, Alignment align, void *dest, int maxWidth, int maxHeight, GlyphBounds *bounds, int maxGlyphs);
+    /* 0x020430b0 */ virtual BOOL drawTextTile8bpp(int indentation, int yPos, char *text, int color, Alignment align, void *dest, int maxWidth, int maxHeight, GlyphBounds *bounds, int maxGlyphs);
+    /* 0x02042b4c */ virtual int drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    /* 0x02042298 */ virtual int drawGlyphTex4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    /* 0x02042cf4 */ virtual int drawGlyphTile8bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    /* 0x02042420 */ virtual int drawGlyphTex8bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
 
     /* 0x0204224c */ void clear();
-    void FUN_02042274(void *dest, u8 param2);
+    /* 0x02042274 */ void writeCharByte(void *dest, u8 param2);
     /* 0x02042544 */ static CharType getCharTypeSJIS(char *text);
     /* 0x02042584 */ static CharType getCharTypeUTF16(char *text);
     /* 0x020425a0 */ CharType getCharType(char *text);
     /* 0x020425c4 */ u16 decodeChar(char *text);
-    BOOL FUN_020425fc(char *text, void *dest, int maxWidth, int maxHeight, int indentation, int yPos, int color, GlyphBounds *bounds, int maxGlyphs, int param10, Alignment align);
-    /* 0x0204294c */ int getLineWidth(char *text);
-    /* 0x020429fc */ int getCurrentLineWidth(char *text);
+    /* 0x020425fc */ BOOL drawTextTex4bpp(char *text, void *dest, int maxWidth, int maxHeight, int indentation, int yPos, int color, GlyphBounds *bounds, int maxGlyphs, int param10, Alignment align);
+    /* 0x0204294c */ int getTextWidth(char *text);
+    /* 0x020429fc */ int getLineWidth(char *text);
     /* 0x02042aa4 */ int getCharPosX(int indentation, int maxWidth, char *text, Alignment align);
     /* 0x02042b0c */ s8 getCharWidth(char *text);
     /* 0x02043310 */ void setSpacing(int charSpacing, int lineSpacing);
     /* 0x0204331c */ void resetSpacing(void);
     /* 0x02043330 */ BOOL init(void *pNftrFile, u32 param2, u8 encoding);
-    void FUN_02043380(void *dest, int maxWidth, int maxHeight, int indentation, int yPos, int lineWidth, int lineHeight);
+    /* 0x02043380 */ void clearTexture(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
+    /* 0x020435b0 */ void clearVram(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
+    void FUN_02043780(int param1, int param2);
+    
+    /* 0x0204378c */ static void getNameFurigana(s8 *dst, s8 *furigana, s8 *name);
 
 private:
     NNSG2dFont g2dfont;

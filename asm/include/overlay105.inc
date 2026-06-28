@@ -27,8 +27,8 @@
 .public gFont12
 .public FUN_ov16_020f2184
 .public FUN_ov16_020ee064
-.public FUN_02043310
-.public FUN_0204331c
+.public _ZN12CFontManager10setSpacingEii
+.public _ZN12CFontManager12resetSpacingEv
 .public FUN_ov16_020ee008
 .public FUN_ov16_020f5da0
 .public gBgMenuManager

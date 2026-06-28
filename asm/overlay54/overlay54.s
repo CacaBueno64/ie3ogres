@@ -1947,7 +1947,7 @@ FUN_ov54_0211b924: ; 0x0211B924
 	str r12, [sp, #0x10]
 	bl FUN_ov16_020f2304
 	mov r0, r4
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, pc}
 	arm_func_end FUN_ov54_0211b924
@@ -1975,11 +1975,11 @@ FUN_ov54_0211b970: ; 0x0211B970
 	mov r1, r9
 	ldr r0, [r6]
 	mov r2, r9
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	mov r1, #2
 	ldr r0, [r6]
 	mov r2, r1
-	bl FUN_02043780
+	bl _ZN12CFontManager12FUN_02043780Eii
 	ldr r0, [r7]
 	mov r1, r5
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi
@@ -1999,9 +1999,9 @@ FUN_ov54_0211b970: ; 0x0211B970
 	mov r1, r10
 	mov r3, r8
 	mov r2, r4
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, [r6]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [r7]
 	ldr r3, [sp, #0x24]
 	mov r1, r5

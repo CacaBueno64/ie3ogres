@@ -1779,7 +1779,7 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	mov r1, #1
 	ldr r0, [r0]
 	mov r2, #5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -1796,10 +1796,10 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r0, [r0]
 	mov r2, r6
 	mov r3, r11
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, _0211B83C ; =gFont12
 	ldr r0, [r0]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	mov r2, r6
 	ldr r3, [sp, #0x28]
 	ldr r1, [r8]

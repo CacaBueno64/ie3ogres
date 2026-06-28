@@ -1580,7 +1580,7 @@ _0211B4A4:
 	mov r1, #1
 	ldr r0, [r11]
 	mov r2, #5
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	str r5, [sp]
 	mov r0, #0
 	str r0, [sp, #4]
@@ -1596,9 +1596,9 @@ _0211B4A4:
 	ldr r0, [r11]
 	ldr r2, [sp, #0x24]
 	mov r3, r6
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, [r11]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r3, [sp, #0x2c]
 	ldr r1, [r8]
 	ldr r0, [r4]

@@ -3252,7 +3252,7 @@ _0211CCF8:
 _0211CD20:
 	mov r2, r8
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CD2C:
 	add r9, r9, #1
 _0211CD30:
@@ -3332,7 +3332,7 @@ _0211CE08:
 	ldr r1, [r10, r7, lsl #2]
 	mov r2, r6
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CE50:
 	add r7, r7, #1
 _0211CE54:
@@ -3397,7 +3397,7 @@ _0211CEF4:
 	ldr r1, [r10, r7, lsl #2]
 	mov r2, r6
 	mov r3, #0x80
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 _0211CF38:
 	add r7, r7, #1
 _0211CF3C:

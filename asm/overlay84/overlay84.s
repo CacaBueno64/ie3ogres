@@ -752,7 +752,7 @@ _0211A8A8:
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, r8
-	bl FUN_02043310
+	bl _ZN12CFontManager10setSpacingEii
 	stmia sp, {r7, r8}
 	str r8, [sp, #8]
 	str r6, [sp, #0xc]
@@ -764,9 +764,9 @@ _0211A8A8:
 	ldr r1, _0211A964 ; =0x0211BE94
 	mov r2, r10
 	mov r3, #0x200
-	bl FUN_020425fc
+	bl _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 	ldr r0, [r4]
-	bl FUN_0204331c
+	bl _ZN12CFontManager12resetSpacingEv
 	ldr r0, [r5]
 	ldr r3, [sp, #0x24]
 	mov r2, r10
