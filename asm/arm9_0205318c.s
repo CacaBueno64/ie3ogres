@@ -580,7 +580,7 @@ _02053950:
 	mov r1, #0
 	strb r1, [r0, r12]
 	bx lr
-_0205395C: .word unk_0208BFB8
+_0205395C: .word __upper_mapC
 	arm_func_end FUN_02053914
 
 	arm_func_start PAC_GetOffset

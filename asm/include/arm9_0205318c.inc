@@ -9,7 +9,7 @@
 .public _s32_div_f
 .public strrchr
 .public strncpy
-.public unk_0208BFB8
+.public __upper_mapC
 .public MTX_Identity43_
 .public MTX_RotZ43_
 .public MTX_Concat43
