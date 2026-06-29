@@ -12100,7 +12100,7 @@ FUN_ov0_020c72d4: ; 0x020C72D4
 	mov     r1, r9
 	ldr     r0, [r4]
 	mov     r2, #4
-	bl      FUN_02043310
+	bl      _ZN12CFontManager10setSpacingEii
 	add     r0, r8, #0xea
 	add     r3, r0, #0x100
 	mov     r0, #2
@@ -12119,7 +12119,7 @@ FUN_ov0_020c72d4: ; 0x020C72D4
 	ldr     r8, [r8, #8]
 	blx     r8
 	ldr     r0, [r4]
-	bl      FUN_0204331c
+	bl      _ZN12CFontManager12resetSpacingEv
 	add     r8, r5, #0x1640
 	mov     r9, r6
 	mov     r4, #0x100
@@ -12311,11 +12311,20 @@ FUN_ov0_020c749c: ; 0x020C749C
 	mov r1, r8
 	mov r2, r8
 	bl _ZN12CFontManager10setSpacingEii
+	#ifdef TRANSLATION_BUGFIX
+	ldr r0, [r7]
+	add r1, r6, #0x1a8
+.public _ZN12CFontManager12getTextWidthEPc
+	bl _ZN12CFontManager12getTextWidthEPc
+	str r0, [sp, #0xc]
+	#endif
 	str r8, [sp]
 	str r8, [sp, #4]
 	str r5, [sp, #8]
+	#ifndef TRANSLATION_BUGFIX
 	mov r0, #0x50
 	str r0, [sp, #0xc]
+	#endif
 	mov r0, #8
 	str r0, [sp, #0x10]
 	str r4, [sp, #0x14]

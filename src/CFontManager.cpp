@@ -239,7 +239,11 @@ BOOL CFontManager::drawTextTex4bpp(char *text, void *dest, int maxWidth, int max
 
             this->drawGlyphTex4bpp(glyphImage, dest, maxWidth, color, charWidths, cellHeight, xPos, yPos);
 
+            #ifdef TRANSLATION_BUGFIX
+            xPos += charWidth + 1;
+            #else
             xPos += charWidth + this->charSpacing;
+            #endif
 
             if (this->getCharType(text) == CHAR_TYPE_FULLWIDTH) {
                 text++;

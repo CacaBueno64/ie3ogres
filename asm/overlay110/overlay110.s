@@ -640,9 +640,15 @@ _021255A4:
 	cmp r6, #8
 	blt _021255A4
 	ldr r6, _02125740 ; =gFont12
+	#ifdef TRANSLATION_BUGFIX
+	mov r1, #1
+	ldr r0, [r6]
+	mov r2, #4
+	#else
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
+	#endif
 	bl _ZN12CFontManager10setSpacingEii
 	mov r2, #3
 	stmia sp, {r2, r5}
@@ -699,9 +705,15 @@ _02125684:
 	cmp r6, #8
 	blt _02125684
 	ldr r6, _02125740 ; =gFont12
+	#ifdef TRANSLATION_BUGFIX
+	mov r1, #1
+	ldr r0, [r6]
+	mov r2, #4
+	#else
 	mov r1, r5
 	ldr r0, [r6]
 	mov r2, #5
+	#endif
 	bl _ZN12CFontManager10setSpacingEii
 	mov r2, #3
 	stmia sp, {r2, r5}
