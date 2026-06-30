@@ -1,5 +1,5 @@
 // clang-format off
-#include "CCardScreenManager.hpp"  // for CMainCardScreenInit, gBgMenuManager, FUN_ov16_020f5a58, FUN_ov16_020f5af0, FUN_ov16_020f5c34, FUN_ov16_020f672c, FUN_ov16_020f6a9c, UnkStruct_ov3_020bd084
+#include "CCardScreenManager.hpp"  // for CMainCardScreenInit, gBgMenuManager, UnkStruct_ov3_020bd084
 
 #include <cstddef>                 // for NULL
 
@@ -8,6 +8,7 @@
 #include <nitro/mi/memory.h>       // for MI_CpuClearFast, MI_CpuClear8
 #include <nitro/os/ARM9/cache.h>   // for DC_FlushRange
 
+#include "CBgMenuManager.hpp"      // for CBgMenuManager, gBgMenuManager
 #include "archive.hpp"             // for Close, Deallocate, RequestNewRead, TryFinalize
 #include "graphics.hpp"            // for gMainScreen0, gMainScreen1, gMainScreen2, LoadBGPaletteMain, LoadTempPaletteFromPac, SetupScreen, ENGINE_MAIN, gDebugFont
 #include "pac.hpp"                 // for PAC_PSC_GetCharacterPtr, PAC_PSC_GetCharacterSize, PAC_PSC_GetScreenPtr, PAC_PSC_GetScreenSize
@@ -142,30 +143,30 @@ _020BD034:
 
 void CMainCardScreenInit::FUN_ov3_020bd084(void)
 {
-    UnkStruct_ov3_020bd084 stack;
+    SBgMenuElementInit init;
     void *img = this->file.data;
 
     if (!img) return;
     void *pScreen = PAC_PSC_GetScreenPtr(img);
 
-    stack.unk14 = 4;
-    stack.unk16 = 8;
-    stack.unk18 = 0x18;
-    stack.unk1A = 8;
-    stack.unk1C = 0;
-    stack.unk1E = 0;
-    stack.unk20 = 0;
-    stack.unk22 = 0;
-    stack.unk24 = 0;
-    stack.unk28 = pScreen;
+    init.x = 4;
+    init.y = 8;
+    init.w = 0x18;
+    init.h = 8;
+    init.boundX = 0;
+    init.boundY = 0;
+    init.boundW = 0;
+    init.boundH = 0;
+    init.palette = 0;
+    init.screen = pScreen;
 
-    FUN_ov16_020f5c34(&gBgMenuManager, 0, 1, 1, 1, &stack, 0, 0, 0);
+    gBgMenuManager.addDynamic(ENGINE_MAIN, 1, 1, 1, &init, 0, 0, 0);
 }
 
 void CMainCardScreenInit::init(void)
 {
     this->state = 0;
-    FUN_ov16_020f5a58(&gBgMenuManager);
+    gBgMenuManager.initialize(ENGINE_MAIN);
     this->initGraphics();
 }
 
@@ -182,7 +183,7 @@ void CMainCardScreenInit::update(int arg)
         this->FUN_ov3_020bd084();
         this->fadeIn();
     case 4:
-        FUN_ov16_020f672c(&gBgMenuManager, 0);
+        gBgMenuManager.updateGraphics(ENGINE_MAIN);
         break;
     }
 }
@@ -195,14 +196,14 @@ void CMainCardScreenInit::updateLate(void)
         this->state = 3;
         break;
     case 4:
-        FUN_ov16_020f6a9c(&gBgMenuManager, 0);
+        gBgMenuManager.draw(ENGINE_MAIN);
         break;
     }
 }
 
 void CMainCardScreenInit::close(void)
 {
-    FUN_ov16_020f5af0(&gBgMenuManager, 0);
+    gBgMenuManager.finalize(ENGINE_MAIN);
     Archive::Close(&this->file, 1);
     this->deallocateFile();
 }

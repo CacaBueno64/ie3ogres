@@ -52,3 +52,4 @@
 .public gConfig
 .public ov16_02117874
 .public MI_CpuFill8
+.public FX_Sqrt

@@ -293,7 +293,7 @@ _020F4320:
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	mov r0, r11
 	mov r1, r6
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -306,7 +306,7 @@ _020F4320:
 _020F4360:
 	mov r0, r11
 _020F4364:
-	bl FUN_ov16_020f5b6c
+	bl _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 	b _020F47CC
 _020F436C:
 	mov r0, #1
@@ -423,7 +423,7 @@ _020F4514:
 	ldr r7, _020F47E4 ; =gBgMenuManager
 	mov r1, r6
 	mov r0, r7
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -544,7 +544,7 @@ _020F45C4:
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	mov r0, r11
 	mov r1, r6
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2_GetBG1ScrPtr
 	mov r4, r0
 	bl G2_GetBG2ScrPtr
@@ -759,7 +759,7 @@ _020F4908:
 	ldrh r2, [r8, #0xe]
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r4, r0
 	bl G2S_GetBG1ScrPtr
@@ -838,7 +838,7 @@ _020F4A3C:
 	ldrh r2, [r8, #0xe]
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r4, r0
 	bl G2S_GetBG1ScrPtr
@@ -1013,7 +1013,7 @@ _020F4CEC:
 _020F4DEC:
 	mov r0, r6
 	mov r1, r10
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	b _020F5140
 _020F4DFC:
 	mov r0, #0x180
@@ -1144,7 +1144,7 @@ _020F4ED0:
 	bl _ZN8Graphics11ClearBGXSubEi10CharFormat
 	mov r0, r6
 	mov r1, r10
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2S_GetBG2ScrPtr
 	mov r7, r0
 	bl G2S_GetBG1ScrPtr
@@ -1155,7 +1155,7 @@ _020F4ED0:
 	mov r2, r7
 	mov r3, r4
 	mov r0, r6
-	bl FUN_ov16_020f5b6c
+	bl _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 	mov r1, r5
 	mov r0, #0x6200000
 	mov r2, #0x20000
@@ -1226,7 +1226,7 @@ _020F503C:
 	bl _ZN8Graphics11ClearBGXSubEi10CharFormat
 	mov r0, r6
 	mov r1, r10
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 _020F5140:
 	bl G2S_GetBG2ScrPtr
 	mov r5, r0
@@ -1239,7 +1239,7 @@ _020F5140:
 	mov r3, r4
 	mov r0, r6
 _020F5168:
-	bl FUN_ov16_020f5b6c
+	bl _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 _020F516C:
 	ldr r1, _020F51A4 ; =0x04000304
 	ldrh r0, [r1]
@@ -1839,3 +1839,68 @@ _020F5904:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020F5918: .word g3DPlaneCtrl
 	arm_func_end FUN_ov16_020f5868
+
+	.section .init, 4
+	arm_func_start FUN_ov16_02117c8c
+FUN_ov16_02117c8c: ; 0x02117C8C
+	stmfd sp!, {r3, r4, r5, lr}
+	mov r5, #0x2000
+	mov r0, r5
+	bl FX_Sqrt
+	ldr r4, _02117CD4 ; =0x02118700
+	str r0, [r4, #0x14]
+	ldr r0, _02117CD8 ; =0x00009CCD
+	bl FX_Sqrt
+	mov r1, #0x800
+	str r0, [r4, #0x10]
+	ldr r0, _02117CDC ; =0x0000EA3C
+	str r1, [r4, #0xc]
+	str r0, [r4, #8]
+	add r0, r5, #0x4e0000
+	str r0, [r4, #4]
+	add r0, r1, #0x840000
+	str r0, [r4]
+	ldmfd sp!, {r3, r4, r5, pc}
+_02117CD4: .word ov16_02118700
+_02117CD8: .word 0x00009CCD
+_02117CDC: .word 0x0000EA3C
+	arm_func_end FUN_ov16_02117c8c
+
+	arm_func_start FUN_ov16_02117ce0
+FUN_ov16_02117ce0: ; 0x02117CE0
+	stmfd sp!, {r3, r4, r5, lr}
+	mov r5, #0x2000
+	mov r0, r5
+	bl FX_Sqrt
+	ldr r4, _02117D24 ; =0x02118718
+	str r0, [r4, #0x10]
+	ldr r0, _02117D28 ; =0x00009CCD
+	bl FX_Sqrt
+	str r0, [r4, #0xc]
+	ldr r0, _02117D2C ; =0x0000EA3C
+	mov r1, #0x800
+	stmib r4, {r0, r1}
+	add r0, r5, #0x4e0000
+	str r0, [r4]
+	add r0, r1, #0x840000
+	str r0, [r4, #0x14]
+	ldmfd sp!, {r3, r4, r5, pc}
+_02117D24: .word ov16_02118718
+_02117D28: .word 0x00009CCD
+_02117D2C: .word 0x0000EA3C
+	arm_func_end FUN_ov16_02117ce0
+
+	.section .ctor, 4
+#pragma force_active on
+	.word FUN_ov16_02117c8c
+	.word FUN_ov16_02117ce0
+
+	.data
+	.global ov16_02118700
+ov16_02118700:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.global ov16_02118718
+ov16_02118718:
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00

@@ -204,7 +204,7 @@ FUN_ov103_02124f54: ; 0x02124F54
 	mov r1, r5
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	ldr r2, [r7, #0x3c]
 	cmp r2, #0
 	beq _02124FE8
@@ -226,7 +226,7 @@ FUN_ov103_02124f54: ; 0x02124F54
 	mov r2, r5
 	mov r3, r4
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02124FE8:
 	ldr r4, [r7, #0x48]
 	cmp r4, #0
@@ -249,7 +249,7 @@ _02124FE8:
 	add r4, r4, r2
 	mov r2, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125040:
 	ldr r4, [r7, #0x54]
 	cmp r4, #0
@@ -272,14 +272,14 @@ _02125040:
 	add r4, r4, r2
 	mov r2, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125098:
 	mov r0, r7
 	bl FUN_ov103_021250c0
 	mov r4, #1
 	ldr r0, _021250BC ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	strb r4, [r7, #0xe0]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -317,7 +317,7 @@ FUN_ov103_021250c0: ; 0x021250C0
 	ldr r0, _02125244 ; =gBgMenuManager
 	mov r3, r2
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add r0, r10, #0x10
 	bl FUN_ov16_020f2f20
 	add r4, sp, #0x70
@@ -503,7 +503,7 @@ FUN_ov103_0212538c: ; 0x0212538C
 	bl FUN_ov16_020f4894
 	ldr r0, _02125414 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	add r0, r6, #0x10
 	mov r1, r4
 	bl FUN_ov16_020f2f7c
@@ -611,7 +611,7 @@ _02125548:
 	bl FUN_ov103_02125334
 	ldr r0, _0212556C ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldr r0, [r4, #0xc]
 	cmp r0, #2
 	moveq r0, #5
@@ -632,7 +632,7 @@ FUN_ov103_02125570: ; 0x02125570
 	mov r4, #1
 	ldr r0, _021255C4 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x10
 	bl FUN_ov16_020f2fe4

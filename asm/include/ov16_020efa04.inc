@@ -61,3 +61,4 @@
 .public FUN_0206d8b8
 .public MIi_CpuCopy16
 .public MIi_CpuClear16
+.public FX_Sqrt

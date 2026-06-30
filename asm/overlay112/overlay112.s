@@ -267,7 +267,7 @@ _0212503C:
 	mov r3, r2
 	mov r1, #1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _021250A8:
 	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add sp, sp, #0x38
@@ -362,7 +362,7 @@ _021251AC:
 	mov r2, r1
 	mov r3, #0
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125204:
 	ldr r5, [r7, #0x164]
 	cmp r5, #0
@@ -385,7 +385,7 @@ _02125204:
 	add r5, r5, r2
 	mov r2, r1
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _0212525C:
 	add sp, sp, #0x20
 	strb r4, [r7, #0x125]
@@ -432,15 +432,15 @@ _021252C0:
 	mov r0, r6
 	mov r2, r4
 	mov r3, r5
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	mov r3, r5
 	mov r0, r6
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	mov r0, r6
 	mov r1, r4
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	strb r4, [r7, #0x125]
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -572,7 +572,7 @@ FUN_ov112_021254c8: ; 0x021254C8
 	bl FUN_ov16_020f4894
 	ldr r0, _021255A4 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	add r0, r5, #0x110
 	mov r1, r4
 	bl FUN_ov16_020f2f7c
@@ -690,7 +690,7 @@ _02125684:
 _02125690:
 	ldr r0, _021256A8 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	mov r0, r4
 	bl FUN_ov112_021253a0
 	ldmfd sp!, {r4, pc}

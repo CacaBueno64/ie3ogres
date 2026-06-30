@@ -128,7 +128,6 @@ private:
 };
 
 extern "C" {
-extern void *gBgMenuManager;
 extern void FUN_ov16_020f2a18(SMovieInfo *, const char *);
 extern void FUN_ov16_020f2a74(SMovieInfo *);
 extern BOOL FUN_ov16_020f2aa4(void);
@@ -137,6 +136,4 @@ extern void FUN_ov16_020f3f60(int);
 extern void FUN_ov16_020f47fc(void);
 extern void FUN_ov16_020f4894(int);
 extern void FUN_ov16_020f51a8(void);
-extern void FUN_ov16_020f5af0(void *, int);
-extern void FUN_ov16_020f6a9c(void *, int);
 }

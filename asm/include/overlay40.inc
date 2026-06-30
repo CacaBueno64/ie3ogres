@@ -44,12 +44,12 @@
 .public _ZN8Graphics11SetupScreenEPtmii
 .public GX_LoadBG3Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
-.public FUN_ov16_020f5da0
+.public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager
-.public FUN_ov16_020f5eec
+.public _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
-.public FUN_ov16_020f5ff4
-.public FUN_ov16_020f672c
+.public _ZN14CBgMenuManager9deleteAllE12EngineSelectt
+.public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public FUN_ov16_021109a0
 .public FUN_ov16_0210eb3c
 .public _ZN12C3DPlaneCtrl6createEib
@@ -88,7 +88,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public _ZN12C3DPlaneCtrl7acquireEv
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public FUN_ov16_020f2fa8
 .public FUN_020467c0
 .public FUN_020467ac
@@ -102,7 +102,7 @@
 .public FUN_ov16_02116654
 .public gDeltaTime
 .public g3DSpriteCtrl
-.public FUN_ov16_020f6a9c
+.public _ZN14CBgMenuManager4drawE12EngineSelect
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public FUN_0207318c
@@ -113,7 +113,7 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN12C3DPlaneCtrl7releaseEv
 .public FUN_ov16_020f2fe4
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

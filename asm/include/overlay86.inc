@@ -65,8 +65,8 @@
 .public FUN_ov16_0210e720
 .public _ZN12C3DPlaneCtrl12setColorMaskEit
 .public FUN_ov16_0210e69c
-.public FUN_ov16_020f5ff4
-.public FUN_ov16_020f672c
+.public _ZN14CBgMenuManager9deleteAllE12EngineSelectt
+.public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public gBgMenuManager
 .public _ZN12C3DPlaneCtrl6setTexEiih
 .public _ZN12C3DPlaneCtrl15setDepthStepAllEiii
@@ -94,7 +94,7 @@
 .public FUN_ov16_0210e0a0
 .public _ZN12C3DPlaneCtrl7acquireEv
 .public FUN_020728c4
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public _Znwm
 .public FUN_ov16_02110558
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
@@ -112,7 +112,7 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_ov16_020eedb8
 .public _ZN12C3DPlaneCtrl7releaseEv
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

@@ -48,20 +48,6 @@ private:
     CMainCardScreenInit mainScreenInit;
 };
 
-typedef struct {
-    // u8 unk0[0x14];
-    u16 unk14;
-    u16 unk16;
-    u16 unk18;
-    u16 unk1A;
-    u16 unk1C;
-    u16 unk1E;
-    u16 unk20;
-    u16 unk22;
-    u8 unk24;
-    void *unk28;
-} UnkStruct_ov3_020bd084;
-
 extern "C" {
 extern void _ZN8Graphics17LoadBGPaletteMainEv(void);
 extern int _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti(void *, EngineSelect, int);
@@ -70,10 +56,4 @@ extern void FUN_ov16_020f3f60(int);
 extern void FUN_ov16_020f4894(int);
 extern void FUN_ov16_020f47fc(void);
 extern void FUN_ov16_020f51a8(void);
-extern void FUN_ov16_020f5a58(/* CBgMenuManager */ void *);
-extern void FUN_ov16_020f5af0(/* CBgMenuManager */ void *, int);
-extern void FUN_ov16_020f5c34(/* CBgMenuManager */ void *, int, int, int, int, UnkStruct_ov3_020bd084 *, int, int, int);
-extern void FUN_ov16_020f672c(/* CBgMenuManager */ void *, int);
-extern void FUN_ov16_020f6a9c(/* CBgMenuManager */ void *, int);
-extern void *gBgMenuManager;
 }

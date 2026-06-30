@@ -1,8 +1,9 @@
 // clang-format off
 #include "CBgAnimeManager.hpp"
 
-#include <nitro/types.h>  // for s16, u16, u8
-#include <cstddef>        // for NULL
+#include <nitro/types.h>       // for s16, u16, u8
+#include <cstddef>             // for NULL
+#include "init/arm9_init.hpp"  // IWYU pragma: keep
 // clang-format on
 
 bakey_t CBgAnimeManager::create()

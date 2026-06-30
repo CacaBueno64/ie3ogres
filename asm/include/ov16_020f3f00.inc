@@ -5,8 +5,8 @@
 .public FUN_02058ee0
 .public FUN_02059004
 .public FUN_02059038
-.public FUN_ov16_020f5a58
-.public FUN_ov16_020f5b6c
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 .public G2S_GetBG0ScrPtr
 .public G2S_GetBG1ScrPtr
 .public G2S_GetBG2ScrPtr
@@ -48,3 +48,4 @@
 .public ov16_02119EE4
 .public unk_0209A22C
 .public unk_0209A240
+.public FX_Sqrt

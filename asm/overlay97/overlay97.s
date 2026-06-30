@@ -27,7 +27,7 @@ FUN_ov97_02124d1c: ; 0x02124D1C
 	mov r4, #1
 	ldr r0, _02124E9C ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02124D54:
@@ -111,7 +111,7 @@ _02124E60:
 	bl FUN_ov97_0212632c
 	ldr r0, _02124E9C ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 _02124E7C:
 	mov r0, r4
 	bl FUN_ov97_02125208
@@ -730,7 +730,7 @@ _02125684:
 	mov r1, r6
 	mov r2, r8
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	sub r0, r10, #1
 	mov r0, r0, lsl #0x10
 	cmp r9, #0
@@ -758,7 +758,7 @@ _0212570C:
 	add r4, r7, #0x28
 	mov r3, #0
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125764: .word 0x66666667
@@ -818,7 +818,7 @@ _021257C8:
 	mov r1, r6
 	mov r2, r8
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	sub r0, r10, #1
 	mov r0, r0, lsl #0x10
 	cmp r9, #0
@@ -869,7 +869,7 @@ FUN_ov97_0212585c: ; 0x0212585C
 	mov r2, r1
 	mov r3, #0
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _021258F4:
 	ldr r3, [r6, #0x1fc]
 	cmp r3, #0
@@ -896,7 +896,7 @@ _021258F4:
 	add r4, r3, r4
 	mov r3, r2
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
 _02125964: .word gBgMenuManager
@@ -932,7 +932,7 @@ FUN_ov97_02125968: ; 0x02125968
 	str r6, [sp, #0x14]
 	str r3, [sp, #0x18]
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _021259DC:
 	ldrb r0, [r9, #0x20]
 	mov r5, #3
@@ -996,7 +996,7 @@ _02125A4C:
 	str r2, [sp, #0x1c]
 	mov r2, r1
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125AB8:
 	mov r0, r8
 	bl FUN_0204fb60
@@ -1046,7 +1046,7 @@ _02125B00:
 	add r2, r2, r6, lsl #4
 	str r2, [sp, #0x1c]
 	mov r2, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125B64:
 	ldrh r0, [r9, #0x1c]
 	mov r1, #0
@@ -1092,7 +1092,7 @@ _02125B64:
 	mov r3, #0
 	mov r2, r1
 	str r7, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02125C18:
 	ldr r6, [r9, #0x190]
 	cmp r6, #0
@@ -1113,7 +1113,7 @@ _02125C18:
 	mov r2, r10
 	mov r3, #0
 	str r7, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	mov r0, r8
 	bl FUN_0206dcd4
 	mov r1, #0x63
@@ -1141,7 +1141,7 @@ _02125C18:
 	mov r1, r10
 	mov r2, r10
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	str r10, [sp]
 	str r10, [sp, #4]
 	mov r6, #0xf
@@ -1157,7 +1157,7 @@ _02125C18:
 	mov r1, r10
 	mov r2, r10
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	mov r0, r8
 	bl FUN_0206ccdc
 	add r6, r6, #0x3d8
@@ -1194,7 +1194,7 @@ _02125C18:
 	mov r1, r10
 	mov r2, r10
 	mov r3, #0
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	str r10, [sp]
 	str r10, [sp, #4]
 	mov r1, #0x1a
@@ -1210,7 +1210,7 @@ _02125C18:
 	mov r3, #0
 	mov r1, r10
 	mov r2, r10
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	mov r0, r8
 	bl FUN_0206cc84
 	stmia sp, {r6, r10, r11}
@@ -1253,7 +1253,7 @@ _02125E34:
 	ldr r0, _02125E9C ; =gBgMenuManager
 	mov r2, r1
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02125E9C: .word gBgMenuManager
@@ -1424,7 +1424,7 @@ _021260C0:
 	str r12, [sp, #0x14]
 	str r2, [sp, #0x18]
 	str lr, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
 _02126124: .word gBgMenuManager
@@ -1466,22 +1466,22 @@ FUN_ov97_02126178: ; 0x02126178
 	mov r1, r5
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	mov r0, r6
 	mov r1, r5
 	mov r3, r4
 	mov r2, #2
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	mov r0, r6
 	mov r1, r5
 	mov r2, #3
 	mov r3, r4
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	mov r0, r6
 	mov r1, r5
 	mov r2, #4
 	mov r3, r4
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr r2, [r7, #0x154]
 	cmp r2, #0
 	beq _02126234
@@ -1502,7 +1502,7 @@ FUN_ov97_02126178: ; 0x02126178
 	mov r2, r5
 	mov r3, r4
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _02126234:
 	ldrb r0, [r7, #0x21]
 	cmp r0, #0
@@ -1531,7 +1531,7 @@ _02126234:
 	add r4, r4, r3
 	mov r3, r2
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _021262A4:
 	ldr r0, _02126324 ; =gLogicThink
 	bl FUN_ov16_020edfc0
@@ -1572,11 +1572,11 @@ _02126328: .word 0x000F423F
 	arm_func_start FUN_ov97_0212632c
 FUN_ov97_0212632c: ; 0x0212632C
 	ldr r0, _0212633C ; =gBgMenuManager
-	ldr r12, _02126340 ; = FUN_ov16_020f672c
+	ldr r12, _02126340 ; = _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r1, #1
 	bx r12
 _0212633C: .word gBgMenuManager
-_02126340: .word FUN_ov16_020f672c
+_02126340: .word _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	arm_func_end FUN_ov97_0212632c
 
 	arm_func_start FUN_ov97_02126344
@@ -1972,7 +1972,7 @@ FUN_ov97_0212683c: ; 0x0212683C
 	bl FUN_ov97_02124ef4
 	mov r1, r6
 	ldr r0, _021268E0 ; =gBgMenuManager
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _021268E0: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212683c
@@ -2083,7 +2083,7 @@ _02126A30:
 _02126A40:
 	ldr r0, _02126A50 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _02126A50: .word gBgMenuManager
 	arm_func_end FUN_ov97_02126a10
@@ -2128,7 +2128,7 @@ _02126AC8:
 	mov r5, #1
 	ldr r0, _02126B04 ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	bl FUN_ov16_020f51a8
 	ldr r0, [r4, #4]
 	mov r1, r5

@@ -12,7 +12,7 @@
 .public _ZN10CAllocator8allocateEm
 .public gAllocator
 .public FUN_ov16_020f2184
-.public FUN_ov16_020f5da0
+.public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN8Graphics11SetupScreenEPtmii
@@ -24,7 +24,7 @@
 .public G2S_GetBG1CharPtr
 .public unk_020A0640
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_ov16_020f5f64
+.public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 .public FUN_ov1_020dbccc
 .public GXS_LoadBG0Scr
 .public GXS_LoadBG1Scr
