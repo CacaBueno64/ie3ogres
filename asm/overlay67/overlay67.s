@@ -5950,7 +5950,7 @@ FUN_ov67_0211f14c: ; 0x0211F14C
 	add r12, r3, #0x1e0
 	mov r3, r1
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _0211F1AC:
 	ldr r12, [r4, #0x1ec]
 	add lr, r4, #0x1ec
@@ -5979,7 +5979,7 @@ _0211F1AC:
 	str lr, [sp, #0x14]
 	str r1, [sp, #0x18]
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _0211F21C:
 	mov r0, r4
 	bl FUN_ov67_0211f230
@@ -6002,7 +6002,7 @@ FUN_ov67_0211f230: ; 0x0211F230
 	mov r2, r4
 	mov r3, r5
 	strb r7, [r8, #0x1e8]
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr r2, [r8, #0x44]
 	cmp r2, #0
 	addeq sp, sp, #0x20
@@ -6024,7 +6024,7 @@ FUN_ov67_0211f230: ; 0x0211F230
 	mov r2, r7
 	mov r3, r5
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _0211F2C4: .word gBgMenuManager
@@ -8593,12 +8593,12 @@ _02121620:
 	mov r0, r5
 	mov r1, r4
 	mov r2, r4
-	bl FUN_ov16_020f5ff4
+	bl _ZN14CBgMenuManager9deleteAllE12EngineSelectt
 	mov r0, r6
 	bl FUN_ov67_0211f14c
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0212166C:
 	tst r5, #1
@@ -8880,7 +8880,7 @@ _021219CC:
 	bl FUN_ov67_02120d58
 	ldr r0, _02121BD0 ; =gBgMenuManager
 	mov r1, r8
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	add r0, r6, #0x1ec
 	mov r1, r8
 	mov r2, #0x14
@@ -9088,12 +9088,12 @@ _02121D0C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r5
-	bl FUN_ov16_020f5ff4
+	bl _ZN14CBgMenuManager9deleteAllE12EngineSelectt
 	mov r0, r4
 	bl FUN_ov67_0211f14c
 	mov r0, r6
 	mov r1, r5
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	b _02121E28
 _02121D94:
 	mov r0, r4
@@ -9173,7 +9173,7 @@ FUN_ov67_02121e88: ; 0x02121E88
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _02121EBC ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	mov r0, r4
 	bl FUN_ov67_0211f2c8
 	ldmfd sp!, {r4, pc}
@@ -9213,7 +9213,7 @@ _02121F10:
 	bl FUN_ov16_020f2fe4
 	ldr r0, _02121F90 ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r6
 	bl FUN_ov67_0211ea9c
 	ldr r0, _02121F94 ; =g3DPlaneCtrl

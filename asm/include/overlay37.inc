@@ -60,7 +60,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public FUN_ov16_020f47fc
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public _Znam
 .public MI_CpuFill8
 .public unk_0209A1A8
@@ -85,7 +85,7 @@
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8
 .public _ZN12C3DPlaneCtrl7releaseEv
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public _ZdaPv
 .public unk_0209A454
 .public ov4_020DBEC1

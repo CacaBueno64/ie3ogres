@@ -364,7 +364,11 @@ Overlay overlay16
 	Object src/overlay.o
 	Object asm/overlay16/ov16_020f3f00.o
 	Object src/CBgAnimeManager.o
-	Object asm/overlay16/ov16_020f5a58.o
+	Object asm/overlay16/cbgmenumanager.o
+	Object src/CBgMenuRadioButton.o
+	Object asm/overlay16/ov16_020f6f8c.o
+	Object asm/overlay16/c3dplanectrl.o
+	Object asm/overlay16/c3dspritectrl.o
 }
 Overlay overlay17
 {

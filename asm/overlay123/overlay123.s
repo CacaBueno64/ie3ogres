@@ -246,7 +246,7 @@ FUN_ov123_02124fec: ; 0x02124FEC
 	ldr r0, _0212506C ; =gBgMenuManager
 	mov r2, r1
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _0212506C: .word gBgMenuManager
@@ -435,7 +435,7 @@ _021252C8:
 	ldr r0, _02125304 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	mov r0, r4
 	bl FUN_ov123_02124fec
 	mov r0, #4

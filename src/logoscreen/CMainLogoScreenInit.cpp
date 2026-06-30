@@ -1,5 +1,5 @@
 // clang-format off
-#include "CLogoScreenManager.hpp"  // for CMainLogoScreenInit, CMainLogoScreenInit::SCENE_COPYRIGHT, CMainLogoScreenInit::SCENE_LEVEL5, CMainLogoScreenInit::STATE_UPDATE_GRAPHICS, CMainLogoScreenInit::STATE_IMAGE_WAIT, CMainLogoScreenInit::SCENE_ACTIMAGINE, CMainLogoScreenInit::STATE_END, CMainLogoScreenInit::STATE_FADE_IN, CMainLogoScreenInit::STATE_FADE_OUT, CMainLogoScreenInit::STATE_IDLE, CMainLogoScreenInit::STATE_INIT, FUN_ov16_020f5af0, FUN_ov16_020f6a9c, gBgMenuManager
+#include "CLogoScreenManager.hpp"  // for CMainLogoScreenInit, CMainLogoScreenInit::SCENE_COPYRIGHT, CMainLogoScreenInit::SCENE_LEVEL5, CMainLogoScreenInit::STATE_UPDATE_GRAPHICS, CMainLogoScreenInit::STATE_IMAGE_WAIT, CMainLogoScreenInit::SCENE_ACTIMAGINE, CMainLogoScreenInit::STATE_END, CMainLogoScreenInit::STATE_FADE_IN, CMainLogoScreenInit::STATE_FADE_OUT, CMainLogoScreenInit::STATE_IDLE, CMainLogoScreenInit::STATE_INIT
 
 #include <cstddef>                 // for NULL
 
@@ -7,6 +7,7 @@
 #include <nitro/spi/ARM9/tp.h>     // for TP_TOUCH_OFF, TP_TOUCH_ON, TPData, TP_VALIDITY_VALID
 #include <nitro/types.h>           // for FALSE, u16, BOOL
 
+#include "CBgMenuManager.hpp"      // for CBgMenuManager, gBgMenuManager
 #include "CScreenManager.hpp"      // for CScreenManager, SCENE_MOVIE, SCENE_NONE
 #include "allocator.hpp"           // for CAllocator, gAllocator
 #include "archive.hpp"             // for ReadNewUncompress
@@ -185,7 +186,7 @@ void CMainLogoScreenInit::updateLate(void)
         this->state = STATE_FADE_IN;
         break;
     case STATE_IMAGE_WAIT:
-        FUN_ov16_020f6a9c(&gBgMenuManager, 0);
+        gBgMenuManager.draw(ENGINE_MAIN);
         break;
     default:
         break;
@@ -202,6 +203,6 @@ int CMainLogoScreenInit::signal(int arg)
 
 void CMainLogoScreenInit::close(void)
 {
-    FUN_ov16_020f5af0(&gBgMenuManager, 0);
+    gBgMenuManager.finalize(ENGINE_MAIN);
     this->closeArchives();
 }

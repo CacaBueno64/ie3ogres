@@ -16,3 +16,4 @@
 .public gAllocator
 .public MI_CpuFill8
 .public _ZN10CAllocator10deallocateEPv
+.public FX_Sqrt

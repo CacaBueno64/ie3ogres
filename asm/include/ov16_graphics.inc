@@ -109,3 +109,4 @@
 .public _ZN11MoviePlayer11getVideoFpsEv
 .public _ll_udiv
 .public _ZN12CFontManager9clearVramEPviiiiii
+.public FX_Sqrt

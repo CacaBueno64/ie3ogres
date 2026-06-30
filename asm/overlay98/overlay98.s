@@ -31,7 +31,7 @@ FUN_ov98_02124d00: ; 0x02124D00
 	bl MI_CpuFill8
 	mov r1, r5
 	ldr r0, _02124D78 ; =gBgMenuManager
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r0, #4
 	str r0, [r6, #8]
 	ldmfd sp!, {r4, r5, r6, pc}
@@ -70,7 +70,7 @@ _02124DD0:
 	mov r5, #1
 	ldr r0, _02124E0C ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	bl FUN_ov16_020f51a8
 	ldr r0, [r4, #4]
 	mov r1, r5
@@ -148,7 +148,7 @@ _02124ED4:
 _02124EE8:
 	ldr r0, _02124F20 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _02124EF8:
 	ldr r1, [r0]
@@ -186,7 +186,7 @@ _02124F60:
 	ldmnefd sp!, {r4, pc}
 	ldr r0, _02124F80 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	mov r0, #4
 	str r0, [r4, #8]
 	ldmfd sp!, {r4, pc}
@@ -897,7 +897,7 @@ FUN_ov98_02125938: ; 0x02125938
 	ldr r0, _02125A4C ; =gBgMenuManager
 	mov r2, r1
 	mov r3, r5
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	ldrb r0, [r4, #0x20]
 	cmp r0, #1
 	beq _02125980
@@ -990,7 +990,7 @@ FUN_ov98_02125a50: ; 0x02125A50
 	add r12, r12, r2
 	mov r2, #2
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _02125ABC: .word gBgMenuManager
@@ -1302,7 +1302,7 @@ FUN_ov98_02125e94: ; 0x02125E94
 	str lr, [sp, #0x14]
 	str r3, [sp, #0x18]
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _02125F28: .word gBgMenuManager
@@ -1371,7 +1371,7 @@ _02125FA8:
 	ldr r0, _0212603C ; =gBgMenuManager
 	mov r1, r6
 	mov r3, r2
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	cmp r10, #0
 	sub r9, r9, #8
 	bgt _02125FA8
@@ -1426,7 +1426,7 @@ FUN_ov98_02126040: ; 0x02126040
 	mov r2, r1
 	mov r3, #0
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
 _021260F4: .word gBgMenuManager

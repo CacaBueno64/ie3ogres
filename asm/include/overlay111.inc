@@ -1,4 +1,4 @@
-.public FUN_ov16_020f6a9c
+.public _ZN14CBgMenuManager4drawE12EngineSelect
 .public _ZN10CAllocator10deallocateEPv
 .public _ZN8Graphics9FadeInSubEl
 .public gBgMenuManager
@@ -15,11 +15,11 @@
 .public gSubScreen0
 .public _ZN10CAllocator8allocateEm
 .public FUN_ov16_020f2184
-.public FUN_ov16_020f5da0
+.public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public FUN_ov16_020efa9c
-.public FUN_ov16_020f5f64
-.public FUN_ov16_020f5eec
-.public FUN_ov16_020f672c
+.public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
+.public _ZN14CBgMenuManager8deleteIDE12EngineSelectit
+.public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public _ZN8Graphics11SetupScreenEPvii
@@ -35,9 +35,9 @@
 .public G2S_GetBG2CharPtr
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public FUN_ov16_020f51a8
 .public _ZdlPv
 .public FX_Sqrt

@@ -1,4 +1,4 @@
-.public FUN_ov16_020f6a9c
+.public _ZN14CBgMenuManager4drawE12EngineSelect
 .public _ZN10CAllocator10deallocateEPv
 .public gBgMenuManager
 .public gAllocator
@@ -26,7 +26,7 @@
 .public gFont8
 .public gFont12
 .public FUN_ov16_020f2184
-.public FUN_ov16_020f5da0
+.public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public FUN_0204f02c
 .public FUN_0204fb60
 .public FUN_0206d9b0
@@ -36,10 +36,10 @@
 .public FUN_0206cc84
 .public FUN_0206cc94
 .public gLogicThink
-.public FUN_ov16_020f5f64
-.public FUN_ov16_020f5eec
+.public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
+.public _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 .public FUN_ov16_020edfc0
-.public FUN_ov16_020f672c
+.public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN8Graphics11SetupScreenEPtmii
 .public GXS_LoadBG1Char
 .public _ZN8Graphics11SetupScreenEPvii
@@ -53,10 +53,10 @@
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN8Graphics9FadeInSubEl
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public FUN_ov16_020f51a8
 .public _ZdlPv
 .public FX_Sqrt

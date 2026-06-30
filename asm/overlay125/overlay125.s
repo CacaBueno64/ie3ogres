@@ -755,7 +755,7 @@ FUN_ov125_021256bc: ; 0x021256BC
 	str r6, [sp, #0x18]
 	add r4, r12, r4, lsl #1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, pc}
 _02125758: .word gBgMenuManager
@@ -805,7 +805,7 @@ FUN_ov125_0212575c: ; 0x0212575C
 	str lr, [sp, #0x14]
 	str r3, [sp, #0x18]
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x88
 	ldmfd sp!, {r3, r4, r5, pc}
 _02125810: .word gLogicThink
@@ -859,7 +859,7 @@ FUN_ov125_02125818: ; 0x02125818
 	str r5, [sp, #0x14]
 	str r4, [sp, #0x18]
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _021258D0:
 	mov r7, #0
 	mov r6, r7
@@ -950,7 +950,7 @@ FUN_ov125_02125990: ; 0x02125990
 	add r4, r4, r3
 	mov r3, #0
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02125A28: .word gBgMenuManager
@@ -967,7 +967,7 @@ FUN_ov125_02125a2c: ; 0x02125A2C
 	mov r1, r5
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	str r4, [sp]
 	str r4, [sp, #4]
 	str r4, [sp, #8]
@@ -1002,11 +1002,11 @@ _02125AC4: .word gBgMenuManager
 	arm_func_start FUN_ov125_02125ac8
 FUN_ov125_02125ac8: ; 0x02125AC8
 	ldr r0, _02125AD8 ; =gBgMenuManager
-	ldr r12, _02125ADC ; = FUN_ov16_020f672c
+	ldr r12, _02125ADC ; = _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r1, #1
 	bx r12
 _02125AD8: .word gBgMenuManager
-_02125ADC: .word FUN_ov16_020f672c
+_02125ADC: .word _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	arm_func_end FUN_ov125_02125ac8
 
 	arm_func_start FUN_ov125_02125ae0
@@ -1353,7 +1353,7 @@ _02125F74:
 	mov r6, #1
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r5, r0
 	bl G2S_GetBG1ScrPtr
@@ -1364,7 +1364,7 @@ _02125F74:
 	mov r3, r4
 	str r0, [sp]
 	mov r0, r7
-	bl FUN_ov16_020f5b6c
+	bl _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02125FE4: .word 0x04001008
 _02125FE8: .word gAllocator
@@ -1478,7 +1478,7 @@ _02126140:
 	bl GXS_LoadOAM
 	ldr r0, _02126160 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _02126160: .word gBgMenuManager
 	arm_func_end FUN_ov125_02126110
@@ -1540,7 +1540,7 @@ _02126214:
 	mov r5, #1
 	ldr r0, _02126250 ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	bl FUN_ov16_020f51a8
 	ldr r0, [r4, #4]
 	mov r1, r5

@@ -65,12 +65,12 @@
 .public GX_LoadBG2Scr
 .public _ZN8Graphics17LoadBGPaletteMainEv
 .public gDebugFont
-.public FUN_ov16_020f5c34
+.public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public gBgMenuManager
-.public FUN_ov16_020f5a58
+.public _ZN14CBgMenuManager10initializeE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_ov16_020f672c
-.public FUN_ov16_020f6a9c
-.public FUN_ov16_020f5af0
+.public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
+.public _ZN14CBgMenuManager4drawE12EngineSelect
+.public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public _ZN7Archive5CloseEP9SFileDatai
 .public FX_Sqrt

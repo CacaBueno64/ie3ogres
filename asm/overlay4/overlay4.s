@@ -279,7 +279,7 @@ _020BCE9C:
 	ldr r0, _020BCF1C ; =gBgMenuManager
 	mov r2, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020BCF0C:
 	bl _ZN8Graphics16LoadBGPaletteSubEv
 	add sp, sp, #0x20
@@ -588,7 +588,7 @@ FUN_ov4_020bd310: ; 0x020BD310
 	mov r4, #1
 	ldr r0, _020BD374 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x34
 	bl FUN_ov16_020f2f7c
@@ -669,11 +669,11 @@ _020BD42C:
 	arm_func_start FUN_ov4_020bd438
 FUN_ov4_020bd438: ; 0x020BD438
 	ldr r0, _020BD448 ; =gBgMenuManager
-	ldr r12, _020BD44C ; =FUN_ov16_020f6a9c
+	ldr r12, _020BD44C ; =_ZN14CBgMenuManager4drawE12EngineSelect
 	mov r1, #1
 	bx r12
 _020BD448: .word gBgMenuManager
-_020BD44C: .word FUN_ov16_020f6a9c
+_020BD44C: .word _ZN14CBgMenuManager4drawE12EngineSelect
 	arm_func_end FUN_ov4_020bd438
 
 	arm_func_start FUN_ov4_020bd450
@@ -711,7 +711,7 @@ _020BD4B0:
 	bl FUN_ov4_020bcc10
 	ldr r0, _020BD4FC ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r1, r5
 	add r0, r4, #0x34
 	bl FUN_ov16_020f2fe4
@@ -1054,7 +1054,7 @@ FUN_ov4_020bd8d8: ; 0x020BD8D8
 	mov r2, r5
 	mov r3, r5
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	ldrb r0, [r7, #0x1c]
 	cmp r0, #0
 	addeq sp, sp, #0x34
@@ -1171,7 +1171,7 @@ FUN_ov4_020bdafc: ; 0x020BDAFC
 	ldr r0, _020BDB94 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr lr, [r4, #0x4c]
 	cmp lr, #0
 	addeq sp, sp, #0x20
@@ -1199,7 +1199,7 @@ FUN_ov4_020bdafc: ; 0x020BDAFC
 	ldr r0, _020BDB94 ; =gBgMenuManager
 	mov r3, r2
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
 _020BDB94: .word gBgMenuManager
@@ -1217,7 +1217,7 @@ FUN_ov4_020bdb98: ; 0x020BDB98
 	mov r1, r8
 	mov r2, r8
 	mov r3, r7
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	ldr r0, [r6, #0x10]
 	mov r10, #2
 	cmp r0, #7
@@ -1249,7 +1249,7 @@ _020BDBF8:
 	mov r2, r8
 	mov r3, r7
 	str r9, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020BDC3C:
 	ldr r8, [r6, #0x10]
 	cmp r8, #0
@@ -1278,7 +1278,7 @@ _020BDC3C:
 	mov r2, r1
 	mov r3, #0
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020BDCAC:
 	mov r0, r6
 	mov r1, r4
@@ -1288,7 +1288,7 @@ _020BDCAC:
 	bl FUN_ov4_020bdafc
 	ldr r0, _020BDCD8 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020BDCD8: .word gBgMenuManager
@@ -1318,7 +1318,7 @@ FUN_ov4_020bdcdc: ; 0x020BDCDC
 	str r3, [r5, #0x18]
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c
@@ -1383,7 +1383,7 @@ _020BDDFC:
 	bl FUN_ov4_020bd880
 	ldr r0, _020BDE10 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _020BDE10: .word gBgMenuManager
 	arm_func_end FUN_ov4_020bddbc
@@ -1400,7 +1400,7 @@ FUN_ov4_020bde14: ; 0x020BDE14
 	mov r4, #1
 	ldr r0, _020BDE64 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2fe4
@@ -3818,21 +3818,21 @@ _020BFE30:
 	mov r1, #0
 	mov r2, #4
 	mov r3, #7
-	bl FUN_ov16_020f6510
+	bl _ZN14CBgMenuManager8setFlashE12EngineSelecthh
 	ldmfd sp!, {r3, pc}
 _020BFE48:
 	ldr r0, _020BFE78 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, #5
 	mov r3, #8
-	bl FUN_ov16_020f6510
+	bl _ZN14CBgMenuManager8setFlashE12EngineSelecthh
 	ldmfd sp!, {r3, pc}
 _020BFE60:
 	ldr r0, _020BFE78 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, #6
 	mov r3, #9
-	bl FUN_ov16_020f6510
+	bl _ZN14CBgMenuManager8setFlashE12EngineSelecthh
 	ldmfd sp!, {r3, pc}
 _020BFE78: .word gBgMenuManager
 	arm_func_end FUN_ov4_020bfe0c
@@ -3865,7 +3865,7 @@ FUN_ov4_020bfeb4: ; 0x020BFEB4
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, _020BFFC4 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6584
+	bl _ZN14CBgMenuManager13isFlashActiveE12EngineSelect
 	cmp r0, #0
 	ldreqb r0, [r5, #0x10]
 	cmpeq r0, #0
@@ -3940,11 +3940,11 @@ FUN_ov4_020bffcc: ; 0x020BFFCC
 	ldr r0, _020BFFE4 ; =gBgMenuManager
 	mov r3, r2
 	mov r2, r1
-	ldr r12, _020BFFE8 ; =FUN_ov16_020f6b3c
+	ldr r12, _020BFFE8 ; =_ZN14CBgMenuManager6getHitE12EngineSelectii
 	mov r1, #0
 	bx r12
 _020BFFE4: .word gBgMenuManager
-_020BFFE8: .word FUN_ov16_020f6b3c
+_020BFFE8: .word _ZN14CBgMenuManager6getHitE12EngineSelectii
 	arm_func_end FUN_ov4_020bffcc
 
 	arm_func_start FUN_ov4_020bffec
@@ -4006,7 +4006,7 @@ FUN_ov4_020c0088: ; 0x020C0088
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, _020C01A4 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6584
+	bl _ZN14CBgMenuManager13isFlashActiveE12EngineSelect
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldrh r0, [r4, #4]
@@ -4504,19 +4504,19 @@ _020C0760:
 	mov r0, r5
 	mov r1, r4
 	mov r2, #2
-	bl FUN_ov16_020f61f0
+	bl _ZN14CBgMenuManager9showGroupE12EngineSelecti
 	mov r0, r5
 	mov r1, r4
 	mov r2, #3
-	bl FUN_ov16_020f616c
+	bl _ZN14CBgMenuManager9hideGroupE12EngineSelecti
 	mov r0, r5
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	mov r0, r5
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _020C07AC: .word gBgMenuManager
 	arm_func_end FUN_ov4_020c071c
@@ -4529,11 +4529,11 @@ FUN_ov4_020c07b0: ; 0x020C07B0
 	mov r0, r5
 	mov r1, r4
 	mov r2, #2
-	bl FUN_ov16_020f61f0
+	bl _ZN14CBgMenuManager9showGroupE12EngineSelecti
 	mov r0, r5
 	mov r1, r4
 	mov r2, #3
-	bl FUN_ov16_020f616c
+	bl _ZN14CBgMenuManager9hideGroupE12EngineSelecti
 	ldmfd sp!, {r3, r4, r5, pc}
 _020C07E0: .word gBgMenuManager
 	arm_func_end FUN_ov4_020c07b0
@@ -4551,21 +4551,21 @@ FUN_ov4_020c07e4: ; 0x020C07E4
 	ldr r6, _020C08F8 ; =gBgMenuManager
 	mov r1, r5
 	mov r0, r6
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	mov r0, r6
 	mov r1, r5
 	mov r2, #3
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	b _020C0848
 _020C0828:
 	ldr r6, _020C08F8 ; =gBgMenuManager
 	mov r1, r5
 	mov r0, r6
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r6
 	mov r1, r5
 	mov r2, #3
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 _020C0848:
 	mov r0, r4
 	bl FUN_ov4_020c0688
@@ -4578,16 +4578,16 @@ _020C0848:
 	mov r3, r5
 	mov r2, #2
 	str r8, [sp]
-	bl FUN_ov16_020f63f0
+	bl _ZN14CBgMenuManager6setPosE12EngineSelectiii
 	mov r0, r7
 	mov r1, r6
 	mov r3, r5
 	mov r2, #3
 	str r8, [sp]
-	bl FUN_ov16_020f63f0
+	bl _ZN14CBgMenuManager6setPosE12EngineSelectiii
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020f65a4
+	bl _ZN14CBgMenuManager10isFlashingE12EngineSelect
 	cmp r0, #0
 	addne sp, sp, #4
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, pc}
@@ -4656,7 +4656,7 @@ FUN_ov4_020c08fc: ; 0x020C08FC
 	ldr r0, _020C0A40 ; =gBgMenuManager
 	mov r2, #1
 	str r1, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 _020C0998:
 	mov r0, #0xc
 	mla r0, r4, r0, r5
@@ -4693,11 +4693,11 @@ _020C0998:
 	mov r3, r4
 	mov r2, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _020C0A40: .word gBgMenuManager
@@ -4741,7 +4741,7 @@ FUN_ov4_020c0a44: ; 0x020C0A44
 	mov r2, r11
 	mov r3, #2
 	str r11, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r0, r9, #0x90
 	str r0, [sp, #0x28]
 	mov r0, #5
@@ -4762,7 +4762,7 @@ FUN_ov4_020c0a44: ; 0x020C0A44
 	mov r2, r11
 	mov r3, #3
 	str r11, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r10
 	bl FUN_ov4_020c07e4
 	add sp, sp, #0x2c
@@ -4779,10 +4779,10 @@ FUN_ov4_020c0b40: ; 0x020C0B40
 	mov r7, r0
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r4
 	mov r1, r6
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	ldr r0, [r7, #0xc]
 	cmp r0, #0
 	beq _020C0B90
@@ -4871,7 +4871,7 @@ _020C0C50:
 	mov r2, r6
 	mov r3, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _020C0CCC: .word gBgMenuManager
@@ -4939,7 +4939,7 @@ FUN_ov4_020c0d3c: ; 0x020C0D3C
 	bl FUN_ov4_020bfbc0
 	ldr r0, _020C0DD0 ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r0, r6
 	bl FUN_ov4_020c01ac
 	mov r0, r4
@@ -4990,7 +4990,7 @@ _020C0E4C:
 	bl FUN_ov4_020c0b40
 	ldr r0, _020C0F00 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r0, r4
 	ldr r1, [r0]
 	ldr r1, [r1, #0x4c]
@@ -5032,7 +5032,7 @@ _020C0EE8:
 	bl FUN_ov4_020c07e4
 	ldr r0, _020C0F00 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _020C0F00: .word gBgMenuManager
 _020C0F04: .word unk_0209A454
@@ -5057,7 +5057,7 @@ _020C0F2C:
 _020C0F3C:
 	ldr r0, _020C0F4C ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _020C0F4C: .word gBgMenuManager
 	arm_func_end FUN_ov4_020c0f08
@@ -5068,7 +5068,7 @@ FUN_ov4_020c0f50: ; 0x020C0F50
 	mov r4, r0
 	ldr r0, _020C0F70 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r4
 	bl FUN_ov4_020c02b8
 	ldmfd sp!, {r4, pc}
@@ -7633,7 +7633,7 @@ FUN_ov4_020c31ac: ; 0x020C31AC
 	mov r7, #0
 	ldr r0, _020C4124 ; =gBgMenuManager
 	mov r1, r7
-	bl FUN_ov16_020f6584
+	bl _ZN14CBgMenuManager13isFlashActiveE12EngineSelect
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldrb r0, [r9, #0x39]
@@ -8107,13 +8107,13 @@ _020C3868:
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r9, r5
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4124 ; =gBgMenuManager
-	bl FUN_ov16_020f6530
+	bl _ZN14CBgMenuManager13releaseButtonEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3898:
 	tst r8, #2
@@ -8272,12 +8272,12 @@ _020C3AB0:
 	ldrb r1, [r9, #0x4ad]
 	ldr r0, _020C4134 ; =0x0209A070
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldrb r1, [r9, #0x4ad]
 	ldr r0, _020C4124 ; =gBgMenuManager
-	bl FUN_ov16_020f6530
+	bl _ZN14CBgMenuManager13releaseButtonEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3AD8:
 	tst r8, #0x800
@@ -8324,12 +8324,12 @@ _020C3B64:
 	strb r2, [r9, #0x38]
 	ldrb r1, [r9, #0x4ae]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	cmp r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldrb r1, [r9, #0x4ae]
 	ldr r0, _020C4124 ; =gBgMenuManager
-	bl FUN_ov16_020f6530
+	bl _ZN14CBgMenuManager13releaseButtonEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3B94:
 	tst r8, #0x40
@@ -8381,7 +8381,7 @@ _020C3BFC:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3C50:
 	ldrb r0, [r9, #0x71]
@@ -8426,7 +8426,7 @@ _020C3CAC:
 	add r1, r9, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, r6
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	strb r6, [r9, #0x38]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3CFC:
@@ -8451,7 +8451,7 @@ _020C3D14:
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
 	mov r2, r6
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	strb r6, [r9, #0x38]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3D58:
@@ -8473,7 +8473,7 @@ _020C3D58:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3DA8:
 	ldr r0, [r9, #0x40]
@@ -8492,7 +8492,7 @@ _020C3DA8:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3DF0:
 	ldr r0, [r9, #0x40]
@@ -8511,7 +8511,7 @@ _020C3DF0:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3E38:
 	tst r8, #0x80
@@ -8563,7 +8563,7 @@ _020C3EA0:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3EF4:
 	ldrb r0, [r9, #0x71]
@@ -8609,7 +8609,7 @@ _020C3F54:
 	add r1, r9, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, r6
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	strb r6, [r9, #0x38]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C3FA4:
@@ -8634,7 +8634,7 @@ _020C3FBC:
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
 	mov r2, r6
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	strb r6, [r9, #0x38]
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C4000:
@@ -8656,7 +8656,7 @@ _020C4000:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C4050:
 	ldr r0, [r9, #0x40]
@@ -8674,7 +8674,7 @@ _020C4050:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C4094:
 	ldr r0, [r9, #0x40]
@@ -8692,7 +8692,7 @@ _020C4094:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C40D8:
 	tst r8, #0x20
@@ -8740,7 +8740,7 @@ _020C4138:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C418C:
 	ldrb r0, [r9, #0x72]
@@ -8759,7 +8759,7 @@ _020C418C:
 	add r0, r9, r7
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C41D4:
 	tst r8, #0x10
@@ -8801,7 +8801,7 @@ _020C421C:
 	add r0, r9, r0
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C4270:
 	ldrb r0, [r9, #0x72]
@@ -8819,7 +8819,7 @@ _020C4270:
 	add r0, r9, #1
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C4134 ; =0x0209A070
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end FUN_ov4_020c31ac
 
@@ -8828,11 +8828,11 @@ FUN_ov4_020c42b4: ; 0x020C42B4
 	ldr r0, _020C42CC ; =gBgMenuManager
 	mov r3, r2
 	mov r2, r1
-	ldr r12, _020C42D0 ; =FUN_ov16_020f6b3c
+	ldr r12, _020C42D0 ; =_ZN14CBgMenuManager6getHitE12EngineSelectii
 	mov r1, #0
 	bx r12
 _020C42CC: .word gBgMenuManager
-_020C42D0: .word FUN_ov16_020f6b3c
+_020C42D0: .word _ZN14CBgMenuManager6getHitE12EngineSelectii
 	arm_func_end FUN_ov4_020c42b4
 
 	arm_func_start FUN_ov4_020c42d4
@@ -9174,17 +9174,17 @@ FUN_ov4_020c4778: ; 0x020C4778
 	cmp r0, r1
 	bne _020C4798
 	ldr r0, _020C47BC ; =0x0209A070
-	bl FUN_ov16_020f6e2c
+	bl _ZN18CBgMenuRadioButton10activateGxEh
 	ldmfd sp!, {r4, pc}
 _020C4798:
 	ldr r4, _020C47BC ; =0x0209A070
 	mov r0, r4
-	bl FUN_ov16_020f6d3c
+	bl _ZN18CBgMenuRadioButton12deactivateGxEh
 	movs r1, r0
 	ldmmifd sp!, {r4, pc}
 	mov r0, r4
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldmfd sp!, {r4, pc}
 _020C47BC: .word unk_0209A070
 	arm_func_end FUN_ov4_020c4778
@@ -10211,7 +10211,7 @@ _020C55A8:
 	bne _020C55BC
 	ldr r1, [r9, #0x2c]
 	ldr r0, _020C5608 ; =0x0209A070
-	bl FUN_ov16_020f6d3c
+	bl _ZN18CBgMenuRadioButton12deactivateGxEh
 _020C55BC:
 	cmp r7, #0
 	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -10219,14 +10219,14 @@ _020C55BC:
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C5608 ; =0x0209A070
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	cmp r0, #0
 	cmpne r8, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	add r0, r9, r7
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C560C ; =gBgMenuManager
-	bl FUN_ov16_020f6530
+	bl _ZN14CBgMenuManager13releaseButtonEi
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C55F8: .word gWirelessUtil
 _020C55FC: .word unk_02099F44
@@ -10246,7 +10246,7 @@ FUN_ov4_020c5610: ; 0x020C5610
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, _020C5704 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6584
+	bl _ZN14CBgMenuManager13isFlashActiveE12EngineSelect
 	cmp r0, #0
 	ldreqb r0, [r5, #0x39]
 	cmpeq r0, #0
@@ -11111,7 +11111,7 @@ FUN_ov4_020c613c: ; 0x020C613C
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	mov r2, r1
 	str r1, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	cmp r5, #0
 	addeq r7, r7, #0x2a
 	mov r5, #7
@@ -11148,11 +11148,11 @@ FUN_ov4_020c613c: ; 0x020C613C
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	mov r3, #9
 	str r2, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	mov r2, #9
 	mov r1, #0
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	cmp r9, #0
 	beq _020C6398
 	ldr r0, [r8, #0xc]
@@ -11183,7 +11183,7 @@ FUN_ov4_020c613c: ; 0x020C613C
 	mov r2, r1
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	str r2, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, #0x13
 	strh r0, [sp, #0x14]
 	mov r0, #0
@@ -11212,11 +11212,11 @@ FUN_ov4_020c613c: ; 0x020C613C
 	mov r2, r1
 	mov r3, r4
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 _020C6398:
 	ldr r1, [r10, #0x558]
 	mov r4, #0
@@ -11252,7 +11252,7 @@ _020C6398:
 	mov r2, #1
 	mov r3, #8
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r0, r8, #0x6c
 	str r0, [sp, #0x28]
 	mov r0, #7
@@ -11275,18 +11275,18 @@ _020C6398:
 	mov r2, #1
 	mov r3, r6
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C64F8 ; =gBgMenuManager
 	mov r2, r5
 	mov r1, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	ldr r5, _020C64FC ; =0x0209A070
 	mov r1, #7
 	str r6, [sp]
 	mov r2, #9
 	mov r0, r5
 	mov r3, r4
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ac]
 	cmp r9, #0
 	beq _020C64D4
@@ -11295,7 +11295,7 @@ _020C6398:
 	mov r1, #0xf
 	mov r2, #0x10
 	str r6, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ae]
 _020C64D4:
 	ldr r0, _020C64FC ; =0x0209A070
@@ -11303,7 +11303,7 @@ _020C64D4:
 	mov r1, #8
 	mov r3, #0
 	str r2, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ad]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -11349,7 +11349,7 @@ FUN_ov4_020c6500: ; 0x020C6500
 	mov r2, #1
 	mov r3, #5
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r0, r9, #0x24
 	str r0, [sp, #0x28]
 	strh r8, [sp, #0x14]
@@ -11370,18 +11370,18 @@ FUN_ov4_020c6500: ; 0x020C6500
 	mov r2, #1
 	mov r3, r6
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C6620 ; =gBgMenuManager
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, #0xa
 	str r0, [sp]
 	ldr r0, _020C6624 ; =0x0209A070
 	mov r1, #5
 	mov r2, r6
 	mov r3, r5
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ad]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -11427,17 +11427,17 @@ FUN_ov4_020c6628: ; 0x020C6628
 	mov r2, r4
 	mov r3, r7
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r8
 	mov r1, r4
 	mov r2, r7
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	ldr r0, _020C66F4 ; =0x0209A070
 	mov r2, r7
 	mov r1, r4
 	mov r3, r4
 	str r5, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r6, #0x4ad]
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
@@ -11475,7 +11475,7 @@ FUN_ov4_020c66f8: ; 0x020C66F8
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r3, [sp, #0x54]
 	add r9, r9, #0xc8
 	cmp r3, #0
@@ -11498,7 +11498,7 @@ FUN_ov4_020c66f8: ; 0x020C66F8
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r9, r9, #0xc8
 _020C67CC:
 	mov r6, #0
@@ -11526,11 +11526,11 @@ _020C67CC:
 	mov r3, r4
 	mov r2, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C684C: .word gBgMenuManager
@@ -11567,7 +11567,7 @@ FUN_ov4_020c6850: ; 0x020C6850
 	mov r1, r5
 	mov r2, r5
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r3, [sp, #0x54]
 	add r9, r9, #0x6c
 	cmp r3, #0
@@ -11591,7 +11591,7 @@ FUN_ov4_020c6850: ; 0x020C6850
 	mov r1, r5
 	mov r2, r5
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r9, r9, #0x6c
 _020C692C:
 	mov r6, #0
@@ -11620,11 +11620,11 @@ _020C692C:
 	mov r2, r6
 	mov r3, r4
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C69B0: .word gBgMenuManager
@@ -11661,7 +11661,7 @@ FUN_ov4_020c69b4: ; 0x020C69B4
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r3, [sp, #0x54]
 	add r9, r9, #0xa0
 	cmp r3, #0
@@ -11685,7 +11685,7 @@ FUN_ov4_020c69b4: ; 0x020C69B4
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r9, r9, #0xa0
 _020C6A90:
 	mov r6, #0
@@ -11714,11 +11714,11 @@ _020C6A90:
 	mov r3, r4
 	mov r2, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C6B14: .word gBgMenuManager
@@ -11825,7 +11825,7 @@ FUN_ov4_020c6c54: ; 0x020C6C54
 	mov r2, r6
 	mov r3, r4
 	strb r12, [r8, #0x240]
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr r2, [r8, #0x5b8]
 	cmp r2, #0
 	addeq sp, sp, #0x20
@@ -11852,7 +11852,7 @@ FUN_ov4_020c6c54: ; 0x020C6C54
 	mov r2, r4
 	mov r3, r4
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020C6D00: .word gBgMenuManager
@@ -11872,7 +11872,7 @@ FUN_ov4_020c6d04: ; 0x020C6D04
 	mov r2, r4
 	mov r3, r5
 	strb r7, [r8, #0x240]
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr r1, [r8, #0x690]
 	cmp r1, #0
 	addeq sp, sp, #0x20
@@ -11905,7 +11905,7 @@ FUN_ov4_020c6d04: ; 0x020C6D04
 	mov r2, r7
 	mov r3, r5
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020C6DC4: .word gBgMenuManager
@@ -12033,11 +12033,11 @@ FUN_ov4_020c6f1c: ; 0x020C6F1C
 	mov r2, r4
 	mov r3, r4
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	mov r0, r7
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 _020C6FA0:
 	ldr r1, [r6, #0x60c]
 	cmp r1, #0
@@ -12070,11 +12070,11 @@ _020C6FA0:
 	mov r2, r7
 	mov r3, r4
 	str r7, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 _020C7030:
 	mov r1, #3
 	mov r7, #0x42
@@ -12084,7 +12084,7 @@ _020C7030:
 	mov r2, r7
 	mov r3, r5
 	mov r1, #0x43
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r6, #0x4b0]
 	str r5, [sp]
 	mov r4, #0x30
@@ -12095,7 +12095,7 @@ _020C7030:
 	mov r2, r7
 	mov r3, r5
 	str r4, [sp, #8]
-	bl FUN_ov16_020f6470
+	bl _ZN14CBgMenuManager9setBoundsE12EngineSelectiiiii
 	mov r0, r6
 	bl FUN_ov4_020c1064
 	cmp r0, #0
@@ -12190,7 +12190,7 @@ _020C7164:
 	str r7, [sp, #0x18]
 	add r7, lr, r12
 	str r7, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C71E0:
 	ldr r1, [r5, #0x4b4]
 	add r0, r5, #0xb4
@@ -12270,7 +12270,7 @@ _020C72B0:
 	str r1, [sp, #0x18]
 	ldr r6, [r7]
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C7310:
 	mov r1, #0xa0
 	cmp r4, #0
@@ -12323,7 +12323,7 @@ FUN_ov4_020c7364: ; 0x020C7364
 	add r4, r4, r3
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C73C8:
 	ldr r9, [r10, #0x5e8]
 	cmp r9, #0
@@ -12360,11 +12360,11 @@ _020C73C8:
 	ldr r0, _020C76D4 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0xb
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C76D4 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, #0xb
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	ldr r2, [r9, #0xc]
 	mov r1, #7
 	strh r1, [sp, #0x24]
@@ -12389,14 +12389,14 @@ _020C73C8:
 	mov r2, r1
 	mov r3, #0xd
 	str r1, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, #0
 	str r0, [sp]
 	mov r1, r0
 	ldr r0, _020C76D8 ; =0x0209A070
 	mov r2, #0xb
 	mov r3, #0xd
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ac]
 	ldr r0, [r9, #0xc]
 	mov r1, #0
@@ -12424,11 +12424,11 @@ _020C73C8:
 	ldr r0, _020C76D4 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0xc
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C76D4 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, #0xc
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	ldr r2, [r9, #0xc]
 	mov r1, #0
 	add r3, r9, r2
@@ -12454,13 +12454,13 @@ _020C73C8:
 	ldr r0, _020C76D4 ; =gBgMenuManager
 	mov r3, r11
 	str r2, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r1, #0
 	ldr r0, _020C76D8 ; =0x0209A070
 	mov r2, #0xc
 	mov r3, r11
 	str r1, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4ad]
 _020C75EC:
 	ldr r0, [r10, #0x50]
@@ -12470,7 +12470,7 @@ _020C75EC:
 	ldrb r1, [r0, #0x4a0]
 	ldr r0, _020C76D8 ; =0x0209A070
 	mov r2, r4
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldr r1, [r10, #0x4b4]
 	add r0, r10, #0xb4
 	add r5, r0, #0x400
@@ -12518,7 +12518,7 @@ _020C75EC:
 	str r4, [sp, #0x18]
 	ldr r4, [r5]
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x3c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C76D4: .word gBgMenuManager
@@ -12553,7 +12553,7 @@ FUN_ov4_020c76e0: ; 0x020C76E0
 	add r4, r3, #0x3c0
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C7748:
 	ldr r1, [r7, #0x600]
 	cmp r1, #0
@@ -12589,18 +12589,18 @@ _020C7748:
 	mov r2, r4
 	mov r3, r5
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r8
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r1, #0xa
 	str r1, [sp]
 	ldr r0, _020C78D4 ; =0x0209A070
 	mov r1, r4
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r7, #0x4ac]
 _020C7804:
 	ldr r1, [r7, #0x4b4]
@@ -12651,7 +12651,7 @@ _020C7804:
 	str r4, [sp, #0x18]
 	ldr r4, [r5]
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x38
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020C78D0: .word gBgMenuManager
@@ -12688,7 +12688,7 @@ FUN_ov4_020c78dc: ; 0x020C78DC
 	mov r1, r3
 	mov r2, r3
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _020C7954: .word gBgMenuManager
@@ -12726,7 +12726,7 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r2, #1
 	mov r3, #0x3b
 	str r8, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	str r8, [sp]
 	stmib sp, {r4, r8}
 	str r8, [sp, #0xc]
@@ -12735,7 +12735,7 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r1, r8
 	mov r2, #1
 	mov r3, #0x3d
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	str r8, [sp]
 	stmib sp, {r4, r8}
 	str r8, [sp, #0xc]
@@ -12744,13 +12744,13 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r2, #1
 	mov r3, #0x3f
 	str r8, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C7BCC ; =0x0209A070
 	mov r1, #0x3b
 	mov r2, #0x3d
 	mov r3, #0x3f
 	str r8, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4a0]
 	strb r5, [sp, #0x30]
 	strh r7, [sp, #0x20]
@@ -12771,7 +12771,7 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r1, r8
 	mov r2, #1
 	mov r3, r6
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	str r8, [sp]
 	stmib sp, {r4, r8}
 	mov r5, #0x3e
@@ -12781,11 +12781,11 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r2, #1
 	mov r3, r5
 	str r8, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r11
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	str r8, [sp]
 	stmib sp, {r4, r8}
 	mov r4, #0x40
@@ -12795,13 +12795,13 @@ FUN_ov4_020c7958: ; 0x020C7958
 	mov r1, r8
 	mov r3, r4
 	str r8, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C7BCC ; =0x0209A070
 	str r8, [sp]
 	mov r1, r6
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r10, #0x4a1]
 	ldr r1, [r9, #0xc]
 	ldr r0, [r10, #0x40]
@@ -12822,7 +12822,7 @@ FUN_ov4_020c7958: ; 0x020C7958
 	ldr r0, _020C7BC8 ; =gBgMenuManager
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	ldr r1, [r9, #0xc]
 	ldr r0, [r10, #0x40]
 	add r1, r9, r1
@@ -12843,14 +12843,14 @@ FUN_ov4_020c7958: ; 0x020C7958
 	ldr r0, _020C7BC8 ; =gBgMenuManager
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C7BA8:
 	ldr r1, [r10, #0x40]
 	ldr r0, _020C7BCC ; =0x0209A070
 	add r1, r10, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C7BC8: .word gBgMenuManager
@@ -12887,7 +12887,7 @@ FUN_ov4_020c7bd0: ; 0x020C7BD0
 	mov r2, r5
 	mov r3, r4
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	ldr r1, [r6, #0xc]
 	mov r0, r7
 	str r5, [sp]
@@ -12902,7 +12902,7 @@ FUN_ov4_020c7bd0: ; 0x020C7BD0
 	str r8, [sp, #0x18]
 	add r4, r6, #0x400
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020C7C88: .word gWirelessUtil
@@ -13065,7 +13065,7 @@ _020C7DE8:
 	ldr r0, _020C7FD8 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C7EE0:
 	add r0, r11, r8
 	ldrsb r1, [r0, #0x63]
@@ -13103,7 +13103,7 @@ _020C7EE0:
 	mov r1, #0
 	ldr r0, _020C7FD8 ; =gBgMenuManager
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C7F74:
 	cmp r9, r7
 	bne _020C7FA0
@@ -13164,7 +13164,7 @@ FUN_ov4_020c7fdc: ; 0x020C7FDC
 	ldr r0, _020C81E8 ; =gBgMenuManager
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8044:
 	ldr r1, [r8, #0x5d0]
 	cmp r1, #0
@@ -13199,18 +13199,18 @@ _020C8044:
 	mov r2, r6
 	mov r3, r4
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r5
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r1, #0xa
 	str r1, [sp]
 	ldr r0, _020C81EC ; =0x0209A070
 	mov r1, r6
 	mov r2, r4
 	mov r3, r6
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r8, #0x4ac]
 _020C80FC:
 	ldr r1, [r8, #0x4b4]
@@ -13269,7 +13269,7 @@ _020C80FC:
 	mov r1, r6
 	mov r2, r6
 	mov r3, r6
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x38
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020C81E8: .word gBgMenuManager
@@ -13307,7 +13307,7 @@ FUN_ov4_020c8204: ; 0x020C8204
 	add r4, r4, r3
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8268:
 	ldr r1, [r6, #0x5d0]
 	cmp r1, #0
@@ -13343,18 +13343,18 @@ _020C8268:
 	mov r2, r4
 	mov r3, r5
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r7
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r2, #0xa
 	str r2, [sp]
 	ldr r0, _020C83EC ; =0x0209A070
 	mov r1, r4
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r6, #0x4ac]
 _020C8324:
 	ldr r1, [r6, #0x4b4]
@@ -13403,7 +13403,7 @@ _020C8324:
 	str r4, [sp, #0x18]
 	ldr r4, [r5]
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x38
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020C83E8: .word gBgMenuManager
@@ -13472,7 +13472,7 @@ _020C844C:
 	ldr r0, _020C8688 ; =gBgMenuManager
 	mov r2, r6
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C84E0:
 	add r1, r8, #1
 	mov r0, #0x14
@@ -13526,7 +13526,7 @@ _020C84E0:
 	mov r1, r4
 	mov r2, r4
 	mov r3, r4
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C85B4:
 	mov r0, #0x74
 	mla r1, r9, r0, r10
@@ -13652,7 +13652,7 @@ _020C8730:
 	mov r2, r6
 	mov r3, r5
 	str r8, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	str r6, [sp]
 	str r5, [sp, #4]
 	str r4, [sp, #8]
@@ -13668,7 +13668,7 @@ _020C8730:
 	add r4, r8, #0x1d4
 _020C87B4:
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C87BC:
 	ldr r7, [r10, #0x6d8]
 	mov r6, #4
@@ -13701,7 +13701,7 @@ _020C87BC:
 	str r8, [sp, #0x1c]
 	mov r2, r1
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	ldr r0, [r4, #0x5c]
 	ldr r1, [r7, #0xc]
 	cmp r0, #1
@@ -13725,7 +13725,7 @@ _020C87BC:
 	mov r2, r1
 	mov r3, r1
 	str r8, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C889C:
 	ldr r1, [r10, #0x4c8]
 	add r0, r10, #0xc8
@@ -13767,7 +13767,7 @@ _020C889C:
 	ldr r0, _020C8CC8 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8940:
 	ldr r1, [r10, #0x4dc]
 	add r0, r10, #0xdc
@@ -13810,7 +13810,7 @@ _020C8940:
 	ldr r0, _020C8CC8 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, r1
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C89E8:
 	ldr r9, [r10, #0x6fc]
 	cmp r9, #0
@@ -13829,7 +13829,7 @@ _020C89E8:
 	mov r2, r1
 	mov r3, r1
 	str r7, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8A30:
 	ldr r8, [r10, #0x708]
 	cmp r8, #0
@@ -13849,7 +13849,7 @@ _020C8A30:
 	mov r2, r1
 	mov r3, r1
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8A7C:
 	ldrb r0, [r10, #0x26b]
 	mov r2, #6
@@ -13954,7 +13954,7 @@ _020C8B58:
 	mov r2, r1
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8C04:
 	ldr r1, [r10, #0x52c]
 	add r0, r10, #0x12c
@@ -13997,7 +13997,7 @@ _020C8C04:
 	mov r2, r1
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020C8CAC:
 	mov r1, #0
 	mov r0, r10
@@ -14073,7 +14073,7 @@ FUN_ov4_020c8ccc: ; 0x020C8CCC
 	str r4, [sp, #0x18]
 	ldr r4, [r6]
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020C8DD0: .word gFont12
@@ -14141,7 +14141,7 @@ FUN_ov4_020c8dd8: ; 0x020C8DD8
 	str r4, [sp, #0x18]
 	ldr r4, [r6]
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _020C8ED0: .word gFont12
@@ -14463,7 +14463,7 @@ FUN_ov4_020c926c: ; 0x020C926C
 	mov r2, r1
 	mov r3, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020C9304:
@@ -14512,7 +14512,7 @@ _020C935C:
 	mov r1, r6
 	mov r2, r6
 	mov r3, r6
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	mov r1, r9
 	smull r0, r9, r4, r1
 	mov r0, r1, lsr #0x1f
@@ -14556,7 +14556,7 @@ FUN_ov4_020c93e4: ; 0x020C93E4
 	mov r1, r3
 	mov r2, r3
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r3, pc}
 _020C9460: .word gBgMenuManager
@@ -14617,7 +14617,7 @@ FUN_ov4_020c9464: ; 0x020C9464
 	ldr r0, _020C9694 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, #1
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r1, [r7, #0xc]
 	ldr r0, [sp, #0x64]
 	add r1, r7, r1
@@ -14648,7 +14648,7 @@ FUN_ov4_020c9464: ; 0x020C9464
 	ldr r3, [sp, #0x58]
 	mov r1, #0
 	mov r2, #1
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r1, [r7, #0xc]
 	ldr r0, [sp, #0x60]
 	strh r4, [sp, #0x18]
@@ -14679,11 +14679,11 @@ FUN_ov4_020c9464: ; 0x020C9464
 	mov r2, #1
 	mov r1, #0
 	mov r3, r4
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r0, _020C9694 ; =gBgMenuManager
 	mov r1, #0
 	mov r2, r4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 _020C9644:
 	add r0, r9, #3
 	cmp r8, #0x3c
@@ -14751,7 +14751,7 @@ FUN_ov4_020c9698: ; 0x020C9698
 	mov r1, r12
 	mov r3, r12
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
 _020C9744: .word gBgMenuManager
@@ -14768,9 +14768,9 @@ FUN_ov4_020c9748: ; 0x020C9748
 	mov r2, r7
 	ldr r11, _020CA340 ; =0x0209A070
 	mov r6, #1
-	bl FUN_ov16_020f5ff4
+	bl _ZN14CBgMenuManager9deleteAllE12EngineSelectt
 	ldr r0, _020CA340 ; =0x0209A070
-	bl FUN_ov16_020f6c4c
+	bl _ZN18CBgMenuRadioButton5resetEv
 	ldr r0, _020CA344 ; =gSprButtonCtrl
 	mov r1, #3
 	ldr r0, [r0]
@@ -14852,7 +14852,7 @@ _020C9848:
 	mov r2, r6
 	mov r3, r5
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	ldrb r1, [r4, #0x71]
 	mov r9, #0x16
 	strb r0, [r4, #0x4a0]
@@ -14876,7 +14876,7 @@ _020C9848:
 	mov r2, r6
 	mov r3, r5
 	str r8, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a1]
 _020C9918:
 	ldrb r0, [r4, #0x71]
@@ -14902,7 +14902,7 @@ _020C9918:
 	mov r2, r6
 	mov r3, r5
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a2]
 	mov r6, #0x1e
 	mov r9, #0x1c
@@ -14919,7 +14919,7 @@ _020C9918:
 	mov r3, r5
 	str r7, [sp]
 	mov r0, r11
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a3]
 	mov r6, #0x21
 	mov r9, #0x1f
@@ -14936,7 +14936,7 @@ _020C9918:
 	mov r3, r5
 	str r7, [sp]
 	mov r0, r11
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	add r2, r8, #0x3cc
 	strb r0, [r4, #0x4a4]
 	mov r8, #0x24
@@ -14953,7 +14953,7 @@ _020C9918:
 	mov r2, r8
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a5]
 _020C9A48:
 	ldr r1, [r4, #0x40]
@@ -14961,7 +14961,7 @@ _020C9A48:
 	add r1, r4, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	mov r0, r4
 	bl FUN_ov4_020c6500
 	ldr r0, [r4, #0xc]
@@ -14969,7 +14969,7 @@ _020C9A48:
 	bne _020C9A98
 	ldr r0, _020CA33C ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f64cc
+	bl _ZN14CBgMenuManager11resetBoundsE12EngineSelect
 	mov r0, r4
 	bl FUN_ov4_020c6f1c
 	mov r1, #6
@@ -15283,7 +15283,7 @@ _020C9E88:
 	mov r2, r5
 	mov r3, r10
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a0]
 	mov r0, r4
 	mov r1, r7
@@ -15409,7 +15409,7 @@ _020CA0AC:
 	add r2, r10, #0x34
 	add r3, r10, #0x37
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	mov r1, #0x38
 	mul r2, r10, r1
 	add r1, r4, r10
@@ -15470,7 +15470,7 @@ _020CA158:
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
 _020CA1A0:
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	ldrb r1, [r4, #0x72]
 	ldr r0, _020CA34C ; =0x020A0640
 	cmp r1, #0
@@ -15672,7 +15672,7 @@ _020CA41C:
 	add r2, r9, #0x29
 	add r3, r9, #0x2d
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	add r1, r4, r9
 	strb r0, [r1, #0x4a0]
 	ldr r1, [r4, #0x40]
@@ -15683,7 +15683,7 @@ _020CA41C:
 	ldrb r1, [r1, #0x4a0]
 	mov r0, r11
 	mov r2, r6
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 _020CA4CC:
 	add r9, r9, #1
 _020CA4D0:
@@ -15751,7 +15751,7 @@ _020CA544:
 	mov r2, r9
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a0]
 	mov r9, #0x49
 	mov r5, #0x47
@@ -15768,7 +15768,7 @@ _020CA544:
 	mov r2, r9
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a1]
 _020CA608:
 	ldr r1, [r4, #0x40]
@@ -15776,7 +15776,7 @@ _020CA608:
 	add r1, r4, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	mov r0, r4
 	bl FUN_ov4_020c6500
 	add sp, sp, #0x118
@@ -15872,7 +15872,7 @@ _020CA728:
 	mov r2, r9
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a6]
 	mov r9, #0x4f
 	mov r5, #0x4d
@@ -15889,7 +15889,7 @@ _020CA728:
 	mov r3, r6
 	str r7, [sp]
 	mov r0, r11
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	add r2, r8, #0x420
 	strb r0, [r4, #0x4a7]
 	mov r8, #0x52
@@ -15906,7 +15906,7 @@ _020CA728:
 	mov r2, r8
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a8]
 _020CA808:
 	ldr r1, [r4, #0x40]
@@ -15915,7 +15915,7 @@ _020CA808:
 	add r1, r4, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	mov r0, r4
 	bl FUN_ov4_020c6500
 	add sp, sp, #0x118
@@ -15941,7 +15941,7 @@ _020CA834:
 	mov r2, r9
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4a9]
 	mov r9, #0x58
 	mov r5, #0x56
@@ -15958,7 +15958,7 @@ _020CA834:
 	mov r3, r6
 	str r7, [sp]
 	mov r0, r11
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	add r2, r8, #0x5a0
 	strb r0, [r4, #0x4aa]
 	mov r8, #0x5b
@@ -15975,7 +15975,7 @@ _020CA834:
 	mov r2, r8
 	mov r3, r6
 	str r7, [sp]
-	bl FUN_ov16_020f6c8c
+	bl _ZN18CBgMenuRadioButton6createEhhhi
 	strb r0, [r4, #0x4ab]
 _020CA914:
 	ldr r1, [r4, #0x40]
@@ -15984,7 +15984,7 @@ _020CA914:
 	add r1, r4, r1
 	ldrb r1, [r1, #0x4a0]
 	mov r2, #1
-	bl FUN_ov16_020f6e8c
+	bl _ZN18CBgMenuRadioButton13releaseButtonEib
 	mov r0, r4
 	bl FUN_ov4_020c6500
 	ldr r0, [r4, #0xc]
@@ -15993,7 +15993,7 @@ _020CA914:
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _020CA33C ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f64cc
+	bl _ZN14CBgMenuManager11resetBoundsE12EngineSelect
 	mov r0, r4
 	bl FUN_ov4_020c6f1c
 	mov r1, #6
@@ -16129,7 +16129,7 @@ _020CAAF0:
 	bl FUN_ov4_020c6d04
 _020CAB20:
 	ldr r0, _020CAB30 ; =gBgMenuManager
-	bl FUN_ov16_020f6274
+	bl _ZN14CBgMenuManager11updateRadioEv
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020CAB2C: .word gWirelessUtil
 _020CAB30: .word gBgMenuManager
@@ -16169,7 +16169,7 @@ _020CAB94:
 	blt _020CAB50
 	ldr r0, _020CABB4 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020CABB4: .word gBgMenuManager
 	arm_func_end FUN_ov4_020cab34
@@ -16461,7 +16461,7 @@ _020CAF8C:
 	bl MI_CpuFill8
 	ldr r0, _020CB14C ; =0x0209A070
 	mov r1, r6
-	bl FUN_ov16_020f6c20
+	bl _ZN18CBgMenuRadioButton10initializeEi
 	mov r1, r8
 	add r0, r7, #0x244
 	mov r2, #0x1d0
@@ -16680,7 +16680,7 @@ _020CB2CC:
 	bl FUN_ov4_020ca974
 	ldr r0, _020CB3E0 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r0, r4
 	bl FUN_ov4_020c5908
 	mov r0, r4
@@ -16695,7 +16695,7 @@ _020CB304:
 	beq _020CB32C
 	ldr r0, _020CB3E0 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f65a4
+	bl _ZN14CBgMenuManager10isFlashingE12EngineSelect
 	cmp r0, #0
 	bne _020CB32C
 	mov r0, r4
@@ -16743,7 +16743,7 @@ _020CB394:
 	bl FUN_ov4_020ca974
 	ldr r0, _020CB3E0 ; =gBgMenuManager
 	mov r1, #0
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 _020CB3CC:
 	mov r0, r4
 	bl FUN_ov4_020c5a9c
@@ -16787,9 +16787,9 @@ FUN_ov4_020cb438: ; 0x020CB438
 	mov r6, #0
 	ldr r0, _020CB524 ; =gBgMenuManager
 	mov r1, r6
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	ldr r0, _020CB528 ; =0x0209A070
-	bl FUN_ov16_020f6c58
+	bl _ZN18CBgMenuRadioButton8finalizeEv
 	mov r0, #2
 	mov r1, #0x10
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
@@ -16880,7 +16880,7 @@ FUN_ov4_020cb53c: ; 0x020CB53C
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r3, [sp, #0x54]
 	add r9, r9, #0xb0
 	cmp r3, #0
@@ -16904,7 +16904,7 @@ FUN_ov4_020cb53c: ; 0x020CB53C
 	mov r1, r5
 	mov r2, #1
 	str r5, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r9, r9, #0xb0
 _020CB618:
 	mov r4, #0
@@ -16935,11 +16935,11 @@ _020CB618:
 	mov r3, r5
 	mov r2, #1
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CB6A4: .word gBgMenuManager
@@ -16976,7 +16976,7 @@ FUN_ov4_020cb6a8: ; 0x020CB6A8
 	mov r1, r6
 	mov r2, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	ldr r3, [sp, #0x54]
 	add r9, r9, #0xf0
 	cmp r3, #0
@@ -17000,7 +17000,7 @@ FUN_ov4_020cb6a8: ; 0x020CB6A8
 	mov r1, r6
 	mov r2, #1
 	str r6, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	add r9, r9, #0xf0
 _020CB784:
 	mov r4, #0
@@ -17030,11 +17030,11 @@ _020CB784:
 	mov r1, r4
 	mov r3, r5
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 	mov r0, r6
 	mov r1, r4
 	mov r2, r5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add sp, sp, #0x2c
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020CB80C: .word gBgMenuManager
@@ -29492,12 +29492,12 @@ _020D68D8:
 	mov r0, r5
 	mov r1, #1
 	mov r2, #2
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 _020D6960:
 	ldr r2, [r4, r9, lsl #2]
 	mov r0, r5
 	mov r1, #1
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add r9, r9, #1
 	cmp r9, #4
 	blo _020D68D8
@@ -29538,7 +29538,7 @@ _020D69E8:
 	mov r1, r6
 	ldr r0, _020D6AEC ; =gBgMenuManager
 	mov r2, r1
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	ldrb r0, [r4, #0x1c]
 	cmp r0, #0
 	bne _020D6AB0
@@ -29556,7 +29556,7 @@ _020D6A28:
 	mov r1, r6
 	mov r2, #2
 _020D6A34:
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	b _020D6AB0
 _020D6A3C:
 	ldr r0, _020D6AEC ; =gBgMenuManager
@@ -29572,19 +29572,19 @@ _020D6A5C:
 	mov r0, r5
 	mov r1, r6
 	mov r2, r6
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r5
 	mov r1, r6
 	mov r2, #2
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r5
 	mov r1, r6
 	mov r2, #3
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r5
 	mov r1, r6
 	mov r2, #4
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	b _020D6AB0
 _020D6AA0:
 	mov r0, #0
@@ -29606,7 +29606,7 @@ _020D6ACC:
 _020D6AD8:
 	ldr r0, _020D6AEC ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D6AEC: .word gBgMenuManager
@@ -29724,10 +29724,10 @@ _020D6C44:
 	mov r0, r5
 	mov r1, r4
 	mov r2, #0xd
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	mov r0, r5
 	mov r1, r4
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, pc}
 _020D6C84: .word gBgMenuManager
 	arm_func_end FUN_ov4_020d6c08
@@ -29775,7 +29775,7 @@ _020D6D0C:
 	mov r1, #1
 	mov r2, #5
 _020D6D18:
-	bl FUN_ov16_020f60f8
+	bl _ZN14CBgMenuManager6showIDE12EngineSelecti
 	b _020D6DA4
 _020D6D20:
 	ldr r0, _020D6DE0 ; =gBgMenuManager
@@ -29796,19 +29796,19 @@ _020D6D50:
 	mov r0, r6
 	mov r1, r4
 	mov r2, #5
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r6
 	mov r1, r4
 	mov r2, #6
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r6
 	mov r1, r4
 	mov r2, #7
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	mov r0, r6
 	mov r1, r4
 	mov r2, #8
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	b _020D6DA4
 _020D6D94:
 	mov r0, #0
@@ -29830,7 +29830,7 @@ _020D6DC0:
 _020D6DCC:
 	ldr r0, _020D6DE0 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
 _020D6DE0: .word gBgMenuManager
@@ -29844,7 +29844,7 @@ FUN_ov4_020d6dec: ; 0x020D6DEC
 	mov r4, r0
 	ldr r0, _020D6E38 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r2, #0
 	mov r1, #0x2d
 	mov r0, #0x1e
@@ -29933,7 +29933,7 @@ FUN_ov4_020d6efc: ; 0x020D6EFC
 	mov r4, r0
 	ldr r0, _020D6F74 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldr r0, [r4, #0x18]
 	ldr r1, [r4, #0x14]
 	cmp r1, r0
@@ -29972,7 +29972,7 @@ FUN_ov4_020d6f7c: ; 0x020D6F7C
 	bl _ZN11AudioPlayer12FUN_0202d798EPKcl
 	ldr r0, _020D6FAC ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	ldmfd sp!, {r3, pc}
 _020D6FA4: .word gAudioPlayer
 _020D6FA8: .word ov4_020DBD9C
@@ -30080,12 +30080,12 @@ _020D7098:
 	mov r0, r5
 	mov r1, #1
 	mov r2, #2
-	bl FUN_ov16_020f5c34
+	bl _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 _020D7120:
 	ldr r2, [r4, r9, lsl #2]
 	mov r0, r5
 	mov r1, #1
-	bl FUN_ov16_020f6084
+	bl _ZN14CBgMenuManager6hideIDE12EngineSelecti
 	add r9, r9, #1
 	cmp r9, #4
 	blo _020D7098
@@ -30474,7 +30474,7 @@ FUN_ov4_020d75d8: ; 0x020D75D8
 	ldr r0, _020D7734 ; =gBgMenuManager
 	mov r3, r2
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020D766C:
 	ldrb r0, [r5, #0x1c]
 	cmp r0, #0
@@ -30539,7 +30539,7 @@ FUN_ov4_020d773c: ; 0x020D773C
 	ldr r0, _020D77E0 ; =gBgMenuManager
 	mov r2, r1
 	mov r3, #0
-	bl FUN_ov16_020f5eec
+	bl _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 	ldr r0, _020D77E4 ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
@@ -30570,7 +30570,7 @@ FUN_ov4_020d773c: ; 0x020D773C
 	ldr r0, _020D77E0 ; =gBgMenuManager
 	mov r3, r2
 	str r12, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, pc}
 _020D77E0: .word gBgMenuManager
@@ -30589,7 +30589,7 @@ FUN_ov4_020d77e8: ; 0x020D77E8
 	mov r1, r5
 	mov r2, r5
 	mov r3, r4
-	bl FUN_ov16_020f5f64
+	bl _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 	ldr r2, [r10, #0x10]
 	cmp r2, #8
 	bne _020D786C
@@ -30674,7 +30674,7 @@ _020D793C:
 	mov r2, r5
 	mov r3, r4
 	str r6, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020D7950:
 	ldr r5, [r10, #0x10]
 	mov r0, #3
@@ -30730,7 +30730,7 @@ _020D7A14:
 	mov r2, r1
 	mov r3, #0
 	str r5, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020D7A24:
 	ldr r0, [r10, #0x10]
 	cmp r0, #0x64
@@ -30756,7 +30756,7 @@ _020D7A24:
 	add r4, r5, r2
 	mov r2, r1
 	str r4, [sp, #0x1c]
-	bl FUN_ov16_020f5da0
+	bl _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 _020D7A88:
 	mov r0, r10
 	mov r1, r8
@@ -30766,7 +30766,7 @@ _020D7A88:
 	bl FUN_ov4_020d773c
 	ldr r0, _020D7AB4 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f672c
+	bl _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 	add sp, sp, #0x20
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
 _020D7AB4: .word gBgMenuManager
@@ -30795,7 +30795,7 @@ FUN_ov4_020d7ab8: ; 0x020D7AB8
 	str r3, [r5, #0x18]
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c
@@ -30860,7 +30860,7 @@ _020D7BD4:
 	bl FUN_ov4_020d7580
 	ldr r0, _020D7BE8 ; =gBgMenuManager
 	mov r1, #1
-	bl FUN_ov16_020f6a9c
+	bl _ZN14CBgMenuManager4drawE12EngineSelect
 	ldmfd sp!, {r4, pc}
 _020D7BE8: .word gBgMenuManager
 	arm_func_end FUN_ov4_020d7b94
@@ -30877,7 +30877,7 @@ FUN_ov4_020d7bec: ; 0x020D7BEC
 	mov r4, #1
 	ldr r0, _020D7C74 ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2fe4

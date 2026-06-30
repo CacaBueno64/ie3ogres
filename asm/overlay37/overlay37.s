@@ -1693,7 +1693,7 @@ _0211B5A8:
 	mov r5, #0
 	ldr r0, _0211B784 ; =gBgMenuManager
 	mov r1, r5
-	bl FUN_ov16_020f5a58
+	bl _ZN14CBgMenuManager10initializeE12EngineSelect
 	str r5, [r6, #0xbc]
 	str r5, [r6, #0xc0]
 	str r5, [r6, #0xc4]
@@ -2081,7 +2081,7 @@ FUN_ov37_0211bb1c: ; 0x0211BB1C
 	mov r4, #0
 	ldr r0, _0211BB9C ; =gBgMenuManager
 	mov r1, r4
-	bl FUN_ov16_020f5af0
+	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r5
 	bl FUN_ov37_0211bae0
 	ldr r0, [r5, #0xc8]
