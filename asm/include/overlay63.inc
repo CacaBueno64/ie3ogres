@@ -149,7 +149,7 @@
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public FUN_ov16_020f5278
 .public _Znwm
 .public FUN_ov16_02110558

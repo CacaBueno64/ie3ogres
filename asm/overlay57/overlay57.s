@@ -7909,7 +7909,7 @@ _02120C74:
 	ldr r0, _02120E74 ; =gBgMenuManager
 	strb r7, [r10, #0xfc1]
 	mov r1, r7
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldrb r0, [r4, #0x32]
 	cmp r0, #0
 	beq _02120D58

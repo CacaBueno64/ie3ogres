@@ -52,7 +52,7 @@
 .public _ZN14CBgMenuManager11updateRadioEv
 .public GX_SetGraphicsMode
 .public FUN_02046378
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_02044788
 .public unk_0209A454

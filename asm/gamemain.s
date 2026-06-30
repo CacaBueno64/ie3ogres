@@ -767,7 +767,7 @@ _0202B04C:
 _0202B080:
 	ldr r5, _0202B1AC ; =g3DDevice
 	ldr r0, [r5]
-	bl FUN_02051434
+	bl _ZN9C3DDevice5resetEv
 	bl FUN_0202ac20
 	bl FUN_0202a900
 	bl FUN_0202aa14
@@ -778,12 +778,12 @@ _0202B080:
 	bl _ZN6Thread9WakeUpAllEv
 	bl FUN_0202ac70
 	bl FUN_0202ad64
-	ldr r0, _0202B1B0 ; =gResourceManager
+	ldr r0, _0202B1B0 ; =g3DVramMan
 	mov r1, #1
 	ldr r0, [r0]
 	str r1, [r0, #0x38]
 	ldr r0, [r5]
-	bl FUN_02051448
+	bl _ZN9C3DDevice11finishFrameEv
 	ldr r0, _0202B1B4 ; =0x0209A0E8
 	ldrh r0, [r0]
 	tst r0, #0x100
@@ -845,7 +845,7 @@ _0202B1A0: .word unk_0209A124
 _0202B1A4: .word ov16_02118490
 _0202B1A8: .word 0x02FFFFA8
 _0202B1AC: .word g3DDevice
-_0202B1B0: .word gResourceManager
+_0202B1B0: .word g3DVramMan
 _0202B1B4: .word unk_0209A0E8
 _0202B1B8: .word unk_0209A0F0
 _0202B1BC: .word gDeltaTime

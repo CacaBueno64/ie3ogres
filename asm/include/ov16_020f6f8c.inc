@@ -753,7 +753,7 @@
 .public gNsbResourceMan
 .public gPalSkin3dFile
 .public gRecordManager
-.public gResourceManager
+.public g3DVramMan
 .public gUnitMan
 .public gUtilGame
 .public sprintf

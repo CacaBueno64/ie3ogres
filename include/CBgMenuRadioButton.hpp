@@ -23,7 +23,7 @@ class CBgMenuRadioButton
 {
 public:
     virtual ~CBgMenuRadioButton();
-    void initialize(int size);
+    void init(int size);
     void reset();
     void finalize();
     rbkey_t create(u8 gxIdle, u8 gxActive, u8 gxSelected, int group);

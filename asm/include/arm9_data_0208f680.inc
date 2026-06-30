@@ -1,12 +1,12 @@
-.public _ZN14CSprButtonCtrlD0Ev
 .public _ZN14CSprButtonCtrlD1Ev
-.public _ZN14CBgMenuManagerD0Ev
+.public _ZN14CSprButtonCtrlD0Ev
 .public _ZN14CBgMenuManagerD1Ev
-.public _ZN15CBgAnimeManagerD0Ev
+.public _ZN14CBgMenuManagerD0Ev
 .public _ZN15CBgAnimeManagerD1Ev
-.public _ZN18CBgMenuRadioButtonD0Ev
+.public _ZN15CBgAnimeManagerD0Ev
 .public _ZN18CBgMenuRadioButtonD1Ev
+.public _ZN18CBgMenuRadioButtonD0Ev
 .public FUN_0205244c
 .public FUN_020524a0
-.public _ZN11C3DGameCharD0Ev
 .public _ZN11C3DGameCharD1Ev
+.public _ZN11C3DGameCharD0Ev

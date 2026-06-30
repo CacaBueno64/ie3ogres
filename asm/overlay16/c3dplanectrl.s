@@ -1128,8 +1128,8 @@ _021122B8:
 _021122CC: .word FX_SinCosTable_
 	arm_func_end _ZN12C3DPlaneCtrl15updateTexCoordsEP12S3DPlanePart
 
-	arm_func_start _ZN12C3DPlaneCtrl10initializeEii
-_ZN12C3DPlaneCtrl10initializeEii: ; 0x021122D0
+	arm_func_start _ZN12C3DPlaneCtrl4initEii
+_ZN12C3DPlaneCtrl4initEii: ; 0x021122D0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r4, #0
@@ -1162,7 +1162,7 @@ _02112330:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02112348: .word gAllocator
-	arm_func_end _ZN12C3DPlaneCtrl10initializeEii
+	arm_func_end _ZN12C3DPlaneCtrl4initEii
 
 	arm_func_start _ZN12C3DPlaneCtrl8finalizeEv
 _ZN12C3DPlaneCtrl8finalizeEv: ; 0x0211234C

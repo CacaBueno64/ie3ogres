@@ -53,7 +53,7 @@ FUN_ov56_02119f00: ; 0x02119F00
 	bne _02119FC4
 	ldr r0, [r0]
 	mov r1, r6
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _02119FC4:
 	mov r0, r5
 	bl FUN_ov56_0211a64c
@@ -149,7 +149,7 @@ FUN_ov56_0211a050: ; 0x0211A050
 	ldr r0, _0211A17C ; =g3DDevice
 	mov r1, r5
 	ldr r0, [r0]
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _0211A128:
 	mov r0, r4
 	bl FUN_ov56_0211b808

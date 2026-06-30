@@ -1693,7 +1693,7 @@ _0211B5A8:
 	mov r5, #0
 	ldr r0, _0211B784 ; =gBgMenuManager
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	str r5, [r6, #0xbc]
 	str r5, [r6, #0xc0]
 	str r5, [r6, #0xc4]

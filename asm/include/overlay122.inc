@@ -31,7 +31,7 @@
 .public GXS_LoadBG1Scr
 .public GXS_LoadBG2Scr
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov1_020dc13c
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public _ZN8Graphics11SetupScreenEPtmii

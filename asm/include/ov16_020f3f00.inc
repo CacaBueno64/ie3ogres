@@ -5,7 +5,7 @@
 .public FUN_02058ee0
 .public FUN_02059004
 .public FUN_02059038
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 .public G2S_GetBG0ScrPtr
 .public G2S_GetBG1ScrPtr
@@ -43,7 +43,7 @@
 .public gAllocator
 .public gBgMenuManager
 .public gGraphicsModes
-.public gResourceManager
+.public g3DVramMan
 .public gSubGraphicsMode
 .public ov16_02119EE4
 .public unk_0209A22C

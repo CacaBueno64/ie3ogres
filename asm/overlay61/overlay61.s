@@ -3770,11 +3770,11 @@ _0211D370:
 	ldr r0, _0211D47C ; =gBgMenuManager
 	mov r1, r5
 	str r2, [r6, #0x1dc]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r7, #6
 	ldr r0, _0211D480 ; =0x0209A070
 	mov r1, r7
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r1, r5
 	add r0, r6, #0x3c
 	mov r2, #0x14

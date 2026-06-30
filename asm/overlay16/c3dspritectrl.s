@@ -45,7 +45,7 @@
 .public gAllocator
 .public gCameraCtrl
 .public gConfig
-.public gResourceManager
+.public g3DVramMan
 .public labs
 .public unk_0208A874
 
@@ -307,7 +307,7 @@ _02114F10:
 	ldrh r0, [r5, #0xc]
 	tst r0, #0x10
 	beq _02114F5C
-	ldr r0, _02115054 ; =gResourceManager
+	ldr r0, _02115054 ; =g3DVramMan
 	add r2, sp, #0x14
 	ldr r0, [r0]
 	add r1, r5, #0x18
@@ -384,7 +384,7 @@ _02115044:
 	mov r0, #1
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_02115054: .word gResourceManager
+_02115054: .word g3DVramMan
 	arm_func_end FUN_ov16_02114e94
 
 	arm_func_start FUN_ov16_02115058

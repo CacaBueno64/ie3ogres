@@ -3795,7 +3795,7 @@ FUN_ov15_020e2574: ; 0x020E2574
 	bl MI_CpuFill8
 	ldr r0, _020E2628 ; =0x0209A070
 	mov r1, r4
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	add r0, r7, #0x58
 	str r5, [r7, #0x3c]
 	mov r1, #1
@@ -5307,7 +5307,7 @@ FUN_ov15_020e3a10: ; 0x020E3A10
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
 	str r3, [r5, #0x80]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c

@@ -2771,7 +2771,7 @@ FUN_ov91_0211c418: ; 0x0211C418
 	strh r0, [r5, #0xc]
 	ldr r0, _0211C57C ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, _0211C580 ; =0x020A1640
 	strh r4, [r5, #0xc]
 	ldrh r0, [r0, #0x10]

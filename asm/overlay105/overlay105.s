@@ -2812,7 +2812,7 @@ FUN_ov105_02127440: ; 0x02127440
 	bl FUN_ov105_02124ee4
 	mov r1, r6
 	ldr r0, _021274F8 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _021274F4: .word gAllocator
 _021274F8: .word gBgMenuManager

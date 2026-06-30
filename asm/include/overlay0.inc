@@ -106,7 +106,7 @@
 .public FUN_ov16_020f1e14
 .public FUN_ov16_020f2e2c
 .public FUN_02059d9c
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public _ZN9C3DDevice13setClearColorEthi
 .public FUN_ov16_0211661c
 .public _ZN12C3DPlaneCtrl7acquireEv
@@ -487,7 +487,7 @@
 .public FUN_020724c8
 .public FUN_0204c420
 .public FUN_0204d7fc
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN8Graphics12FadeSubBlackEl
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN14CBgMenuManager4drawE12EngineSelect

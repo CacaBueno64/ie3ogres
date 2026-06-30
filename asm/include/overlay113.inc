@@ -33,7 +33,7 @@
 .public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public _ZN14CBgMenuManager4drawE12EngineSelect

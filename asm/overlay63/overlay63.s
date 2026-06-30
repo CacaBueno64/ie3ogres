@@ -10822,7 +10822,7 @@ FUN_ov63_02123874: ; 0x02123874
 	bne _021239A8
 	ldr r0, [r1]
 	mov r1, #1
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _021239A8:
 	mov r4, #0
 	add r3, r6, #0x2000
@@ -11293,7 +11293,7 @@ _02124040:
 	ldr r0, _021240C0 ; =g3DDevice
 	mov r1, r4
 	ldr r0, [r0]
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _02124084:
 	add r0, r5, #0x2000
 	ldr r2, [r0, #0xc4]

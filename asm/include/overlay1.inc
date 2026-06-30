@@ -312,8 +312,8 @@
 .public g3DGameEffect
 .public gDeltaTime
 .public _ZN14CBgMenuManager4drawE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN14CBgMenuManager4initE12EngineSelect
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public FUN_ov132_021491fc
@@ -636,7 +636,7 @@
 .public NNS_G3dGlbFlushVP
 .public _ZN10C3DSprFile14getSpriteSheetEi
 .public FUN_02051bb8
-.public gResourceManager
+.public g3DVramMan
 .public VEC_Subtract
 .public VEC_Normalize
 .public FUN_02053438

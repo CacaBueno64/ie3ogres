@@ -513,7 +513,7 @@ FUN_02041518: ; 0x02041518
 	addeq sp, sp, #0xc
 	moveq r0, r9
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	ldr r0, _0204160C ; =gResourceManager
+	ldr r0, _0204160C ; =g3DVramMan
 	add r1, sp, #0
 	ldr r0, [r0]
 	mov r2, r5
@@ -560,7 +560,7 @@ _02041598:
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _02041608: .word gAllocator
-_0204160C: .word gResourceManager
+_0204160C: .word g3DVramMan
 _02041610: .word unk_020B5BDC
 _02041614: .word unk_020B5BDC
 	arm_func_end FUN_02041518
@@ -568,7 +568,7 @@ _02041614: .word unk_020B5BDC
 	arm_func_start FUN_02041618
 FUN_02041618: ; 0x02041618
 	stmfd sp!, {r3, lr}
-	ldr r0, _02041658 ; =gResourceManager
+	ldr r0, _02041658 ; =g3DVramMan
 	ldr r1, _0204165C ; =0x020B5BDC
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -584,7 +584,7 @@ _02041644:
 	mov r2, #0x1c
 	bl MIi_CpuClearFast
 	ldmfd sp!, {r3, pc}
-_02041658: .word gResourceManager
+_02041658: .word g3DVramMan
 _0204165C: .word unk_020B5BDC
 _02041660: .word unk_020B5BDC
 _02041664: .word gAllocator
@@ -609,7 +609,7 @@ FUN_02041668: ; 0x02041668
 	mov r2, #0
 	stmia sp, {r0, r2}
 	str r2, [sp, #8]
-	ldr r0, _020416CC ; =gResourceManager
+	ldr r0, _020416CC ; =g3DVramMan
 	ldr r3, [r1, #0xc]
 	ldr r0, [r0]
 	ldr r1, _020416D0 ; =0x020B5BDC
@@ -617,7 +617,7 @@ FUN_02041668: ; 0x02041668
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
 _020416C8: .word unk_020B5BDC
-_020416CC: .word gResourceManager
+_020416CC: .word g3DVramMan
 _020416D0: .word unk_020B5BDC
 	arm_func_end FUN_02041668
 
@@ -653,7 +653,7 @@ _02041724:
 	mvn r0, #0
 	ldmfd sp!, {r3, r4, r5, pc}
 _0204172C:
-	ldr r0, _02041758 ; =gResourceManager
+	ldr r0, _02041758 ; =g3DVramMan
 	ldr r1, _0204175C ; =0x020B5BDC
 	ldr r0, [r0]
 	add r2, sp, #0
@@ -664,30 +664,30 @@ _0204172C:
 	mlane r0, r1, r5, r0
 	ldmfd sp!, {r3, r4, r5, pc}
 _02041754: .word unk_020B5BDC
-_02041758: .word gResourceManager
+_02041758: .word g3DVramMan
 _0204175C: .word unk_020B5BDC
 	arm_func_end FUN_02041708
 
 	arm_func_start FUN_02041760
 FUN_02041760: ; 0x02041760
-	ldr r0, _02041774 ; =gResourceManager
+	ldr r0, _02041774 ; =g3DVramMan
 	ldr r1, _02041778 ; =0x020B5BDC
 	ldr r0, [r0]
 	ldr r12, _0204177C ; =FUN_02051d3c
 	bx r12
-_02041774: .word gResourceManager
+_02041774: .word g3DVramMan
 _02041778: .word unk_020B5BDC
 _0204177C: .word FUN_02051d3c
 	arm_func_end FUN_02041760
 
 	arm_func_start FUN_02041780
 FUN_02041780: ; 0x02041780
-	ldr r0, _02041794 ; =gResourceManager
+	ldr r0, _02041794 ; =g3DVramMan
 	ldr r1, _02041798 ; =0x020B5BDC
 	ldr r0, [r0]
 	ldr r12, _0204179C ; =FUN_02051dc4
 	bx r12
-_02041794: .word gResourceManager
+_02041794: .word g3DVramMan
 _02041798: .word unk_020B5BDC
 _0204179C: .word FUN_02051dc4
 	arm_func_end FUN_02041780

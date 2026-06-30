@@ -37,7 +37,7 @@
 .public gSubScreen1
 .public gSubScreen0
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN8Graphics9FadeInSubEl
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN14CBgMenuManager4drawE12EngineSelect

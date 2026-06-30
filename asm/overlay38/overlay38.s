@@ -3333,7 +3333,7 @@ _0211CD98:
 	bl MI_CpuFill8
 	ldr r0, _0211CEAC ; =0x0209A070
 	mov r1, r5
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	add r0, r4, #0x28c
 	mov r1, #1
 	bl FUN_ov16_020f2f7c
@@ -3379,7 +3379,7 @@ _0211CD98:
 	strgt r0, [r4, #0x178]
 	mov r0, r7
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -3438,7 +3438,7 @@ _0211CF28:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r5
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	bl FUN_ov38_0211c66c
 	mov r0, r6

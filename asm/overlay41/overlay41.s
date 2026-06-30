@@ -137,7 +137,7 @@ _0211A088:
 	bl MI_CpuFill8
 	ldr r0, _0211A3E4 ; =0x0209A070
 	mov r1, r7
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	ldrb r0, [r5, #0x88]
 	cmp r0, #0
 	bne _0211A148
@@ -294,7 +294,7 @@ _0211A300:
 	add r2, r5, #0x1000
 	mov r1, r4
 	str r4, [r2, #0x150]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	add r0, r5, #0x15c
 	mov r1, r4
 	add r0, r0, #0x1000

@@ -9,30 +9,30 @@ unk_0208F680:
 	.global _ZTV14CSprButtonCtrl
 _ZTV14CSprButtonCtrl:
 	.word 0, 0
-	.word _ZN14CSprButtonCtrlD0Ev
 	.word _ZN14CSprButtonCtrlD1Ev
+	.word _ZN14CSprButtonCtrlD0Ev
 	.global _ZTV14CBgMenuManager
 _ZTV14CBgMenuManager:
 	.word 0, 0
-	.word _ZN14CBgMenuManagerD0Ev
 	.word _ZN14CBgMenuManagerD1Ev
+	.word _ZN14CBgMenuManagerD0Ev
 	.global _ZTV15CBgAnimeManager
 _ZTV15CBgAnimeManager:
 	.word 0, 0
-	.word _ZN15CBgAnimeManagerD0Ev
 	.word _ZN15CBgAnimeManagerD1Ev
+	.word _ZN15CBgAnimeManagerD0Ev
 	.global _ZTV18CBgMenuRadioButton
 _ZTV18CBgMenuRadioButton:
 	.word 0, 0
-	.word _ZN18CBgMenuRadioButtonD0Ev
 	.word _ZN18CBgMenuRadioButtonD1Ev
+	.word _ZN18CBgMenuRadioButtonD0Ev
 	.global _ZTV11C3DGameChar
 _ZTV11C3DGameChar:
 	.word 0, 0
 	.word FUN_0205244c
 	.word FUN_020524a0
-	.word _ZN11C3DGameCharD0Ev
 	.word _ZN11C3DGameCharD1Ev
+	.word _ZN11C3DGameCharD0Ev
 	.global unk_0208F6F0
 unk_0208F6F0:
 	.byte 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00

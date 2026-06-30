@@ -64,7 +64,7 @@
 .public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov126_021362e4
 .public FUN_ov126_021362fc
 .public FUN_ov126_0213633c

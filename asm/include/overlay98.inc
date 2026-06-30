@@ -1,6 +1,6 @@
 .public FUN_ov16_020f4894
 .public MI_CpuFill8
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public gBgMenuManager
 .public _ZN10CAllocator10deallocateEPv
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect

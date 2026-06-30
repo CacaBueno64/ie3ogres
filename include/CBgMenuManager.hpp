@@ -78,7 +78,7 @@ class CBgMenuManager
 {
 public:
     virtual ~CBgMenuManager();
-    void initialize(EngineSelect engine);
+    void init(EngineSelect engine);
     void finalize(EngineSelect engine);
     void setScreens(EngineSelect engine, void *bgA, void *bgB, void *bgC);
 

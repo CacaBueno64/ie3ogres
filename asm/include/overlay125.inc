@@ -40,7 +40,7 @@
 .public GXS_LoadOBJPltt
 .public FUN_ov16_020f51a8
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public G2S_GetBG0ScrPtr
 .public G2S_GetBG1ScrPtr
 .public G2S_GetBG2ScrPtr

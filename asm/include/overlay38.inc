@@ -59,10 +59,10 @@
 .public _ZN14CBgMenuManager10isFlashingE12EngineSelect
 .public _ZN14CBgMenuManager11updateRadioEv
 .public _ZN14CScreenManager18getLoadedSceneMainEv
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public G2_GetBG3ScrPtr
 .public G2_GetBG1ScrPtr
 .public _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_

@@ -12,7 +12,7 @@
 .public unk_020B5BDC
 .public FUN_020517ac
 .public _ZN10CAllocator10deallocateEPv
-.public gResourceManager
+.public g3DVramMan
 .public FUN_02051858
 .public FUN_020519e4
 .public FUN_02051bb8

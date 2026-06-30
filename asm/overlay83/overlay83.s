@@ -3639,11 +3639,11 @@ FUN_ov83_0211d1fc: ; 0x0211D1FC
 	str r5, [r6, #0x20]
 	str r5, [r6, #0x24]
 	strb r5, [r6, #0x30]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r4, #0xb
 	ldr r0, _0211D334 ; =0x0209A070
 	mov r1, r4
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	add r0, r6, #0x44
 	mov r1, r5
 	add r0, r0, #0x400

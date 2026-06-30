@@ -28,7 +28,7 @@
 .public FUN_ov132_021435c0
 .public FUN_ov1_020e45b8
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov1_020e5634
 .public FUN_ov1_020e5030
 .public g3DFieldSprite

@@ -526,7 +526,7 @@ _02125418:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r7
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, [r4, #0x4c]
 	sub r1, r6, #2
 	mov r2, #2
@@ -1023,7 +1023,7 @@ FUN_ov122_02125b18: ; 0x02125B18
 	str r4, [r5, #0x1c]
 	strb r4, [r5, #0x10]
 	str r4, [r5, #0x24]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x40
 	mov r2, #0x150

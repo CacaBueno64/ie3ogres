@@ -1177,7 +1177,7 @@ FUN_ov74_0211aed0: ; 0x0211AED0
 	bl MI_CpuFill8
 	ldr r0, _0211B0F4 ; =0x0209A070
 	mov r1, r5
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r1, #1
 	add r0, r6, #0xa8
 	str r8, [r6, #0x5c]

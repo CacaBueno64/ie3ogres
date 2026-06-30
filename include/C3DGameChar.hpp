@@ -16,7 +16,7 @@ typedef struct {
     u8 unkF;
     CompositeModel *instance;
     CModelCfg *modelCfg;
-    NsbResource *nsbRes;
+    SNsbResource *nsbRes;
 } CharacterModel;
 
 class C3DGameChar_Base

@@ -4138,7 +4138,7 @@ _0211D7C4:
 	bne _0211D8A8
 	ldr r0, [r0]
 	mov r1, r4
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _0211D8A8:
 	add r0, r9, #0x100
 	strb r5, [r9, #0x159]
@@ -4446,7 +4446,7 @@ _0211DCB4:
 	ldr r0, _0211DD4C ; =g3DDevice
 	mov r1, r6
 	ldr r0, [r0]
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _0211DCF4:
 	ldr r0, [r4, #0x1d8]
 	cmp r0, #0
@@ -8837,7 +8837,7 @@ FUN_ov67_02121928: ; 0x02121928
 	bne _021219CC
 	ldr r0, [r0]
 	mov r1, r4
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _021219CC:
 	mov r8, #0
 	mov r0, r6
@@ -8880,7 +8880,7 @@ _021219CC:
 	bl FUN_ov67_02120d58
 	ldr r0, _02121BD0 ; =gBgMenuManager
 	mov r1, r8
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	add r0, r6, #0x1ec
 	mov r1, r8
 	mov r2, #0x14
@@ -9230,7 +9230,7 @@ _02121F10:
 	ldr r0, _02121F9C ; =g3DDevice
 	mov r1, r5
 	ldr r0, [r0]
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 	ldmfd sp!, {r4, r5, r6, pc}
 _02121F80: .word gSprButtonCtrl
 _02121F84: .word gSprAnimCtrl

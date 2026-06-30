@@ -5286,7 +5286,7 @@ _0211E5DC:
 	bne _0211E65C
 	ldr r0, [r1]
 	mov r1, #1
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _0211E65C:
 	ldr r5, _0211E704 ; =g3DGameChar
 	ldr r0, [r5]
@@ -5355,7 +5355,7 @@ FUN_ov52_0211e70c: ; 0x0211E70C
 	ldr r0, _0211E794 ; =g3DDevice
 	mov r1, #0
 	ldr r0, [r0]
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 _0211E75C:
 	add r0, r5, #0x130
 	mvn r1, #0

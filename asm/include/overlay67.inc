@@ -119,7 +119,7 @@
 .public FUN_0204d7fc
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClearFast
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public _Znwm
 .public FUN_ov16_02110558
 .public _ZN12C3DPlaneCtrl7acquireEv
@@ -180,7 +180,7 @@
 .public FUN_ov16_020f0944
 .public _ZN14CBgMenuManager9deleteAllE12EngineSelectt
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2fa8
 .public FUN_020467c0
 .public FUN_020467ac

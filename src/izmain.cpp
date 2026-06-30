@@ -204,7 +204,7 @@ void InitGlobals(void) // https://decomp.me/scratch/kU9Um
     unk_02099E8C.unk5C->init(32);
     unk_02099E8C.unk24->init(8);
     unk_02099E8C.unk84->init(16);
-    unk_02099E8C.unkAC->initialize(192, 160);
+    unk_02099E8C.unkAC->init(192, 160);
     unk_02099E8C.unkCC->init(96, 96);
     unk_02099E8C.unk4C->reset();
     unk_02099E8C.unk34->reset();

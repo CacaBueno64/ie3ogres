@@ -1028,7 +1028,7 @@ FUN_ov104_02125ab0: ; 0x02125AB0
 	strb r4, [r6, #0x3f]
 	ldr r0, _02125B40 ; =gBgMenuManager
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	bl FUN_ov104_02124e40
 	mov r0, r6

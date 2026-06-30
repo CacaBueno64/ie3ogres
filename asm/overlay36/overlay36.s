@@ -681,7 +681,7 @@ FUN_ov36_0211a798: ; 0x0211A798
 	bl MI_CpuFill8
 	ldr r0, _0211A824 ; =0x0209A070
 	mov r1, r4
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r0, r7
 	str r6, [r7, #0x38]
 	str r6, [r7, #0x3c]

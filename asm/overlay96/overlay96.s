@@ -912,7 +912,7 @@ FUN_ov96_021258d0: ; 0x021258D0
 	streqb r4, [r6, #0x11]
 	ldr r0, _02125964 ; =gBgMenuManager
 	strneb r5, [r6, #0x11]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _02125960: .word unk_0209A454
 _02125964: .word gBgMenuManager

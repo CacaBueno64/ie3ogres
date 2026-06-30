@@ -1338,7 +1338,7 @@ FUN_ov35_0211b0f0: ; 0x0211B0F0
 	bl MI_CpuFill8
 	ldr r0, _0211B1B4 ; =0x0209A070
 	mov r1, r4
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	ldr r0, _0211B1B8 ; =0x020A11DC
 	add r1, r7, #0x100
 	mov r2, #0x9c

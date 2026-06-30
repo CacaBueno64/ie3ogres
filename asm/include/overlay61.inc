@@ -76,8 +76,8 @@
 .public _ZN10CAllocator8allocateEmii
 .public FUN_ov16_0210e980
 .public GX_SetGraphicsMode
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN14CBgMenuManager4initE12EngineSelect
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2fa8
 .public gAllocator
 .public _ZN14CBgMenuManager4drawE12EngineSelect

@@ -66,7 +66,7 @@
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN8Graphics9FadeInSubEl
 .public _ZN14CBgMenuManager4drawE12EngineSelect

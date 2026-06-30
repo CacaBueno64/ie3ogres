@@ -39,7 +39,7 @@
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public _ZN18CBgMenuRadioButton6createEhhhi
 .public _ZN14CBgMenuManager11updateRadioEv
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public MI_CpuCopy8
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8

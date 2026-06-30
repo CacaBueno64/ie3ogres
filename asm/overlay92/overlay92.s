@@ -1555,7 +1555,7 @@ FUN_ov92_02126218: ; 0x02126218
 	strb r5, [r6, #0x11]
 	mov r1, r5
 	ldr r0, _021262A4 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _021262A4: .word gBgMenuManager
 	arm_func_end FUN_ov92_02126218

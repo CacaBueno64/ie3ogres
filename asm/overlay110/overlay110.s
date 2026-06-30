@@ -2097,7 +2097,7 @@ FUN_ov110_021269d8: ; 0x021269D8
 	bl FUN_ov110_02124e50
 	mov r1, r7
 	ldr r0, _02126AB0 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02126AAC: .word gAllocator
 _02126AB0: .word gBgMenuManager

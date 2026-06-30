@@ -7732,7 +7732,7 @@ FUN_ov16_020fd4cc: ; 0x020FD4CC
 _020FD528:
 	cmp r1, #0
 	beq _020FD550
-	ldr r0, _020FD560 ; =gResourceManager
+	ldr r0, _020FD560 ; =g3DVramMan
 	ldr r1, [r5, #4]
 	ldr r0, [r0]
 	bl FUN_02051b84
@@ -7745,7 +7745,7 @@ _020FD550:
 	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r4, r5, r6, pc}
-_020FD560: .word gResourceManager
+_020FD560: .word g3DVramMan
 	arm_func_end FUN_ov16_020fd4cc
 
 	arm_func_start FUN_ov16_020fd564
@@ -7775,7 +7775,7 @@ _020FD5A8:
 	ands r0, r0, #0xff
 	strb r0, [r4, #0xe]
 	bne _020FD5DC
-	ldr r0, _020FD5E8 ; =gResourceManager
+	ldr r0, _020FD5E8 ; =g3DVramMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_02051b58
@@ -7785,7 +7785,7 @@ _020FD5DC:
 	add r0, r5, #0x10
 	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
-_020FD5E8: .word gResourceManager
+_020FD5E8: .word g3DVramMan
 	arm_func_end FUN_ov16_020fd564
 
 	arm_func_start FUN_ov16_020fd5ec
@@ -7810,7 +7810,7 @@ FUN_ov16_020fd5ec: ; 0x020FD5EC
 _020FD630:
 	cmp r1, #0
 	beq _020FD648
-	ldr r0, _020FD65C ; =gResourceManager
+	ldr r0, _020FD65C ; =g3DVramMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_02051b58
@@ -7820,7 +7820,7 @@ _020FD648:
 	strb r1, [r4, #0xe]
 	bl OS_UnlockMutex
 	ldmfd sp!, {r3, r4, r5, pc}
-_020FD65C: .word gResourceManager
+_020FD65C: .word g3DVramMan
 	arm_func_end FUN_ov16_020fd5ec
 
 	arm_func_start FUN_ov16_020fd660
@@ -7996,7 +7996,7 @@ FUN_ov16_020fd878: ; 0x020FD878
 	ldrh r0, [r4, #0x10]
 	tst r0, #0x100
 	bne _020FD8D8
-	ldr r0, _020FD8E8 ; =gResourceManager
+	ldr r0, _020FD8E8 ; =g3DVramMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_02051b58
@@ -8008,7 +8008,7 @@ _020FD8D8:
 	bl OS_UnlockMutex
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-_020FD8E8: .word gResourceManager
+_020FD8E8: .word g3DVramMan
 	arm_func_end FUN_ov16_020fd878
 
 	arm_func_start FUN_ov16_020fd8ec
@@ -8030,7 +8030,7 @@ FUN_ov16_020fd8ec: ; 0x020FD8EC
 	ldrh r0, [r4, #0x10]
 	tst r0, #0x100
 	beq _020FD950
-	ldr r0, _020FD960 ; =gResourceManager
+	ldr r0, _020FD960 ; =g3DVramMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
 	bl FUN_02051b28
@@ -8043,7 +8043,7 @@ _020FD950:
 	bl OS_UnlockMutex
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-_020FD960: .word gResourceManager
+_020FD960: .word g3DVramMan
 _020FD964: .word 0x0000FEFF
 	arm_func_end FUN_ov16_020fd8ec
 

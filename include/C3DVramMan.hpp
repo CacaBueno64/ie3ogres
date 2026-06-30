@@ -7,7 +7,7 @@
 
 class C3DVramMan {
     public:
-        /* 0x02051690 */ void init(u32 nns_tex_size, u32 nns_pltt_size, int vramEntryCount);
+        /* 0x02051690 */ void init(int texBlkSize, int pltBlkCount, int queueBlkCount);
         /* 0x02051778 */ void reset(void);
         void FUN_02051c10(void);
     
@@ -23,4 +23,4 @@ class C3DVramMan {
     u32 unk38;
 };
 
-extern C3DVramMan *gResourceManager;
+extern C3DVramMan *g3DVramMan;

@@ -35,7 +35,7 @@
 .public G2S_GetBG2CharPtr
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
 .public FUN_ov16_020f51a8

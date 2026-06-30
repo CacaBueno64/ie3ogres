@@ -503,7 +503,7 @@ FUN_ov103_0212538c: ; 0x0212538C
 	bl FUN_ov16_020f4894
 	ldr r0, _02125414 ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	add r0, r6, #0x10
 	mov r1, r4
 	bl FUN_ov16_020f2f7c

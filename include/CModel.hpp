@@ -18,7 +18,7 @@ class CModel
 public:
     /* 0x020fa3dc */ virtual BOOL copy(CModel *);
 
-    NsbResource *modelRes;
+    SNsbResource *modelRes;
     void *renderObj; // NNSG3dRenderObj
     u8 unkC;
     s8 unk10;

@@ -166,7 +166,7 @@ void CMainCardScreenInit::FUN_ov3_020bd084(void)
 void CMainCardScreenInit::init(void)
 {
     this->state = 0;
-    gBgMenuManager.initialize(ENGINE_MAIN);
+    gBgMenuManager.init(ENGINE_MAIN);
     this->initGraphics();
 }
 

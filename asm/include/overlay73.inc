@@ -40,7 +40,7 @@
 .public _ZN14CBgMenuManager11updateRadioEv
 .public _ZN14CBgMenuManager9deleteAllE12EngineSelectt
 .public _ZN18CBgMenuRadioButton5resetEv
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2f20

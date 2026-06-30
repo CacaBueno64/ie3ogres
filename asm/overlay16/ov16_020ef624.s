@@ -3,8 +3,8 @@
 	.include "/include/ov16_020ef624.inc"
 
 	.text
-	arm_func_start FUN_ov16_020ef624 ; https://decomp.me/scratch/eMPXE
-FUN_ov16_020ef624: ; 0x020EF624
+	arm_func_start _ZN6Shadow10InitializeEi ; https://decomp.me/scratch/eMPXE
+_ZN6Shadow10InitializeEi: ; 0x020EF624
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r0, #6
@@ -68,7 +68,7 @@ _020EF704: .word ov16_02119EC4
 _020EF708: .word gAllocator
 _020EF70C: .word FX_SinCosTable_
 _020EF710: .word 0x00000199
-	arm_func_end FUN_ov16_020ef624
+	arm_func_end _ZN6Shadow10InitializeEi
 
 	arm_func_start FUN_ov16_020ef714 ; https://decomp.me/scratch/7y8lP
 FUN_ov16_020ef714: ; 0x020EF714

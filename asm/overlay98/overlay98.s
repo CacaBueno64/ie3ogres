@@ -31,7 +31,7 @@ FUN_ov98_02124d00: ; 0x02124D00
 	bl MI_CpuFill8
 	mov r1, r5
 	ldr r0, _02124D78 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, #4
 	str r0, [r6, #8]
 	ldmfd sp!, {r4, r5, r6, pc}

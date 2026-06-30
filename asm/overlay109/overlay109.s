@@ -5537,7 +5537,7 @@ FUN_ov109_02129b9c: ; 0x02129B9C
 	bl FUN_ov109_02125050
 	ldr r0, _02129CCC ; =gBgMenuManager
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	bl FUN_ov109_021298c4
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}

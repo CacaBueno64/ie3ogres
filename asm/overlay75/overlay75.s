@@ -104,7 +104,7 @@ FUN_ov75_0211a048: ; 0x0211A048
 	mov r4, #1
 	ldr r0, [r1]
 	mov r1, r4
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 	mov r0, r5
 	bl FUN_ov1_020be6f8
 	mov r0, r5

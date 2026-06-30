@@ -105,7 +105,7 @@ public:
     s32 getTexWidth(sfkey_t key);
     s32 getTexHeight(sfkey_t key);
     void setUpdateFlag(S3DPlanePart *p, u8 mask);
-    bool initialize(int texCount, int setCount);
+    bool init(int texCount, int setCount);
     void finalize();
     bool acquire();
     void release();

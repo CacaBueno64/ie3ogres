@@ -9,7 +9,7 @@ class CMotion
 public:
     virtual ~CMotion() {}
 
-    NsbResource *anmRes;
+    SNsbResource *anmRes;
     u8 isLinked;
     u8 unk9; // pad?
     u16 anmIdx;

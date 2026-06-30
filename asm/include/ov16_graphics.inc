@@ -55,7 +55,7 @@
 .public g2DGChar
 .public g3DSpriteCtrl
 .public g3DPlaneCtrl
-.public gResourceManager
+.public g3DVramMan
 .public OS_WaitVBlankIntr
 .public FUN_02057250
 .public FUN_020598ec

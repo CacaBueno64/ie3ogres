@@ -1295,7 +1295,7 @@ FUN_ov16_020f1d64: ; 0x020F1D64
 	ldr r0, _020F1E0C ; =g3DPlaneCtrl
 	ldr r0, [r0]
 	bl FUN_02059880
-	ldr r0, _020F1E10 ; =gResourceManager
+	ldr r0, _020F1E10 ; =g3DVramMan
 	ldr r0, [r0]
 	bl FUN_02051e50
 	ldmfd sp!, {r3, pc}
@@ -1306,7 +1306,7 @@ _020F1E00: .word g3DGameMapObject
 _020F1E04: .word g2DGChar
 _020F1E08: .word g3DSpriteCtrl
 _020F1E0C: .word g3DPlaneCtrl
-_020F1E10: .word gResourceManager
+_020F1E10: .word g3DVramMan
 	arm_func_end FUN_ov16_020f1d64
 
 	arm_func_start FUN_ov16_020f1e14

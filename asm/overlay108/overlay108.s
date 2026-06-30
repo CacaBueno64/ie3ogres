@@ -2150,7 +2150,7 @@ FUN_ov108_02126aa0: ; 0x02126AA0
 	bl FUN_ov108_02124ecc
 	mov r1, r5
 	ldr r0, _02126B28 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _02126B28: .word gBgMenuManager
 	arm_func_end FUN_ov108_02126aa0

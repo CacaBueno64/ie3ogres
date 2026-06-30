@@ -3,7 +3,9 @@
 #include <nitro/os/common/mutex.h>
 #include <nitro/types.h>
 
-typedef struct NsbResource {
+#include "filesystem.hpp"
+
+typedef struct SNsbResource {
     u32 hash;
     void *data;
     u32 size;
@@ -13,17 +15,18 @@ typedef struct NsbResource {
     s8 fileIdx;
     u16 flags; /* 5: linked, 0: loaded */
     u16 refCount;
-    NsbResource *next;
-} NsbResource;
+    SNsbResource *next;
+} SNsbResource;
 
 class CNsbResourceMan
 {
 public:
-    /* ov16 0x020fd4a8 */ CNsbResourceMan();
     virtual ~CNsbResourceMan() {}
+    FileSystem::Result getResult(SNsbResource *res);
+    /* ov16 0x020fd4a8 */ CNsbResourceMan();
     /* ov16 0x020fc9f4 */ void init(int resCount);
 
-    NsbResource *resources;
+    SNsbResource *resources;
     int cap;
     int cur;
     OSMutex mutex;

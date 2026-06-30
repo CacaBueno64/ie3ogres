@@ -7759,11 +7759,11 @@ FUN_ov1_020c3574: ; 0x020C3574
 	bl FUN_ov1_020cc428
 	ldr r0, _020C3760 ; =gBgMenuManager
 	mov r1, #0
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r6, #2
 	ldr r0, _020C3764 ; =0x0209A070
 	mov r1, r6
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r1, r6
 	add r0, r7, #0x2cc
 	bl FUN_ov16_020f2f7c
@@ -19875,7 +19875,7 @@ _020CD960:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r6
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r5, [r4, #0x510]
 	cmp r5, #0
 	addeq sp, sp, #0x2c
@@ -37103,7 +37103,7 @@ FUN_ov1_020dc930: ; 0x020DC930
 	ldrne r0, [r5, #4]
 	cmpne r0, #0
 	beq _020DC98C
-	ldr r4, _020DCA04 ; =gResourceManager
+	ldr r4, _020DCA04 ; =g3DVramMan
 	add r2, sp, #0x10
 	ldr r0, [r4]
 	add r1, r5, #0x18
@@ -37145,7 +37145,7 @@ _020DC9CC:
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, pc}
 _020DCA00: .word g3DPlaneCtrl
-_020DCA04: .word gResourceManager
+_020DCA04: .word g3DVramMan
 	arm_func_end FUN_ov1_020dc930
 
 	arm_func_start FUN_ov1_020dca08

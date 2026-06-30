@@ -3166,7 +3166,7 @@ FUN_ov95_0212797c: ; 0x0212797C
 	strb r6, [r7, #0x30]
 	mov r1, r6
 	ldr r0, _02127A38 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02127A34: .word gAllocator
 _02127A38: .word gBgMenuManager

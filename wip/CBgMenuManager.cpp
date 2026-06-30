@@ -13,7 +13,7 @@
 extern GXScrText32x32 gScreens[2][3];
 
 #pragma opt_rotateloops off
-void CBgMenuManager::initialize(EngineSelect engine)
+void CBgMenuManager::init(EngineSelect engine)
 {
     this->enable(engine);
     for (int i = 0; i < 3; ++i) {

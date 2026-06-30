@@ -4064,7 +4064,7 @@ FUN_ov94_021285c0: ; 0x021285C0
 	bl FUN_ov94_02125054
 	ldr r0, _021286FC ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	bl FUN_ov94_021282e8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}

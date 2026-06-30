@@ -535,7 +535,7 @@ FUN_ov119_0212543c: ; 0x0212543C
 	str r3, [r5, #0x18]
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c
