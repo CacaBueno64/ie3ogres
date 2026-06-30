@@ -2843,7 +2843,7 @@ _0211C608:
 	bl MI_CpuFill8
 	ldr r0, _0211C7CC ; =0x0209A070
 	mov r1, r6
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	ldr r0, [r8, #4]
 	str r4, [r8, #0x3c]
 	str r4, [r8, #0x40]

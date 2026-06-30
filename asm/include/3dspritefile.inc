@@ -3,7 +3,7 @@
 .public FUN_020515c8
 .public FUN_020517ac
 .public FUN_02051858
-.public gResourceManager
+.public g3DVramMan
 .public FUN_0205162c
 .public FUN_02051800
 .public FUN_020518a8

@@ -174,8 +174,8 @@ gPalSkin3dFile:
 	.global gGlovesInfoFile
 gGlovesInfoFile:
 	.space 0x04
-	.global gResourceManager
-gResourceManager:
+	.global g3DVramMan
+g3DVramMan:
 	.space 0x04
 	.global gWearSetFile
 gWearSetFile:

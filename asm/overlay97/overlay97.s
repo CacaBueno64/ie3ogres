@@ -1972,7 +1972,7 @@ FUN_ov97_0212683c: ; 0x0212683C
 	bl FUN_ov97_02124ef4
 	mov r1, r6
 	ldr r0, _021268E0 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _021268E0: .word gBgMenuManager
 	arm_func_end FUN_ov97_0212683c

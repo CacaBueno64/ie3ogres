@@ -92,9 +92,9 @@
 .public unk_020A0B00
 .public FUN_02074764
 .public _ZN8Graphics16ResetScreenFadesEv
-.public FUN_02051434
+.public _ZN9C3DDevice5resetEv
 .public _ZN6Thread9WakeUpAllEv
-.public FUN_02051448
+.public _ZN9C3DDevice11finishFrameEv
 .public _ZN10CAllocator11getHeapInfoEPiS0_S0_
 .public FUN_ov16_020f2604
 .public FUN_0202a39c
@@ -102,4 +102,4 @@
 .public unk_0209A124
 .public ov16_02118490
 .public g3DDevice
-.public gResourceManager
+.public g3DVramMan

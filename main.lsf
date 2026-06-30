@@ -102,7 +102,11 @@ Static main
 	Object asm/init/arm9_init_0208707c.o
 	Object asm/init/arm9_init_020870d0.o
 	Object asm/init/arm9_init_02087120.o
-	Object asm/init/arm9_init_02087174.o
+	
+	Object asm/thinkmanager_mini.o
+	Object asm/thinkmanager.o
+	Object asm/logicthink.o
+	Object src/C3DDevice.o
 	Object asm/init/arm9_init_020871c8.o
 	Object asm/init/arm9_init_02087218.o
 	Object asm/init/arm9_init_02087268.o
@@ -121,10 +125,6 @@ Static main
 	Object asm/init/arm9_init_020876a4.o
 	Object asm/init/arm9_init_020876f8.o
 
-	Object asm/thinkmanager_mini.o
-	Object asm/thinkmanager.o
-	Object asm/logicthink.o
-	Object asm/3ddevice.o
 	Object asm/resourcemanager.o
 	Object asm/3dgamebase.o
 	Object asm/arm9_0205244c.o
@@ -364,11 +364,15 @@ Overlay overlay16
 	Object src/overlay.o
 	Object asm/overlay16/ov16_020f3f00.o
 	Object src/CBgAnimeManager.o
-	Object asm/overlay16/cbgmenumanager.o
+	Object asm/overlay16/CBgMenuManager.o
 	Object src/CBgMenuRadioButton.o
 	Object asm/overlay16/ov16_020f6f8c.o
-	Object asm/overlay16/c3dplanectrl.o
-	Object asm/overlay16/c3dspritectrl.o
+	Object asm/overlay16/CSprAnimeCtrl.o
+	Object asm/overlay16/CSprButtonCtrl.o
+	Object asm/overlay16/CSprDialog.o
+	Object asm/overlay16/CTexture.o
+	Object asm/overlay16/C3DPlaneCtrl.o
+	Object asm/overlay16/C3DSpriteCtrl.o
 }
 Overlay overlay17
 {

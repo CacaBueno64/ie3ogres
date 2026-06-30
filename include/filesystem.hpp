@@ -52,6 +52,16 @@ s32 ReadFileByIdx(void **dst, archandle_t arcKey, s32 fileIdx);
 
 s32 ReadFileByNameDeferred(void **dst, archandle_t arcKey, const char *name, filekey_t *keyOut);
 s32 ReadFileByIdxDeferred(void **dst, archandle_t arcKey, s32 fileIdx, filekey_t *keyOut);
+
+/*
+ * at 20fd2e8 the return value is cast to a variable with values -1,0,1,
+ * so this might be returning an enum. 202f57c (202f598) uses these values too
+ */
+typedef enum {
+	RESULT_COMPLETE = 0,
+	RESULT_BUSY = 1,
+	RESULT_ERROR = -1
+} Result;
 BOOL IsFileBusy(filekey_t key);
 
 void Panic(void);

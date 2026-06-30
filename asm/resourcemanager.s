@@ -142,8 +142,8 @@ _02051688:
 	bx lr
 	arm_func_end FUN_0205162c
 
-	arm_func_start _ZN10C3DVramMan4initEmmi
-_ZN10C3DVramMan4initEmmi: ; 0x02051690
+	arm_func_start _ZN10C3DVramMan4initEiii
+_ZN10C3DVramMan4initEiii: ; 0x02051690
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r8, r0
 	mov r5, #0
@@ -202,7 +202,7 @@ _ZN10C3DVramMan4initEmmi: ; 0x02051690
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02051774: .word gAllocator
-	arm_func_end _ZN10C3DVramMan4initEmmi
+	arm_func_end _ZN10C3DVramMan4initEiii
 
 	arm_func_start FUN_02051778
 FUN_02051778: ; 0x02051778

@@ -9,7 +9,7 @@
 .public gLogicThink
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov1_020dc0d4
 .public GXS_LoadBG0Scr
 .public G2S_GetBG1CharPtr

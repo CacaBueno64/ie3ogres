@@ -2575,7 +2575,7 @@ _0211C1A0:
 	ldrneb r0, [r0, #0x64]
 	strneb r0, [r6, #0x19]
 	ldr r0, _0211C2D8 ; =gBgMenuManager
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	add r0, r6, #0x60
 	mov r1, #0x1c
 	mov r2, #6

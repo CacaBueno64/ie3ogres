@@ -364,7 +364,7 @@ void C3DPlaneCtrl::updateTexCoords(S3DPlanePart *p)
     }
 }
 
-bool C3DPlaneCtrl::initialize(int texCount, int setCount)
+bool C3DPlaneCtrl::init(int texCount, int setCount)
 {
     this->list = NULL;
     this->count = 0;
@@ -373,7 +373,7 @@ bool C3DPlaneCtrl::initialize(int texCount, int setCount)
     if (texCount <= 0 || setCount <= 0) {
         return false;
     }
-    this->file.initialize(texCount);
+    this->file.init(texCount);
     this->list = static_cast<S3DPlaneSet *>(gAllocator.allocate(setCount * sizeof(S3DPlaneSet)));
     if (!this->list) {
         this->release();

@@ -51,7 +51,7 @@ public:
     void finalize();
     bool acquire();
     bool release(bool);
-    bool initialize(u32 fileCount);
+    bool init(u32 fileCount);
     C3DSprSheet *getSpriteSheet(sfkey_t key);
     void *FUN_02059bb4(C3DSprSheet *sheet, u32 *outSize);
     void *getPaletteData(C3DSprSheet *sheet, u32 *outSize);

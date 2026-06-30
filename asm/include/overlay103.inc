@@ -26,7 +26,7 @@
 .public G2S_GetBG2CharPtr
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public _ZN7Archive11TryFinalizeEP9SFileDatai

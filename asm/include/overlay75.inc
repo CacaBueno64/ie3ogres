@@ -9,7 +9,7 @@
 .public unk_020A0640
 .public gWirelessUtil
 .public ov1_020E9490
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public FUN_ov1_020be6f8
 .public FUN_ov1_020be73c
 .public FUN_02044798

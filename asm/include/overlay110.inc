@@ -54,7 +54,7 @@
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
 .public MIi_CpuClear16
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_0205106c
 .public FUN_0205107c
 .public FUN_ov16_020efa80

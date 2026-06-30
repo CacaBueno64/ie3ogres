@@ -35,7 +35,7 @@
 .public _ZN18CBgMenuRadioButton6createEhhhi
 .public _ZN14CBgMenuManager11updateRadioEv
 .public GX_SetGraphicsMode
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN14CBgMenuManager4drawE12EngineSelect

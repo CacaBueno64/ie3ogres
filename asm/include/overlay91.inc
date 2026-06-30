@@ -78,7 +78,7 @@
 .public FUN_ov16_0210e0a0
 .public _ZN12C3DPlaneCtrl7acquireEv
 .public FUN_020728c4
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_0210e10c
 .public _ffltu

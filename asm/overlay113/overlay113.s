@@ -1879,7 +1879,7 @@ FUN_ov113_021266f4: ; 0x021266F4
 	strb r9, [r5, #0x31]
 	str r8, [r5, #0x1c0]
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	add r0, r5, #0x5c
 	mov r1, #7
 	bl FUN_ov16_020f2f7c

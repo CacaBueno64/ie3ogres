@@ -1831,7 +1831,7 @@ FUN_ov85_0211b820: ; 0x0211B820
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r5
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, [r6, #0xc]
 	cmp r0, #0
 	mov r0, r6
@@ -2333,7 +2333,7 @@ _0211BF54:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r4
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r1, [r7, #0x488]
 	cmp r1, #0
 	addeq sp, sp, #0x2c
@@ -2384,7 +2384,7 @@ _0211C01C:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r5
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r4, #1
 	mov r0, r6
 	mov r1, r4
@@ -2986,7 +2986,7 @@ FUN_ov85_0211c8a4: ; 0x0211C8A4
 	bl MI_CpuFill8
 	ldr r0, _0211CA94 ; =gBgMenuManager
 	mov r1, r7
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl FUN_ov1_020db260
 	cmp r0, #0
 	beq _0211C9AC

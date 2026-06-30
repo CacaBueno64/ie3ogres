@@ -116,7 +116,7 @@
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public _ZN18CBgMenuRadioButton6createEhhhi
 .public _ZN14CBgMenuManager11updateRadioEv
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
@@ -150,7 +150,7 @@
 .public _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 .public DWC_GetLinkLevel
 .public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FX_Sqrt
 .public _ZN8CManager7vFUN_10Ev
 .public _ZN14CScreenManager10updateKeysEtt

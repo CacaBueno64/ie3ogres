@@ -91,7 +91,7 @@
 .public _fadd
 .public _fsub
 .public _ffix
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public FUN_0205b2b8
 .public FUN_0205a5e8
 .public FUN_ov16_020f7be0

@@ -149,7 +149,7 @@ _02058098:
 	cmp r6, #0
 	movle r0, #0
 	ldmlefd sp!, {r4, r5, r6, pc}
-	ldr r5, _020580E4 ; =gResourceManager
+	ldr r5, _020580E4 ; =g3DVramMan
 	mov r2, r6
 	ldr r0, [r5]
 	add r1, r4, #0x18
@@ -165,7 +165,7 @@ _02058098:
 	bl FUN_02051858
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_020580E4: .word gResourceManager
+_020580E4: .word g3DVramMan
 	arm_func_end FUN_02057fb4
 
 	arm_func_start FUN_020580e8
@@ -240,7 +240,7 @@ _020581D0:
 	cmp r6, #0
 	movle r0, #0
 	ldmlefd sp!, {r4, r5, r6, pc}
-	ldr r5, _0205821C ; =gResourceManager
+	ldr r5, _0205821C ; =g3DVramMan
 	mov r2, r6
 	ldr r0, [r5]
 	add r1, r4, #0x24
@@ -256,7 +256,7 @@ _020581D0:
 	bl FUN_02051858
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, pc}
-_0205821C: .word gResourceManager
+_0205821C: .word g3DVramMan
 	arm_func_end FUN_020580e8
 
 	arm_func_start FUN_02058220
@@ -370,7 +370,7 @@ _02058388:
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	add r1, r5, #0x30
-	ldr r0, _020583C8 ; =gResourceManager
+	ldr r0, _020583C8 ; =g3DVramMan
 	str r1, [sp, #0xc]
 	ldr r0, [r0]
 	ldr r2, [sp, #0x28]
@@ -380,7 +380,7 @@ _02058388:
 	and r0, r0, #0xff
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
-_020583C8: .word gResourceManager
+_020583C8: .word g3DVramMan
 	arm_func_end FUN_02058350
 
 	arm_func_start FUN_020583cc
@@ -512,7 +512,7 @@ _02058578:
 	str r1, [sp, #4]
 	str r0, [sp, #8]
 	add r1, r5, #0x31
-	ldr r0, _020585B8 ; =gResourceManager
+	ldr r0, _020585B8 ; =g3DVramMan
 	str r1, [sp, #0xc]
 	ldr r0, [r0]
 	ldr r2, [sp, #0x28]
@@ -522,7 +522,7 @@ _02058578:
 	and r0, r0, #0xff
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, pc}
-_020585B8: .word gResourceManager
+_020585B8: .word g3DVramMan
 	arm_func_end FUN_02058540
 
 	arm_func_start _ZN10C3DSprFileC1Ev
@@ -1230,7 +1230,7 @@ _02058F64:
 	ldr r0, _02058FAC ; =gAllocator
 	bl _ZN10CAllocator10deallocateEPv
 _02058F6C:
-	ldr r5, _02058FB0 ; =gResourceManager
+	ldr r5, _02058FB0 ; =g3DVramMan
 	add r1, r6, #0x18
 	ldr r0, [r5]
 	bl FUN_02051858
@@ -1248,7 +1248,7 @@ _02058FA4:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _02058FAC: .word gAllocator
-_02058FB0: .word gResourceManager
+_02058FB0: .word g3DVramMan
 	arm_func_end FUN_02058ee0
 
 	arm_func_start FUN_02058fb4
@@ -1437,7 +1437,7 @@ FUN_02059208: ; 0x02059208
 	bl FUN_02057e9c
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02059240 ; =gResourceManager
+	ldr r0, _02059240 ; =g3DVramMan
 	add r1, r4, #0x18
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -1446,7 +1446,7 @@ FUN_02059208: ; 0x02059208
 	and r0, r1, r0
 	strh r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_02059240: .word gResourceManager
+_02059240: .word g3DVramMan
 _02059244: .word 0x0000FFEF
 	arm_func_end FUN_02059208
 
@@ -1457,7 +1457,7 @@ FUN_02059248: ; 0x02059248
 	bl FUN_02057e9c
 	movs r4, r0
 	ldmeqfd sp!, {r4, pc}
-	ldr r0, _02059280 ; =gResourceManager
+	ldr r0, _02059280 ; =g3DVramMan
 	add r1, r4, #0x24
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -1466,7 +1466,7 @@ FUN_02059248: ; 0x02059248
 	and r0, r1, r0
 	strh r0, [r4, #0xc]
 	ldmfd sp!, {r4, pc}
-_02059280: .word gResourceManager
+_02059280: .word g3DVramMan
 _02059284: .word 0x0000FFDF
 	arm_func_end FUN_02059248
 
@@ -1862,7 +1862,7 @@ FUN_020597a0: ; 0x020597A0
 	movgt r0, #1
 	ldmgtfd sp!, {r3, r4, r5, r6, r7, pc}
 	mov r7, #0
-	ldr r5, _02059830 ; =gResourceManager
+	ldr r5, _02059830 ; =g3DVramMan
 	mov r6, #0x20
 	str r7, [r4, #0xc]
 	str r7, [r4, #0x10]
@@ -1889,7 +1889,7 @@ FUN_020597a0: ; 0x020597A0
 	movne r0, #1
 	strne r1, [r4, #0x18]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059830: .word gResourceManager
+_02059830: .word g3DVramMan
 _02059834: .word unk_020907D4
 	arm_func_end FUN_020597a0
 
@@ -1905,7 +1905,7 @@ FUN_02059838: ; 0x02059838
 	cmp r1, #0
 	beq _02059874
 _0205985C:
-	ldr r0, _0205987C ; =gResourceManager
+	ldr r0, _0205987C ; =g3DVramMan
 	add r1, r4, #0xc
 	ldr r0, [r0]
 	bl FUN_02051858
@@ -1914,7 +1914,7 @@ _0205985C:
 _02059874:
 	mov r0, #1
 	ldmfd sp!, {r4, pc}
-_0205987C: .word gResourceManager
+_0205987C: .word g3DVramMan
 	arm_func_end FUN_02059838
 
 	arm_func_start FUN_02059880
@@ -1922,7 +1922,7 @@ FUN_02059880: ; 0x02059880
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, #0
-	ldr r4, _020598E8 ; =gResourceManager
+	ldr r4, _020598E8 ; =g3DVramMan
 	b _020598C4
 _02059894:
 	add r0, r7, #4
@@ -1942,13 +1942,13 @@ _020598C4:
 	ldrsh r0, [r7, #8]
 	cmp r6, r0
 	blt _02059894
-	ldr r0, _020598E8 ; =gResourceManager
+	ldr r0, _020598E8 ; =g3DVramMan
 	add r1, r7, #0xc
 	ldr r0, [r0]
 	bl FUN_02051d3c
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020598E8: .word gResourceManager
+_020598E8: .word g3DVramMan
 	arm_func_end FUN_02059880
 
 	arm_func_start FUN_020598ec
@@ -1956,7 +1956,7 @@ FUN_020598ec: ; 0x020598EC
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r6, #0
-	ldr r4, _02059984 ; =gResourceManager
+	ldr r4, _02059984 ; =g3DVramMan
 	b _0205993C
 _02059900:
 	add r0, r7, #4
@@ -1979,7 +1979,7 @@ _0205993C:
 	ldrsh r0, [r7, #8]
 	cmp r6, r0
 	blt _02059900
-	ldr r4, _02059984 ; =gResourceManager
+	ldr r4, _02059984 ; =g3DVramMan
 	add r1, r7, #0xc
 	ldr r0, [r4]
 	bl FUN_02051dc4
@@ -1995,7 +1995,7 @@ _0205993C:
 _0205997C:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059984: .word gResourceManager
+_02059984: .word g3DVramMan
 _02059988: .word unk_020907D4
 	arm_func_end FUN_020598ec
 
@@ -2269,7 +2269,7 @@ _ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_: ; 0x02059CC0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	cmp r7, #0
 	beq _02059D38
-	ldr r0, _02059D98 ; =gResourceManager
+	ldr r0, _02059D98 ; =g3DVramMan
 	mov r2, r7
 	ldr r0, [r0]
 	add r1, r5, #0x18
@@ -2283,7 +2283,7 @@ _02059D38:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #7
 	bne _02059D70
-	ldr r0, _02059D98 ; =gResourceManager
+	ldr r0, _02059D98 ; =g3DVramMan
 	mov r2, r4
 	ldr r0, [r0]
 	add r1, r6, #0xc
@@ -2293,7 +2293,7 @@ _02059D38:
 	mov r0, #0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02059D70:
-	ldr r0, _02059D98 ; =gResourceManager
+	ldr r0, _02059D98 ; =g3DVramMan
 	mov r2, r4
 	ldr r0, [r0]
 	add r1, r5, #0x24
@@ -2304,7 +2304,7 @@ _02059D70:
 _02059D90:
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02059D98: .word gResourceManager
+_02059D98: .word g3DVramMan
 	arm_func_end _ZN10C3DSprFile18getResKeyAddressesEP11C3DSprSheetPmS2_
 
 	.data

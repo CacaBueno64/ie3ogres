@@ -959,7 +959,7 @@ FUN_ov111_0212595c: ; 0x0212595C
 	bl FUN_ov111_02124eac
 	ldr r0, _021259EC ; =gBgMenuManager
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldmfd sp!, {r4, r5, r6, pc}
 _021259EC: .word gBgMenuManager
 	arm_func_end FUN_ov111_0212595c

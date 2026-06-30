@@ -120,7 +120,7 @@
 .public gFont12
 .public FUN_ov16_020f51a8
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
 .public FUN_ov16_020f2f20
@@ -343,11 +343,11 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public _ZN12C3DPlaneCtrl7acquireEv
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f067c
 .public unk_0209A460
 .public unk_020A9C40
-.public gResourceManager
+.public g3DVramMan
 .public gSprAnimCtrl
 .public FUN_ov16_0210e9d8
 .public FUN_ov16_0210e0d8

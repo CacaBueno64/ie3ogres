@@ -16,7 +16,7 @@ typedef struct {
     u8 unk0[0x2c];
     MtxFx43 mtx;
     CModel *model;
-    NsbResource *res;
+    SNsbResource *res;
     ModelMap_64 unk64[5];
 } ModelMap;
 

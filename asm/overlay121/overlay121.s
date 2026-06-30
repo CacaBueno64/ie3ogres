@@ -151,7 +151,7 @@ FUN_ov121_02124ebc: ; 0x02124EBC
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r6
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r5, #0
 	str r5, [sp, #4]
 	ldr r6, [r4, #0x88]
@@ -815,7 +815,7 @@ FUN_ov121_0212582c: ; 0x0212582C
 	ldr r0, _02125890 ; =gBgMenuManager
 	mov r1, r4
 	str r5, [r6, #0x18]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	mov r1, r4
 	bl FUN_ov121_02124d20

@@ -104,8 +104,8 @@
 .public sprintf
 .public _ZN14CBgMenuManager11updateRadioEv
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN14CBgMenuManager4initE12EngineSelect
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public FUN_ov1_020db274
 .public FUN_ov16_020f2fa8

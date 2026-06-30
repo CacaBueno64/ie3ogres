@@ -3,7 +3,7 @@
 .public _ZdlPv
 .public G3X_SetToonTable
 .public NNS_G3dGeBufferOP_N
-.public FUN_ov16_020ef624
+.public _ZN6Shadow10InitializeEi
 .public NNS_G3dGeUseFastDma
 .public G3X_SetClearColor
 .public G3X_SetEdgeColorTable

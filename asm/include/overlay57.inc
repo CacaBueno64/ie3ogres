@@ -201,7 +201,7 @@
 .public FUN_ov16_020f078c
 .public FUN_0206fb74
 .public FUN_0204d7fc
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2fa8
 .public FUN_020467c0
 .public FUN_020467ac

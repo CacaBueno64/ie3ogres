@@ -4,7 +4,7 @@
 .public _Znwm
 .public FUN_ov16_02110558
 .public MI_CpuFill8
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f067c
 .public FUN_020727a8
 .public FUN_02044734
@@ -15,7 +15,7 @@
 .public FUN_02046744
 .public FUN_ov16_020f09c0
 .public FUN_ov16_020f085c
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2fa8
 .public gSprButtonCtrl
 .public gSprAnimCtrl

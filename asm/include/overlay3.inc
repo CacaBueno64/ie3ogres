@@ -67,7 +67,7 @@
 .public gDebugFont
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public gBgMenuManager
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN14CBgMenuManager14updateGraphicsE12EngineSelect
 .public _ZN14CBgMenuManager4drawE12EngineSelect

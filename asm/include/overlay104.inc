@@ -23,7 +23,7 @@
 .public GXS_LoadBG2Char
 .public _ZN8Graphics16LoadBGPaletteSubEv
 .public FUN_ov16_020f4894
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public MIi_CpuClearFast
 .public sprintf

@@ -46,7 +46,7 @@ FUN_ov16_020f3f60: ; 0x020F3F60
 	mov r9, r0
 	ldr r11, _020F47E4 ; =gBgMenuManager
 	ldr r4, _020F47E8 ; =0x0000FFBF
-	ldr r5, _020F47EC ; =gResourceManager
+	ldr r5, _020F47EC ; =g3DVramMan
 	str r9, [r8]
 	cmp r9, #0xf
 	mov r10, #0x10
@@ -293,7 +293,7 @@ _020F4320:
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	mov r0, r11
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -423,7 +423,7 @@ _020F4514:
 	ldr r7, _020F47E4 ; =gBgMenuManager
 	mov r1, r6
 	mov r0, r7
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -544,7 +544,7 @@ _020F45C4:
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	mov r0, r11
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2_GetBG1ScrPtr
 	mov r4, r0
 	bl G2_GetBG2ScrPtr
@@ -604,7 +604,7 @@ _020F47CC:
 _020F47E0: .word gGraphicsModes
 _020F47E4: .word gBgMenuManager
 _020F47E8: .word 0x0000FFBF
-_020F47EC: .word gResourceManager
+_020F47EC: .word g3DVramMan
 _020F47F0: .word 0x0400000A
 _020F47F4: .word 0x0400000C
 _020F47F8: .word 0x04000304
@@ -759,7 +759,7 @@ _020F4908:
 	ldrh r2, [r8, #0xe]
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r4, r0
 	bl G2S_GetBG1ScrPtr
@@ -838,7 +838,7 @@ _020F4A3C:
 	ldrh r2, [r8, #0xe]
 	and r2, r2, r4
 	strh r2, [r8, #0xe]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r4, r0
 	bl G2S_GetBG1ScrPtr
@@ -1013,7 +1013,7 @@ _020F4CEC:
 _020F4DEC:
 	mov r0, r6
 	mov r1, r10
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	b _020F5140
 _020F4DFC:
 	mov r0, #0x180
@@ -1144,7 +1144,7 @@ _020F4ED0:
 	bl _ZN8Graphics11ClearBGXSubEi10CharFormat
 	mov r0, r6
 	mov r1, r10
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2S_GetBG2ScrPtr
 	mov r7, r0
 	bl G2S_GetBG1ScrPtr
@@ -1226,7 +1226,7 @@ _020F503C:
 	bl _ZN8Graphics11ClearBGXSubEi10CharFormat
 	mov r0, r6
 	mov r1, r10
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 _020F5140:
 	bl G2S_GetBG2ScrPtr
 	mov r5, r0

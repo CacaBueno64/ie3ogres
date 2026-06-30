@@ -683,7 +683,7 @@ FUN_ov79_0211a820: ; 0x0211A820
 	str r6, [r5, #0x24]
 	strb r6, [r5, #0x28]
 	strb r6, [r2]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r6
 	add r0, r5, #0x2c
 	mov r2, #0x14
@@ -702,7 +702,7 @@ FUN_ov79_0211a820: ; 0x0211A820
 	bl MI_CpuFill8
 	mov r1, r4
 	ldr r0, _0211A900 ; =0x0209A070
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r0, r5
 	bl FUN_ov79_02119f28
 	ldr r5, _0211A904 ; =gAudioPlayer

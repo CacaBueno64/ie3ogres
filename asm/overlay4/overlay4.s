@@ -588,7 +588,7 @@ FUN_ov4_020bd310: ; 0x020BD310
 	mov r4, #1
 	ldr r0, _020BD374 ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x34
 	bl FUN_ov16_020f2f7c
@@ -1318,7 +1318,7 @@ FUN_ov4_020bdcdc: ; 0x020BDCDC
 	str r3, [r5, #0x18]
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c
@@ -4782,7 +4782,7 @@ FUN_ov4_020c0b40: ; 0x020C0B40
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r4
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, [r7, #0xc]
 	cmp r0, #0
 	beq _020C0B90
@@ -4939,7 +4939,7 @@ FUN_ov4_020c0d3c: ; 0x020C0D3C
 	bl FUN_ov4_020bfbc0
 	ldr r0, _020C0DD0 ; =gBgMenuManager
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r6
 	bl FUN_ov4_020c01ac
 	mov r0, r4
@@ -16376,7 +16376,7 @@ _020CAE00:
 	mov r2, r0
 	streqb r4, [r7, #0x71]
 	bl GX_SetGraphicsMode
-	ldr r0, _020CB138 ; =gResourceManager
+	ldr r0, _020CB138 ; =g3DVramMan
 	ldr r0, [r0]
 	bl FUN_02051778
 	ldr r0, _020CB13C ; =0x04000008
@@ -16461,7 +16461,7 @@ _020CAF8C:
 	bl MI_CpuFill8
 	ldr r0, _020CB14C ; =0x0209A070
 	mov r1, r6
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	mov r1, r8
 	add r0, r7, #0x244
 	mov r2, #0x1d0
@@ -16560,7 +16560,7 @@ _020CB128: .word unk_0209A460
 _020CB12C: .word unk_020A9C40
 _020CB130: .word unk_0209A454
 _020CB134: .word unk_020A0640
-_020CB138: .word gResourceManager
+_020CB138: .word g3DVramMan
 _020CB13C: .word 0x04000008
 _020CB140: .word gSprButtonCtrl
 _020CB144: .word gSprAnimCtrl
@@ -29844,7 +29844,7 @@ FUN_ov4_020d6dec: ; 0x020D6DEC
 	mov r4, r0
 	ldr r0, _020D6E38 ; =gBgMenuManager
 	mov r1, #1
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r2, #0
 	mov r1, #0x2d
 	mov r0, #0x1e
@@ -30795,7 +30795,7 @@ FUN_ov4_020d7ab8: ; 0x020D7AB8
 	str r3, [r5, #0x18]
 	strb r3, [r5, #0x1c]
 	strb r3, [r5, #0x1d]
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r5, #0x20
 	bl FUN_ov16_020f2f7c

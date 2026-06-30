@@ -75,7 +75,7 @@
 .public _ZN14CBgMenuManager11resetBoundsE12EngineSelect
 .public _ZN14CBgMenuManager11updateRadioEv
 .public FUN_02044754
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60

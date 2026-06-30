@@ -22,7 +22,7 @@ typedef struct {
     u8 unk13;
     CModel *model;
     u32 unk18;
-    NsbResource *res;
+    SNsbResource *res;
 } C3DGameMapObject_14;
 
 class C3DGameMapObject : public C3DGameBase

@@ -1,7 +1,7 @@
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public MI_CpuFill8
-.public FUN_0205131c
+.public _ZN9C3DDevice14setEdgeMarkingEi
 .public gSprButtonCtrl
 .public gSprAnimCtrl
 .public g3DDevice

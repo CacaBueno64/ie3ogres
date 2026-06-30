@@ -18,7 +18,7 @@
 .public GXS_LoadBG2Char
 .public GXS_LoadBG0Scr
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public gDebugFont
 .public gBgMenuManager

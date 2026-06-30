@@ -2619,7 +2619,7 @@ FUN_ov55_0211c2f0: ; 0x0211C2F0
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r6
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r4
 	ldr r1, [r0]
 	ldr r1, [r1, #0xe4]
@@ -3280,7 +3280,7 @@ _0211CD0C:
 	mov r6, #0
 	mov r0, r7
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2_GetBG3ScrPtr
 	mov r5, r0
 	bl G2_GetBG1ScrPtr
@@ -3353,7 +3353,7 @@ _0211CE08:
 	bl _ZN14CBgMenuManager8finalizeE12EngineSelect
 	mov r0, r6
 	mov r1, r5
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r0, r4
 	ldr r1, [r0]
 	ldr r1, [r1, #0xe4]

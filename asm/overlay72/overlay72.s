@@ -6063,7 +6063,7 @@ FUN_ov72_0211f450: ; 0x0211F450
 	bl MI_CpuFill8
 	ldr r0, _0211F78C ; =0x0209A070
 	mov r1, r7
-	bl _ZN18CBgMenuRadioButton10initializeEi
+	bl _ZN18CBgMenuRadioButton4initEi
 	add r0, r6, #0x3fc
 	mov r7, #1
 	add r0, r0, #0x800

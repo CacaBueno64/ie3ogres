@@ -1710,7 +1710,7 @@ FUN_ov124_0212647c: ; 0x0212647C
 	mov r6, #1
 	mov r0, r7
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	bl G2S_GetBG0ScrPtr
 	mov r5, r0
 	bl G2S_GetBG1ScrPtr

@@ -5,7 +5,7 @@
 #include "allocator.hpp"
 #include "init/arm9_init.hpp" // IWYU pragma: keep
 
-void CBgMenuRadioButton::initialize(int size)
+void CBgMenuRadioButton::init(int size)
 {
     this->cap = size;
     this->cur = 0;

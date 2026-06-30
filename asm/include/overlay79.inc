@@ -50,10 +50,10 @@
 .public g3DPlaneCtrl
 .public GX_LoadBG3Char
 .public _ZN14CBgMenuManager4drawE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public FUN_ov16_020f2f7c
 .public FUN_ov16_020f2fa8
-.public _ZN18CBgMenuRadioButton10initializeEi
+.public _ZN18CBgMenuRadioButton4initEi
 .public _ZN11AudioPlayer12FUN_0202c470El
 .public _ZN11AudioPlayer14stopAllEffectsEm
 .public _ZN11AudioPlayer12FUN_0202d774Eil

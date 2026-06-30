@@ -3040,7 +3040,7 @@ _0211C7C4:
 	strh r0, [r5, #0x10]
 	ldr r0, _0211C954 ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, _0211C958 ; =0x020A1640
 	strh r4, [r5, #0x10]
 	ldrh r0, [r0, #0xe]

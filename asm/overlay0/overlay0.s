@@ -1361,7 +1361,7 @@ FUN_ov0_020bdcfc: ; 0x020BDCFC
 	str r0, [r1]
 	ldr r0, [r5]
 	mov r1, r7
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 	ldr r1, [r5]
 	ldr r0, _020BDE9C ; =0x0209A720
 	ldrh r1, [r1, #8]
@@ -1545,7 +1545,7 @@ FUN_ov0_020bdfb8: ; 0x020BDFB8
 	mov r6, #0
 	ldr r0, [r5]
 	mov r1, r6
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 	ldr r0, [r5]
 	ldrh r1, [r4, #0xc]
 	ldrb r2, [r4, #0xe]
@@ -1637,7 +1637,7 @@ FUN_ov0_020be0dc: ; 0x020BE0DC
 	mov r7, #0
 	ldr r0, [r5]
 	mov r1, r7
-	bl FUN_0205131c
+	bl _ZN9C3DDevice14setEdgeMarkingEi
 	ldr r0, [r5]
 	mov r1, r7
 	mov r3, r7
@@ -16324,7 +16324,7 @@ FUN_ov0_020cae30: ; 0x020CAE30
 	str r4, [r7, #0x38]
 	ldr r0, _020CAF00 ; =gBgMenuManager
 	mov r1, r6
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	mov r1, r4
 	add r0, r7, #0xe8
 	mov r2, #0x138

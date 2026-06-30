@@ -11,7 +11,7 @@ class CTexture
 public:
     virtual ~CTexture() {}
 
-    NsbResource *tesRes;
+    SNsbResource *tesRes;
     CModel *model;
     u32 unkC;
     u32 pltt; // NNSG3dPlttKey

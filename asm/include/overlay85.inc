@@ -74,7 +74,7 @@
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
 .public gFont8
 .public _ZN14CBgMenuManager8finalizeE12EngineSelect
-.public _ZN14CBgMenuManager10initializeE12EngineSelect
+.public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public FUN_0204f02c
 .public _ZN14CBgMenuManager8deleteIDE12EngineSelectit

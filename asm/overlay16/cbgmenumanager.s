@@ -16,8 +16,8 @@
 	.include "/macros/function.inc"
 
 	.text
-	arm_func_start _ZN14CBgMenuManager10initializeE12EngineSelect
-_ZN14CBgMenuManager10initializeE12EngineSelect: ; 0x020F5A58
+	arm_func_start _ZN14CBgMenuManager4initE12EngineSelect
+_ZN14CBgMenuManager4initE12EngineSelect: ; 0x020F5A58
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r5, r1
 	mov r6, r0
@@ -58,7 +58,7 @@ _020F5A88:
 	strb r4, [r0, #0x66]
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _020F5AEC: .word gMainScreen0
-	arm_func_end _ZN14CBgMenuManager10initializeE12EngineSelect
+	arm_func_end _ZN14CBgMenuManager4initE12EngineSelect
 
 	arm_func_start _ZN14CBgMenuManager8finalizeE12EngineSelect
 _ZN14CBgMenuManager8finalizeE12EngineSelect: ; 0x020F5AF0

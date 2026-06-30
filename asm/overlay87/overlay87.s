@@ -3161,7 +3161,7 @@ FUN_ov87_0211c904: ; 0x0211C904
 	mov r4, #0
 	ldr r0, _0211CAF0 ; =gBgMenuManager
 	mov r1, r4
-	bl _ZN14CBgMenuManager10initializeE12EngineSelect
+	bl _ZN14CBgMenuManager4initE12EngineSelect
 	ldr r0, _0211CAE4 ; =0x020A0640
 	ldrb r0, [r0, #0x1a]
 	cmp r0, #0
