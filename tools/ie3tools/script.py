@@ -45,11 +45,11 @@ def ssd_read(data: BytesIO):
     
     return inst
 
-#with open("./tools/ie3tools/scripts/eve32010010.ssd", "rb") as file:
-#    output = ssd_read(BytesIO(file.read()))
-#    #print(output)
-#with open("./tools/ie3tools/scripts/eve32010010.txt", "wt", encoding="shift-jis") as out:
-#    for o in output:
-#        out.write(str(o) + "\n")
+with open("./tools/ie3tools/archives/eve/eve36173409.ssd", "rb") as file:
+    output = ssd_read(BytesIO(file.read()))
+    #print(output)
+with open("./tools/ie3tools/scripts/eve36173409.txt", "wt", encoding="shift-jis") as out:
+    for o in output:
+        out.write(str(o) + "\n")
 
-print(hex(8 + (4 * 1)))
+#print(hex(8 + (4 * 1)))

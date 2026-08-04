@@ -35,10 +35,10 @@ typedef struct {
  * Differs depending on whether the texture contains multiple sprites
  */
 typedef struct {
-    u16 unk_0;
-    u8 wExp;
-    u8 hExp;
-    u8 fmt;
+    s16 count;
+    u8 wExp; // GXTexSizeS
+    u8 hExp; // GXTexSizeT
+    u8 fmt; // GXTexFmt
     u8 pad[3];
     u16 unk_8;
     u16 unk_a;
@@ -48,7 +48,10 @@ typedef struct {
 
 typedef struct {
     s16 count;
-    u8 unk_2[0x6];
+    u8 w;
+    u8 h;
+    u8 fmt;
+    u8 pad[3];
 } PAC_METADATA_MULTI_HEADER;
 
 typedef struct {

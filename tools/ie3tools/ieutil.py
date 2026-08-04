@@ -1,5 +1,5 @@
 
-def read_string(data: bytes, offset: int = 0, encoding: str = "shift_jis") -> str:
+def read_string(data: bytes, offset: int = 0, encoding: str = "shift-jis") -> str:
     try:
         end = data.index(0, offset)
         return data[offset:end].decode(encoding, errors='replace')

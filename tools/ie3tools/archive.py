@@ -10,9 +10,6 @@ def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> 
         pkb_data = pkb.read()
         pkh_data = pkh.read()
     
-    if not os.path.isdir("./tools/ie3archives/" + filename):
-        os.makedirs("./tools/ie3archives/" + filename)
-    
     if b"PackNum " in pkh_data[:8]:
         HEADER = Struct("<16s HHHH II 16s")
         packnum, size, arctype, unk0, count, unk1, entries_len, pad = \
@@ -24,7 +21,7 @@ def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> 
             offset = 0
             for i in range(count):
                 Id, ptr, size = unpack_from(ENTRY.format, entries_data, offset)
-                offset += 12
+                offset += ENTRY.size
                 
                 finalname = filename + str(Id).zfill(8) + extension
                 data      = pkb_data[ptr : ptr + size]
@@ -49,15 +46,19 @@ def open_pkb(filename: str, extension: str, filepath: str, compressed: bool) -> 
                 files[finalname] = data
     
     else:
+        ENTRY = Struct("<IIII")
         count = len(pkb_data) // 0x10
         offset = 0
         for i in range(count):
-            Id, ptr, size, flags = unpack_from("<IIII", pkh_data, offset)
-            offset += 16
-
-            print(Id // 0x1000, hex(Id))
-            if i > 10:
-                break
+            Id, ptr, size, flags = unpack_from(ENTRY.format, pkh_data, offset)
+            offset += ENTRY.size
+            
+            finalname = filename + str(Id).zfill(8) + extension
+            data      = pkb_data[ptr : ptr + size]
+            if compressed:
+                data = lz10.decompress(data)
+            
+            files[finalname] = data
     
     return files
 
@@ -148,5 +149,9 @@ def open_sfp(filename: str, filepath: str) -> None:
             pos = header.size + fc_header.chunk_size * member.data_off
             file.write(sfp_data[pos:pos + member.size])
 
+files = open_pkb("eve", ".ssd", "./files/data_iz/script/eve.pkb", True)
+for i in files:
+    with open("./tools/ie3tools/archives/eve/" + i, "wb") as out:
+        out.write(files[i])
 #open_pkb("eve", ".ssd", "./files/data_iz/script/eve.pkb", True)
 #open_sfp("MASConfig", "./files/data_iz/pic2d/menu/MASConfig.SPF_")

@@ -1,8 +1,15 @@
-prebuilt_files = [
-    'efct.pkb',
-    'efct.pkh'
-]
+efct_pack = custom_target('efct_pack',
+    output: [
+        'efct.pkb',
+        'efct.pkh',
+    ],
+    input: [],
+    command: [
+        archive_exe,
+        '-t', 'PKB',
+        '-c', '@CURRENT_SOURCE_DIR@/efct',
+        '@OUTDIR@',
+    ]
+)
 
-foreach f : prebuilt_files
-    nitrofs_files += fs.copyfile(f)
-endforeach
+nitrofs_files += efct_pack

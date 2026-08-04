@@ -1237,7 +1237,7 @@ void C3DPlaneCtrl::convertTilesToTex(sfkey_t key, /* r11 */ int width, /* 0x00 *
     PAC_METADATA_SINGLE *meta;
     MI_CpuCopy8(pltt, PAC_IPM_GetPalettePtr(pac_tex), PAC_IPM_GetPaletteSize(pac_tex));
     meta = static_cast<PAC_METADATA_SINGLE *>(PAC_IPM_GetMetaPtr(pac_tex));
-    meta->unk_0 = 1;
+    meta->count = 1;
     meta->wExp = wExp;
     meta->hExp = hExp;
     meta->fmt = fmt;

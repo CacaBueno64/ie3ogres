@@ -15,7 +15,7 @@ s32 Read(FSFile *file, u8 *ramAddr, s32 size)
 {
 #define CHUNK_SIZE 0x4000
 
-    u32 result = 0;
+    s32 result = 0;
 
     while (TRUE) {
         s32 chunk_size = size;

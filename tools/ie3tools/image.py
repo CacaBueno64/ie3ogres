@@ -24,7 +24,7 @@ def get_st(width: int, height: int) -> tuple[int, int]:
     return (GXTexSizeST[1 << (width - 1).bit_length()], GXTexSizeST[1 << (height - 1).bit_length()])
 
 def pad(data: bytes) -> bytes:
-    """16 bytes padding."""
+    """32 bytes padding."""
     pad_len = (-len(data)) % 32
     return data + bytes([0xFF]) * pad_len
 
@@ -84,6 +84,67 @@ class PACMetaData:
             for c in self.chunks:
                 out.write(";".join([str(c.s), str(c.t), str(c.w), str(c.h)]) + "\n")
 
+def fill_palette(palette: list, count: int):
+    if count <= 16:
+        palette += [0 for i in range((16 - count) * 3)]
+    elif count > 16 and count < 256:
+        palette += [0 for i in range((256 - count) * 3)]
+    return palette
+
+def set_palette(img: Image.Image, palette: list) -> Image.Image:
+    img.putpalette(fill_palette(palette, len(palette) // 3))
+    return img
+
+def get_palette_from_dict(palette: dict) -> list:
+    """Get a [r, g, b, r, g, b, ...] list from a non paletted png
+    May not work
+    
+    >>> get_palette_from_dict(dict(img.getcolors()))
+    >>> get_palette_from_dict([(163: (255, 255, 255, 255)), (1660: (255, 4, 214, 255)): (132, (247, 8, 24, 255)), ...])
+    [255, 4, 214, 255, 255, 255, 247, 8, 24, ...]
+    """
+    
+    output = []
+    count = 0
+    for i in palette:
+        output.append(palette[i][0])
+        output.append(palette[i][1])
+        output.append(palette[i][2])
+        count += 1
+    
+    return fill_palette(output, count)
+
+def swap_palette_index(data: bytes, palette: list, i: int, j: int) -> tuple[bytes, list]:
+    """Swap the color of index i with the color of index j"""
+    
+    data = bytearray(data)
+    for n, p in enumerate(data):
+        if p == j:
+            data[n] = i
+        elif p == i:
+            data[n] = j
+    p0 = palette[j * 3 : (j * 3) + 3]
+    p1 = palette[i * 3 : (i * 3) + 3]
+    palette[j * 3 : (j * 3) + 3] = p1
+    palette[i * 3 : (i * 3) + 3] = p0
+    
+    return (bytes(data), palette)
+
+def get_image(img: Image.Image) -> Image.Image:
+    """Fix non-paletted png and set the correct bitdepth"""
+    
+    img = img.convert("RGB")
+    if len(img.getcolors()) < 16:
+        img = img.quantize(16)
+    else:
+        img = img.quantize()
+    palette = img.getpalette()
+    palette = fill_palette(palette, len(palette) // 3)
+    img = Image.frombytes("P", img.size, bytes(img.tobytes()))
+    img.putpalette(palette)
+
+    return img
+
 ####################################################
 # READ
 ####################################################
@@ -117,8 +178,8 @@ def convert_tiles_to_tex_PSCM(meta: PACMetaData, chara: bytes, screen: bytes) ->
     ppby = 1
     if (meta.fmt == GX_TEXFMT_PLTT16):
         ppby = 2
-    size = ((8 << meta.s) * (8 << meta.t)) // ppby
     
+    size = ((8 << meta.s) * (8 << meta.t)) // ppby
     dest = bytearray(size)
     
     tile_size_x = 8 // ppby
@@ -288,6 +349,7 @@ def write_palette(palette: list, fmt: int) -> bytes:
     count = 16
     if fmt == GX_TEXFMT_PLTT256:
         count = 256
+    
     for i in range(count):
         r, g, b = rbg[i]
         
@@ -392,6 +454,9 @@ def convert_image_to_PAC_PSCM(path: str, outpath: str):
     img = Image.open(path)
     
     palette = img.getpalette()
+    if palette is None:
+        img = get_image(img)
+        palette = img.getpalette()
     
     fmt = GX_TEXFMT_PLTT16
     if (len(palette) // 3) > 16:
@@ -431,6 +496,9 @@ def convert_image_to_PAC_PSC(path: str, outpath: str):
     img = Image.open(path)
     
     palette = img.getpalette()
+    if palette is None:
+        img = get_image(img)
+        palette = img.getpalette()
     
     fmt = GX_TEXFMT_PLTT16
     if (len(palette) // 3) > 16:
@@ -462,6 +530,9 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
     img = Image.open(path)
     
     palette = img.getpalette()
+    if palette is None:
+        img = get_image(img)
+        palette = img.getpalette()
     
     fmt = GX_TEXFMT_PLTT16
     if (len(palette) // 3) > 16:
@@ -492,9 +563,31 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
 
 #convert_PAC_PSCM_to_image("./tools/ie3tools/archives/fac/fac00000100.pac", "./test.png")
 #convert_image_to_PAC_PSCM("./test.png", "./tools/ie3tools/archives/fac/fac00000100/test.pac")
-#convert_PAC_PSC_to_image("./tools/ie3tools/archives/level5_bottom/level5_bottom.pac", "./test.png", 256)
-#convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/level5_bottom/test.pac")
-#convert_PAC_PSC_to_image("./tools/ie3tools/archives/cmd/tcd_c00000001.pac", "./test.png", 136)
+#convert_PAC_PSC_to_image("./tools/ie3tools/archives/cmd/mbd_c00000001.pac", "./test.png", 112)
 #convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/cmd/test.pac")
+#convert_image_to_PAC_PSC("./test2.png", "./test.pac")
 #convert_PAC_SPM_to_image("./tools/ie3tools/archives/c3t0100/c3t0100.pac", "./test.png")
 #convert_image_to_PAC_SPM("./test.png", "./tools/ie3tools/archives/c3t0100/test.pac")
+
+#import os
+#def fix_mbd_c_palettes():
+#    ref = Image.open("./test.png")
+#    palette = ref.getpalette()
+#    for filename in sorted(os.listdir("./tools/ie3tools/input")):
+#        path = "./tools/ie3tools/input/" + filename
+#        img = Image.open(path).convert("RGB")
+#        img = img.quantize(palette=ref, dither=Image.Dither.NONE)
+#        img.save("./tools/ie3tools/input/" + filename, format="PNG")
+#def convert_mbd_c():
+#    fix_mbd_c_palettes()
+#    for filename in sorted(os.listdir("./tools/ie3tools/input2")):
+#        path = "./tools/ie3tools/input2/" + filename
+#        outpath = "./tools/ie3tools/output/" + filename.replace(".png", ".pac")
+#        convert_image_to_PAC_PSC(path, outpath)
+#convert_mbd_c()
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    pass

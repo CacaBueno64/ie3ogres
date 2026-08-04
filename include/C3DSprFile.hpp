@@ -4,6 +4,7 @@
 #include <nitro/types.h>
 
 #include "vram.hpp"
+#include "archive.hpp"
 
 typedef int sfkey_t;
 typedef unsigned char sfkey_char_t;
@@ -53,10 +54,13 @@ public:
     bool release(bool);
     bool init(u32 fileCount);
     C3DSprSheet *getSpriteSheet(sfkey_t key);
+    sfkey_t FUN_02058684(int type, archandle_t handle, char *name, int param4, int param5, void *data);
     void *FUN_02059bb4(C3DSprSheet *sheet, u32 *outSize);
     void *getPaletteData(C3DSprSheet *sheet, u32 *outSize);
     bool getResKeyAddresses(C3DSprSheet *sheet, u32 *texOut, u32 *plttOut);
-    bool FUN_02059004(sfkey_t key);
+    bool FUN_02058ee0(int key);
+    bool FUN_02059004(int key);
+    void FUN_020591e8(int key);
     void FUN_02059880(void);
     void FUN_020598ec(void);
 

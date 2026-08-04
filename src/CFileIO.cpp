@@ -784,7 +784,7 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
     int idx;
 
     for (idx = 0; idx < entry_count; idx++) {
-        if (!std::strcmp(file + entries[idx].stringOffset, filename)) {
+        if (std::strcmp(file + entries[idx].stringOffset, filename) == 0) {
             break;
         }
     }

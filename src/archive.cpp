@@ -436,7 +436,6 @@ void GetKitNumberTexOffsetAndSize(void *pkh, int wearNo, int wearType, s32 *outO
 void GetShoesModelOffsetAndSize(void *pkh, Unit *unit, int shoesNo, s32 *outOffset, size_t *outSize)
 {
     st_shoes_info *shoesInfo = &gShoesInfoFile[shoesNo];
-    ;
 
     PackHeaderGetOffsetAndSize(
         pkh, (shoesInfo->unk0 * 10000) + (unit->base.bodyType * 100) + (shoesInfo->unk1), outOffset, outSize);
