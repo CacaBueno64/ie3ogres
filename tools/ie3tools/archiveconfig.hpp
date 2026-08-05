@@ -29,6 +29,16 @@ const Config config_fac = {
     .filenames = NULL
 };
 
+const Config config_fab = {
+    .name = "fab",
+    .type = PackBinary::Type::PACK_TYPE_COS,
+    .comp = true,
+    .func = NULL,
+    .format = "%s%08u.pac_", // fab01010000.pac_
+    .entrySize = 0x4F0,
+    .filenames = NULL
+};
+
 const ConfigFilenames config_efct_filenames[] = {
     {"ef_c011a.pac", 12},
     {"ef_c005a.PLT", 7},
@@ -69,6 +79,7 @@ const Config config_efct = {
 
 const Config configs[] = {
     config_fac,
+    config_fab,
     config_efct,
 };
 

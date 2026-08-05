@@ -585,12 +585,15 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
 #        outpath = "./tools/ie3tools/output/" + filename.replace(".png", ".pac")
 #        convert_image_to_PAC_PSC(path, outpath)
 
-#def convert_fac():
-#    import os
-#    for filename in sorted(os.listdir("./files/data_iz/face2d/fac")):
-#        path = "./files/data_iz/face2d/fac/" + filename
-#        convert_PAC_PSCM_to_image(path, path.replace(".pac_", ".png"))
-#        print(path)
+def convert_folder():
+    import os
+    folderpath = ""
+    for filename in sorted(os.listdir(folderpath)):
+        path = folderpath + "/" + filename
+        convert_PAC_PSCM_to_image(path, path.replace(".pac_", ".png"))
+        print(path)
+        if path.endswith(".pac_"):
+            os.remove(path)
 
 import argparse
 def main():
@@ -672,3 +675,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    #convert_folder()
