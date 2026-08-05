@@ -11,3 +11,5 @@ archive_exe = executable('archive',
     ],
     native: true
 )
+
+image_py = find_program('image.py', native: true)

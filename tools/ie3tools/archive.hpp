@@ -70,6 +70,7 @@ public:
     } Entry;
 
     bool GetConfig(void);
+    char *GetExtension(void);
     char *GetName(uint32_t code);
     char *GetName(size_t idx);
     uint32_t GetCode(const char *filename);

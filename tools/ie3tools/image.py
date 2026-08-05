@@ -569,8 +569,8 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
 #convert_PAC_SPM_to_image("./tools/ie3tools/archives/c3t0100/c3t0100.pac", "./test.png")
 #convert_image_to_PAC_SPM("./test.png", "./tools/ie3tools/archives/c3t0100/test.pac")
 
-#import os
 #def fix_mbd_c_palettes():
+#    import os
 #    ref = Image.open("./test.png")
 #    palette = ref.getpalette()
 #    for filename in sorted(os.listdir("./tools/ie3tools/input")):
@@ -584,10 +584,91 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
 #        path = "./tools/ie3tools/input2/" + filename
 #        outpath = "./tools/ie3tools/output/" + filename.replace(".png", ".pac")
 #        convert_image_to_PAC_PSC(path, outpath)
-#convert_mbd_c()
 
+#def convert_fac():
+#    import os
+#    for filename in sorted(os.listdir("./files/data_iz/face2d/fac")):
+#        path = "./files/data_iz/face2d/fac/" + filename
+#        convert_PAC_PSCM_to_image(path, path.replace(".pac_", ".png"))
+#        print(path)
+
+import argparse
 def main():
-    pass
+    parser = argparse.ArgumentParser(
+        description="Convert PAC files to/from PNG."
+    )
+
+    parser.add_argument("input", help="Input file")
+    parser.add_argument("output", help="Output file")
+
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
+        "-d",
+        "--decode",
+        action="store_true",
+        help="Convert PAC -> PNG",
+    )
+    mode.add_argument(
+        "-c",
+        "--encode",
+        action="store_true",
+        help="Convert PNG -> PAC",
+    )
+
+    parser.add_argument(
+        "-t",
+        "--type",
+        required=True,
+        choices=["PSC", "PSCM", "SPM"],
+        help="PAC format",
+    )
+
+    parser.add_argument(
+        "--width",
+        type=int,
+        help="Image width (required when decoding PSC)",
+    )
+
+    args = parser.parse_args()
+
+    # PSC requires width only when decoding
+    if args.decode and args.type == "PSC" and args.width is None:
+        parser.error("--width is required when decoding PSC files.")
+
+    if args.decode:
+        if args.type == "PSC":
+            convert_PAC_PSC_to_image(
+                args.input,
+                args.output,
+                args.width,
+            )
+        elif args.type == "PSCM":
+            convert_PAC_PSCM_to_image(
+                args.input,
+                args.output,
+            )
+        elif args.type == "SPM":
+            convert_PAC_SPM_to_image(
+                args.input,
+                args.output,
+            )
+
+    elif args.encode:
+        if args.type == "PSC":
+            convert_image_to_PAC_PSC(
+                args.input,
+                args.output,
+            )
+        elif args.type == "PSCM":
+            convert_image_to_PAC_PSCM(
+                args.input,
+                args.output,
+            )
+        elif args.type == "SPM":
+            convert_image_to_PAC_SPM(
+                args.input,
+                args.output,
+            )
 
 if __name__ == "__main__":
-    pass
+    main()

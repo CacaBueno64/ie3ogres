@@ -8,6 +8,7 @@
 #include <string>
 #include <filesystem>
 #include <zlib.h>
+#include <regex>
 
 #define ALIGN(size, align) (((size) + (align) - 1) & ~((align) - 1))
 
@@ -200,6 +201,21 @@ bool PackBinary::GetConfig(void)
     }
 
     return false;
+}
+
+char *PackBinary::GetExtension(void)
+{
+    char *extension = new char[8];
+
+    if (config->format) {
+        if (strrchr(config->format, '.')) {
+            strcpy(extension, strrchr(config->format, '.'));
+            return extension;
+        }
+    }
+
+    delete extension;
+    return NULL;
 }
 
 char *PackBinary::GetName(uint32_t code)
@@ -742,43 +758,65 @@ bool PackBinary::Pack(const char *path)
         return false;
     }
     
-    if (this->count <= 0) {
+    if (config->format) {
+        char *regString = new char[128];
+        char *extension = this->GetExtension();
+        sprintf(regString, "(^(.*?)(\\d{8})\\%s$)", extension);
+        std::regex re(regString);
+
         for (auto &entry : std::filesystem::directory_iterator(path)) {
-            this->count++;
+            if (std::regex_match(entry.path().filename().string(), re)) {
+                this->count++;
+            }
         }
-    }
 
-    this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
-    if (!this->entries) {
-        return false;
-    }
-
-    size_t i = 0;
-    for (auto &dirEntry : std::filesystem::directory_iterator(path)) {
-        if (i > this->count) {
+        this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
+        if (!this->entries) {
             return false;
         }
 
-        char *filepath = new char[strlen(path) + 128];
-        if (config->filenames) {
+        size_t i = 0;
+        for (auto &entry : std::filesystem::directory_iterator(path)) {
+            if (!std::regex_match(entry.path().filename().string(), re)) {
+                continue;
+            }
+
+            if (!read_file(entry.path().c_str(), &this->entries[i].data, &this->entries[i].size)) {
+                fprintf(stderr, "archive: could not read %s\n", entry.path().c_str());
+                return false;
+            }
+
+            this->entries[i].name = new char[strlen(entry.path().filename().c_str())];
+            strcpy(this->entries[i].name, entry.path().filename().c_str());
+
+            i++;
+        }
+
+        delete extension;
+        delete regString;
+    }
+    else if (config->filenames) {
+        this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
+        if (!this->entries) {
+            return false;
+        }
+
+        for (size_t i = 0; i < this->count; i++) {
+            char *filepath = new char[strlen(path) + 128];
             sprintf(filepath, "%s/%s", path, config->filenames[i].name);
-        } else {
-            strcpy(filepath, dirEntry.path().c_str());
-        }
 
-        if (!read_file(filepath, &this->entries[i].data, &this->entries[i].size)) {
-            fprintf(stderr, "archive: could not read %s\n", filepath);
-            return false;
-        }
+            if (!read_file(filepath, &this->entries[i].data, &this->entries[i].size)) {
+                fprintf(stderr, "archive: could not read %s\n", filepath);
+                return false;
+            }
 
-        this->entries[i].name = new char[strlen(std::filesystem::path(filepath).filename().c_str())];
-        strcpy(this->entries[i].name, std::filesystem::path(filepath).filename().c_str());
-        
-        delete filepath;
-        i++;
+            this->entries[i].name = new char[strlen(config->filenames[i].name)];
+            strcpy(this->entries[i].name, config->filenames[i].name);
+
+            delete filepath;
+        }
     }
-
-    if (i != this->count) {
+    else {
         return false;
     }
     
@@ -1313,23 +1351,6 @@ bool SFP::Close(void)
 // g++ -g ./tools/ie3tools/archive.cpp ./tools/ie3tools/compression.cpp -std=c++20 -lz -o ./tools/ie3tools/archive && ./tools/ie3tools/archive
 int main(int argc, char **argv)
 {
-    // Archive::PackBinary *pack = new Archive::PackBinary();
-    // pack->Open("./files/data_iz/face2d/fac");
-    // pack->Open("./files/data_iz/spr/efct/efct");
-    // pack->Pack("./tools/ie3tools/archives/efct");
-    // pack->WriteAllEntries();
-    // pack->ExportAll("./tools/ie3tools/archives/efct");
-    // pack->Write("./");
-    // pack->Close();
-    // delete pack;
-
-    // Archive::SFP *pack = new Archive::SFP();
-    // pack->Open("./files/data_iz/pic2d/MPSAct");
-    // pack->WriteAllEntries();
-    // pack->Write("./");
-    // pack->Close();
-    // delete pack;
-
     if (strcmp("-h", argv[1]) == 0) {
         fprintf(stderr, "usage: archive [-d] [-c] [-e] [-r] [-t]\n");
         fprintf(stderr, "\noptions:\n");
@@ -1337,7 +1358,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "\t[-c] Pack.\n");
         fprintf(stderr, "\t[-e] Export entry.\n");
         fprintf(stderr, "\t[-r] Replace entry.\n");
-        fprintf(stderr, "\t[-t] Archive type (PKB | SFP).\n");
+        fprintf(stderr, "\t[-t] Archive type (PKB | SFP | SPD).\n");
         fprintf(stderr, "\t[-h] Show this message\n");
         return 0;
     }
