@@ -199,6 +199,8 @@ bool PackBinary::GetConfig(void)
                 for (size_t j = 0; config->filenames[j].name != NULL; j++) {
                     this->count++;
                 }
+            } else {
+                this->count = 0;
             }
             return true;
         }
@@ -762,68 +764,26 @@ bool PackBinary::Pack(const char *path)
         return false;
     }
     
-    if (config->format) {
-        char *regString = new char[128];
-        char *extension = this->GetExtension();
-        sprintf(regString, "(^(.*?)(\\d{8})\\%s$)", extension);
-        std::regex re(regString);
-
+    if (!config->filenames) {
         for (auto &entry : std::filesystem::directory_iterator(path)) {
-            if (std::regex_match(entry.path().filename().string(), re)) {
-                this->count++;
-            }
+            this->count++;
         }
+    }
 
-        this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
-        if (!this->entries) {
+    this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
+
+    size_t i = 0;
+    for (auto &entry : std::filesystem::directory_iterator(path)) {
+        if (!read_file(entry.path().c_str(), &this->entries[i].data, &this->entries[i].size)) {
+            fprintf(stderr, "archive: could not read %s\n", entry.path().c_str());
             return false;
         }
+        this->entries[i].name = new char[strlen(entry.path().filename().c_str())];
+        strcpy(this->entries[i].name, entry.path().filename().c_str());
 
-        size_t i = 0;
-        for (auto &entry : std::filesystem::directory_iterator(path)) {
-            if (!std::regex_match(entry.path().filename().string(), re)) {
-                continue;
-            }
-
-            if (!read_file(entry.path().c_str(), &this->entries[i].data, &this->entries[i].size)) {
-                fprintf(stderr, "archive: could not read %s\n", entry.path().c_str());
-                return false;
-            }
-
-            this->entries[i].name = new char[strlen(entry.path().filename().c_str())];
-            strcpy(this->entries[i].name, entry.path().filename().c_str());
-
-            i++;
-        }
-
-        delete extension;
-        delete regString;
+        i++;
     }
-    else if (config->filenames) {
-        this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
-        if (!this->entries) {
-            return false;
-        }
 
-        for (size_t i = 0; i < this->count; i++) {
-            char *filepath = new char[strlen(path) + 128];
-            sprintf(filepath, "%s/%s", path, config->filenames[i].name);
-
-            if (!read_file(filepath, &this->entries[i].data, &this->entries[i].size)) {
-                fprintf(stderr, "archive: could not read %s\n", filepath);
-                return false;
-            }
-
-            this->entries[i].name = new char[strlen(config->filenames[i].name)];
-            strcpy(this->entries[i].name, config->filenames[i].name);
-
-            delete filepath;
-        }
-    }
-    else {
-        return false;
-    }
-    
     return true;
 }
 
@@ -1282,7 +1242,7 @@ bool SFP::Write(const char *path)
     return true;
 }
 
-bool SFP::Pack(const char *path, char **fnt, size_t count, Type type)
+bool SFP::Pack(const char *path, Type type)
 {
     if (!std::filesystem::is_directory(path) || !std::filesystem::exists(path)) {
         fprintf(stderr, "archive: %s is not a valid directory\n", path);
@@ -1296,26 +1256,27 @@ bool SFP::Pack(const char *path, char **fnt, size_t count, Type type)
     this->sfp = NULL;
     this->spl = NULL;
     this->spd = NULL;
-    this->count = count;
+    this->count = 0;
+
+    for (auto &entry : std::filesystem::directory_iterator(path)) {
+        this->count++;
+    }
 
     this->entries = static_cast<Entry *>(malloc(sizeof(*this->entries) * this->count));
     if (!this->entries) {
         return false;
     }
 
-    for (size_t i = 0; i < this->count; i++) {
-        char *filepath = new char[strlen(path) + 128];
-        sprintf(filepath, "%s/%s", path, fnt[i]);
-
-        if (!read_file(filepath, &this->entries[i].data, &this->entries[i].size)) {
-            fprintf(stderr, "archive: could not read %s\n", filepath);
+    size_t i = 0;
+    for (auto &entry : std::filesystem::directory_iterator(path)) {
+        if (!read_file(entry.path().c_str(), &this->entries[i].data, &this->entries[i].size)) {
+            fprintf(stderr, "archive: could not read %s\n", entry.path().c_str());
             return false;
         }
+        this->entries[i].name = new char[strlen(entry.path().filename().c_str())];
+        strcpy(this->entries[i].name, entry.path().filename().c_str());
 
-        this->entries[i].name = new char[strlen(fnt[i])];
-        strcpy(this->entries[i].name, fnt[i]);
-
-        delete filepath;
+        i++;
     }
 
     return true;
@@ -1417,10 +1378,10 @@ int main(int argc, char **argv)
                 } else if (strcmp("SPF", argv[2]) == 0) {
                     type == Archive::SFP::Type::SFP_TYPE_SINGLE;
                 } else {
-                    fprintf(stderr, "archive: unknown type %s\n", argv[2]);
+                    fprintf(stderr, "archive: unknown SFP type %s\n", argv[2]);
                     exit(-1);
                 }
-                if (!pack->Pack(argv[4], &argv[6], argc - 5, type) == 0) {
+                if (!pack->Pack(argv[4], type) == 0) {
                     pack->Close();
                     exit(-1);
                 }

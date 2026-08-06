@@ -194,7 +194,7 @@ public:
     bool ExportAll(const char *path);
     bool Open(const char *path);
     bool Write(const char *path);
-    bool Pack(const char *path, char **fnt, size_t count, Type type);
+    bool Pack(const char *path, Type type);
     bool Close(void);
 
     Type type;

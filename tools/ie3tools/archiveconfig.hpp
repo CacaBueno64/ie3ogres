@@ -392,6 +392,24 @@ const Config config_tcd_c = {
     .filenames = NULL
 };
 
+const Config config_wgd_s = {
+    .name = "wgd_s",
+    .type = PackBinary::Type::PACK_TYPE_COS,
+    .func = NULL,
+    .format = "%s%08u.pac", // wgd_s00000003.pac
+    .entrySize = 0x1BE0,
+    .filenames = NULL
+};
+
+const Config config_wldn_f = {
+    .name = "wldn_f",
+    .type = PackBinary::Type::PACK_TYPE_COS,
+    .func = NULL,
+    .format = "%s%08u.pac", // wldn_f00000003.pac
+    .entrySize = 0x6A0,
+    .filenames = NULL
+};
+
 const ConfigFilenames config_efct_filenames[] = {
     {"ef_c011a.pac", 12},
     {"ef_c005a.PLT", 7},
@@ -435,6 +453,8 @@ const Config configs[] = {
     config_map2d,
     config_mbd_c,
     config_tcd_c,
+    config_wgd_s,
+    config_wldn_f,
     config_efct,
 };
 

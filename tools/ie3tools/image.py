@@ -665,6 +665,7 @@ def convert_image_to_PAC_PSC(path: str, outpath: str, opt: bool = False):
     texture = convert_image_to_tex(img, fmt)
 
     pltt_data = write_palette(palette, fmt)
+    
     if opt or (img.width >= 256 and img.height >= 192):
         scrn_data, char_data = convert_tex_to_char_and_screen_opt(texture, img.width, img.height, fmt)
     else:
@@ -757,7 +758,7 @@ def convert_image_to_PAC_CP(path: str, outpath: str):
 #convert_PAC_PSC_to_image("./tools/ie3tools/archives/cmd/mbd_c00000001.pac", "./test.png", 112)
 #convert_PAC_PSC_to_image("./files/data_iz/map2d/map2d/ina_01p.pac_", "./files/data_iz/map2d/map2d/ina_01p.png", 32)
 #convert_PAC_PSC_to_image("./files/data_iz/pic2d/cmd/tcd_i00.pac", "./files/data_iz/pic2d/cmd/tcd_i00.png", 24)
-#convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/cmd/test.pac")
+#convert_image_to_PAC_PSC("./files/data_iz/pic2d/ending/eddf01.png", "./test.pac")
 #convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/cmd/test.pac")
 #convert_image_to_PAC_PSC("./files/data_iz/pic2d/cmd/mbd_c000b.png", "./test.pac", True)
 #convert_PAC_SPM_to_image("./tools/ie3tools/archives/c3t0100/c3t0100.pac", "./test.png")
@@ -781,12 +782,12 @@ def convert_image_to_PAC_CP(path: str, outpath: str):
 
 def convert_folder():
     import os
-    folderpath = "./files/data_iz/pic2d/cmd/tcd_c"
+    folderpath = "./files/data_iz/pic2d/field/wldn_f"
     for filename in sorted(os.listdir(folderpath)):
         path = folderpath + "/" + filename
         if path.endswith(".pac"):
             print(path)
-            convert_PAC_PSC_to_image(path, path.replace(".pac", ".png"), 136)
+            convert_PAC_PSC_to_image(path, path.replace(".pac", ".png"), 64)
             os.remove(path)
 #convert_folder()
 
