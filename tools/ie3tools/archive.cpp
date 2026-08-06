@@ -133,6 +133,10 @@ uint32_t HashMapName(PackBinary *pack, const char *filename)
         else if (strncmp(filename, "gol", 3) == 0) {
             filename += 3;
         }
+        else {
+            delete name;
+            return HashDefault(NULL, filename);
+        }
         strncpy(name, filename, strrchr(filename, '.') - filename);
 
         delete name;
@@ -374,10 +378,10 @@ bool PackBinary::ReadAllEntries(void)
     void *headerEntries = static_cast<uint8_t *>(this->pkh) + this->GetHeaderSize();
 
     for (size_t i = 0; i < this->count; i++) {
-        void *headerEntry;
-        uint32_t code;
-        size_t size;
-        size_t offset;
+        void *headerEntry = NULL;
+        uint32_t code = 0;
+        size_t size = 0;
+        size_t offset = 0;
 
         switch (this->type) {
         case PACK_TYPE_COS:
@@ -565,7 +569,7 @@ bool PackBinary::WriteAllEntries(void)
                             headerEntry->offset = offset;
                             headerEntry->size = newEntries[k].size;
                             if (IsCompressed(newEntries[k].name)) {
-                                memcpy(&headerEntry->compHeader, data + offset, sizeof(headerEntry->compHeader));
+                                memcpy(&headerEntry->compHeader, newEntries[k].data, sizeof(headerEntry->compHeader));
                             } else {
                                 memset(&headerEntry->compHeader, 0, sizeof(headerEntry->compHeader));
                             }
@@ -1361,8 +1365,7 @@ int main(int argc, char **argv)
         fprintf(stderr, "\t[-t] Archive type (PKB | SFP | SPD).\n");
         fprintf(stderr, "\t[-h] Show this message\n");
         return 0;
-    }
-    else if (strcmp("-t", argv[1]) == 0) {
+    } else if (strcmp("-t", argv[1]) == 0) {
         if (strcmp("PKB", argv[2]) == 0) {
             Archive::PackBinary *pack = new Archive::PackBinary();
             if (strcmp("-d", argv[3]) == 0) {

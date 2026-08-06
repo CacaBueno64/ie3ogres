@@ -1,3 +1,4 @@
+from math import ceil
 from struct import pack, unpack, unpack_from, Struct
 from dataclasses import dataclass
 from PIL import Image
@@ -5,6 +6,7 @@ from PIL import Image
 PAC_PSCM_HEADER = Struct("<I II II II II I")
 PAC_PSC_HEADER = Struct("<I II II II I")
 PAC_SPM_HEADER = Struct("<I II II II I")
+PAC_CP_HEADER = Struct("<I II II I")
 PAC_METADATA = Struct("<H BBB 3B")
 PAC_METADATA_CHUNK = Struct("<HHHH")
 
@@ -214,18 +216,77 @@ def convert_tiles_to_tex_PSC(chara: bytes, screen: bytes, width: int, fmt: int) 
     dest = bytearray(size)
 
     tile_size_x = 8 // ppby
+    tile_size = tile_size_x * 8
 
     for y in range(height):
         for x in range(width):
-            tile_size = tile_size_x * 8
             scrn_idx = (y * width + x) * 2
-            char_idx = unpack("<H", screen[scrn_idx : scrn_idx + 2])[0]
+            entry = unpack("<H", screen[scrn_idx : scrn_idx + 2])[0]
+
+            char_idx = entry & 0x03FF
+            hflip = bool(entry & 0x0400)
+            vflip = bool(entry & 0x0800)
 
             for r in range(8):
+                src_row = r
+                if vflip:
+                    src_row = 7 - r
+                
                 dest_idx = tile_size_x * ((r + y * 8) * width + x)
-                chara_idx = (tile_size * char_idx) + (r * tile_size_x)
-                dest[dest_idx : dest_idx + tile_size_x] = chara[chara_idx : chara_idx + tile_size_x]
+                chara_idx = char_idx * tile_size + src_row * tile_size_x
+
+                row = bytearray(chara[chara_idx : chara_idx + tile_size_x])
+
+                if hflip:
+                    if fmt == GX_TEXFMT_PLTT16:
+                        pixels = []
+                        for b in row:
+                            pixels.append(b & 0x0F)
+                            pixels.append(b >> 4)
+                        pixels.reverse()
+
+                        row = bytearray(4)
+                        for i in range(4):
+                            row[i] = pixels[i * 2] | (pixels[i * 2 + 1] << 4)
+                    else:
+                        row.reverse()
+
+                dest[dest_idx : dest_idx + tile_size_x] = row
     
+    return (bytes(dest), tex_width, tex_height)
+
+def convert_tiles_to_tex_CP(chara: bytes, width: int, fmt: int) -> tuple[bytes, int, int]:
+    """Convert raw character (NBFC?) data to NTFT texture"""
+
+    ppby = 1
+    if (fmt == GX_TEXFMT_PLTT16):
+        ppby = 2
+
+    tile_size_x = 8 // ppby
+    tile_size = tile_size_x * 8
+
+    tile_count = len(chara) // tile_size
+
+    height = tile_count // width
+
+    tex_width = width * 8
+    tex_height = height * 8
+
+    size = (tex_width * tex_height) // ppby
+    dest = bytearray(size)
+
+    for tile in range(tile_count):
+        x = tile % width
+        y = tile // width
+
+        src_base = tile * tile_size
+
+        for r in range(8):
+            src = src_base + r * tile_size_x
+            dst = tile_size_x * ((y * 8 + r) * width + x)
+
+            dest[dst : dst + tile_size_x] = chara[src : src + tile_size_x]
+
     return (bytes(dest), tex_width, tex_height)
 
 def convert_tex_to_image(texture: bytes, palette: list,
@@ -332,6 +393,25 @@ def convert_PAC_SPM_to_image(path: str, outpath: str):
     image.save(outpath, format="PNG")
     meta_data.write_config(outpath.replace(".png", ".csv"))
 
+def convert_PAC_CP_to_image(path: str, outpath: str, width: int):
+    with open(path, "rb") as file:
+        data = file.read()
+    file_count, char_offset, char_size, pltt_offset, pltt_size, data_size = \
+        unpack_from(PAC_CP_HEADER.format, data)
+    
+    char_data = data[char_offset : char_offset + char_size]
+    pltt_data = data[pltt_offset : pltt_offset + pltt_size]
+    
+    palette = get_palette(pltt_data)
+    fmt = GX_TEXFMT_PLTT16
+    if (len(palette) > 16):
+        fmt = GX_TEXFMT_PLTT256
+
+    texture, width, height = convert_tiles_to_tex_CP(char_data, width // 8, fmt)
+    image = convert_tex_to_image(texture, palette, width, height, fmt)
+    
+    image.save(outpath, format="PNG")
+
 ####################################################
 # WRITE
 ####################################################
@@ -391,8 +471,10 @@ def convert_tex_to_char_and_screen(texture: bytes, tex_width: int, tex_height: i
 
     return (bytes(screen), bytes(chara))
 
-def convert_tex_to_char_and_screen_opt(texture: bytes, tex_width: int, tex_height: int, fmt: int):
-    """Convert NTFT texture to raw character+screen without duplicated tiles"""
+def convert_tex_to_char_and_screen_opt(texture: bytes, tex_width: int, tex_height: int, fmt: int) -> tuple[bytes, bytes]:
+    """Convert NTFT texture to raw character+screen with some optimizations
+    (no duplicate tiles, and apply flips if needed)
+    """
 
     ppby = 1
     if fmt == GX_TEXFMT_PLTT16:
@@ -409,9 +491,45 @@ def convert_tex_to_char_and_screen_opt(texture: bytes, tex_width: int, tex_heigh
 
     tile_map = {}
 
+    def flip_tile_h(tile: bytes) -> bytes:
+        result = bytearray(tile_size)
+
+        for r in range(8):
+            row = tile[r * tile_size_x : (r + 1) * tile_size_x]
+
+            if fmt == GX_TEXFMT_PLTT16:
+                pixels = []
+                for b in row:
+                    pixels.append(b & 0x0F)
+                    pixels.append(b >> 4)
+
+                pixels.reverse()
+
+                for i in range(tile_size_x):
+                    result[r * tile_size_x + i] = (
+                        pixels[i * 2] |
+                        (pixels[i * 2 + 1] << 4)
+                    )
+            else:
+                result[r * tile_size_x : (r + 1) * tile_size_x] = reversed(row)
+
+        return bytes(result)
+
+    def flip_tile_v(tile: bytes) -> bytes:
+        result = bytearray(tile_size)
+
+        for r in range(8):
+            src = (7 - r) * tile_size_x
+            dst = r * tile_size_x
+            result[dst : dst + tile_size_x] = tile[src : src + tile_size_x]
+
+        return bytes(result)
+
+    def flip_tile_hv(tile: bytes) -> bytes:
+        return flip_tile_h(flip_tile_v(tile))
+
     for y in range(height):
         for x in range(width):
-
             tile = bytearray(tile_size)
 
             for r in range(8):
@@ -421,16 +539,56 @@ def convert_tex_to_char_and_screen_opt(texture: bytes, tex_width: int, tex_heigh
 
             tile = bytes(tile)
 
+            flags = 0
+
             if tile in tile_map:
                 idx = tile_map[tile]
+            elif flip_tile_h(tile) in tile_map:
+                idx = tile_map[flip_tile_h(tile)]
+                flags = 0x0400
+            elif flip_tile_v(tile) in tile_map:
+                idx = tile_map[flip_tile_v(tile)]
+                flags = 0x0800
+            elif flip_tile_hv(tile) in tile_map:
+                idx = tile_map[flip_tile_hv(tile)]
+                flags = 0x0C00
             else:
                 idx = len(chara) // tile_size
                 tile_map[tile] = idx
                 chara += tile
 
-            screen += pack("<H", idx)
+            screen += pack("<H", idx | flags)
 
     return (bytes(screen), bytes(chara))
+
+def convert_tex_to_char(texture: bytes, tex_width: int, tex_height: int, fmt: int) -> bytes:
+    """Convert NTFT texture to raw character"""
+
+    ppby = 1
+    if fmt == GX_TEXFMT_PLTT16:
+        ppby = 2
+    
+    tile_size_x = 8 // ppby
+    tile_size = tile_size_x * 8
+
+    width = tex_width // 8
+    height = tex_height // 8
+
+    dest = bytearray(width * height * tile_size)
+
+    for y in range(height):
+        for x in range(width):
+            tile = y * width + x
+
+            dst_base = tile * tile_size
+
+            for r in range(8):
+                src = tile_size_x * ((y * 8 + r) * width + x)
+                dst = dst_base + r * tile_size_x
+
+                dest[dst:dst + tile_size_x] = texture[src:src + tile_size_x]
+
+    return bytes(dest)
 
 def convert_image_to_tex(img: Image.Image, fmt: int) -> bytes:
     """Convert Pillow Image to NTFT texture data"""
@@ -492,7 +650,7 @@ def convert_image_to_PAC_PSCM(path: str, outpath: str):
     with open(outpath, "wb") as out:
         out.write(output)
 
-def convert_image_to_PAC_PSC(path: str, outpath: str):
+def convert_image_to_PAC_PSC(path: str, outpath: str, opt: bool = False):
     img = Image.open(path)
     
     palette = img.getpalette()
@@ -507,7 +665,7 @@ def convert_image_to_PAC_PSC(path: str, outpath: str):
     texture = convert_image_to_tex(img, fmt)
 
     pltt_data = write_palette(palette, fmt)
-    if (img.width == 256 and img.height == 192):
+    if opt or (img.width >= 256 and img.height >= 192):
         scrn_data, char_data = convert_tex_to_char_and_screen_opt(texture, img.width, img.height, fmt)
     else:
         scrn_data, char_data = convert_tex_to_char_and_screen(texture, img.width, img.height, fmt)
@@ -561,11 +719,47 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
     with open(outpath, "wb") as out:
         out.write(output)
 
+def convert_image_to_PAC_CP(path: str, outpath: str):
+    img = Image.open(path)
+    
+    palette = img.getpalette()
+    if palette is None:
+        img = get_image(img)
+        palette = img.getpalette()
+    
+    fmt = GX_TEXFMT_PLTT16
+    if (len(palette) // 3) > 16:
+        fmt = GX_TEXFMT_PLTT256
+    
+    texture = convert_image_to_tex(img, fmt)
+
+    pltt_data = write_palette(palette, fmt)
+    char_data = convert_tex_to_char(texture, img.width, img.height, fmt)
+
+    output = bytes()
+    output += pad(pack(PAC_CP_HEADER.format,
+                   2,
+                   32, len(char_data),
+                   32 + len(pad(char_data)), len(pltt_data),
+                   len(pad(char_data)) + len(pad(pltt_data))))
+    output += pad(char_data)
+    output += pad(pltt_data)
+
+    with open(outpath, "wb") as out:
+        out.write(output)
+
+#convert_PAC_CP_to_image("./files/data_iz/obj2d/rpg/mlup_w00.pac", "./files/data_iz/obj2d/rpg/mlup_w00.png", 64)
+#convert_image_to_PAC_CP("./test.png", "./test.pac")
 #convert_PAC_PSCM_to_image("./tools/ie3tools/archives/fac/fac00000100.pac", "./test.png")
 #convert_image_to_PAC_PSCM("./test.png", "./tools/ie3tools/archives/fac/fac00000100/test.pac")
+#convert_PAC_PSC_to_image("./files/data_iz/map2d/map2d/mr01b07_mn.pac_", "./test.png", 256)
+#convert_PAC_PSC_to_image("./tools/ie3tools/archives/level5_bottom/level5_bottom.pac", "./test.png", 256)
 #convert_PAC_PSC_to_image("./tools/ie3tools/archives/cmd/mbd_c00000001.pac", "./test.png", 112)
+#convert_PAC_PSC_to_image("./files/data_iz/map2d/map2d/ina_01p.pac_", "./files/data_iz/map2d/map2d/ina_01p.png", 32)
+#convert_PAC_PSC_to_image("./files/data_iz/pic2d/cmd/tcd_i00.pac", "./files/data_iz/pic2d/cmd/tcd_i00.png", 24)
 #convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/cmd/test.pac")
-#convert_image_to_PAC_PSC("./test2.png", "./test.pac")
+#convert_image_to_PAC_PSC("./test.png", "./tools/ie3tools/archives/cmd/test.pac")
+#convert_image_to_PAC_PSC("./files/data_iz/pic2d/cmd/mbd_c000b.png", "./test.pac", True)
 #convert_PAC_SPM_to_image("./tools/ie3tools/archives/c3t0100/c3t0100.pac", "./test.png")
 #convert_image_to_PAC_SPM("./test.png", "./tools/ie3tools/archives/c3t0100/test.pac")
 
@@ -587,13 +781,14 @@ def convert_image_to_PAC_SPM(path: str, outpath: str):
 
 def convert_folder():
     import os
-    folderpath = ""
+    folderpath = "./files/data_iz/pic2d/cmd/tcd_c"
     for filename in sorted(os.listdir(folderpath)):
         path = folderpath + "/" + filename
-        convert_PAC_PSCM_to_image(path, path.replace(".pac_", ".png"))
-        print(path)
-        if path.endswith(".pac_"):
+        if path.endswith(".pac"):
+            print(path)
+            convert_PAC_PSC_to_image(path, path.replace(".pac", ".png"), 136)
             os.remove(path)
+#convert_folder()
 
 import argparse
 def main():
@@ -622,21 +817,35 @@ def main():
         "-t",
         "--type",
         required=True,
-        choices=["PSC", "PSCM", "SPM"],
+        choices=["PSC", "PSCM", "SPM", "CP"],
         help="PAC format",
     )
 
     parser.add_argument(
         "--width",
         type=int,
-        help="Image width (required when decoding PSC)",
+        help="Image width (required when decoding PSC or CP)",
+    )
+
+    parser.add_argument(
+        "--opt",
+        choices=["true", "false"],
+        help="Tile optimization (set to false by default)",
     )
 
     args = parser.parse_args()
 
-    # PSC requires width only when decoding
+    opt = False
+    if args.opt:
+        if args.opt == "true":
+            opt = True
+        elif args.opt == "false":
+            opt = False
+
     if args.decode and args.type == "PSC" and args.width is None:
         parser.error("--width is required when decoding PSC files.")
+    if args.decode and args.type == "CP" and args.width is None:
+        parser.error("--width is required when decoding CP files.")
 
     if args.decode:
         if args.type == "PSC":
@@ -655,12 +864,18 @@ def main():
                 args.input,
                 args.output,
             )
-
+        elif args.type == "CP":
+            convert_PAC_CP_to_image(
+                args.input,
+                args.output,
+                args.width,
+            )
     elif args.encode:
         if args.type == "PSC":
             convert_image_to_PAC_PSC(
                 args.input,
                 args.output,
+                opt,
             )
         elif args.type == "PSCM":
             convert_image_to_PAC_PSCM(
@@ -672,7 +887,11 @@ def main():
                 args.input,
                 args.output,
             )
+        elif args.type == "CP":
+            convert_image_to_PAC_CP(
+                args.input,
+                args.output,
+            )
 
 if __name__ == "__main__":
     main()
-    #convert_folder()
