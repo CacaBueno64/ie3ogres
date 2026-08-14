@@ -1,5 +1,5 @@
-.public FUN_020523ac
-.public FUN_020523fc
+.public _ZN11C3DGameBase11closeModelsEv
+.public _ZN11C3DGameBase11setupModelsEv
 .public OS_Terminate
 .public unk_02090C14
 .public unk_02090C34
@@ -47,7 +47,7 @@
 .public FUN_ov16_020faf5c
 .public FUN_ov16_020fb024
 .public FUN_ov16_020fb040
-.public FUN_02052168
+.public _ZN11C3DGameBase9initFilesEi
 .public __cxa_vec_new
 .public _ZN10CAllocator8allocateEm
 .public FUN_ov16_020f9cdc
@@ -56,8 +56,8 @@
 .public FUN_020525e8
 .public FUN_0205a2f0
 .public gAllocator
-.public FUN_020522ec
-.public FUN_020521a0
+.public _ZN11C3DGameBase9closeFileEi
+.public _ZN11C3DGameBase10closeFilesEv
 .public _ZN10CAllocator10deallocateEPv
 .public __cxa_vec_delete
 .public FUN_ov16_020f9d80

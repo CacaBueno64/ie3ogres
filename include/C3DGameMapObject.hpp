@@ -32,12 +32,12 @@ public:
     {
         this->reset();
     }
-    /* 0x0205e2d8 */ virtual char *vFUN_00(int param1);
-    /* 0x0205e34c */ virtual char *vFUN_04(int param1);
-    /* 0x0205e3c0 */ virtual BOOL vFUN_08(char *param1, int *param2, int *param3);
+    /* 0x0205e2d8 */ virtual char *vFUN_00(int idx);
+    /* 0x0205e34c */ virtual char *vFUN_04(int idx);
+    /* 0x0205e3c0 */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
     /* 0x0205ff60 */ virtual ~C3DGameMapObject();
 
-    /* 0x0205ecd0 */ BOOL init(int);
+    /* 0x0205ecd0 */ bool init(int);
     /* 0x0205e5d8 */ void reset(void);
 
     C3DGameMapObject_14 *unk14;

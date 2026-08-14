@@ -8,5 +8,5 @@
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_ov16_020faac4
-.public FUN_ov16_020fab94
+.public _ZN6CModel5closeEv
+.public _ZN6CModel5setupEv

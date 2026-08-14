@@ -1,4 +1,4 @@
-.public FUN_020523ac
+.public _ZN11C3DGameBase11closeModelsEv
 .public MIi_CpuClearFast
 .public MTX_Identity43_
 .public _fflt
@@ -42,7 +42,7 @@
 .public _ZN11C3DGameBaseC2Ev
 .public unk_02090A30
 .public _ZdlPv
-.public FUN_02052168
+.public _ZN11C3DGameBase9initFilesEi
 .public __cxa_vec_new
 .public _Znwm
 .public FUN_020540e0
@@ -52,8 +52,8 @@
 .public FUN_020527d4
 .public FUN_0205a3f0
 .public gAllocator
-.public FUN_020522ec
-.public FUN_020521a0
+.public _ZN11C3DGameBase9closeFileEi
+.public _ZN11C3DGameBase10closeFilesEv
 .public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_020f9d80
 .public __cxa_vec_delete
@@ -106,4 +106,4 @@
 .public FUN_ov16_020fa54c
 .public strstr
 .public FUN_ov16_020fab0c
-.public FUN_020523fc
+.public _ZN11C3DGameBase11setupModelsEv

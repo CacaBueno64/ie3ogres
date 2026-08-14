@@ -39,7 +39,7 @@
 .public FUN_020443c0
 .public FUN_0205f150
 .public FUN_0205d56c
-.public FUN_020521d0
+.public _ZN11C3DGameBase8openFileEib
 .public unk_0209A3E0
 .public unk_020AF81C
 .public g3DGameMapObject
@@ -49,7 +49,7 @@
 .public FUN_020443d4
 .public FUN_0205f1ec
 .public FUN_0205d608
-.public FUN_020522ec
+.public _ZN11C3DGameBase9closeFileEi
 .public _ZN10CAllocator10deallocateEPv
 .public unk_02099E91
 .public gAllocator
@@ -121,7 +121,7 @@
 .public gCameraCtrl
 .public g3DGameChar
 .public FUN_0205b340
-.public FUN_0205228c
+.public _ZN11C3DGameBase10detachFileEi
 .public FUN_02044560
 .public FUN_0205d348
 .public FUN_0205bf14

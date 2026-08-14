@@ -15,7 +15,7 @@
 .public unk_0209A4E4
 .public unk_0209A4E0
 .public FUN_0205b340
-.public FUN_0205228c
+.public _ZN11C3DGameBase10detachFileEi
 .public g3DGameChar
 .public g3DGameMapObject
 .public _ZN9C3DDevice13setClearColorEthi
@@ -25,7 +25,7 @@
 .public FUN_ov16_020f7a8c
 .public FUN_ov16_020f7b50
 .public FUN_0205b2b8
-.public FUN_020521d0
+.public _ZN11C3DGameBase8openFileEib
 .public unk_0209A720
 .public g3DDevice
 .public g3DSpriteCtrl
@@ -51,7 +51,7 @@
 .public FUN_ov16_02116650
 .public _ZN12C3DPlaneCtrl7releaseEv
 .public FUN_0205b398
-.public FUN_020522ec
+.public _ZN11C3DGameBase9closeFileEi
 .public _ZdlPv
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev

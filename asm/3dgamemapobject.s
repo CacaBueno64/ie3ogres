@@ -778,7 +778,7 @@ _ZN16C3DGameMapObject4initEi: ; 0x0205ECD0
 	mov r0, r10
 	mov r1, #7
 	str r9, [r10, #0xc]
-	bl FUN_02052168
+	bl _ZN11C3DGameBase9initFilesEi
 	ldr r0, _0205EE14 ; =FUN_020527d4
 	mov r4, #8
 	str r0, [sp]
@@ -867,9 +867,9 @@ FUN_0205ee28: ; 0x0205EE28
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	mvn r1, #0
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	mov r0, r4
-	bl FUN_020521a0
+	bl _ZN11C3DGameBase10closeFilesEv
 	mov r0, r4
 	bl FUN_0205f61c
 	ldr r1, [r4, #0x14]
@@ -2237,8 +2237,8 @@ _ZTV16C3DGameMapObject:
 	.word FUN_0205e2d8
 	.word FUN_0205e34c
 	.word FUN_0205e3c0
-	.word FUN_020523ac
-	.word FUN_020523fc
+	.word _ZN11C3DGameBase11closeModelsEv
+	.word _ZN11C3DGameBase11setupModelsEv
 	.word FUN_0205ff60
 	.word FUN_0205ff38
 	.global unk_02090C14

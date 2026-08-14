@@ -16,7 +16,10 @@ typedef struct {
 class CModel
 {
 public:
-    /* 0x020fa3dc */ virtual BOOL copy(CModel *);
+    /* 0x020fa3dc */ virtual bool copy(CModel *);
+
+    /* 0x020faac4 */ bool close(void);
+    /* 0x020fab94 */ bool setup(void);
 
     SNsbResource *modelRes;
     void *renderObj; // NNSG3dRenderObj

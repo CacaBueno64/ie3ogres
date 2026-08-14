@@ -582,21 +582,21 @@ _020BD328:
 	mov r2, r5
 	ldr r0, [r7]
 	mov r1, #3
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	mov r4, #1
 	ldr r0, [r7]
 	mov r1, r4
 	mov r2, r5
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r0, [r7]
 	mov r2, r5
 	mov r1, #5
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r0, _020BD538 ; =g3DGameMapObject
 	mov r1, #6
 	ldr r0, [r0]
 	mov r2, r5
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r1, _020BD53C ; =0x020E8474
 	mov r0, r5
 	bl _ZN10FileSystem17OpenArchiveDirectEPvPKc
@@ -830,17 +830,17 @@ _020BD69C:
 	str r0, [r7, #0x14]
 	ldr r0, [r6]
 	mov r1, #3
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, [r6]
 	mov r1, #1
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, _020BD7D0 ; =g3DGameMapObject
 	mov r1, #6
 	ldr r0, [r0]
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, [r6]
 	mov r1, #5
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	mov r0, r5
 	mov r1, #2
 	ldr r2, [r0]

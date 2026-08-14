@@ -136,7 +136,7 @@
 .public FUN_0206c940
 .public FUN_0206c88c
 .public FUN_0206c2f8
-.public FUN_020521d0
+.public _ZN11C3DGameBase8openFileEib
 .public _ZN10FileSystem17OpenArchiveDirectEPvPKc
 .public _ZN10CAllocator8allocateEmii
 .public _Znwm
@@ -167,7 +167,7 @@
 .public _ZN11AudioPlayer12FUN_0202d774Eil
 .public _ZdlPv
 .public _ZN10FileSystem12CloseArchiveEi
-.public FUN_020522ec
+.public _ZN11C3DGameBase9closeFileEi
 .public FUN_0206c9a0
 .public FUN_0206c8dc
 .public FUN_0206c270

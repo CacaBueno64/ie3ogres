@@ -10,6 +10,7 @@ ie3ogre_cpp += files(
     'CFontManager.cpp',
     'script/CSceneScriptFileContext.cpp',
     'C3DDevice.cpp',
+    'C3DGameBase.cpp',
     'CCardCtrl.cpp',
     'thread.cpp',
     'filesystem.cpp',

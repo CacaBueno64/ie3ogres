@@ -163,7 +163,7 @@ FUN_ov77_0211a0e8: ; 0x0211A0E8
 	ldr r0, _0211A128 ; =g3DGameMapObject
 	mvn r1, #0
 	ldr r0, [r0]
-	bl FUN_0205228c
+	bl _ZN11C3DGameBase10detachFileEi
 	cmp r0, #1
 	moveq r0, #0
 	movne r0, #1
@@ -241,19 +241,19 @@ FUN_ov77_0211a12c: ; 0x0211A12C
 	mov r6, #1
 	ldr r0, [r5]
 	mov r2, r6
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r0, [r5]
 	mov r1, r4
 	mov r2, r6
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r0, [r5]
 	mov r1, #3
 	mov r2, r6
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	ldr r0, [r5]
 	mov r2, r6
 	mov r1, #5
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211A274: .word unk_0209A720
@@ -276,7 +276,7 @@ FUN_ov77_0211a290: ; 0x0211A290
 	ldr r0, _0211A3BC ; =g3DGameMapObject
 	mvn r1, #0
 	ldr r0, [r0]
-	bl FUN_0205228c
+	bl _ZN11C3DGameBase10detachFileEi
 	cmp r0, #1
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r4, _0211A3C0 ; =0x020AF81C
@@ -384,16 +384,16 @@ FUN_ov77_0211a3e0: ; 0x0211A3E0
 	ldr r5, _0211A488 ; =g3DGameMapObject
 	mov r1, r4
 	ldr r0, [r5]
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, [r5]
 	mov r1, #2
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, [r5]
 	mov r1, #3
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldr r0, [r5]
 	mov r1, #5
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	ldmfd sp!, {r3, r4, r5, pc}
 _0211A478: .word g3DDevice
 _0211A47C: .word g3DSpriteCtrl

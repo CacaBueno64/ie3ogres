@@ -107,9 +107,15 @@ Static main
 	Object main.nef.p/asm_thinkmanager.s.o
 	Object main.nef.p/asm_logicthink.s.o
 	Object main.nef.p/src_C3DDevice.cpp.o
+	
 	Object main.nef.p/asm_init_arm9_init_020871c8.s.o
 	Object main.nef.p/asm_init_arm9_init_02087218.s.o
 	Object main.nef.p/asm_init_arm9_init_02087268.s.o
+
+	Object main.nef.p/asm_resourcemanager.s.o
+	Object main.nef.p/asm_3dgamebase.s.o
+	Object main.nef.p/src_C3DGameBase.cpp.o
+
 	Object main.nef.p/asm_init_arm9_init_020872bc.s.o
 	Object main.nef.p/asm_init_arm9_init_02087310.s.o
 	Object main.nef.p/asm_init_arm9_init_02087360.s.o
@@ -125,8 +131,6 @@ Static main
 	Object main.nef.p/asm_init_arm9_init_020876a4.s.o
 	Object main.nef.p/asm_init_arm9_init_020876f8.s.o
 
-	Object main.nef.p/asm_resourcemanager.s.o
-	Object main.nef.p/asm_3dgamebase.s.o
 	Object main.nef.p/asm_arm9_0205244c.s.o
 	Object main.nef.p/asm_arm9_0205318c.s.o
 	Object main.nef.p/asm_actor2d.s.o

@@ -4430,8 +4430,8 @@ FUN_ov16_020faab0: ; 0x020FAAB0
 	bx lr
 	arm_func_end FUN_ov16_020faab0
 
-	arm_func_start FUN_ov16_020faac4
-FUN_ov16_020faac4: ; 0x020FAAC4
+	arm_func_start _ZN6CModel5closeEv
+_ZN6CModel5closeEv: ; 0x020FAAC4
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _020FAB08 ; =gNsbResourceMan
 	mov r4, r0
@@ -4452,7 +4452,7 @@ _020FAAF8:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FAB08: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020faac4
+	arm_func_end _ZN6CModel5closeEv
 
 	arm_func_start FUN_ov16_020fab0c
 FUN_ov16_020fab0c: ; 0x020FAB0C
@@ -4500,8 +4500,8 @@ FUN_ov16_020fab74: ; 0x020FAB74
 	bx lr
 	arm_func_end FUN_ov16_020fab74
 
-	arm_func_start FUN_ov16_020fab94
-FUN_ov16_020fab94: ; 0x020FAB94
+	arm_func_start _ZN6CModel5setupEv
+_ZN6CModel5setupEv: ; 0x020FAB94
 	stmfd sp!, {r4, r5, r6, lr}
 	ldr r1, _020FABD8 ; =gNsbResourceMan
 	mov r4, r0
@@ -4522,7 +4522,7 @@ _020FABC8:
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _020FABD8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fab94
+	arm_func_end _ZN6CModel5setupEv
 
 	arm_func_start FUN_ov16_020fabdc
 FUN_ov16_020fabdc: ; 0x020FABDC
@@ -6477,7 +6477,7 @@ FUN_ov16_020fc4bc: ; 0x020FC4BC
 	mov r4, #0x1bc
 _020FC4CC:
 	mla r0, r5, r4, r6
-	bl FUN_ov16_020faac4
+	bl _ZN6CModel5closeEv
 	add r5, r5, #1
 	cmp r5, #4
 	blt _020FC4CC
@@ -6495,7 +6495,7 @@ FUN_ov16_020fc4f0: ; 0x020FC4F0
 	mov r4, #0x1bc
 _020FC500:
 	mla r0, r5, r4, r6
-	bl FUN_ov16_020fab94
+	bl _ZN6CModel5setupEv
 	add r5, r5, #1
 	cmp r5, #4
 	blt _020FC500

@@ -591,7 +591,7 @@ _ZN13C3DGameEffect4initEi: ; 0x0205BCA4
 	mov r0, r10
 	mov r1, #1
 	str r9, [r10, #0xc]
-	bl FUN_02052168
+	bl _ZN11C3DGameBase9initFilesEi
 	ldr r0, _0205BE0C ; =FUN_020527d4
 	mov r4, #8
 	str r0, [sp]
@@ -674,7 +674,7 @@ _0205BDF4:
 	mov r1, #0
 	mov r0, r10
 	mov r2, r1
-	bl FUN_020521d0
+	bl _ZN11C3DGameBase8openFileEib
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0205BE0C: .word FUN_020527d4
@@ -689,9 +689,9 @@ FUN_0205be20: ; 0x0205BE20
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r4, r0
 	mvn r1, #0
-	bl FUN_020522ec
+	bl _ZN11C3DGameBase9closeFileEi
 	mov r0, r4
-	bl FUN_020521a0
+	bl _ZN11C3DGameBase10closeFilesEv
 	mov r0, r4
 	bl FUN_0205c468
 	ldr r1, [r4, #0x14]
@@ -1021,7 +1021,7 @@ FUN_0205C240: ; 0x0205C240
 	bl FUN_0205b624
 	mov r0, r9
 	mov r1, r4
-	bl FUN_0205228c
+	bl _ZN11C3DGameBase10detachFileEi
 	cmp r0, #0
 	addne sp, sp, #0x1c
 	subne r0, r4, #1
@@ -1588,8 +1588,8 @@ _ZTV13C3DGameEffect:
 	.word FUN_0205b4f0
 	.word FUN_0205b504
 	.word FUN_0205c99c
-	.word FUN_020523ac
-	.word FUN_020523fc
+	.word _ZN11C3DGameBase11closeModelsEv
+	.word _ZN11C3DGameBase11setupModelsEv
 	.word FUN_0205c97c
 	.word FUN_0205c954
 	.global unk_02090978

@@ -12,12 +12,12 @@ public:
     {
         this->reset();
     }
-    /* 0x0205b4f0 */ virtual char *vFUN_00(int param1);
-    /* 0x0205b504 */ virtual char *vFUN_04(int param1);
-    /* 0x0205c99c */ virtual BOOL vFUN_08(char *param1, int *param2, int *param3);
+    /* 0x0205b4f0 */ virtual char *vFUN_00(int idx);
+    /* 0x0205b504 */ virtual char *vFUN_04(int idx);
+    /* 0x0205c99c */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
     /* 0x0205c97c */ virtual ~C3DGameEffect();
 
-    /* 0x0205bca4 */ BOOL init(int);
+    /* 0x0205bca4 */ bool init(int);
     /* 0x0205b518 */ void reset(void);
 
     void *unk4;
