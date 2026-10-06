@@ -23,8 +23,11 @@ class CNsbResourceMan
 public:
     virtual ~CNsbResourceMan() {}
     FileSystem::Result getResult(SNsbResource *res);
-    /* ov16 0x020fd4a8 */ CNsbResourceMan();
     /* ov16 0x020fc9f4 */ void init(int resCount);
+    /* ov16 0x020fd278 */ int tryFinalize(SNsbResource *res);
+    /* ov16 0x020fd350 */ void release(SNsbResource *res);
+    /* ov16 0x020fd4a8 */ CNsbResourceMan();
+    SNsbResource *FUN_ov16_020fd6d8(SNsbResource *param1, int param2, int param3);
 
     SNsbResource *resources;
     int cap;

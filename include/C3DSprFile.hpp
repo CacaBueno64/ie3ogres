@@ -49,8 +49,8 @@ class C3DSprFile
 public:
     C3DSprFile();
     virtual ~C3DSprFile();
-    void finalize();
-    bool acquire();
+    void finalize(void);
+    bool acquire(void);
     bool release(bool);
     bool init(u32 fileCount);
     C3DSprSheet *getSpriteSheet(sfkey_t key);
@@ -58,11 +58,13 @@ public:
     void *FUN_02059bb4(C3DSprSheet *sheet, u32 *outSize);
     void *getPaletteData(C3DSprSheet *sheet, u32 *outSize);
     bool getResKeyAddresses(C3DSprSheet *sheet, u32 *texOut, u32 *plttOut);
+    void FUN_02058e30(void);
     bool FUN_02058ee0(int key);
     bool FUN_02059004(int key);
     void FUN_020591e8(int key);
     void FUN_02059880(void);
-    void FUN_020598ec(void);
+    int FUN_020598ec(int key);
+    bool FUN_02059038(int key, int param2, int param3);
 
     inline u32 getPaletteSizeSingle(C3DSprSheet *sheet)
     {

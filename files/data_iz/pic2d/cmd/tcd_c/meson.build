@@ -25,8 +25,6 @@ tcd_c_png_files = files(
 
 tcd_c_pac_files = []
 
-python3 = find_program('python3')
-
 foreach tcd_c_png : tcd_c_png_files
     pac = custom_target(fs.name(tcd_c_png).replace('.png', '.pac'),
         input: tcd_c_png,
@@ -34,9 +32,10 @@ foreach tcd_c_png : tcd_c_png_files
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     tcd_c_pac_files += pac

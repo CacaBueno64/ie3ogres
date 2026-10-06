@@ -1,6 +1,7 @@
 #pragma once
 
 #include <nitro/types.h>
+#include <nitro/fx/fx.h>
 
 #include "C3DGameBase.hpp"
 #include "CModel.hpp"
@@ -36,6 +37,8 @@ public:
     /* 0x0205d138 */ virtual ~C3DGameMap();
 
     /* 0x0205d180 */ bool init(int);
+    static void FUN_0205e084(VecFx32 *param0, C3DGameMap *param1, int param2);
+    static void FUN_0205e0f4(VecFx32 *param0, C3DGameMap *param1, int param2);
 
     C3DGameMap_10 *unk10;
     ModelMap *modelMap;

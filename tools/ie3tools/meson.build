@@ -1,20 +1,5 @@
-archive_exe = executable('archive',
+compression_exe = executable('compression',
     sources: [
-        'archive.cpp',
-        'compression.cpp',
-    ],
-    cpp_args: [
-        '-std=c++20',
-    ],
-    link_args: [
-        '-lz',
-    ],
-    native: true
-)
-
-compress_exe = executable('compress',
-    sources: [
-        'compress.cpp',
         'compression.cpp',
     ],
     cpp_args: [
@@ -23,4 +8,6 @@ compress_exe = executable('compress',
     native: true
 )
 
+archive_py = find_program('archive.py', native: true)
+compression_py = find_program('compression.py', native: true)
 image_py = find_program('image.py', native: true)

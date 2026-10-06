@@ -1,13 +1,16 @@
+subdir('efct')
+
 efct_pack = custom_target('efct_pack',
     output: [
         'efct.pkb',
         'efct.pkh',
     ],
-    input: [],
+    input: efct_files,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@CURRENT_SOURCE_DIR@/efct',
+        '-c', '@INPUT0@',
         '@OUTDIR@',
     ]
 )

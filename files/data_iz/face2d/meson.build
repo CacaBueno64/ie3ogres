@@ -6,14 +6,15 @@ fab_pack = custom_target('fab_pack',
         'fab.pkb',
         'fab.pkh',
     ],
-    input: [],
+    input: fab_pac_files_comp,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@OUTDIR@/fab',
+        '-c',
+        '@INPUT0@',
         '@OUTDIR@',
     ],
-    depends: fab_pac_files
 )
 
 nitrofs_files += fab_pack
@@ -23,14 +24,15 @@ fac_pack = custom_target('fac_pack',
         'fac.pkb',
         'fac.pkh',
     ],
-    input: [],
+    input: fac_pac_files_comp,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@OUTDIR@/fac',
+        '-c',
+        '@INPUT0@',
         '@OUTDIR@',
     ],
-    depends: fac_pac_files
 )
 
 nitrofs_files += fac_pack

@@ -404,8 +404,6 @@ mbd_c_png_files = files(
 
 mbd_c_pac_files = []
 
-python3 = find_program('python3')
-
 foreach mbd_c_png : mbd_c_png_files
     pac = custom_target(fs.name(mbd_c_png).replace('.png', '.pac'),
         input: mbd_c_png,
@@ -413,9 +411,10 @@ foreach mbd_c_png : mbd_c_png_files
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     mbd_c_pac_files += pac

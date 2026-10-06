@@ -33,8 +33,6 @@ wldn_f_png_files = files(
 
 wldn_f_pac_files = []
 
-python3 = find_program('python3')
-
 foreach wldn_f_png : wldn_f_png_files
     pac = custom_target(fs.name(wldn_f_png).replace('.png', '.pac'),
         input: wldn_f_png,
@@ -42,9 +40,10 @@ foreach wldn_f_png : wldn_f_png_files
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     wldn_f_pac_files += pac

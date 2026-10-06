@@ -1531,19 +1531,34 @@ fab_png_files = files(
 
 fab_pac_files = []
 
-python3 = find_program('python3')
-
 foreach fab_png : fab_png_files
-    pac = custom_target(fs.name(fab_png).replace('.png', '.pac_'),
+    pac = custom_target(fs.name(fab_png).replace('.png', '.pac'),
         input: fab_png,
-        output: '@BASENAME@.pac_',
+        output: '@BASENAME@.pac',
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSCM',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     fab_pac_files += pac
+endforeach
+
+fab_pac_files_comp = []
+
+foreach fab_pac : fab_pac_files
+    comp = custom_target(fs.name(fab_pac).replace('.pac', '.pac_'),
+        input: fab_pac,
+        output: '@PLAINNAME@' + '_',
+        command: [
+            compression_exe,
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
+        ]
+    )
+    fab_pac_files_comp += comp
 endforeach

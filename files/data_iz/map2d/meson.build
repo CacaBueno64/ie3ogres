@@ -5,14 +5,15 @@ map2d_pack = custom_target('map2d_pack',
         'map2d.pkb',
         'map2d.pkh',
     ],
-    input: [],
+    input: map2d_pac_files_comp,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@OUTDIR@/map2d',
+        '-c',
+        '@INPUT0@',
         '@OUTDIR@',
     ],
-    depends: map2d_pac_files
 )
 
 nitrofs_files += map2d_pack

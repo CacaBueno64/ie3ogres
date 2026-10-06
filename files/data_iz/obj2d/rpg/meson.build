@@ -18,8 +18,6 @@ obj2d_rpg_png_files = files(
 
 obj2d_rpg_pac_files = []
 
-python3 = find_program('python3')
-
 foreach obj2d_rpg_png : obj2d_rpg_png_files
     pac = custom_target(fs.name(obj2d_rpg_png).replace('.png', '.pac'),
         input: obj2d_rpg_png,
@@ -27,28 +25,29 @@ foreach obj2d_rpg_png : obj2d_rpg_png_files
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'CP',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     obj2d_rpg_pac_files += pac
 endforeach
 
-obj2d_rpg_comp_files = []
+obj2d_rpg_pac_files_comp = []
 
 foreach obj2d_rpg_pac : obj2d_rpg_pac_files
     comp = custom_target(fs.name(obj2d_rpg_pac).replace('.pac', '.pac_'),
         input: obj2d_rpg_pac,
-        output: '@BASENAME@.pac_',
+        output: '@PLAINNAME@' + '_',
         command: [
-            compress_exe,
-            '-t', 'LZ',
-            '-c', '@INPUT@', '@OUTPUT@',
+            compression_exe,
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
-
-    obj2d_rpg_comp_files += comp
+    obj2d_rpg_pac_files_comp += comp
 endforeach
 
-nitrofs_files += obj2d_rpg_comp_files
+nitrofs_files += obj2d_rpg_pac_files_comp

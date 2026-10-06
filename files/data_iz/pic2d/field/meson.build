@@ -6,14 +6,15 @@ wgd_s_pack = custom_target('wgd_s_pack',
         'wgd_s.pkb',
         'wgd_s.pkh',
     ],
-    input: [],
+    input: wgd_s_pac_files,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@OUTDIR@/wgd_s',
+        '-c',
+        '@INPUT0@',
         '@OUTDIR@',
     ],
-    depends: wgd_s_pac_files
 )
 
 nitrofs_files += wgd_s_pack
@@ -23,14 +24,15 @@ wldn_f_pack = custom_target('wldn_f_pack',
         'wldn_f.pkb',
         'wldn_f.pkh',
     ],
-    input: [],
+    input: wldn_f_pac_files,
     command: [
-        archive_exe,
+        python3,
+        archive_py,
         '-t', 'PKB',
-        '-c', '@OUTDIR@/wldn_f',
+        '-c',
+        '@INPUT0@',
         '@OUTDIR@',
     ],
-    depends: wldn_f_pac_files
 )
 
 nitrofs_files += wldn_f_pack

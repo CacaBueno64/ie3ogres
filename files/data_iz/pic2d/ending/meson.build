@@ -81,8 +81,6 @@ pic2d_ending_png_files = files(
 
 pic2d_ending_pac_files = []
 
-python3 = find_program('python3')
-
 foreach pic2d_ending_png : pic2d_ending_png_files
     pac = custom_target(fs.name(pic2d_ending_png).replace('.png', '.pac'),
         input: pic2d_ending_png,
@@ -90,28 +88,29 @@ foreach pic2d_ending_png : pic2d_ending_png_files
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     pic2d_ending_pac_files += pac
 endforeach
 
-pic2d_ending_comp_files = []
+pic2d_ending_pac_files_comp = []
 
 foreach pic2d_ending_pac : pic2d_ending_pac_files
     comp = custom_target(fs.name(pic2d_ending_pac).replace('.pac', '.pac_'),
         input: pic2d_ending_pac,
-        output: '@BASENAME@.pac_',
+        output: '@PLAINNAME@' + '_',
         command: [
-            compress_exe,
-            '-t', 'LZ',
-            '-c', '@INPUT@', '@OUTPUT@',
+            compression_exe,
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
-
-    pic2d_ending_comp_files += comp
+    pic2d_ending_pac_files_comp += comp
 endforeach
 
-nitrofs_files += pic2d_ending_comp_files
+nitrofs_files += pic2d_ending_pac_files_comp

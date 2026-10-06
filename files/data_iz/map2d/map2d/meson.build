@@ -328,19 +328,34 @@ map2d_png_files = files(
 
 map2d_pac_files = []
 
-python3 = find_program('python3')
-
 foreach map2d_png : map2d_png_files
-    pac = custom_target(fs.name(map2d_png).replace('.png', '.pac_'),
+    pac = custom_target(fs.name(map2d_png).replace('.png', '.pac'),
         input: map2d_png,
-        output: '@BASENAME@.pac_',
+        output: '@BASENAME@.pac',
         command: [
             python3,
             image_py,
-            '@INPUT@',
             '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
         ]
     )
     map2d_pac_files += pac
+endforeach
+
+map2d_pac_files_comp = []
+
+foreach map2d_pac : map2d_pac_files
+    comp = custom_target(fs.name(map2d_pac).replace('.pac', '.pac_'),
+        input: map2d_pac,
+        output: '@PLAINNAME@' + '_',
+        command: [
+            compression_exe,
+            '-c',
+            '@INPUT@',
+            '@OUTPUT@',
+        ]
+    )
+    map2d_pac_files_comp += comp
 endforeach

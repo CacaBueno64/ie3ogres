@@ -37,6 +37,14 @@ extern "C" {
     extern void FUN_ov16_020f2fe4(SCanvas *, int);
 }
 
+typedef enum {
+    KEY_TYPE_NONE    = 0,
+    KEY_TYPE_CHAR    = 1,
+    KEY_TYPE_CONFIRM = 3,
+    KEY_TYPE_CANCEL  = 4,
+    KEY_TYPE_SPECIAL = 11,
+} EKeyType;
+
 typedef struct {
     int type;
     int x;
@@ -51,8 +59,8 @@ public:
     static CFontManager::CharType getCharType(char *text);
     static u16 decodeChar(char *text, CFontManager::CharType type);
     static u16 normalizeChar(u16 c, u16 *data, int size);
-    static void FUN_ov55_0211a010(char *param0, char *param1, u16 *param2, int param3);
-    static bool FUN_ov55_0211a0c4(char *param0, u16 *param1, int param2, char **param3, int param4);
+    static void normalizeNgWordString(char *dst, char *src, u16 *fcodeck, size_t fcodeckSize);
+    static bool containsNgWord(char *src, u16 *fcodeck, size_t fcodeckSize, char **param3, int param4);
 
     CMainMenuScreenEnterName(CScreenManager *manager) : manager(manager) { }
     virtual void updateKeys(u16 pressed, u16 held);
@@ -98,7 +106,7 @@ public:
     virtual void vFUN_C4(int param1);
     virtual void vFUN_C8(void);
     virtual void vFUN_CC(int param1);
-    virtual void vFUN_D0(void);
+    virtual void drawText(void);
     virtual void vFUN_D4(void);
     virtual void vFUN_D8(void);
     virtual void vFUN_DC(void);
@@ -155,14 +163,13 @@ private:
     int unk10;
     u8 unk14;
     u8 tpTouch;
-    u8 unk16;
-    u8 unk17;
+    u8 pad16[0x2];
     u32 tpX;
     u32 tpY;
     SKey unk20;
     SKey unk30;
     SKey keyActive;
-    int unk50;
+    int keyboardLayout;
     u8 unk54;
     u8 unk55;
     u8 unk56;
@@ -174,12 +181,12 @@ private:
     u8 unk5F;
     u32 unk60;
     u8 *unk64;
-    u16 *unk68;
+    u16 *screen;
     char unk6C[17];
-    char *ngWords;
-    char **ngLines;
-    size_t ngLineCount;
-    size_t ngSize;
+    char *ngWordData;
+    char **ngWordLines;
+    size_t ngWordLineCount;
+    size_t ngWordDataSize;
     SCanvas canvas;
     SFileData files[FILE_MAX];
     CPhonePassword phonePassword;

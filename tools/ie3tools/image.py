@@ -1,4 +1,4 @@
-#!/usr/bin/env/python3
+#!/usr/bin/env python3
 
 from PIL import Image
 from struct import pack, unpack, unpack_from, Struct
