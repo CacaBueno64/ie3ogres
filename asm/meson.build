@@ -174,7 +174,6 @@ ie3ogre_asm += files(
     '3dgamemapobject.s',
     '3dspritefile.s',
     'actor2d.s',
-    'allocator.s',
     'arm9_02028fa0.s',
     'arm9_0203df80.s',
     'arm9_0203fb5c.s',

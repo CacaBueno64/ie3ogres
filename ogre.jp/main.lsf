@@ -61,7 +61,8 @@ Static main
 	Object main.nef.p/asm_commonmainscreen.s.o
 	Object main.nef.p/asm_audioplayer_data.s.o
 	Object main.nef.p/src_audioplayer.cpp.o
-	Object main.nef.p/asm_allocator.s.o
+	Object main.nef.p/src_CAllocator.cpp.o
+	# Object main.nef.p/asm_allocator.s.o
 	Object main.nef.p/src_movieplayer.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02086be8.s.o

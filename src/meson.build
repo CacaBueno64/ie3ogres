@@ -3,6 +3,7 @@ ie3ogre_cpp += files(
     'izmain.cpp',
     'gamemodes.cpp',
     'audioplayer.cpp',
+    'CAllocator.cpp',
     'movieplayer.cpp',
     'CFileIO.cpp',
     'CConfig.cpp',

@@ -29,16 +29,16 @@ class CAllocator {
             AllocatorMetadata *next;
         } AllocatorMetadata;
 
-        /* 0x0202dbf8 */ CAllocator();
-        /* 0x0202dc1c */ ~CAllocator();
-        /* 0x0202dc54 */ void initArenas(OSArenaId id, void *arenaLo, void *arenaHi);
-        /* 0x0202dda0 */ static void tryMerge(AllocatorMetadata *chunk);
-        /* 0x0202de44 */ void *allocate(size_t size);
-        /* 0x0202de58 */ void *allocate(size_t size, int type, int strategy);
-        /* 0x0202e19c */ int setNextArena(int arena);
-        /* 0x0202e1ac */ int setDefaultArena(int arena);
-        /* 0x0202e1c0 */ void deallocate(void *ptr);
-        /* 0x0202e38c */ void getHeapInfo(int *usedSizeOut, int *freeSizeOut, int *maxFreeSizeOut);
+        CAllocator();
+        ~CAllocator();
+        void initArenas(OSArenaId id, void *arenaLo, void *arenaHi);
+        static void tryMerge(AllocatorMetadata *chunk);
+        void *allocate(size_t size);
+        void *allocate(size_t size, int type, int strategy);
+        int setNextArena(int arena);
+        int setDefaultArena(int arena);
+        void deallocate(void *ptr);
+        void getHeapInfo(int *usedSizeOut, int *freeSizeOut, int *maxFreeSizeOut);
     
     CFileIO *fileIO;
     OSArenaId arenaId;
