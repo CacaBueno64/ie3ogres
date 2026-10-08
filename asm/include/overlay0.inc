@@ -79,7 +79,7 @@
 .public FUN_ov71_0211aa5c
 .public FUN_ov68_0211e144
 .public FUN_ov69_0211bbdc
-.public FUN_ov55_0211d128
+.public _ZN14CPhonePasswordC2Ev
 .public FUN_ov29_0211a158
 .public FUN_ov97_02124d00
 .public FUN_ov104_02124d00

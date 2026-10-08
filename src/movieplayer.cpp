@@ -5,7 +5,7 @@
 #include <nitro/os/common/system.h>  // for OS_Terminate
 #include <nitro/std/string.h>        // for STD_TSPrintf
 
-#include "allocator.hpp"             // for CAllocator
+#include "CAllocator.hpp"             // for CAllocator
 #include "audioplayer.hpp"           // for AudioPlayer, gAudioPlayer
 #include "init/arm9_init.hpp"        // IWYU pragma: keep
 // clang-format on

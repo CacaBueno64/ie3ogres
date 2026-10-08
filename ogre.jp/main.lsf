@@ -62,7 +62,6 @@ Static main
 	Object main.nef.p/asm_audioplayer_data.s.o
 	Object main.nef.p/src_audioplayer.cpp.o
 	Object main.nef.p/src_CAllocator.cpp.o
-	# Object main.nef.p/asm_allocator.s.o
 	Object main.nef.p/src_movieplayer.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02086be8.s.o
@@ -657,7 +656,7 @@ Overlay overlay55
 {
 	After overlay16
 	Object main.nef.p/src_mainmenuscreen_CMainMenuScreenEnterName.cpp.o
-	Object main.nef.p/asm_overlay55_phonepassword.s.o
+	Object main.nef.p/src_CPhonePassword.cpp.o
 }
 Overlay overlay56
 {

@@ -17,7 +17,7 @@
 
 #include "CFileIO.hpp"                 // for CFileIO
 #include "CLogicThink.hpp"             // for CLogicThink, gLogicThink
-#include "allocator.hpp"               // for CAllocator, gAllocator
+#include "CAllocator.hpp"               // for CAllocator, gAllocator
 #include "cnvdat.h"                    // for SSoundRecordData
 #include "filesystem.hpp"              // for FindFileIdx, GetFile, IsFileBusy, OpenArchiveDirect, ReadFileByIdx, ReadFileByIdxDeferred, SetNextArena, archandle_t, filekey_t
 #include "graphics.hpp"                // for gDeltaTime

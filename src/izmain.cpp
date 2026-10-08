@@ -44,7 +44,7 @@
 #include "CSprAnimCtrl.hpp"             // for CSprAnimCtrl
 #include "CSprButtonCtrl.hpp"           // for CSprButtonCtrl
 #include "CWirelessUtil.hpp"            // for CWirelessUtil, gWirelessUtil
-#include "allocator.hpp"                // for gAllocator, CAllocator
+#include "CAllocator.hpp"                // for gAllocator, CAllocator
 #include "CCameraCtrl.hpp"         // for CCameraCtrl
 #include "filesystem.hpp"               // for ReadFile, Init
 #include "movieplayer.hpp"              // for MoviePlayer, gMoviePlayer

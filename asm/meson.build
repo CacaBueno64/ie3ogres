@@ -93,7 +93,6 @@ ie3ogre_asm += files(
     'overlay52/overlay52.s',
     'overlay53/overlay53.s',
     'overlay54/overlay54.s',
-    'overlay55/phonepassword.s',
     'overlay56/overlay56.s',
     'overlay57/overlay57.s',
     'overlay58/overlay58.s',

@@ -7,7 +7,7 @@
 #include "CSceneScriptData.hpp"
 #include "CScreenManager.hpp"
 #include "CUnitMan.hpp"
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "audioplayer.hpp"
 #include "cnvdat.h"
 #include "gamemodes.hpp"

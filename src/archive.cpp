@@ -9,7 +9,7 @@
 
 #include "CFileIO.hpp"         // for CFileIO, FUN_02053914, gFileIO
 #include "CUnitMan.hpp"        // for Unit, gWearSetFile, st_wear_set, BODYT...
-#include "allocator.hpp"       // for gAllocator, CAllocator
+#include "CAllocator.hpp"       // for gAllocator, CAllocator
 // clang-format on
 
 namespace Archive

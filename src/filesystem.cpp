@@ -12,7 +12,7 @@
 #include <nitro/os/common/thread.h>  // for OS_CreateThread, OS_Sleep, OS_WakeupThreadDirect, OSThread
 #include <nitro/std/string.h>        // for STD_TSPrintf
 
-#include "allocator.hpp"             // for CAllocator, gAllocator
+#include "CAllocator.hpp"             // for CAllocator, gAllocator
 #include "thread.hpp"                // for Yield
 #include "init/arm9_init.hpp"        // IWYU pragma: keep
 // clang-format on

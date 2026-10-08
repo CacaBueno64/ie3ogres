@@ -1,5 +1,5 @@
 // clang-format off
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 
 #include <nitro/mi.h>
 #include <nitro/os/ARM9/cache.h>
@@ -140,7 +140,7 @@ void *CAllocator::allocate(size_t size, int type, int strategy)
             case ALLOC_TYPE_13:
             case ALLOC_TYPE_14:
             case ALLOC_TYPE_19:
-                arena    = 3;
+                arena = 3;
                 strategy = STRATEGY_1;
                 break;
             case ALLOC_TYPE_4:
@@ -185,7 +185,7 @@ void *CAllocator::allocate(size_t size, int type, int strategy)
                 }
                 if (candidate->size != size) {
                     if (chunk->next && chunk->next != (AllocatorMetadata *)((char *)chunk + chunk->size + sizeof(AllocatorMetadata))) {
-                        tryMerge(chunk);
+                        this->tryMerge(chunk);
                     }
                 } else {
                     break;
@@ -216,6 +216,7 @@ void *CAllocator::allocate(size_t size, int type, int strategy)
             } else {
                 OS_RestoreInterrupts(state);
                 OS_UnlockMutex(&this->mutex);
+
                 return NULL;
             }
         }
@@ -262,6 +263,7 @@ void *CAllocator::allocate(size_t size, int type, int strategy)
             DC_WaitWriteBufferEmpty();
             OS_RestoreInterrupts(state);
             OS_UnlockMutex(&this->mutex);
+            
             return (void *)((char *)candidate + sizeof(AllocatorMetadata));
         }
     }

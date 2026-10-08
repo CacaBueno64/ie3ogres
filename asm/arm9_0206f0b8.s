@@ -6765,8 +6765,8 @@ _02074844:
 _02074850: .word 0xEDB88320
 	arm_func_end FUN_020747f8
 
-	arm_func_start FUN_02074854
-FUN_02074854: ; 0x02074854
+	arm_func_start _ZN11CLogicThink9calcCRC16EPvm
+_ZN11CLogicThink9calcCRC16EPvm: ; 0x02074854
 	stmfd sp!, {r4, lr}
 	subs lr, r2, #1
 	ldr r12, _020748C0 ; =0x0000FFFF
@@ -6799,7 +6799,7 @@ _020748AC:
 	ldmfd sp!, {r4, pc}
 _020748C0: .word 0x0000FFFF
 _020748C4: .word 0x0000FDAA
-	arm_func_end FUN_02074854
+	arm_func_end _ZN11CLogicThink9calcCRC16EPvm
 
 	arm_func_start FUN_020748c8
 FUN_020748c8: ; 0x020748C8

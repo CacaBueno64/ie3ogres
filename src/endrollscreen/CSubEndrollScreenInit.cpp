@@ -10,7 +10,7 @@
 #include <nitro/types.h>              // for FALSE, TRUE, BOOL, u16
 
 #include "CFileIO.hpp"                // for CFileIO
-#include "allocator.hpp"              // for gAllocator, CAllocator
+#include "CAllocator.hpp"              // for gAllocator, CAllocator
 #include "archive.hpp"                // for ReadNewUncompress
 #include "CConfig.hpp"                // for CConfig, gConfig
 #include "graphics.hpp"               // for ENGINE_SUB, FadeInScreen, LoadBGPaletteSub, FadeSubBlack, IsScreenBrightAdjusted, IsScreenFading

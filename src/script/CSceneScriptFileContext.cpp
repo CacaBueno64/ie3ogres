@@ -9,7 +9,7 @@
 
 #include "CFileIO.hpp"              // for CFileIO, gFileIO
 #include "CSceneScriptData.hpp"     // for ScriptInstruction, CSceneScriptData, SCRIPT_TYPE_ACTION, SCRIPT_TYPE_EVENT, SCRIPT_TYPE_HELP, SCRIPT_TYPE_MATCH, SCRIPT_TYPE_NONE
-#include "allocator.hpp"            // for gAllocator, CAllocator
+#include "CAllocator.hpp"            // for gAllocator, CAllocator
 #include "archive.hpp"              // for PackHeaderGetOffsetAndSize
 #include "cnvdat.h"                 // for SScriptFileRecordData
 #include "init/arm9_init.hpp"       // IWYU pragma: keep

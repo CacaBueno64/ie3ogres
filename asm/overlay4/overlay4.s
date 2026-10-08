@@ -2217,7 +2217,7 @@ _020BE8D0:
 	ldr r1, _020BECE4 ; =0x0211D784
 	add r0, r6, #0x194
 	str r1, [r6]
-	bl FUN_ov55_0211d128 ; may be ov82 ; ov55(Mica)
+	bl _ZN14CPhonePasswordC2Ev ; may be ov82 ; ov55(Mica)
 	str r5, [r6, #4]
 _020BE8F4:
 	str r6, [r4, #4]

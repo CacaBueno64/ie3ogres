@@ -10,7 +10,7 @@
 #include <nitro/os/ARM9/cache.h>  // for DC_FlushRange
 #include <nitro/std/string.h>     // for STD_CopyString, STD_GetStringLength
 
-#include "allocator.hpp"          // for CAllocator
+#include "CAllocator.hpp"          // for CAllocator
 #include "archive.hpp"            // for SFPHeader, FUN_02053914, SFPEntry
 // clang-format on
 

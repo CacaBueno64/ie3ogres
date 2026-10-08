@@ -17,7 +17,7 @@
 
 #include "C3DDevice.hpp"              // for C3DDevice, g3DDevice
 #include "CScreenManager.hpp"         // for CScreenManager
-#include "allocator.hpp"              // for CAllocator, gAllocator
+#include "CAllocator.hpp"              // for CAllocator, gAllocator
 #include "archive.hpp"                // for ReadNewUncompress
 #include "audioplayer.hpp"            // for AudioPlayer, gAudioPlayer
 #include "CConfig.hpp"                // for CConfig, gConfig

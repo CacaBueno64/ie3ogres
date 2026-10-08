@@ -1,5 +1,5 @@
 #include <nitro.h>
-#include "CSceneScriptmanager.hpp"
+#include "CSceneScriptManager.hpp"
 #include "init/arm9_init.hpp"
 
 CSceneScriptManager::CSceneScriptManager()

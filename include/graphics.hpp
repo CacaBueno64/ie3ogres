@@ -2,7 +2,7 @@
 
 #include <nitro.h>
 
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "archive.hpp"
 #include "filesystem.hpp"
 #include "pac.hpp"

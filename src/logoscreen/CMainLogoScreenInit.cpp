@@ -9,7 +9,7 @@
 
 #include "CBgMenuManager.hpp"      // for CBgMenuManager, gBgMenuManager
 #include "CScreenManager.hpp"      // for CScreenManager, SCENE_MOVIE, SCENE_NONE
-#include "allocator.hpp"           // for CAllocator, gAllocator
+#include "CAllocator.hpp"           // for CAllocator, gAllocator
 #include "archive.hpp"             // for ReadNewUncompress
 #include "audioplayer.hpp"         // for AudioPlayer, gAudioPlayer
 #include "graphics.hpp"            // for FadeInScreen, IsAnyScreenFading, ENGINE_MAIN, ENGINE_SUB, FadeInScreens, FadeScreenBlack, FadeScreensBlack, FadeScreensWhite, gDeltaTime

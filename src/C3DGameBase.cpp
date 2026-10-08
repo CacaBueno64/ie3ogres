@@ -3,7 +3,7 @@
 
 #include <nitro/mi/memory.h>
 
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 // clang-format on
 
 C3DGameBase::C3DGameBase()

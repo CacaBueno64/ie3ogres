@@ -2,7 +2,7 @@
 
 #include <nitro/types.h>
 
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "init/arm9_init.hpp" // IWYU pragma: keep
 
 void CBgMenuRadioButton::init(int size)

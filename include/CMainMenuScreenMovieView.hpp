@@ -7,7 +7,7 @@
 #include "archive.hpp"
 #include "filesystem.hpp"
 #include "CConfig.hpp"
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "CFileIO.hpp"
 #include "C3DPlaneCtrl.hpp"
 #include "CSprButtonCtrl.hpp"

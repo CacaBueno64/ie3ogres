@@ -3,7 +3,7 @@
 #include <nitro.h>
 #include <string.h>
 
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "archive.hpp"
 #include "graphics.hpp"
 #include "pac.hpp"

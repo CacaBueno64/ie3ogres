@@ -9,7 +9,7 @@
 #include <nitro/types.h>           // for TRUE, FALSE, u16, BOOL
 
 #include "CScreenManager.hpp"      // for CScreenManager
-#include "allocator.hpp"           // for CAllocator, gAllocator
+#include "CAllocator.hpp"           // for CAllocator, gAllocator
 #include "archive.hpp"             // for ReadNewUncompress
 #include "graphics.hpp"            // for IsSubFading, LoadBGPaletteSub
 #include "pac.hpp"                 // for PAC_PSC_GetCharacterPtr, PAC_PSC_GetCharacterSize, PAC_PSC_GetPalettePtr, PAC_PSC_GetPaletteSize, PAC_PSC_GetScreenPtr, PAC_PSC_GetScreenSize

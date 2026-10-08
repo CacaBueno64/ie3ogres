@@ -9,7 +9,7 @@
 #include <nnsys/g3d/gecom.h>
 #include <nnsys/g3d/glbstate.h>
 
-#include "allocator.hpp"
+#include "CAllocator.hpp"
 #include "pac.hpp"
 #include "init/arm9_init.hpp"// IWYU pragma: keep
 

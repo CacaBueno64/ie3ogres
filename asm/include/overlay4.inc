@@ -171,7 +171,7 @@
 .public unk_0209A3E0
 .public _ZN7Overlay4LoadEm
 .public _Znwm
-.public FUN_ov55_0211d128
+.public _ZN14CPhonePasswordC2Ev
 .public FUN_ov57_0211f8f8
 .public FUN_ov54_0211b0b0
 .public FUN_ov54_0211bf6c

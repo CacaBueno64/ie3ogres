@@ -13,7 +13,7 @@ public:
     virtual ~CPhonePassword();
     void readFile(u32 key);
     void closeFile(void);
-    u16 check(char *username, char *password);
+    u16 decode(char *username, char *password);
     u8 getKanaIdx(char *c);
 
 private:

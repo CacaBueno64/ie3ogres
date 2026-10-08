@@ -154,7 +154,7 @@ void CMainMenuScreenEnterName::vFUN_C0(void)
         SRecordHeader recordHeader;
         gRecordManager.getRecordHeader(&recordHeader);
 
-        unitNo = this->phonePassword.check(recordHeader.username, unk_0209A454.entry);
+        unitNo = this->phonePassword.decode(recordHeader.username, unk_0209A454.entry);
         
         if (CMainMenuScreenEnterName::FUN_ov55_02119f00(unitNo)) {
             unk_020A9C40.FUN_02045b40(unitNo, 5);

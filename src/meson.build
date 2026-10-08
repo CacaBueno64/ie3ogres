@@ -30,6 +30,7 @@ ie3ogre_cpp += files(
     'CBgAnimeManager.cpp',
     'CBgMenuRadioButton.cpp',
     'mainmenuscreen/CMainMenuScreenEnterName.cpp',
+    'CPhonePassword.cpp',
     'ov101.cpp',
     'ov116.cpp',
     'ov130.cpp',
