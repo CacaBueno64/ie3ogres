@@ -74,8 +74,3 @@ void CCalcMap::calcDistance(fx32 stepX, fx32 stepY)
     this->stepX = stepX;
     this->stepY = stepY;
 }
-
-//CCalcMap::~CCalcMap()
-//{
-//    this->release();
-//}

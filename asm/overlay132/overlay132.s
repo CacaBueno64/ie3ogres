@@ -26025,7 +26025,7 @@ _021515C0:
 	cmp r5, #0x16
 	blt _0215155C
 	mov r0, r6
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r0, r7
 	bl FUN_ov132_0213be1c
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -26054,7 +26054,7 @@ _02151618:
 	blt _021515FC
 	ldr r0, _02151634 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	ldmfd sp!, {r3, r4, r5, pc}
 _02151634: .word gLogicThink
 	arm_func_end FUN_ov132_021515e4

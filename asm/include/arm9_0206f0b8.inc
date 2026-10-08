@@ -8,9 +8,9 @@
 .public FUN_ov16_020ef41c
 .public FUN_ov16_020eeca0
 .public _Znwm
-.public FUN_02043ac8
-.public FUN_02043b30
-.public FUN_02043b44
+.public _ZN12CDistanceMapC2Ev
+.public _ZN12CDistanceMap4initEv
+.public _ZN12CDistanceMap12calcDistanceEv
 .public FUN_02049a30
 .public FUN_0205072c
 .public gConfig
@@ -149,7 +149,7 @@
 .public FUN_0206cdf8
 .public FUN_0204b20c
 .public strcmp
-.public FUN_02043c2c
+.public _ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
 .public FUN_0204f7c0
 .public unk_02091664
 .public FUN_0206c718

@@ -121,7 +121,7 @@
 .public FUN_0206fb74
 .public FUN_0204fb58
 .public FUN_ov132_0214352c
-.public FUN_02043c5c
+.public _ZN12CDistanceMap12FUN_02043c5cEv
 .public _ZN11CLogicThink10updateKeysEtt
 .public FUN_ov1_020de558
 .public FUN_020724dc
@@ -217,9 +217,9 @@
 .public FUN_ov132_02144854
 .public FUN_ov132_021408a4
 .public FUN_ov16_020f07a8
-.public FUN_02043c2c
-.public FUN_02043c6c
-.public FUN_02043b68
+.public _ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
+.public _ZN12CDistanceMap20distanceBetweenUnitsEP4UnitS1_
+.public _ZN12CDistanceMap14approxDistanceEll
 .public FX_Sqrt
 .public FUN_ov126_0213a490
 .public FUN_ov126_021398cc

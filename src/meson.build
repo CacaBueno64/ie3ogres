@@ -10,6 +10,7 @@ ie3ogre_cpp += files(
     'CScreenManager.cpp',
     'CFontManager.cpp',
     'CCalcMap.cpp',
+    'CDistanceMap.cpp',
     'script/CSceneScriptFileContext.cpp',
     'C3DDevice.cpp',
     'C3DGameBase.cpp',

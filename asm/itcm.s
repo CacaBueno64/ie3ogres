@@ -2382,7 +2382,7 @@ _01FFA698:
 	bl FUN_ov132_0214352c
 	ldr r0, _01FFAC10 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	ldr r0, _01FFAC10 ; =gLogicThink
 	mov r1, r8
 	mov r2, r8
@@ -3762,31 +3762,31 @@ FUN_01ffba30: ; 0x01FFBA30
 	arm_func_start FUN_01ffba50
 FUN_01ffba50: ; 0x01FFBA50
 	ldr r0, _01FFBA60 ; =gLogicThink
-	ldr r12, _01FFBA64 ; =FUN_02043c2c
+	ldr r12, _01FFBA64 ; =_ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
 	ldr r0, [r0, #0x860]
 	bx r12
 _01FFBA60: .word gLogicThink
-_01FFBA64: .word FUN_02043c2c
+_01FFBA64: .word _ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
 	arm_func_end FUN_01ffba50
 
 	arm_func_start FUN_01ffba68
 FUN_01ffba68: ; 0x01FFBA68
 	ldr r0, _01FFBA78 ; =gLogicThink
-	ldr r12, _01FFBA7C ; =FUN_02043c6c
+	ldr r12, _01FFBA7C ; =_ZN12CDistanceMap20distanceBetweenUnitsEP4UnitS1_
 	ldr r0, [r0, #0x860]
 	bx r12
 _01FFBA78: .word gLogicThink
-_01FFBA7C: .word FUN_02043c6c
+_01FFBA7C: .word _ZN12CDistanceMap20distanceBetweenUnitsEP4UnitS1_
 	arm_func_end FUN_01ffba68
 
 	arm_func_start FUN_01ffba80
 FUN_01ffba80: ; 0x01FFBA80
 	ldr r0, _01FFBA90 ; =gLogicThink
-	ldr r12, _01FFBA94 ; =FUN_02043b68
+	ldr r12, _01FFBA94 ; =_ZN12CDistanceMap14approxDistanceEll
 	ldr r0, [r0, #0x860]
 	bx r12
 _01FFBA90: .word gLogicThink
-_01FFBA94: .word FUN_02043b68
+_01FFBA94: .word _ZN12CDistanceMap14approxDistanceEll
 	arm_func_end FUN_01ffba80
 
 	arm_func_start FUN_01ffba98
@@ -3892,7 +3892,7 @@ FUN_01ffbbe8: ; 0x01FFBBE8
 	bl FUN_ov132_0213be1c
 	ldr r0, _01FFBC5C ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r6, #0
 _01FFBC04:
 	mov r0, r7

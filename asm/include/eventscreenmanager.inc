@@ -1,3 +1,9 @@
+.public unk_0209A200
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public _ZN19CSceneScriptManager4initEv
+.public FUN_02030260
+.public _ZN10FileSystem17OpenArchiveDirectEPvPKc
+.public _ZN10FileSystem12SetNextArenaEi
 .public _Z14GetCurrentModev
 .public FUN_ov0_020bdbe8
 .public abs

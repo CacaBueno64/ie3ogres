@@ -87,13 +87,14 @@ Static main
 
 	Object main.nef.p/src_CFontManager.cpp.o
 	Object main.nef.p/src_CCalcMap.cpp.o
+	Object main.nef.p/asm_arm9_data_02090034.s.o
+	Object main.nef.p/src_CDistanceMap.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02086e30.s.o
 	Object main.nef.p/asm_init_arm9_init_02086e84.s.o
 	Object main.nef.p/asm_init_arm9_init_02086ed8.s.o
 	Object main.nef.p/asm_init_arm9_init_02086f2c.s.o
 
-	Object main.nef.p/asm_distancemap.s.o
 	Object main.nef.p/asm_eventscreenmanager.s.o
 	Object main.nef.p/asm_arm9_020453e0.s.o
 	Object main.nef.p/asm_wirelessutil.s.o

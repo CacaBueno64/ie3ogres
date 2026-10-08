@@ -3,6 +3,74 @@
 	.include "/include/eventscreenmanager.inc"
 
     .text
+	arm_func_start FUN_02043c80
+FUN_02043c80: ; 0x02043C80
+	stmfd sp!, {r4, r5, r6, r7, lr}
+	sub sp, sp, #0x14
+	mov r5, #1
+	mov r6, r0
+	mov r0, r5
+	bl _ZN10FileSystem12SetNextArenaEi
+	mov r4, #0
+	ldr r1, _02043D6C ; =0x020900CC
+	mov r0, r4
+	bl _ZN10FileSystem17OpenArchiveDirectEPvPKc
+	ldr r7, _02043D70 ; =0x0209A200
+	ldr r1, _02043D74 ; =0x020900DC
+	str r0, [r7]
+	mov r0, r4
+	bl _ZN10FileSystem17OpenArchiveDirectEPvPKc
+	str r0, [r7, #0x24]
+	add r0, r6, #0x324
+	add r0, r0, #0x1c00
+	bl FUN_02030260
+	add r0, r6, #0x6000
+	str r5, [r0, #0x20c]
+	str r4, [r0, #0x210]
+	str r4, [r0, #0x200]
+	str r4, [r0, #0x224]
+	add r0, r6, #0x1a8
+	add r0, r0, #0x6000
+	mov r1, r4
+	mov r2, #0x40
+	bl MI_CpuFill8
+	add r1, r6, #0x6000
+	strb r4, [r1, #0x1e9]
+	add r0, r6, #0x6100
+	ldrsb r2, [r0, #0xe9]
+	add r0, r6, #0x90
+	strb r2, [r1, #0x1e8]
+	bl _ZN19CSceneScriptManager4initEv
+	add r0, r6, #0x90
+	mov r1, r4
+	mov r2, #2
+	mov r3, r4
+	str r4, [sp]
+	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
+	add r0, r6, #0x22c
+	add r0, r0, #0x6000
+	ldr r3, _02043D78 ; =gAllocator
+	str r0, [sp, #0x10]
+	ldr r0, [r3]
+	ldr r1, _02043D7C ; =0x020900EC
+	cmp r0, #0
+	addeq sp, sp, #0x14
+	ldmeqfd sp!, {r4, r5, r6, r7, pc}
+	str r4, [sp]
+	mov r2, #4
+	stmib sp, {r2, r4}
+	add r2, sp, #0x10
+	str r5, [sp, #0xc]
+	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+	add sp, sp, #0x14
+	ldmfd sp!, {r4, r5, r6, r7, pc}
+_02043D6C: .word unk_020900CC
+_02043D70: .word unk_0209A200
+_02043D74: .word unk_020900DC
+_02043D78: .word gAllocator
+_02043D7C: .word unk_020900EC
+	arm_func_end FUN_02043c80
+
 	arm_func_start FUN_02043d80
 FUN_02043d80: ; 0x02043D80
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}

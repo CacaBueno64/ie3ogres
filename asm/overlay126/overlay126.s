@@ -9549,7 +9549,7 @@ _02132F48:
 _02132F58:
 	ldr r0, _02132F70 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
 _02132F6C: .word unk_0209A720
@@ -9885,7 +9885,7 @@ _021333AC:
 _02133400:
 	ldr r0, _02133420 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r0, r4
 	add sp, sp, #0x10
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -10174,7 +10174,7 @@ _021337F0:
 	ldr r0, _02133AF8 ; =gLogicThink
 	ldr r0, [r0, #0x860]
 	str r0, [sp, #0x1c]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r0, r10
 	bl FUN_ov132_02144770
 	ldr r1, [sp, #0xc]
@@ -10311,7 +10311,7 @@ _021339D8:
 	bl FUN_ov126_02132c34
 _021339EC:
 	ldr r0, [sp, #0x1c]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	cmp r9, #8
 	addeq sp, sp, #0x34
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -10380,7 +10380,7 @@ _02133AE0:
 	blt _02133A48
 _02133AE8:
 	ldr r0, [sp, #0x1c]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _02133AF8: .word gLogicThink
@@ -10447,7 +10447,7 @@ FUN_ov126_02133b8c: ; 0x02133B8C
 _02133BC4:
 	ldr r4, _02133C6C ; =gLogicThink
 	ldr r0, [r4, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r5, #0
 	strb r5, [r6, #0x328]
 	mov r1, #1
@@ -11180,7 +11180,7 @@ _02134640:
 	subs r1, r9, r0
 	rsbmi r1, r1, #0
 	mov r0, r7
-	bl FUN_02043b68
+	bl _ZN12CDistanceMap14approxDistanceEll
 	cmp r0, r5
 	strlt r4, [sp, #4]
 	movlt r5, r0
@@ -11750,7 +11750,7 @@ _02134E0C:
 	ldr r0, [sp, #0x14]
 	mov r1, r9
 	mov r2, r10
-	bl FUN_02043c10
+	bl _ZN12CDistanceMap17approxDistanceAbsEll
 	str r0, [sp, #0x1c]
 	cmp r0, #0xc000
 	bgt _02134FEC
@@ -12196,7 +12196,7 @@ _02135494:
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r0, _021354D0 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021354C4: .word unk_0209A2C0
@@ -12262,7 +12262,7 @@ _0213558C:
 	blt _0213554C
 	ldr r0, _021355B0 ; =gLogicThink
 	ldr r0, [r0, #0x860]
-	bl FUN_02043c5c
+	bl _ZN12CDistanceMap12FUN_02043c5cEv
 	mov r0, r6
 	add sp, sp, #0xb0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}

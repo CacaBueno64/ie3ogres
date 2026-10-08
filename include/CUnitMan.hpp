@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "cnvdat.h"
 
@@ -78,13 +78,29 @@ typedef struct {
     u8 base_stats[7]; /* 0: shoot, 1: dribble, 2: pass, 3: defense, 4: speed, 5: luck, 6: guts */
 } st_unit_stats;
 
+typedef struct {
+    VecFx32 pos;
+    fx32 animFrame;
+    u16 animNo;
+    u16 stateTimer;
+    u16 stateTime;
+    u16 flags;
+    u16 angle;
+    u8 direction;
+    u8 dispDirection;
+    u8 state;
+    u8 motionNo;
+    s8 unk1E;
+    u8 unk1F; // pad?
+} SUnitFieldPresence;
+
 typedef struct Unit {
     st_unit_base base;
     st_unit_save *save;
     st_unit_stats stats;
     u8 unk82;
     u8 unk83;
-    void *fieldPresence;
+    SUnitFieldPresence *fieldPresence;
     void *unk88;
     u8 unk8C;
     u8 unk8D;
@@ -108,7 +124,7 @@ private:
     u32 *crcs;
     u16 unitCount;
     u8 unk1A[0x2]; // pad?
-    void *fieldPresence;
+    SUnitFieldPresence *fieldPresence;
     void *unk20;
     u16 unk24;
     u8 unk26[0x2]; // pad?

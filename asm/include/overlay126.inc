@@ -216,7 +216,7 @@
 .public FUN_ov16_020f07d0
 .public FUN_01ffb1b0
 .public FUN_0206daf8
-.public FUN_02043c5c
+.public _ZN12CDistanceMap12FUN_02043c5cEv
 .public FUN_0203fc70
 .public DC_FlushRange
 .public FUN_ov132_02145318
@@ -234,14 +234,14 @@
 .public FUN_020406a4
 .public FUN_02040618
 .public FUN_ov132_02140b20
-.public FUN_02043b68
+.public _ZN12CDistanceMap14approxDistanceEll
 .public FUN_02040188
 .public FUN_02040ae4
 .public FUN_ov132_0213c0d4
 .public FUN_ov132_0213f1d8
 .public FUN_0206dadc
 .public FUN_0206dac4
-.public FUN_02043c10
+.public _ZN12CDistanceMap17approxDistanceAbsEll
 .public FUN_ov132_0213be1c
 .public FUN_ov132_02151f70
 .public unk_0209CC10

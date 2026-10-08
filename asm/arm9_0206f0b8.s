@@ -260,14 +260,14 @@ _0206F354:
 	bl _Znwm
 	cmp r0, #0
 	beq _0206F434
-	bl FUN_02043ac8
+	bl _ZN12CDistanceMapC2Ev
 _0206F434:
 	str r0, [r6, #0x860]
 _0206F438:
 	ldr r0, [r6, #0x860]
-	bl FUN_02043b30
+	bl _ZN12CDistanceMap4initEv
 	ldr r0, [r6, #0x860]
-	bl FUN_02043b44
+	bl _ZN12CDistanceMap12calcDistanceEv
 	mov r0, r6
 	mov r1, #2
 	bl FUN_0207287c
@@ -3710,9 +3710,9 @@ _0207234C:
 	arm_func_start FUN_0207237c
 FUN_0207237c: ; 0x0207237C
 	ldr r0, [r0, #0x860]
-	ldr r12, _02072388 ; =FUN_02043c2c
+	ldr r12, _02072388 ; =_ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
 	bx r12
-_02072388: .word FUN_02043c2c
+_02072388: .word _ZN12CDistanceMap15distanceBetweenEP7VecFx32S1_
 	arm_func_end FUN_0207237c
 
 	arm_func_start FUN_0207238c

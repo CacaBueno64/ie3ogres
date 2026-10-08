@@ -321,7 +321,7 @@
 .public FUN_ov126_02135124
 .public FUN_ov126_02138abc
 .public FUN_ov126_02138a88
-.public FUN_02043c5c
+.public _ZN12CDistanceMap12FUN_02043c5cEv
 .public FUN_01ffbaf4
 .public FUN_ov126_02139920
 .public FUN_ov126_02139050
