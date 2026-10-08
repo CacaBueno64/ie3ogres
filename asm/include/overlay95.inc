@@ -29,7 +29,7 @@
 .public gAllocator
 .public STD_GetStringLength
 .public _ZN12CFontManager12getTextWidthEPc
-.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+.public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public gFont8
 .public gFont12Manager
 .public FUN_ov16_020f2184

@@ -514,7 +514,7 @@ _021253F8:
 	mov r2, r4
 	mov r0, r5
 	add r1, r4, #0x2c
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0
@@ -560,7 +560,7 @@ _021254A8:
 	mov r2, r4
 	mov r0, r7
 	add r1, r4, #0x2c
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	mov r6, #3
 	str r6, [sp]
 	mov r5, #1

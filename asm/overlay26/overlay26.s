@@ -785,7 +785,7 @@ _0211A994:
 	add r1, r6, #0x2c
 	add r0, sp, #0xc0
 	mov r2, r6
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	str r8, [sp]
 	mov r0, #0x42
 	str r0, [sp, #4]

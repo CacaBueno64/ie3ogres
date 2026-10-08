@@ -79,7 +79,7 @@
 .public MI_CpuCopy8
 .public DC_FlushRange
 .public gPalSkinFaceFile
-.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+.public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public _ZN12CFontManager12getTextWidthEPc
 .public gFont8
 .public gFont12Manager

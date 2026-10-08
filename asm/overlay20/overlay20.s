@@ -3112,7 +3112,7 @@ _0211CA94:
 	mov r2, r9
 	mov r0, r8
 	add r1, r9, #0x2c
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	cmp r4, #0
 	ldrneb r0, [r9, #0x4d]
 	str r8, [sp, #0x30]

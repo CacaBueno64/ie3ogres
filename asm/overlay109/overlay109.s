@@ -963,7 +963,7 @@ _02125A18:
 	mov r2, r9
 	mov r0, r6
 	add r1, r9, #0x2c
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	mov r0, #3
 	str r0, [sp]
 	mov r2, #0

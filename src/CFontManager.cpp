@@ -1,4 +1,6 @@
+// clang-format off
 #include "CFontManager.hpp"
+// clang-format on
 
 CFontManager::CFontManager()
 {
@@ -668,44 +670,54 @@ void CFontManager::clearTexture(void *dest, int texWidth, int texHeight, int x, 
     };
 }
 
-#ifdef NONMATCHING
-
-void CFontManager::clearVram(void *dest, int texWidth,int texHeight, int x, int y, int width, int height)
+void CFontManager::clearVram(void *dest, int texWidth, int texHeight, int x, int y, int width, int height)
 {
-    if (!dest) return;
-    if (x < 0) return;
-    if (x >= texWidth) return;
-    if (y < 0)  return;
-    if (y >= texHeight) return;
-
-    if (x + width > texWidth) {
-        width = texWidth - x;
+    if (dest == NULL) {
+        return;
     }
-    if (y + height > texHeight) {
-        height = texHeight - y;
+    if ((x < 0) || (x >= texWidth)) {
+        return;
+    }
+    if ((y < 0) || (y >= texHeight)) {
+        return;
     }
 
-    int tilesPerRow = texWidth / 8;
+    int endX;
+    int endY;
+    endY = y + height;
+    endX = x + width;
+    if (endX > texWidth) {
+        endX = texWidth;
+    }
+    if (endY > texHeight) {
+        endY = texHeight;
+    }
 
-    for (int py = y; py < height; py++)
-    {
-        int tileY   = py / 8;
-        int inTileY = py & 7;
+    for (; y < endY; y++) {
+        int px = x;
 
-        for (int px = x; px < width; px++)
-        {
-            int offset =
-                tileY * tilesPerRow * 32 +
-                (px / 8) * 32 +
-                inTileY * 4 +
-                ((px & 7) >> 1);
+        while (px < endX) {
+            int tileX;
+            u8 *p = static_cast<u8 *>(dest)
+                  + (y / 8) * (texWidth / 8) * 32
+                  + (px / 8) * 32
+                  + (y % 8) * 4
+                  + (px % 8) / 2;
+            BOOL highNibble = (px & 1) ? TRUE : FALSE;
+            tileX = px & 7;
 
-            u8 *p = (u8 *)dest + offset;
+            while (!(tileX & 8) && (px < x + width)) {
+                if (highNibble) {
+                    this->writeCharByte(p, *p & 0x0F);
+                    p++;
+                } else {
+                    this->writeCharByte(p, *p & 0xF0);
+                }
 
-            if (px & 1)
-                this->writeCharByte(p, *p & 0x0F);
-            else
-                this->writeCharByte(p, *p & 0xF0);
+                px++;
+                tileX++;
+                highNibble = !highNibble;
+            }
         }
     }
 }
@@ -716,18 +728,18 @@ void CFontManager::FUN_02043780(int param1, int param2)
     this->unk1C.unk1 = param2;
 }
 
-void CFontManager::getNameFurigana(s8 *dst, s8 *furigana, s8 *name)
+// the fakest of fake matches
+void CFontManager::getNameFurigana(char *dst, char *furigana, char *name)
 {
     int i = 0;
     BOOL isKanji0 = FALSE;
     BOOL isKanji1 = FALSE;
-
     while (*name != '\0') {
-        char c0 = name[0];
+        char c0 = *reinterpret_cast<unsigned char *>(name);
         unsigned char c1 = name[1];
+        u32 hi = static_cast<u32>(c0 << 24) >> 16;
+        u32 c = hi | c1;
         name += 2;
-
-        u32 c = c1 | (u16)(c0 << 8);
         if (c == 0x8140) {
             break;
         }
@@ -735,58 +747,45 @@ void CFontManager::getNameFurigana(s8 *dst, s8 *furigana, s8 *name)
             isKanji0 = TRUE;
         }
     }
-
     while (*name != '\0') {
-        char c0 = name[0];
         unsigned char c1 = name[1];
+        char c0 = name[0];
+        u32 hi = static_cast<u32>(c0 << 24) >> 16;
+        u32 c = hi | c1;
         name += 2;
-
-        u32 c = c1 | (u16)(c0 << 8);
         if (c >= 0x889F) {
             isKanji1 = TRUE;
         }
     }
-
+    while (*furigana != '\0') {
+        unsigned char c0 = *reinterpret_cast<unsigned char *>(furigana);
+        unsigned char c1 = furigana[1];
+        furigana += 2;
+        u32 c = c1 | (c0 << 8);
+        if (c == 0x8140) {
+            dst[i++] = c0;
+            dst[i++] = c1;
+            break;
+        }
+        if (isKanji0) {
+            dst[i++] = c0;
+            dst[i++] = c1;
+        } else {
+            dst[i++] = 0x81;
+            dst[i++] = 0x40;
+        }
+    }
     while (*furigana != '\0') {
         unsigned char c0 = furigana[0];
         unsigned char c1 = furigana[1];
         furigana += 2;
-
-        u32 c = c1 | (u16)(c0 << 8);
-        if (c == 0x8140) {
-            dst[i] = c0;
-            dst[i + 1] = c1;
-            i += 2;
-            break;
-        }
-        if (isKanji0) {
-            dst[i] = c0;
-            dst[i + 1] = c1;
-        } else {
-            dst[i] = 0x81;
-            dst[i + 1] = 0x40;
-        }
-
-        i += 2;
-    }
-
-    while (*furigana != '\0') {
-        char c0 = furigana[0];
-        unsigned char c1 = furigana[1];
-        furigana += 2;
-
         if (isKanji1) {
-            dst[i] = static_cast<unsigned char>(c0);
-            dst[i + 1] = c1;
+            dst[i++] = c0;
+            dst[i++] = c1;
         } else {
-            dst[i] = 0x81;
-            dst[i + 1] = 0x40;
+            dst[i++] = 0x81;
+            dst[i++] = 0x40;
         }
-
-        i += 2;
     }
-
     dst[i] = '\0';
 }
-
-#endif // NONMATCHING

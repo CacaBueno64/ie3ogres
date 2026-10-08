@@ -192,7 +192,6 @@ ie3ogre_asm += files(
     'commonsubscreen.s',
     'distancemap.s',
     'eventscreenmanager.s',
-    'fontmanager.s',
     'fontmanager_2.s',
     'gamemain.s',
     'gamemodes_0.s',

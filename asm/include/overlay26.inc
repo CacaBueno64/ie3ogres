@@ -64,7 +64,7 @@
 .public FUN_0205935c
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+.public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public FUN_02059288
 .public MIi_CpuClearFast

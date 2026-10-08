@@ -1034,7 +1034,7 @@ FUN_ov64_0211acc0: ; 0x0211ACC0
 	add r1, r6, #0x2c
 	mov r2, r6
 	str r7, [sp, #0x14]
-	bl _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+	bl _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 	ldr r0, _0211AE24 ; =gFont8
 	add r1, r6, #0x2c
 	ldr r0, [r0]

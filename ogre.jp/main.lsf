@@ -78,24 +78,30 @@ Static main
 	Object main.nef.p/asm_vram.s.o
 	Object main.nef.p/src_CConfig.cpp.o
 	Object main.nef.p/asm_arm9_data_0208ff5c.s.o
+	
 	Object main.nef.p/asm_init_arm9_init_02086d34.s.o
+	
 	Object main.nef.p/src_CScreenManager.cpp.o
+	
 	Object main.nef.p/asm_init_arm9_init_02086d88.s.o
+
+	Object main.nef.p/src_CFontManager.cpp.o
+
 	Object main.nef.p/asm_init_arm9_init_02086ddc.s.o
 	Object main.nef.p/asm_init_arm9_init_02086e30.s.o
 	Object main.nef.p/asm_init_arm9_init_02086e84.s.o
 	Object main.nef.p/asm_init_arm9_init_02086ed8.s.o
 	Object main.nef.p/asm_init_arm9_init_02086f2c.s.o
 
-	Object main.nef.p/src_CFontManager.cpp.o
-	Object main.nef.p/asm_fontmanager.s.o
 	Object main.nef.p/asm_calcmap.s.o
 	Object main.nef.p/asm_distancemap.s.o
 	Object main.nef.p/asm_eventscreenmanager.s.o
 	Object main.nef.p/asm_arm9_020453e0.s.o
 	Object main.nef.p/asm_wirelessutil.s.o
 	Object main.nef.p/asm_scenescriptmanager.s.o
+
 	Object main.nef.p/asm_init_arm9_init_02086f80.s.o
+
 	Object main.nef.p/src_script_CSceneScriptFileContext.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02087028.s.o

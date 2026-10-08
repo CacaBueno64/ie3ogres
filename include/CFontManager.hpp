@@ -63,8 +63,8 @@ public:
     void clearTexture(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
     void clearVram(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
     void FUN_02043780(int param1, int param2);
-    
-    static void getNameFurigana(s8 *dst, s8 *furigana, s8 *name);
+
+    static void getNameFurigana(char *dst, char *furigana, char *name);
 
     NNSG2dFont g2dfont;
     void *file;

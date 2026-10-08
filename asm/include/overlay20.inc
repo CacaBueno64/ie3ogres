@@ -80,7 +80,7 @@
 .public FUN_0205935c
 .public FUN_02059288
 .public STD_ConcatenateString
-.public _ZN12CFontManager15getNameFuriganaEPaS0_S0_
+.public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public STD_CopyLString
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
