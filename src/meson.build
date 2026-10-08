@@ -9,6 +9,7 @@ ie3ogre_cpp += files(
     'CConfig.cpp',
     'CScreenManager.cpp',
     'CFontManager.cpp',
+    'CCalcMap.cpp',
     'script/CSceneScriptFileContext.cpp',
     'C3DDevice.cpp',
     'C3DGameBase.cpp',

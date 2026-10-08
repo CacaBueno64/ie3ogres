@@ -1,10 +1,10 @@
-.public FUN_020438e8
+.public _ZN8CCalcMapC2Ev
 .public unk_02090054
-.public FUN_02043914
-.public unk_0209002C
+.public _ZN8CCalcMap7releaseEv
+.public _ZTV8CCalcMap
 .public _ZdlPv
-.public FUN_02043958
-.public FUN_020439c4
+.public _ZN8CCalcMap4initEii
+.public _ZN8CCalcMap12calcDistanceEll
 .public _ZN10FileSystem12SetNextArenaEi
 .public _ZN10FileSystem17OpenArchiveDirectEPvPKc
 .public FUN_02030260

@@ -7,7 +7,7 @@
 FUN_02043ac8: ; 0x02043AC8
 	stmfd sp!, {r4, lr}
 	mov r4, r0
-	bl FUN_020438e8
+	bl _ZN8CCalcMapC2Ev
 	ldr r1, _02043AE4 ; =0x02090054
 	mov r0, r4
 	str r1, [r4]
@@ -21,10 +21,10 @@ FUN_02043ae8: ; 0x02043AE8
 	ldr r1, _02043B04 ; =0x0209002C
 	mov r4, r0
 	str r1, [r4]
-	bl FUN_02043914
+	bl _ZN8CCalcMap7releaseEv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02043B04: .word unk_0209002C
+_02043B04: .word _ZTV8CCalcMap+8
 	arm_func_end FUN_02043ae8
 
 	arm_func_start FUN_02043b08
@@ -33,30 +33,30 @@ FUN_02043b08: ; 0x02043B08
 	ldr r1, _02043B2C ; =0x0209002C
 	mov r4, r0
 	str r1, [r4]
-	bl FUN_02043914
+	bl _ZN8CCalcMap7releaseEv
 	mov r0, r4
 	bl _ZdlPv
 	mov r0, r4
 	ldmfd sp!, {r4, pc}
-_02043B2C: .word unk_0209002C
+_02043B2C: .word _ZTV8CCalcMap+8
 	arm_func_end FUN_02043b08
 
 	arm_func_start FUN_02043b30
 FUN_02043b30: ; 0x02043B30
 	mov r1, #0x20
-	ldr r12, _02043B40 ; =FUN_02043958
+	ldr r12, _02043B40 ; =_ZN8CCalcMap4initEii
 	mov r2, r1
 	bx r12
-_02043B40: .word FUN_02043958
+_02043B40: .word _ZN8CCalcMap4initEii
 	arm_func_end FUN_02043b30
 
 	arm_func_start FUN_02043b44
 FUN_02043b44: ; 0x02043B44
 	mov r1, #0x1000
-	ldr r12, _02043B54 ; =FUN_020439c4
+	ldr r12, _02043B54 ; =_ZN8CCalcMap12calcDistanceEll
 	mov r2, r1
 	bx r12
-_02043B54: .word FUN_020439c4
+_02043B54: .word _ZN8CCalcMap12calcDistanceEll
 	arm_func_end FUN_02043b44
 
 	arm_func_start FUN_02043b58

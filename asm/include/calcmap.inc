@@ -1,4 +1,4 @@
-.public unk_0209002C
+.public _ZTV8CCalcMap
 .public _ZN10CAllocator10deallocateEPv
 .public gAllocator
 .public _ZN10CAllocator8allocateEm
