@@ -540,7 +540,7 @@ _0212541C:
 	add r0, r7, #0xd
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r6, #0xc]
 	ldrh r1, [r6, #0xe]
 	ldr r0, [r6, #4]

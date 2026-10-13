@@ -388,7 +388,7 @@ FUN_ov111_0212519c: ; 0x0212519C
 	ldr r0, [r5, #0x178]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x1c
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 	arm_func_end FUN_ov111_0212519c

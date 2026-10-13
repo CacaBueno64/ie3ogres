@@ -3362,7 +3362,7 @@ _0211CCF0:
 	ldr r1, [r0, #0x1fc]
 	add r0, sp, #0x18
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	mov r3, #0x68
 	str r3, [sp]
 	mov r0, #0x30

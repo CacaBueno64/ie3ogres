@@ -1544,7 +1544,7 @@ _0211B3C8:
 	ldr r1, [r4, #0x88]
 	add r0, sp, #0x54
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0xd4
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B4B4: .word g3DPlaneCtrl

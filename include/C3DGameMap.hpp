@@ -33,12 +33,13 @@ public:
     /* 0x0205ca78 */ virtual char *vFUN_00(int idx);
     /* 0x0205cac8 */ virtual char *vFUN_04(int idx);
     /* 0x0205cb18 */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
-    /* 0x0205e280 */ virtual bool vFUN_10(void);
+    /* 0x0205e280 */ virtual bool closeModels(void);
+    /* 0x0205e280 */ virtual bool setupModels(void);
     /* 0x0205d138 */ virtual ~C3DGameMap();
 
     /* 0x0205d180 */ bool init(int);
-    static void FUN_0205e084(VecFx32 *param0, C3DGameMap *param1, int param2);
-    static void FUN_0205e0f4(VecFx32 *param0, C3DGameMap *param1, int param2);
+    VecFx32 FUN_0205e084(int param1);
+    VecFx32 FUN_0205e0f4(int param1);
 
     C3DGameMap_10 *unk10;
     ModelMap *modelMap;

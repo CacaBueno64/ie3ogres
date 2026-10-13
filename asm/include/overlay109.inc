@@ -34,7 +34,7 @@
 .public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public gFont8
 .public gFont12Manager
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_020eef1c
 .public FUN_ov16_020eee80
 .public _ZN12CFontManager10setSpacingEii

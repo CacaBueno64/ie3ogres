@@ -826,7 +826,7 @@ _02125864:
 	mov r3, r1, lsl #3
 	ldr r1, [r10, #0x1c]
 	mov r2, r2, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _021258D0:
 	ldr r5, _02125AF0 ; =gLogicThink
 	mov r8, #0

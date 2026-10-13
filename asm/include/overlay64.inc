@@ -93,7 +93,7 @@
 .public FUN_02059630
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public FUN_02054070
 .public FUN_0205935c

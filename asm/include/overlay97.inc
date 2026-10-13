@@ -25,7 +25,7 @@
 .public _ZN12CFontManager15getNameFuriganaEPcS0_S0_
 .public gFont8
 .public gFont12Manager
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public FUN_0204f02c
 .public FUN_0204fb60

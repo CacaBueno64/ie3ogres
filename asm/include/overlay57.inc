@@ -5,7 +5,7 @@
 .public FUN_ov16_020f0a30
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f2f20
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public DC_FlushRange
 .public unk_0209A454
 .public FUN_ov16_020f081c
@@ -251,7 +251,7 @@
 .public FUN_ov16_021108cc
 .public FUN_ov16_0210e4f0
 .public FUN_ov16_0210fc74
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_02054070
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih

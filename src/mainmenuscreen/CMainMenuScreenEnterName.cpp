@@ -140,11 +140,13 @@ void CMainMenuScreenEnterName::vFUN_C0(void)
     case 0:
     case 2:
     case 3:
-        hasNgWord = CMainMenuScreenEnterName::containsNgWord(unk_0209A454.entry,
-                                                      static_cast<u16 *>(this->files[FILE_FCODECK].data),
-                                                      this->files[FILE_FCODECK].size,
-                                                      this->ngWordLines,
-                                                      this->ngWordLineCount);
+        hasNgWord = CMainMenuScreenEnterName::containsNgWord(
+            unk_0209A454.entry,
+            static_cast<u16 *>(this->files[FILE_FCODECK].data),
+            this->files[FILE_FCODECK].size,
+            this->ngWordLines,
+            this->ngWordLineCount
+        );
         break;
     }
 
@@ -602,16 +604,18 @@ void CMainMenuScreenEnterName::drawText(void)
             indentation = 0;
             break;
         }
-        gFont12Manager->drawTextTile4bpp(indentation,
-                                         6,
-                                         unk_0209A454.entry,
-                                         3,
-                                         CFontManager::ALIGNEMENT_LEFT,
-                                         this->unk64,
-                                         112,
-                                         24,
-                                         NULL,
-                                         0);
+        gFont12Manager->drawTextTile4bpp(
+            indentation,
+            6,
+            unk_0209A454.entry,
+            3,
+            CFontManager::ALIGNEMENT_LEFT,
+            this->unk64,
+            112,
+            24,
+            NULL,
+            0
+        );
 
         DC_FlushRange(this->unk64, 0x540);
         
@@ -622,17 +626,19 @@ void CMainMenuScreenEnterName::drawText(void)
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
-        FUN_ov16_020f2184("もうしわけありませんが\nその[名前/なまえ]は[入力/にゅうりょく]できません。",
-                          this->canvas.unk4,
-                          this->canvas.unkC * 8,
-                          this->canvas.unkE * 8,
-                          3,
-                          3,
-                          2,
-                          1,
-                          0,
-                          6,
-                          CFontManager::ALIGNEMENT_CENTER);
+        Graphics::DrawTextTileWithRuby(
+            "もうしわけありませんが\nその[名前/なまえ]は[入力/にゅうりょく]できません。",
+            this->canvas.unk4,
+            this->canvas.unkC * 8,
+            this->canvas.unkE * 8,
+            3,
+            3,
+            2,
+            1,
+            0,
+            6,
+            CFontManager::ALIGNEMENT_CENTER
+        );
         gFont12Manager->resetSpacing(); 
 
         this->canvas.unk10 = 1;
@@ -643,17 +649,19 @@ void CMainMenuScreenEnterName::drawText(void)
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
-        FUN_ov16_020f2184("パスワードがちがいます。\n",
-                          this->canvas.unk4,
-                          this->canvas.unkC * 8,
-                          this->canvas.unkE * 8,
-                          3,
-                          3,
-                          2,
-                          1,
-                          0,
-                          13,
-                          CFontManager::ALIGNEMENT_CENTER);
+        Graphics::DrawTextTileWithRuby(
+            "パスワードがちがいます。\n",
+            this->canvas.unk4,
+            this->canvas.unkC * 8,
+            this->canvas.unkE * 8,
+            3,
+            3,
+            2,
+            1,
+            0,
+            13,
+            CFontManager::ALIGNEMENT_CENTER
+        );
         gFont12Manager->resetSpacing();
 
         this->canvas.unk10 = 1;
@@ -664,17 +672,19 @@ void CMainMenuScreenEnterName::drawText(void)
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
-        FUN_ov16_020f2184("せいかい！！\n[新/あたら]しいコースをお[楽/たの]しみください。",
-                          this->canvas.unk4,
-                          this->canvas.unkC * 8,
-                          this->canvas.unkE * 8,
-                          3,
-                          3,
-                          2,
-                          1,
-                          0,
-                          4,
-                          CFontManager::ALIGNEMENT_CENTER);
+        Graphics::DrawTextTileWithRuby(
+            "せいかい！！\n[新/あたら]しいコースをお[楽/たの]しみください。",
+            this->canvas.unk4,
+            this->canvas.unkC * 8,
+            this->canvas.unkE * 8,
+            3,
+            3,
+            2,
+            1,
+            0,
+            4,
+            CFontManager::ALIGNEMENT_CENTER
+        );
         gFont12Manager->resetSpacing();
 
         this->canvas.unk10 = 1;

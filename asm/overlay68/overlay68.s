@@ -1805,7 +1805,7 @@ FUN_ov68_0211b8d0: ; 0x0211B8D0
 	ldr r1, [r0, #0x214]
 	ldr r0, _0211B910 ; =0x0211FE88
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x14
 	ldmia sp!, {pc}
 _0211B910: .word ov68_0211FE88
@@ -2268,7 +2268,7 @@ FUN_ov68_0211bfa4: ; 0x0211BFA4
 	mov r0, r1
 	ldr r1, [r3, #0x218]
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x14
 	ldmia sp!, {pc}
 	arm_func_end FUN_ov68_0211bfa4
@@ -2440,7 +2440,7 @@ FUN_ov68_0211c1f8: ; 0x0211C1F8
 	str r2, [sp, #0x10]
 	ldr r0, [r4, r1, lsl #2]
 	ldr r1, [r5, #0x21c]
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x34
 	ldmfd sp!, {r4, r5, pc}
 _0211C260: .word ov68_0211FC28

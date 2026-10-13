@@ -145,7 +145,7 @@
 .public FUN_02057c2c
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f2f20
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_020f5278
 .public FUN_ov16_020f57b0
 .public FUN_ov16_020f52c4
@@ -167,7 +167,7 @@
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public _ZN14CBgMenuManager8deleteIDE12EngineSelectit
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
-.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager12setSubColorsEii
 .public _ZN12CFontManager10setSpacingEii
 .public gFont12Manager
 .public gFont12T
@@ -210,7 +210,7 @@
 .public _ZN12C3DPlaneCtrl9clearFlagEiit
 .public FUN_ov16_0210e4f0
 .public sprintf
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl8setAlphaEiih
 .public _s32_div_f
 .public FUN_0206d620

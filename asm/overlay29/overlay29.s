@@ -1744,7 +1744,7 @@ _0211B810:
 _0211B828:
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _0211B834:
 	ldr r1, [r9, #0xf4]
 	ldr r0, [r9, #0x100]
@@ -1981,7 +1981,7 @@ _0211BAD4:
 	ldr r1, [r9, #0xb4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	ldr r0, _0211C7AC ; =gAudioPlayer
 	ldr r1, _0211C7C4 ; =0x00008009
 	bl _ZN11AudioPlayer10playEffectEi

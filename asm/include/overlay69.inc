@@ -58,7 +58,7 @@
 .public _ZN12C3DPlaneCtrl6setPosEiss
 .public FUN_ov16_0210fa20
 .public FUN_ov16_0210fb10
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_0210efac
 .public _ZN12CFontManager10setSpacingEii
 .public FUN_0205935c

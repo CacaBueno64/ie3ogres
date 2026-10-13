@@ -116,7 +116,7 @@
 .public sprintf
 .public _ZN12CFontManager10setSpacingEii
 .public _ZN12CFontManager12resetSpacingEv
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public gFont12Manager
 .public FUN_ov16_020f51a8
 .public FUN_ov16_020f4894
@@ -318,10 +318,10 @@
 .public GX_LoadBG2Scr
 .public _ZN8Graphics15LoadTempPaletteEP10GXBGPltt1612EngineSelecti
 .public _ZN18CBgMenuRadioButton6createEhhhi
-.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager12setSubColorsEii
 .public gFont12T
 .public FUN_02059630
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN14CBgMenuManager9setBoundsE12EngineSelectiiiii

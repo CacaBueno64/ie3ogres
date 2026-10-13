@@ -28,7 +28,7 @@
 .public FUN_ov132_02143c28
 .public gUtilGame
 .public FUN_ov16_020f2f20
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN11CLogicThink11getTeamInfoEi
 .public FUN_0207039c
 .public FUN_ov16_020f081c

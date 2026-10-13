@@ -93,7 +93,7 @@
 .public FUN_ov16_0210eab4
 .public sprintf
 .public FUN_ov16_020f1f5c
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public _ZN12C3DPlaneCtrl9clearFlagEiit

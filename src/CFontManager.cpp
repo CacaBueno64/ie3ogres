@@ -12,7 +12,7 @@ CFontManager::CFontManager()
     this->encoding = 0;
 
     MI_CpuClearFast(&this->g2dfont, sizeof(this->g2dfont));
-    MI_CpuClear8(&this->unk1C, sizeof(this->unk1C));
+    MI_CpuClear8(&this->subColors, sizeof(this->subColors));
 }
 
 CFontManager::~CFontManager()
@@ -44,19 +44,21 @@ int CFontManager::drawGlyphTex4bpp(const u8 *glyphImage, void *dest, int maxWidt
     int x, y, i;
     
     s32 mask = 0x80;
+
     int visibleWidth = charWidths->charWidth - charWidths->left;
     int skipWidth = this->g2dfont.pRes->pGlyph->cellWidth - visibleWidth;
+    
     xPos += charWidths->left;
 
     for (y = 0; y < height; y++)
     {
         u8 *ptr = &static_cast<u8 *>(dest)[(maxWidth * (yPos + y) + xPos) / 2];
-        BOOL isEven = (xPos & 1) != FALSE;
+        BOOL odd = (xPos & 1) != FALSE;
         
         for (x = 0; x < visibleWidth; x++)
         {
             if (*glyphImage & mask) {
-                if (isEven) {
+                if (odd) {
                     this->writeCharByte(ptr, (*ptr & 0xF) | (color & 0xF) * 16);
                 } else {
                     this->writeCharByte(ptr, (*ptr & 0xF0) | (color & 0xF));
@@ -70,11 +72,11 @@ int CFontManager::drawGlyphTex4bpp(const u8 *glyphImage, void *dest, int maxWidt
                 glyphImage++;
             }
             
-            if (isEven) {
+            if (odd) {
                 ptr++;
             }
             
-            isEven = !isEven;
+            odd = !odd;
         }
 
         for (i = 0; i < skipWidth; i++)
@@ -95,8 +97,10 @@ int CFontManager::drawGlyphTex8bpp(const u8 *glyphImage, void *dest, int maxWidt
     int x, y, i;
     
     s32 mask = 0x80;
+
     int visibleWidth = charWidths->charWidth - charWidths->left;
     int skipWidth = this->g2dfont.pRes->pGlyph->cellWidth - visibleWidth;
+    
     xPos += charWidths->left;
 
     for (y = 0; y < height; y++)
@@ -190,7 +194,7 @@ BOOL CFontManager::drawTextTex4bpp(char *text, void *dest, int maxWidth, int max
         return FALSE;
     }
 
-    int cellHeight = this->g2dfont.pRes->pGlyph->cellHeight;
+    int cellHeight = NNS_G2dFontGetHeight(&this->g2dfont);
     int xPos = this->getCharPosX(indentation, maxWidth, text, align);
 
     if (param10 != 0) {
@@ -259,7 +263,7 @@ int CFontManager::getTextWidth(char *text)
     int lineWidth, result;
     lineWidth = result = 0;
 
-    for ( ; *text != '\0'; text++)
+    while (*text != '\0')
     {
         if (*text == '\n')
         {
@@ -267,7 +271,7 @@ int CFontManager::getTextWidth(char *text)
         }
         else
         {
-            s8 charWidth = NNS_G2dFontGetCharWidths(&this->g2dfont, this->decodeChar(text))->charWidth;
+            int charWidth = NNS_G2dFontGetCharWidth(&this->g2dfont, this->decodeChar(text));
 
             if ((charWidth != 0) && (lineWidth != 0)) {
                 lineWidth += this->charSpacing;
@@ -283,6 +287,8 @@ int CFontManager::getTextWidth(char *text)
                 text++;
             }
         }
+
+        text++;
     }
 
     return result;
@@ -293,19 +299,19 @@ int CFontManager::getLineWidth(char *text)
     int lineWidth, result;
     lineWidth = result = 0;
     
-    while (*text)
+    while (*text != '\0')
     {
         if (*text == '\n') {
             break;
         }
 
-        s8 char_width = NNS_G2dFontGetCharWidths(&this->g2dfont, this->decodeChar(text))->charWidth;
+        int charWidth = NNS_G2dFontGetCharWidth(&this->g2dfont, this->decodeChar(text));
 
-        if ((char_width != 0) && (lineWidth != 0)) {
+        if ((charWidth != 0) && (lineWidth != 0)) {
             lineWidth += this->charSpacing;
         }
 
-        lineWidth += char_width;
+        lineWidth += charWidth;
 
         if (lineWidth > result) {
             result = lineWidth;
@@ -345,19 +351,14 @@ int CFontManager::getCharPosX(int indentation, int maxWidth, char *text, Alignme
     }
 }
 
-s8 CFontManager::getCharWidth(char *text)
+int CFontManager::getCharWidth(char *text)
 {
-    return NNS_G2dFontGetCharWidths(&this->g2dfont, this->decodeChar(text))->charWidth;
+    return NNS_G2dFontGetCharWidth(&this->g2dfont, this->decodeChar(text));
 }
 
-
-int CFontManager::drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int x, int y) {
-#define TILE_BPP 4
-#define TILE_WIDTH 8
-#define TILE_HEIGHT 8
-#define TILE_SIZE ((TILE_WIDTH*TILE_HEIGHT*TILE_BPP)/8)
-
-    int xx, yy;
+int CFontManager::drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int x, int y)
+{
+    int px, py;
 
     int visibleWidth = charWidths->charWidth - charWidths->left;
     int skipWidth = this->g2dfont.pRes->pGlyph->cellWidth - visibleWidth;
@@ -366,20 +367,18 @@ int CFontManager::drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWid
     
     s32 mask = 0x80;
     
-    for (yy = 0; yy < height; ++yy) {
-        int rowWidth = (maxWidth >> 3) * TILE_SIZE;
-        int rowOffset = rowWidth * ((yy + y) >> 3) + ((yy + y) & 7) * 4;
+    for (py = 0; py < height; ++py) {
+        int tileRowSize = (maxWidth >> 3) * 32;
+        int rowOffset = tileRowSize * ((py + y) >> 3) + ((py + y) & 7) * 4;
     
-        BOOL isEven = (x & 1) != 0;
+        BOOL odd = (x & 1) != 0;
     
-        for (xx = 0; xx < visibleWidth; ++xx) {
-            int tileX = ((xx + x) >> 3);
-            int localX = ((xx + x) & 7);
-            int perm_var_1 = 1;
-            u8 *ptr = &static_cast<u8 *>(dest)[rowOffset + tileX * TILE_SIZE + (localX >> perm_var_1)];
+        for (px = 0; px < visibleWidth; ++px) {
+            int tileX = (px + x) >> 3;
+            u8 *ptr = &static_cast<u8 *>(dest)[rowOffset + tileX * 32 + (((px + x) & 7) >> 1)];
             
             if (*glyphImage & mask) {
-                if (isEven) {
+                if (odd) {
                     this->writeCharByte(ptr, (*ptr & 0xF) | (color & 0xF) << 4);
                 } else {
                     this->writeCharByte(ptr, (*ptr & 0xF0) | (color & 0xF));
@@ -393,10 +392,10 @@ int CFontManager::drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWid
                 glyphImage++;
             }
             
-            isEven = !isEven;
+            odd = !odd;
         }
 
-        for (xx = 0; xx < skipWidth; ++xx) {
+        for (px = 0; px < skipWidth; ++px) {
             mask >>= 1;
             
             if (mask == 0) {
@@ -411,34 +410,40 @@ int CFontManager::drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWid
 
 int CFontManager::drawGlyphTile8bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int x, int y)
 {
-    int xx, yy;
+    int px, py;
     
     s32 mask = 0x80;
+    
     int visibleWidth = charWidths->charWidth - charWidths->left;
     int skipWidth = this->g2dfont.pRes->pGlyph->cellWidth - visibleWidth;
+
     x += charWidths->left;
     
-    for (yy = 0; yy < height; ++yy) {
+    for (py = 0; py < height; ++py) {
         int rowWidth = (maxWidth / 8) * 64;
-        int q = (yy + y) / 8;
-        int r = (yy + y) % 8;
+        int q = (py + y) / 8;
+        int r = (py + y) % 8;
         int rowOffset = q * rowWidth + r * 8;
 
-        for (xx = 0; xx < visibleWidth; ++xx) {
-            int tileX = ((xx + x) >> 3) * 64;
-            u8 *ptr = &static_cast<u8 *>(dest)[rowOffset + tileX + ((xx + x) & 7)];
+        for (px = 0; px < visibleWidth; ++px) {
+            int tileX = ((px + x) >> 3) * 64;
+            u8 *ptr = &static_cast<u8 *>(dest)[rowOffset + tileX + ((px + x) & 7)];
+
             if (*glyphImage & mask) {
                 this->writeCharByte(ptr, color);
             }
+
             mask >>= 1;
+
             if (mask == 0) {
                 mask = 0x80;
                 glyphImage++;
             }
         }
 
-        for (xx = 0; xx < skipWidth; ++xx) {
+        for (px = 0; px < skipWidth; ++px) {
             mask >>= 1;
+
             if (mask == 0) {
                 mask = 0x80;
                 glyphImage++;
@@ -457,7 +462,7 @@ BOOL CFontManager::drawTextTile4bpp(int indentation, int yPos, char *text, int c
         return FALSE;
     }
 
-    int cellHeight = this->g2dfont.pRes->pGlyph->cellHeight;
+    int cellHeight = NNS_G2dFontGetHeight(&this->g2dfont);
     int xPos = this->getCharPosX(indentation, maxWidth, text, align);
     
     if (yPos < 0) {
@@ -521,7 +526,7 @@ BOOL CFontManager::drawTextTile8bpp(int indentation, int yPos, char *text, int c
         return FALSE;
     }
 
-    int cellHeight = this->g2dfont.pRes->pGlyph->cellHeight;
+    int cellHeight = NNS_G2dFontGetHeight(&this->g2dfont);
     int xPos = this->getCharPosX(indentation, maxWidth, text, align);
     
     if (yPos < 0) {
@@ -588,36 +593,36 @@ void CFontManager::resetSpacing(void)
     this->setSpacing(1, 1);
 }
 
-BOOL CFontManager::init(void *pNftrFile, u32 param2, u8 encoding)
+BOOL CFontManager::init(void *pNftrFile, u32 baseColor, u8 encoding)
 {
     void *file = pNftrFile;
     
-	if (!pNftrFile) {
-		return FALSE;
-	}
-	
-	this->unk1F = 0;
-	
-	if (pNftrFile) {
-		file = pNftrFile;
-	}
-	
-	if (param2 >= 16) {
-		param2 = 0;
-	}
-	
-	this->file = file;
-	this->unk10 = param2;
+    if (!pNftrFile) {
+        return FALSE;
+    }
+    
+    this->unk1F = 0;
+    
+    if (pNftrFile) {
+        file = pNftrFile;
+    }
+    
+    if (baseColor >= COLOR_MAX) {
+        baseColor = COLOR_TRANSPARENT;
+    }
+    
+    this->file = file;
+    this->baseColor = baseColor;
 
-	if (encoding != 0) {
-		NNS_G2dFontInitUTF16(&this->g2dfont, file);
-	} else {
-		NNS_G2dFontInitShiftJIS(&this->g2dfont, file);
-	}
-	
-	this->encoding = encoding;
+    if (encoding != 0) {
+        NNS_G2dFontInitUTF16(&this->g2dfont, file);
+    } else {
+        NNS_G2dFontInitShiftJIS(&this->g2dfont, file);
+    }
+    
+    this->encoding = encoding;
 
-	return TRUE;
+    return TRUE;
 }
  
 void CFontManager::clearTexture(void *dest, int texWidth, int texHeight, int x, int y, int width, int height)
@@ -635,10 +640,11 @@ void CFontManager::clearTexture(void *dest, int texWidth, int texHeight, int x, 
         height = texHeight - y;
     }
 
-    int xx, yy;
-    for (yy = 0; yy < height; ++yy) {
-        u8 * ptr = &static_cast<u8 *>(dest)[(texWidth * (y + yy) + x) / 2];
+    int px, py;
+    for (py = 0; py < height; ++py) {
+        u8 * ptr = &static_cast<u8 *>(dest)[(texWidth * (y + py) + x) / 2];
         BOOL odd = (x & 1) != 0;
+
         for (int curRem = x & 7; curRem & 7; ++curRem) {
             if (odd) {
                 this->writeCharByte(ptr, *ptr & 0xF);
@@ -658,7 +664,7 @@ void CFontManager::clearTexture(void *dest, int texWidth, int texHeight, int x, 
         ptr += contWidth / 2;
 
         odd = FALSE;
-        for (xx = 0; xx < ((x + width) & 3); xx++) {
+        for (px = 0; px < ((x + width) & 3); px++) {
             if (odd) {
                 this->writeCharByte(ptr, *ptr & 0xF);
                 ptr++;
@@ -703,11 +709,11 @@ void CFontManager::clearVram(void *dest, int texWidth, int texHeight, int x, int
                   + (px / 8) * 32
                   + (y % 8) * 4
                   + (px % 8) / 2;
-            BOOL highNibble = (px & 1) ? TRUE : FALSE;
+            BOOL odd = (px & 1) ? TRUE : FALSE;
             tileX = px & 7;
 
             while (!(tileX & 8) && (px < x + width)) {
-                if (highNibble) {
+                if (odd) {
                     this->writeCharByte(p, *p & 0x0F);
                     p++;
                 } else {
@@ -716,16 +722,16 @@ void CFontManager::clearVram(void *dest, int texWidth, int texHeight, int x, int
 
                 px++;
                 tileX++;
-                highNibble = !highNibble;
+                odd = !odd;
             }
         }
     }
 }
 
-void CFontManager::FUN_02043780(int param1, int param2)
+void CFontManager::setSubColors(int edge, int shadow)
 {
-    this->unk1C.unk0 = param1;
-    this->unk1C.unk1 = param2;
+    this->subColors.edge = edge;
+    this->subColors.shadow = shadow;
 }
 
 // the fakest of fake matches

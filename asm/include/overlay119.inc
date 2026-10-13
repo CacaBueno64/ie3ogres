@@ -17,7 +17,7 @@
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public FUN_ov16_020f2f20
 .public _ZN12CFontManager10setSpacingEii
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN12CFontManager12resetSpacingEv
 .public gBgMenuManager
 .public gFont12Manager

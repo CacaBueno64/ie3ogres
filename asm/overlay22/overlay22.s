@@ -6952,7 +6952,7 @@ FUN_ov22_0211ffb8: ; 0x0211FFB8
 	add r0, sp, #0xac
 	mov r2, r4
 	mov r3, r7
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	mov r1, r5
 	add r0, sp, #0x14
 	mov r2, #0x18

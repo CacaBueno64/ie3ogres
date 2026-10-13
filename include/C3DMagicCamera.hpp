@@ -28,7 +28,7 @@ public:
     void *unk340;
     s32 unk344;
     u32 unk348;
-    // u32 unk34C;
+    u32 unk34C;
 };
 
 extern C3DMagicCamera *g3DMagicCamera;

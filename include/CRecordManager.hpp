@@ -1,45 +1,52 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "CCardCtrl.hpp"
 #include "cnvdat.h"
 
 typedef struct {
-    u16 type_idx; /* 15: unk, 14: bitfield, 13: dummy, 12-0: type index  */
-    u16 name_idx;
-    u16 array_len;
-    u8 type_info; /* 8: signed, 7-0: alignment/size (in bits); if 0xff then struct */
-    u8 loaded_size;
+    u16 typeIdx; /* 15: unk, 14: bitfield, 13: dummy, 12-0: type index  */
+    u16 nameIdx;
+    u16 arrayLen;
+    u8 typeInfo; /* 8: signed, 7-0: alignment/size (in bits); if 0xff then struct */
+    u8 loadedSize;
 } CNVDAT_Entry;
 
 typedef struct {
     u32 mode;
     u8 unk4[0x4];
-    void *mem_file_pos;
+    void *memFilePos;
     void *unkC;
     u32 unk10;
-    CNVDAT_Entry *entry_table;
-    s32 entry_table_size;
-    u16 *str_off_table;
-    char *str_table;
-    u32 str_off_table_size;
+    CNVDAT_Entry *entryTable;
+    s32 entryTableSize;
+    u16 *strOffTable;
+    char *strTable;
+    u32 strOffTableSize;
     void *buffer;
-    void *mem_file;
-    int cur_value;
+    void *memFile;
+    int curValue;
     int shift;
-    size_t loaded_size;
+    size_t loadedSize;
     char path[128];
 } CNVDAT_Context;
 
 typedef struct {
-    CNVDAT_Context ctx;
-    CNVDAT_Context ctxBC;
+    CNVDAT_Context unk0;
+    CNVDAT_Context unkBC;
 } UnkStruct_020B5C60;
 
 class CRecordManager
 {
 public:
+    CRecordManager();
+    ~CRecordManager();
+
+    /* 0x0205ffb0 */ static void saveEncryption(BOOL write, void *data, size_t size);
+    /* 0x020603c4 */ static u32 alignOffset(u32 offset, int bits);
+    static int FUN_0206040c(CNVDAT_Context *ctx, const char *param1);
+    
     /* 0x020617d8 */ s32 verifySave(void);
     /* 0x02062800 */ bool getRecordHeader(SRecordHeader *dst);
 

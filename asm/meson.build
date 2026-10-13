@@ -203,7 +203,6 @@ ie3ogre_asm += files(
     'recordmanager.s',
     'resourcemanager.s',
     'scenedirection.s',
-    'scenescriptdata.s',
     'scenescriptmanager.s',
     'thinkmanager.s',
     'thinkmanager_mini.s',

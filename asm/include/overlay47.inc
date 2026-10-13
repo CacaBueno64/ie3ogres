@@ -54,7 +54,7 @@
 .public FUN_02059630
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_020ee4b4
 .public FUN_ov16_020ede60
 .public _ZN11AudioPlayer12FUN_0202c4a0El

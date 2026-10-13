@@ -440,7 +440,7 @@ _02125210:
 	add r0, sp, #0x22
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	mov r2, #0x80
 	mov r0, r9
 	add r1, sp, #0x22
@@ -464,7 +464,7 @@ _02125210:
 	add r0, sp, #0x22
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r10, #0x1c]
 	ldrh r1, [r10, #0x1e]
 	ldr r0, [r10, #0x14]

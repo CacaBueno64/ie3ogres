@@ -76,7 +76,7 @@
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public gDeltaTime
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_020ee034
 .public FUN_ov16_020f55b4
 .public FUN_ov16_020f5738

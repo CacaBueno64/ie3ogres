@@ -10042,7 +10042,7 @@ _020C568C:
 	add r5, sp, #0x48
 	mov r1, r4
 	mov r0, r5
-	bl _ZN16CSceneScriptData4nextEP17ScriptInstruction
+	bl _ZN16CSceneScriptData4nextEP18SScriptInstruction
 	movs r4, r0
 	beq _020C6294
 	ldrb r0, [r4, #6]
@@ -11401,7 +11401,7 @@ _020C6A84:
 _020C6ABC:
 	add r0, sp, #0x94
 	mov r1, r4
-	bl _ZN16CSceneScriptData4nextEP17ScriptInstruction
+	bl _ZN16CSceneScriptData4nextEP18SScriptInstruction
 	movs r4, r0
 	beq _020C6C64
 	ldrb r0, [r4, #6]
@@ -16913,7 +16913,7 @@ _020CB678: ; jump table
 	b _020CB694 ; case 6
 _020CB694:
 	ldr r0, _020CB718 ; =0x020AF8AC
-	bl _ZN19CSceneScriptManager12FUN_02048c50Ev
+	bl _ZN19CSceneScriptManager19getFunctionSlotMaskEv
 	sub r1, r7, #4
 	mov r2, #1
 	tst r0, r2, lsl r1

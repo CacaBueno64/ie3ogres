@@ -2930,7 +2930,7 @@ FUN_ov72_0211c6e4: ; 0x0211C6E4
 	ldr r1, [r5, #4]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r9]
 	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r5, #0xc]
@@ -3005,7 +3005,7 @@ FUN_ov72_0211c788: ; 0x0211C788
 	mov r0, r6
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r7]
 	bl _ZN12CFontManager12resetSpacingEv
 	strb r4, [r5, #0x10]
@@ -8662,7 +8662,7 @@ _02121884:
 	str r2, [sp, #0x10]
 	ldr r1, [r10, #0x458]
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _021218F0:
 	mov r0, r7, lsl #0x18
 	mov r0, r0, asr #0x18

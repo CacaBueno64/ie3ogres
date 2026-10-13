@@ -4,7 +4,7 @@
 .public FUN_02059288
 .public FUN_0205935c
 .public FUN_02059630
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e7d0
@@ -204,7 +204,7 @@ _0210FF14:
 	ldr r1, [r10, #0x1c]
 	mov r0, r9
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	b _0211001C
 _0210FF60:
 	ldr r11, _02110034 ; =g3DPlaneCtrl

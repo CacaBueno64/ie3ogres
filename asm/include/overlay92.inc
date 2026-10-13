@@ -5,7 +5,7 @@
 .public MIi_CpuClear32
 .public gAllocator
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public DC_FlushRange
 .public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 .public _ZN8Graphics11SetupScreenEPvmii

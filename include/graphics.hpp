@@ -168,7 +168,7 @@ void FUN_ov16_020f1ee4(u32 *src, int width, int height, u32 *dst);
 void FUN_ov16_020f1f5c(char *src, char* dst);
 void ApplyFontBlankCode(char *str);
 void DrawTextTileWithRuby(char *text, void *dest, int width, int height, int color, int rubyColor, int charSpacing, int lineSpacing, int x, int y, CFontManager::Alignment align);
-void DrawTextTexWithRuby(char *text, sfkey_t key, int color, int rubyColor, int charSpacing, int lineSpacing, int width, int height, int x, int y, CFontManager::Alignment align);
+void DrawTextTexWithRuby(char *text, sfkey_t key, int color, int rubyColor, int charSpacing, int lineSpacing, int x, int y, CFontManager::Alignment align);
 int FUN_ov16_020f24e8(char *src, char *dst, CFontManager::RubyBlock *ruby);
 
 } /* namespace Graphics */

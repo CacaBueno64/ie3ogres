@@ -23,7 +23,7 @@
 .public gFont12Manager
 .public FUN_ov16_020f2f20
 .public MI_CpuCopy8
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN14CBgMenuManager13isFlashActiveE12EngineSelect
 .public _ZN11AudioPlayer10playEffectEi
 .public _ZN18CBgMenuRadioButton13releaseButtonEib

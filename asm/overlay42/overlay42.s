@@ -2761,7 +2761,7 @@ FUN_ov42_0211c354: ; 0x0211C354
 	ldr r1, [r7]
 	mov r0, r10
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x24
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211C4FC: .word g3DPlaneCtrl

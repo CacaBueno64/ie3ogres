@@ -4939,7 +4939,7 @@ _020FB0BC:
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	add r0, r6, #0xc
 	mov r1, #0x3e8
-	bl FUN_0202ff60
+	bl _ZN16CSceneScriptData18getInstructionByIDEl
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, pc}
@@ -4996,7 +4996,7 @@ _020FB184:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r6, #0xc
 	mov r1, #0x3e8
-	bl FUN_0202ff60
+	bl _ZN16CSceneScriptData18getInstructionByIDEl
 	movs r5, r0
 	mvneq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
@@ -9364,9 +9364,9 @@ _020FE9E0: .word _ZN19CSceneScriptManager4freeEPv
 	arm_func_start FUN_ov16_020fe9e4
 FUN_ov16_020fe9e4: ; 0x020FE9E4
 	ldr r0, [r0, #8]
-	ldr r12, _020FE9F0 ; =_ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
+	ldr r12, _020FE9F0 ; =_ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
 	bx r12
-_020FE9F0: .word _ZN23CSceneScriptFileContext4nextEP17ScriptInstruction
+_020FE9F0: .word _ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
 	arm_func_end FUN_ov16_020fe9e4
 
 	arm_func_start FUN_ov16_020fe9f4
@@ -9594,7 +9594,7 @@ _020FECCC:
 	mov r1, r0, lsr #0x10
 	beq _020FECF4
 	ldr r0, [r9, #4]
-	bl _ZN19CSceneScriptManager11getVariableEi
+	bl _ZN19CSceneScriptManager17getGlobalVariableEi
 _020FECEC:
 	ldr r0, [r0]
 	b _020FED50
@@ -9615,7 +9615,7 @@ _020FED14:
 	mov r1, r0, lsr #0x10
 	beq _020FED38
 	ldr r0, [r9, #4]
-	bl _ZN19CSceneScriptManager11getVariableEi
+	bl _ZN19CSceneScriptManager17getGlobalVariableEi
 	b _020FED50
 _020FED38:
 	tst r2, #0x20000
@@ -10634,7 +10634,7 @@ _020FFAE8:
 	ldr r0, [r7, #4]
 	ldr r2, [r7, #0x140]
 	mov r1, r9
-	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
+	bl _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
 	movs r8, r0
 	moveq r0, #1
 	streqb r0, [r6, #0xa]
@@ -10725,7 +10725,7 @@ _020FFC24:
 	ldr r2, [sp, #4]
 	ldr r3, [sp, #8]
 	mov r1, #0xb
-	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
+	bl _ZN19CSceneScriptManager10loadScriptEilli
 	cmp r0, #0
 	strltb r5, [r8, #0xa]
 	blt _020FFD80
@@ -10739,7 +10739,7 @@ _020FFC24:
 _020FFC7C:
 	ldr r0, [r9, #4]
 	ldr r1, [r8, #0x18]
-	bl _ZN19CSceneScriptManager12FUN_02048178Ei
+	bl _ZN19CSceneScriptManager13isScriptReadyEi
 	cmp r0, #0
 	beq _020FFD80
 	add r2, sp, #4
@@ -10752,12 +10752,12 @@ _020FFC7C:
 	ldr r0, [r9, #4]
 	ldr r2, [r8, #0x18]
 	ldr r3, [sp, #0xc]
-	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
+	bl _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
 	movs r4, r0
 	ldr r0, [r9, #4]
 	bne _020FFCDC
 	ldr r1, [r8, #0x18]
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 	mov r0, #1
 	strb r0, [r8, #0xa]
 	b _020FFD80
@@ -10801,7 +10801,7 @@ _020FFD4C:
 	bl FUN_ov16_020fe56c
 	ldr r0, [r9, #4]
 	ldr r1, [r8, #0x18]
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 	ldrsb r1, [r8, #0xb]
 	mov r0, #1
 	strb r0, [r8, #0xa]
@@ -10848,7 +10848,7 @@ _020FFE00:
 	ldr r0, [r9, #4]
 	ldr r3, [sp, #0x14]
 	mov r2, r8
-	bl _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl
+	bl _ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl
 	movs r5, r0
 	ldreqsb r0, [r8, #0xb]
 	streqb r4, [r8, #0xa]
@@ -10860,7 +10860,7 @@ _020FFE00:
 	ldr r1, [sp, #0xc]
 	ldr r3, [sp, #0x10]
 	mov r2, r4
-	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
+	bl _ZN19CSceneScriptManager10loadScriptEilli
 	str r0, [r5, #0x18]
 	cmp r0, #0
 	ldrltsb r0, [r8, #0xb]
@@ -10878,7 +10878,7 @@ _020FFE70:
 	str r6, [sp, #8]
 	ldr r0, [r9, #4]
 	add r2, sp, #8
-	bl _ZN19CSceneScriptManager12FUN_02048b10EiPl
+	bl _ZN19CSceneScriptManager15getFunctionSlotEiPl
 	movs r4, r0
 	ldreqsb r0, [r8, #0xb]
 	streqb r10, [r8, #0xa]
@@ -10887,7 +10887,7 @@ _020FFE70:
 	beq _020FFF1C
 	ldr r0, [r9, #4]
 	ldr r1, [r4, #0x18]
-	bl _ZN19CSceneScriptManager12FUN_02048178Ei
+	bl _ZN19CSceneScriptManager13isScriptReadyEi
 	cmp r0, #0
 	beq _020FFF1C
 	add r10, sp, #4
@@ -10897,13 +10897,13 @@ _020FFE70:
 	ldr r1, [r4, #0xc]
 	ldr r2, [r4, #0x18]
 	ldr r3, [r4, #0x1c]
-	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
+	bl _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
 	str r0, [r4, #0xc]
 	cmp r0, #0
 	ldr r0, [r9, #4]
 	bne _020FFEE8
 	ldr r1, [r4, #0x18]
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 	b _020FFF08
 _020FFEE8:
 	ldr r2, [r4, #0x18]
@@ -21192,13 +21192,13 @@ FUN_ov16_02108c54: ; 0x02108C54
 	mov r6, #2
 	ldr r0, [r7, #4]
 	mov r1, r6
-	bl _ZN19CSceneScriptManager12FUN_0204836cEi
+	bl _ZN19CSceneScriptManager17requestUnloadSlotEi
 	str r4, [sp]
 	ldr r0, [r7, #4]
 	ldr r3, [sp, #8]
 	mov r1, r6
 	mov r2, r8
-	bl _ZN19CSceneScriptManager12FUN_02048068Eilli
+	bl _ZN19CSceneScriptManager11requestLoadEilli
 _02108CE8:
 	cmp r5, #0
 	movne r0, #1
@@ -21250,7 +21250,7 @@ _02108D68: ; jump table
 	b _02108DB4 ; case 10
 _02108D94:
 	ldr r0, [r7, #4]
-	bl _ZN19CSceneScriptManager12FUN_0204836cEi
+	bl _ZN19CSceneScriptManager17requestUnloadSlotEi
 	str r4, [sp]
 	ldr r0, [r7, #4]
 	ldr r1, [sp, #4]
@@ -21260,7 +21260,7 @@ _02108D94:
 _02108DB4:
 	ldr r0, [r7, #4]
 	mov r1, r2
-	bl _ZN19CSceneScriptManager12FUN_0204836cEi
+	bl _ZN19CSceneScriptManager17requestUnloadSlotEi
 	mov r1, r4
 _02108DC4:
 	str r1, [sp]
@@ -21269,7 +21269,7 @@ _02108DC4:
 	ldr r3, [sp, #8]
 	mov r2, #1
 _02108DD8:
-	bl _ZN19CSceneScriptManager12FUN_02048068Eilli
+	bl _ZN19CSceneScriptManager11requestLoadEilli
 _02108DDC:
 	cmp r5, #0
 	movne r0, #1

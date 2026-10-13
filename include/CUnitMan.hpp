@@ -114,6 +114,7 @@ typedef struct Unit {
 class CUnitMan
 {
 public:
+    CUnitMan();
     virtual ~CUnitMan();
 
 private:

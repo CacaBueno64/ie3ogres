@@ -1094,7 +1094,7 @@ FUN_ov98_02125b7c: ; 0x02125B7C
 	mov r0, r7
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r5, #8]
 	ldrh r1, [r5, #0xa]
 	ldr r0, [r5, #4]
@@ -1233,7 +1233,7 @@ FUN_ov98_02125dd0: ; 0x02125DD0
 	ldr r0, [r6]
 	mov r1, r7
 	mov r2, r4
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	mov r0, #3
 	stmia sp, {r0, r7}
 	ldr r0, [r5, #4]

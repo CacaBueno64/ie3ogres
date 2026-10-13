@@ -35630,7 +35630,7 @@ _020DB520:
 	ldr r0, [r7]
 	mov r1, r8
 	mov r2, r5
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	mov r0, #3
 	stmia sp, {r0, r8}
 	ldr r0, [r6, #4]

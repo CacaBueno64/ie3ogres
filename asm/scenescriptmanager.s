@@ -251,7 +251,7 @@ _02047D90:
 	mov r0, r8
 	mov r1, r9
 	add r2, sp, #0xc
-	bl _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl
+	bl _ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl
 	movs r9, r0
 	beq _02047E08
 	add r0, r8, r4, lsl #2
@@ -280,13 +280,13 @@ _02047E08:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	arm_func_end _ZN19CSceneScriptManager14loadScriptDataEP17SScriptRecordData
 
-	arm_func_start _ZN19CSceneScriptManager11getVariableEi
-_ZN19CSceneScriptManager11getVariableEi: ; 0x02047E20
+	arm_func_start _ZN19CSceneScriptManager17getGlobalVariableEi
+_ZN19CSceneScriptManager17getGlobalVariableEi: ; 0x02047E20
 	add r0, r0, #0xfc
 	add r0, r0, #0x1c00
 	add r0, r0, r1, lsl #2
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager11getVariableEi
+	arm_func_end _ZN19CSceneScriptManager17getGlobalVariableEi
 
 	arm_func_start _ZN19CSceneScriptManager12loadPkhFilesEv ; https://decomp.me/scratch/M3XwK
 _ZN19CSceneScriptManager12loadPkhFilesEv: ; 0x02047E30
@@ -386,8 +386,8 @@ _ZN19CSceneScriptManager14getFileContextEi: ; 0x02047F80
 	bx lr
 	arm_func_end _ZN19CSceneScriptManager14getFileContextEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02047f8cEilli ; https://decomp.me/scratch/HBNFh
-_ZN19CSceneScriptManager12FUN_02047f8cEilli: ; 0x02047F8C
+	arm_func_start _ZN19CSceneScriptManager10loadScriptEilli ; https://decomp.me/scratch/HBNFh
+_ZN19CSceneScriptManager10loadScriptEilli: ; 0x02047F8C
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -445,10 +445,10 @@ _02048054:
 	mvn r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02047f8cEilli
+	arm_func_end _ZN19CSceneScriptManager10loadScriptEilli
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048068Eilli ; https://decomp.me/scratch/SZ9lv
-_ZN19CSceneScriptManager12FUN_02048068Eilli: ; 0x02048068
+	arm_func_start _ZN19CSceneScriptManager11requestLoadEilli ; https://decomp.me/scratch/SZ9lv
+_ZN19CSceneScriptManager11requestLoadEilli: ; 0x02048068
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	ldr r4, [sp, #0x20]
 	mov r9, r0
@@ -525,10 +525,10 @@ _02048164:
 	blt _02048130
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048068Eilli
+	arm_func_end _ZN19CSceneScriptManager11requestLoadEilli
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048178Ei ; https://decomp.me/scratch/1Hepv
-_ZN19CSceneScriptManager12FUN_02048178Ei: ; 0x02048178
+	arm_func_start _ZN19CSceneScriptManager13isScriptReadyEi ; https://decomp.me/scratch/1Hepv
+_ZN19CSceneScriptManager13isScriptReadyEi: ; 0x02048178
 	stmfd sp!, {r4, r5, r6, lr}
 	mov r6, r0
 	cmp r1, #0
@@ -551,10 +551,10 @@ _020481B8:
 	mla r0, r1, r0, r6
 	bl _ZN23CSceneScriptFileContext12FUN_020491b0Ev
 	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048178Ei
+	arm_func_end _ZN19CSceneScriptManager13isScriptReadyEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_020481c8EiPvi ; https://decomp.me/scratch/eEim0
-_ZN19CSceneScriptManager12FUN_020481c8EiPvi: ; 0x020481C8
+	arm_func_start _ZN19CSceneScriptManager13loadRawScriptEiPvi ; https://decomp.me/scratch/eEim0
+_ZN19CSceneScriptManager13loadRawScriptEiPvi: ; 0x020481C8
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r10, r0
@@ -601,7 +601,7 @@ _02048264:
 	mvn r0, #0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_020481c8EiPvi
+	arm_func_end _ZN19CSceneScriptManager13loadRawScriptEiPvi
 
 	arm_func_start _ZN19CSceneScriptManager11getFileCodeEi
 _ZN19CSceneScriptManager11getFileCodeEi: ; 0x02048278
@@ -611,8 +611,8 @@ _ZN19CSceneScriptManager11getFileCodeEi: ; 0x02048278
 	ldmfd sp!, {r3, pc}
 	arm_func_end _ZN19CSceneScriptManager11getFileCodeEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048288Ei ; https://decomp.me/scratch/WYCnc
-_ZN19CSceneScriptManager12FUN_02048288Ei: ; 0x02048288
+	arm_func_start _ZN19CSceneScriptManager12unloadScriptEi ; https://decomp.me/scratch/WYCnc
+_ZN19CSceneScriptManager12unloadScriptEi: ; 0x02048288
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
 	mov r8, r0
 	mov r7, r1
@@ -664,7 +664,7 @@ _0204830C:
 	bl FUN_ov16_020fe56c
 	mov r0, r8
 	add r1, r4, r6
-	bl _ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction
+	bl _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
 _02048350:
 	add r5, r5, #1
 	cmp r5, #3
@@ -673,10 +673,10 @@ _02048350:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 _02048364: .word unk_02099E91
 _02048368: .word unk_02099E90
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048288Ei
+	arm_func_end _ZN19CSceneScriptManager12unloadScriptEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_0204836cEi ; https://decomp.me/scratch/73s5D
-_ZN19CSceneScriptManager12FUN_0204836cEi: ; 0x0204836C
+	arm_func_start _ZN19CSceneScriptManager17requestUnloadSlotEi ; https://decomp.me/scratch/73s5D
+_ZN19CSceneScriptManager17requestUnloadSlotEi: ; 0x0204836C
 	stmfd sp!, {r3, lr}
 	add r2, r1, #1
 	mov r2, r2, lsl #0x18
@@ -709,10 +709,10 @@ _020483A8:
 	blt _020483A8
 	mov r0, #0
 	ldmfd sp!, {r3, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_0204836cEi
+	arm_func_end _ZN19CSceneScriptManager17requestUnloadSlotEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_020483e4Ell ; https://decomp.me/scratch/IActn
-_ZN19CSceneScriptManager12FUN_020483e4Ell: ; 0x020483E4
+	arm_func_start _ZN19CSceneScriptManager13requestUnloadEll ; https://decomp.me/scratch/IActn
+_ZN19CSceneScriptManager13requestUnloadEll: ; 0x020483E4
 	stmfd sp!, {r4, r5, r6, r7, r8, lr}
 	mov r4, r2
 	mov r6, r0
@@ -747,7 +747,7 @@ _02048440:
 	beq _02048468
 	mov r0, r6
 	mov r1, r8
-	bl _ZN19CSceneScriptManager12FUN_0204836cEi
+	bl _ZN19CSceneScriptManager17requestUnloadSlotEi
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
 _02048468:
 	add r8, r8, #1
@@ -755,7 +755,7 @@ _02048468:
 	blt _02048440
 	mov r0, #0
 	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_020483e4Ell
+	arm_func_end _ZN19CSceneScriptManager13requestUnloadEll
 
 	arm_func_start _ZN19CSceneScriptManager9resetSoftEv
 _ZN19CSceneScriptManager9resetSoftEv: ; 0x0204847C
@@ -772,8 +772,8 @@ _0204848C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end _ZN19CSceneScriptManager9resetSoftEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_020484a4Ev ; https://decomp.me/scratch/pP8lN
-_ZN19CSceneScriptManager12FUN_020484a4Ev: ; 0x020484A4
+	arm_func_start _ZN19CSceneScriptManager13arePKHsLoadedEv ; https://decomp.me/scratch/pP8lN
+_ZN19CSceneScriptManager13arePKHsLoadedEv: ; 0x020484A4
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	ldr r4, _02048504 ; =gAllocator
 	mov r7, r0
@@ -803,10 +803,10 @@ _020484F4:
 	moveq r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _02048504: .word gAllocator
-	arm_func_end _ZN19CSceneScriptManager12FUN_020484a4Ev
+	arm_func_end _ZN19CSceneScriptManager13arePKHsLoadedEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048508Ev
-_ZN19CSceneScriptManager12FUN_02048508Ev: ; 0x02048508
+	arm_func_start _ZN19CSceneScriptManager15processRequestsEv
+_ZN19CSceneScriptManager15processRequestsEv: ; 0x02048508
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	mov r5, #0
@@ -844,7 +844,7 @@ _02048564:
 	ldr r2, [r1, #0xbd0]
 	ldr r3, [r1, #0xbd4]
 	sub r1, r12, #1
-	bl _ZN19CSceneScriptManager12FUN_02047f8cEilli
+	bl _ZN19CSceneScriptManager10loadScriptEilli
 	add r0, r7, r6, lsl #4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xbcc]
@@ -861,7 +861,7 @@ _020485A8:
 	bl MI_CpuFill8
 	mov r0, r5
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048508Ev
+	arm_func_end _ZN19CSceneScriptManager15processRequestsEv
 
 	arm_func_start _ZN19CSceneScriptManager9getThreadEii ; https://decomp.me/scratch/gFpaQ
 _ZN19CSceneScriptManager9getThreadEii: ; 0x020485D0
@@ -912,8 +912,8 @@ _0204866C:
 	ldmfd sp!, {r4, r5, r6, pc}
 	arm_func_end _ZN19CSceneScriptManager9getThreadEii
 
-	arm_func_start _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl ; https://decomp.me/scratch/wcJef
-_ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl: ; 0x02048674
+	arm_func_start _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl ; https://decomp.me/scratch/wcJef
+_ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl: ; 0x02048674
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	mov r8, r1
 	mvn r1, #0
@@ -931,7 +931,7 @@ _020486A8:
 	mov r1, r8
 	mov r2, r6
 	add r0, r9, r10
-	bl _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
+	bl _ZN23CSceneScriptFileContext17findFunctionStartEP18SScriptInstructioni
 	movs r8, r0
 	beq _020486D8
 	mov r0, r4
@@ -948,10 +948,10 @@ _020486D8:
 _020486E8:
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
+	arm_func_end _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_020486f0EP15CSceneDirectioniP17ScriptInstructionPl ; https://decomp.me/scratch/nlqV3
-_ZN19CSceneScriptManager12FUN_020486f0EP15CSceneDirectioniP17ScriptInstructionPl: ; 0x020486F0
+	arm_func_start _ZN19CSceneScriptManager13startFunctionEP15CSceneDirectioniP18SScriptInstructionPl ; https://decomp.me/scratch/nlqV3
+_ZN19CSceneScriptManager13startFunctionEP15CSceneDirectioniP18SScriptInstructionPl: ; 0x020486F0
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	mov r7, r0
 	add r12, r7, #0x1000
@@ -974,7 +974,7 @@ _ZN19CSceneScriptManager12FUN_020486f0EP15CSceneDirectioniP17ScriptInstructionPl
 	str r4, [r0, #0xbb8]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_020486f0EP15CSceneDirectioniP17ScriptInstructionPl
+	arm_func_end _ZN19CSceneScriptManager13startFunctionEP15CSceneDirectioniP18SScriptInstructionPl
 
 	arm_func_start _ZN19CSceneScriptManager6updateEv ; https://decomp.me/scratch/g27Q4
 _ZN19CSceneScriptManager6updateEv: ; 0x02048748
@@ -1030,7 +1030,7 @@ _020487FC:
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0xe20]
 	mov r0, r4
-	bl _ZN19CSceneScriptManager12FUN_02048178Ei
+	bl _ZN19CSceneScriptManager13isScriptReadyEi
 	cmp r0, #0
 	beq _020489BC
 	mla r0, r7, r8, r4
@@ -1042,7 +1042,7 @@ _020487FC:
 	ldr r2, [r0, #0xe20]
 	ldr r3, [r0, #0xe24]
 	mov r0, r4
-	bl _ZN19CSceneScriptManager12initFunctionEP17ScriptInstructionisPl
+	bl _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
 	mla r1, r7, r8, r4
 	add r1, r1, #0x1000
 	str r0, [r1, #0xe14]
@@ -1050,7 +1050,7 @@ _020487FC:
 	bne _02048868
 	ldr r1, [r1, #0xe20]
 	mov r0, r4
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 	b _020489BC
 _02048868:
 	ldr r2, [r1, #0xe20]
@@ -1099,12 +1099,12 @@ _0204889C:
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0xe20]
 	mov r0, r4
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 	add r0, r4, #0x208
 	add r0, r0, #0x1c00
 	mla r1, r7, r5, r0
 	mov r0, r4
-	bl _ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction
+	bl _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
 	b _020489BC
 _02048938:
 	ldr r0, [r1, #0xdfc]
@@ -1164,8 +1164,8 @@ _020489FC: .word unk_0208C438
 _02048A00: .word gScreenFades
 	arm_func_end _ZN19CSceneScriptManager6updateEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048a04Ev
-_ZN19CSceneScriptManager12FUN_02048a04Ev: ; 0x02048A04
+	arm_func_start _ZN19CSceneScriptManager16stopActiveThreadEv
+_ZN19CSceneScriptManager16stopActiveThreadEv: ; 0x02048A04
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	add r0, r5, #0x1000
@@ -1185,10 +1185,10 @@ _02048A20:
 	mov r1, #0
 	str r1, [r0, #0xbb8]
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048a04Ev
+	arm_func_end _ZN19CSceneScriptManager16stopActiveThreadEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048a4cEv
-_ZN19CSceneScriptManager12FUN_02048a4cEv: ; 0x02048A4C
+	arm_func_start _ZN19CSceneScriptManager23fastForwardActiveThreadEv
+_ZN19CSceneScriptManager23fastForwardActiveThreadEv: ; 0x02048A4C
 	stmfd sp!, {r3, lr}
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xbb8]
@@ -1196,10 +1196,10 @@ _ZN19CSceneScriptManager12FUN_02048a4cEv: ; 0x02048A4C
 	ldmeqfd sp!, {r3, pc}
 	bl FUN_ov16_020fe904
 	ldmfd sp!, {r3, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048a4cEv
+	arm_func_end _ZN19CSceneScriptManager23fastForwardActiveThreadEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048a68Ev
-_ZN19CSceneScriptManager12FUN_02048a68Ev: ; 0x02048A68
+	arm_func_start _ZN19CSceneScriptManager16skipActiveThreadEv
+_ZN19CSceneScriptManager16skipActiveThreadEv: ; 0x02048A68
 	stmfd sp!, {r3, lr}
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xbb8]
@@ -1211,24 +1211,24 @@ _ZN19CSceneScriptManager12FUN_02048a68Ev: ; 0x02048A68
 	bl _ZN11AudioPlayer14stopAllEffectsEm
 	ldmfd sp!, {r3, pc}
 _02048A90: .word gAudioPlayer
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048a68Ev
+	arm_func_end _ZN19CSceneScriptManager16skipActiveThreadEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048a94EP14CScreenManager
-_ZN19CSceneScriptManager12FUN_02048a94EP14CScreenManager: ; 0x02048A94
+	arm_func_start _ZN19CSceneScriptManager25setAdventureScreenManagerEP14CScreenManager
+_ZN19CSceneScriptManager25setAdventureScreenManagerEP14CScreenManager: ; 0x02048A94
 	add r0, r0, #0x1000
 	str r1, [r0, #0xb84]
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048a94EP14CScreenManager
+	arm_func_end _ZN19CSceneScriptManager25setAdventureScreenManagerEP14CScreenManager
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048aa0EP15CSceneDirection
-_ZN19CSceneScriptManager12FUN_02048aa0EP15CSceneDirection: ; 0x02048AA0
+	arm_func_start _ZN19CSceneScriptManager12setDirectionEP15CSceneDirection
+_ZN19CSceneScriptManager12setDirectionEP15CSceneDirection: ; 0x02048AA0
 	add r0, r0, #0x1000
 	str r1, [r0, #0xb80]
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048aa0EP15CSceneDirection
+	arm_func_end _ZN19CSceneScriptManager12setDirectionEP15CSceneDirection
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048aacEi
-_ZN19CSceneScriptManager12FUN_02048aacEi: ; 0x02048AAC
+	arm_func_start _ZN19CSceneScriptManager16stopFunctionSlotEi
+_ZN19CSceneScriptManager16stopFunctionSlotEi: ; 0x02048AAC
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r2, #0x2c
 	mul r4, r1, r2
@@ -1247,18 +1247,18 @@ _ZN19CSceneScriptManager12FUN_02048aacEi: ; 0x02048AAC
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0xe20]
 	mov r0, r5
-	bl _ZN19CSceneScriptManager12FUN_02048288Ei
+	bl _ZN19CSceneScriptManager12unloadScriptEi
 _02048AF8:
 	add r0, r5, #0x208
 	add r1, r0, #0x1c00
 	mov r0, r5
 	add r1, r1, r4
-	bl _ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction
+	bl _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048aacEi
+	arm_func_end _ZN19CSceneScriptManager16stopFunctionSlotEi
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048b10EiPl
-_ZN19CSceneScriptManager12FUN_02048b10EiPl: ; 0x02048B10
+	arm_func_start _ZN19CSceneScriptManager15getFunctionSlotEiPl
+_ZN19CSceneScriptManager15getFunctionSlotEiPl: ; 0x02048B10
 	cmp r1, #0
 	mov r3, #0
 	blt _02048B44
@@ -1275,10 +1275,10 @@ _ZN19CSceneScriptManager12FUN_02048b10EiPl: ; 0x02048B10
 _02048B44:
 	mov r0, r3
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048b10EiPl
+	arm_func_end _ZN19CSceneScriptManager15getFunctionSlotEiPl
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl ; https://decomp.me/scratch/MtrUP
-_ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl: ; 0x02048B4C
+	arm_func_start _ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl ; https://decomp.me/scratch/MtrUP
+_ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl: ; 0x02048B4C
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	movs r6, r1
 	mov r7, r0
@@ -1288,7 +1288,7 @@ _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl: ; 0x02048B4C
 	bmi _02048BDC
 	cmp r6, #3
 	bge _02048BDC
-	bl _ZN19CSceneScriptManager12FUN_02048aacEi
+	bl _ZN19CSceneScriptManager16stopFunctionSlotEi
 	mov r0, #0x2c
 	mul r1, r6, r0
 	add r0, r7, #0x208
@@ -1318,10 +1318,10 @@ _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl: ; 0x02048B4C
 _02048BDC:
 	mov r0, r12
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048b4cEiP12SScriptEventl
+	arm_func_end _ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction
-_ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction: ; 0x02048BE4
+	arm_func_start _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
+_ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent: ; 0x02048BE4
 	stmfd sp!, {r3, lr}
 	add r2, r0, #0x208
 	add r3, r2, #0x1c00
@@ -1344,29 +1344,29 @@ _02048C24:
 	cmp lr, #3
 	blt _02048BF8
 	ldmfd sp!, {r3, pc}
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048be4EP15SScriptFunction
+	arm_func_end _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048c34Ev
-_ZN19CSceneScriptManager12FUN_02048c34Ev: ; 0x02048C34
+	arm_func_start _ZN19CSceneScriptManager18getCurFunctionSlotEv
+_ZN19CSceneScriptManager18getCurFunctionSlotEv: ; 0x02048C34
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe90]
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048c34Ev
+	arm_func_end _ZN19CSceneScriptManager18getCurFunctionSlotEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048c40Ev
-_ZN19CSceneScriptManager12FUN_02048c40Ev: ; 0x02048C40
+	arm_func_start _ZN19CSceneScriptManager21clearFunctionSlotMaskEv
+_ZN19CSceneScriptManager21clearFunctionSlotMaskEv: ; 0x02048C40
 	add r0, r0, #0x1000
 	mov r1, #0
 	strb r1, [r0, #0xe8c]
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048c40Ev
+	arm_func_end _ZN19CSceneScriptManager21clearFunctionSlotMaskEv
 
-	arm_func_start _ZN19CSceneScriptManager12FUN_02048c50Ev
-_ZN19CSceneScriptManager12FUN_02048c50Ev: ; 0x02048C50
+	arm_func_start _ZN19CSceneScriptManager19getFunctionSlotMaskEv
+_ZN19CSceneScriptManager19getFunctionSlotMaskEv: ; 0x02048C50
 	add r0, r0, #0x1000
 	ldrb r0, [r0, #0xe8c]
 	bx lr
-	arm_func_end _ZN19CSceneScriptManager12FUN_02048c50Ev
+	arm_func_end _ZN19CSceneScriptManager19getFunctionSlotMaskEv
 
 	.rodata
 	.global unk_0208C438

@@ -25,7 +25,7 @@
 .public memset
 .public sprintf
 .public FUN_ov16_020f1f5c
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f4894
 .public _ZN14CBgMenuManager4initE12EngineSelect

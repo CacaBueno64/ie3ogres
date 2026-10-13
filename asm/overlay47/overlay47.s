@@ -3604,7 +3604,7 @@ _0211D078:
 	mov r0, r4
 	mov r2, r8
 	mov r3, r8
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	cmp r6, #0
 	bne _0211D1C0
 	ldr r4, _0211D314 ; =gLogicThink

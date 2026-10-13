@@ -19,9 +19,13 @@ class CModel
 public:
     /* ov16 0x020fa3dc */ virtual bool copy(CModel *);
 
+    /* ov16 0x020f9cdc */ void reset(void);
+    void FUN_ov16_020f9d80(void);
     bool FUN_ov16_020f9ddc(SNsbResource *param1);
     bool FUN_ov16_020f9f7c(int param1, int param2);
     /* ov16 0x020fa154 */ void reload(void);
+    bool FUN_ov16_020fa300(void);
+    void FUN_ov16_020fa340(fx32 frame, int idx);
     /* ov16 0x020fa448 */ void setTranslation(VecFx32 *trans);
     /* ov16 0x020fa464 */ void setRotation(VecFx32 *rot);
     /* ov16 0x020fa4a0 */ void setScale(VecFx32 *scale);

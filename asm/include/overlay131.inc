@@ -133,9 +133,9 @@
 .public FUN_02031554
 .public FUN_02031ae0
 .public FUN_020552cc
-.public _ZN19CSceneScriptManager12FUN_02048c34Ev
+.public _ZN19CSceneScriptManager18getCurFunctionSlotEv
 .public FUN_020535bc
-.public _ZN19CSceneScriptManager12FUN_02048c50Ev
+.public _ZN19CSceneScriptManager19getFunctionSlotMaskEv
 .public g2DAdventureLogic
 .public FUN_02055d2c
 .public FUN_02055bb0
@@ -239,7 +239,7 @@
 .public FUN_02055310
 .public FUN_020542b0
 .public FUN_020727a8
-.public _ZN19CSceneScriptManager12FUN_020483e4Ell
+.public _ZN19CSceneScriptManager13requestUnloadEll
 .public FUN_ov126_0213a1c4
 .public gUtilGame
 .public FUN_0204fff8

@@ -391,7 +391,7 @@
 .public _ZN10FileSystem14ReadFileByNameEPPviPKc
 .public _ZN16CSceneScriptDataD1Ev
 .public _ZN16CSceneScriptData8initFileEPvPKc
-.public _ZN16CSceneScriptData4nextEP17ScriptInstruction
+.public _ZN16CSceneScriptData4nextEP18SScriptInstruction
 .public STD_ConcatenateString
 .public STD_CopyString
 .public FUN_ov16_020f7c24
@@ -505,7 +505,7 @@
 .public FUN_02054a70
 .public FUN_020549a0
 .public FUN_02054edc
-.public _ZN19CSceneScriptManager12FUN_02048c50Ev
+.public _ZN19CSceneScriptManager19getFunctionSlotMaskEv
 .public FUN_02054e54
 .public FUN_02054ef4
 .public unk_020AF8AC

@@ -30,7 +30,7 @@
 .public unk_02099E90
 .public _ZN7CFileIO11tryFinalizeEPv
 .public FUN_ov16_020fe530
-.public _ZN23CSceneScriptFileContext17findFunctionStartEP17ScriptInstructions
+.public _ZN23CSceneScriptFileContext17findFunctionStartEP18SScriptInstructioni
 .public FUN_ov16_020fe584
 .public FUN_ov16_020fe6e8
 .public _ZN14CScreenManager14getCurSceneSubEv

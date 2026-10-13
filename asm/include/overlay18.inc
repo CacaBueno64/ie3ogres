@@ -33,7 +33,7 @@
 .public _ZN12C3DPlaneCtrl9clearFlagEit
 .public _ZN7CFileIO11tryFinalizeEPv
 .public STD_CopyString
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl7setFlagEitb
 .public _ZN12C3DPlaneCtrl10setFlagAllEitb
 .public _ZN12C3DPlaneCtrl9clearFlagEiit

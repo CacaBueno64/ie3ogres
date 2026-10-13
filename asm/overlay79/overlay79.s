@@ -319,7 +319,7 @@ FUN_ov79_0211a300: ; 0x0211A300
 	ldr r1, [r5, #4]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
 	ldr r0, [r5, #4]

@@ -6,7 +6,7 @@
 .public gBgMenuManager
 .public STD_CopyString
 .public STD_ConcatenateString
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN14CBgMenuManager11deleteGroupE12EngineSelectit
 .public _ZN8Graphics11SetupScreenEPvmii
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti

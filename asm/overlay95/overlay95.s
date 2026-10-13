@@ -866,7 +866,7 @@ FUN_ov95_02125860: ; 0x02125860
 	ldrh r3, [r4, #0xa]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
 	arm_func_end FUN_ov95_02125860

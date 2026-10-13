@@ -128,213 +128,127 @@ size_t CFileIO::getFileLength(const char *path)
     return length;
 }
 
-#ifdef NONMATCHING
-
-// https://decomp.me/scratch/NalIT
-// https://decomp.me/scratch/Q7U06
-// ...
-
-#else  // NONMATCHING
-extern "C" {
-extern void _ZN7CFileIO11getDestSizeEP11FileRequestP6FSFilePm(void);
-extern void _ZN10CAllocator12setNextArenaEi(void);
-extern void _ZN7CFileIO8allocateEm(void);
-extern void _ZN10CAllocator8allocateEmii(void);
-extern void _ZN10CAllocator10deallocateEPv(void);
-extern void _ZN7CFileIO10deallocateEPv(void);
-extern void _ZN7CFileIO10uncompressEPvP11FileRequest(void);
-}
-
-// clang-format off
-asm size_t CFileIO::readDirect(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
+size_t CFileIO::readDirect(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
 {
-    stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0xb4
-	mov r10, r0
-	add r0, sp, #0x54
-	str r2, [sp]
-	mov r6, r1
-	mov r7, r3
-	ldr r5, [r2]
-	bl STD_CopyString
-	add r4, sp, #4
-	mov r0, r4
-	bl FS_InitFile
-	mov r0, r4
-	mov r1, r6
-	bl FS_OpenFile
-	cmp r0, #0
-	addeq sp, sp, #0xb4
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r1, [sp, #0xd8]
-	mov r0, r4
-	mov r2, #0
-	bl FS_SeekFile
-	mov r0, r4
-	bl FS_GetLength
-	ldr r9, [sp, #0xdc]
-	ldr r1, [sp, #0xd8]
-	cmp r9, #0
-	moveq r9, r0
-	add r2, r1, r9
-	streq r0, [sp, #0xdc]
-	cmp r2, r0
-	subgt r9, r0, r1
-	mov r11, #0
-	add r0, sp, #0x4c
-	mov r1, r11
-	mov r2, #4
-	strgt r9, [sp, #0xdc]
-	bl MI_CpuFill8
-	add r0, sp, #0x4c
-	add r0, r0, #8
-	bl STD_GetStringLength
-	sub r1, r0, #1
-	add r0, sp, #0x4c
-	add r0, r0, r1
-	ldrsb r0, [r0, #8]
-	mov r8, #0
-	add r4, sp, #4
-	cmp r0, #0x5f
-	moveq r0, #1
-	streq r0, [sp, #0xe0]
-	ldr r0, [sp, #0xe0]
-	cmp r0, #0
-	beq _0202F130
-	add r2, sp, #4
-	add r3, sp, #0xdc
-	mov r0, r10
-	add r1, sp, #0x4c
-	bl _ZN7CFileIO11getDestSizeEP11FileRequestP6FSFilePm
-	cmp r0, #0
-	beq _0202F130
-	cmp r7, #0
-	ldr r1, =0x00000101
-	beq _0202F0F8
-	mov r0, r7
-	b _0202F0FC
-_0202F0F8:
-	ldr r0, [r10, #4]
-_0202F0FC:
-	bl _ZN10CAllocator12setNextArenaEi
-	mov r6, r0
-	mov r0, r10
-	mov r1, r9
-	bl _ZN7CFileIO8allocateEm
-	mov r11, r0
-	cmp r7, #0
-	beq _0202F124
-	mov r0, r7
-	b _0202F128
-_0202F124:
-	ldr r0, [r10, #4]
-_0202F128:
-	mov r1, r6
-	bl _ZN10CAllocator12setNextArenaEi
-_0202F130:
-	add r0, sp, #0x4c
-	str r8, [r0, #4]
-	cmp r5, #0
-	bne _0202F18C
-	cmp r7, #0
-	strne r7, [r0, #4]
-	ldreq r1, [r10, #4]
-	ldrb r3, [sp, #0xe4]
-	streq r1, [r0, #4]
-	add r0, sp, #0x4c
-	ldr r0, [r0, #4]
-	ldr r1, [sp, #0xdc]
-	mov r2, #1
-	bl _ZN10CAllocator8allocateEmii
-	movs r5, r0
-	bne _0202F18C
-_0202F170:
-	mov r0, r4
-	bl FS_CloseFile
-	cmp r0, #0
-	beq _0202F170
-	add sp, sp, #0xb4
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0202F18C:
-	cmp r11, #0
-	moveq r11, r5
-	add r0, sp, #0x4c
-	mov r7, r9
-	mov r8, r11
-	str r5, [r0, #0x48]
-	cmp r9, #0
-	ble _0202F22C
-_0202F1AC:
-	mov r6, r7
-	cmp r7, #0x2000
-	movge r6, #0x2000
-	mov r0, r4
-	mov r1, r8
-	mov r2, r6
-	sub r7, r7, r6
-	bl FS_ReadFileAsync
-	cmp r0, #0
-	bge _0202F220
-	add r4, sp, #4
-_0202F1D8:
-	mov r0, r4
-	bl FS_CloseFile
-	cmp r0, #0
-	beq _0202F1D8
-	add r0, sp, #0x4c
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	beq _0202F200
-	mov r1, r5
-	bl _ZN10CAllocator10deallocateEPv
-_0202F200:
-	cmp r11, r5
-	beq _0202F214
-	mov r0, r10
-	mov r1, r11
-	bl _ZN7CFileIO10deallocateEPv
-_0202F214:
-	add sp, sp, #0xb4
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_0202F220:
-	cmp r7, #0
-	add r8, r8, r6
-	bgt _0202F1AC
-_0202F22C:
-	mov r0, r11
-	mov r1, r9
-	bl DC_FlushRange
-_0202F238:
-	mov r0, r4
-	bl FS_CloseFile
-	cmp r0, #0
-	beq _0202F238
-	cmp r9, #0x400
-	ble _0202F258
-	mov r0, #1
-	bl OS_Sleep
-_0202F258:
-	cmp r11, r5
-	beq _0202F27C
-	mov r0, r10
-	mov r1, r11
-	add r2, sp, #0x4c
-	bl _ZN7CFileIO10uncompressEPvP11FileRequest
-	mov r0, r10
-	mov r1, r11
-	bl _ZN7CFileIO10deallocateEPv
-_0202F27C:
-	ldr r0, [sp]
-	str r5, [r0]
-	ldr r0, [sp, #0xdc]
-	add sp, sp, #0xb4
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
+    FileRequest request;
+    FSFile file;
+    FileRequest *pRequest;
+    void *finalBuffer;
+    int prevArena;
+    s32 readSize;
+    s32 remainder;
+    char *pos;
+    void *fileBuffer;
+    s32 requestSize;
+    s32 fileLength;
+
+    pRequest = &request;
+
+    finalBuffer = *dest;
+
+    STD_CopyString(pRequest->path, path);
+
+    FS_InitFile(&file);
+    if (!FS_OpenFile(&file, path)) {
+        return 0;
+    }
+    FS_SeekFile(&file, offset, FS_SEEK_SET);
+
+    fileLength = FS_GetLength(&file);
+    requestSize = size;
+    if (size == 0) {
+        requestSize = fileLength;
+        size = fileLength;
+    }
+    if (offset + requestSize > fileLength) {
+        requestSize = fileLength - offset;
+        size = requestSize;
+    }
+
+    fileBuffer = NULL;
+
+    MI_CpuClear8(&pRequest->compHeader, sizeof(pRequest->compHeader));
+
+    if (pRequest->path[STD_GetStringLength(pRequest->path) - 1] == '_') {
+        compressed = TRUE;
+    }
+
+    if (compressed && this->getDestSize(pRequest, &file, &size)) {
+        if (allocator) {
+            prevArena = allocator->setNextArena(0x101);
+        } else {
+            prevArena = this->defaultAllocator->setNextArena(0x101);
+        }
+        fileBuffer = this->allocate(requestSize);
+        if (allocator) {
+            allocator->setNextArena(prevArena);
+        } else {
+            this->defaultAllocator->setNextArena(prevArena);
+        }
+    }
+
+    pRequest->allocator = NULL;
+
+    if (!finalBuffer) {
+        if (allocator) {
+            pRequest->allocator = allocator;
+        } else {
+            pRequest->allocator = this->defaultAllocator;
+        }
+        finalBuffer = pRequest->allocator->allocate(size, 1, strategy);
+        if (!finalBuffer) {
+            while (!FS_CloseFile(&file)) { }
+            
+            return 0;
+        }
+    }
+
+    if (!fileBuffer) {
+        fileBuffer = finalBuffer;
+    }
+
+    remainder = requestSize;
+    pos = static_cast<char *>(fileBuffer);
+    pRequest->data = finalBuffer;
+    while (remainder > 0) {
+        readSize = remainder;
+        if (remainder >= 0x2000) {
+            readSize = 0x2000;
+        }
+        remainder -= readSize;
+
+        if (FS_ReadFileAsync(&file, pos, readSize) < 0) {
+            while (!FS_CloseFile(&file)) { }
+
+            if (pRequest->allocator) {
+                pRequest->allocator->deallocate(finalBuffer);
+            }
+            if (fileBuffer != finalBuffer) {
+                this->deallocate(fileBuffer);
+            }
+
+            return 0;
+        }
+
+        pos += readSize;
+    }
+    DC_FlushRange(fileBuffer, requestSize);
+
+    while (!FS_CloseFile(&file)) { }
+
+    if (requestSize > 0x400) {
+        OS_Sleep(1);
+    }
+
+    if (fileBuffer != finalBuffer) {
+        this->uncompress(fileBuffer, pRequest);
+        this->deallocate(fileBuffer);
+    }
+
+    *dest = finalBuffer;
+
+    return size;
 }
-// clang-format on
-#endif // NONMATCHING
 
 size_t CFileIO::readDeferred(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy)
 {

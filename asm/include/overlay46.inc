@@ -129,7 +129,7 @@
 .public FUN_02059630
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN11AudioPlayer12FUN_0202c4a0El
 .public _ZN11AudioPlayer12FUN_0202d594EiPKc
 .public FUN_0205107c

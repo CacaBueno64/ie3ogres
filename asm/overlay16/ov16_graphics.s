@@ -1574,8 +1574,8 @@ _020F2170:
 _020F2180: .word gFontBlankCode
 	arm_func_end FUN_ov16_020f2118
 
-	arm_func_start FUN_ov16_020f2184
-FUN_ov16_020f2184: ; 0x020F2184
+	arm_func_start _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
+_ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE: ; 0x020F2184
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xb20
 	mov r11, r1
@@ -1674,10 +1674,10 @@ _020F22E4:
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _020F22FC: .word gFont12Manager
 _020F2300: .word gRubi8Manager
-	arm_func_end FUN_ov16_020f2184
+	arm_func_end _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 
-	arm_func_start FUN_ov16_020f2304
-FUN_ov16_020f2304: ; 0x020F2304
+	arm_func_start _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
+_ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE: ; 0x020F2304
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x2ac
 	sub sp, sp, #0x400
@@ -1801,7 +1801,7 @@ _020F2494:
 _020F24DC: .word g3DPlaneCtrl
 _020F24E0: .word gFont12Manager
 _020F24E4: .word gRubi8Manager
-	arm_func_end FUN_ov16_020f2304
+	arm_func_end _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 
 	arm_func_start FUN_ov16_020f24e8
 FUN_ov16_020f24e8: ; 0x020F24E8
@@ -2307,7 +2307,7 @@ FUN_ov16_020f2ab4: ; 0x020F2AB4
 	ldr r0, [r2, #0x2c]
 	mov r2, #0x100
 	mov r3, #0xc0
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r4]
 	add sp, sp, #0x1c
 	str r5, [r0, #0x2c]

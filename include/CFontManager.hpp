@@ -13,6 +13,20 @@ class CFontManager
 {
 public:
     typedef enum {
+        COLOR_TRANSPARENT,
+        COLOR_WHITE,
+        COLOR_BLACK,
+        COLOR_RED,
+        COLOR_GREEN,
+        COLOR_BLUE,
+        COLOR_CYAN,
+        COLOR_PURPLE,
+        COLOR_YELLOW,
+        COLOR_GRAY,
+        COLOR_MAX = 16,
+    } Color;
+
+    typedef enum {
         CHAR_TYPE_NULL,
         CHAR_TYPE_HALFWIDTH,
         CHAR_TYPE_FULLWIDTH
@@ -56,35 +70,44 @@ public:
     int getTextWidth(char *text);
     int getLineWidth(char *text);
     int getCharPosX(int indentation, int maxWidth, char *text, Alignment align);
-    s8 getCharWidth(char *text);
+    int getCharWidth(char *text);
     void setSpacing(int charSpacing, int lineSpacing);
     void resetSpacing(void);
     BOOL init(void *pNftrFile, u32 param2, u8 encoding);
     void clearTexture(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
     void clearVram(void *dest, int texWidth,int texHeight, int x, int y, int width, int height);
-    void FUN_02043780(int param1, int param2);
+    void setSubColors(int edge, int shadow);
 
     static void getNameFurigana(char *dst, char *furigana, char *name);
 
     NNSG2dFont g2dfont;
     void *file;
-    u32 unk10;
+    u32 baseColor; // complete guess, unused
     u32 charSpacing;
     u32 lineSpacing;
     struct {
-        u8 unk0;
-        u8 unk1;
-    } unk1C;
-    u8 unk1E;
-    u8 unk1F;
+        u8 edge;
+        u8 shadow;
+    } subColors;
+    u8 unk1E; // unused
+    u8 unk1F; // unused
     u8 encoding; // 0: SJIS, 1: UTF16
 };
 
 extern CFontManager *gFont12Manager;
+extern CFontManager *gFont8Manager;
 extern CFontManager *gRubi8Manager;
 
 class CFontManager_2 : public CFontManager
 {
 public:
     CFontManager_2();
+    virtual ~CFontManager_2();
+
+    virtual int drawGlyphTile4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    virtual int drawGlyphTex4bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    virtual int drawGlyphTile8bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
+    virtual int drawGlyphTex8bpp(const u8 *glyphImage, void *dest, int maxWidth, u8 color, const NNSG2dCharWidths *charWidths, int height, int xPos, int yPos);
 };
+
+extern CFontManager_2 *gFont12TManager;

@@ -7,9 +7,9 @@
 #include "CModelCfg.hpp"
 #include "CNsbResourceMan.hpp"
 
-typedef struct C3DGameEffect_14 {
-    C3DGameEffect_14 *unk0;
-    u32 unk4;
+typedef struct SEffectInstance {
+    int unk0;
+    int unk4;
     u16 unk8;
     u8 unkA;
     u8 unkB;
@@ -19,7 +19,7 @@ typedef struct C3DGameEffect_14 {
     CModel *model;
     CModelCfg *modelCfg;
     SNsbResource *nsbRes;
-} C3DGameEffect_14;
+} SEffectInstance;
 
 class C3DGameEffect : public C3DGameBase
 {
@@ -34,18 +34,22 @@ public:
     /* 0x0205c97c */ virtual ~C3DGameEffect();
 
     /* 0x0205b518 */ void reset(void);
-    int FUN_0205c240(int param1, int param2);
+    int FUN_0205b530(int param1, int param2);
     int FUN_0205b548(int param1);
-    int FUN_0205b564(int param1, C3DGameEffect_14 **out);
-    int FUN_0205b5cc(C3DGameEffect_14 *param1);
-    void FUN_0205b624(C3DGameEffect_14 *param1);
-    int FUN_0205b6cc(C3DGameEffect_14 *param1);
-    bool FUN_0205b768(C3DGameEffect_14 *param1);
-    bool FUN_0205b9b8(C3DGameEffect_14 *param1);
+    int FUN_0205b564(int param1, SEffectInstance **out);
+    int FUN_0205b5cc(SEffectInstance **out);
+    void FUN_0205b624(SEffectInstance *effect);
+    int FUN_0205b6cc(SEffectInstance *effect);
+    bool FUN_0205b768(SEffectInstance *effect);
+    bool FUN_0205b9b8(SEffectInstance *effect);
     /* 0x0205bca4 */ bool init(int);
+    /* 0x0205be20 */ void destroy(void);
+    void FUN_0205bf14(int param1);
+    void FUN_0205c060(void);
+    void FUN_0205c468(void);
 
-    C3DGameEffect_14 *unk14;
-    CModelCfg *modelCfg;
+    SEffectInstance *effects;
+    CModelCfg *modelCfgs;
 };
 
 extern C3DGameEffect *g3DGameEffect;

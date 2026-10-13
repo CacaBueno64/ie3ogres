@@ -768,9 +768,9 @@ void ClearBGXSub(int bg, CharFormat charFmt)
 void FUN_ov16_020f1d64(void)
 {
     g3DGameChar->close();
-    g3DGameEffect->vFUN_0C();
-    g3DGameMap->vFUN_0C();
-    g3DGameMapObject->vFUN_0C();
+    g3DGameEffect->closeModels();
+    g3DGameMap->closeModels();
+    g3DGameMapObject->closeModels();
     g2DGChar->FUN_02057238();
     g3DSpriteCtrl->FUN_ov16_02116834();
     g3DPlaneCtrl->file.FUN_02059880();
@@ -785,9 +785,9 @@ void FUN_ov16_020f1e14(void)
     }
     
     g3DGameChar->setup();
-    g3DGameEffect->vFUN_10();
-    g3DGameMap->vFUN_10();
-    g3DGameMapObject->vFUN_10();
+    g3DGameEffect->setupModels();
+    g3DGameMap->setupModels();
+    g3DGameMapObject->setupModels();
     g2DGChar->FUN_02057250();
     g3DSpriteCtrl->FUN_ov16_02116848();
     g3DPlaneCtrl->file.FUN_020598ec();

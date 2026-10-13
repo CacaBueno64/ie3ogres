@@ -358,7 +358,7 @@ _021251B8:
 	add r0, sp, #0x5c
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0xdc
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _02125210: .word ov96_02125DF8

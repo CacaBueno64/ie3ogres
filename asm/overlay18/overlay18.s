@@ -1089,7 +1089,7 @@ _0211ADA4:
 	mla r0, r8, r4, r0
 	ldr r1, [r1, #0x74]
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add r0, r10, r8, lsl #2
 	ldr r0, [r0, #0xefc]
 	cmp r0, #0

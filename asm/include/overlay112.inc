@@ -29,7 +29,7 @@
 .public memcmp
 .public MI_CpuCopy8
 .public G2S_GetBG2ScrPtr
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public GXS_LoadBG2Char
 .public FUN_ov16_020f4894
 .public _ZN14CBgMenuManager4initE12EngineSelect

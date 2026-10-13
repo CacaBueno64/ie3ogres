@@ -118,7 +118,7 @@
 .public _ZN12C3DPlaneCtrl9setBoundsEiP12SGlyphBoundsi
 .public _ZN12CFontManager12getTextWidthEPc
 .public _ZN12C3DPlaneCtrl11setAlphaAllEih
-.public _ZN19CSceneScriptManager12FUN_02048c40Ev
+.public _ZN19CSceneScriptManager21clearFunctionSlotMaskEv
 .public gRubi8Manager
 .public unk_020AF8AC
 .public _ZN12C3DPlaneCtrl16setGraphicIdxAllEihb

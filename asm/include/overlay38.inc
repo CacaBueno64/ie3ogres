@@ -22,7 +22,7 @@
 .public unk_0209A070
 .public _ZN14CBgMenuManager6getHitE12EngineSelectii
 .public MIi_CpuClearFast
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public DC_FlushRange
 .public _ZN14CScreenManager14getCurSceneSubEv
 .public _ZN18CBgMenuRadioButton12deactivateGxEh

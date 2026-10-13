@@ -70,7 +70,7 @@ Static main
 	Object main.nef.p/asm_init_arm9_init_02086ce0.s.o
 
 	Object main.nef.p/src_CFileIO.cpp.o
-	Object main.nef.p/asm_scenescriptdata.s.o
+	Object main.nef.p/src_script_CSceneScriptData.cpp.o
 	Object main.nef.p/asm_scenedirection.s.o
 	Object main.nef.p/asm_arm9_0203df80.s.o
 	Object main.nef.p/asm_arm9_0203fb5c.s.o
@@ -99,6 +99,7 @@ Static main
 	Object main.nef.p/asm_arm9_020453e0.s.o
 	Object main.nef.p/asm_wirelessutil.s.o
 	Object main.nef.p/asm_scenescriptmanager.s.o
+	# Object main.nef.p/src_script_CSceneScriptManager.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02086f80.s.o
 

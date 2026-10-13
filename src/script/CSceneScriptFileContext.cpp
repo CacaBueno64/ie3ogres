@@ -1,5 +1,5 @@
 // clang-format off
-#include "CSceneScriptManager.hpp"  // for CSceneScriptFileContext, CSceneScriptManager (ptr only)
+#include "CSceneScriptFileContext.hpp"  // for CSceneScriptFileContext, EScriptType
 
 #include <cstdio>                   // for sprintf, NULL, size_t
 
@@ -8,7 +8,7 @@
 #include <nitro/types.h>            // for TRUE, s32, FALSE, BOOL, u32, s16, u8
 
 #include "CFileIO.hpp"              // for CFileIO, gFileIO
-#include "CSceneScriptData.hpp"     // for ScriptInstruction, CSceneScriptData, SCRIPT_TYPE_ACTION, SCRIPT_TYPE_EVENT, SCRIPT_TYPE_HELP, SCRIPT_TYPE_MATCH, SCRIPT_TYPE_NONE
+#include "CSceneScriptData.hpp"     // for SScriptInstruction, CSceneScriptData
 #include "CAllocator.hpp"            // for gAllocator, CAllocator
 #include "archive.hpp"              // for PackHeaderGetOffsetAndSize
 #include "cnvdat.h"                 // for SScriptFileRecordData
@@ -174,7 +174,7 @@ int CSceneScriptFileContext::loadScript(int idx, s32 type, s32 code, void *mainP
 
     this->instCount = 0;
 
-    ScriptInstruction *inst = NULL;
+    SScriptInstruction *inst = NULL;
     while (TRUE) {
         inst = this->next(inst);
         if (!inst) {
@@ -248,7 +248,7 @@ BOOL CSceneScriptFileContext::FUN_020491b0(void)
 
     this->instCount = 0;
 
-    ScriptInstruction *inst = NULL;
+    SScriptInstruction *inst = NULL;
     while (TRUE) {
         inst = this->next(inst);
         if (!inst) {
@@ -326,12 +326,12 @@ s32 *CSceneScriptFileContext::getVariable(int idx)
     return &this->variable[idx];
 }
 
-ScriptInstruction *CSceneScriptFileContext::next(ScriptInstruction *cur)
+SScriptInstruction *CSceneScriptFileContext::next(SScriptInstruction *cur)
 {
     return this->loader.next(cur);
 }
 
-ScriptInstruction *CSceneScriptFileContext::findFunctionStart(ScriptInstruction *cur, s16 num)
+SScriptInstruction *CSceneScriptFileContext::findFunctionStart(SScriptInstruction *cur, int num)
 {
     if (!this->data) {
         return NULL;
@@ -344,9 +344,9 @@ ScriptInstruction *CSceneScriptFileContext::findFunctionStart(ScriptInstruction 
         }
 
         if (cur->id == 0x3001) {
-            u32 *args = this->loader.getArgumentsPtr(cur);
-            if (this->unk[args[2]] == 0) {
-                if (num == args[3]) {
+            s32 *args = this->loader.getArgs(cur);
+            if (this->unk[args[0]] == 0) {
+                if (num == args[1]) {
                     break;
                 }
             }

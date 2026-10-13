@@ -1945,7 +1945,7 @@ FUN_ov54_0211b924: ; 0x0211B924
 	mov r2, r12
 	mov r3, r12
 	str r12, [sp, #0x10]
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	mov r0, r4
 	bl _ZN12CFontManager12resetSpacingEv
 	add sp, sp, #0x14
@@ -1979,7 +1979,7 @@ FUN_ov54_0211b970: ; 0x0211B970
 	mov r1, #2
 	ldr r0, [r6]
 	mov r2, r1
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	ldr r0, [r7]
 	mov r1, r5
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi

@@ -147,7 +147,7 @@
 .public FUN_ov16_020edfe4
 .public unk_020A0700
 .public unk_020A0B00
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_0210fba4
 .public FUN_ov16_0210efac
 .public _ZN11AudioPlayer12FUN_0202c44cEil

@@ -509,7 +509,7 @@ FUN_ov92_021253b8: ; 0x021253B8
 	add r0, r12, #8
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r4, #0x38]
 	ldrh r1, [r4, #0x3a]
 	ldr r0, [r4, #0x34]
@@ -550,7 +550,7 @@ FUN_ov92_0212544c: ; 0x0212544C
 	add r0, r12, #0x4a
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r4, #0x44]
 	ldrh r1, [r4, #0x46]
 	ldr r0, [r4, #0x40]
@@ -595,7 +595,7 @@ FUN_ov92_021254e0: ; 0x021254E0
 	add r0, r0, #0x200
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r4, #0x50]
 	ldrh r1, [r4, #0x52]
 	ldr r0, [r4, #0x4c]

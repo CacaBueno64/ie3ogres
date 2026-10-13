@@ -103,8 +103,6 @@ extern MoviePlayer gMoviePlayer;
 namespace Movie
 {
 
-#define MOVIE_THREAD_STACK_SIZE 0x4000
-
 void Init(void);
 void Play(void *arg);
 void Start(SMovieInfo *info, const char *name);

@@ -29,7 +29,7 @@
 .public strcat
 .public _ZN12CFontManager10setSpacingEii
 .public _ZN12CFontManager12resetSpacingEv
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager
 .public FUN_0204f02c

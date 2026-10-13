@@ -170,7 +170,7 @@
 .public _ZN8Graphics11SetupScreenEPvmii
 .public GX_LoadBG3Char
 .public _ZN8Graphics17LoadBGPaletteMainEv
-.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager12setSubColorsEii
 .public gFont12T
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager

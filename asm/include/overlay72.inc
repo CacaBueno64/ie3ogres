@@ -68,7 +68,7 @@
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public FUN_ov16_020f2f20
 .public _ZN12CFontManager10setSpacingEii
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN12CFontManager12resetSpacingEv
 .public gFont12Manager
 .public G2x_SetBlendBrightness_
@@ -115,7 +115,7 @@
 .public unk_02099F44
 .public unk_02099E91
 .public FUN_02059630
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public FUN_ov131_021429a8

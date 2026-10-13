@@ -2324,7 +2324,7 @@ FUN_ov83_0211be60: ; 0x0211BE60
 	mov r0, r9
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r5]
 	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0xc]

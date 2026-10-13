@@ -25,7 +25,7 @@
 .public gBgMenuManager
 .public FUN_ov16_020f2f20
 .public _ZN12CFontManager10setSpacingEii
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN12CFontManager12resetSpacingEv
 .public gFont12Manager
 .public strlen

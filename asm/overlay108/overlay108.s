@@ -627,7 +627,7 @@ _02125550:
 _0212559C:
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _021255A8:
 	ldrh r2, [r5, #8]
 	ldrh r1, [r5, #0xa]

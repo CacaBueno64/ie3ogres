@@ -39,8 +39,8 @@ FUN_0206ba08: ; 0x0206BA08
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_0206ba08
 
-	arm_func_start FUN_0206ba24
-FUN_0206ba24: ; 0x0206BA24
+	arm_func_start _ZN14CFontManager_217drawGlyphTile4bppEPKhPvihPK16NNSG2dCharWidthsiii
+_ZN14CFontManager_217drawGlyphTile4bppEPKhPvihPK16NNSG2dCharWidthsiii: ; 0x0206BA24
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x18
 	mov r10, r0
@@ -177,10 +177,10 @@ _0206BC10:
 	add r0, r11, r0
 	add sp, sp, #0x18
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206ba24
+	arm_func_end _ZN14CFontManager_217drawGlyphTile4bppEPKhPvihPK16NNSG2dCharWidthsiii
 
-	arm_func_start FUN_0206bc20
-FUN_0206bc20: ; 0x0206BC20
+	arm_func_start _ZN14CFontManager_217drawGlyphTile8bppEPKhPvihPK16NNSG2dCharWidthsiii
+_ZN14CFontManager_217drawGlyphTile8bppEPKhPvihPK16NNSG2dCharWidthsiii: ; 0x0206BC20
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0xc
 	mov r11, r0
@@ -287,10 +287,10 @@ _0206BD9C:
 	add r0, r7, r0
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206bc20
+	arm_func_end _ZN14CFontManager_217drawGlyphTile8bppEPKhPvihPK16NNSG2dCharWidthsiii
 
-	arm_func_start FUN_0206bdac
-FUN_0206bdac: ; 0x0206BDAC
+	arm_func_start _ZN14CFontManager_216drawGlyphTex4bppEPKhPvihPK16NNSG2dCharWidthsiii
+_ZN14CFontManager_216drawGlyphTex4bppEPKhPvihPK16NNSG2dCharWidthsiii: ; 0x0206BDAC
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x14
 	ldr r4, [sp, #0x3c]
@@ -414,10 +414,10 @@ _0206BF68:
 	add r0, r11, #1
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206bdac
+	arm_func_end _ZN14CFontManager_216drawGlyphTex4bppEPKhPvihPK16NNSG2dCharWidthsiii
 
-	arm_func_start FUN_0206bf74
-FUN_0206bf74: ; 0x0206BF74
+	arm_func_start _ZN14CFontManager_216drawGlyphTex8bppEPKhPvihPK16NNSG2dCharWidthsiii
+_ZN14CFontManager_216drawGlyphTex8bppEPKhPvihPK16NNSG2dCharWidthsiii: ; 0x0206BF74
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
 	sub sp, sp, #0x10
 	ldr r4, [sp, #0x3c]
@@ -514,7 +514,7 @@ _0206C0CC:
 	add r0, r7, #1
 	add sp, sp, #0x10
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_0206bf74
+	arm_func_end _ZN14CFontManager_216drawGlyphTex8bppEPKhPvihPK16NNSG2dCharWidthsiii
 
 	.data
 	.global _ZTV14CFontManager_2
@@ -524,7 +524,7 @@ _ZTV14CFontManager_2:
 	.word FUN_0206ba08
 	.word _ZN12CFontManager16drawTextTile4bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
 	.word _ZN12CFontManager16drawTextTile8bppEiiPciNS_9AlignmentEPviiPNS_11GlyphBoundsEi
-	.word FUN_0206ba24
-	.word FUN_0206bdac
-	.word FUN_0206bc20
-	.word FUN_0206bf74
+	.word _ZN14CFontManager_217drawGlyphTile4bppEPKhPvihPK16NNSG2dCharWidthsiii
+	.word _ZN14CFontManager_216drawGlyphTex4bppEPKhPvihPK16NNSG2dCharWidthsiii
+	.word _ZN14CFontManager_217drawGlyphTile8bppEPKhPvihPK16NNSG2dCharWidthsiii
+	.word _ZN14CFontManager_216drawGlyphTex8bppEPKhPvihPK16NNSG2dCharWidthsiii

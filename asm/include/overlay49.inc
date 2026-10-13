@@ -26,7 +26,7 @@
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl6createEib
 .public _ZN14CScreenManager14getCurSceneSubEv
 .public _ZN14CScreenManager13fadeMainBlackEv

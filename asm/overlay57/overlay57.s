@@ -161,7 +161,7 @@ FUN_ov57_0211a04c: ; 0x0211A04C
 	ldr r0, _0211A154 ; =0x021248DC
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r4, #0xc]
 	ldrh r1, [r4, #0xe]
 	ldr r0, [r4, #4]
@@ -9576,7 +9576,7 @@ _02122438:
 	mov r0, r7
 	mov r2, r5
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _021224D4:
 	ldr r0, _021224FC ; =gFont12Manager
 	ldr r0, [r0]

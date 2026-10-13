@@ -1356,7 +1356,7 @@ FUN_ov89_0211b038: ; 0x0211B038
 	str r1, [sp, #0x10]
 	ldr r1, [r8]
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	b _0211B1E0
 _0211B158:
 	ldr r0, _0211B294 ; =gFont12Manager

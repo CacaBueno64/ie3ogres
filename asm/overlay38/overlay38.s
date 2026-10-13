@@ -1268,7 +1268,7 @@ FUN_ov38_0211afc8: ; 0x0211AFC8
 	ldr r0, _0211B0B4 ; =0x0211D3E8
 	mov r2, #0xf0
 	mov r3, #0x50
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r4, #0x70]
 	mov r1, r6
 	bl DC_FlushRange
@@ -2273,7 +2273,7 @@ FUN_ov38_0211bdc8: ; 0x0211BDC8
 	mov r0, r9
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r5]
 	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0xc]

@@ -21,7 +21,7 @@
 .public FUN_ov1_020dbe00
 .public FUN_ov1_020dbec4
 .public FUN_ov16_020f2f20
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public DC_FlushRange
 .public FUN_ov16_020eed18
 .public gLogicThink

@@ -3336,7 +3336,7 @@ FUN_ov15_020e1ed8: ; 0x020E1ED8
 	ldr r1, [r4, #0x5c]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r5]
 	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r4, #0x64]
@@ -5084,7 +5084,7 @@ FUN_ov15_020e35cc: ; 0x020E35CC
 	ldr r1, [r8, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	mov r0, r5
 	bl _ZdaPv
 	sub r0, r4, #4
@@ -5115,7 +5115,7 @@ _020E3754:
 	ldr r1, [r8, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _020E37B4:
 	ldr r0, _020E37EC ; =gFont12Manager
 	ldr r0, [r0]

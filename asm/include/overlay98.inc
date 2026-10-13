@@ -43,12 +43,12 @@
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public _ZN10CAllocator8allocateEm
 .public MIi_CpuClear32
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN12CFontManager10setSpacingEii
 .public _ZN12CFontManager12resetSpacingEv
 .public gFont12Manager
 .public gFont8
-.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager12setSubColorsEii
 .public gFont12T
 .public _ZdlPv
 .public FX_Sqrt

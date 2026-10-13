@@ -210,7 +210,7 @@ FUN_ov123_02124f5c: ; 0x02124F5C
 	mov r2, r2, lsl #3
 	add r2, r2, #2
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x1c
 	ldmfd sp!, {r4, r5, pc}
 	arm_func_end FUN_ov123_02124f5c

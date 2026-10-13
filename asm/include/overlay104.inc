@@ -8,7 +8,7 @@
 .public _ZN10CAllocator10deallocateEPv
 .public _ZN10CAllocator8allocateEm
 .public DC_FlushRange
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public gFont12Manager
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager

@@ -49,6 +49,8 @@ class C3DSprFile
 public:
     C3DSprFile();
     virtual ~C3DSprFile();
+    void FUN_02059288(sfkey_t key, void *param2, size_t param3, int param4, int param5, int param6);
+    bool FUN_0205935c(sfkey_t key, void *outVram, size_t *outSize);
     void finalize(void);
     bool acquire(void);
     bool release(bool);
@@ -63,7 +65,7 @@ public:
     bool FUN_02059004(int key);
     void FUN_020591e8(int key);
     void FUN_02059880(void);
-    int FUN_020598ec(int key);
+    int FUN_020598ec();
     bool FUN_02059038(int key, int param2, int param3);
 
     inline u32 getPaletteSizeSingle(C3DSprSheet *sheet)

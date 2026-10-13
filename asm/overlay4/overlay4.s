@@ -550,7 +550,7 @@ _020BD204:
 	ldr r1, [r6, #0x38]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _020BD2C0:
 	ldrh r2, [r6, #0x40]
 	ldrh r1, [r6, #0x42]
@@ -1113,7 +1113,7 @@ FUN_ov4_020bd8d8: ; 0x020BD8D8
 	ldr r1, [r7, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	mov r0, r4
 	bl _ZdaPv
 	b _020BDAB8
@@ -1141,7 +1141,7 @@ _020BDA58:
 	ldr r1, [r7, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _020BDAB8:
 	ldr r0, _020BDAF0 ; =gFont12Manager
 	ldr r0, [r0]
@@ -11743,7 +11743,7 @@ FUN_ov4_020c6b18: ; 0x020C6B18
 	mov r2, r9
 	mov r0, r4
 	mov r1, #1
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
@@ -11794,7 +11794,7 @@ _020C6BE8:
 	mov r0, r6
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _020C6C24:
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
@@ -11963,7 +11963,7 @@ _020C6E24:
 	ldr r1, [r7, #0x8c]
 	mov r0, r6
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _020C6E8C:
 	mov r0, #0x3e
 	ldr r6, _020C6F18 ; =g3DPlaneCtrl
@@ -27095,7 +27095,7 @@ FUN_ov4_020d479c: ; 0x020D479C
 	mov r1, r5
 	mov r3, r2
 	str r4, [sp, #0x10]
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	ldr r0, _020D4864 ; =gFont12Manager
 	ldr r0, [r0]
 	bl _ZN12CFontManager12resetSpacingEv
@@ -30513,7 +30513,7 @@ _020D766C:
 	ldr r1, [r5, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, _020D7738 ; =gFont12Manager
 	ldr r0, [r0]
 	bl _ZN12CFontManager12resetSpacingEv

@@ -1301,7 +1301,7 @@ _0211B094:
 	add r0, r3, r0, lsl #6
 	mov r2, r8
 	mov r3, r8
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	mov r1, r9
 	mov r2, r7
 	mov r0, r10

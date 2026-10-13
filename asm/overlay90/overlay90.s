@@ -1260,7 +1260,7 @@ FUN_ov90_0211aec4: ; 0x0211AEC4
 	str r1, [sp, #0x10]
 	ldr r1, [r8]
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	b _0211B06C
 _0211AFE4:
 	ldr r0, _0211B120 ; =gFont12Manager

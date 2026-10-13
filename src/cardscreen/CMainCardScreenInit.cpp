@@ -65,78 +65,78 @@ void CMainCardScreenInit::displayGraphics(void)
 
 // clang-format off
 asm void CMainCardScreenInit::displayGraphics(void) {
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r7, r0
-	bl G2_GetBG3CharPtr
-	mov r4, #0x20
-	mov r5, #0
-	mov r1, r0
-	mov r0, r5
-	mov r2, r4
-	bl MIi_CpuClearFast
-	bl G2_GetBG3CharPtr
-	mov r1, r4
-	bl DC_FlushRange
-	ldr r0, =gMainScreen0
-	mov r1, r5
-	mov r6, #0x800
-	mov r2, r6
-	bl GX_LoadBG3Scr
-	ldr r0, =gDebugFont
-	mov r1, r5
-	ldr r3, [r0]
-	ldr r2, [r3, #0x18]
-	ldr r0, [r3, #0x14]
-	add r0, r3, r0
-	bl GX_LoadBG3Char
-	bl G2_GetBG1CharPtr
-	mov r1, r0
-	mov r0, r5
-	mov r2, r4
-	bl MIi_CpuClearFast
-	bl G2_GetBG1CharPtr
-	mov r1, r4
-	bl DC_FlushRange
-	mov r2, r6
-	ldr r0, =gMainScreen1
-	mov r1, r5
-	bl GX_LoadBG1Scr
-	ldr r7, [r7, #0xc]
-	cmp r7, #0
-	beq _020BD034
-	ldr r0, [r7, #0xc]
-	mov r6, #1
-	ldr r1, [r7, #0x10]
-	mov r3, r6
-	add r0, r7, r0
-	add r2, r5, #1
-	bl _ZN8Graphics11SetupScreenEPvmii
-	mov r0, r7
-	mov r1, r5
-	mov r2, r6
-	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
-	ldr r0, [r7, #0x14]
-	ldr r2, [r7, #0x18]
-	mov r1, r4
-	add r0, r7, r0
-	bl GX_LoadBG1Char
+    stmfd sp!, {r3, r4, r5, r6, r7, lr}
+    mov r7, r0
+    bl G2_GetBG3CharPtr
+    mov r4, #0x20
+    mov r5, #0
+    mov r1, r0
+    mov r0, r5
+    mov r2, r4
+    bl MIi_CpuClearFast
+    bl G2_GetBG3CharPtr
+    mov r1, r4
+    bl DC_FlushRange
+    ldr r0, =gMainScreen0
+    mov r1, r5
+    mov r6, #0x800
+    mov r2, r6
+    bl GX_LoadBG3Scr
+    ldr r0, =gDebugFont
+    mov r1, r5
+    ldr r3, [r0]
+    ldr r2, [r3, #0x18]
+    ldr r0, [r3, #0x14]
+    add r0, r3, r0
+    bl GX_LoadBG3Char
+    bl G2_GetBG1CharPtr
+    mov r1, r0
+    mov r0, r5
+    mov r2, r4
+    bl MIi_CpuClearFast
+    bl G2_GetBG1CharPtr
+    mov r1, r4
+    bl DC_FlushRange
+    mov r2, r6
+    ldr r0, =gMainScreen1
+    mov r1, r5
+    bl GX_LoadBG1Scr
+    ldr r7, [r7, #0xc]
+    cmp r7, #0
+    beq _020BD034
+    ldr r0, [r7, #0xc]
+    mov r6, #1
+    ldr r1, [r7, #0x10]
+    mov r3, r6
+    add r0, r7, r0
+    add r2, r5, #1
+    bl _ZN8Graphics11SetupScreenEPvmii
+    mov r0, r7
+    mov r1, r5
+    mov r2, r6
+    bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
+    ldr r0, [r7, #0x14]
+    ldr r2, [r7, #0x18]
+    mov r1, r4
+    add r0, r7, r0
+    bl GX_LoadBG1Char
 _020BD034:
-	bl G2_GetBG2CharPtr
-	mov r4, #0x20
-	mov r5, #0
-	mov r1, r0
-	mov r0, r5
-	mov r2, r4
-	bl MIi_CpuClearFast
-	bl G2_GetBG2CharPtr
-	mov r1, r4
-	bl DC_FlushRange
-	ldr r0, =gMainScreen2
-	mov r1, r5
-	mov r2, #0x800
-	bl GX_LoadBG2Scr
-	bl _ZN8Graphics17LoadBGPaletteMainEv
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
+    bl G2_GetBG2CharPtr
+    mov r4, #0x20
+    mov r5, #0
+    mov r1, r0
+    mov r0, r5
+    mov r2, r4
+    bl MIi_CpuClearFast
+    bl G2_GetBG2CharPtr
+    mov r1, r4
+    bl DC_FlushRange
+    ldr r0, =gMainScreen2
+    mov r1, r5
+    mov r2, #0x800
+    bl GX_LoadBG2Scr
+    bl _ZN8Graphics17LoadBGPaletteMainEv
+    ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 }
 // clang-format on
 #endif // NONMATCHING

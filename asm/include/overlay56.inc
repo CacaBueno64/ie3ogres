@@ -138,7 +138,7 @@
 .public FUN_ov16_0210e4f0
 .public FUN_ov16_0210e5f0
 .public sprintf
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl12clearFlagAllEit
 .public _ZdlPv
 .public FX_Sqrt

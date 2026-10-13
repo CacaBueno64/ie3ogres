@@ -3877,7 +3877,7 @@ _0211D3A0:
 	ldr r1, [r5, #4]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
 	ldr r0, [r5, #4]
@@ -4718,7 +4718,7 @@ FUN_ov41_0211df80: ; 0x0211DF80
 	mov r2, r9
 	mov r0, r4
 	mov r1, #1
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	mov r0, r4
 	mov r1, r9
 	mov r2, r9
@@ -4769,7 +4769,7 @@ _0211E050:
 	mov r0, r6
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 _0211E08C:
 	ldrh r2, [r5, #0xc]
 	ldrh r1, [r5, #0xe]
@@ -7808,7 +7808,7 @@ _02120AEC:
 	mov r0, r5
 	mov r2, r4
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _02120BB8:
 	ldr r0, _02120BE4 ; =gFont12Manager
 	ldr r0, [r0]

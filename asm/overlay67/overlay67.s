@@ -5879,7 +5879,7 @@ FUN_ov67_0211f040: ; 0x0211F040
 	mov r1, #2
 	ldr r0, [r6]
 	mov r2, r1
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	ldr r0, [r7]
 	mov r1, r5
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi

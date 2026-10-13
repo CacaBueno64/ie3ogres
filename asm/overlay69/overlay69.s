@@ -1307,7 +1307,7 @@ FUN_ov69_0211b15c: ; 0x0211B15C
 	ldr r1, [r0, #0x79c]
 	ldr r0, _0211B19C ; =0x0211CDC4
 	mov r3, #9
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x14
 	ldmia sp!, {pc}
 _0211B19C: .word ov69_0211CDC4

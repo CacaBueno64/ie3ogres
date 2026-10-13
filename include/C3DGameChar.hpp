@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "CModel.hpp"
 #include "CModelCfg.hpp"
@@ -40,6 +40,9 @@ public:
 
     /* 0x02059fcc */ void reset(void);
     /* 0x0205a1bc */ void init(int char_count);
+
+    VecFx32 FUN_0205afb4(int param1);
+    VecFx32 FUN_0205b04c(int param1);
 
     CharacterModel *chars;
     CModelCfg *modelCfg;

@@ -24,7 +24,7 @@
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
-.public FUN_ov16_020f2304
+.public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZNSsD1Ev
 .public _ZN12C3DPlaneCtrl9setTexAllEih
 .public _ZN12C3DPlaneCtrl13setPlttIdxAllEih

@@ -7843,7 +7843,7 @@ _02120B38:
 	mov r0, r7
 	mov r2, r5
 	mov r3, r5
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	mov r0, r10
 	mov r1, r9
 	mov r2, r4

@@ -708,7 +708,7 @@ _0211A860:
 	ldr r1, [r10, #0xec]
 	mov r0, r5
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 _0211A8E0:
 	ldr r4, _0211A92C ; =g3DPlaneCtrl
 	mov r1, r8

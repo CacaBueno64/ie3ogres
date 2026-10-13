@@ -271,7 +271,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	mov r1, #2
 	ldr r0, [r4]
 	mov r2, r1
-	bl _ZN12CFontManager12FUN_02043780Eii
+	bl _ZN12CFontManager12setSubColorsEii
 	ldr r0, [r5]
 	mov r1, r10
 	bl _ZN12C3DPlaneCtrl11getTexWidthEi

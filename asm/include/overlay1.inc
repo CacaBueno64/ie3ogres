@@ -611,7 +611,7 @@
 .public FUN_ov132_021462a0
 .public FUN_02072b0c
 .public FUN_02072af4
-.public _ZN12CFontManager12FUN_02043780Eii
+.public _ZN12CFontManager12setSubColorsEii
 .public gFont12T
 .public FUN_ov16_020f2f20
 .public FUN_ov132_02143c08

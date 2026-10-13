@@ -770,7 +770,7 @@ FUN_ov110_02125748: ; 0x02125748
 	ldrh r3, [r4, #0xa]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldrh r2, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldr r0, [r4, #4]

@@ -11,7 +11,7 @@
 .public gSubScreen0
 .public _ZN10CAllocator8allocateEm
 .public gAllocator
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public _ZN14CBgMenuManager9addStaticE12EngineSelectiiiiaahhhPv
 .public gBgMenuManager
 .public _ZN7Archive10DeallocateEP9SFileData

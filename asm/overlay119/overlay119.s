@@ -374,7 +374,7 @@ FUN_ov119_02125124: ; 0x02125124
 	ldr r1, [r7, #0x24]
 	mov r2, r2, lsl #3
 	mov r3, r3, lsl #3
-	bl FUN_ov16_020f2184
+	bl _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 	ldr r0, [r8]
 	bl _ZN12CFontManager12resetSpacingEv
 	ldrh r2, [r7, #0x2c]

@@ -1572,7 +1572,7 @@ FUN_ov60_0211b2d0: ; 0x0211B2D0
 	ldr r0, [sp, #0x20]
 	ldr r1, [r8]
 	mov r3, r2
-	bl FUN_ov16_020f2304
+	bl _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 	add sp, sp, #0x38
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211B4A4:

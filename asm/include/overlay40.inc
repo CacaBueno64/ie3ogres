@@ -9,7 +9,7 @@
 .public ov1_020E9482
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public FUN_ov16_020f2f20
-.public FUN_ov16_020f2184
+.public _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE
 .public DC_FlushRange
 .public FUN_ov1_020dbfdc
 .public FUN_ov16_020f5450
