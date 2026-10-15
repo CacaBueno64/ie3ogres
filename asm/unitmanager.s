@@ -3,8 +3,8 @@
 	.include "/include/unitmanager.inc"
 
 	.text
-	arm_func_start FUN_0206c0d8
-FUN_0206c0d8: ; 0x0206C0D8
+	arm_func_start _ZN8CUnitManC1Ev
+_ZN8CUnitManC1Ev: ; 0x0206C0D8
 	ldr r2, _0206C10C ; =0x020912D0
 	mov r1, #0
 	str r2, [r0]
@@ -19,7 +19,7 @@ FUN_0206c0d8: ; 0x0206C0D8
 	strh r1, [r0, #0x24]
 	bx lr
 _0206C10C: .word unk_020912D0
-	arm_func_end FUN_0206c0d8
+	arm_func_end _ZN8CUnitManC1Ev
 
 	arm_func_start FUN_0206c110
 FUN_0206c110: ; 0x0206C110

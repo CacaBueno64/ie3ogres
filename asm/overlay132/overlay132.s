@@ -36207,7 +36207,7 @@ FUN_ov132_0215a5a0: ; 0x0215A5A0
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215A6A4 ; 0x02099EF0
@@ -36285,7 +36285,7 @@ FUN_ov132_0215a6a8: ; 0x0215A6A8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215A72C ; 0x02099EF0
@@ -36325,7 +36325,7 @@ FUN_ov132_0215a730: ; 0x0215A730
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	mov r5, #1
 	ldr r1, _0215A7D0 ; 0x02099EF0
@@ -36370,7 +36370,7 @@ FUN_ov132_0215a7d4: ; 0x0215A7D4
 	mov r0, r5
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	mov r5, #1
 	ldr r1, _0215A880 ; 0x02099EF0
@@ -36421,7 +36421,7 @@ FUN_ov132_0215a884: ; 0x0215A884
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0215A944 ; 0x02099EF0
@@ -36480,7 +36480,7 @@ FUN_ov132_0215a948: ; 0x0215A948
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r5, #0xb]
 	strb r1, [r5, #0xa]
@@ -36595,7 +36595,7 @@ FUN_ov132_0215aaec: ; 0x0215AAEC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	mov r5, #1
 	ldr r1, _0215AB6C ; 0x02099EF0
@@ -36631,7 +36631,7 @@ FUN_ov132_0215ab70: ; 0x0215AB70
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215AC90 ; 0x02099EF0
@@ -36714,7 +36714,7 @@ FUN_ov132_0215ac94: ; 0x0215AC94
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215AD5C ; 0x02099EF0
@@ -36766,7 +36766,7 @@ FUN_ov132_0215ad60: ; 0x0215AD60
 	mov r6, r2
 	add r2, sp, #0
 	mov r4, r1
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r4, #0xb]
 	mov r5, #1
 	ldr r1, _0215ADDC ; 0x02099EF0
@@ -36803,7 +36803,7 @@ FUN_ov132_0215ade0: ; 0x0215ADE0
 	mov r6, r2
 	add r2, sp, #0
 	mov r4, r1
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r4, #0xb]
 	mov r5, #1
 	ldr r1, _0215AE5C ; 0x02099EF0
@@ -36848,7 +36848,7 @@ FUN_ov132_0215ae60: ; 0x0215AE60
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -36892,7 +36892,7 @@ FUN_ov132_0215aef4: ; 0x0215AEF4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -36961,7 +36961,7 @@ FUN_ov132_0215afec: ; 0x0215AFEC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -36997,7 +36997,7 @@ FUN_ov132_0215b06c: ; 0x0215B06C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37039,7 +37039,7 @@ FUN_ov132_0215b0fc: ; 0x0215B0FC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37084,7 +37084,7 @@ FUN_ov132_0215b198: ; 0x0215B198
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37113,7 +37113,7 @@ FUN_ov132_0215b1fc: ; 0x0215B1FC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37156,7 +37156,7 @@ FUN_ov132_0215b298: ; 0x0215B298
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r3, #1
 	ldr r1, _0215B378 ; =0x020A0640
@@ -37222,7 +37222,7 @@ FUN_ov132_0215b37c: ; 0x0215B37C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37267,7 +37267,7 @@ FUN_ov132_0215b414: ; 0x0215B414
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -37323,7 +37323,7 @@ FUN_ov132_0215b4dc: ; 0x0215B4DC
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215B570 ; 0x02099EF0
@@ -37366,7 +37366,7 @@ FUN_ov132_0215b574: ; 0x0215B574
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r7, #1
 	ldr r1, _0215B604 ; 0x02099EF0
@@ -37408,7 +37408,7 @@ FUN_ov132_0215b608: ; 0x0215B608
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r6, #0xb]
 	strb r2, [r6, #0xa]
@@ -37450,7 +37450,7 @@ FUN_ov132_0215b69c: ; 0x0215B69C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	mov r5, #1
 	ldr r1, _0215B750 ; 0x02099EF0
@@ -37502,7 +37502,7 @@ FUN_ov132_0215b754: ; 0x0215B754
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215B7E8 ; 0x02099EF0
@@ -37545,7 +37545,7 @@ FUN_ov132_0215b7ec: ; 0x0215B7EC
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37596,7 +37596,7 @@ FUN_ov132_0215b8a4: ; 0x0215B8A4
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37650,7 +37650,7 @@ FUN_ov132_0215b964: ; 0x0215B964
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37705,7 +37705,7 @@ FUN_ov132_0215ba2c: ; 0x0215BA2C
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37755,7 +37755,7 @@ FUN_ov132_0215bae0: ; 0x0215BAE0
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37808,7 +37808,7 @@ FUN_ov132_0215bb9c: ; 0x0215BB9C
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215BC18 ; 0x02099EF0
@@ -37844,7 +37844,7 @@ FUN_ov132_0215bc1c: ; 0x0215BC1C
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215BC98 ; 0x02099EF0
@@ -37880,7 +37880,7 @@ FUN_ov132_0215bc9c: ; 0x0215BC9C
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -37932,7 +37932,7 @@ FUN_ov132_0215bd58: ; 0x0215BD58
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -37990,7 +37990,7 @@ FUN_ov132_0215be1c: ; 0x0215BE1C
 	mov r0, r7
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	mov r4, #1
 	strb r4, [r5, #0xa]
@@ -38094,7 +38094,7 @@ FUN_ov132_0215bf94: ; 0x0215BF94
 	mov r0, r8
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38200,7 +38200,7 @@ FUN_ov132_0215c110: ; 0x0215C110
 	mov r0, r9
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	mov r0, r9
@@ -38291,7 +38291,7 @@ FUN_ov132_0215c264: ; 0x0215C264
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r6, #4]
 	ldrsb r2, [r6, #0xb]
@@ -38347,7 +38347,7 @@ FUN_ov132_0215c330: ; 0x0215C330
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r6, #4]
 	ldrsb r2, [r6, #0xb]
@@ -38389,7 +38389,7 @@ FUN_ov132_0215c3c4: ; 0x0215C3C4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r6, #4]
 	ldrsb r2, [r6, #0xb]
@@ -38438,7 +38438,7 @@ FUN_ov132_0215c478: ; 0x0215C478
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38488,7 +38488,7 @@ FUN_ov132_0215c52c: ; 0x0215C52C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38538,7 +38538,7 @@ FUN_ov132_0215c5e0: ; 0x0215C5E0
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38595,7 +38595,7 @@ FUN_ov132_0215c6ac: ; 0x0215C6AC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r1, #1
 	ldr r5, _0215C7C0 ; 0x02099EF0
@@ -38674,7 +38674,7 @@ FUN_ov132_0215c7c4: ; 0x0215C7C4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0215C838 ; 0x02099EF0
@@ -38708,7 +38708,7 @@ FUN_ov132_0215c83c: ; 0x0215C83C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38753,7 +38753,7 @@ FUN_ov132_0215c8d4: ; 0x0215C8D4
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r5, #0xb]
 	strb r1, [r5, #0xa]
@@ -38810,7 +38810,7 @@ FUN_ov132_0215c9a4: ; 0x0215C9A4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -38853,7 +38853,7 @@ FUN_ov132_0215ca34: ; 0x0215CA34
 	mov r0, r7
 	mov r2, r10
 	mov r1, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r8, #0xb]
 	mov r2, #1
 	str r0, [r8, #4]
@@ -39010,7 +39010,7 @@ FUN_ov132_0215cc78: ; 0x0215CC78
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -39121,7 +39121,7 @@ FUN_ov132_0215ce08: ; 0x0215CE08
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -39195,7 +39195,7 @@ FUN_ov132_0215cf08: ; 0x0215CF08
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0x18]
 	str r0, [sp]
@@ -39237,7 +39237,7 @@ FUN_ov132_0215cf9c: ; 0x0215CF9C
 	mov r0, r6
 	mov r1, r9
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _0215D0DC ; 0x02099EF0
 	str r0, [r9, #4]
 	ldr r0, [r1]
@@ -39330,7 +39330,7 @@ FUN_ov132_0215d0e4: ; 0x0215D0E4
 	mov r0, r9
 	mov r1, r8
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	strb r4, [r8, #0xa]
 	ldrsb r1, [r8, #0xb]
 	str r0, [r8, #4]
@@ -39583,7 +39583,7 @@ FUN_ov132_0215d4b4: ; 0x0215D4B4
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -39646,7 +39646,7 @@ FUN_ov132_0215d590: ; 0x0215D590
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -39722,7 +39722,7 @@ FUN_ov132_0215d698: ; 0x0215D698
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp, #4]
 	cmp r1, #0
@@ -39767,7 +39767,7 @@ FUN_ov132_0215d734: ; 0x0215D734
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #4]
 	ldr r1, [sp]
@@ -39806,7 +39806,7 @@ FUN_ov132_0215d7c0: ; 0x0215D7C0
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x10]
 	str r0, [sp]
@@ -39843,7 +39843,7 @@ FUN_ov132_0215d844: ; 0x0215D844
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -39878,7 +39878,7 @@ FUN_ov132_0215d8bc: ; 0x0215D8BC
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp]
 	cmp r0, #0
@@ -39929,7 +39929,7 @@ FUN_ov132_0215d974: ; 0x0215D974
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r7, _0215DA44 ; 0x02099EF0
 	str r0, [r6, #4]
 	ldr r0, [r7]
@@ -39987,7 +39987,7 @@ FUN_ov132_0215da48: ; 0x0215DA48
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r7, _0215DB18 ; 0x02099EF0
 	str r0, [r6, #4]
 	ldr r0, [r7]
@@ -40044,7 +40044,7 @@ FUN_ov132_0215db1c: ; 0x0215DB1C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -40200,7 +40200,7 @@ FUN_ov132_0215dd70: ; 0x0215DD70
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -40343,7 +40343,7 @@ FUN_ov132_0215df48: ; 0x0215DF48
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	mov r1, #1
 	ldr r2, [sp]
@@ -40381,7 +40381,7 @@ FUN_ov132_0215dfd0: ; 0x0215DFD0
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -40436,7 +40436,7 @@ FUN_ov132_0215e094: ; 0x0215E094
 	mov r0, r4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -40470,7 +40470,7 @@ FUN_ov132_0215e10c: ; 0x0215E10C
 	mov r0, r4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -40505,7 +40505,7 @@ FUN_ov132_0215e188: ; 0x0215E188
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _0215E244 ; 0x02099EF0
 	str r0, [r5, #4]
 	ldr r0, [r1]
@@ -40558,7 +40558,7 @@ FUN_ov132_0215e248: ; 0x0215E248
 	mov r0, r5
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	ldrsb r0, [r7, #0xb]
 	mov r1, #1
@@ -40610,7 +40610,7 @@ FUN_ov132_0215e300: ; 0x0215E300
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	mov r0, #1
 	strb r0, [r5, #0xa]
@@ -40662,7 +40662,7 @@ FUN_ov132_0215e3c0: ; 0x0215E3C0
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r5, #0xb]
 	mov r3, #1
 	ldr r1, _0215E464 ; 0x02099EF0
@@ -40709,7 +40709,7 @@ FUN_ov132_0215e468: ; 0x0215E468
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	mov r0, #1
 	strb r0, [r6, #0xa]
@@ -40746,7 +40746,7 @@ FUN_ov132_0215e4e4: ; 0x0215E4E4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r9
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
 	cmp r1, #0
@@ -40835,7 +40835,7 @@ FUN_ov132_0215e624: ; 0x0215E624
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -40898,7 +40898,7 @@ FUN_ov132_0215e6fc: ; 0x0215E6FC
 	mov r0, r10
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r5, #0xb]
 	str r0, [r5, #4]
@@ -41063,7 +41063,7 @@ FUN_ov132_0215e964: ; 0x0215E964
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -41124,7 +41124,7 @@ FUN_ov132_0215ea30: ; 0x0215EA30
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _0215EAB4 ; 0x02099EF0
 	str r0, [r6, #4]
 	ldr r0, [r1]
@@ -41164,7 +41164,7 @@ FUN_ov132_0215eab8: ; 0x0215EAB8
 	mov r0, r5
 	mov r1, r10
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r4, _0215EBDC ; 0x02099EF0
 	str r0, [r10, #4]
 	ldr r0, [r4]
@@ -41248,7 +41248,7 @@ FUN_ov132_0215ebe8: ; 0x0215EBE8
 	mov r0, r8
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp]
 	mov r2, #1
@@ -41290,7 +41290,7 @@ FUN_ov132_0215ec7c: ; 0x0215EC7C
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r5, #4]
 	ldrsb r2, [r5, #0xb]
@@ -41371,7 +41371,7 @@ FUN_ov132_0215eda8: ; 0x0215EDA8
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r5, #4]
 	ldrsb r2, [r5, #0xb]
@@ -41418,7 +41418,7 @@ FUN_ov132_0215ee50: ; 0x0215EE50
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -41453,7 +41453,7 @@ FUN_ov132_0215eec8: ; 0x0215EEC8
 	mov r0, r8
 	mov r1, r4
 	mov r2, r9
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r4, #4]
 	mov r0, #1
 	ldrsb r1, [r4, #0xb]
@@ -41593,7 +41593,7 @@ FUN_ov132_0215f0ac: ; 0x0215F0AC
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -41630,7 +41630,7 @@ FUN_ov132_0215f130: ; 0x0215F130
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -41667,7 +41667,7 @@ FUN_ov132_0215f1b4: ; 0x0215F1B4
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r5, #0xb]
 	strb r2, [r5, #0xa]
@@ -41708,7 +41708,7 @@ FUN_ov132_0215f24c: ; 0x0215F24C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -41744,7 +41744,7 @@ FUN_ov132_0215f2cc: ; 0x0215F2CC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215F33C ; 0x02099EF0
@@ -41777,7 +41777,7 @@ FUN_ov132_0215f340: ; 0x0215F340
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215F3B0 ; 0x02099EF0
@@ -41810,7 +41810,7 @@ FUN_ov132_0215f3b4: ; 0x0215F3B4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215F424 ; 0x02099EF0
@@ -41843,7 +41843,7 @@ FUN_ov132_0215f428: ; 0x0215F428
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215F498 ; =g3DFieldSprite
@@ -41877,7 +41877,7 @@ FUN_ov132_0215f49c: ; 0x0215F49C
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	mov r7, #1
 	ldr r6, _0215F530 ; =0x020A9C40
@@ -41920,7 +41920,7 @@ FUN_ov132_0215f538: ; 0x0215F538
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -41956,7 +41956,7 @@ FUN_ov132_0215f5bc: ; 0x0215F5BC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -41990,7 +41990,7 @@ FUN_ov132_0215f630: ; 0x0215F630
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -42028,7 +42028,7 @@ FUN_ov132_0215f6b8: ; 0x0215F6B8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -42058,7 +42058,7 @@ FUN_ov132_0215f740: ; 0x0215F740
 	add r2, sp, #0
 	mov r6, r1
 	mov r4, #0
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215F7B4 ; 0x02099EF0
@@ -42101,7 +42101,7 @@ FUN_ov132_0215f7b8: ; 0x0215F7B8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -42139,7 +42139,7 @@ FUN_ov132_0215f83c: ; 0x0215F83C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	ldr r1, _0215F8C4 ; 0x02099EF0
 	strb r5, [r7, #0xa]
@@ -42179,7 +42179,7 @@ FUN_ov132_0215f8c8: ; 0x0215F8C8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -42223,7 +42223,7 @@ FUN_ov132_0215f960: ; 0x0215F960
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	ldr r0, [sp]
 	cmp r0, #1
@@ -42307,7 +42307,7 @@ FUN_ov132_0215fa90: ; 0x0215FA90
 	mov r0, r8
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r6, _0215FB2C ; 0x02099EF0
 	str r0, [r5, #4]
 	ldr r0, [r6]
@@ -42343,7 +42343,7 @@ FUN_ov132_0215fb30: ; 0x0215FB30
 	add r2, sp, #0
 	mov r5, r1
 	mov r6, r0
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -42386,7 +42386,7 @@ FUN_ov132_0215fbc0: ; 0x0215FBC0
 	mov r4, r2
 	add r2, sp, #0
 	mov r5, r1
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
@@ -42425,7 +42425,7 @@ FUN_ov132_0215fc28: ; 0x0215FC28
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r7, #0xb]
 	mov r5, #1
 	ldr r1, _0215FCC4 ; 0x02099EF0
@@ -42469,7 +42469,7 @@ FUN_ov132_0215fcc8: ; 0x0215FCC8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0215FD44 ; =0x0209A2C0
@@ -42507,7 +42507,7 @@ FUN_ov132_0215fd4c: ; 0x0215FD4C
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0215FDE0 ; 0x02099EF0
@@ -42549,7 +42549,7 @@ FUN_ov132_0215fde4: ; 0x0215FDE4
 	mov r0, r6
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	mov r6, #1
 	ldr r5, _0215FEC4 ; 0x02099EF0
@@ -42615,7 +42615,7 @@ FUN_ov132_0215fed0: ; 0x0215FED0
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	mov r4, #1
 	ldr r8, _0215FF70 ; 0x02099EF0
@@ -42652,7 +42652,7 @@ FUN_ov132_0215ff74: ; 0x0215FF74
 	mov r4, r2
 	add r2, sp, #0
 	mov r6, r1
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -42704,7 +42704,7 @@ FUN_ov132_02160020: ; 0x02160020
 	add r2, sp, #0
 	mov r5, r1
 	mov r6, r0
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r5, #0xb]
 	str r0, [r5, #4]
@@ -42731,7 +42731,7 @@ FUN_ov132_02160080: ; 0x02160080
 	mov r4, r2
 	add r2, sp, #0
 	mov r5, r1
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r5, #0xb]
 	str r0, [r5, #4]

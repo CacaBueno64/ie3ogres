@@ -127,7 +127,7 @@ FUN_ov52_02119fa0: ; 0x02119FA0
 	str r4, [r5, #0xfc]
 	str r4, [r5, #0x100]
 	str r4, [r5, #0x104]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	add r1, r7, #0x1000
 	add r0, r7, #0x268
 	str r6, [r1, #0x6a0]

@@ -11,7 +11,7 @@
 .public FUN_020591e8
 .public FUN_02058ee0
 .public FUN_ov16_02110558
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_0206c110
 .public FUN_ov16_02110578
 .public _ZdlPv

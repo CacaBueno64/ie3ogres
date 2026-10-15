@@ -94,7 +94,7 @@
 .public OS_GetTick
 .public _ll_udiv
 .public FX_Div
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_ov16_020edfd0
 .public unk_02099EA4
 .public FUN_ov16_0210e15c

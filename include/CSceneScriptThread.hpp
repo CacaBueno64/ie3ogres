@@ -45,32 +45,39 @@ typedef struct SScriptEvent {
 class CSceneScriptThread
 {
 public:
-    /* ov16 0x020fe4f4 */ CSceneScriptThread();
-    /* ov16 0x020fe51c */ void init(CSceneScriptManager *manager);
-    /* ov16 0x020fe530 */ BOOL attach(int idx);
-    /* ov16 0x020fe56c */ void detach(void);
-    /* ov16 0x020fe584 */ BOOL evaluateCondition(SScriptInstruction *function, s32 *argv);
-    /* ov16 0x020fe6e8 */ void start(CSceneDirection *direction, SScriptInstruction *function, s32 *argv);
-    /* ov16 0x020fe8b0 */ s32 stop(void);
-    /* ov16 0x020fe904 */ void requestFastForward(void);
-    /* ov16 0x020fe918 */ void requestSkip(void);
-    /* ov16 0x020fe92c */ BOOL update(void);
-    /* ov16 0x020fe9a4 */ SScriptEvent *getEvents(void);
-    /* ov16 0x020fe9ac */ int getEventCount(void);
-    /* ov16 0x020fe9b4 */ void setCurEvent(SScriptEvent *event);
-    /* ov16 0x020fe9bc */ void setRunning(BOOL running);
-    /* ov16 0x020fe9c4 */ void *callocate(size_t size);
-    /* ov16 0x020fe9d4 */ void free(void *ptr);
-    /* ov16 0x020fe9e4 */ SScriptInstruction *next(SScriptInstruction *cur);
-    /* ov16 0x020fe9f4 */ void setFunctionArguments(SScriptInstruction *function, s32 *argv);
-    /* ov16 0x020fea74 */ SScriptEvent *findEventByNum(SScriptEvent *start, s32 num);
-    /* ov16 0x020feb00 */ SScriptEvent *findEventReverseByNum(SScriptEvent *start, s32 num);
-    /* ov16 0x020feb9c */ SScriptEvent *findPreviousEventByID(SScriptEvent *start, u16 id);
-    /* ov16 0x020febf8 */ SScriptEvent *evaluateArguments(SScriptEvent *event, UScriptVariable *argv);
-    /* ov16 0x020fed6c */ SScriptEvent *evaluateArgumentsClear(SScriptEvent *event, UScriptVariable *argv);
-    /* ov16 0x020feda4 */ void registerLabel(SScriptEvent *event);
-    /* 0v16 0x020fedc8 */ SScriptEvent *executeEvents(SScriptEvent *first, SScriptEvent *last);
-    /* ov16 0x020feeb8 */ BOOL executeEvent(SScriptEvent *event, s32 *result);
+    CSceneScriptThread();
+    void init(CSceneScriptManager *manager);
+    BOOL attach(int idx);
+    void detach(void);
+    BOOL evaluateCondition(SScriptInstruction *function, s32 *argv);
+    void start(CSceneDirection *direction, SScriptInstruction *function, s32 *argv);
+    s32 stop(void);
+    void requestFastForward(void);
+    void requestSkip(void);
+    BOOL update(void);
+    SScriptEvent *getEvents(void);
+    int getEventCount(void);
+    void setCurEvent(SScriptEvent *event);
+    void setRunning(BOOL running);
+    void *callocate(size_t size);
+    void free(void *ptr);
+    SScriptInstruction *next(SScriptInstruction *cur);
+    void setFunctionArguments(SScriptInstruction *function, s32 *argv);
+    SScriptEvent *findEventByNum(SScriptEvent *start, s32 num);
+    SScriptEvent *findEventReverseByNum(SScriptEvent *start, s32 num);
+    SScriptEvent *findPreviousEventByID(SScriptEvent *start, u16 id);
+    SScriptEvent *evaluateArguments(SScriptEvent *event, UScriptVariable *argv);
+    SScriptEvent *evaluateArgumentsClear(SScriptEvent *event, UScriptVariable *argv);
+    void registerLabel(SScriptEvent *event);
+    SScriptEvent *executeEvents(SScriptEvent *from, SScriptEvent *end);
+    BOOL executeEvent(SScriptEvent *event, s32 *result);
+
+    BOOL event_6xxx(SScriptEvent *event, s32 *result);
+    BOOL event_3xxx(SScriptEvent *event, s32 *result);
+    BOOL event_4xxx(SScriptEvent *event, s32 *result);
+    BOOL event_7xxx(SScriptEvent *event, s32 *result);
+    BOOL event_default(SScriptEvent *event, s32 *result);
+    BOOL event_1xxx_2xxx(SScriptEvent *event, s32 *result);
 
     CSceneDirection *direction;
     CSceneScriptManager *manager;

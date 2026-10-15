@@ -3919,7 +3919,7 @@ FUN_ov20_0211d634: ; 0x0211D634
 	add r0, r5, #0x394
 	mov r4, r1
 	str r2, [r5]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	mov r0, r5
 	str r4, [r5, #4]
 	bl FUN_ov20_0211e100

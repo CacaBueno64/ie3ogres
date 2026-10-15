@@ -1,5 +1,5 @@
 .public FUN_0206c110
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public _ZdlPv
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0

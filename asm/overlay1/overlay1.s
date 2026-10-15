@@ -1204,7 +1204,7 @@ _020BDBE8:
 	ldr r1, _020BDE14 ; =FUN_ov61_0211d6c0
 	add r0, r6, #0x1dc
 	str r1, [r6]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	str r5, [r6, #8]
 _020BDC0C:
 	str r6, [r4, #4]
@@ -1217,7 +1217,7 @@ _020BDC14:
 	ldr r1, _020BDE1C ; =0x02120110
 	add r0, r6, #0x33c0
 	str r1, [r6]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	str r5, [r6, #4]
 _020BDC38:
 	str r6, [r4, #4]

@@ -5906,7 +5906,7 @@ FUN_ov46_0211f12c: ; 0x0211F12C
 	add r0, r4, #0x78
 	mov r6, r1
 	str r2, [r4]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	mov r5, #0
 	str r6, [r4, #0x74]
 	strb r5, [r4, #0xa0]

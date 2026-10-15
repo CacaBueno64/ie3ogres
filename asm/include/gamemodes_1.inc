@@ -1,7 +1,7 @@
 .public _ZN7Overlay4LoadEm
 .public _Znwm
 .public _ZN14CScreenManagerC2Ev
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_ov4_020cc0b4
 .public ov4_020D9574
 .public ov4_020D9998

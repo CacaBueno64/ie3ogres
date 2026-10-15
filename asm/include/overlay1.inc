@@ -180,7 +180,7 @@
 .public FUN_ov63_021223fc
 .public FUN_ov67_0211d248
 .public FUN_ov67_0212152c
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_ov71_0211aa5c
 .public FUN_ov41_02119f00
 .public FUN_ov81_02119f00

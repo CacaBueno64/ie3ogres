@@ -2489,7 +2489,7 @@ _020BEC64:
 	ldr r1, _020BED54 ; =0x02120110
 	add r0, r6, #0x33c0
 	str r1, [r6]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	str r5, [r6, #4]
 _020BEC88:
 	str r6, [r4, #4]

@@ -1,9798 +1,1499 @@
 
+.public unk_0208BFB0
+.public MI_CpuFill8
+.public _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
+.public gUtilGame
+.public unk_02099F44
+.public _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
+.public _ZN19CSceneScriptManager12findFunctionEP18SScriptInstructioniiPl
+.public _ZN19CSceneScriptManager9getThreadEii
+.public _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
+.public _ZN18CSceneScriptThread11requestSkipEv
+.public _ZN18CSceneScriptThread6updateEv
+.public _ZN18CSceneScriptThread4stopEv
+.public _ZN18CSceneScriptThread6detachEv
+.public _ZN19CSceneScriptManager10loadScriptEilli
+.public _ZN19CSceneScriptManager13isScriptReadyEi
+.public _ZN19CSceneScriptManager12unloadScriptEi
+.public _ZN19CSceneScriptManager15setFunctionSlotEiP12SScriptEventl
+.public _ZN19CSceneScriptManager15getFunctionSlotEiPl
+.public _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
+.public _ZN18CSceneScriptThread21findEventReverseByNumEP12SScriptEventl
+.public _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+.public _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
+.public _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
+.public sprintf
+.public FUN_02031084
+.public FUN_020312cc
+.public FUN_020311b8
+.public _ZN8Graphics25IsAnyScreenBrightAdjustedEv
+.public _ZN8Graphics20IsMainBrightAdjustedEv
+.public _ZN8Graphics19IsSubBrightAdjustedEv
+.public FUN_02030790
+.public FUN_02030f54
+.public unk_0209A454
+.public FUN_020460d8
+.public unk_020A9C40
+.public FUN_02030fa0
+.public _ZN8Graphics13FadeMainBlackEl
+.public FUN_02030fe0
+.public FUN_02031048
+.public FUN_ov1_020df110
+.public FUN_ov1_020df1dc
+.public FUN_ov1_020e3d74
+.public g3DFieldSprite
+.public FUN_ov16_020f2a18
+.public FUN_ov16_020f2aa4
+.public FUN_ov16_020f2a74
+.public FUN_020312d8
+.public FUN_02031a08
+.public FUN_02031554
+.public FUN_02031640
+.public FUN_020315f0
+.public FUN_02031718
+.public FUN_020317f0
+.public FUN_02031844
+.public FUN_020318e8
+.public FUN_02031930
+.public FUN_0203194c
+.public FUN_02031e68
+.public FUN_02032040
+.public FUN_020326e0
+.public FUN_020326b4
+.public FUN_ov16_020efa9c
+.public FUN_0204bd64
+.public _Z14GetCurrentModev
+.public FUN_02045570
+.public FUN_0204557c
+.public FUN_020554b0
+.public FUN_020552cc
+.public FUN_ov16_020f0810
+.public _ZN11CLogicThink11getTeamInfoEi
+.public FUN_ov16_020f0ba4
+.public FUN_0204c2ec
+.public FUN_0206d6d8
+.public FUN_ov16_020f0b3c
+.public _ZN7Archive11GetFaceCodeEP4Unith
+.public _ZN7Archive11GetBodyCodeEP4Unitii
+.public _ZN7Archive15GetBodyPlttCodeEii
+.public gLogicThink
+.public g2DAdventureLogic
+.public strcpy
+.public strlen
+.public strcmp
+.public FUN_02073f08
+.public FUN_02032670
+.public FUN_02032688
+.public FUN_020326cc
+.public STD_GetStringLength
+.public STD_CopyString
+.public _ZN12CFontManager12getTextWidthEPc
+.public STD_ConcatenateString
+.public _ZN12CFontManager12getCharWidthEPc
+.public gFont12Manager
+.public _ZN7CFileIO7readRawEP8FSFileIDPPvilm
+.public FUN_02032498
+.public gFileIO
+.public FUN_020326a8
+.public FUN_020322bc
+.public FUN_02032384
+.public FUN_02032488
+.public _ZN11AudioPlayer12FUN_0202ceb0EiPKc
+.public _ZN11AudioPlayer12FUN_0202b7f0Ev
+.public gAudioPlayer
+.public _ZN11AudioPlayer10playEffectEi
+.public _ZN18CSceneScriptThread21findPreviousEventByIDEP12SScriptEventt
+.public _ZN11AudioPlayer10stopEffectEim
+.public _ZN11AudioPlayer12FUN_0202cf00Ei
+.public _ZN11AudioPlayer12FUN_0202bfb8EiPcl
+.public _ZN11AudioPlayer5sleepEm
+.public _ZN11AudioPlayer12FUN_0202d060Ei
+.public _ZN11AudioPlayer12FUN_0202c364Eill
+.public _ZN11AudioPlayer12FUN_0202c4acEil
+.public _ZN11AudioPlayer12FUN_0202c44cEil
+.public _ZN11AudioPlayer12FUN_0202c5a4Ei
+.public _ZN11AudioPlayer12FUN_0202bec0EiPcl
+.public _ZN11AudioPlayer12FUN_0202b7b4Ev
+.public _ZN11AudioPlayer12FUN_0202c314Eill
+.public _ZN11AudioPlayer12FUN_0202d4c4EiPKca
+.public _ZN11AudioPlayer12FUN_0202d594EiPKc
+.public _ZN11AudioPlayer12FUN_0202d774Eil
+.public _ZN11AudioPlayer12FUN_0202d6c4Ei
+.public FUN_02035c98
+.public FUN_020362b0
+.public FUN_02035db0
+.public FUN_02035d64
+.public FUN_02035dec
+.public FUN_02035e30
+.public FUN_02035e74
+.public FUN_02035fe4
+.public FUN_020361b8
+.public FUN_0203620c
+.public FUN_02036248
+.public FUN_02036590
+.public FUN_02036920
+.public FUN_0203664c
+.public FUN_02036604
+.public FUN_020366a0
+.public FUN_020366d8
+.public FUN_02036714
+.public FUN_0203681c
+.public FUN_02036890
+.public FUN_020368c8
+.public FUN_02037154
+.public FUN_02036b3c
+.public FUN_02036bd0
+.public FUN_02036b8c
+.public FUN_ov132_02148398
+.public FUN_ov132_02159df0
+.public FUN_ov132_0215a3ec
+.public FUN_ov16_020f0a14
+.public FUN_ov132_0215a440
+.public FUN_0204b0ac
+.public FUN_02036c14
+.public FUN_02036d18
+.public FUN_02036f50
+.public FUN_02036f98
+.public FUN_02037008
+.public FUN_02037728
+.public FUN_02037440
+.public FUN_020375ec
+.public FUN_02037514
+.public FUN_02037744
+.public FUN_02037818
+.public _fflt
+.public _fadd
+.public _fsub
+.public _ffix
+.public FUN_0203793c
+.public FUN_0205e1e8
+.public STD_CompareString
+.public FUN_02037c98
+.public FUN_02037dd8
+.public FUN_020385c0
+.public FUN_02037fb0
+.public g3DGameMap
+.public FUN_02037ef0
+.public FUN_020388c0
+.public FUN_02037fe8
+.public FUN_02038020
+.public FUN_02038058
+.public FUN_020381a0
+.public FUN_020383c4
+.public FUN_02038430
+.public FUN_0203851c
+.public FUN_02038554
+.public _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
+.public _ZN7CFileIO11tryFinalizeEPv
+.public FUN_ov16_020ee034
+.public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
+.public FUN_02058800
+.public _ZN10CAllocator10deallocateEPv
+.public FUN_02058e30
+.public FUN_020385dc
+.public FUN_0205fa18
+.public FUN_ov16_020fa71c
+.public NNS_G3dGetResDataByName
+.public _ZN12C3DPlaneCtrl18FUN_ov16__02111414Ei
+.public _ZN12C3DPlaneCtrl18FUN_ov16__021113ccEi
+.public _ZN12C3DPlaneCtrl18FUN_ov16__021113f0Ei
+.public MI_CpuCopy8
+.public DC_FlushRange
+.public FUN_02058ee0
+.public gAllocator
+.public g3DPlaneCtrl
+.public g3DGameMapObject
+.public FUN_0203891c
+.public FUN_02038984
+.public FUN_020389d0
+.public FUN_ov16_020f7bf4
+.public gCameraCtrl
+.public FUN_02038a30
+.public FUN_02038a9c
+.public FUN_ov16_020f7c34
+.public FUN_02038afc
+.public FUN_02038b30
+.public FUN_02038b9c
+.public FUN_02038cdc
+.public FUN_02038cf8
+.public FUN_02038d28
+.public FUN_02038d58
+.public FUN_ov132_021451d0
+.public FUN_0203533c
+.public FUN_020391a8
+.public FUN_0203a300
+.public FUN_02035498
+.public FUN_02035500
+.public unk_0208F6F0
+.public unk_0209A730
+.public FUN_02035448
+.public FUN_020397b4
+.public FUN_02039f08
+.public FUN_0203a47c
+.public FUN_ov132_02143114
+.public FUN_0203551c
+.public unk_0209A2C0
+.public unk_0209A720
+.public FUN_020355f8
+.public FUN_ov16_020efd54
+.public FUN_02035758
+.public FUN_02035988
+.public FUN_ov16_020f081c
+.public FUN_ov126_02139800
+.public FUN_ov16_020f085c
+.public unk_0209A760
+.public unk_0209A790
+.public unk_0209A740
+.public unk_0209A770
+.public unk_0209A750
+.public unk_0209A780
+.public unk_0209A87C
+.public unk_0209A880
+.public unk_020A0640
+.public FUN_ov132_021434f8
+.public FUN_ov126_02139e4c
+.public FUN_02039598
+.public FUN_02039764
+.public FUN_02039750
+.public FUN_02038dec
+.public FUN_020390ac
+.public FUN_02039124
+.public FUN_020390e8
+.public FUN_02039b70
+.public FUN_02039fa4
+.public FUN_02039fcc
+.public FUN_0203a5e4
+.public FUN_0203aa4c
+.public FUN_0203aaf4
+.public FUN_020443a4
+.public _ZN19CSceneScriptManager17requestUnloadSlotEi
+.public _ZN19CSceneScriptManager11requestLoadEilli
+.public unk_020AF81C
+.public FUN_0203247c
+.public FUN_02038d70
+.public FUN_020460c0
+.public _ZN11AudioPlayer10setBgmGainEt
+.public _ZN7CConfig8getParamEPKc
+.public gConfig
+.public FUN_ov16_020f083c
+.public FUN_ov16_020efa80
+.public FUN_0206d5f0
+.public FUN_0206cc00
+.public FUN_0206cc44
+.public FUN_0206cc84
+.public FUN_0204a2c4
+.public FUN_0204b0c4
+.public FUN_0204b114
+.public _ZN7Archive14PackHeaderReadEPKcmPlPm
+.public _ZN7CFileIO13getFileLengthEPKc
+.public gRecordManager
+.public FUN_02072338
+.public unk_020A12C0
+.public FUN_0204c560
+.public FUN_0204c4cc
+.public FUN_0204c420
+.public FUN_0204c3e0
+.public FUN_0205107c
+.public FUN_0206c7dc
+.public FUN_0204fd68
+.public unk_0209A11C
+.public FUN_0204c778
+.public FUN_0206cdf8
+.public FUN_02074a2c
+.public FUN_02055938
+.public FUN_02055274
+.public FUN_02056a88
+.public FUN_02056e04
+.public FUN_0204d2a4
+.public FUN_0204d354
+.public FUN_0204d3c0
+.public FUN_0204d0b4
+.public FUN_0204ce50
+.public g2DGChar
+.public gUnitMan
+.public FUN_0204eb4c
+.public FUN_ov16_020ede60
+.public FUN_ov132_0215a0c4
+.public FUN_0207467c
+.public unk_020A0B00
+.public FUN_02074594
+.public FUN_0204dea4
+.public FUN_0204b438
+.public FUN_0204eb00
+.public FUN_0204fda4
+.public FUN_0204fbe8
+.public FUN_0204c92c
+.public FUN_0206d688
+.public FUN_ov126_0212ab9c
+.public FUN_ov126_0212aa34
+.public FUN_ov132_021435c0
+.public FUN_0204a318
+.public FUN_0204a918
+.public FUN_02049ea4
+.public FUN_0204aba4
+.public FUN_0207224c
+.public FUN_ov126_0212d4b4
+.public FUN_ov126_021375d4
+.public FUN_ov126_0213246c
+.public FUN_ov16_020f07f4
+.public FUN_02036118
+.public FUN_020728a8
+.public FUN_0207287c
+.public FUN_020728d4
+.public unk_020A06D2
+.public FUN_02045950
+.public FUN_02046380
+.public FUN_ov126_02139248
+.public FUN_ov132_02146dd4
+.public FUN_ov132_02146d18
+.public FUN_ov126_02138d98
+.public FUN_0204afd0
+.public FUN_ov132_02146e90
+.public FUN_020745d8
+.public FUN_ov16_020f8b58
+.public FUN_020727a8
+.public gDungeonManager
+.public FUN_ov132_02146ef8
+.public FUN_ov132_02147000
+.public FUN_0206d3fc
+.public FUN_0206d3c8
+.public FUN_020503c0
+.public FUN_02050324
+.public FUN_02050470
+.public FUN_020503e4
+.public FUN_020504d4
+.public FUN_02050494
+.public FUN_0205052c
+.public FUN_020504f8
+.public FUN_02050584
+.public FUN_02050550
+.public FUN_02050618
+.public FUN_020505a8
+.public FUN_02050670
+.public FUN_0205063c
+.public FUN_020506b8
+.public FUN_02050694
+.public FUN_02050300
+.public FUN_020502dc
+.public FUN_0204da5c
+.public FUN_ov126_0213921c
+.public FUN_0204d864
+.public _s32_div_f
+.public _ZN6Random5RandAEm
+.public FUN_ov132_021430b4
+.public FUN_ov131_02141b2c
+.public FUN_02044754
+.public FUN_ov132_02143b6c
+.public FUN_02072b3c
+.public FUN_0205b438
+.public g3DGameChar
+.public FUN_0206d64c
+.public FUN_0206cc94
+.public FUN_0206ccdc
+.public FUN_0206ccec
+.public FUN_020725ac
+.public FUN_020724e8
+.public unk_02099E8E
+.public unk_020A1302
+.public FUN_0206f834
+.public FUN_02071d74
+.public FUN_0206dcd4
+.public FUN_0206de90
+.public FUN_0206d9cc
+.public FUN_ov16_020eeb24
+.public FUN_0206c5d8
+.public _ZN11CLogicThink12FUN_0204eba0Ev
+.public FUN_ov131_0213c738
+.public FUN_ov131_0213c3a8
+.public FUN_ov131_0213c50c
+.public _ZN11CLogicThink12FUN_0204ec3cEv
+.public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
+.public FUN_020724c8
+.public FX_Sqrt
+.public FUN_ov16_020fe4f0
+.public FUN_ov16_020fe4c8
+.public FUN_ov16_020fe23c
+.public FUN_02029d14
+.public _ZN8CManager7vFUN_10Ev
+.public FUN_ov16_020fda8c
+.public FUN_ov16_020fdbec
+.public FUN_ov16_020fe27c
+.public _ZN8CManager7vFUN_20Ev
+.public FUN_ov16_020fe3e4
+.public FUN_02029d08
+.public FUN_ov16_020fe4ec
+.public FUN_02029d04
+.public _ZN8CManager11updateSceneEv
+.public FUN_ov16_020fe4e4
+.public FUN_ov16_020fe4dc
+.public FUN_ov16_020fe47c
+.public FUN_ov16_020fe3d0
+.public FUN_ov131_02144218
+.public FUN_ov131_02144504
+.public FUN_ov131_02144400
+.public FUN_ov131_02144304
+.public FUN_ov131_02144b54
+.public FUN_ov131_02144f54
+.public FUN_ov131_0214501c
+.public FUN_ov131_02145110
+.public FUN_ov131_0214473c
+.public FUN_ov131_02144a74
+.public FUN_ov131_02144678
+.public FUN_ov131_02144e90
+.public FUN_ov131_02144c34
+.public FUN_ov131_02144d14
+.public FUN_ov131_02144df4
+.public FUN_ov131_021451fc
+.public FUN_ov131_0214536c
+.public FUN_ov131_021445b4
+.public FUN_ov131_02144074
+.public FUN_ov131_02144838
+.public FUN_ov131_02143fb8
+.public FUN_ov131_02145554
+.public FUN_ov132_0215eab8
+.public FUN_ov132_0215f960
+.public FUN_ov132_0215fa90
+.public FUN_ov132_0215fb30
+.public FUN_ov131_02147c7c
+.public FUN_ov131_02147cd8
+.public FUN_ov131_02147494
+.public FUN_ov131_021475a0
+.public FUN_ov132_0215cc78
+.public FUN_ov132_0215ce08
+.public FUN_ov132_0215d4b4
+.public FUN_ov132_0215d590
+.public FUN_ov132_0215dfd0
+.public FUN_ov131_02147944
+.public FUN_ov132_0215e4e4
+.public FUN_ov132_0215e624
+.public FUN_ov132_0215e964
+.public FUN_ov131_02147a6c
+.public FUN_ov131_02147af4
+.public FUN_ov131_0214835c
+.public FUN_ov132_0215b06c
+.public FUN_ov132_0215f0ac
+.public FUN_ov132_0215b4dc
+.public FUN_ov132_0215b754
+.public FUN_ov132_0215b7ec
+.public FUN_ov132_0215b8a4
+.public FUN_ov132_0215bc9c
+.public FUN_ov132_0215bae0
+.public FUN_ov132_0215be1c
+.public FUN_ov132_0215bf94
+.public FUN_ov132_0215a884
+.public FUN_ov132_0215a5a0
+.public FUN_ov132_0215a6a8
+.public FUN_ov132_0215a7d4
+.public FUN_ov132_0215a730
+.public FUN_ov131_02146904
+.public FUN_ov132_0215ac94
+.public FUN_ov132_0215ab70
+.public FUN_ov131_02145b68
+.public FUN_ov132_0215a948
+.public FUN_ov132_0215aef4
+.public FUN_ov132_0215b608
+.public FUN_ov131_021469e4
+.public FUN_ov131_021464c4
+.public FUN_ov131_02146570
+.public FUN_ov131_021467bc
+.public FUN_ov132_0215b574
+.public FUN_ov131_021462a0
+.public FUN_ov132_0215c110
+.public FUN_ov131_021483f4
+.public FUN_ov131_02148464
+.public FUN_ov132_0215f1b4
+.public FUN_ov132_0215c8d4
+.public FUN_ov132_0215c264
+.public FUN_ov131_02145e4c
+.public FUN_ov131_02146160
+.public FUN_ov132_0215b37c
+.public FUN_ov131_021484cc
+.public FUN_ov132_0215c330
+.public FUN_ov132_0215f2cc
+.public FUN_ov132_0215f3b4
+.public FUN_ov132_0215f428
+.public FUN_ov132_0215f49c
+.public FUN_ov131_02145d18
+.public FUN_ov132_0215bb9c
+.public FUN_ov132_0215bc1c
+.public FUN_ov132_0215f340
+.public FUN_ov131_02145f04
+.public FUN_ov131_02148588
+.public FUN_ov131_02148600
+.public FUN_ov131_02148684
+.public FUN_ov131_02148728
+.public FUN_ov131_0214879c
+.public FUN_ov131_02148810
+.public FUN_ov132_0215b0fc
+.public FUN_ov132_0215d0e4
+.public FUN_ov132_0215f130
+.public FUN_ov132_0215ba2c
+.public FUN_ov131_02145af8
+.public FUN_ov131_021457cc
+.public FUN_ov131_02145994
+.public FUN_ov131_02146f10
+.public FUN_ov132_0215fc28
+.public FUN_ov131_0214622c
+.public FUN_ov131_02145648
+.public FUN_ov132_0215c9a4
+.public FUN_ov132_0215ee50
+.public FUN_ov131_02145f7c
+.public FUN_ov132_0215bd58
+.public FUN_ov131_02146974
+.public FUN_ov132_0215f24c
+.public FUN_ov131_02145754
+.public FUN_ov131_02146da8
+.public FUN_ov131_02146cbc
+.public FUN_ov132_0215b198
+.public FUN_ov132_0215b1fc
+.public FUN_ov132_0215b414
+.public FUN_ov132_0215c83c
+.public FUN_ov132_0215ca34
+.public FUN_ov132_0215afec
+.public FUN_ov132_0215eec8
+.public FUN_ov131_021468a0
+.public FUN_ov132_0215ec7c
+.public FUN_ov131_02146d30
+.public FUN_ov131_02146e20
+.public FUN_ov131_02148894
+.public FUN_ov131_02146ac8
+.public FUN_ov131_02146b4c
+.public FUN_ov131_02146a54
+.public FUN_ov131_02146fa0
+.public FUN_ov131_021456bc
+.public FUN_ov131_02146060
+.public FUN_ov132_0215b298
+.public FUN_ov132_0215ff74
+.public FUN_ov131_021472a0
+.public FUN_ov132_0215c3c4
+.public FUN_ov131_021471a0
+.public FUN_ov131_0214891c
+.public FUN_ov131_021489cc
+.public FUN_ov131_02148a3c
+.public FUN_ov131_02148ac0
+.public FUN_ov131_02146314
+.public FUN_ov131_0214702c
+.public FUN_ov131_02147128
+.public FUN_ov131_021470ac
+.public FUN_ov131_021463dc
+.public FUN_ov131_02146450
+.public FUN_ov131_02148b44
+.public FUN_ov131_0214721c
+.public FUN_ov131_021455c4
+.public FUN_ov131_02148bbc
+.public FUN_ov131_02146e94
+.public FUN_ov131_02148c30
+.public FUN_ov132_0215eda8
+.public FUN_ov131_02145cb4
+.public FUN_ov132_0215f5bc
+.public FUN_ov132_0215c5e0
+.public FUN_ov132_0215c478
+.public FUN_ov132_0215c52c
+.public FUN_ov132_0215aaec
+.public FUN_ov132_0215ae60
+.public FUN_ov131_02145888
+.public FUN_ov131_02145a0c
+.public FUN_ov131_02145ae8
+.public FUN_ov131_02147318
+.public FUN_ov131_0214738c
+.public FUN_ov131_02148cb8
+.public FUN_ov131_02148d30
+.public FUN_ov131_02148da0
+.public FUN_ov131_02148e18
+.public FUN_ov131_02145c40
+.public FUN_ov131_02148e88
+.public FUN_ov131_02148f04
+.public FUN_ov132_0215f630
+.public FUN_ov132_0215f538
+.public FUN_ov132_0215c6ac
+.public FUN_ov132_0215c7c4
+.public FUN_ov132_0215f6b8
+.public FUN_ov132_0215b69c
+.public FUN_ov131_02147400
+.public FUN_ov131_02147528
+.public FUN_ov132_0215f740
+.public FUN_ov132_0215f7b8
+.public FUN_ov132_0215f83c
+.public FUN_ov132_0215fcc8
+.public FUN_ov132_0215fd4c
+.public FUN_ov131_02147630
+.public FUN_ov132_0215cf08
+.public FUN_ov132_0215d734
+.public FUN_ov132_0215d698
+.public FUN_ov132_0215d974
+.public FUN_ov132_0215da48
+.public FUN_ov132_0215db1c
+.public FUN_ov132_0215dd70
+.public FUN_ov132_0215df48
+.public FUN_ov132_0215cf9c
+.public FUN_ov132_0215ea30
+.public FUN_ov132_0215e10c
+.public FUN_ov132_0215e094
+.public FUN_ov132_0215e188
+.public FUN_ov132_0215e6fc
+.public FUN_ov132_0215e248
+.public FUN_ov132_0215e300
+.public FUN_ov132_0215e3c0
+.public FUN_ov132_0215e468
+.public FUN_ov131_021478c8
+.public FUN_ov132_0215ad60
+.public FUN_ov132_0215f8c8
+.public FUN_ov132_0215ade0
+.public FUN_ov131_02148f74
+.public FUN_ov131_0214826c
+.public FUN_ov131_021482dc
+.public FUN_ov131_02147b58
+.public FUN_ov132_0215fbc0
+.public FUN_ov132_0215d7c0
+.public FUN_ov132_0215d8bc
+.public FUN_ov132_0215d844
+.public FUN_ov131_02147bf4
+.public FUN_ov132_0215fde4
+.public FUN_ov132_0215fed0
+.public FUN_ov131_02146bc4
+.public FUN_ov131_02146c40
+.public FUN_ov132_0215ebe8
+.public FUN_ov131_02148048
+.public FUN_ov131_021480ec
+.public FUN_ov131_0214818c
+.public FUN_ov132_0215b964
+.public FUN_ov131_021481fc
+.public AntiPiracyCheck
+.public FUN_ov132_02160020
+.public FUN_ov131_02147d34
+.public FUN_ov131_02147db8
+.public FUN_ov131_02147e40
+.public FUN_ov131_02147eb4
+.public FUN_ov131_02147fb4
+.public FUN_ov132_02160080
+
 	.include "/macros/function.inc"
-	.include "/include/ov16_020f6f8c.inc"
 
 	.text
-	arm_func_start FUN_ov16_020f6f8c
-FUN_ov16_020f6f8c: ; 0x020F6F8C
-	stmfd sp!, {r4, r5, r6, lr}
-	ldr r3, [r1]
-	ldr r2, [r1, #4]
-	mov r1, r3, lsl #0x10
-	mov r2, r2, lsl #0x10
-	mov r3, r1, lsr #0x10
-	mov r1, r2, lsr #0x10
-	mov r2, r3, asr #4
-	mov r12, r2, lsl #1
-	mov r1, r1, asr #4
-	mov r4, r1, lsl #1
-	add r2, r12, #1
-	add r1, r4, #1
-	ldr r6, _020F7024 ; =FX_SinCosTable_
-	mov r3, r2, lsl #1
-	mov r2, r4, lsl #1
-	mov r1, r1, lsl #1
-	ldrsh r5, [r6, r3]
-	ldrsh r3, [r6, r2]
-	ldrsh r1, [r6, r1]
-	mov r2, r12, lsl #1
-	smull r12, lr, r3, r5
-	adds r4, r12, #0x800
-	ldrsh r12, [r6, r2]
-	smull r3, r2, r1, r5
-	adc r1, lr, #0
-	adds r3, r3, #0x800
-	mov r4, r4, lsr #0xc
-	orr r4, r4, r1, lsl #20
-	rsb lr, r4, #0
-	adc r1, r2, #0
-	mov r2, r3, lsr #0xc
-	orr r2, r2, r1, lsl #20
-	rsb r1, r2, #0
-	str lr, [r0]
-	str r12, [r0, #4]
-	str r1, [r0, #8]
-	ldmfd sp!, {r4, r5, r6, pc}
-_020F7024: .word FX_SinCosTable_
-	arm_func_end FUN_ov16_020f6f8c
-
-	arm_func_start FUN_ov16_020f7028
-FUN_ov16_020f7028: ; 0x020F7028
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0x80
-	ldmia r1, {r6, r7, r8}
-	mov r9, r0
-	rsb r0, r6, #0
-	rsb r1, r8, #0
-	bl FX_Atan2Idx
-	mov r5, r0
-	rsb r0, r5, #0
-	mov r0, r0, lsl #0x10
-	mov r0, r0, lsr #0x10
-	mov r0, r0, asr #4
-	mov r1, r0, lsl #1
-	add r0, r1, #1
-	ldr r2, _020F70CC ; =FX_SinCosTable_
-	mov r1, r1, lsl #1
-	mov r0, r0, lsl #1
-	ldrsh r1, [r2, r1]
-	ldrsh r2, [r2, r0]
-	add r4, sp, #0x40
-	mov r0, r4
-	blx MTX_RotY44_
-	add r10, sp, #0
-	mov r0, r10
-	bl MTX_Identity44_
-	str r8, [sp, #0x38]
-	mov r1, r4
-	mov r0, r10
-	mov r2, r10
-	str r6, [sp, #0x30]
-	str r7, [sp, #0x34]
-	bl MTX_Concat44
-	ldr r1, [sp, #0x38]
-	ldr r0, [sp, #0x34]
-	rsb r1, r1, #0
-	bl FX_Atan2Idx
-	stmia r9, {r0, r5}
-	mov r0, #0
-	str r0, [r9, #8]
-	add sp, sp, #0x80
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020F70CC: .word FX_SinCosTable_
-	arm_func_end FUN_ov16_020f7028
-
-	arm_func_start FUN_ov16_020f70d0
-FUN_ov16_020f70d0: ; 0x020F70D0
-	ldr r12, [r1]
-	ldr r1, [r2]
-	sub r1, r1, r12
-	smull r3, r2, r1, r3
-	adds r3, r3, #0x800
-	adc r1, r2, #0
-	mov r2, r3, lsr #0xc
-	orr r2, r2, r1, lsl #20
-	add r1, r12, r2
-	str r1, [r0]
-	bx lr
-	arm_func_end FUN_ov16_020f70d0
-
-	arm_func_start FUN_ov16_020f70fc
-FUN_ov16_020f70fc: ; 0x020F70FC
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r7, r0
-	mov r6, r1
-	mov r5, r2
-	mov r4, r3
-	bl FUN_ov16_020f70d0
-	mov r3, r4
-	add r0, r7, #4
-	add r1, r6, #4
-	add r2, r5, #4
-	bl FUN_ov16_020f70d0
-	mov r3, r4
-	add r0, r7, #8
-	add r1, r6, #8
-	add r2, r5, #8
-	bl FUN_ov16_020f70d0
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f70fc
-
-	arm_func_start FUN_ov16_020f7140
-FUN_ov16_020f7140: ; 0x020F7140
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r6, r1
-	mov r5, r2
-	mov r7, r0
-	mov r4, r3
-	ldr r0, [r6]
-	ldr r1, [r5]
-	mov r2, r4
-	bl FUN_ov16_020f7194
-	str r0, [r7]
-	ldr r0, [r6, #4]
-	ldr r1, [r5, #4]
-	mov r2, r4
-	bl FUN_ov16_020f7194
-	str r0, [r7, #4]
-	ldr r0, [r6, #8]
-	ldr r1, [r5, #8]
-	mov r2, r4
-	bl FUN_ov16_020f7194
-	str r0, [r7, #8]
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f7140
-
-	arm_func_start FUN_ov16_020f7194
-FUN_ov16_020f7194: ; 0x020F7194
-	stmfd sp!, {r0, r1, r2, r3}
-	stmfd sp!, {r3, lr}
-	ldr r0, [sp, #0xc]
-	ldr r1, [sp, #8]
-	mov r3, r2
-	subs r2, r1, r0
-	rsbmi r2, r2, #0
-	cmp r2, #0x8000
-	ble _020F71D4
-	cmp r1, r0
-	ldrgt r0, [sp, #0xc]
-	addgt r0, r0, #0x10000
-	strgt r0, [sp, #0xc]
-	ldrle r0, [sp, #8]
-	addle r0, r0, #0x10000
-	strle r0, [sp, #8]
-_020F71D4:
-	add r0, sp, #0
-	add r1, sp, #8
-	add r2, sp, #0xc
-	bl FUN_ov16_020f70d0
-	ldr r0, [sp]
-	mov r0, r0, lsl #0x10
-	mov r0, r0, lsr #0x10
-	ldmfd sp!, {r3, lr}
-	add sp, sp, #0x10
-	bx lr
-	arm_func_end FUN_ov16_020f7194
-
-	arm_func_start FUN_ov16_020f71fc
-FUN_ov16_020f71fc: ; 0x020F71FC
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	mov r10, #0x60000
-	mov r4, r0
-	mov r6, #0
-	mov lr, #0x1000
-	mov r3, #0x10000
-	sub r12, lr, #0xff000000
-	ldr r0, _020F7368 ; =0x00001555
-	ldr r2, _020F736C ; =0x00000536
-	ldr r1, _020F7370 ; =0x00000F21
-	mov r5, #0xc
-	sub r9, r10, #0xc0000
-	sub r8, r10, #0xe0000
-	mov r7, #0x80000
-	str r0, [r4, #8]
-	mov r0, r6
-	str r2, [r4]
-	mov r2, r5
-	str r1, [r4, #4]
-	add r1, r4, #0xdc
-	str r10, [r4, #0x14]
-	str r9, [r4, #0x18]
-	str r8, [r4, #0x1c]
-	str r7, [r4, #0x20]
-	str lr, [r4, #0xc]
-	str r12, [r4, #0x10]
-	str lr, [r4, #0x24]
-	str r12, [r4, #0x28]
-	str r6, [r4, #0x2c]
-	str lr, [r4, #0x30]
-	str r6, [r4, #0x34]
-	strh r6, [r4, #0x38]
-	strh r6, [r4, #0x3a]
-	str r6, [r4, #0x3c]
-	str r6, [r4, #0x40]
-	str lr, [r4, #0x44]
-	str r6, [r4, #0x48]
-	str r6, [r4, #0x4c]
-	str r6, [r4, #0x50]
-	str r6, [r4, #0x58]
-	str r6, [r4, #0x5c]
-	str r6, [r4, #0x60]
-	str r3, [r4, #0x54]
-	str r6, [r4, #0x64]
-	str r6, [r4, #0x68]
-	str lr, [r4, #0x6c]
-	str r6, [r4, #0x70]
-	str r6, [r4, #0x74]
-	str r6, [r4, #0x78]
-	str r6, [r4, #0x80]
-	str r6, [r4, #0x84]
-	str r6, [r4, #0x88]
-	str r3, [r4, #0x7c]
-	str r6, [r4, #0x8c]
-	str r6, [r4, #0x90]
-	str lr, [r4, #0x94]
-	str r6, [r4, #0x98]
-	str r6, [r4, #0x9c]
-	str r6, [r4, #0xa0]
-	str r6, [r4, #0xa8]
-	str r6, [r4, #0xac]
-	str r6, [r4, #0xb0]
-	str r3, [r4, #0xa4]
-	str r6, [r4, #0xb4]
-	str r6, [r4, #0xb8]
-	str lr, [r4, #0xbc]
-	str r6, [r4, #0xc0]
-	str r6, [r4, #0xc4]
-	str r6, [r4, #0xc8]
-	str r6, [r4, #0xd0]
-	str r6, [r4, #0xd4]
-	str r6, [r4, #0xd8]
-	str r3, [r4, #0xcc]
-	bl MIi_CpuClearFast
-	mov r0, r6
-	mov r2, r5
-	add r1, r4, #0xe8
-	bl MIi_CpuClearFast
-	mov r0, r6
-	mov r2, r5
-	add r1, r4, #0xf4
-	bl MIi_CpuClearFast
-	mov r0, r6
-	mov r2, r5
-	add r1, r4, #0x100
-	bl MIi_CpuClearFast
-	mov r0, r6
-	add r1, r4, #0x10c
-	mov r2, #0x20
-	bl MIi_CpuClearFast
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020F7368: .word 0x00001555
-_020F736C: .word 0x00000536
-_020F7370: .word 0x00000F21
-	arm_func_end FUN_ov16_020f71fc
-
-	arm_func_start _ZN11CCameraCtrl4initEv
-_ZN11CCameraCtrl4initEv: ; 0x020F7374
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0xc
-	ldr r5, _020F74C8 ; =gConfig
-	ldr r1, _020F74CC ; =0x02118790
-	mov r4, r0
-	mov r0, r5
-	bl _ZN7CConfig8getParamEPKc
-	cmp r0, #0
-	ble _020F73BC
-	ldr r1, _020F74D0 ; =0x021187A0
-	mov r0, r5
-	bl _ZN7CConfig8getParamEPKc
-	mov r0, r0, lsl #0xc
-	bl _fflt
-	mov r1, r0
-	mov r0, #0x3f000000
-	bl _fadd
-	b _020F73D8
-_020F73BC:
-	ldr r1, _020F74D4 ; =0x021187B0
-	mov r0, r5
-	bl _ZN7CConfig8getParamEPKc
-	mov r0, r0, lsl #0xc
-	bl _fflt
-	mov r1, #0x3f000000
-	bl _fsub
-_020F73D8:
-	bl _ffix
-	cmp r0, #0
-	ldreq r0, _020F74D8 ; =0x01001000
-	mov r7, #0
-	add r6, r0, #0x1000
-	mov r5, #0x12c
-_020F73F0:
-	mla r8, r7, r5, r4
-	mov r0, r8
-	bl FUN_ov16_020f71fc
-	str r6, [r8, #0x10]
-	add r7, r7, #1
-	str r6, [r8, #0x28]
-	cmp r7, #5
-	blt _020F73F0
-	mov r0, #4
-	str r0, [r4, #0x5dc]
-	mov r6, #0
-	sub r0, r0, #0xc4
-	mov r3, #0x1000
-	str r0, [sp]
-	mov r0, r4
-	mov r1, r6
-	mov r2, r6
-	str r3, [sp, #4]
-	sub r5, r3, #0xff000000
-	mov r3, #0x100
-	str r5, [sp, #8]
-	bl FUN_ov16_020f7848
-	mov r0, r4
-	bl FUN_ov16_020f7bf4
-	mov r3, r0
-	str r6, [sp]
-	ldr r2, [r3, #0x7c]
-	add r1, r3, #0x64
-	str r2, [sp, #4]
-	mov r0, r4
-	mov r2, r1
-	add r3, r3, #0x70
-	bl FUN_ov16_020f7fc0
-	mov r5, #1
-	mov r0, r4
-	mov r1, r5
-	bl FUN_ov16_020f74dc
-	str r6, [r4, #0x5dc]
-	mov r0, r4
-	bl FUN_ov16_020f7bf4
-	mov r3, r0
-	str r6, [sp]
-	ldr r1, [r3, #0x7c]
-	mov r0, r4
-	str r1, [sp, #4]
-	add r1, r3, #0x64
-	mov r2, r1
-	add r3, r3, #0x70
-	bl FUN_ov16_020f7fc0
-	mov r0, r4
-	mov r1, r5
-	bl FUN_ov16_020f74dc
-	add sp, sp, #0xc
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020F74C8: .word gConfig
-_020F74CC: .word ov16_02118790
-_020F74D0: .word ov16_021187A0
-_020F74D4: .word ov16_021187B0
-_020F74D8: .word 0x01001000
-	arm_func_end _ZN11CCameraCtrl4initEv
-
-	arm_func_start FUN_ov16_020f74dc
-FUN_ov16_020f74dc: ; 0x020F74DC
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	sub sp, sp, #0x28
-	mov r9, r0
-	mov r8, r1
-	bl FUN_ov16_020f7bf4
-	mov r7, r0
-	add r0, r7, #0x64
-	add r3, sp, #0
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	add r0, r7, #0x70
-	add r3, sp, #0xc
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	ldr r1, [r7, #0x7c]
-	add r0, r7, #0x80
-	str r1, [sp, #0x18]
-	add r3, sp, #0x1c
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	ldrh r0, [r7, #0x38]
-	cmp r0, #3
-	beq _020F7558
-	cmp r0, #5
-	beq _020F7564
-	cmp r0, #6
-	ldreqh r1, [r7, #0x3a]
-	ldreq r0, _020F7798 ; =0x0000FFFE
-	andeq r0, r1, r0
-	streqh r0, [r7, #0x3a]
-	b _020F7574
-_020F7558:
-	ldrh r1, [r7, #0x3a]
-	ldr r0, _020F779C ; =0x0000FFFB
-	b _020F756C
-_020F7564:
-	ldrh r1, [r7, #0x3a]
-	ldr r0, _020F77A0 ; =0x0000FFFD
-_020F756C:
-	and r0, r1, r0
-	strh r0, [r7, #0x3a]
-_020F7574:
-	ldrh r0, [r7, #0x3a]
-	tst r0, #1
-	beq _020F75B8
-	mov r0, r9
-	mov r2, r8
-	add r1, r7, #0xdc
-	bl FUN_ov16_020f7c74
-	mov r3, r0
-	cmp r3, #0x1000
-	ldrgeh r1, [r7, #0x3a]
-	ldrge r0, _020F7798 ; =0x0000FFFE
-	add r2, r7, #0x8c
-	andge r0, r1, r0
-	strgeh r0, [r7, #0x3a]
-	add r0, sp, #0
-	add r1, r7, #0xb4
-	bl FUN_ov16_020f70fc
-_020F75B8:
-	ldrh r0, [r7, #0x3a]
-	tst r0, #2
-	beq _020F75FC
-	mov r0, r9
-	mov r2, r8
-	add r1, r7, #0xe8
-	bl FUN_ov16_020f7c74
-	mov r3, r0
-	cmp r3, #0x1000
-	ldrgeh r1, [r7, #0x3a]
-	ldrge r0, _020F77A0 ; =0x0000FFFD
-	add r2, r7, #0x98
-	andge r0, r1, r0
-	strgeh r0, [r7, #0x3a]
-	add r0, sp, #0xc
-	add r1, r7, #0xc0
-	bl FUN_ov16_020f70fc
-_020F75FC:
-	ldrh r0, [r7, #0x3a]
-	tst r0, #4
-	beq _020F7640
-	mov r0, r9
-	mov r2, r8
-	add r1, r7, #0xf4
-	bl FUN_ov16_020f7c74
-	mov r3, r0
-	cmp r3, #0x1000
-	ldrgeh r1, [r7, #0x3a]
-	ldrge r0, _020F779C ; =0x0000FFFB
-	add r2, r7, #0xa8
-	andge r0, r1, r0
-	strgeh r0, [r7, #0x3a]
-	add r0, sp, #0x1c
-	add r1, r7, #0xd0
-	bl FUN_ov16_020f7140
-_020F7640:
-	ldrh r0, [r7, #0x3a]
-	tst r0, #8
-	beq _020F7684
-	mov r0, r9
-	mov r2, r8
-	add r1, r7, #0x100
-	bl FUN_ov16_020f7c74
-	mov r3, r0
-	cmp r3, #0x1000
-	ldrgeh r1, [r7, #0x3a]
-	ldrge r0, _020F77A4 ; =0x0000FFF7
-	add r2, r7, #0xa4
-	andge r0, r1, r0
-	strgeh r0, [r7, #0x3a]
-	add r0, sp, #0x18
-	add r1, r7, #0xcc
-	bl FUN_ov16_020f70d0
-_020F7684:
-	ldrh r1, [r7, #0x38]
-	add r2, sp, #0
-	mov r0, r9
-	bl FUN_ov16_020f7db8
-	ldrh r0, [r7, #0x3a]
-	add r6, sp, #0
-	add r3, r7, #0x64
-	cmp r0, #0
-	moveq r0, #0
-	streqh r0, [r7, #0x38]
-	ldmia r6, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	add r5, sp, #0xc
-	add r3, r7, #0x70
-	ldmia r5, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	ldr r0, [sp, #0x18]
-	add r4, sp, #0x1c
-	str r0, [r7, #0x7c]
-	add r3, r7, #0x80
-	ldmia r4, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	mov r3, r8
-	mov r0, r9
-	mov r1, r6
-	add r2, r7, #0x10c
-	bl FUN_ov16_020f7e50
-	add r12, r7, #0x3c
-	ldmia r6, {r0, r1, r2}
-	stmia r12, {r0, r1, r2}
-	add r8, r7, #0x48
-	ldmia r5, {r0, r1, r2}
-	stmia r8, {r0, r1, r2}
-	ldr r0, [sp, #0x18]
-	add r3, r7, #0x58
-	str r0, [r7, #0x54]
-	ldmia r4, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	mov r0, r9
-	bl FUN_ov16_020f7c04
-	mov r1, r0
-	ldr r2, [r7, #0x3c]
-	ldr r4, _020F77A8 ; =NNS_G3dGlb
-	add r0, r7, #0x3c
-	str r2, [r4, #0x240]
-	ldr r3, [r7, #0x40]
-	mov r2, r8
-	str r3, [r4, #0x244]
-	ldr r5, [r7, #0x44]
-	ldr r3, _020F77AC ; =NNS_G3dGlb_cameraMtx
-	str r5, [r4, #0x248]
-	ldr r5, [r1]
-	str r5, [r4, #0x24c]
-	ldr r5, [r1, #4]
-	str r5, [r4, #0x250]
-	ldr r5, [r1, #8]
-	str r5, [r4, #0x254]
-	ldr r5, [r7, #0x48]
-	str r5, [r4, #0x258]
-	ldr r5, [r7, #0x4c]
-	str r5, [r4, #0x25c]
-	ldr r5, [r7, #0x50]
-	str r5, [r4, #0x260]
-	bl MTX_LookAt
-	ldr r0, [r4, #0xfc]
-	bic r0, r0, #0xe8
-	str r0, [r4, #0xfc]
-	add sp, sp, #0x28
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020F7798: .word 0x0000FFFE
-_020F779C: .word 0x0000FFFB
-_020F77A0: .word 0x0000FFFD
-_020F77A4: .word 0x0000FFF7
-_020F77A8: .word NNS_G3dGlb
-_020F77AC: .word NNS_G3dGlb_cameraMtx
-	arm_func_end FUN_ov16_020f74dc
-
-	arm_func_start FUN_ov16_020f77b0
-FUN_ov16_020f77b0: ; 0x020F77B0
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r1
-	mov r5, r2
-	mov r4, r3
-	bl FUN_ov16_020f7bf4
-	str r6, [r0]
-	str r5, [r0, #4]
-	ldr r2, [sp, #0x10]
-	str r4, [r0, #8]
-	ldr r1, [sp, #0x14]
-	str r2, [r0, #0xc]
-	str r1, [r0, #0x10]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020f77b0
-
-	arm_func_start FUN_ov16_020f77e4
-FUN_ov16_020f77e4: ; 0x020F77E4
-	stmfd sp!, {r3, r4, lr}
-	sub sp, sp, #0xc
-	mov r4, r0
-	bl FUN_ov16_020f7bf4
-	mov r3, r0
-	ldr r0, [r3, #0x10]
-	mov r1, #0x1000
-	str r0, [sp]
-	ldr r0, _020F7840 ; =NNS_G3dGlb_projMtx
-	str r1, [sp, #4]
-	str r0, [sp, #8]
-	ldmia r3, {r0, r1, r2}
-	ldr r3, [r3, #0xc]
-	bl MTX_PerspectiveW
-	ldr r2, _020F7844 ; =NNS_G3dGlb
-	mov r0, r4
-	ldr r3, [r2, #0xfc]
-	mov r1, #0
-	bic r3, r3, #0x50
-	str r3, [r2, #0xfc]
-	bl FUN_ov16_020f74dc
-	add sp, sp, #0xc
-	ldmfd sp!, {r3, r4, pc}
-_020F7840: .word NNS_G3dGlb_projMtx
-_020F7844: .word NNS_G3dGlb
-	arm_func_end FUN_ov16_020f77e4
-
-	arm_func_start FUN_ov16_020f7848
-FUN_ov16_020f7848: ; 0x020F7848
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r1
-	mov r5, r2
-	mov r4, r3
-	bl FUN_ov16_020f7bf4
-	ldr r1, [sp, #0x10]
-	mov r2, r5, lsl #0xc
-	str r2, [r0, #0x14]
-	mov r1, r1, lsl #0xc
-	str r1, [r0, #0x18]
-	mov r1, r6, lsl #0xc
-	str r1, [r0, #0x1c]
-	mov r1, r4, lsl #0xc
-	ldr r2, [sp, #0x14]
-	str r1, [r0, #0x20]
-	ldr r1, [sp, #0x18]
-	str r2, [r0, #0x24]
-	str r1, [r0, #0x28]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020f7848
-
-	arm_func_start FUN_ov16_020f7894
-FUN_ov16_020f7894: ; 0x020F7894
-	stmfd sp!, {r4, lr}
-	sub sp, sp, #0x10
-	mov r4, r0
-	bl FUN_ov16_020f7bf4
-	mov r3, r0
-	ldr r0, [r3, #0x24]
-	mov r1, #0x1800
-	str r0, [sp]
-	ldr r2, [r3, #0x28]
-	ldr r0, _020F7900 ; =NNS_G3dGlb_projMtx
-	str r2, [sp, #4]
-	str r1, [sp, #8]
-	str r0, [sp, #0xc]
-	ldr r0, [r3, #0x14]
-	ldr r1, [r3, #0x18]
-	ldr r2, [r3, #0x1c]
-	ldr r3, [r3, #0x20]
-	bl MTX_OrthoW
-	ldr r2, _020F7904 ; =NNS_G3dGlb
-	mov r0, r4
-	ldr r3, [r2, #0xfc]
-	mov r1, #0
-	bic r3, r3, #0x50
-	str r3, [r2, #0xfc]
-	bl FUN_ov16_020f74dc
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, pc}
-_020F7900: .word NNS_G3dGlb_projMtx
-_020F7904: .word NNS_G3dGlb
-	arm_func_end FUN_ov16_020f7894
-
-	arm_func_start FUN_ov16_020f7908
-FUN_ov16_020f7908: ; 0x020F7908
-	stmfd sp!, {r3, lr}
-	ldr r2, [r0, #0x5dc]
-	cmp r2, #4
-	ldmeqfd sp!, {r3, pc}
-	mov r1, #4
-	str r2, [r0, #0x5e0]
-	str r1, [r0, #0x5dc]
-	bl FUN_ov16_020f7894
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7908
-
-	arm_func_start FUN_ov16_020f792c
-FUN_ov16_020f792c: ; 0x020F792C
-	stmfd sp!, {r3, lr}
-	ldr r1, [r0, #0x5dc]
-	cmp r1, #4
-	ldmnefd sp!, {r3, pc}
-	ldr r1, [r0, #0x5e0]
-	str r1, [r0, #0x5dc]
-	bl FUN_ov16_020f77e4
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f792c
-
-	arm_func_start FUN_ov16_020f794c
-FUN_ov16_020f794c: ; 0x020F794C
-	stmfd sp!, {r0, r1, r2, r3}
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, [sp, #0x18]
-	ldr r4, [sp, #0x1c]
-	bl FUN_ov16_020f7bf4
-	ldrh r2, [sp, #0x20]
-	ldrh r1, [sp, #0x24]
-	ldr r3, [sp, #0x14]
-	orr r2, r2, #1
-	strh r2, [r0, #0x38]
-	ldr r2, [r0, #0x64]
-	cmp r1, #0
-	str r2, [r0, #0xb4]
-	ldr r2, [r0, #0x68]
-	str r2, [r0, #0xb8]
-	ldr r2, [r0, #0x6c]
-	str r2, [r0, #0xbc]
-	str r3, [r0, #0x8c]
-	str r5, [r0, #0x90]
-	str r4, [r0, #0x94]
-	str r1, [r0, #0xdc]
-	ldrh r2, [r0, #0x3a]
-	ldrne r1, [sp, #0x28]
-	orrne r2, r2, #1
-	strneh r2, [r0, #0x3a]
-	strne r1, [r0, #0xe4]
-	strne r1, [r0, #0xe0]
-	ldmnefd sp!, {r3, r4, r5, lr}
-	addne sp, sp, #0x10
-	bxne lr
-	ldr r1, _020F79E8 ; =0x0000FFFE
-	and r1, r2, r1
-	strh r1, [r0, #0x3a]
-	str r3, [r0, #0x64]
-	str r5, [r0, #0x68]
-	str r4, [r0, #0x6c]
-	ldmfd sp!, {r3, r4, r5, lr}
-	add sp, sp, #0x10
-	bx lr
-_020F79E8: .word 0x0000FFFE
-	arm_func_end FUN_ov16_020f794c
-
-	arm_func_start FUN_ov16_020f79ec
-FUN_ov16_020f79ec: ; 0x020F79EC
-	stmfd sp!, {r0, r1, r2, r3}
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, [sp, #0x18]
-	ldr r4, [sp, #0x1c]
-	bl FUN_ov16_020f7bf4
-	ldrh r2, [sp, #0x20]
-	ldrh r1, [sp, #0x24]
-	ldr r3, [sp, #0x14]
-	orr r2, r2, #2
-	strh r2, [r0, #0x38]
-	ldr r2, [r0, #0x70]
-	cmp r1, #0
-	str r2, [r0, #0xc0]
-	ldr r2, [r0, #0x74]
-	str r2, [r0, #0xc4]
-	ldr r2, [r0, #0x78]
-	str r2, [r0, #0xc8]
-	str r3, [r0, #0x98]
-	str r5, [r0, #0x9c]
-	str r4, [r0, #0xa0]
-	str r1, [r0, #0xe8]
-	ldrh r2, [r0, #0x3a]
-	ldrne r1, [sp, #0x28]
-	orrne r2, r2, #2
-	strneh r2, [r0, #0x3a]
-	strne r1, [r0, #0xf0]
-	strne r1, [r0, #0xec]
-	ldmnefd sp!, {r3, r4, r5, lr}
-	addne sp, sp, #0x10
-	bxne lr
-	ldr r1, _020F7A88 ; =0x0000FFFD
-	and r1, r2, r1
-	strh r1, [r0, #0x3a]
-	str r3, [r0, #0x70]
-	str r5, [r0, #0x74]
-	str r4, [r0, #0x78]
-	ldmfd sp!, {r3, r4, r5, lr}
-	add sp, sp, #0x10
-	bx lr
-_020F7A88: .word 0x0000FFFD
-	arm_func_end FUN_ov16_020f79ec
-
-	arm_func_start FUN_ov16_020f7a8c
-FUN_ov16_020f7a8c: ; 0x020F7A8C
-	stmfd sp!, {r0, r1, r2, r3}
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r5, [sp, #0x18]
-	ldr r4, [sp, #0x1c]
-	bl FUN_ov16_020f7bf4
-	ldrh r3, [sp, #0x20]
-	ldrh r1, [sp, #0x24]
-	ldr r2, [sp, #0x14]
-	orr r3, r3, #4
-	strh r3, [r0, #0x38]
-	ldr r3, [r0, #0x80]
-	cmp r1, #0
-	str r3, [r0, #0xd0]
-	ldr r3, [r0, #0x84]
-	str r3, [r0, #0xd4]
-	ldr r3, [r0, #0x88]
-	str r3, [r0, #0xd8]
-	str r2, [r0, #0xa8]
-	str r5, [r0, #0xac]
-	str r4, [r0, #0xb0]
-	str r1, [r0, #0xf4]
-	bne _020F7B28
-	ldrh r3, [r0, #0x3a]
-	ldr r2, [sp, #0x14]
-	ldr r1, _020F7B4C ; =0x0000FFFB
-	mov r2, r2, lsl #0x10
-	and r12, r3, r1
-	mov r1, r5, lsl #0x10
-	strh r12, [r0, #0x3a]
-	mov r2, r2, lsr #0x10
-	mov r3, r4, lsl #0x10
-	str r2, [r0, #0x80]
-	mov r1, r1, lsr #0x10
-	str r1, [r0, #0x84]
-	mov r1, r3, lsr #0x10
-	str r1, [r0, #0x88]
-	ldmfd sp!, {r3, r4, r5, lr}
-	add sp, sp, #0x10
-	bx lr
-_020F7B28:
-	ldrh r2, [r0, #0x3a]
-	ldr r1, [sp, #0x28]
-	orr r2, r2, #4
-	strh r2, [r0, #0x3a]
-	str r1, [r0, #0xfc]
-	str r1, [r0, #0xf8]
-	ldmfd sp!, {r3, r4, r5, lr}
-	add sp, sp, #0x10
-	bx lr
-_020F7B4C: .word 0x0000FFFB
-	arm_func_end FUN_ov16_020f7a8c
-
-	arm_func_start FUN_ov16_020f7b50
-FUN_ov16_020f7b50: ; 0x020F7B50
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r2
-	mov r4, r1
-	mov r5, r3
-	bl FUN_ov16_020f7bf4
-	orr r1, r6, #4
-	strh r1, [r0, #0x38]
-	ldr r1, [r0, #0x7c]
-	cmp r5, #0
-	str r1, [r0, #0xcc]
-	str r4, [r0, #0xa4]
-	str r5, [r0, #0x100]
-	ldrh r2, [r0, #0x3a]
-	ldreq r1, _020F7BAC ; =0x0000FFF7
-	andeq r1, r2, r1
-	streqh r1, [r0, #0x3a]
-	streq r4, [r0, #0x7c]
-	orrne r2, r2, #8
-	ldrne r1, [sp, #0x10]
-	strneh r2, [r0, #0x3a]
-	strne r1, [r0, #0x108]
-	strne r1, [r0, #0x104]
-	ldmfd sp!, {r4, r5, r6, pc}
-_020F7BAC: .word 0x0000FFF7
-	arm_func_end FUN_ov16_020f7b50
-
-	arm_func_start FUN_ov16_020f7bb0
-FUN_ov16_020f7bb0: ; 0x020F7BB0
-	stmfd sp!, {r0, r1, r2, r3}
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	ldr r1, [sp, #0xc]
-	ldr r2, [sp, #0x10]
-	str r1, [r0, #0x2c]
-	ldr r1, [sp, #0x14]
-	str r2, [r0, #0x30]
-	str r1, [r0, #0x34]
-	ldmfd sp!, {r3, lr}
-	add sp, sp, #0x10
-	bx lr
-	arm_func_end FUN_ov16_020f7bb0
-
-	arm_func_start FUN_ov16_020f7be0
-FUN_ov16_020f7be0: ; 0x020F7BE0
-	cmp r1, #0
-	bxlt lr
-	cmp r1, #5
-	strlt r1, [r0, #0x5dc]
-	bx lr
-	arm_func_end FUN_ov16_020f7be0
-
-	arm_func_start FUN_ov16_020f7bf4
-FUN_ov16_020f7bf4: ; 0x020F7BF4
-	ldr r2, [r0, #0x5dc]
-	mov r1, #0x12c
-	mla r0, r2, r1, r0
-	bx lr
-	arm_func_end FUN_ov16_020f7bf4
-
-	arm_func_start FUN_ov16_020f7c04
-FUN_ov16_020f7c04: ; 0x020F7C04
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	add r0, r0, #0x2c
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c04
-
-	arm_func_start FUN_ov16_020f7c14
-FUN_ov16_020f7c14: ; 0x020F7C14
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	add r0, r0, #0x3c
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c14
-
-	arm_func_start FUN_ov16_020f7c24
-FUN_ov16_020f7c24: ; 0x020F7C24
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	add r0, r0, #0x48
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c24
-
-	arm_func_start FUN_ov16_020f7c34
-FUN_ov16_020f7c34: ; 0x020F7C34
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	add r0, r0, #0x58
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c34
-
-	arm_func_start FUN_ov16_020f7c44
-FUN_ov16_020f7c44: ; 0x020F7C44
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020f7bf4
-	ldr r0, [r0, #0x54]
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c44
-
-	arm_func_start FUN_ov16_020f7c54
-FUN_ov16_020f7c54: ; 0x020F7C54
-	stmfd sp!, {r3, lr}
-	cmp r1, #0
-	cmpeq r2, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	mov r0, r2
-	bl FX_Div
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7c54
-
-	arm_func_start FUN_ov16_020f7c74
-FUN_ov16_020f7c74: ; 0x020F7C74
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, r1
-	cmp r2, #0
-	mov r0, r2, lsl #0xc
-	ble _020F7CA0
-	bl _fflt
-	mov r1, r0
-	mov r0, #0x3f000000
-	bl _fadd
-	b _020F7CAC
-_020F7CA0:
-	bl _fflt
-	mov r1, #0x3f000000
-	bl _fsub
-_020F7CAC:
-	bl _ffix
-	ldr r1, [r4, #4]
-	subs r0, r1, r0
-	str r0, [r4, #4]
-	movmi r0, #0
-	strmi r0, [r4, #4]
-	ldr r0, [r4]
-	cmp r0, #0
-	beq _020F7DAC
-	cmp r0, #1
-	beq _020F7CE4
-	cmp r0, #2
-	beq _020F7CFC
-	b _020F7DAC
-_020F7CE4:
-	ldr r1, [r4, #8]
-	ldr r2, [r4, #4]
-	mov r0, r5
-	bl FUN_ov16_020f7c54
-	rsb r0, r0, #0x1000
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F7CFC:
-	ldr r1, [r4, #8]
-	ldr r2, [r4, #4]
-	mov r0, r5
-	bl FUN_ov16_020f7c54
-	rsb r3, r0, #0x1000
-	cmp r3, #0x800
-	ble _020F7D68
-	rsb r1, r3, #0x1000
-	mov r0, r1, asr #0x1f
-	mov r2, r0, lsl #0x1a
-	mov r0, #0x800
-	adds r3, r0, r1, lsl #26
-	orr r2, r2, r1, lsr #6
-	adc r0, r2, #0
-	mov r1, r3, lsr #0xc
-	orr r1, r1, r0, lsl #20
-	mov r0, r1, asr #0xb
-	add r0, r1, r0, lsr #20
-	mov r0, r0, asr #0xc
-	add r0, r0, #0x4000
-	mov r0, r0, lsl #0x10
-	mov r0, r0, lsr #0x10
-	mov r1, r0, asr #4
-	ldr r0, _020F7DB4 ; =FX_SinCosTable_
-	mov r1, r1, lsl #2
-	ldrsh r0, [r0, r1]
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F7D68:
-	mov r0, r3, asr #0x1f
-	mov r1, r0, lsl #0x1a
-	mov r0, #0x800
-	adds r2, r0, r3, lsl #26
-	orr r1, r1, r3, lsr #6
-	adc r0, r1, #0
-	mov r1, r2, lsr #0xc
-	orr r1, r1, r0, lsl #20
-	mov r0, r1, asr #0xb
-	add r0, r1, r0, lsr #20
-	mov r0, r0, lsl #4
-	mov r0, r0, lsr #0x10
-	mov r1, r0, asr #4
-	ldr r0, _020F7DB4 ; =FX_SinCosTable_
-	mov r1, r1, lsl #2
-	ldrsh r0, [r0, r1]
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F7DAC:
-	mov r0, #0x1000
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F7DB4: .word FX_SinCosTable_
-	arm_func_end FUN_ov16_020f7c74
-
-	arm_func_start FUN_ov16_020f7db8
-FUN_ov16_020f7db8: ; 0x020F7DB8
-	stmfd sp!, {r3, lr}
-	sub sp, sp, #8
-	cmp r1, #3
-	beq _020F7DE0
-	cmp r1, #5
-	beq _020F7E04
-	cmp r1, #6
-	beq _020F7E28
-	add sp, sp, #8
-	ldmfd sp!, {r3, pc}
-_020F7DE0:
-	mov r1, #0
-	str r1, [sp]
-	ldr r12, [r2, #0x18]
-	mov r1, r2
-	add r3, r2, #0xc
-	str r12, [sp, #4]
-	bl FUN_ov16_020f7fc0
-	add sp, sp, #8
-	ldmfd sp!, {r3, pc}
-_020F7E04:
-	add r1, r2, #0x1c
-	str r1, [sp]
-	ldr r12, [r2, #0x18]
-	mov r1, r2
-	mov r3, #0
-	str r12, [sp, #4]
-	bl FUN_ov16_020f7fc0
-	add sp, sp, #8
-	ldmfd sp!, {r3, pc}
-_020F7E28:
-	add r1, r2, #0x1c
-	str r1, [sp]
-	ldr r12, [r2, #0x18]
-	mov r1, r2
-	add r3, r2, #0xc
-	mov r2, #0
-	str r12, [sp, #4]
-	bl FUN_ov16_020f7fc0
-	add sp, sp, #8
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f7db8
-
-	arm_func_start FUN_ov16_020f7e50
-FUN_ov16_020f7e50: ; 0x020F7E50
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0x90
-	mov r4, r2
-	ldr r0, [r4]
-	mov r5, r1
-	cmp r0, #1
-	addne sp, sp, #0x90
-	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
-	cmp r3, #0
-	ldrne r1, [r4, #0x18]
-	ldrne r0, [r4, #0x10]
-	mlane r1, r0, r3, r1
-	strne r1, [r4, #0x18]
-	ldr r1, [r4, #0x1c]
-	ldr r0, [r4, #0x18]
-	cmp r0, r1
-	movge r0, #0
-	addge sp, sp, #0x90
-	strge r0, [r4]
-	ldmgefd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r3, [r4, #0x14]
-	mov r2, r0, lsl #0x10
-	cmp r3, #0
-	mov r6, r2, lsr #0x10
-	moveq r7, #0x1000
-	beq _020F7EC0
-	bl FX_Div
-	rsb r7, r0, #0x1000
-_020F7EC0:
-	ldr r0, [r4, #4]
-	mov r6, r6, asr #4
-	smull r2, r1, r0, r7
-	adds r2, r2, #0x800
-	ldr r3, _020F7FBC ; =FX_SinCosTable_
-	mov r6, r6, lsl #2
-	ldrsh r3, [r3, r6]
-	ldr r0, [r4, #8]
-	ldr r8, [r4, #0xc]
-	adc r1, r1, #0
-	mov r2, r2, lsr #0xc
-	orr r2, r2, r1, lsl #20
-	smull r1, r12, r2, r3
-	adds r1, r1, #0x800
-	smull r6, r4, r0, r7
-	adc r2, r12, #0
-	adds r6, r6, #0x800
-	adc r0, r4, #0
-	mov r4, r6, lsr #0xc
-	orr r4, r4, r0, lsl #20
-	smull r0, lr, r4, r3
-	mov r4, r1, lsr #0xc
-	adds r0, r0, #0x800
-	smull r12, r7, r8, r7
-	adc r1, lr, #0
-	mov r8, r0, lsr #0xc
-	adds r12, r12, #0x800
-	adc r0, r7, #0
-	mov r7, r12, lsr #0xc
-	orr r7, r7, r0, lsl #20
-	smull r0, r3, r7, r3
-	adds r7, r0, #0x800
-	add r6, sp, #0
-	mov r0, r6
-	adc r3, r3, #0
-	mov r7, r7, lsr #0xc
-	orr r4, r4, r2, lsl #20
-	orr r8, r8, r1, lsl #20
-	orr r7, r7, r3, lsl #20
-	bl MTX_Identity43_
-	str r4, [sp, #0x24]
-	add r4, sp, #0x30
-	str r8, [sp, #0x28]
-	str r7, [sp, #0x2c]
-	add r1, r5, #0x1c
-	mov r0, r4
-	ldmia r1, {r1, r2, r3}
-	bl FUN_02053b48
-	mov r0, r6
-	mov r1, r4
-	add r2, sp, #0x60
-	bl MTX_Concat43
-	add r4, sp, #0x84
-	mov r0, r5
-	mov r2, r5
-	mov r1, r4
-	bl VEC_Add
-	add r0, r5, #0xc
-	mov r1, r4
-	mov r2, r0
-	bl VEC_Add
-	add sp, sp, #0x90
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020F7FBC: .word FX_SinCosTable_
-	arm_func_end FUN_ov16_020f7e50
-
-	arm_func_start FUN_ov16_020f7fc0
-FUN_ov16_020f7fc0: ; 0x020F7FC0
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0x18
-	mov r10, r3
-	movs r8, r2
-	mov r9, r1
-	ldr r4, [sp, #0x38]
-	ldr r7, [sp, #0x3c]
-	cmpne r10, #0
-	beq _020F7FF4
-	mov r0, r8
-	mov r1, r10
-	bl VEC_Distance
-	mov r7, r0
-_020F7FF4:
-	cmp r4, #0
-	beq _020F8018
-	ldr r0, [r4]
-	str r0, [sp, #0xc]
-	ldr r0, [r4, #4]
-	str r0, [sp, #0x10]
-	ldr r0, [r4, #8]
-	str r0, [sp, #0x14]
-	b _020F8070
-_020F8018:
-	add r2, sp, #0
-	mov r0, r10
-	mov r1, r8
-	bl VEC_Subtract
-	ldr r0, [sp]
-	cmp r0, #0
-	ldreq r0, [sp, #4]
-	cmpeq r0, #0
-	ldreq r0, [sp, #8]
-	cmpeq r0, #0
-	moveq r0, #0
-	streq r0, [sp, #0xc]
-	streq r0, [sp, #0x10]
-	streq r0, [sp, #0x14]
-	beq _020F8070
-	add r4, sp, #0
-	mov r0, r4
-	mov r1, r4
-	bl VEC_Normalize
-	add r0, sp, #0xc
-	mov r1, r4
-	bl FUN_ov16_020f7028
-_020F8070:
-	cmp r8, #0
-	ldmneia r8, {r4, r5, r6}
-	bne _020F80F0
-	add r0, sp, #0
-	add r1, sp, #0xc
-	bl FUN_ov16_020f6f8c
-	ldr r2, [sp]
-	ldr r1, [sp, #4]
-	rsb r2, r2, #0
-	smull r2, r3, r7, r2
-	ldr r0, [sp, #8]
-	rsb r1, r1, #0
-	adds r5, r2, #0x800
-	smull r2, r4, r7, r1
-	adc r1, r3, #0
-	rsb r0, r0, #0
-	adds r6, r2, #0x800
-	mov r2, r5, lsr #0xc
-	orr r2, r2, r1, lsl #20
-	smull r0, r3, r7, r0
-	adc r5, r4, #0
-	adds r4, r0, #0x800
-	mov r0, r6, lsr #0xc
-	mov r6, r4, lsr #0xc
-	adc r3, r3, #0
-	ldmia r10, {r4, r12}
-	orr r0, r0, r5, lsl #20
-	ldr r1, [r10, #8]
-	orr r6, r6, r3, lsl #20
-	add r4, r4, r2
-	add r5, r12, r0
-	add r6, r1, r6
-_020F80F0:
-	cmp r10, #0
-	ldrne r3, [r10]
-	ldrne r1, [r10, #4]
-	ldrne r0, [r10, #8]
-	bne _020F8170
-	add r0, sp, #0
-	add r1, sp, #0xc
-	bl FUN_ov16_020f6f8c
-	ldr r1, [sp]
-	ldr r10, [sp, #8]
-	smull r1, r2, r7, r1
-	adds r3, r1, #0x800
-	ldr r0, [sp, #4]
-	smull r12, r10, r7, r10
-	smull r1, r0, r7, r0
-	adc r2, r2, #0
-	adds r1, r1, #0x800
-	mov r3, r3, lsr #0xc
-	adc r0, r0, #0
-	adds r12, r12, #0x800
-	mov r1, r1, lsr #0xc
-	mov lr, r12, lsr #0xc
-	adc r10, r10, #0
-	orr r3, r3, r2, lsl #20
-	ldr r12, [r8]
-	orr r1, r1, r0, lsl #20
-	ldr r2, [r8, #4]
-	ldr r0, [r8, #8]
-	orr lr, lr, r10, lsl #20
-	add r3, r12, r3
-	add r1, r2, r1
-	add r0, r0, lr
-_020F8170:
-	stmia r9, {r4, r5, r6}
-	str r3, [r9, #0xc]
-	str r1, [r9, #0x10]
-	str r0, [r9, #0x14]
-	ldr r0, [sp, #0xc]
-	str r0, [r9, #0x1c]
-	ldr r0, [sp, #0x10]
-	str r0, [r9, #0x20]
-	ldr r0, [sp, #0x14]
-	str r0, [r9, #0x24]
-	str r7, [r9, #0x18]
-	add sp, sp, #0x18
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov16_020f7fc0
-
-	arm_func_start FUN_ov16_020f81a4
-FUN_ov16_020f81a4: ; 0x020F81A4
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0xc
-	mov r4, r0
-	mov r7, r1
-	bl FUN_ov16_020f7c14
-	mov r5, r0
-	mov r0, r4
-	bl FUN_ov16_020f7c24
-	mov r4, r0
-	add r3, sp, #0
-	mov r0, r5
-	mov r1, r4
-	mov r2, r7
-	bl FUN_02053214
-	mov r0, r5
-	mov r1, r4
-	mov r2, r7
-	bl FUN_0205318c
-	mov r6, r0
-	ldr r0, [sp]
-	cmp r0, #0
-	ldreq r0, [sp, #4]
-	cmpeq r0, #0
-	ldreq r0, [sp, #8]
-	cmpeq r0, #0
-	beq _020F8214
-	cmp r6, #0
-	bgt _020F8228
-_020F8214:
-	mov r0, r5
-	mov r1, r4
-	bl VEC_Distance
-	add sp, sp, #0xc
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020F8228:
-	add r4, sp, #0
-	mov r0, r4
-	mov r1, r4
-	bl VEC_Normalize
-	ldr r2, [sp]
-	ldr r1, [sp, #4]
-	smull r12, r3, r2, r6
-	adds r8, r12, #0x800
-	smull r2, r12, r1, r6
-	adc r1, r3, #0
-	mov r3, r8, lsr #0xc
-	orr r3, r3, r1, lsl #20
-	ldr r0, [sp, #8]
-	adds lr, r2, #0x800
-	smull r2, r1, r0, r6
-	adc r0, r12, #0
-	adds r2, r2, #0x800
-	mov r12, lr, lsr #0xc
-	orr r12, r12, r0, lsl #20
-	adc r0, r1, #0
-	mov r6, r2, lsr #0xc
-	orr r6, r6, r0, lsl #20
-	mov r0, r7
-	mov r1, r4
-	mov r2, r4
-	str r3, [sp]
-	str r12, [sp, #4]
-	str r6, [sp, #8]
-	bl VEC_Add
-	mov r0, r5
-	mov r1, r4
-	bl VEC_Distance
-	add sp, sp, #0xc
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020f81a4
-
-	arm_func_start _ZN15CDungeonManagerC1Ev
-_ZN15CDungeonManagerC1Ev: ; 0x020F82B0
-	mov r1, #0
-	str r1, [r0]
-	bx lr
-	arm_func_end _ZN15CDungeonManagerC1Ev
-
-	arm_func_start FUN_ov16_020f82bc
-FUN_ov16_020f82bc: ; 0x020F82BC
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0x34
-	ldr r2, _020F880C ; =0x020A0640
-	mov r4, r0
-	ldrb r0, [r2, #0x50a]
-	mov r9, r1
-	mov r6, #1
-	subs r8, r0, #1
-	mov r7, #0
-	bmi _020F82EC
-	cmp r8, #0xf
-	ble _020F82F0
-_020F82EC:
-	mov r8, #0
-_020F82F0:
-	mov r0, r4
-	bl FUN_ov16_020f882c
-	ldr r5, _020F8810 ; =gAllocator
-	ldr r10, _020F8814 ; =0x00000444
-	mov r0, r5
-	mov r1, r10
-	bl _ZN10CAllocator8allocateEm
-	mov r1, r7
-	mov r2, r10
-	str r0, [r4]
-	bl MI_CpuFill8
-	ldr r0, [r4]
-	add r2, r8, r8, lsl #3
-	strb r9, [r0, #0x43c]
-	ldr r1, [r4]
-	ldr r0, [r5]
-	str r1, [sp, #0x10]
-	add r3, r9, r2
-	cmp r0, #0
-	ldr r1, _020F8818 ; =0x021187D8
-	beq _020F836C
-	mov r0, #0x14
-	mul r2, r3, r0
-	str r2, [sp]
-	stmib sp, {r0, r7}
-	mov r0, #1
-	str r0, [sp, #0xc]
-	ldr r0, [r5]
-	add r2, sp, #0x10
-	mov r3, r5
-	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
-_020F836C:
-	add r0, r4, #4
-	str r0, [sp, #0x10]
-	ldr r0, [r4]
-	ldr r3, _020F8810 ; =gAllocator
-	ldrh r1, [r0, #0x10]
-	ldr r0, [r3]
-	sub r1, r1, #1
-	cmp r0, #0
-	mov r0, r1, lsl #8
-	ldr r1, _020F881C ; =0x021187F4
-	beq _020F83B4
-	str r0, [sp]
-	mov r0, #0x100
-	stmib sp, {r0, r7}
-	str r6, [sp, #0xc]
-	ldr r0, [r3]
-	add r2, sp, #0x10
-	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
-_020F83B4:
-	add r0, r4, #0x104
-	str r0, [sp, #0x10]
-	ldr r0, [r4]
-	ldr r3, _020F8810 ; =gAllocator
-	ldrh r2, [r0, #0x12]
-	ldr r1, [r3]
-	mov r0, #0x30
-	sub r2, r2, #1
-	mul r5, r2, r0
-	cmp r1, #0
-	ldr r1, _020F8820 ; =0x02118814
-	beq _020F83FC
-	str r5, [sp]
-	stmib sp, {r0, r7}
-	str r6, [sp, #0xc]
-	ldr r0, [r3]
-	add r2, sp, #0x10
-	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
-_020F83FC:
-	ldr r1, [r4]
-	ldrb r0, [r1]
-	strb r0, [r1, #0x43d]
-	ldr r1, [r4]
-	ldrb r0, [r1, #1]
-	strb r0, [r1, #0x43e]
-	ldr r1, [r4]
-	ldrb r0, [r1, #2]
-	strb r0, [r1, #0x43f]
-	ldr r1, [r4]
-	ldrb r0, [r1, #3]
-	strb r0, [r1, #0x440]
-	ldr r2, [r4]
-	ldrb r0, [r2, #0x440]
-	ldrb r1, [r2, #0x43f]
-	cmp r0, r1
-	bhs _020F8450
-	mov r0, r4
-	bl FUN_ov16_020f882c
-	add sp, sp, #0x34
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020F8450:
-	ldrb r0, [r2, #0x43e]
-	cmp r0, r1
-	bls _020F846C
-	mov r0, r4
-	bl FUN_ov16_020f882c
-	add sp, sp, #0x34
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020F846C:
-	str r7, [sp, #0x20]
-	str r7, [sp, #0x1c]
-	str r7, [sp, #0x18]
-	str r7, [sp, #0x14]
-_020F847C:
-	ldr r0, [r4]
-	ldrb r0, [r0, #0x43d]
-	bl _ZN6Random5RandBEm
-	ldr r1, [r4]
-	and r0, r0, #0xff
-	str r0, [r1, #0x424]
-	ldr r1, [r4]
-	ldr r3, _020F8824 ; =0x00000103
-	ldrb r0, [r1, #0x43e]
-	sub r0, r0, #1
-	and r0, r0, #0xff
-	str r0, [r1, #0x428]
-	ldr r2, [r4]
-	ldr r1, [r2, #0x424]
-	ldr r0, [r2, #0x428]
-	add r1, r2, r1, lsl #6
-	add r0, r1, r0, lsl #2
-	strb r7, [r0, #0x25]
-	ldr r2, [r4]
-	ldr r1, [r2, #0x424]
-	ldr r0, [r2, #0x428]
-	add r1, r2, r1, lsl #6
-	add r0, r1, r0, lsl #2
-	strh r3, [r0, #0x26]
-	ldr r2, [r4]
-	ldrb r1, [r2, #0x43f]
-	ldrb r0, [r2, #0x43e]
-	ldr r2, [r2, #0x424]
-	sub r0, r1, r0
-	subs r5, r2, r0
-	add r8, r2, r0
-	ldr r0, [r4]
-	movmi r5, r7
-	ldrb r0, [r0, #0x43d]
-	cmp r8, r0
-	movgt r8, r0
-	cmp r5, r8
-	ldreq r0, [r4]
-	streq r5, [r0, #0x42c]
-	beq _020F8534
-	sub r0, r8, r5
-	bl _ZN6Random5RandBEm
-	add r1, r5, r0
-	ldr r0, [r4]
-	and r1, r1, #0xff
-	str r1, [r0, #0x42c]
-_020F8534:
-	ldr r0, [r4]
-	str r6, [r0, #0x430]
-	ldr r0, [r4]
-	ldr r2, [r4]
-	ldr r1, [r0, #0x42c]
-	ldr r0, [r0, #0x424]
-	subs r3, r1, r0
-	ldrb r1, [r2, #0x43e]
-	ldrb r0, [r2, #0x43f]
-	rsbmi r3, r3, #0
-	sub r1, r1, #1
-	add r1, r1, r3
-	sub r0, r0, r1
-	tst r0, #1
-	beq _020F8588
-	ldr r0, [r2, #0x42c]
-	cmp r0, #0
-	subne r0, r0, #1
-	strne r0, [r2, #0x42c]
-	addeq r0, r0, #1
-	streq r0, [r2, #0x42c]
-_020F8588:
-	ldr r5, [r4]
-	ldr r3, _020F8828 ; =0x00000203
-	ldrb r2, [r5, #0x43f]
-	ldr r1, [r5, #0x42c]
-	ldr r0, [r5, #0x430]
-	add r1, r5, r1, lsl #6
-	sub r2, r2, #1
-	add r0, r1, r0, lsl #2
-	strb r2, [r0, #0x25]
-	ldr r2, [r4]
-	add r5, r3, #0x4e00
-	ldr r1, [r2, #0x42c]
-	ldr r0, [r2, #0x430]
-	add r1, r2, r1, lsl #6
-	add r0, r1, r0, lsl #2
-	strh r3, [r0, #0x26]
-	ldr r2, [r4]
-	mov r3, #4
-	ldr r1, [r2, #0x42c]
-	ldr r0, [r2, #0x430]
-	add r1, r2, r1, lsl #6
-	add r0, r1, r0, lsl #2
-	strb r6, [r0, #0x24]
-	ldr r8, [r4]
-	ldr r1, [r8, #0x42c]
-	ldr r0, [r8, #0x430]
-	ldrb r2, [r8, #0x43f]
-	add r1, r8, r1, lsl #6
-	sub r0, r0, #1
-	add r0, r1, r0, lsl #2
-	strb r2, [r0, #0x25]
-	ldr r2, [r4]
-	ldr r1, [r2, #0x42c]
-	ldr r0, [r2, #0x430]
-	add r1, r2, r1, lsl #6
-	sub r0, r0, #1
-	add r0, r1, r0, lsl #2
-	strh r5, [r0, #0x26]
-	ldr r2, [r4]
-	ldr r1, [r2, #0x42c]
-	ldr r0, [r2, #0x430]
-	add r1, r2, r1, lsl #6
-	sub r0, r0, #1
-	add r0, r1, r0, lsl #2
-	strb r3, [r0, #0x24]
-	str r7, [sp, #0x30]
-	str r7, [sp, #0x2c]
-	str r7, [sp, #0x28]
-	str r7, [sp, #0x24]
-	ldr r2, [r4]
-	ldrb r0, [r2, #0x43e]
-	sub r0, r0, #1
-	str r0, [sp, #0x24]
-	ldr r1, [r2, #0x42c]
-	ldr r0, [r2, #0x424]
-	subs r8, r1, r0
-	rsbmi r0, r8, #0
-	strpl r8, [sp, #0x28]
-	strmi r0, [sp, #0x30]
-	ldr r1, [r4]
-	cmp r8, #0
-	ldrb r0, [r1, #0x43e]
-	ldrb r1, [r1, #0x43f]
-	rsblt r8, r8, #0
-	sub r0, r0, #1
-	add r0, r0, r8
-	sub r8, r1, r0
-	cmp r8, #0
-	ble _020F86B8
-	ldr r1, [sp, #0x28]
-	ldr r0, [sp, #0x30]
-	add r1, r1, #1
-	add r0, r0, #1
-	str r1, [sp, #0x28]
-	str r0, [sp, #0x30]
-	sub r8, r8, #2
-_020F86B8:
-	cmp r8, #0
-	ble _020F86DC
-	ldr r1, [sp, #0x28]
-	ldr r0, [sp, #0x30]
-	add r1, r1, #1
-	add r0, r0, #1
-	str r1, [sp, #0x28]
-	str r0, [sp, #0x30]
-	sub r8, r8, #2
-_020F86DC:
-	mov r5, #2
-	b _020F872C
-_020F86E4:
-	mov r0, r5
-	bl _ZN6Random5RandBEm
-	tst r0, #1
-	beq _020F8710
-	ldr r1, [sp, #0x24]
-	ldr r0, [sp, #0x2c]
-	add r1, r1, #1
-	add r0, r0, #1
-	str r1, [sp, #0x24]
-	str r0, [sp, #0x2c]
-	b _020F8728
-_020F8710:
-	ldr r1, [sp, #0x28]
-	ldr r0, [sp, #0x30]
-	add r1, r1, #1
-	add r0, r0, #1
-	str r1, [sp, #0x28]
-	str r0, [sp, #0x30]
-_020F8728:
-	sub r8, r8, #2
-_020F872C:
-	cmp r8, #0
-	bgt _020F86E4
-	ldr r1, [sp, #0x14]
-	ldr r0, [sp, #0x24]
-	cmp r1, r0
-	ldreq r1, [sp, #0x18]
-	ldreq r0, [sp, #0x28]
-	cmpeq r1, r0
-	ldreq r1, [sp, #0x1c]
-	ldreq r0, [sp, #0x2c]
-	cmpeq r1, r0
-	bne _020F876C
-	ldr r1, [sp, #0x20]
-	ldr r0, [sp, #0x30]
-	cmp r1, r0
-	beq _020F847C
-_020F876C:
-	str r7, [sp]
-	str r7, [sp, #4]
-	ldr r0, [r4]
-	add r1, sp, #0x24
-	ldr r2, [r0, #0x424]
-	ldr r3, [r0, #0x428]
-	mov r0, r4
-	bl FUN_ov16_020f8c60
-	cmp r0, #0
-	bne _020F87B8
-	ldr r3, [sp, #0x24]
-	ldr r2, [sp, #0x28]
-	ldr r1, [sp, #0x2c]
-	ldr r0, [sp, #0x30]
-	str r3, [sp, #0x14]
-	str r2, [sp, #0x18]
-	str r1, [sp, #0x1c]
-	str r0, [sp, #0x20]
-	b _020F847C
-_020F87B8:
-	ldr r2, [r4]
-	mov r0, r4
-	ldr r1, [r2, #0x424]
-	add r3, r2, #0x24
-	ldr r2, [r2, #0x428]
-	add r3, r3, r1, lsl #6
-	ldrb r1, [r3, r2, lsl #2]
-	and r1, r1, #0xfb
-	strb r1, [r3, r2, lsl #2]
-	bl FUN_ov16_020f9064
-	mov r0, r4
-	bl FUN_ov16_020f9354
-	ldr r2, [r4]
-	ldr r1, [r2, #0x424]
-	add r0, r2, #0x24
-	str r1, [r2, #0x434]
-	ldr r1, [r0, #0x404]
-	add r0, r2, #0x34
-	str r1, [r0, #0x404]
-	add sp, sp, #0x34
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020F880C: .word unk_020A0640
-_020F8810: .word gAllocator
-_020F8814: .word 0x00000444
-_020F8818: .word ov16_021187D8
-_020F881C: .word ov16_021187F4
-_020F8820: .word ov16_02118814
-_020F8824: .word 0x00000103
-_020F8828: .word 0x00000203
-	arm_func_end FUN_ov16_020f82bc
-
-	arm_func_start FUN_ov16_020f882c
-FUN_ov16_020f882c: ; 0x020F882C
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r1, [r4]
-	cmp r1, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r0, _020F885C ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-	mov r1, #0
-	add r0, r4, #0x100
-	str r1, [r4]
-	strh r1, [r0, #0x34]
-	ldmfd sp!, {r4, pc}
-_020F885C: .word gAllocator
-	arm_func_end FUN_ov16_020f882c
-
-	arm_func_start FUN_ov16_020f8860
-FUN_ov16_020f8860: ; 0x020F8860
-	ldr r0, [r0]
-	bx lr
-	arm_func_end FUN_ov16_020f8860
-
-	arm_func_start FUN_ov16_020f8868
-FUN_ov16_020f8868: ; 0x020F8868
-	sub r1, r1, #1
-	cmp r1, #4
-	addls pc, pc, r1, lsl #2
-	bx lr
-_020F8878: ; jump table
-	b _020F888C ; case 0
-	b _020F88A0 ; case 1
-	b _020F88B4 ; case 2
-	b _020F88C8 ; case 3
-	b _020F888C ; case 4
-_020F888C:
-	ldr r1, [r0]
-	ldr r0, [r1, #0x438]
-	sub r0, r0, #1
-	str r0, [r1, #0x438]
-	bx lr
-_020F88A0:
-	ldr r1, [r0]
-	ldr r0, [r1, #0x434]
-	add r0, r0, #1
-	str r0, [r1, #0x434]
-	bx lr
-_020F88B4:
-	ldr r1, [r0]
-	ldr r0, [r1, #0x438]
-	add r0, r0, #1
-	str r0, [r1, #0x438]
-	bx lr
-_020F88C8:
-	ldr r1, [r0]
-	ldr r0, [r1, #0x434]
-	sub r0, r0, #1
-	str r0, [r1, #0x434]
-	bx lr
-	arm_func_end FUN_ov16_020f8868
-
-	arm_func_start FUN_ov16_020f88dc
-FUN_ov16_020f88dc: ; 0x020F88DC
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #0x80
-	mov r7, r0
-	ldr r2, [r7]
-	ldr r1, [r2, #0x434]
-	ldr r0, [r2, #0x438]
-	add r1, r2, r1, lsl #6
-	add r0, r1, r0, lsl #2
-	ldrh r0, [r0, #0x26]
-	mov r1, #0
-	tst r0, #0x4000
-	addne r0, r7, #0x100
-	strneh r1, [r0, #0x34]
-	addne sp, sp, #0x80
-	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	add r0, sp, #0
-_020F891C:
-	str r1, [r0, r1, lsl #2]
-	add r1, r1, #1
-	cmp r1, #0x20
-	blt _020F891C
-	mov r6, #1
-	add r4, sp, #0
-	mov r5, #0
-_020F8938:
-	mov r0, r5
-	mov r2, r6
-	cmp r6, #0x20
-	bge _020F8964
-_020F8948:
-	ldr r1, [r4, r2, lsl #2]
-	add r2, r2, #1
-	add r1, r7, r1, lsl #3
-	ldrh r1, [r1, #4]
-	cmp r2, #0x20
-	add r0, r0, r1
-	blt _020F8948
-_020F8964:
-	cmp r0, #0
-	beq _020F89BC
-	bl _ZN6Random5RandBEm
-	mov r2, r6
-	cmp r6, #0x1f
-	bge _020F89A0
-_020F897C:
-	ldr r1, [r4, r2, lsl #2]
-	add r1, r7, r1, lsl #3
-	ldrh r1, [r1, #4]
-	sub r0, r0, r1
-	cmp r0, #0
-	ble _020F89A0
-	add r2, r2, #1
-	cmp r2, #0x1f
-	blt _020F897C
-_020F89A0:
-	ldr r1, [r4, r6, lsl #2]
-	ldr r0, [r4, r2, lsl #2]
-	str r0, [r4, r6, lsl #2]
-	add r6, r6, #1
-	str r1, [r4, r2, lsl #2]
-	cmp r6, #0x1f
-	blt _020F8938
-_020F89BC:
-	ldr r5, _020F8A10 ; =gLogicThink
-	mov r4, #1
-	add r6, sp, #0
-_020F89C8:
-	ldr r0, [r6, r4, lsl #2]
-	add r0, r7, r0, lsl #3
-	ldrh r1, [r0, #8]
-	cmp r1, #0
-	beq _020F89EC
-	mov r0, r5
-	bl FUN_0207290c
-	cmp r0, #0
-	bne _020F89F8
-_020F89EC:
-	add r4, r4, #1
-	cmp r4, #0x1f
-	blt _020F89C8
-_020F89F8:
-	add r1, sp, #0
-	ldr r1, [r1, r4, lsl #2]
-	add r0, r7, #0x100
-	strh r1, [r0, #0x34]
-	add sp, sp, #0x80
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020F8A10: .word gLogicThink
-	arm_func_end FUN_ov16_020f88dc
-
-	arm_func_start FUN_ov16_020f8a14
-FUN_ov16_020f8a14: ; 0x020F8A14
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x19c
-	mov r11, r0
-	add r0, r11, #0x100
-	ldrsh r0, [r0, #0x34]
-	mov r7, #0
-	add r0, r11, r0, lsl #3
-	ldrh r8, [r0, #6]
-	cmp r8, #0
-	bne _020F8B30
-	ldr r4, _020F8B4C ; =gLogicThink
-	ldrh r1, [r0, #8]
-	add r2, sp, #0
-	mov r0, r4
-	bl FUN_0207273c
-	cmp r0, #0
-	addeq sp, sp, #0x19c
-	moveq r0, r7
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldrh r1, [sp]
-	add r5, sp, #0x30
-	mov r0, r4
-	mov r2, r5
-	bl FUN_0207039c
-	cmp r0, #0
-	addeq sp, sp, #0x19c
-	moveq r0, r7
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r8, r7
-	ldr r4, _020F8B50 ; =0x0209A11C
-	ldr r9, _020F8B54 ; =0x00000FFF
-	mov r6, r8
-_020F8A94:
-	add r0, r5, r6, lsl #3
-	ldrh r0, [r0, #0x4c]
-	and r0, r0, r9
-	mov r0, r0, lsl #0x10
-	movs r1, r0, lsr #0x10
-	beq _020F8AC0
-	ldr r0, [r4]
-	mov r2, r7
-	bl FUN_0206c7dc
-	cmp r0, #0
-	addeq r8, r8, #1
-_020F8AC0:
-	add r6, r6, #1
-	cmp r6, #0x20
-	blt _020F8A94
-	mov r0, r8
-	bl _ZN6Random5RandBEm
-	ldr r5, _020F8B50 ; =0x0209A11C
-	ldr r4, _020F8B54 ; =0x00000FFF
-	mov r9, r0
-	mov r10, #0
-	add r6, sp, #0x30
-_020F8AE8:
-	add r0, r6, r10, lsl #3
-	ldrh r0, [r0, #0x4c]
-	and r0, r0, r4
-	mov r0, r0, lsl #0x10
-	movs r8, r0, lsr #0x10
-	beq _020F8B24
-	ldr r0, [r5]
-	mov r1, r8
-	mov r2, r7
-	bl FUN_0206c7dc
-	cmp r0, #0
-	bne _020F8B24
-	cmp r9, #0
-	beq _020F8B30
-	sub r9, r9, #1
-_020F8B24:
-	add r10, r10, #1
-	cmp r10, #0x20
-	blt _020F8AE8
-_020F8B30:
-	add r0, r11, #0x100
-	ldrsh r1, [r0, #0x34]
-	mov r0, r8
-	add r1, r11, r1, lsl #3
-	strh r8, [r1, #6]
-	add sp, sp, #0x19c
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F8B4C: .word gLogicThink
-_020F8B50: .word unk_0209A11C
-_020F8B54: .word 0x00000FFF
-	arm_func_end FUN_ov16_020f8a14
-
-	arm_func_start FUN_ov16_020f8b58
-FUN_ov16_020f8b58: ; 0x020F8B58
-	add r1, r0, #0x100
-	ldrsh r1, [r1, #0x34]
-	add r0, r0, r1, lsl #3
-	ldrh r0, [r0, #8]
-	bx lr
-	arm_func_end FUN_ov16_020f8b58
-
-	arm_func_start FUN_ov16_020f8b6c
-FUN_ov16_020f8b6c: ; 0x020F8B6C
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #0x20
-	mov r7, r0
-	mov r1, #0
-	add r0, sp, #0
-_020F8B80:
-	str r1, [r0, r1, lsl #2]
-	add r1, r1, #1
-	cmp r1, #8
-	blt _020F8B80
-	mov r6, #0
-	add r4, sp, #0
-	mov r5, r6
-_020F8B9C:
-	mov r0, r5
-	mov r12, r6
-	cmp r6, #8
-	bge _020F8BD0
-	mov r1, #6
-_020F8BB0:
-	ldr r3, [r4, r12, lsl #2]
-	add r12, r12, #1
-	mla r2, r3, r1, r7
-	add r2, r2, #0x100
-	ldrh r2, [r2, #4]
-	cmp r12, #8
-	add r0, r0, r2
-	blt _020F8BB0
-_020F8BD0:
-	cmp r0, #0
-	beq _020F8C30
-	bl _ZN6Random5RandBEm
-	mov r12, r6
-	cmp r6, #7
-	bge _020F8C14
-	mov r1, #6
-_020F8BEC:
-	ldr r3, [r4, r12, lsl #2]
-	mla r2, r3, r1, r7
-	add r2, r2, #0x100
-	ldrh r2, [r2, #4]
-	sub r0, r0, r2
-	cmp r0, #0
-	ble _020F8C14
-	add r12, r12, #1
-	cmp r12, #7
-	blt _020F8BEC
-_020F8C14:
-	ldr r1, [r4, r6, lsl #2]
-	ldr r0, [r4, r12, lsl #2]
-	str r0, [r4, r6, lsl #2]
-	add r6, r6, #1
-	str r1, [r4, r12, lsl #2]
-	cmp r6, #7
-	blt _020F8B9C
-_020F8C30:
-	ldr r1, [sp]
-	mov r0, #6
-	mla r0, r1, r0, r7
-	add r0, r0, #0x100
-	ldrh r2, [r0, #6]
-	ldr r1, [r7]
-	strh r2, [r1, #0x14]
-	ldrh r1, [r0, #8]
-	ldr r0, [r7]
-	strh r1, [r0, #0x16]
-	add sp, sp, #0x20
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f8b6c
-
-	arm_func_start FUN_ov16_020f8c60
-FUN_ov16_020f8c60: ; 0x020F8C60
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x24
-	mov r9, r0
-	ldr r4, [sp, #0x48]
-	ldr r0, [r9]
-	ldr r6, [sp, #0x4c]
-	add r4, r4, #2
-	ldrb r7, [r0, #0x43f]
-	and r5, r4, #3
-	mov r4, #1
-	str r6, [sp, #0x4c]
-	mov r8, r1
-	sub r10, r7, #2
-	ldr r1, [sp, #0x4c]
-	mov r5, r4, lsl r5
-	mov r7, r2
-	mov r6, r3
-	cmp r1, r10
-	and r2, r5, #0xff
-	blt _020F8D98
-	ldr r5, [r0, #0x42c]
-	mov r3, #0
-	cmp r5, r7
-	ldreq r1, [r0, #0x430]
-	subeq r8, r6, #1
-	cmpeq r1, r8
-	bne _020F8CE8
-	add r0, r0, #0x24
-	add r5, r0, r5, lsl #6
-	ldrb r0, [r5, r1, lsl #2]
-	mov r3, r4
-	orr r0, r0, #4
-	strb r0, [r5, r1, lsl #2]
-	b _020F8D40
-_020F8CE8:
-	sub r1, r7, #1
-	cmp r5, r1
-	ldreq r4, [r0, #0x430]
-	cmpeq r4, r6
-	bne _020F8D14
-	add r0, r0, #0x24
-	add r1, r0, r5, lsl #6
-	ldrb r0, [r1, r4, lsl #2]
-	mov r3, #8
-	orr r0, r0, #2
-	b _020F8D3C
-_020F8D14:
-	add r1, r7, #1
-	cmp r5, r1
-	ldreq r4, [r0, #0x430]
-	cmpeq r4, r6
-	bne _020F8D40
-	add r0, r0, #0x24
-	add r1, r0, r5, lsl #6
-	ldrb r0, [r1, r4, lsl #2]
-	mov r3, #2
-	orr r0, r0, #8
-_020F8D3C:
-	strb r0, [r1, r4, lsl #2]
-_020F8D40:
-	cmp r3, #0
-	addeq sp, sp, #0x24
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, [r9]
-	mov r1, #3
-	add r0, r0, r7, lsl #6
-	add r0, r0, r6, lsl #2
-	strh r1, [r0, #0x26]
-	ldr r0, [r9]
-	orr r1, r2, r3
-	add r0, r0, r7, lsl #6
-	add r0, r0, r6, lsl #2
-	strb r1, [r0, #0x24]
-	ldr r1, [r9]
-	mov r0, #1
-	add r1, r1, r7, lsl #6
-	add r2, r1, r6, lsl #2
-	ldr r1, [sp, #0x4c]
-	add sp, sp, #0x24
-	strb r1, [r2, #0x25]
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F8D98:
-	mvn r1, r2
-	and r1, r1, #0xff
-	cmp r7, #0
-	and r5, r1, #0xf
-	beq _020F8DC4
-	sub r1, r7, #1
-	add r1, r0, r1, lsl #6
-	add r1, r1, r6, lsl #2
-	ldrh r1, [r1, #0x26]
-	cmp r1, #0
-	beq _020F8DC8
-_020F8DC4:
-	and r5, r5, #0xf7
-_020F8DC8:
-	ldrb r1, [r0, #0x43d]
-	sub r1, r1, #1
-	cmp r7, r1
-	beq _020F8DF0
-	add r1, r7, #1
-	add r1, r0, r1, lsl #6
-	add r1, r1, r6, lsl #2
-	ldrh r1, [r1, #0x26]
-	cmp r1, #0
-	beq _020F8DF4
-_020F8DF0:
-	and r5, r5, #0xfd
-_020F8DF4:
-	cmp r6, #0
-	beq _020F8E14
-	add r3, r0, r7, lsl #6
-	sub r1, r6, #1
-	add r1, r3, r1, lsl #2
-	ldrh r1, [r1, #0x26]
-	cmp r1, #0
-	beq _020F8E18
-_020F8E14:
-	and r5, r5, #0xfe
-_020F8E18:
-	ldrb r1, [r0, #0x43e]
-	sub r1, r1, #1
-	cmp r6, r1
-	beq _020F8E40
-	add r3, r0, r7, lsl #6
-	add r1, r6, #1
-	add r1, r3, r1, lsl #2
-	ldrh r1, [r1, #0x26]
-	cmp r1, #0
-	beq _020F8E44
-_020F8E40:
-	and r5, r5, #0xfb
-_020F8E44:
-	mov r4, #0
-	mov r3, #1
-_020F8E4C:
-	ldr r1, [r8, r4, lsl #2]
-	cmp r1, #0
-	mvneq r1, r3, lsl r4
-	andeq r1, r1, #0xff
-	add r4, r4, #1
-	andeq r5, r5, r1
-	cmp r4, #4
-	blt _020F8E4C
-	cmp r5, #0
-	addeq sp, sp, #0x24
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	add r0, r0, #0x26
-	add r4, r0, r7, lsl #6
-	mov r3, r6, lsl #2
-	ldrh r1, [r4, r3]
-	mov r0, #0
-	orr r1, r1, #3
-	strh r1, [r4, r3]
-	ldr r1, [r9]
-	add r1, r1, r7, lsl #6
-	add r1, r1, r6, lsl #2
-	strb r2, [r1, #0x24]
-	ldr r1, [r9]
-	add r1, r1, r7, lsl #6
-	add r2, r1, r6, lsl #2
-	ldr r1, [sp, #0x4c]
-	strb r1, [r2, #0x25]
-	add r1, sp, #0x14
-_020F8EC0:
-	str r0, [r1, r0, lsl #2]
-	add r0, r0, #1
-	cmp r0, #4
-	blt _020F8EC0
-	mov r4, #0
-	add r11, sp, #0x14
-_020F8ED8:
-	rsb r0, r4, #4
-	ldr r10, [r11, r4, lsl #2]
-	bl _ZN6Random5RandBEm
-	add r1, r4, r0
-	ldr r0, [r11, r1, lsl #2]
-	str r0, [r11, r4, lsl #2]
-	add r4, r4, #1
-	str r10, [r11, r1, lsl #2]
-	cmp r4, #3
-	blt _020F8ED8
-	mov r0, r6, lsl #2
-	add r0, r0, r7, lsl #6
-	str r0, [sp, #0xc]
-	ldr r0, [sp, #0x4c]
-	mov r11, #1
-	add r0, r0, #1
-	str r0, [sp, #0x10]
-	mvn r0, #0
-	mov r10, #0
-	str r0, [sp, #8]
-_020F8F28:
-	add r0, sp, #0x14
-	ldr r4, [r0, r10, lsl #2]
-	tst r5, r11, lsl r4
-	beq _020F8FF0
-	mov r1, #0
-	cmp r4, #3
-	mov r0, r1
-	addls pc, pc, r4, lsl #2
-	b _020F8F78
-_020F8F4C: ; jump table
-	b _020F8F5C ; case 0
-	b _020F8F64 ; case 1
-	b _020F8F6C ; case 2
-	b _020F8F74 ; case 3
-_020F8F5C:
-	ldr r1, [sp, #8]
-	b _020F8F78
-_020F8F64:
-	mov r0, r11
-	b _020F8F78
-_020F8F6C:
-	mov r1, r11
-	b _020F8F78
-_020F8F74:
-	ldr r0, [sp, #8]
-_020F8F78:
-	ldr r3, [r9]
-	ldr r2, [sp, #0xc]
-	add r2, r3, r2
-	add r2, r2, r0, lsl #6
-	add r2, r2, r1, lsl #2
-	ldrh r2, [r2, #0x26]
-	tst r2, #1
-	mvnne r0, r11, lsl r4
-	andne r0, r0, #0xff
-	andne r5, r5, r0
-	bne _020F8FF0
-	add r3, r6, r1
-	ldr r1, [r8, r4, lsl #2]
-	add r2, r7, r0
-	sub r1, r1, #1
-	str r1, [r8, r4, lsl #2]
-	ldr r1, [sp, #0x10]
-	str r4, [sp]
-	str r1, [sp, #4]
-	mov r0, r9
-	mov r1, r8
-	bl FUN_ov16_020f8c60
-	cmp r0, #0
-	bne _020F8FFC
-	mvn r0, r11, lsl r4
-	and r0, r0, #0xff
-	and r5, r5, r0
-	ldr r0, [r8, r4, lsl #2]
-	add r0, r0, #1
-	str r0, [r8, r4, lsl #2]
-_020F8FF0:
-	add r10, r10, #1
-	cmp r10, #4
-	blt _020F8F28
-_020F8FFC:
-	cmp r5, #0
-	mov r4, #0
-	bne _020F9030
-	ldr r0, [r9]
-	mov r1, r4
-	add r0, r0, #0x24
-	add r0, r0, r7, lsl #6
-	add r0, r0, r6, lsl #2
-	mov r2, #4
-	bl MI_CpuFill8
-	add sp, sp, #0x24
-	mov r0, r4
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F9030:
-	ldr r1, [r9]
-	add r0, sp, #0x14
-	add r1, r1, #0x24
-	add r3, r1, r7, lsl #6
-	ldr r1, [r0, r10, lsl #2]
-	mov r0, #1
-	mov r1, r0, lsl r1
-	ldrb r2, [r3, r6, lsl #2]
-	and r1, r1, #0xff
-	orr r1, r2, r1
-	strb r1, [r3, r6, lsl #2]
-	add sp, sp, #0x24
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020f8c60
-
-	arm_func_start FUN_ov16_020f9064
-FUN_ov16_020f9064: ; 0x020F9064
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x24
-	sub sp, sp, #0x400
-	mov r4, #0
-	str r0, [sp]
-	mov r6, r4
-	mov r3, r4
-	add r1, sp, #0x24
-_020F9084:
-	ldr r0, [sp]
-	mov r5, r3
-	ldr r7, [r0]
-	add r2, r7, r6, lsl #2
-_020F9094:
-	add r0, r2, r5, lsl #6
-	ldrh r0, [r0, #0x26]
-	tst r0, #1
-	beq _020F90B4
-	tst r0, #0x4000
-	addeq r0, r5, r6, lsl #4
-	streq r0, [r1, r4, lsl #2]
-	addeq r4, r4, #1
-_020F90B4:
-	add r5, r5, #1
-	cmp r5, #0x10
-	blt _020F9094
-	add r6, r6, #1
-	cmp r6, #0x10
-	blt _020F9084
-	ldrb r0, [r7, #0x440]
-	cmp r4, r0
-	addge sp, sp, #0x24
-	addge sp, sp, #0x400
-	ldmgefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020F90E0:
-	mov r0, r4
-	bl _ZN6Random5RandBEm
-	add r1, sp, #0x24
-	ldr r3, [r1, r0, lsl #2]
-	mov r5, #0
-	mov r1, r3, lsr #0x1f
-	mov r2, r3, asr #3
-	rsb r0, r1, r3, lsl #28
-	add r0, r1, r0, ror #28
-	add r2, r3, r2, lsr #28
-	str r0, [sp, #4]
-	mov r0, r2, asr #4
-	str r0, [sp, #8]
-	add r0, sp, #0x14
-_020F9118:
-	str r5, [r0, r5, lsl #2]
-	add r5, r5, #1
-	cmp r5, #4
-	blt _020F9118
-	mov r7, #0
-	add r5, sp, #0x14
-_020F9130:
-	rsb r0, r7, #4
-	ldr r6, [r5, r7, lsl #2]
-	bl _ZN6Random5RandBEm
-	add r1, r7, r0
-	ldr r0, [r5, r1, lsl #2]
-	str r0, [r5, r7, lsl #2]
-	add r7, r7, #1
-	str r6, [r5, r1, lsl #2]
-	cmp r7, #3
-	blt _020F9130
-	ldr r0, [sp]
-	mov r7, #0
-	ldr r12, [r0]
-	ldr r0, [sp, #4]
-	mov r11, #1
-	add r1, r12, r0, lsl #6
-	ldr r0, [sp, #8]
-	add r2, r1, r0, lsl #2
-	ldrb r0, [r2, #0x24]
-	mvn r1, #0
-	str r0, [sp, #0x10]
-_020F9184:
-	add r0, sp, #0x14
-	ldr r6, [r0, r7, lsl #2]
-	ldr r0, [sp, #0x10]
-	mov r3, r11, lsl r6
-	str r3, [sp, #0xc]
-	tst r3, r0
-	bne _020F9328
-	mov r9, #0
-	cmp r6, #3
-	mov r8, r9
-	addls pc, pc, r6, lsl #2
-	b _020F91E0
-_020F91B4: ; jump table
-	b _020F91C4 ; case 0
-	b _020F91CC ; case 1
-	b _020F91D4 ; case 2
-	b _020F91DC ; case 3
-_020F91C4:
-	mov r9, r1
-	b _020F91E0
-_020F91CC:
-	mov r8, r11
-	b _020F91E0
-_020F91D4:
-	mov r9, r11
-	b _020F91E0
-_020F91DC:
-	mov r8, r1
-_020F91E0:
-	ldr r0, [sp, #4]
-	adds lr, r0, r8
-	bmi _020F9328
-	ldrb r0, [r12, #0x43d]
-	cmp lr, r0
-	bge _020F9328
-	ldr r0, [sp, #8]
-	adds r5, r0, r9
-	bmi _020F9328
-	ldrb r0, [r12, #0x43e]
-	cmp r5, r0
-	bge _020F9328
-	add r0, r2, r8, lsl #6
-	add r10, r0, r9, lsl #2
-	ldrh r3, [r10, #0x26]
-	tst r3, #0x4000
-	bne _020F9328
-	tst r3, #2
-	beq _020F924C
-	ldrh r0, [r2, #0x26]
-	tst r0, #2
-	bne _020F9328
-	ldrb r10, [r10, #0x25]
-	ldrb r0, [r2, #0x25]
-	add r0, r0, #1
-	cmp r10, r0
-	blt _020F9328
-_020F924C:
-	tst r3, #1
-	beq _020F9274
-	add r0, r2, r8, lsl #6
-	add r0, r0, r9, lsl #2
-	ldrb r3, [r0, #0x25]
-	ldrb r0, [r2, #0x25]
-	subs r0, r3, r0
-	rsbmi r0, r0, #0
-	cmp r0, #2
-	bgt _020F9328
-_020F9274:
-	ldr r0, [sp, #4]
-	add r1, r12, r0, lsl #6
-	ldr r0, [sp, #8]
-	add r3, r1, r0, lsl #2
-	ldr r0, [sp, #0xc]
-	ldrb r2, [r3, #0x24]
-	and r0, r0, #0xff
-	add r1, r6, #2
-	orr r0, r2, r0
-	strb r0, [r3, #0x24]
-	ldr r0, [sp]
-	ldr r2, [r0]
-	and r0, r1, #3
-	add r1, r2, lr, lsl #6
-	add r3, r1, r5, lsl #2
-	mov r1, #1
-	mov r0, r1, lsl r0
-	ldrb r2, [r3, #0x24]
-	and r0, r0, #0xff
-	orr r0, r2, r0
-	strb r0, [r3, #0x24]
-	ldr r0, [sp]
-	ldr r3, [r0]
-	add r0, r3, lr, lsl #6
-	add r0, r0, r5, lsl #2
-	ldrh r2, [r0, #0x26]
-	tst r2, #1
-	bne _020F9334
-	ldr r2, [sp, #4]
-	add r3, r3, r2, lsl #6
-	ldr r2, [sp, #8]
-	add r2, r3, r2, lsl #2
-	ldrb r6, [r2, #0x25]
-	add r2, sp, #0x24
-	add r3, lr, r5, lsl #4
-	add r6, r6, #1
-	strb r6, [r0, #0x25]
-	ldr r0, [sp]
-	str r3, [r2, r4, lsl #2]
-	ldr r0, [r0]
-	add r4, r4, #1
-	add r0, r0, lr, lsl #6
-	add r0, r0, r5, lsl #2
-	strh r1, [r0, #0x26]
-	b _020F9334
-_020F9328:
-	add r7, r7, #1
-	cmp r7, #4
-	blt _020F9184
-_020F9334:
-	ldr r0, [sp]
-	ldr r0, [r0]
-	ldrb r0, [r0, #0x440]
-	cmp r4, r0
-	blt _020F90E0
-	add sp, sp, #0x24
-	add sp, sp, #0x400
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020f9064
-
-	arm_func_start FUN_ov16_020f9354
-FUN_ov16_020f9354: ; 0x020F9354
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #0x200
-	mov r7, r0
-	ldr r3, [r7]
-	mov r4, #0
-	ldrb r5, [r3, #4]
-	cmp r5, #0
-	ble _020F9390
-	mov r2, #0x1000
-	add r0, sp, #0
-_020F937C:
-	mov r1, r4, lsl #1
-	add r4, r4, #1
-	strh r2, [r0, r1]
-	cmp r4, r5
-	blt _020F937C
-_020F9390:
-	ldrb r0, [r3, #3]
-	cmp r4, r0
-	bge _020F93B8
-	mov r3, #0x2000
-	add r1, sp, #0
-_020F93A4:
-	mov r2, r4, lsl #1
-	add r4, r4, #1
-	strh r3, [r1, r2]
-	cmp r4, r0
-	blt _020F93A4
-_020F93B8:
-	sub r1, r0, #1
-	cmp r1, #0
-	mov r6, #0
-	ble _020F940C
-	add r4, sp, #0
-_020F93CC:
-	mov r1, r6, lsl #1
-	sub r0, r0, r6
-	ldrh r5, [r4, r1]
-	bl _ZN6Random5RandBEm
-	add r1, r6, r0
-	ldr r0, [r7]
-	mov r12, r1, lsl #1
-	ldrb r0, [r0, #3]
-	mov r2, r6, lsl #1
-	ldrh r3, [r4, r12]
-	add r6, r6, #1
-	sub r1, r0, #1
-	strh r3, [r4, r2]
-	strh r5, [r4, r12]
-	cmp r6, r1
-	blt _020F93CC
-_020F940C:
-	mov r6, #0
-	mov r5, r6
-	add r1, sp, #0
-	mov r4, r6
-_020F941C:
-	mov r12, r4
-_020F9420:
-	ldr r0, [r7]
-	add r0, r0, r5, lsl #2
-	add r3, r0, r12, lsl #6
-	ldrh r2, [r3, #0x26]
-	tst r2, #1
-	beq _020F9450
-	tst r2, #0x4000
-	moveq r0, r6, lsl #1
-	ldreqh r0, [r1, r0]
-	addeq r6, r6, #1
-	orreq r0, r2, r0
-	streqh r0, [r3, #0x26]
-_020F9450:
-	add r12, r12, #1
-	cmp r12, #0x10
-	blt _020F9420
-	add r5, r5, #1
-	cmp r5, #0x10
-	blt _020F941C
-	add sp, sp, #0x200
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f9354
-
-	arm_func_start FUN_ov16_020f9470
-FUN_ov16_020f9470: ; 0x020F9470
-	ldr r12, _020F9494 ; =FUN_ov16_020f949c
-	ldr r2, _020F9498 ; =FUN_ov16_020f952c
-	mov r3, #3
-	mov r1, #2
-	str r12, [r0, #0x24]
-	strb r3, [r0, #0x92]
-	str r2, [r0, #0x14]
-	strb r1, [r0, #0x8e]
-	bx lr
-_020F9494: .word FUN_ov16_020f949c
-_020F9498: .word FUN_ov16_020f952c
-	arm_func_end FUN_ov16_020f9470
-
-	arm_func_start FUN_ov16_020f949c
-FUN_ov16_020f949c: ; 0x020F949C
-	stmfd sp!, {r3, lr}
-	ldr r1, [r0, #8]
-	tst r1, #0x10
-	ldrneb r12, [r0, #0xae]
-	ldr r1, [r0, #4]
-	mvneq r12, #0
-	cmp r1, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r3, [r1, #0x2c]
-	cmp r3, #0
-	moveq r1, #0
-	streq r1, [r0, #0x24]
-	streqb r1, [r0, #0x92]
-	ldmeqfd sp!, {r3, pc}
-	ldrh r2, [r3, #0x40]
-	ldr r1, [r3, #0x14]
-	tst r2, #2
-	beq _020F94F8
-	mov r0, #0x30
-	mla r0, r12, r0, r1
-	mov r1, #0
-	bl NNS_G3dGetCurrentMtx
-	ldmfd sp!, {r3, pc}
-_020F94F8:
-	tst r2, #4
-	beq _020F951C
-	ldrsb r0, [r3, #0x49]
-	cmp r12, r0
-	ldmnefd sp!, {r3, pc}
-	mov r0, r1
-	mov r1, #0
-	bl NNS_G3dGetCurrentMtx
-	ldmfd sp!, {r3, pc}
-_020F951C:
-	mov r1, #0
-	str r1, [r0, #0x24]
-	strb r1, [r0, #0x92]
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020f949c
-
-	arm_func_start FUN_ov16_020f952c
-FUN_ov16_020f952c: ; 0x020F952C
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r0, [r4, #8]
-	tst r0, #0x10
-	ldrneb r1, [r4, #0xae]
-	ldr r0, [r4, #4]
-	mvneq r1, #0
-	cmp r0, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r0, [r0, #0x2c]
-	cmp r0, #0
-	moveq r0, #0
-	streq r0, [r4, #0x14]
-	streqb r0, [r4, #0x8e]
-	ldmeqfd sp!, {r4, pc}
-	bl FUN_ov16_020fab74
-	cmp r0, #0
-	ldmnefd sp!, {r4, pc}
-	ldr r1, [r4, #0xb8]
-	cmp r1, #0
-	movne r0, #0
-	strne r0, [r1]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020f952c
-
-	arm_func_start FUN_ov16_020f9588
-FUN_ov16_020f9588: ; 0x020F9588
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	moveq r0, #1
-	movne r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020f9588
-
-	arm_func_start FUN_ov16_020f959c
-FUN_ov16_020f959c: ; 0x020F959C
-	ldr r0, [r0, #8]
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020f959c
-
-	arm_func_start FUN_ov16_020f95b0
-FUN_ov16_020f95b0: ; 0x020F95B0
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #0x60
-	mov r4, r0
-	ldr r1, [r4, #0x10]
-	cmp r1, #0
-	addeq sp, sp, #0x60
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldrh r0, [r1, #0x40]
-	mov r5, #0
-	tst r0, #2
-	movne r0, #1
-	moveq r0, r5
-	cmp r0, #0
-	ldrne r5, [r1, #0x14]
-	cmp r5, #0
-	beq _020F9624
-	mov r1, #0
-	mov r2, r1
-	mov r0, #0x15
-	bl NNS_G3dGeBufferOP_N
-	bl NNS_G3dGlbFlushVP
-	ldrsb r2, [r4, #0xd]
-	mov r1, #0x30
-	mov r0, #0x19
-	mla r1, r2, r1, r5
-	mov r2, #0xc
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x60
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020F9624:
-	add r0, sp, #0x18
-	bl FUN_ov16_020fa538
-	ldr r5, [sp, #0x18]
-	ldr r3, [sp, #0x1c]
-	ldr r0, [sp, #0x20]
-	add r7, sp, #0x24
-	mov r6, #3
-	str r0, [sp, #0x2c]
-	mov r1, r7
-	mov r2, r6
-	str r5, [sp, #0x24]
-	str r3, [sp, #0x28]
-	mov r0, #0x1c
-	bl NNS_G3dGeBufferOP_N
-	ldr r1, [r4, #0x10]
-	add r0, sp, #0xc
-	bl FUN_ov16_020fa54c
-	ldr r0, [sp, #0x10]
-	ldr r1, [sp, #0xc]
-	str r0, [sp, #0x28]
-	ldr r0, [sp, #0x14]
-	add r5, sp, #0x30
-	str r0, [sp, #0x2c]
-	str r1, [sp, #0x24]
-	mov r0, r5
-	ldmia r7, {r1, r2, r3}
-	bl FUN_02053a70
-	mov r1, r5
-	mov r0, #0x19
-	mov r2, #0xc
-	bl NNS_G3dGeBufferOP_N
-	ldr r1, [r4, #0x10]
-	add r0, sp, #0
-	bl FUN_ov16_020fa560
-	ldr r3, [sp]
-	ldr r0, [sp, #4]
-	str r3, [sp, #0x24]
-	ldr r3, [sp, #8]
-	str r0, [sp, #0x28]
-	mov r1, r7
-	mov r2, r6
-	mov r0, #0x1b
-	str r3, [sp, #0x2c]
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x60
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020f95b0
-
-	arm_func_start FUN_ov16_020f96dc
-FUN_ov16_020f96dc: ; 0x020F96DC
-	stmfd sp!, {r3, r4, r5, lr}
-	sub sp, sp, #0x30
-	mov r4, r0
-	add r1, r4, #0x18
-	mov r0, #0x1c
-	mov r2, #3
-	bl NNS_G3dGeBufferOP_N
-	ldrh r0, [r4, #0x40]
-	tst r0, #0x10
-	beq _020F9748
-	ldr lr, _020F9784 ; =NNS_G3dGlb_cameraMtx
-	add r12, sp, #0
-	ldmia lr!, {r0, r1, r2, r3}
-	mov r5, r12
-	stmia r12!, {r0, r1, r2, r3}
-	ldmia lr!, {r0, r1, r2, r3}
-	stmia r12!, {r0, r1, r2, r3}
-	ldmia lr, {r0, r1, r2, r3}
-	stmia r12, {r0, r1, r2, r3}
-	mov r0, #0
-	str r0, [sp, #0x2c]
-	str r0, [sp, #0x28]
-	str r0, [sp, #0x24]
-	mov r0, r5
-	mov r1, r5
-	bl MTX_Inverse43
-	b _020F975C
-_020F9748:
-	add r5, sp, #0
-	add r1, r4, #0x24
-	mov r0, r5
-	ldmia r1, {r1, r2, r3}
-	bl FUN_02053b48
-_020F975C:
-	mov r1, r5
-	mov r0, #0x19
-	mov r2, #0xc
-	bl NNS_G3dGeBufferOP_N
-	add r1, r4, #0x30
-	mov r0, #0x1b
-	mov r2, #3
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x30
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F9784: .word NNS_G3dGlb_cameraMtx
-	arm_func_end FUN_ov16_020f96dc
-
-	arm_func_start FUN_ov16_020f9788
-FUN_ov16_020f9788: ; 0x020F9788
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fa638
-	ldrh r1, [r4, #0xe]
-	bl NNS_G3dMdlSetMdlDiffAll
-	mov r0, r4
-	bl FUN_ov16_020fa638
-	ldrb r1, [r4, #0x4b]
-	bl NNS_G3dMdlSetMdlAlphaAll
-	ldrb r0, [r4, #0x43]
-	cmp r0, #0
-	bne _020F97C4
-	mov r0, r4
-	mov r1, #1
-	bl FUN_ov16_020fac0c
-_020F97C4:
-	ldr r4, [r4, #8]
-	ldr r1, _020F97E8 ; =FUN_ov16_020f9470
-	mov r0, r4
-	bl NNS_G3dRenderObjSetInitFunc
-	mov r0, r4
-	bl FUN_02053f7c
-	mov r0, r4
-	bl NNS_G3dRenderObjResetCallBack
-	ldmfd sp!, {r4, pc}
-_020F97E8: .word FUN_ov16_020f9470
-	arm_func_end FUN_ov16_020f9788
-
-	arm_func_start FUN_ov16_020f97ec
-FUN_ov16_020f97ec: ; 0x020F97EC
-	stmfd sp!, {r3, r4, r5, lr}
-	sub sp, sp, #0x48
-	mov r5, r0
-	ldr r1, [r5, #0x44]
-	cmp r1, #0
-	addle sp, sp, #0x48
-	ldmlefd sp!, {r3, r4, r5, pc}
-	ldrb r1, [r5, #0x48]
-	cmp r1, #0
-	addeq sp, sp, #0x48
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020faab0
-	cmp r0, #0
-	addeq sp, sp, #0x48
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r12, [r5, #0x14]
-	cmp r12, #0
-	beq _020F98B0
-	ldrsb r1, [r5, #0x49]
-	cmp r1, #0
-	blt _020F98B0
-	ldrh r0, [r5, #0x40]
-	tst r0, #6
-	beq _020F98B0
-	tst r0, #2
-	beq _020F9860
-	mov r0, #0x30
-	mla r12, r1, r0, r12
-	b _020F9868
-_020F9860:
-	tst r0, #4
-	beq _020F9884
-_020F9868:
-	add r4, sp, #0x18
-	ldmia r12!, {r0, r1, r2, r3}
-	stmia r4!, {r0, r1, r2, r3}
-	ldmia r12!, {r0, r1, r2, r3}
-	stmia r4!, {r0, r1, r2, r3}
-	ldmia r12, {r0, r1, r2, r3}
-	stmia r4, {r0, r1, r2, r3}
-_020F9884:
-	ldr r0, [sp, #0x40]
-	cmp r0, #0
-	addlt sp, sp, #0x48
-	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r2, [sp, #0x3c]
-	ldr r0, [sp, #0x44]
-	mov r1, #0
-	str r2, [sp]
-	str r1, [sp, #4]
-	str r0, [sp, #8]
-	b _020F98D8
-_020F98B0:
-	ldr r0, [r5, #0x1c]
-	cmp r0, #0
-	addlt sp, sp, #0x48
-	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r2, [r5, #0x20]
-	ldr r1, [r5, #0x18]
-	mov r0, #0
-	str r1, [sp]
-	str r0, [sp, #4]
-	str r2, [sp, #8]
-_020F98D8:
-	mov r1, #0
-	mov r2, r1
-	mov r0, #0x15
-	bl NNS_G3dGeBufferOP_N
-	bl NNS_G3dGlbFlushVP
-	mov r4, #3
-	add r1, sp, #0
-	mov r2, r4
-	mov r0, #0x1c
-	bl NNS_G3dGeBufferOP_N
-	ldr r3, [r5, #0x44]
-	ldr r1, [r5, #0x30]
-	mov r0, #0x1000
-	str r0, [sp, #0x10]
-	smull r1, r0, r3, r1
-	adds r1, r1, #0x800
-	adc r0, r0, #0
-	mov r1, r1, lsr #0xc
-	orr r1, r1, r0, lsl #20
-	str r1, [sp, #0xc]
-	ldr r0, [r5, #0x38]
-	mov r2, r4
-	smull r1, r0, r3, r0
-	adds r1, r1, #0x800
-	adc r0, r0, #0
-	mov r1, r1, lsr #0xc
-	orr r1, r1, r0, lsl #20
-	str r1, [sp, #0x14]
-	add r1, sp, #0xc
-	mov r0, #0x1b
-	bl NNS_G3dGeBufferOP_N
-	ldrb r0, [r5, #0x48]
-	mov r1, #8
-	bl FUN_ov16_020ef714
-	add sp, sp, #0x48
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020f97ec
-
-	arm_func_start FUN_ov16_020f9968
-FUN_ov16_020f9968: ; 0x020F9968
-	stmfd sp!, {r4, r5, r6, lr}
-	sub sp, sp, #0x20
-	mov r5, r0
-	bl FUN_ov16_020fabf4
-	movs r4, r0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldrh r0, [r5, #0x40]
-	tst r0, #0x40
-	beq _020F99A0
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020f9ad4
-_020F99A0:
-	ldrh r0, [r5, #0x40]
-	tst r0, #0x20
-	addeq sp, sp, #0x20
-	moveq r0, #1
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldrsh r0, [r4, #0x18]
-	mov r5, #0
-	mov r1, r5
-	strh r0, [sp, #0x14]
-	ldrsh r3, [r4, #0x1a]
-	mov r2, r5
-	mov r0, #0x11
-	strh r3, [sp, #0x16]
-	ldrsh r3, [r4, #0x1c]
-	strh r3, [sp, #0x18]
-	ldrsh r3, [r4, #0x1e]
-	strh r3, [sp, #0x1a]
-	ldrsh r3, [r4, #0x20]
-	strh r3, [sp, #0x1c]
-	ldrsh r3, [r4, #0x22]
-	strh r3, [sp, #0x1e]
-	bl NNS_G3dGeBufferOP_N
-	ldr r3, [r4, #0x24]
-	mov r4, #3
-	add r1, sp, #8
-	mov r2, r4
-	mov r0, #0x1b
-	str r3, [sp, #8]
-	str r3, [sp, #0xc]
-	str r3, [sp, #0x10]
-	bl NNS_G3dGeBufferOP_N
-	bl NNS_G3dGeFlushBuffer
-	ldr r0, _020F9AC8 ; =0x000030C1
-	ldr r3, _020F9ACC ; =0x040004A4
-	add r1, sp, #0x14
-	str r0, [r3]
-	str r5, [r3, #0x5c]
-	mov r2, r4
-	mov r0, #0x70
-	str r5, [r3, #0x60]
-	bl NNS_G3dGeBufferOP_N
-	bl OS_GetTick
-	add r5, sp, #4
-	mov r6, r0
-	mov r0, r5
-	bl G3X_GetBoxTestResult
-	cmp r0, #0
-	beq _020F9A98
-	ldr r4, _020F9AD0 ; =0x7D269B01
-_020F9A64:
-	bl OS_GetTick
-	subs r0, r0, r6
-	mov r1, r0, lsl #6
-	umull r0, r2, r1, r4
-	mov r2, r2, lsr #0xe
-	cmp r2, #0x64
-	movhi r0, #1
-	strhi r0, [sp, #4]
-	bhi _020F9A98
-	mov r0, r5
-	bl G3X_GetBoxTestResult
-	cmp r0, #0
-	bne _020F9A64
-_020F9A98:
-	mov r4, #1
-	add r1, sp, #0
-	mov r2, r4
-	mov r0, #0x12
-	str r4, [sp]
-	bl NNS_G3dGeBufferOP_N
-	ldr r0, [sp, #4]
-	cmp r0, #0
-	moveq r4, #0
-	mov r0, r4
-	add sp, sp, #0x20
-	ldmfd sp!, {r4, r5, r6, pc}
-_020F9AC8: .word 0x000030C1
-_020F9ACC: .word 0x040004A4
-_020F9AD0: .word 0x7D269B01
-	arm_func_end FUN_ov16_020f9968
-
-	arm_func_start FUN_ov16_020f9ad4
-FUN_ov16_020f9ad4: ; 0x020F9AD4
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0x80
-	ldr r4, _020F9CC8 ; =0x021178F8
-	add r3, sp, #0x6c
-	mov r8, r1
-	mov r2, #5
-_020F9AEC:
-	ldrh r0, [r4, #2]
-	ldrh r1, [r4], #4
-	subs r2, r2, #1
-	strh r0, [r3, #2]
-	strh r1, [r3], #4
-	bne _020F9AEC
-	ldr r4, _020F9CCC ; =0x021178E4
-	add r3, sp, #0x58
-	mov r2, #5
-_020F9B10:
-	ldrh r0, [r4, #2]
-	ldrh r1, [r4], #4
-	subs r2, r2, #1
-	strh r0, [r3, #2]
-	strh r1, [r3], #4
-	bne _020F9B10
-	ldr r4, _020F9CD0 ; =0x0211790C
-	add r3, sp, #0x44
-	mov r2, #5
-_020F9B34:
-	ldrh r0, [r4, #2]
-	ldrh r1, [r4], #4
-	subs r2, r2, #1
-	strh r0, [r3, #2]
-	strh r1, [r3], #4
-	bne _020F9B34
-	mov r7, #0
-	mov r1, r7
-	mov r2, r7
-	mov r0, #0x11
-	bl NNS_G3dGeBufferOP_N
-	ldr r4, _020F9CD4 ; =0x001F801F
-	mov r6, #1
-	add r1, sp, #0x1c
-	mov r2, r6
-	mov r0, #0x30
-	str r4, [sp, #0x1c]
-	bl NNS_G3dGeBufferOP_N
-	add r1, sp, #0x18
-	mov r2, r6
-	mov r0, #0x31
-	str r4, [sp, #0x18]
-	bl NNS_G3dGeBufferOP_N
-	ldr r0, _020F9CD8 ; =0x3F0000C0
-	add r1, sp, #0x14
-	str r0, [sp, #0x14]
-	mov r2, r6
-	mov r0, #0x29
-	bl NNS_G3dGeBufferOP_N
-	ldr r0, [r8, #0x24]
-	mov r4, #3
-	mov r5, #0x1b
-	str r0, [sp, #0x38]
-	str r0, [sp, #0x3c]
-	str r0, [sp, #0x40]
-	mov r0, r5
-	add r1, sp, #0x38
-	mov r2, r4
-	bl NNS_G3dGeBufferOP_N
-	ldrsh r9, [r8, #0x1c]
-	ldrsh r3, [r8, #0x1a]
-	ldrsh r2, [r8, #0x18]
-	mov r0, #0x1c
-	add r1, sp, #0x2c
-	str r2, [sp, #0x2c]
-	str r3, [sp, #0x30]
-	str r9, [sp, #0x34]
-	mov r2, r4
-	bl NNS_G3dGeBufferOP_N
-	mov r0, r5
-	ldrsh r9, [r8, #0x22]
-	ldrsh r5, [r8, #0x20]
-	ldrsh r3, [r8, #0x1e]
-	add r1, sp, #0x20
-	mov r2, r4
-	str r3, [sp, #0x20]
-	str r5, [sp, #0x24]
-	str r9, [sp, #0x28]
-	bl NNS_G3dGeBufferOP_N
-	mov r0, #0x40
-	add r1, sp, #0x10
-	mov r2, r6
-	str r4, [sp, #0x10]
-	bl NNS_G3dGeBufferOP_N
-	mov r0, #0x1f
-	str r0, [sp, #0xc]
-	mov r2, r6
-	mov r0, #0x20
-	add r1, sp, #0xc
-	bl NNS_G3dGeBufferOP_N
-	add r6, sp, #0x6c
-	add r5, sp, #0x58
-	add r4, sp, #0x44
-	mov r10, #0x23
-	add r9, sp, #4
-	mov r8, #2
-_020F9C64:
-	mov r0, r7, lsl #1
-	ldrh r2, [r6, r0]
-	ldrh r1, [r5, r0]
-	ldrh r3, [r4, r0]
-	mov r0, r10
-	orr r12, r2, r1, lsl #16
-	mov r1, r9
-	mov r2, r8
-	str r12, [sp, #4]
-	str r3, [sp, #8]
-	bl NNS_G3dGeBufferOP_N
-	add r7, r7, #1
-	cmp r7, #0xa
-	blt _020F9C64
-	mov r1, #0
-	mov r2, r1
-	mov r0, #0x41
-	bl NNS_G3dGeBufferOP_N
-	mov r2, #1
-	add r1, sp, #0
-	mov r0, #0x12
-	str r2, [sp]
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x80
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020F9CC8: .word ov16_021178F8
-_020F9CCC: .word ov16_021178E4
-_020F9CD0: .word ov16_0211790C
-_020F9CD4: .word 0x001F801F
-_020F9CD8: .word 0x3F0000C0
-	arm_func_end FUN_ov16_020f9ad4
-
-	arm_func_start FUN_ov16_020f9cdc
-FUN_ov16_020f9cdc: ; 0x020F9CDC
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	mov r5, r0
-	mov r4, #0
-	mov r0, r4
-	add r1, r5, #4
-	mov r2, #0x48
-	bl MIi_CpuClearFast
-	mov r8, #0x1000
-	mov r3, #3
-	sub r2, r3, #4
-	ldrh r0, [r5, #0x40]
-	ldr r6, _020F9D7C ; =0x00007FFF
-	mov r7, #0x1f
-	orr r0, r0, #8
-	mov r1, #0x10
-	strb r7, [r5, #0x4b]
-	strh r6, [r5, #0xe]
-	str r8, [r5, #0x30]
-	str r8, [r5, #0x34]
-	str r8, [r5, #0x38]
-	strb r3, [r5, #0x4a]
-	strb r2, [r5, #0xd]
-	strb r1, [r5, #0x48]
-	strb r2, [r5, #0x49]
-	str r2, [r5, #0x3c]
-	strh r0, [r5, #0x40]
-	add r9, r5, #0x4c
-	add r8, r5, #0xb0
-	mov r6, #0x14
-	mov r7, #0x30
-_020F9D54:
-	mla r0, r4, r6, r9
-	bl FUN_ov16_020fc538
-	mla r0, r4, r7, r8
-	bl FUN_ov16_02110b80
-	add r4, r4, #1
-	cmp r4, #5
-	blt _020F9D54
-	add r0, r5, #0x1a0
-	bl FUN_ov16_02111164
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020F9D7C: .word 0x00007FFF
-	arm_func_end FUN_ov16_020f9cdc
-
-	arm_func_start FUN_ov16_020f9d80
-FUN_ov16_020f9d80: ; 0x020F9D80
-	ldr r12, _020F9D88 ; =FUN_ov16_020fa154
-	bx r12
-_020F9D88: .word FUN_ov16_020fa154
-	arm_func_end FUN_ov16_020f9d80
-
-	arm_func_start FUN_ov16_020f9d8c
-FUN_ov16_020f9d8c: ; 0x020F9D8C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r1
-	ldr r2, [r4, #4]
-	mov r5, r0
-	cmp r2, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r5, #4]
-	cmp r2, r1
-	moveq r0, #1
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fa154
-	ldr r0, _020F9DD8 ; =gNsbResourceMan
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
-	str r0, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F9DD8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9d8c
-
-	arm_func_start FUN_ov16_020f9ddc
-FUN_ov16_020f9ddc: ; 0x020F9DDC
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r5, #4]
-	cmp r4, r1
-	moveq r0, #1
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fa154
-	ldr r0, _020F9E20 ; =gNsbResourceMan
-	mov r1, r4
-	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
-	str r0, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F9E20: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9ddc
-
-	arm_func_start FUN_ov16_020f9e24
-FUN_ov16_020f9e24: ; 0x020F9E24
-	stmfd sp!, {r4, r5, r6, lr}
-	sub sp, sp, #0x10
-	mov r4, r0
-	cmp r3, #0
-	ldreq r0, [sp, #0x20]
-	ldr r5, [sp, #0x20]
-	cmpeq r0, #0
-	moveq r0, #0
-	streqb r0, [sp, #0x24]
-	stmia sp, {r3, r5}
-	ldrb r0, [sp, #0x24]
-	mov r3, r2
-	mov r6, #1
-	str r0, [sp, #8]
-	ldr r0, _020F9E98 ; =gNsbResourceMan
-	str r6, [sp, #0xc]
-	ldr r0, [r0]
-	mov r2, #4
-	bl FUN_ov16_020fcd08
-	movs r5, r0
-	addeq sp, sp, #0x10
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r4
-	bl FUN_ov16_020fa154
-	mov r0, r6
-	str r5, [r4, #4]
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, r5, r6, pc}
-_020F9E98: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9e24
-
-	arm_func_start FUN_ov16_020f9e9c
-FUN_ov16_020f9e9c: ; 0x020F9E9C
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r12, _020F9ED8 ; =gNsbResourceMan
-	str r3, [sp]
-	mov r5, r0
-	ldr r0, [r12]
-	mov r3, #4
-	bl FUN_ov16_020fcb70
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r0, r5
-	bl FUN_ov16_020fa154
-	str r4, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F9ED8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9e9c
-
-	arm_func_start FUN_ov16_020f9edc
-FUN_ov16_020f9edc: ; 0x020F9EDC
-	stmfd sp!, {r4, r5, r6, lr}
-	sub sp, sp, #0x10
-	ldr r4, [sp, #0x20]
-	str r3, [sp]
-	ldr r3, [sp, #0x24]
-	str r4, [sp, #4]
-	str r3, [sp, #8]
-	mov r5, #1
-	ldr r3, _020F9F3C ; =gNsbResourceMan
-	str r5, [sp, #0xc]
-	mov r6, r0
-	ldr r0, [r3]
-	mov r3, #4
-	bl FUN_ov16_020fcef8
-	movs r4, r0
-	addeq sp, sp, #0x10
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r6
-	bl FUN_ov16_020fa154
-	mov r0, r5
-	str r4, [r6, #4]
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, r5, r6, pc}
-_020F9F3C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9edc
-
-	arm_func_start FUN_ov16_020f9f40
-FUN_ov16_020f9f40: ; 0x020F9F40
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r3, _020F9F78 ; =gNsbResourceMan
-	mov r5, r0
-	ldr r0, [r3]
-	mov r3, #4
-	bl FUN_ov16_020fd120
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r0, r5
-	bl FUN_ov16_020fa154
-	str r4, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020F9F78: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020f9f40
-
-	arm_func_start FUN_ov16_020f9f7c
-FUN_ov16_020f9f7c: ; 0x020F9F7C
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r6, r0
-	mov r4, r1
-	mov r5, r2
-	bl FUN_ov16_020fa93c
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	mov r0, r6
-	bl FUN_ov16_020fa6c0
-	mov r0, r6
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	beq _020F9FC8
-	ldrb r1, [r6, #0xc]
-	and r0, r4, #0xff
-	cmp r1, r0
-	moveq r0, #1
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-_020F9FC8:
-	mov r0, r6
-	bl FUN_ov16_020fa0e8
-	mov r0, r6
-	strb r4, [r6, #0xc]
-	bl FUN_ov16_020fa638
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, _020FA0D8 ; =gAllocator
-	mov r1, #0x54
-	bl _ZN10CAllocator8allocateEm
-	str r0, [r6, #8]
-	cmp r0, #0
-	bne _020FA010
-	mov r0, r6
-	bl FUN_ov16_020fa0e8
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FA010:
-	mov r1, r4
-	bl NNS_G3dRenderObjInit
-	ldrh r1, [r6, #0x40]
-	ldr r0, _020FA0DC ; =0x0000FFF9
-	cmp r5, #1
-	and r0, r1, r0
-	strh r0, [r6, #0x40]
-	mov r7, #0
-	beq _020FA04C
-	cmp r5, #2
-	ldreqh r0, [r6, #0x40]
-	moveq r7, #0x30
-	orreq r0, r0, #4
-	streqh r0, [r6, #0x40]
-	b _020FA064
-_020FA04C:
-	ldrh r1, [r6, #0x40]
-	ldrb r2, [r4, #0x17]
-	mov r0, #0x30
-	orr r1, r1, #2
-	smulbb r7, r2, r0
-	strh r1, [r6, #0x40]
-_020FA064:
-	cmp r7, #0
-	ble _020FA08C
-	ldr r0, _020FA0D8 ; =gAllocator
-	mov r1, r7
-	bl _ZN10CAllocator8allocateEm
-	mov r1, r0
-	mov r2, r7
-	mov r0, #0
-	str r1, [r6, #0x14]
-	bl MIi_CpuClearFast
-_020FA08C:
-	ldr r0, [r6, #8]
-	ldr r5, _020FA0E0 ; =gNsbResourceMan
-	str r6, [r0, #0x2c]
-	ldr r0, [r5]
-	ldr r1, [r6, #4]
-	bl FUN_ov16_020fd660
-	cmp r0, #0
-	bne _020FA0C0
-	ldr r0, [r5]
-	ldr r1, [r6, #4]
-	bl FUN_ov16_020fd4cc
-	mov r0, #1
-	strb r0, [r6, #0x42]
-_020FA0C0:
-	ldr r1, _020FA0E4 ; =0x02118858
-	mov r0, r4
-	bl FUN_02053c20
-	strb r0, [r6, #0x49]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FA0D8: .word gAllocator
-_020FA0DC: .word 0x0000FFF9
-_020FA0E0: .word gNsbResourceMan
-_020FA0E4: .word ov16_02118858
-	arm_func_end FUN_ov16_020f9f7c
-
-	arm_func_start FUN_ov16_020fa0e8
-FUN_ov16_020fa0e8: ; 0x020FA0E8
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, #0
-_020FA0F4:
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fa8e4
-	add r4, r4, #1
-	cmp r4, #5
-	blt _020FA0F4
-	ldr r1, [r5, #8]
-	cmp r1, #0
-	beq _020FA128
-	ldr r0, _020FA150 ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-	mov r0, #0
-	str r0, [r5, #8]
-_020FA128:
-	ldr r1, [r5, #0x14]
-	cmp r1, #0
-	beq _020FA144
-	ldr r0, _020FA150 ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-	mov r0, #0
-	str r0, [r5, #0x14]
-_020FA144:
-	mov r0, r5
-	bl FUN_ov16_020fabe4
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FA150: .word gAllocator
-	arm_func_end FUN_ov16_020fa0e8
-
-	arm_func_start FUN_ov16_020fa154
-FUN_ov16_020fa154: ; 0x020FA154
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r4, r0
-	bl FUN_ov16_020fa0e8
-	mov r7, #0
-	mov r0, r4
-	mov r1, r7
-	bl FUN_ov16_020fac0c
-	add r6, r4, #0xb0
-	mov r5, #0x30
-	b _020FA188
-_020FA17C:
-	mla r0, r7, r5, r6
-	bl FUN_ov16_02110db4
-	add r7, r7, #1
-_020FA188:
-	cmp r7, #5
-	blt _020FA17C
-	mov r7, #0
-	add r6, r4, #0x4c
-	mov r5, #0x14
-	b _020FA1AC
-_020FA1A0:
-	mla r0, r7, r5, r6
-	bl FUN_ov16_020fc5f8
-	add r7, r7, #1
-_020FA1AC:
-	cmp r7, #5
-	blt _020FA1A0
-	ldr r1, [r4, #4]
-	cmp r1, #0
-	beq _020FA1CC
-	ldr r0, _020FA1E0 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-_020FA1CC:
-	mov r1, #0
-	mov r0, r4
-	str r1, [r4, #4]
-	bl FUN_ov16_020f9cdc
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FA1E0: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fa154
-
-	arm_func_start FUN_ov16_020fa1e4
-FUN_ov16_020fa1e4: ; 0x020FA1E4
-	ldr r12, _020FA1F8 ; =NNS_G3dGeBufferOP_N
-	add r1, r0, #0x18
-	mov r0, #0x1c
-	mov r2, #3
-	bx r12
-_020FA1F8: .word NNS_G3dGeBufferOP_N
-	arm_func_end FUN_ov16_020fa1e4
-
-	arm_func_start FUN_ov16_020fa1fc
-FUN_ov16_020fa1fc: ; 0x020FA1FC
-	stmfd sp!, {r4, lr}
-	sub sp, sp, #0x30
-	add r4, sp, #0
-	add r1, r0, #0x24
-	mov r0, r4
-	ldmia r1, {r1, r2, r3}
-	bl FUN_02053a70
-	mov r1, r4
-	mov r0, #0x19
-	mov r2, #0xc
-	bl NNS_G3dGeBufferOP_N
-	add sp, sp, #0x30
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fa1fc
-
-	arm_func_start FUN_ov16_020fa230
-FUN_ov16_020fa230: ; 0x020FA230
-	ldr r12, _020FA244 ; =NNS_G3dGeBufferOP_N
-	add r1, r0, #0x30
-	mov r0, #0x1b
-	mov r2, #3
-	bx r12
-_020FA244: .word NNS_G3dGeBufferOP_N
-	arm_func_end FUN_ov16_020fa230
-
-	arm_func_start FUN_ov16_020fa248
-FUN_ov16_020fa248: ; 0x020FA248
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r0
-	mov r5, r1
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	cmp r5, #0
-	beq _020FA27C
-	mov r1, #0
-	mov r2, r1
-	mov r0, #0x11
-	bl NNS_G3dGeBufferOP_N
-_020FA27C:
-	mov r0, r4
-	bl FUN_ov16_020f95b0
-	mov r0, r4
-	bl FUN_ov16_020f96dc
-	mov r0, r4
-	bl FUN_ov16_020fa2bc
-	mov r4, r0
-	cmp r5, #0
-	beq _020FA2B4
-	mov r2, #1
-	add r1, sp, #0
-	mov r0, #0x12
-	str r2, [sp]
-	bl NNS_G3dGeBufferOP_N
-_020FA2B4:
-	mov r0, r4
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fa248
-
-	arm_func_start FUN_ov16_020fa2bc
-FUN_ov16_020fa2bc: ; 0x020FA2BC
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, pc}
-	mov r0, r4
-	bl FUN_ov16_020f9968
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, pc}
-	mov r0, r4
-	bl FUN_ov16_020f9788
-	mov r0, r4
-	bl FUN_ov16_020f97ec
-	mov r0, #1
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fa2bc
-
-	arm_func_start FUN_ov16_020fa300
-FUN_ov16_020fa300: ; 0x020FA300
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r4, #0
-	mov r1, r4
-	mov r2, r4
-	mov r0, #0x15
-	bl NNS_G3dGeBufferOP_N
-	bl NNS_G3dGlbFlushVP
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fa248
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fa300
-
-	arm_func_start FUN_ov16_020fa340
-FUN_ov16_020fa340: ; 0x020FA340
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	mov r4, r0
-	ldr r0, [r4, #8]
-	mov r8, r1
-	cmp r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	cmp r2, #5
-	blo _020FA388
-	mov r7, #0
-	add r6, r4, #0x4c
-	mov r5, #0x14
-_020FA36C:
-	mla r0, r7, r5, r6
-	mov r1, r8
-	bl FUN_ov16_020fc748
-	add r7, r7, #1
-	cmp r7, #5
-	blt _020FA36C
-	b _020FA398
-_020FA388:
-	add r3, r4, #0x4c
-	mov r0, #0x14
-	mla r0, r2, r0, r3
-	bl FUN_ov16_020fc748
-_020FA398:
-	ldrh r0, [r4, #0x40]
-	tst r0, #1
-	movne r0, #1
-	moveq r0, #0
-	cmp r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	ldr r1, [r4, #8]
-	ldr r0, [r1]
-	orr r0, r0, #1
-	str r0, [r1]
-	ldr r1, [r4, #8]
-	ldr r0, [r1]
-	orr r0, r0, #2
-	str r0, [r1]
-	ldr r0, [r4, #8]
-	bl FUN_02053f7c
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020fa340
-
-	arm_func_start FUN_ov16_020fa3dc
-FUN_ov16_020fa3dc: ; 0x020FA3DC
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, r1
-	bl FUN_ov16_020f9d8c
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r4, #0
-_020FA3FC:
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020faa1c
-	mov r1, r0
-	mov r0, r6
-	mov r2, r4
-	bl FUN_ov16_020fa7cc
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020faa34
-	mov r1, r0
-	mov r0, r6
-	mov r2, r4
-	bl FUN_ov16_020fa574
-	add r4, r4, #1
-	cmp r4, #5
-	blt _020FA3FC
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fa3dc
-
-	arm_func_start FUN_ov16_020fa448
-FUN_ov16_020fa448: ; 0x020FA448
-	ldr r2, [r1]
-	str r2, [r0, #0x18]
-	ldr r2, [r1, #4]
-	str r2, [r0, #0x1c]
-	ldr r1, [r1, #8]
-	str r1, [r0, #0x20]
-	bx lr
-	arm_func_end FUN_ov16_020fa448
-
-	arm_func_start FUN_ov16_020fa464
-FUN_ov16_020fa464: ; 0x020FA464
-	ldr r2, [r1]
-	str r2, [r0, #0x24]
-	ldr r12, [r1, #4]
-	mov r2, r2, lsl #0x10
-	str r12, [r0, #0x28]
-	ldr r3, [r1, #8]
-	mov r1, r12, lsl #0x10
-	mov r3, r3, lsl #0x10
-	mov r12, r2, lsr #0x10
-	mov r2, r1, lsr #0x10
-	mov r1, r3, lsr #0x10
-	str r12, [r0, #0x24]
-	str r2, [r0, #0x28]
-	str r1, [r0, #0x2c]
-	bx lr
-	arm_func_end FUN_ov16_020fa464
-
-	arm_func_start FUN_ov16_020fa4a0
-FUN_ov16_020fa4a0: ; 0x020FA4A0
-	ldr r2, [r1]
-	str r2, [r0, #0x30]
-	ldr r2, [r1, #4]
-	str r2, [r0, #0x34]
-	ldr r1, [r1, #8]
-	str r1, [r0, #0x38]
-	bx lr
-	arm_func_end FUN_ov16_020fa4a0
-
-	arm_func_start FUN_ov16_020fa4bc
-FUN_ov16_020fa4bc: ; 0x020FA4BC
-	stmdb sp!, {lr}
-	sub sp, sp, #0xc
-	str r1, [sp]
-	add r1, sp, #0
-	str r2, [sp, #4]
-	str r3, [sp, #8]
-	bl FUN_ov16_020fa448
-	add sp, sp, #0xc
-	ldmia sp!, {pc}
-	arm_func_end FUN_ov16_020fa4bc
-
-	arm_func_start FUN_ov16_020fa4e0
-FUN_ov16_020fa4e0: ; 0x020FA4E0
-	stmdb sp!, {lr}
-	sub sp, sp, #0xc
-	str r1, [sp]
-	add r1, sp, #0
-	str r2, [sp, #4]
-	str r3, [sp, #8]
-	bl FUN_ov16_020fa464
-	add sp, sp, #0xc
-	ldmia sp!, {pc}
-	arm_func_end FUN_ov16_020fa4e0
-
-	arm_func_start FUN_ov16_020fa504
-FUN_ov16_020fa504: ; 0x020FA504
-	stmdb sp!, {lr}
-	sub sp, sp, #0xc
-	str r1, [sp]
-	add r1, sp, #0
-	str r2, [sp, #4]
-	str r3, [sp, #8]
-	bl FUN_ov16_020fa4a0
-	add sp, sp, #0xc
-	ldmia sp!, {pc}
-	arm_func_end FUN_ov16_020fa504
-
-	arm_func_start FUN_ov16_020fa528
-FUN_ov16_020fa528: ; 0x020FA528
-	cmp r1, #0x1f
-	movhi r1, #0x1f
-	strb r1, [r0, #0x4b]
-	bx lr
-	arm_func_end FUN_ov16_020fa528
-
-	arm_func_start FUN_ov16_020fa538
-FUN_ov16_020fa538: ; 0x020FA538
-	mov r3, r0
-	add r0, r1, #0x18
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fa538
-
-	arm_func_start FUN_ov16_020fa54c
-FUN_ov16_020fa54c: ; 0x020FA54C
-	mov r3, r0
-	add r0, r1, #0x24
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fa54c
-
-	arm_func_start FUN_ov16_020fa560
-FUN_ov16_020fa560: ; 0x020FA560
-	mov r3, r0
-	add r0, r1, #0x30
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fa560
-
-	arm_func_start FUN_ov16_020fa574
-FUN_ov16_020fa574: ; 0x020FA574
-	stmfd sp!, {r3, lr}
-	add r3, r0, #0xb0
-	mov r0, #0x30
-	mla r0, r2, r0, r3
-	bl FUN_ov16_02110cc8
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa574
-
-	arm_func_start FUN_ov16_020fa598
-FUN_ov16_020fa598: ; 0x020FA598
-	stmfd sp!, {r3, lr}
-	add r12, r0, #0xb0
-	mov r0, #0x30
-	mla r0, r3, r0, r12
-	ldr r3, [sp, #8]
-	bl FUN_ov16_02110bbc
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa598
-
-	arm_func_start FUN_ov16_020fa5b4
-FUN_ov16_020fa5b4: ; 0x020FA5B4
-	stmdb sp!, {lr}
-	sub sp, sp, #0xc
-	add r12, r0, #0xb0
-	mov r0, #0x30
-	mla r0, r2, r0, r12
-	ldr r12, [sp, #0x14]
-	mov r2, r3
-	ldrb r3, [sp, #0x18]
-	str r12, [sp]
-	ldrb r12, [sp, #0x1c]
-	str r3, [sp, #4]
-	ldr r3, [sp, #0x10]
-	str r12, [sp, #8]
-	bl FUN_ov16_02110bfc
-	add sp, sp, #0xc
-	ldmia sp!, {pc}
-	arm_func_end FUN_ov16_020fa5b4
-
-	arm_func_start FUN_ov16_020fa5f4
-FUN_ov16_020fa5f4: ; 0x020FA5F4
-	stmfd sp!, {r3, lr}
-	add r2, r0, #0xb0
-	mov r0, #0x30
-	mla r0, r1, r0, r2
-	bl FUN_ov16_02110db4
-	mov r0, #1
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa5f4
-
-	arm_func_start FUN_ov16_020fa610
-FUN_ov16_020fa610: ; 0x020FA610
-	stmfd sp!, {r3, lr}
-	cmp r2, #0
-	add r2, r0, #0xb0
-	mov r0, #0x30
-	mla r0, r1, r0, r2
-	beq _020FA630
-	bl FUN_ov16_02110f78
-	ldmfd sp!, {r3, pc}
-_020FA630:
-	bl FUN_ov16_02110d18
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa610
-
-	arm_func_start FUN_ov16_020fa638
-FUN_ov16_020fa638: ; 0x020FA638
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	ldrne r0, [r0, #4]
-	cmpne r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, pc}
-	bl NNS_G3dGetMdlSet
-	ldrb r12, [r4, #0xc]
-	ldrb r1, [r0, #9]
-	cmp r12, r1
-	movhs r0, #0
-	ldmhsfd sp!, {r4, pc}
-	cmp r0, #0
-	beq _020FA6B8
-	adds r3, r0, #8
-	beq _020FA6A4
-	ldrb r1, [r0, #9]
-	cmp r12, r1
-	bhs _020FA6A4
-	ldrh r2, [r0, #0xe]
-	ldrh r1, [r3, r2]
-	add r2, r3, r2
-	add r2, r2, #4
-	mla r2, r1, r12, r2
-	b _020FA6A8
-_020FA6A4:
-	mov r2, #0
-_020FA6A8:
-	cmp r2, #0
-	ldrne r1, [r2]
-	addne r0, r0, r1
-	ldmnefd sp!, {r4, pc}
-_020FA6B8:
-	mov r0, #0
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fa638
-
-	arm_func_start FUN_ov16_020fa6c0
-FUN_ov16_020fa6c0: ; 0x020FA6C0
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldrne r0, [r0, #4]
-	bx lr
-	arm_func_end FUN_ov16_020fa6c0
-
-	arm_func_start FUN_ov16_020fa6d4
-FUN_ov16_020fa6d4: ; 0x020FA6D4
-	ldr r2, _020FA6F0 ; =0x0000FFF0
-	ldrh r3, [r0, #0x40]
-	and r1, r1, r2
-	mov r1, r1, lsl #0x10
-	orr r1, r3, r1, lsr #16
-	strh r1, [r0, #0x40]
-	bx lr
-_020FA6F0: .word 0x0000FFF0
-	arm_func_end FUN_ov16_020fa6d4
-
-	arm_func_start FUN_ov16_020fa6f4
-FUN_ov16_020fa6f4: ; 0x020FA6F4
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fa93c
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r4, pc}
-	mov r0, r4
-	bl FUN_ov16_020fa6c0
-	bl NNS_G3dGetTex
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fa6f4
-
-	arm_func_start FUN_ov16_020fa71c
-FUN_ov16_020fa71c: ; 0x020FA71C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r4, r0
-	bl FUN_ov16_020fa6f4
-	cmp r0, #0
-	ldmnefd sp!, {r4, r5, r6, pc}
-	add r5, r4, #0xb0
-	mov r6, #0
-	mov r4, #0x30
-_020FA73C:
-	mla r0, r6, r4, r5
-	bl FUN_ov16_02110f20
-	cmp r0, #0
-	ldmnefd sp!, {r4, r5, r6, pc}
-	add r6, r6, #1
-	cmp r6, #5
-	blt _020FA73C
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fa71c
-
-	arm_func_start FUN_ov16_020fa760
-FUN_ov16_020fa760: ; 0x020FA760
-	stmfd sp!, {r4, r5, r6, lr}
-	cmp r1, #0
-	moveq r1, #0
-	mov r6, r0
-	subeq r0, r1, #1
-	mov r5, r2
-	streq r1, [r6, #0x10]
-	streqb r0, [r6, #0xd]
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	cmp r5, #0
-	mvneq r0, #0
-	streq r1, [r6, #0x10]
-	streqb r0, [r6, #0xd]
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mvn r4, #0
-	mov r0, r1
-	str r1, [r6, #0x10]
-	strb r4, [r6, #0xd]
-	bl FUN_ov16_020fa638
-	mov r1, r5
-	bl FUN_02053c20
-	cmp r0, #0
-	movlt r0, #0
-	strltb r4, [r6, #0xd]
-	strlt r0, [r6, #0x10]
-	strgeb r0, [r6, #0xd]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fa760
-
-	arm_func_start FUN_ov16_020fa7cc
-FUN_ov16_020fa7cc: ; 0x020FA7CC
-	stmfd sp!, {r3, lr}
-	add r3, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r2, r0, r3
-	bl FUN_ov16_020fc55c
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa7cc
-
-	arm_func_start FUN_ov16_020fa7f0
-FUN_ov16_020fa7f0: ; 0x020FA7F0
-	stmfd sp!, {r3, lr}
-	add r3, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r2, r0, r3
-	bl FUN_ov16_020fc578
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa7f0
-
-	arm_func_start FUN_ov16_020fa814
-FUN_ov16_020fa814: ; 0x020FA814
-	stmfd sp!, {r3, lr}
-	add r12, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r3, r0, r12
-	bl FUN_ov16_020fc5bc
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fa814
-
-	arm_func_start FUN_ov16_020fa838
-FUN_ov16_020fa838: ; 0x020FA838
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	mov r7, r1
-	mov r1, #0x14
-	mul r4, r7, r1
-	mov r8, r0
-	add r5, r8, #0x4c
-	add r0, r5, r4
-	mov r6, r2
-	bl FUN_ov16_020fc8d0
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r4, r5, r6, r7, r8, pc}
-	mov r1, r8
-	mov r2, r6
-	add r0, r5, r4
-	bl FUN_ov16_020fc630
-	cmp r0, #0
-	bne _020FA890
-	add r0, r5, r4
-	bl FUN_ov16_020fc5f8
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020FA890:
-	mov r0, r8
-	mov r1, r7
-	bl FUN_ov16_020fa8b8
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020fa838
-
-	arm_func_start FUN_ov16_020fa8a0
-FUN_ov16_020fa8a0: ; 0x020FA8A0
-	add r2, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r1, r0, r2
-	ldr r12, _020FA8B4 ; =FUN_ov16_020fc5f8
-	bx r12
-_020FA8B4: .word FUN_ov16_020fc5f8
-	arm_func_end FUN_ov16_020fa8a0
-
-	arm_func_start FUN_ov16_020fa8b8
-FUN_ov16_020fa8b8: ; 0x020FA8B8
-	stmfd sp!, {r4, lr}
-	add r2, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r1, r0, r2
-	mov r4, #0
-	mov r1, r4
-	bl FUN_ov16_020fc7b4
-	cmp r0, #0
-	movne r4, #1
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fa8b8
-
-	arm_func_start FUN_ov16_020fa8e4
-FUN_ov16_020fa8e4: ; 0x020FA8E4
-	add r2, r0, #0x4c
-	mov r0, #0x14
-	mla r0, r1, r0, r2
-	ldr r12, _020FA8F8 ; =FUN_ov16_020fc898
-	bx r12
-_020FA8F8: .word FUN_ov16_020fc898
-	arm_func_end FUN_ov16_020fa8e4
-
-	arm_func_start FUN_ov16_020fa8fc
-FUN_ov16_020fa8fc: ; 0x020FA8FC
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, #0
-	add r5, r0, #0x4c
-	mov r4, #0x14
-_020FA90C:
-	mla r0, r6, r4, r5
-	bl FUN_ov16_020fc5f8
-	add r6, r6, #1
-	cmp r6, #5
-	blt _020FA90C
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fa8fc
-
-	arm_func_start FUN_ov16_020fa924
-FUN_ov16_020fa924: ; 0x020FA924
-	ldr r12, _020FA92C ; =FUN_ov16_020f9588
-	bx r12
-_020FA92C: .word FUN_ov16_020f9588
-	arm_func_end FUN_ov16_020fa924
-
-	arm_func_start FUN_ov16_020fa930
-FUN_ov16_020fa930: ; 0x020FA930
-	ldr r12, _020FA938 ; =FUN_ov16_020f959c
-	bx r12
-_020FA938: .word FUN_ov16_020f959c
-	arm_func_end FUN_ov16_020fa930
-
-	arm_func_start FUN_ov16_020fa93c
-FUN_ov16_020fa93c: ; 0x020FA93C
-	stmfd sp!, {r3, lr}
-	ldr r1, [r0, #4]
-	cmp r1, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r0, _020FA960 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd278
-	ldmfd sp!, {r3, pc}
-_020FA960: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fa93c
-
-	arm_func_start FUN_ov16_020fa964
-FUN_ov16_020fa964: ; 0x020FA964
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	mov r6, r0
-	mov r4, #0
-	bl FUN_ov16_020fa93c
-	cmp r0, #0
-	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	mov r5, r4
-	add r8, r6, #0x4c
-	mov r9, #1
-	mov r7, #0x14
-_020FA98C:
-	mul r1, r5, r7
-	add r0, r6, r1
-	ldr r0, [r0, #0x50]
-	cmp r0, #0
-	moveq r0, r9
-	movne r0, r4
-	cmp r0, #0
-	bne _020FA9BC
-	add r0, r8, r1
-	bl FUN_ov16_020fc8d0
-	cmp r0, #0
-	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020FA9BC:
-	add r5, r5, #1
-	cmp r5, #5
-	blt _020FA98C
-	mov r5, #0
-	add r8, r6, #0xb0
-	mov r9, #1
-	mov r7, #0x30
-_020FA9D8:
-	mul r1, r5, r7
-	add r0, r6, r1
-	ldr r0, [r0, #0xb4]
-	cmp r0, #0
-	moveq r0, r9
-	movne r0, r4
-	cmp r0, #0
-	bne _020FAA08
-	add r0, r8, r1
-	bl FUN_ov16_02110f00
-	cmp r0, #0
-	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020FAA08:
-	add r5, r5, #1
-	cmp r5, #5
-	blt _020FA9D8
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov16_020fa964
-
-	arm_func_start FUN_ov16_020faa1c
-FUN_ov16_020faa1c: ; 0x020FAA1C
-	cmp r1, #5
-	movhs r0, #0
-	addlo r2, r0, #0x4c
-	movlo r0, #0x14
-	mlalo r0, r1, r0, r2
-	bx lr
-	arm_func_end FUN_ov16_020faa1c
-
-	arm_func_start FUN_ov16_020faa34
-FUN_ov16_020faa34: ; 0x020FAA34
-	cmp r1, #5
-	movhs r0, #0
-	addlo r2, r0, #0xb0
-	movlo r0, #0x30
-	mlalo r0, r1, r0, r2
-	bx lr
-	arm_func_end FUN_ov16_020faa34
-
-	arm_func_start FUN_ov16_020faa4c
-FUN_ov16_020faa4c: ; 0x020FAA4C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, r2
-	mov r4, r3
-	bl FUN_ov16_020faa7c
-	mov r0, r6
-	mov r1, r5
-	bl FUN_ov16_020faa84
-	mov r0, r6
-	mov r1, r4
-	bl FUN_ov16_020faa8c
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020faa4c
-
-	arm_func_start FUN_ov16_020faa7c
-FUN_ov16_020faa7c: ; 0x020FAA7C
-	str r1, [r0, #0x44]
-	bx lr
-	arm_func_end FUN_ov16_020faa7c
-
-	arm_func_start FUN_ov16_020faa84
-FUN_ov16_020faa84: ; 0x020FAA84
-	strb r1, [r0, #0x48]
-	bx lr
-	arm_func_end FUN_ov16_020faa84
-
-	arm_func_start FUN_ov16_020faa8c
-FUN_ov16_020faa8c: ; 0x020FAA8C
-	cmp r1, #0
-	ldrneh r1, [r0, #0x40]
-	ldreqh r2, [r0, #0x40]
-	orrne r1, r1, #8
-	ldreq r1, _020FAAAC ; =0x0000FFF7
-	andeq r1, r2, r1
-	strh r1, [r0, #0x40]
-	bx lr
-_020FAAAC: .word 0x0000FFF7
-	arm_func_end FUN_ov16_020faa8c
-
-	arm_func_start FUN_ov16_020faab0
-FUN_ov16_020faab0: ; 0x020FAAB0
-	ldrh r0, [r0, #0x40]
-	tst r0, #8
-	movne r0, #1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020faab0
-
-	arm_func_start _ZN6CModel5closeEv
-_ZN6CModel5closeEv: ; 0x020FAAC4
-	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _020FAB08 ; =gNsbResourceMan
-	mov r4, r0
-	ldr r0, [r1]
-	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd878
-	add r5, r4, #0xb0
-	mov r6, #0
-	mov r4, #0x30
-	b _020FAAF8
-_020FAAEC:
-	mla r0, r6, r4, r5
-	bl FUN_ov16_021110ac
-	add r6, r6, #1
-_020FAAF8:
-	cmp r6, #5
-	blt _020FAAEC
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FAB08: .word gNsbResourceMan
-	arm_func_end _ZN6CModel5closeEv
-
-	arm_func_start FUN_ov16_020fab0c
-FUN_ov16_020fab0c: ; 0x020FAB0C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r5, r1
-	mov r6, r0
-	mov r4, r2
-	bl FUN_ov16_020fa638
-	mov r1, r5
-	bl FUN_02053c20
-	mov r1, r0
-	mov r0, r6
-	mov r2, r4
-	bl FUN_ov16_020fab3c
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fab0c
-
-	arm_func_start FUN_ov16_020fab3c
-FUN_ov16_020fab3c: ; 0x020FAB3C
-	cmp r1, #0
-	bxlt lr
-	cmp r1, #0x20
-	bxge lr
-	cmp r2, #0
-	ldrne r3, [r0, #0x3c]
-	mov r2, #1
-	orrne r1, r3, r2, lsl r1
-	strne r1, [r0, #0x3c]
-	mvneq r1, r2, lsl r1
-	ldreq r2, [r0, #0x3c]
-	andeq r1, r2, r1
-	streq r1, [r0, #0x3c]
-	bx lr
-	arm_func_end FUN_ov16_020fab3c
-
-	arm_func_start FUN_ov16_020fab74
-FUN_ov16_020fab74: ; 0x020FAB74
-	cmp r1, #0x20
-	movhs r0, #0
-	bxhs lr
-	ldr r2, [r0, #0x3c]
-	mov r0, #1
-	tst r2, r0, lsl r1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fab74
-
-	arm_func_start _ZN6CModel5setupEv
-_ZN6CModel5setupEv: ; 0x020FAB94
-	stmfd sp!, {r4, r5, r6, lr}
-	ldr r1, _020FABD8 ; =gNsbResourceMan
-	mov r4, r0
-	ldr r0, [r1]
-	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd8ec
-	add r5, r4, #0xb0
-	mov r6, #0
-	mov r4, #0x30
-	b _020FABC8
-_020FABBC:
-	mla r0, r6, r4, r5
-	bl FUN_ov16_021110d4
-	add r6, r6, #1
-_020FABC8:
-	cmp r6, #5
-	blt _020FABBC
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FABD8: .word gNsbResourceMan
-	arm_func_end _ZN6CModel5setupEv
-
-	arm_func_start FUN_ov16_020fabdc
-FUN_ov16_020fabdc: ; 0x020FABDC
-	strb r1, [r0, #0x4a]
-	bx lr
-	arm_func_end FUN_ov16_020fabdc
-
-	arm_func_start FUN_ov16_020fabe4
-FUN_ov16_020fabe4: ; 0x020FABE4
-	ldr r12, _020FABF0 ; =FUN_ov16_02111248
-	add r0, r0, #0x1a0
-	bx r12
-_020FABF0: .word FUN_ov16_02111248
-	arm_func_end FUN_ov16_020fabe4
-
-	arm_func_start FUN_ov16_020fabf4
-FUN_ov16_020fabf4: ; 0x020FABF4
-	stmfd sp!, {r3, lr}
-	bl FUN_ov16_020fa638
-	cmp r0, #0
-	addne r0, r0, #0x14
-	moveq r0, #0
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fabf4
-
-	arm_func_start FUN_ov16_020fac0c
-FUN_ov16_020fac0c: ; 0x020FAC0C
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	mov r10, r0
-	mov r11, r1
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r0, r10
-	bl FUN_ov16_020fa638
-	str r0, [sp]
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r9, #0
-	mov r8, r9
-	add r5, r10, #0xb0
-	mov r6, r9
-	mov r7, #1
-	mov r4, #0x30
-_020FAC50:
-	mul r1, r8, r4
-	add r0, r10, r1
-	ldr r0, [r0, #0xb4]
-	cmp r0, #0
-	moveq r0, r7
-	movne r0, r6
-	cmp r0, #0
-	bne _020FAC80
-	add r0, r5, r1
-	bl FUN_ov16_02110f54
-	cmp r0, #0
-	addne r9, r9, #1
-_020FAC80:
-	add r8, r8, #1
-	cmp r8, #5
-	blt _020FAC50
-	ldrb r0, [r10, #0x42]
-	cmp r0, #1
-	bne _020FACA4
-	cmp r11, #0
-	cmpne r9, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FACA4:
-	mov r0, r10
-	bl FUN_ov16_020fad24
-	cmp r11, #0
-	cmpne r9, #0
-	ble _020FACE8
-	mov r6, #0
-	add r5, r10, #0xb0
-	mov r4, #0x30
-_020FACC4:
-	mla r0, r6, r4, r5
-	mov r1, r10
-	bl FUN_ov16_02110df0
-	add r6, r6, #1
-	cmp r6, #5
-	blt _020FACC4
-	mov r0, #2
-	strb r0, [r10, #0x42]
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FACE8:
-	mov r0, r10
-	bl FUN_ov16_020fa6f4
-	movs r4, r0
-	moveq r0, #0
-	streqb r0, [r10, #0x42]
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldr r0, [sp]
-	mov r1, r4
-	bl NNS_G3dBindMdlTex
-	ldr r0, [sp]
-	mov r1, r4
-	bl NNS_G3dBindMdlPltt
-	mov r0, #1
-	strb r0, [r10, #0x42]
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020fac0c
-
-	arm_func_start FUN_ov16_020fad24
-FUN_ov16_020fad24: ; 0x020FAD24
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r7, r0
-	bl FUN_ov16_020f959c
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	mov r0, r7
-	bl FUN_ov16_020fa638
-	movs r4, r0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldrb r1, [r7, #0x42]
-	cmp r1, #0
-	beq _020FAD98
-	cmp r1, #1
-	beq _020FAD68
-	cmp r1, #2
-	beq _020FAD78
-	b _020FAD98
-_020FAD68:
-	bl NNS_G3dReleaseMdlTex
-	mov r0, r4
-	bl NNS_G3dReleaseMdlPltt
-	b _020FAD98
-_020FAD78:
-	mov r6, #0
-	add r5, r7, #0xb0
-	mov r4, #0x30
-_020FAD84:
-	mla r0, r6, r4, r5
-	bl FUN_ov16_02110eb4
-	add r6, r6, #1
-	cmp r6, #5
-	blt _020FAD84
-_020FAD98:
-	mov r0, #0
-	strb r0, [r7, #0x42]
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020fad24
-
-	arm_func_start FUN_ov16_020fada4
-FUN_ov16_020fada4: ; 0x020FADA4
-	cmp r1, #0
-	movne r1, #1
-	moveq r1, #0
-	strb r1, [r0, #0x43]
-	bx lr
-	arm_func_end FUN_ov16_020fada4
-
-	arm_func_start FUN_ov16_020fadb8
-FUN_ov16_020fadb8: ; 0x020FADB8
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, #0x20
-	mov r1, r5
-	mov r2, r4
-	mov r0, #0
-	bl MIi_CpuClearFast
-	sub r0, r4, #0x21
-	str r0, [r5, #8]
-	str r0, [r5, #4]
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fadb8
-
-	arm_func_start FUN_ov16_020fade4
-FUN_ov16_020fade4: ; 0x020FADE4
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	mov r1, #0
-	add r0, r4, #0x24
-	str r1, [r4, #4]
-	str r1, [r4, #8]
-	bl FUN_ov16_020fadb8
-	mov r0, r4
-	bl FUN_ov16_020fb2cc
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fade4
-
-	arm_func_start FUN_ov16_020fae0c
-FUN_ov16_020fae0c: ; 0x020FAE0C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r1
-	ldrb r1, [r4, #0xc]
-	mov r5, r0
-	cmp r1, #2
-	movne r0, #0
-	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r1, [r0]
-	ldr r1, [r1, #0x20]
-	blx r1
-	ldr r0, _020FAE50 ; =gNsbResourceMan
-	mov r1, r4
-	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
-	str r0, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FAE50: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fae0c
-
-	arm_func_start FUN_ov16_020fae54
-FUN_ov16_020fae54: ; 0x020FAE54
-	stmfd sp!, {r3, lr}
-	ldr r2, [r0]
-	ldr r1, [r1, #4]
-	ldr r2, [r2, #0xc]
-	blx r2
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fae54
-
-	arm_func_start FUN_ov16_020fae6c
-FUN_ov16_020fae6c: ; 0x020FAE6C
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0x10
-	ldr r3, [r0]
-	mov r8, r0
-	ldr r3, [r3, #0x20]
-	mov r7, r1
-	mov r6, r2
-	blx r3
-	mov r5, #0
-	str r5, [sp]
-	str r5, [sp, #4]
-	str r5, [sp, #8]
-	mov r4, #1
-	ldr r0, _020FAED4 ; =gNsbResourceMan
-	str r4, [sp, #0xc]
-	ldr r0, [r0]
-	mov r1, r7
-	mov r3, r6
-	mov r2, #2
-	bl FUN_ov16_020fcd08
-	str r0, [r8, #4]
-	cmp r0, #0
-	moveq r0, r5
-	movne r0, r4
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020FAED4: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fae6c
-
-	arm_func_start FUN_ov16_020faed8
-FUN_ov16_020faed8: ; 0x020FAED8
-	stmfd sp!, {r4, r5, r6, lr}
-	ldr r3, [r0]
-	mov r6, r0
-	ldr r3, [r3, #0x20]
-	mov r5, r1
-	mov r4, r2
-	blx r3
-	ldr r0, _020FAF20 ; =gNsbResourceMan
-	mov r1, r5
-	ldr r0, [r0]
-	mov r2, r4
-	mov r3, #2
-	bl FUN_ov16_020fd120
-	str r0, [r6, #4]
-	cmp r0, #0
-	moveq r0, #0
-	movne r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FAF20: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020faed8
-
-	arm_func_start FUN_ov16_020faf24
-FUN_ov16_020faf24: ; 0x020FAF24
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r1, [r4, #4]
-	cmp r1, #0
-	beq _020FAF44
-	ldr r0, _020FAF58 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-_020FAF44:
-	mov r0, r4
-	ldr r1, [r0]
-	ldr r1, [r1, #8]
-	blx r1
-	ldmfd sp!, {r4, pc}
-_020FAF58: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020faf24
-
-	arm_func_start FUN_ov16_020faf5c
-FUN_ov16_020faf5c: ; 0x020FAF5C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, r1
-	bl FUN_ov16_020fb050
-	mov r1, r0
-	mov r0, r5
-	mov r2, r4
-	bl FUN_ov16_020fafb0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020faf5c
-
-	arm_func_start FUN_ov16_020faf80
-FUN_ov16_020faf80: ; 0x020FAF80
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	bl FUN_ov16_020fb110
-	mov r4, r0
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fb050
-	mov r1, r0
-	mov r0, r5
-	mov r2, r4
-	bl FUN_ov16_020fafb0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020faf80
-
-	arm_func_start FUN_ov16_020fafb0
-FUN_ov16_020fafb0: ; 0x020FAFB0
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	cmp r1, #0
-	bne _020FAFCC
-	bl FUN_ov16_020fb018
-	mov r0, #0
-	ldmfd sp!, {r4, pc}
-_020FAFCC:
-	str r2, [r4, #0x2c]
-	ldr r12, [r1, #0xc]
-	mov r2, #0
-	str r12, [r4, #0x24]
-	str r12, [r4, #0x30]
-	ldr r3, [r1, #0x10]
-	str r3, [r4, #0x34]
-	ldr r3, [r1, #0x14]
-	str r3, [r4, #0x38]
-	ldr r3, [r1, #0x14]
-	mov r1, r12
-	str r3, [r4, #0x3c]
-	strb r2, [r4, #0x40]
-	strb r2, [r4, #0x41]
-	bl FUN_ov16_020fb024
-	mov r0, r4
-	bl FUN_ov16_020fb2cc
-	mov r0, #1
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fafb0
-
-	arm_func_start FUN_ov16_020fb018
-FUN_ov16_020fb018: ; 0x020FB018
-	ldr r1, [r0, #0x3c]
-	str r1, [r0, #0x38]
-	bx lr
-	arm_func_end FUN_ov16_020fb018
-
-	arm_func_start FUN_ov16_020fb024
-FUN_ov16_020fb024: ; 0x020FB024
-	str r1, [r0, #0x24]
-	bx lr
-	arm_func_end FUN_ov16_020fb024
-
-	arm_func_start FUN_ov16_020fb02c
-FUN_ov16_020fb02c: ; 0x020FB02C
-	ldrb r0, [r0, #0x40]
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fb02c
-
-	arm_func_start FUN_ov16_020fb040
-FUN_ov16_020fb040: ; 0x020FB040
-	strb r1, [r0, #0x41]
-	bx lr
-	arm_func_end FUN_ov16_020fb040
-
-	arm_func_start FUN_ov16_020fb048
-FUN_ov16_020fb048: ; 0x020FB048
-	ldrb r0, [r0, #0x41]
-	bx lr
-	arm_func_end FUN_ov16_020fb048
-
-	arm_func_start FUN_ov16_020fb050
-FUN_ov16_020fb050: ; 0x020FB050
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r4, r1
-	ldr r1, [r6, #4]
-	cmp r1, #0
-	ldrne r0, [r1, #4]
-	cmpne r0, #0
-	moveq r5, #0
-	beq _020FB0BC
-	ldr r0, [r6, #8]
-	cmp r0, #0
-	movne r5, #1
-	bne _020FB0BC
-	ldr r0, _020FB10C ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd278
-	cmp r0, #0
-	mov r5, #0
-	bne _020FB0BC
-	ldr r0, [r6, #4]
-	mov r2, r5
-	ldr r1, [r0, #4]
-	add r0, r6, #0xc
-	bl _ZN16CSceneScriptData8initFileEPvPKc
-	cmp r0, #0
-	movne r5, #1
-	strne r5, [r6, #8]
-_020FB0BC:
-	cmp r5, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	add r0, r6, #0xc
-	mov r1, #0x3e8
-	bl _ZN16CSceneScriptData18getInstructionByIDEl
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	cmp r4, #0
-	blt _020FB0F4
-	ldr r1, [r0, #8]
-	cmp r4, r1
-	blt _020FB0FC
-_020FB0F4:
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FB0FC:
-	add r1, r0, #0xc
-	mov r0, #0x18
-	mla r0, r4, r0, r1
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FB10C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb050
-
-	arm_func_start FUN_ov16_020fb110
-FUN_ov16_020fb110: ; 0x020FB110
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	movs r4, r1
-	mov r6, r0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, [r6, #4]
-	cmp r1, #0
-	ldrne r0, [r1, #4]
-	cmpne r0, #0
-	moveq r5, #0
-	beq _020FB184
-	ldr r0, [r6, #8]
-	cmp r0, #0
-	movne r5, #1
-	bne _020FB184
-	ldr r0, _020FB1E8 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd278
-	cmp r0, #0
-	mov r5, #0
-	bne _020FB184
-	ldr r0, [r6, #4]
-	mov r2, r5
-	ldr r1, [r0, #4]
-	add r0, r6, #0xc
-	bl _ZN16CSceneScriptData8initFileEPvPKc
-	cmp r0, #0
-	movne r5, #1
-	strne r5, [r6, #8]
-_020FB184:
-	cmp r5, #0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	add r0, r6, #0xc
-	mov r1, #0x3e8
-	bl _ZN16CSceneScriptData18getInstructionByIDEl
-	movs r5, r0
-	mvneq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	add r6, r5, #0xc
-	mov r7, #0
-	b _020FB1D4
-_020FB1B4:
-	ldr r0, [r6, #8]
-	mov r1, r4
-	bl strcmp
-	cmp r0, #0
-	moveq r0, r7
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	add r7, r7, #1
-	add r6, r6, #0x18
-_020FB1D4:
-	ldr r0, [r5, #8]
-	cmp r7, r0
-	blt _020FB1B4
-	mvn r0, #0
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FB1E8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb110
-
-	arm_func_start FUN_ov16_020fb1ec
-FUN_ov16_020fb1ec: ; 0x020FB1EC
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r0
-	ldr r2, [r4, #0x38]
-	cmp r1, #0
-	ldrlt r0, [r4, #0x34]
-	mul r2, r1, r2
-	strlt r0, [r4, #0x24]
-	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r4, #0x24]
-	ldr r3, [r4, #0x34]
-	add r1, r1, r2
-	str r1, [r4, #0x24]
-	cmp r1, r3
-	blt _020FB2A4
-	ldrb r1, [r4, #0x41]
-	mov r5, #1
-	strb r5, [r4, #0x40]
-	cmp r1, #0
-	beq _020FB244
-	cmp r1, #1
-	beq _020FB298
-	b _020FB2A0
-_020FB244:
-	ldr r1, [r4, #0x28]
-	sub r2, r5, #2
-	cmp r1, r2
-	streq r3, [r4, #0x24]
-	beq _020FB2A4
-	ldr r2, [r4, #0x2c]
-	cmp r1, r2
-	streqb r5, [r4, #0x40]
-	streqb r5, [r4, #0x41]
-	streq r3, [r4, #0x24]
-	beq _020FB2A4
-	bl FUN_ov16_020faf5c
-	cmp r0, #0
-	bne _020FB2A4
-	ldr r0, [r4, #0x34]
-	sub r2, r5, #2
-	mov r1, #2
-	str r2, [r4, #0x28]
-	strb r1, [r4, #0x41]
-_020FB290:
-	str r0, [r4, #0x24]
-	b _020FB2A4
-_020FB298:
-	ldr r0, [r4, #0x30]
-	b _020FB290
-_020FB2A0:
-	str r3, [r4, #0x24]
-_020FB2A4:
-	ldr r0, [r4, #0x24]
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fb1ec
-
-	arm_func_start FUN_ov16_020fb2ac
-FUN_ov16_020fb2ac: ; 0x020FB2AC
-	ldr r1, _020FB2C4 ; =gNsbResourceMan
-	mov r2, r0
-	ldr r0, [r1]
-	ldr r1, [r2, #4]
-	ldr r12, _020FB2C8 ; =FUN_ov16_020fd278
-	bx r12
-_020FB2C4: .word gNsbResourceMan
-_020FB2C8: .word FUN_ov16_020fd278
-	arm_func_end FUN_ov16_020fb2ac
-
-	arm_func_start FUN_ov16_020fb2cc
-FUN_ov16_020fb2cc: ; 0x020FB2CC
-	mov r1, #0
-	str r1, [r0, #0x48]
-	str r1, [r0, #0x8c]
-	str r1, [r0, #0xd0]
-	str r1, [r0, #0x44]
-	bx lr
-	arm_func_end FUN_ov16_020fb2cc
-
-	arm_func_start FUN_ov16_020fb2e4
-FUN_ov16_020fb2e4: ; 0x020FB2E4
-	stmfd sp!, {r4, lr}
-	ldr r1, _020FB318 ; =0x02118880
-	mov r4, r0
-	str r1, [r4]
-	ldr r1, [r0]
-	ldr r1, [r1, #0x20]
-	blx r1
-	add r0, r4, #0xc
-	bl _ZN16CSceneScriptDataD1Ev
-	mov r0, r4
-	bl _ZdlPv
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-_020FB318: .word ov16_02118880
-	arm_func_end FUN_ov16_020fb2e4
-
-	arm_func_start FUN_ov16_020fb31c
-FUN_ov16_020fb31c: ; 0x020FB31C
-	stmfd sp!, {r3, lr}
-	ldr r3, [r0]
-	mov r2, #1
-	ldr r3, [r3, #0x14]
-	blx r3
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fb31c
-
-	arm_func_start FUN_ov16_020fb334
-FUN_ov16_020fb334: ; 0x020FB334
-	ldr r0, [r0, #0x99c]
-	tst r0, #0x100
-	movne r0, #1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fb334
-
-	arm_func_start FUN_ov16_020fb348
-FUN_ov16_020fb348: ; 0x020FB348
-	add r0, r0, #0x348
-	add r0, r0, #0x400
-	bx lr
-	arm_func_end FUN_ov16_020fb348
-
-	arm_func_start FUN_ov16_020fb354
-FUN_ov16_020fb354: ; 0x020FB354
-	cmp r1, #3
-	addls pc, pc, r1, lsl #2
-	b _020FB378
-_020FB360: ; jump table
-	b _020FB370 ; case 0
-	b _020FB378 ; case 1
-	b _020FB370 ; case 2
-	b _020FB378 ; case 3
-_020FB370:
-	mov r0, #1
-	bx lr
-_020FB378:
-	mov r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fb354
-
-	arm_func_start FUN_ov16_020fb380
-FUN_ov16_020fb380: ; 0x020FB380
-	stmfd sp!, {r3, lr}
-	cmp r1, #3
-	addls pc, pc, r1, lsl #2
-	ldmfd sp!, {r3, pc}
-_020FB390: ; jump table
-	ldmfd sp!, {r3, pc} ; case 0
-	ldmfd sp!, {r3, pc} ; case 1
-	ldmfd sp!, {r3, pc} ; case 2
-	b _020FB3A0 ; case 3
-_020FB3A0:
-	ldr r3, _020FB3B0 ; =0x021188C0
-	mov r2, #0
-	bl FUN_ov16_020fb3b4
-	ldmfd sp!, {r3, pc}
-_020FB3B0: .word ov16_021188C0
-	arm_func_end FUN_ov16_020fb380
-
-	arm_func_start FUN_ov16_020fb3b4
-FUN_ov16_020fb3b4: ; 0x020FB3B4
-	stmfd sp!, {r4, r5, r6, lr}
-	cmp r1, #4
-	mov r6, r3
-	movhs r4, #0
-	movlo r3, #0x1bc
-	mlalo r4, r1, r3, r0
-	cmp r2, #4
-	movhs r5, #0
-	movlo r1, #0x1bc
-	mlalo r5, r2, r1, r0
-	mov r0, r5
-	bl FUN_ov16_020fa638
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r1, r6
-	bl FUN_02053c20
-	cmp r0, #0
-	movlt r0, #0
-	ldmltfd sp!, {r4, r5, r6, pc}
-	mov r0, r4
-	mov r1, r5
-	mov r2, r6
-	bl FUN_ov16_020fa760
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fb3b4
-
-	arm_func_start FUN_ov16_020fb41c
-FUN_ov16_020fb41c: ; 0x020FB41C
-	cmp r1, #3
-	addls pc, pc, r1, lsl #2
-	b _020FB440
-_020FB428: ; jump table
-	b _020FB438 ; case 0
-	b _020FB438 ; case 1
-	b _020FB438 ; case 2
-	b _020FB440 ; case 3
-_020FB438:
-	mov r0, #1
-	bx lr
-_020FB440:
-	mov r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fb41c
-
-	arm_func_start FUN_ov16_020fb448
-FUN_ov16_020fb448: ; 0x020FB448
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r4, r0
-	mov r6, #0
-	mov r5, #0x1bc
-_020FB458:
-	mla r0, r6, r5, r4
-	bl FUN_ov16_020f9cdc
-	add r6, r6, #1
-	cmp r6, #4
-	blt _020FB458
-	add r0, r4, #0x6f0
-	bl FUN_ov16_02110b80
-	mov r7, #0
-	add r6, r4, #0x720
-	mov r5, #0x14
-_020FB480:
-	mla r0, r7, r5, r6
-	bl FUN_ov16_020fc538
-	add r7, r7, #1
-	cmp r7, #2
-	blt _020FB480
-	add r0, r4, #0x348
-	add r0, r0, #0x400
-	ldr r1, [r0]
-	ldr r1, [r1, #8]
-	blx r1
-	mov r5, #0
-	str r5, [r4, #0x85c]
-	add r0, r4, #0x860
-	ldr r1, [r0]
-	ldr r1, [r1, #8]
-	blx r1
-	mov r0, #0x1000
-	str r5, [r4, #0x974]
-	str r5, [r4, #0x990]
-	str r5, [r4, #0x994]
-	str r5, [r4, #0x998]
-	str r5, [r4, #0x978]
-	str r5, [r4, #0x97c]
-	str r5, [r4, #0x980]
-	str r0, [r4, #0x984]
-	str r0, [r4, #0x988]
-	str r0, [r4, #0x98c]
-	str r5, [r4, #0x99c]
-	str r5, [r4, #0x9a0]
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020fb448
-
-	arm_func_start FUN_ov16_020fb4f8
-FUN_ov16_020fb4f8: ; 0x020FB4F8
-	ldr r12, _020FB500 ; =FUN_ov16_020fb7ac
-	bx r12
-_020FB500: .word FUN_ov16_020fb7ac
-	arm_func_end FUN_ov16_020fb4f8
-
-	arm_func_start FUN_ov16_020fb504
-FUN_ov16_020fb504: ; 0x020FB504
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	mov r8, r0
-	add r0, r8, #0x348
-	add r0, r0, #0x400
-	ldr r2, [r0]
-	ldr r2, [r2, #0x24]
-	blx r2
-	mov r7, #0
-	mov r6, r0
-	mov r5, r7
-	mov r4, #0x1bc
-_020FB530:
-	mla r0, r7, r4, r8
-	mov r1, r6
-	mov r2, r5
-	bl FUN_ov16_020fa340
-	add r7, r7, #1
-	cmp r7, #4
-	blt _020FB530
-	ldr r1, [r8, #0x884]
-	mov r0, r8
-	mov r2, #1
-	bl FUN_ov16_020fa340
-	mov r0, r6
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020fb504
-
-	arm_func_start FUN_ov16_020fb564
-FUN_ov16_020fb564: ; 0x020FB564
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x34
-	mov r10, r0
-	bl FUN_ov16_020fb334
-	cmp r0, #0
-	addeq sp, sp, #0x34
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r8, #0
-	mov r1, r8
-	mov r2, r8
-	mov r0, #0x11
-	bl NNS_G3dGeBufferOP_N
-	add r0, r10, #0x178
-	mov r9, r8
-	add r5, r0, #0x800
-	add r4, r10, #0x184
-	mov r7, #3
-	add r6, sp, #4
-	mov r11, #0x1bc
-_020FB5B4:
-	mov r1, #0
-	mov r0, #0x15
-	mov r2, r1
-	bl NNS_G3dGeBufferOP_N
-	bl NNS_G3dGlbFlushVP
-	mov r0, #0x1c
-	add r1, r10, #0x990
-	mov r2, r7
-	bl NNS_G3dGeBufferOP_N
-	mov r0, r6
-	ldmia r5, {r1, r2, r3}
-	bl FUN_02053b48
-	mov r0, #0x19
-	mov r1, r6
-	mov r2, #0xc
-	bl NNS_G3dGeBufferOP_N
-	mov r0, #0x1b
-	add r1, r4, #0x800
-	mov r2, r7
-	bl NNS_G3dGeBufferOP_N
-	mla r0, r9, r11, r10
-	mov r1, #1
-	bl FUN_ov16_020fa248
-	cmp r0, #0
-	add r9, r9, #1
-	addne r8, r8, #1
-	cmp r9, #4
-	blt _020FB5B4
-	mov r4, #1
-	add r1, sp, #0
-	mov r2, r4
-	mov r0, #0x12
-	str r4, [sp]
-	bl NNS_G3dGeBufferOP_N
-	cmp r8, #0
-	movle r4, #0
-	mov r0, r4
-	add sp, sp, #0x34
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020fb564
-
-	arm_func_start FUN_ov16_020fb650
-FUN_ov16_020fb650: ; 0x020FB650
-	stmfd sp!, {r3, lr}
-	cmp r1, #4
-	movhs r0, #0
-	movlo r2, #0x1bc
-	mlalo r0, r1, r2, r0
-	cmp r0, #0
-	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov16_020fa154
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fb650
-
-	arm_func_start FUN_ov16_020fb674
-FUN_ov16_020fb674: ; 0x020FB674
-	stmfd sp!, {r4, lr}
-	cmp r1, #1
-	movhs r4, #0
-	addlo r3, r0, #0x6f0
-	movlo r2, #0x30
-	mlalo r4, r1, r2, r3
-	cmp r4, #0
-	mov r2, #0
-	ldmeqfd sp!, {r4, pc}
-	cmp r1, #0
-	moveq r2, r0
-	moveq r0, #1
-	movne r0, r2
-	cmp r0, #0
-	ldmeqfd sp!, {r4, pc}
-	mov r0, r2
-	bl FUN_ov16_020fa5f4
-	mov r0, r4
-	bl FUN_ov16_02110db4
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fb674
-
-	arm_func_start FUN_ov16_020fb6c4
-FUN_ov16_020fb6c4: ; 0x020FB6C4
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	movs r6, r1
-	mov r7, r0
-	bmi _020FB6DC
-	cmp r6, #2
-	blt _020FB6E4
-_020FB6DC:
-	mov r0, #0
-	b _020FB6F0
-_020FB6E4:
-	add r1, r7, #0x720
-	mov r0, #0x14
-	mla r0, r6, r0, r1
-_020FB6F0:
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	bl FUN_ov16_020fc5f8
-	mov r5, #0
-	mov r4, #0x1bc
-_020FB704:
-	mla r0, r5, r4, r7
-	mov r1, r6
-	bl FUN_ov16_020fa8a0
-	add r5, r5, #1
-	cmp r5, #4
-	blt _020FB704
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020fb6c4
-
-	arm_func_start FUN_ov16_020fb720
-FUN_ov16_020fb720: ; 0x020FB720
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r1, [r4, #0x85c]
-	cmp r1, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r0, _020FB74C ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-	mov r0, #0
-	str r0, [r4, #0x85c]
-	ldmfd sp!, {r4, pc}
-_020FB74C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb720
-
-	arm_func_start FUN_ov16_020fb750
-FUN_ov16_020fb750: ; 0x020FB750
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	add r0, r4, #0x860
-	ldr r1, [r0]
-	ldr r1, [r1, #0x20]
-	blx r1
-	ldr r1, [r4, #0x974]
-	cmp r1, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r0, _020FB78C ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-	mov r0, #0
-	str r0, [r4, #0x974]
-	ldmfd sp!, {r4, pc}
-_020FB78C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb750
-
-	arm_func_start FUN_ov16_020fb790
-FUN_ov16_020fb790: ; 0x020FB790
-	stmfd sp!, {r3, lr}
-	add r0, r0, #0x348
-	add r0, r0, #0x400
-	ldr r1, [r0]
-	ldr r1, [r1, #0x20]
-	blx r1
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fb790
-
-	arm_func_start FUN_ov16_020fb7ac
-FUN_ov16_020fb7ac: ; 0x020FB7AC
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	bl FUN_ov16_020fb790
-	mov r4, #0
-_020FB7BC:
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fb6c4
-	add r4, r4, #1
-	cmp r4, #2
-	blt _020FB7BC
-	mov r4, #0
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fb674
-_020FB7E4:
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fb650
-	add r4, r4, #1
-	cmp r4, #4
-	blt _020FB7E4
-	mov r0, r5
-	bl FUN_ov16_020fb720
-	mov r0, r5
-	bl FUN_ov16_020fb750
-	mov r0, r5
-	bl FUN_ov16_020fb448
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fb7ac
-
-	arm_func_start FUN_ov16_020fb818
-FUN_ov16_020fb818: ; 0x020FB818
-	stmfd sp!, {r4, r5, r6, lr}
-	sub sp, sp, #8
-	cmp r3, #4
-	mov r6, r1
-	movhs r4, #0
-	movlo r1, #0x1bc
-	mlalo r4, r3, r1, r0
-	cmp r4, #0
-	mov r5, r2
-	addeq sp, sp, #8
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r1, r3
-	bl FUN_ov16_020fb650
-	ldr r0, [sp, #0x18]
-	ldr r12, [sp, #0x1c]
-	str r0, [sp]
-	mov r0, r4
-	mov r1, r6
-	mov r2, r5
-	mov r3, #1
-	str r12, [sp, #4]
-	bl FUN_ov16_020f9edc
-	add sp, sp, #8
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fb818
-
-	arm_func_start FUN_ov16_020fb87c
-FUN_ov16_020fb87c: ; 0x020FB87C
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0xc
-	movs r7, r3
-	mov r10, r0
-	mov r9, r1
-	mov r8, r2
-	bmi _020FB8A0
-	cmp r7, #1
-	blt _020FB8A8
-_020FB8A0:
-	mov r6, #0
-	b _020FB8B4
-_020FB8A8:
-	add r1, r10, #0x6f0
-	mov r0, #0x30
-	mla r6, r7, r0, r1
-_020FB8B4:
-	cmp r6, #0
-	mov r4, #0
-	addeq sp, sp, #0xc
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	mov r0, r10
-	mov r1, r7
-	bl FUN_ov16_020fb674
-	cmp r7, #0
-	moveq r4, r10
-	moveq r0, #1
-	movne r0, r4
-	moveq r5, r7
-	cmp r0, #0
-	addeq sp, sp, #0xc
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, [sp, #0x30]
-	ldr r3, [sp, #0x34]
-	str r0, [sp]
-	mov r0, r6
-	mov r1, r9
-	mov r2, r8
-	str r3, [sp, #4]
-	mov r7, #0
-	mov r3, #1
-	str r7, [sp, #8]
-	bl FUN_ov16_02110c64
-	cmp r0, #0
-	beq _020FB940
-	mov r0, r4
-	mov r1, r6
-	mov r2, r5
-	bl FUN_ov16_020fa574
-	mov r7, r0
-_020FB940:
-	mov r0, r7
-	add sp, sp, #0xc
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov16_020fb87c
-
-	arm_func_start FUN_ov16_020fb94c
-FUN_ov16_020fb94c: ; 0x020FB94C
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #0x10
-	mov r5, #1
-	str r5, [sp]
-	str r3, [sp, #4]
-	ldr r4, [sp, #0x28]
-	ldr r3, _020FB9A8 ; =gNsbResourceMan
-	str r4, [sp, #8]
-	str r5, [sp, #0xc]
-	mov r7, r0
-	ldr r0, [r3]
-	mov r3, #0xf
-	mov r6, #0
-	bl FUN_ov16_020fcef8
-	mov r4, r0
-	mov r0, r7
-	bl FUN_ov16_020fb720
-	cmp r4, #0
-	moveq r0, r6
-	movne r0, r5
-	strne r4, [r7, #0x85c]
-	add sp, sp, #0x10
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FB9A8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb94c
-
-	arm_func_start FUN_ov16_020fb9ac
-FUN_ov16_020fb9ac: ; 0x020FB9AC
-	stmfd sp!, {r4, r5, r6, lr}
-	sub sp, sp, #0x80
-	add r4, sp, #0
-	mov r6, r0
-	ldr r1, _020FBA08 ; =0x021188C8
-	mov r0, r4
-	mov r5, #0
-	bl sprintf
-	ldr r0, _020FBA0C ; =gNsbResourceMan
-	mov r1, r4
-	ldr r0, [r0]
-	mov r2, #0xf
-	bl FUN_ov16_020fd0f4
-	movs r4, r0
-	addeq sp, sp, #0x80
-	moveq r0, r5
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r6
-	bl FUN_ov16_020fb750
-	str r4, [r6, #0x974]
-	mov r0, #1
-	add sp, sp, #0x80
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FBA08: .word ov16_021188C8
-_020FBA0C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fb9ac
-
-	arm_func_start FUN_ov16_020fba10
-FUN_ov16_020fba10: ; 0x020FBA10
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x1c
-	ldr r7, _020FBCD0 ; =0x02117928
-	mov r10, r0
-	ldmia r7!, {r0, r1, r2, r3}
-	add r6, sp, #8
-	mov r11, r6
-	stmia r6!, {r0, r1, r2, r3}
-	ldr r0, [r7]
-	ldr r4, _020FBCD4 ; =0x02117920
-	str r0, [r6]
-	ldr r5, [r4]
-	ldr r0, [r4, #4]
-	ldr r1, [r10, #0x85c]
-	str r5, [sp]
-	str r0, [sp, #4]
-	cmp r1, #0
-	mov r6, #0
-	beq _020FBB4C
-	ldr r0, _020FBCD8 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd278
-	cmp r0, #0
-	addne sp, sp, #0x1c
-	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r0, r10
-	bl FUN_ov16_020fb790
-	mov r8, r6
-	mov r0, r10
-	mov r1, r8
-	bl FUN_ov16_020fb6c4
-	add r5, r10, #0x348
-	mov r4, #0x1bc
-	b _020FBB30
-_020FBA98:
-	ldr r0, _020FBCD8 ; =gNsbResourceMan
-	ldr r1, [r10, #0x85c]
-	ldr r0, [r0]
-	ldr r3, [r11, r8, lsl #2]
-	add r2, r8, #1
-	bl FUN_ov16_020fd6d8
-	movs r9, r0
-	beq _020FBB2C
-	cmp r8, #0
-	bne _020FBAD8
-	add r0, r5, #0x400
-	ldr r2, [r0]
-	mov r1, r9
-	ldr r2, [r2, #0xc]
-	blx r2
-	b _020FBB1C
-_020FBAD8:
-	mov r1, r9
-	add r0, r10, #0x720
-	bl FUN_ov16_020fc578
-	mov r7, r6
-	b _020FBB14
-_020FBAEC:
-	mov r0, r10
-	mov r1, r7
-	bl FUN_ov16_020fb41c
-	cmp r0, #0
-	beq _020FBB10
-	mla r0, r7, r4, r10
-	mov r1, r9
-	mov r2, r6
-	bl FUN_ov16_020fa7f0
-_020FBB10:
-	add r7, r7, #1
-_020FBB14:
-	cmp r7, #4
-	blt _020FBAEC
-_020FBB1C:
-	ldr r0, _020FBCD8 ; =gNsbResourceMan
-	mov r1, r9
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-_020FBB2C:
-	add r8, r8, #1
-_020FBB30:
-	cmp r8, #2
-	blt _020FBA98
-	ldr r0, _020FBCD8 ; =gNsbResourceMan
-	ldr r1, [r10, #0x85c]
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-	str r6, [r10, #0x85c]
-_020FBB4C:
-	ldr r1, [r10, #0x974]
-	cmp r1, #0
-	beq _020FBC30
-	ldr r5, _020FBCD8 ; =gNsbResourceMan
-	ldr r0, [r5]
-	bl FUN_ov16_020fd278
-	cmp r0, #0
-	addne sp, sp, #0x1c
-	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	add r0, r10, #0x860
-	ldr r1, [r0]
-	ldr r1, [r1, #0x20]
-	blx r1
-	mov r0, r10
-	mov r1, #1
-	bl FUN_ov16_020fb6c4
-	mov r8, #0
-	add r4, r10, #0x334
-	mov r11, #1
-	add r7, sp, #0
-	b _020FBC14
-_020FBBA0:
-	ldr r0, [r5]
-	ldr r1, [r10, #0x974]
-	ldr r3, [r7, r8, lsl #2]
-	mov r2, r8
-	bl FUN_ov16_020fd6d8
-	movs r9, r0
-	beq _020FBC10
-	cmp r8, #0
-	bne _020FBBE8
-	add r0, r10, #0x860
-	ldr r2, [r0]
-	mov r1, r9
-	ldr r2, [r2, #0xc]
-	blx r2
-	ldr r1, [r10, #0x9a0]
-	add r0, r10, #0x860
-	bl FUN_ov16_020faf5c
-	b _020FBC04
-_020FBBE8:
-	mov r1, r9
-	add r0, r4, #0x400
-	bl FUN_ov16_020fc578
-	mov r0, r10
-	mov r1, r9
-	mov r2, r11
-	bl FUN_ov16_020fa7f0
-_020FBC04:
-	ldr r0, [r5]
-	mov r1, r9
-	bl FUN_ov16_020fd350
-_020FBC10:
-	add r8, r8, #1
-_020FBC14:
-	cmp r8, #2
-	blt _020FBBA0
-	ldr r0, _020FBCD8 ; =gNsbResourceMan
-	ldr r1, [r10, #0x974]
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-	str r6, [r10, #0x974]
-_020FBC30:
-	mov r5, #0x30
-	mov r7, #0
-	add r8, r10, #0x6f0
-	mov r9, #1
-	mov r4, r5
-	b _020FBC7C
-_020FBC48:
-	mla r0, r7, r5, r10
-	ldr r0, [r0, #0x6f4]
-	cmp r0, #0
-	moveq r0, r9
-	movne r0, r6
-	cmp r0, #0
-	bne _020FBC78
-	mla r0, r7, r4, r8
-	bl FUN_ov16_02110f00
-	cmp r0, #0
-	addne sp, sp, #0x1c
-	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBC78:
-	add r7, r7, #1
-_020FBC7C:
-	cmp r7, #1
-	blt _020FBC48
-	mov r4, #0x1bc
-	mov r7, #0
-	mov r5, r4
-	b _020FBCBC
-_020FBC94:
-	mla r0, r7, r5, r10
-	bl FUN_ov16_020fa924
-	cmp r0, #0
-	bne _020FBCB8
-	mla r0, r7, r4, r10
-	bl FUN_ov16_020fa93c
-	cmp r0, #0
-	addne sp, sp, #0x1c
-	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBCB8:
-	add r7, r7, #1
-_020FBCBC:
-	cmp r7, #4
-	blt _020FBC94
-	mov r0, #0
-	add sp, sp, #0x1c
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBCD0: .word ov16_02117928
-_020FBCD4: .word ov16_02117920
-_020FBCD8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fba10
-
-	arm_func_start FUN_ov16_020fbcdc
-FUN_ov16_020fbcdc: ; 0x020FBCDC
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	mov r6, #0
-	mov r10, r0
-	mov r5, #1
-	mov r8, r6
-_020FBCF0:
-	mov r0, #0x1bc
-	mul r7, r8, r0
-	add r0, r10, r7
-	bl FUN_ov16_020fa924
-	cmp r0, #0
-	bne _020FBE24
-	add r0, r10, r7
-	bl FUN_ov16_020fa930
-	cmp r0, #0
-	bne _020FBD40
-	mov r0, r10
-	mov r1, r8
-	bl FUN_ov16_020fb354
-	mov r2, r0
-	mov r1, r6
-	add r0, r10, r7
-	bl FUN_ov16_020f9f7c
-	cmp r0, #0
-	moveq r0, r6
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBD40:
-	mov r0, r10
-	mov r1, r8
-	bl FUN_ov16_020fb380
-	mov r4, #0
-_020FBD50:
-	mov r1, r4
-	add r0, r10, r7
-	bl FUN_ov16_020faa1c
-	ldr r1, [r0, #4]
-	mov r2, r5
-	cmp r1, #0
-	movne r2, r6
-	cmp r2, #0
-	bne _020FBDAC
-	cmp r1, #0
-	ldrne r0, [r0, #0xc]
-	cmpne r0, #0
-	movne r0, r5
-	moveq r0, r6
-	cmp r0, #0
-	bne _020FBDAC
-	mov r1, r4
-	mov r2, r6
-	add r0, r10, r7
-	bl FUN_ov16_020fa838
-	cmp r0, #0
-	moveq r0, r6
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBDAC:
-	add r4, r4, #1
-	cmp r4, #2
-	blt _020FBD50
-	mov r11, #0
-	mov r4, #1
-	mov r9, r11
-_020FBDC4:
-	mov r1, r9
-	add r0, r10, r7
-	bl FUN_ov16_020faa34
-	ldr r1, [r0, #4]
-	cmp r1, #0
-	moveq r1, r4
-	movne r1, r11
-	cmp r1, #0
-	bne _020FBE18
-	bne _020FBDFC
-	ldr r1, [r0, #0xc]
-	tst r1, #1
-	movne r1, r4
-	bne _020FBE00
-_020FBDFC:
-	mov r1, #0
-_020FBE00:
-	cmp r1, #0
-	bne _020FBE18
-	bl FUN_ov16_02110f78
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FBE18:
-	add r9, r9, #1
-	cmp r9, #5
-	blt _020FBDC4
-_020FBE24:
-	add r8, r8, #1
-	cmp r8, #4
-	blt _020FBCF0
-	mov r0, r10
-	mov r1, r5
-	bl FUN_ov16_020fbe44
-	mov r0, r5
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020fbcdc
-
-	arm_func_start FUN_ov16_020fbe44
-FUN_ov16_020fbe44: ; 0x020FBE44
-	cmp r1, #0
-	ldr r1, [r0, #0x99c]
-	orrne r1, r1, #0x100
-	biceq r1, r1, #0x100
-	str r1, [r0, #0x99c]
-	bx lr
-	arm_func_end FUN_ov16_020fbe44
-
-	arm_func_start FUN_ov16_020fbe5c
-FUN_ov16_020fbe5c: ; 0x020FBE5C
-	str r1, [r0, #0x990]
-	str r2, [r0, #0x994]
-	str r3, [r0, #0x998]
-	bx lr
-	arm_func_end FUN_ov16_020fbe5c
-
-	arm_func_start FUN_ov16_020fbe6c
-FUN_ov16_020fbe6c: ; 0x020FBE6C
-	mov r1, r1, lsl #0x10
-	mov r2, r2, lsl #0x10
-	mov r3, r3, lsl #0x10
-	mov r12, r1, lsr #0x10
-	mov r2, r2, lsr #0x10
-	mov r1, r3, lsr #0x10
-	str r12, [r0, #0x978]
-	str r2, [r0, #0x97c]
-	str r1, [r0, #0x980]
-	bx lr
-	arm_func_end FUN_ov16_020fbe6c
-
-	arm_func_start FUN_ov16_020fbe94
-FUN_ov16_020fbe94: ; 0x020FBE94
-	str r1, [r0, #0x984]
-	str r2, [r0, #0x988]
-	str r3, [r0, #0x98c]
-	bx lr
-	arm_func_end FUN_ov16_020fbe94
-
-	arm_func_start FUN_ov16_020fbea4
-FUN_ov16_020fbea4: ; 0x020FBEA4
-	mov r3, r0
-	add r0, r1, #0x990
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fbea4
-
-	arm_func_start FUN_ov16_020fbeb8
-FUN_ov16_020fbeb8: ; 0x020FBEB8
-	add r1, r1, #0x178
-	mov r3, r0
-	add r0, r1, #0x800
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fbeb8
-
-	arm_func_start FUN_ov16_020fbed0
-FUN_ov16_020fbed0: ; 0x020FBED0
-	add r1, r1, #0x184
-	mov r3, r0
-	add r0, r1, #0x800
-	ldmia r0, {r0, r1, r2}
-	stmia r3, {r0, r1, r2}
-	bx lr
-	arm_func_end FUN_ov16_020fbed0
-
-	arm_func_start FUN_ov16_020fbee8
-FUN_ov16_020fbee8: ; 0x020FBEE8
-	stmfd sp!, {r3, lr}
-	ldr r12, [r0, #0x984]
-	smull lr, r12, r1, r12
-	adds r1, lr, #0x800
-	adc r12, r12, #0
-	mov r1, r1, lsr #0xc
-	orr r1, r1, r12, lsl #20
-	bl FUN_ov16_020faa4c
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fbee8
-
-	arm_func_start FUN_ov16_020fbf0c
-FUN_ov16_020fbf0c: ; 0x020FBF0C
-	ldr r2, [r0, #0x984]
-	ldr r12, _020FBF2C ; =FUN_ov16_020faa7c
-	smull r3, r2, r1, r2
-	adds r1, r3, #0x800
-	adc r2, r2, #0
-	mov r1, r1, lsr #0xc
-	orr r1, r1, r2, lsl #20
-	bx r12
-_020FBF2C: .word FUN_ov16_020faa7c
-	arm_func_end FUN_ov16_020fbf0c
-
-	arm_func_start FUN_ov16_020fbf30
-FUN_ov16_020fbf30: ; 0x020FBF30
-	ldr r12, _020FBF38 ; =FUN_ov16_020faa8c
-	bx r12
-_020FBF38: .word FUN_ov16_020faa8c
-	arm_func_end FUN_ov16_020fbf30
-
-	arm_func_start FUN_ov16_020fbf3c
-FUN_ov16_020fbf3c: ; 0x020FBF3C
-	mov r12, #0
-	mov r2, #0x1bc
-_020FBF44:
-	mla r3, r12, r2, r0
-	adds r3, r3, #4
-	add r12, r12, #1
-	strneh r1, [r3, #0xa]
-	cmp r12, #4
-	blt _020FBF44
-	bx lr
-	arm_func_end FUN_ov16_020fbf3c
-
-	arm_func_start FUN_ov16_020fbf60
-FUN_ov16_020fbf60: ; 0x020FBF60
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x210
-	ldr r4, [sp, #0x238]
-	movs r7, r1
-	mov r8, r0
-	add r11, sp, #0xc
-	mov r6, r2
-	mov r5, r3
-	addeq sp, sp, #0x210
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r0, r7
-	bl FUN_ov16_020f0810
-	mov r1, r0
-	ldr r0, _020FC284 ; =gLogicThink
-	bl _ZN11CLogicThink11getTeamInfoEi
-	movs r10, r0
-	addeq sp, sp, #0x210
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldrh r1, [r10, #0x28]
-	mov r0, r7
-	cmp r1, #0
-	ldreqh r1, [r10, #0x26]
-	bl FUN_ov16_020f0b3c
-	mov r9, r0
-	mov r0, r10
-	mov r1, r7
-	bl FUN_ov16_020f0bcc
-	ldrb r1, [sp, #0x23c]
-	mov r10, r0
-	ldrb r0, [sp, #0x240]
-	cmp r1, #0
-	moveq r10, #0
-	cmp r0, #0
-	bne _020FC000
-	mov r0, r7
-	bl FUN_0206dcd4
-	ldrh r9, [r0, #0xe]
-	mov r10, #0
-_020FC000:
-	cmp r5, #0
-	movne r5, #0x17
-	bne _020FC024
-	ldr r0, _020FC284 ; =gLogicThink
-	mov r1, r7
-	bl FUN_ov16_020ee064
-	cmp r0, #0
-	ldrneh r5, [r0, #0x26]
-	moveq r5, #0
-_020FC024:
-	mov r0, r7
-	mov r1, #1
-	bl FUN_0206d9b0
-	sub r0, r0, #1
-	str r0, [r8, #0x9a0]
-	mov r1, #4
-	cmp r6, #1
-	movne r1, #5
-	mov r0, #0xc
-	mul r0, r1, r0
-	add r1, sp, #8
-	str r11, [sp]
-	str r1, [sp, #4]
-	ldr r0, [r4, r0]
-	mov r1, r7
-	mov r2, r9
-	mov r3, r10
-	bl _ZN7Archive25GetBodyModelOffsetAndSizeEPvP4UnitiiPlPm
-	cmp r0, #0
-	beq _020FC0BC
-	add r11, sp, #0x10
-	str r11, [sp]
-	add r12, sp, #0x110
-	mov r0, r7
-	mov r1, r6
-	mov r2, r9
-	mov r3, r10
-	str r12, [sp, #4]
-	bl _ZN7Archive16GetBodyModelPathEP4UnitiiiPcS2_
-	ldr r0, [sp, #0xc]
-	mov r1, r11
-	str r0, [sp]
-	ldr r0, [sp, #8]
-	add r2, sp, #0x110
-	str r0, [sp, #4]
-	mov r0, r8
-	mov r3, #0
-	bl FUN_ov16_020fb818
-_020FC0BC:
-	mov r1, #0
-	cmp r6, #1
-	movne r1, #1
-	mov r0, #0xc
-	mul r0, r1, r0
-	ldr r0, [r4, r0]
-	add r2, sp, #0xc
-	add r3, sp, #8
-	mov r1, r7
-	bl _ZN7Archive25GetHairModelOffsetAndSizeEPvP4UnitPlPm
-	cmp r0, #0
-	beq _020FC128
-	add r11, sp, #0x10
-	mov r0, r7
-	mov r1, r6
-	mov r2, r11
-	add r3, sp, #0x110
-	bl _ZN7Archive16GetHairModelPathEP4UnitiPcS2_
-	ldr r0, [sp, #0xc]
-	mov r1, r11
-	str r0, [sp]
-	ldr r0, [sp, #8]
-	add r2, sp, #0x110
-	str r0, [sp, #4]
-	mov r0, r8
-	mov r3, #2
-	bl FUN_ov16_020fb818
-_020FC128:
-	mov r1, #2
-	cmp r6, #1
-	movne r1, #3
-	mov r0, #0xc
-	mul r0, r1, r0
-	ldr r0, [r4, r0]
-	add r2, sp, #0xc
-	add r3, sp, #8
-	mov r1, r7
-	bl _ZN7Archive25GetFaceModelOffsetAndSizeEPvP4UnitPlPm
-	cmp r0, #0
-	beq _020FC194
-	add r11, sp, #0x10
-	mov r0, r7
-	mov r1, r6
-	mov r2, r11
-	add r3, sp, #0x110
-	bl _ZN7Archive16GetFaceModelPathEP4UnitiPcS2_
-	ldr r0, [sp, #0xc]
-	mov r1, r11
-	str r0, [sp]
-	ldr r0, [sp, #8]
-	add r2, sp, #0x110
-	str r0, [sp, #4]
-	mov r0, r8
-	mov r3, #3
-	bl FUN_ov16_020fb818
-_020FC194:
-	mov r2, #6
-	cmp r6, #1
-	movne r2, #7
-	mov r0, #0xc
-	mul r0, r2, r0
-	add r1, sp, #8
-	str r1, [sp]
-	ldr r0, [r4, r0]
-	add r3, sp, #0xc
-	mov r1, r7
-	mov r2, r5
-	bl _ZN7Archive26GetShoesModelOffsetAndSizeEPvP4UnitiPlPm
-	cmp r0, #0
-	beq _020FC20C
-	add r11, sp, #0x110
-	mov r0, r7
-	mov r1, r6
-	mov r2, r5
-	add r3, sp, #0x10
-	str r11, [sp]
-	bl _ZN7Archive17GetShoesModelPathEP4UnitiiPcS2_
-	ldr r1, [sp, #0xc]
-	mov r0, r8
-	str r1, [sp]
-	ldr r5, [sp, #8]
-	add r1, sp, #0x10
-	mov r2, r11
-	mov r3, #1
-	str r5, [sp, #4]
-	bl FUN_ov16_020fb818
-_020FC20C:
-	add r0, sp, #8
-	str r0, [sp]
-	ldr r0, [r4, #0x60]
-	add r3, sp, #0xc
-	mov r1, r9
-	mov r2, r10
-	add r5, sp, #0x110
-	add r6, sp, #0x10
-	bl _ZN7Archive28GetKitNumberTexOffsetAndSizeEPviiPlPm
-	cmp r0, #0
-	beq _020FC270
-	mov r0, r9
-	mov r1, r10
-	mov r2, r6
-	mov r3, r5
-	bl _ZN7Archive19GetKitNumberTexPathEiiPcS0_
-	ldr r1, [sp, #0xc]
-	mov r0, r8
-	str r1, [sp]
-	ldr r4, [sp, #8]
-	mov r1, r6
-	mov r2, r5
-	mov r3, #0
-	str r4, [sp, #4]
-	bl FUN_ov16_020fb87c
-_020FC270:
-	mov r0, r8
-	bl FUN_ov16_020fb9ac
-	mov r0, #1
-	add sp, sp, #0x210
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FC284: .word gLogicThink
-	arm_func_end FUN_ov16_020fbf60
-
-	arm_func_start FUN_ov16_020fc288
-FUN_ov16_020fc288: ; 0x020FC288
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x20
-	mov r10, r1
-	mov r5, r0
-	mov r0, r10
-	mov r4, r2
-	bl FUN_ov16_020f0810
-	mov r1, r0
-	ldr r0, _020FC474 ; =gLogicThink
-	bl _ZN11CLogicThink11getTeamInfoEi
-	cmp r0, #0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldrh r9, [r0, #0x28]
-	mov r1, r10
-	cmp r9, #0
-	ldreqh r9, [r0, #0x26]
-	bl FUN_ov16_020f0bcc
-	cmp r4, #0
-	mov r11, r0
-	mov r4, #0
-	mov r1, r4
-	add r0, r5, #0
-	moveq r11, #0
-	bl FUN_ov16_020faa34
-	mov r6, r0
-	ldr r0, [r6, #4]
-	cmp r0, #0
-	moveq r0, #1
-	movne r0, r4
-	cmp r0, #0
-	bne _020FC318
-	ldr r0, [r6, #0xc]
-	tst r0, #1
-	movne r4, #1
-_020FC318:
-	cmp r4, #0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r0, r6
-	bl FUN_ov16_02111084
-	mov r5, r0
-	mov r0, r6
-	bl FUN_ov16_02110f20
-	movs r4, r0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	cmp r4, #0
-	ldrneh r0, [r4, #0x34]
-	cmpne r0, #0
-	moveq r0, #0
-	beq _020FC36C
-	ldr r1, _020FC478 ; =0x02117950
-	add r0, r4, r0
-	bl NNS_G3dGetResDataByName
-_020FC36C:
-	cmp r0, #0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldrh r0, [r0]
-	cmp r4, #0
-	str r0, [sp, #0x18]
-	ldrneh r0, [r4, #0x34]
-	cmpne r0, #0
-	moveq r0, #0
-	beq _020FC3A4
-	ldr r1, _020FC47C ; =0x0211793C
-	add r0, r4, r0
-	bl NNS_G3dGetResDataByName
-_020FC3A4:
-	cmp r0, #0
-	addeq sp, sp, #0x20
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	ldrh r0, [r0]
-	mov r7, #0
-	mov r8, r7
-	str r0, [sp, #0x1c]
-	ldr r4, _020FC474 ; =gLogicThink
-	b _020FC3F8
-_020FC3CC:
-	mov r0, r4
-	mov r1, r10
-	mov r2, r8
-	bl FUN_ov16_020ee008
-	cmp r0, #0
-	beq _020FC3F4
-	ldrb r1, [r0, #0x1d]
-	cmp r1, #0x18
-	ldreqh r7, [r0, #0x26]
-	beq _020FC400
-_020FC3F4:
-	add r8, r8, #1
-_020FC3F8:
-	cmp r8, #2
-	blt _020FC3CC
-_020FC400:
-	ldr r0, _020FC474 ; =gLogicThink
-	mov r1, r10
-	bl FUN_ov16_020ee478
-	cmp r0, #0
-	ldrneh r3, [r0, #0x26]
-	ldr r0, _020FC480 ; =gPalSkin3dFile
-	mov r2, r10
-	stmia sp, {r7, r9, r11}
-	ldr r1, [r0]
-	ldr r0, _020FC484 ; =gGlovesInfoFile
-	str r1, [sp, #0xc]
-	ldr r1, [r0]
-	ldr r0, _020FC488 ; =gMissInfoFile
-	str r1, [sp, #0x10]
-	ldr r4, [r0]
-	ldr r0, [sp, #0x18]
-	ldr r1, [sp, #0x1c]
-	moveq r3, #0
-	add r0, r5, r0, lsl #3
-	add r1, r5, r1, lsl #3
-	str r4, [sp, #0x14]
-	bl FUN_ov16_020f0c60
-	mov r4, #1
-	mov r0, r6
-	mov r1, r4
-	bl FUN_ov16_02111098
-	mov r0, r4
-	add sp, sp, #0x20
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FC474: .word gLogicThink
-_020FC478: .word ov16_02117950
-_020FC47C: .word ov16_0211793C
-_020FC480: .word gPalSkin3dFile
-_020FC484: .word gGlovesInfoFile
-_020FC488: .word gMissInfoFile
-	arm_func_end FUN_ov16_020fc288
-
-	arm_func_start FUN_ov16_020fc48c
-FUN_ov16_020fc48c: ; 0x020FC48C
-	stmfd sp!, {r3, lr}
-	mov r1, #0
-	bl FUN_ov16_020faa34
-	cmp r0, #0
-	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov16_02110ffc
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fc48c
-
-	arm_func_start FUN_ov16_020fc4a8
-FUN_ov16_020fc4a8: ; 0x020FC4A8
-	ldrb r0, [r0, #0x42]
-	cmp r0, #2
-	moveq r0, #1
-	movne r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fc4a8
-
-	arm_func_start FUN_ov16_020fc4bc
-FUN_ov16_020fc4bc: ; 0x020FC4BC
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, #0
-	mov r4, #0x1bc
-_020FC4CC:
-	mla r0, r5, r4, r6
-	bl _ZN6CModel5closeEv
-	add r5, r5, #1
-	cmp r5, #4
-	blt _020FC4CC
-	add r0, r6, #0x6f0
-	bl FUN_ov16_021110ac
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fc4bc
-
-	arm_func_start FUN_ov16_020fc4f0
-FUN_ov16_020fc4f0: ; 0x020FC4F0
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, #0
-	mov r4, #0x1bc
-_020FC500:
-	mla r0, r5, r4, r6
-	bl _ZN6CModel5setupEv
-	add r5, r5, #1
-	cmp r5, #4
-	blt _020FC500
-	add r0, r6, #0x6f0
-	bl FUN_ov16_021110d4
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fc4f0
-
-	arm_func_start FUN_ov16_020fc524
-FUN_ov16_020fc524: ; 0x020FC524
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldrne r0, [r0, #4]
-	bx lr
-	arm_func_end FUN_ov16_020fc524
-
-	arm_func_start FUN_ov16_020fc538
-FUN_ov16_020fc538: ; 0x020FC538
-	ldr r12, _020FC54C ; =MIi_CpuClearFast
-	add r1, r0, #4
-	mov r0, #0
-	mov r2, #0x10
-	bx r12
-_020FC54C: .word MIi_CpuClearFast
-	arm_func_end FUN_ov16_020fc538
-
-	arm_func_start FUN_ov16_020fc550
-FUN_ov16_020fc550: ; 0x020FC550
-	ldr r12, _020FC558 ; =FUN_ov16_020fc5f8
-	bx r12
-_020FC558: .word FUN_ov16_020fc5f8
-	arm_func_end FUN_ov16_020fc550
-
-	arm_func_start FUN_ov16_020fc55c
-FUN_ov16_020fc55c: ; 0x020FC55C
-	stmfd sp!, {r3, lr}
-	adds r1, r1, #4
-	moveq r0, #0
-	ldmeqfd sp!, {r3, pc}
-	ldr r1, [r1]
-	bl FUN_ov16_020fc578
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fc55c
-
-	arm_func_start FUN_ov16_020fc578
-FUN_ov16_020fc578: ; 0x020FC578
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	cmp r1, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, _020FC5B8 ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r0, r5
-	bl FUN_ov16_020fc5f8
-	str r4, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FC5B8: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fc578
-
-	arm_func_start FUN_ov16_020fc5bc
-FUN_ov16_020fc5bc: ; 0x020FC5BC
-	stmfd sp!, {r3, r4, r5, lr}
-	ldr r3, _020FC5F4 ; =gNsbResourceMan
-	mov r5, r0
-	ldr r0, [r3]
-	mov r3, #6
-	bl FUN_ov16_020fd120
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	mov r0, r5
-	bl FUN_ov16_020fc5f8
-	str r4, [r5, #4]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FC5F4: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fc5bc
-
-	arm_func_start FUN_ov16_020fc5f8
-FUN_ov16_020fc5f8: ; 0x020FC5F8
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fc714
-	ldr r1, [r4, #4]
-	cmp r1, #0
-	beq _020FC61C
-	ldr r0, _020FC62C ; =gNsbResourceMan
-	ldr r0, [r0]
-	bl FUN_ov16_020fd350
-_020FC61C:
-	mov r0, #0
-	str r0, [r4, #4]
-	mov r0, #1
-	ldmfd sp!, {r4, pc}
-_020FC62C: .word gNsbResourceMan
-	arm_func_end FUN_ov16_020fc5f8
-
-	arm_func_start FUN_ov16_020fc630
-FUN_ov16_020fc630: ; 0x020FC630
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r6, r0
-	mov r5, r1
-	mov r4, r2
-	bl FUN_ov16_020fc8d0
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, [r6, #0xc]
-	cmp r1, #0
-	movne r0, #1
-	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r6, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r6, #0x10]
-	cmp r0, r5
-	ldreqh r0, [r6, #0xa]
-	cmpeq r0, r4
-	bne _020FC690
-	cmp r1, #0
-	movne r0, #1
-	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
-_020FC690:
-	mov r0, r6
-	bl FUN_ov16_020fc714
-	mov r0, r5
-	bl FUN_ov16_020fa638
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	mov r0, r6
-	bl FUN_ov16_020fc524
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	mov r1, r4
-	bl NNS_G3dGetAnmByIdx
-	mov r7, #0x100
-	ldr r0, _020FC710 ; =gAllocator
-	mov r1, r7
-	bl _ZN10CAllocator8allocateEm
-	str r0, [r6, #0xc]
-	cmp r0, #0
-	bne _020FC6F4
-	mov r0, r6
-	bl FUN_ov16_020fc714
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FC6F4:
-	mov r2, r7
-	mov r1, #0
-	bl MI_CpuFill8
-	str r5, [r6, #0x10]
-	strh r4, [r6, #0xa]
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FC710: .word gAllocator
-	arm_func_end FUN_ov16_020fc630
-
-	arm_func_start FUN_ov16_020fc714
-FUN_ov16_020fc714: ; 0x020FC714
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fc898
-	ldr r1, [r4, #0xc]
-	cmp r1, #0
-	beq _020FC734
-	ldr r0, _020FC744 ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-_020FC734:
-	mov r0, #0
-	str r0, [r4, #0xc]
-	str r0, [r4, #0x10]
-	ldmfd sp!, {r4, pc}
-_020FC744: .word gAllocator
-	arm_func_end FUN_ov16_020fc714
-
-	arm_func_start FUN_ov16_020fc748
-FUN_ov16_020fc748: ; 0x020FC748
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r2, [r5, #0xc]
-	mov r4, r1
-	cmp r2, #0
-	ldrneb r1, [r5, #8]
-	cmpne r1, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fc788
-	cmp r0, #0
-	moveq r4, #0
-	cmp r4, r0
-	subge r4, r0, #1
-	ldr r0, [r5, #0xc]
-	str r4, [r0]
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fc748
-
-	arm_func_start FUN_ov16_020fc788
-FUN_ov16_020fc788: ; 0x020FC788
-	ldrb r1, [r0, #8]
-	cmp r1, #0
-	moveq r0, #0
-	bxeq lr
-	ldr r0, [r0, #0xc]
-	cmp r0, #0
-	moveq r0, #0
-	ldrne r0, [r0, #8]
-	ldrneh r0, [r0, #4]
-	movne r0, r0, lsl #0xc
-	bx lr
-	arm_func_end FUN_ov16_020fc788
-
-	arm_func_start FUN_ov16_020fc7b4
-FUN_ov16_020fc7b4: ; 0x020FC7B4
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r5, r0
-	mov r4, r1
-	bl FUN_ov16_020fc8d0
-	cmp r0, #0
-	bne _020FC7E0
-	ldr r0, [r5, #0xc]
-	cmp r0, #0
-	ldrne r0, [r5, #0x10]
-	cmpne r0, #0
-	bne _020FC7E8
-_020FC7E0:
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FC7E8:
-	ldr r0, [r5, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r5
-	bl FUN_ov16_020fc898
-	ldr r0, [r5, #0x10]
-	ldr r0, [r0, #8]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r5
-	bl FUN_ov16_020fc524
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldrh r1, [r5, #0xa]
-	bl NNS_G3dGetAnmByIdx
-	mov r6, r0
-	cmp r4, #0
-	bne _020FC848
-	ldr r0, [r5, #0x10]
-	bl FUN_ov16_020fa71c
-	mov r4, r0
-_020FC848:
-	ldr r0, [r5, #4]
-	ldrb r0, [r0, #0xc]
-	cmp r0, #9
-	cmpeq r4, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, [r5, #0x10]
-	bl FUN_ov16_020fa638
-	mov r2, r0
-	ldr r0, [r5, #0xc]
-	mov r1, r6
-	mov r3, r4
-	bl NNS_G3dAnmObjInit
-	ldr r0, [r5, #0x10]
-	ldr r1, [r5, #0xc]
-	ldr r0, [r0, #8]
-	bl NNS_G3dRenderObjAddAnmObj
-	mov r0, #1
-	strb r0, [r5, #8]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fc7b4
-
-	arm_func_start FUN_ov16_020fc898
-FUN_ov16_020fc898: ; 0x020FC898
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r1, [r4, #0xc]
-	cmp r1, #0
-	ldrne r2, [r4, #0x10]
-	cmpne r2, #0
-	ldrneb r0, [r4, #8]
-	cmpne r0, #0
-	beq _020FC8C4
-	ldr r0, [r2, #8]
-	bl NNS_G3dRenderObjRemoveAnmObj
-_020FC8C4:
-	mov r0, #0
-	strb r0, [r4, #8]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fc898
-
-	arm_func_start FUN_ov16_020fc8d0
-FUN_ov16_020fc8d0: ; 0x020FC8D0
-	ldr r1, _020FC8E8 ; =gNsbResourceMan
-	mov r2, r0
-	ldr r0, [r1]
-	ldr r1, [r2, #4]
-	ldr r12, _020FC8EC ; =FUN_ov16_020fd278
-	bx r12
-_020FC8E8: .word gNsbResourceMan
-_020FC8EC: .word FUN_ov16_020fd278
-	arm_func_end FUN_ov16_020fc8d0
-
-	arm_func_start FUN_ov16_020fc8f0
-FUN_ov16_020fc8f0: ; 0x020FC8F0
-	ldr r2, [r0, #0x28]
-	add r1, r2, r1
-	str r1, [r0, #0x28]
-	bx lr
-	arm_func_end FUN_ov16_020fc8f0
-
-	arm_func_start FUN_ov16_020fc900
-FUN_ov16_020fc900: ; 0x020FC900
-	ldr r2, [r0, #0x28]
-	subs r1, r2, r1
-	str r1, [r0, #0x28]
-	movmi r1, #0
-	strmi r1, [r0, #0x28]
-	bx lr
-	arm_func_end FUN_ov16_020fc900
-
-	arm_func_start FUN_ov16_020fc918
-FUN_ov16_020fc918: ; 0x020FC918
-	stmfd sp!, {r4, lr}
-	cmp r1, #0
-	ldr lr, [r0, #4]
-	mvneq r0, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r4, [r0, #8]
-	mov r0, #0
-	cmp r4, #0
-	ble _020FC978
-_020FC93C:
-	ldr r12, [lr, #4]
-	cmp r12, #0
-	beq _020FC968
-	ldrh r3, [lr, #0x10]
-	tst r3, #1
-	beq _020FC968
-	cmp r12, r1
-	bne _020FC968
-	cmp r2, #0
-	strne lr, [r2]
-	ldmfd sp!, {r4, pc}
-_020FC968:
-	add r0, r0, #1
-	cmp r0, r4
-	add lr, lr, #0x18
-	blt _020FC93C
-_020FC978:
-	mvn r0, #0
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fc918
-
-	arm_func_start FUN_ov16_020fc980
-FUN_ov16_020fc980: ; 0x020FC980
-	ldrb r0, [r1, #0xc]
-	cmp r0, #6
-	bxne lr
-	ldr r2, [r1, #4]
-	ldrsb r3, [r2]
-	cmp r3, #0x42
-	ldreqsb r0, [r2, #1]
-	cmpeq r0, #0x43
-	ldreqsb r0, [r2, #2]
-	cmpeq r0, #0x41
-	moveq r0, #7
-	streqb r0, [r1, #0xc]
-	bxeq lr
-	cmp r3, #0x42
-	ldreqsb r0, [r2, #1]
-	cmpeq r0, #0x4d
-	ldreqsb r0, [r2, #2]
-	cmpeq r0, #0x41
-	moveq r0, #8
-	streqb r0, [r1, #0xc]
-	bxeq lr
-	cmp r3, #0x42
-	ldreqsb r0, [r2, #1]
-	cmpeq r0, #0x54
-	ldreqsb r0, [r2, #2]
-	cmpeq r0, #0x41
-	moveq r0, #9
-	streqb r0, [r1, #0xc]
-	bx lr
-	arm_func_end FUN_ov16_020fc980
-
-	arm_func_start _ZN15CNsbResourceMan4initEi
-_ZN15CNsbResourceMan4initEi: ; 0x020FC9F4
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r4, #0
-	mov r5, r1
-	add r0, r6, #0x10
-	str r4, [r6, #4]
-	str r4, [r6, #8]
-	str r4, [r6, #0xc]
-	str r4, [r6, #0x28]
-	bl OS_InitMutex
-	cmp r5, #0
-	movle r0, r4
-	ldmlefd sp!, {r4, r5, r6, pc}
-	mov r1, #0x18
-	mul r0, r5, r1
-	sub r1, r1, #0x19
-	bl _ZN10FileSystem13AllocateClearEii
-	cmp r0, #0
-	str r0, [r6, #4]
-	moveq r0, r4
-	strne r5, [r6, #8]
-	strne r4, [r6, #0xc]
-	movne r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end _ZN15CNsbResourceMan4initEi
-
-	arm_func_start FUN_ov16_020fca54
-FUN_ov16_020fca54: ; 0x020FCA54
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fd39c
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	beq _020FCA70
-	bl _ZN10FileSystem10DeallocateEPv
-_020FCA70:
-	mov r0, #0
-	str r0, [r4, #4]
-	str r0, [r4, #8]
-	str r0, [r4, #0xc]
-	str r0, [r4, #0x28]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fca54
-
-	arm_func_start FUN_ov16_020fca88
-FUN_ov16_020fca88: ; 0x020FCA88
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0x2c
-	add r5, sp, #0
-	mov r8, r1
-	mov r4, #0x2c
-	mov r7, r2
-	mov r1, r5
-	mov r2, r4
-	mov r0, #0
-	mov r6, r3
-	bl MIi_CpuClearFast
-	mov r0, r5
-	mov r1, r8
-	mov r2, #0x20
-	bl FUN_020538b0
-	ldr r2, [sp, #0x48]
-	mov r0, r5
-	mov r1, r4
-	str r7, [sp, #0x20]
-	str r6, [sp, #0x24]
-	str r2, [sp, #0x28]
-	bl _ZN10FileSystem9CalcCRC32EPKvm
-	add sp, sp, #0x2c
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020fca88
-
-	arm_func_start FUN_ov16_020fcae8
-FUN_ov16_020fcae8: ; 0x020FCAE8
-	stmfd sp!, {r3, r4, lr}
-	sub sp, sp, #4
-	mov r4, r1
-	mov r1, r2
-	mov r2, r3
-	ldr r12, [sp, #0x14]
-	ldr r3, [sp, #0x10]
-	str r12, [sp]
-	bl FUN_ov16_020fca88
-	str r0, [r4]
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_ov16_020fcae8
-
-	arm_func_start FUN_ov16_020fcb18
-FUN_ov16_020fcb18: ; 0x020FCB18
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r4, [r5, #4]
-	ldr r12, [sp, #0x10]
-	str r12, [sp]
-	bl FUN_ov16_020fca88
-	ldr r3, [r5, #8]
-	mov r2, #0
-	cmp r3, #0
-	ble _020FCB68
-_020FCB40:
-	ldrh r1, [r4, #0x10]
-	tst r1, #0x30
-	ldreq r1, [r4]
-	cmpeq r0, r1
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r2, r2, #1
-	cmp r2, r3
-	add r4, r4, #0x18
-	blt _020FCB40
-_020FCB68:
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fcb18
-
-	arm_func_start FUN_ov16_020fcb70
-FUN_ov16_020fcb70: ; 0x020FCB70
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #0x10
-	mov r6, #0
-	mov r8, r3
-	mov r9, r2
-	mov r10, r1
-	mov r1, r9
-	mov r2, r6
-	mov r3, r6
-	mov r4, r0
-	str r8, [sp]
-	mov r5, r6
-	bl FUN_ov16_020fcb18
-	movs r7, r0
-	beq _020FCBC0
-	mov r0, r4
-	mov r1, r7
-	bl FUN_ov16_020fd21c
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-_020FCBC0:
-	ldr r12, [r4, #8]
-	cmp r12, #0
-	ble _020FCC04
-	ldr r3, [r4, #4]
-	mov r1, #1
-	mov r0, #0x18
-_020FCBD8:
-	mla lr, r6, r0, r3
-	ldrh r2, [lr, #0x10]
-	tst r2, #1
-	movne r2, r1
-	moveq r2, r5
-	cmp r2, #0
-	moveq r7, lr
-	beq _020FCC08
-	add r6, r6, #1
-	cmp r6, r12
-	blt _020FCBD8
-_020FCC04:
-	mvn r6, #0
-_020FCC08:
-	cmp r6, #0
-	mov r5, #0
-	addlt sp, sp, #0x10
-	mov r0, r5
-	ldmltfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	mov r1, r7
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	add r0, r4, #0x10
-	bl OS_LockMutex
-	ldr r0, [sp, #0x30]
-	str r5, [sp, #0xc]
-	cmp r0, #0
-	add r0, sp, #0xc
-	beq _020FCC58
-	add r3, sp, #8
-	mov r1, r10
-	mov r2, r9
-	bl _ZN10FileSystem22ReadFileByNameDeferredEPPviPKcPa
-	b _020FCC64
-_020FCC58:
-	mov r1, r10
-	mov r2, r9
-	bl _ZN10FileSystem14ReadFileByNameEPPviPKc
-_020FCC64:
-	mov r5, r0
-	cmp r5, #0
-	ble _020FCCEC
-	mov r3, #0
-	stmia sp, {r3, r8}
-	mov r0, r4
-	mov r1, r7
-	mov r2, r9
-	bl FUN_ov16_020fcae8
-	ldr r1, [sp, #0xc]
-	ldr r0, [sp, #0x30]
-	stmib r7, {r1, r5}
-	strb r8, [r7, #0xc]
-	ldrh r2, [r7, #0x10]
-	cmp r0, #0
-	mov r1, #1
-	orr r0, r2, #1
-	strh r0, [r7, #0x10]
-	strh r1, [r7, #0x12]
-	strneb r1, [r7, #0xd]
-	ldrnesb r0, [sp, #8]
-	strneb r0, [r7, #0xf]
-	bne _020FCCD4
-	mov r2, #2
-	mov r0, r4
-	mov r1, r7
-	strb r2, [r7, #0xd]
-	bl FUN_ov16_020fc980
-_020FCCD4:
-	ldr r1, [r4, #0xc]
-	mov r0, r4
-	add r2, r1, #1
-	mov r1, r5
-	str r2, [r4, #0xc]
-	bl FUN_ov16_020fc8f0
-_020FCCEC:
-	add r0, r4, #0x10
-	bl OS_UnlockMutex
-	cmp r5, #0
-	movlt r7, #0
-	mov r0, r7
-	add sp, sp, #0x10
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov16_020fcb70
-
-	arm_func_start FUN_ov16_020fcd08
-FUN_ov16_020fcd08: ; 0x020FCD08
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x18
-	ldr r6, [sp, #0x40]
-	ldr r5, [sp, #0x44]
-	mov r7, r2
-	mov r11, r3
-	mov r2, r6
-	mov r3, r5
-	mov r8, r0
-	str r1, [sp, #0x10]
-	str r7, [sp]
-	bl FUN_ov16_020fcb18
-	movs r4, r0
-	beq _020FCD54
-	mov r0, r8
-	mov r1, r4
-	bl FUN_ov16_020fd21c
-	add sp, sp, #0x18
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FCD54:
-	ldr r9, [r8, #8]
-	mov r12, #0
-	cmp r9, #0
-	ble _020FCDA0
-	ldr lr, [r8, #4]
-	mov r1, r12
-	mov r2, #1
-	mov r0, #0x18
-_020FCD74:
-	mla r10, r12, r0, lr
-	ldrh r3, [r10, #0x10]
-	tst r3, #1
-	movne r3, r2
-	moveq r3, r1
-	cmp r3, #0
-	moveq r4, r10
-	beq _020FCDA4
-	add r12, r12, #1
-	cmp r12, r9
-	blt _020FCD74
-_020FCDA0:
-	mvn r12, #0
-_020FCDA4:
-	cmp r12, #0
-	mov r9, #0
-	addlt sp, sp, #0x18
-	mov r0, r9
-	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r1, r4
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	add r0, r8, #0x10
-	bl OS_LockMutex
-	cmp r6, #0
-	cmpeq r5, #0
-	streqb r9, [sp, #0x48]
-	mov r9, #0
-	str r9, [sp, #0x14]
-	cmp r11, #0
-	beq _020FCE20
-	ldr r3, _020FCEF4 ; =gAllocator
-	ldr r0, [r3]
-	cmp r0, #0
-	beq _020FCE58
-	ldrb r1, [sp, #0x48]
-	str r6, [sp]
-	str r5, [sp, #4]
-	str r1, [sp, #8]
-	ldrb r9, [sp, #0x4c]
-	ldr r1, [sp, #0x10]
-	add r2, sp, #0x14
-	str r9, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
-	b _020FCE54
-_020FCE20:
-	ldr r3, _020FCEF4 ; =gAllocator
-	ldr r0, [r3]
-	cmp r0, #0
-	beq _020FCE58
-	ldrb r1, [sp, #0x48]
-	str r6, [sp]
-	str r5, [sp, #4]
-	str r1, [sp, #8]
-	ldrb r9, [sp, #0x4c]
-	ldr r1, [sp, #0x10]
-	add r2, sp, #0x14
-	str r9, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
-_020FCE54:
-	mov r9, r0
-_020FCE58:
-	cmp r9, #0
-	beq _020FCED8
-	ldr r2, [sp, #0x10]
-	stmia sp, {r5, r7}
-	mov r0, r8
-	mov r1, r4
-	mov r3, r6
-	bl FUN_ov16_020fcae8
-	ldr r1, [sp, #0x14]
-	mov r0, #1
-	stmib r4, {r1, r9}
-	strb r7, [r4, #0xc]
-	ldrh r1, [r4, #0x10]
-	cmp r11, #0
-	orr r1, r1, #1
-	strh r1, [r4, #0x10]
-	strh r0, [r4, #0x12]
-	strneb r0, [r4, #0xd]
-	subne r0, r0, #2
-	strneb r0, [r4, #0xf]
-	bne _020FCEC0
-	mov r2, #2
-	mov r0, r8
-	mov r1, r4
-	strb r2, [r4, #0xd]
-	bl FUN_ov16_020fc980
-_020FCEC0:
-	ldr r1, [r8, #0xc]
-	mov r0, r8
-	add r2, r1, #1
-	mov r1, r9
-	str r2, [r8, #0xc]
-	bl FUN_ov16_020fc8f0
-_020FCED8:
-	add r0, r8, #0x10
-	bl OS_UnlockMutex
-	cmp r9, #0
-	moveq r4, #0
-	mov r0, r4
-	add sp, sp, #0x18
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FCEF4: .word gAllocator
-	arm_func_end FUN_ov16_020fcd08
-
-	arm_func_start FUN_ov16_020fcef8
-FUN_ov16_020fcef8: ; 0x020FCEF8
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	sub sp, sp, #0x18
-	ldr r6, [sp, #0x44]
-	mov r7, r2
-	str r1, [sp, #0x10]
-	mov r11, r3
-	ldr r5, [sp, #0x48]
-	mov r1, r7
-	mov r2, r6
-	mov r3, r5
-	mov r8, r0
-	str r11, [sp]
-	bl FUN_ov16_020fcb18
-	movs r4, r0
-	beq _020FCF48
-	mov r0, r8
-	mov r1, r4
-	bl FUN_ov16_020fd21c
-	add sp, sp, #0x18
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FCF48:
-	ldr r9, [r8, #8]
-	mov r12, #0
-	cmp r9, #0
-	ble _020FCF94
-	ldr lr, [r8, #4]
-	mov r1, r12
-	mov r2, #1
-	mov r0, #0x18
-_020FCF68:
-	mla r10, r12, r0, lr
-	ldrh r3, [r10, #0x10]
-	tst r3, #1
-	movne r3, r2
-	moveq r3, r1
-	cmp r3, #0
-	moveq r4, r10
-	beq _020FCF98
-	add r12, r12, #1
-	cmp r12, r9
-	blt _020FCF68
-_020FCF94:
-	mvn r12, #0
-_020FCF98:
-	cmp r12, #0
-	addlt sp, sp, #0x18
-	movlt r0, #0
-	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	mov r9, #0
-	mov r0, r9
-	mov r1, r4
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	add r0, r8, #0x10
-	bl OS_LockMutex
-	mov r0, r7
-	bl strlen
-	sub r0, r0, #1
-	ldrsb r0, [r7, r0]
-	mov r10, #0
-	cmp r0, #0x5f
-	ldr r0, [sp, #0x40]
-	moveq r9, #1
-	str r10, [sp, #0x14]
-	cmp r0, #0
-	beq _020FD020
-	ldr r3, _020FD0F0 ; =gAllocator
-	ldr r0, [r3]
-	cmp r0, #0
-	beq _020FD050
-	str r6, [sp]
-	ldrb r10, [sp, #0x4c]
-	stmib sp, {r5, r9}
-	ldr r1, [sp, #0x10]
-	add r2, sp, #0x14
-	str r10, [sp, #0xc]
-	bl _ZN7CFileIO12readDeferredEPKcPPvP10CAllocatorlmih
-	b _020FD04C
-_020FD020:
-	ldr r3, _020FD0F0 ; =gAllocator
-	ldr r0, [r3]
-	cmp r0, #0
-	beq _020FD050
-	str r6, [sp]
-	ldrb r10, [sp, #0x4c]
-	stmib sp, {r5, r9}
-	ldr r1, [sp, #0x10]
-	add r2, sp, #0x14
-	str r10, [sp, #0xc]
-	bl _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
-_020FD04C:
-	mov r10, r0
-_020FD050:
-	cmp r10, #0
-	beq _020FD0D4
-	stmia sp, {r5, r11}
-	mov r0, r8
-	mov r1, r4
-	mov r2, r7
-	mov r3, r6
-	bl FUN_ov16_020fcae8
-	ldr r1, [sp, #0x14]
-	ldr r0, [sp, #0x40]
-	stmib r4, {r1, r10}
-	strb r11, [r4, #0xc]
-	ldrh r2, [r4, #0x10]
-	cmp r0, #0
-	mov r1, #1
-	orr r0, r2, #1
-	strh r0, [r4, #0x10]
-	strh r1, [r4, #0x12]
-	strneb r1, [r4, #0xd]
-	subne r0, r1, #2
-	strneb r0, [r4, #0xf]
-	bne _020FD0BC
-	mov r2, #2
-	mov r0, r8
-	mov r1, r4
-	strb r2, [r4, #0xd]
-	bl FUN_ov16_020fc980
-_020FD0BC:
-	ldr r1, [r8, #0xc]
-	mov r0, r8
-	add r2, r1, #1
-	mov r1, r10
-	str r2, [r8, #0xc]
-	bl FUN_ov16_020fc8f0
-_020FD0D4:
-	add r0, r8, #0x10
-	bl OS_UnlockMutex
-	cmp r10, #0
-	moveq r4, #0
-	mov r0, r4
-	add sp, sp, #0x18
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-_020FD0F0: .word gAllocator
-	arm_func_end FUN_ov16_020fcef8
-
-	arm_func_start FUN_ov16_020fd0f4
-FUN_ov16_020fd0f4: ; 0x020FD0F4
-	stmfd sp!, {r3, lr}
-	sub sp, sp, #0x10
-	mov r3, #0
-	str r3, [sp]
-	str r3, [sp, #4]
-	str r3, [sp, #8]
-	mov r3, #1
-	str r3, [sp, #0xc]
-	bl FUN_ov16_020fcd08
-	add sp, sp, #0x10
-	ldmfd sp!, {r3, pc}
-	arm_func_end FUN_ov16_020fd0f4
-
-	arm_func_start FUN_ov16_020fd120
-FUN_ov16_020fd120: ; 0x020FD120
-	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
-	mov r8, r0
-	ldr r0, [r8, #8]
-	mov r4, #0
-	mov r6, r2
-	mov r7, r1
-	mov r5, r3
-	mov lr, r4
-	cmp r0, #0
-	mov r2, r4
-	ble _020FD184
-	ldr r9, [r8, #4]
-	mov r3, #1
-	mov r1, #0x18
-_020FD158:
-	mla r10, lr, r1, r9
-	ldrh r12, [r10, #0x10]
-	tst r12, #1
-	movne r12, r3
-	moveq r12, r2
-	cmp r12, #0
-	moveq r4, r10
-	beq _020FD188
-	add lr, lr, #1
-	cmp lr, r0
-	blt _020FD158
-_020FD184:
-	mvn lr, #0
-_020FD188:
-	cmp lr, #0
-	mov r0, #0
-	ldmltfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	mov r1, r4
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	add r0, r8, #0x10
-	bl OS_LockMutex
-	cmp r6, #0
-	cmpne r7, #0
-	beq _020FD200
-	str r7, [r4, #4]
-	str r6, [r4, #8]
-	strb r5, [r4, #0xc]
-	ldrh r1, [r4, #0x10]
-	mov r0, #2
-	mov r2, #1
-	orr r1, r1, #0x11
-	strh r1, [r4, #0x10]
-	strb r0, [r4, #0xd]
-	mov r0, r8
-	mov r1, r4
-	strh r2, [r4, #0x12]
-	bl FUN_ov16_020fc980
-	ldr r1, [r8, #0xc]
-	mov r0, r8
-	add r2, r1, #1
-	mov r1, r6
-	str r2, [r8, #0xc]
-	bl FUN_ov16_020fc8f0
-_020FD200:
-	add r0, r8, #0x10
-	bl OS_UnlockMutex
-	cmp r6, #0
-	cmpne r7, #0
-	moveq r4, #0
-	mov r0, r4
-	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov16_020fd120
-
-	arm_func_start FUN_ov16_020fd21c
-FUN_ov16_020fd21c: ; 0x020FD21C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r1
-	ldrh r1, [r4, #0x10]
-	mov r5, r0
-	tst r1, #1
-	moveq r0, #1
-	movne r0, #0
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrh r1, [r4, #0x12]
-	add r0, r5, #0x10
-	add r1, r1, #1
-	strh r1, [r4, #0x12]
-	bl OS_UnlockMutex
-	add r0, r5, #0x10
-	bl OS_UnlockMutex
-	mov r0, r4
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fd21c
-
-	arm_func_start FUN_ov16_020fd278
-FUN_ov16_020fd278: ; 0x020FD278
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, r1
-	add r0, r6, #0x10
-	bl OS_LockMutex
-	cmp r5, #0
-	ldrne r1, [r5, #4]
-	cmpne r1, #0
-	beq _020FD2A8
-	ldrh r0, [r5, #0x10]
-	tst r0, #1
-	bne _020FD2B0
-_020FD2A8:
-	mvn r4, #0
-	b _020FD33C
-_020FD2B0:
-	ldrb r0, [r5, #0xd]
-	cmp r0, #0
-	beq _020FD2D0
-	cmp r0, #1
-	beq _020FD2DC
-	cmp r0, #2
-	beq _020FD2D4
-	b _020FD32C
-_020FD2D0:
-	b _020FD2A8
-_020FD2D4:
-	mov r4, #0
-	b _020FD33C
-_020FD2DC:
-	ldrsb r0, [r5, #0xf]
-	cmp r0, #0
-	blt _020FD2F0
-	bl _ZN10FileSystem10IsFileBusyEa
-	b _020FD308
-_020FD2F0:
-	ldr r0, _020FD34C ; =gAllocator
-	ldr r0, [r0]
-	cmp r0, #0
-	mvneq r4, #0
-	beq _020FD30C
-	bl _ZN7CFileIO11tryFinalizeEPv
-_020FD308:
-	mov r4, r0
-_020FD30C:
-	cmp r4, #0
-	bne _020FD33C
-	mov r2, #2
-	mov r0, r6
-	mov r1, r5
-	strb r2, [r5, #0xd]
-	bl FUN_ov16_020fc980
-	b _020FD33C
-_020FD32C:
-	add r0, r6, #0x10
-	bl OS_UnlockMutex
-	mvn r0, #0
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FD33C:
-	add r0, r6, #0x10
-	bl OS_UnlockMutex
-	mov r0, r4
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FD34C: .word gAllocator
-	arm_func_end FUN_ov16_020fd278
-
-	arm_func_start FUN_ov16_020fd350
-FUN_ov16_020fd350: ; 0x020FD350
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrh r1, [r4, #0x12]
-	add r0, r5, #0x10
-	add r1, r1, #0xff
-	add r1, r1, #0xff00
-	strh r1, [r4, #0x12]
-	bl OS_UnlockMutex
-	ldrh r0, [r4, #0x12]
-	cmp r0, #0
-	ldmnefd sp!, {r3, r4, r5, pc}
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fd3e0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fd350
-
-	arm_func_start FUN_ov16_020fd39c
-FUN_ov16_020fd39c: ; 0x020FD39C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	ldr r0, [r6, #8]
-	ldr r4, [r6, #4]
-	cmp r0, #0
-	mov r5, #0
-	cmpgt r0, #0
-	ldmlefd sp!, {r4, r5, r6, pc}
-_020FD3BC:
-	mov r0, r6
-	mov r1, r4
-	bl FUN_ov16_020fd3e0
-	ldr r0, [r6, #8]
-	add r5, r5, #1
-	cmp r5, r0
-	add r4, r4, #0x18
-	blt _020FD3BC
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fd39c
-
-	arm_func_start FUN_ov16_020fd3e0
-FUN_ov16_020fd3e0: ; 0x020FD3E0
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fd5ec
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	beq _020FD490
-	ldrh r0, [r4, #0x10]
-	tst r0, #0x20
-	beq _020FD41C
-	ldr r1, [r4, #0x14]
-	mov r0, r5
-	bl FUN_ov16_020fd350
-	b _020FD484
-_020FD41C:
-	tst r0, #0x10
-	ldr r1, [r4, #8]
-	mov r0, r5
-	beq _020FD434
-	bl FUN_ov16_020fc900
-	b _020FD484
-_020FD434:
-	bl FUN_ov16_020fc900
-	ldrb r0, [r4, #0xd]
-	cmp r0, #1
-	bne _020FD478
-	ldrsb r0, [r4, #0xf]
-	cmp r0, #0
-	blt _020FD458
-	bl _ZN10FileSystem5PanicEv
-	b _020FD484
-_020FD458:
-	ldr r0, _020FD4A4 ; =gAllocator
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _020FD484
-	mov r2, #1
-	bl _ZN7CFileIO5closeEPvi
-	b _020FD484
-_020FD478:
-	ldr r1, [r4, #4]
-	ldr r0, _020FD4A4 ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-_020FD484:
-	ldr r0, [r5, #0xc]
-	sub r0, r0, #1
-	str r0, [r5, #0xc]
-_020FD490:
-	mov r1, r4
-	mov r0, #0
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FD4A4: .word gAllocator
-	arm_func_end FUN_ov16_020fd3e0
-
-	arm_func_start _ZN15CNsbResourceManC1Ev
-_ZN15CNsbResourceManC1Ev: ; 0x020FD4A8
-	ldr r2, _020FD4C8 ; =_ZTV15CNsbResourceMan+0x8
-	mov r1, #0
-	str r2, [r0]
-	str r1, [r0, #4]
-	str r1, [r0, #8]
-	str r1, [r0, #0xc]
-	str r1, [r0, #0x28]
-	bx lr
-_020FD4C8: .word _ZTV15CNsbResourceMan+0x8
-	arm_func_end _ZN15CNsbResourceManC1Ev
-
-	arm_func_start FUN_ov16_020fd4cc
-FUN_ov16_020fd4cc: ; 0x020FD4CC
-	stmfd sp!, {r4, r5, r6, lr}
-	movs r5, r1
-	mov r6, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldr r0, [r5, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	add r0, r6, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r5, #0xe]
-	mov r4, #1
-	cmp r0, #0
-	addne r0, r0, #1
-	strneb r0, [r5, #0xe]
-	bne _020FD550
-	ldrb r0, [r5, #0xc]
-	mov r1, #0
-	cmp r0, #3
-	blo _020FD528
-	cmp r0, #0xb
-	movlo r1, r4
-_020FD528:
-	cmp r1, #0
-	beq _020FD550
-	ldr r0, _020FD560 ; =g3DVramMan
-	ldr r1, [r5, #4]
-	ldr r0, [r0]
-	bl FUN_02051b84
-	cmp r0, #0
-	movne r0, #1
-	moveq r4, #0
-	strneb r0, [r5, #0xe]
-_020FD550:
-	add r0, r6, #0x10
-	bl OS_UnlockMutex
-	mov r0, r4
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FD560: .word g3DVramMan
-	arm_func_end FUN_ov16_020fd4cc
-
-	arm_func_start FUN_ov16_020fd564
-FUN_ov16_020fd564: ; 0x020FD564
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	ldrne r2, [r4, #4]
-	mov r5, r0
-	cmpne r2, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fd660
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r4, #0xc]
-	mov r1, #0
-	cmp r0, #3
-	blo _020FD5A8
-	cmp r0, #0xb
-	movlo r1, #1
-_020FD5A8:
-	cmp r1, #0
-	beq _020FD5DC
-	ldrb r0, [r4, #0xe]
-	sub r0, r0, #1
-	ands r0, r0, #0xff
-	strb r0, [r4, #0xe]
-	bne _020FD5DC
-	ldr r0, _020FD5E8 ; =g3DVramMan
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	bl FUN_02051b58
-	mov r0, #0
-	strb r0, [r4, #0xe]
-_020FD5DC:
-	add r0, r5, #0x10
-	bl OS_UnlockMutex
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FD5E8: .word g3DVramMan
-	arm_func_end FUN_ov16_020fd564
-
-	arm_func_start FUN_ov16_020fd5ec
-FUN_ov16_020fd5ec: ; 0x020FD5EC
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	ldrne r2, [r4, #4]
-	mov r5, r0
-	cmpne r2, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	bl FUN_ov16_020fd660
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r4, #0xc]
-	mov r1, #0
-	cmp r0, #3
-	blo _020FD630
-	cmp r0, #0xb
-	movlo r1, #1
-_020FD630:
-	cmp r1, #0
-	beq _020FD648
-	ldr r0, _020FD65C ; =g3DVramMan
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	bl FUN_02051b58
-_020FD648:
-	mov r1, #0
-	add r0, r5, #0x10
-	strb r1, [r4, #0xe]
-	bl OS_UnlockMutex
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FD65C: .word g3DVramMan
-	arm_func_end FUN_ov16_020fd5ec
-
-	arm_func_start FUN_ov16_020fd660
-FUN_ov16_020fd660: ; 0x020FD660
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r4, #0xe]
-	mov r4, #1
-	cmp r0, #0
-	add r0, r5, #0x10
-	moveq r4, #0
-	bl OS_UnlockMutex
-	mov r0, r4
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fd660
-
-	arm_func_start FUN_ov16_020fd69c
-FUN_ov16_020fd69c: ; 0x020FD69C
-	ldrb r1, [r1, #0xc]
-	mov r0, #0
-	cmp r1, #0xc
-	bxlo lr
-	cmp r1, #0x10
-	movlo r0, #1
-	bx lr
-	arm_func_end FUN_ov16_020fd69c
-
-	arm_func_start FUN_ov16_020fd6b8
-FUN_ov16_020fd6b8: ; 0x020FD6B8
-	stmfd sp!, {r4, lr}
-	mov r4, r1
-	bl FUN_ov16_020fd69c
-	cmp r0, #0
-	ldrne r0, [r4, #4]
-	ldrne r0, [r0]
-	mvneq r0, #0
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fd6b8
-
-	arm_func_start FUN_ov16_020fd6d8
-FUN_ov16_020fd6d8: ; 0x020FD6D8
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #4
-	mov r6, r2
-	mov r10, r0
-	mov r9, r1
-	mov r8, r3
-	mov r4, #0
-	bl FUN_ov16_020fd6b8
-	cmp r6, r0
-	addge sp, sp, #4
-	movge r0, r4
-	ldmgefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	mov r7, r4
-	mov r0, r10
-	mov r1, r9
-	str r7, [sp]
-	bl FUN_ov16_020fd278
-	cmp r0, #0
-	addne sp, sp, #4
-	movne r0, r7
-	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r0, [r9, #4]
-	mov r1, r6
-	bl PAC_GetPtr
-	mov r5, r0
-	ldr r0, [r9, #4]
-	mov r1, r6
-	bl PAC_GetSize
-	mov r6, r0
-	cmp r5, #0
-	cmpne r6, #0
-	addeq sp, sp, #4
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	add r2, sp, #0
-	mov r0, r10
-	mov r1, r5
-	bl FUN_ov16_020fc918
-	cmp r0, #0
-	blt _020FD78C
-	ldr r1, [sp]
-	mov r0, r10
-	bl FUN_ov16_020fd21c
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020FD78C:
-	ldr r12, [r10, #8]
-	cmp r12, #0
-	ble _020FD7D0
-	ldr r3, [r10, #4]
-	mov r1, #1
-	mov r0, #0x18
-_020FD7A4:
-	mla lr, r7, r0, r3
-	ldrh r2, [lr, #0x10]
-	tst r2, #1
-	movne r2, r1
-	moveq r2, r4
-	cmp r2, #0
-	streq lr, [sp]
-	beq _020FD7D4
-	add r7, r7, #1
-	cmp r7, r12
-	blt _020FD7A4
-_020FD7D0:
-	mvn r7, #0
-_020FD7D4:
-	cmp r7, #0
-	addlt sp, sp, #4
-	mov r0, #0
-	ldmltfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	ldr r1, [sp]
-	mov r2, #0x18
-	bl MIi_CpuClearFast
-	add r0, r10, #0x10
-	bl OS_LockMutex
-	ldr r0, [sp]
-	mov r4, #2
-	str r5, [r0, #4]
-	ldr r0, [sp]
-	mov r3, #1
-	str r6, [r0, #8]
-	ldr r1, [sp]
-	mov r0, r10
-	strb r8, [r1, #0xc]
-	ldr r5, [sp]
-	mov r1, r9
-	ldrh r2, [r5, #0x10]
-	orr r2, r2, #0x21
-	strh r2, [r5, #0x10]
-	ldr r2, [sp]
-	strb r4, [r2, #0xd]
-	ldr r2, [sp]
-	strh r3, [r2, #0x12]
-	ldr r2, [sp]
-	str r9, [r2, #0x14]
-	bl FUN_ov16_020fd21c
-	ldr r1, [sp]
-	mov r0, r10
-	bl FUN_ov16_020fc980
-	ldr r1, [r10, #0xc]
-	add r0, r10, #0x10
-	add r1, r1, #1
-	str r1, [r10, #0xc]
-	bl OS_UnlockMutex
-	ldr r0, [sp]
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-	arm_func_end FUN_ov16_020fd6d8
-
-	arm_func_start FUN_ov16_020fd878
-FUN_ov16_020fd878: ; 0x020FD878
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r4, #0xe]
-	cmp r0, #0
-	beq _020FD8D8
-	ldrh r0, [r4, #0x10]
-	tst r0, #0x100
-	bne _020FD8D8
-	ldr r0, _020FD8E8 ; =g3DVramMan
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	bl FUN_02051b58
-	ldrh r0, [r4, #0x10]
-	orr r0, r0, #0x100
-	strh r0, [r4, #0x10]
-_020FD8D8:
-	add r0, r5, #0x10
-	bl OS_UnlockMutex
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FD8E8: .word g3DVramMan
-	arm_func_end FUN_ov16_020fd878
-
-	arm_func_start FUN_ov16_020fd8ec
-FUN_ov16_020fd8ec: ; 0x020FD8EC
-	stmfd sp!, {r3, r4, r5, lr}
-	movs r4, r1
-	mov r5, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	add r0, r5, #0x10
-	bl OS_LockMutex
-	ldrb r0, [r4, #0xe]
-	cmp r0, #0
-	beq _020FD950
-	ldrh r0, [r4, #0x10]
-	tst r0, #0x100
-	beq _020FD950
-	ldr r0, _020FD960 ; =g3DVramMan
-	ldr r1, [r4, #4]
-	ldr r0, [r0]
-	bl FUN_02051b28
-	ldrh r1, [r4, #0x10]
-	ldr r0, _020FD964 ; =0x0000FEFF
-	and r0, r1, r0
-	strh r0, [r4, #0x10]
-_020FD950:
-	add r0, r5, #0x10
-	bl OS_UnlockMutex
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FD960: .word g3DVramMan
-_020FD964: .word 0x0000FEFF
-	arm_func_end FUN_ov16_020fd8ec
-
-	arm_func_start FUN_ov16_020fd968
-FUN_ov16_020fd968: ; 0x020FD968
-	stmfd sp!, {r4, lr}
-	ldr r1, _020FD98C ; =_ZTV15CNsbResourceMan+0x8
-	mov r4, r0
-	str r1, [r4]
-	bl FUN_ov16_020fca54
-	mov r0, r4
-	bl _ZdlPv
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-_020FD98C: .word _ZTV15CNsbResourceMan+0x8
-	arm_func_end FUN_ov16_020fd968
-
-	arm_func_start FUN_ov16_020fd990
-FUN_ov16_020fd990: ; 0x020FD990
-	stmfd sp!, {r4, lr}
-	ldr r1, _020FD9AC ; =_ZTV15CNsbResourceMan+0x8
-	mov r4, r0
-	str r1, [r4]
-	bl FUN_ov16_020fca54
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-_020FD9AC: .word _ZTV15CNsbResourceMan+0x8
-	arm_func_end FUN_ov16_020fd990
-
-	arm_func_start FUN_ov16_020fd9b0
-FUN_ov16_020fd9b0: ; 0x020FD9B0
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	add r0, r4, #0x38
-	mov r1, #0
-	mov r2, #0x3c
-	bl MI_CpuFill8
-	ldr r0, _020FD9E0 ; =0x021189D0
-	add r1, r4, #0x38
-	bl _ZN7Archive14RequestNewReadEPKcP9SFileData
-	mov r0, #1
-	str r0, [r4, #4]
-	ldmfd sp!, {r4, pc}
-_020FD9E0: .word ov16_021189D0
-	arm_func_end FUN_ov16_020fd9b0
-
-	arm_func_start FUN_ov16_020fd9e4
-FUN_ov16_020fd9e4: ; 0x020FD9E4
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	ldr r6, [r0, #0x38]
-	cmp r6, #0
-	ldrne r1, _020FDA30 ; =0x02117964
-	ldrne r7, _020FDA34 ; =0x02117964
-	ldrne r1, [r1]
-	cmpne r1, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	add r5, r0, #0x38
-	mov r4, #0xc
-_020FDA0C:
-	ldr r2, [r7, #4]
-	mov r0, r1
-	mla r1, r2, r4, r5
-	mov r2, r6
-	bl _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
-	ldr r1, [r7, #8]!
-	cmp r1, #0
-	bne _020FDA0C
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FDA30: .word ov16_02117964
-_020FDA34: .word ov16_02117964
-	arm_func_end FUN_ov16_020fd9e4
-
-	arm_func_start FUN_ov16_020fda38
-FUN_ov16_020fda38: ; 0x020FDA38
-	ldr r12, _020FDA48 ; =_ZN7Archive11TryFinalizeEP9SFileDatai
-	add r0, r0, #0x38
-	mov r1, #5
-	bx r12
-_020FDA48: .word _ZN7Archive11TryFinalizeEP9SFileDatai
-	arm_func_end FUN_ov16_020fda38
-
-	arm_func_start FUN_ov16_020fda4c
-FUN_ov16_020fda4c: ; 0x020FDA4C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, #0
-	add r5, r0, #0x38
-	mov r4, #0xc
-_020FDA5C:
-	mla r0, r6, r4, r5
-	bl _ZN7Archive10DeallocateEP9SFileData
-	add r6, r6, #1
-	cmp r6, #5
-	blt _020FDA5C
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fda4c
-
-	arm_func_start FUN_ov16_020fda74
-FUN_ov16_020fda74: ; 0x020FDA74
-	str r1, [r0, #0x24]
-	cmp r1, #0
-	moveq r1, #0
-	movne r1, #7
-	str r1, [r0, #0x20]
-	bx lr
-	arm_func_end FUN_ov16_020fda74
-
-	arm_func_start FUN_ov16_020fda8c
-FUN_ov16_020fda8c: ; 0x020FDA8C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r4, r0
-	ldr r0, [r4, #4]
-	mov r6, #0
-	cmp r0, #4
-	mov r2, #1
-	movne r0, r6
-	ldmnefd sp!, {r4, r5, r6, pc}
-	ldr r0, [r4, #0x20]
-	cmp r0, #0
-	movgt r0, r2
-	ldmgtfd sp!, {r4, r5, r6, pc}
-	ldrb r0, [r4, #8]
-	cmp r0, #0
-	movne r0, r2
-	ldmnefd sp!, {r4, r5, r6, pc}
-	tst r1, #0x20
-	beq _020FDAF4
-	ldr r0, [r4, #0x1c]
-	cmp r0, #1
-	beq _020FDAF0
-	ldr r0, _020FDBA8 ; =gAudioPlayer
-	mov r1, #8
-	str r2, [r4, #0x1c]
-	bl _ZN11AudioPlayer10playEffectEi
-_020FDAF0:
-	b _020FDB98
-_020FDAF4:
-	tst r1, #0x10
-	beq _020FDB20
-	ldr r0, [r4, #0x1c]
-	cmp r0, #2
-	beq _020FDB1C
-	ldr r0, _020FDBA8 ; =gAudioPlayer
-	mov r2, #2
-	mov r1, #8
-	str r2, [r4, #0x1c]
-	bl _ZN11AudioPlayer10playEffectEi
-_020FDB1C:
-	b _020FDB98
-_020FDB20:
-	tst r1, #1
-	beq _020FDB70
-	ldr r0, [r4, #0x1c]
-	cmp r0, #1
-	bne _020FDB4C
-	ldr r0, _020FDBA8 ; =gAudioPlayer
-	mov r1, #6
-	bl _ZN11AudioPlayer10playEffectEi
-	mov r0, r4
-	mov r1, #1
-	b _020FDB68
-_020FDB4C:
-	cmp r0, #2
-	bne _020FDB6C
-	ldr r0, _020FDBA8 ; =gAudioPlayer
-	mov r1, #4
-	bl _ZN11AudioPlayer10playEffectEi
-	mov r0, r4
-	mov r1, #2
-_020FDB68:
-	bl FUN_ov16_020fda74
-_020FDB6C:
-	b _020FDB98
-_020FDB70:
-	tst r1, #2
-	beq _020FDBA0
-	ldr r0, _020FDBA8 ; =gAudioPlayer
-	mov r5, #2
-	mov r1, #4
-	str r5, [r4, #0x1c]
-	bl _ZN11AudioPlayer10playEffectEi
-	mov r0, r4
-	mov r1, r5
-	bl FUN_ov16_020fda74
-_020FDB98:
-	str r6, [r4, #0x18]
-	str r6, [r4, #0x14]
-_020FDBA0:
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-_020FDBA8: .word gAudioPlayer
-	arm_func_end FUN_ov16_020fda8c
-
-	arm_func_start FUN_ov16_020fdbac
-FUN_ov16_020fdbac: ; 0x020FDBAC
-	cmp r2, #0x80
-	blt _020FDBE4
-	cmp r2, #0x98
-	bge _020FDBE4
-	cmp r1, #0x30
-	blt _020FDBD0
-	cmp r1, #0x70
-	movlt r0, #1
-	bxlt lr
-_020FDBD0:
-	cmp r1, #0x90
-	blt _020FDBE4
-	cmp r1, #0xd0
-	movlt r0, #2
-	bxlt lr
-_020FDBE4:
-	mov r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fdbac
-
-	arm_func_start FUN_ov16_020fdbec
-FUN_ov16_020fdbec: ; 0x020FDBEC
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	ldr r2, [r5, #4]
-	mov r4, r1
-	cmp r2, #4
-	movne r0, #0
-	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r1, [r5, #0x20]
-	cmp r1, #0
-	movgt r0, #1
-	ldmgtfd sp!, {r3, r4, r5, pc}
-	ldrh r1, [r4, #4]
-	cmp r1, #1
-	bne _020FDC80
-	ldrh r1, [r4, #6]
-	cmp r1, #0
-	bne _020FDD0C
-	ldrb r1, [r5, #8]
-	cmp r1, #0
-	bne _020FDC60
-	mov r1, #1
-	strb r1, [r5, #8]
-	ldrh r1, [r4]
-	ldrh r2, [r4, #2]
-	bl FUN_ov16_020fdbac
-	sub r1, r0, #1
-	cmp r1, #1
-	str r0, [r5, #0x14]
-	strls r0, [r5, #0x1c]
-_020FDC60:
-	ldrh r1, [r4]
-	mov r0, r5
-	str r1, [r5, #0xc]
-	ldrh r2, [r4, #2]
-	str r2, [r5, #0x10]
-	bl FUN_ov16_020fdbac
-	str r0, [r5, #0x18]
-	b _020FDD0C
-_020FDC80:
-	ldrb r1, [r5, #8]
-	cmp r1, #0
-	ldrne r4, [r5, #0x14]
-	cmpne r4, #0
-	beq _020FDCFC
-	ldr r1, [r5, #0xc]
-	ldr r2, [r5, #0x10]
-	bl FUN_ov16_020fdbac
-	cmp r4, r0
-	bne _020FDCFC
-	ldr r0, [r5, #0x1c]
-	cmp r0, r4
-	ldrne r0, [r5, #0x14]
-	strne r0, [r5, #0x1c]
-	ldr r0, [r5, #0x1c]
-	cmp r0, #1
-	bne _020FDCDC
-	ldr r0, _020FDD14 ; =gAudioPlayer
-	mov r1, #6
-	bl _ZN11AudioPlayer10playEffectEi
-	mov r0, r5
-	mov r1, #1
-	b _020FDCF8
-_020FDCDC:
-	cmp r0, #2
-	bne _020FDCFC
-	ldr r0, _020FDD14 ; =gAudioPlayer
-	mov r1, #4
-	bl _ZN11AudioPlayer10playEffectEi
-	mov r0, r5
-	mov r1, #2
-_020FDCF8:
-	bl FUN_ov16_020fda74
-_020FDCFC:
-	mov r0, #0
-	str r0, [r5, #0x18]
-	str r0, [r5, #0x14]
-	strb r0, [r5, #8]
-_020FDD0C:
-	mov r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FDD14: .word gAudioPlayer
-	arm_func_end FUN_ov16_020fdbec
-
-	arm_func_start FUN_ov16_020fdd18
-FUN_ov16_020fdd18: ; 0x020FDD18
-	ldr r1, _020FDD2C ; =0x020A6C40
-	ldr r12, _020FDD30 ; =MIi_CpuClearFast
-	mov r0, #0
-	mov r2, #0x800
-	bx r12
-_020FDD2C: .word gMainScreen0
-_020FDD30: .word MIi_CpuClearFast
-	arm_func_end FUN_ov16_020fdd18
-
-	arm_func_start FUN_ov16_020fdd34
-FUN_ov16_020fdd34: ; 0x020FDD34
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r7, r0
-	mov r0, #0xc
-	mla r0, r1, r0, r7
-	ldr r4, [r0, #0x38]
-	mov r6, r2
-	mov r5, r3
-	cmp r4, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r7, #0x2c]
-	ldr r3, [r4, #0x14]
-	cmp r0, #3
-	addls pc, pc, r0, lsl #2
-	b _020FDDB8
-_020FDD6C: ; jump table
-	b _020FDD7C ; case 0
-	b _020FDD90 ; case 1
-	b _020FDDA4 ; case 2
-	b _020FDDB8 ; case 3
-_020FDD7C:
-	ldr r1, [r5]
-	ldr r2, [r4, #0x18]
-	add r0, r4, r3
-	bl GX_LoadBG0Char
-	b _020FDDC8
-_020FDD90:
-	ldr r1, [r5]
-	ldr r2, [r4, #0x18]
-	add r0, r4, r3
-	bl GX_LoadBG1Char
-	b _020FDDC8
-_020FDDA4:
-	ldr r1, [r5]
-	ldr r2, [r4, #0x18]
-	add r0, r4, r3
-	bl GX_LoadBG2Char
-	b _020FDDC8
-_020FDDB8:
-	ldr r1, [r5]
-	ldr r2, [r4, #0x18]
-	add r0, r4, r3
-	bl GX_LoadBG3Char
-_020FDDC8:
-	ldr r1, [r5]
-	ldr r0, [r4, #0x18]
-	add r0, r1, r0
-	str r0, [r5]
-	ldr r2, [r7, #0x30]
-	cmp r2, #0
-	ldmltfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r1, [r6]
-	mov r0, r4
-	add r1, r1, #1
-	bl _ZN8Graphics11SetupScreenEPvii
-	str r0, [r6]
-	ldr r2, [r7, #0x30]
-	mov r0, r4
-	mov r1, #0
-	bl _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020fdd34
-
-	arm_func_start FUN_ov16_020fde0c
-FUN_ov16_020fde0c: ; 0x020FDE0C
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #8
-	mov r4, r0
-	ldr r0, [r4, #0x2c]
-	cmp r0, #3
-	addls pc, pc, r0, lsl #2
-	b _020FDE5C
-_020FDE28: ; jump table
-	b _020FDE38 ; case 0
-	b _020FDE44 ; case 1
-	b _020FDE4C ; case 2
-	b _020FDE54 ; case 3
-_020FDE38:
-	bl G2_GetBG0CharPtr
-_020FDE3C:
-	mov r5, r0
-	b _020FDE64
-_020FDE44:
-	bl G2_GetBG1CharPtr
-	b _020FDE3C
-_020FDE4C:
-	bl G2_GetBG2CharPtr
-	b _020FDE3C
-_020FDE54:
-	bl G2_GetBG3CharPtr
-	b _020FDE3C
-_020FDE5C:
-	add sp, sp, #8
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_020FDE64:
-	mov r8, #0
-	mov r7, #0x20
-	mov r0, r8
-	mov r1, r5
-	mov r2, r7
-	bl MIi_CpuClearFast
-	mov r0, r5
-	mov r1, r7
-	bl DC_FlushRange
-	add r6, sp, #4
-	add r5, sp, #0
-	mov r0, r4
-	mov r2, r6
-	mov r3, r5
-	mov r1, #1
-	str r8, [sp, #4]
-	str r7, [sp]
-	bl FUN_ov16_020fdd34
-	mov r0, r4
-	mov r1, #2
-	mov r2, r6
-	mov r3, r5
-	bl FUN_ov16_020fdd34
-	mov r0, r4
-	mov r1, #3
-	mov r2, r6
-	mov r3, r5
-	bl FUN_ov16_020fdd34
-	mov r0, r4
-	mov r2, r6
-	mov r3, r5
-	mov r1, #4
-	bl FUN_ov16_020fdd34
-	bl _ZN8Graphics17LoadBGPaletteMainEv
-	add sp, sp, #8
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_ov16_020fde0c
-
-	arm_func_start FUN_ov16_020fdef4
-FUN_ov16_020fdef4: ; 0x020FDEF4
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r12, #0xc
-	mla r0, r3, r12, r0
-	ldr r12, [r0, #0x38]
-	cmp r12, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r12, #0xc]
-	ldr r3, [sp, #0x18]
-	add r0, r12, r0
-	add r5, r3, r0
-	mov r6, #3
-	ldr r12, _020FDF80 ; =0x020A6C40
-	mov r3, #8
-	b _020FDF74
-_020FDF2C:
-	add r0, r12, r2, lsl #6
-	mov lr, r1
-	mov r7, r3
-	add r4, r0, r1, lsl #1
-	b _020FDF64
-_020FDF40:
-	cmp lr, #0
-	blt _020FDF54
-	cmp lr, #0x20
-	ldrlth r0, [r5]
-	strlth r0, [r4]
-_020FDF54:
-	sub r7, r7, #1
-	add lr, lr, #1
-	add r5, r5, #2
-	add r4, r4, #2
-_020FDF64:
-	cmp r7, #0
-	bgt _020FDF40
-	sub r6, r6, #1
-	add r2, r2, #1
-_020FDF74:
-	cmp r6, #0
-	bgt _020FDF2C
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FDF80: .word gMainScreen0
-	arm_func_end FUN_ov16_020fdef4
-
-	arm_func_start FUN_ov16_020fdf84
-FUN_ov16_020fdf84: ; 0x020FDF84
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #4
-	mov r7, r0
-	ldr r0, [r7, #0x1c]
-	mov r6, r1
-	cmp r0, #1
-	moveq r4, #3
-	moveq r5, #2
-	ldr r0, [r7, #0x20]
-	movne r4, #2
-	movne r5, #3
-	cmp r0, #0
-	ble _020FE05C
-	sub r0, r0, #1
-	str r0, [r7, #0x20]
-	cmp r0, #0
-	bgt _020FE02C
-	ldr r0, [r7, #0x24]
-	cmp r0, #1
-	beq _020FDFEC
-	cmp r0, #2
-	moveq r1, #0
-	moveq r0, #5
-	streq r1, [r7, #0x28]
-	streq r0, [r7, #4]
-	b _020FE01C
-_020FDFEC:
-	ldr r0, _020FE0CC ; =gAudioPlayer
-	mov r2, #6
-	ldr r1, _020FE0D0 ; =0x000005DC
-	str r2, [r7, #4]
-	bl _ZN11AudioPlayer12FUN_0202c470El
-	mov r8, #0x28
-	mov r1, r8
-	mov r0, #0
-	bl _ZN8Graphics15FadeScreenWhiteE12EngineSelectl
-	mov r1, r8
-	mov r0, #1
-	bl _ZN8Graphics15FadeScreenWhiteE12EngineSelectl
-_020FE01C:
-	mov r0, r7
-	mov r1, #0
-	bl FUN_ov16_020fda74
-	b _020FE088
-_020FE02C:
-	cmp r0, #2
-	ble _020FE088
-	cmp r0, #5
-	bgt _020FE088
-	ldr r0, [r7, #0x24]
-	cmp r0, #1
-	beq _020FE050
-	cmp r0, #2
-	b _020FE080
-_020FE050:
-	mov r4, #4
-	mov r5, #2
-	b _020FE088
-_020FE05C:
-	ldr r1, [r7, #0x14]
-	ldr r0, [r7, #0x18]
-	cmp r1, r0
-	bne _020FE088
-	cmp r1, #1
-	moveq r4, #4
-	moveq r5, #2
-	beq _020FE088
-	cmp r1, #2
-_020FE080:
-	moveq r4, #2
-	moveq r5, #4
-_020FE088:
-	mov r8, #0x10
-	mov r12, #0
-	mov r0, r7
-	mov r2, r8
-	mov r3, r4
-	add r1, r6, #6
-	str r12, [sp]
-	bl FUN_ov16_020fdef4
-	mov r4, #0x30
-	mov r0, r7
-	mov r2, r8
-	mov r3, r5
-	add r1, r6, #0x12
-	str r4, [sp]
-	bl FUN_ov16_020fdef4
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, pc}
-_020FE0CC: .word gAudioPlayer
-_020FE0D0: .word 0x000005DC
-	arm_func_end FUN_ov16_020fdf84
-
-	arm_func_start FUN_ov16_020fe0d4
-FUN_ov16_020fe0d4: ; 0x020FE0D4
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	movs r4, r1
-	mov r5, r0
-	mov r1, #1
-	strb r1, [r5, #0x34]
-	beq _020FE0F0
-	bl FUN_ov16_020fdd18
-_020FE0F0:
-	ldr r1, [r5, #0x44]
-	cmp r1, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r0, [r1, #0xc]
-	cmp r4, #0
-	add r6, r1, r0
-	addlt r12, r4, #0x20
-	movlt lr, #0
-	mov r8, #0
-	ldr r7, _020FE174 ; =0x020A6C40
-	sublt r6, r6, r4, lsl #1
-	movge lr, r4
-	rsbge r12, r4, #0x20
-	mov r3, r8
-	b _020FE15C
-_020FE12C:
-	mov r9, r3
-	add r0, r7, lr, lsl #1
-	b _020FE148
-_020FE138:
-	mov r2, r9, lsl #1
-	ldrh r1, [r6, r2]
-	add r9, r9, #1
-	strh r1, [r2, r0]
-_020FE148:
-	cmp r9, r12
-	blt _020FE138
-	add lr, lr, #0x20
-	add r6, r6, #0x40
-	add r8, r8, #1
-_020FE15C:
-	cmp r8, #0x18
-	blt _020FE12C
-	mov r0, r5
-	mov r1, r4
-	bl FUN_ov16_020fdf84
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020FE174: .word gMainScreen0
-	arm_func_end FUN_ov16_020fe0d4
-
-	arm_func_start FUN_ov16_020fe178
-FUN_ov16_020fe178: ; 0x020FE178
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	mov r7, r0
-	ldrb r0, [r7, #0x34]
-	cmp r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r5, _020FE218 ; =0x020A6C40
-	mov r4, #0x800
-	mov r6, #0
-	mov r0, r5
-	mov r1, r4
-	strb r6, [r7, #0x34]
-	bl DC_FlushRange
-	ldr r0, [r7, #0x2c]
-	cmp r0, #3
-	addls pc, pc, r0, lsl #2
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE1B8: ; jump table
-	b _020FE1C8 ; case 0
-	b _020FE1DC ; case 1
-	b _020FE1F0 ; case 2
-	b _020FE204 ; case 3
-_020FE1C8:
-	mov r0, r5
-	mov r1, r6
-	mov r2, r4
-	bl GX_LoadBG0Scr
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE1DC:
-	mov r0, r5
-	mov r1, r6
-	mov r2, r4
-	bl GX_LoadBG1Scr
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE1F0:
-	mov r0, r5
-	mov r1, r6
-	mov r2, r4
-	bl GX_LoadBG2Scr
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE204:
-	mov r0, r5
-	mov r1, r6
-	mov r2, r4
-	bl GX_LoadBG3Scr
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE218: .word gMainScreen0
-	arm_func_end FUN_ov16_020fe178
-
-	arm_func_start FUN_ov16_020fe21c
-FUN_ov16_020fe21c: ; 0x020FE21C
-	mov r2, #0
-	mov r1, #2
-	str r2, [r0, #0x28]
-	strb r2, [r0, #8]
-	str r2, [r0, #0x18]
-	str r2, [r0, #0x14]
-	str r1, [r0, #0x1c]
-	bx lr
-	arm_func_end FUN_ov16_020fe21c
-
-	arm_func_start FUN_ov16_020fe23c
-FUN_ov16_020fe23c: ; 0x020FE23C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r2, #0x3c
-	mov r5, r0
-	mov r4, #0
-	sub r1, r2, #0x3d
-	str r4, [r5, #4]
-	strb r2, [r5, #0x36]
-	str r1, [r5, #0x2c]
-	str r4, [r5, #0x30]
-	bl FUN_ov16_020fe21c
-	mov r0, r5
-	mov r1, r4
-	strb r4, [r5, #0x35]
-	strb r4, [r5, #0x34]
-	bl FUN_ov16_020fda74
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fe23c
-
-	arm_func_start FUN_ov16_020fe27c
-FUN_ov16_020fe27c: ; 0x020FE27C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r0
-	mov r5, #0
-	cmp r1, #0
-	movne r0, r5
-	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r1, [r4, #0x2c]
-	cmp r1, #0
-	movlt r0, r5
-	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r0]
-	ldr r1, [r1, #0x44]
-	blx r1
-	cmp r0, #0
-	moveq r0, r5
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, [r4, #4]
-	cmp r0, #7
-	addls pc, pc, r0, lsl #2
-	b _020FE3B8
-_020FE2CC: ; jump table
-	b _020FE3B8 ; case 0
-	b _020FE2EC ; case 1
-	b _020FE3B8 ; case 2
-	b _020FE310 ; case 3
-	b _020FE34C ; case 4
-	b _020FE358 ; case 5
-	b _020FE388 ; case 6
-	b _020FE3AC ; case 7
-_020FE2EC:
-	mov r0, r4
-	bl FUN_ov16_020fda38
-	cmp r0, #0
-	beq _020FE3B8
-	mov r0, r4
-	bl FUN_ov16_020fd9e4
-	mov r0, #2
-_020FE308:
-	str r0, [r4, #4]
-	b _020FE3B8
-_020FE310:
-	ldr r0, _020FE3CC ; =gDeltaTime
-	ldr r1, [r4, #0x28]
-	ldr r0, [r0]
-	add r1, r1, r0, lsl #2
-	str r1, [r4, #0x28]
-	cmp r1, #0x20
-	mov r0, r4
-	blt _020FE340
-	mov r1, r5
-	bl FUN_ov16_020fe0d4
-	mov r0, #4
-	b _020FE308
-_020FE340:
-	sub r1, r1, #0x20
-_020FE344:
-	bl FUN_ov16_020fe0d4
-	b _020FE3B8
-_020FE34C:
-	mov r0, r4
-	mov r1, r5
-	b _020FE344
-_020FE358:
-	ldr r0, _020FE3CC ; =gDeltaTime
-	ldr r2, [r4, #0x28]
-	ldr r1, [r0]
-	mov r0, r4
-	add r1, r2, r1, lsl #2
-	str r1, [r4, #0x28]
-	bl FUN_ov16_020fe0d4
-	ldr r0, [r4, #0x28]
-	cmp r0, #0x20
-	movgt r0, #7
-	strgt r0, [r4, #4]
-	b _020FE3B8
-_020FE388:
-	ldrb r0, [r4, #0x36]
-	sub r0, r0, #1
-	strb r0, [r4, #0x36]
-	tst r0, #0xff
-	bne _020FE3B8
-	mov r0, #0x11
-	mov r1, #1
-	bl FUN_ov16_020f2604
-	b _020FE3B8
-_020FE3AC:
-	mov r0, r4
-	bl FUN_ov16_020fda4c
-	str r5, [r4, #4]
-_020FE3B8:
-	ldrb r0, [r4, #0x35]
-	cmp r0, #0
-	moveq r0, #1
-	movne r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FE3CC: .word gDeltaTime
-	arm_func_end FUN_ov16_020fe27c
-
-	arm_func_start FUN_ov16_020fe3d0
-FUN_ov16_020fe3d0: ; 0x020FE3D0
-	ldr r0, [r0, #4]
-	cmp r0, #0
-	movne r0, #1
-	moveq r0, #0
-	bx lr
-	arm_func_end FUN_ov16_020fe3d0
-
-	arm_func_start FUN_ov16_020fe3e4
-FUN_ov16_020fe3e4: ; 0x020FE3E4
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, r0
-	mov r4, #0
-	cmp r1, #0
-	movne r0, r4
-	ldmnefd sp!, {r3, r4, r5, pc}
-	ldr r1, [r5, #0x2c]
-	cmp r1, #0
-	movlt r0, r4
-	ldmltfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r0]
-	ldr r1, [r1, #0x44]
-	blx r1
-	cmp r0, #0
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r0, [r5, #4]
-	cmp r0, #7
-	addls pc, pc, r0, lsl #2
-	b _020FE474
-_020FE434: ; jump table
-	b _020FE474 ; case 0
-	b _020FE474 ; case 1
-	b _020FE454 ; case 2
-	b _020FE46C ; case 3
-	b _020FE46C ; case 4
-	b _020FE46C ; case 5
-	b _020FE474 ; case 6
-	b _020FE46C ; case 7
-_020FE454:
-	mov r0, r5
-	bl FUN_ov16_020fde0c
-	mov r0, #3
-	str r4, [r5, #0x28]
-	str r0, [r5, #4]
-	b _020FE474
-_020FE46C:
-	mov r0, r5
-	bl FUN_ov16_020fe178
-_020FE474:
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_ov16_020fe3e4
-
-	arm_func_start FUN_ov16_020fe47c
-FUN_ov16_020fe47c: ; 0x020FE47C
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	strb r1, [r4, #0x35]
-	ldr r1, [r0]
-	ldr r1, [r1, #0x44]
-	blx r1
-	cmp r0, #0
-	movne r0, #0
-	ldmnefd sp!, {r4, pc}
-	ldr r0, [r4, #0x2c]
-	cmp r0, #0
-	movlt r0, #0
-	ldmltfd sp!, {r4, pc}
-	mov r0, r4
-	bl FUN_ov16_020fe21c
-	mov r0, r4
-	bl FUN_ov16_020fd9b0
-	mov r0, #1
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe47c
-
-	arm_func_start FUN_ov16_020fe4c8
-FUN_ov16_020fe4c8: ; 0x020FE4C8
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl _ZdlPv
-	mov r0, r4
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe4c8
-
-	arm_func_start FUN_ov16_020fe4dc
-FUN_ov16_020fe4dc: ; 0x020FE4DC
-	str r1, [r0, #0x30]
-	bx lr
-	arm_func_end FUN_ov16_020fe4dc
-
-	arm_func_start FUN_ov16_020fe4e4
-FUN_ov16_020fe4e4: ; 0x020FE4E4
-	str r1, [r0, #0x2c]
-	bx lr
-	arm_func_end FUN_ov16_020fe4e4
-
-	arm_func_start FUN_ov16_020fe4ec
-FUN_ov16_020fe4ec: ; 0x020FE4EC
-	bx lr
-	arm_func_end FUN_ov16_020fe4ec
-
-	arm_func_start FUN_ov16_020fe4f0
-FUN_ov16_020fe4f0: ; 0x020FE4F0
-	bx lr
-	arm_func_end FUN_ov16_020fe4f0
-
-	arm_func_start FUN_ov16_020fe4f4
-FUN_ov16_020fe4f4: ; 0x020FE4F4
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	add r0, r4, #0x294
-	bl FUN_0206c0d8
-	mov r1, #0
-	mov r0, r4
-	str r1, [r4, #4]
-	str r1, [r4, #0x148]
-	str r1, [r4, #0x290]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe4f4
-
-	arm_func_start FUN_ov16_020fe51c
-FUN_ov16_020fe51c: ; 0x020FE51C
-	mov r2, #0
-	str r1, [r0, #4]
-	str r2, [r0, #0x134]
-	str r2, [r0, #0x148]
-	bx lr
-	arm_func_end FUN_ov16_020fe51c
-
-	arm_func_start FUN_ov16_020fe530
-FUN_ov16_020fe530: ; 0x020FE530
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r0, [r4, #4]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, pc}
-	ldr r2, [r4, #0x148]
-	cmp r2, #0
-	movne r0, #0
-	ldmnefd sp!, {r4, pc}
-	str r1, [r4, #0x140]
-	bl _ZN19CSceneScriptManager14getFileContextEi
-	str r0, [r4, #8]
-	mov r0, #1
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe530
-
-	arm_func_start FUN_ov16_020fe56c
-FUN_ov16_020fe56c: ; 0x020FE56C
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	bl FUN_ov16_020fe8b0
-	mov r0, #0
-	str r0, [r4, #8]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe56c
-
-	arm_func_start FUN_ov16_020fe584
-FUN_ov16_020fe584: ; 0x020FE584
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
-	movs r7, r1
-	mov r8, r0
-	mov r4, #0
-	moveq r0, r4
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	mov r3, #1
-	str r7, [r8, #0xc]
-	str r3, [r8, #0x148]
-	bl FUN_ov16_020fe9f4
-	ldrb r2, [r7, #6]
-	mov r0, r8
-	mov r1, r7
-	add r3, r2, #7
-	mov r2, r3, asr #2
-	add r2, r3, r2, lsr #29
-	mov r5, r2, asr #3
-	bl FUN_ov16_020fe9e4
-	mov r6, r0
-	ldrh r0, [r6, #4]
-	ldr r9, _020FE6E0 ; =0x00006012
-	cmp r0, r9
-	strne r4, [r8, #0x148]
-	addne r0, r7, r5, lsl #2
-	ldrne r0, [r0, #8]
-	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	mov r0, r8
-	mov r1, r7
-	bl FUN_ov16_020fe9e4
-	movs r7, r0
-	beq _020FE628
-	sub r9, r9, #0x11
-_020FE604:
-	ldrh r0, [r7, #4]
-	cmp r0, r9
-	beq _020FE628
-	mov r0, r8
-	mov r1, r7
-	add r4, r4, #1
-	bl FUN_ov16_020fe9e4
-	movs r7, r0
-	bne _020FE604
-_020FE628:
-	cmp r7, #0
-	moveq r0, #0
-	streq r0, [r8, #0x148]
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	mov r0, #0x2c
-	mul r1, r4, r0
-	mov r0, r8
-	str r4, [r8, #0x138]
-	bl FUN_ov16_020fe9c4
-	str r0, [r8, #0x134]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-	ldr r0, [r8, #0x138]
-	mov r4, #0
-	cmp r0, #0
-	ble _020FE69C
-	mov r7, #0x2c
-_020FE670:
-	mul r2, r4, r7
-	ldr r3, [r8, #0x134]
-	mov r0, r8
-	mov r1, r6
-	str r6, [r3, r2]
-	bl FUN_ov16_020fe9e4
-	ldr r1, [r8, #0x138]
-	add r4, r4, #1
-	mov r6, r0
-	cmp r4, r1
-	blt _020FE670
-_020FE69C:
-	ldr r1, [r8, #0x134]
-	add r2, sp, #0
-	mov r0, r8
-	bl FUN_ov16_020feeb8
-	ldr r1, [r8, #0x134]
-	ldr r0, _020FE6E4 ; =gAllocator
-	bl _ZN10CAllocator10deallocateEPv
-	mov r0, #0
-	str r0, [r8, #0x134]
-	str r0, [r8, #0x138]
-	str r0, [r8, #0x148]
-	ldr r1, [sp]
-	cmp r1, #0
-	ldrne r0, [r8, #0xc]
-	addne r0, r0, r5, lsl #2
-	ldrne r0, [r0, #8]
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
-_020FE6E0: .word 0x00006012
-_020FE6E4: .word gAllocator
-	arm_func_end FUN_ov16_020fe584
-
-	arm_func_start FUN_ov16_020fe6e8
-FUN_ov16_020fe6e8: ; 0x020FE6E8
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	sub sp, sp, #8
-	mov r4, r2
-	mov r5, r1
-	mov r6, r0
-	mov r1, r4
-	mov r2, r3
-	bl FUN_ov16_020fe9f4
-	add r0, r6, #0x114
-	mov r1, #0
-	mov r2, #0x20
-	bl MI_CpuFill8
-	ldrh r1, [r4, #4]
-	ldr r0, _020FE8A4 ; =0x00003001
-	cmp r1, r0
-	bne _020FE748
-	ldrb r0, [r4, #6]
-	add r1, r0, #7
-	mov r0, r1, asr #2
-	add r0, r1, r0, lsr #29
-	mov r0, r0, asr #3
-	add r0, r4, r0, lsl #2
-	ldr r0, [r0, #8]
-	str r0, [r6, #0x144]
-_020FE748:
-	mov r0, r6
-	mov r1, r4
-	bl FUN_ov16_020fe9e4
-	movs r4, r0
-	beq _020FE780
-	ldr r7, _020FE8A8 ; =0x00006001
-_020FE760:
-	ldrh r0, [r4, #4]
-	cmp r0, r7
-	beq _020FE780
-	mov r0, r6
-	mov r1, r4
-	bl FUN_ov16_020fe9e4
-	movs r4, r0
-	bne _020FE760
-_020FE780:
-	cmp r4, #0
-	addeq sp, sp, #8
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	mov r0, r6
-	mov r1, r4
-	str r4, [r6, #0xc]
-	mov r7, #1
-	bl FUN_ov16_020fe9e4
-	movs r1, r0
-	beq _020FE7D4
-	ldr r4, _020FE8AC ; =0x00006002
-_020FE7AC:
-	ldrh r0, [r1, #4]
-	add r7, r7, #1
-	cmp r0, r4
-	ldreq r0, [r1, #0xc]
-	cmpeq r0, #0
-	beq _020FE7D4
-	mov r0, r6
-	bl FUN_ov16_020fe9e4
-	movs r1, r0
-	bne _020FE7AC
-_020FE7D4:
-	cmp r1, #0
-	addeq sp, sp, #8
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r6, #8]
-	add r1, sp, #4
-	add r2, sp, #0
-	bl _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
-	mov r0, #0x2c
-	mul r1, r7, r0
-	mov r0, r6
-	str r7, [r6, #0x138]
-	bl FUN_ov16_020fe9c4
-	cmp r0, #0
-	addeq sp, sp, #8
-	str r0, [r6, #0x134]
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldr r0, [r6, #0x138]
-	ldr r1, [r6, #0xc]
-	cmp r0, #0
-	mov r4, #0
-	ble _020FE864
-	mov r7, #0x2c
-_020FE82C:
-	mul r12, r4, r7
-	ldr r2, [r6, #0x134]
-	mov r0, r6
-	str r1, [r2, r12]
-	ldr r2, [r6, #0x134]
-	ldrb r3, [r1, #7]
-	add r2, r2, r12
-	strb r3, [r2, #9]
-	bl FUN_ov16_020fe9e4
-	ldr r2, [r6, #0x138]
-	add r4, r4, #1
-	mov r1, r0
-	cmp r4, r2
-	blt _020FE82C
-_020FE864:
-	ldr r2, [r6, #0x134]
-	mov r1, #0
-	mov r0, #1
-	str r5, [r6]
-	str r2, [r6, #0x110]
-	str r1, [r6, #0x180]
-	str r1, [r6, #0x168]
-	str r1, [r6, #0x14c]
-	str r1, [r6, #0x150]
-	str r1, [r6, #0x154]
-	str r1, [r6, #0x158]
-	str r1, [r6, #0x15c]
-	str r0, [r6, #0x148]
-	str r1, [r6, #0x164]
-	add sp, sp, #8
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_020FE8A4: .word 0x00003001
-_020FE8A8: .word 0x00006001
-_020FE8AC: .word 0x00006002
-	arm_func_end FUN_ov16_020fe6e8
-
-	arm_func_start FUN_ov16_020fe8b0
-FUN_ov16_020fe8b0: ; 0x020FE8B0
-	stmfd sp!, {r4, lr}
-	sub sp, sp, #8
-	mov r4, r0
-	ldr r0, [r4, #0x134]
-	mov r1, #0
-	str r1, [r4, #0x148]
-	cmp r0, #0
-	beq _020FE8EC
-	ldr r0, [r4, #8]
-	add r1, sp, #4
-	add r2, sp, #0
-	bl _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
-	ldr r1, [r4, #0x134]
-	mov r0, r4
-	bl FUN_ov16_020fe9d4
-_020FE8EC:
-	mov r1, #0
-	ldr r0, [r4, #0x164]
-	str r1, [r4, #0x134]
-	str r1, [r4, #0x138]
-	add sp, sp, #8
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_ov16_020fe8b0
-
-	arm_func_start FUN_ov16_020fe904
-FUN_ov16_020fe904: ; 0x020FE904
-	ldr r1, [r0, #0x158]
-	cmp r1, #0
-	moveq r1, #1
-	streq r1, [r0, #0x14c]
-	bx lr
-	arm_func_end FUN_ov16_020fe904
-
-	arm_func_start FUN_ov16_020fe918
-FUN_ov16_020fe918: ; 0x020FE918
-	ldr r1, [r0, #0x158]
-	cmp r1, #0
-	moveq r1, #1
-	streq r1, [r0, #0x150]
-	bx lr
-	arm_func_end FUN_ov16_020fe918
-
-	arm_func_start FUN_ov16_020fe92c
-FUN_ov16_020fe92c: ; 0x020FE92C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r4, r0
-	ldr r1, [r4, #0x148]
-	cmp r1, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, pc}
-	ldr r1, [r4, #0x138]
-	ldr r2, [r4, #0x134]
-	sub r3, r1, #1
-	mov r5, #0x2c
-	mla r2, r3, r5, r2
-	ldr r1, _020FE9A0 ; =gDeltaTime
-	ldr r3, [r4, #0x168]
-	ldr r12, [r1]
-	ldr r1, [r4, #0x110]
-	add r3, r3, r12
-	str r12, [r4, #0x178]
-	str r3, [r4, #0x168]
-	bl FUN_ov16_020fedc8
-	ldr r1, [r4, #0x138]
-	ldr r2, [r4, #0x134]
-	sub r1, r1, #1
-	mla r2, r1, r5, r2
-	str r0, [r4, #0x110]
-	cmp r0, r2
-	movhs r0, #0
-	strhs r0, [r4, #0x148]
-	movlo r0, #1
-	ldmfd sp!, {r3, r4, r5, pc}
-_020FE9A0: .word gDeltaTime
-	arm_func_end FUN_ov16_020fe92c
-
-	arm_func_start FUN_ov16_020fe9a4
-FUN_ov16_020fe9a4: ; 0x020FE9A4
-	ldr r0, [r0, #0x134]
-	bx lr
-	arm_func_end FUN_ov16_020fe9a4
-
-	arm_func_start FUN_ov16_020fe9ac
-FUN_ov16_020fe9ac: ; 0x020FE9AC
-	ldr r0, [r0, #0x138]
-	bx lr
-	arm_func_end FUN_ov16_020fe9ac
-
-	arm_func_start FUN_ov16_020fe9b4
-FUN_ov16_020fe9b4: ; 0x020FE9B4
-	str r1, [r0, #0x110]
-	bx lr
-	arm_func_end FUN_ov16_020fe9b4
-
-	arm_func_start FUN_ov16_020fe9bc
-FUN_ov16_020fe9bc: ; 0x020FE9BC
-	str r1, [r0, #0x148]
-	bx lr
-	arm_func_end FUN_ov16_020fe9bc
-
-	arm_func_start FUN_ov16_020fe9c4
-FUN_ov16_020fe9c4: ; 0x020FE9C4
-	ldr r0, [r0, #4]
-	ldr r12, _020FE9D0 ; =_ZN19CSceneScriptManager9callocateEm
-	bx r12
-_020FE9D0: .word _ZN19CSceneScriptManager9callocateEm
-	arm_func_end FUN_ov16_020fe9c4
-
-	arm_func_start FUN_ov16_020fe9d4
-FUN_ov16_020fe9d4: ; 0x020FE9D4
-	ldr r0, [r0, #4]
-	ldr r12, _020FE9E0 ; =_ZN19CSceneScriptManager4freeEPv
-	bx r12
-_020FE9E0: .word _ZN19CSceneScriptManager4freeEPv
-	arm_func_end FUN_ov16_020fe9d4
-
-	arm_func_start FUN_ov16_020fe9e4
-FUN_ov16_020fe9e4: ; 0x020FE9E4
-	ldr r0, [r0, #8]
-	ldr r12, _020FE9F0 ; =_ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
-	bx r12
-_020FE9F0: .word _ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
-	arm_func_end FUN_ov16_020fe9e4
-
-	arm_func_start FUN_ov16_020fe9f4
-FUN_ov16_020fe9f4: ; 0x020FE9F4
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r6, r0
-	mov r5, r1
-	mov r4, r2
-	add r0, r6, #0x10
-	mov r1, #0
-	mov r2, #0x100
-	bl MI_CpuFill8
-	cmp r4, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	ldrb r2, [r5, #6]
-	mov r3, #2
-	add r1, r2, #7
-	mov r0, r1, asr #2
-	add r0, r1, r0, lsr #29
-	cmp r2, #2
-	mov r0, r0, asr #3
-	ble _020FEA68
-	add r1, r5, r0, lsl #2
-_020FEA40:
-	add r0, r1, r3, lsl #2
-	add r2, r4, r3, lsl #2
-	ldr r0, [r0, #8]
-	ldr r2, [r2, #-8]
-	add r0, r6, r0, lsl #2
-	str r2, [r0, #0x10]
-	ldrb r2, [r5, #6]
-	add r3, r3, #1
-	cmp r3, r2
-	blt _020FEA40
-_020FEA68:
-	sub r0, r2, #2
-	str r0, [r6, #0x160]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fe9f4
-
-	arm_func_start FUN_ov16_020fea74
-FUN_ov16_020fea74: ; 0x020FEA74
-	stmfd sp!, {r4, lr}
-	cmp r1, #0
-	ldreq r1, [r0, #0x134]
-	ldr r12, [r0, #0x134]
-	ldr r3, _020FEAFC ; =0xBA2E8BA3
-	sub r12, r1, r12
-	umull r3, r4, r12, r3
-	ldr lr, [r0, #0x138]
-	mov r4, r4, lsr #5
-	mov r0, r1
-	mov r12, r4
-	cmp lr, r4
-	ble _020FEAC8
-_020FEAA8:
-	ldr r3, [r0]
-	ldrh r3, [r3]
-	cmp r3, r2
-	ldmeqfd sp!, {r4, pc}
-	add r12, r12, #1
-	cmp r12, lr
-	add r0, r0, #0x2c
-	blt _020FEAA8
-_020FEAC8:
-	cmp r4, #0
-	sub r0, r1, #0x2c
-	ble _020FEAF4
-_020FEAD4:
-	ldr r1, [r0]
-	ldrh r1, [r1]
-	cmp r1, r2
-	ldmeqfd sp!, {r4, pc}
-	sub r4, r4, #1
-	cmp r4, #0
-	sub r0, r0, #0x2c
-	bgt _020FEAD4
-_020FEAF4:
-	mov r0, #0
-	ldmfd sp!, {r4, pc}
-_020FEAFC: .word 0xBA2E8BA3
-	arm_func_end FUN_ov16_020fea74
-
-	arm_func_start FUN_ov16_020feb00
-FUN_ov16_020feb00: ; 0x020FEB00
-	stmfd sp!, {r4, lr}
-	cmp r1, #0
-	ldreq r1, [r0, #0x138]
-	ldreq r12, [r0, #0x134]
-	subeq r3, r1, #1
-	moveq r1, #0x2c
-	mlaeq r1, r3, r1, r12
-	ldr r12, [r0, #0x134]
-	ldr r3, _020FEB98 ; =0xBA2E8BA3
-	sub r12, r1, r12
-	umull r3, lr, r12, r3
-	movs lr, lr, lsr #5
-	mov r12, r1
-	mov r4, lr
-	bmi _020FEB5C
-_020FEB3C:
-	ldr r3, [r12]
-	ldrh r3, [r3]
-	cmp r3, r2
-	moveq r0, r12
-	ldmeqfd sp!, {r4, pc}
-	sub r12, r12, #0x2c
-	subs r4, r4, #1
-	bpl _020FEB3C
-_020FEB5C:
-	ldr r3, [r0, #0x138]
-	add r4, lr, #1
-	cmp r4, r3
-	add r0, r1, #0x2c
-	bge _020FEB90
-_020FEB70:
-	ldr r1, [r0]
-	ldrh r1, [r1]
-	cmp r1, r2
-	ldmeqfd sp!, {r4, pc}
-	add r4, r4, #1
-	cmp r4, r3
-	add r0, r0, #0x2c
-	blt _020FEB70
-_020FEB90:
-	mov r0, #0
-	ldmfd sp!, {r4, pc}
-_020FEB98: .word 0xBA2E8BA3
-	arm_func_end FUN_ov16_020feb00
-
-	arm_func_start FUN_ov16_020feb9c
-FUN_ov16_020feb9c: ; 0x020FEB9C
-	cmp r1, #0
-	ldreq r1, [r0, #0x138]
-	ldreq r12, [r0, #0x134]
-	subeq r3, r1, #1
-	moveq r1, #0x2c
-	mlaeq r1, r3, r1, r12
-	ldr r3, [r0, #0x134]
-	ldr r0, _020FEBF4 ; =0xBA2E8BA3
-	sub r3, r1, r3
-	umull r0, r12, r3, r0
-	movs r12, r12, lsr #5
-	bmi _020FEBEC
-_020FEBCC:
-	ldr r0, [r1]
-	ldrh r0, [r0, #4]
-	cmp r0, r2
-	moveq r0, r1
-	bxeq lr
-	sub r1, r1, #0x2c
-	subs r12, r12, #1
-	bpl _020FEBCC
-_020FEBEC:
-	mov r0, #0
-	bx lr
-_020FEBF4: .word 0xBA2E8BA3
-	arm_func_end FUN_ov16_020feb9c
-
-	arm_func_start FUN_ov16_020febf8
-FUN_ov16_020febf8: ; 0x020FEBF8
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
-	mov r10, r1
-	ldr r6, [r10], #0x2c
-	mov r9, r0
-	ldrb r3, [r6, #6]
-	mov r8, r2
-	mov r7, #0
-	add r1, r3, #7
-	mov r0, r1, asr #2
-	add r0, r1, r0, lsr #29
-	cmp r3, #0
-	mov r0, r0, asr #3
-	ble _020FED64
-	add r5, r6, r0, lsl #2
-	add r11, r9, #0x10
-_020FEC34:
-	mov r0, r7, asr #2
-	add r0, r7, r0, lsr #29
-	mov r0, r0, asr #3
-	add r1, r6, r0, lsl #2
-	mov r0, r7, lsl #0x1d
-	ldr r1, [r1, #8]
-	mov r0, r0, lsr #0x1b
-	mov r0, r1, asr r0
-	and r0, r0, #0xf
-	cmp r0, #6
-	addls pc, pc, r0, lsl #2
-	b _020FED54
-_020FEC64: ; jump table
-	b _020FED54 ; case 0
-	b _020FEC80 ; case 1
-	b _020FEC80 ; case 2
-	b _020FEC84 ; case 3
-	b _020FEC90 ; case 4
-	b _020FECCC ; case 5
-	b _020FED14 ; case 6
-_020FEC80:
-	b _020FEC84
-_020FEC84:
-	add r0, r5, r7, lsl #2
-	ldr r0, [r0, #8]
-	b _020FED50
-_020FEC90:
-	add r0, r5, r7, lsl #2
-	ldr r2, [r0, #8]
-	mov r0, r9
-	mov r1, r10
-	bl FUN_ov16_020fea74
-	mov r4, r0
-	mov r0, r9
-	mov r1, r4
-	add r2, sp, #0
-	bl FUN_ov16_020feeb8
-	ldr r10, [r4, #4]
-	ldr r0, [sp]
-	cmp r10, #0
-	addeq r10, r4, #0x2c
-	b _020FED50
-_020FECCC:
-	add r0, r5, r7, lsl #2
-	ldr r2, [r0, #8]
-	mov r0, r2, lsl #0x10
-	tst r2, #0x10000
-	mov r1, r0, lsr #0x10
-	beq _020FECF4
-	ldr r0, [r9, #4]
-	bl _ZN19CSceneScriptManager17getGlobalVariableEi
-_020FECEC:
-	ldr r0, [r0]
-	b _020FED50
-_020FECF4:
-	tst r2, #0x20000
-	addeq r0, r9, r1, lsl #2
-	ldreq r0, [r0, #0x10]
-	streq r0, [r8, r7, lsl #2]
-	beq _020FED54
-	ldr r0, [r9, #8]
-	bl _ZN23CSceneScriptFileContext11getVariableEi
-	b _020FECEC
-_020FED14:
-	add r0, r5, r7, lsl #2
-	ldr r2, [r0, #8]
-	mov r0, r2, lsl #0x10
-	tst r2, #0x10000
-	mov r1, r0, lsr #0x10
-	beq _020FED38
-	ldr r0, [r9, #4]
-	bl _ZN19CSceneScriptManager17getGlobalVariableEi
-	b _020FED50
-_020FED38:
-	tst r2, #0x20000
-	addeq r0, r11, r1, lsl #2
-	streq r0, [r8, r7, lsl #2]
-	beq _020FED54
-	ldr r0, [r9, #8]
-	bl _ZN23CSceneScriptFileContext11getVariableEi
-_020FED50:
-	str r0, [r8, r7, lsl #2]
-_020FED54:
-	ldrb r0, [r6, #6]
-	add r7, r7, #1
-	cmp r7, r0
-	blt _020FEC34
-_020FED64:
-	mov r0, r10
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
-	arm_func_end FUN_ov16_020febf8
-
-	arm_func_start FUN_ov16_020fed6c
-FUN_ov16_020fed6c: ; 0x020FED6C
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r4, r2
-	mov r6, r0
-	mov r5, r1
-	mov r1, r4
-	mov r0, #0
-	mov r2, #0x80
-	bl MIi_CpuClearFast
-	mov r0, r6
-	mov r1, r5
-	mov r2, r4
-	bl FUN_ov16_020febf8
-	str r0, [r5, #4]
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_ov16_020fed6c
-
-	arm_func_start FUN_ov16_020feda4
-FUN_ov16_020feda4: ; 0x020FEDA4
-	ldr r2, [r1, #0xc]
-	ldr r2, [r2, #0xc]
-	str r2, [r0, #0x17c]
-	add r2, r0, r2, lsl #2
-	str r1, [r2, #0x114]
-	ldr r1, [r0, #0x17c]
-	add r1, r1, #1
-	str r1, [r0, #0x17c]
-	bx lr
-	arm_func_end FUN_ov16_020feda4
-
-	arm_func_start FUN_ov16_020fedc8
-FUN_ov16_020fedc8: ; 0x020FEDC8
-	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
-	sub sp, sp, #4
-	mov r8, r1
-	mov r7, r2
-	mov r9, r0
-	mov r6, r8
-	cmp r8, r7
-	bhs _020FEE8C
-	ldr r10, _020FEEB4 ; =0x00003003
-	mov r5, #1
-	add r4, sp, #0
-_020FEDF4:
-	ldrsb r0, [r6, #0xa]
-	cmp r0, #0
-	beq _020FEE14
-	ldr r0, [r6, #4]
-	cmp r0, #0
-	movne r6, r0
-	addeq r6, r6, #0x2c
-	b _020FEE84
-_020FEE14:
-	ldr r0, [r9, #0x150]
-	cmp r0, #0
-	beq _020FEE3C
-	ldr r0, [r6]
-	ldrh r1, [r0, #4]
-	mov r0, r1, asr #0xc
-	cmp r0, #3
-	bne _020FEE3C
-	cmp r1, r10
-	strneb r5, [r6, #0xa]
-_020FEE3C:
-	mov r0, r9
-	mov r1, r6
-	mov r2, r4
-	bl FUN_ov16_020feeb8
-	ldr r1, [r6, #4]
-	cmp r1, r8
-	bhs _020FEE60
-	cmp r1, #0
-	movne r8, r1
-_020FEE60:
-	ldrsb r0, [r6, #0xa]
-	cmp r0, #0
-	bne _020FEE78
-	ldrsb r0, [r6, #9]
-	cmp r0, #0
-	bne _020FEE8C
-_020FEE78:
-	mov r6, r1
-	cmp r1, #0
-	beq _020FEE8C
-_020FEE84:
-	cmp r6, r7
-	blo _020FEDF4
-_020FEE8C:
-	ldrsb r0, [r8, #0xa]
-	cmp r0, #0
-	beq _020FEEA8
-_020FEE98:
-	add r8, r8, #0x2c
-	ldrsb r0, [r8, #0xa]
-	cmp r0, #0
-	bne _020FEE98
-_020FEEA8:
-	mov r0, r8
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
-_020FEEB4: .word 0x00003003
-	arm_func_end FUN_ov16_020fedc8
-
-	arm_func_start FUN_ov16_020feeb8
-FUN_ov16_020feeb8: ; 0x020FEEB8
-	stmfd sp!, {r3, r4, lr}
-	sub sp, sp, #4
-	ldr r3, [r1]
-	mov r4, r2
-	ldrh r2, [r3, #4]
-	mov r2, r2, asr #0xc
-	cmp r2, #7
-	addls pc, pc, r2, lsl #2
-	b _020FEF38
-_020FEEDC: ; jump table
-	b _020FEF38 ; case 0
-	b _020FEEFC ; case 1
-	b _020FEEFC ; case 2
-	b _020FEF08 ; case 3
-	b _020FEF14 ; case 4
-	b _020FEF38 ; case 5
-	b _020FEF20 ; case 6
-	b _020FEF2C ; case 7
-_020FEEFC:
-	add r2, sp, #0
-	bl FUN_ov16_020ffab4
-	b _020FEF40
-_020FEF08:
-	add r2, sp, #0
-	bl FUN_ov16_020ff0c8
-	b _020FEF40
-_020FEF14:
-	add r2, sp, #0
-	bl FUN_ov16_020ff59c
-	b _020FEF40
-_020FEF20:
-	add r2, sp, #0
-	bl FUN_ov16_020fef54
-	b _020FEF40
-_020FEF2C:
-	add r2, sp, #0
-	bl FUN_ov16_020ff884
-	b _020FEF40
-_020FEF38:
-	add r2, sp, #0
-	bl FUN_ov16_020ff9f8
-_020FEF40:
-	cmp r4, #0
-	ldrne r1, [sp]
-	strne r1, [r4]
-	add sp, sp, #4
-	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_ov16_020feeb8
-
-	arm_func_start FUN_ov16_020fef54
-FUN_ov16_020fef54: ; 0x020FEF54
+;	arm_func_start _ZN18CSceneScriptThreadC1Ev
+;_ZN18CSceneScriptThreadC1Ev: ; 0x020FE4F4
+;	stmfd sp!, {r4, lr}
+;	mov r4, r0
+;	add r0, r4, #0x294
+;	bl _ZN8CUnitManC1Ev
+;	mov r1, #0
+;	mov r0, r4
+;	str r1, [r4, #4]
+;	str r1, [r4, #0x148]
+;	str r1, [r4, #0x290]
+;	ldmfd sp!, {r4, pc}
+;	arm_func_end _ZN18CSceneScriptThreadC1Ev
+;
+;	arm_func_start _ZN18CSceneScriptThread4initEP19CSceneScriptManager
+;_ZN18CSceneScriptThread4initEP19CSceneScriptManager: ; 0x020FE51C
+;	mov r2, #0
+;	str r1, [r0, #4]
+;	str r2, [r0, #0x134]
+;	str r2, [r0, #0x148]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread4initEP19CSceneScriptManager
+;
+;	arm_func_start _ZN18CSceneScriptThread6attachEi
+;_ZN18CSceneScriptThread6attachEi: ; 0x020FE530
+;	stmfd sp!, {r4, lr}
+;	mov r4, r0
+;	ldr r0, [r4, #4]
+;	cmp r0, #0
+;	moveq r0, #0
+;	ldmeqfd sp!, {r4, pc}
+;	ldr r2, [r4, #0x148]
+;	cmp r2, #0
+;	movne r0, #0
+;	ldmnefd sp!, {r4, pc}
+;	str r1, [r4, #0x140]
+;	bl _ZN19CSceneScriptManager14getFileContextEi
+;	str r0, [r4, #8]
+;	mov r0, #1
+;	ldmfd sp!, {r4, pc}
+;	arm_func_end _ZN18CSceneScriptThread6attachEi
+;
+;	arm_func_start _ZN18CSceneScriptThread6detachEv
+;_ZN18CSceneScriptThread6detachEv: ; 0x020FE56C
+;	stmfd sp!, {r4, lr}
+;	mov r4, r0
+;	bl _ZN18CSceneScriptThread4stopEv
+;	mov r0, #0
+;	str r0, [r4, #8]
+;	ldmfd sp!, {r4, pc}
+;	arm_func_end _ZN18CSceneScriptThread6detachEv
+;
+;	arm_func_start _ZN18CSceneScriptThread17evaluateConditionEP18SScriptInstructionPl
+;_ZN18CSceneScriptThread17evaluateConditionEP18SScriptInstructionPl: ; 0x020FE584
+;	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+;	movs r7, r1
+;	mov r8, r0
+;	mov r4, #0
+;	moveq r0, r4
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+;	mov r3, #1
+;	str r7, [r8, #0xc]
+;	str r3, [r8, #0x148]
+;	bl _ZN18CSceneScriptThread20setFunctionArgumentsEP18SScriptInstructionPl
+;	ldrb r2, [r7, #6]
+;	mov r0, r8
+;	mov r1, r7
+;	add r3, r2, #7
+;	mov r2, r3, asr #2
+;	add r2, r3, r2, lsr #29
+;	mov r5, r2, asr #3
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	mov r6, r0
+;	ldrh r0, [r6, #4]
+;	ldr r9, _020FE6E0 ; =0x00006012
+;	cmp r0, r9
+;	strne r4, [r8, #0x148]
+;	addne r0, r7, r5, lsl #2
+;	ldrne r0, [r0, #8]
+;	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+;	mov r0, r8
+;	mov r1, r7
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r7, r0
+;	beq _020FE628
+;	sub r9, r9, #0x11
+;_020FE604:
+;	ldrh r0, [r7, #4]
+;	cmp r0, r9
+;	beq _020FE628
+;	mov r0, r8
+;	mov r1, r7
+;	add r4, r4, #1
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r7, r0
+;	bne _020FE604
+;_020FE628:
+;	cmp r7, #0
+;	moveq r0, #0
+;	streq r0, [r8, #0x148]
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+;	mov r0, #0x2c
+;	mul r1, r4, r0
+;	mov r0, r8
+;	str r4, [r8, #0x138]
+;	bl _ZN18CSceneScriptThread9callocateEm
+;	str r0, [r8, #0x134]
+;	cmp r0, #0
+;	moveq r0, #0
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+;	ldr r0, [r8, #0x138]
+;	mov r4, #0
+;	cmp r0, #0
+;	ble _020FE69C
+;	mov r7, #0x2c
+;_020FE670:
+;	mul r2, r4, r7
+;	ldr r3, [r8, #0x134]
+;	mov r0, r8
+;	mov r1, r6
+;	str r6, [r3, r2]
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	ldr r1, [r8, #0x138]
+;	add r4, r4, #1
+;	mov r6, r0
+;	cmp r4, r1
+;	blt _020FE670
+;_020FE69C:
+;	ldr r1, [r8, #0x134]
+;	add r2, sp, #0
+;	mov r0, r8
+;	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+;	ldr r1, [r8, #0x134]
+;	ldr r0, _020FE6E4 ; =gAllocator
+;	bl _ZN10CAllocator10deallocateEPv
+;	mov r0, #0
+;	str r0, [r8, #0x134]
+;	str r0, [r8, #0x138]
+;	str r0, [r8, #0x148]
+;	ldr r1, [sp]
+;	cmp r1, #0
+;	ldrne r0, [r8, #0xc]
+;	addne r0, r0, r5, lsl #2
+;	ldrne r0, [r0, #8]
+;	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+;_020FE6E0: .word 0x00006012
+;_020FE6E4: .word gAllocator
+;	arm_func_end _ZN18CSceneScriptThread17evaluateConditionEP18SScriptInstructionPl
+;
+;	arm_func_start _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
+;_ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl: ; 0x020FE6E8
+;	stmfd sp!, {r3, r4, r5, r6, r7, lr}
+;	sub sp, sp, #8
+;	mov r4, r2
+;	mov r5, r1
+;	mov r6, r0
+;	mov r1, r4
+;	mov r2, r3
+;	bl _ZN18CSceneScriptThread20setFunctionArgumentsEP18SScriptInstructionPl
+;	add r0, r6, #0x114
+;	mov r1, #0
+;	mov r2, #0x20
+;	bl MI_CpuFill8
+;	ldrh r1, [r4, #4]
+;	ldr r0, _020FE8A4 ; =0x00003001
+;	cmp r1, r0
+;	bne _020FE748
+;	ldrb r0, [r4, #6]
+;	add r1, r0, #7
+;	mov r0, r1, asr #2
+;	add r0, r1, r0, lsr #29
+;	mov r0, r0, asr #3
+;	add r0, r4, r0, lsl #2
+;	ldr r0, [r0, #8]
+;	str r0, [r6, #0x144]
+;_020FE748:
+;	mov r0, r6
+;	mov r1, r4
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r4, r0
+;	beq _020FE780
+;	ldr r7, _020FE8A8 ; =0x00006001
+;_020FE760:
+;	ldrh r0, [r4, #4]
+;	cmp r0, r7
+;	beq _020FE780
+;	mov r0, r6
+;	mov r1, r4
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r4, r0
+;	bne _020FE760
+;_020FE780:
+;	cmp r4, #0
+;	addeq sp, sp, #8
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
+;	mov r0, r6
+;	mov r1, r4
+;	str r4, [r6, #0xc]
+;	mov r7, #1
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r1, r0
+;	beq _020FE7D4
+;	ldr r4, _020FE8AC ; =0x00006002
+;_020FE7AC:
+;	ldrh r0, [r1, #4]
+;	add r7, r7, #1
+;	cmp r0, r4
+;	ldreq r0, [r1, #0xc]
+;	cmpeq r0, #0
+;	beq _020FE7D4
+;	mov r0, r6
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	movs r1, r0
+;	bne _020FE7AC
+;_020FE7D4:
+;	cmp r1, #0
+;	addeq sp, sp, #8
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
+;	ldr r0, [r6, #8]
+;	add r1, sp, #4
+;	add r2, sp, #0
+;	bl _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
+;	mov r0, #0x2c
+;	mul r1, r7, r0
+;	mov r0, r6
+;	str r7, [r6, #0x138]
+;	bl _ZN18CSceneScriptThread9callocateEm
+;	cmp r0, #0
+;	addeq sp, sp, #8
+;	str r0, [r6, #0x134]
+;	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
+;	ldr r0, [r6, #0x138]
+;	ldr r1, [r6, #0xc]
+;	cmp r0, #0
+;	mov r4, #0
+;	ble _020FE864
+;	mov r7, #0x2c
+;_020FE82C:
+;	mul r12, r4, r7
+;	ldr r2, [r6, #0x134]
+;	mov r0, r6
+;	str r1, [r2, r12]
+;	ldr r2, [r6, #0x134]
+;	ldrb r3, [r1, #7]
+;	add r2, r2, r12
+;	strb r3, [r2, #9]
+;	bl _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;	ldr r2, [r6, #0x138]
+;	add r4, r4, #1
+;	mov r1, r0
+;	cmp r4, r2
+;	blt _020FE82C
+;_020FE864:
+;	ldr r2, [r6, #0x134]
+;	mov r1, #0
+;	mov r0, #1
+;	str r5, [r6]
+;	str r2, [r6, #0x110]
+;	str r1, [r6, #0x180]
+;	str r1, [r6, #0x168]
+;	str r1, [r6, #0x14c]
+;	str r1, [r6, #0x150]
+;	str r1, [r6, #0x154]
+;	str r1, [r6, #0x158]
+;	str r1, [r6, #0x15c]
+;	str r0, [r6, #0x148]
+;	str r1, [r6, #0x164]
+;	add sp, sp, #8
+;	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
+;_020FE8A4: .word 0x00003001
+;_020FE8A8: .word 0x00006001
+;_020FE8AC: .word 0x00006002
+;	arm_func_end _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
+;
+;	arm_func_start _ZN18CSceneScriptThread4stopEv
+;_ZN18CSceneScriptThread4stopEv: ; 0x020FE8B0
+;	stmfd sp!, {r4, lr}
+;	sub sp, sp, #8
+;	mov r4, r0
+;	ldr r0, [r4, #0x134]
+;	mov r1, #0
+;	str r1, [r4, #0x148]
+;	cmp r0, #0
+;	beq _020FE8EC
+;	ldr r0, [r4, #8]
+;	add r1, sp, #4
+;	add r2, sp, #0
+;	bl _ZN23CSceneScriptFileContext14getTypeAndCodeEPlS0_
+;	ldr r1, [r4, #0x134]
+;	mov r0, r4
+;	bl _ZN18CSceneScriptThread4freeEPv
+;_020FE8EC:
+;	mov r1, #0
+;	ldr r0, [r4, #0x164]
+;	str r1, [r4, #0x134]
+;	str r1, [r4, #0x138]
+;	add sp, sp, #8
+;	ldmfd sp!, {r4, pc}
+;	arm_func_end _ZN18CSceneScriptThread4stopEv
+;
+;	arm_func_start _ZN18CSceneScriptThread18requestFastForwardEv
+;_ZN18CSceneScriptThread18requestFastForwardEv: ; 0x020FE904
+;	ldr r1, [r0, #0x158]
+;	cmp r1, #0
+;	moveq r1, #1
+;	streq r1, [r0, #0x14c]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread18requestFastForwardEv
+;
+;	arm_func_start _ZN18CSceneScriptThread11requestSkipEv
+;_ZN18CSceneScriptThread11requestSkipEv: ; 0x020FE918
+;	ldr r1, [r0, #0x158]
+;	cmp r1, #0
+;	moveq r1, #1
+;	streq r1, [r0, #0x150]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread11requestSkipEv
+;
+;	arm_func_start _ZN18CSceneScriptThread6updateEv
+;_ZN18CSceneScriptThread6updateEv: ; 0x020FE92C
+;	stmfd sp!, {r3, r4, r5, lr}
+;	mov r4, r0
+;	ldr r1, [r4, #0x148]
+;	cmp r1, #0
+;	moveq r0, #0
+;	ldmeqfd sp!, {r3, r4, r5, pc}
+;	ldr r1, [r4, #0x138]
+;	ldr r2, [r4, #0x134]
+;	sub r3, r1, #1
+;	mov r5, #0x2c
+;	mla r2, r3, r5, r2
+;	ldr r1, _020FE9A0 ; =gDeltaTime
+;	ldr r3, [r4, #0x168]
+;	ldr r12, [r1]
+;	ldr r1, [r4, #0x110]
+;	add r3, r3, r12
+;	str r12, [r4, #0x178]
+;	str r3, [r4, #0x168]
+;	bl _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
+;	ldr r1, [r4, #0x138]
+;	ldr r2, [r4, #0x134]
+;	sub r1, r1, #1
+;	mla r2, r1, r5, r2
+;	str r0, [r4, #0x110]
+;	cmp r0, r2
+;	movhs r0, #0
+;	strhs r0, [r4, #0x148]
+;	movlo r0, #1
+;	ldmfd sp!, {r3, r4, r5, pc}
+;_020FE9A0: .word gDeltaTime
+;	arm_func_end _ZN18CSceneScriptThread6updateEv
+;
+;	arm_func_start _ZN18CSceneScriptThread9getEventsEv
+;_ZN18CSceneScriptThread9getEventsEv: ; 0x020FE9A4
+;	ldr r0, [r0, #0x134]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread9getEventsEv
+;
+;	arm_func_start _ZN18CSceneScriptThread13getEventCountEv
+;_ZN18CSceneScriptThread13getEventCountEv: ; 0x020FE9AC
+;	ldr r0, [r0, #0x138]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread13getEventCountEv
+;
+;	arm_func_start _ZN18CSceneScriptThread11setCurEventEP12SScriptEvent
+;_ZN18CSceneScriptThread11setCurEventEP12SScriptEvent: ; 0x020FE9B4
+;	str r1, [r0, #0x110]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread11setCurEventEP12SScriptEvent
+;
+;	arm_func_start _ZN18CSceneScriptThread10setRunningEi
+;_ZN18CSceneScriptThread10setRunningEi: ; 0x020FE9BC
+;	str r1, [r0, #0x148]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread10setRunningEi
+;
+;	arm_func_start _ZN18CSceneScriptThread9callocateEm
+;_ZN18CSceneScriptThread9callocateEm: ; 0x020FE9C4
+;	ldr r0, [r0, #4]
+;	ldr r12, _020FE9D0 ; =_ZN19CSceneScriptManager9callocateEm
+;	bx r12
+;_020FE9D0: .word _ZN19CSceneScriptManager9callocateEm
+;	arm_func_end _ZN18CSceneScriptThread9callocateEm
+;
+;	arm_func_start _ZN18CSceneScriptThread4freeEPv
+;_ZN18CSceneScriptThread4freeEPv: ; 0x020FE9D4
+;	ldr r0, [r0, #4]
+;	ldr r12, _020FE9E0 ; =_ZN19CSceneScriptManager4freeEPv
+;	bx r12
+;_020FE9E0: .word _ZN19CSceneScriptManager4freeEPv
+;	arm_func_end _ZN18CSceneScriptThread4freeEPv
+;
+;	arm_func_start _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;_ZN18CSceneScriptThread4nextEP18SScriptInstruction: ; 0x020FE9E4
+;	ldr r0, [r0, #8]
+;	ldr r12, _020FE9F0 ; =_ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
+;	bx r12
+;_020FE9F0: .word _ZN23CSceneScriptFileContext4nextEP18SScriptInstruction
+;	arm_func_end _ZN18CSceneScriptThread4nextEP18SScriptInstruction
+;
+;	arm_func_start _ZN18CSceneScriptThread20setFunctionArgumentsEP18SScriptInstructionPl
+;_ZN18CSceneScriptThread20setFunctionArgumentsEP18SScriptInstructionPl: ; 0x020FE9F4
+;	stmfd sp!, {r4, r5, r6, lr}
+;	mov r6, r0
+;	mov r5, r1
+;	mov r4, r2
+;	add r0, r6, #0x10
+;	mov r1, #0
+;	mov r2, #0x100
+;	bl MI_CpuFill8
+;	cmp r4, #0
+;	ldmeqfd sp!, {r4, r5, r6, pc}
+;	ldrb r2, [r5, #6]
+;	mov r3, #2
+;	add r1, r2, #7
+;	mov r0, r1, asr #2
+;	add r0, r1, r0, lsr #29
+;	cmp r2, #2
+;	mov r0, r0, asr #3
+;	ble _020FEA68
+;	add r1, r5, r0, lsl #2
+;_020FEA40:
+;	add r0, r1, r3, lsl #2
+;	add r2, r4, r3, lsl #2
+;	ldr r0, [r0, #8]
+;	ldr r2, [r2, #-8]
+;	add r0, r6, r0, lsl #2
+;	str r2, [r0, #0x10]
+;	ldrb r2, [r5, #6]
+;	add r3, r3, #1
+;	cmp r3, r2
+;	blt _020FEA40
+;_020FEA68:
+;	sub r0, r2, #2
+;	str r0, [r6, #0x160]
+;	ldmfd sp!, {r4, r5, r6, pc}
+;	arm_func_end _ZN18CSceneScriptThread20setFunctionArgumentsEP18SScriptInstructionPl
+;
+;	arm_func_start _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
+;_ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl: ; 0x020FEA74
+;	stmfd sp!, {r4, lr}
+;	cmp r1, #0
+;	ldreq r1, [r0, #0x134]
+;	ldr r12, [r0, #0x134]
+;	ldr r3, _020FEAFC ; =0xBA2E8BA3
+;	sub r12, r1, r12
+;	umull r3, r4, r12, r3
+;	ldr lr, [r0, #0x138]
+;	mov r4, r4, lsr #5
+;	mov r0, r1
+;	mov r12, r4
+;	cmp lr, r4
+;	ble _020FEAC8
+;_020FEAA8:
+;	ldr r3, [r0]
+;	ldrh r3, [r3]
+;	cmp r3, r2
+;	ldmeqfd sp!, {r4, pc}
+;	add r12, r12, #1
+;	cmp r12, lr
+;	add r0, r0, #0x2c
+;	blt _020FEAA8
+;_020FEAC8:
+;	cmp r4, #0
+;	sub r0, r1, #0x2c
+;	ble _020FEAF4
+;_020FEAD4:
+;	ldr r1, [r0]
+;	ldrh r1, [r1]
+;	cmp r1, r2
+;	ldmeqfd sp!, {r4, pc}
+;	sub r4, r4, #1
+;	cmp r4, #0
+;	sub r0, r0, #0x2c
+;	bgt _020FEAD4
+;_020FEAF4:
+;	mov r0, #0
+;	ldmfd sp!, {r4, pc}
+;_020FEAFC: .word 0xBA2E8BA3
+;	arm_func_end _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
+;
+;	arm_func_start _ZN18CSceneScriptThread21findEventReverseByNumEP12SScriptEventl
+;_ZN18CSceneScriptThread21findEventReverseByNumEP12SScriptEventl: ; 0x020FEB00
+;	stmfd sp!, {r4, lr}
+;	cmp r1, #0
+;	ldreq r1, [r0, #0x138]
+;	ldreq r12, [r0, #0x134]
+;	subeq r3, r1, #1
+;	moveq r1, #0x2c
+;	mlaeq r1, r3, r1, r12
+;	ldr r12, [r0, #0x134]
+;	ldr r3, _020FEB98 ; =0xBA2E8BA3
+;	sub r12, r1, r12
+;	umull r3, lr, r12, r3
+;	movs lr, lr, lsr #5
+;	mov r12, r1
+;	mov r4, lr
+;	bmi _020FEB5C
+;_020FEB3C:
+;	ldr r3, [r12]
+;	ldrh r3, [r3]
+;	cmp r3, r2
+;	moveq r0, r12
+;	ldmeqfd sp!, {r4, pc}
+;	sub r12, r12, #0x2c
+;	subs r4, r4, #1
+;	bpl _020FEB3C
+;_020FEB5C:
+;	ldr r3, [r0, #0x138]
+;	add r4, lr, #1
+;	cmp r4, r3
+;	add r0, r1, #0x2c
+;	bge _020FEB90
+;_020FEB70:
+;	ldr r1, [r0]
+;	ldrh r1, [r1]
+;	cmp r1, r2
+;	ldmeqfd sp!, {r4, pc}
+;	add r4, r4, #1
+;	cmp r4, r3
+;	add r0, r0, #0x2c
+;	blt _020FEB70
+;_020FEB90:
+;	mov r0, #0
+;	ldmfd sp!, {r4, pc}
+;_020FEB98: .word 0xBA2E8BA3
+;	arm_func_end _ZN18CSceneScriptThread21findEventReverseByNumEP12SScriptEventl
+;
+;	arm_func_start _ZN18CSceneScriptThread21findPreviousEventByIDEP12SScriptEventt
+;_ZN18CSceneScriptThread21findPreviousEventByIDEP12SScriptEventt: ; 0x020FEB9C
+;	cmp r1, #0
+;	ldreq r1, [r0, #0x138]
+;	ldreq r12, [r0, #0x134]
+;	subeq r3, r1, #1
+;	moveq r1, #0x2c
+;	mlaeq r1, r3, r1, r12
+;	ldr r3, [r0, #0x134]
+;	ldr r0, _020FEBF4 ; =0xBA2E8BA3
+;	sub r3, r1, r3
+;	umull r0, r12, r3, r0
+;	movs r12, r12, lsr #5
+;	bmi _020FEBEC
+;_020FEBCC:
+;	ldr r0, [r1]
+;	ldrh r0, [r0, #4]
+;	cmp r0, r2
+;	moveq r0, r1
+;	bxeq lr
+;	sub r1, r1, #0x2c
+;	subs r12, r12, #1
+;	bpl _020FEBCC
+;_020FEBEC:
+;	mov r0, #0
+;	bx lr
+;_020FEBF4: .word 0xBA2E8BA3
+;	arm_func_end _ZN18CSceneScriptThread21findPreviousEventByIDEP12SScriptEventt
+;
+;	arm_func_start _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
+;_ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable: ; 0x020FEBF8
+;	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+;	mov r10, r1
+;	ldr r6, [r10], #0x2c
+;	mov r9, r0
+;	ldrb r3, [r6, #6]
+;	mov r8, r2
+;	mov r7, #0
+;	add r1, r3, #7
+;	mov r0, r1, asr #2
+;	add r0, r1, r0, lsr #29
+;	cmp r3, #0
+;	mov r0, r0, asr #3
+;	ble _020FED64
+;	add r5, r6, r0, lsl #2
+;	add r11, r9, #0x10
+;_020FEC34:
+;	mov r0, r7, asr #2
+;	add r0, r7, r0, lsr #29
+;	mov r0, r0, asr #3
+;	add r1, r6, r0, lsl #2
+;	mov r0, r7, lsl #0x1d
+;	ldr r1, [r1, #8]
+;	mov r0, r0, lsr #0x1b
+;	mov r0, r1, asr r0
+;	and r0, r0, #0xf
+;	cmp r0, #6
+;	addls pc, pc, r0, lsl #2
+;	b _020FED54
+;_020FEC64: ; jump table
+;	b _020FED54 ; case 0
+;	b _020FEC80 ; case 1
+;	b _020FEC80 ; case 2
+;	b _020FEC84 ; case 3
+;	b _020FEC90 ; case 4
+;	b _020FECCC ; case 5
+;	b _020FED14 ; case 6
+;_020FEC80:
+;	b _020FEC84
+;_020FEC84:
+;	add r0, r5, r7, lsl #2
+;	ldr r0, [r0, #8]
+;	b _020FED50
+;_020FEC90:
+;	add r0, r5, r7, lsl #2
+;	ldr r2, [r0, #8]
+;	mov r0, r9
+;	mov r1, r10
+;	bl _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
+;	mov r4, r0
+;	mov r0, r9
+;	mov r1, r4
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+;	ldr r10, [r4, #4]
+;	ldr r0, [sp]
+;	cmp r10, #0
+;	addeq r10, r4, #0x2c
+;	b _020FED50
+;_020FECCC:
+;	add r0, r5, r7, lsl #2
+;	ldr r2, [r0, #8]
+;	mov r0, r2, lsl #0x10
+;	tst r2, #0x10000
+;	mov r1, r0, lsr #0x10
+;	beq _020FECF4
+;	ldr r0, [r9, #4]
+;	bl _ZN19CSceneScriptManager17getGlobalVariableEi
+;_020FECEC:
+;	ldr r0, [r0]
+;	b _020FED50
+;_020FECF4:
+;	tst r2, #0x20000
+;	addeq r0, r9, r1, lsl #2
+;	ldreq r0, [r0, #0x10]
+;	streq r0, [r8, r7, lsl #2]
+;	beq _020FED54
+;	ldr r0, [r9, #8]
+;	bl _ZN23CSceneScriptFileContext11getVariableEi
+;	b _020FECEC
+;_020FED14:
+;	add r0, r5, r7, lsl #2
+;	ldr r2, [r0, #8]
+;	mov r0, r2, lsl #0x10
+;	tst r2, #0x10000
+;	mov r1, r0, lsr #0x10
+;	beq _020FED38
+;	ldr r0, [r9, #4]
+;	bl _ZN19CSceneScriptManager17getGlobalVariableEi
+;	b _020FED50
+;_020FED38:
+;	tst r2, #0x20000
+;	addeq r0, r11, r1, lsl #2
+;	streq r0, [r8, r7, lsl #2]
+;	beq _020FED54
+;	ldr r0, [r9, #8]
+;	bl _ZN23CSceneScriptFileContext11getVariableEi
+;_020FED50:
+;	str r0, [r8, r7, lsl #2]
+;_020FED54:
+;	ldrb r0, [r6, #6]
+;	add r7, r7, #1
+;	cmp r7, r0
+;	blt _020FEC34
+;_020FED64:
+;	mov r0, r10
+;	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
+;	arm_func_end _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
+;
+;	arm_func_start _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
+;_ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable: ; 0x020FED6C
+;	stmfd sp!, {r4, r5, r6, lr}
+;	mov r4, r2
+;	mov r6, r0
+;	mov r5, r1
+;	mov r1, r4
+;	mov r0, #0
+;	mov r2, #0x80
+;	bl MIi_CpuClearFast
+;	mov r0, r6
+;	mov r1, r5
+;	mov r2, r4
+;	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
+;	str r0, [r5, #4]
+;	ldmfd sp!, {r4, r5, r6, pc}
+;	arm_func_end _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
+;
+;	arm_func_start _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
+;_ZN18CSceneScriptThread13registerLabelEP12SScriptEvent: ; 0x020FEDA4
+;	ldr r2, [r1, #0xc]
+;	ldr r2, [r2, #0xc]
+;	str r2, [r0, #0x17c]
+;	add r2, r0, r2, lsl #2
+;	str r1, [r2, #0x114]
+;	ldr r1, [r0, #0x17c]
+;	add r1, r1, #1
+;	str r1, [r0, #0x17c]
+;	bx lr
+;	arm_func_end _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
+;
+;	arm_func_start _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
+;_ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_: ; 0x020FEDC8
+;	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
+;	sub sp, sp, #4
+;	mov r8, r1
+;	mov r7, r2
+;	mov r9, r0
+;	mov r6, r8
+;	cmp r8, r7
+;	bhs _020FEE8C
+;	ldr r10, _020FEEB4 ; =0x00003003
+;	mov r5, #1
+;	add r4, sp, #0
+;_020FEDF4:
+;	ldrsb r0, [r6, #0xa]
+;	cmp r0, #0
+;	beq _020FEE14
+;	ldr r0, [r6, #4]
+;	cmp r0, #0
+;	movne r6, r0
+;	addeq r6, r6, #0x2c
+;	b _020FEE84
+;_020FEE14:
+;	ldr r0, [r9, #0x150]
+;	cmp r0, #0
+;	beq _020FEE3C
+;	ldr r0, [r6]
+;	ldrh r1, [r0, #4]
+;	mov r0, r1, asr #0xc
+;	cmp r0, #3
+;	bne _020FEE3C
+;	cmp r1, r10
+;	strneb r5, [r6, #0xa]
+;_020FEE3C:
+;	mov r0, r9
+;	mov r1, r6
+;	mov r2, r4
+;	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+;	ldr r1, [r6, #4]
+;	cmp r1, r8
+;	bhs _020FEE60
+;	cmp r1, #0
+;	movne r8, r1
+;_020FEE60:
+;	ldrsb r0, [r6, #0xa]
+;	cmp r0, #0
+;	bne _020FEE78
+;	ldrsb r0, [r6, #9]
+;	cmp r0, #0
+;	bne _020FEE8C
+;_020FEE78:
+;	mov r6, r1
+;	cmp r1, #0
+;	beq _020FEE8C
+;_020FEE84:
+;	cmp r6, r7
+;	blo _020FEDF4
+;_020FEE8C:
+;	ldrsb r0, [r8, #0xa]
+;	cmp r0, #0
+;	beq _020FEEA8
+;_020FEE98:
+;	add r8, r8, #0x2c
+;	ldrsb r0, [r8, #0xa]
+;	cmp r0, #0
+;	bne _020FEE98
+;_020FEEA8:
+;	mov r0, r8
+;	add sp, sp, #4
+;	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, pc}
+;_020FEEB4: .word 0x00003003
+;	arm_func_end _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
+;
+;	arm_func_start _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+;_ZN18CSceneScriptThread12executeEventEP12SScriptEventPl: ; 0x020FEEB8
+;	stmfd sp!, {r3, r4, lr}
+;	sub sp, sp, #4
+;	ldr r3, [r1]
+;	mov r4, r2
+;	ldrh r2, [r3, #4]
+;	mov r2, r2, asr #0xc
+;	cmp r2, #7
+;	addls pc, pc, r2, lsl #2
+;	b _020FEF38
+;_020FEEDC: ; jump table
+;	b _020FEF38 ; case 0
+;	b _020FEEFC ; case 1
+;	b _020FEEFC ; case 2
+;	b _020FEF08 ; case 3
+;	b _020FEF14 ; case 4
+;	b _020FEF38 ; case 5
+;	b _020FEF20 ; case 6
+;	b _020FEF2C ; case 7
+;_020FEEFC:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread15event_1xxx_2xxxEP12SScriptEventPl
+;	b _020FEF40
+;_020FEF08:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread10event_3xxxEP12SScriptEventPl
+;	b _020FEF40
+;_020FEF14:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread10event_4xxxEP12SScriptEventPl
+;	b _020FEF40
+;_020FEF20:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread10event_6xxxEP12SScriptEventPl
+;	b _020FEF40
+;_020FEF2C:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread10event_7xxxEP12SScriptEventPl
+;	b _020FEF40
+;_020FEF38:
+;	add r2, sp, #0
+;	bl _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
+;_020FEF40:
+;	cmp r4, #0
+;	ldrne r1, [sp]
+;	strne r1, [r4]
+;	add sp, sp, #4
+;	ldmfd sp!, {r3, r4, pc}
+;	arm_func_end _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
+
+	arm_func_start _ZN18CSceneScriptThread10event_6xxxEP12SScriptEventPl
+_ZN18CSceneScriptThread10event_6xxxEP12SScriptEventPl: ; 0x020FEF54
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r4, [r1]
@@ -9897,7 +1598,7 @@ _020FF098:
 	b _020FF0AC
 _020FF0A4:
 	add r2, sp, #0
-	bl FUN_ov16_020ff9f8
+	bl _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
 _020FF0AC:
 	cmp r4, #0
 	ldrne r1, [sp]
@@ -9906,10 +1607,10 @@ _020FF0AC:
 	ldmfd sp!, {r3, r4, pc}
 _020FF0C0: .word 0x00006014
 _020FF0C4: .word 0x00006FFF
-	arm_func_end FUN_ov16_020fef54
+	arm_func_end _ZN18CSceneScriptThread10event_6xxxEP12SScriptEventPl
 
-	arm_func_start FUN_ov16_020ff0c8
-FUN_ov16_020ff0c8: ; 0x020FF0C8
+	arm_func_start _ZN18CSceneScriptThread10event_3xxxEP12SScriptEventPl
+_ZN18CSceneScriptThread10event_3xxxEP12SScriptEventPl: ; 0x020FF0C8
 	stmfd sp!, {r4, r5, r6, r7, lr}
 	sub sp, sp, #0x9c
 	sub sp, sp, #0x800
@@ -10227,10 +1928,10 @@ _020FF58C: .word ov16_02118A3C
 _020FF590: .word unk_0208BFB0
 _020FF594: .word 0x00003FFF
 _020FF598: .word 0x00000222
-	arm_func_end FUN_ov16_020ff0c8
+	arm_func_end _ZN18CSceneScriptThread10event_3xxxEP12SScriptEventPl
 
-	arm_func_start FUN_ov16_020ff59c
-FUN_ov16_020ff59c: ; 0x020FF59C
+	arm_func_start _ZN18CSceneScriptThread10event_4xxxEP12SScriptEventPl
+_ZN18CSceneScriptThread10event_4xxxEP12SScriptEventPl: ; 0x020FF59C
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, lr}
 	sub sp, sp, #0x2ac
 	sub sp, sp, #0x800
@@ -10427,10 +2128,10 @@ _020FF874: .word ov16_021192C4
 _020FF878: .word unk_0208BFB0
 _020FF87C: .word ov16_021179BC
 _020FF880: .word 0x0000025A
-	arm_func_end FUN_ov16_020ff59c
+	arm_func_end _ZN18CSceneScriptThread10event_4xxxEP12SScriptEventPl
 
-	arm_func_start FUN_ov16_020ff884
-FUN_ov16_020ff884: ; 0x020FF884
+	arm_func_start _ZN18CSceneScriptThread10event_7xxxEP12SScriptEventPl
+_ZN18CSceneScriptThread10event_7xxxEP12SScriptEventPl: ; 0x020FF884
 	stmfd sp!, {r3, r4, lr}
 	sub sp, sp, #4
 	ldr r3, [r1]
@@ -10539,17 +2240,17 @@ _020FF9D0:
 	b _020FF9E4
 _020FF9DC:
 	add r2, sp, #0
-	bl FUN_ov16_020ff9f8
+	bl _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
 _020FF9E4:
 	cmp r4, #0
 	ldrne r1, [sp]
 	strne r1, [r4]
 	add sp, sp, #4
 	ldmfd sp!, {r3, r4, pc}
-	arm_func_end FUN_ov16_020ff884
+	arm_func_end _ZN18CSceneScriptThread10event_7xxxEP12SScriptEventPl
 
-	arm_func_start FUN_ov16_020ff9f8
-FUN_ov16_020ff9f8: ; 0x020FF9F8
+	arm_func_start _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
+_ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl: ; 0x020FF9F8
 	stmfd sp!, {r3, r4, r5, r6, r7, lr}
 	sub sp, sp, #0x80
 	add r4, sp, #0
@@ -10563,7 +2264,7 @@ FUN_ov16_020ff9f8: ; 0x020FF9F8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -10575,7 +2276,7 @@ FUN_ov16_020ff9f8: ; 0x020FF9F8
 	mov r0, #1
 	add sp, sp, #0x80
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_ov16_020ff9f8
+	arm_func_end _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
 
 	arm_func_start FUN_ov16_020ffa5c
 FUN_ov16_020ffa5c: ; 0x020FFA5C
@@ -10607,8 +2308,8 @@ FUN_ov16_020ffa88: ; 0x020FFA88
 _020FFAB0: .word unk_02099F44
 	arm_func_end FUN_ov16_020ffa88
 
-	arm_func_start FUN_ov16_020ffab4
-FUN_ov16_020ffab4: ; 0x020FFAB4
+	arm_func_start _ZN18CSceneScriptThread15event_1xxx_2xxxEP12SScriptEventPl
+_ZN18CSceneScriptThread15event_1xxx_2xxxEP12SScriptEventPl: ; 0x020FFAB4
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, lr}
 	sub sp, sp, #0x84
 	mov r6, r1
@@ -10626,7 +2327,7 @@ _020FFAD8: ; jump table
 _020FFAE8:
 	add r8, sp, #4
 	mov r2, r8
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r8, [sp]
 	ldr r0, [r6]
 	mov r9, #0
@@ -10653,7 +2354,7 @@ _020FFB48:
 	ldr r1, [r7]
 	ldr r2, [r6, #0xc]
 	add r3, sp, #4
-	bl FUN_ov16_020fe6e8
+	bl _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
 	ldrsb r0, [r6, #0xb]
 	add r0, r0, #1
 	strb r0, [r6, #0xb]
@@ -10662,10 +2363,10 @@ _020FFB68:
 	cmp r0, #0
 	beq _020FFB7C
 	ldr r0, [r6, #0x10]
-	bl FUN_ov16_020fe918
+	bl _ZN18CSceneScriptThread11requestSkipEv
 _020FFB7C:
 	ldr r0, [r6, #0x10]
-	bl FUN_ov16_020fe92c
+	bl _ZN18CSceneScriptThread6updateEv
 	cmp r0, #0
 	bne _020FFBC0
 	ldrsb r0, [r6, #0xb]
@@ -10673,10 +2374,10 @@ _020FFB7C:
 	strb r0, [r6, #0xb]
 _020FFB98:
 	ldr r0, [r6, #0x10]
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	mov r4, r0
 	ldr r0, [r6, #0x10]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	ldrsb r1, [r6, #0xb]
 	mov r0, #1
 	strb r0, [r6, #0xa]
@@ -10688,7 +2389,7 @@ _020FFBC0:
 	mov r0, #1
 	add sp, sp, #0x84
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	arm_func_end FUN_ov16_020ffab4
+	arm_func_end _ZN18CSceneScriptThread15event_1xxx_2xxxEP12SScriptEventPl
 
 	arm_func_start FUN_ov16_020ffbd4
 FUN_ov16_020ffbd4: ; 0x020FFBD4
@@ -10717,7 +2418,7 @@ _020FFC24:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	mov r5, #1
 	str r5, [sp]
@@ -10745,7 +2446,7 @@ _020FFC7C:
 	add r2, sp, #4
 	mov r0, r9
 	mov r1, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, [r8, #0xc]
 	add r0, sp, #0x10
 	str r0, [sp]
@@ -10775,7 +2476,7 @@ _020FFCFC:
 	ldr r1, [r9]
 	ldr r2, [r8, #0xc]
 	add r3, sp, #0x10
-	bl FUN_ov16_020fe6e8
+	bl _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
 	ldrsb r0, [r8, #0xb]
 	add r0, r0, #1
 	strb r0, [r8, #0xb]
@@ -10784,10 +2485,10 @@ _020FFD1C:
 	cmp r0, #0
 	beq _020FFD30
 	ldr r0, [r8, #0x10]
-	bl FUN_ov16_020fe918
+	bl _ZN18CSceneScriptThread11requestSkipEv
 _020FFD30:
 	ldr r0, [r8, #0x10]
-	bl FUN_ov16_020fe92c
+	bl _ZN18CSceneScriptThread6updateEv
 	cmp r0, #0
 	ldreqsb r0, [r8, #0xb]
 	addeq r0, r0, #1
@@ -10795,10 +2496,10 @@ _020FFD30:
 	b _020FFD80
 _020FFD4C:
 	ldr r0, [r8, #0x10]
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	mov r6, r0
 	ldr r0, [r8, #0x10]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	ldr r0, [r9, #4]
 	ldr r1, [r8, #0x18]
 	bl _ZN19CSceneScriptManager12unloadScriptEi
@@ -10833,7 +2534,7 @@ FUN_ov16_020ffd94: ; 0x020FFD94
 	mov r0, r9
 	mov r2, r10
 	mov r1, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldrsb r0, [r8, #0xb]
 	ldr r1, [sp, #0xc]
@@ -10913,7 +2614,7 @@ _020FFEE8:
 	ldr r1, [r9]
 	ldr r2, [r4, #0xc]
 	mov r3, r10
-	bl FUN_ov16_020fe6e8
+	bl _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
 _020FFF08:
 	ldrsb r1, [r8, #0xb]
 	mov r0, #1
@@ -10945,7 +2646,7 @@ FUN_ov16_020fff34: ; 0x020FFF34
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	str r0, [r6, #4]
 	strb r1, [r6, #0xa]
@@ -10971,7 +2672,7 @@ FUN_ov16_020fff8c: ; 0x020FFF8C
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r0, #1
 	ldrsb r1, [r5, #0xb]
 	strb r0, [r5, #0xa]
@@ -10980,7 +2681,7 @@ FUN_ov16_020fff8c: ; 0x020FFF8C
 	ldr r2, [sp, #4]
 	mov r0, r7
 	mov r1, r5
-	bl FUN_ov16_020fea74
+	bl _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
 	ldr r1, [r5, #0x10]
 	str r0, [r5, #0x18]
 	str r1, [r0, #0x10]
@@ -11012,7 +2713,7 @@ FUN_ov16_0210001c: ; 0x0210001C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r0, [r7, #0xb]
 	mov r5, #1
 	strb r5, [r7, #0xa]
@@ -11021,7 +2722,7 @@ FUN_ov16_0210001c: ; 0x0210001C
 	ldr r2, [sp, #4]
 	mov r0, r8
 	mov r1, r7
-	bl FUN_ov16_020feb00
+	bl _ZN18CSceneScriptThread21findEventReverseByNumEP12SScriptEventl
 	str r0, [r7, #0x14]
 	ldr r0, [r7, #0x10]
 	ldr r1, [sp]
@@ -11095,7 +2796,7 @@ FUN_ov16_02100144: ; 0x02100144
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, [r7]
 	str r0, [r7, #4]
 	ldrb r1, [r1, #6]
@@ -11138,13 +2839,13 @@ FUN_ov16_021001c8: ; 0x021001C8
 	mov r1, r7
 	mov r2, r4
 	strb r3, [r7, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, r0
 	add r2, sp, #0
 	str r7, [r4, #0x10]
 	mov r0, r8
 	mov r1, r4
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r5, [r4, #4]
 	str r4, [r7, #0xc]
 	ldr r0, [r4, #0x18]
@@ -11168,13 +2869,13 @@ _02100274:
 	add r2, sp, #0
 	mov r0, r8
 	mov r1, r5
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r5, [r5, #4]
 _02100288:
 	mov r0, r8
 	mov r1, r7
 	str r5, [r7, #4]
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 	cmp r6, #0
 	ldrne r0, [sp, #4]
 	strne r0, [r6]
@@ -11204,7 +2905,7 @@ FUN_ov16_021002b0: ; 0x021002B0
 	mov r1, r5
 	mov r2, r9
 	strb r7, [r5, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r8, [sp]
 	ldr r1, [r5, #-0x1c]
 	mov r9, r0
@@ -11241,7 +2942,7 @@ _02100370:
 	mov r0, r6
 	mov r1, r9
 	str r3, [r9, #0x10]
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r8, [r9, #4]
 	ldr r0, [r9, #0x18]
 	cmp r8, r0
@@ -11256,7 +2957,7 @@ _021003A8:
 	add r2, sp, #0
 	mov r0, r6
 	mov r1, r8
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r9, [r8, #4]
 	str r7, [sp]
 	b _021003D8
@@ -11304,7 +3005,7 @@ _02100448:
 	add r2, sp, #4
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, r0
 	str r6, [r4, #0x10]
 	ldr r3, [sp, #4]
@@ -11312,7 +3013,7 @@ _02100448:
 	mov r0, r7
 	mov r1, r4
 	str r3, [r6, #0x18]
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r1, [r4, #4]
 	ldr r0, [r6, #0x18]
 	str r4, [r6, #0xc]
@@ -11333,7 +3034,7 @@ _021004A4:
 _021004B8:
 	add r2, sp, #0
 	mov r0, r7
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	mov r1, #1
 	ldrsb r0, [r6, #0xb]
 	strb r1, [r6, #0xa]
@@ -11350,7 +3051,7 @@ _021004E4:
 	bne _021004FC
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 _021004FC:
 	cmp r5, #0
 	ldrne r0, [r6, #0x18]
@@ -11383,7 +3084,7 @@ _02100558:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #0x14]
 	str r6, [r0, #0x10]
 	ldr r2, [sp, #8]
@@ -11399,7 +3100,7 @@ _02100594:
 	add r2, sp, #4
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r3, [sp, #4]
 	mov r1, #1
 	str r1, [r6, #0x18]
@@ -11426,7 +3127,7 @@ _021005F8:
 	add r2, sp, #0
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r1, [r4, #4]
 	ldr r0, [r6, #0x18]
 	str r4, [r6, #0xc]
@@ -11447,7 +3148,7 @@ _02100634:
 _02100648:
 	add r2, sp, #0
 	mov r0, r7
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	mov r1, #1
 	ldrsb r0, [r6, #0xb]
 	strb r1, [r6, #0xa]
@@ -11464,7 +3165,7 @@ _02100674:
 	bne _0210068C
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 _0210068C:
 	cmp r5, #0
 	ldrne r0, [r6, #0x18]
@@ -11495,21 +3196,21 @@ FUN_ov16_021006a4: ; 0x021006A4
 	mov r0, r10
 	mov r1, r9
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, r0
 	add r6, sp, #0
 	str r9, [r4, #0x10]
 	mov r0, r10
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r8, [r4, #4]
 	mov r0, r10
 	str r4, [r9, #0xc]
 	ldr r2, [r4, #0x18]
 	mov r1, r9
 	str r2, [r9, #0x10]
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 	ldr r0, [sp, #4]
 	str r0, [r9, #0x18]
 	str r7, [sp]
@@ -11526,7 +3227,7 @@ _0210074C:
 	mov r0, r10
 	mov r1, r8
 	mov r2, r6
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	cmp r0, #0
 	beq _02100780
 	ldr r0, [sp]
@@ -11540,7 +3241,7 @@ _02100780:
 	mov r0, r10
 	mov r1, r8
 	mov r2, r6
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	cmp r0, #0
 	ldrne r0, [sp]
 	cmpne r0, #0
@@ -11581,7 +3282,7 @@ _0210081C:
 	add r2, sp, #0
 	mov r0, r10
 	mov r1, r4
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r1, [r4, #4]
 _02100830:
 	str r1, [r9, #4]
@@ -11614,7 +3315,7 @@ FUN_ov16_02100850: ; 0x02100850
 	mov r1, r6
 	mov r2, r4
 	strb r3, [r6, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #4]
 	cmp r0, #0
@@ -11672,7 +3373,7 @@ _02100964:
 	add r2, sp, #0
 	mov r0, r7
 	mov r1, r4
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r0, [r4, #4]
 	str r0, [r6, #4]
 	b _02100988
@@ -11709,7 +3410,7 @@ FUN_ov16_021009a4: ; 0x021009A4
 	mov r1, r5
 	mov r2, r7
 	strb r3, [r5, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp]
 	cmp r0, #0
@@ -11784,7 +3485,7 @@ FUN_ov16_02100aa4: ; 0x02100AA4
 	mov r1, r8
 	mov r2, r5
 	strb r6, [r8, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldr r3, [sp]
 	sub r0, r3, #1
@@ -11865,7 +3566,7 @@ FUN_ov16_02100bc0: ; 0x02100BC0
 	mov r1, r8
 	mov r2, r5
 	strb r6, [r8, #0xa]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	cmp r7, #0
 	beq _02100C30
@@ -11901,7 +3602,7 @@ FUN_ov16_02100c3c: ; 0x02100C3C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	ldr r1, [sp]
 	ldr r0, [r8, #0x138]
@@ -11955,7 +3656,7 @@ _02100D2C:
 	mov r1, r5
 	mov r2, r7
 	strb r3, [r5, #9]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #0xc]
 	ldr r1, [sp, #4]
 	add r2, sp, #0
@@ -11963,7 +3664,7 @@ _02100D2C:
 	str r5, [r0, #0x10]
 	ldr r1, [r5, #0xc]
 	mov r0, r6
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r2, [r5, #0xc]
 	ldrsb r0, [r5, #0xb]
 	ldr r1, [r2, #4]
@@ -11997,7 +3698,7 @@ _02100DB0:
 _02100DD4:
 	mov r0, r6
 	mov r1, r5
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 	ldr r3, [r6, #0x180]
 	add r12, r6, #0x168
 	ldr r2, [r12, r3, lsl #2]
@@ -12007,7 +3708,7 @@ _02100DD4:
 	str r1, [r12, r3, lsl #2]
 	ldr r1, [r5, #0x14]
 	ldr r2, [r5, #0x10]
-	bl FUN_ov16_020fedc8
+	bl _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
 	ldr r1, [r5, #0xc]
 	str r0, [r5, #0x14]
 	ldr r0, [r1, #0xc]
@@ -12023,7 +3724,7 @@ _02100E34:
 	ldr r1, [r5, #0x10]
 	add r2, sp, #0
 	mov r0, r6
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r0, [r6, #0x180]
 	mov r1, #1
 	sub r0, r0, #1
@@ -12074,7 +3775,7 @@ _02100ED4:
 	mov r1, r6
 	mov r2, r4
 	str r3, [r7, #0x188]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #0xc]
 	ldr r1, [sp, #4]
 	add r2, sp, #0
@@ -12084,7 +3785,7 @@ _02100ED4:
 	str r6, [r0, #0x10]
 	ldr r1, [r6, #0xc]
 	mov r0, r7
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldr r2, [r6, #0xc]
 	ldrsb r0, [r6, #0xb]
 	ldr r1, [r2, #4]
@@ -12114,14 +3815,14 @@ _02100F70:
 _02100F7C:
 	mov r0, r7
 	mov r1, r6
-	bl FUN_ov16_020feda4
+	bl _ZN18CSceneScriptThread13registerLabelEP12SScriptEvent
 	ldr r4, [r7, #0x184]
 	ldr r1, [r6, #0x20]
 	mov r0, r7
 	str r1, [r7, #0x184]
 	ldr r1, [r6, #0x14]
 	ldr r2, [r6, #0x10]
-	bl FUN_ov16_020fedc8
+	bl _ZN18CSceneScriptThread13executeEventsEP12SScriptEventS1_
 	str r0, [r6, #0x14]
 	str r4, [r7, #0x184]
 	ldr r0, [r6, #0xc]
@@ -12138,7 +3839,7 @@ _02100FD4:
 	ldr r1, [r6, #0x10]
 	add r2, sp, #0
 	mov r0, r7
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	mov r0, #1
 	strb r0, [r6, #0xa]
 _02100FEC:
@@ -12169,7 +3870,7 @@ FUN_ov16_02101010: ; 0x02101010
 	mov r0, r6
 	mov r1, r5
 	add r2, r5, #0xc
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	add r0, r1, #1
@@ -12210,7 +3911,7 @@ _021010C8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -12282,7 +3983,7 @@ FUN_ov16_021011a4: ; 0x021011A4
 	b _02101290
 _021011CC:
 	add r2, sp, #0x234
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0x240]
 	add r6, sp, #0x34
@@ -12368,7 +4069,7 @@ _021012FC:
 	mov r1, r5
 	mov r2, r8
 	str r7, [sp, #4]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -12429,7 +4130,7 @@ _021013D4:
 	mov r1, r5
 	mov r2, r8
 	str r7, [sp, #4]
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -12483,7 +4184,7 @@ FUN_ov16_0210146c: ; 0x0210146C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	add r0, sp, #0
 	mov r1, r4
@@ -12544,7 +4245,7 @@ _02101564:
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r8]
 	ldr r1, [sp]
@@ -12603,7 +4304,7 @@ _02101630:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	mov r2, #1
 	str r0, [r5, #4]
@@ -12655,7 +4356,7 @@ _021016E4:
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	mov r2, #1
 	str r0, [r5, #4]
@@ -12708,7 +4409,7 @@ _0210179C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_02030fa0
@@ -12755,7 +4456,7 @@ _0210183C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	mov r0, #6
 	bl _ZN8Graphics13FadeMainBlackEl
@@ -12809,7 +4510,7 @@ _021018F8:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r7, #1
 	ldr r6, _02101984 ; =g3DFieldSprite
 	str r0, [r5, #4]
@@ -12868,7 +4569,7 @@ _021019C8:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _02101A30 ; =g3DFieldSprite
 	str r0, [r5, #4]
 	ldr r0, [r1]
@@ -12921,7 +4622,7 @@ _02101A68:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp]
 	mov r1, #2
@@ -13003,7 +4704,7 @@ FUN_ov16_02101b70: ; 0x02101B70
 	b _02101C20
 _02101B9C:
 	add r2, sp, #4
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -13066,7 +4767,7 @@ FUN_ov16_02101c44: ; 0x02101C44
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -13103,7 +4804,7 @@ FUN_ov16_02101cc4: ; 0x02101CC4
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -13115,7 +4816,7 @@ _02101D1C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -13171,7 +4872,7 @@ FUN_ov16_02101dbc: ; 0x02101DBC
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -13183,7 +4884,7 @@ _02101E10:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -13229,7 +4930,7 @@ FUN_ov16_02101e84: ; 0x02101E84
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -13241,7 +4942,7 @@ _02101EDC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -13301,7 +5002,7 @@ FUN_ov16_02101f8c: ; 0x02101F8C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -13340,7 +5041,7 @@ FUN_ov16_02102014: ; 0x02102014
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -13352,7 +5053,7 @@ _0210206C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -13408,7 +5109,7 @@ FUN_ov16_0210210c: ; 0x0210210C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -13452,7 +5153,7 @@ _021021D0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6]
 	ldr r1, [sp]
@@ -13507,7 +5208,7 @@ _02102290:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -13563,7 +5264,7 @@ _02102354:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x28]
 	str r0, [sp]
@@ -13815,7 +5516,7 @@ _021026F8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r9
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0x6c]
 	mov r1, r8
@@ -14140,7 +5841,7 @@ _02102B94:
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	add r0, sp, #0x1c
 	mov r1, r5
@@ -14260,7 +5961,7 @@ _02102D4C:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x1c]
 	mov r1, r4
@@ -14334,7 +6035,7 @@ _02102E54:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldr r0, [r7]
@@ -14384,7 +6085,7 @@ _02102F00:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldr r0, [r7]
@@ -14435,7 +6136,7 @@ _02102FB0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6]
 	mov r1, r7
@@ -14751,7 +6452,7 @@ FUN_ov16_021033e8: ; 0x021033E8
 	b _02103578
 _0210341C:
 	add r2, sp, #0x8f0
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x8f0]
 	ldr r8, [r6]
@@ -14880,7 +6581,7 @@ _021035E4:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldr r0, [sp]
 	add r0, r0, #1
@@ -14957,7 +6658,7 @@ _021036DC:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_020322bc
@@ -15008,7 +6709,7 @@ _0210378C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -15061,7 +6762,7 @@ _02103844:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_02032488
@@ -15105,7 +6806,7 @@ FUN_ov16_021038b4: ; 0x021038B4
 	b _02103944
 _021038E0:
 	add r2, sp, #0
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -15166,7 +6867,7 @@ _021039AC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -15251,7 +6952,7 @@ _02103AE4:
 	mov r0, r10
 	mov r1, r9
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r9, #4]
 	ldr r1, [sp, #4]
 	ldr r0, [sp, #8]
@@ -15266,7 +6967,7 @@ _02103B1C:
 	mov r0, r10
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020feb9c
+	bl _ZN18CSceneScriptThread21findPreviousEventByIDEP12SScriptEventt
 	mov r6, r0
 	cmp r7, #0
 	beq _02103B90
@@ -15339,7 +7040,7 @@ _02103C18:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldr r0, _02103C68 ; =gAudioPlayer
@@ -15375,7 +7076,7 @@ FUN_ov16_02103c6c: ; 0x02103C6C
 	b _02103D40
 _02103C98:
 	add r2, sp, #0
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
 	beq _02103CB8
@@ -15447,7 +7148,7 @@ FUN_ov16_02103d68: ; 0x02103D68
 	b _02103E40
 _02103D94:
 	add r2, sp, #0
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
 	bne _02103E40
@@ -15526,7 +7227,7 @@ _02103EA8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -15591,7 +7292,7 @@ _02103F90:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldrsb r0, [r5, #0xb]
@@ -15655,7 +7356,7 @@ _02104074:
 	mov r0, r9
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x28]
 	cmp r0, #0
@@ -15757,7 +7458,7 @@ _021041E0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldrsb r0, [r5, #0xb]
@@ -15821,7 +7522,7 @@ _021042C4:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	str r4, [r6, #0xc]
 	ldr r1, [sp, #8]
@@ -15891,7 +7592,7 @@ _021043BC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldrsb r0, [r5, #0xb]
@@ -15956,7 +7657,7 @@ _021044A4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	str r7, [r5, #0xc]
@@ -16023,7 +7724,7 @@ _02104590:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0xc]
@@ -16097,7 +7798,7 @@ _02104694:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0xc]
@@ -16148,7 +7849,7 @@ _02104744:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0xc]
@@ -16200,7 +7901,7 @@ _021047F8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #4]
 	str r0, [r5, #0xc]
@@ -16257,7 +7958,7 @@ _021048C0:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x14]
 	str r0, [r6, #0xc]
@@ -16325,7 +8026,7 @@ _021049B4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #4]
 	str r0, [r5, #0xc]
@@ -16386,7 +8087,7 @@ _02104A8C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -16467,7 +8168,7 @@ _02104BA4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -16539,7 +8240,7 @@ _02104CA4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -16608,7 +8309,7 @@ _02104D98:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7, #0x150]
 	cmp r0, #0
@@ -16681,7 +8382,7 @@ _02104E94:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -16730,7 +8431,7 @@ _02104F3C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -16780,7 +8481,7 @@ _02104FE8:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -16831,7 +8532,7 @@ _02105098:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x10]
@@ -16892,7 +8593,7 @@ _02105170:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7, #0x150]
 	cmp r0, #0
@@ -16966,7 +8667,7 @@ _0210526C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17031,7 +8732,7 @@ _02105350:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17100,7 +8801,7 @@ _02105444:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17180,7 +8881,7 @@ _02105554:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -17229,7 +8930,7 @@ _021055FC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #8]
 	ldr r7, _02105708 ; 0x02099EF0
@@ -17322,7 +9023,7 @@ _02105750:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x10]
@@ -17383,7 +9084,7 @@ _02105828:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r1, [sp, #8]
 	ldr r0, [r6]
@@ -17449,7 +9150,7 @@ _0210590C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17514,7 +9215,7 @@ _021059F0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17579,7 +9280,7 @@ _02105AD4:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldr r0, [sp, #0x1c]
 	ldr r10, _02105BB4 ; 0x02099EF0
@@ -17664,7 +9365,7 @@ _02105C08:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17731,7 +9432,7 @@ _02105CEC:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -17780,7 +9481,7 @@ _02105D94:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0x14]
 	str r0, [sp]
@@ -17830,7 +9531,7 @@ FUN_ov16_02105e18: ; 0x02105E18
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -17842,7 +9543,7 @@ _02105E70:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17899,7 +9600,7 @@ FUN_ov16_02105f10: ; 0x02105F10
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	cmp r1, #0
@@ -17911,7 +9612,7 @@ _02105F68:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -17988,7 +9689,7 @@ FUN_ov16_0210604c: ; 0x0210604C
 	b _02106198
 _02106080:
 	add r2, sp, #0x10
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -18102,7 +9803,7 @@ _02106210:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -18145,7 +9846,7 @@ _021062A4:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -18195,7 +9896,7 @@ _02106350:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -18245,7 +9946,7 @@ _021063FC:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	str r1, [r5, #0x10]
@@ -18296,7 +9997,7 @@ _021064AC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x10]
@@ -18356,7 +10057,7 @@ _02106580:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #8]
 	str r0, [r5, #0x10]
@@ -18409,7 +10110,7 @@ FUN_ov16_02106614: ; 0x02106614
 	b _02106704
 _02106640:
 	add r2, sp, #4
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -18496,7 +10197,7 @@ _02106768:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -18561,7 +10262,7 @@ _0210684C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7, #0x150]
 	cmp r0, #0
@@ -18633,7 +10334,7 @@ _02106944:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r9
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -18896,7 +10597,7 @@ _02106D10:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0x14]
 	str r0, [sp]
@@ -18951,7 +10652,7 @@ _02106DD0:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r1, [sp, #8]
 	ldr r0, [r6]
@@ -19017,7 +10718,7 @@ _02106EB4:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
@@ -19099,7 +10800,7 @@ _02106FD4:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
@@ -19181,7 +10882,7 @@ _021070F4:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
@@ -19295,7 +10996,7 @@ _02107294:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
@@ -19391,7 +11092,7 @@ _021073EC:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #4]
 	cmp r0, #1
@@ -19465,7 +11166,7 @@ _021074EC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [sp, #0xc]
 	cmp r0, #1
@@ -19543,7 +11244,7 @@ _021075FC:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_02038b9c
@@ -19590,7 +11291,7 @@ _0210769C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -19653,7 +11354,7 @@ _02107774:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -19707,7 +11408,7 @@ _02107830:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6, #0x150]
 	cmp r0, #0
@@ -19753,7 +11454,7 @@ FUN_ov16_021078a8: ; 0x021078A8
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _02107928 ; 0x02099EF0
 	str r0, [r5, #4]
 	ldr r0, [r1]
@@ -19800,7 +11501,7 @@ _02107978:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r1, [sp]
 	ldr r0, [r7, #0x150]
@@ -19886,7 +11587,7 @@ _02107AAC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r6]
 	mov r1, r7
@@ -19958,7 +11659,7 @@ _02107BB0:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, _02107CBC ; =0x0209A720
 	ldr r1, [sp, #0xc]
@@ -20051,7 +11752,7 @@ _02107D08:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #0x14]
 	mov r1, r4
@@ -20119,7 +11820,7 @@ _02107DF8:
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [sp, #8]
 	add r0, r0, #1
@@ -20187,7 +11888,7 @@ _02107EE8:
 	mov r0, r9
 	mov r1, r8
 	mov r2, r10
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldr r0, [sp, #0x18]
 	cmp r0, #1
@@ -20421,7 +12122,7 @@ _0210823C:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldr r1, _021082C4 ; 0x02099EF0
 	str r0, [r5, #4]
 	ldr r0, [r1]
@@ -20481,7 +12182,7 @@ _02108308:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldrsb r0, [r5, #0xb]
@@ -20539,7 +12240,7 @@ _021083D4:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20594,7 +12295,7 @@ _02108494:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20652,7 +12353,7 @@ _02108560:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	bl FUN_02038dec
@@ -20693,7 +12394,7 @@ _021085EC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20748,7 +12449,7 @@ _021086AC:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20803,7 +12504,7 @@ _0210876C:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20861,7 +12562,7 @@ _02108838:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7]
 	ldr r1, [sp]
@@ -20903,7 +12604,7 @@ _021088C8:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
 	ldr r2, [sp]
@@ -20958,7 +12659,7 @@ _02108988:
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldrsb r0, [r5, #0xb]
@@ -21010,7 +12711,7 @@ FUN_ov16_02108a14: ; 0x02108A14
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	mov r0, #1
 	strb r0, [r7, #0xa]
@@ -21045,7 +12746,7 @@ _02108AB8:
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r7, #0x150]
 	cmp r0, #0
@@ -21096,7 +12797,7 @@ _02108B68:
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r0, [r8, #0x150]
 	ldr r1, [sp]
@@ -21140,7 +12841,7 @@ FUN_ov16_02108bd8: ; 0x02108BD8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r0, [r7]
 	bl FUN_0203aaf4
@@ -21176,7 +12877,7 @@ FUN_ov16_02108c54: ; 0x02108C54
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r8, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -21225,7 +12926,7 @@ FUN_ov16_02108d04: ; 0x02108D04
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -21295,7 +12996,7 @@ FUN_ov16_02108df4: ; 0x02108DF4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	mov r5, #1
 	strb r5, [r7, #0xa]
@@ -21336,7 +13037,7 @@ FUN_ov16_02108e88: ; 0x02108E88
 	mov r0, r4
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
 	mov r2, r5
@@ -21371,7 +13072,7 @@ FUN_ov16_02108f00: ; 0x02108F00
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r5, #0xb]
 	mov r2, #1
 	ldr r1, _02108FAC ; =gCameraCtrl
@@ -21419,7 +13120,7 @@ FUN_ov16_02108fb0: ; 0x02108FB0
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r5, #0xb]
 	mov r2, #1
 	ldr r1, _0210905C ; =gCameraCtrl
@@ -21466,7 +13167,7 @@ FUN_ov16_02109060: ; 0x02109060
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
 	mov r2, #1
@@ -21501,7 +13202,7 @@ FUN_ov16_021090dc: ; 0x021090DC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
 	mov r2, #1
@@ -21536,7 +13237,7 @@ FUN_ov16_02109158: ; 0x02109158
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -21571,7 +13272,7 @@ FUN_ov16_021091d4: ; 0x021091D4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
 	mov r2, #1
@@ -21606,7 +13307,7 @@ FUN_ov16_0210924c: ; 0x0210924C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -21642,7 +13343,7 @@ FUN_ov16_021092d0: ; 0x021092D0
 	mov r0, r7
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r3, #1
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
@@ -21723,7 +13424,7 @@ FUN_ov16_021093dc: ; 0x021093DC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -21800,7 +13501,7 @@ FUN_ov16_021094dc: ; 0x021094DC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r10, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -21900,7 +13601,7 @@ FUN_ov16_02109630: ; 0x02109630
 	mov r0, r6
 	mov r1, r5
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r5, #0xb]
 	mov r1, #1
 	ldr r4, _02109744 ; =0x02119D08
@@ -21980,7 +13681,7 @@ FUN_ov16_02109758: ; 0x02109758
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r1, [sp]
 	ldr r2, _021097FC ; =gRecordManager
@@ -22027,7 +13728,7 @@ FUN_ov16_02109800: ; 0x02109800
 	mov r0, r9
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r1, [sp, #0x68]
 	ldr r0, _021098B8 ; =gLogicThink
@@ -22079,7 +13780,7 @@ FUN_ov16_021098bc: ; 0x021098BC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -22114,7 +13815,7 @@ FUN_ov16_02109930: ; 0x02109930
 	mov r0, r9
 	mov r1, r7
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	ldr r12, [sp]
 	ldr r3, [sp, #4]
@@ -22178,7 +13879,7 @@ FUN_ov16_02109a18: ; 0x02109A18
 	mov r0, r9
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r8, #0xb]
 	str r0, [r8, #4]
@@ -22267,7 +13968,7 @@ FUN_ov16_02109b4c: ; 0x02109B4C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
 	mov r2, #1
@@ -22305,7 +14006,7 @@ FUN_ov16_02109bc4: ; 0x02109BC4
 	mov r0, r9
 	mov r2, r6
 	mov r1, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r8, #4]
 	ldrsb r0, [r8, #0xb]
 	mov r6, #1
@@ -22360,7 +14061,7 @@ FUN_ov16_02109c98: ; 0x02109C98
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -22428,7 +14129,7 @@ FUN_ov16_02109d90: ; 0x02109D90
 	mov r0, r6
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r6, #1
 	ldrsb r1, [r8, #0xb]
 	str r0, [r8, #4]
@@ -22549,7 +14250,7 @@ FUN_ov16_02109f50: ; 0x02109F50
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
 	mov r4, #1
@@ -22582,7 +14283,7 @@ FUN_ov16_02109fc8: ; 0x02109FC8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -22640,7 +14341,7 @@ FUN_ov16_0210a098: ; 0x0210A098
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -22684,7 +14385,7 @@ FUN_ov16_0210a130: ; 0x0210A130
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -22728,7 +14429,7 @@ FUN_ov16_0210a1c8: ; 0x0210A1C8
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	mov r4, #1
 	strb r4, [r7, #0xa]
@@ -22769,7 +14470,7 @@ FUN_ov16_0210a258: ; 0x0210A258
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -22822,7 +14523,7 @@ FUN_ov16_0210a318: ; 0x0210A318
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -22863,7 +14564,7 @@ FUN_ov16_0210a3a4: ; 0x0210A3A4
 	mov r0, r8
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r6, r7
 	ldrsb r1, [r5, #0xb]
 	str r0, [r5, #4]
@@ -23016,7 +14717,7 @@ FUN_ov16_0210a5dc: ; 0x0210A5DC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	strb r1, [r7, #0xa]
@@ -23065,7 +14766,7 @@ FUN_ov16_0210a68c: ; 0x0210A68C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	strb r1, [r7, #0xa]
@@ -23117,7 +14818,7 @@ FUN_ov16_0210a748: ; 0x0210A748
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r7, #0xb]
 	mov r4, #1
 	strb r4, [r7, #0xa]
@@ -23171,7 +14872,7 @@ FUN_ov16_0210a808: ; 0x0210A808
 	mov r0, r9
 	mov r1, r8
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r6, #1
 	ldrsb r1, [r8, #0xb]
 	str r0, [r8, #4]
@@ -23259,7 +14960,7 @@ FUN_ov16_0210a934: ; 0x0210A934
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	strb r1, [r7, #0xa]
@@ -23300,7 +15001,7 @@ FUN_ov16_0210a9c4: ; 0x0210A9C4
 	mov r0, r8
 	mov r1, r4
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r4, #0xb]
 	strb r1, [r4, #0xa]
@@ -23391,7 +15092,7 @@ FUN_ov16_0210ab04: ; 0x0210AB04
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	str r0, [r7, #4]
@@ -23438,7 +15139,7 @@ FUN_ov16_0210abac: ; 0x0210ABAC
 	mov r0, r6
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	mov r0, #1
 	ldrsb r1, [r5, #0xb]
@@ -23476,7 +15177,7 @@ FUN_ov16_0210ac34: ; 0x0210AC34
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -23525,7 +15226,7 @@ FUN_ov16_0210acdc: ; 0x0210ACDC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -23569,7 +15270,7 @@ FUN_ov16_0210ad74: ; 0x0210AD74
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
 	mov r1, #1
@@ -23601,7 +15302,7 @@ FUN_ov16_0210ade4: ; 0x0210ADE4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	mov r0, #1
 	ldrsb r1, [r6, #0xb]
@@ -23672,7 +15373,7 @@ FUN_ov16_0210aef0: ; 0x0210AEF0
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0210AF5C ; =0x020A0640
@@ -23704,7 +15405,7 @@ FUN_ov16_0210af60: ; 0x0210AF60
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -23747,7 +15448,7 @@ FUN_ov16_0210aff4: ; 0x0210AFF4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -23783,7 +15484,7 @@ FUN_ov16_0210b074: ; 0x0210B074
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -23821,7 +15522,7 @@ FUN_ov16_0210b0f4: ; 0x0210B0F4
 	mov r0, r9
 	mov r1, r7
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -23919,7 +15620,7 @@ FUN_ov16_0210b260: ; 0x0210B260
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0210B2D8 ; 0x02099EF0
@@ -23955,7 +15656,7 @@ FUN_ov16_0210b2dc: ; 0x0210B2DC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -23998,7 +15699,7 @@ FUN_ov16_0210b374: ; 0x0210B374
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0210B3F0 ; =gDungeonManager
@@ -24035,7 +15736,7 @@ FUN_ov16_0210b3f8: ; 0x0210B3F8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24071,7 +15772,7 @@ FUN_ov16_0210b478: ; 0x0210B478
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24117,7 +15818,7 @@ FUN_ov16_0210b514: ; 0x0210B514
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	strb r1, [r7, #0xa]
 	ldrsb r2, [r7, #0xb]
@@ -24168,7 +15869,7 @@ FUN_ov16_0210b5c8: ; 0x0210B5C8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24219,7 +15920,7 @@ FUN_ov16_0210b678: ; 0x0210B678
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24270,7 +15971,7 @@ FUN_ov16_0210b728: ; 0x0210B728
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24321,7 +16022,7 @@ FUN_ov16_0210b7d8: ; 0x0210B7D8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24372,7 +16073,7 @@ FUN_ov16_0210b888: ; 0x0210B888
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24423,7 +16124,7 @@ FUN_ov16_0210b938: ; 0x0210B938
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24474,7 +16175,7 @@ FUN_ov16_0210b9e8: ; 0x0210B9E8
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24525,7 +16226,7 @@ FUN_ov16_0210ba98: ; 0x0210BA98
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24576,7 +16277,7 @@ FUN_ov16_0210bb48: ; 0x0210BB48
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -24619,7 +16320,7 @@ FUN_ov16_0210bbf8: ; 0x0210BBF8
 	mov r4, r2
 	add r2, sp, #0
 	mov r6, r1
-	bl FUN_ov16_020fed6c
+	bl _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 	ldrsb r0, [r6, #0xb]
 	mov r7, #1
 	ldr r5, _0210BC94 ; 0x02099EF0
@@ -24676,7 +16377,7 @@ FUN_ov16_0210bca4: ; 0x0210BCA4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	strb r1, [r7, #0xa]
 	ldrsb r2, [r7, #0xb]
@@ -24749,7 +16450,7 @@ _0210BDAC:
 	ldr r2, [r0, #8]
 	mov r0, r10
 	mov r1, r9
-	bl FUN_ov16_020fea74
+	bl _ZN18CSceneScriptThread14findEventByNumEP12SScriptEventl
 	mov r9, r0
 	ldrsb r0, [r9, #0xa]
 	cmp r0, #0
@@ -24757,7 +16458,7 @@ _0210BDAC:
 	mov r0, r10
 	mov r1, r9
 	mov r2, r11
-	bl FUN_ov16_020feeb8
+	bl _ZN18CSceneScriptThread12executeEventEP12SScriptEventPl
 	ldrsb r0, [r9, #0xa]
 	cmp r0, #0
 	ldrne r0, [sp]
@@ -24793,7 +16494,7 @@ FUN_ov16_0210be48: ; 0x0210BE48
 	b _0210BEBC
 _0210BE74:
 	add r2, r6, #0xc
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r1, [r6, #0xb]
 	mov r2, #1
 	str r0, [r6, #4]
@@ -24834,7 +16535,7 @@ FUN_ov16_0210becc: ; 0x0210BECC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -24870,7 +16571,7 @@ FUN_ov16_0210bf48: ; 0x0210BF48
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -24906,7 +16607,7 @@ FUN_ov16_0210bfc4: ; 0x0210BFC4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -24942,7 +16643,7 @@ FUN_ov16_0210c040: ; 0x0210C040
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -24978,7 +16679,7 @@ FUN_ov16_0210c0bc: ; 0x0210C0BC
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -25014,7 +16715,7 @@ FUN_ov16_0210c138: ; 0x0210C138
 	mov r0, r8
 	mov r1, r7
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -25049,7 +16750,7 @@ FUN_ov16_0210c1b4: ; 0x0210C1B4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25081,7 +16782,7 @@ FUN_ov16_0210c224: ; 0x0210C224
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25113,7 +16814,7 @@ FUN_ov16_0210c294: ; 0x0210C294
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25145,7 +16846,7 @@ FUN_ov16_0210c304: ; 0x0210C304
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25177,7 +16878,7 @@ FUN_ov16_0210c374: ; 0x0210C374
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25209,7 +16910,7 @@ FUN_ov16_0210c3e4: ; 0x0210C3E4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r3, #1
 	ldr r1, [r6]
@@ -25251,7 +16952,7 @@ FUN_ov16_0210c470: ; 0x0210C470
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r3, [r7, #0xb]
 	str r0, [r7, #4]
@@ -25293,7 +16994,7 @@ FUN_ov16_0210c500: ; 0x0210C500
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r2, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -25325,7 +17026,7 @@ FUN_ov16_0210c574: ; 0x0210C574
 	mov r0, r7
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25362,7 +17063,7 @@ FUN_ov16_0210c5f4: ; 0x0210C5F4
 	mov r0, r8
 	mov r1, r7
 	mov r2, r5
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r5, #1
 	ldrsb r1, [r7, #0xb]
 	str r0, [r7, #4]
@@ -25396,7 +17097,7 @@ FUN_ov16_0210c670: ; 0x0210C670
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25427,7 +17128,7 @@ FUN_ov16_0210c6dc: ; 0x0210C6DC
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25608,7 +17309,7 @@ _0210C944:
 	b _0210C958
 _0210C950:
 	add r2, sp, #0
-	bl FUN_ov16_020ff9f8
+	bl _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
 _0210C958:
 	cmp r4, #0
 	ldrne r1, [sp]
@@ -25657,7 +17358,7 @@ _0210C9DC:
 	b _0210C9F0
 _0210C9E8:
 	add r2, sp, #0
-	bl FUN_ov16_020ff9f8
+	bl _ZN18CSceneScriptThread13event_defaultEP12SScriptEventPl
 _0210C9F0:
 	cmp r4, #0
 	ldrne r1, [sp]
@@ -25681,7 +17382,7 @@ FUN_ov16_0210ca04: ; 0x0210CA04
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r2, [r6, #0xb]
 	mov r4, #1
 	ldr r1, _0210CA78 ; =0x02099F44
@@ -25715,7 +17416,7 @@ FUN_ov16_0210ca7c: ; 0x0210CA7C
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25749,7 +17450,7 @@ FUN_ov16_0210caf4: ; 0x0210CAF4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r4, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -25784,7 +17485,7 @@ FUN_ov16_0210cb6c: ; 0x0210CB6C
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	ldrsb r3, [r6, #0xb]
 	mov r2, #1
 	ldr r1, _0210CC48 ; 0x02099EF0
@@ -25936,7 +17637,7 @@ FUN_ov16_0210cd88: ; 0x0210CD88
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	cmp r1, #0
@@ -25973,7 +17674,7 @@ FUN_ov16_0210ce08: ; 0x0210CE08
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r2, [sp]
 	cmp r2, #0
@@ -26014,7 +17715,7 @@ FUN_ov16_0210ce94: ; 0x0210CE94
 	mov r0, r8
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldr r2, [sp, #0x54]
 	cmp r2, #0
@@ -26077,7 +17778,7 @@ FUN_ov16_0210cf74: ; 0x0210CF74
 	mov r0, r7
 	mov r1, r5
 	mov r2, r6
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldr r0, _0210CFF4 ; =0x020A0640
@@ -26118,7 +17819,7 @@ FUN_ov16_0210cffc: ; 0x0210CFFC
 	mov r0, r8
 	mov r1, r10
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r10, #4]
 	ldr r0, [sp, #0x18]
 	ldr r2, [sp, #0x20]
@@ -26233,7 +17934,7 @@ FUN_ov16_0210d1a8: ; 0x0210D1A8
 	mov r0, r8
 	mov r1, r5
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r5, #4]
 	ldr r1, [sp]
 	ldr r0, _0210D254 ; =gLogicThink
@@ -26283,7 +17984,7 @@ FUN_ov16_0210d25c: ; 0x0210D25C
 	mov r0, r8
 	mov r1, r7
 	mov r2, r4
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r1, #1
 	ldrsb r2, [r7, #0xb]
 	strb r1, [r7, #0xa]
@@ -26322,7 +18023,7 @@ FUN_ov16_0210d2e0: ; 0x0210D2E0
 	mov r0, r9
 	mov r1, r6
 	mov r2, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	mov r9, #1
 	ldrsb r1, [r6, #0xb]
 	str r0, [r6, #4]
@@ -26453,7 +18154,7 @@ FUN_ov16_0210d4ac: ; 0x0210D4AC
 	mov r0, r5
 	mov r2, r9
 	mov r1, r7
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r7, #4]
 	ldrsb r0, [r7, #0xb]
 	mov r9, #1
@@ -26526,7 +18227,7 @@ FUN_ov16_0210d5b4: ; 0x0210D5B4
 	mov r0, r7
 	mov r1, r6
 	mov r2, r8
-	bl FUN_ov16_020febf8
+	bl _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 	str r0, [r6, #4]
 	ldrsb r0, [r6, #0xb]
 	mov r12, #1
@@ -26594,47 +18295,6 @@ FUN_ov16_0210d6cc: ; 0x0210D6CC
 	arm_func_end FUN_ov16_0210d6cc
 
 	.rodata
-	.global ov16_021178E4
-ov16_021178E4:
-	.byte 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10
-	.byte 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10, 0x00, 0x00, 0x00, 0x10
-	.global ov16_021178F8
-ov16_021178F8:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x10, 0x00, 0x10, 0x00, 0x10, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_0211790C
-ov16_0211790C:
-	.byte 0x00, 0x10, 0x00, 0x10, 0x00, 0x10, 0x00, 0x10, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x10, 0x00, 0x10
-	.global ov16_02117920
-ov16_02117920:
-	.byte 0x02, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-	.global ov16_02117928
-ov16_02117928:
-	.byte 0x02, 0x00, 0x00, 0x00
-	.byte 0x07, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x09, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00
-	.global ov16_0211793C
-ov16_0211793C:
-	.asciz "socks00_pl"
-	.balign 4, 0
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_02117950
-ov16_02117950:
-	.asciz "uni01_pl"
-	.balign 4, 0
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_02117964
-ov16_02117964:
-	.word ov16_02118944
-	.word 1
-	.word ov16_02118960
-	.word 2
-	.word ov16_02118970
-	.word 3
-	.word ov16_02118950
-	.word 4
-	.word 0
-	.word 0
 	.global ov16_0211798C
 ov16_0211798C: ; shift-jis string
 	.byte 0x82, 0x4F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -26671,203 +18331,6 @@ ov16_021179BC:
 	.byte 0x01, 0x02, 0x01, 0x01, 0x02, 0x01, 0x01, 0x01, 0x01, 0x01, 0x01, 0x02, 0x00, 0x00, 0x00, 0x00
 
 	.section .init, 4
-	arm_func_start FUN_ov16_02117e20
-FUN_ov16_02117e20: ; 0x02117E20
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02117E64 ; =0x02118778
-	str r0, [r4, #0x10]
-	ldr r0, _02117E68 ; =0x00009CCD
-	bl FX_Sqrt
-	str r0, [r4, #0xc]
-	ldr r0, _02117E6C ; =0x0000EA3C
-	mov r1, #0x800
-	stmib r4, {r0, r1}
-	add r0, r5, #0x4e0000
-	str r0, [r4]
-	add r0, r1, #0x840000
-	str r0, [r4, #0x14]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02117E64: .word ov16_02118778
-_02117E68: .word 0x00009CCD
-_02117E6C: .word 0x0000EA3C
-	arm_func_end FUN_ov16_02117e20
-
-	arm_func_start FUN_ov16_02117e70
-FUN_ov16_02117e70: ; 0x02117E70
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02117EB4 ; =0x021187C0
-	str r0, [r4, #0x10]
-	ldr r0, _02117EB8 ; =0x00009CCD
-	bl FX_Sqrt
-	str r0, [r4, #0xc]
-	ldr r0, _02117EBC ; =0x0000EA3C
-	mov r1, #0x800
-	stmib r4, {r0, r1}
-	add r0, r5, #0x4e0000
-	str r0, [r4]
-	add r0, r1, #0x840000
-	str r0, [r4, #0x14]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02117EB4: .word ov16_021187C0
-_02117EB8: .word 0x00009CCD
-_02117EBC: .word 0x0000EA3C
-	arm_func_end FUN_ov16_02117e70
-
-	arm_func_start __sinit_CModel.cpp
-__sinit_CModel.cpp: ; 0x02117EC0
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02117F08 ; =0x02118834
-	str r0, [r4, #8]
-	ldr r0, _02117F0C ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4, #4]
-	ldr r0, _02117F10 ; =0x0000EA3C
-	str r1, [r4]
-	str r0, [r4, #0x14]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #0x10]
-	add r0, r1, #0x840000
-	str r0, [r4, #0xc]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02117F08: .word ov16_02118834
-_02117F0C: .word 0x00009CCD
-_02117F10: .word 0x0000EA3C
-	arm_func_end __sinit_CModel.cpp
-
-	arm_func_start __sinit_CModelCfg.cpp
-__sinit_CModelCfg.cpp: ; 0x02117F14
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02117F5C ; =0x02118860
-	str r0, [r4, #0x14]
-	ldr r0, _02117F60 ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4, #0x10]
-	ldr r0, _02117F64 ; =0x0000EA3C
-	str r1, [r4, #0xc]
-	str r0, [r4, #8]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #4]
-	add r0, r1, #0x840000
-	str r0, [r4]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02117F5C: .word ov16_02118860
-_02117F60: .word 0x00009CCD
-_02117F64: .word 0x0000EA3C
-	arm_func_end __sinit_CModelCfg.cpp
-
-	arm_func_start FUN_ov16_02117f68
-FUN_ov16_02117f68: ; 0x02117F68
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02117FB0 ; =0x021188A8
-	str r0, [r4, #8]
-	ldr r0, _02117FB4 ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4]
-	ldr r0, _02117FB8 ; =0x0000EA3C
-	str r1, [r4, #4]
-	str r0, [r4, #0x14]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #0x10]
-	add r0, r1, #0x840000
-	str r0, [r4, #0xc]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02117FB0: .word ov16_021188A8
-_02117FB4: .word 0x00009CCD
-_02117FB8: .word 0x0000EA3C
-	arm_func_end FUN_ov16_02117f68
-
-	arm_func_start __sinit_CMotion.cpp
-__sinit_CMotion.cpp: ; 0x02117FBC
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02118000 ; =0x021188EC
-	str r0, [r4, #0x10]
-	ldr r0, _02118004 ; =0x00009CCD
-	bl FX_Sqrt
-	str r0, [r4, #0xc]
-	ldr r0, _02118008 ; =0x0000EA3C
-	mov r1, #0x800
-	stmib r4, {r0, r1}
-	add r0, r5, #0x4e0000
-	str r0, [r4]
-	add r0, r1, #0x840000
-	str r0, [r4, #0x14]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02118000: .word ov16_021188EC
-_02118004: .word 0x00009CCD
-_02118008: .word 0x0000EA3C
-	arm_func_end __sinit_CMotion.cpp
-
-	arm_func_start __sinit_CNsbResourceMan.cpp
-__sinit_CNsbResourceMan.cpp: ; 0x0211800C
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _02118054 ; =0x02118904
-	str r0, [r4, #0x14]
-	ldr r0, _02118058 ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4, #0x10]
-	ldr r0, _0211805C ; =0x0000EA3C
-	str r1, [r4, #0xc]
-	str r0, [r4, #8]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #4]
-	add r0, r1, #0x840000
-	str r0, [r4]
-	ldmfd sp!, {r3, r4, r5, pc}
-_02118054: .word ov16_02118904
-_02118058: .word 0x00009CCD
-_0211805C: .word 0x0000EA3C
-	arm_func_end __sinit_CNsbResourceMan.cpp
-
-	arm_func_start __sinit_CQuitMenuManager.cpp
-__sinit_CQuitMenuManager.cpp: ; 0x02118060
-	stmfd sp!, {r3, r4, r5, lr}
-	mov r5, #0x2000
-	mov r0, r5
-	bl FX_Sqrt
-	ldr r4, _021180A8 ; =0x0211892C
-	str r0, [r4, #8]
-	ldr r0, _021180AC ; =0x00009CCD
-	bl FX_Sqrt
-	mov r1, #0x800
-	str r0, [r4, #0xc]
-	ldr r0, _021180B0 ; =0x0000EA3C
-	str r1, [r4]
-	str r0, [r4, #0x10]
-	add r0, r5, #0x4e0000
-	str r0, [r4, #4]
-	add r0, r1, #0x840000
-	str r0, [r4, #0x14]
-	ldmfd sp!, {r3, r4, r5, pc}
-_021180A8: .word ov16_0211892C
-_021180AC: .word 0x00009CCD
-_021180B0: .word 0x0000EA3C
-	arm_func_end __sinit_CQuitMenuManager.cpp
-
 	arm_func_start FUN_ov16_021180b4
 FUN_ov16_021180b4: ; 0x021180B4
 	stmfd sp!, {r3, r4, r5, lr}
@@ -26917,132 +18380,12 @@ _02118150: .word 0x00009CCD
 _02118154: .word 0x0000EA3C
 	arm_func_end FUN_ov16_02118108
 
-
 	.section .ctor, 4
 #pragma force_active on
-	.word FUN_ov16_02117e20
-	.word FUN_ov16_02117e70
-	.word __sinit_CModel.cpp
-	.word __sinit_CModelCfg.cpp
-	.word FUN_ov16_02117f68
-	.word __sinit_CMotion.cpp
-	.word __sinit_CNsbResourceMan.cpp
-	.word __sinit_CQuitMenuManager.cpp
 	.word FUN_ov16_021180b4
 	.word FUN_ov16_02118108
 
 	.data
-	.global ov16_02118778
-ov16_02118778:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_02118790
-ov16_02118790:
-	.asciz "FARCLIP_LENGTH"
-	.balign 4, 0
-	.global ov16_021187A0
-ov16_021187A0:
-	.asciz "FARCLIP_LENGTH"
-	.balign 4, 0
-	.global ov16_021187B0
-ov16_021187B0:
-	.asciz "FARCLIP_LENGTH"
-	.balign 4, 0
-	.global ov16_021187C0
-ov16_021187C0:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_021187D8
-ov16_021187D8:
-	.asciz "/data_iz/script/dgncrs.dat"
-	.balign 4, 0
-	.global ov16_021187F4
-ov16_021187F4:
-	.asciz "/data_iz/script/dgnmatch.dat"
-	.balign 4, 0
-	.global ov16_02118814
-ov16_02118814:
-	.asciz "/data_iz/script/dgntreasure.dat"
-	.balign 4, 0
-	.global ov16_02118834
-ov16_02118834:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global _ZTV6CModel
-_ZTV6CModel:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.word FUN_ov16_020fa3dc
-	.global ov16_02118858
-ov16_02118858:
-	.asciz "waist"
-	.balign 4, 0
-	.global ov16_02118860
-ov16_02118860:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_02118880
-ov16_02118880:
-	.word FUN_020525e8
-	.word FUN_ov16_020fb2e4
-	.word FUN_ov16_020fade4
-	.word FUN_ov16_020fae0c
-	.word FUN_ov16_020fae54
-	.word FUN_ov16_020fae6c
-	.word FUN_ov16_020fb31c
-	.word FUN_ov16_020faed8
-	.global ov16_021188A0
-ov16_021188A0:
-	.word FUN_ov16_020faf24
-	.word FUN_ov16_020fb1ec
-	.global ov16_021188A8
-ov16_021188A8:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global ov16_021188C0
-ov16_021188C0:
-	.asciz "head"
-	.balign 4, 0
-	.global ov16_021188C8
-ov16_021188C8:
-	.asciz "/data_iz/model/char/body_no.pac_"
-	.balign 4, 0
-	.global ov16_021188EC
-ov16_021188EC:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global ov16_02118904
-ov16_02118904:
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.global _ZTV15CNsbResourceMan
-_ZTV15CNsbResourceMan:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.word FUN_ov16_020fd990
-	.word FUN_ov16_020fd968
-	.global ov16_0211892C
-ov16_0211892C:
-	.byte 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-	.byte 0x00, 0x00, 0x00, 0x00
-	.global ov16_02118944
-ov16_02118944:
-	.asciz "padn_01.pac"
-	.balign 4, 0
-	.global ov16_02118950
-ov16_02118950:
-	.asciz "padn_b02.pac"
-	.balign 4, 0
-	.global ov16_02118960
-ov16_02118960:
-	.asciz "padn_b00.pac"
-	.balign 4, 0
-	.global ov16_02118970
-ov16_02118970:
-	.asciz "padn_b01.pac"
-	.balign 4, 0
 	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 	.global ov16_02118988
 ov16_02118988:

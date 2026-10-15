@@ -125,7 +125,7 @@
 .public unk_0209E6C0
 .public FUN_0204fca0
 .public FUN_ov16_020ef430
-.public FUN_ov16_020febf8
+.public _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 .public FUN_020463b8
 .public unk_020A9C40
 .public FUN_020312d8
@@ -150,7 +150,7 @@
 .public FUN_0204ead8
 .public FUN_0207461c
 .public FUN_020747c0
-.public FUN_ov16_020fed6c
+.public _ZN18CSceneScriptThread22evaluateArgumentsClearEP12SScriptEventP15UScriptVariable
 .public FUN_020461cc
 .public FUN_0204625c
 .public FUN_020462e4

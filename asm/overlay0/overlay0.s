@@ -395,7 +395,7 @@ _020BD09C:
 	ldr r1, _020BD4C4 ; =0x02120110
 	add r0, r6, #0x33c0
 	str r1, [r6]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	str r5, [r6, #4]
 _020BD0C0:
 	str r6, [r4, #4]

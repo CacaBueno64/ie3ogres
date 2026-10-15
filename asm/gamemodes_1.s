@@ -20,7 +20,7 @@ FUN_0202a020: ; 0x0202A020
 	ldr r1, _0202A150 ; =0x020D9574
 	add r0, r0, #0x1800
 	str r1, [r4]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	add r0, r4, #0x184
 	add r2, r4, #0x234
 	add r8, r4, #0x278
@@ -183,7 +183,7 @@ FUN_0202a1a0: ; 0x0202A1A0
 	str r2, [r1, #0x1f8]
 	add r0, r4, #0x1200
 	str r2, [r1, #0x1fc]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 _0202A248:
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -267,7 +267,7 @@ FUN_0202a288: ; 0x0202A288
 	str r4, [r4, #0x2ac]
 	str r0, [r4, #0xd40]
 	add r0, r6, #8
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	str r4, [r6, #4]
 	mov r0, #0
 	str r0, [r4, #0xf68]

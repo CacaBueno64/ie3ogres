@@ -153,7 +153,7 @@ FUN_02086768: ; 0x02086768
 	bl __register_global_object
 	ldr r4, _02086AC4 ; =gUnitMan
 	mov r0, r4
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	mov r0, r4
 	ldr r1, _02086AC8 ; =FUN_0206c110
 	ldr r2, _02086ACC ; =0x0209A044

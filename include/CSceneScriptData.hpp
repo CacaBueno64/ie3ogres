@@ -65,11 +65,12 @@ typedef struct {
 class CSceneScriptData
 {
 public:
-    /* 0x0202fd38 */ CSceneScriptData();
-    /* 0x0202fd44 */ ~CSceneScriptData();
-    /* 0x0202fd48 */ BOOL initFile(void *data, const char *magic);
-    /* 0x0202ff34 */ SScriptInstruction *next(SScriptInstruction *cur);
-    /* 0x0202ff60 */ SScriptInstruction *getInstructionByID(s32 id);
+    CSceneScriptData();
+    ~CSceneScriptData();
+    
+    BOOL initFile(void *data, const char *magic);
+    SScriptInstruction *next(SScriptInstruction *cur);
+    SScriptInstruction *getInstructionByID(s32 id);
 
     static inline u32 *getArgTypes(SScriptInstruction *i)
     {
@@ -98,6 +99,10 @@ public:
     static inline int getArgType(SScriptInstruction *i, int n)
     {
         return (((s32 *)getArgTypes(i))[n / 8] >> ((n & 7) * 4)) & 0xF;
+    }
+    static inline int getCategory(SScriptInstruction *i)
+    {
+        return i->id >> 12;
     }
 
 private:

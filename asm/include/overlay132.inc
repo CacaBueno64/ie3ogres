@@ -348,7 +348,7 @@
 .public FUN_ov16_020f083c
 .public FUN_ov16_020ef430
 .public FUN_020724ac
-.public FUN_ov16_020febf8
+.public _ZN18CSceneScriptThread17evaluateArgumentsEP12SScriptEventP15UScriptVariable
 .public FUN_ov16_0210c7e0
 .public FUN_ov126_02138f50
 .public FUN_ov126_02139800

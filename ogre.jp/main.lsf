@@ -98,11 +98,7 @@ Static main
 	Object main.nef.p/asm_eventscreenmanager.s.o
 	Object main.nef.p/asm_arm9_020453e0.s.o
 	Object main.nef.p/asm_wirelessutil.s.o
-	Object main.nef.p/asm_scenescriptmanager.s.o
-	# Object main.nef.p/src_script_CSceneScriptManager.cpp.o
-
-	Object main.nef.p/asm_init_arm9_init_02086f80.s.o
-
+	Object main.nef.p/src_script_CSceneScriptManager.cpp.o
 	Object main.nef.p/src_script_CSceneScriptFileContext.cpp.o
 
 	Object main.nef.p/asm_init_arm9_init_02087028.s.o
@@ -377,7 +373,16 @@ Overlay overlay16
 	Object main.nef.p/src_CBgAnimeManager.cpp.o
 	Object main.nef.p/asm_overlay16_CBgMenuManager.s.o
 	Object main.nef.p/src_CBgMenuRadioButton.cpp.o
-	Object main.nef.p/asm_overlay16_ov16_020f6f8c.s.o
+	Object main.nef.p/asm_overlay16_CCameraCtrl.s.o
+	Object main.nef.p/asm_overlay16_CDungeonManager.s.o
+	Object main.nef.p/asm_overlay16_CModel.s.o
+	Object main.nef.p/asm_overlay16_CModelCfg.s.o
+	Object main.nef.p/asm_overlay16_CompositeModel.s.o
+	Object main.nef.p/asm_overlay16_CMotion.s.o
+	Object main.nef.p/asm_overlay16_CNsbResourceMan.s.o
+	Object main.nef.p/asm_overlay16_CQuitMenuManager.s.o
+	Object main.nef.p/src_script_CSceneScriptThread.cpp.o
+	Object main.nef.p/asm_overlay16_scenescriptthread.s.o
 	Object main.nef.p/asm_overlay16_CSprAnimeCtrl.s.o
 	Object main.nef.p/asm_overlay16_CSprButtonCtrl.s.o
 	Object main.nef.p/asm_overlay16_CSprDialog.s.o

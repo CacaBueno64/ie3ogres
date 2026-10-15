@@ -184,7 +184,7 @@
 .public FUN_ov16_02110558
 .public FUN_ov24_0211acd8
 .public FUN_ov37_0211b2b0
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public _ZN10CAllocator8allocateEmii
 .public _ZN14CScreenManager16getNextSceneMainEv
 .public _ZN14CScreenManager15getCurSceneMainEv

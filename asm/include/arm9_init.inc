@@ -14,7 +14,7 @@
 .public FUN_0206f0b8
 .public FUN_020495b4
 .public FUN_0204947c
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_0203df80
 .public unk_0208F680
 .public gConfig

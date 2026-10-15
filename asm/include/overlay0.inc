@@ -61,7 +61,7 @@
 .public FUN_ov52_02119fa0
 .public FUN_ov54_0211b0b0
 .public FUN_ov54_0211bf6c
-.public FUN_0206c0d8
+.public _ZN8CUnitManC1Ev
 .public FUN_ov45_0211b604
 .public FUN_ov52_0211d888
 .public FUN_ov18_02119f00

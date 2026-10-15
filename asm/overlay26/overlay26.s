@@ -116,7 +116,7 @@ FUN_ov26_0211a060: ; 0x0211A060
 	add r0, r5, #0xa4
 	mov r4, r1
 	str r2, [r5]
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	add r0, r5, #0xec
 	bl FUN_ov16_02110558
 	mov r0, r5

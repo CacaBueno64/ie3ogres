@@ -74,13 +74,13 @@ _02047B50:
 	bl _Znwm
 	cmp r0, #0
 	beq _02047B64
-	bl FUN_ov16_020fe4f4
+	bl _ZN18CSceneScriptThreadC1Ev
 _02047B64:
 	add r1, r4, r6, lsl #2
 	add r2, r1, #0x1000
 	mov r1, r4
 	str r0, [r2, #0xb88]
-	bl FUN_ov16_020fe51c
+	bl _ZN18CSceneScriptThread4initEP19CSceneScriptManager
 	add r6, r6, #1
 	cmp r6, #0xb
 	blt _02047B50
@@ -634,10 +634,10 @@ _ZN19CSceneScriptManager12unloadScriptEi: ; 0x02048288
 	moveq r0, r4
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r0, [r0, #0xb90]
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	add r0, r8, #0x1000
 	ldr r0, [r0, #0xb90]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	add r0, r8, #0x1000
 	str r4, [r0, #0xbb8]
 	mov r0, #1
@@ -657,11 +657,11 @@ _0204830C:
 	ldr r0, [r0, #0xe18]
 	cmp r0, #0
 	beq _02048350
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	add r0, r8, r6
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	mov r0, r8
 	add r1, r4, r6
 	bl _ZN19CSceneScriptManager17clearFunctionSlotEP12SScriptEvent
@@ -881,7 +881,7 @@ _020485FC:
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xb88]
 	mov r1, r4
-	bl FUN_ov16_020fe530
+	bl _ZN18CSceneScriptThread6attachEi
 	cmp r0, #0
 	addne r0, r5, r6, lsl #2
 	addne r0, r0, #0x1000
@@ -898,7 +898,7 @@ _02048638:
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xb88]
 	mov r1, r4
-	bl FUN_ov16_020fe530
+	bl _ZN18CSceneScriptThread6attachEi
 	cmp r0, #0
 	addne r0, r5, r6, lsl #2
 	addne r0, r0, #0x1000
@@ -937,14 +937,14 @@ _020486A8:
 	mov r0, r4
 	mov r1, r8
 	mov r2, r5
-	bl FUN_ov16_020fe584
+	bl _ZN18CSceneScriptThread17evaluateConditionEP18SScriptInstructionPl
 	cmp r0, #0
 	beq _020486A8
 _020486D8:
 	cmp r4, #0
 	beq _020486E8
 	mov r0, r4
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 _020486E8:
 	mov r0, r8
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}
@@ -969,7 +969,7 @@ _ZN19CSceneScriptManager13startFunctionEP15CSceneDirectioniP18SScriptInstruction
 	ldr r3, [sp, #0x18]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_ov16_020fe6e8
+	bl _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
 	add r0, r7, #0x1000
 	str r4, [r0, #0xbb8]
 	mov r0, #1
@@ -1064,7 +1064,7 @@ _02048868:
 	ldr r1, [r1, #0xb80]
 	ldr r2, [r2, #0xe14]
 	mov r3, r5
-	bl FUN_ov16_020fe6e8
+	bl _ZN18CSceneScriptThread5startEP15CSceneDirectionP18SScriptInstructionPl
 	b _020489BC
 _0204889C:
 	bl _Z14GetCurrentModev
@@ -1073,7 +1073,7 @@ _0204889C:
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe92c
+	bl _ZN18CSceneScriptThread6updateEv
 	cmp r0, #0
 	bne _020489BC
 	add r0, r4, r7, lsl #2
@@ -1090,11 +1090,11 @@ _0204889C:
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0xe20]
@@ -1115,23 +1115,23 @@ _02048938:
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe9ac
+	bl _ZN18CSceneScriptThread13getEventCountEv
 	mla r1, r7, r5, r4
 	add r1, r1, #0x1000
 	mov r8, r0
 	ldr r0, [r1, #0xe18]
-	bl FUN_ov16_020fe9a4
+	bl _ZN18CSceneScriptThread9getEventsEv
 	mla r1, r7, r5, r4
 	mov r9, r0
 	add r0, r1, #0x1000
 	ldr r0, [r0, #0xe18]
 	mov r1, r9
-	bl FUN_ov16_020fe9b4
+	bl _ZN18CSceneScriptThread11setCurEventEP12SScriptEvent
 	mla r0, r7, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
 	mov r1, #1
-	bl FUN_ov16_020fe9bc
+	bl _ZN18CSceneScriptThread10setRunningEi
 	mov r0, #0
 	b _020489B4
 _020489A4:
@@ -1157,7 +1157,7 @@ _020489CC:
 	addeq sp, sp, #0x14
 	moveq r0, #0
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, r9, pc}
-	bl FUN_ov16_020fe92c
+	bl _ZN18CSceneScriptThread6updateEv
 	add sp, sp, #0x14
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, pc}
 _020489FC: .word unk_0208C438
@@ -1177,7 +1177,7 @@ _02048A20:
 	add r0, r5, r4, lsl #2
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xb88]
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	add r4, r4, #1
 	cmp r4, #8
 	blt _02048A20
@@ -1194,7 +1194,7 @@ _ZN19CSceneScriptManager23fastForwardActiveThreadEv: ; 0x02048A4C
 	ldr r0, [r0, #0xbb8]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov16_020fe904
+	bl _ZN18CSceneScriptThread18requestFastForwardEv
 	ldmfd sp!, {r3, pc}
 	arm_func_end _ZN19CSceneScriptManager23fastForwardActiveThreadEv
 
@@ -1205,7 +1205,7 @@ _ZN19CSceneScriptManager16skipActiveThreadEv: ; 0x02048A68
 	ldr r0, [r0, #0xbb8]
 	cmp r0, #0
 	ldmeqfd sp!, {r3, pc}
-	bl FUN_ov16_020fe918
+	bl _ZN18CSceneScriptThread11requestSkipEv
 	ldr r0, _02048A90 ; =gAudioPlayer
 	mov r1, #0x64
 	bl _ZN11AudioPlayer14stopAllEffectsEm
@@ -1238,11 +1238,11 @@ _ZN19CSceneScriptManager16stopFunctionSlotEi: ; 0x02048AAC
 	ldr r0, [r0, #0xe18]
 	cmp r0, #0
 	beq _02048AF8
-	bl FUN_ov16_020fe8b0
+	bl _ZN18CSceneScriptThread4stopEv
 	add r0, r5, r4
 	add r0, r0, #0x1000
 	ldr r0, [r0, #0xe18]
-	bl FUN_ov16_020fe56c
+	bl _ZN18CSceneScriptThread6detachEv
 	add r0, r5, r4
 	add r0, r0, #0x1000
 	ldr r1, [r0, #0xe20]

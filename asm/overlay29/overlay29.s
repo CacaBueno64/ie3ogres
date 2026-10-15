@@ -205,7 +205,7 @@ FUN_ov29_0211a158: ; 0x0211A158
 	str r2, [r5, #0x120]
 	bl FUN_ov16_02110558
 	add r0, r5, #0x1a0
-	bl FUN_0206c0d8
+	bl _ZN8CUnitManC1Ev
 	mov r0, r5
 	str r4, [r5, #4]
 	ldmfd sp!, {r3, r4, r5, pc}
