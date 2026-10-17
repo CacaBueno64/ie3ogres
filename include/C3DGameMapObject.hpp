@@ -32,9 +32,9 @@ public:
     {
         this->reset();
     }
-    /* 0x0205e2d8 */ virtual char *vFUN_00(int idx);
-    /* 0x0205e34c */ virtual char *vFUN_04(int idx);
-    /* 0x0205e3c0 */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
+    /* 0x0205e2d8 */ virtual const char *getPkhPath(int type);
+    /* 0x0205e34c */ virtual const char *getPkbPath(int type);
+    /* 0x0205e3c0 */ virtual bool getFileKeys(const char *path, int *outIdx, s32 *outCode);
     /* 0x0205ff60 */ virtual ~C3DGameMapObject();
 
     /* 0x0205ecd0 */ bool init(int);

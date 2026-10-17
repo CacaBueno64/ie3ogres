@@ -13,6 +13,11 @@
 #include "init/arm9_init.hpp"           // IWYU pragma: keep
 // clang-format on
 
+/* TODO: Create header */ extern "C" void FUN_ov16_020f3f60(int);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f47fc(void);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f4894(int);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f51a8(void);
+
 void CLogoScreenManager::init(void)
 {
     this->startGraphics(2);

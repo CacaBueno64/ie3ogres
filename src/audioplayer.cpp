@@ -1,31 +1,20 @@
 // clang-format off
 #include "audioplayer.hpp"
 
-#include <cstdio>                      // for NULL, sprintf
-#include <cstring>                     // for strrchr
+#include <string.h>
+#include <nitro.h>
+#include <DSE.h>
 
-#include <nitro/fs/file.h>             // for FS_ConvertPathToFileID
-#include <nitro/fs/types.h>            // for FSFileID
-#include <nitro/mi/memory.h>           // for MI_CpuClear8
-#include <nitro/os/common/thread.h>    // for OS_Sleep
-#include <nitro/snd/ARM9/interface.h>  // for SND_LockChannel
-#include <nitro/snd/common/main.h>     // for SND_Init
-#include <nitro/std/string.h>          // for STD_CompareString, STD_TSPrintf, STD_CopyString, STD_ConcatenateString
-#include <nitro/types.h>               // for s32, FALSE, BOOL, u32, TRUE, u16, u8, s8, u64
+#include "CFileIO.hpp"
+#include "CLogicThink.hpp"
+#include "CAllocator.hpp"
+#include "cnvdat.h"
+#include "filesystem.hpp"
+#include "graphics.hpp"
+#include "movieplayer.hpp"
 
-#include <DSE.h>                       // for DSE_SsdIsPlayStream, DSE_SsdIsPlaySequence, DSE_SsdAddWaveData, DSE_SsdRemoveWaveData, DSE_SsdSetStreamPlayPositionByTime, DSE_SsdIsOpenStream, DSE_SsdPlayStream, DSE_SsdStopSequence, DSE_SsdStopStream, DSE_SsdAddEffectData, DSE_SsdAddSequenceData, DSE_SsdCloseStream, DSE_SsdGetStreamSizeByTime, DSE_SsdInit, DSE_SsdInitSsdInitData, DSE_SsdInitStream, DSE_SsdInitStreamInitRec, DSE_SsdIsPlayEffect, DSE_SsdOpenStreamByFile, DSE_SsdPlayEffectParam, DSE_SsdPlaySequence, DSE_SsdQuit, DSE_SsdRemoveEffectData, DSE_SsdRemoveSequenceData, DSE_SsdResume, DSE_SsdSetEffectPolyMax, DSE_SsdSetInitDataMainThread, DSE_SsdSetInitDataRomThread, DSE_SsdSetInitDataSoundHeap, DSE_SsdSetInitDataVoiceRange, DSE_SsdSetMonoToStereo, DSE_SsdSetSequenceParam, DSE_SsdSetStreamInitDataThreadPriority, DSE_SsdSetStreamInitIOBufferSize, DSE_SsdSetStreamInitMaxOpen, DSE_SsdSetStreamInitReadThreadPriority, DSE_SsdSetStreamInitRomAccessSize, DSE_SsdSetStreamInitVoiceRange, DSE_SsdSetStreamParam, DSE_SsdStopEffect, DSE_SsdStopEffectAll, DSE_SsdStopEffectByDataID, DSESsdInitDataRec
-
-#include "CFileIO.hpp"                 // for CFileIO
-#include "CLogicThink.hpp"             // for CLogicThink, gLogicThink
-#include "CAllocator.hpp"               // for CAllocator, gAllocator
-#include "cnvdat.h"                    // for SSoundRecordData
-#include "filesystem.hpp"              // for FindFileIdx, GetFile, IsFileBusy, OpenArchiveDirect, ReadFileByIdx, ReadFileByIdxDeferred, SetNextArena, archandle_t, filekey_t
-#include "graphics.hpp"                // for gDeltaTime
-#include "movieplayer.hpp"             // for MoviePlayer, gMoviePlayer
-// clang-format on
-
-/*
 #include "init/arm9_init.hpp"
+// clang-format on
 
 static char *unk_0208FA48[] = {
     "",
@@ -39,11 +28,11 @@ static char *unk_0208FA48[] = {
     "J06.SAD",
     "PB01.SMW",
 };
-*/
-extern char *unk_0208FA48[];
 
-static int sUnkIdx;
+extern const u32 dummy[3] = {0, 0, 0};
+
 static archandle_t sArcKey;
+static int sUnkIdx;
 
 BOOL AudioPlayer::FUN_0202b330(s32 fileIdx, void **data, BOOL withHandle, int param3, filekey_t *keyOut)
 {
@@ -484,7 +473,7 @@ void AudioPlayer::FUN_0202bea4(int param1, int param2)
 void AudioPlayer::FUN_0202bec0(int param1, char *param2, s32 param3)
 {
     int v0 = 1;
-    char *extension = std::strrchr(param2, '.');
+    char *extension = strrchr(param2, '.');
     if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
@@ -505,7 +494,7 @@ void AudioPlayer::FUN_0202bec0(int param1, char *param2, s32 param3)
 void AudioPlayer::FUN_0202bfb8(int param1, char *param2, s32 param3)
 {
     int v0 = 1;
-    char *extension = std::strrchr(param2, '.');
+    char *extension = strrchr(param2, '.');
     if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
@@ -567,7 +556,7 @@ void AudioPlayer::FUN_0202c1a4(int param1, char *param2, s32 param3, s32 param4)
     }
 
     int v0 = 1;
-    char *extension = std::strrchr(param2, '.');
+    char *extension = strrchr(param2, '.');
     if ((extension) && ((STD_CompareString(extension, ".SAD") == 0) || (STD_CompareString(extension, ".sad") == 0))) {
         v0 = 2;
     }
@@ -637,7 +626,7 @@ void AudioPlayer::FUN_0202c3e0(int param1, char *param2, s32 param3)
 {
     char filename[64];
 
-    if (!std::strrchr(param2, '.')) {
+    if (!strrchr(param2, '.')) {
         STD_TSPrintf(filename, "%s.SMW", param2);
     } else {
         STD_CopyString(filename, param2);

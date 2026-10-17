@@ -12,10 +12,7 @@
 #include "C3DPlaneCtrl.hpp"
 #include "CSprButtonCtrl.hpp"
 #include "CSprAnimCtrl.hpp"
-
-extern "C" {
-    extern int FUN_ov16_020f5450(const char *, void *, const Archive::SFPFileEntry *, int *, bool);
-}
+#include "audioplayer.hpp"
 
 typedef struct {
     s16 idx;
@@ -54,7 +51,11 @@ public:
     void FUN_ov37_0211aea4(void);
     void FUN_ov37_0211aed0(void);
     bool FUN_ov37_0211af0c(int param1, int param2, int param3, int param4, int param5, u8 param6);
+    void FUN_ov37_0211af7c(int param1);
+    void FUN_ov37_0211aff8(int param1);
     void FUN_ov37_0211b0f4(void);
+    bool FUN_ov37_0211b12c(int param1, int param2);
+    void FUN_ov37_0211b1cc(void);
     int FUN_ov37_0211b258(int param1, int param2);
     void FUN_ov37_0211b274(int param1, int *xOut, int *yOut);
 

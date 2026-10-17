@@ -15,6 +15,11 @@
 #include "init/arm9_init.hpp"           // IWYU pragma: keep
 // clang-format on
 
+/* TODO: Create Header */ extern "C" void FUN_ov16_020f3f60(int);
+/* TODO: Create Header */ extern "C" void FUN_ov16_020f4894(int);
+/* TODO: Create Header */ extern "C" void FUN_ov16_020f47fc(void);
+/* TODO: Create Header */ extern "C" void FUN_ov16_020f51a8(void);
+
 static u8 sDummy; // unused>
 
 #pragma opt_rotateloops off

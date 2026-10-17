@@ -1,5 +1,13 @@
 #include "CMainMenuScreenEnterName.hpp"
+
 #include "init/arm9_init.hpp"
+
+/* TODO: Create header */ extern "C" u16 gKeysRepeated;
+/* TODO: Create header */ extern "C" int FUN_ov16_020f081c(void);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2f20(SCanvas *);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2f7c(SCanvas *, int);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2fa8(SCanvas *, int, int);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2fe4(SCanvas *, int);
 
 bool CMainMenuScreenEnterName::FUN_ov55_02119f00(int param0)
 {

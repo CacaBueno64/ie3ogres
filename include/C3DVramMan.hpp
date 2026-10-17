@@ -1,8 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/os/common/thread.h>  // for OSMutex
-#include <nitro/types.h>             // for u32, s32
+#include <nitro.h>
 // clang-format on
 
 class C3DVramMan

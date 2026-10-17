@@ -8,11 +8,11 @@
 class C3DGameBase
 {
 public:
-    /* 0x02052144 */ C3DGameBase();
+    C3DGameBase();
 
-    virtual char *vFUN_00(int idx) = 0;
-    virtual char *vFUN_04(int idx) = 0;
-    virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode) = 0;
+    virtual const char *getPkhPath(int type) = 0;
+    virtual const char *getPkbPath(int type) = 0;
+    virtual bool getFileKeys(const char *path, int *outIdx, s32 *outCode) = 0;
     virtual bool closeModels(void);
     virtual bool setupModels(void);
 

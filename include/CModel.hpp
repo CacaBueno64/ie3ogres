@@ -29,6 +29,8 @@ public:
     /* ov16 0x020fa448 */ void setTranslation(VecFx32 *trans);
     /* ov16 0x020fa464 */ void setRotation(VecFx32 *rot);
     /* ov16 0x020fa4a0 */ void setScale(VecFx32 *scale);
+    /* ov16 0x020fa538 */ VecFx32 getTranslation(void);
+    /* ov16 0x020fa54c */ VecFx32 getRotation(void);
     /* ov16 0x020fa7f0 */ bool setMotionRes(SNsbResource *res, int idx);
     bool FUN_ov16_020fa838(int param1, int param2);
     bool FUN_ov16_020fa8a0(int param1);

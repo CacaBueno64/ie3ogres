@@ -164,8 +164,3 @@ int GetMapNameHash(void *pkh, const char *str);
 BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *outSize);
 
 } /* namespace Archive */
-
-extern "C" {
-extern int FUN_ov16_020f0b58(int wearNo);
-extern void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
-}

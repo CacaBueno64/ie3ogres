@@ -12,6 +12,9 @@
 #include "CAllocator.hpp"       // for gAllocator, CAllocator
 // clang-format on
 
+/* TODO: Create Header */ extern "C" int FUN_ov16_020f0b58(int wearNo);
+/* TODO: Create Header */ extern "C" void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
+
 namespace Archive
 {
 

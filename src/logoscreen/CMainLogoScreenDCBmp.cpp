@@ -13,6 +13,11 @@
 #include "init/arm9_init.hpp"      // IWYU pragma: keep
 // clang-format on
 
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2a18(SMovieInfo *, const char *);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2a74(SMovieInfo *);
+/* TODO: Create header */ extern "C" BOOL FUN_ov16_020f2aa4(void);
+/* TODO: Create header */ extern "C" void FUN_ov16_020f2ab4(void);
+
 void CMainLogoScreenDCBmp::updateKeys(u16 pressed, u16 held)
 {
     if ((this->unk_10 < 30) || (this->tpTouch)) {

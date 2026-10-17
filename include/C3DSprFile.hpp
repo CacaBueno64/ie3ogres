@@ -5,6 +5,7 @@
 
 #include "vram.hpp"
 #include "archive.hpp"
+#include "filesystem.hpp"
 
 typedef int sfkey_t;
 typedef unsigned char sfkey_char_t;
@@ -60,12 +61,12 @@ public:
     void *FUN_02059bb4(C3DSprSheet *sheet, u32 *outSize);
     void *getPaletteData(C3DSprSheet *sheet, u32 *outSize);
     bool getResKeyAddresses(C3DSprSheet *sheet, u32 *texOut, u32 *plttOut);
-    void FUN_02058e30(void);
+    int FUN_02058e30(sfkey_t key);
     bool FUN_02058ee0(int key);
     bool FUN_02059004(int key);
     void FUN_020591e8(int key);
     void FUN_02059880(void);
-    int FUN_020598ec();
+    void FUN_020598ec(void);
     bool FUN_02059038(int key, int param2, int param3);
 
     inline u32 getPaletteSizeSingle(C3DSprSheet *sheet)

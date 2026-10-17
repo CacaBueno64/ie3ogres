@@ -62,6 +62,8 @@ typedef struct {
 
 /* 0x0209a160 */ extern ScreenFade gScreenFades[2];
 
+/* 0x020a6c40 */ extern GXScrText32x32 gScreens[2][3];
+// TODO: get rid of theses below
 /* 0x020a6c40 */ extern u16 gMainScreen0[1024];
 /* 0x020a7440 */ extern u16 gMainScreen1[1024];
 /* 0x020a7c40 */ extern u16 gMainScreen2[1024];

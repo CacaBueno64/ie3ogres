@@ -38,7 +38,7 @@ int C3DGameBase::openFile(int idx, bool defer)
 
     if (idx < 0) {
         for (idx = 0; idx < this->fileCount; idx++) {
-            char *path = this->vFUN_00(idx);
+            const char *path = this->getPkhPath(idx);
             if (defer) {
                 Archive::RequestNewRead(path, &this->files[idx]);
             } else {
@@ -49,7 +49,7 @@ int C3DGameBase::openFile(int idx, bool defer)
         return this->modelCount;
     }
 
-    char *path = this->vFUN_00(idx);
+    const char *path = this->getPkhPath(idx);
     if (defer) {
         Archive::RequestNewRead(path, &this->files[idx]);
     } else {
@@ -132,5 +132,3 @@ bool C3DGameBase::setupModels(void)
 
     return true;
 }
-
-

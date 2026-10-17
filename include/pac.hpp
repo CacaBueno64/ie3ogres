@@ -188,3 +188,14 @@ inline void *PAC_IPM_GetMetaPtr(void *data)
     return static_cast<void *>(reinterpret_cast<char *>(static_cast<PAC_HEADER_IPM *>(data)) +
                                static_cast<PAC_HEADER_IPM *>(data)->met.offs);
 }
+
+typedef struct {
+    PAC_HEADER_START h;
+    PAC_FILE_BLOCK efct;
+    PAC_FILE_BLOCK bmd;
+    PAC_FILE_BLOCK ctb;
+    PAC_FILE_BLOCK bca;
+    PAC_FILE_BLOCK bma;
+    PAC_FILE_BLOCK bta;
+    PAC_FILE_BLOCK vis; // or btx? always empty
+} PAC_HEADER_EFFECT;

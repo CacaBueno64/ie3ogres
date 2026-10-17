@@ -68,6 +68,7 @@ public:
     static void FUN_ov16_0210e6fc(SButtonGraphicParam *param, bool param1, bool param2, bool param3);
     static void FUN_ov16_0210e720(SButtonGraphicParam *param, int graphicIdx, int subGraphicIdx, int param3);
 
+    SButton *FUN_ov16_0210e7d0(u16 param1);
     SButton *FUN_ov16_0210fba4(u16 param1, u16 param2, int x, int y, s16 width, s16 height, u16 priority);
     SButton *FUN_ov16_0210fbe8(u16 param1, u16 param2, pskey_t set, int priority);
 

@@ -813,6 +813,8 @@ unk_020A3CA0:
 	.global unk_020A3D14
 unk_020A3D14:
 	.space 0x2F2C
+	.global gScreens
+gScreens:
 	.global gMainScreen0
 gMainScreen0:
 	.space 0x800

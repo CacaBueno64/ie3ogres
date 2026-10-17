@@ -24,6 +24,7 @@ public:
     virtual ~CNsbResourceMan() {}
     FileSystem::Result getResult(SNsbResource *res);
     /* ov16 0x020fc9f4 */ void init(int resCount);
+    /* ov16 0x020fcd08 */ SNsbResource *getFromPathEx(const char *path, u8 type, bool async, size_t offset, size_t size, bool compressed, u8 strategy);
     /* ov16 0x020fd278 */ int tryFinalize(SNsbResource *res);
     /* ov16 0x020fd350 */ void release(SNsbResource *res);
     /* ov16 0x020fd4a8 */ CNsbResourceMan();

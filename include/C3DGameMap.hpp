@@ -30,9 +30,9 @@ class C3DGameMap : public C3DGameBase
 public:
     /* 0x0205d104 */ C3DGameMap();
 
-    /* 0x0205ca78 */ virtual char *vFUN_00(int idx);
-    /* 0x0205cac8 */ virtual char *vFUN_04(int idx);
-    /* 0x0205cb18 */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
+    /* 0x0205ca78 */ virtual const char *getPkhPath(int type);
+    /* 0x0205cac8 */ virtual const char *getPkbPath(int type);
+    /* 0x0205cb18 */ virtual bool getFileKeys(const char *path, int *outIdx, s32 *outCode);
     /* 0x0205e280 */ virtual bool closeModels(void);
     /* 0x0205e280 */ virtual bool setupModels(void);
     /* 0x0205d138 */ virtual ~C3DGameMap();

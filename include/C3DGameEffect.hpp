@@ -1,18 +1,17 @@
 #pragma once
 
-#include <nitro/types.h>
-#include <nitro/fx/fx.h>
+#include <nitro.h>
 
 #include "C3DGameBase.hpp"
 #include "CModelCfg.hpp"
 #include "CNsbResourceMan.hpp"
 
 typedef struct SEffectInstance {
-    int unk0;
-    int unk4;
-    u16 unk8;
-    u8 unkA;
-    u8 unkB;
+    s32 code;
+    int target;
+    u16 flags;
+    u8 posMode; // 0: none, 1: absolute, 2: relative to g3DGameMap, 3: attached to a character
+    u8 loadState; // 0: free, 1: loading, 2: file loaded, 3: ready
     VecFx32 trans;
     VecFx32 rot;
     VecFx32 scale;
@@ -28,25 +27,63 @@ public:
     {
         this->reset();
     }
-    /* 0x0205b4f0 */ virtual char *vFUN_00(int idx);
-    /* 0x0205b504 */ virtual char *vFUN_04(int idx);
-    /* 0x0205c99c */ virtual bool vFUN_08(char *path, int *outIdx, u32 *outCode);
-    /* 0x0205c97c */ virtual ~C3DGameEffect();
+    virtual const char *getPkhPath(int type);
+    virtual const char *getPkbPath(int type);
+    virtual bool getFileKeys(const char *path, int *outIdx, s32 *outCode);
+    virtual ~C3DGameEffect();
 
-    /* 0x0205b518 */ void reset(void);
-    int FUN_0205b530(int param1, int param2);
-    int FUN_0205b548(int param1);
-    int FUN_0205b564(int param1, SEffectInstance **out);
-    int FUN_0205b5cc(SEffectInstance **out);
-    void FUN_0205b624(SEffectInstance *effect);
-    int FUN_0205b6cc(SEffectInstance *effect);
-    bool FUN_0205b768(SEffectInstance *effect);
-    bool FUN_0205b9b8(SEffectInstance *effect);
-    /* 0x0205bca4 */ bool init(int);
-    /* 0x0205be20 */ void destroy(void);
-    void FUN_0205bf14(int param1);
-    void FUN_0205c060(void);
-    void FUN_0205c468(void);
+    void reset(void);
+    int makeHandle(s32 code, int slot);
+    int handleToSlot(int handle);
+    int getSlot(int handle, SEffectInstance **out);
+    int findFreeSlot(SEffectInstance **out);
+    void releaseSlot(SEffectInstance *effect);
+    int updateSlotLoad(SEffectInstance *effect);
+    bool setupSlotModel(SEffectInstance *effect);
+    bool applySlotTransform(SEffectInstance *effect);
+    bool init(int);
+    void destroy(void);
+    void update(int step);
+    void drawWorld(void);
+    void drawOverlay(void);
+    int loadEffect(s32 code, bool async);
+    int loadEffect(s32 code);
+    bool startEffect(int handle);
+    void releaseEffect(int handle);
+    void releaseAll(void);
+    int updateEffectLoad(int handle);
+    int updateAllLoads(void);
+    void setVisible(int handle, bool visible);
+    void setPosMode(int handle, u8 posMode);
+    void setTranslation(int handle, fx32 x, fx32 y, fx32 z);
+    void setRotation(int handle, fx32 x, fx32 y, fx32 z);
+    void setScale(int handle, fx32 x, fx32 y, fx32 z);
+    VecFx32 getTranslation(int handle);
+    VecFx32 getRotation(int handle);
+    bool playAnim(int handle, const char *animName, u8 endMode);
+    bool isAnimFinished(int handle);
+    void setTarget(int handle, int target);
+    void setFlags(int handle, u32 flags, bool set);
+    void clearFlags(int handle, u32 flags);
+    u16 getFlags(int handle);
+
+    inline SEffectInstance *getEffectAt(SEffectInstance *arr, int idx)
+    {
+        if ((idx < 0) || (idx >= this->modelCount) || (!arr)) {
+            return NULL;
+        }
+
+        return &arr[idx];
+    }
+
+    inline SEffectInstance *getEffect(int idx)
+    {
+        if ((idx < 0) || (idx >= this->modelCount) || (!this->effects)) {
+            return NULL;
+        }
+
+        return &this->effects[idx];
+    }
 
     SEffectInstance *effects;
     CModelCfg *modelCfgs;

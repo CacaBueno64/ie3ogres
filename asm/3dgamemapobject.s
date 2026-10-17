@@ -85,7 +85,7 @@ _0205E3B8: .word unk_02090D20
 _0205E3BC: .word unk_02090D44
 	arm_func_end FUN_0205e34c
 
-	arm_func_start FUN_0205e3c0
+	arm_func_start FUN_0205e3c0 ; https://decomp.me/scratch/IXBLQ
 FUN_0205e3c0: ; 0x0205E3C0
 	stmfd sp!, {r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #0x10

@@ -1,8 +1,6 @@
 #pragma once
 
-// #include <nitro/types.h>
-#include <nitro/fx/fx.h>
-#include <nitro/fx/fx_cp.h>
+#include <nitro.h>
 
 static inline fx32 init_dummy(fx32 v) { return v; }
 

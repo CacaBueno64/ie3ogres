@@ -1,3 +1,42 @@
+subdir('mvdn_e')
+subdir('mvdn_q')
+
+mvdn_e_pack = custom_target('mvdn_e_pack',
+    output: [
+        'mvdn_e.pkb',
+        'mvdn_e.pkh',
+    ],
+    input: mvdn_e_pac_files_comp,
+    command: [
+        python3,
+        archive_py,
+        '-t', 'PKB',
+        '-c',
+        '@INPUT0@',
+        '@OUTDIR@',
+    ],
+)
+
+nitrofs_files += mvdn_e_pack
+
+mvdn_q_pack = custom_target('mvdn_q_pack',
+    output: [
+        'mvdn_q.pkb',
+        'mvdn_q.pkh',
+    ],
+    input: mvdn_q_pac_files_comp,
+    command: [
+        python3,
+        archive_py,
+        '-t', 'PKB',
+        '-c',
+        '@INPUT0@',
+        '@OUTDIR@',
+    ],
+)
+
+nitrofs_files += mvdn_q_pack
+
 pic2d_menu_png_files = files(
     '_mbdn_bg00.png',
     'jmup_bg00.png',
@@ -117,10 +156,10 @@ prebuilt_files = [
     'MMQuit.SPF_',
     'MMSlot.SPF_',
     'MMTk.SPF_',
-    'mvdn_e.pkb',
-    'mvdn_e.pkh',
-    'mvdn_q.pkb',
-    'mvdn_q.pkh',
+    #'mvdn_e.pkb',
+    #'mvdn_e.pkh',
+    #'mvdn_q.pkb',
+    #'mvdn_q.pkh',
     'SMBinder1.SPF_',
     'SMBinder2.SPF_',
     'SMBlog1.SPF_',

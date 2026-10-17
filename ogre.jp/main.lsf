@@ -45,7 +45,6 @@ Static main
 
 	Object main.nef.p/asm_init_arm9_init_02086768.s.o
 	Object main.nef.p/asm_init_arm9_init_02086aec.s.o
-	Object main.nef.p/asm_init_arm9_init_02086b40.s.o
 
 	Object main.nef.p/asm_arm9_02028fa0.s.o
 	Object main.nef.p/asm_arm9_data_0208f680.s.o
@@ -59,7 +58,6 @@ Static main
 	Object main.nef.p/asm_commonscreen.s.o
 	Object main.nef.p/asm_commonsubscreen.s.o
 	Object main.nef.p/asm_commonmainscreen.s.o
-	Object main.nef.p/asm_audioplayer_data.s.o
 	Object main.nef.p/src_audioplayer.cpp.o
 	Object main.nef.p/src_CAllocator.cpp.o
 	Object main.nef.p/src_movieplayer.cpp.o

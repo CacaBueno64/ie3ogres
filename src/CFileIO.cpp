@@ -14,6 +14,8 @@
 #include "archive.hpp"            // for SFPHeader, FUN_02053914, SFPEntry
 // clang-format on
 
+/* TODO: Create header */ extern "C" void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
+
 CFileIO::CFileIO()
 {
     this->nRequests = 0;

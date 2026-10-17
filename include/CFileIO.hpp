@@ -46,28 +46,28 @@ public:
     CFileIO();
     virtual ~CFileIO();
     static void FUN_0202ede8(void);
-    /* 0x0202edec */ void init(int max_requests, CAllocator *allocator);
-    /* 0x0202ee10 */ void start(int max_requests);
-    /* 0x0202eedc */ int getFreeRequestIdx(void);
-    /* 0x0202ef20 */ int getRequestIdx(void *data);
-    /* 0x0202ef74 */ void *allocate(size_t size);
-    /* 0x0202ef8c */ void deallocate(void *ptr);
-    /* 0x0202ef9c */ size_t getFileLength(const char *path);
-    /* 0x0202eff0 */ size_t readDirect(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
-    /* 0x0202f294 */ size_t readDeferred(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
-    /* 0x0202f500 */ size_t readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size);
-    /* 0x0202f568 */ BOOL convertPathToFileID(FSFileID *fileID, const char *path);
-    /* 0x0202f57c */ int tryFinalize(void *data);
-    /* 0x0202f598 */ int tryFinalize(int idx);
-    /* 0x0202f634 */ BOOL isBusy(void);
-    /* 0x0202f678 */ BOOL close(void *data, BOOL deallocate);
-    /* 0x0202f69c */ BOOL close(int idx, BOOL deallocate);
-    /* 0x0202f794 */ void wakeUp(void);
-    /* 0x0202f7a4 */ static void processRequests(void *arg);
-    /* 0x0202fa88 */ BOOL getDestSize(FileRequest *request, FSFile *file, size_t *out_size);
-    /* 0x0202fb58 */ void processUncompRequest(FileRequest *request);
-    /* 0x0202fbe8 */ void uncompress(void *src, FileRequest *request);
-    /* 0x0202fc4c */ size_t readFromSFP(char *filename, void **dst, char *file);
+    void init(int max_requests, CAllocator *allocator);
+    void start(int max_requests);
+    int getFreeRequestIdx(void);
+    int getRequestIdx(void *data);
+    void *allocate(size_t size);
+    void deallocate(void *ptr);
+    size_t getFileLength(const char *path);
+    size_t readDirect(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
+    size_t readDeferred(const char *path, void **dest, CAllocator *allocator, s32 offset, size_t size, BOOL compressed, u8 strategy);
+    size_t readRaw(FSFileID *fileID, void **dest, BOOL compressed, s32 offset, size_t size);
+    BOOL convertPathToFileID(FSFileID *fileID, const char *path);
+    int tryFinalize(void *data);
+    int tryFinalize(int idx);
+    BOOL isBusy(void);
+    BOOL close(void *data, BOOL deallocate);
+    BOOL close(int idx, BOOL deallocate);
+    void wakeUp(void);
+    static void processRequests(void *arg);
+    BOOL getDestSize(FileRequest *request, FSFile *file, size_t *out_size);
+    void processUncompRequest(FileRequest *request);
+    void uncompress(void *src, FileRequest *request);
+    size_t readFromSFP(char *filename, void **dst, char *file);
 
 private:
     CAllocator *defaultAllocator;
@@ -86,7 +86,3 @@ private:
 };
 
 extern CFileIO gFileIO;
-
-extern "C" {
-extern void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
-}

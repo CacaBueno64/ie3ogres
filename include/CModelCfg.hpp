@@ -31,7 +31,9 @@ public:
     virtual void destroy(void);
     virtual void vFUN_24(int param1);
 
+    bool FUN_ov16_020faf80(const char *animName);
     bool FUN_ov16_020fb02c(void);
+    void FUN_ov16_020fb040(u8 endMode);
     bool FUN_ov16_020fb048(void);
 
     SNsbResource *res;

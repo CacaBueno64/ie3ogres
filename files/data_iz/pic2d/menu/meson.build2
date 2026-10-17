@@ -1,0 +1,618 @@
+subdir('MASConfig')
+subdir('MASTutorial')
+subdir('MGMap')
+subdir('MGMap_01')
+subdir('MGMap_02')
+subdir('MGMap_03')
+subdir('MGMap_04')
+subdir('MGMap_05')
+subdir('MGMap_06')
+subdir('MGMap_07')
+subdir('MGMap_08')
+subdir('MGMap_09')
+subdir('MGMap_10')
+subdir('MMName')
+subdir('MMProfd')
+subdir('MMProfu')
+subdir('MMQuit')
+subdir('MMSlot')
+subdir('MMTk')
+subdir('SMBinder1')
+subdir('SMBinder2')
+subdir('SMBlog1')
+subdir('SMBlog2')
+subdir('SMCollection')
+subdir('SMEquip')
+subdir('SMJinmyaku')
+subdir('SMMovieLink')
+subdir('SMPractice')
+subdir('SMShop')
+subdir('SMSpCmd')
+subdir('SMStat')
+subdir('SMTournament')
+subdir('SMWazaBinder')
+subdir('SMWd')
+subdir('SVInabikari')
+subdir('SVInabikari_e')
+
+MASConfig_pack = custom_target('MASConfig_pack',
+    output: 'MASConfig.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MASConfig',
+        '@OUTDIR@',
+        MASConfig_files,
+    ],
+    depends: MASConfig_files
+)
+
+nitrofs_files += MASConfig_pack
+
+MASTutorial_pack = custom_target('MASTutorial_pack',
+    output: 'MASTutorial.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MASTutorial',
+        '@OUTDIR@',
+        MASTutorial_files,
+    ],
+    depends: MASTutorial_files
+)
+
+nitrofs_files += MASTutorial_pack
+
+MGMap_pack = custom_target('MGMap_pack',
+    output: 'MGMap.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap',
+        '@OUTDIR@',
+        MGMap_files,
+    ],
+    depends: MGMap_files
+)
+
+nitrofs_files += MGMap_pack
+
+MGMap_01_pack = custom_target('MGMap_01_pack',
+    output: 'MGMap_01.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_01',
+        '@OUTDIR@',
+        MGMap_01_files,
+    ],
+    depends: MGMap_01_files
+)
+
+nitrofs_files += MGMap_01_pack
+
+MGMap_02_pack = custom_target('MGMap_02_pack',
+    output: 'MGMap_02.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_02',
+        '@OUTDIR@',
+        MGMap_02_files,
+    ],
+    depends: MGMap_02_files
+)
+
+nitrofs_files += MGMap_02_pack
+
+MGMap_03_pack = custom_target('MGMap_03_pack',
+    output: 'MGMap_03.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_03',
+        '@OUTDIR@',
+        MGMap_03_files,
+    ],
+    depends: MGMap_03_files
+)
+
+nitrofs_files += MGMap_03_pack
+
+MGMap_04_pack = custom_target('MGMap_04_pack',
+    output: 'MGMap_04.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_04',
+        '@OUTDIR@',
+        MGMap_04_files,
+    ],
+    depends: MGMap_04_files
+)
+
+nitrofs_files += MGMap_04_pack
+
+MGMap_05_pack = custom_target('MGMap_05_pack',
+    output: 'MGMap_05.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_05',
+        '@OUTDIR@',
+        MGMap_05_files,
+    ],
+    depends: MGMap_05_files
+)
+
+nitrofs_files += MGMap_05_pack
+
+MGMap_06_pack = custom_target('MGMap_06_pack',
+    output: 'MGMap_06.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_06',
+        '@OUTDIR@',
+        MGMap_06_files,
+    ],
+    depends: MGMap_06_files
+)
+
+nitrofs_files += MGMap_06_pack
+
+MGMap_07_pack = custom_target('MGMap_07_pack',
+    output: 'MGMap_07.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_07',
+        '@OUTDIR@',
+        MGMap_07_files,
+    ],
+    depends: MGMap_07_files
+)
+
+nitrofs_files += MGMap_07_pack
+
+MGMap_08_pack = custom_target('MGMap_08_pack',
+    output: 'MGMap_08.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_08',
+        '@OUTDIR@',
+        MGMap_08_files,
+    ],
+    depends: MGMap_08_files
+)
+
+nitrofs_files += MGMap_08_pack
+
+MGMap_09_pack = custom_target('MGMap_09_pack',
+    output: 'MGMap_09.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_09',
+        '@OUTDIR@',
+        MGMap_09_files,
+    ],
+    depends: MGMap_09_files
+)
+
+nitrofs_files += MGMap_09_pack
+
+MGMap_10_pack = custom_target('MGMap_10_pack',
+    output: 'MGMap_10.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MGMap_10',
+        '@OUTDIR@',
+        MGMap_10_files,
+    ],
+    depends: MGMap_10_files
+)
+
+nitrofs_files += MGMap_10_pack
+
+MMName_pack = custom_target('MMName_pack',
+    output: 'MMName.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMName',
+        '@OUTDIR@',
+        MMName_files,
+    ],
+    depends: MMName_files
+)
+
+nitrofs_files += MMName_pack
+
+MMProfd_pack = custom_target('MMProfd_pack',
+    output: 'MMProfd.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMProfd',
+        '@OUTDIR@',
+        MMProfd_files,
+    ],
+    depends: MMProfd_files
+)
+
+nitrofs_files += MMProfd_pack
+
+MMProfu_pack = custom_target('MMProfu_pack',
+    output: 'MMProfu.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMProfu',
+        '@OUTDIR@',
+        MMProfu_files,
+    ],
+    depends: MMProfu_files
+)
+
+nitrofs_files += MMProfu_pack
+
+MMQuit_pack = custom_target('MMQuit_pack',
+    output: 'MMQuit.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMQuit',
+        '@OUTDIR@',
+        MMQuit_files,
+    ],
+    depends: MMQuit_files
+)
+
+nitrofs_files += MMQuit_pack
+
+MMSlot_pack = custom_target('MMSlot_pack',
+    output: 'MMSlot.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMSlot',
+        '@OUTDIR@',
+        MMSlot_files,
+    ],
+    depends: MMSlot_files
+)
+
+nitrofs_files += MMSlot_pack
+
+MMTk_pack = custom_target('MMTk_pack',
+    output: 'MMTk.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/MMTk',
+        '@OUTDIR@',
+        MMTk_files,
+    ],
+    depends: MMTk_files
+)
+
+nitrofs_files += MMTk_pack
+
+SMBinder1_pack = custom_target('SMBinder1_pack',
+    output: 'SMBinder1.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMBinder1',
+        '@OUTDIR@',
+        SMBinder1_files,
+    ],
+    depends: SMBinder1_files
+)
+
+nitrofs_files += SMBinder1_pack
+
+SMBinder2_pack = custom_target('SMBinder2_pack',
+    output: 'SMBinder2.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMBinder2',
+        '@OUTDIR@',
+        SMBinder2_files,
+    ],
+    depends: SMBinder2_files
+)
+
+nitrofs_files += SMBinder2_pack
+
+SMBlog1_pack = custom_target('SMBlog1_pack',
+    output: 'SMBlog1.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMBlog1',
+        '@OUTDIR@',
+        SMBlog1_files,
+    ],
+    depends: SMBlog1_files
+)
+
+nitrofs_files += SMBlog1_pack
+
+SMBlog2_pack = custom_target('SMBlog2_pack',
+    output: 'SMBlog2.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMBlog2',
+        '@OUTDIR@',
+        SMBlog2_files,
+    ],
+    depends: SMBlog2_files
+)
+
+nitrofs_files += SMBlog2_pack
+
+SMCollection_pack = custom_target('SMCollection_pack',
+    output: 'SMCollection.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMCollection',
+        '@OUTDIR@',
+        SMCollection_files,
+    ],
+    depends: SMCollection_files
+)
+
+nitrofs_files += SMCollection_pack
+
+SMEquip_pack = custom_target('SMEquip_pack',
+    output: 'SMEquip.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMEquip',
+        '@OUTDIR@',
+        SMEquip_files,
+    ],
+    depends: SMEquip_files
+)
+
+nitrofs_files += SMEquip_pack
+
+SMJinmyaku_pack = custom_target('SMJinmyaku_pack',
+    output: 'SMJinmyaku.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMJinmyaku',
+        '@OUTDIR@',
+        SMJinmyaku_files,
+    ],
+    depends: SMJinmyaku_files
+)
+
+nitrofs_files += SMJinmyaku_pack
+
+SMMovieLink_pack = custom_target('SMMovieLink_pack',
+    output: 'SMMovieLink.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMMovieLink',
+        '@OUTDIR@',
+        SMMovieLink_files,
+    ],
+    depends: SMMovieLink_files
+)
+
+nitrofs_files += SMMovieLink_pack
+
+SMPractice_pack = custom_target('SMPractice_pack',
+    output: 'SMPractice.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMPractice',
+        '@OUTDIR@',
+        SMPractice_files,
+    ],
+    depends: SMPractice_files
+)
+
+nitrofs_files += SMPractice_pack
+
+SMShop_pack = custom_target('SMShop_pack',
+    output: 'SMShop.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMShop',
+        '@OUTDIR@',
+        SMShop_files,
+    ],
+    depends: SMShop_files
+)
+
+nitrofs_files += SMShop_pack
+
+SMSpCmd_pack = custom_target('SMSpCmd_pack',
+    output: 'SMSpCmd.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMSpCmd',
+        '@OUTDIR@',
+        SMSpCmd_files,
+    ],
+    depends: SMSpCmd_files
+)
+
+nitrofs_files += SMSpCmd_pack
+
+SMStat_pack = custom_target('SMStat_pack',
+    output: 'SMStat.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMStat',
+        '@OUTDIR@',
+        SMStat_files,
+    ],
+    depends: SMStat_files
+)
+
+nitrofs_files += SMStat_pack
+
+SMTournament_pack = custom_target('SMTournament_pack',
+    output: 'SMTournament.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMTournament',
+        '@OUTDIR@',
+        SMTournament_files,
+    ],
+    depends: SMTournament_files
+)
+
+nitrofs_files += SMTournament_pack
+
+SMWazaBinder_pack = custom_target('SMWazaBinder_pack',
+    output: 'SMWazaBinder.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMWazaBinder',
+        '@OUTDIR@',
+        SMWazaBinder_files,
+    ],
+    depends: SMWazaBinder_files
+)
+
+nitrofs_files += SMWazaBinder_pack
+
+SMWd_pack = custom_target('SMWd_pack',
+    output: 'SMWd.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SMWd',
+        '@OUTDIR@',
+        SMWd_files,
+    ],
+    depends: SMWd_files
+)
+
+nitrofs_files += SMWd_pack
+
+SVInabikari_pack = custom_target('SVInabikari_pack',
+    output: 'SVInabikari.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SVInabikari',
+        '@OUTDIR@',
+        SVInabikari_files,
+    ],
+    depends: SVInabikari_files
+)
+
+nitrofs_files += SVInabikari_pack
+
+SVInabikari_e_pack = custom_target('SVInabikari_e_pack',
+    output: 'SVInabikari_e.SPF_',
+    command: [
+        archive_exe,
+        '-t', 'SPF',
+        '-c', '@OUTDIR@/SVInabikari_e',
+        '@OUTDIR@',
+        SVInabikari_e_files,
+    ],
+    depends: SVInabikari_e_files
+)
+
+nitrofs_files += SVInabikari_e_pack
+
+pic2d_menu_png_files = files(
+    '_mbdn_bg00.png',
+    'jmup_bg00.png',
+    'klup_bg00.png',
+    'msup_bg00.png',
+    'msup_bg01.png',
+    'msup_bg02.png',
+    'msup_bg04.png',
+    'msup_bg05.png',
+    'msup_bg07.png',
+    'msup_bg08.png',
+    'msup_bg09.png',
+    'msup_f12.png',
+    'mvup_bg1.png',
+    'mvup_w01.png',
+    'nedn_bg00.png',
+    'nedn_bg04.png',
+    'nedn_bg05.png',
+    'nedn_bg08.png',
+    'nedn_bg10.png',
+    'prdn_bg00.png',
+    'pwup_bg00.png',
+    'scdn_bg00.png',
+    'scdn_bg01.png',
+    'sfdn_i09.png',
+    'wdup_bg00.png',
+)
+
+pic2d_menu_pac_files = []
+
+python3 = find_program('python3')
+
+foreach pic2d_menu_png : pic2d_menu_png_files
+    pac = custom_target(fs.name(pic2d_menu_png).replace('.png', '.pac'),
+        input: pic2d_menu_png,
+        output: '@BASENAME@.pac',
+        command: [
+            python3,
+            image_py,
+            '@INPUT@',
+            '-t', 'PSC',
+            '-c', '@OUTPUT@',
+        ]
+    )
+    pic2d_menu_pac_files += pac
+endforeach
+
+pic2d_menu_comp_files = []
+
+foreach pic2d_menu_pac : pic2d_menu_pac_files
+    comp = custom_target(fs.name(pic2d_menu_pac).replace('.pac', '.pac_'),
+        input: pic2d_menu_pac,
+        output: '@BASENAME@.pac_',
+        command: [
+            compress_exe,
+            '-t', 'LZ',
+            '-c', '@INPUT@', '@OUTPUT@',
+        ]
+    )
+
+    pic2d_menu_comp_files += comp
+endforeach
+
+nitrofs_files += pic2d_menu_comp_files
+
+prebuilt_files = [
+    'menu_MovieViewSub.pkb',
+    'menu_MovieViewSub.pkh',
+    'mvdn_e.pkb',
+    'mvdn_e.pkh',
+    'mvdn_q.pkb',
+    'mvdn_q.pkh',
+]
+
+foreach f : prebuilt_files
+    nitrofs_files += fs.copyfile(f)
+endforeach

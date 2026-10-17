@@ -1,7 +1,6 @@
 ie3ogre_asm += files(
     'init/arm9_init_02086768.s',
     'init/arm9_init_02086aec.s',
-    'init/arm9_init_02086b40.s',
     'init/arm9_init_02086be8.s',
     'init/arm9_init_02086c3c.s',
     'init/arm9_init_02086c8c.s',
@@ -191,7 +190,6 @@ ie3ogre_asm += files(
     'arm9_data_0208ff5c.s',
     'arm9_data_02090034.s',
     'arm9_rodata_0208bfb0.s',
-    'audioplayer_data.s',
     'cameracontroller.s',
     'commonmainscreen.s',
     'commonscreen.s',

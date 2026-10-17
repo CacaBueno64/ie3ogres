@@ -136,10 +136,3 @@ private:
     CMainEndrollScreenInit mainScreenInit;
     CSubEndrollScreenInit subScreenInit;
 };
-
-extern "C" {
-extern void FUN_ov16_020f3f60(int);
-extern void FUN_ov16_020f4894(int);
-extern void FUN_ov16_020f47fc(void);
-extern void FUN_ov16_020f51a8(void);
-}

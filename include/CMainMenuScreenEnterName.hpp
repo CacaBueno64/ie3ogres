@@ -19,23 +19,15 @@
 #include "unk_020A0640.hpp"
 #include "unk_020A9C40.hpp"
 
-extern u16 gKeysRepeated;
-extern "C" {
-    extern int FUN_ov16_020f081c(void);
-    extern void _ZN8Graphics20DrawTextTileWithRubyEPcPviiiiiiiiN12CFontManager9AlignmentE(char *text, void *dest, int width, int height, int color, int rubyColor, int charSpacing, int lineSpacing, int x, int y, int align);
-    typedef struct {
-        u16 *unk0;
-        void *unk4;
-        u32 unk8;
-        u16 unkC;
-        u16 unkE;
-        u8 unk10;
-    } SCanvas;
-    extern void FUN_ov16_020f2f20(SCanvas *);
-    extern void FUN_ov16_020f2f7c(SCanvas *, int);
-    extern void FUN_ov16_020f2fa8(SCanvas *, int, int);
-    extern void FUN_ov16_020f2fe4(SCanvas *, int);
-}
+/* TODO: Create header */
+typedef struct {
+    u16 *unk0;
+    void *unk4;
+    u32 unk8;
+    u16 unkC;
+    u16 unkE;
+    u8 unk10;
+} SCanvas;
 
 typedef enum {
     KEY_TYPE_NONE    = 0,
