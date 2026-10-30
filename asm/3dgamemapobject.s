@@ -446,7 +446,7 @@ _0205E838:
 	beq _0205E850
 	ldr r0, _0205E88C ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _0205E850:
 	mov r6, #0
 	mov r5, #0x20
@@ -533,7 +533,7 @@ _0205E978:
 	beq _0205EA7C
 	ldr r7, _0205EA94 ; =gNsbResourceMan
 	ldr r0, [r7]
-	bl FUN_ov16_020fd278
+	bl _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	movs r9, r0
 	beq _0205E9C0
 	cmp r9, #1
@@ -551,7 +551,7 @@ _0205E9C0:
 	ldr r1, [r5, #0x1c]
 	mov r2, #1
 	mov r3, #2
-	bl FUN_ov16_020fd6d8
+	bl _ZN15CNsbResourceMan15initPacResourceEP12SNsbResourceih
 	movs r4, r0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -563,7 +563,7 @@ _0205E9C0:
 	blx r2
 	ldr r0, [r7]
 	mov r1, r4
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 	ldr r0, [r5, #0x14]
 	bl FUN_ov16_020fa8fc
 	mov r9, #0
@@ -574,7 +574,7 @@ _0205EA18:
 	ldr r1, [r5, #0x1c]
 	ldr r3, [r6, r9, lsl #2]
 	add r2, r9, #2
-	bl FUN_ov16_020fd6d8
+	bl _ZN15CNsbResourceMan15initPacResourceEP12SNsbResourceih
 	movs r4, r0
 	beq _0205EA5C
 	ldr r0, [r5, #0x14]
@@ -587,7 +587,7 @@ _0205EA18:
 	bne _0205EA58
 	b _0205EA58
 _0205EA58:
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _0205EA5C:
 	add r9, r9, #1
 _0205EA60:
@@ -596,7 +596,7 @@ _0205EA60:
 	ldr r0, _0205EA94 ; =gNsbResourceMan
 	ldr r1, [r5, #0x1c]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 	str r8, [r5, #0x1c]
 _0205EA7C:
 	mov r0, #2
@@ -1511,7 +1511,7 @@ _0205F6B4:
 	ldr r0, _0205F78C ; =gNsbResourceMan
 	ldr r1, [r2, #0x1c]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 	ldr r0, [sp, #4]
 	mov r8, #1
 	str r4, [r0, #0x1c]
@@ -1529,7 +1529,7 @@ _0205F6E8:
 	ldr r1, [r1, #0x20]
 	mov r2, r6
 	mov r3, #0xf
-	bl FUN_ov16_020fcb70
+	bl _ZN15CNsbResourceMan10getFromDirEiPKchi
 	ldr r1, [sp, #4]
 	str r0, [r1, #0x1c]
 	ldr r0, [sp, #4]
@@ -1595,7 +1595,7 @@ _0205F7E0:
 	ldr r8, _0205F92C ; =gNsbResourceMan
 	ldr r1, [r2, #0x1c]
 	ldr r0, [r8]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 	ldr r1, [sp, #0x10]
 	mov r0, r7
 	str r4, [r1, #0x1c]
@@ -1643,7 +1643,7 @@ _0205F880:
 _0205F89C:
 	mov r3, r5
 	mov r2, #0xf
-	bl FUN_ov16_020fcd08
+	bl _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 	ldr r1, [sp, #0x10]
 	str r0, [r1, #0x1c]
 _0205F8B0:

@@ -9,13 +9,13 @@
 /* TODO: Create header */ extern "C" void FUN_ov16_020f2fa8(SCanvas *, int, int);
 /* TODO: Create header */ extern "C" void FUN_ov16_020f2fe4(SCanvas *, int);
 
-bool CMainMenuScreenEnterName::FUN_ov55_02119f00(int param0)
+bool CMainMenuScreenEnterName::isPasswordUnit(int unitNo)
 {
     SLogicThink_7EC *v0 = gLogicThink.unk7EC;
     int v1 = gLogicThink.unk86A;
 
     for (int i = 0; i < v1; i++) {
-        if ((v0->unitNo == param0) && (v0->unk26 == 253)) {
+        if ((v0->unitNo == unitNo) && (v0->unk26 == 253)) {
             return true;
         }
 
@@ -53,13 +53,13 @@ u16 CMainMenuScreenEnterName::decodeChar(char *text, CFontManager::CharType type
     }
 }
 
-u16 CMainMenuScreenEnterName::normalizeChar(u16 c, u16 *str, int size)
+u16 CMainMenuScreenEnterName::normalizeChar(u16 c, u16 *fcodeck, size_t fcodeckSize)
 {
-    int v0 = size /= 4;
+    int count = (int)fcodeckSize / 4;
 
-    for (int i = 0; i < v0; i++) {
-        if (c == str[i * 2]) {
-            return str[(i * 2) + 1];
+    for (int i = 0; i < count; i++) {
+        if (c == fcodeck[i * 2]) {
+            return fcodeck[(i * 2) + 1];
         }
     }
 
@@ -104,14 +104,14 @@ bool CMainMenuScreenEnterName::containsNgWord(char *src, u16 *fcodeck, size_t fc
         return false;
     }
 
-    char v0[20];
-    CMainMenuScreenEnterName::normalizeNgWordString(v0, src, fcodeck, fcodeckSize);
+    char normalized[20];
+    CMainMenuScreenEnterName::normalizeNgWordString(normalized, src, fcodeck, fcodeckSize);
     
-    int len = STD_GetStringLength(v0);
+    int len = STD_GetStringLength(normalized);
 
     for (int i = 0; i < len; i += 2) {
         for (int j = 0; j < ngLineCount; j++) {
-            if (STD_CompareNString(&v0[i], ngLines[j], STD_GetStringLength(ngLines[j])) == 0) {
+            if (STD_CompareNString(&normalized[i], ngLines[j], STD_GetStringLength(ngLines[j])) == 0) {
                 return true;
             }
         }
@@ -120,11 +120,11 @@ bool CMainMenuScreenEnterName::containsNgWord(char *src, u16 *fcodeck, size_t fc
     return false;
 }
 
-void CMainMenuScreenEnterName::vFUN_A4(int param1)
+void CMainMenuScreenEnterName::setFlashButton(int button)
 {
-    this->unk58 = param1;
+    this->flashButton = button;
 
-    switch (param1) {
+    switch (button) {
     case 1:
         gBgMenuManager.setFlash(ENGINE_MAIN, 7, 5);
         break;
@@ -137,10 +137,10 @@ void CMainMenuScreenEnterName::vFUN_A4(int param1)
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_C0(void)
+void CMainMenuScreenEnterName::confirmEntry(void)
 {
     int unitNo;
-    bool cmp;
+    bool correct;
 
     bool hasNgWord = false;
 
@@ -159,58 +159,59 @@ void CMainMenuScreenEnterName::vFUN_C0(void)
     }
 
     switch (unk_0209A454.unk4) {
-    case 5: {
-        char tmp[17] = {0};
+    case 5:
+    {
+        char unused[17] = {0};
         SRecordHeader recordHeader;
         gRecordManager.getRecordHeader(&recordHeader);
 
         unitNo = this->phonePassword.decode(recordHeader.username, unk_0209A454.entry);
         
-        if (CMainMenuScreenEnterName::FUN_ov55_02119f00(unitNo)) {
+        if (CMainMenuScreenEnterName::isPasswordUnit(unitNo)) {
             unk_020A9C40.FUN_02045b40(unitNo, 5);
-            this->vFUN_A4(1);
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(6);
             unk_020A9C40.FUN_020460a8(0, 1);
-            this->vFUN_C4(1);
+            this->exitScreen(1);
         } else {
-            this->vFUN_A4(1);
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
-            this->unk10 = 2;
+            this->nextMode = MODE_WRONG_PASSWORD;
         }
         break;
     }
     case 6:
-        cmp = false;
+        correct = false;
         if (STD_CompareString("ゆうきがあれば", unk_0209A454.entry) == 0) {
-            cmp = true;
+            correct = true;
         }
-        if (cmp) {
-            this->vFUN_A4(1);
+        if (correct) {
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(6);
-            this->unk10 = 3;
+            this->nextMode = MODE_CORRECT_PASSWORD;
             unk_020A0640.saveGameData.movieLinkDownloadFlag |= 2;
         } else {
-            this->vFUN_A4(1);
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
-            this->unk10 = 2;
+            this->nextMode = MODE_WRONG_PASSWORD;
         }
         break;
     default:
         if (hasNgWord) {
-            this->vFUN_A4(1);
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
-            this->unk10 = 1;
+            this->nextMode = MODE_NGWORD;
         } else {
-            this->vFUN_A4(1);
+            this->setFlashButton(1);
             gAudioPlayer.playEffect(6);
             unk_020A9C40.FUN_020460a8(0, 1);
-            this->vFUN_C4(1);
+            this->exitScreen(1);
         }
         break;
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_C4(int param1)
+void CMainMenuScreenEnterName::exitScreen(int param1)
 {
     this->state = 5;
 
@@ -232,19 +233,19 @@ void CMainMenuScreenEnterName::vFUN_C4(int param1)
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_C8(void)
+void CMainMenuScreenEnterName::cancelEntry(void)
 {
     if (!unk_0209A454.unk1F) {
-        STD_CopyString(unk_0209A454.entry, this->unk6C);
+        STD_CopyString(unk_0209A454.entry, this->prevEntry);
     } else {
         unk_0209A454.entryLen = 0;
         unk_0209A454.entry[0] = '\0';
     }
 
-    this->vFUN_A4(2);
+    this->setFlashButton(2);
     gAudioPlayer.playEffect(AudioPlayer::SE_DENY);
     unk_020A9C40.FUN_020460a8(0, 0);
-    this->vFUN_C4(0);
+    this->exitScreen(0);
 }
 
 u16 CMainMenuScreenEnterName::getChara(int x, u32 y)
@@ -255,11 +256,11 @@ u16 CMainMenuScreenEnterName::getChara(int x, u32 y)
         return 0;
     }
 
-    if ((x < 0) || (x >= this->ENTER_NAME_WIDTH) || (y >= this->ENTER_NAME_HEIGHT)) {
+    if ((x < 0) || (x >= ENTER_NAME_WIDTH) || (y >= ENTER_NAME_HEIGHT)) {
         return 0;
     }
 
-    int row_off = y * this->ENTER_NAME_WIDTH;
+    int row_off = y * ENTER_NAME_WIDTH;
     return *(fcode + row_off + x);
 }
 
@@ -279,11 +280,11 @@ void CMainMenuScreenEnterName::setKey(int x, u32 y, SKey *key)
 
 void CMainMenuScreenEnterName::typeCharacter(void)
 {
-    if (strlen(unk_0209A454.entry) >= this->ENTER_NAME_MAX) {
-        if ((this->keyActive.chara != this->KEYCODE_HANDAKU) && 
-            (this->keyActive.chara != this->KEYCODE_DAKUTEN) && 
-            (this->keyActive.chara != this->KEYCODE_DELETE) && 
-            (this->keyActive.chara != this->KEYCODE_KANA)
+    if (strlen(unk_0209A454.entry) >= ENTER_NAME_MAX) {
+        if ((this->keyActive.chara != KEYCODE_HANDAKU) && 
+            (this->keyActive.chara != KEYCODE_DAKUTEN) && 
+            (this->keyActive.chara != KEYCODE_DELETE) && 
+            (this->keyActive.chara != KEYCODE_KANA)
         ) {
             gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
             return;
@@ -331,16 +332,16 @@ void CMainMenuScreenEnterName::typeCharacter(void)
                 } else {
                     daku += 2;
                 }
-                u16 v4 = read_u16(daku);
-                unk_0209A454.entry[unk_0209A454.entryLen - 2] = (char)(v4);
-                unk_0209A454.entry[unk_0209A454.entryLen - 1] = (char)(v4 >> 8);
+                u16 marked = read_u16(daku);
+                unk_0209A454.entry[unk_0209A454.entryLen - 2] = (char)(marked);
+                unk_0209A454.entry[unk_0209A454.entryLen - 1] = (char)(marked >> 8);
 
                 this->drawText();
 
                 addedMark = true;
                 break;
             }
-            i += 1;
+            i++;
             daku += 2;
         }
         if ((strlen(unk_0209A454.entry) >= ENTER_NAME_MAX) && (!addedMark)) {
@@ -373,16 +374,16 @@ void CMainMenuScreenEnterName::typeCharacter(void)
                 } else {
                     daku += 2;
                 }
-                u16 v4 = read_u16(daku);
-                unk_0209A454.entry[unk_0209A454.entryLen - 2] = (char)(v4);
-                unk_0209A454.entry[unk_0209A454.entryLen - 1] = (char)(v4 >> 8);
+                u16 marked = read_u16(daku);
+                unk_0209A454.entry[unk_0209A454.entryLen - 2] = (char)(marked);
+                unk_0209A454.entry[unk_0209A454.entryLen - 1] = (char)(marked >> 8);
 
                 this->drawText();
 
                 addedMark = true;
                 break;
             }
-            i += 1;
+            i++;
             daku += 2;
         }
         if ((strlen(unk_0209A454.entry) >= ENTER_NAME_MAX) && (!addedMark)) {
@@ -426,17 +427,17 @@ void CMainMenuScreenEnterName::updateKeys(u16 pressed, u16 held)
         return;
     }
 
-    if ((gBgMenuManager.isFlashActive(ENGINE_MAIN)) || (this->unkC != this->unk10)) {
+    if ((gBgMenuManager.isFlashActive(ENGINE_MAIN)) || (this->mode != this->nextMode)) {
         return;
     }
 
-    u16 v0 = gKeysRepeated | pressed;
+    u16 trg = gKeysRepeated | pressed;
 
-    if (this->unkC == 0) {
+    if (this->mode == MODE_INPUT) {
         int x = this->keyActive.x;
         u32 y = this->keyActive.y;
 
-        if (v0 & PAD_KEY_DOWN) {
+        if (trg & PAD_KEY_DOWN) {
             if (this->keyActive.type == 1) {
                 u16 c;
                 do {
@@ -453,14 +454,14 @@ void CMainMenuScreenEnterName::updateKeys(u16 pressed, u16 held)
                     this->setKey(x, y, &this->keyActive);
                 }
             } else if ((this->keyActive.type == 3) || (this->keyActive.type == 4)) {
-                u32 v3 = -1;
+                u32 row = -1;
                 do {
-                    v3++;
-                } while (this->getChara(x, v3) == KEYCODE_EMPTY);
-                this->setKey(x, v3, &this->keyActive);
+                    row++;
+                } while (this->getChara(x, row) == KEYCODE_EMPTY);
+                this->setKey(x, row, &this->keyActive);
             } 
-            gAudioPlayer.playEffect(8);
-        } else if (v0 & PAD_KEY_UP) {
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
+        } else if (trg & PAD_KEY_UP) {
             if (this->keyActive.type == 3) {
                 y = 6;
             } else if (this->keyActive.type == 4) {
@@ -480,41 +481,41 @@ void CMainMenuScreenEnterName::updateKeys(u16 pressed, u16 held)
             } else {
                 this->setKey(x, y, &this->keyActive);
             }
-            gAudioPlayer.playEffect(8);
-        } else if (v0 & PAD_KEY_LEFT) {
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
+        } else if (trg & PAD_KEY_LEFT) {
             if (this->keyActive.type == 1) {
                 u16 c;
                 do {
-                    x = (x + (this->ENTER_NAME_WIDTH-1)) % this->ENTER_NAME_WIDTH;
+                    x = (x + (ENTER_NAME_WIDTH-1)) % ENTER_NAME_WIDTH;
                     c = this->getChara(x, y);
-                } while ((c == this->KEYCODE_EMPTY) || (c == this->keyActive.chara));
-                gAudioPlayer.playEffect(8);
+                } while ((c == KEYCODE_EMPTY) || (c == this->keyActive.chara));
+                gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                 this->setKey(x, y, &this->keyActive);
             } else if (this->keyActive.type == 3) {
                 if (unk_0209A454.unk4 != 2) {
-                    gAudioPlayer.playEffect(8);
+                    gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                     this->keyActive.type = KEY_TYPE_CANCEL;
                 }
             } else if (this->keyActive.type == 4) {
-                gAudioPlayer.playEffect(8);
+                gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                 this->keyActive.type = KEY_TYPE_CONFIRM;
             }
-        } else if (v0 & PAD_KEY_RIGHT) {
+        } else if (trg & PAD_KEY_RIGHT) {
             if (this->keyActive.type == 1) {
                 u16 c;
                 do {
-                    x = (x + 1) % this->ENTER_NAME_WIDTH;
+                    x = (x + 1) % ENTER_NAME_WIDTH;
                     c = this->getChara(x, y);
-                } while((c == this->KEYCODE_EMPTY) || (c == this->keyActive.chara));
-                gAudioPlayer.playEffect(8);
+                } while((c == KEYCODE_EMPTY) || (c == this->keyActive.chara));
+                gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                 this->setKey(x, y, &this->keyActive);
             } else if (this->keyActive.type == 3) {
                 if (unk_0209A454.unk4 != 2) {
-                    gAudioPlayer.playEffect(8);
+                    gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                     this->keyActive.type = KEY_TYPE_CANCEL;
                 }
             } else if (this->keyActive.type == 4) {
-                gAudioPlayer.playEffect(8);
+                gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
                 this->keyActive.type = KEY_TYPE_CONFIRM;
             }
         } else if (pressed & PAD_BUTTON_A) {
@@ -526,11 +527,11 @@ void CMainMenuScreenEnterName::updateKeys(u16 pressed, u16 held)
                 if (STD_GetStringLength(unk_0209A454.entry) <= 0) {
                     gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
                 } else if ((unk_0209A454.entryLen > 0) || (unk_0209A454.unk1E != 0)) {
-                    this->vFUN_C0();
+                    this->confirmEntry();
                 }
                 break;
             case 4:
-                this->vFUN_C8();
+                this->cancelEntry();
                 break;
             }
         } else if (pressed & PAD_BUTTON_B) {
@@ -539,43 +540,43 @@ void CMainMenuScreenEnterName::updateKeys(u16 pressed, u16 held)
             this->typeCharacter();
             this->keyActive.chara = prev;
         } else if (pressed & PAD_BUTTON_START) {
-            gAudioPlayer.playEffect(8);
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
             this->keyActive.type = KEY_TYPE_CONFIRM;
         }
-    } else if (this->unkC == 3) {
+    } else if (this->mode == MODE_CORRECT_PASSWORD) {
         if (pressed & PAD_BUTTON_A) {
             unk_020A9C40.FUN_020460a8(0, 1);
-            this->vFUN_C4(1);
-            this->vFUN_A4(3);
+            this->exitScreen(1);
+            this->setFlashButton(3);
             this->keyActive.type = KEY_TYPE_CONFIRM;
             gAudioPlayer.playEffect(AudioPlayer::SE_DENY);
         }
     } else if (pressed & PAD_BUTTON_A) {
-        this->unk10 = 0;
-        this->vFUN_A4(3);
+        this->nextMode = MODE_INPUT;
+        this->setFlashButton(3);
         this->keyActive.type = KEY_TYPE_CONFIRM;
         gAudioPlayer.playEffect(AudioPlayer::SE_DENY);
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_B0(int x, int y, SKey *key)
+void CMainMenuScreenEnterName::getKeyAt(int x, int y, SKey *key)
 {
     EKeyType type = static_cast<EKeyType>(gBgMenuManager.getHit(ENGINE_MAIN, x, y));
 
-    if ((this->unkC == 1) || (this->unkC == 2) || ((this->unkC == 3))) {
+    if ((this->mode == MODE_NGWORD) || (this->mode == MODE_WRONG_PASSWORD) || ((this->mode == MODE_CORRECT_PASSWORD))) {
         if ((x >= 104) && (x < 152) && (y >= 104) && (y < 128)) {
             type = KEY_TYPE_SPECIAL;
         } else {
             type = KEY_TYPE_NONE;
         }
     }
-
+    
     if (type == KEY_TYPE_CHAR) {
         /* Screen to keyboard coordinates */
         int cx = (x / 8) - 3;
         int cy = ((y / 8) - 7) / 2;
 
-        if (this->getChara(cx, cy) == this->KEYCODE_EMPTY) {
+        if (this->getChara(cx, cy) == KEYCODE_EMPTY) {
             key->type = KEY_TYPE_NONE;
             key->x = 0;
             key->y = 0;
@@ -590,16 +591,16 @@ void CMainMenuScreenEnterName::vFUN_B0(int x, int y, SKey *key)
 
 void CMainMenuScreenEnterName::drawText(void)
 {
-    switch (this->unkC) {
-    case 0:
+    switch (this->mode) {
+    case MODE_INPUT:
     {
         int indentation;
 
-        if (!this->unk64) {
+        if (!this->nameChars) {
             break;
         }
 
-        MI_CpuClearFast(this->unk64, 0x540);
+        MI_CpuClearFast(this->nameChars, 0x540);
 
         gFont12Manager->setSpacing(2, 1);
         switch (unk_0209A454.unk4) {
@@ -618,27 +619,27 @@ void CMainMenuScreenEnterName::drawText(void)
             unk_0209A454.entry,
             3,
             CFontManager::ALIGNEMENT_LEFT,
-            this->unk64,
+            this->nameChars,
             112,
             24,
             NULL,
             0
         );
 
-        DC_FlushRange(this->unk64, 0x540);
+        DC_FlushRange(this->nameChars, 0x540);
         
-        this->unk5C = 1;
+        this->nameDirty = true;
         break;
     }
-    case 1:
+    case MODE_NGWORD:
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
         Graphics::DrawTextTileWithRuby(
             "もうしわけありませんが\nその[名前/なまえ]は[入力/にゅうりょく]できません。",
-            this->canvas.unk4,
-            this->canvas.unkC * 8,
-            this->canvas.unkE * 8,
+            this->canvas.tile,
+            this->canvas.width * 8,
+            this->canvas.height * 8,
             3,
             3,
             2,
@@ -649,19 +650,19 @@ void CMainMenuScreenEnterName::drawText(void)
         );
         gFont12Manager->resetSpacing(); 
 
-        this->canvas.unk10 = 1;
+        this->canvas.dirty = true;
 
-        DC_FlushRange(this->canvas.unk4, this->canvas.unkC * this->canvas.unkE * 32);
+        DC_FlushRange(this->canvas.tile, this->canvas.width * this->canvas.height * 32);
         break;
-    case 2:
+    case MODE_WRONG_PASSWORD:
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
         Graphics::DrawTextTileWithRuby(
             "パスワードがちがいます。\n",
-            this->canvas.unk4,
-            this->canvas.unkC * 8,
-            this->canvas.unkE * 8,
+            this->canvas.tile,
+            this->canvas.width * 8,
+            this->canvas.height * 8,
             3,
             3,
             2,
@@ -672,19 +673,19 @@ void CMainMenuScreenEnterName::drawText(void)
         );
         gFont12Manager->resetSpacing();
 
-        this->canvas.unk10 = 1;
+        this->canvas.dirty = true;
 
-        DC_FlushRange(this->canvas.unk4, this->canvas.unkC * this->canvas.unkE * 32);
+        DC_FlushRange(this->canvas.tile, this->canvas.width * this->canvas.height * 32);
         break;
-    case 3:
+    case MODE_CORRECT_PASSWORD:
         FUN_ov16_020f2f20(&this->canvas);
 
         gFont12Manager->setSpacing(1, 4);
         Graphics::DrawTextTileWithRuby(
             "せいかい！！\n[新/あたら]しいコースをお[楽/たの]しみください。",
-            this->canvas.unk4,
-            this->canvas.unkC * 8,
-            this->canvas.unkE * 8,
+            this->canvas.tile,
+            this->canvas.width * 8,
+            this->canvas.height * 8,
             3,
             3,
             2,
@@ -695,31 +696,31 @@ void CMainMenuScreenEnterName::drawText(void)
         );
         gFont12Manager->resetSpacing();
 
-        this->canvas.unk10 = 1;
+        this->canvas.dirty = true;
 
-        DC_FlushRange(this->canvas.unk4, this->canvas.unkC * this->canvas.unkE * 32);
+        DC_FlushRange(this->canvas.tile, this->canvas.width * this->canvas.height * 32);
         break;
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_BC(void)
+void CMainMenuScreenEnterName::onTouchRelease(void)
 {
-    if (this->unkC == 0) {
-        if (this->keyActive.type != this->unk20.type) {
-            this->keyActive = this->unk20;
-            gAudioPlayer.playEffect(8);
+    if (this->mode == MODE_INPUT) {
+        if (this->keyActive.type != this->keyStart.type) {
+            this->keyActive = this->keyStart;
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
         } else {
-            switch (this->unk20.type) {
+            switch (this->keyStart.type) {
             case 1:
-                if ((this->unk20.x != this->keyActive.x) ||
-                    (this->unk20.y != this->keyActive.y)
-                ) {
-                    this->keyActive = this->unk20;
-                    gAudioPlayer.playEffect(8);
-                } else if ((this->unk20.x == this->unk30.x) &&
-                           (this->unk20.y == this->unk30.y) &&
-                           (this->unk20.chara == this->unk30.chara)
-                ) {
+                if ((this->keyStart.x != this->keyActive.x) ||
+                    (this->keyStart.y != this->keyActive.y))
+                {
+                    this->keyActive = this->keyStart;
+                    gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
+                } else if ((this->keyStart.x == this->keyCur.x) &&
+                           (this->keyStart.y == this->keyCur.y) &&
+                           (this->keyStart.chara == this->keyCur.chara))
+                {
                     this->typeCharacter();
                 }
                 break;
@@ -727,49 +728,49 @@ void CMainMenuScreenEnterName::vFUN_BC(void)
                 if (STD_GetStringLength(unk_0209A454.entry) <= 0) {
                     gAudioPlayer.playEffect(AudioPlayer::SE_SELECT_FAIL);
                 } else if ((unk_0209A454.entryLen > 0) || (unk_0209A454.unk1E != 0)) {
-                    this->vFUN_C0();
+                    this->confirmEntry();
                 }
                 break;
             case 4:
-                this->vFUN_C8();
+                this->cancelEntry();
                 break;
             }
         }
-    } else if (this->keyActive.type != this->unk20.type) {
-        this->keyActive = this->unk20;
-        gAudioPlayer.playEffect(8);
-    } else if (this->unk20.type == 11) {
-        if (this->unkC == 3) {
+    } else if (this->keyActive.type != this->keyStart.type) {
+        this->keyActive = this->keyStart;
+        gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
+    } else if (this->keyStart.type == 11) {
+        if (this->mode == MODE_CORRECT_PASSWORD) {
             unk_020A9C40.FUN_020460a8(0, 1);
-            this->vFUN_C4(1);
-            this->vFUN_A4(3);
+            this->exitScreen(1);
+            this->setFlashButton(3);
             this->keyActive.type = KEY_TYPE_CONFIRM;
             gAudioPlayer.playEffect(AudioPlayer::SE_DENY);
         } else {
-            this->unk10 = 0;
-            this->vFUN_A4(3);
+            this->nextMode = MODE_INPUT;
+            this->setFlashButton(3);
             this->keyActive.type = KEY_TYPE_CONFIRM;
             gAudioPlayer.playEffect(AudioPlayer::SE_DENY);
         }
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_B8(void)
+void CMainMenuScreenEnterName::onTouchHold(void)
 {
-    switch (this->unk20.type) {
+    switch (this->keyStart.type) {
     case 1:
-        if ((this->keyActive.type != this->unk20.type) || (this->keyActive.x != this->unk20.x) || (this->keyActive.y != this->unk20.y)) {
-            gAudioPlayer.playEffect(8);
-            this->keyActive = this->unk20;
+        if ((this->keyActive.type != this->keyStart.type) || (this->keyActive.x != this->keyStart.x) || (this->keyActive.y != this->keyStart.y)) {
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
+            this->keyActive = this->keyStart;
         }
         break;
     case 3:
     case 4:
     case 11:
-        if ((this->keyActive.type != this->unk20.type) || (this->keyActive.x != this->unk20.x) || (this->keyActive.y != this->unk20.y)) {
-            gAudioPlayer.playEffect(8);
+        if ((this->keyActive.type != this->keyStart.type) || (this->keyActive.x != this->keyStart.x) || (this->keyActive.y != this->keyStart.y)) {
+            gAudioPlayer.playEffect(AudioPlayer::SE_CURSOR);
         }
-        this->keyActive = this->unk20;
+        this->keyActive = this->keyStart;
         break;
     }
 }
@@ -780,7 +781,7 @@ void CMainMenuScreenEnterName::updateTP(TPData *tp)
         return;
     }
 
-    if ((gBgMenuManager.isFlashActive(ENGINE_MAIN)) || (this->unkC != this->unk10)) {
+    if ((gBgMenuManager.isFlashActive(ENGINE_MAIN)) || (this->mode != this->nextMode)) {
         return;
     }
 
@@ -791,38 +792,38 @@ void CMainMenuScreenEnterName::updateTP(TPData *tp)
 
         if (this->tpTouch == TP_TOUCH_OFF) {
             this->tpTouch = TP_TOUCH_ON;
-            this->vFUN_B0(tp->x, tp->y, &this->unk20);
+            this->getKeyAt(tp->x, tp->y, &this->keyStart);
         }
 
         this->tpX = tp->x;
         this->tpY = tp->y;
 
-        this->vFUN_B0(this->tpX, this->tpY, &this->unk30);
-        this->vFUN_B8();
+        this->getKeyAt(this->tpX, this->tpY, &this->keyCur);
+        this->onTouchHold();
 
         return;
     }
     
-    if ((this->tpTouch != TP_TOUCH_OFF) && (this->unk20.type != 0)) {
-        this->vFUN_B0(this->tpX, this->tpY, &this->unk30);
+    if ((this->tpTouch != TP_TOUCH_OFF) && (this->keyStart.type != 0)) {
+        this->getKeyAt(this->tpX, this->tpY, &this->keyCur);
         
-        if (this->unk20.type == this->unk30.type) {
-            this->vFUN_BC();
+        if (this->keyStart.type == this->keyCur.type) {
+            this->onTouchRelease();
         }
     }
 
-    this->unk30.type = KEY_TYPE_NONE;
-    this->unk30.x = 0;
-    this->unk30.y = 0;
-    this->unk30.chara = 0;
-    this->unk20.type = KEY_TYPE_NONE;
-    this->unk20.x = 0;
-    this->unk20.y = 0;
-    this->unk20.chara = 0;
+    this->keyCur.type = KEY_TYPE_NONE;
+    this->keyCur.x = 0;
+    this->keyCur.y = 0;
+    this->keyCur.chara = 0;
+    this->keyStart.type = KEY_TYPE_NONE;
+    this->keyStart.x = 0;
+    this->keyStart.y = 0;
+    this->keyStart.chara = 0;
     this->tpTouch = 0;
 }
 
-void CMainMenuScreenEnterName::vFUN_70(void)
+void CMainMenuScreenEnterName::requestFiles(void)
 {
     MI_CpuClear8(this->files, sizeof(this->files));
 
@@ -851,9 +852,9 @@ void CMainMenuScreenEnterName::vFUN_70(void)
         break;
     }
 
-    if (this->unk64) {
-        MI_CpuClearFast(this->unk64, 0x540);
-        DC_FlushRange(this->unk64, 0x540);
+    if (this->nameChars) {
+        MI_CpuClearFast(this->nameChars, 0x540);
+        DC_FlushRange(this->nameChars, 0x540);
     }
 
     if (this->screen) {
@@ -865,7 +866,7 @@ void CMainMenuScreenEnterName::vFUN_70(void)
     this->state = 1;
 }
 
-void CMainMenuScreenEnterName::vFUN_6C(void)
+void CMainMenuScreenEnterName::readFiles(void)
 {
     char filename[32];
 
@@ -955,7 +956,11 @@ void CMainMenuScreenEnterName::vFUN_6C(void)
                 if (linePos2 == 0) {
                     curLine2 = cur2;
                 }
-                int c = this->normalizeChar(this->decodeChar(cur2, type), static_cast<u16 *>(this->files[FILE_FCODECK].data), this->files[FILE_FCODECK].size);
+                u16 c = this->normalizeChar(
+                    this->decodeChar(cur2, type),
+                    static_cast<u16 *>(this->files[FILE_FCODECK].data),
+                    this->files[FILE_FCODECK].size
+                );
                 if (c != 0) {
                     cur2[0] = c;
                     cur2[1] = c >> 8;
@@ -979,7 +984,7 @@ void CMainMenuScreenEnterName::vFUN_6C(void)
 
 void CMainMenuScreenEnterName::deallocateFiles(void)
 {
-    for (int i = 0; i < FILE_MAX; i++) {
+    for (int i = 0; i < FILE_COUNT; i++) {
         this->deallocateFile(i);
     }
 }
@@ -989,7 +994,7 @@ void CMainMenuScreenEnterName::deallocateFile(int idx)
     return Archive::Deallocate(&this->files[idx]);
 }
 
-void CMainMenuScreenEnterName::vFUN_94(void)
+void CMainMenuScreenEnterName::loadGraphics(void)
 {
 
     MI_CpuClearFast(G2_GetBG3CharPtr(), 0x20);
@@ -1010,21 +1015,21 @@ void CMainMenuScreenEnterName::vFUN_94(void)
         BG3TileIdx = Graphics::SetupScreen(this->screen, 0x54, BG3TileIdx + 1, 0);
     }
 
-    if (this->unk64) {
-        this->unk60 = BG3CharOffset;
-        GX_LoadBG3Char(this->unk64, this->unk60, 0x540);
+    if (this->nameChars) {
+        this->nameCharOffset = BG3CharOffset;
+        GX_LoadBG3Char(this->nameChars, this->nameCharOffset, 0x540);
         BG3CharOffset += 0x540;
     }
 
-    bool cmp;
-    if ((this->canvas.unk0) && (this->canvas.unk4)) {
-        cmp = true;
+    bool hasCanvas;
+    if ((this->canvas.screen) && (this->canvas.tile)) {
+        hasCanvas = true;
     } else {
-        cmp = false;
+        hasCanvas = false;
     }
-    if (cmp) {
-        this->canvas.unk8 = BG3CharOffset;
-        Graphics::SetupScreen(this->canvas.unk0, this->canvas.unkC * this->canvas.unkE * 2, BG3TileIdx + 1, 0);
+    if (hasCanvas) {
+        this->canvas.offset = BG3CharOffset;
+        Graphics::SetupScreen(this->canvas.screen, this->canvas.width * this->canvas.height * 2, BG3TileIdx + 1, 0);
     }
 
     MI_CpuClearFast(G2_GetBG1CharPtr(), 0x20);
@@ -1033,12 +1038,12 @@ void CMainMenuScreenEnterName::vFUN_94(void)
     int BG1TileIdx = 0;
     int BG1CharOffset = 0x20;
 
-    void *file2 = this->files[FILE_2].data;
-    if (file2) {
-        BG1TileIdx = Graphics::SetupScreen(PAC_PSC_GetScreenPtr(file2), PAC_PSC_GetScreenSize(file2), 1, 2);
-        Graphics::LoadTempPaletteFromPac(file2, ENGINE_MAIN, 2);
-        GX_LoadBG1Char(PAC_PSC_GetCharacterPtr(file2), 0x20, PAC_PSC_GetCharacterSize(file2));
-        BG1CharOffset += PAC_PSC_GetCharacterSize(file2);
+    void *bg01 = this->files[FILE_BG01].data;
+    if (bg01) {
+        BG1TileIdx = Graphics::SetupScreen(PAC_PSC_GetScreenPtr(bg01), PAC_PSC_GetScreenSize(bg01), 1, 2);
+        Graphics::LoadTempPaletteFromPac(bg01, ENGINE_MAIN, 2);
+        GX_LoadBG1Char(PAC_PSC_GetCharacterPtr(bg01), 0x20, PAC_PSC_GetCharacterSize(bg01));
+        BG1CharOffset += PAC_PSC_GetCharacterSize(bg01);
     }
 
     void *bg02 = this->files[FILE_BG02].data;
@@ -1122,31 +1127,31 @@ void CMainMenuScreenEnterName::vFUN_94(void)
     Graphics::LoadBGPaletteMain();
 }
 
-void CMainMenuScreenEnterName::vFUN_98(void)
+void CMainMenuScreenEnterName::transferText(void)
 {
-    if (this->unkC == 0) {
-        if ((this->unk5C == 0) || (!this->unk64)) {
+    if (this->mode == MODE_INPUT) {
+        if ((!this->nameDirty) || (!this->nameChars)) {
             return;
         }
-        this->unk5C = 0;
-        GX_LoadBG3Char(this->unk64, this->unk60, 0x540);
+        this->nameDirty = false;
+        GX_LoadBG3Char(this->nameChars, this->nameCharOffset, 0x540);
         return;
     }
 
-    bool cmp;
-    if ((this->canvas.unk0) && (this->canvas.unk4)) {
-        cmp = true;
+    bool hasCanvas;
+    if ((this->canvas.screen) && (this->canvas.tile)) {
+        hasCanvas = true;
     } else {
-        cmp = false;
+        hasCanvas = false;
     }
 
-    if ((cmp) && (this->canvas.unk10 != 0)) {
-        this->canvas.unk10 = 0;
-        GX_LoadBG3Char(this->canvas.unk4, this->canvas.unk8, this->canvas.unkC * this->canvas.unkE * 0x20);
+    if ((hasCanvas) && (this->canvas.dirty != 0)) {
+        this->canvas.dirty = false;
+        GX_LoadBG3Char(this->canvas.tile, this->canvas.offset, this->canvas.width * this->canvas.height * 0x20);
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_CC(int param1)
+void CMainMenuScreenEnterName::showButtons(int param1)
 {
     gBgMenuManager.hideGroup(ENGINE_MAIN, 1);
 
@@ -1181,33 +1186,33 @@ void CMainMenuScreenEnterName::vFUN_CC(int param1)
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_D4(void)
+void CMainMenuScreenEnterName::showFlashPressed(void)
 {
-    switch (this->unk58) {
+    switch (this->flashButton) {
     case 1:
-        this->vFUN_CC(5);
+        this->showButtons(5);
         break;
     case 2:
-        this->vFUN_CC(6);
+        this->showButtons(6);
         break;
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_D8(void)
+void CMainMenuScreenEnterName::showFlashSelected(void)
 {
-    switch (this->unk58) {
+    switch (this->flashButton) {
     case 1:
-        this->vFUN_CC(7);
+        this->showButtons(7);
         break;
     case 2:
-        this->vFUN_CC(8);
+        this->showButtons(8);
         break;
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_DC(void)
+void CMainMenuScreenEnterName::updateTouchButtons(void)
 {
-    if (this->unkC == 0) {
+    if (this->mode == MODE_INPUT) {
         gBgMenuManager.showID(ENGINE_MAIN, 3);
         gBgMenuManager.showID(ENGINE_MAIN, 4);
         gBgMenuManager.hideID(ENGINE_MAIN, 5);
@@ -1216,19 +1221,19 @@ void CMainMenuScreenEnterName::vFUN_DC(void)
         gBgMenuManager.hideID(ENGINE_MAIN, 11);
     }
 
-    if (this->unk20.type == 0) {
+    if (this->keyStart.type == 0) {
         return;
     }
-    if (this->unk20.type != this->unk30.type) {
+    if (this->keyStart.type != this->keyCur.type) {
         return;
     }
 
     switch (this->keyActive.type) {
     case 3:
-        this->vFUN_CC(5);
+        this->showButtons(5);
         break;
     case 4:
-        this->vFUN_CC(6);
+        this->showButtons(6);
         break;
     case 11:
         gBgMenuManager.showID(ENGINE_MAIN, 11);
@@ -1236,60 +1241,60 @@ void CMainMenuScreenEnterName::vFUN_DC(void)
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_E0(void)
+void CMainMenuScreenEnterName::updateMenu(void)
 {
-    if ((this->unkC != this->unk10) && (!gBgMenuManager.isFlashActive(ENGINE_MAIN))) {
-        this->unkC = this->unk10;
+    if ((this->mode != this->nextMode) && (!gBgMenuManager.isFlashActive(ENGINE_MAIN))) {
+        this->mode = this->nextMode;
         gBgMenuManager.finalize(ENGINE_MAIN);
         gBgMenuManager.init(ENGINE_MAIN);
-        this->vFUN_E4();
+        this->setupMenu();
         this->drawText();
     }
 
-    if (this->unkC == 0) {
+    if (this->mode == MODE_INPUT) {
         switch (this->keyActive.type) {
         case 1:
-            this->vFUN_CC(9);
+            this->showButtons(9);
             gBgMenuManager.setPos(ENGINE_MAIN, 9, this->keyActive.x + 2, (this->keyActive.y * 2) + 6);
             break;
         case 3:
-            this->vFUN_CC(7);
+            this->showButtons(7);
             break;
         case 4:
-            this->vFUN_CC(8);
+            this->showButtons(8);
             break;
         }
     }
 
     if (!gBgMenuManager.isFlashing(ENGINE_MAIN)) {
-        if (this->unk58 != 0) {
-            this->vFUN_A4(0);
+        if (this->flashButton != 0) {
+            this->setFlashButton(0);
         }
-        this->vFUN_DC();
+        this->updateTouchButtons();
     }
 }
 
-void CMainMenuScreenEnterName::vFUN_E4(void)
+void CMainMenuScreenEnterName::setupMenu(void)
 {
     SBgMenuElementInit init;
     
-    bool cmp0;
+    bool singleButton;
     if (unk_0209A454.unk4 == 2) {
-        cmp0 = true;
+        singleButton = true;
     } else {
-        cmp0 = false;
+        singleButton = false;
     }
 
-    int v0 = cmp0 ? 12 : 5;
+    int x = singleButton ? 12 : 5;
 
-    if (this->unkC == 0) {
+    if (this->mode == MODE_INPUT) {
         void *i00 = this->files[FILE_I00].data;
         if (i00) {
             char *screen = static_cast<char *>(PAC_PSC_GetScreenPtr(i00));
             init.y = 20;
             init.w = 10;
             init.h = 4;
-            init.x = v0;
+            init.x = x;
             init.boundW = 80;
             init.boundH = 32;
             init.boundX = 0;
@@ -1298,7 +1303,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
             init.screen = screen;
             gBgMenuManager.addDynamic(ENGINE_MAIN, 1, 3, 1, &init, 0, 0, 0);
 
-            if (!cmp0) {
+            if (!singleButton) {
                 init.screen = screen + 0x50;
                 init.x = 17;
                 init.y = 20;
@@ -1316,7 +1321,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
         void *i01 = this->files[FILE_I01].data;
         if (i01) {
             char *screen = static_cast<char *>(PAC_PSC_GetScreenPtr(i01));
-            init.x = v0;
+            init.x = x;
             init.y = 20;
             init.w = 10;
             init.h = 4;
@@ -1329,7 +1334,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
             gBgMenuManager.addDynamic(ENGINE_MAIN, 1, 5, 1, &init, 0, 0, 0);
             gBgMenuManager.hideID(ENGINE_MAIN, 5);
 
-            if (!cmp0) {
+            if (!singleButton) {
                 init.screen = screen + 0x50;
                 init.x = 17;
                 init.y = 20;
@@ -1348,7 +1353,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
         void *i02 = this->files[FILE_I02].data;
         if (i02) {
             char *screen = static_cast<char *>(PAC_PSC_GetScreenPtr(i02));
-            init.x = v0;
+            init.x = x;
             init.y = 20;
             init.w = 10;
             init.h = 4;
@@ -1361,7 +1366,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
             gBgMenuManager.addDynamic(ENGINE_MAIN, 1, 7, 1, &init, 0, 0, 0);
             gBgMenuManager.hideID(ENGINE_MAIN, 7);
 
-            if (!cmp0) {
+            if (!singleButton) {
                 init.x = 17;
                 init.y = 20;
                 init.w = 10;
@@ -1377,7 +1382,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
             }
         }
 
-        void *file2 = this->files[FILE_2].data;
+        void *file2 = this->files[FILE_BG01].data;
         if (file2) {
             char *screen = static_cast<char *>(PAC_PSC_GetScreenPtr(file2));
             init.x = 1;
@@ -1393,7 +1398,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
             gBgMenuManager.addDynamic(ENGINE_MAIN, 1, 13, 0, &init, 0, 0, 0);
         }
 
-        if ((cmp0) || (unk_0209A454.unk4 == 3)) {
+        if ((singleButton) || (unk_0209A454.unk4 == 3)) {
             void *bg06 = this->files[FILE_BG06].data;
             if (bg06) {
                 char *screen = static_cast<char *>(PAC_PSC_GetScreenPtr(bg06));
@@ -1495,7 +1500,7 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
     }
 
     int idx = FILE_W70;
-    if (this->unkC == 3) {
+    if (this->mode == MODE_CORRECT_PASSWORD) {
         idx = FILE_W10;
     }
 
@@ -1532,12 +1537,12 @@ void CMainMenuScreenEnterName::vFUN_E4(void)
         gBgMenuManager.hideID(ENGINE_MAIN, 11);
     }
 
-    bool cmp1 = false;
-    if ((this->canvas.unk0) && (this->canvas.unk4)) {
-        cmp1 = true;
+    bool hasCanvas = false;
+    if ((this->canvas.screen) && (this->canvas.tile)) {
+        hasCanvas = true;
     }
-    if (cmp1) {
-        gBgMenuManager.addStatic(ENGINE_MAIN, 0, 0, 12, 2, 1, 7, 30, 7, 0, this->canvas.unk0);
+    if (hasCanvas) {
+        gBgMenuManager.addStatic(ENGINE_MAIN, 0, 0, 12, 2, 1, 7, 30, 7, 0, this->canvas.screen);
     }
 }
 
@@ -1546,22 +1551,22 @@ void CMainMenuScreenEnterName::init(void)
     gLogicThink.FUN_0204eba0();
 
     this->state = 0;
-    this->unkC = 0;
-    this->unk10 = 0;
+    this->mode = MODE_INPUT;
+    this->nextMode = MODE_INPUT;
     this->unk14 = 0;
     
     this->tpTouch = TP_TOUCH_OFF;
     this->tpX = -1;
     this->tpY = -1;
 
-    this->unk20.type = KEY_TYPE_NONE;
-    this->unk20.x = 0;
-    this->unk20.y = 0;
-    this->unk20.chara = 0;
-    this->unk30.type = KEY_TYPE_NONE;
-    this->unk30.x = 0;
-    this->unk30.y = 0;
-    this->unk30.chara = 0;
+    this->keyStart.type = KEY_TYPE_NONE;
+    this->keyStart.x = 0;
+    this->keyStart.y = 0;
+    this->keyStart.chara = 0;
+    this->keyCur.type = KEY_TYPE_NONE;
+    this->keyCur.x = 0;
+    this->keyCur.y = 0;
+    this->keyCur.chara = 0;
 
     if ((unk_0209A454.unk4 == 2) || (unk_0209A454.unk4 == 3)) {
         this->keyboardLayout = 2;
@@ -1569,14 +1574,14 @@ void CMainMenuScreenEnterName::init(void)
         this->keyboardLayout = 0;
     }
 
-    this->vFUN_A4(0);
+    this->setFlashButton(0);
 
-    this->unk5C = 0;
-    this->unk60 = 0;
+    this->nameDirty = false;
+    this->nameCharOffset = 0;
 
-    STD_CopyString(this->unk6C, unk_0209A454.entry);
+    STD_CopyString(this->prevEntry, unk_0209A454.entry);
 
-    this->unk64 = static_cast<u8 *>(gAllocator.allocate(0x540));
+    this->nameChars = static_cast<u8 *>(gAllocator.allocate(0x540));
     this->screen = static_cast<u16 *>(gAllocator.allocate(0x54));
 
     this->ngWordData = NULL;
@@ -1597,7 +1602,7 @@ void CMainMenuScreenEnterName::init(void)
     FUN_ov16_020f2f7c(&this->canvas, 1);
     FUN_ov16_020f2fa8(&this->canvas, 30, 7);
 
-    this->vFUN_70();
+    this->requestFiles();
 }
 
 void CMainMenuScreenEnterName::update(BOOL param1)
@@ -1607,7 +1612,7 @@ void CMainMenuScreenEnterName::update(BOOL param1)
         break;
     case 1:
         if (this->tryFinalize()) {
-            this->vFUN_6C();
+            this->readFiles();
             this->setKey(0, 0, &this->keyActive);
             
             this->state = 2;
@@ -1618,7 +1623,7 @@ void CMainMenuScreenEnterName::update(BOOL param1)
     case 3:
         gBgMenuManager.finalize(ENGINE_MAIN);
         gBgMenuManager.init(ENGINE_MAIN);
-        this->vFUN_E4();
+        this->setupMenu();
         this->drawText();
         gBgMenuManager.updateGraphics(ENGINE_MAIN);
         this->fadeIn();
@@ -1627,7 +1632,7 @@ void CMainMenuScreenEnterName::update(BOOL param1)
         break;
     case 4:
     case 5:
-        this->vFUN_E0();
+        this->updateMenu();
         gBgMenuManager.updateGraphics(ENGINE_MAIN);
         break;
     }
@@ -1635,20 +1640,20 @@ void CMainMenuScreenEnterName::update(BOOL param1)
 
 BOOL CMainMenuScreenEnterName::tryFinalize(void)
 {
-    return Archive::TryFinalize(this->files, FILE_MAX);
+    return Archive::TryFinalize(this->files, FILE_COUNT);
 }
 
 void CMainMenuScreenEnterName::updateLate(void)
 {
     switch (this->state) {
     case 2:
-        this->vFUN_94();
+        this->loadGraphics();
 
         this->state = 3;
         break;
     case 4:
     case 5:
-        this->vFUN_98();
+        this->transferText();
         gBgMenuManager.draw(ENGINE_MAIN);
         break;
     }
@@ -1661,9 +1666,9 @@ void CMainMenuScreenEnterName::close(void)
     gBgMenuManager.setScreens(ENGINE_MAIN, G2_GetBG3ScrPtr(), G2_GetBG1ScrPtr(), G2_GetBG2ScrPtr());
     gBgMenuManager.finalize(ENGINE_MAIN);
 
-    if (this->unk64) {
-        gAllocator.deallocate(this->unk64);
-        this->unk64 = NULL;
+    if (this->nameChars) {
+        gAllocator.deallocate(this->nameChars);
+        this->nameChars = NULL;
     }
     if (this->screen) {
         gAllocator.deallocate(this->screen);
@@ -1689,5 +1694,5 @@ void CMainMenuScreenEnterName::close(void)
 
 void CMainMenuScreenEnterName::closeFiles(void)
 {
-    Archive::Close(this->files, FILE_MAX);
+    Archive::Close(this->files, FILE_COUNT);
 }

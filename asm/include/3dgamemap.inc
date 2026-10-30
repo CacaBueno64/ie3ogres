@@ -31,11 +31,11 @@
 .public FUN_ov16_020fa8a0
 .public FUN_ov16_020fa8b8
 .public FUN_ov16_020fc788
-.public FUN_ov16_020fd278
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 .public FUN_ov16_020fa8fc
-.public FUN_ov16_020fd6d8
+.public _ZN15CNsbResourceMan15initPacResourceEP12SNsbResourceih
 .public FUN_ov16_020fa7f0
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public unk_0208C47C
 .public gNsbResourceMan
 .public FUN_ov16_020fa154
@@ -88,9 +88,9 @@
 .public _ZN7Archive17GetMapTexturePathEPKcPc
 .public FUN_ov16_020fa5b4
 .public _ZN7Archive16GetMapMotionPathEPKcPc
-.public FUN_ov16_020fcb70
+.public _ZN15CNsbResourceMan10getFromDirEiPKchi
 .public unk_02090B34
-.public FUN_ov16_020fcd08
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 .public FUN_ov16_020eff18
 .public FUN_ov16_020f0238
 .public FUN_ov16_020f081c

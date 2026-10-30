@@ -9,4 +9,5 @@ there are many ways to contribute to this project:
 
 #### Non matchings
 - anything inside the [wip](./wip/) folder
+- [CNsbResourceMan::getFromContainer](https://decomp.me/scratch/YsJPG)
 - 

@@ -27,7 +27,7 @@ typedef struct {
 
 /* These might belong in a different header*/
 /* 0x2053960 */ extern "C" void *PAC_GetOffset(void *pac, int idx);
-/* 0x2053994 */ extern "C" void *PAC_GetSize(void *pac, int idx);
+/* 0x2053994 */ extern "C" s32 PAC_GetSize(void *pac, int idx);
 /* 0x20539c8 */ extern "C" void *PAC_GetPtr(void *pac, int idx);
 
 /*
@@ -189,6 +189,9 @@ inline void *PAC_IPM_GetMetaPtr(void *data)
                                static_cast<PAC_HEADER_IPM *>(data)->met.offs);
 }
 
+/*
+ * This is the ones you see at `data_iz/eff.pkb`
+ */
 typedef struct {
     PAC_HEADER_START h;
     PAC_FILE_BLOCK efct;
@@ -197,5 +200,5 @@ typedef struct {
     PAC_FILE_BLOCK bca;
     PAC_FILE_BLOCK bma;
     PAC_FILE_BLOCK bta;
-    PAC_FILE_BLOCK vis; // or btx? always empty
+    PAC_FILE_BLOCK bva; // or btx? always empty
 } PAC_HEADER_EFFECT;

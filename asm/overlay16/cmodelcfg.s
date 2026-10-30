@@ -1,11 +1,11 @@
 
 .public MIi_CpuClearFast
-.public FUN_ov16_020fd21c
+.public _ZN15CNsbResourceMan6aquireEP12SNsbResource
 .public gNsbResourceMan
-.public FUN_ov16_020fcd08
-.public FUN_ov16_020fd120
-.public FUN_ov16_020fd350
-.public FUN_ov16_020fd278
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
+.public _ZN15CNsbResourceMan8allocateEPvmh
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 .public _ZN16CSceneScriptData8initFileEPvPKc
 .public _ZN16CSceneScriptData18getInstructionByIDEl
 .public strcmp
@@ -60,7 +60,7 @@ FUN_ov16_020fae0c: ; 0x020FAE0C
 	ldr r0, _020FAE50 ; =gNsbResourceMan
 	mov r1, r4
 	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
+	bl _ZN15CNsbResourceMan6aquireEP12SNsbResource
 	str r0, [r5, #4]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -98,7 +98,7 @@ FUN_ov16_020fae6c: ; 0x020FAE6C
 	mov r1, r7
 	mov r3, r6
 	mov r2, #2
-	bl FUN_ov16_020fcd08
+	bl _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 	str r0, [r8, #4]
 	cmp r0, #0
 	moveq r0, r5
@@ -122,7 +122,7 @@ FUN_ov16_020faed8: ; 0x020FAED8
 	ldr r0, [r0]
 	mov r2, r4
 	mov r3, #2
-	bl FUN_ov16_020fd120
+	bl _ZN15CNsbResourceMan8allocateEPvmh
 	str r0, [r6, #4]
 	cmp r0, #0
 	moveq r0, #0
@@ -140,7 +140,7 @@ FUN_ov16_020faf24: ; 0x020FAF24
 	beq _020FAF44
 	ldr r0, _020FAF58 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _020FAF44:
 	mov r0, r4
 	ldr r1, [r0]
@@ -261,7 +261,7 @@ FUN_ov16_020fb050: ; 0x020FB050
 	bne _020FB0BC
 	ldr r0, _020FB10C ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd278
+	bl _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	cmp r0, #0
 	mov r5, #0
 	bne _020FB0BC
@@ -318,7 +318,7 @@ FUN_ov16_020fb110: ; 0x020FB110
 	bne _020FB184
 	ldr r0, _020FB1E8 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd278
+	bl _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	cmp r0, #0
 	mov r5, #0
 	bne _020FB184
@@ -424,10 +424,10 @@ FUN_ov16_020fb2ac: ; 0x020FB2AC
 	mov r2, r0
 	ldr r0, [r1]
 	ldr r1, [r2, #4]
-	ldr r12, _020FB2C8 ; =FUN_ov16_020fd278
+	ldr r12, _020FB2C8 ; =_ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	bx r12
 _020FB2C4: .word gNsbResourceMan
-_020FB2C8: .word FUN_ov16_020fd278
+_020FB2C8: .word _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	arm_func_end FUN_ov16_020fb2ac
 
 	arm_func_start FUN_ov16_020fb2cc

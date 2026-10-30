@@ -16,6 +16,7 @@ public:
     typedef enum {
         SE_SELECT = 1,
         SE_DENY = 4,
+        SE_CURSOR = 8,
         SE_SELECT_FAIL = 9,
     } ESoundEffects;
 

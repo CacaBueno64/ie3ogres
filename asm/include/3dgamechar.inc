@@ -1,6 +1,6 @@
 .public MIi_CpuClearFast
 .public FUN_ov16_020fb7ac
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public MI_CpuFill8
 .public gNsbResourceMan
 .public FUN_ov16_020fba10

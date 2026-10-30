@@ -28,13 +28,13 @@
 .public _ZN7Archive21GetMapObjectModelPathEPKcPc
 .public _ZN7Archive16GetBallModelPathEPKcPc
 .public FUN_ov16_020fa154
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public MI_CpuFill8
 .public gNsbResourceMan
 .public FUN_ov16_020fa964
 .public FUN_ov16_020fb2ac
-.public FUN_ov16_020fd278
-.public FUN_ov16_020fd6d8
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
+.public _ZN15CNsbResourceMan15initPacResourceEP12SNsbResourceih
 .public FUN_ov16_020fa8fc
 .public FUN_ov16_020fa7f0
 .public unk_0208C48C
@@ -79,8 +79,8 @@
 .public unk_0208F6F0
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
 .public FUN_ov16_020f9e24
-.public FUN_ov16_020fcb70
-.public FUN_ov16_020fcd08
+.public _ZN15CNsbResourceMan10getFromDirEiPKchi
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 .public FUN_ov16_020fa4bc
 .public FUN_ov16_020fa4e0
 .public FUN_ov16_020fa528

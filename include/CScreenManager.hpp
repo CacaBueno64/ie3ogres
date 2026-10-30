@@ -190,7 +190,7 @@ public:
     }
 
     u8 sceneChanged[2];
-    /* u8 pad_6[2]; */
+    // u8 pad_6[2];
     SceneLayerStep layerStep[2];
     SceneType loadedScene[2];
     int layerIdx[2];

@@ -21,12 +21,12 @@
 
 /* TODO: Create header */
 typedef struct {
-    u16 *unk0;
-    void *unk4;
-    u32 unk8;
-    u16 unkC;
-    u16 unkE;
-    u8 unk10;
+    u16 *screen;
+    u8 *tile;
+    u32 offset;
+    u16 width;
+    u16 height;
+    bool dirty;
 } SCanvas;
 
 typedef enum {
@@ -47,12 +47,12 @@ typedef struct {
 class CMainMenuScreenEnterName : public CommonMainScreen
 {
 public:
-    static bool FUN_ov55_02119f00(int param0);
+    static bool isPasswordUnit(int unitNo);
     static CFontManager::CharType getCharType(char *text);
     static u16 decodeChar(char *text, CFontManager::CharType type);
-    static u16 normalizeChar(u16 c, u16 *data, int size);
+    static u16 normalizeChar(u16 c, u16 *fcodeck, size_t fcodeckSize);
     static void normalizeNgWordString(char *dst, char *src, u16 *fcodeck, size_t fcodeckSize);
-    static bool containsNgWord(char *src, u16 *fcodeck, size_t fcodeckSize, char **param3, int param4);
+    static bool containsNgWord(char *src, u16 *fcodeck, size_t fcodeckSize, char **ngLines, int ngLineCount);
 
     CMainMenuScreenEnterName(CScreenManager *manager) : manager(manager) { }
     virtual void updateKeys(u16 pressed, u16 held);
@@ -61,8 +61,8 @@ public:
     virtual void update(BOOL param1);
     virtual void updateLate(void);
     virtual void close(void);
-    virtual void vFUN_6C(void);
-    virtual void vFUN_70(void);
+    virtual void readFiles(void);
+    virtual void requestFiles(void);
     virtual BOOL tryFinalize(void);
     virtual void closeFiles(void);
     virtual void deallocateFile(int idx);
@@ -79,31 +79,31 @@ public:
     virtual u32 loadBG3Char(int fileIdx, u32 offset) {
         return Graphics::LoadBGXCharMain(3, this->files[fileIdx].data, offset);
     }
-    virtual void vFUN_94(void);
-    virtual void vFUN_98(void);
+    virtual void loadGraphics(void);
+    virtual void transferText(void);
     virtual void loadTempPalette(int fileIdx, int plttIdx) {
         Graphics::LoadTempPaletteFromPac(this->files[fileIdx].data, ENGINE_MAIN, plttIdx);
     }
     virtual int setupScreen(int fileIdx, int tileIdx, int plttIdx) {
         return Graphics::SetupScreen(this->files[fileIdx].data, tileIdx + 1, plttIdx);
     }
-    virtual void vFUN_A4(int param1);
+    virtual void setFlashButton(int button);
     virtual void setKey(int x, u32 y, SKey *key);
     virtual u16 getChara(int x, u32 y);
-    virtual void vFUN_B0(int param1, int param2, SKey *key);
+    virtual void getKeyAt(int x, int y, SKey *key);
     virtual void typeCharacter(void);
-    virtual void vFUN_B8(void);
-    virtual void vFUN_BC(void);
-    virtual void vFUN_C0(void);
-    virtual void vFUN_C4(int param1);
-    virtual void vFUN_C8(void);
-    virtual void vFUN_CC(int param1);
+    virtual void onTouchHold(void);
+    virtual void onTouchRelease(void);
+    virtual void confirmEntry(void);
+    virtual void exitScreen(int param1);
+    virtual void cancelEntry(void);
+    virtual void showButtons(int param1);
     virtual void drawText(void);
-    virtual void vFUN_D4(void);
-    virtual void vFUN_D8(void);
-    virtual void vFUN_DC(void);
-    virtual void vFUN_E0(void);
-    virtual void vFUN_E4(void);
+    virtual void showFlashPressed(void);
+    virtual void showFlashSelected(void);
+    virtual void updateTouchButtons(void);
+    virtual void updateMenu(void);
+    virtual void setupMenu(void);
     virtual ~CMainMenuScreenEnterName() { }
 
 private:
@@ -114,20 +114,10 @@ private:
         return u16((src[0] & 0xFF) | (u8(src[1]) << 8));
     }
 
-    static const int ENTER_NAME_WIDTH = 26;
-    static const int ENTER_NAME_HEIGHT = 6;
-    static const int ENTER_NAME_MAX = 16;
-
-    static const int KEYCODE_EMPTY = '  ';
-    static const int KEYCODE_KANA = 'AA';
-    static const int KEYCODE_HANDAKU = 'BB';
-    static const int KEYCODE_DAKUTEN = 'CC';
-    static const int KEYCODE_DELETE = 'DD';
-
     enum {
         FILE_ARCHIVE,                      // 0
         FILE_XXDN_BG,                      // 1
-        FILE_2,                            // 2
+        FILE_BG01,                         // 2
         FILE_BG02,                         // 3
         FILE_BG03,                         // 4
         FILE_BG06,                         // 5
@@ -146,40 +136,56 @@ private:
         FILE_DAKUTEN,                      // 17
         FILE_NGWORD,                       // 18
         FILE_FCODECK,                      // 19
-        FILE_MAX,                          // 20
+        FILE_COUNT,                        // 20
     };
+
+    typedef enum {
+        MODE_INPUT,
+        MODE_NGWORD,
+        MODE_WRONG_PASSWORD,
+        MODE_CORRECT_PASSWORD,
+    } Mode;
+
+    typedef enum {
+        KEYCODE_EMPTY = '  ',
+        KEYCODE_KANA = 'AA',
+        KEYCODE_HANDAKU = 'BB',
+        KEYCODE_DAKUTEN = 'CC',
+        KEYCODE_DELETE = 'DD',
+    } KeyCode;
+
+    //static const int 
+
+    static const int ENTER_NAME_WIDTH = 26;
+    static const int ENTER_NAME_HEIGHT = 6;
+    static const int ENTER_NAME_MAX = 16;
 
     CScreenManager *manager;
     int state;
-    int unkC;
-    int unk10;
+    Mode mode;
+    Mode nextMode;
     u8 unk14;
     u8 tpTouch;
-    u8 pad16[0x2];
-    u32 tpX;
-    u32 tpY;
-    SKey unk20;
-    SKey unk30;
+    u8 pad16[2];
+    int tpX;
+    int tpY;
+    SKey keyStart;
+    SKey keyCur;
     SKey keyActive;
     int keyboardLayout;
-    u8 unk54;
-    u8 unk55;
-    u8 unk56;
-    u8 unk57;
-    int unk58;
-    u8 unk5C;
-    u8 unk5D;
-    u8 unk5E;
-    u8 unk5F;
-    u32 unk60;
-    u8 *unk64;
+    u8 dummy54[4];
+    int flashButton;
+    bool nameDirty;
+    u8 pad5D[3];
+    u32 nameCharOffset;
+    u8 *nameChars;
     u16 *screen;
-    char unk6C[17];
+    char prevEntry[17];
     char *ngWordData;
     char **ngWordLines;
-    size_t ngWordLineCount;
+    int ngWordLineCount;
     size_t ngWordDataSize;
     SCanvas canvas;
-    SFileData files[FILE_MAX];
+    SFileData files[FILE_COUNT];
     CPhonePassword phonePassword;
 };

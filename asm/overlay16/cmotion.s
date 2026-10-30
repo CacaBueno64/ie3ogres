@@ -1,9 +1,9 @@
 
 .public MIi_CpuClearFast
-.public FUN_ov16_020fd21c
+.public _ZN15CNsbResourceMan6aquireEP12SNsbResource
 .public gNsbResourceMan
-.public FUN_ov16_020fd120
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan8allocateEPvmh
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public FUN_ov16_020fa638
 .public NNS_G3dGetAnmByIdx
 .public _ZN10CAllocator8allocateEm
@@ -14,7 +14,7 @@
 .public NNS_G3dAnmObjInit
 .public NNS_G3dRenderObjAddAnmObj
 .public NNS_G3dRenderObjRemoveAnmObj
-.public FUN_ov16_020fd278
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 .public FX_Sqrt
 
 	.include "/macros/function.inc"
@@ -66,7 +66,7 @@ FUN_ov16_020fc578: ; 0x020FC578
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r0, _020FC5B8 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
+	bl _ZN15CNsbResourceMan6aquireEP12SNsbResource
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -85,7 +85,7 @@ FUN_ov16_020fc5bc: ; 0x020FC5BC
 	mov r5, r0
 	ldr r0, [r3]
 	mov r3, #6
-	bl FUN_ov16_020fd120
+	bl _ZN15CNsbResourceMan8allocateEPvmh
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -107,7 +107,7 @@ FUN_ov16_020fc5f8: ; 0x020FC5F8
 	beq _020FC61C
 	ldr r0, _020FC62C ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _020FC61C:
 	mov r0, #0
 	str r0, [r4, #4]
@@ -321,10 +321,10 @@ FUN_ov16_020fc8d0: ; 0x020FC8D0
 	mov r2, r0
 	ldr r0, [r1]
 	ldr r1, [r2, #4]
-	ldr r12, _020FC8EC ; =FUN_ov16_020fd278
+	ldr r12, _020FC8EC ; =_ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	bx r12
 _020FC8E8: .word gNsbResourceMan
-_020FC8EC: .word FUN_ov16_020fd278
+_020FC8EC: .word _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	arm_func_end FUN_ov16_020fc8d0
 
 	.section .init, 4

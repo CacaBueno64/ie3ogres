@@ -7,16 +7,16 @@
 .public FUN_02053cb0
 .public FUN_02053ccc
 .public FUN_ov16_020fa638
-.public FUN_ov16_020fcb70
-.public FUN_ov16_020fcd08
-.public FUN_ov16_020fcef8
-.public FUN_ov16_020fd21c
-.public FUN_ov16_020fd278
-.public FUN_ov16_020fd350
-.public FUN_ov16_020fd4cc
-.public FUN_ov16_020fd564
-.public FUN_ov16_020fd878
-.public FUN_ov16_020fd8ec
+.public _ZN15CNsbResourceMan10getFromDirEiPKchi
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
+.public _ZN15CNsbResourceMan16getFromContainerEPKcS1_himmh
+.public _ZN15CNsbResourceMan6aquireEP12SNsbResource
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
+.public _ZN15CNsbResourceMan4loadEP12SNsbResource
+.public _ZN15CNsbResourceMan6unloadEP12SNsbResource
+.public _ZN15CNsbResourceMan5closeEP12SNsbResource
+.public _ZN15CNsbResourceMan5setupEP12SNsbResource
 .public FX_Sqrt
 .public MI_CpuCopy8
 .public MIi_CpuClearFast
@@ -68,7 +68,7 @@ FUN_ov16_02110bbc: ; 0x02110BBC
 	mov r5, r0
 	ldr r0, [r12]
 	mov r3, #5
-	bl FUN_ov16_020fcb70
+	bl _ZN15CNsbResourceMan10getFromDirEiPKchi
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -96,7 +96,7 @@ FUN_ov16_02110bfc: ; 0x02110BFC
 	ldr r0, [r3]
 	mov r3, r2
 	mov r2, #5
-	bl FUN_ov16_020fcd08
+	bl _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 	movs r4, r0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -125,7 +125,7 @@ FUN_ov16_02110c64: ; 0x02110C64
 	mov r5, r0
 	ldr r0, [r3]
 	mov r3, #5
-	bl FUN_ov16_020fcef8
+	bl _ZN15CNsbResourceMan16getFromContainerEPKcS1_himmh
 	movs r4, r0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -156,7 +156,7 @@ FUN_ov16_02110cc8: ; 0x02110CC8
 	ldr r0, _02110D14 ; =gNsbResourceMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
+	bl _ZN15CNsbResourceMan6aquireEP12SNsbResource
 	str r0, [r5, #4]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -178,7 +178,7 @@ FUN_ov16_02110d18: ; 0x02110D18
 	ldr r0, _02110D6C ; =gNsbResourceMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd4cc
+	bl _ZN15CNsbResourceMan4loadEP12SNsbResource
 	cmp r0, #0
 	ldrne r1, [r4, #0xc]
 	moveq r0, #0
@@ -200,7 +200,7 @@ FUN_ov16_02110d70: ; 0x02110D70
 	ldr r0, _02110DB0 ; =gNsbResourceMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd564
+	bl _ZN15CNsbResourceMan6unloadEP12SNsbResource
 	ldr r0, [r4, #0xc]
 	bic r0, r0, #1
 	str r0, [r4, #0xc]
@@ -221,7 +221,7 @@ FUN_ov16_02110db4: ; 0x02110DB4
 	beq _02110DD8
 	ldr r0, _02110DEC ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _02110DD8:
 	add r1, r4, #4
 	mov r0, #0
@@ -316,10 +316,10 @@ FUN_ov16_02110f00: ; 0x02110F00
 	mov r2, r0
 	ldr r0, [r1]
 	ldr r1, [r2, #4]
-	ldr r12, _02110F1C ; =FUN_ov16_020fd278
+	ldr r12, _02110F1C ; =_ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	bx r12
 _02110F18: .word gNsbResourceMan
-_02110F1C: .word FUN_ov16_020fd278
+_02110F1C: .word _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	arm_func_end FUN_ov16_02110f00
 
 	arm_func_start FUN_ov16_02110f20
@@ -367,7 +367,7 @@ FUN_ov16_02110f78: ; 0x02110F78
 	ldr r0, _02110FF8 ; =gNsbResourceMan
 	ldr r1, [r5, #4]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd4cc
+	bl _ZN15CNsbResourceMan4loadEP12SNsbResource
 	cmp r0, #0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -452,7 +452,7 @@ FUN_ov16_021110ac: ; 0x021110AC
 	mov r4, r0
 	ldr r0, [r1]
 	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd878
+	bl _ZN15CNsbResourceMan5closeEP12SNsbResource
 	add r0, r4, #0x14
 	bl FUN_ov16_02111348
 	ldmfd sp!, {r4, pc}
@@ -466,7 +466,7 @@ FUN_ov16_021110d4: ; 0x021110D4
 	mov r4, r0
 	ldr r0, [r1]
 	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd8ec
+	bl _ZN15CNsbResourceMan5setupEP12SNsbResource
 	add r0, r4, #0x14
 	bl FUN_ov16_0211136c
 	ldmfd sp!, {r4, pc}
@@ -529,7 +529,7 @@ FUN_ov16_0211117c: ; 0x0211117C
 	beq _021111A0
 	ldr r0, _0211123C ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd278
+	bl _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	cmp r0, #0
 	beq _021111A8
 _021111A0:

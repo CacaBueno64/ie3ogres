@@ -104,7 +104,7 @@ _0205A0F4:
 	beq _0205A10C
 	ldr r0, _0205A130 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _0205A10C:
 	mov r0, r6
 	mov r1, #0
@@ -844,7 +844,7 @@ _0205AADC:
 	mla r1, r6, r1, r2
 	ldr r0, [r5]
 	ldr r1, [r1, #0x18]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 	ldr r1, [r10, #0xc]
 	mov r0, #0x1c
 	mla r7, r6, r0, r1

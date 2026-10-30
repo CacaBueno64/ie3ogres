@@ -486,8 +486,8 @@ _02051B20:
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 	arm_func_end FUN_02051a7c
 
-	arm_func_start FUN_02051b28
-FUN_02051b28: ; 0x02051B28
+	arm_func_start _ZN10C3DVramMan5setupEPv
+_ZN10C3DVramMan5setupEPv: ; 0x02051B28
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -500,10 +500,10 @@ FUN_02051b28: ; 0x02051B28
 	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02051b28
+	arm_func_end _ZN10C3DVramMan5setupEPv
 
-	arm_func_start FUN_02051b58
-FUN_02051b58: ; 0x02051B58
+	arm_func_start _ZN10C3DVramMan7releaseEPv
+_ZN10C3DVramMan7releaseEPv: ; 0x02051B58
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -515,10 +515,10 @@ FUN_02051b58: ; 0x02051B58
 	bl OS_UnlockMutex
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02051b58
+	arm_func_end _ZN10C3DVramMan7releaseEPv
 
-	arm_func_start FUN_02051b84
-FUN_02051b84: ; 0x02051B84
+	arm_func_start _ZN10C3DVramMan11loadNNSFileEPv
+_ZN10C3DVramMan11loadNNSFileEPv: ; 0x02051B84
 	stmfd sp!, {r3, r4, r5, lr}
 	mov r5, r0
 	mov r4, r1
@@ -532,7 +532,7 @@ FUN_02051b84: ; 0x02051B84
 	bl OS_UnlockMutex
 	mov r0, r4
 	ldmfd sp!, {r3, r4, r5, pc}
-	arm_func_end FUN_02051b84
+	arm_func_end _ZN10C3DVramMan11loadNNSFileEPv
 
 	arm_func_start FUN_02051bb8
 FUN_02051bb8: ; 0x02051BB8

@@ -36,7 +36,7 @@ typedef struct {
     u8 unk3B;
     u16 unk3C;
     u16 unk3E;
-    char keyActive[32];
+    char unk40[32];
     char unk60[32];
     u8 unk80;
     u8 unk81;

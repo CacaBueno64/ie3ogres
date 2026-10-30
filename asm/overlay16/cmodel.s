@@ -18,22 +18,22 @@
 .public FUN_ov16_020fc538
 .public FUN_ov16_02110b80
 .public FUN_ov16_02111164
-.public FUN_ov16_020fd21c
+.public _ZN15CNsbResourceMan6aquireEP12SNsbResource
 .public gNsbResourceMan
-.public FUN_ov16_020fcd08
-.public FUN_ov16_020fcb70
-.public FUN_ov16_020fcef8
-.public FUN_ov16_020fd120
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
+.public _ZN15CNsbResourceMan10getFromDirEiPKchi
+.public _ZN15CNsbResourceMan16getFromContainerEPKcS1_himmh
+.public _ZN15CNsbResourceMan8allocateEPvmh
 .public _ZN10CAllocator8allocateEm
 .public NNS_G3dRenderObjInit
-.public FUN_ov16_020fd660
-.public FUN_ov16_020fd4cc
+.public _ZN15CNsbResourceMan8isLoadedEP12SNsbResource
+.public _ZN15CNsbResourceMan4loadEP12SNsbResource
 .public FUN_02053c20
 .public gAllocator
 .public _ZN10CAllocator10deallocateEPv
 .public FUN_ov16_02110db4
 .public FUN_ov16_020fc5f8
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public FUN_ov16_020fc748
 .public FUN_ov16_02110cc8
 .public FUN_ov16_02110bbc
@@ -50,11 +50,11 @@
 .public FUN_ov16_020fc630
 .public FUN_ov16_020fc7b4
 .public FUN_ov16_020fc898
-.public FUN_ov16_020fd278
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 .public FUN_ov16_02110f00
-.public FUN_ov16_020fd878
+.public _ZN15CNsbResourceMan5closeEP12SNsbResource
 .public FUN_ov16_021110ac
-.public FUN_ov16_020fd8ec
+.public _ZN15CNsbResourceMan5setupEP12SNsbResource
 .public FUN_ov16_021110d4
 .public FUN_ov16_02111248
 .public FUN_ov16_02110f54
@@ -740,7 +740,7 @@ FUN_ov16_020f9d8c: ; 0x020F9D8C
 	ldr r0, _020F9DD8 ; =gNsbResourceMan
 	ldr r1, [r4, #4]
 	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
+	bl _ZN15CNsbResourceMan6aquireEP12SNsbResource
 	str r0, [r5, #4]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -762,7 +762,7 @@ FUN_ov16_020f9ddc: ; 0x020F9DDC
 	ldr r0, _020F9E20 ; =gNsbResourceMan
 	mov r1, r4
 	ldr r0, [r0]
-	bl FUN_ov16_020fd21c
+	bl _ZN15CNsbResourceMan6aquireEP12SNsbResource
 	str r0, [r5, #4]
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
@@ -789,7 +789,7 @@ FUN_ov16_020f9e24: ; 0x020F9E24
 	str r6, [sp, #0xc]
 	ldr r0, [r0]
 	mov r2, #4
-	bl FUN_ov16_020fcd08
+	bl _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 	movs r5, r0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -811,7 +811,7 @@ FUN_ov16_020f9e9c: ; 0x020F9E9C
 	mov r5, r0
 	ldr r0, [r12]
 	mov r3, #4
-	bl FUN_ov16_020fcb70
+	bl _ZN15CNsbResourceMan10getFromDirEiPKchi
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -838,7 +838,7 @@ FUN_ov16_020f9edc: ; 0x020F9EDC
 	mov r6, r0
 	ldr r0, [r3]
 	mov r3, #4
-	bl FUN_ov16_020fcef8
+	bl _ZN15CNsbResourceMan16getFromContainerEPKcS1_himmh
 	movs r4, r0
 	addeq sp, sp, #0x10
 	moveq r0, #0
@@ -859,7 +859,7 @@ FUN_ov16_020f9f40: ; 0x020F9F40
 	mov r5, r0
 	ldr r0, [r3]
 	mov r3, #4
-	bl FUN_ov16_020fd120
+	bl _ZN15CNsbResourceMan8allocateEPvmh
 	movs r4, r0
 	moveq r0, #0
 	ldmeqfd sp!, {r3, r4, r5, pc}
@@ -951,12 +951,12 @@ _020FA08C:
 	str r6, [r0, #0x2c]
 	ldr r0, [r5]
 	ldr r1, [r6, #4]
-	bl FUN_ov16_020fd660
+	bl _ZN15CNsbResourceMan8isLoadedEP12SNsbResource
 	cmp r0, #0
 	bne _020FA0C0
 	ldr r0, [r5]
 	ldr r1, [r6, #4]
-	bl FUN_ov16_020fd4cc
+	bl _ZN15CNsbResourceMan4loadEP12SNsbResource
 	mov r0, #1
 	strb r0, [r6, #0x42]
 _020FA0C0:
@@ -1041,7 +1041,7 @@ _020FA1AC:
 	beq _020FA1CC
 	ldr r0, _020FA1E0 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd350
+	bl _ZN15CNsbResourceMan7releaseEP12SNsbResource
 _020FA1CC:
 	mov r1, #0
 	mov r0, r4
@@ -1699,7 +1699,7 @@ FUN_ov16_020fa93c: ; 0x020FA93C
 	ldmeqfd sp!, {r3, pc}
 	ldr r0, _020FA960 ; =gNsbResourceMan
 	ldr r0, [r0]
-	bl FUN_ov16_020fd278
+	bl _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 	ldmfd sp!, {r3, pc}
 _020FA960: .word gNsbResourceMan
 	arm_func_end FUN_ov16_020fa93c
@@ -1835,7 +1835,7 @@ _ZN6CModel5closeEv: ; 0x020FAAC4
 	mov r4, r0
 	ldr r0, [r1]
 	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd878
+	bl _ZN15CNsbResourceMan5closeEP12SNsbResource
 	add r5, r4, #0xb0
 	mov r6, #0
 	mov r4, #0x30
@@ -1905,7 +1905,7 @@ _ZN6CModel5setupEv: ; 0x020FAB94
 	mov r4, r0
 	ldr r0, [r1]
 	ldr r1, [r4, #4]
-	bl FUN_ov16_020fd8ec
+	bl _ZN15CNsbResourceMan5setupEP12SNsbResource
 	add r5, r4, #0xb0
 	mov r6, #0
 	mov r4, #0x30

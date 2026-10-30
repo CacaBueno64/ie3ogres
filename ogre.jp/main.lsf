@@ -377,7 +377,7 @@ Overlay overlay16
 	Object main.nef.p/asm_overlay16_CModelCfg.s.o
 	Object main.nef.p/asm_overlay16_CompositeModel.s.o
 	Object main.nef.p/asm_overlay16_CMotion.s.o
-	Object main.nef.p/asm_overlay16_CNsbResourceMan.s.o
+	Object main.nef.p/src_CNsbResourceMan.cpp.o
 	Object main.nef.p/asm_overlay16_CQuitMenuManager.s.o
 	Object main.nef.p/src_script_CSceneScriptThread.cpp.o
 	Object main.nef.p/asm_overlay16_scenescriptthread.s.o

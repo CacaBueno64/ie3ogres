@@ -3,11 +3,11 @@
 .public unk_02090978
 .public unk_02090994
 .public FUN_ov16_020fa154
-.public FUN_ov16_020fd350
+.public _ZN15CNsbResourceMan7releaseEP12SNsbResource
 .public gNsbResourceMan
-.public FUN_ov16_020fd278
+.public _ZN15CNsbResourceMan11tryFinalizeEP12SNsbResource
 .public FUN_ov16_020fa930
-.public FUN_ov16_020fd6d8
+.public _ZN15CNsbResourceMan15initPacResourceEP12SNsbResourceih
 .public FUN_ov16_020f9ddc
 .public FUN_ov16_020f9f7c
 .public FUN_ov16_020faa1c
@@ -61,7 +61,7 @@
 .public NNS_G3dGlbFlushP
 .public _ZN11C3DGameBase10detachFileEi
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public FUN_ov16_020fcd08
+.public _ZN15CNsbResourceMan13getFromPathExEPKchimmbh
 .public FUN_ov16_020fa538
 .public FUN_ov16_020fa54c
 .public FUN_ov16_020faf80

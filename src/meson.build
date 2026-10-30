@@ -24,6 +24,7 @@ ie3ogre_cpp += files(
     'overlay.cpp',
     'CBgAnimeManager.cpp',
     'CBgMenuRadioButton.cpp',
+    'CNsbResourceMan.cpp',
     'script/CSceneScriptThread.cpp',
     'mainmenuscreen/CMainMenuScreenEnterName.cpp',
     'CPhonePassword.cpp',

@@ -52,7 +52,6 @@ ie3ogre_asm += files(
     'overlay16/cmodelcfg.s',
     'overlay16/compositemodel.s',
     'overlay16/cmotion.s',
-    'overlay16/cnsbresourceman.s',
     'overlay16/cquitmenumanager.s',
     'overlay16/ov16_020ef624.s',
     'overlay16/ov16_020efa04.s',
