@@ -1294,10 +1294,10 @@ FUN_ov16_020f1d64: ; 0x020F1D64
 	blx r1
 	ldr r0, _020F1E0C ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02059880
+	bl _ZN10C3DSprFile9evictVramEv
 	ldr r0, _020F1E10 ; =g3DVramMan
 	ldr r0, [r0]
-	bl FUN_02051e50
+	bl _ZN10C3DVramMan16resetUploadQueueEv
 	ldmfd sp!, {r3, pc}
 _020F1DF4: .word g3DGameChar
 _020F1DF8: .word g3DGameEffect
@@ -1350,7 +1350,7 @@ _020F1E28:
 	blx r1
 	ldr r0, _020F1EE0 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_020598ec
+	bl _ZN10C3DSprFile11restoreVramEv
 	mov r4, #0
 	b _020F1EBC
 _020F1EB4:
@@ -1705,7 +1705,7 @@ _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE: ; 0x020F2
 	add r2, sp, #0x24
 	add r3, sp, #0x28
 	str r9, [sp, #0x24]
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, _020F24E0 ; =gFont12Manager
 	ldr r2, [sp, #0x6d4]
 	ldr r1, [sp, #0x6d0]
@@ -1794,7 +1794,7 @@ _020F2494:
 	ldr r1, [sp, #0x20]
 	mov r2, r5
 	str r4, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0x2ac
 	add sp, sp, #0x400
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}

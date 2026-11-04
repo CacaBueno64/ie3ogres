@@ -393,8 +393,8 @@ _020EFEE0: .word unk_0209A12C
 _020EFEE4: .word unk_0209A140
 	arm_func_end FUN_ov16_020efe30
 
-	arm_func_start FUN_ov16_020efee8
-FUN_ov16_020efee8: ; 0x020EFEE8
+	arm_func_start WorldToMatchCamera
+WorldToMatchCamera: ; 0x020EFEE8
 	stmfd sp!, {r3, lr}
 	ldr lr, _020EFF10 ; =0x0209A12C
 	ldr r12, _020EFF14 ; =0x0209A140
@@ -407,7 +407,7 @@ FUN_ov16_020efee8: ; 0x020EFEE8
 	ldmfd sp!, {r3, pc}
 _020EFF10: .word unk_0209A12C
 _020EFF14: .word unk_0209A140
-	arm_func_end FUN_ov16_020efee8
+	arm_func_end WorldToMatchCamera
 
 	arm_func_start FUN_ov16_020eff18
 FUN_ov16_020eff18: ; 0x020EFF18

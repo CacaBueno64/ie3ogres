@@ -1,7 +1,6 @@
 #pragma once
 
-#include <nitro/fs/overlay.h>
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "CManager.hpp"
 #include "CommonScreen.hpp"

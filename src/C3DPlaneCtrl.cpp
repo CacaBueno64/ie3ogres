@@ -1,16 +1,10 @@
 #include "C3DPlaneCtrl.hpp"
 
-#include <cstdint>
-
-#include <nitro/fx/fx.h>
-#include <nitro/gx/g3.h>
-#include <nitro/gx/gxcommon.h>
-#include <nitro/types.h>
-#include <nnsys/g3d/gecom.h>
-#include <nnsys/g3d/glbstate.h>
+#include <nitro.h>
 
 #include "CAllocator.hpp"
 #include "pac.hpp"
+
 #include "init/arm9_init.hpp"// IWYU pragma: keep
 
 /* TODO: Create Header */ extern "C" s32 FUN_02053a5c(s32);
@@ -145,15 +139,35 @@ void C3DPlaneCtrl::uploadColor(S3DPlaneSet *s, S3DPlanePart *p)
     NNS_G3dGePolygonAttr(0, polyMode, GX_CULL_BACK, p->polygonID, s->alpha < p->alpha ? s->alpha : p->alpha, GX_POLYGON_ATTR_MISC_NONE);
 }
 
+static inline u32 getPaletteCount(C3DSprFile *file, C3DSprSheet *sheet)
+{
+    u32 plttSize;
+    u32 count = 0;
+    if (sheet && file->getPaletteData(sheet, &plttSize)) {
+        count = plttSize / file->getPaletteSizeSingle(sheet);
+    }
+    return count;
+}
+
+static inline void resetTexture()
+{
+    NNS_G3dGeTexPlttBase(0, GX_TEXFMT_NONE);
+    NNS_G3dGeTexImageParam(GX_TEXFMT_NONE, GX_TEXGEN_NONE, GX_TEXSIZE_S8, GX_TEXSIZE_T8, GX_TEXREPEAT_NONE, GX_TEXFLIP_NONE, GX_TEXPLTTCOLOR0_USE, 0);
+}
+
 bool C3DPlaneCtrl::uploadTexture(S3DPlaneSet *s, S3DPlanePart *p)
 {
-    int pltt0;
+    GXTexPlttColor0 pltt0;
     int flip;
     C3DSprSheet *texSheet;
     C3DSprSheet *plttSheet;
     texSheet = this->file.getSpriteSheet(p->texSheet);
     plttSheet = this->file.getSpriteSheet(p->plttSheet);
-    pltt0 = (p->flags & PLANE_FLAG_COLOR_0) ? GX_TEXPLTTCOLOR0_USE : GX_TEXPLTTCOLOR0_TRNS;
+    if (p->flags & PLANE_FLAG_COLOR_0) {
+        pltt0 = GX_TEXPLTTCOLOR0_USE;
+    } else {
+        pltt0 = GX_TEXPLTTCOLOR0_TRNS;
+    }
     flip = GX_TEXFLIP_NONE;
     if (p->flags & PLANE_FLAG_FLIP_S) {
         flip &= 0xFF;
@@ -164,8 +178,7 @@ bool C3DPlaneCtrl::uploadTexture(S3DPlaneSet *s, S3DPlanePart *p)
         flip |= GX_TEXFLIP_T;
     }
     if (s->flags & PLANE_FLAG_8000 || p->flags & PLANE_FLAG_8000) {
-        NNS_G3dGeTexPlttBase(0, GX_TEXFMT_NONE);
-        NNS_G3dGeTexImageParam(GX_TEXFMT_NONE, GX_TEXGEN_NONE, GX_TEXSIZE_S8, GX_TEXSIZE_T8, GX_TEXREPEAT_NONE, GX_TEXFLIP_NONE, GX_TEXPLTTCOLOR0_USE, 0);
+        resetTexture();
     } else {
         u32 texAddr;
         u32 plttAddr;
@@ -173,17 +186,13 @@ bool C3DPlaneCtrl::uploadTexture(S3DPlaneSet *s, S3DPlanePart *p)
             !this->getResKeyAddresses(plttSheet, NULL, &plttAddr)) {
             return false;
         }
-        u32 plttSize;
-        u32 plttMaxCount = 0;
-        if (plttSheet && this->file.getPaletteData(plttSheet, &plttSize)) {
-            plttMaxCount = plttSize / this->file.getPaletteSizeSingle(plttSheet);
-        }
-        plttMaxCount &= 0xFF;
+        u32 plttMaxCount = getPaletteCount(&this->file, plttSheet) & 0xFF;
         u32 plttIdx = (p->plttIdx > plttMaxCount ? 0 : p->plttIdx) & 0xFF;
-        plttAddr = this->file.getPaletteSizeSingle(plttSheet) * plttIdx + plttAddr;
+        u32 plttSizeSingle = this->file.getPaletteSizeSingle(plttSheet);
+        plttAddr = plttSizeSingle * plttIdx + plttAddr;
 
         NNS_G3dGeTexPlttBase(plttAddr, (GXTexFmt)texSheet->format);
-        NNS_G3dGeTexImageParam((GXTexFmt)texSheet->format, GX_TEXGEN_TEXCOORD, (GXTexSizeS)texSheet->s, (GXTexSizeT)texSheet->t, GX_TEXREPEAT_ST, (GXTexFlip)flip, (GXTexPlttColor0)pltt0, texAddr);
+        NNS_G3dGeTexImageParam((GXTexFmt)texSheet->format, GX_TEXGEN_TEXCOORD, (GXTexSizeS)texSheet->s, (GXTexSizeT)texSheet->t, GX_TEXREPEAT_ST, (GXTexFlip)flip, pltt0, texAddr);
     }
     return true;
 }
@@ -392,7 +401,7 @@ void C3DPlaneCtrl::finalize()
         }
         gAllocator.deallocate(this->list);
     }
-    this->file.finalize();
+    this->file.clear();
     this->list = NULL;
     this->count = 0;
     this->head = NULL;
@@ -401,13 +410,13 @@ void C3DPlaneCtrl::finalize()
 
 bool C3DPlaneCtrl::acquire()
 {
-    this->file.acquire();
+    this->file.acquireDefaultPltt();
     return true;
 }
 
 void C3DPlaneCtrl::release()
 {
-    this->file.release(false);
+    this->file.releaseDefaultPltt(false);
 }
 
 void C3DPlaneCtrl::draw(bool foreground)
@@ -424,7 +433,7 @@ void C3DPlaneCtrl::draw(bool foreground)
                     S3DPlanePart *p = this->getPart(s, i);
                     if (!p) continue;
                     if (p->unk_36 != 0) {
-                        if (!this->file.FUN_02059004(p->texSheet)) continue;
+                        if (!this->file.isInVram(p->texSheet)) continue;
                         this->setGraphicIdx(p, p->graphicIdx, false);
                     }
                     if (p->flags & PLANE_FLAG_VISIBLE && p->texWidth > 0 && p->texHeight > 0 && p->alpha != 0 &&
@@ -478,7 +487,7 @@ void C3DPlaneCtrl::setGraphicIdx(S3DPlanePart *p, u8 idx, bool async)
     if (sheet == NULL || sheet->data == NULL) {
         return;
     }
-    PAC_METADATA_MULTI_HEADER *psVar2 = static_cast<PAC_METADATA_MULTI_HEADER *>(this->file.FUN_02059bb4(sheet, NULL));
+    PAC_METADATA_MULTI_HEADER *psVar2 = static_cast<PAC_METADATA_MULTI_HEADER *>(this->file.getMetadata(sheet, NULL));
     if (async) {
         p->unk_36 = 1;
         p->graphicIdx = idx;
@@ -1067,34 +1076,42 @@ u8 C3DPlaneCtrl::getAnchorPctY(pskey_t set, int part)
 }
 void C3DPlaneCtrl::convertTilesToTex(sfkey_t key)
 {
-    u32 scrnSize;
-    C3DSprSheet *sheet;
-    PAC_METADATA_SINGLE *meta;
-    u8 *chara;
-    PAC_HEADER_IPM *pac_tex;
-    u32 tileSizeX;
-    int width;
-    u16 *screen;
-    int height;
     void *pac_tile;
+    u16 *screen;
+    u8 *chara;
+    PAC_METADATA_SINGLE *meta;
     void *pltt;
+    int height;
+    C3DSprSheet *sheet;
     int ppby;
-    u32 tempSize;
+    u32 scrnSize;
     u32 plttSize;
     u32 metaSize;
     u8 *destTex;
-    int y;
+    u8 *base;
+    u16 charIdx;
+    int row;
+    int width;
     int x;
+    int y;
     int r;
+    u32 tileSizeX;
+    u32 tileSize;
+    u32 tempSize;
+    PAC_HEADER_IPM *pac_tex;
+
     sheet = this->file.getSpriteSheet(key);
-    if (!sheet || !sheet->data) {
+    if (!sheet) {
         return;
     }
     pac_tile = sheet->data;
+    if (!pac_tile) {
+        return;
+    }
     if (PAC_GetFileCount(pac_tile) == 3) {
         return;
     }
-    meta = static_cast<PAC_METADATA_SINGLE *>(PAC_PSCM_GetMetaPtr(pac_tile));
+    meta = reinterpret_cast<PAC_METADATA_SINGLE *>(static_cast<u8 *>(pac_tile) + static_cast<PAC_HEADER_PSCM *>(pac_tile)->met.offs);
     screen = static_cast<u16 *>(PAC_PSCM_GetScreenPtr(pac_tile));
     chara = static_cast<u8 *>(PAC_PSCM_GetCharacterPtr(pac_tile));
     pltt = PAC_PSCM_GetPalettePtr(pac_tile);
@@ -1106,8 +1123,7 @@ void C3DPlaneCtrl::convertTilesToTex(sfkey_t key)
     tempSize = sizeof(PAC_HEADER_IPM) + scrnSize;
     plttSize = PAC_PSCM_GetPaletteSize(pac_tile);
     metaSize = PAC_PSCM_GetMetaSize(pac_tile);
-    pac_tex =
-        static_cast<PAC_HEADER_IPM *>(gAllocator.allocate(sizeof(PAC_HEADER_IPM) + scrnSize + plttSize + metaSize));
+    pac_tex = static_cast<PAC_HEADER_IPM *>(gAllocator.allocate(tempSize + plttSize + metaSize));
     pac_tex->s.nFiles = 3;
     pac_tex->img.offs = sizeof(PAC_HEADER_IPM);
     pac_tex->img.size = scrnSize;
@@ -1120,49 +1136,67 @@ void C3DPlaneCtrl::convertTilesToTex(sfkey_t key)
     tileSizeX = 8 / ppby;
     width = (8 << meta->wExp) / 8;
     height = (8 << meta->hExp) / 8;
-    for (y = 0; y < height; ++y) {
-        for (x = 0; x < width; ++x) {
-            u32 tileSize = tileSizeX * 8;
-            u16 charIdx = screen[y * width + x];
-            u8 *base = chara + tileSize * charIdx;
-            for (r = 0; r < 8; ++r) {
-                MI_CpuCopy8(base + r * tileSizeX, destTex + tileSizeX * ((r + y * 8) * width + x), tileSizeX);
-            };
-        }
+    y = 0;
+    if (height > 0) {
+        tileSize = tileSizeX * 8;
+        do {
+            for (x = 0; x < width; ++x) {
+                charIdx = screen[y * width + x];
+                base = chara + tileSize * charIdx;
+                for (r = 0; r < 8; ++r) {
+                    row = r + y * 8;
+                    MI_CpuCopy8(base + r * tileSizeX, destTex + tileSizeX * (row * width + x), tileSizeX);
+                }
+            }
+        } while (++y < height);
     }
     MI_CpuCopy8(pltt, PAC_IPM_GetPalettePtr(pac_tex), pac_tex->plt.size);
     MI_CpuCopy8(meta, PAC_IPM_GetMetaPtr(pac_tex), pac_tex->met.size);
-    DC_FlushRange(pac_tex, tempSize + pac_tex->plt.size + pac_tex->met.size);
+    DC_FlushRange(pac_tex, PAC_PSCM_GetMetaSize(pac_tile) + (tempSize + PAC_PSCM_GetPaletteSize(pac_tile)));
     gAllocator.deallocate(sheet->data);
     sheet->data = pac_tex;
 }
 
-void C3DPlaneCtrl::convertTilesToTex(sfkey_t key, /* r11 */ int width, /* 0x00 */ GXTexFmt fmt)
+void C3DPlaneCtrl::convertTilesToTex(sfkey_t key, int width, GXTexFmt fmt)
 {
-    /* 0x10 */ C3DSprSheet *sheet;
-    /* 0x0c */ void *pac_tile;
-    /* 0x2c */ u16 *screen;
-    /* 0x28 */ u8 *chara;
-    /* 0x34 */ void *pltt;
-    /* 0x20 */ int hExp;
-    /* 0x1c */ int wExp;
-    /* 0x24 */ int height;
-    /* r5 */ int hTex;
-    /* r0 */ int wTex;
-    /* r6 */ s32 ppby;
-    /* 0x08 */ int texWidth;
-    /* 0x04 */ int texHeight;
+    void *pac_tile;
+    u16 *screen;
+    u8 *chara;
+    void *pltt;
+    int height;
+    int wExp;
+    int hExp;
+    int texWidth;
+    int texHeight;
+    C3DSprSheet *sheet;
+    int wTex;
+    int hTex;
+    s32 ppby;
     u32 scrnSize;
     u32 plttSize;
+    int plttOffs;
+    u32 tileSize;
     u32 totalSize;
-    /* 0x04 */ PAC_HEADER_IPM *pac_tex;
+    int tileSizeX;
+    PAC_HEADER_IPM *pac_tex;
     u8 *destImg;
+    PAC_METADATA_SINGLE *meta;
+    u16 charIdx;
+    u8 *src;
+    int row;
+    int x;
+    int y;
+    int r;
+    int tileCountW;
 
     sheet = this->file.getSpriteSheet(key);
-    if (!sheet || !sheet->data) {
+    if (!sheet) {
         return;
     }
     pac_tile = sheet->data;
+    if (!pac_tile) {
+        return;
+    }
     if (PAC_GetFileCount(pac_tile) < 3) {
         return;
     }
@@ -1202,39 +1236,29 @@ void C3DPlaneCtrl::convertTilesToTex(sfkey_t key, /* r11 */ int width, /* 0x00 *
     pac_tex->s.nFiles = 3;
     pac_tex->img.offs = sizeof(PAC_HEADER_IPM);
     pac_tex->img.size = scrnSize;
-    int plttOffs = sizeof(PAC_HEADER_IPM) + pac_tex->img.size;
+    plttOffs = sizeof(PAC_HEADER_IPM) + pac_tex->img.size;
     pac_tex->plt.offs = plttOffs;
     pac_tex->plt.size = PAC_PSC_GetPaletteSize(pac_tile);
     pac_tex->met.offs = plttOffs + pac_tex->plt.size;
     pac_tex->met.size = sizeof(PAC_METADATA_SINGLE);
     pac_tex->e.unk_0 = totalSize;
     destImg = static_cast<u8 *>(PAC_IPM_GetImagePtr(pac_tex));
-
-    u32 tileSizeX;
-    u32 tileCountW;
-    /* r6 */ int y;
-    /* r7 */ int x;
-    /* r8 */ int r;
-    u32 tileSize;
-    u16 charIdx;
-    u8 *src;
-    u32 unk1;
-    u32 unk2;
     tileSizeX = 8 / ppby;
     tileCountW = wTex / 8;
-    for (y = 0; y < height; ++y) {
-        for (x = 0; x < width; ++x) {
-            tileSize = tileSizeX * 8;
-            charIdx = screen[y * width + x];
-            src = chara + tileSize * charIdx;
-            for (r = 0; r < 8; ++r) {
-                unk1 = (r + y * 8);
-                unk2 = unk1 * tileCountW + x;
-                MI_CpuCopy8(src + r * tileSizeX, destImg + tileSizeX * unk2, tileSizeX);
+    y = 0;
+    if (height > 0) {
+        tileSize = tileSizeX * 8;
+        do {
+            for (x = 0; x < width; ++x) {
+                charIdx = screen[y * width + x];
+                src = chara + tileSize * charIdx;
+                for (r = 0; r < 8; ++r) {
+                    row = r + y * 8;
+                    MI_CpuCopy8(src + r * tileSizeX, destImg + tileSizeX * (row * tileCountW + x), tileSizeX);
+                }
             }
-        }
+        } while (++y < height);
     }
-    PAC_METADATA_SINGLE *meta;
     MI_CpuCopy8(pltt, PAC_IPM_GetPalettePtr(pac_tex), PAC_IPM_GetPaletteSize(pac_tex));
     meta = static_cast<PAC_METADATA_SINGLE *>(PAC_IPM_GetMetaPtr(pac_tex));
     meta->count = 1;
@@ -1243,8 +1267,8 @@ void C3DPlaneCtrl::convertTilesToTex(sfkey_t key, /* r11 */ int width, /* 0x00 *
     meta->fmt = fmt;
     meta->unk_8 = 0;
     meta->unk_a = 0;
-    meta->width = width * 8;
-    meta->height = height * 8;
+    meta->width = texWidth;
+    meta->height = texHeight;
     DC_FlushRange(pac_tex, totalSize);
     gAllocator.deallocate(sheet->data);
     sheet->data = static_cast<void *>(pac_tex);

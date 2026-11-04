@@ -1,7 +1,8 @@
 #pragma once
 
+#include <nitro.h>
+
 #include "CScreenManager.hpp"
-#include <nitro/fs/overlay.h>
 
 typedef enum {
     GAME_MODE_NONE = 0,

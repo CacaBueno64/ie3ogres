@@ -773,8 +773,8 @@ void FUN_ov16_020f1d64(void)
     g3DGameMapObject->closeModels();
     g2DGChar->FUN_02057238();
     g3DSpriteCtrl->FUN_ov16_02116834();
-    g3DPlaneCtrl->file.FUN_02059880();
-    g3DVramMan->FUN_02051e50();
+    g3DPlaneCtrl->file.evictVram();
+    g3DVramMan->resetUploadQueue();
 }
 
 #pragma opt_rotateloops off
@@ -790,7 +790,7 @@ void FUN_ov16_020f1e14(void)
     g3DGameMapObject->setupModels();
     g2DGChar->FUN_02057250();
     g3DSpriteCtrl->FUN_ov16_02116848();
-    g3DPlaneCtrl->file.FUN_020598ec();
+    g3DPlaneCtrl->file.restoreVram();
 
     for (int i = 0; i < 5; i++) {
         OS_WaitVBlankIntr();

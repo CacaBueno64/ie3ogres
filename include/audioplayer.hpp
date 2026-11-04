@@ -1,11 +1,11 @@
 #pragma once
 
 // clang-format off
-#include <nitro/types.h>   // for s32, BOOL, u16, u8, u32, s8, s16
-#include <DSE.h>           // for DSESsdPlayNormalParamRecord, DSESsdStreamInitDataRec
+#include <nitro.h>
+#include <DSE.h>
 
-#include "cnvdat.h"        // for SSoundRecordData
-#include "filesystem.hpp"  // for filekey_t
+#include "cnvdat.h"
+#include "filesystem.hpp"
 // clang-format on
 
 class CAllocator;

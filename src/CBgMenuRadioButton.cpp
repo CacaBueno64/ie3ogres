@@ -1,6 +1,6 @@
 #include "CBgMenuRadioButton.hpp"
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "CAllocator.hpp"
 #include "init/arm9_init.hpp" // IWYU pragma: keep

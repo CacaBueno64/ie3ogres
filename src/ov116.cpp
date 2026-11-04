@@ -1,7 +1,7 @@
 // clang-format off
 #include "ov116.hpp"
 
-#include <nitro/mi/memory.h>  // for MI_CpuFill8
+#include <nitro.h>
 // clang-format on
 
 const UnkStruct_ov116_02124EA0 ov116_02124EA0 = UnkStruct_ov116_02124EA0(0x840800, 0x4e2000, 0x0000EA3C, 0x800, 0x00009CCD, 0x2000);

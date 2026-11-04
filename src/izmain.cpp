@@ -1,54 +1,31 @@
 // clang-format off
 #include "izmain.hpp"
 
-#include <cstddef>                      // for NULL
+#include <nitro.h>
 
-#include <nitro/fs/api.h>               // for FS_Init, FS_DMA_NOT_USE
-#include <nitro/fx/fx.h>                // for FX_Init
-#include <nitro/gx/g3x.h>               // for G3X_InitMtxStack
-#include <nitro/gx/gx.h>                // for GXS_DispOff, GX_DispOff, GX_Init, GX_SetDispSelect, GX_VBlankIntr, GX_DISP_SELECT_SUB_MAIN
-#include <nitro/gx/gx_vramcnt.h>        // for GX_DisableBankForLCDC, GX_SetBankForLCDC, GX_VRAM_LCDC_ALL
-#include <nitro/gx/gxcommon.h>          // for GX_DMAID
-#include <nitro/hw/ARM9/ioreg_GX.h>     // for reg_GX_MASTER_BRIGHT
-#include <nitro/hw/ARM9/ioreg_GXS.h>    // for reg_GXS_DB_MASTER_BRIGHT
-#include <nitro/hw/ARM9/mmap_global.h>  // for HW_DB_OAM, HW_DB_OAM_SIZE, HW_DB_PLTT, HW_DB_PLTT_SIZE, HW_LCDC_VRAM, HW_LCDC_VRAM_SIZE, HW_OAM, HW_OAM_SIZE, HW_PLTT, HW_PLTT_SIZE
-#include <nitro/mi/exMemory.h>          // for MI_PROCESSOR_ARM9
-#include <nitro/mi/memory.h>            // for MI_CpuClearFast, MI_CpuFillFast
-#include <nitro/os/ARM9/cache.h>        // for DC_FlushRange
-#include <nitro/os/common/alarm.h>      // for OS_InitAlarm
-#include <nitro/os/common/alloc.h>      // for OS_CreateHeap, OS_SetCurrentHeap, OSHeapHandle
-#include <nitro/os/common/arena.h>      // for OS_ARENA_MAIN, OS_AllocFromMainArenaLo, OS_GetMainArenaHi, OS_GetMainArenaLo, OS_SetMainArenaLo
-#include <nitro/os/common/init.h>       // for OS_Init
-#include <nitro/os/common/interrupt.h>  // for OS_EnableIrqMask, OS_IE_V_BLANK, OS_DisableIrq, OS_EnableIrq, OS_SetIrqCheckFlag, OS_SetIrqFunction, OS_IE_FIFO_RECV
-#include <nitro/os/common/system.h>     // for OS_Terminate, OS_WaitVBlankIntr
-#include <nitro/os/common/thread.h>     // for OS_InitThread
-#include <nitro/os/common/tick.h>       // for OS_InitTick
-#include <nitro/rtc/ARM9/api.h>         // for RTC_Init
-#include <nitro/spi/ARM9/tp.h>          // for TP_GetUserInfo, TP_Init, TP_SetCalibrateParam, TPCalibrateParam
-
-#include "C2DAdventureLogic.hpp"        // for C2DAdventureLogic
-#include "C2DGChar.hpp"                 // for C2DGChar
-#include "C3DDevice.hpp"                // for C3DDevice
-#include "C3DGameChar.hpp"              // for C3DGameChar
-#include "C3DGameEffect.hpp"            // for C3DGameEffect
-#include "C3DGameMap.hpp"               // for C3DGameMap
-#include "C3DGameMapObject.hpp"         // for C3DGameMapObject
-#include "C3DMagicCamera.hpp"           // for C3DMagicCamera
-#include "C3DPlaneCtrl.hpp"             // for C3DPlaneCtrl
-#include "C3DSpriteCtrl.hpp"            // for C3DSpriteCtrl
-#include "C3DVramMan.hpp"               // for C3DVramMan
-#include "CDungeonManager.hpp"          // for CDungeonManager
-#include "CFileIO.hpp"                  // for CFileIO, gFileIO
-#include "CLogicThink.hpp"              // for CLogicThink, gLogicThink
-#include "CNsbResourceMan.hpp"          // for CNsbResourceMan
-#include "CSprAnimCtrl.hpp"             // for CSprAnimCtrl
-#include "CSprButtonCtrl.hpp"           // for CSprButtonCtrl
-#include "CWirelessUtil.hpp"            // for CWirelessUtil, gWirelessUtil
-#include "CAllocator.hpp"                // for gAllocator, CAllocator
-#include "CCameraCtrl.hpp"         // for CCameraCtrl
-#include "filesystem.hpp"               // for ReadFile, Init
-#include "movieplayer.hpp"              // for MoviePlayer, gMoviePlayer
-#include "ov130.hpp"                    // for InitArena, InitConfig
+#include "C2DAdventureLogic.hpp"
+#include "C2DGChar.hpp"
+#include "C3DDevice.hpp"
+#include "C3DGameChar.hpp"
+#include "C3DGameEffect.hpp"
+#include "C3DGameMap.hpp"
+#include "C3DGameMapObject.hpp"
+#include "C3DMagicCamera.hpp"
+#include "C3DPlaneCtrl.hpp"
+#include "C3DSpriteCtrl.hpp"
+#include "C3DVramMan.hpp"
+#include "CDungeonManager.hpp"
+#include "CFileIO.hpp"
+#include "CLogicThink.hpp"
+#include "CNsbResourceMan.hpp"
+#include "CSprAnimCtrl.hpp"
+#include "CSprButtonCtrl.hpp"
+#include "CWirelessUtil.hpp"
+#include "CAllocator.hpp"
+#include "CCameraCtrl.hpp"
+#include "filesystem.hpp"
+#include "movieplayer.hpp"
+#include "ov130.hpp"
 // clang-format on
 
 extern "C" {
@@ -59,7 +36,7 @@ void VBlankIntr(void)
 {
     unk_02099E8C.EvenFrames++;
     if (unk_02099E8C.unkA4) {
-        unk_02099E8C.unkA4->FUN_02051c10();
+        unk_02099E8C.unkA4->onVBlank();
     }
     if (unk_02099E8C.WaitVBlank && unk_02099E8C.EvenFrames >= 2 || unk_02099E8C.UpdateBrightness) {
         reg_GX_MASTER_BRIGHT = unk_02099E8C.MainScreenBrightness;

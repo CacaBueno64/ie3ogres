@@ -1,9 +1,9 @@
 // clang-format off
 #include "ov101.hpp"
 
-#include <nitro/fx/fx_cp.h>  // for FX_Sqrt
+#include <nitro.h>
 
-#include "archive.hpp"       // for Close, SFileData
+#include "archive.hpp"
 // clang-format on
 
 #ifdef __cplusplus

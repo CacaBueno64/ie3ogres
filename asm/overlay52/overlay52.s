@@ -461,11 +461,11 @@ _0211A550:
 	cmp r1, #0
 	beq _0211A580
 	ldr r0, [r7]
-	bl FUN_020591e8
+	bl _ZN10C3DSprFile8freeVramEi
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0x1c]
 	ldr r0, [r7]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r5, lsl #2
 	str r4, [r0, #0x1c]
 _0211A580:
@@ -824,7 +824,7 @@ _0211AA34:
 	cmp r1, #0
 	beq _0211AA6C
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211AA6C
 	add r0, r7, r6, lsl #2
@@ -832,7 +832,7 @@ _0211AA34:
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211AA6C:
 	add r6, r6, #1
 _0211AA70:
@@ -855,7 +855,7 @@ _0211AA94:
 	cmp r1, #0
 	beq _0211AAB8
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -1803,11 +1803,11 @@ _0211B72C:
 	cmp r1, #0
 	beq _0211B76C
 	ldr r0, [r6]
-	bl FUN_020591e8
+	bl _ZN10C3DSprFile8freeVramEi
 	add r0, r5, r4, lsl #2
 	ldr r1, [r0, #8]
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, r5
 	bl FUN_ov52_0211b8a0
 	add r0, r0, r4, lsl #2
@@ -2325,7 +2325,7 @@ FUN_ov52_0211bdcc: ; 0x0211BDCC
 	add r2, sp, #0
 	mov r1, r6
 	mov r3, r5
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r4]
 	mov r1, r6
 	ldr r5, [sp]
@@ -2444,7 +2444,7 @@ _0211BF78:
 	mov r2, r6
 	mov r3, r5
 	str r12, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211BFC0:
@@ -2463,7 +2463,7 @@ _0211BFC0:
 	mov r2, r6
 	mov r3, r5
 	str r12, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0xc
 	ldmfd sp!, {r4, r5, r6, r7, pc}
 _0211C008: .word gFont8
@@ -2632,7 +2632,7 @@ _0211C1D4:
 	mov r1, #4
 	ldr r0, [r5]
 	mov r2, #5
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r6, r0
 	mov r0, r4
 	bl FUN_ov52_0211b8a0
@@ -2643,7 +2643,7 @@ _0211C1D4:
 	ldr r0, [r5]
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211C254:
 	mov r0, r4
 	bl FUN_ov52_0211b8a0
@@ -2655,7 +2655,7 @@ _0211C254:
 	mov r1, #4
 	ldr r0, [r5]
 	mov r2, #1
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r6, r0
 	mov r0, r4
 	bl FUN_ov52_0211b8a0
@@ -2666,7 +2666,7 @@ _0211C254:
 	ldr r0, [r5]
 	mov r2, #0
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	add sp, sp, #0xb0
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
 _0211C2B4: .word ov52_02123F2C
@@ -8389,7 +8389,7 @@ _021211C4:
 	ldr r3, _02121264 ; =0x02124780
 	add r1, sp, #0x1c
 	mov r2, #5
-	bl FUN_02058a10
+	bl _ZN10C3DSprFile12loadFromFileEP6FSFileiPKcbPvmm
 	mov r1, #0xc
 	mul r1, r6, r1
 	str r4, [r7, r1]

@@ -1,7 +1,8 @@
 #pragma once
 
+#include <nitro.h>
+
 #include "CNsbResourceMan.hpp"
-#include <nitro/types.h>
 
 class CModel; // avoid cyclic dependency
 class CMotion

@@ -173,7 +173,7 @@ _0211A0F8:
 	str r1, [sp, #8]
 	mov r3, r4
 	mov r1, #5
-	bl FUN_02058684
+	bl _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
 	ldr r1, [r6, #0xa4]
 	add sp, sp, #0x8c
 	str r0, [r1, r5, lsl #2]
@@ -221,7 +221,7 @@ _0211A1C0:
 	str r5, [sp, #4]
 	mov r3, r7
 	str r5, [sp, #8]
-	bl FUN_02058684
+	bl _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
 	add r1, r10, r9, lsl #2
 	str r0, [r1, #0xa8]
 	add r9, r9, #1
@@ -364,10 +364,10 @@ FUN_ov37_0211a3a4: ; 0x0211A3A4
 	ldmeqfd sp!, {r3, r4, r5, pc}
 	ldr r4, _0211A3E4 ; =g3DPlaneCtrl
 	ldr r0, [r4]
-	bl FUN_020591e8
+	bl _ZN10C3DSprFile8freeVramEi
 	ldr r1, [r5]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, #0
 	str r0, [r5]
 	mov r0, #1
@@ -389,14 +389,14 @@ _0211A400:
 	cmp r1, #0
 	beq _0211A454
 	ldr r0, [r7]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0x78]
 	ldr r0, [r7]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A454
 	add r0, r6, r5, lsl #2
@@ -404,7 +404,7 @@ _0211A400:
 	ldr r0, [r7]
 	mov r2, r4
 	mov r3, r4
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A454:
 	add r5, r5, #1
 _0211A458:
@@ -421,14 +421,14 @@ _0211A474:
 	cmp r1, #0
 	beq _0211A4E0
 	ldr r0, [r7]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0xa8]
 	ldr r0, [r7]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A4E0
 	add r1, r6, r5, lsl #2
@@ -442,7 +442,7 @@ _0211A474:
 	ldr r0, [r7]
 	mov r2, r4
 	mov r3, r4
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A4E0:
 	add r5, r5, #1
 _0211A4E4:
@@ -470,14 +470,14 @@ _0211A51C:
 	cmp r1, #0
 	beq _0211A588
 	ldr r0, [r8]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldr r1, [r7, #0xa4]
 	ldr r0, [r8]
 	ldr r1, [r1, r6, lsl #2]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A588
 	ldr r1, [r7, #0xa4]
@@ -491,7 +491,7 @@ _0211A51C:
 	ldr r1, [r1, r6, lsl #2]
 	mov r2, r9
 	mov r3, r9
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A588:
 	add r6, r6, #1
 _0211A58C:

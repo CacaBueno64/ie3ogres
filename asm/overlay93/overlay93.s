@@ -36,7 +36,7 @@ FUN_ov93_02124d08: ; 0x02124D08
 	str r6, [sp, #0xc]
 	mov r3, #1
 	str r6, [sp, #0x10]
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	mov r1, #0x2c
 	mla r1, r4, r1, r5
 	str r0, [r1, #0x14]
@@ -54,10 +54,10 @@ FUN_ov93_02124d90: ; 0x02124D90
 	ldr r0, _02124DAC ; =g3DPlaneCtrl
 	ldr r1, [r2, #0x14]
 	ldr r0, [r0]
-	ldr r12, _02124DB0 ; =FUN_02058ee0
+	ldr r12, _02124DB0 ; =_ZN10C3DSprFile7releaseEi
 	bx r12
 _02124DAC: .word g3DPlaneCtrl
-_02124DB0: .word FUN_02058ee0
+_02124DB0: .word _ZN10C3DSprFile7releaseEi
 	arm_func_end FUN_ov93_02124d90
 
 	arm_func_start FUN_ov93_02124db4
@@ -94,7 +94,7 @@ FUN_ov93_02124df4: ; 0x02124DF4
 	ldr r1, [r1, #0x14]
 	ldr r0, [r0]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	mov r0, r5
 	mov r1, r4
 	bl FUN_ov93_02124e84
@@ -114,13 +114,13 @@ FUN_ov93_02124e34: ; 0x02124E34
 	ldr r4, _02124E80 ; =g3DPlaneCtrl
 	mov r1, r5
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, pc}
 	ldr r0, [r4]
 	mov r1, r5
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	mov r0, #1
 	ldmfd sp!, {r3, r4, r5, pc}
 _02124E80: .word g3DPlaneCtrl

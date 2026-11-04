@@ -1,7 +1,6 @@
 #pragma once
 
-#include <nitro/gx/gxcommon.h>
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "C3DSprFile.hpp"
 
@@ -198,8 +197,13 @@ private:
         return s->parts + (part - 1);
     }
 
+    inline C3DSprFile *getFile(void)
+    {
+        return &this->file;
+    }
+
     public:
-    C3DSprFile file;
+    C3DSprFile file; // TODO: move it back to private and use the `getFile` inline instead
     private:
     S3DPlaneSet *list;
     s32 count;

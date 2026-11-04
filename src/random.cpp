@@ -1,10 +1,7 @@
 // clang-format off
 #include "random.hpp"
 
-#include <nitro/gx/gx.h>                // for GX_GetVCount
-#include <nitro/mi/memory.h>            // for MI_CpuCopy8
-#include <nitro/os/ARM9/cache.h>        // for DC_FlushRange
-#include <nitro/os/common/interrupt.h>  // for OS_GetVBlankCount
+#include <nitro.h>
 // clang-format on
 
 namespace Random

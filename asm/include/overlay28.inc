@@ -5,8 +5,8 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZdlPv
 .public _ZN11AudioPlayer12FUN_0202b838Eiii
 .public _ZN14CRecordManager15getRecordHeaderEP13SRecordHeader
@@ -31,8 +31,8 @@
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 .public _ZN11AudioPlayer15isPlayingEffectEi
 .public _ZN11AudioPlayer10stopEffectEim
@@ -50,7 +50,7 @@
 .public FUN_ov16_0210f484
 .public FUN_ov16_0210efac
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_020747e0
 .public STD_CopyLString
 .public STD_GetStringLength

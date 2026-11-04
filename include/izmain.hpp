@@ -1,10 +1,9 @@
 #pragma once
 
 // clang-format off
-#include <nitro/fs/overlay.h>  // for FS_EXTERN_OVERLAY
-#include <nitro/types.h>       // for u8, u16, u32, BOOL, s32
+#include <nitro.h>
 
-#include "CScreenManager.hpp"  // for SceneType
+#include "CScreenManager.hpp"
 #include "unk_0209A454.hpp"
 // clang-format on
 

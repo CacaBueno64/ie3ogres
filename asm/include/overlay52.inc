@@ -16,8 +16,8 @@
 .public g3DPlaneCtrl
 .public gLogicThink
 .public unk_02099F44
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7destroyEi
 .public _ZN7Archive5CloseEP9SFileDatai
 .public FUN_ov16_0210e9d8
@@ -30,9 +30,9 @@
 .public gDeltaTime
 .public FUN_ov16_0210f20c
 .public FUN_ov16_0210f484
-.public FUN_02059004
-.public FUN_02059038
-.public FUN_02058e30
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public _ZN11CLogicThink11getTeamInfoEi
 .public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
@@ -67,7 +67,7 @@
 .public _ZN12C3DPlaneCtrl9getSetExtEi
 .public _ZN12C3DPlaneCtrl8setAlphaEiih
 .public _ZN12C3DPlaneCtrl8getAlphaEii
-.public FUN_0205935c
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12CFontManager10setSpacingEii
@@ -76,11 +76,11 @@
 .public gFont12Manager
 .public DC_FlushRange
 .public _ZN12CFontManager12resetSpacingEv
-.public FUN_02059288
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
 .public MI_CpuCopy8
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e68c
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_020A1040
@@ -160,7 +160,7 @@
 .public FUN_ov131_0213d4fc
 .public FUN_ov131_0213d6ac
 .public FUN_ov131_0213da70
-.public FUN_02058a10
+.public _ZN10C3DSprFile12loadFromFileEP6FSFileiPKcbPvmm
 .public FUN_0205aefc
 .public FUN_0205af58
 .public FUN_0205aea0

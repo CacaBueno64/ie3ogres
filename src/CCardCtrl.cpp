@@ -1,15 +1,13 @@
 // clang-format off
 #include "CCardCtrl.hpp"
 
-#include <nitro/card/backup.h>         // for CARD_LockBackup, CARD_UnlockBackup, CARDBackupType, CARD_BACKUP_TYPE_DEVICE_EEPROM, CARD_BACKUP_TYPE_DEVICE_FLASH, CARD_BACKUP_TYPE_DEVICE_FRAM, CARD_BACKUP_TYPE_DEVICE_MASK, CARD_IdentifyBackup, CARD_TryWaitBackupAsync
-#include <nitro/card/common.h>         // for CARD_GetResultCode, CARD_Init
-#include <nitro/card/eeprom.h>         // for CARD_ReadEeprom, CARD_WriteAndVerifyEeprom
-#include <nitro/card/flash.h>          // for CARD_ReadFlash, CARD_WriteAndVerifyFlash
-#include <nitro/card/fram.h>           // for CARD_ReadFram, CARD_WriteAndVerifyFram
-#include <nitro/card/types.h>          // for CARDResult
-#include <nitro/os/common/spinLock.h>  // for OS_GetLockID
-#include <nitro/types.h>               // for BOOL, u32, FALSE, TRUE
+#include <nitro.h>
+
+
 // clang-format on
+
+#define CARD_BACKUP_TYPE_DEVICE_DUMMY 4
+#define CARD_BACKUP_TYPE_DUMMY CARD_BACKUP_TYPE_DEFINE(DUMMY, 16, 0) // 0x1004
 
 CCardCtrl::CCardCtrl()
 {

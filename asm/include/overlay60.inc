@@ -68,12 +68,12 @@
 .public MI_CpuFill
 .public STD_TSPrintf
 .public FUN_ov16_020f5450
-.public FUN_02058684
+.public _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
 .public _ZN10FileSystem12CloseArchiveEi
 .public g3DPlaneCtrl
-.public FUN_02058e30
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_020571ac
 .public FUN_020576a0
 .public FUN_ov16_0210e15c
@@ -94,7 +94,7 @@
 .public FUN_ov16_020f5738
 .public _ZN12C3DPlaneCtrl7acquireEv
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7releaseEv
 .public _ZN12C3DPlaneCtrl6setTexEiih
 .public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
@@ -102,8 +102,8 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public FUN_02054070
-.public FUN_02059630
-.public FUN_0205935c
+.public _ZN10C3DSprFile11createTex16Ehh
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
@@ -112,7 +112,7 @@
 .public _ZN12CFontManager10setSpacingEii
 .public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
 .public _ZN12CFontManager12resetSpacingEv
-.public FUN_02059288
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
 .public gFont12Manager
 .public _ZN12C3DPlaneCtrl12setColorMaskEit
 .public _ZN12C3DPlaneCtrl6createEib

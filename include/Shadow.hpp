@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 namespace Shadow {
     extern void Initialize(int nVertices);

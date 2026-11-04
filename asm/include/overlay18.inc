@@ -3,9 +3,9 @@
 .public _ZN12C3DPlaneCtrl7acquireEv
 .public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public sprintf
-.public FUN_02059038
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN10CAllocator10deallocateEPv
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN12C3DPlaneCtrl6createEib
 .public _ZN12C3DPlaneCtrl6setPosEiss
 .public _ZN12C3DPlaneCtrl6setTexEiih
@@ -21,9 +21,9 @@
 .public unk_020A1240
 .public unk_020A9C40
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7releaseEv
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData

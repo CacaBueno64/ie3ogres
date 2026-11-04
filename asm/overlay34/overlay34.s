@@ -3229,11 +3229,11 @@ _0211CB60:
 	cmp r1, #0
 	beq _0211CB90
 	ldr r0, [r7]
-	bl FUN_020591e8
+	bl _ZN10C3DSprFile8freeVramEi
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0x138]
 	ldr r0, [r7]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r5, lsl #2
 	str r4, [r0, #0x138]
 _0211CB90:
@@ -3281,7 +3281,7 @@ _0211CC0C:
 	cmp r1, #0
 	beq _0211CC44
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211CC44
 	add r0, r7, r6, lsl #2
@@ -3289,7 +3289,7 @@ _0211CC0C:
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211CC44:
 	add r6, r6, #1
 _0211CC48:

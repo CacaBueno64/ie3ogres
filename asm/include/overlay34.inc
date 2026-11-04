@@ -67,10 +67,10 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
-.public FUN_020591e8
-.public FUN_02058ee0
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN12C3DPlaneCtrl6createEib
 .public _ZN12C3DPlaneCtrl6setTexEiih
 .public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb

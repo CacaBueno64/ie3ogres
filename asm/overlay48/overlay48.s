@@ -91,7 +91,7 @@ _02119FEC:
 	str r3, [sp, #0x10]
 	add r2, sp, #0x1c
 	mov r3, r6
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	add r1, r10, r9, lsl #2
 	add r1, r1, #0x5000
 	str r0, [r1, #0x5f8]
@@ -179,7 +179,7 @@ _0211A150:
 	cmp r1, #0
 	beq _0211A178
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	add r0, r0, #0x5000
 	str r7, [r0, #0x5f8]
@@ -206,7 +206,7 @@ _0211A1A0:
 	cmp r1, #0
 	beq _0211A1C8
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -235,7 +235,7 @@ _0211A1F8:
 	cmp r1, #0
 	beq _0211A238
 	ldr r0, [r6]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A238
 	add r0, r5, r4, lsl #2
@@ -244,7 +244,7 @@ _0211A1F8:
 	ldr r0, [r6]
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A238:
 	add r4, r4, #1
 _0211A23C:

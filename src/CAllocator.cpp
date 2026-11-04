@@ -1,8 +1,7 @@
 // clang-format off
 #include "CAllocator.hpp"
 
-#include <nitro/mi.h>
-#include <nitro/os/ARM9/cache.h>
+#include <nitro.h>
 
 //#include "init/arm9_init.hpp"
 // clang-format on

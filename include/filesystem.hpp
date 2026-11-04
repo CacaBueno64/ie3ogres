@@ -1,11 +1,9 @@
 #pragma once
 
 // clang-format off
-#include <nitro/fs/types.h>       // for FSFileID
-#include <nitro/mi/uncompress.h>  // for MICompressionHeader
-#include <nitro/types.h>          // for s32, BOOL, u32, u16
+#include <nitro.h>
 
-#include "archive.hpp"            // for PackEntry_HOSC
+#include "archive.hpp"
 // clang-format on
 
 typedef int archandle_t;

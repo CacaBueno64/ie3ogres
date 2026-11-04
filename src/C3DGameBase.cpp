@@ -1,10 +1,12 @@
 // clang-format off
 #include "C3DGameBase.hpp"
 
-#include <nitro/mi/memory.h>
-
 #include "CAllocator.hpp"
+
+#include "init/arm9_init.hpp"
 // clang-format on
+
+extern const u32 FUN_02087268[2] = {0, 0};
 
 C3DGameBase::C3DGameBase()
 {

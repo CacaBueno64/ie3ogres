@@ -2512,7 +2512,7 @@ _0211C16C:
 	cmp r1, #0
 	beq _0211C194
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	add r0, r0, #0x3000
 	str r7, [r0, #0x1b8]
@@ -2770,14 +2770,14 @@ _0211C4F0:
 	cmp r1, #0
 	beq _0211C54C
 	ldr r0, [r6]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r5, r4, lsl #2
 	add r0, r0, #0x3000
 	ldr r1, [r0, #0x1b8]
 	ldr r0, [r6]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211C54C
 	add r0, r5, r4, lsl #2
@@ -2786,7 +2786,7 @@ _0211C4F0:
 	ldr r0, [r6]
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211C54C:
 	add r4, r4, #1
 _0211C550:
@@ -3306,7 +3306,7 @@ _0211CC7C:
 	ldr r2, [sp, #0x44]
 	ldr r1, [sp, #0x48]
 	ldr r0, [r4]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r6, r0
 	add r0, r9, r8, lsl #3
 	add r0, r0, #0x3000
@@ -3315,14 +3315,14 @@ _0211CC7C:
 	ldr r0, [r4]
 	mov r1, r6
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	mov r0, #0
 	str r0, [sp, #0x38]
 	ldr r0, [r4]
 	mov r1, r6
 	add r2, sp, #0x38
 	add r3, sp, #0x3c
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r4]
 	mov r1, r6
 	ldr r10, [sp, #0x38]
@@ -3367,7 +3367,7 @@ _0211CC7C:
 	str r10, [sp, #4]
 	mov r1, r6
 	str r10, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	ldr r0, [sp, #0x20]
 	ldr r1, [sp, #0x40]
 	sub r0, r8, r0
@@ -3753,7 +3753,7 @@ _0211D300:
 	ldr r2, [sp, #0x38]
 	ldr r1, [sp, #0x3c]
 	ldr r0, [r7]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r5, r0
 	add r0, r9, r8, lsl #3
 	add r0, r0, #0x3000
@@ -3762,14 +3762,14 @@ _0211D300:
 	ldr r0, [r7]
 	mov r1, r5
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	mov r0, #0
 	str r0, [sp, #0x2c]
 	ldr r0, [r7]
 	mov r1, r5
 	add r2, sp, #0x2c
 	add r3, sp, #0x30
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r7]
 	mov r1, r5
 	ldr r10, [sp, #0x2c]
@@ -3814,7 +3814,7 @@ _0211D300:
 	str r10, [sp, #4]
 	mov r1, r5
 	str r10, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	sub r0, r8, r6
 	ldr r1, [sp, #0x34]
 	mov r0, r0, lsl #4
@@ -3923,7 +3923,7 @@ _0211D588:
 	cmp r1, #0
 	beq _0211D5B0
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r8, r7, lsl #3
 	add r0, r0, #0x3000
 	str r5, [r0, #0x254]
@@ -3953,7 +3953,7 @@ _0211D5F0:
 	cmp r1, #0
 	beq _0211D618
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r8, r7, lsl #3
 	add r0, r0, #0x3000
 	str r5, [r0, #0x2d4]
@@ -4020,7 +4020,7 @@ _0211D6D0:
 	cmp r1, #0
 	beq _0211D6F8
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r8, r7, lsl #3
 	add r0, r0, #0x3000
 	str r5, [r0, #0x254]
@@ -4075,7 +4075,7 @@ _0211D788:
 	cmp r1, #0
 	beq _0211D7B0
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r8, r7, lsl #3
 	add r0, r0, #0x3000
 	str r5, [r0, #0x2d4]

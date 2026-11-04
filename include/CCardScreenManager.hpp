@@ -1,13 +1,12 @@
 #pragma once
 
 // clang-format off
-#include <nitro/spi/ARM9/tp.h>  // for TPData
-#include <nitro/types.h>        // for u16, u32, BOOL, u8
+#include <nitro.h>
 
-#include "CScreenManager.hpp"   // for CScreenManager
-#include "CommonScreen.hpp"     // for CommonMainScreen
-#include "archive.hpp"          // for ImagePAC, SFileData
-#include "graphics.hpp"         // for EngineSelect
+#include "CScreenManager.hpp"
+#include "CommonScreen.hpp"
+#include "archive.hpp"
+#include "graphics.hpp"
 // clang-format on
 
 class CMainCardScreenInit : public CommonMainScreen

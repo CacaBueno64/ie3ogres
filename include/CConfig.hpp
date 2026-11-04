@@ -1,8 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/types.h>  // for BOOL, s32, u32
-#include <nitro/fx/fx.h>
+#include <nitro.h>
 // clang-format on
 
 #define CONFIG_MAX_ENTRIES 96

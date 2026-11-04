@@ -1,20 +1,12 @@
 // clang-format off
 #include "filesystem.hpp"
 
-#include <cstddef>                   // for NULL
+#include <nitro.h>
 
-#include <nitro/fs/api.h>            // for FS_ChangeDir
-#include <nitro/fs/file.h>           // for FS_InitFile, FSFile, FS_CloseFile, FS_ConvertPathToFileID, FS_GetLength, FS_OpenFileFast, FS_SeekFile, FS_OpenFile, FS_ReadFile
-#include <nitro/math/crc.h>          // for MATH_CalcCRC32, MATH_CRC32InitTable, MATHCRC32Table
-#include <nitro/mi/memory.h>         // for MI_CpuClear8, MI_CpuClearFast
-#include <nitro/os/ARM9/cache.h>     // for DC_FlushRange
-#include <nitro/os/common/system.h>  // for OS_Terminate
-#include <nitro/os/common/thread.h>  // for OS_CreateThread, OS_Sleep, OS_WakeupThreadDirect, OSThread
-#include <nitro/std/string.h>        // for STD_TSPrintf
+#include "CAllocator.hpp"
+#include "thread.hpp"
 
-#include "CAllocator.hpp"             // for CAllocator, gAllocator
-#include "thread.hpp"                // for Yield
-#include "init/arm9_init.hpp"        // IWYU pragma: keep
+#include "init/arm9_init.hpp"
 // clang-format on
 
 namespace FileSystem

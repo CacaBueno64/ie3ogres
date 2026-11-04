@@ -607,7 +607,7 @@ BOOL CFontManager::init(void *pNftrFile, u32 baseColor, u8 encoding)
         file = pNftrFile;
     }
     
-    if (baseColor >= COLOR_MAX) {
+    if (baseColor >= COLOR_SIZE) {
         baseColor = COLOR_TRANSPARENT;
     }
     

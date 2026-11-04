@@ -3,28 +3,57 @@
 // clang-format off
 #include <nitro.h>
 #include <nnsys.h>
+
+#include "vram.hpp"
 // clang-format on
 
 class C3DVramMan
 {
 public:
-    /* 0x02051690 */ void init(int texBlkSize, int pltBlkCount, int queueBlkCount);
-    /* 0x02051778 */ void reset(void);
-    /* 0x02051b28 */ bool setup(void *data);
-    /* 0x02051b58 */ bool release(void *data);
-    /* 0x02051b84 */ bool loadNNSFile(void *data);
-    void FUN_02051c10(void);
-    void FUN_02051e50(void);
-    
+    bool initVramManagers(void);
+    bool queueTexUpload(u32 slotAddr, u32 size, void *src, u32 chunkSize, u8 *pendingFlag);
+    bool queuePlttUpload(u32 slotAddr, u32 size, void *src, u32 chunkSize, u8 *pendingFlag);
+    bool init(int texBlockCount, int plttBlockCount, int uploadEntryCount);
+    void reset(void);
+    bool allocTex(SVRAMResource *tex, s32 size);
+    bool allocPltt(SVRAMResource *pltt, s32 size);
+    void freeRes(SVRAMResource *res);
+    BOOL uploadRes(SVRAMResource *res, u32 offset, void *src, u32 size, BOOL immediate, u32 chunkSize, u8 *pendingFlag);
+    BOOL queueUpload(SVRAMResource *res, u32 offset, void *src, u32 size, u32 chunkSize, u8 *pendingFlag);
+    BOOL uploadResNow(SVRAMResource *res, u32 offset, void *src, u32 size);
+    BOOL setupNNSFile(void *data);
+    BOOL releaseNNSFile(void *data);
+    BOOL loadNNSFile(void *data);
+    bool getResKeyAddr(SVRAMResource *res, u32 *outAddr);
+    void onVBlank(void);
+    void beginLoadTex(void);
+    void endLoadTex(void);
+    void beginLoadTexPltt(void);
+    void endLoadTexPltt(void);
+    BOOL evictRes(SVRAMResource *res);
+    BOOL restoreRes(SVRAMResource *res);
+    void resetUploadQueue(void);
+    BOOL loadNNSFileInternal(NNSG3dResFileHeader *header);
+    void uploadNNSTexAsync(NNSG3dResTex *tex, int param2);
+    void uploadNNSPlttAsync(NNSG3dResTex *tex, int param2);
+
+    static int getTexSize(GXTexSizeS s, GXTexSizeT t, GXTexFmt fmt);
+    static int getPlttSize(GXTexFmt fmt);
+
+    typedef enum {
+        FLAG_TEX_INIT = 1,
+        FLAG_PLTT_INIT = 2,
+    } Flag;
+
     void *texWork;
     void *plttWork;
     OSMutex mutex;
-    u32 unk20;
+    u32 unk20; // unused?
     u32 texWorkSize;
     u32 plttWorkSize;
-    u32 flags; /* 1: pltt, 0: tex */
-    s32 pendingLoads;
-    s32 unk34;
+    u32 flags;
+    int texLoads;
+    int plttLoads;
     u32 unk38;
 };
 

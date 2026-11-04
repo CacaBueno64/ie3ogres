@@ -16,12 +16,12 @@
 .public MI_CpuFill8
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
-.public FUN_02058e30
-.public FUN_02059004
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
 .public _ZN12C3DPlaneCtrl17convertTilesToTexEii8GXTexFmt
-.public FUN_02059038
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti
@@ -80,7 +80,7 @@
 .public strcpy
 .public FUN_020735a0
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public sprintf
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
 .public OS_Sleep

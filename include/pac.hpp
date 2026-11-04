@@ -1,7 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/types.h>  // for u8, u16, u32, s16
+#include <nitro.h>
 // clang-format on
 
 /*
@@ -27,7 +27,7 @@ typedef struct {
 
 /* These might belong in a different header*/
 /* 0x2053960 */ extern "C" void *PAC_GetOffset(void *pac, int idx);
-/* 0x2053994 */ extern "C" s32 PAC_GetSize(void *pac, int idx);
+/* 0x2053994 */ extern "C" u32 PAC_GetSize(void *pac, int idx);
 /* 0x20539c8 */ extern "C" void *PAC_GetPtr(void *pac, int idx);
 
 /*

@@ -1,7 +1,6 @@
 #pragma once
 
-#include <nitro/spi/ARM9/tp.h>
-#include <nitro/types.h>
+#include <nitro.h>
 
 class CommonScreen
 {

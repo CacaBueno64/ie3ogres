@@ -5,10 +5,10 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_0206c7dc
 .public gUnitMan
 .public unk_020A1640
@@ -57,8 +57,8 @@
 .public gSprAnimCtrl
 .public FUN_ov16_0210e10c
 .public FUN_ov16_0210e15c
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN8Graphics12FadeInScreenE12EngineSelectl
 .public _ZN11AudioPlayer12FUN_0202dbd0Ei
 .public _ZN11AudioPlayer12FUN_0202d578Ei

@@ -12,6 +12,7 @@
 #include "CAllocator.hpp"            // for gAllocator, CAllocator
 #include "archive.hpp"              // for PackHeaderGetOffsetAndSize
 #include "cnvdat.h"                 // for SScriptFileRecordData
+
 #include "init/arm9_init.hpp"       // IWYU pragma: keep
 // clang-format on
 

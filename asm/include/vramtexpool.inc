@@ -1,0 +1,12 @@
+.public _ZN10CAllocator8allocateEm
+.public gAllocator
+.public MIi_CpuClearFast
+.public unk_020B5BDC
+.public _ZN10C3DVramMan8allocTexEP13SVRAMResourcel
+.public _ZN10CAllocator10deallocateEPv
+.public g3DVramMan
+.public _ZN10C3DVramMan7freeResEP13SVRAMResource
+.public _ZN10C3DVramMan11queueUploadEP13SVRAMResourcemPvmmPh
+.public _ZN10C3DVramMan13getResKeyAddrEP13SVRAMResourcePm
+.public _ZN10C3DVramMan8evictResEP13SVRAMResource
+.public _ZN10C3DVramMan10restoreResEP13SVRAMResource

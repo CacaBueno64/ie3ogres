@@ -1,20 +1,20 @@
 .public DC_FlushRange
-.public FUN_020515c8
-.public FUN_0205162c
-.public FUN_02051bb8
+.public _ZN10C3DVramMan10getTexSizeE10GXTexSizeS10GXTexSizeT8GXTexFmt
+.public _ZN10C3DVramMan11getPlttSizeE8GXTexFmt
+.public _ZN10C3DVramMan13getResKeyAddrEP13SVRAMResourcePm
 .public FUN_02053a5c
-.public FUN_02058644
-.public FUN_0205866c
-.public FUN_02058e50
-.public FUN_02059038
-.public FUN_020591e8
-.public FUN_02059880
-.public FUN_020598ec
-.public FUN_0205999c
-.public FUN_02059aa0
-.public FUN_02059b8c
-.public FUN_02059bb4
-.public FUN_ov16_020efee8
+.public _ZN10C3DSprFile4initEi
+.public _ZN10C3DSprFile5clearEv
+.public _ZN10C3DSprFile11tryFinalizeEP11C3DSprSheet
+.public _ZN10C3DSprFile10loadToVramEihi
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile9evictVramEv
+.public _ZN10C3DSprFile11restoreVramEv
+.public _ZN10C3DSprFile14getTextureDataEP11C3DSprSheetPm
+.public _ZN10C3DSprFile14getPaletteDataEP11C3DSprSheetPm
+.public _ZN10C3DSprFile11getMetadataEiPm
+.public _ZN10C3DSprFile11getMetadataEP11C3DSprSheetPm
+.public WorldToMatchCamera
 .public FUN_ov16_020f7c34
 .public FX_SinCosTable_
 .public FX_Sqrt
@@ -279,11 +279,11 @@ FUN_ov16_02114e94: ; 0x02114E94
 	str r4, [sp, #0x10]
 	ldr r7, [sp, #0x3c]
 	ldr r6, [sp, #0x40]
-	bl FUN_0205999c
+	bl _ZN10C3DSprFile14getTextureDataEP11C3DSprSheetPm
 	ldr r1, [sp, #0x38]
 	add r2, sp, #0xc
 	add r0, r9, #4
-	bl FUN_02059aa0
+	bl _ZN10C3DSprFile14getPaletteDataEP11C3DSprSheetPm
 	ldr r0, [sp, #0xc]
 	cmp r0, #0x20
 	blt _02114F04
@@ -311,7 +311,7 @@ _02114F10:
 	add r2, sp, #0x14
 	ldr r0, [r0]
 	add r1, r5, #0x18
-	bl FUN_02051bb8
+	bl _ZN10C3DVramMan13getResKeyAddrEP13SVRAMResourcePm
 	ldr r1, [sp, #0x14]
 	ldr r0, [r7, #0xc]
 	add r0, r1, r0
@@ -329,7 +329,7 @@ _02114F6C:
 	ldrb r0, [r6, #2]
 	movne r5, #0
 	moveq r5, #1
-	bl FUN_0205162c
+	bl _ZN10C3DVramMan11getPlttSizeE8GXTexFmt
 	mov r4, r0
 	ldr r0, [sp, #0xc]
 	mov r1, r4
@@ -568,7 +568,7 @@ _021152D0:
 	add r3, sp, #0x18
 	mov r0, r0, asr #0xc
 	mov r1, r1, asr #0xc
-	bl FUN_ov16_020efee8
+	bl WorldToMatchCamera
 	ldr r0, [sp, #0x1c]
 	cmp r0, #0
 	mov r0, r0, lsl #0xc
@@ -1279,20 +1279,20 @@ FUN_ov16_02115d00: ; 0x02115D00
 	str r0, [sp, #0x14]
 	ldr r1, [sp, #0x18]
 	add r0, r10, #4
-	bl FUN_02058e50
+	bl _ZN10C3DSprFile11tryFinalizeEP11C3DSprSheet
 	cmp r0, #0
 	addne sp, sp, #0x28
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, [sp, #0x14]
 	add r0, r10, #4
-	bl FUN_02058e50
+	bl _ZN10C3DSprFile11tryFinalizeEP11C3DSprSheet
 	cmp r0, #0
 	addne sp, sp, #0x28
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	ldr r1, [sp, #0x18]
 	add r0, r10, #4
 	mov r2, #0
-	bl FUN_02059bb4
+	bl _ZN10C3DSprFile11getMetadataEP11C3DSprSheetPm
 	movs r4, r0
 	addeq sp, sp, #0x28
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
@@ -1407,19 +1407,19 @@ _02115EF4:
 	mov r5, r0
 	mov r1, r5
 	add r0, r7, #4
-	bl FUN_02058e50
+	bl _ZN10C3DSprFile11tryFinalizeEP11C3DSprSheet
 	cmp r0, #0
 	addne sp, sp, #0xc
 	ldmnefd sp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}
 	mov r1, r5
 	mov r2, r6
 	add r0, r7, #4
-	bl FUN_02059bb4
+	bl _ZN10C3DSprFile11getMetadataEP11C3DSprSheetPm
 	mov r4, r0
 	mov r1, r5
 	mov r2, r6
 	add r0, r7, #4
-	bl FUN_0205999c
+	bl _ZN10C3DSprFile14getTextureDataEP11C3DSprSheetPm
 	mov r5, r0
 	ldrsh r2, [r10, #0x10]
 	mov r0, r7
@@ -1458,7 +1458,7 @@ _02115FD4:
 	ldrh r0, [r4, #8]
 	ldrh r1, [r4, #0xa]
 	ldrb r2, [r2, #2]
-	bl FUN_020515c8
+	bl _ZN10C3DVramMan10getTexSizeE10GXTexSizeS10GXTexSizeT8GXTexFmt
 	ldrh r1, [r10, #0xa]
 	mov r6, r0
 	tst r1, #0x200
@@ -1567,7 +1567,7 @@ FUN_ov16_02116140: ; 0x02116140
 	mov r2, r5
 	add r0, r8, #4
 	mov r6, r3
-	bl FUN_02059b8c
+	bl _ZN10C3DSprFile11getMetadataEiPm
 	movs r1, r0
 	moveq r0, r5
 	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
@@ -1633,7 +1633,7 @@ _0211623C:
 	mov r4, #0
 	mov r2, r4
 	add r0, r7, #4
-	bl FUN_02059b8c
+	bl _ZN10C3DSprFile11getMetadataEiPm
 	movs r1, r0
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldrsh r2, [r6, #0x10]
@@ -1863,7 +1863,7 @@ _ZN13C3DSpriteCtrl4initEii: ; 0x0211652C
 	movle r0, #0
 	ldmlefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r7, #4
-	bl FUN_02058644
+	bl _ZN10C3DSprFile4initEi
 	mov r0, #0x24
 	mul r5, r6, r0
 	ldr r0, _021165B0 ; =gAllocator
@@ -1909,7 +1909,7 @@ _021165EC:
 	bl _ZN10CAllocator10deallocateEPv
 _021165F8:
 	add r0, r5, #4
-	bl FUN_0205866c
+	bl _ZN10C3DSprFile5clearEv
 	mov r0, #0
 	str r0, [r5, #0x20]
 	str r0, [r5, #0x24]
@@ -2097,7 +2097,7 @@ _02116830: .word FUN_ov16_021166dc
 FUN_ov16_02116834: ; 0x02116834
 	stmfd sp!, {r3, lr}
 	add r0, r0, #4
-	bl FUN_02059880
+	bl _ZN10C3DSprFile9evictVramEv
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov16_02116834
@@ -2106,7 +2106,7 @@ FUN_ov16_02116834: ; 0x02116834
 FUN_ov16_02116848: ; 0x02116848
 	stmfd sp!, {r3, lr}
 	add r0, r0, #4
-	bl FUN_020598ec
+	bl _ZN10C3DSprFile11restoreVramEv
 	mov r0, #1
 	ldmfd sp!, {r3, pc}
 	arm_func_end FUN_ov16_02116848
@@ -2168,20 +2168,20 @@ _021168E8:
 
 	arm_func_start FUN_ov16_021168f8
 FUN_ov16_021168f8: ; 0x021168F8
-	ldr r12, _0211690C ; =FUN_02059038
+	ldr r12, _0211690C ; =_ZN10C3DSprFile10loadToVramEihi
 	add r0, r0, #4
 	and r2, r2, #0xff
 	mov r3, #0
 	bx r12
-_0211690C: .word FUN_02059038
+_0211690C: .word _ZN10C3DSprFile10loadToVramEihi
 	arm_func_end FUN_ov16_021168f8
 
 	arm_func_start FUN_ov16_02116910
 FUN_ov16_02116910: ; 0x02116910
-	ldr r12, _0211691C ; =FUN_020591e8
+	ldr r12, _0211691C ; =_ZN10C3DSprFile8freeVramEi
 	add r0, r0, #4
 	bx r12
-_0211691C: .word FUN_020591e8
+_0211691C: .word _ZN10C3DSprFile8freeVramEi
 	arm_func_end FUN_ov16_02116910
 
 	arm_func_start FUN_ov16_02116920
@@ -2201,7 +2201,7 @@ FUN_ov16_02116930: ; 0x02116930
 	mov r2, r4
 	add r0, r7, #4
 	mov r5, r3
-	bl FUN_02059b8c
+	bl _ZN10C3DSprFile11getMetadataEiPm
 	movs r1, r0
 	beq _0211696C
 	mov r0, r7
@@ -2222,7 +2222,7 @@ FUN_ov16_02116974: ; 0x02116974
 	mov r5, r2
 	mov r2, r4
 	add r0, r6, #4
-	bl FUN_02059b8c
+	bl _ZN10C3DSprFile11getMetadataEiPm
 	movs r1, r0
 	beq _021169A8
 	mov r0, r6

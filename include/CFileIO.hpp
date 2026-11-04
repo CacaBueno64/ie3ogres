@@ -1,14 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <cstddef>                   // for size_t
-
-#include <nitro/fs/file.h>           // for FSFile
-#include <nitro/fs/types.h>          // for FSFileID
-#include <nitro/mi/uncompress.h>     // for MICompressionHeader
-#include <nitro/os/common/mutex.h>   // for OSMutex
-#include <nitro/os/common/thread.h>  // for OSThread
-#include <nitro/types.h>             // for BOOL, s32, u8, u32
+#include <nitro.h>
 // clang-format on
 
 class CAllocator;

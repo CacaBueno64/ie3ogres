@@ -1,12 +1,12 @@
 .public MI_CpuFill8
 .public sprintf
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public g3DPlaneCtrl
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02059038
-.public FUN_02058e30
-.public FUN_02059004
+.public _ZN10C3DSprFile10loadToVramEihi
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
 .public _ZN12C3DPlaneCtrl6setTexEiih
 .public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 .public _ZN12C3DPlaneCtrl6setPosEiiss

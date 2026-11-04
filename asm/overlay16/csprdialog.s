@@ -1,9 +1,9 @@
 .public DC_FlushRange
-.public FUN_02058ee0
-.public FUN_02059038
-.public FUN_02059288
-.public FUN_0205935c
-.public FUN_02059630
+.public _ZN10C3DSprFile7releaseEi
+.public _ZN10C3DSprFile10loadToVramEihi
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
@@ -171,20 +171,20 @@ _0210FEC8:
 	beq _0210FEE4
 	ldr r0, _02110034 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	str r6, [r10, #0x1c]
 _0210FEE4:
 	ldr r5, _02110034 ; =g3DPlaneCtrl
 	ldrb r2, [r10, #0x32]
 	ldrb r1, [r10, #0x31]
 	ldr r0, [r5]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r1, r0
 	str r1, [r10, #0x1c]
 	ldr r0, [r5]
 	mov r3, r6
 	mov r2, #1
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	strb r6, [r10, #0x30]
 _0210FF14:
 	ldr r1, [r10, #0x1c]
@@ -212,7 +212,7 @@ _0210FF60:
 	ldr r0, [r11]
 	add r3, sp, #0x24
 	str r6, [sp, #0x20]
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r7, [sp, #0x20]
 	cmp r7, #0
 	beq _0211001C
@@ -253,7 +253,7 @@ _0210FF60:
 	str r6, [sp]
 	str r6, [sp, #4]
 	str r6, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 _0211001C:
 	add sp, sp, #0x28
 	mov r0, #1
@@ -675,7 +675,7 @@ _021105F4:
 	beq _02110614
 	ldr r0, _02110620 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _02110614:
 	mov r0, r6
 	bl FUN_ov16_0210fd34

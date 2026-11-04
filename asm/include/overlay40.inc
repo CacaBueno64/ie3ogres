@@ -14,11 +14,11 @@
 .public FUN_ov1_020dbfdc
 .public FUN_ov16_020f5450
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public g3DPlaneCtrl
-.public FUN_02059004
-.public FUN_02059038
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_020728e8
 .public FUN_0206f9ec

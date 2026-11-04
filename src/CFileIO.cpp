@@ -1,17 +1,11 @@
 // clang-format off
 #include "CFileIO.hpp"
 
-#include <cstring>                // for strcmp, strrchr, strchr
+#include <string.h>
+#include <nitro.h>
 
-#include <nitro/fs/api.h>         // for FS_TryLoadTable
-#include <nitro/fs/archive.h>     // for FS_FindArchive
-#include <nitro/fs/romfat.h>      // for FS_UnloadArchiveTables
-#include <nitro/mi/memory.h>      // for MI_CpuClear8, MI_CpuFill8
-#include <nitro/os/ARM9/cache.h>  // for DC_FlushRange
-#include <nitro/std/string.h>     // for STD_CopyString, STD_GetStringLength
-
-#include "CAllocator.hpp"          // for CAllocator
-#include "archive.hpp"            // for SFPHeader, FUN_02053914, SFPEntry
+#include "CAllocator.hpp"
+#include "archive.hpp"
 // clang-format on
 
 /* TODO: Create header */ extern "C" void FUN_02053914(char *dst, const char *src); // lowercase to uppercase
@@ -610,7 +604,7 @@ void CFileIO::processRequests(void *arg)
 
 BOOL CFileIO::getDestSize(FileRequest *request, FSFile *file, size_t *out_size)
 {
-    if (!std::strchr(request->path, '%')) {
+    if (!strchr(request->path, '%')) {
         if (FS_ReadFile(file, &request->compHeader, sizeof(request->compHeader)) < 0) {
             while (!FS_CloseFile(file)) {
             }
@@ -677,7 +671,7 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
 {
     Archive::SFPHeader *header = reinterpret_cast<Archive::SFPHeader *>(file);
 
-    if (std::strcmp(header->magic, "SFP")) {
+    if (strcmp(header->magic, "SFP")) {
         return 0;
     }
 
@@ -685,11 +679,11 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
 
     // remove subfolders: "path/to/file.SFP" -> "file.SFP"
     {
-        char *c = std::strrchr(filename, '/');
+        char *c = strrchr(filename, '/');
         if (c) {
             filename = c + 1;
         }
-        c = std::strrchr(filename, '/');
+        c = strrchr(filename, '/');
         if (c) {
             filename = c + 1;
         }
@@ -700,7 +694,7 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
     int idx;
 
     for (idx = 0; idx < entry_count; idx++) {
-        if (std::strcmp(file + entries[idx].stringOffset, filename) == 0) {
+        if (strcmp(file + entries[idx].stringOffset, filename) == 0) {
             break;
         }
     }
@@ -713,7 +707,7 @@ size_t CFileIO::readFromSFP(char *filename, void **dst, char *file)
     file = file + header->fileSize;
     header = reinterpret_cast<Archive::SFPHeader *>(file);
 
-    if (std::strcmp(file, "SFP")) {
+    if (strcmp(file, "SFP")) {
         return 0;
     }
 

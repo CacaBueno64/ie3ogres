@@ -1,9 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
-#include <nitro/os/common/alloc.h>
-#include <nitro/os/common/arena.h>
-#include <nitro/os/common/mutex.h>
+#include <nitro.h>
 
 class CFileIO;
 class CAllocator {

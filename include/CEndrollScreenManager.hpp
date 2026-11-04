@@ -1,12 +1,11 @@
 #pragma once
 
 // clang-format off
-#include <nitro/spi/ARM9/tp.h>  // for TPData
-#include <nitro/types.h>        // for BOOL, u16, u32, u8
+#include <nitro.h>
 
-#include "CScreenManager.hpp"   // for CScreenManager
-#include "CommonScreen.hpp"     // for CommonMainScreen, CommonSubScreen
-#include "archive.hpp"          // for SFileData
+#include "CScreenManager.hpp"
+#include "CommonScreen.hpp"
+#include "archive.hpp"
 // clang-format on
 
 typedef struct {

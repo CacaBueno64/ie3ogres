@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 /* TODO: Put in common Header */
 typedef struct {

@@ -2,9 +2,7 @@
 
 // clang-format off
 #include <nitro.h>
-
-#include <nnsys/g2d/fmt/g2d_Font_data.h>
-#include <nnsys/g2d/g2d_Font.h>
+#include <nnsys.h>
 // clang-format on
 
 extern u16 gFontBlankCode;
@@ -23,7 +21,7 @@ public:
         COLOR_PURPLE,
         COLOR_YELLOW,
         COLOR_GRAY,
-        COLOR_MAX = 16,
+        COLOR_SIZE = 16,
     } Color;
 
     typedef enum {

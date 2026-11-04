@@ -459,7 +459,7 @@ _0211A4D4:
 	cmp r1, #0
 	beq _0211A4EC
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211A4EC:
 	add r4, r4, #1
 _0211A4F0:
@@ -474,7 +474,7 @@ _0211A504:
 	cmp r1, #0
 	beq _0211A51C
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211A51C:
 	add r4, r4, #1
 _0211A520:
@@ -499,14 +499,14 @@ _0211A54C:
 	cmp r1, #0
 	beq _0211A5A0
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r7, r6, lsl #2
 	ldr r1, [r0, #0x1c]
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A5A0
 	add r0, r7, r6, lsl #2
@@ -514,7 +514,7 @@ _0211A54C:
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A5A0:
 	add r6, r6, #1
 _0211A5A4:
@@ -725,13 +725,13 @@ FUN_ov84_0211a860: ; 0x0211A860
 	mov r2, r5
 	ldr r0, [r4]
 	mov r1, #6
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r1, r0
 	str r1, [r6, #0x34]
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A8A8:
 	ldr r5, _0211A95C ; =g3DPlaneCtrl
 	ldr r9, [r6, #0x34]
@@ -741,7 +741,7 @@ _0211A8A8:
 	add r3, sp, #0x24
 	mov r1, r9
 	str r8, [sp, #0x20]
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r5]
 	mov r1, r9
 	ldr r10, [sp, #0x20]
@@ -774,7 +774,7 @@ _0211A8A8:
 	str r8, [sp, #4]
 	mov r1, r9
 	str r8, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	mov r0, r9
 	add sp, sp, #0x28
 	ldmfd sp!, {r4, r5, r6, r7, r8, r9, r10, pc}

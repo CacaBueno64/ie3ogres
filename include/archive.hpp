@@ -1,11 +1,9 @@
 #pragma once
 
 // clang-format off
-#include <cstddef>                // for size_t
-#include <nitro/mi/uncompress.h>  // for MICompressionHeader
-#include <nitro/types.h>          // for u32, s32, BOOL, u8, u16
+#include <nitro.h>
 
-#include "CUnitMan.hpp"           // for Unit, gWearSetFile, st_wear_set
+#include "CUnitMan.hpp"
 // clang-format on
 
 typedef struct {

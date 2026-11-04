@@ -35,7 +35,7 @@
 .public FUN_0205079c
 .public FUN_02050820
 .public _ZN6Random5RandAEm
-.public FUN_02040dc8
+.public _ZN4Vram7MemMoveEPKvPvm
 .public FUN_02050740
 .public _ZN11CLogicThink12FUN_0204ec3cEv
 .public _ZN10CAllocator10deallocateEPv
@@ -317,10 +317,10 @@
 .public FUN_020577a4
 .public FUN_02055b6c
 .public FUN_02055b8c
-.public FUN_02058684
-.public FUN_02059038
+.public _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public _ZN12C3DPlaneCtrl6createEib
 .public _ZN12C3DPlaneCtrl9setTexAllEih
 .public _ZN12C3DPlaneCtrl6setTexEiih
@@ -336,5 +336,5 @@
 .public g3DPlaneCtrl
 .public _ZN12C3DPlaneCtrl9clearFlagEit
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public FX_Sqrt

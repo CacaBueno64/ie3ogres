@@ -5,8 +5,8 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
 .public FUN_ov16_020f2a18
@@ -23,7 +23,7 @@
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
 .public sprintf
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public gAllocator
 .public FUN_ov16_0210e7d0
@@ -32,7 +32,7 @@
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public _ZN12C3DPlaneCtrl10setFlagAllEitb
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_ov16_0210fc74
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_020f47fc
@@ -48,8 +48,8 @@
 .public _ZN11AudioPlayer12FUN_0202c44cEil
 .public gDeltaTime
 .public gAudioPlayer
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN11AudioPlayer15isPlayingEffectEi
 .public FUN_ov16_020f2aa4
 .public FUN_ov16_020f2a74

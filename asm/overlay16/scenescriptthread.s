@@ -187,9 +187,9 @@
 .public _ZN7CFileIO11tryFinalizeEPv
 .public FUN_ov16_020ee034
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public _ZN10CAllocator10deallocateEPv
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_020385dc
 .public FUN_0205fa18
 .public FUN_ov16_020fa71c
@@ -199,7 +199,7 @@
 .public _ZN12C3DPlaneCtrl18FUN_ov16__021113f0Ei
 .public MI_CpuCopy8
 .public DC_FlushRange
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public gAllocator
 .public g3DPlaneCtrl
 .public g3DGameMapObject
@@ -10405,7 +10405,7 @@ _02106A08:
 	str r3, [sp, #0x10]
 	mov r1, #5
 	mov r3, r7
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	str r0, [r5, #0x18]
 	ldr r0, _02106CA4 ; =gAllocator
 	ldr r1, [r5, #0x1c]
@@ -10441,7 +10441,7 @@ _02106AD0:
 	ldr r0, _02106CB4 ; =02099F38h
 	mov r1, r8
 	ldr r0, [r0, #0x0] ; =_02099F38
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0x0
 	bgt _02106C80
 	ldr r0, [r6, #0x0]
@@ -10522,7 +10522,7 @@ _02106B44:
 	ldr r0, _02106CB4 ; =02099F38h
 	mov r1, r8
 	ldr r0, [r0, #0x0] ; =_02099F38
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	b _02106C44
 _02106C20:
 	ldr r0, [r6, #0x0]

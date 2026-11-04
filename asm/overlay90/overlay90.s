@@ -770,13 +770,13 @@ _0211A970:
 	cmp r1, #0
 	beq _0211A9C0
 	ldr r0, [r5]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, r7, lsl #2
 	ldr r1, [r0, #0x6c]
 	ldr r0, [r5]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A9C0
 	add r0, r4, r7, lsl #2
@@ -784,7 +784,7 @@ _0211A970:
 	ldr r0, [r5]
 	mov r2, r6
 	mov r3, r6
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A9C0:
 	add r7, r7, #1
 _0211A9C4:
@@ -1121,7 +1121,7 @@ _0211ADC4:
 	cmp r1, #0
 	beq _0211ADE4
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x6c]
 _0211ADE4:
@@ -1223,20 +1223,20 @@ FUN_ov90_0211aec4: ; 0x0211AEC4
 	ldr r2, [sp, #0x2c]
 	ldr r1, [sp, #0x30]
 	ldr r0, [r4]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r2, #0
 	str r0, [r8]
 	mov r1, r0
 	ldr r0, [r4]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r1, [r8]
 	mov r2, #0
 	str r2, [sp, #0x24]
 	ldr r0, [r4]
 	add r2, sp, #0x24
 	add r3, sp, #0x28
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r4]
 	ldr r1, [r8]
 	ldr r11, [sp, #0x24]
@@ -1296,7 +1296,7 @@ _0211AFE4:
 	str r4, [sp, #4]
 	mov r2, r11
 	str r4, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 _0211B06C:
 	ldr r0, [r9]
 	ldr r4, _0211B11C ; =g3DPlaneCtrl
@@ -2018,7 +2018,7 @@ _0211BA9C:
 	cmp r1, #0
 	beq _0211BABC
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r9, lsl #2
 	str r5, [r0, #0x164]
 _0211BABC:
@@ -2206,7 +2206,7 @@ _0211BD44:
 	beq _0211BD64
 	ldr r0, _0211BD78 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, #0
 	str r0, [r4, #0x3c]
 _0211BD64:
@@ -2374,7 +2374,7 @@ _0211BFB8:
 	cmp r1, #0
 	beq _0211BFD8
 	ldr r0, [r5]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r4, r7, lsl #2
 	str r6, [r0, #0x3c]
 _0211BFD8:
@@ -2526,7 +2526,7 @@ _0211C1E4:
 	beq _0211C204
 	ldr r0, _0211C248 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, #0
 	str r0, [r4, #0x1c4]
 _0211C204:

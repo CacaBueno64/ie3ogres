@@ -5,9 +5,6 @@ typedef int threadhandle_t;
 namespace Thread
 {
 
-#define THREAD_STACK_TABLE_COUNT 16
-#define THREAD_FUNCTION_TABLE_COUNT 16
-
 void Init(void);
 void Exit(void);
 void ReturnStack(void);

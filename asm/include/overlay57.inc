@@ -15,7 +15,7 @@
 .public FUN_ov16_020f5450
 .public unk_02099E98
 .public unk_020A1640
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public g3DPlaneCtrl
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public FUN_0206dcd4
@@ -36,11 +36,11 @@
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_020571ac
 .public FUN_020576a0
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_0205106c
 .public FUN_0205107c
 .public FUN_0204fe48
@@ -151,9 +151,9 @@
 .public _fsub
 .public _ffix
 .public FUN_ov16_02116654
-.public FUN_02059630
-.public FUN_0205935c
-.public FUN_02059288
+.public _ZN10C3DSprFile11createTex16Ehh
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
 .public _ZN12CFontManager10setSpacingEii
 .public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE

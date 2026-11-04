@@ -50,12 +50,12 @@ _02119F88:
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	str r0, [r7, #0x4c]
 	ldr r0, [r4]
 	mov r1, r6
 	mov r2, r5
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	str r0, [r7, #0x50]
 	mov r0, r7
 	mov r1, #0
@@ -95,7 +95,7 @@ FUN_ov71_02119fe8: ; 0x02119FE8
 	ldr r2, _0211A054 ; =0x0211AF6C
 	mov r1, #5
 	str r12, [sp, #0x10]
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	add sp, sp, #0x1c
 	ldmia sp!, {pc}
 _0211A050: .word g3DPlaneCtrl
@@ -118,14 +118,14 @@ _0211A078:
 	cmp r1, #0
 	beq _0211A0EC
 	ldr r0, [r6]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	add r0, r5, r4, lsl #2
 	ldr r1, [r0, #0x30]
 	ldr r0, [r6]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A0EC
 	cmp r4, #6
@@ -142,7 +142,7 @@ _0211A0D4:
 	ldr r0, [r6]
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A0EC:
 	add r4, r4, #1
 _0211A0F0:
@@ -233,7 +233,7 @@ _0211A1FC:
 	cmp r1, #0
 	beq _0211A214
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211A214:
 	add r5, r5, #1
 _0211A218:
@@ -257,7 +257,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	add r3, sp, #0x24
 	mov r1, r10
 	str r7, [sp, #0x20]
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r9, [sp, #0x20]
 	cmp r9, #0
 	addeq sp, sp, #0x28
@@ -303,7 +303,7 @@ FUN_ov71_0211a228: ; 0x0211A228
 	str r7, [sp, #4]
 	mov r2, r9
 	str r7, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0x28
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A31C: .word g3DPlaneCtrl
@@ -325,7 +325,7 @@ FUN_ov71_0211a324: ; 0x0211A324
 	add r3, sp, #0x24
 	mov r1, r10
 	str r7, [sp, #0x20]
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r9, [sp, #0x20]
 	cmp r9, #0
 	addeq sp, sp, #0x48
@@ -367,7 +367,7 @@ FUN_ov71_0211a324: ; 0x0211A324
 	str r7, [sp, #4]
 	mov r2, r9
 	str r7, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _0211A40C: .word g3DPlaneCtrl

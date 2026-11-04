@@ -1,19 +1,16 @@
 // clang-format off
 #include "CScreenManager.hpp"
 
-#include <cstddef>              // for NULL
+#include <nitro.h>
 
-#include <nitro/fs/overlay.h>   // for FS_UnloadOverlay
-#include <nitro/gx/gx.h>        // for GX_SetDispSelect, GX_DISP_SELECT_MAIN_SUB, GX_DISP_SELECT_SUB_MAIN
-#include <nitro/mi/exMemory.h>  // for MI_PROCESSOR_ARM9
-#include <nitro/mi/memory.h>    // for MI_CpuClear8
-#include <nitro/spi/ARM9/tp.h>  // for TPData
-#include <nitro/types.h>        // for FALSE, BOOL, TRUE, u16, u32
+#include "CLogicThink.hpp"
+#include "CommonScreen.hpp"
+#include "graphics.hpp"
 
-#include "CLogicThink.hpp"      // for CLogicThink, gLogicThink
-#include "CommonScreen.hpp"     // for CommonMainScreen, CommonSubScreen, CommonScreen
-#include "graphics.hpp"         // for ENGINE_MAIN, ENGINE_SUB, EngineSelect, IsMainFading, IsSubFading, UpdateScreenFade, FadeInMain, FadeMainBlack, FadeSubBlack
+#include "init/arm9_init.hpp"
 // clang-format on
+
+extern const u32 FUN_02086d88[2] = {0, 0};
 
 CScreenManager::CScreenManager()
 {

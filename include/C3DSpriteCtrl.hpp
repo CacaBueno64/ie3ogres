@@ -1,7 +1,6 @@
 #pragma once
 
-#include <nitro/fx/fx.h>
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "C3DSprFile.hpp"
 

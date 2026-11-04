@@ -1,5 +1,7 @@
 // clang-format off
 #include "CDistanceMap.hpp"
+
+#include "init/arm9_init.hpp"
 // clang-format on
 
 #define DISTANCE_MAP_SIZE 32

@@ -12,10 +12,10 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_ov16_02110558
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
@@ -36,8 +36,8 @@
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_ov16_0210eab4
 .public MIi_CpuClearFast
 .public FUN_ov16_021109a0

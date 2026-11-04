@@ -1612,7 +1612,7 @@ _0211B49C:
 	cmp r1, #0
 	beq _0211B4BC
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x828]
 _0211B4BC:
@@ -1752,20 +1752,20 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	ldr r2, [sp, #0x2c]
 	ldr r1, [sp, #0x30]
 	ldr r0, [r4]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r2, #0
 	str r0, [r8]
 	mov r1, r0
 	ldr r0, [r4]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r1, [r8]
 	mov r2, #0
 	str r2, [sp, #0x24]
 	ldr r0, [r4]
 	add r2, sp, #0x24
 	add r3, sp, #0x28
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r4]
 	ldr r1, [r8]
 	ldr r6, [sp, #0x24]
@@ -1808,7 +1808,7 @@ FUN_ov53_0211b61c: ; 0x0211B61C
 	str r6, [sp]
 	str r6, [sp, #4]
 	str r6, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	ldr r0, [r9]
 	mov r1, r10
 	add r2, r0, #1
@@ -1974,13 +1974,13 @@ _0211B9A0:
 	cmp r1, #0
 	beq _0211B9F0
 	ldr r0, [r5]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, r7, lsl #2
 	ldr r1, [r0, #0x828]
 	ldr r0, [r5]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211B9F0
 	add r0, r4, r7, lsl #2
@@ -1988,7 +1988,7 @@ _0211B9A0:
 	ldr r0, [r5]
 	mov r2, r6
 	mov r3, r6
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211B9F0:
 	add r7, r7, #1
 _0211B9F4:
@@ -2523,7 +2523,7 @@ _0211C0FC:
 	add r0, r7, r6, lsl #2
 	ldr r1, [r0, #0x8b0]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r7, r6, lsl #2
 	str r5, [r0, #0x8b0]
 	add r6, r6, #1
@@ -3022,7 +3022,7 @@ FUN_ov53_0211c7e4: ; 0x0211C7E4
 	str r5, [r6, #0x898]
 	ldr r1, [r6, #0x8c0]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldr r0, _0211C834 ; =gSprButtonCtrl
 	str r5, [r6, #0x8c0]
 	ldr r0, [r0]
@@ -3382,7 +3382,7 @@ FUN_ov53_0211cd08: ; 0x0211CD08
 	str r5, [r6, #0x8a4]
 	ldr r1, [r6, #0x9f0]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldr r0, _0211CD58 ; =gSprButtonCtrl
 	str r5, [r6, #0x9f0]
 	ldr r0, [r0]
@@ -3642,7 +3642,7 @@ _0211D0A4:
 	cmp r1, #0
 	beq _0211D0C4
 	ldr r0, [r7]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r5, lsl #2
 	str r8, [r0, #0x90c]
 _0211D0C4:

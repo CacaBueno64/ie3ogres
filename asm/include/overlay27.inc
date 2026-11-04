@@ -5,8 +5,8 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZdlPv
 .public FUN_ov16_020f47fc
 .public FUN_ov16_020f3f60
@@ -26,8 +26,8 @@
 .public FUN_ov16_0210e6fc
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN14CScreenManager12setNextSceneE12EngineSelect9SceneType
 .public gDeltaTime
 .public unk_020A0640
@@ -43,7 +43,7 @@
 .public _ZN11AudioPlayer10playEffectEi
 .public gAudioPlayer
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FX_Sqrt
 .public _ZN12CommonScreen7vFUN_14Ev
 .public _ZN12CommonScreen7vFUN_24Ev

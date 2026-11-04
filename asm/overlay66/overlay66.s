@@ -82,7 +82,7 @@ FUN_ov66_02119fa8: ; 0x02119FA8
 	str r1, [sp, #0x10]
 	mov r3, r5
 	mov r1, #5
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	str r0, [r6, #0x10]
 	add sp, sp, #0x114
 	ldmfd sp!, {r3, r4, r5, r6, pc}
@@ -124,7 +124,7 @@ _0211A084:
 	cmp r1, #0
 	beq _0211A0A4
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x10]
 _0211A0A4:
@@ -148,14 +148,14 @@ FUN_ov66_0211a0b8: ; 0x0211A0B8
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r4, _0211A12C ; =g3DPlaneCtrl
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0x10]
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -164,7 +164,7 @@ FUN_ov66_0211a0b8: ; 0x0211A0B8
 	ldr r1, [r0, #0x10]
 	ldr r0, [r4]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	mov r0, #1
 	ldmfd sp!, {r4, r5, r6, pc}
 _0211A12C: .word g3DPlaneCtrl

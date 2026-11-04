@@ -8,8 +8,8 @@
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public FUN_ov16_02110558
 .public _ZN8CUnitManC1Ev
 .public FUN_0206c110
@@ -57,8 +57,8 @@
 .public FUN_0206c300
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public _ZN8Graphics15FadeScreenBlackE12EngineSelectl
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_ov16_0210e7d0
 .public _dflt
 .public pow
@@ -71,7 +71,7 @@
 .public rand
 .public _ZN12C3DPlaneCtrl7setPlttEiih
 .public _ZN12C3DPlaneCtrl10setPlttIdxEiih
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
@@ -101,9 +101,9 @@
 .public FUN_ov16_0210e720
 .public FUN_ov16_0210e69c
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public FUN_ov16_020ede60
 .public FUN_ov16_0210efac
 .public FUN_ov16_0210f484

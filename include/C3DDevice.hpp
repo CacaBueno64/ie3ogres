@@ -1,9 +1,6 @@
 #pragma once
 
-#include <nitro/gx/g3.h>
-#include <nitro/gx/g3x.h>
-#include <nitro/gx/gxcommon.h>
-#include <nitro/types.h>
+#include <nitro.h>
 
 class C3DDevice
 {

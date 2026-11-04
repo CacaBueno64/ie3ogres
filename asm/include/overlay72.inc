@@ -37,8 +37,8 @@
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
 .public _ZN7Archive17ReadNewUncompressEPKcP9SFileData
 .public FUN_ov16_020f5450
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN14CBgMenuManager10addDynamicE12EngineSelecthhhP18SBgMenuElementInitiii
 .public _ZN18CBgMenuRadioButton6createEhhhi
 .public _ZN12C3DPlaneCtrl6createEib
@@ -46,11 +46,11 @@
 .public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 .public _ZN12C3DPlaneCtrl8setDepthEiij
 .public _ZN12C3DPlaneCtrl6setPosEiiss
-.public FUN_020591e8
-.public FUN_02058ee0
+.public _ZN10C3DSprFile8freeVramEi
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN7Archive5CloseEP9SFileDatai
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public _ZN12C3DPlaneCtrl17convertTilesToTexEii8GXTexFmt
 .public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
@@ -114,7 +114,7 @@
 .public _ZN14CScreenManager8popSceneE12EngineSelect
 .public unk_02099F44
 .public unk_02099E91
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
@@ -125,7 +125,7 @@
 .public strcpy
 .public FUN_020735a0
 .public _ZN7Archive26PackHeaderGetOffsetAndSizeEPvmPlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public OS_Sleep
 .public _ZN11CLogicThink11getTeamInfoEi
 .public FUN_0204c50c

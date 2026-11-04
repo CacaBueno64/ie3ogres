@@ -1,7 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/types.h>  // for u8
+#include <nitro.h>
 // clang-format on
 
 class C2DGChar

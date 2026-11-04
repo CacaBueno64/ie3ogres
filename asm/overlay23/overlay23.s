@@ -96,11 +96,11 @@ FUN_ov23_0211a014: ; 0x0211A014
 	ldmeqfd sp!, {r4, r5, r6, pc}
 	ldr r4, _0211A05C ; =g3DPlaneCtrl
 	ldr r0, [r4]
-	bl FUN_020591e8
+	bl _ZN10C3DSprFile8freeVramEi
 	add r0, r6, r5, lsl #2
 	ldr r1, [r0, #0x18]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r5, lsl #2
 	mov r1, #0
 	str r1, [r0, #0x18]
@@ -127,7 +127,7 @@ _0211A08C:
 	cmp r1, #0
 	beq _0211A0B0
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -2027,7 +2027,7 @@ _0211BB90:
 	cmp r1, #0
 	beq _0211BBC8
 	ldr r0, [r6]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211BBC8
 	add r0, r5, r4, lsl #2
@@ -2035,7 +2035,7 @@ _0211BB90:
 	ldr r0, [r6]
 	mov r2, r7
 	mov r3, r7
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211BBC8:
 	add r4, r4, #1
 _0211BBCC:

@@ -543,13 +543,13 @@ _0211A62C:
 	cmp r1, #0
 	beq _0211A67C
 	ldr r0, [r5]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, r7, lsl #2
 	ldr r1, [r0, #0x3c]
 	ldr r0, [r5]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211A67C
 	add r0, r4, r7, lsl #2
@@ -557,7 +557,7 @@ _0211A62C:
 	ldr r0, [r5]
 	mov r2, r6
 	mov r3, r6
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211A67C:
 	add r7, r7, #1
 _0211A680:
@@ -947,7 +947,7 @@ _0211ABC0:
 	cmp r1, #0
 	beq _0211ABE0
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x3c]
 _0211ABE0:

@@ -5,12 +5,12 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public sprintf
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public g3DPlaneCtrl
-.public FUN_02058ee0
-.public FUN_02058e30
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile7releaseEi
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_ov16_0210eb3c
 .public gSprButtonCtrl
 .public _ZN12C3DPlaneCtrl7destroyEi

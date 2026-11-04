@@ -6309,7 +6309,7 @@ _0211F6A4:
 	str r3, [sp, #0x10]
 	ldr r2, _0211F724 ; =0x02122BD0
 	mov r3, r5
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	add r1, r10, r9, lsl #2
 	str r0, [r1, #0x90c]
 _0211F704:
@@ -6438,7 +6438,7 @@ _0211F894:
 	cmp r1, #0
 	beq _0211F8B4
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x90c]
 _0211F8B4:
@@ -6482,7 +6482,7 @@ _0211F920:
 	cmp r1, #0
 	beq _0211F944
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -6510,7 +6510,7 @@ _0211F974:
 	cmp r1, #0
 	beq _0211F9AC
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211F9AC
 	add r0, r7, r6, lsl #2
@@ -6518,7 +6518,7 @@ _0211F974:
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211F9AC:
 	add r6, r6, #1
 _0211F9B0:
@@ -6762,7 +6762,7 @@ _0211FCD4:
 	ble _0211FCF4
 	ldr r0, _0211FD08 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211FCF4:
 	mov r0, r6
 	mov r1, #0
@@ -7251,19 +7251,19 @@ FUN_ov80_021203bc: ; 0x021203BC
 	mov r1, r2
 	ldr r0, [r4]
 	mov r2, r3
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r1, r0
 	str r1, [r6, #0x5c]
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r1, [r6, #0x5c]
 	ldr r0, [r4]
 	str r5, [sp, #0xc]
 	add r2, sp, #0xc
 	add r3, sp, #0x10
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r1, [r6, #0x5c]
 	ldr r0, [r4]
 	ldr r2, [sp, #0xc]
@@ -7271,7 +7271,7 @@ FUN_ov80_021203bc: ; 0x021203BC
 	str r5, [sp]
 	str r5, [sp, #4]
 	str r5, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0x14
 	ldmfd sp!, {r3, r4, r5, r6, pc}
 _0212044C: .word g3DPlaneCtrl
@@ -7447,7 +7447,7 @@ _02120690:
 	add r3, sp, #0x24
 	str r7, [sp, #0x20]
 	mov r6, r7
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [r4]
 	ldr r1, [r10, #0x5c]
 	ldr r8, [sp, #0x20]
@@ -7516,7 +7516,7 @@ _0212078C:
 	str r4, [sp, #4]
 	mov r2, r8
 	str r4, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	add sp, sp, #0xa8
 	ldmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
 _021207D0: .word gLogicThink

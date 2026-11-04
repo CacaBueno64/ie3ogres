@@ -1,13 +1,16 @@
 // clang-format off
 #include "CConfig.hpp"
 
-#include <cstdlib>             // for atoi
-#include <cstring>             // for strlen, strncpy
+#include <stdlib.h>
+#include <string.h>
+#include <nitro.h>
 
-#include <nitro/std/string.h>  // for STD_GetStringLength
+#include "filesystem.hpp"
 
-#include "filesystem.hpp"      // fo CalcCRC32, Deallocate, AllocateClear, ReadFile
+#include "init/arm9_init.hpp"
 // clang-format on
+
+extern const u32 FUN_02086d34[] = {0, 0};
 
 CConfig::CConfig()
 {
@@ -43,7 +46,7 @@ BOOL CConfig::openFile(const char *filepath)
     while (curr < (file + file_size)) {
         if ((*curr == '\n') || (*curr == '\r')) {
             *curr = 0;
-            if (std::strlen(line_start) != 0) {
+            if (strlen(line_start) != 0) {
                 if (this->readFileParam(line_start, &this->paramEntry[this->paramCount])) {
                     this->paramCount++;
                 }
@@ -155,9 +158,9 @@ BOOL CConfig::readFileParam(const char *file, ParamEntry *param)
         int len = key_end - key_start;
         if (len > 0) {
             char strbuf[32];
-            std::strncpy(strbuf, key_start, len);
+            strncpy(strbuf, key_start, len);
             strbuf[len] = '\0';
-            param->value = std::atoi(strbuf);
+            param->value = atoi(strbuf);
             return TRUE;
         }
     }

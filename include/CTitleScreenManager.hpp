@@ -1,6 +1,6 @@
 //#pragma once
 //
-//#include <nitro/types.h>
+//#include <nitro.h>
 //
 //#include "CScreenManager.hpp"
 //#include "CommonScreen.hpp"

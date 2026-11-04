@@ -1,11 +1,14 @@
 // clang-format off
 #include "thread.hpp"
 
-#include <cstddef>  // for NULL
+#include <nitro.h>
 // clang-format on
 
 namespace Thread
 {
+
+#define THREAD_STACK_TABLE_COUNT 16
+#define THREAD_FUNCTION_TABLE_COUNT 16
 
 static void *sMainThreadStack;
 static int sCurrentThreadIdx;

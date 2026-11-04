@@ -296,11 +296,11 @@
 .public _ZN18CBgMenuRadioButton10activateGxEh
 .public _ZN18CBgMenuRadioButton12deactivateGxEh
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public g3DPlaneCtrl
-.public FUN_02058e30
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN12C3DPlaneCtrl6createEib
 .public _ZN12C3DPlaneCtrl6setPosEiss
 .public _ZN12C3DPlaneCtrl6setTexEiih
@@ -309,7 +309,7 @@
 .public _ZN12C3DPlaneCtrl7setFlagEiitb
 .public _ZN12C3DPlaneCtrl6setPosEiiss
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public FUN_02044754
 .public unk_020AF81C
 .public _ZN8Graphics11SetupScreenEPvii
@@ -320,7 +320,7 @@
 .public _ZN18CBgMenuRadioButton6createEhhhi
 .public _ZN12CFontManager12setSubColorsEii
 .public gFont12T
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
@@ -339,7 +339,7 @@
 .public _ZN14CScreenManager18getLoadedSceneMainEv
 .public STD_CopyLString
 .public FUN_020460c0
-.public FUN_02051778
+.public _ZN10C3DVramMan5resetEv
 .public FUN_ov16_0210e980
 .public FUN_ov16_0210e0a0
 .public _ZN12C3DPlaneCtrl7acquireEv
@@ -404,8 +404,8 @@
 .public FUN_ov16_02117514
 .public _ZN7CFileIO10readDirectEPKcPPvP10CAllocatorlmih
 .public _ZN10CAllocator10deallocateEPv
-.public FUN_0205935c
-.public FUN_02059288
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
 .public FUN_ov16_0211661c
 .public _ZN8C2DGChar5resetEv
 .public FUN_020568c4
@@ -514,7 +514,7 @@
 .public _ZN12C3DPlaneCtrl17convertTilesToTexEi
 .public _ZN10C3DSprFile14getSpriteSheetEi
 .public FUN_ov16_020f0c30
-.public FUN_02059a78
+.public _ZN10C3DSprFile14getPaletteDataEiPm
 .public gPalSkinFaceFile
 .public _ZN7Archive20GetFaceOffsetAndSizeEPvP4UnithPlPm
 .public FUN_ov16_020f0b3c

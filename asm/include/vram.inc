@@ -9,12 +9,3 @@
 .public GX_LoadTexPltt
 .public GX_EndLoadTexPltt
 .public DC_FlushRange
-.public unk_020B5BDC
-.public FUN_020517ac
-.public _ZN10CAllocator10deallocateEPv
-.public g3DVramMan
-.public FUN_02051858
-.public FUN_020519e4
-.public FUN_02051bb8
-.public FUN_02051d3c
-.public FUN_02051dc4

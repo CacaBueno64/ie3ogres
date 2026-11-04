@@ -1,7 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/types.h>  // for u32
+#include <nitro.h>
 // clang-format on
 
 #ifdef __cplusplus

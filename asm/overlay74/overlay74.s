@@ -557,7 +557,7 @@ _0211A61C:
 	cmp r1, #0
 	beq _0211A640
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -596,7 +596,7 @@ _0211A694:
 	cmp r1, #0
 	beq _0211A6B4
 	ldr r0, [r5]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r4, r7, lsl #2
 	str r6, [r0, #0x2c]
 _0211A6B4:
@@ -1952,7 +1952,7 @@ _0211B9B8:
 	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
 	ldr r0, _0211B9E4 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, #0
 	str r0, [r4, #0xfc]
 	ldmfd sp!, {r3, r4, r5, r6, r7, pc}

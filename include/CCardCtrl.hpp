@@ -1,11 +1,6 @@
 #pragma once
 
-#include <nitro/card/backup.h>
-#include <nitro/card/types.h>
-#include <nitro/types.h>
-
-#define CARD_BACKUP_TYPE_DEVICE_DUMMY 4
-#define CARD_BACKUP_TYPE_DUMMY CARD_BACKUP_TYPE_DEFINE(DUMMY, 16, 0) // 0x1004
+#include <nitro.h>
 
 class CCardCtrl
 {

@@ -46,8 +46,8 @@
 .public GXS_LoadBG2Scr
 .public GXS_LoadBG3Scr
 .public FUN_02057238
-.public FUN_02059880
-.public FUN_02051e50
+.public _ZN10C3DSprFile9evictVramEv
+.public _ZN10C3DVramMan16resetUploadQueueEv
 .public g3DGameChar
 .public g3DGameEffect
 .public g3DGameMap
@@ -58,7 +58,7 @@
 .public g3DVramMan
 .public OS_WaitVBlankIntr
 .public FUN_02057250
-.public FUN_020598ec
+.public _ZN10C3DSprFile11restoreVramEv
 .public unk_0208F728
 .public gFontBlankCode
 .public _ZN12CFontManager10setSpacingEii
@@ -68,9 +68,9 @@
 .public gRubi8Manager
 .public _ZN12C3DPlaneCtrl11getTexWidthEi
 .public _ZN12C3DPlaneCtrl12getTexHeightEi
-.public FUN_0205935c
+.public _ZN10C3DSprFile14allocTexBufferEiPPvPm
 .public _ZN12CFontManager15drawTextTex4bppEPcPviiiiiPNS_11GlyphBoundsEiiNS_9AlignmentE
-.public FUN_02059288
+.public _ZN10C3DSprFile9uploadTexEiPvmhii
 .public _ZN11AudioPlayer12FUN_0202c470El
 .public _ZN11AudioPlayer12FUN_0202d774Eil
 .public _ZN11AudioPlayer12FUN_0202b768Ev

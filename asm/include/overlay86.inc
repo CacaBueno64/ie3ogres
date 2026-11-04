@@ -33,12 +33,12 @@
 .public FUN_ov16_020eed18
 .public FUN_ov16_020f5450
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_02058800
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 .public g3DPlaneCtrl
-.public FUN_02058ee0
-.public FUN_02058e30
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile7releaseEi
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN12C3DPlaneCtrl17convertTilesToTexEii8GXTexFmt
 .public _ZN12C3DPlaneCtrl7destroyEi
 .public FUN_ov16_0210e15c

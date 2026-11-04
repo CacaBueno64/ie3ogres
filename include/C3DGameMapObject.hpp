@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "C3DGameBase.hpp"
 #include "CModel.hpp"

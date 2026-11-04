@@ -7,12 +7,12 @@
 .public gMainScreen0
 .public gMainScreen1
 .public gMainScreen2
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public g3DPlaneCtrl
 .public sprintf
 .public _ZN7Archive19SFPGetOffsetAndSizeEPcS0_PlPm
-.public FUN_02058800
-.public FUN_02058ee0
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
+.public _ZN10C3DSprFile7releaseEi
 .public MI_CpuCopy8
 .public unk_020A0640
 .public _ZN10CAllocator8allocateEm
@@ -34,8 +34,8 @@
 .public _ZN12C3DPlaneCtrl6setTexEiih
 .public _ZN12C3DPlaneCtrl13setGraphicIdxEiihb
 .public FUN_ov16_020f5738
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public FUN_ov16_0210eb3c
 .public gSprButtonCtrl
 .public _ZN12C3DPlaneCtrl12setColorMaskEit
@@ -126,7 +126,7 @@
 .public unk_020A129F
 .public FUN_ov16_020ee4b4
 .public FUN_ov16_020ede60
-.public FUN_02059630
+.public _ZN10C3DSprFile11createTex16Ehh
 .public _ZN12C3DPlaneCtrl8setTexWHEiiss
 .public _ZN12C3DPlaneCtrl8setTexSTEiiss
 .public _ZN8Graphics19DrawTextTexWithRubyEPciiiiiiiN12CFontManager9AlignmentE

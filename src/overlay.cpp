@@ -1,9 +1,7 @@
 // clang-format off
 #include "overlay.hpp"
 
-#include <nitro/fs/file.h>           // for FSFile, FS_CloseFile, FS_InitFile, FS_OpenFileFast, FS_ReadFile
-#include <nitro/mi/exMemory.h>       // for MI_PROCESSOR_ARM9
-#include <nitro/os/common/thread.h>  // for OS_Sleep
+#include <nitro.h>
 // clang-format on
 
 namespace Overlay

@@ -1250,7 +1250,7 @@ _0213BD38:
 	ble _0213BDAC
 	add r0, r5, r2, lsl #3
 	mov r2, r3, lsl #3
-	bl FUN_02040dc8
+	bl _ZN4Vram7MemMoveEPKvPvm
 _0213BDAC:
 	sub r6, r6, #1
 	add r7, r7, #1
@@ -1518,7 +1518,7 @@ _0213C0F4:
 	ble _0213C168
 	add r0, r5, r0, lsl #3
 	mov r2, r3, lsl #3
-	bl FUN_02040dc8
+	bl _ZN4Vram7MemMoveEPKvPvm
 _0213C168:
 	sub r6, r6, #1
 	add r7, r7, #1
@@ -19908,14 +19908,14 @@ FUN_ov131_0214c1a8: ; 0x0214C1A8
 	ldr r3, _0214C480 ; =0x0214CD2C
 	mov r1, #5
 	str r5, [sp, #8]
-	bl FUN_02058684
+	bl _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
 	mov r1, r0
 	add r0, r10, #0x1000
 	str r1, [r0, #0x350]
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r3, _0214C484 ; =gAllocator
 	str r5, [sp, #0x1c]
 	ldr r0, [r3]
@@ -19949,14 +19949,14 @@ _0214C244:
 	mov r3, r9
 	mov r1, #5
 	str r6, [sp, #0x10]
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	mov r1, r0
 	add r0, r10, #0x1000
 	str r1, [r0, #0x354]
 	ldr r0, [r4]
 	mov r2, r9
 	mov r3, r9
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r0, _0214C484 ; =gAllocator
 	ldr r1, [sp, #0x1c]
 	bl _ZN10CAllocator10deallocateEPv
@@ -20109,11 +20109,11 @@ FUN_ov131_0214c49c: ; 0x0214C49C
 	add r0, r5, #0x1000
 	ldr r1, [r0, #0x350]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, #0x1000
 	ldr r1, [r0, #0x354]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, #0x348
 	add r0, r0, #0x1000
 	mov r1, #0

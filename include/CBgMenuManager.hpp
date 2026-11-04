@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 #include "CBgMenuRadioButton.hpp"
 #include "graphics.hpp"

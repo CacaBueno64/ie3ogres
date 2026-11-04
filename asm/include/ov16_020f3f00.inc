@@ -1,10 +1,10 @@
-.public FUN_02051778
-.public FUN_02058800
-.public FUN_02058c60
-.public FUN_02058e30
-.public FUN_02058ee0
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DVramMan5resetEv
+.public _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
+.public _ZN10C3DSprFile4loadEPviPKcbS0_mm
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile7releaseEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public _ZN14CBgMenuManager4initE12EngineSelect
 .public _ZN14CBgMenuManager10setScreensE12EngineSelectPvS1_S1_
 .public G2S_GetBG0ScrPtr

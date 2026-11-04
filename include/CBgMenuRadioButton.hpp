@@ -1,6 +1,6 @@
 #pragma once
 
-#include <nitro/types.h>
+#include <nitro.h>
 
 typedef unsigned char rbkey_char_t;
 typedef int rbkey_t;

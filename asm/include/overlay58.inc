@@ -27,9 +27,9 @@
 .public _ZN7Archive10DeallocateEP9SFileData
 .public _ZN7Archive11TryFinalizeEP9SFileDatai
 .public FUN_ov16_020f5450
-.public FUN_02058e30
-.public FUN_02059004
-.public FUN_02059038
+.public _ZN10C3DSprFile11tryFinalizeEi
+.public _ZN10C3DSprFile8isInVramEi
+.public _ZN10C3DSprFile10loadToVramEihi
 .public g3DPlaneCtrl
 .public _ZN12C3DPlaneCtrl6createEib
 .public MI_CpuFill8
@@ -43,7 +43,7 @@
 .public FUN_ov16_0210e720
 .public _ZN12C3DPlaneCtrl7acquireEv
 .public _ZN12C3DPlaneCtrl7destroyEi
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN12C3DPlaneCtrl7releaseEv
 .public FUN_ov16_0210e15c
 .public FUN_0204615c

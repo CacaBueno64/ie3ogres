@@ -13,10 +13,10 @@
 .public MI_CpuFill8
 .public _ZN7Archive14RequestNewReadEPKcP9SFileData
 .public _ZN7Archive11ReadFromSFPEPcP9SFileDataS0_
-.public FUN_02058e30
+.public _ZN10C3DSprFile11tryFinalizeEi
 .public g3DPlaneCtrl
 .public _ZN7Archive10DeallocateEP9SFileData
-.public FUN_02058ee0
+.public _ZN10C3DSprFile7releaseEi
 .public _ZN8Graphics11SetupScreenEPvii
 .public _ZN8Graphics15LoadBGXCharMainEiPvm
 .public _ZN8Graphics22LoadTempPaletteFromPacEPv12EngineSelecti

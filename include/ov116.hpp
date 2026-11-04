@@ -1,8 +1,7 @@
 #pragma once
 
 // clang-format off
-#include <nitro/fx/fx.h>     // for fx32
-#include <nitro/fx/fx_cp.h>  // for FX_Sqrt
+#include <nitro.h>
 // clang-format on
 
 class UnkStruct_ov116_02124EA0 {

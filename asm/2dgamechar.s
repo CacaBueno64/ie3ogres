@@ -60,7 +60,7 @@ FUN_02056258: ; 0x02056258
 	mov r3, r8
 	add r0, r0, #4
 	str r6, [sp, #8]
-	bl FUN_02058684
+	bl _ZN10C3DSprFile15loadFromArchiveEiiPKciiPv
 	mov r8, r0
 	cmp r8, #0
 	addle sp, sp, #0xc
@@ -177,7 +177,7 @@ _0205643C:
 	ldr r0, [r4]
 	ldrh r1, [r7]
 	add r0, r0, #4
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _02056460:
 	strh r5, [r7]
 	str r5, [r7, #4]
@@ -235,7 +235,7 @@ FUN_020564f0: ; 0x020564F0
 	ldrh r1, [r0]
 	ldr r0, [r2]
 	add r0, r0, #4
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	ldmfd sp!, {r3, pc}
 _0205651C: .word g3DSpriteCtrl
 	arm_func_end FUN_020564f0
@@ -257,7 +257,7 @@ FUN_02056520: ; 0x02056520
 	ldr r0, [r4]
 	ldrh r1, [r6]
 	add r0, r0, #4
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r1, r6
 	mov r0, #0
 	mov r2, #8
@@ -424,18 +424,18 @@ _02056730:
 FUN_02056738: ; 0x02056738
 	stmfd sp!, {r4, lr}
 	mov r4, r1
-	bl FUN_020414fc
+	bl _ZN4Vram12ClearTexPoolEv
 	mov r0, r4
 	mov r1, #0x200
-	bl FUN_02041518
+	bl _ZN4Vram11InitTexPoolEim
 	ldmfd sp!, {r4, pc}
 	arm_func_end FUN_02056738
 
 	arm_func_start FUN_02056754
 FUN_02056754: ; 0x02056754
-	ldr r12, _0205675C ; =FUN_02041618
+	ldr r12, _0205675C ; =_ZN4Vram11FreeTexPoolEv
 	bx r12
-_0205675C: .word FUN_02041618
+_0205675C: .word _ZN4Vram11FreeTexPoolEv
 	arm_func_end FUN_02056754
 
 	arm_func_start _ZN8C2DGCharC1Ev
@@ -586,7 +586,7 @@ FUN_020568c4: ; 0x020568C4
 	mov r1, #3
 	mov r2, r5, lsl #1
 	add r0, r0, #4
-	bl FUN_020596ec
+	bl _ZN10C3DSprFile10createPlttEhi
 	mov r1, r0
 	ldr r0, [r6, #0x94]
 	str r1, [r6, #0x9c]
@@ -665,7 +665,7 @@ _02056A3C:
 	ldr r0, [r5]
 	ldr r1, [r4, #0x9c]
 	add r0, r0, #4
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	mov r0, #0
 	str r0, [r4, #0x9c]
 _02056A74:
@@ -864,11 +864,11 @@ _02056C14:
 	bl FUN_ov16_02116cb4
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
-	bl FUN_02041708
+	bl _ZN4Vram25GetTexPoolElementVramAddrEi
 	mov r8, r0
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
-	bl FUN_020416d4
+	bl _ZN4Vram17GetTexPoolElementEi
 	mov r2, r7
 	mov r3, r8
 	str r0, [sp]
@@ -878,12 +878,12 @@ _02056C14:
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
 	add r0, r0, #1
-	bl FUN_02041708
+	bl _ZN4Vram25GetTexPoolElementVramAddrEi
 	mov r7, r0
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
 	add r0, r0, #1
-	bl FUN_020416d4
+	bl _ZN4Vram17GetTexPoolElementEi
 	mov r2, r6
 	mov r3, r7
 	str r0, [sp]
@@ -1238,15 +1238,15 @@ FUN_020571f8: ; 0x020571F8
 
 	arm_func_start FUN_0205722c
 FUN_0205722c: ; 0x0205722C
-	ldr r12, _02057234 ; =FUN_02041668
+	ldr r12, _02057234 ; =_ZN4Vram13UploadTexPoolEv
 	bx r12
-_02057234: .word FUN_02041668
+_02057234: .word _ZN4Vram13UploadTexPoolEv
 	arm_func_end FUN_0205722c
 
 	arm_func_start FUN_02057238
 FUN_02057238: ; 0x02057238
 	stmfd sp!, {r3, lr}
-	bl FUN_02041760
+	bl _ZN4Vram12EvictTexPoolEv
 	cmp r0, #1
 	moveq r0, #1
 	movne r0, #0
@@ -1258,7 +1258,7 @@ FUN_02057250: ; 0x02057250
 	stmfd sp!, {r3, r4, r5, r6, r7, r8, r9, r10, lr}
 	sub sp, sp, #4
 	mov r6, r0
-	bl FUN_02041780
+	bl _ZN4Vram14RestoreTexPoolEv
 	mov r4, #1
 	mov r0, r6
 	mov r1, r4
@@ -1274,11 +1274,11 @@ FUN_02057250: ; 0x02057250
 _02057290:
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
-	bl FUN_02041708
+	bl _ZN4Vram25GetTexPoolElementVramAddrEi
 	sub r1, r4, #1
 	mov r9, r0
 	mov r0, r1, lsl #1
-	bl FUN_020416d4
+	bl _ZN4Vram17GetTexPoolElementEi
 	mov r3, r9
 	str r0, [sp]
 	ldr r0, [r7]
@@ -1288,12 +1288,12 @@ _02057290:
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
 	add r0, r0, #1
-	bl FUN_02041708
+	bl _ZN4Vram25GetTexPoolElementVramAddrEi
 	mov r9, r0
 	sub r0, r4, #1
 	mov r0, r0, lsl #1
 	add r0, r0, #1
-	bl FUN_020416d4
+	bl _ZN4Vram17GetTexPoolElementEi
 	mov r3, r9
 	str r0, [sp]
 	ldr r0, [r7]
@@ -1422,7 +1422,7 @@ _02057490:
 	ldr r5, [r1]
 	mov r1, r0
 	add r0, r5, #4
-	bl FUN_02059a78
+	bl _ZN10C3DSprFile14getPaletteDataEiPm
 	movs r4, r0
 	beq _02057550
 	mov r7, #0x20
@@ -1430,7 +1430,7 @@ _02057490:
 	mov r1, r7
 	mov r3, #0
 	add r0, r5, #4
-	bl FUN_020594f4
+	bl _ZN10C3DSprFile11allocBufferElPPvPm
 	ldr r1, [sp, #0x10]
 	cmp r1, #0
 	moveq r0, #0
@@ -1457,7 +1457,7 @@ _02057490:
 	ldr r2, [sp, #0x10]
 	add r0, r5, #4
 	mov r3, r7
-	bl FUN_020592d8
+	bl _ZN10C3DSprFile10uploadPlttEiPvmhii
 _02057550:
 	mov r0, #0
 	strb r0, [r6, #0x16]
@@ -1474,14 +1474,14 @@ _02057558:
 	ldr r4, [r1]
 	mov r1, r0
 	add r0, r4, #4
-	bl FUN_02059a78
+	bl _ZN10C3DSprFile14getPaletteDataEiPm
 	movs r5, r0
 	beq _0205767C
 	add r2, sp, #0x10
 	mov r3, #0
 	add r0, r4, #4
 	mov r1, #0x20
-	bl FUN_020594f4
+	bl _ZN10C3DSprFile11allocBufferElPPvPm
 	ldr r0, [sp, #0x10]
 	cmp r0, #0
 	addeq sp, sp, #0x14
@@ -1537,7 +1537,7 @@ _02057604:
 	ldr r2, [sp, #0x10]
 	add r0, r4, #4
 	mov r3, #0x20
-	bl FUN_020592d8
+	bl _ZN10C3DSprFile10uploadPlttEiPvmhii
 _0205767C:
 	mov r0, #0
 	strb r0, [r6, #0x17]
@@ -2008,203 +2008,6 @@ FUN_02057c60: ; 0x02057C60
 	bx r12
 _02057C68: .word FUN_02057c38
 	arm_func_end FUN_02057c60
-
-	arm_func_start _ZN11C3DSprSheet6isIdleEv
-_ZN11C3DSprSheet6isIdleEv: ; 0x02057C6C
-	ldrh r1, [r0, #0xc]
-	cmp r1, #0
-	ldreqb r0, [r0, #0xf]
-	cmpeq r0, #0
-	moveq r0, #1
-	movne r0, #0
-	bx lr
-	arm_func_end _ZN11C3DSprSheet6isIdleEv
-
-	arm_func_start FUN_02057c88
-FUN_02057c88: ; 0x02057C88
-	ldrsh r2, [r0, #0x10]
-	mov r1, r1, lsl #0x10
-	add r1, r2, r1, asr #16
-	strh r1, [r0, #0x10]
-	ldrsh r1, [r0, #0x10]
-	cmp r1, #0
-	movlt r1, #0
-	strlth r1, [r0, #0x10]
-	bx lr
-	arm_func_end FUN_02057c88
-
-	arm_func_start FUN_02057cac
-FUN_02057cac: ; 0x02057CAC
-	stmfd sp!, {r4, r5, r6, lr}
-	mov r5, r1
-	mov r6, r0
-	cmp r5, #0
-	movle r0, #0
-	ldmlefd sp!, {r4, r5, r6, pc}
-	mov r1, #0x34
-	mul r0, r5, r1
-	add r0, r0, #3
-	bic r0, r0, #3
-	sub r1, r1, #0x35
-	bl _ZN10FileSystem13AllocateClearEii
-	movs r4, r0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, pc}
-	mov r0, r6
-	bl FUN_02057d08
-	mov r0, #0
-	str r4, [r6]
-	strh r5, [r6, #4]
-	strh r0, [r6, #6]
-	mov r0, #1
-	ldmfd sp!, {r4, r5, r6, pc}
-	arm_func_end FUN_02057cac
-
-	arm_func_start FUN_02057d08
-FUN_02057d08: ; 0x02057D08
-	stmfd sp!, {r4, lr}
-	mov r4, r0
-	ldr r0, [r4]
-	cmp r0, #0
-	beq _02057D20
-	bl _ZN10FileSystem10DeallocateEPv
-_02057D20:
-	mov r0, #0
-	str r0, [r4]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02057d08
-
-	arm_func_start FUN_02057d2c
-FUN_02057d2c: ; 0x02057D2C
-	stmfd sp!, {r3, r4, r5, r6, r7, lr}
-	movs r6, r1
-	mov r7, r0
-	movne r0, #0
-	strne r0, [r6]
-	ldr r4, [r7]
-	cmp r4, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r3, r4, r5, r6, r7, pc}
-	ldrsh r0, [r7, #4]
-	mov r5, #0
-	cmp r0, #0
-	ble _02057D94
-_02057D60:
-	mov r0, r4
-	bl _ZN11C3DSprSheet6isIdleEv
-	cmp r0, #0
-	beq _02057D80
-	cmp r6, #0
-	strne r4, [r6]
-	add r0, r5, #1
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-_02057D80:
-	ldrsh r0, [r7, #4]
-	add r5, r5, #1
-	add r4, r4, #0x34
-	cmp r5, r0
-	blt _02057D60
-_02057D94:
-	mov r0, #0
-	ldmfd sp!, {r3, r4, r5, r6, r7, pc}
-	arm_func_end FUN_02057d2c
-
-	arm_func_start FUN_02057d9c
-FUN_02057d9c: ; 0x02057D9C
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	sub sp, sp, #0x28
-	add r5, sp, #0
-	mov r8, r1
-	mov r4, #0x28
-	mov r7, r2
-	mov r1, r5
-	mov r2, r4
-	mov r0, #0
-	mov r6, r3
-	bl MIi_CpuClearFast
-	mov r0, r5
-	mov r1, r8
-	bl STD_CopyString
-	mov r0, r5
-	mov r1, r4
-	str r7, [sp, #0x20]
-	str r6, [sp, #0x24]
-	bl _ZN10FileSystem9CalcCRC32EPKvm
-	add sp, sp, #0x28
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02057d9c
-
-	arm_func_start FUN_02057df0
-FUN_02057df0: ; 0x02057DF0
-	stmfd sp!, {r4, lr}
-	mov r4, r1
-	mov r1, r2
-	mov r2, r3
-	ldr r3, [sp, #8]
-	bl FUN_02057d9c
-	str r0, [r4]
-	ldmfd sp!, {r4, pc}
-	arm_func_end FUN_02057df0
-
-	arm_func_start FUN_02057e10
-FUN_02057e10: ; 0x02057E10
-	stmfd sp!, {r4, r5, r6, r7, r8, lr}
-	ldr r5, [sp, #0x18]
-	mov r6, r0
-	cmp r5, #0
-	movne r0, #0
-	strne r0, [r5]
-	ldr r0, [r6]
-	cmp r0, #0
-	moveq r0, #0
-	ldmeqfd sp!, {r4, r5, r6, r7, r8, pc}
-	mov r0, r6
-	bl FUN_02057d9c
-	ldrsh r1, [r6, #4]
-	mov r4, r0
-	ldr r7, [r6]
-	cmp r1, #0
-	mov r8, #0
-	ble _02057E94
-_02057E58:
-	mov r0, r7
-	bl _ZN11C3DSprSheet6isIdleEv
-	cmp r0, #0
-	ldreq r0, [r7]
-	cmpeq r4, r0
-	bne _02057E80
-	cmp r5, #0
-	strne r7, [r5]
-	add r0, r8, #1
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-_02057E80:
-	ldrsh r0, [r6, #4]
-	add r8, r8, #1
-	add r7, r7, #0x34
-	cmp r8, r0
-	blt _02057E58
-_02057E94:
-	mov r0, #0
-	ldmfd sp!, {r4, r5, r6, r7, r8, pc}
-	arm_func_end FUN_02057e10
-
-	arm_func_start FUN_02057e9c
-FUN_02057e9c: ; 0x02057E9C
-	cmp r1, #0
-	ble _02057EB0
-	ldrsh r2, [r0, #4]
-	cmp r1, r2
-	ble _02057EB8
-_02057EB0:
-	mov r0, #0
-	bx lr
-_02057EB8:
-	ldr r2, [r0]
-	sub r1, r1, #1
-	mov r0, #0x34
-	mla r0, r1, r0, r2
-	bx lr
-	arm_func_end FUN_02057e9c
 
 	.data
 	.global unk_020906FC

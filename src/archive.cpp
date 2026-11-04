@@ -1,15 +1,12 @@
 // clang-format off
 #include "archive.hpp"
 
-#include <cstdio>              // for sprintf, size_t, NULL
+#include <string.h>
+#include <nitro.h>
 
-#include <cstring>             // for strrchr, strcmp
-#include <nitro/std/string.h>  // for STD_CompareNString, STD_GetStringLength
-#include <nitro/types.h>       // for FALSE, BOOL, TRUE, s32, u32, u8
-
-#include "CFileIO.hpp"         // for CFileIO, FUN_02053914, gFileIO
-#include "CUnitMan.hpp"        // for Unit, gWearSetFile, st_wear_set, BODYT...
-#include "CAllocator.hpp"       // for gAllocator, CAllocator
+#include "CFileIO.hpp"
+#include "CUnitMan.hpp"
+#include "CAllocator.hpp"
 // clang-format on
 
 /* TODO: Create Header */ extern "C" int FUN_ov16_020f0b58(int wearNo);
@@ -566,9 +563,9 @@ BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *out
 
     char temp[256];
     FUN_02053914(temp, filename); // lowercase to uppercase
-    filename = std::strrchr(temp, '\\');
+    filename = strrchr(temp, '\\');
     if (!filename) {
-        filename = std::strrchr(temp, '/');
+        filename = strrchr(temp, '/');
     }
     if (!filename) {
         filename = temp;
@@ -581,7 +578,7 @@ BOOL SFPGetOffsetAndSize(char *filename, char *file, s32 *outOffset, size_t *out
     int entryCount = (entries->stringOffset - sizeof(*header)) / sizeof(entries[0]);
 
     for (idx = 0; idx < entryCount; idx++) {
-        if (std::strcmp(file + entries[idx].stringOffset, filename) == 0) {
+        if (strcmp(file + entries[idx].stringOffset, filename) == 0) {
             break;
         }
     }

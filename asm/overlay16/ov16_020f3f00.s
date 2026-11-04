@@ -277,7 +277,7 @@ _020F42C0:
 	and r0, r0, r4
 	strh r0, [r7, #0xe]
 	ldr r0, [r5]
-	bl FUN_02051778
+	bl _ZN10C3DVramMan5resetEv
 	mov r0, r6
 	mov r1, #0x100
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
@@ -386,7 +386,7 @@ _020F4460:
 	and r1, r1, r4
 	strh r1, [r0, #2]
 	ldr r0, [r5]
-	bl FUN_02051778
+	bl _ZN10C3DVramMan5resetEv
 	mov r1, r10
 	mov r0, #1
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
@@ -419,7 +419,7 @@ _020F44B8:
 	strh r0, [r7, #8]
 _020F4514:
 	ldr r0, [r5]
-	bl FUN_02051778
+	bl _ZN10C3DVramMan5resetEv
 	ldr r7, _020F47E4 ; =gBgMenuManager
 	mov r1, r6
 	mov r0, r7
@@ -532,7 +532,7 @@ _020F45C4:
 	and r0, r1, r0
 	strh r0, [r7, #0xe]
 	ldr r0, [r5]
-	bl FUN_02051778
+	bl _ZN10C3DVramMan5resetEv
 	mov r0, #1
 	mov r1, r10
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
@@ -594,7 +594,7 @@ _020F4728:
 	strh r2, [r7, #0xc]
 	bl _ZN8Graphics12ClearBGXMainEi10CharFormat
 	ldr r0, [r5]
-	bl FUN_02051778
+	bl _ZN10C3DVramMan5resetEv
 _020F47CC:
 	ldr r1, _020F47F8 ; =0x04000304
 	ldrh r0, [r1]
@@ -1516,7 +1516,7 @@ _020F547C:
 	str r3, [sp, #0x10]
 	mov r2, r10
 	mov r3, r4
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	ldr r1, [r8, #4]
 	add r6, r6, #1
 	str r0, [r7, r1, lsl #2]
@@ -1567,7 +1567,7 @@ _020F5530:
 	str r3, [sp, #0xc]
 	mov r2, #5
 	mov r3, r10
-	bl FUN_02058c60
+	bl _ZN10C3DSprFile4loadEPviPKcbS0_mm
 	ldr r1, [r8, #4]
 	add r6, r6, #1
 	str r0, [r7, r1, lsl #2]
@@ -1650,7 +1650,7 @@ _020F5680:
 	beq _020F56A0
 	ldr r0, _020F5734 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _020F56A0:
 	mla r0, r9, r7, r10
 	mov r8, #0
@@ -1678,7 +1678,7 @@ _020F56A0:
 	mov r2, r5
 	mov r1, #5
 	str r6, [sp, #0x10]
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	mul r1, r9, r7
 	ldrb r2, [sp, #0x40]
 	str r4, [r10, r1]
@@ -1755,7 +1755,7 @@ _020F57EC:
 	cmp r1, #0
 	beq _020F5804
 	ldr r0, [r8]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _020F5804:
 	add r5, r5, #1
 _020F5808:
@@ -1776,7 +1776,7 @@ _020F582C:
 	beq _020F584C
 	ldr r0, _020F5864 ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _020F584C:
 	mov r0, #0xc
 	mla r0, r5, r0, r4
@@ -1805,13 +1805,13 @@ _020F5894:
 	cmp r1, #0
 	beq _020F58FC
 	ldr r0, [r7]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #1
 	ldmnefd sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
 	ldrh r1, [r4, #8]
 	ldr r0, [r7]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _020F58FC
 	ldrb r0, [r4, #0xa]
@@ -1827,7 +1827,7 @@ _020F58E8:
 	ldr r0, [r7]
 	mov r2, r8
 	mov r3, r8
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _020F58FC:
 	add r5, r5, #1
 	add r4, r4, #0xc

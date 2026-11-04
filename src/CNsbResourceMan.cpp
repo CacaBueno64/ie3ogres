@@ -608,7 +608,7 @@ void CNsbResourceMan::unload(SNsbResource *res)
         u8 count = res->inUse - 1;
         res->inUse = count;
         if (count == 0) {
-            g3DVramMan->release(res->data);
+            g3DVramMan->releaseNNSFile(res->data);
             res->inUse = 0;
         }
     }
@@ -629,7 +629,7 @@ void CNsbResourceMan::releaseData(SNsbResource *res)
 
     BOOL isNNS = ((res->type >= 3) && (res->type < 11)) ? TRUE : FALSE;
     if (isNNS) {
-        g3DVramMan->release(res->data);
+        g3DVramMan->releaseNNSFile(res->data);
     }
 
     res->inUse = 0;
@@ -723,7 +723,7 @@ bool CNsbResourceMan::close(SNsbResource *res)
     OS_LockMutex(&this->mutex);
 
     if ((res->inUse) && (!(res->flags & 0x100))) {
-        g3DVramMan->release(res->data);
+        g3DVramMan->releaseNNSFile(res->data);
         res->flags |= 0x100;
     }
 
@@ -743,7 +743,7 @@ bool CNsbResourceMan::setup(SNsbResource *res)
     OS_LockMutex(&this->mutex);
 
     if ((res->inUse) && (res->flags & 0x100)) {
-        g3DVramMan->setup(res->data);
+        g3DVramMan->setupNNSFile(res->data);
         res->flags &= 0xFEFF;
     }
 

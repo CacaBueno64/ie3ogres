@@ -13,6 +13,7 @@
 #include "audioplayer.hpp"
 #include "gamemodes.hpp"
 #include "graphics.hpp"
+
 #include "init/arm9_init.hpp"
 
 CSceneScriptManager::CSceneScriptManager()

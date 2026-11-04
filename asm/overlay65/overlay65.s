@@ -1294,7 +1294,7 @@ _0211B044:
 	cmp r1, #0
 	beq _0211B064
 	ldr r0, [r6]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r5, r4, lsl #2
 	str r7, [r0, #0x37c]
 _0211B064:
@@ -1435,20 +1435,20 @@ FUN_ov65_0211b1c8: ; 0x0211B1C8
 	ldr r2, [sp, #0x34]
 	ldr r1, [sp, #0x38]
 	ldr r0, [r5]
-	bl FUN_02059630
+	bl _ZN10C3DSprFile11createTex16Ehh
 	mov r2, #0
 	str r0, [r7]
 	mov r1, r0
 	ldr r0, [r5]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 	ldr r1, [r7]
 	mov r2, #0
 	str r2, [sp, #0x2c]
 	ldr r0, [r5]
 	add r2, sp, #0x2c
 	add r3, sp, #0x30
-	bl FUN_0205935c
+	bl _ZN10C3DSprFile14allocTexBufferEiPPvPm
 	ldr r0, [sp, #0x2c]
 	ldr r1, [r7]
 	str r0, [sp, #0x28]
@@ -1538,7 +1538,7 @@ _0211B37C:
 	str r6, [sp]
 	str r6, [sp, #4]
 	str r6, [sp, #8]
-	bl FUN_02059288
+	bl _ZN10C3DSprFile9uploadTexEiPvmhii
 	ldr r0, [r8]
 	mov r1, r9
 	add r2, r0, #1
@@ -1689,13 +1689,13 @@ _0211B5C8:
 	cmp r1, #0
 	beq _0211B618
 	ldr r0, [r5]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	ldmnefd sp!, {r3, r4, r5, r6, r7, pc}
 	add r0, r4, r7, lsl #2
 	ldr r1, [r0, #0x37c]
 	ldr r0, [r5]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211B618
 	add r0, r4, r7, lsl #2
@@ -1703,7 +1703,7 @@ _0211B5C8:
 	ldr r0, [r5]
 	mov r2, r6
 	mov r3, r6
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211B618:
 	add r7, r7, #1
 _0211B61C:
@@ -2191,7 +2191,7 @@ FUN_ov65_0211bc5c: ; 0x0211BC5C
 	str r5, [r6, #0x3c4]
 	ldr r1, [r6, #0x3d8]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldr r0, _0211BCAC ; =gSprButtonCtrl
 	str r5, [r6, #0x3d8]
 	ldr r0, [r0]
@@ -2586,7 +2586,7 @@ FUN_ov65_0211c204: ; 0x0211C204
 	str r5, [r6, #0x3c8]
 	ldr r1, [r6, #0x3e8]
 	ldr r0, [r4]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldr r0, _0211C254 ; =gSprButtonCtrl
 	str r5, [r6, #0x3e8]
 	ldr r0, [r0]
@@ -2811,7 +2811,7 @@ _0211C53C:
 	cmp r1, #0
 	beq _0211C55C
 	ldr r0, [r7]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	add r0, r6, r5, lsl #2
 	str r8, [r0, #0x434]
 _0211C55C:

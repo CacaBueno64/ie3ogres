@@ -893,7 +893,7 @@ _0211AA98:
 	str r3, [sp, #0x10]
 	mov r2, r11
 	mov r3, #1
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	add r1, r10, r9, lsl #2
 	str r0, [r1, #0x554]
 _0211AAF8:
@@ -933,7 +933,7 @@ FUN_ov87_0211ab18: ; 0x0211AB18
 	beq _0211AB8C
 	ldr r0, _0211AC7C ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldrb r0, [r4, #0x16]
 	mov r1, #0
 	add r0, r0, #5
@@ -953,7 +953,7 @@ _0211AB8C:
 	str r3, [sp, #0x10]
 	mov r1, #5
 	mov r3, #1
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	ldrb r1, [r4, #0x16]
 	add r1, r1, #5
 	add r1, r4, r1, lsl #2
@@ -975,7 +975,7 @@ _0211ABD4:
 	beq _0211AC2C
 	ldr r0, _0211AC7C ; =g3DPlaneCtrl
 	ldr r0, [r0]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 	ldrb r0, [r4, #0x16]
 	mov r1, #0
 	add r0, r0, #7
@@ -995,7 +995,7 @@ _0211AC2C:
 	str r3, [sp, #0x10]
 	mov r1, #5
 	mov r3, #1
-	bl FUN_02058800
+	bl _ZN10C3DSprFile12loadFromPathEiPKcibbPvmm
 	ldrb r1, [r4, #0x16]
 	add r1, r1, #7
 	add r1, r4, r1, lsl #2
@@ -1020,7 +1020,7 @@ _0211AC9C:
 	cmp r1, #0
 	beq _0211ACC0
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -1038,7 +1038,7 @@ _0211ACD8:
 	cmp r1, #0
 	beq _0211ACFC
 	ldr r0, [r4]
-	bl FUN_02058e30
+	bl _ZN10C3DSprFile11tryFinalizeEi
 	cmp r0, #0
 	movne r0, #0
 	ldmnefd sp!, {r4, r5, r6, pc}
@@ -1067,7 +1067,7 @@ _0211AD30:
 	cmp r1, #0
 	beq _0211AD68
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211AD68
 	add r0, r7, r6, lsl #2
@@ -1075,7 +1075,7 @@ _0211AD30:
 	ldr r0, [r4]
 	mov r2, r5
 	mov r3, r5
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211AD68:
 	add r6, r6, #1
 _0211AD6C:
@@ -1093,7 +1093,7 @@ _0211AD8C:
 	cmp r1, #0
 	beq _0211ADDC
 	ldr r0, [r8]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211ADDC
 	add r1, r7, r6, lsl #2
@@ -1107,7 +1107,7 @@ _0211AD8C:
 	ldr r0, [r8]
 	mov r2, r9
 	mov r3, r9
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211ADDC:
 	add r6, r6, #1
 _0211ADE0:
@@ -1158,7 +1158,7 @@ _0211AE60:
 	cmp r1, #0
 	beq _0211AE78
 	ldr r0, [r5]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211AE78:
 	add r6, r6, #1
 _0211AE7C:
@@ -1173,7 +1173,7 @@ _0211AE90:
 	cmp r1, #0
 	beq _0211AEA8
 	ldr r0, [r5]
-	bl FUN_02058ee0
+	bl _ZN10C3DSprFile7releaseEi
 _0211AEA8:
 	add r6, r6, #1
 _0211AEAC:
@@ -2076,7 +2076,7 @@ FUN_ov87_0211bae8: ; 0x0211BAE8
 	add r0, r6, r0, lsl #2
 	ldr r1, [r0, #0x530]
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211BB6C
 	ldrb r1, [r6, #0x16]
@@ -2094,7 +2094,7 @@ FUN_ov87_0211bae8: ; 0x0211BAE8
 	add r1, r6, r1, lsl #2
 	ldr r1, [r1, #0x530]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211BB6C:
 	ldrb r0, [r6, #0x16]
 	ldr r4, _0211BCD0 ; =g3DPlaneCtrl
@@ -2102,7 +2102,7 @@ _0211BB6C:
 	add r0, r6, r0, lsl #2
 	ldr r1, [r0, #0x530]
 	ldr r0, [r4]
-	bl FUN_02059004
+	bl _ZN10C3DSprFile8isInVramEi
 	cmp r0, #0
 	bne _0211BBD0
 	ldrb r1, [r6, #0x16]
@@ -2120,7 +2120,7 @@ _0211BB6C:
 	add r1, r6, r1, lsl #2
 	ldr r1, [r1, #0x530]
 	mov r3, r2
-	bl FUN_02059038
+	bl _ZN10C3DSprFile10loadToVramEihi
 _0211BBD0:
 	ldr r0, [r6, #0x968]
 	cmp r0, #0

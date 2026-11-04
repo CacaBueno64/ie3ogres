@@ -29,7 +29,8 @@ FORCE_ACTIVE
 
 KEEP_SECTION
 {
-	.sinit
+	.sinit,
+	.ctor
 }
 
 SECTIONS

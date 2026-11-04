@@ -1,9 +1,9 @@
-.public FUN_02051800
-.public FUN_02051858
-.public FUN_020519e4
-.public FUN_02051a7c
-.public FUN_02051d3c
-.public FUN_02051dc4
+.public _ZN10C3DVramMan9allocPlttEP13SVRAMResourcel
+.public _ZN10C3DVramMan7freeResEP13SVRAMResource
+.public _ZN10C3DVramMan11queueUploadEP13SVRAMResourcemPvmmPh
+.public _ZN10C3DVramMan12uploadResNowEP13SVRAMResourcemPvm
+.public _ZN10C3DVramMan8evictResEP13SVRAMResource
+.public _ZN10C3DVramMan10restoreResEP13SVRAMResource
 .public FUN_02053cb0
 .public FUN_02053ccc
 .public FUN_ov16_020fa638
@@ -556,7 +556,7 @@ _021111D8:
 	mov r2, r5
 	ldr r0, [r0]
 	add r1, r6, #8
-	bl FUN_02051800
+	bl _ZN10C3DVramMan9allocPlttEP13SVRAMResourcel
 	cmp r0, #0
 	beq _02111214
 	ldr r0, _02111244 ; =gAllocator
@@ -595,7 +595,7 @@ _02111264:
 	ldr r0, _02111288 ; =g3DVramMan
 	add r1, r4, #8
 	ldr r0, [r0]
-	bl FUN_02051858
+	bl _ZN10C3DVramMan7freeResEP13SVRAMResource
 	mov r0, #0
 	str r0, [r4, #0x14]
 	str r0, [r4, #0x18]
@@ -630,7 +630,7 @@ _021112BC:
 	ldr r3, [r12, #0x14]
 	ldr r0, [r0]
 	add r1, r12, #8
-	bl FUN_020519e4
+	bl _ZN10C3DVramMan11queueUploadEP13SVRAMResourcemPvmmPh
 	add sp, sp, #0xc
 	and r0, r0, #0xff
 	ldmia sp!, {pc}
@@ -641,7 +641,7 @@ _021112F4:
 	ldr r3, [r12, #0x14]
 	add r1, r12, #8
 	mov r2, #0
-	bl FUN_02051a7c
+	bl _ZN10C3DVramMan12uploadResNowEP13SVRAMResourcemPvm
 	and r0, r0, #0xff
 	add sp, sp, #0xc
 	ldmia sp!, {pc}
@@ -673,7 +673,7 @@ FUN_ov16_02111348: ; 0x02111348
 	mov r2, r0
 	ldr r0, [r1]
 	add r1, r2, #8
-	bl FUN_02051d3c
+	bl _ZN10C3DVramMan8evictResEP13SVRAMResource
 	and r0, r0, #0xff
 	ldmfd sp!, {r3, pc}
 _02111368: .word g3DVramMan
@@ -686,7 +686,7 @@ FUN_ov16_0211136c: ; 0x0211136C
 	mov r4, r0
 	ldr r0, [r1]
 	add r1, r4, #8
-	bl FUN_02051dc4
+	bl _ZN10C3DVramMan10restoreResEP13SVRAMResource
 	mov r0, r4
 	mov r1, #0
 	bl FUN_ov16_0211128c

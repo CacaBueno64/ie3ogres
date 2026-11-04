@@ -1,16 +1,8 @@
 #pragma once
 
 // clang-format off
-#include <cstddef>                   // for size_t
-
-#include <nitro/fs/file.h>           // for FSFile
-#include <nitro/fs/overlay.h>        // for FS_EXTERN_OVERLAY
-#include <nitro/os/common/alarm.h>   // for OSiAlarm
-#include <nitro/os/common/thread.h>  // for OSAlarm, OSThread
-#include <nitro/os/common/tick.h>    // for OS_MicroSecondsToTicks
-#include <nitro/types.h>             // for s32, u16, u32, BOOL, s8, u8
-
-#include <mobiclip/libMobiclip.h>    // for MOHandle
+#include <nitro.h>
+#include <mobiclip/libMobiclip.h>
 // clang-format on
 
 class CAllocator;

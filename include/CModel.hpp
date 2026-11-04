@@ -1,9 +1,7 @@
 #pragma once
 
-#include <nitro/fx/fx.h>
-#include <nitro/gx/gxcommon.h>
-#include <nitro/types.h>
-#include <nnsys/g3d/kernel.h>
+#include <nitro.h>
+#include <nnsys.h>
 
 #include "CMotion.hpp"
 #include "CNsbPlttHook.hpp"

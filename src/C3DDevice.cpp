@@ -1,11 +1,10 @@
 #include "C3DDevice.hpp"
 
-#include <nitro/mi/memory.h>
-#include <nitro/types.h>
-
-#include <nnsys/g3d/gecom.h>
+#include <nitro.h>
+#include <nnsys.h>
 
 #include "Shadow.hpp"
+
 #include "init/arm9_init.hpp"
 
 C3DDevice::~C3DDevice()
