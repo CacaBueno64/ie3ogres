@@ -495,7 +495,6 @@ _02117F64: .word 0x0000EA3C
 	arm_func_end __sinit_CModelCfg.cpp
 
 	.section .ctor, 4
-#pragma force_active on
 	.word __sinit_CModelCfg.cpp
 
     .data

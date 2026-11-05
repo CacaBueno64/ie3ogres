@@ -1891,7 +1891,6 @@ _02117D2C: .word 0x0000EA3C
 	arm_func_end FUN_ov16_02117ce0
 
 	.section .ctor, 4
-#pragma force_active on
 	.word FUN_ov16_02117c8c
 	.word FUN_ov16_02117ce0
 

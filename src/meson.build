@@ -24,6 +24,7 @@ ie3ogre_cpp += files(
     'CCardCtrl.cpp',
     'thread.cpp',
     'filesystem.cpp',
+    'Shadow.cpp',
     'random.cpp',
     'archive.cpp',
     'overlay.cpp',

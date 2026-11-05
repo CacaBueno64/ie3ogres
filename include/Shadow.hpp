@@ -3,7 +3,9 @@
 #include <nitro.h>
 
 namespace Shadow {
-    extern void Initialize(int nVertices);
-    extern void Draw(u8 alpha, int polyID);
-    extern void DrawVertices(u8 alpha, int polyID);
-}
+
+void Initialize(int n);
+void Draw(u8 alpha, int polygonID);
+void DrawVertices(void);
+
+} /* namespace Shadow */

@@ -113,13 +113,14 @@ public:
 private:
     void writeScreen(EngineSelect engine, int bg, s32 x, s32 y, s32 width, s32 height, u16 palette, u16 *data);
     void enable(EngineSelect engine);
+
     u16 *screens[2][3];
     u8 engineToggle[2];
     bool screenUsed[2][3];
     SBgMenuDynamicElement dyn[BG_MENU_DYNAMIC_ELEMENT_COUNT];
     SBgMenuStaticElement stt[BG_MENU_STATIC_ELEMENT_COUNT];
     SBgMenuFlash flash[2];
-    // u8 pad_10da[2];
+    // u8 pad10DA[2];
 };
 
 extern CBgMenuManager gBgMenuManager;

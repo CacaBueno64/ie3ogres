@@ -1398,7 +1398,6 @@ _02117DCC: .word 0x0000EA3C
 	arm_func_end __sinit_CBgMenuManager.cpp
 
 	.section .ctor, 4
-#pragma force_active on
 	.word __sinit_CBgMenuManager.cpp
 
 	.data

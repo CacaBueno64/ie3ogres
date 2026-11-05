@@ -1213,7 +1213,6 @@ _021181A8: .word 0x0000EA3C
 
 
 	.section .ctor, 4
-#pragma force_active on
 	.word __sinit_CSprAnimeCtrl.cpp
 
 

@@ -344,7 +344,7 @@ Overlay overlay16
 {
 	After overlay15
 	Object main.nef.p/asm_overlay16_ov16_020ede60.s.o
-	Object main.nef.p/asm_overlay16_ov16_020ef624.s.o
+	Object main.nef.p/src_Shadow.cpp.o
 	Object main.nef.p/src_random.cpp.o
 	Object main.nef.p/asm_overlay16_ov16_020efa04.s.o
 	Object main.nef.p/asm_overlay16_ov16_graphics.s.o

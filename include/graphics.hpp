@@ -27,8 +27,8 @@ typedef enum {
 } CharFormat;
 
 typedef struct {
-    u8 enable;
-    u8 dirty;
+    u8 enable; // TODO: change to `bool`
+    u8 dirty; // TODO: change to `bool`
 } PulseFlags;
 
 typedef enum {

@@ -1142,7 +1142,6 @@ _0211824C: .word 0x0000EA3C
 
 
 	.section .ctor, 4
-#pragma force_active on
 	.word __sinit_CSprDialog.cpp
 
 

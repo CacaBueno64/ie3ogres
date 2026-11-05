@@ -10,7 +10,7 @@
 .public NNS_G3dRenderObjSetInitFunc
 .public FUN_02053f7c
 .public NNS_G3dRenderObjResetCallBack
-.public FUN_ov16_020ef714
+.public _ZN6Shadow4DrawEhi
 .public NNS_G3dGeFlushBuffer
 .public OS_GetTick
 .public G3X_GetBoxTestResult
@@ -429,7 +429,7 @@ _020F98D8:
 	bl NNS_G3dGeBufferOP_N
 	ldrb r0, [r5, #0x48]
 	mov r1, #8
-	bl FUN_ov16_020ef714
+	bl _ZN6Shadow4DrawEhi
 	add sp, sp, #0x48
 	ldmfd sp!, {r3, r4, r5, pc}
 	arm_func_end FUN_ov16_020f97ec
@@ -2115,7 +2115,6 @@ _02117F10: .word 0x0000EA3C
 	arm_func_end __sinit_CModel.cpp
 
 	.section .ctor, 4
-#pragma force_active on
 	.word __sinit_CModel.cpp
 
 	.data

@@ -28,6 +28,5 @@ _0208711C: .word 0x0000EA3C
 	arm_func_end FUN_020870d0
 
 	.section .ctor, 4
-#pragma force_active on
 unk_0208EBAC:
 	.word FUN_020870d0
