@@ -99,7 +99,7 @@ class PackBinary:
 
                 self.entries[filename] = (path / filename).read_bytes()
         else:
-            for filepath in path.rglob(f"*{self.config["extension"]}"):
+            for filepath in sorted(path.rglob(f"*{self.config["extension"]}")):
                 filename = filepath.name
 
                 self.entries[filename] = filepath.read_bytes()
@@ -445,7 +445,7 @@ class SFP:
             for filename in self.fnt:
                 self.entries[filename] = (path / filename).read_bytes()
         else:
-            for filepath in path.iterdir():
+            for filepath in sorted(path.iterdir()):
                 if filepath.name == "fnt.txt":
                     continue
 
@@ -645,7 +645,7 @@ def main():
                 fnt = (Path(args.input) / "fnt.txt")
                 if not fnt.exists():
                     fnt = []
-                    for filepath in Path(args.input).iterdir():
+                    for filepath in sorted(Path(args.input).iterdir()):
                         fnt.append(filepath.name)
             else:
                 fnt = args.files
