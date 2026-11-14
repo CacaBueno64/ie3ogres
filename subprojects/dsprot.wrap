@@ -1,0 +1,8 @@
+[wrap-git]
+url = https://github.com/taxicat1/dsprot.git
+revision = 0ef571c72c6f37096722f65c151ba1960d4dcde7
+depth = 1
+directory = dsprot-1.28
+
+[provide]
+dependency_names = dsprot

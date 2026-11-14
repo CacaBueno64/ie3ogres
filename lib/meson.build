@@ -5,7 +5,6 @@ subdir('TwlWiFi')
 subdir('TwlDWC_dl')
 
 subdir('DSE')
-subdir('dsprot')
 subdir('libMobiclip')
 subdir('libmsl')
 subdir('syscall')
