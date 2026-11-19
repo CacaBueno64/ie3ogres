@@ -1023,7 +1023,7 @@ Overlay overlay128
 Overlay overlay129
 {
 	After overlay109
-	Library dsprot.a
+	Library libdsprot.a
 }
 Overlay overlay130
 {

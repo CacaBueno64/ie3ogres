@@ -74,6 +74,14 @@ link_args = [
     '-Llib',
 ]
 
+############################################################
+###                     DEPENDENCIES                     ###
+############################################################
+libdsprot_dep = dependency('dsprot',
+    default_options: {
+        'mwrap_sdk': '2.0/sp2p3'
+    }
+)
 
 ############################################################
 ###                      LIBRARIES                       ###
@@ -110,8 +118,10 @@ main = executable('main',
     include_directories: [
         public_includes,
     ],
+    dependencies: [
+        libdsprot_dep,
+    ],
     link_with: [
-        dsprot_a,
         libsyscall,
         libMobiclip
     ],

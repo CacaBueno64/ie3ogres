@@ -21,6 +21,7 @@ cmake-build-debug/
 # Meson
 subprojects/meson-*/
 subprojects/nitrorom/
+subprojects/dsprot-*
 .wraplock
 
 # "cmake.buildDirectory": "${workspaceFolder}/build-cmake-${buildType}"
@@ -72,7 +73,6 @@ files/**/*.c
 *.o
 *.naix
 *.a
-!lib/dsprot/*.a
 
 # Utilities
 ntruncompbw
