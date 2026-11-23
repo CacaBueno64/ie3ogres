@@ -38,12 +38,11 @@ foreach wldn_f_png : wldn_f_png_files
         input: wldn_f_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     wldn_f_pac_files += pac

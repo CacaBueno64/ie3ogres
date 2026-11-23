@@ -23,12 +23,11 @@ foreach obj2d_rpg_png : obj2d_rpg_png_files
         input: obj2d_rpg_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'CP',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'CP',
         ]
     )
     obj2d_rpg_pac_files += pac

@@ -14,11 +14,11 @@ foreach MGMap_08_png : MGMap_08_png_files
         input: MGMap_08_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MGMap_08_files += pac

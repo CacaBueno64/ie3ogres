@@ -10,11 +10,11 @@ foreach SMMovieLink_png : SMMovieLink_png_files
         input: SMMovieLink_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SMMovieLink_files += pac

@@ -66,12 +66,11 @@ foreach mvdn_e_png : mvdn_e_png_files
         input: mvdn_e_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     mvdn_e_pac_files += pac

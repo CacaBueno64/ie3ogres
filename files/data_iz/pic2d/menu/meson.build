@@ -73,12 +73,11 @@ foreach pic2d_menu_png : pic2d_menu_png_files
         input: pic2d_menu_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     pic2d_menu_pac_files += pac
@@ -88,13 +87,12 @@ mvup_bg1_pac = custom_target(fs.name(mvup_bg1_png).replace('.png', '.pac'),
     input: mvup_bg1_png,
     output: '@BASENAME@.pac',
     command: [
-        python3,
-        image_py,
-        '-t', 'PSC',
-        '--opt', 'false',
+        image_exe,
         '-c',
         '@INPUT@',
         '@OUTPUT@',
+        '--type', 'PSC',
+        '--opt', 'false',
     ]
 )
 
@@ -104,13 +102,12 @@ sfdn_i09_pac = custom_target(fs.name(sfdn_i09_png).replace('.png', '.pac'),
     input: sfdn_i09_png,
     output: '@BASENAME@.pac',
     command: [
-        python3,
-        image_py,
-        '-t', 'PSC',
-        '--opt', 'true',
+        image_exe,
         '-c',
         '@INPUT@',
         '@OUTPUT@',
+        '--type', 'PSC',
+        '--opt', 'true',
     ]
 )
 

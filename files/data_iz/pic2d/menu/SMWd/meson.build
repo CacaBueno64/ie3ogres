@@ -10,11 +10,11 @@ foreach SMWd_png : SMWd_png_files
         input: SMWd_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SMWd_files += pac

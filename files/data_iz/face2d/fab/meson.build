@@ -1536,12 +1536,11 @@ foreach fab_png : fab_png_files
         input: fab_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSCM',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSCM',
         ]
     )
     fab_pac_files += pac

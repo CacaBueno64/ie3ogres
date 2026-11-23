@@ -51,13 +51,12 @@ foreach pic2d_cmd_png : pic2d_cmd_png_files
         input: pic2d_cmd_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
-            '--opt', 'true',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     pic2d_cmd_pac_files += pac

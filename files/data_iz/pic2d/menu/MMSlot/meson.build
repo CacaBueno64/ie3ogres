@@ -40,11 +40,11 @@ foreach MMSlot_png : MMSlot_png_files
         input: MMSlot_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MMSlot_files += pac

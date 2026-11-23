@@ -17,11 +17,11 @@ foreach MASTutorial_png : MASTutorial_png_files
         input: MASTutorial_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MASTutorial_files += pac

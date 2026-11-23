@@ -333,12 +333,11 @@ foreach map2d_png : map2d_png_files
         input: map2d_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     map2d_pac_files += pac

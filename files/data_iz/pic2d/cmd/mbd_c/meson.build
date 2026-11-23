@@ -409,12 +409,11 @@ foreach mbd_c_png : mbd_c_png_files
         input: mbd_c_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     mbd_c_pac_files += pac

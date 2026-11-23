@@ -16,12 +16,11 @@ foreach MASConfig_png : MASConfig_png_files
         input: MASConfig_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MASConfig_files += pac

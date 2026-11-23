@@ -12,11 +12,11 @@ foreach SMWazaBinder_png : SMWazaBinder_png_files
         input: SMWazaBinder_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SMWazaBinder_files += pac

@@ -12,11 +12,11 @@ foreach MMQuit_png : MMQuit_png_files
         input: MMQuit_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MMQuit_files += pac

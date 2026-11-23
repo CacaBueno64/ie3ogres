@@ -21,11 +21,11 @@ foreach MMProfd_png : MMProfd_png_files
         input: MMProfd_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     MMProfd_files += pac

@@ -18,11 +18,11 @@ foreach SVInabikari_png : SVInabikari_png_files
         input: SVInabikari_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SVInabikari_files += pac

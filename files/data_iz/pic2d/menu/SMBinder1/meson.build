@@ -12,11 +12,11 @@ foreach SMBinder1_png : SMBinder1_png_files
         input: SMBinder1_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SMBinder1_files += pac

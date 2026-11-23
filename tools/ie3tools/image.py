@@ -11,7 +11,7 @@ PAC_PSC_HEADER = Struct("<I II II II I") # Palette Screen Character
 PAC_BPM_HEADER = Struct("<I II II II I") # Bitmap Palette Metadata
 PAC_CP_HEADER = Struct("<I II II I") # Character Palette
 PAC_METADATA = Struct("<H BBB 3B")
-PAC_METADATA_CELL = Struct("<HHHH")
+PAC_METADATA_CELL = Struct("<hhhh")
 PAC_get_header = {
     "PSCM": PAC_PSCM_HEADER,
     "PSC": PAC_PSC_HEADER,

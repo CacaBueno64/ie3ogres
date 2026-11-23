@@ -10,11 +10,11 @@ foreach SMBlog2_png : SMBlog2_png_files
         input: SMBlog2_png,
         output: '@BASENAME@.PAC',
         command: [
-            python3,
-            image_py,
+            image_exe,
+            '-c',
             '@INPUT@',
-            '-t', 'PSC',
-            '-c', '@OUTPUT@',
+            '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     SMBlog2_files += pac

@@ -38,12 +38,11 @@ foreach wgd_s_png : wgd_s_png_files
         input: wgd_s_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSC',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSC',
         ]
     )
     wgd_s_pac_files += pac

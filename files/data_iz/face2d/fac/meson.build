@@ -2555,12 +2555,11 @@ foreach fac_png : fac_png_files
         input: fac_png,
         output: '@BASENAME@.pac',
         command: [
-            python3,
-            image_py,
-            '-t', 'PSCM',
+            image_exe,
             '-c',
             '@INPUT@',
             '@OUTPUT@',
+            '--type', 'PSCM',
         ]
     )
     fac_pac_files += pac
