@@ -7,7 +7,6 @@ efct_pack = custom_target('efct_pack',
     ],
     input: efct_files,
     command: [
-        python3,
         archive_py,
         '-t', 'PKB',
         '-c', '@INPUT0@',

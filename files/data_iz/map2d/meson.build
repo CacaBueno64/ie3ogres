@@ -7,7 +7,6 @@ map2d_pack = custom_target('map2d_pack',
     ],
     input: map2d_pac_files_comp,
     command: [
-        python3,
         archive_py,
         '-t', 'PKB',
         '-c',
