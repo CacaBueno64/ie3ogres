@@ -21,6 +21,7 @@ foreach MASConfig_png : MASConfig_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MASConfig_files += pac

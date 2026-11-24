@@ -254,12 +254,12 @@ class PackBinary:
                 raise ValueError(f"archive: {self.name} PKH file size check failed")
     
     def export_entries(self, outpath: Path):
+        outpath.mkdir(parents=True, exist_ok=True)
+
         for filename in self.entries:
             self.export_entry(filename, outpath)
     
     def export_entry(self, filename: str, outpath: Path):
-        outpath.mkdir(parents=True, exist_ok=True)
-
         (outpath / filename).write_bytes(self.entries[filename])
     
     def get_header_size(self) -> int:
@@ -409,7 +409,7 @@ class SFP:
         
         self.fnt: list[str] = None
         if fnt:
-            self.fnt = self.open_fnt(fnt)
+            self.open_fnt(fnt)
         self.header: bytes = None
         self.data: bytes = None
         self.count: int = None
@@ -522,7 +522,7 @@ class SFP:
             self.compress_entries()
         
         header = bytearray(SFP.HEADER.size)
-        data = bytearray(SFP.HEADER.size + 0x400)
+        data = bytearray(0x400)
 
         filename_table = bytearray()
         if self.fnt:
@@ -536,15 +536,16 @@ class SFP:
         fnt_offset = SFP.HEADER.size + (SFP.ENTRY.size * self.count)
         chunk_size = 0x20
         for filename, filedata in self.entries.items():
-            offset = len(data) - SFP.HEADER.size
+            offset = len(data)
             filename_offset = filename_table.find(filename.encode("shift-jis")) + fnt_offset
 
             header += SFP.ENTRY.pack(filename_offset, len(filedata), offset // chunk_size, 0)
             
             data += filedata
-            data += b"\x00" * (_align(len(data)) - len(data))
+            data += b"\x00" * (_align(len(data), chunk_size) - len(data))
         
         header += filename_table
+        header += b"\x00" * (_align(len(header), chunk_size) - len(header))
         
         SFP.HEADER.pack_into(header, 0, SFP.MAGIC, 0, 5, chunk_size, len(header), 0, 0, 0)
         SFP.HEADER.pack_into(data, 0, SFP.MAGIC, 0, 5, chunk_size, len(data), 0, 0, 0)
@@ -623,7 +624,7 @@ def main():
         "-f",
         "--files",
         nargs="*",
-        help="Filename table."
+        help="Filename table (SFP only)."
     )
 
     args = parser.parse_args()

@@ -17,6 +17,7 @@ foreach SMWazaBinder_png : SMWazaBinder_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMWazaBinder_files += pac

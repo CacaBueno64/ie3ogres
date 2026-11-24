@@ -18,6 +18,7 @@ foreach SMPractice_png : SMPractice_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMPractice_files += pac

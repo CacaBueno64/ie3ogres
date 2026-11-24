@@ -32,6 +32,7 @@ foreach SMStat_png : SMStat_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMStat_files += pac

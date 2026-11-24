@@ -17,6 +17,7 @@ foreach MMQuit_png : MMQuit_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMQuit_files += pac

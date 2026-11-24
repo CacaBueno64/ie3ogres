@@ -15,6 +15,7 @@ foreach SMMovieLink_png : SMMovieLink_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMMovieLink_files += pac

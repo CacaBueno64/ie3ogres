@@ -457,6 +457,13 @@
             {"name": "mvdn_q01.pac_", "idx": 0}
         ]
     },
+    "menu_MovieViewSub": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 8320,
+        "filenames": []
+    },
     "efct": {
         "type": 4, // PACK_TYPE_HOSC
         "func": "hash_default",

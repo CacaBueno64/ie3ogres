@@ -22,6 +22,7 @@ foreach MASTutorial_png : MASTutorial_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MASTutorial_files += pac

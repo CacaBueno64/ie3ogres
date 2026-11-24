@@ -20,6 +20,7 @@ foreach MMTk_png : MMTk_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMTk_files += pac

@@ -26,6 +26,7 @@ foreach MMProfd_png : MMProfd_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMProfd_files += pac

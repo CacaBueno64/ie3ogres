@@ -45,6 +45,7 @@ foreach MMSlot_png : MMSlot_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMSlot_files += pac

@@ -15,6 +15,7 @@ foreach SMCollection_png : SMCollection_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMCollection_files += pac

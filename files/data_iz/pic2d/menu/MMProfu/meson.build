@@ -18,6 +18,7 @@ foreach MMProfu_png : MMProfu_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMProfu_files += pac

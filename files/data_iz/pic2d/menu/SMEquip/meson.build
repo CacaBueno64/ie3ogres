@@ -20,6 +20,7 @@ foreach SMEquip_png : SMEquip_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMEquip_files += pac

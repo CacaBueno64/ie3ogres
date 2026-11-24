@@ -34,6 +34,7 @@ foreach SMSpCmd_png : SMSpCmd_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMSpCmd_files += pac

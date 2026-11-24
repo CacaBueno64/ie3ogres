@@ -26,6 +26,7 @@ foreach MMName_png : MMName_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MMName_files += pac

@@ -21,6 +21,7 @@ foreach SMTournament_png : SMTournament_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMTournament_files += pac

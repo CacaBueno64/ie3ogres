@@ -24,6 +24,7 @@ foreach SMShop_png : SMShop_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMShop_files += pac

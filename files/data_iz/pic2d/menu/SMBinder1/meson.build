@@ -17,6 +17,7 @@ foreach SMBinder1_png : SMBinder1_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMBinder1_files += pac

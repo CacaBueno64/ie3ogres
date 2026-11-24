@@ -28,6 +28,7 @@ foreach SMJinmyaku_png : SMJinmyaku_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMJinmyaku_files += pac

@@ -128,7 +128,7 @@ update: meson skrewup
 	$(MESON) subprojects update || true
 
 setup_release: $(BUILD)/build.ninja
-	$(MESON) configure $(BUILD)
+	$(MESON) configure --no-pager $(BUILD)
 
 setup_debug: $(BUILD)/build.ninja
 	$(MESON) configure $(BUILD)

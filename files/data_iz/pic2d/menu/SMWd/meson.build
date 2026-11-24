@@ -15,6 +15,7 @@ foreach SMWd_png : SMWd_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMWd_files += pac

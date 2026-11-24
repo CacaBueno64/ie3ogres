@@ -19,6 +19,7 @@ foreach SVInabikari_e_png : SVInabikari_e_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SVInabikari_e_files += pac

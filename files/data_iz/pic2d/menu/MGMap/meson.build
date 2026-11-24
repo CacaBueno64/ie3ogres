@@ -26,6 +26,7 @@ foreach MGMap_png : MGMap_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', fs.name(MGMap_png) == 'MMDN_W01.png' ? 'false' : 'true',
         ]
     )
     MGMap_files += pac

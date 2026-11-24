@@ -26,6 +26,7 @@ foreach MGMap_02_png : MGMap_02_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     MGMap_02_files += pac

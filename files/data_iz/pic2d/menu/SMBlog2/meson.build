@@ -15,6 +15,7 @@ foreach SMBlog2_png : SMBlog2_png_files
             '@INPUT@',
             '@OUTPUT@',
             '--type', 'PSC',
+            '--opt', 'true',
         ]
     )
     SMBlog2_files += pac
