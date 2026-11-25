@@ -464,6 +464,76 @@
         "entry_size": 8320,
         "filenames": []
     },
+    "gmdn_s": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 736,
+        "filenames": []
+    },
+    "mgu_td": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 560,
+        "filenames": []
+    },
+    "mgu_tu": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 608,
+        "filenames": []
+    },
+    "pkup_e": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 672,
+        "filenames": []
+    },
+    "pkup_t": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 336,
+        "filenames": []
+    },
+    "po_e": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 1792,
+        "filenames": []
+    },
+    "po_n": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 848,
+        "filenames": []
+    },
+    "po_s": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 1120,
+        "filenames": []
+    },
+    "po_t": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 2032,
+        "filenames": []
+    },
+    "po_w": {
+        "type": 0, // PACK_TYPE_COS
+        "func": null,
+        "extension": ".pac_",
+        "entry_size": 176,
+        "filenames": []
+    },
     "efct": {
         "type": 4, // PACK_TYPE_HOSC
         "func": "hash_default",

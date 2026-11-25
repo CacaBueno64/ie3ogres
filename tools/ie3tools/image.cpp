@@ -324,8 +324,8 @@ bool BmpToCharAndScreenOpt(Image *image, uint8_t *&chara, uint16_t *&screen, siz
             FlipTileH(tile_h, image->format, tile_row_size);
             memcpy(tile_v, tile, tile_size);
             FlipTileV(tile_v, image->format, tile_row_size);
-            memcpy(tile_hv, tile_h, tile_size);
-            FlipTileV(tile_hv, image->format, tile_row_size);
+            memcpy(tile_hv, tile, tile_size);
+            FlipTileHV(tile_hv, image->format, tile_row_size);
 
             uint16_t idx;
             uint16_t flags = 0;

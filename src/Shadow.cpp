@@ -9,10 +9,10 @@
 
 namespace Shadow {
 
- VecFx16 *sCircleVertexArray;
- int sNCircleVertices;
- u8 *sCircleVertexIndexArray;
- int sNCircleVertexIndices;
+static VecFx16 *sCircleVertexArray;
+static int sNCircleVertices;
+static u8 *sCircleVertexIndexArray;
+static int sNCircleVertexIndices;
 
 void Initialize(int n)
 {
