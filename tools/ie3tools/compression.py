@@ -156,8 +156,6 @@ def main():
     outpath = Path(args.output)
     if not path.exists():
         raise FileNotFoundError(f"compression: Cannot find {path.name}")
-    if not outpath.exists():
-        raise FileNotFoundError(f"compression: Cannot find {outpath.name}")
     
     if args.decode:
         output = lz_uncompress(path.read_bytes())
